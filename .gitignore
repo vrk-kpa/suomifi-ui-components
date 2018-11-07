@@ -1,0 +1,16 @@
+.DS_STORE
+*.log
+0-stage
+
+# build output
+dist
+build
+tmp
+
+# dependencies
+node_modules
+package-lock.json
+
+# editors
+.idea
+.vscode
