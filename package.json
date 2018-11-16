@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Suomi.fi UI component library",
   "main": "dist/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vrk-kpa/suomifi-ui-components.git"
@@ -15,5 +12,16 @@
   "bugs": {
     "url": "https://github.com/vrk-kpa/suomifi-ui-components/issues"
   },
-  "homepage": "https://github.com/vrk-kpa/suomifi-ui-components#readme"
+  "homepage": "https://github.com/vrk-kpa/suomifi-ui-components#readme",
+  "scripts": {
+    "start": "webpack --mode development",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "5.2.1",
+    "typescript": "3.1.6",
+    "webpack": "4.25.1",
+    "webpack-cli": "3.1.2"
+  }
 }
