@@ -1,0 +1,19 @@
+{
+  "name": "suomifi-ui-components",
+  "version": "1.0.0",
+  "description": "Suomi.fi UI component library",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vrk-kpa/suomifi-ui-components.git"
+  },
+  "author": "Joonas Kallunki <jkallunki@gmail.com> (https://jkallunki.net/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vrk-kpa/suomifi-ui-components/issues"
+  },
+  "homepage": "https://github.com/vrk-kpa/suomifi-ui-components#readme"
+}
