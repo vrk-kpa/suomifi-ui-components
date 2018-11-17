@@ -19,8 +19,9 @@
     "typeRoots": [
       "node_modules/@types",
       "types"
-    ] /* List of folders to include type definitions from. */
+    ] /* List of folders to include type definitions from. */,
+    "pretty": true
   },
   "include": ["./src/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }
