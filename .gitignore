@@ -6,6 +6,7 @@
 dist
 build
 tmp
+.cache
 .awcache
 .nyc_output
 coverage
