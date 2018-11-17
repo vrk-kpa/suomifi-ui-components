@@ -23,6 +23,7 @@
     "start": "webpack --env.development",
     "test": "nyc mocha -r ./babel-register.js 'src/**/*.test.tsx'",
     "test:coverage": "nyc check-coverage --statements 80 --branches 80 --functions 80 --lines 80",
+    "test:lint": "tslint 'src/**/*.tsx'",
     "prebuild": "rimraf dist",
     "build": "webpack --env.production"
   },
