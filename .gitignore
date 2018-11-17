@@ -7,6 +7,8 @@ dist
 build
 tmp
 .awcache
+.nyc_output
+coverage
 
 # dependencies
 node_modules

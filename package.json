@@ -20,13 +20,30 @@
   },
   "homepage": "https://github.com/vrk-kpa/suomifi-ui-components#readme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
     "start": "webpack --env.development",
+    "test": "nyc mocha -r ./babel-register.js 'src/**/*.test.tsx'",
     "prebuild": "rimraf dist",
     "build": "webpack --env.production"
   },
   "devDependencies": {
+    "@babel/cli": "7.1.5",
+    "@babel/core": "7.1.6",
+    "@babel/plugin-transform-react-jsx": "7.1.6",
+    "@babel/polyfill": "7.0.0",
+    "@babel/preset-env": "7.1.6",
+    "@babel/preset-typescript": "7.1.0",
+    "@babel/register": "7.0.0",
+    "@types/chai": "4.1.7",
+    "@types/enzyme": "3.1.15",
+    "@types/enzyme-adapter-react-16": "1.0.3",
+    "@types/mocha": "5.2.5",
     "awesome-typescript-loader": "5.2.1",
+    "babel-plugin-istanbul": "5.1.0",
+    "chai": "4.2.0",
+    "enzyme": "3.7.0",
+    "enzyme-adapter-react-16": "1.7.0",
+    "mocha": "5.2.0",
+    "nyc": "13.1.0",
     "rimraf": "2.6.2",
     "typescript": "3.1.6",
     "webpack": "4.25.1",
@@ -37,5 +54,22 @@
     "@types/react-dom": "16.0.9",
     "react": "16.6.3",
     "react-dom": "16.6.3"
+  },
+  "nyc": {
+    "sourceMap": false,
+    "instrument": false,
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "exclude": [
+      "src/**/*.d.ts",
+      "src/**/*.test.ts",
+      "src/**/*.test.tsx"
+    ],
+    "extension": [
+      ".ts",
+      ".tsx"
+    ]
   }
 }
