@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "Suomi.fi UI component library",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vrk-kpa/suomifi-ui-components.git"
@@ -14,14 +20,22 @@
   },
   "homepage": "https://github.com/vrk-kpa/suomifi-ui-components#readme",
   "scripts": {
-    "start": "webpack --mode development",
-    "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack --env.development",
+    "prebuild": "rimraf dist",
+    "build": "webpack --env.production"
   },
   "devDependencies": {
     "awesome-typescript-loader": "5.2.1",
+    "rimraf": "2.6.2",
     "typescript": "3.1.6",
     "webpack": "4.25.1",
     "webpack-cli": "3.1.2"
+  },
+  "dependencies": {
+    "@types/react": "16.7.6",
+    "@types/react-dom": "16.0.9",
+    "react": "16.6.3",
+    "react-dom": "16.6.3"
   }
 }
