@@ -1,7 +1,8 @@
 const path = require('path');
+const TSLintPlugin = require('tslint-webpack-plugin');
 
 module.exports = env => ({
-  entry: './src/index.tsx',
+  entry: path.join(__dirname, '/src/index.tsx'),
   mode: env.production ? 'production' : 'development',
   devtool: env.production ? 'inline-source-map' : 'eval',
   resolve: {
@@ -19,10 +20,16 @@ module.exports = env => ({
       // Run the typescript compilier on .ts files before webpack
       {
         test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader'
+        loader: 'awesome-typescript-loader',
+        exclude: /node_modules/
       }
     ]
   },
+  plugins: [
+    new TSLintPlugin({
+      files: ['./src/**/*.tsx']
+    })
+  ],
   externals: {
     // this line is just to use the React dependency of our parent-project instead of using our own React.
     react: {
