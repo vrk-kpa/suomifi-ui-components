@@ -22,6 +22,7 @@
   "scripts": {
     "start": "webpack --env.development",
     "test": "nyc mocha -r ./babel-register.js 'src/**/*.test.tsx'",
+    "test:coverage": "cross-env NODE_ENV=test nyc check-coverage --statements 80 --branches 80 --functions 80 --lines 80",
     "prebuild": "rimraf dist",
     "build": "webpack --env.production"
   },
@@ -42,8 +43,11 @@
     "chai": "4.2.0",
     "enzyme": "3.7.0",
     "enzyme-adapter-react-16": "1.7.0",
+    "husky": "1.1.4",
+    "lint-staged": "8.0.5",
     "mocha": "5.2.0",
     "nyc": "13.1.0",
+    "prettier": "1.15.2",
     "rimraf": "2.6.2",
     "typescript": "3.1.6",
     "webpack": "4.25.1",
@@ -70,6 +74,18 @@
     "extension": [
       ".ts",
       ".tsx"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test:coverage"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --single-quote --write",
+      "git add"
     ]
   }
 }
