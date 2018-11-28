@@ -5,10 +5,28 @@ module.exports = {
   // Automatically clear mock calls and instances between every test
   clearMocks: true,
 
+  collectCoverage: true,
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
+  collectCoverageFrom: [
+    'src/**/*.ts',
+    'src/**/*.tsx',
+    '!src/**/index.tsx',
+    '!src/**/*.d.ts',
+    '!src/**/*.test.ts',
+    '!src/**/*.test.tsx',
+    '!**/node_modules/**',
+  ],
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 50,
+      statements: 50,
+    },
+  },
 
   preset: 'ts-jest',
 
-  setupTestFrameworkScriptFile: require.resolve('./jest.setup.js')
+  setupTestFrameworkScriptFile: require.resolve('./jest.setup.js'),
 };

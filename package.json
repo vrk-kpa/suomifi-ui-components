@@ -44,7 +44,6 @@
     "jest": "^23.6.0",
     "jest-dom": "^2.1.1",
     "lint-staged": "^8.0.5",
-    "nyc": "^13.1.0",
     "prettier": "^1.15.2",
     "react-docgen-typescript-loader": "^3.0.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
@@ -67,23 +66,6 @@
     "@types/react-dom": "^16.0.9",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
-  },
-  "nyc": {
-    "sourceMap": false,
-    "instrument": false,
-    "include": [
-      "src/**/*.ts",
-      "src/**/*.tsx"
-    ],
-    "exclude": [
-      "src/**/*.d.ts",
-      "src/**/*.test.ts",
-      "src/**/*.test.tsx"
-    ],
-    "extension": [
-      ".ts",
-      ".tsx"
-    ]
   },
   "husky": {
     "hooks": {
