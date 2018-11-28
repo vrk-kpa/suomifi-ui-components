@@ -29,13 +29,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "devDependencies": {
-    "@babel/cli": "7.1.5",
     "@babel/core": "7.1.6",
-    "@babel/plugin-transform-react-jsx": "7.1.6",
-    "@babel/polyfill": "7.0.0",
-    "@babel/preset-env": "7.1.6",
-    "@babel/preset-typescript": "7.1.0",
-    "@babel/register": "7.0.0",
     "@storybook/addon-info": "4.0.7",
     "@storybook/addon-knobs": "4.0.7",
     "@storybook/react": "4.0.7",
@@ -47,7 +41,6 @@
     "@types/storybook__react": "4.0.0",
     "awesome-typescript-loader": "5.2.1",
     "babel-loader": "8.0.0-beta.6",
-    "babel-plugin-istanbul": "5.1.0",
     "chai": "4.2.0",
     "enzyme": "3.7.0",
     "enzyme-adapter-react-16": "1.7.0",
