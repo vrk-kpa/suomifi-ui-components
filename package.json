@@ -23,6 +23,9 @@
     "start": "webpack --env.development",
     "test": "jest",
     "test:lint": "tslint 'src/**/*.tsx'",
+    "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "prettier:check": "prettier-check 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "validate": "yarn test && yarn test:lint && yarn prettier:check",
     "prebuild": "rimraf dist",
     "build": "webpack --env.production",
     "storybook": "start-storybook -p 9001 -c .storybook"
@@ -45,6 +48,7 @@
     "jest-dom": "^2.1.1",
     "lint-staged": "^8.0.5",
     "prettier": "^1.15.2",
+    "prettier-check": "^2.0.0",
     "react-docgen-typescript-loader": "^3.0.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-testing-library": "^5.3.0",
@@ -70,13 +74,12 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn test:coverage"
+      "pre-push": "yarn validate"
     }
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --single-quote --write",
-      "git add"
+      "prettier-check"
     ]
   }
 }
