@@ -10,3 +10,6 @@ branches:
     - development
 notifications:
   email: false
+script:
+  - yarn validate
+  - yarn build
