@@ -3,7 +3,7 @@
   "extends": ["tslint-react", "tslint-eslint-rules"],
   "jsRules": {},
   "rules": {
-    "quotemark": [true, "single"],
+    "quotemark": [true, "single", "jsx-double"],
     "jsx-alignment": false,
     "no-console": false,
     "one-line": false,
