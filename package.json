@@ -28,7 +28,8 @@
     "validate": "yarn test && yarn test:lint && yarn prettier:check",
     "prebuild": "rimraf dist",
     "build": "webpack --env.production",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "build-storybook": "build-storybook",
+    "storybook": "start-storybook -p 6006 -c .storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
