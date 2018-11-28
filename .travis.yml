@@ -7,7 +7,7 @@ cache:
 branches:
   only:
     - master
-    - development
+    - develop
 notifications:
   email: false
 script:
