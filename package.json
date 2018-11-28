@@ -42,7 +42,6 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.4",
     "chai": "^4.2.0",
-    "cross-env": "^5.2.0",
     "husky": "^1.1.4",
     "jest": "^23.6.0",
     "jest-dom": "^2.1.1",
