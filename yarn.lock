@@ -9,7 +9,7 @@
   dependencies:
     "@babel/highlight" "^7.0.0"
 
-"@babel/core@^7.1.6":
+"@babel/core@7.1.6":
   version "7.1.6"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@babel/core/-/core-7.1.6.tgz#3733cbee4317429bc87c62b29cf8587dba7baeb3"
   integrity sha1-NzPL7kMXQpvIfGKynPhYfbp7rrM=
@@ -843,15 +843,15 @@
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
   integrity sha1-gBPyr1Sit9c19xVg/zYNOoF2qHs=
 
-"@storybook/addon-info@^4.0.7":
-  version "4.0.9"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/addon-info/-/addon-info-4.0.9.tgz#4ca3cd32e30e7959bef2bc07dc00a5a9041395d3"
-  integrity sha1-TKPNMuMOeVm+8rwH3AClqQQTldM=
+"@storybook/addon-info@4.0.7":
+  version "4.0.7"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/addon-info/-/addon-info-4.0.7.tgz#10af6e94795eefabee8d331fcec8a66a22135b6b"
+  integrity sha1-EK9ulHle76vujTMfzsimaiITW2s=
   dependencies:
     "@emotion/styled" "^0.10.6"
-    "@storybook/addons" "4.0.9"
-    "@storybook/client-logger" "4.0.8"
-    "@storybook/components" "4.0.9"
+    "@storybook/addons" "4.0.7"
+    "@storybook/client-logger" "4.0.7"
+    "@storybook/components" "4.0.7"
     core-js "2.5.7"
     global "^4.3.2"
     marksy "^6.1.0"
@@ -861,15 +861,15 @@
     react-lifecycles-compat "^3.0.4"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-knobs@^4.0.7":
-  version "4.0.9"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/addon-knobs/-/addon-knobs-4.0.9.tgz#9ac559405d76a827f949bfe50b64fd7dd61d60e9"
-  integrity sha1-msVZQF12qCf5Sb/lC2T9fdYdYOk=
+"@storybook/addon-knobs@4.0.7":
+  version "4.0.7"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/addon-knobs/-/addon-knobs-4.0.7.tgz#079d7708a2d4229be26089f3ac6e78aa02e49178"
+  integrity sha1-B513CKLUIpviYInzrG54qgLkkXg=
   dependencies:
     "@emotion/styled" "^0.10.6"
-    "@storybook/addons" "4.0.9"
-    "@storybook/components" "4.0.9"
-    "@storybook/core-events" "4.0.8"
+    "@storybook/addons" "4.0.7"
+    "@storybook/components" "4.0.7"
+    "@storybook/core-events" "4.0.7"
     copy-to-clipboard "^3.0.8"
     escape-html "^1.0.3"
     fast-deep-equal "^2.0.1"
@@ -880,39 +880,39 @@
     react-lifecycles-compat "^3.0.4"
     util-deprecate "^1.0.2"
 
-"@storybook/addons@4.0.9":
-  version "4.0.9"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/addons/-/addons-4.0.9.tgz#cfa18fe10ddda454dbbc3aae17562e46d04d3955"
-  integrity sha1-z6GP4Q3dpFTbvDquF1YuRtBNOVU=
+"@storybook/addons@4.0.7":
+  version "4.0.7"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/addons/-/addons-4.0.7.tgz#52a98ebfa862b34ed47368590564a9638b86d211"
+  integrity sha1-UqmOv6his07Uc2hZBWSpY4uG0hE=
   dependencies:
-    "@storybook/channels" "4.0.8"
-    "@storybook/components" "4.0.9"
+    "@storybook/channels" "4.0.7"
+    "@storybook/components" "4.0.7"
     global "^4.3.2"
     util-deprecate "^1.0.2"
 
-"@storybook/channel-postmessage@4.0.8":
-  version "4.0.8"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/channel-postmessage/-/channel-postmessage-4.0.8.tgz#76fa539a8eab09f681c9134b3dbffb8233f97d36"
-  integrity sha1-dvpTmo6rCfaByRNLPb/7gjP5fTY=
+"@storybook/channel-postmessage@4.0.7":
+  version "4.0.7"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/channel-postmessage/-/channel-postmessage-4.0.7.tgz#70dafdaabd8431ca1a042c8512a29ca73f9009eb"
+  integrity sha1-cNr9qr2EMcoaBCyFEqKcpz+QCes=
   dependencies:
-    "@storybook/channels" "4.0.8"
+    "@storybook/channels" "4.0.7"
     global "^4.3.2"
     json-stringify-safe "^5.0.1"
 
-"@storybook/channels@4.0.8":
-  version "4.0.8"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/channels/-/channels-4.0.8.tgz#36d96ad714c685f144fd1f1e5394faf0e0291032"
-  integrity sha1-Ntlq1xTGhfFE/R8eU5T68OApEDI=
+"@storybook/channels@4.0.7":
+  version "4.0.7"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/channels/-/channels-4.0.7.tgz#bb7607c9d0036cbed884c11683d7c168c2663733"
+  integrity sha1-u3YHydADbL7YhMEWg9fBaMJmNzM=
 
-"@storybook/client-logger@4.0.8":
-  version "4.0.8"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/client-logger/-/client-logger-4.0.8.tgz#159bc1732811c543393d86e06a7c32b41047d217"
-  integrity sha1-FZvBcygRxUM5PYbganwytBBH0hc=
+"@storybook/client-logger@4.0.7":
+  version "4.0.7"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/client-logger/-/client-logger-4.0.7.tgz#6831c35959a8d3d06c381c0068bffecbe0260444"
+  integrity sha1-aDHDWVmo09BsOBwAaL/+y+AmBEQ=
 
-"@storybook/components@4.0.9":
-  version "4.0.9"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/components/-/components-4.0.9.tgz#c5cc9f52768fd7a6078d9601cecacd0e357dc130"
-  integrity sha1-xcyfUnaP16YHjZYBzsrNDjV9wTA=
+"@storybook/components@4.0.7":
+  version "4.0.7"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/components/-/components-4.0.7.tgz#f5a51b6999df7bd137a02a968d17795c836bfa5b"
+  integrity sha1-9aUbaZnfe9E3oCqWjRd5XINr+ls=
   dependencies:
     "@emotion/core" "^0.13.1"
     "@emotion/provider" "^0.11.2"
@@ -925,15 +925,15 @@
     react-textarea-autosize "^7.0.4"
     render-fragment "^0.1.1"
 
-"@storybook/core-events@4.0.8":
-  version "4.0.8"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/core-events/-/core-events-4.0.8.tgz#7af80f1c3eb32ae0eafe789be651c684dcfefd7b"
-  integrity sha1-evgPHD6zKuDq/nib5lHGhNz+/Xs=
+"@storybook/core-events@4.0.7":
+  version "4.0.7"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/core-events/-/core-events-4.0.7.tgz#8fb7be5dd0fba5c6928b15cd2d92ffdb0a53da6f"
+  integrity sha1-j7e+XdD7pcaSixXNLZL/2wpT2m8=
 
-"@storybook/core@4.0.9":
-  version "4.0.9"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/core/-/core-4.0.9.tgz#71d945fc19d6ac73105ebefa0d615b8826d4c4ae"
-  integrity sha1-cdlF/BnWrHMQXr76DWFbiCbUxK4=
+"@storybook/core@4.0.7":
+  version "4.0.7"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/core/-/core-4.0.7.tgz#5242ae96ebe207401d243f245649d073ecf2b30b"
+  integrity sha1-UkKuluviB0AdJD8kVknQc+zysws=
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.1.0"
     "@babel/plugin-transform-regenerator" "^7.0.0"
@@ -943,12 +943,12 @@
     "@emotion/core" "^0.13.1"
     "@emotion/provider" "^0.11.2"
     "@emotion/styled" "^0.10.6"
-    "@storybook/addons" "4.0.9"
-    "@storybook/channel-postmessage" "4.0.8"
-    "@storybook/client-logger" "4.0.8"
-    "@storybook/core-events" "4.0.8"
-    "@storybook/node-logger" "4.0.8"
-    "@storybook/ui" "4.0.9"
+    "@storybook/addons" "4.0.7"
+    "@storybook/channel-postmessage" "4.0.7"
+    "@storybook/client-logger" "4.0.7"
+    "@storybook/core-events" "4.0.7"
+    "@storybook/node-logger" "4.0.7"
+    "@storybook/ui" "4.0.7"
     airbnb-js-shims "^1 || ^2"
     autoprefixer "^9.3.1"
     babel-plugin-macros "^2.4.2"
@@ -1004,10 +1004,10 @@
     "@storybook/react-simple-di" "^1.2.1"
     babel-runtime "6.x.x"
 
-"@storybook/node-logger@4.0.8":
-  version "4.0.8"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/node-logger/-/node-logger-4.0.8.tgz#b52a0a86f1c51940161a4938c6ed4acad8cdb617"
-  integrity sha1-tSoKhvHFGUAWGkk4xu1KytjNthc=
+"@storybook/node-logger@4.0.7":
+  version "4.0.7"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/node-logger/-/node-logger-4.0.7.tgz#aa57636d6d46b446319b06daceda562b7b78880a"
+  integrity sha1-qldjbW1GtEYxmwbaztpWK3t4iAo=
   dependencies:
     "@babel/runtime" "^7.1.2"
     npmlog "^4.1.2"
@@ -1048,17 +1048,17 @@
   dependencies:
     babel-runtime "^6.5.0"
 
-"@storybook/react@^4.0.7":
-  version "4.0.9"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/react/-/react-4.0.9.tgz#700ba60ad2e21270a1fe04964e0cd41524854ead"
-  integrity sha1-cAumCtLiEnCh/gSWTgzUFSSFTq0=
+"@storybook/react@4.0.7":
+  version "4.0.7"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/react/-/react-4.0.7.tgz#2522d8228f5754a42606cb8d9fcf2f20444e2e02"
+  integrity sha1-JSLYIo9XVKQmBsuNn88vIEROLgI=
   dependencies:
     "@babel/preset-flow" "^7.0.0"
     "@babel/preset-react" "^7.0.0"
     "@babel/runtime" "^7.1.2"
     "@emotion/styled" "^0.10.6"
-    "@storybook/core" "4.0.9"
-    "@storybook/node-logger" "4.0.8"
+    "@storybook/core" "4.0.7"
+    "@storybook/node-logger" "4.0.7"
     babel-plugin-react-docgen "^2.0.0"
     common-tags "^1.8.0"
     global "^4.3.2"
@@ -1069,16 +1069,16 @@
     semver "^5.6.0"
     webpack "^4.23.1"
 
-"@storybook/ui@4.0.9":
-  version "4.0.9"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/ui/-/ui-4.0.9.tgz#4bbe8d42a3d9fbdf103e9fbab0f99f84eaf06ad9"
-  integrity sha1-S76NQqPZ+98QPp+6sPmfhOrwatk=
+"@storybook/ui@4.0.7":
+  version "4.0.7"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@storybook/ui/-/ui-4.0.7.tgz#ac6f66c7973ff19f0c0f27fd5bca2856eed628cd"
+  integrity sha1-rG9mx5c/8Z8MDyf9W8ooVu7WKM0=
   dependencies:
     "@emotion/core" "^0.13.1"
     "@emotion/provider" "^0.11.2"
     "@emotion/styled" "^0.10.6"
-    "@storybook/components" "4.0.9"
-    "@storybook/core-events" "4.0.8"
+    "@storybook/components" "4.0.7"
+    "@storybook/core-events" "4.0.7"
     "@storybook/mantra-core" "^1.7.2"
     "@storybook/podda" "^1.2.3"
     "@storybook/react-komposer" "^2.0.5"
@@ -1095,12 +1095,12 @@
     react-modal "^3.6.1"
     react-treebeard "^3.1.0"
 
-"@types/jest@^23.3.9":
+"@types/jest@23.3.9":
   version "23.3.9"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@types/jest/-/jest-23.3.9.tgz#c16b55186ee73ae65e001fbee69d392c51337ad1"
   integrity sha1-wWtVGG7nOuZeAB++5p05LFEzetE=
 
-"@types/node@^10.11.7":
+"@types/node@*", "@types/node@^10.11.7":
   version "10.12.10"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@types/node/-/node-10.12.10.tgz#4fa76e6598b7de3f0cb6ec3abacc4f59e5b3a2ce"
   integrity sha1-T6duZZi33j8Mtuw6usxPWeWzos4=
@@ -1110,14 +1110,15 @@
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@types/prop-types/-/prop-types-15.5.6.tgz#9c03d3fed70a8d517c191b7734da2879b50ca26c"
   integrity sha1-nAPT/tcKjVF8GRt3NNooebUMomw=
 
-"@types/react-dom@^16.0.9":
-  version "16.0.11"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@types/react-dom/-/react-dom-16.0.11.tgz#bd10ccb0d9260343f4b9a49d4f7a8330a5c1f081"
-  integrity sha1-vRDMsNkmA0P0uaSdT3qDMKXB8IE=
+"@types/react-dom@16.0.9":
+  version "16.0.9"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@types/react-dom/-/react-dom-16.0.9.tgz#73ceb7abe6703822eab6600e65c5c52efd07fb91"
+  integrity sha1-c863q+ZwOCLqtmAOZcXFLv0H+5E=
   dependencies:
+    "@types/node" "*"
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.7.6":
+"@types/react@*", "@types/react@16.7.7":
   version "16.7.7"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@types/react/-/react-16.7.7.tgz#1e5e23e7dd922968ed4b484cdec00a5402c9f31b"
   integrity sha1-Hl4j592SKWjtS0hM3sAKVALJ8xs=
@@ -1130,14 +1131,14 @@
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@types/semver/-/semver-5.5.0.tgz#146c2a29ee7d3bae4bf2fcb274636e264c813c45"
   integrity sha1-FGwqKe59O65L8vyydGNuJkyBPEU=
 
-"@types/storybook__addon-info@^3.4.2":
+"@types/storybook__addon-info@3.4.2":
   version "3.4.2"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@types/storybook__addon-info/-/storybook__addon-info-3.4.2.tgz#31a27e66867f02e593579cc58f54d22e726b0925"
   integrity sha1-MaJ+ZoZ/AuWTV5zFj1TSLnJrCSU=
   dependencies:
     "@types/react" "*"
 
-"@types/storybook__react@^4.0.0":
+"@types/storybook__react@4.0.0":
   version "4.0.0"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/@types/storybook__react/-/storybook__react-4.0.0.tgz#52cc452fbab599568d595075a90142ef4a1233f6"
   integrity sha1-UsxFL7q1mVaNWVB1qQFC70oSM/Y=
@@ -1685,7 +1686,7 @@ autoprefixer@^9.3.1:
     postcss "^7.0.5"
     postcss-value-parser "^3.3.1"
 
-awesome-typescript-loader@^5.2.1:
+awesome-typescript-loader@5.2.1:
   version "5.2.1"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/awesome-typescript-loader/-/awesome-typescript-loader-5.2.1.tgz#a41daf7847515f4925cdbaa3075d61f289e913fc"
   integrity sha1-pB2veEdRX0klzbqjB11h8onpE/w=
@@ -1808,7 +1809,7 @@ babel-jest@^23.6.0:
     babel-plugin-istanbul "^4.1.6"
     babel-preset-jest "^23.2.0"
 
-babel-loader@^8.0.4:
+babel-loader@8.0.4:
   version "8.0.4"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/babel-loader/-/babel-loader-8.0.4.tgz#7bbf20cbe4560629e2e41534147692d3fecbdce6"
   integrity sha1-e78gy+RWBini5BU0FHaS0/7L3OY=
@@ -2362,6 +2363,25 @@ bytes@3.0.0:
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/bytes/-/bytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
   integrity sha1-0ygVQE1olpn4Wk6k+odV3ROpYEg=
 
+cacache@^10.0.4:
+  version "10.0.4"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/cacache/-/cacache-10.0.4.tgz#6452367999eff9d4188aefd9a14e9d7c6a263460"
+  integrity sha1-ZFI2eZnv+dQYiu/ZoU6dfGomNGA=
+  dependencies:
+    bluebird "^3.5.1"
+    chownr "^1.0.1"
+    glob "^7.1.2"
+    graceful-fs "^4.1.11"
+    lru-cache "^4.1.1"
+    mississippi "^2.0.0"
+    mkdirp "^0.5.1"
+    move-concurrently "^1.0.1"
+    promise-inflight "^1.0.1"
+    rimraf "^2.6.2"
+    ssri "^5.2.4"
+    unique-filename "^1.1.0"
+    y18n "^4.0.0"
+
 cacache@^11.0.2:
   version "11.3.1"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/cacache/-/cacache-11.3.1.tgz#d09d25f6c4aca7a6d305d141ae332613aa1d515f"
@@ -2649,6 +2669,11 @@ commander@^2.12.1, commander@^2.14.1, commander@^2.19.0, commander@^2.9.0:
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/commander/-/commander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
   integrity sha1-9hmKqE5bg8RgVLlN3tv+1e6f8So=
 
+commander@~2.13.0:
+  version "2.13.0"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/commander/-/commander-2.13.0.tgz#6964bca67685df7c1f1430c584f07d7597885b9c"
+  integrity sha1-aWS8pnaF33wfFDDFhPB9dZeIW5w=
+
 common-tags@^1.8.0:
   version "1.8.0"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/common-tags/-/common-tags-1.8.0.tgz#8e3153e542d4a39e9b10554434afaaf98956a937"
@@ -2770,15 +2795,6 @@ core-util-is@1.0.2, core-util-is@~1.0.0:
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
 
-cosmiconfig@5.0.6:
-  version "5.0.6"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/cosmiconfig/-/cosmiconfig-5.0.6.tgz#dca6cf680a0bd03589aff684700858c81abeeb39"
-  integrity sha1-3KbPaAoL0DWJr/aEcAhYyBq+6zk=
-  dependencies:
-    is-directory "^0.3.1"
-    js-yaml "^3.9.0"
-    parse-json "^4.0.0"
-
 cosmiconfig@^4.0.0:
   version "4.0.0"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/cosmiconfig/-/cosmiconfig-4.0.0.tgz#760391549580bbd2df1e562bc177b13c290972dc"
@@ -2789,7 +2805,7 @@ cosmiconfig@^4.0.0:
     parse-json "^4.0.0"
     require-from-string "^2.0.1"
 
-cosmiconfig@^5.0.5, cosmiconfig@^5.0.6:
+cosmiconfig@^5.0.2, cosmiconfig@^5.0.5, cosmiconfig@^5.0.6:
   version "5.0.7"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/cosmiconfig/-/cosmiconfig-5.0.7.tgz#39826b292ee0d78eda137dfa3173bd1c21a43b04"
   integrity sha1-OYJrKS7g147aE336MXO9HCGkOwQ=
@@ -4507,10 +4523,10 @@ https-browserify@^1.0.0:
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
 
-husky@^1.1.4:
-  version "1.2.0"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/husky/-/husky-1.2.0.tgz#d631dda1e4a9ee8ba69a10b0c51a0e2c66e711e5"
-  integrity sha1-1jHdoeSp7oummhCwxRoOLGbnEeU=
+husky@1.1.4:
+  version "1.1.4"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/husky/-/husky-1.1.4.tgz#92f61383527d2571e9586234e5864356bfaceaa9"
+  integrity sha1-kvYTg1J9JXHpWGI05YZDVr+s6qk=
   dependencies:
     cosmiconfig "^5.0.6"
     execa "^1.0.0"
@@ -5214,7 +5230,7 @@ jest-docblock@^23.2.0:
   dependencies:
     detect-newline "^2.1.0"
 
-jest-dom@^2.1.1:
+jest-dom@2.1.1:
   version "2.1.1"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/jest-dom/-/jest-dom-2.1.1.tgz#c75515ef31147bd9684c860b0cba9605638fd4dd"
   integrity sha1-x1UV7zEUe9loTIYLDLqWBWOP1N0=
@@ -5450,7 +5466,7 @@ jest-worker@^23.2.0:
   dependencies:
     merge-stream "^1.0.1"
 
-jest@^23.6.0:
+jest@23.6.0:
   version "23.6.0"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/jest/-/jest-23.6.0.tgz#ad5835e923ebf6e19e7a1d7529a432edfee7813d"
   integrity sha1-rVg16SPr9uGeeh11KaQy7f7ngT0=
@@ -5686,15 +5702,15 @@ levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-lint-staged@^8.0.5:
-  version "8.1.0"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/lint-staged/-/lint-staged-8.1.0.tgz#dbc3ae2565366d8f20efb9f9799d076da64863f2"
-  integrity sha1-28OuJWU2bY8g77n5eZ0HbaZIY/I=
+lint-staged@8.0.5:
+  version "8.0.5"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/lint-staged/-/lint-staged-8.0.5.tgz#8eeca1a213eaded09c4e217da455b6f432046034"
+  integrity sha1-juyhohPq3tCcTiF9pFW29DIEYDQ=
   dependencies:
     "@iamstarkov/listr-update-renderer" "0.4.1"
     chalk "^2.3.1"
     commander "^2.14.1"
-    cosmiconfig "5.0.6"
+    cosmiconfig "^5.0.2"
     debug "^3.1.0"
     dedent "^0.7.0"
     del "^3.0.0"
@@ -5870,7 +5886,7 @@ lower-case@^1.1.1:
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/lower-case/-/lower-case-1.1.4.tgz#9a2cabd1b9e8e0ae993a4bf7d5875c39c42e8eac"
   integrity sha1-miyr0bno4K6ZOkv31YdcOcQujqw=
 
-lru-cache@^4.0.1, lru-cache@^4.1.3:
+lru-cache@^4.0.1, lru-cache@^4.1.1, lru-cache@^4.1.3:
   version "4.1.4"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/lru-cache/-/lru-cache-4.1.4.tgz#51cc46e8e6d9530771c857e24ccc720ecdbcc031"
   integrity sha1-UcxG6ObZUwdxyFfiTMxyDs28wDE=
@@ -6147,6 +6163,22 @@ minizlib@^1.1.1:
   integrity sha1-ZzSswEWkbmHVlqQ7udnNMm4ZzEI=
   dependencies:
     minipass "^2.2.1"
+
+mississippi@^2.0.0:
+  version "2.0.0"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/mississippi/-/mississippi-2.0.0.tgz#3442a508fafc28500486feea99409676e4ee5a6f"
+  integrity sha1-NEKlCPr8KFAEhv7qmUCWduTuWm8=
+  dependencies:
+    concat-stream "^1.5.0"
+    duplexify "^3.4.2"
+    end-of-stream "^1.1.0"
+    flush-write-stream "^1.0.0"
+    from2 "^2.1.0"
+    parallel-transform "^1.1.0"
+    pump "^2.0.1"
+    pumpify "^1.3.3"
+    stream-each "^1.1.0"
+    through2 "^2.0.0"
 
 mississippi@^3.0.0:
   version "3.0.0"
@@ -7017,14 +7049,14 @@ preserve@^0.2.0:
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
   integrity sha1-gV7R9uvGWSb4ZbMQwHE7yzMVzks=
 
-prettier-check@^2.0.0:
+prettier-check@2.0.0:
   version "2.0.0"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/prettier-check/-/prettier-check-2.0.0.tgz#edd086ee12d270579233ccb136a16e6afcfba1ae"
   integrity sha1-7dCG7hLScFeSM8yxNqFuavz7oa4=
   dependencies:
     execa "^0.6.0"
 
-prettier@^1.15.2:
+prettier@1.15.2:
   version "1.15.2"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/prettier/-/prettier-1.15.2.tgz#d31abe22afa4351efa14c7f8b94b58bb7452205e"
   integrity sha1-0xq+Iq+kNR76FMf4uUtYu3RSIF4=
@@ -7142,7 +7174,7 @@ public-encrypt@^4.0.0:
     randombytes "^2.0.1"
     safe-buffer "^5.1.2"
 
-pump@^2.0.0:
+pump@^2.0.0, pump@^2.0.1:
   version "2.0.1"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/pump/-/pump-2.0.1.tgz#12399add6e4cf7526d973cbc8b5ce2e2908b3909"
   integrity sha1-Ejma3W5M91Jtlzy8i1zi4pCLOQk=
@@ -7324,7 +7356,7 @@ react-dev-utils@^6.1.0:
     strip-ansi "4.0.0"
     text-table "0.2.0"
 
-react-docgen-typescript-loader@^3.0.0:
+react-docgen-typescript-loader@3.0.0:
   version "3.0.0"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/react-docgen-typescript-loader/-/react-docgen-typescript-loader-3.0.0.tgz#4042e2854d29380e4d01e479d438c03ec00de8e8"
   integrity sha1-QELihU0pOA5NAeR51DjAPsAN6Og=
@@ -7333,7 +7365,7 @@ react-docgen-typescript-loader@^3.0.0:
     loader-utils "^1.1.0"
     react-docgen-typescript "^1.9.0"
 
-react-docgen-typescript-webpack-plugin@^1.1.0:
+react-docgen-typescript-webpack-plugin@1.1.0:
   version "1.1.0"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/react-docgen-typescript-webpack-plugin/-/react-docgen-typescript-webpack-plugin-1.1.0.tgz#4bfb8c3312fce487083924842cf03f66177ab9df"
   integrity sha1-S/uMMxL85IcIOSSELPA/Zhd6ud8=
@@ -7359,7 +7391,7 @@ react-docgen@^3.0.0-rc.1:
     node-dir "^0.1.10"
     recast "^0.16.0"
 
-react-dom@^16.6.3:
+react-dom@16.6.3:
   version "16.6.3"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/react-dom/-/react-dom-16.6.3.tgz#8fa7ba6883c85211b8da2d0efeffc9d3825cccc0"
   integrity sha1-j6e6aIPIUhG42i0O/v/J04JczMA=
@@ -7432,7 +7464,7 @@ react-style-proptype@^3.0.0:
   dependencies:
     prop-types "^15.5.4"
 
-react-testing-library@^5.3.0:
+react-testing-library@5.3.0:
   version "5.3.0"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/react-testing-library/-/react-testing-library-5.3.0.tgz#b88124441d8756438137b705eb26a99410de69cc"
   integrity sha1-uIEkRB2HVkOBN7cF6yaplBDeacw=
@@ -7469,7 +7501,7 @@ react-treebeard@^3.1.0:
     shallowequal "^1.1.0"
     velocity-react "^1.4.1"
 
-react@^16.6.3:
+react@16.6.3:
   version "16.6.3"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/react/-/react-16.6.3.tgz#25d77c91911d6bbdd23db41e70fb094cc1e0871c"
   integrity sha1-Jdd8kZEda73SPbQecPsJTMHghxw=
@@ -7822,7 +7854,7 @@ resolve@1.1.7:
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
   integrity sha1-IDEU2CrSxe2ejgQRs5ModeiJ6Xs=
 
-resolve@1.x, resolve@^1.1.6, resolve@^1.3.2, resolve@^1.8.1:
+resolve@^1.1.6, resolve@^1.3.2, resolve@^1.8.1:
   version "1.8.1"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/resolve/-/resolve-1.8.1.tgz#82f1ec19a423ac1fbd080b0bab06ba36e84a7a26"
   integrity sha1-gvHsGaQjrB+9CAsLqwa6NuhKeiY=
@@ -7842,7 +7874,7 @@ ret@~0.1.10:
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
   integrity sha1-uKSCXVvbH8P29Twrwz+BOIaBx7w=
 
-rimraf@^2.2.8, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2:
+rimraf@2.6.2, rimraf@^2.2.8, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2:
   version "2.6.2"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/rimraf/-/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
   integrity sha1-LtgVDSShbqhlHm1u8PR8QVjOejY=
@@ -8273,6 +8305,13 @@ sshpk@^1.7.0:
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
 
+ssri@^5.2.4:
+  version "5.3.0"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/ssri/-/ssri-5.3.0.tgz#ba3872c9c6d33a0704a7d71ff045e5ec48999d06"
+  integrity sha1-ujhyycbTOgcEp9cf8EXl7EiZnQY=
+  dependencies:
+    safe-buffer "^5.1.1"
+
 ssri@^6.0.0:
   version "6.0.1"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/ssri/-/ssri-6.0.1.tgz#2a3c41b28dd45b62b63676ecb74001265ae9edd8"
@@ -8313,7 +8352,7 @@ stealthy-require@^1.1.0:
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
 
-storybook-addon-jsx@^5.4.0:
+storybook-addon-jsx@5.4.0:
   version "5.4.0"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/storybook-addon-jsx/-/storybook-addon-jsx-5.4.0.tgz#3e703bdecf54621269f2aa394004265cf1e9bda9"
   integrity sha1-PnA73s9UYhJp8qo5QAQmXPHpvak=
@@ -8722,10 +8761,10 @@ trim-right@^1.0.1:
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
   integrity sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM=
 
-ts-jest@^23.10.4:
-  version "23.10.5"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/ts-jest/-/ts-jest-23.10.5.tgz#cdb550df4466a30489bf70ba867615799f388dd5"
-  integrity sha1-zbVQ30RmowSJv3C6hnYVeZ84jdU=
+ts-jest@23.10.4:
+  version "23.10.4"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/ts-jest/-/ts-jest-23.10.4.tgz#a7a953f55c9165bcaa90ff91014a178e87fe0df8"
+  integrity sha1-p6lT9VyRZbyqkP+RAUoXjof+Dfg=
   dependencies:
     bs-logger "0.x"
     buffer-from "1.x"
@@ -8733,14 +8772,13 @@ ts-jest@^23.10.4:
     json5 "2.x"
     make-error "1.x"
     mkdirp "0.x"
-    resolve "1.x"
     semver "^5.5"
     yargs-parser "10.x"
 
-ts-loader@^5.3.0:
-  version "5.3.1"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/ts-loader/-/ts-loader-5.3.1.tgz#70614c8ec4354a9c8b89c9f97b2becb7a98a3980"
-  integrity sha1-cGFMjsQ1SpyLicn5eyvst6mKOYA=
+ts-loader@5.3.0:
+  version "5.3.0"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/ts-loader/-/ts-loader-5.3.0.tgz#4bac24e57bc5189391ab14987d9898ce53ef5cf7"
+  integrity sha1-S6wk5XvFGJORqxSYfZiYzlPvXPc=
   dependencies:
     chalk "^2.3.0"
     enhanced-resolve "^4.0.0"
@@ -8758,12 +8796,12 @@ tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
   integrity sha1-1+TdeSRdhUKMTX5IIqeZF5VMooY=
 
-tslint-config-prettier@^1.16.0:
-  version "1.17.0"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/tslint-config-prettier/-/tslint-config-prettier-1.17.0.tgz#946ed6117f98f3659a65848279156d87628c33dc"
-  integrity sha1-lG7WEX+Y82WaZYSCeRVth2KMM9w=
+tslint-config-prettier@1.16.0:
+  version "1.16.0"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/tslint-config-prettier/-/tslint-config-prettier-1.16.0.tgz#4627d0e2639554d89210e480093c381b5186963f"
+  integrity sha1-RifQ4mOVVNiSEOSACTw4G1GGlj8=
 
-tslint-eslint-rules@^5.4.0:
+tslint-eslint-rules@5.4.0:
   version "5.4.0"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/tslint-eslint-rules/-/tslint-eslint-rules-5.4.0.tgz#e488cc9181bf193fe5cd7bfca213a7695f1737b5"
   integrity sha1-5IjMkYG/GT/lzXv8ohOnaV8XN7U=
@@ -8772,21 +8810,21 @@ tslint-eslint-rules@^5.4.0:
     tslib "1.9.0"
     tsutils "^3.0.0"
 
-tslint-react@^3.6.0:
+tslint-react@3.6.0:
   version "3.6.0"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/tslint-react/-/tslint-react-3.6.0.tgz#7f462c95c4a0afaae82507f06517ff02942196a1"
   integrity sha1-f0YslcSgr6roJQfwZRf/ApQhlqE=
   dependencies:
     tsutils "^2.13.1"
 
-tslint-webpack-plugin@^1.2.2:
-  version "1.3.0"
-  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/tslint-webpack-plugin/-/tslint-webpack-plugin-1.3.0.tgz#bd61a51c8191ebc7130c0bcd7dc11f08670af5e1"
-  integrity sha1-vWGlHIGR68cTDAvNfcEfCGcK9eE=
+tslint-webpack-plugin@1.2.2:
+  version "1.2.2"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/tslint-webpack-plugin/-/tslint-webpack-plugin-1.2.2.tgz#364369d2842d5fc8115815e9fe92f0d4dc39b9b7"
+  integrity sha1-NkNp0oQtX8gRWBXp/pLw1Nw5ubc=
   dependencies:
     chalk "^2.1.0"
 
-tslint@^5.11.0:
+tslint@5.11.0:
   version "5.11.0"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/tslint/-/tslint-5.11.0.tgz#98f30c02eae3cde7006201e4c33cb08b48581eed"
   integrity sha1-mPMMAurjzecAYgHkwzywi0hYHu0=
@@ -8855,7 +8893,7 @@ typedarray@^0.0.6:
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^3.1.6:
+typescript@3.1.6:
   version "3.1.6"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/typescript/-/typescript-3.1.6.tgz#b6543a83cfc8c2befb3f4c8fba6896f5b0c9be68"
   integrity sha1-tlQ6g8/Iwr77P0yPumiW9bDJvmg=
@@ -8865,6 +8903,14 @@ ua-parser-js@^0.7.18:
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/ua-parser-js/-/ua-parser-js-0.7.19.tgz#94151be4c0a7fb1d001af7022fdaca4642659e4b"
   integrity sha1-lBUb5MCn+x0AGvcCL9rKRkJlnks=
 
+uglify-es@^3.3.4:
+  version "3.3.9"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/uglify-es/-/uglify-es-3.3.9.tgz#0c1c4f0700bed8dbc124cdb304d2592ca203e677"
+  integrity sha1-DBxPBwC+2NvBJM2zBNJZLKID5nc=
+  dependencies:
+    commander "~2.13.0"
+    source-map "~0.6.1"
+
 uglify-js@3.4.x, uglify-js@^3.1.4:
   version "3.4.9"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/uglify-js/-/uglify-js-3.4.9.tgz#af02f180c1207d76432e473ed24a28f4a782bae3"
@@ -8872,6 +8918,20 @@ uglify-js@3.4.x, uglify-js@^3.1.4:
   dependencies:
     commander "~2.17.1"
     source-map "~0.6.1"
+
+uglifyjs-webpack-plugin@^1.2.4:
+  version "1.3.0"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-1.3.0.tgz#75f548160858163a08643e086d5fefe18a5d67de"
+  integrity sha1-dfVIFghYFjoIZD4IbV/v4YpdZ94=
+  dependencies:
+    cacache "^10.0.4"
+    find-cache-dir "^1.0.0"
+    schema-utils "^0.4.5"
+    serialize-javascript "^1.4.0"
+    source-map "^0.6.1"
+    uglify-es "^3.3.4"
+    webpack-sources "^1.1.0"
+    worker-farm "^1.5.2"
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
@@ -9124,7 +9184,7 @@ webidl-conversions@^4.0.2:
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/webidl-conversions/-/webidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
   integrity sha1-qFWYCx8LazWbodXZ+zmulB+qY60=
 
-webpack-cli@^3.1.2:
+webpack-cli@3.1.2:
   version "3.1.2"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/webpack-cli/-/webpack-cli-3.1.2.tgz#17d7e01b77f89f884a2bbf9db545f0f6a648e746"
   integrity sha1-F9fgG3f4n4hKK7+dtUXw9qZI50Y=
@@ -9186,7 +9246,37 @@ webpack-sources@^1.1.0, webpack-sources@^1.3.0:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@^4.23.1, webpack@^4.25.1:
+webpack@4.25.1:
+  version "4.25.1"
+  resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/webpack/-/webpack-4.25.1.tgz#4f459fbaea0f93440dc86c89f771bb3a837cfb6d"
+  integrity sha1-T0WfuuoPk0QNyGyJ93G7OoN8+20=
+  dependencies:
+    "@webassemblyjs/ast" "1.7.11"
+    "@webassemblyjs/helper-module-context" "1.7.11"
+    "@webassemblyjs/wasm-edit" "1.7.11"
+    "@webassemblyjs/wasm-parser" "1.7.11"
+    acorn "^5.6.2"
+    acorn-dynamic-import "^3.0.0"
+    ajv "^6.1.0"
+    ajv-keywords "^3.1.0"
+    chrome-trace-event "^1.0.0"
+    enhanced-resolve "^4.1.0"
+    eslint-scope "^4.0.0"
+    json-parse-better-errors "^1.0.2"
+    loader-runner "^2.3.0"
+    loader-utils "^1.1.0"
+    memory-fs "~0.4.1"
+    micromatch "^3.1.8"
+    mkdirp "~0.5.0"
+    neo-async "^2.5.0"
+    node-libs-browser "^2.0.0"
+    schema-utils "^0.4.4"
+    tapable "^1.1.0"
+    uglifyjs-webpack-plugin "^1.2.4"
+    watchpack "^1.5.0"
+    webpack-sources "^1.3.0"
+
+webpack@^4.23.1:
   version "4.26.1"
   resolved "https://vrk-artifactory-01.eden.csc.fi:443/api/npm/npm-virtual/webpack/-/webpack-4.26.1.tgz#ff3a9283d363c07b3494dfa702d08f4f2ef6cb39"
   integrity sha1-/zqSg9NjwHs0lN+nAtCPTy72yzk=
