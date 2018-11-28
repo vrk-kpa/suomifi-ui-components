@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/vrk-kpa/suomifi-ui-components#readme",
   "scripts": {
-    "start": "webpack --env.development",
+    "start": "yarn storybook",
+    "start:webpack": "webpack --env.development",
     "test": "jest",
     "test:lint": "tslint 'src/**/*.tsx'",
     "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
