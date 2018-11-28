@@ -6,6 +6,11 @@
 dist
 build
 tmp
+.cache
+.awcache
+.nyc_output
+coverage
+storybook-static
 
 # dependencies
 node_modules
