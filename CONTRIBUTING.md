@@ -2,6 +2,8 @@
 
 We maintain two branches, `master` and `develop`. Send your pull requests to develop.
 
+Create branches with prefixes `bugfix/`, `feature/` and `hotfix/`.
+
 If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment stating that you intend to work on it so other people don’t accidentally duplicate your effort.
 
 If somebody claims an issue but doesn’t follow up for more than two weeks, it’s fine to take over it but you should still leave a comment.
