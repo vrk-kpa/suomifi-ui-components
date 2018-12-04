@@ -42,6 +42,8 @@ ReactDOM.render(<Button />, mountNode);
 
 8. `yarn styleguide:build` compiles static version of Styleguide to the styleguide directory.
 
+9. `yarn bundle-analyzer` shows analyzation of bundle size.
+
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/vrk-kpa/suomifi-ui-components/blob/master/CONTRIBUTING.md) first.

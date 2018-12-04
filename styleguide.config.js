@@ -1,7 +1,10 @@
+const path = require('path');
+
 module.exports = {
   title: 'Suomifi-ui-components',
   components: 'src/core/**/[A-Z]*.tsx',
   webpackConfig: require('./webpack.config.js'),
+  require: [path.join(__dirname, 'styleguide.require.js')],
   resolver: require('react-docgen').resolver.findAllComponentDefinitions,
   propsParser: require('react-docgen-typescript').withDefaultConfig({
     propFilter: { skipPropsWithoutDoc: false },

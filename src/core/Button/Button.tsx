@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
-import { Button as CompButton } from '../../components/Button';
-import { IButtonProps } from '../../components/Button';
+import { Button as CompButton, IButtonProps } from '../../components/Button';
 export { IButtonProps };
 
 const StyledButton = styled<any, IButtonProps>(CompButton)`
