@@ -4,7 +4,7 @@ import { Button as CompButton } from '../../components/Button';
 import { IButtonProps } from '../../components/Button';
 export { IButtonProps };
 
-const StyledButton = styled<any, IButtonProps>(CompButton)<IButtonProps>`
+const StyledButton = styled<any, IButtonProps>(CompButton)`
   color: hotpink;
 `;
 
