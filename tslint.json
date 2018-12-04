@@ -1,15 +1,16 @@
 {
   "defaultSeverity": "error",
   "extends": [
-    "tslint:recommended",
+    "tslint-react",
     "tslint-config-prettier",
     "tslint-config-airbnb",
-    "tslint-react"
+    "tslint:recommended"
   ],
   "jsRules": {},
   "rules": {
     "arrow-parens": false,
     "curly": false,
+    "import-name": [true, { "react": "React" }],
     "jsx-alignment": true,
     "member-access": false,
     "no-console": false,

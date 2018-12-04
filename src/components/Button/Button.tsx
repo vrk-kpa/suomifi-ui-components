@@ -1,4 +1,4 @@
-import React, { Component, MouseEvent, ReactNode } from 'React';
+import React, { Component, MouseEvent, ReactNode } from 'react';
 import propTypes from 'prop-types';
 
 export interface IButtonProps {

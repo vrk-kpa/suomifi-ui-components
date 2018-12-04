@@ -1,4 +1,4 @@
-import React, { Component } from 'React';
+import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import { Button as CompButton, IButtonProps } from '../../components/Button';
 export { IButtonProps };
