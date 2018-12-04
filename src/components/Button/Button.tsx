@@ -1,5 +1,5 @@
-import React, { Component, MouseEvent, ReactNode } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component, MouseEvent, ReactNode } from 'React';
+import propTypes from 'prop-types';
 
 export interface IButtonProps {
   /** Custom class name to append to button */
@@ -21,9 +21,9 @@ export default class Button extends Component<IButtonProps> {
   };
 
   static propTypes = {
-    className: PropTypes.string,
-    onClick: PropTypes.func,
-    testId: PropTypes.string,
+    className: propTypes.string,
+    onClick: propTypes.func,
+    testId: propTypes.string,
   };
 
   render() {
