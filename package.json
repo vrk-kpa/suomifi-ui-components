@@ -45,6 +45,7 @@
     "lint-staged": "8.0.5",
     "prettier": "1.15.2",
     "prettier-check": "2.0.0",
+    "react-axe": "3.0.2",
     "react-docgen": "2.21.0",
     "react-docgen-typescript": "1.12.2",
     "react-styleguidist": "8.0.6",
