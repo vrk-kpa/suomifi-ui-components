@@ -28,7 +28,7 @@ TODO: Make sure your code lints (yarn lint). Tip: Lint runs automatically when y
 
 After cloning suomifi-ui-components, run `yarn` to fetch its dependencies. Then, you can run several commands:
 
-1. `yarn start` runs Storybook for displaying components stories.
+1. `yarn start` runs Styleguidist for displaying components stories.
 
 2. `yarn test` runs written tests.
 
@@ -42,7 +42,7 @@ After cloning suomifi-ui-components, run `yarn` to fetch its dependencies. Then,
 
 7. `yarn build` compiles TypeScript code to the dist directory.
 
-8. `yarn build-storybook` compiles static version of storybook to the storybook-static directory.
+8. `yarn styleguide:build` compiles static version of Styleguide to the styleguide directory.
 
 ## Releasing
 
