@@ -31,6 +31,7 @@
     "validate": "yarn test && yarn test:lint && yarn prettier:check",
     "prebuild": "rimraf dist",
     "build": "webpack --env.production",
+    "bundle-analyzer": "size-limit --why",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build"
   },
@@ -51,6 +52,7 @@
     "react-styleguidist": "8.0.6",
     "react-testing-library": "5.3.0",
     "rimraf": "2.6.2",
+    "size-limit": "0.21.0",
     "styleguidist-goodies": "2.0.0",
     "ts-jest": "23.10.4",
     "ts-loader": "5.3.0",
@@ -83,5 +85,10 @@
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier-check"
     ]
-  }
+  },
+  "size-limit": [
+    {
+      "path": "dist/index.js"
+    }
+  ]
 }

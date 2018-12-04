@@ -44,6 +44,8 @@ After cloning suomifi-ui-components, run `yarn` to fetch its dependencies. Then,
 
 8. `yarn styleguide:build` compiles static version of Styleguide to the styleguide directory.
 
+9. `yarn bundle-analyzer` shows analyzation of bundle size.
+
 ## Releasing
 
 On release `develop` is merged to `master` and tagged with version. Releasenotes can be added to version via Github.
