@@ -23,7 +23,9 @@
     "start": "yarn styleguide",
     "start:webpack": "webpack --env.development",
     "test": "jest",
-    "test:lint": "tslint --project tsconfig.json 'src/**/*.tsx'",
+    "test:lint": "yarn test:tslint && yarn test:eslint",
+    "test:tslint": "tslint --project tsconfig.json 'src/**/*.tsx'",
+    "test:eslint": "eslint --config .eslintrc src/**/*.tsx",
     "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
     "prettier:check": "prettier-check 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
     "validate": "yarn test && yarn test:lint && yarn prettier:check",
@@ -35,6 +37,8 @@
   "devDependencies": {
     "@types/jest": "23.3.9",
     "awesome-typescript-loader": "5.2.1",
+    "eslint": "5.9.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
     "husky": "1.1.4",
     "jest": "23.6.0",
     "jest-dom": "2.1.1",
@@ -56,6 +60,7 @@
     "tslint-react": "3.6.0",
     "tslint-webpack-plugin": "1.2.2",
     "typescript": "3.1.6",
+    "typescript-eslint-parser": "21.0.2",
     "webpack": "4.25.1",
     "webpack-cli": "3.1.2"
   },
