@@ -7,7 +7,7 @@ Suomi.fi-styleguide in React components (and style exports).
 - React-components (>=16.3)
 - (TBD: styled-theme, reset-tags, css-export)
 
-Uses [React 16.6.3](https://github.com/facebook/react) and written in [TypeScript](https://github.com/Microsoft/TypeScript). [Storybook](https://github.com/storybooks/storybook) for presenting components.
+Uses [React 16.6.3](https://github.com/facebook/react) with [Emotion](https://github.com/emotion-js/emotion) and written in [TypeScript](https://github.com/Microsoft/TypeScript). [Styleguidist](https://github.com/styleguidist/react-styleguidist) for presenting components.
 
 [Webpack 4](https://github.com/webpack/webpack) with [awesome-typescript-loader](https://github.com/s-panferov/awesome-typescript-loader) and [TSLint](https://github.com/palantir/tslint).
 
@@ -26,7 +26,7 @@ ReactDOM.render(<Button />, mountNode);
 
 ## ⌨️ Development
 
-1. `yarn start` runs Storybook for presenting components stories.
+1. `yarn start` runs Styleguidist for displaying components stories.
 
 2. `yarn test` runs written tests.
 
@@ -40,7 +40,7 @@ ReactDOM.render(<Button />, mountNode);
 
 7. `yarn build` compiles TypeScript code to the dist directory.
 
-8. `yarn build-storybook` compiles static version of storybook to the storybook-static directory.
+8. `yarn styleguide:build` compiles static version of Styleguide to the styleguide directory.
 
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
