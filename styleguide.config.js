@@ -3,8 +3,10 @@ const path = require('path');
 module.exports = {
   title: 'Suomifi-ui-components',
   components: 'src/core/**/[A-Z]*.tsx',
+  ignore: ['**/*basestyles.tsx', '**/*baseStyles.tsx', '**/*test.tsx'],
   webpackConfig: require('./webpack.config.js'),
-  require: [path.join(__dirname, 'styleguide.require.js')],
+  require: [path.join(__dirname, '.styleguidist/styleguidist.require.js')],
+  assetsDir: path.join(__dirname, '.styleguidist/assets'),
   resolver: require('react-docgen').resolver.findAllComponentDefinitions,
   propsParser: require('react-docgen-typescript').withDefaultConfig({
     propFilter: { skipPropsWithoutDoc: false },
@@ -12,6 +14,7 @@ module.exports = {
   exampleMode: 'expand',
   usageMode: 'expand',
   pagePerSection: true,
+  skipComponentsWithoutExample: true,
   template: {
     head: {
       links: [
