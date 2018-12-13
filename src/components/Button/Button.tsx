@@ -1,37 +1,36 @@
 import React, { Component, MouseEvent, ReactNode } from 'react';
-import propTypes from 'prop-types';
+import { HtmlButton } from '../../reset';
 
+type ButtonType = 'default' | 'primary' | 'secondary';
 export interface IButtonProps {
-  /** Custom class name to append to button */
+  /** Custom classname to append to button */
   className?: string;
+  disabled?: boolean;
   /** Event handler to execute when clicked
    *  @default void
    */
   onClick?: (event: MouseEvent) => void;
-  /** data-testid
-   *  @default test
+  /** data-testid attribute
+   *  @default button
    */
   testId?: string;
+  type?: ButtonType;
   children?: ReactNode;
 }
 
 export default class Button extends Component<IButtonProps> {
   static defaultProps = {
+    disabled: false,
     testId: 'button',
-  };
-
-  static propTypes = {
-    className: propTypes.string,
-    onClick: propTypes.func,
-    testId: propTypes.string,
+    type: 'default',
   };
 
   render() {
     const { testId, children, ...passProps } = this.props;
     return (
-      <button {...passProps} data-testid={testId}>
+      <HtmlButton {...passProps} data-testid={testId}>
         {children}
-      </button>
+      </HtmlButton>
     );
   }
 }

@@ -44,6 +44,24 @@ ReactDOM.render(<Button />, mountNode);
 
 9. `yarn bundle-analyzer` shows analyzation of bundle size.
 
+### Styling
+
+Source contains 3 stages of components:
+
+1. Reset is for resetting html tags (don't do too opinionated stuff here)
+2. Components are accessible/a11y version of components and HTML-semantics without Suomi.fi related
+3. Core contains Suomi.fi-styleguide as theme and components
+
+(Export core-components at src/index)
+
+- Use BEM naming convention (`.block, .block--modifier, .block__element, .block__element--modifier`) and/or atom-classes (`.block.rounded, .block__element.highlight`)
+- All colors to theme
+- Don't use relative units without a cause
+- All opinionated resets to theme
+
+TBD: CSS-exports
+TBD: customizing or extending components' styles.
+
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/vrk-kpa/suomifi-ui-components/blob/master/CONTRIBUTING.md) first.

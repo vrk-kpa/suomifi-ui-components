@@ -1,9 +1,9 @@
 ```js
 <Button
-  className="pizza-button"
-  onClick={() => console.log('Gimme pizza!')}
-  testId="pizza-test"
+  className="button-test"
+  onClick={() => console.log('Test button click')}
+  testId="button"
 >
-  🍕
+  Text
 </Button>
 ```
