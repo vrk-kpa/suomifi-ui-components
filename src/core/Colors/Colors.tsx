@@ -29,7 +29,7 @@ export default class Colors extends Component<IThemeComponent> {
             color={value.toString()}
             key={key.toString()}
           >
-            <span className="color--name">{key.toString()}</span>
+            <span className="color__name">{key.toString()}</span>
           </Color>
         );
         return [...arr, test];
