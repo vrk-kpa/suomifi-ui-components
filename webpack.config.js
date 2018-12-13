@@ -5,15 +5,18 @@ module.exports = env => ({
   entry: path.join(__dirname, '/src/index.tsx'),
   mode: env.production ? 'production' : 'development',
   devtool: env.production ? 'inline-source-map' : 'eval',
+  node: {
+    fs: 'empty',
+  },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'index.js',
     library: 'suomifi-ui-components',
     libraryTarget: 'umd',
-    umdNamedDefine: true
+    umdNamedDefine: true,
   },
   module: {
     rules: [
@@ -27,8 +30,8 @@ module.exports = env => ({
   },
   plugins: [
     new TSLintPlugin({
-      files: ['./src/**/*.tsx']
-    })
+      files: ['./src/**/*.tsx'],
+    }),
   ],
   externals: {
     // this line is just to use the React dependency of our parent-project instead of using our own React.
@@ -36,7 +39,7 @@ module.exports = env => ({
       root: 'React',
       commonjs2: 'react',
       commonjs: 'react',
-      amd: 'react'
-    }
-  }
+      amd: 'react',
+    },
+  },
 });
