@@ -13,7 +13,7 @@
     "noUnusedLocals": true,
     "removeComments": true,
     "lib": [
-      "es6",
+      "es2017",
       "dom"
     ] /* list of built-in API declaration groups that you can chose to include in your project */,
     "typeRoots": [
