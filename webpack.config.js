@@ -24,9 +24,13 @@ module.exports = env => ({
       {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader',
-        exclude: [/node_modules/, /stories/]
-      }
-    ]
+        exclude: [/node_modules/, /stories/],
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
   },
   plugins: [
     new TSLintPlugin({
