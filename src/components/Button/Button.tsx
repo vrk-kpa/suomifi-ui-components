@@ -1,5 +1,5 @@
 import React, { Component, MouseEvent, ReactNode } from 'react';
-import { HtmlButton } from '../../reset';
+import HtmlButton from '../../reset/HtmlButton';
 
 type ButtonType = 'default' | 'primary' | 'secondary';
 export interface IButtonProps {
