@@ -26,42 +26,8 @@ ReactDOM.render(<Button />, mountNode);
 
 ## ⌨️ Development
 
-1. `yarn start` runs Styleguidist for displaying components stories.
-
-2. `yarn test` runs written tests.
-
-3. `yarn test:lint` checks TypeScript code for readability, maintainability, and functionality errors.
-
-4. `yarn prettier:check` checks the code style.
-
-5. `yarn prettier` write the code style fixes to all src-files.
-
-6. `yarn validate` runs the complete test suite.
-
-7. `yarn build` compiles TypeScript code to the dist directory.
-
-8. `yarn styleguide:build` compiles static version of Styleguide to the styleguide directory.
-
-9. `yarn bundle-analyzer` shows analyzation of bundle size.
-
-### Styling
-
-Source contains 3 stages of components:
-
-1. Reset is for resetting html tags (don't do too opinionated stuff here)
-2. Components are accessible/a11y version of components and HTML-semantics without Suomi.fi related
-3. Core contains Suomi.fi-styleguide as theme and components
-
-(Export core-components at src/index)
-
-- Use BEM naming convention (`.block, .block--modifier, .block__element, .block__element--modifier`) and/or atom-classes (`.block.rounded, .block__element.highlight`)
-- All colors to theme
-- Don't use relative units without a cause
-- All opinionated resets to theme
-
-TBD: CSS-exports
-TBD: customizing or extending components' styles.
+See [DEVELOPMENT.md](/DEVELOPMENT.md).
 
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/vrk-kpa/suomifi-ui-components/blob/master/CONTRIBUTING.md) first.
+We welcome all contributions. Please read our [CONTRIBUTING.md](/CONTRIBUTING.md) first.
