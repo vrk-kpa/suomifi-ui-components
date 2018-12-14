@@ -24,7 +24,7 @@ module.exports = env => ({
       {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader',
-        exclude: [/node_modules/, /stories/],
+        exclude: [/node_modules/],
       },
       {
         test: /\.css$/,

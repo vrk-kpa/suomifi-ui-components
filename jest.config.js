@@ -13,7 +13,6 @@ module.exports = {
     'src/**/*.tsx',
     '!src/**/index.tsx',
     '!src/**/*.d.ts',
-    '!src/**/*.stories.tsx',
     '!src/**/*.test.ts',
     '!src/**/*.test.tsx',
     '!**/node_modules/**',
