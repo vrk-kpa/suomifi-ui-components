@@ -11,7 +11,7 @@ interface IColor {
 }
 
 const Color = styled.div`
-  label: ${(p: IColor) => `color-${p.keyName}`};
+  label: ${(p: IColor) => `fi-color-${p.keyName}`};
   ${(p: IColor) => baseStyles(p.color)};
 `;
 
@@ -29,7 +29,7 @@ export default class Colors extends Component<IThemeComponent> {
             color={value.toString()}
             key={key.toString()}
           >
-            <span className="color__name">{key.toString()}</span>
+            <span className="fi-color__name">{key.toString()}</span>
           </Color>
         );
         return [...arr, test];

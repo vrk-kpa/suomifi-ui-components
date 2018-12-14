@@ -12,7 +12,7 @@ export const baseStyles = (color: string) => css`
   color: ${invert(color)};
   background-color: ${color};
 
-  .color__name {
+  .fi-color__name {
     width: 100%;
     text-align: right;
     overflow-wrap: break-word;

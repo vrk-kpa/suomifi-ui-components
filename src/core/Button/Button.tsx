@@ -11,7 +11,7 @@ import {
 export interface IButtonProps extends ICompButtonProps, IThemeComponent {}
 
 const StyledButton = styled<ComponentType<any>, IButtonProps>(CompButton)`
-  label: ${({ disabled }) => (disabled ? 'button--disabled' : 'button')};
+  label: ${({ disabled }) => (disabled ? 'fi-button--disabled' : 'fi-button')};
   ${props => baseStyles(props)}
 `;
 
