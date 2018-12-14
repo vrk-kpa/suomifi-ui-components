@@ -20,7 +20,7 @@ After cloning suomifi-ui-components, run `yarn` to fetch its dependencies. Then,
 
 9. `yarn bundle-analyzer` shows analyzation of bundle size.
 
-## Styling
+## Source
 
 Source contains 3 stages of components:
 
@@ -28,23 +28,48 @@ Source contains 3 stages of components:
 2. `components` are accessible/a11y version of components and HTML-semantics without Suomi.fi related.
 3. `core` contains Suomi.fi-styleguide as theme, components and CSS exports.
 
-_(Export core-components at src/index)_
+_Export core-components at src/index._
+
+**Don't do realtive imports from indexes, use original export locations.**
+
+**Do not create duplication of source or styles for component, use syntax that can be used in exports.**
+
+## Styling
 
 - Use BEM naming convention with `fi-`-prefix:
-  ```
+  ```css
   .fi-block
   .fi-block--modifier
   .fi-block__element
   .fi-block__element--modifier
   ```
   and/or atom-classes:
-  ```
+  ```css
   .fi-block.fi-rounded
   .fi-block__element.fi-highlight
   ```
 - All colors to theme
-- Don't use relative units without a cause
-- All opinionated resets to theme
+- Don't use relative units without a important reason
+- All opinionated resets to **theme**
+
+- Components' styles can be customized with [Styled Components](https://github.com/styled-components/styled-components) / [Emotion](https://github.com/emotion-js/emotion):
+
+  ```javascript
+  styled(Button)...
+  ```
+
+  and with CSS-ClassName:
+
+  ```javascript
+  <Button className="button--custom">Example</Button>
+  ```
+
+  ```css
+  .fi-button.button--custom {
+    ...;
+  }
+  ```
+
+  Don't use ~~!important~~, if really needed - for specificity hack you can use `.fi-button.button--custom.button--custom {...}`
 
 - TBD: CSS-exports
-- TBD: customizing or extending components' styles.

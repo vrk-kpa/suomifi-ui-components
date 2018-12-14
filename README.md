@@ -15,7 +15,9 @@ For testing: [React-testing-library](https://github.com/kentcdodds/react-testing
 
 ## 📦 Install
 
-TBD
+```bash
+yarn add https://github.com/vrk-kpa/suomifi-ui-components.git`
+```
 
 ## 🔨 Usage
 
@@ -23,6 +25,28 @@ TBD
 import { Button } from 'suomifi-ui-components';
 ReactDOM.render(<Button />, mountNode);
 ```
+
+### 🕶 Extending styles
+
+Components' styles can be customized with [Styled Components](https://github.com/styled-components/styled-components) / [Emotion](https://github.com/emotion-js/emotion):
+
+```javascript
+styled(Button)...
+```
+
+and with CSS-ClassName:
+
+```javascript
+<Button className="button--custom">Example</Button>
+```
+
+```css
+.fi-button.button--custom {
+  ...;
+}
+```
+
+Don't use ~~!important~~, if really needed - for specificity hack you can use `.fi-button.button--custom.button--custom {...}`
 
 ## ⌨️ Development
 
