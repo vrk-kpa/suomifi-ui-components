@@ -1,7 +1,9 @@
-import { HTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { resets, resetWithSelectors } from '../utils';
+
+export interface IHtmlButtonProps extends HTMLAttributes<HTMLButtonElement> {}
 
 const buttonResets = css`
   ${resets.html}
@@ -17,9 +19,10 @@ const buttonResets = css`
   ])}
 `;
 
-const HtmlButton = styled.button`
+const Button = (props: IHtmlButtonProps) => <button {...props} type="button" />;
+
+const HtmlButton = styled(Button)`
   ${buttonResets}
 `;
 
-export interface IHtmlButtonProps extends HTMLAttributes<HTMLButtonElement> {}
 export default HtmlButton;
