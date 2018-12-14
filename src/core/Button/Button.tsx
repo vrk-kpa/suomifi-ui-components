@@ -10,8 +10,10 @@ import {
 
 export interface IButtonProps extends ICompButtonProps, IThemeComponent {}
 
+const className = 'fi-button';
+
 const StyledButton = styled<ComponentType<any>, IButtonProps>(CompButton)`
-  label: ${({ disabled }) => (disabled ? 'fi-button--disabled' : 'fi-button')};
+  label: ${({ disabled }) => (disabled ? `${className}--disabled` : className)};
   ${props => baseStyles(props)}
 `;
 
@@ -22,6 +24,11 @@ export default class Button extends Component<IButtonProps> {
   static defaultProps = defaultPropsTheme(CompButton);
 
   render() {
-    return <StyledButton {...this.props} />;
+    return (
+      <StyledButton
+        {...this.props}
+        className={`${className} ${this.props.className}`}
+      />
+    );
   }
 }
