@@ -26,11 +26,7 @@ export default class Button extends Component<IButtonProps> {
   };
 
   render() {
-    const { testId, children, ...passProps } = this.props;
-    return (
-      <HtmlButton {...passProps} data-testid={testId}>
-        {children}
-      </HtmlButton>
-    );
+    const { testId, ...passProps } = this.props;
+    return <HtmlButton {...passProps} data-testid={testId} />;
   }
 }
