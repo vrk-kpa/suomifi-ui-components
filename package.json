@@ -2,8 +2,10 @@
   "name": "suomifi-ui-components",
   "version": "1.0.0",
   "description": "Suomi.fi UI component library",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/umd/index.js",
+  "module": "dist/esm/index.js",
+  "es2015": "dist/es2015/index.js",
+  "types": "dist/es2015/index.d.ts",
   "files": [
     "dist",
     "README.md"
@@ -30,7 +32,10 @@
     "prettier:check": "prettier-check 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
     "validate": "yarn test && yarn test:lint && yarn prettier:check",
     "prebuild": "rimraf dist",
-    "build": "webpack --env.production",
+    "build": "yarn build:umd && yarn build:es2015 && yarn build:esm",
+    "build:umd": "webpack --env.production",
+    "build:es2015": "tsc --p tsconfig.es2015.json",
+    "build:esm": "tsc --p tsconfig.esm.json",
     "bundle-analyzer": "size-limit --why",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build"
@@ -92,7 +97,7 @@
   },
   "size-limit": [
     {
-      "path": "dist/index.js"
+      "path": "dist/es2015/index.js"
     }
   ]
 }

@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/umd",
-    "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
-    "module": "commonjs" /* Specify module code generation: 'commonjs', 'amd', 'system', 'umd' or 'es2015'. */,
+    "module": "es2015",
     "target": "es5",
+    "moduleResolution": "node",
+    "outDir": "./dist/esm",
+    "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
     "jsx": "react",
     "sourceMap": true,
     "declaration": true /* Generates corresponding '.d.ts' file. */,

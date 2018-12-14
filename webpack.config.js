@@ -12,7 +12,7 @@ module.exports = env => ({
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   output: {
-    path: path.join(__dirname, '/dist'),
+    path: path.join(__dirname, '/dist/umd'),
     filename: 'index.js',
     library: 'suomifi-ui-components',
     libraryTarget: 'umd',
@@ -23,7 +23,7 @@ module.exports = env => ({
       // Run the typescript compilier on .ts files before webpack
       {
         test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader',
+        loader: 'awesome-typescript-loader?configFileName=./tsconfig.json',
         exclude: [/node_modules/],
       },
       {
