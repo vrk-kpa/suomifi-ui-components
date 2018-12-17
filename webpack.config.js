@@ -26,9 +26,20 @@ module.exports = env => ({
         loader: 'awesome-typescript-loader?configFileName=./tsconfig.json',
         exclude: [/node_modules/],
       },
+      // Used for global font-face imports
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      // Load images with 'file-loader'.
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {},
+          },
+        ],
       },
     ],
   },
