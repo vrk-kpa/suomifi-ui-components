@@ -21,7 +21,8 @@
       "node_modules/@types",
       "types"
     ] /* List of folders to include type definitions from. */,
-    "pretty": true
+    "pretty": true,
+    "skipLibCheck": true
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules", "dist", "**/*.test.tsx", "**/*.test.ts"]
