@@ -10,7 +10,7 @@
   "rules": {
     "arrow-parens": false,
     "curly": false,
-    "import-name": [true, { "react": "React" }],
+    "import-name": [true, { "react": "React", "reactSvg": "ReactSVG" }],
     "jsx-alignment": true,
     "max-line-length": [
       true,

@@ -12,9 +12,9 @@ const palette = {
   suomiLightest: '#8199bc',
   lake: '#2A6EBB',
   lakeDarkest: '#14365d',
-  lakeDarker: '#1d4d83',
+  lakeDarker: '#1d4d83',
   lakeDark: '#2562a7',
-  lakeLight: '#3f7cc1',
+  lakeLight: '#3f7cc1',
   lakeLighter: '#6a99cf',
   lakeLightest: '#94b6dd',
   lakeExtralight: '#e9f0f8',
@@ -81,7 +81,7 @@ const palette = {
   heatherLight: '#a870bc',
   heatherLighter: '#bb90cb',
   heatherLightest: '#cfafda',
-  gray: '#A5ACB0;',
+  gray: '#A5ACB0',
   gray60: '#C9CDCF',
   gray20: '#EDEEEF',
   gray10: '#F6F6F7',
@@ -99,17 +99,14 @@ const alpha50 = (hex: string) =>
     alpha: 0.5,
   });
 
-export interface IColors {
-  brandColor: string;
-  text: string;
-  invertText: string;
-  // secondaryBackground: string;
-}
+export type IColors = typeof colors;
 
-export const colors: IColors = {
+export const colors = {
+  white: palette.white,
   brandColor: palette.colorSuomi,
   text: palette.black,
   invertText: palette.white,
+  focusRing: palette.cloudberry,
   // secondaryBackground: palette.lakeDark,
   // text: '#fff',
   // background: '#212121',
@@ -120,18 +117,21 @@ export const colors: IColors = {
   // border: '#666',
 };
 
-export interface IShadows {
-  invertTextShadow: string;
-}
+export type IShadows = typeof shadows;
 
-export const shadows: IShadows = {
+export const shadows = {
   invertTextShadow: `0 1px 1px ${alpha50(palette.suomiDarkest)}`,
 };
 
-export interface IGradients {
-  basic: string;
-}
+export type IGradients = typeof gradients;
 
-export const gradients: IGradients = {
+export const gradients = {
   basic: `linear-gradient(0deg, ${palette.lakeDark} 0%, ${palette.lake} 100%)`,
+  light: `linear-gradient(-180deg, ${palette.lakeLight} 0%, ${
+    palette.lake
+  } 100%)`,
+  dark: `linear-gradient(0deg, ${palette.lakeDarker} 0%, ${
+    palette.lakeDark
+  } 100%)`,
+  gray: `linear-gradient(0deg, ${palette.gray} 0%, ${palette.gray60} 100%)`,
 };

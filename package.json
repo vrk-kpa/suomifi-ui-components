@@ -82,7 +82,8 @@
   },
   "dependencies": {
     "normalize.cssinjs": "1.0.4",
-    "polished": "2.3.1"
+    "polished": "2.3.1",
+    "react-svg": "7.2.2"
   },
   "peerDependencies": {
     "react": "16.6.3",

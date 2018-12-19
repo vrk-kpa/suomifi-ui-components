@@ -1,30 +1,20 @@
-import { typography, ITypography, font } from './typography';
-import {
-  colors,
-  IColors,
-  shadows,
-  IShadows,
-  gradients,
-  IGradients,
-} from './colors';
+import { typography, font } from './typography';
+import { colors, shadows, gradients } from './colors';
+import { icons } from './icons';
 
-export interface ITheme {
-  typography: ITypography;
-  colors: IColors;
-  shadows: IShadows;
-  gradients: IGradients;
-}
+export type ITheme = typeof suomifiTheme;
 
 export interface IThemeComponent {
   /** Default as suomifiTheme */
   theme?: ITheme;
 }
 
-export const suomifiTheme: ITheme = {
+export const suomifiTheme = {
   typography,
   colors,
   shadows,
   gradients,
+  icons,
 };
 
 export const suomifiDefaults = {
