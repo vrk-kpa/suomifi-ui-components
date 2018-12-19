@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calling render with the same component on the same container does not remount 1`] = `
+<button
+  class="fi-button css-dxrh9k-fi-button"
+  data-testid="button"
+  type="button"
+>
+  Test
+</button>
+`;

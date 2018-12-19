@@ -5,7 +5,8 @@ import Icon from './Icon';
 
 test('calling render with the same component on the same container does not remount', () => {
   const svgRenderer = render(<Icon />);
-  const { getByTestId, rerender } = svgRenderer;
+  const { getByTestId, container, rerender } = svgRenderer;
+  expect(container.firstChild).toMatchSnapshot();
   expect(getByTestId('icon')).toBeDefined();
 
   // re-render the same component with different props

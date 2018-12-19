@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calling render with the same component on the same container does not remount 1`] = `
+<div
+  aria-hidden="true"
+  class="fi-icon css-1ybbl2u-icon"
+  data-testid="icon"
+  role="img"
+>
+  <div>
+    <div
+      data-src="\\"icon-login.svg\\""
+      src=""
+    />
+  </div>
+</div>
+`;
