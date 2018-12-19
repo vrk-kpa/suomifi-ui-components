@@ -1,3 +1,4 @@
+const { defaults: tsjPreset } = require('ts-jest/presets');
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
 
@@ -12,6 +13,7 @@ module.exports = {
     'src/**/*.ts',
     'src/**/*.tsx',
     '!src/**/index.tsx',
+    '!src/**/index.ts',
     '!src/**/*.d.ts',
     '!src/**/*.test.ts',
     '!src/**/*.test.tsx',
@@ -26,7 +28,13 @@ module.exports = {
     },
   },
 
-  preset: 'ts-jest',
+  transform: {
+    ...tsjPreset.transform,
+    '\\.(svg)$': '<rootDir>/jest.transformer.js',
+  },
+
+  testMatch: tsjPreset.testMatch,
+  moduleFileExtensions: tsjPreset.moduleFileExtensions,
 
   setupTestFrameworkScriptFile: require.resolve('./jest.setup.js'),
 };
