@@ -25,7 +25,7 @@ const Svg = styled(
         {...props}
         {...ariaLabelOrHidden(ariaLabel)}
         role="img"
-        data-testid={testId}
+        data-testid={!!testId ? testId : 'svg'}
       />
     );
   },
