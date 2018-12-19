@@ -1,19 +1,14 @@
 import { css } from '@emotion/core';
 
-export interface ITypography {
-  fontFamily: string;
-  fontSize: string;
-  fontWeight: string;
-  fontWeightSemibold: string;
-  letterspacingBasic: string;
-}
+export type ITypography = typeof typography;
 
-export const typography: ITypography = {
+export const typography = {
   fontFamily: `'Source Sans Pro','Helvetica Neue', Arial`,
   fontSize: '18px',
   fontWeight: '400',
   fontWeightSemibold: '600',
   letterspacingBasic: '0.4px',
+  buttonFontSize: '14px',
 };
 
 export const font = css`

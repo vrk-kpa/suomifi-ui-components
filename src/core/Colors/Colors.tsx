@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from 'react';
-import { defaultPropsTheme, propTypesTheme } from '../utils';
+import { defaultPropsTheme } from '../utils';
 import styled from '@emotion/styled';
 import { IThemeComponent } from '../theme';
 import { baseStyles } from './Colors.baseStyles';
@@ -17,7 +17,6 @@ const Color = styled.div`
 
 export default class Colors extends Component<IThemeComponent> {
   static defaultProps = defaultPropsTheme();
-  static propTypes = propTypesTheme();
 
   render() {
     const { theme: { colors: themeColors = {} } = {} } = this.props;

@@ -17,6 +17,9 @@ For testing: [React-testing-library](https://github.com/kentcdodds/react-testing
 
 ```bash
 yarn add https://github.com/vrk-kpa/suomifi-ui-components.git`
+cd node_modules/suomifi-ui-components
+yarn
+yarn build
 ```
 
 ## 🔨 Usage

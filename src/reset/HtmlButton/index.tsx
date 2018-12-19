@@ -17,6 +17,8 @@ const buttonResets = css`
     `[type='button']`,
     `[type='submit']`,
   ])}
+  display: inline-block;
+  max-width: 100%;
 `;
 
 const Button = (props: IHtmlButtonProps) => <button {...props} type="button" />;

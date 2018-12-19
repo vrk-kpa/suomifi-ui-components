@@ -37,6 +37,13 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
+"@babel/runtime@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.2.0.tgz#b03e42eeddf5898e00646e4c840fa07ba8dcad7f"
+  integrity sha512-oouEibCbHMVdZSDlJBO6bZmID/zA/G/Qx3H1d3rSNPTD+L8UNKvCat7aKWSJ74zYbm5zWGh0GQN0hKj8zYFTCg==
+  dependencies:
+    regenerator-runtime "^0.12.0"
+
 "@babel/types@^7.0.0":
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.1.6.tgz#0adb330c3a281348a190263aceb540e10f04bcce"
@@ -219,20 +226,30 @@
   resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
   integrity sha512-vTCdPp/T/Q3oSqwHmZ5Kpa9oI7iLtGl3RQaA/NyLHikvcrPxACkkKVr/XzkSPJWXHRhKGzVvb0urJsbMlRxi1Q==
 
+"@tanem/svg-injector@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-2.1.1.tgz#e9bc12d87d2d1adfcaa46c17c9f481c563ee9d88"
+  integrity sha512-wuiBXgwu3aOdnOgNVM/4L/6nh3z/DGJCFuXgPv/iiDWQk0wgLsp/Olnmxn+iHr90Js/9JAhQZuaHTf5/1nrqOw==
+
+"@types/classnames@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.6.tgz#dbe8a666156d556ed018e15a4c65f08937c3f628"
+  integrity sha512-XHcYvVdbtAxVstjKxuULYqYaWIzHR15yr1pZj4fnGChuBVJlIAp9StJna0ZJNSgxPh4Nac2FL4JM3M11Tm6fqQ==
+
 "@types/jest@23.3.9":
   version "23.3.9"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.9.tgz#c16b55186ee73ae65e001fbee69d392c51337ad1"
   integrity sha512-wNMwXSUcwyYajtbayfPp55tSayuDVU6PfY5gzvRSj80UvxdXEJOVPnUVajaOp7NgXLm+1e2ZDLULmpsU9vDvQw==
 
 "@types/node@*":
-  version "10.12.10"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.10.tgz#4fa76e6598b7de3f0cb6ec3abacc4f59e5b3a2ce"
-  integrity sha512-8xZEYckCbUVgK8Eg7lf5Iy4COKJ5uXlnIOnePN0WUwSQggy9tolM+tDJf7wMOnT/JT/W9xDYIaYggt3mRV2O5w==
+  version "10.12.15"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.15.tgz#20e85651b62fd86656e57c9c9bc771ab1570bc59"
+  integrity sha512-9kROxduaN98QghwwHmxXO2Xz3MaWf+I1sLVAA6KJDF5xix+IyXVhds0MAfdNwtcpSrzhaTsNB0/jnL86fgUhqA==
 
 "@types/prop-types@*":
-  version "15.5.6"
-  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.6.tgz#9c03d3fed70a8d517c191b7734da2879b50ca26c"
-  integrity sha512-ZBFR7TROLVzCkswA3Fmqq+IIJt62/T7aY/Dmz+QkU7CaW2QFqAitCE8Ups7IzmGhcN1YWMBT4Qcoc07jU9hOJQ==
+  version "15.5.8"
+  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.8.tgz#8ae4e0ea205fe95c3901a5a1df7f66495e3a56ce"
+  integrity sha512-3AQoUxQcQtLHsK25wtTWIoIpgYjH3vSDroZOUr7PpCHw/jLY1RB9z9E8dBT/OSmwStVgkRNvdh+ZHNiomRieaw==
 
 "@types/react-dom@16.0.9":
   version "16.0.9"
@@ -242,7 +259,15 @@
     "@types/node" "*"
     "@types/react" "*"
 
-"@types/react@*", "@types/react@16.7.7":
+"@types/react@*":
+  version "16.7.17"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.7.17.tgz#3242e796a1ffbba4f49eae5915a67f4c079504e9"
+  integrity sha512-YcXcaoXaxo7A76mBCGlKlN2aZu3REQfF0DTrhiyXVJLA7PDdxVCr+wiQOrkVNn44D/zLlIyDSn3U918Ve0AaEA==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
+
+"@types/react@16.7.7":
   version "16.7.7"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.7.7.tgz#1e5e23e7dd922968ed4b484cdec00a5402c9f31b"
   integrity sha512-dJiq7CKxD1XJ/GqmbnsQisFnzG4z5lntKBw9X9qeSrguxFbrrhGa8cK9s0ONBp8wL1EfGfofEDVhjen26U46pw==
@@ -1539,7 +1564,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.6:
+classnames@2.2.6, classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -1991,7 +2016,12 @@ cssstyle@^1.0.0:
   dependencies:
     cssom "0.3.x"
 
-csstype@^2.2.0, csstype@^2.5.7:
+csstype@^2.2.0:
+  version "2.5.8"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.5.8.tgz#4ce5aa16ea0d562ef9105fa3ae2676f199586a35"
+  integrity sha512-r4DbsyNJ7slwBSKoGesxDubRWJ71ghG8W2+1HcsDlAo12KGca9dDLv0u98tfdFw7ldBdoA7XmCnI6Q8LpAJXaQ==
+
+csstype@^2.5.7:
   version "2.5.7"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.5.7.tgz#bf9235d5872141eccfb2d16d82993c6b149179ff"
   integrity sha512-Nt5VDyOTIIV4/nRFswoCKps1R5CD1hkiyjBE9/thNaNZILLEviVw9yWQw15+O+CpNjQKB/uvdcxFFOrSflY3Yw==
@@ -2941,7 +2971,7 @@ file-entry-cache@^2.0.0:
     flat-cache "^1.2.1"
     object-assign "^4.0.1"
 
-file-loader@^2.0.0:
+file-loader@2.0.0, file-loader@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-2.0.0.tgz#39749c82f020b9e85901dcff98e8004e6401cfde"
   integrity sha512-YCsBfd1ZGCyonOKLxPiKPdu+8ld9HAaMEvJewzz+b2eTF7uL5Zm/HdBF6FjCrpCMRq25Mi0U1gl4pwn2TlH7hQ==
@@ -6685,6 +6715,15 @@ react-styleguidist@8.0.6:
     webpack-dev-server "^3.1.10"
     webpack-merge "^4.1.4"
 
+react-svg@7.2.2:
+  version "7.2.2"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-7.2.2.tgz#cd914c92c3fccedcb06bfdff3cef64cdc2dace21"
+  integrity sha512-2EFN1pXHMZ5XZgXfsIlAIf5bOySwYbMvBuox5aUJwJfHuhqPEZ5DU73apEnm93fo7S1afL9/MZqtLsoEnukUwA==
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    "@tanem/svg-injector" "^2.1.1"
+    prop-types "^15.6.2"
+
 react-testing-library@5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/react-testing-library/-/react-testing-library-5.3.0.tgz#b88124441d8756438137b705eb26a99410de69cc"
@@ -7194,9 +7233,9 @@ sax@^1.2.4:
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
 
 scheduler@^0.11.2:
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.11.2.tgz#a8db5399d06eba5abac51b705b7151d2319d33d3"
-  integrity sha512-+WCP3s3wOaW4S7C1tl3TEXp4l9lJn0ZK8G3W3WKRWmw77Z2cIFUW2MiNTMHn5sCjxN+t7N43HAOOgMjyAg5hlg==
+  version "0.11.3"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.11.3.tgz#b5769b90cf8b1464f3f3cfcafe8e3cd7555a2d6b"
+  integrity sha512-i9X9VRRVZDd3xZw10NY5Z2cVMbdYg6gqFecfj79USv1CFN+YrJ3gIPRKf1qlY+Sxly4djoKdfx1T+m9dnRB8kQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

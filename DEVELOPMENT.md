@@ -34,6 +34,8 @@ _Export core-components at src/index._
 
 **Do not create duplication of source or styles for component, use syntax that can be used in exports.**
 
+Export interfaces for exported functions/components. Typescript will generate declaration files from exported interfaces (.d.ts). Write comments/documentatiion to all properties that need to be shown at styleguide.
+
 ## Styling
 
 - Use BEM naming convention with `fi-`-prefix:

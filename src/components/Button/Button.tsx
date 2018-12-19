@@ -3,8 +3,9 @@ import HtmlButton from '../../reset/HtmlButton';
 
 type ButtonType = 'default' | 'primary' | 'secondary';
 export interface IButtonProps {
-  /** Custom classname to append to button */
+  /** Custom classname to extend or customize */
   className?: string;
+  /** Disable Button usage */
   disabled?: boolean;
   /** Event handler to execute when clicked
    *  @default void
@@ -14,7 +15,14 @@ export interface IButtonProps {
    *  @default button
    */
   testId?: string;
+  /**
+   * Button type
+   * @default default
+   */
   type?: ButtonType;
+  /**
+   * Button element content
+   */
   children?: ReactNode;
 }
 
