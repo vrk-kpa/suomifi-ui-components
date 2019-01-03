@@ -11,6 +11,9 @@
     "README.md"
   ],
   "sideEffects": false,
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vrk-kpa/suomifi-ui-components.git"
