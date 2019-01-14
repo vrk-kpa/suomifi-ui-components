@@ -1,5 +1,7 @@
 Suomifi-styleguide colors
 
 ```js
-<Colors />
+<div>
+  <Colors />
+</div>
 ```

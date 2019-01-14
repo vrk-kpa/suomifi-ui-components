@@ -3,7 +3,8 @@ import { invert } from 'polished';
 
 export const baseStyles = (color: string) => css`
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
   float: left;
   width: 120px;
   height: 160px;
