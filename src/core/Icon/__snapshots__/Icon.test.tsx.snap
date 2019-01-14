@@ -11,6 +11,7 @@ exports[`calling render with the same component on the same container does not r
     <div
       data-src="\\"icon-login.svg\\""
       src=""
+      style="max-width:100%;max-height:100%"
     />
   </div>
 </div>

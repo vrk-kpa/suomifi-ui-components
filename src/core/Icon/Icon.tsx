@@ -26,7 +26,7 @@ export default class Icon extends Component<IIconProps> {
   }));
 
   render() {
-    const { src, icon, className: propsClassName, ...props } = this.props;
+    const { src, icon, className: propsClassName, ...passProps } = this.props;
     const iconsIcon = (icon: IconKeys) => {
       const iconSrc = objValue(icons, icon);
       return !!iconSrc ? iconSrc : src;
@@ -35,7 +35,7 @@ export default class Icon extends Component<IIconProps> {
     const defaultIcon = iconLoginSvg;
     return (
       <CompIcon
-        {...props}
+        {...passProps}
         src={!!iconSrc ? iconSrc : defaultIcon}
         className={classnames(propsClassName, className)}
       />

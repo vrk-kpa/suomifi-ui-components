@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import Svg, { ISvgProps } from '../Svg/Svg';
 
-export interface IIconProps extends ISvgProps {
-  /** data-testid attribute
-   *  @default icon
-   */
-  testId?: string;
-}
+export interface IIconProps extends ISvgProps {}
 
 const StyledSvg = styled((props: ISvgProps) => <Svg {...props} />)`
   display: inline-block;
@@ -17,7 +12,6 @@ const StyledSvg = styled((props: ISvgProps) => <Svg {...props} />)`
 
 export default class Icon extends Component<IIconProps> {
   static defaultProps = {
-    testId: 'icon',
     labelName: 'icon',
   };
 

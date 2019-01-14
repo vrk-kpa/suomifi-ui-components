@@ -24,8 +24,9 @@ const Svg = styled(
       <ReactSVG
         {...props}
         {...ariaLabelOrHidden(ariaLabel)}
+        svgStyle={{ maxWidth: '100%', maxHeight: '100%' }}
         role="img"
-        data-testid={!!testId ? testId : 'svg'}
+        data-testid={testId}
       />
     );
   },
