@@ -12,6 +12,7 @@
     "curly": false,
     "import-name": [true, { "react": "React", "reactSvg": "ReactSVG" }],
     "jsx-alignment": true,
+    "max-classes-per-file": [true, 2],
     "max-line-length": [
       true,
       { "limit": 140, "ignore-pattern": "^import |^export {(.*?)}" }
@@ -52,6 +53,7 @@
     "react-a11y-tabindex-no-positive": true,
     "react-a11y-titles": true,
     "react-a11y-meta": true,
+    "semicolon": [true, "always", "ignore-bound-class-methods"],
     "ter-arrow-parens": [true, "as-needed"],
     "trailing-comma": [
       true,
