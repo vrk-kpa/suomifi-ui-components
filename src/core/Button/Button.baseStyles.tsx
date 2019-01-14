@@ -2,33 +2,102 @@ import { css } from '@emotion/core';
 import { suomifiTheme, ITheme } from '../theme';
 import { IButtonProps } from './Button';
 
-const wideStyles = css`
+const fullWidthStyles = css`
   display: block;
   width: 100%;
 `;
 
-const disabledStyles = (theme: ITheme) => css`
-  background: ${theme.gradients.gray};
-  pointer-events: none;
-  user-selectable: none;
+const negativeStyles = (theme: ITheme) => css`
+  background: none;
+  background-color: ${theme.colors.secondaryColor};
+  border: 1px solid ${theme.colors.primarycolor};
+  text-shadow: none;
+
+  &:hover {
+    background: ${theme.gradients.lightNegative};
+  }
+
+  &:focus {
+    outline-offset: -1px;
+  }
+
+  &:active {
+    background: none;
+    background-color: ${theme.colors.invertBgrDark};
+  }
+
+  &[disabled],
+  &:disabled {
+    opacity: 0.5;
+    background: none;
+  }
+`;
+
+const secondaryStyles = (theme: ITheme) => css`
+  color: ${theme.colors.secondaryColor};
+  background: none;
+  background-color: ${theme.colors.primarycolor};
+  border: 1px solid ${theme.colors.secondaryColor};
+  text-shadow: none;
+
+  &:hover {
+    background: ${theme.gradients.lightSecondary};
+  }
+
+  &:active {
+    background: none;
+    background-color: ${theme.colors.activeBgr};
+  }
+
+  &[disabled],
+  &:disabled {
+    color: ${theme.colors.disabledColor};
+    background: none;
+    background-color: ${theme.colors.disabledBgr};
+    border-color: ${theme.colors.disabledColor};
+  }
+`;
+
+const secondarySmallStyles = (theme: ITheme) => css`
+  ${secondaryStyles(theme)}
+  min-height: 38px;
+`;
+
+const secondaryNoBorderStyles = (theme: ITheme) => css`
+  ${secondaryStyles(theme)}
+  border: none;
+`;
+
+const tertiaryStyles = (theme: ITheme) => css`
+  ${secondaryStyles(theme)}
+  background: ${theme.gradients.basicLight};
+  border: none;
+
+  &:hover {
+    background: ${theme.gradients.basicLighter};
+  }
+
+  &:active {
+    background: ${theme.gradients.basicDark};
+  }
 `;
 
 export const baseStyles = ({
   theme = suomifiTheme,
-  wide = false,
+  fullWidth = false,
+  variant = 'default',
 }: IButtonProps) => css`
   padding: 10px 20px;
-  border-radius: 2px 2px 2px 2px;
+  min-height: 40px;
   color: ${theme.colors.invertText};
   background: ${theme.gradients.basic};
+  border-radius: 2px 2px 2px 2px;
   font-size: ${theme.typography.buttonFontSize};
   font-weight: ${theme.typography.fontWeightSemibold};
   text-align: center;
   letter-spacing: ${theme.typography.letterspacingBasic};
   text-shadow: ${theme.shadows.invertTextShadow};
   cursor: pointer;
-
-  ${wide && wideStyles}
 
   &:hover {
     background: ${theme.gradients.light};
@@ -47,6 +116,22 @@ export const baseStyles = ({
 
   &[disabled],
   &:disabled {
-    ${disabledStyles(theme)}
+    background: ${theme.gradients.gray};
+    pointer-events: none;
+    user-selectable: none;
   }
+
+  ${fullWidth && fullWidthStyles}
+  ${variant === 'negative' && negativeStyles(theme)}
+  ${variant === 'secondary' && secondaryStyles(theme)}
+  ${variant === 'secondary-small' && secondarySmallStyles(theme)}
+  ${variant === 'secondary-noborder' && secondaryNoBorderStyles(theme)}
+  ${variant === 'tertiary' && tertiaryStyles(theme)}
+`;
+
+export const iconBaseStyles = ({ right = false }: { right?: boolean }) => css`
+  width: 16px;
+  height: 16px;
+  margin-${right ? 'left' : 'right'}: 8px;
+  vertical-align: text-bottom;
 `;

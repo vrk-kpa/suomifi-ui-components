@@ -2,7 +2,7 @@
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
 <button
-  class="css-d8ibak"
+  class="css-1vwl5ow"
   data-testid="button"
   type="button"
 >

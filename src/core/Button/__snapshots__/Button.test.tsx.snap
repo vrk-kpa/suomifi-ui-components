@@ -2,7 +2,7 @@
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
 <button
-  class="fi-button css-dxrh9k-fi-button"
+  class="fi-button css-1c05rwz-fi-button"
   data-testid="button"
   type="button"
 >
