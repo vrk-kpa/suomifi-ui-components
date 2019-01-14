@@ -28,6 +28,7 @@
     "start": "yarn styleguide",
     "start:webpack": "webpack --env.development",
     "test": "jest",
+    "test:updatesnapshots": "jest --u",
     "test:lint": "yarn test:tslint && yarn test:eslint",
     "test:tslint": "tslint --project tsconfig.json 'src/**/*.tsx'",
     "test:eslint": "eslint --config .eslintrc src/**/*.tsx",
