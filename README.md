@@ -58,3 +58,7 @@ See [DEVELOPMENT.md](/DEVELOPMENT.md).
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 We welcome all contributions. Please read our [CONTRIBUTING.md](/CONTRIBUTING.md) first.
+
+## Licensing
+
+MIT [LICENSE](/LICENSE)

@@ -75,3 +75,41 @@ Export interfaces for exported functions/components. Typescript will generate de
   Don't use ~~!important~~, if really needed - for specificity hack you can use `.fi-button.button--custom.button--custom {...}`
 
 - TBD: CSS-exports
+
+## Git
+
+Pull requests can be submitted from fork. [Read more from here.](https://guides.github.com/activities/forking/)
+
+### Developing a feature:
+
+```bash
+git checkout -b <branchname>
+git add <file1> <file2> ...
+git commit -m "My commit message"
+```
+
+### Pushing your feature to Github:
+
+```bash
+git checkout develop
+git pull
+git checkout <branchname>
+git rebase -i develop
+```
+
+- Resolve conflicts and continue:
+
+```bash
+git add <file1> <file2> ...
+git rebase --continue
+```
+
+- After no conflicts:
+
+```bash
+git push --force-with-lease
+```
+
+(If your remote does not accept your local new branch: `git push -u origin HEAD`)
+
+- Make a Pull Request at Github website.
