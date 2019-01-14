@@ -1,6 +1,16 @@
+import { css } from '@emotion/core';
 import { normalizeCssInJs } from 'normalize.cssinjs';
 
-const resets = normalizeCssInJs({ cssToString: true });
+const normalize = normalizeCssInJs({ cssToString: true });
+
+const common = css`
+  box-sizing: border-box;
+`;
+
+const resets = {
+  normalize,
+  common,
+};
 
 const selectorDeclaration = (selector: string, styles: string) =>
   `&${selector} {
@@ -8,7 +18,7 @@ const selectorDeclaration = (selector: string, styles: string) =>
   }`;
 
 const selectorsAndCss = (selector: string) => {
-  const styles = !!resets && resets[selector];
+  const styles = !!normalize && normalize[selector];
   return !!styles ? selectorDeclaration(selector, styles) : '';
 };
 
