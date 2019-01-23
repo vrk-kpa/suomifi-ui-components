@@ -12,8 +12,8 @@ export const typography = {
 };
 
 export const font = css`
-  font-family: ${typography.fontFamily}
-  font-size: ${typography.fontSize}
-  font-weight: ${typography.fontWeight}
+  font-family: ${typography.fontFamily};
+  font-size: ${typography.fontSize};
+  font-weight: ${typography.fontWeight};
   -webkit-font-smoothing: antialiased;
 `;
