@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
-import Svg, { ISvgProps } from '../Svg/Svg';
+import { Svg, SvgProps } from '../Svg/Svg';
 
-export interface IIconProps extends ISvgProps {}
+export interface IconProps extends SvgProps {}
 
-const StyledSvg = styled((props: ISvgProps) => <Svg {...props} />)`
+const StyledSvg = styled((props: SvgProps) => <Svg {...props} />)`
   display: inline-block;
   width: 24px;
   height: 24px;
 `;
 
-export default class Icon extends Component<IIconProps> {
+export default class Icon extends Component<IconProps> {
   static defaultProps = {
     labelName: 'icon',
   };
