@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-<div
+<svg
   aria-hidden="true"
-  class="fi-icon css-1ybbl2u-icon"
+  class="fi-icon"
   data-testid="icon"
-  role="img"
+  height="1em"
+  style="fill: #003479;"
+  theme="[object Object]"
+  viewBox="0 0 24 24"
+  width="1em"
 >
-  <div>
-    <div
-      data-src="\\"icon-login.svg\\""
-      src=""
-      style="max-width:100%;max-height:100%"
-    />
-  </div>
-</div>
+  <path
+    d="M22.01 0c1.103 0 2 .897 2 2v20c0 1.103-.897 2-2 2H10c-1.103 0-2-.897-2-2v-5a1 1 0 0 1 2 0v5h12.01V2H10v5a1 1 0 0 1-2 0V2c0-1.103.897-2 2-2h12.01zm-9.717 15.293L14.586 13H1a1 1 0 0 1 0-2h13.586l-2.293-2.293a.999.999 0 1 1 1.414-1.414l4 4a.999.999 0 0 1 .216 1.089.999.999 0 0 1-.216.325l-4 4a.997.997 0 0 1-1.414 0 .999.999 0 0 1 0-1.414z"
+  />
+</svg>
 `;

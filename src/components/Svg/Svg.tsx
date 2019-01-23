@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import ReactSVG from 'react-svg';
 import { ariaLabelOrHidden } from '../utils/aria';
 
-export interface ISvgProps {
+export interface SvgProps {
   /** Image file */
   src: string;
   /** Fill-color */
@@ -18,13 +18,14 @@ export interface ISvgProps {
   testId?: string;
 }
 
-const Svg = styled(
-  ({ color, labelName, ariaLabel, testId, ...props }: ISvgProps) => {
+export const Svg = styled(
+  ({ color, labelName, ariaLabel, testId, ...props }: SvgProps) => {
+    const fill = !!color ? color : '';
     return (
       <ReactSVG
         {...props}
         {...ariaLabelOrHidden(ariaLabel)}
-        svgStyle={{ maxWidth: '100%', maxHeight: '100%' }}
+        svgStyle={{ fill, maxWidth: '100%', maxHeight: '100%' }}
         role="img"
         data-testid={testId}
       />
@@ -33,7 +34,4 @@ const Svg = styled(
 )`
   label: ${({ labelName }) => (!!labelName ? labelName : 'svg')};
   max-width: 100%;
-  ${({ color }) => !!color && `fill: ${color};`}
 `;
-
-export default Svg;

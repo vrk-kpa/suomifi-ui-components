@@ -1,6 +1,7 @@
 import { css } from '@emotion/core';
 import { suomifiTheme, ITheme } from '../theme';
 import { IButtonProps } from './Button';
+import { font } from '../theme/typography';
 
 const fullWidthStyles = css`
   display: block;
@@ -87,6 +88,7 @@ export const baseStyles = ({
   fullWidth = false,
   variant = 'default',
 }: IButtonProps) => css`
+  ${font}
   padding: 10px 20px;
   min-height: 40px;
   color: ${theme.colors.invertText};
@@ -130,6 +132,7 @@ export const baseStyles = ({
 `;
 
 export const iconBaseStyles = ({ right = false }: { right?: boolean }) => css`
+  display: inline-block;
   width: 16px;
   height: 16px;
   margin-${right ? 'left' : 'right'}: 8px;

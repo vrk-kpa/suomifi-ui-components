@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { defaultPropsTheme, objValue } from '../utils';
+import { defaultPropsTheme } from '../utils';
+import { ariaLabelOrHidden } from '../../components/utils/aria';
 import classnames from 'classnames';
-import {
-  default as CompIcon,
-  IIconProps as ICompIconProps,
-} from '../../components/Icon/Icon';
-import { icons, IconKeys } from '../theme/icons';
-import iconLoginSvg from '../theme/icons/icon-login.svg';
+import { Svg, SvgProps } from '../../components/Svg/Svg';
 import { Omit } from '../utils/typescript';
+import { SuomifiIcon, IconKeys } from 'suomifi-icons';
+export { IconKeys } from 'suomifi-icons';
 
-export interface IIconProps extends Omit<ICompIconProps, 'src'> {
+export interface IconProps extends Omit<SvgProps, 'src'> {
+  /** Icon-name from suomifi-icons */
   icon?: IconKeys;
+  /** Image file */
   src?: string;
 }
 
@@ -19,26 +19,39 @@ const className = 'fi-icon';
 /**
  * General icon-component
  */
-export default class Icon extends Component<IIconProps> {
-  static defaultProps = defaultPropsTheme(CompIcon, theme => ({
-    src: iconLoginSvg, // TODO
+export class Icon extends Component<IconProps> {
+  static defaultProps = defaultPropsTheme({}, theme => ({
+    icon: 'login',
     color: theme.colors.brandColor,
   }));
 
   render() {
-    const { src, icon, className: propsClassName, ...passProps } = this.props;
-    const iconsIcon = (icon: IconKeys) => {
-      const iconSrc = objValue(icons, icon);
-      return !!iconSrc ? iconSrc : src;
-    };
-    const iconSrc = !!icon ? iconsIcon(icon) : src;
-    const defaultIcon = iconLoginSvg;
-    return (
-      <CompIcon
+    const {
+      src,
+      icon,
+      ariaLabel,
+      className: propsClassName,
+      ...passProps
+    } = this.props;
+
+    if (icon !== undefined) {
+      return (
+        <SuomifiIcon
+          {...passProps}
+          icon={icon}
+          {...ariaLabelOrHidden(ariaLabel)}
+          className={classnames(propsClassName, className)}
+        />
+      );
+    }
+
+    return !!src ? (
+      <Svg
+        src={src}
         {...passProps}
-        src={!!iconSrc ? iconSrc : defaultIcon}
+        ariaLabel={ariaLabel}
         className={classnames(propsClassName, className)}
       />
-    );
+    ) : null;
   }
 }
