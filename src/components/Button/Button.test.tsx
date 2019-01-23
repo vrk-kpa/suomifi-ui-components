@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-testing-library';
 
-import Button from './Button';
+import { Button } from './Button';
 
 test('calling render with the same component on the same container does not remount', () => {
   const buttonRendered = render(<Button data-testid="button">Test</Button>);

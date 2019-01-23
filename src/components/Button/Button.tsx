@@ -1,7 +1,7 @@
 import React, { Component, MouseEvent, ReactNode } from 'react';
-import HtmlButton from '../../reset/HtmlButton';
+import { HtmlButton, HtmlButtonProps } from '../../reset/HtmlButton';
 
-export interface IButtonProps {
+export interface ButtonProps extends HtmlButtonProps {
   /** Custom classname to extend or customize */
   className?: string;
   /** Disable Button usage */
@@ -16,7 +16,7 @@ export interface IButtonProps {
   children?: ReactNode;
 }
 
-export default class Button extends Component<IButtonProps> {
+export class Button extends Component<ButtonProps> {
   static defaultProps = {
     disabled: false,
   };

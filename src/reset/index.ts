@@ -1,2 +1,2 @@
-export { default as HtmlButton } from './HtmlButton';
+export { HtmlButton } from './HtmlButton';
 export { IHtmlButtonProps } from './HtmlButton';

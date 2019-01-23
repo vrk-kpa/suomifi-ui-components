@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-testing-library';
 
-import Button from './Button';
+import { Button } from './Button';
 import { cssFromBaseStyles } from '../utils';
 import { baseStyles } from './Button.baseStyles';
 

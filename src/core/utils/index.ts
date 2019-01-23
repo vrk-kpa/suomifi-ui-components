@@ -1,5 +1,5 @@
 import { SerializedStyles } from '@emotion/core';
-import { suomifiTheme, ITheme } from '../theme';
+import { suomifiTheme, Theme } from '../theme';
 
 /**
  * Return defaultProps from given component and theme as suomifiTheme
@@ -16,8 +16,8 @@ export const defaultPropsTheme = (
   theme: suomifiTheme,
 });
 
-interface IBaseStyles {
-  theme: ITheme;
+interface BaseStylesInterface {
+  theme: Theme;
   [key: string]: any;
 }
 
@@ -27,7 +27,7 @@ interface IBaseStyles {
  * @param props properties needed to get desired styles from components
  */
 export const cssFromBaseStyles = (
-  baseStyles: ({ theme }: IBaseStyles) => SerializedStyles,
+  baseStyles: ({ theme }: BaseStylesInterface) => SerializedStyles,
   props = {},
 ) => baseStyles({ ...props, theme: suomifiTheme }).styles;
 

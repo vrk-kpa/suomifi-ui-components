@@ -4,18 +4,18 @@ import styled from '@emotion/styled';
 import { IThemeComponent } from '../theme';
 import { baseStyles } from './Colors.baseStyles';
 
-interface IColor {
+interface ColorInterface {
   keyName: string;
   color: string;
   children?: ReactNode;
 }
 
 const Color = styled.div`
-  label: ${(p: IColor) => `fi-color-${p.keyName}`};
-  ${(p: IColor) => baseStyles(p.color)};
+  label: ${(p: ColorInterface) => `fi-color-${p.keyName}`};
+  ${(p: ColorInterface) => baseStyles(p.color)};
 `;
 
-export default class Colors extends Component<IThemeComponent> {
+export class Colors extends Component<IThemeComponent> {
   static defaultProps = defaultPropsTheme();
 
   render() {

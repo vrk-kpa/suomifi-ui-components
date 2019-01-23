@@ -3,7 +3,7 @@ import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { resets, resetWithSelectors } from '../utils';
 
-export interface IHtmlButtonProps extends HTMLAttributes<HTMLButtonElement> {
+export interface HtmlButtonProps extends HTMLAttributes<HTMLButtonElement> {
   /**
    * HTML Button type (button, submit, reset)
    * @default button
@@ -28,12 +28,10 @@ const buttonResets = css`
   max-width: 100%;
 `;
 
-const Button = ({ type, ...passProps }: IHtmlButtonProps) => (
+const Button = ({ type, ...passProps }: HtmlButtonProps) => (
   <button {...passProps} type={!!type ? type : 'button'} />
 );
 
-const HtmlButton = styled(Button)`
+export const HtmlButton = styled(Button)`
   ${buttonResets}
 `;
-
-export default HtmlButton;

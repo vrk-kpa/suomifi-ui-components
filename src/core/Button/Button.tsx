@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 import { defaultPropsTheme } from '../utils';
-import { IThemeComponent, ITheme } from '../theme';
+import { ThemeComponent, Theme } from '../theme';
 import { baseStyles, iconBaseStyles } from './Button.baseStyles';
 import {
-  default as CompButton,
-  IButtonProps as ICompButtonProps,
+  Button as CompButton,
+  ButtonProps as CompButtonProps,
 } from '../../components/Button/Button';
-import { IconKeys } from '../theme/icons';
-import Icon, { IIconProps } from '../Icon/Icon';
+import { Icon, IconProps, IconKeys } from '../Icon/Icon';
 
 type ButtonVariant =
   | 'default'
@@ -19,7 +18,7 @@ type ButtonVariant =
   | 'secondary-noborder'
   | 'tertiary';
 
-export interface IButtonProps extends ICompButtonProps, IThemeComponent {
+export interface ButtonProps extends CompButtonProps, ThemeComponent {
   /**
    * Set width to grow all available space
    */
@@ -48,7 +47,7 @@ const StyledButton = styled(
     variant,
     className,
     ...props
-  }: IButtonProps & { right?: boolean }) => (
+  }: ButtonProps & { right?: boolean }) => (
     <CompButton {...props} className={classnames(className, baseClassName)} />
   ),
 )`
@@ -58,7 +57,7 @@ const StyledButton = styled(
 `;
 
 const StyledIcon = styled(
-  ({ right, ...passProps }: IIconProps & { right?: boolean }) => (
+  ({ right, ...passProps }: IconProps & { right?: boolean }) => (
     <Icon {...passProps} />
   ),
 )`
@@ -70,7 +69,7 @@ const iconColor = ({
   invert,
   disabled,
 }: {
-  theme?: ITheme;
+  theme?: Theme;
   invert?: boolean;
   disabled?: boolean;
 }) => {
@@ -86,7 +85,7 @@ const iconColor = ({
   return undefined;
 };
 
-class ButtonWithIcon extends Component<IButtonProps> {
+class ButtonWithIcon extends Component<ButtonProps> {
   static defaultProps = defaultPropsTheme(CompButton);
 
   render() {
@@ -119,24 +118,24 @@ class ButtonWithIcon extends Component<IButtonProps> {
 /**
  * Use for inside Application onClick events.
  */
-export default class Button extends Component<IButtonProps> {
-  static negative = (props: IButtonProps) => {
+export class Button extends Component<ButtonProps> {
+  static negative = (props: ButtonProps) => {
     return <ButtonWithIcon {...props} variant="negative" />;
   };
 
-  static secondary = (props: IButtonProps) => {
+  static secondary = (props: ButtonProps) => {
     return <ButtonWithIcon {...props} variant="secondary" />;
   };
 
-  static secondarySmall = (props: IButtonProps) => {
+  static secondarySmall = (props: ButtonProps) => {
     return <ButtonWithIcon {...props} variant="secondary-small" />;
   };
 
-  static secondaryNoborder = (props: IButtonProps) => {
+  static secondaryNoborder = (props: ButtonProps) => {
     return <ButtonWithIcon {...props} variant="secondary-noborder" />;
   };
 
-  static tertiary = (props: IButtonProps) => {
+  static tertiary = (props: ButtonProps) => {
     return <ButtonWithIcon {...props} variant="tertiary" />;
   };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-testing-library';
 
-import Colors from './Colors';
+import { Colors } from './Colors';
 
 test('calling render with the same component on the same container does not remount', () => {
   const buttonRendered = render(<Colors />);
