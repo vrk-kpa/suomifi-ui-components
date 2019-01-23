@@ -10,6 +10,7 @@
   "rules": {
     "arrow-parens": false,
     "curly": false,
+    "interface-name": [true, "never-prefix"],
     "import-name": [true, { "react": "React", "reactSvg": "ReactSVG" }],
     "jsx-alignment": true,
     "max-classes-per-file": [true, 2],
