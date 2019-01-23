@@ -123,7 +123,6 @@ export const colors = {
   // title: '#fff',
   // alert: '#d9534f',
   // border: '#666',
-  ...palette,
 };
 
 export type IShadows = typeof shadows;
