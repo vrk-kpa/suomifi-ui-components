@@ -1,6 +1,6 @@
 import { css } from '@emotion/core';
-import { suomifiTheme, ITheme } from '../theme';
-import { IButtonProps } from './Button';
+import { suomifiTheme, Theme } from '../theme';
+import { ButtonProps } from './Button';
 import { font } from '../theme/typography';
 
 const fullWidthStyles = css`
@@ -8,7 +8,7 @@ const fullWidthStyles = css`
   width: 100%;
 `;
 
-const negativeStyles = (theme: ITheme) => css`
+const negativeStyles = (theme: Theme) => css`
   background: none;
   background-color: ${theme.colors.secondaryColor};
   border: 1px solid ${theme.colors.primarycolor};
@@ -34,7 +34,7 @@ const negativeStyles = (theme: ITheme) => css`
   }
 `;
 
-const secondaryStyles = (theme: ITheme) => css`
+const secondaryStyles = (theme: Theme) => css`
   color: ${theme.colors.secondaryColor};
   background: none;
   background-color: ${theme.colors.primarycolor};
@@ -59,17 +59,17 @@ const secondaryStyles = (theme: ITheme) => css`
   }
 `;
 
-const secondarySmallStyles = (theme: ITheme) => css`
+const secondarySmallStyles = (theme: Theme) => css`
   ${secondaryStyles(theme)}
   min-height: 38px;
 `;
 
-const secondaryNoBorderStyles = (theme: ITheme) => css`
+const secondaryNoBorderStyles = (theme: Theme) => css`
   ${secondaryStyles(theme)}
   border: none;
 `;
 
-const tertiaryStyles = (theme: ITheme) => css`
+const tertiaryStyles = (theme: Theme) => css`
   ${secondaryStyles(theme)}
   background: ${theme.gradients.basicLight};
   border: none;
@@ -87,7 +87,7 @@ export const baseStyles = ({
   theme = suomifiTheme,
   fullWidth = false,
   variant = 'default',
-}: IButtonProps) => css`
+}: ButtonProps) => css`
   ${font}
   padding: 10px 20px;
   min-height: 40px;

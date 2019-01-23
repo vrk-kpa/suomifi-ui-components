@@ -10,7 +10,7 @@ const StyledSvg = styled((props: SvgProps) => <Svg {...props} />)`
   height: 24px;
 `;
 
-export default class Icon extends Component<IconProps> {
+export class Icon extends Component<IconProps> {
   static defaultProps = {
     labelName: 'icon',
   };

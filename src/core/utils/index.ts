@@ -9,7 +9,7 @@ import { suomifiTheme, Theme } from '../theme';
 export const defaultPropsTheme = (
   { defaultProps }: any = {},
   // @ts-ignore
-  addProps = (theme: ITheme) => ({}),
+  addProps = (theme: Theme) => ({}),
 ) => ({
   ...defaultProps,
   ...addProps(suomifiTheme),

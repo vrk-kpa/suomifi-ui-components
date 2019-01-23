@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { defaultPropsTheme } from '../utils';
 import { ariaLabelOrHidden } from '../../components/utils/aria';
 import classnames from 'classnames';
-import { Svg, SvgProps } from '../../components/Svg/Svg';
+import {
+  Icon as CompIcon,
+  IconProps as CompIconProps,
+} from '../../components/Icon/Icon';
 import { Omit } from '../utils/typescript';
 import { SuomifiIcon, IconKeys } from 'suomifi-icons';
 export { IconKeys } from 'suomifi-icons';
 
-export interface IconProps extends Omit<SvgProps, 'src'> {
+export interface IconProps extends Omit<CompIconProps, 'src'> {
   /** Icon-name from suomifi-icons */
   icon?: IconKeys;
   /** Image file */
@@ -46,7 +49,7 @@ export class Icon extends Component<IconProps> {
     }
 
     return !!src ? (
-      <Svg
+      <CompIcon
         src={src}
         {...passProps}
         ariaLabel={ariaLabel}

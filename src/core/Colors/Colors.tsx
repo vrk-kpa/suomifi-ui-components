@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { defaultPropsTheme } from '../utils';
 import styled from '@emotion/styled';
-import { IThemeComponent } from '../theme';
+import { ThemeComponent } from '../theme';
 import { baseStyles } from './Colors.baseStyles';
 
 interface ColorInterface {
@@ -15,7 +15,7 @@ const Color = styled.div`
   ${(p: ColorInterface) => baseStyles(p.color)};
 `;
 
-export class Colors extends Component<IThemeComponent> {
+export class Colors extends Component<ThemeComponent> {
   static defaultProps = defaultPropsTheme();
 
   render() {
