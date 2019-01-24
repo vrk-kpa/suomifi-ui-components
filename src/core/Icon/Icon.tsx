@@ -34,13 +34,13 @@ export class Icon extends Component<IconProps> {
       icon,
       ariaLabel,
       className: propsClassName,
-      ...passProps
+      ...rest
     } = this.props;
 
     if (icon !== undefined) {
       return (
         <SuomifiIcon
-          {...passProps}
+          {...rest}
           icon={icon}
           {...ariaLabelOrHidden(ariaLabel)}
           className={classnames(propsClassName, className)}
@@ -51,7 +51,7 @@ export class Icon extends Component<IconProps> {
     return !!src ? (
       <CompIcon
         src={src}
-        {...passProps}
+        {...rest}
         ariaLabel={ariaLabel}
         className={classnames(propsClassName, className)}
       />

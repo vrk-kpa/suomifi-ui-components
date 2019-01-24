@@ -57,9 +57,7 @@ const StyledButton = styled(
 `;
 
 const StyledIcon = styled(
-  ({ right, ...passProps }: IconProps & { right?: boolean }) => (
-    <Icon {...passProps} />
-  ),
+  ({ right, ...rest }: IconProps & { right?: boolean }) => <Icon {...rest} />,
 )`
   ${props => iconBaseStyles(props)}
 `;
@@ -89,12 +87,12 @@ class ButtonWithIcon extends Component<ButtonProps> {
   static defaultProps = defaultPropsTheme(CompButton);
 
   render() {
-    const { children, icon, iconRight, ...passProps } = this.props;
-    const { disabled, theme, variant } = passProps;
+    const { children, icon, iconRight, ...rest } = this.props;
+    const { disabled, theme, variant } = rest;
     const secondaryOrTertiary =
       !!variant && (variant === 'secondary' || variant === 'tertiary');
     return (
-      <StyledButton {...passProps}>
+      <StyledButton {...rest}>
         {!!icon && (
           <StyledIcon
             icon={icon}

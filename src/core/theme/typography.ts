@@ -1,5 +1,3 @@
-import { css } from '@emotion/core';
-
 export type ITypography = typeof typography;
 
 export const typography = {
@@ -10,10 +8,3 @@ export const typography = {
   letterspacingBasic: '0.4px',
   buttonFontSize: '14px',
 };
-
-export const font = css`
-  font-family: ${typography.fontFamily};
-  font-size: ${typography.fontSize};
-  font-weight: ${typography.fontWeight};
-  -webkit-font-smoothing: antialiased;
-`;

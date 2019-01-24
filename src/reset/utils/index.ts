@@ -5,6 +5,7 @@ const normalize = normalizeCssInJs({ cssToString: true });
 
 const common = css`
   box-sizing: border-box;
+  line-height: 1;
 `;
 
 const resets = {
