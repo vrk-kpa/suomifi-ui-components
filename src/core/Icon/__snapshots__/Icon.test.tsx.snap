@@ -7,7 +7,6 @@ exports[`calling render with the same component on the same container does not r
   data-testid="icon"
   height="1em"
   style="fill: #003479;"
-  theme="[object Object]"
   viewBox="0 0 24 24"
   width="1em"
 >
