@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { defaultPropsTheme } from '../utils';
+import { suomifiTheme } from '../theme';
 import { ariaLabelOrHidden } from '../../components/utils/aria';
 import classnames from 'classnames';
 import {
@@ -23,10 +23,10 @@ const className = 'fi-icon';
  * General icon-component
  */
 export class Icon extends Component<IconProps> {
-  static defaultProps = defaultPropsTheme({}, theme => ({
+  static defaultProps = {
     icon: 'login',
-    color: theme.colors.brandColor,
-  }));
+    color: suomifiTheme.colors.brandColor,
+  };
 
   render() {
     const {

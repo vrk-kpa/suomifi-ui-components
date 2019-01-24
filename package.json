@@ -1,6 +1,6 @@
 {
   "name": "suomifi-ui-components",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Suomi.fi UI component library",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
@@ -48,8 +48,6 @@
     "styleguide:build": "styleguidist build"
   },
   "devDependencies": {
-    "@emotion/core": "10.0.0",
-    "@emotion/styled": "10.0.0",
     "@types/classnames": "2.2.6",
     "@types/jest": "23.3.9",
     "@types/react": "16.7.7",
@@ -90,6 +88,8 @@
     "webpack-cli": "3.1.2"
   },
   "dependencies": {
+    "@emotion/core": "10.0.0",
+    "@emotion/styled": "10.0.0",
     "classnames": "2.2.6",
     "normalize.cssinjs": "1.0.4",
     "polished": "2.3.1",
