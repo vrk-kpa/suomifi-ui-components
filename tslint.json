@@ -1,0 +1,73 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint-react",
+    "tslint-config-prettier",
+    "tslint-config-airbnb",
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "arrow-parens": false,
+    "curly": false,
+    "interface-name": [true, "never-prefix"],
+    "import-name": [true, { "react": "React", "reactSvg": "ReactSVG" }],
+    "jsx-alignment": true,
+    "max-classes-per-file": [true, 2],
+    "max-line-length": [
+      true,
+      { "limit": 140, "ignore-pattern": "^import |^export {(.*?)}" }
+    ],
+    "member-access": false,
+    "no-console": false,
+    "no-consecutive-blank-lines": false,
+    "no-empty-interface": false,
+    "no-unused-expression": true,
+    "no-shadowed-variable": [
+      false,
+      {
+        "class": true,
+        "enum": true,
+        "function": true,
+        "interface": false,
+        "namespace": true,
+        "typeAlias": false,
+        "typeParameter": false
+      }
+    ],
+    "object-literal-sort-keys": false,
+    "one-line": false,
+    "one-variable-per-declaration": false,
+    "ordered-imports": false,
+    "quotemark": [true, "single", "jsx-double"],
+    "react-a11y-anchors": true,
+    "react-a11y-aria-unsupported-elements": true,
+    "react-a11y-event-has-role": true,
+    "react-a11y-image-button-has-alt": true,
+    "react-a11y-img-has-alt": true,
+    "react-a11y-lang": true,
+    "react-a11y-props": true,
+    "react-a11y-proptypes": true,
+    "react-a11y-role-has-required-aria-props": true,
+    "react-a11y-role-supports-aria-props": true,
+    "react-a11y-role": true,
+    "react-a11y-tabindex-no-positive": true,
+    "react-a11y-titles": true,
+    "react-a11y-meta": true,
+    "semicolon": [true, "always", "ignore-bound-class-methods"],
+    "ter-arrow-parens": [true, "as-needed"],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": {
+          "objects": "ignore",
+          "arrays": "always",
+          "functions": "ignore",
+          "typeLiterals": "ignore"
+        }
+      }
+    ],
+    "variable-name": [true, "allow-pascal-case"]
+  },
+  "rulesDirectory": []
+}

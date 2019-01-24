@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/umd",
+    "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
+    "module": "commonjs" /* Specify module code generation: 'commonjs', 'amd', 'system', 'umd' or 'es2015'. */,
+    "target": "es5",
+    "jsx": "react",
+    "sourceMap": true,
+    "declaration": true /* Generates corresponding '.d.ts' file. */,
+    "esModuleInterop": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
+    "strictNullChecks": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "removeComments": true,
+    "lib": [
+      "es2017",
+      "dom"
+    ] /* list of built-in API declaration groups that you can chose to include in your project */,
+    "typeRoots": [
+      "node_modules/@types",
+      "types"
+    ] /* List of folders to include type definitions from. */,
+    "pretty": true,
+    "skipLibCheck": true
+  },
+  "include": ["./src/**/*", "./types/**/*.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}
