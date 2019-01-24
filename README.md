@@ -15,7 +15,12 @@ For testing: [React-testing-library](https://github.com/kentcdodds/react-testing
 
 ## 📦 Install
 
-TBD
+```bash
+yarn add https://github.com/vrk-kpa/suomifi-ui-components.git`
+cd node_modules/suomifi-ui-components
+yarn
+yarn build
+```
 
 ## 🔨 Usage
 
@@ -24,26 +29,36 @@ import { Button } from 'suomifi-ui-components';
 ReactDOM.render(<Button />, mountNode);
 ```
 
+### 🕶 Extending styles
+
+Components' styles can be customized with [Styled Components](https://github.com/styled-components/styled-components) / [Emotion](https://github.com/emotion-js/emotion):
+
+```javascript
+styled(Button)...
+```
+
+and with CSS-ClassName:
+
+```javascript
+<Button className="button--custom">Example</Button>
+```
+
+```css
+.fi-button.button--custom {
+  ...;
+}
+```
+
+Don't use ~~!important~~, if really needed - for specificity hack you can use `.fi-button.button--custom.button--custom {...}`
+
 ## ⌨️ Development
 
-1. `yarn start` runs Styleguidist for displaying components stories.
-
-2. `yarn test` runs written tests.
-
-3. `yarn test:lint` checks TypeScript code for readability, maintainability, and functionality errors.
-
-4. `yarn prettier:check` checks the code style.
-
-5. `yarn prettier` write the code style fixes to all src-files.
-
-6. `yarn validate` runs the complete test suite.
-
-7. `yarn build` compiles TypeScript code to the dist directory.
-
-8. `yarn styleguide:build` compiles static version of Styleguide to the styleguide directory.
-
-9. `yarn bundle-analyzer` shows analyzation of bundle size.
+See [DEVELOPMENT.md](/DEVELOPMENT.md).
 
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/vrk-kpa/suomifi-ui-components/blob/master/CONTRIBUTING.md) first.
+We welcome all contributions. Please read our [CONTRIBUTING.md](/CONTRIBUTING.md) first.
+
+## Licensing
+
+MIT [LICENSE](/LICENSE)

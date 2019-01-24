@@ -22,29 +22,11 @@ We will review your pull request and either merge it, request changes to it, or 
 
 - [ ] TODO: 5. Run `yarn test -- -u` to update jest snapshot and commit these changes as well (if has).
 
-TODO: Make sure your code lints (yarn lint). Tip: Lint runs automatically when you build.
+6. Make sure your code lints (`yarn test:lint`). Tip: Lint runs automatically when you build.
 
 ### Development workflow
 
-After cloning suomifi-ui-components, run `yarn` to fetch its dependencies. Then, you can run several commands:
-
-1. `yarn start` runs Styleguidist for displaying components stories.
-
-2. `yarn test` runs written tests.
-
-3. `yarn test:lint` checks TypeScript code for readability, maintainability, and functionality errors.
-
-4. `yarn prettier:check` checks the code style.
-
-5. `yarn prettier` write the code style fixes to all src-files.
-
-6. `yarn validate` runs the complete test suite.
-
-7. `yarn build` compiles TypeScript code to the dist directory.
-
-8. `yarn styleguide:build` compiles static version of Styleguide to the styleguide directory.
-
-9. `yarn bundle-analyzer` shows analyzation of bundle size.
+See [DEVELOPMENT.md](/DEVELOPMENT.md).
 
 ## Releasing
 
