@@ -22,6 +22,7 @@ export class Button extends Component<ButtonProps> {
   };
 
   render() {
-    return <HtmlButton {...this.props} />;
+    const { disabled } = this.props;
+    return <HtmlButton {...this.props} aria-disabled={disabled} tabIndex={0} />;
   }
 }
