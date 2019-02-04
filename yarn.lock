@@ -185,12 +185,11 @@
     log-update "^2.3.0"
     strip-ansi "^3.0.1"
 
-"@j-kallunki/css-in-to-js@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@j-kallunki/css-in-to-js/-/css-in-to-js-1.0.2.tgz#cd089cd3cc4c43919bd36609d5e6c2a23e38253f"
-  integrity sha512-A57J0+D7jvx7LvxyDm1vG5Jw1uLTCSqlnrdF3WWGSlYtTO/sLwlH7Xq+QTCNJU/SkT0+MUQRqPTvYW0bmUiN1A==
+"@j-kallunki/css-in-to-js@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@j-kallunki/css-in-to-js/-/css-in-to-js-1.0.3.tgz#27a5f89c6565bc00e7e717f3674f2c5ee18930d4"
+  integrity sha512-wys/d3YToyujiPgN531eScXxl2oHm5kbXXGLAtaY0Kgvl9WfNkw2hmdvjhCjBqfG1MThRtu+PLHdVDSPBFO3OQ==
   dependencies:
-    clean-css "4.2.1"
     lodash "4.17.11"
     postcss "7.0.5"
 
@@ -1577,13 +1576,6 @@ classnames@2.2.6, classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
-
-clean-css@4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.2.1.tgz#2d411ef76b8569b6d0c84068dabe85b0aa5e5c17"
-  integrity sha512-4ZxI6dy4lrY6FHzfiy1aEOXgu4LIsW2MhwG0VBKdcoGoH/XLFgaHSdLTGr4O8Be6A8r3MOphEiI8Gc1n0ecf3g==
-  dependencies:
-    source-map "~0.6.0"
 
 clean-webpack-plugin@^0.1.19:
   version "0.1.19"
@@ -5720,13 +5712,13 @@ normalize-path@^2.0.1, normalize-path@^2.1.1:
   dependencies:
     remove-trailing-separator "^1.0.1"
 
-normalize.cssinjs@1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/normalize.cssinjs/-/normalize.cssinjs-1.0.4.tgz#5178d7f6ad41fefd7d073d4a6748fd5a8ec0fa6b"
-  integrity sha512-NRmT8srYwtsMTtn9zusf6sJB/EpDYFG+9H/xMODiLI28S7Y+VJie4YoIO8EpGK3B/I70mlbWLskpvFGuKbQVtg==
+normalize.cssinjs@1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/normalize.cssinjs/-/normalize.cssinjs-1.0.5.tgz#53cae9500920792e91bed369bc21b5c62cb93d02"
+  integrity sha512-4JoDvhYmYrYm86uVRBLDWhmqR2iuKx3qE0/Y+e8AuqfuIuA2E385ZA6jKgaPXYCtKK7ZwVfCvP4xYrvOtzefHA==
   dependencies:
     "@csstools/normalize.css" "9.0.1"
-    "@j-kallunki/css-in-to-js" "1.0.2"
+    "@j-kallunki/css-in-to-js" "1.0.3"
 
 npm-bundled@^1.0.1:
   version "1.0.5"
@@ -7712,7 +7704,7 @@ source-map@^0.5.3, source-map@^0.5.6, source-map@^0.5.7:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
 
-source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
+source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
