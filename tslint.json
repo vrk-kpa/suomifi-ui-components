@@ -21,6 +21,7 @@
     "member-access": false,
     "no-console": false,
     "no-consecutive-blank-lines": false,
+    "no-default-export": true,
     "no-empty-interface": false,
     "no-unused-expression": true,
     "no-shadowed-variable": [
