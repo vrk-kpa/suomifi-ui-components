@@ -3,7 +3,7 @@
 exports[`calling render with the same component on the same container does not remount 1`] = `
 <button
   aria-disabled="false"
-  class="css-un80hf"
+  class="css-uetvij"
   data-testid="button"
   tabindex="0"
   type="button"
