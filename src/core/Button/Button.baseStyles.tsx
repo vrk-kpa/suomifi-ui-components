@@ -15,7 +15,12 @@ const negativeStyles = (theme: Theme) => css`
   text-shadow: none;
 
   &:hover {
-    background: ${theme.gradients.lightNegative};
+    background: ${theme.gradients.lightNegative},
+      linear-gradient(
+        0deg,
+        ${theme.colors.secondaryColor} 0%,
+        ${theme.colors.secondaryColor} 100%
+      );
   }
 
   &:focus {
