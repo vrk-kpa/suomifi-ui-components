@@ -1,9 +1,101 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
+.emotion-0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-appearance: button;
+  box-sizing: border-box;
+  line-height: 1;
+  display: inline-block;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #282828;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  padding: 10px 20px;
+  min-height: 40px;
+  color: #FFFFFF;
+  background: linear-gradient(0deg,#2562a7 0%,#2A6EBB 100%);
+  border-radius: 2px;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  white-space: nowrap;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  -webkit-letter-spacing: 0.4px;
+  -moz-letter-spacing: 0.4px;
+  -ms-letter-spacing: 0.4px;
+  letter-spacing: 0.4px;
+  text-shadow: 0 1px 1px rgba(1,25,60,0.5);
+  cursor: pointer;
+}
+
+.emotion-0:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.emotion-0::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.emotion-0::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.emotion-0::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.emotion-0::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.emotion-0:hover {
+  background: linear-gradient(-180deg,#3f7cc1 0%,#2A6EBB 100%);
+}
+
+.emotion-0:focus {
+  outline-color: #ea7125;
+  outline-offset: 4px;
+  outline-style: auto;
+  outline-width: 5px;
+}
+
+.emotion-0:active {
+  background: linear-gradient(0deg,#1d4d83 0%,#2562a7 100%);
+}
+
+.emotion-0[disabled],
+.emotion-0:disabled {
+  background: linear-gradient(0deg,#A5ACB0 0%,#C9CDCF 100%);
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
 <button
   aria-disabled="false"
-  class="fi-button css-o5fjos-fi-button"
+  class="fi-button emotion-0"
   data-testid="button"
   tabindex="0"
   type="button"
