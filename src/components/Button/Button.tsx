@@ -1,5 +1,5 @@
 import React, { Component, MouseEvent, ReactNode } from 'react';
-import { HtmlButton, HtmlButtonProps } from '../../reset/HtmlButton';
+import { HtmlButton, HtmlButtonProps } from '../../reset';
 
 export interface ButtonProps extends HtmlButtonProps {
   /** Custom classname to extend or customize */

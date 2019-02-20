@@ -1,2 +1,1 @@
-export { HtmlButton } from './HtmlButton';
-export { HtmlButtonProps } from './HtmlButton';
+export { HtmlButton, HtmlButtonProps } from './HtmlButton/HtmlButton';
