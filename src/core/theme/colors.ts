@@ -161,3 +161,13 @@ export const gradients = {
   } 100%)`,
   gray: `linear-gradient(0deg, ${palette.gray} 0%, ${palette.gray60} 100%)`,
 };
+
+export const outlines = {
+  basic: `outline-color: ${colors.focusRing};
+    outline-offset: 4px;
+    outline-style: auto;
+    outline-width: 5px;`,
+  input: `outline: 0;
+    box-shadow: 0 0 3px 0 ${colors.secondaryColor};
+    border-color: ${colors.secondaryColor};`,
+};

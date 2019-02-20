@@ -1,5 +1,5 @@
 import { typography } from './typography';
-import { colors, shadows, gradients } from './colors';
+import { colors, shadows, gradients, outlines } from './colors';
 
 export type Theme = typeof suomifiTheme;
 
@@ -13,4 +13,5 @@ export const suomifiTheme = {
   colors,
   shadows,
   gradients,
+  outlines,
 };
