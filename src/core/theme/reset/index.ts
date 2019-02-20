@@ -13,6 +13,20 @@ export const element = css`
   vertical-align: baseline;
 `;
 
+export const input = css`
+  ${element}
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 12px;
+  border: 1px solid ${suomifiTheme.colors.elementBorder};
+  border-radius: 2px;
+
+  &:focus {
+    ${suomifiTheme.outlines.input}
+    border-radius: 4px;
+  }
+`;
+
 export const nav = css`
   ${element}
   display: block;
