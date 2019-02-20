@@ -115,6 +115,9 @@ export const colors = {
   secondaryColor: palette.lake,
   invertBgrDark: palette.lakeDark,
   focusRing: palette.cloudberry,
+  elementBorder: palette.gray60,
+  elementHover: palette.lakeExtralight,
+  caret: palette.grayK40,
   // secondaryBackground: palette.lakeDark,
   // text: '#fff',
   // background: '#212121',
@@ -123,6 +126,7 @@ export const colors = {
   // title: '#fff',
   // alert: '#d9534f',
   // border: '#666',
+  // ...palette,
 };
 
 export type IShadows = typeof shadows;
