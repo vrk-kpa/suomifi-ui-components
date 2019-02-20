@@ -55,10 +55,15 @@ module.exports = {
   },
   Type: {
     type: {
-      position: 'relative',
       display: 'block',
-      overflowY: 'hidden',
-      maxHeight: '4.5em',
+      overflowY: 'auto',
+      maxHeight: '6em',
+      minWidth: '20vw',
+    },
+  },
+  Table: {
+    cell: {
+      position: 'relative',
       '&:after': {
         display: 'block',
         content: '""',
@@ -67,7 +72,8 @@ module.exports = {
         height: '100%',
         width: '100%',
         background:
-          'linear-gradient(180deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 3em, rgba(255, 255, 255, 1) 4.5em)',
+          'linear-gradient(180deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 4.5em, rgba(255, 255, 255, 1) 6em)',
+        pointerEvents: 'none',
       },
     },
   },
