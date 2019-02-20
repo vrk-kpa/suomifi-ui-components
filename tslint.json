@@ -40,6 +40,7 @@
     "one-line": false,
     "one-variable-per-declaration": false,
     "ordered-imports": false,
+    "prefer-array-literal": false,
     "quotemark": [true, "single", "jsx-double"],
     "react-a11y-anchors": true,
     "react-a11y-aria-unsupported-elements": true,
