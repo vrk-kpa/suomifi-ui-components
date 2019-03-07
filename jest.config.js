@@ -37,6 +37,8 @@ module.exports = {
   moduleFileExtensions: tsjPreset.moduleFileExtensions,
 
   setupTestFrameworkScriptFile: require.resolve('./jest.setup.js'),
+
+  snapshotSerializers: ['jest-emotion'],
   moduleNameMapper: {
     '\\.css$': 'identity-obj-proxy',
   },
