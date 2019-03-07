@@ -1,9 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
+.emotion-0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-appearance: button;
+  box-sizing: border-box;
+  line-height: 1;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.emotion-0:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.emotion-0::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.emotion-0::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.emotion-0::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.emotion-0::-webkit-outer-spin-button {
+  height: auto;
+}
+
 <button
   aria-disabled="false"
-  class="css-un80hf"
+  class="emotion-0"
   data-testid="button"
   tabindex="0"
   type="button"
