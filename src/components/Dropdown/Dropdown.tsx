@@ -32,13 +32,13 @@ interface DropdownLinkProps {
   children: ReactNode;
 }
 
-type DropdownListItems = [DropdownItemProps | DropdownLinkProps];
+type DropdownListItems = DropdownItemProps | DropdownLinkProps;
 
 export interface DropdownProps extends MenuNameProps {
   /** Custom classname to extend or customize */
   className?: string;
   /** Dropdown items */
-  children: DropdownListItems;
+  children?: Array<React.ReactElement<DropdownListItems>>;
 }
 
 interface MenuNameProps {
