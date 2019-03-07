@@ -37,4 +37,7 @@ module.exports = {
   moduleFileExtensions: tsjPreset.moduleFileExtensions,
 
   setupTestFrameworkScriptFile: require.resolve('./jest.setup.js'),
+  moduleNameMapper: {
+    '\\.css$': 'identity-obj-proxy',
+  },
 };
