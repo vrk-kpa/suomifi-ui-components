@@ -40,6 +40,6 @@ module.exports = {
 
   snapshotSerializers: ['jest-emotion'],
   moduleNameMapper: {
-    '\\.css$': 'identity-obj-proxy',
+    '\\.css$': '<rootDir>/jest.styleMock.js',
   },
 };
