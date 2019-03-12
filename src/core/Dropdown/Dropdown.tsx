@@ -12,8 +12,6 @@ import {
 export {
   DropdownItem,
   DropdownItemProps,
-  DropdownLink,
-  DropdownLinkProps,
 } from '../../components/Dropdown/Dropdown';
 
 export interface DropdownProps extends CompDropdownProps, ThemeComponent {}

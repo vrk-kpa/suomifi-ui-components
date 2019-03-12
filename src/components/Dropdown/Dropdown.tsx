@@ -1,44 +1,32 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, ReactElement } from 'react';
 import {
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   MenuItemProps,
-  MenuLink,
-  MenuLinkProps,
 } from '@reach/menu-button';
 import { logger } from '../../utils/logger';
 import '@reach/menu-button/styles.css';
 
-export {
-  MenuItem as DropdownItem,
-  MenuItemProps as DropdownItemProps,
-  MenuLink as DropdownLink,
-  MenuLinkProps as DropdownLinkProps,
-};
+export { MenuItem as DropdownItem };
 
-interface DropdownItemProps {
+export interface DropdownItemProps {
   /** Operation to run on select */
   onSelect: () => void;
   /** Item content */
   children: ReactNode;
 }
 
-interface DropdownLinkProps {
-  /** Url to direct to */
-  href: string;
-  /** Item content */
-  children: ReactNode;
-}
-
-type DropdownListItems = DropdownItemProps | DropdownLinkProps;
+type DropdownListItems = DropdownItemProps;
 
 export interface DropdownProps extends MenuNameProps {
   /** Custom classname to extend or customize */
   className?: string;
-  /** Dropdown items */
-  children?: Array<React.ReactElement<DropdownListItems>>;
+  /** Array of DropdownItem's */
+  children?:
+    | Array<ReactElement<DropdownListItems>>
+    | ReactElement<DropdownListItems>;
 }
 
 interface MenuNameProps {
