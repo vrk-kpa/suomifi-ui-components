@@ -15,12 +15,13 @@
 
 <Button
   icon="login"
+  aria-label="Login"
 >
-  Button icon="login"
+  Button icon="login" aria-label="Login"
 </Button>
 
-<Button iconRight="login">
-  Button iconRight="login"
+<Button iconRight="login" aria-labelledby="button-label">
+  <span id="button-label">Login</span> iconRight="login" aria-labelledby="button-label"
 </Button>
 
 
