@@ -26,7 +26,7 @@ import { Button } from 'suomifi-ui-components';
 ReactDOM.render(<Button />, mountNode);
 ```
 
-### 🕶 Extending styles
+### ⛱ Extending styles
 
 Components' styles can be customized with [Styled Components](https://github.com/styled-components/styled-components) / [Emotion](https://github.com/emotion-js/emotion):
 
@@ -34,7 +34,7 @@ Components' styles can be customized with [Styled Components](https://github.com
 styled(Button)...
 ```
 
-and with CSS-ClassName:
+**or** using CSS-ClassName:
 
 ```javascript
 <Button className="button--custom">Example</Button>
@@ -46,7 +46,16 @@ and with CSS-ClassName:
 }
 ```
 
-Don't use ~~!important~~, if really needed - for specificity hack you can use `.fi-button.button--custom.button--custom {...}`
+Don't use ~~!important~~, if really really needed - for specificity hack you can define styles using classNames multiple times `.fi-button.button--custom.button--custom {...}`
+
+### 🕶 Using bare accessible components
+
+Import accessible components without suomi.fi-styles from library `'suomifi-ui-components/components'`
+
+```jsx
+import { Button } from 'suomifi-ui-components/components';
+ReactDOM.render(<Button />, mountNode);
+```
 
 ## 🔮 FAQ
 
