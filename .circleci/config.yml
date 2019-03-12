@@ -6,34 +6,34 @@ jobs:
     steps:
       - checkout
       - restore_cache: # special step to restore the dependency cache
-        # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-        name: Restore Yarn Package Cache
-        keys:
-          - yarn-packages-{{ checksum "yarn.lock" }}
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
-        name: Install Dependencies
-        command: yarn install --frozen-lockfile
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
       - save_cache: # special step to save the dependency cache
-        name: Save Yarn Package Cache
-        key: yarn-packages-{{ checksum "yarn.lock" }}
-        paths:
-          - ~/.cache/yarn
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
       - run:
-        name: Install JUnit coverage reporter
-        command: yarn add --dev jest-junit
+          name: Install JUnit coverage reporter
+          command: yarn add --dev jest-junit
       - run: # run tests
-        name: Run tests with JUnit as reporter
-        command: jest --ci --runInBand --reporters=default --reporters=jest-junit
-        environment:
-          JEST_JUNIT_OUTPUT: 'reports/junit/js-test-results.xml'
+          name: Run tests with JUnit as reporter
+          command: jest --ci --runInBand --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT: 'reports/junit/js-test-results.xml'
       - run:
-        name: 'JavaScript Linter'
-        # yarn here makes sure we are using the local jest binary
-        command: yarn eslint --config .eslintrc --format junit -o reports/junit/js-lint-results.xml src/**/*.tsx
+          name: 'JavaScript Linter'
+          # yarn here makes sure we are using the local jest binary
+          command: yarn eslint --config .eslintrc --format junit -o reports/junit/js-lint-results.xml src/**/*.tsx
       - store_artifacts: # special step to save test results as as artifact
-        # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-        path: reports/junit
-        prefix: tests
+          # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
+          path: reports/junit
+          prefix: tests
       - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-        path: reports/junit
-      # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
+          path: reports/junit
+          # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
