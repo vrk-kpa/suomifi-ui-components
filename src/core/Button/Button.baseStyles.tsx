@@ -107,10 +107,7 @@ export const baseStyles = ({
   }
 
   &:focus {
-    outline-color: ${theme.colors.focusRing};
-    outline-offset: 4px;
-    outline-style: auto;
-    outline-width: 5px;
+    ${theme.outlines.basic}
   }
 
   &:active {

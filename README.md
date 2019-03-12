@@ -4,7 +4,7 @@ Suomi.fi-styleguide in React components (and style exports).
 
 ## ✨ Features
 
-- React-components (>=16.3)
+- React-components (>=16.3) with Typescript support
 - (TBD: styled-theme, reset-tags, css-export)
 
 Uses [React 16.6.3](https://github.com/facebook/react) with [Emotion](https://github.com/emotion-js/emotion) and written in [TypeScript](https://github.com/Microsoft/TypeScript). [Styleguidist](https://github.com/styleguidist/react-styleguidist) for presenting components.
@@ -16,10 +16,7 @@ For testing: [React-testing-library](https://github.com/kentcdodds/react-testing
 ## 📦 Install
 
 ```bash
-yarn add https://github.com/vrk-kpa/suomifi-ui-components.git`
-cd node_modules/suomifi-ui-components
-yarn
-yarn build
+yarn add suomifi-ui-components
 ```
 
 ## 🔨 Usage
@@ -50,6 +47,10 @@ and with CSS-ClassName:
 ```
 
 Don't use ~~!important~~, if really needed - for specificity hack you can use `.fi-button.button--custom.button--custom {...}`
+
+## 🔮 FAQ
+
+See [FAQ.md](/FAQ.md).
 
 ## ⌨️ Development
 
