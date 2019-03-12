@@ -20,45 +20,52 @@ export interface DropdownItemProps {
 
 type DropdownListItems = DropdownItemProps;
 
-export interface DropdownProps extends MenuNameProps {
+export interface DropdownProps {
+  /** Name to show for the dropdown */
+  name: ReactNode;
+  /** Change name by selection
+   * @default true
+   */
+  changeNameToSelection?: boolean;
   /** Custom classname to extend or customize */
   className?: string;
-  /** Array of DropdownItem's */
+  /** DropdownItems */
   children?:
     | Array<ReactElement<DropdownListItems>>
     | ReactElement<DropdownListItems>;
 }
 
-interface MenuNameProps {
-  /** Name to show for the dropdown, after selection give selections name */
-  name: string;
-}
+const list = (children: ReactNode) =>
+  React.Children.map(children, (child: React.ReactElement<MenuItemProps>) => {
+    const { children: childChildren } = child.props;
+    if (
+      React.isValidElement(child) &&
+      !!childChildren &&
+      typeof childChildren === 'string'
+    ) {
+      return React.cloneElement(child, {
+        onSelect: () => {
+          child.props.onSelect();
+          this.changeName.bind(this)(childChildren);
+        },
+      });
+    }
+    return child;
+  });
 
 export class Dropdown extends Component<DropdownProps> {
   state = { selectedName: undefined };
 
-  changeName = (name: string) => this.setState({ selectedName: name });
-
-  list = (children: ReactNode) =>
-    React.Children.map(children, (child: React.ReactElement<MenuItemProps>) => {
-      const { children: childChildren } = child.props;
-      if (
-        React.isValidElement(child) &&
-        !!childChildren &&
-        typeof childChildren === 'string'
-      ) {
-        return React.cloneElement(child, {
-          onSelect: () => {
-            child.props.onSelect();
-            this.changeName.bind(this)(childChildren);
-          },
-        });
-      }
-      return child;
-    });
+  changeName = (name: ReactNode) => this.setState({ selectedName: name });
 
   render() {
-    const { children, name, className, ...passProps } = this.props;
+    const {
+      children,
+      name,
+      className,
+      changeNameToSelection = true,
+      ...passProps
+    } = this.props;
     const { selectedName } = this.state;
 
     if (React.Children.count(children) < 1) {
@@ -70,7 +77,9 @@ export class Dropdown extends Component<DropdownProps> {
       <span className={className}>
         <Menu {...passProps}>
           <MenuButton>{!!selectedName ? selectedName : name}</MenuButton>
-          <MenuList>{this.list(this.props.children)}</MenuList>
+          <MenuList>
+            {!!changeNameToSelection ? list(children) : children}
+          </MenuList>
         </Menu>
       </span>
     );
