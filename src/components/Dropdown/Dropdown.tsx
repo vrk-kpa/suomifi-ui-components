@@ -35,28 +35,28 @@ export interface DropdownProps {
     | ReactElement<DropdownListItems>;
 }
 
-const list = (children: ReactNode) =>
-  React.Children.map(children, (child: React.ReactElement<MenuItemProps>) => {
-    const { children: childChildren } = child.props;
-    if (
-      React.isValidElement(child) &&
-      !!childChildren &&
-      typeof childChildren === 'string'
-    ) {
-      return React.cloneElement(child, {
-        onSelect: () => {
-          child.props.onSelect();
-          this.changeName.bind(this)(childChildren);
-        },
-      });
-    }
-    return child;
-  });
-
 export class Dropdown extends Component<DropdownProps> {
   state = { selectedName: undefined };
 
   changeName = (name: ReactNode) => this.setState({ selectedName: name });
+
+  list = (children: ReactNode) =>
+    React.Children.map(children, (child: React.ReactElement<MenuItemProps>) => {
+      const { children: childChildren } = child.props;
+      if (
+        React.isValidElement(child) &&
+        !!childChildren &&
+        typeof childChildren === 'string'
+      ) {
+        return React.cloneElement(child, {
+          onSelect: () => {
+            child.props.onSelect();
+            this.changeName.bind(this)(childChildren);
+          },
+        });
+      }
+      return child;
+    });
 
   render() {
     const {
@@ -78,7 +78,7 @@ export class Dropdown extends Component<DropdownProps> {
         <Menu {...passProps}>
           <MenuButton>{!!selectedName ? selectedName : name}</MenuButton>
           <MenuList>
-            {!!changeNameToSelection ? list(children) : children}
+            {!!changeNameToSelection ? this.list(children) : children}
           </MenuList>
         </Menu>
       </span>
