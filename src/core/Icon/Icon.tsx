@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { suomifiTheme } from '../theme';
-import { ariaLabelOrHidden } from '../../components/utils/aria';
+import {
+  ariaLabelOrHidden,
+  ariaFocusableNoLabel,
+} from '../../components/utils/aria';
 import classnames from 'classnames';
 import {
   Icon as CompIcon,
@@ -43,6 +46,7 @@ export class Icon extends Component<IconProps> {
           {...rest}
           icon={icon}
           {...ariaLabelOrHidden(ariaLabel)}
+          {...ariaFocusableNoLabel(ariaLabel)}
           className={classnames(propsClassName, className)}
         />
       );
