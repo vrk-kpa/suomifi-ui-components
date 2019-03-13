@@ -9,7 +9,7 @@ import {
   Icon as CompIcon,
   IconProps as CompIconProps,
 } from '../../components/Icon/Icon';
-import { Omit } from '../utils/typescript';
+import { Omit } from '../../utils/typescript';
 import { SuomifiIcon, IconKeys } from 'suomifi-icons';
 export { IconKeys } from 'suomifi-icons';
 

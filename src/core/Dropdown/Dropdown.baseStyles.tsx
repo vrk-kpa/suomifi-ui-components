@@ -2,7 +2,7 @@ import { css } from '@emotion/core';
 import { suomifiTheme } from '../theme';
 import { DropdownProps } from './Dropdown';
 import { element, input, font } from '../theme/reset';
-import { Omit } from '../utils/typescript';
+import { Omit } from '../../utils/typescript';
 
 export const baseStyles = ({
   theme = suomifiTheme,
