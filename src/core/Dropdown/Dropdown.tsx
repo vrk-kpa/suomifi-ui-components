@@ -20,7 +20,13 @@ const baseClassName = 'fi-dropdown';
 
 const StyledDropdown = styled(
   ({ theme, className, ...props }: DropdownProps) => (
-    <CompDropdown {...props} className={classnames(className, baseClassName)} />
+    <CompDropdown
+      {...props}
+      className={classnames(className, baseClassName)}
+      dropdownButtonClassName="fi-dropdown-button"
+      dropdownItemClassName="fi-dropdown-item"
+      dropdownListClassName="fi-dropdown-list"
+    />
   ),
 )`
   label: ${baseClassName};

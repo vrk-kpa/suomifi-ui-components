@@ -3,11 +3,12 @@ import { suomifiTheme } from '../theme';
 import { DropdownProps } from './Dropdown';
 import { element, input, font } from '../theme/reset';
 import { Omit } from '../../utils/typescript';
+import { dataReachMenu } from '../Menu/Menu.baseStyles';
 
 export const baseStyles = ({
   theme = suomifiTheme,
 }: Omit<DropdownProps, 'name'>) => css`
-  & > [data-reach-menu-button] {
+  & > [data-reach-menu-button].fi-dropdown-button {
     ${input}
     ${font}
     position: relative;
@@ -30,20 +31,15 @@ export const baseStyles = ({
 `;
 
 export const globalStyles = ({ theme = suomifiTheme }: DropdownProps) => css`
-  [data-reach-menu] {
-    ${element}
-    ${font}
-    margin-top: -2px;
-    font-family: inherit;
-  }
+  ${dataReachMenu}
 
-  [data-reach-menu-list] {
+  [data-reach-menu-list].fi-dropdown-list {
     ${element}
     ${font}
     padding: 0;
     font-size: 100%;
     border: 0;
-    background-color: white;
+    background-color: ${theme.colors.white};
     border-color: ${theme.colors.elementBorder};
     border-style: solid;
     border-width: 0 1px 1px 1px;
@@ -51,7 +47,7 @@ export const globalStyles = ({ theme = suomifiTheme }: DropdownProps) => css`
     overflow: hidden;
   }
 
-  [data-reach-menu-item] {
+  [data-reach-menu-item].fi-dropdown-item {
     ${element}
     ${font}
     padding: 8px 12px;
@@ -59,7 +55,8 @@ export const globalStyles = ({ theme = suomifiTheme }: DropdownProps) => css`
     &[data-selected] {
       ${font}
       color: ${theme.colors.text};
-      background: ${theme.colors.elementHover} none;
+      background-image: none;
+      background-color: ${theme.colors.elementHover};
       border: 0;
     }
   }
