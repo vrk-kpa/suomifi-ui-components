@@ -1,6 +1,6 @@
 import { css } from '@emotion/core';
 import { suomifiTheme } from '../';
-export { font } from './typography';
+export { font, fontInput, fontSemibold } from './typography';
 
 export const element = css`
   margin: 0;
