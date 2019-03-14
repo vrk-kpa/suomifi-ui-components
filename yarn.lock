@@ -221,22 +221,22 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@reach/component-component@^0.1.2":
+"@reach/component-component@^0.1.1", "@reach/component-component@^0.1.2":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@reach/component-component/-/component-component-0.1.2.tgz#f3c2a53de56d54c8f0ee398485d5831d66e3cc34"
   integrity sha512-LSsLxBA13qLsfjLtytiuB0siVJSTp0h3hhlJybr90Ynx1SuQ4pRtMi5aUIk7HM3wDswj22YbGC2zOpzibNyN3w==
 
-"@reach/menu-button@0.1.8":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@reach/menu-button/-/menu-button-0.1.8.tgz#922f632a63d132d46a6255217f4e70670ff150ff"
-  integrity sha512-oYIWe5C88f5DP8Lis9IRZdM4/uvNnjac+nX2+awwGhdJESO1DvDvT0LV0p6c9pWiQWzcPrRbHdpdh3gr9mKGdA==
+"@reach/menu-button@0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@reach/menu-button/-/menu-button-0.1.7.tgz#48666636b5774066839a312e37cc03f0bd770bad"
+  integrity sha512-xPweR+luu5sgW8OeRHt8SN3dlV3d8S6fqABXAqfuI5Aebq0lOcSxZuL2gxlpH742OzrkjteBE/LV5Jt0vJUsOA==
   dependencies:
-    "@reach/component-component" "^0.1.2"
-    "@reach/portal" "^0.1.2"
-    "@reach/rect" "^0.1.2"
+    "@reach/component-component" "^0.1.1"
+    "@reach/portal" "^0.1.1"
+    "@reach/rect" "^0.1.1"
     "@reach/router" "^1.1.0"
     "@reach/utils" "^0.1.2"
-    "@reach/window-size" "^0.1.2"
+    "@reach/window-size" "^0.1.1"
     warning "^4.0.2"
 
 "@reach/observe-rect@^1.0.3":
@@ -244,14 +244,14 @@
   resolved "https://registry.yarnpkg.com/@reach/observe-rect/-/observe-rect-1.0.3.tgz#2ea3dcc369ab22bd9f050a92ea319321356a61e8"
   integrity sha1-LqPcw2mrIr2fBQqS6jGTITVqYeg=
 
-"@reach/portal@^0.1.2":
+"@reach/portal@^0.1.1":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@reach/portal/-/portal-0.1.2.tgz#4c3cb4e587be73f172362c4938d7526794adc2c0"
   integrity sha512-9jvdmlThI4l5MpNiN2S0235TmzN99pafD6K6tKMUHsEzIhmIIn5qap6Yx06LE96bHj2D2LARbQV5oVBzaKjLFg==
   dependencies:
     "@reach/component-component" "^0.1.2"
 
-"@reach/rect@^0.1.2":
+"@reach/rect@^0.1.1":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@reach/rect/-/rect-0.1.2.tgz#8f5dbd90152f8e865cc6c1622266403dcfe26691"
   integrity sha512-2zgOdngtfAiykcVrjsgyjBhLItqc0TpuMCK0RrYydkhjKuHazjhtB5NEGuzp3TFDl3dlR++U28P55Gt4MkN3+g==
@@ -275,7 +275,7 @@
   resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.1.2.tgz#72f547b5c9b0401a56de303d9e508abf6d3fa56a"
   integrity sha512-HpDR5BeCApr3HufQtpg0P5b9sl0S66zikZSMtC/2jZBvrDzjVaT9O8PbKTQqW0PdkMNrnBkX1UtlrrM1TN3/Og==
 
-"@reach/window-size@^0.1.2":
+"@reach/window-size@^0.1.1":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@reach/window-size/-/window-size-0.1.2.tgz#52e02dfef86a922344493242e1e366b5a2b6a3d6"
   integrity sha512-R3wdjy/AWMIfLPjU/XduC30CqZWwdwM7q3F571F5DgeQaJIw1EKF1/nVFoZc9Jw9/+y+0QGBU0OlMKDMc5ekfA==
@@ -8198,10 +8198,10 @@ style-loader@0.23.1, style-loader@^0.23.1:
     loader-utils "^1.1.0"
     schema-utils "^1.0.0"
 
-suomifi-icons@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-0.0.1.tgz#c0ba91b6fc42d3147efef427c51c390f6d947412"
-  integrity sha512-tYMkJjOn0rIdN1/3Xx7WRa9/aQn7h/LdzF08DGsUi3ihZlMdskFEJ+mdG0ymmxpxDxzOw1+GRtNFyyO/g3BhSg==
+suomifi-icons@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-0.0.2.tgz#6cabebcce78cbc311496f7b4bb1fd278847c45c8"
+  integrity sha512-AumRVP/4BbIRhirBzaTHILvSYZwHuhBidCrQxY2HIaRoV5AzMU2ySs/vWXHi7+Hmh5rC37Lph21sd8X2TbzXCw==
   dependencies:
     "@types/react" "16.7.20"
     "@types/react-dom" "16.0.11"

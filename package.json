@@ -91,12 +91,12 @@
   "dependencies": {
     "@emotion/core": "10.0.0",
     "@emotion/styled": "10.0.0",
-    "@reach/menu-button": "0.1.8",
+    "@reach/menu-button": "0.1.7",
     "classnames": "2.2.6",
     "normalize.cssinjs": "1.0.5",
     "polished": "2.3.1",
     "react-svg": "7.2.2",
-    "suomifi-icons": "0.0.1"
+    "suomifi-icons": "0.0.2"
   },
   "peerDependencies": {
     "react": "16.6.3",
