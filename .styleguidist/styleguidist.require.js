@@ -1,9 +1,11 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var ReachMenuButton = require('@reach/menu-button');
-var { MenuItem: DropdownItem } = ReachMenuButton;
+var { DropdownItem } = require('../src/core/Dropdown/Dropdown');
+var { MenuItem, MenuLink } = require('../src/core/Menu/Menu');
 global.DropdownItem = DropdownItem;
+global.MenuItem = MenuItem;
+global.MenuLink = MenuLink;
 
 import '../src/core/theme/fontFaces.css';
 

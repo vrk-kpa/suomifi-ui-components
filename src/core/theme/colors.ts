@@ -133,6 +133,7 @@ export type IShadows = typeof shadows;
 
 export const shadows = {
   invertTextShadow: `0 1px 1px ${alphaHex50(palette.suomiDarkest)}`,
+  menuShadow: '0 2px 3px 0 rgba(0,0,0,.2)',
 };
 
 export type IGradients = typeof gradients;

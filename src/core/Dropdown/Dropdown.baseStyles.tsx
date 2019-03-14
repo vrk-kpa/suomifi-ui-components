@@ -31,7 +31,7 @@ export const baseStyles = ({
 `;
 
 export const globalStyles = ({ theme = suomifiTheme }: DropdownProps) => css`
-  ${dataReachMenu}
+  ${dataReachMenu(theme)}
 
   [data-reach-menu-list].fi-dropdown-list {
     ${element}
