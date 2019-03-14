@@ -128,9 +128,7 @@ export const baseStyles = ({
 `;
 
 export const iconBaseStyles = ({ right = false }: { right?: boolean }) => css`
-  display: inline-block;
   width: 16px;
   height: 16px;
   margin-${right ? 'left' : 'right'}: 8px;
-  vertical-align: text-bottom;
 `;
