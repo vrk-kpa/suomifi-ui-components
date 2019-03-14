@@ -1,76 +1,88 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, ReactElement } from 'react';
 import {
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   MenuItemProps,
-  MenuLink,
-  MenuLinkProps,
 } from '@reach/menu-button';
 import { logger } from '../../utils/logger';
 import '@reach/menu-button/styles.css';
 
-export {
-  MenuItem as DropdownItem,
-  MenuItemProps as DropdownItemProps,
-  MenuLink as DropdownLink,
-  MenuLinkProps as DropdownLinkProps,
-};
+export { MenuItem as DropdownItem };
 
-interface DropdownItemProps {
+export interface DropdownItemProps {
   /** Operation to run on select */
   onSelect: () => void;
   /** Item content */
   children: ReactNode;
 }
 
-interface DropdownLinkProps {
-  /** Url to direct to */
-  href: string;
-  /** Item content */
-  children: ReactNode;
-}
+type DropdownListItems = DropdownItemProps;
 
-type DropdownListItems = DropdownItemProps | DropdownLinkProps;
-
-export interface DropdownProps extends MenuNameProps {
+export interface DropdownProps {
+  /** Name to show for the dropdown */
+  name: ReactNode;
+  /** Change name by selection
+   * @default true
+   */
+  changeNameToSelection?: boolean;
   /** Custom classname to extend or customize */
   className?: string;
-  /** Dropdown items */
-  children?: Array<React.ReactElement<DropdownListItems>>;
-}
-
-interface MenuNameProps {
-  /** Name to show for the dropdown, after selection give selections name */
-  name: string;
+  /** Custom classname to extend or customize */
+  dropdownButtonClassName?: string;
+  /** Custom classname to extend or customize */
+  dropdownListClassName?: string;
+  /** Custom classname to extend or customize */
+  dropdownItemClassName?: string;
+  /** DropdownItems */
+  children?:
+    | Array<ReactElement<DropdownListItems>>
+    | ReactElement<DropdownListItems>;
 }
 
 export class Dropdown extends Component<DropdownProps> {
   state = { selectedName: undefined };
 
-  changeName = (name: string) => this.setState({ selectedName: name });
+  changeName = (name: ReactNode) => this.setState({ selectedName: name });
 
-  list = (children: ReactNode) =>
+  list = (
+    children: ReactNode,
+    changeNameToSelection: boolean,
+    dropdownItemClassname?: string,
+  ) =>
     React.Children.map(children, (child: React.ReactElement<MenuItemProps>) => {
       const { children: childChildren } = child.props;
-      if (
-        React.isValidElement(child) &&
+      const className = { className: dropdownItemClassname };
+      const isChildString =
+        !!changeNameToSelection &&
         !!childChildren &&
-        typeof childChildren === 'string'
-      ) {
+        typeof childChildren === 'string';
+      if (React.isValidElement(child)) {
         return React.cloneElement(child, {
-          onSelect: () => {
-            child.props.onSelect();
-            this.changeName.bind(this)(childChildren);
-          },
+          ...className,
+          ...(!!isChildString && {
+            onSelect: () => {
+              child.props.onSelect();
+              this.changeName.bind(this)(childChildren);
+            },
+          }),
         });
       }
       return child;
     });
 
   render() {
-    const { children, name, className, ...passProps } = this.props;
+    const {
+      children,
+      name,
+      className,
+      dropdownButtonClassName,
+      dropdownListClassName,
+      dropdownItemClassName,
+      changeNameToSelection = true,
+      ...passProps
+    } = this.props;
     const { selectedName } = this.state;
 
     if (React.Children.count(children) < 1) {
@@ -81,8 +93,12 @@ export class Dropdown extends Component<DropdownProps> {
     return (
       <span className={className}>
         <Menu {...passProps}>
-          <MenuButton>{!!selectedName ? selectedName : name}</MenuButton>
-          <MenuList>{this.list(this.props.children)}</MenuList>
+          <MenuButton className={dropdownButtonClassName}>
+            {!!selectedName ? selectedName : name}
+          </MenuButton>
+          <MenuList className={dropdownListClassName}>
+            {this.list(children, changeNameToSelection, dropdownItemClassName)}
+          </MenuList>
         </Menu>
       </span>
     );
