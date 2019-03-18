@@ -15,17 +15,27 @@ export interface SvgProps {
   labelName?: string;
   /** Custom classname to extend or customize */
   className?: string;
+  /** Custom classname to SVG-element extend or customize */
+  svgClassName?: string;
+  /** Show mouse cursor as hand-pointer */
+  pointer?: boolean;
   testId?: string;
 }
 
 export const Svg = styled(
-  ({ color, labelName, ariaLabel, testId, ...props }: SvgProps) => {
+  ({ color, labelName, ariaLabel, testId, pointer, ...props }: SvgProps) => {
     const fill = !!color ? color : '';
+    const pointerStyle = !!pointer ? { cursor: 'pointer' } : {};
     return (
       <ReactSVG
         {...props}
         {...ariaLabelOrHidden(ariaLabel)}
-        svgStyle={{ fill, maxWidth: '100%', maxHeight: '100%' }}
+        svgStyle={{
+          fill,
+          maxWidth: '100%',
+          maxHeight: '100%',
+          ...pointerStyle,
+        }}
         role="img"
         data-testid={testId}
       />
@@ -34,4 +44,5 @@ export const Svg = styled(
 )`
   label: ${({ labelName }) => (!!labelName ? labelName : 'svg')};
   max-width: 100%;
+  ${({ pointer }) => !!pointer && ' * { cursor: pointer; }'}
 `;
