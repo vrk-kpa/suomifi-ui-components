@@ -6,7 +6,6 @@ import {
   ariaLabelOrHidden,
   ariaFocusableNoLabel,
 } from '../../components/utils/aria';
-import classnames from 'classnames';
 import {
   Icon as CompIcon,
   IconProps as CompIconProps,
@@ -14,6 +13,7 @@ import {
 import { Omit } from '../../utils/typescript';
 import { SuomifiIcon, SuomifiIconInterface, IconKeys } from 'suomifi-icons';
 export { IconKeys } from 'suomifi-icons';
+import { logger } from '../../utils/logger';
 
 export interface IconProps extends Omit<CompIconProps, 'src'> {
   /** Icon-name from suomifi-icons */
@@ -22,24 +22,34 @@ export interface IconProps extends Omit<CompIconProps, 'src'> {
   src?: string;
 }
 
-const baseClassName = 'fi-icon';
+const StyledIcon = styled(
+  ({
+    ariaLabel,
+    ...passProps
+  }: CompIconProps & {
+    ariaLabel?: string;
+  }) => (
+    <CompIcon
+      {...passProps}
+      {...ariaLabelOrHidden(ariaLabel)}
+      {...ariaFocusableNoLabel(ariaLabel)}
+    />
+  ),
+)`
+  ${iconBaseStyles}
+`;
 
 const StyledSuomifiIcon = styled(
   ({
     ariaLabel,
-    propsClassName,
-    className,
     ...passProps
   }: SuomifiIconInterface & {
     ariaLabel?: string;
-    propsClassName?: string;
-    className?: string;
   }) => (
     <SuomifiIcon
       {...passProps}
       {...ariaLabelOrHidden(ariaLabel)}
       {...ariaFocusableNoLabel(ariaLabel)}
-      className={classnames(className, propsClassName, baseClassName)}
     />
   ),
 )`
@@ -56,32 +66,26 @@ export class Icon extends Component<IconProps> {
   };
 
   render() {
-    const {
-      src,
-      icon,
-      ariaLabel,
-      className: propsClassName,
-      ...rest
-    } = this.props;
+    const { src, icon, ...rest } = this.props;
+    const { className, ariaLabel } = this.props;
 
-    if (icon !== undefined) {
-      return (
-        <StyledSuomifiIcon
-          {...rest}
-          icon={icon}
-          ariaLabel={ariaLabel}
-          propsClassName={propsClassName}
-        />
-      );
+    if (!!src) {
+      return <StyledIcon src={src} {...rest} />;
     }
 
-    return !!src ? (
-      <CompIcon
-        src={src}
-        {...rest}
-        ariaLabel={ariaLabel}
-        className={classnames(propsClassName, baseClassName)}
-      />
-    ) : null;
+    if (icon !== undefined) {
+      return <StyledSuomifiIcon {...rest} icon={icon} />;
+    }
+
+    logger.warn(
+      `Icon ERROR${
+        !!ariaLabel
+          ? ` with aria-label: ${ariaLabel}`
+          : !!className
+          ? ` with className: ${className}`
+          : ''
+      }`,
+    );
+    return;
   }
 }
