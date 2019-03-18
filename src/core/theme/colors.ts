@@ -118,6 +118,8 @@ export const colors = {
   elementBorder: palette.gray60,
   elementHover: palette.lakeExtralight,
   caret: palette.grayK40,
+  toggleOn: palette.green,
+  toggleOnSlide: alphaHex50(palette.green),
   // secondaryBackground: palette.lakeDark,
   // text: '#fff',
   // background: '#212121',

@@ -8,7 +8,7 @@ exports[`calling render with the same component on the same container does not r
 
 <svg
   aria-hidden="true"
-  class="emotion-0 fi-icon"
+  class="emotion-0"
   data-testid="icon"
   focusable="false"
   height="1em"

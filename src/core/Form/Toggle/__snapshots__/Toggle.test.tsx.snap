@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calling render with the same component on the same container does not remount 1`] = `
+.emotion-3 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #282828;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 400;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  white-space: nowrap;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  background-color: #FFFFFF;
+}
+
+.emotion-3 .fi-toggle-label {
+  cursor: pointer;
+}
+
+.emotion-0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  overflow: visible;
+  box-sizing: border-box;
+  line-height: 1;
+  display: inline-block;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #282828;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 400;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  white-space: nowrap;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: -9999;
+  background-color: #FFFFFF;
+}
+
+.emotion-0::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+.emotion-2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  line-height: 1;
+  max-width: 100%;
+}
+
+.emotion-1 {
+  max-width: 100%;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: text-bottom;
+  width: 40px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.emotion-1 * {
+  cursor: pointer;
+}
+
+.emotion-1.fi-toggle-icon--checked .fi-toggle-icon-knob {
+  -webkit-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  transform: translateX(50%);
+}
+
+.emotion-1.fi-toggle-icon--checked .fi-toggle-icon-slide {
+  fill: rgba(0,179,138,0.5);
+}
+
+.emotion-1.fi-toggle-icon--checked .fi-toggle-icon-circle {
+  fill: #00B38A;
+}
+
+<span
+  class="emotion-3 fi-toggle"
+>
+  <input
+    class="fi-toggle-input emotion-0"
+    id="testaan"
+    type="checkbox"
+  />
+  <label
+    aria-labelledby="testaan"
+    class="fi-toggle-label emotion-2"
+    data-testid="toggle"
+  >
+    <div
+      aria-hidden="true"
+      class="fi-icon emotion-1"
+      focusable="false"
+      role="img"
+    >
+      <div>
+        <div
+          class="fi-toggle-icon-svg"
+          data-src="\\"toggle.svg\\""
+          src=""
+          style="fill:#003479;max-width:100%;max-height:100%;cursor:pointer"
+        />
+      </div>
+    </div>
+    Test
+  </label>
+</span>
+`;

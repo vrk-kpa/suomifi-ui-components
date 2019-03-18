@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import { Svg, SvgProps } from '../Svg/Svg';
+import classnames from 'classnames';
 
 export interface IconProps extends SvgProps {}
+
+const baseClassName = 'fi-icon';
 
 const StyledSvg = styled((props: SvgProps) => <Svg {...props} />)`
   display: inline-block;
@@ -16,6 +19,12 @@ export class Icon extends Component<IconProps> {
   };
 
   render() {
-    return <StyledSvg {...this.props} />;
+    const { className, ...passProps } = this.props;
+    return (
+      <StyledSvg
+        {...passProps}
+        className={classnames(className, baseClassName)}
+      />
+    );
   }
 }
