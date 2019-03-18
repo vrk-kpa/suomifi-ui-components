@@ -4,7 +4,7 @@ Suomi.fi-styleguide in React components (and style exports).
 
 ## ✨ Features
 
-- React-components (>=16.3)
+- React-components (>=16.3) with Typescript support
 - (TBD: styled-theme, reset-tags, css-export)
 
 Uses [React 16.6.3](https://github.com/facebook/react) with [Emotion](https://github.com/emotion-js/emotion) and written in [TypeScript](https://github.com/Microsoft/TypeScript). [Styleguidist](https://github.com/styleguidist/react-styleguidist) for presenting components.
@@ -16,10 +16,7 @@ For testing: [React-testing-library](https://github.com/kentcdodds/react-testing
 ## 📦 Install
 
 ```bash
-yarn add https://github.com/vrk-kpa/suomifi-ui-components.git`
-cd node_modules/suomifi-ui-components
-yarn
-yarn build
+yarn add suomifi-ui-components
 ```
 
 ## 🔨 Usage
@@ -29,7 +26,7 @@ import { Button } from 'suomifi-ui-components';
 ReactDOM.render(<Button />, mountNode);
 ```
 
-### 🕶 Extending styles
+### ⛱ Extending styles
 
 Components' styles can be customized with [Styled Components](https://github.com/styled-components/styled-components) / [Emotion](https://github.com/emotion-js/emotion):
 
@@ -37,7 +34,7 @@ Components' styles can be customized with [Styled Components](https://github.com
 styled(Button)...
 ```
 
-and with CSS-ClassName:
+**or** using CSS-ClassName:
 
 ```javascript
 <Button className="button--custom">Example</Button>
@@ -49,7 +46,20 @@ and with CSS-ClassName:
 }
 ```
 
-Don't use ~~!important~~, if really needed - for specificity hack you can use `.fi-button.button--custom.button--custom {...}`
+Don't use ~~!important~~, if really really needed - for specificity hack you can define styles using classNames multiple times `.fi-button.button--custom.button--custom {...}`
+
+### 🕶 Using bare accessible components
+
+Import accessible components without suomi.fi-styles from library `'suomifi-ui-components/components'`
+
+```jsx
+import { Button } from 'suomifi-ui-components/components';
+ReactDOM.render(<Button />, mountNode);
+```
+
+## 🔮 FAQ
+
+See [FAQ.md](/FAQ.md).
 
 ## ⌨️ Development
 

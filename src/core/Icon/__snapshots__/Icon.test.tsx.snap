@@ -1,10 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
+.emotion-0 {
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
 <svg
   aria-hidden="true"
-  class="fi-icon"
+  class="emotion-0"
   data-testid="icon"
+  focusable="false"
   height="1em"
   style="fill: #003479;"
   viewBox="0 0 24 24"

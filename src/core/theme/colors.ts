@@ -115,6 +115,11 @@ export const colors = {
   secondaryColor: palette.lake,
   invertBgrDark: palette.lakeDark,
   focusRing: palette.cloudberry,
+  elementBorder: palette.gray60,
+  elementHover: palette.lakeExtralight,
+  caret: palette.grayK40,
+  toggleOn: palette.green,
+  toggleOnSlide: alphaHex50(palette.green),
   // secondaryBackground: palette.lakeDark,
   // text: '#fff',
   // background: '#212121',
@@ -123,12 +128,14 @@ export const colors = {
   // title: '#fff',
   // alert: '#d9534f',
   // border: '#666',
+  // ...palette,
 };
 
 export type IShadows = typeof shadows;
 
 export const shadows = {
   invertTextShadow: `0 1px 1px ${alphaHex50(palette.suomiDarkest)}`,
+  menuShadow: '0 2px 3px 0 rgba(0,0,0,.2)',
 };
 
 export type IGradients = typeof gradients;
@@ -160,4 +167,14 @@ export const gradients = {
     palette.lakeDark
   } 100%)`,
   gray: `linear-gradient(0deg, ${palette.gray} 0%, ${palette.gray60} 100%)`,
+};
+
+export const outlines = {
+  basic: `outline-color: ${colors.focusRing};
+    outline-offset: 4px;
+    outline-style: auto;
+    outline-width: 5px;`,
+  input: `outline: 0;
+    box-shadow: 0 0 3px 0 ${colors.secondaryColor};
+    border-color: ${colors.secondaryColor};`,
 };

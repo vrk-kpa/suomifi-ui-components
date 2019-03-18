@@ -1,5 +1,5 @@
 import React, { Component, MouseEvent, ReactNode } from 'react';
-import { HtmlButton, HtmlButtonProps } from '../../reset/HtmlButton';
+import { HtmlButton, HtmlButtonProps } from '../../reset';
 
 export interface ButtonProps extends HtmlButtonProps {
   /** Custom classname to extend or customize */
@@ -14,6 +14,11 @@ export interface ButtonProps extends HtmlButtonProps {
    * Button element content
    */
   children?: ReactNode;
+  /**
+   * Define a label if children content does not indicate the button purpose,
+   * alternatively you can define aria-labelledby with label-element id
+   */
+  'aria-label'?: string;
 }
 
 export class Button extends Component<ButtonProps> {
