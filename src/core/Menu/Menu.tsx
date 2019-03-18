@@ -12,10 +12,11 @@ import {
   MenuListItemsProps,
   MenuItem as CompMenuItem,
   MenuItemProps,
-  MenuLink,
+  MenuLink as CompMenuLink,
   MenuLinkProps,
 } from '../../components/Menu/Menu';
-export { MenuItemProps, MenuLink, MenuLinkProps };
+
+export { MenuItemProps, MenuLinkProps };
 import { Icon, IconProps } from '../Icon/Icon';
 
 type ButtonVariant = 'default' | 'language';
@@ -99,6 +100,12 @@ export interface MenuLanguageItemProps extends MenuItemProps {
   className?: string;
 }
 
+export interface MenuLanguageLinkProps extends MenuLinkProps {
+  /** Show item as selected one */
+  selected?: boolean;
+  className?: string;
+}
+
 /**
  * Use for dropdown menu.
  */
@@ -107,12 +114,20 @@ export class Menu extends Component<MenuProps> {
     return <MenuVariation {...props} variant="language" />;
   };
 
+  static languageItem = (props: MenuLanguageItemProps) => {
+    return <MenuLanguageItem {...props} />;
+  };
+
+  static languageLink = (props: MenuLanguageLinkProps) => {
+    return <MenuLanguageLink {...props} />;
+  };
+
   render() {
     return <MenuVariation {...this.props} />;
   }
 }
 
-export const MenuItem = ({
+const MenuLanguageItem = ({
   selected,
   className,
   ...passProps
@@ -124,3 +139,36 @@ export const MenuItem = ({
     })}
   />
 );
+
+const MenuLanguageLink = ({
+  selected,
+  className,
+  ...passProps
+}: MenuLanguageLinkProps) => (
+  <CompMenuLink
+    {...passProps}
+    className={classnames(className, {
+      'fi-menu-lang-item-selected': selected,
+    })}
+  />
+);
+
+export class MenuItem extends Component<MenuItemProps> {
+  static language = (props: MenuLanguageItemProps) => {
+    return <MenuLanguageItem {...props} />;
+  };
+
+  render() {
+    return CompMenuItem;
+  }
+}
+
+export class MenuLink extends Component<MenuLinkProps> {
+  static language = (props: MenuLanguageLinkProps) => {
+    return <MenuLanguageLink {...props} />;
+  };
+
+  render() {
+    return CompMenuLink;
+  }
+}

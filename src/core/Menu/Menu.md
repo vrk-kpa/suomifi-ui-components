@@ -6,7 +6,7 @@
 </Menu>
 
 <Menu.language className="menu-language-test" name="FI">
-  <MenuItem onSelect={() => console.log('FI')} selected>Suomeksi (FI)</MenuItem>
-  <MenuLink href="/sv">På svenska (SV)</MenuLink>
+  <MenuItem.language onSelect={() => console.log('FI')} selected>Suomeksi (FI)</MenuItem.language>
+  <MenuLink.language href="/sv">På svenska (SV)</MenuLink.language>
 </Menu.language>
 ```
