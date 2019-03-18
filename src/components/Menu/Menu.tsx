@@ -18,7 +18,7 @@ export interface MenuItemProps {
   children: ReactNode;
 }
 
-type SupportedMenuLinkComponent = object | keyof JSX.IntrinsicElements;
+type SupportedMenuLinkComponent = keyof JSX.IntrinsicElements;
 
 export interface MenuLinkProps {
   type: 'menulink';
@@ -26,8 +26,8 @@ export interface MenuLinkProps {
   href: string;
   /** Item content */
   children: ReactNode;
-  component?: SupportedMenuLinkComponent;
   className?: string;
+  component?: SupportedMenuLinkComponent;
 }
 
 export type MenuListItemsProps = MenuItemProps | MenuLinkProps;
