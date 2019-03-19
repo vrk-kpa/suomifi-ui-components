@@ -1,8 +1,7 @@
 import { css } from '@emotion/core';
-import { suomifiTheme } from '../../theme';
+import { suomifiTheme, utils } from '../../theme';
 import { ToggleProps } from './Toggle';
 import { element, font } from '../../theme/reset';
-import { utils } from '../../theme';
 
 export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
   ${element}
