@@ -20,6 +20,10 @@ export interface DropdownItemProps {
 
 type DropdownListItems = DropdownItemProps;
 
+interface DropdownState {
+  selectedName: ReactNode;
+}
+
 export interface DropdownProps {
   /** Name to show for the dropdown */
   name: ReactNode;
@@ -42,7 +46,7 @@ export interface DropdownProps {
 }
 
 export class Dropdown extends Component<DropdownProps> {
-  state = { selectedName: undefined };
+  state: DropdownState = { selectedName: undefined };
 
   changeName = (name: ReactNode) => this.setState({ selectedName: name });
 
