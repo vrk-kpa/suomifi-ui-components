@@ -30,6 +30,13 @@ exports[`calling render with the same component on the same container does not r
   cursor: pointer;
 }
 
+.emotion-3 .fi-toggle-input:focus + .fi-toggle-label {
+  outline-color: #ea7125;
+  outline-offset: 4px;
+  outline-style: auto;
+  outline-width: 5px;
+}
+
 .emotion-0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
