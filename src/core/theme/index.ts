@@ -1,6 +1,7 @@
 import { typography } from './typography';
 import { colors, shadows, gradients, outlines } from './colors';
 import { zindexes } from './zindexes';
+import { focus } from './utils/focus';
 
 export type Theme = typeof suomifiTheme;
 
@@ -16,4 +17,8 @@ export const suomifiTheme = {
   gradients,
   outlines,
   zindexes,
+};
+
+export const utils = {
+  focus,
 };
