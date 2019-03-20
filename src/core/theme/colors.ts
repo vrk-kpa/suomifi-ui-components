@@ -1,4 +1,5 @@
 import { parseToRgb, toColorString, darken, lighten } from 'polished';
+import { boxshadowOutline } from './utils/outline';
 
 const palette = {
   black: '#282828',
@@ -170,11 +171,5 @@ export const gradients = {
 };
 
 export const outlines = {
-  basic: `outline-color: ${colors.focusRing};
-    outline-offset: 4px;
-    outline-style: auto;
-    outline-width: 5px;`,
-  input: `outline: 0;
-    box-shadow: 0 0 3px 0 ${colors.secondaryColor};
-    border-color: ${colors.secondaryColor};`,
+  basic: boxshadowOutline({ color: colors.focusRing, offset: '4px' }),
 };

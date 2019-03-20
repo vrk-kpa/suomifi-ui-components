@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { suomifiTheme } from '../';
+import { suomifiTheme, utils } from '../';
 export { font, fontInput, fontSemibold } from './typography';
 
 export const element = css`
@@ -15,16 +15,12 @@ export const element = css`
 
 export const input = css`
   ${element}
+  ${utils.focus({ theme: suomifiTheme })}
   min-width: 245px;
   max-width: 100%;
   padding: 8px 12px;
   border: 1px solid ${suomifiTheme.colors.elementBorder};
   border-radius: 2px;
-
-  &:focus {
-    ${suomifiTheme.outlines.input}
-    border-radius: 4px;
-  }
 `;
 
 export const nav = css`

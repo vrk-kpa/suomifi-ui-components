@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { suomifiTheme, Theme } from '../theme';
+import { suomifiTheme, Theme, utils } from '../theme';
 import { ButtonProps } from './Button';
 import { element, fontSemibold } from '../theme/reset';
 
@@ -16,10 +16,6 @@ const negativeStyles = (theme: Theme) => css`
 
   &:hover {
     background: ${theme.gradients.lightNegative};
-  }
-
-  &:focus {
-    outline-offset: -1px;
   }
 
   &:active {
@@ -90,6 +86,7 @@ export const baseStyles = ({
 }: ButtonProps) => css`
   ${element}
   ${fontSemibold}
+  ${utils.focus({ theme })}
   padding: 10px 20px;
   min-height: 40px;
   color: ${theme.colors.invertText};
@@ -102,10 +99,6 @@ export const baseStyles = ({
 
   &:hover {
     background: ${theme.gradients.light};
-  }
-
-  &:focus {
-    ${theme.outlines.basic}
   }
 
   &:active {
