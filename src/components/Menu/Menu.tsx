@@ -63,8 +63,10 @@ export class Menu extends Component<MenuProps> {
 
     return (
       <span className={className}>
-        <ReachMenu {...passProps}>
-          <MenuButton className={menuButtonClassName}>{name}</MenuButton>
+        <ReachMenu>
+          <MenuButton {...passProps} className={menuButtonClassName}>
+            {name}
+          </MenuButton>
           <MenuList className={menuListClassName}>{children}</MenuList>
         </ReachMenu>
       </span>
