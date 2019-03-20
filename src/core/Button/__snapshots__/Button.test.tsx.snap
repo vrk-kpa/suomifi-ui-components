@@ -70,15 +70,27 @@ exports[`calling render with the same component on the same container does not r
   height: auto;
 }
 
-.emotion-0:hover {
-  background: linear-gradient(-180deg,#3f7cc1 0%,#2A6EBB 100%);
+.emotion-0:focus {
+  outline: 0;
+  position: relative;
 }
 
-.emotion-0:focus {
-  outline-color: #ea7125;
-  outline-offset: 4px;
-  outline-style: auto;
-  outline-width: 5px;
+.emotion-0:focus:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid #ea7125;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 #ea7125;
+}
+
+.emotion-0:hover {
+  background: linear-gradient(-180deg,#3f7cc1 0%,#2A6EBB 100%);
 }
 
 .emotion-0:active {

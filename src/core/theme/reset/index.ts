@@ -1,6 +1,9 @@
 import { css } from '@emotion/core';
-import { suomifiTheme, utils } from '../';
-export { font, fontInput, fontSemibold } from './typography';
+import { suomifiTheme } from '../';
+import { focus as focusUtil } from '../utils/focus';
+export { font, fontSemibold, fontInput, fontPanelTitle } from './typography';
+
+export const focus = focusUtil({ theme: suomifiTheme });
 
 export const element = css`
   margin: 0;
@@ -15,7 +18,7 @@ export const element = css`
 
 export const input = css`
   ${element}
-  ${utils.focus({ theme: suomifiTheme })}
+  ${focus}
   min-width: 245px;
   max-width: 100%;
   padding: 8px 12px;

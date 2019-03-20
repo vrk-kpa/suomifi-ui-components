@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
-import { suomifiTheme, Theme, utils } from '../theme';
+import { suomifiTheme, Theme } from '../theme';
 import { MenuProps } from './Menu';
-import { element, font, fontInput, fontSemibold } from '../theme/reset';
+import { element, font, focus, fontInput, fontSemibold } from '../theme/reset';
 import { Omit } from '../../utils/typescript';
 
 export const baseStyles = ({
@@ -10,12 +10,12 @@ export const baseStyles = ({
   & > [data-reach-menu-button].fi-menu-button {
     ${element}
     ${font}
-    ${utils.focus({ theme })}
+    ${focus}
     &.fi-menu-language-button {
       ${element}
       ${fontSemibold}
       padding: 8px 6px 8px 10px;
-      border: 1px solid ${suomifiTheme.colors.elementBorder};
+      border: 1px solid ${theme.colors.elementBorder};
       border-radius: 2px;
       text-transform: uppercase;
     }

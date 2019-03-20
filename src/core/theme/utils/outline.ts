@@ -1,10 +1,12 @@
 export const boxshadowOutline = ({
   color = 'red',
   offset = '0',
-  borderRadius = '2px',
+  border = '1px',
+  borderRadius = '4px',
 }: {
   color?: string;
   offset?: string;
+  border?: string;
   borderRadius?: string;
 } = {}) => `outline: 0;
 position: relative;
@@ -17,5 +19,7 @@ position: relative;
   left: -${offset};
   border-radius: ${borderRadius};
   ${offset !== '0' ? 'background-color: transparent;' : ''}
+  border: ${border} solid ${color};
+  box-sizing: border-box;
   box-shadow: 0 0 10px 0 ${color};
 }`;
