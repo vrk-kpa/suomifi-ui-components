@@ -1,5 +1,6 @@
 import { css } from '@emotion/core';
-import { suomifiTheme, utils } from '../../theme';
+import { suomifiTheme } from '../../theme';
+import { focus } from '../../theme/utils/focus';
 import { ToggleProps } from './Toggle';
 import { element, font } from '../../theme/reset';
 
@@ -10,8 +11,11 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
   .fi-toggle-label {
     cursor: pointer;
   }
-  & .fi-toggle-input:focus + .fi-toggle-label {
-    ${utils.focus({ theme, noPseudo: true })}
+  & .fi-toggle-input:focus {
+    outline: 0;
+    & + .fi-toggle-label {
+      ${focus({ theme, noPseudo: true })}
+    }
   }
 `;
 
