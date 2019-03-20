@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
-import { suomifiTheme, Theme, utils } from '../theme';
+import { suomifiTheme, Theme } from '../theme';
 import { ButtonProps } from './Button';
-import { element, fontSemibold } from '../theme/reset';
+import { element, focus, fontSemibold } from '../theme/reset';
 
 const fullWidthStyles = css`
   display: block;
@@ -55,11 +55,6 @@ const secondaryStyles = (theme: Theme) => css`
   }
 `;
 
-const secondarySmallStyles = (theme: Theme) => css`
-  ${secondaryStyles(theme)}
-  min-height: 38px;
-`;
-
 const secondaryNoBorderStyles = (theme: Theme) => css`
   ${secondaryStyles(theme)}
   border: none;
@@ -86,7 +81,7 @@ export const baseStyles = ({
 }: ButtonProps) => css`
   ${element}
   ${fontSemibold}
-  ${utils.focus({ theme })}
+  ${focus}
   padding: 10px 20px;
   min-height: 40px;
   color: ${theme.colors.invertText};
@@ -115,7 +110,6 @@ export const baseStyles = ({
   ${fullWidth && fullWidthStyles}
   ${variant === 'negative' && negativeStyles(theme)}
   ${variant === 'secondary' && secondaryStyles(theme)}
-  ${variant === 'secondary-small' && secondarySmallStyles(theme)}
   ${variant === 'secondary-noborder' && secondaryNoBorderStyles(theme)}
   ${variant === 'tertiary' && tertiaryStyles(theme)}
 `;

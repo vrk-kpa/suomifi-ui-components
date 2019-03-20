@@ -14,7 +14,6 @@ type ButtonVariant =
   | 'default'
   | 'negative'
   | 'secondary'
-  | 'secondary-small'
   | 'secondary-noborder'
   | 'tertiary';
 
@@ -24,7 +23,7 @@ export interface ButtonProps extends CompButtonProps, ThemeComponent {
    */
   fullWidth?: boolean;
   /**
-   * 'default' | 'negative' | 'secondary' | 'secondary-small' | 'secondary-noborder' | 'tertiary'
+   * 'default' | 'negative' | 'secondary' | 'secondary-noborder' | 'tertiary'
    * @default default
    */
   variant?: ButtonVariant;
@@ -126,10 +125,6 @@ export class Button extends Component<ButtonProps> {
 
   static secondary = (props: ButtonProps) => {
     return <ButtonWithIcon {...props} variant="secondary" />;
-  };
-
-  static secondarySmall = (props: ButtonProps) => {
-    return <ButtonWithIcon {...props} variant="secondary-small" />;
   };
 
   static secondaryNoborder = (props: ButtonProps) => {
