@@ -90,7 +90,10 @@ class ButtonWithIcon extends Component<ButtonProps> {
     const { children, icon, iconRight, ...rest } = this.props;
     const { disabled, theme, variant } = rest;
     const secondaryOrTertiary =
-      !!variant && (variant === 'secondary' || variant === 'tertiary');
+      !!variant &&
+      (variant === 'secondary' ||
+        variant === 'secondary-noborder' ||
+        variant === 'tertiary');
     return (
       <StyledButton {...rest}>
         {!!icon && (
