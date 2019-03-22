@@ -19,9 +19,9 @@ export interface DropdownProps extends CompDropdownProps, ThemeComponent {}
 const baseClassName = 'fi-dropdown';
 
 const StyledDropdown = styled(
-  ({ theme, className, ...props }: DropdownProps) => (
+  ({ theme, className, ...passProps }: DropdownProps) => (
     <CompDropdown
-      {...props}
+      {...passProps}
       className={classnames(className, baseClassName)}
       dropdownButtonClassName="fi-dropdown-button"
       dropdownItemClassName="fi-dropdown-item"

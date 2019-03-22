@@ -45,9 +45,12 @@ const StyledButton = styled(
     fullWidth,
     variant,
     className,
-    ...props
+    ...passProps
   }: ButtonProps & { right?: boolean }) => (
-    <CompButton {...props} className={classnames(className, baseClassName)} />
+    <CompButton
+      {...passProps}
+      className={classnames(className, baseClassName)}
+    />
   ),
 )`
   label: ${({ disabled }) =>
