@@ -23,9 +23,9 @@ const StyledDropdown = styled(
     <CompDropdown
       {...passProps}
       className={classnames(className, baseClassName)}
-      dropdownButtonClassName="fi-dropdown-button"
-      dropdownItemClassName="fi-dropdown-item"
-      dropdownListClassName="fi-dropdown-list"
+      dropdownButtonProps={{ className: 'fi-dropdown-button' }}
+      dropdownItemProps={{ className: 'fi-dropdown-item' }}
+      dropdownListProps={{ className: 'fi-dropdown-list' }}
     />
   ),
 )`
