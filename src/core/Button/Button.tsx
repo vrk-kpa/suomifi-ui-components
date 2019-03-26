@@ -36,6 +36,10 @@ export interface ButtonProps extends CompButtonProps, ThemeComponent {
    * Icon from suomifi-theme to be placed on right side
    */
   iconRight?: IconKeys;
+  /**
+   * Properties given to Icon-component
+   */
+  iconProps?: IconProps;
 }
 
 const baseClassName = 'fi-button';
@@ -129,6 +133,7 @@ class ButtonWithIcon extends Component<ButtonProps> {
             icon={icon}
             right={false}
             color={iconColor({ theme, disabled, invert: secondaryOrTertiary })}
+            {...iconProps}
           />
         )}
         {children}
@@ -137,6 +142,7 @@ class ButtonWithIcon extends Component<ButtonProps> {
             icon={iconRight}
             right={true}
             color={iconColor({ theme, disabled, invert: secondaryOrTertiary })}
+            {...iconProps}
           />
         )}
       </StyledButton>
