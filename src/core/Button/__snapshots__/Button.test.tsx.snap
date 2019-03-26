@@ -89,6 +89,10 @@ exports[`calling render with the same component on the same container does not r
   box-shadow: 0 0 10px 0 #ea7125;
 }
 
+.emotion-0:focus:not(:focus-visible):after {
+  content: none;
+}
+
 .emotion-0:hover {
   background: linear-gradient(-180deg,#3f7cc1 0%,#2A6EBB 100%);
 }
