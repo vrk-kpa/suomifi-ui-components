@@ -11,10 +11,17 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
   .fi-toggle-label {
     cursor: pointer;
   }
-  & .fi-toggle-input:focus {
+  & .fi-toggle-input:focus,
+  & .fi-toggle-input:focus-visible {
     outline: 0;
     & + .fi-toggle-label {
       ${focus({ theme, noPseudo: true })}
+    }
+  }
+  & .fi-toggle-input:focus:not(:focus-visible) {
+    outline: 0;
+    &:after {
+      content: none;
     }
   }
 `;
