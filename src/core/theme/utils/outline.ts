@@ -22,4 +22,7 @@ position: relative;
   border: ${border} solid ${color};
   box-sizing: border-box;
   box-shadow: 0 0 10px 0 ${color};
+}
+&:not(:focus-visible):after {
+  content: none;
 }`;
