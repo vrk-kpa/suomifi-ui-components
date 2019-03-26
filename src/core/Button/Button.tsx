@@ -15,7 +15,8 @@ type ButtonVariant =
   | 'negative'
   | 'secondary'
   | 'secondary-noborder'
-  | 'tertiary';
+  | 'tertiary'
+  | 'unstyled';
 
 export interface ButtonProps extends CompButtonProps, ThemeComponent {
   /**
@@ -85,12 +86,34 @@ const iconColor = ({
   return undefined;
 };
 
+const UnstyledButton = (props: ButtonProps) => {
+  const {
+    className,
+    theme: dissmissTheme,
+    fullWidth: dissmissFullWidth,
+    variant: dissmissVariant,
+    icon: dismissIcon,
+    iconRight: dissmissIconRight,
+    ...passProps
+  } = props;
+  return (
+    <CompButton
+      {...passProps}
+      className={classnames(className, baseClassName)}
+    />
+  );
+};
+
 class ButtonWithIcon extends Component<ButtonProps> {
   static defaultProps = defaultPropsTheme(CompButton);
 
   render() {
     const { children, icon, iconRight, ...rest } = this.props;
     const { disabled, theme, variant } = rest;
+    if (variant === 'unstyled') {
+      return <UnstyledButton {...passProps} />;
+    }
+
     const secondaryOrTertiary =
       !!variant &&
       (variant === 'secondary' ||
@@ -136,6 +159,10 @@ export class Button extends Component<ButtonProps> {
 
   static tertiary = (props: ButtonProps) => {
     return <ButtonWithIcon {...props} variant="tertiary" />;
+  };
+
+  static unstyled = (props: ButtonProps) => {
+    return <UnstyledButton {...props} />;
   };
 
   render() {
