@@ -151,7 +151,9 @@ class ButtonWithIcon extends Component<ButtonProps> {
 }
 
 /**
- * Use for inside Application onClick events.
+ * Use for inside Application onClick events.<br />
+ * When using Button.secondaryNoborder with other than white background,<br />
+ * define styles background color for all needed states (:hover, :active, :disabled)
  */
 export class Button extends Component<ButtonProps> {
   static negative = (props: ButtonProps) => {
