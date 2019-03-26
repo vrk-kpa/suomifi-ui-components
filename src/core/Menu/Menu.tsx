@@ -70,8 +70,20 @@ class MenuVariation extends Component<MenuProps> {
   static defaultProps = defaultPropsTheme(CompMenu);
 
   render() {
-    const { children, variant, name, ...passProps } = this.props;
+    const { children, variant, name, className, ...passProps } = this.props;
     const ifMenuLanguage = variant === 'language';
+    const menuButtonClassName = classnames(
+      'fi-menu-button',
+      {
+        'fi-menu-language-button': ifMenuLanguage,
+      },
+      className,
+    );
+    const menuListProps = {
+      className: classnames('fi-menu-list', {
+        'fi-menu-language-list': ifMenuLanguage,
+      }),
+    };
 
     return (
       <Fragment>
@@ -79,16 +91,13 @@ class MenuVariation extends Component<MenuProps> {
         <StyledMenu
           {...passProps}
           name={!!ifMenuLanguage ? languageName(name) : name}
-          children={MenuListWithProps(children, {
+          className={menuButtonClassName}
+          menuListProps={menuListProps}
+        >
+          {MenuListWithProps(children, {
             'fi-menu-language-item': ifMenuLanguage,
           })}
-          menuButtonClassName={classnames('fi-menu-button', {
-            'fi-menu-language-button': ifMenuLanguage,
-          })}
-          menuListClassName={classnames('fi-menu-list', {
-            'fi-menu-language-list': ifMenuLanguage,
-          })}
-        />
+        </StyledMenu>
       </Fragment>
     );
   }
