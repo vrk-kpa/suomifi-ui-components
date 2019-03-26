@@ -66,15 +66,15 @@ export class Icon extends Component<IconProps> {
   };
 
   render() {
-    const { src, icon, ...rest } = this.props;
+    const { src, icon, ...passProps } = this.props;
     const { className, ariaLabel } = this.props;
 
     if (!!src) {
-      return <StyledIcon src={src} {...rest} />;
+      return <StyledIcon src={src} {...passProps} />;
     }
 
     if (icon !== undefined) {
-      return <StyledSuomifiIcon {...rest} icon={icon} />;
+      return <StyledSuomifiIcon {...passProps} icon={icon} />;
     }
 
     logger.warn(

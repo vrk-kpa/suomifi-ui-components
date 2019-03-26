@@ -28,8 +28,8 @@ const buttonResets = css`
   max-width: 100%;
 `;
 
-const Button = ({ type, ...rest }: HtmlButtonProps) => (
-  <button {...rest} type={!!type ? type : 'button'} />
+const Button = ({ type, ...passProps }: HtmlButtonProps) => (
+  <button {...passProps} type={!!type ? type : 'button'} />
 );
 
 export const HtmlButton = styled(Button)`

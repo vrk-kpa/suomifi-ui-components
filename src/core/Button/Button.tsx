@@ -60,7 +60,9 @@ const StyledButton = styled(
 `;
 
 const StyledIcon = styled(
-  ({ right, ...rest }: IconProps & { right?: boolean }) => <Icon {...rest} />,
+  ({ right, ...passProps }: IconProps & { right?: boolean }) => (
+    <Icon {...passProps} />
+  ),
 )`
   ${props => iconBaseStyles(props)}
 `;
@@ -108,8 +110,9 @@ class ButtonWithIcon extends Component<ButtonProps> {
   static defaultProps = defaultPropsTheme(CompButton);
 
   render() {
-    const { children, icon, iconRight, ...rest } = this.props;
-    const { disabled, theme, variant } = rest;
+    const { children, icon, iconRight, iconProps, ...passProps } = this.props;
+    const { disabled, theme, variant } = passProps;
+
     if (variant === 'unstyled') {
       return <UnstyledButton {...passProps} />;
     }
@@ -120,7 +123,7 @@ class ButtonWithIcon extends Component<ButtonProps> {
         variant === 'secondary-noborder' ||
         variant === 'tertiary');
     return (
-      <StyledButton {...rest}>
+      <StyledButton {...passProps}>
         {!!icon && (
           <StyledIcon
             icon={icon}
