@@ -7,7 +7,7 @@ export {
   DropdownProps,
   DropdownItem,
   DropdownItemProps,
-} from './components/Dropdown/Dropdown';
+} from './core/Dropdown/Dropdown';
 export {
   Menu,
   MenuProps,
@@ -15,7 +15,10 @@ export {
   MenuItemProps,
   MenuLink,
   MenuLinkProps,
+  MenuLanguageItem,
   MenuLanguageItemProps,
+  MenuLanguageLink,
+  MenuLanguageLinkProps,
 } from './core/Menu/Menu';
 export {
   Toggle,
@@ -23,3 +26,4 @@ export {
   ToggleInput,
   ToggleInputProps,
 } from './core/Form/Toggle/Toggle';
+export { Panel, PanelProps } from './core/Panel/Panel';

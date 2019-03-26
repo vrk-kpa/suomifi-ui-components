@@ -43,10 +43,6 @@
   Button.secondary
 </Button.secondary>
 
-<Button.secondarySmall>
-  Button.secondarySmall
-</Button.secondarySmall>
-
 <Button.secondary icon="login">
   Button.secondary icon="login"
 </Button.secondary>
@@ -61,6 +57,12 @@
 
 <Button.secondaryNoborder>
   Button.secondaryNoborder
+</Button.secondaryNoborder>
+
+<Button.secondaryNoborder
+  icon="login"
+>
+  Button icon="login"
 </Button.secondaryNoborder>
 
 <Button.secondaryNoborder

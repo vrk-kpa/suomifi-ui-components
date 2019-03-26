@@ -9,6 +9,7 @@ export interface HtmlButtonProps extends HTMLAttributes<HTMLButtonElement> {
    * @default button
    */
   type?: string;
+  'data-testid'?: string;
 }
 
 const buttonResets = css`
@@ -28,8 +29,8 @@ const buttonResets = css`
   max-width: 100%;
 `;
 
-const Button = ({ type, ...rest }: HtmlButtonProps) => (
-  <button {...rest} type={!!type ? type : 'button'} />
+const Button = ({ type, ...passProps }: HtmlButtonProps) => (
+  <button {...passProps} type={!!type ? type : 'button'} />
 );
 
 export const HtmlButton = styled(Button)`

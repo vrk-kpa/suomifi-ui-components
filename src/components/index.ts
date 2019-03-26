@@ -22,3 +22,9 @@ export {
   ToggleInput,
   ToggleInputProps,
 } from './Form/Toggle';
+export {
+  Panel,
+  PanelProps,
+  PanelExpansion,
+  PanelExpansionProps,
+} from './Panel/Panel';

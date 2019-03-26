@@ -146,7 +146,7 @@ export class Toggle extends Component<ToggleProps> {
       checked: !!toggleState,
       className: toggleInputBaseClassName,
       id: 'testaan',
-      onChange: () => ({}), // We control the change by label onClick
+      onChange: this.handleClick,
       ...toggleInputProps,
     };
 

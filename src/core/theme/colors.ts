@@ -1,4 +1,5 @@
 import { parseToRgb, toColorString, darken, lighten } from 'polished';
+import { boxshadowOutline } from './utils/outline';
 
 const palette = {
   black: '#282828',
@@ -105,6 +106,7 @@ export type IColors = typeof colors;
 
 export const colors = {
   white: palette.white,
+  black: '#000000',
   activeBgr: palette.gray20,
   disabledColor: palette.gray60,
   disabledBgr: palette.gray10,
@@ -135,7 +137,8 @@ export type IShadows = typeof shadows;
 
 export const shadows = {
   invertTextShadow: `0 1px 1px ${alphaHex50(palette.suomiDarkest)}`,
-  menuShadow: '0 2px 3px 0 rgba(0,0,0,.2)',
+  menuShadow: `0 2px 3px 0 ${alphaHex(0.2)(palette.black)}`,
+  panelShadow: `0 0 4px 0 ${alphaHex(0.3)(palette.black)}`,
 };
 
 export type IGradients = typeof gradients;
@@ -170,11 +173,5 @@ export const gradients = {
 };
 
 export const outlines = {
-  basic: `outline-color: ${colors.focusRing};
-    outline-offset: 4px;
-    outline-style: auto;
-    outline-width: 5px;`,
-  input: `outline: 0;
-    box-shadow: 0 0 3px 0 ${colors.secondaryColor};
-    border-color: ${colors.secondaryColor};`,
+  basic: boxshadowOutline({ color: colors.focusRing, offset: '4px' }),
 };

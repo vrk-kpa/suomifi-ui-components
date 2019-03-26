@@ -1,0 +1,210 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calling render with the same component on the same container does not remount 1`] = `
+.emotion-3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  line-height: 1;
+  display: block;
+  max-width: 100%;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #282828;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 400;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  white-space: nowrap;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  padding: 20px;
+  background-color: #FFFFFF;
+  position: relative;
+  padding: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 4px 0 rgba(40,40,40,0.3);
+}
+
+.emotion-3 .fi-panel-expansion-title {
+  display: block;
+  width: 100%;
+}
+
+.emotion-3 .fi-panel-expansion-title:focus {
+  outline: 0;
+  position: relative;
+}
+
+.emotion-3 .fi-panel-expansion-title:focus:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid #ea7125;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 #ea7125;
+}
+
+.emotion-3 .fi-panel-expansion-title:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.emotion-3 .fi-panel-expansion-title--no-tag {
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 400;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  white-space: nowrap;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 18px;
+  padding: 20px 60px 20px 20px;
+  color: #2A6EBB;
+}
+
+.emotion-3 .fi-panel-expansion-title-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+}
+
+.emotion-3 .fi-panel-expansion-title-icon--open {
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+
+.emotion-3 .fi-panel-expansion-content {
+  padding: 0 60px 20px 20px;
+}
+
+.emotion-1 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-appearance: button;
+  box-sizing: border-box;
+  line-height: 1;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.emotion-1:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.emotion-1::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.emotion-1::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.emotion-1::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.emotion-1::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.emotion-1,
+.emotion-1 * {
+  cursor: pointer;
+}
+
+.emotion-1:hover,
+.emotion-1:active,
+.emotion-1:focus,
+.emotion-1:focus-within,
+.emotion-1:visited {
+  cursor: pointer;
+}
+
+.emotion-0 {
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
+.emotion-2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  line-height: 1;
+  display: block;
+  max-width: 100%;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  display: none;
+}
+
+<div
+  class="panel-expansion-test fi-panel-expansion emotion-3"
+>
+  <button
+    aria-disabled="false"
+    aria-expanded="false"
+    class="fi-panel-expansion-title fi-panel-expansion-title--no-tag emotion-1"
+    data-testid="panel-expansion-title"
+    tabindex="0"
+    type="button"
+  >
+    Test expansion
+    <svg
+      aria-hidden="true"
+      class="fi-panel-expansion-title-icon emotion-0"
+      focusable="false"
+      height="1em"
+      style="fill: #2A6EBB;"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M12 18c-.28 0-.548-.118-.737-.324l-8-9a1 1 0 0 1 1.474-1.352L12 15.52l7.263-8.196a1 1 0 1 1 1.474 1.352l-8 9A1.002 1.002 0 0 1 12 18"
+      />
+    </svg>
+  </button>
+  <div
+    aria-hidden="true"
+    class="fi-panel-expansion-content fi-panel emotion-2"
+  >
+    Test expansion content
+  </div>
+</div>
+`;

@@ -30,6 +30,45 @@ exports[`calling render with the same component on the same container does not r
   cursor: pointer;
 }
 
+.emotion-3 .fi-toggle-input:focus,
+.emotion-3 .fi-toggle-input:focus-visible {
+  outline: 0;
+}
+
+.emotion-3 .fi-toggle-input:focus + .fi-toggle-label,
+.emotion-3 .fi-toggle-input:focus-visible + .fi-toggle-label {
+  outline: 0;
+  position: relative;
+}
+
+.emotion-3 .fi-toggle-input:focus + .fi-toggle-label:after,
+.emotion-3 .fi-toggle-input:focus-visible + .fi-toggle-label:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid #ea7125;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 #ea7125;
+}
+
+.emotion-3 .fi-toggle-input:focus + .fi-toggle-label:not(:focus-visible):after,
+.emotion-3 .fi-toggle-input:focus-visible + .fi-toggle-label:not(:focus-visible):after {
+  content: none;
+}
+
+.emotion-3 .fi-toggle-input:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+.emotion-3 .fi-toggle-input:focus:not(:focus-visible):after {
+  content: none;
+}
+
 .emotion-0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;

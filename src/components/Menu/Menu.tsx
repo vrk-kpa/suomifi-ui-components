@@ -3,6 +3,7 @@ import {
   Menu as ReachMenu,
   MenuButton,
   MenuList,
+  MenuListProps,
   MenuItem,
   MenuLink,
 } from '@reach/menu-button';
@@ -31,6 +32,7 @@ export interface MenuLinkProps {
 }
 
 export type MenuListItemsProps = MenuItemProps | MenuLinkProps;
+type OptionalMenuListProps = { [K in keyof MenuListProps]?: MenuListProps[K] };
 
 export interface MenuProps {
   /** Name or content of menubutton */
@@ -38,9 +40,9 @@ export interface MenuProps {
   /** Custom classname to extend or customize */
   className?: string;
   /** Custom classname to extend or customize */
-  menuButtonClassName?: string;
-  /** Custom classname to extend or customize */
-  menuListClassName?: string;
+  menuContainerClassName?: string;
+  /** Properties given to Menu's List-component, className etc. */
+  menuListProps?: OptionalMenuListProps;
   /** Menu items: MenuItem or MenuLink */
   children?: Array<React.ReactElement<MenuListItemsProps>>;
 }
@@ -50,9 +52,8 @@ export class Menu extends Component<MenuProps> {
     const {
       children,
       name,
-      className,
-      menuButtonClassName,
-      menuListClassName,
+      menuContainerClassName,
+      menuListProps,
       ...passProps
     } = this.props;
 
@@ -62,10 +63,10 @@ export class Menu extends Component<MenuProps> {
     }
 
     return (
-      <span className={className}>
-        <ReachMenu {...passProps}>
-          <MenuButton className={menuButtonClassName}>{name}</MenuButton>
-          <MenuList className={menuListClassName}>{children}</MenuList>
+      <span className={menuContainerClassName}>
+        <ReachMenu>
+          <MenuButton {...passProps}>{name}</MenuButton>
+          <MenuList {...menuListProps}>{children}</MenuList>
         </ReachMenu>
       </span>
     );

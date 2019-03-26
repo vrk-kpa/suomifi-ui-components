@@ -23,12 +23,19 @@ export interface SvgProps {
 }
 
 export const Svg = styled(
-  ({ color, labelName, ariaLabel, testId, pointer, ...props }: SvgProps) => {
+  ({
+    color,
+    labelName,
+    ariaLabel,
+    testId,
+    pointer,
+    ...passProps
+  }: SvgProps) => {
     const fill = !!color ? color : '';
     const pointerStyle = !!pointer ? { cursor: 'pointer' } : {};
     return (
       <ReactSVG
-        {...props}
+        {...passProps}
         {...ariaLabelOrHidden(ariaLabel)}
         svgStyle={{
           fill,

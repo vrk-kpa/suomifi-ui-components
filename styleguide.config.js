@@ -26,6 +26,7 @@ module.exports = {
   usageMode: 'expand',
   pagePerSection: true,
   skipComponentsWithoutExample: true,
+  getExampleFilename: componentPath => componentPath.replace(/\.tsx?$/, '.md'),
   template: {
     head: {
       links: [
