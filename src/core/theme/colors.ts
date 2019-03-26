@@ -106,6 +106,7 @@ export type IColors = typeof colors;
 
 export const colors = {
   white: palette.white,
+  black: '#000000',
   activeBgr: palette.gray20,
   disabledColor: palette.gray60,
   disabledBgr: palette.gray10,
@@ -136,7 +137,8 @@ export type IShadows = typeof shadows;
 
 export const shadows = {
   invertTextShadow: `0 1px 1px ${alphaHex50(palette.suomiDarkest)}`,
-  menuShadow: '0 2px 3px 0 rgba(0,0,0,.2)',
+  menuShadow: `0 2px 3px 0 ${alphaHex(0.2)(palette.black)}`,
+  panelShadow: `0 0 4px 0 ${alphaHex(0.3)(palette.black)}`,
 };
 
 export type IGradients = typeof gradients;
