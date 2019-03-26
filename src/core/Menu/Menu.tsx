@@ -136,7 +136,7 @@ export class Menu extends Component<MenuProps> {
   }
 }
 
-const MenuLanguageItem = ({
+export const MenuLanguageItem = ({
   selected,
   className,
   ...passProps
@@ -149,7 +149,7 @@ const MenuLanguageItem = ({
   />
 );
 
-const MenuLanguageLink = ({
+export const MenuLanguageLink = ({
   selected,
   className,
   ...passProps
