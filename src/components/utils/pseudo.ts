@@ -1,5 +1,15 @@
 import { css } from '@emotion/core';
 
+export const allStates = (styles: string) => css`
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-within,
+  &:visited {
+    ${styles}
+  }
+`;
+
 export const afterAbsolute = css`
   position: relative;
   &:after {

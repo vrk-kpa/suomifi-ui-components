@@ -13,7 +13,7 @@ export const baseStyles = ({
     ${fontInput}
     position: relative;
     padding-right: 30px;
-    &:after {
+    &:before {
       content: '';
       position: absolute;
       top: 50%;
@@ -23,7 +23,7 @@ export const baseStyles = ({
       border-color: ${theme.colors.caret} transparent transparent transparent;
       border-width: 6px 4px 0 4px;
     }
-    &[aria-expanded='true']:after {
+    &[aria-expanded='true']:before {
       border-color: transparent transparent ${theme.colors.caret} transparent;
       border-width: 0 4px 6px 4px;
     }

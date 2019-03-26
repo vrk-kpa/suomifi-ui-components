@@ -25,3 +25,9 @@ export const fontInput = css`
   font-size: ${typography.fontSizeInput};
   line-height: ${typography.fontSizeInput};
 `;
+
+export const fontPanelTitle = css`
+  ${fontSemibold}
+  font-size: ${typography.fontSizePanelTitle};
+  line-height: ${typography.fontSizePanelTitle};
+`;

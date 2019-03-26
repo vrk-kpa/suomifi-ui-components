@@ -14,9 +14,9 @@ type ButtonVariant =
   | 'default'
   | 'negative'
   | 'secondary'
-  | 'secondary-small'
   | 'secondary-noborder'
-  | 'tertiary';
+  | 'tertiary'
+  | 'unstyled';
 
 export interface ButtonProps extends CompButtonProps, ThemeComponent {
   /**
@@ -24,7 +24,7 @@ export interface ButtonProps extends CompButtonProps, ThemeComponent {
    */
   fullWidth?: boolean;
   /**
-   * 'default' | 'negative' | 'secondary' | 'secondary-small' | 'secondary-noborder' | 'tertiary'
+   * 'default' | 'negative' | 'secondary' | 'secondary-noborder' | 'tertiary'
    * @default default
    */
   variant?: ButtonVariant;
@@ -36,6 +36,10 @@ export interface ButtonProps extends CompButtonProps, ThemeComponent {
    * Icon from suomifi-theme to be placed on right side
    */
   iconRight?: IconKeys;
+  /**
+   * Properties given to Icon-component
+   */
+  iconProps?: IconProps;
 }
 
 const baseClassName = 'fi-button';
@@ -46,9 +50,12 @@ const StyledButton = styled(
     fullWidth,
     variant,
     className,
-    ...props
+    ...passProps
   }: ButtonProps & { right?: boolean }) => (
-    <CompButton {...props} className={classnames(className, baseClassName)} />
+    <CompButton
+      {...passProps}
+      className={classnames(className, baseClassName)}
+    />
   ),
 )`
   label: ${({ disabled }) =>
@@ -57,7 +64,9 @@ const StyledButton = styled(
 `;
 
 const StyledIcon = styled(
-  ({ right, ...rest }: IconProps & { right?: boolean }) => <Icon {...rest} />,
+  ({ right, ...passProps }: IconProps & { right?: boolean }) => (
+    <Icon {...passProps} />
+  ),
 )`
   ${props => iconBaseStyles(props)}
 `;
@@ -83,21 +92,48 @@ const iconColor = ({
   return undefined;
 };
 
+const UnstyledButton = (props: ButtonProps) => {
+  const {
+    className,
+    theme: dissmissTheme,
+    fullWidth: dissmissFullWidth,
+    variant: dissmissVariant,
+    icon: dismissIcon,
+    iconRight: dissmissIconRight,
+    ...passProps
+  } = props;
+  return (
+    <CompButton
+      {...passProps}
+      className={classnames(className, baseClassName)}
+    />
+  );
+};
+
 class ButtonWithIcon extends Component<ButtonProps> {
   static defaultProps = defaultPropsTheme(CompButton);
 
   render() {
-    const { children, icon, iconRight, ...rest } = this.props;
-    const { disabled, theme, variant } = rest;
+    const { children, icon, iconRight, iconProps, ...passProps } = this.props;
+    const { disabled, theme, variant } = passProps;
+
+    if (variant === 'unstyled') {
+      return <UnstyledButton {...passProps} />;
+    }
+
     const secondaryOrTertiary =
-      !!variant && (variant === 'secondary' || variant === 'tertiary');
+      !!variant &&
+      (variant === 'secondary' ||
+        variant === 'secondary-noborder' ||
+        variant === 'tertiary');
     return (
-      <StyledButton {...rest}>
+      <StyledButton {...passProps}>
         {!!icon && (
           <StyledIcon
             icon={icon}
             right={false}
             color={iconColor({ theme, disabled, invert: secondaryOrTertiary })}
+            {...iconProps}
           />
         )}
         {children}
@@ -106,6 +142,7 @@ class ButtonWithIcon extends Component<ButtonProps> {
             icon={iconRight}
             right={true}
             color={iconColor({ theme, disabled, invert: secondaryOrTertiary })}
+            {...iconProps}
           />
         )}
       </StyledButton>
@@ -114,7 +151,9 @@ class ButtonWithIcon extends Component<ButtonProps> {
 }
 
 /**
- * Use for inside Application onClick events.
+ * Use for inside Application onClick events.<br />
+ * When using Button.secondaryNoborder with other than white background,<br />
+ * define styles background color for all needed states (:hover, :active, :disabled)
  */
 export class Button extends Component<ButtonProps> {
   static negative = (props: ButtonProps) => {
@@ -125,16 +164,16 @@ export class Button extends Component<ButtonProps> {
     return <ButtonWithIcon {...props} variant="secondary" />;
   };
 
-  static secondarySmall = (props: ButtonProps) => {
-    return <ButtonWithIcon {...props} variant="secondary-small" />;
-  };
-
   static secondaryNoborder = (props: ButtonProps) => {
     return <ButtonWithIcon {...props} variant="secondary-noborder" />;
   };
 
   static tertiary = (props: ButtonProps) => {
     return <ButtonWithIcon {...props} variant="tertiary" />;
+  };
+
+  static unstyled = (props: ButtonProps) => {
+    return <UnstyledButton {...props} />;
   };
 
   render() {

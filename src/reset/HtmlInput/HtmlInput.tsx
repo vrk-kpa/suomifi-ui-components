@@ -20,8 +20,8 @@ const inputResets = css`
   max-width: 100%;
 `;
 
-const Input = ({ type, ...rest }: HtmlInputProps) => (
-  <input {...rest} type={!!type ? type : 'text'} />
+const Input = ({ type, ...passProps }: HtmlInputProps) => (
+  <input {...passProps} type={!!type ? type : 'text'} />
 );
 
 export const HtmlInput = styled(Input)`

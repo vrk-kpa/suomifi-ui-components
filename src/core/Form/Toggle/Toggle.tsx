@@ -31,29 +31,31 @@ const inputBaseClassName = `${baseClassName}-input`;
 const iconBaseClassName = `${baseClassName}-icon`;
 const svgBaseClassName = `${baseClassName}-icon-svg`;
 
-const StyledToggle = styled(({ theme, className, ...props }: ToggleProps) => (
-  <CompToggle
-    {...props}
-    className={classnames(className, {
-      [`${baseClassName}--disabled`]: !!props.disabled,
-    })}
-  />
-))`
+const StyledToggle = styled(
+  ({ theme, className, ...passProps }: ToggleProps) => (
+    <CompToggle
+      {...passProps}
+      className={classnames(className, {
+        [`${baseClassName}--disabled`]: !!passProps.disabled,
+      })}
+    />
+  ),
+)`
   label: ${baseClassName};
   ${props => baseStyles(props)}
 `;
 
-const StyledInput = styled(({ theme, ...props }: ToggleInputProps) => (
-  <ToggleInput {...props} />
+const StyledInput = styled(({ theme, ...passProps }: ToggleInputProps) => (
+  <ToggleInput {...passProps} />
 ))`
   label: ${inputBaseClassName};
   ${props => inputBaseStyles(props)}
 `;
 
 const StyledIcon = styled(
-  ({ theme, className, disabled, checked, ...props }: ToggleIconProps) => (
+  ({ theme, className, disabled, checked, ...passProps }: ToggleIconProps) => (
     <Icon
-      {...props}
+      {...passProps}
       src={toggleSvg}
       className={classnames(className, {
         [`${iconBaseClassName}--disabled`]: !!disabled,
