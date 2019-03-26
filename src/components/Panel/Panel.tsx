@@ -71,6 +71,8 @@ export interface PanelExpansionProps extends PanelProps {
   titleTag?: string;
   /** Controlled open-state, use onClick to change  */
   open?: boolean;
+  /** Properties for title-Button */
+  titleProps?: ButtonProps;
   /** Default status of panel open when not using controlled 'open' state
    * @default false
    */
@@ -126,6 +128,7 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
       children,
       title,
       titleTag,
+      titleProps,
       ...passProps
     } = this.props;
     const { openState } = this.state;
@@ -141,6 +144,7 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
               [panelExpansionTitleNoTagClassName]: !titleTag,
             })}
             aria-expanded={!!openState}
+            {...titleProps}
           >
             {title}
           </StyledPanelExpansionTitle>

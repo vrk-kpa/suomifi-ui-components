@@ -9,6 +9,7 @@ export interface HtmlButtonProps extends HTMLAttributes<HTMLButtonElement> {
    * @default button
    */
   type?: string;
+  'data-testid'?: string;
 }
 
 const buttonResets = css`

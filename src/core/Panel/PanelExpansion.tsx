@@ -36,7 +36,6 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
   state: PanelExpansionState = { open: false };
 
   handleClick = ({ openState }: { openState: boolean }) => {
-    console.log('JONES', openState);
     const { onClick } = this.props;
     this.setState({ open: openState });
     if (typeof onClick === 'function') {
