@@ -27,7 +27,6 @@ const StyledPanelExpansion = styled(
     return <CompPanelExpansion {...passProps} />;
   },
 )`
-  label: panel-expansion;
   ${props => panelBaseStyles(props)};
   ${props => baseStyles(props)};
 `;
