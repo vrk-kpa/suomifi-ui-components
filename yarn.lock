@@ -8198,10 +8198,10 @@ style-loader@0.23.1, style-loader@^0.23.1:
     loader-utils "^1.1.0"
     schema-utils "^1.0.0"
 
-suomifi-icons@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-0.0.2.tgz#6cabebcce78cbc311496f7b4bb1fd278847c45c8"
-  integrity sha512-AumRVP/4BbIRhirBzaTHILvSYZwHuhBidCrQxY2HIaRoV5AzMU2ySs/vWXHi7+Hmh5rC37Lph21sd8X2TbzXCw==
+suomifi-icons@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-0.0.3.tgz#e05fdcab149bc808b46e65af37882546e72f9d12"
+  integrity sha512-C/w2hYS85/5+JOQXjg1YSPSimfQcRdVF2uGFIJpiBR2mroDmEiA74LEEN9m3iBMwOOGuvcATzZIZVImsMgMlxw==
   dependencies:
     "@types/react" "16.7.20"
     "@types/react-dom" "16.0.11"
