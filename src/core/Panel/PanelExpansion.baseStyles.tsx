@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
 import { suomifiTheme } from '../theme';
 import { PanelExpansionProps } from './PanelExpansion';
-import { focus, fontPanelTitle } from '../theme/reset';
+import { element, focus, fontPanelTitle } from '../theme/reset';
 
 export const baseStyles = ({
   theme = suomifiTheme,
@@ -13,6 +13,7 @@ export const baseStyles = ({
   box-shadow: ${theme.shadows.panelShadow};
 
   & .fi-panel-expansion-title {
+    ${element}
     ${focus}
     display: block;
     width: 100%;

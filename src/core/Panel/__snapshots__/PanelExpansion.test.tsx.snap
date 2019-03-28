@@ -42,6 +42,14 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-3 .fi-panel-expansion-title {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #282828;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
   display: block;
   width: 100%;
 }
