@@ -13,7 +13,10 @@ import classnames from 'classnames';
 
 export interface PanelExpansionProps
   extends CompPanelExpansionProps,
-    ThemeComponent {}
+    ThemeComponent {
+  /** Remove padding from expandable content area (for background usage with padding in given container etc.) */
+  noPadding?: boolean;
+}
 
 interface PanelExpansionState {
   open: boolean;
