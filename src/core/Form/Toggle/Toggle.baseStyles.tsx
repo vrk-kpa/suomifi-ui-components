@@ -36,19 +36,25 @@ export const inputBaseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
   background-color: ${theme.colors.white};
 `;
 
+const svgPrefix = 'icon-toggle_svg__';
+
 export const iconBaseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
   width: 40px;
   height: 24px;
   margin-right: 8px;
 
+  * {
+    cursor: pointer;
+  }
+
   &.fi-toggle-icon--checked {
-    .fi-toggle-icon-knob {
+    .${svgPrefix}fi-toggle-icon-knob {
       transform: translateX(50%);
     }
-    .fi-toggle-icon-slide {
+    .${svgPrefix}fi-toggle-icon-slide {
       fill: ${theme.colors.toggleOnSlide};
     }
-    .fi-toggle-icon-circle {
+    .${svgPrefix}fi-toggle-icon-circle {
       fill: ${theme.colors.toggleOn};
     }
   }

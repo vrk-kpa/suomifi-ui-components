@@ -121,12 +121,9 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-1 {
-  max-width: 100%;
-  display: inline-block;
-  width: 24px;
-  height: 24px;
   display: inline-block;
   vertical-align: text-bottom;
+  cursor: pointer;
   width: 40px;
   height: 24px;
   margin-right: 8px;
@@ -136,17 +133,17 @@ exports[`calling render with the same component on the same container does not r
   cursor: pointer;
 }
 
-.emotion-1.fi-toggle-icon--checked .fi-toggle-icon-knob {
+.emotion-1.fi-toggle-icon--checked .icon-toggle_svg__fi-toggle-icon-knob {
   -webkit-transform: translateX(50%);
   -ms-transform: translateX(50%);
   transform: translateX(50%);
 }
 
-.emotion-1.fi-toggle-icon--checked .fi-toggle-icon-slide {
+.emotion-1.fi-toggle-icon--checked .icon-toggle_svg__fi-toggle-icon-slide {
   fill: rgba(0,179,138,0.5);
 }
 
-.emotion-1.fi-toggle-icon--checked .fi-toggle-icon-circle {
+.emotion-1.fi-toggle-icon--checked .icon-toggle_svg__fi-toggle-icon-circle {
   fill: #00B38A;
 }
 
@@ -163,21 +160,163 @@ exports[`calling render with the same component on the same container does not r
     class="fi-toggle-label emotion-2"
     data-testid="toggle"
   >
-    <div
+    <svg
       aria-hidden="true"
-      class="fi-icon emotion-1"
+      class="emotion-1"
       focusable="false"
-      role="img"
+      height="1em"
+      style="fill: #003479;"
+      viewBox="0 0 38 23"
+      width="1em"
     >
-      <div>
-        <div
-          class="fi-toggle-icon-svg"
-          data-src="\\"toggle.svg\\""
-          src=""
-          style="fill:#003479;max-width:100%;max-height:100%;cursor:pointer"
+      <defs>
+        <lineargradient
+          id="icon-toggle_svg__c"
+          x1="50%"
+          x2="50%"
+          y1="0%"
+          y2="99.021%"
+        >
+          <stop
+            offset="0%"
+            stop-opacity="0"
+          />
+          <stop
+            offset="80%"
+            stop-opacity="0.02"
+          />
+          <stop
+            offset="100%"
+            stop-opacity="0.04"
+          />
+        </lineargradient>
+        <lineargradient
+          id="icon-toggle_svg__d"
+          x1="50%"
+          x2="50%"
+          y1="0%"
+          y2="100%"
+        >
+          <stop
+            offset="0%"
+            stop-color="#FFF"
+            stop-opacity="0.12"
+          />
+          <stop
+            offset="20%"
+            stop-color="#FFF"
+            stop-opacity="0.06"
+          />
+          <stop
+            offset="100%"
+            stop-color="#FFF"
+            stop-opacity="0"
+          />
+        </lineargradient>
+        <circle
+          cx="10"
+          cy="12"
+          id="icon-toggle_svg__b"
+          r="10"
         />
-      </div>
-    </div>
+        <filter
+          filterUnits="objectBoundingBox"
+          height="120%"
+          id="icon-toggle_svg__a"
+          width="117.5%"
+          x="-8.8%"
+          y="-8.8%"
+        >
+          <feoffset
+            dy="1"
+            in="SourceAlpha"
+            result="shadowOffsetOuter1"
+          />
+          <fegaussianblur
+            in="shadowOffsetOuter1"
+            result="shadowBlurOuter1"
+            stdDeviation="0.25"
+          />
+          <fecomposite
+            in="shadowBlurOuter1"
+            in2="SourceAlpha"
+            operator="out"
+            result="shadowBlurOuter1"
+          />
+          <fecolormatrix
+            in="shadowBlurOuter1"
+            result="shadowMatrixOuter1"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+          />
+          <feoffset
+            in="SourceAlpha"
+            result="shadowOffsetOuter2"
+          />
+          <fegaussianblur
+            in="shadowOffsetOuter2"
+            result="shadowBlurOuter2"
+            stdDeviation="0.5"
+          />
+          <fecomposite
+            in="shadowBlurOuter2"
+            in2="SourceAlpha"
+            operator="out"
+            result="shadowBlurOuter2"
+          />
+          <fecolormatrix
+            in="shadowBlurOuter2"
+            result="shadowMatrixOuter2"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"
+          />
+          <femerge>
+            <femergenode
+              in="shadowMatrixOuter1"
+            />
+            <femergenode
+              in="shadowMatrixOuter2"
+            />
+          </femerge>
+        </filter>
+      </defs>
+      <g
+        fill="none"
+        fill-rule="evenodd"
+      >
+        <path
+          class="icon-toggle_svg__fi-toggle-icon-slide"
+          d="M38 11c0 3.9-3.1 7-7 7H11c-3.9 0-7-3.1-7-7s3.1-7 7-7h20c3.9 0 7 3.1 7 7z"
+          fill="#C9CDCF"
+        />
+        <g
+          class="icon-toggle_svg__fi-toggle-icon-knob"
+          transform="translate(1 -1)"
+        >
+          <use
+            fill="#000"
+            filter="url(#icon-toggle_svg__a)"
+            xlink:href="#icon-toggle_svg__b"
+          />
+          <circle
+            class="icon-toggle_svg__fi-toggle-icon-circle"
+            cx="10"
+            cy="12"
+            fill="#F6F6F7"
+            r="9.75"
+            stroke="url(#icon-toggle_svg__c)"
+            stroke-linejoin="square"
+            stroke-width="0.5"
+          />
+          <circle
+            cx="10"
+            cy="12"
+            r="9.75"
+            stroke="url(#icon-toggle_svg__d)"
+            stroke-linejoin="square"
+            stroke-width="0.5"
+          />
+        </g>
+      </g>
+    </svg>
     Test
   </label>
 </span>
