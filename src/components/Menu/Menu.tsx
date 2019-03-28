@@ -40,7 +40,7 @@ export interface MenuProps {
   /** Custom classname to extend or customize */
   className?: string;
   /** Custom classname to extend or customize */
-  menuContainerClassName?: string;
+  menuButtonClassName?: string;
   /** Properties given to Menu's List-component, className etc. */
   menuListProps?: OptionalMenuListProps;
   /** Menu items: MenuItem or MenuLink */
@@ -52,7 +52,8 @@ export class Menu extends Component<MenuProps> {
     const {
       children,
       name,
-      menuContainerClassName,
+      className,
+      menuButtonClassName,
       menuListProps,
       ...passProps
     } = this.props;
@@ -63,9 +64,11 @@ export class Menu extends Component<MenuProps> {
     }
 
     return (
-      <span className={menuContainerClassName}>
+      <span className={className}>
         <ReachMenu>
-          <MenuButton {...passProps}>{name}</MenuButton>
+          <MenuButton {...passProps} className={menuButtonClassName}>
+            {name}
+          </MenuButton>
           <MenuList {...menuListProps}>{children}</MenuList>
         </ReachMenu>
       </span>
