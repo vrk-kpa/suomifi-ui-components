@@ -9,6 +9,7 @@ import {
 } from '@reach/menu-button';
 import { logger } from '../../utils/logger';
 import '@reach/menu-button/styles.css';
+import { Omit } from '../../utils/typescript';
 
 export { MenuItem, MenuLink };
 
@@ -21,7 +22,7 @@ export interface MenuItemProps {
 
 type SupportedMenuLinkComponent = keyof JSX.IntrinsicElements;
 
-export interface MenuLinkProps {
+interface MenuLinkPropsWithType {
   type: 'menulink';
   /** Url to direct to */
   href: string;
@@ -31,7 +32,9 @@ export interface MenuLinkProps {
   component?: SupportedMenuLinkComponent;
 }
 
-export type MenuListItemsProps = MenuItemProps | MenuLinkProps;
+export interface MenuLinkProps extends Omit<MenuLinkPropsWithType, 'type'> {}
+
+export type MenuListItemsProps = MenuItemProps | MenuLinkPropsWithType;
 type OptionalMenuListProps = { [K in keyof MenuListProps]?: MenuListProps[K] };
 
 export interface MenuProps {

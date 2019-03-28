@@ -22,9 +22,11 @@ interface PanelExpansionState {
   open: boolean;
 }
 
-const StyledPanelExpansion = styled(({ ...passProps }: PanelExpansionProps) => {
-  return <CompPanelExpansion {...passProps} />;
-})`
+const StyledPanelExpansion = styled(
+  ({ noPadding, ...passProps }: PanelExpansionProps) => {
+    return <CompPanelExpansion {...passProps} />;
+  },
+)`
   label: panel-expansion;
   ${props => panelBaseStyles(props)};
   ${props => baseStyles(props)};
