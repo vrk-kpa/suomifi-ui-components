@@ -91,7 +91,7 @@ class MenuVariation extends Component<MenuProps> {
         <StyledMenu
           {...passProps}
           name={!!ifMenuLanguage ? languageName(name) : name}
-          className={menuButtonClassName}
+          menuButtonClassName={menuButtonClassName}
           menuListProps={menuListProps}
         >
           {MenuListWithProps(children, {
