@@ -1,15 +1,19 @@
 import { css } from '@emotion/core';
 import { suomifiTheme } from '../theme';
-import { PanelProps } from './Panel';
-import { focus, fontPanelTitle } from '../theme/reset';
+import { PanelExpansionProps } from './PanelExpansion';
+import { element, focus, fontPanelTitle } from '../theme/reset';
 
-export const baseStyles = ({ theme = suomifiTheme }: PanelProps) => css`
+export const baseStyles = ({
+  theme = suomifiTheme,
+  noPadding = false,
+}: PanelExpansionProps) => css`
   position: relative;
   padding: 0;
   border-radius: 2px;
   box-shadow: ${theme.shadows.panelShadow};
 
   & .fi-panel-expansion-title {
+    ${element}
     ${focus}
     display: block;
     width: 100%;
@@ -28,7 +32,8 @@ export const baseStyles = ({ theme = suomifiTheme }: PanelProps) => css`
       transform: rotate(-180deg);
     }
   }
-  & .fi-panel-expansion-content {
-    padding: 0 60px 20px 20px;
-  }
+  ${!noPadding &&
+    `& .fi-panel-expansion-content {
+    padding: 0 20px 20px 20px;
+  }`}
 `;

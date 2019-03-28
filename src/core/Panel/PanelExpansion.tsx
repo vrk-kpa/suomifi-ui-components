@@ -13,16 +13,20 @@ import classnames from 'classnames';
 
 export interface PanelExpansionProps
   extends CompPanelExpansionProps,
-    ThemeComponent {}
+    ThemeComponent {
+  /** Remove padding from expandable content area (for background usage with padding in given container etc.) */
+  noPadding?: boolean;
+}
 
 interface PanelExpansionState {
   open: boolean;
 }
 
-const StyledPanelExpansion = styled(({ ...passProps }: PanelExpansionProps) => {
-  return <CompPanelExpansion {...passProps} />;
-})`
-  label: panel-expansion;
+const StyledPanelExpansion = styled(
+  ({ noPadding, ...passProps }: PanelExpansionProps) => {
+    return <CompPanelExpansion {...passProps} />;
+  },
+)`
   ${props => panelBaseStyles(props)};
   ${props => baseStyles(props)};
 `;

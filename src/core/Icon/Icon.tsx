@@ -22,38 +22,46 @@ export interface IconProps extends Omit<CompIconProps, 'src'> {
   src?: string;
 }
 
-const StyledIcon = styled(
-  ({
-    ariaLabel,
-    ...passProps
-  }: CompIconProps & {
-    ariaLabel?: string;
-  }) => (
-    <CompIcon
-      {...passProps}
-      {...ariaLabelOrHidden(ariaLabel)}
-      {...ariaFocusableNoLabel(ariaLabel)}
-    />
-  ),
-)`
-  ${iconBaseStyles}
+interface StyledIconProps extends CompIconProps {
+  ariaLabel?: string;
+}
+
+interface StyledSuomifiIconProps extends SuomifiIconInterface {
+  ariaLabel?: string;
+  mousePointer?: boolean;
+}
+
+type optionalSuomifiIconInterface = {
+  [K in keyof SuomifiIconInterface]?: SuomifiIconInterface[K]
+};
+
+export interface SuomifiIconProps extends optionalSuomifiIconInterface {
+  ariaLabel?: string;
+  mousePointer?: boolean;
+}
+
+const StyledIcon = styled(({ ariaLabel, ...passProps }: StyledIconProps) => (
+  <CompIcon
+    {...passProps}
+    {...ariaLabelOrHidden(ariaLabel)}
+    {...ariaFocusableNoLabel(ariaLabel)}
+  />
+))`
+  ${props => iconBaseStyles(props)}
 `;
 
 const StyledSuomifiIcon = styled(
-  ({
-    ariaLabel,
-    ...passProps
-  }: SuomifiIconInterface & {
-    ariaLabel?: string;
-  }) => (
-    <SuomifiIcon
-      {...passProps}
-      {...ariaLabelOrHidden(ariaLabel)}
-      {...ariaFocusableNoLabel(ariaLabel)}
-    />
-  ),
+  ({ ariaLabel, mousePointer, ...passProps }: StyledSuomifiIconProps) => {
+    return (
+      <SuomifiIcon
+        {...passProps}
+        {...ariaLabelOrHidden(ariaLabel)}
+        {...ariaFocusableNoLabel(ariaLabel)}
+      />
+    );
+  },
 )`
-  ${iconBaseStyles}
+  ${props => iconBaseStyles(props)}
 `;
 
 /**

@@ -15,7 +15,6 @@ import {
   ToggleInputProps as CompToggleInputProps,
 } from '../../../components/Form/Toggle';
 import { Icon, IconProps } from '../../Icon/Icon';
-import toggleSvg from './toggle.svg';
 
 export interface ToggleProps extends CompToggleProps, ThemeComponent {}
 export interface ToggleInputProps
@@ -29,7 +28,6 @@ interface ToggleIconProps extends IconProps, ThemeComponent {
 const baseClassName = 'fi-toggle';
 const inputBaseClassName = `${baseClassName}-input`;
 const iconBaseClassName = `${baseClassName}-icon`;
-const svgBaseClassName = `${baseClassName}-icon-svg`;
 
 const StyledToggle = styled(
   ({ theme, className, ...passProps }: ToggleProps) => (
@@ -56,7 +54,7 @@ const StyledIcon = styled(
   ({ theme, className, disabled, checked, ...passProps }: ToggleIconProps) => (
     <Icon
       {...passProps}
-      src={toggleSvg}
+      icon="toggle"
       className={classnames(className, {
         [`${iconBaseClassName}--disabled`]: !!disabled,
         [`${iconBaseClassName}--checked`]: !!checked,
@@ -64,7 +62,6 @@ const StyledIcon = styled(
     />
   ),
 )`
-  label: ${iconBaseClassName};
   ${props => iconBaseStyles(props)}
 `;
 
@@ -105,11 +102,7 @@ export class Toggle extends Component<ToggleProps> {
         toggleInputComponent={<StyledInput theme={passProps.theme} />}
         onClick={this.handleToggle}
       >
-        <StyledIcon
-          {...iconProps}
-          pointer={true}
-          svgClassName={svgBaseClassName}
-        />
+        <StyledIcon {...iconProps} mousePointer={true} />
         {children}
       </StyledToggle>
     );
