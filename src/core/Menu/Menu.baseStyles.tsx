@@ -11,6 +11,7 @@ export const baseStyles = ({
     ${element}
     ${font}
     ${focus}
+    cursor: pointer;
     &.fi-menu-language-button {
       ${element}
       ${fontSemibold}

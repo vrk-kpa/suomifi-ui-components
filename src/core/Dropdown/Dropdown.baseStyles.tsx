@@ -13,6 +13,7 @@ export const baseStyles = ({
     ${fontInput}
     position: relative;
     padding-right: 30px;
+    cursor: pointer;
     &:before {
       content: '';
       position: absolute;
