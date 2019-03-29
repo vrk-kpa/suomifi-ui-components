@@ -6,14 +6,7 @@ export { font, fontSemibold, fontInput, fontPanelTitle } from './typography';
 export const focus = focusUtil({ theme: suomifiTheme });
 
 export const element = css`
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
   color: ${suomifiTheme.colors.text};
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
 `;
 
 export const input = css`
