@@ -2,14 +2,7 @@
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
 .emotion-3 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
   color: #282828;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   font-family: 'Source Sans Pro','Helvetica Neue',Arial;
   font-size: 18px;
   line-height: 18px;
@@ -74,18 +67,19 @@ exports[`calling render with the same component on the same container does not r
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   overflow: visible;
-  box-sizing: border-box;
-  line-height: 1;
-  display: inline-block;
-  max-width: 100%;
   margin: 0;
   padding: 0;
   border: 0;
-  background: none;
-  color: #282828;
+  box-sizing: border-box;
   font-size: 100%;
   font: inherit;
+  line-height: 1;
+  text-align: left;
   vertical-align: baseline;
+  background: none;
+  display: inline-block;
+  max-width: 100%;
+  color: #282828;
   font-family: 'Source Sans Pro','Helvetica Neue',Arial;
   font-size: 18px;
   line-height: 18px;
@@ -115,8 +109,16 @@ exports[`calling render with the same component on the same container does not r
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
   box-sizing: border-box;
+  font-size: 100%;
+  font: inherit;
   line-height: 1;
+  text-align: left;
+  vertical-align: baseline;
+  background: none;
   max-width: 100%;
 }
 
@@ -131,6 +133,12 @@ exports[`calling render with the same component on the same container does not r
 
 .emotion-1 * {
   cursor: pointer;
+}
+
+.emotion-1 .icon-toggle_svg__fi-toggle-icon-knob {
+  -webkit-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  transform: translateX(0%);
 }
 
 .emotion-1.fi-toggle-icon--checked .icon-toggle_svg__fi-toggle-icon-knob {
