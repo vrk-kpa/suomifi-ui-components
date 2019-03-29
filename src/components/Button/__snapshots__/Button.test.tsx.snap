@@ -6,10 +6,19 @@ exports[`calling render with the same component on the same container does not r
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-appearance: button;
+  margin: 0;
+  padding: 0;
+  border: 0;
   box-sizing: border-box;
+  font-size: 100%;
+  font: inherit;
   line-height: 1;
+  text-align: left;
+  vertical-align: baseline;
+  background: none;
   display: inline-block;
   max-width: 100%;
+  pointer: cursor;
 }
 
 .emotion-0:-moz-focusring {
