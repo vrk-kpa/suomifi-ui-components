@@ -1,9 +1,29 @@
 version: 2
-jobs:
-  build:
-    working_directory: ~/suomifi-ui-components
+
+executors:
+  build-executor:
     docker:
       - image: circleci/node:lts
+
+commands:
+  build:
+    steps:
+      - checkout
+      - restore_cache: # special step to restore the dependency cache
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache: # special step to save the dependency cache
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - run: yarn styleguide:build
+  test:
     steps:
       - checkout
       - restore_cache: # special step to restore the dependency cache
@@ -38,3 +58,33 @@ jobs:
       - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: reports/junit
           # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
+
+jobs:
+  test:
+    executor: build-executor
+    steps:
+      - test
+
+  deploy:
+    executor: build-executor
+    steps:
+      - build
+      - run:
+          name: Set user for commit
+          command: |
+            git config user.email "ci@example.com"
+            git config user.name "ci"
+      - add_ssh_keys:
+          fingerprints:
+            - '65:56:b2:97:31:13:65:be:25:ca:f6:65:51:78:a2:88'
+      - run: yarn deploy
+
+workflows:
+  version: 2
+  test_and_deploy:
+    jobs:
+      - test
+      - deploy:
+          filters:
+            branches:
+              only: master
