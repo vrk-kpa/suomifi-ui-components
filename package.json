@@ -45,7 +45,8 @@
     "build:esm": "tsc --p tsconfig.esm.json",
     "bundle-analyzer": "size-limit --why",
     "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "styleguide:build": "styleguidist build",
+    "deploy": "gh-pages -d styleguide -m \"[skip ci] Updates\""
   },
   "devDependencies": {
     "@types/classnames": "2.2.6",
@@ -58,6 +59,7 @@
     "eslint": "5.9.0",
     "eslint-plugin-jsx-a11y": "6.1.2",
     "file-loader": "2.0.0",
+    "gh-pages": "2.0.1",
     "husky": "1.1.4",
     "jest": "23.6.0",
     "jest-dom": "2.1.1",
