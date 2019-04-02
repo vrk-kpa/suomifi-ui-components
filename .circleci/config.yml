@@ -6,7 +6,7 @@ executors:
       - image: circleci/node:lts
 
 commands:
-  build:
+  checkout_and_cache:
     steps:
       - checkout
       - restore_cache: # special step to restore the dependency cache
@@ -22,23 +22,11 @@ commands:
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
+  build:
+    steps:
       - run: yarn styleguide:build
   test:
     steps:
-      - checkout
-      - restore_cache: # special step to restore the dependency cache
-          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          name: Restore Yarn Package Cache
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install Dependencies
-          command: yarn install --frozen-lockfile
-      - save_cache: # special step to save the dependency cache
-          name: Save Yarn Package Cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
       - run:
           name: Install JUnit coverage reporter
           command: yarn add --dev jest-junit
