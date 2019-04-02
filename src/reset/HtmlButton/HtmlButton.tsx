@@ -27,6 +27,7 @@ const buttonResets = css`
   ${resets.common}
   display: inline-block;
   max-width: 100%;
+  pointer: cursor;
 `;
 
 const Button = ({ type, ...passProps }: HtmlButtonProps) => (

@@ -47,6 +47,10 @@ export const iconBaseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
     cursor: pointer;
   }
 
+  .${svgPrefix}fi-toggle-icon-knob {
+    transform: translateX(0%);
+  }
+
   &.fi-toggle-icon--checked {
     .${svgPrefix}fi-toggle-icon-knob {
       transform: translateX(50%);
