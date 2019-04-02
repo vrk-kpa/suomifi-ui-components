@@ -100,28 +100,25 @@ const IfTitleTag = ({
 
 export class PanelExpansion extends Component<PanelExpansionProps> {
   state: PanelExpansionState = {
-    openState: !!this.props.open || !!this.props.defaultOpen || false,
+    openState:
+      this.props.defaultOpen !== undefined ? this.props.defaultOpen : false,
   };
-
-  componentWillReceiveProps(nextProps: PanelExpansionProps) {
-    const { open } = nextProps;
-    this.setState({ openState: open });
-  }
 
   handleClick = () => {
     const { open, onClick } = this.props;
     const { openState } = this.state;
-    if (open === undefined) {
+    const notControlled = open === undefined;
+    if (notControlled) {
       this.setState({ openState: !openState });
     }
     if (!!onClick) {
-      onClick({ openState: !openState });
+      onClick({ openState: notControlled ? !openState : !open });
     }
   };
 
   render() {
     const {
-      open: dissMissOpen,
+      open,
       defaultOpen,
       onClick,
       className,
@@ -131,7 +128,7 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
       titleProps,
       ...passProps
     } = this.props;
-    const { openState } = this.state;
+    const openState = open !== undefined ? open : this.state.openState;
     return (
       <StyledPanel
         {...passProps}
