@@ -48,14 +48,17 @@ commands:
           # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
 
 jobs:
-  test:
+  test_and_build:
     executor: build-executor
     steps:
+      - checkout_and_cache
       - test
+      - build
 
   deploy:
     executor: build-executor
     steps:
+      - checkout_and_cache
       - build
       - run:
           name: Set user for commit
@@ -71,7 +74,7 @@ workflows:
   version: 2
   test_and_deploy:
     jobs:
-      - test
+      - test_and_build
       - deploy:
           filters:
             branches:
