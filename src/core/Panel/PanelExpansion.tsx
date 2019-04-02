@@ -7,7 +7,7 @@ import { baseStyles } from './PanelExpansion.baseStyles';
 import {
   PanelExpansion as CompPanelExpansion,
   PanelExpansionProps as CompPanelExpansionProps,
-} from '../../components/Panel/Panel';
+} from '../../components/Panel/PanelExpansion';
 import { Icon } from '../Icon/Icon';
 import classnames from 'classnames';
 
