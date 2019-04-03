@@ -24,3 +24,4 @@ export {
 } from './Form/Toggle';
 export { Panel, PanelProps } from './Panel/Panel';
 export { PanelExpansion, PanelExpansionProps } from './Panel/PanelExpansion';
+export { Component } from './Component-component/Component-component';
