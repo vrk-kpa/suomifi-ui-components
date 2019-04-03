@@ -18,10 +18,6 @@ export interface PanelExpansionProps
   noPadding?: boolean;
 }
 
-interface PanelExpansionState {
-  open: boolean;
-}
-
 const StyledPanelExpansion = styled(
   ({ noPadding, ...passProps }: PanelExpansionProps) => {
     return <CompPanelExpansion {...passProps} />;
@@ -37,32 +33,12 @@ const StyledPanelExpansion = styled(
 export class PanelExpansion extends Component<PanelExpansionProps> {
   static defaultProps = defaultPropsTheme(CompPanelExpansion);
 
-  state: PanelExpansionState = { open: false };
-
-  handleClick = ({ openState }: { openState: boolean }) => {
-    const { onClick } = this.props;
-    this.setState({ open: openState });
-    if (typeof onClick === 'function') {
-      onClick({ openState });
-    }
-  };
-
   render() {
     // TODO why default theme neede here when should be set by defaultProps??
-    const {
-      onClick: dismissOnClick,
-      open: dismissOpen,
-      title,
-      titleTag,
-      theme = suomifiTheme,
-      ...passProps
-    } = this.props;
-    const { open } = this.state;
+    const { title, titleTag, theme = suomifiTheme, ...passProps } = this.props;
     return (
       <StyledPanelExpansion
         {...passProps}
-        onClick={this.handleClick}
-        open={open}
         theme={theme}
         titleTag={titleTag}
         title={
