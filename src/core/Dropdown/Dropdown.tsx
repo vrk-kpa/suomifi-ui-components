@@ -29,7 +29,6 @@ const StyledDropdown = styled(
     />
   ),
 )`
-  label: ${baseClassName};
   ${props => baseStyles(props)}
 `;
 

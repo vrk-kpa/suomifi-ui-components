@@ -35,7 +35,6 @@ const baseClassName = 'fi-menu';
 const StyledMenu = styled(({ theme, className, ...passProps }: MenuProps) => (
   <CompMenu {...passProps} className={classnames(className, baseClassName)} />
 ))`
-  label: ${baseClassName};
   ${props => baseStyles(props)}
 `;
 

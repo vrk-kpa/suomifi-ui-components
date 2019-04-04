@@ -11,7 +11,6 @@ interface ColorInterface {
 }
 
 const Color = styled.div`
-  label: ${(p: ColorInterface) => `fi-color-${p.keyName}`};
   ${(p: ColorInterface) => baseStyles(p.color)};
 `;
 

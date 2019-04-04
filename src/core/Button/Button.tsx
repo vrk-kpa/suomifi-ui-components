@@ -58,8 +58,6 @@ const StyledButton = styled(
     />
   ),
 )`
-  label: ${({ disabled }) =>
-    disabled ? `${baseClassName}--disabled` : baseClassName};
   ${props => baseStyles(props)}
 `;
 

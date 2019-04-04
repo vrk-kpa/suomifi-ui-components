@@ -15,11 +15,10 @@ const StyledSvg = styled((props: SvgProps) => <Svg {...props} />)`
 
 export class Icon extends Component<IconProps> {
   render() {
-    const { labelName = 'icon', className, ...passProps } = this.props;
+    const { className, ...passProps } = this.props;
     return (
       <StyledSvg
         {...passProps}
-        labelName={labelName}
         className={classnames(className, baseClassName)}
       />
     );

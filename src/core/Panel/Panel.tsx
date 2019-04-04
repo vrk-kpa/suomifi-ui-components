@@ -22,7 +22,6 @@ export interface PanelProps extends CompPanelProps, ThemeComponent {
 const StyledPanel = styled(({ theme, ...passProps }: PanelProps) => (
   <CompPanel {...passProps} />
 ))`
-  label: panel;
   ${props => baseStyles(props)};
 `;
 

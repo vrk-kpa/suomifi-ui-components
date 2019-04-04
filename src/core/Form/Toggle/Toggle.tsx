@@ -39,14 +39,12 @@ const StyledToggle = styled(
     />
   ),
 )`
-  label: ${baseClassName};
   ${props => baseStyles(props)}
 `;
 
 const StyledInput = styled(({ theme, ...passProps }: ToggleInputProps) => (
-  <ToggleInput {...passProps} />
+  <ToggleInput {...passProps} className={inputBaseClassName} />
 ))`
-  label: ${inputBaseClassName};
   ${props => inputBaseStyles(props)}
 `;
 
