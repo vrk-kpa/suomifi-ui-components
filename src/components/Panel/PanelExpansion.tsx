@@ -100,7 +100,8 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
       titleProps,
       ...passProps
     } = this.props;
-    const openState = open !== undefined ? open : this.state.openState;
+    const notControlled = open === undefined;
+    const openState = !notControlled ? !!open : this.state.openState;
     return (
       <StyledPanel
         {...passProps}
