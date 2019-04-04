@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { defaultPropsTheme } from '../utils';
-import { ThemeComponent, Theme } from '../theme';
+import { ThemeComponent, ThemeProp } from '../theme';
+import { withDefaultTheme } from '../theme/utils/defaultTheme';
 import { baseStyles, iconBaseStyles } from './Button.baseStyles';
 import {
   Button as CompButton,
@@ -76,7 +76,7 @@ const iconColor = ({
   invert,
   disabled,
 }: {
-  theme?: Theme;
+  theme?: ThemeProp;
   invert?: boolean;
   disabled?: boolean;
 }) => {
@@ -111,11 +111,15 @@ const UnstyledButton = (props: ButtonProps) => {
 };
 
 class ButtonWithIcon extends Component<ButtonProps> {
-  static defaultProps = defaultPropsTheme(CompButton);
-
   render() {
-    const { children, icon, iconRight, iconProps, ...passProps } = this.props;
-    const { disabled, theme, variant } = passProps;
+    const {
+      children,
+      icon,
+      iconRight,
+      iconProps,
+      ...passProps
+    } = withDefaultTheme(this.props);
+    const { theme, disabled, variant } = passProps;
 
     if (variant === 'unstyled') {
       return <UnstyledButton {...passProps} />;

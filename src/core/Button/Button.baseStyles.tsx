@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { suomifiTheme, Theme } from '../theme';
+import { suomifiTheme, ThemeProp } from '../theme';
 import { ButtonProps } from './Button';
 import { element, focus, fontSemibold } from '../theme/reset';
 
@@ -8,7 +8,7 @@ const fullWidthStyles = css`
   width: 100%;
 `;
 
-const negativeStyles = (theme: Theme) => css`
+const negativeStyles = (theme: ThemeProp) => css`
   background: none;
   background-color: ${theme.colors.secondaryColor};
   border: 1px solid ${theme.colors.primarycolor};
@@ -30,7 +30,7 @@ const negativeStyles = (theme: Theme) => css`
   }
 `;
 
-const secondaryStyles = (theme: Theme) => css`
+const secondaryStyles = (theme: ThemeProp) => css`
   color: ${theme.colors.secondaryColor};
   background: none;
   background-color: ${theme.colors.primarycolor};
@@ -55,12 +55,12 @@ const secondaryStyles = (theme: Theme) => css`
   }
 `;
 
-const secondaryNoBorderStyles = (theme: Theme) => css`
+const secondaryNoBorderStyles = (theme: ThemeProp) => css`
   ${secondaryStyles(theme)}
   border: none;
 `;
 
-const tertiaryStyles = (theme: Theme) => css`
+const tertiaryStyles = (theme: ThemeProp) => css`
   ${secondaryStyles(theme)}
   background: ${theme.gradients.basicLight};
   border: none;

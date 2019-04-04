@@ -2,7 +2,7 @@ import React, { Component, ReactNode, Fragment } from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 import { classnamesValue } from '../../utils/typescript';
-import { defaultPropsTheme } from '../utils';
+import { withDefaultTheme } from '../theme/utils/defaultTheme';
 import { ThemeComponent } from '../theme';
 import { Global } from '@emotion/core';
 import { baseStyles, globalStyles, iconBaseStyles } from './Menu.baseStyles';
@@ -68,10 +68,14 @@ const languageName = (name: ReactNode) => (
 );
 
 class MenuVariation extends Component<MenuProps> {
-  static defaultProps = defaultPropsTheme(CompMenu);
-
   render() {
-    const { children, variant, name, className, ...passProps } = this.props;
+    const {
+      children,
+      variant,
+      name,
+      className,
+      ...passProps
+    } = withDefaultTheme(this.props);
     const ifMenuLanguage = variant === 'language';
     const menuButtonClassName = classnames(
       'fi-menu-button',

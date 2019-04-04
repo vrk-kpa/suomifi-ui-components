@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { defaultPropsTheme } from '../../utils';
+import { withDefaultTheme } from '../../theme/utils/defaultTheme';
 import { ThemeComponent } from '../../theme';
 import {
   baseStyles,
@@ -69,8 +69,6 @@ const StyledIcon = styled(
  * Use for toggling form selection or application state
  */
 export class Toggle extends Component<ToggleProps> {
-  static defaultProps = defaultPropsTheme(CompToggle);
-
   state = { toggleStatus: !!this.props.checked };
 
   handleToggle = () => {
@@ -89,7 +87,7 @@ export class Toggle extends Component<ToggleProps> {
       checked: dissMissChecked,
       onClick,
       ...passProps
-    } = this.props;
+    } = withDefaultTheme(this.props);
     const { toggleStatus } = this.state;
     const iconProps = {
       disabled,

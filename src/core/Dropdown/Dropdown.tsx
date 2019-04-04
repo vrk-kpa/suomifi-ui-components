@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { defaultPropsTheme } from '../utils';
+import { withDefaultTheme } from '../theme/utils/defaultTheme';
 import { ThemeComponent } from '../theme';
 import { Global } from '@emotion/core';
 import { baseStyles, globalStyles } from './Dropdown.baseStyles';
@@ -37,13 +37,12 @@ const StyledDropdown = styled(
  * Use for selectable dropdown list.
  */
 export class Dropdown extends Component<DropdownProps> {
-  static defaultProps = defaultPropsTheme(CompDropdown);
-
   render() {
+    const props = withDefaultTheme(this.props);
     return (
       <Fragment>
-        <Global styles={globalStyles(this.props)} />
-        <StyledDropdown {...this.props} />
+        <Global styles={globalStyles(props)} />
+        <StyledDropdown {...props} />
       </Fragment>
     );
   }

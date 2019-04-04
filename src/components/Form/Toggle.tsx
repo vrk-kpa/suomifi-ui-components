@@ -25,12 +25,9 @@ export interface ToggleInputProps {
 }
 
 export class ToggleInput extends Component<ToggleInputProps> {
-  static defaultProps = {
-    disabled: false,
-  };
-
   render() {
     const {
+      disabled = false,
       controlled,
       ariaLabel,
       ariaLabelledBy,
@@ -39,6 +36,7 @@ export class ToggleInput extends Component<ToggleInputProps> {
     } = this.props;
     return (
       <HtmlInput
+        disabled={disabled}
         aria-label={ariaLabel}
         aria-labelledby={ariaLabelledBy}
         {...passProps}

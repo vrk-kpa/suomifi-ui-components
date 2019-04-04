@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import styled from '@emotion/styled';
-import { defaultPropsTheme } from '../utils';
-import { suomifiTheme, ThemeComponent } from '../theme';
+import { withDefaultTheme } from '../theme/utils/defaultTheme';
+import { ThemeComponent } from '../theme';
 import { baseStyles as panelBaseStyles } from './Panel.baseStyles';
 import { baseStyles } from './PanelExpansion.baseStyles';
 import {
@@ -35,8 +35,6 @@ interface PanelExpansionState {
  * Used for panel style and defined actions
  */
 export class PanelExpansion extends Component<PanelExpansionProps> {
-  static defaultProps = defaultPropsTheme(CompPanelExpansion);
-
   /** State is only used to update the caret-icon */
   state: PanelExpansionState = {
     openState:
@@ -56,20 +54,14 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
   };
 
   render() {
-    // TODO why default theme neede here when should be set by defaultProps??
-    const {
-      open,
-      title,
-      titleTag,
-      theme = suomifiTheme,
-      ...passProps
-    } = this.props;
+    const { open, title, titleTag, ...passProps } = withDefaultTheme(
+      this.props,
+    );
     const notControlled = open === undefined;
     const openState = !notControlled ? open : this.state.openState;
     return (
       <StyledPanelExpansion
         {...passProps}
-        theme={theme}
         onClick={this.handleClick}
         open={open}
         titleTag={titleTag}
@@ -82,7 +74,7 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
                 className={classnames('fi-panel-expansion-title-icon', {
                   'fi-panel-expansion-title-icon--open': openState,
                 })}
-                color={theme.colors.secondaryColor}
+                color={passProps.theme.colors.secondaryColor}
               />
             )}
           </Fragment>
