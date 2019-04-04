@@ -112,10 +112,14 @@ export const baseStyles = ({
   ${variant === 'secondary' && secondaryStyles(theme)}
   ${variant === 'secondary-noborder' && secondaryNoBorderStyles(theme)}
   ${variant === 'tertiary' && tertiaryStyles(theme)}
-`;
 
-export const iconBaseStyles = ({ right = false }: { right?: boolean }) => css`
-  width: 16px;
-  height: 16px;
-  margin-${right ? 'left' : 'right'}: 8px;
+  & > .fi-button-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    &.fi-button-icon--right {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+  }
 `;

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 import { ThemeComponent, ThemeProp } from '../theme';
 import { withDefaultTheme } from '../theme/utils/defaultTheme';
-import { baseStyles, iconBaseStyles } from './Button.baseStyles';
+import { baseStyles } from './Button.baseStyles';
 import {
   Button as CompButton,
   ButtonProps as CompButtonProps,
@@ -43,6 +43,8 @@ export interface ButtonProps extends CompButtonProps, ThemeComponent {
 }
 
 const baseClassName = 'fi-button';
+const iconClassName = `${baseClassName}-icon`;
+const iconRightClassName = `${baseClassName}-icon--right`;
 
 const StyledButton = styled(
   ({
@@ -59,14 +61,6 @@ const StyledButton = styled(
   ),
 )`
   ${props => baseStyles(props)}
-`;
-
-const StyledIcon = styled(
-  ({ right, ...passProps }: IconProps & { right?: boolean }) => (
-    <Icon {...passProps} />
-  ),
-)`
-  ${props => iconBaseStyles(props)}
 `;
 
 const iconColor = ({
@@ -114,10 +108,11 @@ class ButtonWithIcon extends Component<ButtonProps> {
       children,
       icon,
       iconRight,
-      iconProps,
+      iconProps = {},
       ...passProps
     } = withDefaultTheme(this.props);
     const { theme, disabled, variant } = passProps;
+    const { className: iconPropsClassName, ...passIconProps } = iconProps;
 
     if (variant === 'unstyled') {
       return <UnstyledButton {...passProps} />;
@@ -131,20 +126,24 @@ class ButtonWithIcon extends Component<ButtonProps> {
     return (
       <StyledButton {...passProps}>
         {!!icon && (
-          <StyledIcon
+          <Icon
             icon={icon}
-            right={false}
             color={iconColor({ theme, disabled, invert: secondaryOrTertiary })}
-            {...iconProps}
+            className={classnames(iconClassName, iconPropsClassName)}
+            {...passIconProps}
           />
         )}
         {children}
         {!!iconRight && (
-          <StyledIcon
+          <Icon
             icon={iconRight}
-            right={true}
             color={iconColor({ theme, disabled, invert: secondaryOrTertiary })}
-            {...iconProps}
+            className={classnames(
+              iconClassName,
+              iconRightClassName,
+              iconPropsClassName,
+            )}
+            {...passIconProps}
           />
         )}
       </StyledButton>
