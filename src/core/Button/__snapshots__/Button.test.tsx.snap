@@ -113,6 +113,17 @@ exports[`calling render with the same component on the same container does not r
   user-selectable: none;
 }
 
+.emotion-0 > .fi-button-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.emotion-0 > .fi-button-icon.fi-button-icon--right {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
 <button
   aria-disabled="false"
   class="fi-button emotion-0"
