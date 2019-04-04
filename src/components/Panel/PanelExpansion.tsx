@@ -84,7 +84,7 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
       this.setState({ openState: !openState });
     }
     if (!!onClick) {
-      onClick({ openState: notControlled ? !openState : !open });
+      onClick({ openState: notControlled ? !openState : !!open });
     }
   };
 
