@@ -170,7 +170,7 @@ exports[`calling render with the same component on the same container does not r
   >
     <svg
       aria-hidden="true"
-      class="emotion-1"
+      class="fi-toggle-icon emotion-1"
       focusable="false"
       height="1em"
       style="fill: #003479;"

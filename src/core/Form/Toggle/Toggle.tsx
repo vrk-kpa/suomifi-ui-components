@@ -26,7 +26,6 @@ interface ToggleIconProps extends IconProps, ThemeComponent {
 }
 
 const baseClassName = 'fi-toggle';
-const inputBaseClassName = `${baseClassName}-input`;
 const iconBaseClassName = `${baseClassName}-icon`;
 
 const StyledToggle = styled(
@@ -43,7 +42,7 @@ const StyledToggle = styled(
 `;
 
 const StyledInput = styled(({ theme, ...passProps }: ToggleInputProps) => (
-  <ToggleInput {...passProps} className={inputBaseClassName} />
+  <ToggleInput {...passProps} />
 ))`
   ${props => inputBaseStyles(props)}
 `;
@@ -53,7 +52,7 @@ const StyledIcon = styled(
     <Icon
       {...passProps}
       icon="toggle"
-      className={classnames(className, {
+      className={classnames(className, iconBaseClassName, {
         [`${iconBaseClassName}--disabled`]: !!disabled,
         [`${iconBaseClassName}--checked`]: !!checked,
       })}
