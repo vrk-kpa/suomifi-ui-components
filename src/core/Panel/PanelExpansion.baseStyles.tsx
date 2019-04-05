@@ -33,7 +33,7 @@ export const baseStyles = ({
     }
   }
   ${!noPadding &&
-    `& .fi-panel-expansion-content {
+    `& > .fi-panel-expansion-content {
     padding: 0 20px 20px 20px;
   }`}
 `;

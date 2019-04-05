@@ -11,6 +11,9 @@ import {
 import { Icon } from '../Icon/Icon';
 import classnames from 'classnames';
 
+const iconClassName = 'fi-panel-expansion-title-icon';
+const iconOpenClassName = `${iconClassName}--open`;
+
 export interface PanelExpansionProps
   extends CompPanelExpansionProps,
     ThemeComponent {
@@ -71,8 +74,8 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
             {!titleTag && (
               <Icon
                 icon="chevronDown"
-                className={classnames('fi-panel-expansion-title-icon', {
-                  'fi-panel-expansion-title-icon--open': openState,
+                className={classnames(iconClassName, {
+                  [iconOpenClassName]: openState,
                 })}
                 color={passProps.theme.colors.secondaryColor}
               />
