@@ -9,8 +9,9 @@ import { HtmlLabel, HtmlInput } from '../../reset';
 import classnames from 'classnames';
 
 const baseClassName = 'fi-toggle';
-const toggleInputBaseClassName = `${baseClassName}-input`;
-const toggleLabelBaseClassName = `${baseClassName}-label`;
+const toggleDisabledClassName = `${baseClassName}--disabled`;
+const toggleInputClassName = `${baseClassName}-input`;
+const toggleLabelClassName = `${baseClassName}-label`;
 
 export interface ToggleInputProps {
   /** State of input checkbox */
@@ -142,14 +143,17 @@ export class Toggle extends Component<ToggleProps> {
       ariaLabel,
       ariaLabelledBy,
       checked: !!toggleState,
-      className: toggleInputBaseClassName,
-      id: 'testaan',
+      className: toggleInputClassName,
       onChange: this.handleClick,
       ...toggleInputProps,
     };
 
     return (
-      <span className={classnames(className, baseClassName)}>
+      <span
+        className={classnames(className, baseClassName, {
+          [toggleDisabledClassName]: !!disabled,
+        })}
+      >
         {!!toggleInputComponent ? (
           componentOrElementWithProps(toggleInputComponent, newToggleInputProps) // element
         ) : (
@@ -157,7 +161,7 @@ export class Toggle extends Component<ToggleProps> {
         )}
         <HtmlLabel
           {...passProps}
-          className={toggleLabelBaseClassName}
+          className={toggleLabelClassName}
           onClick={this.handleClick}
           aria-labelledby="testaan"
         >
