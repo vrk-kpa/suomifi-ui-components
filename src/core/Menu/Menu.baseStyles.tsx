@@ -19,14 +19,13 @@ export const baseStyles = ({
       border: 1px solid ${theme.colors.elementBorder};
       border-radius: 2px;
       text-transform: uppercase;
+      & > .fi-menu-language-icon {
+        height: 16px;
+        width: 16px;
+        margin-left: 2px;
+      }
     }
   }
-`;
-
-export const iconBaseStyles = css`
-  height: 16px;
-  width: 16px;
-  margin-left: 2px;
 `;
 
 export const dataReachMenu = (theme: ThemeProp) => css`

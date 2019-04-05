@@ -1,4 +1,5 @@
 import React, { Component, ReactNode } from 'react';
+import classnames from 'classnames';
 import {
   Menu as ReachMenu,
   MenuButton,
@@ -13,6 +14,7 @@ import { Omit } from '../../utils/typescript';
 
 export { MenuItem, MenuLink };
 
+const baseClassName = 'fi-menu';
 export interface MenuItemProps {
   /** Operation to run on select */
   onSelect: () => void;
@@ -67,7 +69,7 @@ export class Menu extends Component<MenuProps> {
     }
 
     return (
-      <span className={className}>
+      <span className={classnames(className, baseClassName)}>
         <ReachMenu>
           <MenuButton {...passProps} className={menuButtonClassName}>
             {name}

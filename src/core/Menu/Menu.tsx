@@ -5,7 +5,7 @@ import { classnamesValue } from '../../utils/typescript';
 import { withDefaultTheme } from '../theme/utils/defaultTheme';
 import { ThemeComponent } from '../theme';
 import { Global } from '@emotion/core';
-import { baseStyles, globalStyles, iconBaseStyles } from './Menu.baseStyles';
+import { baseStyles, globalStyles } from './Menu.baseStyles';
 import {
   Menu as CompMenu,
   MenuProps as CompMenuProps,
@@ -18,7 +18,9 @@ import {
   MenuLanguageLinkProps,
 } from './MenuItem';
 
-import { Icon, IconProps } from '../Icon/Icon';
+import { Icon } from '../Icon/Icon';
+
+const iconClassName = 'fi-menu-language-icon';
 
 type ButtonVariant = 'default' | 'language';
 
@@ -30,10 +32,8 @@ export interface MenuProps extends CompMenuProps, ThemeComponent {
   variant?: ButtonVariant;
 }
 
-const baseClassName = 'fi-menu';
-
-const StyledMenu = styled(({ theme, className, ...passProps }: MenuProps) => (
-  <CompMenu {...passProps} className={classnames(className, baseClassName)} />
+const StyledMenu = styled(({ theme, ...passProps }: MenuProps) => (
+  <CompMenu {...passProps} />
 ))`
   ${props => baseStyles(props)}
 `;
@@ -53,16 +53,10 @@ const MenuListWithProps = (children: ReactNode, addClass?: classnamesValue) =>
     },
   );
 
-const StyledIcon = styled((props: IconProps) => (
-  <Icon icon="chevronDown" {...props} />
-))`
-  ${iconBaseStyles}
-`;
-
 const languageName = (name: ReactNode) => (
   <Fragment>
     {name}
-    <StyledIcon />
+    <Icon icon="chevronDown" className={iconClassName} />
   </Fragment>
 );
 
