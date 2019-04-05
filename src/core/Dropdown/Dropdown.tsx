@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import styled from '@emotion/styled';
-import classnames from 'classnames';
 import { withDefaultTheme } from '../theme/utils/defaultTheme';
 import { ThemeComponent } from '../theme';
 import { Global } from '@emotion/core';
@@ -16,19 +15,12 @@ export {
 
 export interface DropdownProps extends CompDropdownProps, ThemeComponent {}
 
-const baseClassName = 'fi-dropdown';
-
-const StyledDropdown = styled(
-  ({ theme, className, ...passProps }: DropdownProps) => (
-    <CompDropdown
-      {...passProps}
-      className={classnames(className, baseClassName)}
-      dropdownButtonProps={{ className: 'fi-dropdown-button' }}
-      dropdownItemProps={{ className: 'fi-dropdown-item' }}
-      dropdownListProps={{ className: 'fi-dropdown-list' }}
-    />
-  ),
-)`
+const StyledDropdown = styled(({ theme, ...passProps }: DropdownProps) => (
+  <CompDropdown
+    {...passProps}
+    dropdownItemProps={{ className: 'fi-dropdown-item' }}
+  />
+))`
   ${props => baseStyles(props)}
 `;
 
