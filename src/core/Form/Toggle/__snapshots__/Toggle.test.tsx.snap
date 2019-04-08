@@ -2,6 +2,21 @@
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
 .emotion-3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  font: inherit;
+  line-height: 1;
+  text-align: left;
+  vertical-align: baseline;
+  background: none;
+  display: inline;
+  max-width: 100%;
   color: #282828;
   font-family: 'Source Sans Pro','Helvetica Neue',Arial;
   font-size: 18px;
@@ -162,7 +177,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 <span
-  class="emotion-3 fi-toggle"
+  class="fi-toggle emotion-3"
 >
   <input
     class="fi-toggle-input emotion-0"
