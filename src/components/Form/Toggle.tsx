@@ -6,6 +6,7 @@ import React, {
   FunctionComponent,
 } from 'react';
 import { HtmlLabel, HtmlInput } from '../../reset';
+import { HtmlSpan } from '../../reset/HtmlSpan/HtmlSpan';
 import classnames from 'classnames';
 
 const baseClassName = 'fi-toggle';
@@ -149,7 +150,7 @@ export class Toggle extends Component<ToggleProps> {
     };
 
     return (
-      <span
+      <HtmlSpan
         className={classnames(className, baseClassName, {
           [toggleDisabledClassName]: !!disabled,
         })}
@@ -167,7 +168,7 @@ export class Toggle extends Component<ToggleProps> {
         >
           {children}
         </HtmlLabel>
-      </span>
+      </HtmlSpan>
     );
   }
 }

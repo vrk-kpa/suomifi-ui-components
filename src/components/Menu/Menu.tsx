@@ -1,5 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
+import { HtmlSpan } from '../../reset/HtmlSpan/HtmlSpan';
 import {
   Menu as ReachMenu,
   MenuButton,
@@ -69,14 +70,14 @@ export class Menu extends Component<MenuProps> {
     }
 
     return (
-      <span className={classnames(className, baseClassName)}>
+      <HtmlSpan className={classnames(className, baseClassName)}>
         <ReachMenu>
           <MenuButton {...passProps} className={menuButtonClassName}>
             {name}
           </MenuButton>
           <MenuList {...menuListProps}>{children}</MenuList>
         </ReachMenu>
-      </span>
+      </HtmlSpan>
     );
   }
 }

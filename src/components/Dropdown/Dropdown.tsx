@@ -1,5 +1,6 @@
 import React, { Component, ReactNode, ReactElement } from 'react';
 import classnames from 'classnames';
+import { HtmlSpan } from '../../reset/HtmlSpan/HtmlSpan';
 import {
   Menu,
   MenuButton,
@@ -121,7 +122,7 @@ export class Dropdown extends Component<DropdownProps> {
     };
 
     return (
-      <span className={classnames(className, baseClassName)}>
+      <HtmlSpan className={classnames(className, baseClassName)}>
         <Menu {...passProps}>
           <MenuButton {...passDropdownButtonProps}>
             {!!selectedName ? selectedName : name}
@@ -130,7 +131,7 @@ export class Dropdown extends Component<DropdownProps> {
             {this.list(children, changeNameToSelection, passDropdownItemProps)}
           </MenuList>
         </Menu>
-      </span>
+      </HtmlSpan>
     );
   }
 }
