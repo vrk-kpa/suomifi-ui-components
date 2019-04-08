@@ -28,7 +28,7 @@ export class VisuallyHidden extends Component<VisuallyHiddenProps> {
     return (
       <StyledVisuallyHidden
         {...passProps}
-        classnames={classnames(baseClassName, className)}
+        className={classnames(baseClassName, className)}
       />
     );
   }
