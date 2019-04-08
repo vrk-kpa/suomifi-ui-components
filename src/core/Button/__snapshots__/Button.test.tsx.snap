@@ -107,10 +107,10 @@ exports[`calling render with the same component on the same container does not r
 .emotion-0:disabled {
   background: linear-gradient(0deg,#A5ACB0 0%,#C9CDCF 100%);
   pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .emotion-0 > .fi-button-icon {
