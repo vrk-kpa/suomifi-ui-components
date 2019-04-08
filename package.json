@@ -93,6 +93,7 @@
   "dependencies": {
     "@emotion/core": "10.0.0",
     "@emotion/styled": "10.0.0",
+    "@reach/component-component": "0.1.3",
     "@reach/menu-button": "0.1.7",
     "classnames": "2.2.6",
     "normalize.cssinjs": "1.0.5",

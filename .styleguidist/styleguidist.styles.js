@@ -26,6 +26,18 @@ module.exports = {
       boxSizing: 'inherit',
     },
   },
+  TableOfContents: {
+    root: {
+      '& > nav > ul > li > ul > li:only-child': {
+        '& > a:only-of-type': {
+          display: 'none',
+        },
+        '& > ul:only-of-type': {
+          paddingLeft: '0',
+        },
+      },
+    },
+  },
   ReactComponent: {
     root: {
       display: 'flex',

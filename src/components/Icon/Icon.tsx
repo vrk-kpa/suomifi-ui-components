@@ -14,10 +14,6 @@ const StyledSvg = styled((props: SvgProps) => <Svg {...props} />)`
 `;
 
 export class Icon extends Component<IconProps> {
-  static defaultProps = {
-    labelName: 'icon',
-  };
-
   render() {
     const { className, ...passProps } = this.props;
     return (

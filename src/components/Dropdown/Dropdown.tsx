@@ -1,4 +1,6 @@
 import React, { Component, ReactNode, ReactElement } from 'react';
+import classnames from 'classnames';
+import { HtmlSpan } from '../../reset/HtmlSpan/HtmlSpan';
 import {
   Menu,
   MenuButton,
@@ -12,6 +14,11 @@ import { logger } from '../../utils/logger';
 import '@reach/menu-button/styles.css';
 
 export { MenuItem as DropdownItem };
+
+const baseClassName = 'fi-dropdown';
+const buttonClassName = `${baseClassName}-button`;
+const dropdownListClassName = `${baseClassName}-list`;
+const dropdownItemClassName = `${baseClassName}-item`;
 
 export interface DropdownItemProps {
   /** Operation to run on select */
@@ -88,30 +95,43 @@ export class Dropdown extends Component<DropdownProps> {
       children,
       name,
       className,
-      dropdownButtonProps,
-      dropdownListProps,
-      dropdownItemProps,
+      dropdownButtonProps = {},
+      dropdownListProps = {},
+      dropdownItemProps = {},
       changeNameToSelection = true,
       ...passProps
     } = this.props;
-    const { selectedName } = this.state;
 
     if (React.Children.count(children) < 1) {
       logger.warn(`Dropdown '${name}' does not contain items`);
       return null;
     }
 
+    const { selectedName } = this.state;
+    const passDropdownButtonProps = {
+      ...dropdownButtonProps,
+      className: classnames(buttonClassName, dropdownButtonProps.className),
+    };
+    const passDropdownListProps = {
+      ...dropdownListProps,
+      className: classnames(dropdownListClassName, dropdownListProps.className),
+    };
+    const passDropdownItemProps = {
+      ...dropdownItemProps,
+      className: classnames(dropdownItemClassName, dropdownItemProps.className),
+    };
+
     return (
-      <span className={className}>
+      <HtmlSpan className={classnames(className, baseClassName)}>
         <Menu {...passProps}>
-          <MenuButton {...dropdownButtonProps}>
+          <MenuButton {...passDropdownButtonProps}>
             {!!selectedName ? selectedName : name}
           </MenuButton>
-          <MenuList {...dropdownListProps}>
-            {this.list(children, changeNameToSelection, dropdownItemProps)}
+          <MenuList {...passDropdownListProps}>
+            {this.list(children, changeNameToSelection, passDropdownItemProps)}
           </MenuList>
         </Menu>
-      </span>
+      </HtmlSpan>
     );
   }
 }

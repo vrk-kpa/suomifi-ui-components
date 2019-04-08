@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import { iconBaseStyles } from './Icon.baseStyles';
-import { suomifiTheme } from '../theme';
+import { withDefaultTheme } from '../theme/utils/defaultTheme';
 import {
   ariaLabelOrHidden,
   ariaFocusableNoLabel,
@@ -68,21 +68,20 @@ const StyledSuomifiIcon = styled(
  * General icon-component
  */
 export class Icon extends Component<IconProps> {
-  static defaultProps = {
-    icon: 'login',
-    color: suomifiTheme.colors.brandColor,
-  };
-
   render() {
-    const { src, icon, ...passProps } = this.props;
+    const { src, color, icon = 'login', ...passProps } = withDefaultTheme(
+      this.props,
+    );
     const { className, ariaLabel } = this.props;
+    const iconColor =
+      color !== undefined ? color : passProps.theme.colors.brandColor;
 
     if (!!src) {
-      return <StyledIcon src={src} {...passProps} />;
+      return <StyledIcon src={src} {...passProps} color={iconColor} />;
     }
 
     if (icon !== undefined) {
-      return <StyledSuomifiIcon {...passProps} icon={icon} />;
+      return <StyledSuomifiIcon {...passProps} icon={icon} color={iconColor} />;
     }
 
     logger.warn(

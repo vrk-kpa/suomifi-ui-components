@@ -107,7 +107,7 @@ exports[`calling render with the same component on the same container does not r
   transform: rotate(-180deg);
 }
 
-.emotion-3 .fi-panel-expansion-content {
+.emotion-3 > .fi-panel-expansion-content {
   padding: 0 20px 20px 20px;
 }
 

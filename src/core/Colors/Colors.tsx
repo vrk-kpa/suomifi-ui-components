@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from 'react';
-import { defaultPropsTheme } from '../utils';
+import { withDefaultTheme } from '../theme/utils/defaultTheme';
 import styled from '@emotion/styled';
 import { ThemeComponent } from '../theme';
 import { baseStyles } from './Colors.baseStyles';
@@ -11,15 +11,14 @@ interface ColorInterface {
 }
 
 const Color = styled.div`
-  label: ${(p: ColorInterface) => `fi-color-${p.keyName}`};
   ${(p: ColorInterface) => baseStyles(p.color)};
 `;
 
 export class Colors extends Component<ThemeComponent> {
-  static defaultProps = defaultPropsTheme();
-
   render() {
-    const { theme: { colors: themeColors = {} } = {} } = this.props;
+    const {
+      theme: { colors: themeColors },
+    } = withDefaultTheme(this.props);
     return Object.entries(themeColors).reduce<JSX.Element[]>(
       (arr, [key, value]) => {
         const test = (

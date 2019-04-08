@@ -1,23 +1,8 @@
 import { SerializedStyles } from '@emotion/core';
-import { suomifiTheme, Theme } from '../theme';
-
-/**
- * Return defaultProps from given component and theme as suomifiTheme
- * @param component takes defaultProps from component
- * @callback addProps(theme) function with theme as value returning other optional defaultProps
- */
-export const defaultPropsTheme = (
-  { defaultProps }: any = {},
-  // @ts-ignore
-  addProps = (theme: Theme) => ({}),
-) => ({
-  ...defaultProps,
-  ...addProps(suomifiTheme),
-  theme: suomifiTheme,
-});
+import { suomifiTheme, ThemeProp } from '../theme';
 
 interface BaseStylesInterface {
-  theme: Theme;
+  theme: ThemeProp;
   [key: string]: any;
 }
 

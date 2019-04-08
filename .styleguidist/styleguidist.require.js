@@ -1,8 +1,10 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var { DropdownItem } = require('../src/core/Dropdown/Dropdown');
-var { MenuItem, MenuLink } = require('../src/core/Menu/Menu');
+var { Component } = require('../src/components');
+global.Component = Component;
+
+var { DropdownItem, MenuItem, MenuLink } = require('../src');
 global.DropdownItem = DropdownItem;
 global.MenuItem = MenuItem;
 global.MenuLink = MenuLink;

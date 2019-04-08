@@ -6,11 +6,13 @@ import React, {
   FunctionComponent,
 } from 'react';
 import { HtmlLabel, HtmlInput } from '../../reset';
+import { HtmlSpan } from '../../reset/HtmlSpan/HtmlSpan';
 import classnames from 'classnames';
 
 const baseClassName = 'fi-toggle';
-const toggleInputBaseClassName = `${baseClassName}-input`;
-const toggleLabelBaseClassName = `${baseClassName}-label`;
+const toggleDisabledClassName = `${baseClassName}--disabled`;
+const toggleInputClassName = `${baseClassName}-input`;
+const toggleLabelClassName = `${baseClassName}-label`;
 
 export interface ToggleInputProps {
   /** State of input checkbox */
@@ -25,12 +27,9 @@ export interface ToggleInputProps {
 }
 
 export class ToggleInput extends Component<ToggleInputProps> {
-  static defaultProps = {
-    disabled: false,
-  };
-
   render() {
     const {
+      disabled = false,
       controlled,
       ariaLabel,
       ariaLabelledBy,
@@ -39,6 +38,7 @@ export class ToggleInput extends Component<ToggleInputProps> {
     } = this.props;
     return (
       <HtmlInput
+        disabled={disabled}
         aria-label={ariaLabel}
         aria-labelledby={ariaLabelledBy}
         {...passProps}
@@ -144,14 +144,17 @@ export class Toggle extends Component<ToggleProps> {
       ariaLabel,
       ariaLabelledBy,
       checked: !!toggleState,
-      className: toggleInputBaseClassName,
-      id: 'testaan',
+      className: toggleInputClassName,
       onChange: this.handleClick,
       ...toggleInputProps,
     };
 
     return (
-      <span className={classnames(className, baseClassName)}>
+      <HtmlSpan
+        className={classnames(className, baseClassName, {
+          [toggleDisabledClassName]: !!disabled,
+        })}
+      >
         {!!toggleInputComponent ? (
           componentOrElementWithProps(toggleInputComponent, newToggleInputProps) // element
         ) : (
@@ -159,13 +162,13 @@ export class Toggle extends Component<ToggleProps> {
         )}
         <HtmlLabel
           {...passProps}
-          className={toggleLabelBaseClassName}
+          className={toggleLabelClassName}
           onClick={this.handleClick}
           aria-labelledby="testaan"
         >
           {children}
         </HtmlLabel>
-      </span>
+      </HtmlSpan>
     );
   }
 }
