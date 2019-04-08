@@ -104,7 +104,7 @@ export const baseStyles = ({
   &:disabled {
     background: ${theme.gradients.gray};
     pointer-events: none;
-    user-selectable: none;
+    user-select: none;
   }
 
   ${fullWidth && fullWidthStyles}
