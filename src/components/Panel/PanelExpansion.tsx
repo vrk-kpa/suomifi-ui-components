@@ -4,12 +4,17 @@ import { Panel, PanelProps, baseClassName, StyledPanel } from './Panel';
 import { Button, ButtonProps } from '../Button/Button';
 import { allStates } from '../utils/pseudo';
 import classnames from 'classnames';
+import {
+  PanelExpansionGroupConsumer,
+  PanelExpansionProviderState,
+} from './PanelExpansionGroup';
 
 const panelExpansionClassName = `${baseClassName}-expansion`;
-const panelExpansionTitleClassName = `${baseClassName}-expansion-title`;
+const panelExpansionOpenClassName = `${panelExpansionClassName}--open`;
+const panelExpansionTitleClassName = `${panelExpansionClassName}-title`;
 const panelExpansionTitleNoTagClassName = `${panelExpansionTitleClassName}--no-tag`;
-const panelExpansionTitleTagClassName = `${baseClassName}-expansion-title-tag`;
-const panelExpansionContentClassName = `${baseClassName}-expansion-content`;
+const panelExpansionTitleTagClassName = `${panelExpansionClassName}-title-tag`;
+const panelExpansionContentClassName = `${panelExpansionClassName}-content`;
 const panelExpansionContentOpenClassName = `${panelExpansionContentClassName}--open`;
 
 const StyledPanelExpansionContent = styled(
@@ -51,6 +56,9 @@ export interface PanelExpansionProps extends PanelProps {
   defaultOpen?: boolean;
   /** Event handler to execute when clicked */
   onClick?: ({ openState }: { openState: boolean }) => void;
+  index?: number;
+  expansionGroup?: boolean;
+  consumer?: PanelExpansionProviderState;
 }
 
 const IfTitleTag = ({
@@ -70,21 +78,31 @@ const IfTitleTag = ({
   </Fragment>
 );
 
-export class PanelExpansion extends Component<PanelExpansionProps> {
+export class PanelExpansionItem extends Component<PanelExpansionProps> {
   state: PanelExpansionState = {
     openState:
       this.props.defaultOpen !== undefined ? this.props.defaultOpen : false,
   };
 
   handleClick = () => {
-    const { open, onClick } = this.props;
-    const { openState } = this.state;
-    const notControlled = open === undefined;
-    if (notControlled) {
-      this.setState({ openState: !openState });
-    }
-    if (!!onClick) {
-      onClick({ openState: notControlled ? !openState : !!open });
+    const {
+      open,
+      onClick,
+      consumer: { onClick: consumerOnClick } = { onClick: undefined },
+      index,
+      expansionGroup,
+    } = this.props;
+    if (!!expansionGroup && !!consumerOnClick && index !== undefined) {
+      consumerOnClick(index);
+    } else {
+      const openState = !this.state.openState;
+      const notControlled = open === undefined;
+      if (notControlled) {
+        this.setState({ openState });
+      }
+      if (!!onClick) {
+        onClick({ openState: notControlled ? openState : !!open });
+      }
     }
   };
 
@@ -98,14 +116,24 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
       title,
       titleTag,
       titleProps,
+      index,
+      expansionGroup: dissmissExpansionGroup,
+      consumer: { openPanels } = { openPanels: undefined },
       ...passProps
     } = this.props;
-    const notControlled = open === undefined;
-    const openState = !notControlled ? !!open : this.state.openState;
+    const localOpenState = () =>
+      open !== undefined ? !!open : this.state.openState;
+    const openState =
+      index !== undefined && !!openPanels
+        ? openPanels.includes(index)
+        : localOpenState();
+
     return (
       <StyledPanel
         {...passProps}
-        className={classnames(className, panelExpansionClassName)}
+        className={classnames(className, panelExpansionClassName, {
+          [panelExpansionOpenClassName]: !!openState,
+        })}
       >
         <IfTitleTag titleTag={titleTag}>
           <StyledPanelExpansionTitle
@@ -129,6 +157,23 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
           {children}
         </StyledPanelExpansionContent>
       </StyledPanel>
+    );
+  }
+}
+
+export class PanelExpansion extends Component<PanelExpansionProps> {
+  render() {
+    return !!this.props.expansionGroup ? (
+      <PanelExpansionGroupConsumer>
+        {PanelExpansionGroupConsumer => (
+          <PanelExpansionItem
+            {...this.props}
+            consumer={PanelExpansionGroupConsumer}
+          />
+        )}
+      </PanelExpansionGroupConsumer>
+    ) : (
+      <PanelExpansionItem {...this.props} />
     );
   }
 }

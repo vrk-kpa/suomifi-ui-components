@@ -8,8 +8,12 @@ import {
   PanelProps as CompPanelProps,
 } from '../../components/Panel/Panel';
 import { PanelExpansion, PanelExpansionProps } from './PanelExpansion';
+import {
+  PanelExpansionGroup,
+  PanelExpansionGroupProps,
+} from './PanelExpansionGroup';
 
-type PanelVariant = 'default' | 'expansion';
+type PanelVariant = 'default' | 'expansion' | 'expansionGroup';
 
 export interface PanelProps extends CompPanelProps, ThemeComponent {
   /**
@@ -33,12 +37,18 @@ export class Panel extends Component<PanelProps> {
     return <PanelExpansion {...props} />;
   };
 
+  static expansionGroup = (props: PanelExpansionGroupProps) => {
+    return <PanelExpansionGroup {...props} />;
+  };
+
   render() {
     const { variant, ...passProps } = withDefaultTheme(this.props);
-    return variant === 'expansion' ? (
-      <PanelExpansion {...passProps} />
-    ) : (
-      <StyledPanel {...passProps} />
-    );
+    if (variant === 'expansion') {
+      return <PanelExpansion {...passProps} />;
+    }
+    if (variant === 'expansionGroup') {
+      return <PanelExpansionGroup {...passProps} />;
+    }
+    return <StyledPanel {...passProps} />;
   }
 }

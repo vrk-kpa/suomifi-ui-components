@@ -1,6 +1,11 @@
 ```jsx
 <Panel className="panel-test">Test</Panel>
 <Panel.expansion title="Test expansion" className="panel-expansion-test">Test expansion content</Panel.expansion>
+<Panel.expansionGroup openAll="Open all" closeAll="Close all">
+  <Panel.expansion title="Test expansion 1">Test expansion content 1</Panel.expansion>
+  <Panel.expansion title="Test expansion 2">Test expansion content 2</Panel.expansion>
+  <Panel.expansion title="Test expansion 3">Test expansion content 3</Panel.expansion>
+</Panel.expansionGroup>
 ```
 
 ### Example with controlled open-prop:
