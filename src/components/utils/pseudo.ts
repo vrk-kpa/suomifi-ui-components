@@ -10,9 +10,11 @@ export const allStates = (styles: string) => css`
   }
 `;
 
-export const afterAbsolute = css`
+type absolutePseudos = 'before' | 'after';
+
+export const absolute = (pseudo: absolutePseudos) => css`
   position: relative;
-  &:after {
+  &:${pseudo} {
     content: '';
     position: absolute;
     top: 0;
