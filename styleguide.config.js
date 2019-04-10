@@ -1,4 +1,5 @@
 const path = require('path');
+const glob = require('glob');
 
 // Filter props from styleguidist that don't have description in interface or are from react typings
 const propFilter = prop => {
@@ -44,4 +45,23 @@ module.exports = {
     },
   },
   styles: require('./.styleguidist/styleguidist.styles.js'),
+  sections: [
+    {
+      name: 'Introduction',
+      content: './.styleguidist/introduction.md',
+    },
+    {
+      name: 'Components',
+      content: './.styleguidist/components.md',
+      sections: [
+        {
+          name: 'dev',
+          components: () => {
+            return glob.sync(path.resolve(__dirname, 'src/core/**/*.tsx'));
+          },
+        },
+      ],
+      sectionDepth: 2,
+    },
+  ],
 };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
-import { defaultPropsTheme } from '../utils';
+import { withDefaultTheme } from '../theme/utils/defaultTheme';
 import { ThemeComponent } from '../theme';
 import { baseStyles } from './Panel.baseStyles';
 import {
@@ -8,8 +8,12 @@ import {
   PanelProps as CompPanelProps,
 } from '../../components/Panel/Panel';
 import { PanelExpansion, PanelExpansionProps } from './PanelExpansion';
+import {
+  PanelExpansionGroup,
+  PanelExpansionGroupProps,
+} from './PanelExpansionGroup';
 
-type PanelVariant = 'default' | 'expansion';
+type PanelVariant = 'default' | 'expansion' | 'expansionGroup';
 
 export interface PanelProps extends CompPanelProps, ThemeComponent {
   /**
@@ -22,7 +26,6 @@ export interface PanelProps extends CompPanelProps, ThemeComponent {
 const StyledPanel = styled(({ theme, ...passProps }: PanelProps) => (
   <CompPanel {...passProps} />
 ))`
-  label: panel;
   ${props => baseStyles(props)};
 `;
 
@@ -30,18 +33,22 @@ const StyledPanel = styled(({ theme, ...passProps }: PanelProps) => (
  * Used for panel style and defined actions
  */
 export class Panel extends Component<PanelProps> {
-  static defaultProps = defaultPropsTheme(CompPanel);
-
   static expansion = (props: PanelExpansionProps) => {
     return <PanelExpansion {...props} />;
   };
 
+  static expansionGroup = (props: PanelExpansionGroupProps) => {
+    return <PanelExpansionGroup {...props} />;
+  };
+
   render() {
-    const { variant, ...passProps } = this.props;
-    return variant === 'expansion' ? (
-      <PanelExpansion {...passProps} />
-    ) : (
-      <StyledPanel {...passProps} />
-    );
+    const { variant, ...passProps } = withDefaultTheme(this.props);
+    if (variant === 'expansion') {
+      return <PanelExpansion {...passProps} />;
+    }
+    if (variant === 'expansionGroup') {
+      return <PanelExpansionGroup {...passProps} />;
+    }
+    return <StyledPanel {...passProps} />;
   }
 }

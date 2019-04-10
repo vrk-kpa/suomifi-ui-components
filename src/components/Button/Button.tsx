@@ -64,12 +64,13 @@ export interface ButtonProps extends HtmlButtonProps {
 }
 
 export class Button extends Component<ButtonProps> {
-  static defaultProps = {
-    disabled: false,
-  };
-
   render() {
-    const { disabled, mouseNoFocus, onClick, ...passProps } = this.props;
+    const {
+      disabled = false,
+      mouseNoFocus,
+      onClick,
+      ...passProps
+    } = this.props;
     if (!!mouseNoFocus && !!onClick) {
       const doClick = mouseNonFocus({ handleClick: onClick });
       return (

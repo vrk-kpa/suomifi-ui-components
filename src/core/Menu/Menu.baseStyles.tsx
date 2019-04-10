@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { suomifiTheme, Theme } from '../theme';
+import { suomifiTheme, ThemeProp } from '../theme';
 import { MenuProps } from './Menu';
 import { element, font, focus, fontInput, fontSemibold } from '../theme/reset';
 import { Omit } from '../../utils/typescript';
@@ -19,17 +19,16 @@ export const baseStyles = ({
       border: 1px solid ${theme.colors.elementBorder};
       border-radius: 2px;
       text-transform: uppercase;
+      & > .fi-menu-language-icon {
+        height: 16px;
+        width: 16px;
+        margin-left: 2px;
+      }
     }
   }
 `;
 
-export const iconBaseStyles = css`
-  height: 16px;
-  width: 16px;
-  margin-left: 2px;
-`;
-
-export const dataReachMenu = (theme: Theme = suomifiTheme) => css`
+export const dataReachMenu = (theme: ThemeProp) => css`
   [data-reach-menu] {
     ${element}
     ${font}

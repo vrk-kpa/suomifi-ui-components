@@ -8,9 +8,8 @@ export {
   DropdownItem,
   DropdownItemProps,
 } from './core/Dropdown/Dropdown';
+export { Menu, MenuProps } from './core/Menu/Menu';
 export {
-  Menu,
-  MenuProps,
   MenuItem,
   MenuItemProps,
   MenuLink,
@@ -19,7 +18,7 @@ export {
   MenuLanguageItemProps,
   MenuLanguageLink,
   MenuLanguageLinkProps,
-} from './core/Menu/Menu';
+} from './core/Menu/MenuItem';
 export {
   Toggle,
   ToggleProps,

@@ -2,21 +2,37 @@ import { css } from '@emotion/core';
 import { suomifiTheme } from '../theme';
 import { PanelExpansionProps } from './PanelExpansion';
 import { element, focus, fontPanelTitle } from '../theme/reset';
+import { absolute } from '../../components/utils/pseudo';
 
 export const baseStyles = ({
   theme = suomifiTheme,
   noPadding = false,
 }: PanelExpansionProps) => css`
+  ${absolute('before')}
   position: relative;
   padding: 0;
   border-radius: 2px;
   box-shadow: ${theme.shadows.panelShadow};
+  z-index: 1;
+
+  &:before {
+    background-color: ${theme.colors.panelExpansionBgr};
+    opacity: 0;
+  }
+
+  &.fi-panel-expansion--open:before {
+    opacity: 1;
+    transition: opacity ${theme.transitions.basicTime}
+      ${theme.transitions.basicTimingFunction};
+  }
 
   & .fi-panel-expansion-title {
     ${element}
     ${focus}
+    position: relative;
     display: block;
     width: 100%;
+    z-index: 2;
     &--no-tag {
       ${fontPanelTitle}
       padding: 20px 60px 20px 20px;
@@ -32,8 +48,10 @@ export const baseStyles = ({
       transform: rotate(-180deg);
     }
   }
-  ${!noPadding &&
-    `& .fi-panel-expansion-content {
-    padding: 0 20px 20px 20px;
-  }`}
+
+  & > .fi-panel-expansion-content {
+    position: relative;
+    z-index: 2;
+    ${!noPadding && 'padding: 0 20px 20px 20px;'}
+  }
 `;

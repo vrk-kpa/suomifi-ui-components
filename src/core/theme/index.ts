@@ -1,12 +1,13 @@
 import { typography } from './typography';
 import { colors, shadows, gradients, outlines } from './colors';
 import { zindexes } from './zindexes';
+import { transitions } from './transitions';
 
-export type Theme = typeof suomifiTheme;
+export type ThemeProp = typeof suomifiTheme;
 
 export interface ThemeComponent {
   /** Default as suomifiTheme */
-  theme?: Theme;
+  theme?: ThemeProp;
 }
 
 export const suomifiTheme = {
@@ -16,4 +17,5 @@ export const suomifiTheme = {
   gradients,
   outlines,
   zindexes,
+  transitions,
 };

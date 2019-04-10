@@ -122,6 +122,7 @@ export const colors = {
   caret: palette.grayK40,
   toggleOn: palette.green,
   toggleOnSlide: alphaHex50(palette.green),
+  panelExpansionBgr: '#f6f9fc', // TODO!! New colors and names to be defined by PAMU
   // secondaryBackground: palette.lakeDark,
   // text: '#fff',
   // background: '#212121',

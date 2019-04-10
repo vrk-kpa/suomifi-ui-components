@@ -1,0 +1,179 @@
+import React, { Component, ReactNode, Fragment } from 'react';
+import styled from '@emotion/styled';
+import { Panel, PanelProps, baseClassName, StyledPanel } from './Panel';
+import { Button, ButtonProps } from '../Button/Button';
+import { allStates } from '../utils/pseudo';
+import classnames from 'classnames';
+import {
+  PanelExpansionGroupConsumer,
+  PanelExpansionProviderState,
+} from './PanelExpansionGroup';
+
+const panelExpansionClassName = `${baseClassName}-expansion`;
+const panelExpansionOpenClassName = `${panelExpansionClassName}--open`;
+const panelExpansionTitleClassName = `${panelExpansionClassName}-title`;
+const panelExpansionTitleNoTagClassName = `${panelExpansionTitleClassName}--no-tag`;
+const panelExpansionTitleTagClassName = `${panelExpansionClassName}-title-tag`;
+const panelExpansionContentClassName = `${panelExpansionClassName}-content`;
+const panelExpansionContentOpenClassName = `${panelExpansionContentClassName}--open`;
+
+const StyledPanelExpansionContent = styled(
+  ({ openState, ...passProps }: PanelProps & { openState: boolean }) => (
+    <Panel {...passProps} />
+  ),
+)`
+  display: ${({ openState }) => (!!openState ? 'block' : 'none')};
+`;
+
+const StyledPanelExpansionTitle = styled((props: ButtonProps) => (
+  <Button {...props} mouseNoFocus={true} />
+))`
+  &,
+  & * {
+    cursor: pointer;
+  }
+  ${allStates('cursor: pointer;')}
+`;
+
+interface PanelExpansionState {
+  openState: boolean;
+}
+
+export interface PanelExpansionProps extends PanelProps {
+  /** Title for Panel */
+  title: ReactNode;
+  /** Title HTML-tag (h1, h2, h3 etc.)
+   * @default none
+   */
+  titleTag?: string;
+  /** Controlled open-state, use onClick to change  */
+  open?: boolean;
+  /** Properties for title-Button */
+  titleProps?: ButtonProps;
+  /** Default status of panel open when not using controlled 'open' state
+   * @default false
+   */
+  defaultOpen?: boolean;
+  /** Event handler to execute when clicked */
+  onClick?: ({ openState }: { openState: boolean }) => void;
+  index?: number;
+  expansionGroup?: boolean;
+  consumer?: PanelExpansionProviderState;
+}
+
+const IfTitleTag = ({
+  titleTag,
+  children,
+}: {
+  titleTag?: string;
+  children: ReactNode;
+}) => (
+  <Fragment>
+    {!!titleTag
+      ? React.createElement(titleTag, {
+          children,
+          className: panelExpansionTitleTagClassName,
+        })
+      : children}
+  </Fragment>
+);
+
+export class PanelExpansionItem extends Component<PanelExpansionProps> {
+  state: PanelExpansionState = {
+    openState:
+      this.props.defaultOpen !== undefined ? this.props.defaultOpen : false,
+  };
+
+  handleClick = () => {
+    const {
+      open,
+      onClick,
+      consumer: { onClick: consumerOnClick } = { onClick: undefined },
+      index,
+      expansionGroup,
+    } = this.props;
+    if (!!expansionGroup && !!consumerOnClick && index !== undefined) {
+      consumerOnClick(index);
+    } else {
+      const openState = !this.state.openState;
+      const notControlled = open === undefined;
+      if (notControlled) {
+        this.setState({ openState });
+      }
+      if (!!onClick) {
+        onClick({ openState: notControlled ? openState : !!open });
+      }
+    }
+  };
+
+  render() {
+    const {
+      open,
+      defaultOpen,
+      onClick,
+      className,
+      children,
+      title,
+      titleTag,
+      titleProps,
+      index,
+      expansionGroup: dissmissExpansionGroup,
+      consumer: { openPanels } = { openPanels: undefined },
+      ...passProps
+    } = this.props;
+    const localOpenState = () =>
+      open !== undefined ? !!open : this.state.openState;
+    const openState =
+      index !== undefined && !!openPanels
+        ? openPanels.includes(index)
+        : localOpenState();
+
+    return (
+      <StyledPanel
+        {...passProps}
+        className={classnames(className, panelExpansionClassName, {
+          [panelExpansionOpenClassName]: !!openState,
+        })}
+      >
+        <IfTitleTag titleTag={titleTag}>
+          <StyledPanelExpansionTitle
+            onClick={this.handleClick}
+            className={classnames(panelExpansionTitleClassName, {
+              [panelExpansionTitleNoTagClassName]: !titleTag,
+            })}
+            aria-expanded={!!openState}
+            {...titleProps}
+          >
+            {title}
+          </StyledPanelExpansionTitle>
+        </IfTitleTag>
+        <StyledPanelExpansionContent
+          openState={openState}
+          className={classnames(panelExpansionContentClassName, {
+            [panelExpansionContentOpenClassName]: !!openState,
+          })}
+          aria-hidden={!openState}
+        >
+          {children}
+        </StyledPanelExpansionContent>
+      </StyledPanel>
+    );
+  }
+}
+
+export class PanelExpansion extends Component<PanelExpansionProps> {
+  render() {
+    return !!this.props.expansionGroup ? (
+      <PanelExpansionGroupConsumer>
+        {PanelExpansionGroupConsumer => (
+          <PanelExpansionItem
+            {...this.props}
+            consumer={PanelExpansionGroupConsumer}
+          />
+        )}
+      </PanelExpansionGroupConsumer>
+    ) : (
+      <PanelExpansionItem {...this.props} />
+    );
+  }
+}

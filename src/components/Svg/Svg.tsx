@@ -12,7 +12,6 @@ export interface SvgProps {
    * @default undefined
    */
   ariaLabel?: string;
-  labelName?: string;
   /** Custom classname to extend or customize */
   className?: string;
   /** Custom classname to SVG-element extend or customize */
@@ -23,14 +22,7 @@ export interface SvgProps {
 }
 
 export const Svg = styled(
-  ({
-    color,
-    labelName,
-    ariaLabel,
-    testId,
-    mousePointer,
-    ...passProps
-  }: SvgProps) => {
+  ({ color, ariaLabel, testId, mousePointer, ...passProps }: SvgProps) => {
     const fill = !!color ? color : '';
     const pointerStyle = !!mousePointer ? { cursor: 'pointer' } : {};
     return (
@@ -49,7 +41,6 @@ export const Svg = styled(
     );
   },
 )`
-  label: ${({ labelName }) => (!!labelName ? labelName : 'svg')};
   max-width: 100%;
   ${({ mousePointer }) => !!mousePointer && ' * { cursor: pointer; }'}
 `;

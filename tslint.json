@@ -13,7 +13,7 @@
     "interface-name": [true, "never-prefix"],
     "import-name": [true, { "react": "React", "reactSvg": "ReactSVG" }],
     "jsx-alignment": true,
-    "max-classes-per-file": false,
+    "max-classes-per-file": [true, 2],
     "max-line-length": [
       true,
       { "limit": 140, "ignore-pattern": "^import |^export {(.*?)}" }

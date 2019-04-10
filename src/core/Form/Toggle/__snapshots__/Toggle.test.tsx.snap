@@ -2,6 +2,21 @@
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
 .emotion-3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  font: inherit;
+  line-height: 1;
+  text-align: left;
+  vertical-align: baseline;
+  background: none;
+  display: inline;
+  max-width: 100%;
   color: #282828;
   font-family: 'Source Sans Pro','Helvetica Neue',Arial;
   font-size: 18px;
@@ -19,66 +34,7 @@ exports[`calling render with the same component on the same container does not r
   background-color: #FFFFFF;
 }
 
-.emotion-3 .fi-toggle-label {
-  cursor: pointer;
-}
-
-.emotion-3 .fi-toggle-input:focus,
-.emotion-3 .fi-toggle-input:focus-visible {
-  outline: 0;
-}
-
-.emotion-3 .fi-toggle-input:focus + .fi-toggle-label,
-.emotion-3 .fi-toggle-input:focus-visible + .fi-toggle-label {
-  outline: 0;
-  position: relative;
-}
-
-.emotion-3 .fi-toggle-input:focus + .fi-toggle-label:after,
-.emotion-3 .fi-toggle-input:focus-visible + .fi-toggle-label:after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  bottom: -4px;
-  left: -4px;
-  border-radius: 4px;
-  background-color: transparent;
-  border: 1px solid #ea7125;
-  box-sizing: border-box;
-  box-shadow: 0 0 10px 0 #ea7125;
-}
-
-.emotion-3 .fi-toggle-input:focus + .fi-toggle-label:not(:focus-visible):after,
-.emotion-3 .fi-toggle-input:focus-visible + .fi-toggle-label:not(:focus-visible):after {
-  content: none;
-}
-
-.emotion-3 .fi-toggle-input:focus:not(:focus-visible) {
-  outline: 0;
-}
-
-.emotion-3 .fi-toggle-input:focus:not(:focus-visible):after {
-  content: none;
-}
-
-.emotion-0 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  overflow: visible;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font-size: 100%;
-  font: inherit;
-  line-height: 1;
-  text-align: left;
-  vertical-align: baseline;
-  background: none;
-  display: inline-block;
-  max-width: 100%;
+.emotion-3 > .fi-toggle-input {
   color: #282828;
   font-family: 'Source Sans Pro','Helvetica Neue',Arial;
   font-size: 18px;
@@ -98,6 +54,98 @@ exports[`calling render with the same component on the same container does not r
   opacity: 0;
   z-index: -9999;
   background-color: #FFFFFF;
+}
+
+.emotion-3 > .fi-toggle-input:focus,
+.emotion-3 > .fi-toggle-input:focus-visible {
+  outline: 0;
+}
+
+.emotion-3 > .fi-toggle-input:focus + .fi-toggle-label,
+.emotion-3 > .fi-toggle-input:focus-visible + .fi-toggle-label {
+  outline: 0;
+  position: relative;
+}
+
+.emotion-3 > .fi-toggle-input:focus + .fi-toggle-label:after,
+.emotion-3 > .fi-toggle-input:focus-visible + .fi-toggle-label:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid #ea7125;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 #ea7125;
+}
+
+.emotion-3 > .fi-toggle-input:focus + .fi-toggle-label:not(:focus-visible):after,
+.emotion-3 > .fi-toggle-input:focus-visible + .fi-toggle-label:not(:focus-visible):after {
+  content: none;
+}
+
+.emotion-3 > .fi-toggle-input:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+.emotion-3 > .fi-toggle-input:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.emotion-3 > .fi-toggle-label {
+  cursor: pointer;
+}
+
+.emotion-3 .fi-toggle-icon {
+  width: 40px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.emotion-3 .fi-toggle-icon * {
+  cursor: pointer;
+}
+
+.emotion-3 .fi-toggle-icon .icon-toggle_svg__fi-toggle-icon-knob {
+  -webkit-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  transform: translateX(0%);
+}
+
+.emotion-3 .fi-toggle-icon.fi-toggle-icon--checked .icon-toggle_svg__fi-toggle-icon-knob {
+  -webkit-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  transform: translateX(50%);
+}
+
+.emotion-3 .fi-toggle-icon.fi-toggle-icon--checked .icon-toggle_svg__fi-toggle-icon-slide {
+  fill: rgba(0,179,138,0.5);
+}
+
+.emotion-3 .fi-toggle-icon.fi-toggle-icon--checked .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: #00B38A;
+}
+
+.emotion-0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  font: inherit;
+  line-height: 1;
+  text-align: left;
+  vertical-align: baseline;
+  background: none;
+  display: inline-block;
+  max-width: 100%;
 }
 
 .emotion-0::-webkit-input-placeholder {
@@ -126,41 +174,13 @@ exports[`calling render with the same component on the same container does not r
   display: inline-block;
   vertical-align: text-bottom;
   cursor: pointer;
-  width: 40px;
-  height: 24px;
-  margin-right: 8px;
-}
-
-.emotion-1 * {
-  cursor: pointer;
-}
-
-.emotion-1 .icon-toggle_svg__fi-toggle-icon-knob {
-  -webkit-transform: translateX(0%);
-  -ms-transform: translateX(0%);
-  transform: translateX(0%);
-}
-
-.emotion-1.fi-toggle-icon--checked .icon-toggle_svg__fi-toggle-icon-knob {
-  -webkit-transform: translateX(50%);
-  -ms-transform: translateX(50%);
-  transform: translateX(50%);
-}
-
-.emotion-1.fi-toggle-icon--checked .icon-toggle_svg__fi-toggle-icon-slide {
-  fill: rgba(0,179,138,0.5);
-}
-
-.emotion-1.fi-toggle-icon--checked .icon-toggle_svg__fi-toggle-icon-circle {
-  fill: #00B38A;
 }
 
 <span
-  class="emotion-3 fi-toggle"
+  class="fi-toggle emotion-3"
 >
   <input
     class="fi-toggle-input emotion-0"
-    id="testaan"
     type="checkbox"
   />
   <label
@@ -170,7 +190,7 @@ exports[`calling render with the same component on the same container does not r
   >
     <svg
       aria-hidden="true"
-      class="emotion-1"
+      class="fi-toggle-icon emotion-1"
       focusable="false"
       height="1em"
       style="fill: #003479;"

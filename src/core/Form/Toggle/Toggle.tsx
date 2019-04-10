@@ -1,76 +1,36 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { defaultPropsTheme } from '../../utils';
+import { withDefaultTheme } from '../../theme/utils/defaultTheme';
 import { ThemeComponent } from '../../theme';
-import {
-  baseStyles,
-  inputBaseStyles,
-  iconBaseStyles,
-} from './Toggle.baseStyles';
+import { baseStyles } from './Toggle.baseStyles';
 import {
   Toggle as CompToggle,
   ToggleProps as CompToggleProps,
   ToggleInput,
   ToggleInputProps as CompToggleInputProps,
 } from '../../../components/Form/Toggle';
-import { Icon, IconProps } from '../../Icon/Icon';
+import { Icon } from '../../Icon/Icon';
 
 export interface ToggleProps extends CompToggleProps, ThemeComponent {}
 export interface ToggleInputProps
   extends CompToggleInputProps,
     ThemeComponent {}
-interface ToggleIconProps extends IconProps, ThemeComponent {
-  disabled: boolean;
-  checked: boolean;
-}
 
-const baseClassName = 'fi-toggle';
-const inputBaseClassName = `${baseClassName}-input`;
-const iconBaseClassName = `${baseClassName}-icon`;
+const iconBaseClassName = 'fi-toggle-icon';
+const iconDisabledClassName = `${iconBaseClassName}--disabled`;
+const iconCheckedClassName = `${iconBaseClassName}--checked`;
 
-const StyledToggle = styled(
-  ({ theme, className, ...passProps }: ToggleProps) => (
-    <CompToggle
-      {...passProps}
-      className={classnames(className, {
-        [`${baseClassName}--disabled`]: !!passProps.disabled,
-      })}
-    />
-  ),
-)`
-  label: ${baseClassName};
-  ${props => baseStyles(props)}
-`;
-
-const StyledInput = styled(({ theme, ...passProps }: ToggleInputProps) => (
-  <ToggleInput {...passProps} />
+const StyledToggle = styled(({ theme, ...passProps }: ToggleProps) => (
+  <CompToggle {...passProps} />
 ))`
-  label: ${inputBaseClassName};
-  ${props => inputBaseStyles(props)}
-`;
-
-const StyledIcon = styled(
-  ({ theme, className, disabled, checked, ...passProps }: ToggleIconProps) => (
-    <Icon
-      {...passProps}
-      icon="toggle"
-      className={classnames(className, {
-        [`${iconBaseClassName}--disabled`]: !!disabled,
-        [`${iconBaseClassName}--checked`]: !!checked,
-      })}
-    />
-  ),
-)`
-  ${props => iconBaseStyles(props)}
+  ${props => baseStyles(props)}
 `;
 
 /**
  * Use for toggling form selection or application state
  */
 export class Toggle extends Component<ToggleProps> {
-  static defaultProps = defaultPropsTheme(CompToggle);
-
   state = { toggleStatus: !!this.props.checked };
 
   handleToggle = () => {
@@ -89,20 +49,19 @@ export class Toggle extends Component<ToggleProps> {
       checked: dissMissChecked,
       onClick,
       ...passProps
-    } = this.props;
+    } = withDefaultTheme(this.props);
     const { toggleStatus } = this.state;
-    const iconProps = {
-      disabled,
-      checked: toggleStatus,
-      theme: passProps.theme,
-    };
+
     return (
-      <StyledToggle
-        {...passProps}
-        toggleInputComponent={<StyledInput theme={passProps.theme} />}
-        onClick={this.handleToggle}
-      >
-        <StyledIcon {...iconProps} mousePointer={true} />
+      <StyledToggle {...passProps} onClick={this.handleToggle}>
+        <Icon
+          icon="toggle"
+          className={classnames(iconBaseClassName, {
+            [iconDisabledClassName]: !!disabled,
+            [iconCheckedClassName]: !!toggleStatus,
+          })}
+          mousePointer={true}
+        />
         {children}
       </StyledToggle>
     );

@@ -22,9 +22,7 @@ export {
   ToggleInput,
   ToggleInputProps,
 } from './Form/Toggle';
-export {
-  Panel,
-  PanelProps,
-  PanelExpansion,
-  PanelExpansionProps,
-} from './Panel/Panel';
+export { Panel, PanelProps } from './Panel/Panel';
+export { PanelExpansion, PanelExpansionProps } from './Panel/PanelExpansion';
+export { Component } from './Component-component/Component-component';
+export { VisuallyHidden } from './Visually-hidden/Visually-hidden';

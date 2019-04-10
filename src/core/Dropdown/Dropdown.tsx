@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import styled from '@emotion/styled';
-import classnames from 'classnames';
-import { defaultPropsTheme } from '../utils';
+import { withDefaultTheme } from '../theme/utils/defaultTheme';
 import { ThemeComponent } from '../theme';
 import { Global } from '@emotion/core';
 import { baseStyles, globalStyles } from './Dropdown.baseStyles';
@@ -16,20 +15,12 @@ export {
 
 export interface DropdownProps extends CompDropdownProps, ThemeComponent {}
 
-const baseClassName = 'fi-dropdown';
-
-const StyledDropdown = styled(
-  ({ theme, className, ...passProps }: DropdownProps) => (
-    <CompDropdown
-      {...passProps}
-      className={classnames(className, baseClassName)}
-      dropdownButtonProps={{ className: 'fi-dropdown-button' }}
-      dropdownItemProps={{ className: 'fi-dropdown-item' }}
-      dropdownListProps={{ className: 'fi-dropdown-list' }}
-    />
-  ),
-)`
-  label: ${baseClassName};
+const StyledDropdown = styled(({ theme, ...passProps }: DropdownProps) => (
+  <CompDropdown
+    {...passProps}
+    dropdownItemProps={{ className: 'fi-dropdown-item' }}
+  />
+))`
   ${props => baseStyles(props)}
 `;
 
@@ -37,13 +28,12 @@ const StyledDropdown = styled(
  * Use for selectable dropdown list.
  */
 export class Dropdown extends Component<DropdownProps> {
-  static defaultProps = defaultPropsTheme(CompDropdown);
-
   render() {
+    const props = withDefaultTheme(this.props);
     return (
       <Fragment>
-        <Global styles={globalStyles(this.props)} />
-        <StyledDropdown {...this.props} />
+        <Global styles={globalStyles(props)} />
+        <StyledDropdown {...props} />
       </Fragment>
     );
   }
