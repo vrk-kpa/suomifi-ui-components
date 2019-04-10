@@ -41,7 +41,6 @@ exports[`calling render with the same component on the same container does not r
   padding: 0;
   border-radius: 2px;
   box-shadow: 0 0 4px 0 rgba(40,40,40,0.3);
-  z-index: 1;
 }
 
 .emotion-3:before {
@@ -71,7 +70,6 @@ exports[`calling render with the same component on the same container does not r
   position: relative;
   display: block;
   width: 100%;
-  z-index: 2;
 }
 
 .emotion-3 .fi-panel-expansion-title:focus {
@@ -91,6 +89,7 @@ exports[`calling render with the same component on the same container does not r
   border: 1px solid #ea7125;
   box-sizing: border-box;
   box-shadow: 0 0 10px 0 #ea7125;
+  z-index: 9999;
 }
 
 .emotion-3 .fi-panel-expansion-title:focus:not(:focus-visible):after {
@@ -136,7 +135,6 @@ exports[`calling render with the same component on the same container does not r
 
 .emotion-3 > .fi-panel-expansion-content {
   position: relative;
-  z-index: 2;
   padding: 0 20px 20px 20px;
 }
 
