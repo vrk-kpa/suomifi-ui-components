@@ -1,6 +1,9 @@
 import { suomifiTheme } from '../';
 
-export const withDefaultTheme = ({ theme = suomifiTheme, ...props }: any) => ({
+export const withDefaultTheme = <T extends any>({
+  theme = suomifiTheme,
+  ...props
+}: T) => ({
   ...props,
   theme,
 });
