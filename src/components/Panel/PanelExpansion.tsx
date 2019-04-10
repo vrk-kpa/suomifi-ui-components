@@ -133,14 +133,14 @@ export class PanelExpansionItem extends Component<PanelExpansionProps> {
       <StyledPanel
         {...passProps}
         className={classnames(className, panelExpansionClassName, {
-          [panelExpansionOpenClassName]: !!openState,
+          [openClassName]: !!openState,
         })}
       >
         <IfTitleTag titleTag={titleTag}>
           <StyledPanelExpansionTitle
             onClick={this.handleClick}
-            className={classnames(panelExpansionTitleClassName, {
-              [panelExpansionTitleNoTagClassName]: !titleTag,
+            className={classnames(titleClassName, {
+              [titleNoTagClassName]: !titleTag,
             })}
             aria-expanded={!!openState}
             {...titleProps}
@@ -150,8 +150,8 @@ export class PanelExpansionItem extends Component<PanelExpansionProps> {
         </IfTitleTag>
         <StyledPanelExpansionContent
           openState={openState}
-          className={classnames(panelExpansionContentClassName, {
-            [panelExpansionContentOpenClassName]: !!openState,
+          className={classnames(contentClassName, {
+            [contentOpenClassName]: !!openState,
           })}
           aria-hidden={!openState}
         >
