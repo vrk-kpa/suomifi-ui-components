@@ -73,7 +73,7 @@ const IfTitleTag = ({
     {!!titleTag
       ? React.createElement(titleTag, {
           children,
-          className: panelExpansionTitleTagClassName,
+          className: titleTagClassName,
         })
       : children}
   </Fragment>
