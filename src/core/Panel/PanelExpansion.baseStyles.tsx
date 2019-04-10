@@ -44,9 +44,10 @@ export const baseStyles = ({
     top: 0;
     right: 0;
     margin: 20px;
-    &--open {
-      transform: rotate(-180deg);
-    }
+  }
+  & .fi-panel-expansion-title--open .fi-panel-expansion-title-icon,
+  & .fi-panel-expansion-title-icon--open {
+    transform: rotate(-180deg);
   }
 
   & > .fi-panel-expansion-content {

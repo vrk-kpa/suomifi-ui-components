@@ -26,9 +26,15 @@ const StyledPanelExpansionContent = styled(
   display: ${({ openState }) => (!!openState ? 'block' : 'none')};
 `;
 
-const StyledPanelExpansionTitle = styled((props: ButtonProps) => (
-  <Button {...props} mouseNoFocus={true} />
-))`
+const StyledPanelExpansionTitle = styled(
+  ({ open, className, ...passProps }: ButtonProps & { open?: boolean }) => (
+    <Button
+      {...passProps}
+      mouseNoFocus={true}
+      className={classnames(className, { [titleOpenClassName]: !!open })}
+    />
+  ),
+)`
   &,
   & * {
     cursor: pointer;
@@ -50,7 +56,7 @@ export interface PanelExpansionProps extends PanelProps {
   /** Controlled open-state, use onClick to change  */
   open?: boolean;
   /** Properties for title-Button */
-  titleProps?: ButtonProps;
+  titleProps?: ButtonProps & { open?: boolean };
   /** Default status of panel open when not using controlled 'open' state
    * @default false
    */
@@ -144,6 +150,7 @@ export class PanelExpansionItem extends Component<PanelExpansionProps> {
             })}
             aria-expanded={!!openState}
             {...titleProps}
+            open={openState}
           >
             {title}
           </StyledPanelExpansionTitle>
