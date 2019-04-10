@@ -29,10 +29,15 @@ const StyledPanel = styled(({ theme, ...passProps }: PanelProps) => (
   ${props => baseStyles(props)};
 `;
 
+type VariantPanelProps =
+  | PanelProps
+  | PanelExpansionProps & { variant?: PanelVariant }
+  | PanelExpansionGroupProps & { variant?: PanelVariant };
+
 /**
  * Used for panel style and defined actions
  */
-export class Panel extends Component<PanelProps> {
+export class Panel extends Component<VariantPanelProps> {
   static expansion = (props: PanelExpansionProps) => {
     return <PanelExpansion {...props} />;
   };
@@ -44,10 +49,10 @@ export class Panel extends Component<PanelProps> {
   render() {
     const { variant, ...passProps } = withDefaultTheme(this.props);
     if (variant === 'expansion') {
-      return <PanelExpansion {...passProps} />;
+      return <PanelExpansion {...passProps as PanelExpansionProps} />;
     }
     if (variant === 'expansionGroup') {
-      return <PanelExpansionGroup {...passProps} />;
+      return <PanelExpansionGroup {...passProps as PanelExpansionGroupProps} />;
     }
     return <StyledPanel {...passProps} />;
   }

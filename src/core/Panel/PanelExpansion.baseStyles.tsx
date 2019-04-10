@@ -13,7 +13,6 @@ export const baseStyles = ({
   padding: 0;
   border-radius: 2px;
   box-shadow: ${theme.shadows.panelShadow};
-  z-index: 1;
 
   &:before {
     background-color: ${theme.colors.panelExpansionBgr};
@@ -32,7 +31,6 @@ export const baseStyles = ({
     position: relative;
     display: block;
     width: 100%;
-    z-index: 2;
     &--no-tag {
       ${fontPanelTitle}
       padding: 20px 60px 20px 20px;
@@ -44,14 +42,14 @@ export const baseStyles = ({
     top: 0;
     right: 0;
     margin: 20px;
-    &--open {
-      transform: rotate(-180deg);
-    }
+  }
+  & .fi-panel-expansion-title--open .fi-panel-expansion-title-icon,
+  & .fi-panel-expansion-title-icon--open {
+    transform: rotate(-180deg);
   }
 
   & > .fi-panel-expansion-content {
     position: relative;
-    z-index: 2;
     ${!noPadding && 'padding: 0 20px 20px 20px;'}
   }
 `;

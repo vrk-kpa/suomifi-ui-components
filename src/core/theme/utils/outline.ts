@@ -3,11 +3,13 @@ export const boxshadowOutline = ({
   offset = '0',
   border = '1px',
   borderRadius = '4px',
+  zIndex = 9999,
 }: {
   color?: string;
   offset?: string;
   border?: string;
   borderRadius?: string;
+  zIndex?: number;
 } = {}) => `outline: 0;
 position: relative;
 &:after {
@@ -22,6 +24,7 @@ position: relative;
   border: ${border} solid ${color};
   box-sizing: border-box;
   box-shadow: 0 0 10px 0 ${color};
+  z-index: ${zIndex};
 }
 &:not(:focus-visible):after {
   content: none;
