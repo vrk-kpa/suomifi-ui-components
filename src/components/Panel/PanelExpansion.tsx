@@ -10,12 +10,13 @@ import {
 } from './PanelExpansionGroup';
 
 const panelExpansionClassName = `${baseClassName}-expansion`;
-const panelExpansionOpenClassName = `${panelExpansionClassName}--open`;
-const panelExpansionTitleClassName = `${panelExpansionClassName}-title`;
-const panelExpansionTitleNoTagClassName = `${panelExpansionTitleClassName}--no-tag`;
-const panelExpansionTitleTagClassName = `${panelExpansionClassName}-title-tag`;
-const panelExpansionContentClassName = `${panelExpansionClassName}-content`;
-const panelExpansionContentOpenClassName = `${panelExpansionContentClassName}--open`;
+const openClassName = `${panelExpansionClassName}--open`;
+const titleClassName = `${panelExpansionClassName}-title`;
+const titleOpenClassName = `${titleClassName}--open`;
+const titleNoTagClassName = `${titleClassName}--no-tag`;
+const titleTagClassName = `${panelExpansionClassName}-title-tag`;
+const contentClassName = `${panelExpansionClassName}-content`;
+const contentOpenClassName = `${contentClassName}--open`;
 
 const StyledPanelExpansionContent = styled(
   ({ openState, ...passProps }: PanelProps & { openState: boolean }) => (
