@@ -127,6 +127,7 @@ exports[`calling render with the same component on the same container does not r
   margin: 20px;
 }
 
+.emotion-3 .fi-panel-expansion-title--open .fi-panel-expansion-title-icon,
 .emotion-3 .fi-panel-expansion-title-icon--open {
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
