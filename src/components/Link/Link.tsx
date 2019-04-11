@@ -12,7 +12,7 @@ export interface LinkProps extends HtmlAProps {
   /**
    * Link element displayed content
    */
-  children?: ReactNode;
+  children: ReactNode;
 }
 
 export class Link extends Component<LinkProps> {
