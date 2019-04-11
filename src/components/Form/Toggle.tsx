@@ -22,25 +22,16 @@ export interface ToggleInputProps {
   /** Disable Button usage */
   disabled?: boolean;
   controlled?: boolean;
-  ariaLabel?: string;
-  ariaLabelledBy?: string;
+  'aria-label'?: string;
+  'aria-labelledby'?: string;
 }
 
 export class ToggleInput extends Component<ToggleInputProps> {
   render() {
-    const {
-      disabled = false,
-      controlled,
-      ariaLabel,
-      ariaLabelledBy,
-      checked,
-      ...passProps
-    } = this.props;
+    const { disabled = false, controlled, checked, ...passProps } = this.props;
     return (
       <HtmlInput
         disabled={disabled}
-        aria-label={ariaLabel}
-        aria-labelledby={ariaLabelledBy}
         {...passProps}
         type="checkbox"
         checked={!!checked}
@@ -77,8 +68,8 @@ export interface ToggleProps {
    * aria-label for the HTML input-element,
    * alternatively you can define aria-labelledby with label-element id
    */
-  ariaLabel?: string;
-  ariaLabelledBy?: string;
+  'aria-label'?: string;
+  'aria-labelledby'?: string;
 }
 
 interface ToggleState {
@@ -131,8 +122,8 @@ export class Toggle extends Component<ToggleProps> {
       children,
       toggleInputProps,
       toggleInputComponent,
-      ariaLabel,
-      ariaLabelledBy,
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledBy,
       checked: dissMissChecked,
       defaultChecked: dissMissDefaultChecked,
       onClick: dissMissOnClick,
@@ -141,8 +132,8 @@ export class Toggle extends Component<ToggleProps> {
     const { toggleState } = this.state;
     const newToggleInputProps = {
       disabled,
-      ariaLabel,
-      ariaLabelledBy,
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledBy,
       checked: !!toggleState,
       className: toggleInputClassName,
       onChange: this.handleClick,
@@ -164,7 +155,6 @@ export class Toggle extends Component<ToggleProps> {
           {...passProps}
           className={toggleLabelClassName}
           onClick={this.handleClick}
-          aria-labelledby="testaan"
         >
           {children}
         </HtmlLabel>
