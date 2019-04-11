@@ -2,7 +2,7 @@ import { css } from '@emotion/core';
 import { suomifiTheme } from '../theme';
 import { PanelExpansionProps } from './PanelExpansion';
 import { element, focus, fontPanelTitle } from '../theme/reset';
-import { absolute } from '../../components/utils/pseudo';
+import { absolute } from '../../utils/css/pseudo';
 
 export const baseStyles = ({
   theme = suomifiTheme,
