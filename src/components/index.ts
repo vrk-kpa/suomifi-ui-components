@@ -26,3 +26,5 @@ export { Panel, PanelProps } from './Panel/Panel';
 export { PanelExpansion, PanelExpansionProps } from './Panel/PanelExpansion';
 export { Component } from './Component-component/Component-component';
 export { VisuallyHidden } from './Visually-hidden/Visually-hidden';
+export { Breadcrumb, BreadcrumbProps } from './Breadcrumb/Breadcrumb';
+export { Link, LinkProps } from './Link/Link';
