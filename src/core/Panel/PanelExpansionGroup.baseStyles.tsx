@@ -11,10 +11,20 @@ export const baseStyles = ({
   flex-direction: column;
   & > .fi-panel-expansion-group-panels {
     flex: none;
-    box-shadow: ${theme.shadows.panelShadow};
-    
-    & > .fi-panel-expansion {
-      box-shadow: none;
+
+    & .fi-panel-expansion {
+      margin-top: 0;
+      margin-bottom: 0;
+      transition: margin ${theme.transitions.basicTime}
+        ${theme.transitions.basicTimingFunction};
+      &.fi-panel-expansion--open {
+        &:not(:first-child) {
+          margin-top: 14px;
+        }
+        &:not(:last-child) {
+          margin-bottom: 14px;
+        }
+      }
     }
   }
 
