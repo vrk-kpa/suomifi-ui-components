@@ -18,13 +18,9 @@ export const StyledPanel = styled((props: HtmlDivProps) => (
   max-width: 100%;
 `;
 
-type toggleAllProp = 'open' | 'close' | false;
-
 interface PanelExpansionGroupState {
   /** Panels that are open */
   openPanels: number[];
-  /** If all panels are open */
-  toggleAll: toggleAllProp;
 }
 
 export interface PanelExpansionGroupProps {
@@ -103,30 +99,24 @@ const OpenAllButton = ({
 export class PanelExpansionGroup extends Component<PanelExpansionGroupProps> {
   state: PanelExpansionGroupState = {
     openPanels: [],
-    toggleAll: false,
   };
 
   handleClick = (index: number = 0) => {
-    const { children } = this.props;
     const { openPanels: prevOpenPanels } = this.state;
     const prevPanelOpen = prevOpenPanels.includes(index);
     const openPanels = prevPanelOpen
       ? prevOpenPanels.filter(value => value !== index)
       : Array.from(new Set([...prevOpenPanels, index]));
-    const allClosed = openPanels.length === 0 ? 'close' : false;
-    const toggleAll =
-      openPanels.length === React.Children.count(children) ? 'open' : allClosed;
-    this.setState({ openPanels, toggleAll });
+    this.setState({ openPanels });
   };
 
   handleAllToggleClick = () => {
     const { children } = this.props;
-    const { toggleAll } = this.state;
+    const { openPanels } = this.state;
     this.setState(
-      toggleAll === 'open'
-        ? { toggleAll: 'close', openPanels: [] }
+      openPanels.length === React.Children.count(children)
+        ? { openPanels: [] }
         : {
-            toggleAll: 'open',
             openPanels: Array.from(
               Array(React.Children.count(children)).keys(),
             ),
@@ -136,7 +126,8 @@ export class PanelExpansionGroup extends Component<PanelExpansionGroupProps> {
 
   render() {
     const { className, children, OpenAll, CloseAll, ...passProps } = this.props;
-    const { toggleAll, openPanels } = this.state;
+    const { openPanels } = this.state;
+    const allOpen = openPanels.length === React.Children.count(children);
 
     return (
       <StyledPanel
@@ -146,7 +137,7 @@ export class PanelExpansionGroup extends Component<PanelExpansionGroupProps> {
         })}
       >
         <OpenAllButton
-          allOpen={toggleAll === 'open'}
+          allOpen={allOpen}
           onClick={this.handleAllToggleClick}
           OpenAll={OpenAll}
           CloseAll={CloseAll}

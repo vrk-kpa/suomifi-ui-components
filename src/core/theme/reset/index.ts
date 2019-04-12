@@ -28,3 +28,8 @@ export const list = css`
   ${element}
   list-style: none;
 `;
+
+export const listItem = css`
+  ${element}
+  list-style: none;
+`;

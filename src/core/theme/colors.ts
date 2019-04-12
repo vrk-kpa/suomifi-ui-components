@@ -1,5 +1,6 @@
 import { parseToRgb, toColorString, darken, lighten } from 'polished';
 import { boxshadowOutline } from './utils/outline';
+import { zindexes } from './zindexes';
 
 const palette = {
   black: '#282828',
@@ -174,5 +175,9 @@ export const gradients = {
 };
 
 export const outlines = {
-  basic: boxshadowOutline({ color: colors.focusRing, offset: '4px' }),
+  basic: boxshadowOutline({
+    color: colors.focusRing,
+    offset: '4px',
+    zIndex: zindexes.focus,
+  }),
 };

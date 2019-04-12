@@ -26,16 +26,16 @@ const OpenAllButton = (children: ReactElement<ButtonProps>) => (
 );
 
 /**
- * Used for panel style and defined actions
+ * Used for grouping expansion panels
  */
 export class PanelExpansionGroup extends Component<PanelExpansionGroupProps> {
   render() {
-    const { openAll, closeAll, ...passProps } = withDefaultTheme(this.props);
+    const { OpenAll, CloseAll, ...passProps } = withDefaultTheme(this.props);
     return (
       <StyledPanelExpansionGroup
         {...passProps}
-        OpenAll={OpenAllButton(openAll)}
-        CloseAll={OpenAllButton(closeAll)}
+        OpenAll={OpenAllButton(OpenAll)}
+        CloseAll={OpenAllButton(CloseAll)}
       />
     );
   }
