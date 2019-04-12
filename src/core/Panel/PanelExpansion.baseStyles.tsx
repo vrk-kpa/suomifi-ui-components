@@ -50,6 +50,16 @@ export const baseStyles = ({
 
   & > .fi-panel-expansion-content {
     position: relative;
-    ${!noPadding && 'padding: 0 20px 20px 20px;'}
+    display: block;
+    height: 0;
+    overflow: hidden;
+    transition: all ${theme.transitions.basicTime}
+      ${theme.transitions.basicTimingFunction};
+    ${!noPadding && 'padding: 0 20px;'}
+    &.fi-panel-expansion-content--open {
+      height: auto;
+      overflow: visible;
+      ${!noPadding && 'padding: 0 20px 20px 20px;'}
+    }
   }
 `;
