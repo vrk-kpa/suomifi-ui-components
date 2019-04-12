@@ -35,7 +35,7 @@ interface PanelExpansionState {
 }
 
 /**
- * Used for panel style and defined actions
+ * Used for openable panel
  */
 export class PanelExpansion extends Component<PanelExpansionProps> {
   /** State is only used to update the caret-icon */

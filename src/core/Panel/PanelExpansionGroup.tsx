@@ -26,7 +26,7 @@ const OpenAllButton = (children: ReactElement<ButtonProps>) => (
 );
 
 /**
- * Used for panel style and defined actions
+ * Used for grouping expansion panels
  */
 export class PanelExpansionGroup extends Component<PanelExpansionGroupProps> {
   render() {

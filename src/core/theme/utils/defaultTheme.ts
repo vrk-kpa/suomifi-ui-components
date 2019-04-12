@@ -1,9 +1,12 @@
-import { suomifiTheme } from '../';
+import { suomifiTheme, ThemeProp } from '../';
 
-export const withDefaultTheme = <T extends any>({
+export const withDefaultTheme = <
+  T extends { theme: ThemeProp; [k: string]: any }
+>({
   theme = suomifiTheme,
   ...props
-}: T) => ({
-  ...props,
-  theme,
-});
+}: Partial<T>): T =>
+  ({
+    ...props,
+    theme,
+  } as T);

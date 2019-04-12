@@ -12,8 +12,11 @@ const common = css`
   font: inherit;
   line-height: 1;
   text-align: left;
+  text-decoration: none;
   vertical-align: baseline;
+  color: inherit;
   background: none;
+  cursor: auto;
 `;
 
 const resets = {

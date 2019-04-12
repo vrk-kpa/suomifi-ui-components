@@ -13,8 +13,12 @@ exports[`calling render with the same component on the same container does not r
   font: inherit;
   line-height: 1;
   text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
   vertical-align: baseline;
+  color: inherit;
   background: none;
+  cursor: auto;
   display: inline;
   max-width: 100%;
   color: #282828;
@@ -143,8 +147,12 @@ exports[`calling render with the same component on the same container does not r
   font: inherit;
   line-height: 1;
   text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
   vertical-align: baseline;
+  color: inherit;
   background: none;
+  cursor: auto;
   display: inline-block;
   max-width: 100%;
 }
@@ -166,8 +174,12 @@ exports[`calling render with the same component on the same container does not r
   font: inherit;
   line-height: 1;
   text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
   vertical-align: baseline;
+  color: inherit;
   background: none;
+  cursor: auto;
   max-width: 100%;
 }
 
@@ -185,7 +197,6 @@ exports[`calling render with the same component on the same container does not r
     type="checkbox"
   />
   <label
-    aria-labelledby="testaan"
     class="fi-toggle-label emotion-2"
     data-testid="toggle"
   >

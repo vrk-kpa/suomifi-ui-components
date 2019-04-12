@@ -3,3 +3,7 @@ export { HtmlLabel, HtmlLabelProps } from './HtmlLabel/HtmlLabel';
 export { HtmlInput, HtmlInputProps } from './HtmlInput/HtmlInput';
 export { HtmlDiv, HtmlDivProps } from './HtmlDiv/HtmlDiv';
 export { HtmlSpan, HtmlSpanProps } from './HtmlSpan/HtmlSpan';
+export { HtmlA, HtmlAProps } from './HtmlA/HtmlA';
+export { HtmlNav, HtmlNavProps } from './HtmlNav/HtmlNav';
+export { HtmlOl, HtmlOlProps } from './HtmlOl/HtmlOl';
+export { HtmlLi, HtmlLiProps } from './HtmlLi/HtmlLi';

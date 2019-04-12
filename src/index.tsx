@@ -26,3 +26,5 @@ export {
   ToggleInputProps,
 } from './core/Form/Toggle/Toggle';
 export { Panel, PanelProps } from './core/Panel/Panel';
+export { Breadcrumb, BreadcrumbProps } from './core/Breadcrumb/Breadcrumb';
+export { Link, LinkProps } from './core/Link/Link';
