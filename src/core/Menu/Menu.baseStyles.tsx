@@ -16,6 +16,7 @@ export const baseStyles = ({
       ${element}
       ${fontSemibold}
       padding: 8px 6px 8px 10px;
+      background-color: ${theme.colors.white};
       border: 1px solid ${theme.colors.elementBorder};
       border-radius: 2px;
       text-transform: uppercase;
