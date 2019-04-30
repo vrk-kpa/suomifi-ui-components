@@ -39,7 +39,6 @@ const StyledBreadcrumb = styled(({ theme, ...passProps }: BreadcrumbProps) => (
 `;
 
 const BreadcrumbLink = ({
-  theme,
   current,
   children,
   className,
@@ -57,7 +56,7 @@ const BreadcrumbLink = ({
       <Icon
         icon="linkBreadcrumb"
         className={iconClassName}
-        color={theme.colors.blackBase}
+        color={passProps.theme.colors.blackBase}
       />
     </Fragment>
   );
