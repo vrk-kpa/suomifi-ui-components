@@ -57,7 +57,7 @@ const BreadcrumbLink = ({
       <Icon
         icon="linkBreadcrumb"
         className={iconClassName}
-        color={theme.colors.text}
+        color={theme.colors.blackBase}
       />
     </Fragment>
   );

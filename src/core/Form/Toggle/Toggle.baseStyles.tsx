@@ -3,13 +3,14 @@ import { suomifiTheme } from '../../theme';
 import { focus } from '../../theme/utils/focus';
 import { ToggleProps } from './Toggle';
 import { element, font } from '../../theme/reset';
+import { alphaHex } from '../../../utils/css/colors';
 
 const svgPrefix = 'icon-toggle_svg__';
 
 export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
   ${element}
   ${font}
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.whiteBase};
   & > .fi-toggle-input {
     ${element}
     ${font}
@@ -17,7 +18,7 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
     height: 0;
     opacity: 0;
     z-index: -9999;
-    background-color: ${theme.colors.white};
+    background-color: ${theme.colors.whiteBase};
     &:focus,
     &:focus-visible {
       outline: 0;
@@ -52,10 +53,10 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
         transform: translateX(50%);
       }
       .${svgPrefix}fi-toggle-icon-slide {
-        fill: ${theme.colors.toggleOnSlide};
+        fill: ${alphaHex(0.5)(theme.colors.successBase)};
       }
       .${svgPrefix}fi-toggle-icon-circle {
-        fill: ${theme.colors.toggleOn};
+        fill: ${theme.colors.successBase};
       }
     }
   }

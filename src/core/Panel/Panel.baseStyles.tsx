@@ -7,5 +7,5 @@ export const baseStyles = ({ theme = suomifiTheme }: PanelProps) => css`
   ${element}
   ${font}
   padding: 20px;
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.whiteBase};
 `;

@@ -36,7 +36,7 @@ export const baseStyles = ({
     margin-left: auto;
     margin-bottom: 10px;
     padding: 4px 0;
-    color: ${theme.colors.secondaryColor};
+    color: ${theme.colors.highlightBase};
     cursor: pointer;
   }
 `;
