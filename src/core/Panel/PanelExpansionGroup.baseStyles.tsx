@@ -18,10 +18,10 @@ export const baseStyles = ({
       transition: margin ${theme.transitions.basicTime}
         ${theme.transitions.basicTimingFunction};
       &.fi-panel-expansion--open {
-        &:not(:first-child) {
+        &:not(:first-of-type) {
           margin-top: 14px;
         }
-        &:not(:last-child) {
+        &:not(:last-of-type) {
           margin-bottom: 14px;
         }
       }
