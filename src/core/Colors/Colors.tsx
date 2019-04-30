@@ -2,7 +2,8 @@ import React, { Component, ReactNode } from 'react';
 import { withDefaultTheme } from '../theme/utils/defaultTheme';
 import styled from '@emotion/styled';
 import { ThemeComponent } from '../theme';
-import { baseStyles } from './Colors.baseStyles';
+import { baseStyles, containerStyles } from './Colors.baseStyles';
+import clipboardCopy from 'clipboard-copy';
 
 export interface ColorsProps extends ThemeComponent {
   colors?: {
@@ -10,40 +11,49 @@ export interface ColorsProps extends ThemeComponent {
   };
 }
 
-interface ColorInterface {
+export interface ColorProps extends ThemeComponent {
   keyName: string;
   color: string;
   children?: ReactNode;
 }
 
 const Color = styled.div`
-  ${({ color }: ColorInterface) => baseStyles(color)};
+  ${(props: ColorProps) => baseStyles(props)};
 `;
 
-const themeColors = (props: ColorsProps) => {
-  const {
-    theme: { colors: themeColors },
-  } = withDefaultTheme(props);
-  return themeColors;
-};
+const ColorsContainer = styled.div`
+  ${containerStyles};
+`;
+
+const copyKey = (key: string) => () => clipboardCopy(key);
 
 export class Colors extends Component<ColorsProps> {
   render() {
     const { colors } = this.props;
-    return Object.entries(!!colors ? colors : themeColors(this.props)).reduce<
-      JSX.Element[]
-    >((arr, [key, value]) => {
-      const test = (
-        <Color
-          keyName={key.toString()}
-          color={value.toString()}
-          key={key.toString()}
-        >
-          <div className="fi-color__name">{value.toString()}</div>
-          <div className="fi-color__name">{key.toString()}</div>
-        </Color>
-      );
-      return [...arr, test];
-    }, []);
+    const { theme } = withDefaultTheme(this.props);
+    return (
+      <ColorsContainer>
+        {Object.entries(!!colors ? colors : theme.colors).reduce<JSX.Element[]>(
+          (arr, [key, value]) => {
+            const item = (
+              <Color
+                keyName={key.toString()}
+                color={value.toString()}
+                key={key.toString()}
+                theme={theme}
+                onClick={copyKey(key.toString())}
+              >
+                <div className="fi-color__name">{value.toString()}</div>
+                <div className="fi-color__name fi-color__name--key">
+                  {key.toString()}
+                </div>
+              </Color>
+            );
+            return [...arr, item];
+          },
+          [],
+        )}
+      </ColorsContainer>
+    );
   }
 }
