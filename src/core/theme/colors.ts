@@ -1,4 +1,5 @@
 import { parseToRgb, toColorString, darken, lighten } from 'polished';
+import { alphaHex } from '../../utils/css/colors';
 import { boxshadowOutline } from './utils/outline';
 import { zindexes } from './zindexes';
 
@@ -94,14 +95,6 @@ const palette = {
   yellow: '#F4AA00',
   red: '#C13832',
 };
-
-const alphaHex = (value: number) => (hex: string) =>
-  toColorString({
-    ...parseToRgb(hex),
-    alpha: value,
-  });
-
-const alphaHex50 = alphaHex(0.5);
 
 export type IColors = typeof colors;
 
