@@ -81,9 +81,9 @@ exports[`calling render with the same component on the same container does not r
   left: -4px;
   border-radius: 4px;
   background-color: transparent;
-  border: 1px solid #ea7125;
+  border: 1px solid #E97025;
   box-sizing: border-box;
-  box-shadow: 0 0 10px 0 #ea7125;
+  box-shadow: 0 0 10px 0 #E97025;
   z-index: 9999;
 }
 
@@ -127,11 +127,11 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-3 .fi-toggle-icon.fi-toggle-icon--checked .icon-toggle_svg__fi-toggle-icon-slide {
-  fill: rgba(0,179,138,0.5);
+  fill: rgba(9,174,136,0.5);
 }
 
 .emotion-3 .fi-toggle-icon.fi-toggle-icon--checked .icon-toggle_svg__fi-toggle-icon-circle {
-  fill: #00B38A;
+  fill: #09AE88;
 }
 
 .emotion-0 {
@@ -205,7 +205,7 @@ exports[`calling render with the same component on the same container does not r
       class="fi-toggle-icon emotion-1"
       focusable="false"
       height="1em"
-      style="fill: #003479;"
+      style="fill: #00357A;"
       viewBox="0 0 38 23"
       width="1em"
     >
