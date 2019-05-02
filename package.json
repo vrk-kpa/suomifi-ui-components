@@ -1,6 +1,6 @@
 {
   "name": "suomifi-ui-components",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Suomi.fi UI component library",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
@@ -51,7 +51,7 @@
   "devDependencies": {
     "@types/classnames": "2.2.6",
     "@types/jest": "23.3.9",
-    "@types/react": "16.7.7",
+    "@types/react": "16.8.15",
     "@types/react-dom": "16.0.9",
     "awesome-typescript-loader": "5.2.1",
     "clipboard-copy": "3.0.0",
