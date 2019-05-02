@@ -6,7 +6,7 @@ import { nav, list, listItem, font } from '../theme/reset';
 export const baseStyles = ({ theme = suomifiTheme }: BreadcrumbProps) => css`
   ${nav}
   ${font}
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.whiteBase};
 
   & .fi-breadcrumb {
     &-list {

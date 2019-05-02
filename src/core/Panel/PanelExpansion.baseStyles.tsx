@@ -15,7 +15,7 @@ export const baseStyles = ({
   box-shadow: ${theme.shadows.panelShadow};
 
   &:before {
-    background-color: ${theme.colors.panelExpansionBgr};
+    background-color: ${theme.colors.highlightLight53};
     opacity: 0;
   }
 
@@ -34,7 +34,7 @@ export const baseStyles = ({
     &--no-tag {
       ${fontPanelTitle}
       padding: 20px 60px 20px 20px;
-      color: ${theme.colors.secondaryColor};
+      color: ${theme.colors.highlightBase};
     }
   }
   & .fi-panel-expansion-title-icon {

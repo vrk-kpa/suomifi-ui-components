@@ -7,8 +7,8 @@ import { allStates } from '../../utils/css/pseudo';
 export const baseStyles = ({ theme = suomifiTheme }: LinkProps) => css`
   ${element}
   ${font}
-  ${allStates(`color: ${theme.colors.secondaryColor};`)};
-  color: ${theme.colors.secondaryColor};
+  ${allStates(`color: ${theme.colors.highlightBase};`)};
+  color: ${theme.colors.highlightBase};
   text-decoration: none;
   &:hover,
   &:active {

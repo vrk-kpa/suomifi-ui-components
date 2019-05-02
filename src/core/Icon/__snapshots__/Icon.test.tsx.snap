@@ -12,7 +12,7 @@ exports[`calling render with the same component on the same container does not r
   data-testid="icon"
   focusable="false"
   height="1em"
-  style="fill: #003479;"
+  style="fill: #00357A;"
   viewBox="0 0 24 24"
   width="1em"
 >

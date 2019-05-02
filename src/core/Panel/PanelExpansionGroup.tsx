@@ -1,12 +1,12 @@
-import React, { Component, ReactElement } from 'react';
+import React, { Component, ReactNode } from 'react';
 import styled from '@emotion/styled';
 import { withDefaultTheme } from '../theme/utils/defaultTheme';
-import { ThemeComponent } from '../theme';
+import { ThemeComponent, ThemeProp } from '../theme';
 import {
   PanelExpansionGroup as CompPanelExpansionGroup,
   PanelExpansionGroupProps as CompPanelExpansionGroupProps,
 } from '../../components/Panel/PanelExpansionGroup';
-import { Button, ButtonProps } from '../Button/Button';
+import { Button } from '../Button/Button';
 import { baseStyles } from './PanelExpansionGroup.baseStyles';
 
 export interface PanelExpansionGroupProps
@@ -21,9 +21,13 @@ const StyledPanelExpansionGroup = styled(
   ${props => baseStyles(props)};
 `;
 
-const OpenAllButton = (children: ReactElement<ButtonProps>) => (
-  <Button.unstyled>{children}</Button.unstyled>
-);
+const OpenAllButton = ({
+  children,
+  theme,
+}: {
+  children: ReactNode;
+  theme: ThemeProp;
+}) => <Button.unstyled theme={theme}>{children}</Button.unstyled>;
 
 /**
  * Used for grouping expansion panels
@@ -34,8 +38,12 @@ export class PanelExpansionGroup extends Component<PanelExpansionGroupProps> {
     return (
       <StyledPanelExpansionGroup
         {...passProps}
-        OpenAll={OpenAllButton(OpenAll)}
-        CloseAll={OpenAllButton(CloseAll)}
+        OpenAll={
+          <OpenAllButton theme={passProps.theme}>{OpenAll}</OpenAllButton>
+        }
+        CloseAll={
+          <OpenAllButton theme={passProps.theme}>{CloseAll}</OpenAllButton>
+        }
       />
     );
   }

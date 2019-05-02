@@ -59,7 +59,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-3:before {
-  background-color: #f6f9fc;
+  background-color: #F7FAFD;
   opacity: 0;
 }
 
@@ -90,9 +90,9 @@ exports[`calling render with the same component on the same container does not r
   left: -4px;
   border-radius: 4px;
   background-color: transparent;
-  border: 1px solid #ea7125;
+  border: 1px solid #E97025;
   box-sizing: border-box;
-  box-shadow: 0 0 10px 0 #ea7125;
+  box-shadow: 0 0 10px 0 #E97025;
   z-index: 9999;
 }
 

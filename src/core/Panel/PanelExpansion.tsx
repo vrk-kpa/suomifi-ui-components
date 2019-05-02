@@ -77,7 +77,7 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
                 className={classnames(iconClassName, {
                   [iconOpenClassName]: openState,
                 })}
-                color={passProps.theme.colors.secondaryColor}
+                color={passProps.theme.colors.highlightBase}
               />
             )}
           </Fragment>

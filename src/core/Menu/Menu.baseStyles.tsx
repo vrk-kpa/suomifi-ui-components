@@ -16,7 +16,8 @@ export const baseStyles = ({
       ${element}
       ${fontSemibold}
       padding: 8px 6px 8px 10px;
-      border: 1px solid ${theme.colors.elementBorder};
+      background-color: ${theme.colors.whiteBase};
+      border: 1px solid ${theme.colors.depthBase};
       border-radius: 2px;
       text-transform: uppercase;
       & > .fi-menu-language-icon {
@@ -44,7 +45,7 @@ export const globalStyles = ({ theme = suomifiTheme }: MenuProps) => css`
   [data-reach-menu-list].fi-menu-list {
     ${element}
     ${font}
-    background-color: ${theme.colors.white};
+    background-color: ${theme.colors.whiteBase};
     border: none;
     box-shadow: ${theme.shadows.menuShadow};
     &.fi-menu-language-list {
@@ -54,7 +55,7 @@ export const globalStyles = ({ theme = suomifiTheme }: MenuProps) => css`
       top: 0;
       margin-top: 12px;
       padding: 10px 0;
-      border: 1px solid ${suomifiTheme.colors.elementBorder};
+      border: 1px solid ${suomifiTheme.colors.depthBase};
       border-radius: 2px;
       &:before,
       &:after {
@@ -68,12 +69,12 @@ export const globalStyles = ({ theme = suomifiTheme }: MenuProps) => css`
         pointer-events: none;
       }
       &:before {
-        border-bottom-color: ${suomifiTheme.colors.elementBorder};
+        border-bottom-color: ${suomifiTheme.colors.depthBase};
         border-width: 8px;
         margin-right: -8px;
       }
       &:after {
-        border-bottom-color: ${suomifiTheme.colors.white};
+        border-bottom-color: ${suomifiTheme.colors.whiteBase};
         border-width: 7px;
         margin-right: -7px;
       }
@@ -85,8 +86,8 @@ export const globalStyles = ({ theme = suomifiTheme }: MenuProps) => css`
     ${font}
     &[data-selected] {
       ${font}
-      color: ${theme.colors.text};
-      background-color: ${theme.colors.elementHover};
+      color: ${theme.colors.blackBase};
+      background-color: ${theme.colors.highlightLight50};
     }
     &.fi-menu-language-item,
     &[data-selected].fi-menu-language-item {
@@ -99,7 +100,7 @@ export const globalStyles = ({ theme = suomifiTheme }: MenuProps) => css`
       }
     }
     &[data-selected].fi-menu-language-item {
-      border-left-color: ${theme.colors.secondaryColor};
+      border-left-color: ${theme.colors.highlightBase};
     }
   }
 `;
