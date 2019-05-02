@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 import { ThemeComponent, ThemeProp } from '../theme';
 import { withDefaultTheme } from '../theme/utils/defaultTheme';
-import { baseStyles } from './Button.baseStyles';
+import { baseStyles, unStyled } from './Button.baseStyles';
 import {
   Button as CompButton,
   ButtonProps as CompButtonProps,
@@ -84,10 +84,9 @@ const iconColor = ({
   return undefined;
 };
 
-const UnstyledButton = (props: ButtonProps) => {
+const UnstyledButton = styled((props: ButtonProps) => {
   const {
     className,
-    theme: dissmissTheme,
     fullWidth: dissmissFullWidth,
     variant: dissmissVariant,
     icon: dismissIcon,
@@ -100,17 +99,15 @@ const UnstyledButton = (props: ButtonProps) => {
       className={classnames(className, baseClassName)}
     />
   );
-};
+})`
+  ${props => unStyled(props)}
+`;
 
 class ButtonWithIcon extends Component<ButtonProps> {
   render() {
-    const {
-      children,
-      icon,
-      iconRight,
-      iconProps = {},
-      ...passProps
-    } = withDefaultTheme(this.props);
+    const { icon, iconRight, iconProps = {}, ...passProps } = withDefaultTheme(
+      this.props,
+    );
     const { theme, disabled, variant } = passProps;
     const { className: iconPropsClassName, ...passIconProps } = iconProps;
 
@@ -133,7 +130,7 @@ class ButtonWithIcon extends Component<ButtonProps> {
             {...passIconProps}
           />
         )}
-        {children}
+        {passProps.children}
         {!!iconRight && (
           <Icon
             icon={iconRight}
@@ -174,7 +171,7 @@ export class Button extends Component<ButtonProps> {
   };
 
   static unstyled = (props: ButtonProps) => {
-    return <UnstyledButton {...props} />;
+    return <ButtonWithIcon {...props} variant="unstyled" />;
   };
 
   render() {

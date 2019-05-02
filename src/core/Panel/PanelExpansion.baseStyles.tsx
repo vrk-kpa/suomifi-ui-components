@@ -11,7 +11,7 @@ export const baseStyles = ({
   ${absolute('before')}
   position: relative;
   padding: 0;
-  border-radius: 2px;
+  border-radius: ${theme.radius.basic};
   box-shadow: ${theme.shadows.panelShadow};
 
   &:before {
