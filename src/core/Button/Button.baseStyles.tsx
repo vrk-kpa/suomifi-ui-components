@@ -10,17 +10,17 @@ const fullWidthStyles = css`
 
 const negativeStyles = (theme: ThemeProp) => css`
   background: none;
-  background-color: ${theme.colors.secondaryColor};
-  border: 1px solid ${theme.colors.primarycolor};
+  background-color: ${theme.colors.highlightBase};
+  border: 1px solid ${theme.colors.whiteBase};
   text-shadow: none;
 
   &:hover {
-    background: ${theme.gradients.lightNegative};
+    background: ${theme.gradients.whiteBaseNegative};
   }
 
   &:active {
     background: none;
-    background-color: ${theme.colors.invertBgrDark};
+    background-color: ${theme.colors.highlightBase};
   }
 
   &[disabled],
@@ -31,27 +31,28 @@ const negativeStyles = (theme: ThemeProp) => css`
 `;
 
 const secondaryStyles = (theme: ThemeProp) => css`
-  color: ${theme.colors.secondaryColor};
+  color: ${theme.colors.highlightBase};
   background: none;
-  background-color: ${theme.colors.primarycolor};
-  border: 1px solid ${theme.colors.secondaryColor};
+  background-color: ${theme.colors.whiteBase};
+  border: 1px solid ${theme.colors.highlightBase};
   text-shadow: none;
 
   &:hover {
-    background: ${theme.gradients.lightSecondary};
+    background: ${theme.gradients.highlightLight45};
   }
 
   &:active {
     background: none;
-    background-color: ${theme.colors.activeBgr};
+    background-color: ${theme.colors.highlightLight53};
   }
 
   &[disabled],
   &:disabled {
-    color: ${theme.colors.disabledColor};
+    color: ${theme.colors.depthBase};
+    text-shadow: none;
     background: none;
-    background-color: ${theme.colors.disabledBgr};
-    border-color: ${theme.colors.disabledColor};
+    background-color: ${theme.colors.highlightLight53};
+    border-color: ${theme.colors.depthBase};
   }
 `;
 
@@ -62,15 +63,15 @@ const secondaryNoBorderStyles = (theme: ThemeProp) => css`
 
 const tertiaryStyles = (theme: ThemeProp) => css`
   ${secondaryStyles(theme)}
-  background: ${theme.gradients.basicLight};
+  background: ${theme.colors.highlightLight50};
   border: none;
 
   &:hover {
-    background: ${theme.gradients.basicLighter};
+    background: ${theme.colors.highlightLight53};
   }
 
   &:active {
-    background: ${theme.gradients.basicDark};
+    background: ${theme.colors.highlightLight53};
   }
 `;
 
@@ -84,8 +85,8 @@ export const baseStyles = ({
   ${focus}
   padding: 10px 20px;
   min-height: 40px;
-  color: ${theme.colors.invertText};
-  background: ${theme.gradients.basic};
+  color: ${theme.colors.whiteBase};
+  background: ${theme.gradients.highlightBase};
   border-radius: 2px;
   text-align: center;
   letter-spacing: ${theme.typography.letterspacingBasic};
@@ -93,16 +94,17 @@ export const baseStyles = ({
   cursor: pointer;
 
   &:hover {
-    background: ${theme.gradients.light};
+    background: ${theme.gradients.highlightLight4};
   }
 
   &:active {
-    background: ${theme.gradients.dark};
+    background: ${theme.gradients.highlightDark9};
   }
 
   &[disabled],
   &:disabled {
-    background: ${theme.gradients.gray};
+    text-shadow: 0 1px 1px ${theme.colors.blackBase};
+    background: ${theme.gradients.depthBase};
     pointer-events: none;
     user-select: none;
   }

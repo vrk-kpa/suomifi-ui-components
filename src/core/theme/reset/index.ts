@@ -6,7 +6,7 @@ export { font, fontSemibold, fontInput, fontPanelTitle } from './typography';
 export const focus = focusUtil({ theme: suomifiTheme });
 
 export const element = css`
-  color: ${suomifiTheme.colors.text};
+  color: ${suomifiTheme.colors.blackBase};
 `;
 
 export const input = css`
@@ -15,7 +15,7 @@ export const input = css`
   min-width: 245px;
   max-width: 100%;
   padding: 8px 12px;
-  border: 1px solid ${suomifiTheme.colors.elementBorder};
+  border: 1px solid ${suomifiTheme.colors.depthBase};
   border-radius: 2px;
 `;
 

@@ -28,7 +28,7 @@ module.exports = {
   },
   TableOfContents: {
     root: {
-      '& > nav > ul > li > ul > li:only-child': {
+      '& > nav > ul > li:nth-child(2) > ul > li:only-child': {
         '& > a:only-of-type': {
           display: 'none',
         },

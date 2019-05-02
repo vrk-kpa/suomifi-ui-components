@@ -18,10 +18,10 @@ export const baseStyles = ({
       transition: margin ${theme.transitions.basicTime}
         ${theme.transitions.basicTimingFunction};
       &.fi-panel-expansion--open {
-        &:not(:first-child) {
+        &:not(:first-of-type) {
           margin-top: 14px;
         }
-        &:not(:last-child) {
+        &:not(:last-of-type) {
           margin-bottom: 14px;
         }
       }
@@ -36,7 +36,7 @@ export const baseStyles = ({
     margin-left: auto;
     margin-bottom: 10px;
     padding: 4px 0;
-    color: ${theme.colors.secondaryColor};
+    color: ${theme.colors.highlightBase};
     cursor: pointer;
   }
 `;

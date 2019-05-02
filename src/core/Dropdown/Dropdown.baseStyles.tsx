@@ -21,11 +21,13 @@ export const baseStyles = ({
       right: 10px;
       margin-top: -3px;
       border-style: solid;
-      border-color: ${theme.colors.caret} transparent transparent transparent;
+      border-color: ${theme.colors.depthDark27} transparent transparent
+        transparent;
       border-width: 6px 4px 0 4px;
     }
     &[aria-expanded='true']:before {
-      border-color: transparent transparent ${theme.colors.caret} transparent;
+      border-color: transparent transparent ${theme.colors.depthDark27}
+        transparent;
       border-width: 0 4px 6px 4px;
     }
   }
@@ -40,8 +42,8 @@ export const globalStyles = ({ theme = suomifiTheme }: DropdownProps) => css`
     padding: 0;
     font-size: 100%;
     border: 0;
-    background-color: ${theme.colors.white};
-    border-color: ${theme.colors.elementBorder};
+    background-color: ${theme.colors.whiteBase};
+    border-color: ${theme.colors.depthBase};
     border-style: solid;
     border-width: 0 1px 1px 1px;
     border-radius: 0px 0px 2px 2px;
@@ -55,9 +57,9 @@ export const globalStyles = ({ theme = suomifiTheme }: DropdownProps) => css`
     border: 0;
     &[data-selected] {
       ${fontInput}
-      color: ${theme.colors.text};
+      color: ${theme.colors.blackBase};
       background-image: none;
-      background-color: ${theme.colors.elementHover};
+      background-color: ${theme.colors.highlightLight50};
       border: 0;
     }
   }

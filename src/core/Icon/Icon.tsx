@@ -74,7 +74,7 @@ export class Icon extends Component<IconProps> {
     );
     const { className, ariaLabel } = this.props;
     const iconColor =
-      color !== undefined ? color : passProps.theme.colors.brandColor;
+      color !== undefined ? color : passProps.theme.colors.brandBase;
 
     if (!!src) {
       return <StyledIcon src={src} {...passProps} color={iconColor} />;

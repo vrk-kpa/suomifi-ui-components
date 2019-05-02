@@ -74,11 +74,11 @@ const iconColor = ({
 }) => {
   if (!!theme) {
     const defaultColor = !!disabled
-      ? theme.colors.disabledColor
-      : theme.colors.white;
+      ? theme.colors.depthBase
+      : theme.colors.whiteBase;
     const secondaryColor = !!disabled
-      ? theme.colors.disabledColor
-      : theme.colors.secondaryColor;
+      ? theme.colors.depthBase
+      : theme.colors.highlightBase;
     return !!invert ? secondaryColor : defaultColor;
   }
   return undefined;
