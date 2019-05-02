@@ -5,7 +5,7 @@ export const boxshadowOutline = ({
   color = colors.accentBase,
   offset = '0',
   border = '1px',
-  borderRadius = radius.basic,
+  borderRadius = radius.focus,
   zIndex = 9999,
 }: {
   color?: string;
