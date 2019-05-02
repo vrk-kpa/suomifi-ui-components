@@ -87,7 +87,7 @@ export const baseStyles = ({
   min-height: 40px;
   color: ${theme.colors.whiteBase};
   background: ${theme.gradients.highlightBase};
-  border-radius: 2px;
+  border-radius: ${theme.radius.basic};
   text-align: center;
   letter-spacing: ${theme.typography.letterspacingBasic};
   text-shadow: ${theme.shadows.invertTextShadow};

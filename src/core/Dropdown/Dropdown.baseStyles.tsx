@@ -46,7 +46,7 @@ export const globalStyles = ({ theme = suomifiTheme }: DropdownProps) => css`
     border-color: ${theme.colors.depthBase};
     border-style: solid;
     border-width: 0 1px 1px 1px;
-    border-radius: 0px 0px 2px 2px;
+    border-radius: 0px 0px ${theme.radius.basic} ${theme.radius.basic};
     overflow: hidden;
   }
 
