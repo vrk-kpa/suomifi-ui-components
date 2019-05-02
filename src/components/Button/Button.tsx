@@ -47,7 +47,7 @@ export interface ButtonProps extends HtmlButtonProps {
   /** Event handler to execute when clicked
    *  @default void
    */
-  onClick?: (event: MouseEvent) => void;
+  onClick?: (event: MouseEvent | KeyboardEvent) => void;
   /**
    * Button element content
    */
