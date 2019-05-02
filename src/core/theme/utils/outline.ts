@@ -1,7 +1,8 @@
+import { colors } from '../colors';
 import { radius } from '../radius';
 
 export const boxshadowOutline = ({
-  color = 'red',
+  color = colors.accentBase,
   offset = '0',
   border = '1px',
   borderRadius = radius.basic,
