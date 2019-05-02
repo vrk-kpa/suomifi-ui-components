@@ -18,7 +18,7 @@ export const baseStyles = ({
       padding: 8px 6px 8px 10px;
       background-color: ${theme.colors.whiteBase};
       border: 1px solid ${theme.colors.depthBase};
-      border-radius: 2px;
+      border-radius: ${theme.radius.basic};
       text-transform: uppercase;
       & > .fi-menu-language-icon {
         height: 16px;
@@ -56,7 +56,7 @@ export const globalStyles = ({ theme = suomifiTheme }: MenuProps) => css`
       margin-top: 12px;
       padding: 10px 0;
       border: 1px solid ${suomifiTheme.colors.depthBase};
-      border-radius: 2px;
+      border-radius: ${theme.radius.basic};
       &:before,
       &:after {
         content: '';
