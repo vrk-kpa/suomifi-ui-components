@@ -174,7 +174,7 @@ exports[`calling render with the same component on the same container does not r
   cursor: auto;
   display: inline-block;
   max-width: 100%;
-  pointer: cursor;
+  cursor: pointer;
 }
 
 .emotion-1:-moz-focusring {
