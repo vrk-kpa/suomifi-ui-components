@@ -125,3 +125,10 @@ export const baseStyles = ({
     }
   }
 `;
+
+export const unStyled = ({ theme = suomifiTheme }) => css`
+  ${element}
+  ${focus}
+  border-radius: ${theme.radius.basic};
+  cursor: pointer;
+`;
