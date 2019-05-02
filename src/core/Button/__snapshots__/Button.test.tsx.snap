@@ -22,7 +22,7 @@ exports[`calling render with the same component on the same container does not r
   cursor: auto;
   display: inline-block;
   max-width: 100%;
-  pointer: cursor;
+  cursor: pointer;
   color: #282828;
   font-family: 'Source Sans Pro','Helvetica Neue',Arial;
   font-size: 18px;

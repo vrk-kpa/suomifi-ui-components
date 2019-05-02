@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, ButtonHTMLAttributes } from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { resets, resetWithSelectors } from '../utils';
@@ -8,7 +8,7 @@ export interface HtmlButtonProps extends HTMLAttributes<HTMLButtonElement> {
    * HTML Button type (button, submit, reset)
    * @default button
    */
-  type?: string;
+  type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
   'data-testid'?: string;
 }
 
@@ -27,7 +27,7 @@ const buttonResets = css`
   ${resets.common}
   display: inline-block;
   max-width: 100%;
-  pointer: cursor;
+  cursor: pointer;
 `;
 
 const Button = ({ type, ...passProps }: HtmlButtonProps) => (
