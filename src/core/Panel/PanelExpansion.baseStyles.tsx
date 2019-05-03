@@ -50,6 +50,7 @@ export const baseStyles = ({
   & > .fi-panel-expansion-content {
     position: relative;
     display: block;
+    height: 0;
     overflow: hidden;
     transform: scaleY(0);
     transform-origin: top;
@@ -59,11 +60,22 @@ export const baseStyles = ({
       padding: 0 20px;
     }
     &.fi-panel-expansion-content--open {
-      height: auto;
+      height: 10%;
       overflow: visible;
-      transform: scaleY(1);
+      /* This is very robust - cannot animate dynamic height with height-definition */
+      animation: fi-panel-expansion-content-anim ${theme.transitions.basicTime}
+        ${theme.transitions.basicTimingFunction} 1 forwards;
       &:not(.fi-panel-expansion-content--no-padding) {
         padding: 0 20px 20px 20px;
+      }
+    }
+    @keyframes fi-panel-expansion-content-anim {
+      0% {
+        height: auto;
+        transform: scaleY(0);
+      }
+      100% {
+        transform: scaleY(1);
       }
     }
   }

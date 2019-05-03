@@ -139,14 +139,28 @@ exports[`calling render with the same component on the same container does not r
   display: block;
   height: 0;
   overflow: hidden;
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: top;
+  -ms-transform-origin: top;
+  transform-origin: top;
   -webkit-transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
   transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
+}
+
+.emotion-3 > .fi-panel-expansion-content:not(.fi-panel-expansion-content--no-padding) {
   padding: 0 20px;
 }
 
 .emotion-3 > .fi-panel-expansion-content.fi-panel-expansion-content--open {
-  height: auto;
+  height: 10%;
   overflow: visible;
+  -webkit-animation: fi-panel-expansion-content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
+  animation: fi-panel-expansion-content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
+}
+
+.emotion-3 > .fi-panel-expansion-content.fi-panel-expansion-content--open:not(.fi-panel-expansion-content--no-padding) {
   padding: 0 20px 20px 20px;
 }
 
