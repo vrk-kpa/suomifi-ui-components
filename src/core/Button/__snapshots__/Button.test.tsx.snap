@@ -10,8 +10,7 @@ exports[`calling render with the same component on the same container does not r
   padding: 0;
   border: 0;
   box-sizing: border-box;
-  font-size: 100%;
-  font: inherit;
+  font: 100% inherit;
   line-height: 1;
   text-align: left;
   -webkit-text-decoration: none;
@@ -26,7 +25,6 @@ exports[`calling render with the same component on the same container does not r
   color: #282828;
   font-family: 'Source Sans Pro','Helvetica Neue',Arial;
   font-size: 18px;
-  line-height: 18px;
   font-weight: 400;
   line-height: 1em;
   -webkit-letter-spacing: 0;
