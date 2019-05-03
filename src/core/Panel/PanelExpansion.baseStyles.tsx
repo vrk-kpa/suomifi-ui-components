@@ -6,7 +6,6 @@ import { absolute } from '../../utils/css/pseudo';
 
 export const baseStyles = ({
   theme = suomifiTheme,
-  noPadding = false,
 }: PanelExpansionProps) => css`
   ${absolute('before')}
   position: relative;
@@ -21,8 +20,8 @@ export const baseStyles = ({
 
   &.fi-panel-expansion--open:before {
     opacity: 1;
-    transition: opacity ${theme.transitions.basicTime}
-      ${theme.transitions.basicTimingFunction};
+    transition: opacity ${`${theme.transitions.basicTime}
+      ${theme.transitions.basicTimingFunction}`};
   }
 
   & .fi-panel-expansion-title {
@@ -51,15 +50,21 @@ export const baseStyles = ({
   & > .fi-panel-expansion-content {
     position: relative;
     display: block;
-    height: 0;
     overflow: hidden;
-    transition: all ${theme.transitions.basicTime}
-      ${theme.transitions.basicTimingFunction};
-    ${!noPadding && 'padding: 0 20px;'}
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all ${`${theme.transitions.basicTime}
+      ${theme.transitions.basicTimingFunction}`};
+    &:not(.fi-panel-expansion-content--no-padding) {
+      padding: 0 20px;
+    }
     &.fi-panel-expansion-content--open {
       height: auto;
       overflow: visible;
-      ${!noPadding && 'padding: 0 20px 20px 20px;'}
+      transform: scaleY(1);
+      &:not(.fi-panel-expansion-content--no-padding) {
+        padding: 0 20px 20px 20px;
+      }
     }
   }
 `;

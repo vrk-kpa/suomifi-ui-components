@@ -15,11 +15,15 @@ const titleClassName = `${panelExpansionClassName}-title`;
 const titleOpenClassName = `${titleClassName}--open`;
 const titleNoTagClassName = `${titleClassName}--no-tag`;
 const titleTagClassName = `${panelExpansionClassName}-title-tag`;
-const contentClassName = `${panelExpansionClassName}-content`;
-const contentOpenClassName = `${contentClassName}--open`;
+const contentBaseClassName = `${panelExpansionClassName}-content`;
+const contentOpenClassName = `${contentBaseClassName}--open`;
 
-const StyledPanelExpansionContent = styled(
-  ({ openState, ...passProps }: PanelProps & { openState: boolean }) => (
+interface StyledPanelExpansionContentProps extends PanelProps {
+  openState: boolean;
+}
+
+export const StyledPanelExpansionContent = styled(
+  ({ openState, ...passProps }: StyledPanelExpansionContentProps) => (
     <Panel {...passProps} />
   ),
 )`
@@ -57,6 +61,8 @@ export interface PanelExpansionProps extends PanelProps {
   open?: boolean;
   /** Properties for title-Button */
   titleProps?: ButtonProps & { open?: boolean };
+  /** Properties for the content div */
+  contentProps?: PanelProps;
   /** Default status of panel open when not using controlled 'open' state
    * @default false
    */
@@ -126,6 +132,9 @@ export class PanelExpansionItem extends Component<PanelExpansionProps> {
       index,
       expansionGroup: dissmissExpansionGroup,
       consumer: { openPanels } = { openPanels: undefined },
+      contentProps: { className: contentClassName, ...contentPassProps } = {
+        className: undefined,
+      },
       ...passProps
     } = this.props;
     const localOpenState = () =>
@@ -156,8 +165,9 @@ export class PanelExpansionItem extends Component<PanelExpansionProps> {
           </StyledPanelExpansionTitle>
         </IfTitleTag>
         <StyledPanelExpansionContent
+          {...contentPassProps}
           openState={openState}
-          className={classnames(contentClassName, {
+          className={classnames(contentBaseClassName, contentClassName, {
             [contentOpenClassName]: !!openState,
           })}
           aria-hidden={!openState}
