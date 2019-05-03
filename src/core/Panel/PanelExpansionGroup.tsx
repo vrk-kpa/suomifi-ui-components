@@ -1,16 +1,22 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import { withDefaultTheme } from '../theme/utils/defaultTheme';
-import { ThemeComponent, ThemeProp } from '../theme';
+import { ThemeComponent } from '../theme';
 import {
   PanelExpansionGroup as CompPanelExpansionGroup,
   PanelExpansionGroupProps as CompPanelExpansionGroupProps,
 } from '../../components/Panel/PanelExpansionGroup';
-import { Button } from '../Button/Button';
+import { Button, ButtonProps } from '../Button/Button';
 import { baseStyles } from './PanelExpansionGroup.baseStyles';
+
+const openAllButtonClassName = 'fi-panel-expansion-group-all-button';
 
 export interface PanelExpansionGroupProps
   extends CompPanelExpansionGroupProps,
+    ThemeComponent {}
+
+interface PanelExpansionOpenAllButtonProps
+  extends ButtonProps,
     ThemeComponent {}
 
 const StyledPanelExpansionGroup = styled(
@@ -24,10 +30,16 @@ const StyledPanelExpansionGroup = styled(
 const OpenAllButton = ({
   children,
   theme,
-}: {
-  children: ReactNode;
-  theme: ThemeProp;
-}) => <Button.unstyled theme={theme}>{children}</Button.unstyled>;
+  ...passProps
+}: PanelExpansionOpenAllButtonProps) => (
+  <Button.unstyled
+    {...passProps}
+    theme={theme}
+    className={openAllButtonClassName}
+  >
+    {children}
+  </Button.unstyled>
+);
 
 /**
  * Used for grouping expansion panels

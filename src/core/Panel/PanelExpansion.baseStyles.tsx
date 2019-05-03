@@ -6,7 +6,6 @@ import { absolute } from '../../utils/css/pseudo';
 
 export const baseStyles = ({
   theme = suomifiTheme,
-  noPadding = false,
 }: PanelExpansionProps) => css`
   ${absolute('before')}
   position: relative;
@@ -21,8 +20,8 @@ export const baseStyles = ({
 
   &.fi-panel-expansion--open:before {
     opacity: 1;
-    transition: opacity ${theme.transitions.basicTime}
-      ${theme.transitions.basicTimingFunction};
+    transition: opacity ${`${theme.transitions.basicTime}
+      ${theme.transitions.basicTimingFunction}`};
   }
 
   & .fi-panel-expansion-title {
@@ -53,13 +52,31 @@ export const baseStyles = ({
     display: block;
     height: 0;
     overflow: hidden;
-    transition: all ${theme.transitions.basicTime}
-      ${theme.transitions.basicTimingFunction};
-    ${!noPadding && 'padding: 0 20px;'}
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all ${`${theme.transitions.basicTime}
+      ${theme.transitions.basicTimingFunction}`};
+    &:not(.fi-panel-expansion-content--no-padding) {
+      padding: 0 20px;
+    }
     &.fi-panel-expansion-content--open {
-      height: auto;
+      height: 10%;
       overflow: visible;
-      ${!noPadding && 'padding: 0 20px 20px 20px;'}
+      /* This is very robust - cannot animate dynamic height with height-definition */
+      animation: fi-panel-expansion-content-anim ${theme.transitions.basicTime}
+        ${theme.transitions.basicTimingFunction} 1 forwards;
+      &:not(.fi-panel-expansion-content--no-padding) {
+        padding: 0 20px 20px 20px;
+      }
+    }
+    @keyframes fi-panel-expansion-content-anim {
+      0% {
+        height: auto;
+        transform: scaleY(0);
+      }
+      100% {
+        transform: scaleY(1);
+      }
     }
   }
 `;

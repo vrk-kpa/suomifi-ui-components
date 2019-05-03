@@ -13,6 +13,7 @@ import classnames from 'classnames';
 
 const iconClassName = 'fi-panel-expansion-title-icon';
 const iconOpenClassName = `${iconClassName}--open`;
+const noPaddingClassName = `fi-panel-expansion-content--no-padding`;
 
 export interface PanelExpansionProps
   extends CompPanelExpansionProps,
@@ -23,7 +24,14 @@ export interface PanelExpansionProps
 
 const StyledPanelExpansion = styled(
   ({ noPadding, ...passProps }: PanelExpansionProps) => {
-    return <CompPanelExpansion {...passProps} />;
+    return (
+      <CompPanelExpansion
+        {...passProps}
+        contentProps={{
+          className: classnames({ [noPaddingClassName]: noPadding }),
+        }}
+      />
+    );
   },
 )`
   ${props => panelBaseStyles(props)};
