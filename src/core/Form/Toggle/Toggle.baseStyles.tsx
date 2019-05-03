@@ -11,6 +11,9 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
   ${element}
   ${font}
   background-color: ${theme.colors.whiteBase};
+  & > .fi-toggle-label {
+    cursor: pointer;
+  }
   & > .fi-toggle-input {
     ${element}
     ${font}
@@ -32,9 +35,6 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
         content: none;
       }
     }
-  }
-  & > .fi-toggle-label {
-    cursor: pointer;
   }
   & .fi-toggle-icon {
     width: 40px;
