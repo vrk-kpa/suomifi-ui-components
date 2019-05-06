@@ -10,6 +10,9 @@ const divResets = css`
   ${resets.common}
   display: block;
   max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
 `;
 
 const Div = (props: HtmlDivProps) => <div {...props} />;
