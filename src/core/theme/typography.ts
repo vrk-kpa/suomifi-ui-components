@@ -33,7 +33,7 @@ const fontWeights = {
 
 export const typography = {
   fontWeights,
-  fontFamily: `${fontFamily},'Helvetica Neue', Arial`,
+  fontFamily: `'${fontFamily}','Helvetica Neue', Arial`,
   fontSize: fontSize.default,
   smallResolution: {
     fontSize: fontSize.smRes,
