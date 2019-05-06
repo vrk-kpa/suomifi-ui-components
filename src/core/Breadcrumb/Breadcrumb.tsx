@@ -27,13 +27,12 @@ export interface BreadcrumbProps extends CompBreadcrumbProps, ThemeComponent {
   variant?: BreadcrumbVariant;
 }
 
-export interface BreadcrumbLinkProps
-  extends Omit<MenuLinkPropsWithType, 'href'> {
+export interface BreadcrumbLinkProps extends Omit<LinkProps, 'href'> {
   /** Indicating the link is the current page */
   current?: boolean;
   /** url for the link */
   href?: string;
-  theme?: ThemeProp;
+  theme: ThemeProp;
 }
 
 const StyledBreadcrumb = styled(({ theme, ...passProps }: BreadcrumbProps) => (
@@ -46,6 +45,7 @@ const BreadcrumbLink = ({
   current,
   children,
   className,
+  href = '',
   ...passProps
 }: BreadcrumbLinkProps) =>
   !!current ? (
@@ -54,7 +54,11 @@ const BreadcrumbLink = ({
     </HtmlSpan>
   ) : (
     <Fragment>
-      <Link {...passProps} className={classnames(linkClassName, className)}>
+      <Link
+        {...passProps}
+        className={classnames(linkClassName, className)}
+        href={href}
+      >
         {children}
       </Link>
       <Icon
