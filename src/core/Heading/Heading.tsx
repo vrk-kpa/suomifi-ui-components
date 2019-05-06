@@ -47,31 +47,31 @@ const StyledHeading = styled(
  * Used displaying headings with correct fonts
  */
 export class Heading extends Component<HeadingProps> {
-  static h1hero = (props: HeadingProps) => (
+  static h1hero = (props: Omit<HeadingProps, 'variant'>) => (
     <StyledHeading {...withDefaultTheme(props)} variant="h1hero" />
   );
 
-  static h1 = (props: HeadingProps) => (
+  static h1 = (props: Omit<HeadingProps, 'variant'>) => (
     <StyledHeading {...withDefaultTheme(props)} variant="h1" />
   );
 
-  static h2 = (props: HeadingProps) => (
+  static h2 = (props: Omit<HeadingProps, 'variant'>) => (
     <StyledHeading {...withDefaultTheme(props)} variant="h2" />
   );
 
-  static h3 = (props: HeadingProps) => (
+  static h3 = (props: Omit<HeadingProps, 'variant'>) => (
     <StyledHeading {...withDefaultTheme(props)} variant="h3" />
   );
 
-  static h4 = (props: HeadingProps) => (
+  static h4 = (props: Omit<HeadingProps, 'variant'>) => (
     <StyledHeading {...withDefaultTheme(props)} variant="h4" />
   );
 
-  static h5 = (props: HeadingProps) => (
+  static h5 = (props: Omit<HeadingProps, 'variant'>) => (
     <StyledHeading {...withDefaultTheme(props)} variant="h5" />
   );
 
-  static h6 = (props: HeadingProps) => (
+  static h6 = (props: Omit<HeadingProps, 'variant'>) => (
     <StyledHeading {...withDefaultTheme(props)} variant="h6" />
   );
 
