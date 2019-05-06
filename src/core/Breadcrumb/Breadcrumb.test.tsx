@@ -11,7 +11,6 @@ test('calling render with the same component on the same container does not remo
       <Breadcrumb.link current={true}>Sub sub page</Breadcrumb.link>
     </Breadcrumb>,
   );
-  const { getByTestId, container } = BreadcrumbRendered;
+  const { container } = BreadcrumbRendered;
   expect(container.firstChild).toMatchSnapshot();
-  expect(getByTestId('Breadcrumb').textContent).toBe('Test');
 });

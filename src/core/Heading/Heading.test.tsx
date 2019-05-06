@@ -15,6 +15,6 @@ test('calling render with the same component on the same container does not remo
       <Heading.h6>Test Heading</Heading.h6>
     </div>,
   );
-  const { getByTestId, container } = HeadingRendered;
+  const { container } = HeadingRendered;
   expect(container.firstChild).toMatchSnapshot();
 });

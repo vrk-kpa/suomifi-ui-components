@@ -11,7 +11,6 @@ test('calling render with the same component on the same container does not remo
       <Text.bold>Hey this is test bold</Text.bold>
     </div>,
   );
-  const { getByTestId, container } = TextRendered;
+  const { container } = TextRendered;
   expect(container.firstChild).toMatchSnapshot();
-  expect(getByTestId('Text').textContent).toBe('Test');
 });
