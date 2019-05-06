@@ -17,9 +17,12 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
   color: inherit;
   background: none;
-  cursor: auto;
+  cursor: inherit;
   display: block;
   max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
   display: block;
   width: 100%;
   max-width: 100%;
@@ -32,7 +35,6 @@ exports[`calling render with the same component on the same container does not r
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
@@ -101,21 +103,15 @@ exports[`calling render with the same component on the same container does not r
 .emotion-3 .fi-panel-expansion-title--no-tag {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1em;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
-  font-size: 14px;
-  line-height: 14px;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 18px;
   padding: 20px 60px 20px 20px;
   color: #2A6EBB;
 }
@@ -181,7 +177,7 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
   color: inherit;
   background: none;
-  cursor: auto;
+  cursor: inherit;
   display: inline-block;
   max-width: 100%;
   cursor: pointer;
@@ -243,9 +239,12 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
   color: inherit;
   background: none;
-  cursor: auto;
+  cursor: inherit;
   display: block;
   max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
   display: block;
   width: 100%;
   max-width: 100%;
