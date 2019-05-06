@@ -6,5 +6,15 @@
   "singleQuote": true,
   "trailingComma": "all",
   "bracketSpacing": true,
-  "jsxBracketSameLine": false
+  "jsxBracketSameLine": false,
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": {
+        "printWidth": 70,
+        "trailingComma": "none",
+        "proseWrap": "never"
+      }
+    }
+  ]
 }

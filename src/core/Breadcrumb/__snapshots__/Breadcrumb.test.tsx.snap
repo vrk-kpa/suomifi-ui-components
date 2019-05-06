@@ -1,0 +1,284 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calling render with the same component on the same container does not remount 1`] = `
+.emotion-9 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  color: #282828;
+  display: block;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  background-color: #FFFFFF;
+}
+
+.emotion-9 .fi-breadcrumb-list {
+  color: #282828;
+  list-style: none;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+.emotion-9 .fi-breadcrumb-item {
+  color: #282828;
+  list-style: none;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  float: left;
+}
+
+.emotion-9 .fi-breadcrumb-item,
+.emotion-9 .fi-breadcrumb-link,
+.emotion-9 .fi-breadcrumb-icon {
+  font-size: 18px;
+}
+
+.emotion-8 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  list-style-type: decimal;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 40px;
+}
+
+.emotion-2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: list-item;
+}
+
+.emotion-0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  color: #282828;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  color: #2A6EBB;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0:hover,
+.emotion-0:active,
+.emotion-0:focus,
+.emotion-0:focus-within,
+.emotion-0:visited {
+  color: inherit;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.emotion-0:hover,
+.emotion-0:active,
+.emotion-0:focus,
+.emotion-0:focus-within,
+.emotion-0:visited {
+  color: #2A6EBB;
+}
+
+.emotion-0:hover,
+.emotion-0:active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-1 {
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
+.emotion-6 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+<nav
+  aria-label="breadcrumb"
+  class="fi-breadcrumb emotion-9"
+  data-testid="Breadcrumb"
+>
+  <ol
+    class="fi-breadcrumb-list emotion-8"
+  >
+    <li
+      class="fi-breadcrumb-item emotion-2"
+    >
+      <a
+        class="fi-breadcrumb-link fi-link emotion-0"
+        href="/"
+      >
+        Frontpage
+      </a>
+      <svg
+        aria-hidden="true"
+        class="fi-breadcrumb-icon emotion-1"
+        focusable="false"
+        height="1em"
+        style="fill: #282828;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path
+          d="M6 18v-2.12l5.902-2.328 3.748-1.492v-.12l-3.748-1.492L6 8.119V6l12 5.015v1.97z"
+        />
+      </svg>
+    </li>
+    <li
+      class="fi-breadcrumb-item emotion-2"
+    >
+      <a
+        class="fi-breadcrumb-link fi-link emotion-0"
+        href="/sub"
+      >
+        Sub page
+      </a>
+      <svg
+        aria-hidden="true"
+        class="fi-breadcrumb-icon emotion-1"
+        focusable="false"
+        height="1em"
+        style="fill: #282828;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path
+          d="M6 18v-2.12l5.902-2.328 3.748-1.492v-.12l-3.748-1.492L6 8.119V6l12 5.015v1.97z"
+        />
+      </svg>
+    </li>
+    <li
+      class="fi-breadcrumb-item emotion-2"
+    >
+      <span
+        aria-current="page"
+        class="emotion-6"
+      >
+        Sub sub page
+      </span>
+    </li>
+  </ol>
+</nav>
+`;

@@ -11,6 +11,10 @@ module.exports = {
           name: 'Colors',
           content: './.styleguidist/colors.md',
         },
+        {
+          name: 'Typography',
+          content: './.styleguidist/typography.md',
+        },
       ],
       sectionDepth: 1,
     },

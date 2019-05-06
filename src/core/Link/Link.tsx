@@ -17,7 +17,7 @@ const StyledLink = styled(({ theme, ...passProps }: LinkProps) => (
 `;
 
 /**
- * Used for grouping expansion panels
+ * Used for adding a link
  */
 export class Link extends Component<LinkProps> {
   render() {

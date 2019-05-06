@@ -17,9 +17,12 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
   color: inherit;
   background: none;
-  cursor: auto;
+  cursor: inherit;
   display: inline;
   max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
   color: #282828;
   font-family: 'Source Sans Pro','Helvetica Neue',Arial;
   font-size: 18px;
@@ -29,7 +32,6 @@ exports[`calling render with the same component on the same container does not r
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
@@ -50,7 +52,6 @@ exports[`calling render with the same component on the same container does not r
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
@@ -148,7 +149,7 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
   color: inherit;
   background: none;
-  cursor: auto;
+  cursor: inherit;
   display: inline-block;
   max-width: 100%;
 }
@@ -174,7 +175,7 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
   color: inherit;
   background: none;
-  cursor: auto;
+  cursor: inherit;
   max-width: 100%;
 }
 

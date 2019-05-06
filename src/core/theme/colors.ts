@@ -16,6 +16,8 @@ export const colorTokens = {
   depth: {
     depthBase: '#A5ACB1',
     depthSecondary: '#F0F6FF',
+    depthLight30: '#F7F7F8',
+    depthLight13: '#C8CDD0',
     depthDark27: '#5F686D',
   },
   hightlight: {

@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
 import { suomifiTheme } from '../theme';
 import { DropdownProps } from './Dropdown';
-import { element, input, fontInput } from '../theme/reset';
+import { element, input, fonts } from '../theme/reset';
 import { Omit } from '../../utils/typescript';
 import { dataReachMenu } from '../Menu/Menu.baseStyles';
 
@@ -10,7 +10,6 @@ export const baseStyles = ({
 }: Omit<DropdownProps, 'name'>) => css`
   & > [data-reach-menu-button].fi-dropdown-button {
     ${input}
-    ${fontInput}
     position: relative;
     padding-right: 30px;
     cursor: pointer;
@@ -38,7 +37,7 @@ export const globalStyles = ({ theme = suomifiTheme }: DropdownProps) => css`
 
   [data-reach-menu-list].fi-dropdown-list {
     ${element}
-    ${fontInput}
+    ${fonts.input}
     padding: 0;
     font-size: 100%;
     border: 0;
@@ -52,11 +51,11 @@ export const globalStyles = ({ theme = suomifiTheme }: DropdownProps) => css`
 
   [data-reach-menu-item].fi-dropdown-item {
     ${element}
-    ${fontInput}
+    ${fonts.input}
     padding: 8px 12px;
     border: 0;
     &[data-selected] {
-      ${fontInput}
+      ${fonts.input}
       color: ${theme.colors.blackBase};
       background-image: none;
       background-color: ${theme.colors.highlightLight50};
