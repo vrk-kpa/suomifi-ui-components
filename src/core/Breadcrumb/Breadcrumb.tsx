@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import styled from '@emotion/styled';
 import { withDefaultTheme } from '../theme/utils/defaultTheme';
-import { ThemeComponent, ThemeProp } from '../theme';
+import { ThemeComponent, ThemeProp, suomifiTheme } from '../theme';
 import { baseStyles } from './Breadcrumb.baseStyles';
 import {
   Breadcrumb as CompBreadcrumb,
@@ -32,7 +32,7 @@ export interface BreadcrumbLinkProps extends Omit<LinkProps, 'href'> {
   current?: boolean;
   /** url for the link */
   href?: string;
-  theme: ThemeProp;
+  theme?: ThemeProp;
 }
 
 const StyledBreadcrumb = styled(({ theme, ...passProps }: BreadcrumbProps) => (
@@ -64,7 +64,11 @@ const BreadcrumbLink = ({
       <Icon
         icon="linkBreadcrumb"
         className={iconClassName}
-        color={passProps.theme.colors.blackBase}
+        color={
+          !!passProps.theme
+            ? passProps.theme.colors.blackBase
+            : suomifiTheme.colors.blackBase // TODO
+        }
       />
     </Fragment>
   );
