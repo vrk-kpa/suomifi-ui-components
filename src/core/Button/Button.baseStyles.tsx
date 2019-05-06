@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
 import { suomifiTheme, ThemeProp } from '../theme';
 import { ButtonProps } from './Button';
-import { element, focus, fontSemibold } from '../theme/reset';
+import { element, focus, fonts } from '../theme/reset';
 
 const fullWidthStyles = css`
   display: block;
@@ -81,7 +81,7 @@ export const baseStyles = ({
   variant = 'default',
 }: ButtonProps) => css`
   ${element}
-  ${fontSemibold}
+  ${fonts.inputSemibold}
   ${focus}
   padding: 10px 20px;
   min-height: 40px;
@@ -89,7 +89,6 @@ export const baseStyles = ({
   background: ${theme.gradients.highlightBase};
   border-radius: ${theme.radius.basic};
   text-align: center;
-  letter-spacing: ${theme.typography.letterspacingBasic};
   text-shadow: ${theme.shadows.invertTextShadow};
   cursor: pointer;
 

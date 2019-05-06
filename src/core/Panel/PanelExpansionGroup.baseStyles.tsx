@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
 import { suomifiTheme } from '../theme';
 import { PanelExpansionGroupProps } from './PanelExpansionGroup';
-import { element, fontPanelTitle, focus } from '../theme/reset';
+import { element, fonts, focus } from '../theme/reset';
 
 export const baseStyles = ({
   theme = suomifiTheme,
@@ -30,7 +30,7 @@ export const baseStyles = ({
 
   & > .fi-panel-expansion-group-all-button {
     ${element}
-    ${fontPanelTitle}
+    ${fonts.semiBold}
     ${focus}
     flex: 1;
     margin-left: auto;
