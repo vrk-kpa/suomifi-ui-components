@@ -8,15 +8,14 @@ const common = css`
   padding: 0;
   border: 0;
   box-sizing: border-box;
-  font-size: 100%;
-  font: inherit;
+  font: 100% inherit;
   line-height: 1;
   text-align: left;
   text-decoration: none;
   vertical-align: baseline;
   color: inherit;
   background: none;
-  cursor: auto;
+  cursor: inherit;
 `;
 
 const resets = {

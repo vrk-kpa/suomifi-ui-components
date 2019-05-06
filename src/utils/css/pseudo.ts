@@ -14,7 +14,7 @@ type absolutePseudos = 'before' | 'after';
 
 export const absolute = (pseudo: absolutePseudos) => css`
   position: relative;
-  &:${pseudo} {
+  &:${/* sc-prop */ pseudo} {
     content: '';
     position: absolute;
     top: 0;

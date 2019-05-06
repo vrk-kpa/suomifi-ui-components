@@ -9,8 +9,7 @@ exports[`calling render with the same component on the same container does not r
   padding: 0;
   border: 0;
   box-sizing: border-box;
-  font-size: 100%;
-  font: inherit;
+  font: 100% inherit;
   line-height: 1;
   text-align: left;
   -webkit-text-decoration: none;
@@ -18,23 +17,24 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
   color: inherit;
   background: none;
-  cursor: auto;
+  cursor: inherit;
   display: block;
   max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
   display: block;
   width: 100%;
   max-width: 100%;
   color: #282828;
   font-family: 'Source Sans Pro','Helvetica Neue',Arial;
   font-size: 18px;
-  line-height: 18px;
   font-weight: 400;
   line-height: 1em;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
@@ -103,22 +103,15 @@ exports[`calling render with the same component on the same container does not r
 .emotion-3 .fi-panel-expansion-title--no-tag {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial;
   font-size: 18px;
-  line-height: 18px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1em;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
   letter-spacing: 0;
-  white-space: nowrap;
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
-  font-size: 14px;
-  line-height: 14px;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 18px;
   padding: 20px 60px 20px 20px;
   color: #2A6EBB;
 }
@@ -142,14 +135,28 @@ exports[`calling render with the same component on the same container does not r
   display: block;
   height: 0;
   overflow: hidden;
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: top;
+  -ms-transform-origin: top;
+  transform-origin: top;
   -webkit-transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
   transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
+}
+
+.emotion-3 > .fi-panel-expansion-content:not(.fi-panel-expansion-content--no-padding) {
   padding: 0 20px;
 }
 
 .emotion-3 > .fi-panel-expansion-content.fi-panel-expansion-content--open {
-  height: auto;
+  height: 10%;
   overflow: visible;
+  -webkit-animation: fi-panel-expansion-content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
+  animation: fi-panel-expansion-content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
+}
+
+.emotion-3 > .fi-panel-expansion-content.fi-panel-expansion-content--open:not(.fi-panel-expansion-content--no-padding) {
   padding: 0 20px 20px 20px;
 }
 
@@ -162,8 +169,7 @@ exports[`calling render with the same component on the same container does not r
   padding: 0;
   border: 0;
   box-sizing: border-box;
-  font-size: 100%;
-  font: inherit;
+  font: 100% inherit;
   line-height: 1;
   text-align: left;
   -webkit-text-decoration: none;
@@ -171,7 +177,7 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
   color: inherit;
   background: none;
-  cursor: auto;
+  cursor: inherit;
   display: inline-block;
   max-width: 100%;
   cursor: pointer;
@@ -225,8 +231,7 @@ exports[`calling render with the same component on the same container does not r
   padding: 0;
   border: 0;
   box-sizing: border-box;
-  font-size: 100%;
-  font: inherit;
+  font: 100% inherit;
   line-height: 1;
   text-align: left;
   -webkit-text-decoration: none;
@@ -234,9 +239,12 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
   color: inherit;
   background: none;
-  cursor: auto;
+  cursor: inherit;
   display: block;
   max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
   display: block;
   width: 100%;
   max-width: 100%;

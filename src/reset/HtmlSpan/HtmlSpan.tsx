@@ -10,6 +10,9 @@ const spanResets = css`
   ${resets.common}
   display: inline;
   max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
 `;
 
 const Span = (props: HtmlSpanProps) => <span {...props} />;

@@ -1,13 +1,21 @@
 import './core/theme/fontFaces.css';
-export { suomifiTheme, ThemeComponent } from './core/theme';
+export { Breadcrumb, BreadcrumbProps } from './core/Breadcrumb/Breadcrumb';
 export { Button, ButtonProps } from './core/Button/Button';
-export { Icon, IconProps } from './core/Icon/Icon';
 export {
   Dropdown,
   DropdownProps,
   DropdownItem,
   DropdownItemProps,
 } from './core/Dropdown/Dropdown';
+export {
+  Toggle,
+  ToggleProps,
+  ToggleInput,
+  ToggleInputProps,
+} from './core/Form/Toggle/Toggle';
+export { Heading, HeadingProps } from './core/Heading/Heading';
+export { Icon, IconProps } from './core/Icon/Icon';
+export { Link, LinkProps } from './core/Link/Link';
 export { Menu, MenuProps } from './core/Menu/Menu';
 export {
   MenuItem,
@@ -19,12 +27,6 @@ export {
   MenuLanguageLink,
   MenuLanguageLinkProps,
 } from './core/Menu/MenuItem';
-export {
-  Toggle,
-  ToggleProps,
-  ToggleInput,
-  ToggleInputProps,
-} from './core/Form/Toggle/Toggle';
 export { Panel, PanelProps } from './core/Panel/Panel';
-export { Breadcrumb, BreadcrumbProps } from './core/Breadcrumb/Breadcrumb';
-export { Link, LinkProps } from './core/Link/Link';
+export { Text, TextProps } from './core/Text/Text';
+export { suomifiTheme, ThemeComponent } from './core/theme';

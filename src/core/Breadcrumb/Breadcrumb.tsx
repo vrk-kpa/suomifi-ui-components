@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import styled from '@emotion/styled';
 import { withDefaultTheme } from '../theme/utils/defaultTheme';
-import { ThemeComponent, ThemeProp } from '../theme';
+import { ThemeComponent, ThemeProp, suomifiTheme } from '../theme';
 import { baseStyles } from './Breadcrumb.baseStyles';
 import {
   Breadcrumb as CompBreadcrumb,
@@ -12,6 +12,7 @@ import { Link, LinkProps } from '../Link/Link';
 import { Icon } from '../Icon/Icon';
 import { HtmlSpan } from '../../reset';
 import classnames from 'classnames';
+import { Omit } from '../../utils/typescript';
 
 const linkClassName = `${baseClassName}-link`;
 const iconClassName = `${baseClassName}-icon`;
@@ -26,10 +27,12 @@ export interface BreadcrumbProps extends CompBreadcrumbProps, ThemeComponent {
   variant?: BreadcrumbVariant;
 }
 
-export interface BreadcrumbLinkProps extends LinkProps {
+export interface BreadcrumbLinkProps extends Omit<LinkProps, 'href'> {
   /** Indicating the link is the current page */
   current?: boolean;
-  theme: ThemeProp;
+  /** url for the link */
+  href?: string;
+  theme?: ThemeProp;
 }
 
 const StyledBreadcrumb = styled(({ theme, ...passProps }: BreadcrumbProps) => (
@@ -42,6 +45,7 @@ const BreadcrumbLink = ({
   current,
   children,
   className,
+  href = '',
   ...passProps
 }: BreadcrumbLinkProps) =>
   !!current ? (
@@ -50,13 +54,21 @@ const BreadcrumbLink = ({
     </HtmlSpan>
   ) : (
     <Fragment>
-      <Link {...passProps} className={classnames(linkClassName, className)}>
+      <Link
+        {...passProps}
+        className={classnames(linkClassName, className)}
+        href={href}
+      >
         {children}
       </Link>
       <Icon
         icon="linkBreadcrumb"
         className={iconClassName}
-        color={passProps.theme.colors.blackBase}
+        color={
+          !!passProps.theme
+            ? passProps.theme.colors.blackBase
+            : suomifiTheme.colors.blackBase // TODO
+        }
       />
     </Fragment>
   );

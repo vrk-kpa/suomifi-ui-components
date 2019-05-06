@@ -2,18 +2,21 @@ import { css } from '@emotion/core';
 import { suomifiTheme } from '../../theme';
 import { focus } from '../../theme/utils/focus';
 import { ToggleProps } from './Toggle';
-import { element, font } from '../../theme/reset';
+import { element, fonts } from '../../theme/reset';
 import { alphaHex } from '../../../utils/css/colors';
 
 const svgPrefix = 'icon-toggle_svg__';
 
 export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
   ${element}
-  ${font}
+  ${fonts.body}
   background-color: ${theme.colors.whiteBase};
+  & > .fi-toggle-label {
+    cursor: pointer;
+  }
   & > .fi-toggle-input {
     ${element}
-    ${font}
+    ${fonts.body}
     width: 0;
     height: 0;
     opacity: 0;
@@ -32,9 +35,6 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
         content: none;
       }
     }
-  }
-  & > .fi-toggle-label {
-    cursor: pointer;
   }
   & .fi-toggle-icon {
     width: 40px;

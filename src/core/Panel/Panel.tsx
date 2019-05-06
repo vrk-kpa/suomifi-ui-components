@@ -39,11 +39,11 @@ type VariantPanelProps =
  */
 export class Panel extends Component<VariantPanelProps> {
   static expansion = (props: PanelExpansionProps) => {
-    return <PanelExpansion {...props} />;
+    return <PanelExpansion {...withDefaultTheme(props)} />;
   };
 
   static expansionGroup = (props: PanelExpansionGroupProps) => {
-    return <PanelExpansionGroup {...props} />;
+    return <PanelExpansionGroup {...withDefaultTheme(props)} />;
   };
 
   render() {
