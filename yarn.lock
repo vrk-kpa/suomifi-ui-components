@@ -9186,10 +9186,10 @@ sugarss@^2.0.0:
   dependencies:
     postcss "^7.0.2"
 
-suomifi-icons@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-0.0.3.tgz#e05fdcab149bc808b46e65af37882546e72f9d12"
-  integrity sha512-C/w2hYS85/5+JOQXjg1YSPSimfQcRdVF2uGFIJpiBR2mroDmEiA74LEEN9m3iBMwOOGuvcATzZIZVImsMgMlxw==
+suomifi-icons@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-0.0.4.tgz#52026d5542b2aa1316e18175492d2ee8c2c7e1a9"
+  integrity sha512-fhpE42mi1brofAjW0ez6zewf7YfRc5Jcb4qxor4XYqgwqeYRO2Yy8jNx6HUnvk5MUyc4ihWRLnliaDiki/M+7w==
   dependencies:
     "@types/react" "16.7.20"
     "@types/react-dom" "16.0.11"
