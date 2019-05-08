@@ -200,7 +200,6 @@ exports[`calling render with the same component on the same container does not r
       class="fi-toggle-icon emotion-1"
       focusable="false"
       height="1em"
-      style="fill: #00357A;"
       viewBox="0 0 38 23"
       width="1em"
     >
