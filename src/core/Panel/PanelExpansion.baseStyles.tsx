@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
 import { suomifiTheme } from '../theme';
 import { PanelExpansionProps } from './PanelExpansion';
-import { element, focus, fontPanelTitle } from '../theme/reset';
+import { element, focus, fonts } from '../theme/reset';
 import { absolute } from '../../utils/css/pseudo';
 
 export const baseStyles = ({
@@ -31,7 +31,7 @@ export const baseStyles = ({
     display: block;
     width: 100%;
     &--no-tag {
-      ${fontPanelTitle}
+      ${fonts.semiBold}
       padding: 20px 60px 20px 20px;
       color: ${theme.colors.highlightBase};
     }

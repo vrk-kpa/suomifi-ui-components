@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calling render with the same component on the same container does not remount 1`] = `
+.emotion-0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+  color: #282828;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  color: #282828;
+}
+
+.emotion-0.fi-text--lead {
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.emotion-0.fi-text--small-screen {
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.emotion-0.fi-text--small-screen.fi-text--lead {
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+<div
+  data-testid="test-text"
+>
+  <span
+    class="fi-text fi-text--body emotion-0"
+  >
+    Hey this is test
+  </span>
+  <span
+    class="fi-text fi-text--lead emotion-0"
+  >
+    Hey this is test lead
+  </span>
+  <span
+    class="fi-text fi-text--bold emotion-0"
+  >
+    Hey this is test bold
+  </span>
+</div>
+`;

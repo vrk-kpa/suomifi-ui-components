@@ -1,7 +1,8 @@
 import { css } from '@emotion/core';
 import { suomifiTheme } from '../';
 import { focus as focusUtil } from '../utils/focus';
-export { font, fontSemibold, fontInput, fontPanelTitle } from './typography';
+import { fonts } from './typography';
+export { fonts } from './typography';
 
 export const focus = focusUtil({ theme: suomifiTheme });
 
@@ -11,6 +12,7 @@ export const element = css`
 
 export const input = css`
   ${element}
+  ${fonts.input}
   ${focus}
   min-width: 245px;
   max-width: 100%;

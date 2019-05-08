@@ -18,7 +18,7 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
   color: inherit;
   background: none;
-  cursor: auto;
+  cursor: inherit;
   display: inline-block;
   max-width: 100%;
   cursor: pointer;

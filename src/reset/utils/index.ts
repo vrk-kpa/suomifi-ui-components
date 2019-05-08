@@ -15,7 +15,7 @@ const common = css`
   vertical-align: baseline;
   color: inherit;
   background: none;
-  cursor: auto;
+  cursor: inherit;
 `;
 
 const resets = {

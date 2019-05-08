@@ -1,6 +1,6 @@
 # <img src="https://avatars0.githubusercontent.com/u/11345641?s=88&v=4" alt="VRK" width="18"/> suomifi-ui-components
 
-Suomi.fi-styleguide in React components (and style exports).
+Suomi.fi-styleguide in React components. Living styleguide (latest release/master-branch): [https://vrk-kpa.github.io/suomifi-ui-components/](https://vrk-kpa.github.io/suomifi-ui-components/)
 
 ## ✨ Features
 

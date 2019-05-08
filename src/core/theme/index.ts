@@ -5,6 +5,7 @@ import { transitions } from './transitions';
 import { radius } from './radius';
 
 export type ThemeProp = typeof suomifiTheme;
+export type ColorProp = keyof typeof suomifiTheme.colors;
 
 export interface ThemeComponent {
   /** Default as suomifiTheme */
