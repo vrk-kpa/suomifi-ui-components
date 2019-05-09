@@ -15,6 +15,10 @@ module.exports = {
           name: 'Typography',
           content: './.styleguidist/typography.md',
         },
+        {
+          name: 'Spacing',
+          content: './.styleguidist/spacing.md',
+        },
       ],
       sectionDepth: 1,
     },
