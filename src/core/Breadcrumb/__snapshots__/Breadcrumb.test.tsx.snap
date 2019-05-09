@@ -188,7 +188,7 @@ exports[`calling render with the same component on the same container does not r
 
 .emotion-1 {
   display: inline-block;
-  vertical-align: text-bottom;
+  vertical-align: bottom;
 }
 
 .emotion-6 {

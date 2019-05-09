@@ -38,7 +38,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
-  padding: 20px;
+  padding: 16px;
   background-color: #FFFFFF;
   position: relative;
   position: relative;
@@ -112,7 +112,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
-  padding: 20px 60px 20px 20px;
+  padding: 16px 64px 16px 16px;
   color: #2A6EBB;
 }
 
@@ -120,7 +120,7 @@ exports[`calling render with the same component on the same container does not r
   position: absolute;
   top: 0;
   right: 0;
-  margin: 20px;
+  margin: 16px;
 }
 
 .emotion-3 .fi-panel-expansion-title--open .fi-panel-expansion-title-icon,
@@ -146,7 +146,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-3 > .fi-panel-expansion-content:not(.fi-panel-expansion-content--no-padding) {
-  padding: 0 20px;
+  padding: 0 16px;
 }
 
 .emotion-3 > .fi-panel-expansion-content.fi-panel-expansion-content--open {
@@ -157,7 +157,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-3 > .fi-panel-expansion-content.fi-panel-expansion-content--open:not(.fi-panel-expansion-content--no-padding) {
-  padding: 0 20px 20px 20px;
+  padding: 0 16px 16px 16px;
 }
 
 .emotion-1 {
@@ -220,7 +220,7 @@ exports[`calling render with the same component on the same container does not r
 
 .emotion-0 {
   display: inline-block;
-  vertical-align: text-bottom;
+  vertical-align: bottom;
 }
 
 .emotion-2 {
