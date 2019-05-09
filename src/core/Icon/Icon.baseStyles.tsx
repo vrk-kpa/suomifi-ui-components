@@ -5,6 +5,6 @@ export const iconBaseStyles = ({
   mousePointer = false,
 }: SuomifiIconProps) => css`
   display: inline-block;
-  vertical-align: text-bottom;
+  vertical-align: bottom;
   ${!!mousePointer && 'cursor: pointer;'}
 `;
