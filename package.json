@@ -32,7 +32,7 @@
     "test:lint": "npm-run-all test:tslint test:eslint test:stylelint",
     "test:tslint": "tslint --project tsconfig.json 'src/**/*.tsx'",
     "test:eslint": "eslint --config .eslintrc src/**/*.tsx",
-    "test:stylelint": "stylelint './src/**/*.{ts,tsx}'",
+    "test:stylelint": "stylelint ./src/**/*.{ts,tsx}",
     "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
     "prettier:check": "prettier-check 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
     "validate": "npm-run-all test test:lint prettier:check",
