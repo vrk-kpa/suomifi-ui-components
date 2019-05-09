@@ -2,7 +2,7 @@ import React, { Component, ReactNode, Fragment } from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 import { classnamesValue } from '../../utils/typescript';
-import { withDefaultTheme } from '../theme/utils/defaultTheme';
+import { withDefaultTheme } from '../theme/utils';
 import { ThemeComponent } from '../theme';
 import { Global } from '@emotion/core';
 import { baseStyles, globalStyles } from './Menu.baseStyles';

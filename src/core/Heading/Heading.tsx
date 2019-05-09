@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
-import { withDefaultTheme } from '../theme/utils/defaultTheme';
+import { withDefaultTheme } from '../theme/utils';
 import { ThemeComponent, ColorProp } from '../theme';
 import {
   Heading as CompHeading,

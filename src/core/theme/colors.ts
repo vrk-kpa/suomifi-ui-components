@@ -1,6 +1,6 @@
 import { lighten } from 'polished';
 import { alphaHex } from '../../utils/css/colors';
-import { boxshadowOutline } from './utils/outline';
+import { boxshadowOutline } from './utils';
 import { zindexes } from './zindexes';
 
 export type IColors = typeof colors;
