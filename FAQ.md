@@ -13,3 +13,7 @@
    ```
 
    And also might need to set `dangerously omit style nonce` to `true`.
+
+3. ## Some components won't work on old browsers (e.g. IE) at all
+
+   Add polyfills to your application.
