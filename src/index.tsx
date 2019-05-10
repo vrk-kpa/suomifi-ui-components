@@ -1,5 +1,6 @@
 import './core/theme/fontFaces.css';
 export { Breadcrumb, BreadcrumbProps } from './core/Breadcrumb/Breadcrumb';
+export { Block, BlockProps } from './core/Block/Block';
 export { Button, ButtonProps } from './core/Button/Button';
 export {
   Dropdown,
@@ -28,5 +29,6 @@ export {
   MenuLanguageLinkProps,
 } from './core/Menu/MenuItem';
 export { Panel, PanelProps } from './core/Panel/Panel';
+export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';
 export { Text, TextProps } from './core/Text/Text';
 export { suomifiTheme, ThemeComponent } from './core/theme';
