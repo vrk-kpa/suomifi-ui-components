@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import styled from '@emotion/styled';
-import { withDefaultTheme } from '../theme/utils/defaultTheme';
+import { withDefaultTheme } from '../theme/utils';
 import { ThemeComponent, ThemeProp, suomifiTheme } from '../theme';
 import { baseStyles } from './Breadcrumb.baseStyles';
 import {

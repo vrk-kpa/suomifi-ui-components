@@ -83,7 +83,7 @@ export const baseStyles = ({
   ${element}
   ${fonts.inputSemibold}
   ${focus}
-  padding: 10px 20px;
+  padding: ${theme.spacing.s} ${theme.spacing.m};
   min-height: 40px;
   color: ${theme.colors.whiteBase};
   background: ${theme.gradients.highlightBase};
@@ -117,10 +117,10 @@ export const baseStyles = ({
   & > .fi-button-icon {
     width: 16px;
     height: 16px;
-    margin-right: 8px;
+    margin-right: ${theme.spacing.s};
     &.fi-button-icon--right {
       margin-right: 0;
-      margin-left: 8px;
+      margin-left: ${theme.spacing.s};
     }
   }
 `;

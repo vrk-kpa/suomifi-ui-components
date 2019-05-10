@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 import { ThemeComponent, ThemeProp } from '../theme';
-import { withDefaultTheme } from '../theme/utils/defaultTheme';
+import { withDefaultTheme } from '../theme/utils';
 import { baseStyles, unStyled } from './Button.baseStyles';
 import {
   Button as CompButton,

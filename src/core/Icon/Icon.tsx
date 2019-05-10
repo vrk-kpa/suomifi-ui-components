@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import { iconBaseStyles } from './Icon.baseStyles';
-import { withDefaultTheme } from '../theme/utils/defaultTheme';
+import { withDefaultTheme } from '../theme/utils';
 import {
   ariaLabelOrHidden,
   ariaFocusableNoLabel,

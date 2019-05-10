@@ -6,6 +6,6 @@ import { element, fonts } from '../theme/reset';
 export const baseStyles = ({ theme = suomifiTheme }: PanelProps) => css`
   ${element}
   ${fonts.body}
-  padding: 20px;
+  padding: ${theme.spacing.m};
   background-color: ${theme.colors.whiteBase};
 `;

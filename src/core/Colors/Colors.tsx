@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from 'react';
-import { withDefaultTheme } from '../theme/utils/defaultTheme';
+import { withDefaultTheme } from '../theme/utils';
 import styled from '@emotion/styled';
 import { ThemeComponent } from '../theme';
 import { baseStyles, containerStyles } from './Colors.baseStyles';

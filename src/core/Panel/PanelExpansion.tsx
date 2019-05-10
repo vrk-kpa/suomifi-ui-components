@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import styled from '@emotion/styled';
-import { withDefaultTheme } from '../theme/utils/defaultTheme';
+import { withDefaultTheme } from '../theme/utils';
 import { ThemeComponent } from '../theme';
 import { baseStyles as panelBaseStyles } from './Panel.baseStyles';
 import { baseStyles } from './PanelExpansion.baseStyles';

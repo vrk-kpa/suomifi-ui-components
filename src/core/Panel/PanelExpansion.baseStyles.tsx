@@ -3,6 +3,7 @@ import { suomifiTheme } from '../theme';
 import { PanelExpansionProps } from './PanelExpansion';
 import { element, focus, fonts } from '../theme/reset';
 import { absolute } from '../../utils/css/pseudo';
+import { padding } from '../theme/utils';
 
 export const baseStyles = ({
   theme = suomifiTheme,
@@ -32,7 +33,7 @@ export const baseStyles = ({
     width: 100%;
     &--no-tag {
       ${fonts.semiBold}
-      padding: 20px 60px 20px 20px;
+      ${padding('m', 'xl', 'm', 'm')}
       color: ${theme.colors.highlightBase};
     }
   }
@@ -40,7 +41,7 @@ export const baseStyles = ({
     position: absolute;
     top: 0;
     right: 0;
-    margin: 20px;
+    margin: ${theme.spacing.m};
   }
   & .fi-panel-expansion-title--open .fi-panel-expansion-title-icon,
   & .fi-panel-expansion-title-icon--open {
@@ -57,7 +58,7 @@ export const baseStyles = ({
     transition: all ${`${theme.transitions.basicTime}
       ${theme.transitions.basicTimingFunction}`};
     &:not(.fi-panel-expansion-content--no-padding) {
-      padding: 0 20px;
+      padding: 0 ${theme.spacing.m};
     }
     &.fi-panel-expansion-content--open {
       height: 10%;
@@ -66,7 +67,7 @@ export const baseStyles = ({
       animation: fi-panel-expansion-content-anim ${theme.transitions.basicTime}
         ${theme.transitions.basicTimingFunction} 1 forwards;
       &:not(.fi-panel-expansion-content--no-padding) {
-        padding: 0 20px 20px 20px;
+        ${padding('0', 'm', 'm', 'm')}
       }
     }
     @keyframes fi-panel-expansion-content-anim {
