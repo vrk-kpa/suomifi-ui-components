@@ -16,7 +16,7 @@ export const baseStyles = ({
     &.fi-menu-language-button {
       ${element}
       ${fonts.inputSemibold}
-      ${padding('s', 'xs', 's', 's')}
+      ${padding(theme)('s', 'xs', 's', 's')}
       background-color: ${theme.colors.whiteBase};
       border: 1px solid ${theme.colors.depthBase};
       border-radius: ${theme.radius.basic};
