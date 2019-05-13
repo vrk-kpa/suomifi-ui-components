@@ -25,6 +25,9 @@ module.exports = {
     '@global *, *:before, *:after': {
       boxSizing: 'inherit',
     },
+    '@global li > a[href*="Components/Primitive/"] + ul, li > a[href*="Components/Patterns/"] + ul': {
+      display: 'none',
+    },
   },
   ReactComponent: {
     root: {
