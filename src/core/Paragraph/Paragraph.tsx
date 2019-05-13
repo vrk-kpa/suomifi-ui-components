@@ -9,6 +9,7 @@ import {
 import { baseStyles } from './Paragraph.baseStyles';
 
 export interface ParagraphProps extends CompParagraphProps, ThemeComponent {
+  /** Change color */
   color?: ColorProp;
 }
 
@@ -25,7 +26,6 @@ const StyledParagraph = styled(
  */
 export class Paragraph extends Component<ParagraphProps> {
   render() {
-    const passProps = withDefaultTheme(this.props);
-    return <StyledParagraph {...passProps} />;
+    return <StyledParagraph {...withDefaultTheme(this.props)} />;
   }
 }
