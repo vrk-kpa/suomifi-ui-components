@@ -11,12 +11,17 @@ import classnames from 'classnames';
 
 const baseClassName = 'fi-text';
 const smallScreenClassName = `${baseClassName}--small-screen`;
-type TextVariant = 'body' | 'lead' | 'bold';
 
 export interface TextProps extends CompTextProps, ThemeComponent {
+  /** Change font to smaller screen size and style */
   smallScreen?: boolean;
+  /** Change color for text from theme colors */
   color?: ColorProp;
-  variant?: TextVariant;
+  /**
+   * Type of text-style
+   * @default body
+   */
+  variant?: 'body' | 'lead' | 'bold';
 }
 
 const StyledText = styled(

@@ -1,3 +1,5 @@
+export type spacingTokensProp = keyof typeof spacingTokens;
+
 export const spacingTokens = {
   xxs: '2px',
   xs: '4px',
@@ -6,6 +8,10 @@ export const spacingTokens = {
   l: '32px',
   xl: '64px',
 };
+
+export const spacingTokensKeys = Object.keys(
+  spacingTokens,
+) as spacingTokensProp[];
 
 const inset = {
   squish: {

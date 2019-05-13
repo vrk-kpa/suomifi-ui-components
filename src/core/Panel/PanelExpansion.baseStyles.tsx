@@ -33,7 +33,7 @@ export const baseStyles = ({
     width: 100%;
     &--no-tag {
       ${fonts.semiBold}
-      ${padding('m', 'xl', 'm', 'm')}
+      ${padding(theme)('m', 'xl', 'm', 'm')}
       color: ${theme.colors.highlightBase};
     }
   }
@@ -67,7 +67,7 @@ export const baseStyles = ({
       animation: fi-panel-expansion-content-anim ${theme.transitions.basicTime}
         ${theme.transitions.basicTimingFunction} 1 forwards;
       &:not(.fi-panel-expansion-content--no-padding) {
-        ${padding('0', 'm', 'm', 'm')}
+        ${padding(theme)('0', 'm', 'm', 'm')}
       }
     }
     @keyframes fi-panel-expansion-content-anim {

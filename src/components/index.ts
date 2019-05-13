@@ -1,4 +1,5 @@
 export { Breadcrumb, BreadcrumbProps } from './Breadcrumb/Breadcrumb';
+export { Block, BlockProps } from './Block/Block';
 export { Button, ButtonProps } from './Button/Button';
 export { Component } from './Component-component/Component-component';
 export {
@@ -28,6 +29,7 @@ export {
 
 export { Panel, PanelProps } from './Panel/Panel';
 export { PanelExpansion, PanelExpansionProps } from './Panel/PanelExpansion';
+export { Paragraph, ParagraphProps } from './Paragraph/Paragraph';
 export { Svg, SvgProps } from './Svg/Svg';
 export { Text, TextProps } from './Text/Text';
 export { VisuallyHidden } from './Visually-hidden/Visually-hidden';

@@ -1,6 +1,8 @@
 const path = require('path');
 const glob = require('glob');
 
+const primitiveComponents = 'Block|Button|Heading|Text';
+
 module.exports = {
   sections: [
     {
@@ -27,9 +29,27 @@ module.exports = {
       content: './.styleguidist/components.md',
       sections: [
         {
-          name: 'dev',
+          name: 'Primitive',
+          content: './.styleguidist/primitive.md',
           components: () => {
-            return glob.sync(path.resolve(__dirname, '../src/core/**/*.tsx'));
+            return glob.sync(
+              path.resolve(
+                __dirname,
+                `../src/core/+(${primitiveComponents})/*.tsx`,
+              ),
+            );
+          },
+        },
+        {
+          name: 'Patterns',
+          content: './.styleguidist/patterns.md',
+          components: () => {
+            return glob.sync(
+              path.resolve(
+                __dirname,
+                `../src/core/!(${primitiveComponents})/*.tsx`,
+              ),
+            );
           },
         },
       ],

@@ -26,18 +26,6 @@ module.exports = {
       boxSizing: 'inherit',
     },
   },
-  TableOfContents: {
-    root: {
-      '& > nav > ul > li:nth-child(2) > ul > li:only-child': {
-        '& > a:only-of-type': {
-          display: 'none',
-        },
-        '& > ul:only-of-type': {
-          paddingLeft: '0',
-        },
-      },
-    },
-  },
   ReactComponent: {
     root: {
       display: 'flex',
@@ -91,7 +79,7 @@ module.exports = {
   },
   Playground: {
     preview: {
-      '& > div, & > div:not(.no-grid)': {
+      '&:not([data-preview="Text"]) > div': {
         ...grid440px24px,
         '& [example="negative"]': {
           ...grid440px24px,
