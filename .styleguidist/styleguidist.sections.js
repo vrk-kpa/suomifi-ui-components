@@ -1,7 +1,10 @@
 const path = require('path');
 const glob = require('glob');
 
-const primitiveComponents = 'Block|Button|Heading|Text';
+const manuallyAddedComponents = 'Block|Button|Heading|Block|Paragraph|Text';
+
+const getComponent = name =>
+  path.resolve(__dirname, `../src/core/${name}/${name}.tsx`);
 
 module.exports = {
   sections: [
@@ -31,14 +34,17 @@ module.exports = {
         {
           name: 'Primitive',
           content: './.styleguidist/primitive.md',
-          components: () => {
-            return glob.sync(
-              path.resolve(
-                __dirname,
-                `../src/core/+(${primitiveComponents})/*.tsx`,
-              ),
-            );
-          },
+          components: [
+            getComponent('Block'),
+            getComponent('Button'),
+            getComponent('Heading'),
+          ],
+          sections: [
+            {
+              name: 'Text',
+              components: [getComponent('Text'), getComponent('Paragraph')],
+            },
+          ],
         },
         {
           name: 'Patterns',
@@ -47,7 +53,7 @@ module.exports = {
             return glob.sync(
               path.resolve(
                 __dirname,
-                `../src/core/!(${primitiveComponents})/*.tsx`,
+                `../src/core/!(${manuallyAddedComponents})/*.tsx`,
               ),
             );
           },
