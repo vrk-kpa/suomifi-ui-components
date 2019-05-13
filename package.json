@@ -1,6 +1,6 @@
 {
   "name": "suomifi-ui-components",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Suomi.fi UI component library",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
@@ -32,7 +32,7 @@
     "test:lint": "npm-run-all test:tslint test:eslint test:stylelint",
     "test:tslint": "tslint --project tsconfig.json 'src/**/*.tsx'",
     "test:eslint": "eslint --config .eslintrc src/**/*.tsx",
-    "test:stylelint": "stylelint './src/**/*.{ts,tsx}'",
+    "test:stylelint": "stylelint ./src/**/*.{ts,tsx}",
     "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
     "prettier:check": "prettier-check 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
     "validate": "npm-run-all test test:lint prettier:check",
@@ -106,7 +106,7 @@
     "normalize.cssinjs": "1.0.5",
     "polished": "2.3.1",
     "react-svg": "7.2.2",
-    "suomifi-icons": "0.0.3"
+    "suomifi-icons": "0.0.5"
   },
   "peerDependencies": {
     "react": "16.6.3",

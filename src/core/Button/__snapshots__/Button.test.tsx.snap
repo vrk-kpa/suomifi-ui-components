@@ -34,7 +34,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
-  padding: 10px 20px;
+  padding: 8px 16px;
   min-height: 40px;
   color: #FFFFFF;
   background: linear-gradient(0deg,#2A6EBB 0%,#4387d5 100%);

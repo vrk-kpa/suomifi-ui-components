@@ -172,6 +172,30 @@ exports[`calling render with the same component on the same container does not r
   cursor: pointer;
 }
 
+.emotion-0:focus {
+  outline: 0;
+  position: relative;
+}
+
+.emotion-0:focus:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid #E97025;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 #E97025;
+  z-index: 9999;
+}
+
+.emotion-0:focus:not(:focus-visible):after {
+  content: none;
+}
+
 .emotion-0:hover,
 .emotion-0:active,
 .emotion-0:focus,
@@ -188,7 +212,7 @@ exports[`calling render with the same component on the same container does not r
 
 .emotion-1 {
   display: inline-block;
-  vertical-align: text-bottom;
+  vertical-align: bottom;
 }
 
 .emotion-6 {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import { iconBaseStyles } from './Icon.baseStyles';
-import { withDefaultTheme } from '../theme/utils/defaultTheme';
+import { withDefaultTheme } from '../theme/utils';
 import {
   ariaLabelOrHidden,
   ariaFocusableNoLabel,
@@ -11,13 +11,18 @@ import {
   IconProps as CompIconProps,
 } from '../../components/Icon/Icon';
 import { Omit } from '../../utils/typescript';
-import { SuomifiIcon, SuomifiIconInterface, IconKeys } from 'suomifi-icons';
-export { IconKeys } from 'suomifi-icons';
+import {
+  SuomifiIcon,
+  SuomifiIconInterface,
+  IconKeys,
+  StaticIconKeys,
+} from 'suomifi-icons';
+export { IconKeys, StaticIconKeys } from 'suomifi-icons';
 import { logger } from '../../utils/logger';
 
 export interface IconProps extends Omit<CompIconProps, 'src'> {
   /** Icon-name from suomifi-icons */
-  icon?: IconKeys;
+  icon?: IconKeys | StaticIconKeys;
   /** Image file */
   src?: string;
 }
@@ -74,7 +79,7 @@ export class Icon extends Component<IconProps> {
     );
     const { className, ariaLabel } = this.props;
     const iconColor =
-      color !== undefined ? color : passProps.theme.colors.brandBase;
+      color !== undefined ? color : passProps.theme.colors.depthDark27;
 
     if (!!src) {
       return <StyledIcon src={src} {...passProps} color={iconColor} />;

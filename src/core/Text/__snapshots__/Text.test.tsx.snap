@@ -38,6 +38,20 @@ exports[`calling render with the same component on the same container does not r
   color: #282828;
 }
 
+.emotion-0.fi-text--bold {
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+
 .emotion-0.fi-text--lead {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial;
   font-size: 22px;
@@ -56,6 +70,20 @@ exports[`calling render with the same component on the same container does not r
   font-family: 'Source Sans Pro','Helvetica Neue',Arial;
   font-size: 16px;
   font-weight: 400;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.emotion-0.fi-text--small-screen.fi-text--bold {
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 16px;
+  font-weight: 600;
   line-height: 1em;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;

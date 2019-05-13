@@ -52,7 +52,7 @@ export const globalStyles = ({ theme = suomifiTheme }: DropdownProps) => css`
   [data-reach-menu-item].fi-dropdown-item {
     ${element}
     ${fonts.input}
-    padding: 8px 12px;
+    padding: ${theme.spacing.s} ${theme.spacing.m};
     border: 0;
     &[data-selected] {
       ${fonts.input}

@@ -1,6 +1,6 @@
 import { css } from '@emotion/core';
 import { suomifiTheme } from '../../theme';
-import { focus } from '../../theme/utils/focus';
+import { focus } from '../../theme/utils';
 import { ToggleProps } from './Toggle';
 import { element, fonts } from '../../theme/reset';
 import { alphaHex } from '../../../utils/css/colors';
@@ -39,7 +39,7 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
   & .fi-toggle-icon {
     width: 40px;
     height: 24px;
-    margin-right: 8px;
+    margin-right: ${theme.spacing.s};
   
     * {
       cursor: pointer;

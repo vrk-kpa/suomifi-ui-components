@@ -1,6 +1,6 @@
 import { css } from '@emotion/core';
 import { suomifiTheme } from '../';
-import { focus as focusUtil } from '../utils/focus';
+import { focus as focusUtil } from '../utils';
 import { fonts } from './typography';
 export { fonts } from './typography';
 

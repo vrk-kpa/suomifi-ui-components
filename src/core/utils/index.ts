@@ -15,7 +15,3 @@ export const cssFromBaseStyles = (
   baseStyles: ({ theme }: BaseStylesInterface) => SerializedStyles,
   props = {},
 ) => baseStyles({ ...props, theme: suomifiTheme }).styles;
-
-export function objValue<T, K extends keyof T>(obj: T, key: K) {
-  return obj[key];
-}

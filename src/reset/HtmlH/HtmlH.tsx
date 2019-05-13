@@ -6,7 +6,7 @@ import { resets } from '../utils';
 export type hLevels = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 export interface HtmlHProps extends HTMLAttributes<HTMLHeadingElement> {
-  as?: hLevels;
+  as?: hLevels | JSX.IntrinsicElements;
 }
 
 const hResets = css`

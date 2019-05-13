@@ -3,6 +3,7 @@ import { suomifiTheme, ThemeProp } from '../theme';
 import { MenuProps } from './Menu';
 import { element, fonts, focus } from '../theme/reset';
 import { Omit } from '../../utils/typescript';
+import { padding } from '../theme/utils';
 
 export const baseStyles = ({
   theme = suomifiTheme,
@@ -15,7 +16,7 @@ export const baseStyles = ({
     &.fi-menu-language-button {
       ${element}
       ${fonts.inputSemibold}
-      padding: 8px 6px 8px 10px;
+      ${padding(theme)('s', 'xs', 's', 's')}
       background-color: ${theme.colors.whiteBase};
       border: 1px solid ${theme.colors.depthBase};
       border-radius: ${theme.radius.basic};
@@ -23,7 +24,7 @@ export const baseStyles = ({
       & > .fi-menu-language-icon {
         height: 16px;
         width: 16px;
-        margin-left: 2px;
+        margin-left: ${theme.spacing.xxs};
       }
     }
   }

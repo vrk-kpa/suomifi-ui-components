@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
-import { withDefaultTheme } from '../theme/utils/defaultTheme';
+import { withDefaultTheme } from '../theme/utils';
 import { ThemeComponent, ColorProp } from '../theme';
 import {
   Heading as CompHeading,
@@ -10,6 +10,7 @@ import {
 import { baseStyles } from './Heading.baseStyles';
 import classnames from 'classnames';
 import { Omit } from '../../utils/typescript';
+import { logger } from '../../utils/logger';
 
 const baseClassName = 'fi-heading';
 const smallScreenClassName = `${baseClassName}--small-screen`;
@@ -17,8 +18,14 @@ const smallScreenClassName = `${baseClassName}--small-screen`;
 export interface HeadingProps
   extends Omit<CompHeadingProps, 'variant'>,
     ThemeComponent {
+  /**
+   * Heading level
+   * @default h1
+   */
   variant: hLevels | 'h1hero';
+  /** Change color for text from theme colors */
   smallScreen?: boolean;
+  /** Change font to smaller screen size and style */
   color?: ColorProp;
 }
 
@@ -76,7 +83,13 @@ export class Heading extends Component<HeadingProps> {
   );
 
   render() {
-    const passProps = withDefaultTheme(this.props);
-    return <StyledHeading {...passProps} />;
+    const { variant, ...passProps } = withDefaultTheme(this.props);
+    if (!variant) {
+      logger.warn(
+        `Does not contain heading level (variant): ${passProps.children}`,
+      );
+      return null;
+    }
+    return <StyledHeading {...passProps} variant={variant} />;
   }
 }

@@ -19,10 +19,10 @@ export const baseStyles = ({
         ${theme.transitions.basicTimingFunction}`};
       &.fi-panel-expansion--open {
         &:not(:first-of-type) {
-          margin-top: 14px;
+          margin-top: ${theme.spacing.m};
         }
         &:not(:last-of-type) {
-          margin-bottom: 14px;
+          margin-bottom: ${theme.spacing.m};
         }
       }
     }
@@ -34,8 +34,8 @@ export const baseStyles = ({
     ${focus}
     flex: 1;
     margin-left: auto;
-    margin-bottom: 10px;
-    padding: 4px 0;
+    margin-bottom: ${theme.spacing.s};
+    padding: ${theme.spacing.xs} 0;
     color: ${theme.colors.highlightBase};
     cursor: pointer;
   }

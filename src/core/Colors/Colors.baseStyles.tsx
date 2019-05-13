@@ -14,7 +14,7 @@ export const baseStyles = ({ color, theme = suomifiTheme }: ColorProps) => css`
   width: 124px;
   height: 160px;
   max-width: 100%;
-  padding: 6px;
+  padding: ${theme.spacing.s};
   color: ${invert(color)};
   background-color: ${color};
   cursor: pointer;

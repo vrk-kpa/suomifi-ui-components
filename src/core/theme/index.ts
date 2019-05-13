@@ -1,5 +1,6 @@
 import { typography } from './typography';
 import { colors, shadows, gradients, outlines } from './colors';
+import { spacing } from './spacing';
 import { zindexes } from './zindexes';
 import { transitions } from './transitions';
 import { radius } from './radius';
@@ -18,6 +19,7 @@ export const suomifiTheme = {
   shadows,
   gradients,
   outlines,
+  spacing,
   zindexes,
   transitions,
   radius,

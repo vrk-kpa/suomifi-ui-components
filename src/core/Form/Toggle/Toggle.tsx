@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { withDefaultTheme } from '../../theme/utils/defaultTheme';
+import { withDefaultTheme } from '../../theme/utils';
 import { ThemeComponent } from '../../theme';
 import { baseStyles } from './Toggle.baseStyles';
 import {
