@@ -53,6 +53,11 @@ module.exports = {
       order: '2',
     },
   },
+  ExamplePlaceholder: {
+    button: {
+      display: 'none',
+    },
+  },
   Type: {
     type: {
       display: 'block',
