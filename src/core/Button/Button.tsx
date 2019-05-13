@@ -105,9 +105,7 @@ const UnstyledButton = styled((props: ButtonProps) => {
 
 class ButtonWithIcon extends Component<ButtonProps> {
   render() {
-    const { icon, iconRight, iconProps = {}, ...passProps } = withDefaultTheme(
-      this.props,
-    );
+    const { icon, iconRight, iconProps = {}, ...passProps } = this.props;
     const { theme, disabled, variant } = passProps;
     const { className: iconPropsClassName, ...passIconProps } = iconProps;
 
@@ -155,26 +153,31 @@ class ButtonWithIcon extends Component<ButtonProps> {
  */
 export class Button extends Component<ButtonProps> {
   static negative = (props: ButtonProps) => {
-    return <ButtonWithIcon {...props} variant="negative" />;
+    return <ButtonWithIcon {...withDefaultTheme(props)} variant="negative" />;
   };
 
   static secondary = (props: ButtonProps) => {
-    return <ButtonWithIcon {...props} variant="secondary" />;
+    return <ButtonWithIcon {...withDefaultTheme(props)} variant="secondary" />;
   };
 
   static secondaryNoborder = (props: ButtonProps) => {
-    return <ButtonWithIcon {...props} variant="secondary-noborder" />;
+    return (
+      <ButtonWithIcon
+        {...withDefaultTheme(props)}
+        variant="secondary-noborder"
+      />
+    );
   };
 
   static tertiary = (props: ButtonProps) => {
-    return <ButtonWithIcon {...props} variant="tertiary" />;
+    return <ButtonWithIcon {...withDefaultTheme(props)} variant="tertiary" />;
   };
 
   static unstyled = (props: ButtonProps) => {
-    return <ButtonWithIcon {...props} variant="unstyled" />;
+    return <UnstyledButton {...withDefaultTheme(props)} />;
   };
 
   render() {
-    return <ButtonWithIcon {...this.props} />;
+    return <ButtonWithIcon {...withDefaultTheme(this.props)} />;
   }
 }
