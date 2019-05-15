@@ -1,5 +1,9 @@
 import React, { Component, MouseEvent, KeyboardEvent, ReactNode } from 'react';
 import { HtmlButton, HtmlButtonProps } from '../../reset';
+import classnames from 'classnames';
+
+const baseClassName = 'fi-button';
+const disabledClassName = `${baseClassName}--disabled`;
 
 export interface MouseNonFocusProps {
   handleClick: (
