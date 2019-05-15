@@ -1,5 +1,12 @@
-import React, { Component, MouseEvent, KeyboardEvent, ReactNode } from 'react';
+import React, {
+  Component,
+  MouseEvent,
+  KeyboardEvent,
+  ReactNode,
+  Fragment,
+} from 'react';
 import { HtmlButton, HtmlButtonProps } from '../../reset';
+import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import classnames from 'classnames';
 
 const baseClassName = 'fi-button';
@@ -43,11 +50,9 @@ export const mouseNonFocus = ({
 
   return { onMouseDown: doClick, onKeyUp: ifKeyboard };
 };
-export interface ButtonProps extends HtmlButtonProps {
+export interface ButtonProps extends AssertiveProps, HtmlButtonProps {
   /** Custom classname to extend or customize */
   className?: string;
-  /** Disable Button usage */
-  disabled?: boolean;
   /** Event handler to execute when clicked
    *  @default void
    */
@@ -67,26 +72,75 @@ export interface ButtonProps extends HtmlButtonProps {
   mouseNoFocus?: boolean;
 }
 
+interface AssertiveProps {
+  /** Disable Button usage */
+  disabled?: boolean;
+  /** aria-live text for why Button is disabled */
+  ariaAssertiveDisabled?: string;
+  /** aria-live text when Button changed from disabled to enabled */
+  ariaAssertiveUnDisabled?: string;
+}
+
+export class Assertive extends Component<AssertiveProps> {
+  state = { unDisabled: false };
+
+  componentDidUpdate(prevProps: AssertiveProps) {
+    const { disabled } = this.props;
+    if (disabled !== prevProps.disabled) {
+      this.setState({ unDisabled: !disabled });
+    }
+  }
+
+  render() {
+    const { ariaAssertiveDisabled, ariaAssertiveUnDisabled } = this.props;
+    const { unDisabled } = this.state;
+    if (!ariaAssertiveDisabled && !ariaAssertiveUnDisabled) return null;
+    const text = !!unDisabled ? ariaAssertiveUnDisabled : ariaAssertiveDisabled;
+    return !!text ? (
+      <VisuallyHidden aria-live="assertive">{text}</VisuallyHidden>
+    ) : null;
+  }
+}
+
 export class Button extends Component<ButtonProps> {
   render() {
     const {
+      className,
       disabled = false,
       mouseNoFocus,
       onClick,
+      ariaAssertiveDisabled,
+      ariaAssertiveUnDisabled,
       ...passProps
     } = this.props;
-    if (!!mouseNoFocus && !!onClick) {
-      const doClick = mouseNonFocus({ handleClick: onClick });
-      return (
+    const ifMouseNoFocus =
+      !!mouseNoFocus && !!onClick
+        ? () => {
+            const doClick = mouseNonFocus({ handleClick: onClick });
+            return {
+              onMouseDown: doClick.onMouseDown,
+              onKeyUp: doClick.onKeyUp,
+            };
+          }
+        : () => ({ onClick });
+    const onClickProps = !!disabled ? {} : ifMouseNoFocus();
+    return (
+      <Fragment>
         <HtmlButton
           {...passProps}
+          {...onClickProps}
           aria-disabled={disabled}
           tabIndex={0}
-          onMouseDown={doClick.onMouseDown}
-          onKeyUp={doClick.onKeyUp}
+          className={classnames(baseClassName, className, {
+            [disabledClassName]: !!disabled,
+          })}
         />
-      );
-    }
-    return <HtmlButton {...this.props} aria-disabled={disabled} tabIndex={0} />;
+        <Assertive
+          disabled={disabled}
+          ariaAssertiveDisabled={ariaAssertiveDisabled}
+          ariaAssertiveUnDisabled={ariaAssertiveUnDisabled}
+        />
+      </Fragment>
+    );
   }
 }
