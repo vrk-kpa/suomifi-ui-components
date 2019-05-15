@@ -185,6 +185,10 @@ exports[`calling render with the same component on the same container does not r
   cursor: pointer;
 }
 
+.emotion-1 * {
+  cursor: inherit;
+}
+
 <span
   class="fi-toggle emotion-3"
 >
