@@ -101,6 +101,7 @@ exports[`calling render with the same component on the same container does not r
   background: linear-gradient(0deg,hsl(212,63%,37%) 0%,#2c72c4 100%);
 }
 
+.emotion-0.fi-button--disabled,
 .emotion-0[disabled],
 .emotion-0:disabled {
   text-shadow: 0 1px 1px hsl(0,0%,16%);

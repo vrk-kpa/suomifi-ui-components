@@ -48,7 +48,7 @@ exports[`calling render with the same component on the same container does not r
 
 <button
   aria-disabled="false"
-  class="emotion-0"
+  class="fi-button emotion-0"
   data-testid="button"
   tabindex="0"
   type="button"
