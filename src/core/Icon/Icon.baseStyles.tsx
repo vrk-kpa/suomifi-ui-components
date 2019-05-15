@@ -6,5 +6,10 @@ export const iconBaseStyles = ({
 }: SuomifiIconProps) => css`
   display: inline-block;
   vertical-align: bottom;
-  ${!!mousePointer && 'cursor: pointer;'}
+  ${!!mousePointer &&
+    `cursor: pointer;
+      & * {
+        cursor: inherit;
+      }
+  `}
 `;

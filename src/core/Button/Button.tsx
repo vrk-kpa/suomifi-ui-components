@@ -122,6 +122,7 @@ class ButtonWithIcon extends Component<ButtonProps> {
       <StyledButton {...passProps}>
         {!!icon && (
           <Icon
+            mousePointer={true}
             icon={icon}
             color={iconColor({ theme, disabled, invert: secondaryOrTertiary })}
             className={classnames(iconClassName, iconPropsClassName)}
@@ -131,6 +132,7 @@ class ButtonWithIcon extends Component<ButtonProps> {
         {passProps.children}
         {!!iconRight && (
           <Icon
+            mousePointer={true}
             icon={iconRight}
             color={iconColor({ theme, disabled, invert: secondaryOrTertiary })}
             className={classnames(
