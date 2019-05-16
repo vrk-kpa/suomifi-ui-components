@@ -23,10 +23,10 @@ export {
   MenuItemProps,
   MenuLink,
   MenuLinkProps,
-  MenuLanguageItem,
-  MenuLanguageItemProps,
-  MenuLanguageLink,
-  MenuLanguageLinkProps,
+  MenuItemLanguage,
+  MenuItemLanguageProps,
+  MenuLinkLanguage,
+  MenuLinkLanguageProps,
 } from './core/Menu/MenuItem';
 export { Panel, PanelProps } from './core/Panel/Panel';
 export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';

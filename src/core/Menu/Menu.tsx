@@ -12,10 +12,10 @@ import {
   MenuListItemsProps,
 } from '../../components/Menu/Menu';
 import {
-  MenuLanguageItem,
-  MenuLanguageItemProps,
-  MenuLanguageLink,
-  MenuLanguageLinkProps,
+  MenuItemLanguage,
+  MenuItemLanguageProps,
+  MenuLinkLanguage,
+  MenuLinkLanguageProps,
 } from './MenuItem';
 
 import { Icon } from '../Icon/Icon';
@@ -109,12 +109,12 @@ export class Menu extends Component<MenuProps> {
     return <MenuVariation {...props} variant="language" />;
   };
 
-  static languageItem = (props: MenuLanguageItemProps) => {
-    return <MenuLanguageItem {...props} />;
+  static languageItem = (props: MenuItemLanguageProps) => {
+    return <MenuItemLanguage {...props} />;
   };
 
-  static languageLink = (props: MenuLanguageLinkProps) => {
-    return <MenuLanguageLink {...props} />;
+  static LinkLanguage = (props: MenuLinkLanguageProps) => {
+    return <MenuLinkLanguage {...props} />;
   };
 
   render() {

@@ -2,7 +2,7 @@ const path = require('path');
 const glob = require('glob');
 
 const manuallyAddedComponents =
-  'Block|Button|Heading|Block|Paragraph|Text|Breadcrumb|Dropdown';
+  'Block|Button|Heading|Block|Paragraph|Text|Breadcrumb|Dropdown|Menu';
 
 const getComponent = ({ name, underName }) =>
   path.resolve(
@@ -82,6 +82,24 @@ module.exports = {
                 getComponent({
                   underName: 'Dropdown',
                   name: 'DropdownItem',
+                }),
+              ],
+            },
+            {
+              name: 'Menu',
+              components: [
+                getComponent({ name: 'Menu' }),
+                getComponent({
+                  underName: 'Menu',
+                  name: 'MenuItem',
+                }),
+                getComponent({
+                  underName: 'Menu',
+                  name: 'MenuItemLanguage',
+                }),
+                getComponent({
+                  underName: 'Menu',
+                  name: 'MenuLinkLanguage',
                 }),
               ],
             },
