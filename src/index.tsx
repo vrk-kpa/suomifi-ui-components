@@ -1,13 +1,13 @@
 import './core/theme/fontFaces.css';
 export { Breadcrumb, BreadcrumbProps } from './core/Breadcrumb/Breadcrumb';
+export {
+  BreadcrumbLink,
+  BreadcrumbLinkProps,
+} from './core/Breadcrumb/BreadcrumbLink';
 export { Block, BlockProps } from './core/Block/Block';
 export { Button, ButtonProps } from './core/Button/Button';
-export {
-  Dropdown,
-  DropdownProps,
-  DropdownItem,
-  DropdownItemProps,
-} from './core/Dropdown/Dropdown';
+export { Dropdown, DropdownProps } from './core/Dropdown/Dropdown';
+export { DropdownItem, DropdownItemProps } from './core/Dropdown/DropdownItem';
 export {
   Toggle,
   ToggleProps,
