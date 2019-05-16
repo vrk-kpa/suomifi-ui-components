@@ -1,54 +1,24 @@
 import React, { Component } from 'react';
-import classnames from 'classnames';
 import {
   MenuItem as CompMenuItem,
   MenuLink as CompMenuLink,
   MenuItemProps,
   MenuLinkProps,
 } from '../../components/Menu/Menu';
-export { MenuItemProps, MenuLinkProps };
-
-export interface MenuLanguageItemProps extends MenuItemProps {
-  /** Show item as selected one */
-  selected?: boolean;
-  className?: string;
-}
-
-export interface MenuLanguageLinkProps extends MenuLinkProps {
-  /** Show item as selected one */
-  selected?: boolean;
-  className?: string;
-}
-
-export const MenuLanguageItem = ({
-  selected,
-  className,
-  ...passProps
-}: MenuLanguageItemProps) => (
-  <CompMenuItem
-    {...passProps}
-    className={classnames(className, {
-      'fi-menu-lang-item-selected': selected,
-    })}
-  />
-);
-
-export const MenuLanguageLink = ({
-  selected,
-  className,
-  ...passProps
-}: MenuLanguageLinkProps) => (
-  <CompMenuLink
-    {...passProps}
-    className={classnames(className, {
-      'fi-menu-lang-item-selected': selected,
-    })}
-  />
-);
+import { MenuItemLanguage, MenuItemLanguageProps } from './MenuItemLanguage';
+import { MenuLinkLanguage, MenuLinkLanguageProps } from './MenuLinkLanguage';
+export {
+  MenuItemProps,
+  MenuLinkProps,
+  MenuItemLanguage,
+  MenuItemLanguageProps,
+  MenuLinkLanguage,
+  MenuLinkLanguageProps,
+};
 
 export class MenuItem extends Component<MenuItemProps> {
-  static language = (props: MenuLanguageItemProps) => {
-    return <MenuLanguageItem {...props} />;
+  static language = (props: MenuItemLanguageProps) => {
+    return <MenuItemLanguage {...props} />;
   };
 
   render() {
@@ -57,8 +27,8 @@ export class MenuItem extends Component<MenuItemProps> {
 }
 
 export class MenuLink extends Component<MenuLinkProps> {
-  static language = (props: MenuLanguageLinkProps) => {
-    return <MenuLanguageLink {...props} />;
+  static language = (props: MenuLinkLanguageProps) => {
+    return <MenuLinkLanguage {...props} />;
   };
 
   render() {
