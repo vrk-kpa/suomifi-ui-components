@@ -2,7 +2,7 @@ const path = require('path');
 const glob = require('glob');
 
 const manuallyAddedComponents =
-  'Block|Button|Heading|Block|Paragraph|Text|Breadcrumb|Dropdown|Menu';
+  'Block|Button|Heading|Block|Paragraph|Text|Breadcrumb|Dropdown|Menu|Panel';
 
 const getComponent = ({ name, underName }) =>
   path.resolve(
@@ -100,6 +100,20 @@ module.exports = {
                 getComponent({
                   underName: 'Menu',
                   name: 'MenuLinkLanguage',
+                }),
+              ],
+            },
+            {
+              name: 'Panel',
+              components: [
+                getComponent({ name: 'Panel' }),
+                getComponent({
+                  underName: 'Panel',
+                  name: 'PanelExpansion',
+                }),
+                getComponent({
+                  underName: 'Panel',
+                  name: 'PanelExpansionGroup',
                 }),
               ],
             },
