@@ -12,6 +12,7 @@ export const baseStyles = ({
     ${input}
     position: relative;
     padding-right: 30px;
+    text-align: left;
     cursor: pointer;
     &:before {
       content: '';
