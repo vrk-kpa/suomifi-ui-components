@@ -44,7 +44,7 @@ exports[`calling render with the same component on the same container does not r
   position: relative;
   padding: 0;
   border-radius: 2px;
-  box-shadow: 0 0 4px 0 rgba(40,40,40,0.3);
+  box-shadow: 0 1px 2px 0 rgba(40,40,40,0.14),0 1px 5px 0 rgba(40,40,40,0.12);
 }
 
 .emotion-3:before {
