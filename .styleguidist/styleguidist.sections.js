@@ -89,10 +89,10 @@ module.exports = {
               name: 'Menu',
               components: [
                 getComponent({ name: 'Menu' }),
-                getComponent({
-                  underName: 'Menu',
-                  name: 'MenuItem',
-                }),
+                // getComponent({
+                //   underName: 'Menu',
+                //   name: 'MenuItem',
+                // }),
                 getComponent({
                   underName: 'Menu',
                   name: 'MenuItemLanguage',

@@ -1,4 +1,4 @@
-```js
+<!-- ```js
 import { Menu, MenuItem, MenuLink } from 'suomifi-ui-components';
 
 <Menu className="menu-test" name="Menu">
@@ -10,7 +10,7 @@ import { Menu, MenuItem, MenuLink } from 'suomifi-ui-components';
   </MenuItem>
   <MenuLink href="http://www.suomi.fi/">Suomi.fi</MenuLink>
 </Menu>;
-```
+``` -->
 
 ```js
 import { Menu, MenuItem, MenuLink } from 'suomifi-ui-components';
