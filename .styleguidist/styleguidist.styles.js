@@ -12,18 +12,10 @@ module.exports = {
     },
   },
   StyleGuide: {
-    '@global html': {
-      boxSizing: 'border-box',
-      margin: 0,
-      padding: 0,
-    },
     '@global body': {
       fontFamily: '"Source Sans Pro", sans-serif',
       margin: 0,
       padding: 0,
-    },
-    '@global *, *:before, *:after': {
-      boxSizing: 'inherit',
     },
     '@global li > a[href*="Components/Primitive/"] + ul, li > a[href*="Components/Patterns/"] + ul': {
       display: 'none',

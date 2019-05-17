@@ -1,14 +1,11 @@
 Suomifi-styleguide typography
 
 ```js noeditor
-const styled = require('@emotion/styled').default;
-const { Text } = require('../src/core/Text/Text');
-const { Heading } = require('../src/core/Heading/Heading');
-const {
-  typography,
-  fontFamily
-} = require('../src/core/theme/typography');
-const clipboardCopy = require('clipboard-copy');
+import styled from '@emotion/styled';
+import { Text } from '../src/core/Text/Text';
+import { Heading } from '../src/core/Heading/Heading';
+import { typography, fontFamily } from '../src/core/theme/typography';
+import clipboardCopy from 'clipboard-copy';
 
 const Row = styled(({ mb, code, ...passProps }) => (
   <div

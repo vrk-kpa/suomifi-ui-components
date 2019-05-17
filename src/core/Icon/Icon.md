@@ -1,11 +1,14 @@
 ```jsx
-<Icon ariaLabel="Login here" className="my-icon--test" />
+import { Icon } from 'suomifi-ui-components';
+
+<Icon ariaLabel="Login here" className="my-icon--test" />;
 ```
 
 ```jsx noeditor
-const styled = require('@emotion/styled').default;
-const { allIcons, allStaticIcons } = require('suomifi-icons');
-const clipboardCopy = require('clipboard-copy');
+import { Icon } from 'suomifi-ui-components';
+import styled from '@emotion/styled';
+import { allIcons, allStaticIcons } from 'suomifi-icons';
+import clipboardCopy from 'clipboard-copy';
 const StyledIcon = styled(props => <Icon {...props} />)({
   height: '50px',
   width: 'auto',

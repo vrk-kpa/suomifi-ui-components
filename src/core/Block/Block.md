@@ -1,5 +1,17 @@
 ```js
-<Block>Oh I'm plain suomifi-div</Block>
-<Block padding="xl">Block with xl-padding</Block>
-<Block.section>I'm semantically a section</Block.section>
+import { Block } from 'suomifi-ui-components';
+
+<Block>Oh I'm plain suomifi-div</Block>;
+```
+
+```js
+import { Block } from 'suomifi-ui-components';
+
+<Block padding="xl">Block with xl-padding</Block>;
+```
+
+```js
+import { Block } from 'suomifi-ui-components';
+
+<Block.section>I'm semantically a section</Block.section>;
 ```
