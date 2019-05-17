@@ -1,13 +1,10 @@
 ```js noeditor
-const styled = require('@emotion/styled').default;
-const { colors } = require('../src/core/theme/colors');
-const { element, fonts } = require('../src/core/theme/reset');
-const {
-  spacing,
-  spacingTokens
-} = require('../src/core/theme/spacing');
-const { Text } = require('../src/core/Text/Text');
-const clipboardCopy = require('clipboard-copy');
+import styled from '@emotion/styled';
+import { colors } from '../src/core/theme/colors';
+import { element, fonts } from '../src/core/theme/reset';
+import { spacing, spacingTokens } from '../src/core/theme/spacing';
+import { Text } from '../src/core/Text/Text';
+import clipboardCopy from 'clipboard-copy';
 
 const Container = styled(({ size, name, ...passProps }) => (
   <div
