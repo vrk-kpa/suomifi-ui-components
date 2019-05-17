@@ -22,6 +22,9 @@ module.exports = {
   propsParser: require('react-docgen-typescript').withDefaultConfig({
     propFilter,
   }).parse,
+  moduleAliases: {
+    'suomifi-ui-components': path.resolve(__dirname, 'src'),
+  },
   exampleMode: 'expand',
   usageMode: 'expand',
   pagePerSection: true,
