@@ -9,28 +9,30 @@ const fullWidthStyles = css`
 `;
 
 const negativeStyles = (theme: ThemeProp) => css`
-  background: none;
-  background-color: ${theme.colors.highlightBase};
-  border: 1px solid ${theme.colors.whiteBase};
-  text-shadow: none;
-
-  &:hover {
-    background: ${theme.gradients.whiteBaseNegative};
-  }
-
-  &:active {
+  &.fi-button--negative {
     background: none;
     background-color: ${theme.colors.highlightBase};
-  }
+    border: 1px solid ${theme.colors.whiteBase};
+    text-shadow: none;
 
-  &[disabled],
-  &:disabled {
-    opacity: 0.5;
-    background: none;
+    &:hover {
+      background: ${theme.gradients.whiteBaseNegative};
+    }
+
+    &:active {
+      background: none;
+      background-color: ${theme.colors.highlightBase};
+    }
+
+    &[disabled],
+    &:disabled {
+      opacity: 0.5;
+      background: none;
+    }
   }
 `;
 
-const secondaryStyles = (theme: ThemeProp) => css`
+const secondary = (theme: ThemeProp) => css`
   color: ${theme.colors.highlightBase};
   background: none;
   background-color: ${theme.colors.whiteBase};
@@ -56,29 +58,38 @@ const secondaryStyles = (theme: ThemeProp) => css`
   }
 `;
 
+const secondaryStyles = (theme: ThemeProp) => css`
+  &.fi-button--secondary {
+    ${secondary(theme)}
+  }
+`;
+
 const secondaryNoBorderStyles = (theme: ThemeProp) => css`
-  ${secondaryStyles(theme)}
-  border: none;
+  &.fi-button--secondary-noborder {
+    ${secondary(theme)}
+    border: none;
+  }
 `;
 
 const tertiaryStyles = (theme: ThemeProp) => css`
-  ${secondaryStyles(theme)}
-  background: ${theme.colors.highlightLight50};
-  border: none;
+  &.fi-button--tertiary {
+    ${secondary(theme)}
+    background: ${theme.colors.highlightLight50};
+    border: none;
 
-  &:hover {
-    background: ${theme.colors.highlightLight53};
-  }
+    &:hover {
+      background: ${theme.colors.highlightLight53};
+    }
 
-  &:active {
-    background: ${theme.colors.highlightLight53};
+    &:active {
+      background: ${theme.colors.highlightLight53};
+    }
   }
 `;
 
 export const baseStyles = ({
   theme = suomifiTheme,
   fullWidth = false,
-  variant = 'default',
 }: ButtonProps) => css`
   ${element}
   ${fonts.inputSemibold}
@@ -109,10 +120,10 @@ export const baseStyles = ({
   }
 
   ${fullWidth && fullWidthStyles}
-  ${variant === 'negative' && negativeStyles(theme)}
-  ${variant === 'secondary' && secondaryStyles(theme)}
-  ${variant === 'secondary-noborder' && secondaryNoBorderStyles(theme)}
-  ${variant === 'tertiary' && tertiaryStyles(theme)}
+  ${negativeStyles(theme)}
+  ${secondaryStyles(theme)}
+  ${secondaryNoBorderStyles(theme)}
+  ${tertiaryStyles(theme)}
 
   & > .fi-button-icon {
     width: 16px;

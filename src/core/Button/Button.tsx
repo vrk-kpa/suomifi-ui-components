@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 import { ThemeComponent, ThemeProp } from '../theme';
 import { withDefaultTheme } from '../theme/utils';
-import { baseStyles, unStyled } from './Button.baseStyles';
+import { baseStyles } from './Button.baseStyles';
 import {
   Button as CompButton,
   ButtonProps as CompButtonProps,
@@ -51,13 +51,15 @@ const StyledButton = styled(
   ({
     theme,
     fullWidth,
-    variant,
+    variant = 'default',
     className,
     ...passProps
   }: ButtonProps & { right?: boolean }) => (
     <CompButton
       {...passProps}
-      className={classnames(className, baseClassName)}
+      className={classnames(className, baseClassName, {
+        [`${baseClassName}--${variant}`]: variant !== 'default',
+      })}
     />
   ),
 )`
@@ -133,7 +135,9 @@ class ButtonWithIcon extends Component<ButtonProps> {
 /**
  * Use for inside Application onClick events.<br />
  * When using Button.secondaryNoborder with other than white background,<br />
- * define styles background color for all needed states (:hover, :active, :disabled)
+ * define styles background color for all needed states (:hover, :active, :disabled)<br /><br />
+ * You can use separate UnstyledButton to get Button without variant styles added by<br />
+ * `import { UnstyledButton } from 'suomifi-ui-components';` or `<Button.unstyled />`.
  */
 export class Button extends Component<ButtonProps> {
   static negative = (props: ButtonProps) => {
