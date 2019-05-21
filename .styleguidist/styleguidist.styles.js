@@ -20,6 +20,13 @@ module.exports = {
     '@global li > a[href*="Components/Primitive/"] + ul, li > a[href*="Components/Patterns/"] + ul': {
       display: 'none',
     },
+    content: {
+      maxWidth: '1200px',
+      margin: '0',
+      '@media (min-width: 1432px)': {
+        marginLeft: '32px',
+      },
+    },
   },
   ReactComponent: {
     root: {
