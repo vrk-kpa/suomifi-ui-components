@@ -16,7 +16,9 @@ export const colorTokens = {
   depth: {
     depthBase: '#A5ACB1',
     depthSecondary: '#F0F6FF',
+    depthSecondaryDark3: '#E0EDFF',
     depthLight30: '#F7F7F8',
+    depthLight26: '#ECEDEE',
     depthLight13: '#C8CDD0',
     depthDark27: '#5F686D',
   },
@@ -81,7 +83,7 @@ export const gradients = {
   whiteBaseNegative: `linear-gradient(-180deg, ${alphaHex(0.1)(
     colors.whiteBase,
   )} 0%, ${alphaHex(0)(colors.whiteBase)} 100%)`,
-  highlightLight45: `linear-gradient(0deg, ${colors.highlightLight45} 0%, ${
+  depthLight26: `linear-gradient(0deg, ${colors.depthLight26} 0%, ${
     colors.whiteBase
   } 100%)`,
 };
