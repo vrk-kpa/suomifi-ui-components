@@ -9,6 +9,7 @@ import {
   ButtonProps as CompButtonProps,
 } from '../../components/Button/Button';
 import { Icon, IconProps, IconKeys } from '../Icon/Icon';
+import { UnstyledButton } from './UnstyledButton';
 
 type ButtonVariant =
   | 'default'
@@ -83,25 +84,6 @@ const iconColor = ({
   }
   return undefined;
 };
-
-const UnstyledButton = styled((props: ButtonProps) => {
-  const {
-    className,
-    fullWidth: dissmissFullWidth,
-    variant: dissmissVariant,
-    icon: dismissIcon,
-    iconRight: dissmissIconRight,
-    ...passProps
-  } = props;
-  return (
-    <CompButton
-      {...passProps}
-      className={classnames(className, baseClassName)}
-    />
-  );
-})`
-  ${props => unStyled(props)}
-`;
 
 class ButtonWithIcon extends Component<ButtonProps> {
   render() {

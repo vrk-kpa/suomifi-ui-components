@@ -6,6 +6,7 @@ export {
 } from './core/Breadcrumb/BreadcrumbLink';
 export { Block, BlockProps } from './core/Block/Block';
 export { Button, ButtonProps } from './core/Button/Button';
+export { UnstyledButton } from './core/Button/UnstyledButton';
 export { Dropdown, DropdownProps } from './core/Dropdown/Dropdown';
 export { DropdownItem, DropdownItemProps } from './core/Dropdown/DropdownItem';
 export {
