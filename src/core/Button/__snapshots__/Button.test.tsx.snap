@@ -109,6 +109,117 @@ exports[`calling render with the same component on the same container does not r
   user-select: none;
 }
 
+.emotion-0.fi-button--negative {
+  background: none;
+  background-color: #2A6EBB;
+  border: 1px solid #FFFFFF;
+  text-shadow: none;
+}
+
+.emotion-0.fi-button--negative:hover {
+  background: linear-gradient(-180deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0) 100%);
+}
+
+.emotion-0.fi-button--negative:active {
+  background: none;
+  background-color: #2A6EBB;
+}
+
+.emotion-0.fi-button--negative[disabled],
+.emotion-0.fi-button--negative:disabled {
+  opacity: 0.5;
+  background: none;
+}
+
+.emotion-0.fi-button--secondary {
+  color: #2A6EBB;
+  background: none;
+  background-color: #FFFFFF;
+  border: 1px solid #2A6EBB;
+  text-shadow: none;
+}
+
+.emotion-0.fi-button--secondary:hover {
+  background: linear-gradient(0deg,#ECEDEE 0%,#FFFFFF 100%);
+}
+
+.emotion-0.fi-button--secondary:active {
+  background: none;
+  background-color: #F7FAFD;
+}
+
+.emotion-0.fi-button--secondary[disabled],
+.emotion-0.fi-button--secondary:disabled {
+  color: #A5ACB1;
+  text-shadow: none;
+  background: none;
+  background-color: #F7FAFD;
+  border-color: #A5ACB1;
+}
+
+.emotion-0.fi-button--secondary-noborder {
+  color: #2A6EBB;
+  background: none;
+  background-color: #FFFFFF;
+  border: 1px solid #2A6EBB;
+  text-shadow: none;
+  border: none;
+}
+
+.emotion-0.fi-button--secondary-noborder:hover {
+  background: linear-gradient(0deg,#ECEDEE 0%,#FFFFFF 100%);
+}
+
+.emotion-0.fi-button--secondary-noborder:active {
+  background: none;
+  background-color: #F7FAFD;
+}
+
+.emotion-0.fi-button--secondary-noborder[disabled],
+.emotion-0.fi-button--secondary-noborder:disabled {
+  color: #A5ACB1;
+  text-shadow: none;
+  background: none;
+  background-color: #F7FAFD;
+  border-color: #A5ACB1;
+}
+
+.emotion-0.fi-button--tertiary {
+  color: #2A6EBB;
+  background: none;
+  background-color: #FFFFFF;
+  border: 1px solid #2A6EBB;
+  text-shadow: none;
+  background: #EAF2FA;
+  border: none;
+}
+
+.emotion-0.fi-button--tertiary:hover {
+  background: linear-gradient(0deg,#ECEDEE 0%,#FFFFFF 100%);
+}
+
+.emotion-0.fi-button--tertiary:active {
+  background: none;
+  background-color: #F7FAFD;
+}
+
+.emotion-0.fi-button--tertiary[disabled],
+.emotion-0.fi-button--tertiary:disabled {
+  color: #A5ACB1;
+  text-shadow: none;
+  background: none;
+  background-color: #F7FAFD;
+  border-color: #A5ACB1;
+}
+
+.emotion-0.fi-button--tertiary:hover {
+  background: #F7FAFD;
+}
+
+.emotion-0.fi-button--tertiary:active {
+  background: #F7FAFD;
+}
+
 .emotion-0 > .fi-button-icon {
   width: 16px;
   height: 16px;

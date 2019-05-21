@@ -25,7 +25,15 @@ import { colorTokens } from '../src/core/theme/colors';
 <Colors colors={colorTokens.depth} />;
 ```
 
-## Hightlight
+### DepthSecondary
+
+```js noeditor
+import { Colors } from '../src/core/Colors/Colors';
+import { colorTokens } from '../src/core/theme/colors';
+<Colors colors={colorTokens.depthSecondary} />;
+```
+
+## Highlight
 
 ```js noeditor
 import { Colors } from '../src/core/Colors/Colors';

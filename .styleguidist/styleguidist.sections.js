@@ -60,7 +60,7 @@ module.exports = {
             return glob.sync(
               path.resolve(
                 __dirname,
-                `../src/core/!(${manuallyAddedComponents})/*.tsx`,
+                `../src/core/!(${manuallyAddedComponents})/**/*.tsx`,
               ),
             );
           },
