@@ -143,6 +143,7 @@ exports[`calling render with the same component on the same container does not r
   transform-origin: top;
   -webkit-transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
   transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
+  will-change: transition,height;
 }
 
 .emotion-3 > .fi-panel-expansion-content:not(.fi-panel-expansion-content--no-padding) {
