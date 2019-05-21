@@ -38,7 +38,7 @@ const secondaryStyles = (theme: ThemeProp) => css`
   text-shadow: none;
 
   &:hover {
-    background: ${theme.gradients.highlightLight45};
+    background: ${theme.gradients.depthLight26};
   }
 
   &:active {
