@@ -14,19 +14,23 @@ export const colorTokens = {
     brandBase: '#00357A',
   },
   depth: {
-    depthBase: '#A5ACB1',
-    depthSecondary: '#F0F6FF',
-    depthLight30: '#F7F7F8',
-    depthLight13: '#C8CDD0',
     depthDark27: '#5F686D',
+    depthBase: '#A5ACB1',
+    depthLight30: '#F7F7F8',
+    depthLight26: '#ECEDEE',
+    depthLight13: '#C8CDD0',
+  },
+  depthSecondary: {
+    depthSecondaryDark3: '#E0EDFF',
+    depthSecondary: '#F0F6FF',
   },
   hightlight: {
+    highlightDark9: '#235A9A',
     highlightBase: '#2A6EBB',
     highlightLight4: '#2E78CC',
     highlightLight45: '#D5E4F6',
     highlightLight50: '#EAF2FA',
     highlightLight53: '#F7FAFD',
-    highlightDark9: '#235A9A',
   },
   accent: {
     accentBase: '#E97025',
@@ -45,6 +49,7 @@ export const colors = {
   ...colorTokens.base,
   ...colorTokens.brand,
   ...colorTokens.depth,
+  ...colorTokens.depthSecondary,
   ...colorTokens.hightlight,
   ...colorTokens.accent,
   ...colorTokens.trafficlights,
@@ -55,7 +60,9 @@ export type IShadows = typeof shadows;
 export const shadows = {
   invertTextShadow: `0 1px 1px ${colors.brandBase}`,
   menuShadow: `0 2px 3px 0 ${alphaHex(0.2)(colors.blackBase)}`,
-  panelShadow: `0 0 4px 0 ${alphaHex(0.3)(colors.blackBase)}`,
+  panelShadow: `0 1px 2px 0 ${alphaHex(0.14)(
+    colors.blackBase,
+  )}, 0 1px 5px 0 ${alphaHex(0.12)(colors.blackBase)}`,
 };
 
 export type IGradients = typeof gradients;
@@ -79,7 +86,7 @@ export const gradients = {
   whiteBaseNegative: `linear-gradient(-180deg, ${alphaHex(0.1)(
     colors.whiteBase,
   )} 0%, ${alphaHex(0)(colors.whiteBase)} 100%)`,
-  highlightLight45: `linear-gradient(0deg, ${colors.highlightLight45} 0%, ${
+  depthLight26: `linear-gradient(0deg, ${colors.depthLight26} 0%, ${
     colors.whiteBase
   } 100%)`,
 };

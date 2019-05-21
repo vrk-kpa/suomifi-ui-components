@@ -22,6 +22,9 @@ module.exports = {
   propsParser: require('react-docgen-typescript').withDefaultConfig({
     propFilter,
   }).parse,
+  moduleAliases: {
+    'suomifi-ui-components': path.resolve(__dirname, 'src'),
+  },
   exampleMode: 'expand',
   usageMode: 'expand',
   pagePerSection: true,
@@ -33,7 +36,7 @@ module.exports = {
         {
           rel: 'stylesheet',
           href:
-            'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700',
+            'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap',
         },
       ],
     },

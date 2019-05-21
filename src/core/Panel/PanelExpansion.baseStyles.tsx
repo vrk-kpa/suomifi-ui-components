@@ -57,6 +57,7 @@ export const baseStyles = ({
     transform-origin: top;
     transition: all ${`${theme.transitions.basicTime}
       ${theme.transitions.basicTimingFunction}`};
+    will-change: transition, height;
     &:not(.fi-panel-expansion-content--no-padding) {
       padding: 0 ${theme.spacing.m};
     }

@@ -1,10 +1,12 @@
 ```js
+import { Dropdown } from 'suomifi-ui-components';
+
 <Dropdown className="dropdown-test" name="Dropdown">
-  <DropdownItem onSelect={() => console.log('dropdown test 1')}>
+  <Dropdown.item onSelect={() => console.log('dropdown test 1')}>
     Item 1
-  </DropdownItem>
-  <DropdownItem onSelect={() => console.log('dropdown test 2')}>
+  </Dropdown.item>
+  <Dropdown.item onSelect={() => console.log('dropdown test 2')}>
     Item 2
-  </DropdownItem>
-</Dropdown>
+  </Dropdown.item>
+</Dropdown>;
 ```

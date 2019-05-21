@@ -8,10 +8,7 @@ import {
   Dropdown as CompDropdown,
   DropdownProps as CompDropdownProps,
 } from '../../components/Dropdown/Dropdown';
-export {
-  DropdownItem,
-  DropdownItemProps,
-} from '../../components/Dropdown/Dropdown';
+import { DropdownItem, DropdownItemProps } from './DropdownItem';
 
 export interface DropdownProps extends CompDropdownProps, ThemeComponent {}
 
@@ -28,6 +25,8 @@ const StyledDropdown = styled(({ theme, ...passProps }: DropdownProps) => (
  * Use for selectable dropdown list.
  */
 export class Dropdown extends Component<DropdownProps> {
+  static item = (props: DropdownItemProps) => <DropdownItem {...props} />;
+
   render() {
     const props = withDefaultTheme(this.props);
     return (
