@@ -126,12 +126,11 @@ declare module '@reach/component-component' {
   export default Component;
 }
 
-declare module 'react-styleguidist/lib/rsg-components/Type/TypeRenderer' {
-  interface TypeRendererProps {
-    classes: any;
-    children?: ReactNode;
+declare module 'react-styleguidist/lib/client/rsg-components/ComponentsList/ComponentsList' {
+  interface ComponentsListProps {
+    [key: string]: any | any[];
   }
 
-  const TypeRenderer: React.SFC<TypeRendererProps>;
-  export default TypeRenderer;
+  const ComponentsList: React.FunctionComponent<ComponentsListProps>;
+  export default ComponentsList;
 }
