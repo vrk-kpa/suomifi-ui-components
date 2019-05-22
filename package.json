@@ -47,7 +47,8 @@
     "bundle-analyzer": "size-limit --why",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "deploy": "gh-pages -d styleguide -m \"[skip ci] Updates\""
+    "deploy": "gh-pages -d styleguide -m \"[skip ci] Updates\"",
+    "deploy-dev": "gh-pages -d styleguide -e dev -m \"[skip ci] Updates\""
   },
   "devDependencies": {
     "@types/classnames": "2.2.6",
