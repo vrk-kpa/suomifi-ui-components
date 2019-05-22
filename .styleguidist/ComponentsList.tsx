@@ -15,10 +15,11 @@ const hideFromSections = ['Text', 'Breadcrumb', 'Dropdown', 'Menu', 'Panel'];
 // tslint:disable-next-line
 export default class ComponentsList extends Component<ComponentsListProps> {
   render() {
-    const { items = [], hashPath = [], ...passProps } = this.props;
+    const { items = [], ...passProps } = this.props;
+    const { hashPath = [] } = this.props;
     const sortItems = (items: any[]) =>
       [...items].sort((a, b) => a.name.localeCompare(b.name));
-    const lastPath = hashPath.pop();
+    const lastPath = hashPath[hashPath.length - 1];
     const hide = !!lastPath && hideFromSections.includes(lastPath);
 
     if (hide) return null;
@@ -26,7 +27,6 @@ export default class ComponentsList extends Component<ComponentsListProps> {
     return (
       <DefaultComponentsList
         {...passProps}
-        hashPath={hashPath}
         items={hashPath.length === 2 ? sortItems(items) : items}
       />
     );
