@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calling render with the same component on the same container does not remount 1`] = `
+.emotion-3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
+  background-color: #FFFFFF;
+}
+
+.emotion-3 .fi-text-input-label-p {
+  margin-bottom: 16px;
+}
+
+.emotion-3 .fi-text-input-container > input:focus {
+  outline-color: #E97025;
+  outline-width: 4px;
+}
+
+.emotion-3 .fi-text-input-container:focus-within {
+  outline: 0;
+  position: relative;
+}
+
+.emotion-3 .fi-text-input-container:focus-within:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid #E97025;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 #E97025;
+  z-index: 9999;
+}
+
+.emotion-3 .fi-text-input-container:focus-within:not(:focus-visible):after {
+  content: none;
+}
+
+.emotion-3 .fi-text-input-container:focus-within > input:focus {
+  outline: none;
+}
+
+.emotion-3 .fi-text-input-input {
+  color: #282828;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #A5ACB1;
+  border-radius: 2px;
+}
+
+.emotion-0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.emotion-1 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.emotion-1::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+<label
+  class="fi-text-input fi-text-input-label emotion-3"
+>
+  <p
+    class="fi-paragraph fi-text-input-label-p emotion-0"
+  >
+    Test input
+  </p>
+  <div
+    class="fi-text-input-container emotion-0"
+  >
+    <input
+      class="fi-text-input-input emotion-1"
+      data-testid="textinput"
+      type="text"
+    />
+  </div>
+</label>
+`;
