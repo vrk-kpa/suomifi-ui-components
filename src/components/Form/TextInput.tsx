@@ -15,16 +15,18 @@ import classnames from 'classnames';
 
 const baseClassName = 'fi-text-input';
 const disabledClassName = `${baseClassName}--disabled`;
-const labelClassName = `${baseClassName}-label`;
-const inputClassName = `${baseClassName}-input`;
+const labelBaseClassName = `${baseClassName}-label`;
+const inputBaseClassName = `${baseClassName}-input`;
 
 export interface TextInputLabelProps extends HtmlLabelProps {}
 
 type Label = 'default' | 'screenreader';
 
 export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
-  /** Custom classname to extend or customize */
+  /** Custom classname for the input to extend or customize */
   className?: string;
+  /** Custom classname for the label to extend or customize */
+  inputClassName?: string;
   /** Disable input usage */
   disabled?: boolean;
   /** Event handler to execute when clicked */
@@ -54,6 +56,7 @@ export class TextInput extends Component<TextInputProps> {
   render() {
     const {
       className,
+      inputClassName,
       labelText,
       labelMode,
       placeholder,
@@ -74,7 +77,7 @@ export class TextInput extends Component<TextInputProps> {
     return (
       <HtmlLabel
         {...labelProps}
-        className={classnames(className, baseClassName, labelClassName, {
+        className={classnames(labelBaseClassName, className, {
           [disabledClassName]: !!passProps.disabled,
         })}
       >
@@ -86,12 +89,12 @@ export class TextInput extends Component<TextInputProps> {
         <HtmlDiv {...inputContainerProps}>
           <HtmlInput
             {...passProps}
-            className={inputClassName}
+            className={classnames(inputBaseClassName, inputClassName)}
             type="text"
             placeholder={ifScreenreader ? labelText : placeholder}
           />
+          {children}
         </HtmlDiv>
-        {children}
       </HtmlLabel>
     );
   }
