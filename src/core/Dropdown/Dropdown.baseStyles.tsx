@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
 import { suomifiTheme } from '../theme';
 import { DropdownProps } from './Dropdown';
-import { element, input, fonts } from '../theme/reset';
+import { element, inputButton, fonts } from '../theme/reset';
 import { Omit } from '../../utils/typescript';
 import { dataReachMenu } from '../Menu/Menu.baseStyles';
 
@@ -9,7 +9,7 @@ export const baseStyles = ({
   theme = suomifiTheme,
 }: Omit<DropdownProps, 'name'>) => css`
   & > [data-reach-menu-button].fi-dropdown-button {
-    ${input}
+    ${inputButton}
     position: relative;
     padding-right: 30px;
     text-align: left;
