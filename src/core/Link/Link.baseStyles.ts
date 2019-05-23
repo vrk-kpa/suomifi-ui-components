@@ -15,4 +15,7 @@ export const baseStyles = ({ theme = suomifiTheme }: LinkProps) => css`
   &:active {
     text-decoration: underline;
   }
+  &:visited {
+    color: ${theme.colors.accentTertiary}
+  }
 `;

@@ -1,7 +1,15 @@
 ```js
-import { Link } from 'suomifi-ui-components';
+import { Link, Paragraph } from 'suomifi-ui-components';
 
-<Link className="test-classname" href="#">
-  Test link
-</Link>;
+<Paragraph>
+  <Link
+    className="test-classname"
+    href="https://www.notvisitedlink.com/"
+  >
+    Not visited link
+  </Link>{' '}
+  <Link className="test-classname" href="#">
+    Visited link
+  </Link>
+</Paragraph>;
 ```
