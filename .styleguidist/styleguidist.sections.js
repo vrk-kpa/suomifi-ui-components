@@ -7,8 +7,9 @@ const primitiveComponents = [
   'Heading',
   'Link',
   'Icon',
-  ['Form/TextInput', 'TextInput'],
-  ['Form/Toggle', 'Toggle'],
+  ['Form', 'TextInput'],
+  ['Form', 'Toggle'],
+  ['Form', 'SearchInput'],
 ];
 
 const getComponent = ({ name, underName }) =>
@@ -19,7 +20,10 @@ const getComponent = ({ name, underName }) =>
 const getComponents = arr =>
   arr.map(component =>
     Array.isArray(component)
-      ? getComponent({ name: component[1], underName: component[0] })
+      ? getComponent({
+          name: component[1],
+          underName: `${component[0]}/${component[1]}`,
+        })
       : getComponent({ name: component }),
   );
 
