@@ -14,7 +14,19 @@ export const baseStyles = ({ theme = suomifiTheme }: TextInputProps) => css`
 
   & .fi-text-input-input {
     ${input}
+    background-color: ${theme.colors.whiteBase};
   }
 
-  background-color: ${theme.colors.whiteBase};
+  &.fi-text-input--error {
+    & .fi-text-input-input {
+      color: ${theme.colors.alertBase};
+      border-color: ${theme.colors.alertBase};
+    }
+  }
+  &.fi-text-input--success {
+    & .fi-text-input-input {
+      color: ${theme.colors.successBase};
+      border-color: ${theme.colors.successBase};
+    }
+  }
 `;

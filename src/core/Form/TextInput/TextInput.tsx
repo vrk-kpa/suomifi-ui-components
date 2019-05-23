@@ -7,19 +7,32 @@ import {
   TextInput as CompTextInput,
   TextInputProps as CompTextInputProps,
 } from '../../../components/Form/TextInput';
+import classnames from 'classnames';
 
-const labelParagraphClassName = 'fi-text-input-label-p';
-const inputContainerClassName = 'fi-text-input-container';
+const baseClassName = 'fi-text-input';
+const labelParagraphClassName = `${baseClassName}-label-p`;
+const inputContainerClassName = `${baseClassName}-container`;
+const errorClassName = `${baseClassName}--error`;
+const successClassName = `${baseClassName}--success`;
 
-export interface TextInputProps extends CompTextInputProps, ThemeComponent {}
+type TextInputVariant = 'default' | 'error' | 'success';
+export interface TextInputProps extends CompTextInputProps, ThemeComponent {
+  variant?: TextInputVariant;
+}
 
-const StyledTextInput = styled(({ theme, ...passProps }: TextInputProps) => (
-  <CompTextInput
-    {...passProps}
-    labelTextProps={{ className: labelParagraphClassName }}
-    inputContainerProps={{ className: inputContainerClassName }}
-  />
-))`
+const StyledTextInput = styled(
+  ({ theme, variant, className, ...passProps }: TextInputProps) => (
+    <CompTextInput
+      {...passProps}
+      labelTextProps={{ className: labelParagraphClassName }}
+      inputContainerProps={{ className: inputContainerClassName }}
+      className={classnames(className, {
+        [errorClassName]: variant === 'error',
+        [successClassName]: variant === 'success',
+      })}
+    />
+  ),
+)`
   ${props => baseStyles(props)}
 `;
 
@@ -27,6 +40,14 @@ const StyledTextInput = styled(({ theme, ...passProps }: TextInputProps) => (
  * Use for user inputting text
  */
 export class TextInput extends Component<TextInputProps> {
+  static error = (props: TextInputProps) => (
+    <StyledTextInput {...withDefaultTheme(props)} variant="error" />
+  );
+
+  static success = (props: TextInputProps) => (
+    <StyledTextInput {...withDefaultTheme(props)} variant="success" />
+  );
+
   render() {
     const { ...passProps } = withDefaultTheme(this.props);
 
