@@ -210,6 +210,10 @@ exports[`calling render with the same component on the same container does not r
   text-decoration: underline;
 }
 
+.emotion-0:visited {
+  color: #9F60B5;
+}
+
 .emotion-1 {
   display: inline-block;
   vertical-align: bottom;
