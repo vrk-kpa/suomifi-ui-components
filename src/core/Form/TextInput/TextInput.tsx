@@ -21,17 +21,38 @@ export interface TextInputProps extends CompTextInputProps, ThemeComponent {
 }
 
 const StyledTextInput = styled(
-  ({ theme, variant, className, ...passProps }: TextInputProps) => (
-    <CompTextInput
-      {...passProps}
-      labelTextProps={{ className: labelParagraphClassName }}
-      inputContainerProps={{ className: inputContainerClassName }}
-      className={classnames(className, {
-        [errorClassName]: variant === 'error',
-        [successClassName]: variant === 'success',
-      })}
-    />
-  ),
+  ({
+    theme,
+    variant,
+    className,
+    labelTextProps = { className: undefined },
+    inputContainerProps = { className: undefined },
+    ...passProps
+  }: TextInputProps) => {
+    return (
+      <CompTextInput
+        {...passProps}
+        labelTextProps={{
+          ...labelTextProps,
+          className: classnames(
+            labelTextProps.className,
+            labelParagraphClassName,
+          ),
+        }}
+        inputContainerProps={{
+          ...inputContainerProps,
+          className: classnames(
+            inputContainerProps.className,
+            inputContainerClassName,
+          ),
+        }}
+        className={classnames(className, {
+          [errorClassName]: variant === 'error',
+          [successClassName]: variant === 'success',
+        })}
+      />
+    );
+  },
 )`
   ${props => baseStyles(props)}
 `;
