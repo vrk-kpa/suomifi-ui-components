@@ -19,7 +19,6 @@ exports[`calling render with the same component on the same container does not r
   background: none;
   cursor: inherit;
   max-width: 100%;
-  background-color: #FFFFFF;
 }
 
 .emotion-3 .fi-text-input-label-p {
@@ -74,9 +73,20 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 12px;
+  padding: 8px 16px;
   border: 1px solid #A5ACB1;
   border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.emotion-3.fi-text-input--error .fi-text-input-input {
+  color: #C33932;
+  border-color: #C33932;
+}
+
+.emotion-3.fi-text-input--success .fi-text-input-input {
+  color: #09AE88;
+  border-color: #09AE88;
 }
 
 .emotion-0 {
@@ -131,7 +141,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 <label
-  class="fi-text-input fi-text-input-label emotion-3"
+  class="fi-text-input-label emotion-3"
 >
   <p
     class="fi-paragraph fi-text-input-label-p emotion-0"
