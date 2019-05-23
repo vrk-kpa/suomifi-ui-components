@@ -15,7 +15,7 @@ export const input = css`
   ${fonts.input}
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 12px;
+  padding: ${suomifiTheme.spacing.s} ${suomifiTheme.spacing.m};
   border: 1px solid ${suomifiTheme.colors.depthBase};
   border-radius: ${suomifiTheme.radius.basic};
 `;
