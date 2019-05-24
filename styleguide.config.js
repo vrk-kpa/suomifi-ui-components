@@ -40,7 +40,7 @@ module.exports = {
         {
           rel: 'stylesheet',
           href:
-            'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap',
+            'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap',
         },
       ],
     },

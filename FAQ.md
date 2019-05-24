@@ -2,7 +2,7 @@
 
 1. ## Fonts don't seem to be correct
 
-   Add `@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap');` to your applications CSS.
+   Add `@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300:400,600&display=swap');` to your applications CSS.
 
 2. ## Content-Security-Policy (CSP) problems?
 
