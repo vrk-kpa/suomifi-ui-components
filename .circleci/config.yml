@@ -54,20 +54,8 @@ commands:
       - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: reports/junit
           # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
-
-jobs:
-  test_and_build:
-    executor: build-executor
+  pre_deploy:
     steps:
-      - checkout_and_cache
-      - test
-      - build
-
-  deploy:
-    executor: build-executor
-    steps:
-      - checkout_and_cache
-      - build
       - run:
           name: Set user for commit
           command: |
@@ -76,7 +64,28 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - '65:56:b2:97:31:13:65:be:25:ca:f6:65:51:78:a2:88'
+
+jobs:
+  test_and_build:
+    executor: build-executor
+    steps:
+      - checkout_and_cache
+      - test
+      - build
+  deploy:
+    executor: build-executor
+    steps:
+      - checkout_and_cache
+      - build
+      - pre_deploy
       - run: yarn deploy
+  deploy_dev:
+    executor: build-executor
+    steps:
+      - checkout_and_cache
+      - build
+      - pre_deploy
+      - run: yarn deploy-dev
 
 workflows:
   version: 2
@@ -89,3 +98,9 @@ workflows:
           filters:
             branches:
               only: master
+      - deploy_dev:
+          requires:
+            - test_and_build
+          filters:
+            branches:
+              only: develop

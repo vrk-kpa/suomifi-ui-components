@@ -1,4 +1,4 @@
-import React, { ReactNode, HTMLAttributes } from 'react';
+import React, { ReactNode, HTMLAttributes, ComponentType } from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { resets } from '../utils';
@@ -6,6 +6,7 @@ import { allStates } from '../../utils/css/pseudo';
 
 export interface HtmlAProps extends HTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
+  as?: keyof JSX.IntrinsicElements | ComponentType<any>;
 }
 
 const aResets = css`
@@ -17,10 +18,8 @@ const aResets = css`
   text-decoration: underline;
 `;
 
-const Ahref = ({ children, ...passProps }: HtmlAProps) => (
-  <a {...passProps}>{children}</a>
-);
-
-export const HtmlA = styled(Ahref)`
+const Ahref = styled.a`
   ${aResets}
 `;
+
+export const HtmlA = (props: HtmlAProps) => <Ahref {...props} />;

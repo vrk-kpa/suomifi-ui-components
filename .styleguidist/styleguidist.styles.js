@@ -17,9 +17,6 @@ module.exports = {
       margin: 0,
       padding: 0,
     },
-    '@global li > a[href*="Components/Primitive/"] + ul, li > a[href*="Components/Patterns/"] + ul': {
-      display: 'none',
-    },
     content: {
       maxWidth: '1200px',
       margin: '0',

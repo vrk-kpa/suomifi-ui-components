@@ -88,6 +88,10 @@ exports[`calling render with the same component on the same container does not r
   text-decoration: underline;
 }
 
+.emotion-0:visited {
+  color: #9F60B5;
+}
+
 <a
   class="fi-link emotion-0"
   data-testid="test-link"
