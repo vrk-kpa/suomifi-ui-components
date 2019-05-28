@@ -5,7 +5,6 @@ export { hLevels };
 
 export interface HeadingProps extends HtmlHProps {
   /** Change HTML-element */
-  as?: JSX.IntrinsicElements;
   variant: hLevels;
   className?: string;
 }

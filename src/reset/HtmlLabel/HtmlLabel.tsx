@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLProps } from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { resets } from '../utils';
@@ -6,7 +6,7 @@ import { resets } from '../utils';
 /* Only style reseted label-element, no need to check accessibility here */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-export interface HtmlLabelProps extends HTMLAttributes<HTMLLabelElement> {
+export interface HtmlLabelProps extends HTMLProps<HTMLLabelElement> {
   /**
    * HTML Label for ID-name of the element
    */

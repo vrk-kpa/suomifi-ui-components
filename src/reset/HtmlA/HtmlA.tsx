@@ -1,12 +1,12 @@
-import React, { ReactNode, HTMLAttributes, ComponentType } from 'react';
+import React, { ReactNode, HTMLProps } from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { resets } from '../utils';
 import { allStates } from '../../utils/css/pseudo';
+import { Omit } from '../../utils/typescript';
 
-export interface HtmlAProps extends HTMLAttributes<HTMLAnchorElement> {
+export interface HtmlAProps extends Omit<HTMLProps<HTMLAnchorElement>, 'ref'> {
   children: ReactNode;
-  as?: keyof JSX.IntrinsicElements | ComponentType<any>;
 }
 
 const aResets = css`
