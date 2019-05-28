@@ -5,7 +5,6 @@ const primitiveComponents = [
   'Block',
   'Button',
   'Heading',
-  'Link',
   'Icon',
   ['Form', 'TextInput'],
   ['Form', 'Toggle'],
@@ -26,6 +25,12 @@ const getComponents = arr =>
         })
       : getComponent({ name: component }),
   );
+const getComponentWithVariants = component => variants => [
+  getComponent({ name: component }),
+  ...variants.map(variant =>
+    getComponent({ underName: component, name: variant }),
+  ),
+];
 
 module.exports = {
   sections: [
@@ -61,6 +66,10 @@ module.exports = {
               name: 'Text',
               components: getComponents(['Text', 'Paragraph']),
             },
+            {
+              name: 'Link',
+              components: getComponentWithVariants('Link')(['LinkExternal']),
+            },
           ],
         },
         {
@@ -69,52 +78,29 @@ module.exports = {
           sections: [
             {
               name: 'Breadcrumb',
-              components: getComponents([
-                'Breadcrumb',
-                ['Breadcrumb', 'BreadcrumbLink'],
+              components: getComponentWithVariants('Breadcrumb')([
+                'BreadcrumbLink',
               ]),
             },
             {
               name: 'Dropdown',
-              components: [
-                getComponent({ name: 'Dropdown' }),
-                getComponent({
-                  underName: 'Dropdown',
-                  name: 'DropdownItem',
-                }),
-              ],
+              components: getComponentWithVariants('Dropdown')([
+                'DropdownItem',
+              ]),
             },
             {
               name: 'Menu',
-              components: [
-                getComponent({ name: 'Menu' }),
-                // getComponent({
-                //   underName: 'Menu',
-                //   name: 'MenuItem',
-                // }),
-                getComponent({
-                  underName: 'Menu',
-                  name: 'MenuItemLanguage',
-                }),
-                getComponent({
-                  underName: 'Menu',
-                  name: 'MenuLinkLanguage',
-                }),
-              ],
+              components: getComponentWithVariants('Menu')([
+                'MenuItemLanguage',
+                'MenuLinkLanguage',
+              ]),
             },
             {
               name: 'Panel',
-              components: [
-                getComponent({ name: 'Panel' }),
-                getComponent({
-                  underName: 'Panel',
-                  name: 'PanelExpansion',
-                }),
-                getComponent({
-                  underName: 'Panel',
-                  name: 'PanelExpansionGroup',
-                }),
-              ],
+              components: getComponentWithVariants('Panel')([
+                'PanelExpansion',
+                'PanelExpansionGroup',
+              ]),
             },
           ],
         },
