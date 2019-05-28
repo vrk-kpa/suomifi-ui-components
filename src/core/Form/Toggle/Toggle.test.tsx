@@ -2,8 +2,6 @@ import React from 'react';
 import { render } from 'react-testing-library';
 
 import { Toggle } from './Toggle';
-import { cssFromBaseStyles } from '../../utils';
-import { baseStyles } from './Toggle.baseStyles';
 
 const doNothing = () => ({});
 
@@ -24,9 +22,4 @@ test('calling render with the same component on the same container does not remo
     </Toggle>,
   );
   expect(getByTestId('elggot').textContent).toBe('Test two');
-});
-
-test('CSS export', () => {
-  const css = cssFromBaseStyles(baseStyles);
-  expect(css).toEqual(expect.stringContaining('cursor'));
 });

@@ -5,8 +5,7 @@ import React, {
   ComponentClass,
   FunctionComponent,
 } from 'react';
-import { HtmlLabel, HtmlInput } from '../../reset';
-import { HtmlSpan } from '../../reset/HtmlSpan/HtmlSpan';
+import { HtmlLabel, HtmlInput, HtmlSpan } from '../../reset';
 import classnames from 'classnames';
 
 const baseClassName = 'fi-toggle';

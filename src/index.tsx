@@ -10,11 +10,15 @@ export { UnstyledButton } from './core/Button/UnstyledButton';
 export { Dropdown, DropdownProps } from './core/Dropdown/Dropdown';
 export { DropdownItem, DropdownItemProps } from './core/Dropdown/DropdownItem';
 export {
+  TextInput,
+  TextInputProps,
   Toggle,
   ToggleProps,
   ToggleInput,
   ToggleInputProps,
-} from './core/Form/Toggle/Toggle';
+  SearchInput,
+  SearchInputProps,
+} from './core/Form/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps } from './core/Icon/Icon';
 export { Link, LinkProps } from './core/Link/Link';

@@ -8,6 +8,7 @@ export {
   DropdownItem,
   DropdownItemProps,
 } from './Dropdown/Dropdown';
+export { TextInput, TextInputProps } from './Form/TextInput';
 export {
   Toggle,
   ToggleProps,
