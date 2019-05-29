@@ -3,7 +3,7 @@ import { suomifiTheme, ThemeProp } from '../';
 
 export type SpaceProp = spacingTokensProp | '0';
 
-const SpaceVal = (theme: ThemeProp) => (val?: SpaceProp) => {
+const spaceVal = (theme: ThemeProp) => (val?: SpaceProp) => {
   if (val === '0') return '0';
   return !!val ? theme.spacing[val] : '';
 };
@@ -30,9 +30,10 @@ const space = (theme: ThemeProp = suomifiTheme) => (
   type: 'padding' | 'margin',
 ) => (t?: SpaceProp, r?: SpaceProp, b?: SpaceProp, l?: SpaceProp) =>
   !!t
-    ? `${type}: ${SpaceVal(theme)(t)} ${SpaceVal(theme)(r)} ${SpaceVal(theme)(
-        b,
-      )} ${SpaceVal(theme)(l)} ;`
+    ? `${!!t ? `${type}-top: ${spaceVal(theme)(t)};` : ''}
+    ${!!r ? `${type}-right: ${spaceVal(theme)(r)};` : ''}
+    ${!!b ? `${type}-bottom: ${spaceVal(theme)(b)};` : ''}
+    ${!!l ? `${type}-left:${spaceVal(theme)(l)};` : ''}`
     : '';
 
 /**
@@ -57,7 +58,7 @@ export const spacingModifiers = (theme: ThemeProp) => (
   spacingTokensKeys.reduce(
     (ret, k) =>
       `${ret}${selector}-${k}{
-    ${space(theme)(spacing)(k)}
+        ${spacing}: ${spaceVal(theme)(k)}
   } `,
     '',
   );
