@@ -112,7 +112,10 @@ exports[`calling render with the same component on the same container does not r
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
-  padding: 16px 64px 16px 16px;
+  padding-top: 16px;
+  padding-right: 64px;
+  padding-bottom: 16px;
+  padding-left: 16px;
   color: #2A6EBB;
 }
 
@@ -158,7 +161,10 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-3 > .fi-panel-expansion-content.fi-panel-expansion-content--open:not(.fi-panel-expansion-content--no-padding) {
-  padding: 0 16px 16px 16px;
+  padding-top: 0;
+  padding-right: 16px;
+  padding-bottom: 16px;
+  padding-left: 16px;
 }
 
 .emotion-1 {
@@ -214,8 +220,7 @@ exports[`calling render with the same component on the same container does not r
 .emotion-1:hover,
 .emotion-1:active,
 .emotion-1:focus,
-.emotion-1:focus-within,
-.emotion-1:visited {
+.emotion-1:focus-within {
   cursor: pointer;
 }
 
