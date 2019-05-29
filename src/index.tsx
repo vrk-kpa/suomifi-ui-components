@@ -21,7 +21,12 @@ export {
 } from './core/Form/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps } from './core/Icon/Icon';
-export { Link, LinkProps } from './core/Link/Link';
+export {
+  Link,
+  LinkProps,
+  LinkExternal,
+  LinkExternalProps,
+} from './core/Link/Link';
 export { Menu, MenuProps } from './core/Menu/Menu';
 export {
   MenuItem,
