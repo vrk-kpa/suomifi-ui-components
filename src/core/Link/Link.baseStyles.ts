@@ -12,10 +12,18 @@ export const baseStyles = ({ theme = suomifiTheme }: LinkProps) => css`
   color: ${theme.colors.highlightBase};
   text-decoration: none;
   &:hover,
-  &:active {
+  &:active,
+  &:focus,
+  &:focus-within {
     text-decoration: underline;
   }
   &:visited {
-    color: ${theme.colors.accentTertiary}
+    color: ${theme.colors.accentTertiary};
+  }
+`;
+
+export const externalStyles = ({ theme = suomifiTheme }: LinkProps) => css`
+  & .fi-link-external-icon {
+    padding-left: ${theme.spacing.xs};
   }
 `;

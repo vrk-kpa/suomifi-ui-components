@@ -13,12 +13,30 @@ export const element = css`
 export const input = css`
   ${element}
   ${fonts.input}
-  ${focus}
   min-width: 245px;
   max-width: 100%;
-  padding: 8px 12px;
+  padding: ${suomifiTheme.spacing.s} ${suomifiTheme.spacing.m};
   border: 1px solid ${suomifiTheme.colors.depthBase};
   border-radius: ${suomifiTheme.radius.basic};
+`;
+
+export const inputContainer = css`
+  > input:focus {
+    /* For IE/Edge */
+    outline-color: ${suomifiTheme.colors.accentBase};
+    outline-width: 4px;
+  }
+  &:focus-within {
+    ${focusUtil({ noPseudo: true, theme: suomifiTheme })}
+    > input:focus {
+      outline: none;
+    }
+  }
+`;
+
+export const inputButton = css`
+  ${input}
+  ${focus}
 `;
 
 export const nav = css`

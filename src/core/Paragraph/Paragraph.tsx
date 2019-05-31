@@ -7,10 +7,13 @@ import {
   ParagraphProps as CompParagraphProps,
 } from '../../components/Paragraph/Paragraph';
 import { baseStyles } from './Paragraph.baseStyles';
+import { SpaceProp } from '../theme/utils/spacing';
 
 export interface ParagraphProps extends CompParagraphProps, ThemeComponent {
   /** Change color */
   color?: ColorProp;
+  /** Spacing token for bottom margin */
+  marginBottomSpacing?: SpaceProp;
 }
 
 const StyledParagraph = styled(

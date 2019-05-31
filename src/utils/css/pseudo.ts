@@ -4,8 +4,7 @@ export const allStates = (styles: string) => css`
   &:hover,
   &:active,
   &:focus,
-  &:focus-within,
-  &:visited {
+  &:focus-within {
     ${styles}
   }
 `;

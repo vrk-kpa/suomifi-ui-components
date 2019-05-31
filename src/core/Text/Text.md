@@ -2,7 +2,7 @@
 import { Paragraph, Text } from 'suomifi-ui-components';
 
 <>
-  <Paragraph>
+  <Paragraph marginBottomSpacing="m">
     <Text.lead>Leading text</Text.lead>
   </Paragraph>
   <Paragraph>

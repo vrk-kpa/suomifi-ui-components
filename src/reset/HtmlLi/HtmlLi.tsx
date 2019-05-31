@@ -1,9 +1,9 @@
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLProps } from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { resets } from '../utils';
 
-export interface HtmlLiProps extends HTMLAttributes<HTMLLIElement> {}
+export interface HtmlLiProps extends HTMLProps<HTMLLIElement> {}
 
 const liResets = css`
   ${resets.normalize.html}
