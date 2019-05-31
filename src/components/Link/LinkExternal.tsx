@@ -4,17 +4,22 @@ import { Link, LinkProps } from './Link';
 
 const externalClassName = 'fi-link--external';
 
-export interface LinkExternalProps extends LinkProps {}
+export interface LinkExternalProps extends LinkProps {
+  /** Open to a new window
+   * @default true
+   */
+  toNewWindow?: boolean;
+}
 
-export class LinkExternal extends Component<LinkProps> {
+export class LinkExternal extends Component<LinkExternalProps> {
   render() {
-    const { className, ...passProps } = this.props;
+    const { className, toNewWindow = true, ...passProps } = this.props;
     return (
       <Link
         {...passProps}
         className={classnames(className, externalClassName)}
-        target="_blank"
-        rel="noopener"
+        target={!!toNewWindow ? '_blank' : undefined}
+        rel={!!toNewWindow ? 'noopener' : undefined}
       />
     );
   }
