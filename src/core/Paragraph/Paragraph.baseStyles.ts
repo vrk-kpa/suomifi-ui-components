@@ -8,7 +8,7 @@ import { margin } from '../theme/utils/spacing';
 export const baseStyles = ({
   theme = suomifiTheme,
   color,
-  marginBottomSpacing,
+  marginBottomSpacing = '0',
 }: ParagraphProps) => css`
   ${element}
   ${fonts.body}
