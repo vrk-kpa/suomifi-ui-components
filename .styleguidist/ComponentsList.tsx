@@ -10,8 +10,6 @@ interface ComponentsListProps {
   children?: ReactNode;
 }
 
-const hideFromSections = ['Text', 'Breadcrumb', 'Dropdown', 'Menu', 'Panel'];
-
 // tslint:disable-next-line
 export default class ComponentsList extends Component<ComponentsListProps> {
   render() {
@@ -19,8 +17,7 @@ export default class ComponentsList extends Component<ComponentsListProps> {
     const { hashPath = [] } = this.props;
     const sortItems = (items: any[]) =>
       [...items].sort((a, b) => a.name.localeCompare(b.name));
-    const lastPath = hashPath[hashPath.length - 1];
-    const hide = !!lastPath && hideFromSections.includes(lastPath);
+    const hide = hashPath.length > 2;
 
     if (hide) return null;
 

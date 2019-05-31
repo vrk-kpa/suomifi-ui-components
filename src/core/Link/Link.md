@@ -1,5 +1,5 @@
 ```js
-import { Link, Paragraph } from 'suomifi-ui-components';
+import { Link, LinkExternal, Paragraph } from 'suomifi-ui-components';
 
 <Paragraph>
   <Link
@@ -12,6 +12,16 @@ import { Link, Paragraph } from 'suomifi-ui-components';
     Visited link
   </Link>
 </Paragraph>;
+```
+
+### External link
+
+```js
+import { Link } from 'suomifi-ui-components';
+
+<Link.external href="https://www.sweden.se/">
+  External link
+</Link.external>;
 ```
 
 ### Change component for the link

@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calling render with the same component on the same container does not remount 1`] = `
+.emotion-2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.emotion-2 .fi-link-external-icon {
+  padding-left: 4px;
+}
+
+.emotion-1 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  color: #282828;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1em;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  color: #2A6EBB;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-1:hover,
+.emotion-1:active,
+.emotion-1:focus,
+.emotion-1:focus-within {
+  color: inherit;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.emotion-1:hover,
+.emotion-1:active,
+.emotion-1:focus,
+.emotion-1:focus-within {
+  color: inherit;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.emotion-1:focus {
+  outline: 0;
+  position: relative;
+}
+
+.emotion-1:focus:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid #E97025;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 #E97025;
+  z-index: 9999;
+}
+
+.emotion-1:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.emotion-1:hover,
+.emotion-1:active,
+.emotion-1:focus,
+.emotion-1:focus-within {
+  color: #2A6EBB;
+}
+
+.emotion-1:hover,
+.emotion-1:active,
+.emotion-1:focus,
+.emotion-1:focus-within {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-1:visited {
+  color: #9F60B5;
+}
+
+.emotion-0 {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+<span
+  class="fi-link-external-container emotion-2"
+>
+  <a
+    aria-label="Opens in a new window"
+    class="fi-link fi-link--external fi-link emotion-1"
+    data-testid="test-link"
+    href="/"
+    rel="noopener"
+    target="_blank"
+  >
+    Hey this is test
+    <svg
+      aria-hidden="true"
+      class="fi-link-external-icon emotion-0"
+      focusable="false"
+      height="1em"
+      style="fill: #2A6EBB;"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M21 4.414l-7.793 7.793a.997.997 0 0 1-1.414 0 .999.999 0 0 1 0-1.414L19.586 3h-3.243a1 1 0 0 1 0-2H22a1 1 0 0 1 1 1v5.657a1 1 0 0 1-2 0V4.414zM4 22c-1.103 0-2-.897-2-2V6c0-1.103.897-2 2-2h8a1 1 0 0 1 0 2H4v14h15v-8a1 1 0 0 1 2 0v8c0 1.103-.897 2-2 2H4z"
+      />
+    </svg>
+  </a>
+</span>
+`;

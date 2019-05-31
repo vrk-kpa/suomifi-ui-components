@@ -164,8 +164,7 @@ exports[`calling render with the same component on the same container does not r
 .emotion-0:hover,
 .emotion-0:active,
 .emotion-0:focus,
-.emotion-0:focus-within,
-.emotion-0:visited {
+.emotion-0:focus-within {
   color: inherit;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -199,13 +198,14 @@ exports[`calling render with the same component on the same container does not r
 .emotion-0:hover,
 .emotion-0:active,
 .emotion-0:focus,
-.emotion-0:focus-within,
-.emotion-0:visited {
+.emotion-0:focus-within {
   color: #2A6EBB;
 }
 
 .emotion-0:hover,
-.emotion-0:active {
+.emotion-0:active,
+.emotion-0:focus,
+.emotion-0:focus-within {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }

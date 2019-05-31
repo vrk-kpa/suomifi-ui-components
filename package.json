@@ -105,7 +105,7 @@
     "@reach/menu-button": "0.1.7",
     "classnames": "2.2.6",
     "normalize.cssinjs": "1.0.5",
-    "polished": "3.3.2",
+    "polished": "3.4.0",
     "react-svg": "7.2.2",
     "suomifi-icons": "0.0.6"
   },
