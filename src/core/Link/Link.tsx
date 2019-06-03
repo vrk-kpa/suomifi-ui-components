@@ -10,7 +10,10 @@ import { LinkExternal, LinkExternalProps } from './LinkExternal';
 import { baseStyles } from './Link.baseStyles';
 export { LinkExternal, LinkExternalProps };
 
-export interface LinkProps extends CompLinkProps, ThemeComponent {}
+type LinkVariant = 'default' | 'external';
+export interface LinkProps extends CompLinkProps, ThemeComponent {
+  variant?: LinkVariant;
+}
 
 const StyledLink = styled(({ theme, ...passProps }: LinkProps) => (
   <CompLink {...passProps} />
@@ -21,11 +24,13 @@ const StyledLink = styled(({ theme, ...passProps }: LinkProps) => (
 /**
  * Used for adding a link
  */
-export class Link extends Component<LinkProps> {
+export class Link extends Component<LinkProps | LinkExternalProps> {
   static external = (props: LinkExternalProps) => <LinkExternal {...props} />;
 
   render() {
-    const passProps = withDefaultTheme(this.props);
+    const { variant, ...passProps } = withDefaultTheme(this.props);
+
+    if (variant === 'external') return <LinkExternal {...passProps} />;
     return <StyledLink {...passProps} />;
   }
 }

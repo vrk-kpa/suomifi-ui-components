@@ -15,5 +15,7 @@ test('calling render with the same component on the same container does not remo
   );
   const { getByTestId, container } = LinkRendered;
   expect(container.firstChild).toMatchSnapshot();
-  expect(getByTestId('test-link').textContent).toBe('Hey this is test');
+  expect(getByTestId('test-link').textContent).toBe(
+    'Hey this is testOpens in a new window',
+  );
 });

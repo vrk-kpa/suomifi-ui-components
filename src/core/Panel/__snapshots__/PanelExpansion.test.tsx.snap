@@ -27,7 +27,7 @@ exports[`calling render with the same component on the same container does not r
   width: 100%;
   max-width: 100%;
   color: #282828;
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 1em;
@@ -101,7 +101,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-3 .fi-panel-expansion-title--no-tag {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 1em;
