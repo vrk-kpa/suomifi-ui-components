@@ -43,6 +43,8 @@ Components' styles can be customized with [Styled Components](https://github.com
 styled(Button)...
 ```
 
+_HOX!!! If you use Styled Components you cannot use Component.variant (static methods) and you need to use variant-property to get variants from the styled(Component)._
+
 **or** using CSS-ClassName:
 
 ```jsx
