@@ -101,7 +101,7 @@ exports[`calling render with the same component on the same container does not r
   position: absolute;
   top: 50%;
   right: 16px;
-  margin-top: -0.5em;
+  margin-top: -0.6em;
 }
 
 .emotion-0 {
@@ -190,7 +190,10 @@ exports[`calling render with the same component on the same container does not r
 
 .emotion-2 {
   display: inline-block;
-  vertical-align: bottom;
+  vertical-align: baseline;
+  -webkit-transform: translateY(0.1em);
+  -ms-transform: translateY(0.1em);
+  transform: translateY(0.1em);
 }
 
 <label
