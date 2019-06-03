@@ -5,34 +5,6 @@ exports[`calling render with the same component on the same container does not r
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.emotion-2 .fi-link-external-icon {
-  padding-left: 4px;
-}
-
-.emotion-1 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
   background-color: transparent;
   margin: 0;
   padding: 0;
@@ -71,7 +43,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-text-decoration: underline;
   text-decoration: underline;
   color: #282828;
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 1em;
@@ -87,32 +59,32 @@ exports[`calling render with the same component on the same container does not r
   text-decoration: none;
 }
 
-.emotion-1:hover,
-.emotion-1:active,
-.emotion-1:focus,
-.emotion-1:focus-within {
+.emotion-2:hover,
+.emotion-2:active,
+.emotion-2:focus,
+.emotion-2:focus-within {
   color: inherit;
   -webkit-text-decoration: underline;
   text-decoration: underline;
   cursor: pointer;
 }
 
-.emotion-1:hover,
-.emotion-1:active,
-.emotion-1:focus,
-.emotion-1:focus-within {
+.emotion-2:hover,
+.emotion-2:active,
+.emotion-2:focus,
+.emotion-2:focus-within {
   color: inherit;
   -webkit-text-decoration: underline;
   text-decoration: underline;
   cursor: pointer;
 }
 
-.emotion-1:focus {
+.emotion-2:focus {
   outline: 0;
   position: relative;
 }
 
-.emotion-1:focus:after {
+.emotion-2:focus:after {
   content: '';
   position: absolute;
   top: -4px;
@@ -127,59 +99,96 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.emotion-1:focus:not(:focus-visible):after {
+.emotion-2:focus:not(:focus-visible):after {
   content: none;
 }
 
-.emotion-1:hover,
-.emotion-1:active,
-.emotion-1:focus,
-.emotion-1:focus-within {
+.emotion-2:hover,
+.emotion-2:active,
+.emotion-2:focus,
+.emotion-2:focus-within {
   color: #2A6EBB;
 }
 
-.emotion-1:hover,
-.emotion-1:active,
-.emotion-1:focus,
-.emotion-1:focus-within {
+.emotion-2:hover,
+.emotion-2:active,
+.emotion-2:focus,
+.emotion-2:focus-within {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.emotion-1:visited {
-  color: #9F60B5;
+.emotion-2:visited {
+  color: #87499D;
+}
+
+.emotion-2 .fi-link-icon {
+  padding-left: 4px;
 }
 
 .emotion-0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.emotion-1 {
   display: inline-block;
   vertical-align: bottom;
 }
 
-<span
-  class="fi-link-external-container emotion-2"
+<a
+  class="fi-link fi-link--external emotion-2"
+  data-testid="test-link"
+  href="/"
+  rel="noopener"
+  target="_blank"
 >
-  <a
-    aria-label="Opens in a new window"
-    class="fi-link fi-link--external fi-link emotion-1"
-    data-testid="test-link"
-    href="/"
-    rel="noopener"
-    target="_blank"
+  Hey this is test
+  <span
+    class="fi-visually-hidden emotion-0"
   >
-    Hey this is test
-    <svg
-      aria-hidden="true"
-      class="fi-link-external-icon emotion-0"
-      focusable="false"
-      height="1em"
-      style="fill: #2A6EBB;"
-      viewBox="0 0 24 24"
-      width="1em"
-    >
-      <path
-        d="M21 4.414l-7.793 7.793a.997.997 0 0 1-1.414 0 .999.999 0 0 1 0-1.414L19.586 3h-3.243a1 1 0 0 1 0-2H22a1 1 0 0 1 1 1v5.657a1 1 0 0 1-2 0V4.414zM4 22c-1.103 0-2-.897-2-2V6c0-1.103.897-2 2-2h8a1 1 0 0 1 0 2H4v14h15v-8a1 1 0 0 1 2 0v8c0 1.103-.897 2-2 2H4z"
-      />
-    </svg>
-  </a>
-</span>
+    Opens in a new window
+  </span>
+  <svg
+    aria-hidden="true"
+    class="fi-link-icon emotion-1"
+    focusable="false"
+    height="1em"
+    style="fill: currentColor;"
+    viewBox="0 0 24 24"
+    width="1em"
+  >
+    <path
+      d="M21 4.414l-7.793 7.793a.997.997 0 0 1-1.414 0 .999.999 0 0 1 0-1.414L19.586 3h-3.243a1 1 0 0 1 0-2H22a1 1 0 0 1 1 1v5.657a1 1 0 0 1-2 0V4.414zM4 22c-1.103 0-2-.897-2-2V6c0-1.103.897-2 2-2h8a1 1 0 0 1 0 2H4v14h15v-8a1 1 0 0 1 2 0v8c0 1.103-.897 2-2 2H4z"
+    />
+  </svg>
+</a>
 `;
