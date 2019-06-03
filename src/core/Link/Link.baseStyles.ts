@@ -23,7 +23,7 @@ export const baseStyles = ({ theme = suomifiTheme }: LinkProps) => css`
 `;
 
 export const externalStyles = ({ theme = suomifiTheme }: LinkProps) => css`
-  & .fi-link-external-icon {
+  & .fi-link-icon {
     padding-left: ${theme.spacing.xs};
   }
 `;
