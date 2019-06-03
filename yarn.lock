@@ -10400,10 +10400,10 @@ sugarss@^2.0.0:
   dependencies:
     postcss "^7.0.2"
 
-suomifi-icons@0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-0.0.6.tgz#7adb394c75922a1b9fe0e0c7f6f833848aa8b657"
-  integrity sha512-0KMl4guo1oMAnju4gOR+2fIGW3QTOGwof1/ZkAGtbASkUsOqkQr8nCP8mdOS9l1RM1jws4daHCAxWluTrtNkow==
+suomifi-icons@0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-0.0.7.tgz#52bf55f02c0dee78406073d15d320a911251e89d"
+  integrity sha512-d2Tj2Mf0wcQgWsUuYtISKYI3QwEbkySts2CFZbILCKKGu7lfRRURVUREmqYIOUaX6aWfJg4AlcZJdEKIzEfI2A==
   dependencies:
     "@types/react" "16.7.20"
     "@types/react-dom" "16.0.11"
