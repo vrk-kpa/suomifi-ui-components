@@ -47,7 +47,7 @@ export class LinkExternal extends Component<LinkExternalProps> {
       hideIcon,
       ...passProps
     } = withDefaultTheme(this.props);
-    if (!!ariaLabel) {
+    if (!ariaLabel) {
       logger.warn(
         'External link needs a translated description of link opening to a new window',
       );

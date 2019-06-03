@@ -226,7 +226,10 @@ exports[`calling render with the same component on the same container does not r
 
 .emotion-0 {
   display: inline-block;
-  vertical-align: bottom;
+  vertical-align: baseline;
+  -webkit-transform: translateY(0.1em);
+  -ms-transform: translateY(0.1em);
+  transform: translateY(0.1em);
 }
 
 .emotion-2 {
@@ -279,7 +282,7 @@ exports[`calling render with the same component on the same container does not r
       width="1em"
     >
       <path
-        d="M12 18c-.28 0-.548-.118-.737-.324l-8-9a1 1 0 0 1 1.474-1.352L12 15.52l7.263-8.196a1 1 0 1 1 1.474 1.352l-8 9A1.002 1.002 0 0 1 12 18"
+        d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
       />
     </svg>
   </button>

@@ -15,7 +15,7 @@ export const baseStyles = ({ theme = suomifiTheme }: SearchInputProps) => css`
       position: absolute;
       top: 50%;
       right: ${theme.spacing.m};
-      margin-top: -0.5em;
+      margin-top: -0.6em;
     }
   }
 `;

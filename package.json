@@ -107,7 +107,7 @@
     "normalize.cssinjs": "1.0.5",
     "polished": "3.4.0",
     "react-svg": "7.2.2",
-    "suomifi-icons": "0.0.6"
+    "suomifi-icons": "0.0.7"
   },
   "peerDependencies": {
     "react": "16.6.3",
