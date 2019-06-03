@@ -19,7 +19,12 @@ export class Link extends Component<LinkProps> {
   render() {
     const { className, ...passProps } = this.props;
     return (
-      <HtmlA {...passProps} className={classnames(className, baseClassName)} />
+      <HtmlA
+        {...passProps}
+        className={classnames(className, {
+          [baseClassName]: !className || !className.includes(baseClassName),
+        })}
+      />
     );
   }
 }

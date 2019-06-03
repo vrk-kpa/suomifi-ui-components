@@ -7,14 +7,13 @@ import {
   LinkExternal as CompLinkExternal,
   LinkExternalProps as CompLinkExternalProps,
 } from '../../components/Link/LinkExternal';
-import { HtmlSpan } from '../../reset/HtmlSpan/HtmlSpan';
 import { Icon } from '../Icon/Icon';
 import { externalStyles } from './Link.baseStyles';
-import classnames from 'classnames';
+import { Omit } from '../../utils/typescript';
+import { VisuallyHidden } from '../../components';
+import { logger } from '../../utils/logger';
 
-const baseClassName = 'fi-link-external';
-const containerClassName = `${baseClassName}-container`;
-const iconClassName = `${baseClassName}-icon`;
+const iconClassName = 'fi-link-icon';
 
 export interface LinkExternalProps
   extends CompLinkExternalProps,
@@ -22,18 +21,16 @@ export interface LinkExternalProps
     ThemeComponent {
   /** Translated explanation of 'opens to a new window' */
   'aria-label': string;
+  /** Hide the icon */
+  hideIcon?: boolean;
 }
 
 const StyledLinkExternal = styled(
   ({
     theme,
-    className,
-    'aria-label': ariaLabel,
     ...passProps
-  }: LinkExternalProps) => (
-    <HtmlSpan className={classnames(className, containerClassName)}>
-      <Link {...passProps} as={CompLinkExternal} aria-label={ariaLabel} />
-    </HtmlSpan>
+  }: Omit<LinkExternalProps, 'aria-label' | 'hideIcon'>) => (
+    <Link {...passProps} as={CompLinkExternal} />
   ),
 )`
   ${props => externalStyles(props)};
@@ -44,15 +41,28 @@ const StyledLinkExternal = styled(
  */
 export class LinkExternal extends Component<LinkExternalProps> {
   render() {
-    const { children, ...passProps } = withDefaultTheme(this.props);
+    const {
+      children,
+      'aria-label': ariaLabel,
+      hideIcon,
+      ...passProps
+    } = withDefaultTheme(this.props);
+    if (!!ariaLabel) {
+      logger.warn(
+        'External link needs a translated description of link opening to a new window',
+      );
+    }
     return (
       <StyledLinkExternal {...passProps}>
         {children}
-        <Icon
-          icon="linkExternal"
-          className={iconClassName}
-          color={passProps.theme.colors.highlightBase}
-        />
+        <VisuallyHidden>{ariaLabel}</VisuallyHidden>
+        {!hideIcon && (
+          <Icon
+            icon="linkExternal"
+            className={iconClassName}
+            color="currentColor"
+          />
+        )}
       </StyledLinkExternal>
     );
   }

@@ -5,7 +5,9 @@ Suomi.fi-styleguide in React components. [Living styleguide](https://vrk-kpa.git
 ## ✨ Features
 
 - React-components (>=16.3) with Typescript support
-- (TBD: styled-theme, reset-tags, css-export)
+- Highly modular - all browser/app CSS-resets without global styles
+- Should work on all different existing React apps (>=16.3)
+- Highly customizable (CSS, CSS-in-JS)
 
 Uses [React 16.6.3](https://github.com/facebook/react) with [Emotion](https://github.com/emotion-js/emotion) and written in [TypeScript](https://github.com/Microsoft/TypeScript). [Styleguidist](https://github.com/styleguidist/react-styleguidist) for presenting components.
 
@@ -42,6 +44,8 @@ Components' styles can be customized with [Styled Components](https://github.com
 ```javascript
 styled(Button)...
 ```
+
+_HOX!!! If you use Styled Components you cannot use Component.variant (static methods) and you need to use variant-property to get variants from the styled(Component)._
 
 **or** using CSS-ClassName:
 

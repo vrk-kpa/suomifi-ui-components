@@ -18,12 +18,12 @@ export const baseStyles = ({ theme = suomifiTheme }: LinkProps) => css`
     text-decoration: underline;
   }
   &:visited {
-    color: ${theme.colors.accentTertiary};
+    color: ${theme.colors.accentTertiaryDark9};
   }
 `;
 
 export const externalStyles = ({ theme = suomifiTheme }: LinkProps) => css`
-  & .fi-link-external-icon {
+  & .fi-link-icon {
     padding-left: ${theme.spacing.xs};
   }
 `;
