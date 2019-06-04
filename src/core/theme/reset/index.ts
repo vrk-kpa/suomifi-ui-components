@@ -25,6 +25,7 @@ export const inputContainer = css`
     /* For IE/Edge */
     outline-color: ${suomifiTheme.colors.accentBase};
     outline-width: 4px;
+    outline-offset: 2px;
   }
   &:focus-within {
     ${focusUtil({ noPseudo: true, theme: suomifiTheme })}
