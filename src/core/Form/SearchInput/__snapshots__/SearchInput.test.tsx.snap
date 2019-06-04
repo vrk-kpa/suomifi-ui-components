@@ -28,6 +28,7 @@ exports[`calling render with the same component on the same container does not r
 .emotion-4 .fi-text-input-container > input:focus {
   outline-color: #E97025;
   outline-width: 4px;
+  outline-offset: 2px;
 }
 
 .emotion-4 .fi-text-input-container:focus-within {
