@@ -129,6 +129,8 @@ export const baseStyles = ({
     width: 16px;
     height: 16px;
     margin-right: ${theme.spacing.s};
+    vertical-align: middle;
+    transform: translateY(-0.1em);
     &.fi-button-icon--right {
       margin-right: 0;
       margin-left: ${theme.spacing.s};
