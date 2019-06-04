@@ -22,8 +22,7 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
     opacity: 0;
     z-index: -9999;
     background-color: ${theme.colors.whiteBase};
-    &:focus,
-    &:focus-visible {
+    &:focus {
       outline: 0;
       & + .fi-toggle-label {
         ${focus({ theme, noPseudo: true })}
@@ -40,13 +39,18 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
     width: 40px;
     height: 24px;
     margin-right: ${theme.spacing.s};
+    vertical-align: bottom;
+    overflow: visible;
   
-    * {
+    & * {
       cursor: pointer;
     }
   
-    .${svgPrefix}fi-toggle-icon-knob {
+    & .${svgPrefix}fi-toggle-icon-knob {
       transform: translateX(0%);
+    }
+    & .${svgPrefix}fi-toggle-icon-slide {
+      transform: translateY(1px);
     }
     &.fi-toggle-icon--checked {
       .${svgPrefix}fi-toggle-icon-knob {
