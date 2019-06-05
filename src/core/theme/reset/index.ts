@@ -20,15 +20,15 @@ export const input = (theme: ThemeProp = suomifiTheme) => css`
   border-radius: ${theme.radius.basic};
 `;
 
-export const inputContainer = css`
+export const inputContainer = (theme: ThemeProp = suomifiTheme) => css`
   > input:focus {
     /* For IE/Edge */
-    outline-color: ${suomifiTheme.colors.accentBase};
+    outline-color: ${theme.colors.accentBase};
     outline-width: 4px;
     outline-offset: 2px;
   }
   &:focus-within {
-    ${focusUtil({ noPseudo: true, theme: suomifiTheme })}
+    ${focusUtil({ theme, noPseudo: true })}
     > input:focus {
       outline: none;
     }
