@@ -45,12 +45,12 @@ export const nav = (theme: ThemeProp = suomifiTheme) => css`
   display: block;
 `;
 
-export const list = css`
-  ${element(suomifiTheme)}
+export const list = (theme: ThemeProp = suomifiTheme) => css`
+  ${element(theme)}
   list-style: none;
 `;
 
-export const listItem = css`
-  ${element(suomifiTheme)}
+export const listItem = (theme: ThemeProp = suomifiTheme) => css`
+  ${element(theme)}
   list-style: none;
 `;

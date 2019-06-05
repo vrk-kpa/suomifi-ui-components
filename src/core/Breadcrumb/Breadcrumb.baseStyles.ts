@@ -10,13 +10,13 @@ export const baseStyles = ({ theme = suomifiTheme }: BreadcrumbProps) => css`
 
   & .fi-breadcrumb {
     &-list {
-      ${list}
+      ${list(theme)}
       ${fonts(theme).body}
       margin: 0;
       padding: 0;
     }
     &-item {
-      ${listItem}
+      ${listItem(theme)}
       ${fonts(theme).body}
       float: left;
     }
