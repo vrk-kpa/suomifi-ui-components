@@ -5,7 +5,7 @@ import { element, fonts } from '../theme/reset';
 import { objValue } from '../../utils/typescript';
 
 export const baseStyles = ({ theme = suomifiTheme, color }: TextProps) => css`
-  ${element}
+  ${element(theme)}
   ${fonts(theme).body}
   color: ${!!color ? objValue(theme.colors, color) : theme.colors.blackBase};
 

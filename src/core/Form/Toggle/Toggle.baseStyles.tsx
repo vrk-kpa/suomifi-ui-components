@@ -8,14 +8,14 @@ import { alphaHex } from '../../../utils/css/colors';
 const svgPrefix = 'icon-toggle_svg__';
 
 export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
-  ${element}
+  ${element(theme)}
   ${fonts(theme).body}
   background-color: ${theme.colors.whiteBase};
   & > .fi-toggle-label {
     cursor: pointer;
   }
   & > .fi-toggle-input {
-    ${element}
+    ${element(theme)}
     ${fonts(theme).body}
     width: 0;
     height: 0;

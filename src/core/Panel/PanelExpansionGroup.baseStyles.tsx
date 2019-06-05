@@ -6,7 +6,7 @@ import { element, fonts, focus } from '../theme/reset';
 export const baseStyles = ({
   theme = suomifiTheme,
 }: PanelExpansionGroupProps) => css`
-  ${element}
+  ${element(theme)}
   display: flex;
   flex-direction: column;
   & > .fi-panel-expansion-group-panels {
@@ -29,7 +29,7 @@ export const baseStyles = ({
   }
 
   & > .fi-panel-expansion-group-all-button {
-    ${element}
+    ${element(theme)}
     ${fonts(theme).semiBold}
     ${focus}
     flex: 1;

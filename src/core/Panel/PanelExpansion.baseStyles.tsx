@@ -26,7 +26,7 @@ export const baseStyles = ({
   }
 
   & .fi-panel-expansion-title {
-    ${element}
+    ${element(theme)}
     ${focus}
     position: relative;
     display: block;

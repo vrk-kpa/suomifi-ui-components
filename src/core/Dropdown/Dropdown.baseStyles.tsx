@@ -37,7 +37,7 @@ export const globalStyles = ({ theme = suomifiTheme }: DropdownProps) => css`
   ${dataReachMenu(theme)}
 
   [data-reach-menu-list].fi-dropdown-list {
-    ${element}
+    ${element(theme)}
     ${fonts(theme).input}
     padding: 0;
     font-size: 100%;
@@ -51,7 +51,7 @@ export const globalStyles = ({ theme = suomifiTheme }: DropdownProps) => css`
   }
 
   [data-reach-menu-item].fi-dropdown-item {
-    ${element}
+    ${element(theme)}
     ${fonts(theme).input}
     padding: ${theme.spacing.s} ${theme.spacing.m};
     border: 0;

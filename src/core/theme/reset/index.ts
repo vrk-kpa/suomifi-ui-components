@@ -1,17 +1,17 @@
 import { css } from '@emotion/core';
-import { suomifiTheme } from '../';
+import { ThemeProp, suomifiTheme } from '../';
 import { focus as focusUtil } from '../utils';
 import { fonts } from './typography';
 export { fonts } from './typography';
 
 export const focus = focusUtil({ theme: suomifiTheme });
 
-export const element = css`
-  color: ${suomifiTheme.colors.blackBase};
+export const element = (theme: ThemeProp = suomifiTheme) => css`
+  color: ${theme.colors.blackBase};
 `;
 
 export const input = css`
-  ${element}
+  ${element(suomifiTheme)}
   ${fonts(suomifiTheme).input}
   min-width: 245px;
   max-width: 100%;
@@ -41,16 +41,16 @@ export const inputButton = css`
 `;
 
 export const nav = css`
-  ${element}
+  ${element(suomifiTheme)}
   display: block;
 `;
 
 export const list = css`
-  ${element}
+  ${element(suomifiTheme)}
   list-style: none;
 `;
 
 export const listItem = css`
-  ${element}
+  ${element(suomifiTheme)}
   list-style: none;
 `;

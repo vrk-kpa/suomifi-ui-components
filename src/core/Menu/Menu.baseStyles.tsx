@@ -9,12 +9,12 @@ export const baseStyles = ({
   theme = suomifiTheme,
 }: Omit<MenuProps, 'name'>) => css`
   & > [data-reach-menu-button].fi-menu-button {
-    ${element}
+    ${element(theme)}
     ${fonts(theme).body}
     ${focus}
     cursor: pointer;
     &.fi-menu-language-button {
-      ${element}
+      ${element(theme)}
       ${fonts(theme).inputSemibold}
       ${padding(theme)('s', 'xs', 's', 's')}
       background-color: ${theme.colors.whiteBase};
@@ -32,7 +32,7 @@ export const baseStyles = ({
 
 export const dataReachMenu = (theme: ThemeProp) => css`
   [data-reach-menu] {
-    ${element}
+    ${element(theme)}
     ${fonts(theme).body}
     z-index: ${theme.zindexes.menu};
     margin-top: -2px;
@@ -44,7 +44,7 @@ export const globalStyles = ({ theme = suomifiTheme }: MenuProps) => css`
   ${dataReachMenu(theme)}
 
   [data-reach-menu-list].fi-menu-list {
-    ${element}
+    ${element(theme)}
     ${fonts(theme).body}
     background-color: ${theme.colors.whiteBase};
     border: none;
@@ -83,7 +83,7 @@ export const globalStyles = ({ theme = suomifiTheme }: MenuProps) => css`
   }
 
   [data-reach-menu-item].fi-menu-item {
-    ${element}
+    ${element(theme)}
     ${fonts(theme).body}
     &[data-selected] {
       ${fonts(theme).body}

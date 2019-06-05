@@ -8,7 +8,7 @@ export const baseStyles = ({
   theme = suomifiTheme,
   color,
 }: HeadingProps) => css`
-  ${element}
+  ${element(theme)}
   ${fonts(theme).body}
   color: ${!!color ? objValue(theme.colors, color) : theme.colors.blackBase};
 

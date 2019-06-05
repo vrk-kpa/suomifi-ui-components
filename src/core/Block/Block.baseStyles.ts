@@ -5,7 +5,7 @@ import { element, fonts } from '../theme/reset';
 import { spacingModifiers } from '../theme/utils';
 
 export const baseStyles = ({ theme = suomifiTheme }: BlockProps) => css`
-  ${element}
+  ${element(theme)}
   ${fonts(theme).body}
   ${spacingModifiers(theme)('margin')('&.fi-block--margin')}
   ${spacingModifiers(theme)('padding')('&.fi-block--padding')}
