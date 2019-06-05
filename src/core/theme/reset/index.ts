@@ -40,8 +40,8 @@ export const inputButton = (theme: ThemeProp = suomifiTheme) => css`
   ${focus(theme)}
 `;
 
-export const nav = css`
-  ${element(suomifiTheme)}
+export const nav = (theme: ThemeProp = suomifiTheme) => css`
+  ${element(theme)}
   display: block;
 `;
 

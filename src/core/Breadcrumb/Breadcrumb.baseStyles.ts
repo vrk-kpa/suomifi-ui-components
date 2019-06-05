@@ -4,7 +4,7 @@ import { BreadcrumbProps } from './Breadcrumb';
 import { nav, list, listItem, fonts } from '../theme/reset';
 
 export const baseStyles = ({ theme = suomifiTheme }: BreadcrumbProps) => css`
-  ${nav}
+  ${nav(theme)}
   ${fonts(theme).body}
   background-color: ${theme.colors.whiteBase};
 
