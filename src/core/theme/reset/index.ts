@@ -10,14 +10,14 @@ export const element = (theme: ThemeProp = suomifiTheme) => css`
   color: ${theme.colors.blackBase};
 `;
 
-export const input = css`
-  ${element(suomifiTheme)}
-  ${fonts(suomifiTheme).input}
+export const input = (theme: ThemeProp = suomifiTheme) => css`
+  ${element(theme)}
+  ${fonts(theme).input}
   min-width: 245px;
   max-width: 100%;
-  padding: ${suomifiTheme.spacing.s} ${suomifiTheme.spacing.m};
-  border: 1px solid ${suomifiTheme.colors.depthBase};
-  border-radius: ${suomifiTheme.radius.basic};
+  padding: ${theme.spacing.s} ${theme.spacing.m};
+  border: 1px solid ${theme.colors.depthBase};
+  border-radius: ${theme.radius.basic};
 `;
 
 export const inputContainer = css`
@@ -36,7 +36,7 @@ export const inputContainer = css`
 `;
 
 export const inputButton = css`
-  ${input}
+  ${input(suomifiTheme)}
   ${focus}
 `;
 

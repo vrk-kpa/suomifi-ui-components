@@ -13,7 +13,7 @@ export const baseStyles = ({ theme = suomifiTheme }: TextInputProps) => css`
   }
 
   & .fi-text-input-input {
-    ${input}
+    ${input(theme)}
     background-color: ${theme.colors.whiteBase};
   }
 
