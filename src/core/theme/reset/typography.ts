@@ -13,7 +13,7 @@ const font = ({ size = 'body', weight = 'normal', smRes }: FontProp) => css`
     ? typography.smallResolution.fontSize[size]
     : typography.fontSize[size]};
   font-weight: ${typography.fontWeights[weight]};
-  line-height: 1em;
+  line-height: ${typography.lineHeight};
   letter-spacing: 0;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
