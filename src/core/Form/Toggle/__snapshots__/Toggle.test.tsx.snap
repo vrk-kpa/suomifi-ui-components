@@ -27,7 +27,7 @@ exports[`calling render with the same component on the same container does not r
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
   font-weight: 400;
-  line-height: 1em;
+  line-height: 1.5;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -47,7 +47,7 @@ exports[`calling render with the same component on the same container does not r
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
   font-weight: 400;
-  line-height: 1em;
+  line-height: 1.5;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -104,6 +104,9 @@ exports[`calling render with the same component on the same container does not r
   margin-right: 8px;
   vertical-align: bottom;
   overflow: visible;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
 }
 
 .emotion-3 .fi-toggle-icon * {
