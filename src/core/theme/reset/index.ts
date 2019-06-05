@@ -4,7 +4,7 @@ import { focus as focusUtil } from '../utils';
 import { fonts } from './typography';
 export { fonts } from './typography';
 
-export const focus = focusUtil({ theme: suomifiTheme });
+export const focus = (theme: ThemeProp = suomifiTheme) => focusUtil({ theme });
 
 export const element = (theme: ThemeProp = suomifiTheme) => css`
   color: ${theme.colors.blackBase};
@@ -35,9 +35,9 @@ export const inputContainer = (theme: ThemeProp = suomifiTheme) => css`
   }
 `;
 
-export const inputButton = css`
-  ${input(suomifiTheme)}
-  ${focus}
+export const inputButton = (theme: ThemeProp = suomifiTheme) => css`
+  ${input(theme)}
+  ${focus(theme)}
 `;
 
 export const nav = css`

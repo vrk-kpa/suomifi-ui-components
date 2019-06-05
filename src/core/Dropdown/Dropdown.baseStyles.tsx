@@ -9,7 +9,7 @@ export const baseStyles = ({
   theme = suomifiTheme,
 }: Omit<DropdownProps, 'name'>) => css`
   & > [data-reach-menu-button].fi-dropdown-button {
-    ${inputButton}
+    ${inputButton(theme)}
     position: relative;
     padding-right: 30px;
     text-align: left;

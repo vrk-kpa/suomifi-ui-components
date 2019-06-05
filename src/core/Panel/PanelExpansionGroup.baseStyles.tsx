@@ -31,7 +31,7 @@ export const baseStyles = ({
   & > .fi-panel-expansion-group-all-button {
     ${element(theme)}
     ${fonts(theme).semiBold}
-    ${focus}
+    ${focus(theme)}
     flex: 1;
     margin-left: auto;
     margin-bottom: ${theme.spacing.s};

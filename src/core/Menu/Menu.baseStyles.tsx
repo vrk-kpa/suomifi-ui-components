@@ -11,7 +11,7 @@ export const baseStyles = ({
   & > [data-reach-menu-button].fi-menu-button {
     ${element(theme)}
     ${fonts(theme).body}
-    ${focus}
+    ${focus(theme)}
     cursor: pointer;
     &.fi-menu-language-button {
       ${element(theme)}
