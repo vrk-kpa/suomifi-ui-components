@@ -5,24 +5,24 @@ import { element, fonts } from '../theme/reset';
 import { objValue } from '../../utils/typescript';
 
 export const baseStyles = ({ theme = suomifiTheme, color }: TextProps) => css`
-  ${element}
-  ${fonts.body}
+  ${element(theme)}
+  ${fonts(theme).body}
   color: ${!!color ? objValue(theme.colors, color) : theme.colors.blackBase};
 
   &.fi-text {
     &--bold {
-      ${fonts.semiBold}
+      ${fonts(theme).semiBold}
     }
     &--lead {
-      ${fonts.lead}
+      ${fonts(theme).lead}
     }
     &--small-screen {
-      ${fonts.smRes.body}
+      ${fonts(theme).smRes.body}
       &.fi-text--bold {
-        ${fonts.smRes.semiBold}
+        ${fonts(theme).smRes.semiBold}
       }
       &.fi-text--lead {
-        ${fonts.smRes.lead}
+        ${fonts(theme).smRes.lead}
       }
     }
   } 

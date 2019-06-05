@@ -38,4 +38,5 @@ export const typography = {
   smallResolution: {
     fontSize: fontSize.smRes,
   },
+  lineHeight: 1.5,
 };

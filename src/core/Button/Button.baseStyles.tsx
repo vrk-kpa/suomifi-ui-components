@@ -91,9 +91,9 @@ export const baseStyles = ({
   theme = suomifiTheme,
   fullWidth = false,
 }: ButtonProps) => css`
-  ${element}
-  ${fonts.inputSemibold}
-  ${focus}
+  ${element(theme)}
+  ${fonts(theme).inputSemibold}
+  ${focus(theme)}
   padding: ${theme.spacing.s} ${theme.spacing.m};
   min-height: 40px;
   color: ${theme.colors.whiteBase};
@@ -139,8 +139,8 @@ export const baseStyles = ({
 `;
 
 export const unStyled = ({ theme = suomifiTheme }) => css`
-  ${element}
-  ${focus}
+  ${element(theme)}
+  ${focus(theme)}
   border-radius: ${theme.radius.basic};
   cursor: pointer;
 `;
