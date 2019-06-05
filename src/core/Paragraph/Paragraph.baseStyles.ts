@@ -11,7 +11,7 @@ export const baseStyles = ({
   marginBottomSpacing = '0',
 }: ParagraphProps) => css`
   ${element}
-  ${fonts.body}
+  ${fonts(theme).body}
   ${margin(theme)('0', '0', marginBottomSpacing, '0')};
   color: ${!!color ? objValue(theme.colors, color) : theme.colors.blackBase};
 `;

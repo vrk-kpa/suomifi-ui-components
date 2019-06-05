@@ -5,19 +5,19 @@ import { nav, list, listItem, fonts } from '../theme/reset';
 
 export const baseStyles = ({ theme = suomifiTheme }: BreadcrumbProps) => css`
   ${nav}
-  ${fonts.body}
+  ${fonts(theme).body}
   background-color: ${theme.colors.whiteBase};
 
   & .fi-breadcrumb {
     &-list {
       ${list}
-      ${fonts.body}
+      ${fonts(theme).body}
       margin: 0;
       padding: 0;
     }
     &-item {
       ${listItem}
-      ${fonts.body}
+      ${fonts(theme).body}
       float: left;
     }
     &-item,

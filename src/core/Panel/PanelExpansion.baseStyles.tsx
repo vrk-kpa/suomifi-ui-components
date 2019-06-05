@@ -32,7 +32,7 @@ export const baseStyles = ({
     display: block;
     width: 100%;
     &--no-tag {
-      ${fonts.semiBold}
+      ${fonts(theme).semiBold}
       ${padding(theme)('m', 'xl', 'm', 'm')}
       color: ${theme.colors.highlightBase};
     }

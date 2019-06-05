@@ -92,7 +92,7 @@ export const baseStyles = ({
   fullWidth = false,
 }: ButtonProps) => css`
   ${element}
-  ${fonts.inputSemibold}
+  ${fonts(theme).inputSemibold}
   ${focus}
   padding: ${theme.spacing.s} ${theme.spacing.m};
   min-height: 40px;

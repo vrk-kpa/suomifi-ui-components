@@ -12,7 +12,7 @@ export const element = css`
 
 export const input = css`
   ${element}
-  ${fonts.input}
+  ${fonts(suomifiTheme).input}
   min-width: 245px;
   max-width: 100%;
   padding: ${suomifiTheme.spacing.s} ${suomifiTheme.spacing.m};

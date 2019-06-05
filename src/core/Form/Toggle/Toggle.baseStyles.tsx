@@ -9,14 +9,14 @@ const svgPrefix = 'icon-toggle_svg__';
 
 export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
   ${element}
-  ${fonts.body}
+  ${fonts(theme).body}
   background-color: ${theme.colors.whiteBase};
   & > .fi-toggle-label {
     cursor: pointer;
   }
   & > .fi-toggle-input {
     ${element}
-    ${fonts.body}
+    ${fonts(theme).body}
     width: 0;
     height: 0;
     opacity: 0;

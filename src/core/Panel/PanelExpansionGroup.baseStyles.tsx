@@ -30,7 +30,7 @@ export const baseStyles = ({
 
   & > .fi-panel-expansion-group-all-button {
     ${element}
-    ${fonts.semiBold}
+    ${fonts(theme).semiBold}
     ${focus}
     flex: 1;
     margin-left: auto;
