@@ -41,6 +41,7 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
     margin-right: ${theme.spacing.s};
     vertical-align: bottom;
     overflow: visible;
+    transform: translateY(-0.1em);
   
     & * {
       cursor: pointer;
