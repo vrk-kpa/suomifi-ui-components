@@ -36,7 +36,7 @@ module.exports = {
   testMatch: tsjPreset.testMatch,
   moduleFileExtensions: tsjPreset.moduleFileExtensions,
 
-  setupTestFrameworkScriptFile: require.resolve('./jest.setup.js'),
+  setupFilesAfterEnv: [require.resolve('./jest.setup.js')],
 
   snapshotSerializers: ['jest-emotion'],
   moduleNameMapper: {
