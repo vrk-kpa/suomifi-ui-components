@@ -9,6 +9,22 @@ interface FontProps {
   smRes?: boolean;
 }
 
+const lineHeight = ({
+  typography = defaultTypography,
+  size = 'body',
+  smRes,
+}: FontProps) => {
+  if (Object.keys(typography.lineHeight).includes(size)) {
+    const lineSize = size as keyof typeof defaultTypography.lineHeight;
+    return !!smRes
+      ? typography.smallResolution.lineHeight[lineSize]
+      : typography.lineHeight[lineSize];
+  }
+  return !!smRes
+    ? typography.smallResolution.lineHeight.body
+    : typography.lineHeight.body;
+};
+
 const font = ({
   typography = defaultTypography,
   size = 'body',
@@ -20,7 +36,7 @@ const font = ({
     ? typography.smallResolution.fontSize[size]
     : typography.fontSize[size]};
   font-weight: ${typography.fontWeights[weight]};
-  line-height: ${typography.lineHeight};
+  line-height: ${lineHeight({ typography, size, smRes })};
   letter-spacing: 0;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
