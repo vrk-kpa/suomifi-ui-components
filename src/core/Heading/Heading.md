@@ -9,5 +9,8 @@ import { Heading } from 'suomifi-ui-components';
   <Heading.h5>h5 text</Heading.h5>
   <Heading.h6>h6 text</Heading.h6>
   <Heading.h1hero>h1 text with hero styling</Heading.h1hero>
+  <Heading.h1 smallScreen>
+    h1 text for small screen resolution
+  </Heading.h1>
 </>;
 ```
