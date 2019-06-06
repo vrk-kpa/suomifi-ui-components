@@ -23,6 +23,25 @@ const fontSize = {
   },
 };
 
+const lineHeight = {
+  default: {
+    body: '1.5',
+    h1: '48px',
+    h2: '34px',
+    h3: '28px',
+    h4: '24px',
+    h5: '20px',
+  },
+  smRes: {
+    body: '1.5',
+    h1: '38px',
+    h2: '32px',
+    h3: '26px',
+    h4: '20px',
+    h5: '20px',
+  },
+};
+
 export const fontFamily = 'Source Sans Pro';
 
 const fontWeights = {
@@ -35,7 +54,9 @@ export const typography = {
   fontWeights,
   fontFamily: `'${fontFamily}','Helvetica Neue', Arial, sans-serif`,
   fontSize: fontSize.default,
+  lineHeight: lineHeight.default,
   smallResolution: {
     fontSize: fontSize.smRes,
+    lineHeight: lineHeight.smRes,
   },
 };

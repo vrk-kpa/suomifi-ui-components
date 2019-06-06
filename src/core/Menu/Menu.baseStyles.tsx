@@ -9,13 +9,13 @@ export const baseStyles = ({
   theme = suomifiTheme,
 }: Omit<MenuProps, 'name'>) => css`
   & > [data-reach-menu-button].fi-menu-button {
-    ${element}
-    ${fonts.body}
-    ${focus}
+    ${element(theme)}
+    ${fonts(theme).body}
+    ${focus(theme)}
     cursor: pointer;
     &.fi-menu-language-button {
-      ${element}
-      ${fonts.inputSemibold}
+      ${element(theme)}
+      ${fonts(theme).inputSemibold}
       ${padding(theme)('s', 'xs', 's', 's')}
       background-color: ${theme.colors.whiteBase};
       border: 1px solid ${theme.colors.depthBase};
@@ -32,8 +32,8 @@ export const baseStyles = ({
 
 export const dataReachMenu = (theme: ThemeProp) => css`
   [data-reach-menu] {
-    ${element}
-    ${fonts.body}
+    ${element(theme)}
+    ${fonts(theme).body}
     z-index: ${theme.zindexes.menu};
     margin-top: -2px;
     font-family: inherit;
@@ -44,13 +44,13 @@ export const globalStyles = ({ theme = suomifiTheme }: MenuProps) => css`
   ${dataReachMenu(theme)}
 
   [data-reach-menu-list].fi-menu-list {
-    ${element}
-    ${fonts.body}
+    ${element(theme)}
+    ${fonts(theme).body}
     background-color: ${theme.colors.whiteBase};
     border: none;
     box-shadow: ${theme.shadows.menuShadow};
     &.fi-menu-language-list {
-      ${fonts.input}
+      ${fonts(theme).input}
       position: absolute;
       right: 0;
       top: 0;
@@ -83,21 +83,21 @@ export const globalStyles = ({ theme = suomifiTheme }: MenuProps) => css`
   }
 
   [data-reach-menu-item].fi-menu-item {
-    ${element}
-    ${fonts.body}
+    ${element(theme)}
+    ${fonts(theme).body}
     &[data-selected] {
-      ${fonts.body}
+      ${fonts(theme).body}
       color: ${theme.colors.blackBase};
       background-color: ${theme.colors.highlightLight50};
     }
     &.fi-menu-language-item,
     &[data-selected].fi-menu-language-item {
-      ${fonts.input}
+      ${fonts(theme).input}
       padding: 6px 20px 6px 14px;
       border-left: 6px solid transparent;
       background-color: transparent;
       &.fi-menu-lang-item-selected {
-        ${fonts.inputSemibold};
+        ${fonts(theme).inputSemibold};
       }
     }
     &[data-selected].fi-menu-language-item {

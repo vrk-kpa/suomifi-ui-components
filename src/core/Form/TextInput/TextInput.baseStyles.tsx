@@ -9,11 +9,11 @@ export const baseStyles = ({ theme = suomifiTheme }: TextInputProps) => css`
   }
 
   & .fi-text-input-container {
-    ${inputContainer}
+    ${inputContainer(theme)}
   }
 
   & .fi-text-input-input {
-    ${input}
+    ${input(theme)}
     background-color: ${theme.colors.whiteBase};
   }
 

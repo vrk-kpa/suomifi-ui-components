@@ -17,7 +17,7 @@ export interface ParagraphProps extends CompParagraphProps, ThemeComponent {
 }
 
 const StyledParagraph = styled(
-  ({ theme, color, ...passProps }: ParagraphProps) => (
+  ({ theme, color, marginBottomSpacing, ...passProps }: ParagraphProps) => (
     <CompParagraph {...passProps} />
   ),
 )`

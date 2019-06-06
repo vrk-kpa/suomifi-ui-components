@@ -26,13 +26,13 @@ export const baseStyles = ({
   }
 
   & .fi-panel-expansion-title {
-    ${element}
-    ${focus}
+    ${element(theme)}
+    ${focus(theme)}
     position: relative;
     display: block;
     width: 100%;
     &--no-tag {
-      ${fonts.semiBold}
+      ${fonts(theme).semiBold}
       ${padding(theme)('m', 'xl', 'm', 'm')}
       color: ${theme.colors.highlightBase};
     }

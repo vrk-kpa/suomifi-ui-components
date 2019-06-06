@@ -4,20 +4,20 @@ import { BreadcrumbProps } from './Breadcrumb';
 import { nav, list, listItem, fonts } from '../theme/reset';
 
 export const baseStyles = ({ theme = suomifiTheme }: BreadcrumbProps) => css`
-  ${nav}
-  ${fonts.body}
+  ${nav(theme)}
+  ${fonts(theme).body}
   background-color: ${theme.colors.whiteBase};
 
   & .fi-breadcrumb {
     &-list {
-      ${list}
-      ${fonts.body}
+      ${list(theme)}
+      ${fonts(theme).body}
       margin: 0;
       padding: 0;
     }
     &-item {
-      ${listItem}
-      ${fonts.body}
+      ${listItem(theme)}
+      ${fonts(theme).body}
       float: left;
     }
     &-item,

@@ -1,6 +1,6 @@
 {
   "name": "suomifi-ui-components",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Suomi.fi UI component library",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
@@ -64,7 +64,7 @@
     "file-loader": "2.0.0",
     "gh-pages": "2.0.1",
     "husky": "1.1.4",
-    "jest": "23.6.0",
+    "jest": "24.8.0",
     "jest-dom": "2.1.1",
     "jest-emotion": "10.0.7",
     "lint-staged": "8.0.5",
@@ -107,7 +107,7 @@
     "normalize.cssinjs": "1.0.5",
     "polished": "3.4.0",
     "react-svg": "7.2.2",
-    "suomifi-icons": "0.0.6"
+    "suomifi-icons": "0.0.7"
   },
   "peerDependencies": {
     "react": "16.6.3",

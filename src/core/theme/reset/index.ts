@@ -1,55 +1,56 @@
 import { css } from '@emotion/core';
-import { suomifiTheme } from '../';
+import { ThemeProp, suomifiTheme } from '../';
 import { focus as focusUtil } from '../utils';
 import { fonts } from './typography';
 export { fonts } from './typography';
 
-export const focus = focusUtil({ theme: suomifiTheme });
+export const focus = (theme: ThemeProp = suomifiTheme) => focusUtil({ theme });
 
-export const element = css`
-  color: ${suomifiTheme.colors.blackBase};
+export const element = (theme: ThemeProp = suomifiTheme) => css`
+  color: ${theme.colors.blackBase};
 `;
 
-export const input = css`
-  ${element}
-  ${fonts.input}
+export const input = (theme: ThemeProp = suomifiTheme) => css`
+  ${element(theme)}
+  ${fonts(theme).input}
   min-width: 245px;
   max-width: 100%;
-  padding: ${suomifiTheme.spacing.s} ${suomifiTheme.spacing.m};
-  border: 1px solid ${suomifiTheme.colors.depthBase};
-  border-radius: ${suomifiTheme.radius.basic};
+  padding: ${theme.spacing.s} ${theme.spacing.m};
+  border: 1px solid ${theme.colors.depthBase};
+  border-radius: ${theme.radius.basic};
 `;
 
-export const inputContainer = css`
+export const inputContainer = (theme: ThemeProp = suomifiTheme) => css`
   > input:focus {
     /* For IE/Edge */
-    outline-color: ${suomifiTheme.colors.accentBase};
+    outline-color: ${theme.colors.accentBase};
     outline-width: 4px;
+    outline-offset: 2px;
   }
   &:focus-within {
-    ${focusUtil({ noPseudo: true, theme: suomifiTheme })}
+    ${focusUtil({ theme, noPseudo: true })}
     > input:focus {
       outline: none;
     }
   }
 `;
 
-export const inputButton = css`
-  ${input}
-  ${focus}
+export const inputButton = (theme: ThemeProp = suomifiTheme) => css`
+  ${input(theme)}
+  ${focus(theme)}
 `;
 
-export const nav = css`
-  ${element}
+export const nav = (theme: ThemeProp = suomifiTheme) => css`
+  ${element(theme)}
   display: block;
 `;
 
-export const list = css`
-  ${element}
+export const list = (theme: ThemeProp = suomifiTheme) => css`
+  ${element(theme)}
   list-style: none;
 `;
 
-export const listItem = css`
-  ${element}
+export const listItem = (theme: ThemeProp = suomifiTheme) => css`
+  ${element(theme)}
   list-style: none;
 `;
