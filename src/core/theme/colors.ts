@@ -36,7 +36,7 @@ export const colorTokens = {
     accentBase: '#E97025',
     accentSecondary: '#34B5E5',
     accentSecondaryLight40: '#E8F7FC',
-    accentTertiaryDark9: '#87499D',
+    accentTertiaryDark9: 'hsla(284, 36%, 45%, 1)',
     accentTertiary: '#9F60B5',
   },
   trafficlights: {
