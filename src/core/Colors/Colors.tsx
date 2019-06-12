@@ -1,5 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { withDefaultTheme } from '../theme/utils';
+import { hslaToHex } from '../../utils/css/colors';
 import styled from '@emotion/styled';
 import { ThemeComponent } from '../theme';
 import { baseStyles, containerStyles } from './Colors.baseStyles';
@@ -35,6 +36,7 @@ export class Colors extends Component<ColorsProps> {
       <ColorsContainer>
         {Object.entries(!!colors ? colors : theme.colors).reduce<JSX.Element[]>(
           (arr, [key, value]) => {
+            const hslaAsHex = hslaToHex(value.toString());
             const item = (
               <Color
                 keyName={key.toString()}
@@ -44,6 +46,9 @@ export class Colors extends Component<ColorsProps> {
                 onClick={copyKey(key.toString())}
               >
                 <div className="fi-color__name">{value.toString()}</div>
+                {!!hslaAsHex && (
+                  <div className="fi-color__name">{hslaAsHex}</div>
+                )}
                 <div className="fi-color__name fi-color__name--key">
                   {key.toString()}
                 </div>
