@@ -21,10 +21,6 @@ export const baseStyles = ({ color, theme = suomifiTheme }: ColorProps) => css`
   cursor: pointer;
   z-index: 2;
 
-  .fi-color__name {
-    pointer-events: none;
-  }
-
   &:hover {
     border-bottom-color: ${readableColor(color)};
   }
@@ -35,15 +31,16 @@ export const baseStyles = ({ color, theme = suomifiTheme }: ColorProps) => css`
     text-align: right;
     overflow-wrap: break-word;
     z-index: 3;
-  }
+    pointer-events: none;
 
-  .fi-color__name--hex {
-    ${fonts(theme).smRes.body}
-    opacity: .4;
-  }
+    &--hex {
+      ${fonts(theme).smRes.body}
+      opacity: .4;
+    }
 
-  .fi-color__name--key {
-    ${fonts(theme).semiBold}
+    &--key {
+      ${fonts(theme).semiBold}
+    }
   }
 
   &:hover .fi-color__name--key {
