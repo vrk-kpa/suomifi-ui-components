@@ -23,7 +23,7 @@ exports[`calling render with the same component on the same container does not r
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
-  color: #282828;
+  color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -35,7 +35,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
-  color: #282828;
+  color: hsl(0,0%,16%);
 }
 
 .emotion-0.fi-text--bold {

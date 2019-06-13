@@ -23,7 +23,7 @@ exports[`calling render with the same component on the same container does not r
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
-  color: #282828;
+  color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -35,7 +35,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
-  background-color: #FFFFFF;
+  background-color: hsl(0,0%,100%);
 }
 
 .emotion-3 > .fi-toggle-label {
@@ -43,7 +43,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-3 > .fi-toggle-input {
-  color: #282828;
+  color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -59,7 +59,7 @@ exports[`calling render with the same component on the same container does not r
   height: 0;
   opacity: 0;
   z-index: -9999;
-  background-color: #FFFFFF;
+  background-color: hsl(0,0%,100%);
 }
 
 .emotion-3 > .fi-toggle-input:focus {
@@ -80,9 +80,9 @@ exports[`calling render with the same component on the same container does not r
   left: -4px;
   border-radius: 4px;
   background-color: transparent;
-  border: 1px solid #E97025;
+  border: 1px solid hsl(23,82%,53%);
   box-sizing: border-box;
-  box-shadow: 0 0 10px 0 #E97025;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
   z-index: 9999;
 }
 
@@ -136,7 +136,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-3 .fi-toggle-icon.fi-toggle-icon--checked .icon-toggle_svg__fi-toggle-icon-circle {
-  fill: #09AE88;
+  fill: hsl(166,90%,36%);
 }
 
 .emotion-0 {

@@ -22,7 +22,7 @@ exports[`calling render with the same component on the same container does not r
   display: inline;
   -webkit-text-decoration: underline;
   text-decoration: underline;
-  color: #282828;
+  color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -34,7 +34,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
-  color: #2A6EBB;
+  color: hsl(212,63%,45%);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
@@ -63,9 +63,9 @@ exports[`calling render with the same component on the same container does not r
   left: -4px;
   border-radius: 4px;
   background-color: transparent;
-  border: 1px solid #E97025;
+  border: 1px solid hsl(23,82%,53%);
   box-sizing: border-box;
-  box-shadow: 0 0 10px 0 #E97025;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
   z-index: 9999;
 }
 
@@ -77,7 +77,7 @@ exports[`calling render with the same component on the same container does not r
 .emotion-0:active,
 .emotion-0:focus,
 .emotion-0:focus-within {
-  color: #2A6EBB;
+  color: hsl(212,63%,45%);
 }
 
 .emotion-0:hover,
@@ -89,7 +89,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-0:visited {
-  color: #87499D;
+  color: hsl(284,36%,45%);
 }
 
 <a

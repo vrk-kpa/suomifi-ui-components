@@ -2,7 +2,7 @@
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
 .emotion-2 {
-  color: #282828;
+  color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -86,7 +86,7 @@ exports[`calling render with the same component on the same container does not r
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
-  color: #282828;
+  color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
   font-weight: 400;

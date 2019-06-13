@@ -22,7 +22,7 @@ exports[`calling render with the same component on the same container does not r
   display: inline-block;
   max-width: 100%;
   cursor: pointer;
-  color: #282828;
+  color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -36,11 +36,11 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
   padding: 8px 16px;
   min-height: 40px;
-  color: #FFFFFF;
-  background: linear-gradient(0deg,#2A6EBB 0%,#4387d5 100%);
+  color: hsl(0,0%,100%);
+  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,#4387d5 100%);
   border-radius: 2px;
   text-align: center;
-  text-shadow: 0 1px 1px #00357A;
+  text-shadow: 0 1px 1px hsl(214,100%,24%);
   cursor: pointer;
 }
 
@@ -80,9 +80,9 @@ exports[`calling render with the same component on the same container does not r
   left: -4px;
   border-radius: 4px;
   background-color: transparent;
-  border: 1px solid #E97025;
+  border: 1px solid hsl(23,82%,53%);
   box-sizing: border-box;
-  box-shadow: 0 0 10px 0 #E97025;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
   z-index: 9999;
 }
 
@@ -91,17 +91,17 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-0:hover {
-  background: linear-gradient(0deg,#2E78CC 0%,#5492d9 100%);
+  background: linear-gradient(0deg,hsl(212,63%,49%) 0%,#5492d9 100%);
 }
 
 .emotion-0:active {
-  background: linear-gradient(0deg,#235A9A 0%,#2c72c4 100%);
+  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,#2c72c4 100%);
 }
 
 .emotion-0[disabled],
 .emotion-0:disabled {
-  text-shadow: 0 1px 1px #282828;
-  background: linear-gradient(0deg,#A5ACB1 0%,#c0c5c9 100%);
+  text-shadow: 0 1px 1px hsl(0,0%,16%);
+  background: linear-gradient(0deg,hsl(202,7%,67%) 0%,#c0c5c9 100%);
   pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -111,8 +111,8 @@ exports[`calling render with the same component on the same container does not r
 
 .emotion-0.fi-button--negative {
   background: none;
-  background-color: #2A6EBB;
-  border: 1px solid #FFFFFF;
+  background-color: hsl(212,63%,45%);
+  border: 1px solid hsl(0,0%,100%);
   text-shadow: none;
 }
 
@@ -122,7 +122,7 @@ exports[`calling render with the same component on the same container does not r
 
 .emotion-0.fi-button--negative:active {
   background: none;
-  background-color: #2A6EBB;
+  background-color: hsl(212,63%,45%);
 }
 
 .emotion-0.fi-button--negative[disabled],
@@ -132,92 +132,92 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-0.fi-button--secondary {
-  color: #2A6EBB;
+  color: hsl(212,63%,45%);
   background: none;
-  background-color: #FFFFFF;
-  border: 1px solid #2A6EBB;
+  background-color: hsl(0,0%,100%);
+  border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
 }
 
 .emotion-0.fi-button--secondary:hover {
-  background: linear-gradient(0deg,#ECEDEE 0%,#FFFFFF 100%);
+  background: linear-gradient(0deg,hsl(202,7%,93%) 0%,hsl(0,0%,100%) 100%);
 }
 
 .emotion-0.fi-button--secondary:active {
   background: none;
-  background-color: #F7FAFD;
+  background-color: hsl(212,63%,98%);
 }
 
 .emotion-0.fi-button--secondary[disabled],
 .emotion-0.fi-button--secondary:disabled {
-  color: #A5ACB1;
+  color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
-  background-color: #F7FAFD;
-  border-color: #A5ACB1;
+  background-color: hsl(212,63%,98%);
+  border-color: hsl(202,7%,67%);
 }
 
 .emotion-0.fi-button--secondary-noborder {
-  color: #2A6EBB;
+  color: hsl(212,63%,45%);
   background: none;
-  background-color: #FFFFFF;
-  border: 1px solid #2A6EBB;
+  background-color: hsl(0,0%,100%);
+  border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
   border: none;
 }
 
 .emotion-0.fi-button--secondary-noborder:hover {
-  background: linear-gradient(0deg,#ECEDEE 0%,#FFFFFF 100%);
+  background: linear-gradient(0deg,hsl(202,7%,93%) 0%,hsl(0,0%,100%) 100%);
 }
 
 .emotion-0.fi-button--secondary-noborder:active {
   background: none;
-  background-color: #F7FAFD;
+  background-color: hsl(212,63%,98%);
 }
 
 .emotion-0.fi-button--secondary-noborder[disabled],
 .emotion-0.fi-button--secondary-noborder:disabled {
-  color: #A5ACB1;
+  color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
-  background-color: #F7FAFD;
-  border-color: #A5ACB1;
+  background-color: hsl(212,63%,98%);
+  border-color: hsl(202,7%,67%);
 }
 
 .emotion-0.fi-button--tertiary {
-  color: #2A6EBB;
+  color: hsl(212,63%,45%);
   background: none;
-  background-color: #FFFFFF;
-  border: 1px solid #2A6EBB;
+  background-color: hsl(0,0%,100%);
+  border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
-  background: #EAF2FA;
+  background: hsl(212,63%,95%);
   border: none;
 }
 
 .emotion-0.fi-button--tertiary:hover {
-  background: linear-gradient(0deg,#ECEDEE 0%,#FFFFFF 100%);
+  background: linear-gradient(0deg,hsl(202,7%,93%) 0%,hsl(0,0%,100%) 100%);
 }
 
 .emotion-0.fi-button--tertiary:active {
   background: none;
-  background-color: #F7FAFD;
+  background-color: hsl(212,63%,98%);
 }
 
 .emotion-0.fi-button--tertiary[disabled],
 .emotion-0.fi-button--tertiary:disabled {
-  color: #A5ACB1;
+  color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
-  background-color: #F7FAFD;
-  border-color: #A5ACB1;
+  background-color: hsl(212,63%,98%);
+  border-color: hsl(202,7%,67%);
 }
 
 .emotion-0.fi-button--tertiary:hover {
-  background: #F7FAFD;
+  background: hsl(212,63%,98%);
 }
 
 .emotion-0.fi-button--tertiary:active {
-  background: #F7FAFD;
+  background: hsl(212,63%,98%);
 }
 
 .emotion-0 > .fi-button-icon {
