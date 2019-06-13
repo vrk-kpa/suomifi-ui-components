@@ -1,36 +1,32 @@
 import { css } from '@emotion/core';
-import { invert } from 'polished';
+import { readableColor } from 'polished';
 import { suomifiTheme } from '../theme';
+import { fonts } from '../theme/reset';
 import { clearfix } from '../../utils/css/utils';
-import { absolute } from '../../utils/css/pseudo';
 import { ColorProps } from './Colors';
 
 export const baseStyles = ({ color, theme = suomifiTheme }: ColorProps) => css`
-  ${absolute('before')}
+  ${fonts(theme).body}
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   float: left;
-  width: 124px;
-  height: 160px;
+  width: 192px;
+  height: 180px;
   max-width: 100%;
   padding: ${theme.spacing.s};
-  color: ${invert(color)};
+  color: ${readableColor(color)};
   background-color: ${color};
+  border-bottom: 4px solid ${color};
   cursor: pointer;
   z-index: 2;
 
-  &:before,
   .fi-color__name {
     pointer-events: none;
   }
 
-  &:hover:before {
-    border-bottom: 4px solid
-      ${color === theme.colors.blackBase
-        ? theme.colors.whiteBase
-        : theme.colors.blackBase};
-    z-index: 2;
+  &:hover {
+    border-bottom-color: ${readableColor(color)};
   }
 
   .fi-color__name {
@@ -39,6 +35,15 @@ export const baseStyles = ({ color, theme = suomifiTheme }: ColorProps) => css`
     text-align: right;
     overflow-wrap: break-word;
     z-index: 3;
+  }
+
+  .fi-color__name--hex {
+    ${fonts(theme).smRes.body}
+    opacity: .4;
+  }
+
+  .fi-color__name--key {
+    ${fonts(theme).semiBold}
   }
 
   &:hover .fi-color__name--key {

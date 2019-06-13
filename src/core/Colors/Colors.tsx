@@ -47,7 +47,9 @@ export class Colors extends Component<ColorsProps> {
               >
                 <div className="fi-color__name">{value.toString()}</div>
                 {!!hslaAsHex && (
-                  <div className="fi-color__name">{hslaAsHex}</div>
+                  <div className="fi-color__name fi-color__name--hex">
+                    {hslaAsHex}
+                  </div>
                 )}
                 <div className="fi-color__name fi-color__name--key">
                   {key.toString()}
