@@ -7,43 +7,44 @@ export type IColors = typeof colors;
 
 export const colorTokens = {
   base: {
-    whiteBase: '#FFFFFF',
-    blackBase: '#282828',
+    whiteBase: 'hsl(0, 0%, 100%)',
+    blackBase: 'hsl(0, 0%, 16%)',
   },
   brand: {
-    brandBase: '#00357A',
+    brandBase: 'hsl(214, 100%, 24%)',
   },
   depth: {
-    depthDark27: '#5F686D',
-    depthBase: '#A5ACB1',
-    depthLight30: '#F7F7F8',
-    depthLight26: '#ECEDEE',
-    depthLight13: '#C8CDD0',
+    depthDark27: 'hsl(201, 7%, 40%)', // muuttunu hue
+    depthBase: 'hsl(202, 7%, 67%)',
+    depthLight30: 'hsl(202, 7%, 97%)',
+    depthLight26: 'hsl(202, 7%, 93%)',
+    depthLight13: 'hsl(202, 7%, 80%)',
   },
   depthSecondary: {
-    depthSecondaryDark3: '#E0EDFF',
-    depthSecondary: '#F0F6FF',
+    depthSecondaryDark3: 'hsl(215, 100%, 94%)',
+    depthSecondary: 'hsl(215, 100%, 94%)',
   },
   hightlight: {
-    highlightDark9: '#235A9A',
-    highlightBase: '#2A6EBB',
-    highlightLight4: '#2E78CC',
-    highlightLight45: '#D5E4F6',
-    highlightLight50: '#EAF2FA',
-    highlightLight53: '#F7FAFD',
+    highlightDark9: 'hsl(212, 63%, 37%)',
+    highlightBase: 'hsl(212, 63%, 45%)',
+    highlightLight4: 'hsl(212, 63%, 49%)',
+    highlightLight45: 'hsl(212, 63%, 90%)',
+    highlightLight50: 'hsl(212, 63%, 95%)',
+    highlightLight53: 'hsl(212, 63%, 98%)',
   },
   accent: {
-    accentBase: '#E97025',
-    accentSecondary: '#34B5E5',
-    accentSecondaryLight40: '#E8F7FC',
-    accentTertiaryDark9: '#87499D',
-    accentTertiary: '#9F60B5',
+    accentBase: 'hsl(23, 82%, 53%)',
+    accentSecondary: 'hsl(196, 77%, 55%)',
+    accentSecondaryLight40: 'hsl(196, 77%, 95%)',
+    accentTertiaryDark9: 'hsl(284, 36%, 45%)',
+    accentTertiary: 'hsl(284, 36%, 54%)',
   },
   trafficlights: {
-    successBase: '#09AE88',
-    warningBase: '#FAAF00',
-    warningLight47: '#FAEBEB',
-    alertBase: '#C33932',
+    successBase: 'hsl(166, 90%, 36%)',
+    successBaseSecondary: 'hsl(166, 54%, 80%)', // successBaseTransparent50, ei laskettavissa HSL
+    warningBase: 'hsl(42, 100%, 49%)',
+    warningLight47: 'hsl(3, 59%, 95%)', // muuttunut kaikki
+    alertBase: 'hsl(3, 59%, 48%)',
   },
 };
 

@@ -26,7 +26,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-4 .fi-text-input-container > input:focus {
-  outline-color: #E97025;
+  outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
@@ -45,9 +45,9 @@ exports[`calling render with the same component on the same container does not r
   left: -4px;
   border-radius: 4px;
   background-color: transparent;
-  border: 1px solid #E97025;
+  border: 1px solid hsl(23,82%,53%);
   box-sizing: border-box;
-  box-shadow: 0 0 10px 0 #E97025;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
   z-index: 9999;
 }
 
@@ -60,7 +60,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-4 .fi-text-input-input {
-  color: #282828;
+  color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -75,19 +75,19 @@ exports[`calling render with the same component on the same container does not r
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid #A5ACB1;
+  border: 1px solid hsl(202,7%,67%);
   border-radius: 2px;
-  background-color: #FFFFFF;
+  background-color: hsl(0,0%,100%);
 }
 
 .emotion-4.fi-text-input--error .fi-text-input-input {
-  color: #C33932;
-  border-color: #C33932;
+  color: hsl(3,59%,48%);
+  border-color: hsl(3,59%,48%);
 }
 
 .emotion-4.fi-text-input--success .fi-text-input-input {
-  color: #09AE88;
-  border-color: #09AE88;
+  color: hsl(166,90%,36%);
+  border-color: hsl(166,90%,36%);
 }
 
 .emotion-4 .fi-search-input-input-container {
@@ -219,7 +219,7 @@ exports[`calling render with the same component on the same container does not r
       class="fi-search-input-icon emotion-2"
       focusable="false"
       height="1em"
-      style="fill: #5F686D;"
+      style="fill: hsl(201, 7%, 40%);"
       viewBox="0 0 24 24"
       width="1em"
     >
