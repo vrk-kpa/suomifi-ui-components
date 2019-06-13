@@ -132,7 +132,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-3 .fi-toggle-icon.fi-toggle-icon--checked .icon-toggle_svg__fi-toggle-icon-slide {
-  fill: rgba(9,174,136,0.5);
+  fill: hsl(166,54%,80%);
 }
 
 .emotion-3 .fi-toggle-icon.fi-toggle-icon--checked .icon-toggle_svg__fi-toggle-icon-circle {

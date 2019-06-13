@@ -3,7 +3,6 @@ import { suomifiTheme } from '../../theme';
 import { focus } from '../../theme/utils';
 import { ToggleProps } from './Toggle';
 import { element, fonts } from '../../theme/reset';
-import { alphaHex } from '../../../utils/css/colors';
 
 const svgPrefix = 'icon-toggle_svg__';
 
@@ -58,7 +57,7 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
         transform: translateX(50%);
       }
       .${svgPrefix}fi-toggle-icon-slide {
-        fill: ${alphaHex(0.5)(theme.colors.successBase)};
+        fill: ${theme.colors.successBaseSecondary};
       }
       .${svgPrefix}fi-toggle-icon-circle {
         fill: ${theme.colors.successBase};

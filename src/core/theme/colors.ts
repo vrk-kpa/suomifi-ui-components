@@ -41,6 +41,7 @@ export const colorTokens = {
   },
   trafficlights: {
     successBase: 'hsl(166, 90%, 36%)',
+    successBaseSecondary: 'hsl(166, 54%, 80%)', // successBaseTransparent50, ei laskettavissa HSL
     warningBase: 'hsl(42, 100%, 49%)',
     warningLight47: 'hsl(3, 59%, 95%)', // muuttunut kaikki
     alertBase: 'hsl(3, 59%, 48%)',
