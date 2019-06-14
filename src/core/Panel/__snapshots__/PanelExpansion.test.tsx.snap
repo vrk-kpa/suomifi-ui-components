@@ -71,6 +71,18 @@ exports[`calling render with the same component on the same container does not r
 
 .emotion-3 .fi-panel-expansion-title {
   color: hsl(0,0%,16%);
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
   position: relative;
   display: block;
   width: 100%;
@@ -101,17 +113,6 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-3 .fi-panel-expansion-title--no-tag {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.5;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  -webkit-font-smoothing: antialiased;
   padding-top: 16px;
   padding-right: 64px;
   padding-bottom: 16px;
