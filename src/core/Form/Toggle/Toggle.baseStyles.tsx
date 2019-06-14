@@ -57,7 +57,7 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
         transform: translateX(50%);
       }
       .${svgPrefix}fi-toggle-icon-slide {
-        fill: ${theme.colors.successBaseSecondary};
+        fill: ${theme.colors.successSecondary};
       }
       .${svgPrefix}fi-toggle-icon-circle {
         fill: ${theme.colors.successBase};
