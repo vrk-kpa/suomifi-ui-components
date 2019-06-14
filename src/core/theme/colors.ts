@@ -44,8 +44,8 @@ export const colorTokens = {
     successBase: 'hsl(166, 90%, 36%)',
     successBaseSecondary: 'hsl(166, 54%, 80%)',
     warningBase: 'hsl(42, 100%, 49%)',
-    warningLight47: 'hsl(42, 100%, 96%)',
     alertBase: 'hsl(3, 59%, 48%)',
+    alertLight47: 'hsl(3, 59%, 95%)',
   },
 };
 
