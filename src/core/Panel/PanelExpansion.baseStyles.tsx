@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
 import { suomifiTheme } from '../theme';
 import { PanelExpansionProps } from './PanelExpansion';
-import { element, focus, fonts } from '../theme/reset';
+import { button } from '../theme/reset';
 import { absolute } from '../../utils/css/pseudo';
 import { padding } from '../theme/utils';
 
@@ -26,13 +26,11 @@ export const baseStyles = ({
   }
 
   & .fi-panel-expansion-title {
-    ${element(theme)}
-    ${focus(theme)}
+    ${button(theme)}
     position: relative;
     display: block;
     width: 100%;
     &--no-tag {
-      ${fonts(theme).semiBold}
       ${padding(theme)('m', 'xl', 'm', 'm')}
       color: ${theme.colors.highlightBase};
     }
