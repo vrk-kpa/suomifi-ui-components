@@ -18,6 +18,7 @@ export const input = (theme: ThemeProp = suomifiTheme) => css`
   padding: ${theme.spacing.s} ${theme.spacing.m};
   border: 1px solid ${theme.colors.depthBase};
   border-radius: ${theme.radius.basic};
+  line-height: 1;
 `;
 
 export const inputContainer = (theme: ThemeProp = suomifiTheme) => css`
@@ -38,6 +39,13 @@ export const inputContainer = (theme: ThemeProp = suomifiTheme) => css`
 export const inputButton = (theme: ThemeProp = suomifiTheme) => css`
   ${input(theme)}
   ${focus(theme)}
+`;
+
+export const button = (theme: ThemeProp = suomifiTheme) => css`
+  ${element(theme)}
+  ${fonts(theme).inputSemibold}
+  ${focus(theme)}
+  line-height: 1;
 `;
 
 export const nav = (theme: ThemeProp = suomifiTheme) => css`
