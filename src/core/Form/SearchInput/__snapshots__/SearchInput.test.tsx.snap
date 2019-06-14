@@ -219,7 +219,7 @@ exports[`calling render with the same component on the same container does not r
       class="fi-search-input-icon emotion-2"
       focusable="false"
       height="1em"
-      style="fill: hsl(201, 7%, 40%);"
+      style="fill: hsl(202, 7%, 40%);"
       viewBox="0 0 24 24"
       width="1em"
     >

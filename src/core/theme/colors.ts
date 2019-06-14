@@ -9,19 +9,20 @@ export const colorTokens = {
   base: {
     whiteBase: 'hsl(0, 0%, 100%)',
     blackBase: 'hsl(0, 0%, 16%)',
+    blackBaseLighten42: 'hsl(0, 0%, 58%)',
   },
   brand: {
     brandBase: 'hsl(214, 100%, 24%)',
   },
   depth: {
-    depthDark27: 'hsl(201, 7%, 40%)', // muuttunu hue
+    depthDark27: 'hsl(202, 7%, 40%)',
     depthBase: 'hsl(202, 7%, 67%)',
     depthLight30: 'hsl(202, 7%, 97%)',
     depthLight26: 'hsl(202, 7%, 93%)',
     depthLight13: 'hsl(202, 7%, 80%)',
   },
   depthSecondary: {
-    depthSecondaryDark3: 'hsl(215, 100%, 94%)',
+    depthSecondaryDark3: 'hsl(215, 100%, 91%)',
     depthSecondary: 'hsl(215, 100%, 94%)',
   },
   hightlight: {
@@ -41,9 +42,9 @@ export const colorTokens = {
   },
   trafficlights: {
     successBase: 'hsl(166, 90%, 36%)',
-    successBaseSecondary: 'hsl(166, 54%, 80%)', // successBaseTransparent50, ei laskettavissa HSL
+    successBaseSecondary: 'hsl(166, 54%, 80%)',
     warningBase: 'hsl(42, 100%, 49%)',
-    warningLight47: 'hsl(3, 59%, 95%)', // muuttunut kaikki
+    warningLight47: 'hsl(42, 100%, 96%)',
     alertBase: 'hsl(3, 59%, 48%)',
   },
 };
