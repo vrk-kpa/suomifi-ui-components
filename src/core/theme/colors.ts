@@ -9,7 +9,7 @@ export const colorTokens = {
   base: {
     whiteBase: 'hsl(0, 0%, 100%)',
     blackBase: 'hsl(0, 0%, 16%)',
-    blackBaseLighten42: 'hsl(0, 0%, 58%)',
+    blackLighten42: 'hsl(0, 0%, 58%)',
   },
   brand: {
     brandBase: 'hsl(214, 100%, 24%)',
