@@ -18,9 +18,11 @@ export const alphaHex = (value: number) => (hex: string) =>
  */
 export const hslaToHex = (hsla: string) => {
   const values = hsla.replace(/(hsla\(|hsl\(|\)|\%|\s)/g, '').split(',');
-  const hue = parseInt(values[0], 16);
+  const hue = parseInt(values[0], 10);
   const saturationPercentage = parseInt(values[1], 10);
   const lightnessPercentage = parseInt(values[2], 10);
+  const saturation = saturationPercentage / 100;
+  const lightness = lightnessPercentage / 100;
   if (
     !Number.isInteger(hue) ||
     !Number.isInteger(saturationPercentage) ||
@@ -31,7 +33,7 @@ export const hslaToHex = (hsla: string) => {
   }
   return hslToColorString({
     hue,
-    saturation: saturationPercentage / 100,
-    lightness: lightnessPercentage / 100,
+    saturation,
+    lightness,
   });
 };
