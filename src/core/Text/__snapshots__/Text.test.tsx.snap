@@ -20,6 +20,7 @@ exports[`calling render with the same component on the same container does not r
   cursor: inherit;
   display: inline;
   max-width: 100%;
+  line-height: inherit;
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
@@ -35,6 +36,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
+  line-height: inherit;
   color: hsl(0,0%,16%);
 }
 

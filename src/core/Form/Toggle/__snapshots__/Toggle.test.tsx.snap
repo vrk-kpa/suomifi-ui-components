@@ -20,6 +20,7 @@ exports[`calling render with the same component on the same container does not r
   cursor: inherit;
   display: inline;
   max-width: 100%;
+  line-height: inherit;
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
