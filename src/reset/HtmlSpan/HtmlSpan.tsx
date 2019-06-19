@@ -12,6 +12,7 @@ const spanResets = css`
   ${resets.common}
   display: inline;
   max-width: 100%;
+  line-height: inherit;
   word-wrap: normal;
   word-break: normal;
   white-space: normal;

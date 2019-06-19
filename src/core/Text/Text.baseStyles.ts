@@ -7,6 +7,7 @@ import { objValue } from '../../utils/typescript';
 export const baseStyles = ({ theme = suomifiTheme, color }: TextProps) => css`
   ${element(theme)}
   ${fonts(theme).body}
+  line-height: inherit;
   color: ${!!color ? objValue(theme.colors, color) : theme.colors.blackBase};
 
   &.fi-text {
@@ -25,5 +26,5 @@ export const baseStyles = ({ theme = suomifiTheme, color }: TextProps) => css`
         ${fonts(theme).smRes.lead}
       }
     }
-  } 
+  }
 `;
