@@ -25,5 +25,8 @@ export const baseStyles = ({ theme = suomifiTheme }: BreadcrumbProps) => css`
     &_icon {
       font-size: ${theme.typography.fontSize.body};
     }
+    &_icon {
+      transform: translateY(.2em);
+    }
   }
 `;
