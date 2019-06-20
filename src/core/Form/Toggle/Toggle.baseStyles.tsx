@@ -10,10 +10,10 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
   ${element(theme)}
   ${fonts(theme).body}
   background-color: ${theme.colors.whiteBase};
-  & > .fi-toggle-label {
+  & > .fi-toggle_label {
     cursor: pointer;
   }
-  & > .fi-toggle-input {
+  & > .fi-toggle_input {
     ${element(theme)}
     ${fonts(theme).body}
     width: 0;
@@ -23,7 +23,7 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
     background-color: ${theme.colors.whiteBase};
     &:focus {
       outline: 0;
-      & + .fi-toggle-label {
+      & + .fi-toggle_label {
         ${focus({ theme, noPseudo: true })}
       }
     }
@@ -34,7 +34,7 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
       }
     }
   }
-  & .fi-toggle-icon {
+  & .fi-toggle_icon {
     width: 40px;
     height: 24px;
     margin-right: ${theme.spacing.s};
@@ -52,7 +52,7 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
     & .${svgPrefix}fi-toggle-icon-slide {
       transform: translateY(1px);
     }
-    &.fi-toggle-icon--checked {
+    &.fi-toggle_icon--checked {
       .${svgPrefix}fi-toggle-icon-knob {
         transform: translateX(50%);
       }
