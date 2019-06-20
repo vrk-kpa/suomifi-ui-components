@@ -221,7 +221,7 @@ exports[`calling render with the same component on the same container does not r
   background: hsl(212,63%,98%);
 }
 
-.emotion-0 > .fi-button-icon {
+.emotion-0 > .fi-button_icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
@@ -231,7 +231,7 @@ exports[`calling render with the same component on the same container does not r
   transform: translateY(-0.1em);
 }
 
-.emotion-0 > .fi-button-icon.fi-button-icon--right {
+.emotion-0 > .fi-button_icon.fi-button_icon--right {
   margin-right: 0;
   margin-left: 8px;
 }
