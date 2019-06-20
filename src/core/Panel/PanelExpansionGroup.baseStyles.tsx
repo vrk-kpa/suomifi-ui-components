@@ -9,7 +9,7 @@ export const baseStyles = ({
   ${element(theme)}
   display: flex;
   flex-direction: column;
-  & > .fi-panel-expansion-group-panels {
+  & > .fi-panel-expansion-group_panels {
     flex: none;
 
     & .fi-panel-expansion {
@@ -28,7 +28,7 @@ export const baseStyles = ({
     }
   }
 
-  & > .fi-panel-expansion-group-all-button {
+  & > .fi-panel-expansion-group_all-button {
     ${element(theme)}
     ${fonts(theme).semiBold}
     ${focus(theme)}

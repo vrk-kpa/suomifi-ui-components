@@ -11,11 +11,11 @@ import {
 
 const panelExpansionClassName = `${baseClassName}-expansion`;
 const openClassName = `${panelExpansionClassName}--open`;
-const titleClassName = `${panelExpansionClassName}-title`;
+const titleClassName = `${panelExpansionClassName}_title`;
 const titleOpenClassName = `${titleClassName}--open`;
 const titleNoTagClassName = `${titleClassName}--no-tag`;
-const titleTagClassName = `${panelExpansionClassName}-title-tag`;
-const contentBaseClassName = `${panelExpansionClassName}-content`;
+const titleTagClassName = `${panelExpansionClassName}_title-tag`;
+const contentBaseClassName = `${panelExpansionClassName}_content`;
 const contentOpenClassName = `${contentBaseClassName}--open`;
 
 interface StyledPanelExpansionContentProps extends PanelProps {
