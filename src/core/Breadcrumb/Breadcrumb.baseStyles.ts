@@ -9,20 +9,20 @@ export const baseStyles = ({ theme = suomifiTheme }: BreadcrumbProps) => css`
   background-color: ${theme.colors.whiteBase};
 
   & .fi-breadcrumb {
-    &-list {
+    &_list {
       ${list(theme)}
       ${fonts(theme).body}
       margin: 0;
       padding: 0;
     }
-    &-item {
+    &_item {
       ${listItem(theme)}
       ${fonts(theme).body}
       float: left;
     }
-    &-item,
-    &-link,
-    &-icon {
+    &_item,
+    &_link,
+    &_icon {
       font-size: ${theme.typography.fontSize.body};
     }
   }
