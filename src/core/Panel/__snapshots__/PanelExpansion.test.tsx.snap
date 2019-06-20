@@ -69,7 +69,7 @@ exports[`calling render with the same component on the same container does not r
   transition: opacity 50ms cubic-bezier(0.28,0.84,0.42,1);
 }
 
-.emotion-3 .fi-panel-expansion-title {
+.emotion-3 .fi-panel-expansion_title {
   color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 16px;
@@ -88,12 +88,12 @@ exports[`calling render with the same component on the same container does not r
   width: 100%;
 }
 
-.emotion-3 .fi-panel-expansion-title:focus {
+.emotion-3 .fi-panel-expansion_title:focus {
   outline: 0;
   position: relative;
 }
 
-.emotion-3 .fi-panel-expansion-title:focus:after {
+.emotion-3 .fi-panel-expansion_title:focus:after {
   content: '';
   position: absolute;
   top: -4px;
@@ -108,11 +108,11 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.emotion-3 .fi-panel-expansion-title:focus:not(:focus-visible):after {
+.emotion-3 .fi-panel-expansion_title:focus:not(:focus-visible):after {
   content: none;
 }
 
-.emotion-3 .fi-panel-expansion-title--no-tag {
+.emotion-3 .fi-panel-expansion_title--no-tag {
   padding-top: 16px;
   padding-right: 64px;
   padding-bottom: 16px;
@@ -120,21 +120,21 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(212,63%,45%);
 }
 
-.emotion-3 .fi-panel-expansion-title-icon {
+.emotion-3 .fi-panel-expansion_title-icon {
   position: absolute;
   top: 0;
   right: 0;
   margin: 16px;
 }
 
-.emotion-3 .fi-panel-expansion-title--open .fi-panel-expansion-title-icon,
-.emotion-3 .fi-panel-expansion-title-icon--open {
+.emotion-3 .fi-panel-expansion_title--open .fi-panel-expansion_title-icon,
+.emotion-3 .fi-panel-expansion_title-icon--open {
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   transform: rotate(-180deg);
 }
 
-.emotion-3 > .fi-panel-expansion-content {
+.emotion-3 > .fi-panel-expansion_content {
   position: relative;
   display: block;
   height: 0;
@@ -150,18 +150,18 @@ exports[`calling render with the same component on the same container does not r
   will-change: transition,height;
 }
 
-.emotion-3 > .fi-panel-expansion-content:not(.fi-panel-expansion-content--no-padding) {
+.emotion-3 > .fi-panel-expansion_content:not(.fi-panel-expansion_content--no-padding) {
   padding: 0 16px;
 }
 
-.emotion-3 > .fi-panel-expansion-content.fi-panel-expansion-content--open {
+.emotion-3 > .fi-panel-expansion_content.fi-panel-expansion_content--open {
   height: 10%;
   overflow: visible;
-  -webkit-animation: fi-panel-expansion-content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
-  animation: fi-panel-expansion-content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
+  -webkit-animation: fi-panel-expansion_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
+  animation: fi-panel-expansion_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
 }
 
-.emotion-3 > .fi-panel-expansion-content.fi-panel-expansion-content--open:not(.fi-panel-expansion-content--no-padding) {
+.emotion-3 > .fi-panel-expansion_content.fi-panel-expansion_content--open:not(.fi-panel-expansion_content--no-padding) {
   padding-top: 0;
   padding-right: 16px;
   padding-bottom: 16px;
@@ -267,7 +267,7 @@ exports[`calling render with the same component on the same container does not r
   <button
     aria-disabled="false"
     aria-expanded="false"
-    class="fi-panel-expansion-title fi-panel-expansion-title--no-tag emotion-1"
+    class="fi-panel-expansion_title fi-panel-expansion_title--no-tag emotion-1"
     data-testid="panel-expansion-title"
     tabindex="0"
     type="button"
@@ -275,7 +275,7 @@ exports[`calling render with the same component on the same container does not r
     Test expansion
     <svg
       aria-hidden="true"
-      class="fi-panel-expansion-title-icon emotion-0"
+      class="fi-panel-expansion_title-icon emotion-0"
       focusable="false"
       height="1em"
       style="fill: hsl(212, 63%, 45%);"
@@ -289,7 +289,7 @@ exports[`calling render with the same component on the same container does not r
   </button>
   <div
     aria-hidden="true"
-    class="fi-panel-expansion-content fi-panel emotion-2"
+    class="fi-panel-expansion_content fi-panel emotion-2"
   >
     Test expansion content
   </div>
