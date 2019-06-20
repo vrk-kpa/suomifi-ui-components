@@ -11,9 +11,9 @@ import {
 import { Icon } from '../Icon/Icon';
 import classnames from 'classnames';
 
-const iconClassName = 'fi-panel-expansion-title-icon';
+const iconClassName = 'fi-panel-expansion_title-icon';
 const iconOpenClassName = `${iconClassName}--open`;
-const noPaddingClassName = `fi-panel-expansion-content--no-padding`;
+const noPaddingClassName = `fi-panel-expansion_content--no-padding`;
 
 export interface PanelExpansionProps
   extends CompPanelExpansionProps,

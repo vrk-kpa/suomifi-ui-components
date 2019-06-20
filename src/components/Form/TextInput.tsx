@@ -15,8 +15,8 @@ import classnames from 'classnames';
 
 const baseClassName = 'fi-text-input';
 const disabledClassName = `${baseClassName}--disabled`;
-const labelBaseClassName = `${baseClassName}-label`;
-const inputBaseClassName = `${baseClassName}-input`;
+const labelBaseClassName = `${baseClassName}_label`;
+const inputBaseClassName = `${baseClassName}_input`;
 
 export interface TextInputLabelProps extends HtmlLabelProps {}
 

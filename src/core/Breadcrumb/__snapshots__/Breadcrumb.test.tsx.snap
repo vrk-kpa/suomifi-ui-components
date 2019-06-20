@@ -20,7 +20,7 @@ exports[`calling render with the same component on the same container does not r
   cursor: inherit;
   display: block;
   max-width: 100%;
-  color: #282828;
+  color: hsl(0,0%,16%);
   display: block;
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
@@ -33,11 +33,11 @@ exports[`calling render with the same component on the same container does not r
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
-  background-color: #FFFFFF;
+  background-color: hsl(0,0%,100%);
 }
 
-.emotion-9 .fi-breadcrumb-list {
-  color: #282828;
+.emotion-9 .fi-breadcrumb_list {
+  color: hsl(0,0%,16%);
   list-style: none;
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
@@ -54,8 +54,8 @@ exports[`calling render with the same component on the same container does not r
   padding: 0;
 }
 
-.emotion-9 .fi-breadcrumb-item {
-  color: #282828;
+.emotion-9 .fi-breadcrumb_item {
+  color: hsl(0,0%,16%);
   list-style: none;
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
@@ -71,10 +71,16 @@ exports[`calling render with the same component on the same container does not r
   float: left;
 }
 
-.emotion-9 .fi-breadcrumb-item,
-.emotion-9 .fi-breadcrumb-link,
-.emotion-9 .fi-breadcrumb-icon {
+.emotion-9 .fi-breadcrumb_item,
+.emotion-9 .fi-breadcrumb_link,
+.emotion-9 .fi-breadcrumb_icon {
   font-size: 18px;
+}
+
+.emotion-9 .fi-breadcrumb_icon {
+  -webkit-transform: translateY(.2em);
+  -ms-transform: translateY(.2em);
+  transform: translateY(.2em);
 }
 
 .emotion-8 {
@@ -144,7 +150,7 @@ exports[`calling render with the same component on the same container does not r
   display: inline;
   -webkit-text-decoration: underline;
   text-decoration: underline;
-  color: #282828;
+  color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -156,7 +162,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-text-decoration: none;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
-  color: #2A6EBB;
+  color: hsl(212,63%,45%);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
@@ -185,9 +191,9 @@ exports[`calling render with the same component on the same container does not r
   left: -4px;
   border-radius: 4px;
   background-color: transparent;
-  border: 1px solid #E97025;
+  border: 1px solid hsl(23,82%,53%);
   box-sizing: border-box;
-  box-shadow: 0 0 10px 0 #E97025;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
   z-index: 9999;
 }
 
@@ -199,7 +205,7 @@ exports[`calling render with the same component on the same container does not r
 .emotion-0:active,
 .emotion-0:focus,
 .emotion-0:focus-within {
-  color: #2A6EBB;
+  color: hsl(212,63%,45%);
 }
 
 .emotion-0:hover,
@@ -211,7 +217,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .emotion-0:visited {
-  color: #87499D;
+  color: hsl(284,36%,45%);
 }
 
 .emotion-1 {
@@ -252,23 +258,23 @@ exports[`calling render with the same component on the same container does not r
   data-testid="Breadcrumb"
 >
   <ol
-    class="fi-breadcrumb-list emotion-8"
+    class="fi-breadcrumb_list emotion-8"
   >
     <li
-      class="fi-breadcrumb-item emotion-2"
+      class="fi-breadcrumb_item emotion-2"
     >
       <a
-        class="fi-breadcrumb-link fi-link emotion-0"
+        class="fi-breadcrumb_link fi-link emotion-0"
         href="/"
       >
         Frontpage
       </a>
       <svg
         aria-hidden="true"
-        class="fi-breadcrumb-icon emotion-1"
+        class="fi-breadcrumb_icon emotion-1"
         focusable="false"
         height="1em"
-        style="fill: #282828;"
+        style="fill: hsl(0, 0%, 16%);"
         viewBox="0 0 24 24"
         width="1em"
       >
@@ -278,20 +284,20 @@ exports[`calling render with the same component on the same container does not r
       </svg>
     </li>
     <li
-      class="fi-breadcrumb-item emotion-2"
+      class="fi-breadcrumb_item emotion-2"
     >
       <a
-        class="fi-breadcrumb-link fi-link emotion-0"
+        class="fi-breadcrumb_link fi-link emotion-0"
         href="/sub"
       >
         Sub page
       </a>
       <svg
         aria-hidden="true"
-        class="fi-breadcrumb-icon emotion-1"
+        class="fi-breadcrumb_icon emotion-1"
         focusable="false"
         height="1em"
-        style="fill: #282828;"
+        style="fill: hsl(0, 0%, 16%);"
         viewBox="0 0 24 24"
         width="1em"
       >
@@ -301,7 +307,7 @@ exports[`calling render with the same component on the same container does not r
       </svg>
     </li>
     <li
-      class="fi-breadcrumb-item emotion-2"
+      class="fi-breadcrumb_item emotion-2"
     >
       <span
         aria-current="page"

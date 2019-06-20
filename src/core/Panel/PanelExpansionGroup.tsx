@@ -9,7 +9,7 @@ import {
 import { Button, ButtonProps } from '../Button/Button';
 import { baseStyles } from './PanelExpansionGroup.baseStyles';
 
-const openAllButtonClassName = 'fi-panel-expansion-group-all-button';
+const openAllButtonClassName = 'fi-panel-expansion-group_all-button';
 
 export interface PanelExpansionGroupProps
   extends CompPanelExpansionGroupProps,

@@ -3,8 +3,8 @@ import { HtmlNav, HtmlNavProps, HtmlOl, HtmlLi } from '../../reset';
 import classnames from 'classnames';
 
 export const baseClassName = 'fi-breadcrumb';
-const listClassName = `${baseClassName}-list`;
-const itemClassName = `${baseClassName}-item`;
+const listClassName = `${baseClassName}_list`;
+const itemClassName = `${baseClassName}_item`;
 
 export interface BreadcrumbProps extends HtmlNavProps {
   /** Name for the breadcrumb like 'Breadcrumb' */

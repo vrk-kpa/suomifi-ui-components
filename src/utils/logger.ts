@@ -5,8 +5,11 @@ const dev =
     env === 'development' ||
     env === 'dev' ||
     env === 'test');
-const warn = !!dev && !!console && !!console.warn ? console.warn : () => null;
+const ifConsole = !!dev && !!console;
+const warn = ifConsole && !!console.warn ? console.warn : () => null;
+const error = ifConsole && !!console.error ? console.error : () => null;
 
 export const logger = {
   warn,
+  error,
 };

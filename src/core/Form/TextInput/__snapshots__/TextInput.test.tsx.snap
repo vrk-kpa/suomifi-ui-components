@@ -21,22 +21,22 @@ exports[`calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
-.emotion-3 .fi-text-input-label-p {
+.emotion-3 .fi-text-input_label-p {
   margin-bottom: 16px;
 }
 
-.emotion-3 .fi-text-input-container > input:focus {
-  outline-color: #E97025;
+.emotion-3 .fi-text-input_container > input:focus {
+  outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
 
-.emotion-3 .fi-text-input-container:focus-within {
+.emotion-3 .fi-text-input_container:focus-within {
   outline: 0;
   position: relative;
 }
 
-.emotion-3 .fi-text-input-container:focus-within:after {
+.emotion-3 .fi-text-input_container:focus-within:after {
   content: '';
   position: absolute;
   top: -4px;
@@ -45,22 +45,22 @@ exports[`calling render with the same component on the same container does not r
   left: -4px;
   border-radius: 4px;
   background-color: transparent;
-  border: 1px solid #E97025;
+  border: 1px solid hsl(23,82%,53%);
   box-sizing: border-box;
-  box-shadow: 0 0 10px 0 #E97025;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
   z-index: 9999;
 }
 
-.emotion-3 .fi-text-input-container:focus-within:not(:focus-visible):after {
+.emotion-3 .fi-text-input_container:focus-within:not(:focus-visible):after {
   content: none;
 }
 
-.emotion-3 .fi-text-input-container:focus-within > input:focus {
+.emotion-3 .fi-text-input_container:focus-within > input:focus {
   outline: none;
 }
 
-.emotion-3 .fi-text-input-input {
-  color: #282828;
+.emotion-3 .fi-text-input_input {
+  color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -75,19 +75,20 @@ exports[`calling render with the same component on the same container does not r
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid #A5ACB1;
+  border: 1px solid hsl(202,7%,67%);
   border-radius: 2px;
-  background-color: #FFFFFF;
+  line-height: 1;
+  background-color: hsl(0,0%,100%);
 }
 
-.emotion-3.fi-text-input--error .fi-text-input-input {
-  color: #C33932;
-  border-color: #C33932;
+.emotion-3.fi-text-input--error .fi-text-input_input {
+  color: hsl(3,59%,48%);
+  border-color: hsl(3,59%,48%);
 }
 
-.emotion-3.fi-text-input--success .fi-text-input-input {
-  color: #09AE88;
-  border-color: #09AE88;
+.emotion-3.fi-text-input--success .fi-text-input_input {
+  color: hsl(166,90%,36%);
+  border-color: hsl(166,90%,36%);
 }
 
 .emotion-0 {
@@ -142,18 +143,18 @@ exports[`calling render with the same component on the same container does not r
 }
 
 <label
-  class="fi-text-input-label emotion-3"
+  class="fi-text-input_label emotion-3"
 >
   <p
-    class="fi-paragraph fi-text-input-label-p emotion-0"
+    class="fi-paragraph fi-text-input_label-p emotion-0"
   >
     Test input
   </p>
   <div
-    class="fi-text-input-container emotion-0"
+    class="fi-text-input_container emotion-0"
   >
     <input
-      class="fi-text-input-input emotion-1"
+      class="fi-text-input_input emotion-1"
       data-testid="textinput"
       type="text"
     />

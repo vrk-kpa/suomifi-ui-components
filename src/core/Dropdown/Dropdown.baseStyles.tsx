@@ -8,7 +8,7 @@ import { dataReachMenu } from '../Menu/Menu.baseStyles';
 export const baseStyles = ({
   theme = suomifiTheme,
 }: Omit<DropdownProps, 'name'>) => css`
-  & > [data-reach-menu-button].fi-dropdown-button {
+  & > [data-reach-menu-button].fi-dropdown_button {
     ${inputButton(theme)}
     position: relative;
     padding-right: 30px;
@@ -36,7 +36,7 @@ export const baseStyles = ({
 export const globalStyles = ({ theme = suomifiTheme }: DropdownProps) => css`
   ${dataReachMenu(theme)}
 
-  [data-reach-menu-list].fi-dropdown-list {
+  [data-reach-menu-list].fi-dropdown_list {
     ${element(theme)}
     ${fonts(theme).input}
     padding: 0;
@@ -50,7 +50,7 @@ export const globalStyles = ({ theme = suomifiTheme }: DropdownProps) => css`
     overflow: hidden;
   }
 
-  [data-reach-menu-item].fi-dropdown-item {
+  [data-reach-menu-item].fi-dropdown_item {
     ${element(theme)}
     ${fonts(theme).input}
     padding: ${theme.spacing.s} ${theme.spacing.m};

@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
 import { suomifiTheme } from '../theme';
 import { PanelExpansionProps } from './PanelExpansion';
-import { element, focus, fonts } from '../theme/reset';
+import { button } from '../theme/reset';
 import { absolute } from '../../utils/css/pseudo';
 import { padding } from '../theme/utils';
 
@@ -25,30 +25,28 @@ export const baseStyles = ({
       ${theme.transitions.basicTimingFunction}`};
   }
 
-  & .fi-panel-expansion-title {
-    ${element(theme)}
-    ${focus(theme)}
+  & .fi-panel-expansion_title {
+    ${button(theme)}
     position: relative;
     display: block;
     width: 100%;
     &--no-tag {
-      ${fonts(theme).semiBold}
       ${padding(theme)('m', 'xl', 'm', 'm')}
       color: ${theme.colors.highlightBase};
     }
   }
-  & .fi-panel-expansion-title-icon {
+  & .fi-panel-expansion_title-icon {
     position: absolute;
     top: 0;
     right: 0;
     margin: ${theme.spacing.m};
   }
-  & .fi-panel-expansion-title--open .fi-panel-expansion-title-icon,
-  & .fi-panel-expansion-title-icon--open {
+  & .fi-panel-expansion_title--open .fi-panel-expansion_title-icon,
+  & .fi-panel-expansion_title-icon--open {
     transform: rotate(-180deg);
   }
 
-  & > .fi-panel-expansion-content {
+  & > .fi-panel-expansion_content {
     position: relative;
     display: block;
     height: 0;
@@ -58,20 +56,20 @@ export const baseStyles = ({
     transition: all ${`${theme.transitions.basicTime}
       ${theme.transitions.basicTimingFunction}`};
     will-change: transition, height;
-    &:not(.fi-panel-expansion-content--no-padding) {
+    &:not(.fi-panel-expansion_content--no-padding) {
       padding: 0 ${theme.spacing.m};
     }
-    &.fi-panel-expansion-content--open {
+    &.fi-panel-expansion_content--open {
       height: 10%;
       overflow: visible;
       /* This is very robust - cannot animate dynamic height with height-definition */
-      animation: fi-panel-expansion-content-anim ${theme.transitions.basicTime}
+      animation: fi-panel-expansion_content-anim ${theme.transitions.basicTime}
         ${theme.transitions.basicTimingFunction} 1 forwards;
-      &:not(.fi-panel-expansion-content--no-padding) {
+      &:not(.fi-panel-expansion_content--no-padding) {
         ${padding(theme)('0', 'm', 'm', 'm')}
       }
     }
-    @keyframes fi-panel-expansion-content-anim {
+    @keyframes fi-panel-expansion_content-anim {
       0% {
         height: auto;
         transform: scaleY(0);

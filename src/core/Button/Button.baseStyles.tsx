@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
 import { suomifiTheme, ThemeProp } from '../theme';
 import { ButtonProps } from './Button';
-import { element, focus, fonts } from '../theme/reset';
+import { element, focus, button } from '../theme/reset';
 
 const fullWidthStyles = css`
   display: block;
@@ -91,9 +91,7 @@ export const baseStyles = ({
   theme = suomifiTheme,
   fullWidth = false,
 }: ButtonProps) => css`
-  ${element(theme)}
-  ${fonts(theme).inputSemibold}
-  ${focus(theme)}
+  ${button(theme)}
   padding: ${theme.spacing.s} ${theme.spacing.m};
   min-height: 40px;
   color: ${theme.colors.whiteBase};
@@ -125,13 +123,13 @@ export const baseStyles = ({
   ${secondaryNoBorderStyles(theme)}
   ${tertiaryStyles(theme)}
 
-  & > .fi-button-icon {
+  & > .fi-button_icon {
     width: 16px;
     height: 16px;
     margin-right: ${theme.spacing.s};
     vertical-align: middle;
     transform: translateY(-0.1em);
-    &.fi-button-icon--right {
+    &.fi-button_icon--right {
       margin-right: 0;
       margin-left: ${theme.spacing.s};
     }
