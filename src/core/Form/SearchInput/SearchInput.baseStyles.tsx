@@ -5,13 +5,13 @@ import { math } from 'polished';
 
 export const baseStyles = ({ theme = suomifiTheme }: SearchInputProps) => css`
   & .fi-search-input {
-    &-input-container {
+    &_input-container {
       position: relative;
     }
-    &-input {
+    &_input {
       padding-right: ${math(`${theme.spacing.m} * 2 + ${theme.spacing.s}`)};
     }
-    &-icon {
+    &_icon {
       position: absolute;
       top: 50%;
       right: ${theme.spacing.m};
