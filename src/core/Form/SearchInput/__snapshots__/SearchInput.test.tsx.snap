@@ -91,15 +91,15 @@ exports[`calling render with the same component on the same container does not r
   border-color: hsl(166,90%,36%);
 }
 
-.emotion-4 .fi-search-input-input-container {
+.emotion-4 .fi-search-input_input-container {
   position: relative;
 }
 
-.emotion-4 .fi-search-input-input {
+.emotion-4 .fi-search-input_input {
   padding-right: 40px;
 }
 
-.emotion-4 .fi-search-input-icon {
+.emotion-4 .fi-search-input_icon {
   position: absolute;
   top: 50%;
   right: 16px;
@@ -207,17 +207,17 @@ exports[`calling render with the same component on the same container does not r
     Test search input
   </span>
   <div
-    class="fi-search-input-input-container fi-text-input-container emotion-3"
+    class="fi-search-input_input-container fi-text-input-container emotion-3"
   >
     <input
-      class="fi-text-input-input fi-search-input-input emotion-1"
+      class="fi-text-input-input fi-search-input_input emotion-1"
       data-testid="textinput"
       placeholder="Test search input"
       type="text"
     />
     <svg
       aria-hidden="true"
-      class="fi-search-input-icon emotion-2"
+      class="fi-search-input_icon emotion-2"
       focusable="false"
       height="1em"
       style="fill: hsl(202, 7%, 40%);"
