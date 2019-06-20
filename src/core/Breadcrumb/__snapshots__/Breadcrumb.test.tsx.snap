@@ -36,7 +36,7 @@ exports[`calling render with the same component on the same container does not r
   background-color: hsl(0,0%,100%);
 }
 
-.emotion-9 .fi-breadcrumb-list {
+.emotion-9 .fi-breadcrumb_list {
   color: hsl(0,0%,16%);
   list-style: none;
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
@@ -54,7 +54,7 @@ exports[`calling render with the same component on the same container does not r
   padding: 0;
 }
 
-.emotion-9 .fi-breadcrumb-item {
+.emotion-9 .fi-breadcrumb_item {
   color: hsl(0,0%,16%);
   list-style: none;
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
@@ -71,10 +71,16 @@ exports[`calling render with the same component on the same container does not r
   float: left;
 }
 
-.emotion-9 .fi-breadcrumb-item,
-.emotion-9 .fi-breadcrumb-link,
-.emotion-9 .fi-breadcrumb-icon {
+.emotion-9 .fi-breadcrumb_item,
+.emotion-9 .fi-breadcrumb_link,
+.emotion-9 .fi-breadcrumb_icon {
   font-size: 18px;
+}
+
+.emotion-9 .fi-breadcrumb_icon {
+  -webkit-transform: translateY(.2em);
+  -ms-transform: translateY(.2em);
+  transform: translateY(.2em);
 }
 
 .emotion-8 {
@@ -252,20 +258,20 @@ exports[`calling render with the same component on the same container does not r
   data-testid="Breadcrumb"
 >
   <ol
-    class="fi-breadcrumb-list emotion-8"
+    class="fi-breadcrumb_list emotion-8"
   >
     <li
-      class="fi-breadcrumb-item emotion-2"
+      class="fi-breadcrumb_item emotion-2"
     >
       <a
-        class="fi-breadcrumb-link fi-link emotion-0"
+        class="fi-breadcrumb_link fi-link emotion-0"
         href="/"
       >
         Frontpage
       </a>
       <svg
         aria-hidden="true"
-        class="fi-breadcrumb-icon emotion-1"
+        class="fi-breadcrumb_icon emotion-1"
         focusable="false"
         height="1em"
         style="fill: hsl(0, 0%, 16%);"
@@ -278,17 +284,17 @@ exports[`calling render with the same component on the same container does not r
       </svg>
     </li>
     <li
-      class="fi-breadcrumb-item emotion-2"
+      class="fi-breadcrumb_item emotion-2"
     >
       <a
-        class="fi-breadcrumb-link fi-link emotion-0"
+        class="fi-breadcrumb_link fi-link emotion-0"
         href="/sub"
       >
         Sub page
       </a>
       <svg
         aria-hidden="true"
-        class="fi-breadcrumb-icon emotion-1"
+        class="fi-breadcrumb_icon emotion-1"
         focusable="false"
         height="1em"
         style="fill: hsl(0, 0%, 16%);"
@@ -301,7 +307,7 @@ exports[`calling render with the same component on the same container does not r
       </svg>
     </li>
     <li
-      class="fi-breadcrumb-item emotion-2"
+      class="fi-breadcrumb_item emotion-2"
     >
       <span
         aria-current="page"

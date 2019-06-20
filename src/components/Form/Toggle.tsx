@@ -10,8 +10,8 @@ import classnames from 'classnames';
 
 const baseClassName = 'fi-toggle';
 const toggleDisabledClassName = `${baseClassName}--disabled`;
-const toggleInputClassName = `${baseClassName}-input`;
-const toggleLabelClassName = `${baseClassName}-label`;
+const toggleInputClassName = `${baseClassName}_input`;
+const toggleLabelClassName = `${baseClassName}_label`;
 
 export interface ToggleInputProps {
   /** State of input checkbox */

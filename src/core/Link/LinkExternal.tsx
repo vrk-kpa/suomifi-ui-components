@@ -13,7 +13,7 @@ import { Omit } from '../../utils/typescript';
 import { VisuallyHidden } from '../../components';
 import { logger } from '../../utils/logger';
 
-const iconClassName = 'fi-link-icon';
+const iconClassName = 'fi-link_icon';
 
 export interface LinkExternalProps
   extends CompLinkExternalProps,

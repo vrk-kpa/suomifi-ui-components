@@ -7,8 +7,8 @@ import { HtmlSpan } from '../../reset';
 import classnames from 'classnames';
 import { Omit } from '../../utils/typescript';
 
-const linkClassName = `${baseClassName}-link`;
-const iconClassName = `${baseClassName}-icon`;
+const linkClassName = `${baseClassName}_link`;
+const iconClassName = `${baseClassName}_icon`;
 
 export interface BreadcrumbLinkProps extends Omit<LinkProps, 'href'> {
   /** Indicating the link is the current page */

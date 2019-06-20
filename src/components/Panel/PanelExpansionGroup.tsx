@@ -7,8 +7,8 @@ import { ButtonProps } from '../Button/Button';
 
 export const baseClassName = 'fi-panel-expansion-group';
 const openClassName = `${baseClassName}--open`;
-const panelsContainerClassName = `${baseClassName}-panels`;
-const openAllButtonClassName = `${baseClassName}-all-button`;
+const panelsContainerClassName = `${baseClassName}_panels`;
+const openAllButtonClassName = `${baseClassName}_all-button`;
 
 export const StyledPanel = styled((props: HtmlDivProps) => (
   <HtmlDiv {...props} />

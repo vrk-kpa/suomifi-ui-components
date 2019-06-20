@@ -10,8 +10,8 @@ import {
 import classnames from 'classnames';
 
 const baseClassName = 'fi-text-input';
-const labelParagraphClassName = `${baseClassName}-label-p`;
-const inputContainerClassName = `${baseClassName}-container`;
+const labelParagraphClassName = `${baseClassName}_label-p`;
+const inputContainerClassName = `${baseClassName}_container`;
 const errorClassName = `${baseClassName}--error`;
 const successClassName = `${baseClassName}--success`;
 

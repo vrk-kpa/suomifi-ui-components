@@ -44,8 +44,8 @@ export interface ButtonProps extends CompButtonProps, ThemeComponent {
 }
 
 const baseClassName = 'fi-button';
-const iconClassName = `${baseClassName}-icon`;
-const iconRightClassName = `${baseClassName}-icon--right`;
+const iconClassName = `${baseClassName}_icon`;
+const iconRightClassName = `${baseClassName}_icon--right`;
 
 const StyledButton = styled(
   ({

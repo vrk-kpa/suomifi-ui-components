@@ -16,9 +16,9 @@ import '@reach/menu-button/styles.css';
 export { MenuItem as DropdownItem };
 
 const baseClassName = 'fi-dropdown';
-const buttonClassName = `${baseClassName}-button`;
-const dropdownListClassName = `${baseClassName}-list`;
-const dropdownItemClassName = `${baseClassName}-item`;
+const buttonClassName = `${baseClassName}_button`;
+const dropdownListClassName = `${baseClassName}_list`;
+const dropdownItemClassName = `${baseClassName}_item`;
 
 export interface DropdownItemProps {
   /** Operation to run on select */

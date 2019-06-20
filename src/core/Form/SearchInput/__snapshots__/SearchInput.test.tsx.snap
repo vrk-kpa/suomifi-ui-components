@@ -21,22 +21,22 @@ exports[`calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
-.emotion-4 .fi-text-input-label-p {
+.emotion-4 .fi-text-input_label-p {
   margin-bottom: 16px;
 }
 
-.emotion-4 .fi-text-input-container > input:focus {
+.emotion-4 .fi-text-input_container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
 
-.emotion-4 .fi-text-input-container:focus-within {
+.emotion-4 .fi-text-input_container:focus-within {
   outline: 0;
   position: relative;
 }
 
-.emotion-4 .fi-text-input-container:focus-within:after {
+.emotion-4 .fi-text-input_container:focus-within:after {
   content: '';
   position: absolute;
   top: -4px;
@@ -51,15 +51,15 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.emotion-4 .fi-text-input-container:focus-within:not(:focus-visible):after {
+.emotion-4 .fi-text-input_container:focus-within:not(:focus-visible):after {
   content: none;
 }
 
-.emotion-4 .fi-text-input-container:focus-within > input:focus {
+.emotion-4 .fi-text-input_container:focus-within > input:focus {
   outline: none;
 }
 
-.emotion-4 .fi-text-input-input {
+.emotion-4 .fi-text-input_input {
   color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 16px;
@@ -81,25 +81,25 @@ exports[`calling render with the same component on the same container does not r
   background-color: hsl(0,0%,100%);
 }
 
-.emotion-4.fi-text-input--error .fi-text-input-input {
+.emotion-4.fi-text-input--error .fi-text-input_input {
   color: hsl(3,59%,48%);
   border-color: hsl(3,59%,48%);
 }
 
-.emotion-4.fi-text-input--success .fi-text-input-input {
+.emotion-4.fi-text-input--success .fi-text-input_input {
   color: hsl(166,90%,36%);
   border-color: hsl(166,90%,36%);
 }
 
-.emotion-4 .fi-search-input-input-container {
+.emotion-4 .fi-search-input_input-container {
   position: relative;
 }
 
-.emotion-4 .fi-search-input-input {
+.emotion-4 .fi-search-input_input {
   padding-right: 40px;
 }
 
-.emotion-4 .fi-search-input-icon {
+.emotion-4 .fi-search-input_icon {
   position: absolute;
   top: 50%;
   right: 16px;
@@ -199,7 +199,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 <label
-  class="fi-text-input-label fi-search-input emotion-4"
+  class="fi-text-input_label fi-search-input emotion-4"
 >
   <span
     class="fi-visually-hidden emotion-0"
@@ -207,17 +207,17 @@ exports[`calling render with the same component on the same container does not r
     Test search input
   </span>
   <div
-    class="fi-search-input-input-container fi-text-input-container emotion-3"
+    class="fi-search-input_input-container fi-text-input_container emotion-3"
   >
     <input
-      class="fi-text-input-input fi-search-input-input emotion-1"
+      class="fi-text-input_input fi-search-input_input emotion-1"
       data-testid="textinput"
       placeholder="Test search input"
       type="text"
     />
     <svg
       aria-hidden="true"
-      class="fi-search-input-icon emotion-2"
+      class="fi-search-input_icon emotion-2"
       focusable="false"
       height="1em"
       style="fill: hsl(202, 7%, 40%);"

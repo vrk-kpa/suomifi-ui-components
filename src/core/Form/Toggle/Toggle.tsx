@@ -17,7 +17,7 @@ export interface ToggleInputProps
   extends CompToggleInputProps,
     ThemeComponent {}
 
-const iconBaseClassName = 'fi-toggle-icon';
+const iconBaseClassName = 'fi-toggle_icon';
 const iconDisabledClassName = `${iconBaseClassName}--disabled`;
 const iconCheckedClassName = `${iconBaseClassName}--checked`;
 

@@ -123,13 +123,13 @@ export const baseStyles = ({
   ${secondaryNoBorderStyles(theme)}
   ${tertiaryStyles(theme)}
 
-  & > .fi-button-icon {
+  & > .fi-button_icon {
     width: 16px;
     height: 16px;
     margin-right: ${theme.spacing.s};
     vertical-align: middle;
     transform: translateY(-0.1em);
-    &.fi-button-icon--right {
+    &.fi-button_icon--right {
       margin-right: 0;
       margin-left: ${theme.spacing.s};
     }

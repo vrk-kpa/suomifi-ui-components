@@ -20,7 +20,13 @@ import {
 
 import { Icon } from '../Icon/Icon';
 
-const iconClassName = 'fi-menu-language-icon';
+const itemClassName = 'fi-menu_item';
+const itemLangClassName = 'fi-menu-language_item';
+const buttonClassName = 'fi-menu_button';
+const buttonLangClassName = 'fi-menu-language_button';
+const listClassName = 'fi-menu_list';
+const listLangClassName = 'fi-menu-language_list';
+const iconLangClassName = 'fi-menu-language_icon';
 
 type ButtonVariant = 'default' | 'language';
 
@@ -46,7 +52,7 @@ const MenuListWithProps = (children: ReactNode, addClass?: classnamesValue) =>
       if (React.isValidElement(child)) {
         return React.cloneElement(child, {
           component: 'a',
-          className: classnames('fi-menu-item', addClass),
+          className: classnames(itemClassName, addClass),
         });
       }
       return child;
@@ -56,7 +62,7 @@ const MenuListWithProps = (children: ReactNode, addClass?: classnamesValue) =>
 const languageName = (name: ReactNode) => (
   <Fragment>
     {name}
-    <Icon icon="chevronDown" className={iconClassName} />
+    <Icon icon="chevronDown" className={iconLangClassName} />
   </Fragment>
 );
 
@@ -71,15 +77,15 @@ class MenuVariation extends Component<MenuProps> {
     } = withDefaultTheme(this.props);
     const ifMenuLanguage = variant === 'language';
     const menuButtonClassName = classnames(
-      'fi-menu-button',
+      buttonClassName,
       {
-        'fi-menu-language-button': ifMenuLanguage,
+        [buttonLangClassName]: ifMenuLanguage,
       },
       className,
     );
     const menuListProps = {
-      className: classnames('fi-menu-list', {
-        'fi-menu-language-list': ifMenuLanguage,
+      className: classnames(listClassName, {
+        [listLangClassName]: ifMenuLanguage,
       }),
     };
 
@@ -93,7 +99,7 @@ class MenuVariation extends Component<MenuProps> {
           menuListProps={menuListProps}
         >
           {MenuListWithProps(children, {
-            'fi-menu-language-item': ifMenuLanguage,
+            [itemLangClassName]: ifMenuLanguage,
           })}
         </StyledMenu>
       </Fragment>

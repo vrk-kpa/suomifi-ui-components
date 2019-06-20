@@ -8,9 +8,9 @@ import classnames from 'classnames';
 import { Omit } from '../../../utils/typescript';
 
 const baseClassName = 'fi-search-input';
-const inputContainerBaseClassName = `${baseClassName}-input-container`;
-const inputBaseClassName = `${baseClassName}-input`;
-const iconBaseClassName = `${baseClassName}-icon`;
+const inputContainerBaseClassName = `${baseClassName}_input-container`;
+const inputBaseClassName = `${baseClassName}_input`;
+const iconBaseClassName = `${baseClassName}_icon`;
 
 export interface SearchInputProps extends Omit<TextInputProps, 'variant'> {}
 
