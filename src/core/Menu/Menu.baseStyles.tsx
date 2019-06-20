@@ -8,12 +8,12 @@ import { padding } from '../theme/utils';
 export const baseStyles = ({
   theme = suomifiTheme,
 }: Omit<MenuProps, 'name'>) => css`
-  & > [data-reach-menu-button].fi-menu-button {
+  & > [data-reach-menu-button].fi-menu_button {
     ${element(theme)}
     ${fonts(theme).body}
     ${focus(theme)}
     cursor: pointer;
-    &.fi-menu-language-button {
+    &.fi-menu-language_button {
       ${element(theme)}
       ${fonts(theme).inputSemibold}
       ${padding(theme)('s', 'xs', 's', 's')}
@@ -21,7 +21,7 @@ export const baseStyles = ({
       border: 1px solid ${theme.colors.depthBase};
       border-radius: ${theme.radius.basic};
       text-transform: uppercase;
-      & > .fi-menu-language-icon {
+      & > .fi-menu-language_icon {
         height: 16px;
         width: 16px;
         margin-left: ${theme.spacing.xxs};
@@ -43,13 +43,13 @@ export const dataReachMenu = (theme: ThemeProp) => css`
 export const globalStyles = ({ theme = suomifiTheme }: MenuProps) => css`
   ${dataReachMenu(theme)}
 
-  [data-reach-menu-list].fi-menu-list {
+  [data-reach-menu-list].fi-menu_list {
     ${element(theme)}
     ${fonts(theme).body}
     background-color: ${theme.colors.whiteBase};
     border: none;
     box-shadow: ${theme.shadows.menuShadow};
-    &.fi-menu-language-list {
+    &.fi-menu-language_list {
       ${fonts(theme).input}
       position: absolute;
       right: 0;
@@ -82,7 +82,7 @@ export const globalStyles = ({ theme = suomifiTheme }: MenuProps) => css`
     }
   }
 
-  [data-reach-menu-item].fi-menu-item {
+  [data-reach-menu-item].fi-menu_item {
     ${element(theme)}
     ${fonts(theme).body}
     &[data-selected] {
@@ -90,8 +90,8 @@ export const globalStyles = ({ theme = suomifiTheme }: MenuProps) => css`
       color: ${theme.colors.blackBase};
       background-color: ${theme.colors.highlightLight50};
     }
-    &.fi-menu-language-item,
-    &[data-selected].fi-menu-language-item {
+    &.fi-menu-language_item,
+    &[data-selected].fi-menu-language_item {
       ${fonts(theme).input}
       padding: 6px 20px 6px 14px;
       border-left: 6px solid transparent;
@@ -100,7 +100,7 @@ export const globalStyles = ({ theme = suomifiTheme }: MenuProps) => css`
         ${fonts(theme).inputSemibold};
       }
     }
-    &[data-selected].fi-menu-language-item {
+    &[data-selected].fi-menu-language_item {
       border-left-color: ${theme.colors.highlightBase};
     }
   }
