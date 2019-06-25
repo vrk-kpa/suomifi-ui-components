@@ -20,7 +20,7 @@ export interface LinkExternalProps
     LinkProps,
     ThemeComponent {
   /** Translated explanation of 'opens to a new window' */
-  'aria-label': string;
+  labelNewWindow: string;
   /** Hide the icon */
   hideIcon?: boolean;
 }
@@ -29,7 +29,7 @@ const StyledLinkExternal = styled(
   ({
     theme,
     ...passProps
-  }: Omit<LinkExternalProps, 'aria-label' | 'hideIcon'>) => (
+  }: Omit<LinkExternalProps, 'labelNewWindow' | 'hideIcon'>) => (
     <Link {...passProps} as={CompLinkExternal} />
   ),
 )`
@@ -43,11 +43,11 @@ export class LinkExternal extends Component<LinkExternalProps> {
   render() {
     const {
       children,
-      'aria-label': ariaLabel,
+      labelNewWindow,
       hideIcon,
       ...passProps
     } = withDefaultTheme(this.props);
-    if (!ariaLabel) {
+    if (!labelNewWindow) {
       logger.warn(
         'External link needs a translated description of link opening to a new window',
       );
@@ -55,7 +55,7 @@ export class LinkExternal extends Component<LinkExternalProps> {
     return (
       <StyledLinkExternal {...passProps}>
         {children}
-        <VisuallyHidden>{ariaLabel}</VisuallyHidden>
+        <VisuallyHidden>{labelNewWindow}</VisuallyHidden>
         {!hideIcon && (
           <Icon
             icon="linkExternal"

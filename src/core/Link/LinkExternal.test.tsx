@@ -8,7 +8,7 @@ test('calling render with the same component on the same container does not remo
     <Link.external
       href="/"
       data-testid="test-link"
-      aria-label="Opens in a new window"
+      labelNewWindow="Opens in a new window"
     >
       Hey this is test
     </Link.external>,
