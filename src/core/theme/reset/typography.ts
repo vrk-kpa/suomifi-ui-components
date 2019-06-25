@@ -39,6 +39,8 @@ const font = ({
   line-height: ${lineHeight({ typography, size, smRes })};
   letter-spacing: 0;
   text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
 `;
 
