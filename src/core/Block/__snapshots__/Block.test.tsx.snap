@@ -13,6 +13,8 @@ exports[`calling render with the same component on the same container does not r
   letter-spacing: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -97,6 +99,8 @@ exports[`calling render with the same component on the same container does not r
   letter-spacing: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
 }
 

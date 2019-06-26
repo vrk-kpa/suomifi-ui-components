@@ -32,6 +32,8 @@ exports[`calling render with the same component on the same container does not r
   letter-spacing: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   background-color: hsl(0,0%,100%);
 }
@@ -49,6 +51,8 @@ exports[`calling render with the same component on the same container does not r
   letter-spacing: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   margin: 0;
   padding: 0;
@@ -67,6 +71,8 @@ exports[`calling render with the same component on the same container does not r
   letter-spacing: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   float: left;
 }
@@ -161,6 +167,8 @@ exports[`calling render with the same component on the same container does not r
   letter-spacing: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   color: hsl(212,63%,45%);
   -webkit-text-decoration: none;

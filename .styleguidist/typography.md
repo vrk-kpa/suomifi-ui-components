@@ -23,6 +23,7 @@ const Item = ({ flex, Component, ...passProps }) => (
   <div
     style={{
       flex: !!flex ? flex : '1',
+      marginRight: '0.5em',
       cursor: 'inherit'
     }}
   >
