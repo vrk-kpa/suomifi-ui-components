@@ -1,4 +1,5 @@
 const path = require('path');
+const packagejson = require('./package.json');
 
 // Filter props from styleguidist that don't have description in interface or are from react typings
 const propFilter = prop => {
@@ -12,7 +13,7 @@ const propFilter = prop => {
 };
 
 module.exports = {
-  title: 'Suomifi-ui-components',
+  title: `Suomifi-ui-components ${packagejson.version}`,
   components: 'src/core/**/[A-Z]*.tsx',
   ignore: ['**/*basestyles.tsx', '**/*baseStyles.tsx', '**/*test.tsx'],
   webpackConfig: require('./webpack.config.js'),
