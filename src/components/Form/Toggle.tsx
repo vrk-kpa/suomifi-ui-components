@@ -6,6 +6,7 @@ import React, {
   FunctionComponent,
 } from 'react';
 import { HtmlLabel, HtmlInput, HtmlSpan } from '../../reset';
+import { idGenerator } from '../../utils/uuid';
 import classnames from 'classnames';
 
 const baseClassName = 'fi-toggle';
@@ -69,6 +70,10 @@ export interface ToggleProps {
    */
   'aria-label'?: string;
   'aria-labelledby'?: string;
+  /** Unique id
+   * @default uuidV4
+   */
+  id?: string;
 }
 
 interface ToggleState {
@@ -126,9 +131,11 @@ export class Toggle extends Component<ToggleProps> {
       checked: dissMissChecked,
       defaultChecked: dissMissDefaultChecked,
       onClick: dissMissOnClick,
+      id: propId,
       ...passProps
     } = this.props;
     const { toggleState } = this.state;
+    const id = idGenerator(propId);
     const newToggleInputProps = {
       disabled,
       'aria-label': ariaLabel,
@@ -137,6 +144,7 @@ export class Toggle extends Component<ToggleProps> {
       className: toggleInputClassName,
       onChange: this.handleClick,
       ...toggleInputProps,
+      id,
     };
 
     return (
@@ -154,6 +162,7 @@ export class Toggle extends Component<ToggleProps> {
           {...passProps}
           className={toggleLabelClassName}
           onClick={this.handleClick}
+          htmlFor={id}
         >
           {children}
         </HtmlLabel>
