@@ -26,6 +26,7 @@
   "homepage": "https://github.com/vrk-kpa/suomifi-ui-components#readme",
   "scripts": {
     "start": "yarn styleguide",
+    "start:withaxe": "cross-env AXE=\"true\" yarn styleguidist server",
     "start:webpack": "webpack --env.development",
     "test": "jest",
     "test:updatesnapshots": "jest --u",
@@ -59,6 +60,7 @@
     "awesome-typescript-loader": "5.2.1",
     "clipboard-copy": "3.0.0",
     "copyfiles": "2.1.0",
+    "cross-env": "5.2.0",
     "css-loader": "2.0.0",
     "eslint": "5.9.0",
     "eslint-plugin-jsx-a11y": "6.1.2",
