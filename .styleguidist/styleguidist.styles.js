@@ -37,6 +37,12 @@ module.exports = {
     docs: {
       order: '1',
       marginBottom: '24px',
+      '& i.semantics': {
+        '&:after': {
+          display: 'block',
+          content: '"Contains semantics"',
+        },
+      },
     },
     tabs: {
       order: '3',
