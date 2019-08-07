@@ -108,6 +108,7 @@ class MenuVariation extends Component<MenuProps> {
 }
 
 /**
+ * <i class="semantics" />
  * Use for dropdown menu.
  */
 export class Menu extends Component<MenuProps> {

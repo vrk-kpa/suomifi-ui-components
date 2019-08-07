@@ -22,6 +22,7 @@ const StyledDropdown = styled(({ theme, ...passProps }: DropdownProps) => (
 `;
 
 /**
+ * <i class="semantics" />
  * Use for selectable dropdown list.
  */
 export class Dropdown extends Component<DropdownProps> {

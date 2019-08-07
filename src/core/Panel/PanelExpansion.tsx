@@ -43,6 +43,7 @@ interface PanelExpansionState {
 }
 
 /**
+ * <i class="semantics" />
  * Used for openable panel
  */
 export class PanelExpansion extends Component<PanelExpansionProps> {

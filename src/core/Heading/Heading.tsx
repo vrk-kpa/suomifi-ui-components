@@ -51,6 +51,7 @@ const StyledHeading = styled(
 `;
 
 /**
+ * <i class="semantics" />
  * Used displaying headings with correct fonts
  */
 export class Heading extends Component<HeadingProps> {

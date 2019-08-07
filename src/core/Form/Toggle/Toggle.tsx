@@ -28,6 +28,7 @@ const StyledToggle = styled(({ theme, ...passProps }: ToggleProps) => (
 `;
 
 /**
+ * <i class="semantics" />
  * Use for toggling form selection or application state
  */
 export class Toggle extends Component<ToggleProps> {
