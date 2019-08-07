@@ -42,7 +42,7 @@ module.exports = {
           position: 'relative',
           top: '-.75em',
           display: 'block',
-          content: '"<constains semantic elements>"',
+          content: '"<contains semantic elements>"',
           fontSize: '.8em',
           color: 'hsl(23, 82%, 53%)',
         },
