@@ -57,7 +57,7 @@ const StyledButton = styled(
   }: ButtonProps & { right?: boolean }) => (
     <CompButton
       {...passProps}
-      className={classnames(className, baseClassName, {
+      className={classnames(className, {
         [`${baseClassName}--${variant}`]: variant !== 'default',
       })}
     />
