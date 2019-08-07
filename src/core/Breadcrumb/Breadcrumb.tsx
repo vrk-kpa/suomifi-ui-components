@@ -31,6 +31,7 @@ type VariantBreadcrumbProps =
   | LinkProps & { variant?: BreadcrumbVariant };
 
 /**
+ * <i class="semantics" />
  * Used for navigation path
  */
 export class Breadcrumb extends Component<VariantBreadcrumbProps> {

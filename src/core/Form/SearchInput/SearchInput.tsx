@@ -28,6 +28,7 @@ const StyledTextInput = styled(
 `;
 
 /**
+ * <i class="semantics" />
  * Use for user inputting search text
  */
 export class SearchInput extends Component<TextInputProps> {

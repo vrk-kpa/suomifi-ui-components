@@ -42,6 +42,7 @@ const OpenAllButton = ({
 );
 
 /**
+ * <i class="semantics" />
  * Used for grouping expansion panels
  */
 export class PanelExpansionGroup extends Component<PanelExpansionGroupProps> {

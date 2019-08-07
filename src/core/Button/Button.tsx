@@ -133,6 +133,7 @@ class ButtonWithIcon extends Component<ButtonProps> {
 }
 
 /**
+ * <i class="semantics" />
  * Use for inside Application onClick events.<br />
  * When using Button.secondaryNoborder with other than white background,<br />
  * define styles background color for all needed states (:hover, :active, :disabled)<br /><br />

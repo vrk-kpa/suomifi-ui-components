@@ -1,5 +1,5 @@
 ```js
-import { Link, LinkExternal, Paragraph } from 'suomifi-ui-components';
+import { Link, Paragraph } from 'suomifi-ui-components';
 
 <Paragraph>
   <Link

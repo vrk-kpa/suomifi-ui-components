@@ -37,6 +37,7 @@ const StyledLinkExternal = styled(
 `;
 
 /**
+ * <i class="semantics" />
  * Used for adding a external site link
  */
 export class LinkExternal extends Component<LinkExternalProps> {
