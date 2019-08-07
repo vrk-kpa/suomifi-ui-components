@@ -38,9 +38,13 @@ module.exports = {
       order: '1',
       marginBottom: '24px',
       '& i.semantics': {
-        '&:after': {
+        '&:before': {
+          position: 'relative',
+          top: '-.75em',
           display: 'block',
-          content: '"Contains semantics"',
+          content: '"<constains semantic elements>"',
+          fontSize: '.8em',
+          color: 'hsl(23, 82%, 53%)',
         },
       },
     },
