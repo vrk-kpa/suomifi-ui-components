@@ -6,6 +6,10 @@ export const ariaLabelOrHidden = (ariaLabel?: string) => {
     : { 'aria-hidden': true };
 };
 
+/**
+ * Set element ability to be focusable based on aria-label
+ * @param {String} ariaLabel optional aria-label
+ */
 export const ariaFocusableNoLabel = (ariaLabel?: string) => {
   return ifAriaNoLabel(ariaLabel) ? {} : { focusable: false };
 };
