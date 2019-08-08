@@ -271,7 +271,7 @@ exports[`calling render with the same component on the same container does not r
   <button
     aria-disabled="false"
     aria-expanded="false"
-    class="fi-panel-expansion_title fi-panel-expansion_title--no-tag emotion-1"
+    class="fi-button fi-panel-expansion_title fi-panel-expansion_title--no-tag emotion-1"
     data-testid="panel-expansion-title"
     tabindex="0"
     type="button"

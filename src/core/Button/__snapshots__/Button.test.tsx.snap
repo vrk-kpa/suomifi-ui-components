@@ -101,6 +101,7 @@ exports[`calling render with the same component on the same container does not r
   background: linear-gradient(0deg,hsl(212,63%,37%) 0%,#2c72c4 100%);
 }
 
+.emotion-0.fi-button--disabled,
 .emotion-0[disabled],
 .emotion-0:disabled {
   text-shadow: 0 1px 1px hsl(0,0%,16%);
@@ -128,6 +129,7 @@ exports[`calling render with the same component on the same container does not r
   background-color: hsl(212,63%,45%);
 }
 
+.emotion-0.fi-button--negative.fi-button--disabled,
 .emotion-0.fi-button--negative[disabled],
 .emotion-0.fi-button--negative:disabled {
   opacity: 0.5;
@@ -151,6 +153,7 @@ exports[`calling render with the same component on the same container does not r
   background-color: hsl(212,63%,98%);
 }
 
+.emotion-0.fi-button--secondary.fi-button--disabled,
 .emotion-0.fi-button--secondary[disabled],
 .emotion-0.fi-button--secondary:disabled {
   color: hsl(202,7%,67%);
@@ -178,6 +181,7 @@ exports[`calling render with the same component on the same container does not r
   background-color: hsl(212,63%,98%);
 }
 
+.emotion-0.fi-button--secondary-noborder.fi-button--disabled,
 .emotion-0.fi-button--secondary-noborder[disabled],
 .emotion-0.fi-button--secondary-noborder:disabled {
   color: hsl(202,7%,67%);
@@ -206,6 +210,7 @@ exports[`calling render with the same component on the same container does not r
   background-color: hsl(212,63%,98%);
 }
 
+.emotion-0.fi-button--tertiary.fi-button--disabled,
 .emotion-0.fi-button--tertiary[disabled],
 .emotion-0.fi-button--tertiary:disabled {
   color: hsl(202,7%,67%);
