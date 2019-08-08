@@ -37,6 +37,8 @@ exports[`calling render with the same component on the same container does not r
   letter-spacing: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   padding: 16px;
   background-color: hsl(0,0%,100%);
@@ -81,6 +83,8 @@ exports[`calling render with the same component on the same container does not r
   letter-spacing: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   line-height: 1;
   position: relative;
@@ -267,7 +271,7 @@ exports[`calling render with the same component on the same container does not r
   <button
     aria-disabled="false"
     aria-expanded="false"
-    class="fi-panel-expansion_title fi-panel-expansion_title--no-tag emotion-1"
+    class="fi-button fi-panel-expansion_title fi-panel-expansion_title--no-tag emotion-1"
     data-testid="panel-expansion-title"
     tabindex="0"
     type="button"

@@ -22,8 +22,8 @@ export const colorTokens = {
     depthLight13: 'hsl(202, 7%, 80%)',
   },
   depthSecondary: {
-    depthSecondaryDark3: 'hsl(215, 100%, 91%)',
-    depthSecondary: 'hsl(215, 100%, 94%)',
+    depthSecondaryDark6: 'hsl(215, 100%, 91%)',
+    depthSecondary: 'hsl(215, 100%, 97%)',
   },
   hightlight: {
     highlightDark9: 'hsl(212, 63%, 37%)',

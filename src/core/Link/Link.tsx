@@ -22,6 +22,7 @@ const StyledLink = styled(({ theme, ...passProps }: LinkProps) => (
 `;
 
 /**
+ * <i class="semantics" />
  * Used for adding a link
  */
 export class Link extends Component<LinkProps | LinkExternalProps> {
@@ -30,7 +31,8 @@ export class Link extends Component<LinkProps | LinkExternalProps> {
   render() {
     const { variant, ...passProps } = withDefaultTheme(this.props);
 
-    if (variant === 'external') return <LinkExternal {...passProps} />;
+    if (variant === 'external')
+      return <LinkExternal {...passProps as LinkExternalProps} />;
     return <StyledLink {...passProps} />;
   }
 }

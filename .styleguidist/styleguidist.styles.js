@@ -37,6 +37,16 @@ module.exports = {
     docs: {
       order: '1',
       marginBottom: '24px',
+      '& i.semantics': {
+        '&:before': {
+          position: 'relative',
+          top: '-.75em',
+          display: 'block',
+          content: '"<contains semantic elements>"',
+          fontSize: '.8em',
+          color: 'hsl(23, 82%, 53%)',
+        },
+      },
     },
     tabs: {
       order: '3',

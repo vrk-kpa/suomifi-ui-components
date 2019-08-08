@@ -1,4 +1,5 @@
 const path = require('path');
+const packagejson = require('./package.json');
 
 // Filter props from styleguidist that don't have description in interface or are from react typings
 const propFilter = prop => {
@@ -11,12 +12,19 @@ const propFilter = prop => {
   return prop.parent.fileName.indexOf('node_modules/@types/react') < 0;
 };
 
+const requireFiles = axe => [
+  ...(!!axe
+    ? [path.join(__dirname, '.styleguidist/styleguidist.require.axe.js')]
+    : []),
+  path.join(__dirname, '.styleguidist/styleguidist.require.js'),
+];
+
 module.exports = {
-  title: 'Suomifi-ui-components',
+  title: `Suomifi-ui-components ${packagejson.version}`,
   components: 'src/core/**/[A-Z]*.tsx',
   ignore: ['**/*basestyles.tsx', '**/*baseStyles.tsx', '**/*test.tsx'],
   webpackConfig: require('./webpack.config.js'),
-  require: [path.join(__dirname, '.styleguidist/styleguidist.require.js')],
+  require: requireFiles(!!process.env.AXE),
   assetsDir: path.join(__dirname, '.styleguidist/assets'),
   resolver: require('react-docgen').resolver.findAllComponentDefinitions,
   propsParser: require('react-docgen-typescript').withDefaultConfig({

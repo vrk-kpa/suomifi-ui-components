@@ -24,6 +24,7 @@ const negativeStyles = (theme: ThemeProp) => css`
       background-color: ${theme.colors.highlightBase};
     }
 
+    &.fi-button--disabled,
     &[disabled],
     &:disabled {
       opacity: 0.5;
@@ -48,6 +49,7 @@ const secondary = (theme: ThemeProp) => css`
     background-color: ${theme.colors.highlightLight53};
   }
 
+  &.fi-button--disabled,
   &[disabled],
   &:disabled {
     color: ${theme.colors.depthBase};
@@ -109,6 +111,7 @@ export const baseStyles = ({
     background: ${theme.gradients.highlightDark9};
   }
 
+  &.fi-button--disabled,
   &[disabled],
   &:disabled {
     text-shadow: 0 1px 1px ${theme.colors.blackBase};

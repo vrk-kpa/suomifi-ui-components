@@ -34,6 +34,8 @@ exports[`calling render with the same component on the same container does not r
   letter-spacing: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   background-color: hsl(0,0%,100%);
 }
@@ -54,6 +56,8 @@ exports[`calling render with the same component on the same container does not r
   letter-spacing: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   width: 0;
   height: 0;
@@ -204,11 +208,13 @@ exports[`calling render with the same component on the same container does not r
 >
   <input
     class="fi-toggle_input emotion-0"
+    id="test-toggle"
     type="checkbox"
   />
   <label
     class="fi-toggle_label emotion-2"
     data-testid="toggle"
+    for="test-toggle"
   >
     <svg
       aria-hidden="true"
