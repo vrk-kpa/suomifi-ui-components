@@ -57,6 +57,7 @@
     "@types/jest-axe": "2.2.3",
     "@types/react": "16.8.15",
     "@types/react-dom": "16.0.9",
+    "@types/styled-components": "4.1.18",
     "@types/uuid": "3.4.5",
     "awesome-typescript-loader": "5.2.1",
     "clipboard-copy": "3.0.0",
@@ -113,6 +114,7 @@
     "normalize.cssinjs": "1.0.5",
     "polished": "3.4.0",
     "react-svg": "7.2.2",
+    "styled-components": "4.3.2",
     "suomifi-icons": "0.0.7",
     "uuid": "3.3.2"
   },

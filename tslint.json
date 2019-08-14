@@ -11,7 +11,14 @@
     "arrow-parens": false,
     "curly": false,
     "interface-name": [true, "never-prefix"],
-    "import-name": [true, { "react": "React", "reactSvg": "ReactSVG" }],
+    "import-name": [
+      true,
+      {
+        "react": "React",
+        "reactSvg": "ReactSVG",
+        "styledComponents": "styled"
+      }
+    ],
     "jsx-alignment": true,
     "max-classes-per-file": [true, 2],
     "max-line-length": [
