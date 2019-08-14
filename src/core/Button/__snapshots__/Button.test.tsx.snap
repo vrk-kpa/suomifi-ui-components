@@ -133,7 +133,7 @@ exports[`calling render with the same component on the same container does not r
 .emotion-0.fi-button--negative[disabled],
 .emotion-0.fi-button--negative:disabled {
   opacity: 0.5;
-  background: none;
+  background-color: hsl(212,63%,45%);
 }
 
 .emotion-0.fi-button--secondary {
