@@ -28,7 +28,7 @@ const negativeStyles = (theme: ThemeProp) => css`
     &[disabled],
     &:disabled {
       opacity: 0.5;
-      background: none;
+      background-color: ${theme.colors.highlightBase};
     }
   }
 `;
