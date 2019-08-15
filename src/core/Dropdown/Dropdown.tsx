@@ -2,8 +2,11 @@ import React, { Component, Fragment } from 'react';
 import { default as styled } from 'styled-components';
 import { withDefaultTheme } from '../theme/utils';
 import { ThemeComponent } from '../theme';
-import { Global } from '@emotion/core';
-import { baseStyles, globalStyles } from './Dropdown.baseStyles';
+import { baseStyles, menuListStyles } from './Dropdown.baseStyles';
+import {
+  MenuList as CompMenuList,
+  MenuListProps as CompMenuListProps,
+} from '../../components/Menu/Menu';
 import {
   Dropdown as CompDropdown,
   DropdownProps as CompDropdownProps,
@@ -21,6 +24,14 @@ const StyledDropdown = styled(({ theme, ...passProps }: DropdownProps) => (
   ${props => baseStyles(props)}
 `;
 
+interface MenuListProps extends CompMenuListProps, ThemeComponent {}
+
+const StyledMenuList = styled(({ theme, ...passProps }: MenuListProps) => (
+  <CompMenuList {...passProps} />
+))`
+  ${props => menuListStyles(props.theme)}
+`;
+
 /**
  * <i class="semantics" />
  * Use for selectable dropdown list.
@@ -32,8 +43,7 @@ export class Dropdown extends Component<DropdownProps> {
     const props = withDefaultTheme(this.props);
     return (
       <Fragment>
-        <Global styles={globalStyles(props)} />
-        <StyledDropdown {...props} />
+        <StyledDropdown {...props} menuListComponent={StyledMenuList} />
       </Fragment>
     );
   }
