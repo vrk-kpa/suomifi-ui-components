@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import { default as styled } from 'styled-components';
 import ReactSVG from 'react-svg';
 import { ariaLabelOrHidden } from '../utils/aria';
 

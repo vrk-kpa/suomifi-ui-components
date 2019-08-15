@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from '@emotion/styled';
+import { default as styled } from 'styled-components';
 import { iconBaseStyles } from './Icon.baseStyles';
 import { withDefaultTheme } from '../theme/utils';
 import {

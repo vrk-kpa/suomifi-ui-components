@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from '@emotion/styled';
+import { default as styled } from 'styled-components';
 import { Svg, SvgProps } from '../Svg/Svg';
 import classnames from 'classnames';
 

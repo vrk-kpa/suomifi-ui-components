@@ -1,10 +1,12 @@
 import React, { HTMLProps } from 'react';
-import { css } from '@emotion/core';
-import styled from '@emotion/styled';
+import { default as styled, css } from 'styled-components';
 import { resets } from '../utils';
 import { Omit } from '../../utils/typescript';
 
-export interface HtmlNavProps extends Omit<HTMLProps<HTMLElement>, 'ref'> {}
+export interface HtmlNavProps
+  extends Omit<HTMLProps<HTMLElement>, 'ref' | 'as'> {
+  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+}
 
 const aResets = css`
   ${resets.normalize.html}

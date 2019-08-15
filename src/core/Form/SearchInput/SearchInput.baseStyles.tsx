@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from 'styled-components';
 import { suomifiTheme } from '../../theme';
 import { SearchInputProps } from './SearchInput';
 import { math } from 'polished';

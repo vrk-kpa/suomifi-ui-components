@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { withDefaultTheme } from '../theme/utils';
 import { hslaToHex } from '../../utils/css/colors';
-import styled from '@emotion/styled';
+import { default as styled } from 'styled-components';
 import { ThemeComponent } from '../theme';
 import { baseStyles, containerStyles } from './Colors.baseStyles';
 import clipboardCopy from 'clipboard-copy';

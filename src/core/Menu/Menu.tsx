@@ -1,5 +1,5 @@
 import React, { Component, ReactNode, Fragment } from 'react';
-import styled from '@emotion/styled';
+import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { classnamesValue } from '../../utils/typescript';
 import { withDefaultTheme } from '../theme/utils';

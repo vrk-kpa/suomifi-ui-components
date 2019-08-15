@@ -1,7 +1,7 @@
 Suomifi-styleguide typography
 
 ```js noeditor
-import styled from '@emotion/styled';
+import { default as styled } from 'styled-components';
 import { Text } from '../src/core/Text/Text';
 import { Heading } from '../src/core/Heading/Heading';
 import { typography, fontFamily } from '../src/core/theme/typography';

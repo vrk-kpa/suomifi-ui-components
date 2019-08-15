@@ -1,9 +1,11 @@
 import React, { HTMLProps } from 'react';
-import { css } from '@emotion/core';
-import styled from '@emotion/styled';
+import { default as styled, css } from 'styled-components';
 import { resets } from '../utils';
+import { Omit } from '../../utils/typescript';
 
-export interface HtmlLiProps extends HTMLProps<HTMLLIElement> {}
+export interface HtmlLiProps extends Omit<HTMLProps<HTMLLIElement>, 'as'> {
+  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+}
 
 const liResets = css`
   ${resets.normalize.html}

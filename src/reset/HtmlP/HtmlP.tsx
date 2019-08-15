@@ -1,11 +1,12 @@
 import React, { HTMLProps } from 'react';
-import { css } from '@emotion/core';
-import styled from '@emotion/styled';
+import { default as styled, css } from 'styled-components';
 import { resets } from '../utils';
 import { Omit } from '../../utils/typescript';
 
 export interface HtmlPProps
-  extends Omit<HTMLProps<HTMLParagraphElement>, 'ref'> {}
+  extends Omit<HTMLProps<HTMLParagraphElement>, 'ref' | 'as'> {
+  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+}
 
 const spanResets = css`
   ${resets.normalize.html}

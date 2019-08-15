@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from 'styled-components';
 import { suomifiTheme } from '../theme';
 import { LinkProps } from './Link';
 import { element, fonts, focus } from '../theme/reset';

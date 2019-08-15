@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import styled from '@emotion/styled';
+import { default as styled } from 'styled-components';
 import { withDefaultTheme } from '../theme/utils';
 import { ThemeComponent } from '../theme';
 import { Global } from '@emotion/core';

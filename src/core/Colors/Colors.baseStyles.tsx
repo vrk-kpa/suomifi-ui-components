@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from 'styled-components';
 import { readableColor } from 'polished';
 import { suomifiTheme } from '../theme';
 import { fonts } from '../theme/reset';

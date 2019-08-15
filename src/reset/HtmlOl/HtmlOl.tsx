@@ -1,11 +1,12 @@
 import React, { HTMLProps } from 'react';
-import { css } from '@emotion/core';
-import styled from '@emotion/styled';
+import { default as styled, css } from 'styled-components';
 import { resets } from '../utils';
 import { Omit } from '../../utils/typescript';
 
 export interface HtmlOlProps
-  extends Omit<HTMLProps<HTMLOListElement>, 'type'> {}
+  extends Omit<HTMLProps<HTMLOListElement>, 'type' | 'as'> {
+  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+}
 
 const olResets = css`
   ${resets.normalize.html}
