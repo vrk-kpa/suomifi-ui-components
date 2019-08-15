@@ -13,7 +13,7 @@ import { logger } from '../../utils/logger';
 import '@reach/menu-button/styles.css';
 import { Omit } from '../../utils/typescript';
 
-export { MenuItem, MenuLink };
+export { MenuList, MenuListProps, MenuItem, MenuLink };
 
 const baseClassName = 'fi-menu';
 export interface MenuItemProps {
@@ -49,6 +49,7 @@ export interface MenuProps {
   menuButtonClassName?: string;
   /** Properties given to Menu's List-component, className etc. */
   menuListProps?: OptionalMenuListProps;
+  menuListComponent?: React.ComponentType<OptionalMenuListProps>;
   /** Menu items: MenuItem or MenuLink */
   children?: Array<React.ReactElement<MenuListItemsProps>>;
 }
@@ -60,7 +61,8 @@ export class Menu extends Component<MenuProps> {
       name,
       className,
       menuButtonClassName,
-      menuListProps,
+      menuListProps = {},
+      menuListComponent: MenuListComponentReplace,
       ...passProps
     } = this.props;
 
@@ -75,7 +77,13 @@ export class Menu extends Component<MenuProps> {
           <MenuButton {...passProps} className={menuButtonClassName}>
             {name}
           </MenuButton>
-          <MenuList {...menuListProps}>{children}</MenuList>
+          {!!MenuListComponentReplace ? (
+            <MenuListComponentReplace {...menuListProps}>
+              {children}
+            </MenuListComponentReplace>
+          ) : (
+            <MenuList {...menuListProps}>{children}</MenuList>
+          )}
         </ReachMenu>
       </HtmlSpan>
     );
