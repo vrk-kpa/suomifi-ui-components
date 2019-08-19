@@ -824,11 +824,6 @@
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.9.tgz#c16b55186ee73ae65e001fbee69d392c51337ad1"
   integrity sha512-wNMwXSUcwyYajtbayfPp55tSayuDVU6PfY5gzvRSj80UvxdXEJOVPnUVajaOp7NgXLm+1e2ZDLULmpsU9vDvQw==
 
-"@types/jest@^23.0.2":
-  version "23.3.14"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.14.tgz#37daaf78069e7948520474c87b80092ea912520a"
-  integrity sha512-Q5hTcfdudEL2yOmluA1zaSyPbzWPmJ3XfSWeP3RyoYvS9hnje1ZyagrZOuQ6+1nQC1Gw+7gap3pLNL3xL6UBug==
-
 "@types/minimatch@*":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
@@ -3089,7 +3084,7 @@ css-what@^2.1.2:
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-2.1.3.tgz#a6d7604573365fe74686c3f311c56513d88285f2"
   integrity sha512-a+EPoD+uZiNfh+5fxw2nO9QwFa6nJe2Or35fGY6Ipw1R3R4AGz1d1TEZrCegvw2YTmZ0jXirGYlzxxpYSHwpEg==
 
-css@^2.2.1, css@^2.2.3:
+css@^2.2.3, css@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/css/-/css-2.2.4.tgz#c646755c73971f2bba6a601e2cf2fd71b1298929"
   integrity sha512-oUnjmWpy0niI3x/mPL8dVEI1l7MnG3+HHyRPHf+YFSbK+svOhXpmSOcDURUh2aOCgl2grzrOPt1nHLuCVFULLw==
@@ -5963,16 +5958,6 @@ jest-each@^24.8.0:
     jest-util "^24.8.0"
     pretty-format "^24.8.0"
 
-jest-emotion@10.0.7:
-  version "10.0.7"
-  resolved "https://registry.yarnpkg.com/jest-emotion/-/jest-emotion-10.0.7.tgz#c882f6e201cf62c025245f863b8e5ff473d2cef0"
-  integrity sha512-uR6KIw/jnlqVOFBHpeRMirpnWggnUluqzKYSmlp/TpoNaRxSYTGj9+RVrS7kngtyFyn0F0rOJ73CaPRuxL5ebg==
-  dependencies:
-    "@types/jest" "^23.0.2"
-    chalk "^2.4.1"
-    css "^2.2.1"
-    object-assign "^4.1.1"
-
 jest-environment-jsdom@^24.8.0:
   version "24.8.0"
   resolved "https://registry.yarnpkg.com/jest-environment-jsdom/-/jest-environment-jsdom-24.8.0.tgz#300f6949a146cabe1c9357ad9e9ecf9f43f38857"
@@ -6210,6 +6195,13 @@ jest-snapshot@^24.8.0:
     natural-compare "^1.4.0"
     pretty-format "^24.8.0"
     semver "^5.5.0"
+
+jest-styled-components@6.3.3:
+  version "6.3.3"
+  resolved "https://registry.yarnpkg.com/jest-styled-components/-/jest-styled-components-6.3.3.tgz#e15bbda13a6b6ff876d6b783751fe9840860c52a"
+  integrity sha512-RBMPZSJJSgPDTTJsuYzx5fsij/CULaqQNZOWkn8J/L++rX6P830o2vB9CXGzfQf/bVq9qGr1ZBNoivi+v6JPYg==
+  dependencies:
+    css "^2.2.4"
 
 jest-util@^24.8.0:
   version "24.8.0"
