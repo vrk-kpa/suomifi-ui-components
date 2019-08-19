@@ -1,7 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.emotion-3 {
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.c2::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
+}
+
+.c1 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -23,6 +70,22 @@ exports[`calling render with the same component on the same container does not r
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c4 {
+  display: inline-block;
+  vertical-align: baseline;
+  -webkit-transform: translateY(0.1em);
+  -ms-transform: translateY(0.1em);
+  transform: translateY(0.1em);
+  cursor: pointer;
+}
+
+.c4 * {
+  cursor: inherit;
+}
+
+.c0 {
   color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
@@ -40,11 +103,11 @@ exports[`calling render with the same component on the same container does not r
   background-color: hsl(0,0%,100%);
 }
 
-.emotion-3 > .fi-toggle_label {
+.c0 > .fi-toggle_label {
   cursor: pointer;
 }
 
-.emotion-3 > .fi-toggle_input {
+.c0 > .fi-toggle_input {
   color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
@@ -66,16 +129,16 @@ exports[`calling render with the same component on the same container does not r
   background-color: hsl(0,0%,100%);
 }
 
-.emotion-3 > .fi-toggle_input:focus {
+.c0 > .fi-toggle_input:focus {
   outline: 0;
 }
 
-.emotion-3 > .fi-toggle_input:focus + .fi-toggle_label {
+.c0 > .fi-toggle_input:focus + .fi-toggle_label {
   outline: 0;
   position: relative;
 }
 
-.emotion-3 > .fi-toggle_input:focus + .fi-toggle_label:after {
+.c0 > .fi-toggle_input:focus + .fi-toggle_label:after {
   content: '';
   position: absolute;
   top: -4px;
@@ -90,19 +153,19 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.emotion-3 > .fi-toggle_input:focus + .fi-toggle_label:not(:focus-visible):after {
+.c0 > .fi-toggle_input:focus + .fi-toggle_label:not(:focus-visible):after {
   content: none;
 }
 
-.emotion-3 > .fi-toggle_input:focus:not(:focus-visible) {
+.c0 > .fi-toggle_input:focus:not(:focus-visible) {
   outline: 0;
 }
 
-.emotion-3 > .fi-toggle_input:focus:not(:focus-visible):after {
+.c0 > .fi-toggle_input:focus:not(:focus-visible):after {
   content: none;
 }
 
-.emotion-3 .fi-toggle_icon {
+.c0 .fi-toggle_icon {
   width: 40px;
   height: 24px;
   margin-right: 8px;
@@ -113,114 +176,55 @@ exports[`calling render with the same component on the same container does not r
   transform: translateY(-0.1em);
 }
 
-.emotion-3 .fi-toggle_icon * {
+.c0 .fi-toggle_icon * {
   cursor: pointer;
 }
 
-.emotion-3 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-knob {
+.c0 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-knob {
   -webkit-transform: translateX(0%);
   -ms-transform: translateX(0%);
   transform: translateX(0%);
 }
 
-.emotion-3 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-slide {
+.c0 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-slide {
   -webkit-transform: translateY(1px);
   -ms-transform: translateY(1px);
   transform: translateY(1px);
 }
 
-.emotion-3 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-knob {
+.c0 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-knob {
   -webkit-transform: translateX(50%);
   -ms-transform: translateX(50%);
   transform: translateX(50%);
 }
 
-.emotion-3 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-slide {
+.c0 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-slide {
   fill: hsl(166,54%,80%);
 }
 
-.emotion-3 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-circle {
+.c0 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-circle {
   fill: hsl(166,90%,36%);
 }
 
-.emotion-0 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  overflow: visible;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline-block;
-  max-width: 100%;
-}
-
-.emotion-0::-webkit-input-placeholder {
-  color: inherit;
-  opacity: 0.54;
-}
-
-.emotion-2 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  max-width: 100%;
-}
-
-.emotion-1 {
-  display: inline-block;
-  vertical-align: baseline;
-  -webkit-transform: translateY(0.1em);
-  -ms-transform: translateY(0.1em);
-  transform: translateY(0.1em);
-  cursor: pointer;
-}
-
-.emotion-1 * {
-  cursor: inherit;
-}
-
 <span
-  class="fi-toggle emotion-3"
+  class="c0 fi-toggle c1"
 >
   <input
-    class="fi-toggle_input emotion-0"
+    class="fi-toggle_input c2"
     id="test-toggle"
     type="checkbox"
   />
   <label
-    class="fi-toggle_label emotion-2"
+    class="fi-toggle_label c3"
     data-testid="toggle"
     for="test-toggle"
   >
     <svg
       aria-hidden="true"
-      class="fi-toggle_icon emotion-1"
+      class="fi-toggle_icon c4"
       focusable="false"
       height="1em"
+      theme="[object Object]"
       viewBox="0 0 38 23"
       width="1em"
     >

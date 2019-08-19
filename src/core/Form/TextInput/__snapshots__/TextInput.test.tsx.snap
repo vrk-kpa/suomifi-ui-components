@@ -1,99 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.emotion-3 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  max-width: 100%;
-}
-
-.emotion-3 .fi-text-input_label-p {
-  margin-bottom: 16px;
-}
-
-.emotion-3 .fi-text-input_container > input:focus {
-  outline-color: hsl(23,82%,53%);
-  outline-width: 4px;
-  outline-offset: 2px;
-}
-
-.emotion-3 .fi-text-input_container:focus-within {
-  outline: 0;
-  position: relative;
-}
-
-.emotion-3 .fi-text-input_container:focus-within:after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  bottom: -4px;
-  left: -4px;
-  border-radius: 4px;
-  background-color: transparent;
-  border: 1px solid hsl(23,82%,53%);
-  box-sizing: border-box;
-  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
-  z-index: 9999;
-}
-
-.emotion-3 .fi-text-input_container:focus-within:not(:focus-visible):after {
-  content: none;
-}
-
-.emotion-3 .fi-text-input_container:focus-within > input:focus {
-  outline: none;
-}
-
-.emotion-3 .fi-text-input_input {
-  color: hsl(0,0%,16%);
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.5;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  min-width: 245px;
-  max-width: 100%;
-  padding: 8px 16px;
-  border: 1px solid hsl(202,7%,67%);
-  border-radius: 2px;
-  line-height: 1;
-  background-color: hsl(0,0%,100%);
-}
-
-.emotion-3.fi-text-input--error .fi-text-input_input {
-  color: hsl(3,59%,48%);
-  border-color: hsl(3,59%,48%);
-}
-
-.emotion-3.fi-text-input--success .fi-text-input_input {
-  color: hsl(166,90%,36%);
-  border-color: hsl(166,90%,36%);
-}
-
-.emotion-0 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -117,7 +25,7 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.emotion-1 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -139,24 +47,140 @@ exports[`calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
-.emotion-1::-webkit-input-placeholder {
+.c4::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
+.c1 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0 .fi-text-input_label-p {
+  margin-bottom: 16px;
+}
+
+.c0 .fi-text-input_container > input:focus {
+  outline-color: hsl(23,82%,53%);
+  outline-width: 4px;
+  outline-offset: 2px;
+}
+
+.c0 .fi-text-input_container:focus-within {
+  outline: 0;
+  position: relative;
+}
+
+.c0 .fi-text-input_container:focus-within:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid hsl(23,82%,53%);
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  z-index: 9999;
+}
+
+.c0 .fi-text-input_container:focus-within:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 .fi-text-input_container:focus-within > input:focus {
+  outline: none;
+}
+
+.c0 .fi-text-input_input {
+  color: hsl(0,0%,16%);
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,67%);
+  border-radius: 2px;
+  line-height: 1;
+  background-color: hsl(0,0%,100%);
+}
+
+.c0.fi-text-input--error .fi-text-input_input {
+  color: hsl(3,59%,48%);
+  border-color: hsl(3,59%,48%);
+}
+
+.c0.fi-text-input--success .fi-text-input_input {
+  color: hsl(166,90%,36%);
+  border-color: hsl(166,90%,36%);
+}
+
 <label
-  class="fi-text-input_label emotion-3"
+  class="fi-text-input_label c0 c1"
 >
   <p
-    class="fi-paragraph fi-text-input_label-p emotion-0"
+    class="fi-paragraph fi-text-input_label-p c2"
   >
     Test input
   </p>
   <div
-    class="fi-text-input_container emotion-0"
+    class="fi-text-input_container c3"
   >
     <input
-      class="fi-text-input_input emotion-1"
+      class="fi-text-input_input c4"
       data-testid="textinput"
       type="text"
     />

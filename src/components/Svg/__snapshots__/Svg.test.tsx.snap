@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.emotion-0 {
+.c0 {
   max-width: 100%;
 }
 
 <div
   aria-hidden="true"
-  class="emotion-0"
+  class="c0"
   data-testid="svg"
   role="img"
 >
