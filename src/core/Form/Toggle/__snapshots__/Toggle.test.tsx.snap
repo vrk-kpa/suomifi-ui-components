@@ -224,7 +224,6 @@ exports[`calling render with the same component on the same container does not r
       class="fi-toggle_icon c4"
       focusable="false"
       height="1em"
-      theme="[object Object]"
       viewBox="0 0 38 23"
       width="1em"
     >

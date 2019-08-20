@@ -289,7 +289,6 @@ exports[`calling render with the same component on the same container does not r
         focusable="false"
         height="1em"
         style="fill: hsl(0, 0%, 16%);"
-        theme="[object Object]"
         viewBox="0 0 24 24"
         width="1em"
       >
@@ -313,7 +312,6 @@ exports[`calling render with the same component on the same container does not r
         focusable="false"
         height="1em"
         style="fill: hsl(0, 0%, 16%);"
-        theme="[object Object]"
         viewBox="0 0 24 24"
         width="1em"
       >

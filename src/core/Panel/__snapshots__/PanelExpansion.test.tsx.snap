@@ -266,7 +266,6 @@ exports[`calling render with the same component on the same container does not r
       focusable="false"
       height="1em"
       style="fill: hsl(212, 63%, 45%);"
-      theme="[object Object]"
       viewBox="0 0 24 24"
       width="1em"
     >

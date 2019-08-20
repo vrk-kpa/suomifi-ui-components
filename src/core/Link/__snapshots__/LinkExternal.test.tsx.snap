@@ -164,7 +164,6 @@ exports[`calling render with the same component on the same container does not r
     focusable="false"
     height="1em"
     style="fill: currentColor;"
-    theme="[object Object]"
     viewBox="0 0 24 24"
     width="1em"
   >
