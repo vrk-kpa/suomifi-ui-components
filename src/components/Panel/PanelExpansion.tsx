@@ -1,5 +1,5 @@
 import React, { Component, ReactNode, Fragment } from 'react';
-import styled from '@emotion/styled';
+import { default as styled } from 'styled-components';
 import { Panel, PanelProps, baseClassName, StyledPanel } from './Panel';
 import { Button, ButtonProps } from '../Button/Button';
 import { allStates } from '../../utils/css/pseudo';

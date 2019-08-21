@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.emotion-0 {
+.c1 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -23,6 +23,9 @@ exports[`calling render with the same component on the same container does not r
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c0 {
   color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
@@ -40,7 +43,7 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(0,0%,16%);
 }
 
-.emotion-0.fi-text--bold {
+.c0.fi-text--bold {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
   font-weight: 600;
@@ -56,7 +59,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-text--lead {
+.c0.fi-text--lead {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 22px;
   font-weight: 400;
@@ -72,7 +75,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-text--small-screen {
+.c0.fi-text--small-screen {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -88,7 +91,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-text--small-screen.fi-text--bold {
+.c0.fi-text--small-screen.fi-text--bold {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -104,7 +107,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-text--small-screen.fi-text--lead {
+.c0.fi-text--small-screen.fi-text--lead {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 20px;
   font-weight: 400;
@@ -124,17 +127,17 @@ exports[`calling render with the same component on the same container does not r
   data-testid="test-text"
 >
   <span
-    class="fi-text fi-text--body emotion-0"
+    class="fi-text c0 fi-text--body c1"
   >
     Hey this is test
   </span>
   <span
-    class="fi-text fi-text--lead emotion-0"
+    class="fi-text c0 fi-text--lead c1"
   >
     Hey this is test lead
   </span>
   <span
-    class="fi-text fi-text--bold emotion-0"
+    class="fi-text c0 fi-text--bold c1"
   >
     Hey this is test bold
   </span>

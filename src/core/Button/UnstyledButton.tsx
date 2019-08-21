@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { unStyled } from './Button.baseStyles';
 import { Button, ButtonProps } from '../../components/Button/Button';

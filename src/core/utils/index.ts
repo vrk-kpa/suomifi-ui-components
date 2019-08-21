@@ -1,4 +1,4 @@
-import { SerializedStyles } from '@emotion/core';
+import { FlattenSimpleInterpolation } from 'styled-components';
 import { suomifiTheme, ThemeProp } from '../theme';
 
 interface BaseStylesInterface {
@@ -12,6 +12,6 @@ interface BaseStylesInterface {
  * @param props properties needed to get desired styles from components
  */
 export const cssFromBaseStyles = (
-  baseStyles: ({ theme }: BaseStylesInterface) => SerializedStyles,
+  baseStyles: ({ theme }: BaseStylesInterface) => FlattenSimpleInterpolation,
   props = {},
-) => baseStyles({ ...props, theme: suomifiTheme }).styles;
+) => baseStyles({ ...props, theme: suomifiTheme }).join('');

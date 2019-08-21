@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.emotion-2 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -22,113 +22,19 @@ exports[`calling render with the same component on the same container does not r
   display: inline;
   -webkit-text-decoration: underline;
   text-decoration: underline;
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  color: hsl(0,0%,16%);
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.5;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  color: hsl(212,63%,45%);
-  -webkit-text-decoration: none;
-  text-decoration: none;
 }
 
-.emotion-2:hover,
-.emotion-2:active,
-.emotion-2:focus,
-.emotion-2:focus-within {
+.c2:hover,
+.c2:active,
+.c2:focus,
+.c2:focus-within {
   color: inherit;
   -webkit-text-decoration: underline;
   text-decoration: underline;
   cursor: pointer;
 }
 
-.emotion-2:hover,
-.emotion-2:active,
-.emotion-2:focus,
-.emotion-2:focus-within {
-  color: inherit;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.emotion-2:focus {
-  outline: 0;
-  position: relative;
-}
-
-.emotion-2:focus:after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  bottom: -4px;
-  left: -4px;
-  border-radius: 4px;
-  background-color: transparent;
-  border: 1px solid hsl(23,82%,53%);
-  box-sizing: border-box;
-  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
-  z-index: 9999;
-}
-
-.emotion-2:focus:not(:focus-visible):after {
-  content: none;
-}
-
-.emotion-2:hover,
-.emotion-2:active,
-.emotion-2:focus,
-.emotion-2:focus-within {
-  color: hsl(212,63%,45%);
-}
-
-.emotion-2:hover,
-.emotion-2:active,
-.emotion-2:focus,
-.emotion-2:focus-within {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.emotion-2:visited {
-  color: hsl(284,36%,45%);
-}
-
-.emotion-2 .fi-link_icon {
-  padding-left: 4px;
-}
-
-.emotion-0 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -150,6 +56,17 @@ exports[`calling render with the same component on the same container does not r
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c5 {
+  display: inline-block;
+  vertical-align: baseline;
+  -webkit-transform: translateY(0.1em);
+  -ms-transform: translateY(0.1em);
+  transform: translateY(0.1em);
+}
+
+.c3 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -161,16 +78,75 @@ exports[`calling render with the same component on the same container does not r
   overflow: hidden;
 }
 
-.emotion-1 {
-  display: inline-block;
-  vertical-align: baseline;
-  -webkit-transform: translateY(0.1em);
-  -ms-transform: translateY(0.1em);
-  transform: translateY(0.1em);
+.c0 .fi-link_icon {
+  padding-left: 4px;
+}
+
+.c1 {
+  color: hsl(0,0%,16%);
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  color: hsl(212,63%,45%);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c1:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1:focus:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid hsl(23,82%,53%);
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  z-index: 9999;
+}
+
+.c1:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c1:hover,
+.c1:active,
+.c1:focus,
+.c1:focus-within {
+  color: hsl(212,63%,45%);
+}
+
+.c1:hover,
+.c1:active,
+.c1:focus,
+.c1:focus-within {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c1:visited {
+  color: hsl(284,36%,45%);
 }
 
 <a
-  class="fi-link fi-link--external emotion-2"
+  class="c0 c1 fi-link--external c2"
   data-testid="test-link"
   href="/"
   rel="noopener"
@@ -178,13 +154,13 @@ exports[`calling render with the same component on the same container does not r
 >
   Hey this is test
   <span
-    class="fi-visually-hidden emotion-0"
+    class="fi-visually-hidden c3 c4"
   >
     Opens in a new window
   </span>
   <svg
     aria-hidden="true"
-    class="fi-link_icon emotion-1"
+    class="fi-link_icon c5"
     focusable="false"
     height="1em"
     style="fill: currentColor;"

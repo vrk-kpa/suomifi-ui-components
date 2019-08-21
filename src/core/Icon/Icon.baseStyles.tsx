@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from 'styled-components';
 import { SuomifiIconProps } from './Icon';
 
 export const iconBaseStyles = ({

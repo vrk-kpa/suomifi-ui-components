@@ -1,12 +1,14 @@
 import React, { HTMLProps } from 'react';
-import { css } from '@emotion/core';
-import styled from '@emotion/styled';
+import { default as styled, css } from 'styled-components';
 import { resets } from '../utils';
+import { Omit } from '../../utils/typescript';
 
 /* Only style reseted label-element, no need to check accessibility here */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-export interface HtmlLabelProps extends HTMLProps<HTMLLabelElement> {
+export interface HtmlLabelProps
+  extends Omit<HTMLProps<HTMLLabelElement>, 'ref' | 'as'> {
+  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
   /**
    * HTML Label for ID-name of the element
    */

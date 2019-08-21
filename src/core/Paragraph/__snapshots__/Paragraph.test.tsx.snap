@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.emotion-0 {
+.c1 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -23,6 +23,9 @@ exports[`calling render with the same component on the same container does not r
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c0 {
   color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
@@ -48,7 +51,7 @@ exports[`calling render with the same component on the same container does not r
   data-testid="test-paragraph"
 >
   <p
-    class="fi-paragraph emotion-0"
+    class="fi-paragraph c0 c1"
   >
     Hey this is test
   </p>

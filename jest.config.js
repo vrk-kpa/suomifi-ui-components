@@ -38,7 +38,6 @@ module.exports = {
 
   setupFilesAfterEnv: [require.resolve('./jest.setup.js')],
 
-  snapshotSerializers: ['jest-emotion'],
   moduleNameMapper: {
     '\\.css$': '<rootDir>/jest.styleMock.js',
   },

@@ -1,15 +1,16 @@
 import React, { Component, ReactNode, Fragment } from 'react';
-import styled from '@emotion/styled';
+import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { classnamesValue } from '../../utils/typescript';
 import { withDefaultTheme } from '../theme/utils';
 import { ThemeComponent } from '../theme';
-import { Global } from '@emotion/core';
-import { baseStyles, globalStyles } from './Menu.baseStyles';
+import { baseStyles, menuListStyles } from './Menu.baseStyles';
 import {
   Menu as CompMenu,
   MenuProps as CompMenuProps,
   MenuListItemsProps,
+  MenuList as CompMenuList,
+  MenuListProps as CompMenuListProps,
 } from '../../components/Menu/Menu';
 import {
   MenuItemLanguage,
@@ -66,6 +67,14 @@ const languageName = (name: ReactNode) => (
   </Fragment>
 );
 
+interface MenuListProps extends CompMenuListProps, ThemeComponent {}
+
+const StyledMenuList = styled(({ theme, ...passProps }: MenuListProps) => (
+  <CompMenuList {...passProps} />
+))`
+  ${props => menuListStyles(props.theme)}
+`;
+
 class MenuVariation extends Component<MenuProps> {
   render() {
     const {
@@ -73,6 +82,7 @@ class MenuVariation extends Component<MenuProps> {
       variant,
       name,
       className,
+      menuListComponent: MenuListComponentProp,
       ...passProps
     } = withDefaultTheme(this.props);
     const ifMenuLanguage = variant === 'language';
@@ -91,12 +101,14 @@ class MenuVariation extends Component<MenuProps> {
 
     return (
       <Fragment>
-        <Global styles={globalStyles(this.props)} />
         <StyledMenu
           {...passProps}
           name={!!ifMenuLanguage ? languageName(name) : name}
           menuButtonClassName={menuButtonClassName}
           menuListProps={menuListProps}
+          menuListComponent={
+            !!MenuListComponentProp ? MenuListComponentProp : StyledMenuList
+          }
         >
           {MenuListWithProps(children, {
             [itemLangClassName]: ifMenuLanguage,

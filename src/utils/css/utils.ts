@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from 'styled-components';
 
 export const clearfix = css`
   &:after {

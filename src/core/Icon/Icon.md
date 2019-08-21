@@ -6,7 +6,7 @@ import { Icon } from 'suomifi-ui-components';
 
 ```jsx noeditor
 import { Icon } from 'suomifi-ui-components';
-import styled from '@emotion/styled';
+import { default as styled } from 'styled-components';
 import { allIcons, allStaticIcons } from 'suomifi-icons';
 import clipboardCopy from 'clipboard-copy';
 const StyledIcon = styled(props => <Icon {...props} />)({

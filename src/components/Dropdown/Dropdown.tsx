@@ -52,6 +52,7 @@ export interface DropdownProps {
   dropdownButtonProps?: OptionalMenuButtonProps;
   /** Properties given to dropdown's list-component, className etc. */
   dropdownListProps?: OptionalMenuListProps;
+  menuListComponent?: React.ComponentType<OptionalMenuListProps>;
   /** Properties given to dropdown's item-component, className etc. */
   dropdownItemProps?: OptionalMenuItemProps;
   /** DropdownItems */
@@ -97,6 +98,7 @@ export class Dropdown extends Component<DropdownProps> {
       className,
       dropdownButtonProps = {},
       dropdownListProps = {},
+      menuListComponent: MenuListComponentReplace,
       dropdownItemProps = {},
       changeNameToSelection = true,
       ...passProps
@@ -127,9 +129,23 @@ export class Dropdown extends Component<DropdownProps> {
           <MenuButton {...passDropdownButtonProps}>
             {!!selectedName ? selectedName : name}
           </MenuButton>
-          <MenuList {...passDropdownListProps}>
-            {this.list(children, changeNameToSelection, passDropdownItemProps)}
-          </MenuList>
+          {!!MenuListComponentReplace ? (
+            <MenuListComponentReplace {...passDropdownListProps}>
+              {this.list(
+                children,
+                changeNameToSelection,
+                passDropdownItemProps,
+              )}
+            </MenuListComponentReplace>
+          ) : (
+            <MenuList {...passDropdownListProps}>
+              {this.list(
+                children,
+                changeNameToSelection,
+                passDropdownItemProps,
+              )}
+            </MenuList>
+          )}
         </Menu>
       </HtmlSpan>
     );

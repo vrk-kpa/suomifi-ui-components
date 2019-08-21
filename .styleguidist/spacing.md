@@ -1,5 +1,5 @@
 ```js noeditor
-import styled from '@emotion/styled';
+import { default as styled } from 'styled-components';
 import { colors } from '../src/core/theme/colors';
 import { element, fonts } from '../src/core/theme/reset';
 import { spacing, spacingTokens } from '../src/core/theme/spacing';
