@@ -136,7 +136,7 @@ exports[`calling render with the same component on the same container does not r
 .c0.fi-button--negative[disabled],
 .c0.fi-button--negative:disabled {
   opacity: 0.5;
-  background: none;
+  background-color: hsl(212,63%,45%);
 }
 
 .c0.fi-button--secondary {
