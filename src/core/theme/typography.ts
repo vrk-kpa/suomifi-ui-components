@@ -59,6 +59,22 @@ const tokenMap = {
   // TODO remove when tokens from suomifi-design-tokens
   bodyText: ['default', 'body'],
   bodyTextSmallScreen: ['smRes', 'body'],
+  leadText: ['default', 'lead'],
+  leadTextSmallScreen: ['smRes', 'lead'],
+  heading1Hero: ['default', 'h1', 'semiBold'],
+  heading1HeroSmallScreen: ['smRes', 'h1', 'semiBold'],
+  heading1: ['default', 'h1', 'light'],
+  heading1SmallScreen: ['smRes', 'h1', 'light'],
+  heading2: ['default', 'h2', 'semiBold'],
+  heading2SmallScreen: ['smRes', 'h2', 'semiBold'],
+  heading3: ['default', 'h3', 'semiBold'],
+  heading3SmallScreen: ['smRes', 'h3', 'semiBold'],
+  heading4: ['default', 'h4', 'semiBold'],
+  heading4SmallScreen: ['smRes', 'h4', 'semiBold'],
+  heading5: ['default', 'h5', 'semiBold'],
+  heading5SmallScreen: ['smRes', 'h5', 'semiBold'],
+  heading6: ['default', 'h6', 'semiBold'],
+  heading6SmallScreen: ['smRes', 'h6', 'semiBold'],
 };
 
 const fontFallback = {
@@ -71,19 +87,23 @@ const fontFallback = {
 
 type tokenConversionProp = [
   keyof typeof tokenMap,
-  [keyof typeof fontSize, keyof typeof fontSize.default]
+  [
+    keyof typeof fontSize,
+    keyof typeof fontSize.default,
+    keyof typeof fontWeights
+  ]
 ];
 type TypographyTokens = {
   [key in keyof typeof tokenMap]: { [key in keyof typeof fontFallback]: string }
 };
-export const typography: TypographyTokens = Object.entries(tokenMap).reduce(
-  (retObj, [key, [size, oldToken]]: tokenConversionProp) => ({
+export const typography = Object.entries(tokenMap).reduce(
+  (retObj, [key, [size, oldToken, fontWeight]]: tokenConversionProp) => ({
     ...retObj,
     [key]: {
       fontFamily: fontFamilyWithFallbacks,
       fontSize: fontSize[size][oldToken],
       lineHeight: lineHeight[size][oldToken],
-      fontWeight: fontWeights.normal,
+      fontWeight: fontWeights[!!fontWeight ? fontWeight : 'normal'],
     },
   }),
   {} as TypographyTokens,
