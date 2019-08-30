@@ -93,10 +93,10 @@ type tokenConversionProp = [
     keyof typeof fontWeights
   ]
 ];
-type TypographyTokens = {
+export type TypographyTokens = {
   [key in keyof typeof tokenMap]: { [key in keyof typeof fontFallback]: string }
 };
-export const typography = Object.entries(tokenMap).reduce(
+export const typographyTokens = Object.entries(tokenMap).reduce(
   (retObj, [key, [size, oldToken, fontWeight]]: tokenConversionProp) => ({
     ...retObj,
     [key]: {
