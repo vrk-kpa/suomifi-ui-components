@@ -1,75 +1,30 @@
-import { css } from 'styled-components';
+import { css, FlattenSimpleInterpolation } from 'styled-components';
 import { ThemeProp } from '../';
-import { typography as defaultTypography } from '../typography';
+import { typographyTokens, TypographyTokens } from '../typography';
 
-interface FontProps {
-  typography: typeof defaultTypography;
-  size?: keyof typeof defaultTypography.fontSize;
-  weight?: keyof typeof defaultTypography.fontWeights;
-  smRes?: boolean;
-}
+const camelToSnake = (string: string) =>
+  string.replace(/[\w]([A-Z])/g, m => `${m[0]}-${m[1]}`).toLowerCase();
 
-const lineHeight = ({
-  typography = defaultTypography,
-  size = 'body',
-  smRes,
-}: FontProps) => {
-  if (Object.keys(typography.lineHeight).includes(size)) {
-    const lineSize = size as keyof typeof defaultTypography.lineHeight;
-    return !!smRes
-      ? typography.smallResolution.lineHeight[lineSize]
-      : typography.lineHeight[lineSize];
-  }
-  return !!smRes
-    ? typography.smallResolution.lineHeight.body
-    : typography.lineHeight.body;
-};
-
-const font = ({
-  typography = defaultTypography,
-  size = 'body',
-  weight = 'normal',
-  smRes,
-}: FontProps) => css`
-  font-family: ${typography.fontFamily};
-  font-size: ${!!smRes
-    ? typography.smallResolution.fontSize[size]
-    : typography.fontSize[size]};
-  font-weight: ${typography.fontWeights[weight]};
-  line-height: ${lineHeight({ typography, size, smRes })};
-  letter-spacing: 0;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
+type fontProp = typeof typographyTokens.bodyText;
+type tokenConversionProp = [keyof typeof typographyTokens, fontProp];
+const typographyValueToCss = (value: fontProp) => css`
+  ${Object.entries(value)
+    .map(([key, value]) => `${camelToSnake(key)}: ${value}`)
+    .join('')}
 `;
+type TypographyTokensCss = {
+  [key in keyof typeof typographyTokens]: FlattenSimpleInterpolation
+};
+const typographyTokensToCss = (tokens: TypographyTokens) => ({
+  ...Object.entries(tokens).reduce(
+    (retObj, [key, value]: tokenConversionProp) => ({
+      ...retObj,
+      [key]: typographyValueToCss(value),
+    }),
+    {} as TypographyTokensCss,
+  ),
+});
 
-const smResFont = ({ typography, size, weight }: FontProps) =>
-  font({ typography, size, weight, smRes: true });
-
-export const fonts = ({ typography }: ThemeProp) => ({
-  input: font({ typography, size: 'input' }),
-  inputSemibold: font({ typography, size: 'input', weight: 'semiBold' }),
-  semiBold: font({ typography, size: 'body', weight: 'semiBold' }),
-  body: font({ typography, size: 'body' }),
-  lead: font({ typography, size: 'lead' }),
-  h1hero: font({ typography, size: 'h1', weight: 'semiBold' }),
-  h1: font({ typography, size: 'h1', weight: 'light' }),
-  h2: font({ typography, size: 'h2', weight: 'semiBold' }),
-  h3: font({ typography, size: 'h3', weight: 'semiBold' }),
-  h4: font({ typography, size: 'h4', weight: 'semiBold' }),
-  h5: font({ typography, size: 'h5', weight: 'semiBold' }),
-  smRes: {
-    input: smResFont({ typography, size: 'input' }),
-    inputSemibold: font({ typography, size: 'input', weight: 'semiBold' }),
-    semiBold: smResFont({ typography, size: 'body', weight: 'semiBold' }),
-    body: smResFont({ typography, size: 'body' }),
-    lead: smResFont({ typography, size: 'lead' }),
-    h1hero: smResFont({ typography, size: 'h1', weight: 'semiBold' }),
-    h1: smResFont({ typography, size: 'h1', weight: 'light' }),
-    h2: smResFont({ typography, size: 'h2', weight: 'semiBold' }),
-    h3: smResFont({ typography, size: 'h3', weight: 'semiBold' }),
-    h4: smResFont({ typography, size: 'h4', weight: 'semiBold' }),
-    h5: smResFont({ typography, size: 'h5', weight: 'semiBold' }),
-  },
+export const font = ({ typography }: ThemeProp) => ({
+  ...typographyTokensToCss(typography),
 });
