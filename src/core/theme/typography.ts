@@ -54,6 +54,9 @@ const fontWeights = {
 };
 
 const tokenMap = {
+  input: ['default', 'body'],
+  inputSemibold: ['default', 'body', 'semiBold'],
+  bodySemiBold: ['default', 'body', 'semiBold'],
   // TODO remove when tokens from suomifi-design-tokens
   bodyText: ['default', 'body'],
   bodyTextSmallScreen: ['smRes', 'body'],
