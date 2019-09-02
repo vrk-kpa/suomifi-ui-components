@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
 import { readableColor } from 'polished';
 import { suomifiTheme } from '../theme';
-import { fonts } from '../theme/reset';
+import { font } from '../theme/reset';
 import { clearfix } from '../../utils/css/utils';
 import { ColorProps } from './Colors';
 
 export const baseStyles = ({ color, theme = suomifiTheme }: ColorProps) => css`
-  ${fonts(theme).body}
+  ${font(theme).bodyText}
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -34,12 +34,12 @@ export const baseStyles = ({ color, theme = suomifiTheme }: ColorProps) => css`
     pointer-events: none;
 
     &--hex {
-      ${fonts(theme).smRes.body}
+      ${font(theme).bodyTextSmallScreen}
       opacity: .4;
     }
 
     &--key {
-      ${fonts(theme).semiBold}
+      ${font(theme).bodySemiBold}
     }
   }
 
