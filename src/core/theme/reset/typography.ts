@@ -13,7 +13,7 @@ const typographyValueToCss = (value: FontProp) => css`
     .join('')}
 `;
 type TypographyTokensCss = {
-  [key in keyof typeof typographyTokens]: FlattenSimpleInterpolation
+  [key in keyof TypographyTokens]: FlattenSimpleInterpolation
 };
 const typographyTokensToCss = (tokens: TypographyTokens) => ({
   ...Object.entries(tokens).reduce(
