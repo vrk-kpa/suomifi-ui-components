@@ -1,8 +1,8 @@
 import { css } from 'styled-components';
 import { ThemeProp, suomifiTheme } from '../';
 import { focus as focusUtil } from '../utils';
-import { fonts } from './typography';
-export { fonts } from './typography';
+import { font } from './typography';
+export { font } from './typography';
 
 export const focus = (theme: ThemeProp = suomifiTheme) => focusUtil({ theme });
 
@@ -12,7 +12,7 @@ export const element = (theme: ThemeProp = suomifiTheme) => css`
 
 export const input = (theme: ThemeProp = suomifiTheme) => css`
   ${element(theme)}
-  ${fonts(theme).input}
+  ${font(theme).input}
   min-width: 245px;
   max-width: 100%;
   padding: ${theme.spacing.s} ${theme.spacing.m};
@@ -43,7 +43,7 @@ export const inputButton = (theme: ThemeProp = suomifiTheme) => css`
 
 export const button = (theme: ThemeProp = suomifiTheme) => css`
   ${element(theme)}
-  ${fonts(theme).inputSemibold}
+  ${font(theme).inputSemibold}
   ${focus(theme)}
   line-height: 1;
 `;
