@@ -1,4 +1,4 @@
-import { typography } from './typography';
+import { typographyTokens } from './typography';
 import { colors, shadows, gradients, outlines } from './colors';
 import { spacing } from './spacing';
 import { zindexes } from './zindexes';
@@ -14,7 +14,6 @@ export interface ThemeComponent {
 }
 
 export const suomifiTheme = {
-  typography,
   colors,
   shadows,
   gradients,
@@ -23,4 +22,5 @@ export const suomifiTheme = {
   zindexes,
   transitions,
   radius,
+  typography: typographyTokens,
 };
