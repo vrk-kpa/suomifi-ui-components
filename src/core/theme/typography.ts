@@ -1,5 +1,3 @@
-export type ITypography = typeof typography;
-
 const fontSize = {
   default: {
     input: '16px',
