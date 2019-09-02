@@ -54,9 +54,12 @@ const fontWeights = {
 };
 
 const tokenMap = {
+  // TODO Define as variations from imported typography token
   input: ['default', 'body'],
   inputSemibold: ['default', 'body', 'semiBold'],
   bodySemiBold: ['default', 'body', 'semiBold'],
+  // Regression fallbacks (TODO Create linter to have this ruled as deprecated)
+  body: ['default', 'body'],
   // TODO remove when tokens from suomifi-design-tokens
   bodyText: ['default', 'body'],
   bodyTextSmallScreen: ['smRes', 'body'],
