@@ -58,6 +58,7 @@ const tokenMap = {
   input: ['default', 'body'],
   inputSemibold: ['default', 'body', 'semiBold'],
   bodySemiBold: ['default', 'body', 'semiBold'],
+  bodySemiBoldSmallScreen: ['smRes', 'body', 'semiBold'],
   // Regression fallbacks (TODO Create linter to have this ruled as deprecated)
   body: ['default', 'body'],
   // TODO remove when tokens from suomifi-design-tokens
