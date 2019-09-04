@@ -48,9 +48,9 @@ export const fontFamily = 'Source Sans Pro';
 const fontFamilyWithFallbacks = `'${fontFamily}','Helvetica Neue', Arial, sans-serif`;
 
 const fontWeights = {
-  light: '300',
-  normal: '400',
-  semiBold: '600',
+  light: 300,
+  normal: 400,
+  semiBold: 600,
 };
 
 const tokenMap = {
