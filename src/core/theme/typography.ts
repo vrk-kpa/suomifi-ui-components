@@ -82,14 +82,6 @@ const tokenMap = {
   heading6SmallScreen: ['smRes', 'h6', 'semiBold'],
 };
 
-const fontFallback = {
-  // TODO remove when tokens from suomifi-design-tokens
-  fontFamily: '',
-  fontSize: '',
-  lineHeight: '',
-  fontWeight: '',
-};
-
 type tokenConversionProp = [
   keyof typeof tokenMap,
   [
@@ -99,7 +91,12 @@ type tokenConversionProp = [
   ]
 ];
 export type TypographyTokens = {
-  [key in keyof typeof tokenMap]: { [key in keyof typeof fontFallback]: string }
+  [key in keyof typeof tokenMap]: {
+    fontFamily: string;
+    fontSize: string;
+    lineHeight: number | string;
+    fontWeight: number | string;
+  }
 };
 export const typographyTokens = Object.entries(tokenMap).reduce(
   (retObj, [key, [size, oldToken, fontWeight]]: tokenConversionProp) => ({
