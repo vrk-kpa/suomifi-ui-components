@@ -1,4 +1,5 @@
-import { css, CSSObject, FlattenSimpleInterpolation } from 'styled-components';
+import { css, FlattenSimpleInterpolation } from 'styled-components';
+export { FlattenSimpleInterpolation };
 
 export const clearfix = css`
   &:after {
@@ -14,7 +15,7 @@ const camelToSnake = (string: string) =>
  * Convert CSSObject to CSS FlattenSimpleInterpolation
  * @param value CSSObject
  */
-export const cssObjectToCss = (value: CSSObject) => css`
+export const cssObjectToCss = <T>(value: T) => css`
   ${Object.entries(value)
     .map(([key, value]) => `${camelToSnake(key)}: ${value}`)
     .join('')}
@@ -24,13 +25,11 @@ export const cssObjectToCss = (value: CSSObject) => css`
  * Convert CSSObject tokens to CSS FlattenSimpleInterpolation
  * @param tokens Tokens of CSSObjects
  */
-export const cssObjectsToCss = <T, K extends keyof T>(
-  tokens: { [key in K]: CSSObject },
-) =>
+export const cssObjectsToCss = <T, K extends keyof T>(tokens: T) =>
   Object.entries(tokens).reduce(
     (retObj, [key, value]) => ({
       ...retObj,
-      [key]: cssObjectToCss(value as CSSObject),
+      [key]: cssObjectToCss(value),
     }),
     {} as { [key in K]: FlattenSimpleInterpolation },
   );
