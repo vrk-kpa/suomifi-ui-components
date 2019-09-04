@@ -22,9 +22,10 @@ export const baseStyles = ({
       border-radius: ${theme.radius.basic};
       text-transform: uppercase;
       & > .fi-menu-language_icon {
-        height: 16px;
-        width: 16px;
-        margin-left: ${theme.spacing.xxs};
+        height: 1.2em;
+        width: 1.2em;
+        transform: translateY(0.3em); 
+        margin-left: ${theme.spacing.xs};
       }
     }
   }
