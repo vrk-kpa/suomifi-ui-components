@@ -1,25 +1,37 @@
-import { css } from 'styled-components';
+import {
+  cssObjectsToCss,
+  FlattenSimpleInterpolation,
+} from '../../../utils/css/utils';
 import { typographyTokens, TypographyTokens } from '../typography';
 
-const camelToSnake = (string: string) =>
-  string.replace(/[\w]([A-Z])/g, m => `${m[0]}-${m[1]}`).toLowerCase();
-type FontProp = typeof typographyTokens.bodyText;
-const typographyValueToCss = (value: FontProp) => css`
-  ${Object.entries(value)
-    .map(([key, value]) => `${camelToSnake(key)}: ${value}`)
-    .join('')}
-`;
+export type TypographyTokensAsCss = {
+  [key in keyof typeof typographyTokens]: string
+};
 
-export const typographyUtils = (typography: typeof typographyTokens) => {
-  interface TypographyUtil extends TypographyTokens {}
-  class TypographyUtil {
-    getFont(token: keyof TypographyTokens) {
-      return typographyValueToCss(this[token]);
+type TypographyTokensAsCssProp = {
+  [key in keyof TypographyTokens]: FlattenSimpleInterpolation
+};
+export interface TypographyUtil extends TypographyTokensAsCssProp {}
+export class TypographyUtil {
+  static instance: any;
+  constructor(tokens: TypographyTokens) {
+    // If instance not created, does not take on account if theme is different!
+    if (!TypographyUtil.instance) {
+      // Assing typographyTokens as CSS FlattenSimpleInterpolation to this object
+      Object.assign(this, cssObjectsToCss(tokens));
+      TypographyUtil.instance = this;
     }
+    return TypographyUtil.instance;
   }
-  const objectWithMethods = Object.create(TypographyUtil);
-  return Object.assign(objectWithMethods.prototype, {
-    ...typography,
-    constructor: objectWithMethods,
-  });
+}
+
+/**
+ * Add font-declarations to typography tokens
+ * @param typography Typography-tokens
+ * @return typographyWithUtils Typography-tokens and typography-tokens as CSS strings
+ */
+export const typographyUtils = (typography: TypographyTokens) => {
+  const instance = new TypographyUtil(typography);
+  Object.freeze(instance);
+  return instance;
 };
