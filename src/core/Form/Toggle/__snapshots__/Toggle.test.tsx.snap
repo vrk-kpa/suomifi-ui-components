@@ -271,12 +271,6 @@ exports[`calling render with the same component on the same container does not r
             stop-opacity="0"
           />
         </lineargradient>
-        <circle
-          cx="10"
-          cy="12"
-          id="icon-toggle_svg__b"
-          r="10"
-        />
         <filter
           filterUnits="objectBoundingBox"
           height="120%"
@@ -335,6 +329,12 @@ exports[`calling render with the same component on the same container does not r
             />
           </femerge>
         </filter>
+        <circle
+          cx="10"
+          cy="12"
+          id="icon-toggle_svg__b"
+          r="10"
+        />
       </defs>
       <g
         fill="none"
