@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import { AsProp } from '../../utils/typescript';
+import { AsPropType } from '../../utils/typescript';
 import { HtmlH, HtmlHProps, hLevels } from '../../reset/HtmlH/HtmlH';
 export { hLevels };
 
@@ -8,7 +8,7 @@ export interface HeadingProps extends HtmlHProps {
   /** Change HTML-element */
   variant: hLevels;
   className?: string;
-  asProp?: AsProp;
+  asProp?: AsPropType;
 }
 
 const baseClassName = 'fi-heading';

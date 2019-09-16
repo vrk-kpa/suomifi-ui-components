@@ -7,4 +7,4 @@ export function objValue<T, K extends keyof T>(obj: T, key: K) {
 }
 
 // `as`-prop from styled-components
-export type AsProp = keyof JSX.IntrinsicElements | React.ComponentType<any>;
+export type AsPropType = keyof JSX.IntrinsicElements | React.ComponentType<any>;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
+import { AsPropType } from '../../utils/typescript';
 import { withDefaultTheme } from '../theme/utils';
 import { ThemeComponent } from '../theme';
 import {
@@ -13,6 +14,7 @@ export { LinkExternal, LinkExternalProps };
 type LinkVariant = 'default' | 'external';
 export interface LinkProps extends CompLinkProps, ThemeComponent {
   variant?: LinkVariant;
+  asProp?: AsPropType;
 }
 
 const StyledLink = styled(({ theme, ...passProps }: LinkProps) => (

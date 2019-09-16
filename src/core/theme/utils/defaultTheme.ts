@@ -1,5 +1,5 @@
 import { suomifiTheme, ThemeProp } from '../';
-import { AsProp } from '../../../utils/typescript';
+import { AsPropType } from '../../../utils/typescript';
 
 /**
  * Add default theme to props if not assinged,
@@ -7,7 +7,12 @@ import { AsProp } from '../../../utils/typescript';
  * @param props Component-props
  */
 export const withDefaultTheme = <
-  T extends { theme: ThemeProp; as?: AsProp; asProp?: AsProp; [k: string]: any }
+  T extends {
+    theme: ThemeProp;
+    as?: AsPropType;
+    asProp?: AsPropType;
+    [k: string]: any;
+  }
 >({
   theme = suomifiTheme,
   as: asStyled,
