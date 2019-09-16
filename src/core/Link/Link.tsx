@@ -31,10 +31,10 @@ export class Link extends Component<LinkProps | LinkExternalProps> {
   static external = (props: LinkExternalProps) => <LinkExternal {...props} />;
 
   render() {
-    const { variant, ...passProps } = withDefaultTheme(this.props);
+    const { variant, asProp, ...passProps } = withDefaultTheme(this.props);
 
     if (variant === 'external')
       return <LinkExternal {...this.props as LinkExternalProps} />;
-    return <StyledLink {...passProps} />;
+    return <StyledLink {...passProps} as={asProp} />;
   }
 }
