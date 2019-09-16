@@ -32,7 +32,7 @@ export class Link extends Component<LinkProps | LinkExternalProps> {
     const { variant, ...passProps } = withDefaultTheme(this.props);
 
     if (variant === 'external')
-      return <LinkExternal {...passProps as LinkExternalProps} />;
+      return <LinkExternal {...this.props as LinkExternalProps} />;
     return <StyledLink {...passProps} />;
   }
 }
