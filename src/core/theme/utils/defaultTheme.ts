@@ -17,5 +17,5 @@ export const withDefaultTheme = <
   ({
     ...props,
     theme,
-    asProp: !!asProp ? asProp : asStyled,
+    ...(!!asProp || !!asStyled ? { asProp: asProp || asStyled } : {}),
   } as T);
