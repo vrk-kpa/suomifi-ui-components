@@ -22,6 +22,8 @@ export class Heading extends Component<HeadingProps> {
       asProp,
       ...passProps
     } = this.props;
+
+    // Use if internal API asProp defined, if not use public API as if defined
     const as = !!asProp ? asProp : asStyled;
     return (
       <HtmlH
