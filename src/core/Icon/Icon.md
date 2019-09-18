@@ -4,6 +4,14 @@ import { Icon } from 'suomifi-ui-components';
 <Icon ariaLabel="Login here" className="my-icon--test" />;
 ```
 
+### Icon with no label
+
+```jsx
+import { Icon } from 'suomifi-ui-components';
+
+<Icon icon="heart" />;
+```
+
 ```jsx noeditor
 import { Icon } from 'suomifi-ui-components';
 import { default as styled } from 'styled-components';
