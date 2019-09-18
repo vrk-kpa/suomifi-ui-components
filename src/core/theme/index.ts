@@ -46,3 +46,11 @@ export const suomifiTheme = ({
   typography: typographyUtils(typography),
   values: { colors, spacing, typography },
 });
+
+export const withSuomifiTheme = (
+  baseStyles: <T>(props: T) => FlattenSimpleInterpolation,
+) => <T extends TokensComponent>({
+  tokens,
+  ...passProps
+}: TokensComponent & T) =>
+  baseStyles({ ...passProps, theme: suomifiTheme(tokens) });
