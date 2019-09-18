@@ -32,7 +32,7 @@ export const suomifiTheme = ({
   colors,
   spacing,
   typography,
-}: TokenProp = tokens) => ({
+}: TokensProp = tokens) => ({
   // Internals
   shadows,
   gradients,
