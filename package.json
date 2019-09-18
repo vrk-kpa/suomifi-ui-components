@@ -34,8 +34,8 @@
     "test:tslint": "tslint --project tsconfig.json 'src/**/*.tsx'",
     "test:eslint": "eslint --config .eslintrc src/**/*.tsx",
     "test:stylelint": "stylelint ./src/**/*.{ts,tsx}",
-    "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
-    "prettier:check": "prettier-check 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "prettier:check": "prettier-check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "validate": "npm-run-all test test:lint prettier:check",
     "prebuild": "rimraf dist",
     "build": "npm-run-all build:umd build:es2015 build:esm copyassets",
@@ -115,7 +115,7 @@
     "polished": "3.4.0",
     "react-svg": "7.2.2",
     "styled-components": "4.3.2",
-    "suomifi-icons": "0.0.7",
+    "suomifi-icons": "0.0.8",
     "uuid": "3.3.2"
   },
   "peerDependencies": {

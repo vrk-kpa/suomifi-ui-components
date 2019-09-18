@@ -25,5 +25,6 @@ export const baseStyles = ({ theme = suomifiTheme }: LinkProps) => css`
 export const externalStyles = ({ theme = suomifiTheme }: LinkProps) => css`
   & .fi-link_icon {
     padding-left: ${theme.spacing.xs};
+    transform: translateY(0.1em);
   }
 `;
