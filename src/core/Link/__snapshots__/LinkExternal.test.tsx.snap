@@ -61,9 +61,6 @@ exports[`calling render with the same component on the same container does not r
 .c5 {
   display: inline-block;
   vertical-align: baseline;
-  -webkit-transform: translateY(0.1em);
-  -ms-transform: translateY(0.1em);
-  transform: translateY(0.1em);
 }
 
 .c3 {
@@ -80,6 +77,9 @@ exports[`calling render with the same component on the same container does not r
 
 .c0 .fi-link_icon {
   padding-left: 4px;
+  -webkit-transform: translateY(0.1em);
+  -ms-transform: translateY(0.1em);
+  transform: translateY(0.1em);
 }
 
 .c1 {
