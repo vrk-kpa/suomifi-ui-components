@@ -17,7 +17,7 @@ const camelToSnake = (string: string) =>
  */
 export const cssObjectToCss = <T>(value: T) => css`
   ${Object.entries(value)
-    .map(([key, value]) => `${camelToSnake(key)}: ${value}`)
+    .map(([key, value]) => `${camelToSnake(key)}: ${value};`)
     .join('')}
 `;
 
