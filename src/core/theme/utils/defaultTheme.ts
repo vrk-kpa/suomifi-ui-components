@@ -1,21 +1,17 @@
-import { suomifiTheme, ThemeProp } from '../';
-import { asPropType } from '../../../utils/typescript';
+import { defaultTokens, TokensProp, DefaultTokensProp } from '../';
+
+const internalTokens = (tokens?: TokensProp) =>
+  !!tokens ? { ...defaultTokens, ...tokens } : defaultTokens;
 
 /**
- * Do defaults for component props
- * Add default theme if theme not defined,
- * Remove as-prop and change it to asProp if defined
- * @param props Component props
+ * Check if tokens are given or use default ones
+ * @param props All component props
  */
-export const withDefaultTheme = <
-  T extends { theme: ThemeProp; asProp?: asPropType }
->({
-  theme,
-  as,
+export const withDefaultTheme = <T extends { tokens: TokensProp }>({
+  tokens,
   ...props
-}: Partial<T> & { as?: asPropType }): T =>
+}: Partial<T>): T =>
   ({
     ...props,
-    ...(!!as ? { asProp: as } : {}),
-    theme: !!theme ? theme : suomifiTheme,
-  } as T);
+    tokens: internalTokens(tokens),
+  } as T & { tokens: DefaultTokensProp });
