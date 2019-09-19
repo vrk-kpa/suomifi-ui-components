@@ -5,9 +5,11 @@ const internalTokens = (tokens?: TokensProp) =>
 
 /**
  * Check if tokens are given or use default ones
+ * include internal tokens
+ * (THESE ARE NOT GEMERATED BY GIVEN TOKENS! but can be overridden by given tokens)
  * @param props All component props
  */
-export const withDefaultTheme = <T extends { tokens: TokensProp }>({
+export const withDefaultTokens = <T extends { tokens: TokensProp }>({
   tokens,
   ...props
 }: Partial<T>): T =>
