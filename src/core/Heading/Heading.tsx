@@ -37,7 +37,7 @@ const StyledHeading = styled(
     smallScreen,
     className,
     variant,
-    asProp,
+    asProp, // as-property is defined internally as asProp and need to be implemented back if used
     ...passProps
   }: HeadingProps) => (
     <CompHeading
