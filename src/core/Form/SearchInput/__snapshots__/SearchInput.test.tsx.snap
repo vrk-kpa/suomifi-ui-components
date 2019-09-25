@@ -184,9 +184,6 @@ exports[`calling render with the same component on the same container does not r
 .c7 {
   display: inline-block;
   vertical-align: baseline;
-  -webkit-transform: translateY(0.1em);
-  -ms-transform: translateY(0.1em);
-  transform: translateY(0.1em);
 }
 
 .c0 .fi-search-input_input-container {
@@ -201,7 +198,7 @@ exports[`calling render with the same component on the same container does not r
   position: absolute;
   top: 50%;
   right: 16px;
-  margin-top: -0.6em;
+  margin-top: -0.5em;
 }
 
 <label
