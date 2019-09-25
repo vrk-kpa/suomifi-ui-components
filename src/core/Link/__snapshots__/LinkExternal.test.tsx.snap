@@ -146,7 +146,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 <a
-  class="c0 c1 fi-link--external c2"
+  class="c0 c1 fi-link c2 fi-link--external sc-bdVaJa c2"
   data-testid="test-link"
   href="/"
   rel="noopener"
