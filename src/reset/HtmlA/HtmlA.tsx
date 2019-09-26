@@ -2,12 +2,12 @@ import React, { ReactNode, HTMLProps } from 'react';
 import { default as styled, css } from 'styled-components';
 import { resets } from '../utils';
 import { allStates } from '../../utils/css/pseudo';
-import { Omit } from '../../utils/typescript';
+import { Omit, asPropType } from '../../utils/typescript';
 
 export interface HtmlAProps
   extends Omit<HTMLProps<HTMLAnchorElement>, 'ref' | 'as'> {
   children: ReactNode;
-  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+  as?: asPropType;
 }
 
 const aResets = css`
