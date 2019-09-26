@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from '@emotion/styled';
+import { default as styled } from 'styled-components';
 import { withDefaultTheme } from '../theme/utils';
 import { ThemeComponent, ColorProp } from '../theme';
 import {
@@ -9,7 +9,7 @@ import {
 } from '../../components/Heading/Heading';
 import { baseStyles } from './Heading.baseStyles';
 import classnames from 'classnames';
-import { Omit } from '../../utils/typescript';
+import { Omit, asPropType } from '../../utils/typescript';
 import { logger } from '../../utils/logger';
 
 const baseClassName = 'fi-heading';
@@ -27,6 +27,7 @@ export interface HeadingProps
   smallScreen?: boolean;
   /** Change font to smaller screen size and style */
   color?: ColorProp;
+  asProp?: asPropType;
 }
 
 const StyledHeading = styled(
@@ -36,6 +37,7 @@ const StyledHeading = styled(
     smallScreen,
     className,
     variant,
+    asProp, // as-property is defined internally as asProp and need to be implemented back if used
     ...passProps
   }: HeadingProps) => (
     <CompHeading
@@ -44,6 +46,7 @@ const StyledHeading = styled(
         [smallScreenClassName]: smallScreen,
       })}
       variant={variant === 'h1hero' ? 'h1' : variant}
+      as={asProp}
     />
   ),
 )`

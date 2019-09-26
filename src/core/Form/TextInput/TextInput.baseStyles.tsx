@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from 'styled-components';
 import { suomifiTheme } from '../../theme';
 import { TextInputProps } from './TextInput';
 import { input, inputContainer } from '../../theme/reset';

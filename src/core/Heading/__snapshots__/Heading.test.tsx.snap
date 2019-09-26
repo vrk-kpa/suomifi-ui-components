@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.emotion-0 {
+.c1 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -23,6 +23,9 @@ exports[`calling render with the same component on the same container does not r
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c0 {
   color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
@@ -40,7 +43,7 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(0,0%,16%);
 }
 
-.emotion-0.fi-heading--h1hero {
+.c0.fi-heading--h1hero {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 40px;
   font-weight: 600;
@@ -56,7 +59,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-heading--h1 {
+.c0.fi-heading--h1 {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 40px;
   font-weight: 300;
@@ -72,7 +75,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-heading--h2 {
+.c0.fi-heading--h2 {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 28px;
   font-weight: 600;
@@ -88,7 +91,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-heading--h3 {
+.c0.fi-heading--h3 {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 22px;
   font-weight: 600;
@@ -104,7 +107,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-heading--h4 {
+.c0.fi-heading--h4 {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
   font-weight: 600;
@@ -120,7 +123,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-heading--h5 {
+.c0.fi-heading--h5 {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -136,7 +139,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-heading--h6 {
+.c0.fi-heading--h6 {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -152,7 +155,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-heading--small-screen {
+.c0.fi-heading--small-screen {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 32px;
   font-weight: 300;
@@ -168,7 +171,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-heading--small-screen.fi-heading--h1hero {
+.c0.fi-heading--small-screen.fi-heading--h1hero {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 32px;
   font-weight: 600;
@@ -184,7 +187,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-heading--small-screen.fi-heading--h1 {
+.c0.fi-heading--small-screen.fi-heading--h1 {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 32px;
   font-weight: 300;
@@ -200,7 +203,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-heading--small-screen.fi-heading--h2 {
+.c0.fi-heading--small-screen.fi-heading--h2 {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 26px;
   font-weight: 600;
@@ -216,7 +219,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-heading--small-screen.fi-heading--h3 {
+.c0.fi-heading--small-screen.fi-heading--h3 {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 20px;
   font-weight: 600;
@@ -232,7 +235,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-heading--small-screen.fi-heading--h4 {
+.c0.fi-heading--small-screen.fi-heading--h4 {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -248,7 +251,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-heading--small-screen.fi-heading--h5 {
+.c0.fi-heading--small-screen.fi-heading--h5 {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -264,7 +267,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-font-smoothing: antialiased;
 }
 
-.emotion-0.fi-heading--small-screen.fi-heading--h6 {
+.c0.fi-heading--small-screen.fi-heading--h6 {
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -284,37 +287,42 @@ exports[`calling render with the same component on the same container does not r
   data-testid="Heading"
 >
   <h1
-    class="fi-heading fi-heading--h1hero emotion-0"
+    class="fi-heading c0 fi-heading--h1hero c1"
   >
     Test Heading
   </h1>
   <h1
-    class="fi-heading fi-heading--h1 emotion-0"
+    class="fi-heading c0 fi-heading--h1 c1"
   >
     Test Heading
   </h1>
   <h2
-    class="fi-heading fi-heading--h2 emotion-0"
+    class="fi-heading c0 fi-heading--h2 c1"
   >
     Test Heading
   </h2>
+  <h2
+    class="fi-heading c0 fi-heading--h3 c1"
+  >
+    h3 as h2 text
+  </h2>
   <h3
-    class="fi-heading fi-heading--h3 emotion-0"
+    class="fi-heading c0 fi-heading--h3 c1"
   >
     Test Heading
   </h3>
   <h4
-    class="fi-heading fi-heading--h4 emotion-0"
+    class="fi-heading c0 fi-heading--h4 c1"
   >
     Test Heading
   </h4>
   <h5
-    class="fi-heading fi-heading--h5 emotion-0"
+    class="fi-heading c0 fi-heading--h5 c1"
   >
     Test Heading
   </h5>
   <h6
-    class="fi-heading fi-heading--h6 emotion-0"
+    class="fi-heading c0 fi-heading--h6 c1"
   >
     Test Heading
   </h6>

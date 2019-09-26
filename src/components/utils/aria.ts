@@ -2,7 +2,7 @@ const ifAriaNoLabel = (ariaLabel?: string) => !!ariaLabel || ariaLabel === '';
 
 export const ariaLabelOrHidden = (ariaLabel?: string) => {
   return ifAriaNoLabel(ariaLabel)
-    ? { 'aria-label': ariaLabel }
+    ? { 'aria-label': ariaLabel, role: 'img' }
     : { 'aria-hidden': true };
 };
 

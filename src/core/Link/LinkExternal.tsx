@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from '@emotion/styled';
+import { default as styled } from 'styled-components';
 import { withDefaultTheme } from '../theme/utils';
 import { ThemeComponent } from '../theme';
 import { Link, LinkProps } from './Link';
@@ -30,7 +30,7 @@ const StyledLinkExternal = styled(
     theme,
     ...passProps
   }: Omit<LinkExternalProps, 'labelNewWindow' | 'hideIcon'>) => (
-    <Link {...passProps} as={CompLinkExternal} />
+    <Link {...passProps} asProp={CompLinkExternal} />
   ),
 )`
   ${props => externalStyles(props)};

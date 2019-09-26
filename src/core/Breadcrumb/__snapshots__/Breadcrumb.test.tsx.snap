@@ -1,7 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.emotion-9 {
+.c5 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c5:hover,
+.c5:active,
+.c5:focus,
+.c5:focus-within {
+  color: inherit;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: list-item;
+}
+
+.c1 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -20,76 +73,9 @@ exports[`calling render with the same component on the same container does not r
   cursor: inherit;
   display: block;
   max-width: 100%;
-  color: hsl(0,0%,16%);
-  display: block;
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.5;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  background-color: hsl(0,0%,100%);
 }
 
-.emotion-9 .fi-breadcrumb_list {
-  color: hsl(0,0%,16%);
-  list-style: none;
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.5;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  margin: 0;
-  padding: 0;
-}
-
-.emotion-9 .fi-breadcrumb_item {
-  color: hsl(0,0%,16%);
-  list-style: none;
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.5;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  float: left;
-}
-
-.emotion-9 .fi-breadcrumb_item,
-.emotion-9 .fi-breadcrumb_link,
-.emotion-9 .fi-breadcrumb_icon {
-  font-size: 18px;
-}
-
-.emotion-9 .fi-breadcrumb_icon {
-  -webkit-transform: translateY(.2em);
-  -ms-transform: translateY(.2em);
-  transform: translateY(.2em);
-}
-
-.emotion-8 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -115,128 +101,7 @@ exports[`calling render with the same component on the same container does not r
   padding-left: 40px;
 }
 
-.emotion-2 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: list-item;
-}
-
-.emotion-0 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  color: hsl(0,0%,16%);
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.5;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  color: hsl(212,63%,45%);
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-0:hover,
-.emotion-0:active,
-.emotion-0:focus,
-.emotion-0:focus-within {
-  color: inherit;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.emotion-0:focus {
-  outline: 0;
-  position: relative;
-}
-
-.emotion-0:focus:after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  bottom: -4px;
-  left: -4px;
-  border-radius: 4px;
-  background-color: transparent;
-  border: 1px solid hsl(23,82%,53%);
-  box-sizing: border-box;
-  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
-  z-index: 9999;
-}
-
-.emotion-0:focus:not(:focus-visible):after {
-  content: none;
-}
-
-.emotion-0:hover,
-.emotion-0:active,
-.emotion-0:focus,
-.emotion-0:focus-within {
-  color: hsl(212,63%,45%);
-}
-
-.emotion-0:hover,
-.emotion-0:active,
-.emotion-0:focus,
-.emotion-0:focus-within {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.emotion-0:visited {
-  color: hsl(284,36%,45%);
-}
-
-.emotion-1 {
-  display: inline-block;
-  vertical-align: baseline;
-  -webkit-transform: translateY(0.1em);
-  -ms-transform: translateY(0.1em);
-  transform: translateY(0.1em);
-}
-
-.emotion-6 {
+.c7 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -260,26 +125,164 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
+.c6 {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.c4 {
+  color: hsl(0,0%,16%);
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  color: hsl(212,63%,45%);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c4:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c4:focus:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid hsl(23,82%,53%);
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  z-index: 9999;
+}
+
+.c4:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c4:hover,
+.c4:active,
+.c4:focus,
+.c4:focus-within {
+  color: hsl(212,63%,45%);
+}
+
+.c4:hover,
+.c4:active,
+.c4:focus,
+.c4:focus-within {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c4:visited {
+  color: hsl(284,36%,45%);
+}
+
+.c0 {
+  color: hsl(0,0%,16%);
+  display: block;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  background-color: hsl(0,0%,100%);
+}
+
+.c0 .fi-breadcrumb_list {
+  color: hsl(0,0%,16%);
+  list-style: none;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+.c0 .fi-breadcrumb_item {
+  color: hsl(0,0%,16%);
+  list-style: none;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  float: left;
+}
+
+.c0 .fi-breadcrumb_item,
+.c0 .fi-breadcrumb_link,
+.c0 .fi-breadcrumb_icon {
+  font-size: 18px;
+}
+
+.c0 .fi-breadcrumb_icon {
+  -webkit-transform: translateY(.2em);
+  -ms-transform: translateY(.2em);
+  transform: translateY(.2em);
+}
+
 <nav
   aria-label="breadcrumb"
-  class="fi-breadcrumb emotion-9"
+  class="fi-breadcrumb c0 c1"
   data-testid="Breadcrumb"
 >
   <ol
-    class="fi-breadcrumb_list emotion-8"
+    class="fi-breadcrumb_list c2"
   >
     <li
-      class="fi-breadcrumb_item emotion-2"
+      class="fi-breadcrumb_item c3"
     >
       <a
-        class="fi-breadcrumb_link fi-link emotion-0"
+        class="fi-breadcrumb_link c4 fi-link c5"
         href="/"
       >
         Frontpage
       </a>
       <svg
         aria-hidden="true"
-        class="fi-breadcrumb_icon emotion-1"
+        class="fi-breadcrumb_icon c6"
         focusable="false"
         height="1em"
         style="fill: hsl(0, 0%, 16%);"
@@ -292,17 +295,17 @@ exports[`calling render with the same component on the same container does not r
       </svg>
     </li>
     <li
-      class="fi-breadcrumb_item emotion-2"
+      class="fi-breadcrumb_item c3"
     >
       <a
-        class="fi-breadcrumb_link fi-link emotion-0"
+        class="fi-breadcrumb_link c4 fi-link c5"
         href="/sub"
       >
         Sub page
       </a>
       <svg
         aria-hidden="true"
-        class="fi-breadcrumb_icon emotion-1"
+        class="fi-breadcrumb_icon c6"
         focusable="false"
         height="1em"
         style="fill: hsl(0, 0%, 16%);"
@@ -315,11 +318,11 @@ exports[`calling render with the same component on the same container does not r
       </svg>
     </li>
     <li
-      class="fi-breadcrumb_item emotion-2"
+      class="fi-breadcrumb_item c3"
     >
       <span
         aria-current="page"
-        class="emotion-6"
+        class="c7"
       >
         Sub sub page
       </span>

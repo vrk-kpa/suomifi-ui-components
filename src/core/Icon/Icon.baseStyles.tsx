@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from 'styled-components';
 import { SuomifiIconProps } from './Icon';
 
 export const iconBaseStyles = ({
@@ -6,7 +6,6 @@ export const iconBaseStyles = ({
 }: SuomifiIconProps) => css`
   display: inline-block;
   vertical-align: baseline;
-  transform: translateY(0.1em);
   ${!!mousePointer &&
     `cursor: pointer;
       & * {

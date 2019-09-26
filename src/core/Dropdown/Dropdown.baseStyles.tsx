@@ -1,9 +1,8 @@
-import { css } from '@emotion/core';
-import { suomifiTheme } from '../theme';
+import { css } from 'styled-components';
+import { suomifiTheme, ThemeProp } from '../theme';
 import { DropdownProps } from './Dropdown';
 import { element, inputButton, fonts } from '../theme/reset';
 import { Omit } from '../../utils/typescript';
-import { dataReachMenu } from '../Menu/Menu.baseStyles';
 
 export const baseStyles = ({
   theme = suomifiTheme,
@@ -33,12 +32,15 @@ export const baseStyles = ({
   }
 `;
 
-export const globalStyles = ({ theme = suomifiTheme }: DropdownProps) => css`
-  ${dataReachMenu(theme)}
-
-  [data-reach-menu-list].fi-dropdown_list {
+export const menuListStyles = ({
+  theme = suomifiTheme,
+}: {
+  theme: ThemeProp;
+}) => css`
+  &[data-reach-menu-list].fi-dropdown_list {
     ${element(theme)}
     ${fonts(theme).input}
+    margin-top: -1px;
     padding: 0;
     font-size: 100%;
     border: 0;
@@ -50,7 +52,7 @@ export const globalStyles = ({ theme = suomifiTheme }: DropdownProps) => css`
     overflow: hidden;
   }
 
-  [data-reach-menu-item].fi-dropdown_item {
+  & [data-reach-menu-item].fi-dropdown_item {
     ${element(theme)}
     ${fonts(theme).input}
     padding: ${theme.spacing.s} ${theme.spacing.m};

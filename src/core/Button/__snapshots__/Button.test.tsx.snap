@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.emotion-0 {
+.c1 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -22,6 +22,31 @@ exports[`calling render with the same component on the same container does not r
   display: inline-block;
   max-width: 100%;
   cursor: pointer;
+}
+
+.c1:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.c1::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.c1::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.c1::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.c1::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.c0 {
   color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 16px;
@@ -47,34 +72,12 @@ exports[`calling render with the same component on the same container does not r
   cursor: pointer;
 }
 
-.emotion-0:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-.emotion-0::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-.emotion-0::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  font: inherit;
-}
-
-.emotion-0::-webkit-inner-spin-button {
-  height: auto;
-}
-
-.emotion-0::-webkit-outer-spin-button {
-  height: auto;
-}
-
-.emotion-0:focus {
+.c0:focus {
   outline: 0;
   position: relative;
 }
 
-.emotion-0:focus:after {
+.c0:focus:after {
   content: '';
   position: absolute;
   top: -4px;
@@ -89,21 +92,21 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.emotion-0:focus:not(:focus-visible):after {
+.c0:focus:not(:focus-visible):after {
   content: none;
 }
 
-.emotion-0:hover {
+.c0:hover {
   background: linear-gradient(0deg,hsl(212,63%,49%) 0%,#5492d9 100%);
 }
 
-.emotion-0:active {
+.c0:active {
   background: linear-gradient(0deg,hsl(212,63%,37%) 0%,#2c72c4 100%);
 }
 
-.emotion-0.fi-button--disabled,
-.emotion-0[disabled],
-.emotion-0:disabled {
+.c0.fi-button--disabled,
+.c0[disabled],
+.c0:disabled {
   text-shadow: 0 1px 1px hsl(0,0%,16%);
   background: linear-gradient(0deg,hsl(202,7%,67%) 0%,#c0c5c9 100%);
   pointer-events: none;
@@ -113,30 +116,30 @@ exports[`calling render with the same component on the same container does not r
   user-select: none;
 }
 
-.emotion-0.fi-button--negative {
+.c0.fi-button--negative {
   background: none;
   background-color: hsl(212,63%,45%);
   border: 1px solid hsl(0,0%,100%);
   text-shadow: none;
 }
 
-.emotion-0.fi-button--negative:hover {
+.c0.fi-button--negative:hover {
   background: linear-gradient(-180deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0) 100%);
 }
 
-.emotion-0.fi-button--negative:active {
+.c0.fi-button--negative:active {
   background: none;
   background-color: hsl(212,63%,45%);
 }
 
-.emotion-0.fi-button--negative.fi-button--disabled,
-.emotion-0.fi-button--negative[disabled],
-.emotion-0.fi-button--negative:disabled {
+.c0.fi-button--negative.fi-button--disabled,
+.c0.fi-button--negative[disabled],
+.c0.fi-button--negative:disabled {
   opacity: 0.5;
-  background: none;
+  background-color: hsl(212,63%,45%);
 }
 
-.emotion-0.fi-button--secondary {
+.c0.fi-button--secondary {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -144,18 +147,18 @@ exports[`calling render with the same component on the same container does not r
   text-shadow: none;
 }
 
-.emotion-0.fi-button--secondary:hover {
+.c0.fi-button--secondary:hover {
   background: linear-gradient(0deg,hsl(202,7%,93%) 0%,hsl(0,0%,100%) 100%);
 }
 
-.emotion-0.fi-button--secondary:active {
+.c0.fi-button--secondary:active {
   background: none;
   background-color: hsl(212,63%,98%);
 }
 
-.emotion-0.fi-button--secondary.fi-button--disabled,
-.emotion-0.fi-button--secondary[disabled],
-.emotion-0.fi-button--secondary:disabled {
+.c0.fi-button--secondary.fi-button--disabled,
+.c0.fi-button--secondary[disabled],
+.c0.fi-button--secondary:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -163,7 +166,7 @@ exports[`calling render with the same component on the same container does not r
   border-color: hsl(202,7%,67%);
 }
 
-.emotion-0.fi-button--secondary-noborder {
+.c0.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -172,18 +175,18 @@ exports[`calling render with the same component on the same container does not r
   border: none;
 }
 
-.emotion-0.fi-button--secondary-noborder:hover {
+.c0.fi-button--secondary-noborder:hover {
   background: linear-gradient(0deg,hsl(202,7%,93%) 0%,hsl(0,0%,100%) 100%);
 }
 
-.emotion-0.fi-button--secondary-noborder:active {
+.c0.fi-button--secondary-noborder:active {
   background: none;
   background-color: hsl(212,63%,98%);
 }
 
-.emotion-0.fi-button--secondary-noborder.fi-button--disabled,
-.emotion-0.fi-button--secondary-noborder[disabled],
-.emotion-0.fi-button--secondary-noborder:disabled {
+.c0.fi-button--secondary-noborder.fi-button--disabled,
+.c0.fi-button--secondary-noborder[disabled],
+.c0.fi-button--secondary-noborder:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -191,7 +194,7 @@ exports[`calling render with the same component on the same container does not r
   border-color: hsl(202,7%,67%);
 }
 
-.emotion-0.fi-button--tertiary {
+.c0.fi-button--tertiary {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -201,18 +204,18 @@ exports[`calling render with the same component on the same container does not r
   border: none;
 }
 
-.emotion-0.fi-button--tertiary:hover {
+.c0.fi-button--tertiary:hover {
   background: linear-gradient(0deg,hsl(202,7%,93%) 0%,hsl(0,0%,100%) 100%);
 }
 
-.emotion-0.fi-button--tertiary:active {
+.c0.fi-button--tertiary:active {
   background: none;
   background-color: hsl(212,63%,98%);
 }
 
-.emotion-0.fi-button--tertiary.fi-button--disabled,
-.emotion-0.fi-button--tertiary[disabled],
-.emotion-0.fi-button--tertiary:disabled {
+.c0.fi-button--tertiary.fi-button--disabled,
+.c0.fi-button--tertiary[disabled],
+.c0.fi-button--tertiary:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -220,15 +223,15 @@ exports[`calling render with the same component on the same container does not r
   border-color: hsl(202,7%,67%);
 }
 
-.emotion-0.fi-button--tertiary:hover {
+.c0.fi-button--tertiary:hover {
   background: hsl(212,63%,98%);
 }
 
-.emotion-0.fi-button--tertiary:active {
+.c0.fi-button--tertiary:active {
   background: hsl(212,63%,98%);
 }
 
-.emotion-0 > .fi-button_icon {
+.c0 > .fi-button_icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
@@ -238,14 +241,14 @@ exports[`calling render with the same component on the same container does not r
   transform: translateY(-0.1em);
 }
 
-.emotion-0 > .fi-button_icon.fi-button_icon--right {
+.c0 > .fi-button_icon.fi-button_icon--right {
   margin-right: 0;
   margin-left: 8px;
 }
 
 <button
   aria-disabled="false"
-  class="fi-button emotion-0"
+  class="fi-button c0 c1"
   data-testid="button"
   tabindex="0"
   type="button"

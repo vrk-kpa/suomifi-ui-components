@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from 'styled-components';
 import { suomifiTheme } from '../theme';
 import { BlockProps } from './Block';
 import { element, fonts } from '../theme/reset';

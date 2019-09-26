@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.emotion-0 {
+.c1 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -22,6 +22,19 @@ exports[`calling render with the same component on the same container does not r
   display: inline;
   -webkit-text-decoration: underline;
   text-decoration: underline;
+}
+
+.c1:hover,
+.c1:active,
+.c1:focus,
+.c1:focus-within {
+  color: inherit;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.c0 {
   color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
@@ -41,22 +54,12 @@ exports[`calling render with the same component on the same container does not r
   text-decoration: none;
 }
 
-.emotion-0:hover,
-.emotion-0:active,
-.emotion-0:focus,
-.emotion-0:focus-within {
-  color: inherit;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.emotion-0:focus {
+.c0:focus {
   outline: 0;
   position: relative;
 }
 
-.emotion-0:focus:after {
+.c0:focus:after {
   content: '';
   position: absolute;
   top: -4px;
@@ -71,31 +74,31 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.emotion-0:focus:not(:focus-visible):after {
+.c0:focus:not(:focus-visible):after {
   content: none;
 }
 
-.emotion-0:hover,
-.emotion-0:active,
-.emotion-0:focus,
-.emotion-0:focus-within {
+.c0:hover,
+.c0:active,
+.c0:focus,
+.c0:focus-within {
   color: hsl(212,63%,45%);
 }
 
-.emotion-0:hover,
-.emotion-0:active,
-.emotion-0:focus,
-.emotion-0:focus-within {
+.c0:hover,
+.c0:active,
+.c0:focus,
+.c0:focus-within {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.emotion-0:visited {
+.c0:visited {
   color: hsl(284,36%,45%);
 }
 
 <a
-  class="fi-link emotion-0"
+  class="c0 fi-link c1"
   data-testid="test-link"
   href="/"
 >

@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from 'styled-components';
 import { ThemeProp } from '../';
 import { typography as defaultTypography } from '../typography';
 

@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from 'styled-components';
 import { suomifiTheme, ThemeProp } from '../theme';
 import { ButtonProps } from './Button';
 import { element, focus, button } from '../theme/reset';
@@ -28,7 +28,7 @@ const negativeStyles = (theme: ThemeProp) => css`
     &[disabled],
     &:disabled {
       opacity: 0.5;
-      background: none;
+      background-color: ${theme.colors.highlightBase};
     }
   }
 `;

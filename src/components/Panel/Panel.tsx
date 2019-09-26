@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from 'react';
-import styled from '@emotion/styled';
+import { default as styled } from 'styled-components';
 import { HtmlDiv, HtmlDivProps } from '../../reset';
 import classnames from 'classnames';
 

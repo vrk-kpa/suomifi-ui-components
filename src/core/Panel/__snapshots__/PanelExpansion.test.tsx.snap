@@ -1,7 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.emotion-3 {
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-appearance: button;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.c4:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.c4::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.c4::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.c4::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.c4::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -23,9 +68,36 @@ exports[`calling render with the same component on the same container does not r
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c1 {
   display: block;
   width: 100%;
   max-width: 100%;
+}
+
+.c6 {
+  display: none;
+}
+
+.c3,
+.c3 * {
+  cursor: pointer;
+}
+
+.c3:hover,
+.c3:active,
+.c3:focus,
+.c3:focus-within {
+  cursor: pointer;
+}
+
+.c5 {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.c0 {
   color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 18px;
@@ -49,7 +121,7 @@ exports[`calling render with the same component on the same container does not r
   box-shadow: 0 1px 2px 0 rgba(41,41,41,0.14),0 1px 5px 0 rgba(41,41,41,0.12);
 }
 
-.emotion-3:before {
+.c0:before {
   content: '';
   position: absolute;
   top: 0;
@@ -60,18 +132,18 @@ exports[`calling render with the same component on the same container does not r
   height: 100%;
 }
 
-.emotion-3:before {
+.c0:before {
   background-color: hsl(212,63%,98%);
   opacity: 0;
 }
 
-.emotion-3.fi-panel-expansion--open:before {
+.c0.fi-panel-expansion--open:before {
   opacity: 1;
   -webkit-transition: opacity 50ms cubic-bezier(0.28,0.84,0.42,1);
   transition: opacity 50ms cubic-bezier(0.28,0.84,0.42,1);
 }
 
-.emotion-3 .fi-panel-expansion_title {
+.c0 .fi-panel-expansion_title {
   color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
   font-size: 16px;
@@ -92,12 +164,12 @@ exports[`calling render with the same component on the same container does not r
   width: 100%;
 }
 
-.emotion-3 .fi-panel-expansion_title:focus {
+.c0 .fi-panel-expansion_title:focus {
   outline: 0;
   position: relative;
 }
 
-.emotion-3 .fi-panel-expansion_title:focus:after {
+.c0 .fi-panel-expansion_title:focus:after {
   content: '';
   position: absolute;
   top: -4px;
@@ -112,11 +184,11 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.emotion-3 .fi-panel-expansion_title:focus:not(:focus-visible):after {
+.c0 .fi-panel-expansion_title:focus:not(:focus-visible):after {
   content: none;
 }
 
-.emotion-3 .fi-panel-expansion_title--no-tag {
+.c0 .fi-panel-expansion_title--no-tag {
   padding-top: 16px;
   padding-right: 64px;
   padding-bottom: 16px;
@@ -124,21 +196,21 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(212,63%,45%);
 }
 
-.emotion-3 .fi-panel-expansion_title-icon {
+.c0 .fi-panel-expansion_title-icon {
   position: absolute;
   top: 0;
   right: 0;
   margin: 16px;
 }
 
-.emotion-3 .fi-panel-expansion_title--open .fi-panel-expansion_title-icon,
-.emotion-3 .fi-panel-expansion_title-icon--open {
+.c0 .fi-panel-expansion_title--open .fi-panel-expansion_title-icon,
+.c0 .fi-panel-expansion_title-icon--open {
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   transform: rotate(-180deg);
 }
 
-.emotion-3 > .fi-panel-expansion_content {
+.c0 > .fi-panel-expansion_content {
   position: relative;
   display: block;
   height: 0;
@@ -154,124 +226,32 @@ exports[`calling render with the same component on the same container does not r
   will-change: transition,height;
 }
 
-.emotion-3 > .fi-panel-expansion_content:not(.fi-panel-expansion_content--no-padding) {
+.c0 > .fi-panel-expansion_content:not(.fi-panel-expansion_content--no-padding) {
   padding: 0 16px;
 }
 
-.emotion-3 > .fi-panel-expansion_content.fi-panel-expansion_content--open {
+.c0 > .fi-panel-expansion_content.fi-panel-expansion_content--open {
   height: 10%;
   overflow: visible;
   -webkit-animation: fi-panel-expansion_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
   animation: fi-panel-expansion_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
 }
 
-.emotion-3 > .fi-panel-expansion_content.fi-panel-expansion_content--open:not(.fi-panel-expansion_content--no-padding) {
+.c0 > .fi-panel-expansion_content.fi-panel-expansion_content--open:not(.fi-panel-expansion_content--no-padding) {
   padding-top: 0;
   padding-right: 16px;
   padding-bottom: 16px;
   padding-left: 16px;
 }
 
-.emotion-1 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -webkit-appearance: button;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline-block;
-  max-width: 100%;
-  cursor: pointer;
-}
-
-.emotion-1:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-.emotion-1::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-.emotion-1::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  font: inherit;
-}
-
-.emotion-1::-webkit-inner-spin-button {
-  height: auto;
-}
-
-.emotion-1::-webkit-outer-spin-button {
-  height: auto;
-}
-
-.emotion-1,
-.emotion-1 * {
-  cursor: pointer;
-}
-
-.emotion-1:hover,
-.emotion-1:active,
-.emotion-1:focus,
-.emotion-1:focus-within {
-  cursor: pointer;
-}
-
-.emotion-0 {
-  display: inline-block;
-  vertical-align: baseline;
-  -webkit-transform: translateY(0.1em);
-  -ms-transform: translateY(0.1em);
-  transform: translateY(0.1em);
-}
-
-.emotion-2 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  display: none;
-}
-
 <div
-  class="panel-expansion-test fi-panel-expansion emotion-3"
+  class="panel-expansion-test c0 fi-panel-expansion c1 c2"
+  theme="[object Object]"
 >
   <button
     aria-disabled="false"
     aria-expanded="false"
-    class="fi-button fi-panel-expansion_title fi-panel-expansion_title--no-tag emotion-1"
+    class="fi-button fi-panel-expansion_title fi-panel-expansion_title--no-tag c3 c4"
     data-testid="panel-expansion-title"
     tabindex="0"
     type="button"
@@ -279,7 +259,7 @@ exports[`calling render with the same component on the same container does not r
     Test expansion
     <svg
       aria-hidden="true"
-      class="fi-panel-expansion_title-icon emotion-0"
+      class="fi-panel-expansion_title-icon c5"
       focusable="false"
       height="1em"
       style="fill: hsl(212, 63%, 45%);"
@@ -293,7 +273,7 @@ exports[`calling render with the same component on the same container does not r
   </button>
   <div
     aria-hidden="true"
-    class="fi-panel-expansion_content fi-panel emotion-2"
+    class="fi-panel-expansion_content c6 fi-panel c1 c2"
   >
     Test expansion content
   </div>

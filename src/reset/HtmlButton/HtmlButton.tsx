@@ -1,11 +1,11 @@
 import React, { HTMLProps, ButtonHTMLAttributes } from 'react';
-import { css } from '@emotion/core';
-import styled from '@emotion/styled';
+import { default as styled, css } from 'styled-components';
 import { resets, resetWithSelectors } from '../utils';
-import { Omit } from '../../utils/typescript';
+import { Omit, asPropType } from '../../utils/typescript';
 
 export interface HtmlButtonProps
-  extends Omit<HTMLProps<HTMLButtonElement>, 'ref'> {
+  extends Omit<HTMLProps<HTMLButtonElement>, 'ref' | 'as'> {
+  as?: asPropType;
   /**
    * HTML Button type (button, submit, reset)
    * @default button

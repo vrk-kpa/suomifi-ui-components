@@ -13,7 +13,13 @@ import { Button } from 'suomifi-ui-components';
   <Button disabled fullWidth>
     Button disabled fullWidth
   </Button>
+</>;
+```
 
+```js
+import { Button } from 'suomifi-ui-components';
+
+<>
   <Button icon="login" aria-label="Login">
     Button icon="login" aria-label="Login"
   </Button>
@@ -22,7 +28,13 @@ import { Button } from 'suomifi-ui-components';
     <span id="button-label">Login</span> iconRight="login"
     aria-labelledby="button-label"
   </Button>
+</>;
+```
 
+```js
+import { Button } from 'suomifi-ui-components';
+
+<>
   <div example="negative">
     <Button.negative>Button.negative</Button.negative>
 
@@ -30,7 +42,13 @@ import { Button } from 'suomifi-ui-components';
       Button.negative disabled fullWidth icon="login"
     </Button.negative>
   </div>
+</>;
+```
 
+```js
+import { Button } from 'suomifi-ui-components';
+
+<>
   <Button.secondary>Button.secondary</Button.secondary>
 
   <Button.secondary icon="login">
@@ -52,7 +70,13 @@ import { Button } from 'suomifi-ui-components';
   <Button.secondaryNoborder disabled icon="login">
     Button.secondaryNoborder disabled icon="login"
   </Button.secondaryNoborder>
+</>;
+```
 
+```js
+import { Button } from 'suomifi-ui-components';
+
+<>
   <Button.tertiary>Button.tertiary</Button.tertiary>
 
   <Button.tertiary disabled icon="login">

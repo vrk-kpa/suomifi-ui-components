@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from 'styled-components';
 import { suomifiTheme } from '../../theme';
 import { SearchInputProps } from './SearchInput';
 import { math } from 'polished';
@@ -15,7 +15,7 @@ export const baseStyles = ({ theme = suomifiTheme }: SearchInputProps) => css`
       position: absolute;
       top: 50%;
       right: ${theme.spacing.m};
-      margin-top: -0.6em;
+      margin-top: -0.5em;
     }
   }
 `;

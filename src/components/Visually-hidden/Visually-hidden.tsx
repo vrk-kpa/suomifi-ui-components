@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from '@emotion/styled';
+import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlSpan, HtmlSpanProps } from '../../reset/HtmlSpan/HtmlSpan';
 

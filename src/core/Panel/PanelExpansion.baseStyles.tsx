@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from 'styled-components';
 import { suomifiTheme } from '../theme';
 import { PanelExpansionProps } from './PanelExpansion';
 import { button } from '../theme/reset';

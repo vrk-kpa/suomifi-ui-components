@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from 'styled-components';
 import { suomifiTheme, ThemeProp } from '../theme';
 import { MenuProps } from './Menu';
 import { element, fonts, focus } from '../theme/reset';
@@ -22,30 +22,24 @@ export const baseStyles = ({
       border-radius: ${theme.radius.basic};
       text-transform: uppercase;
       & > .fi-menu-language_icon {
-        height: 16px;
-        width: 16px;
-        margin-left: ${theme.spacing.xxs};
+        height: 1.2em;
+        width: 1.2em;
+        transform: translateY(0.3em); 
+        margin-left: ${theme.spacing.xs};
       }
     }
   }
 `;
 
-export const dataReachMenu = (theme: ThemeProp) => css`
-  [data-reach-menu] {
+export const menuListStyles = ({
+  theme = suomifiTheme,
+}: {
+  theme: ThemeProp;
+}) => css`
+  &[data-reach-menu-list].fi-menu_list {
     ${element(theme)}
     ${fonts(theme).body}
-    z-index: ${theme.zindexes.menu};
     margin-top: -2px;
-    font-family: inherit;
-  }
-`;
-
-export const globalStyles = ({ theme = suomifiTheme }: MenuProps) => css`
-  ${dataReachMenu(theme)}
-
-  [data-reach-menu-list].fi-menu_list {
-    ${element(theme)}
-    ${fonts(theme).body}
     background-color: ${theme.colors.whiteBase};
     border: none;
     box-shadow: ${theme.shadows.menuShadow};
@@ -82,7 +76,7 @@ export const globalStyles = ({ theme = suomifiTheme }: MenuProps) => css`
     }
   }
 
-  [data-reach-menu-item].fi-menu_item {
+  & [data-reach-menu-item].fi-menu_item {
     ${element(theme)}
     ${fonts(theme).body}
     &[data-selected] {
