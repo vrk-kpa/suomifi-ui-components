@@ -1,4 +1,10 @@
-import { defaultTokens, TokensProp, DefaultTokensProp } from '../';
+import {
+  suomifiTheme,
+  SuomifiThemeProp,
+  defaultTokens,
+  TokensProp,
+  DefaultTokensProp,
+} from '../';
 
 const internalTokens = (tokens?: TokensProp) =>
   !!tokens ? { ...defaultTokens, ...tokens } : defaultTokens;
@@ -17,3 +23,20 @@ export const withSuomifiDefaults = <T extends { tokens: TokensProp }>({
     ...props,
     tokens: internalTokens(tokens),
   } as T & { tokens: DefaultTokensProp });
+
+export interface Tokens {
+  tokens: TokensProp;
+}
+
+export interface Theme {
+  theme: SuomifiThemeProp;
+}
+export type TokensOrThemeProps = Tokens | Theme;
+
+/**
+ * Return theme if defined or theme based on tokens
+ * @param {Object} prop.theme Theme if defined
+ * @param {Object} prop.tokens Tokens
+ */
+export const themeOrTokens = (props: TokensOrThemeProps) =>
+  'theme' in props ? props.theme : suomifiTheme(props.tokens);
