@@ -308,10 +308,10 @@
     puppeteer "^1.2.0"
     yargs "^11.1.0"
 
-"@csstools/normalize.css@9.0.1":
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-9.0.1.tgz#c27b391d8457d1e893f1eddeaf5e5412d12ffbb5"
-  integrity sha512-6It2EVfGskxZCQhuykrfnALg7oVeiI6KclWSmGDqB0AiInVrTGB9Jp9i4/Ad21u9Jde/voVQz6eFX/eSg/UsPA==
+"@csstools/normalize.css@10.1.0":
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
+  integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
 "@emotion/cache@10.0.0":
   version "10.0.0"
@@ -464,12 +464,12 @@
     log-update "^2.3.0"
     strip-ansi "^3.0.1"
 
-"@j-kallunki/css-in-to-js@1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@j-kallunki/css-in-to-js/-/css-in-to-js-1.0.3.tgz#27a5f89c6565bc00e7e717f3674f2c5ee18930d4"
-  integrity sha512-wys/d3YToyujiPgN531eScXxl2oHm5kbXXGLAtaY0Kgvl9WfNkw2hmdvjhCjBqfG1MThRtu+PLHdVDSPBFO3OQ==
+"@j-kallunki/css-in-to-js@1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@j-kallunki/css-in-to-js/-/css-in-to-js-1.0.5.tgz#0ce3aec875b16817c0e702260cc73eb198f44200"
+  integrity sha512-1u1B41D7urc4HkSjkPeM53BMfENFzjJ4nhfQo17njA87ZRtbf/dx0Q3Zl9X4yTIT8jrnln2k7i/tLfgpCXRciQ==
   dependencies:
-    lodash "4.17.11"
+    lodash "4.17.15"
     postcss "7.0.5"
 
 "@jest/console@^24.7.1":
@@ -6713,15 +6713,15 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@4.17.11, lodash@^4.13.1, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.5:
-  version "4.17.11"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
-  integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
-
-lodash@^4.17.13:
+lodash@4.17.15, lodash@^4.17.13:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+
+lodash@^4.13.1, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.5:
+  version "4.17.11"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
+  integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
 
 log-symbols@^1.0.2:
   version "1.0.2"
@@ -7521,13 +7521,13 @@ normalize-url@^3.0.0:
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
 
-normalize.cssinjs@1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/normalize.cssinjs/-/normalize.cssinjs-1.0.5.tgz#53cae9500920792e91bed369bc21b5c62cb93d02"
-  integrity sha512-4JoDvhYmYrYm86uVRBLDWhmqR2iuKx3qE0/Y+e8AuqfuIuA2E385ZA6jKgaPXYCtKK7ZwVfCvP4xYrvOtzefHA==
+normalize.cssinjs@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/normalize.cssinjs/-/normalize.cssinjs-1.1.0.tgz#d60576c44f31e9f76570e3318b94ae3916ee6b94"
+  integrity sha512-mXioiaurR20LtLfrERtsQ4IsMJeDpY22BVKIrgrxoTc51rW8S+kIFvs+p3Y5KmIKTQ8X3dKC2SOZSB5CfVRH3A==
   dependencies:
-    "@csstools/normalize.css" "9.0.1"
-    "@j-kallunki/css-in-to-js" "1.0.3"
+    "@csstools/normalize.css" "10.1.0"
+    "@j-kallunki/css-in-to-js" "1.0.5"
 
 npm-bundled@^1.0.1:
   version "1.0.5"
