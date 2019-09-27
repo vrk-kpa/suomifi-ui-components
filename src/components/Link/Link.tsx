@@ -5,7 +5,7 @@ import classnames from 'classnames';
 export const baseClassName = 'fi-link';
 
 export interface LinkProps extends HtmlAProps {
-  /** Link url */
+  /** Link url. Link is not focusable without the href */
   href: string;
   /** Custom classname to extend or customize */
   className?: string;
