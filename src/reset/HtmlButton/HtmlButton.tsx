@@ -1,11 +1,11 @@
 import React, { HTMLProps, ButtonHTMLAttributes } from 'react';
 import { default as styled, css } from 'styled-components';
 import { resets, resetWithSelectors } from '../utils';
-import { Omit } from '../../utils/typescript';
+import { Omit, asPropType } from '../../utils/typescript';
 
 export interface HtmlButtonProps
   extends Omit<HTMLProps<HTMLButtonElement>, 'ref' | 'as'> {
-  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+  as?: asPropType;
   /**
    * HTML Button type (button, submit, reset)
    * @default button

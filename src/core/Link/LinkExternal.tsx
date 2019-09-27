@@ -30,7 +30,7 @@ const StyledLinkExternal = styled(
     theme,
     ...passProps
   }: Omit<LinkExternalProps, 'labelNewWindow' | 'hideIcon'>) => (
-    <Link {...passProps} as={CompLinkExternal} />
+    <Link {...passProps} asProp={CompLinkExternal} />
   ),
 )`
   ${props => externalStyles(props)};

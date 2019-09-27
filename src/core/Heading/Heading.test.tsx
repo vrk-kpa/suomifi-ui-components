@@ -9,6 +9,7 @@ const TestHeadings = (
     <Heading.h1hero>Test Heading</Heading.h1hero>
     <Heading.h1>Test Heading</Heading.h1>
     <Heading.h2>Test Heading</Heading.h2>
+    <Heading.h3 as="h2">h3 as h2 text</Heading.h3>
     <Heading.h3>Test Heading</Heading.h3>
     <Heading.h4>Test Heading</Heading.h4>
     <Heading.h5>Test Heading</Heading.h5>

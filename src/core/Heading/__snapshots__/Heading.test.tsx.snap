@@ -301,6 +301,11 @@ exports[`calling render with the same component on the same container does not r
   >
     Test Heading
   </h2>
+  <h2
+    class="fi-heading c0 fi-heading--h3 c1"
+  >
+    h3 as h2 text
+  </h2>
   <h3
     class="fi-heading c0 fi-heading--h3 c1"
   >
