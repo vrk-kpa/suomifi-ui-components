@@ -1,8 +1,8 @@
 import { FlattenSimpleInterpolation } from 'styled-components';
-import { suomifiTheme, ThemeProp } from '../theme';
+import { suomifiTheme, SuomifiThemeProp } from '../theme';
 
 interface BaseStylesInterface {
-  theme: ThemeProp;
+  theme: SuomifiThemeProp;
   [key: string]: any;
 }
 
@@ -14,4 +14,4 @@ interface BaseStylesInterface {
 export const cssFromBaseStyles = (
   baseStyles: ({ theme }: BaseStylesInterface) => FlattenSimpleInterpolation,
   props = {},
-) => baseStyles({ ...props, theme: suomifiTheme }).join('');
+) => baseStyles({ ...props, theme: suomifiTheme() }).join('');
