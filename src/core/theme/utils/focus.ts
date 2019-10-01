@@ -1,14 +1,16 @@
-import { suomifiTheme, TokensComponent } from '../';
+import { themeOrTokens, TokensOrThemeProps } from '../utils';
 
 export const focus = ({
   outline,
   noPseudo,
-  tokens,
-}: TokensComponent & {
+  ...tokensOrTheme
+}: TokensOrThemeProps & {
   outline?: string;
   noPseudo?: boolean;
 }) => {
-  const style = !!outline ? outline : suomifiTheme(tokens).outlines.basic;
+  const style = !!outline
+    ? outline
+    : themeOrTokens(tokensOrTheme).outlines.basic;
   return !!noPseudo
     ? style
     : `&:focus {
