@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { default as styled } from 'styled-components';
-import { withDefaultTheme } from '../theme/utils';
-import { ThemeComponent } from '../theme';
+import { withSuomifiDefaults } from '../theme/utils';
+import { TokensComponent } from '../theme';
 import { baseStyles as panelBaseStyles } from './Panel.baseStyles';
 import { baseStyles } from './PanelExpansion.baseStyles';
 import {
@@ -17,7 +17,7 @@ const noPaddingClassName = `fi-panel-expansion_content--no-padding`;
 
 export interface PanelExpansionProps
   extends CompPanelExpansionProps,
-    ThemeComponent {
+    TokensComponent {
   /** Remove padding from expandable content area (for background usage with padding in given container etc.) */
   noPadding?: boolean;
 }
@@ -66,7 +66,7 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
   };
 
   render() {
-    const { open, title, titleTag, ...passProps } = withDefaultTheme(
+    const { open, title, titleTag, ...passProps } = withSuomifiDefaults(
       this.props,
     );
     const notControlled = open === undefined;
@@ -86,7 +86,7 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
                 className={classnames(iconClassName, {
                   [iconOpenClassName]: openState,
                 })}
-                color={passProps.theme.colors.highlightBase}
+                color={passProps.tokens.colors.highlightBase}
               />
             )}
           </Fragment>
