@@ -2,8 +2,8 @@ import React, { Component, ReactNode, Fragment } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { classnamesValue } from '../../utils/typescript';
-import { withDefaultTheme } from '../theme/utils';
-import { ThemeComponent } from '../theme';
+import { withSuomifiDefaults } from '../theme/utils';
+import { TokensComponent } from '../theme';
 import { baseStyles, menuListStyles } from './Menu.baseStyles';
 import {
   Menu as CompMenu,
@@ -31,7 +31,7 @@ const iconLangClassName = 'fi-menu-language_icon';
 
 type ButtonVariant = 'default' | 'language';
 
-export interface MenuProps extends CompMenuProps, ThemeComponent {
+export interface MenuProps extends CompMenuProps, TokensComponent {
   /**
    * 'default' | 'language'
    * @default default
@@ -39,7 +39,7 @@ export interface MenuProps extends CompMenuProps, ThemeComponent {
   variant?: ButtonVariant;
 }
 
-const StyledMenu = styled(({ theme, ...passProps }: MenuProps) => (
+const StyledMenu = styled(({ tokens, ...passProps }: MenuProps) => (
   <CompMenu {...passProps} />
 ))`
   ${props => baseStyles(props)}
@@ -67,9 +67,9 @@ const languageName = (name: ReactNode) => (
   </Fragment>
 );
 
-interface MenuListProps extends CompMenuListProps, ThemeComponent {}
+interface MenuListProps extends CompMenuListProps, TokensComponent {}
 
-const StyledMenuList = styled(({ theme, ...passProps }: MenuListProps) => (
+const StyledMenuList = styled(({ tokens, ...passProps }: MenuListProps) => (
   <CompMenuList {...passProps} />
 ))`
   ${props => menuListStyles(props.theme)}
@@ -84,7 +84,7 @@ class MenuVariation extends Component<MenuProps> {
       className,
       menuListComponent: MenuListComponentProp,
       ...passProps
-    } = withDefaultTheme(this.props);
+    } = withSuomifiDefaults(this.props);
     const ifMenuLanguage = variant === 'language';
     const menuButtonClassName = classnames(
       buttonClassName,
