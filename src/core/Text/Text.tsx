@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withDefaultTheme } from '../theme/utils';
-import { ThemeComponent, ColorProp } from '../theme';
+import { withSuomifiDefaults } from '../theme/utils';
+import { TokensComponent, ColorProp } from '../theme';
 import {
   Text as CompText,
   TextProps as CompTextProps,
@@ -12,7 +12,7 @@ import classnames from 'classnames';
 const baseClassName = 'fi-text';
 const smallScreenClassName = `${baseClassName}--small-screen`;
 
-export interface TextProps extends CompTextProps, ThemeComponent {
+export interface TextProps extends CompTextProps, TokensComponent {
   /** Change font to smaller screen size and style */
   smallScreen?: boolean;
   /** Change color for text from theme colors */
@@ -26,7 +26,7 @@ export interface TextProps extends CompTextProps, ThemeComponent {
 
 const StyledText = styled(
   ({
-    theme,
+    tokens,
     color,
     variant = 'body',
     smallScreen,
@@ -49,15 +49,14 @@ const StyledText = styled(
  */
 export class Text extends Component<TextProps> {
   static lead = (props: TextProps) => (
-    <StyledText {...withDefaultTheme(props)} variant="lead" />
+    <StyledText {...withSuomifiDefaults(props)} variant="lead" />
   );
 
   static bold = (props: TextProps) => (
-    <StyledText {...withDefaultTheme(props)} variant="bold" />
+    <StyledText {...withSuomifiDefaults(props)} variant="bold" />
   );
 
   render() {
-    const passProps = withDefaultTheme(this.props);
-    return <StyledText {...passProps} />;
+    return <StyledText {...withSuomifiDefaults(this.props)} />;
   }
 }
