@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withDefaultTheme } from '../theme/utils';
-import { ThemeComponent } from '../theme';
+import { withSuomifiDefaults } from '../theme/utils';
+import { TokensComponent } from '../theme';
 import {
   Link as CompLink,
   LinkProps as CompLinkProps,
@@ -12,13 +12,12 @@ import { baseStyles } from './Link.baseStyles';
 export { LinkExternal, LinkExternalProps };
 
 type LinkVariant = 'default' | 'external';
-export interface LinkProps extends CompLinkProps, ThemeComponent {
+export interface LinkProps extends CompLinkProps, TokensComponent {
   variant?: LinkVariant;
   asProp?: asPropType;
 }
 
-const StyledLink = styled(({ theme, asProp, ...passProps }: LinkProps) => (
-  // as-property is defined internally as asProp and need to be implemented back if used
+const StyledLink = styled(({ tokens, asProp, ...passProps }: LinkProps) => (
   <CompLink {...passProps} as={asProp} />
 ))`
   ${props => baseStyles(props)};
@@ -32,7 +31,7 @@ export class Link extends Component<LinkProps | LinkExternalProps> {
   static external = (props: LinkExternalProps) => <LinkExternal {...props} />;
 
   render() {
-    const { variant, ...passProps } = withDefaultTheme(this.props);
+    const { variant, ...passProps } = withSuomifiDefaults(this.props);
 
     if (variant === 'external')
       return <LinkExternal {...passProps as LinkExternalProps} />;
