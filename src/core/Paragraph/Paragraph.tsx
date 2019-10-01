@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withDefaultTheme } from '../theme/utils';
-import { ThemeComponent, ColorProp } from '../theme';
+import { withSuomifiDefaults } from '../theme/utils';
+import { TokensComponent, ColorProp } from '../theme';
 import {
   Paragraph as CompParagraph,
   ParagraphProps as CompParagraphProps,
@@ -9,7 +9,7 @@ import {
 import { baseStyles } from './Paragraph.baseStyles';
 import { SpaceProp } from '../theme/utils/spacing';
 
-export interface ParagraphProps extends CompParagraphProps, ThemeComponent {
+export interface ParagraphProps extends CompParagraphProps, TokensComponent {
   /** Change color */
   color?: ColorProp;
   /** Spacing token for bottom margin */
@@ -17,7 +17,7 @@ export interface ParagraphProps extends CompParagraphProps, ThemeComponent {
 }
 
 const StyledParagraph = styled(
-  ({ theme, color, marginBottomSpacing, ...passProps }: ParagraphProps) => (
+  ({ tokens, color, marginBottomSpacing, ...passProps }: ParagraphProps) => (
     <CompParagraph {...passProps} />
   ),
 )`
@@ -29,6 +29,6 @@ const StyledParagraph = styled(
  */
 export class Paragraph extends Component<ParagraphProps> {
   render() {
-    return <StyledParagraph {...withDefaultTheme(this.props)} />;
+    return <StyledParagraph {...withSuomifiDefaults(this.props)} />;
   }
 }
