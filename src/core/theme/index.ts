@@ -7,21 +7,39 @@ import { zindexes } from './zindexes';
 import { transitions } from './transitions';
 import { radius } from './radius';
 
-export type TokensProp = typeof tokens;
-export type TypographyProp = keyof typeof tokens.typography;
-export type ColorProp = keyof typeof tokens.colors;
-export type SpacingProp = keyof typeof tokens.spacing;
+export type TokensProp = typeof importedTokens;
+export type DefaultTokensProp = typeof defaultTokens;
+export type TypographyProp = keyof typeof importedTokens.typography;
+export type ColorProp = keyof typeof importedTokens.colors;
+export type SpacingProp = keyof typeof importedTokens.spacing;
 export type SuomifiThemeProp = ReturnType<typeof suomifiTheme>;
 
 export interface TokensComponent {
-  /** Default as suomifiTheme */
   tokens?: TokensProp;
 }
 
-const tokens = {
+export interface SuomifiThemeComponent {
+  theme: SuomifiThemeProp;
+}
+
+const internalTokens = {
+  shadows,
+  gradients,
+  outlines,
+  zindexes,
+  transitions,
+  radius,
+};
+
+const importedTokens = {
   colors,
   spacing,
   typography: typographyTokens,
+};
+
+export const defaultTokens = {
+  ...importedTokens,
+  ...internalTokens,
 };
 
 /**
@@ -32,15 +50,8 @@ export const suomifiTheme = ({
   colors,
   spacing,
   typography,
-}: TokensProp = tokens) => ({
-  // Internals
-  shadows,
-  gradients,
-  outlines,
-  zindexes,
-  transitions,
-  radius,
-  // Tokens
+}: TokensProp = defaultTokens) => ({
+  ...internalTokens,
   colors,
   spacing,
   typography: typographyUtils(typography),
@@ -48,8 +59,10 @@ export const suomifiTheme = ({
 });
 
 export const withSuomifiTheme = (
-  baseStyles: <T>(props: T) => FlattenSimpleInterpolation,
-) => <T extends TokensComponent>({
+  baseStyles: <K>(
+    props: K & SuomifiThemeComponent,
+  ) => FlattenSimpleInterpolation,
+) => <T extends SuomifiThemeComponent>({
   tokens,
   ...passProps
 }: TokensComponent & T) =>
