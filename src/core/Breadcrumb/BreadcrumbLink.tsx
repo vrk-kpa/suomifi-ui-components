@@ -26,7 +26,7 @@ export const BreadcrumbLink = ({
   ...passProps
 }: BreadcrumbLinkProps) =>
   !!current ? (
-    <HtmlSpan className={className} aria-current="page">
+    <HtmlSpan className={className} aria-current="location">
       {children}
     </HtmlSpan>
   ) : (

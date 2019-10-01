@@ -321,7 +321,7 @@ exports[`calling render with the same component on the same container does not r
       class="fi-breadcrumb_item c3"
     >
       <span
-        aria-current="page"
+        aria-current="location"
         class="c7"
       >
         Sub sub page
