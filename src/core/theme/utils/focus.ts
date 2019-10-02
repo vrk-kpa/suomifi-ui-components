@@ -1,3 +1,4 @@
+import { css } from 'styled-components';
 import { themeOrTokens, TokensOrThemeProps } from '../utils';
 
 export const focus = ({
@@ -13,7 +14,9 @@ export const focus = ({
     : themeOrTokens(tokensOrTheme).outlines.basic;
   return !!noPseudo
     ? style
-    : `&:focus {
-    ${style}
-  }`;
+    : css`
+        &:focus {
+          ${style}
+        }
+      `;
 };
