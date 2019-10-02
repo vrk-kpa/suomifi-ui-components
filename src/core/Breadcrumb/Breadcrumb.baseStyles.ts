@@ -1,32 +1,33 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../theme';
-import { BreadcrumbProps } from './Breadcrumb';
-import { nav, list, listItem, fonts } from '../theme/reset';
+import { withSuomifiTheme, SuomifiThemeComponent } from '../theme';
+import { nav, list, listItem } from '../theme/reset';
 
-export const baseStyles = ({ theme = suomifiTheme }: BreadcrumbProps) => css`
-  ${nav(theme)}
-  ${fonts(theme).body}
+export const baseStyles = withSuomifiTheme(
+  ({ theme }: SuomifiThemeComponent) => css`
+  ${nav({ theme })}
+  ${theme.typography.bodyText}
   background-color: ${theme.colors.whiteBase};
 
   & .fi-breadcrumb {
     &_list {
-      ${list(theme)}
-      ${fonts(theme).body}
+      ${list({ theme })}
+      ${theme.typography.bodyText}
       margin: 0;
       padding: 0;
     }
     &_item {
-      ${listItem(theme)}
-      ${fonts(theme).body}
+      ${listItem({ theme })}
+      ${theme.typography.bodyText}
       float: left;
     }
     &_item,
     &_link,
     &_icon {
-      font-size: ${theme.typography.fontSize.body};
+      font-size: ${theme.values.typography.bodyText.fontSize};
     }
     &_icon {
       transform: translateY(.2em);
     }
   }
-`;
+`,
+);
