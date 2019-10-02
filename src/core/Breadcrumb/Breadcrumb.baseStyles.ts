@@ -1,23 +1,23 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, SuomifiThemeComponent } from '../theme';
-import { nav, list, listItem } from '../theme/reset';
+import { nav, list, listItem, font } from '../theme/reset';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: SuomifiThemeComponent) => css`
   ${nav({ theme })}
-  ${theme.typography.bodyText}
+  ${font({ theme })('bodyText')}
   background-color: ${theme.colors.whiteBase};
 
   & .fi-breadcrumb {
     &_list {
       ${list({ theme })}
-      ${theme.typography.bodyText}
+      ${font({ theme })('bodyText')}
       margin: 0;
       padding: 0;
     }
     &_item {
       ${listItem({ theme })}
-      ${theme.typography.bodyText}
+      ${font({ theme })('bodyText')}
       float: left;
     }
     &_item,
