@@ -15,7 +15,7 @@ export interface TypographyUtil extends TypographyTokensAsCssProp {}
 export class TypographyUtil {
   static instance: any;
   constructor(tokens: TypographyTokens) {
-    // If instance not created, does not take on account if theme is different!
+    // If instance not created, does not take on account if tokens is different!
     if (!TypographyUtil.instance) {
       // Assing typographyTokens as CSS FlattenSimpleInterpolation to this object
       Object.assign(this, cssObjectsToCss(tokens));
