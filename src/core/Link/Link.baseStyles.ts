@@ -1,13 +1,13 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../theme';
-import { LinkProps } from './Link';
-import { element, fonts, focus } from '../theme/reset';
+import { withSuomifiTheme, SuomifiThemeComponent } from '../theme';
+import { element, font, focus } from '../theme/reset';
 import { allStates } from '../../utils/css/pseudo';
 
-export const baseStyles = ({ theme = suomifiTheme }: LinkProps) => css`
-  ${element(theme)}
-  ${fonts(theme).body}
-  ${focus(theme)}
+export const baseStyles = withSuomifiTheme(
+  ({ theme }: SuomifiThemeComponent) => css`
+  ${element({ theme })}
+  ${font({ theme })('bodyText')}
+  ${focus({ theme })}
   ${allStates(`color: ${theme.colors.highlightBase};`)};
   color: ${theme.colors.highlightBase};
   text-decoration: none;
@@ -20,11 +20,14 @@ export const baseStyles = ({ theme = suomifiTheme }: LinkProps) => css`
   &:visited {
     color: ${theme.colors.accentTertiaryDark9};
   }
-`;
+`,
+);
 
-export const externalStyles = ({ theme = suomifiTheme }: LinkProps) => css`
-  & .fi-link_icon {
-    padding-left: ${theme.spacing.xs};
-    transform: translateY(0.1em);
-  }
-`;
+export const externalStyles = withSuomifiTheme(
+  ({ theme }: SuomifiThemeComponent) => css`
+    & .fi-link_icon {
+      padding-left: ${theme.spacing.xs};
+      transform: translateY(0.1em);
+    }
+  `,
+);
