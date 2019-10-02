@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withDefaultTheme } from '../theme/utils';
-import { ThemeComponent } from '../theme';
+import { withSuomifiDefaults } from '../theme/utils';
+import { TokensComponent } from '../theme';
 import {
   Block as CompBlock,
   BlockProps as CompBlockProps,
@@ -12,7 +12,7 @@ import classnames from 'classnames';
 
 const baseClassName = 'fi-block';
 
-export interface BlockProps extends CompBlockProps, ThemeComponent {
+export interface BlockProps extends CompBlockProps, TokensComponent {
   /** Padding from theme */
   padding?: spacingTokensProp;
   /** Margin from theme */
@@ -20,7 +20,7 @@ export interface BlockProps extends CompBlockProps, ThemeComponent {
 }
 
 const StyledBlock = styled(
-  ({ theme, className, padding, margin, ...passProps }: BlockProps) => (
+  ({ tokens, className, padding, margin, ...passProps }: BlockProps) => (
     <CompBlock
       {...passProps}
       className={classnames(className, {
@@ -39,27 +39,26 @@ const StyledBlock = styled(
  */
 export class Block extends Component<BlockProps> {
   static section = (props: BlockProps) => (
-    <StyledBlock {...withDefaultTheme(props)} variant="section" />
+    <StyledBlock {...withSuomifiDefaults(props)} variant="section" />
   );
 
   static header = (props: BlockProps) => (
-    <StyledBlock {...withDefaultTheme(props)} variant="header" />
+    <StyledBlock {...withSuomifiDefaults(props)} variant="header" />
   );
 
   static nav = (props: BlockProps) => (
-    <StyledBlock {...withDefaultTheme(props)} variant="nav" />
+    <StyledBlock {...withSuomifiDefaults(props)} variant="nav" />
   );
 
   static main = (props: BlockProps) => (
-    <StyledBlock {...withDefaultTheme(props)} variant="main" />
+    <StyledBlock {...withSuomifiDefaults(props)} variant="main" />
   );
 
   static footer = (props: BlockProps) => (
-    <StyledBlock {...withDefaultTheme(props)} variant="footer" />
+    <StyledBlock {...withSuomifiDefaults(props)} variant="footer" />
   );
 
   render() {
-    const passProps = withDefaultTheme(this.props);
-    return <StyledBlock {...passProps} />;
+    return <StyledBlock {...withSuomifiDefaults(this.props)} />;
   }
 }
