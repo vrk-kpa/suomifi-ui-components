@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { ThemeComponent, ThemeProp } from '../theme';
-import { withDefaultTheme } from '../theme/utils';
+import { TokensComponent, TokensProp } from '../theme';
+import { withSuomifiDefaults } from '../theme/utils';
 import { baseStyles } from './Button.baseStyles';
 import {
   Button as CompButton,
@@ -19,7 +19,7 @@ type ButtonVariant =
   | 'tertiary'
   | 'unstyled';
 
-export interface ButtonProps extends CompButtonProps, ThemeComponent {
+export interface ButtonProps extends CompButtonProps, TokensComponent {
   /**
    * Set width to grow all available space
    */
@@ -49,7 +49,7 @@ const iconRightClassName = `${baseClassName}_icon--right`;
 
 const StyledButton = styled(
   ({
-    theme,
+    tokens,
     fullWidth,
     variant = 'default',
     className,
@@ -67,30 +67,27 @@ const StyledButton = styled(
 `;
 
 const iconColor = ({
-  theme,
+  tokens,
   invert,
   disabled,
 }: {
-  theme?: ThemeProp;
+  tokens: TokensProp;
   invert?: boolean;
   disabled?: boolean;
 }) => {
-  if (!!theme) {
-    const defaultColor = !!disabled
-      ? theme.colors.depthBase
-      : theme.colors.whiteBase;
-    const secondaryColor = !!disabled
-      ? theme.colors.depthBase
-      : theme.colors.highlightBase;
-    return !!invert ? secondaryColor : defaultColor;
-  }
-  return undefined;
+  const defaultColor = !!disabled
+    ? tokens.colors.depthBase
+    : tokens.colors.whiteBase;
+  const secondaryColor = !!disabled
+    ? tokens.colors.depthBase
+    : tokens.colors.highlightBase;
+  return !!invert ? secondaryColor : defaultColor;
 };
 
-class ButtonWithIcon extends Component<ButtonProps> {
+class ButtonWithIcon extends Component<ButtonProps & { tokens: TokensProp }> {
   render() {
     const { icon, iconRight, iconProps = {}, ...passProps } = this.props;
-    const { theme, disabled, variant } = passProps;
+    const { tokens, disabled, variant } = passProps;
     const { className: iconPropsClassName, ...passIconProps } = iconProps;
 
     if (variant === 'unstyled') {
@@ -108,7 +105,7 @@ class ButtonWithIcon extends Component<ButtonProps> {
           <Icon
             mousePointer={true}
             icon={icon}
-            color={iconColor({ theme, disabled, invert: secondaryOrTertiary })}
+            color={iconColor({ tokens, disabled, invert: secondaryOrTertiary })}
             className={classnames(iconClassName, iconPropsClassName)}
             {...passIconProps}
           />
@@ -118,7 +115,7 @@ class ButtonWithIcon extends Component<ButtonProps> {
           <Icon
             mousePointer={true}
             icon={iconRight}
-            color={iconColor({ theme, disabled, invert: secondaryOrTertiary })}
+            color={iconColor({ tokens, disabled, invert: secondaryOrTertiary })}
             className={classnames(
               iconClassName,
               iconRightClassName,
@@ -142,31 +139,37 @@ class ButtonWithIcon extends Component<ButtonProps> {
  */
 export class Button extends Component<ButtonProps> {
   static negative = (props: ButtonProps) => {
-    return <ButtonWithIcon {...withDefaultTheme(props)} variant="negative" />;
+    return (
+      <ButtonWithIcon {...withSuomifiDefaults(props)} variant="negative" />
+    );
   };
 
   static secondary = (props: ButtonProps) => {
-    return <ButtonWithIcon {...withDefaultTheme(props)} variant="secondary" />;
+    return (
+      <ButtonWithIcon {...withSuomifiDefaults(props)} variant="secondary" />
+    );
   };
 
   static secondaryNoborder = (props: ButtonProps) => {
     return (
       <ButtonWithIcon
-        {...withDefaultTheme(props)}
+        {...withSuomifiDefaults(props)}
         variant="secondary-noborder"
       />
     );
   };
 
   static tertiary = (props: ButtonProps) => {
-    return <ButtonWithIcon {...withDefaultTheme(props)} variant="tertiary" />;
+    return (
+      <ButtonWithIcon {...withSuomifiDefaults(props)} variant="tertiary" />
+    );
   };
 
   static unstyled = (props: ButtonProps) => {
-    return <UnstyledButton {...withDefaultTheme(props)} />;
+    return <UnstyledButton {...withSuomifiDefaults(props)} />;
   };
 
   render() {
-    return <ButtonWithIcon {...withDefaultTheme(this.props)} />;
+    return <ButtonWithIcon {...withSuomifiDefaults(this.props)} />;
   }
 }
