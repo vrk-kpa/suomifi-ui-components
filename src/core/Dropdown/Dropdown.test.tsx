@@ -1,6 +1,6 @@
 import React from 'react';
-import { cssFromBaseStyles } from '../utils';
-import { baseStyles } from './Dropdown.baseStyles';
+// import { cssFromBaseStyles } from '../utils';
+// import { baseStyles } from './Dropdown.baseStyles';
 import { axeTest } from '../../utils/test/axe';
 
 import { Dropdown } from './Dropdown';
@@ -14,9 +14,9 @@ const TestDropdown = (
   </Dropdown>
 );
 
-test('CSS export', () => {
-  const css = cssFromBaseStyles(baseStyles);
-  expect(css).toEqual(expect.stringContaining('position'));
-});
+// test('CSS export', () => {
+//   const css = cssFromBaseStyles(baseStyles);
+//   expect(css).toEqual(expect.stringContaining('position'));
+// });
 
 test('should not have basic accessibility issues', axeTest(TestDropdown));
