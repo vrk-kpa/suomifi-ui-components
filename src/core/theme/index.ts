@@ -58,6 +58,10 @@ export const suomifiTheme = ({
   values: { colors, spacing, typography },
 });
 
+/**
+ * Function that will add theme to baseStyles-function using tokens
+ * @param {function} baseStyles Function that will get components' props including tokens-prop and return CSS-styles
+ */
 export const withSuomifiTheme = (
   baseStyles: <K>(
     props: K & SuomifiThemeComponent,
