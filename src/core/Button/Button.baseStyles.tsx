@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { suomifiTheme, ThemeProp } from '../theme';
+import { withSuomifiTheme, SuomifiThemeComponent } from '../theme';
 import { ButtonProps } from './Button';
 import { element, focus, button } from '../theme/reset';
 
@@ -8,7 +8,7 @@ const fullWidthStyles = css`
   width: 100%;
 `;
 
-const negativeStyles = (theme: ThemeProp) => css`
+const negativeStyles = ({ theme }: SuomifiThemeComponent) => css`
   &.fi-button--negative {
     background: none;
     background-color: ${theme.colors.highlightBase};
@@ -33,7 +33,7 @@ const negativeStyles = (theme: ThemeProp) => css`
   }
 `;
 
-const secondary = (theme: ThemeProp) => css`
+const secondary = ({ theme }: SuomifiThemeComponent) => css`
   color: ${theme.colors.highlightBase};
   background: none;
   background-color: ${theme.colors.whiteBase};
@@ -60,22 +60,22 @@ const secondary = (theme: ThemeProp) => css`
   }
 `;
 
-const secondaryStyles = (theme: ThemeProp) => css`
+const secondaryStyles = ({ theme }: SuomifiThemeComponent) => css`
   &.fi-button--secondary {
-    ${secondary(theme)}
+    ${secondary({ theme })}
   }
 `;
 
-const secondaryNoBorderStyles = (theme: ThemeProp) => css`
+const secondaryNoBorderStyles = ({ theme }: SuomifiThemeComponent) => css`
   &.fi-button--secondary-noborder {
-    ${secondary(theme)}
+    ${secondary({ theme })}
     border: none;
   }
 `;
 
-const tertiaryStyles = (theme: ThemeProp) => css`
+const tertiaryStyles = ({ theme }: SuomifiThemeComponent) => css`
   &.fi-button--tertiary {
-    ${secondary(theme)}
+    ${secondary({ theme })}
     background: ${theme.colors.highlightLight50};
     border: none;
 
@@ -89,11 +89,12 @@ const tertiaryStyles = (theme: ThemeProp) => css`
   }
 `;
 
-export const baseStyles = ({
-  theme = suomifiTheme,
-  fullWidth = false,
-}: ButtonProps) => css`
-  ${button(theme)}
+export const baseStyles = withSuomifiTheme(
+  ({
+    theme,
+    fullWidth = false,
+  }: SuomifiThemeComponent & Partial<ButtonProps>) => css`
+  ${button({ theme })}
   padding: ${theme.spacing.s} ${theme.spacing.m};
   min-height: 40px;
   color: ${theme.colors.whiteBase};
@@ -121,10 +122,10 @@ export const baseStyles = ({
   }
 
   ${fullWidth && fullWidthStyles}
-  ${negativeStyles(theme)}
-  ${secondaryStyles(theme)}
-  ${secondaryNoBorderStyles(theme)}
-  ${tertiaryStyles(theme)}
+  ${negativeStyles({ theme })}
+  ${secondaryStyles({ theme })}
+  ${secondaryNoBorderStyles({ theme })}
+  ${tertiaryStyles({ theme })}
 
   & > .fi-button_icon {
     width: 16px;
@@ -137,11 +138,14 @@ export const baseStyles = ({
       margin-left: ${theme.spacing.s};
     }
   }
-`;
+`,
+);
 
-export const unStyled = ({ theme = suomifiTheme }) => css`
-  ${element(theme)}
-  ${focus(theme)}
+export const unStyled = withSuomifiTheme(
+  ({ theme }: SuomifiThemeComponent) => css`
+  ${element({ theme })}
+  ${focus({ theme })}
   border-radius: ${theme.radius.basic};
   cursor: pointer;
-`;
+`,
+);
