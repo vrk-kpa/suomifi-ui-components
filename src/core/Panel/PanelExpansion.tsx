@@ -23,7 +23,7 @@ export interface PanelExpansionProps
 }
 
 const StyledPanelExpansion = styled(
-  ({ noPadding, ...passProps }: PanelExpansionProps) => {
+  ({ tokens, noPadding, ...passProps }: PanelExpansionProps) => {
     return (
       <CompPanelExpansion
         {...passProps}
