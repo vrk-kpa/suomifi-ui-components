@@ -12,18 +12,18 @@ export const baseStyles = withSuomifiTheme(
 
   &.fi-text {
     &--bold {
-      ${theme.typography.bodySemiBold}
+      ${font({ theme })('bodySemiBold')}
     }
     &--lead {
-      ${theme.typography.leadText}
+      ${font({ theme })('leadText')}
     }
     &--small-screen {
-      ${theme.typography.bodyTextSmallScreen}
+      ${font({ theme })('bodyTextSmallScreen')}
       &.fi-text--bold {
-        ${theme.typography.bodySemiBoldSmallScreen}
+        ${font({ theme })('bodySemiBoldSmallScreen')}
       }
       &.fi-text--lead {
-        ${theme.typography.leadTextSmallScreen}
+        ${font({ theme })('leadTextSmallScreen')}
       }
     }
   } 
