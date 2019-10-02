@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { iconBaseStyles } from './Icon.baseStyles';
-import { ThemeComponent } from '../theme';
-import { withDefaultTheme } from '../theme/utils';
+import { withSuomifiDefaults } from '../theme/utils';
+import { TokensComponent } from '../theme';
 import {
   ariaLabelOrHidden,
   ariaFocusableNoLabel,
@@ -21,7 +21,7 @@ import {
 export { IconKeys, StaticIconKeys } from 'suomifi-icons';
 import { logger } from '../../utils/logger';
 
-export interface IconProps extends Omit<CompIconProps, 'src'>, ThemeComponent {
+export interface IconProps extends Omit<CompIconProps, 'src'>, TokensComponent {
   /** Icon-name from suomifi-icons */
   icon?: IconKeys | StaticIconKeys;
   /** Image file */
@@ -79,11 +79,11 @@ export class Icon extends Component<IconProps> {
       src,
       color,
       icon = 'login',
-      theme,
+      tokens,
       ...passProps
-    } = withDefaultTheme(this.props);
+    } = withSuomifiDefaults(this.props);
     const { className, ariaLabel } = this.props;
-    const iconColor = color !== undefined ? color : theme.colors.depthDark27;
+    const iconColor = color !== undefined ? color : tokens.colors.depthDark27;
 
     if (!!src) {
       return <StyledIcon src={src} {...passProps} color={iconColor} />;
