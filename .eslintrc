@@ -1,7 +1,33 @@
 {
-  "parser": "typescript-eslint-parser",
-  "extends": ["plugin:jsx-a11y/recommended"],
-  "plugins": ["jsx-a11y", "tree-shaking"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "jsx-a11y",
+    "tree-shaking",
+    "jest"
+  ],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "standard",
+    "standard-react",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/react",
+    "prettier/standard",
+    "plugin:jest/recommended"
+  ],
   "rules": {
     "jsx-a11y/label-has-for": 0,
     "jsx-a11y/label-has-associated-control": [
@@ -12,6 +38,28 @@
         "controlComponents": ["HtmlInput"],
         "assert": "either"
       }
-    ]
-  }
+    ],
+    "@typescript-eslint/explicit-function-return-type": [
+      "warn",
+      { "allowExpressions": true }
+    ],
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-extra-boolean-cast": "off",
+    "@typescript-eslint/array-type": "off",
+    "import/no-named-default": "warn",
+    "react/no-did-update-set-state": "warn",
+    "@typescript-eslint/no-empty-interface": "warn",
+    "@typescript-eslint/no-object-literal-type-assertion": "warn",
+    "react/jsx-boolean-value": "warn",
+    "react/no-children-prop": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.ts", "**/*.test.tsx"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
 }

@@ -18,8 +18,8 @@ import {
   IconKeys,
   StaticIconKeys,
 } from 'suomifi-icons';
-export { IconKeys, StaticIconKeys } from 'suomifi-icons';
 import { logger } from '../../utils/logger';
+export { IconKeys, StaticIconKeys } from 'suomifi-icons';
 
 export interface IconProps extends Omit<CompIconProps, 'src'>, TokensProp {
   /** Icon-name from suomifi-icons */
@@ -102,6 +102,5 @@ export class Icon extends Component<IconProps> {
           : ''
       }`,
     );
-    return;
   }
 }

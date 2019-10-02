@@ -3,8 +3,6 @@ import { alphaHex } from '../../utils/css/colors';
 import { boxshadowOutline } from './utils/outline';
 import { zindexes } from './zindexes';
 
-export type IColors = typeof colors;
-
 export const colorTokens = {
   base: {
     whiteBase: 'hsl(0, 0%, 100%)',
@@ -59,7 +57,7 @@ export const colors = {
   ...colorTokens.trafficlights,
 };
 
-export type IShadows = typeof shadows;
+export type IColors = typeof colors;
 
 export const shadows = {
   invertTextShadow: `0 1px 1px ${colors.brandBase}`,
@@ -69,7 +67,7 @@ export const shadows = {
   )}, 0 1px 5px 0 ${alphaHex(0.12)(colors.blackBase)}`,
 };
 
-export type IGradients = typeof gradients;
+export type IShadows = typeof shadows;
 
 export const gradients = {
   highlightBase: `linear-gradient(0deg, ${colors.highlightBase} 0%, ${lighten(
@@ -94,6 +92,8 @@ export const gradients = {
     colors.whiteBase
   } 100%)`,
 };
+
+export type IGradients = typeof gradients;
 
 export const outlines = {
   basic: boxshadowOutline({

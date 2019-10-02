@@ -9,6 +9,8 @@ export const spacingTokens = {
   xl: '64px',
 };
 
+export type spacingTokensProp = keyof typeof spacingTokens;
+
 export const spacingTokensKeys = Object.keys(
   spacingTokens,
 ) as spacingSuomifiTokens[];

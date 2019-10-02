@@ -17,7 +17,7 @@ export const alphaHex = (value: number) => (hex: string) =>
  * @param hsla
  */
 export const hslaToHex = (hsla: string) => {
-  const values = hsla.replace(/(hsla\(|hsl\(|\)|\%|\s)/g, '').split(',');
+  const values = hsla.replace(/(hsla\(|hsl\(|\)|%|\s)/g, '').split(',');
   const hue = parseInt(values[0], 10);
   const saturationPercentage = parseInt(values[1], 10);
   const lightnessPercentage = parseInt(values[2], 10);

@@ -93,7 +93,6 @@ const componentOrElementWithProps = (
       props,
     ); // component
   }
-  return;
 };
 
 export class Toggle extends Component<ToggleProps> {
