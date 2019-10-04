@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaults } from '../../theme/utils';
+import { withSuomifiDefaultProps } from '../../theme/utils';
 import { TokensComponent } from '../../theme';
 import { baseStyles } from './TextInput.baseStyles';
 import {
@@ -63,15 +63,15 @@ const StyledTextInput = styled(
  */
 export class TextInput extends Component<TextInputProps> {
   static error = (props: TextInputProps) => (
-    <StyledTextInput {...withSuomifiDefaults(props)} variant="error" />
+    <StyledTextInput {...withSuomifiDefaultProps(props)} variant="error" />
   );
 
   static success = (props: TextInputProps) => (
-    <StyledTextInput {...withSuomifiDefaults(props)} variant="success" />
+    <StyledTextInput {...withSuomifiDefaultProps(props)} variant="success" />
   );
 
   render() {
-    const { ...passProps } = withSuomifiDefaults(this.props);
+    const { ...passProps } = withSuomifiDefaultProps(this.props);
 
     return <StyledTextInput {...passProps} />;
   }

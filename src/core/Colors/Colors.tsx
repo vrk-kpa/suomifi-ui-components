@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from 'react';
-import { withSuomifiDefaults } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { hslaToHex } from '../../utils/css/colors';
 import { default as styled } from 'styled-components';
 import { TokensComponent, SuomifiThemeComponent } from '../theme';
@@ -31,7 +31,7 @@ const copyKey = (key: string) => () => clipboardCopy(key);
 export class Colors extends Component<ColorsProps> {
   render() {
     const { colors } = this.props;
-    const props = withSuomifiDefaults(this.props);
+    const props = withSuomifiDefaultProps(this.props);
     return (
       <ColorsContainer>
         {Object.entries(!!colors ? colors : props.tokens.colors).reduce<

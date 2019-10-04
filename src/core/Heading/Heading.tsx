@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaults } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensComponent, ColorProp } from '../theme';
 import {
   Heading as CompHeading,
@@ -59,35 +59,35 @@ const StyledHeading = styled(
  */
 export class Heading extends Component<HeadingProps> {
   static h1hero = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withSuomifiDefaults(props)} variant="h1hero" />
+    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h1hero" />
   );
 
   static h1 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withSuomifiDefaults(props)} variant="h1" />
+    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h1" />
   );
 
   static h2 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withSuomifiDefaults(props)} variant="h2" />
+    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h2" />
   );
 
   static h3 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withSuomifiDefaults(props)} variant="h3" />
+    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h3" />
   );
 
   static h4 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withSuomifiDefaults(props)} variant="h4" />
+    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h4" />
   );
 
   static h5 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withSuomifiDefaults(props)} variant="h5" />
+    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h5" />
   );
 
   static h6 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withSuomifiDefaults(props)} variant="h6" />
+    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h6" />
   );
 
   render() {
-    const { variant, ...passProps } = withSuomifiDefaults(this.props);
+    const { variant, ...passProps } = withSuomifiDefaultProps(this.props);
     if (!variant) {
       logger.warn(
         `Does not contain heading level (variant): ${passProps.children}`,

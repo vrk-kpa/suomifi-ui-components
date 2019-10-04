@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { TokensComponent, TokensProp } from '../theme';
-import { withSuomifiDefaults } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { baseStyles } from './Button.baseStyles';
 import {
   Button as CompButton,
@@ -140,20 +140,20 @@ class ButtonWithIcon extends Component<ButtonProps & { tokens: TokensProp }> {
 export class Button extends Component<ButtonProps> {
   static negative = (props: ButtonProps) => {
     return (
-      <ButtonWithIcon {...withSuomifiDefaults(props)} variant="negative" />
+      <ButtonWithIcon {...withSuomifiDefaultProps(props)} variant="negative" />
     );
   };
 
   static secondary = (props: ButtonProps) => {
     return (
-      <ButtonWithIcon {...withSuomifiDefaults(props)} variant="secondary" />
+      <ButtonWithIcon {...withSuomifiDefaultProps(props)} variant="secondary" />
     );
   };
 
   static secondaryNoborder = (props: ButtonProps) => {
     return (
       <ButtonWithIcon
-        {...withSuomifiDefaults(props)}
+        {...withSuomifiDefaultProps(props)}
         variant="secondary-noborder"
       />
     );
@@ -161,15 +161,15 @@ export class Button extends Component<ButtonProps> {
 
   static tertiary = (props: ButtonProps) => {
     return (
-      <ButtonWithIcon {...withSuomifiDefaults(props)} variant="tertiary" />
+      <ButtonWithIcon {...withSuomifiDefaultProps(props)} variant="tertiary" />
     );
   };
 
   static unstyled = (props: ButtonProps) => {
-    return <UnstyledButton {...withSuomifiDefaults(props)} />;
+    return <UnstyledButton {...withSuomifiDefaultProps(props)} />;
   };
 
   render() {
-    return <ButtonWithIcon {...withSuomifiDefaults(this.props)} />;
+    return <ButtonWithIcon {...withSuomifiDefaultProps(this.props)} />;
   }
 }

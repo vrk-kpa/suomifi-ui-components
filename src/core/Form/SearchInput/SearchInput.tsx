@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaults } from '../../theme/utils';
+import { withSuomifiDefaultProps } from '../../theme/utils';
 import { baseStyles } from './SearchInput.baseStyles';
 import { TextInput, TextInputProps } from '../TextInput/TextInput';
 import { Icon } from '../../Icon/Icon';
@@ -36,7 +36,7 @@ export class SearchInput extends Component<TextInputProps> {
     return (
       <StyledTextInput
         labelMode="screenreader"
-        {...withSuomifiDefaults(this.props)}
+        {...withSuomifiDefaultProps(this.props)}
       >
         <Icon icon="search" className={iconBaseClassName} />
       </StyledTextInput>

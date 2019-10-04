@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaults } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensComponent } from '../theme';
 import { baseStyles } from './Breadcrumb.baseStyles';
 import {
@@ -36,7 +36,7 @@ type VariantBreadcrumbProps =
  */
 export class Breadcrumb extends Component<VariantBreadcrumbProps> {
   static link = (props: BreadcrumbLinkProps) => {
-    return <BreadcrumbLink {...withSuomifiDefaults(props)} />;
+    return <BreadcrumbLink {...withSuomifiDefaultProps(props)} />;
   };
 
   render() {
@@ -44,7 +44,7 @@ export class Breadcrumb extends Component<VariantBreadcrumbProps> {
       variant,
       'aria-label': ariaLabel,
       ...passProps
-    } = withSuomifiDefaults(this.props);
+    } = withSuomifiDefaultProps(this.props);
     if (variant === 'link') {
       return <BreadcrumbLink {...passProps as BreadcrumbLinkProps} />;
     }

@@ -1,5 +1,5 @@
 export {
-  withSuomifiDefaults,
+  withSuomifiDefaultProps,
   themeOrTokens,
   TokensOrThemeProps,
 } from './defaults';

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaults } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensComponent } from '../theme';
 import {
   Block as CompBlock,
@@ -39,26 +39,26 @@ const StyledBlock = styled(
  */
 export class Block extends Component<BlockProps> {
   static section = (props: BlockProps) => (
-    <StyledBlock {...withSuomifiDefaults(props)} variant="section" />
+    <StyledBlock {...withSuomifiDefaultProps(props)} variant="section" />
   );
 
   static header = (props: BlockProps) => (
-    <StyledBlock {...withSuomifiDefaults(props)} variant="header" />
+    <StyledBlock {...withSuomifiDefaultProps(props)} variant="header" />
   );
 
   static nav = (props: BlockProps) => (
-    <StyledBlock {...withSuomifiDefaults(props)} variant="nav" />
+    <StyledBlock {...withSuomifiDefaultProps(props)} variant="nav" />
   );
 
   static main = (props: BlockProps) => (
-    <StyledBlock {...withSuomifiDefaults(props)} variant="main" />
+    <StyledBlock {...withSuomifiDefaultProps(props)} variant="main" />
   );
 
   static footer = (props: BlockProps) => (
-    <StyledBlock {...withSuomifiDefaults(props)} variant="footer" />
+    <StyledBlock {...withSuomifiDefaultProps(props)} variant="footer" />
   );
 
   render() {
-    return <StyledBlock {...withSuomifiDefaults(this.props)} />;
+    return <StyledBlock {...withSuomifiDefaultProps(this.props)} />;
   }
 }

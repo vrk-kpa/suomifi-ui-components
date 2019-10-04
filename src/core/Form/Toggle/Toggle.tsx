@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { withSuomifiDefaults } from '../../theme/utils';
+import { withSuomifiDefaultProps } from '../../theme/utils';
 import { TokensComponent } from '../../theme';
 import { baseStyles } from './Toggle.baseStyles';
 import {
@@ -50,7 +50,7 @@ export class Toggle extends Component<ToggleProps> {
       checked: dissMissChecked,
       onClick,
       ...passProps
-    } = withSuomifiDefaults(this.props);
+    } = withSuomifiDefaultProps(this.props);
     const { toggleStatus } = this.state;
 
     return (

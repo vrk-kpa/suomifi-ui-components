@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaults } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensComponent } from '../theme';
 import { baseStyles as panelBaseStyles } from './Panel.baseStyles';
 import { baseStyles } from './PanelExpansion.baseStyles';
@@ -66,7 +66,7 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
   };
 
   render() {
-    const { open, title, titleTag, ...passProps } = withSuomifiDefaults(
+    const { open, title, titleTag, ...passProps } = withSuomifiDefaultProps(
       this.props,
     );
     const notControlled = open === undefined;

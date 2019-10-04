@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { iconBaseStyles } from './Icon.baseStyles';
-import { withSuomifiDefaults } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensComponent } from '../theme';
 import {
   ariaLabelOrHidden,
@@ -81,7 +81,7 @@ export class Icon extends Component<IconProps> {
       icon = 'login',
       tokens,
       ...passProps
-    } = withSuomifiDefaults(this.props);
+    } = withSuomifiDefaultProps(this.props);
     const { className, ariaLabel } = this.props;
     const iconColor = color !== undefined ? color : tokens.colors.depthDark27;
 

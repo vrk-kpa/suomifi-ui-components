@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaults } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensComponent } from '../theme';
 import { Link, LinkProps } from './Link';
 import {
@@ -47,7 +47,7 @@ export class LinkExternal extends Component<LinkExternalProps> {
       labelNewWindow,
       hideIcon,
       ...passProps
-    } = withSuomifiDefaults(this.props);
+    } = withSuomifiDefaultProps(this.props);
     if (!labelNewWindow) {
       logger.warn(
         'External link needs a translated description of link opening to a new window',

@@ -2,7 +2,7 @@ import React, { Component, ReactNode, Fragment } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { classnamesValue } from '../../utils/typescript';
-import { withSuomifiDefaults } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensComponent } from '../theme';
 import { baseStyles, menuListStyles } from './Menu.baseStyles';
 import {
@@ -84,7 +84,7 @@ class MenuVariation extends Component<MenuProps> {
       className,
       menuListComponent: MenuListComponentProp,
       ...passProps
-    } = withSuomifiDefaults(this.props);
+    } = withSuomifiDefaultProps(this.props);
     const ifMenuLanguage = variant === 'language';
     const menuButtonClassName = classnames(
       buttonClassName,

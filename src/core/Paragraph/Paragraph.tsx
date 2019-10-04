@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaults } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensComponent, ColorProp } from '../theme';
 import {
   Paragraph as CompParagraph,
@@ -29,6 +29,6 @@ const StyledParagraph = styled(
  */
 export class Paragraph extends Component<ParagraphProps> {
   render() {
-    return <StyledParagraph {...withSuomifiDefaults(this.props)} />;
+    return <StyledParagraph {...withSuomifiDefaultProps(this.props)} />;
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaults } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensComponent, ColorProp } from '../theme';
 import {
   Text as CompText,
@@ -49,14 +49,14 @@ const StyledText = styled(
  */
 export class Text extends Component<TextProps> {
   static lead = (props: TextProps) => (
-    <StyledText {...withSuomifiDefaults(props)} variant="lead" />
+    <StyledText {...withSuomifiDefaultProps(props)} variant="lead" />
   );
 
   static bold = (props: TextProps) => (
-    <StyledText {...withSuomifiDefaults(props)} variant="bold" />
+    <StyledText {...withSuomifiDefaultProps(props)} variant="bold" />
   );
 
   render() {
-    return <StyledText {...withSuomifiDefaults(this.props)} />;
+    return <StyledText {...withSuomifiDefaultProps(this.props)} />;
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaults } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensComponent } from '../theme';
 import { baseStyles } from './Panel.baseStyles';
 import {
@@ -39,15 +39,15 @@ type VariantPanelProps =
  */
 export class Panel extends Component<VariantPanelProps> {
   static expansion = (props: PanelExpansionProps) => {
-    return <PanelExpansion {...withSuomifiDefaults(props)} />;
+    return <PanelExpansion {...withSuomifiDefaultProps(props)} />;
   };
 
   static expansionGroup = (props: PanelExpansionGroupProps) => {
-    return <PanelExpansionGroup {...withSuomifiDefaults(props)} />;
+    return <PanelExpansionGroup {...withSuomifiDefaultProps(props)} />;
   };
 
   render() {
-    const { variant, ...passProps } = withSuomifiDefaults(this.props);
+    const { variant, ...passProps } = withSuomifiDefaultProps(this.props);
     if (variant === 'expansion') {
       return <PanelExpansion {...passProps as PanelExpansionProps} />;
     }

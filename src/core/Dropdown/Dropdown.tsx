@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaults } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensComponent } from '../theme';
 import { baseStyles, menuListStyles } from './Dropdown.baseStyles';
 import {
@@ -40,7 +40,7 @@ export class Dropdown extends Component<DropdownProps> {
   static item = (props: DropdownItemProps) => <DropdownItem {...props} />;
 
   render() {
-    const props = withSuomifiDefaults(this.props);
+    const props = withSuomifiDefaultProps(this.props);
     return (
       <Fragment>
         <StyledDropdown {...props} menuListComponent={StyledMenuList} />

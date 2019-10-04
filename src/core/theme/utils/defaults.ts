@@ -15,7 +15,7 @@ const internalTokens = (tokens?: TokensProp) =>
  * - include internal tokens (THESE ARE NOT GEMERATED BY GIVEN TOKENS! but can be overridden by given tokens)
  * @param props All component's props
  */
-export const withSuomifiDefaults = <T extends { tokens: TokensProp }>({
+export const withSuomifiDefaultProps = <T extends { tokens: TokensProp }>({
   tokens,
   ...props
 }: Partial<T>): T =>

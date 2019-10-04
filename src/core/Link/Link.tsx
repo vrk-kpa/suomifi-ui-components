@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaults } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensComponent } from '../theme';
 import {
   Link as CompLink,
@@ -31,7 +31,7 @@ export class Link extends Component<LinkProps | LinkExternalProps> {
   static external = (props: LinkExternalProps) => <LinkExternal {...props} />;
 
   render() {
-    const { variant, ...passProps } = withSuomifiDefaults(this.props);
+    const { variant, ...passProps } = withSuomifiDefaultProps(this.props);
 
     if (variant === 'external')
       return <LinkExternal {...passProps as LinkExternalProps} />;

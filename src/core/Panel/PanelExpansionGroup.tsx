@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaults } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensComponent } from '../theme';
 import {
   PanelExpansionGroup as CompPanelExpansionGroup,
@@ -42,7 +42,9 @@ const OpenAllButton = ({
  */
 export class PanelExpansionGroup extends Component<PanelExpansionGroupProps> {
   render() {
-    const { OpenAll, CloseAll, ...passProps } = withSuomifiDefaults(this.props);
+    const { OpenAll, CloseAll, ...passProps } = withSuomifiDefaultProps(
+      this.props,
+    );
     return (
       <StyledPanelExpansionGroup
         {...passProps}
