@@ -1,8 +1,8 @@
 import { FlattenSimpleInterpolation } from 'styled-components';
-import { suomifiTheme, SuomifiThemeProp } from '../theme';
+import { suomifiTheme, SuomifiTheme } from '../theme';
 
 interface BaseStylesInterface {
-  theme: SuomifiThemeProp;
+  theme: SuomifiTheme;
   [key: string]: any;
 }
 

@@ -12,14 +12,14 @@ export type DefaultTokensProp = typeof defaultTokens;
 export type TypographyProp = keyof typeof importedTokens.typography;
 export type ColorProp = keyof typeof importedTokens.colors;
 export type SpacingProp = keyof typeof importedTokens.spacing;
-export type SuomifiThemeProp = ReturnType<typeof suomifiTheme>;
+export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
 
 export interface TokensComponent {
   tokens?: TokensProp;
 }
 
 export interface SuomifiThemeComponent {
-  theme: SuomifiThemeProp;
+  theme: SuomifiTheme;
 }
 
 const internalTokens = {

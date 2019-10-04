@@ -1,6 +1,6 @@
 import {
   suomifiTheme,
-  SuomifiThemeProp,
+  SuomifiTheme,
   defaultTokens,
   TokensProp,
   DefaultTokensProp,
@@ -29,7 +29,7 @@ export interface Tokens {
 }
 
 export interface Theme {
-  theme: SuomifiThemeProp;
+  theme: SuomifiTheme;
 }
 export type TokensOrThemeProps = Tokens | Theme;
 
