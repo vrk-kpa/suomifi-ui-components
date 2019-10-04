@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { TokensComponent } from '../theme';
+import { TokensProp } from '../theme';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { baseClassName } from '../../components/Breadcrumb/Breadcrumb';
 import { Link, LinkProps } from '../Link/Link';
@@ -13,7 +13,7 @@ const iconClassName = `${baseClassName}_icon`;
 
 export interface BreadcrumbLinkProps
   extends Omit<LinkProps, 'href'>,
-    TokensComponent {
+    TokensProp {
   /** Indicating the link is the current page */
   current?: boolean;
   /** url for the link */

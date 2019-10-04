@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensComponent } from '../theme';
+import { TokensProp } from '../theme';
 import { baseStyles as panelBaseStyles } from './Panel.baseStyles';
 import { baseStyles } from './PanelExpansion.baseStyles';
 import {
@@ -17,7 +17,7 @@ const noPaddingClassName = `fi-panel-expansion_content--no-padding`;
 
 export interface PanelExpansionProps
   extends CompPanelExpansionProps,
-    TokensComponent {
+    TokensProp {
   /** Remove padding from expandable content area (for background usage with padding in given container etc.) */
   noPadding?: boolean;
 }

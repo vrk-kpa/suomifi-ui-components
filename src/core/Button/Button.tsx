@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { TokensComponent, SuomifiTokens } from '../theme';
+import { TokensProp, SuomifiTokens } from '../theme';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { baseStyles } from './Button.baseStyles';
 import {
@@ -19,7 +19,7 @@ type ButtonVariant =
   | 'tertiary'
   | 'unstyled';
 
-export interface ButtonProps extends CompButtonProps, TokensComponent {
+export interface ButtonProps extends CompButtonProps, TokensProp {
   /**
    * Set width to grow all available space
    */

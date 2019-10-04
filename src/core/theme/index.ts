@@ -14,7 +14,7 @@ export type ColorProp = keyof typeof importedTokens.colors;
 export type SpacingProp = keyof typeof importedTokens.spacing;
 export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
 
-export interface TokensComponent {
+export interface TokensProp {
   tokens?: SuomifiTokens;
 }
 
@@ -64,8 +64,5 @@ export const suomifiTheme = ({
  */
 export const withSuomifiTheme = (
   baseStyles: <K>(props: K & SuomifiThemeProp) => FlattenSimpleInterpolation,
-) => <T extends SuomifiThemeProp>({
-  tokens,
-  ...passProps
-}: TokensComponent & T) =>
+) => <T extends SuomifiThemeProp>({ tokens, ...passProps }: TokensProp & T) =>
   baseStyles({ ...passProps, theme: suomifiTheme(tokens) });

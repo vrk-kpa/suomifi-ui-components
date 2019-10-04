@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensComponent } from '../theme';
+import { TokensProp } from '../theme';
 import { baseStyles } from './Panel.baseStyles';
 import {
   Panel as CompPanel,
@@ -15,7 +15,7 @@ import {
 
 type PanelVariant = 'default' | 'expansion' | 'expansionGroup';
 
-export interface PanelProps extends CompPanelProps, TokensComponent {
+export interface PanelProps extends CompPanelProps, TokensProp {
   /**
    * 'default' | 'expansion'
    * @default default

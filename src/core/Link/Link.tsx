@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensComponent } from '../theme';
+import { TokensProp } from '../theme';
 import {
   Link as CompLink,
   LinkProps as CompLinkProps,
@@ -12,7 +12,7 @@ import { baseStyles } from './Link.baseStyles';
 export { LinkExternal, LinkExternalProps };
 
 type LinkVariant = 'default' | 'external';
-export interface LinkProps extends CompLinkProps, TokensComponent {
+export interface LinkProps extends CompLinkProps, TokensProp {
   variant?: LinkVariant;
   asProp?: asPropType;
 }

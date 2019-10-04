@@ -45,5 +45,5 @@ export {
   suomifiTheme,
   SuomifiThemeProp,
   defaultTokens,
-  TokensComponent,
+  TokensProp,
 } from './core/theme';

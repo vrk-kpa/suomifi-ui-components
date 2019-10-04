@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensComponent } from '../theme';
+import { TokensProp } from '../theme';
 import {
   Block as CompBlock,
   BlockProps as CompBlockProps,
@@ -12,7 +12,7 @@ import classnames from 'classnames';
 
 const baseClassName = 'fi-block';
 
-export interface BlockProps extends CompBlockProps, TokensComponent {
+export interface BlockProps extends CompBlockProps, TokensProp {
   /** Padding from theme */
   padding?: spacingSuomifiTokens;
   /** Margin from theme */

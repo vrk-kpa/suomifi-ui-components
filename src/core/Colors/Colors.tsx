@@ -2,17 +2,17 @@ import React, { Component, ReactNode } from 'react';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { hslaToHex } from '../../utils/css/colors';
 import { default as styled } from 'styled-components';
-import { TokensComponent, SuomifiThemeProp } from '../theme';
+import { TokensProp, SuomifiThemeProp } from '../theme';
 import { baseStyles, containerStyles } from './Colors.baseStyles';
 import clipboardCopy from 'clipboard-copy';
 
-export interface ColorsProps extends TokensComponent {
+export interface ColorsProps extends TokensProp {
   colors?: {
     [key: string]: string;
   };
 }
 
-export interface ColorProps extends TokensComponent {
+export interface ColorProps extends TokensProp {
   keyName: string;
   color: string;
   children?: ReactNode;

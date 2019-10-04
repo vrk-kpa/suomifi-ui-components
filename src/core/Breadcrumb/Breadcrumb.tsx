@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensComponent } from '../theme';
+import { TokensProp } from '../theme';
 import { baseStyles } from './Breadcrumb.baseStyles';
 import {
   Breadcrumb as CompBreadcrumb,
@@ -12,7 +12,7 @@ import { BreadcrumbLink, BreadcrumbLinkProps } from './BreadcrumbLink';
 
 type BreadcrumbVariant = 'default' | 'link';
 
-export interface BreadcrumbProps extends CompBreadcrumbProps, TokensComponent {
+export interface BreadcrumbProps extends CompBreadcrumbProps, TokensProp {
   /**
    * 'default' | 'expansion'
    * @default default

@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { classnamesValue } from '../../utils/typescript';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensComponent } from '../theme';
+import { TokensProp } from '../theme';
 import { baseStyles, menuListStyles } from './Menu.baseStyles';
 import {
   Menu as CompMenu,
@@ -31,7 +31,7 @@ const iconLangClassName = 'fi-menu-language_icon';
 
 type ButtonVariant = 'default' | 'language';
 
-export interface MenuProps extends CompMenuProps, TokensComponent {
+export interface MenuProps extends CompMenuProps, TokensProp {
   /**
    * 'default' | 'language'
    * @default default
@@ -67,7 +67,7 @@ const languageName = (name: ReactNode) => (
   </Fragment>
 );
 
-interface MenuListProps extends CompMenuListProps, TokensComponent {}
+interface MenuListProps extends CompMenuListProps, TokensProp {}
 
 const StyledMenuList = styled(({ tokens, ...passProps }: MenuListProps) => (
   <CompMenuList {...passProps} />

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { iconBaseStyles } from './Icon.baseStyles';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensComponent } from '../theme';
+import { TokensProp } from '../theme';
 import {
   ariaLabelOrHidden,
   ariaFocusableNoLabel,
@@ -21,7 +21,7 @@ import {
 export { IconKeys, StaticIconKeys } from 'suomifi-icons';
 import { logger } from '../../utils/logger';
 
-export interface IconProps extends Omit<CompIconProps, 'src'>, TokensComponent {
+export interface IconProps extends Omit<CompIconProps, 'src'>, TokensProp {
   /** Icon-name from suomifi-icons */
   icon?: IconKeys | StaticIconKeys;
   /** Image file */

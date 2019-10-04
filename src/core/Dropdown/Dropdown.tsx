@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensComponent } from '../theme';
+import { TokensProp } from '../theme';
 import { baseStyles, menuListStyles } from './Dropdown.baseStyles';
 import {
   MenuList as CompMenuList,
@@ -13,7 +13,7 @@ import {
 } from '../../components/Dropdown/Dropdown';
 import { DropdownItem, DropdownItemProps } from './DropdownItem';
 
-export interface DropdownProps extends CompDropdownProps, TokensComponent {}
+export interface DropdownProps extends CompDropdownProps, TokensProp {}
 
 const StyledDropdown = styled(({ tokens, ...passProps }: DropdownProps) => (
   <CompDropdown
@@ -24,7 +24,7 @@ const StyledDropdown = styled(({ tokens, ...passProps }: DropdownProps) => (
   ${props => baseStyles(props)}
 `;
 
-interface MenuListProps extends CompMenuListProps, TokensComponent {}
+interface MenuListProps extends CompMenuListProps, TokensProp {}
 
 const StyledMenuList = styled(({ tokens, ...passProps }: MenuListProps) => (
   <CompMenuList {...passProps} />

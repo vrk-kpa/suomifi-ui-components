@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../../theme/utils';
-import { TokensComponent } from '../../theme';
+import { TokensProp } from '../../theme';
 import { baseStyles } from './Toggle.baseStyles';
 import {
   Toggle as CompToggle,
@@ -12,10 +12,8 @@ import {
 } from '../../../components/Form/Toggle';
 import { Icon } from '../../Icon/Icon';
 
-export interface ToggleProps extends CompToggleProps, TokensComponent {}
-export interface ToggleInputProps
-  extends CompToggleInputProps,
-    TokensComponent {}
+export interface ToggleProps extends CompToggleProps, TokensProp {}
+export interface ToggleInputProps extends CompToggleInputProps, TokensProp {}
 
 const iconBaseClassName = 'fi-toggle_icon';
 const iconDisabledClassName = `${iconBaseClassName}--disabled`;

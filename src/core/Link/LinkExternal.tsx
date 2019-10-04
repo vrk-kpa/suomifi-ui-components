@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensComponent } from '../theme';
+import { TokensProp } from '../theme';
 import { Link, LinkProps } from './Link';
 import {
   LinkExternal as CompLinkExternal,
@@ -18,7 +18,7 @@ const iconClassName = 'fi-link_icon';
 export interface LinkExternalProps
   extends CompLinkExternalProps,
     LinkProps,
-    TokensComponent {
+    TokensProp {
   /** Translated explanation of 'opens to a new window' */
   labelNewWindow: string;
   /** Hide the icon */

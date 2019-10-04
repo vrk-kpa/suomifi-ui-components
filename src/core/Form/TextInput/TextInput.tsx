@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../../theme/utils';
-import { TokensComponent } from '../../theme';
+import { TokensProp } from '../../theme';
 import { baseStyles } from './TextInput.baseStyles';
 import {
   TextInput as CompTextInput,
@@ -16,7 +16,7 @@ const errorClassName = `${baseClassName}--error`;
 const successClassName = `${baseClassName}--success`;
 
 type TextInputVariant = 'default' | 'error' | 'success';
-export interface TextInputProps extends CompTextInputProps, TokensComponent {
+export interface TextInputProps extends CompTextInputProps, TokensProp {
   variant?: TextInputVariant;
 }
 

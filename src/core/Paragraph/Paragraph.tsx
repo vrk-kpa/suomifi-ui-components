@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensComponent, ColorProp } from '../theme';
+import { TokensProp, ColorProp } from '../theme';
 import {
   Paragraph as CompParagraph,
   ParagraphProps as CompParagraphProps,
@@ -9,7 +9,7 @@ import {
 import { baseStyles } from './Paragraph.baseStyles';
 import { SpaceProp } from '../theme/utils/spacing';
 
-export interface ParagraphProps extends CompParagraphProps, TokensComponent {
+export interface ParagraphProps extends CompParagraphProps, TokensProp {
   /** Change color */
   color?: ColorProp;
   /** Spacing token for bottom margin */

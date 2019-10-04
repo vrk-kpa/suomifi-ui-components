@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensComponent, ColorProp } from '../theme';
+import { TokensProp, ColorProp } from '../theme';
 import {
   Text as CompText,
   TextProps as CompTextProps,
@@ -12,7 +12,7 @@ import classnames from 'classnames';
 const baseClassName = 'fi-text';
 const smallScreenClassName = `${baseClassName}--small-screen`;
 
-export interface TextProps extends CompTextProps, TokensComponent {
+export interface TextProps extends CompTextProps, TokensProp {
   /** Change font to smaller screen size and style */
   smallScreen?: boolean;
   /** Change color for text from theme colors */

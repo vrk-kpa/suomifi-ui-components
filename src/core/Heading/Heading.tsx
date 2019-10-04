@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensComponent, ColorProp } from '../theme';
+import { TokensProp, ColorProp } from '../theme';
 import {
   Heading as CompHeading,
   HeadingProps as CompHeadingProps,
@@ -17,7 +17,7 @@ const smallScreenClassName = `${baseClassName}--small-screen`;
 
 export interface HeadingProps
   extends Omit<CompHeadingProps, 'variant'>,
-    TokensComponent {
+    TokensProp {
   /**
    * Heading level
    * @default h1

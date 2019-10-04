@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensComponent } from '../theme';
+import { TokensProp } from '../theme';
 import {
   PanelExpansionGroup as CompPanelExpansionGroup,
   PanelExpansionGroupProps as CompPanelExpansionGroupProps,
@@ -13,11 +13,9 @@ const openAllButtonClassName = 'fi-panel-expansion-group_all-button';
 
 export interface PanelExpansionGroupProps
   extends CompPanelExpansionGroupProps,
-    TokensComponent {}
+    TokensProp {}
 
-interface PanelExpansionOpenAllButtonProps
-  extends ButtonProps,
-    TokensComponent {}
+interface PanelExpansionOpenAllButtonProps extends ButtonProps, TokensProp {}
 
 const StyledPanelExpansionGroup = styled(
   ({ tokens, ...passProps }: PanelExpansionGroupProps) => (
