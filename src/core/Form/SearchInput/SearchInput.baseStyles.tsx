@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, SuomifiThemeComponent } from '../../theme';
+import { withSuomifiTheme, SuomifiThemeProp } from '../../theme';
 import { math } from 'polished';
 
 export const baseStyles = withSuomifiTheme(
-  ({ theme }: SuomifiThemeComponent) => css`
+  ({ theme }: SuomifiThemeProp) => css`
     & .fi-search-input {
       &_input-container {
         position: relative;

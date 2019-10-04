@@ -1,10 +1,10 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, SuomifiThemeComponent } from '../theme';
+import { withSuomifiTheme, SuomifiThemeProp } from '../theme';
 import { element, font, focus } from '../theme/reset';
 import { allStates } from '../../utils/css/pseudo';
 
 export const baseStyles = withSuomifiTheme(
-  ({ theme }: SuomifiThemeComponent) => css`
+  ({ theme }: SuomifiThemeProp) => css`
   ${element({ theme })}
   ${font({ theme })('bodyText')}
   ${focus({ theme })}
@@ -24,7 +24,7 @@ export const baseStyles = withSuomifiTheme(
 );
 
 export const externalStyles = withSuomifiTheme(
-  ({ theme }: SuomifiThemeComponent) => css`
+  ({ theme }: SuomifiThemeProp) => css`
     & .fi-link_icon {
       padding-left: ${theme.spacing.xs};
       transform: translateY(0.1em);

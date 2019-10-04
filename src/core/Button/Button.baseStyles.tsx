@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, SuomifiThemeComponent } from '../theme';
+import { withSuomifiTheme, SuomifiThemeProp } from '../theme';
 import { ButtonProps } from './Button';
 import { element, focus, button } from '../theme/reset';
 
@@ -8,7 +8,7 @@ const fullWidthStyles = css`
   width: 100%;
 `;
 
-const negativeStyles = ({ theme }: SuomifiThemeComponent) => css`
+const negativeStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-button--negative {
     background: none;
     background-color: ${theme.colors.highlightBase};
@@ -33,7 +33,7 @@ const negativeStyles = ({ theme }: SuomifiThemeComponent) => css`
   }
 `;
 
-const secondary = ({ theme }: SuomifiThemeComponent) => css`
+const secondary = ({ theme }: SuomifiThemeProp) => css`
   color: ${theme.colors.highlightBase};
   background: none;
   background-color: ${theme.colors.whiteBase};
@@ -60,20 +60,20 @@ const secondary = ({ theme }: SuomifiThemeComponent) => css`
   }
 `;
 
-const secondaryStyles = ({ theme }: SuomifiThemeComponent) => css`
+const secondaryStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-button--secondary {
     ${secondary({ theme })}
   }
 `;
 
-const secondaryNoBorderStyles = ({ theme }: SuomifiThemeComponent) => css`
+const secondaryNoBorderStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-button--secondary-noborder {
     ${secondary({ theme })}
     border: none;
   }
 `;
 
-const tertiaryStyles = ({ theme }: SuomifiThemeComponent) => css`
+const tertiaryStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-button--tertiary {
     ${secondary({ theme })}
     background: ${theme.colors.highlightLight50};
@@ -93,7 +93,7 @@ export const baseStyles = withSuomifiTheme(
   ({
     theme,
     fullWidth = false,
-  }: SuomifiThemeComponent & Partial<ButtonProps>) => css`
+  }: SuomifiThemeProp & Partial<ButtonProps>) => css`
   ${button({ theme })}
   padding: ${theme.spacing.s} ${theme.spacing.m};
   min-height: 40px;
@@ -142,7 +142,7 @@ export const baseStyles = withSuomifiTheme(
 );
 
 export const unStyled = withSuomifiTheme(
-  ({ theme }: SuomifiThemeComponent) => css`
+  ({ theme }: SuomifiThemeProp) => css`
   ${element({ theme })}
   ${focus({ theme })}
   border-radius: ${theme.radius.basic};

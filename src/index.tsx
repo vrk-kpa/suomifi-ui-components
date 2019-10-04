@@ -43,7 +43,7 @@ export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';
 export { Text, TextProps } from './core/Text/Text';
 export {
   suomifiTheme,
-  SuomifiThemeComponent,
+  SuomifiThemeProp,
   defaultTokens,
   TokensComponent,
 } from './core/theme';

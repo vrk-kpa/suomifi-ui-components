@@ -18,7 +18,7 @@ export interface TokensComponent {
   tokens?: SuomifiTokens;
 }
 
-export interface SuomifiThemeComponent {
+export interface SuomifiThemeProp {
   theme: SuomifiTheme;
 }
 
@@ -63,10 +63,8 @@ export const suomifiTheme = ({
  * @param {function} baseStyles Function that will get components' props including tokens-prop and return CSS-styles
  */
 export const withSuomifiTheme = (
-  baseStyles: <K>(
-    props: K & SuomifiThemeComponent,
-  ) => FlattenSimpleInterpolation,
-) => <T extends SuomifiThemeComponent>({
+  baseStyles: <K>(props: K & SuomifiThemeProp) => FlattenSimpleInterpolation,
+) => <T extends SuomifiThemeProp>({
   tokens,
   ...passProps
 }: TokensComponent & T) =>

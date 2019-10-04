@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, SuomifiThemeComponent } from '../theme';
+import { withSuomifiTheme, SuomifiThemeProp } from '../theme';
 import { nav, list, listItem, font } from '../theme/reset';
 
 export const baseStyles = withSuomifiTheme(
-  ({ theme }: SuomifiThemeComponent) => css`
+  ({ theme }: SuomifiThemeProp) => css`
   ${nav({ theme })}
   ${font({ theme })('bodyText')}
   background-color: ${theme.colors.whiteBase};

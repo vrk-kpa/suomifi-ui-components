@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, SuomifiThemeComponent } from '../theme';
+import { withSuomifiTheme, SuomifiThemeProp } from '../theme';
 import { HeadingProps } from './Heading';
 import { element, font } from '../theme/reset';
 import { objValue } from '../../utils/typescript';
 
 export const baseStyles = withSuomifiTheme(
-  ({ theme, color }: SuomifiThemeComponent & Partial<HeadingProps>) => css`
+  ({ theme, color }: SuomifiThemeProp & Partial<HeadingProps>) => css`
   ${element({ theme })}
   ${font({ theme })('bodyText')}
   color: ${!!color ? objValue(theme.colors, color) : theme.colors.blackBase};

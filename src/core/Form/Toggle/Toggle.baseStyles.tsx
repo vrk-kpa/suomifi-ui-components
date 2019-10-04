@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, SuomifiThemeComponent } from '../../theme';
+import { withSuomifiTheme, SuomifiThemeProp } from '../../theme';
 import { focus } from '../../theme/utils';
 import { element, font } from '../../theme/reset';
 
 const svgPrefix = 'icon-toggle_svg__';
 
 export const baseStyles = withSuomifiTheme(
-  ({ theme }: SuomifiThemeComponent) => css`
+  ({ theme }: SuomifiThemeProp) => css`
   ${element({ theme })}
   ${font({ theme })('bodyText')}
   background-color: ${theme.colors.whiteBase};
