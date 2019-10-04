@@ -1,15 +1,15 @@
 // TODO make this whole util again to work with suomifiTheme-util
 
 import {
-  spacingTokensProp,
+  spacingSuomifiTokens,
   spacingTokensKeys,
   spacingTokens,
 } from '../spacing';
-import { TokensProp } from '../';
+import { SuomifiTokens } from '../';
 
-export type SpaceProp = spacingTokensProp | '0';
+export type SpaceProp = spacingSuomifiTokens | '0';
 
-const spaceVal = (tokens?: TokensProp) => (val?: SpaceProp) => {
+const spaceVal = (tokens?: SuomifiTokens) => (val?: SpaceProp) => {
   if (val === '0') return '0';
   const useTokens =
     !!tokens && !!tokens.spacing ? tokens.spacing : spacingTokens;
@@ -34,7 +34,7 @@ const spaceVal = (tokens?: TokensProp) => (val?: SpaceProp) => {
  * @param {Object} theme suomifiTheme
  * @return {(spacingType) => (spacingTokens) => String}
  */
-const space = (tokens?: TokensProp) => (type: 'padding' | 'margin') => (
+const space = (tokens?: SuomifiTokens) => (type: 'padding' | 'margin') => (
   t?: SpaceProp,
   r?: SpaceProp,
   b?: SpaceProp,
@@ -51,12 +51,12 @@ const space = (tokens?: TokensProp) => (type: 'padding' | 'margin') => (
  * Set margin based on tokens
  * @param {Object} tokens
  */
-export const margin = (tokens?: TokensProp) => space(tokens)('margin');
+export const margin = (tokens?: SuomifiTokens) => space(tokens)('margin');
 /**
  * Set padding based on tokens
  * @param {Object} tokens
  */
-export const padding = (tokens?: TokensProp) => space(tokens)('padding');
+export const padding = (tokens?: SuomifiTokens) => space(tokens)('padding');
 
 /**
  * Create spacing styles for CSS-selector (-xxs, -xs, -s...)
@@ -64,7 +64,7 @@ export const padding = (tokens?: TokensProp) => space(tokens)('padding');
  * @param {Object} tokens Design tokens
  * @return {(spacingType) => (selector: String) => String}
  */
-export const spacingModifiers = (tokens?: TokensProp) => (
+export const spacingModifiers = (tokens?: SuomifiTokens) => (
   spacing: 'padding' | 'margin',
 ) => (selector: string) =>
   spacingTokensKeys.reduce(

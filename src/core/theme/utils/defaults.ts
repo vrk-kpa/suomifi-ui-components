@@ -2,11 +2,11 @@ import {
   suomifiTheme,
   SuomifiTheme,
   defaultTokens,
-  TokensProp,
-  DefaultTokensProp,
+  SuomifiTokens,
+  DefaultSuomifiTokens,
 } from '../';
 
-const internalTokens = (tokens?: TokensProp) =>
+const internalTokens = (tokens?: SuomifiTokens) =>
   !!tokens ? { ...defaultTokens, ...tokens } : defaultTokens;
 
 /**
@@ -15,17 +15,17 @@ const internalTokens = (tokens?: TokensProp) =>
  * - include internal tokens (THESE ARE NOT GEMERATED BY GIVEN TOKENS! but can be overridden by given tokens)
  * @param props All component's props
  */
-export const withSuomifiDefaultProps = <T extends { tokens: TokensProp }>({
+export const withSuomifiDefaultProps = <T extends { tokens: SuomifiTokens }>({
   tokens,
   ...props
 }: Partial<T>): T =>
   ({
     ...props,
     tokens: internalTokens(tokens),
-  } as T & { tokens: DefaultTokensProp });
+  } as T & { tokens: DefaultSuomifiTokens });
 
 export interface Tokens {
-  tokens: TokensProp;
+  tokens: SuomifiTokens;
 }
 
 export interface Theme {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { TokensComponent, TokensProp } from '../theme';
+import { TokensComponent, SuomifiTokens } from '../theme';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { baseStyles } from './Button.baseStyles';
 import {
@@ -71,7 +71,7 @@ const iconColor = ({
   invert,
   disabled,
 }: {
-  tokens: TokensProp;
+  tokens: SuomifiTokens;
   invert?: boolean;
   disabled?: boolean;
 }) => {
@@ -84,7 +84,9 @@ const iconColor = ({
   return !!invert ? secondaryColor : defaultColor;
 };
 
-class ButtonWithIcon extends Component<ButtonProps & { tokens: TokensProp }> {
+class ButtonWithIcon extends Component<
+  ButtonProps & { tokens: SuomifiTokens }
+> {
   render() {
     const { icon, iconRight, iconProps = {}, ...passProps } = this.props;
     const { tokens, disabled, variant } = passProps;

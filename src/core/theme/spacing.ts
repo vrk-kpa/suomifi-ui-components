@@ -1,4 +1,4 @@
-export type spacingTokensProp = keyof typeof spacingTokens;
+export type spacingSuomifiTokens = keyof typeof spacingTokens;
 
 export const spacingTokens = {
   xxs: '2px',
@@ -11,6 +11,6 @@ export const spacingTokens = {
 
 export const spacingTokensKeys = Object.keys(
   spacingTokens,
-) as spacingTokensProp[];
+) as spacingSuomifiTokens[];
 
 export const spacing = spacingTokens;

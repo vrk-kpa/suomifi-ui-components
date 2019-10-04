@@ -7,15 +7,15 @@ import { zindexes } from './zindexes';
 import { transitions } from './transitions';
 import { radius } from './radius';
 
-export type TokensProp = typeof importedTokens;
-export type DefaultTokensProp = typeof defaultTokens;
+export type SuomifiTokens = typeof importedTokens;
+export type DefaultSuomifiTokens = typeof defaultTokens;
 export type TypographyProp = keyof typeof importedTokens.typography;
 export type ColorProp = keyof typeof importedTokens.colors;
 export type SpacingProp = keyof typeof importedTokens.spacing;
 export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
 
 export interface TokensComponent {
-  tokens?: TokensProp;
+  tokens?: SuomifiTokens;
 }
 
 export interface SuomifiThemeComponent {
@@ -44,13 +44,13 @@ export const defaultTokens = {
 
 /**
  *  Theme tokens and tokens as CSS
- * @param tokens TokensProp, defaults to suomifi-tokens
+ * @param tokens SuomifiTokens, defaults to suomifi-tokens
  */
 export const suomifiTheme = ({
   colors,
   spacing,
   typography,
-}: TokensProp = defaultTokens) => ({
+}: SuomifiTokens = defaultTokens) => ({
   ...internalTokens,
   colors,
   spacing,
