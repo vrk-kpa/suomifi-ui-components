@@ -5,6 +5,7 @@ import {
   SuomifiTokens,
   DefaultSuomifiTokens,
 } from '../';
+import { asPropType } from '../../../utils/typescript';
 
 const internalTokens = (tokens?: SuomifiTokens) =>
   !!tokens ? { ...defaultTokens, ...tokens } : defaultTokens;
@@ -13,15 +14,20 @@ const internalTokens = (tokens?: SuomifiTokens) =>
  * Check component props and do common defaulting
  * - Check if tokens are given or use default ones
  * - include internal tokens (THESE ARE NOT GEMERATED BY GIVEN TOKENS! but can be overridden by given tokens)
+ * - If as-prop (styled-components) set pass it as asProp
  * @param props All component's props
  */
-export const withSuomifiDefaultProps = <T extends { tokens: SuomifiTokens }>({
+export const withSuomifiDefaultProps = <
+  T extends { tokens: SuomifiTokens; asProp?: asPropType }
+>({
   tokens,
+  as,
   ...props
-}: Partial<T>): T =>
+}: Partial<T> & { as?: asPropType }): T =>
   ({
     ...props,
     tokens: internalTokens(tokens),
+    ...(!!as ? { asProp: as } : {}),
   } as T & { tokens: DefaultSuomifiTokens });
 
 export interface Tokens {
