@@ -41,4 +41,9 @@ export {
 export { Panel, PanelProps } from './core/Panel/Panel';
 export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';
 export { Text, TextProps } from './core/Text/Text';
-export { suomifiTheme, ThemeComponent } from './core/theme';
+export {
+  suomifiTheme,
+  SuomifiThemeProp,
+  defaultTokens,
+  TokensProp,
+} from './core/theme';

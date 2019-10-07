@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { withDefaultTheme } from '../../theme/utils';
-import { ThemeComponent } from '../../theme';
+import { withSuomifiDefaultProps } from '../../theme/utils';
+import { TokensProp } from '../../theme';
 import { baseStyles } from './Toggle.baseStyles';
 import {
   Toggle as CompToggle,
@@ -12,16 +12,14 @@ import {
 } from '../../../components/Form/Toggle';
 import { Icon } from '../../Icon/Icon';
 
-export interface ToggleProps extends CompToggleProps, ThemeComponent {}
-export interface ToggleInputProps
-  extends CompToggleInputProps,
-    ThemeComponent {}
+export interface ToggleProps extends CompToggleProps, TokensProp {}
+export interface ToggleInputProps extends CompToggleInputProps, TokensProp {}
 
 const iconBaseClassName = 'fi-toggle_icon';
 const iconDisabledClassName = `${iconBaseClassName}--disabled`;
 const iconCheckedClassName = `${iconBaseClassName}--checked`;
 
-const StyledToggle = styled(({ theme, ...passProps }: ToggleProps) => (
+const StyledToggle = styled(({ tokens, ...passProps }: ToggleProps) => (
   <CompToggle {...passProps} />
 ))`
   ${props => baseStyles(props)}
@@ -50,7 +48,7 @@ export class Toggle extends Component<ToggleProps> {
       checked: dissMissChecked,
       onClick,
       ...passProps
-    } = withDefaultTheme(this.props);
+    } = withSuomifiDefaultProps(this.props);
     const { toggleStatus } = this.state;
 
     return (

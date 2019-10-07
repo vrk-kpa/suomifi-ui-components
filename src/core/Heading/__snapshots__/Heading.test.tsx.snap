@@ -27,10 +27,6 @@ exports[`calling render with the same component on the same container does not r
 
 .c0 {
   color: hsl(0,0%,16%);
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.5;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -40,14 +36,14 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
   color: hsl(0,0%,16%);
 }
 
 .c0.fi-heading--h1hero {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -57,13 +53,13 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 600;
 }
 
 .c0.fi-heading--h1 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 40px;
-  font-weight: 300;
-  line-height: 48px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -73,13 +69,13 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 300;
 }
 
 .c0.fi-heading--h2 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 34px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -89,13 +85,13 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 600;
 }
 
 .c0.fi-heading--h3 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 28px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -105,13 +101,13 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
 }
 
 .c0.fi-heading--h4 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 24px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -121,13 +117,13 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
 }
 
 .c0.fi-heading--h5 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 20px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -137,13 +133,13 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
 }
 
 .c0.fi-heading--h6 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 20px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -153,13 +149,13 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
 }
 
 .c0.fi-heading--small-screen {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 32px;
-  font-weight: 300;
-  line-height: 38px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -169,13 +165,13 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 300;
 }
 
 .c0.fi-heading--small-screen.fi-heading--h1hero {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 38px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -185,13 +181,13 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 600;
 }
 
 .c0.fi-heading--small-screen.fi-heading--h1 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 32px;
-  font-weight: 300;
-  line-height: 38px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -201,13 +197,13 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 300;
 }
 
 .c0.fi-heading--small-screen.fi-heading--h2 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 26px;
-  font-weight: 600;
-  line-height: 32px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -217,13 +213,13 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 600;
 }
 
 .c0.fi-heading--small-screen.fi-heading--h3 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 26px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -233,13 +229,13 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
 }
 
 .c0.fi-heading--small-screen.fi-heading--h4 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 20px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -249,13 +245,13 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
 }
 
 .c0.fi-heading--small-screen.fi-heading--h5 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 20px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -265,13 +261,13 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
 }
 
 .c0.fi-heading--small-screen.fi-heading--h6 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 20px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -281,6 +277,10 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
 }
 
 <div

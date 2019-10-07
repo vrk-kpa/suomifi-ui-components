@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withDefaultTheme } from '../theme/utils';
-import { ThemeComponent } from '../theme';
+import { withSuomifiDefaultProps } from '../theme/utils';
+import { TokensProp } from '../theme';
 import { Link, LinkProps } from './Link';
 import {
   LinkExternal as CompLinkExternal,
@@ -18,7 +18,7 @@ const iconClassName = 'fi-link_icon';
 export interface LinkExternalProps
   extends CompLinkExternalProps,
     LinkProps,
-    ThemeComponent {
+    TokensProp {
   /** Translated explanation of 'opens to a new window' */
   labelNewWindow: string;
   /** Hide the icon */
@@ -27,7 +27,7 @@ export interface LinkExternalProps
 
 const StyledLinkExternal = styled(
   ({
-    theme,
+    tokens,
     ...passProps
   }: Omit<LinkExternalProps, 'labelNewWindow' | 'hideIcon'>) => (
     <Link {...passProps} asProp={CompLinkExternal} />
@@ -47,7 +47,7 @@ export class LinkExternal extends Component<LinkExternalProps> {
       labelNewWindow,
       hideIcon,
       ...passProps
-    } = withDefaultTheme(this.props);
+    } = withSuomifiDefaultProps(this.props);
     if (!labelNewWindow) {
       logger.warn(
         'External link needs a translated description of link opening to a new window',

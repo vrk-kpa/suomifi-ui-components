@@ -1,13 +1,13 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../theme';
-import { PanelExpansionProps } from './PanelExpansion';
+import { withSuomifiTheme, SuomifiThemeProp } from '../theme';
 import { button } from '../theme/reset';
 import { absolute } from '../../utils/css/pseudo';
 import { padding } from '../theme/utils';
+import { PanelExpansionProps } from './PanelExpansion';
 
-export const baseStyles = ({
-  theme = suomifiTheme,
-}: PanelExpansionProps) => css`
+export const baseStyles = withSuomifiTheme(
+  ({ theme, tokens }: SuomifiThemeProp & Partial<PanelExpansionProps>) => {
+    return css`
   ${absolute('before')}
   position: relative;
   padding: 0;
@@ -26,12 +26,12 @@ export const baseStyles = ({
   }
 
   & .fi-panel-expansion_title {
-    ${button(theme)}
+    ${button({ theme })}
     position: relative;
     display: block;
     width: 100%;
     &--no-tag {
-      ${padding(theme)('m', 'xl', 'm', 'm')}
+      ${padding(tokens)('m', 'xl', 'm', 'm')}
       color: ${theme.colors.highlightBase};
     }
   }
@@ -66,7 +66,7 @@ export const baseStyles = ({
       animation: fi-panel-expansion_content-anim ${theme.transitions.basicTime}
         ${theme.transitions.basicTimingFunction} 1 forwards;
       &:not(.fi-panel-expansion_content--no-padding) {
-        ${padding(theme)('0', 'm', 'm', 'm')}
+        ${padding(tokens)('0', 'm', 'm', 'm')}
       }
     }
     @keyframes fi-panel-expansion_content-anim {
@@ -80,3 +80,5 @@ export const baseStyles = ({
     }
   }
 `;
+  },
+);
