@@ -51,10 +51,13 @@ export const suomifiTheme = ({
   colors = defaultTokens.colors,
   spacing = defaultTokens.spacing,
   typography = defaultTokens.typography,
-  ...internalTokensProp
+  // Rest of the properties are overrides for internalTokens
+  ...libraryTokenOverrides
 }: Partial<SuomifiTokens & DefaultInternalTokens> = defaultTokens) => ({
+  // Get all internalTokens
   ...internalTokens,
-  ...internalTokensProp,
+  // Override if any defined
+  ...(!!libraryTokenOverrides ? libraryTokenOverrides : {}),
   colors,
   spacing,
   typography: typographyUtils(typography),
