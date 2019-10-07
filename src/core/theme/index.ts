@@ -7,13 +7,6 @@ import { zindexes } from './zindexes';
 import { transitions } from './transitions';
 import { radius } from './radius';
 
-export type SuomifiTokens = typeof importedTokens;
-export type DefaultSuomifiTokens = typeof defaultTokens;
-export type TypographyProp = keyof typeof importedTokens.typography;
-export type ColorProp = keyof typeof importedTokens.colors;
-export type SpacingProp = keyof typeof importedTokens.spacing;
-export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
-
 export interface TokensProp {
   tokens?: SuomifiTokens;
 }
@@ -22,7 +15,6 @@ export interface SuomifiThemeProp {
   theme: SuomifiTheme;
 }
 
-type DefaultInternalTokens = typeof internalTokens;
 const internalTokens = {
   shadows,
   gradients,
@@ -31,6 +23,7 @@ const internalTokens = {
   transitions,
   radius,
 };
+type DefaultInternalTokens = typeof internalTokens;
 
 const importedTokens = {
   colors,
@@ -38,10 +31,17 @@ const importedTokens = {
   typography: typographyTokens,
 };
 
+export type SuomifiTokens = typeof importedTokens;
+export type TypographyProp = keyof typeof importedTokens.typography;
+export type ColorProp = keyof typeof importedTokens.colors;
+export type SpacingProp = keyof typeof importedTokens.spacing;
+
 export const defaultTokens = {
   ...importedTokens,
   ...internalTokens,
 };
+
+export type DefaultSuomifiTokens = typeof defaultTokens;
 
 /**
  *  Theme tokens and tokens as CSS
@@ -68,6 +68,8 @@ export const suomifiTheme = ({
   typography: typographyUtils(typography),
   values: { colors, spacing, typography },
 });
+
+export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
 
 /**
  * Function that will add theme to baseStyles-function using tokens
