@@ -51,10 +51,6 @@ exports[`calling render with the same component on the same container does not r
 
 .c0 {
   color: hsl(0,0%,16%);
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.5;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -64,6 +60,10 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
   line-height: 1;
   padding: 8px 16px;
   min-height: 40px;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withDefaultTheme } from '../theme/utils';
-import { ThemeComponent } from '../theme';
+import { withSuomifiDefaultProps } from '../theme/utils';
+import { TokensProp } from '../theme';
 import {
   PanelExpansionGroup as CompPanelExpansionGroup,
   PanelExpansionGroupProps as CompPanelExpansionGroupProps,
@@ -13,14 +13,12 @@ const openAllButtonClassName = 'fi-panel-expansion-group_all-button';
 
 export interface PanelExpansionGroupProps
   extends CompPanelExpansionGroupProps,
-    ThemeComponent {}
+    TokensProp {}
 
-interface PanelExpansionOpenAllButtonProps
-  extends ButtonProps,
-    ThemeComponent {}
+interface PanelExpansionOpenAllButtonProps extends ButtonProps, TokensProp {}
 
 const StyledPanelExpansionGroup = styled(
-  ({ theme, ...passProps }: PanelExpansionGroupProps) => (
+  ({ tokens, ...passProps }: PanelExpansionGroupProps) => (
     <CompPanelExpansionGroup {...passProps} />
   ),
 )`
@@ -29,14 +27,9 @@ const StyledPanelExpansionGroup = styled(
 
 const OpenAllButton = ({
   children,
-  theme,
   ...passProps
 }: PanelExpansionOpenAllButtonProps) => (
-  <Button.unstyled
-    {...passProps}
-    theme={theme}
-    className={openAllButtonClassName}
-  >
+  <Button.unstyled {...passProps} className={openAllButtonClassName}>
     {children}
   </Button.unstyled>
 );
@@ -47,15 +40,17 @@ const OpenAllButton = ({
  */
 export class PanelExpansionGroup extends Component<PanelExpansionGroupProps> {
   render() {
-    const { OpenAll, CloseAll, ...passProps } = withDefaultTheme(this.props);
+    const { OpenAll, CloseAll, ...passProps } = withSuomifiDefaultProps(
+      this.props,
+    );
     return (
       <StyledPanelExpansionGroup
         {...passProps}
         OpenAll={
-          <OpenAllButton theme={passProps.theme}>{OpenAll}</OpenAllButton>
+          <OpenAllButton tokens={passProps.tokens}>{OpenAll}</OpenAllButton>
         }
         CloseAll={
-          <OpenAllButton theme={passProps.theme}>{CloseAll}</OpenAllButton>
+          <OpenAllButton tokens={passProps.tokens}>{CloseAll}</OpenAllButton>
         }
       />
     );

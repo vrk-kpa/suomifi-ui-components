@@ -1,4 +1,4 @@
-export type spacingTokensProp = keyof typeof spacingTokens;
+export type spacingSuomifiTokens = keyof typeof spacingTokens;
 
 export const spacingTokens = {
   xxs: '2px',
@@ -11,21 +11,6 @@ export const spacingTokens = {
 
 export const spacingTokensKeys = Object.keys(
   spacingTokens,
-) as spacingTokensProp[];
+) as spacingSuomifiTokens[];
 
-const inset = {
-  squish: {
-    s: `${spacingTokens.xs} ${spacingTokens.s}`,
-    m: `${spacingTokens.s} ${spacingTokens.m}`,
-    l: `${spacingTokens.m} ${spacingTokens.l}`,
-  },
-  stretch: {
-    s: `${spacingTokens.m} ${spacingTokens.s}`,
-    m: `${spacingTokens.l} ${spacingTokens.m}`,
-  },
-};
-
-export const spacing = {
-  ...spacingTokens,
-  inset,
-};
+export const spacing = spacingTokens;

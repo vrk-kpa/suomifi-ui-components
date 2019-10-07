@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withDefaultTheme } from '../../theme/utils';
-import { ThemeComponent } from '../../theme';
+import { withSuomifiDefaultProps } from '../../theme/utils';
+import { TokensProp } from '../../theme';
 import { baseStyles } from './TextInput.baseStyles';
 import {
   TextInput as CompTextInput,
@@ -16,13 +16,13 @@ const errorClassName = `${baseClassName}--error`;
 const successClassName = `${baseClassName}--success`;
 
 type TextInputVariant = 'default' | 'error' | 'success';
-export interface TextInputProps extends CompTextInputProps, ThemeComponent {
+export interface TextInputProps extends CompTextInputProps, TokensProp {
   variant?: TextInputVariant;
 }
 
 const StyledTextInput = styled(
   ({
-    theme,
+    tokens,
     variant,
     className,
     labelTextProps = { className: undefined },
@@ -63,15 +63,15 @@ const StyledTextInput = styled(
  */
 export class TextInput extends Component<TextInputProps> {
   static error = (props: TextInputProps) => (
-    <StyledTextInput {...withDefaultTheme(props)} variant="error" />
+    <StyledTextInput {...withSuomifiDefaultProps(props)} variant="error" />
   );
 
   static success = (props: TextInputProps) => (
-    <StyledTextInput {...withDefaultTheme(props)} variant="success" />
+    <StyledTextInput {...withSuomifiDefaultProps(props)} variant="success" />
   );
 
   render() {
-    const { ...passProps } = withDefaultTheme(this.props);
+    const { ...passProps } = withSuomifiDefaultProps(this.props);
 
     return <StyledTextInput {...passProps} />;
   }
