@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../theme';
 import { element, font, focus } from '../theme/reset';
-import { allStates } from '../../utils/css/pseudo';
+import { allStates } from '../../utils/css';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`

@@ -1,5 +1,5 @@
 import { lighten } from 'polished';
-import { alphaHex } from '../../utils/css/colors';
+import { alphaHex } from '../../utils/css';
 import { boxshadowOutline } from './utils/outline';
 import { zindexes } from './zindexes';
 

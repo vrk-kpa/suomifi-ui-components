@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../theme';
 import { button } from '../theme/reset';
-import { absolute } from '../../utils/css/pseudo';
+import { absolute } from '../../utils/css';
 import { padding } from '../theme/utils';
 import { PanelExpansionProps } from './PanelExpansion';
 
