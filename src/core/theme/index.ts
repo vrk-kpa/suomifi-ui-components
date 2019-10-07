@@ -22,6 +22,7 @@ export interface SuomifiThemeProp {
   theme: SuomifiTheme;
 }
 
+type DefaultInternalTokens = typeof internalTokens;
 const internalTokens = {
   shadows,
   gradients,
@@ -44,14 +45,24 @@ export const defaultTokens = {
 
 /**
  *  Theme tokens and tokens as CSS
- * @param tokens SuomifiTokens, defaults to suomifi-tokens
+ * @param tokens SuomifiTokens with libraryTokenOverrides, defaults to suomifi-design-tokens
+ * @param tokens.colors color tokens, defaults to suomifi-design-tokens colors
+ * @param tokens.spacing spacing tokens, defaults to suomifi-design-tokens spacing
+ * @param tokens.typography typography tokens, defaults to suomifi-design-tokens typography
  */
 export const suomifiTheme = ({
-  colors,
-  spacing,
-  typography,
-}: SuomifiTokens = defaultTokens) => ({
+  // If one object property is set function parameter default (defaultTokens) will not be used
+  // Then need to set individually
+  colors = defaultTokens.colors,
+  spacing = defaultTokens.spacing,
+  typography = defaultTokens.typography,
+  // Rest of the properties are overrides for internalTokens
+  ...libraryTokenOverrides
+}: Partial<SuomifiTokens & DefaultInternalTokens> = defaultTokens) => ({
+  // Get all internalTokens
   ...internalTokens,
+  // Override if any defined
+  ...(!!libraryTokenOverrides ? libraryTokenOverrides : {}),
   colors,
   spacing,
   typography: typographyUtils(typography),
