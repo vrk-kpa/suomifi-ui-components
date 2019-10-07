@@ -22,6 +22,7 @@ export interface SuomifiThemeProp {
   theme: SuomifiTheme;
 }
 
+type DefaultInternalTokens = typeof internalTokens;
 const internalTokens = {
   shadows,
   gradients,
@@ -47,11 +48,13 @@ export const defaultTokens = {
  * @param tokens SuomifiTokens, defaults to suomifi-tokens
  */
 export const suomifiTheme = ({
-  colors,
-  spacing,
-  typography,
-}: SuomifiTokens = defaultTokens) => ({
+  colors = defaultTokens.colors,
+  spacing = defaultTokens.spacing,
+  typography = defaultTokens.typography,
+  ...internalTokensProp
+}: Partial<SuomifiTokens & DefaultInternalTokens> = defaultTokens) => ({
   ...internalTokens,
+  ...internalTokensProp,
   colors,
   spacing,
   typography: typographyUtils(typography),
