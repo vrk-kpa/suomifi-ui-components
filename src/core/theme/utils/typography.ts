@@ -13,7 +13,7 @@ type TypographyTokensAsCssProp = {
 };
 export interface TypographyUtil extends TypographyTokensAsCssProp {}
 export class TypographyUtil {
-  static instance: any;
+  static instance: TypographyUtil;
   constructor(tokens: TypographyTokens) {
     // If instance not created, does not take on account if tokens is different!
     if (!TypographyUtil.instance) {
