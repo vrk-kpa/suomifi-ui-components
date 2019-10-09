@@ -57,9 +57,13 @@ const StyledButton = styled(
   }: ButtonProps & { right?: boolean } & InternalTokensProp) => (
     <CompButton
       {...passProps}
-      className={classnames(className, {
-        [`${baseClassName}--${variant}`]: variant !== 'default',
-      })}
+      className={classnames(
+        className,
+        {
+          [`${baseClassName}--${variant}`]: variant !== 'default',
+        },
+        fullWidth ? 'fi-button--fullWidth' : '',
+      )}
     />
   ),
 )`
