@@ -24,7 +24,7 @@ export const withSuomifiDefaultProps = <
   tokens,
   as,
   ...props
-}: Partial<T> & { as?: asPropType }): T =>
+}: Partial<T> & { as?: asPropType }): T & { tokens: DefaultSuomifiTokens } =>
   ({
     ...props,
     tokens: internalTokens({ tokens }),
