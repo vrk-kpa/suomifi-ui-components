@@ -4,11 +4,12 @@ import {
   defaultTokens,
   SuomifiTokens,
   DefaultSuomifiTokens,
+  TokensProp,
 } from '../';
 import { asPropType } from '../../../utils/typescript';
 
-const internalTokens = (tokens?: SuomifiTokens) =>
-  !!tokens ? { ...defaultTokens, ...tokens } : defaultTokens;
+const internalTokens = (props: TokensProp) =>
+  !!props.tokens ? { ...defaultTokens, ...props.tokens } : defaultTokens;
 
 /**
  * Check component props and do common defaulting
@@ -18,7 +19,7 @@ const internalTokens = (tokens?: SuomifiTokens) =>
  * @param props All component's props
  */
 export const withSuomifiDefaultProps = <
-  T extends { tokens: SuomifiTokens; asProp?: asPropType }
+  T extends TokensProp & { asProp?: asPropType }
 >({
   tokens,
   as,
@@ -26,7 +27,7 @@ export const withSuomifiDefaultProps = <
 }: Partial<T> & { as?: asPropType }): T =>
   ({
     ...props,
-    tokens: internalTokens(tokens),
+    tokens: internalTokens({ tokens }),
     ...(!!as ? { asProp: as } : {}),
   } as T & { tokens: DefaultSuomifiTokens });
 
