@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { TokensProp, SuomifiTokens } from '../theme';
+import { TokensProp, DefinedTokensProp } from '../theme';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { baseStyles } from './Button.baseStyles';
 import {
@@ -54,7 +54,7 @@ const StyledButton = styled(
     variant = 'default',
     className,
     ...passProps
-  }: ButtonProps & { right?: boolean }) => (
+  }: ButtonProps & { right?: boolean } & DefinedTokensProp) => (
     <CompButton
       {...passProps}
       className={classnames(className, {
@@ -71,10 +71,9 @@ const iconColor = ({
   invert,
   disabled,
 }: {
-  tokens: SuomifiTokens;
   invert?: boolean;
   disabled?: boolean;
-}) => {
+} & DefinedTokensProp) => {
   const defaultColor = !!disabled
     ? tokens.colors.depthBase
     : tokens.colors.whiteBase;
@@ -84,9 +83,7 @@ const iconColor = ({
   return !!invert ? secondaryColor : defaultColor;
 };
 
-class ButtonWithIcon extends Component<
-  ButtonProps & { tokens: SuomifiTokens }
-> {
+class ButtonWithIcon extends Component<ButtonProps & DefinedTokensProp> {
   render() {
     const { icon, iconRight, iconProps = {}, ...passProps } = this.props;
     const { tokens, disabled, variant } = passProps;
@@ -107,7 +104,11 @@ class ButtonWithIcon extends Component<
           <Icon
             mousePointer={true}
             icon={icon}
-            color={iconColor({ tokens, disabled, invert: secondaryOrTertiary })}
+            color={iconColor({
+              tokens,
+              disabled,
+              invert: secondaryOrTertiary,
+            })}
             className={classnames(iconClassName, iconPropsClassName)}
             {...passIconProps}
           />
@@ -117,7 +118,11 @@ class ButtonWithIcon extends Component<
           <Icon
             mousePointer={true}
             icon={iconRight}
-            color={iconColor({ tokens, disabled, invert: secondaryOrTertiary })}
+            color={iconColor({
+              tokens,
+              disabled,
+              invert: secondaryOrTertiary,
+            })}
             className={classnames(
               iconClassName,
               iconRightClassName,

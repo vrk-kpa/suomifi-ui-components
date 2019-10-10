@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
+import { DefinedTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { baseStyles } from './SearchInput.baseStyles';
 import { TextInput, TextInputProps } from '../TextInput/TextInput';
@@ -15,7 +16,12 @@ const iconBaseClassName = `${baseClassName}_icon`;
 export interface SearchInputProps extends Omit<TextInputProps, 'variant'> {}
 
 const StyledTextInput = styled(
-  ({ tokens, className, inputClassName, ...passProps }: TextInputProps) => (
+  ({
+    tokens,
+    className,
+    inputClassName,
+    ...passProps
+  }: TextInputProps & DefinedTokensProp) => (
     <TextInput
       {...passProps}
       className={classnames(className, baseClassName)}

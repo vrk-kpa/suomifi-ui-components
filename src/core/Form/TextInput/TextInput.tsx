@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../../theme/utils';
-import { TokensProp } from '../../theme';
+import { TokensProp, DefinedTokensProp } from '../../theme';
 import { baseStyles } from './TextInput.baseStyles';
 import {
   TextInput as CompTextInput,
@@ -28,7 +28,7 @@ const StyledTextInput = styled(
     labelTextProps = { className: undefined },
     inputContainerProps = { className: undefined },
     ...passProps
-  }: TextInputProps) => {
+  }: TextInputProps & DefinedTokensProp) => {
     return (
       <CompTextInput
         {...passProps}

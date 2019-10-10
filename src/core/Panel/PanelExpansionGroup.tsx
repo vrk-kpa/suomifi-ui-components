@@ -2,7 +2,7 @@ import React from 'react';
 import { default as styled } from 'styled-components';
 import { Omit } from '../../utils/typescript';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp } from '../theme';
+import { TokensProp, DefinedTokensProp } from '../theme';
 import {
   PanelExpansionGroup as CompPanelExpansionGroup,
   PanelExpansionGroupProps as CompPanelExpansionGroupProps,
@@ -29,7 +29,10 @@ interface PanelExpansionOpenAllButtonProps extends ButtonProps, TokensProp {
 }
 
 const StyledPanelExpansionGroup = styled(
-  ({ tokens, ...passProps }: TokensProp & CompPanelExpansionGroupProps) => (
+  ({
+    tokens,
+    ...passProps
+  }: CompPanelExpansionGroupProps & DefinedTokensProp) => (
     <CompPanelExpansionGroup {...passProps} />
   ),
 )`

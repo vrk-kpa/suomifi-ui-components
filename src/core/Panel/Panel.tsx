@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp } from '../theme';
+import { TokensProp, DefinedTokensProp } from '../theme';
 import { baseStyles } from './Panel.baseStyles';
 import {
   Panel as CompPanel,
@@ -23,9 +23,11 @@ export interface PanelProps extends CompPanelProps, TokensProp {
   variant?: PanelVariant;
 }
 
-const StyledPanel = styled(({ tokens, ...passProps }: PanelProps) => (
-  <CompPanel {...passProps} />
-))`
+const StyledPanel = styled(
+  ({ tokens, ...passProps }: PanelProps & DefinedTokensProp) => (
+    <CompPanel {...passProps} />
+  ),
+)`
   ${props => baseStyles(props)};
 `;
 
@@ -48,10 +50,10 @@ export class Panel extends Component<VariantPanelProps> {
 
   render() {
     const { variant, ...passProps } = withSuomifiDefaultProps(this.props);
-    if (variant === 'expansion') {
+    if (variant === 'expansion' && 'title' in passProps) {
       return <PanelExpansion {...passProps as PanelExpansionProps} />;
     }
-    if (variant === 'expansionGroup') {
+    if (variant === 'expansionGroup' && 'openAll' in passProps) {
       return <PanelExpansionGroup {...passProps as PanelExpansionGroupProps} />;
     }
     return <StyledPanel {...passProps} />;
