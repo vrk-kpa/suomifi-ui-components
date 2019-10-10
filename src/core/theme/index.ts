@@ -15,6 +15,7 @@ export type SpacingProp = keyof typeof importedTokens.spacing;
 export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
 
 export interface TokensProp {
+  /** Custom  Design-tokens or one category of tokens customized, clone defaultTokens for base */
   tokens?: Partial<SuomifiTokens>;
 }
 
