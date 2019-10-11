@@ -1,6 +1,6 @@
 const fontSize = {
   default: {
-    input: '16px',
+    actionElementInnerText: '16px',
     body: '18px',
     lead: '22px',
     h1: '40px',
@@ -10,7 +10,7 @@ const fontSize = {
     h5: '16px',
   },
   smRes: {
-    input: '16px',
+    actionElementInnerText: '16px',
     body: '16px',
     lead: '20px',
     h1: '32px',
@@ -23,7 +23,7 @@ const fontSize = {
 
 const lineHeight = {
   default: {
-    input: '1.5',
+    actionElementInnerText: '1.5',
     lead: '1.5',
     body: '1.5',
     h1: '48px',
@@ -33,7 +33,7 @@ const lineHeight = {
     h5: '20px',
   },
   smRes: {
-    input: '1.5',
+    actionElementInnerText: '1.5',
     lead: '1.5',
     body: '1.5',
     h1: '38px',
@@ -55,13 +55,19 @@ const fontWeights = {
 
 const tokenMap = {
   // TODO Define as variations from imported typography token
-  input: ['default', 'body'],
-  inputSemibold: ['default', 'body', 'semiBold'],
   bodySemiBold: ['default', 'body', 'semiBold'],
   bodySemiBoldSmallScreen: ['smRes', 'body', 'semiBold'],
   // Regression fallbacks (TODO Create linter to have this ruled as deprecated)
   body: ['default', 'body'],
   // TODO remove when tokens from suomifi-design-tokens
+  actionElementInnerText: ['default', 'actionElementInnerText'],
+  actionElementInnerTextSmallScreen: ['default', 'actionElementInnerText'],
+  actionElementInnerTextBold: ['default', 'actionElementInnerText', 'semiBold'],
+  actionElementInnerTextBoldSmallScreen: [
+    'default',
+    'actionElementInnerText',
+    'semiBold',
+  ],
   bodyText: ['default', 'body'],
   bodyTextSmallScreen: ['smRes', 'body'],
   leadText: ['default', 'lead'],
