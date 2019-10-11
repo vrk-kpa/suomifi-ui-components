@@ -113,7 +113,7 @@ export const baseStyles = withSuomifiTheme(
     user-select: none;
   }
 
-  &.fi-button--fullWidth {
+  &.fi-button--fullwidth {
     display: block;
     width: 100%;
   }
