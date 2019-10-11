@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { hslaToHex } from '../../utils/css/colors';
 import { default as styled } from 'styled-components';
-import { TokensProp, DefinedTokensProp } from '../theme';
+import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles, containerStyles } from './Colors.baseStyles';
 import clipboardCopy from 'clipboard-copy';
 
@@ -19,7 +19,7 @@ export interface ColorProps extends TokensProp {
 }
 
 const Color = styled.div`
-  ${(props: ColorProps & DefinedTokensProp) => baseStyles(props)};
+  ${(props: ColorProps & InternalTokensProp) => baseStyles(props)};
 `;
 
 const ColorsContainer = styled.div`

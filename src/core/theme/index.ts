@@ -19,7 +19,7 @@ export interface TokensProp {
   tokens?: Partial<SuomifiTokens>;
 }
 
-export interface DefinedTokensProp {
+export interface InternalTokensProp {
   tokens: SuomifiTokens;
 }
 
@@ -84,7 +84,7 @@ export const suomifiTheme = ({
  */
 export const withSuomifiTheme = (
   baseStyles: <K>(props: K & TokensAndTheme) => FlattenSimpleInterpolation,
-) => <T extends DefinedTokensProp>({
+) => <T extends InternalTokensProp>({
   tokens,
   ...passProps
 }: { tokens: SuomifiTokens } & T) =>

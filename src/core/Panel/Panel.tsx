@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, DefinedTokensProp } from '../theme';
+import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles } from './Panel.baseStyles';
 import {
   Panel as CompPanel,
@@ -24,7 +24,7 @@ export interface PanelProps extends CompPanelProps, TokensProp {
 }
 
 const StyledPanel = styled(
-  ({ tokens, ...passProps }: PanelProps & DefinedTokensProp) => (
+  ({ tokens, ...passProps }: PanelProps & InternalTokensProp) => (
     <CompPanel {...passProps} />
   ),
 )`

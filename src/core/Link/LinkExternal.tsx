@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, DefinedTokensProp } from '../theme';
+import { TokensProp, InternalTokensProp } from '../theme';
 import { Link, LinkProps } from './Link';
 import {
   LinkExternal as CompLinkExternal,
@@ -30,7 +30,7 @@ const StyledLinkExternal = styled(
     tokens,
     ...passProps
   }: Omit<LinkExternalProps, 'labelNewWindow' | 'hideIcon'> &
-    DefinedTokensProp) => <Link {...passProps} asProp={CompLinkExternal} />,
+    InternalTokensProp) => <Link {...passProps} asProp={CompLinkExternal} />,
 )`
   ${props => externalStyles(props)};
 `;

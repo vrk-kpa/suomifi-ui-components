@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, DefinedTokensProp } from '../theme';
+import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles, menuListStyles } from './Dropdown.baseStyles';
 import {
   MenuList as CompMenuList,
@@ -16,7 +16,7 @@ import { DropdownItem, DropdownItemProps } from './DropdownItem';
 export interface DropdownProps extends CompDropdownProps, TokensProp {}
 
 const StyledDropdown = styled(
-  ({ tokens, ...passProps }: DropdownProps & DefinedTokensProp) => (
+  ({ tokens, ...passProps }: DropdownProps & InternalTokensProp) => (
     <CompDropdown
       {...passProps}
       dropdownItemProps={{ className: 'fi-dropdown-item' }}

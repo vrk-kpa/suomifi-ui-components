@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { classnamesValue } from '../../utils/typescript';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, DefinedTokensProp } from '../theme';
+import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles, menuListStyles } from './Menu.baseStyles';
 import {
   Menu as CompMenu,
@@ -40,7 +40,7 @@ export interface MenuProps extends CompMenuProps, TokensProp {
 }
 
 const StyledMenu = styled(
-  ({ tokens, ...passProps }: MenuProps & DefinedTokensProp) => (
+  ({ tokens, ...passProps }: MenuProps & InternalTokensProp) => (
     <CompMenu {...passProps} />
   ),
 )`

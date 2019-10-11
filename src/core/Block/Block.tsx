@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, DefinedTokensProp } from '../theme';
+import { TokensProp, InternalTokensProp } from '../theme';
 import {
   Block as CompBlock,
   BlockProps as CompBlockProps,
@@ -26,7 +26,7 @@ const StyledBlock = styled(
     padding,
     margin,
     ...passProps
-  }: BlockProps & DefinedTokensProp) => (
+  }: BlockProps & InternalTokensProp) => (
     <CompBlock
       {...passProps}
       className={classnames(className, {

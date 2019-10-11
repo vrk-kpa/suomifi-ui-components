@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { TokensProp, DefinedTokensProp } from '../theme';
+import { TokensProp, InternalTokensProp } from '../theme';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { baseStyles } from './Button.baseStyles';
 import {
@@ -54,7 +54,7 @@ const StyledButton = styled(
     variant = 'default',
     className,
     ...passProps
-  }: ButtonProps & { right?: boolean } & DefinedTokensProp) => (
+  }: ButtonProps & { right?: boolean } & InternalTokensProp) => (
     <CompButton
       {...passProps}
       className={classnames(className, {
@@ -73,7 +73,7 @@ const iconColor = ({
 }: {
   invert?: boolean;
   disabled?: boolean;
-} & DefinedTokensProp) => {
+} & InternalTokensProp) => {
   const defaultColor = !!disabled
     ? tokens.colors.depthBase
     : tokens.colors.whiteBase;
@@ -83,7 +83,7 @@ const iconColor = ({
   return !!invert ? secondaryColor : defaultColor;
 };
 
-class ButtonWithIcon extends Component<ButtonProps & DefinedTokensProp> {
+class ButtonWithIcon extends Component<ButtonProps & InternalTokensProp> {
   render() {
     const { icon, iconRight, iconProps = {}, ...passProps } = this.props;
     const { tokens, disabled, variant } = passProps;

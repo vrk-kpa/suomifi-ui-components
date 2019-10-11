@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, DefinedTokensProp } from '../theme';
+import { TokensProp, InternalTokensProp } from '../theme';
 import {
   Link as CompLink,
   LinkProps as CompLinkProps,
@@ -18,7 +18,7 @@ export interface LinkProps extends CompLinkProps, TokensProp {
 }
 
 const StyledLink = styled(
-  ({ tokens, asProp, ...passProps }: LinkProps & DefinedTokensProp) => (
+  ({ tokens, asProp, ...passProps }: LinkProps & InternalTokensProp) => (
     <CompLink {...passProps} as={asProp} />
   ),
 )`

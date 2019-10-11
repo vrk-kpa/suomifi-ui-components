@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, DefinedTokensProp } from '../theme';
+import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles as panelBaseStyles } from './Panel.baseStyles';
 import { baseStyles } from './PanelExpansion.baseStyles';
 import {
@@ -27,7 +27,7 @@ const StyledPanelExpansion = styled(
     tokens,
     noPadding,
     ...passProps
-  }: PanelExpansionProps & DefinedTokensProp) => {
+  }: PanelExpansionProps & InternalTokensProp) => {
     return (
       <CompPanelExpansion
         {...passProps}

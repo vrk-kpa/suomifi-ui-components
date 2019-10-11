@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, DefinedTokensProp } from '../theme';
+import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles } from './Breadcrumb.baseStyles';
 import {
   Breadcrumb as CompBreadcrumb,
@@ -21,7 +21,7 @@ export interface BreadcrumbProps extends CompBreadcrumbProps, TokensProp {
 }
 
 const StyledBreadcrumb = styled(
-  ({ tokens, ...passProps }: BreadcrumbProps & DefinedTokensProp) => (
+  ({ tokens, ...passProps }: BreadcrumbProps & InternalTokensProp) => (
     <CompBreadcrumb {...passProps} />
   ),
 )`

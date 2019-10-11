@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, ColorProp, DefinedTokensProp } from '../theme';
+import { TokensProp, ColorProp, InternalTokensProp } from '../theme';
 import {
   Paragraph as CompParagraph,
   ParagraphProps as CompParagraphProps,
@@ -22,7 +22,7 @@ const StyledParagraph = styled(
     color,
     marginBottomSpacing,
     ...passProps
-  }: ParagraphProps & DefinedTokensProp) => <CompParagraph {...passProps} />,
+  }: ParagraphProps & InternalTokensProp) => <CompParagraph {...passProps} />,
 )`
   ${props => baseStyles(props)};
 `;

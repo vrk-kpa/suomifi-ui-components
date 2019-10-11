@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../../theme/utils';
-import { TokensProp, DefinedTokensProp } from '../../theme';
+import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './Toggle.baseStyles';
 import {
   Toggle as CompToggle,
@@ -20,7 +20,7 @@ const iconDisabledClassName = `${iconBaseClassName}--disabled`;
 const iconCheckedClassName = `${iconBaseClassName}--checked`;
 
 const StyledToggle = styled(
-  ({ tokens, ...passProps }: ToggleProps & DefinedTokensProp) => (
+  ({ tokens, ...passProps }: ToggleProps & InternalTokensProp) => (
     <CompToggle {...passProps} />
   ),
 )`

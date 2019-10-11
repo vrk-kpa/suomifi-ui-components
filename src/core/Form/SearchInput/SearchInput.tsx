@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { DefinedTokensProp } from '../../theme';
+import { InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { baseStyles } from './SearchInput.baseStyles';
 import { TextInput, TextInputProps } from '../TextInput/TextInput';
@@ -21,7 +21,7 @@ const StyledTextInput = styled(
     className,
     inputClassName,
     ...passProps
-  }: TextInputProps & DefinedTokensProp) => (
+  }: TextInputProps & InternalTokensProp) => (
     <TextInput
       {...passProps}
       className={classnames(className, baseClassName)}
