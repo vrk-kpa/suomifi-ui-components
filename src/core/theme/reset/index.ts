@@ -27,7 +27,7 @@ export const input = (props: TokensOrThemeProps) => {
   const theme = themeOrTokens(props);
   return css`
     ${element(props)}
-    ${font(props)('input')}
+    ${font(props)('actionElementInnerText')}
   min-width: 245px;
     max-width: 100%;
     padding: ${theme.spacing.s} ${theme.spacing.m};
@@ -59,7 +59,7 @@ export const inputButton = (props: TokensOrThemeProps) => css`
 
 export const button = (props: TokensOrThemeProps) => css`
   ${element(props)}
-  ${font(props)('inputSemibold')}
+  ${font(props)('actionElementInnerTextBold')}
   ${focus(props)}
   line-height: 1;
 `;
