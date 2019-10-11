@@ -119,7 +119,7 @@ exports[`calling render with the same component on the same container does not r
   user-select: none;
 }
 
-.c0.fi-button--fullWidth {
+.c0.fi-button--fullwidth {
   display: block;
   width: 100%;
 }
