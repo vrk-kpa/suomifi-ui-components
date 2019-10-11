@@ -2,13 +2,22 @@ import React from 'react';
 import { render } from 'react-testing-library';
 import { axeTest } from '../../utils/test/axe';
 
+import { Paragraph } from '../Paragraph/Paragraph';
 import { Text } from './Text';
 
 const TestTexts = (
   <div data-testid="test-text">
-    <Text>Hey this is test</Text>
-    <Text.lead>Hey this is test lead</Text.lead>
-    <Text.bold>Hey this is test bold</Text.bold>
+    <Paragraph>Paragraph text</Paragraph>
+    <Paragraph marginBottomSpacing="m">
+      <Text.lead>Leading text</Text.lead>
+    </Paragraph>
+    <Paragraph>
+      <Text>Body text</Text> <Text.bold>Bold text</Text.bold>
+    </Paragraph>
+    <Paragraph>
+      <Text smallScreen={true}>Body text</Text>{' '}
+      <Text.bold smallScreen={true}>Bold text</Text.bold>
+    </Paragraph>
   </div>
 );
 
