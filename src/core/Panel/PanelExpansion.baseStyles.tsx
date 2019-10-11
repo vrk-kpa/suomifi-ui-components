@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, SuomifiThemeProp } from '../theme';
+import { withSuomifiTheme, TokensAndTheme } from '../theme';
 import { button } from '../theme/reset';
 import { absolute } from '../../utils/css/pseudo';
 import { padding } from '../theme/utils';
 import { PanelExpansionProps } from './PanelExpansion';
 
 export const baseStyles = withSuomifiTheme(
-  ({ theme, tokens }: SuomifiThemeProp & Partial<PanelExpansionProps>) => {
+  ({ theme, tokens }: TokensAndTheme & Partial<PanelExpansionProps>) => {
     return css`
   ${absolute('before')}
   position: relative;

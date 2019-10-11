@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, SuomifiThemeProp } from '../../theme';
+import { withSuomifiTheme, TokensAndTheme } from '../../theme';
 import { input, inputContainer } from '../../theme/reset';
 
 export const baseStyles = withSuomifiTheme(
-  ({ theme }: SuomifiThemeProp) => css`
+  ({ theme }: TokensAndTheme) => css`
   & .fi-text-input_label-p {
     margin-bottom: ${theme.spacing.m};
   }
