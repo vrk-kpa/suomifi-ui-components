@@ -3,6 +3,7 @@ import { withSuomifiTheme, TokensAndTheme } from '../../theme';
 import { focus } from '../../theme/utils';
 import { element, font } from '../../theme/reset';
 
+// Contains double underscore because it is written in the SVG-file
 const svgPrefix = 'icon-toggle_svg__';
 
 export const baseStyles = withSuomifiTheme(
