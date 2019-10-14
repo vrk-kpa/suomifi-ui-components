@@ -46,6 +46,7 @@ export interface ButtonProps extends CompButtonProps, TokensProp {
 const baseClassName = 'fi-button';
 const iconClassName = `${baseClassName}_icon`;
 const iconRightClassName = `${baseClassName}_icon--right`;
+const fullWidthClassName = `${baseClassName}--fullwidth`;
 
 const StyledButton = styled(
   ({
@@ -59,6 +60,7 @@ const StyledButton = styled(
       {...passProps}
       className={classnames(className, {
         [`${baseClassName}--${variant}`]: variant !== 'default',
+        [fullWidthClassName]: fullWidth,
       })}
     />
   ),

@@ -3,11 +3,6 @@ import { withSuomifiTheme, TokensAndTheme, SuomifiThemeProp } from '../theme';
 import { ButtonProps } from './Button';
 import { element, focus, button } from '../theme/reset';
 
-const fullWidthStyles = css`
-  display: block;
-  width: 100%;
-`;
-
 const negativeStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-button--negative {
     background: none;
@@ -90,7 +85,7 @@ const tertiaryStyles = ({ theme }: SuomifiThemeProp) => css`
 `;
 
 export const baseStyles = withSuomifiTheme(
-  ({ theme, fullWidth = false }: TokensAndTheme & Partial<ButtonProps>) => css`
+  ({ theme }: TokensAndTheme & Partial<ButtonProps>) => css`
   ${button({ theme })}
   padding: ${theme.spacing.s} ${theme.spacing.m};
   min-height: 40px;
@@ -118,7 +113,11 @@ export const baseStyles = withSuomifiTheme(
     user-select: none;
   }
 
-  ${fullWidth && fullWidthStyles}
+  &.fi-button--fullwidth {
+    display: block;
+    width: 100%;
+  }
+
   ${negativeStyles({ theme })}
   ${secondaryStyles({ theme })}
   ${secondaryNoBorderStyles({ theme })}
