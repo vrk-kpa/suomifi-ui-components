@@ -2,7 +2,7 @@ import React, { Component, ReactNode, Fragment } from 'react';
 import { default as styled } from 'styled-components';
 import { Panel, PanelProps, baseClassName, StyledPanel } from './Panel';
 import { Button, ButtonProps } from '../Button/Button';
-import { allStates } from '../../utils/css/pseudo';
+import { allStates } from '../../utils/css';
 import classnames from 'classnames';
 import {
   PanelExpansionGroupConsumer,

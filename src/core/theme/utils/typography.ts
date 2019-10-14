@@ -1,7 +1,7 @@
 import {
   cssObjectsToCss,
   FlattenSimpleInterpolation,
-} from '../../../utils/css/utils';
+} from '../../../utils/css';
 import { typographyTokens, TypographyTokens } from '../typography';
 
 export type TypographyTokensAsCss = {
