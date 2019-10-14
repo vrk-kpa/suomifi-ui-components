@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, SuomifiThemeProp } from '../theme';
+import { withSuomifiTheme, TokensAndTheme } from '../theme';
 import { MenuProps } from './Menu';
 import { element, focus } from '../theme/reset';
 import { padding } from '../theme/utils';
 
 export const baseStyles = withSuomifiTheme(
-  ({ theme, tokens }: SuomifiThemeProp & Partial<MenuProps>) => css`
+  ({ theme, tokens }: TokensAndTheme & Partial<MenuProps>) => css`
   & > [data-reach-menu-button].fi-menu_button {
     ${element({ theme })}
     ${theme.typography.bodyText}
@@ -32,7 +32,7 @@ export const baseStyles = withSuomifiTheme(
 );
 
 export const menuListStyles = withSuomifiTheme(
-  ({ theme }: SuomifiThemeProp) => css`
+  ({ theme }: TokensAndTheme) => css`
   &[data-reach-menu-list].fi-menu_list {
     ${element({ theme })}
     ${theme.typography.bodyText}

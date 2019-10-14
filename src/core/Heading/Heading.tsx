@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, ColorProp } from '../theme';
+import { TokensProp, ColorProp, InternalTokensProp } from '../theme';
 import {
   Heading as CompHeading,
   HeadingProps as CompHeadingProps,
@@ -39,7 +39,7 @@ const StyledHeading = styled(
     variant,
     asProp, // as-property is defined internally as asProp and need to be implemented back if used
     ...passProps
-  }: HeadingProps) => (
+  }: HeadingProps & InternalTokensProp) => (
     <CompHeading
       {...passProps}
       className={classnames(className, [`${baseClassName}--${variant}`], {

@@ -1,4 +1,4 @@
-import React, { Component, ReactElement } from 'react';
+import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { HtmlDiv, HtmlDivProps } from '../../reset';
 import classnames from 'classnames';
@@ -23,7 +23,14 @@ interface PanelExpansionGroupState {
   openPanels: number[];
 }
 
-export interface PanelExpansionGroupProps {
+interface OpenCloseAll {
+  /** 'Open all'-component (Button) */
+  OpenAll: React.ReactElement<ButtonProps>;
+  /** 'Close all'-component (Button) */
+  CloseAll: React.ReactElement<ButtonProps>;
+}
+
+export interface PanelExpansionGroupProps extends OpenCloseAll {
   /** Custom classname to extend or customize */
   className?: string;
   /**
@@ -32,10 +39,6 @@ export interface PanelExpansionGroupProps {
   children: Array<React.ReactElement<PanelExpansionProps>>;
   /** Properties for OpenAllButton */
   openAllButtonProps?: ButtonProps;
-  /** 'Open all'-component (Button) */
-  OpenAll: ReactElement<ButtonProps>;
-  /** 'Close all'-component (Button) */
-  CloseAll: ReactElement<ButtonProps>;
 }
 
 export interface PanelExpansionProviderState {
@@ -68,17 +71,15 @@ const { Provider, Consumer: PanelExpansionGroupConsumer } = React.createContext(
   defaultProviderValue,
 );
 
-interface OpenAllButtonProps {
+interface OpenAllButtonProps extends OpenCloseAll {
   allOpen: boolean;
   onClick: (event: React.MouseEvent<Element>) => void;
-  OpenAll: ReactElement<ButtonProps>;
-  CloseAll: ReactElement<ButtonProps>;
   openAllButtonProps?: ButtonProps;
 }
 
 const openAllButtonProps = (
   onClick: (event: React.MouseEvent<Element>) => void,
-) => (children: ReactElement<ButtonProps>) => {
+) => (children: React.ReactElement<ButtonProps>) => {
   return React.cloneElement(children, {
     onClick,
     className: classnames(openAllButtonClassName, children.props.className),

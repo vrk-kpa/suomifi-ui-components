@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, ColorProp } from '../theme';
+import { TokensProp, ColorProp, InternalTokensProp } from '../theme';
 import {
   Text as CompText,
   TextProps as CompTextProps,
@@ -32,7 +32,7 @@ const StyledText = styled(
     smallScreen,
     className,
     ...passProps
-  }: TextProps) => (
+  }: TextProps & InternalTokensProp) => (
     <CompText
       {...passProps}
       className={classnames(className, [`${baseClassName}--${variant}`], {

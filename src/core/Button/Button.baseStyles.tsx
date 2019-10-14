@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, SuomifiThemeProp } from '../theme';
+import { withSuomifiTheme, TokensAndTheme, SuomifiThemeProp } from '../theme';
 import { ButtonProps } from './Button';
 import { element, focus, button } from '../theme/reset';
 
@@ -90,10 +90,7 @@ const tertiaryStyles = ({ theme }: SuomifiThemeProp) => css`
 `;
 
 export const baseStyles = withSuomifiTheme(
-  ({
-    theme,
-    fullWidth = false,
-  }: SuomifiThemeProp & Partial<ButtonProps>) => css`
+  ({ theme, fullWidth = false }: TokensAndTheme & Partial<ButtonProps>) => css`
   ${button({ theme })}
   padding: ${theme.spacing.s} ${theme.spacing.m};
   min-height: 40px;

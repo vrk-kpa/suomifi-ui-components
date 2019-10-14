@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, SuomifiThemeProp } from '../theme';
+import { withSuomifiTheme, TokensAndTheme } from '../theme';
 import { element, inputButton } from '../theme/reset';
 
 export const baseStyles = withSuomifiTheme(
-  ({ theme }: SuomifiThemeProp) => css`
+  ({ theme }: TokensAndTheme) => css`
     & > [data-reach-menu-button].fi-dropdown_button {
       ${inputButton({ theme })}
       position: relative;
@@ -31,7 +31,7 @@ export const baseStyles = withSuomifiTheme(
 );
 
 export const menuListStyles = withSuomifiTheme(
-  ({ theme }: SuomifiThemeProp) => css`
+  ({ theme }: TokensAndTheme) => css`
   &[data-reach-menu-list].fi-dropdown_list {
     ${element({ theme })}
     ${theme.typography.input}

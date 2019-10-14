@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, SuomifiThemeProp } from '../theme';
+import { withSuomifiTheme, TokensAndTheme } from '../theme';
 import { ParagraphProps } from './Paragraph';
 import { element, font } from '../theme/reset';
 import { objValue } from '../../utils/typescript';
@@ -11,7 +11,7 @@ export const baseStyles = withSuomifiTheme(
     tokens,
     color,
     marginBottomSpacing = '0',
-  }: ParagraphProps & SuomifiThemeProp) => css`
+  }: ParagraphProps & TokensAndTheme) => css`
   ${element({ theme })}
   ${font({ theme })('bodyText')}
   ${margin(tokens)('0', '0', marginBottomSpacing, '0')};

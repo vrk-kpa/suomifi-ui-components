@@ -15,11 +15,20 @@ export type SpacingProp = keyof typeof importedTokens.spacing;
 export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
 
 export interface TokensProp {
-  tokens?: SuomifiTokens;
+  /** Custom  Design-tokens or one category of tokens customized, clone defaultTokens for base */
+  tokens?: Partial<SuomifiTokens>;
+}
+
+export interface InternalTokensProp {
+  tokens: SuomifiTokens;
 }
 
 export interface SuomifiThemeProp {
   theme: SuomifiTheme;
+}
+
+export interface TokensAndTheme extends SuomifiThemeProp {
+  tokens: SuomifiTokens;
 }
 
 type DefaultInternalTokens = typeof internalTokens;
@@ -74,6 +83,9 @@ export const suomifiTheme = ({
  * @param {function} baseStyles Function that will get components' props including tokens-prop and return CSS-styles
  */
 export const withSuomifiTheme = (
-  baseStyles: <K>(props: K & SuomifiThemeProp) => FlattenSimpleInterpolation,
-) => <T extends SuomifiThemeProp>({ tokens, ...passProps }: TokensProp & T) =>
-  baseStyles({ ...passProps, theme: suomifiTheme(tokens) });
+  baseStyles: <K>(props: K & TokensAndTheme) => FlattenSimpleInterpolation,
+) => <T extends InternalTokensProp>({
+  tokens,
+  ...passProps
+}: { tokens: SuomifiTokens } & T) =>
+  baseStyles({ ...passProps, tokens, theme: suomifiTheme(tokens) });

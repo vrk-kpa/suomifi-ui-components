@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, SuomifiThemeProp } from '../theme';
+import { withSuomifiTheme, TokensAndTheme } from '../theme';
 import { element, font, focus } from '../theme/reset';
 
 export const baseStyles = withSuomifiTheme(
-  ({ theme }: SuomifiThemeProp) => css`
+  ({ theme }: TokensAndTheme) => css`
   ${element({ theme })}
   display: flex;
   flex-direction: column;
