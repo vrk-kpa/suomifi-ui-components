@@ -9,6 +9,7 @@ export const baseStyles = withSuomifiTheme(
       position: relative;
       padding-right: 30px;
       text-align: left;
+      background-color: ${theme.colors.whiteBase};
       cursor: pointer;
       &:before {
         content: '';

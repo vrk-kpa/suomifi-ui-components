@@ -19,7 +19,7 @@ const StyledDropdown = styled(
   ({ tokens, ...passProps }: DropdownProps & InternalTokensProp) => (
     <CompDropdown
       {...passProps}
-      dropdownItemProps={{ className: 'fi-dropdown-item' }}
+      dropdownItemProps={{ className: 'fi-dropdown_item' }}
     />
   ),
 )`
