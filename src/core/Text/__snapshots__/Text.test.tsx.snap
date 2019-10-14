@@ -18,7 +18,7 @@ exports[`calling render with the same component on the same container does not r
   color: inherit;
   background: none;
   cursor: inherit;
-  display: inline;
+  display: block;
   max-width: 100%;
   word-wrap: normal;
   word-break: normal;
@@ -40,10 +40,78 @@ exports[`calling render with the same component on the same container does not r
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
   color: hsl(0,0%,16%);
 }
 
-.c0.fi-text--bold {
+.c2 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 16px;
+  margin-left: 0;
+  color: hsl(0,0%,16%);
+}
+
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: hsl(0,0%,16%);
+}
+
+.c3.fi-text--bold {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -59,7 +127,7 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 600;
 }
 
-.c0.fi-text--lead {
+.c3.fi-text--lead {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -75,7 +143,7 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 400;
 }
 
-.c0.fi-text--small-screen {
+.c3.fi-text--small-screen {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -91,7 +159,7 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 400;
 }
 
-.c0.fi-text--small-screen.fi-text--bold {
+.c3.fi-text--small-screen.fi-text--bold {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -107,7 +175,7 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 600;
 }
 
-.c0.fi-text--small-screen.fi-text--lead {
+.c3.fi-text--small-screen.fi-text--lead {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -126,20 +194,49 @@ exports[`calling render with the same component on the same container does not r
 <div
   data-testid="test-text"
 >
-  <span
-    class="fi-text c0 fi-text--body c1"
+  <p
+    class="fi-paragraph c0 c1"
   >
-    Hey this is test
-  </span>
-  <span
-    class="fi-text c0 fi-text--lead c1"
+    Paragraph text
+  </p>
+  <p
+    class="fi-paragraph c2 c1"
   >
-    Hey this is test lead
-  </span>
-  <span
-    class="fi-text c0 fi-text--bold c1"
+    <span
+      class="fi-text c3 fi-text--lead c4"
+    >
+      Leading text
+    </span>
+  </p>
+  <p
+    class="fi-paragraph c0 c1"
   >
-    Hey this is test bold
-  </span>
+    <span
+      class="fi-text c3 fi-text--body c4"
+    >
+      Body text
+    </span>
+     
+    <span
+      class="fi-text c3 fi-text--bold c4"
+    >
+      Bold text
+    </span>
+  </p>
+  <p
+    class="fi-paragraph c0 c1"
+  >
+    <span
+      class="fi-text c3 fi-text--body fi-text--small-screen c4"
+    >
+      Body text
+    </span>
+     
+    <span
+      class="fi-text c3 fi-text--bold fi-text--small-screen c4"
+    >
+      Bold text
+    </span>
+  </p>
 </div>
 `;
