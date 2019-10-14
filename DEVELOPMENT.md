@@ -42,16 +42,17 @@ Export interfaces for exported functions/components. Typescript will generate de
   ```css
   .fi-block
   .fi-block--modifier
-  .fi-block__element
-  .fi-block__element--modifier
+  .fi-block_element
+  .fi-block_element--modifier
   ```
   and/or atom-classes:
   ```css
   .fi-block.fi-rounded
-  .fi-block__element.fi-highlight
+  .fi-block_element.fi-highlight
   ```
-- All colors to theme
-- Don't use relative units without a important reason
+- All colors must come from tokens (suomifi-design-tokens) or theme (gradients, shadows etc. that are not defined at tokens)
+- Don't use relative units without an important reason
+- Comment CSS when doing project specific solutions
 - All opinionated resets to **theme**
 
 - Components' styles can be customized with [Styled Components](https://github.com/styled-components/styled-components) / [Emotion](https://github.com/emotion-js/emotion):
@@ -74,7 +75,7 @@ Export interfaces for exported functions/components. Typescript will generate de
 
   Don't use ~~!important~~, if really needed - for specificity hack you can use `.fi-button.button--custom.button--custom {...}`
 
-- TBD: CSS-exports
+- TBD: CSS-exports (tested to be working , not implemented for all components)
 
 ## Git
 
