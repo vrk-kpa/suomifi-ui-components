@@ -1,6 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { withSuomifiDefaultProps } from '../theme/utils';
-import { hslaToHex } from '../../utils/css/colors';
+import { hslaToHex } from '../../utils/css';
 import { default as styled } from 'styled-components';
 import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles, containerStyles } from './Colors.baseStyles';
