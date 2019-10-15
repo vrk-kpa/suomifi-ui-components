@@ -31,20 +31,18 @@ import { Panel } from 'suomifi-ui-components';
 </Panel.expansionGroup>;
 ```
 
-### Example with controlled open-prop:
+### Example of panel open by default
 
 ```jsx
 import { Panel } from 'suomifi-ui-components';
 initialState = { open: true };
 
 <Panel.expansion
-  title="Test expansion bgr"
-  noPadding
-  open={state.open}
+  title="Test expansion"
+  className="panel-expansion-test"
   onClick={() => setState({ open: !state.open })}
+  defaultOpen={true}
 >
-  <div style={{ backgroundColor: 'green', padding: '20px' }}>
-    Test expansion content
-  </div>
+  Test expansion content
 </Panel.expansion>;
 ```

@@ -57,13 +57,11 @@ export interface PanelExpansionProps extends PanelProps {
    * @default none
    */
   titleTag?: string;
-  /** Controlled open-state, use onClick to change  */
-  open?: boolean;
   /** Properties for title-Button */
   titleProps?: ButtonProps & { open?: boolean };
   /** Properties for the content div */
   contentProps?: PanelProps;
-  /** Default status of panel open when not using controlled 'open' state
+  /** Default status of panel open
    * @default false
    */
   defaultOpen?: boolean;
@@ -99,7 +97,6 @@ export class PanelExpansionItem extends Component<PanelExpansionProps> {
 
   handleClick = () => {
     const {
-      open,
       onClick,
       consumer: { onClick: consumerOnClick } = { onClick: undefined },
       index,
@@ -109,19 +106,15 @@ export class PanelExpansionItem extends Component<PanelExpansionProps> {
       consumerOnClick(index);
     } else {
       const openState = !this.state.openState;
-      const notControlled = open === undefined;
-      if (notControlled) {
-        this.setState({ openState });
-      }
+      this.setState({ openState });
       if (!!onClick) {
-        onClick({ openState: notControlled ? openState : !!open });
+        onClick({ openState });
       }
     }
   };
 
   render() {
     const {
-      open,
       defaultOpen,
       onClick,
       className,
@@ -137,8 +130,7 @@ export class PanelExpansionItem extends Component<PanelExpansionProps> {
       },
       ...passProps
     } = this.props;
-    const localOpenState = () =>
-      open !== undefined ? !!open : this.state.openState;
+    const localOpenState = () => this.state.openState;
     const openState =
       index !== undefined && !!openPanels
         ? openPanels.includes(index)

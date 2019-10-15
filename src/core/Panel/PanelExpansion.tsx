@@ -58,28 +58,23 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
   };
 
   handleClick = () => {
-    const { open, onClick } = this.props;
+    const { onClick } = this.props;
     const { openState } = this.state;
-    const notControlled = open === undefined;
-    if (notControlled) {
-      this.setState({ openState: !openState });
-    }
+    this.setState({ openState: !openState });
     if (!!onClick) {
-      onClick({ openState: notControlled ? !openState : !!open });
+      onClick({ openState: !openState });
     }
   };
 
   render() {
-    const { open, title, titleTag, ...passProps } = withSuomifiDefaultProps(
+    const { title, titleTag, ...passProps } = withSuomifiDefaultProps(
       this.props,
     );
-    const notControlled = open === undefined;
-    const openState = !notControlled ? open : this.state.openState;
+    const openState = this.state.openState;
     return (
       <StyledPanelExpansion
         {...passProps}
         onClick={this.handleClick}
-        open={open}
         titleTag={titleTag}
         title={
           <Fragment>
