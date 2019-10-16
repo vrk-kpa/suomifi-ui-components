@@ -20,6 +20,7 @@ const contentOpenClassName = `${contentBaseClassName}--open`;
 
 interface StyledPanelExpansionContentProps extends PanelProps {
   openState: boolean;
+  hidden: boolean;
 }
 
 export const StyledPanelExpansionContent = styled(
@@ -169,7 +170,7 @@ export class PanelExpansionItem extends Component<PanelExpansionProps> {
           className={classnames(contentBaseClassName, contentClassName, {
             [contentOpenClassName]: !!openState,
           })}
-          aria-hidden={!openState}
+          hidden={!openState}
         >
           {children}
         </StyledPanelExpansionContent>
