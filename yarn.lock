@@ -10541,6 +10541,11 @@ sugarss@^2.0.0:
   dependencies:
     postcss "^7.0.2"
 
+suomifi-design-tokens@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/suomifi-design-tokens/-/suomifi-design-tokens-0.1.0.tgz#c84ee20440cef543c9f3c95ad0989ddfd19dde28"
+  integrity sha512-JUGah/dM2MTVFhiIuoblHT/DcelOJYBiPBbOFEMwSOHxoNTDC/B+Rq2bO7zk6dVZnDFCxV9U76apjzWxDzRb4w==
+
 suomifi-icons@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-0.0.8.tgz#2a25de59b9e945321d504c0c393f8371d8213bbb"
