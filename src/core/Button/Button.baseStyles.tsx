@@ -71,11 +71,11 @@ const secondaryNoBorderStyles = ({ theme }: SuomifiThemeProp) => css`
 const tertiaryStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-button--tertiary {
     ${secondary({ theme })}
-    background: ${theme.colors.highlightLight50};
+    background: ${theme.gradients.highlightLight45ToHighlightLight50};
     border: none;
 
     &:hover {
-      background: ${theme.colors.highlightLight53};
+      background: ${theme.colors.highlightLight50};
     }
 
     &:active {

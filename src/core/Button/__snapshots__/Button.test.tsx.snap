@@ -208,7 +208,7 @@ exports[`calling render with the same component on the same container does not r
   background-color: hsl(0,0%,100%);
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
-  background: hsl(212,63%,95%);
+  background: linear-gradient(0deg,hsl(212,63%,90%),hsl(212,63%,95%));
   border: none;
 }
 
@@ -232,7 +232,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c0.fi-button--tertiary:hover {
-  background: hsl(212,63%,98%);
+  background: hsl(212,63%,95%);
 }
 
 .c0.fi-button--tertiary:active {
