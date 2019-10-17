@@ -35,7 +35,7 @@ export const menuListStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
   &[data-reach-menu-list].fi-dropdown_list {
     ${element({ theme })}
-    ${theme.typography.input}
+    ${theme.typography.actionElementInnerText}
     margin-top: -1px;
     padding: 0;
     font-size: 100%;
@@ -50,11 +50,11 @@ export const menuListStyles = withSuomifiTheme(
 
   & [data-reach-menu-item].fi-dropdown_item {
     ${element({ theme })}
-    ${theme.typography.input}
+    ${theme.typography.actionElementInnerText}
     padding: ${theme.spacing.s} ${theme.spacing.m};
     border: 0;
     &[data-selected] {
-      ${theme.typography.input}
+      ${theme.typography.actionElementInnerText}
       color: ${theme.colors.blackBase};
       background-image: none;
       background-color: ${theme.colors.highlightLight50};
