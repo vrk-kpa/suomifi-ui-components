@@ -194,7 +194,7 @@ exports[`snapshot testing 1`] = `
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
   line-height: 1;
