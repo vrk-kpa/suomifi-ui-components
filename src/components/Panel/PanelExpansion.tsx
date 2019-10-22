@@ -57,13 +57,12 @@ export interface PanelExpansionProps extends PanelProps {
    * @default none
    */
   titleTag?: string;
-  /** Controlled open-state, use onClick to change  */
   open?: boolean;
   /** Properties for title-Button */
   titleProps?: ButtonProps & { open?: boolean };
   /** Properties for the content div */
   contentProps?: PanelProps;
-  /** Default status of panel open when not using controlled 'open' state
+  /** Default status of panel open
    * @default false
    */
   defaultOpen?: boolean;

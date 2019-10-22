@@ -30,21 +30,3 @@ import { Panel } from 'suomifi-ui-components';
   </Panel.expansion>
 </Panel.expansionGroup>;
 ```
-
-### Example with controlled open-prop:
-
-```jsx
-import { Panel } from 'suomifi-ui-components';
-initialState = { open: true };
-
-<Panel.expansion
-  title="Test expansion bgr"
-  noPadding
-  open={state.open}
-  onClick={() => setState({ open: !state.open })}
->
-  <div style={{ backgroundColor: 'green', padding: '20px' }}>
-    Test expansion content
-  </div>
-</Panel.expansion>;
-```
