@@ -27,7 +27,7 @@ export const baseStyles = withSuomifiTheme(
         border-bottom-color: ${readableColor(color)};
       }
 
-      .fi-color__name {
+      .fi-color_name {
         position: relative;
         width: 100%;
         text-align: right;
@@ -45,7 +45,7 @@ export const baseStyles = withSuomifiTheme(
         }
       }
 
-      &:hover .fi-color__name--key {
+      &:hover .fi-color_name--key {
         text-decoration: underline;
       }
     `;
