@@ -13,7 +13,7 @@ export const baseStyles = withSuomifiTheme(
     cursor: pointer;
     &.fi-menu-language_button {
       ${element({ theme })}
-      ${theme.typography.inputSemibold}
+      ${theme.typography.actionElementInnerTextBold}
       ${padding(tokens)('s', 'xs', 's', 's')}
       background-color: ${theme.colors.whiteBase};
       border: 1px solid ${theme.colors.depthBase};
@@ -41,7 +41,7 @@ export const menuListStyles = withSuomifiTheme(
     border: none;
     box-shadow: ${theme.shadows.menuShadow};
     &.fi-menu-language_list {
-      ${theme.typography.input}
+      ${theme.typography.actionElementInnerText}
       position: absolute;
       right: 0;
       top: 0;
@@ -83,12 +83,12 @@ export const menuListStyles = withSuomifiTheme(
     }
     &.fi-menu-language_item,
     &[data-selected].fi-menu-language_item {
-      ${theme.typography.input}
+      ${theme.typography.actionElementInnerText}
       padding: 6px 20px 6px 14px;
       border-left: 6px solid transparent;
       background-color: transparent;
       &.fi-menu-lang-item-selected {
-        ${theme.typography.inputSemibold};
+        ${theme.typography.actionElementInnerTextBold};
       }
     }
     &[data-selected].fi-menu-language_item {
