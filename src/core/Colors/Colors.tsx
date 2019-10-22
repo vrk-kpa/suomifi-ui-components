@@ -46,13 +46,13 @@ export class Colors extends Component<ColorsProps> {
               onClick={copyKey(key.toString())}
               {...props}
             >
-              <div className="fi-color__name">{value.toString()}</div>
+              <div className="fi-color_name">{value.toString()}</div>
               {!!hslaAsHex && (
-                <div className="fi-color__name fi-color__name--hex">
+                <div className="fi-color_name fi-color_name--hex">
                   {hslaAsHex}
                 </div>
               )}
-              <div className="fi-color__name fi-color__name--key">
+              <div className="fi-color_name fi-color_name--key">
                 {key.toString()}
               </div>
             </Color>
