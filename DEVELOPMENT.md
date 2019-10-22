@@ -50,7 +50,7 @@ Export interfaces for exported functions/components. Typescript will generate de
   .fi-block.fi-rounded
   .fi-block_element.fi-highlight
   ```
-- All colors must come from tokens (suomifi-design-tokens) or theme (gradients, shadows etc. that are not defined at tokens)
+- All colors, typography and spacing must come from tokens (suomifi-design-tokens) and all tokens not defined in suomifi-design-tokens must be defined at internal tokens
 - Don't use relative units without an important reason
 - Comment CSS when doing project specific solutions
 - All opinionated resets to **theme**
