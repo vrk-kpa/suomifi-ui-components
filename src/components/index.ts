@@ -12,8 +12,9 @@ export { TextInput, TextInputProps } from './Form/TextInput';
 export {
   Toggle,
   ToggleProps,
-  ToggleInput,
   ToggleInputProps,
+  ToggleButton,
+  ToggleInput,
 } from './Form/Toggle';
 export { Heading, HeadingProps } from './Heading/Heading';
 export { Icon, IconProps } from './Icon/Icon';
