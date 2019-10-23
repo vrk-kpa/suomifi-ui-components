@@ -93,6 +93,9 @@ export const gradients = {
   depthLight26: `linear-gradient(0deg, ${colors.depthLight26} 0%, ${
     colors.whiteBase
   } 100%)`,
+  highlightLight45ToHighlightLight50: `linear-gradient(0deg, ${
+    colors.highlightLight45
+  }, ${colors.highlightLight50})`,
 };
 
 export const outlines = {
