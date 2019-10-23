@@ -1,6 +1,10 @@
 import { css } from 'styled-components';
 import { readableColor } from 'polished';
-import { withSuomifiTheme, TokensAndTheme } from '../theme';
+import {
+  withSuomifiTheme,
+  TokensAndTheme,
+  internalTypographyTokens,
+} from '../theme';
 import { clearfix } from '../../utils/css/utils';
 import { ColorProps } from './Colors';
 
@@ -41,7 +45,7 @@ export const baseStyles = withSuomifiTheme(
         }
 
         &--key {
-          ${theme.typography.bodySemiBold}
+          ${internalTypographyTokens.bodySemiBold}
         }
       }
 
