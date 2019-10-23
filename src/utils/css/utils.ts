@@ -14,7 +14,7 @@ export const clearfix = css`
  * Return FlattenSimpleInterpolation compatible string or number
  * @param cssValue compatible value or {value, unit} pair-object
  */
-const cssValueToString = (cssValue: number | string | ValueAndUnit) => {
+export const cssValueToString = (cssValue: number | string | ValueUnit) => {
   if (!!cssValue && typeof cssValue === 'object' && 'value' in cssValue) {
     const { value, unit } = cssValue;
     return !!unit ? `${value}${unit}` : value;
