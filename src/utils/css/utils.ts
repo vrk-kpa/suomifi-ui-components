@@ -1,4 +1,5 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components';
+import { ValueUnit } from 'suomifi-design-tokens';
 export { FlattenSimpleInterpolation };
 
 export const clearfix = css`
@@ -9,10 +10,6 @@ export const clearfix = css`
   }
 `;
 
-interface ValueAndUnit {
-  value: number | string;
-  unit: string;
-}
 /**
  * Return FlattenSimpleInterpolation compatible string or number
  * @param cssValue compatible value or {value, unit} pair-object
