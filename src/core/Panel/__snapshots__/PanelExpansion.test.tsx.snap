@@ -274,6 +274,7 @@ exports[`calling render with the same component on the same container does not r
     </svg>
   </button>
   <div
+    aria-hidden="true"
     class="fi-panel-expansion_content c6 fi-panel c1 c2"
     hidden=""
   >

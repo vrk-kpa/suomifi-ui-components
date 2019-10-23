@@ -408,6 +408,7 @@ exports[`snapshot testing 1`] = `
         </svg>
       </button>
       <div
+        aria-hidden="true"
         class="fi-panel-expansion_content c9 fi-panel c6 c2"
         hidden=""
       >
@@ -440,6 +441,7 @@ exports[`snapshot testing 1`] = `
         </svg>
       </button>
       <div
+        aria-hidden="true"
         class="fi-panel-expansion_content c9 fi-panel c6 c2"
         hidden=""
       >
@@ -472,6 +474,7 @@ exports[`snapshot testing 1`] = `
         </svg>
       </button>
       <div
+        aria-hidden="true"
         class="fi-panel-expansion_content c9 fi-panel c6 c2"
         hidden=""
       >
