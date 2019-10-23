@@ -6,4 +6,4 @@ export {
 export { focus } from './focus';
 export { boxshadowOutline } from './outline';
 export { margin, padding, spacingModifiers } from './spacing';
-export { typographyUtils } from './typography';
+export { typographyUtils, fontSize } from './typography';
