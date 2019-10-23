@@ -38,6 +38,7 @@ export class ToggleButton extends Component<ToggleProps> {
         tabIndex={0}
         onClick={this.handleClick}
         checked={!!toggleState}
+        aria-pressed={!!toggleState}
       >
         {children}
       </HtmlButton>
