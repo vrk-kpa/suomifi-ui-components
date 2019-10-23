@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../theme';
 import { TextProps } from './Text';
-import { element, font } from '../theme/reset';
+import { element, font, internalTokenFont } from '../theme/reset';
 import { objValue } from '../../utils/typescript';
 
 export const baseStyles = withSuomifiTheme(
@@ -12,7 +12,7 @@ export const baseStyles = withSuomifiTheme(
 
   &.fi-text {
     &--bold {
-      ${font({ theme })('bodySemiBold')}
+      ${internalTokenFont('bodySemiBold')}
     }
     &--lead {
       ${font({ theme })('leadText')}
@@ -20,7 +20,7 @@ export const baseStyles = withSuomifiTheme(
     &--small-screen {
       ${font({ theme })('bodyTextSmallScreen')}
       &.fi-text--bold {
-        ${font({ theme })('bodySemiBoldSmallScreen')}
+        ${internalTokenFont('bodySemiBoldSmallScreen')}
       }
       &.fi-text--lead {
         ${font({ theme })('leadTextSmallScreen')}
