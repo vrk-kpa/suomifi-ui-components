@@ -9,6 +9,22 @@ export const clearfix = css`
   }
 `;
 
+interface ValueAndUnit {
+  value: number | string;
+  unit: string;
+}
+/**
+ * Return FlattenSimpleInterpolation compatible string or number
+ * @param cssValue compatible value or {value, unit} pair-object
+ */
+const cssValueToString = (cssValue: number | string | ValueAndUnit) => {
+  if (!!cssValue && typeof cssValue === 'object' && 'value' in cssValue) {
+    const { value, unit } = cssValue;
+    return !!unit ? `${value}${unit}` : value;
+  }
+  return cssValue;
+};
+
 const camelToSnake = (string: string) =>
   string.replace(/[\w]([A-Z])/g, m => `${m[0]}-${m[1]}`).toLowerCase();
 /**
@@ -17,7 +33,7 @@ const camelToSnake = (string: string) =>
  */
 export const cssObjectToCss = <T>(value: T) => css`
   ${Object.entries(value)
-    .map(([key, value]) => `${camelToSnake(key)}: ${value};`)
+    .map(([key, value]) => `${camelToSnake(key)}: ${cssValueToString(value)};`)
     .join('')}
 `;
 
