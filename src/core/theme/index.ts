@@ -1,15 +1,24 @@
 import { FlattenSimpleInterpolation } from 'styled-components';
-import { typographyTokens } from './typography';
+import {
+  typography,
+  TypographyProp,
+  internalTypographyTokens,
+  internalTypographyTokensProp,
+} from './typography';
 import { typographyUtils } from './utils';
 import { colors, shadows, gradients, outlines } from './colors';
 import { spacing } from './spacing';
 import { zindexes } from './zindexes';
 import { transitions } from './transitions';
 import { radius } from './radius';
+export {
+  TypographyProp,
+  internalTypographyTokens,
+  internalTypographyTokensProp,
+};
 
 export type SuomifiTokens = typeof importedTokens;
 export type DefaultSuomifiTokens = typeof defaultTokens;
-export type TypographyProp = keyof typeof importedTokens.typography;
 export type ColorProp = keyof typeof importedTokens.colors;
 export type SpacingProp = keyof typeof importedTokens.spacing;
 export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
@@ -44,7 +53,7 @@ const internalTokens = {
 const importedTokens = {
   colors,
   spacing,
-  typography: typographyTokens,
+  typography,
 };
 
 export const defaultTokens = {
