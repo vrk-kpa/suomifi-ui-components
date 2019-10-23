@@ -171,6 +171,8 @@ export class PanelExpansionItem extends Component<PanelExpansionProps> {
             [contentOpenClassName]: !!openState,
           })}
           hidden={!openState}
+          key={String(openState)}
+          aria-hidden={!openState}
         >
           {children}
         </StyledPanelExpansionContent>
