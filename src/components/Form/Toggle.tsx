@@ -8,10 +8,9 @@ import React, {
 import { idGenerator } from '../../utils/uuid';
 import { ToggleInput } from './ToggleInput';
 import { ToggleButton } from './ToggleButton';
-export { ToggleButton, ToggleInput };
 
+export { ToggleButton, ToggleInput };
 export const baseClassName = 'fi-toggle';
-// const toggleDisabledClassName = `${baseClassName}--disabled`;
 
 export interface ToggleInputProps {
   /** State of input checkbox */
@@ -68,34 +67,9 @@ export interface ToggleState {
 }
 
 export class Toggle extends Component<ToggleProps> {
-  // state: ToggleState = {
-  //   toggleState: !!this.props.checked || !!this.props.defaultChecked || false,
-  // };
-
-  // componentWillReceiveProps(nextProps: ToggleProps) {
-  //   const { checked } = nextProps;
-  //   if (!!checked) {
-  //     this.setState({ toggleState: !!checked });
-  //   }
-  // }
-
-  // handleClick = () => {
-  //   const { checked, onClick } = this.props;
-  //   const { toggleState } = this.state;
-  //   if (checked === undefined) {
-  //     this.setState({ toggleState: !toggleState });
-  //   }
-  //   if (!!onClick) {
-  //     onClick({ toggleState: !toggleState });
-  //   }
-  // };
-
   render() {
     const { withInput, id: propId, ...passProps } = this.props;
-
     const id = idGenerator(propId);
-
-    // TODO: passaa kaikki propsit, lisää mahdollisesti jotain; esim. id ja ..?
     const newToggleProps = {
       id,
       ...passProps,
