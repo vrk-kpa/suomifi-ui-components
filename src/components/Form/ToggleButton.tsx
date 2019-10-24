@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HtmlButton } from '../../reset';
 import { ToggleProps, baseClassName, ToggleState } from './Toggle';
+import { logger } from '../../utils/logger';
 
 export class ToggleButton extends Component<ToggleProps> {
   state: ToggleState = {
@@ -25,10 +26,19 @@ export class ToggleButton extends Component<ToggleProps> {
       checked: dissMissChecked,
       defaultChecked: dissMissDefaultChecked,
       onClick: dissMissOnClick,
+      toggleInputProps,
+      toggleInputComponent,
       ...passProps
     } = this.props;
     const { toggleState } = this.state;
     const toggleButtonClassName = `${baseClassName}_button`;
+
+    if (toggleInputProps || toggleInputComponent) {
+      logger.error(
+        "ToggleButton does not utilize 'toggleInputProps' and 'toggleInputComponent' props.",
+      );
+      return false;
+    }
 
     return (
       <HtmlButton
