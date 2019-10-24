@@ -6,22 +6,23 @@ import { Toggle } from './Toggle';
 
 const doNothing = () => ({});
 
-const TestToggleWithInput = (
+const CreateTestToggle = (
+  withInput: boolean,
+  text: string,
+  dataTestId: string,
+) => (
   <Toggle
     onClick={doNothing}
-    data-testid="toggle"
+    data-testid={dataTestId}
     id="test-toggle"
-    withInput={true}
+    withInput={withInput}
   >
-    Test
+    {text}
   </Toggle>
 );
 
-const TestToggleWithButton = (
-  <Toggle onClick={doNothing} data-testid="toggle" id="test-toggle">
-    Test
-  </Toggle>
-);
+const TestToggleWithInput = CreateTestToggle(true, 'Test', 'toggle');
+const TestToggleWithButton = CreateTestToggle(false, 'Test', 'toggle');
 
 test('Input: calling render with the same component on the same container does not remount', () => {
   const toggleInputRendered = render(TestToggleWithInput);
@@ -30,11 +31,7 @@ test('Input: calling render with the same component on the same container does n
   expect(getByTestId('toggle').textContent).toBe('Test');
 
   // re-render the same component with different props
-  rerender(
-    <Toggle onClick={doNothing} data-testid="elggot" withInput={true}>
-      Test two
-    </Toggle>,
-  );
+  rerender(CreateTestToggle(true, 'Test two', 'elggot'));
   expect(getByTestId('elggot').textContent).toBe('Test two');
 });
 
@@ -45,11 +42,7 @@ test('Button: calling render with the same component on the same container does 
   expect(getByTestId('toggle').textContent).toBe('Test');
 
   // re-render the same component with different props
-  rerender(
-    <Toggle onClick={doNothing} data-testid="elggot">
-      Test two
-    </Toggle>,
-  );
+  rerender(CreateTestToggle(false, 'Test two', 'elggot'));
   expect(getByTestId('elggot').textContent).toBe('Test two');
 });
 
