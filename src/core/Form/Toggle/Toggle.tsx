@@ -54,7 +54,11 @@ export class Toggle extends Component<ToggleProps> {
     const { toggleStatus } = this.state;
 
     return (
-      <StyledToggle {...passProps} onClick={this.handleToggle}>
+      <StyledToggle
+        disabled={disabled}
+        {...passProps}
+        onClick={this.handleToggle}
+      >
         <Icon
           icon="toggle"
           className={classnames(iconBaseClassName, {

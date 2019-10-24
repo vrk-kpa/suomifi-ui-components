@@ -35,7 +35,7 @@ export class ToggleButton extends Component<ToggleProps> {
 
     if (toggleInputProps || toggleInputComponent) {
       logger.error(
-        "ToggleButton does not utilize 'toggleInputProps' and 'toggleInputComponent' props.",
+        `ToggleButton does not utilize 'toggleInputProps' and 'toggleInputComponent' props.`,
       );
       return false;
     }
@@ -43,12 +43,12 @@ export class ToggleButton extends Component<ToggleProps> {
     return (
       <HtmlButton
         className={toggleButtonClassName}
-        {...passProps}
         aria-disabled={disabled}
+        disabled={disabled}
         tabIndex={0}
         onClick={this.handleClick}
-        checked={!!toggleState}
         aria-pressed={!!toggleState}
+        {...passProps}
       >
         {children}
       </HtmlButton>
