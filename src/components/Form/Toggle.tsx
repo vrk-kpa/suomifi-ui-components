@@ -33,7 +33,7 @@ export interface ToggleProps {
   defaultChecked?: boolean;
   /** Custom classname to extend or customize */
   className?: string;
-  /** Disable Button usage */
+  /** Disable usage */
   disabled?: boolean;
   /** Event handler to execute when clicked */
   onClick?: ({ toggleState }: { toggleState: boolean }) => void;
