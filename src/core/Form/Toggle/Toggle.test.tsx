@@ -17,9 +17,9 @@ const TestToggleWithInput = (
   </Toggle>
 );
 
-test('calling render with the same component on the same container does not remount', () => {
-  const buttonRendered = render(TestToggleWithInput);
-  const { getByTestId, container, rerender } = buttonRendered;
+test('Input: calling render with the same component on the same container does not remount', () => {
+  const toggleInputRendered = render(TestToggleWithInput);
+  const { getByTestId, container, rerender } = toggleInputRendered;
   expect(container.firstChild).toMatchSnapshot();
   expect(getByTestId('toggle').textContent).toBe('Test');
 
