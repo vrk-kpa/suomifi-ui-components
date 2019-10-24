@@ -30,7 +30,8 @@ export const baseStyles = withSuomifiTheme(
     ${element({ theme })}
     ${font({ theme })('bodySemiBold')}
     ${focus({ theme })}
-    flex: 1;
+    flex: 1 1 auto;
+    align-self: flex-end; 
     margin-left: auto;
     margin-bottom: ${theme.spacing.s};
     padding: ${theme.spacing.xs} 0;
