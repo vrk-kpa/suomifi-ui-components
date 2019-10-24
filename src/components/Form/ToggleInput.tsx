@@ -54,7 +54,10 @@ export class ToggleInput extends Component<ToggleProps> {
       id,
       className,
       disabled = false,
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledBy,
       children,
+      toggleInputProps,
       toggleInputComponent,
       checked: dissMissChecked,
       defaultChecked: dissMissDefaultChecked,
@@ -65,6 +68,17 @@ export class ToggleInput extends Component<ToggleProps> {
     const toggleInputClassName = `${baseClassName}_input`;
     const toggleLabelClassName = `${baseClassName}_label`;
 
+    const newToggleInputProps = {
+      disabled,
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledBy,
+      checked: !!toggleState,
+      className: toggleInputClassName,
+      onChange: this.handleClick,
+      ...toggleInputProps,
+      id,
+    };
+
     return (
       <HtmlSpan
         className={classnames(className, baseClassName, {
@@ -72,17 +86,9 @@ export class ToggleInput extends Component<ToggleProps> {
         })}
       >
         {!!toggleInputComponent ? (
-          componentOrElementWithProps(toggleInputComponent, this.props)
+          componentOrElementWithProps(toggleInputComponent, newToggleInputProps)
         ) : (
-          <HtmlInput
-            id={id}
-            className={toggleInputClassName}
-            disabled={disabled}
-            {...passProps}
-            type="checkbox"
-            checked={!!toggleState}
-            onChange={this.handleClick}
-          />
+          <HtmlInput {...newToggleInputProps} type="checkbox" />
         )}
         <HtmlLabel
           {...passProps}
