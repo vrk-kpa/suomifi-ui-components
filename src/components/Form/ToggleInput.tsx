@@ -81,6 +81,7 @@ export class ToggleInput extends Component<ToggleProps> {
             {...passProps}
             type="checkbox"
             checked={!!toggleState}
+            onChange={this.handleClick}
           />
         )}
         <HtmlLabel
