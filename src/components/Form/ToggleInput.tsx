@@ -75,6 +75,7 @@ export class ToggleInput extends Component<ToggleProps> {
           componentOrElementWithProps(toggleInputComponent, this.props)
         ) : (
           <HtmlInput
+            id={id}
             className={toggleInputClassName}
             disabled={disabled}
             {...passProps}
