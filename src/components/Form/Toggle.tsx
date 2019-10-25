@@ -19,7 +19,6 @@ export interface ToggleInputProps {
   className?: string;
   /** Disable Button usage */
   disabled?: boolean;
-  controlled?: boolean;
   'aria-label'?: string;
   'aria-labelledby'?: string;
 }
