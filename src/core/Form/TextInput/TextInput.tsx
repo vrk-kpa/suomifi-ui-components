@@ -8,14 +8,17 @@ import {
   TextInputProps as CompTextInputProps,
 } from '../../../components/Form/TextInput';
 import classnames from 'classnames';
-
 const baseClassName = 'fi-text-input';
-const labelParagraphClassName = `${baseClassName}_label-p`;
-const inputContainerClassName = `${baseClassName}_container`;
-const errorClassName = `${baseClassName}--error`;
-const successClassName = `${baseClassName}--success`;
 
+export const textInputClassNames = {
+  baseClassName,
+  labelParagraph: `${baseClassName}_label-p`,
+  inputContainer: `${baseClassName}_container`,
+  error: `${baseClassName}--error`,
+  success: `${baseClassName}--success`,
+};
 type TextInputVariant = 'default' | 'error' | 'success';
+
 export interface TextInputProps extends CompTextInputProps, TokensProp {
   variant?: TextInputVariant;
 }
@@ -36,19 +39,19 @@ const StyledTextInput = styled(
           ...labelTextProps,
           className: classnames(
             labelTextProps.className,
-            labelParagraphClassName,
+            textInputClassNames.labelParagraph,
           ),
         }}
         inputContainerProps={{
           ...inputContainerProps,
           className: classnames(
             inputContainerProps.className,
-            inputContainerClassName,
+            textInputClassNames.inputContainer,
           ),
         }}
         className={classnames(className, {
-          [errorClassName]: variant === 'error',
-          [successClassName]: variant === 'success',
+          [textInputClassNames.error]: variant === 'error',
+          [textInputClassNames.success]: variant === 'success',
         })}
       />
     );
@@ -72,7 +75,8 @@ export class TextInput extends Component<TextInputProps> {
 
   render() {
     const { ...passProps } = withSuomifiDefaultProps(this.props);
-
     return <StyledTextInput {...passProps} />;
   }
 }
+
+export class SearchInput extends Component<TextInputProps> {}

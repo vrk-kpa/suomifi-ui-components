@@ -10,8 +10,8 @@ import {
 } from '../../reset';
 import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import { Paragraph, ParagraphProps } from '../Paragraph/Paragraph';
-import { logger } from '../../utils/logger';
 import classnames from 'classnames';
+import { logger } from '../../utils/logger';
 
 const baseClassName = 'fi-text-input';
 const disabledClassName = `${baseClassName}--disabled`;
@@ -20,7 +20,7 @@ const inputBaseClassName = `${baseClassName}_input`;
 
 export interface TextInputLabelProps extends HtmlLabelProps {}
 
-type Label = 'default' | 'screenreader';
+type Label = 'hidden' | 'visible';
 
 export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   /** Custom classname for the input to extend or customize */
@@ -42,17 +42,17 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   /** Label */
   labelText: string;
   /** Label displaymode
-   * default: show above, screenreader: show as placeholder
+   * visible: show above, hidden: show as placeholder
    */
   labelMode?: Label;
-  /** Input placeholder-text if not using screenreader-labelmode */
+
   placeholder?: string;
   /** Input container div to define custom styling */
   inputContainerProps?: HtmlDivProps;
   children?: ReactNode;
 }
 
-export class TextInput extends Component<TextInputProps> {
+export class BaseTextInput extends Component<TextInputProps> {
   render() {
     const {
       className,
@@ -67,12 +67,7 @@ export class TextInput extends Component<TextInputProps> {
       ...passProps
     } = this.props;
 
-    const ifScreenreader = labelMode === 'screenreader';
-    if (ifScreenreader && !!placeholder) {
-      logger.warn(
-        'Placeholder not used as label is hidden and using label instead',
-      );
-    }
+    const hideLabel = labelMode === 'hidden';
 
     return (
       <HtmlLabel
@@ -81,7 +76,7 @@ export class TextInput extends Component<TextInputProps> {
           [disabledClassName]: !!passProps.disabled,
         })}
       >
-        {ifScreenreader ? (
+        {hideLabel ? (
           <VisuallyHidden>{labelText}</VisuallyHidden>
         ) : (
           <Paragraph {...labelTextProps}>{labelText}</Paragraph>
@@ -91,11 +86,24 @@ export class TextInput extends Component<TextInputProps> {
             {...passProps}
             className={classnames(inputBaseClassName, inputClassName)}
             type="text"
-            placeholder={ifScreenreader ? labelText : placeholder}
+            placeholder={hideLabel ? labelText : ''} // halutaanko että on sauma muutenkin käyttää labeltextiä tässä
           />
           {children}
         </HtmlDiv>
       </HtmlLabel>
     );
+  }
+}
+
+export class TextInput extends BaseTextInput {
+  render() {
+    const { placeholder, ...passProps } = this.props;
+
+    if (!!placeholder) {
+      logger.error(
+        'Using placeholder in text inputs is not accessible and it is ignored. Use labelText instead',
+      );
+    }
+    return <BaseTextInput {...passProps} />;
   }
 }
