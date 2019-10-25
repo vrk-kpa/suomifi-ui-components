@@ -16,10 +16,7 @@ const inputContainerBaseClassName = `${baseClassName}_input-container`;
 const inputBaseClassName = `${baseClassName}_input`;
 const iconBaseClassName = `${baseClassName}_icon`;
 
-export interface SearchInputProps extends Omit<TextInputProps, 'variant'> {
-  /** Input placeholder-text if not using screenreader-labelmode */
-  placeholder?: string;
-}
+export interface SearchInputProps extends Omit<TextInputProps, 'variant'> {}
 
 const StyledTextInput = styled(
   ({
@@ -71,10 +68,7 @@ export class SearchInput extends Component<SearchInputProps> {
     }
 
     return (
-      <StyledTextInput
-        {...withSuomifiDefaultProps(this.props)}
-        placeholder={labelText}
-      >
+      <StyledTextInput {...withSuomifiDefaultProps(this.props)}>
         <Icon icon="search" className={iconBaseClassName} />
       </StyledTextInput>
     );

@@ -86,7 +86,7 @@ export class BaseTextInput extends Component<TextInputProps> {
             {...passProps}
             className={classnames(inputBaseClassName, inputClassName)}
             type="text"
-            placeholder={hideLabel ? labelText : ''} // halutaanko että on sauma muutenkin käyttää labeltextiä tässä
+            placeholder={hideLabel ? labelText : ''}
           />
           {children}
         </HtmlDiv>
@@ -97,13 +97,48 @@ export class BaseTextInput extends Component<TextInputProps> {
 
 export class TextInput extends BaseTextInput {
   render() {
-    const { placeholder, ...passProps } = this.props;
+    const {
+      className,
+      inputClassName,
+      labelText,
+      labelMode,
+      placeholder,
+      labelProps,
+      labelTextProps,
+      inputContainerProps,
+      children,
+      ...passProps
+    } = this.props;
 
     if (!!placeholder) {
       logger.error(
         'Using placeholder in text inputs is not accessible and it is ignored. Use labelText instead',
       );
     }
-    return <BaseTextInput {...passProps} />;
+
+    const hideLabel = labelMode === 'hidden';
+
+    return (
+      <HtmlLabel
+        {...labelProps}
+        className={classnames(labelBaseClassName, className, {
+          [disabledClassName]: !!passProps.disabled,
+        })}
+      >
+        {hideLabel ? (
+          <VisuallyHidden>{labelText}</VisuallyHidden>
+        ) : (
+          <Paragraph {...labelTextProps}>{labelText}</Paragraph>
+        )}
+        <HtmlDiv {...inputContainerProps}>
+          <HtmlInput
+            {...passProps}
+            className={classnames(inputBaseClassName, inputClassName)}
+            type="text"
+          />
+          {children}
+        </HtmlDiv>
+      </HtmlLabel>
+    );
   }
 }

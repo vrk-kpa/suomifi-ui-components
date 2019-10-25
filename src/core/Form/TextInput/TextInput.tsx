@@ -78,5 +78,3 @@ export class TextInput extends Component<TextInputProps> {
     return <StyledTextInput {...passProps} />;
   }
 }
-
-export class SearchInput extends Component<TextInputProps> {}
