@@ -1,6 +1,5 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components';
 import { ValueUnit } from 'suomifi-design-tokens';
-export { FlattenSimpleInterpolation };
 
 export const clearfix = css`
   &:after {
@@ -11,13 +10,16 @@ export const clearfix = css`
 `;
 
 /**
- * Return FlattenSimpleInterpolation compatible string or number
- * @param cssValue compatible value or {value, unit} pair-object
+ * Return CSS compatible string
+ * @param cssValue number, string or {value: number, unit: string | null}
  */
-export const cssValueToString = (cssValue: number | string | ValueUnit) => {
+export const cssValueToString = (
+  cssValue: number | string | ValueUnit,
+): string | number => {
   if (!!cssValue && typeof cssValue === 'object' && 'value' in cssValue) {
     const { value, unit } = cssValue;
-    return !!unit ? `${value}${unit}` : value;
+    const stringValue = typeof value === 'number' ? value.toString(10) : value;
+    return !!unit ? `${stringValue}${unit}` : value;
   }
   return cssValue;
 };
