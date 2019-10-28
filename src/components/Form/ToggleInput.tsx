@@ -5,7 +5,7 @@ import React, {
   FunctionComponent,
 } from 'react';
 import classnames from 'classnames';
-import { HtmlInput, HtmlLabel, HtmlSpan } from '../../reset';
+import { HtmlInput, HtmlLabel } from '../../reset';
 import { ToggleProps, ToggleState } from './Toggle';
 
 const baseClassName = 'fi-toggle';
@@ -69,6 +69,7 @@ export class ToggleInput extends Component<ToggleProps> {
     const toggleClassName = `${baseClassName}--with-input`;
     const toggleInputClassName = `${baseClassName}_input`;
     const toggleLabelClassName = `${baseClassName}_label`;
+    const toggleDisabledClassName = `${baseClassName}--disabled`;
 
     const newToggleInputProps = {
       disabled,
@@ -82,25 +83,25 @@ export class ToggleInput extends Component<ToggleProps> {
     };
 
     return (
-      <HtmlSpan
-        className={classnames(toggleClassName, className, baseClassName, {
-          [toggleDisabledClassName]: !!disabled,
-        })}
+      <HtmlLabel
+        htmlFor={id}
+        className={classnames(
+          className,
+          baseClassName,
+          {
+            [toggleDisabledClassName]: !!disabled,
+          },
+          toggleLabelClassName,
+        )}
+        {...passProps}
       >
         {!!toggleInputComponent ? (
           componentOrElementWithProps(toggleInputComponent, newToggleInputProps)
         ) : (
           <HtmlInput {...newToggleInputProps} type="checkbox" />
         )}
-        <HtmlLabel
-          {...passProps}
-          className={toggleLabelClassName}
-          onClick={this.handleClick}
-          htmlFor={id}
-        >
-          {children}
-        </HtmlLabel>
-      </HtmlSpan>
+        {children}
+      </HtmlLabel>
     );
   }
 }
