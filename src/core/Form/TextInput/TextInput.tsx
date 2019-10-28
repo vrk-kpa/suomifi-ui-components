@@ -75,6 +75,7 @@ export class TextInput extends Component<TextInputProps> {
 
   render() {
     const { ...passProps } = withSuomifiDefaultProps(this.props);
+
     return <StyledTextInput {...passProps} />;
   }
 }

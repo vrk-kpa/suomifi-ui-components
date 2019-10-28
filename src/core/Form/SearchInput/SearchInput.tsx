@@ -16,7 +16,10 @@ const inputContainerBaseClassName = `${baseClassName}_input-container`;
 const inputBaseClassName = `${baseClassName}_input`;
 const iconBaseClassName = `${baseClassName}_icon`;
 
-export interface SearchInputProps extends Omit<TextInputProps, 'variant'> {}
+export interface SearchInputProps extends Omit<TextInputProps, 'variant'> {
+  /** Placeholder text for search field. Must match labelText */
+  placeholder?: string;
+}
 
 const StyledTextInput = styled(
   ({

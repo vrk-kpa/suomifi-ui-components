@@ -10,8 +10,8 @@ import {
 } from '../../reset';
 import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import { Paragraph, ParagraphProps } from '../Paragraph/Paragraph';
-import classnames from 'classnames';
 import { logger } from '../../utils/logger';
+import classnames from 'classnames';
 
 const baseClassName = 'fi-text-input';
 const disabledClassName = `${baseClassName}--disabled`;
@@ -86,9 +86,7 @@ export class BaseTextInput extends Component<TextInputProps> {
             {...passProps}
             className={classnames(inputBaseClassName, inputClassName)}
             type="text"
-            placeholder={
-              hideLabel ? labelText : placeholder === labelText ? labelText : ''
-            }
+            placeholder={hideLabel ? labelText : !!placeholder ? labelText : ''}
           />
           {children}
         </HtmlDiv>
