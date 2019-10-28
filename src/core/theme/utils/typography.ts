@@ -1,8 +1,5 @@
-import {
-  cssObjectsToCss,
-  FlattenSimpleInterpolation,
-  cssValueToString,
-} from '../../../utils/css';
+import { FlattenSimpleInterpolation } from 'styled-components';
+import { cssObjectsToCss, cssValueToString } from '../../../utils/css';
 import { tokens, TypograhpyDesingTokens } from 'suomifi-design-tokens';
 import { SuomifiTheme } from '../';
 
