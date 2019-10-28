@@ -4,6 +4,5 @@ export {
   clearfix,
   cssObjectToCss,
   cssObjectsToCss,
-  FlattenSimpleInterpolation,
   cssValueToString,
 } from './utils';
