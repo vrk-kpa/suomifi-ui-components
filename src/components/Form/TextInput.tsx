@@ -86,7 +86,9 @@ export class BaseTextInput extends Component<TextInputProps> {
             {...passProps}
             className={classnames(inputBaseClassName, inputClassName)}
             type="text"
-            placeholder={hideLabel ? labelText : ''}
+            placeholder={
+              hideLabel ? labelText : placeholder === labelText ? labelText : ''
+            }
           />
           {children}
         </HtmlDiv>
