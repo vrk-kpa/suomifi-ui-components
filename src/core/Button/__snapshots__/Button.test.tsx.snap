@@ -68,10 +68,10 @@ exports[`calling render with the same component on the same container does not r
   padding: 8px 16px;
   min-height: 40px;
   color: hsl(0,0%,100%);
-  background: linear-gradient(0deg,[object Object] 0%,#4387d5 100%);
+  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,#4387d5 100%);
   border-radius: 2px;
   text-align: center;
-  text-shadow: 0 1px 1px [object Object];
+  text-shadow: 0 1px 1px hsl(214,100%,24%);
   cursor: pointer;
 }
 
@@ -100,18 +100,18 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c0:hover {
-  background: linear-gradient(0deg,[object Object] 0%,#5492d9 100%);
+  background: linear-gradient(0deg,hsl(212,63%,49%) 0%,#5492d9 100%);
 }
 
 .c0:active {
-  background: linear-gradient(0deg,[object Object] 0%,#2c72c4 100%);
+  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,#2c72c4 100%);
 }
 
 .c0.fi-button--disabled,
 .c0[disabled],
 .c0:disabled {
   text-shadow: 0 1px 1px hsl(0,0%,16%);
-  background: linear-gradient(0deg,[object Object] 0%,#c0c5c9 100%);
+  background: linear-gradient(0deg,hsl(202,7%,67%) 0%,#c0c5c9 100%);
   pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -156,7 +156,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c0.fi-button--secondary:hover {
-  background: linear-gradient(0deg,[object Object] 0%,[object Object] 100%);
+  background: linear-gradient(0deg,hsl(202,7%,93%) 0%,hsl(0,0%,100%) 100%);
 }
 
 .c0.fi-button--secondary:active {
@@ -184,7 +184,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c0.fi-button--secondary-noborder:hover {
-  background: linear-gradient(0deg,[object Object] 0%,[object Object] 100%);
+  background: linear-gradient(0deg,hsl(202,7%,93%) 0%,hsl(0,0%,100%) 100%);
 }
 
 .c0.fi-button--secondary-noborder:active {
@@ -213,7 +213,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c0.fi-button--tertiary:hover {
-  background: linear-gradient(0deg,[object Object] 0%,[object Object] 100%);
+  background: linear-gradient(0deg,hsl(202,7%,93%) 0%,hsl(0,0%,100%) 100%);
 }
 
 .c0.fi-button--tertiary:active {
