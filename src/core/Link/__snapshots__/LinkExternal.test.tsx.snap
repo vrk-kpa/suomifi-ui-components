@@ -163,7 +163,7 @@ exports[`calling render with the same component on the same container does not r
     class="fi-link_icon c5"
     focusable="false"
     height="1em"
-    style="fill: currentColor;"
+    style="fill: hsl(202, 7%, 40%);"
     viewBox="0 0 24 24"
     width="1em"
   >

@@ -395,7 +395,7 @@ exports[`snapshot testing 1`] = `
           class="fi-panel-expansion_title-icon c8"
           focusable="false"
           height="1em"
-          style="fill: hsl(212, 63%, 45%);"
+          style="fill: hsl(202, 7%, 40%);"
           viewBox="0 0 24 24"
           width="1em"
         >
@@ -427,7 +427,7 @@ exports[`snapshot testing 1`] = `
           class="fi-panel-expansion_title-icon c8"
           focusable="false"
           height="1em"
-          style="fill: hsl(212, 63%, 45%);"
+          style="fill: hsl(202, 7%, 40%);"
           viewBox="0 0 24 24"
           width="1em"
         >
@@ -459,7 +459,7 @@ exports[`snapshot testing 1`] = `
           class="fi-panel-expansion_title-icon c8"
           focusable="false"
           height="1em"
-          style="fill: hsl(212, 63%, 45%);"
+          style="fill: hsl(202, 7%, 40%);"
           viewBox="0 0 24 24"
           width="1em"
         >
