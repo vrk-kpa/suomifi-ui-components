@@ -30,9 +30,14 @@ export type DefaultSuomifiTokens = typeof defaultTokens;
 export type ColorProp = keyof typeof importedTokens.colors;
 export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
 
+export interface PartialTokens {
+  colors?: Partial<ColorDesingTokens>;
+  spacing?: Partial<SpacingDesingTokens>;
+  typography?: Partial<TypograhpyDesingTokens>;
+}
 export interface TokensProp {
   /** Custom  Design-tokens or one category of tokens customized, clone defaultTokens for base */
-  tokens?: Partial<SuomifiTokens>;
+  tokens?: PartialTokens;
 }
 
 export interface InternalTokensProp {
