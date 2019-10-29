@@ -32,33 +32,36 @@ export class Colors extends Component<ColorsProps> {
   render() {
     const { colors } = this.props;
     const props = withSuomifiDefaultProps(this.props);
+    const useColors = !!colors ? colors : props.tokens.colors;
     return (
       <ColorsContainer>
-        {Object.entries(!!colors ? colors : props.tokens.colors).reduce<
-          JSX.Element[]
-        >((arr, [key, value]) => {
-          const hslaAsHex = hslaToHex(value.toString());
-          const item = (
-            <Color
-              keyName={key.toString()}
-              color={value.toString()}
-              key={key.toString()}
-              onClick={copyKey(key.toString())}
-              {...props}
-            >
-              <div className="fi-color_name">{value.toString()}</div>
-              {!!hslaAsHex && (
-                <div className="fi-color_name fi-color_name--hex">
-                  {hslaAsHex}
+        {Object.entries(useColors).reduce<JSX.Element[]>(
+          (arr, [key, value]) => {
+            const color = value.hsl;
+            const hslaAsHex = hslaToHex(color.toString());
+            const item = (
+              <Color
+                keyName={key.toString()}
+                color={color.toString()}
+                key={key.toString()}
+                onClick={copyKey(key.toString())}
+                {...props}
+              >
+                <div className="fi-color__name">{color.toString()}</div>
+                {!!hslaAsHex && (
+                  <div className="fi-color__name fi-color__name--hex">
+                    {hslaAsHex}
+                  </div>
+                )}
+                <div className="fi-color__name fi-color__name--key">
+                  {key.toString()}
                 </div>
-              )}
-              <div className="fi-color_name fi-color_name--key">
-                {key.toString()}
-              </div>
-            </Color>
-          );
-          return [...arr, item];
-        }, [])}
+              </Color>
+            );
+            return [...arr, item];
+          },
+          [],
+        )}
       </ColorsContainer>
     );
   }
