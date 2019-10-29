@@ -8,6 +8,79 @@ export { ColorDesingTokens } from 'suomifi-design-tokens';
 
 export const { colors } = tokens;
 
+const {
+  whiteBase,
+  blackBase,
+  blackLighten42,
+  brandBase,
+  depthDark27,
+  depthBase,
+  depthLight30,
+  depthLight26,
+  depthLight13,
+  depthSecondaryDark6,
+  depthSecondary,
+  highlightDark9,
+  highlightBase,
+  highlightLight4,
+  highlightLight45,
+  highlightLight50,
+  highlightLight53,
+  accentBase,
+  accentSecondary,
+  accentSecondaryLight40,
+  accentTertiaryDark9,
+  accentTertiary,
+  successBase,
+  successSecondary,
+  warningBase,
+  alertBase,
+  alertLight47,
+} = colors;
+export const colorTokens = {
+  base: {
+    whiteBase,
+    blackBase,
+    blackLighten42,
+  },
+  brand: {
+    brandBase,
+  },
+  depth: {
+    depthDark27,
+    depthBase,
+    depthLight30,
+    depthLight26,
+    depthLight13,
+  },
+  depthSecondary: {
+    depthSecondaryDark6,
+    depthSecondary,
+  },
+  hightlight: {
+    highlightDark9,
+    highlightBase,
+    highlightLight4,
+    highlightLight45,
+    highlightLight50,
+    highlightLight53,
+  },
+  accent: {
+    accentBase,
+    accentSecondary,
+    accentSecondaryLight40,
+    accentTertiaryDark9,
+    accentTertiary,
+  },
+  trafficlights: {
+    successBase,
+    successSecondary,
+    warningBase,
+    alertBase,
+    alertLight47,
+  },
+};
+
 export type IShadows = typeof shadows;
 
 export const shadows = {
