@@ -336,7 +336,7 @@ exports[`snapshot testing 1`] = `
   margin-left: auto;
   margin-bottom: 8px;
   padding: 4px 0;
-  color: hsl(1,2,3);
+  color: hsl(1,2%,3%);
   cursor: pointer;
 }
 

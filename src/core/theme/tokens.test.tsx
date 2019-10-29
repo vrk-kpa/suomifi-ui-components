@@ -7,7 +7,7 @@ import { Panel, defaultTokens } from '../../';
 const { colors } = defaultTokens;
 const customColors = {
   ...colors,
-  highlightBase: { hsl: 'hsl(1, 2, 3)', h: 1, s: 2, l: 3 },
+  highlightBase: { hsl: 'hsl(1, 2%, 3%)', h: 1, s: 2, l: 3 },
 };
 
 const Test = (
