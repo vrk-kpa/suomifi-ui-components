@@ -4,10 +4,17 @@ import {
   TypographyProp,
   internalTypographyTokens,
   internalTypographyTokensProp,
+  TypograhpyDesingTokens,
 } from './typography';
-import { typographyUtils } from './utils';
-import { colors, shadows, gradients, outlines } from './colors';
-import { spacing } from './spacing';
+import { typographyUtils, spacingUtils, colorsUtils } from './utils';
+import {
+  colors,
+  shadows,
+  gradients,
+  outlines,
+  ColorDesingTokens,
+} from './colors';
+import { spacing, SpacingProp, SpacingDesingTokens } from './spacing';
 import { zindexes } from './zindexes';
 import { transitions } from './transitions';
 import { radius } from './radius';
@@ -15,12 +22,12 @@ export {
   TypographyProp,
   internalTypographyTokens,
   internalTypographyTokensProp,
+  SpacingProp,
 };
 
 export type SuomifiTokens = typeof importedTokens;
 export type DefaultSuomifiTokens = typeof defaultTokens;
 export type ColorProp = keyof typeof importedTokens.colors;
-export type SpacingProp = keyof typeof importedTokens.spacing;
 export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
 
 export interface TokensProp {
@@ -81,8 +88,8 @@ export const suomifiTheme = ({
   ...internalTokens,
   // Override if any defined
   ...(!!libraryTokenOverrides ? libraryTokenOverrides : {}),
-  colors,
-  spacing,
+  colors: colorsUtils(colors),
+  spacing: spacingUtils(spacing),
   typography: typographyUtils(typography),
   values: { colors, spacing, typography },
 });
