@@ -37,7 +37,6 @@ export class ToggleButton extends Component<ToggleProps> {
       logger.error(
         `ToggleButton does not utilize 'toggleInputProps' and 'toggleInputComponent' props.`,
       );
-      return false;
     }
 
     return (
