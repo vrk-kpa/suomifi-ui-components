@@ -33,7 +33,7 @@ export class ToggleButton extends Component<ToggleProps> {
     const { toggleState } = this.state;
     const toggleButtonClassName = `${baseClassName}_button`;
 
-    if (toggleInputProps || toggleInputComponent) {
+    if (!!toggleInputProps || !!toggleInputComponent) {
       logger.error(
         `ToggleButton does not utilize 'toggleInputProps' and 'toggleInputComponent' props.`,
       );
