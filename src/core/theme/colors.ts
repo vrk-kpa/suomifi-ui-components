@@ -114,8 +114,8 @@ export const gradients = {
     colors.whiteBase.hsl
   } 100%)`,
   highlightLight45ToHighlightLight50: `linear-gradient(0deg, ${
-    colors.highlightLight45
-  }, ${colors.highlightLight50})`,
+    colors.highlightLight45.hsl
+  }, ${colors.highlightLight50.hsl})`,
 };
 
 export const outlines = {
