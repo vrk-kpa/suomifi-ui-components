@@ -74,14 +74,10 @@ export class Toggle extends Component<ToggleProps> {
       ...passProps,
     };
 
-    return (
-      <React.Fragment>
-        {!!withInput ? (
-          <ToggleInput {...newToggleProps} />
-        ) : (
-          <ToggleButton {...newToggleProps} />
-        )}
-      </React.Fragment>
+    return !!withInput ? (
+      <ToggleInput {...newToggleProps} />
+    ) : (
+      <ToggleButton {...newToggleProps} />
     );
   }
 }
