@@ -8,6 +8,13 @@ export class ToggleButton extends Component<ToggleProps> {
     toggleState: !!this.props.checked || !!this.props.defaultChecked || false,
   };
 
+  componentWillReceiveProps(nextProps: ToggleProps) {
+    const { checked } = nextProps;
+    if (!!checked) {
+      this.setState({ toggleState: !!checked });
+    }
+  }
+
   handleClick = () => {
     const { checked, onClick } = this.props;
     const { toggleState } = this.state;
