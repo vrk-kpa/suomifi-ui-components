@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 import { HtmlButton } from '../../reset';
 import { ToggleProps, baseClassName, ToggleState } from './Toggle';
 import { logger } from '../../utils/logger';
@@ -28,6 +29,7 @@ export class ToggleButton extends Component<ToggleProps> {
 
   render() {
     const {
+      className,
       disabled = false,
       children,
       checked: dissMissChecked,
@@ -38,7 +40,7 @@ export class ToggleButton extends Component<ToggleProps> {
       ...passProps
     } = this.props;
     const { toggleState } = this.state;
-    const toggleButtonClassName = `${baseClassName}_button`;
+    const toggleClassName = `${baseClassName}--button`;
 
     if (!!toggleInputProps || !!toggleInputComponent) {
       logger.error(
@@ -48,7 +50,7 @@ export class ToggleButton extends Component<ToggleProps> {
 
     return (
       <HtmlButton
-        className={toggleButtonClassName}
+        className={classnames(toggleClassName, className, baseClassName)}
         aria-disabled={disabled}
         disabled={disabled}
         tabIndex={0}

@@ -65,6 +65,7 @@ export class ToggleInput extends Component<ToggleProps> {
       ...passProps
     } = this.props;
     const { toggleState } = this.state;
+    const toggleClassName = `${baseClassName}--input`;
     const toggleInputClassName = `${baseClassName}_input`;
     const toggleLabelClassName = `${baseClassName}_label`;
 
@@ -81,7 +82,7 @@ export class ToggleInput extends Component<ToggleProps> {
 
     return (
       <HtmlSpan
-        className={classnames(className, baseClassName, {
+        className={classnames(toggleClassName, className, baseClassName, {
           [toggleDisabledClassName]: !!disabled,
         })}
       >
