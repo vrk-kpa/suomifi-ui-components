@@ -41,8 +41,9 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Label */
   labelText: string;
-  /** Label displaymode
+  /** Label displaymode -
    * visible: show above, hidden: show as placeholder
+   * @default visible
    */
   labelMode?: Label;
 
@@ -68,6 +69,7 @@ export class BaseTextInput extends Component<TextInputProps> {
     } = this.props;
 
     const hideLabel = labelMode === 'hidden';
+    const labelAsPlaceholder = hideLabel || !!placeholder;
 
     return (
       <HtmlLabel
@@ -86,7 +88,7 @@ export class BaseTextInput extends Component<TextInputProps> {
             {...passProps}
             className={classnames(inputBaseClassName, inputClassName)}
             type="text"
-            placeholder={hideLabel ? labelText : !!placeholder ? labelText : ''}
+            placeholder={labelAsPlaceholder ? labelText : undefined}
           />
           {children}
         </HtmlDiv>
