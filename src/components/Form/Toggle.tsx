@@ -9,7 +9,7 @@ import { idGenerator } from '../../utils/uuid';
 import { ToggleInput } from './ToggleInput';
 import { ToggleButton } from './ToggleButton';
 
-export { ToggleButton, ToggleInput };
+export { ToggleInput };
 export const baseClassName = 'fi-toggle';
 
 export interface ToggleInputProps {

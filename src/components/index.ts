@@ -13,7 +13,6 @@ export {
   Toggle,
   ToggleProps,
   ToggleInputProps,
-  ToggleButton,
   ToggleInput,
 } from './Form/Toggle';
 export { Heading, HeadingProps } from './Heading/Heading';
