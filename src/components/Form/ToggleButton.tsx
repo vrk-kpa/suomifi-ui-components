@@ -43,7 +43,7 @@ export class ToggleButton extends Component<ToggleProps> {
       ...passProps
     } = this.props;
     const { toggleState } = this.state;
-    const toggleClassName = `${baseClassName}--button`;
+    const toggleClassName = `${baseClassName}--with-button`;
 
     if (!!toggleInputProps || !!toggleInputComponent) {
       logger.error(

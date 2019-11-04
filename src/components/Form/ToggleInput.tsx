@@ -66,7 +66,7 @@ export class ToggleInput extends Component<ToggleProps> {
       ...passProps
     } = this.props;
     const { toggleState } = this.state;
-    const toggleClassName = `${baseClassName}--input`;
+    const toggleClassName = `${baseClassName}--with-input`;
     const toggleInputClassName = `${baseClassName}_input`;
     const toggleLabelClassName = `${baseClassName}_label`;
 

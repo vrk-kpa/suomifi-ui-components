@@ -183,7 +183,7 @@ exports[`Button: calling render with the same component on the same container do
 <button
   aria-disabled="false"
   aria-pressed="false"
-  class="fi-toggle--button c0 fi-toggle c1"
+  class="fi-toggle--with-button c0 fi-toggle c1"
   data-testid="toggle"
   id="test-toggle"
   tabindex="0"
@@ -554,7 +554,7 @@ exports[`Input: calling render with the same component on the same container doe
 }
 
 <span
-  class="fi-toggle--input c0 fi-toggle c1"
+  class="fi-toggle--with-input c0 fi-toggle c1"
 >
   <input
     class="fi-toggle_input c2"
