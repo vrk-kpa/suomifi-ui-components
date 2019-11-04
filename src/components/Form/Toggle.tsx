@@ -10,7 +10,6 @@ import { ToggleInput } from './ToggleInput';
 import { ToggleButton } from './ToggleButton';
 
 export { ToggleInput };
-export const baseClassName = 'fi-toggle';
 
 type ToggleVariant = 'default' | 'withInput';
 

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import { HtmlButton } from '../../reset';
-import { ToggleProps, baseClassName, ToggleState } from './Toggle';
+import { ToggleProps, ToggleState } from './Toggle';
 import { logger } from '../../utils/logger';
+
+const baseClassName = 'fi-toggle';
+const toggleDisabledClassName = `${baseClassName}--disabled`;
 
 export class ToggleButton extends Component<ToggleProps> {
   state: ToggleState = {
@@ -50,7 +53,9 @@ export class ToggleButton extends Component<ToggleProps> {
 
     return (
       <HtmlButton
-        className={classnames(toggleClassName, className, baseClassName)}
+        className={classnames(toggleClassName, className, baseClassName, {
+          [toggleDisabledClassName]: !!disabled,
+        })}
         aria-disabled={disabled}
         disabled={disabled}
         tabIndex={0}

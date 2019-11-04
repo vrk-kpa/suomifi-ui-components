@@ -6,8 +6,9 @@ import React, {
 } from 'react';
 import classnames from 'classnames';
 import { HtmlInput, HtmlLabel, HtmlSpan } from '../../reset';
-import { ToggleProps, baseClassName, ToggleState } from './Toggle';
+import { ToggleProps, ToggleState } from './Toggle';
 
+const baseClassName = 'fi-toggle';
 const toggleDisabledClassName = `${baseClassName}--disabled`;
 
 const componentOrElementWithProps = (
