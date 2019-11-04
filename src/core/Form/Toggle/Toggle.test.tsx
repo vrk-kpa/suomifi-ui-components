@@ -15,7 +15,7 @@ const CreateTestToggle = (
     onClick={doNothing}
     data-testid={dataTestId}
     id="test-toggle"
-    withInput={withInput}
+    variant={withInput ? 'withInput' : 'default'}
   >
     {text}
   </Toggle>

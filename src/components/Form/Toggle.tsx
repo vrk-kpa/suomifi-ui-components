@@ -12,6 +12,8 @@ import { ToggleButton } from './ToggleButton';
 export { ToggleInput };
 export const baseClassName = 'fi-toggle';
 
+type ToggleVariant = 'default' | 'withInput';
+
 export interface ToggleInputProps {
   /** State of input checkbox */
   checked?: boolean;
@@ -40,8 +42,11 @@ export interface ToggleProps {
    * Label element content
    */
   children?: ReactNode;
-  /** Use input instead of button */
-  withInput?: boolean;
+  /**
+   * 'default' | 'withInput'
+   * @default default
+   */
+  variant?: ToggleVariant;
   /** Pass custom props to Toggle's input component/element */
   toggleInputProps?: ToggleInputProps;
   /** Customized ToggleInput-component */
@@ -67,14 +72,14 @@ export interface ToggleState {
 
 export class Toggle extends Component<ToggleProps> {
   render() {
-    const { withInput, id: propId, ...passProps } = this.props;
+    const { variant = 'default', id: propId, ...passProps } = this.props;
     const id = idGenerator(propId);
     const newToggleProps = {
       id,
       ...passProps,
     };
 
-    return !!withInput ? (
+    return variant === 'withInput' ? (
       <ToggleInput {...newToggleProps} />
     ) : (
       <ToggleButton {...newToggleProps} />

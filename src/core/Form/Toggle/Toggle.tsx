@@ -31,7 +31,7 @@ const StyledToggle = styled(
  * <i class="semantics" />
  * Use for toggling form selection or application state
  */
-export class Toggle extends Component<ToggleProps> {
+class ToggleWithIcon extends Component<ToggleProps> {
   state = { toggleStatus: !!this.props.checked };
 
   handleToggle = () => {
@@ -70,6 +70,16 @@ export class Toggle extends Component<ToggleProps> {
         {children}
       </StyledToggle>
     );
+  }
+}
+
+export class Toggle extends Component<ToggleProps> {
+  static withInput = (props: ToggleProps) => {
+    return <ToggleWithIcon {...props} variant="withInput" />;
+  };
+
+  render() {
+    return <ToggleWithIcon {...this.props} />;
   }
 }
 
