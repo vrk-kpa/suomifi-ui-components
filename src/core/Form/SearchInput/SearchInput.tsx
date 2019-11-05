@@ -4,22 +4,18 @@ import { InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { baseStyles } from './SearchInput.baseStyles';
 import { baseStyles as inputBaseStyles } from '../TextInput/TextInput.baseStyles';
-import { BaseTextInput } from '../../../components/Form/TextInput';
+import { SearchInput as CompSearchInput } from '../../../components/Form/SearchInput';
 import { TextInputProps, textInputClassNames } from '../TextInput/TextInput';
 import { Icon } from '../../Icon/Icon';
 import classnames from 'classnames';
 import { Omit } from '../../../utils/typescript';
-import { logger } from '../../../utils/logger';
 
 const baseClassName = 'fi-search-input';
 const inputContainerBaseClassName = `${baseClassName}_input-container`;
 const inputBaseClassName = `${baseClassName}_input`;
 const iconBaseClassName = `${baseClassName}_icon`;
 
-export interface SearchInputProps extends Omit<TextInputProps, 'variant'> {
-  /** Placeholder text for search field. Must match labelText */
-  placeholder?: string;
-}
+export interface SearchInputProps extends Omit<TextInputProps, 'variant'> {}
 
 const StyledTextInput = styled(
   ({
@@ -30,7 +26,7 @@ const StyledTextInput = styled(
     inputClassName,
     ...passProps
   }: TextInputProps & InternalTokensProp) => (
-    <BaseTextInput
+    <CompSearchInput
       {...passProps}
       labelTextProps={{
         ...labelTextProps,
@@ -52,8 +48,8 @@ const StyledTextInput = styled(
     />
   ),
 )`
-  ${props => baseStyles(props)}
   ${props => inputBaseStyles(props)}
+  ${props => baseStyles(props)}
 `;
 
 /**
@@ -62,14 +58,6 @@ const StyledTextInput = styled(
  */
 export class SearchInput extends Component<SearchInputProps> {
   render() {
-    const { labelText, placeholder } = this.props;
-
-    if (!!placeholder && labelText !== placeholder) {
-      logger.warn(
-        'Placeholder different than label is not supported, using labelText instead',
-      );
-    }
-
     return (
       <StyledTextInput {...withSuomifiDefaultProps(this.props)}>
         <Icon icon="search" className={iconBaseClassName} />
