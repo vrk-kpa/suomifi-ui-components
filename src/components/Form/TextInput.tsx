@@ -60,7 +60,6 @@ export class BaseTextInput extends Component<TextInputProps> {
       inputClassName,
       labelText,
       labelMode,
-      placeholder,
       labelProps,
       labelTextProps,
       inputContainerProps,
@@ -69,7 +68,6 @@ export class BaseTextInput extends Component<TextInputProps> {
     } = this.props;
 
     const hideLabel = labelMode === 'hidden';
-    const labelAsPlaceholder = hideLabel || !!placeholder;
 
     return (
       <HtmlLabel
@@ -88,7 +86,6 @@ export class BaseTextInput extends Component<TextInputProps> {
             {...passProps}
             className={classnames(inputBaseClassName, inputClassName)}
             type="text"
-            placeholder={labelAsPlaceholder ? labelText : undefined}
           />
           {children}
         </HtmlDiv>
@@ -97,20 +94,9 @@ export class BaseTextInput extends Component<TextInputProps> {
   }
 }
 
-export class TextInput extends BaseTextInput {
+export class TextInput extends Component<TextInputProps> {
   render() {
-    const {
-      className,
-      inputClassName,
-      labelText,
-      labelMode,
-      placeholder,
-      labelProps,
-      labelTextProps,
-      inputContainerProps,
-      children,
-      ...passProps
-    } = this.props;
+    const { placeholder, ...passProps } = this.props;
 
     if (!!placeholder) {
       logger.error(
@@ -118,29 +104,11 @@ export class TextInput extends BaseTextInput {
       );
     }
 
-    const hideLabel = labelMode === 'hidden';
+    const showPlaceholder = this.props.labelMode === 'hidden';
+    const props = {
+      placeholder: showPlaceholder ? this.props.labelText : undefined,
+    };
 
-    return (
-      <HtmlLabel
-        {...labelProps}
-        className={classnames(labelBaseClassName, className, {
-          [disabledClassName]: !!passProps.disabled,
-        })}
-      >
-        {hideLabel ? (
-          <VisuallyHidden>{labelText}</VisuallyHidden>
-        ) : (
-          <Paragraph {...labelTextProps}>{labelText}</Paragraph>
-        )}
-        <HtmlDiv {...inputContainerProps}>
-          <HtmlInput
-            {...passProps}
-            className={classnames(inputBaseClassName, inputClassName)}
-            type="text"
-          />
-          {children}
-        </HtmlDiv>
-      </HtmlLabel>
-    );
+    return <BaseTextInput {...passProps} {...props} />;
   }
 }
