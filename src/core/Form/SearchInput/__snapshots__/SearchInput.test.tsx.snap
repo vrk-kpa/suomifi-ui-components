@@ -102,21 +102,6 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
 }
 
-.c0 .fi-search-input_input-container {
-  position: relative;
-}
-
-.c0 .fi-search-input_input {
-  padding-right: 40px;
-}
-
-.c0 .fi-search-input_icon {
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  margin-top: -0.5em;
-}
-
 .c0 .fi-text-input_label-p {
   margin-bottom: 16px;
 }
@@ -189,6 +174,21 @@ exports[`calling render with the same component on the same container does not r
   border-color: hsl(166,90%,36%);
 }
 
+.c0 .fi-search-input_input-container {
+  position: relative;
+}
+
+.c0 .fi-search-input_input {
+  padding-right: 40px;
+}
+
+.c0 .fi-search-input_icon {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  margin-top: -0.5em;
+}
+
 <label
   class="fi-text-input_label c0 fi-search-input c1"
 >
@@ -203,7 +203,6 @@ exports[`calling render with the same component on the same container does not r
     <input
       class="fi-text-input_input fi-search-input_input c4"
       data-testid="textinput"
-      placeholder=""
       type="text"
     />
     <svg
