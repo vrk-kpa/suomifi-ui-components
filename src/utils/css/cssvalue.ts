@@ -8,7 +8,7 @@ export const cssValueToString = (cssValue: number | string | ValueUnit) => {
   if (!!cssValue && typeof cssValue === 'object' && 'value' in cssValue) {
     const { value, unit } = cssValue;
     const stringValue = typeof value === 'number' ? value.toString(10) : value;
-    return !!unit ? `${stringValue}${unit}` : value;
+    return !!unit ? `${stringValue}${unit}` : stringValue;
   }
-  return cssValue;
+  return typeof cssValue === 'number' ? cssValue.toString(10) : cssValue;
 };
