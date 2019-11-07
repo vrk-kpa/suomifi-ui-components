@@ -1,7 +1,6 @@
 import { FlattenSimpleInterpolation } from 'styled-components';
-import { cssObjectsToCss, cssValueToString } from '../../../utils/css';
+import { cssObjectsToCss } from '../../../../utils/css';
 import { tokens, TypograhpyDesingTokens } from 'suomifi-design-tokens';
-import { SuomifiTheme } from '../';
 
 export type TypographyTokensAsCss = {
   [key in keyof typeof tokens.typography]: string
@@ -33,14 +32,4 @@ export const typographyUtils = (typography: TypograhpyDesingTokens) => {
   const instance = new TypographyUtil(typography);
   Object.freeze(instance);
   return instance;
-};
-
-type ValueTypographyTokenProp = keyof typeof tokens.typography;
-export const fontSize = (props: {
-  theme: SuomifiTheme;
-  [key: string]: any | any[];
-}) => (typographyToken: ValueTypographyTokenProp) => {
-  return cssValueToString(
-    props.theme.values.typography[typographyToken].fontSize,
-  );
 };
