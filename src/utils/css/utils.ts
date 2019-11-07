@@ -1,5 +1,5 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components';
-import { ValueUnit } from 'suomifi-design-tokens';
+import { cssValueToString } from './';
 
 export const clearfix = css`
   &:after {
@@ -8,21 +8,6 @@ export const clearfix = css`
     clear: both;
   }
 `;
-
-/**
- * Return CSS compatible string
- * @param cssValue number, string or {value: number, unit: string | null}
- */
-export const cssValueToString = (
-  cssValue: number | string | ValueUnit,
-): string | number => {
-  if (!!cssValue && typeof cssValue === 'object' && 'value' in cssValue) {
-    const { value, unit } = cssValue;
-    const stringValue = typeof value === 'number' ? value.toString(10) : value;
-    return !!unit ? `${stringValue}${unit}` : value;
-  }
-  return cssValue;
-};
 
 const camelToSnake = (string: string) =>
   string.replace(/[\w]([A-Z])/g, m => `${m[0]}-${m[1]}`).toLowerCase();
