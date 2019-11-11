@@ -9,7 +9,6 @@ import { HtmlInput, HtmlLabel } from '../../reset';
 import { ToggleProps, ToggleState } from './Toggle';
 
 const baseClassName = 'fi-toggle';
-const toggleDisabledClassName = `${baseClassName}--disabled`;
 
 const componentOrElementWithProps = (
   component: ReactElement<any> | FunctionComponent<any> | ComponentClass<any>,
@@ -86,6 +85,7 @@ export class ToggleInput extends Component<ToggleProps> {
       <HtmlLabel
         htmlFor={id}
         className={classnames(
+          toggleClassName,
           className,
           baseClassName,
           {
