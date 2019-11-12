@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { iconBaseStyles } from './Icon.baseStyles';
-import { withSuomifiDefaultProps } from '../theme/utils';
+import { withSuomifiDefaultProps, colorValue } from '../theme/utils';
 import { TokensProp } from '../theme';
 import {
   ariaLabelOrHidden,
@@ -83,14 +83,25 @@ export class Icon extends Component<IconProps> {
       ...passProps
     } = withSuomifiDefaultProps(this.props);
     const { className, ariaLabel } = this.props;
-    const iconColor = color !== undefined ? color : tokens.colors.depthDark27;
 
     if (!!src) {
-      return <StyledIcon src={src} {...passProps} color={iconColor} />;
+      return (
+        <StyledIcon
+          src={src}
+          {...passProps}
+          color={colorValue({ tokens })('depthDark27')}
+        />
+      );
     }
 
     if (icon !== undefined) {
-      return <StyledSuomifiIcon {...passProps} icon={icon} color={iconColor} />;
+      return (
+        <StyledSuomifiIcon
+          {...passProps}
+          icon={icon}
+          color={colorValue({ tokens })('depthDark27')}
+        />
+      );
     }
 
     logger.warn(

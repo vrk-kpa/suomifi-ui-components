@@ -1,5 +1,9 @@
 import { css } from 'styled-components';
-import { TypographyProp } from '../';
+import {
+  TypographyProp,
+  internalTypographyTokens,
+  internalTypographyTokensProp,
+} from '../';
 import {
   focus as focusUtil,
   themeOrTokens,
@@ -12,15 +16,26 @@ export const element = (props: TokensOrThemeProps) => css`
   color: ${themeOrTokens(props).colors.blackBase};
 `;
 
-export const font = (props: TokensOrThemeProps) => (
-  typographyToken: TypographyProp,
-) => css`
+const fontBase = css`
   letter-spacing: 0;
   text-decoration: none;
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+`;
+
+export const font = (props: TokensOrThemeProps) => (
+  typographyToken: TypographyProp,
+) => css`
+  ${fontBase}
   ${themeOrTokens(props).typography[typographyToken]}
+`;
+
+export const internalTokenFont = (
+  typographyToken: keyof internalTypographyTokensProp,
+) => css`
+  ${fontBase}
+  ${internalTypographyTokens[typographyToken]}
 `;
 
 export const input = (props: TokensOrThemeProps) => {
@@ -28,7 +43,7 @@ export const input = (props: TokensOrThemeProps) => {
   return css`
     ${element(props)}
     ${font(props)('actionElementInnerText')}
-  min-width: 245px;
+    min-width: 245px;
     max-width: 100%;
     padding: ${theme.spacing.s} ${theme.spacing.m};
     border: 1px solid ${theme.colors.depthBase};

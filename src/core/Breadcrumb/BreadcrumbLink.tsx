@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { TokensProp } from '../theme';
-import { withSuomifiDefaultProps } from '../theme/utils';
+import { withSuomifiDefaultProps, colorValue } from '../theme/utils';
 import { baseClassName } from '../../components/Breadcrumb/Breadcrumb';
 import { Link, LinkProps } from '../Link/Link';
 import { Icon } from '../Icon/Icon';
@@ -25,13 +25,16 @@ export const BreadcrumbLink = ({
   children,
   className,
   href = '',
-  ...passProps
-}: BreadcrumbLinkProps) =>
-  !!current ? (
-    <HtmlSpan className={className} aria-current="location">
-      {children}
-    </HtmlSpan>
-  ) : (
+  ...origPassProps
+}: BreadcrumbLinkProps) => {
+  if (!!current)
+    return (
+      <HtmlSpan className={className} aria-current="location">
+        {children}
+      </HtmlSpan>
+    );
+  const passProps = withSuomifiDefaultProps(origPassProps);
+  return (
     <Fragment>
       <Link
         {...passProps}
@@ -43,7 +46,8 @@ export const BreadcrumbLink = ({
       <Icon
         icon="linkBreadcrumb"
         className={iconClassName}
-        color={withSuomifiDefaultProps(passProps).tokens.colors.blackBase}
+        color={colorValue(passProps)('blackBase')}
       />
     </Fragment>
   );
+};

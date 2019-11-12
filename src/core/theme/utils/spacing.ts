@@ -1,19 +1,29 @@
+import { FlattenSimpleInterpolation } from 'styled-components';
+import {
+  SpacingProp,
+  spacingTokensKeys,
+  SpacingDesingTokens,
+} from '../spacing';
+import { cssValueToString } from '../../../utils/css';
+
+export const spacingUtils = (spacing: SpacingDesingTokens) =>
+  Object.entries(spacing).reduce(
+    (retObj, [key, value]) => ({
+      ...retObj,
+      [key]: cssValueToString(value),
+    }),
+    {} as { [key in keyof SpacingDesingTokens]: FlattenSimpleInterpolation },
+  );
+
 // TODO make this whole util again to work with suomifiTheme-util
 
-import {
-  spacingSuomifiTokens,
-  spacingTokensKeys,
-  spacingTokens,
-} from '../spacing';
-import { SuomifiTokens } from '../';
+import { SuomifiThemeProp, SuomifiTheme } from '../';
 
-export type SpaceProp = spacingSuomifiTokens | '0';
+export type SpaceProp = SpacingProp | '0';
 
-const spaceVal = (tokens?: SuomifiTokens) => (val?: SpaceProp) => {
+const spaceVal = (theme: SuomifiTheme) => (val?: SpaceProp) => {
   if (val === '0') return '0';
-  const useTokens =
-    !!tokens && !!tokens.spacing ? tokens.spacing : spacingTokens;
-  return !!val ? useTokens[val] : '';
+  return !!val ? theme.spacing[val] : '';
 };
 
 /**
@@ -34,29 +44,30 @@ const spaceVal = (tokens?: SuomifiTokens) => (val?: SpaceProp) => {
  * @param {Object} theme suomifiTheme
  * @return {(spacingType) => (spacingTokens) => String}
  */
-const space = (tokens?: SuomifiTokens) => (type: 'padding' | 'margin') => (
+const space = (theme: SuomifiTheme) => (type: 'padding' | 'margin') => (
   t?: SpaceProp,
   r?: SpaceProp,
   b?: SpaceProp,
   l?: SpaceProp,
 ) =>
   !!t
-    ? `${!!t ? `${type}-top: ${spaceVal(tokens)(t)};` : ''}
-    ${!!r ? `${type}-right: ${spaceVal(tokens)(r)};` : ''}
-    ${!!b ? `${type}-bottom: ${spaceVal(tokens)(b)};` : ''}
-    ${!!l ? `${type}-left:${spaceVal(tokens)(l)};` : ''}`
+    ? `${!!t ? `${type}-top: ${spaceVal(theme)(t)};` : ''}
+    ${!!r ? `${type}-right: ${spaceVal(theme)(r)};` : ''}
+    ${!!b ? `${type}-bottom: ${spaceVal(theme)(b)};` : ''}
+    ${!!l ? `${type}-left:${spaceVal(theme)(l)};` : ''}`
     : '';
 
 /**
- * Set margin based on tokens
- * @param {Object} tokens
+ * Set margin based on theme
+ * @param {Object} theme
  */
-export const margin = (tokens?: SuomifiTokens) => space(tokens)('margin');
+export const margin = (props: SuomifiThemeProp) => space(props.theme)('margin');
 /**
- * Set padding based on tokens
- * @param {Object} tokens
+ * Set padding based on theme
+ * @param {Object} theme
  */
-export const padding = (tokens?: SuomifiTokens) => space(tokens)('padding');
+export const padding = (props: SuomifiThemeProp) =>
+  space(props.theme)('padding');
 
 /**
  * Create spacing styles for CSS-selector (-xxs, -xs, -s...)
@@ -64,13 +75,13 @@ export const padding = (tokens?: SuomifiTokens) => space(tokens)('padding');
  * @param {Object} tokens Design tokens
  * @return {(spacingType) => (selector: String) => String}
  */
-export const spacingModifiers = (tokens?: SuomifiTokens) => (
+export const spacingModifiers = (props: SuomifiThemeProp) => (
   spacing: 'padding' | 'margin',
 ) => (selector: string) =>
   spacingTokensKeys.reduce(
     (ret, k) =>
       `${ret}${selector}-${k}{
-        ${spacing}: ${spaceVal(tokens)(k)}
+        ${spacing}: ${spaceVal(props.theme)(k)}
   } `,
     '',
   );

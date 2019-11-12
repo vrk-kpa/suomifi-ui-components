@@ -1,20 +1,18 @@
-import {
-  cssObjectsToCss,
-  FlattenSimpleInterpolation,
-} from '../../../utils/css';
-import { typographyTokens, TypographyTokens } from '../typography';
+import { FlattenSimpleInterpolation } from 'styled-components';
+import { cssObjectsToCss } from '../../../../utils/css';
+import { tokens, TypograhpyDesingTokens } from 'suomifi-design-tokens';
 
 export type TypographyTokensAsCss = {
-  [key in keyof typeof typographyTokens]: string
+  [key in keyof typeof tokens.typography]: string
 };
 
 type TypographyTokensAsCssProp = {
-  [key in keyof TypographyTokens]: FlattenSimpleInterpolation
+  [key in keyof TypograhpyDesingTokens]: FlattenSimpleInterpolation
 };
 export interface TypographyUtil extends TypographyTokensAsCssProp {}
 export class TypographyUtil {
   static instance: TypographyUtil;
-  constructor(tokens: TypographyTokens) {
+  constructor(tokens: TypograhpyDesingTokens) {
     // If instance not created, does not take on account if tokens is different!
     if (!TypographyUtil.instance) {
       // Assing typographyTokens as CSS FlattenSimpleInterpolation to this object
@@ -30,7 +28,7 @@ export class TypographyUtil {
  * @param typography Typography-tokens
  * @return typographyWithUtils Typography-tokens and typography-tokens as CSS strings
  */
-export const typographyUtils = (typography: TypographyTokens) => {
+export const typographyUtils = (typography: TypograhpyDesingTokens) => {
   const instance = new TypographyUtil(typography);
   Object.freeze(instance);
   return instance;
