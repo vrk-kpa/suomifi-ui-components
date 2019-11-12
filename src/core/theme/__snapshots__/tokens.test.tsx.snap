@@ -330,9 +330,12 @@ exports[`snapshot testing 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 600;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
   margin-left: auto;
   margin-bottom: 8px;
   padding: 4px 0;
@@ -407,6 +410,7 @@ exports[`snapshot testing 1`] = `
       <div
         aria-hidden="true"
         class="fi-panel-expansion_content c9 fi-panel c6 c2"
+        hidden=""
       >
         Test expansion content 1
       </div>
@@ -439,6 +443,7 @@ exports[`snapshot testing 1`] = `
       <div
         aria-hidden="true"
         class="fi-panel-expansion_content c9 fi-panel c6 c2"
+        hidden=""
       >
         Test expansion content 2
       </div>
@@ -471,6 +476,7 @@ exports[`snapshot testing 1`] = `
       <div
         aria-hidden="true"
         class="fi-panel-expansion_content c9 fi-panel c6 c2"
+        hidden=""
       >
         Test expansion content 3
       </div>
