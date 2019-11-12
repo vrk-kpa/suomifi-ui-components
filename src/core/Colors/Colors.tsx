@@ -38,16 +38,16 @@ export class Colors extends Component<ColorsProps> {
         {Object.entries(useColors).reduce<JSX.Element[]>(
           (arr, [key, value]) => {
             const color = value.hsl;
-            const hslaAsHex = hslaToHex(color.toString());
+            const hslaAsHex = hslaToHex(color);
             const item = (
               <Color
                 keyName={key.toString()}
-                color={color.toString()}
+                color={color}
                 key={key.toString()}
                 onClick={copyKey(key.toString())}
                 {...props}
               >
-                <div className="fi-color__name">{color.toString()}</div>
+                <div className="fi-color__name">{color}</div>
                 {!!hslaAsHex && (
                   <div className="fi-color__name fi-color__name--hex">
                     {hslaAsHex}
