@@ -84,24 +84,15 @@ export class Icon extends Component<IconProps> {
     } = withSuomifiDefaultProps(this.props);
     const { className, ariaLabel } = this.props;
 
+    const iconColor =
+      color !== undefined ? color : colorValue({ tokens })('depthDark27');
+
     if (!!src) {
-      return (
-        <StyledIcon
-          src={src}
-          {...passProps}
-          color={colorValue({ tokens })('depthDark27')}
-        />
-      );
+      return <StyledIcon src={src} {...passProps} color={iconColor} />;
     }
 
     if (icon !== undefined) {
-      return (
-        <StyledSuomifiIcon
-          {...passProps}
-          icon={icon}
-          color={colorValue({ tokens })('depthDark27')}
-        />
-      );
+      return <StyledSuomifiIcon {...passProps} icon={icon} color={iconColor} />;
     }
 
     logger.warn(
