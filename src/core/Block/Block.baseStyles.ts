@@ -5,10 +5,10 @@ import { element, font } from '../theme/reset';
 import { spacingModifiers } from '../theme/utils';
 
 export const baseStyles = withSuomifiTheme(
-  ({ theme, tokens }: BlockProps & TokensAndTheme) => css`
+  ({ theme }: BlockProps & TokensAndTheme) => css`
   ${element({ theme })}
   ${font({ theme })('bodyText')}
-  ${spacingModifiers(tokens)('margin')('&.fi-block--margin')}
-  ${spacingModifiers(tokens)('padding')('&.fi-block--padding')}
+  ${spacingModifiers({ theme })('margin')('&.fi-block--margin')}
+  ${spacingModifiers({ theme })('padding')('&.fi-block--padding')}
 `,
 );

@@ -11,6 +11,7 @@ import {
   ToggleInputProps as CompToggleInputProps,
 } from '../../../components/Form/Toggle';
 import { Icon } from '../../Icon/Icon';
+import { Text } from '../../Text/Text';
 
 export interface ToggleProps extends CompToggleProps, TokensProp {}
 export interface ToggleInputProps extends CompToggleInputProps, TokensProp {}
@@ -31,7 +32,7 @@ const StyledToggle = styled(
  * <i class="semantics" />
  * Use for toggling form selection or application state
  */
-export class Toggle extends Component<ToggleProps> {
+class ToggleWithIcon extends Component<ToggleProps> {
   state = { toggleStatus: !!this.props.checked };
 
   handleToggle = () => {
@@ -54,7 +55,11 @@ export class Toggle extends Component<ToggleProps> {
     const { toggleStatus } = this.state;
 
     return (
-      <StyledToggle {...passProps} onClick={this.handleToggle}>
+      <StyledToggle
+        disabled={disabled}
+        {...passProps}
+        onClick={this.handleToggle}
+      >
         <Icon
           icon="toggle"
           className={classnames(iconBaseClassName, {
@@ -63,9 +68,21 @@ export class Toggle extends Component<ToggleProps> {
           })}
           mousePointer={true}
         />
-        {children}
+        <Text>{children}</Text>
       </StyledToggle>
     );
+  }
+}
+
+export class Toggle extends Component<ToggleProps> {
+  static withInput = (props: ToggleProps) => {
+    return (
+      <ToggleWithIcon {...withSuomifiDefaultProps(props)} variant="withInput" />
+    );
+  };
+
+  render() {
+    return <ToggleWithIcon {...withSuomifiDefaultProps(this.props)} />;
   }
 }
 

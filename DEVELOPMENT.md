@@ -22,6 +22,8 @@ After cloning suomifi-ui-components, run `yarn` to fetch its dependencies. Then,
 
 ## Source
 
+[![suomifi-ui-components architecture diagram](suomifi-ui-components.png 'suomifi-ui-components architecture')](suomifi-ui-components.png)
+
 Source contains 3 stages of components:
 
 1. `reset` is for resetting html tags (don't do too opinionated stuff here).

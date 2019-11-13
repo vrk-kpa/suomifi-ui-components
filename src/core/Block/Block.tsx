@@ -6,7 +6,7 @@ import {
   Block as CompBlock,
   BlockProps as CompBlockProps,
 } from '../../components/Block/Block';
-import { spacingSuomifiTokens } from '../theme/spacing';
+import { SpacingProp } from '../theme/spacing';
 import { baseStyles } from './Block.baseStyles';
 import classnames from 'classnames';
 
@@ -14,9 +14,9 @@ const baseClassName = 'fi-block';
 
 export interface BlockProps extends CompBlockProps, TokensProp {
   /** Padding from theme */
-  padding?: spacingSuomifiTokens;
+  padding?: SpacingProp;
   /** Margin from theme */
-  margin?: spacingSuomifiTokens;
+  margin?: SpacingProp;
 }
 
 const StyledBlock = styled(
