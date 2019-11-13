@@ -1,6 +1,10 @@
 import { css } from 'styled-components';
 import { readableColor } from 'polished';
-import { withSuomifiTheme, TokensAndTheme } from '../theme';
+import {
+  withSuomifiTheme,
+  TokensAndTheme,
+  internalTypographyTokens,
+} from '../theme';
 import { clearfix } from '../../utils/css/utils';
 import { ColorProps } from './Colors';
 
@@ -27,7 +31,7 @@ export const baseStyles = withSuomifiTheme(
         border-bottom-color: ${readableColor(color)};
       }
 
-      .fi-color__name {
+      .fi-color_name {
         position: relative;
         width: 100%;
         text-align: right;
@@ -41,11 +45,11 @@ export const baseStyles = withSuomifiTheme(
         }
 
         &--key {
-          ${theme.typography.bodySemiBold}
+          ${internalTypographyTokens.bodySemiBold}
         }
       }
 
-      &:hover .fi-color__name--key {
+      &:hover .fi-color_name--key {
         text-decoration: underline;
       }
     `;

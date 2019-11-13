@@ -5,7 +5,7 @@ import { element, focus } from '../theme/reset';
 import { padding } from '../theme/utils';
 
 export const baseStyles = withSuomifiTheme(
-  ({ theme, tokens }: TokensAndTheme & Partial<MenuProps>) => css`
+  ({ theme }: TokensAndTheme & Partial<MenuProps>) => css`
   & > [data-reach-menu-button].fi-menu_button {
     ${element({ theme })}
     ${theme.typography.bodyText}
@@ -14,7 +14,7 @@ export const baseStyles = withSuomifiTheme(
     &.fi-menu-language_button {
       ${element({ theme })}
       ${theme.typography.actionElementInnerTextBold}
-      ${padding(tokens)('s', 'xs', 's', 's')}
+      ${padding({ theme })('s', 'xs', 's', 's')}
       background-color: ${theme.colors.whiteBase};
       border: 1px solid ${theme.colors.depthBase};
       border-radius: ${theme.radius.basic};

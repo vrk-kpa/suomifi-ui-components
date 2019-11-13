@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`calling render with the same component on the same container does not remount 1`] = `
-.c2 {
+exports[`Button: calling render with the same component on the same container does not remount 1`] = `
+.c1 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   margin: 0;
   overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
   margin: 0;
   padding: 0;
   border: 0;
@@ -22,34 +24,32 @@ exports[`calling render with the same component on the same container does not r
   cursor: inherit;
   display: inline-block;
   max-width: 100%;
+  cursor: pointer;
 }
 
-.c2::-webkit-input-placeholder {
-  color: inherit;
-  opacity: 0.54;
+.c1:-moz-focusring {
+  outline: 1px dotted ButtonText;
 }
 
-.c3 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
+.c1::-moz-focus-inner {
+  border-style: none;
   padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  max-width: 100%;
 }
 
-.c1 {
+.c1::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.c1::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.c1::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -73,14 +73,112 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.c4 {
+.c2 {
   display: inline-block;
   vertical-align: baseline;
   cursor: pointer;
 }
 
-.c4 * {
+.c2 * {
   cursor: inherit;
+}
+
+.c3 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: hsl(0,0%,16%);
+}
+
+.c3.fi-text--bold {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c3.fi-text--lead {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 22px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c3.fi-text--small-screen {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c3.fi-text--small-screen.fi-text--bold {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c3.fi-text--small-screen.fi-text--lead {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
 .c0 {
@@ -94,7 +192,7 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -116,7 +214,7 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -204,176 +302,651 @@ exports[`calling render with the same component on the same container does not r
   fill: hsl(166,90%,36%);
 }
 
-<span
-  class="c0 fi-toggle c1"
+<button
+  aria-disabled="false"
+  aria-pressed="false"
+  class="fi-toggle--with-button c0 fi-toggle c1"
+  data-testid="toggle"
+  id="test-toggle"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    aria-hidden="true"
+    class="fi-toggle_icon c2"
+    focusable="false"
+    height="1em"
+    viewBox="0 0 38 23"
+    width="1em"
+  >
+    <defs>
+      <lineargradient
+        id="icon-toggle_svg__c"
+        x1="50%"
+        x2="50%"
+        y1="0%"
+        y2="99.021%"
+      >
+        <stop
+          offset="0%"
+          stop-opacity="0"
+        />
+        <stop
+          offset="80%"
+          stop-opacity="0.02"
+        />
+        <stop
+          offset="100%"
+          stop-opacity="0.04"
+        />
+      </lineargradient>
+      <lineargradient
+        id="icon-toggle_svg__d"
+        x1="50%"
+        x2="50%"
+        y1="0%"
+        y2="100%"
+      >
+        <stop
+          offset="0%"
+          stop-color="#FFF"
+          stop-opacity="0.12"
+        />
+        <stop
+          offset="20%"
+          stop-color="#FFF"
+          stop-opacity="0.06"
+        />
+        <stop
+          offset="100%"
+          stop-color="#FFF"
+          stop-opacity="0"
+        />
+      </lineargradient>
+      <filter
+        filterUnits="objectBoundingBox"
+        height="120%"
+        id="icon-toggle_svg__a"
+        width="117.5%"
+        x="-8.8%"
+        y="-8.8%"
+      >
+        <feoffset
+          dy="1"
+          in="SourceAlpha"
+          result="shadowOffsetOuter1"
+        />
+        <fegaussianblur
+          in="shadowOffsetOuter1"
+          result="shadowBlurOuter1"
+          stdDeviation="0.25"
+        />
+        <fecomposite
+          in="shadowBlurOuter1"
+          in2="SourceAlpha"
+          operator="out"
+          result="shadowBlurOuter1"
+        />
+        <fecolormatrix
+          in="shadowBlurOuter1"
+          result="shadowMatrixOuter1"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+        />
+        <feoffset
+          in="SourceAlpha"
+          result="shadowOffsetOuter2"
+        />
+        <fegaussianblur
+          in="shadowOffsetOuter2"
+          result="shadowBlurOuter2"
+          stdDeviation="0.5"
+        />
+        <fecomposite
+          in="shadowBlurOuter2"
+          in2="SourceAlpha"
+          operator="out"
+          result="shadowBlurOuter2"
+        />
+        <fecolormatrix
+          in="shadowBlurOuter2"
+          result="shadowMatrixOuter2"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"
+        />
+        <femerge>
+          <femergenode
+            in="shadowMatrixOuter1"
+          />
+          <femergenode
+            in="shadowMatrixOuter2"
+          />
+        </femerge>
+      </filter>
+      <circle
+        cx="10"
+        cy="12"
+        id="icon-toggle_svg__b"
+        r="10"
+      />
+    </defs>
+    <g
+      fill="none"
+      fill-rule="evenodd"
+    >
+      <path
+        class="icon-toggle_svg__fi-toggle-icon-slide"
+        d="M38 11c0 3.9-3.1 7-7 7H11c-3.9 0-7-3.1-7-7s3.1-7 7-7h20c3.9 0 7 3.1 7 7z"
+        fill="#C9CDCF"
+      />
+      <g
+        class="icon-toggle_svg__fi-toggle-icon-knob"
+        transform="translate(1 -1)"
+      >
+        <use
+          fill="#000"
+          filter="url(#icon-toggle_svg__a)"
+          xlink:href="#icon-toggle_svg__b"
+        />
+        <circle
+          class="icon-toggle_svg__fi-toggle-icon-circle"
+          cx="10"
+          cy="12"
+          fill="#F6F6F7"
+          r="9.75"
+          stroke="url(#icon-toggle_svg__c)"
+          stroke-linejoin="square"
+          stroke-width="0.5"
+        />
+        <circle
+          cx="10"
+          cy="12"
+          r="9.75"
+          stroke="url(#icon-toggle_svg__d)"
+          stroke-linejoin="square"
+          stroke-width="0.5"
+        />
+      </g>
+    </g>
+  </svg>
+  <span
+    class="fi-text c3 fi-text--body c4"
+  >
+    Test
+  </span>
+</button>
+`;
+
+exports[`Input: calling render with the same component on the same container does not remount 1`] = `
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.c2::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+.c1 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
+}
+
+.c5 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3 {
+  display: inline-block;
+  vertical-align: baseline;
+  cursor: pointer;
+}
+
+.c3 * {
+  cursor: inherit;
+}
+
+.c4 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: hsl(0,0%,16%);
+}
+
+.c4.fi-text--bold {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c4.fi-text--lead {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 22px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c4.fi-text--small-screen {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c4.fi-text--small-screen.fi-text--bold {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c4.fi-text--small-screen.fi-text--lead {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c0 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: hsl(0,0%,100%);
+}
+
+.c0 > .fi-toggle_label {
+  cursor: pointer;
+}
+
+.c0 > .fi-toggle_input {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: -9999;
+  background-color: hsl(0,0%,100%);
+}
+
+.c0 > .fi-toggle_input:focus {
+  outline: 0;
+}
+
+.c0 > .fi-toggle_input:focus + .fi-toggle_label {
+  outline: 0;
+  position: relative;
+}
+
+.c0 > .fi-toggle_input:focus + .fi-toggle_label:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid hsl(23,82%,53%);
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  z-index: 9999;
+}
+
+.c0 > .fi-toggle_input:focus + .fi-toggle_label:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 > .fi-toggle_input:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+.c0 > .fi-toggle_input:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 .fi-toggle_icon {
+  width: 40px;
+  height: 24px;
+  margin-right: 8px;
+  vertical-align: bottom;
+  overflow: visible;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+}
+
+.c0 .fi-toggle_icon * {
+  cursor: pointer;
+}
+
+.c0 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-knob {
+  -webkit-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  transform: translateX(0%);
+}
+
+.c0 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-slide {
+  -webkit-transform: translateY(1px);
+  -ms-transform: translateY(1px);
+  transform: translateY(1px);
+}
+
+.c0 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-knob {
+  -webkit-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  transform: translateX(50%);
+}
+
+.c0 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-slide {
+  fill: hsl(166,54%,80%);
+}
+
+.c0 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(166,90%,36%);
+}
+
+<label
+  class="fi-toggle--with-input c0 fi-toggle fi-toggle_label c1"
+  data-testid="toggle"
+  for="test-toggle"
 >
   <input
     class="fi-toggle_input c2"
     id="test-toggle"
     type="checkbox"
   />
-  <label
-    class="fi-toggle_label c3"
-    data-testid="toggle"
-    for="test-toggle"
+  <svg
+    aria-hidden="true"
+    class="fi-toggle_icon c3"
+    focusable="false"
+    height="1em"
+    viewBox="0 0 38 23"
+    width="1em"
   >
-    <svg
-      aria-hidden="true"
-      class="fi-toggle_icon c4"
-      focusable="false"
-      height="1em"
-      viewBox="0 0 38 23"
-      width="1em"
+    <defs>
+      <lineargradient
+        id="icon-toggle_svg__c"
+        x1="50%"
+        x2="50%"
+        y1="0%"
+        y2="99.021%"
+      >
+        <stop
+          offset="0%"
+          stop-opacity="0"
+        />
+        <stop
+          offset="80%"
+          stop-opacity="0.02"
+        />
+        <stop
+          offset="100%"
+          stop-opacity="0.04"
+        />
+      </lineargradient>
+      <lineargradient
+        id="icon-toggle_svg__d"
+        x1="50%"
+        x2="50%"
+        y1="0%"
+        y2="100%"
+      >
+        <stop
+          offset="0%"
+          stop-color="#FFF"
+          stop-opacity="0.12"
+        />
+        <stop
+          offset="20%"
+          stop-color="#FFF"
+          stop-opacity="0.06"
+        />
+        <stop
+          offset="100%"
+          stop-color="#FFF"
+          stop-opacity="0"
+        />
+      </lineargradient>
+      <filter
+        filterUnits="objectBoundingBox"
+        height="120%"
+        id="icon-toggle_svg__a"
+        width="117.5%"
+        x="-8.8%"
+        y="-8.8%"
+      >
+        <feoffset
+          dy="1"
+          in="SourceAlpha"
+          result="shadowOffsetOuter1"
+        />
+        <fegaussianblur
+          in="shadowOffsetOuter1"
+          result="shadowBlurOuter1"
+          stdDeviation="0.25"
+        />
+        <fecomposite
+          in="shadowBlurOuter1"
+          in2="SourceAlpha"
+          operator="out"
+          result="shadowBlurOuter1"
+        />
+        <fecolormatrix
+          in="shadowBlurOuter1"
+          result="shadowMatrixOuter1"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+        />
+        <feoffset
+          in="SourceAlpha"
+          result="shadowOffsetOuter2"
+        />
+        <fegaussianblur
+          in="shadowOffsetOuter2"
+          result="shadowBlurOuter2"
+          stdDeviation="0.5"
+        />
+        <fecomposite
+          in="shadowBlurOuter2"
+          in2="SourceAlpha"
+          operator="out"
+          result="shadowBlurOuter2"
+        />
+        <fecolormatrix
+          in="shadowBlurOuter2"
+          result="shadowMatrixOuter2"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"
+        />
+        <femerge>
+          <femergenode
+            in="shadowMatrixOuter1"
+          />
+          <femergenode
+            in="shadowMatrixOuter2"
+          />
+        </femerge>
+      </filter>
+      <circle
+        cx="10"
+        cy="12"
+        id="icon-toggle_svg__b"
+        r="10"
+      />
+    </defs>
+    <g
+      fill="none"
+      fill-rule="evenodd"
     >
-      <defs>
-        <lineargradient
-          id="icon-toggle_svg__c"
-          x1="50%"
-          x2="50%"
-          y1="0%"
-          y2="99.021%"
-        >
-          <stop
-            offset="0%"
-            stop-opacity="0"
-          />
-          <stop
-            offset="80%"
-            stop-opacity="0.02"
-          />
-          <stop
-            offset="100%"
-            stop-opacity="0.04"
-          />
-        </lineargradient>
-        <lineargradient
-          id="icon-toggle_svg__d"
-          x1="50%"
-          x2="50%"
-          y1="0%"
-          y2="100%"
-        >
-          <stop
-            offset="0%"
-            stop-color="#FFF"
-            stop-opacity="0.12"
-          />
-          <stop
-            offset="20%"
-            stop-color="#FFF"
-            stop-opacity="0.06"
-          />
-          <stop
-            offset="100%"
-            stop-color="#FFF"
-            stop-opacity="0"
-          />
-        </lineargradient>
-        <filter
-          filterUnits="objectBoundingBox"
-          height="120%"
-          id="icon-toggle_svg__a"
-          width="117.5%"
-          x="-8.8%"
-          y="-8.8%"
-        >
-          <feoffset
-            dy="1"
-            in="SourceAlpha"
-            result="shadowOffsetOuter1"
-          />
-          <fegaussianblur
-            in="shadowOffsetOuter1"
-            result="shadowBlurOuter1"
-            stdDeviation="0.25"
-          />
-          <fecomposite
-            in="shadowBlurOuter1"
-            in2="SourceAlpha"
-            operator="out"
-            result="shadowBlurOuter1"
-          />
-          <fecolormatrix
-            in="shadowBlurOuter1"
-            result="shadowMatrixOuter1"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
-          />
-          <feoffset
-            in="SourceAlpha"
-            result="shadowOffsetOuter2"
-          />
-          <fegaussianblur
-            in="shadowOffsetOuter2"
-            result="shadowBlurOuter2"
-            stdDeviation="0.5"
-          />
-          <fecomposite
-            in="shadowBlurOuter2"
-            in2="SourceAlpha"
-            operator="out"
-            result="shadowBlurOuter2"
-          />
-          <fecolormatrix
-            in="shadowBlurOuter2"
-            result="shadowMatrixOuter2"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"
-          />
-          <femerge>
-            <femergenode
-              in="shadowMatrixOuter1"
-            />
-            <femergenode
-              in="shadowMatrixOuter2"
-            />
-          </femerge>
-        </filter>
+      <path
+        class="icon-toggle_svg__fi-toggle-icon-slide"
+        d="M38 11c0 3.9-3.1 7-7 7H11c-3.9 0-7-3.1-7-7s3.1-7 7-7h20c3.9 0 7 3.1 7 7z"
+        fill="#C9CDCF"
+      />
+      <g
+        class="icon-toggle_svg__fi-toggle-icon-knob"
+        transform="translate(1 -1)"
+      >
+        <use
+          fill="#000"
+          filter="url(#icon-toggle_svg__a)"
+          xlink:href="#icon-toggle_svg__b"
+        />
+        <circle
+          class="icon-toggle_svg__fi-toggle-icon-circle"
+          cx="10"
+          cy="12"
+          fill="#F6F6F7"
+          r="9.75"
+          stroke="url(#icon-toggle_svg__c)"
+          stroke-linejoin="square"
+          stroke-width="0.5"
+        />
         <circle
           cx="10"
           cy="12"
-          id="icon-toggle_svg__b"
-          r="10"
+          r="9.75"
+          stroke="url(#icon-toggle_svg__d)"
+          stroke-linejoin="square"
+          stroke-width="0.5"
         />
-      </defs>
-      <g
-        fill="none"
-        fill-rule="evenodd"
-      >
-        <path
-          class="icon-toggle_svg__fi-toggle-icon-slide"
-          d="M38 11c0 3.9-3.1 7-7 7H11c-3.9 0-7-3.1-7-7s3.1-7 7-7h20c3.9 0 7 3.1 7 7z"
-          fill="#C9CDCF"
-        />
-        <g
-          class="icon-toggle_svg__fi-toggle-icon-knob"
-          transform="translate(1 -1)"
-        >
-          <use
-            fill="#000"
-            filter="url(#icon-toggle_svg__a)"
-            xlink:href="#icon-toggle_svg__b"
-          />
-          <circle
-            class="icon-toggle_svg__fi-toggle-icon-circle"
-            cx="10"
-            cy="12"
-            fill="#F6F6F7"
-            r="9.75"
-            stroke="url(#icon-toggle_svg__c)"
-            stroke-linejoin="square"
-            stroke-width="0.5"
-          />
-          <circle
-            cx="10"
-            cy="12"
-            r="9.75"
-            stroke="url(#icon-toggle_svg__d)"
-            stroke-linejoin="square"
-            stroke-width="0.5"
-          />
-        </g>
       </g>
-    </svg>
+    </g>
+  </svg>
+  <span
+    class="fi-text c4 fi-text--body c5"
+  >
     Test
-  </label>
-</span>
+  </span>
+</label>
 `;

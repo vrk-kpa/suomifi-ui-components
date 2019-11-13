@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.c1 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,26 +27,30 @@ exports[`calling render with the same component on the same container does not r
   cursor: pointer;
 }
 
-.c1:-moz-focusring {
+.c2:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c1::-moz-focus-inner {
+.c2::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c1::-webkit-file-upload-button {
+.c2::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c1::-webkit-inner-spin-button {
+.c2::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c1::-webkit-outer-spin-button {
+.c2::-webkit-outer-spin-button {
   height: auto;
+}
+
+.c1.fi-button--disabled {
+  cursor: not-allowed;
 }
 
 .c0 {
@@ -60,7 +64,7 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
@@ -112,11 +116,15 @@ exports[`calling render with the same component on the same container does not r
 .c0:disabled {
   text-shadow: 0 1px 1px hsl(0,0%,16%);
   background: linear-gradient(0deg,hsl(202,7%,67%) 0%,#c0c5c9 100%);
-  pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.c0.fi-button--disabled::after {
+  border: none;
+  box-shadow: none;
 }
 
 .c0.fi-button--fullwidth {
@@ -208,7 +216,7 @@ exports[`calling render with the same component on the same container does not r
   background-color: hsl(0,0%,100%);
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
-  background: hsl(212,63%,95%);
+  background: linear-gradient(0deg,hsl(212,63%,90%),hsl(212,63%,95%));
   border: none;
 }
 
@@ -232,7 +240,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c0.fi-button--tertiary:hover {
-  background: hsl(212,63%,98%);
+  background: hsl(212,63%,95%);
 }
 
 .c0.fi-button--tertiary:active {
@@ -256,7 +264,7 @@ exports[`calling render with the same component on the same container does not r
 
 <button
   aria-disabled="false"
-  class="fi-button c0 c1"
+  class="fi-button c0 c1 c2"
   data-testid="button"
   tabindex="0"
   type="button"

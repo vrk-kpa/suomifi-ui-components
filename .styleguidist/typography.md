@@ -2,13 +2,13 @@ Suomifi-styleguide typography
 
 ```js noeditor
 import { default as styled } from 'styled-components';
-import { Text } from '../src/core/Text/Text';
-import { Heading } from '../src/core/Heading/Heading';
-import {
-  typographyTokens,
-  fontFamily
-} from '../src/core/theme/typography';
+import { Text, Heading } from '../src';
+import { suomifiTheme } from '../src/core/theme';
+
 import clipboardCopy from 'clipboard-copy';
+
+const fontFamily = 'Source Sans Pro';
+const typographyTokens = suomifiTheme().typography;
 
 const Row = styled(({ mb, code, ...passProps }) => (
   <div

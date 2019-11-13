@@ -1,22 +1,43 @@
 import { FlattenSimpleInterpolation } from 'styled-components';
-import { typographyTokens } from './typography';
-import { typographyUtils } from './utils';
-import { colors, shadows, gradients, outlines } from './colors';
-import { spacing } from './spacing';
+import {
+  typography,
+  TypographyProp,
+  internalTypographyTokens,
+  internalTypographyTokensProp,
+  TypograhpyDesingTokens,
+} from './typography';
+import { typographyUtils, spacingUtils, colorsUtils } from './utils';
+import {
+  colors,
+  shadows,
+  gradients,
+  outlines,
+  ColorDesingTokens,
+} from './colors';
+import { spacing, SpacingProp, SpacingDesingTokens } from './spacing';
 import { zindexes } from './zindexes';
 import { transitions } from './transitions';
 import { radius } from './radius';
+export {
+  TypographyProp,
+  internalTypographyTokens,
+  internalTypographyTokensProp,
+  SpacingProp,
+};
 
 export type SuomifiTokens = typeof importedTokens;
 export type DefaultSuomifiTokens = typeof defaultTokens;
-export type TypographyProp = keyof typeof importedTokens.typography;
 export type ColorProp = keyof typeof importedTokens.colors;
-export type SpacingProp = keyof typeof importedTokens.spacing;
 export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
 
+export interface PartialTokens {
+  colors?: Partial<ColorDesingTokens>;
+  spacing?: Partial<SpacingDesingTokens>;
+  typography?: Partial<TypograhpyDesingTokens>;
+}
 export interface TokensProp {
   /** Custom  Design-tokens or one category of tokens customized, clone defaultTokens for base */
-  tokens?: Partial<SuomifiTokens>;
+  tokens?: PartialTokens;
 }
 
 export interface InternalTokensProp {
@@ -44,7 +65,7 @@ const internalTokens = {
 const importedTokens = {
   colors,
   spacing,
-  typography: typographyTokens,
+  typography,
 };
 
 export const defaultTokens = {
@@ -72,8 +93,8 @@ export const suomifiTheme = ({
   ...internalTokens,
   // Override if any defined
   ...(!!libraryTokenOverrides ? libraryTokenOverrides : {}),
-  colors,
-  spacing,
+  colors: colorsUtils(colors),
+  spacing: spacingUtils(spacing),
   typography: typographyUtils(typography),
   values: { colors, spacing, typography },
 });

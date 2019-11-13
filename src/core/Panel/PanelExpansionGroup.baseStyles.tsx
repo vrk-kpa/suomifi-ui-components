@@ -28,9 +28,10 @@ export const baseStyles = withSuomifiTheme(
 
   & > .fi-panel-expansion-group_all-button {
     ${element({ theme })}
-    ${font({ theme })('bodySemiBold')}
+    ${font({ theme })('actionElementInnerTextBold')}
     ${focus({ theme })}
-    flex: 1;
+    flex: 1 1 auto;
+    align-self: flex-end; 
     margin-left: auto;
     margin-bottom: ${theme.spacing.s};
     padding: ${theme.spacing.xs} 0;

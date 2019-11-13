@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.c4 {
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,25 +27,25 @@ exports[`calling render with the same component on the same container does not r
   cursor: pointer;
 }
 
-.c4:-moz-focusring {
+.c5:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c4::-moz-focus-inner {
+.c5::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c4::-webkit-file-upload-button {
+.c5::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c4::-webkit-inner-spin-button {
+.c5::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c4::-webkit-outer-spin-button {
+.c5::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -79,7 +79,11 @@ exports[`calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
-.c6 {
+.c4.fi-button--disabled {
+  cursor: not-allowed;
+}
+
+.c7 {
   display: none;
 }
 
@@ -95,7 +99,7 @@ exports[`calling render with the same component on the same container does not r
   cursor: pointer;
 }
 
-.c5 {
+.c6 {
   display: inline-block;
   vertical-align: baseline;
 }
@@ -111,7 +115,7 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -157,7 +161,7 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
@@ -253,7 +257,7 @@ exports[`calling render with the same component on the same container does not r
   <button
     aria-disabled="false"
     aria-expanded="false"
-    class="fi-button fi-panel-expansion_title fi-panel-expansion_title--no-tag c3 c4"
+    class="fi-button fi-panel-expansion_title fi-panel-expansion_title--no-tag c3 c4 c5"
     data-testid="panel-expansion-title"
     tabindex="0"
     type="button"
@@ -261,10 +265,10 @@ exports[`calling render with the same component on the same container does not r
     Test expansion
     <svg
       aria-hidden="true"
-      class="fi-panel-expansion_title-icon c5"
+      class="fi-panel-expansion_title-icon c6"
       focusable="false"
       height="1em"
-      style="fill: hsl(212, 63%, 45%);"
+      style="fill: hsl(202, 7%, 40%);"
       viewBox="0 0 24 24"
       width="1em"
     >
@@ -275,7 +279,8 @@ exports[`calling render with the same component on the same container does not r
   </button>
   <div
     aria-hidden="true"
-    class="fi-panel-expansion_content c6 fi-panel c1 c2"
+    class="fi-panel-expansion_content c7 fi-panel c1 c2"
+    hidden=""
   >
     Test expansion content
   </div>

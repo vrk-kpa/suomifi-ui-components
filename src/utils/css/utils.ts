@@ -1,5 +1,5 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components';
-export { FlattenSimpleInterpolation };
+import { cssValueToString } from './';
 
 export const clearfix = css`
   &:after {
@@ -14,16 +14,34 @@ const camelToSnake = (string: string) =>
 /**
  * Convert CSSObject to CSS FlattenSimpleInterpolation
  * @param value CSSObject
+ *
+ * @example
+ *  cssObjectToCss({
+ *    fontFamily: "'Arial', sans-serif";
+ *    fontSize: {value: 16, unit: 'px'};
+ *  })
  */
 export const cssObjectToCss = <T>(value: T) => css`
   ${Object.entries(value)
-    .map(([key, value]) => `${camelToSnake(key)}: ${value};`)
+    .map(([key, value]) => `${camelToSnake(key)}: ${cssValueToString(value)};`)
     .join('')}
 `;
 
 /**
  * Convert CSSObject tokens to CSS FlattenSimpleInterpolation
  * @param tokens Tokens of CSSObjects
+ *
+ * @example
+ *  cssObjectsToCss({
+ *    bodyText: {
+ *      fontFamily: "'Arial', sans-serif";
+ *      fontSize: {value: 16, unit: 'px'};
+ *    },
+ *    bodyTextSmallScreen: {
+ *      fontFamily: "'Arial', sans-serif";
+ *      fontSize: {value: 18, unit: 'px'};
+ *     }
+ *  })
  */
 export const cssObjectsToCss = <T, K extends keyof T>(tokens: T) =>
   Object.entries(tokens).reduce(
