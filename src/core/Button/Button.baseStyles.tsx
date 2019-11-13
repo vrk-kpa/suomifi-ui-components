@@ -109,8 +109,12 @@ export const baseStyles = withSuomifiTheme(
   &:disabled {
     text-shadow: 0 1px 1px ${theme.colors.blackBase};
     background: ${theme.gradients.depthBase};
-    pointer-events: none;
     user-select: none;
+  }
+
+  &.fi-button--disabled::after {
+    border: none;
+    box-shadow: none;
   }
 
   &.fi-button--fullwidth {
