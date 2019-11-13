@@ -265,10 +265,10 @@ exports[`calling render with the same component on the same container does not r
     Test expansion
     <svg
       aria-hidden="true"
-      class="fi-panel-expansion_title-icon c6"
+      class="fi-panel-expansion_title-icon c5"
+      fill="hsl(212, 63%, 45%)"
       focusable="false"
       height="1em"
-      style="fill: hsl(202, 7%, 40%);"
       viewBox="0 0 24 24"
       width="1em"
     >

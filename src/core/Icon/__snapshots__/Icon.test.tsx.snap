@@ -11,9 +11,9 @@ exports[`calling render with the same component on the same container does not r
     aria-label="Test label"
     class="my-icon--test c0"
     data-testid="icon"
+    fill="hsl(202, 7%, 40%)"
     height="1em"
     role="img"
-    style="fill: hsl(202, 7%, 40%);"
     viewBox="0 0 24 24"
     width="1em"
   >
@@ -24,9 +24,9 @@ exports[`calling render with the same component on the same container does not r
   <svg
     aria-hidden="true"
     class="c0"
+    fill="hsl(202, 7%, 40%)"
     focusable="false"
     height="1em"
-    style="fill: hsl(202, 7%, 40%);"
     viewBox="0 0 24 24"
     width="1em"
   >
