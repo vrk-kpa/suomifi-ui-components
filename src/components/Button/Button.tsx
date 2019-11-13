@@ -8,6 +8,8 @@ import React, {
 import { HtmlButton, HtmlButtonProps } from '../../reset';
 import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import classnames from 'classnames';
+import styled from 'styled-components';
+import { disabledCursor } from '../utils/css';
 
 const baseClassName = 'fi-button';
 const disabledClassName = `${baseClassName}--disabled`;
@@ -102,6 +104,14 @@ export class Assertive extends Component<AssertiveProps> {
   }
 }
 
+const StyledHtmlButton = styled((props: ButtonProps) => (
+  <HtmlButton {...props} />
+))`
+  &.${disabledClassName} {
+    ${disabledCursor}
+  }
+`;
+
 export class Button extends Component<ButtonProps> {
   render() {
     const {
@@ -126,7 +136,7 @@ export class Button extends Component<ButtonProps> {
     const onClickProps = !!disabled ? {} : ifMouseNoFocus();
     return (
       <Fragment>
-        <HtmlButton
+        <StyledHtmlButton
           {...passProps}
           {...onClickProps}
           aria-disabled={disabled}
