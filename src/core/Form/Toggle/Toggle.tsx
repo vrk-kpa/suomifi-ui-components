@@ -11,6 +11,7 @@ import {
   ToggleInputProps as CompToggleInputProps,
 } from '../../../components/Form/Toggle';
 import { Icon } from '../../Icon/Icon';
+import { Text } from '../../Text/Text';
 
 export interface ToggleProps extends CompToggleProps, TokensProp {}
 export interface ToggleInputProps extends CompToggleInputProps, TokensProp {}
@@ -67,7 +68,7 @@ class ToggleWithIcon extends Component<ToggleProps> {
           })}
           mousePointer={true}
         />
-        {children}
+        <Text>{children}</Text>
       </StyledToggle>
     );
   }
