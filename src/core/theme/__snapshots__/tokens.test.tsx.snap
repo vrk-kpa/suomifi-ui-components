@@ -399,7 +399,7 @@ exports[`snapshot testing 1`] = `
         Test expansion 1
         <svg
           aria-hidden="true"
-          class="fi-panel-expansion_title-icon c8"
+          class="fi-panel-expansion_title-icon c9"
           fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"
@@ -432,7 +432,7 @@ exports[`snapshot testing 1`] = `
         Test expansion 2
         <svg
           aria-hidden="true"
-          class="fi-panel-expansion_title-icon c8"
+          class="fi-panel-expansion_title-icon c9"
           fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"
@@ -465,7 +465,7 @@ exports[`snapshot testing 1`] = `
         Test expansion 3
         <svg
           aria-hidden="true"
-          class="fi-panel-expansion_title-icon c8"
+          class="fi-panel-expansion_title-icon c9"
           fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"
