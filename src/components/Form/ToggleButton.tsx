@@ -3,9 +3,17 @@ import classnames from 'classnames';
 import { HtmlButton } from '../../reset';
 import { ToggleProps, ToggleState } from './Toggle';
 import { logger } from '../../utils/logger';
+import styled from 'styled-components';
+import { disabledCursor } from '../utils/css';
 
 const baseClassName = 'fi-toggle';
 const toggleDisabledClassName = `${baseClassName}--disabled`;
+
+const StyledHtmlButton = styled(HtmlButton)`
+  &.${toggleDisabledClassName} {
+    ${disabledCursor}
+  }
+`;
 
 export class ToggleButton extends Component<ToggleProps> {
   state: ToggleState = {
@@ -52,7 +60,7 @@ export class ToggleButton extends Component<ToggleProps> {
     }
 
     return (
-      <HtmlButton
+      <StyledHtmlButton
         className={classnames(toggleClassName, className, baseClassName, {
           [toggleDisabledClassName]: !!disabled,
         })}
@@ -64,7 +72,7 @@ export class ToggleButton extends Component<ToggleProps> {
         {...passProps}
       >
         {children}
-      </HtmlButton>
+      </StyledHtmlButton>
     );
   }
 }
