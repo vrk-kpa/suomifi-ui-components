@@ -4,7 +4,7 @@ import { alphaHex } from '../../utils/css';
 import { boxshadowOutline } from './utils/outline';
 import { zindexes } from './zindexes';
 
-export { ColorDesingTokens } from 'suomifi-design-tokens';
+export { ColorDesignTokens } from 'suomifi-design-tokens';
 
 export const { colors } = tokens;
 

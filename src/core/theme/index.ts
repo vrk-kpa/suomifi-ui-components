@@ -4,7 +4,7 @@ import {
   TypographyProp,
   internalTypographyTokens,
   internalTypographyTokensProp,
-  TypograhpyDesingTokens,
+  TypographyDesignTokens,
 } from './typography';
 import { typographyUtils, spacingUtils, colorsUtils } from './utils';
 import {
@@ -12,9 +12,9 @@ import {
   shadows,
   gradients,
   outlines,
-  ColorDesingTokens,
+  ColorDesignTokens,
 } from './colors';
-import { spacing, SpacingProp, SpacingDesingTokens } from './spacing';
+import { spacing, SpacingProp, SpacingDesignTokens } from './spacing';
 import { zindexes } from './zindexes';
 import { transitions } from './transitions';
 import { radius } from './radius';
@@ -31,9 +31,9 @@ export type ColorProp = keyof typeof importedTokens.colors;
 export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
 
 export interface PartialTokens {
-  colors?: Partial<ColorDesingTokens>;
-  spacing?: Partial<SpacingDesingTokens>;
-  typography?: Partial<TypograhpyDesingTokens>;
+  colors?: Partial<ColorDesignTokens>;
+  spacing?: Partial<SpacingDesignTokens>;
+  typography?: Partial<TypographyDesignTokens>;
 }
 export interface TokensProp {
   /** Custom  Design-tokens or one category of tokens customized, clone defaultTokens for base */
