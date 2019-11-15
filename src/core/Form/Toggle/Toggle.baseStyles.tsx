@@ -1,21 +1,22 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../theme';
+import { withSuomifiTheme, TokensAndTheme } from '../../theme';
 import { focus } from '../../theme/utils';
-import { ToggleProps } from './Toggle';
-import { element, fonts } from '../../theme/reset';
+import { element, font } from '../../theme/reset';
 
+// Contains double underscore because it is written in the SVG-file
 const svgPrefix = 'icon-toggle_svg__';
 
-export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
-  ${element(theme)}
-  ${fonts(theme).body}
+export const baseStyles = withSuomifiTheme(
+  ({ theme }: TokensAndTheme) => css`
+  ${element({ theme })}
+  ${font({ theme })('bodyText')}
   background-color: ${theme.colors.whiteBase};
   & > .fi-toggle_label {
     cursor: pointer;
   }
   & > .fi-toggle_input {
-    ${element(theme)}
-    ${fonts(theme).body}
+    ${element({ theme })}
+    ${font({ theme })('bodyText')}
     width: 0;
     height: 0;
     opacity: 0;
@@ -64,4 +65,5 @@ export const baseStyles = ({ theme = suomifiTheme }: ToggleProps) => css`
       }
     }
   }
-`;
+`,
+);

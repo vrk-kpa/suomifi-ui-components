@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { default as styled } from 'styled-components';
-import { withDefaultTheme } from '../theme/utils';
-import { ThemeComponent } from '../theme';
+import { Omit } from '../../utils/typescript';
+import { withSuomifiDefaultProps } from '../theme/utils';
+import { TokensProp, InternalTokensProp } from '../theme';
 import {
   PanelExpansionGroup as CompPanelExpansionGroup,
   PanelExpansionGroupProps as CompPanelExpansionGroupProps,
@@ -11,16 +12,27 @@ import { baseStyles } from './PanelExpansionGroup.baseStyles';
 
 const openAllButtonClassName = 'fi-panel-expansion-group_all-button';
 
+type ButtonOrText = React.ReactElement<ButtonProps> | string;
+interface OpenCloseAll {
+  /** 'Open all'-component (Button) */
+  OpenAll: ButtonOrText;
+  /** 'Close all'-component (Button) */
+  CloseAll: ButtonOrText;
+}
 export interface PanelExpansionGroupProps
-  extends CompPanelExpansionGroupProps,
-    ThemeComponent {}
+  extends Omit<CompPanelExpansionGroupProps, 'OpenAll' | 'CloseAll'>,
+    TokensProp,
+    OpenCloseAll {}
 
-interface PanelExpansionOpenAllButtonProps
-  extends ButtonProps,
-    ThemeComponent {}
+interface PanelExpansionOpenAllButtonProps extends ButtonProps, TokensProp {
+  children: ButtonOrText;
+}
 
 const StyledPanelExpansionGroup = styled(
-  ({ theme, ...passProps }: PanelExpansionGroupProps) => (
+  ({
+    tokens,
+    ...passProps
+  }: CompPanelExpansionGroupProps & InternalTokensProp) => (
     <CompPanelExpansionGroup {...passProps} />
   ),
 )`
@@ -29,33 +41,38 @@ const StyledPanelExpansionGroup = styled(
 
 const OpenAllButton = ({
   children,
-  theme,
   ...passProps
-}: PanelExpansionOpenAllButtonProps) => (
-  <Button.unstyled
-    {...passProps}
-    theme={theme}
-    className={openAllButtonClassName}
-  >
-    {children}
-  </Button.unstyled>
-);
+}: PanelExpansionOpenAllButtonProps) => {
+  const Component = React.Children.toArray(children)[0];
+  if (typeof Component === 'string' || Component.type !== Button) {
+    return (
+      <Button.unstyled {...passProps} className={openAllButtonClassName}>
+        {children}
+      </Button.unstyled>
+    );
+  }
+  return Component;
+};
 
 /**
  * <i class="semantics" />
  * Used for grouping expansion panels
  */
-export class PanelExpansionGroup extends Component<PanelExpansionGroupProps> {
+export class PanelExpansionGroup extends React.Component<
+  PanelExpansionGroupProps
+> {
   render() {
-    const { OpenAll, CloseAll, ...passProps } = withDefaultTheme(this.props);
+    const { OpenAll, CloseAll, ...passProps } = withSuomifiDefaultProps(
+      this.props,
+    );
     return (
       <StyledPanelExpansionGroup
         {...passProps}
         OpenAll={
-          <OpenAllButton theme={passProps.theme}>{OpenAll}</OpenAllButton>
+          <OpenAllButton tokens={passProps.tokens}>{OpenAll}</OpenAllButton>
         }
         CloseAll={
-          <OpenAllButton theme={passProps.theme}>{CloseAll}</OpenAllButton>
+          <OpenAllButton tokens={passProps.tokens}>{CloseAll}</OpenAllButton>
         }
       />
     );

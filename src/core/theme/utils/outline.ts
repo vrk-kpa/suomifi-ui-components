@@ -1,3 +1,4 @@
+import { css } from 'styled-components';
 import { colors } from '../colors';
 import { radius } from '../radius';
 
@@ -9,7 +10,7 @@ const boxshadow = ({
   borderRadius: string;
   border: string;
   color: string;
-}) => `
+}) => css`
   border-radius: ${borderRadius};
   border: ${border} solid ${color};
   box-sizing: border-box;
@@ -28,7 +29,7 @@ const afterBoxshadow = ({
   border: string;
   color: string;
   zIndex: number;
-}) => `
+}) => css`
   position: relative;
   &:after {
     content: '';
@@ -42,10 +43,12 @@ const afterBoxshadow = ({
     border: ${border} solid ${color};
     box-sizing: border-box;
     box-shadow: 0 0 10px 0 ${color};
-    ${!!zIndex && `z-index: ${zIndex};}`}`;
+    ${!!zIndex && `z-index: ${zIndex};`}
+  }`;
 
+// TODO Refactor, create interfaces (and extend with Partial<>), add JSDOC for functions
 export const boxshadowOutline = ({
-  color = colors.accentBase,
+  color = colors.accentBase.hsl,
   offset = '0',
   border = '1px',
   borderRadius = radius.focus,
@@ -58,15 +61,15 @@ export const boxshadowOutline = ({
   borderRadius?: string;
   zIndex?: number;
   afterPseudo?: boolean;
-} = {}) => {
+}) => {
   const focusVisible = !!afterPseudo
     ? '&:not(:focus-visible):after { content: none; }'
     : '&:not(:focus-visible) { box-shadow: none; }';
-  return `outline: 0;
-    ${
-      !!afterPseudo
-        ? afterBoxshadow({ offset, borderRadius, border, color, zIndex })
-        : boxshadow({ borderRadius, border, color })
-    }
-    ${focusVisible}`;
+  return css`
+    outline: 0;
+    ${!!afterPseudo
+      ? afterBoxshadow({ offset, borderRadius, border, color, zIndex })
+      : boxshadow({ borderRadius, border, color })}
+    ${focusVisible}
+  `;
 };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withDefaultTheme } from '../theme/utils';
-import { ThemeComponent } from '../theme';
+import { withSuomifiDefaultProps } from '../theme/utils';
+import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles } from './Panel.baseStyles';
 import {
   Panel as CompPanel,
@@ -15,7 +15,7 @@ import {
 
 type PanelVariant = 'default' | 'expansion' | 'expansionGroup';
 
-export interface PanelProps extends CompPanelProps, ThemeComponent {
+export interface PanelProps extends CompPanelProps, TokensProp {
   /**
    * 'default' | 'expansion'
    * @default default
@@ -23,9 +23,11 @@ export interface PanelProps extends CompPanelProps, ThemeComponent {
   variant?: PanelVariant;
 }
 
-const StyledPanel = styled(({ theme, ...passProps }: PanelProps) => (
-  <CompPanel {...passProps} />
-))`
+const StyledPanel = styled(
+  ({ tokens, ...passProps }: PanelProps & InternalTokensProp) => (
+    <CompPanel {...passProps} />
+  ),
+)`
   ${props => baseStyles(props)};
 `;
 
@@ -39,19 +41,19 @@ type VariantPanelProps =
  */
 export class Panel extends Component<VariantPanelProps> {
   static expansion = (props: PanelExpansionProps) => {
-    return <PanelExpansion {...withDefaultTheme(props)} />;
+    return <PanelExpansion {...withSuomifiDefaultProps(props)} />;
   };
 
   static expansionGroup = (props: PanelExpansionGroupProps) => {
-    return <PanelExpansionGroup {...withDefaultTheme(props)} />;
+    return <PanelExpansionGroup {...withSuomifiDefaultProps(props)} />;
   };
 
   render() {
-    const { variant, ...passProps } = withDefaultTheme(this.props);
-    if (variant === 'expansion') {
+    const { variant, ...passProps } = withSuomifiDefaultProps(this.props);
+    if (variant === 'expansion' && 'title' in passProps) {
       return <PanelExpansion {...passProps as PanelExpansionProps} />;
     }
-    if (variant === 'expansionGroup') {
+    if (variant === 'expansionGroup' && 'openAll' in passProps) {
       return <PanelExpansionGroup {...passProps as PanelExpansionGroupProps} />;
     }
     return <StyledPanel {...passProps} />;

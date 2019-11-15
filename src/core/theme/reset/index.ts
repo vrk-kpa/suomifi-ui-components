@@ -1,64 +1,95 @@
 import { css } from 'styled-components';
-import { ThemeProp, suomifiTheme } from '../';
-import { focus as focusUtil } from '../utils';
-import { fonts } from './typography';
-export { fonts } from './typography';
+import {
+  TypographyProp,
+  internalTypographyTokens,
+  internalTypographyTokensProp,
+} from '../';
+import {
+  focus as focusUtil,
+  themeOrTokens,
+  TokensOrThemeProps,
+} from '../utils';
 
-export const focus = (theme: ThemeProp = suomifiTheme) => focusUtil({ theme });
+export const focus = (props: TokensOrThemeProps) => focusUtil(props);
 
-export const element = (theme: ThemeProp = suomifiTheme) => css`
-  color: ${theme.colors.blackBase};
+export const element = (props: TokensOrThemeProps) => css`
+  color: ${themeOrTokens(props).colors.blackBase};
 `;
 
-export const input = (theme: ThemeProp = suomifiTheme) => css`
-  ${element(theme)}
-  ${fonts(theme).input}
-  min-width: 245px;
-  max-width: 100%;
-  padding: ${theme.spacing.s} ${theme.spacing.m};
-  border: 1px solid ${theme.colors.depthBase};
-  border-radius: ${theme.radius.basic};
-  line-height: 1;
+const fontBase = css`
+  letter-spacing: 0;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
 `;
 
-export const inputContainer = (theme: ThemeProp = suomifiTheme) => css`
+export const font = (props: TokensOrThemeProps) => (
+  typographyToken: TypographyProp,
+) => css`
+  ${fontBase}
+  ${themeOrTokens(props).typography[typographyToken]}
+`;
+
+export const internalTokenFont = (
+  typographyToken: keyof internalTypographyTokensProp,
+) => css`
+  ${fontBase}
+  ${internalTypographyTokens[typographyToken]}
+`;
+
+export const input = (props: TokensOrThemeProps) => {
+  const theme = themeOrTokens(props);
+  return css`
+    ${element(props)}
+    ${font(props)('actionElementInnerText')}
+    min-width: 245px;
+    max-width: 100%;
+    padding: ${theme.spacing.s} ${theme.spacing.m};
+    border: 1px solid ${theme.colors.depthBase};
+    border-radius: ${theme.radius.basic};
+    line-height: 1;
+  `;
+};
+
+export const inputContainer = (props: TokensOrThemeProps) => css`
   > input:focus {
     /* For IE/Edge */
-    outline-color: ${theme.colors.accentBase};
+    outline-color: ${themeOrTokens(props).colors.accentBase};
     outline-width: 4px;
     outline-offset: 2px;
   }
   &:focus-within {
-    ${focusUtil({ theme, noPseudo: true })}
+    ${focusUtil({ ...props, noPseudo: true })}
     > input:focus {
       outline: none;
     }
   }
 `;
 
-export const inputButton = (theme: ThemeProp = suomifiTheme) => css`
-  ${input(theme)}
-  ${focus(theme)}
+export const inputButton = (props: TokensOrThemeProps) => css`
+  ${input(props)}
+  ${focus(props)}
 `;
 
-export const button = (theme: ThemeProp = suomifiTheme) => css`
-  ${element(theme)}
-  ${fonts(theme).inputSemibold}
-  ${focus(theme)}
+export const button = (props: TokensOrThemeProps) => css`
+  ${element(props)}
+  ${font(props)('actionElementInnerTextBold')}
+  ${focus(props)}
   line-height: 1;
 `;
 
-export const nav = (theme: ThemeProp = suomifiTheme) => css`
-  ${element(theme)}
+export const nav = (props: TokensOrThemeProps) => css`
+  ${element(props)}
   display: block;
 `;
 
-export const list = (theme: ThemeProp = suomifiTheme) => css`
-  ${element(theme)}
+export const list = (props: TokensOrThemeProps) => css`
+  ${element(props)}
   list-style: none;
 `;
 
-export const listItem = (theme: ThemeProp = suomifiTheme) => css`
-  ${element(theme)}
+export const listItem = (props: TokensOrThemeProps) => css`
+  ${element(props)}
   list-style: none;
 `;

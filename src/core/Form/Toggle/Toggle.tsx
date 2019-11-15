@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { withDefaultTheme } from '../../theme/utils';
-import { ThemeComponent } from '../../theme';
+import { withSuomifiDefaultProps } from '../../theme/utils';
+import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './Toggle.baseStyles';
 import {
   Toggle as CompToggle,
@@ -11,19 +11,20 @@ import {
   ToggleInputProps as CompToggleInputProps,
 } from '../../../components/Form/Toggle';
 import { Icon } from '../../Icon/Icon';
+import { Text } from '../../Text/Text';
 
-export interface ToggleProps extends CompToggleProps, ThemeComponent {}
-export interface ToggleInputProps
-  extends CompToggleInputProps,
-    ThemeComponent {}
+export interface ToggleProps extends CompToggleProps, TokensProp {}
+export interface ToggleInputProps extends CompToggleInputProps, TokensProp {}
 
 const iconBaseClassName = 'fi-toggle_icon';
 const iconDisabledClassName = `${iconBaseClassName}--disabled`;
 const iconCheckedClassName = `${iconBaseClassName}--checked`;
 
-const StyledToggle = styled(({ theme, ...passProps }: ToggleProps) => (
-  <CompToggle {...passProps} />
-))`
+const StyledToggle = styled(
+  ({ tokens, ...passProps }: ToggleProps & InternalTokensProp) => (
+    <CompToggle {...passProps} />
+  ),
+)`
   ${props => baseStyles(props)}
 `;
 
@@ -31,7 +32,7 @@ const StyledToggle = styled(({ theme, ...passProps }: ToggleProps) => (
  * <i class="semantics" />
  * Use for toggling form selection or application state
  */
-export class Toggle extends Component<ToggleProps> {
+class ToggleWithIcon extends Component<ToggleProps> {
   state = { toggleStatus: !!this.props.checked };
 
   handleToggle = () => {
@@ -50,11 +51,15 @@ export class Toggle extends Component<ToggleProps> {
       checked: dissMissChecked,
       onClick,
       ...passProps
-    } = withDefaultTheme(this.props);
+    } = withSuomifiDefaultProps(this.props);
     const { toggleStatus } = this.state;
 
     return (
-      <StyledToggle {...passProps} onClick={this.handleToggle}>
+      <StyledToggle
+        disabled={disabled}
+        {...passProps}
+        onClick={this.handleToggle}
+      >
         <Icon
           icon="toggle"
           className={classnames(iconBaseClassName, {
@@ -63,9 +68,21 @@ export class Toggle extends Component<ToggleProps> {
           })}
           mousePointer={true}
         />
-        {children}
+        <Text>{children}</Text>
       </StyledToggle>
     );
+  }
+}
+
+export class Toggle extends Component<ToggleProps> {
+  static withInput = (props: ToggleProps) => {
+    return (
+      <ToggleWithIcon {...withSuomifiDefaultProps(props)} variant="withInput" />
+    );
+  };
+
+  render() {
+    return <ToggleWithIcon {...withSuomifiDefaultProps(this.props)} />;
   }
 }
 

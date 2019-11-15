@@ -1,8 +1,9 @@
 ```js noeditor
 import { default as styled } from 'styled-components';
 import { colors } from '../src/core/theme/colors';
+import { cssValueToString } from '../src/utils/css';
 import { element, fonts } from '../src/core/theme/reset';
-import { spacing, spacingTokens } from '../src/core/theme/spacing';
+import { spacing } from '../src/core/theme/spacing';
 import { Text } from '../src/core/Text/Text';
 import clipboardCopy from 'clipboard-copy';
 
@@ -19,7 +20,7 @@ const Container = styled(({ size, name, ...passProps }) => (
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: ${spacing.l};
+  margin-bottom: ${cssValueToString(spacing.l)};
   cursor: pointer;
 
   * {
@@ -27,7 +28,7 @@ const Container = styled(({ size, name, ...passProps }) => (
   }
 
   > div:not(:first-of-type) {
-    margin-left: ${spacing.m};
+    margin-left: ${cssValueToString(spacing.m)};
   }
 `
 );
@@ -41,12 +42,12 @@ const Square = styled(props => (
     flex: none;
     display: flex;
     align-items: flex-end;
-    width: ${spacing.xl};
+    width: ${cssValueToString(spacing.xl)};
 
     > .box {
       height: ${size};
       width: ${size};
-      border: 1px dashed ${colors.blackBase};
+      border: 1px dashed ${colors.blackBase.hsl};
       overflow: hidden;
     }
   `
@@ -68,7 +69,7 @@ const Bar = styled(props => (
     > .row {
       height: ${size};
       width: 100%;
-      background-color: ${colors.depthDark27};
+      background-color: ${colors.depthDark27.hsl};
     }
     > .col {
       position: absolute;
@@ -76,7 +77,7 @@ const Bar = styled(props => (
       right: 0;
       height: 100%;
       width: ${size};
-      background-color: ${colors.depthDark27};
+      background-color: ${colors.depthDark27.hsl};
     }
   `
 );
@@ -86,17 +87,22 @@ const Name = styled(({ name, value, ...passProps }) => (
     <Text.lead>{name}</Text.lead>
     <Text>{value}</Text>
   </div>
-))(`
+))(
+  () => `
   flex: 1;
   display: flex;
   flex-direction: column;
-`);
+`
+);
 
-Object.entries(spacingTokens).map(([key, value]) => (
-  <Container size={value} name={key} key={key}>
-    <Name name={key} value={value} />
-    <Square size={value} />
-    <Bar size={value} />
-  </Container>
-));
+Object.entries(spacing).map(([key, value]) => {
+  const spacingValue = cssValueToString(value);
+  return (
+    <Container size={spacingValue} name={key} key={key}>
+      <Name name={key} value={spacingValue} />
+      <Square size={spacingValue} />
+      <Bar size={spacingValue} />
+    </Container>
+  );
+});
 ```

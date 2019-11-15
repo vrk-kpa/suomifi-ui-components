@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import { ThemeProp, suomifiTheme } from '../theme';
+import { TokensProp } from '../theme';
+import { withSuomifiDefaultProps, colorValue } from '../theme/utils';
 import { baseClassName } from '../../components/Breadcrumb/Breadcrumb';
 import { Link, LinkProps } from '../Link/Link';
 import { Icon } from '../Icon/Icon';
@@ -10,12 +11,13 @@ import { Omit } from '../../utils/typescript';
 const linkClassName = `${baseClassName}_link`;
 const iconClassName = `${baseClassName}_icon`;
 
-export interface BreadcrumbLinkProps extends Omit<LinkProps, 'href'> {
+export interface BreadcrumbLinkProps
+  extends Omit<LinkProps, 'href'>,
+    TokensProp {
   /** Indicating the link is the current page */
   current?: boolean;
   /** url for the link */
   href?: string;
-  theme?: ThemeProp;
 }
 
 export const BreadcrumbLink = ({
@@ -23,13 +25,16 @@ export const BreadcrumbLink = ({
   children,
   className,
   href = '',
-  ...passProps
-}: BreadcrumbLinkProps) =>
-  !!current ? (
-    <HtmlSpan className={className} aria-current="location">
-      {children}
-    </HtmlSpan>
-  ) : (
+  ...origPassProps
+}: BreadcrumbLinkProps) => {
+  if (!!current)
+    return (
+      <HtmlSpan className={className} aria-current="location">
+        {children}
+      </HtmlSpan>
+    );
+  const passProps = withSuomifiDefaultProps(origPassProps);
+  return (
     <Fragment>
       <Link
         {...passProps}
@@ -41,11 +46,8 @@ export const BreadcrumbLink = ({
       <Icon
         icon="linkBreadcrumb"
         className={iconClassName}
-        color={
-          !!passProps.theme
-            ? passProps.theme.colors.blackBase
-            : suomifiTheme.colors.blackBase // TODO
-        }
+        color={colorValue(passProps)('blackBase')}
       />
     </Fragment>
   );
+};

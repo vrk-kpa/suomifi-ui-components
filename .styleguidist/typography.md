@@ -2,10 +2,13 @@ Suomifi-styleguide typography
 
 ```js noeditor
 import { default as styled } from 'styled-components';
-import { Text } from '../src/core/Text/Text';
-import { Heading } from '../src/core/Heading/Heading';
-import { typography, fontFamily } from '../src/core/theme/typography';
+import { Text, Heading } from '../src';
+import { suomifiTheme } from '../src/core/theme';
+
 import clipboardCopy from 'clipboard-copy';
+
+const fontFamily = 'Source Sans Pro';
+const typographyTokens = suomifiTheme().typography;
 
 const Row = styled(({ mb, code, ...passProps }) => (
   <div
@@ -61,7 +64,7 @@ const HeadingSet = ({ name, size, mb, code, ...passProps }) => (
   <TextSet
     variant="body"
     name="Body text"
-    size={typography.fontSize.body}
+    size={typographyTokens.bodyText.fontSize}
     code="<Text></Text>"
   />
   <TextSet
@@ -69,14 +72,14 @@ const HeadingSet = ({ name, size, mb, code, ...passProps }) => (
     smallScreen
     variant="body"
     name="Body text"
-    size={typography.smallResolution.fontSize.body}
+    size={typographyTokens.bodyTextSmallScreen.fontSize}
     code="<Text smallScreen></Text>"
   />
 
   <TextSet
     variant="lead"
     name="Lead text"
-    size={typography.fontSize.lead}
+    size={typographyTokens.leadText.fontSize}
     code="<Text.lead></Text.lead>"
   />
   <TextSet
@@ -84,14 +87,14 @@ const HeadingSet = ({ name, size, mb, code, ...passProps }) => (
     smallScreen
     variant="lead"
     name="Lead text"
-    size={typography.smallResolution.fontSize.lead}
+    size={typographyTokens.leadTextSmallScreen.fontSize}
     code="<Text.lead smallScreen></Text.lead>"
   />
 
   <HeadingSet
     variant="h1hero"
     name="Heading 1 hero"
-    size={typography.fontSize.h1}
+    size={typographyTokens.heading1.fontSize}
     code="<Heading.h1hero></Heading.h1hero>"
   />
   <HeadingSet
@@ -99,7 +102,7 @@ const HeadingSet = ({ name, size, mb, code, ...passProps }) => (
     smallScreen
     variant="h1hero"
     name="Heading 1 hero"
-    size={typography.smallResolution.fontSize.h1}
+    size={typographyTokens.heading1SmallScreen.fontSize}
     code="<Heading.h1hero smallScreen></Heading.h1hero>"
   />
 
@@ -108,7 +111,7 @@ const HeadingSet = ({ name, size, mb, code, ...passProps }) => (
       <HeadingSet
         variant={`h${n}`}
         name={`Heading ${n}`}
-        size={typography.fontSize[`h${n !== 6 ? n : 5}`]}
+        size={typographyTokens[`heading${n !== 6 ? n : 5}`].fontSize}
         code={`<Heading.h${n}></Heading.h${n}>`}
       />
       <HeadingSet
@@ -117,7 +120,8 @@ const HeadingSet = ({ name, size, mb, code, ...passProps }) => (
         variant={`h${n}`}
         name={`Heading ${n}`}
         size={
-          typography.smallResolution.fontSize[`h${n !== 6 ? n : 5}`]
+          typographyTokens[`heading${n !== 6 ? n : 5}SmallScreen`]
+            .fontSize
         }
         code={`<Heading.h${n} smallScreen></Heading.h${n}>`}
       />

@@ -3,7 +3,6 @@ Suomifi-styleguide colors
 ## Base
 
 ```jsx noeditor
-// import { Colors } from '../src/core/Colors/Colors';
 import { Colors } from '../src/core/Colors/Colors';
 import { colorTokens } from '../src/core/theme/colors';
 <Colors colors={colorTokens.base} />;

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.c5 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -25,7 +25,7 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.c6 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -48,9 +48,29 @@ exports[`calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
-.c6::-webkit-input-placeholder {
+.c4::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
+}
+
+.c1 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
 }
 
 .c2 {
@@ -70,61 +90,34 @@ exports[`calling render with the same component on the same container does not r
   color: inherit;
   background: none;
   cursor: inherit;
-  max-width: 100%;
-}
-
-.c4 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
+  display: block;
   max-width: 100%;
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
 }
 
-.c3 {
-  position: absolute;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
+.c5 {
+  display: inline-block;
+  vertical-align: baseline;
 }
 
-.c1 .fi-text-input_label-p {
+.c0 .fi-text-input_label-p {
   margin-bottom: 16px;
 }
 
-.c1 .fi-text-input_container > input:focus {
+.c0 .fi-text-input_container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
 
-.c1 .fi-text-input_container:focus-within {
+.c0 .fi-text-input_container:focus-within {
   outline: 0;
   position: relative;
 }
 
-.c1 .fi-text-input_container:focus-within:after {
+.c0 .fi-text-input_container:focus-within:after {
   content: '';
   position: absolute;
   top: -4px;
@@ -139,20 +132,16 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.c1 .fi-text-input_container:focus-within:not(:focus-visible):after {
+.c0 .fi-text-input_container:focus-within:not(:focus-visible):after {
   content: none;
 }
 
-.c1 .fi-text-input_container:focus-within > input:focus {
+.c0 .fi-text-input_container:focus-within > input:focus {
   outline: none;
 }
 
-.c1 .fi-text-input_input {
+.c0 .fi-text-input_input {
   color: hsl(0,0%,16%);
-  font-family: 'Source Sans Pro','Helvetica Neue',Arial,sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.5;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -162,6 +151,10 @@ exports[`calling render with the same component on the same container does not r
   word-break: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
@@ -171,19 +164,14 @@ exports[`calling render with the same component on the same container does not r
   background-color: hsl(0,0%,100%);
 }
 
-.c1.fi-text-input--error .fi-text-input_input {
+.c0.fi-text-input--error .fi-text-input_input {
   color: hsl(3,59%,48%);
   border-color: hsl(3,59%,48%);
 }
 
-.c1.fi-text-input--success .fi-text-input_input {
+.c0.fi-text-input--success .fi-text-input_input {
   color: hsl(166,90%,36%);
   border-color: hsl(166,90%,36%);
-}
-
-.c7 {
-  display: inline-block;
-  vertical-align: baseline;
 }
 
 .c0 .fi-search-input_input-container {
@@ -202,25 +190,24 @@ exports[`calling render with the same component on the same container does not r
 }
 
 <label
-  class="fi-text-input_label c0 fi-search-input c1 c2"
+  class="fi-text-input_label c0 fi-search-input c1"
 >
-  <span
-    class="fi-visually-hidden c3 c4"
+  <p
+    class="fi-paragraph fi-text-input_label-p c2"
   >
     Test search input
-  </span>
+  </p>
   <div
-    class="fi-search-input_input-container fi-text-input_container c5"
+    class="fi-search-input_input-container fi-text-input_container c3"
   >
     <input
-      class="fi-text-input_input fi-search-input_input c6"
+      class="fi-text-input_input fi-search-input_input c4"
       data-testid="textinput"
-      placeholder="Test search input"
       type="text"
     />
     <svg
       aria-hidden="true"
-      class="fi-search-input_icon c7"
+      class="fi-search-input_icon c5"
       focusable="false"
       height="1em"
       style="fill: hsl(202, 7%, 40%);"

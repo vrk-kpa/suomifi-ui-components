@@ -1,11 +1,12 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../theme';
-import { PanelProps } from './Panel';
-import { element, fonts } from '../theme/reset';
+import { withSuomifiTheme, TokensAndTheme } from '../theme';
+import { element, font } from '../theme/reset';
 
-export const baseStyles = ({ theme = suomifiTheme }: PanelProps) => css`
-  ${element(theme)}
-  ${fonts(theme).body}
+export const baseStyles = withSuomifiTheme(
+  ({ theme }: TokensAndTheme) => css`
+  ${element({ theme })}
+  ${font({ theme })('bodyText')}
   padding: ${theme.spacing.m};
   background-color: ${theme.colors.whiteBase};
-`;
+`,
+);

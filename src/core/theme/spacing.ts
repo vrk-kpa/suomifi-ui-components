@@ -1,31 +1,12 @@
-export type spacingTokensProp = keyof typeof spacingTokens;
+import { tokens, SpacingDesignTokens } from 'suomifi-design-tokens';
+export { SpacingDesignTokens };
 
-export const spacingTokens = {
-  xxs: '2px',
-  xs: '4px',
-  s: '8px',
-  m: '16px',
-  l: '32px',
-  xl: '64px',
-};
+export type SpacingProp = keyof SpacingDesignTokens;
+
+type SpacingDesignTokensKeys = keyof SpacingDesignTokens;
+
+export const spacing = tokens.spacing;
 
 export const spacingTokensKeys = Object.keys(
-  spacingTokens,
-) as spacingTokensProp[];
-
-const inset = {
-  squish: {
-    s: `${spacingTokens.xs} ${spacingTokens.s}`,
-    m: `${spacingTokens.s} ${spacingTokens.m}`,
-    l: `${spacingTokens.m} ${spacingTokens.l}`,
-  },
-  stretch: {
-    s: `${spacingTokens.m} ${spacingTokens.s}`,
-    m: `${spacingTokens.l} ${spacingTokens.m}`,
-  },
-};
-
-export const spacing = {
-  ...spacingTokens,
-  inset,
-};
+  spacing,
+) as SpacingDesignTokensKeys[];

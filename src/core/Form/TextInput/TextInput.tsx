@@ -1,34 +1,37 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withDefaultTheme } from '../../theme/utils';
-import { ThemeComponent } from '../../theme';
+import { withSuomifiDefaultProps } from '../../theme/utils';
+import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './TextInput.baseStyles';
 import {
   TextInput as CompTextInput,
   TextInputProps as CompTextInputProps,
 } from '../../../components/Form/TextInput';
 import classnames from 'classnames';
-
 const baseClassName = 'fi-text-input';
-const labelParagraphClassName = `${baseClassName}_label-p`;
-const inputContainerClassName = `${baseClassName}_container`;
-const errorClassName = `${baseClassName}--error`;
-const successClassName = `${baseClassName}--success`;
 
+export const textInputClassNames = {
+  baseClassName,
+  labelParagraph: `${baseClassName}_label-p`,
+  inputContainer: `${baseClassName}_container`,
+  error: `${baseClassName}--error`,
+  success: `${baseClassName}--success`,
+};
 type TextInputVariant = 'default' | 'error' | 'success';
-export interface TextInputProps extends CompTextInputProps, ThemeComponent {
+
+export interface TextInputProps extends CompTextInputProps, TokensProp {
   variant?: TextInputVariant;
 }
 
 const StyledTextInput = styled(
   ({
-    theme,
+    tokens,
     variant,
     className,
     labelTextProps = { className: undefined },
     inputContainerProps = { className: undefined },
     ...passProps
-  }: TextInputProps) => {
+  }: TextInputProps & InternalTokensProp) => {
     return (
       <CompTextInput
         {...passProps}
@@ -36,19 +39,19 @@ const StyledTextInput = styled(
           ...labelTextProps,
           className: classnames(
             labelTextProps.className,
-            labelParagraphClassName,
+            textInputClassNames.labelParagraph,
           ),
         }}
         inputContainerProps={{
           ...inputContainerProps,
           className: classnames(
             inputContainerProps.className,
-            inputContainerClassName,
+            textInputClassNames.inputContainer,
           ),
         }}
         className={classnames(className, {
-          [errorClassName]: variant === 'error',
-          [successClassName]: variant === 'success',
+          [textInputClassNames.error]: variant === 'error',
+          [textInputClassNames.success]: variant === 'success',
         })}
       />
     );
@@ -63,15 +66,15 @@ const StyledTextInput = styled(
  */
 export class TextInput extends Component<TextInputProps> {
   static error = (props: TextInputProps) => (
-    <StyledTextInput {...withDefaultTheme(props)} variant="error" />
+    <StyledTextInput {...withSuomifiDefaultProps(props)} variant="error" />
   );
 
   static success = (props: TextInputProps) => (
-    <StyledTextInput {...withDefaultTheme(props)} variant="success" />
+    <StyledTextInput {...withSuomifiDefaultProps(props)} variant="success" />
   );
 
   render() {
-    const { ...passProps } = withDefaultTheme(this.props);
+    const { ...passProps } = withSuomifiDefaultProps(this.props);
 
     return <StyledTextInput {...passProps} />;
   }

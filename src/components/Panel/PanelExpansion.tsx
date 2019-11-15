@@ -2,7 +2,7 @@ import React, { Component, ReactNode, Fragment } from 'react';
 import { default as styled } from 'styled-components';
 import { Panel, PanelProps, baseClassName, StyledPanel } from './Panel';
 import { Button, ButtonProps } from '../Button/Button';
-import { allStates } from '../../utils/css/pseudo';
+import { allStates } from '../../utils/css';
 import classnames from 'classnames';
 import {
   PanelExpansionGroupConsumer,
@@ -20,6 +20,7 @@ const contentOpenClassName = `${contentBaseClassName}--open`;
 
 interface StyledPanelExpansionContentProps extends PanelProps {
   openState: boolean;
+  hidden: boolean;
 }
 
 export const StyledPanelExpansionContent = styled(
@@ -57,13 +58,12 @@ export interface PanelExpansionProps extends PanelProps {
    * @default none
    */
   titleTag?: string;
-  /** Controlled open-state, use onClick to change  */
   open?: boolean;
   /** Properties for title-Button */
   titleProps?: ButtonProps & { open?: boolean };
   /** Properties for the content div */
   contentProps?: PanelProps;
-  /** Default status of panel open when not using controlled 'open' state
+  /** Default status of panel open
    * @default false
    */
   defaultOpen?: boolean;
@@ -170,6 +170,8 @@ export class PanelExpansionItem extends Component<PanelExpansionProps> {
           className={classnames(contentBaseClassName, contentClassName, {
             [contentOpenClassName]: !!openState,
           })}
+          hidden={!openState}
+          key={String(openState)}
           aria-hidden={!openState}
         >
           {children}

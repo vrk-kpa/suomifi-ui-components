@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { default as styled } from 'styled-components';
-import { withDefaultTheme } from '../theme/utils';
-import { ThemeComponent } from '../theme';
+import { withSuomifiDefaultProps } from '../theme/utils';
+import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles, menuListStyles } from './Dropdown.baseStyles';
 import {
   MenuList as CompMenuList,
@@ -13,20 +13,22 @@ import {
 } from '../../components/Dropdown/Dropdown';
 import { DropdownItem, DropdownItemProps } from './DropdownItem';
 
-export interface DropdownProps extends CompDropdownProps, ThemeComponent {}
+export interface DropdownProps extends CompDropdownProps, TokensProp {}
 
-const StyledDropdown = styled(({ theme, ...passProps }: DropdownProps) => (
-  <CompDropdown
-    {...passProps}
-    dropdownItemProps={{ className: 'fi-dropdown-item' }}
-  />
-))`
+const StyledDropdown = styled(
+  ({ tokens, ...passProps }: DropdownProps & InternalTokensProp) => (
+    <CompDropdown
+      {...passProps}
+      dropdownItemProps={{ className: 'fi-dropdown_item' }}
+    />
+  ),
+)`
   ${props => baseStyles(props)}
 `;
 
-interface MenuListProps extends CompMenuListProps, ThemeComponent {}
+interface MenuListProps extends CompMenuListProps, TokensProp {}
 
-const StyledMenuList = styled(({ theme, ...passProps }: MenuListProps) => (
+const StyledMenuList = styled(({ tokens, ...passProps }: MenuListProps) => (
   <CompMenuList {...passProps} />
 ))`
   ${props => menuListStyles(props.theme)}
@@ -40,7 +42,7 @@ export class Dropdown extends Component<DropdownProps> {
   static item = (props: DropdownItemProps) => <DropdownItem {...props} />;
 
   render() {
-    const props = withDefaultTheme(this.props);
+    const props = withSuomifiDefaultProps(this.props);
     return (
       <Fragment>
         <StyledDropdown {...props} menuListComponent={StyledMenuList} />

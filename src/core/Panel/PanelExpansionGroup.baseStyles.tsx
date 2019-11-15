@@ -1,12 +1,10 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../theme';
-import { PanelExpansionGroupProps } from './PanelExpansionGroup';
-import { element, fonts, focus } from '../theme/reset';
+import { withSuomifiTheme, TokensAndTheme } from '../theme';
+import { element, font, focus } from '../theme/reset';
 
-export const baseStyles = ({
-  theme = suomifiTheme,
-}: PanelExpansionGroupProps) => css`
-  ${element(theme)}
+export const baseStyles = withSuomifiTheme(
+  ({ theme }: TokensAndTheme) => css`
+  ${element({ theme })}
   display: flex;
   flex-direction: column;
   & > .fi-panel-expansion-group_panels {
@@ -29,14 +27,16 @@ export const baseStyles = ({
   }
 
   & > .fi-panel-expansion-group_all-button {
-    ${element(theme)}
-    ${fonts(theme).semiBold}
-    ${focus(theme)}
-    flex: 1;
+    ${element({ theme })}
+    ${font({ theme })('actionElementInnerTextBold')}
+    ${focus({ theme })}
+    flex: 1 1 auto;
+    align-self: flex-end; 
     margin-left: auto;
     margin-bottom: ${theme.spacing.s};
     padding: ${theme.spacing.xs} 0;
     color: ${theme.colors.highlightBase};
     cursor: pointer;
   }
-`;
+`,
+);

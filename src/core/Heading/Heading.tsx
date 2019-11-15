@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withDefaultTheme } from '../theme/utils';
-import { ThemeComponent, ColorProp } from '../theme';
+import { withSuomifiDefaultProps } from '../theme/utils';
+import { TokensProp, ColorProp, InternalTokensProp } from '../theme';
 import {
   Heading as CompHeading,
   HeadingProps as CompHeadingProps,
@@ -17,7 +17,7 @@ const smallScreenClassName = `${baseClassName}--small-screen`;
 
 export interface HeadingProps
   extends Omit<CompHeadingProps, 'variant'>,
-    ThemeComponent {
+    TokensProp {
   /**
    * Heading level
    * @default h1
@@ -32,14 +32,14 @@ export interface HeadingProps
 
 const StyledHeading = styled(
   ({
-    theme,
+    tokens,
     color,
     smallScreen,
     className,
     variant,
     asProp, // as-property is defined internally as asProp and need to be implemented back if used
     ...passProps
-  }: HeadingProps) => (
+  }: HeadingProps & InternalTokensProp) => (
     <CompHeading
       {...passProps}
       className={classnames(className, [`${baseClassName}--${variant}`], {
@@ -59,35 +59,35 @@ const StyledHeading = styled(
  */
 export class Heading extends Component<HeadingProps> {
   static h1hero = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withDefaultTheme(props)} variant="h1hero" />
+    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h1hero" />
   );
 
   static h1 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withDefaultTheme(props)} variant="h1" />
+    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h1" />
   );
 
   static h2 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withDefaultTheme(props)} variant="h2" />
+    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h2" />
   );
 
   static h3 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withDefaultTheme(props)} variant="h3" />
+    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h3" />
   );
 
   static h4 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withDefaultTheme(props)} variant="h4" />
+    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h4" />
   );
 
   static h5 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withDefaultTheme(props)} variant="h5" />
+    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h5" />
   );
 
   static h6 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withDefaultTheme(props)} variant="h6" />
+    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h6" />
   );
 
   render() {
-    const { variant, ...passProps } = withDefaultTheme(this.props);
+    const { variant, ...passProps } = withSuomifiDefaultProps(this.props);
     if (!variant) {
       logger.warn(
         `Does not contain heading level (variant): ${passProps.children}`,
