@@ -106,12 +106,12 @@ const HeadingSet = ({ name, size, mb, code, ...passProps }) => (
     code="<Heading.h1hero smallScreen></Heading.h1hero>"
   />
 
-  {[1, 2, 3, 4, 5, 6].map(n => (
+  {[1, 2, 3, 4, 5].map(n => (
     <React.Fragment key={n}>
       <HeadingSet
         variant={`h${n}`}
         name={`Heading ${n}`}
-        size={typographyTokens[`heading${n !== 6 ? n : 5}`].fontSize}
+        size={typographyTokens[`heading${n}`].fontSize}
         code={`<Heading.h${n}></Heading.h${n}>`}
       />
       <HeadingSet
@@ -119,10 +119,7 @@ const HeadingSet = ({ name, size, mb, code, ...passProps }) => (
         smallScreen
         variant={`h${n}`}
         name={`Heading ${n}`}
-        size={
-          typographyTokens[`heading${n !== 6 ? n : 5}SmallScreen`]
-            .fontSize
-        }
+        size={typographyTokens[`heading${n}SmallScreen`].fontSize}
         code={`<Heading.h${n} smallScreen></Heading.h${n}>`}
       />
     </React.Fragment>
