@@ -43,10 +43,6 @@ export const baseStyles = withSuomifiTheme(
     overflow: visible;
     transform: translateY(-0.1em);
   
-    & * {
-      cursor: pointer;
-    }
-  
     & .${svgPrefix}fi-toggle-icon-knob {
       transform: translateX(0%);
     }
