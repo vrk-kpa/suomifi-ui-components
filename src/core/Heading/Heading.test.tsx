@@ -13,7 +13,6 @@ const TestHeadings = (
     <Heading.h3>Test Heading</Heading.h3>
     <Heading.h4>Test Heading</Heading.h4>
     <Heading.h5>Test Heading</Heading.h5>
-    <Heading.h6>Test Heading</Heading.h6>
   </div>
 );
 
