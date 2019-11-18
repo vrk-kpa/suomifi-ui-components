@@ -82,10 +82,6 @@ export class Heading extends Component<HeadingProps> {
     <StyledHeading {...withSuomifiDefaultProps(props)} variant="h5" />
   );
 
-  static h6 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h6" />
-  );
-
   render() {
     const { variant, ...passProps } = withSuomifiDefaultProps(this.props);
     if (!variant) {
