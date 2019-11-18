@@ -211,7 +211,7 @@ exports[`calling render with the same component on the same container does not r
     />
     <svg
       aria-hidden="true"
-      class="fi-search-input_icon c5"
+      class="fi-search-input_icon c6"
       fill="hsl(202, 7%, 40%)"
       focusable="false"
       height="1em"
