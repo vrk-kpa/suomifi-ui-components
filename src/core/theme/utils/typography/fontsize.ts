@@ -1,8 +1,8 @@
-import { TypograhpyDesingTokens } from 'suomifi-design-tokens';
+import { TypographyDesignTokens } from 'suomifi-design-tokens';
 import { SuomifiTheme } from '../../';
 import { cssValueToString } from '../../../../utils/css';
 
-type ValueTypographyTokenProp = keyof TypograhpyDesingTokens;
+type ValueTypographyTokenProp = keyof TypographyDesignTokens;
 export interface FontSizeProps {
   theme: SuomifiTheme;
   [key: string]: any;

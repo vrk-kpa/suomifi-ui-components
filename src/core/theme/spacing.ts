@@ -1,12 +1,12 @@
-import { tokens, SpacingDesingTokens } from 'suomifi-design-tokens';
-export { SpacingDesingTokens };
+import { tokens, SpacingDesignTokens } from 'suomifi-design-tokens';
+export { SpacingDesignTokens };
 
-export type SpacingProp = keyof SpacingDesingTokens;
+export type SpacingProp = keyof SpacingDesignTokens;
 
-type SpacingDesingTokensKeys = keyof SpacingDesingTokens;
+type SpacingDesignTokensKeys = keyof SpacingDesignTokens;
 
 export const spacing = tokens.spacing;
 
 export const spacingTokensKeys = Object.keys(
   spacing,
-) as SpacingDesingTokensKeys[];
+) as SpacingDesignTokensKeys[];
