@@ -7,8 +7,11 @@ import React, {
 import classnames from 'classnames';
 import { HtmlInput, HtmlLabel } from '../../reset';
 import { ToggleProps, ToggleState } from './Toggle';
+import styled from 'styled-components';
+import { disabledCursor } from '../utils/css';
 
 const baseClassName = 'fi-toggle';
+const toggleDisabledClassName = `${baseClassName}--disabled`;
 
 const componentOrElementWithProps = (
   component: ReactElement<any> | FunctionComponent<any> | ComponentClass<any>,
@@ -25,6 +28,13 @@ const componentOrElementWithProps = (
   }
   return;
 };
+
+const StyledHtmlLabel = styled(HtmlLabel)`
+  &.${toggleDisabledClassName} {
+    ${disabledCursor}
+  }
+  cursor: pointer;
+`;
 
 export class ToggleInput extends Component<ToggleProps> {
   state: ToggleState = {
@@ -68,7 +78,6 @@ export class ToggleInput extends Component<ToggleProps> {
     const toggleClassName = `${baseClassName}--with-input`;
     const toggleInputClassName = `${baseClassName}_input`;
     const toggleLabelClassName = `${baseClassName}_label`;
-    const toggleDisabledClassName = `${baseClassName}--disabled`;
 
     const newToggleInputProps = {
       disabled,
@@ -82,7 +91,7 @@ export class ToggleInput extends Component<ToggleProps> {
     };
 
     return (
-      <HtmlLabel
+      <StyledHtmlLabel
         htmlFor={id}
         className={classnames(
           toggleClassName,
@@ -101,7 +110,7 @@ export class ToggleInput extends Component<ToggleProps> {
           <HtmlInput {...newToggleInputProps} type="checkbox" />
         )}
         {children}
-      </HtmlLabel>
+      </StyledHtmlLabel>
     );
   }
 }
