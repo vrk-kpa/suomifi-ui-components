@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BaseTextInput, TextInputProps } from './TextInput';
+import { StyledBaseTextInput, TextInputProps } from './TextInput';
 import { logger } from '../../utils/logger';
 
 export class SearchInput extends Component<TextInputProps> {
@@ -16,6 +16,6 @@ export class SearchInput extends Component<TextInputProps> {
       placeholder: labelAsPlaceholder ? this.props.labelText : undefined,
     };
 
-    return <BaseTextInput {...passProps} {...props} />;
+    return <StyledBaseTextInput {...passProps} {...props} />;
   }
 }
