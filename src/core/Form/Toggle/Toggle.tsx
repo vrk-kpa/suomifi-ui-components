@@ -66,7 +66,6 @@ class ToggleWithIcon extends Component<ToggleProps> {
             [iconDisabledClassName]: !!disabled,
             [iconCheckedClassName]: !!toggleStatus,
           })}
-          mousePointer={true}
         />
         <Text>{children}</Text>
       </StyledToggle>

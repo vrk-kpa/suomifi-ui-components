@@ -12,6 +12,8 @@ import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import { Paragraph, ParagraphProps } from '../Paragraph/Paragraph';
 import { logger } from '../../utils/logger';
 import classnames from 'classnames';
+import styled from 'styled-components';
+import { disabledCursor } from '../utils/css';
 
 const baseClassName = 'fi-text-input';
 const disabledClassName = `${baseClassName}--disabled`;
@@ -53,7 +55,7 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   children?: ReactNode;
 }
 
-export class BaseTextInput extends Component<TextInputProps> {
+class BaseTextInput extends Component<TextInputProps> {
   render() {
     const {
       className,
@@ -94,6 +96,14 @@ export class BaseTextInput extends Component<TextInputProps> {
   }
 }
 
+export const StyledBaseTextInput = styled((props: TextInputProps) => (
+  <BaseTextInput {...props} />
+))`
+  &.${disabledClassName} {
+    ${disabledCursor}
+  }
+`;
+
 export class TextInput extends Component<TextInputProps> {
   render() {
     const { placeholder, ...passProps } = this.props;
@@ -109,6 +119,6 @@ export class TextInput extends Component<TextInputProps> {
       placeholder: showPlaceholder ? this.props.labelText : undefined,
     };
 
-    return <BaseTextInput {...passProps} {...props} />;
+    return <StyledBaseTextInput {...passProps} {...props} />;
   }
 }
