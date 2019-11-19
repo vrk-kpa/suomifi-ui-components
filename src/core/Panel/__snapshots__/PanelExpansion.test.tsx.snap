@@ -176,6 +176,9 @@ exports[`calling render with the same component on the same container does not r
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
   -webkit-appearance: button;
   margin: 0;
   padding: 0;
