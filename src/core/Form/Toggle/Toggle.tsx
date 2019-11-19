@@ -33,7 +33,7 @@ const StyledToggle = styled(
  * Use for toggling form selection or application state
  */
 class ToggleWithIcon extends Component<ToggleProps> {
-  state = { toggleStatus: !!this.props.checked };
+  state = { toggleStatus: !!this.props.checked || !!this.props.defaultChecked };
 
   handleToggle = () => {
     const { onClick } = this.props;
