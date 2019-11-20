@@ -10540,7 +10540,7 @@ sugarss@^2.0.0:
 
 suomifi-design-tokens@0.4.0:
   version "0.4.0"
-  resolved "https://registry.npmjs.org/suomifi-design-tokens/-/suomifi-design-tokens-0.4.0.tgz#5b8e4d0bc60b2274287c8d1bbb6990bb74d0e52f"
+  resolved "https://registry.yarnpkg.com/suomifi-design-tokens/-/suomifi-design-tokens-0.4.0.tgz#5b8e4d0bc60b2274287c8d1bbb6990bb74d0e52f"
   integrity sha512-R1O4Uq3RoW5NWloix+nrFfgd+4XntW2gU4l6qaBKkGmP65rIUeOPwpiGA7UyGc24Oy3EId0p3+dt17EdWlb9Kw==
 
 suomifi-icons@0.0.10:
