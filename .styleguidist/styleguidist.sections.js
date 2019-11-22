@@ -73,8 +73,8 @@ module.exports = {
           ],
         },
         {
-          name: 'Patterns',
-          content: './.styleguidist/patterns.md',
+          name: 'Modules',
+          content: './.styleguidist/modules.md',
           sections: [
             {
               name: 'Breadcrumb',
