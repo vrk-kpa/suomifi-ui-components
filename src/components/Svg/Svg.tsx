@@ -19,6 +19,8 @@ export interface SvgProps {
   /** Show mouse cursor as hand-pointer */
   mousePointer?: boolean;
   testId?: string;
+  /** Allow passing custom attributes */
+  [key: string]: any;
 }
 
 export const Svg = styled(

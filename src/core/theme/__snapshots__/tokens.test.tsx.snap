@@ -400,9 +400,9 @@ exports[`snapshot testing 1`] = `
         <svg
           aria-hidden="true"
           class="fi-panel-expansion_title-icon c9"
+          fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"
-          style="fill: hsl(202, 7%, 40%);"
           viewBox="0 0 24 24"
           width="1em"
         >
@@ -433,9 +433,9 @@ exports[`snapshot testing 1`] = `
         <svg
           aria-hidden="true"
           class="fi-panel-expansion_title-icon c9"
+          fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"
-          style="fill: hsl(202, 7%, 40%);"
           viewBox="0 0 24 24"
           width="1em"
         >
@@ -466,9 +466,9 @@ exports[`snapshot testing 1`] = `
         <svg
           aria-hidden="true"
           class="fi-panel-expansion_title-icon c9"
+          fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"
-          style="fill: hsl(202, 7%, 40%);"
           viewBox="0 0 24 24"
           width="1em"
         >
