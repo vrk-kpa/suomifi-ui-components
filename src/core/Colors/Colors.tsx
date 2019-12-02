@@ -70,12 +70,11 @@ export class Colors extends Component<ColorsProps> {
       <ColorsContainer>
         {Object.entries(useColors).reduce<JSX.Element[]>(
           (arr, [key, value]) => {
-            const color = value.hsl;
             const item = (
               <ColorFigure
                 key={key.toString()}
                 keyName={key.toString()}
-                color={color}
+                color={value as string}
                 {...props}
               />
             );

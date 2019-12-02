@@ -2,8 +2,6 @@ import { FlattenSimpleInterpolation } from 'styled-components';
 import {
   typography,
   TypographyProp,
-  internalTypographyTokens,
-  internalTypographyTokensProp,
   TypographyDesignTokens,
 } from './typography';
 import { typographyUtils, spacingUtils, colorsUtils } from './utils';
@@ -14,16 +12,12 @@ import {
   outlines,
   ColorDesignTokens,
 } from './colors';
+import { suomifiDesignTokens } from 'suomifi-design-tokens';
 import { spacing, SpacingProp, SpacingDesignTokens } from './spacing';
 import { zindexes } from './zindexes';
 import { transitions } from './transitions';
 import { radius } from './radius';
-export {
-  TypographyProp,
-  internalTypographyTokens,
-  internalTypographyTokensProp,
-  SpacingProp,
-};
+export { TypographyProp, SpacingProp };
 
 export type SuomifiTokens = typeof importedTokens;
 export type DefaultSuomifiTokens = typeof defaultTokens;
@@ -66,6 +60,7 @@ const importedTokens = {
   colors,
   spacing,
   typography,
+  values: suomifiDesignTokens.values,
 };
 
 export const defaultTokens = {
@@ -86,6 +81,7 @@ export const suomifiTheme = ({
   colors = defaultTokens.colors,
   spacing = defaultTokens.spacing,
   typography = defaultTokens.typography,
+  values = defaultTokens.values,
   // Rest of the properties are overrides for internalTokens
   ...libraryTokenOverrides
 }: Partial<SuomifiTokens & DefaultInternalTokens> = defaultTokens) => ({
@@ -96,7 +92,7 @@ export const suomifiTheme = ({
   colors: colorsUtils(colors),
   spacing: spacingUtils(spacing),
   typography: typographyUtils(typography),
-  values: { colors, spacing, typography },
+  values: values,
 });
 
 /**

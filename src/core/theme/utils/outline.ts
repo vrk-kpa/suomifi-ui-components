@@ -48,7 +48,7 @@ const afterBoxshadow = ({
 
 // TODO Refactor, create interfaces (and extend with Partial<>), add JSDOC for functions
 export const boxshadowOutline = ({
-  color = colors.accentBase.hsl,
+  color = colors.accentBase,
   offset = '0',
   border = '1px',
   borderRadius = radius.focus,

@@ -1,9 +1,11 @@
 import { FlattenSimpleInterpolation } from 'styled-components';
-import { cssObjectsToCss } from '../../../../utils/css';
-import { tokens, TypographyDesignTokens } from 'suomifi-design-tokens';
+import {
+  suomifiDesignTokens,
+  TypographyDesignTokens,
+} from 'suomifi-design-tokens';
 
 export type TypographyTokensAsCss = {
-  [key in keyof typeof tokens.typography]: string
+  [key in keyof typeof suomifiDesignTokens.typography]: string
 };
 
 type TypographyTokensAsCssProp = {
@@ -16,7 +18,7 @@ export class TypographyUtil {
     // If instance not created, does not take on account if tokens is different!
     if (!TypographyUtil.instance) {
       // Assing typographyTokens as CSS FlattenSimpleInterpolation to this object
-      Object.assign(this, cssObjectsToCss(tokens));
+      Object.assign(this, tokens);
       TypographyUtil.instance = this;
     }
     return TypographyUtil.instance;

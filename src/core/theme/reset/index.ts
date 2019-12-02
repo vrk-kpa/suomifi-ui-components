@@ -1,9 +1,5 @@
 import { css } from 'styled-components';
-import {
-  TypographyProp,
-  internalTypographyTokens,
-  internalTypographyTokensProp,
-} from '../';
+import { TypographyProp } from '../';
 import {
   focus as focusUtil,
   themeOrTokens,
@@ -29,13 +25,6 @@ export const font = (props: TokensOrThemeProps) => (
 ) => css`
   ${fontBase}
   ${themeOrTokens(props).typography[typographyToken]}
-`;
-
-export const internalTokenFont = (
-  typographyToken: keyof internalTypographyTokensProp,
-) => css`
-  ${fontBase}
-  ${internalTypographyTokens[typographyToken]}
 `;
 
 export const input = (props: TokensOrThemeProps) => {
