@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { TokensProp, InternalTokensProp } from '../theme';
-import { withSuomifiDefaultProps, colorValue } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { baseStyles } from './Button.baseStyles';
 import {
   Button as CompButton,
@@ -77,11 +77,11 @@ const iconColor = ({
   disabled?: boolean;
 } & InternalTokensProp) => {
   const defaultColor = !!disabled
-    ? colorValue({ tokens })('depthBase')
-    : colorValue({ tokens })('whiteBase');
+    ? tokens.colors.depthBase
+    : tokens.colors.whiteBase;
   const secondaryColor = !!disabled
-    ? colorValue({ tokens })('depthBase')
-    : colorValue({ tokens })('highlightBase');
+    ? tokens.colors.depthBase
+    : tokens.colors.highlightBase;
   return !!invert ? secondaryColor : defaultColor;
 };
 
