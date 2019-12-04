@@ -72,7 +72,7 @@ const HeadingSet = ({ name, size, mb, code, ...passProps }) => (
     smallScreen
     variant="body"
     name="Body text"
-    size={typographyTokens.bodyTextSmallScreen.fontSize}
+    size={typographyTokens.bodyTextSmall.fontSize}
     code="<Text smallScreen></Text>"
   />
 
