@@ -1,17 +1,16 @@
 import { FlattenSimpleInterpolation } from 'styled-components';
 import {
-  typography,
-  TypographyProp,
-  TypographyDesignTokens,
-} from './typography';
-import {
   colors,
   shadows,
   gradients,
   outlines,
   ColorDesignTokens,
 } from './colors';
-import { suomifiDesignTokens, RawDesignTokens } from 'suomifi-design-tokens';
+import {
+  suomifiDesignTokens,
+  RawDesignTokens,
+  TypographyDesignTokens,
+} from 'suomifi-design-tokens';
 import { spacing, SpacingProp, SpacingDesignTokens } from './spacing';
 import { zindexes } from './zindexes';
 import { transitions } from './transitions';
@@ -22,6 +21,12 @@ export type SuomifiTokens = typeof importedTokens;
 export type DefaultSuomifiTokens = typeof defaultTokens;
 export type ColorProp = keyof typeof importedTokens.colors;
 export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
+
+type TypographyProp = keyof typeof suomifiDesignTokens.typography;
+
+export { TypographyDesignTokens } from 'suomifi-design-tokens';
+
+const typography = suomifiDesignTokens.typography;
 
 export interface PartialTokens {
   colors?: Partial<ColorDesignTokens>;
