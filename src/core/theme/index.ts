@@ -26,8 +26,6 @@ type TypographyProp = keyof typeof suomifiDesignTokens.typography;
 
 export { TypographyDesignTokens } from 'suomifi-design-tokens';
 
-const typography = suomifiDesignTokens.typography;
-
 export interface PartialTokens {
   colors?: Partial<ColorDesignTokens>;
   spacing?: Partial<SpacingDesignTokens>;
@@ -64,7 +62,7 @@ const internalTokens = {
 const importedTokens = {
   colors,
   spacing,
-  typography,
+  typography: suomifiDesignTokens.typography,
   values: suomifiDesignTokens.values,
 };
 
