@@ -2,7 +2,8 @@ import React from 'react';
 import { render } from 'react-testing-library';
 import { axeTest } from '../../utils/test/axe';
 
-import { Panel, defaultTokens } from '../../';
+import { defaultTokens } from './';
+import { Panel } from '../../';
 
 const { colors } = defaultTokens;
 const customColors = {
