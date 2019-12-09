@@ -87,7 +87,12 @@ const iconColor = ({
 
 class ButtonWithIcon extends Component<ButtonProps & InternalTokensProp> {
   render() {
-    const { icon, iconRight, iconProps = {}, ...passProps } = this.props;
+    const {
+      icon,
+      iconRight,
+      iconProps = { className: undefined },
+      ...passProps
+    } = this.props;
     const { tokens, disabled, variant } = passProps;
     const { className: iconPropsClassName, ...passIconProps } = iconProps;
 

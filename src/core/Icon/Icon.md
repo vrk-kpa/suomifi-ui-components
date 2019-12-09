@@ -1,7 +1,11 @@
 ```jsx
 import { Icon } from 'suomifi-ui-components';
 
-<Icon ariaLabel="Login here" className="my-icon--test" />;
+<Icon
+  icon="login"
+  ariaLabel="Login here"
+  className="my-icon--test"
+/>;
 ```
 
 ### Icon with no label

@@ -7,57 +7,27 @@ import {
   ariaLabelOrHidden,
   ariaFocusableNoLabel,
 } from '../../components/utils/aria';
-import {
-  Icon as CompIcon,
-  IconProps as CompIconProps,
-} from '../../components/Icon/Icon';
-import { Omit } from '../../utils/typescript';
-import {
-  SuomifiIcon,
-  SuomifiIconInterface,
-  IconKeys,
-  StaticIconKeys,
-} from 'suomifi-icons';
+import { SuomifiIcon, SuomifiIconInterface } from 'suomifi-icons';
 export { IconKeys, StaticIconKeys } from 'suomifi-icons';
 import { logger } from '../../utils/logger';
 
-export interface IconProps extends Omit<CompIconProps, 'src'>, TokensProp {
-  /** Icon-name from suomifi-icons */
-  icon?: IconKeys | StaticIconKeys;
-  /** Image file */
-  src?: string;
-}
-
-interface StyledIconProps extends CompIconProps {
+export interface IconProps extends TokensProp, SuomifiIconInterface {
+  /** Aria-label for SVG, undefined hides SVG from screen reader
+   * @default undefined
+   */
   ariaLabel?: string;
-}
-
-interface StyledSuomifiIconProps extends SuomifiIconInterface {
-  ariaLabel?: string;
+  /** Custom classname to SVG-element extend or customize */
+  svgClassName?: string;
+  /** Show mouse cursor as hand-pointer */
   mousePointer?: boolean;
+  testId?: string;
 }
 
-type optionalSuomifiIconInterface = {
-  [K in keyof SuomifiIconInterface]?: SuomifiIconInterface[K]
-};
-
-export interface SuomifiIconProps extends optionalSuomifiIconInterface {
-  ariaLabel?: string;
-  mousePointer?: boolean;
-}
-
-const StyledIcon = styled(({ ariaLabel, ...passProps }: StyledIconProps) => (
-  <CompIcon
-    {...passProps}
-    {...ariaLabelOrHidden(ariaLabel)}
-    {...ariaFocusableNoLabel(ariaLabel)}
-  />
-))`
-  ${props => iconBaseStyles(props)}
-`;
-
+/**
+ * Apply Suomifi styles to Icon
+ */
 const StyledSuomifiIcon = styled(
-  ({ ariaLabel, mousePointer, ...passProps }: StyledSuomifiIconProps) => {
+  ({ ariaLabel, mousePointer, ...passProps }: IconProps) => {
     return (
       <SuomifiIcon
         {...passProps}
@@ -75,21 +45,13 @@ const StyledSuomifiIcon = styled(
  */
 export class Icon extends Component<IconProps> {
   render() {
-    const {
-      src,
-      color,
-      icon = 'login',
-      tokens,
-      ...passProps
-    } = withSuomifiDefaultProps(this.props);
+    const { color, icon, tokens, ...passProps } = withSuomifiDefaultProps(
+      this.props,
+    );
     const { className, ariaLabel } = this.props;
 
     const iconColor =
       color !== undefined ? color : colorValue({ tokens })('depthDark27');
-
-    if (!!src) {
-      return <StyledIcon src={src} {...passProps} color={iconColor} />;
-    }
 
     if (icon !== undefined) {
       return <StyledSuomifiIcon {...passProps} icon={icon} color={iconColor} />;

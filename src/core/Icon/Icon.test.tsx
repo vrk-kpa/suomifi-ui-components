@@ -5,7 +5,12 @@ import { axeTest } from '../../utils/test/axe';
 import { Icon } from './Icon';
 
 const testIcon = (
-  <Icon ariaLabel="Test label" className="my-icon--test" data-testid="icon" />
+  <Icon
+    icon="login"
+    ariaLabel="Test label"
+    className="my-icon--test"
+    data-testid="icon"
+  />
 );
 
 const TestIcons = (
@@ -26,6 +31,7 @@ test('calling render with the same component on the same container does not remo
   const { rerender } = testRenderer;
   rerender(
     <Icon
+      icon="login"
       ariaLabel="Test label"
       className="my-icon--test"
       data-testid="noci"
