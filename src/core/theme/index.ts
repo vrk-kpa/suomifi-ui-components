@@ -8,21 +8,20 @@ import {
 } from './colors';
 import {
   suomifiDesignTokens,
-  RawDesignTokens,
   TypographyDesignTokens,
 } from 'suomifi-design-tokens';
 import { spacing, SpacingProp, SpacingDesignTokens } from './spacing';
 import { zindexes } from './zindexes';
 import { transitions } from './transitions';
 import { radius } from './radius';
-export { TypographyProp, SpacingProp };
+export { SpacingProp };
 
 export type SuomifiTokens = typeof importedTokens;
 export type DefaultSuomifiTokens = typeof defaultTokens;
 export type ColorProp = keyof typeof importedTokens.colors;
 export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
 
-type TypographyProp = keyof typeof suomifiDesignTokens.typography;
+export type TypographyProp = keyof typeof suomifiDesignTokens.typography;
 
 export { TypographyDesignTokens } from 'suomifi-design-tokens';
 
@@ -30,7 +29,6 @@ export interface PartialTokens {
   colors?: Partial<ColorDesignTokens>;
   spacing?: Partial<SpacingDesignTokens>;
   typography?: Partial<TypographyDesignTokens>;
-  values?: Partial<RawDesignTokens>;
 }
 export interface TokensProp {
   /** Custom  Design-tokens or one category of tokens customized, clone defaultTokens for base */
@@ -87,7 +85,6 @@ export const suomifiTheme = (
     colors = {},
     spacing = {},
     typography = {},
-    values = {},
     // Rest of the properties are overrides for internalTokens
     ...libraryTokenOverrides
   } = props || {};
@@ -96,22 +93,19 @@ export const suomifiTheme = (
     ...internalTokens,
     // Override if any defined
     ...(!!libraryTokenOverrides ? libraryTokenOverrides : {}),
-    colors: mergeTokens<ColorDesignTokens>({
+    colors: mergeTokens({
       defaultTokens: defaultTokens.colors,
       customTokens: colors,
     }),
-    spacing: mergeTokens<SpacingDesignTokens>({
+    spacing: mergeTokens({
       defaultTokens: defaultTokens.spacing,
       customTokens: spacing,
     }),
-    typography: mergeTokens<TypographyDesignTokens>({
+    typography: mergeTokens({
       defaultTokens: defaultTokens.typography,
       customTokens: typography,
     }),
-    values: mergeTokens<RawDesignTokens>({
-      defaultTokens: defaultTokens.values,
-      customTokens: values,
-    }),
+    values: defaultTokens.values,
   };
   return theme;
 };
