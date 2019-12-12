@@ -1,9 +1,5 @@
 import { css } from 'styled-components';
-import {
-  TypographyProp,
-  internalTypographyTokens,
-  internalTypographyTokensProp,
-} from '../';
+import { TypographyProp, SuomifiThemeProp } from '../';
 import {
   focus as focusUtil,
   themeOrTokens,
@@ -24,30 +20,22 @@ const fontBase = css`
   -webkit-font-smoothing: antialiased;
 `;
 
-export const font = (props: TokensOrThemeProps) => (
+export const font = (props: SuomifiThemeProp) => (
   typographyToken: TypographyProp,
 ) => css`
   ${fontBase}
-  ${themeOrTokens(props).typography[typographyToken]}
+  ${props.theme.typography[typographyToken]}
 `;
 
-export const internalTokenFont = (
-  typographyToken: keyof internalTypographyTokensProp,
-) => css`
-  ${fontBase}
-  ${internalTypographyTokens[typographyToken]}
-`;
-
-export const input = (props: TokensOrThemeProps) => {
-  const theme = themeOrTokens(props);
+export const input = (props: SuomifiThemeProp) => {
   return css`
     ${element(props)}
     ${font(props)('actionElementInnerText')}
     min-width: 245px;
     max-width: 100%;
-    padding: ${theme.spacing.s} ${theme.spacing.m};
-    border: 1px solid ${theme.colors.depthBase};
-    border-radius: ${theme.radius.basic};
+    padding: ${props.theme.spacing.s} ${props.theme.spacing.m};
+    border: 1px solid ${props.theme.colors.depthBase};
+    border-radius: ${props.theme.radius.basic};
     line-height: 1;
   `;
 };
@@ -67,12 +55,12 @@ export const inputContainer = (props: TokensOrThemeProps) => css`
   }
 `;
 
-export const inputButton = (props: TokensOrThemeProps) => css`
+export const inputButton = (props: SuomifiThemeProp) => css`
   ${input(props)}
   ${focus(props)}
 `;
 
-export const button = (props: TokensOrThemeProps) => css`
+export const button = (props: SuomifiThemeProp) => css`
   ${element(props)}
   ${font(props)('actionElementInnerTextBold')}
   ${focus(props)}

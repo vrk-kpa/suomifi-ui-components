@@ -43,7 +43,7 @@ Export interfaces for exported functions/components. Typescript will generate de
 
 ```jsx
 // put rest of the props to passProps, but takeAwayProp and takeAanother
-const { takeAwayProp, takeAanother: renamedAsProp, ...passprops } = withSuomifiDefaults(this.props);
+const { takeAwayProp, takeAanother: renamedAsProp, ...passprops } = withSuomifiDefaultProps(this.props);
 const customProps = {
   takeAwayProp: !!takeAwayProp ? takeAwayProp : renamedAsProp,
   basedOnCondition: passProps.notTakenAwayProp ? 'one' : 'two',¨

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaultProps, colorValue } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles as panelBaseStyles } from './Panel.baseStyles';
 import { baseStyles } from './PanelExpansion.baseStyles';
@@ -90,7 +90,7 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
                 className={classnames(iconClassName, {
                   [iconOpenClassName]: openState,
                 })}
-                color={colorValue(passProps)('highlightBase')}
+                color={passProps.tokens.colors.highlightBase}
               />
             )}
           </Fragment>

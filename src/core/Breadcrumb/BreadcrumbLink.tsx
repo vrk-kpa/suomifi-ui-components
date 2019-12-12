@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { TokensProp } from '../theme';
-import { withSuomifiDefaultProps, colorValue } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { baseClassName } from '../../components/Breadcrumb/Breadcrumb';
 import { Link, LinkProps } from '../Link/Link';
 import { Icon } from '../Icon/Icon';
@@ -46,7 +46,7 @@ export const BreadcrumbLink = ({
       <Icon
         icon="linkBreadcrumb"
         className={iconClassName}
-        color={colorValue(passProps)('blackBase')}
+        color={passProps.tokens.colors.blackBase}
       />
     </Fragment>
   );

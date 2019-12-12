@@ -115,7 +115,7 @@
     "polished": "3.4.0",
     "react-svg": "7.2.2",
     "styled-components": "4.3.2",
-    "suomifi-design-tokens": "0.4.0",
+    "suomifi-design-tokens": "0.6.0",
     "suomifi-icons": "0.0.10",
     "uuid": "3.3.2"
   },

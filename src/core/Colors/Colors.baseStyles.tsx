@@ -1,10 +1,6 @@
 import { css } from 'styled-components';
 import { readableColor } from 'polished';
-import {
-  withSuomifiTheme,
-  TokensAndTheme,
-  internalTypographyTokens,
-} from '../theme';
+import { withSuomifiTheme, TokensAndTheme } from '../theme';
 import { clearfix } from '../../utils/css/utils';
 import { ColorProps } from './Colors';
 
@@ -59,12 +55,12 @@ export const baseStyles = withSuomifiTheme(
         pointer-events: none;
 
         &--hex {
-          ${theme.typography.bodyTextSmallScreen}
+          ${theme.typography.bodyTextSmall}
           opacity: .4;
         }
 
         &--key {
-          ${internalTypographyTokens.bodySemiBold}
+          ${theme.typography.bodySemiBold}
         }
       }
 

@@ -2,12 +2,13 @@ import React from 'react';
 import { render } from 'react-testing-library';
 import { axeTest } from '../../utils/test/axe';
 
-import { Panel, defaultTokens } from '../../';
+import { defaultTokens } from './';
+import { Panel } from '../../';
 
 const { colors } = defaultTokens;
 const customColors = {
   ...colors,
-  highlightBase: { hsl: 'hsl(1, 2%, 3%)', h: 1, s: 2, l: 3 },
+  highlightBase: 'hsl(1, 2%, 3%)',
 };
 
 const Test = (
