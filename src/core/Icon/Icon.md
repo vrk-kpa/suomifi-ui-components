@@ -19,7 +19,11 @@ import { Icon } from 'suomifi-ui-components';
 ```jsx noeditor
 import { Icon } from 'suomifi-ui-components';
 import { default as styled } from 'styled-components';
-import { allIcons, allStaticIcons } from 'suomifi-icons';
+import {
+  allIcons,
+  allStaticIcons,
+  allDoctypeIcons
+} from 'suomifi-icons';
 import clipboardCopy from 'clipboard-copy';
 const StyledIcon = styled(props => <Icon {...props} />)({
   height: '50px',
@@ -40,6 +44,16 @@ const StyledIcon = styled(props => <Icon {...props} />)({
   </div>
   <div>
     {allStaticIcons.map(icon => (
+      <StyledIcon
+        mousePointer
+        icon={icon}
+        key={icon}
+        onClick={() => clipboardCopy(icon)}
+      />
+    ))}
+  </div>
+  <div>
+    {allDoctypeIcons.map(icon => (
       <StyledIcon
         mousePointer
         icon={icon}
