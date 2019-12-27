@@ -12,6 +12,8 @@ import classnames from 'classnames';
 const baseClassName = 'fi-text';
 const smallScreenClassName = `${baseClassName}--small-screen`;
 
+type TextVariant = 'body' | 'lead' | 'bold';
+
 export interface TextProps extends CompTextProps, TokensProp {
   /** Change font to smaller screen size and style */
   smallScreen?: boolean;
@@ -21,7 +23,7 @@ export interface TextProps extends CompTextProps, TokensProp {
    * Type of text-style
    * @default body
    */
-  variant?: 'body' | 'lead' | 'bold';
+  variant?: TextVariant;
 }
 
 const StyledText = styled(
