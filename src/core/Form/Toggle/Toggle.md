@@ -13,7 +13,7 @@ import { Toggle } from 'suomifi-ui-components';
     defaultChecked
     onClick={({ toggleState }) => console.log(toggleState)}
   >
-    Checked enabled
+    Checked enabled using input
   </Toggle.withInput>
 
   <Toggle.withInput
@@ -24,7 +24,7 @@ import { Toggle } from 'suomifi-ui-components';
   </Toggle.withInput>
 
   <Toggle onClick={({ toggleState }) => console.log(toggleState)}>
-    Unchecked enabled
+    Unchecked enabled using button
   </Toggle>
 </>;
 ```
