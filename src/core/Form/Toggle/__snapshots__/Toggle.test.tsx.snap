@@ -277,10 +277,22 @@ exports[`Button: calling render with the same component on the same container do
   transform: translateX(0%);
 }
 
+.c0 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(0,0%,100%);
+}
+
 .c0 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-slide {
   -webkit-transform: translateY(1px);
   -ms-transform: translateY(1px);
   transform: translateY(1px);
+}
+
+.c0 .fi-toggle_icon.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(202,7%,97%);
+}
+
+.c0 .fi-toggle_icon.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-slide {
+  fill: hsl(202,7%,93%);
 }
 
 .c0 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-knob {
@@ -295,6 +307,10 @@ exports[`Button: calling render with the same component on the same container do
 
 .c0 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-circle {
   fill: hsl(166,90%,36%);
+}
+
+.c0 .fi-toggle_icon.fi-toggle_icon--checked.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(166,54%,80%);
 }
 
 <button
@@ -748,10 +764,22 @@ exports[`Input: calling render with the same component on the same container doe
   transform: translateX(0%);
 }
 
+.c0 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(0,0%,100%);
+}
+
 .c0 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-slide {
   -webkit-transform: translateY(1px);
   -ms-transform: translateY(1px);
   transform: translateY(1px);
+}
+
+.c0 .fi-toggle_icon.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(202,7%,97%);
+}
+
+.c0 .fi-toggle_icon.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-slide {
+  fill: hsl(202,7%,93%);
 }
 
 .c0 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-knob {
@@ -766,6 +794,10 @@ exports[`Input: calling render with the same component on the same container doe
 
 .c0 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-circle {
   fill: hsl(166,90%,36%);
+}
+
+.c0 .fi-toggle_icon.fi-toggle_icon--checked.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(166,54%,80%);
 }
 
 <label

@@ -46,8 +46,19 @@ export const baseStyles = withSuomifiTheme(
     & .${svgPrefix}fi-toggle-icon-knob {
       transform: translateX(0%);
     }
+    .${svgPrefix}fi-toggle-icon-circle {
+        fill: ${theme.colors.whiteBase};
+      }
     & .${svgPrefix}fi-toggle-icon-slide {
       transform: translateY(1px);
+    }
+    &.fi-toggle_icon--disabled {
+      .${svgPrefix}fi-toggle-icon-circle {
+        fill: ${theme.colors.depthLight30};
+      }
+      & .${svgPrefix}fi-toggle-icon-slide {
+        fill: ${theme.colors.depthLight26};
+    }
     }
     &.fi-toggle_icon--checked {
       .${svgPrefix}fi-toggle-icon-knob {
@@ -59,7 +70,12 @@ export const baseStyles = withSuomifiTheme(
       .${svgPrefix}fi-toggle-icon-circle {
         fill: ${theme.colors.successBase};
       }
+      &.fi-toggle_icon--disabled {
+      .${svgPrefix}fi-toggle-icon-circle {
+        fill: ${theme.colors.successSecondary};
+      }
     }
+  }
   }
 `,
 );
