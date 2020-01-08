@@ -67,7 +67,7 @@ class ToggleWithIcon extends Component<ToggleProps> {
             [iconCheckedClassName]: !!toggleStatus,
           })}
         />
-        <Text>{children}</Text>
+        <Text color={!!disabled ? 'depthBase' : 'blackBase'}>{children}</Text>
       </StyledToggle>
     );
   }
