@@ -46,6 +46,9 @@ export const baseStyles = withSuomifiTheme(
     & .${svgPrefix}fi-toggle-icon-knob {
       transform: translateX(0%);
     }
+    .${svgPrefix}fi-toggle-icon-circle {
+        fill: ${theme.colors.whiteBase};
+      }
     & .${svgPrefix}fi-toggle-icon-slide {
       transform: translateY(1px);
     }
