@@ -35,7 +35,7 @@ import { Button } from 'suomifi-ui-components';
 import { Button } from 'suomifi-ui-components';
 
 <>
-  <div example="negative">
+  <div example="inverted">
     <Button.inverted>Button.inverted</Button.inverted>
 
     <Button.inverted disabled fullWidth icon="login">

@@ -95,7 +95,7 @@ module.exports = {
     preview: {
       '&:not([data-preview="Text"]) > div': {
         ...grid440px24px,
-        '& [example="negative"]': {
+        '& [example="inverted"]': {
           ...grid440px24px,
           padding: '24px',
           backgroundColor: '#2A6EBB',
