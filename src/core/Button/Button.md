@@ -36,11 +36,11 @@ import { Button } from 'suomifi-ui-components';
 
 <>
   <div example="negative">
-    <Button.negative>Button.negative</Button.negative>
+    <Button.inverted>Button.inverted</Button.inverted>
 
-    <Button.negative disabled fullWidth icon="login">
-      Button.negative disabled fullWidth icon="login"
-    </Button.negative>
+    <Button.inverted disabled fullWidth icon="login">
+      Button.inverted disabled fullWidth icon="login"
+    </Button.inverted>
   </div>
 </>;
 ```

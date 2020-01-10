@@ -13,7 +13,7 @@ import { UnstyledButton } from './UnstyledButton';
 
 type ButtonVariant =
   | 'default'
-  | 'negative'
+  | 'inverted'
   | 'secondary'
   | 'secondary-noborder'
   | 'tertiary'
@@ -25,7 +25,7 @@ export interface ButtonProps extends CompButtonProps, TokensProp {
    */
   fullWidth?: boolean;
   /**
-   * 'default' | 'negative' | 'secondary' | 'secondary-noborder' | 'tertiary'
+   * 'default' | 'inverted' | 'secondary' | 'secondary-noborder' | 'tertiary'
    * @default default
    */
   variant?: ButtonVariant;
@@ -152,9 +152,9 @@ class ButtonWithIcon extends Component<ButtonProps & InternalTokensProp> {
  * `import { UnstyledButton } from 'suomifi-ui-components';` or `<Button.unstyled />`.
  */
 export class Button extends Component<ButtonProps> {
-  static negative = (props: ButtonProps) => {
+  static inverted = (props: ButtonProps) => {
     return (
-      <ButtonWithIcon {...withSuomifiDefaultProps(props)} variant="negative" />
+      <ButtonWithIcon {...withSuomifiDefaultProps(props)} variant="inverted" />
     );
   };
 

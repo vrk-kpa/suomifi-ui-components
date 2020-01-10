@@ -3,8 +3,8 @@ import { withSuomifiTheme, TokensAndTheme, SuomifiThemeProp } from '../theme';
 import { ButtonProps } from './Button';
 import { element, focus, button } from '../theme/reset';
 
-const negativeStyles = ({ theme }: SuomifiThemeProp) => css`
-  &.fi-button--negative {
+const invertedStyles = ({ theme }: SuomifiThemeProp) => css`
+  &.fi-button--inverted {
     background: none;
     background-color: ${theme.colors.highlightBase};
     border: 1px solid ${theme.colors.whiteBase};
@@ -122,7 +122,7 @@ export const baseStyles = withSuomifiTheme(
     width: 100%;
   }
 
-  ${negativeStyles({ theme })}
+  ${invertedStyles({ theme })}
   ${secondaryStyles({ theme })}
   ${secondaryNoBorderStyles({ theme })}
   ${tertiaryStyles({ theme })}
