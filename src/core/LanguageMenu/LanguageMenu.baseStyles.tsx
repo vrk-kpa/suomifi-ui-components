@@ -1,17 +1,17 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../theme';
-import { MenuProps } from './Menu';
+import { LanguageMenuProps } from './LanguageMenu';
 import { element, focus } from '../theme/reset';
 import { padding } from '../theme/utils';
 
 export const baseStyles = withSuomifiTheme(
-  ({ theme }: TokensAndTheme & Partial<MenuProps>) => css`
-  & > [data-reach-menu-button].fi-menu_button {
+  ({ theme }: TokensAndTheme & Partial<LanguageMenuProps>) => css`
+  & > [data-reach-menu-button].fi-language-menu_button {
     ${element({ theme })}
     ${theme.typography.bodyText}
     ${focus({ theme })}
     cursor: pointer;
-    &.fi-menu-language_button {
+    &.fi-language-menu-language_button {
       ${element({ theme })}
       ${theme.typography.actionElementInnerTextBold}
       ${padding({ theme })('s', 'xs', 's', 's')}
@@ -19,28 +19,27 @@ export const baseStyles = withSuomifiTheme(
       border: 1px solid ${theme.colors.depthBase};
       border-radius: ${theme.radius.basic};
       text-transform: uppercase;
-      & > .fi-menu-language_icon {
+      & > .fi-language-menu-language_icon {
         height: 1.2em;
         width: 1.2em;
         transform: translateY(0.3em); 
         margin-left: ${theme.spacing.xs};
-
       }
     }
   }
 `,
 );
 
-export const menuListStyles = withSuomifiTheme(
+export const languageMenuListStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
-  &[data-reach-menu-list].fi-menu_list {
+  &[data-reach-menu-list].fi-language-menu_list {
     ${element({ theme })}
     ${theme.typography.bodyText}
     margin-top: -2px;
     background-color: ${theme.colors.whiteBase};
     border: none;
     box-shadow: ${theme.shadows.menuShadow};
-    &.fi-menu-language_list {
+    &.fi-language-menu-language_list {
       ${theme.typography.actionElementInnerText}
       position: absolute;
       right: 0;
@@ -73,7 +72,7 @@ export const menuListStyles = withSuomifiTheme(
     }
   }
 
-  & [data-reach-menu-item].fi-menu_item {
+  & [data-reach-menu-item].fi-language-menu_item {
     ${element({ theme })}
     ${theme.typography.bodyText}
     &[data-selected] {
@@ -81,17 +80,17 @@ export const menuListStyles = withSuomifiTheme(
       color: ${theme.colors.blackBase};
       background-color: ${theme.colors.highlightLight50};
     }
-    &.fi-menu-language_item,
-    &[data-selected].fi-menu-language_item {
+    &.fi-language-menu-language_item,
+    &[data-selected].fi-language-menu-language_item {
       ${theme.typography.actionElementInnerText}
       padding: 6px 20px 6px 14px;
       border-left: 6px solid transparent;
       background-color: transparent;
-      &.fi-menu-lang-item-selected {
+      &.fi-language-menu-lang-item-selected {
         ${theme.typography.actionElementInnerTextBold};
       }
     }
-    &[data-selected].fi-menu-language_item {
+    &[data-selected].fi-language-menu-language_item {
       border-left-color: ${theme.colors.highlightBase};
     }
   }

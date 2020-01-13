@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { HtmlSpan } from '../../reset/HtmlSpan/HtmlSpan';
 import {
-  Menu as ReachMenu,
+  Menu,
   MenuButton,
   MenuList,
   MenuListProps,
@@ -13,10 +13,15 @@ import { logger } from '../../utils/logger';
 import '@reach/menu-button/styles.css';
 import { Omit } from '../../utils/typescript';
 
-export { MenuList, MenuListProps, MenuItem, MenuLink };
+export {
+  MenuList as LanguageMenuList,
+  MenuListProps as LanguageMenuListProps,
+  MenuItem as LanguageMenuItem,
+  MenuLink as LanguageMenuLink,
+};
 
-const baseClassName = 'fi-menu';
-export interface MenuItemProps {
+const baseClassName = 'fi-language-menu';
+export interface LanguageMenuItemProps {
   /** Operation to run on select */
   onSelect: () => void;
   /** Item content */
@@ -25,7 +30,7 @@ export interface MenuItemProps {
 
 type SupportedMenuLinkComponent = keyof JSX.IntrinsicElements;
 
-interface MenuLinkPropsWithType {
+interface LanguageMenuLinkPropsWithType {
   type: 'menulink';
   /** Url to direct to */
   href: string;
@@ -35,34 +40,41 @@ interface MenuLinkPropsWithType {
   component?: SupportedMenuLinkComponent;
 }
 
-export interface MenuLinkProps extends Omit<MenuLinkPropsWithType, 'type'> {}
+export interface LanguageMenuLinkProps
+  extends Omit<LanguageMenuLinkPropsWithType, 'type'> {}
 
-export type MenuListItemsProps = MenuItemProps | MenuLinkPropsWithType;
-type OptionalMenuListProps = { [K in keyof MenuListProps]?: MenuListProps[K] };
+export type LanguageMenuListItemsProps =
+  | LanguageMenuItemProps
+  | LanguageMenuLinkPropsWithType;
+type OptionalLanguageMenuListProps = {
+  [K in keyof MenuListProps]?: MenuListProps[K]
+};
 
-export interface MenuProps {
+export interface LanguageMenuProps {
   /** Name or content of menubutton */
   name: ReactNode;
   /** Custom classname to extend or customize */
   className?: string;
   /** Custom classname to extend or customize */
-  menuButtonClassName?: string;
-  /** Properties given to Menu's List-component, className etc. */
-  menuListProps?: OptionalMenuListProps;
-  menuListComponent?: React.ComponentType<OptionalMenuListProps>;
+  languageMenuButtonClassName?: string;
+  /** Properties given to LanguageMenu's List-component, className etc. */
+  languageMenuListProps?: OptionalLanguageMenuListProps;
+  languageMenuListComponent?: React.ComponentType<
+    OptionalLanguageMenuListProps
+  >;
   /** Menu items: MenuItem or MenuLink */
-  children?: Array<React.ReactElement<MenuListItemsProps>>;
+  children?: Array<React.ReactElement<LanguageMenuListItemsProps>>;
 }
 
-export class Menu extends Component<MenuProps> {
+export class LanguageMenu extends Component<LanguageMenuProps> {
   render() {
     const {
       children,
       name,
       className,
-      menuButtonClassName,
-      menuListProps = {},
-      menuListComponent: MenuListComponentReplace,
+      languageMenuButtonClassName: menuButtonClassName,
+      languageMenuListProps: menuListProps = {},
+      languageMenuListComponent: MenuListComponentReplace,
       ...passProps
     } = this.props;
 
@@ -73,7 +85,7 @@ export class Menu extends Component<MenuProps> {
 
     return (
       <HtmlSpan className={classnames(className, baseClassName)}>
-        <ReachMenu>
+        <Menu>
           <MenuButton {...passProps} className={menuButtonClassName}>
             {name}
           </MenuButton>
@@ -84,7 +96,7 @@ export class Menu extends Component<MenuProps> {
           ) : (
             <MenuList {...menuListProps}>{children}</MenuList>
           )}
-        </ReachMenu>
+        </Menu>
       </HtmlSpan>
     );
   }

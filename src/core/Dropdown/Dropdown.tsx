@@ -4,9 +4,9 @@ import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles, menuListStyles } from './Dropdown.baseStyles';
 import {
-  MenuList as CompMenuList,
-  MenuListProps as CompMenuListProps,
-} from '../../components/Menu/Menu';
+  LanguageMenuList as CompMenuList,
+  LanguageMenuListProps as CompMenuListProps,
+} from '../../components/LanguageMenu/LanguageMenu';
 import {
   Dropdown as CompDropdown,
   DropdownProps as CompDropdownProps,
