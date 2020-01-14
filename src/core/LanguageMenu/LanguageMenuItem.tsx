@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {
-  LanguageMenuItem as CompLanguageMenuItem,
-  LanguageMenuLink as CompLanguageMenuLink,
   LanguageMenuItemProps,
   LanguageMenuLinkProps,
 } from '../../components/LanguageMenu/LanguageMenu';
@@ -22,22 +20,14 @@ export {
   LanguageMenuLinkLanguageProps,
 };
 
-export class LanguageMenuItem extends Component<LanguageMenuItemProps> {
-  static language = (props: LanguageMenuItemLanguageProps) => {
-    return <LanguageMenuItemLanguage {...props} />;
-  };
-
+export class LanguageMenuItem extends Component<LanguageMenuItemLanguageProps> {
   render() {
-    return CompLanguageMenuItem;
+    return <LanguageMenuItemLanguage {...this.props} />;
   }
 }
 
 export class LanguageMenuLink extends Component<LanguageMenuLinkProps> {
-  static language = (props: LanguageMenuLinkLanguageProps) => {
-    return <LanguageMenuLinkLanguage {...props} />;
-  };
-
   render() {
-    return CompLanguageMenuLink;
+    return <LanguageMenuLinkLanguage {...this.props} />;
   }
 }

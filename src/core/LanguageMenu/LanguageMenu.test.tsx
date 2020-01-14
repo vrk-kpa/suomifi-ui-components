@@ -7,14 +7,12 @@ import { LanguageMenuItem, LanguageMenuLink } from './LanguageMenuItem';
 const doNothing = () => ({});
 
 const TestMenuLanguage = (
-  <LanguageMenu.language className="menu-language-test" name="FI">
-    <LanguageMenuItem.language onSelect={doNothing} selected={true}>
+  <LanguageMenu className="menu-language-test" name="FI">
+    <LanguageMenuItem onSelect={doNothing} selected={true}>
       Suomeksi (FI)
-    </LanguageMenuItem.language>
-    <LanguageMenuLink.language href="/sv">
-      På svenska (SV)
-    </LanguageMenuLink.language>
-  </LanguageMenu.language>
+    </LanguageMenuItem>
+    <LanguageMenuLink href="/sv">På svenska (SV)</LanguageMenuLink>
+  </LanguageMenu>
 );
 
 test('should not have basic accessibility issues', axeTest(TestMenuLanguage));

@@ -19,18 +19,10 @@ import {
   LanguageMenuLink
 } from 'suomifi-ui-components';
 
-<LanguageMenu.language
-  className="language-menu-language-test"
-  name="FI"
->
-  <LanguageMenuItem.language
-    onSelect={() => console.log('FI')}
-    selected
-  >
+<LanguageMenu className="language-menu-language-test" name="FI">
+  <LanguageMenuItem onSelect={() => console.log('FI')} selected>
     Suomeksi (FI)
-  </LanguageMenuItem.language>
-  <LanguageMenuLink.language href="/sv">
-    På svenska (SV)
-  </LanguageMenuLink.language>
-</LanguageMenu.language>;
+  </LanguageMenuItem>
+  <LanguageMenuLink href="/sv">På svenska (SV)</LanguageMenuLink>
+</LanguageMenu>;
 ```

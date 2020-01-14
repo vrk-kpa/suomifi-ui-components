@@ -29,15 +29,7 @@ const listClassName = 'fi-language-menu_list';
 const listLangClassName = 'fi-language-menu-language_list';
 const iconLangClassName = 'fi-language-menu-language_icon';
 
-type ButtonVariant = 'default' | 'language';
-
-export interface LanguageMenuProps extends CompLanguageMenuProps, TokensProp {
-  /**
-   * 'default' | 'language'
-   * @default default
-   */
-  variant?: ButtonVariant;
-}
+export interface LanguageMenuProps extends CompLanguageMenuProps, TokensProp {}
 
 const StyledLanguageMenu = styled(
   ({ tokens, ...passProps }: LanguageMenuProps & InternalTokensProp) => (
@@ -86,40 +78,32 @@ class LanguageMenuVariation extends Component<LanguageMenuProps> {
   render() {
     const {
       children,
-      variant,
       name,
       className,
       languageMenuListComponent: MenuListComponentProp,
       ...passProps
     } = withSuomifiDefaultProps(this.props);
-    const ifMenuLanguage = variant === 'language';
     const languageMenuButtonClassName = classnames(
       buttonClassName,
-      {
-        [buttonLangClassName]: ifMenuLanguage,
-      },
+      buttonLangClassName,
       className,
     );
     const menuListProps = {
-      className: classnames(listClassName, {
-        [listLangClassName]: ifMenuLanguage,
-      }),
+      className: classnames(listClassName, listLangClassName),
     };
 
     return (
       <Fragment>
         <StyledLanguageMenu
           {...passProps}
-          name={!!ifMenuLanguage ? languageName(name) : name}
+          name={languageName(name)}
           languageMenuButtonClassName={languageMenuButtonClassName}
           languageMenuListProps={menuListProps}
           languageMenuListComponent={
             !!MenuListComponentProp ? MenuListComponentProp : StyledMenuList
           }
         >
-          {LanguageMenuListWithProps(children, {
-            [itemLangClassName]: ifMenuLanguage,
-          })}
+          {LanguageMenuListWithProps(children, itemLangClassName)}
         </StyledLanguageMenu>
       </Fragment>
     );
@@ -131,10 +115,6 @@ class LanguageMenuVariation extends Component<LanguageMenuProps> {
  * Use for dropdown menu.
  */
 export class LanguageMenu extends Component<LanguageMenuProps> {
-  static language = (props: LanguageMenuProps) => {
-    return <LanguageMenuVariation {...props} variant="language" />;
-  };
-
   static languageItem = (props: LanguageMenuItemLanguageProps) => {
     return <LanguageMenuItemLanguage {...props} />;
   };
