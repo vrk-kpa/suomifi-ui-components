@@ -89,10 +89,10 @@ module.exports = {
               ]),
             },
             {
-              name: 'Menu',
-              components: getComponentWithVariants('Menu')([
-                'MenuItemLanguage',
-                'MenuLinkLanguage',
+              name: 'LanguageMenu',
+              components: getComponentWithVariants('LanguageMenu')([
+                'LanguageMenuItemLanguage',
+                'LanguageMenuLinkLanguage',
               ]),
             },
             {
