@@ -13,12 +13,7 @@ import { logger } from '../../utils/logger';
 import '@reach/menu-button/styles.css';
 import { Omit } from '../../utils/typescript';
 
-export {
-  MenuList as LanguageMenuList,
-  MenuListProps as LanguageMenuListProps,
-  MenuItem as LanguageMenuItem,
-  MenuLink as LanguageMenuLink,
-};
+export { MenuList, MenuListProps, MenuItem, MenuLink };
 
 const baseClassName = 'fi-language-menu';
 export interface LanguageMenuItemProps {

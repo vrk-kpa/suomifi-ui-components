@@ -22,10 +22,10 @@ export {
   LanguageMenu,
   LanguageMenuProps,
   LanguageMenuListItemsProps,
-  LanguageMenuItem,
   LanguageMenuItemProps,
-  LanguageMenuLink,
   LanguageMenuLinkProps as MenuLinkProps,
+  MenuItem,
+  MenuLink,
 } from './LanguageMenu/LanguageMenu';
 export { Panel, PanelProps } from './Panel/Panel';
 export { PanelExpansion, PanelExpansionProps } from './Panel/PanelExpansion';

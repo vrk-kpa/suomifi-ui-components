@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import {
-  LanguageMenuItem as CompLanguageMenuItem,
+  MenuItem as CompMenuItem,
   LanguageMenuItemProps,
 } from '../../components/LanguageMenu/LanguageMenu';
 
@@ -16,7 +16,7 @@ export const LanguageMenuItemLanguage = ({
   className,
   ...passProps
 }: LanguageMenuItemLanguageProps) => (
-  <CompLanguageMenuItem
+  <CompMenuItem
     {...passProps}
     className={classnames(className, {
       'fi-language-menu-lang-item-selected': selected,

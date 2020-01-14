@@ -9,8 +9,8 @@ import {
   LanguageMenu as CompLanguageMenu,
   LanguageMenuProps as CompLanguageMenuProps,
   LanguageMenuListItemsProps,
-  LanguageMenuList as CompLanguageMenuList,
-  LanguageMenuListProps as CompLanguageMenuListProps,
+  MenuList as CompMenuList,
+  MenuListProps as CompMenuListProps,
 } from '../../components/LanguageMenu/LanguageMenu';
 import {
   LanguageMenuItemLanguage,
@@ -72,11 +72,11 @@ const languageName = (name: ReactNode) => (
   </Fragment>
 );
 
-interface LanguageMenuListProps extends CompLanguageMenuListProps, TokensProp {}
+interface LanguageMenuListProps extends CompMenuListProps, TokensProp {}
 
 const StyledMenuList = styled(
   ({ tokens, ...passProps }: LanguageMenuListProps) => (
-    <CompLanguageMenuList {...passProps} />
+    <CompMenuList {...passProps} />
   ),
 )`
   ${props => languageMenuListStyles(props.theme)}
