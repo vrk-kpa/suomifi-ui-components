@@ -3,33 +3,35 @@ import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles as panelBaseStyles } from './Panel.baseStyles';
-import { baseStyles } from './PanelExpansion.baseStyles';
+import { baseStyles } from './Expander.baseStyles';
 import {
-  PanelExpansion as CompPanelExpansion,
-  PanelExpansionProps as CompPanelExpansionProps,
-} from '../../components/Panel/PanelExpansion';
+  Expander as CompExpander,
+  ExpanderProps as CompExpanderProps,
+} from '../../components/Expander/Expander';
 import { Icon } from '../Icon/Icon';
 import classnames from 'classnames';
+import { ExpanderGroupProps, ExpanderGroup } from './ExpanderGroup';
 
-const iconClassName = 'fi-panel-expansion_title-icon';
+const iconClassName = 'fi-expander_title-icon';
 const iconOpenClassName = `${iconClassName}--open`;
-const noPaddingClassName = 'fi-panel-expansion_content--no-padding';
+const noPaddingClassName = `fi-expander_content--no-padding`;
 
-export interface PanelExpansionProps
-  extends CompPanelExpansionProps,
-    TokensProp {
+type ExpanderVariant = 'expander' | 'expanderGroup';
+
+export interface ExpanderProps extends CompExpanderProps, TokensProp {
   /** Remove padding from expandable content area (for background usage with padding in given container etc.) */
   noPadding?: boolean;
+  /**
+   * 'expander' | 'expanderGroup'
+   * @default expander
+   */
+  variant?: ExpanderVariant;
 }
 
-const StyledPanelExpansion = styled(
-  ({
-    tokens,
-    noPadding,
-    ...passProps
-  }: PanelExpansionProps & InternalTokensProp) => {
+const StyledExpander = styled(
+  ({ tokens, noPadding, ...passProps }: ExpanderProps & InternalTokensProp) => {
     return (
-      <CompPanelExpansion
+      <CompExpander
         {...passProps}
         contentProps={{
           className: classnames({ [noPaddingClassName]: noPadding }),
@@ -42,7 +44,7 @@ const StyledPanelExpansion = styled(
   ${props => baseStyles(props)};
 `;
 
-interface PanelExpansionState {
+interface ExpanderState {
   openState: boolean;
 }
 
@@ -50,9 +52,13 @@ interface PanelExpansionState {
  * <i class="semantics" />
  * Used for openable panel
  */
-export class PanelExpansion extends Component<PanelExpansionProps> {
+export class Expander extends Component<ExpanderProps> {
+  static group = (props: ExpanderGroupProps) => {
+    return <ExpanderGroup {...withSuomifiDefaultProps(props)} />;
+  };
+
   /** State is only used to update the caret-icon */
-  state: PanelExpansionState = {
+  state: ExpanderState = {
     openState:
       this.props.defaultOpen !== undefined ? this.props.defaultOpen : false,
   };
@@ -70,13 +76,22 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
   };
 
   render() {
-    const { open, title, titleTag, ...passProps } = withSuomifiDefaultProps(
-      this.props,
-    );
+    const {
+      variant,
+      open,
+      title,
+      titleTag,
+      ...passProps
+    } = withSuomifiDefaultProps(this.props);
     const notControlled = open === undefined;
     const openState = !notControlled ? open : this.state.openState;
+
+    if (variant === 'expander' && 'title' in passProps) {
+      return <Expander {...(passProps as ExpanderProps)} />;
+    }
+
     return (
-      <StyledPanelExpansion
+      <StyledExpander
         {...passProps}
         onClick={this.handleClick}
         open={open}

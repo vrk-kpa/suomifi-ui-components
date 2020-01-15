@@ -4,13 +4,13 @@ import { Omit } from '../../utils/typescript';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp, InternalTokensProp } from '../theme';
 import {
-  PanelExpansionGroup as CompPanelExpansionGroup,
-  PanelExpansionGroupProps as CompPanelExpansionGroupProps,
-} from '../../components/Panel/PanelExpansionGroup';
+  ExpanderGroup as CompExpanderGroup,
+  ExpanderGroupProps as CompExpanderGroupProps,
+} from '../../components/Expander/ExpanderGroup';
 import { Button, ButtonProps } from '../Button/Button';
-import { baseStyles } from './PanelExpansionGroup.baseStyles';
+import { baseStyles } from './ExpanderGroup.baseStyles';
 
-const openAllButtonClassName = 'fi-panel-expansion-group_all-button';
+const openAllButtonClassName = 'fi-expander-group_all-button';
 
 type ButtonOrText = React.ReactElement<ButtonProps> | string;
 interface OpenCloseAll {
@@ -19,21 +19,18 @@ interface OpenCloseAll {
   /** 'Close all'-component (Button) */
   CloseAll: ButtonOrText;
 }
-export interface PanelExpansionGroupProps
-  extends Omit<CompPanelExpansionGroupProps, 'OpenAll' | 'CloseAll'>,
+export interface ExpanderGroupProps
+  extends Omit<CompExpanderGroupProps, 'OpenAll' | 'CloseAll'>,
     TokensProp,
     OpenCloseAll {}
 
-interface PanelExpansionOpenAllButtonProps extends ButtonProps, TokensProp {
+interface ExpanderOpenAllButtonProps extends ButtonProps, TokensProp {
   children: ButtonOrText;
 }
 
-const StyledPanelExpansionGroup = styled(
-  ({
-    tokens,
-    ...passProps
-  }: CompPanelExpansionGroupProps & InternalTokensProp) => (
-    <CompPanelExpansionGroup {...passProps} />
+const StyledExpanderGroup = styled(
+  ({ tokens, ...passProps }: CompExpanderGroupProps & InternalTokensProp) => (
+    <CompExpanderGroup {...passProps} />
   ),
 )`
   ${props => baseStyles(props)};
@@ -42,7 +39,7 @@ const StyledPanelExpansionGroup = styled(
 const OpenAllButton = ({
   children,
   ...passProps
-}: PanelExpansionOpenAllButtonProps) => {
+}: ExpanderOpenAllButtonProps) => {
   const Component = React.Children.toArray(children)[0];
   if (typeof Component === 'string' || Component.type !== Button) {
     return (
@@ -56,17 +53,15 @@ const OpenAllButton = ({
 
 /**
  * <i class="semantics" />
- * Used for grouping expansion panels
+ * Used for grouping expander panels
  */
-export class PanelExpansionGroup extends React.Component<
-  PanelExpansionGroupProps
-> {
+export class ExpanderGroup extends React.Component<ExpanderGroupProps> {
   render() {
     const { OpenAll, CloseAll, ...passProps } = withSuomifiDefaultProps(
       this.props,
     );
     return (
-      <StyledPanelExpansionGroup
+      <StyledExpanderGroup
         {...passProps}
         OpenAll={
           <OpenAllButton tokens={passProps.tokens}>{OpenAll}</OpenAllButton>

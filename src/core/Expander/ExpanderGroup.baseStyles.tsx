@@ -7,15 +7,15 @@ export const baseStyles = withSuomifiTheme(
   ${element({ theme })}
   display: flex;
   flex-direction: column;
-  & > .fi-panel-expansion-group_panels {
+  & > .fi-expander-group_panels {
     flex: none;
 
-    & .fi-panel-expansion {
+    & .fi-expander {
       margin-top: 0;
       margin-bottom: 0;
       transition: margin ${`${theme.transitions.basicTime}
         ${theme.transitions.basicTimingFunction}`};
-      &.fi-panel-expansion--open {
+      &.fi-expander--open {
         &:not(:first-of-type) {
           margin-top: ${theme.spacing.m};
         }
@@ -26,7 +26,7 @@ export const baseStyles = withSuomifiTheme(
     }
   }
 
-  & > .fi-panel-expansion-group_all-button {
+  & > .fi-expander-group_all-button {
     ${element({ theme })}
     ${font({ theme })('actionElementInnerTextBold')}
     ${focus({ theme })}

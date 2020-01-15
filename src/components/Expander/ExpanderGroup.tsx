@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { HtmlDiv, HtmlDivProps } from '../../reset';
 import classnames from 'classnames';
-import { PanelExpansionProps } from './PanelExpansion';
+import { ExpanderProps } from './Expander';
 import { ButtonProps } from '../Button/Button';
 
-export const baseClassName = 'fi-panel-expansion-group';
+export const baseClassName = 'fi-expander-group';
 const openClassName = `${baseClassName}--open`;
 const panelsContainerClassName = `${baseClassName}_panels`;
 const openAllButtonClassName = `${baseClassName}_all-button`;
@@ -18,7 +18,7 @@ export const StyledPanel = styled((props: HtmlDivProps) => (
   max-width: 100%;
 `;
 
-interface PanelExpansionGroupState {
+interface ExpanderGroupState {
   /** Panels that are open */
   openPanels: number[];
 }
@@ -30,44 +30,44 @@ interface OpenCloseAll {
   CloseAll: React.ReactElement<ButtonProps>;
 }
 
-export interface PanelExpansionGroupProps extends OpenCloseAll {
+export interface ExpanderGroupProps extends OpenCloseAll {
   /** Custom classname to extend or customize */
   className?: string;
   /**
-   * Use PanelExpansion's here
+   * Use Expander's here
    */
-  children: Array<React.ReactElement<PanelExpansionProps>>;
+  children: Array<React.ReactElement<ExpanderProps>>;
   /** Properties for OpenAllButton */
   openAllButtonProps?: ButtonProps;
 }
 
-export interface PanelExpansionProviderState {
+export interface ExpanderProviderState {
   onClick: (index: number) => void;
   openPanels: number[];
 }
 
-const PanelExpansionGroupItems = (
-  children: Array<React.ReactElement<PanelExpansionProps>>,
+const ExpanderGroupItems = (
+  children: Array<React.ReactElement<ExpanderProps>>,
 ) =>
   React.Children.map(
     children,
-    (child: React.ReactElement<PanelExpansionProps>, index) => {
+    (child: React.ReactElement<ExpanderProps>, index) => {
       if (React.isValidElement(child)) {
         return React.cloneElement(child, {
           index,
-          expansionGroup: true,
+          expanderGroup: true,
         });
       }
       return child;
     },
   );
 
-const defaultProviderValue: PanelExpansionProviderState = {
+const defaultProviderValue: ExpanderProviderState = {
   onClick: () => null,
   openPanels: [],
 };
 
-const { Provider, Consumer: PanelExpansionGroupConsumer } = React.createContext(
+const { Provider, Consumer: ExpanderGroupConsumer } = React.createContext(
   defaultProviderValue,
 );
 
@@ -97,8 +97,8 @@ const OpenAllButton = ({
     : openAllButtonProps(onClick)(OpenAll);
 };
 
-export class PanelExpansionGroup extends Component<PanelExpansionGroupProps> {
-  state: PanelExpansionGroupState = {
+export class ExpanderGroup extends Component<ExpanderGroupProps> {
+  state: ExpanderGroupState = {
     openPanels: [],
   };
 
@@ -150,7 +150,7 @@ export class PanelExpansionGroup extends Component<PanelExpansionGroupProps> {
               onClick: this.handleClick,
             }}
           >
-            {PanelExpansionGroupItems(children)}
+            {ExpanderGroupItems(children)}
           </Provider>
         </HtmlDiv>
       </StyledPanel>
@@ -158,4 +158,4 @@ export class PanelExpansionGroup extends Component<PanelExpansionGroupProps> {
   }
 }
 
-export { PanelExpansionGroupConsumer };
+export { ExpanderGroupConsumer };
