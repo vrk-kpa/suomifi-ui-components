@@ -73,14 +73,14 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
+.c4.fi-button--disabled {
+  cursor: not-allowed;
+}
+
 .c1 {
   display: block;
   width: 100%;
   max-width: 100%;
-}
-
-.c4.fi-button--disabled {
-  cursor: not-allowed;
 }
 
 .c7 {
@@ -144,13 +144,13 @@ exports[`calling render with the same component on the same container does not r
   opacity: 0;
 }
 
-.c0.fi-panel-expansion--open:before {
+.c0.fi-expander--open:before {
   opacity: 1;
   -webkit-transition: opacity 50ms cubic-bezier(0.28,0.84,0.42,1);
   transition: opacity 50ms cubic-bezier(0.28,0.84,0.42,1);
 }
 
-.c0 .fi-panel-expansion_title {
+.c0 .fi-expander_title {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -171,12 +171,12 @@ exports[`calling render with the same component on the same container does not r
   width: 100%;
 }
 
-.c0 .fi-panel-expansion_title:focus {
+.c0 .fi-expander_title:focus {
   outline: 0;
   position: relative;
 }
 
-.c0 .fi-panel-expansion_title:focus:after {
+.c0 .fi-expander_title:focus:after {
   content: '';
   position: absolute;
   top: -4px;
@@ -191,11 +191,11 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.c0 .fi-panel-expansion_title:focus:not(:focus-visible):after {
+.c0 .fi-expander_title:focus:not(:focus-visible):after {
   content: none;
 }
 
-.c0 .fi-panel-expansion_title--no-tag {
+.c0 .fi-expander_title--no-tag {
   padding-top: 16px;
   padding-right: 64px;
   padding-bottom: 16px;
@@ -203,21 +203,21 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(212,63%,45%);
 }
 
-.c0 .fi-panel-expansion_title-icon {
+.c0 .fi-expander_title-icon {
   position: absolute;
   top: 0;
   right: 0;
   margin: 16px;
 }
 
-.c0 .fi-panel-expansion_title--open .fi-panel-expansion_title-icon,
-.c0 .fi-panel-expansion_title-icon--open {
+.c0 .fi-expander_title--open .fi-expander_title-icon,
+.c0 .fi-expander_title-icon--open {
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   transform: rotate(-180deg);
 }
 
-.c0 > .fi-panel-expansion_content {
+.c0 > .fi-expander_content {
   position: relative;
   display: block;
   height: 0;
@@ -233,18 +233,18 @@ exports[`calling render with the same component on the same container does not r
   will-change: transition,height;
 }
 
-.c0 > .fi-panel-expansion_content:not(.fi-panel-expansion_content--no-padding) {
+.c0 > .fi-expander_content:not(.fi-expander_content--no-padding) {
   padding: 0 16px;
 }
 
-.c0 > .fi-panel-expansion_content.fi-panel-expansion_content--open {
+.c0 > .fi-expander_content.fi-expander_content--open {
   height: 10%;
   overflow: visible;
-  -webkit-animation: fi-panel-expansion_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
-  animation: fi-panel-expansion_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
+  -webkit-animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
+  animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
 }
 
-.c0 > .fi-panel-expansion_content.fi-panel-expansion_content--open:not(.fi-panel-expansion_content--no-padding) {
+.c0 > .fi-expander_content.fi-expander_content--open:not(.fi-expander_content--no-padding) {
   padding-top: 0;
   padding-right: 16px;
   padding-bottom: 16px;
@@ -252,20 +252,20 @@ exports[`calling render with the same component on the same container does not r
 }
 
 <div
-  class="panel-expansion-test c0 fi-panel-expansion c1 c2"
+  class="expander-test c0 fi-expander c1 c2"
 >
   <button
     aria-disabled="false"
     aria-expanded="false"
-    class="fi-button fi-panel-expansion_title fi-panel-expansion_title--no-tag c3 c4 c5"
-    data-testid="panel-expansion-title"
+    class="fi-button fi-expander_title fi-expander_title--no-tag c3 c4 c5"
+    data-testid="expander-title"
     tabindex="0"
     type="button"
   >
-    Test expansion
+    Test expander
     <svg
       aria-hidden="true"
-      class="fi-panel-expansion_title-icon c6"
+      class="fi-expander_title-icon c6"
       fill="hsl(212, 63%, 45%)"
       focusable="false"
       height="1em"
@@ -279,10 +279,10 @@ exports[`calling render with the same component on the same container does not r
   </button>
   <div
     aria-hidden="true"
-    class="fi-panel-expansion_content c7 fi-panel c1 c2"
+    class="fi-expander_content c7 fi-expander c1 c2"
     hidden=""
   >
-    Test expansion content
+    Test expander content
   </div>
 </div>
 `;

@@ -82,13 +82,13 @@ exports[`snapshot testing 1`] = `
   cursor: not-allowed;
 }
 
-.c7 {
+.c1 {
   display: block;
   width: 100%;
   max-width: 100%;
 }
 
-.c1 {
+.c7 {
   display: block;
   width: 100%;
   max-width: 100%;
@@ -140,6 +140,90 @@ exports[`snapshot testing 1`] = `
   content: none;
 }
 
+.c0 {
+  color: hsl(0,0%,16%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c0 > .fi-expander-group_panels {
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+}
+
+.c0 > .fi-expander-group_panels .fi-expander {
+  margin-top: 0;
+  margin-bottom: 0;
+  -webkit-transition: margin 50ms cubic-bezier(0.28,0.84,0.42,1);
+  transition: margin 50ms cubic-bezier(0.28,0.84,0.42,1);
+}
+
+.c0 > .fi-expander-group_panels .fi-expander.fi-expander--open:not(:first-of-type) {
+  margin-top: 16px;
+}
+
+.c0 > .fi-expander-group_panels .fi-expander.fi-expander--open:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+
+.c0 > .fi-expander-group_all-button {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  margin-left: auto;
+  margin-bottom: 8px;
+  padding: 4px 0;
+  color: hsl(1,2%,3%);
+  cursor: pointer;
+}
+
+.c0 > .fi-expander-group_all-button:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c0 > .fi-expander-group_all-button:focus:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid hsl(23,82%,53%);
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  z-index: 9999;
+}
+
+.c0 > .fi-expander-group_all-button:focus:not(:focus-visible):after {
+  content: none;
+}
+
 .c6 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -180,13 +264,13 @@ exports[`snapshot testing 1`] = `
   opacity: 0;
 }
 
-.c6.fi-panel-expansion--open:before {
+.c6.fi-expander--open:before {
   opacity: 1;
   -webkit-transition: opacity 50ms cubic-bezier(0.28,0.84,0.42,1);
   transition: opacity 50ms cubic-bezier(0.28,0.84,0.42,1);
 }
 
-.c6 .fi-panel-expansion_title {
+.c6 .fi-expander_title {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -207,12 +291,12 @@ exports[`snapshot testing 1`] = `
   width: 100%;
 }
 
-.c6 .fi-panel-expansion_title:focus {
+.c6 .fi-expander_title:focus {
   outline: 0;
   position: relative;
 }
 
-.c6 .fi-panel-expansion_title:focus:after {
+.c6 .fi-expander_title:focus:after {
   content: '';
   position: absolute;
   top: -4px;
@@ -227,11 +311,11 @@ exports[`snapshot testing 1`] = `
   z-index: 9999;
 }
 
-.c6 .fi-panel-expansion_title:focus:not(:focus-visible):after {
+.c6 .fi-expander_title:focus:not(:focus-visible):after {
   content: none;
 }
 
-.c6 .fi-panel-expansion_title--no-tag {
+.c6 .fi-expander_title--no-tag {
   padding-top: 16px;
   padding-right: 64px;
   padding-bottom: 16px;
@@ -239,21 +323,21 @@ exports[`snapshot testing 1`] = `
   color: hsl(212,63%,45%);
 }
 
-.c6 .fi-panel-expansion_title-icon {
+.c6 .fi-expander_title-icon {
   position: absolute;
   top: 0;
   right: 0;
   margin: 16px;
 }
 
-.c6 .fi-panel-expansion_title--open .fi-panel-expansion_title-icon,
-.c6 .fi-panel-expansion_title-icon--open {
+.c6 .fi-expander_title--open .fi-expander_title-icon,
+.c6 .fi-expander_title-icon--open {
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   transform: rotate(-180deg);
 }
 
-.c6 > .fi-panel-expansion_content {
+.c6 > .fi-expander_content {
   position: relative;
   display: block;
   height: 0;
@@ -269,114 +353,30 @@ exports[`snapshot testing 1`] = `
   will-change: transition,height;
 }
 
-.c6 > .fi-panel-expansion_content:not(.fi-panel-expansion_content--no-padding) {
+.c6 > .fi-expander_content:not(.fi-expander_content--no-padding) {
   padding: 0 16px;
 }
 
-.c6 > .fi-panel-expansion_content.fi-panel-expansion_content--open {
+.c6 > .fi-expander_content.fi-expander_content--open {
   height: 10%;
   overflow: visible;
-  -webkit-animation: fi-panel-expansion_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
-  animation: fi-panel-expansion_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
+  -webkit-animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
+  animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
 }
 
-.c6 > .fi-panel-expansion_content.fi-panel-expansion_content--open:not(.fi-panel-expansion_content--no-padding) {
+.c6 > .fi-expander_content.fi-expander_content--open:not(.fi-expander_content--no-padding) {
   padding-top: 0;
   padding-right: 16px;
   padding-bottom: 16px;
   padding-left: 16px;
 }
 
-.c0 {
-  color: hsl(0,0%,16%);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c0 > .fi-panel-expansion-group_panels {
-  -webkit-flex: none;
-  -ms-flex: none;
-  flex: none;
-}
-
-.c0 > .fi-panel-expansion-group_panels .fi-panel-expansion {
-  margin-top: 0;
-  margin-bottom: 0;
-  -webkit-transition: margin 50ms cubic-bezier(0.28,0.84,0.42,1);
-  transition: margin 50ms cubic-bezier(0.28,0.84,0.42,1);
-}
-
-.c0 > .fi-panel-expansion-group_panels .fi-panel-expansion.fi-panel-expansion--open:not(:first-of-type) {
-  margin-top: 16px;
-}
-
-.c0 > .fi-panel-expansion-group_panels .fi-panel-expansion.fi-panel-expansion--open:not(:last-of-type) {
-  margin-bottom: 16px;
-}
-
-.c0 > .fi-panel-expansion-group_all-button {
-  color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  -webkit-align-self: flex-end;
-  -ms-flex-item-align: end;
-  align-self: flex-end;
-  margin-left: auto;
-  margin-bottom: 8px;
-  padding: 4px 0;
-  color: hsl(1,2%,3%);
-  cursor: pointer;
-}
-
-.c0 > .fi-panel-expansion-group_all-button:focus {
-  outline: 0;
-  position: relative;
-}
-
-.c0 > .fi-panel-expansion-group_all-button:focus:after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  bottom: -4px;
-  left: -4px;
-  border-radius: 4px;
-  background-color: transparent;
-  border: 1px solid hsl(23,82%,53%);
-  box-sizing: border-box;
-  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
-  z-index: 9999;
-}
-
-.c0 > .fi-panel-expansion-group_all-button:focus:not(:focus-visible):after {
-  content: none;
-}
-
 <div
-  class="c0 fi-panel-expansion-group c1 c2"
+  class="c0 fi-expander-group c1 c2"
 >
   <button
     aria-disabled="false"
-    class="fi-button fi-panel-expansion-group_all-button c3 fi-button c4 c5"
+    class="fi-button fi-expander-group_all-button c3 fi-button c4 c5"
     tabindex="0"
     tokens="[object Object]"
     type="button"
@@ -384,22 +384,22 @@ exports[`snapshot testing 1`] = `
     Open all
   </button>
   <div
-    class="fi-panel-expansion-group_panels c2"
+    class="fi-expander-group_panels c2"
   >
     <div
-      class="c6 fi-panel-expansion c7 c2"
+      class="c6 fi-expander c7 c2"
     >
       <button
         aria-disabled="false"
         aria-expanded="false"
-        class="fi-button fi-panel-expansion_title fi-panel-expansion_title--no-tag c8 c4 c5"
+        class="fi-button fi-expander_title fi-expander_title--no-tag c8 c4 c5"
         tabindex="0"
         type="button"
       >
-        Test expansion 1
+        Test expander 1
         <svg
           aria-hidden="true"
-          class="fi-panel-expansion_title-icon c9"
+          class="fi-expander_title-icon c9"
           fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"
@@ -413,26 +413,26 @@ exports[`snapshot testing 1`] = `
       </button>
       <div
         aria-hidden="true"
-        class="fi-panel-expansion_content c10 fi-panel c7 c2"
+        class="fi-expander_content c10 fi-expander c7 c2"
         hidden=""
       >
-        Test expansion content 1
+        Test expander content 1
       </div>
     </div>
     <div
-      class="c6 fi-panel-expansion c7 c2"
+      class="c6 fi-expander c7 c2"
     >
       <button
         aria-disabled="false"
         aria-expanded="false"
-        class="fi-button fi-panel-expansion_title fi-panel-expansion_title--no-tag c8 c4 c5"
+        class="fi-button fi-expander_title fi-expander_title--no-tag c8 c4 c5"
         tabindex="0"
         type="button"
       >
-        Test expansion 2
+        Test expander 2
         <svg
           aria-hidden="true"
-          class="fi-panel-expansion_title-icon c9"
+          class="fi-expander_title-icon c9"
           fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"
@@ -446,26 +446,26 @@ exports[`snapshot testing 1`] = `
       </button>
       <div
         aria-hidden="true"
-        class="fi-panel-expansion_content c10 fi-panel c7 c2"
+        class="fi-expander_content c10 fi-expander c7 c2"
         hidden=""
       >
-        Test expansion content 2
+        Test expander content 2
       </div>
     </div>
     <div
-      class="c6 fi-panel-expansion c7 c2"
+      class="c6 fi-expander c7 c2"
     >
       <button
         aria-disabled="false"
         aria-expanded="false"
-        class="fi-button fi-panel-expansion_title fi-panel-expansion_title--no-tag c8 c4 c5"
+        class="fi-button fi-expander_title fi-expander_title--no-tag c8 c4 c5"
         tabindex="0"
         type="button"
       >
-        Test expansion 3
+        Test expander 3
         <svg
           aria-hidden="true"
-          class="fi-panel-expansion_title-icon c9"
+          class="fi-expander_title-icon c9"
           fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"
@@ -479,10 +479,10 @@ exports[`snapshot testing 1`] = `
       </button>
       <div
         aria-hidden="true"
-        class="fi-panel-expansion_content c10 fi-panel c7 c2"
+        class="fi-expander_content c10 fi-expander c7 c2"
         hidden=""
       >
-        Test expansion content 3
+        Test expander content 3
       </div>
     </div>
   </div>
