@@ -119,7 +119,6 @@ exports[`calling render with the same component on the same container does not r
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  padding: 16px;
   background-color: hsl(0,0%,100%);
   position: relative;
   position: relative;

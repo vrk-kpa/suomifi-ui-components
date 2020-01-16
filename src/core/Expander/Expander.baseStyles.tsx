@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../theme';
-import { button } from '../theme/reset';
+import { button, element, font } from '../theme/reset';
 import { absolute } from '../../utils/css';
 import { padding } from '../theme/utils';
 import { ExpanderProps } from './Expander';
@@ -8,6 +8,9 @@ import { ExpanderProps } from './Expander';
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme & Partial<ExpanderProps>) => {
     return css`
+  ${element({ theme })}
+  ${font({ theme })('bodyText')}
+  background-color: ${theme.colors.whiteBase};
   ${absolute('before')}
   position: relative;
   padding: 0;

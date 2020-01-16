@@ -4,7 +4,7 @@ import { axeTest } from '../../utils/test/axe';
 
 import { Expander } from './Expander';
 import { cssFromBaseStyles } from '../utils';
-import { baseStyles } from './Panel.baseStyles';
+import { baseStyles } from './Expander.baseStyles';
 
 const TestExpander = (
   <Expander

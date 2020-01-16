@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp, InternalTokensProp } from '../theme';
-import { baseStyles as panelBaseStyles } from './Panel.baseStyles';
 import { baseStyles } from './Expander.baseStyles';
 import {
   Expander as CompExpander,
@@ -40,7 +39,6 @@ const StyledExpander = styled(
     );
   },
 )`
-  ${props => panelBaseStyles(props)};
   ${props => baseStyles(props)};
 `;
 
