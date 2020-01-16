@@ -77,7 +77,7 @@ export class Expander extends Component<ExpanderProps> {
 
   render() {
     const {
-      variant,
+      variant = 'expander',
       open,
       title,
       titleTag,
@@ -86,8 +86,8 @@ export class Expander extends Component<ExpanderProps> {
     const notControlled = open === undefined;
     const openState = !notControlled ? open : this.state.openState;
 
-    if (variant === 'expander' && 'title' in passProps) {
-      return <Expander {...(passProps as ExpanderProps)} />;
+    if (variant === 'expanderGroup' && 'openAll' in passProps) {
+      return <ExpanderGroup {...(passProps as ExpanderGroupProps)} />;
     }
 
     return (
