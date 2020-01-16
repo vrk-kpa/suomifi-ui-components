@@ -98,7 +98,6 @@ module.exports = {
             {
               name: 'Expander',
               components: getComponentWithVariants('Expander')([
-                'Expander',
                 'ExpanderGroup',
               ]),
             },
