@@ -27,17 +27,20 @@ export {
   LinkExternal,
   LinkExternalProps,
 } from './core/Link/Link';
-export { Menu, MenuProps } from './core/Menu/Menu';
 export {
-  MenuItem,
-  MenuItemProps,
-  MenuLink,
-  MenuLinkProps,
-  MenuItemLanguage,
-  MenuItemLanguageProps,
-  MenuLinkLanguage,
-  MenuLinkLanguageProps,
-} from './core/Menu/MenuItem';
+  LanguageMenu,
+  LanguageMenuProps,
+} from './core/LanguageMenu/LanguageMenu';
+export {
+  LanguageMenuItem,
+  LanguageMenuItemProps,
+  LanguageMenuLink,
+  LanguageMenuLinkProps,
+  LanguageMenuItemLanguage,
+  LanguageMenuItemLanguageProps,
+  LanguageMenuLinkLanguage,
+  LanguageMenuLinkLanguageProps,
+} from './core/LanguageMenu/LanguageMenuItem';
 export { Panel, PanelProps } from './core/Panel/Panel';
 export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';
 export { Text, TextProps } from './core/Text/Text';

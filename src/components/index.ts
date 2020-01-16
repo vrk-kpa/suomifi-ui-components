@@ -19,14 +19,14 @@ export { Heading, HeadingProps } from './Heading/Heading';
 export { Link, LinkProps } from './Link/Link';
 export { LinkExternal, LinkExternalProps } from './Link/LinkExternal';
 export {
-  Menu,
-  MenuProps,
-  MenuListItemsProps,
+  LanguageMenu,
+  LanguageMenuProps,
+  LanguageMenuListItemsProps,
+  LanguageMenuItemProps,
+  LanguageMenuLinkProps as MenuLinkProps,
   MenuItem,
-  MenuItemProps,
   MenuLink,
-  MenuLinkProps,
-} from './Menu/Menu';
+} from './LanguageMenu/LanguageMenu';
 export { Panel, PanelProps } from './Panel/Panel';
 export { PanelExpansion, PanelExpansionProps } from './Panel/PanelExpansion';
 export { Paragraph, ParagraphProps } from './Paragraph/Paragraph';

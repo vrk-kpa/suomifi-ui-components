@@ -2,24 +2,24 @@ import React from 'react';
 import classnames from 'classnames';
 import {
   MenuLink as CompMenuLink,
-  MenuLinkProps,
-} from '../../components/Menu/Menu';
+  LanguageMenuLinkProps,
+} from '../../components/LanguageMenu/LanguageMenu';
 
-export interface MenuLinkLanguageProps extends MenuLinkProps {
+export interface LanguageMenuLinkLanguageProps extends LanguageMenuLinkProps {
   /** Show item as selected one */
   selected?: boolean;
   className?: string;
 }
 
-export const MenuLinkLanguage = ({
+export const LanguageMenuLinkLanguage = ({
   selected,
   className,
   ...passProps
-}: MenuLinkLanguageProps) => (
+}: LanguageMenuLinkLanguageProps) => (
   <CompMenuLink
     {...passProps}
     className={classnames(className, {
-      'fi-menu-lang-item-selected': selected,
+      'fi-language-menu-lang-item-selected': selected,
     })}
   />
 );

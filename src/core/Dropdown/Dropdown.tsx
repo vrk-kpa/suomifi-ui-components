@@ -6,7 +6,7 @@ import { baseStyles, menuListStyles } from './Dropdown.baseStyles';
 import {
   MenuList as CompMenuList,
   MenuListProps as CompMenuListProps,
-} from '../../components/Menu/Menu';
+} from '../../components/LanguageMenu/LanguageMenu';
 import {
   Dropdown as CompDropdown,
   DropdownProps as CompDropdownProps,

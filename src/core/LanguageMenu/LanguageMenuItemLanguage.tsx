@@ -2,24 +2,24 @@ import React from 'react';
 import classnames from 'classnames';
 import {
   MenuItem as CompMenuItem,
-  MenuItemProps,
-} from '../../components/Menu/Menu';
+  LanguageMenuItemProps,
+} from '../../components/LanguageMenu/LanguageMenu';
 
-export interface MenuItemLanguageProps extends MenuItemProps {
+export interface LanguageMenuItemLanguageProps extends LanguageMenuItemProps {
   /** Show item as selected one */
   selected?: boolean;
   className?: string;
 }
 
-export const MenuItemLanguage = ({
+export const LanguageMenuItemLanguage = ({
   selected,
   className,
   ...passProps
-}: MenuItemLanguageProps) => (
+}: LanguageMenuItemLanguageProps) => (
   <CompMenuItem
     {...passProps}
     className={classnames(className, {
-      'fi-menu-lang-item-selected': selected,
+      'fi-language-menu-lang-item-selected': selected,
     })}
   />
 );
