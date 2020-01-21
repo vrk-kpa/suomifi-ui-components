@@ -48,7 +48,7 @@ interface ExpanderState {
 
 /**
  * <i class="semantics" />
- * Used for openable panel
+ * Used for openable expander
  */
 export class Expander extends Component<ExpanderProps> {
   static group = (props: ExpanderGroupProps) => {

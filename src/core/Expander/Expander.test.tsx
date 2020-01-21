@@ -17,8 +17,8 @@ const TestExpander = (
 );
 
 test('calling render with the same component on the same container does not remount', () => {
-  const panelRenderer = render(TestExpander);
-  const { getByTestId, container, rerender } = panelRenderer;
+  const expanderRenderer = render(TestExpander);
+  const { getByTestId, container, rerender } = expanderRenderer;
   expect(container.firstChild).toMatchSnapshot();
   expect(getByTestId('expander-title').textContent).toBe('Test expander');
 

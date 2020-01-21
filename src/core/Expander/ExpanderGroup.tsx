@@ -53,7 +53,7 @@ const OpenAllButton = ({
 
 /**
  * <i class="semantics" />
- * Used for grouping expander panels
+ * Used for grouping expanders
  */
 export class ExpanderGroup extends React.Component<ExpanderGroupProps> {
   render() {

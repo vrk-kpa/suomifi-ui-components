@@ -7,7 +7,7 @@ export const baseStyles = withSuomifiTheme(
   ${element({ theme })}
   display: flex;
   flex-direction: column;
-  & > .fi-expander-group_panels {
+  & > .fi-expander-group_expanders {
     flex: none;
 
     & .fi-expander {

@@ -25,7 +25,7 @@ interface CommonExpanderProps {
   /** Custom classname to extend or customize */
   className?: string;
   /**
-   * Panel element content
+   * Expander element content
    */
   children?: ReactNode;
 }
@@ -67,7 +67,7 @@ interface ExpanderState {
 }
 
 export interface ExpanderProps extends CommonExpanderProps {
-  /** Title for Panel */
+  /** Title for Expander */
   title: ReactNode;
   /** Title HTML-tag (h1, h2, h3 etc.)
    * @default none
@@ -78,7 +78,7 @@ export interface ExpanderProps extends CommonExpanderProps {
   titleProps?: ButtonProps & { open?: boolean };
   /** Properties for the content div */
   contentProps?: CommonExpanderProps;
-  /** Default status of panel open
+  /** Default status of expander open
    * @default false
    */
   defaultOpen?: boolean;
@@ -146,7 +146,7 @@ export class ExpanderItem extends Component<ExpanderProps> {
       titleProps,
       index,
       expanderGroup: dissmissExpanderGroup,
-      consumer: { openPanels } = { openPanels: undefined },
+      consumer: { openExpanders } = { openExpanders: undefined },
       contentProps: { className: contentClassName, ...contentPassProps } = {
         className: undefined,
       },
@@ -155,8 +155,8 @@ export class ExpanderItem extends Component<ExpanderProps> {
     const localOpenState = () =>
       open !== undefined ? !!open : this.state.openState;
     const openState =
-      index !== undefined && !!openPanels
-        ? openPanels.includes(index)
+      index !== undefined && !!openExpanders
+        ? openExpanders.includes(index)
         : localOpenState();
 
     return (
