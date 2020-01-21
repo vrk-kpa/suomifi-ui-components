@@ -15,7 +15,9 @@ const titleTagClassName = `${baseClassName}_title-tag`;
 const contentBaseClassName = `${baseClassName}_content`;
 const contentOpenClassName = `${contentBaseClassName}--open`;
 
-const StyledPanel = styled((props: HtmlDivProps) => <HtmlDiv {...props} />)`
+export const StyledDiv = styled((props: HtmlDivProps) => (
+  <HtmlDiv {...props} />
+))`
   display: block;
   width: 100%;
   max-width: 100%;
@@ -37,7 +39,7 @@ interface StyledExpanderContentProps extends CommonExpanderProps {
 
 export const StyledExpanderContent = styled(
   ({ openState, className, ...passProps }: StyledExpanderContentProps) => (
-    <StyledPanel
+    <StyledDiv
       {...passProps}
       className={classnames(className, baseClassName)}
     />
@@ -160,7 +162,7 @@ export class ExpanderItem extends Component<ExpanderProps> {
         : localOpenState();
 
     return (
-      <StyledPanel
+      <StyledDiv
         {...passProps}
         className={classnames(className, baseClassName, {
           [openClassName]: !!openState,
@@ -191,7 +193,7 @@ export class ExpanderItem extends Component<ExpanderProps> {
         >
           {children}
         </StyledExpanderContent>
-      </StyledPanel>
+      </StyledDiv>
     );
   }
 }

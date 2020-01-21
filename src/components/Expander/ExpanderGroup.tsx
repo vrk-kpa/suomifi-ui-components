@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
-import { default as styled } from 'styled-components';
-import { HtmlDiv, HtmlDivProps } from '../../reset';
+import { HtmlDiv } from '../../reset';
 import classnames from 'classnames';
-import { ExpanderProps } from './Expander';
+import { ExpanderProps, StyledDiv } from './Expander';
 import { ButtonProps } from '../Button/Button';
 
 export const baseClassName = 'fi-expander-group';
 const openClassName = `${baseClassName}--open`;
 const expandersContainerClassName = `${baseClassName}_expanders`;
 const openAllButtonClassName = `${baseClassName}_all-button`;
-
-export const StyledPanel = styled((props: HtmlDivProps) => (
-  <HtmlDiv {...props} />
-))`
-  display: block;
-  width: 100%;
-  max-width: 100%;
-`;
 
 interface ExpanderGroupState {
   /** Expanders that are open */
@@ -131,7 +122,7 @@ export class ExpanderGroup extends Component<ExpanderGroupProps> {
     const allOpen = openExpanders.length === React.Children.count(children);
 
     return (
-      <StyledPanel
+      <StyledDiv
         {...passProps}
         className={classnames(className, baseClassName, {
           [openClassName]: openExpanders.length > 0,
@@ -153,7 +144,7 @@ export class ExpanderGroup extends Component<ExpanderGroupProps> {
             {ExpanderGroupItems(children)}
           </Provider>
         </HtmlDiv>
-      </StyledPanel>
+      </StyledDiv>
     );
   }
 }
