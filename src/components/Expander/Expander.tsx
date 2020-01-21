@@ -23,7 +23,7 @@ export const StyledDiv = styled((props: HtmlDivProps) => (
   max-width: 100%;
 `;
 
-interface CommonExpanderProps {
+interface SharedExpanderProps {
   /** Custom classname to extend or customize */
   className?: string;
   /**
@@ -32,7 +32,7 @@ interface CommonExpanderProps {
   children?: ReactNode;
 }
 
-interface StyledExpanderContentProps extends CommonExpanderProps {
+interface StyledExpanderContentProps extends SharedExpanderProps {
   openState: boolean;
   hidden: boolean;
 }
@@ -68,7 +68,7 @@ interface ExpanderState {
   openState: boolean;
 }
 
-export interface ExpanderProps extends CommonExpanderProps {
+export interface ExpanderProps extends SharedExpanderProps {
   /** Title for Expander */
   title: ReactNode;
   /** Title HTML-tag (h1, h2, h3 etc.)
@@ -79,7 +79,7 @@ export interface ExpanderProps extends CommonExpanderProps {
   /** Properties for title-Button */
   titleProps?: ButtonProps & { open?: boolean };
   /** Properties for the content div */
-  contentProps?: CommonExpanderProps;
+  contentProps?: SharedExpanderProps;
   /** Default status of expander open
    * @default false
    */
