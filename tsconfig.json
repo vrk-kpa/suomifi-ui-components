@@ -1,13 +1,22 @@
 {
   "compilerOptions": {
     "outDir": "./dist/umd",
+    "rootDir": "./",
     "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
-    "module": "commonjs" /* Specify module code generation: 'commonjs', 'amd', 'system', 'umd' or 'es2015'. */,
+    "module": "es2015" /* Specify module code generation: 'commonjs', 'amd', 'system', 'umd' or 'es2015'. */,
     "target": "es5",
     "jsx": "react",
     "sourceMap": true,
+    "importHelpers": true,
     "declaration": true /* Generates corresponding '.d.ts' file. */,
     "esModuleInterop": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
+    //"strict": true,
+    //"strictFunctionTypes": true,
+    //"strictPropertyInitialization": true,
+    //"noImplicitThis": true,
+    //"alwaysStrict": true,
+    //"noImplicitReturns": true,
+    //"noFallthroughCasesInSwitch": true,
     "strictNullChecks": true,
     "noUnusedParameters": true,
     "noUnusedLocals": true,
@@ -21,7 +30,12 @@
       "types"
     ] /* List of folders to include type definitions from. */,
     "pretty": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "*": ["src/*", "node_modules/*"]
+    },
   },
   "include": ["./src/**/*", "./types/**/*.d.ts"],
   "exclude": ["node_modules", "dist"]
