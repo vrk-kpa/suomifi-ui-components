@@ -26,14 +26,13 @@
   "scripts": {
     "tsdx:start": "tsdx watch",
     "tsdx:build": "tsdx build",
-    "tsdx:test": "tsdx test --passWithNoTests",
     "tsdx:lint": "tsdx lint",
     "tsdx:prepare": "tsdx build",
     "start": "yarn styleguide",
     "start:withaxe": "cross-env AXE=\"true\" yarn styleguidist server",
     "start:webpack": "webpack --env.development",
-    "test": "jest",
-    "test:updatesnapshots": "jest --u",
+    "test": "tsdx test",
+    "test:updatesnapshots": "tsdx test --u",
     "test:lint": "npm-run-all test:tslint test:eslint test:stylelint",
     "test:tslint": "tslint --project tsconfig.json 'src/**/*.tsx'",
     "test:eslint": "eslint --config .eslintrc src/**/*.tsx",
@@ -57,8 +56,8 @@
   },
   "devDependencies": {
     "@types/classnames": "2.2.6",
-    "@types/jest": "23.3.9",
-    "@types/jest-axe": "2.2.3",
+    "@types/jest": "25.1.1",
+    "@types/jest-axe": "3.2.1",
     "@types/react": "16.9.1",
     "@types/react-dom": "16.8.5",
     "@types/styled-components": "4.1.18",
@@ -75,17 +74,17 @@
     "eslint-plugin-tree-shaking": "1.7.4",
     "file-loader": "2.0.0",
     "gh-pages": "2.0.1",
-    "husky": "1.1.4",
-    "jest": "24.8.0",
-    "jest-axe": "3.1.1",
+    "husky": "4.2.1",
+    "jest": "25.1.0",
+    "jest-axe": "3.3.0",
     "jest-dom": "2.1.1",
-    "jest-styled-components": "6.3.3",
+    "jest-styled-components": "6.3.4",
     "lint-staged": "8.0.5",
     "npm-run-all": "4.1.5",
     "prettier": "1.15.2",
     "prettier-check": "2.0.0",
     "react": "16.6.3",
-    "react-axe": "3.0.2",
+    "react-axe": "3.3.0",
     "react-docgen": "2.21.0",
     "react-docgen-typescript": "1.12.2",
     "react-dom": "16.6.3",
@@ -101,7 +100,7 @@
     "stylelint-config-styled-components": "0.1.1",
     "stylelint-custom-processor-loader": "0.6.0",
     "stylelint-processor-styled-components": "1.6.0",
-    "ts-jest": "23.10.4",
+    "ts-jest": "25.2.0",
     "tsdx": "0.12.3",
     "tslib": "1.10.0",
     "tslint": "5.11.0",
@@ -143,7 +142,7 @@
   },
   "size-limit": [
     {
-      "path": "dist/es2015/index.js"
+      "path": "dist/suomifi-ui-components.esm.js"
     }
   ]
 }
