@@ -134,7 +134,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn validate"
+      "pre-push": "yarn run tsdx lint"
     }
   },
   "lint-staged": {
