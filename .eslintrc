@@ -1,8 +1,65 @@
 {
-  "parser": "typescript-eslint-parser",
-  "extends": ["plugin:jsx-a11y/recommended"],
-  "plugins": ["jsx-a11y", "tree-shaking"],
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended",
+    "prettier",
+    "prettier/react",
+    "prettier/@typescript-eslint",
+    "prettier/standard"
+    // "stylelint"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "jsx-a11y",
+    "prettier",
+    "react",
+    "tree-shaking"
+  ],
   "rules": {
+    "@typescript-eslint/interface-name-prefix": ["warn", "never"],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "arrow-parens": ["error", "as-needed"],
+    "curly": 0,
+    // "import-name": [
+    //   true,
+    //   {
+    //     "react": "React",
+    //     "reactSvg": "ReactSVG",
+    //     "styledComponents": "styled"
+    //   }
+    // ],
+    // "jsx-alignment": true,
+    "camelcase": "error",
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "only-multiline",
+        "functions": "only-multiline",
+        "imports": "only-multiline",
+        "exports": "only-multiline"
+      }
+    ],
+    "consistent-return": "off",
+    "explicit-member-accessibility": "off",
+    "import/first": "off",
+    "import/extensions": "off",
+    "import/newline-after-import": "off",
+    "import/no-unresolved": "off",
+    "import/no-default-export": "error",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-named-default": "off",
+    "import/no-useless-path-segments": "off",
+    "import/order": "off",
+    "import/prefer-default-export": "off",
     "jsx-a11y/label-has-for": 0,
     "jsx-a11y/label-has-associated-control": [
       2,
@@ -12,6 +69,39 @@
         "controlComponents": ["HtmlInput"],
         "assert": "either"
       }
-    ]
+    ],
+    "jsx-quotes": ["error", "prefer-double"],
+    "max-classes-per-file": ["error", 2],
+    "max-len": [
+      "error",
+      { "code": 140, "ignorePattern": "^(import |export )\\{(.*)\\}" }
+    ],
+    "no-console": "off",
+    "no-extra-boolean-cast": "off",
+    "no-multiple-empty-lines": "off",
+    "no-nested-ternary": "off",
+    "no-shadow": "warn",
+    "no-unused-expressions": "error",
+    "no-useless-escape": "off",
+    "no-useless-return": "off",
+    "prettier/prettier": "warn",
+    "prefer-object-spread": "off",
+    "prefer-destructuring": "off",
+    "quotes": ["warn", "single"],
+    "react/no-did-update-set-state": "warn",
+    "react/jsx-curly-brace-presence": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/button-has-type": "warn",
+    "react/prefer-stateless-function": "off",
+    "react/jsx-fragments": "off",
+    "react/jsx-pascal-case": "error",
+    "react/destructuring-assignment": "off",
+    "react/state-in-constructor": "off",
+    "react/no-children-prop": "off",
+    "react/jsx-wrap-multilines": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-boolean-value": "off",
+    "semi": ["error", "always", { "omitLastInOneLineBlock": true }]
   }
 }
