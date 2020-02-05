@@ -10,7 +10,6 @@
     "prettier/react",
     "prettier/@typescript-eslint",
     "prettier/standard"
-    // "stylelint"
   ],
   "plugins": [
     "@typescript-eslint",
