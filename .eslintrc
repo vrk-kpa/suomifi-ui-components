@@ -81,7 +81,7 @@
     ],
     "no-console": "off",
     "no-extra-boolean-cast": "off",
-    "no-multiple-empty-lines": "off",
+    "no-multiple-empty-lines": "warn",
     "no-nested-ternary": "off",
     "no-shadow": "warn",
     "no-unused-expressions": "error",
