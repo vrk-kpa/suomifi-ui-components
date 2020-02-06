@@ -88,7 +88,7 @@
     "no-useless-return": "off",
     "prettier/prettier": "warn",
     "prefer-object-spread": "off",
-    "prefer-destructuring": "off",
+    "prefer-destructuring": ["warn", { "object": true }],
     "quotes": ["warn", "single", { "allowTemplateLiterals": true }],
     "react/no-did-update-set-state": "warn",
     "react/jsx-curly-brace-presence": "off",
