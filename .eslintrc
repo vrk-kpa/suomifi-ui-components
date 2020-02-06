@@ -102,7 +102,7 @@
     "react/state-in-constructor": "off",
     "react/no-children-prop": "off",
     "react/jsx-wrap-multilines": "off",
-    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-one-expression-per-line": "warn",
     "react/jsx-boolean-value": "off",
     "semi": ["error", "always", { "omitLastInOneLineBlock": true }]
   }
