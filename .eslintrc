@@ -52,6 +52,7 @@
       }
     ],
     "consistent-return": "off",
+    "eol-last": "warn",
     "explicit-member-accessibility": "off",
     "import/first": "off",
     "import/extensions": "off",
