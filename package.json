@@ -117,7 +117,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm-run-all lint",
+      "pre-commit": "npm-run-all lint prettier:check",
       "pre-push": "npm run validate"
     }
   },

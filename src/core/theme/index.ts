@@ -118,15 +118,12 @@ const mergeTokens = <T>({
   defaultTokens: T;
   customTokens?: Partial<T>;
 }): T => {
-  return Object.entries(customTokens).reduce(
-    (retObj, [key, value]) => {
-      return {
-        ...retObj,
-        [key]: value,
-      };
-    },
-    Object.assign({}, defaultTokens) as T,
-  );
+  return Object.entries(customTokens).reduce((retObj, [key, value]) => {
+    return {
+      ...retObj,
+      [key]: value,
+    };
+  }, Object.assign({}, defaultTokens) as T);
 };
 
 /**

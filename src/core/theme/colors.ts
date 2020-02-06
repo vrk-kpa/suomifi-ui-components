@@ -112,12 +112,8 @@ export const gradients = {
   whiteBaseNegative: `linear-gradient(-180deg, ${alphaHex(0.1)(
     colors.whiteBase,
   )} 0%, ${alphaHex(0)(colors.whiteBase)} 100%)`,
-  depthLight26: `linear-gradient(0deg, ${colors.depthLight26} 0%, ${
-    colors.whiteBase
-  } 100%)`,
-  highlightLight45ToHighlightLight50: `linear-gradient(0deg, ${
-    colors.highlightLight45
-  }, ${colors.highlightLight50})`,
+  depthLight26: `linear-gradient(0deg, ${colors.depthLight26} 0%, ${colors.whiteBase} 100%)`,
+  highlightLight45ToHighlightLight50: `linear-gradient(0deg, ${colors.highlightLight45}, ${colors.highlightLight50})`,
 };
 
 export const outlines = {
