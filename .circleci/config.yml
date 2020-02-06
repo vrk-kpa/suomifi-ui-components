@@ -40,7 +40,7 @@ commands:
             JEST_JUNIT_OUTPUT: 'reports/junit/js-test-results.xml'
       - run:
           name: 'JavaScript and TypeScript Linter'
-          command: yarn eslint --config .eslintrc src/**/*.tsx --ignore-pattern "**/*.test.tsx" -- --format junit -o reports/junit/js-lint-results.xml
+          command: yarn eslint --config .eslintrc src/**/*.tsx --ignore-pattern "**/*.test.tsx" --quiet -- --format junit -o reports/junit/js-lint-results.xml
       - run:
           name: 'Prettier check'
           command: yarn prettier:check
