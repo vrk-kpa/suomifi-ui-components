@@ -89,7 +89,7 @@
     "prettier/prettier": "warn",
     "prefer-object-spread": "off",
     "prefer-destructuring": "off",
-    "quotes": ["warn", "single"],
+    "quotes": ["warn", "single", { "allowTemplateLiterals": true }],
     "react/no-did-update-set-state": "warn",
     "react/jsx-curly-brace-presence": "off",
     "react/jsx-filename-extension": "off",
