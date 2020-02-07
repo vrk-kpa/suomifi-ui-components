@@ -16,9 +16,13 @@ const baseClassName = 'fi-block';
 export class Block extends Component<BlockProps> {
   render() {
     const { className, variant, ...passProps } = this.props;
-    const Cmp = !variant || variant === 'default' ? HtmlDiv : variant;
+    const ComponentVariant =
+      !variant || variant === 'default' ? HtmlDiv : variant;
     return (
-      <Cmp {...passProps} className={classnames(baseClassName, className)} />
+      <ComponentVariant
+        {...passProps}
+        className={classnames(baseClassName, className)}
+      />
     );
   }
 }
