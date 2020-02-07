@@ -1,5 +1,8 @@
 {
   "parser": "@typescript-eslint/parser",
+  "env": {
+    "jest/globals": true
+  },
   "extends": [
     "plugin:react/recommended",
     "airbnb",
@@ -14,17 +17,19 @@
   "plugins": [
     "@typescript-eslint",
     "import",
+    "jest",
     "jsx-a11y",
     "prettier",
     "react",
     "tree-shaking"
   ],
   "rules": {
-    "@typescript-eslint/interface-name-prefix": ["warn", "never"],
+    "@typescript-eslint/interface-name-prefix": ["off", "never"],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/no-unused-vars": "off",
     "arrow-parens": ["error", "as-needed"],
     "curly": 0,
     // "import-name": [
@@ -79,19 +84,19 @@
     "no-extra-boolean-cast": "off",
     "no-multiple-empty-lines": "off",
     "no-nested-ternary": "off",
-    "no-shadow": "warn",
+    "no-shadow": "off",
     "no-unused-expressions": "error",
     "no-useless-escape": "off",
     "no-useless-return": "off",
     "prettier/prettier": "off",
     "prefer-object-spread": "off",
     "prefer-destructuring": "off",
-    "quotes": ["warn", "single"],
-    "react/no-did-update-set-state": "warn",
+    "quotes": ["off", "single"],
+    "react/no-did-update-set-state": "off",
     "react/jsx-curly-brace-presence": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/button-has-type": "warn",
+    "react/button-has-type": "off",
     "react/prefer-stateless-function": "off",
     "react/jsx-fragments": "off",
     "react/jsx-pascal-case": "error",
