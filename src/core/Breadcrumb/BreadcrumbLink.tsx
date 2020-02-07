@@ -27,12 +27,13 @@ export const BreadcrumbLink = ({
   href = '',
   ...origPassProps
 }: BreadcrumbLinkProps) => {
-  if (!!current)
+  if (!!current) {
     return (
       <HtmlSpan className={className} aria-current="location">
         {children}
       </HtmlSpan>
     );
+  }
   const passProps = withSuomifiDefaultProps(origPassProps);
   return (
     <Fragment>

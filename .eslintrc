@@ -30,7 +30,7 @@
     "@typescript-eslint/no-inferrable-types": "off",
     "@typescript-eslint/no-use-before-define": "off",
     "arrow-parens": ["error", "as-needed"],
-    "curly": 0,
+    "curly": "error",
     // "import-name": [
     //   true,
     //   {
