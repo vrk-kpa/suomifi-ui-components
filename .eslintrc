@@ -41,14 +41,6 @@
     "@typescript-eslint/no-use-before-define": "off",
     "arrow-parens": ["error", "as-needed"],
     "curly": "error",
-    // "import-name": [
-    //   true,
-    //   {
-    //     "react": "React",
-    //     "reactSvg": "ReactSVG",
-    //     "styledComponents": "styled"
-    //   }
-    // ],
     // "jsx-alignment": true,
     "camelcase": "error",
     "comma-dangle": [
