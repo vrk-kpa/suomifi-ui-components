@@ -16,7 +16,7 @@ const testIcon = (
 const TestIcons = (
   <div>
     {testIcon}
-    <Icon icon="heart" />;
+    <Icon icon="heart" />
   </div>
 );
 

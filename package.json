@@ -30,7 +30,7 @@
     "test": "tsdx test --passWithNoTests",
     "test:updatesnapshots": "tsdx test --u",
     "lint": "npm-run-all lint:tsdx-lint lint:stylelint",
-    "lint:tsdx-lint": "tsdx lint",
+    "lint:tsdx-lint": "tsdx lint src",
     "lint:stylelint": "stylelint ./src/**/*.{ts,tsx}",
     "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "prettier:check": "prettier-check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
