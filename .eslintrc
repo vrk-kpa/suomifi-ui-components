@@ -64,7 +64,6 @@
     "import/no-useless-path-segments": "off",
     "import/order": "off",
     "import/prefer-default-export": "off",
-    "jsx-a11y/label-has-for": 0,
     "jsx-a11y/label-has-associated-control": [
       2,
       {
