@@ -23,7 +23,7 @@ module.exports = {
   title: `Suomifi-ui-components ${packagejson.version}`,
   components: 'src/core/**/[A-Z]*.tsx',
   ignore: ['**/*basestyles.tsx', '**/*baseStyles.tsx', '**/*test.tsx'],
-  webpackConfig: require('./webpack.config.js'),
+  webpackConfig: require('./.styleguidist/webpack.config.js'),
   require: requireFiles(!!process.env.AXE),
   assetsDir: path.join(__dirname, '.styleguidist/assets'),
   resolver: require('react-docgen').resolver.findAllComponentDefinitions,

@@ -34,7 +34,7 @@ interface DropdownState {
 }
 
 type OptionalMenuButtonProps = {
-  [K in keyof MenuButtonProps]?: MenuButtonProps[K]
+  [K in keyof MenuButtonProps]?: MenuButtonProps[K];
 };
 type OptionalMenuListProps = { [K in keyof MenuListProps]?: MenuListProps[K] };
 type OptionalMenuItemProps = { [K in keyof MenuItemProps]?: MenuItemProps[K] };

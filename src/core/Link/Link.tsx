@@ -36,7 +36,7 @@ export class Link extends Component<LinkProps | LinkExternalProps> {
     const { variant, ...passProps } = withSuomifiDefaultProps(this.props);
 
     if (variant === 'external' && 'labelNewWindow' in passProps)
-      return <LinkExternal {...passProps as LinkExternalProps} />;
+      return <LinkExternal {...(passProps as LinkExternalProps)} />;
     return <StyledLink {...passProps} />;
   }
 }

@@ -88,7 +88,7 @@
     "no-unused-expressions": "error",
     "no-useless-escape": "off",
     "no-useless-return": "off",
-    "prettier/prettier": "warn",
+    "prettier/prettier": "off",
     "prefer-object-spread": "off",
     "prefer-destructuring": ["warn", { "object": true }],
     "quotes": ["warn", "single", { "allowTemplateLiterals": true }],

@@ -33,8 +33,8 @@ const StyledPanel = styled(
 
 type VariantPanelProps =
   | PanelProps
-  | PanelExpansionProps & { variant?: PanelVariant }
-  | PanelExpansionGroupProps & { variant?: PanelVariant };
+  | (PanelExpansionProps & { variant?: PanelVariant })
+  | (PanelExpansionGroupProps & { variant?: PanelVariant });
 
 /**
  * Used for panel style and defined actions
@@ -51,10 +51,12 @@ export class Panel extends Component<VariantPanelProps> {
   render() {
     const { variant, ...passProps } = withSuomifiDefaultProps(this.props);
     if (variant === 'expansion' && 'title' in passProps) {
-      return <PanelExpansion {...passProps as PanelExpansionProps} />;
+      return <PanelExpansion {...(passProps as PanelExpansionProps)} />;
     }
     if (variant === 'expansionGroup' && 'openAll' in passProps) {
-      return <PanelExpansionGroup {...passProps as PanelExpansionGroupProps} />;
+      return (
+        <PanelExpansionGroup {...(passProps as PanelExpansionGroupProps)} />
+      );
     }
     return <StyledPanel {...passProps} />;
   }

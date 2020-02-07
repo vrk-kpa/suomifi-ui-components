@@ -30,7 +30,7 @@ const StyledBreadcrumb = styled(
 
 type VariantBreadcrumbProps =
   | BreadcrumbProps
-  | LinkProps & { variant?: BreadcrumbVariant };
+  | (LinkProps & { variant?: BreadcrumbVariant });
 
 /**
  * <i class="semantics" />
@@ -48,7 +48,7 @@ export class Breadcrumb extends Component<VariantBreadcrumbProps> {
       ...passProps
     } = withSuomifiDefaultProps(this.props);
     if (variant === 'link') {
-      return <BreadcrumbLink {...passProps as BreadcrumbLinkProps} />;
+      return <BreadcrumbLink {...(passProps as BreadcrumbLinkProps)} />;
     }
     return (
       <StyledBreadcrumb
