@@ -8,8 +8,8 @@ import {
   ariaFocusableNoLabel,
 } from '../../components/utils/aria';
 import { SuomifiIcon, SuomifiIconInterface } from 'suomifi-icons';
-export { IconKeys, StaticIconKeys } from 'suomifi-icons';
 import { logger } from '../../utils/logger';
+export { IconKeys, StaticIconKeys } from 'suomifi-icons';
 
 export interface IconProps extends TokensProp, SuomifiIconInterface {
   /** Aria-label for SVG, undefined hides SVG from screen reader
