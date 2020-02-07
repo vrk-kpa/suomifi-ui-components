@@ -3,6 +3,9 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
+  "env": {
+    "jest/globals": true
+  },
   "extends": [
     "plugin:react/recommended",
     "airbnb",
@@ -17,6 +20,7 @@
   "plugins": [
     "@typescript-eslint",
     "import",
+    "jest",
     "jsx-a11y",
     "prettier",
     "react",
@@ -38,6 +42,7 @@
         "ignoreParameters": true
       }
     ],
+    "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-use-before-define": "off",
     "arrow-parens": ["error", "as-needed"],
     "curly": "error",
@@ -85,7 +90,7 @@
     "no-extra-boolean-cast": "off",
     "no-multiple-empty-lines": "warn",
     "no-nested-ternary": "off",
-    "no-shadow": "warn",
+    "no-shadow": "off",
     "no-unused-expressions": "error",
     "no-useless-escape": "off",
     "no-useless-return": "off",
@@ -93,7 +98,7 @@
     "prefer-object-spread": "off",
     "prefer-destructuring": ["warn", { "object": true }],
     "quotes": ["warn", "single", { "allowTemplateLiterals": true }],
-    "react/no-did-update-set-state": "warn",
+    "react/no-did-update-set-state": "off",
     "react/jsx-curly-brace-presence": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
