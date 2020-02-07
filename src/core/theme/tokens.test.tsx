@@ -2,10 +2,10 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { axeTest } from '../../utils/test/axe';
 
-import { defaultTokens } from './';
+import { defaultThemeTokens } from './';
 import { Panel } from '../../';
 
-const { colors } = defaultTokens;
+const { colors } = defaultThemeTokens;
 const customColors = {
   ...colors,
   highlightBase: 'hsl(1, 2%, 3%)',

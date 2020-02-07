@@ -90,7 +90,7 @@
     "no-extra-boolean-cast": "off",
     "no-multiple-empty-lines": "warn",
     "no-nested-ternary": "off",
-    "no-shadow": "off",
+    "no-shadow": "error",
     "no-unused-expressions": "error",
     "no-useless-escape": "off",
     "no-useless-return": "off",
