@@ -75,15 +75,6 @@ _HOX!!! If you use Styled Components you cannot use Component.variant (static me
 
 Don't use ~~!important~~, if really really needed - for specificity hack you can define styles using classNames multiple times `.fi-button.button--custom.button--custom {...}`
 
-### 🕶 Using bare accessible components
-
-Import accessible components without suomi.fi-styles from library `'suomifi-ui-components/components'`
-
-```jsx
-import { Button } from 'suomifi-ui-components/components';
-ReactDOM.render(<Button />, mountNode);
-```
-
 ## 🔮 FAQ
 
 See [FAQ.md](/FAQ.md).
