@@ -17,8 +17,22 @@ For testing: [React-testing-library](https://github.com/kentcdodds/react-testing
 
 ## 📦 Install
 
+To install the component library itself
+
 ```bash
 yarn add suomifi-ui-components
+```
+
+### Peer dependencies
+
+You should install also these dependencies if your project does not already have these.
+
+- suomifi-ui-components requires [styled-components](https://www.npmjs.com/package/styled-components) version >=4.
+
+- Because suomifi-ui-components is a component library for React, it requires [react](https://www.npmjs.com/package/react) version >=16.
+
+```bash
+yarn add styled-components react
 ```
 
 ## 🔨 Usage
