@@ -4,12 +4,12 @@ Suomi.fi-styleguide in React components. [Living styleguide](https://vrk-kpa.git
 
 ## ✨ Features
 
-- React-components (>=16.3) with Typescript support
+- React-components (>=16.8) with Typescript support
 - Highly modular - all browser/app CSS-resets without global styles
-- Should work on all different existing React apps (>=16.3)
+- Should work on all different existing React apps (>=16.8)
 - Highly customizable (CSS, CSS-in-JS)
 
-Uses [React 16.6.3](https://github.com/facebook/react) with [Styled Components](https://github.com/styled-components/styled-components) and written in [TypeScript](https://github.com/Microsoft/TypeScript). [Styleguidist](https://github.com/styleguidist/react-styleguidist) for presenting components.
+Uses [React 16.8.0](https://github.com/facebook/react) with [Styled Components](https://github.com/styled-components/styled-components) and written in [TypeScript](https://github.com/Microsoft/TypeScript). [Styleguidist](https://github.com/styleguidist/react-styleguidist) for presenting components.
 
 [Webpack 4](https://github.com/webpack/webpack) with [awesome-typescript-loader](https://github.com/s-panferov/awesome-typescript-loader) and [TSLint](https://github.com/palantir/tslint).
 
