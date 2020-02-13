@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-testing-library';
+import { render } from '@testing-library/react';
 import { axeTest } from '../../../utils/test/axe';
 
 import { TextInput } from './TextInput';

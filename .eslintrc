@@ -1,9 +1,76 @@
 {
-  "parser": "typescript-eslint-parser",
-  "extends": ["plugin:jsx-a11y/recommended"],
-  "plugins": ["jsx-a11y", "tree-shaking"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "env": {
+    "jest/globals": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended",
+    "prettier",
+    "prettier/react",
+    "prettier/@typescript-eslint",
+    "prettier/standard"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "jest",
+    "jsx-a11y",
+    "prettier",
+    "react",
+    "tree-shaking"
+  ],
   "rules": {
-    "jsx-a11y/label-has-for": 0,
+    "@typescript-eslint/interface-name-prefix": ["warn", "never"],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-empty-interface": [
+      "warn",
+      {
+        "allowSingleExtends": true
+      }
+    ],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-inferrable-types": [
+      "warn",
+      {
+        "ignoreParameters": true
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "arrow-parens": ["error", "as-needed"],
+    "curly": "error",
+    // "jsx-alignment": true,
+    "camelcase": "error",
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "only-multiline",
+        "functions": "only-multiline",
+        "imports": "only-multiline",
+        "exports": "only-multiline"
+      }
+    ],
+    "consistent-return": "off",
+    "eol-last": "warn",
+    "explicit-member-accessibility": "off",
+    "import/first": "warn",
+    "import/extensions": "off",
+    "import/newline-after-import": "off",
+    "import/no-unresolved": "off",
+    "import/no-default-export": "error",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-named-default": "off",
+    "import/no-useless-path-segments": "off",
+    "import/order": "off",
+    "import/prefer-default-export": "off",
     "jsx-a11y/label-has-associated-control": [
       2,
       {
@@ -12,6 +79,39 @@
         "controlComponents": ["HtmlInput"],
         "assert": "either"
       }
-    ]
+    ],
+    "jsx-quotes": ["error", "prefer-double"],
+    "max-classes-per-file": ["error", 2],
+    "max-len": [
+      "error",
+      { "code": 140, "ignorePattern": "^(import |export )\\{(.*)\\}" }
+    ],
+    "no-console": "off",
+    "no-extra-boolean-cast": "off",
+    "no-multiple-empty-lines": "warn",
+    "no-nested-ternary": "off",
+    "no-shadow": "error",
+    "no-unused-expressions": "error",
+    "no-useless-escape": "off",
+    "no-useless-return": "off",
+    "prettier/prettier": "off",
+    "prefer-object-spread": "off",
+    "prefer-destructuring": ["warn", { "object": true }],
+    "quotes": ["warn", "single", { "allowTemplateLiterals": true }],
+    "react/no-did-update-set-state": "off",
+    "react/jsx-curly-brace-presence": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/button-has-type": "off",
+    "react/prefer-stateless-function": "off",
+    "react/jsx-fragments": "off",
+    "react/jsx-pascal-case": "error",
+    "react/destructuring-assignment": "off",
+    "react/state-in-constructor": "off",
+    "react/no-children-prop": "off",
+    "react/jsx-wrap-multilines": "off",
+    "react/jsx-one-expression-per-line": "warn",
+    "react/jsx-boolean-value": "off",
+    "semi": ["error", "always", { "omitLastInOneLineBlock": true }]
   }
 }

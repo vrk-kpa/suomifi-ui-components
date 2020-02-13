@@ -2,9 +2,6 @@
 require('jest-axe/extend-expect');
 
 // add some helpful assertions
-require('jest-dom/extend-expect');
-
-// this is basically: afterEach(cleanup)
-require('react-testing-library/cleanup-after-each');
+require('@testing-library/jest-dom/extend-expect');
 
 require('jest-styled-components');

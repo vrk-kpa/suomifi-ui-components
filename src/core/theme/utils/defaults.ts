@@ -1,7 +1,7 @@
 import {
   suomifiTheme,
   SuomifiTheme,
-  defaultTokens,
+  defaultThemeTokens,
   SuomifiTokens,
   InternalTokensProp,
   PartialTokens,
@@ -9,7 +9,7 @@ import {
 import { asPropType, Omit } from '../../../utils/typescript';
 
 const internalTokens = (tokens?: PartialTokens) =>
-  !!tokens ? { ...defaultTokens, ...tokens } : defaultTokens;
+  !!tokens ? { ...defaultThemeTokens, ...tokens } : defaultThemeTokens;
 
 /**
  * Check component props and do common defaulting

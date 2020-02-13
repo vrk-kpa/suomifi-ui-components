@@ -8,7 +8,7 @@ export type SpacingProp = keyof SpacingDesignTokens;
 
 type SpacingDesignTokensKeys = keyof SpacingDesignTokens;
 
-export const spacing = suomifiDesignTokens.spacing;
+export const { spacing } = suomifiDesignTokens;
 
 export const spacingTokensKeys = Object.keys(
   spacing,

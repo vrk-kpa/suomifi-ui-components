@@ -185,12 +185,7 @@ export class PanelExpansion extends Component<PanelExpansionProps> {
   render() {
     return !!this.props.expansionGroup ? (
       <PanelExpansionGroupConsumer>
-        {PanelExpansionGroupConsumer => (
-          <PanelExpansionItem
-            {...this.props}
-            consumer={PanelExpansionGroupConsumer}
-          />
-        )}
+        {consumer => <PanelExpansionItem {...this.props} consumer={consumer} />}
       </PanelExpansionGroupConsumer>
     ) : (
       <PanelExpansionItem {...this.props} />

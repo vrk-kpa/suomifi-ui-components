@@ -39,11 +39,8 @@ commands:
           environment:
             JEST_JUNIT_OUTPUT: 'reports/junit/js-test-results.xml'
       - run:
-          name: 'JavaScript Linter'
-          command: yarn test:eslint -- --format junit -o reports/junit/js-lint-results.xml
-      - run:
-          name: 'Typescript Linter'
-          command: yarn test:tslint -- --formatters-dir node_modules/tslint-junit-formatter/formatters --format junit -o reports/junit/ts-lint-results.xml
+          name: 'JavaScript and TypeScript Linter'
+          command: yarn eslint --config .eslintrc src/**/*.tsx -- --format junit -o reports/junit/js-lint-results.xml
       - run:
           name: 'Prettier check'
           command: yarn prettier:check

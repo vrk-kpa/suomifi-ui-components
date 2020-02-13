@@ -1,6 +1,6 @@
 import { FlattenSimpleInterpolation } from 'styled-components';
 import {
-  colors,
+  colors as colorTokens,
   shadows,
   gradients,
   outlines,
@@ -10,14 +10,18 @@ import {
   suomifiDesignTokens,
   TypographyDesignTokens,
 } from 'suomifi-design-tokens';
-import { spacing, SpacingProp, SpacingDesignTokens } from './spacing';
+import {
+  spacing as spacingTokens,
+  SpacingProp,
+  SpacingDesignTokens,
+} from './spacing';
 import { zindexes } from './zindexes';
 import { transitions } from './transitions';
 import { radius } from './radius';
 export { SpacingProp };
 
 export type SuomifiTokens = typeof importedTokens;
-export type DefaultSuomifiTokens = typeof defaultTokens;
+export type DefaultSuomifiTokens = typeof defaultThemeTokens;
 export type ColorProp = keyof typeof importedTokens.colors;
 export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
 
@@ -58,13 +62,13 @@ const internalTokens = {
 };
 
 const importedTokens = {
-  colors,
-  spacing,
+  colors: colorTokens,
+  spacing: spacingTokens,
   typography: suomifiDesignTokens.typography,
   values: suomifiDesignTokens.values,
 };
 
-export const defaultTokens = {
+export const defaultThemeTokens = {
   ...importedTokens,
   ...internalTokens,
 };
@@ -94,18 +98,18 @@ export const suomifiTheme = (
     // Override if any defined
     ...(!!libraryTokenOverrides ? libraryTokenOverrides : {}),
     colors: mergeTokens({
-      defaultTokens: defaultTokens.colors,
+      defaultTokens: defaultThemeTokens.colors,
       customTokens: colors,
     }),
     spacing: mergeTokens({
-      defaultTokens: defaultTokens.spacing,
+      defaultTokens: defaultThemeTokens.spacing,
       customTokens: spacing,
     }),
     typography: mergeTokens({
-      defaultTokens: defaultTokens.typography,
+      defaultTokens: defaultThemeTokens.typography,
       customTokens: typography,
     }),
-    values: defaultTokens.values,
+    values: defaultThemeTokens.values,
   };
   return theme;
 };
@@ -118,15 +122,12 @@ const mergeTokens = <T>({
   defaultTokens: T;
   customTokens?: Partial<T>;
 }): T => {
-  return Object.entries(customTokens).reduce(
-    (retObj, [key, value]) => {
-      return {
-        ...retObj,
-        [key]: value,
-      };
-    },
-    Object.assign({}, defaultTokens) as T,
-  );
+  return Object.entries(customTokens).reduce((retObj, [key, value]) => {
+    return {
+      ...retObj,
+      [key]: value,
+    };
+  }, Object.assign({}, defaultTokens) as T);
 };
 
 /**

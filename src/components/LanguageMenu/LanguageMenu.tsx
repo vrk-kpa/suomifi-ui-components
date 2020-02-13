@@ -42,7 +42,7 @@ export type LanguageMenuListItemsProps =
   | LanguageMenuItemProps
   | LanguageMenuLinkPropsWithType;
 type OptionalLanguageMenuListProps = {
-  [K in keyof MenuListProps]?: MenuListProps[K]
+  [K in keyof MenuListProps]?: MenuListProps[K];
 };
 
 export interface LanguageMenuProps {

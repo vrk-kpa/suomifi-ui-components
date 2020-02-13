@@ -13,7 +13,7 @@ import classnames from 'classnames';
 
 const iconClassName = 'fi-panel-expansion_title-icon';
 const iconOpenClassName = `${iconClassName}--open`;
-const noPaddingClassName = `fi-panel-expansion_content--no-padding`;
+const noPaddingClassName = 'fi-panel-expansion_content--no-padding';
 
 export interface PanelExpansionProps
   extends CompPanelExpansionProps,
