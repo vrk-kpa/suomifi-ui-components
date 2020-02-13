@@ -27,8 +27,7 @@ export {
   MenuItem,
   MenuLink,
 } from './LanguageMenu/LanguageMenu';
-export { Panel, PanelProps } from './Panel/Panel';
-export { PanelExpansion, PanelExpansionProps } from './Panel/PanelExpansion';
+export { Expander, ExpanderProps } from './Expander/Expander';
 export { Paragraph, ParagraphProps } from './Paragraph/Paragraph';
 export { Text, TextProps } from './Text/Text';
 export { VisuallyHidden } from './Visually-hidden/Visually-hidden';

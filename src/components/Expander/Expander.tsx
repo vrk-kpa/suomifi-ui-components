@@ -1,37 +1,54 @@
 import React, { Component, ReactNode, Fragment } from 'react';
 import { default as styled } from 'styled-components';
-import { Panel, PanelProps, baseClassName, StyledPanel } from './Panel';
 import { Button, ButtonProps } from '../Button/Button';
 import { allStates } from '../../utils/css';
+import { HtmlDiv, HtmlDivProps } from '../../reset';
 import classnames from 'classnames';
-import {
-  PanelExpansionGroupConsumer,
-  PanelExpansionProviderState,
-} from './PanelExpansionGroup';
+import { ExpanderGroupConsumer, ExpanderProviderState } from './ExpanderGroup';
 
-const panelExpansionClassName = `${baseClassName}-expansion`;
-const openClassName = `${panelExpansionClassName}--open`;
-const titleClassName = `${panelExpansionClassName}_title`;
+const baseClassName = 'fi-expander';
+const openClassName = `${baseClassName}--open`;
+const titleClassName = `${baseClassName}_title`;
 const titleOpenClassName = `${titleClassName}--open`;
 const titleNoTagClassName = `${titleClassName}--no-tag`;
-const titleTagClassName = `${panelExpansionClassName}_title-tag`;
-const contentBaseClassName = `${panelExpansionClassName}_content`;
+const titleTagClassName = `${baseClassName}_title-tag`;
+const contentBaseClassName = `${baseClassName}_content`;
 const contentOpenClassName = `${contentBaseClassName}--open`;
 
-interface StyledPanelExpansionContentProps extends PanelProps {
+export const StyledDiv = styled((props: HtmlDivProps) => (
+  <HtmlDiv {...props} />
+))`
+  display: block;
+  width: 100%;
+  max-width: 100%;
+`;
+
+interface SharedExpanderProps {
+  /** Custom classname to extend or customize */
+  className?: string;
+  /**
+   * Expander element content
+   */
+  children?: ReactNode;
+}
+
+interface StyledExpanderContentProps extends SharedExpanderProps {
   openState: boolean;
   hidden: boolean;
 }
 
-export const StyledPanelExpansionContent = styled(
-  ({ openState, ...passProps }: StyledPanelExpansionContentProps) => (
-    <Panel {...passProps} />
+export const StyledExpanderContent = styled(
+  ({ openState, className, ...passProps }: StyledExpanderContentProps) => (
+    <StyledDiv
+      {...passProps}
+      className={classnames(className, baseClassName)}
+    />
   ),
 )`
   display: ${({ openState }) => (!!openState ? 'block' : 'none')};
 `;
 
-const StyledPanelExpansionTitle = styled(
+const StyledExpanderTitle = styled(
   ({ open, className, ...passProps }: ButtonProps & { open?: boolean }) => (
     <Button
       {...passProps}
@@ -47,12 +64,12 @@ const StyledPanelExpansionTitle = styled(
   ${allStates('cursor: pointer;')}
 `;
 
-interface PanelExpansionState {
+interface ExpanderState {
   openState: boolean;
 }
 
-export interface PanelExpansionProps extends PanelProps {
-  /** Title for Panel */
+export interface ExpanderProps extends SharedExpanderProps {
+  /** Title for Expander */
   title: ReactNode;
   /** Title HTML-tag (h1, h2, h3 etc.)
    * @default none
@@ -62,16 +79,16 @@ export interface PanelExpansionProps extends PanelProps {
   /** Properties for title-Button */
   titleProps?: ButtonProps & { open?: boolean };
   /** Properties for the content div */
-  contentProps?: PanelProps;
-  /** Default status of panel open
+  contentProps?: SharedExpanderProps;
+  /** Default status of expander open
    * @default false
    */
   defaultOpen?: boolean;
   /** Event handler to execute when clicked */
   onClick?: ({ openState }: { openState: boolean }) => void;
   index?: number;
-  expansionGroup?: boolean;
-  consumer?: PanelExpansionProviderState;
+  expanderGroup?: boolean;
+  consumer?: ExpanderProviderState;
 }
 
 const IfTitleTag = ({
@@ -91,8 +108,8 @@ const IfTitleTag = ({
   </Fragment>
 );
 
-export class PanelExpansionItem extends Component<PanelExpansionProps> {
-  state: PanelExpansionState = {
+export class ExpanderItem extends Component<ExpanderProps> {
+  state: ExpanderState = {
     openState:
       this.props.defaultOpen !== undefined ? this.props.defaultOpen : false,
   };
@@ -103,9 +120,9 @@ export class PanelExpansionItem extends Component<PanelExpansionProps> {
       onClick,
       consumer: { onClick: consumerOnClick } = { onClick: undefined },
       index,
-      expansionGroup,
+      expanderGroup,
     } = this.props;
-    if (!!expansionGroup && !!consumerOnClick && index !== undefined) {
+    if (!!expanderGroup && !!consumerOnClick && index !== undefined) {
       consumerOnClick(index);
     } else {
       const openState = !this.state.openState;
@@ -130,8 +147,8 @@ export class PanelExpansionItem extends Component<PanelExpansionProps> {
       titleTag,
       titleProps,
       index,
-      expansionGroup: dissmissExpansionGroup,
-      consumer: { openPanels } = { openPanels: undefined },
+      expanderGroup: dissmissExpanderGroup,
+      consumer: { openExpanders } = { openExpanders: undefined },
       contentProps: { className: contentClassName, ...contentPassProps } = {
         className: undefined,
       },
@@ -140,19 +157,19 @@ export class PanelExpansionItem extends Component<PanelExpansionProps> {
     const localOpenState = () =>
       open !== undefined ? !!open : this.state.openState;
     const openState =
-      index !== undefined && !!openPanels
-        ? openPanels.includes(index)
+      index !== undefined && !!openExpanders
+        ? openExpanders.includes(index)
         : localOpenState();
 
     return (
-      <StyledPanel
+      <StyledDiv
         {...passProps}
-        className={classnames(className, panelExpansionClassName, {
+        className={classnames(className, baseClassName, {
           [openClassName]: !!openState,
         })}
       >
         <IfTitleTag titleTag={titleTag}>
-          <StyledPanelExpansionTitle
+          <StyledExpanderTitle
             onClick={this.handleClick}
             className={classnames(titleClassName, {
               [titleNoTagClassName]: !titleTag,
@@ -162,9 +179,9 @@ export class PanelExpansionItem extends Component<PanelExpansionProps> {
             open={openState}
           >
             {title}
-          </StyledPanelExpansionTitle>
+          </StyledExpanderTitle>
         </IfTitleTag>
-        <StyledPanelExpansionContent
+        <StyledExpanderContent
           {...contentPassProps}
           openState={openState}
           className={classnames(contentBaseClassName, contentClassName, {
@@ -175,20 +192,20 @@ export class PanelExpansionItem extends Component<PanelExpansionProps> {
           aria-hidden={!openState}
         >
           {children}
-        </StyledPanelExpansionContent>
-      </StyledPanel>
+        </StyledExpanderContent>
+      </StyledDiv>
     );
   }
 }
 
-export class PanelExpansion extends Component<PanelExpansionProps> {
+export class Expander extends Component<ExpanderProps> {
   render() {
-    return !!this.props.expansionGroup ? (
-      <PanelExpansionGroupConsumer>
-        {consumer => <PanelExpansionItem {...this.props} consumer={consumer} />}
-      </PanelExpansionGroupConsumer>
+    return !!this.props.expanderGroup ? (
+      <ExpanderGroupConsumer>
+        {consumer => <ExpanderItem {...this.props} consumer={consumer} />}
+      </ExpanderGroupConsumer>
     ) : (
-      <PanelExpansionItem {...this.props} />
+      <ExpanderItem {...this.props} />
     );
   }
 }

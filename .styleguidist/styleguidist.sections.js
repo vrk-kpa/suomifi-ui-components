@@ -96,10 +96,9 @@ module.exports = {
               ]),
             },
             {
-              name: 'Panel',
-              components: getComponentWithVariants('Panel')([
-                'PanelExpansion',
-                'PanelExpansionGroup',
+              name: 'Expander',
+              components: getComponentWithVariants('Expander')([
+                'ExpanderGroup',
               ]),
             },
           ],

@@ -41,7 +41,7 @@ export {
   LanguageMenuLinkLanguage,
   LanguageMenuLinkLanguageProps,
 } from './core/LanguageMenu/LanguageMenuItem';
-export { Panel, PanelProps } from './core/Panel/Panel';
+export { Expander, ExpanderProps } from './core/Expander/Expander';
 export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';
 export { Text, TextProps } from './core/Text/Text';
 export { suomifiDesignTokens, DesignTokens } from 'suomifi-design-tokens';

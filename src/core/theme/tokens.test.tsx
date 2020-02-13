@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { axeTest } from '../../utils/test/axe';
 
 import { defaultThemeTokens } from './';
-import { Panel } from '../../';
+import { Expander } from '../../';
 
 const { colors } = defaultThemeTokens;
 const customColors = {
@@ -12,21 +12,15 @@ const customColors = {
 };
 
 const Test = (
-  <Panel.expansionGroup
+  <Expander.group
     OpenAll={'Open all'}
     CloseAll={'Close all'}
     tokens={{ colors: customColors }}
   >
-    <Panel.expansion title="Test expansion 1">
-      Test expansion content 1
-    </Panel.expansion>
-    <Panel.expansion title="Test expansion 2">
-      Test expansion content 2
-    </Panel.expansion>
-    <Panel.expansion title="Test expansion 3">
-      Test expansion content 3
-    </Panel.expansion>
-  </Panel.expansionGroup>
+    <Expander title="Test expander 1">Test expander content 1</Expander>
+    <Expander title="Test expander 2">Test expander content 2</Expander>
+    <Expander title="Test expander 3">Test expander content 3</Expander>
+  </Expander.group>
 );
 
 test('snapshot testing', () => {

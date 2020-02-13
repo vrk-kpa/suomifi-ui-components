@@ -1,26 +1,17 @@
 import React, { Component } from 'react';
-import { default as styled } from 'styled-components';
-import { HtmlDiv, HtmlDivProps } from '../../reset';
+import { HtmlDiv } from '../../reset';
 import classnames from 'classnames';
-import { PanelExpansionProps } from './PanelExpansion';
+import { ExpanderProps, StyledDiv } from './Expander';
 import { ButtonProps } from '../Button/Button';
 
-export const baseClassName = 'fi-panel-expansion-group';
+export const baseClassName = 'fi-expander-group';
 const openClassName = `${baseClassName}--open`;
-const panelsContainerClassName = `${baseClassName}_panels`;
+const expandersContainerClassName = `${baseClassName}_expanders`;
 const openAllButtonClassName = `${baseClassName}_all-button`;
 
-export const StyledPanel = styled((props: HtmlDivProps) => (
-  <HtmlDiv {...props} />
-))`
-  display: block;
-  width: 100%;
-  max-width: 100%;
-`;
-
-interface PanelExpansionGroupState {
-  /** Panels that are open */
-  openPanels: number[];
+interface ExpanderGroupState {
+  /** Expanders that are open */
+  openExpanders: number[];
 }
 
 interface OpenCloseAll {
@@ -30,44 +21,44 @@ interface OpenCloseAll {
   CloseAll: React.ReactElement<ButtonProps>;
 }
 
-export interface PanelExpansionGroupProps extends OpenCloseAll {
+export interface ExpanderGroupProps extends OpenCloseAll {
   /** Custom classname to extend or customize */
   className?: string;
   /**
-   * Use PanelExpansion's here
+   * Use Expander's here
    */
-  children: Array<React.ReactElement<PanelExpansionProps>>;
+  children: Array<React.ReactElement<ExpanderProps>>;
   /** Properties for OpenAllButton */
   openAllButtonProps?: ButtonProps;
 }
 
-export interface PanelExpansionProviderState {
+export interface ExpanderProviderState {
   onClick: (index: number) => void;
-  openPanels: number[];
+  openExpanders: number[];
 }
 
-const PanelExpansionGroupItems = (
-  children: Array<React.ReactElement<PanelExpansionProps>>,
+const ExpanderGroupItems = (
+  children: Array<React.ReactElement<ExpanderProps>>,
 ) =>
   React.Children.map(
     children,
-    (child: React.ReactElement<PanelExpansionProps>, index) => {
+    (child: React.ReactElement<ExpanderProps>, index) => {
       if (React.isValidElement(child)) {
         return React.cloneElement(child, {
           index,
-          expansionGroup: true,
+          expanderGroup: true,
         });
       }
       return child;
     },
   );
 
-const defaultProviderValue: PanelExpansionProviderState = {
+const defaultProviderValue: ExpanderProviderState = {
   onClick: () => null,
-  openPanels: [],
+  openExpanders: [],
 };
 
-const { Provider, Consumer: PanelExpansionGroupConsumer } = React.createContext(
+const { Provider, Consumer: ExpanderGroupConsumer } = React.createContext(
   defaultProviderValue,
 );
 
@@ -97,28 +88,28 @@ const OpenAllButton = ({
     : openAllButtonProps(onClick)(OpenAll);
 };
 
-export class PanelExpansionGroup extends Component<PanelExpansionGroupProps> {
-  state: PanelExpansionGroupState = {
-    openPanels: [],
+export class ExpanderGroup extends Component<ExpanderGroupProps> {
+  state: ExpanderGroupState = {
+    openExpanders: [],
   };
 
   handleClick = (index: number = 0) => {
-    const { openPanels: prevOpenPanels } = this.state;
-    const prevPanelOpen = prevOpenPanels.includes(index);
-    const openPanels = prevPanelOpen
-      ? prevOpenPanels.filter(value => value !== index)
-      : Array.from(new Set([...prevOpenPanels, index]));
-    this.setState({ openPanels });
+    const { openExpanders: prevOpenExpanders } = this.state;
+    const prevExpanderOpen = prevOpenExpanders.includes(index);
+    const openExpanders = prevExpanderOpen
+      ? prevOpenExpanders.filter(value => value !== index)
+      : Array.from(new Set([...prevOpenExpanders, index]));
+    this.setState({ openExpanders });
   };
 
   handleAllToggleClick = () => {
     const { children } = this.props;
-    const { openPanels } = this.state;
+    const { openExpanders } = this.state;
     this.setState(
-      openPanels.length === React.Children.count(children)
-        ? { openPanels: [] }
+      openExpanders.length === React.Children.count(children)
+        ? { openExpanders: [] }
         : {
-            openPanels: Array.from(
+            openExpanders: Array.from(
               Array(React.Children.count(children)).keys(),
             ),
           },
@@ -127,14 +118,14 @@ export class PanelExpansionGroup extends Component<PanelExpansionGroupProps> {
 
   render() {
     const { className, children, OpenAll, CloseAll, ...passProps } = this.props;
-    const { openPanels } = this.state;
-    const allOpen = openPanels.length === React.Children.count(children);
+    const { openExpanders } = this.state;
+    const allOpen = openExpanders.length === React.Children.count(children);
 
     return (
-      <StyledPanel
+      <StyledDiv
         {...passProps}
         className={classnames(className, baseClassName, {
-          [openClassName]: openPanels.length > 0,
+          [openClassName]: openExpanders.length > 0,
         })}
       >
         <OpenAllButton
@@ -143,19 +134,19 @@ export class PanelExpansionGroup extends Component<PanelExpansionGroupProps> {
           OpenAll={OpenAll}
           CloseAll={CloseAll}
         />
-        <HtmlDiv className={panelsContainerClassName}>
+        <HtmlDiv className={expandersContainerClassName}>
           <Provider
             value={{
-              openPanels,
+              openExpanders,
               onClick: this.handleClick,
             }}
           >
-            {PanelExpansionGroupItems(children)}
+            {ExpanderGroupItems(children)}
           </Provider>
         </HtmlDiv>
-      </StyledPanel>
+      </StyledDiv>
     );
   }
 }
 
-export { PanelExpansionGroupConsumer };
+export { ExpanderGroupConsumer };
