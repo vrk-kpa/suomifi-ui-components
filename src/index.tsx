@@ -1,4 +1,3 @@
-import './core/theme/fontFaces.css';
 export { Breadcrumb, BreadcrumbProps } from './core/Breadcrumb/Breadcrumb';
 export {
   BreadcrumbLink,
