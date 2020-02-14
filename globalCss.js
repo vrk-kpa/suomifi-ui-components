@@ -13,7 +13,10 @@ function main() {
   }, '');
   fs.writeFileSync(
     outputFile,
-    new cleanCSS({ inline: ['none'] }).minify(cssContent).styles,
+    new cleanCSS({
+      inline: ['none'],
+      format: { semicolonAfterLastProperty: true },
+    }).minify(cssContent).styles,
   );
 }
 
