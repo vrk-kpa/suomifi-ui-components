@@ -35,7 +35,9 @@
     "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "prettier:check": "prettier-check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "validate": "npm-run-all test lint prettier:check",
-    "build": "tsdx build",
+    "build": "npm-run-all build:tsdx build:css",
+    "build:tsdx": "tsdx build",
+    "build:css": "node globalCss.js",
     "bundle-analyzer": "size-limit --why",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
@@ -54,12 +56,11 @@
     "@types/uuid": "3.4.5",
     "@typescript-eslint/eslint-plugin": "2.19.0",
     "@typescript-eslint/parser": "2.x",
-    "autoprefixer": "9.7.4",
     "awesome-typescript-loader": "5.2.1",
     "babel-eslint": "10.0.3",
+    "clean-css": "4.2.3",
     "clipboard-copy": "3.0.0",
     "cross-env": "5.2.0",
-    "cssnano": "4.1.10",
     "eslint": "6.8.0",
     "eslint-config-airbnb": "18.0.1",
     "eslint-config-prettier": "6.10.0",
@@ -118,6 +119,7 @@
     "react": ">=16.8.0",
     "styled-components": ">=4.3.2"
   },
+  "style": "dist/main.css",
   "husky": {
     "hooks": {
       "pre-commit": "npm-run-all lint prettier:check",

@@ -11,7 +11,6 @@ import {
   MenuItemProps,
 } from '@reach/menu-button';
 import { logger } from '../../utils/logger';
-import '@reach/menu-button/styles.css';
 
 export { MenuItem as DropdownItem };
 

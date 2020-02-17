@@ -10,7 +10,6 @@ import {
   MenuLink,
 } from '@reach/menu-button';
 import { logger } from '../../utils/logger';
-import '@reach/menu-button/styles.css';
 import { Omit } from '../../utils/typescript';
 
 export { MenuList, MenuListProps, MenuItem, MenuLink };
