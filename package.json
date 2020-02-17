@@ -119,7 +119,7 @@
     "react": ">=16.8.0",
     "styled-components": ">=4.3.2"
   },
-  "style": "main.css",
+  "style": "dist/main.css",
   "husky": {
     "hooks": {
       "pre-commit": "npm-run-all lint prettier:check",
