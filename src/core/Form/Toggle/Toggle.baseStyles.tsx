@@ -13,6 +13,18 @@ export const baseStyles = withSuomifiTheme(
   ${element({ theme })}
   ${font({ theme })('bodyText')}
   background-color: ${theme.colors.whiteBase};
+    & + .fi-toggle--with-button {
+      &:focus {
+        outline: 0;
+        ${focus({ theme, noPseudo: true })}
+      }
+      &:focus:not(:focus-visible) {
+        outline: 0;
+        &:after {
+          content: none;
+        }
+      }
+    }
   & > .fi-toggle_label {
     cursor: pointer;
   }
