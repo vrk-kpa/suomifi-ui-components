@@ -23,6 +23,12 @@ To install the component library itself
 yarn add suomifi-ui-components
 ```
 
+And include **required** styles and fonts from `dist/main.css` as best suited for your project. You can, for example, import the stylesheet to your app and let your bundler handle it:
+
+```typescript
+import 'suomifi-ui-components/dist/main.css';
+```
+
 ### Peer dependencies
 
 You should install also these dependencies if your project does not already have these.
