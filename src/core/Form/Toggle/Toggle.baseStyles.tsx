@@ -25,9 +25,18 @@ export const baseStyles = withSuomifiTheme(
         }
       }
     }
-  & > .fi-toggle_label {
-    cursor: pointer;
-  }
+    & + .fi-toggle--with-input {
+      &:focus-within {
+        outline: 0;
+        ${focus({ theme, noPseudo: true })}
+      }
+      &:focus-within:not(:focus-visible) {
+        outline: 0;
+        &:after {
+          content: none;
+        }
+      }
+    }
   & > .fi-toggle_input {
     ${element({ theme })}
     ${font({ theme })('bodyText')}
@@ -37,18 +46,6 @@ export const baseStyles = withSuomifiTheme(
     opacity: 0;
     z-index: -9999;
     background-color: ${theme.colors.whiteBase};
-    &:focus {
-      outline: 0;
-      & + .fi-toggle_label {
-        ${focus({ theme, noPseudo: true })}
-      }
-    }
-    &:focus:not(:focus-visible) {
-      outline: 0;
-      &:after {
-        content: none;
-      }
-    }
   }
   & .fi-toggle_icon {
     width: ${iconWidth};
