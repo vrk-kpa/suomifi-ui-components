@@ -107,11 +107,7 @@ export class ToggleInput extends Component<ToggleProps> {
         {!!toggleInputComponent ? (
           componentOrElementWithProps(toggleInputComponent, newToggleInputProps)
         ) : (
-          <HtmlInput
-            {...newToggleInputProps}
-            type="checkbox"
-            key={String(toggleState)}
-          />
+          <HtmlInput {...newToggleInputProps} type="checkbox" />
         )}
         {children}
       </StyledHtmlLabel>
