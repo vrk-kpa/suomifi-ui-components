@@ -198,8 +198,70 @@ exports[`Button: calling render with the same component on the same container do
   background-color: hsl(0,0%,100%);
 }
 
-.c0 > .fi-toggle_label {
-  cursor: pointer;
+.c0 + .fi-toggle--with-button:focus {
+  outline: 0;
+  outline: 0;
+  position: relative;
+}
+
+.c0 + .fi-toggle--with-button:focus:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid hsl(23,82%,53%);
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  z-index: 9999;
+}
+
+.c0 + .fi-toggle--with-button:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 + .fi-toggle--with-button:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+.c0 + .fi-toggle--with-button:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 + .fi-toggle--with-input:focus-within {
+  outline: 0;
+  outline: 0;
+  position: relative;
+}
+
+.c0 + .fi-toggle--with-input:focus-within:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid hsl(23,82%,53%);
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  z-index: 9999;
+}
+
+.c0 + .fi-toggle--with-input:focus-within:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 + .fi-toggle--with-input:focus-within:not(:focus-visible) {
+  outline: 0;
+}
+
+.c0 + .fi-toggle--with-input:focus-within:not(:focus-visible):after {
+  content: none;
 }
 
 .c0 > .fi-toggle_input {
@@ -223,42 +285,6 @@ exports[`Button: calling render with the same component on the same container do
   opacity: 0;
   z-index: -9999;
   background-color: hsl(0,0%,100%);
-}
-
-.c0 > .fi-toggle_input:focus {
-  outline: 0;
-}
-
-.c0 > .fi-toggle_input:focus + .fi-toggle_label {
-  outline: 0;
-  position: relative;
-}
-
-.c0 > .fi-toggle_input:focus + .fi-toggle_label:after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  bottom: -4px;
-  left: -4px;
-  border-radius: 4px;
-  background-color: transparent;
-  border: 1px solid hsl(23,82%,53%);
-  box-sizing: border-box;
-  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
-  z-index: 9999;
-}
-
-.c0 > .fi-toggle_input:focus + .fi-toggle_label:not(:focus-visible):after {
-  content: none;
-}
-
-.c0 > .fi-toggle_input:focus:not(:focus-visible) {
-  outline: 0;
-}
-
-.c0 > .fi-toggle_input:focus:not(:focus-visible):after {
-  content: none;
 }
 
 .c0 .fi-toggle_icon {
@@ -686,8 +712,70 @@ exports[`Input: calling render with the same component on the same container doe
   background-color: hsl(0,0%,100%);
 }
 
-.c0 > .fi-toggle_label {
-  cursor: pointer;
+.c0 + .fi-toggle--with-button:focus {
+  outline: 0;
+  outline: 0;
+  position: relative;
+}
+
+.c0 + .fi-toggle--with-button:focus:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid hsl(23,82%,53%);
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  z-index: 9999;
+}
+
+.c0 + .fi-toggle--with-button:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 + .fi-toggle--with-button:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+.c0 + .fi-toggle--with-button:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 + .fi-toggle--with-input:focus-within {
+  outline: 0;
+  outline: 0;
+  position: relative;
+}
+
+.c0 + .fi-toggle--with-input:focus-within:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid hsl(23,82%,53%);
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  z-index: 9999;
+}
+
+.c0 + .fi-toggle--with-input:focus-within:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 + .fi-toggle--with-input:focus-within:not(:focus-visible) {
+  outline: 0;
+}
+
+.c0 + .fi-toggle--with-input:focus-within:not(:focus-visible):after {
+  content: none;
 }
 
 .c0 > .fi-toggle_input {
@@ -711,42 +799,6 @@ exports[`Input: calling render with the same component on the same container doe
   opacity: 0;
   z-index: -9999;
   background-color: hsl(0,0%,100%);
-}
-
-.c0 > .fi-toggle_input:focus {
-  outline: 0;
-}
-
-.c0 > .fi-toggle_input:focus + .fi-toggle_label {
-  outline: 0;
-  position: relative;
-}
-
-.c0 > .fi-toggle_input:focus + .fi-toggle_label:after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  bottom: -4px;
-  left: -4px;
-  border-radius: 4px;
-  background-color: transparent;
-  border: 1px solid hsl(23,82%,53%);
-  box-sizing: border-box;
-  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
-  z-index: 9999;
-}
-
-.c0 > .fi-toggle_input:focus + .fi-toggle_label:not(:focus-visible):after {
-  content: none;
-}
-
-.c0 > .fi-toggle_input:focus:not(:focus-visible) {
-  outline: 0;
-}
-
-.c0 > .fi-toggle_input:focus:not(:focus-visible):after {
-  content: none;
 }
 
 .c0 .fi-toggle_icon {
