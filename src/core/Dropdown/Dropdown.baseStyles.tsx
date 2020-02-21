@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../theme';
-import { element, inputButton } from '../theme/reset';
+import { element, inputButton, inputButtonList } from '../theme/reset';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
@@ -34,7 +34,7 @@ export const baseStyles = withSuomifiTheme(
 export const menuListStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
   &[data-reach-menu-list].fi-dropdown_list {
-    ${element({ theme })}
+    ${inputButtonList({ theme })}
     ${theme.typography.actionElementInnerText}
     margin-top: -1px;
     padding: 0;

@@ -27,12 +27,16 @@ export const font = (props: SuomifiThemeProp) => (
   ${props.theme.typography[typographyToken]}
 `;
 
+const inputWidthBase = css`
+  min-width: 245px;
+  max-width: 100%;
+`;
+
 export const input = (props: SuomifiThemeProp) => {
   return css`
     ${element(props)}
     ${font(props)('actionElementInnerText')}
-    min-width: 245px;
-    max-width: 100%;
+    ${inputWidthBase}
     padding: ${props.theme.spacing.s} ${props.theme.spacing.m};
     border: 1px solid ${props.theme.colors.depthBase};
     border-radius: ${props.theme.radius.basic};
@@ -58,6 +62,12 @@ export const inputContainer = (props: TokensOrThemeProps) => css`
 export const inputButton = (props: SuomifiThemeProp) => css`
   ${input(props)}
   ${focus(props)}
+`;
+
+export const inputButtonList = (props: SuomifiThemeProp) => css`
+  ${element(props)}
+  ${inputWidthBase}
+  box-sizing: border-box;
 `;
 
 export const button = (props: SuomifiThemeProp) => css`
