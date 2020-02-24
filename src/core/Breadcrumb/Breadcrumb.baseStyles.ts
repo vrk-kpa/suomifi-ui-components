@@ -8,6 +8,7 @@ export const baseStyles = withSuomifiTheme(
   ${nav({ theme })}
   ${font({ theme })('bodyText')}
   background-color: ${theme.colors.whiteBase};
+  height: 1.5em;
 
   & .fi-breadcrumb {
     &_list {
