@@ -33,7 +33,6 @@ export const input = (props: SuomifiThemeProp) => {
     ${font(props)('actionElementInnerText')}
     min-width: 245px;
     max-width: 100%;
-    width: 245px;
     padding: ${props.theme.spacing.s} ${props.theme.spacing.m};
     border: 1px solid ${props.theme.colors.depthBase};
     border-radius: ${props.theme.radius.basic};
