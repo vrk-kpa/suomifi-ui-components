@@ -49,7 +49,7 @@ const LanguageMenuListWithProps = (
       // Set defaul component-prop/type to be 'a' needed for links
       if (React.isValidElement(child)) {
         return React.cloneElement(child, {
-          component: 'a',
+          as: 'a',
           className: classnames(itemClassName, addClass),
         });
       }
