@@ -8,11 +8,20 @@ import {
   MenuListProps,
   MenuItem,
   MenuLink,
+  MenuPopover,
+  MenuPopoverProps,
 } from '@reach/menu-button';
 import { logger } from '../../utils/logger';
 import { Omit } from '../../utils/typescript';
 
-export { MenuList, MenuListProps, MenuItem, MenuLink };
+export {
+  MenuList,
+  MenuListProps,
+  MenuItem,
+  MenuLink,
+  MenuPopover,
+  MenuPopoverProps,
+};
 
 const baseClassName = 'fi-language-menu';
 export interface LanguageMenuItemProps {
@@ -31,7 +40,7 @@ interface LanguageMenuLinkPropsWithType {
   /** Item content */
   children: ReactNode;
   className?: string;
-  component?: SupportedMenuLinkComponent;
+  as?: SupportedMenuLinkComponent;
 }
 
 export interface LanguageMenuLinkProps

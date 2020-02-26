@@ -4,7 +4,7 @@ import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles, menuListStyles } from './Dropdown.baseStyles';
 import {
-  MenuList as CompMenuList,
+  MenuPopover as CompMenuPopover,
   MenuListProps as CompMenuListProps,
 } from '../../components/LanguageMenu/LanguageMenu';
 import {
@@ -12,6 +12,7 @@ import {
   DropdownProps as CompDropdownProps,
 } from '../../components/Dropdown/Dropdown';
 import { DropdownItem, DropdownItemProps } from './DropdownItem';
+import { positionMatchWidth } from '@reach/popover';
 
 export interface DropdownProps extends CompDropdownProps, TokensProp {}
 
@@ -29,7 +30,7 @@ const StyledDropdown = styled(
 interface MenuListProps extends CompMenuListProps, TokensProp {}
 
 const StyledMenuList = styled(({ tokens, ...passProps }: MenuListProps) => (
-  <CompMenuList {...passProps} />
+  <CompMenuPopover position={positionMatchWidth} {...passProps} />
 ))`
   ${props => menuListStyles(props.theme)}
 `;

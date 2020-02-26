@@ -42,7 +42,8 @@ export const languageMenuListStyles = withSuomifiTheme(
     &.fi-language-menu-language_list {
       ${theme.typography.actionElementInnerText}
       position: absolute;
-      right: 0;
+      box-sizing: content-box;
+      right: -50px;
       top: 0;
       margin-top: 12px;
       padding: 10px 0;
@@ -92,6 +93,9 @@ export const languageMenuListStyles = withSuomifiTheme(
     }
     &[data-selected].fi-language-menu-language_item {
       border-left-color: ${theme.colors.highlightBase};
+    }
+    &:focus {
+      outline: 0;
     }
   }
 `,
