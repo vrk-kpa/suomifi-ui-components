@@ -84,20 +84,17 @@ interface AssertiveProps {
 }
 
 export class Assertive extends Component<AssertiveProps> {
-  state = { unDisabled: false };
-
-  componentDidUpdate(prevProps: AssertiveProps) {
-    const { disabled } = this.props;
-    if (disabled !== prevProps.disabled) {
-      this.setState({ unDisabled: !disabled });
-    }
-  }
-
   render() {
-    const { ariaAssertiveDisabled, ariaAssertiveUnDisabled } = this.props;
-    const { unDisabled } = this.state;
-    if (!ariaAssertiveDisabled && !ariaAssertiveUnDisabled) return null;
-    const text = !!unDisabled ? ariaAssertiveUnDisabled : ariaAssertiveDisabled;
+    const {
+      ariaAssertiveDisabled,
+      ariaAssertiveUnDisabled,
+      disabled,
+    } = this.props;
+
+    if (!ariaAssertiveDisabled && !ariaAssertiveUnDisabled) {
+      return null;
+    }
+    const text = !!disabled ? ariaAssertiveDisabled : ariaAssertiveUnDisabled;
     return !!text ? (
       <VisuallyHidden aria-live="assertive">{text}</VisuallyHidden>
     ) : null;
@@ -145,6 +142,7 @@ export class Button extends Component<ButtonProps> {
             [disabledClassName]: !!disabled,
           })}
         />
+
         <Assertive
           disabled={disabled}
           ariaAssertiveDisabled={ariaAssertiveDisabled}
