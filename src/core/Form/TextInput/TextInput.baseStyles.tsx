@@ -20,13 +20,11 @@ export const baseStyles = withSuomifiTheme(
 
   &.fi-text-input--error {
     & .fi-text-input_input {
-      color: ${theme.colors.alertBase};
       border-color: ${theme.colors.alertBase};
     }
   }
   &.fi-text-input--success {
     & .fi-text-input_input {
-      color: ${theme.colors.successBase};
       border-color: ${theme.colors.successBase};
     }
   }
