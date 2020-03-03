@@ -20,6 +20,7 @@ export {
 } from './core/Form/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps } from './core/Icon/Icon';
+export { StaticIcon, StaticIconProps } from './core/StaticIcon/StaticIcon';
 export {
   Link,
   LinkProps,
