@@ -5,7 +5,6 @@ const primitiveComponents = [
   'Block',
   'Button',
   'Heading',
-  'Icon',
   ['Form', 'TextInput'],
   ['Form', 'Toggle'],
   ['Form', 'SearchInput'],
@@ -69,6 +68,10 @@ module.exports = {
             {
               name: 'Link',
               components: getComponentWithVariants('Link')(['LinkExternal']),
+            },
+            {
+              name: 'Icons',
+              components: getComponents(['Icon', 'StaticIcon']),
             },
           ],
         },

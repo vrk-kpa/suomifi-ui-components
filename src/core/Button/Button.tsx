@@ -8,7 +8,7 @@ import {
   Button as CompButton,
   ButtonProps as CompButtonProps,
 } from '../../components/Button/Button';
-import { Icon, IconProps, IconKeys } from '../Icon/Icon';
+import { Icon, IconProps, BaseIconKeys } from '../Icon/Icon';
 import { UnstyledButton } from './UnstyledButton';
 
 type ButtonVariant =
@@ -32,11 +32,11 @@ export interface ButtonProps extends CompButtonProps, TokensProp {
   /**
    * Icon from suomifi-theme
    */
-  icon?: IconKeys;
+  icon?: BaseIconKeys;
   /**
    * Icon from suomifi-theme to be placed on right side
    */
-  iconRight?: IconKeys;
+  iconRight?: BaseIconKeys;
   /**
    * Properties given to Icon-component
    */

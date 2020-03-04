@@ -10,7 +10,7 @@ import {
   ToggleInput,
   ToggleInputProps as CompToggleInputProps,
 } from '../../../components/Form/Toggle';
-import { Icon } from '../../Icon/Icon';
+import { ComponentIcon } from '../../StaticIcon/StaticIcon';
 import { Text } from '../../Text/Text';
 
 export interface ToggleProps extends CompToggleProps, TokensProp {}
@@ -60,7 +60,7 @@ class ToggleWithIcon extends Component<ToggleProps> {
         {...passProps}
         onClick={this.handleToggle}
       >
-        <Icon
+        <ComponentIcon
           icon="toggle"
           className={classnames(iconBaseClassName, {
             [iconDisabledClassName]: !!disabled,
