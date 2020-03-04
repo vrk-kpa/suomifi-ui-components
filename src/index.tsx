@@ -19,8 +19,13 @@ export {
   SearchInputProps,
 } from './core/Form/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
-export { Icon, IconProps } from './core/Icon/Icon';
-export { StaticIcon, StaticIconProps } from './core/StaticIcon/StaticIcon';
+export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';
+export {
+  StaticIcon,
+  StaticIconProps,
+  IllustrativeIconKeys,
+  DoctypeIconKeys,
+} from './core/StaticIcon/StaticIcon';
 export {
   Link,
   LinkProps,

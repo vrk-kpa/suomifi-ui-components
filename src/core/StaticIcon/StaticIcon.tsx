@@ -13,6 +13,7 @@ import {
   ariaFocusableNoLabel,
 } from '../../components/utils/aria';
 import { IconBaseProps, iconLogger } from '../Icon/Icon';
+export { IllustrativeIconKeys, DoctypeIconKeys } from 'suomifi-icons';
 
 export interface StaticIconProps
   extends IconBaseProps,
