@@ -1,7 +1,14 @@
 ```jsx
 import { StaticIcon } from 'suomifi-ui-components';
+import { default as styled } from 'styled-components';
 
-<StaticIcon
+const StyledStaticIcon = styled(props => <StaticIcon {...props} />)({
+  height: '50px',
+  width: 'auto',
+  margin: '8px'
+});
+
+<StyledStaticIcon
   icon="settings"
   ariaLabel="Settings"
   className="my-static-icon--test"
