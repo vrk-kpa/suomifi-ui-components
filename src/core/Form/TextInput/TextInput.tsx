@@ -20,6 +20,10 @@ export const textInputClassNames = {
 type TextInputVariant = 'default' | 'error' | 'success';
 
 export interface TextInputProps extends CompTextInputProps, TokensProp {
+  /**
+   * 'default' | 'error' | 'success'
+   * @default default
+   */
   variant?: TextInputVariant;
 }
 
@@ -53,6 +57,7 @@ const StyledTextInput = styled(
           [textInputClassNames.error]: variant === 'error',
           [textInputClassNames.success]: variant === 'success',
         })}
+        aria-invalid={variant === 'error' ? 'true' : undefined}
       />
     );
   },
