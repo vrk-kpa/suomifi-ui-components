@@ -33,11 +33,12 @@ export const baseStyles = withSuomifiTheme(
 
 export const menuListStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
-  &[data-reach-menu-list].fi-dropdown_list {
+  &[data-reach-menu-popover].fi-dropdown_list {
     ${element({ theme })}
     ${theme.typography.actionElementInnerText}
     margin-top: -1px;
     padding: 0;
+    box-sizing: border-box;
     font-size: 100%;
     border: 0;
     background-color: ${theme.colors.whiteBase};
@@ -59,6 +60,9 @@ export const menuListStyles = withSuomifiTheme(
       background-image: none;
       background-color: ${theme.colors.highlightLight50};
       border: 0;
+    }
+    &:focus {
+      outline: 0;
     }
   }
 `,

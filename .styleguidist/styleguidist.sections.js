@@ -73,8 +73,8 @@ module.exports = {
           ],
         },
         {
-          name: 'Patterns',
-          content: './.styleguidist/patterns.md',
+          name: 'Modules',
+          content: './.styleguidist/modules.md',
           sections: [
             {
               name: 'Breadcrumb',
@@ -89,17 +89,16 @@ module.exports = {
               ]),
             },
             {
-              name: 'Menu',
-              components: getComponentWithVariants('Menu')([
-                'MenuItemLanguage',
-                'MenuLinkLanguage',
+              name: 'LanguageMenu',
+              components: getComponentWithVariants('LanguageMenu')([
+                'LanguageMenuItemLanguage',
+                'LanguageMenuLinkLanguage',
               ]),
             },
             {
-              name: 'Panel',
-              components: getComponentWithVariants('Panel')([
-                'PanelExpansion',
-                'PanelExpansionGroup',
+              name: 'Expander',
+              components: getComponentWithVariants('Expander')([
+                'ExpanderGroup',
               ]),
             },
           ],

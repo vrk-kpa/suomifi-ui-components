@@ -1,34 +1,33 @@
 import { FlattenSimpleInterpolation } from 'styled-components';
 import {
-  typography,
-  TypographyProp,
-  internalTypographyTokens,
-  internalTypographyTokensProp,
-  TypographyDesignTokens,
-} from './typography';
-import { typographyUtils, spacingUtils, colorsUtils } from './utils';
-import {
-  colors,
+  colors as colorTokens,
   shadows,
   gradients,
   outlines,
   ColorDesignTokens,
 } from './colors';
-import { spacing, SpacingProp, SpacingDesignTokens } from './spacing';
+import {
+  suomifiDesignTokens,
+  TypographyDesignTokens,
+} from 'suomifi-design-tokens';
+import {
+  spacing as spacingTokens,
+  SpacingProp,
+  SpacingDesignTokens,
+} from './spacing';
 import { zindexes } from './zindexes';
 import { transitions } from './transitions';
 import { radius } from './radius';
-export {
-  TypographyProp,
-  internalTypographyTokens,
-  internalTypographyTokensProp,
-  SpacingProp,
-};
+export { SpacingProp };
 
 export type SuomifiTokens = typeof importedTokens;
-export type DefaultSuomifiTokens = typeof defaultTokens;
+export type DefaultSuomifiTokens = typeof defaultThemeTokens;
 export type ColorProp = keyof typeof importedTokens.colors;
 export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
+
+export type TypographyProp = keyof typeof suomifiDesignTokens.typography;
+
+export { TypographyDesignTokens } from 'suomifi-design-tokens';
 
 export interface PartialTokens {
   colors?: Partial<ColorDesignTokens>;
@@ -63,12 +62,13 @@ const internalTokens = {
 };
 
 const importedTokens = {
-  colors,
-  spacing,
-  typography,
+  colors: colorTokens,
+  spacing: spacingTokens,
+  typography: suomifiDesignTokens.typography,
+  values: suomifiDesignTokens.values,
 };
 
-export const defaultTokens = {
+export const defaultThemeTokens = {
   ...importedTokens,
   ...internalTokens,
 };
@@ -79,25 +79,56 @@ export const defaultTokens = {
  * @param tokens.colors color tokens, defaults to suomifi-design-tokens colors
  * @param tokens.spacing spacing tokens, defaults to suomifi-design-tokens spacing
  * @param tokens.typography typography tokens, defaults to suomifi-design-tokens typography
+ * @param tokens.values token values in object format, defaults to suomifi-design-tokens values, not connected to other params
  */
-export const suomifiTheme = ({
-  // If one object property is set function parameter default (defaultTokens) will not be used
-  // Then need to set individually
-  colors = defaultTokens.colors,
-  spacing = defaultTokens.spacing,
-  typography = defaultTokens.typography,
-  // Rest of the properties are overrides for internalTokens
-  ...libraryTokenOverrides
-}: Partial<SuomifiTokens & DefaultInternalTokens> = defaultTokens) => ({
-  // Get all internalTokens
-  ...internalTokens,
-  // Override if any defined
-  ...(!!libraryTokenOverrides ? libraryTokenOverrides : {}),
-  colors: colorsUtils(colors),
-  spacing: spacingUtils(spacing),
-  typography: typographyUtils(typography),
-  values: { colors, spacing, typography },
-});
+export const suomifiTheme = (
+  props: Partial<DefaultInternalTokens & PartialTokens>,
+) => {
+  const {
+    // If custom tokens are not provided, default tokens will be used instead
+    colors = {},
+    spacing = {},
+    typography = {},
+    // Rest of the properties are overrides for internalTokens
+    ...libraryTokenOverrides
+  } = props || {};
+  const theme = {
+    // Get all internalTokens
+    ...internalTokens,
+    // Override if any defined
+    ...(!!libraryTokenOverrides ? libraryTokenOverrides : {}),
+    colors: mergeTokens({
+      defaultTokens: defaultThemeTokens.colors,
+      customTokens: colors,
+    }),
+    spacing: mergeTokens({
+      defaultTokens: defaultThemeTokens.spacing,
+      customTokens: spacing,
+    }),
+    typography: mergeTokens({
+      defaultTokens: defaultThemeTokens.typography,
+      customTokens: typography,
+    }),
+    values: defaultThemeTokens.values,
+  };
+  return theme;
+};
+
+/* Merge tokens to token level, no deep merge for tokens */
+const mergeTokens = <T>({
+  defaultTokens,
+  customTokens = {},
+}: {
+  defaultTokens: T;
+  customTokens?: Partial<T>;
+}): T => {
+  return Object.entries(customTokens).reduce((retObj, [key, value]) => {
+    return {
+      ...retObj,
+      [key]: value,
+    };
+  }, Object.assign({}, defaultTokens) as T);
+};
 
 /**
  * Function that will add theme to baseStyles-function using tokens

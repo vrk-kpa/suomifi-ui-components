@@ -1,5 +1,6 @@
+/* clean-css ignore:start */
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap');
-
+/* clean-css ignore:end */
 /* Google Developers suggests using Lighthouse
  * -> Lighthouse warns about not using font-display on loading fonts -> Web page uses Google Fonts the way it's suggested on Google Fonts
  * -> Google Fonts doesn't supports font-display

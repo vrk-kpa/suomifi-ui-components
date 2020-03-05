@@ -132,25 +132,25 @@ exports[`calling render with the same component on the same container does not r
   width: 100%;
 }
 
-.c0.fi-button--negative {
+.c0.fi-button--inverted {
   background: none;
   background-color: hsl(212,63%,45%);
   border: 1px solid hsl(0,0%,100%);
   text-shadow: none;
 }
 
-.c0.fi-button--negative:hover {
+.c0.fi-button--inverted:hover {
   background: linear-gradient(-180deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c0.fi-button--negative:active {
+.c0.fi-button--inverted:active {
   background: none;
   background-color: hsl(212,63%,45%);
 }
 
-.c0.fi-button--negative.fi-button--disabled,
-.c0.fi-button--negative[disabled],
-.c0.fi-button--negative:disabled {
+.c0.fi-button--inverted.fi-button--disabled,
+.c0.fi-button--inverted[disabled],
+.c0.fi-button--inverted:disabled {
   opacity: 0.5;
   background-color: hsl(212,63%,45%);
 }

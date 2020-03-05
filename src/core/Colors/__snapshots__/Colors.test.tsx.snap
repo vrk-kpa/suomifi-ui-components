@@ -1,0 +1,3335 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check that snapshot matches 1`] = `
+.c1 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(0,0%,100%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c1:hover {
+  border-bottom-color: #000;
+}
+
+.c1 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c1 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c1 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c1 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c1 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c1 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c1:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c2 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #fff;
+  border-bottom: 4px solid hsl(0,0%,16%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c2:hover {
+  border-bottom-color: #fff;
+}
+
+.c2 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c2 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c2 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c2 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c2 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c2 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c2:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c3 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(0,0%,58%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c3:hover {
+  border-bottom-color: #000;
+}
+
+.c3 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c3 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c3 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c3 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c3 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c3 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c3:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c4 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #fff;
+  border-bottom: 4px solid hsl(214,100%,24%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c4:hover {
+  border-bottom-color: #fff;
+}
+
+.c4 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c4 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c4 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c4 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c4 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c4 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c4:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c5 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #fff;
+  border-bottom: 4px solid hsl(202,7%,40%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c5:hover {
+  border-bottom-color: #fff;
+}
+
+.c5 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c5 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c5 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c5 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c5 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c5 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c5:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c6 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(202,7%,67%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c6:hover {
+  border-bottom-color: #000;
+}
+
+.c6 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c6 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c6 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c6 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c6 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c6 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c6:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c7 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(202,7%,97%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c7:hover {
+  border-bottom-color: #000;
+}
+
+.c7 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c7 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c7 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c7 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c7 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c7 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c7:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c8 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(202,7%,93%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c8:hover {
+  border-bottom-color: #000;
+}
+
+.c8 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c8 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c8 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c8 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c8 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c8 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c8:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c9 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(202,7%,80%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c9:hover {
+  border-bottom-color: #000;
+}
+
+.c9 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c9 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c9 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c9 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c9 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c9 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c9:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c10 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(215,100%,91%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c10:hover {
+  border-bottom-color: #000;
+}
+
+.c10 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c10 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c10 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c10 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c10 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c10 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c10:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c11 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(215,100%,97%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c11:hover {
+  border-bottom-color: #000;
+}
+
+.c11 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c11 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c11 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c11 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c11 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c11 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c11:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c12 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #fff;
+  border-bottom: 4px solid hsl(212,63%,37%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c12:hover {
+  border-bottom-color: #fff;
+}
+
+.c12 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c12 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c12 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c12 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c12 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c12 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c12:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c13 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #fff;
+  border-bottom: 4px solid hsl(212,63%,45%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c13:hover {
+  border-bottom-color: #fff;
+}
+
+.c13 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c13 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c13 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c13 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c13 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c13 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c13:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c14 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(212,63%,49%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c14:hover {
+  border-bottom-color: #000;
+}
+
+.c14 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c14 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c14 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c14 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c14 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c14 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c14:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c15 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(212,63%,90%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c15:hover {
+  border-bottom-color: #000;
+}
+
+.c15 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c15 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c15 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c15 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c15 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c15 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c15:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c16 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(212,63%,95%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c16:hover {
+  border-bottom-color: #000;
+}
+
+.c16 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c16 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c16 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c16 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c16 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c16 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c16:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c17 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(212,63%,98%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c17:hover {
+  border-bottom-color: #000;
+}
+
+.c17 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c17 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c17 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c17 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c17 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c17 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c17:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c18 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(23,82%,53%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c18:hover {
+  border-bottom-color: #000;
+}
+
+.c18 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c18 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c18 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c18 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c18 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c18 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c18:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c19 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(196,77%,55%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c19:hover {
+  border-bottom-color: #000;
+}
+
+.c19 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c19 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c19 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c19 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c19 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c19 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c19:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c20 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(196,77%,95%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c20:hover {
+  border-bottom-color: #000;
+}
+
+.c20 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c20 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c20 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c20 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c20 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c20 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c20:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c21 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #fff;
+  border-bottom: 4px solid hsl(284,36%,45%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c21:hover {
+  border-bottom-color: #fff;
+}
+
+.c21 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c21 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c21 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c21 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c21 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c21 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c21:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c22 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(284,36%,54%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c22:hover {
+  border-bottom-color: #000;
+}
+
+.c22 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c22 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c22 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c22 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c22 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c22 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c22:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c23 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(166,90%,36%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c23:hover {
+  border-bottom-color: #000;
+}
+
+.c23 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c23 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c23 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c23 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c23 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c23 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c23:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c24 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(166,54%,80%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c24:hover {
+  border-bottom-color: #000;
+}
+
+.c24 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c24 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c24 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c24 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c24 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c24 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c24:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c25 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(42,100%,49%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c25:hover {
+  border-bottom-color: #000;
+}
+
+.c25 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c25 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c25 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c25 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c25 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c25 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c25:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c26 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #fff;
+  border-bottom: 4px solid hsl(3,59%,48%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c26:hover {
+  border-bottom-color: #fff;
+}
+
+.c26 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c26 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c26 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c26 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c26 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c26 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c26:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c27 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(3,59%,95%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c27:hover {
+  border-bottom-color: #000;
+}
+
+.c27 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c27 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c27 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c27 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c27 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c27 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c27:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c0:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+<div
+  class="c0"
+>
+  <figure
+    class="c1"
+    color="hsl(0, 0%, 100%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(0, 0%, 100%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #fff
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        whiteBase
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(0, 0%, 100%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(0, 0%, 100%)"
+      >
+        <title>
+          whiteBase
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c2"
+    color="hsl(0, 0%, 16%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(0, 0%, 16%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #292929
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        blackBase
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(0, 0%, 16%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(0, 0%, 16%)"
+      >
+        <title>
+          blackBase
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c3"
+    color="hsl(0, 0%, 58%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(0, 0%, 58%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #949494
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        blackLighten42
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(0, 0%, 58%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(0, 0%, 58%)"
+      >
+        <title>
+          blackLighten42
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c4"
+    color="hsl(214, 100%, 24%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(214, 100%, 24%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #00357a
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        brandBase
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(214, 100%, 24%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(214, 100%, 24%)"
+      >
+        <title>
+          brandBase
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c5"
+    color="hsl(202, 7%, 40%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(202, 7%, 40%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #5f686d
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        depthDark27
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(202, 7%, 40%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(202, 7%, 40%)"
+      >
+        <title>
+          depthDark27
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c6"
+    color="hsl(202, 7%, 67%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(202, 7%, 67%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #a5acb1
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        depthBase
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(202, 7%, 67%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(202, 7%, 67%)"
+      >
+        <title>
+          depthBase
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c7"
+    color="hsl(202, 7%, 97%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(202, 7%, 97%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #f7f7f8
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        depthLight30
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(202, 7%, 97%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(202, 7%, 97%)"
+      >
+        <title>
+          depthLight30
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c8"
+    color="hsl(202, 7%, 93%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(202, 7%, 93%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #ecedee
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        depthLight26
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(202, 7%, 93%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(202, 7%, 93%)"
+      >
+        <title>
+          depthLight26
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c9"
+    color="hsl(202, 7%, 80%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(202, 7%, 80%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #c8cdd0
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        depthLight13
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(202, 7%, 80%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(202, 7%, 80%)"
+      >
+        <title>
+          depthLight13
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c10"
+    color="hsl(215, 100%, 91%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(215, 100%, 91%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #d1e4ff
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        depthSecondaryDark6
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(215, 100%, 91%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(215, 100%, 91%)"
+      >
+        <title>
+          depthSecondaryDark6
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c11"
+    color="hsl(215, 100%, 97%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(215, 100%, 97%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #f0f6ff
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        depthSecondary
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(215, 100%, 97%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(215, 100%, 97%)"
+      >
+        <title>
+          depthSecondary
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c12"
+    color="hsl(212, 63%, 37%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(212, 63%, 37%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #235a9a
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        highlightDark9
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(212, 63%, 37%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(212, 63%, 37%)"
+      >
+        <title>
+          highlightDark9
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c13"
+    color="hsl(212, 63%, 45%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(212, 63%, 45%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #2a6ebb
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        highlightBase
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(212, 63%, 45%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(212, 63%, 45%)"
+      >
+        <title>
+          highlightBase
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c14"
+    color="hsl(212, 63%, 49%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(212, 63%, 49%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #2e78cc
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        highlightLight4
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(212, 63%, 49%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(212, 63%, 49%)"
+      >
+        <title>
+          highlightLight4
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c15"
+    color="hsl(212, 63%, 90%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(212, 63%, 90%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #d5e4f6
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        highlightLight45
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(212, 63%, 90%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(212, 63%, 90%)"
+      >
+        <title>
+          highlightLight45
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c16"
+    color="hsl(212, 63%, 95%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(212, 63%, 95%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #eaf2fa
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        highlightLight50
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(212, 63%, 95%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(212, 63%, 95%)"
+      >
+        <title>
+          highlightLight50
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c17"
+    color="hsl(212, 63%, 98%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(212, 63%, 98%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #f7fafd
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        highlightLight53
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(212, 63%, 98%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(212, 63%, 98%)"
+      >
+        <title>
+          highlightLight53
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c18"
+    color="hsl(23, 82%, 53%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(23, 82%, 53%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #e97025
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        accentBase
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(23, 82%, 53%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(23, 82%, 53%)"
+      >
+        <title>
+          accentBase
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c19"
+    color="hsl(196, 77%, 55%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(196, 77%, 55%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #34b5e5
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        accentSecondary
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(196, 77%, 55%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(196, 77%, 55%)"
+      >
+        <title>
+          accentSecondary
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c20"
+    color="hsl(196, 77%, 95%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(196, 77%, 95%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #e8f7fc
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        accentSecondaryLight40
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(196, 77%, 95%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(196, 77%, 95%)"
+      >
+        <title>
+          accentSecondaryLight40
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c21"
+    color="hsl(284, 36%, 45%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(284, 36%, 45%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #86499c
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        accentTertiaryDark9
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(284, 36%, 45%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(284, 36%, 45%)"
+      >
+        <title>
+          accentTertiaryDark9
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c22"
+    color="hsl(284, 36%, 54%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(284, 36%, 54%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #9d5fb4
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        accentTertiary
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(284, 36%, 54%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(284, 36%, 54%)"
+      >
+        <title>
+          accentTertiary
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c23"
+    color="hsl(166, 90%, 36%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(166, 90%, 36%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #09ae88
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        successBase
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(166, 90%, 36%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(166, 90%, 36%)"
+      >
+        <title>
+          successBase
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c24"
+    color="hsl(166, 54%, 80%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(166, 54%, 80%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #b0e8db
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        successSecondary
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(166, 54%, 80%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(166, 54%, 80%)"
+      >
+        <title>
+          successSecondary
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c25"
+    color="hsl(42, 100%, 49%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(42, 100%, 49%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #faaf00
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        warningBase
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(42, 100%, 49%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(42, 100%, 49%)"
+      >
+        <title>
+          warningBase
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c26"
+    color="hsl(3, 59%, 48%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(3, 59%, 48%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #c33932
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        alertBase
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(3, 59%, 48%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(3, 59%, 48%)"
+      >
+        <title>
+          alertBase
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c27"
+    color="hsl(3, 59%, 95%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(3, 59%, 95%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #faebeb
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        alertLight47
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(3, 59%, 95%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(3, 59%, 95%)"
+      >
+        <title>
+          alertLight47
+        </title>
+      </rect>
+    </svg>
+  </figure>
+</div>
+`;

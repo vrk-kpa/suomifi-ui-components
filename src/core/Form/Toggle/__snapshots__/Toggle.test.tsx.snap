@@ -1,6 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button: calling render with the same component on the same container does not remount 1`] = `
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
 .c1 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -49,38 +73,13 @@ exports[`Button: calling render with the same component on the same container do
   height: auto;
 }
 
-.c4 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
+.c1.fi-toggle--disabled {
+  cursor: not-allowed;
 }
 
 .c2 {
   display: inline-block;
   vertical-align: baseline;
-  cursor: pointer;
-}
-
-.c2 * {
-  cursor: inherit;
 }
 
 .c3 {
@@ -199,8 +198,70 @@ exports[`Button: calling render with the same component on the same container do
   background-color: hsl(0,0%,100%);
 }
 
-.c0 > .fi-toggle_label {
-  cursor: pointer;
+.c0 + .fi-toggle--with-button:focus {
+  outline: 0;
+  outline: 0;
+  position: relative;
+}
+
+.c0 + .fi-toggle--with-button:focus:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid hsl(23,82%,53%);
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  z-index: 9999;
+}
+
+.c0 + .fi-toggle--with-button:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 + .fi-toggle--with-button:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+.c0 + .fi-toggle--with-button:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 + .fi-toggle--with-input:focus-within {
+  outline: 0;
+  outline: 0;
+  position: relative;
+}
+
+.c0 + .fi-toggle--with-input:focus-within:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid hsl(23,82%,53%);
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  z-index: 9999;
+}
+
+.c0 + .fi-toggle--with-input:focus-within:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 + .fi-toggle--with-input:focus-within:not(:focus-visible) {
+  outline: 0;
+}
+
+.c0 + .fi-toggle--with-input:focus-within:not(:focus-visible):after {
+  content: none;
 }
 
 .c0 > .fi-toggle_input {
@@ -218,47 +279,12 @@ exports[`Button: calling render with the same component on the same container do
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  width: 0;
-  height: 0;
+  position: absolute;
+  width: 40px;
+  height: 24px;
   opacity: 0;
   z-index: -9999;
   background-color: hsl(0,0%,100%);
-}
-
-.c0 > .fi-toggle_input:focus {
-  outline: 0;
-}
-
-.c0 > .fi-toggle_input:focus + .fi-toggle_label {
-  outline: 0;
-  position: relative;
-}
-
-.c0 > .fi-toggle_input:focus + .fi-toggle_label:after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  bottom: -4px;
-  left: -4px;
-  border-radius: 4px;
-  background-color: transparent;
-  border: 1px solid hsl(23,82%,53%);
-  box-sizing: border-box;
-  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
-  z-index: 9999;
-}
-
-.c0 > .fi-toggle_input:focus + .fi-toggle_label:not(:focus-visible):after {
-  content: none;
-}
-
-.c0 > .fi-toggle_input:focus:not(:focus-visible) {
-  outline: 0;
-}
-
-.c0 > .fi-toggle_input:focus:not(:focus-visible):after {
-  content: none;
 }
 
 .c0 .fi-toggle_icon {
@@ -272,20 +298,28 @@ exports[`Button: calling render with the same component on the same container do
   transform: translateY(-0.1em);
 }
 
-.c0 .fi-toggle_icon * {
-  cursor: pointer;
-}
-
 .c0 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-knob {
   -webkit-transform: translateX(0%);
   -ms-transform: translateX(0%);
   transform: translateX(0%);
 }
 
+.c0 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(0,0%,100%);
+}
+
 .c0 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-slide {
   -webkit-transform: translateY(1px);
   -ms-transform: translateY(1px);
   transform: translateY(1px);
+}
+
+.c0 .fi-toggle_icon.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(202,7%,97%);
+}
+
+.c0 .fi-toggle_icon.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-slide {
+  fill: hsl(202,7%,93%);
 }
 
 .c0 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-knob {
@@ -300,6 +334,10 @@ exports[`Button: calling render with the same component on the same container do
 
 .c0 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-circle {
   fill: hsl(166,90%,36%);
+}
+
+.c0 .fi-toggle_icon.fi-toggle_icon--checked.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(166,54%,80%);
 }
 
 <button
@@ -504,26 +542,6 @@ exports[`Input: calling render with the same component on the same container doe
   opacity: 0.54;
 }
 
-.c1 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  max-width: 100%;
-}
-
 .c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -548,14 +566,34 @@ exports[`Input: calling render with the same component on the same container doe
   white-space: normal;
 }
 
-.c3 {
-  display: inline-block;
+.c1 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
   vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
   cursor: pointer;
 }
 
-.c3 * {
-  cursor: inherit;
+.c1.fi-toggle--disabled {
+  cursor: not-allowed;
+}
+
+.c3 {
+  display: inline-block;
+  vertical-align: baseline;
 }
 
 .c4 {
@@ -674,8 +712,70 @@ exports[`Input: calling render with the same component on the same container doe
   background-color: hsl(0,0%,100%);
 }
 
-.c0 > .fi-toggle_label {
-  cursor: pointer;
+.c0 + .fi-toggle--with-button:focus {
+  outline: 0;
+  outline: 0;
+  position: relative;
+}
+
+.c0 + .fi-toggle--with-button:focus:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid hsl(23,82%,53%);
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  z-index: 9999;
+}
+
+.c0 + .fi-toggle--with-button:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 + .fi-toggle--with-button:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+.c0 + .fi-toggle--with-button:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 + .fi-toggle--with-input:focus-within {
+  outline: 0;
+  outline: 0;
+  position: relative;
+}
+
+.c0 + .fi-toggle--with-input:focus-within:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid hsl(23,82%,53%);
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  z-index: 9999;
+}
+
+.c0 + .fi-toggle--with-input:focus-within:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 + .fi-toggle--with-input:focus-within:not(:focus-visible) {
+  outline: 0;
+}
+
+.c0 + .fi-toggle--with-input:focus-within:not(:focus-visible):after {
+  content: none;
 }
 
 .c0 > .fi-toggle_input {
@@ -693,47 +793,12 @@ exports[`Input: calling render with the same component on the same container doe
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  width: 0;
-  height: 0;
+  position: absolute;
+  width: 40px;
+  height: 24px;
   opacity: 0;
   z-index: -9999;
   background-color: hsl(0,0%,100%);
-}
-
-.c0 > .fi-toggle_input:focus {
-  outline: 0;
-}
-
-.c0 > .fi-toggle_input:focus + .fi-toggle_label {
-  outline: 0;
-  position: relative;
-}
-
-.c0 > .fi-toggle_input:focus + .fi-toggle_label:after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  bottom: -4px;
-  left: -4px;
-  border-radius: 4px;
-  background-color: transparent;
-  border: 1px solid hsl(23,82%,53%);
-  box-sizing: border-box;
-  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
-  z-index: 9999;
-}
-
-.c0 > .fi-toggle_input:focus + .fi-toggle_label:not(:focus-visible):after {
-  content: none;
-}
-
-.c0 > .fi-toggle_input:focus:not(:focus-visible) {
-  outline: 0;
-}
-
-.c0 > .fi-toggle_input:focus:not(:focus-visible):after {
-  content: none;
 }
 
 .c0 .fi-toggle_icon {
@@ -747,20 +812,28 @@ exports[`Input: calling render with the same component on the same container doe
   transform: translateY(-0.1em);
 }
 
-.c0 .fi-toggle_icon * {
-  cursor: pointer;
-}
-
 .c0 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-knob {
   -webkit-transform: translateX(0%);
   -ms-transform: translateX(0%);
   transform: translateX(0%);
 }
 
+.c0 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(0,0%,100%);
+}
+
 .c0 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-slide {
   -webkit-transform: translateY(1px);
   -ms-transform: translateY(1px);
   transform: translateY(1px);
+}
+
+.c0 .fi-toggle_icon.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(202,7%,97%);
+}
+
+.c0 .fi-toggle_icon.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-slide {
+  fill: hsl(202,7%,93%);
 }
 
 .c0 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-knob {
@@ -775,6 +848,10 @@ exports[`Input: calling render with the same component on the same container doe
 
 .c0 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-circle {
   fill: hsl(166,90%,36%);
+}
+
+.c0 .fi-toggle_icon.fi-toggle_icon--checked.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(166,54%,80%);
 }
 
 <label

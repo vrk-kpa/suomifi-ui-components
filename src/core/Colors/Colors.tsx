@@ -18,15 +18,48 @@ export interface ColorProps extends TokensProp {
   children?: ReactNode;
 }
 
-const Color = styled.div`
+const copyKey = (key: string) => () => clipboardCopy(key);
+
+const onEnterPressed = (keyName: string) => (e: React.KeyboardEvent) => {
+  if (e.key === 'Enter') {
+    clipboardCopy(keyName);
+  }
+};
+
+const StyledFigure = styled.figure`
   ${(props: ColorProps & InternalTokensProp) => baseStyles(props)};
 `;
+
+const ColorFigure = (props: ColorProps & InternalTokensProp) => {
+  const { color, keyName } = props;
+  const hslaAsHex = hslaToHex(color);
+
+  return (
+    <StyledFigure
+      {...props}
+      onClick={copyKey(keyName)}
+      tabIndex={0}
+      onKeyDown={onEnterPressed(keyName)}
+    >
+      <figcaption>
+        <div className="fi-color__name">{color}</div>
+        {!!hslaAsHex && (
+          <div className="fi-color__name fi-color__name--hex">{hslaAsHex}</div>
+        )}
+        <div className="fi-color__name fi-color__name--key">{keyName}</div>
+      </figcaption>
+      <svg aria-label={color} role="img">
+        <rect fill={color}>
+          <title>{keyName}</title>
+        </rect>
+      </svg>
+    </StyledFigure>
+  );
+};
 
 const ColorsContainer = styled.div`
   ${containerStyles};
 `;
-
-const copyKey = (key: string) => () => clipboardCopy(key);
 
 export class Colors extends Component<ColorsProps> {
   render() {
@@ -37,26 +70,13 @@ export class Colors extends Component<ColorsProps> {
       <ColorsContainer>
         {Object.entries(useColors).reduce<JSX.Element[]>(
           (arr, [key, value]) => {
-            const color = value.hsl;
-            const hslaAsHex = hslaToHex(color);
             const item = (
-              <Color
-                keyName={key.toString()}
-                color={color}
+              <ColorFigure
                 key={key.toString()}
-                onClick={copyKey(key.toString())}
+                keyName={key.toString()}
+                color={value as string}
                 {...props}
-              >
-                <div className="fi-color__name">{color}</div>
-                {!!hslaAsHex && (
-                  <div className="fi-color__name fi-color__name--hex">
-                    {hslaAsHex}
-                  </div>
-                )}
-                <div className="fi-color__name fi-color__name--key">
-                  {key.toString()}
-                </div>
-              </Color>
+              />
             );
             return [...arr, item];
           },

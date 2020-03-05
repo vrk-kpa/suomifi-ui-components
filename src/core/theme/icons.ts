@@ -1,11 +1,11 @@
 import iconLoginSvg from './icons/icon-login.svg';
 
-export interface IIcons {
+export interface Icons {
   login: string;
 }
 
-export type IconKeys = keyof IIcons;
+export type IconKeys = keyof Icons;
 
-export const icons: IIcons = {
+export const icons: Icons = {
   login: iconLoginSvg,
 };

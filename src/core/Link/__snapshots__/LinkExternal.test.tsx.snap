@@ -161,9 +161,9 @@ exports[`calling render with the same component on the same container does not r
   <svg
     aria-hidden="true"
     class="fi-link_icon c5"
+    fill="currentColor"
     focusable="false"
     height="1em"
-    style="fill: hsl(202, 7%, 40%);"
     viewBox="0 0 24 24"
     width="1em"
   >

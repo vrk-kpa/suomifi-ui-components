@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-testing-library';
+import { render } from '@testing-library/react';
 import { axeTest } from '../../utils/test/axe';
 
 import { Heading } from './Heading';
@@ -13,7 +13,6 @@ const TestHeadings = (
     <Heading.h3>Test Heading</Heading.h3>
     <Heading.h4>Test Heading</Heading.h4>
     <Heading.h5>Test Heading</Heading.h5>
-    <Heading.h6>Test Heading</Heading.h6>
   </div>
 );
 

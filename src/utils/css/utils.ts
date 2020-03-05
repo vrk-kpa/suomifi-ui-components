@@ -21,8 +21,8 @@ const camelToSnake = (string: string) =>
  *    fontSize: {value: 16, unit: 'px'};
  *  })
  */
-export const cssObjectToCss = <T>(value: T) => css`
-  ${Object.entries(value)
+export const cssObjectToCss = <T>(object: T) => css`
+  ${Object.entries(object)
     .map(([key, value]) => `${camelToSnake(key)}: ${cssValueToString(value)};`)
     .join('')}
 `;

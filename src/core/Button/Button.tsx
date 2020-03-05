@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { TokensProp, InternalTokensProp } from '../theme';
-import { withSuomifiDefaultProps, colorValue } from '../theme/utils';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { baseStyles } from './Button.baseStyles';
 import {
   Button as CompButton,
@@ -13,7 +13,7 @@ import { UnstyledButton } from './UnstyledButton';
 
 type ButtonVariant =
   | 'default'
-  | 'negative'
+  | 'inverted'
   | 'secondary'
   | 'secondary-noborder'
   | 'tertiary'
@@ -25,7 +25,7 @@ export interface ButtonProps extends CompButtonProps, TokensProp {
    */
   fullWidth?: boolean;
   /**
-   * 'default' | 'negative' | 'secondary' | 'secondary-noborder' | 'tertiary'
+   * 'default' | 'inverted' | 'secondary' | 'secondary-noborder' | 'tertiary'
    * @default default
    */
   variant?: ButtonVariant;
@@ -77,17 +77,22 @@ const iconColor = ({
   disabled?: boolean;
 } & InternalTokensProp) => {
   const defaultColor = !!disabled
-    ? colorValue({ tokens })('depthBase')
-    : colorValue({ tokens })('whiteBase');
+    ? tokens.colors.depthBase
+    : tokens.colors.whiteBase;
   const secondaryColor = !!disabled
-    ? colorValue({ tokens })('depthBase')
-    : colorValue({ tokens })('highlightBase');
+    ? tokens.colors.depthBase
+    : tokens.colors.highlightBase;
   return !!invert ? secondaryColor : defaultColor;
 };
 
 class ButtonWithIcon extends Component<ButtonProps & InternalTokensProp> {
   render() {
-    const { icon, iconRight, iconProps = {}, ...passProps } = this.props;
+    const {
+      icon,
+      iconRight,
+      iconProps = { className: undefined },
+      ...passProps
+    } = this.props;
     const { tokens, disabled, variant } = passProps;
     const { className: iconPropsClassName, ...passIconProps } = iconProps;
 
@@ -147,9 +152,9 @@ class ButtonWithIcon extends Component<ButtonProps & InternalTokensProp> {
  * `import { UnstyledButton } from 'suomifi-ui-components';` or `<Button.unstyled />`.
  */
 export class Button extends Component<ButtonProps> {
-  static negative = (props: ButtonProps) => {
+  static inverted = (props: ButtonProps) => {
     return (
-      <ButtonWithIcon {...withSuomifiDefaultProps(props)} variant="negative" />
+      <ButtonWithIcon {...withSuomifiDefaultProps(props)} variant="inverted" />
     );
   };
 

@@ -47,7 +47,7 @@ const Square = styled(props => (
     > .box {
       height: ${size};
       width: ${size};
-      border: 1px dashed ${colors.blackBase.hsl};
+      border: 1px dashed ${colors.blackBase};
       overflow: hidden;
     }
   `
@@ -69,7 +69,7 @@ const Bar = styled(props => (
     > .row {
       height: ${size};
       width: 100%;
-      background-color: ${colors.depthDark27.hsl};
+      background-color: ${colors.depthDark27};
     }
     > .col {
       position: absolute;
@@ -77,7 +77,7 @@ const Bar = styled(props => (
       right: 0;
       height: 100%;
       width: ${size};
-      background-color: ${colors.depthDark27.hsl};
+      background-color: ${colors.depthDark27};
     }
   `
 );

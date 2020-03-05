@@ -1,13 +1,14 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../theme';
+import { cssValueToString } from '../../utils/css';
 import { nav, list, listItem, font } from '../theme/reset';
-import { fontSize } from '../theme/utils';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
   ${nav({ theme })}
   ${font({ theme })('bodyText')}
   background-color: ${theme.colors.whiteBase};
+  height: 1.5em;
 
   & .fi-breadcrumb {
     &_list {
@@ -24,7 +25,7 @@ export const baseStyles = withSuomifiTheme(
     &_item,
     &_link,
     &_icon {
-      font-size: ${fontSize({ theme })('bodyText')};
+      font-size: ${cssValueToString(theme.values.typography.bodyText.fontSize)};
     }
     &_icon {
       transform: translateY(.2em);

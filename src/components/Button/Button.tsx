@@ -21,8 +21,8 @@ export interface MouseNonFocusProps {
 }
 
 export interface MouseNonFocusReturnProps {
-  onMouseDown: ((event: React.MouseEvent<HTMLButtonElement>) => void);
-  onKeyUp: ((event: React.KeyboardEvent<HTMLButtonElement>) => void);
+  onMouseDown: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onKeyUp: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
 }
 
 /**

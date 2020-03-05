@@ -5,13 +5,13 @@ import {
   Menu,
   MenuButton,
   MenuButtonProps,
-  MenuList,
-  MenuListProps,
+  MenuPopoverProps,
   MenuItem,
   MenuItemProps,
+  MenuPopover,
 } from '@reach/menu-button';
+import { positionMatchWidth } from '@reach/popover';
 import { logger } from '../../utils/logger';
-import '@reach/menu-button/styles.css';
 
 export { MenuItem as DropdownItem };
 
@@ -34,9 +34,11 @@ interface DropdownState {
 }
 
 type OptionalMenuButtonProps = {
-  [K in keyof MenuButtonProps]?: MenuButtonProps[K]
+  [K in keyof MenuButtonProps]?: MenuButtonProps[K];
 };
-type OptionalMenuListProps = { [K in keyof MenuListProps]?: MenuListProps[K] };
+type OptionalMenuListProps = {
+  [K in keyof MenuPopoverProps]?: MenuPopoverProps[K];
+};
 type OptionalMenuItemProps = { [K in keyof MenuItemProps]?: MenuItemProps[K] };
 
 export interface DropdownProps {
@@ -138,13 +140,16 @@ export class Dropdown extends Component<DropdownProps> {
               )}
             </MenuListComponentReplace>
           ) : (
-            <MenuList {...passDropdownListProps}>
+            <MenuPopover
+              position={positionMatchWidth}
+              {...passDropdownListProps}
+            >
               {this.list(
                 children,
                 changeNameToSelection,
                 passDropdownItemProps,
               )}
-            </MenuList>
+            </MenuPopover>
           )}
         </Menu>
       </HtmlSpan>

@@ -4,12 +4,12 @@ Suomi.fi-styleguide in React components. [Living styleguide](https://vrk-kpa.git
 
 ## ✨ Features
 
-- React-components (>=16.3) with Typescript support
+- React-components (>=16.8) with Typescript support
 - Highly modular - all browser/app CSS-resets without global styles
-- Should work on all different existing React apps (>=16.3)
+- Should work on all different existing React apps (>=16.8)
 - Highly customizable (CSS, CSS-in-JS)
 
-Uses [React 16.6.3](https://github.com/facebook/react) with [Styled Components](https://github.com/styled-components/styled-components) and written in [TypeScript](https://github.com/Microsoft/TypeScript). [Styleguidist](https://github.com/styleguidist/react-styleguidist) for presenting components.
+Uses [React 16.8.0](https://github.com/facebook/react) with [Styled Components](https://github.com/styled-components/styled-components) and written in [TypeScript](https://github.com/Microsoft/TypeScript). [Styleguidist](https://github.com/styleguidist/react-styleguidist) for presenting components.
 
 [Webpack 4](https://github.com/webpack/webpack) with [awesome-typescript-loader](https://github.com/s-panferov/awesome-typescript-loader) and [TSLint](https://github.com/palantir/tslint).
 
@@ -17,8 +17,28 @@ For testing: [React-testing-library](https://github.com/kentcdodds/react-testing
 
 ## 📦 Install
 
+To install the component library itself
+
 ```bash
 yarn add suomifi-ui-components
+```
+
+And include **required** styles and fonts from `dist/main.css` as best suited for your project. You can, for example, import the stylesheet to your app and let your bundler handle it:
+
+```typescript
+import 'suomifi-ui-components/dist/main.css';
+```
+
+### Peer dependencies
+
+You should install also these dependencies if your project does not already have these.
+
+- suomifi-ui-components requires [styled-components](https://www.npmjs.com/package/styled-components) version >=4.
+
+- Because suomifi-ui-components is a component library for React, it requires [react](https://www.npmjs.com/package/react) version >=16.
+
+```bash
+yarn add styled-components react
 ```
 
 ## 🔨 Usage
@@ -60,15 +80,6 @@ _HOX!!! If you use Styled Components you cannot use Component.variant (static me
 ```
 
 Don't use ~~!important~~, if really really needed - for specificity hack you can define styles using classNames multiple times `.fi-button.button--custom.button--custom {...}`
-
-### 🕶 Using bare accessible components
-
-Import accessible components without suomi.fi-styles from library `'suomifi-ui-components/components'`
-
-```jsx
-import { Button } from 'suomifi-ui-components/components';
-ReactDOM.render(<Button />, mountNode);
-```
 
 ## 🔮 FAQ
 

@@ -1,10 +1,6 @@
 import { css } from 'styled-components';
 import { readableColor } from 'polished';
-import {
-  withSuomifiTheme,
-  TokensAndTheme,
-  internalTypographyTokens,
-} from '../theme';
+import { withSuomifiTheme, TokensAndTheme } from '../theme';
 import { clearfix } from '../../utils/css/utils';
 import { ColorProps } from './Colors';
 
@@ -17,18 +13,37 @@ export const baseStyles = withSuomifiTheme(
       flex-direction: column;
       justify-content: flex-end;
       float: left;
-      width: 192px;
-      height: 180px;
+      width: 208px;
+      height: 196px;
       max-width: 100%;
-      padding: ${theme.spacing.s};
       color: ${readableColor(color)};
-      background-color: ${color};
       border-bottom: 4px solid ${color};
       cursor: pointer;
       z-index: 2;
+      position: relative;
+      margin: 0;
 
       &:hover {
         border-bottom-color: ${readableColor(color)};
+      }
+
+      figcaption {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: absolute;
+        left: ${theme.spacing.s};
+        bottom: ${theme.spacing.s};
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
+
+        rect {
+          width: 100%;
+          height: 100%;
+        }
       }
 
       .fi-color_name {
@@ -40,12 +55,12 @@ export const baseStyles = withSuomifiTheme(
         pointer-events: none;
 
         &--hex {
-          ${theme.typography.bodyTextSmallScreen}
+          ${theme.typography.bodyTextSmall}
           opacity: .4;
         }
 
         &--key {
-          ${internalTypographyTokens.bodySemiBold}
+          ${theme.typography.bodySemiBold}
         }
       }
 

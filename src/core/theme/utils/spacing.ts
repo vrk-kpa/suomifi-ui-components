@@ -1,19 +1,4 @@
-import { FlattenSimpleInterpolation } from 'styled-components';
-import {
-  SpacingProp,
-  spacingTokensKeys,
-  SpacingDesignTokens,
-} from '../spacing';
-import { cssValueToString } from '../../../utils/css';
-
-export const spacingUtils = (spacing: SpacingDesignTokens) =>
-  Object.entries(spacing).reduce(
-    (retObj, [key, value]) => ({
-      ...retObj,
-      [key]: cssValueToString(value),
-    }),
-    {} as { [key in keyof SpacingDesignTokens]: FlattenSimpleInterpolation },
-  );
+import { SpacingProp, spacingTokensKeys } from '../spacing';
 
 // TODO make this whole util again to work with suomifiTheme-util
 

@@ -216,7 +216,6 @@ exports[`calling render with the same component on the same container does not r
     >
       Body text
     </span>
-     
     <span
       class="fi-text c3 fi-text--bold c4"
     >
@@ -231,7 +230,6 @@ exports[`calling render with the same component on the same container does not r
     >
       Body text
     </span>
-     
     <span
       class="fi-text c3 fi-text--bold fi-text--small-screen c4"
     >
