@@ -144,6 +144,24 @@ exports[`calling render with the same component on the same container does not r
   outline: none;
 }
 
+.c0 .fi-text-input_stateText {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c0 .fi-text-input_stateText .fi-text-input_stateText_label {
+  height: 0em;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
 .c0 .fi-text-input_input {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -170,12 +188,14 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c0.fi-text-input--error .fi-text-input_input {
-  color: hsl(3,59%,48%);
   border-color: hsl(3,59%,48%);
 }
 
+.c0.fi-text-input--error .fi-text-input_stateText_label {
+  color: hsl(3,59%,48%);
+}
+
 .c0.fi-text-input--success .fi-text-input_input {
-  color: hsl(166,90%,36%);
   border-color: hsl(166,90%,36%);
 }
 
@@ -203,26 +223,35 @@ exports[`calling render with the same component on the same container does not r
     Test search input
   </p>
   <div
-    class="fi-search-input_input-container fi-text-input_container c4"
+    class="fi-text-input_stateText c4"
   >
-    <input
-      class="fi-text-input_input fi-search-input_input c5"
-      data-testid="textinput"
-      type="text"
-    />
-    <svg
-      aria-hidden="true"
-      class="fi-search-input_icon c6"
-      fill="hsl(202, 7%, 40%)"
-      focusable="false"
-      height="1em"
-      viewBox="0 0 24 24"
-      width="1em"
+    <div
+      class="fi-search-input_input-container fi-text-input_container c4"
     >
-      <path
-        d="M9 2C5.14 2 2 5.141 2 9.001 2 12.86 5.14 16 9 16s7-3.14 7-6.999C16 5.141 12.86 2 9 2m7.029 12.615l7.678 7.678a.999.999 0 11-1.414 1.414l-7.678-7.678A8.957 8.957 0 019 18c-4.962 0-9-4.037-9-8.999C0 4.038 4.038 0 9 0s9 4.038 9 9.001a8.955 8.955 0 01-1.971 5.614z"
+      <input
+        aria-describedby="test-id"
+        class="fi-text-input_input fi-search-input_input c5"
+        data-testid="textinput"
+        type="text"
       />
-    </svg>
+      <svg
+        aria-hidden="true"
+        class="fi-search-input_icon c6"
+        fill="hsl(202, 7%, 40%)"
+        focusable="false"
+        height="1em"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path
+          d="M9 2C5.14 2 2 5.141 2 9.001 2 12.86 5.14 16 9 16s7-3.14 7-6.999C16 5.141 12.86 2 9 2m7.029 12.615l7.678 7.678a.999.999 0 11-1.414 1.414l-7.678-7.678A8.957 8.957 0 019 18c-4.962 0-9-4.037-9-8.999C0 4.038 4.038 0 9 0s9 4.038 9 9.001a8.955 8.955 0 01-1.971 5.614z"
+        />
+      </svg>
+    </div>
+    <label
+      class="fi-text-input_stateText_label c2"
+      id="test-id"
+    />
   </div>
 </label>
 `;

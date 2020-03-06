@@ -5,7 +5,7 @@ import { axeTest } from '../../../utils/test/axe';
 import { TextInput } from './TextInput';
 
 const TestTextInput = (
-  <TextInput labelText="Test input" data-testid="textinput" />
+  <TextInput labelText="Test input" data-testid="textinput" id="test-id" />
 );
 
 test('calling render with the same component on the same container does not remount', () => {

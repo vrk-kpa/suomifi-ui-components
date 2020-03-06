@@ -139,6 +139,24 @@ exports[`calling render with the same component on the same container does not r
   outline: none;
 }
 
+.c0 .fi-text-input_stateText {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c0 .fi-text-input_stateText .fi-text-input_stateText_label {
+  height: 0em;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
 .c0 .fi-text-input_input {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -165,12 +183,14 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c0.fi-text-input--error .fi-text-input_input {
-  color: hsl(3,59%,48%);
   border-color: hsl(3,59%,48%);
 }
 
+.c0.fi-text-input--error .fi-text-input_stateText_label {
+  color: hsl(3,59%,48%);
+}
+
 .c0.fi-text-input--success .fi-text-input_input {
-  color: hsl(166,90%,36%);
   border-color: hsl(166,90%,36%);
 }
 
@@ -183,12 +203,21 @@ exports[`calling render with the same component on the same container does not r
     Test input
   </p>
   <div
-    class="fi-text-input_container c4"
+    class="fi-text-input_stateText c4"
   >
-    <input
-      class="fi-text-input_input c5"
-      data-testid="textinput"
-      type="text"
+    <div
+      class="fi-text-input_container c4"
+    >
+      <input
+        aria-describedby="test-id"
+        class="fi-text-input_input c5"
+        data-testid="textinput"
+        type="text"
+      />
+    </div>
+    <label
+      class="fi-text-input_stateText_label c2"
+      id="test-id"
     />
   </div>
 </label>
