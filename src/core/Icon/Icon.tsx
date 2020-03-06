@@ -65,7 +65,7 @@ export class Icon extends Component<IconProps> {
     );
     const { className, ariaLabel } = this.props;
 
-    const iconColor = color !== undefined ? color : tokens.colors.depthDark27;
+    const iconColor = color !== undefined ? color : tokens.colors.depthDark1;
 
     if (icon !== undefined) {
       return <StyledSuomifiIcon {...passProps} icon={icon} color={iconColor} />;

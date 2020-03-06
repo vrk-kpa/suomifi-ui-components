@@ -79,7 +79,7 @@ export const languageMenuListStyles = withSuomifiTheme(
     &[data-selected] {
       ${theme.typography.bodyText}
       color: ${theme.colors.blackBase};
-      background-color: ${theme.colors.highlightLight50};
+      background-color: ${theme.colors.highlightLight3};
     }
     &.fi-language-menu-language_item,
     &[data-selected].fi-language-menu-language_item {
