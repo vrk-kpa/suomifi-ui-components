@@ -77,7 +77,7 @@ class BaseTextInput extends Component<TextInputProps> {
     } = this.props;
 
     const hideLabel = labelMode === 'hidden';
-    const generatedId = idGenerator(propId);
+    const generatedId = idGenerator(`${propId}-stateText`);
 
     return (
       <HtmlLabel
@@ -94,6 +94,7 @@ class BaseTextInput extends Component<TextInputProps> {
         <HtmlDiv className={stateTextClassName}>
           <HtmlDiv {...inputContainerProps}>
             <HtmlInput
+              id={propId}
               {...passProps}
               className={classnames(inputBaseClassName, inputClassName)}
               type="text"

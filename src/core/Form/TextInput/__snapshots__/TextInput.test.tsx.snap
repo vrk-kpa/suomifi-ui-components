@@ -214,15 +214,16 @@ exports[`calling render with the same component on the same container does not r
       class="fi-text-input_container c4"
     >
       <input
-        aria-describedby="test-id"
+        aria-describedby="test-id-stateText"
         class="fi-text-input_input c5"
         data-testid="textinput"
+        id="test-id"
         type="text"
       />
     </div>
     <label
       class="fi-text-input_stateText_label c2"
-      id="test-id"
+      id="test-id-stateText"
     />
   </div>
 </label>
