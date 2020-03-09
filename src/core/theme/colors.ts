@@ -113,7 +113,7 @@ export const gradients = {
     colors.whiteBase,
   )} 0%, ${alphaHex(0)(colors.whiteBase)} 100%)`,
   depthLight2: `linear-gradient(0deg, ${colors.depthLight2} 0%, ${colors.whiteBase} 100%)`,
-  highlightLight2TohighlightLight3: `linear-gradient(0deg, ${colors.highlightLight2}, ${colors.highlightLight3})`,
+  highlightLight2ToHighlightLight3: `linear-gradient(0deg, ${colors.highlightLight2}, ${colors.highlightLight3})`,
 };
 
 export const outlines = {
