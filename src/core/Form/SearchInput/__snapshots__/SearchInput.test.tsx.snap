@@ -199,6 +199,11 @@ exports[`calling render with the same component on the same container does not r
   border-color: hsl(166,90%,36%);
 }
 
+.c0.fi-text-input--disabled .fi-text-input_input {
+  color: hsl(202,7%,67%);
+  background-color: hsl(202,7%,97%);
+}
+
 .c0 .fi-search-input_input-container {
   position: relative;
 }

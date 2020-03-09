@@ -52,6 +52,12 @@ export const baseStyles = withSuomifiTheme(
       border-color: ${theme.colors.successBase};
     }
   }
+  &.fi-text-input--disabled {
+    & .fi-text-input_input {
+      color: ${theme.colors.depthBase};
+      background-color: ${theme.colors.depthLight30};
+    }
+  }
 `;
   },
 );
