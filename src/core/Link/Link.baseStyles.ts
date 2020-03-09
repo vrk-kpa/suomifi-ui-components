@@ -18,7 +18,7 @@ export const baseStyles = withSuomifiTheme(
     text-decoration: underline;
   }
   &:visited {
-    color: ${theme.colors.accentTertiaryDark9};
+    color: ${theme.colors.accentTertiaryDark1};
   }
 `,
 );

@@ -18,12 +18,12 @@ export const baseStyles = withSuomifiTheme(
         right: 10px;
         margin-top: -3px;
         border-style: solid;
-        border-color: ${theme.colors.depthDark27} transparent transparent
+        border-color: ${theme.colors.depthDark1} transparent transparent
           transparent;
         border-width: 6px 4px 0 4px;
       }
       &[aria-expanded='true']:before {
-        border-color: transparent transparent ${theme.colors.depthDark27}
+        border-color: transparent transparent ${theme.colors.depthDark1}
           transparent;
         border-width: 0 4px 6px 4px;
       }
@@ -58,7 +58,7 @@ export const menuListStyles = withSuomifiTheme(
       ${theme.typography.actionElementInnerText}
       color: ${theme.colors.blackBase};
       background-image: none;
-      background-color: ${theme.colors.highlightLight50};
+      background-color: ${theme.colors.highlightLight3};
       border: 0;
     }
     &:focus {

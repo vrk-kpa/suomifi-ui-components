@@ -69,7 +69,7 @@ const Bar = styled(props => (
     > .row {
       height: ${size};
       width: 100%;
-      background-color: ${colors.depthDark27};
+      background-color: ${colors.depthDark1};
     }
     > .col {
       position: absolute;
@@ -77,7 +77,7 @@ const Bar = styled(props => (
       right: 0;
       height: 100%;
       width: ${size};
-      background-color: ${colors.depthDark27};
+      background-color: ${colors.depthDark1};
     }
   `
 );

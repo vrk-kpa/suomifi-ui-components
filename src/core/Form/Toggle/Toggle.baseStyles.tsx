@@ -66,10 +66,10 @@ export const baseStyles = withSuomifiTheme(
     }
     &.fi-toggle_icon--disabled {
       .${svgPrefix}fi-toggle-icon-circle {
-        fill: ${theme.colors.depthLight30};
+        fill: ${theme.colors.depthLight3};
       }
       & .${svgPrefix}fi-toggle-icon-slide {
-        fill: ${theme.colors.depthLight26};
+        fill: ${theme.colors.depthLight2};
     }
     }
     &.fi-toggle_icon--checked {

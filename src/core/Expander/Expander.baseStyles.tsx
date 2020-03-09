@@ -18,7 +18,7 @@ export const baseStyles = withSuomifiTheme(
   box-shadow: ${theme.shadows.panelShadow};
 
   &:before {
-    background-color: ${theme.colors.highlightLight53};
+    background-color: ${theme.colors.highlightLight4};
     opacity: 0;
   }
 
