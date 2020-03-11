@@ -20,8 +20,8 @@ const baseClassName = 'fi-text-input';
 const disabledClassName = `${baseClassName}--disabled`;
 const labelBaseClassName = `${baseClassName}_label`;
 const inputBaseClassName = `${baseClassName}_input`;
-const stateTextClassName = `${baseClassName}_stateText`;
-const stateTextLabelClassName = `${stateTextClassName}_label`;
+const statusTextClassName = `${baseClassName}_statusText`;
+const statusTextLabelClassName = `${statusTextClassName}_label`;
 
 export interface TextInputLabelProps extends HtmlLabelProps {}
 
@@ -56,8 +56,8 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   /** Input container div to define custom styling */
   inputContainerProps?: HtmlDivProps;
   children?: ReactNode;
-  /** Showing the state text; like validation error beneath the component */
-  stateText?: string;
+  /** Showing the status text; like validation error beneath the component */
+  statusText?: string;
 }
 
 class BaseTextInput extends Component<TextInputProps> {
@@ -71,13 +71,13 @@ class BaseTextInput extends Component<TextInputProps> {
       labelTextProps,
       inputContainerProps,
       children,
-      stateText,
+      statusText,
       id: propId,
       ...passProps
     } = this.props;
 
     const hideLabel = labelMode === 'hidden';
-    const generatedId = idGenerator(`${propId}-stateText`);
+    const generatedId = idGenerator(`${propId}-statusText`);
 
     return (
       <HtmlLabel
@@ -91,7 +91,7 @@ class BaseTextInput extends Component<TextInputProps> {
         ) : (
           <Paragraph {...labelTextProps}>{labelText}</Paragraph>
         )}
-        <HtmlDiv className={stateTextClassName}>
+        <HtmlDiv className={statusTextClassName}>
           <HtmlDiv {...inputContainerProps}>
             <HtmlInput
               id={propId}
@@ -102,8 +102,8 @@ class BaseTextInput extends Component<TextInputProps> {
             />
             {children}
           </HtmlDiv>
-          <HtmlLabel className={stateTextLabelClassName} id={generatedId}>
-            {stateText}
+          <HtmlLabel className={statusTextLabelClassName} id={generatedId}>
+            {statusText}
           </HtmlLabel>
         </HtmlDiv>
       </HtmlLabel>

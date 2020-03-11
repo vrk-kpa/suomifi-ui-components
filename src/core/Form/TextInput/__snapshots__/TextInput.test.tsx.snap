@@ -139,7 +139,7 @@ exports[`calling render with the same component on the same container does not r
   outline: none;
 }
 
-.c0 .fi-text-input_stateText {
+.c0 .fi-text-input_statusText {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -149,8 +149,7 @@ exports[`calling render with the same component on the same container does not r
   flex-direction: column;
 }
 
-.c0 .fi-text-input_stateText .fi-text-input_stateText_label {
-  height: 0em;
+.c0 .fi-text-input_statusText .fi-text-input_statusText_label {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -186,7 +185,7 @@ exports[`calling render with the same component on the same container does not r
   border-color: hsl(3,59%,48%);
 }
 
-.c0.fi-text-input--error .fi-text-input_stateText_label {
+.c0.fi-text-input--error .fi-text-input_statusText_label {
   color: hsl(3,59%,48%);
 }
 
@@ -208,13 +207,13 @@ exports[`calling render with the same component on the same container does not r
     Test input
   </p>
   <div
-    class="fi-text-input_stateText c4"
+    class="fi-text-input_statusText c4"
   >
     <div
       class="fi-text-input_container c4"
     >
       <input
-        aria-describedby="test-id-stateText"
+        aria-describedby="test-id-statusText"
         class="fi-text-input_input c5"
         data-testid="textinput"
         id="test-id"
@@ -222,8 +221,8 @@ exports[`calling render with the same component on the same container does not r
       />
     </div>
     <label
-      class="fi-text-input_stateText_label c2"
-      id="test-id-stateText"
+      class="fi-text-input_statusText_label c2"
+      id="test-id-statusText"
     />
   </div>
 </label>
