@@ -1,16 +1,9 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../../theme';
 import { input, inputContainer } from '../../theme/reset';
-import { TextInputProps } from './TextInput';
 
 export const baseStyles = withSuomifiTheme(
-  ({ theme, ...passProps }: TokensAndTheme & Partial<TextInputProps>) => {
-    const hasStateText = Object.prototype.hasOwnProperty.call(
-      passProps,
-      'stateText',
-    );
-
-    return css`
+  ({ theme }: TokensAndTheme) => css`
   & .fi-text-input_label-p {
     margin-bottom: ${theme.spacing.m};
   }
@@ -24,11 +17,6 @@ export const baseStyles = withSuomifiTheme(
     flex-direction: column;
 
     & .fi-text-input_stateText_label {
-      height: ${
-        hasStateText
-          ? theme.values.typography.bodySemiBoldSmall.lineHeight.value
-          : 0
-      }em
       ${theme.typography.bodySemiBoldSmall}
     }
   }
@@ -58,6 +46,5 @@ export const baseStyles = withSuomifiTheme(
       background-color: ${theme.colors.depthLight30};
     }
   }
-`;
-  },
+`,
 );
