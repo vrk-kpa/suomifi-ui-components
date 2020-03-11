@@ -29,3 +29,25 @@ import { TextInput } from 'suomifi-ui-components';
   />
 </>;
 ```
+
+```js
+import { TextInput } from 'suomifi-ui-components';
+
+const [errorState, setErrorState] = React.useState(false);
+const statusText = errorState
+  ? 'You entered invalid data'
+  : undefined;
+const variant = errorState ? 'error' : 'default';
+
+<>
+  <TextInput
+    labelText="Test TextInput"
+    statusText={statusText}
+    variant={variant}
+  />
+
+  <button onClick={() => setErrorState(!errorState)}>
+    Toggle error state
+  </button>
+</>;
+```
