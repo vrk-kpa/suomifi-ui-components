@@ -17,12 +17,14 @@ import { TextInput } from 'suomifi-ui-components';
     labelText="Test with hidden label"
     defaultValue="Test with hidden label"
   />
-  <TextInput.error
+  <TextInput
+    variant="error"
     labelMode="hidden"
     labelText="Error with hidden label"
     defaultValue="Error with hidden label"
   />
-  <TextInput.success
+  <TextInput
+    variant="success"
     labelMode="hidden"
     labelText="Success with hidden label"
     defaultValue="Success with hidden label"

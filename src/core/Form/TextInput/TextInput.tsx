@@ -70,14 +70,6 @@ const StyledTextInput = styled(
  * Use for user inputting text
  */
 export class TextInput extends Component<TextInputProps> {
-  static error = (props: TextInputProps) => (
-    <StyledTextInput {...withSuomifiDefaultProps(props)} variant="error" />
-  );
-
-  static success = (props: TextInputProps) => (
-    <StyledTextInput {...withSuomifiDefaultProps(props)} variant="success" />
-  );
-
   render() {
     const { ...passProps } = withSuomifiDefaultProps(this.props);
 
