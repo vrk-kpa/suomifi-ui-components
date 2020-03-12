@@ -18,13 +18,13 @@ import { TextInput } from 'suomifi-ui-components';
     defaultValue="Test with hidden label"
   />
   <TextInput
-    variant="error"
+    status="error"
     labelMode="hidden"
     labelText="Error with hidden label"
     defaultValue="Error with hidden label"
   />
   <TextInput
-    variant="success"
+    status="success"
     labelMode="hidden"
     labelText="Success with hidden label"
     defaultValue="Success with hidden label"
@@ -39,13 +39,13 @@ const [errorState, setErrorState] = React.useState(false);
 const statusText = errorState
   ? 'You entered invalid data'
   : undefined;
-const variant = errorState ? 'error' : 'default';
+const status = errorState ? 'error' : 'default';
 
 <>
   <TextInput
     labelText="Test TextInput"
     statusText={statusText}
-    variant={variant}
+    status={status}
   />
 
   <button onClick={() => setErrorState(!errorState)}>

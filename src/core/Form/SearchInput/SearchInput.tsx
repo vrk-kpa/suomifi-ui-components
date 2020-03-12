@@ -15,7 +15,7 @@ const inputContainerBaseClassName = `${baseClassName}_input-container`;
 const inputBaseClassName = `${baseClassName}_input`;
 const iconBaseClassName = `${baseClassName}_icon`;
 
-export interface SearchInputProps extends Omit<TextInputProps, 'variant'> {}
+export interface SearchInputProps extends Omit<TextInputProps, 'status'> {}
 
 const StyledTextInput = styled(
   ({
