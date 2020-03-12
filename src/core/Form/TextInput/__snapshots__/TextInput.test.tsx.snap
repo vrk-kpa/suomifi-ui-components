@@ -139,7 +139,7 @@ exports[`calling render with the same component on the same container does not r
   outline: none;
 }
 
-.c0 .fi-text-input_statusText {
+.c0 .fi-text-input_statusText_container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -149,7 +149,7 @@ exports[`calling render with the same component on the same container does not r
   flex-direction: column;
 }
 
-.c0 .fi-text-input_statusText .fi-text-input_statusText_label {
+.c0 .fi-text-input_statusText_container .fi-text-input_statusText_label {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -207,7 +207,7 @@ exports[`calling render with the same component on the same container does not r
     Test input
   </p>
   <div
-    class="fi-text-input_statusText c4"
+    class="fi-text-input_statusText_container c4"
   >
     <div
       class="fi-text-input_container c4"

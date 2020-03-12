@@ -21,6 +21,7 @@ const disabledClassName = `${baseClassName}--disabled`;
 const labelBaseClassName = `${baseClassName}_label`;
 const inputBaseClassName = `${baseClassName}_input`;
 const statusTextClassName = `${baseClassName}_statusText`;
+const statusTextContainerClassName = `${statusTextClassName}_container`;
 const statusTextLabelClassName = `${statusTextClassName}_label`;
 
 export interface TextInputLabelProps extends HtmlLabelProps {}
@@ -91,7 +92,7 @@ class BaseTextInput extends Component<TextInputProps> {
         ) : (
           <Paragraph {...labelTextProps}>{labelText}</Paragraph>
         )}
-        <HtmlDiv className={statusTextClassName}>
+        <HtmlDiv className={statusTextContainerClassName}>
           <HtmlDiv {...inputContainerProps}>
             <HtmlInput
               id={propId}

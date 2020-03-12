@@ -12,7 +12,7 @@ export const baseStyles = withSuomifiTheme(
     ${inputContainer({ theme })}
   }
 
-  & .fi-text-input_statusText {
+  & .fi-text-input_statusText_container {
     display: flex;
     flex-direction: column;
 
