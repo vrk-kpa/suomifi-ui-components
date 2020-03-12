@@ -43,7 +43,7 @@ export const baseStyles = withSuomifiTheme(
   &.fi-text-input--disabled {
     & .fi-text-input_input {
       color: ${theme.colors.depthBase};
-      background-color: ${theme.colors.depthLight30};
+      background-color: ${theme.colors.depthLight3};
     }
   }
 `,
