@@ -15,6 +15,7 @@ export const baseStyles = withSuomifiTheme(
   & .fi-text-input_input {
     ${input({ theme })}
     background-color: ${theme.colors.whiteBase};
+    width: 100%;
   }
 
   &.fi-text-input--error {
