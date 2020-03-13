@@ -98,7 +98,7 @@ export class LanguageMenu extends Component<LanguageMenuProps> {
                   {...passProps}
                   className={classnames(
                     menuButtonClassName,
-                    isOpen ? menuButtonOpenClassName : '',
+                    isOpen && menuButtonOpenClassName,
                   )}
                 >
                   {name}
