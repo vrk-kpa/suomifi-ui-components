@@ -16,7 +16,7 @@ export const baseStyles = withSuomifiTheme(
     display: flex;
     flex-direction: column;
 
-    & .fi-text-input_statusText_label {
+    & .fi-text-input_statusText {
       ${theme.typography.bodySemiBoldSmall}
     }
   }
@@ -31,7 +31,7 @@ export const baseStyles = withSuomifiTheme(
     & .fi-text-input_input {
       border-color: ${theme.colors.alertBase};
     }
-    & .fi-text-input_statusText_label {
+    & .fi-text-input_statusText {
       color: ${theme.colors.alertBase};
     }
   }

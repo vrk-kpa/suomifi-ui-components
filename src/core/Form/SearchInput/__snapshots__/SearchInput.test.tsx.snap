@@ -73,6 +73,30 @@ exports[`calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
+.c7 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -154,7 +178,7 @@ exports[`calling render with the same component on the same container does not r
   flex-direction: column;
 }
 
-.c0 .fi-text-input_statusText_container .fi-text-input_statusText_label {
+.c0 .fi-text-input_statusText_container .fi-text-input_statusText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -190,7 +214,7 @@ exports[`calling render with the same component on the same container does not r
   border-color: hsl(3,59%,48%);
 }
 
-.c0.fi-text-input--error .fi-text-input_statusText_label {
+.c0.fi-text-input--error .fi-text-input_statusText {
   color: hsl(3,59%,48%);
 }
 
@@ -253,8 +277,8 @@ exports[`calling render with the same component on the same container does not r
         />
       </svg>
     </div>
-    <label
-      class="fi-text-input_statusText_label c2"
+    <span
+      class="fi-text-input_statusText c7"
       id="test-id-statusText"
     />
   </div>

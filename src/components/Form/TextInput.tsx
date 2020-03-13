@@ -7,6 +7,7 @@ import {
   HtmlInputProps,
   HtmlDiv,
   HtmlDivProps,
+  HtmlSpan,
 } from '../../reset';
 import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import { Paragraph, ParagraphProps } from '../Paragraph/Paragraph';
@@ -22,7 +23,6 @@ const labelBaseClassName = `${baseClassName}_label`;
 const inputBaseClassName = `${baseClassName}_input`;
 const statusTextClassName = `${baseClassName}_statusText`;
 const statusTextContainerClassName = `${statusTextClassName}_container`;
-const statusTextLabelClassName = `${statusTextClassName}_label`;
 
 export interface TextInputLabelProps extends HtmlLabelProps {}
 
@@ -103,9 +103,9 @@ class BaseTextInput extends Component<TextInputProps> {
             />
             {children}
           </HtmlDiv>
-          <HtmlLabel className={statusTextLabelClassName} id={generatedId}>
+          <HtmlSpan className={statusTextClassName} id={generatedId}>
             {statusText}
-          </HtmlLabel>
+          </HtmlSpan>
         </HtmlDiv>
       </HtmlLabel>
     );
