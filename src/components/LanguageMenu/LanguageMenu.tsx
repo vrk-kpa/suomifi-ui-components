@@ -56,12 +56,12 @@ type OptionalLanguageMenuListProps = {
 export interface LanguageMenuProps {
   /** Name or content of menubutton */
   name: React.ReactNode | ((props: { isOpen: boolean }) => React.ReactNode);
-  /** onMenuOpen function callback for open / close event */
-  onMenuOpen?: (isOpen: boolean) => void;
   /** Custom classname to extend or customize */
   className?: string;
   /** Custom classname to extend or customize */
   languageMenuButtonClassName?: string;
+  /** Custom classname to apply when menu is open */
+  languageMenuOpenButtonClassName?: string;
   /** Properties given to LanguageMenu's List-component, className etc. */
   languageMenuListProps?: OptionalLanguageMenuListProps;
   languageMenuListComponent?: React.ComponentType<
@@ -72,24 +72,15 @@ export interface LanguageMenuProps {
 }
 
 export class LanguageMenu extends Component<LanguageMenuProps> {
-  handleMenuOpenEvent = (
-    isOpen: boolean,
-    onMenuOpen: ((isOpen: boolean) => void) | undefined,
-  ) => {
-    if (!!onMenuOpen) {
-      onMenuOpen(isOpen);
-    }
-  };
-
   render() {
     const {
       children,
       name,
       className,
       languageMenuButtonClassName: menuButtonClassName,
+      languageMenuOpenButtonClassName: menuButtonOpenClassName,
       languageMenuListProps: menuListProps = {},
       languageMenuListComponent: MenuListComponentReplace,
-      onMenuOpen,
       ...passProps
     } = this.props;
 
@@ -101,16 +92,14 @@ export class LanguageMenu extends Component<LanguageMenuProps> {
       <HtmlSpan className={classnames(className, baseClassName)}>
         <Menu>
           {({ isOpen }: { isOpen: boolean }) => {
-            console.log(isOpen);
             return (
               <Fragment>
                 <MenuButton
                   {...passProps}
-                  className={menuButtonClassName}
-                  onMouseDown={() =>
-                    this.handleMenuOpenEvent(isOpen, onMenuOpen)
-                  }
-                  onKeyDown={() => this.handleMenuOpenEvent(isOpen, onMenuOpen)}
+                  className={classnames(
+                    menuButtonClassName,
+                    isOpen ? menuButtonOpenClassName : '',
+                  )}
                 >
                   {name}
                 </MenuButton>

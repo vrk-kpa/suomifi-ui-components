@@ -24,12 +24,12 @@ import { Icon } from '../Icon/Icon';
 const itemClassName = 'fi-language-menu_item';
 const itemLangClassName = 'fi-language-menu-language_item';
 const buttonClassName = 'fi-language-menu_button';
+const buttonOpenClassName = 'fi-language-menu-language_button_open';
 const buttonLangClassName = 'fi-language-menu-language_button';
 
 const listClassName = 'fi-language-menu_list';
 const listLangClassName = 'fi-language-menu-language_list';
 const iconLangClassName = 'fi-language-menu-language_icon';
-const iconLangOpenClassName = 'fi-language-menu-language_open_icon';
 
 export interface LanguageMenuProps extends CompLanguageMenuProps, TokensProp {}
 
@@ -59,16 +59,10 @@ const LanguageMenuListWithProps = (
     },
   );
 
-const languageName = (name: ReactNode, isMenuOpen: boolean) => (
+const languageName = (name: ReactNode) => (
   <Fragment>
     {name}
-    <Icon
-      icon="chevronDown"
-      className={classnames(
-        iconLangClassName,
-        isMenuOpen ? iconLangOpenClassName : undefined,
-      )}
-    />
+    <Icon icon="chevronDown" className={iconLangClassName} />
   </Fragment>
 );
 
@@ -82,28 +76,7 @@ const StyledMenuList = styled(
   ${props => languageMenuListStyles(props.theme)}
 `;
 
-type LanguageMenuState = {
-  isMenuOpen: boolean;
-};
-
-class LanguageMenuVariation extends Component<
-  LanguageMenuProps,
-  LanguageMenuState
-> {
-  constructor(props: LanguageMenuProps) {
-    super(props);
-    this.state = {
-      isMenuOpen: false,
-    };
-  }
-
-  setIsMenuOpen = (isMenuOpen: boolean) => {
-    console.log(isMenuOpen, this.state.isMenuOpen);
-    if (isMenuOpen !== this.state.isMenuOpen) {
-      this.setState({ isMenuOpen });
-    }
-  };
-
+class LanguageMenuVariation extends Component<LanguageMenuProps> {
   render() {
     const {
       children,
@@ -125,9 +98,9 @@ class LanguageMenuVariation extends Component<
       <Fragment>
         <StyledLanguageMenu
           {...passProps}
-          onMenuOpen={this.setIsMenuOpen}
-          name={languageName(name, this.state.isMenuOpen)}
+          name={languageName(name)}
           languageMenuButtonClassName={languageMenuButtonClassName}
+          languageMenuOpenButtonClassName={buttonOpenClassName}
           languageMenuListProps={menuListProps}
           languageMenuListComponent={
             !!MenuListComponentProp ? MenuListComponentProp : StyledMenuList

@@ -25,10 +25,12 @@ export const baseStyles = withSuomifiTheme(
         transform: translateY(0.3em); 
         margin-left: ${theme.spacing.xs};
       }
-      & > .fi-language-menu-language_open_icon {
-        transform: translateY(0.3em) rotate(180deg);
-      }
     }
+    &.fi-language-menu-language_button_open {
+        & > .fi-language-menu-language_icon.fi-language-menu-language_icon {
+          transform: translateY(0.2em) rotate(180deg);
+        }
+      }
   }
 `,
 );
