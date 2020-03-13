@@ -2,7 +2,6 @@ import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../theme';
 import { LanguageMenuProps } from './LanguageMenu';
 import { element, focus } from '../theme/reset';
-import { padding } from '../theme/utils';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme & Partial<LanguageMenuProps>) => css`
@@ -14,7 +13,8 @@ export const baseStyles = withSuomifiTheme(
     &.fi-language-menu-language_button {
       ${element({ theme })}
       ${theme.typography.actionElementInnerTextBold}
-      ${padding({ theme })('s', 'xs', 's', 's')}
+      padding: 5px ${theme.spacing.xs} 5px ${theme.spacing.s};
+      line-height: 28px;
       background-color: ${theme.colors.whiteBase};
       border: 1px solid ${theme.colors.depthBase};
       border-radius: ${theme.radius.basic};
@@ -24,6 +24,9 @@ export const baseStyles = withSuomifiTheme(
         width: 1.2em;
         transform: translateY(0.3em); 
         margin-left: ${theme.spacing.xs};
+      }
+      & > .fi-language-menu-language_open_icon {
+        transform: translateY(0.3em) rotate(180deg);
       }
     }
   }

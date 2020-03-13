@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, Fragment } from 'react';
 import classnames from 'classnames';
 import { HtmlSpan } from '../../reset/HtmlSpan/HtmlSpan';
 import {
@@ -55,7 +55,9 @@ type OptionalLanguageMenuListProps = {
 
 export interface LanguageMenuProps {
   /** Name or content of menubutton */
-  name: ReactNode;
+  name: React.ReactNode | ((props: { isOpen: boolean }) => React.ReactNode);
+  /** onMenuOpen function callback for open / close event */
+  onMenuOpen?: (isOpen: boolean) => void;
   /** Custom classname to extend or customize */
   className?: string;
   /** Custom classname to extend or customize */
@@ -70,6 +72,15 @@ export interface LanguageMenuProps {
 }
 
 export class LanguageMenu extends Component<LanguageMenuProps> {
+  handleMenuOpenEvent = (
+    isOpen: boolean,
+    onMenuOpen: ((isOpen: boolean) => void) | undefined,
+  ) => {
+    if (!!onMenuOpen) {
+      onMenuOpen(isOpen);
+    }
+  };
+
   render() {
     const {
       children,
@@ -78,6 +89,7 @@ export class LanguageMenu extends Component<LanguageMenuProps> {
       languageMenuButtonClassName: menuButtonClassName,
       languageMenuListProps: menuListProps = {},
       languageMenuListComponent: MenuListComponentReplace,
+      onMenuOpen,
       ...passProps
     } = this.props;
 
@@ -85,20 +97,33 @@ export class LanguageMenu extends Component<LanguageMenuProps> {
       logger.warn(`Menu '${name}' does not contain items`);
       return null;
     }
-
     return (
       <HtmlSpan className={classnames(className, baseClassName)}>
         <Menu>
-          <MenuButton {...passProps} className={menuButtonClassName}>
-            {name}
-          </MenuButton>
-          {!!MenuListComponentReplace ? (
-            <MenuListComponentReplace {...menuListProps}>
-              {children}
-            </MenuListComponentReplace>
-          ) : (
-            <MenuList {...menuListProps}>{children}</MenuList>
-          )}
+          {({ isOpen }: { isOpen: boolean }) => {
+            console.log(isOpen);
+            return (
+              <Fragment>
+                <MenuButton
+                  {...passProps}
+                  className={menuButtonClassName}
+                  onMouseDown={() =>
+                    this.handleMenuOpenEvent(isOpen, onMenuOpen)
+                  }
+                  onKeyDown={() => this.handleMenuOpenEvent(isOpen, onMenuOpen)}
+                >
+                  {name}
+                </MenuButton>
+                {!!MenuListComponentReplace ? (
+                  <MenuListComponentReplace {...menuListProps}>
+                    {children}
+                  </MenuListComponentReplace>
+                ) : (
+                  <MenuList {...menuListProps}>{children}</MenuList>
+                )}
+              </Fragment>
+            );
+          }}
         </Menu>
       </HtmlSpan>
     );
