@@ -57,7 +57,6 @@ const StyledTextInput = styled(
           [textInputClassNames.error]: status === 'error',
           [textInputClassNames.success]: status === 'success',
         })}
-        aria-invalid={status === 'error' ? 'true' : undefined}
       />
     );
   },
