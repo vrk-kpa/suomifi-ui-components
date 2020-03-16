@@ -23,6 +23,7 @@ const labelBaseClassName = `${baseClassName}_label`;
 const inputBaseClassName = `${baseClassName}_input`;
 const statusTextClassName = `${baseClassName}_statusText`;
 const statusTextContainerClassName = `${statusTextClassName}_container`;
+const statusTextSpanClassName = `${baseClassName}_statusText_span`;
 
 export interface TextInputLabelProps extends HtmlLabelProps {}
 
@@ -103,7 +104,7 @@ class BaseTextInput extends Component<TextInputProps> {
             />
             {children}
           </HtmlDiv>
-          <HtmlSpan className={statusTextClassName} id={generatedId}>
+          <HtmlSpan className={statusTextSpanClassName} id={generatedId}>
             {statusText}
           </HtmlSpan>
         </HtmlDiv>

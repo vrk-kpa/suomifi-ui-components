@@ -173,7 +173,7 @@ exports[`calling render with the same component on the same container does not r
   flex-direction: column;
 }
 
-.c0 .fi-text-input_statusText_container .fi-text-input_statusText {
+.c0 .fi-text-input_statusText_container .fi-text-input_statusText_span {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -209,7 +209,7 @@ exports[`calling render with the same component on the same container does not r
   border-color: hsl(3,59%,48%);
 }
 
-.c0.fi-text-input--error .fi-text-input_statusText {
+.c0.fi-text-input--error .fi-text-input_statusText_span {
   color: hsl(3,59%,48%);
 }
 
@@ -245,7 +245,7 @@ exports[`calling render with the same component on the same container does not r
       />
     </div>
     <span
-      class="fi-text-input_statusText c6"
+      class="fi-text-input_statusText_span c6"
       id="test-id-statusText"
     />
   </div>
