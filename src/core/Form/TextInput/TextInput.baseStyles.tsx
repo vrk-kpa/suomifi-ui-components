@@ -12,6 +12,15 @@ export const baseStyles = withSuomifiTheme(
     ${inputContainer({ theme })}
   }
 
+  & .fi-text-input_statusText_container {
+    display: flex;
+    flex-direction: column;
+
+    & .fi-text-input_statusText_span {
+      ${theme.typography.bodySemiBoldSmall}
+    }
+  }
+
   & .fi-text-input_input {
     ${input({ theme })}
     background-color: ${theme.colors.whiteBase};
@@ -20,14 +29,21 @@ export const baseStyles = withSuomifiTheme(
 
   &.fi-text-input--error {
     & .fi-text-input_input {
-      color: ${theme.colors.alertBase};
       border-color: ${theme.colors.alertBase};
+    }
+    & .fi-text-input_statusText_span {
+      color: ${theme.colors.alertBase};
     }
   }
   &.fi-text-input--success {
     & .fi-text-input_input {
-      color: ${theme.colors.successBase};
       border-color: ${theme.colors.successBase};
+    }
+  }
+  &.fi-text-input--disabled {
+    & .fi-text-input_input {
+      color: ${theme.colors.depthBase};
+      background-color: ${theme.colors.depthLight3};
     }
   }
 `,

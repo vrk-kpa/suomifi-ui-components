@@ -73,6 +73,30 @@ exports[`calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
+.c6 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -139,6 +163,23 @@ exports[`calling render with the same component on the same container does not r
   outline: none;
 }
 
+.c0 .fi-text-input_statusText_container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c0 .fi-text-input_statusText_container .fi-text-input_statusText_span {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
 .c0 .fi-text-input_input {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -165,13 +206,20 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c0.fi-text-input--error .fi-text-input_input {
-  color: hsl(3,59%,48%);
   border-color: hsl(3,59%,48%);
 }
 
+.c0.fi-text-input--error .fi-text-input_statusText_span {
+  color: hsl(3,59%,48%);
+}
+
 .c0.fi-text-input--success .fi-text-input_input {
-  color: hsl(166,90%,36%);
   border-color: hsl(166,90%,36%);
+}
+
+.c0.fi-text-input--disabled .fi-text-input_input {
+  color: hsl(202,7%,67%);
+  background-color: hsl(202,7%,97%);
 }
 
 <label
@@ -183,12 +231,22 @@ exports[`calling render with the same component on the same container does not r
     Test input
   </p>
   <div
-    class="fi-text-input_container c4"
+    class="fi-text-input_statusText_container c4"
   >
-    <input
-      class="fi-text-input_input c5"
-      data-testid="textinput"
-      type="text"
+    <div
+      class="fi-text-input_container c4"
+    >
+      <input
+        aria-describedby="test-id-statusText"
+        class="fi-text-input_input c5"
+        data-testid="textinput"
+        id="test-id"
+        type="text"
+      />
+    </div>
+    <span
+      class="fi-text-input_statusText_span c6"
+      id="test-id-statusText"
     />
   </div>
 </label>
