@@ -24,7 +24,9 @@ import { Icon } from '../Icon/Icon';
 const itemClassName = 'fi-language-menu_item';
 const itemLangClassName = 'fi-language-menu-language_item';
 const buttonClassName = 'fi-language-menu_button';
+const buttonOpenClassName = 'fi-language-menu-language_button_open';
 const buttonLangClassName = 'fi-language-menu-language_button';
+
 const listClassName = 'fi-language-menu_list';
 const listLangClassName = 'fi-language-menu-language_list';
 const iconLangClassName = 'fi-language-menu-language_icon';
@@ -98,6 +100,7 @@ class LanguageMenuVariation extends Component<LanguageMenuProps> {
           {...passProps}
           name={languageName(name)}
           languageMenuButtonClassName={languageMenuButtonClassName}
+          languageMenuOpenButtonClassName={buttonOpenClassName}
           languageMenuListProps={menuListProps}
           languageMenuListComponent={
             !!MenuListComponentProp ? MenuListComponentProp : StyledMenuList

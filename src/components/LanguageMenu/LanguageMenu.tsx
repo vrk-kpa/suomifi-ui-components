@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, Fragment } from 'react';
 import classnames from 'classnames';
 import { HtmlSpan } from '../../reset/HtmlSpan/HtmlSpan';
 import {
@@ -55,11 +55,13 @@ type OptionalLanguageMenuListProps = {
 
 export interface LanguageMenuProps {
   /** Name or content of menubutton */
-  name: ReactNode;
+  name: React.ReactNode | ((props: { isOpen: boolean }) => React.ReactNode);
   /** Custom classname to extend or customize */
   className?: string;
   /** Custom classname to extend or customize */
   languageMenuButtonClassName?: string;
+  /** Custom classname to apply when menu is open */
+  languageMenuOpenButtonClassName?: string;
   /** Properties given to LanguageMenu's List-component, className etc. */
   languageMenuListProps?: OptionalLanguageMenuListProps;
   languageMenuListComponent?: React.ComponentType<
@@ -76,6 +78,7 @@ export class LanguageMenu extends Component<LanguageMenuProps> {
       name,
       className,
       languageMenuButtonClassName: menuButtonClassName,
+      languageMenuOpenButtonClassName: menuButtonOpenClassName,
       languageMenuListProps: menuListProps = {},
       languageMenuListComponent: MenuListComponentReplace,
       ...passProps
@@ -85,20 +88,31 @@ export class LanguageMenu extends Component<LanguageMenuProps> {
       logger.warn(`Menu '${name}' does not contain items`);
       return null;
     }
-
     return (
       <HtmlSpan className={classnames(className, baseClassName)}>
         <Menu>
-          <MenuButton {...passProps} className={menuButtonClassName}>
-            {name}
-          </MenuButton>
-          {!!MenuListComponentReplace ? (
-            <MenuListComponentReplace {...menuListProps}>
-              {children}
-            </MenuListComponentReplace>
-          ) : (
-            <MenuList {...menuListProps}>{children}</MenuList>
-          )}
+          {({ isOpen }: { isOpen: boolean }) => {
+            return (
+              <Fragment>
+                <MenuButton
+                  {...passProps}
+                  className={classnames(
+                    menuButtonClassName,
+                    isOpen && menuButtonOpenClassName,
+                  )}
+                >
+                  {name}
+                </MenuButton>
+                {!!MenuListComponentReplace ? (
+                  <MenuListComponentReplace {...menuListProps}>
+                    {children}
+                  </MenuListComponentReplace>
+                ) : (
+                  <MenuList {...menuListProps}>{children}</MenuList>
+                )}
+              </Fragment>
+            );
+          }}
         </Menu>
       </HtmlSpan>
     );
