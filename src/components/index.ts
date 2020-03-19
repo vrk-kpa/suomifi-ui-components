@@ -20,7 +20,7 @@ export { LinkExternal, LinkExternalProps } from './Link/LinkExternal';
 export {
   LanguageMenu,
   LanguageMenuProps,
-  LanguageMenuListItemsProps,
+  LanguageMenuPopoverItemsProps,
   LanguageMenuItemProps,
   LanguageMenuLinkProps as MenuLinkProps,
   MenuItem,

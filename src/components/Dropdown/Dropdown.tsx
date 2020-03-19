@@ -6,6 +6,7 @@ import {
   MenuButton,
   MenuButtonProps,
   MenuPopoverProps,
+  MenuItems,
   MenuItem,
   MenuItemProps,
   MenuPopover,
@@ -17,7 +18,7 @@ export { MenuItem as DropdownItem };
 
 const baseClassName = 'fi-dropdown';
 const buttonClassName = `${baseClassName}_button`;
-const dropdownListClassName = `${baseClassName}_list`;
+const dropdownPopoverClassName = `${baseClassName}_popover`;
 const dropdownItemClassName = `${baseClassName}_item`;
 
 export interface DropdownItemProps {
@@ -27,7 +28,7 @@ export interface DropdownItemProps {
   children: ReactNode;
 }
 
-type DropdownListItems = DropdownItemProps;
+type DropdownPopoverItems = DropdownItemProps;
 
 interface DropdownState {
   selectedName: ReactNode;
@@ -36,7 +37,7 @@ interface DropdownState {
 type OptionalMenuButtonProps = {
   [K in keyof MenuButtonProps]?: MenuButtonProps[K];
 };
-type OptionalMenuListProps = {
+type OptionalMenuPopoverProps = {
   [K in keyof MenuPopoverProps]?: MenuPopoverProps[K];
 };
 type OptionalMenuItemProps = { [K in keyof MenuItemProps]?: MenuItemProps[K] };
@@ -52,15 +53,15 @@ export interface DropdownProps {
   className?: string;
   /** Properties given to dropdown's Button-component, className etc. */
   dropdownButtonProps?: OptionalMenuButtonProps;
-  /** Properties given to dropdown's list-component, className etc. */
-  dropdownListProps?: OptionalMenuListProps;
-  menuListComponent?: React.ComponentType<OptionalMenuListProps>;
+  /** Properties given to dropdown's popover-component, className etc. */
+  dropdownPopoverProps?: OptionalMenuPopoverProps;
+  menuPopoverComponent?: React.ComponentType<OptionalMenuPopoverProps>;
   /** Properties given to dropdown's item-component, className etc. */
   dropdownItemProps?: OptionalMenuItemProps;
   /** DropdownItems */
   children?:
-    | Array<ReactElement<DropdownListItems>>
-    | ReactElement<DropdownListItems>;
+    | Array<ReactElement<DropdownPopoverItems>>
+    | ReactElement<DropdownPopoverItems>;
 }
 
 export class Dropdown extends Component<DropdownProps> {
@@ -68,7 +69,7 @@ export class Dropdown extends Component<DropdownProps> {
 
   changeName = (name: ReactNode) => this.setState({ selectedName: name });
 
-  list = (
+  dropDownItems = (
     children: ReactNode,
     changeNameToSelection: boolean,
     dropdownItemProps?: OptionalMenuItemProps,
@@ -99,8 +100,8 @@ export class Dropdown extends Component<DropdownProps> {
       name,
       className,
       dropdownButtonProps = {},
-      dropdownListProps = {},
-      menuListComponent: MenuListComponentReplace,
+      dropdownPopoverProps = {},
+      menuPopoverComponent: MenuPopoverComponentReplace,
       dropdownItemProps = {},
       changeNameToSelection = true,
       ...passProps
@@ -116,9 +117,12 @@ export class Dropdown extends Component<DropdownProps> {
       ...dropdownButtonProps,
       className: classnames(buttonClassName, dropdownButtonProps.className),
     };
-    const passDropdownListProps = {
-      ...dropdownListProps,
-      className: classnames(dropdownListClassName, dropdownListProps.className),
+    const passDropdownPopoverProps = {
+      ...dropdownPopoverProps,
+      className: classnames(
+        dropdownPopoverClassName,
+        dropdownPopoverProps.className,
+      ),
     };
     const passDropdownItemProps = {
       ...dropdownItemProps,
@@ -131,24 +135,26 @@ export class Dropdown extends Component<DropdownProps> {
           <MenuButton {...passDropdownButtonProps}>
             {!!selectedName ? selectedName : name}
           </MenuButton>
-          {!!MenuListComponentReplace ? (
-            <MenuListComponentReplace {...passDropdownListProps}>
-              {this.list(
+          {!!MenuPopoverComponentReplace ? (
+            <MenuPopoverComponentReplace {...passDropdownPopoverProps}>
+              {this.dropDownItems(
                 children,
                 changeNameToSelection,
                 passDropdownItemProps,
               )}
-            </MenuListComponentReplace>
+            </MenuPopoverComponentReplace>
           ) : (
             <MenuPopover
               position={positionMatchWidth}
-              {...passDropdownListProps}
+              {...passDropdownPopoverProps}
             >
-              {this.list(
-                children,
-                changeNameToSelection,
-                passDropdownItemProps,
-              )}
+              <MenuItems>
+                {this.dropDownItems(
+                  children,
+                  changeNameToSelection,
+                  passDropdownItemProps,
+                )}
+              </MenuItems>
             </MenuPopover>
           )}
         </Menu>

@@ -31,9 +31,9 @@ export const baseStyles = withSuomifiTheme(
   `,
 );
 
-export const menuListStyles = withSuomifiTheme(
+export const menuPopoverStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
-  &[data-reach-menu-popover].fi-dropdown_list {
+  &[data-reach-menu-popover].fi-dropdown_popover {
     ${element({ theme })}
     ${theme.typography.actionElementInnerText}
     margin-top: -1px;
@@ -47,6 +47,11 @@ export const menuListStyles = withSuomifiTheme(
     border-width: 0 1px 1px 1px;
     border-radius: 0px 0px ${theme.radius.basic} ${theme.radius.basic};
     overflow: hidden;
+  }
+  
+  & [data-reach-menu-items] {
+    border: 0;
+    padding: 0;
   }
 
   & [data-reach-menu-item].fi-dropdown_item {
