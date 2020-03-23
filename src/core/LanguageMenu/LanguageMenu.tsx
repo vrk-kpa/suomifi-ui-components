@@ -82,6 +82,7 @@ const LanguageMenuPopoverPosition = (
   }
   return {
     left: `${targetRect.left - popoverRect.width + targetRect.width}px`,
+    // eslint-disable-next-line no-undef
     top: `${targetRect.top + targetRect.height + window.pageYOffset}px`,
   };
 };
