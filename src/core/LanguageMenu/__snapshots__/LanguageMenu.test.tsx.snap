@@ -74,7 +74,6 @@ exports[`calling render with the same component on the same container does not r
   background-color: hsl(0,0%,100%);
   border: 1px solid hsl(202,7%,67%);
   border-radius: 2px;
-  text-transform: uppercase;
 }
 
 .c0 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button > .fi-language-menu-language_icon {

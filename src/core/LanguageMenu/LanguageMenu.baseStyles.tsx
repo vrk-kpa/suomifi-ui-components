@@ -18,7 +18,6 @@ export const baseStyles = withSuomifiTheme(
       background-color: ${theme.colors.whiteBase};
       border: 1px solid ${theme.colors.depthBase};
       border-radius: ${theme.radius.basic};
-      text-transform: uppercase;
       & > .fi-language-menu-language_icon {
         height: 1.2em;
         width: 1.2em;
