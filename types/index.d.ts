@@ -50,6 +50,15 @@ declare module '@reach/menu-button' {
 
   export const MenuPopover: React.SFC<MenuPopoverProps>;
 
+  export type MenuItemsProps = {
+    children: React.ReactNode;
+  } & React.HTMLAttributes<HTMLDivElement>;
+
+  export declare const MenuItems: React.ForwardRefExoticComponent<{
+    children: React.ReactNode;
+  } & React.HTMLAttributes<HTMLDivElement> &
+    React.RefAttributes<HTMLDivElement>>;
+
   type ResolvedMenuLinkProps<T> = T extends keyof JSX.IntrinsicElements
     ? JSX.IntrinsicElements[T]
     : T;

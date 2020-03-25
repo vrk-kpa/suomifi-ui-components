@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calling render with the same component on the same container does not remount 1`] = `
+.c1 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0 > [data-reach-menu-button].fi-dropdown_button {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,67%);
+  border-radius: 2px;
+  line-height: 1;
+  position: relative;
+  padding-right: 30px;
+  text-align: left;
+  background-color: hsl(0,0%,100%);
+  cursor: pointer;
+}
+
+.c0 > [data-reach-menu-button].fi-dropdown_button:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c0 > [data-reach-menu-button].fi-dropdown_button:focus:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid hsl(23,82%,53%);
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  z-index: 9999;
+}
+
+.c0 > [data-reach-menu-button].fi-dropdown_button:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 > [data-reach-menu-button].fi-dropdown_button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -3px;
+  border-style: solid;
+  border-color: hsl(202,7%,40%) transparent transparent transparent;
+  border-width: 6px 4px 0 4px;
+}
+
+.c0 > [data-reach-menu-button].fi-dropdown_button[aria-expanded='true']:before {
+  border-color: transparent transparent hsl(202,7%,40%) transparent;
+  border-width: 0 4px 6px 4px;
+}
+
+<div>
+  <span
+    class="dropdown-test c0 fi-dropdown c1"
+  >
+    <button
+      aria-controls="menu--1"
+      aria-haspopup="true"
+      class="fi-dropdown_button"
+      data-reach-menu-button=""
+      id="menu-button--menu--1"
+      type="button"
+    >
+      Dropdown
+    </button>
+  </span>
+</div>
+`;

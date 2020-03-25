@@ -105,8 +105,8 @@
     "typescript": "3.3.1"
   },
   "dependencies": {
-    "@reach/menu-button": "0.8.5",
-    "@reach/popover": "0.8.5",
+    "@reach/menu-button": "0.9.0",
+    "@reach/popover": "0.9.0",
     "classnames": "2.2.6",
     "normalize.cssinjs": "1.1.0",
     "polished": "3.4.0",

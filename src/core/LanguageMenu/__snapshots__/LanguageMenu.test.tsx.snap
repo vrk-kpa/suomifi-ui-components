@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calling render with the same component on the same container does not remount 1`] = `
+.c1 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2 {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.c0 > [data-reach-menu-button].fi-language-menu_button {
+  color: hsl(0,0%,16%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.c0 > [data-reach-menu-button].fi-language-menu_button:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c0 > [data-reach-menu-button].fi-language-menu_button:focus:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid hsl(23,82%,53%);
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  z-index: 9999;
+}
+
+.c0 > [data-reach-menu-button].fi-language-menu_button:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c0 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button {
+  color: hsl(0,0%,16%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  padding: 5px 4px 5px 8px;
+  line-height: 28px;
+  background-color: hsl(0,0%,100%);
+  border: 1px solid hsl(202,7%,67%);
+  border-radius: 2px;
+}
+
+.c0 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button > .fi-language-menu-language_icon {
+  height: 1.2em;
+  width: 1.2em;
+  -webkit-transform: translateY(0.3em);
+  -ms-transform: translateY(0.3em);
+  transform: translateY(0.3em);
+  margin-left: 4px;
+}
+
+.c0 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button_open > .fi-language-menu-language_icon.fi-language-menu-language_icon {
+  -webkit-transform: translateY(0.2em) rotate(180deg);
+  -ms-transform: translateY(0.2em) rotate(180deg);
+  transform: translateY(0.2em) rotate(180deg);
+}
+
+<div>
+  <span
+    class="c0 fi-language-menu c1"
+  >
+    <button
+      aria-controls="menu--1"
+      aria-haspopup="true"
+      class="fi-language-menu_button fi-language-menu-language_button menu-language-test"
+      data-reach-menu-button=""
+      id="menu-button--menu--1"
+      type="button"
+    >
+      FI
+      <svg
+        aria-hidden="true"
+        class="fi-language-menu-language_icon c2"
+        fill="hsl(202, 7%, 40%)"
+        focusable="false"
+        height="1em"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path
+          d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
+        />
+      </svg>
+    </button>
+  </span>
+</div>
+`;

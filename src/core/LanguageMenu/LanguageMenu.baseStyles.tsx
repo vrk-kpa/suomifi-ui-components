@@ -18,7 +18,6 @@ export const baseStyles = withSuomifiTheme(
       background-color: ${theme.colors.whiteBase};
       border: 1px solid ${theme.colors.depthBase};
       border-radius: ${theme.radius.basic};
-      text-transform: uppercase;
       & > .fi-language-menu-language_icon {
         height: 1.2em;
         width: 1.2em;
@@ -35,21 +34,19 @@ export const baseStyles = withSuomifiTheme(
 `,
 );
 
-export const languageMenuListStyles = withSuomifiTheme(
+export const languageMenuPopoverStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
-  &[data-reach-menu-list].fi-language-menu_list {
+  &[data-reach-menu-popover].fi-language-menu_popover {
     ${element({ theme })}
     ${theme.typography.bodyText}
     margin-top: -2px;
     background-color: ${theme.colors.whiteBase};
     border: none;
     box-shadow: ${theme.shadows.menuShadow};
-    &.fi-language-menu-language_list {
+    &.fi-language-menu-language_popover {
       ${theme.typography.actionElementInnerText}
       position: absolute;
       box-sizing: content-box;
-      right: -50px;
-      top: 0;
       margin-top: 12px;
       padding: 10px 0;
       border: 1px solid ${theme.colors.depthBase};
@@ -76,6 +73,11 @@ export const languageMenuListStyles = withSuomifiTheme(
         margin-right: -7px;
       }
     }
+  }
+
+  & [data-reach-menu-items] {
+    border: 0;
+    padding: 0;
   }
 
   & [data-reach-menu-item].fi-language-menu_item {
