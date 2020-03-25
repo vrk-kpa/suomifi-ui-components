@@ -196,7 +196,7 @@ exports[`calling render with the same component on the same container does not r
 
 .c0 .fi-expander_title--no-tag {
   padding-top: 16px;
-  padding-right: 64px;
+  padding-right: 60px;
   padding-bottom: 16px;
   padding-left: 16px;
   color: hsl(212,63%,45%);

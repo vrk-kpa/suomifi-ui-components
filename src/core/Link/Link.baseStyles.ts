@@ -26,7 +26,7 @@ export const baseStyles = withSuomifiTheme(
 export const externalStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     & .fi-link_icon {
-      padding-left: ${theme.spacing.xs};
+      padding-left: ${theme.spacing.insetXs};
       transform: translateY(0.1em);
     }
   `,

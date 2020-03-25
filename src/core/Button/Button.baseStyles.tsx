@@ -87,7 +87,7 @@ const tertiaryStyles = ({ theme }: SuomifiThemeProp) => css`
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme & Partial<ButtonProps>) => css`
   ${button({ theme })}
-  padding: ${theme.spacing.s} ${theme.spacing.m};
+  padding: ${theme.spacing.insetM} ${theme.spacing.insetXl};
   min-height: 40px;
   color: ${theme.colors.whiteBase};
   background: ${theme.gradients.highlightBase};
@@ -130,12 +130,12 @@ export const baseStyles = withSuomifiTheme(
   & > .fi-button_icon {
     width: 16px;
     height: 16px;
-    margin-right: ${theme.spacing.s};
+    margin-right: ${theme.spacing.insetM};
     vertical-align: middle;
     transform: translateY(-0.1em);
     &.fi-button_icon--right {
       margin-right: 0;
-      margin-left: ${theme.spacing.s};
+      margin-left: ${theme.spacing.insetM};
     }
   }
 `,

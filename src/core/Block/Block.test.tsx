@@ -7,7 +7,7 @@ import { Block } from './Block';
 const TestBlock = (
   <div data-testid="test-block">
     <Block>Hey this is test</Block>
-    <Block padding="xl">Hey this is test lead</Block>
+    <Block padding="xxxl">Hey this is test lead</Block>
     <Block.section>Hey this is test bold</Block.section>
   </div>
 );

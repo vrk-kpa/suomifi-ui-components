@@ -111,7 +111,7 @@
     "normalize.cssinjs": "1.1.0",
     "polished": "3.4.0",
     "react-svg": "7.2.2",
-    "suomifi-design-tokens": "0.7.1",
+    "suomifi-design-tokens": "0.8.0",
     "suomifi-icons": "0.1.0",
     "uuid": "3.3.2"
   },

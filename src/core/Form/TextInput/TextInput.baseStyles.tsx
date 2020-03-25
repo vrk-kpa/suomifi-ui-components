@@ -5,7 +5,7 @@ import { input, inputContainer } from '../../theme/reset';
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
   & .fi-text-input_label-p {
-    margin-bottom: ${theme.spacing.m};
+    margin-bottom: ${theme.spacing.insetXl};
   }
 
   & .fi-text-input_container {

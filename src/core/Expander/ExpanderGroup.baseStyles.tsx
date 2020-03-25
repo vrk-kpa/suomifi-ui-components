@@ -17,10 +17,10 @@ export const baseStyles = withSuomifiTheme(
         ${theme.transitions.basicTimingFunction}`};
       &.fi-expander--open {
         &:not(:first-of-type) {
-          margin-top: ${theme.spacing.m};
+          margin-top: ${theme.spacing.insetXl};
         }
         &:not(:last-of-type) {
-          margin-bottom: ${theme.spacing.m};
+          margin-bottom: ${theme.spacing.insetXl};
         }
       }
     }
@@ -33,8 +33,8 @@ export const baseStyles = withSuomifiTheme(
     flex: 1 1 auto;
     align-self: flex-end; 
     margin-left: auto;
-    margin-bottom: ${theme.spacing.s};
-    padding: ${theme.spacing.xs} 0;
+    margin-bottom: ${theme.spacing.insetM};
+    padding: ${theme.spacing.insetXs} 0;
     color: ${theme.colors.highlightBase};
     cursor: pointer;
   }
