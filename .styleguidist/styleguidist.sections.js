@@ -47,7 +47,7 @@ module.exports = {
         },
         {
           name: 'Spacing',
-          content: './.styleguidist/spacing.insetXl',
+          content: './.styleguidist/spacing.md',
         },
       ],
       sectionDepth: 1,
