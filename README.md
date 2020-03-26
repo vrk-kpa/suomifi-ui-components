@@ -1,17 +1,17 @@
 # [<img src="https://avatars0.githubusercontent.com/u/11345641?s=88&v=4" alt="VRK" width="18"/> suomifi-ui-components](https://vrk-kpa.github.io/suomifi-ui-components/)
 
-Suomi.fi-styleguide in React components. [Living styleguide](https://vrk-kpa.github.io/suomifi-ui-components/) (latest release/master-branch): [https://vrk-kpa.github.io/suomifi-ui-components/](https://vrk-kpa.github.io/suomifi-ui-components/)
+Suomi.fi-styleguide in React components. [Living styleguide](https://vrk-kpa.github.io/suomifi-ui-components/) (latest release/master-branch).
 
 ## ✨ Features
 
-- React-components (>=16.8) with Typescript support
+- React-components (>=16.8) with TypeScript support
 - Highly modular - all browser/app CSS-resets without global styles
 - Should work on all different existing React apps (>=16.8)
 - Highly customizable (CSS, CSS-in-JS)
 
 Uses [React 16.8.0](https://github.com/facebook/react) with [Styled Components](https://github.com/styled-components/styled-components) and written in [TypeScript](https://github.com/Microsoft/TypeScript). [Styleguidist](https://github.com/styleguidist/react-styleguidist) for presenting components.
 
-[Webpack 4](https://github.com/webpack/webpack) with [awesome-typescript-loader](https://github.com/s-panferov/awesome-typescript-loader) and [TSLint](https://github.com/palantir/tslint).
+[tsdx](https://github.com/jaredpalmer/tsdx) and [eslint](https://eslint.org/).
 
 For testing: [React-testing-library](https://github.com/kentcdodds/react-testing-library) run by [Jest](https://github.com/facebook/jest) with [ts-jest](https://github.com/kulshekhar/ts-jest) (code coverage with built-in [Istanbul](https://github.com/istanbuljs)). Code style with [Prettier](https://github.com/prettier/prettier).
 
