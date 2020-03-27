@@ -4,9 +4,19 @@ import { SpacingProp, spacingTokensKeys } from '../spacing';
 
 import { SuomifiThemeProp, SuomifiTheme } from '../';
 
-export type SpaceProp = SpacingProp | '0';
+export type SpacingWithoutInsetProp =
+  | 'xxs'
+  | 'xs'
+  | 's'
+  | 'm'
+  | 'l'
+  | 'xl'
+  | 'xxl'
+  | 'xxxl'
+  | 'xxxxl'
+  | '0';
 
-const spaceVal = (theme: SuomifiTheme) => (val?: SpaceProp) => {
+const spaceVal = (theme: SuomifiTheme) => (val?: SpacingProp) => {
   if (val === '0') return '0';
   return !!val ? theme.spacing[val] : '';
 };
@@ -30,10 +40,10 @@ const spaceVal = (theme: SuomifiTheme) => (val?: SpaceProp) => {
  * @return {(spacingType) => (spacingTokens) => String}
  */
 const space = (theme: SuomifiTheme) => (type: 'padding' | 'margin') => (
-  t?: SpaceProp,
-  r?: SpaceProp,
-  b?: SpaceProp,
-  l?: SpaceProp,
+  t?: SpacingProp,
+  r?: SpacingProp,
+  b?: SpacingProp,
+  l?: SpacingProp,
 ) =>
   !!t
     ? `${!!t ? `${type}-top: ${spaceVal(theme)(t)};` : ''}

@@ -57,7 +57,7 @@ export const menuPopoverStyles = withSuomifiTheme(
   & [data-reach-menu-item].fi-dropdown_item {
     ${element({ theme })}
     ${theme.typography.actionElementInnerText}
-    padding: ${theme.spacing.s} ${theme.spacing.m};
+    padding: ${theme.spacing.insetM} ${theme.spacing.insetXl};
     border: 0;
     &[data-selected] {
       ${theme.typography.actionElementInnerText}

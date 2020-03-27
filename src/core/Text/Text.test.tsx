@@ -8,7 +8,7 @@ import { Text } from './Text';
 const TestTexts = (
   <div data-testid="test-text">
     <Paragraph>Paragraph text</Paragraph>
-    <Paragraph marginBottomSpacing="m">
+    <Paragraph marginBottomSpacing="s">
       <Text.lead>Leading text</Text.lead>
     </Paragraph>
     <Paragraph>

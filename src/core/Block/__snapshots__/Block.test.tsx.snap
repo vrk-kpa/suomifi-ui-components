@@ -43,51 +43,131 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c0.fi-block--margin-xxs {
-  margin: 2px;
+  margin: 5px;
 }
 
 .c0.fi-block--margin-xs {
-  margin: 4px;
+  margin: 10px;
 }
 
 .c0.fi-block--margin-s {
-  margin: 8px;
+  margin: 15px;
 }
 
 .c0.fi-block--margin-m {
-  margin: 16px;
+  margin: 20px;
 }
 
 .c0.fi-block--margin-l {
-  margin: 32px;
+  margin: 25px;
 }
 
 .c0.fi-block--margin-xl {
-  margin: 64px;
+  margin: 30px;
+}
+
+.c0.fi-block--margin-xxl {
+  margin: 40px;
+}
+
+.c0.fi-block--margin-xxxl {
+  margin: 60px;
+}
+
+.c0.fi-block--margin-xxxxl {
+  margin: 80px;
+}
+
+.c0.fi-block--margin-insetXss {
+  margin: 2px;
+}
+
+.c0.fi-block--margin-insetXs {
+  margin: 4px;
+}
+
+.c0.fi-block--margin-insetS {
+  margin: 6px;
+}
+
+.c0.fi-block--margin-insetM {
+  margin: 8px;
+}
+
+.c0.fi-block--margin-insetL {
+  margin: 10px;
+}
+
+.c0.fi-block--margin-insetXl {
+  margin: 16px;
+}
+
+.c0.fi-block--margin-insetXxl {
+  margin: 20px;
 }
 
 .c0.fi-block--padding-xxs {
-  padding: 2px;
+  padding: 5px;
 }
 
 .c0.fi-block--padding-xs {
-  padding: 4px;
+  padding: 10px;
 }
 
 .c0.fi-block--padding-s {
-  padding: 8px;
+  padding: 15px;
 }
 
 .c0.fi-block--padding-m {
-  padding: 16px;
+  padding: 20px;
 }
 
 .c0.fi-block--padding-l {
-  padding: 32px;
+  padding: 25px;
 }
 
 .c0.fi-block--padding-xl {
-  padding: 64px;
+  padding: 30px;
+}
+
+.c0.fi-block--padding-xxl {
+  padding: 40px;
+}
+
+.c0.fi-block--padding-xxxl {
+  padding: 60px;
+}
+
+.c0.fi-block--padding-xxxxl {
+  padding: 80px;
+}
+
+.c0.fi-block--padding-insetXss {
+  padding: 2px;
+}
+
+.c0.fi-block--padding-insetXs {
+  padding: 4px;
+}
+
+.c0.fi-block--padding-insetS {
+  padding: 6px;
+}
+
+.c0.fi-block--padding-insetM {
+  padding: 8px;
+}
+
+.c0.fi-block--padding-insetL {
+  padding: 10px;
+}
+
+.c0.fi-block--padding-insetXl {
+  padding: 16px;
+}
+
+.c0.fi-block--padding-insetXxl {
+  padding: 20px;
 }
 
 <div
@@ -99,7 +179,7 @@ exports[`calling render with the same component on the same container does not r
     Hey this is test
   </div>
   <div
-    class="fi-block c0 fi-block--padding-xl c1"
+    class="fi-block c0 fi-block--padding-xxxl c1"
   >
     Hey this is test lead
   </div>

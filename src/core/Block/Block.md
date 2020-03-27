@@ -7,7 +7,7 @@ import { Block } from 'suomifi-ui-components';
 ```js
 import { Block } from 'suomifi-ui-components';
 
-<Block padding="xl">Block with xl-padding</Block>;
+<Block padding="xxxl">Block with xl-padding</Block>;
 ```
 
 ```js

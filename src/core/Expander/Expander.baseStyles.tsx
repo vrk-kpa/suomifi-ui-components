@@ -34,7 +34,7 @@ export const baseStyles = withSuomifiTheme(
     display: block;
     width: 100%;
     &--no-tag {
-      ${padding({ theme })('m', 'xl', 'm', 'm')}
+      ${padding({ theme })('insetXl', 'xxxl', 'insetXl', 'insetXl')}
       color: ${theme.colors.highlightBase};
     }
   }
@@ -42,7 +42,7 @@ export const baseStyles = withSuomifiTheme(
     position: absolute;
     top: 0;
     right: 0;
-    margin: ${theme.spacing.m};
+    margin: ${theme.spacing.insetXl};
   }
   & .fi-expander_title--open .fi-expander_title-icon,
   & .fi-expander_title-icon--open {
@@ -60,7 +60,7 @@ export const baseStyles = withSuomifiTheme(
       ${theme.transitions.basicTimingFunction}`};
     will-change: transition, height;
     &:not(.fi-expander_content--no-padding) {
-      padding: 0 ${theme.spacing.m};
+      padding: 0 ${theme.spacing.insetXl};
     }
     &.fi-expander_content--open {
       height: 10%;
@@ -69,7 +69,7 @@ export const baseStyles = withSuomifiTheme(
       animation: fi-expander_content-anim ${theme.transitions.basicTime}
         ${theme.transitions.basicTimingFunction} 1 forwards;
       &:not(.fi-expander_content--no-padding) {
-        ${padding({ theme })('0', 'm', 'm', 'm')}
+        ${padding({ theme })('0', 'insetXl', 'insetXl', 'insetXl')}
       }
     }
     @keyframes fi-expander_content-anim {

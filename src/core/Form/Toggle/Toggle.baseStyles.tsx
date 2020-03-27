@@ -50,7 +50,7 @@ export const baseStyles = withSuomifiTheme(
   & .fi-toggle_icon {
     width: ${iconWidth};
     height: ${iconHeight};
-    margin-right: ${theme.spacing.s};
+    margin-right: ${theme.spacing.insetM};
     vertical-align: bottom;
     overflow: visible;
     transform: translateY(-0.1em);

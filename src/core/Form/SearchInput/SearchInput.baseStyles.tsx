@@ -9,12 +9,14 @@ export const baseStyles = withSuomifiTheme(
         position: relative;
       }
       &_input {
-        padding-right: ${math(`${theme.spacing.m} * 2 + ${theme.spacing.s}`)};
+        padding-right: ${math(
+          `${theme.spacing.insetXl} * 2 + ${theme.spacing.insetM}`,
+        )};
       }
       &_icon {
         position: absolute;
         top: 50%;
-        right: ${theme.spacing.m};
+        right: ${theme.spacing.insetXl};
         margin-top: -0.5em;
       }
     }

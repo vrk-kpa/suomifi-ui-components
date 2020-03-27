@@ -64,7 +64,7 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 400;
   margin-top: 0;
   margin-right: 0;
-  margin-bottom: 16px;
+  margin-bottom: 15px;
   margin-left: 0;
   color: hsl(0,0%,16%);
 }

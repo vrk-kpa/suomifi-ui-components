@@ -6,7 +6,7 @@ import {
   Block as CompBlock,
   BlockProps as CompBlockProps,
 } from '../../components/Block/Block';
-import { SpacingProp } from '../theme/spacing';
+import { SpacingWithoutInsetProp } from '../theme/spacing';
 import { baseStyles } from './Block.baseStyles';
 import classnames from 'classnames';
 
@@ -14,9 +14,9 @@ const baseClassName = 'fi-block';
 
 export interface BlockProps extends CompBlockProps, TokensProp {
   /** Padding from theme */
-  padding?: SpacingProp;
+  padding?: SpacingWithoutInsetProp;
   /** Margin from theme */
-  margin?: SpacingProp;
+  margin?: SpacingWithoutInsetProp;
 }
 
 const StyledBlock = styled(
