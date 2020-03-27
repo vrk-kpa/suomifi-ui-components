@@ -4,6 +4,7 @@ import { colors } from '../src/core/theme/colors';
 import { cssValueToString } from '../src/utils/css';
 import { element, fonts } from '../src/core/theme/reset';
 import { spacing } from '../src/core/theme/spacing';
+import { suomifiTheme } from '../src/core/theme';
 import { Text } from '../src/core/Text/Text';
 import clipboardCopy from 'clipboard-copy';
 
@@ -42,7 +43,7 @@ const Square = styled(props => (
     flex: none;
     display: flex;
     align-items: flex-end;
-    width: 84px;
+    width: 100px;
 
     > .box {
       height: ${size};
