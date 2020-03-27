@@ -42,7 +42,7 @@ const Square = styled(props => (
     flex: none;
     display: flex;
     align-items: flex-end;
-    width: ${cssValueToString(spacing.xxxl)};
+    width: 84px;
 
     > .box {
       height: ${size};
