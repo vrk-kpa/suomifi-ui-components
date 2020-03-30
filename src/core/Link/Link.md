@@ -14,6 +14,16 @@ import { Link, Paragraph } from 'suomifi-ui-components';
 </Paragraph>;
 ```
 
+### Skip link
+
+Show link for keyboard navigation. Preview not working as intended, because it should be the first element on the page to gain focus on tab.
+
+```js
+import { Link } from 'suomifi-ui-components';
+
+<Link.skip>Skip to main content</Link.skip>;
+```
+
 ### External link
 
 ```js

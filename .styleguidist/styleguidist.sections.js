@@ -67,7 +67,10 @@ module.exports = {
             },
             {
               name: 'Link',
-              components: getComponentWithVariants('Link')(['LinkExternal']),
+              components: getComponentWithVariants('Link')([
+                'LinkSkip',
+                'LinkExternal',
+              ]),
             },
             {
               name: 'Icons',

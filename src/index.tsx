@@ -29,6 +29,7 @@ export {
 } from './core/StaticIcon/StaticIcon';
 export { Link, LinkProps } from './core/Link/Link';
 export { LinkExternal, LinkExternalProps } from './core/Link/LinkExternal';
+export { LinkSkip, LinkSkipProps } from './core/Link/LinkSkip';
 export {
   LanguageMenu,
   LanguageMenuProps,
