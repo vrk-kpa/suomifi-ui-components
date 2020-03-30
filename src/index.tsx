@@ -26,12 +26,8 @@ export {
   IllustrativeIconKeys,
   DoctypeIconKeys,
 } from './core/StaticIcon/StaticIcon';
-export {
-  Link,
-  LinkProps,
-  LinkExternal,
-  LinkExternalProps,
-} from './core/Link/Link';
+export { Link, LinkProps } from './core/Link/Link';
+export { LinkExternal, LinkExternalProps } from './core/Link/LinkExternal';
 export {
   LanguageMenu,
   LanguageMenuProps,
