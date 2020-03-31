@@ -9,7 +9,6 @@ import {
 import { asPropType } from '../../utils/typescript';
 import { LinkExternal, LinkExternalProps } from './LinkExternal';
 import { baseStyles } from './Link.baseStyles';
-export { LinkExternal, LinkExternalProps };
 
 type LinkVariant = 'default' | 'external';
 export interface LinkProps extends CompLinkProps, TokensProp {
