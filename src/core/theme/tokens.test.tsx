@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { axeTest } from '../../utils/test/axe';
 
 import { defaultThemeTokens } from './';
-import { Expander } from '../../';
+import { Expander } from '../Expander/Expander';
 
 const { colors } = defaultThemeTokens;
 const customColors = {
