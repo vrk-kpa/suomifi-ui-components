@@ -1,3 +1,4 @@
+import './styles.scss';
 export { Breadcrumb, BreadcrumbProps } from './core/Breadcrumb/Breadcrumb';
 export {
   BreadcrumbLink,
