@@ -75,6 +75,7 @@
     "eslint-plugin-tree-shaking": "1.8.0",
     "gh-pages": "2.0.1",
     "husky": "4.2.1",
+    "identity-obj-proxy": "3.0.0",
     "jest": "25.1.0",
     "jest-axe": "3.3.0",
     "jest-styled-components": "6.3.4",

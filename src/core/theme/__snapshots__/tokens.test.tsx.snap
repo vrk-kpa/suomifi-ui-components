@@ -73,6 +73,11 @@ exports[`snapshot testing 1`] = `
   white-space: normal;
 }
 
+.c8 {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
 .c4.fi-button--disabled {
   cursor: not-allowed;
 }
@@ -97,11 +102,6 @@ exports[`snapshot testing 1`] = `
 .c7:focus,
 .c7:focus-within {
   cursor: pointer;
-}
-
-.c8 {
-  display: inline-block;
-  vertical-align: baseline;
 }
 
 .c3 {
