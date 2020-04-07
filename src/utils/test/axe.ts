@@ -4,7 +4,7 @@ import { axe } from 'jest-axe';
 
 export const axeTest = (
   element: ReactElement<any>,
-  options: any = {},
+  options: any = { rules: { region: { enabled: false } } },
 ) => async () => {
   const html = server.renderToString(element);
   const results = await axe(html, options);

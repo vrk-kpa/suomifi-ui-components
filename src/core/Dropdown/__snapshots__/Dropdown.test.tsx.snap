@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.c1 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -25,7 +25,7 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.c0 > [data-reach-menu-button].fi-dropdown_button {
+.c1 > [data-reach-menu-button].fi-dropdown_button {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -53,12 +53,12 @@ exports[`calling render with the same component on the same container does not r
   cursor: pointer;
 }
 
-.c0 > [data-reach-menu-button].fi-dropdown_button:focus {
+.c1 > [data-reach-menu-button].fi-dropdown_button:focus {
   outline: 0;
   position: relative;
 }
 
-.c0 > [data-reach-menu-button].fi-dropdown_button:focus:after {
+.c1 > [data-reach-menu-button].fi-dropdown_button:focus:after {
   content: '';
   position: absolute;
   top: -4px;
@@ -73,11 +73,11 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.c0 > [data-reach-menu-button].fi-dropdown_button:focus:not(:focus-visible):after {
+.c1 > [data-reach-menu-button].fi-dropdown_button:focus:not(:focus-visible):after {
   content: none;
 }
 
-.c0 > [data-reach-menu-button].fi-dropdown_button:before {
+.c1 > [data-reach-menu-button].fi-dropdown_button:before {
   content: '';
   position: absolute;
   top: 50%;
@@ -88,14 +88,14 @@ exports[`calling render with the same component on the same container does not r
   border-width: 6px 4px 0 4px;
 }
 
-.c0 > [data-reach-menu-button].fi-dropdown_button[aria-expanded='true']:before {
+.c1 > [data-reach-menu-button].fi-dropdown_button[aria-expanded='true']:before {
   border-color: transparent transparent hsl(202,7%,40%) transparent;
   border-width: 0 4px 6px 4px;
 }
 
 <div>
   <span
-    class="dropdown-test c0 fi-dropdown c1"
+    class="c0 c1 dropdown-test fi-dropdown"
   >
     <button
       aria-controls="menu--1"

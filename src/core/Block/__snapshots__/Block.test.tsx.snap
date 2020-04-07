@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.c1 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -25,7 +25,7 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.c0 {
+.c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -42,131 +42,131 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 400;
 }
 
-.c0.fi-block--margin-xxs {
+.c1.fi-block--margin-xxs {
   margin: 5px;
 }
 
-.c0.fi-block--margin-xs {
+.c1.fi-block--margin-xs {
   margin: 10px;
 }
 
-.c0.fi-block--margin-s {
+.c1.fi-block--margin-s {
   margin: 15px;
 }
 
-.c0.fi-block--margin-m {
+.c1.fi-block--margin-m {
   margin: 20px;
 }
 
-.c0.fi-block--margin-l {
+.c1.fi-block--margin-l {
   margin: 25px;
 }
 
-.c0.fi-block--margin-xl {
+.c1.fi-block--margin-xl {
   margin: 30px;
 }
 
-.c0.fi-block--margin-xxl {
+.c1.fi-block--margin-xxl {
   margin: 40px;
 }
 
-.c0.fi-block--margin-xxxl {
+.c1.fi-block--margin-xxxl {
   margin: 60px;
 }
 
-.c0.fi-block--margin-xxxxl {
+.c1.fi-block--margin-xxxxl {
   margin: 80px;
 }
 
-.c0.fi-block--margin-insetXss {
+.c1.fi-block--margin-insetXss {
   margin: 2px;
 }
 
-.c0.fi-block--margin-insetXs {
+.c1.fi-block--margin-insetXs {
   margin: 4px;
 }
 
-.c0.fi-block--margin-insetS {
+.c1.fi-block--margin-insetS {
   margin: 6px;
 }
 
-.c0.fi-block--margin-insetM {
+.c1.fi-block--margin-insetM {
   margin: 8px;
 }
 
-.c0.fi-block--margin-insetL {
+.c1.fi-block--margin-insetL {
   margin: 10px;
 }
 
-.c0.fi-block--margin-insetXl {
+.c1.fi-block--margin-insetXl {
   margin: 16px;
 }
 
-.c0.fi-block--margin-insetXxl {
+.c1.fi-block--margin-insetXxl {
   margin: 20px;
 }
 
-.c0.fi-block--padding-xxs {
+.c1.fi-block--padding-xxs {
   padding: 5px;
 }
 
-.c0.fi-block--padding-xs {
+.c1.fi-block--padding-xs {
   padding: 10px;
 }
 
-.c0.fi-block--padding-s {
+.c1.fi-block--padding-s {
   padding: 15px;
 }
 
-.c0.fi-block--padding-m {
+.c1.fi-block--padding-m {
   padding: 20px;
 }
 
-.c0.fi-block--padding-l {
+.c1.fi-block--padding-l {
   padding: 25px;
 }
 
-.c0.fi-block--padding-xl {
+.c1.fi-block--padding-xl {
   padding: 30px;
 }
 
-.c0.fi-block--padding-xxl {
+.c1.fi-block--padding-xxl {
   padding: 40px;
 }
 
-.c0.fi-block--padding-xxxl {
+.c1.fi-block--padding-xxxl {
   padding: 60px;
 }
 
-.c0.fi-block--padding-xxxxl {
+.c1.fi-block--padding-xxxxl {
   padding: 80px;
 }
 
-.c0.fi-block--padding-insetXss {
+.c1.fi-block--padding-insetXss {
   padding: 2px;
 }
 
-.c0.fi-block--padding-insetXs {
+.c1.fi-block--padding-insetXs {
   padding: 4px;
 }
 
-.c0.fi-block--padding-insetS {
+.c1.fi-block--padding-insetS {
   padding: 6px;
 }
 
-.c0.fi-block--padding-insetM {
+.c1.fi-block--padding-insetM {
   padding: 8px;
 }
 
-.c0.fi-block--padding-insetL {
+.c1.fi-block--padding-insetL {
   padding: 10px;
 }
 
-.c0.fi-block--padding-insetXl {
+.c1.fi-block--padding-insetXl {
   padding: 16px;
 }
 
-.c0.fi-block--padding-insetXxl {
+.c1.fi-block--padding-insetXxl {
   padding: 20px;
 }
 
@@ -174,17 +174,17 @@ exports[`calling render with the same component on the same container does not r
   data-testid="test-block"
 >
   <div
-    class="fi-block c0 c1"
+    class="c0 fi-block c1"
   >
     Hey this is test
   </div>
   <div
-    class="fi-block c0 fi-block--padding-xxxl c1"
+    class="c0 fi-block c1 fi-block--padding-xxxl"
   >
     Hey this is test lead
   </div>
   <section
-    class="fi-block c0 fi-block--section"
+    class="fi-block c1 fi-block--section"
   >
     Hey this is test bold
   </section>

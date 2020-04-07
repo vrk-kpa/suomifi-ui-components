@@ -53,7 +53,7 @@ exports[`calling render with the same component on the same container does not r
   opacity: 0.54;
 }
 
-.c2 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -125,22 +125,22 @@ exports[`calling render with the same component on the same container does not r
   cursor: not-allowed;
 }
 
-.c0 .fi-text-input_label-p {
+.c2 .fi-text-input_label-p {
   margin-bottom: 16px;
 }
 
-.c0 .fi-text-input_container > input:focus {
+.c2 .fi-text-input_container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
 
-.c0 .fi-text-input_container:focus-within {
+.c2 .fi-text-input_container:focus-within {
   outline: 0;
   position: relative;
 }
 
-.c0 .fi-text-input_container:focus-within:after {
+.c2 .fi-text-input_container:focus-within:after {
   content: '';
   position: absolute;
   top: -4px;
@@ -155,15 +155,15 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.c0 .fi-text-input_container:focus-within:not(:focus-visible):after {
+.c2 .fi-text-input_container:focus-within:not(:focus-visible):after {
   content: none;
 }
 
-.c0 .fi-text-input_container:focus-within > input:focus {
+.c2 .fi-text-input_container:focus-within > input:focus {
   outline: none;
 }
 
-.c0 .fi-text-input_statusText_container {
+.c2 .fi-text-input_statusText_container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -173,14 +173,14 @@ exports[`calling render with the same component on the same container does not r
   flex-direction: column;
 }
 
-.c0 .fi-text-input_statusText_container .fi-text-input_statusText_span {
+.c2 .fi-text-input_statusText_container .fi-text-input_statusText_span {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
 }
 
-.c0 .fi-text-input_input {
+.c2 .fi-text-input_input {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -205,47 +205,47 @@ exports[`calling render with the same component on the same container does not r
   width: 100%;
 }
 
-.c0.fi-text-input--error .fi-text-input_input {
+.c2.fi-text-input--error .fi-text-input_input {
   border-color: hsl(3,59%,48%);
 }
 
-.c0.fi-text-input--error .fi-text-input_statusText_span {
+.c2.fi-text-input--error .fi-text-input_statusText_span {
   color: hsl(3,59%,48%);
 }
 
-.c0.fi-text-input--success .fi-text-input_input {
+.c2.fi-text-input--success .fi-text-input_input {
   border-color: hsl(166,90%,36%);
 }
 
-.c0.fi-text-input--disabled .fi-text-input_input {
+.c2.fi-text-input--disabled .fi-text-input_input {
   color: hsl(202,7%,67%);
   background-color: hsl(202,7%,97%);
 }
 
 <label
-  class="fi-text-input_label c0 c1 c2"
+  class="c0 fi-text-input_label c1 c2"
 >
   <p
-    class="fi-paragraph fi-text-input_label-p c3"
+    class="c3 fi-paragraph fi-text-input_label-p"
   >
     Test input
   </p>
   <div
-    class="fi-text-input_statusText_container c4"
+    class="c4 fi-text-input_statusText_container"
   >
     <div
-      class="fi-text-input_container c4"
+      class="c4 fi-text-input_container"
     >
       <input
         aria-describedby="test-id-statusText"
-        class="fi-text-input_input c5"
+        class="c5 fi-text-input_input"
         data-testid="textinput"
         id="test-id"
         type="text"
       />
     </div>
     <span
-      class="fi-text-input_statusText_span c6"
+      class="c6 fi-text-input_statusText_span"
       id="test-id-statusText"
     />
   </div>

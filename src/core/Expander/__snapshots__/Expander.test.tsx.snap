@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.c5 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,29 +27,29 @@ exports[`calling render with the same component on the same container does not r
   cursor: pointer;
 }
 
-.c5:-moz-focusring {
+.c3:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c5::-moz-focus-inner {
+.c3::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c5::-webkit-file-upload-button {
+.c3::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c5::-webkit-inner-spin-button {
+.c3::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c5::-webkit-outer-spin-button {
+.c3::-webkit-outer-spin-button {
   height: auto;
 }
 
-.c2 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -87,15 +87,15 @@ exports[`calling render with the same component on the same container does not r
   display: none;
 }
 
-.c3,
-.c3 * {
+.c5,
+.c5 * {
   cursor: pointer;
 }
 
-.c3:hover,
-.c3:active,
-.c3:focus,
-.c3:focus-within {
+.c5:hover,
+.c5:active,
+.c5:focus,
+.c5:focus-within {
   cursor: pointer;
 }
 
@@ -104,7 +104,7 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
 }
 
-.c0 {
+.c2 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -127,7 +127,7 @@ exports[`calling render with the same component on the same container does not r
   box-shadow: 0 1px 2px 0 rgba(41,41,41,0.14),0 1px 5px 0 rgba(41,41,41,0.12);
 }
 
-.c0:before {
+.c2:before {
   content: '';
   position: absolute;
   top: 0;
@@ -138,18 +138,18 @@ exports[`calling render with the same component on the same container does not r
   height: 100%;
 }
 
-.c0:before {
+.c2:before {
   background-color: hsl(212,63%,98%);
   opacity: 0;
 }
 
-.c0.fi-expander--open:before {
+.c2.fi-expander--open:before {
   opacity: 1;
   -webkit-transition: opacity 50ms cubic-bezier(0.28,0.84,0.42,1);
   transition: opacity 50ms cubic-bezier(0.28,0.84,0.42,1);
 }
 
-.c0 .fi-expander_title {
+.c2 .fi-expander_title {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -170,12 +170,12 @@ exports[`calling render with the same component on the same container does not r
   width: 100%;
 }
 
-.c0 .fi-expander_title:focus {
+.c2 .fi-expander_title:focus {
   outline: 0;
   position: relative;
 }
 
-.c0 .fi-expander_title:focus:after {
+.c2 .fi-expander_title:focus:after {
   content: '';
   position: absolute;
   top: -4px;
@@ -190,11 +190,11 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.c0 .fi-expander_title:focus:not(:focus-visible):after {
+.c2 .fi-expander_title:focus:not(:focus-visible):after {
   content: none;
 }
 
-.c0 .fi-expander_title--no-tag {
+.c2 .fi-expander_title--no-tag {
   padding-top: 16px;
   padding-right: 60px;
   padding-bottom: 16px;
@@ -202,21 +202,21 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(212,63%,45%);
 }
 
-.c0 .fi-expander_title-icon {
+.c2 .fi-expander_title-icon {
   position: absolute;
   top: 0;
   right: 0;
   margin: 16px;
 }
 
-.c0 .fi-expander_title--open .fi-expander_title-icon,
-.c0 .fi-expander_title-icon--open {
+.c2 .fi-expander_title--open .fi-expander_title-icon,
+.c2 .fi-expander_title-icon--open {
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   transform: rotate(-180deg);
 }
 
-.c0 > .fi-expander_content {
+.c2 > .fi-expander_content {
   position: relative;
   display: block;
   height: 0;
@@ -232,18 +232,18 @@ exports[`calling render with the same component on the same container does not r
   will-change: transition,height;
 }
 
-.c0 > .fi-expander_content:not(.fi-expander_content--no-padding) {
+.c2 > .fi-expander_content:not(.fi-expander_content--no-padding) {
   padding: 0 16px;
 }
 
-.c0 > .fi-expander_content.fi-expander_content--open {
+.c2 > .fi-expander_content.fi-expander_content--open {
   height: 10%;
   overflow: visible;
   -webkit-animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
   animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
 }
 
-.c0 > .fi-expander_content.fi-expander_content--open:not(.fi-expander_content--no-padding) {
+.c2 > .fi-expander_content.fi-expander_content--open:not(.fi-expander_content--no-padding) {
   padding-top: 0;
   padding-right: 16px;
   padding-bottom: 16px;
@@ -251,12 +251,12 @@ exports[`calling render with the same component on the same container does not r
 }
 
 <div
-  class="expander-test c0 fi-expander c1 c2"
+  class="c0 c1 c2 expander-test fi-expander"
 >
   <button
     aria-disabled="false"
     aria-expanded="false"
-    class="fi-button fi-expander_title fi-expander_title--no-tag c3 c4 c5"
+    class="c3 c4 fi-button c5 fi-expander_title fi-expander_title--no-tag"
     data-testid="expander-title"
     tabindex="0"
     type="button"
@@ -264,7 +264,7 @@ exports[`calling render with the same component on the same container does not r
     Test expander
     <svg
       aria-hidden="true"
-      class="fi-expander_title-icon c6"
+      class="c6 fi-expander_title-icon"
       fill="hsl(212, 63%, 45%)"
       focusable="false"
       height="1em"
@@ -278,7 +278,7 @@ exports[`calling render with the same component on the same container does not r
   </button>
   <div
     aria-hidden="true"
-    class="fi-expander_content c7 fi-expander c1 c2"
+    class="c0 c1 c7 fi-expander_content fi-expander"
     hidden=""
   >
     Test expander content
