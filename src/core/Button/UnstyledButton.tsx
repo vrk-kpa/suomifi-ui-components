@@ -15,5 +15,5 @@ export const UnstyledButton = styled(
     );
   },
 )`
-  ${props => unStyled(props)}
+  ${(props) => unStyled(props)}
 `;

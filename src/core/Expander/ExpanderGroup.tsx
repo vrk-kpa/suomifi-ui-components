@@ -33,22 +33,21 @@ const StyledExpanderGroup = styled(
     <CompExpanderGroup {...passProps} />
   ),
 )`
-  ${props => baseStyles(props)};
+  ${(props) => baseStyles(props)};
 `;
 
 const OpenAllButton = ({
   children,
   ...passProps
 }: ExpanderOpenAllButtonProps) => {
-  const Component = React.Children.toArray(children)[0];
-  if (typeof Component === 'string' || Component.type !== Button) {
+  if (typeof children === 'string' || children.type !== Button) {
     return (
       <Button.unstyled {...passProps} className={openAllButtonClassName}>
         {children}
       </Button.unstyled>
     );
   }
-  return Component;
+  return children;
 };
 
 /**

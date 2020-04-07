@@ -2,7 +2,7 @@
 import { TextInput } from 'suomifi-ui-components';
 
 <TextInput
-  onBlur={event => console.log(event.target.value)}
+  onBlur={(event) => console.log(event.target.value)}
   labelText="Test TextInput"
 />;
 ```
@@ -12,7 +12,7 @@ import { TextInput } from 'suomifi-ui-components';
 
 <>
   <TextInput
-    onBlur={event => console.log(event.target.value)}
+    onBlur={(event) => console.log(event.target.value)}
     labelMode="hidden"
     labelText="Test with hidden label"
     defaultValue="Test with hidden label"

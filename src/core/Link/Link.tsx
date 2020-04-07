@@ -21,7 +21,7 @@ const StyledLink = styled(
     <CompLink {...passProps} as={asProp} />
   ),
 )`
-  ${props => baseStyles(props)};
+  ${(props) => baseStyles(props)};
 `;
 
 /**

@@ -202,7 +202,7 @@ export class Expander extends Component<ExpanderProps> {
   render() {
     return !!this.props.expanderGroup ? (
       <ExpanderGroupConsumer>
-        {consumer => <ExpanderItem {...this.props} consumer={consumer} />}
+        {(consumer) => <ExpanderItem {...this.props} consumer={consumer} />}
       </ExpanderGroupConsumer>
     ) : (
       <ExpanderItem {...this.props} />

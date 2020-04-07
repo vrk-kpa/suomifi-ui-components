@@ -39,7 +39,7 @@ const StyledExpander = styled(
     );
   },
 )`
-  ${props => baseStyles(props)};
+  ${(props) => baseStyles(props)};
 `;
 
 interface ExpanderState {

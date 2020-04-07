@@ -97,7 +97,7 @@ export class ExpanderGroup extends Component<ExpanderGroupProps> {
     const { openExpanders: prevOpenExpanders } = this.state;
     const prevExpanderOpen = prevOpenExpanders.includes(index);
     const openExpanders = prevExpanderOpen
-      ? prevOpenExpanders.filter(value => value !== index)
+      ? prevOpenExpanders.filter((value) => value !== index)
       : Array.from(new Set([...prevOpenExpanders, index]));
     this.setState({ openExpanders });
   };

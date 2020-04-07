@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDir": "./",
+    "rootDir": "./src",
     "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
     "module": "es2015" /* Specify module code generation: 'commonjs', 'amd', 'system', 'umd' or 'es2015'. */,
     "target": "es5",
@@ -27,7 +27,7 @@
     "baseUrl": "./",
     "paths": {
       "*": ["src/*", "node_modules/*"]
-    },
+    }
   },
   "include": ["./src/**/*", "./types/**/*.d.ts"],
   "exclude": ["node_modules", "dist"]

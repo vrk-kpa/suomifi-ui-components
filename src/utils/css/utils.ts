@@ -10,7 +10,7 @@ export const clearfix = css`
 `;
 
 const camelToSnake = (string: string) =>
-  string.replace(/[\w]([A-Z])/g, m => `${m[0]}-${m[1]}`).toLowerCase();
+  string.replace(/[\w]([A-Z])/g, (m) => `${m[0]}-${m[1]}`).toLowerCase();
 /**
  * Convert CSSObject to CSS FlattenSimpleInterpolation
  * @param value CSSObject
