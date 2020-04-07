@@ -28,8 +28,8 @@ module.exports = env => ({
       },
       // Used for global font-face imports
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.(css|scss)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       // Load images with 'file-loader'.
       {

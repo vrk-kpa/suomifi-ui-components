@@ -1,3 +1,4 @@
+import './fontFaces.css';
 import { FlattenSimpleInterpolation } from 'styled-components';
 import {
   colors as colorTokens,

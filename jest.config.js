@@ -39,6 +39,6 @@ module.exports = {
   setupFilesAfterEnv: [require.resolve('./jest.setup.js')],
 
   moduleNameMapper: {
-    '\\.css$': '<rootDir>/jest.styleMock.js',
+    '\\.(css||scss)$': 'identity-obj-proxy',
   },
 };
