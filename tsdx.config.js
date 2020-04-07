@@ -23,7 +23,7 @@ module.exports = {
           cssImport(),
           autoprefixer(),
           cssnano({
-            preset: 'default',
+            preset: ['default', { normalizeWhitespace: false }],
           }),
         ],
         inject: false,
