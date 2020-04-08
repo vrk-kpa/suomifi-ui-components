@@ -23,7 +23,7 @@ module.exports = env => ({
       // Run the typescript compilier on .ts files before webpack
       {
         test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader?configFileName=./tsconfig.json',
+        loader: 'awesome-typescript-loader?configFileName=./.styleguidist/styleguideTsconfig.json',
         exclude: [/node_modules/],
       },
       // Used for global font-face imports
