@@ -31,9 +31,6 @@ test(
       'aria-valid-attr-value': {
         enabled: false,
       },
-      region: {
-        enabled: false,
-      },
     },
   }),
 );

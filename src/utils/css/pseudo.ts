@@ -10,10 +10,12 @@ export const allStates = (styles: string) => css`
 `;
 
 type absolutePseudos = 'before' | 'after';
-
+// This is probably because of prettier bug #6794. Prettier now adds extra space between &:$ which breaks the selector.
+// Ignore can be removed once bug is fixed.
+// prettier-ignore
 export const absolute = (pseudo: absolutePseudos) => css`
   position: relative;
-  &: ${/* sc-prop */ pseudo} {
+  &:${/* sc-prop */ pseudo} {
     content: '';
     position: absolute;
     top: 0;
