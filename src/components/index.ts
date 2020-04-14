@@ -8,6 +8,7 @@ export {
   DropdownItemProps,
 } from './Dropdown/Dropdown';
 export { TextInput, TextInputProps } from './Form/TextInput';
+export { Checkbox, CheckboxProps } from './Form/Checkbox';
 export {
   Toggle,
   ToggleProps,
