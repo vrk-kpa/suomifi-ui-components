@@ -13,9 +13,9 @@ import classnames from 'classnames';
 const baseClassName = 'fi-checkbox';
 
 const checkboxClassNames = {
-    error: `${baseClassName}--error`,
-    checked: `${baseClassName}--checked`,
-    large: `${baseClassName}--large`
+  error: `${baseClassName}--error`,
+  checked: `${baseClassName}--checked`,
+  large: `${baseClassName}--large`,
 };
 
 export interface CheckboxProps extends CompCheckboxProps, TokensProp {}
@@ -56,7 +56,7 @@ export class Checkbox extends Component<CheckboxProps> {
       className,
       ...passProps
     } = withSuomifiDefaultProps(this.props);
-    const {checkboxStatus} = this.state;
+    const { checkboxStatus } = this.state;
     return (
       <StyledCheckbox
         disabled={disabled}
@@ -65,7 +65,7 @@ export class Checkbox extends Component<CheckboxProps> {
         className={classnames(className, {
           [checkboxClassNames.error]: status === 'error',
           [checkboxClassNames.checked]: checkboxStatus,
-          [checkboxClassNames.large]: variant === 'large'
+          [checkboxClassNames.large]: variant === 'large',
         })}
       >
         {children}

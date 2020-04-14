@@ -31,6 +31,6 @@ import { Checkbox } from './Checkbox';
     This is a checked large checkbox with an error message
   </Checkbox>
 
-  <Checkbox  id="5"></Checkbox>
+  <Checkbox id="5"></Checkbox>
 </>;
 ```
