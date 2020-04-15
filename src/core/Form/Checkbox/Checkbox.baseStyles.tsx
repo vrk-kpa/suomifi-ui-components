@@ -4,6 +4,7 @@ import {
   TokensAndTheme,
   SuomifiThemeProp,
 } from '../../theme';
+import { disabledCursor } from '../../../components/utils/css';
 import { element, font } from '../../theme/reset';
 
 /* stylelint-disable */
@@ -11,20 +12,39 @@ const checkedStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-checkbox--checked .fi-checkbox_label {
     &::before,
     &::after {
-      border-color: ${theme.colors.brandBase};
+      border-color: ${theme.colors.highlightBase};
     }
   }
+`;
+
+const disabledStyles = ({ theme }: SuomifiThemeProp) => css`
+    &.fi-checkbox--disabled{    
+        & .fi-checkbox_label{
+            ${disabledCursor}
+    color: ${theme.colors.depthBase};
+        &::before, ::after{
+            background-color: ${theme.colors.depthLight3};
+            border-color: ${theme.colors.depthLight1};
+        }
+    }
+}
 `;
 
 const errorStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-checkbox--error {
     & .fi-checkbox_label {
-      &::before,
-      &::after {
+      &::before {
         border-color: ${theme.colors.alertBase};
         border-width: 2px;
       }
+      &::after {
+        border-color: ${theme.colors.alertBase};
+      }
     }
+    & .fi-checkbox_hintText {
+      margin-bottom: ${theme.spacing.xxs};
+    }
+
     & .fi-checkbox_status {
       color: ${theme.colors.alertBase};
     }
@@ -53,8 +73,8 @@ const largeVariantStyles = ({ theme }: SuomifiThemeProp) => css`
         position: absolute;
         height: 8px;
         width: 16px;
-        border-left: 3px solid;
-        border-bottom: 3px solid;
+        border-left: 4px solid;
+        border-bottom: 4px solid;
         border-radius: 3px;
         border-bottom-right-radius: ${theme.radius.basic};
         border-top-left-radius: ${theme.radius.basic};
@@ -103,6 +123,7 @@ export const baseStyles = withSuomifiTheme(
       padding-left: ${theme.spacing.l};
       min-height: 30px;
       min-width: 30px;
+      cursor: pointer;
       &::before {
         content: '';
         position: absolute;
@@ -134,7 +155,6 @@ export const baseStyles = withSuomifiTheme(
       padding-left: ${theme.spacing.l};
       font-size: ${theme.typography.bodyTextSmall};
       color: ${theme.colors.depthBase};
-      margin-bottom: 5px;
     }
 
     & .fi-checkbox_status {
@@ -147,5 +167,6 @@ export const baseStyles = withSuomifiTheme(
     ${largeVariantStyles({ theme })};
     ${checkedStyles({ theme })};
     ${errorStyles({ theme })};
+    ${disabledStyles({ theme })};
   `,
 );

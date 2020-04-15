@@ -1,8 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { HtmlInput, HtmlLabel, HtmlSpan, HtmlDiv } from '../../reset';
-import styled from 'styled-components';
-import { disabledCursor } from '../utils/css';
+
 import { idGenerator } from '../../utils/uuid';
 
 const baseClassName = 'fi-checkbox';
@@ -16,15 +15,8 @@ export const checkboxBaseClassNames = {
   hintText: `${baseClassName}_hintText`,
 };
 
-const StyledHtmlLabel = styled(HtmlLabel)`
-  &.${checkboxBaseClassNames.disabled} {
-    ${disabledCursor}
-  }
-  cursor: pointer;
-`;
-
 type CheckboxVariant = 'small' | 'large';
-type CheckboxStatus = 'default' | 'checked' | 'error' | 'disabled';
+type CheckboxStatus = 'default' | 'error' | 'disabled';
 
 export interface CheckboxInputProps {
   /** State of input checkbox */
@@ -59,7 +51,7 @@ export interface CheckboxProps {
    */
   variant?: CheckboxVariant;
   /**
-   * 'default' | 'checked' | 'error' | 'disabled'
+   * 'default' | 'error' | 'disabled'
    * @default default
    */
   status?: CheckboxStatus;
@@ -156,13 +148,13 @@ export class Checkbox extends Component<CheckboxProps> {
         })}
       >
         <HtmlInput {...newCheckboxInputProps} type="checkbox" />
-        <StyledHtmlLabel
+        <HtmlLabel
           htmlFor={id}
           className={classnames(className, checkboxBaseClassNames.label)}
           {...passProps}
         >
           {children}
-        </StyledHtmlLabel>
+        </HtmlLabel>
         {hintText ? (
           <HtmlSpan className={checkboxBaseClassNames.hintText} id={hintTextId}>
             {hintText}

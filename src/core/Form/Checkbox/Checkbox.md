@@ -10,16 +10,22 @@ import { Checkbox } from './Checkbox';
     This is a regular checkbox that is checked and has a hint text
   </Checkbox>
 
-  <Checkbox id="2" variant="large">
-    This is a large checkbox that is unchecked
-  </Checkbox>
-
   <Checkbox
     hintText="This is an example hint text"
     status="error"
     statusText="You need to accept the terms and conditions to continue"
   >
     This is a regular checkbox with a hint text and an error message
+  </Checkbox>
+
+  <Checkbox defaultChecked disabled>
+    This is a disabled checkbox
+  </Checkbox>
+
+  <Checkbox />
+
+  <Checkbox id="2" variant="large">
+    This is a large checkbox that is unchecked
   </Checkbox>
 
   <Checkbox
@@ -30,7 +36,5 @@ import { Checkbox } from './Checkbox';
   >
     This is a checked large checkbox with an error message
   </Checkbox>
-
-  <Checkbox id="5"></Checkbox>
 </>;
 ```

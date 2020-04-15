@@ -49,7 +49,7 @@ export class Checkbox extends Component<CheckboxProps> {
     const {
       children,
       disabled = false,
-      checked: dissMissChecked,
+      checked,
       onClick,
       status,
       variant,
