@@ -77,7 +77,7 @@
     "husky": "4.2.1",
     "identity-obj-proxy": "3.0.0",
     "jest": "25.1.0",
-    "jest-axe": "3.3.0",
+    "jest-axe": "3.4.0",
     "jest-styled-components": "6.3.4",
     "lint-staged": "8.0.5",
     "node-sass": "4.13.1",
