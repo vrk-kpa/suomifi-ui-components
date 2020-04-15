@@ -93,8 +93,11 @@ const largeVariantStyles = ({ theme }: SuomifiThemeProp) => css`
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     ${element({ theme })}
-    ${font({ theme })('bodyText')}
+    ${font({ theme })(
+      'bodyText',
+    )}
     
+    /*TODO: use suomi.fi focus style */
     &:focus-within {
       & .fi-checkbox_label {
         &::before {

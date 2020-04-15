@@ -60,7 +60,7 @@ export interface CheckboxProps {
    */
   statusText?: string;
   /**
-   * Hint text to be displayed under the input.
+   * Hint text to be displayed under the label.
    */
   hintText?: string;
   /** Pass custom props to Checkbox's input component/element */
