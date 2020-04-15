@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import './styles.scss';
-=======
->>>>>>> ed412dd... Add proper index entries and restore accidentally deleted files
 export { Breadcrumb, BreadcrumbProps } from './core/Breadcrumb/Breadcrumb';
 export {
   BreadcrumbLink,
@@ -13,11 +10,8 @@ export { UnstyledButton } from './core/Button/UnstyledButton';
 export { Dropdown, DropdownProps } from './core/Dropdown/Dropdown';
 export { DropdownItem, DropdownItemProps } from './core/Dropdown/DropdownItem';
 export {
-<<<<<<< HEAD
-=======
   Checkbox,
   CheckboxProps,
->>>>>>> ed412dd... Add proper index entries and restore accidentally deleted files
   TextInput,
   TextInputProps,
   Toggle,
