@@ -23,8 +23,6 @@ export interface CheckboxInputProps {
   checked?: boolean;
   /** Custom classname for the container */
   className?: string;
-  /** Disable Checkbox. Value won't be included when submitting */
-  disabled?: boolean;
   'aria-label'?: string;
   'aria-labelledby'?: string;
 }
