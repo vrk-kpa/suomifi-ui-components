@@ -55,7 +55,7 @@ const largeVariantStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-checkbox--large {
     & .fi-checkbox_label {
       padding-left: 40px;
-      line-height: 30px;
+      line-height: 27px;
       min-height: 30px;
 
       &::before {
