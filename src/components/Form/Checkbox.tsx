@@ -6,7 +6,7 @@ import { idGenerator } from '../../utils/uuid';
 
 const baseClassName = 'fi-checkbox';
 
-export const checkboxBaseClassNames = {
+const checkboxBaseClassNames = {
   disabled: `${baseClassName}--disabled`,
   container: `${baseClassName}_container`,
   input: `${baseClassName}_input`,
@@ -23,6 +23,7 @@ export interface CheckboxInputProps {
   checked?: boolean;
   /** Custom classname for the container */
   className?: string;
+  /** Disable Checkbox. Value won't be included when submitting */
   disabled?: boolean;
   'aria-label'?: string;
   'aria-labelledby'?: string;
@@ -155,20 +156,20 @@ export class Checkbox extends Component<CheckboxProps> {
         >
           {children}
         </HtmlLabel>
-        {hintText ? (
+        {hintText && (
           <HtmlSpan className={checkboxBaseClassNames.hintText} id={hintTextId}>
             {hintText}
           </HtmlSpan>
-        ) : null}
+        )}
 
-        {statusText ? (
+        {statusText && (
           <HtmlSpan
             className={checkboxBaseClassNames.statusText}
             id={statusTextId}
           >
             {statusText}
           </HtmlSpan>
-        ) : null}
+        )}
       </HtmlDiv>
     );
   }
