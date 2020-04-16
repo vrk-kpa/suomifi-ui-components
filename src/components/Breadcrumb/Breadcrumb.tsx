@@ -18,7 +18,7 @@ export interface BreadcrumbProps extends HtmlNavProps {
 }
 
 const breadcrumbItems = (children: ReactNode) =>
-  React.Children.map(children, child => (
+  React.Children.map(children, (child) => (
     <HtmlLi className={itemClassName}>{child}</HtmlLi>
   ));
 

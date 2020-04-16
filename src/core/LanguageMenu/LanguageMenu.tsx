@@ -43,7 +43,7 @@ const StyledLanguageMenu = styled(
     <CompLanguageMenu {...passProps} />
   ),
 )`
-  ${props => baseStyles(props)}
+  ${(props) => baseStyles(props)}
 `;
 
 const LanguageMenuPopoverWithProps = (
@@ -94,7 +94,7 @@ const StyledMenuPopover = styled(
     </CompMenuPopover>
   ),
 )`
-  ${props => languageMenuPopoverStyles(props.theme)}
+  ${(props) => languageMenuPopoverStyles(props.theme)}
 `;
 
 class LanguageMenuVariation extends Component<LanguageMenuProps> {

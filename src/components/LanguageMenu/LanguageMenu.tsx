@@ -62,7 +62,10 @@ export interface LanguageMenuProps {
     OptionalLanguageMenuPopoverProps
   >;
   /** Menu items: MenuItem or MenuLink */
-  children?: Array<React.ReactElement<LanguageMenuPopoverItemsProps>>;
+  children?:
+    | Array<React.ReactElement<LanguageMenuPopoverItemsProps>>
+    | null
+    | undefined;
 }
 
 export class LanguageMenu extends Component<LanguageMenuProps> {

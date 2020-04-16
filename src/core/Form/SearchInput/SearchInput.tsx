@@ -48,8 +48,8 @@ const StyledTextInput = styled(
     />
   ),
 )`
-  ${props => inputBaseStyles(props)}
-  ${props => baseStyles(props)}
+  ${(props) => inputBaseStyles(props)}
+  ${(props) => baseStyles(props)}
 `;
 
 /**

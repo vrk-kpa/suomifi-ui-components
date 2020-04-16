@@ -30,7 +30,7 @@ const StyledSuomifiStaticIcon = styled(
     );
   },
 )`
-  ${props => iconBaseStyles(props)}
+  ${(props) => iconBaseStyles(props)}
 `;
 
 /**
@@ -66,7 +66,7 @@ const StyledSuomifiComponentIcon = styled(
     );
   },
 )`
-  ${props => iconBaseStyles(props)}
+  ${(props) => iconBaseStyles(props)}
 `;
 
 export class ComponentIcon extends Component<ComponentIconProps> {

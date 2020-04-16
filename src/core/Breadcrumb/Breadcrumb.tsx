@@ -25,7 +25,7 @@ const StyledBreadcrumb = styled(
     <CompBreadcrumb {...passProps} />
   ),
 )`
-  ${props => baseStyles(props)};
+  ${(props) => baseStyles(props)};
 `;
 
 type VariantBreadcrumbProps =

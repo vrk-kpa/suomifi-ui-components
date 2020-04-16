@@ -20,7 +20,8 @@ export class ToggleButton extends Component<ToggleProps> {
     toggleState: !!this.props.checked || !!this.props.defaultChecked || false,
   };
 
-  componentWillReceiveProps(nextProps: ToggleProps) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps: ToggleProps) {
     const { checked } = nextProps;
     if (!!checked) {
       this.setState({ toggleState: !!checked });

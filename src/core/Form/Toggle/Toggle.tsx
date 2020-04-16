@@ -25,7 +25,7 @@ const StyledToggle = styled(
     <CompToggle {...passProps} />
   ),
 )`
-  ${props => baseStyles(props)}
+  ${(props) => baseStyles(props)}
 `;
 
 /**

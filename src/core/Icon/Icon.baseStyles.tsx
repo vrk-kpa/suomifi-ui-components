@@ -5,7 +5,7 @@ export const iconBaseStyles = ({ mousePointer = false }: IconBaseProps) => css`
   display: inline-block;
   vertical-align: baseline;
   ${!!mousePointer &&
-    `cursor: pointer;
+  `cursor: pointer;
       & * {
         cursor: inherit;
       }

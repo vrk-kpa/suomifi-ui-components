@@ -65,7 +65,7 @@ const StyledButton = styled(
     />
   ),
 )`
-  ${props => baseStyles(props)}
+  ${(props) => baseStyles(props)}
 `;
 
 const iconColor = ({

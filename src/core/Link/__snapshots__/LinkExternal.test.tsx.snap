@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.c2 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -24,17 +24,17 @@ exports[`calling render with the same component on the same container does not r
   text-decoration: underline;
 }
 
-.c2:hover,
-.c2:active,
-.c2:focus,
-.c2:focus-within {
+.c0:hover,
+.c0:active,
+.c0:focus,
+.c0:focus-within {
   color: inherit;
   -webkit-text-decoration: underline;
   text-decoration: underline;
   cursor: pointer;
 }
 
-.c4 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -63,7 +63,7 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
 }
 
-.c3 {
+.c4 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -75,7 +75,7 @@ exports[`calling render with the same component on the same container does not r
   overflow: hidden;
 }
 
-.c0 .fi-link_icon {
+.c2 .fi-link_icon {
   padding-left: 4px;
   -webkit-transform: translateY(0.1em);
   -ms-transform: translateY(0.1em);
@@ -146,7 +146,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 <a
-  class="c0 c1 fi-link c2 fi-link--external sc-bdVaJa c2"
+  class="c0 sc-AxjAm c0 c1 c2 fi-link fi-link--external"
   data-testid="test-link"
   href="/"
   rel="noopener"
@@ -154,13 +154,13 @@ exports[`calling render with the same component on the same container does not r
 >
   Hey this is test
   <span
-    class="fi-visually-hidden c3 c4"
+    class="c3 c4 fi-visually-hidden"
   >
     Opens in a new window
   </span>
   <svg
     aria-hidden="true"
-    class="fi-link_icon c5"
+    class="c5 fi-link_icon"
     fill="currentColor"
     focusable="false"
     height="1em"

@@ -24,7 +24,7 @@ const StyledParagraph = styled(
     ...passProps
   }: ParagraphProps & InternalTokensProp) => <CompParagraph {...passProps} />,
 )`
-  ${props => baseStyles(props)};
+  ${(props) => baseStyles(props)};
 `;
 
 /**

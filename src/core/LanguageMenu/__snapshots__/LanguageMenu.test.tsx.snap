@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.c1 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -30,7 +30,7 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
 }
 
-.c0 > [data-reach-menu-button].fi-language-menu_button {
+.c1 > [data-reach-menu-button].fi-language-menu_button {
   color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
@@ -39,12 +39,12 @@ exports[`calling render with the same component on the same container does not r
   cursor: pointer;
 }
 
-.c0 > [data-reach-menu-button].fi-language-menu_button:focus {
+.c1 > [data-reach-menu-button].fi-language-menu_button:focus {
   outline: 0;
   position: relative;
 }
 
-.c0 > [data-reach-menu-button].fi-language-menu_button:focus:after {
+.c1 > [data-reach-menu-button].fi-language-menu_button:focus:after {
   content: '';
   position: absolute;
   top: -4px;
@@ -59,11 +59,11 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.c0 > [data-reach-menu-button].fi-language-menu_button:focus:not(:focus-visible):after {
+.c1 > [data-reach-menu-button].fi-language-menu_button:focus:not(:focus-visible):after {
   content: none;
 }
 
-.c0 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button {
+.c1 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button {
   color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -76,7 +76,7 @@ exports[`calling render with the same component on the same container does not r
   border-radius: 2px;
 }
 
-.c0 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button > .fi-language-menu-language_icon {
+.c1 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button > .fi-language-menu-language_icon {
   height: 1.2em;
   width: 1.2em;
   -webkit-transform: translateY(0.3em);
@@ -85,7 +85,7 @@ exports[`calling render with the same component on the same container does not r
   margin-left: 4px;
 }
 
-.c0 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button_open > .fi-language-menu-language_icon.fi-language-menu-language_icon {
+.c1 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button_open > .fi-language-menu-language_icon.fi-language-menu-language_icon {
   -webkit-transform: translateY(0.2em) rotate(180deg);
   -ms-transform: translateY(0.2em) rotate(180deg);
   transform: translateY(0.2em) rotate(180deg);
@@ -93,7 +93,7 @@ exports[`calling render with the same component on the same container does not r
 
 <div>
   <span
-    class="c0 fi-language-menu c1"
+    class="c0 c1 fi-language-menu"
   >
     <button
       aria-controls="menu--1"
@@ -106,7 +106,7 @@ exports[`calling render with the same component on the same container does not r
       FI
       <svg
         aria-hidden="true"
-        class="fi-language-menu-language_icon c2"
+        class="c2 fi-language-menu-language_icon"
         fill="hsl(202, 7%, 40%)"
         focusable="false"
         height="1em"

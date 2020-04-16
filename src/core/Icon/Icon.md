@@ -22,14 +22,14 @@ import { default as styled } from 'styled-components';
 import { baseIcons } from 'suomifi-icons';
 import clipboardCopy from 'clipboard-copy';
 
-const StyledIcon = styled(props => <Icon {...props} />)({
+const StyledIcon = styled((props) => <Icon {...props} />)({
   height: '50px',
   width: 'auto',
   margin: '8px'
 });
 
 <div>
-  {baseIcons.map(icon => (
+  {baseIcons.map((icon) => (
     <StyledIcon
       mousePointer
       icon={icon}

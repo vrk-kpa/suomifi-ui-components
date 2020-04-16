@@ -52,7 +52,7 @@ const StyledSuomifiIcon = styled(
     );
   },
 )`
-  ${props => iconBaseStyles(props)}
+  ${(props) => iconBaseStyles(props)}
 `;
 
 /**

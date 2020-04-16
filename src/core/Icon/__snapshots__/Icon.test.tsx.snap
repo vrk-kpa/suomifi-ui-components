@@ -9,7 +9,7 @@ exports[`calling render with the same component on the same container does not r
 <div>
   <svg
     aria-label="Test label"
-    class="my-icon--test c0"
+    class="c0 my-icon--test"
     data-testid="icon"
     fill="hsl(202, 7%, 40%)"
     height="1em"

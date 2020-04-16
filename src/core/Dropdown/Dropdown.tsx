@@ -25,7 +25,7 @@ const StyledDropdown = styled(
     />
   ),
 )`
-  ${props => baseStyles(props)}
+  ${(props) => baseStyles(props)}
 `;
 
 interface MenuPopoverProps extends CompMenuPopoverProps, TokensProp {}
@@ -37,7 +37,7 @@ const StyledMenuPopover = styled(
     </CompMenuPopover>
   ),
 )`
-  ${props => menuPopoverStyles(props.theme)}
+  ${(props) => menuPopoverStyles(props.theme)}
 `;
 
 /**
