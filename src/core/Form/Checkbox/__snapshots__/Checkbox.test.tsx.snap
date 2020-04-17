@@ -1,0 +1,254 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Calling render with the same component on the same container does not remount 1`] = `
+.c1 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.c2::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
+}
+
+.c0 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c0:focus-within .fi-checkbox_label::before {
+  box-shadow: 0 0 0 3px #ffbf47;
+  outline: 3px solid transparent;
+}
+
+.c0 .fi-checkbox_input {
+  position: absolute;
+  opacity: 0;
+  z-index: -9999;
+  background-color: hsl(0,0%,100%);
+}
+
+.c0 .fi-checkbox_input + .fi-checkbox_label::after {
+  content: none;
+}
+
+.c0 .fi-checkbox_input:checked + .fi-checkbox_label::after {
+  content: '';
+}
+
+.c0 .fi-checkbox_label {
+  position: relative;
+  display: inline-block;
+  padding-left: 25px;
+  min-height: 30px;
+  min-width: 30px;
+  cursor: pointer;
+}
+
+.c0 .fi-checkbox_label::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 5px;
+  box-sizing: border-box;
+  height: 18px;
+  width: 18px;
+  color: hsl(202,7%,67%);
+  border: 1px solid;
+  border-radius: 2px;
+}
+
+.c0 .fi-checkbox_label::after {
+  content: '';
+  position: absolute;
+  height: 5px;
+  width: 8px;
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  border-radius: 2px;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  left: 4px;
+  top: 8px;
+}
+
+.c0 .fi-checkbox_hintText {
+  display: block;
+  padding-left: 25px;
+  font-size: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: hsl(202,7%,67%);
+}
+
+.c0 .fi-checkbox_status {
+  display: block;
+  color: hsl(0,0%,16%);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c0.fi-checkbox--large .fi-checkbox_label {
+  padding-left: 40px;
+  line-height: 27px;
+  min-height: 30px;
+}
+
+.c0.fi-checkbox--large .fi-checkbox_label::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  box-sizing: border-box;
+  height: 30px;
+  width: 30px;
+  color: hsl(202,7%,67%);
+  border: 2px solid;
+}
+
+.c0.fi-checkbox--large .fi-checkbox_label::after {
+  position: absolute;
+  height: 8px;
+  width: 16px;
+  border-left: 4px solid;
+  border-bottom: 4px solid;
+  border-radius: 3px;
+  border-bottom-right-radius: 2px;
+  border-top-left-radius: 2px;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  left: 6px;
+  top: 6px;
+}
+
+.c0.fi-checkbox--large .fi-checkbox_hintText {
+  padding-left: 40px;
+}
+
+.c0.fi-checkbox--checked .fi-checkbox_label::before,
+.c0.fi-checkbox--checked .fi-checkbox_label::after {
+  border-color: hsl(212,63%,45%);
+}
+
+.c0.fi-checkbox--error .fi-checkbox_label::before {
+  border-color: hsl(3,59%,48%);
+  border-width: 2px;
+}
+
+.c0.fi-checkbox--error .fi-checkbox_label::after {
+  border-color: hsl(3,59%,48%);
+}
+
+.c0.fi-checkbox--error .fi-checkbox_hintText {
+  margin-bottom: 5px;
+}
+
+.c0.fi-checkbox--error .fi-checkbox_status {
+  color: hsl(3,59%,48%);
+}
+
+.c0.fi-checkbox--disabled .fi-checkbox_label {
+  cursor: not-allowed;
+  color: hsl(202,7%,67%);
+}
+
+.c0.fi-checkbox--disabled .fi-checkbox_label::before,
+.c0.fi-checkbox--disabled .fi-checkbox_label::after {
+  background-color: hsl(202,7%,97%);
+  border-color: hsl(202,7%,80%);
+}
+
+<div
+  class="fi-checkbox_container c0 c1"
+>
+  <input
+    class="fi-checkbox_input c2"
+    id="test"
+    type="checkbox"
+  />
+  <label
+    class="c0 fi-checkbox_label c3"
+    data-testid="regular_id"
+    for="test"
+  >
+    Regular
+  </label>
+</div>
+`;
