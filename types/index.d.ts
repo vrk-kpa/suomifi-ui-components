@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/interface-name-prefix */
 declare module '*.jpg';
 declare module '*.png';
 declare module '*.svg';
@@ -108,5 +109,6 @@ declare module 'react-styleguidist/lib/client/rsg-components/ComponentsList/Comp
   }
 
   const ComponentsList: React.FunctionComponent<ComponentsListProps>;
+  // eslint-disable-next-line import/no-default-export
   export default ComponentsList;
 }
