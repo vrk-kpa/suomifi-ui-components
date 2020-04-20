@@ -16,12 +16,28 @@ import { Link, Paragraph } from 'suomifi-ui-components';
 
 ### Skip link
 
-Show link for keyboard navigation. Preview not working as intended, because it should be the first element on the page to gain focus on tab.
+Show link for keyboard navigation.
+
+- Should be the first element that can gain focus on the page with the tab.
+- The target container should have `tabIndex={-1}` to handle better the functionality with screenreaders.
+- Because of the tabIndex you might want set the style of `outline=none` to the target container.
+- To see the component, click below on the dashed area and then press `Tab`.
 
 ```js
 import { Link } from 'suomifi-ui-components';
-
-<Link.skip>Skip to main content</Link.skip>;
+<div>
+  <div
+    style={{
+      height: '80px',
+      width: '210px',
+      borderStyle: 'dashed',
+      borderColor: '#000',
+      borderWidth: '1px'
+    }}
+  >
+    <Link.skip href="#">Skip to main content</Link.skip>
+  </div>
+</div>;
 ```
 
 ### External link
