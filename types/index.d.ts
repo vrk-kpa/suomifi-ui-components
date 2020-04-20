@@ -39,6 +39,15 @@ declare module '@reach/menu-button' {
 
   export const MenuList: React.SFC<MenuListProps>;
 
+  export type PRect = Partial<DOMRect> & {
+    readonly bottom: number;
+    readonly height: number;
+    readonly left: number;
+    readonly right: number;
+    readonly top: number;
+    readonly width: number;
+  };
+
   export type Position = (
     targetRect?: PRect | null,
     popoverRect?: PRect | null,
@@ -55,10 +64,12 @@ declare module '@reach/menu-button' {
     children: React.ReactNode;
   } & React.HTMLAttributes<HTMLDivElement>;
 
-  export declare const MenuItems: React.ForwardRefExoticComponent<{
-    children: React.ReactNode;
-  } & React.HTMLAttributes<HTMLDivElement> &
-    React.RefAttributes<HTMLDivElement>>;
+  export const MenuItems: React.ForwardRefExoticComponent<
+    {
+      children: React.ReactNode;
+    } & React.HTMLAttributes<HTMLDivElement> &
+      React.RefAttributes<HTMLDivElement>
+  >;
 
   type ResolvedMenuLinkProps<T> = T extends keyof JSX.IntrinsicElements
     ? JSX.IntrinsicElements[T]
