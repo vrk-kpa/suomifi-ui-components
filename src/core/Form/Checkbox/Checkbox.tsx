@@ -28,7 +28,7 @@ const StyledCheckbox = styled(
     <CompCheckbox {...passProps} />
   ),
 )`
-  ${props => baseStyles(props)}
+  ${(props) => baseStyles(props)}
 `;
 
 export class Checkbox extends Component<CheckboxProps> {

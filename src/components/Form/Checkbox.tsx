@@ -84,16 +84,17 @@ export class Checkbox extends Component<CheckboxProps> {
   state = {
     checkboxState: !!this.props.checked || !!this.props.defaultChecked || false,
   };
-
+  /*eslint-disable */
   /**
    * This is deprecated and should be replaced
    */
-  componentWillReceiveProps(nextProps: CheckboxProps) {
+  UNSAFE_componentWillReceiveProps(nextProps: CheckboxProps) {
     const { checked } = nextProps;
     if (!!checked) {
       this.setState({ checkboxState: !!checked });
     }
   }
+  /* eslint-enable */
 
   handleClick = () => {
     const { checked, onClick } = this.props;

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Calling render with the same component on the same container does not remount 1`] = `
-.c1 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -73,7 +73,7 @@ exports[`Calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
-.c0 {
+.c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -90,27 +90,27 @@ exports[`Calling render with the same component on the same container does not r
   font-weight: 400;
 }
 
-.c0:focus-within .fi-checkbox_label::before {
+.c1:focus-within .fi-checkbox_label::before {
   box-shadow: 0 0 0 3px #ffbf47;
   outline: 3px solid transparent;
 }
 
-.c0 .fi-checkbox_input {
+.c1 .fi-checkbox_input {
   position: absolute;
   opacity: 0;
   z-index: -9999;
   background-color: hsl(0,0%,100%);
 }
 
-.c0 .fi-checkbox_input + .fi-checkbox_label::after {
+.c1 .fi-checkbox_input + .fi-checkbox_label::after {
   content: none;
 }
 
-.c0 .fi-checkbox_input:checked + .fi-checkbox_label::after {
+.c1 .fi-checkbox_input:checked + .fi-checkbox_label::after {
   content: '';
 }
 
-.c0 .fi-checkbox_label {
+.c1 .fi-checkbox_label {
   position: relative;
   display: inline-block;
   padding-left: 25px;
@@ -119,7 +119,7 @@ exports[`Calling render with the same component on the same container does not r
   cursor: pointer;
 }
 
-.c0 .fi-checkbox_label::before {
+.c1 .fi-checkbox_label::before {
   content: '';
   position: absolute;
   left: 0px;
@@ -132,7 +132,7 @@ exports[`Calling render with the same component on the same container does not r
   border-radius: 2px;
 }
 
-.c0 .fi-checkbox_label::after {
+.c1 .fi-checkbox_label::after {
   content: '';
   position: absolute;
   height: 5px;
@@ -147,7 +147,7 @@ exports[`Calling render with the same component on the same container does not r
   top: 8px;
 }
 
-.c0 .fi-checkbox_hintText {
+.c1 .fi-checkbox_hintText {
   display: block;
   padding-left: 25px;
   font-size: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -157,20 +157,20 @@ exports[`Calling render with the same component on the same container does not r
   color: hsl(202,7%,67%);
 }
 
-.c0 .fi-checkbox_status {
+.c1 .fi-checkbox_status {
   display: block;
   color: hsl(0,0%,16%);
   font-size: 14px;
   font-weight: 600;
 }
 
-.c0.fi-checkbox--large .fi-checkbox_label {
+.c1.fi-checkbox--large .fi-checkbox_label {
   padding-left: 40px;
   line-height: 27px;
   min-height: 30px;
 }
 
-.c0.fi-checkbox--large .fi-checkbox_label::before {
+.c1.fi-checkbox--large .fi-checkbox_label::before {
   content: '';
   position: absolute;
   left: 0px;
@@ -182,7 +182,7 @@ exports[`Calling render with the same component on the same container does not r
   border: 2px solid;
 }
 
-.c0.fi-checkbox--large .fi-checkbox_label::after {
+.c1.fi-checkbox--large .fi-checkbox_label::after {
   position: absolute;
   height: 8px;
   width: 16px;
@@ -198,53 +198,53 @@ exports[`Calling render with the same component on the same container does not r
   top: 6px;
 }
 
-.c0.fi-checkbox--large .fi-checkbox_hintText {
+.c1.fi-checkbox--large .fi-checkbox_hintText {
   padding-left: 40px;
 }
 
-.c0.fi-checkbox--checked .fi-checkbox_label::before,
-.c0.fi-checkbox--checked .fi-checkbox_label::after {
+.c1.fi-checkbox--checked .fi-checkbox_label::before,
+.c1.fi-checkbox--checked .fi-checkbox_label::after {
   border-color: hsl(212,63%,45%);
 }
 
-.c0.fi-checkbox--error .fi-checkbox_label::before {
+.c1.fi-checkbox--error .fi-checkbox_label::before {
   border-color: hsl(3,59%,48%);
   border-width: 2px;
 }
 
-.c0.fi-checkbox--error .fi-checkbox_label::after {
+.c1.fi-checkbox--error .fi-checkbox_label::after {
   border-color: hsl(3,59%,48%);
 }
 
-.c0.fi-checkbox--error .fi-checkbox_hintText {
+.c1.fi-checkbox--error .fi-checkbox_hintText {
   margin-bottom: 5px;
 }
 
-.c0.fi-checkbox--error .fi-checkbox_status {
+.c1.fi-checkbox--error .fi-checkbox_status {
   color: hsl(3,59%,48%);
 }
 
-.c0.fi-checkbox--disabled .fi-checkbox_label {
+.c1.fi-checkbox--disabled .fi-checkbox_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c0.fi-checkbox--disabled .fi-checkbox_label::before,
-.c0.fi-checkbox--disabled .fi-checkbox_label::after {
+.c1.fi-checkbox--disabled .fi-checkbox_label::before,
+.c1.fi-checkbox--disabled .fi-checkbox_label::after {
   background-color: hsl(202,7%,97%);
   border-color: hsl(202,7%,80%);
 }
 
 <div
-  class="fi-checkbox_container c0 c1"
+  class="c0 fi-checkbox_container c1"
 >
   <input
-    class="fi-checkbox_input c2"
+    class="c2 fi-checkbox_input"
     id="test"
     type="checkbox"
   />
   <label
-    class="c0 fi-checkbox_label c3"
+    class="c3 c1 fi-checkbox_label"
     data-testid="regular_id"
     for="test"
   >
