@@ -33,12 +33,14 @@ import 'suomifi-ui-components/dist/main.css';
 
 You should install also these dependencies if your project does not already have these.
 
-- suomifi-ui-components requires [styled-components](https://www.npmjs.com/package/styled-components) version >=4.
+- suomifi-ui-components requires [styled-components](https://www.npmjs.com/package/styled-components) version >=4.3.2.
 
-- Because suomifi-ui-components is a component library for React, it requires [react](https://www.npmjs.com/package/react) version >=16.
+- Because suomifi-ui-components is a component library for React, it requires [react](https://www.npmjs.com/package/react) version >=16.8.0.
+
+- In case TypeScript is used and skipLibCheck compiler option is set to false, also typings for [react], [styled-components] and [warning] are required. Typings for styled-components has to be exact version 4.1.8 (later versions have an open issue for including conflicting typings for react-native).
 
 ```bash
-yarn add styled-components react
+yarn add styled-components react @types/styled-components@4.1.8 @types/warning
 ```
 
 ## 🔨 Usage
@@ -73,6 +75,7 @@ _HOX!!! If you use Styled Components you cannot use Component.variant (static me
 <Button className="button--custom">Example</Button>
 ```
 
+<!-- prettier-ignore -->
 ```css
 .fi-button.button--custom {
   ...;
