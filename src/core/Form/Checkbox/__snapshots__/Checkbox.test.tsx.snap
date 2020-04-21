@@ -114,9 +114,8 @@ exports[`Calling render with the same component on the same container does not r
   position: relative;
   display: inline-block;
   padding-left: 25px;
-  min-height: 30px;
-  min-width: 30px;
   cursor: pointer;
+  min-height: 20px;
 }
 
 .c1 .fi-checkbox_label::before {
