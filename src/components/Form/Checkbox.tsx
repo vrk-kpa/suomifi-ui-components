@@ -7,7 +7,6 @@ import { idGenerator } from '../../utils/uuid';
 const baseClassName = 'fi-checkbox';
 
 const checkboxBaseClassNames = {
-  disabled: `${baseClassName}--disabled`,
   container: `${baseClassName}_container`,
   input: `${baseClassName}_input`,
   label: `${baseClassName}_label`,
@@ -70,7 +69,9 @@ export interface CheckboxProps {
    */
   'aria-label'?: string;
   'aria-labelledby'?: string;
-  /** Unique id
+  /**
+   * Unique id
+   * If no id is specified, one will be generated using uuid
    * @default uuidV4
    */
   id?: string;
@@ -143,9 +144,7 @@ export class Checkbox extends Component<CheckboxProps> {
 
     return (
       <HtmlDiv
-        className={classnames(checkboxBaseClassNames.container, className, {
-          [checkboxBaseClassNames.disabled]: !!disabled,
-        })}
+        className={classnames(checkboxBaseClassNames.container, className, {})}
       >
         <HtmlInput {...newCheckboxInputProps} type="checkbox" />
         <HtmlLabel

@@ -124,9 +124,8 @@ export const baseStyles = withSuomifiTheme(
       position: relative;
       display: inline-block;
       padding-left: ${theme.spacing.l};
-      min-height: 30px;
-      min-width: 30px;
       cursor: pointer;
+      min-height: 20px;
       &::before {
         content: '';
         position: absolute;
