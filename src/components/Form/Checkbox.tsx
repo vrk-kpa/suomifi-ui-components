@@ -78,33 +78,30 @@ export interface CheckboxProps {
 }
 
 export interface CheckboxState {
-  checkboxState: boolean;
+  checkedState: boolean;
 }
 
 export class Checkbox extends Component<CheckboxProps> {
   state = {
-    checkboxState: !!this.props.checked || !!this.props.defaultChecked || false,
+    checkedState: !!this.props.checked || !!this.props.defaultChecked || false,
   };
-  /*eslint-disable */
-  /**
-   * This is deprecated and should be replaced
-   */
+
+  // eslint-disable-next-line camelcase
   UNSAFE_componentWillReceiveProps(nextProps: CheckboxProps) {
     const { checked } = nextProps;
     if (!!checked) {
-      this.setState({ checkboxState: !!checked });
+      this.setState({ checkedState: !!checked });
     }
   }
-  /* eslint-enable */
 
   handleClick = () => {
     const { checked, onClick } = this.props;
-    const { checkboxState } = this.state;
+    const { checkedState } = this.state;
     if (checked === undefined) {
-      this.setState({ checkboxState: !checkboxState });
+      this.setState({ checkedState: !checkedState });
     }
     if (!!onClick) {
-      onClick({ checkboxState: !checkboxState });
+      onClick({ checkboxState: !checkedState });
     }
   };
 
@@ -125,7 +122,7 @@ export class Checkbox extends Component<CheckboxProps> {
       statusText,
       ...passProps
     } = this.props;
-    const { checkboxState } = this.state;
+    const { checkedState } = this.state;
 
     const id = idGenerator(propId);
     const statusTextId = `${idGenerator(propId)}-statusText`;
@@ -136,7 +133,7 @@ export class Checkbox extends Component<CheckboxProps> {
       id,
       'aria-label': ariaLabel,
       'aria-labelledby': ariaLabelledBy,
-      checked: !!checkboxState,
+      checked: !!checkedState,
       className: checkboxBaseClassNames.input,
       onChange: this.handleClick,
       ...checkboxInputProps,
@@ -149,7 +146,7 @@ export class Checkbox extends Component<CheckboxProps> {
         <HtmlInput {...newCheckboxInputProps} type="checkbox" />
         <HtmlLabel
           htmlFor={id}
-          className={classnames(className, checkboxBaseClassNames.label)}
+          className={classnames(checkboxBaseClassNames.label)}
           {...passProps}
         >
           {children}

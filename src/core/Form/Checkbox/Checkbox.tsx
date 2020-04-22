@@ -63,7 +63,7 @@ export class Checkbox extends Component<CheckboxProps> {
         disabled={disabled}
         onClick={this.handleClick}
         {...passProps}
-        className={classnames(className, {
+        className={classnames(baseClassName, className, {
           [checkboxClassNames.error]: status === 'error',
           [checkboxClassNames.checked]: checkedState,
           [checkboxClassNames.large]: variant === 'large',
