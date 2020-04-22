@@ -32,7 +32,7 @@ const StyledCheckbox = styled(
   ${(props) => baseStyles(props)}
 `;
 
-export class Checkbox extends Component<CheckboxProps> {
+class DefaultCheckbox extends Component<CheckboxProps> {
   state = {
     checkedState: !!this.props.checked || !!this.props.defaultChecked,
   };
@@ -73,5 +73,15 @@ export class Checkbox extends Component<CheckboxProps> {
         {children}
       </StyledCheckbox>
     );
+  }
+}
+
+export class Checkbox extends Component<CheckboxProps> {
+  static large = (props: CheckboxProps) => {
+    return <DefaultCheckbox {...props} variant="large" />;
+  };
+
+  render() {
+    return <DefaultCheckbox {...this.props} />;
   }
 }

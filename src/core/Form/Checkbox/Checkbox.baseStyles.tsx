@@ -43,12 +43,9 @@ const errorStyles = ({ theme }: SuomifiThemeProp) => css`
         border-color: ${theme.colors.alertBase};
       }
     }
-    & .fi-checkbox_hintText {
-      margin-bottom: ${theme.spacing.xxs};
-    }
-
     & .fi-checkbox_status {
       color: ${theme.colors.alertBase};
+      margin-top: ${theme.spacing.xxs};
     }
   }
 `;
@@ -58,7 +55,6 @@ const largeVariantStyles = ({ theme }: SuomifiThemeProp) => css`
     & .fi-checkbox_label {
       padding-left: 40px;
       min-height: 30px;
-      padding-top: 1px;
 
       &::before {
         content: '';
@@ -128,6 +124,7 @@ export const baseStyles = withSuomifiTheme(
       cursor: pointer;
       min-height: 27px;
       line-height: 1.5em;
+      padding-top: 1px;
       &::before {
         content: '';
         position: absolute;
