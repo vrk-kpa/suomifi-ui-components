@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import { HtmlInput, HtmlLabel, HtmlSpan, HtmlDiv } from '../../reset';
 
 import { idGenerator } from '../../utils/uuid';
+import { logger } from '../../utils/logger';
 
 const baseClassName = 'fi-checkbox';
 
@@ -124,6 +125,19 @@ export class Checkbox extends Component<CheckboxProps> {
     } = this.props;
     const { checkedState } = this.state;
 
+    const hasLabel =
+      children ||
+      ariaLabel ||
+      ariaLabelledBy ||
+      checkboxInputProps?.['aria-label'] ||
+      checkboxInputProps?.['aria-labelledby'];
+
+    if (!hasLabel) {
+      logger.error(
+        'Checkbox component should have a label or at least an aria-label or aria-labelledby attribute.',
+      );
+    }
+
     const id = idGenerator(propId);
     const statusTextId = `${idGenerator(propId)}-statusText`;
     const hintTextId = `${idGenerator(propId)}-hintText`;
@@ -146,7 +160,7 @@ export class Checkbox extends Component<CheckboxProps> {
         <HtmlInput {...newCheckboxInputProps} type="checkbox" />
         <HtmlLabel
           htmlFor={id}
-          className={classnames(checkboxBaseClassNames.label)}
+          className={checkboxBaseClassNames.label}
           {...passProps}
         >
           {children}
