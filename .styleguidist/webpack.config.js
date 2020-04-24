@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = env => ({
+module.exports = (env) => ({
   mode: env.production ? 'production' : 'development',
   devtool: env.production ? 'inline-source-map' : 'eval',
   node: {
@@ -14,7 +14,10 @@ module.exports = env => ({
       // Run the typescript compilier on .ts files before webpack
       {
         test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader?configFileName=./.styleguidist/styleguideTsconfig.json',
+        loader: 'ts-loader',
+        options: {
+          configFile: '.styleguidist/styleguideTsconfig.json',
+        },
         exclude: [/node_modules/],
       },
       // Used for global font-face imports
@@ -23,5 +26,5 @@ module.exports = env => ({
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
-  }
+  },
 });

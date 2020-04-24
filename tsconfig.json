@@ -13,16 +13,9 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "removeComments": true,
-    "lib": [
-      "es2017",
-      "dom"
-    ] /* list of built-in API declaration groups that you can chose to include in your project */,
-    "typeRoots": [
-      "node_modules/@types",
-      "types"
-    ] /* List of folders to include type definitions from. */,
+    "lib": ["es2017", "dom"],
     "pretty": true,
-    "skipLibCheck": true,
+    "skipLibCheck": false,
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
