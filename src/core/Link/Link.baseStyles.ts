@@ -32,7 +32,7 @@ export const externalStyles = withSuomifiTheme(
   `,
 );
 
-export const skipStyles = withSuomifiTheme(
+export const skipLinkStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     &.fi-link--skip {
       position: absolute;

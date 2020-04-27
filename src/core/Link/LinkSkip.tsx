@@ -8,7 +8,7 @@ import {
   LinkSkipProps as CompLinkSkipProps,
 } from '../../components/Link/LinkSkip';
 
-import { skipStyles } from './Link.baseStyles';
+import { skipLinkStyles } from './Link.baseStyles';
 
 export interface LinkSkipProps
   extends CompLinkSkipProps,
@@ -20,7 +20,7 @@ const StyledLinkSkip = styled(
     <Link {...passProps} asProp={CompLinkSkip} />
   ),
 )`
-  ${(props) => skipStyles(props)};
+  ${(props) => skipLinkStyles(props)};
 `;
 
 /**
