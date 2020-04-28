@@ -6,8 +6,9 @@ import {
 } from '../../theme';
 import { disabledCursor } from '../../../components/utils/css';
 import { element, font } from '../../theme/reset';
+import { suomifiDesignTokens } from 'suomifi-design-tokens';
 
-/* stylelint-disable */
+/* stylelint-disable no-descending-specificity */
 const checkedStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-checkbox--checked {
     & .fi-checkbox_label {
@@ -81,43 +82,15 @@ const largeVariantStyles = ({ theme }: SuomifiThemeProp) => css`
         top: 6px;
       }
     }
-
-    & .fi-checkbox_hintText {
-      padding-left: 40px;
-    }
   }
 `;
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     ${element({ theme })}
-    ${font({ theme })(
-      'bodyText',
-    )}
-    
-    /*TODO: use suomi.fi focus style */
-    &:focus-within {
-      & .fi-checkbox_label {
-        &::before {
-          box-shadow: 0 0 0 3px #ffbf47;
-          outline: 3px solid transparent; /* For Windows high contrast mode. */
-        }
-      }
-    }
+    ${font({ theme })('bodyText')}
 
-    & .fi-checkbox_input {
-      position: absolute;
-      opacity: 0;
-      z-index: -9999;
-
-      & + .fi-checkbox_label::after {
-        content: none;
-      }
-      &:checked + .fi-checkbox_label::after {
-        content: '';
-      }
-    }
-    & .fi-checkbox_label {
+& .fi-checkbox_label {
       position: relative;
       display: block;
       padding-left: ${theme.spacing.l};
@@ -149,6 +122,30 @@ export const baseStyles = withSuomifiTheme(
         transform: rotate(-45deg);
         left: 4px;
         top: 8px;
+      }
+    }
+
+    /*TODO: use suomi.fi focus style */
+    &:focus-within {
+      & .fi-checkbox_label {
+        &::before {
+          box-shadow: 0px 0px 3px 1px
+            ${suomifiDesignTokens.colors.highlightBase};
+          outline: 3px solid transparent; /* For Windows high contrast mode. */
+        }
+      }
+    }
+
+    & .fi-checkbox_input {
+      position: absolute;
+      opacity: 0;
+      z-index: -9999;
+
+      & + .fi-checkbox_label::after {
+        content: none;
+      }
+      &:checked + .fi-checkbox_label::after {
+        content: '';
       }
     }
 

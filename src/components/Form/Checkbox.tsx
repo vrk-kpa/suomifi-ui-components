@@ -1,6 +1,12 @@
 import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
-import { HtmlInput, HtmlLabel, HtmlSpan, HtmlDiv } from '../../reset';
+import {
+  HtmlInput,
+  HtmlLabel,
+  HtmlSpan,
+  HtmlDiv,
+  HtmlInputProps,
+} from '../../reset';
 
 import { idGenerator } from '../../utils/uuid';
 import { logger } from '../../utils/logger';
@@ -18,10 +24,10 @@ const checkboxBaseClassNames = {
 type CheckboxVariant = 'small' | 'large';
 type CheckboxStatus = 'default' | 'error' | 'disabled';
 
-export interface CheckboxInputProps {
+export interface CheckboxInputProps extends HtmlInputProps {
   /** State of input checkbox */
   checked?: boolean;
-  /** Custom classname for the container */
+  /** Custom classname for the input */
   className?: string;
   'aria-label'?: string;
   'aria-labelledby'?: string;
