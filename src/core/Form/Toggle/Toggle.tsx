@@ -36,9 +36,11 @@ class ToggleWithIcon extends Component<ToggleProps> {
   state = { toggleStatus: !!this.props.checked || !!this.props.defaultChecked };
 
   handleToggle = () => {
-    const { onClick } = this.props;
+    const { onClick, checked } = this.props;
     const { toggleStatus } = this.state;
-    this.setState({ toggleStatus: !toggleStatus });
+    if (checked === undefined) {
+      this.setState({ toggleStatus: !toggleStatus });
+    }
     if (!!onClick) {
       onClick({ toggleState: !toggleStatus });
     }

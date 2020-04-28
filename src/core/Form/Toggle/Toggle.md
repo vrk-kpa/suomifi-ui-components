@@ -26,5 +26,12 @@ import { Toggle } from 'suomifi-ui-components';
   <Toggle onClick={({ toggleState }) => console.log(toggleState)}>
     Unchecked enabled using button
   </Toggle>
+
+  <Toggle
+    checked={false}
+    onClick={({ toggleState }) => console.log(toggleState)}
+  >
+    Controlled checked state.
+  </Toggle>
 </>;
 ```
