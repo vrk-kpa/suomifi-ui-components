@@ -1,12 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
-import {
-  HtmlInput,
-  HtmlLabel,
-  HtmlSpan,
-  HtmlDiv,
-  HtmlInputProps,
-} from '../../reset';
+import { HtmlInput, HtmlLabel, HtmlSpan, HtmlDiv } from '../../reset';
 
 import { idGenerator } from '../../utils/uuid';
 import { logger } from '../../utils/logger';
@@ -23,15 +17,6 @@ const checkboxBaseClassNames = {
 
 type CheckboxVariant = 'small' | 'large';
 type CheckboxStatus = 'default' | 'error' | 'disabled';
-
-export interface CheckboxInputProps extends HtmlInputProps {
-  /** State of input checkbox */
-  checked?: boolean;
-  /** Custom classname for the input */
-  className?: string;
-  'aria-label'?: string;
-  'aria-labelledby'?: string;
-}
 
 export interface CheckboxProps {
   /** Controlled checked-state - user actions use onClick to change  */
@@ -68,8 +53,6 @@ export interface CheckboxProps {
    * Hint text to be displayed under the label.
    */
   hintText?: string;
-  /** Pass custom props to Checkbox's input component/element */
-  checkboxInputProps?: CheckboxInputProps;
   /**
    * aria-label for the HTML input-element,
    * alternatively you can define aria-labelledby with label-element id
@@ -120,7 +103,6 @@ export class Checkbox extends Component<CheckboxProps> {
       'aria-label': ariaLabel,
       'aria-labelledby': ariaLabelledBy,
       children,
-      checkboxInputProps,
       checked: dismissChecked,
       defaultChecked: dismissDefaultChecked,
       onClick: dismissOnClick,
@@ -131,16 +113,9 @@ export class Checkbox extends Component<CheckboxProps> {
     } = this.props;
     const { checkedState } = this.state;
 
-    const hasLabel =
-      children ||
-      ariaLabel ||
-      ariaLabelledBy ||
-      checkboxInputProps?.['aria-label'] ||
-      checkboxInputProps?.['aria-labelledby'];
-
-    if (!hasLabel) {
+    if (!children) {
       logger.error(
-        'Checkbox component should have a label or at least an aria-label or aria-labelledby attribute.',
+        'Checkbox component should have a label or a child element that acts as one. Add label content or a child element.',
       );
     }
 
@@ -156,7 +131,6 @@ export class Checkbox extends Component<CheckboxProps> {
       checked: !!checkedState,
       className: checkboxBaseClassNames.input,
       onChange: this.handleClick,
-      ...checkboxInputProps,
     };
 
     return (

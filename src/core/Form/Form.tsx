@@ -6,8 +6,4 @@ export {
 } from './Toggle/Toggle';
 export { TextInput, TextInputProps } from './TextInput/TextInput';
 export { SearchInput, SearchInputProps } from './SearchInput/SearchInput';
-export {
-  Checkbox,
-  CheckboxProps,
-  CheckboxInputProps,
-} from './Checkbox/Checkbox';
+export { Checkbox, CheckboxProps } from './Checkbox/Checkbox';

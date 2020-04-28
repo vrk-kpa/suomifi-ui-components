@@ -12,7 +12,6 @@ export { DropdownItem, DropdownItemProps } from './core/Dropdown/DropdownItem';
 export {
   Checkbox,
   CheckboxProps,
-  CheckboxInputProps,
   TextInput,
   TextInputProps,
   Toggle,

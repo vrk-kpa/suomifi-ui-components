@@ -4,7 +4,6 @@ import { TokensProp, InternalTokensProp } from '../../theme';
 import {
   Checkbox as CompCheckbox,
   CheckboxProps as CompCheckboxProps,
-  CheckboxInputProps as CompCheckboxInputProps,
 } from '../../../components/Form/Checkbox';
 import { baseStyles } from './Checkbox.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
@@ -20,9 +19,6 @@ const checkboxClassNames = {
 };
 
 export interface CheckboxProps extends CompCheckboxProps, TokensProp {}
-export interface CheckboxInputProps
-  extends CompCheckboxInputProps,
-    TokensProp {}
 
 const StyledCheckbox = styled(
   ({ tokens, ...passProps }: CheckboxProps & InternalTokensProp) => (
