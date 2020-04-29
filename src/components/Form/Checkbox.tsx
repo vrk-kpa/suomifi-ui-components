@@ -16,7 +16,7 @@ const checkboxBaseClassNames = {
 };
 
 type CheckboxVariant = 'small' | 'large';
-type CheckboxStatus = 'default' | 'error' | 'disabled';
+type CheckboxStatus = 'default' | 'error';
 
 export interface CheckboxProps {
   /** Controlled checked-state - user actions use onClick to change  */
