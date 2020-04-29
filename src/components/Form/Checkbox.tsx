@@ -76,12 +76,15 @@ export class Checkbox extends Component<CheckboxProps> {
     checkedState: !!this.props.checked || !!this.props.defaultChecked || false,
   };
 
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillReceiveProps(nextProps: CheckboxProps) {
+  static getDerivedStateFromProps(
+    nextProps: CheckboxProps,
+    prevState: CheckboxState,
+  ) {
     const { checked } = nextProps;
-    if (!!checked) {
-      this.setState({ checkedState: !!checked });
+    if (checked !== undefined && checked !== prevState.checkedState) {
+      return { checkboxState: checked };
     }
+    return null;
   }
 
   handleClick = () => {
@@ -123,6 +126,9 @@ export class Checkbox extends Component<CheckboxProps> {
     const statusTextId = `${idGenerator(propId)}-statusText`;
     const hintTextId = `${idGenerator(propId)}-hintText`;
 
+    const infoElementIds =
+      statusText || hintText ? [statusTextId, hintTextId].join(' ') : '';
+
     const newCheckboxInputProps = {
       disabled,
       id,
@@ -137,7 +143,11 @@ export class Checkbox extends Component<CheckboxProps> {
       <HtmlDiv
         className={classnames(checkboxBaseClassNames.container, className, {})}
       >
-        <HtmlInput {...newCheckboxInputProps} type="checkbox" />
+        <HtmlInput
+          {...newCheckboxInputProps}
+          type="checkbox"
+          aria-describedby={infoElementIds}
+        />
         <HtmlLabel
           htmlFor={id}
           className={checkboxBaseClassNames.label}

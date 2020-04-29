@@ -34,9 +34,11 @@ class DefaultCheckbox extends Component<CheckboxProps> {
   };
 
   handleClick = () => {
-    const { onClick } = this.props;
+    const { onClick, checked } = this.props;
     const { checkedState } = this.state;
-    this.setState({ checkedState: !checkedState });
+    if (checked === undefined) {
+      this.setState({ checkedState: !checkedState });
+    }
     if (!!onClick) {
       onClick({ checkboxState: !checkedState });
     }
