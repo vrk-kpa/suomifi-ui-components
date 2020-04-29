@@ -82,6 +82,9 @@ const largeVariantStyles = ({ theme }: SuomifiThemeProp) => css`
         top: 6px;
       }
     }
+    & .fi-checkbox_hintText {
+      padding-left: ${theme.spacing.xxl};
+    }
   }
 `;
 

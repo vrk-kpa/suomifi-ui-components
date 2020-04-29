@@ -1,40 +1,32 @@
 ```js
 import { Checkbox } from './Checkbox';
+import { Checkbox as CompCheckbox } from '../../../components/Form/Checkbox';
 <>
-  <Checkbox
-    id="1"
-    defaultChecked
-    hintText="This is an example hint text"
-    status="checked"
-  >
+  <Checkbox defaultChecked hintText="This is an example hint text">
     This is a regular checkbox that is checked and has a hint text
   </Checkbox>
 
   <Checkbox
-    hintText="This is an example hint text"
+    hintText="Example hint text"
     status="error"
     statusText="You need to accept the terms and conditions to continue"
   >
     This is a regular checkbox with a hint text and an error message
   </Checkbox>
 
-  <Checkbox defaultChecked disabled>
-    This is a disabled checkbox
-  </Checkbox>
+  <Checkbox.large>This is a large checkbox</Checkbox.large>
 
-  <Checkbox />
+  <Checkbox.large defaultChecked hintText="Example hint text">
+    This is a checked large checkbox with a hint text
+  </Checkbox.large>
 
-  <Checkbox id="2" variant="large">
-    This is a large checkbox that is unchecked
-  </Checkbox>
+  <Checkbox disabled>This is a disabled checkbox</Checkbox>
 
   <Checkbox
-    variant="large"
-    status="error"
-    statusText="You need to accept the terms and conditions to continue"
-    defaultChecked
+    checked={false}
+    onClick={({ checkedState }) => console.log(checkedState)}
   >
-    This is a checked large checkbox with an error message
+    Controlled checked state.
   </Checkbox>
 </>;
 ```
