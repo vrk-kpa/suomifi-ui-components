@@ -50,7 +50,6 @@ class ToggleWithIcon extends Component<ToggleProps> {
     const {
       children,
       disabled = false,
-      checked: dissMissChecked,
       onClick,
       ...passProps
     } = withSuomifiDefaultProps(this.props);
