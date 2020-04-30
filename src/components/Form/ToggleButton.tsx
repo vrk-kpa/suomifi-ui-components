@@ -17,7 +17,7 @@ const StyledHtmlButton = styled(HtmlButton)`
 
 export class ToggleButton extends Component<ToggleProps> {
   state: ToggleState = {
-    toggleState: !!this.props.checked || !!this.props.defaultChecked || false,
+    toggleState: !!this.props.checked || !!this.props.defaultChecked,
   };
 
   static getDerivedStateFromProps(

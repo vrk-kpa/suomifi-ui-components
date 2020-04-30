@@ -41,7 +41,7 @@ class ToggleWithIcon extends Component<ToggleProps> {
   ) {
     const { checked } = nextProps;
     if (checked !== undefined && checked !== prevState.toggleStatus) {
-      return { toggleState: checked };
+      return { toggleStatus: checked };
     }
     return null;
   }

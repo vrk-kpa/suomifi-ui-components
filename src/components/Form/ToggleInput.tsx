@@ -38,7 +38,7 @@ const StyledHtmlLabel = styled(HtmlLabel)`
 
 export class ToggleInput extends Component<ToggleProps> {
   state: ToggleState = {
-    toggleState: !!this.props.checked || !!this.props.defaultChecked || false,
+    toggleState: !!this.props.checked || !!this.props.defaultChecked,
   };
 
   static getDerivedStateFromProps(
