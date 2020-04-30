@@ -48,7 +48,6 @@ class DefaultCheckbox extends Component<CheckboxProps> {
     const {
       children,
       disabled = false,
-      checked,
       onClick,
       status,
       variant,

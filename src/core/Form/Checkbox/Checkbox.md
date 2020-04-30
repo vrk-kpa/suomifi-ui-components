@@ -1,6 +1,5 @@
 ```js
 import { Checkbox } from './Checkbox';
-import { Checkbox as CompCheckbox } from '../../../components/Form/Checkbox';
 <>
   <Checkbox defaultChecked hintText="This is an example hint text">
     This is a regular checkbox that is checked and has a hint text
@@ -24,7 +23,7 @@ import { Checkbox as CompCheckbox } from '../../../components/Form/Checkbox';
 
   <Checkbox
     checked={false}
-    onClick={({ checkedState }) => console.log(checkedState)}
+    onClick={({ checked }) => console.log(checked)}
   >
     Controlled checked state.
   </Checkbox>
