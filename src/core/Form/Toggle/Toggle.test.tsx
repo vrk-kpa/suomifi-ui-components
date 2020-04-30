@@ -49,6 +49,10 @@ describe.each([['withInput'], ['default']])(
       const svgClassList = container.querySelector('svg')?.classList;
       expect(svgClassList).toContain('fi-toggle_icon');
       expect(svgClassList).toContain('fi-toggle_icon--checked');
+      if (variant === 'withInput') {
+        const inputElement = container.querySelector('input');
+        expect(inputElement).toBeChecked();
+      }
       fireEvent.click(toggle);
       expect(svgClassList).not.toContain('fi-toggle_icon--checked');
     });
@@ -72,6 +76,10 @@ describe.each([['withInput'], ['default']])(
       const svgClassList = container.querySelector('svg')?.classList;
       expect(svgClassList).toContain('fi-toggle_icon');
       expect(svgClassList).not.toContain('fi-toggle_icon--checked');
+      if (variant === 'withInput') {
+        const inputElement = container.querySelector('input');
+        expect(inputElement).not.toBeChecked();
+      }
     });
 
     test(
