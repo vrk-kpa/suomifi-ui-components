@@ -35,6 +35,17 @@ const StyledToggle = styled(
 class ToggleWithIcon extends Component<ToggleProps> {
   state = { toggleStatus: !!this.props.checked || !!this.props.defaultChecked };
 
+  static getDerivedStateFromProps(
+    nextProps: ToggleProps,
+    prevState: { toggleStatus: boolean },
+  ) {
+    const { checked } = nextProps;
+    if (checked !== undefined && checked !== prevState.toggleStatus) {
+      return { toggleState: checked };
+    }
+    return null;
+  }
+
   handleToggle = () => {
     const { onClick, checked } = this.props;
     const { toggleStatus } = this.state;
