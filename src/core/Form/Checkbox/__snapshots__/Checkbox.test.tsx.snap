@@ -90,25 +90,6 @@ exports[`Calling render with the same component on the same container does not r
   font-weight: 400;
 }
 
-.c1:focus-within .fi-checkbox_label::before {
-  box-shadow: 0 0 0 3px #ffbf47;
-  outline: 3px solid transparent;
-}
-
-.c1 .fi-checkbox_input {
-  position: absolute;
-  opacity: 0;
-  z-index: -9999;
-}
-
-.c1 .fi-checkbox_input + .fi-checkbox_label::after {
-  content: none;
-}
-
-.c1 .fi-checkbox_input:checked + .fi-checkbox_label::after {
-  content: '';
-}
-
 .c1 .fi-checkbox_label {
   position: relative;
   display: block;
@@ -148,6 +129,25 @@ exports[`Calling render with the same component on the same container does not r
   top: 8px;
 }
 
+.c1:focus-within .fi-checkbox_label::before {
+  box-shadow: 0px 0px 3px 1px hsl(212,63%,45%);
+  outline: 3px solid transparent;
+}
+
+.c1 .fi-checkbox_input {
+  position: absolute;
+  opacity: 0;
+  z-index: -9999;
+}
+
+.c1 .fi-checkbox_input + .fi-checkbox_label::after {
+  content: none;
+}
+
+.c1 .fi-checkbox_input:checked + .fi-checkbox_label::after {
+  content: '';
+}
+
 .c1 .fi-checkbox_hintText {
   display: block;
   padding-left: 25px;
@@ -162,6 +162,7 @@ exports[`Calling render with the same component on the same container does not r
   display: block;
   color: hsl(0,0%,16%);
   font-size: 14px;
+  line-height: 18px;
   font-weight: 600;
 }
 
@@ -236,6 +237,7 @@ exports[`Calling render with the same component on the same container does not r
   class="c0 fi-checkbox_container c1 fi-checkbox"
 >
   <input
+    aria-describedby=""
     class="c2 fi-checkbox_input"
     id="test"
     type="checkbox"

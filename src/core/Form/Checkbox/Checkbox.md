@@ -21,7 +21,10 @@ import { Checkbox } from './Checkbox';
 
   <Checkbox disabled>This is a disabled checkbox</Checkbox>
 
-  <Checkbox checked={false}>
+  <Checkbox
+    checked={false}
+    onClick={({ checkboxState }) => console.log(checkboxState)}
+  >
     Checkbox with controlled checked state
   </Checkbox>
 </>;

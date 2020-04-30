@@ -163,7 +163,7 @@ export const baseStyles = withSuomifiTheme(
       display: block;
       color: ${theme.colors.blackBase};
       font-size: 14px;
-      line-height: 1.5em;
+      line-height: 18px;
       font-weight: 600;
     }
 
