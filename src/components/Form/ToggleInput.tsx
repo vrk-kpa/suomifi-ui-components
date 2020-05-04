@@ -38,15 +38,18 @@ const StyledHtmlLabel = styled(HtmlLabel)`
 
 export class ToggleInput extends Component<ToggleProps> {
   state: ToggleState = {
-    toggleState: !!this.props.checked || !!this.props.defaultChecked || false,
+    toggleState: !!this.props.checked || !!this.props.defaultChecked,
   };
 
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillReceiveProps(nextProps: ToggleProps) {
+  static getDerivedStateFromProps(
+    nextProps: ToggleProps,
+    prevState: ToggleState,
+  ) {
     const { checked } = nextProps;
-    if (!!checked) {
-      this.setState({ toggleState: !!checked });
+    if (checked !== undefined && checked !== prevState.toggleState) {
+      return { toggleState: checked };
     }
+    return null;
   }
 
   handleClick = () => {

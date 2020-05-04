@@ -1,5 +1,10 @@
 ```js
+import { useState } from 'react';
+
 import { Toggle } from 'suomifi-ui-components';
+
+const [checked, setChecked] = useState(false);
+
 <>
   <Toggle
     defaultChecked
@@ -25,6 +30,17 @@ import { Toggle } from 'suomifi-ui-components';
 
   <Toggle onClick={({ toggleState }) => console.log(toggleState)}>
     Unchecked enabled using button
+  </Toggle>
+
+  <Toggle
+    checked={checked}
+    onClick={({ toggleState }) => {
+      if (confirm('Change Toggle state?')) {
+        setChecked(toggleState);
+      }
+    }}
+  >
+    Controlled checked state.
   </Toggle>
 </>;
 ```

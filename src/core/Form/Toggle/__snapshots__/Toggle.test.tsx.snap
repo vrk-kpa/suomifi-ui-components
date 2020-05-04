@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button: calling render with the same component on the same container does not remount 1`] = `
+exports[`Toggle variant default:  calling render with the same component on the same container does not remount 1`] = `
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -513,7 +513,7 @@ exports[`Button: calling render with the same component on the same container do
 </button>
 `;
 
-exports[`Input: calling render with the same component on the same container does not remount 1`] = `
+exports[`Toggle variant withInput:  calling render with the same component on the same container does not remount 1`] = `
 .c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;

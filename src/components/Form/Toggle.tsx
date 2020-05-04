@@ -25,7 +25,7 @@ export interface ToggleInputProps {
 }
 
 export interface ToggleProps {
-  /** Controlled toggle-state - user actions use onClick to change  */
+  /** Controlled toggle-state - if provided, component will update only when this is explicitly changed */
   checked?: boolean;
   /** Default status of toggle when not using controlled 'checked' state
    * @default false
