@@ -1,5 +1,8 @@
 ```js
 import { Checkbox } from './Checkbox';
+import { useState } from 'react';
+
+const [checked, setChecked] = useState(false);
 <>
   <Checkbox defaultChecked hintText="This is an example hint text">
     Regular checkbox that is checked and has a hint text
@@ -19,11 +22,14 @@ import { Checkbox } from './Checkbox';
     Checked large checkbox with a hint text
   </Checkbox.large>
 
-  <Checkbox disabled>This is a disabled checkbox</Checkbox>
+  <Checkbox disabled>Disabled checkbox</Checkbox>
 
   <Checkbox
-    checked={false}
-    onClick={({ checkboxState }) => console.log(checkboxState)}
+    checked={checked}
+    onClick={({ checkboxState }) => {
+      if (confirm('Change checkbox state?'))
+        setChecked(checkboxState);
+    }}
   >
     Checkbox with controlled checked state
   </Checkbox>
