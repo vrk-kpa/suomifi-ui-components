@@ -81,8 +81,8 @@ class DefaultCheckbox extends Component<CheckboxProps> {
         onClick={this.handleClick}
         {...passProps}
         className={classnames(baseClassName, className, {
-          [checkboxClassNames.error]: status === 'error',
-          [checkboxClassNames.checked]: checkedState,
+          [checkboxClassNames.error]: status === 'error' && !disabled,
+          [checkboxClassNames.checked]: checkedState && !disabled,
           [checkboxClassNames.large]: variant === 'large',
           [checkboxClassNames.disabled]: !!disabled,
         })}
@@ -91,9 +91,9 @@ class DefaultCheckbox extends Component<CheckboxProps> {
           <Icon
             icon="check"
             className={classnames(iconBaseClassName, {
+              [iconClassnames.checked]: checkedState && !disabled,
+              [iconClassnames.error]: status === 'error' && !disabled,
               [iconClassnames.disabled]: !!disabled,
-              [iconClassnames.checked]: checkedState,
-              [iconClassnames.error]: status === 'error',
             })}
           />
         )}
