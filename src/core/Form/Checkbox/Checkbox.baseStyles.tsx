@@ -12,9 +12,11 @@ import { suomifiDesignTokens } from 'suomifi-design-tokens';
 const checkedStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-checkbox--checked {
     & .fi-checkbox_label {
-      &::before,
-      &::after {
+      &::before {
         border-color: ${theme.colors.highlightBase};
+      }
+      & > .fi-checkbox_icon {
+        fill: ${theme.colors.highlightBase};
       }
     }
   }
@@ -25,9 +27,12 @@ const disabledStyles = ({ theme }: SuomifiThemeProp) => css`
         & .fi-checkbox_label{
             ${disabledCursor}
     color: ${theme.colors.depthBase};
-        &::before, ::after{
+        &::before{
             background-color: ${theme.colors.depthLight3};
             border-color: ${theme.colors.depthLight1};
+        }
+        & > .fi-checkbox_icon {
+          fill: ${theme.colors.depthLight1};
         }
     }
 }
@@ -40,8 +45,8 @@ const errorStyles = ({ theme }: SuomifiThemeProp) => css`
         border-color: ${theme.colors.alertBase};
         border-width: 2px;
       }
-      &::after {
-        border-color: ${theme.colors.alertBase};
+      & > .fi-checkbox_icon {
+        fill: ${theme.colors.alertBase};
       }
     }
     & .fi-checkbox_status {
@@ -68,18 +73,11 @@ const largeVariantStyles = ({ theme }: SuomifiThemeProp) => css`
         color: ${theme.colors.depthBase};
         border: 2px solid;
       }
-      &::after {
-        position: absolute;
-        height: 8px;
-        width: 16px;
-        border-left: 4px solid;
-        border-bottom: 4px solid;
-        border-radius: 3px;
-        border-bottom-right-radius: ${theme.radius.basic};
-        border-top-left-radius: ${theme.radius.basic};
-        transform: rotate(-45deg);
-        left: 6px;
-        top: 6px;
+      & .fi-checkbox_icon {
+        height: 20px;
+        width: 20px;
+        left: 5px;
+        top: 4px;
       }
     }
     & .fi-checkbox_hintText {
@@ -114,18 +112,13 @@ export const baseStyles = withSuomifiTheme(
         border-radius: ${theme.radius.basic};
         background-color: ${theme.colors.whiteBase};
       }
-      &::after {
-        content: '';
-        position: absolute;
-        height: 5px;
-        width: 8px;
-        border-left: 2px solid;
-        border-bottom: 2px solid;
-        border-radius: ${theme.radius.basic};
-        transform: rotate(-45deg);
-        left: 4px;
-        top: 8px;
-      }
+    }
+    & .fi-checkbox_icon {
+      position: absolute;
+      height: 10px;
+      width: 10px;
+      left: 4px;
+      top: 9px;
     }
 
     /*TODO: use suomi.fi focus style */
@@ -143,13 +136,6 @@ export const baseStyles = withSuomifiTheme(
       position: absolute;
       opacity: 0;
       z-index: -9999;
-
-      & + .fi-checkbox_label::after {
-        content: none;
-      }
-      &:checked + .fi-checkbox_label::after {
-        content: '';
-      }
     }
 
     & .fi-checkbox_hintText {

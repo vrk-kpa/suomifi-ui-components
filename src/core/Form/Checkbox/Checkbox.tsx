@@ -8,6 +8,7 @@ import {
 import { baseStyles } from './Checkbox.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import classnames from 'classnames';
+import { Icon } from '../../Icon/Icon';
 
 const baseClassName = 'fi-checkbox';
 
@@ -16,6 +17,14 @@ const checkboxClassNames = {
   error: `${baseClassName}--error`,
   checked: `${baseClassName}--checked`,
   large: `${baseClassName}--large`,
+};
+
+const iconBaseClassName = 'fi-checkbox_icon';
+
+const iconClassnames = {
+  disabled: `${iconBaseClassName}--disabled`,
+  checked: `${iconBaseClassName}--checked`,
+  error: `${iconBaseClassName}--error`,
 };
 
 export interface CheckboxProps extends CompCheckboxProps, TokensProp {}
@@ -32,6 +41,17 @@ class DefaultCheckbox extends Component<CheckboxProps> {
   state = {
     checkedState: !!this.props.checked || !!this.props.defaultChecked,
   };
+
+  static getDerivedStateFromProps(
+    nextProps: CheckboxProps,
+    prevState: { checkedState: boolean },
+  ) {
+    const { checked } = nextProps;
+    if (checked !== undefined && checked !== prevState.checkedState) {
+      return { checkedState: checked };
+    }
+    return null;
+  }
 
   handleClick = () => {
     const { onClick, checked } = this.props;
@@ -67,6 +87,16 @@ class DefaultCheckbox extends Component<CheckboxProps> {
           [checkboxClassNames.disabled]: !!disabled,
         })}
       >
+        {!!checkedState && (
+          <Icon
+            icon="check"
+            className={classnames(iconBaseClassName, {
+              [iconClassnames.disabled]: !!disabled,
+              [iconClassnames.checked]: checkedState,
+              [iconClassnames.error]: status === 'error',
+            })}
+          />
+        )}
         {children}
       </StyledCheckbox>
     );

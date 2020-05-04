@@ -41,7 +41,7 @@ export interface CheckboxProps {
    */
   variant?: CheckboxVariant;
   /**
-   * 'default' | 'error' | 'disabled'
+   * 'default' | 'error'
    * @default default
    */
   status?: CheckboxStatus;
