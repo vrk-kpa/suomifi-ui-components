@@ -114,19 +114,12 @@ exports[`Calling render with the same component on the same container does not r
   background-color: hsl(0,0%,100%);
 }
 
-.c1 .fi-checkbox_label::after {
-  content: '';
+.c1 .fi-checkbox_icon {
   position: absolute;
-  height: 5px;
-  width: 8px;
-  border-left: 2px solid;
-  border-bottom: 2px solid;
-  border-radius: 2px;
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+  height: 10px;
+  width: 10px;
   left: 4px;
-  top: 8px;
+  top: 9px;
 }
 
 .c1:focus-within .fi-checkbox_label::before {
@@ -138,14 +131,6 @@ exports[`Calling render with the same component on the same container does not r
   position: absolute;
   opacity: 0;
   z-index: -9999;
-}
-
-.c1 .fi-checkbox_input + .fi-checkbox_label::after {
-  content: none;
-}
-
-.c1 .fi-checkbox_input:checked + .fi-checkbox_label::after {
-  content: '';
 }
 
 .c1 .fi-checkbox_hintText {
@@ -183,29 +168,23 @@ exports[`Calling render with the same component on the same container does not r
   border: 2px solid;
 }
 
-.c1.fi-checkbox--large .fi-checkbox_label::after {
-  position: absolute;
-  height: 8px;
-  width: 16px;
-  border-left: 4px solid;
-  border-bottom: 4px solid;
-  border-radius: 3px;
-  border-bottom-right-radius: 2px;
-  border-top-left-radius: 2px;
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  left: 6px;
-  top: 6px;
+.c1.fi-checkbox--large .fi-checkbox_label .fi-checkbox_icon {
+  height: 20px;
+  width: 20px;
+  left: 5px;
+  top: 4px;
 }
 
 .c1.fi-checkbox--large .fi-checkbox_hintText {
   padding-left: 40px;
 }
 
-.c1.fi-checkbox--checked .fi-checkbox_label::before,
-.c1.fi-checkbox--checked .fi-checkbox_label::after {
+.c1.fi-checkbox--checked .fi-checkbox_label::before {
   border-color: hsl(212,63%,45%);
+}
+
+.c1.fi-checkbox--checked .fi-checkbox_label > .fi-checkbox_icon {
+  fill: hsl(212,63%,45%);
 }
 
 .c1.fi-checkbox--error .fi-checkbox_label::before {
@@ -213,8 +192,8 @@ exports[`Calling render with the same component on the same container does not r
   border-width: 2px;
 }
 
-.c1.fi-checkbox--error .fi-checkbox_label::after {
-  border-color: hsl(3,59%,48%);
+.c1.fi-checkbox--error .fi-checkbox_label > .fi-checkbox_icon {
+  fill: hsl(3,59%,48%);
 }
 
 .c1.fi-checkbox--error .fi-checkbox_status {
@@ -227,10 +206,18 @@ exports[`Calling render with the same component on the same container does not r
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-checkbox--disabled .fi-checkbox_label::before,
-.c1.fi-checkbox--disabled .fi-checkbox_label::after {
+.c1.fi-checkbox--disabled .fi-checkbox_label::before {
   background-color: hsl(202,7%,97%);
   border-color: hsl(202,7%,80%);
+  border-width: 1px;
+}
+
+.c1.fi-checkbox--disabled .fi-checkbox_label > .fi-checkbox_icon {
+  fill: hsl(202,7%,80%);
+}
+
+.c1.fi-checkbox--disabled.fi-checkbox--large .fi-checkbox_label::before {
+  border-width: 2px;
 }
 
 <div
