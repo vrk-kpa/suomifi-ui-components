@@ -46,7 +46,7 @@ export interface CheckboxProps {
    */
   status?: CheckboxStatus;
   /**
-   * Status text to be displayed in the status text element.
+   * Status text to be displayed in the status text element. Will not be displayed when element is disabled.
    */
   statusText?: string;
   /**
@@ -161,7 +161,7 @@ export class Checkbox extends Component<CheckboxProps> {
           </HtmlSpan>
         )}
 
-        {statusText && (
+        {statusText && !disabled && (
           <HtmlSpan
             className={checkboxBaseClassNames.statusText}
             id={statusTextId}
