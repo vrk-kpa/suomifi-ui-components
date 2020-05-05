@@ -64,7 +64,7 @@ const errorStyles = ({ theme }: SuomifiThemeProp) => css`
 const largeVariantStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-checkbox--large {
     & .fi-checkbox_label {
-      padding-left: 40px;
+      padding-left: ${theme.spacing.xxl};
       min-height: 30px;
 
       &::before {

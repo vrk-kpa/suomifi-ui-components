@@ -27,8 +27,9 @@ const [checked, setChecked] = useState(false);
   <Checkbox
     checked={checked}
     onClick={({ checkboxState }) => {
-      if (confirm('Change checkbox state?'))
+      if (window.confirm('Change checkbox state?')) {
         setChecked(checkboxState);
+      }
     }}
   >
     Checkbox with controlled checked state
