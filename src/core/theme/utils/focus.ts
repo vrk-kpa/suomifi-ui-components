@@ -11,7 +11,7 @@ export const focus = ({
 }) => {
   const style = !!outline
     ? outline
-    : themeOrTokens(tokensOrTheme).outlines.basic;
+    : themeOrTokens(tokensOrTheme).outlines.afterPseudo;
   return !!noPseudo
     ? style
     : css`
