@@ -117,9 +117,10 @@ export const gradients = {
 };
 
 export const outlines = {
-  basic: boxshadowOutline({
-    color: colors.accentBase,
-    offset: '4px',
+  afterPseudo: boxshadowOutline({
+    color: colors.accentSecondary,
+    border: '0px',
+    offset: '2px',
     zIndex: zindexes.focus,
   }),
 };

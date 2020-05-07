@@ -62,15 +62,15 @@ exports[`calling render with the same component on the same container does not r
 .c1:focus:after {
   content: '';
   position: absolute;
-  top: -4px;
-  right: -4px;
-  bottom: -4px;
-  left: -4px;
-  border-radius: 4px;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
   background-color: transparent;
-  border: 1px solid hsl(23,82%,53%);
+  border: 0px solid white;
   box-sizing: border-box;
-  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
 }
 
