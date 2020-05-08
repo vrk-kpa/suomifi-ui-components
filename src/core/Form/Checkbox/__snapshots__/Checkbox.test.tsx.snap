@@ -123,8 +123,13 @@ exports[`Calling render with the same component on the same container does not r
 }
 
 .c1:focus-within .fi-checkbox_label::before {
-  box-shadow: 0px 0px 3px 1px hsl(212,63%,45%);
-  outline: 3px solid transparent;
+  outline: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+}
+
+.c1:focus-within .fi-checkbox_label::before:not(:focus-visible) {
+  box-shadow: none;
 }
 
 .c1 .fi-checkbox_input {

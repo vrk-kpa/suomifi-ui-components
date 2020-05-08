@@ -4,17 +4,13 @@ import { radius } from '../radius';
 
 const boxshadow = ({
   borderRadius,
-  border,
   color,
 }: {
   borderRadius: string;
-  border: string;
   color: string;
 }) => css`
   border-radius: ${borderRadius};
-  border: ${border} solid ${color};
-  box-sizing: border-box;
-  box-shadow: 0 0 10px 0 ${color};
+  box-shadow: 0 0 0 2px ${color};
 `;
 
 const afterBoxshadow = ({
@@ -50,8 +46,8 @@ const afterBoxshadow = ({
 
 // TODO Refactor, create interfaces (and extend with Partial<>), add JSDOC for functions
 export const boxshadowOutline = ({
-  color = colors.accentBase,
-  borderColor = 'white',
+  color = colors.accentSecondary,
+  borderColor = colors.whiteBase,
   offset = '0',
   border = '1px',
   borderRadius = radius.focus,
@@ -80,7 +76,7 @@ export const boxshadowOutline = ({
           borderColor,
           zIndex,
         })
-      : boxshadow({ borderRadius, border, color })}
+      : boxshadow({ borderRadius, color })}
     ${focusVisible}
   `;
 };
