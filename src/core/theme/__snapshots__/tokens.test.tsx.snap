@@ -124,7 +124,7 @@ exports[`snapshot testing 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid white;
+  border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
@@ -208,7 +208,7 @@ exports[`snapshot testing 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid white;
+  border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
@@ -298,7 +298,7 @@ exports[`snapshot testing 1`] = `
   left: -2px;
   border-radius: 2px;
   background-color: transparent;
-  border: 0px solid white;
+  border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
