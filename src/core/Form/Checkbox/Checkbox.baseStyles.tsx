@@ -6,6 +6,7 @@ import {
 } from '../../theme';
 import { disabledCursor } from '../../../components/utils/css';
 import { element, font } from '../../theme/reset';
+import { focus } from '../../theme/utils/focus';
 
 /* stylelint-disable no-descending-specificity */
 const checkedStyles = ({ theme }: SuomifiThemeProp) => css`
@@ -126,12 +127,10 @@ export const baseStyles = withSuomifiTheme(
       top: 9px;
     }
 
-    /*TODO: use suomi.fi focus style */
     &:focus-within {
       & .fi-checkbox_label {
         &::before {
-          box-shadow: 0px 0px 3px 1px ${theme.colors.highlightBase};
-          outline: 3px solid transparent; /* For Windows high contrast mode. */
+          ${focus({ theme, noPseudo: true, variant: 'boxShadow' })}
         }
       }
     }
