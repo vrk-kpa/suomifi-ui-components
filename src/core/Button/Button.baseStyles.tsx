@@ -23,7 +23,8 @@ const invertedStyles = ({ theme }: SuomifiThemeProp) => css`
     &[disabled],
     &:disabled {
       opacity: 0.5;
-      background-color: ${theme.colors.highlightBase};
+      background: none;
+      background-color: none;
     }
   }
 `;
@@ -41,7 +42,7 @@ const secondary = ({ theme }: SuomifiThemeProp) => css`
 
   &:active {
     background: none;
-    background-color: ${theme.colors.highlightLight4};
+    background-color: ${theme.colors.depthLight2};
   }
 
   &.fi-button--disabled,
@@ -79,7 +80,7 @@ const tertiaryStyles = ({ theme }: SuomifiThemeProp) => css`
     }
 
     &:active {
-      background: ${theme.colors.highlightLight4};
+      background: ${theme.gradients.depthLight2ToDepthLight3};
     }
   }
 `;
@@ -87,7 +88,7 @@ const tertiaryStyles = ({ theme }: SuomifiThemeProp) => css`
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme & Partial<ButtonProps>) => css`
   ${button({ theme })}
-  padding: ${theme.spacing.insetM} ${theme.spacing.insetXl};
+  padding: ${theme.spacing.insetL} ${theme.spacing.insetXxl};
   min-height: 40px;
   color: ${theme.colors.whiteBase};
   background: ${theme.gradients.highlightBase};
@@ -101,7 +102,7 @@ export const baseStyles = withSuomifiTheme(
   }
 
   &:active {
-    background: ${theme.gradients.highlightDark1};
+    background: ${theme.colors.highlightDark1};
   }
 
   &.fi-button--disabled,
