@@ -68,11 +68,12 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  line-height: 1;
-  padding: 8px 16px;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 10px 20px;
   min-height: 40px;
   color: hsl(0,0%,100%);
-  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,#4387d5 100%);
+  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
   border-radius: 2px;
   text-align: center;
   text-shadow: 0 1px 1px hsl(214,100%,24%);
@@ -104,18 +105,18 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c2:hover {
-  background: linear-gradient(0deg,hsl(212,63%,49%) 0%,#5492d9 100%);
+  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
 }
 
 .c2:active {
-  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,#2c72c4 100%);
+  background: hsl(212,63%,37%);
 }
 
 .c2.fi-button--disabled,
 .c2[disabled],
 .c2:disabled {
   text-shadow: 0 1px 1px hsl(0,0%,16%);
-  background: linear-gradient(0deg,hsl(202,7%,67%) 0%,#c0c5c9 100%);
+  background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -152,7 +153,8 @@ exports[`calling render with the same component on the same container does not r
 .c2.fi-button--inverted[disabled],
 .c2.fi-button--inverted:disabled {
   opacity: 0.5;
-  background-color: hsl(212,63%,45%);
+  background: none;
+  background-color: none;
 }
 
 .c2.fi-button--secondary {
@@ -169,7 +171,7 @@ exports[`calling render with the same component on the same container does not r
 
 .c2.fi-button--secondary:active {
   background: none;
-  background-color: hsl(212,63%,98%);
+  background-color: hsl(202,7%,93%);
 }
 
 .c2.fi-button--secondary.fi-button--disabled,
@@ -197,7 +199,7 @@ exports[`calling render with the same component on the same container does not r
 
 .c2.fi-button--secondary-noborder:active {
   background: none;
-  background-color: hsl(212,63%,98%);
+  background-color: hsl(202,7%,93%);
 }
 
 .c2.fi-button--secondary-noborder.fi-button--disabled,
@@ -226,7 +228,7 @@ exports[`calling render with the same component on the same container does not r
 
 .c2.fi-button--tertiary:active {
   background: none;
-  background-color: hsl(212,63%,98%);
+  background-color: hsl(202,7%,93%);
 }
 
 .c2.fi-button--tertiary.fi-button--disabled,
@@ -244,7 +246,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c2.fi-button--tertiary:active {
-  background: hsl(212,63%,98%);
+  background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
 }
 
 .c2 > .fi-button_icon {

@@ -164,7 +164,8 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  line-height: 1;
+  font-size: 14px;
+  line-height: 20px;
   position: relative;
   display: block;
   width: 100%;
