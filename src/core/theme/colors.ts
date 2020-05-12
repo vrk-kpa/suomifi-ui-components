@@ -93,15 +93,15 @@ export const shadows = {
 export type IGradients = typeof gradients;
 
 export const gradients = {
-  highlightBase: `linear-gradient(0deg, ${colors.highlightDark1} 0%, ${colors.highlightBase} 100%)`,
-  highlightLight1: `linear-gradient(0deg, ${colors.highlightBase} 0%, ${colors.highlightLight1} 100%)`,
-  depthBase: `linear-gradient(0deg, ${colors.depthBase} 0%, ${colors.depthLight1} 100%)`,
+  highlightBaseToHighlightDark1: `linear-gradient(0deg, ${colors.highlightDark1} 0%, ${colors.highlightBase} 100%)`,
+  highlightLight1ToHighlightBase: `linear-gradient(0deg, ${colors.highlightBase} 0%, ${colors.highlightLight1} 100%)`,
+  depthLight1ToDepthBase: `linear-gradient(0deg, ${colors.depthBase} 0%, ${colors.depthLight1} 100%)`,
   whiteBaseNegative: `linear-gradient(-180deg, ${alphaHex(0.1)(
     colors.whiteBase,
   )} 0%, ${alphaHex(0)(colors.whiteBase)} 100%)`,
-  depthLight2: `linear-gradient(0deg, ${colors.depthLight2} 0%, ${colors.whiteBase} 100%)`,
-  highlightLight2ToHighlightLight3: `linear-gradient(0deg, ${colors.highlightLight2}, ${colors.highlightLight3})`,
-  depthLight2ToDepthLight3: `linear-gradient(0deg, ${colors.depthLight2}, ${colors.depthLight3})`,
+  whiteBaseToDepthLight2: `linear-gradient(0deg, ${colors.depthLight2} 0%, ${colors.whiteBase} 100%)`,
+  highlightLight3ToHighlightLight2: `linear-gradient(0deg, ${colors.highlightLight2}, ${colors.highlightLight3})`,
+  depthLight3ToDepthLight2: `linear-gradient(0deg, ${colors.depthLight2}, ${colors.depthLight3})`,
 };
 
 export const outlines = {

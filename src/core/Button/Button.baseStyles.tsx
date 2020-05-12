@@ -37,7 +37,7 @@ const secondary = ({ theme }: SuomifiThemeProp) => css`
   text-shadow: none;
 
   &:hover {
-    background: ${theme.gradients.depthLight2};
+    background: ${theme.gradients.whiteBaseToDepthLight2};
   }
 
   &:active {
@@ -72,7 +72,7 @@ const secondaryNoBorderStyles = ({ theme }: SuomifiThemeProp) => css`
 const tertiaryStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-button--tertiary {
     ${secondary({ theme })}
-    background: ${theme.gradients.highlightLight2ToHighlightLight3};
+    background: ${theme.gradients.highlightLight3ToHighlightLight2};
     border: none;
 
     &:hover {
@@ -80,7 +80,7 @@ const tertiaryStyles = ({ theme }: SuomifiThemeProp) => css`
     }
 
     &:active {
-      background: ${theme.gradients.depthLight2ToDepthLight3};
+      background: ${theme.gradients.depthLight3ToDepthLight2};
     }
   }
 `;
@@ -91,14 +91,14 @@ export const baseStyles = withSuomifiTheme(
   padding: ${theme.spacing.insetL} ${theme.spacing.insetXxl};
   min-height: 40px;
   color: ${theme.colors.whiteBase};
-  background: ${theme.gradients.highlightBase};
+  background: ${theme.gradients.highlightBaseToHighlightDark1};
   border-radius: ${theme.radius.basic};
   text-align: center;
   text-shadow: ${theme.shadows.invertTextShadow};
   cursor: pointer;
 
   &:hover {
-    background: ${theme.gradients.highlightLight1};
+    background: ${theme.gradients.highlightLight1ToHighlightBase};
   }
 
   &:active {
@@ -109,7 +109,7 @@ export const baseStyles = withSuomifiTheme(
   &[disabled],
   &:disabled {
     text-shadow: 0 1px 1px ${theme.colors.blackBase};
-    background: ${theme.gradients.depthBase};
+    background: ${theme.gradients.depthLight1ToDepthBase};
     user-select: none;
   }
 
