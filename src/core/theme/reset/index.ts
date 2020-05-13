@@ -34,7 +34,7 @@ export const input = (props: SuomifiThemeProp) => {
     min-width: 245px;
     max-width: 100%;
     padding: ${props.theme.spacing.insetM} ${props.theme.spacing.insetXl};
-    border: 1px solid ${props.theme.colors.depthBase};
+    border: 1px solid ${props.theme.colors.depthLight1};
     border-radius: ${props.theme.radius.basic};
     line-height: 1;
   `;

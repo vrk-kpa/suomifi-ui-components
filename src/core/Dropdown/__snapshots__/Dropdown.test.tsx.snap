@@ -43,13 +43,15 @@ exports[`calling render with the same component on the same container does not r
   min-width: 245px;
   max-width: 100%;
   padding: 8px 16px;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(202,7%,80%);
   border-radius: 2px;
   line-height: 1;
   position: relative;
-  padding-right: 30px;
+  padding: 7px 38px 7px 7px;
   text-align: left;
+  line-height: 1.5;
   background-color: hsl(0,0%,100%);
+  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
   cursor: pointer;
 }
 
@@ -81,7 +83,7 @@ exports[`calling render with the same component on the same container does not r
   content: '';
   position: absolute;
   top: 50%;
-  right: 10px;
+  right: 16px;
   margin-top: -3px;
   border-style: solid;
   border-color: hsl(202,7%,40%) transparent transparent transparent;
