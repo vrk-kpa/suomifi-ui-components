@@ -54,6 +54,7 @@ export const menuPopoverStyles = withSuomifiTheme(
   & [data-reach-menu-items] {
     border: 0;
     padding: 0;
+    white-space: normal;
   }
 
   & [data-reach-menu-item].fi-dropdown_item {
