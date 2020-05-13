@@ -21,6 +21,7 @@ import { Expander } from 'suomifi-ui-components';
 - State for the individual Expanders are stored outside of the component and user has full control.
 - Therefore when clicking the individual Expander they are not opened by default, user have to give the logic to change it.
 - It's user's responsibility to keep the state stored outside to be updated as Open/Close All is used.
+- `defaultOpen` prop will not work when Expander is in controlled state == `open` prop is given.
 
 ```jsx
 import { Expander } from 'suomifi-ui-components';
