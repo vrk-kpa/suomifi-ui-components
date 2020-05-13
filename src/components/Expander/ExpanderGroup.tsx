@@ -9,9 +9,14 @@ const openClassName = `${baseClassName}--open`;
 const expandersContainerClassName = `${baseClassName}_expanders`;
 const openAllButtonClassName = `${baseClassName}_all-button`;
 
-interface ExpanderGroupState {
+export type ToggleAllExpanderState = {
+  toState: boolean;
+};
+
+export interface ExpanderGroupState {
   /** Expanders that are open */
   openExpanders: number[];
+  toggleAllExpanderState: ToggleAllExpanderState;
 }
 
 interface OpenCloseAll {
@@ -19,6 +24,7 @@ interface OpenCloseAll {
   OpenAll: React.ReactElement<ButtonProps>;
   /** 'Close all'-component (Button) */
   CloseAll: React.ReactElement<ButtonProps>;
+  onClickAll?: () => void;
 }
 
 export interface ExpanderGroupProps extends OpenCloseAll {
@@ -34,7 +40,7 @@ export interface ExpanderGroupProps extends OpenCloseAll {
 
 export interface ExpanderProviderState {
   onClick: (index: number) => void;
-  openExpanders: number[];
+  toggleAllExpanderState: ToggleAllExpanderState;
 }
 
 const ExpanderGroupItems = (
@@ -44,9 +50,11 @@ const ExpanderGroupItems = (
     children,
     (child: React.ReactElement<ExpanderProps>, index) => {
       if (React.isValidElement(child)) {
+        const isChildOpen = child.props.open;
         return React.cloneElement(child, {
           index,
           expanderGroup: true,
+          open: isChildOpen,
         });
       }
       return child;
@@ -55,7 +63,9 @@ const ExpanderGroupItems = (
 
 const defaultProviderValue: ExpanderProviderState = {
   onClick: () => null,
-  openExpanders: [],
+  toggleAllExpanderState: {
+    toState: false,
+  },
 };
 
 const { Provider, Consumer: ExpanderGroupConsumer } = React.createContext(
@@ -70,9 +80,16 @@ interface OpenAllButtonProps extends OpenCloseAll {
 
 const openAllButtonProps = (
   onClick: (event: React.MouseEvent<Element>) => void,
+  onClickAll?: () => void,
 ) => (children: React.ReactElement<ButtonProps>) => {
+  const combinedHandleClick = (event: React.MouseEvent<Element>) => {
+    onClick(event);
+    if (onClickAll) {
+      onClickAll();
+    }
+  };
   return React.cloneElement(children, {
-    onClick,
+    onClick: combinedHandleClick,
     className: classnames(openAllButtonClassName, children.props.className),
   });
 };
@@ -82,43 +99,72 @@ const OpenAllButton = ({
   onClick,
   OpenAll,
   CloseAll,
+  onClickAll,
 }: OpenAllButtonProps) => {
   return !!allOpen
-    ? openAllButtonProps(onClick)(CloseAll)
-    : openAllButtonProps(onClick)(OpenAll);
+    ? openAllButtonProps(onClick, onClickAll)(CloseAll)
+    : openAllButtonProps(onClick, onClickAll)(OpenAll);
+};
+
+const InitialStateOfExpanders = (
+  children: Array<React.ReactElement<ExpanderProps>>,
+) => {
+  const openExpanders: number[] = [];
+  React.Children.forEach(children, (child, index) => {
+    if (React.isValidElement(child)) {
+      if (child.props.defaultOpen || child.props.open) {
+        openExpanders.push(index);
+      }
+    }
+  });
+  return openExpanders;
 };
 
 export class ExpanderGroup extends Component<ExpanderGroupProps> {
   state: ExpanderGroupState = {
-    openExpanders: [],
+    openExpanders: InitialStateOfExpanders(this.props.children),
+    toggleAllExpanderState: {
+      toState:
+        InitialStateOfExpanders(this.props.children).length ===
+          this.props.children.length && this.props.children.length > 0,
+    },
   };
 
   handleClick = (index: number = 0) => {
-    const { openExpanders: prevOpenExpanders } = this.state;
-    const prevExpanderOpen = prevOpenExpanders.includes(index);
-    const openExpanders = prevExpanderOpen
-      ? prevOpenExpanders.filter((value) => value !== index)
-      : Array.from(new Set([...prevOpenExpanders, index]));
-    this.setState({ openExpanders });
+    this.setState((prevState: ExpanderGroupState) => {
+      const { openExpanders: prevOpenExpanders } = prevState;
+      const prevExpanderOpen = prevOpenExpanders.includes(index);
+      const openExpanders = prevExpanderOpen
+        ? prevOpenExpanders.filter((value) => value !== index)
+        : Array.from(new Set([...prevOpenExpanders, index]));
+      return {
+        openExpanders,
+      };
+    });
+  };
+
+  isEvenOneExpanderClose = () => {
+    return this.props.children.length > this.state.openExpanders.length;
   };
 
   handleAllToggleClick = () => {
-    const { children } = this.props;
-    const { openExpanders } = this.state;
-    this.setState(
-      openExpanders.length === React.Children.count(children)
-        ? { openExpanders: [] }
-        : {
-            openExpanders: Array.from(
-              Array(React.Children.count(children)).keys(),
-            ),
-          },
-    );
+    this.setState({
+      toggleAllExpanderState: {
+        toState: this.isEvenOneExpanderClose(),
+      },
+    });
   };
 
   render() {
-    const { className, children, OpenAll, CloseAll, ...passProps } = this.props;
-    const { openExpanders } = this.state;
+    const {
+      className,
+      children,
+      OpenAll,
+      CloseAll,
+      onClickAll: clickAllHandler,
+      ...passProps
+    } = this.props;
+    const { openExpanders, toggleAllExpanderState } = this.state;
     const allOpen = openExpanders.length === React.Children.count(children);
 
     return (
@@ -133,12 +179,13 @@ export class ExpanderGroup extends Component<ExpanderGroupProps> {
           onClick={this.handleAllToggleClick}
           OpenAll={OpenAll}
           CloseAll={CloseAll}
+          onClickAll={clickAllHandler}
         />
         <HtmlDiv className={expandersContainerClassName}>
           <Provider
             value={{
-              openExpanders,
               onClick: this.handleClick,
+              toggleAllExpanderState,
             }}
           >
             {ExpanderGroupItems(children)}

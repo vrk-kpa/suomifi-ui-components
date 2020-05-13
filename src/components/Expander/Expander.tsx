@@ -33,7 +33,7 @@ interface SharedExpanderProps {
 }
 
 interface StyledExpanderContentProps extends SharedExpanderProps {
-  openState: boolean;
+  openState?: boolean;
   hidden: boolean;
 }
 
@@ -108,31 +108,61 @@ const IfTitleTag = ({
   </Fragment>
 );
 
-export class ExpanderItem extends Component<ExpanderProps> {
+class ExpanderItem extends Component<ExpanderProps> {
   state: ExpanderState = {
     openState:
       this.props.defaultOpen !== undefined ? this.props.defaultOpen : false,
   };
 
+  componentDidUpdate(prevProps: ExpanderProps, prevState: ExpanderState) {
+    if (
+      !!this.props.consumer &&
+      !!prevProps.consumer &&
+      this.props.consumer.toggleAllExpanderState !==
+        prevProps.consumer.toggleAllExpanderState
+    ) {
+      const { openState } = this.state;
+      const {
+        expanderGroup,
+        index,
+        consumer: { toggleAllExpanderState },
+        open,
+      } = this.props;
+
+      if (
+        !!expanderGroup &&
+        index !== undefined &&
+        ((open === undefined &&
+          !!openState !== toggleAllExpanderState.toState) ||
+          (open !== undefined && !!open !== toggleAllExpanderState.toState))
+      ) {
+        this.handleClick();
+      }
+    }
+
+    if (
+      prevState.openState !== this.state.openState ||
+      prevProps.open !== this.props.open
+    ) {
+      const {
+        expanderGroup,
+        index,
+        consumer: { onClick: consumerOnClick } = { onClick: undefined },
+      } = this.props;
+      if (!!expanderGroup && !!consumerOnClick && index !== undefined) {
+        consumerOnClick(index);
+      }
+    }
+  }
+
   handleClick = () => {
-    const {
-      open,
-      onClick,
-      consumer: { onClick: consumerOnClick } = { onClick: undefined },
-      index,
-      expanderGroup,
-    } = this.props;
-    if (!!expanderGroup && !!consumerOnClick && index !== undefined) {
-      consumerOnClick(index);
-    } else {
-      const openState = !this.state.openState;
-      const notControlled = open === undefined;
-      if (notControlled) {
-        this.setState({ openState });
-      }
-      if (!!onClick) {
-        onClick({ openState: notControlled ? openState : !!open });
-      }
+    const { open, onClick } = this.props;
+    const openState = !this.state.openState;
+    const controlled = open !== undefined;
+
+    this.setState({ openState: controlled ? !!open : openState });
+    if (!!onClick) {
+      onClick({ openState: controlled ? !!open : openState });
     }
   };
 
@@ -148,18 +178,13 @@ export class ExpanderItem extends Component<ExpanderProps> {
       titleProps,
       index,
       expanderGroup: dissmissExpanderGroup,
-      consumer: { openExpanders } = { openExpanders: undefined },
+      consumer,
       contentProps: { className: contentClassName, ...contentPassProps } = {
         className: undefined,
       },
       ...passProps
     } = this.props;
-    const localOpenState = () =>
-      open !== undefined ? !!open : this.state.openState;
-    const openState =
-      index !== undefined && !!openExpanders
-        ? openExpanders.includes(index)
-        : localOpenState();
+    const openState = open !== undefined ? !!open : this.state.openState;
 
     return (
       <StyledDiv
