@@ -34,7 +34,7 @@ export const baseStyles = withSuomifiTheme(
     display: block;
     width: 100%;
     font-size: ${theme.typography.bodySemiBold};
-    height: 60px;
+    min-height: 60px;
     &--no-tag {
       padding: 17px ${theme.spacing.xxxl} 16px ${theme.spacing.m};
       color: ${theme.colors.highlightBase};
@@ -58,6 +58,7 @@ export const baseStyles = withSuomifiTheme(
     display: block;
     height: 0;
     overflow: hidden;
+    word-break: break-word;
     transform: scaleY(0);
     transform-origin: top;
     transition: all ${`${theme.transitions.basicTime}
