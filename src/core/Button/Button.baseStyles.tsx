@@ -23,7 +23,8 @@ const invertedStyles = ({ theme }: SuomifiThemeProp) => css`
     &[disabled],
     &:disabled {
       opacity: 0.5;
-      background-color: ${theme.colors.highlightBase};
+      background: none;
+      background-color: none;
     }
   }
 `;
@@ -36,12 +37,12 @@ const secondary = ({ theme }: SuomifiThemeProp) => css`
   text-shadow: none;
 
   &:hover {
-    background: ${theme.gradients.depthLight2};
+    background: ${theme.gradients.whiteBaseToDepthLight2};
   }
 
   &:active {
     background: none;
-    background-color: ${theme.colors.highlightLight4};
+    background-color: ${theme.colors.depthLight2};
   }
 
   &.fi-button--disabled,
@@ -71,7 +72,7 @@ const secondaryNoBorderStyles = ({ theme }: SuomifiThemeProp) => css`
 const tertiaryStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-button--tertiary {
     ${secondary({ theme })}
-    background: ${theme.gradients.highlightLight2ToHighlightLight3};
+    background: ${theme.gradients.highlightLight3ToHighlightLight2};
     border: none;
 
     &:hover {
@@ -79,7 +80,7 @@ const tertiaryStyles = ({ theme }: SuomifiThemeProp) => css`
     }
 
     &:active {
-      background: ${theme.colors.highlightLight4};
+      background: ${theme.gradients.depthLight3ToDepthLight2};
     }
   }
 `;
@@ -87,28 +88,28 @@ const tertiaryStyles = ({ theme }: SuomifiThemeProp) => css`
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme & Partial<ButtonProps>) => css`
   ${button({ theme })}
-  padding: ${theme.spacing.insetM} ${theme.spacing.insetXl};
+  padding: ${theme.spacing.insetL} ${theme.spacing.insetXxl};
   min-height: 40px;
   color: ${theme.colors.whiteBase};
-  background: ${theme.gradients.highlightBase};
+  background: ${theme.gradients.highlightBaseToHighlightDark1};
   border-radius: ${theme.radius.basic};
   text-align: center;
   text-shadow: ${theme.shadows.invertTextShadow};
   cursor: pointer;
 
   &:hover {
-    background: ${theme.gradients.highlightLight1};
+    background: ${theme.gradients.highlightLight1ToHighlightBase};
   }
 
   &:active {
-    background: ${theme.gradients.highlightDark1};
+    background: ${theme.colors.highlightDark1};
   }
 
   &.fi-button--disabled,
   &[disabled],
   &:disabled {
     text-shadow: 0 1px 1px ${theme.colors.blackBase};
-    background: ${theme.gradients.depthBase};
+    background: ${theme.gradients.depthLight1ToDepthBase};
     user-select: none;
   }
 

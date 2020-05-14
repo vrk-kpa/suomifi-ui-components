@@ -63,8 +63,9 @@ export const inputButton = (props: SuomifiThemeProp) => css`
 export const button = (props: SuomifiThemeProp) => css`
   ${element(props)}
   ${font(props)('actionElementInnerTextBold')}
+  font-size: 14px;
   ${focus(props)}
-  line-height: 1;
+  line-height: 20px;
 `;
 
 export const nav = (props: TokensOrThemeProps) => css`
