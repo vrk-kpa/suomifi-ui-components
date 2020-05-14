@@ -39,7 +39,7 @@ export interface ExpanderGroupProps extends OpenCloseAll {
 }
 
 export interface ExpanderProviderState {
-  onClick: (index: number) => void;
+  onExpanderOpenChange: (index: number) => void;
   toggleAllExpanderState: ToggleAllExpanderState;
 }
 
@@ -62,7 +62,7 @@ const ExpanderGroupItems = (
   );
 
 const defaultProviderValue: ExpanderProviderState = {
-  onClick: () => null,
+  onExpanderOpenChange: () => null,
   toggleAllExpanderState: {
     toState: false,
   },
@@ -130,7 +130,7 @@ export class ExpanderGroup extends Component<ExpanderGroupProps> {
     },
   };
 
-  handleClick = (index: number = 0) => {
+  handleExpanderOpenChange = (index: number = 0) => {
     this.setState((prevState: ExpanderGroupState) => {
       const { openExpanders: prevOpenExpanders } = prevState;
       const prevExpanderOpen = prevOpenExpanders.includes(index);
@@ -184,7 +184,7 @@ export class ExpanderGroup extends Component<ExpanderGroupProps> {
         <HtmlDiv className={expandersContainerClassName}>
           <Provider
             value={{
-              onClick: this.handleClick,
+              onExpanderOpenChange: this.handleExpanderOpenChange,
               toggleAllExpanderState,
             }}
           >

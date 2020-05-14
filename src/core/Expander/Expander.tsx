@@ -98,10 +98,12 @@ class ExpanderItem extends Component<ExpanderProps> {
       const {
         expanderGroup,
         index,
-        consumer: { onClick: consumerOnClick } = { onClick: undefined },
+        consumer: { onExpanderOpenChange } = {
+          onExpanderOpenChange: undefined,
+        },
       } = this.props;
-      if (!!expanderGroup && !!consumerOnClick && index !== undefined) {
-        consumerOnClick(index);
+      if (!!expanderGroup && !!onExpanderOpenChange && index !== undefined) {
+        onExpanderOpenChange(index);
       }
     }
   }

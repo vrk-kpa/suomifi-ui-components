@@ -73,7 +73,7 @@ const ExpanderGroupItems = (
   );
 
 const defaultProviderValue: CompExpanderProviderState = {
-  onClick: () => null,
+  onExpanderOpenChange: () => null,
   toggleAllExpanderState: {
     toState: false,
   },
@@ -110,7 +110,7 @@ export class ExpanderGroup extends React.Component<ExpanderGroupProps> {
     },
   };
 
-  handleClick = (index: number = 0) => {
+  handleExpanderOpenChange = (index: number = 0) => {
     this.setState((prevState: ExpanderGroupState) => {
       const { openExpanders: prevOpenExpanders } = prevState;
       const prevExpanderOpen = prevOpenExpanders.includes(index);
@@ -147,7 +147,7 @@ export class ExpanderGroup extends React.Component<ExpanderGroupProps> {
     return (
       <Provider
         value={{
-          onClick: this.handleClick,
+          onExpanderOpenChange: this.handleExpanderOpenChange,
           toggleAllExpanderState,
         }}
       >
