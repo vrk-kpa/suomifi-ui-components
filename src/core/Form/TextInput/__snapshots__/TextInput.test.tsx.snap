@@ -166,6 +166,7 @@ exports[`calling render with the same component on the same container does not r
 .c2 .fi-text-input_statusText_container .fi-text-input_statusText_span {
   font-size: 14px;
   font-weight: 600;
+  line-height: 20px;
 }
 
 .c2 .fi-text-input_input {

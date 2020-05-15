@@ -21,6 +21,7 @@ export const baseStyles = withSuomifiTheme(
     & .fi-text-input_statusText_span {
       font-size: 14px;
       font-weight: 600;
+      line-height: 20px;
     }
   }
 
