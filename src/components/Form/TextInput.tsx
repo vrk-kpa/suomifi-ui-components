@@ -104,9 +104,11 @@ class BaseTextInput extends Component<TextInputProps> {
             />
             {children}
           </HtmlDiv>
-          <HtmlSpan className={statusTextSpanClassName} id={generatedId}>
-            {statusText}
-          </HtmlSpan>
+          {statusText && (
+            <HtmlSpan className={statusTextSpanClassName} id={generatedId}>
+              {statusText}
+            </HtmlSpan>
+          )}
         </HtmlDiv>
       </HtmlLabel>
     );
