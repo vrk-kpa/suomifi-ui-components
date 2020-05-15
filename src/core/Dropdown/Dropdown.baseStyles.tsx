@@ -7,15 +7,17 @@ export const baseStyles = withSuomifiTheme(
     & > [data-reach-menu-button].fi-dropdown_button {
       ${inputButton({ theme })}
       position: relative;
-      padding-right: 30px;
+      padding: 7px 38px 7px 7px;
       text-align: left;
+      line-height: 1.5;
       background-color: ${theme.colors.whiteBase};
+      box-shadow: ${theme.shadows.dropdownShadow};
       cursor: pointer;
       &:before {
         content: '';
         position: absolute;
         top: 50%;
-        right: 10px;
+        right: 16px;
         margin-top: -3px;
         border-style: solid;
         border-color: ${theme.colors.depthDark1} transparent transparent
@@ -42,7 +44,7 @@ export const menuPopoverStyles = withSuomifiTheme(
     font-size: 100%;
     border: 0;
     background-color: ${theme.colors.whiteBase};
-    border-color: ${theme.colors.depthBase};
+    border-color: ${theme.colors.depthLight1};
     border-style: solid;
     border-width: 0 1px 1px 1px;
     border-radius: 0px 0px ${theme.radius.basic} ${theme.radius.basic};
@@ -52,12 +54,16 @@ export const menuPopoverStyles = withSuomifiTheme(
   & [data-reach-menu-items] {
     border: 0;
     padding: 0;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   & [data-reach-menu-item].fi-dropdown_item {
     ${element({ theme })}
     ${theme.typography.actionElementInnerText}
-    padding: ${theme.spacing.insetM} ${theme.spacing.insetXl};
+    line-height: 1.5;
+    padding: ${theme.spacing.insetM};
     border: 0;
     &[data-selected] {
       ${theme.typography.actionElementInnerText}
