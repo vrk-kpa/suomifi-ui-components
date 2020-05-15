@@ -24,7 +24,7 @@ import { Expander } from 'suomifi-ui-components';
 - `defaultOpen` prop will not work when Expander is in controlled state == `open` prop is given.
 
 ```jsx
-import { Expander } from 'suomifi-ui-components';
+import { Expander, Button } from 'suomifi-ui-components';
 
 const [expanderOneOpen, setExpanderOneOpen] = React.useState(false);
 const [expanderTwoOpen, setExpanderTwoOpen] = React.useState(false);
@@ -42,22 +42,23 @@ const [expanderThreeOpen, setExpanderThreeOpen] = React.useState(
   >
     <div
       style={{
+        width: 500,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between'
       }}
     >
-      <button onClick={() => setExpanderOneOpen(!expanderOneOpen)}>
+      <Button onClick={() => setExpanderOneOpen(!expanderOneOpen)}>
         Toggle Expander 1
-      </button>
-      <button onClick={() => setExpanderTwoOpen(!expanderTwoOpen)}>
+      </Button>
+      <Button onClick={() => setExpanderTwoOpen(!expanderTwoOpen)}>
         Toggle Expander 2
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={() => setExpanderThreeOpen(!expanderThreeOpen)}
       >
         Toggle Expander 3
-      </button>
+      </Button>
     </div>
   </div>
 
