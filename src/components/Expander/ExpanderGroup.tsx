@@ -143,14 +143,14 @@ export class ExpanderGroup extends Component<ExpanderGroupProps> {
     });
   };
 
-  isEvenOneExpanderClose = () => {
+  isEveryExpanderOpened = () => {
     return this.props.children.length > this.state.openExpanders.length;
   };
 
   handleAllToggleClick = () => {
     this.setState({
       toggleAllExpanderState: {
-        toState: this.isEvenOneExpanderClose(),
+        toState: this.isEveryExpanderOpened(),
       },
     });
   };
