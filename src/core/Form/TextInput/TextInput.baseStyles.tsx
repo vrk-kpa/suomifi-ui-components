@@ -19,8 +19,8 @@ export const baseStyles = withSuomifiTheme(
     flex-direction: column;
 
     & .fi-text-input_statusText_span {
+      ${theme.typography.bodySemiBoldSmall}
       font-size: 14px;
-      font-weight: 600;
       line-height: 20px;
     }
   }
