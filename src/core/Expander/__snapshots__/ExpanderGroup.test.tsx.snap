@@ -278,10 +278,16 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  line-height: 1;
+  font-size: 14px;
+  line-height: 20px;
   position: relative;
   display: block;
   width: 100%;
+  font-size: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+  min-height: 60px;
 }
 
 .c6 .fi-expander_title:focus {
@@ -309,18 +315,17 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c6 .fi-expander_title--no-tag {
-  padding-top: 16px;
-  padding-right: 60px;
-  padding-bottom: 16px;
-  padding-left: 16px;
+  padding: 17px 60px 16px 20px;
   color: hsl(212,63%,45%);
 }
 
 .c6 .fi-expander_title-icon {
   position: absolute;
+  height: 20px;
+  width: 20px;
   top: 0;
   right: 0;
-  margin: 16px;
+  margin: 20px;
 }
 
 .c6 .fi-expander_title--open .fi-expander_title-icon,
@@ -335,6 +340,7 @@ exports[`calling render with the same component on the same container does not r
   display: block;
   height: 0;
   overflow: hidden;
+  word-break: break-word;
   -webkit-transform: scaleY(0);
   -ms-transform: scaleY(0);
   transform: scaleY(0);
@@ -359,9 +365,9 @@ exports[`calling render with the same component on the same container does not r
 
 .c6 > .fi-expander_content.fi-expander_content--open:not(.fi-expander_content--no-padding) {
   padding-top: 0;
-  padding-right: 16px;
-  padding-bottom: 16px;
-  padding-left: 16px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
 }
 
 <div
