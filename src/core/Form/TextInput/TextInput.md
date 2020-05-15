@@ -33,7 +33,7 @@ import { TextInput } from 'suomifi-ui-components';
 ```
 
 ```js
-import { TextInput } from 'suomifi-ui-components';
+import { TextInput, Button } from 'suomifi-ui-components';
 
 const [errorState, setErrorState] = React.useState(false);
 const statusText = errorState
@@ -48,8 +48,8 @@ const status = errorState ? 'error' : 'default';
     status={status}
   />
 
-  <button onClick={() => setErrorState(!errorState)}>
+  <Button onClick={() => setErrorState(!errorState)}>
     Toggle error state
-  </button>
+  </Button>
 </>;
 ```
