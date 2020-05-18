@@ -73,30 +73,6 @@ exports[`calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
-.c6 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -126,7 +102,21 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c2 .fi-text-input_label-p {
-  margin-bottom: 16px;
+  margin-bottom: 10px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
 }
 
 .c2 .fi-text-input_container > input:focus {
@@ -178,6 +168,8 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .c2 .fi-text-input_input {
@@ -203,6 +195,24 @@ exports[`calling render with the same component on the same container does not r
   line-height: 1;
   background-color: hsl(0,0%,100%);
   width: 100%;
+  min-height: 40px;
+  padding-left: 10px;
+}
+
+.c2 .fi-text-input_input::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+.c2 .fi-text-input_input::-moz-placeholder {
+  font-style: italic;
+}
+
+.c2 .fi-text-input_input:-ms-input-placeholder {
+  font-style: italic;
+}
+
+.c2 .fi-text-input_input::placeholder {
+  font-style: italic;
 }
 
 .c2.fi-text-input--error .fi-text-input_input {
@@ -210,6 +220,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c2.fi-text-input--error .fi-text-input_statusText_span {
+  margin-top: 5px;
   color: hsl(3,59%,48%);
 }
 
@@ -244,10 +255,6 @@ exports[`calling render with the same component on the same container does not r
         type="text"
       />
     </div>
-    <span
-      class="c6 fi-text-input_statusText_span"
-      id="test-id-statusText"
-    />
   </div>
 </label>
 `;
