@@ -14,8 +14,6 @@ style-src: 'unsafe-inline'
 
 to allow the use of dynamic inline styling.
 
-You might also need to set `dangerously omit style nonce` to `true`.
-
 ### Strict content security policies
 
 Strict content security policy does not allow dynamic styling without extra safety measures. Styled components uses `__webpack_nonce__` to provide these measures.

@@ -104,7 +104,3 @@ We welcome all contributions. Please read our [CONTRIBUTING.md](/CONTRIBUTING.md
 ## Licensing
 
 MIT [LICENSE](/LICENSE)
-
-```
-
-```
