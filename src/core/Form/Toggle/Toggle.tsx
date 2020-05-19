@@ -12,11 +12,13 @@ import {
 } from '../../../components/Form/Toggle';
 import { ComponentIcon } from '../../StaticIcon/StaticIcon';
 import { Text } from '../../Text/Text';
+import { HtmlSpan } from '../../../reset';
 
 export interface ToggleProps extends CompToggleProps, TokensProp {}
 export interface ToggleInputProps extends CompToggleInputProps, TokensProp {}
 
 const iconBaseClassName = 'fi-toggle_icon';
+const iconContainerClassName = 'fi-toggle_icon-container';
 const iconDisabledClassName = `${iconBaseClassName}--disabled`;
 const iconCheckedClassName = `${iconBaseClassName}--checked`;
 
@@ -72,13 +74,15 @@ class ToggleWithIcon extends Component<ToggleProps> {
         {...passProps}
         onClick={this.handleToggle}
       >
-        <ComponentIcon
-          icon="toggle"
-          className={classnames(iconBaseClassName, {
-            [iconDisabledClassName]: !!disabled,
-            [iconCheckedClassName]: !!toggleStatus,
-          })}
-        />
+        <HtmlSpan className={iconContainerClassName}>
+          <ComponentIcon
+            icon="toggle"
+            className={classnames(iconBaseClassName, {
+              [iconDisabledClassName]: !!disabled,
+              [iconCheckedClassName]: !!toggleStatus,
+            })}
+          />
+        </HtmlSpan>
         <Text color={!!disabled ? 'depthBase' : 'blackBase'}>{children}</Text>
       </StyledToggle>
     );
