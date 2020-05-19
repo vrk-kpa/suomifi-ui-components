@@ -106,7 +106,7 @@ export const baseStyles = withSuomifiTheme(
       }
       &.fi-toggle_icon--checked {
         .${svgPrefix}fi-toggle-icon-knob {
-          transform: translateX(55%);
+          transform: translateX(50%);
         }
         .${svgPrefix}fi-toggle-icon-slide {
           fill: ${theme.colors.successSecondary};
