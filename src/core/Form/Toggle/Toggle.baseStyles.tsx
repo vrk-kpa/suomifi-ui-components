@@ -22,9 +22,7 @@ export const baseStyles = withSuomifiTheme(
       position: absolute;
       margin-right: ${theme.spacing.insetL};
       left: 0;
-      top: 2px;
-      padding-right: 2px;
-      padding-left: 2px;
+      top: 0.1em;
     }
 
     & + .fi-toggle--with-button {
@@ -35,6 +33,8 @@ export const baseStyles = withSuomifiTheme(
           position: absolute;
           &:after {
             border-radius: 14px;
+            right: -4px;
+            left: -4px;
           }
         }
       }
@@ -56,6 +56,8 @@ export const baseStyles = withSuomifiTheme(
           position: absolute;
           &:after {
             border-radius: 14px;
+            right: -4px;
+            left: -4px;
           }
         }
       }
@@ -85,17 +87,10 @@ export const baseStyles = withSuomifiTheme(
       height: ${iconHeight};
       vertical-align: bottom;
       overflow: visible;
-      transform: translateY(-0.05em);
     
-      & .${svgPrefix}fi-toggle-icon-knob {
-        transform: translateX(0%);
-      }
       .${svgPrefix}fi-toggle-icon-circle {
           fill: ${theme.colors.whiteBase};
         }
-      & .${svgPrefix}fi-toggle-icon-slide {
-        transform: translateY(1px);
-      }
       &.fi-toggle_icon--disabled {
         .${svgPrefix}fi-toggle-icon-circle {
           fill: ${theme.colors.depthLight3};
@@ -106,7 +101,7 @@ export const baseStyles = withSuomifiTheme(
       }
       &.fi-toggle_icon--checked {
         .${svgPrefix}fi-toggle-icon-knob {
-          transform: translateX(50%);
+          transform: translateX(47%);
         }
         .${svgPrefix}fi-toggle-icon-slide {
           fill: ${theme.colors.successSecondary};
