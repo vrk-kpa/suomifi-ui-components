@@ -4,12 +4,12 @@ Suomi.fi-styleguide in React components. [Living styleguide](https://vrk-kpa.git
 
 ## ✨ Features
 
-- React-components (>=16.8) with TypeScript support
+- React-components with TypeScript support
 - Highly modular - all browser/app CSS-resets without global styles
-- Should work on all different existing React apps (>=16.8)
+- Should work on all different existing React apps (>=16.3, >=16.8 recommended)
 - Highly customizable (CSS, CSS-in-JS)
 
-Uses [React 16.8.0](https://github.com/facebook/react) with [Styled Components](https://github.com/styled-components/styled-components) and written in [TypeScript](https://github.com/Microsoft/TypeScript). [Styleguidist](https://github.com/styleguidist/react-styleguidist) for presenting components.
+Uses [React 16.13.0](https://github.com/facebook/react) with [Styled Components](https://github.com/styled-components/styled-components) and written in [TypeScript](https://github.com/Microsoft/TypeScript). [Styleguidist](https://github.com/styleguidist/react-styleguidist) for presenting components.
 
 [tsdx](https://github.com/jaredpalmer/tsdx) and [eslint](https://eslint.org/).
 
@@ -33,7 +33,7 @@ import 'suomifi-ui-components/dist/main.css';
 
 You should also install the following dependencies, if your project does not already have them.
 
-- suomifi-ui-components is a component library for React, it requires [react](https://www.npmjs.com/package/react) version >=16.8.0 and related dependencies and typings.
+- suomifi-ui-components is a component library for React, it requires [react](https://www.npmjs.com/package/react) version >=16.3.0 and related dependencies and typings.
 
 - suomifi-ui-components requires [styled-components](https://www.npmjs.com/package/styled-components) version >=4.3.2.
 
