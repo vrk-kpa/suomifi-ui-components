@@ -26,7 +26,7 @@ Styled-components now has access to the compiled value of `__webpack_nonce__` th
 
 If you are using TypeScript, make sure you have the latest version of `@types/webpack-env` as it containts the `__webpack_nonce__`.
 
-Also notice that `__webpack_nonce__` does not work with Hot Module Replacement in local development environment by default.
+Also notice that `__webpack_nonce__` does not work with hot reload in local development environment by default.
 
 ## 3. Some components won't work on old browsers (e.g. IE) at all
 
