@@ -41,6 +41,8 @@ You should also install the following dependencies, if your project does not alr
 yarn add styled-components
 ```
 
+- If using TypeScript, version 3.5 or above is required.
+
 - In case TypeScript is used and skipLibCheck compiler option is set to false, also typings for [react], [styled-components] and [warning] are required. Typings for styled-components has to be exact version 4.1.8 (later versions have an open issue for including conflicting typings for react-native).
 
 ```bash
