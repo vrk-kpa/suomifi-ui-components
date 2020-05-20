@@ -88,7 +88,7 @@ export const shadows = {
   panelShadow: `0 1px 2px 0 ${alphaHex(0.14)(
     colors.blackBase,
   )}, 0 1px 5px 0 ${alphaHex(0.12)(colors.blackBase)}`,
-  dropdownShadow: `0 1px 2px 0 ${alphaHex(0.1)(colors.brandBase)} inset`,
+  inputBoxShadow: `0 1px 2px 0 ${alphaHex(0.1)(colors.brandBase)} inset`,
 };
 
 export type IGradients = typeof gradients;
