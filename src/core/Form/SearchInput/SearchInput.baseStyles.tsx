@@ -18,9 +18,8 @@ export const baseStyles = withSuomifiTheme(
         position: absolute;
         width: 18px;
         height: 18px;
-        top: 50%;
+        top: ${theme.spacing.insetL};
         right: ${theme.spacing.insetL};
-        margin-top: -0.5em;
       }
     }
   `,
