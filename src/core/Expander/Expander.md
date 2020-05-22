@@ -24,7 +24,7 @@ import { Expander } from 'suomifi-ui-components';
 - `defaultOpen` prop will not work when Expander is in controlled state == `open` prop is given.
 
 ```jsx
-import { Expander, Button } from 'suomifi-ui-components';
+import { Expander } from 'suomifi-ui-components';
 
 const [expanderOneOpen, setExpanderOneOpen] = React.useState(false);
 const [expanderTwoOpen, setExpanderTwoOpen] = React.useState(false);
@@ -33,54 +33,37 @@ const [expanderThreeOpen, setExpanderThreeOpen] = React.useState(
 );
 
 <>
-  <div
-    style={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between'
-    }}
-  >
-    <div
-      style={{
-        width: 500,
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-      }}
-    >
-      <Button onClick={() => setExpanderOneOpen(!expanderOneOpen)}>
-        Toggle Expander 1
-      </Button>
-      <Button onClick={() => setExpanderTwoOpen(!expanderTwoOpen)}>
-        Toggle Expander 2
-      </Button>
-      <Button
-        onClick={() => setExpanderThreeOpen(!expanderThreeOpen)}
-      >
-        Toggle Expander 3
-      </Button>
-    </div>
-  </div>
-
   <Expander.group OpenAll="Open all" CloseAll="Close all">
     <Expander
       title="Test expander 1"
       open={expanderOneOpen}
-      onClick={() => setExpanderOneOpen(!expanderOneOpen)}
+      onClick={() => {
+        if (window.confirm('Toggle Expander 1')) {
+          setExpanderOneOpen(!expanderOneOpen);
+        }
+      }}
     >
       Test expander content 1
     </Expander>
     <Expander
       title="Test expander 2"
       open={expanderTwoOpen}
-      onClick={() => setExpanderTwoOpen(!expanderTwoOpen)}
+      onClick={() => {
+        if (window.confirm('Toggle Expander 2')) {
+          setExpanderTwoOpen(!expanderTwoOpen);
+        }
+      }}
     >
       Test expander content 2
     </Expander>
     <Expander
       title="Test expander 3"
       open={expanderThreeOpen}
-      onClick={() => setExpanderThreeOpen(!expanderThreeOpen)}
+      onClick={() => {
+        if (window.confirm('Toggle Expander 3')) {
+          setExpanderThreeOpen(!expanderThreeOpen);
+        }
+      }}
     >
       Test expander content 3
     </Expander>

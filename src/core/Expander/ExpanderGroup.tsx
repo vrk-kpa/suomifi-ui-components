@@ -123,16 +123,14 @@ export class ExpanderGroup extends React.Component<ExpanderGroupProps> {
     });
   };
 
-  allExpandersOpen = () => {
-    return this.props.children.length > this.state.openExpanders.length;
-  };
-
   handleAllToggleClick = () => {
-    this.setState({
-      toggleAllExpanderState: {
-        toState: this.allExpandersOpen(),
+    this.setState(
+      (prevState: ExpanderGroupState, props: ExpanderGroupProps) => {
+        return {
+          toState: props.children.length > prevState.openExpanders.length,
+        };
       },
-    });
+    );
   };
 
   render() {
