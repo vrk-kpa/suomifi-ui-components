@@ -13,6 +13,7 @@ export const baseStyles = withSuomifiTheme(
     & .fi-expander {
       margin-top: 0;
       margin-bottom: 0;
+      border-radius: 0;
       transition: margin ${`${theme.transitions.basicTime}
         ${theme.transitions.basicTimingFunction}`};
       &.fi-expander--open {
@@ -22,6 +23,18 @@ export const baseStyles = withSuomifiTheme(
         &:not(:last-of-type) {
           margin-bottom: ${theme.spacing.insetXl};
         }
+        &:first-child, &:first-child:before {
+          border-radius: ${theme.radius.basic} ${theme.radius.basic} 0 0;
+        }
+        &:last-child, &:last-child:before {
+          border-radius: 0 0 ${theme.radius.basic} ${theme.radius.basic};
+        }
+      }
+      &:first-child {
+        border-radius: ${theme.radius.basic} ${theme.radius.basic} 0 0;
+      }
+      &:last-child {
+        border-radius: 0 0 ${theme.radius.basic} ${theme.radius.basic};
       }
     }
   }
