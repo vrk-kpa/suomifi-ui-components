@@ -8,6 +8,15 @@ const svgPrefix = 'icon-toggle_svg__';
 const iconWidth = '40px';
 const iconHeight = '24px';
 
+const focusOverrides = css`
+  position: absolute;
+  &:after {
+    border-radius: 14px;
+    right: -4px;
+    left: -4px;
+  }
+`;
+
 /* stylelint-disable no-descending-specificity */
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
@@ -30,12 +39,7 @@ export const baseStyles = withSuomifiTheme(
         outline: 0;
         & .fi-toggle_icon-container {
           ${focus({ theme, noPseudo: true })}
-          position: absolute;
-          &:after {
-            border-radius: 14px;
-            right: -4px;
-            left: -4px;
-          }
+          ${focusOverrides}
         }
       }
       &:focus:not(:focus-visible) {
@@ -53,12 +57,7 @@ export const baseStyles = withSuomifiTheme(
         outline: 0;
         & .fi-toggle_icon-container {
           ${focus({ theme, noPseudo: true })}
-          position: absolute;
-          &:after {
-            border-radius: 14px;
-            right: -4px;
-            left: -4px;
-          }
+          ${focusOverrides}
         }
       }
       &:focus-within:not(:focus-visible) {
@@ -87,10 +86,12 @@ export const baseStyles = withSuomifiTheme(
       height: ${iconHeight};
       vertical-align: bottom;
       overflow: visible;
-    
       .${svgPrefix}fi-toggle-icon-circle {
-          fill: ${theme.colors.whiteBase};
-        }
+        fill: ${theme.colors.whiteBase};
+      }
+      .${svgPrefix}fi-toggle-icon-knob {
+        transform: translateX(0%);
+      }
       &.fi-toggle_icon--disabled {
         .${svgPrefix}fi-toggle-icon-circle {
           fill: ${theme.colors.depthLight3};

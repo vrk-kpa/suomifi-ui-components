@@ -328,6 +328,12 @@ exports[`Toggle variant default:  calling render with the same component on the 
   fill: hsl(0,0%,100%);
 }
 
+.c1 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-knob {
+  -webkit-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  transform: translateX(0%);
+}
+
 .c1 .fi-toggle_icon.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-circle {
   fill: hsl(202,7%,97%);
 }
@@ -860,6 +866,12 @@ exports[`Toggle variant withInput:  calling render with the same component on th
 
 .c1 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-circle {
   fill: hsl(0,0%,100%);
+}
+
+.c1 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-knob {
+  -webkit-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  transform: translateX(0%);
 }
 
 .c1 .fi-toggle_icon.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-circle {
