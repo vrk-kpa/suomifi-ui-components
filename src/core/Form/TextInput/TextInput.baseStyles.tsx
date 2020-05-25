@@ -35,7 +35,7 @@ export const baseStyles = withSuomifiTheme(
       font-style: italic;
     }
     :focus {
-      box-shadow: ${theme.shadows.inputBoxShadow};
+      box-shadow: ${theme.shadows.actionElementBoxShadow};
     }
     }
 

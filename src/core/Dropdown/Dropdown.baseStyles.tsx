@@ -11,7 +11,7 @@ export const baseStyles = withSuomifiTheme(
       text-align: left;
       line-height: 1.5;
       background-color: ${theme.colors.whiteBase};
-      box-shadow: ${theme.shadows.inputBoxShadow};
+      box-shadow: ${theme.shadows.actionElementBoxShadow};
       cursor: pointer;
       &:before {
         content: '';
