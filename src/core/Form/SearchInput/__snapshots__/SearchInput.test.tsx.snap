@@ -220,6 +220,10 @@ exports[`calling render with the same component on the same container does not r
   font-style: italic;
 }
 
+.c2 .fi-text-input_input:focus {
+  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+}
+
 .c2.fi-text-input--error .fi-text-input_input {
   border-color: hsl(3,59%,48%);
 }
@@ -251,9 +255,8 @@ exports[`calling render with the same component on the same container does not r
   position: absolute;
   width: 18px;
   height: 18px;
-  top: 50%;
+  top: 10px;
   right: 10px;
-  margin-top: -0.5em;
 }
 
 <label

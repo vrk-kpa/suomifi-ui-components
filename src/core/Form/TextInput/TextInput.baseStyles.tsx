@@ -34,6 +34,9 @@ export const baseStyles = withSuomifiTheme(
     ::placeholder{
       font-style: italic;
     }
+    :focus {
+      box-shadow: ${theme.shadows.actionElementBoxShadow};
+    }
     }
 
   &.fi-text-input--error {
