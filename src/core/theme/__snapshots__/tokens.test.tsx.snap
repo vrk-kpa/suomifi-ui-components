@@ -434,7 +434,7 @@ exports[`snapshot testing 1`] = `
       </button>
       <div
         aria-hidden="true"
-        class="c0 c1 c9 fi-expander_content fi-expander"
+        class="c0 c1 c9 fi-expander_content"
         hidden=""
       >
         Test expander content 1
@@ -467,7 +467,7 @@ exports[`snapshot testing 1`] = `
       </button>
       <div
         aria-hidden="true"
-        class="c0 c1 c9 fi-expander_content fi-expander"
+        class="c0 c1 c9 fi-expander_content"
         hidden=""
       >
         Test expander content 2
@@ -500,7 +500,7 @@ exports[`snapshot testing 1`] = `
       </button>
       <div
         aria-hidden="true"
-        class="c0 c1 c9 fi-expander_content fi-expander"
+        class="c0 c1 c9 fi-expander_content"
         hidden=""
       >
         Test expander content 3

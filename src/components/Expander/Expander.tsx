@@ -39,10 +39,7 @@ interface StyledExpanderContentProps extends SharedExpanderProps {
 
 export const StyledExpanderContent = styled(
   ({ openState, className, ...passProps }: StyledExpanderContentProps) => (
-    <StyledDiv
-      {...passProps}
-      className={classnames(className, baseClassName)}
-    />
+    <StyledDiv {...passProps} className={classnames(className)} />
   ),
 )`
   display: ${({ openState }) => (!!openState ? 'block' : 'none')};
