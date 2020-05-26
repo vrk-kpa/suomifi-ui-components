@@ -130,7 +130,7 @@ export class ExpanderGroup extends Component<ExpanderGroupProps> {
     },
   };
 
-  handleExpanderOpenChange = (index: number = 0) => {
+  handleExpanderOpenChange = (index: number) => {
     this.setState((prevState: ExpanderGroupState) => {
       const { openExpanders: prevOpenExpanders } = prevState;
       const prevExpanderOpen = prevOpenExpanders.includes(index);
