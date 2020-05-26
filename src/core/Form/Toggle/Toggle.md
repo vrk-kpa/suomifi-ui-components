@@ -40,7 +40,7 @@ const [checked, setChecked] = useState(false);
       }
     }}
   >
-    Controlled checked state.
+    Controlled checked state
   </Toggle>
 </>;
 ```
