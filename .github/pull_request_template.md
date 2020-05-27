@@ -25,4 +25,4 @@ Closes #
 
 ## Release notes
 
-<!-- Description of the essential contents of this pull request for release notes. Breaking changes to API or design and new features are especially important. Preferably one line or one chapter at maximum. -->
+<!-- Description of the essential contents of this pull request for release notes. Breaking changes to API or design and new features are especially important. Preferably one line or one paragraph at maximum. -->
