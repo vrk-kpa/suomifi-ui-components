@@ -13,9 +13,12 @@ export type ToggleAllExpanderState = {
   toState: boolean;
 };
 
+export interface OpenExpanders {
+  [key: number]: boolean;
+}
 export interface ExpanderGroupState {
   /** Expanders that are open */
-  openExpanders: number[];
+  openExpanders: OpenExpanders;
   toggleAllExpanderState: ToggleAllExpanderState;
 }
 
@@ -39,7 +42,7 @@ export interface ExpanderGroupProps extends OpenCloseAll {
 }
 
 export interface ExpanderProviderState {
-  onExpanderOpenChange: (index: number) => void;
+  onExpanderOpenChange: (index: number, toState: boolean) => void;
   toggleAllExpanderState: ToggleAllExpanderState;
 }
 
@@ -109,15 +112,19 @@ const OpenAllButton = ({
 const InitialStateOfExpanders = (
   children: Array<React.ReactElement<ExpanderProps>>,
 ) => {
-  const openExpanders: number[] = [];
+  const openExpanders: OpenExpanders = {};
+
   React.Children.forEach(children, (child, index) => {
     if (React.isValidElement(child)) {
-      if (child.props.defaultOpen || child.props.open) {
-        openExpanders.push(index);
-      }
+      openExpanders[index] =
+        child.props.defaultOpen || child.props.open || false;
     }
   });
   return openExpanders;
+};
+
+const OpenExpandersCount = (expanders: OpenExpanders) => {
+  return Object.values(expanders).filter((value) => value).length;
 };
 
 export class ExpanderGroup extends Component<ExpanderGroupProps> {
@@ -125,18 +132,16 @@ export class ExpanderGroup extends Component<ExpanderGroupProps> {
     openExpanders: InitialStateOfExpanders(this.props.children),
     toggleAllExpanderState: {
       toState:
-        InitialStateOfExpanders(this.props.children).length ===
+        OpenExpandersCount(InitialStateOfExpanders(this.props.children)) ===
           this.props.children.length && this.props.children.length > 0,
     },
   };
 
-  handleExpanderOpenChange = (index: number) => {
+  handleExpanderOpenChange = (index: number, newState: boolean) => {
     this.setState((prevState: ExpanderGroupState) => {
       const { openExpanders: prevOpenExpanders } = prevState;
-      const prevExpanderOpen = prevOpenExpanders.includes(index);
-      const openExpanders = prevExpanderOpen
-        ? prevOpenExpanders.filter((value) => value !== index)
-        : Array.from(new Set([...prevOpenExpanders, index]));
+      const openExpanders = Object.assign({}, prevOpenExpanders);
+      openExpanders[index] = newState;
       return {
         openExpanders,
       };
@@ -144,7 +149,9 @@ export class ExpanderGroup extends Component<ExpanderGroupProps> {
   };
 
   allExpandersOpen = () => {
-    return this.props.children.length > this.state.openExpanders.length;
+    return (
+      this.props.children.length > OpenExpandersCount(this.state.openExpanders)
+    );
   };
 
   handleAllToggleClick = () => {
@@ -165,13 +172,14 @@ export class ExpanderGroup extends Component<ExpanderGroupProps> {
       ...passProps
     } = this.props;
     const { openExpanders, toggleAllExpanderState } = this.state;
-    const allOpen = openExpanders.length === React.Children.count(children);
+    const openExpandersCount = OpenExpandersCount(openExpanders);
+    const allOpen = openExpandersCount === React.Children.count(children);
 
     return (
       <StyledDiv
         {...passProps}
         className={classnames(className, baseClassName, {
-          [openClassName]: openExpanders.length > 0,
+          [openClassName]: openExpandersCount > 0,
         })}
       >
         <OpenAllButton

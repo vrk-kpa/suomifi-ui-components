@@ -8,6 +8,7 @@ import {
   ExpanderGroupProps as CompExpanderGroupProps,
   ExpanderProviderState as CompExpanderProviderState,
   ExpanderGroupState,
+  OpenExpanders,
 } from '../../components/Expander/ExpanderGroup';
 import { ExpanderProps as CompExpanderProps } from '../../components/Expander/Expander';
 import { Button, ButtonProps } from '../Button/Button';
@@ -85,15 +86,19 @@ const { Provider, Consumer: ExpanderGroupConsumer } = React.createContext(
 const InitialStateOfExpanders = (
   children: Array<React.ReactElement<CompExpanderProps>>,
 ) => {
-  const openExpanders: number[] = [];
+  const openExpanders: OpenExpanders = {};
+
   React.Children.forEach(children, (child, index) => {
     if (React.isValidElement(child)) {
-      if (child.props.defaultOpen || child.props.open) {
-        openExpanders.push(index);
-      }
+      openExpanders[index] =
+        child.props.defaultOpen || child.props.open || false;
     }
   });
   return openExpanders;
+};
+
+const OpenExpandersCount = (expanders: OpenExpanders) => {
+  return Object.values(expanders).filter((value) => value).length;
 };
 
 /**
@@ -105,18 +110,16 @@ export class ExpanderGroup extends React.Component<ExpanderGroupProps> {
     openExpanders: InitialStateOfExpanders(this.props.children),
     toggleAllExpanderState: {
       toState:
-        InitialStateOfExpanders(this.props.children).length ===
+        OpenExpandersCount(InitialStateOfExpanders(this.props.children)) ===
           this.props.children.length && this.props.children.length > 0,
     },
   };
 
-  handleExpanderOpenChange = (index: number) => {
+  handleExpanderOpenChange = (index: number, newState: boolean) => {
     this.setState((prevState: ExpanderGroupState) => {
       const { openExpanders: prevOpenExpanders } = prevState;
-      const prevExpanderOpen = prevOpenExpanders.includes(index);
-      const openExpanders = prevExpanderOpen
-        ? prevOpenExpanders.filter((value) => value !== index)
-        : Array.from(new Set([...prevOpenExpanders, index]));
+      const openExpanders = Object.assign({}, prevOpenExpanders);
+      openExpanders[index] = newState;
       return {
         openExpanders,
       };
@@ -127,7 +130,8 @@ export class ExpanderGroup extends React.Component<ExpanderGroupProps> {
     this.setState(
       (prevState: ExpanderGroupState, props: ExpanderGroupProps) => {
         return {
-          toState: props.children.length > prevState.openExpanders.length,
+          toState:
+            props.children.length > OpenExpandersCount(prevState.openExpanders),
         };
       },
     );

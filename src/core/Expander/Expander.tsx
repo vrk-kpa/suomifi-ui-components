@@ -91,9 +91,12 @@ class ExpanderItem extends Component<ExpanderProps> {
       }
     }
 
+    const { open } = this.props;
+    const { openState } = this.state;
+    const controlled = open !== undefined;
     if (
-      prevState.openState !== this.state.openState ||
-      prevProps.open !== this.props.open
+      (prevState.openState !== openState && !controlled) ||
+      (prevProps.open !== open && controlled)
     ) {
       const {
         expanderGroup,
@@ -103,7 +106,8 @@ class ExpanderItem extends Component<ExpanderProps> {
         },
       } = this.props;
       if (!!expanderGroup && !!onExpanderOpenChange && index !== undefined) {
-        onExpanderOpenChange(index);
+        const currentState = controlled ? !!open : openState;
+        onExpanderOpenChange(index, currentState);
       }
     }
   }
