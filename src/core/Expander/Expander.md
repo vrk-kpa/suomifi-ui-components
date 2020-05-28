@@ -26,34 +26,16 @@ import { Expander } from 'suomifi-ui-components';
 ```jsx
 import { Expander } from 'suomifi-ui-components';
 
-const [expanderOneOpen, setExpanderOneOpen] = React.useState(false);
-const [expanderTwoOpen, setExpanderTwoOpen] = React.useState(false);
 const [expanderThreeOpen, setExpanderThreeOpen] = React.useState(
   false
 );
 
 <>
   <Expander.group OpenAll="Open all" CloseAll="Close all">
-    <Expander
-      title="Test expander 1"
-      open={expanderOneOpen}
-      onClick={() => {
-        if (window.confirm('Toggle Expander 1')) {
-          setExpanderOneOpen(!expanderOneOpen);
-        }
-      }}
-    >
+    <Expander title="Test expander 1">
       Test expander content 1
     </Expander>
-    <Expander
-      title="Test expander 2"
-      open={expanderTwoOpen}
-      onClick={() => {
-        if (window.confirm('Toggle Expander 2')) {
-          setExpanderTwoOpen(!expanderTwoOpen);
-        }
-      }}
-    >
+    <Expander title="Test expander 2">
       Test expander content 2
     </Expander>
     <Expander
