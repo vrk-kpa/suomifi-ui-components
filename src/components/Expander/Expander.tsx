@@ -163,7 +163,9 @@ class ExpanderItem extends Component<ExpanderProps> {
     const controlled = open !== undefined;
     const newOpenState = controlled ? !!open : !openState;
 
-    this.setState({ openState: newOpenState });
+    if (!controlled) {
+      this.setState({ openState: newOpenState });
+    }
     if (!!onClick) {
       onClick({ openState: newOpenState });
     }
