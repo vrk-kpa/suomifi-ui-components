@@ -1,20 +1,22 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../theme';
-import { element, font, focus } from '../theme/reset';
+import { element, font } from '../theme/reset';
+import { focus } from '../theme/utils';
 import { allStates } from '../../utils/css';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
   ${element({ theme })}
   ${font({ theme })('bodyText')}
-  ${focus({ theme })}
+  ${focus({ theme, variant: 'boxShadow' })}
   ${allStates(`color: ${theme.colors.highlightBase};`)};
   color: ${theme.colors.highlightBase};
   text-decoration: none;
+  &:focus, &:focus-within {
+    text-decoration: none;
+  }
   &:hover,
-  &:active,
-  &:focus,
-  &:focus-within {
+  &:active {
     text-decoration: underline;
   }
   &:visited {
