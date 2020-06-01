@@ -41,9 +41,9 @@ const [expanderThreeOpen, setExpanderThreeOpen] = React.useState(
     <Expander
       title="Test expander 3"
       open={expanderThreeOpen}
-      onClick={() => {
+      onClick={({ openState }) => {
         if (window.confirm('Toggle Expander 3')) {
-          setExpanderThreeOpen(!expanderThreeOpen);
+          setExpanderThreeOpen(!openState);
         }
       }}
     >
