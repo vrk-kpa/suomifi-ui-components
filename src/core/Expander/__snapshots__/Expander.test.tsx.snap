@@ -184,6 +184,7 @@ exports[`calling render with the same component on the same container does not r
 .c2 .fi-expander_title:focus:after {
   content: '';
   position: absolute;
+  pointer-events: none;
   top: -2px;
   right: -2px;
   bottom: -2px;

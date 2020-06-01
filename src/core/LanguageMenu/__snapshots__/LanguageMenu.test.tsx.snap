@@ -47,6 +47,7 @@ exports[`calling render with the same component on the same container does not r
 .c1 > [data-reach-menu-button].fi-language-menu_button:focus:after {
   content: '';
   position: absolute;
+  pointer-events: none;
   top: -2px;
   right: -2px;
   bottom: -2px;

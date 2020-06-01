@@ -221,6 +221,7 @@ exports[`Toggle variant default:  calling render with the same component on the 
 .c1 + .fi-toggle--with-button:focus .fi-toggle_icon-container:after {
   content: '';
   position: absolute;
+  pointer-events: none;
   top: -2px;
   right: -2px;
   bottom: -2px;
@@ -264,6 +265,7 @@ exports[`Toggle variant default:  calling render with the same component on the 
 .c1 + .fi-toggle--with-input:focus-within .fi-toggle_icon-container:after {
   content: '';
   position: absolute;
+  pointer-events: none;
   top: -2px;
   right: -2px;
   bottom: -2px;
@@ -761,6 +763,7 @@ exports[`Toggle variant withInput:  calling render with the same component on th
 .c1 + .fi-toggle--with-button:focus .fi-toggle_icon-container:after {
   content: '';
   position: absolute;
+  pointer-events: none;
   top: -2px;
   right: -2px;
   bottom: -2px;
@@ -804,6 +807,7 @@ exports[`Toggle variant withInput:  calling render with the same component on th
 .c1 + .fi-toggle--with-input:focus-within .fi-toggle_icon-container:after {
   content: '';
   position: absolute;
+  pointer-events: none;
   top: -2px;
   right: -2px;
   bottom: -2px;
