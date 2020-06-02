@@ -118,6 +118,7 @@ exports[`calling render with the same component on the same container does not r
 .c5:focus:after {
   content: '';
   position: absolute;
+  pointer-events: none;
   top: -2px;
   right: -2px;
   bottom: -2px;
@@ -202,6 +203,7 @@ exports[`calling render with the same component on the same container does not r
 .c2 > .fi-expander-group_all-button:focus:after {
   content: '';
   position: absolute;
+  pointer-events: none;
   top: -2px;
   right: -2px;
   bottom: -2px;
@@ -298,6 +300,7 @@ exports[`calling render with the same component on the same container does not r
 .c6 .fi-expander_title:focus:after {
   content: '';
   position: absolute;
+  pointer-events: none;
   top: -2px;
   right: -2px;
   bottom: -2px;
