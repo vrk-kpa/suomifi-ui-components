@@ -82,7 +82,7 @@ export class Checkbox extends Component<CheckboxProps> {
   ) {
     const { checked } = nextProps;
     if (checked !== undefined && checked !== prevState.checkedState) {
-      return { checkboxState: checked };
+      return { checkedState: checked };
     }
     return null;
   }
