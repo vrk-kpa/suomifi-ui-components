@@ -52,14 +52,13 @@ export class ToggleInput extends Component<ToggleProps> {
     return null;
   }
 
-  handleClick = () => {
+  handleClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { checked, onClick } = this.props;
-    const { toggleState } = this.state;
     if (checked === undefined) {
-      this.setState({ toggleState: !toggleState });
+      this.setState({ toggleState: event.target.checked });
     }
     if (!!onClick) {
-      onClick({ toggleState: !toggleState });
+      onClick({ toggleState: event.target.checked });
     }
   };
 
