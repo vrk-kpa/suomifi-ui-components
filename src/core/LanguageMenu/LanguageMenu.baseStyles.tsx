@@ -13,16 +13,17 @@ export const baseStyles = withSuomifiTheme(
     &.fi-language-menu-language_button {
       ${element({ theme })}
       ${theme.typography.actionElementInnerTextBold}
-      padding: 5px ${theme.spacing.insetXs} 5px ${theme.spacing.insetM};
-      line-height: 28px;
+      padding: ${theme.spacing.xs};
+      line-height: 24px;
       background-color: ${theme.colors.whiteBase};
       border: 1px solid ${theme.colors.depthBase};
       border-radius: ${theme.radius.basic};
       & > .fi-language-menu-language_icon {
-        height: 1.2em;
-        width: 1.2em;
-        transform: translateY(0.3em); 
-        margin-left: ${theme.spacing.insetXs};
+        height: 1em;
+        width: 1em;
+        transform: translateY(0.2em); 
+        margin-left: 10px;
+        fill: ${theme.colors.highlightBase};
       }
     }
     &.fi-language-menu-language_button_open {
