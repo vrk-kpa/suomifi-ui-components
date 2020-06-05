@@ -87,14 +87,13 @@ export class Checkbox extends Component<CheckboxProps> {
     return null;
   }
 
-  handleClick = () => {
+  handleClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { checked, onClick } = this.props;
-    const { checkedState } = this.state;
     if (checked === undefined) {
-      this.setState({ checkedState: !checkedState });
+      this.setState({ checkedState: event.target.checked });
     }
     if (!!onClick) {
-      onClick({ checkboxState: !checkedState });
+      onClick({ checkboxState: event.target.checked });
     }
   };
 
