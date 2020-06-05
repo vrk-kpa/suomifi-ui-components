@@ -13,5 +13,6 @@ import {
     Suomeksi (FI)
   </LanguageMenuItem>
   <LanguageMenuLink href="/sv">På svenska (SV)</LanguageMenuLink>
+  <LanguageMenuLink href="/en">In English (EN)</LanguageMenuLink>
 </LanguageMenu>;
 ```
