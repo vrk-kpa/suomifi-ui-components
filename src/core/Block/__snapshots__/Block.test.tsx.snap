@@ -78,7 +78,7 @@ exports[`calling render with the same component on the same container does not r
   margin: 80px;
 }
 
-.c1.fi-block--margin-insetXss {
+.c1.fi-block--margin-insetXxs {
   margin: 2px;
 }
 
@@ -142,7 +142,7 @@ exports[`calling render with the same component on the same container does not r
   padding: 80px;
 }
 
-.c1.fi-block--padding-insetXss {
+.c1.fi-block--padding-insetXxs {
   padding: 2px;
 }
 
