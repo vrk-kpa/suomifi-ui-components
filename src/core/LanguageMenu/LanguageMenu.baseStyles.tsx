@@ -16,7 +16,7 @@ export const baseStyles = withSuomifiTheme(
       padding: ${theme.spacing.xs};
       line-height: 24px;
       background-color: ${theme.colors.whiteBase};
-      border: 1px solid ${theme.colors.depthLight1};
+      border: 1px solid transparent;
       border-radius: ${theme.radius.basic};
       & > .fi-language-menu-language_icon {
         height: 1em;
@@ -25,8 +25,12 @@ export const baseStyles = withSuomifiTheme(
         margin-left: 10px;
         fill: ${theme.colors.highlightBase};
       }
+      &:hover{
+        border-color: ${theme.colors.depthLight1};
+      }
     }
     &.fi-language-menu-language_button_open {
+      border-color: ${theme.colors.depthLight1};
         & > .fi-language-menu-language_icon.fi-language-menu-language_icon {
           transform: translateY(0.2em) rotate(180deg);
         }
