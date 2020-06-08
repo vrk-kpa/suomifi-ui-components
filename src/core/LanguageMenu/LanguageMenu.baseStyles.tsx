@@ -73,8 +73,8 @@ export const languageMenuPopoverStyles = withSuomifiTheme(
       }
       &:after {
         border-bottom-color: ${theme.colors.whiteBase};
-        border-width: 7px;
-        margin-right: -7px;
+        border-width: 6.5px;
+        margin-right: -6.5px;
       }
     }
   }
