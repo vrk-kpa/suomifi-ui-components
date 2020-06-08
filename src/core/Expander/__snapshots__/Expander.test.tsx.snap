@@ -184,6 +184,7 @@ exports[`calling render with the same component on the same container does not r
 .c2 .fi-expander_title:focus:after {
   content: '';
   position: absolute;
+  pointer-events: none;
   top: -2px;
   right: -2px;
   bottom: -2px;
@@ -284,7 +285,7 @@ exports[`calling render with the same component on the same container does not r
   </button>
   <div
     aria-hidden="true"
-    class="c0 c1 c7 fi-expander_content fi-expander"
+    class="c0 c1 c7 fi-expander_content"
     hidden=""
   >
     Test expander content

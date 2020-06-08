@@ -32,6 +32,7 @@ const afterBoxshadow = ({
   &:after {
     content: '';
     position: absolute;
+    pointer-events: none;
     top: -${offset};
     right: -${offset};
     bottom: -${offset};

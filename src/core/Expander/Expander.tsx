@@ -9,7 +9,11 @@ import {
 } from '../../components/Expander/Expander';
 import { Icon } from '../Icon/Icon';
 import classnames from 'classnames';
-import { ExpanderGroupProps, ExpanderGroup } from './ExpanderGroup';
+import {
+  ExpanderGroupProps,
+  ExpanderGroup,
+  ExpanderGroupConsumer,
+} from './ExpanderGroup';
 
 const iconClassName = 'fi-expander_title-icon';
 const iconOpenClassName = `${iconClassName}--open`;
@@ -50,7 +54,7 @@ interface ExpanderState {
  * <i class="semantics" />
  * Used for openable expander
  */
-export class Expander extends Component<ExpanderProps> {
+class ExpanderItem extends Component<ExpanderProps> {
   static group = (props: ExpanderGroupProps) => {
     return <ExpanderGroup {...withSuomifiDefaultProps(props)} />;
   };
@@ -61,15 +65,64 @@ export class Expander extends Component<ExpanderProps> {
       this.props.defaultOpen !== undefined ? this.props.defaultOpen : false,
   };
 
+  componentDidUpdate(prevProps: ExpanderProps, prevState: ExpanderState) {
+    if (
+      !!this.props.consumer &&
+      !!prevProps.consumer &&
+      this.props.consumer.toggleAllExpanderState !==
+        prevProps.consumer.toggleAllExpanderState
+    ) {
+      const { openState } = this.state;
+      const {
+        expanderGroup,
+        index,
+        consumer: { toggleAllExpanderState },
+        open,
+      } = this.props;
+
+      if (
+        !!expanderGroup &&
+        index !== undefined &&
+        ((open === undefined &&
+          !!openState !== toggleAllExpanderState.toState) ||
+          (open !== undefined && !!open !== toggleAllExpanderState.toState))
+      ) {
+        this.handleClick();
+      }
+    }
+
+    const { open } = this.props;
+    const { openState } = this.state;
+    const controlled = open !== undefined;
+    if (
+      (prevState.openState !== openState && !controlled) ||
+      (prevProps.open !== open && controlled)
+    ) {
+      const {
+        expanderGroup,
+        index,
+        consumer: { onExpanderOpenChange } = {
+          onExpanderOpenChange: undefined,
+        },
+      } = this.props;
+      if (!!expanderGroup && !!onExpanderOpenChange && index !== undefined) {
+        const currentState = controlled ? !!open : openState;
+        onExpanderOpenChange(index, currentState);
+      }
+    }
+  }
+
   handleClick = () => {
     const { open, onClick } = this.props;
     const { openState } = this.state;
-    const notControlled = open === undefined;
-    if (notControlled) {
-      this.setState({ openState: !openState });
+    const controlled = open !== undefined;
+
+    const newOpenState = controlled ? !!open : !openState;
+    if (!controlled) {
+      this.setState({ openState: newOpenState });
     }
     if (!!onClick) {
-      onClick({ openState: notControlled ? !openState : !!open });
+      onClick({ openState: newOpenState });
     }
   };
 
@@ -79,10 +132,11 @@ export class Expander extends Component<ExpanderProps> {
       open,
       title,
       titleTag,
+      index,
+      consumer,
       ...passProps
     } = withSuomifiDefaultProps(this.props);
-    const notControlled = open === undefined;
-    const openState = !notControlled ? open : this.state.openState;
+    const openState = open !== undefined ? !!open : this.state.openState;
 
     if (variant === 'expanderGroup' && 'openAll' in passProps) {
       return <ExpanderGroup {...(passProps as ExpanderGroupProps)} />;
@@ -91,6 +145,7 @@ export class Expander extends Component<ExpanderProps> {
     return (
       <StyledExpander
         {...passProps}
+        index={index}
         onClick={this.handleClick}
         open={open}
         titleTag={titleTag}
@@ -109,6 +164,22 @@ export class Expander extends Component<ExpanderProps> {
           </Fragment>
         }
       />
+    );
+  }
+}
+
+export class Expander extends Component<ExpanderProps> {
+  static group = (props: ExpanderGroupProps) => {
+    return <ExpanderGroup {...withSuomifiDefaultProps(props)} />;
+  };
+
+  render() {
+    return !!this.props.expanderGroup ? (
+      <ExpanderGroupConsumer>
+        {(consumer) => <ExpanderItem {...this.props} consumer={consumer} />}
+      </ExpanderGroupConsumer>
+    ) : (
+      <ExpanderItem {...this.props} />
     );
   }
 }
