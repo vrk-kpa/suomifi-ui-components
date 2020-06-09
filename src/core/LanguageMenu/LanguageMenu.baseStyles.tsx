@@ -13,7 +13,7 @@ export const baseStyles = withSuomifiTheme(
     &.fi-language-menu-language_button {
       ${element({ theme })}
       ${theme.typography.actionElementInnerTextBold}
-      padding: ${theme.spacing.xs};
+      padding: 9px ${theme.spacing.xs};
       line-height: 24px;
       background-color: ${theme.colors.whiteBase};
       border: 1px solid transparent;
@@ -22,7 +22,7 @@ export const baseStyles = withSuomifiTheme(
         height: 1em;
         width: 1em;
         transform: translateY(0.2em); 
-        margin-left: 10px;
+        margin-left: ${theme.spacing.xs};
         fill: ${theme.colors.highlightBase};
       }
       &:hover{
@@ -62,7 +62,7 @@ export const languageMenuPopoverStyles = withSuomifiTheme(
         height: 0;
         width: 0;
         bottom: 100%;
-        right: 20px;
+        right: ${theme.spacing.l};
         border: solid transparent;
         pointer-events: none;
       }
@@ -95,8 +95,8 @@ export const languageMenuPopoverStyles = withSuomifiTheme(
     &.fi-language-menu-language_item,
     &[data-selected].fi-language-menu-language_item {
       ${theme.typography.actionElementInnerText}
-      margin: 10px 0;
-      padding: 0px 20px 0px 5px;
+      margin: ${theme.spacing.m} 0;
+      padding: 0px ${theme.spacing.m} 0px ${theme.spacing.xxs};
       border-left: 4px solid transparent;
       background-color: transparent;
       &.fi-language-menu-lang-item-selected {
