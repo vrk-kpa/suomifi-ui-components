@@ -70,7 +70,7 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  padding: 10px;
+  padding: 9px 10px;
   line-height: 24px;
   background-color: hsl(0,0%,100%);
   border: 1px solid transparent;
