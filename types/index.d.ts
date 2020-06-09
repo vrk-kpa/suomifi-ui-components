@@ -20,6 +20,7 @@ declare module '@reach/menu-button' {
   }
 
   export interface IMenuProps {
+    id?: string;
     children: React.ReactNode;
   }
 

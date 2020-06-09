@@ -18,10 +18,34 @@ exports[`calling render with the same component on the same container does not r
   color: inherit;
   background: none;
   cursor: inherit;
+  display: inline;
   max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
 }
 
 .c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
+}
+
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -135,24 +159,29 @@ exports[`calling render with the same component on the same container does not r
 }
 
 <div>
-  <label
-    class="c0 fi-dropdown_label c1 dropdown-test fi-dropdown"
+  <span
+    class="c0 c1 dropdown-test fi-dropdown"
   >
-    <p
-      class="c2 fi-paragraph fi-dropdown_label-p"
+    <label
+      class="c2 fi-dropdown_label"
+      for="test-id"
     >
-      Dropdown test
-    </p>
+      <p
+        class="c3 fi-paragraph fi-dropdown_label-p"
+      >
+        Dropdown test
+      </p>
+    </label>
     <button
-      aria-controls="menu--1"
+      aria-controls="test-id"
       aria-haspopup="true"
       class="fi-dropdown_button"
       data-reach-menu-button=""
-      id="menu-button--menu--1"
+      id="menu-button--test-id"
       type="button"
     >
       Dropdown
     </button>
-  </label>
+  </span>
 </div>
 `;

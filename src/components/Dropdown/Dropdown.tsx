@@ -1,6 +1,6 @@
 import React, { Component, ReactNode, ReactElement } from 'react';
 import classnames from 'classnames';
-import { HtmlLabel, HtmlLabelProps } from '../../reset';
+import { HtmlLabel, HtmlLabelProps, HtmlSpan } from '../../reset';
 import { Paragraph, ParagraphProps } from '../Paragraph/Paragraph';
 import {
   Menu,
@@ -14,7 +14,7 @@ import {
 } from '@reach/menu-button';
 import { positionMatchWidth } from '@reach/popover';
 import { logger } from '../../utils/logger';
-
+import { idGenerator } from '../../utils/uuid';
 export { MenuItem as DropdownItem };
 
 const baseClassName = 'fi-dropdown';
@@ -23,7 +23,7 @@ export const dropdownClassNames = {
   baseClassName,
   label: `${baseClassName}_label`,
   button: `${baseClassName}_button`,
-  popover: `${baseClassName}}_popover`,
+  popover: `${baseClassName}_popover`,
   item: `${baseClassName}_item`,
 };
 
@@ -51,6 +51,8 @@ type OptionalMenuPopoverProps = {
 type OptionalMenuItemProps = { [K in keyof MenuItemProps]?: MenuItemProps[K] };
 
 export interface DropdownProps {
+  /** id */
+  id?: string;
   /** Label */
   labelText: string;
   /** Pass custom props to label container */
@@ -110,6 +112,7 @@ export class Dropdown extends Component<DropdownProps> {
 
   render() {
     const {
+      id: propId,
       children,
       labelProps,
       labelText,
@@ -128,6 +131,8 @@ export class Dropdown extends Component<DropdownProps> {
       logger.warn(`Dropdown '${name}' does not contain items`);
       return null;
     }
+
+    const id = idGenerator(propId);
 
     const { selectedName } = this.state;
     const passDropdownButtonProps = {
@@ -153,16 +158,15 @@ export class Dropdown extends Component<DropdownProps> {
     };
 
     return (
-      <HtmlLabel
-        {...labelProps}
-        className={classnames(
-          dropdownClassNames.label,
-          className,
-          baseClassName,
-        )}
-      >
-        <Paragraph {...labelTextProps}>{labelText}</Paragraph>
-        <Menu {...passProps}>
+      <HtmlSpan className={classnames(className, baseClassName)}>
+        <HtmlLabel
+          htmlFor={id}
+          {...labelProps}
+          className={dropdownClassNames.label}
+        >
+          <Paragraph {...labelTextProps}>{labelText}</Paragraph>
+        </HtmlLabel>
+        <Menu {...passProps} id={id}>
           <MenuButton {...passDropdownButtonProps}>
             {!!selectedName ? selectedName : name}
           </MenuButton>
@@ -189,7 +193,7 @@ export class Dropdown extends Component<DropdownProps> {
             </MenuPopover>
           )}
         </Menu>
-      </HtmlLabel>
+      </HtmlSpan>
     );
   }
 }
