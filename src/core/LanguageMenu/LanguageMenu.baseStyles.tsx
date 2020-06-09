@@ -95,7 +95,7 @@ export const languageMenuPopoverStyles = withSuomifiTheme(
     &.fi-language-menu-language_item,
     &[data-selected].fi-language-menu-language_item {
       ${theme.typography.actionElementInnerText}
-      margin: ${theme.spacing.m} 0;
+      margin: ${theme.spacing.xs} 0;
       padding: 0 ${theme.spacing.m} 0 ${theme.spacing.xxs};
       border-left: 4px solid transparent;
       background-color: transparent;
