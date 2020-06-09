@@ -145,7 +145,7 @@ exports[`Calling render with the same component on the same container does not r
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(202,7%,67%);
+  color: hsl(202,7%,40%);
 }
 
 .c1 .fi-checkbox_status {
