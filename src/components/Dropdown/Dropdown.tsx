@@ -21,7 +21,7 @@ const baseClassName = 'fi-dropdown';
 
 export const dropdownClassNames = {
   baseClassName,
-  label: `${baseClassName}_label-p`,
+  label: `${baseClassName}_label`,
   button: `${baseClassName}_button`,
   popover: `${baseClassName}}_popover`,
   item: `${baseClassName}_item`,

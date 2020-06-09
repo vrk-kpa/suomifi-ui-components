@@ -18,11 +18,49 @@ exports[`calling render with the same component on the same container does not r
   color: inherit;
   background: none;
   cursor: inherit;
-  display: inline;
+  max-width: 100%;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
   max-width: 100%;
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c1 .fi-dropdown_label-p {
+  margin-bottom: 10px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
 }
 
 .c1 > [data-reach-menu-button].fi-dropdown_button {
@@ -97,9 +135,14 @@ exports[`calling render with the same component on the same container does not r
 }
 
 <div>
-  <span
-    class="c0 c1 dropdown-test fi-dropdown"
+  <label
+    class="c0 fi-dropdown_label c1 dropdown-test fi-dropdown"
   >
+    <p
+      class="c2 fi-paragraph fi-dropdown_label-p"
+    >
+      Dropdown test
+    </p>
     <button
       aria-controls="menu--1"
       aria-haspopup="true"
@@ -110,6 +153,6 @@ exports[`calling render with the same component on the same container does not r
     >
       Dropdown
     </button>
-  </span>
+  </label>
 </div>
 `;
