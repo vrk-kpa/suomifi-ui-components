@@ -13,19 +13,24 @@ export const baseStyles = withSuomifiTheme(
     &.fi-language-menu-language_button {
       ${element({ theme })}
       ${theme.typography.actionElementInnerTextBold}
-      padding: 5px ${theme.spacing.insetXs} 5px ${theme.spacing.insetM};
-      line-height: 28px;
+      padding: 9px ${theme.spacing.xs};
+      line-height: 24px;
       background-color: ${theme.colors.whiteBase};
-      border: 1px solid ${theme.colors.depthBase};
+      border: 1px solid transparent;
       border-radius: ${theme.radius.basic};
       & > .fi-language-menu-language_icon {
-        height: 1.2em;
-        width: 1.2em;
-        transform: translateY(0.3em); 
-        margin-left: ${theme.spacing.insetXs};
+        height: 1em;
+        width: 1em;
+        transform: translateY(0.2em); 
+        margin-left: ${theme.spacing.xs};
+        fill: ${theme.colors.highlightBase};
+      }
+      &:hover{
+        border-color: ${theme.colors.depthLight1};
       }
     }
     &.fi-language-menu-language_button_open {
+      border-color: ${theme.colors.depthLight1};
         & > .fi-language-menu-language_icon.fi-language-menu-language_icon {
           transform: translateY(0.2em) rotate(180deg);
         }
@@ -48,8 +53,7 @@ export const languageMenuPopoverStyles = withSuomifiTheme(
       position: absolute;
       box-sizing: content-box;
       margin-top: 12px;
-      padding: 10px 0;
-      border: 1px solid ${theme.colors.depthBase};
+      border: 1px solid ${theme.colors.depthLight1};
       border-radius: ${theme.radius.basic};
       &:before,
       &:after {
@@ -58,19 +62,19 @@ export const languageMenuPopoverStyles = withSuomifiTheme(
         height: 0;
         width: 0;
         bottom: 100%;
-        right: 20px;
+        right: ${theme.spacing.l};
         border: solid transparent;
         pointer-events: none;
       }
       &:before {
-        border-bottom-color: ${theme.colors.depthBase};
+        border-bottom-color: ${theme.colors.depthLight1};
         border-width: 8px;
         margin-right: -8px;
       }
       &:after {
         border-bottom-color: ${theme.colors.whiteBase};
-        border-width: 7px;
-        margin-right: -7px;
+        border-width: 6.5px;
+        margin-right: -6.5px;
       }
     }
   }
@@ -91,11 +95,13 @@ export const languageMenuPopoverStyles = withSuomifiTheme(
     &.fi-language-menu-language_item,
     &[data-selected].fi-language-menu-language_item {
       ${theme.typography.actionElementInnerText}
-      padding: 6px 20px 6px 14px;
-      border-left: 6px solid transparent;
+      margin: ${theme.spacing.m} 0;
+      padding: 0 ${theme.spacing.m} 0 ${theme.spacing.xxs};
+      border-left: 4px solid transparent;
       background-color: transparent;
       &.fi-language-menu-lang-item-selected {
         ${theme.typography.actionElementInnerTextBold};
+        border-left-color: ${theme.colors.highlightBase};
       }
     }
     &[data-selected].fi-language-menu-language_item {

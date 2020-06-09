@@ -70,20 +70,29 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  padding: 5px 4px 5px 8px;
-  line-height: 28px;
+  padding: 9px 10px;
+  line-height: 24px;
   background-color: hsl(0,0%,100%);
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid transparent;
   border-radius: 2px;
 }
 
 .c1 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button > .fi-language-menu-language_icon {
-  height: 1.2em;
-  width: 1.2em;
-  -webkit-transform: translateY(0.3em);
-  -ms-transform: translateY(0.3em);
-  transform: translateY(0.3em);
-  margin-left: 4px;
+  height: 1em;
+  width: 1em;
+  -webkit-transform: translateY(0.2em);
+  -ms-transform: translateY(0.2em);
+  transform: translateY(0.2em);
+  margin-left: 10px;
+  fill: hsl(212,63%,45%);
+}
+
+.c1 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button:hover {
+  border-color: hsl(202,7%,80%);
+}
+
+.c1 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button_open {
+  border-color: hsl(202,7%,80%);
 }
 
 .c1 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button_open > .fi-language-menu-language_icon.fi-language-menu-language_icon {
