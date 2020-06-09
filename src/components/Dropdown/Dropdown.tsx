@@ -59,12 +59,12 @@ export interface DropdownProps {
   labelProps?: DropdownLabelProps;
   /** Pass custom props to Label text element */
   labelTextProps?: ParagraphProps;
-  /** Name to show for the dropdown */
-  name: ReactNode;
-  /** Change name by selection
+  /** visual hint to show if nothing is selected */
+  visualPlaceholder?: ReactNode;
+  /** Change visualPlaceholder by selection
    * @default true
    */
-  changeNameToSelection?: boolean;
+  changeVisualPlaceholderToSelection?: boolean;
   /** Custom classname to extend or customize */
   className?: string;
   /** Properties given to dropdown's Button-component, className etc. */
@@ -117,13 +117,13 @@ export class Dropdown extends Component<DropdownProps> {
       labelProps,
       labelText,
       labelTextProps,
-      name,
+      visualPlaceholder: name,
       className,
       dropdownButtonProps = {},
       dropdownPopoverProps = {},
       menuPopoverComponent: MenuPopoverComponentReplace,
       dropdownItemProps = {},
-      changeNameToSelection = true,
+      changeVisualPlaceholderToSelection: changeNameToSelection = true,
       ...passProps
     } = this.props;
 

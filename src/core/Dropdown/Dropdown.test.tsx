@@ -12,7 +12,7 @@ const TestDropdown = (
   <Dropdown
     labelText="Dropdown test"
     className="dropdown-test"
-    name="Dropdown"
+    visualPlaceholder="Dropdown"
     id="test-id"
   >
     <Dropdown.item onSelect={doNothing}>Item 1</Dropdown.item>
