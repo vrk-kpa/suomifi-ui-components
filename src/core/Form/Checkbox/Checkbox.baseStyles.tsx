@@ -145,7 +145,7 @@ export const baseStyles = withSuomifiTheme(
       display: block;
       padding-left: ${theme.spacing.l};
       font-size: ${theme.typography.bodyTextSmall};
-      color: ${theme.colors.depthBase};
+      color: ${theme.colors.depthDark1};
     }
 
     & .fi-checkbox_status {
