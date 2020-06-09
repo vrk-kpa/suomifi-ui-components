@@ -1,7 +1,11 @@
 ```js
 import { Dropdown } from 'suomifi-ui-components';
 
-<Dropdown className="dropdown-test" name="Dropdown">
+<Dropdown
+  className="dropdown-test"
+  name="Dropdown"
+  labelText="Dropdown test"
+>
   <Dropdown.item onSelect={() => console.log('dropdown test 1')}>
     Item 1
   </Dropdown.item>

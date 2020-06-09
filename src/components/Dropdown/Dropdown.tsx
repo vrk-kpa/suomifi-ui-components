@@ -1,6 +1,7 @@
 import React, { Component, ReactNode, ReactElement } from 'react';
 import classnames from 'classnames';
-import { HtmlSpan } from '../../reset/HtmlSpan/HtmlSpan';
+import { HtmlLabel, HtmlLabelProps } from '../../reset';
+import { Paragraph, ParagraphProps } from '../Paragraph/Paragraph';
 import {
   Menu,
   MenuButton,
@@ -17,9 +18,16 @@ import { logger } from '../../utils/logger';
 export { MenuItem as DropdownItem };
 
 const baseClassName = 'fi-dropdown';
-const buttonClassName = `${baseClassName}_button`;
-const dropdownPopoverClassName = `${baseClassName}_popover`;
-const dropdownItemClassName = `${baseClassName}_item`;
+
+export const dropdownClassNames = {
+  baseClassName,
+  label: `${baseClassName}_label-p`,
+  button: `${baseClassName}_button`,
+  popover: `${baseClassName}}_popover`,
+  item: `${baseClassName}_item`,
+};
+
+export interface DropdownLabelProps extends HtmlLabelProps {}
 
 export interface DropdownItemProps {
   /** Operation to run on select */
@@ -43,6 +51,12 @@ type OptionalMenuPopoverProps = {
 type OptionalMenuItemProps = { [K in keyof MenuItemProps]?: MenuItemProps[K] };
 
 export interface DropdownProps {
+  /** Label */
+  labelText: string;
+  /** Pass custom props to label container */
+  labelProps?: DropdownLabelProps;
+  /** Pass custom props to Label text element */
+  labelTextProps?: ParagraphProps;
   /** Name to show for the dropdown */
   name: ReactNode;
   /** Change name by selection
@@ -97,6 +111,9 @@ export class Dropdown extends Component<DropdownProps> {
   render() {
     const {
       children,
+      labelProps,
+      labelText,
+      labelTextProps,
       name,
       className,
       dropdownButtonProps = {},
@@ -115,22 +132,36 @@ export class Dropdown extends Component<DropdownProps> {
     const { selectedName } = this.state;
     const passDropdownButtonProps = {
       ...dropdownButtonProps,
-      className: classnames(buttonClassName, dropdownButtonProps.className),
+      className: classnames(
+        dropdownClassNames.button,
+        dropdownButtonProps.className,
+      ),
     };
     const passDropdownPopoverProps = {
       ...dropdownPopoverProps,
       className: classnames(
-        dropdownPopoverClassName,
+        dropdownClassNames.popover,
         dropdownPopoverProps.className,
       ),
     };
     const passDropdownItemProps = {
       ...dropdownItemProps,
-      className: classnames(dropdownItemClassName, dropdownItemProps.className),
+      className: classnames(
+        dropdownClassNames.item,
+        dropdownItemProps.className,
+      ),
     };
 
     return (
-      <HtmlSpan className={classnames(className, baseClassName)}>
+      <HtmlLabel
+        {...labelProps}
+        className={classnames(
+          dropdownClassNames.label,
+          className,
+          baseClassName,
+        )}
+      >
+        <Paragraph {...labelTextProps}>{labelText}</Paragraph>
         <Menu {...passProps}>
           <MenuButton {...passDropdownButtonProps}>
             {!!selectedName ? selectedName : name}
@@ -158,7 +189,7 @@ export class Dropdown extends Component<DropdownProps> {
             </MenuPopover>
           )}
         </Menu>
-      </HtmlSpan>
+      </HtmlLabel>
     );
   }
 }

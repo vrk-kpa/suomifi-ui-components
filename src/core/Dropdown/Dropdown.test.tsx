@@ -9,7 +9,7 @@ import { axeTest } from '../../utils/test/axe';
 const doNothing = () => ({});
 
 const TestDropdown = (
-  <Dropdown className="dropdown-test" name="Dropdown">
+  <Dropdown labelText="Dropdown test" className="dropdown-test" name="Dropdown">
     <Dropdown.item onSelect={doNothing}>Item 1</Dropdown.item>
     <Dropdown.item onSelect={doNothing}>Item 2</Dropdown.item>
   </Dropdown>
