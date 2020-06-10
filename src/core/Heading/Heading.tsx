@@ -50,7 +50,7 @@ const StyledHeading = styled(
     />
   ),
 )`
-  ${props => baseStyles(props)};
+  ${(props) => baseStyles(props)};
 `;
 
 /**

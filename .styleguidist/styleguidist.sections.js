@@ -5,10 +5,10 @@ const primitiveComponents = [
   'Block',
   'Button',
   'Heading',
-  'Icon',
   ['Form', 'TextInput'],
   ['Form', 'Toggle'],
   ['Form', 'SearchInput'],
+  ['Form', 'Checkbox']
 ];
 
 const getComponent = ({ name, underName }) =>
@@ -68,7 +68,14 @@ module.exports = {
             },
             {
               name: 'Link',
-              components: getComponentWithVariants('Link')(['LinkExternal']),
+              components: getComponentWithVariants('Link')([
+                'LinkSkip',
+                'LinkExternal',
+              ]),
+            },
+            {
+              name: 'Icons',
+              components: getComponents(['Icon', 'StaticIcon']),
             },
           ],
         },

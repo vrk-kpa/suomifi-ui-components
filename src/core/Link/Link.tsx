@@ -8,10 +8,10 @@ import {
 } from '../../components/Link/Link';
 import { asPropType } from '../../utils/typescript';
 import { LinkExternal, LinkExternalProps } from './LinkExternal';
+import { LinkSkip, LinkSkipProps } from './LinkSkip';
 import { baseStyles } from './Link.baseStyles';
-export { LinkExternal, LinkExternalProps };
 
-type LinkVariant = 'default' | 'external';
+type LinkVariant = 'default' | 'external' | 'skip';
 export interface LinkProps extends CompLinkProps, TokensProp {
   variant?: LinkVariant;
   asProp?: asPropType;
@@ -22,7 +22,7 @@ const StyledLink = styled(
     <CompLink {...passProps} as={asProp} />
   ),
 )`
-  ${props => baseStyles(props)};
+  ${(props) => baseStyles(props)};
 `;
 
 /**
@@ -32,11 +32,16 @@ const StyledLink = styled(
 export class Link extends Component<LinkProps | LinkExternalProps> {
   static external = (props: LinkExternalProps) => <LinkExternal {...props} />;
 
+  static skip = (props: LinkSkipProps) => <LinkSkip {...props} />;
+
   render() {
     const { variant, ...passProps } = withSuomifiDefaultProps(this.props);
 
     if (variant === 'external' && 'labelNewWindow' in passProps) {
       return <LinkExternal {...(passProps as LinkExternalProps)} />;
+    }
+    if (variant === 'skip') {
+      return <LinkSkip {...passProps} />;
     }
     return <StyledLink {...passProps} />;
   }

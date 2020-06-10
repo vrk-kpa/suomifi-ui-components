@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.c1 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -25,7 +25,7 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.c0 {
+.c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -51,7 +51,7 @@ exports[`calling render with the same component on the same container does not r
   data-testid="test-paragraph"
 >
   <p
-    class="fi-paragraph c0 c1"
+    class="c0 fi-paragraph c1"
   >
     Hey this is test
   </p>

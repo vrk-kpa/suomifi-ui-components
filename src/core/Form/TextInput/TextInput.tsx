@@ -17,16 +17,20 @@ export const textInputClassNames = {
   error: `${baseClassName}--error`,
   success: `${baseClassName}--success`,
 };
-type TextInputVariant = 'default' | 'error' | 'success';
+type TextInputStatus = 'default' | 'error' | 'success';
 
 export interface TextInputProps extends CompTextInputProps, TokensProp {
-  variant?: TextInputVariant;
+  /**
+   * 'default' | 'error' | 'success'
+   * @default default
+   */
+  status?: TextInputStatus;
 }
 
 const StyledTextInput = styled(
   ({
     tokens,
-    variant,
+    status,
     className,
     labelTextProps = { className: undefined },
     inputContainerProps = { className: undefined },
@@ -50,14 +54,14 @@ const StyledTextInput = styled(
           ),
         }}
         className={classnames(className, {
-          [textInputClassNames.error]: variant === 'error',
-          [textInputClassNames.success]: variant === 'success',
+          [textInputClassNames.error]: status === 'error',
+          [textInputClassNames.success]: status === 'success',
         })}
       />
     );
   },
 )`
-  ${props => baseStyles(props)}
+  ${(props) => baseStyles(props)}
 `;
 
 /**
@@ -65,14 +69,6 @@ const StyledTextInput = styled(
  * Use for user inputting text
  */
 export class TextInput extends Component<TextInputProps> {
-  static error = (props: TextInputProps) => (
-    <StyledTextInput {...withSuomifiDefaultProps(props)} variant="error" />
-  );
-
-  static success = (props: TextInputProps) => (
-    <StyledTextInput {...withSuomifiDefaultProps(props)} variant="success" />
-  );
-
   render() {
     const { ...passProps } = withSuomifiDefaultProps(this.props);
 

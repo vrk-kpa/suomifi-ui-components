@@ -1,17 +1,17 @@
 # [<img src="https://avatars0.githubusercontent.com/u/11345641?s=88&v=4" alt="VRK" width="18"/> suomifi-ui-components](https://vrk-kpa.github.io/suomifi-ui-components/)
 
-Suomi.fi-styleguide in React components. [Living styleguide](https://vrk-kpa.github.io/suomifi-ui-components/) (latest release/master-branch): [https://vrk-kpa.github.io/suomifi-ui-components/](https://vrk-kpa.github.io/suomifi-ui-components/)
+Suomi.fi-styleguide in React components. [Living styleguide](https://vrk-kpa.github.io/suomifi-ui-components/) (latest release/master-branch).
 
 ## ✨ Features
 
-- React-components (>=16.8) with Typescript support
+- React-components with TypeScript support
 - Highly modular - all browser/app CSS-resets without global styles
-- Should work on all different existing React apps (>=16.8)
+- Should work on all different existing React apps (>=16.3, >=16.8 recommended)
 - Highly customizable (CSS, CSS-in-JS)
 
-Uses [React 16.8.0](https://github.com/facebook/react) with [Styled Components](https://github.com/styled-components/styled-components) and written in [TypeScript](https://github.com/Microsoft/TypeScript). [Styleguidist](https://github.com/styleguidist/react-styleguidist) for presenting components.
+Uses [React 16.13.0](https://github.com/facebook/react) with [Styled Components](https://github.com/styled-components/styled-components) and written in [TypeScript](https://github.com/Microsoft/TypeScript). [Styleguidist](https://github.com/styleguidist/react-styleguidist) for presenting components.
 
-[Webpack 4](https://github.com/webpack/webpack) with [awesome-typescript-loader](https://github.com/s-panferov/awesome-typescript-loader) and [TSLint](https://github.com/palantir/tslint).
+[tsdx](https://github.com/jaredpalmer/tsdx) and [eslint](https://eslint.org/).
 
 For testing: [React-testing-library](https://github.com/kentcdodds/react-testing-library) run by [Jest](https://github.com/facebook/jest) with [ts-jest](https://github.com/kulshekhar/ts-jest) (code coverage with built-in [Istanbul](https://github.com/istanbuljs)). Code style with [Prettier](https://github.com/prettier/prettier).
 
@@ -31,14 +31,22 @@ import 'suomifi-ui-components/dist/main.css';
 
 ### Peer dependencies
 
-You should install also these dependencies if your project does not already have these.
+You should also install the following dependencies, if your project does not already have them.
 
-- suomifi-ui-components requires [styled-components](https://www.npmjs.com/package/styled-components) version >=4.
+- suomifi-ui-components is a component library for React, it requires [react](https://www.npmjs.com/package/react) version >=16.3.0 and related dependencies and typings.
 
-- Because suomifi-ui-components is a component library for React, it requires [react](https://www.npmjs.com/package/react) version >=16.
+- suomifi-ui-components requires [styled-components](https://www.npmjs.com/package/styled-components) version >=4.3.2.
 
 ```bash
-yarn add styled-components react
+yarn add styled-components
+```
+
+- If using TypeScript, version 3.5 or above is required.
+
+- In case TypeScript is used and skipLibCheck compiler option is set to false, also typings for [react](https://www.npmjs.com/package/@types/react), [react-dom](https://www.npmjs.com/package/@types/react-dom), [styled-components](https://www.npmjs.com/package/@types/styled-components/v/4.1.8) and [warning](https://www.npmjs.com/package/@types/warning) are required. Typings for styled-components has to be exact version 4.1.8 (later versions have an open issue for including conflicting typings for react-native).
+
+```bash
+yarn add @types/styled-components@4.1.8 @types/warning
 ```
 
 ## 🔨 Usage

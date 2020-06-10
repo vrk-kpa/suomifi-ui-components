@@ -20,6 +20,10 @@ After cloning suomifi-ui-components, run `yarn` to fetch its dependencies. Then,
 
 9. `yarn bundle-analyzer` shows analyzation of bundle size.
 
+
+
+❗️After you pull changes from the repo, remember to run `yarn` to make sure that you have all the needed dependencies installed on your setup.
+
 ## Source
 
 [![suomifi-ui-components architecture diagram](suomifi-ui-components.png 'suomifi-ui-components architecture')](suomifi-ui-components.png)

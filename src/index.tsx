@@ -1,3 +1,4 @@
+import './styles.scss';
 export { Breadcrumb, BreadcrumbProps } from './core/Breadcrumb/Breadcrumb';
 export {
   BreadcrumbLink,
@@ -9,6 +10,8 @@ export { UnstyledButton } from './core/Button/UnstyledButton';
 export { Dropdown, DropdownProps } from './core/Dropdown/Dropdown';
 export { DropdownItem, DropdownItemProps } from './core/Dropdown/DropdownItem';
 export {
+  Checkbox,
+  CheckboxProps,
   TextInput,
   TextInputProps,
   Toggle,
@@ -19,13 +22,16 @@ export {
   SearchInputProps,
 } from './core/Form/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
-export { Icon, IconProps } from './core/Icon/Icon';
+export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';
 export {
-  Link,
-  LinkProps,
-  LinkExternal,
-  LinkExternalProps,
-} from './core/Link/Link';
+  StaticIcon,
+  StaticIconProps,
+  IllustrativeIconKeys,
+  DoctypeIconKeys,
+} from './core/StaticIcon/StaticIcon';
+export { Link, LinkProps } from './core/Link/Link';
+export { LinkExternal, LinkExternalProps } from './core/Link/LinkExternal';
+export { LinkSkip, LinkSkipProps } from './core/Link/LinkSkip';
 export {
   LanguageMenu,
   LanguageMenuProps,

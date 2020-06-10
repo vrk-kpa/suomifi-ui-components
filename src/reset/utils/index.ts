@@ -40,7 +40,7 @@ const selectorsAndCss = (selector: string) => {
 const resetWithSelectors = (selectors: string | string[]): string => {
   if (Array.isArray(selectors) && selectors.length > 0) {
     return `
-      ${selectors.map(s => selectorsAndCss(s)).join('')}
+      ${selectors.map((s) => selectorsAndCss(s)).join('')}
     `;
   }
   if (typeof selectors === 'string') {

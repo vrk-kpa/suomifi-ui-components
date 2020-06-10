@@ -7,6 +7,7 @@ import {
   HtmlInputProps,
   HtmlDiv,
   HtmlDivProps,
+  HtmlSpan,
 } from '../../reset';
 import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import { Paragraph, ParagraphProps } from '../Paragraph/Paragraph';
@@ -14,11 +15,15 @@ import { logger } from '../../utils/logger';
 import classnames from 'classnames';
 import styled from 'styled-components';
 import { disabledCursor } from '../utils/css';
+import { idGenerator } from '../../utils/uuid';
 
 const baseClassName = 'fi-text-input';
 const disabledClassName = `${baseClassName}--disabled`;
 const labelBaseClassName = `${baseClassName}_label`;
 const inputBaseClassName = `${baseClassName}_input`;
+const statusTextClassName = `${baseClassName}_statusText`;
+const statusTextContainerClassName = `${statusTextClassName}_container`;
+const statusTextSpanClassName = `${baseClassName}_statusText_span`;
 
 export interface TextInputLabelProps extends HtmlLabelProps {}
 
@@ -53,6 +58,8 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   /** Input container div to define custom styling */
   inputContainerProps?: HtmlDivProps;
   children?: ReactNode;
+  /** Showing the status text; like validation error beneath the component */
+  statusText?: string;
 }
 
 class BaseTextInput extends Component<TextInputProps> {
@@ -66,10 +73,13 @@ class BaseTextInput extends Component<TextInputProps> {
       labelTextProps,
       inputContainerProps,
       children,
+      statusText,
+      id: propId,
       ...passProps
     } = this.props;
 
     const hideLabel = labelMode === 'hidden';
+    const generatedId = `${idGenerator(propId)}-statusText`;
 
     return (
       <HtmlLabel
@@ -83,13 +93,22 @@ class BaseTextInput extends Component<TextInputProps> {
         ) : (
           <Paragraph {...labelTextProps}>{labelText}</Paragraph>
         )}
-        <HtmlDiv {...inputContainerProps}>
-          <HtmlInput
-            {...passProps}
-            className={classnames(inputBaseClassName, inputClassName)}
-            type="text"
-          />
-          {children}
+        <HtmlDiv className={statusTextContainerClassName}>
+          <HtmlDiv {...inputContainerProps}>
+            <HtmlInput
+              id={propId}
+              {...passProps}
+              className={classnames(inputBaseClassName, inputClassName)}
+              type="text"
+              aria-describedby={generatedId}
+            />
+            {children}
+          </HtmlDiv>
+          {statusText && (
+            <HtmlSpan className={statusTextSpanClassName} id={generatedId}>
+              {statusText}
+            </HtmlSpan>
+          )}
         </HtmlDiv>
       </HtmlLabel>
     );

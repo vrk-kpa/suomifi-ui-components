@@ -7,13 +7,13 @@ import {
   ParagraphProps as CompParagraphProps,
 } from '../../components/Paragraph/Paragraph';
 import { baseStyles } from './Paragraph.baseStyles';
-import { SpaceProp } from '../theme/utils/spacing';
+import { SpacingWithoutInsetProp } from '../theme/utils/spacing';
 
 export interface ParagraphProps extends CompParagraphProps, TokensProp {
   /** Change color */
   color?: ColorProp;
   /** Spacing token for bottom margin */
-  marginBottomSpacing?: SpaceProp;
+  marginBottomSpacing?: SpacingWithoutInsetProp;
 }
 
 const StyledParagraph = styled(
@@ -24,7 +24,7 @@ const StyledParagraph = styled(
     ...passProps
   }: ParagraphProps & InternalTokensProp) => <CompParagraph {...passProps} />,
 )`
-  ${props => baseStyles(props)};
+  ${(props) => baseStyles(props)};
 `;
 
 /**

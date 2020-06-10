@@ -32,7 +32,7 @@ const StyledLinkExternal = styled(
   }: Omit<LinkExternalProps, 'labelNewWindow' | 'hideIcon'> &
     InternalTokensProp) => <Link {...passProps} asProp={CompLinkExternal} />,
 )`
-  ${props => externalStyles(props)};
+  ${(props) => externalStyles(props)};
 `;
 
 /**

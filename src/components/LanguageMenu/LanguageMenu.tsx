@@ -1,27 +1,21 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, Fragment } from 'react';
 import classnames from 'classnames';
 import { HtmlSpan } from '../../reset/HtmlSpan/HtmlSpan';
 import {
   Menu,
   MenuButton,
-  MenuList,
-  MenuListProps,
+  MenuItems,
   MenuItem,
   MenuLink,
   MenuPopover,
   MenuPopoverProps,
 } from '@reach/menu-button';
+import { positionDefault } from '@reach/popover';
+import { PRect } from '@reach/rect';
 import { logger } from '../../utils/logger';
 import { Omit } from '../../utils/typescript';
 
-export {
-  MenuList,
-  MenuListProps,
-  MenuItem,
-  MenuLink,
-  MenuPopover,
-  MenuPopoverProps,
-};
+export { MenuItems, MenuItem, MenuLink, MenuPopover, MenuPopoverProps, PRect };
 
 const baseClassName = 'fi-language-menu';
 export interface LanguageMenuItemProps {
@@ -46,27 +40,32 @@ interface LanguageMenuLinkPropsWithType {
 export interface LanguageMenuLinkProps
   extends Omit<LanguageMenuLinkPropsWithType, 'type'> {}
 
-export type LanguageMenuListItemsProps =
+export type LanguageMenuPopoverItemsProps =
   | LanguageMenuItemProps
   | LanguageMenuLinkPropsWithType;
-type OptionalLanguageMenuListProps = {
-  [K in keyof MenuListProps]?: MenuListProps[K];
+type OptionalLanguageMenuPopoverProps = {
+  [K in keyof MenuPopoverProps]?: MenuPopoverProps[K];
 };
 
 export interface LanguageMenuProps {
   /** Name or content of menubutton */
-  name: ReactNode;
+  name: React.ReactNode | ((props: { isOpen: boolean }) => React.ReactNode);
   /** Custom classname to extend or customize */
   className?: string;
   /** Custom classname to extend or customize */
   languageMenuButtonClassName?: string;
-  /** Properties given to LanguageMenu's List-component, className etc. */
-  languageMenuListProps?: OptionalLanguageMenuListProps;
-  languageMenuListComponent?: React.ComponentType<
-    OptionalLanguageMenuListProps
+  /** Custom classname to apply when menu is open */
+  languageMenuOpenButtonClassName?: string;
+  /** Properties given to LanguageMenu's popover-component, className etc. */
+  languageMenuPopoverProps?: OptionalLanguageMenuPopoverProps;
+  languageMenuPopoverComponent?: React.ComponentType<
+    OptionalLanguageMenuPopoverProps
   >;
   /** Menu items: MenuItem or MenuLink */
-  children?: Array<React.ReactElement<LanguageMenuListItemsProps>>;
+  children?:
+    | Array<React.ReactElement<LanguageMenuPopoverItemsProps>>
+    | null
+    | undefined;
 }
 
 export class LanguageMenu extends Component<LanguageMenuProps> {
@@ -76,8 +75,9 @@ export class LanguageMenu extends Component<LanguageMenuProps> {
       name,
       className,
       languageMenuButtonClassName: menuButtonClassName,
-      languageMenuListProps: menuListProps = {},
-      languageMenuListComponent: MenuListComponentReplace,
+      languageMenuOpenButtonClassName: menuButtonOpenClassName,
+      languageMenuPopoverProps: menuPopoverProps = {},
+      languageMenuPopoverComponent: MenuPopoverComponentReplace,
       ...passProps
     } = this.props;
 
@@ -85,20 +85,33 @@ export class LanguageMenu extends Component<LanguageMenuProps> {
       logger.warn(`Menu '${name}' does not contain items`);
       return null;
     }
-
     return (
       <HtmlSpan className={classnames(className, baseClassName)}>
         <Menu>
-          <MenuButton {...passProps} className={menuButtonClassName}>
-            {name}
-          </MenuButton>
-          {!!MenuListComponentReplace ? (
-            <MenuListComponentReplace {...menuListProps}>
-              {children}
-            </MenuListComponentReplace>
-          ) : (
-            <MenuList {...menuListProps}>{children}</MenuList>
-          )}
+          {({ isOpen }: { isOpen: boolean }) => {
+            return (
+              <Fragment>
+                <MenuButton
+                  {...passProps}
+                  className={classnames(
+                    menuButtonClassName,
+                    isOpen && menuButtonOpenClassName,
+                  )}
+                >
+                  {name}
+                </MenuButton>
+                {!!MenuPopoverComponentReplace ? (
+                  <MenuPopoverComponentReplace {...menuPopoverProps}>
+                    {children}
+                  </MenuPopoverComponentReplace>
+                ) : (
+                  <MenuPopover position={positionDefault} {...menuPopoverProps}>
+                    <MenuItems>{children}</MenuItems>
+                  </MenuPopover>
+                )}
+              </Fragment>
+            );
+          }}
         </Menu>
       </HtmlSpan>
     );

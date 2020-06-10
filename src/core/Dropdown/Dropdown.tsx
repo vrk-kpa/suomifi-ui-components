@@ -2,10 +2,11 @@ import React, { Component, Fragment } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp, InternalTokensProp } from '../theme';
-import { baseStyles, menuListStyles } from './Dropdown.baseStyles';
+import { baseStyles, menuPopoverStyles } from './Dropdown.baseStyles';
 import {
   MenuPopover as CompMenuPopover,
-  MenuListProps as CompMenuListProps,
+  MenuPopoverProps as CompMenuPopoverProps,
+  MenuItems as CompMenuItems,
 } from '../../components/LanguageMenu/LanguageMenu';
 import {
   Dropdown as CompDropdown,
@@ -24,20 +25,24 @@ const StyledDropdown = styled(
     />
   ),
 )`
-  ${props => baseStyles(props)}
+  ${(props) => baseStyles(props)}
 `;
 
-interface MenuListProps extends CompMenuListProps, TokensProp {}
+interface MenuPopoverProps extends CompMenuPopoverProps, TokensProp {}
 
-const StyledMenuList = styled(({ tokens, ...passProps }: MenuListProps) => (
-  <CompMenuPopover position={positionMatchWidth} {...passProps} />
-))`
-  ${props => menuListStyles(props.theme)}
+const StyledMenuPopover = styled(
+  ({ tokens, children, ...passProps }: MenuPopoverProps) => (
+    <CompMenuPopover position={positionMatchWidth} {...passProps}>
+      <CompMenuItems>{children}</CompMenuItems>
+    </CompMenuPopover>
+  ),
+)`
+  ${(props) => menuPopoverStyles(props.theme)}
 `;
 
 /**
  * <i class="semantics" />
- * Use for selectable dropdown list.
+ * Use for selectable dropdown with items.
  */
 export class Dropdown extends Component<DropdownProps> {
   static item = (props: DropdownItemProps) => <DropdownItem {...props} />;
@@ -46,7 +51,7 @@ export class Dropdown extends Component<DropdownProps> {
     const props = withSuomifiDefaultProps(this.props);
     return (
       <Fragment>
-        <StyledDropdown {...props} menuListComponent={StyledMenuList} />
+        <StyledDropdown {...props} menuPopoverComponent={StyledMenuPopover} />
       </Fragment>
     );
   }

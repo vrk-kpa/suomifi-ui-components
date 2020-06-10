@@ -9,13 +9,17 @@ export const baseStyles = withSuomifiTheme(
         position: relative;
       }
       &_input {
-        padding-right: ${math(`${theme.spacing.m} * 2 + ${theme.spacing.s}`)};
+        min-height: 40px;
+        padding-right: ${math(
+          `${theme.spacing.insetXl} * 2 + ${theme.spacing.insetM}`,
+        )};
       }
       &_icon {
         position: absolute;
-        top: 50%;
-        right: ${theme.spacing.m};
-        margin-top: -0.5em;
+        width: 18px;
+        height: 18px;
+        top: ${theme.spacing.insetL};
+        right: ${theme.spacing.insetL};
       }
     }
   `,

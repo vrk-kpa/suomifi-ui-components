@@ -33,8 +33,8 @@ export const input = (props: SuomifiThemeProp) => {
     ${font(props)('actionElementInnerText')}
     min-width: 245px;
     max-width: 100%;
-    padding: ${props.theme.spacing.s} ${props.theme.spacing.m};
-    border: 1px solid ${props.theme.colors.depthBase};
+    padding: ${props.theme.spacing.insetM} ${props.theme.spacing.insetXl};
+    border: 1px solid ${props.theme.colors.depthLight1};
     border-radius: ${props.theme.radius.basic};
     line-height: 1;
   `;
@@ -63,8 +63,9 @@ export const inputButton = (props: SuomifiThemeProp) => css`
 export const button = (props: SuomifiThemeProp) => css`
   ${element(props)}
   ${font(props)('actionElementInnerTextBold')}
+  font-size: 14px;
   ${focus(props)}
-  line-height: 1;
+  line-height: 20px;
 `;
 
 export const nav = (props: TokensOrThemeProps) => css`

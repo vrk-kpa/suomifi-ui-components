@@ -2475,7 +2475,7 @@ exports[`check that snapshot matches 1`] = `
       <div
         class="fi-color__name fi-color__name--key"
       >
-        blackLighten42
+        blackLight1
       </div>
     </figcaption>
     <svg
@@ -2486,7 +2486,7 @@ exports[`check that snapshot matches 1`] = `
         fill="hsl(0, 0%, 58%)"
       >
         <title>
-          blackLighten42
+          blackLight1
         </title>
       </rect>
     </svg>
@@ -2545,7 +2545,7 @@ exports[`check that snapshot matches 1`] = `
       <div
         class="fi-color__name fi-color__name--key"
       >
-        depthDark27
+        depthDark1
       </div>
     </figcaption>
     <svg
@@ -2556,7 +2556,7 @@ exports[`check that snapshot matches 1`] = `
         fill="hsl(202, 7%, 40%)"
       >
         <title>
-          depthDark27
+          depthDark1
         </title>
       </rect>
     </svg>
@@ -2615,7 +2615,7 @@ exports[`check that snapshot matches 1`] = `
       <div
         class="fi-color__name fi-color__name--key"
       >
-        depthLight30
+        depthLight3
       </div>
     </figcaption>
     <svg
@@ -2626,7 +2626,7 @@ exports[`check that snapshot matches 1`] = `
         fill="hsl(202, 7%, 97%)"
       >
         <title>
-          depthLight30
+          depthLight3
         </title>
       </rect>
     </svg>
@@ -2650,7 +2650,7 @@ exports[`check that snapshot matches 1`] = `
       <div
         class="fi-color__name fi-color__name--key"
       >
-        depthLight26
+        depthLight2
       </div>
     </figcaption>
     <svg
@@ -2661,7 +2661,7 @@ exports[`check that snapshot matches 1`] = `
         fill="hsl(202, 7%, 93%)"
       >
         <title>
-          depthLight26
+          depthLight2
         </title>
       </rect>
     </svg>
@@ -2685,7 +2685,7 @@ exports[`check that snapshot matches 1`] = `
       <div
         class="fi-color__name fi-color__name--key"
       >
-        depthLight13
+        depthLight1
       </div>
     </figcaption>
     <svg
@@ -2696,7 +2696,7 @@ exports[`check that snapshot matches 1`] = `
         fill="hsl(202, 7%, 80%)"
       >
         <title>
-          depthLight13
+          depthLight1
         </title>
       </rect>
     </svg>
@@ -2720,7 +2720,7 @@ exports[`check that snapshot matches 1`] = `
       <div
         class="fi-color__name fi-color__name--key"
       >
-        depthSecondaryDark6
+        depthSecondaryDark1
       </div>
     </figcaption>
     <svg
@@ -2731,7 +2731,7 @@ exports[`check that snapshot matches 1`] = `
         fill="hsl(215, 100%, 91%)"
       >
         <title>
-          depthSecondaryDark6
+          depthSecondaryDark1
         </title>
       </rect>
     </svg>
@@ -2790,7 +2790,7 @@ exports[`check that snapshot matches 1`] = `
       <div
         class="fi-color__name fi-color__name--key"
       >
-        highlightDark9
+        highlightDark1
       </div>
     </figcaption>
     <svg
@@ -2801,7 +2801,7 @@ exports[`check that snapshot matches 1`] = `
         fill="hsl(212, 63%, 37%)"
       >
         <title>
-          highlightDark9
+          highlightDark1
         </title>
       </rect>
     </svg>
@@ -2860,7 +2860,7 @@ exports[`check that snapshot matches 1`] = `
       <div
         class="fi-color__name fi-color__name--key"
       >
-        highlightLight4
+        highlightLight1
       </div>
     </figcaption>
     <svg
@@ -2871,7 +2871,7 @@ exports[`check that snapshot matches 1`] = `
         fill="hsl(212, 63%, 49%)"
       >
         <title>
-          highlightLight4
+          highlightLight1
         </title>
       </rect>
     </svg>
@@ -2895,7 +2895,7 @@ exports[`check that snapshot matches 1`] = `
       <div
         class="fi-color__name fi-color__name--key"
       >
-        highlightLight45
+        highlightLight2
       </div>
     </figcaption>
     <svg
@@ -2906,7 +2906,7 @@ exports[`check that snapshot matches 1`] = `
         fill="hsl(212, 63%, 90%)"
       >
         <title>
-          highlightLight45
+          highlightLight2
         </title>
       </rect>
     </svg>
@@ -2930,7 +2930,7 @@ exports[`check that snapshot matches 1`] = `
       <div
         class="fi-color__name fi-color__name--key"
       >
-        highlightLight50
+        highlightLight3
       </div>
     </figcaption>
     <svg
@@ -2941,7 +2941,7 @@ exports[`check that snapshot matches 1`] = `
         fill="hsl(212, 63%, 95%)"
       >
         <title>
-          highlightLight50
+          highlightLight3
         </title>
       </rect>
     </svg>
@@ -2965,7 +2965,7 @@ exports[`check that snapshot matches 1`] = `
       <div
         class="fi-color__name fi-color__name--key"
       >
-        highlightLight53
+        highlightLight4
       </div>
     </figcaption>
     <svg
@@ -2976,7 +2976,7 @@ exports[`check that snapshot matches 1`] = `
         fill="hsl(212, 63%, 98%)"
       >
         <title>
-          highlightLight53
+          highlightLight4
         </title>
       </rect>
     </svg>
@@ -3070,7 +3070,7 @@ exports[`check that snapshot matches 1`] = `
       <div
         class="fi-color__name fi-color__name--key"
       >
-        accentSecondaryLight40
+        accentSecondaryLight1
       </div>
     </figcaption>
     <svg
@@ -3081,7 +3081,7 @@ exports[`check that snapshot matches 1`] = `
         fill="hsl(196, 77%, 95%)"
       >
         <title>
-          accentSecondaryLight40
+          accentSecondaryLight1
         </title>
       </rect>
     </svg>
@@ -3105,7 +3105,7 @@ exports[`check that snapshot matches 1`] = `
       <div
         class="fi-color__name fi-color__name--key"
       >
-        accentTertiaryDark9
+        accentTertiaryDark1
       </div>
     </figcaption>
     <svg
@@ -3116,7 +3116,7 @@ exports[`check that snapshot matches 1`] = `
         fill="hsl(284, 36%, 45%)"
       >
         <title>
-          accentTertiaryDark9
+          accentTertiaryDark1
         </title>
       </rect>
     </svg>
@@ -3315,7 +3315,7 @@ exports[`check that snapshot matches 1`] = `
       <div
         class="fi-color__name fi-color__name--key"
       >
-        alertLight47
+        alertLight1
       </div>
     </figcaption>
     <svg
@@ -3326,7 +3326,7 @@ exports[`check that snapshot matches 1`] = `
         fill="hsl(3, 59%, 95%)"
       >
         <title>
-          alertLight47
+          alertLight1
         </title>
       </rect>
     </svg>

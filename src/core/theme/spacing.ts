@@ -4,7 +4,9 @@ import {
 } from 'suomifi-design-tokens';
 export { SpacingDesignTokens };
 
-export type SpacingProp = keyof SpacingDesignTokens;
+export type SpacingProp = keyof SpacingDesignTokens | '0';
+
+export { SpacingWithoutInsetProp } from './utils/spacing';
 
 type SpacingDesignTokensKeys = keyof SpacingDesignTokens;
 

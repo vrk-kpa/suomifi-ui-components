@@ -9,19 +9,34 @@ import {
 } from '../../components/utils/aria';
 import { SuomifiIcon, SuomifiIconInterface } from 'suomifi-icons';
 import { logger } from '../../utils/logger';
-export { IconKeys, StaticIconKeys } from 'suomifi-icons';
+export { BaseIconKeys } from 'suomifi-icons';
 
-export interface IconProps extends TokensProp, SuomifiIconInterface {
+export interface IconBaseProps extends TokensProp {
   /** Aria-label for SVG, undefined hides SVG from screen reader
    * @default undefined
    */
   ariaLabel?: string;
-  /** Custom classname to SVG-element extend or customize */
-  svgClassName?: string;
   /** Show mouse cursor as hand-pointer */
   mousePointer?: boolean;
   testId?: string;
 }
+
+export interface IconProps extends IconBaseProps, SuomifiIconInterface {}
+
+export const iconLogger = (
+  ariaLabel: string | undefined,
+  className: string | undefined,
+) => {
+  logger.warn(
+    `Icon ERROR${
+      !!ariaLabel
+        ? ` with aria-label: ${ariaLabel}`
+        : !!className
+        ? ` with className: ${className}`
+        : ''
+    }`,
+  );
+};
 
 /**
  * Apply Suomifi styles to Icon
@@ -37,7 +52,7 @@ const StyledSuomifiIcon = styled(
     );
   },
 )`
-  ${props => iconBaseStyles(props)}
+  ${(props) => iconBaseStyles(props)}
 `;
 
 /**
@@ -50,21 +65,14 @@ export class Icon extends Component<IconProps> {
     );
     const { className, ariaLabel } = this.props;
 
-    const iconColor = color !== undefined ? color : tokens.colors.depthDark27;
+    const iconColor = color !== undefined ? color : tokens.colors.depthDark1;
 
     if (icon !== undefined) {
       return <StyledSuomifiIcon {...passProps} icon={icon} color={iconColor} />;
     }
 
-    logger.warn(
-      `Icon ERROR${
-        !!ariaLabel
-          ? ` with aria-label: ${ariaLabel}`
-          : !!className
-          ? ` with className: ${className}`
-          : ''
-      }`,
-    );
+    iconLogger(ariaLabel, className);
+
     return;
   }
 }

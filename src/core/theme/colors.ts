@@ -1,5 +1,4 @@
 import { suomifiDesignTokens } from 'suomifi-design-tokens';
-import { lighten } from 'polished';
 import { alphaHex } from '../../utils/css';
 import { boxshadowOutline } from './utils/outline';
 import { zindexes } from './zindexes';
@@ -11,65 +10,65 @@ export const { colors } = suomifiDesignTokens;
 const {
   whiteBase,
   blackBase,
-  blackLighten42,
+  blackLight1,
   brandBase,
-  depthDark27,
+  depthDark1,
   depthBase,
-  depthLight30,
-  depthLight26,
-  depthLight13,
-  depthSecondaryDark6,
+  depthLight3,
+  depthLight2,
+  depthLight1,
+  depthSecondaryDark1,
   depthSecondary,
-  highlightDark9,
+  highlightDark1,
   highlightBase,
+  highlightLight1,
+  highlightLight2,
+  highlightLight3,
   highlightLight4,
-  highlightLight45,
-  highlightLight50,
-  highlightLight53,
   accentBase,
   accentSecondary,
-  accentSecondaryLight40,
-  accentTertiaryDark9,
+  accentSecondaryLight1,
+  accentTertiaryDark1,
   accentTertiary,
   successBase,
   successSecondary,
   warningBase,
   alertBase,
-  alertLight47,
+  alertLight1,
 } = colors;
 export const colorTokens = {
   base: {
     whiteBase,
     blackBase,
-    blackLighten42,
+    blackLight1,
   },
   brand: {
     brandBase,
   },
   depth: {
-    depthDark27,
+    depthDark1,
     depthBase,
-    depthLight30,
-    depthLight26,
-    depthLight13,
+    depthLight3,
+    depthLight2,
+    depthLight1,
   },
   depthSecondary: {
-    depthSecondaryDark6,
+    depthSecondaryDark1,
     depthSecondary,
   },
   hightlight: {
-    highlightDark9,
+    highlightDark1,
     highlightBase,
+    highlightLight1,
+    highlightLight2,
+    highlightLight3,
     highlightLight4,
-    highlightLight45,
-    highlightLight50,
-    highlightLight53,
   },
   accent: {
     accentBase,
     accentSecondary,
-    accentSecondaryLight40,
-    accentTertiaryDark9,
+    accentSecondaryLight1,
+    accentTertiaryDark1,
     accentTertiary,
   },
   trafficlights: {
@@ -77,7 +76,7 @@ export const colorTokens = {
     successSecondary,
     warningBase,
     alertBase,
-    alertLight47,
+    alertLight1,
   },
 };
 
@@ -89,37 +88,33 @@ export const shadows = {
   panelShadow: `0 1px 2px 0 ${alphaHex(0.14)(
     colors.blackBase,
   )}, 0 1px 5px 0 ${alphaHex(0.12)(colors.blackBase)}`,
+  actionElementBoxShadow: `0 1px 2px 0 ${alphaHex(0.1)(
+    colors.brandBase,
+  )} inset`,
 };
 
 export type IGradients = typeof gradients;
 
 export const gradients = {
-  highlightBase: `linear-gradient(0deg, ${colors.highlightBase} 0%, ${lighten(
-    0.1,
-    colors.highlightBase,
-  )} 100%)`,
-  highlightLight4: `linear-gradient(0deg, ${
-    colors.highlightLight4
-  } 0%, ${lighten(0.1, colors.highlightLight4)} 100%)`,
-  highlightDark9: `linear-gradient(0deg, ${colors.highlightDark9} 0%, ${lighten(
-    0.1,
-    colors.highlightDark9,
-  )} 100%)`,
-  depthBase: `linear-gradient(0deg, ${colors.depthBase} 0%, ${lighten(
-    0.1,
-    colors.depthBase,
-  )} 100%)`,
+  highlightBaseToHighlightDark1: `linear-gradient(0deg, ${colors.highlightDark1} 0%, ${colors.highlightBase} 100%)`,
+  highlightLight1ToHighlightBase: `linear-gradient(0deg, ${colors.highlightBase} 0%, ${colors.highlightLight1} 100%)`,
+  depthLight1ToDepthBase: `linear-gradient(0deg, ${colors.depthBase} 0%, ${colors.depthLight1} 100%)`,
   whiteBaseNegative: `linear-gradient(-180deg, ${alphaHex(0.1)(
     colors.whiteBase,
   )} 0%, ${alphaHex(0)(colors.whiteBase)} 100%)`,
-  depthLight26: `linear-gradient(0deg, ${colors.depthLight26} 0%, ${colors.whiteBase} 100%)`,
-  highlightLight45ToHighlightLight50: `linear-gradient(0deg, ${colors.highlightLight45}, ${colors.highlightLight50})`,
+  whiteBaseToDepthLight2: `linear-gradient(0deg, ${colors.depthLight2} 0%, ${colors.whiteBase} 100%)`,
+  highlightLight3ToHighlightLight2: `linear-gradient(0deg, ${colors.highlightLight2}, ${colors.highlightLight3})`,
+  depthLight3ToDepthLight2: `linear-gradient(0deg, ${colors.depthLight2}, ${colors.depthLight3})`,
 };
 
 export const outlines = {
-  basic: boxshadowOutline({
-    color: colors.accentBase,
-    offset: '4px',
+  afterPseudo: boxshadowOutline({
+    border: '0px',
+    offset: '2px',
     zIndex: zindexes.focus,
+    afterPseudo: true,
+  }),
+  boxShadow: boxshadowOutline({
+    afterPseudo: false,
   }),
 };

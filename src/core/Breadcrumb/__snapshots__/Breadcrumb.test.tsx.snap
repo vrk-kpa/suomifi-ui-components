@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.c5 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -24,10 +24,10 @@ exports[`calling render with the same component on the same container does not r
   text-decoration: underline;
 }
 
-.c5:hover,
-.c5:active,
-.c5:focus,
-.c5:focus-within {
+.c4:hover,
+.c4:active,
+.c4:focus,
+.c4:focus-within {
   color: inherit;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -54,7 +54,7 @@ exports[`calling render with the same component on the same container does not r
   display: list-item;
 }
 
-.c1 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -130,7 +130,7 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
 }
 
-.c4 {
+.c5 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -150,50 +150,40 @@ exports[`calling render with the same component on the same container does not r
   text-decoration: none;
 }
 
-.c4:focus {
+.c5:focus {
   outline: 0;
-  position: relative;
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
 }
 
-.c4:focus:after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  bottom: -4px;
-  left: -4px;
-  border-radius: 4px;
-  background-color: transparent;
-  border: 1px solid hsl(23,82%,53%);
-  box-sizing: border-box;
-  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
-  z-index: 9999;
+.c5:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
-.c4:focus:not(:focus-visible):after {
-  content: none;
-}
-
-.c4:hover,
-.c4:active,
-.c4:focus,
-.c4:focus-within {
+.c5:hover,
+.c5:active,
+.c5:focus,
+.c5:focus-within {
   color: hsl(212,63%,45%);
 }
 
-.c4:hover,
-.c4:active,
-.c4:focus,
-.c4:focus-within {
+.c5:focus,
+.c5:focus-within {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c5:hover,
+.c5:active {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c4:visited {
+.c5:visited {
   color: hsl(284,36%,45%);
 }
 
-.c0 {
+.c1 {
   color: hsl(0,0%,16%);
   display: block;
   -webkit-letter-spacing: 0;
@@ -206,14 +196,14 @@ exports[`calling render with the same component on the same container does not r
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
   background-color: hsl(0,0%,100%);
   height: 1.5em;
 }
 
-.c0 .fi-breadcrumb_list {
+.c1 .fi-breadcrumb_list {
   color: hsl(0,0%,16%);
   list-style: none;
   -webkit-letter-spacing: 0;
@@ -226,14 +216,14 @@ exports[`calling render with the same component on the same container does not r
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
   margin: 0;
   padding: 0;
 }
 
-.c0 .fi-breadcrumb_item {
+.c1 .fi-breadcrumb_item {
   color: hsl(0,0%,16%);
   list-style: none;
   -webkit-letter-spacing: 0;
@@ -246,44 +236,47 @@ exports[`calling render with the same component on the same container does not r
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
   float: left;
+  color: hsl(202,7%,40%);
 }
 
-.c0 .fi-breadcrumb_item,
-.c0 .fi-breadcrumb_link,
-.c0 .fi-breadcrumb_icon {
-  font-size: 18px;
+.c1 .fi-breadcrumb_item,
+.c1 .fi-breadcrumb_link,
+.c1 .fi-breadcrumb_icon {
+  font-size: 16px;
 }
 
-.c0 .fi-breadcrumb_icon {
+.c1 .fi-breadcrumb_icon {
   -webkit-transform: translateY(.2em);
   -ms-transform: translateY(.2em);
   transform: translateY(.2em);
+  margin: 0 4px;
+  fill: hsl(202,7%,40%);
 }
 
 <nav
   aria-label="breadcrumb"
-  class="fi-breadcrumb c0 c1"
+  class="c0 fi-breadcrumb c1"
   data-testid="Breadcrumb"
 >
   <ol
-    class="fi-breadcrumb_list c2"
+    class="c2 fi-breadcrumb_list"
   >
     <li
-      class="fi-breadcrumb_item c3"
+      class="c3 fi-breadcrumb_item"
     >
       <a
-        class="fi-breadcrumb_link c4 fi-link c5"
+        class="c4 c5 fi-breadcrumb_link fi-link"
         href="/"
       >
         Frontpage
       </a>
       <svg
         aria-hidden="true"
-        class="fi-breadcrumb_icon c6"
+        class="c6 fi-breadcrumb_icon"
         fill="hsl(0, 0%, 16%)"
         focusable="false"
         height="1em"
@@ -296,17 +289,17 @@ exports[`calling render with the same component on the same container does not r
       </svg>
     </li>
     <li
-      class="fi-breadcrumb_item c3"
+      class="c3 fi-breadcrumb_item"
     >
       <a
-        class="fi-breadcrumb_link c4 fi-link c5"
+        class="c4 c5 fi-breadcrumb_link fi-link"
         href="/sub"
       >
         Sub page
       </a>
       <svg
         aria-hidden="true"
-        class="fi-breadcrumb_icon c6"
+        class="c6 fi-breadcrumb_icon"
         fill="hsl(0, 0%, 16%)"
         focusable="false"
         height="1em"
@@ -319,7 +312,7 @@ exports[`calling render with the same component on the same container does not r
       </svg>
     </li>
     <li
-      class="fi-breadcrumb_item c3"
+      class="c3 fi-breadcrumb_item"
     >
       <span
         aria-current="location"

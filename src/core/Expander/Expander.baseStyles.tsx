@@ -18,7 +18,7 @@ export const baseStyles = withSuomifiTheme(
   box-shadow: ${theme.shadows.panelShadow};
 
   &:before {
-    background-color: ${theme.colors.highlightLight53};
+    background-color: ${theme.colors.highlightLight4};
     opacity: 0;
   }
 
@@ -33,13 +33,17 @@ export const baseStyles = withSuomifiTheme(
     position: relative;
     display: block;
     width: 100%;
+    font-size: ${theme.typography.bodySemiBold};
+    min-height: 60px;
     &--no-tag {
-      ${padding({ theme })('m', 'xl', 'm', 'm')}
+      padding: 17px ${theme.spacing.xxxl} 16px ${theme.spacing.m};
       color: ${theme.colors.highlightBase};
     }
   }
   & .fi-expander_title-icon {
     position: absolute;
+    height: 20px;
+    width: 20px;
     top: 0;
     right: 0;
     margin: ${theme.spacing.m};
@@ -54,13 +58,14 @@ export const baseStyles = withSuomifiTheme(
     display: block;
     height: 0;
     overflow: hidden;
+    word-break: break-word;
     transform: scaleY(0);
     transform-origin: top;
     transition: all ${`${theme.transitions.basicTime}
       ${theme.transitions.basicTimingFunction}`};
     will-change: transition, height;
     &:not(.fi-expander_content--no-padding) {
-      padding: 0 ${theme.spacing.m};
+      padding: 0 ${theme.spacing.insetXl};
     }
     &.fi-expander_content--open {
       height: 10%;

@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
-import { IconProps } from './Icon';
+import { IconBaseProps } from './Icon';
 
-export const iconBaseStyles = ({ mousePointer = false }: IconProps) => css`
+export const iconBaseStyles = ({ mousePointer = false }: IconBaseProps) => css`
   display: inline-block;
   vertical-align: baseline;
   ${!!mousePointer &&
-    `cursor: pointer;
+  `cursor: pointer;
       & * {
         cursor: inherit;
       }

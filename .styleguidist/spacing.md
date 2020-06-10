@@ -20,7 +20,7 @@ const Container = styled(({ size, name, ...passProps }) => (
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: ${cssValueToString(spacing.l)};
+  margin-bottom: ${cssValueToString(spacing.xl)};
   cursor: pointer;
 
   * {
@@ -28,7 +28,7 @@ const Container = styled(({ size, name, ...passProps }) => (
   }
 
   > div:not(:first-of-type) {
-    margin-left: ${cssValueToString(spacing.m)};
+    margin-left: ${cssValueToString(spacing.s)};
   }
 `
 );
@@ -42,7 +42,7 @@ const Square = styled(props => (
     flex: none;
     display: flex;
     align-items: flex-end;
-    width: ${cssValueToString(spacing.xl)};
+    width: 100px;
 
     > .box {
       height: ${size};
@@ -69,7 +69,7 @@ const Bar = styled(props => (
     > .row {
       height: ${size};
       width: 100%;
-      background-color: ${colors.depthDark27};
+      background-color: ${colors.depthDark1};
     }
     > .col {
       position: absolute;
@@ -77,7 +77,7 @@ const Bar = styled(props => (
       right: 0;
       height: 100%;
       width: ${size};
-      background-color: ${colors.depthDark27};
+      background-color: ${colors.depthDark1};
     }
   `
 );

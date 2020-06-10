@@ -10,13 +10,15 @@ import {
   ToggleInput,
   ToggleInputProps as CompToggleInputProps,
 } from '../../../components/Form/Toggle';
-import { Icon } from '../../Icon/Icon';
+import { ComponentIcon } from '../../StaticIcon/StaticIcon';
 import { Text } from '../../Text/Text';
+import { HtmlSpan } from '../../../reset';
 
 export interface ToggleProps extends CompToggleProps, TokensProp {}
 export interface ToggleInputProps extends CompToggleInputProps, TokensProp {}
 
 const iconBaseClassName = 'fi-toggle_icon';
+const iconContainerClassName = 'fi-toggle_icon-container';
 const iconDisabledClassName = `${iconBaseClassName}--disabled`;
 const iconCheckedClassName = `${iconBaseClassName}--checked`;
 
@@ -25,7 +27,7 @@ const StyledToggle = styled(
     <CompToggle {...passProps} />
   ),
 )`
-  ${props => baseStyles(props)}
+  ${(props) => baseStyles(props)}
 `;
 
 /**
@@ -35,10 +37,23 @@ const StyledToggle = styled(
 class ToggleWithIcon extends Component<ToggleProps> {
   state = { toggleStatus: !!this.props.checked || !!this.props.defaultChecked };
 
+  static getDerivedStateFromProps(
+    nextProps: ToggleProps,
+    prevState: { toggleStatus: boolean },
+  ) {
+    const { checked } = nextProps;
+    if (checked !== undefined && checked !== prevState.toggleStatus) {
+      return { toggleStatus: checked };
+    }
+    return null;
+  }
+
   handleToggle = () => {
-    const { onClick } = this.props;
+    const { onClick, checked } = this.props;
     const { toggleStatus } = this.state;
-    this.setState({ toggleStatus: !toggleStatus });
+    if (checked === undefined) {
+      this.setState({ toggleStatus: !toggleStatus });
+    }
     if (!!onClick) {
       onClick({ toggleState: !toggleStatus });
     }
@@ -48,7 +63,6 @@ class ToggleWithIcon extends Component<ToggleProps> {
     const {
       children,
       disabled = false,
-      checked: dissMissChecked,
       onClick,
       ...passProps
     } = withSuomifiDefaultProps(this.props);
@@ -60,13 +74,15 @@ class ToggleWithIcon extends Component<ToggleProps> {
         {...passProps}
         onClick={this.handleToggle}
       >
-        <Icon
-          icon="toggle"
-          className={classnames(iconBaseClassName, {
-            [iconDisabledClassName]: !!disabled,
-            [iconCheckedClassName]: !!toggleStatus,
-          })}
-        />
+        <HtmlSpan className={iconContainerClassName}>
+          <ComponentIcon
+            icon="toggle"
+            className={classnames(iconBaseClassName, {
+              [iconDisabledClassName]: !!disabled,
+              [iconCheckedClassName]: !!toggleStatus,
+            })}
+          />
+        </HtmlSpan>
         <Text color={!!disabled ? 'depthBase' : 'blackBase'}>{children}</Text>
       </StyledToggle>
     );

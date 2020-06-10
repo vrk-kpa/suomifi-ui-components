@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot testing 1`] = `
-.c5 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,29 +27,29 @@ exports[`snapshot testing 1`] = `
   cursor: pointer;
 }
 
-.c5:-moz-focusring {
+.c3:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c5::-moz-focus-inner {
+.c3::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c5::-webkit-file-upload-button {
+.c3::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c5::-webkit-inner-spin-button {
+.c3::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c5::-webkit-outer-spin-button {
+.c3::-webkit-outer-spin-button {
   height: auto;
 }
 
-.c2 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -104,37 +104,38 @@ exports[`snapshot testing 1`] = `
   cursor: pointer;
 }
 
-.c3 {
+.c5 {
   color: hsl(0,0%,16%);
   border-radius: 2px;
   cursor: pointer;
 }
 
-.c3:focus {
+.c5:focus {
   outline: 0;
   position: relative;
 }
 
-.c3:focus:after {
+.c5:focus:after {
   content: '';
   position: absolute;
-  top: -4px;
-  right: -4px;
-  bottom: -4px;
-  left: -4px;
-  border-radius: 4px;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
   background-color: transparent;
-  border: 1px solid hsl(23,82%,53%);
+  border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
 }
 
-.c3:focus:not(:focus-visible):after {
+.c5:focus:not(:focus-visible):after {
   content: none;
 }
 
-.c0 {
+.c2 {
   color: hsl(0,0%,16%);
   display: -webkit-box;
   display: -webkit-flex;
@@ -145,28 +146,57 @@ exports[`snapshot testing 1`] = `
   flex-direction: column;
 }
 
-.c0 > .fi-expander-group_expanders {
+.c2 > .fi-expander-group_expanders {
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
 }
 
-.c0 > .fi-expander-group_expanders .fi-expander {
+.c2 > .fi-expander-group_expanders .fi-expander {
   margin-top: 0;
   margin-bottom: 0;
+  border-radius: 0;
+  border-top: 1px solid hsl(202,7%,80%);
   -webkit-transition: margin 50ms cubic-bezier(0.28,0.84,0.42,1);
   transition: margin 50ms cubic-bezier(0.28,0.84,0.42,1);
 }
 
-.c0 > .fi-expander-group_expanders .fi-expander.fi-expander--open:not(:first-of-type) {
+.c2 > .fi-expander-group_expanders .fi-expander:first-child {
+  border-radius: 2px 2px 0 0;
+  border-top: none;
+}
+
+.c2 > .fi-expander-group_expanders .fi-expander:last-child {
+  border-radius: 0 0 2px 2px;
+}
+
+.c2 > .fi-expander-group_expanders .fi-expander.fi-expander--open {
+  border-top: none;
+}
+
+.c2 > .fi-expander-group_expanders .fi-expander.fi-expander--open:not(:first-of-type) {
   margin-top: 16px;
 }
 
-.c0 > .fi-expander-group_expanders .fi-expander.fi-expander--open:not(:last-of-type) {
+.c2 > .fi-expander-group_expanders .fi-expander.fi-expander--open:not(:last-of-type) {
   margin-bottom: 16px;
 }
 
-.c0 > .fi-expander-group_all-button {
+.c2 > .fi-expander-group_expanders .fi-expander.fi-expander--open:first-child,
+.c2 > .fi-expander-group_expanders .fi-expander.fi-expander--open:first-child:before {
+  border-radius: 2px 2px 0 0;
+}
+
+.c2 > .fi-expander-group_expanders .fi-expander.fi-expander--open:last-child,
+.c2 > .fi-expander-group_expanders .fi-expander.fi-expander--open:last-child:before {
+  border-radius: 0 0 2px 2px;
+}
+
+.c2 > .fi-expander-group_expanders .fi-expander.fi-expander--open + .fi-expander {
+  border-top: none;
+}
+
+.c2 > .fi-expander-group_all-button {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -194,27 +224,28 @@ exports[`snapshot testing 1`] = `
   cursor: pointer;
 }
 
-.c0 > .fi-expander-group_all-button:focus {
+.c2 > .fi-expander-group_all-button:focus {
   outline: 0;
   position: relative;
 }
 
-.c0 > .fi-expander-group_all-button:focus:after {
+.c2 > .fi-expander-group_all-button:focus:after {
   content: '';
   position: absolute;
-  top: -4px;
-  right: -4px;
-  bottom: -4px;
-  left: -4px;
-  border-radius: 4px;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
   background-color: transparent;
-  border: 1px solid hsl(23,82%,53%);
+  border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
 }
 
-.c0 > .fi-expander-group_all-button:focus:not(:focus-visible):after {
+.c2 > .fi-expander-group_all-button:focus:not(:focus-visible):after {
   content: none;
 }
 
@@ -278,10 +309,16 @@ exports[`snapshot testing 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  line-height: 1;
+  font-size: 14px;
+  line-height: 20px;
   position: relative;
   display: block;
   width: 100%;
+  font-size: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+  min-height: 60px;
 }
 
 .c6 .fi-expander_title:focus {
@@ -292,15 +329,16 @@ exports[`snapshot testing 1`] = `
 .c6 .fi-expander_title:focus:after {
   content: '';
   position: absolute;
-  top: -4px;
-  right: -4px;
-  bottom: -4px;
-  left: -4px;
-  border-radius: 4px;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
   background-color: transparent;
-  border: 1px solid hsl(23,82%,53%);
+  border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 10px 0 hsl(23,82%,53%);
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
 }
 
@@ -309,18 +347,17 @@ exports[`snapshot testing 1`] = `
 }
 
 .c6 .fi-expander_title--no-tag {
-  padding-top: 16px;
-  padding-right: 64px;
-  padding-bottom: 16px;
-  padding-left: 16px;
+  padding: 17px 60px 16px 20px;
   color: hsl(212,63%,45%);
 }
 
 .c6 .fi-expander_title-icon {
   position: absolute;
+  height: 20px;
+  width: 20px;
   top: 0;
   right: 0;
-  margin: 16px;
+  margin: 20px;
 }
 
 .c6 .fi-expander_title--open .fi-expander_title-icon,
@@ -335,6 +372,7 @@ exports[`snapshot testing 1`] = `
   display: block;
   height: 0;
   overflow: hidden;
+  word-break: break-word;
   -webkit-transform: scaleY(0);
   -ms-transform: scaleY(0);
   transform: scaleY(0);
@@ -359,17 +397,17 @@ exports[`snapshot testing 1`] = `
 
 .c6 > .fi-expander_content.fi-expander_content--open:not(.fi-expander_content--no-padding) {
   padding-top: 0;
-  padding-right: 16px;
-  padding-bottom: 16px;
-  padding-left: 16px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
 }
 
 <div
-  class="c0 fi-expander-group c1 c2"
+  class="c0 c1 c2 fi-expander-group"
 >
   <button
     aria-disabled="false"
-    class="fi-button fi-expander-group_all-button c3 fi-button c4 c5"
+    class="c3 c4 fi-button c5 fi-expander-group_all-button fi-button"
     tabindex="0"
     tokens="[object Object]"
     type="button"
@@ -377,22 +415,22 @@ exports[`snapshot testing 1`] = `
     Open all
   </button>
   <div
-    class="fi-expander-group_expanders c2"
+    class="c0 fi-expander-group_expanders"
   >
     <div
-      class="c6 fi-expander c1 c2"
+      class="c0 c1 c6 fi-expander"
     >
       <button
         aria-disabled="false"
         aria-expanded="false"
-        class="fi-button fi-expander_title fi-expander_title--no-tag c7 c4 c5"
+        class="c3 c4 fi-button c7 fi-expander_title fi-expander_title--no-tag"
         tabindex="0"
         type="button"
       >
         Test expander 1
         <svg
           aria-hidden="true"
-          class="fi-expander_title-icon c8"
+          class="c8 fi-expander_title-icon"
           fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"
@@ -406,26 +444,26 @@ exports[`snapshot testing 1`] = `
       </button>
       <div
         aria-hidden="true"
-        class="fi-expander_content c9 fi-expander c1 c2"
+        class="c0 c1 c9 fi-expander_content"
         hidden=""
       >
         Test expander content 1
       </div>
     </div>
     <div
-      class="c6 fi-expander c1 c2"
+      class="c0 c1 c6 fi-expander"
     >
       <button
         aria-disabled="false"
         aria-expanded="false"
-        class="fi-button fi-expander_title fi-expander_title--no-tag c7 c4 c5"
+        class="c3 c4 fi-button c7 fi-expander_title fi-expander_title--no-tag"
         tabindex="0"
         type="button"
       >
         Test expander 2
         <svg
           aria-hidden="true"
-          class="fi-expander_title-icon c8"
+          class="c8 fi-expander_title-icon"
           fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"
@@ -439,26 +477,26 @@ exports[`snapshot testing 1`] = `
       </button>
       <div
         aria-hidden="true"
-        class="fi-expander_content c9 fi-expander c1 c2"
+        class="c0 c1 c9 fi-expander_content"
         hidden=""
       >
         Test expander content 2
       </div>
     </div>
     <div
-      class="c6 fi-expander c1 c2"
+      class="c0 c1 c6 fi-expander"
     >
       <button
         aria-disabled="false"
         aria-expanded="false"
-        class="fi-button fi-expander_title fi-expander_title--no-tag c7 c4 c5"
+        class="c3 c4 fi-button c7 fi-expander_title fi-expander_title--no-tag"
         tabindex="0"
         type="button"
       >
         Test expander 3
         <svg
           aria-hidden="true"
-          class="fi-expander_title-icon c8"
+          class="c8 fi-expander_title-icon"
           fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"
@@ -472,7 +510,7 @@ exports[`snapshot testing 1`] = `
       </button>
       <div
         aria-hidden="true"
-        class="fi-expander_content c9 fi-expander c1 c2"
+        class="c0 c1 c9 fi-expander_content"
         hidden=""
       >
         Test expander content 3

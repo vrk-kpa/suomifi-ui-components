@@ -38,24 +38,27 @@ const StyledHtmlLabel = styled(HtmlLabel)`
 
 export class ToggleInput extends Component<ToggleProps> {
   state: ToggleState = {
-    toggleState: !!this.props.checked || !!this.props.defaultChecked || false,
+    toggleState: !!this.props.checked || !!this.props.defaultChecked,
   };
 
-  componentWillReceiveProps(nextProps: ToggleProps) {
+  static getDerivedStateFromProps(
+    nextProps: ToggleProps,
+    prevState: ToggleState,
+  ) {
     const { checked } = nextProps;
-    if (!!checked) {
-      this.setState({ toggleState: !!checked });
+    if (checked !== undefined && checked !== prevState.toggleState) {
+      return { toggleState: checked };
     }
+    return null;
   }
 
-  handleClick = () => {
+  handleClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { checked, onClick } = this.props;
-    const { toggleState } = this.state;
     if (checked === undefined) {
-      this.setState({ toggleState: !toggleState });
+      this.setState({ toggleState: event.target.checked });
     }
     if (!!onClick) {
-      onClick({ toggleState: !toggleState });
+      onClick({ toggleState: event.target.checked });
     }
   };
 

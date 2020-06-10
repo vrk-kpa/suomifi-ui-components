@@ -32,8 +32,8 @@ export const baseStyles = withSuomifiTheme(
         flex-direction: column;
         justify-content: flex-end;
         position: absolute;
-        left: ${theme.spacing.s};
-        bottom: ${theme.spacing.s};
+        left: ${theme.spacing.insetM};
+        bottom: ${theme.spacing.insetM};
       }
 
       svg {

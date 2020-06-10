@@ -8,6 +8,7 @@ export {
   DropdownItemProps,
 } from './Dropdown/Dropdown';
 export { TextInput, TextInputProps } from './Form/TextInput';
+export { Checkbox, CheckboxProps } from './Form/Checkbox';
 export {
   Toggle,
   ToggleProps,
@@ -20,7 +21,7 @@ export { LinkExternal, LinkExternalProps } from './Link/LinkExternal';
 export {
   LanguageMenu,
   LanguageMenuProps,
-  LanguageMenuListItemsProps,
+  LanguageMenuPopoverItemsProps,
   LanguageMenuItemProps,
   LanguageMenuLinkProps as MenuLinkProps,
   MenuItem,
