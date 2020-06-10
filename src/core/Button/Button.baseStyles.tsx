@@ -140,6 +140,9 @@ export const baseStyles = withSuomifiTheme(
       margin-left: ${theme.spacing.insetM};
     }
   }
+  &.fi-button--disabled > .fi-button_icon {
+    cursor: not-allowed;
+  }
 `,
 );
 
