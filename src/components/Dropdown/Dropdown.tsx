@@ -147,7 +147,7 @@ export class Dropdown extends Component<DropdownProps> {
         dropdownClassNames.button,
         dropdownButtonProps.className,
       ),
-      'aria-labelledby': `${ariaLabelledBy} ${id}`,
+      'aria-labelledby': `${!!ariaLabelledBy ? `${ariaLabelledBy} ` : ''}${id}`,
     };
     const passDropdownPopoverProps = {
       ...dropdownPopoverProps,

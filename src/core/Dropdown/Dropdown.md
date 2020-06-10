@@ -16,14 +16,14 @@ const dropdownProps = {
       {...dropdownProps}
     >
       <Dropdown.item
-        onSelect={() => console.log('dropdown test 1 1')}
+        onSelect={() => console.log('dropdown 1 test 1')}
       >
-        Item 1
+        Dropdown 1 Item 1
       </Dropdown.item>
       <Dropdown.item
-        onSelect={() => console.log('dropdown test 1 2')}
+        onSelect={() => console.log('dropdown 1 test 2')}
       >
-        Item 2
+        Dropdown 1 Item 2
       </Dropdown.item>
     </Dropdown>
   </Block>
@@ -34,14 +34,14 @@ const dropdownProps = {
       {...dropdownProps}
     >
       <Dropdown.item
-        onSelect={() => console.log('dropdown test 2 1')}
+        onSelect={() => console.log('dropdown 2 test 2')}
       >
-        Item 1
+        Dropdown 2 Item 1
       </Dropdown.item>
       <Dropdown.item
-        onSelect={() => console.log('dropdown test 2 2')}
+        onSelect={() => console.log('dropdown 2 test 2')}
       >
-        Item 2
+        Dropdown 2 Item 2
       </Dropdown.item>
     </Dropdown>
   </Block>
