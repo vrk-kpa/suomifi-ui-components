@@ -55,10 +55,15 @@ export interface DropdownProps {
   id?: string;
   /** Label */
   labelText: string;
-  /** Pass custom props to label container */
+  /** Custom props for label container */
   labelProps?: DropdownLabelProps;
-  /** Pass custom props to Label text element */
+  /** Custom props for Label text element */
   labelTextProps?: ParagraphProps;
+  /**
+   * Additional label id. E.g. form group label.
+   * Used in addition to labelText for screen readers.
+   */
+  'aria-labelledby'?: string;
   /** visual hint to show if nothing is selected */
   visualPlaceholder?: ReactNode;
   /** Change visualPlaceholder by selection
@@ -117,6 +122,7 @@ export class Dropdown extends Component<DropdownProps> {
       labelProps,
       labelText,
       labelTextProps,
+      'aria-labelledby': ariaLabelledBy,
       visualPlaceholder: name,
       className,
       dropdownButtonProps = {},
@@ -141,6 +147,7 @@ export class Dropdown extends Component<DropdownProps> {
         dropdownClassNames.button,
         dropdownButtonProps.className,
       ),
+      'aria-labelledby': `${ariaLabelledBy} ${id}`,
     };
     const passDropdownPopoverProps = {
       ...dropdownPopoverProps,
@@ -159,14 +166,10 @@ export class Dropdown extends Component<DropdownProps> {
 
     return (
       <HtmlSpan className={classnames(className, baseClassName)}>
-        <HtmlLabel
-          htmlFor={id}
-          {...labelProps}
-          className={dropdownClassNames.label}
-        >
+        <HtmlLabel id={id} {...labelProps} className={dropdownClassNames.label}>
           <Paragraph {...labelTextProps}>{labelText}</Paragraph>
         </HtmlLabel>
-        <Menu {...passProps} id={id}>
+        <Menu {...passProps}>
           <MenuButton {...passDropdownButtonProps}>
             {!!selectedName ? selectedName : name}
           </MenuButton>
