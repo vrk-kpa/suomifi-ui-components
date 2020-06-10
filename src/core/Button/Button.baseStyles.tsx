@@ -23,7 +23,7 @@ const invertedStyles = ({ theme }: SuomifiThemeProp) => css`
     &.fi-button--disabled,
     &[disabled],
     &:disabled {
-      opacity: 0.5;
+      opacity: 0.41;
       background: none;
       background-color: none;
     }
