@@ -164,7 +164,7 @@ exports[`calling render with the same component on the same container does not r
   >
     <label
       class="c2 fi-dropdown_label"
-      for="test-id"
+      id="test-id"
     >
       <p
         class="c3 fi-paragraph fi-dropdown_label-p"
@@ -173,11 +173,12 @@ exports[`calling render with the same component on the same container does not r
       </p>
     </label>
     <button
-      aria-controls="test-id"
+      aria-controls="menu--1"
       aria-haspopup="true"
+      aria-labelledby="test-id"
       class="fi-dropdown_button"
       data-reach-menu-button=""
-      id="menu-button--test-id"
+      id="menu-button--menu--1"
       type="button"
     >
       Dropdown
