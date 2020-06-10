@@ -68,23 +68,6 @@ const StyledButton = styled(
   ${(props) => baseStyles(props)}
 `;
 
-const iconColor = ({
-  tokens,
-  invert,
-  disabled,
-}: {
-  invert?: boolean;
-  disabled?: boolean;
-} & InternalTokensProp) => {
-  const defaultColor = !!disabled
-    ? tokens.colors.depthBase
-    : tokens.colors.whiteBase;
-  const secondaryColor = !!disabled
-    ? tokens.colors.depthBase
-    : tokens.colors.highlightBase;
-  return !!invert ? secondaryColor : defaultColor;
-};
-
 class ButtonWithIcon extends Component<ButtonProps & InternalTokensProp> {
   render() {
     const {
@@ -93,29 +76,20 @@ class ButtonWithIcon extends Component<ButtonProps & InternalTokensProp> {
       iconProps = { className: undefined },
       ...passProps
     } = this.props;
-    const { tokens, disabled, variant } = passProps;
+    const { variant } = passProps;
     const { className: iconPropsClassName, ...passIconProps } = iconProps;
 
     if (variant === 'unstyled') {
       return <UnstyledButton {...passProps} />;
     }
 
-    const secondaryOrTertiary =
-      !!variant &&
-      (variant === 'secondary' ||
-        variant === 'secondary-noborder' ||
-        variant === 'tertiary');
     return (
       <StyledButton {...passProps}>
         {!!icon && (
           <Icon
             mousePointer={true}
             icon={icon}
-            color={iconColor({
-              tokens,
-              disabled,
-              invert: secondaryOrTertiary,
-            })}
+            color="currentColor"
             className={classnames(iconClassName, iconPropsClassName)}
             {...passIconProps}
           />
@@ -125,11 +99,7 @@ class ButtonWithIcon extends Component<ButtonProps & InternalTokensProp> {
           <Icon
             mousePointer={true}
             icon={iconRight}
-            color={iconColor({
-              tokens,
-              disabled,
-              invert: secondaryOrTertiary,
-            })}
+            color="currentColor"
             className={classnames(
               iconClassName,
               iconRightClassName,
