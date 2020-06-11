@@ -2,6 +2,7 @@ import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme, SuomifiThemeProp } from '../theme';
 import { ButtonProps } from './Button';
 import { element, focus, button } from '../theme/reset';
+import { alphaHex } from '../../utils/css';
 
 const invertedStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-button--inverted {
@@ -22,7 +23,7 @@ const invertedStyles = ({ theme }: SuomifiThemeProp) => css`
     &.fi-button--disabled,
     &[disabled],
     &:disabled {
-      opacity: 0.5;
+      opacity: 0.41;
       background: none;
       background-color: none;
     }
@@ -108,7 +109,7 @@ export const baseStyles = withSuomifiTheme(
   &.fi-button--disabled,
   &[disabled],
   &:disabled {
-    text-shadow: 0 1px 1px ${theme.colors.blackBase};
+    text-shadow: 0 1px 1px ${alphaHex(0.5)(theme.colors.blackBase)};
     background: ${theme.gradients.depthLight1ToDepthBase};
     user-select: none;
   }
@@ -138,6 +139,9 @@ export const baseStyles = withSuomifiTheme(
       margin-right: 0;
       margin-left: ${theme.spacing.insetM};
     }
+  }
+  &.fi-button--disabled > .fi-button_icon {
+    cursor: not-allowed;
   }
 `,
 );

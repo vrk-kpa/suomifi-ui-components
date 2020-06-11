@@ -83,7 +83,7 @@ export const colorTokens = {
 export type IShadows = typeof shadows;
 
 export const shadows = {
-  invertTextShadow: `0 1px 1px ${colors.brandBase}`,
+  invertTextShadow: `0 1px 1px ${alphaHex(0.5)(colors.brandBase)}`,
   menuShadow: `0 2px 3px 0 ${alphaHex(0.2)(colors.blackBase)}`,
   panelShadow: `0 1px 2px 0 ${alphaHex(0.14)(
     colors.blackBase,
