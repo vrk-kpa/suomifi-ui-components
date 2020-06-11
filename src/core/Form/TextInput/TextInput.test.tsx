@@ -29,19 +29,19 @@ const TestTextInput3 = (
   />
 );
 
-test('calling render with the same component on the same container does not remount', () => {
+test('calling render with the same component on the same container does not remount - minimal implementation', () => {
   const buttonRendered = render(TestTextInput);
   const { container } = buttonRendered;
   expect(container.firstChild).toMatchSnapshot();
 });
 
-test('calling render with the same component on the same container does not remount', () => {
+test('calling render with the same component on the same container does not remount - hidden label with placeholder', () => {
   const buttonRendered = render(TestTextInput2);
   const { container } = buttonRendered;
   expect(container.firstChild).toMatchSnapshot();
 });
 
-test('calling render with the same component on the same container does not remount', () => {
+test('calling render with the same component on the same container does not remount - error status with statustext', () => {
   const buttonRendered = render(TestTextInput3);
   const { container } = buttonRendered;
   expect(container.firstChild).toMatchSnapshot();

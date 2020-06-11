@@ -1,547 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`calling render with the same component on the same container does not remount 1`] = `
-.c4 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c5 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  overflow: visible;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline-block;
-  max-width: 100%;
-}
-
-.c5::-webkit-input-placeholder {
-  color: inherit;
-  opacity: 0.54;
-}
-
-.c0 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  max-width: 100%;
-}
-
-.c3 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c1.fi-text-input--disabled {
-  cursor: not-allowed;
-}
-
-.c2 .fi-text-input_label-p {
-  margin-bottom: 10px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-}
-
-.c2 .fi-text-input_container > input:focus {
-  outline-color: hsl(23,82%,53%);
-  outline-width: 4px;
-  outline-offset: 2px;
-}
-
-.c2 .fi-text-input_container:focus-within {
-  outline: 0;
-  position: relative;
-}
-
-.c2 .fi-text-input_container:focus-within:after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
-  z-index: 9999;
-}
-
-.c2 .fi-text-input_container:focus-within:not(:focus-visible):after {
-  content: none;
-}
-
-.c2 .fi-text-input_container:focus-within > input:focus {
-  outline: none;
-}
-
-.c2 .fi-text-input_statusText_container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c2 .fi-text-input_statusText_container .fi-text-input_statusText_span {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.c2 .fi-text-input_input {
-  color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-  min-width: 245px;
-  max-width: 100%;
-  padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
-  border-radius: 2px;
-  line-height: 1;
-  background-color: hsl(0,0%,100%);
-  width: 100%;
-  min-height: 40px;
-  padding-left: 10px;
-}
-
-.c2 .fi-text-input_input::-webkit-input-placeholder {
-  font-style: italic;
-}
-
-.c2 .fi-text-input_input::-moz-placeholder {
-  font-style: italic;
-}
-
-.c2 .fi-text-input_input:-ms-input-placeholder {
-  font-style: italic;
-}
-
-.c2 .fi-text-input_input::placeholder {
-  font-style: italic;
-}
-
-.c2 .fi-text-input_input:focus {
-  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
-}
-
-.c2.fi-text-input--error .fi-text-input_input {
-  border-color: hsl(3,59%,48%);
-}
-
-.c2.fi-text-input--error .fi-text-input_statusText_span {
-  margin-top: 5px;
-  color: hsl(3,59%,48%);
-}
-
-.c2.fi-text-input--success .fi-text-input_input {
-  border-color: hsl(166,90%,36%);
-}
-
-.c2.fi-text-input--disabled .fi-text-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
-}
-
-<label
-  class="c0 fi-text-input_label c1 c2"
->
-  <p
-    class="c3 fi-paragraph fi-text-input_label-p"
-  >
-    Test input
-  </p>
-  <div
-    class="c4 fi-text-input_statusText_container"
-  >
-    <div
-      class="c4 fi-text-input_container"
-    >
-      <input
-        aria-describedby="test-id-statusText"
-        class="c5 fi-text-input_input"
-        data-testid="textinput"
-        id="test-id"
-        type="text"
-      />
-    </div>
-  </div>
-</label>
-`;
-
-exports[`calling render with the same component on the same container does not remount 2`] = `
-.c5 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c6 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  overflow: visible;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline-block;
-  max-width: 100%;
-}
-
-.c6::-webkit-input-placeholder {
-  color: inherit;
-  opacity: 0.54;
-}
-
-.c0 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  max-width: 100%;
-}
-
-.c3 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c4 {
-  position: absolute;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-}
-
-.c1.fi-text-input--disabled {
-  cursor: not-allowed;
-}
-
-.c2 .fi-text-input_label-p {
-  margin-bottom: 10px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-}
-
-.c2 .fi-text-input_container > input:focus {
-  outline-color: hsl(23,82%,53%);
-  outline-width: 4px;
-  outline-offset: 2px;
-}
-
-.c2 .fi-text-input_container:focus-within {
-  outline: 0;
-  position: relative;
-}
-
-.c2 .fi-text-input_container:focus-within:after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
-  z-index: 9999;
-}
-
-.c2 .fi-text-input_container:focus-within:not(:focus-visible):after {
-  content: none;
-}
-
-.c2 .fi-text-input_container:focus-within > input:focus {
-  outline: none;
-}
-
-.c2 .fi-text-input_statusText_container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c2 .fi-text-input_statusText_container .fi-text-input_statusText_span {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.c2 .fi-text-input_input {
-  color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-  min-width: 245px;
-  max-width: 100%;
-  padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
-  border-radius: 2px;
-  line-height: 1;
-  background-color: hsl(0,0%,100%);
-  width: 100%;
-  min-height: 40px;
-  padding-left: 10px;
-}
-
-.c2 .fi-text-input_input::-webkit-input-placeholder {
-  font-style: italic;
-}
-
-.c2 .fi-text-input_input::-moz-placeholder {
-  font-style: italic;
-}
-
-.c2 .fi-text-input_input:-ms-input-placeholder {
-  font-style: italic;
-}
-
-.c2 .fi-text-input_input::placeholder {
-  font-style: italic;
-}
-
-.c2 .fi-text-input_input:focus {
-  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
-}
-
-.c2.fi-text-input--error .fi-text-input_input {
-  border-color: hsl(3,59%,48%);
-}
-
-.c2.fi-text-input--error .fi-text-input_statusText_span {
-  margin-top: 5px;
-  color: hsl(3,59%,48%);
-}
-
-.c2.fi-text-input--success .fi-text-input_input {
-  border-color: hsl(166,90%,36%);
-}
-
-.c2.fi-text-input--disabled .fi-text-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
-}
-
-<label
-  class="c0 fi-text-input_label c1 c2"
->
-  <span
-    class="c3 c4 fi-visually-hidden"
-  >
-    Test input
-  </span>
-  <div
-    class="c5 fi-text-input_statusText_container"
-  >
-    <div
-      class="c5 fi-text-input_container"
-    >
-      <input
-        aria-describedby="test-id1-statusText"
-        class="c6 fi-text-input_input"
-        data-testid="textinput1"
-        id="test-id1"
-        placeholder="Test TextInput"
-        type="text"
-      />
-    </div>
-  </div>
-</label>
-`;
-
-exports[`calling render with the same component on the same container does not remount 3`] = `
+exports[`calling render with the same component on the same container does not remount - error status with statustext 1`] = `
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -832,6 +291,547 @@ exports[`calling render with the same component on the same container does not r
     >
       This is a status text
     </span>
+  </div>
+</label>
+`;
+
+exports[`calling render with the same component on the same container does not remount - hidden label with placeholder 1`] = `
+.c5 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c6 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.c6::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c4 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.c1.fi-text-input--disabled {
+  cursor: not-allowed;
+}
+
+.c2 .fi-text-input_label-p {
+  margin-bottom: 10px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
+}
+
+.c2 .fi-text-input_container > input:focus {
+  outline-color: hsl(23,82%,53%);
+  outline-width: 4px;
+  outline-offset: 2px;
+}
+
+.c2 .fi-text-input_container:focus-within {
+  outline: 0;
+  position: relative;
+}
+
+.c2 .fi-text-input_container:focus-within:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  z-index: 9999;
+}
+
+.c2 .fi-text-input_container:focus-within:not(:focus-visible):after {
+  content: none;
+}
+
+.c2 .fi-text-input_container:focus-within > input:focus {
+  outline: none;
+}
+
+.c2 .fi-text-input_statusText_container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 .fi-text-input_statusText_container .fi-text-input_statusText_span {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c2 .fi-text-input_input {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+  line-height: 1;
+  background-color: hsl(0,0%,100%);
+  width: 100%;
+  min-height: 40px;
+  padding-left: 10px;
+}
+
+.c2 .fi-text-input_input::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+.c2 .fi-text-input_input::-moz-placeholder {
+  font-style: italic;
+}
+
+.c2 .fi-text-input_input:-ms-input-placeholder {
+  font-style: italic;
+}
+
+.c2 .fi-text-input_input::placeholder {
+  font-style: italic;
+}
+
+.c2 .fi-text-input_input:focus {
+  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+}
+
+.c2.fi-text-input--error .fi-text-input_input {
+  border-color: hsl(3,59%,48%);
+}
+
+.c2.fi-text-input--error .fi-text-input_statusText_span {
+  margin-top: 5px;
+  color: hsl(3,59%,48%);
+}
+
+.c2.fi-text-input--success .fi-text-input_input {
+  border-color: hsl(166,90%,36%);
+}
+
+.c2.fi-text-input--disabled .fi-text-input_input {
+  color: hsl(202,7%,67%);
+  background-color: hsl(202,7%,97%);
+}
+
+<label
+  class="c0 fi-text-input_label c1 c2"
+>
+  <span
+    class="c3 c4 fi-visually-hidden"
+  >
+    Test input
+  </span>
+  <div
+    class="c5 fi-text-input_statusText_container"
+  >
+    <div
+      class="c5 fi-text-input_container"
+    >
+      <input
+        aria-describedby="test-id1-statusText"
+        class="c6 fi-text-input_input"
+        data-testid="textinput1"
+        id="test-id1"
+        placeholder="Test TextInput"
+        type="text"
+      />
+    </div>
+  </div>
+</label>
+`;
+
+exports[`calling render with the same component on the same container does not remount - minimal implementation 1`] = `
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c5 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.c5::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c1.fi-text-input--disabled {
+  cursor: not-allowed;
+}
+
+.c2 .fi-text-input_label-p {
+  margin-bottom: 10px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
+}
+
+.c2 .fi-text-input_container > input:focus {
+  outline-color: hsl(23,82%,53%);
+  outline-width: 4px;
+  outline-offset: 2px;
+}
+
+.c2 .fi-text-input_container:focus-within {
+  outline: 0;
+  position: relative;
+}
+
+.c2 .fi-text-input_container:focus-within:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  z-index: 9999;
+}
+
+.c2 .fi-text-input_container:focus-within:not(:focus-visible):after {
+  content: none;
+}
+
+.c2 .fi-text-input_container:focus-within > input:focus {
+  outline: none;
+}
+
+.c2 .fi-text-input_statusText_container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c2 .fi-text-input_statusText_container .fi-text-input_statusText_span {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c2 .fi-text-input_input {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+  line-height: 1;
+  background-color: hsl(0,0%,100%);
+  width: 100%;
+  min-height: 40px;
+  padding-left: 10px;
+}
+
+.c2 .fi-text-input_input::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+.c2 .fi-text-input_input::-moz-placeholder {
+  font-style: italic;
+}
+
+.c2 .fi-text-input_input:-ms-input-placeholder {
+  font-style: italic;
+}
+
+.c2 .fi-text-input_input::placeholder {
+  font-style: italic;
+}
+
+.c2 .fi-text-input_input:focus {
+  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+}
+
+.c2.fi-text-input--error .fi-text-input_input {
+  border-color: hsl(3,59%,48%);
+}
+
+.c2.fi-text-input--error .fi-text-input_statusText_span {
+  margin-top: 5px;
+  color: hsl(3,59%,48%);
+}
+
+.c2.fi-text-input--success .fi-text-input_input {
+  border-color: hsl(166,90%,36%);
+}
+
+.c2.fi-text-input--disabled .fi-text-input_input {
+  color: hsl(202,7%,67%);
+  background-color: hsl(202,7%,97%);
+}
+
+<label
+  class="c0 fi-text-input_label c1 c2"
+>
+  <p
+    class="c3 fi-paragraph fi-text-input_label-p"
+  >
+    Test input
+  </p>
+  <div
+    class="c4 fi-text-input_statusText_container"
+  >
+    <div
+      class="c4 fi-text-input_container"
+    >
+      <input
+        aria-describedby="test-id-statusText"
+        class="c5 fi-text-input_input"
+        data-testid="textinput"
+        id="test-id"
+        type="text"
+      />
+    </div>
   </div>
 </label>
 `;
