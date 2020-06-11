@@ -5,13 +5,14 @@ import { SearchInput } from 'suomifi-ui-components';
     onBlur={(event) => console.log(event.target.value)}
     labelText="Search..."
     labelMode="hidden"
+    visualPlaceholder="Search..."
   />
 
   <SearchInput
     onBlur={(event) => console.log(event.target.value)}
-    labelText="Search..."
+    labelText="Search the site"
     labelMode="visible"
-    placeholder="Any value (see console)"
+    visualPlaceholder="Search..."
   />
 </>;
 ```
