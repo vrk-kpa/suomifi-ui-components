@@ -116,8 +116,8 @@ exports[`calling render with the same component on the same container does not r
       FI
       <svg
         aria-hidden="true"
-        class="c2 fi-language-menu-language_icon"
-        fill="hsl(202, 7%, 40%)"
+        class="fi-icon c2 fi-language-menu-language_icon"
+        fill="currentColor"
         focusable="false"
         height="1em"
         viewBox="0 0 24 24"

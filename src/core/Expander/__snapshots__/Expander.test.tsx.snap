@@ -271,7 +271,7 @@ exports[`calling render with the same component on the same container does not r
     Test expander
     <svg
       aria-hidden="true"
-      class="c6 fi-expander_title-icon"
+      class="fi-icon c6 fi-expander_title-icon"
       fill="hsl(212, 63%, 45%)"
       focusable="false"
       height="1em"
