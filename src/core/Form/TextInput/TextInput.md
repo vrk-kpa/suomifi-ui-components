@@ -1,10 +1,17 @@
 ```js
 import { TextInput } from 'suomifi-ui-components';
-
-<TextInput
-  onBlur={(event) => console.log(event.target.value)}
-  labelText="Test TextInput"
-/>;
+<>
+  <TextInput
+    onBlur={(event) => console.log(event.target.value)}
+    labelText="TextInput with visible label"
+  />
+  <TextInput
+    onBlur={(event) => console.log(event.target.value)}
+    labelText="Test TextInput with hidden label and a visual placeholder"
+    labelMode="hidden"
+    visualPlaceholder="This input has a hidden label"
+  />
+</>;
 ```
 
 ```js
