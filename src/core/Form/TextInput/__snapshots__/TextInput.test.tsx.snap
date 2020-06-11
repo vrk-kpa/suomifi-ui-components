@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`calling render with the same component on the same container does not remount - error status with statustext 1`] = `
+exports[`snapshots match error status with statustext 1`] = `
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -295,7 +295,7 @@ exports[`calling render with the same component on the same container does not r
 </label>
 `;
 
-exports[`calling render with the same component on the same container does not remount - hidden label with placeholder 1`] = `
+exports[`snapshots match hidden label with placeholder 1`] = `
 .c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -572,7 +572,7 @@ exports[`calling render with the same component on the same container does not r
 </label>
 `;
 
-exports[`calling render with the same component on the same container does not remount - minimal implementation 1`] = `
+exports[`snapshots match minimal implementation 1`] = `
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
