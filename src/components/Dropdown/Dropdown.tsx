@@ -13,6 +13,7 @@ import {
   MenuPopover,
 } from '@reach/menu-button';
 import { positionMatchWidth } from '@reach/popover';
+import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import { logger } from '../../utils/logger';
 import { idGenerator } from '../../utils/uuid';
 export { MenuItem as DropdownItem };
@@ -50,6 +51,8 @@ type OptionalMenuPopoverProps = {
 };
 type OptionalMenuItemProps = { [K in keyof MenuItemProps]?: MenuItemProps[K] };
 
+type DropdownLabel = 'hidden' | 'top';
+
 export interface DropdownProps {
   /** id */
   id?: string;
@@ -59,6 +62,11 @@ export interface DropdownProps {
   labelProps?: DropdownLabelProps;
   /** Custom props for Label text element */
   labelTextProps?: ParagraphProps;
+  /** Label displaymode -
+   * top: show above, hidden: use only for screenreader
+   * @default visible
+   */
+  labelMode?: DropdownLabel;
   /**
    * Additional label id. E.g. form group label.
    * Used in addition to labelText for screen readers.
@@ -122,6 +130,7 @@ export class Dropdown extends Component<DropdownProps> {
       labelProps,
       labelText,
       labelTextProps,
+      labelMode = 'top',
       'aria-labelledby': ariaLabelledBy,
       visualPlaceholder: name,
       className,
@@ -139,6 +148,7 @@ export class Dropdown extends Component<DropdownProps> {
     }
 
     const id = idGenerator(propId);
+    const labelId = `${id}-label`;
 
     const { selectedName } = this.state;
     const passDropdownButtonProps = {
@@ -147,7 +157,9 @@ export class Dropdown extends Component<DropdownProps> {
         dropdownClassNames.button,
         dropdownButtonProps.className,
       ),
-      'aria-labelledby': `${!!ariaLabelledBy ? `${ariaLabelledBy} ` : ''}${id}`,
+      'aria-labelledby': `${
+        !!ariaLabelledBy ? `${ariaLabelledBy} ` : ''
+      }${labelId}`,
     };
     const passDropdownPopoverProps = {
       ...dropdownPopoverProps,
@@ -165,11 +177,23 @@ export class Dropdown extends Component<DropdownProps> {
     };
 
     return (
-      <HtmlSpan className={classnames(className, baseClassName)}>
-        <HtmlLabel id={id} {...labelProps} className={dropdownClassNames.label}>
-          <Paragraph {...labelTextProps}>{labelText}</Paragraph>
+      <HtmlSpan
+        className={classnames(className, baseClassName)}
+        id={id}
+        {...passProps}
+      >
+        <HtmlLabel
+          id={labelId}
+          {...labelProps}
+          className={dropdownClassNames.label}
+        >
+          {labelMode === 'hidden' ? (
+            <VisuallyHidden>{labelText}</VisuallyHidden>
+          ) : (
+            <Paragraph {...labelTextProps}>{labelText}</Paragraph>
+          )}
         </HtmlLabel>
-        <Menu {...passProps}>
+        <Menu>
           <MenuButton {...passDropdownButtonProps}>
             {!!selectedName ? selectedName : name}
           </MenuButton>
