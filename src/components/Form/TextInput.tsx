@@ -11,7 +11,6 @@ import {
 } from '../../reset';
 import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import { Paragraph, ParagraphProps } from '../Paragraph/Paragraph';
-import { logger } from '../../utils/logger';
 import classnames from 'classnames';
 import styled from 'styled-components';
 import { disabledCursor } from '../utils/css';
@@ -48,13 +47,12 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Label */
   labelText: string;
-  /** Label displaymode -
-   * visible: show above, hidden: show as placeholder
+  /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
    */
   labelMode?: Label;
-
-  placeholder?: string;
+  /** Placeholder text for input. Use only as visual aid, not for instructions. */
+  visualPlaceholder?: string;
   /** Input container div to define custom styling */
   inputContainerProps?: HtmlDivProps;
   children?: ReactNode;
@@ -74,6 +72,7 @@ class BaseTextInput extends Component<TextInputProps> {
       inputContainerProps,
       children,
       statusText,
+      visualPlaceholder,
       id: propId,
       ...passProps
     } = this.props;
@@ -101,6 +100,7 @@ class BaseTextInput extends Component<TextInputProps> {
               className={classnames(inputBaseClassName, inputClassName)}
               type="text"
               aria-describedby={generatedId}
+              placeholder={visualPlaceholder}
             />
             {children}
           </HtmlDiv>
@@ -125,19 +125,6 @@ export const StyledBaseTextInput = styled((props: TextInputProps) => (
 
 export class TextInput extends Component<TextInputProps> {
   render() {
-    const { placeholder, ...passProps } = this.props;
-
-    if (!!placeholder) {
-      logger.error(
-        'Using placeholder in text inputs is not accessible and it is ignored. Use labelText instead',
-      );
-    }
-
-    const showPlaceholder = this.props.labelMode === 'hidden';
-    const props = {
-      placeholder: showPlaceholder ? this.props.labelText : undefined,
-    };
-
-    return <StyledBaseTextInput {...passProps} {...props} />;
+    return <StyledBaseTextInput {...this.props} />;
   }
 }
