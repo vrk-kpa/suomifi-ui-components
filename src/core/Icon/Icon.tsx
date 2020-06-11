@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
+import classnames from 'classnames';
 import { iconBaseStyles } from './Icon.baseStyles';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp } from '../theme';
@@ -10,6 +11,8 @@ import {
 import { SuomifiIcon, SuomifiIconInterface } from 'suomifi-icons';
 import { logger } from '../../utils/logger';
 export { BaseIconKeys } from 'suomifi-icons';
+
+const baseClassName = 'fi-icon';
 
 export interface IconBaseProps extends TokensProp {
   /** Aria-label for SVG, undefined hides SVG from screen reader
@@ -42,9 +45,10 @@ export const iconLogger = (
  * Apply Suomifi styles to Icon
  */
 const StyledSuomifiIcon = styled(
-  ({ ariaLabel, mousePointer, ...passProps }: IconProps) => {
+  ({ ariaLabel, mousePointer, className, ...passProps }: IconProps) => {
     return (
       <SuomifiIcon
+        className={classnames(baseClassName, className)}
         {...passProps}
         {...ariaLabelOrHidden(ariaLabel)}
         {...ariaFocusableNoLabel(ariaLabel)}
