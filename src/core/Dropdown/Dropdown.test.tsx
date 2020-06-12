@@ -26,26 +26,33 @@ describe('Basic dropdown', () => {
   const BasicDropdown = TestDropdown(dropdownProps, 'dropdown-test-id');
 
   it('should have provided ids', () => {
-    const { getAllByTestId } = render(BasicDropdown);
-    const dropdowns = getAllByTestId('dropdown-test-id');
-    dropdowns.forEach((dropdown) => {
-      expect(dropdown).toHaveAttribute('id', 'test-id');
-      const labels = dropdown.getElementsByTagName('label');
-      expect(labels[0]).toHaveAttribute('id', 'test-id-label');
+    let dropdown: any;
+    let label: any;
+    act(() => {
+      const { getAllByTestId } = render(BasicDropdown);
+      dropdown = getAllByTestId('dropdown-test-id')[0];
+      label = dropdown.getElementsByTagName('label')[0];
     });
+    expect(dropdown).toHaveAttribute('id', 'test-id');
+    expect(label).toHaveAttribute('id', 'test-id-label');
   });
 
   it('should have visual placeholder', () => {
-    const { getAllByTestId } = render(BasicDropdown);
-    const dropdowns = getAllByTestId('dropdown-test-id');
-    dropdowns.forEach((dropdown) => {
-      const buttons = dropdown.getElementsByTagName('button');
-      expect(buttons[0]).toHaveTextContent('Dropdown');
+    let button: any;
+    act(() => {
+      const { getAllByTestId } = render(BasicDropdown);
+      const dropdown = getAllByTestId('dropdown-test-id')[0];
+      button = dropdown.getElementsByTagName('button')[0];
     });
+    expect(button).toHaveTextContent('Dropdown');
   });
 
   it('should match snapshot', () => {
-    const { container } = render(BasicDropdown);
+    let container: any;
+    act(() => {
+      const { container: cont } = render(BasicDropdown);
+      container = cont;
+    });
     expect(container).toMatchSnapshot();
   });
 });
@@ -70,7 +77,11 @@ describe('Dropdown with hidden label', () => {
   });
 
   it('should match snapshot', () => {
-    const { container } = render(DropdownWithHiddenLabel);
+    let container: any;
+    act(() => {
+      const { container: cont } = render(DropdownWithHiddenLabel);
+      container = cont;
+    });
     expect(container).toMatchSnapshot();
   });
 });
@@ -94,7 +105,11 @@ describe('Dropdown with additional aria-label', () => {
   });
 
   it('should match snapshot', () => {
-    const { container } = render(DropdownWithExtraLabel);
+    let container: any;
+    act(() => {
+      const { container: cont } = render(DropdownWithExtraLabel);
+      container = cont;
+    });
     expect(container).toMatchSnapshot();
   });
 });
