@@ -1,29 +1,186 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Basic dropdown should match snapshot 1`] = `
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c1 .fi-dropdown_label-p {
+  margin-bottom: 10px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+  line-height: 1;
+  position: relative;
+  padding: 7px 38px 7px 7px;
+  text-align: left;
+  line-height: 1.5;
+  background-color: hsl(0,0%,100%);
+  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+  cursor: pointer;
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  z-index: 9999;
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  margin-top: -3px;
+  border-style: solid;
+  border-color: hsl(202,7%,40%) transparent transparent transparent;
+  border-width: 6px 4px 0 4px;
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button[aria-expanded='true']:before {
+  border-color: transparent transparent hsl(202,7%,40%) transparent;
+  border-width: 0 4px 6px 4px;
+}
+
 <div>
   <span
-    class="sc-AxjAm iLdZYh sc-fzplWN caKHsX dropdown-test fi-dropdown"
+    class="c0 c1 dropdown-test fi-dropdown"
     data-testid="dropdown-test-id"
     id="test-id"
   >
     <label
-      class="sc-AxheI bkuqrK fi-dropdown_label"
+      class="c2 fi-dropdown_label"
       id="test-id-label"
     >
       <p
-        class="sc-fzoLsD fGoDSi fi-paragraph fi-dropdown_label-p"
+        class="c3 fi-paragraph fi-dropdown_label-p"
       >
         Dropdown test
       </p>
     </label>
     <button
-      aria-controls="menu--1"
+      aria-controls="menu--7"
       aria-haspopup="true"
       aria-labelledby="test-id-label"
       class="fi-dropdown_button"
       data-reach-menu-button=""
-      id="menu-button--menu--1"
+      id="test-id_button"
       type="button"
     >
       Dropdown
@@ -32,6 +189,368 @@ exports[`Basic dropdown should match snapshot 1`] = `
 </div>
 `;
 
-exports[`Dropdown with hidden label should have visually hidden label 1`] = `<div />`;
+exports[`Dropdown with additional aria-label should match snapshot 1`] = `
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
 
-exports[`additional label using aria-labelledby prop should attach provided label-id 1`] = `<div />`;
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c1 .fi-dropdown_label-p {
+  margin-bottom: 10px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+  line-height: 1;
+  position: relative;
+  padding: 7px 38px 7px 7px;
+  text-align: left;
+  line-height: 1.5;
+  background-color: hsl(0,0%,100%);
+  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+  cursor: pointer;
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  z-index: 9999;
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  margin-top: -3px;
+  border-style: solid;
+  border-color: hsl(202,7%,40%) transparent transparent transparent;
+  border-width: 6px 4px 0 4px;
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button[aria-expanded='true']:before {
+  border-color: transparent transparent hsl(202,7%,40%) transparent;
+  border-width: 0 4px 6px 4px;
+}
+
+<div>
+  <span
+    class="c0 c1 dropdown-test fi-dropdown"
+    data-testid=""
+    id="test-id"
+  >
+    <label
+      class="c2 fi-dropdown_label"
+      id="test-id-label"
+    >
+      <p
+        class="c3 fi-paragraph fi-dropdown_label-p"
+      >
+        Dropdown test
+      </p>
+    </label>
+    <button
+      aria-controls="menu--19"
+      aria-haspopup="true"
+      aria-labelledby="additional-label-id test-id-label"
+      class="fi-dropdown_button"
+      data-reach-menu-button=""
+      id="test-id_button"
+      type="button"
+    >
+      Dropdown
+    </button>
+  </span>
+</div>
+`;
+
+exports[`Dropdown with hidden label should match snapshot 1`] = `
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
+}
+
+.c3 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.c1 .fi-dropdown_label-p {
+  margin-bottom: 10px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+  line-height: 1;
+  position: relative;
+  padding: 7px 38px 7px 7px;
+  text-align: left;
+  line-height: 1.5;
+  background-color: hsl(0,0%,100%);
+  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+  cursor: pointer;
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  z-index: 9999;
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  margin-top: -3px;
+  border-style: solid;
+  border-color: hsl(202,7%,40%) transparent transparent transparent;
+  border-width: 6px 4px 0 4px;
+}
+
+.c1 > [data-reach-menu-button].fi-dropdown_button[aria-expanded='true']:before {
+  border-color: transparent transparent hsl(202,7%,40%) transparent;
+  border-width: 0 4px 6px 4px;
+}
+
+<div>
+  <span
+    class="c0 c1 dropdown-test fi-dropdown"
+    data-testid="dropdown-hidden-label-test-id"
+    id="test-id"
+  >
+    <label
+      class="c2 fi-dropdown_label"
+      id="test-id-label"
+    >
+      <span
+        class="c0 c3 fi-visually-hidden"
+      >
+        Dropdown test
+      </span>
+    </label>
+    <button
+      aria-controls="menu--13"
+      aria-haspopup="true"
+      aria-labelledby="test-id-label"
+      class="fi-dropdown_button"
+      data-reach-menu-button=""
+      id="test-id_button"
+      type="button"
+    >
+      Dropdown
+    </button>
+  </span>
+</div>
+`;

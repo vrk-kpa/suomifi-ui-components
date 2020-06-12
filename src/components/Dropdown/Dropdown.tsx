@@ -141,7 +141,6 @@ export class Dropdown extends Component<DropdownProps> {
       changeVisualPlaceholderToSelection: changeNameToSelection = true,
       ...passProps
     } = this.props;
-
     if (React.Children.count(children) < 1) {
       logger.warn(`Dropdown '${name}' does not contain items`);
       return null;
@@ -149,10 +148,14 @@ export class Dropdown extends Component<DropdownProps> {
 
     const id = idGenerator(propId);
     const labelId = `${id}-label`;
+    const buttonId = !!dropdownButtonProps.id
+      ? dropdownButtonProps.id
+      : `${id}_button`;
 
     const { selectedName } = this.state;
     const passDropdownButtonProps = {
       ...dropdownButtonProps,
+      id: buttonId,
       className: classnames(
         dropdownClassNames.button,
         dropdownButtonProps.className,
@@ -161,6 +164,7 @@ export class Dropdown extends Component<DropdownProps> {
         !!ariaLabelledBy ? `${ariaLabelledBy} ` : ''
       }${labelId}`,
     };
+
     const passDropdownPopoverProps = {
       ...dropdownPopoverProps,
       className: classnames(
