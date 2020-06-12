@@ -44,11 +44,7 @@ export const BreadcrumbLink = ({
       >
         {children}
       </Link>
-      <Icon
-        icon="linkBreadcrumb"
-        className={iconClassName}
-        color={passProps.tokens.colors.blackBase}
-      />
+      <Icon icon="linkBreadcrumb" className={iconClassName} />
     </Fragment>
   );
 };

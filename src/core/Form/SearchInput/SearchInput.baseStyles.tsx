@@ -20,6 +20,7 @@ export const baseStyles = withSuomifiTheme(
         height: 18px;
         top: ${theme.spacing.insetL};
         right: ${theme.spacing.insetL};
+        fill: ${theme.colors.depthDark1};
       }
     }
   `,
