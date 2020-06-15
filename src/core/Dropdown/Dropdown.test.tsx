@@ -93,7 +93,7 @@ describe('Dropdown with additional aria-label', () => {
   };
   const DropdownWithExtraLabel = TestDropdown(additionalLabelProps);
 
-  it('should have aria-labelledby composed from labe-id and provided aria-labelledby prop', () => {
+  it('should have aria-labelledby composed from label-id and provided aria-labelledby prop', () => {
     let button: any;
     act(() => {
       const { getAllByRole } = render(DropdownWithExtraLabel);

@@ -54,9 +54,13 @@ type OptionalMenuItemProps = { [K in keyof MenuItemProps]?: MenuItemProps[K] };
 type DropdownLabel = 'hidden' | 'top';
 
 export interface DropdownProps {
-  /** id */
+  /**
+   * Unique id
+   * If no id is specified, one will be generated using uuid
+   * @default uuidV4
+   */
   id?: string;
-  /** Label */
+  /** Label for the Dropdown component. */
   labelText: string;
   /** Custom props for label container */
   labelProps?: DropdownLabelProps;
@@ -64,7 +68,7 @@ export interface DropdownProps {
   labelTextProps?: ParagraphProps;
   /** Label displaymode -
    * top: show above, hidden: use only for screenreader
-   * @default visible
+   * @default top
    */
   labelMode?: DropdownLabel;
   /**
@@ -72,7 +76,7 @@ export interface DropdownProps {
    * Used in addition to labelText for screen readers.
    */
   'aria-labelledby'?: string;
-  /** visual hint to show if nothing is selected */
+  /** Visual hint to show if nothing is selected */
   visualPlaceholder?: ReactNode;
   /** Change visualPlaceholder by selection
    * @default true
@@ -148,11 +152,14 @@ export class Dropdown extends Component<DropdownProps> {
 
     const id = idGenerator(propId);
     const labelId = `${id}-label`;
+    const ariaLabelledByIds = `${
+      !!ariaLabelledBy ? `${ariaLabelledBy} ` : ''
+    }${labelId}`;
     const buttonId = !!dropdownButtonProps.id
       ? dropdownButtonProps.id
       : `${id}_button`;
-
     const { selectedName } = this.state;
+
     const passDropdownButtonProps = {
       ...dropdownButtonProps,
       id: buttonId,
@@ -160,9 +167,7 @@ export class Dropdown extends Component<DropdownProps> {
         dropdownClassNames.button,
         dropdownButtonProps.className,
       ),
-      'aria-labelledby': `${
-        !!ariaLabelledBy ? `${ariaLabelledBy} ` : ''
-      }${labelId}`,
+      'aria-labelledby': ariaLabelledByIds,
     };
 
     const passDropdownPopoverProps = {
@@ -172,6 +177,7 @@ export class Dropdown extends Component<DropdownProps> {
         dropdownPopoverProps.className,
       ),
     };
+
     const passDropdownItemProps = {
       ...dropdownItemProps,
       className: classnames(
