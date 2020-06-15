@@ -10,7 +10,7 @@ export const baseStyles = withSuomifiTheme(
       color: ${theme.colors.blackBase};
     }
 
-    & > [data-reach-menu-button].fi-dropdown_button {
+    & [data-reach-listbox-button].fi-dropdown_button {
       ${inputButton({ theme })}
       position: relative;
       padding: 7px 38px 7px 7px;
@@ -39,9 +39,9 @@ export const baseStyles = withSuomifiTheme(
   `,
 );
 
-export const menuPopoverStyles = withSuomifiTheme(
+export const listboxPopoverStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
-  &[data-reach-menu-popover].fi-dropdown_popover {
+  &[data-reach-listbox-popover].fi-dropdown_popover {
     ${element({ theme })}
     ${theme.typography.actionElementInnerText}
     margin-top: -1px;
@@ -57,21 +57,25 @@ export const menuPopoverStyles = withSuomifiTheme(
     overflow: hidden;
   }
   
-  & [data-reach-menu-items] {
+  & [data-reach-listbox-list] {
     border: 0;
     padding: 0;
+    margin: 0;
     white-space: normal;
     word-break: break-word;
     overflow-wrap: break-word;
+    &:focus {
+      outline: 0;
+    }
   }
 
-  & [data-reach-menu-item].fi-dropdown_item {
+  & [data-reach-listbox-option].fi-dropdown_item {
     ${element({ theme })}
     ${theme.typography.actionElementInnerText}
     line-height: 1.5;
     padding: ${theme.spacing.insetM};
     border: 0;
-    &[data-selected] {
+    &[aria-selected='true'] {
       ${theme.typography.actionElementInnerText}
       color: ${theme.colors.blackBase};
       background-image: none;

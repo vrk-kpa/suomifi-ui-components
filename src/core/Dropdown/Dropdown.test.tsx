@@ -6,9 +6,8 @@ import { baseStyles } from './Dropdown.baseStyles';
 import { cssFromBaseStyles } from '../utils';
 import { axeTest } from '../../utils/test/axe';
 
-const doNothing = () => ({});
-
 const dropdownProps = {
+  value: 'item 1',
   labelText: 'Dropdown test',
   className: 'dropdown-test',
   visualPlaceholder: 'Dropdown',
@@ -17,8 +16,8 @@ const dropdownProps = {
 
 const TestDropdown = (props: DropdownProps, testId?: string) => (
   <Dropdown {...props} data-testid={!!testId ? testId : ''}>
-    <Dropdown.item onSelect={doNothing}>Item 1</Dropdown.item>
-    <Dropdown.item onSelect={doNothing}>Item 2</Dropdown.item>
+    <Dropdown.item value={'item 1'}>Item 1</Dropdown.item>
+    <Dropdown.item value={'item 2'}>Item 2</Dropdown.item>
   </Dropdown>
 );
 

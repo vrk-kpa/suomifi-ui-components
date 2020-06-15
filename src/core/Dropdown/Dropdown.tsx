@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import {
+  ListboxList,
+  ListboxPopover,
+  ListboxPopoverProps as ReachListBoxPopoverProps,
+} from '@reach/listbox';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp, InternalTokensProp } from '../theme';
-import { baseStyles, menuPopoverStyles } from './Dropdown.baseStyles';
-import {
-  MenuPopover as CompMenuPopover,
-  MenuPopoverProps as CompMenuPopoverProps,
-  MenuItems as CompMenuItems,
-} from '../../components/LanguageMenu/LanguageMenu';
+import { baseStyles, listboxPopoverStyles } from './Dropdown.baseStyles';
 import {
   Dropdown as CompDropdown,
   DropdownProps as CompDropdownProps,
@@ -21,6 +21,10 @@ const baseClassName = 'fi-dropdown';
 export const textInputClassNames = {
   baseClassName,
   labelParagraph: `${baseClassName}_label-p`,
+};
+
+type CompListboxPopoverProps = ReachListBoxPopoverProps & {
+  ref?: any;
 };
 
 export interface DropdownProps extends CompDropdownProps, TokensProp {}
@@ -40,23 +44,22 @@ const StyledDropdown = styled(
           textInputClassNames.labelParagraph,
         ),
       }}
-      dropdownItemProps={{ className: 'fi-dropdown_item' }}
     />
   ),
 )`
   ${(props) => baseStyles(props)}
 `;
 
-interface MenuPopoverProps extends CompMenuPopoverProps, TokensProp {}
+interface ListboxPopoverProps extends CompListboxPopoverProps, TokensProp {}
 
-const StyledMenuPopover = styled(
-  ({ tokens, children, ...passProps }: MenuPopoverProps) => (
-    <CompMenuPopover position={positionMatchWidth} {...passProps}>
-      <CompMenuItems>{children}</CompMenuItems>
-    </CompMenuPopover>
+const StyledListboxPopover = styled(
+  ({ tokens, children, ...passProps }: ListboxPopoverProps) => (
+    <ListboxPopover position={positionMatchWidth} {...passProps}>
+      <ListboxList>{children}</ListboxList>
+    </ListboxPopover>
   ),
 )`
-  ${(props) => menuPopoverStyles(props.theme)}
+  ${(props) => listboxPopoverStyles(props.theme)}
 `;
 
 /**
@@ -70,7 +73,10 @@ export class Dropdown extends Component<DropdownProps> {
     const props = withSuomifiDefaultProps(this.props);
     return (
       <Fragment>
-        <StyledDropdown {...props} menuPopoverComponent={StyledMenuPopover} />
+        <StyledDropdown
+          {...props}
+          listboxPopoverComponent={StyledListboxPopover}
+        />
       </Fragment>
     );
   }
