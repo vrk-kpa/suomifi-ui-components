@@ -70,8 +70,8 @@ const DisabledTestCheckbox = createTestCheckbox(
 );
 
 test('Calling render with the same component on the same container does not remount', () => {
-  const toggleInputRendered = render(RegularTestCheckbox);
-  const { getByTestId, container, rerender } = toggleInputRendered;
+  const checkboxRendered = render(RegularTestCheckbox);
+  const { getByTestId, container, rerender } = checkboxRendered;
   expect(container.firstChild).toMatchSnapshot();
   expect(getByTestId('regular_id').textContent).toBe('Regular');
 
