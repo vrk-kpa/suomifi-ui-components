@@ -7,7 +7,6 @@ import { cssFromBaseStyles } from '../utils';
 import { axeTest } from '../../utils/test/axe';
 
 const dropdownProps = {
-  value: 'item 1',
   labelText: 'Dropdown test',
   className: 'dropdown-test',
   visualPlaceholder: 'Dropdown',
@@ -39,9 +38,8 @@ describe('Basic dropdown', () => {
   it('should have visual placeholder', () => {
     let button: any;
     act(() => {
-      const { getAllByTestId } = render(BasicDropdown);
-      const dropdown = getAllByTestId('dropdown-test-id')[0];
-      button = dropdown.getElementsByTagName('button')[0];
+      const { getAllByRole } = render(BasicDropdown);
+      button = getAllByRole('button')[0];
     });
     expect(button).toHaveTextContent('Dropdown');
   });
