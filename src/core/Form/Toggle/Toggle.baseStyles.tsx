@@ -34,7 +34,7 @@ export const baseStyles = withSuomifiTheme(
       top: 0.1em;
     }
 
-    & + .fi-toggle--with-button {
+    &.fi-toggle--with-button {
       &:focus {
         outline: 0;
         & .fi-toggle_icon-container {
@@ -52,7 +52,7 @@ export const baseStyles = withSuomifiTheme(
       }
     }
 
-    & + .fi-toggle--with-input {
+    &.fi-toggle--with-input {
       &:focus-within {
         outline: 0;
         & .fi-toggle_icon-container {
