@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { default as styled } from 'styled-components';
+import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles, menuPopoverStyles } from './Dropdown.baseStyles';
@@ -15,12 +16,30 @@ import {
 import { DropdownItem, DropdownItemProps } from './DropdownItem';
 import { positionMatchWidth } from '@reach/popover';
 
+const baseClassName = 'fi-dropdown';
+
+export const textInputClassNames = {
+  baseClassName,
+  labelParagraph: `${baseClassName}_label-p`,
+};
+
 export interface DropdownProps extends CompDropdownProps, TokensProp {}
 
 const StyledDropdown = styled(
-  ({ tokens, ...passProps }: DropdownProps & InternalTokensProp) => (
+  ({
+    tokens,
+    labelTextProps = { className: undefined },
+    ...passProps
+  }: DropdownProps & InternalTokensProp) => (
     <CompDropdown
       {...passProps}
+      labelTextProps={{
+        ...labelTextProps,
+        className: classnames(
+          labelTextProps.className,
+          textInputClassNames.labelParagraph,
+        ),
+      }}
       dropdownItemProps={{ className: 'fi-dropdown_item' }}
     />
   ),

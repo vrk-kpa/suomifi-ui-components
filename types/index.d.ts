@@ -29,6 +29,7 @@ declare module '@reach/menu-button' {
     onClick?: (e: React.MouseEvent<HTMLElement>) => void;
     onKeyDown?: (e: React.KeyboardEvent<HTMLElement>) => void;
     children: React.ReactNode;
+    'aria-labelledby'?: string;
   };
 
   export const MenuButton: React.SFC<MenuButtonProps>;

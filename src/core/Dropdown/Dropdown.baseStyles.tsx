@@ -1,9 +1,15 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../theme';
-import { element, inputButton } from '../theme/reset';
+import { element, inputButton, font } from '../theme/reset';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
+    & .fi-dropdown_label-p {
+      margin-bottom: ${theme.spacing.insetL};
+      ${font({ theme })('actionElementInnerTextBold')};
+      color: ${theme.colors.blackBase};
+    }
+
     & > [data-reach-menu-button].fi-dropdown_button {
       ${inputButton({ theme })}
       position: relative;

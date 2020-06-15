@@ -1,6 +1,7 @@
 import React, { Component, ReactNode, ReactElement } from 'react';
 import classnames from 'classnames';
-import { HtmlSpan } from '../../reset/HtmlSpan/HtmlSpan';
+import { HtmlLabel, HtmlLabelProps, HtmlSpan } from '../../reset';
+import { Paragraph, ParagraphProps } from '../Paragraph/Paragraph';
 import {
   Menu,
   MenuButton,
@@ -12,14 +13,22 @@ import {
   MenuPopover,
 } from '@reach/menu-button';
 import { positionMatchWidth } from '@reach/popover';
+import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import { logger } from '../../utils/logger';
-
+import { idGenerator } from '../../utils/uuid';
 export { MenuItem as DropdownItem };
 
 const baseClassName = 'fi-dropdown';
-const buttonClassName = `${baseClassName}_button`;
-const dropdownPopoverClassName = `${baseClassName}_popover`;
-const dropdownItemClassName = `${baseClassName}_item`;
+
+export const dropdownClassNames = {
+  baseClassName,
+  label: `${baseClassName}_label`,
+  button: `${baseClassName}_button`,
+  popover: `${baseClassName}_popover`,
+  item: `${baseClassName}_item`,
+};
+
+export interface DropdownLabelProps extends HtmlLabelProps {}
 
 export interface DropdownItemProps {
   /** Operation to run on select */
@@ -42,13 +51,37 @@ type OptionalMenuPopoverProps = {
 };
 type OptionalMenuItemProps = { [K in keyof MenuItemProps]?: MenuItemProps[K] };
 
+type DropdownLabel = 'hidden' | 'top';
+
 export interface DropdownProps {
-  /** Name to show for the dropdown */
-  name: ReactNode;
-  /** Change name by selection
+  /**
+   * Unique id
+   * If no id is specified, one will be generated using uuid
+   * @default uuidV4
+   */
+  id?: string;
+  /** Label for the Dropdown component. */
+  labelText: string;
+  /** Custom props for label container */
+  labelProps?: DropdownLabelProps;
+  /** Custom props for Label text element */
+  labelTextProps?: ParagraphProps;
+  /** Label displaymode -
+   * top: show above, hidden: use only for screenreader
+   * @default top
+   */
+  labelMode?: DropdownLabel;
+  /**
+   * Additional label id. E.g. form group label.
+   * Used in addition to labelText for screen readers.
+   */
+  'aria-labelledby'?: string;
+  /** Visual hint to show if nothing is selected */
+  visualPlaceholder?: ReactNode;
+  /** Change visualPlaceholder by selection
    * @default true
    */
-  changeNameToSelection?: boolean;
+  changeVisualPlaceholderToSelection?: boolean;
   /** Custom classname to extend or customize */
   className?: string;
   /** Properties given to dropdown's Button-component, className etc. */
@@ -96,42 +129,81 @@ export class Dropdown extends Component<DropdownProps> {
 
   render() {
     const {
+      id: propId,
       children,
-      name,
+      labelProps,
+      labelText,
+      labelTextProps,
+      labelMode = 'top',
+      'aria-labelledby': ariaLabelledBy,
+      visualPlaceholder: name,
       className,
       dropdownButtonProps = {},
       dropdownPopoverProps = {},
       menuPopoverComponent: MenuPopoverComponentReplace,
       dropdownItemProps = {},
-      changeNameToSelection = true,
+      changeVisualPlaceholderToSelection: changeNameToSelection = true,
       ...passProps
     } = this.props;
-
     if (React.Children.count(children) < 1) {
       logger.warn(`Dropdown '${name}' does not contain items`);
       return null;
     }
 
+    const id = idGenerator(propId);
+    const labelId = `${id}-label`;
+    const ariaLabelledByIds = `${
+      !!ariaLabelledBy ? `${ariaLabelledBy} ` : ''
+    }${labelId}`;
+    const buttonId = !!dropdownButtonProps.id
+      ? dropdownButtonProps.id
+      : `${id}_button`;
     const { selectedName } = this.state;
+
     const passDropdownButtonProps = {
       ...dropdownButtonProps,
-      className: classnames(buttonClassName, dropdownButtonProps.className),
+      id: buttonId,
+      className: classnames(
+        dropdownClassNames.button,
+        dropdownButtonProps.className,
+      ),
+      'aria-labelledby': ariaLabelledByIds,
     };
+
     const passDropdownPopoverProps = {
       ...dropdownPopoverProps,
       className: classnames(
-        dropdownPopoverClassName,
+        dropdownClassNames.popover,
         dropdownPopoverProps.className,
       ),
     };
+
     const passDropdownItemProps = {
       ...dropdownItemProps,
-      className: classnames(dropdownItemClassName, dropdownItemProps.className),
+      className: classnames(
+        dropdownClassNames.item,
+        dropdownItemProps.className,
+      ),
     };
 
     return (
-      <HtmlSpan className={classnames(className, baseClassName)}>
-        <Menu {...passProps}>
+      <HtmlSpan
+        className={classnames(className, baseClassName)}
+        id={id}
+        {...passProps}
+      >
+        <HtmlLabel
+          id={labelId}
+          {...labelProps}
+          className={dropdownClassNames.label}
+        >
+          {labelMode === 'hidden' ? (
+            <VisuallyHidden>{labelText}</VisuallyHidden>
+          ) : (
+            <Paragraph {...labelTextProps}>{labelText}</Paragraph>
+          )}
+        </HtmlLabel>
+        <Menu>
           <MenuButton {...passDropdownButtonProps}>
             {!!selectedName ? selectedName : name}
           </MenuButton>
