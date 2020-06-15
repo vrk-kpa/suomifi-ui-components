@@ -57,7 +57,6 @@ const errorStyles = ({ theme }: SuomifiThemeProp) => css`
     }
     & .fi-checkbox_status {
       color: ${theme.colors.alertBase};
-      margin-top: ${theme.spacing.xxs};
     }
   }
 `;
@@ -150,6 +149,7 @@ export const baseStyles = withSuomifiTheme(
 
     & .fi-checkbox_status {
       display: block;
+      margin-top: ${theme.spacing.xxs};
       color: ${theme.colors.blackBase};
       font-size: 14px;
       line-height: 18px;
