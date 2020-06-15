@@ -150,6 +150,7 @@ exports[`Calling render with the same component on the same container does not r
 
 .c1 .fi-checkbox_status {
   display: block;
+  margin-top: 5px;
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 18px;
@@ -203,7 +204,6 @@ exports[`Calling render with the same component on the same container does not r
 
 .c1.fi-checkbox--error .fi-checkbox_status {
   color: hsl(3,59%,48%);
-  margin-top: 5px;
 }
 
 .c1.fi-checkbox--disabled .fi-checkbox_label {
