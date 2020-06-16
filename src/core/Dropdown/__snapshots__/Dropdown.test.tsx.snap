@@ -182,7 +182,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
     >
       <span
         aria-haspopup="listbox"
-        aria-labelledby="test-id-label button--listbox-input--11"
+        aria-labelledby="test-id-label"
         class="fi-dropdown_button"
         data-reach-listbox-button=""
         id="button--listbox-input--11"
@@ -378,7 +378,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
     >
       <span
         aria-haspopup="listbox"
-        aria-labelledby="additional-label-id test-id-label button--listbox-input--31"
+        aria-labelledby="additional-label-id test-id-label"
         class="fi-dropdown_button"
         data-reach-listbox-button=""
         id="button--listbox-input--31"
@@ -562,7 +562,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
     >
       <span
         aria-haspopup="listbox"
-        aria-labelledby="test-id-label button--listbox-input--21"
+        aria-labelledby="test-id-label"
         class="fi-dropdown_button"
         data-reach-listbox-button=""
         id="button--listbox-input--21"
