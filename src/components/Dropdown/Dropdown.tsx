@@ -187,7 +187,6 @@ export class Dropdown extends Component<DropdownProps> {
         dropdownClassNames.button,
         dropdownButtonProps.className,
       ),
-      'aria-labelledby': ariaLabelledByIds,
     };
 
     const passDropdownPopoverProps = {
@@ -214,6 +213,12 @@ export class Dropdown extends Component<DropdownProps> {
         this.setState({ selectedValue: newValue });
       }
     };
+
+    const listboxInputProps = {
+      'aria-labelledby': ariaLabelledByIds,
+      onChange,
+    };
+
     return (
       <HtmlSpan
         className={classnames(className, baseClassName)}
@@ -231,7 +236,7 @@ export class Dropdown extends Component<DropdownProps> {
             <Paragraph {...labelTextProps}>{labelText}</Paragraph>
           )}
         </HtmlLabel>
-        <ListboxInput onChange={onChange}>
+        <ListboxInput {...listboxInputProps}>
           <ListboxButton {...passDropdownButtonProps}>
             {!!selectedValue ? selectedValue : visualPlaceholder}
           </ListboxButton>
