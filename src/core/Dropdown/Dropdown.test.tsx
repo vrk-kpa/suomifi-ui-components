@@ -94,7 +94,7 @@ describe('Dropdown with additional aria-label', () => {
       const { getAllByRole } = render(DropdownWithExtraLabel);
       button = getAllByRole('button')[0];
     });
-    expect(button.getAttribute('aria-labelledby')).toBe(
+    expect(button.getAttribute('aria-labelledby')).toContain(
       'additional-label-id test-id-label',
     );
   });
