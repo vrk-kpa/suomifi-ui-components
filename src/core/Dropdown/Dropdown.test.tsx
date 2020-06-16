@@ -113,16 +113,17 @@ describe('Dropdown with additional aria-label', () => {
 
 describe('Dropdown', () => {
   // Don't validate aria-attributes since Portal is not rendered and there is no pair for aria-controls
-  it(
-    'should not have basic accessibility issues',
-    axeTest(TestDropdown(dropdownProps), {
-      rules: {
-        'aria-valid-attr-value': {
-          enabled: false,
+  it('should not have basic accessibility issues', async () => {
+    await act(async () => {
+      axeTest(TestDropdown(dropdownProps), {
+        rules: {
+          'aria-valid-attr-value': {
+            enabled: false,
+          },
         },
-      },
-    }),
-  );
+      });
+    });
+  });
 });
 
 test('CSS export', () => {
