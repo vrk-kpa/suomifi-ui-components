@@ -44,13 +44,11 @@ describe('Basic dropdown', () => {
     expect(button).toHaveTextContent('Dropdown');
   });
 
-  it('should match snapshot', () => {
-    let container: any;
-    act(() => {
-      const { container: cont } = render(BasicDropdown);
-      container = cont;
-    });
+  it('should match snapshot', async () => {
+    const promise = Promise.resolve();
+    const { container } = render(BasicDropdown);
     expect(container).toMatchSnapshot();
+    await act(() => promise);
   });
 });
 
