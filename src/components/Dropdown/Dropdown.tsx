@@ -179,6 +179,12 @@ export class Dropdown extends Component<DropdownProps> {
 
     const defaultPassValue = !!defaultValue ? { defaultValue } : {};
 
+    // don't read visualPlaceholder if nothing is selected
+    const buttonAriaLabelledByOverride =
+      selectedValue === undefined
+        ? { 'aria-labelledby': ariaLabelledByIds }
+        : {};
+
     const passDropdownButtonProps = {
       ...dropdownButtonProps,
       ...defaultPassValue,
@@ -187,6 +193,7 @@ export class Dropdown extends Component<DropdownProps> {
         dropdownClassNames.button,
         dropdownButtonProps.className,
       ),
+      ...buttonAriaLabelledByOverride,
     };
 
     const passDropdownPopoverProps = {
