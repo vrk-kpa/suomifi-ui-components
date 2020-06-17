@@ -71,13 +71,15 @@ describe('Dropdown with hidden label', () => {
     expect(label).toHaveClass('fi-visually-hidden');
   });
 
-  it('should match snapshot', () => {
+  it('should match snapshot', async () => {
+    const promise = Promise.resolve();
     let container: any;
     act(() => {
       const { container: cont } = render(DropdownWithHiddenLabel);
       container = cont;
     });
     expect(container).toMatchSnapshot();
+    await act(() => promise);
   });
 });
 
@@ -99,13 +101,15 @@ describe('Dropdown with additional aria-label', () => {
     );
   });
 
-  it('should match snapshot', () => {
+  it('should match snapshot', async () => {
+    const promise = Promise.resolve();
     let container: any;
     act(() => {
       const { container: cont } = render(DropdownWithExtraLabel);
       container = cont;
     });
     expect(container).toMatchSnapshot();
+    await act(() => promise);
   });
 });
 
