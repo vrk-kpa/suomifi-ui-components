@@ -66,6 +66,8 @@ export interface DropdownProps {
    * @default uuidV4
    */
   id?: string;
+  /** Name used for input's form value. */
+  name?: string;
   /** Default, intially selected value */
   defaultValue?: string;
   /** Controlled selected value, overrides defaultValue if provided. */
@@ -142,6 +144,7 @@ export class Dropdown extends Component<DropdownProps> {
   render() {
     const {
       id: propId,
+      name,
       value,
       defaultValue,
       children,
@@ -223,6 +226,7 @@ export class Dropdown extends Component<DropdownProps> {
     const listboxInputProps = {
       'aria-labelledby': ariaLabelledByIds,
       onChange,
+      name,
     };
 
     const listboxValue = alwaysShowVisualPlaceholder

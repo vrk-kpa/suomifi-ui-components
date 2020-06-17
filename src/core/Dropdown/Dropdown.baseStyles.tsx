@@ -5,7 +5,7 @@ import { element, inputButton, font } from '../theme/reset';
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     & .fi-dropdown_label-p {
-      margin-bottom: ${theme.spacing.insetL};
+      margin-bottom: ${theme.spacing.insetM};
       ${font({ theme })('actionElementInnerTextBold')};
       color: ${theme.colors.blackBase};
     }
@@ -13,6 +13,7 @@ export const baseStyles = withSuomifiTheme(
     & [data-reach-listbox-button].fi-dropdown_button {
       ${inputButton({ theme })}
       position: relative;
+      display: inline-block;
       padding: 7px 38px 7px 7px;
       text-align: left;
       line-height: 1.5;

@@ -2,7 +2,7 @@
 import { Dropdown } from 'suomifi-ui-components';
 
 <Dropdown
-  visualPlaceholder="Dropdown"
+  name="Dropdown"
   labelText="Dropdown label"
   defaultValue={'Dropdown item 1'}
   onChange={(newValue) => console.log(newValue)}
@@ -20,6 +20,7 @@ import { Dropdown } from 'suomifi-ui-components';
 import { Dropdown } from 'suomifi-ui-components';
 
 <Dropdown
+  name="Dropdown"
   visualPlaceholder="Dropdown with visually hidden label"
   labelText="Dropdown label"
   labelMode="hidden"
@@ -72,7 +73,8 @@ const [value, setValue] = useState(undefined);
 import { Dropdown, Block } from 'suomifi-ui-components';
 
 const dropdownProps = {
-  'aria-labelledby': 'dropdown-group'
+  'aria-labelledby': 'dropdown-group',
+  onChange: (newValue) => console.log(newValue)
 };
 
 <div>
