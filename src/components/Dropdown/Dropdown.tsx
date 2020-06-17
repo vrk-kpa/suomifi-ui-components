@@ -109,11 +109,7 @@ export interface DropdownProps {
 
 export class Dropdown extends Component<DropdownProps> {
   state: DropdownState = {
-    selectedValue: !!this.props.defaultValue
-      ? this.props.defaultValue
-      : !!this.props.value
-      ? this.props.value
-      : undefined,
+    selectedValue: this.props.defaultValue || this.props.value || undefined,
   };
 
   static getDerivedStateFromProps(
@@ -219,7 +215,7 @@ export class Dropdown extends Component<DropdownProps> {
       if (!!propOnChange) {
         propOnChange(newValue);
       }
-      if (value === undefined) {
+      if (!('value' in this.props)) {
         this.setState({ selectedValue: newValue });
       }
     };

@@ -34,6 +34,41 @@ import { Dropdown } from 'suomifi-ui-components';
 ```
 
 ```js
+import { Dropdown } from 'suomifi-ui-components';
+
+<Dropdown
+  visualPlaceholder="Action menu"
+  labelText="Dropdown as action menu label"
+  alwaysShowVisualPlaceholder={true}
+  onChange={(action) => console.log(action, 'selected')}
+>
+  <Dropdown.item value={'Action item 1'}>Action Item 1</Dropdown.item>
+  <Dropdown.item value={'Action item 2'}>Action Item 2</Dropdown.item>
+</Dropdown>;
+```
+
+```js
+import { useState } from 'react';
+import { Dropdown } from 'suomifi-ui-components';
+
+const [value, setValue] = useState(undefined);
+
+<Dropdown
+  value={value}
+  visualPlaceholder="Dropdown"
+  labelText="Dropdown with controlled state"
+  onChange={(newValue) => {
+    if (window.confirm('Change dropdown value?')) {
+      setValue(newValue);
+    }
+  }}
+>
+  <Dropdown.item value={'Action item 1'}>Action Item 1</Dropdown.item>
+  <Dropdown.item value={'Action item 2'}>Action Item 2</Dropdown.item>
+</Dropdown>;
+```
+
+```js
 import { Dropdown, Block } from 'suomifi-ui-components';
 
 const dropdownProps = {
