@@ -70,7 +70,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
 }
 
 .c1 .fi-dropdown_label-p {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -109,6 +109,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   border-radius: 2px;
   line-height: 1;
   position: relative;
+  display: inline-block;
   padding: 7px 38px 7px 7px;
   text-align: left;
   line-height: 1.5;
@@ -266,7 +267,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 }
 
 .c1 .fi-dropdown_label-p {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -305,6 +306,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   border-radius: 2px;
   line-height: 1;
   position: relative;
+  display: inline-block;
   padding: 7px 38px 7px 7px;
   text-align: left;
   line-height: 1.5;
@@ -450,7 +452,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 }
 
 .c1 .fi-dropdown_label-p {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -489,6 +491,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   border-radius: 2px;
   line-height: 1;
   position: relative;
+  display: inline-block;
   padding: 7px 38px 7px 7px;
   text-align: left;
   line-height: 1.5;
