@@ -124,6 +124,15 @@
     "suomifi-icons": "0.1.2",
     "uuid": "7.0.3"
   },
+  "resolutions": {
+    "@reach/utils": "0.10.3",
+    "@reach/auto-id": "0.10.3",
+    "@reach/descendants": "0.10.3",
+    "@reach/popover": "0.10.3",
+    "@reach/observe-rect": "1.1.0",
+    "@reach/portal": "0.10.3",
+    "@reach/rect": "0.10.3"
+  },
   "peerDependencies": {
     "@types/styled-components": "4.1.8",
     "@types/warning": ">=3.0.0",
