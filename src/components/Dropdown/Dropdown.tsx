@@ -74,6 +74,8 @@ export interface DropdownProps {
   labelText: string;
   /** Visual hint to show if nothing is selected and no value or defaultValue is provided */
   visualPlaceholder?: ReactNode;
+  /** Show the visual placeholder instead of selected value and act as an action menu */
+  alwaysShowVisualPlaceholder?: boolean;
   /** Custom props for label container */
   labelProps?: DropdownLabelProps;
   /** Custom props for Label text element */
@@ -153,6 +155,7 @@ export class Dropdown extends Component<DropdownProps> {
       labelMode = 'top',
       'aria-labelledby': ariaLabelledBy,
       visualPlaceholder,
+      alwaysShowVisualPlaceholder,
       className,
       dropdownButtonProps = {},
       dropdownPopoverProps = {},
@@ -226,6 +229,12 @@ export class Dropdown extends Component<DropdownProps> {
       onChange,
     };
 
+    const listboxValue = alwaysShowVisualPlaceholder
+      ? visualPlaceholder
+      : !!selectedValue
+      ? selectedValue
+      : visualPlaceholder;
+
     return (
       <HtmlSpan
         className={classnames(className, baseClassName)}
@@ -245,7 +254,7 @@ export class Dropdown extends Component<DropdownProps> {
         </HtmlLabel>
         <ListboxInput {...listboxInputProps}>
           <ListboxButton {...passDropdownButtonProps}>
-            {!!selectedValue ? selectedValue : visualPlaceholder}
+            {listboxValue}
           </ListboxButton>
           {!!ListboxPopoverComponentReplace ? (
             <ListboxPopoverComponentReplace {...passDropdownPopoverProps}>
