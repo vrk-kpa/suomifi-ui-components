@@ -178,15 +178,15 @@ exports[`Basic dropdown should match snapshot 1`] = `
     <div
       data-reach-listbox-input=""
       data-state="closed"
-      data-value="item 1"
-      id="listbox-input--16"
+      data-value=""
+      id="listbox-input--13"
     >
       <span
         aria-haspopup="listbox"
         aria-labelledby="test-id-label"
         class="fi-dropdown_button"
         data-reach-listbox-button=""
-        id="button--listbox-input--16"
+        id="button--listbox-input--13"
         role="button"
         tabindex="0"
       >
@@ -199,7 +199,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
       readonly=""
       tabindex="-1"
       type="hidden"
-      value="item 1"
+      value=""
     />
   </span>
 </div>
@@ -383,15 +383,15 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
     <div
       data-reach-listbox-input=""
       data-state="closed"
-      data-value="item 1"
-      id="listbox-input--36"
+      data-value=""
+      id="listbox-input--29"
     >
       <span
         aria-haspopup="listbox"
         aria-labelledby="additional-label-id test-id-label"
         class="fi-dropdown_button"
         data-reach-listbox-button=""
-        id="button--listbox-input--36"
+        id="button--listbox-input--29"
         role="button"
         tabindex="0"
       >
@@ -404,7 +404,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
       readonly=""
       tabindex="-1"
       type="hidden"
-      value="item 1"
+      value=""
     />
   </span>
 </div>
@@ -576,15 +576,15 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
     <div
       data-reach-listbox-input=""
       data-state="closed"
-      data-value="item 1"
-      id="listbox-input--26"
+      data-value=""
+      id="listbox-input--21"
     >
       <span
         aria-haspopup="listbox"
         aria-labelledby="test-id-label"
         class="fi-dropdown_button"
         data-reach-listbox-button=""
-        id="button--listbox-input--26"
+        id="button--listbox-input--21"
         role="button"
         tabindex="0"
       >
@@ -597,7 +597,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
       readonly=""
       tabindex="-1"
       type="hidden"
-      value="item 1"
+      value=""
     />
   </span>
 </div>

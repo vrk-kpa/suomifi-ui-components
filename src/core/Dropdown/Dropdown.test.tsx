@@ -57,6 +57,7 @@ describe('Basic dropdown', () => {
       input = container.querySelector('input');
     });
     expect(input).toHaveValue('test-value');
+    expect(input).toHaveAttribute('name', 'dropdown-test');
   });
 
   it('should match snapshot', async () => {
