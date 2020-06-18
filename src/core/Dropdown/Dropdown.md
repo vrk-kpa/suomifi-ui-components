@@ -4,7 +4,7 @@ import { Dropdown } from 'suomifi-ui-components';
 <Dropdown
   name="Dropdown"
   labelText="Dropdown label"
-  defaultValue={'Dropdown item 1'}
+  defaultValue={'Dropdown item 2'}
   onChange={(newValue) => console.log(newValue)}
 >
   <Dropdown.item value={'Dropdown item 1'}>
@@ -56,6 +56,7 @@ const [value, setValue] = useState(undefined);
 
 <Dropdown
   value={value}
+  name="Dropdown"
   visualPlaceholder="Dropdown"
   labelText="Dropdown with controlled state"
   onChange={(newValue) => {
@@ -64,8 +65,12 @@ const [value, setValue] = useState(undefined);
     }
   }}
 >
-  <Dropdown.item value={'Action item 1'}>Action Item 1</Dropdown.item>
-  <Dropdown.item value={'Action item 2'}>Action Item 2</Dropdown.item>
+  <Dropdown.item value={'Dropdown item 1'}>
+    Dropdown Item 1
+  </Dropdown.item>
+  <Dropdown.item value={'Dropdown item 2'}>
+    Dropdown Item 2
+  </Dropdown.item>
 </Dropdown>;
 ```
 

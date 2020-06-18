@@ -40,7 +40,7 @@ export interface DropdownItemProps {
 type DropdownPopoverItems = DropdownItemProps;
 
 interface DropdownState {
-  selectedValue: ReactNode;
+  selectedValue: string | undefined;
 }
 type OptionalListboxButtonProps = {
   [K in keyof ListboxButtonProps]?: ListboxButtonProps[K];
@@ -68,7 +68,7 @@ export interface DropdownProps {
   id?: string;
   /** Name used for input's form value. */
   name?: string;
-  /** Default, intially selected value */
+  /** Default for non controlled Dropdown, intially selected value */
   defaultValue?: string;
   /** Controlled selected value, overrides defaultValue if provided. */
   value?: string;
@@ -111,7 +111,12 @@ export interface DropdownProps {
 
 export class Dropdown extends Component<DropdownProps> {
   state: DropdownState = {
-    selectedValue: this.props.defaultValue || this.props.value || undefined,
+    selectedValue:
+      this.props.value !== undefined
+        ? this.props.value
+        : this.props.defaultValue !== undefined
+        ? this.props.defaultValue
+        : undefined,
   };
 
   static getDerivedStateFromProps(
@@ -119,7 +124,7 @@ export class Dropdown extends Component<DropdownProps> {
     prevState: DropdownState,
   ) {
     const { value } = nextProps;
-    if (!!value && value !== prevState.selectedValue) {
+    if ('value' in nextProps && value !== prevState.selectedValue) {
       return { selectedValue: value };
     }
     return null;
@@ -145,8 +150,6 @@ export class Dropdown extends Component<DropdownProps> {
     const {
       id: propId,
       name,
-      value,
-      defaultValue,
       children,
       labelProps,
       labelText,
@@ -163,6 +166,7 @@ export class Dropdown extends Component<DropdownProps> {
       onChange: propOnChange,
       ...passProps
     } = this.props;
+
     if (React.Children.count(children) < 1) {
       logger.warn(`Dropdown '${labelText}' does not contain items`);
       return null;
@@ -179,8 +183,6 @@ export class Dropdown extends Component<DropdownProps> {
 
     const { selectedValue } = this.state;
 
-    const defaultPassValue = !!defaultValue ? { defaultValue } : {};
-
     // don't read visualPlaceholder if nothing is selected
     const buttonAriaLabelledByOverride =
       selectedValue === undefined
@@ -189,7 +191,6 @@ export class Dropdown extends Component<DropdownProps> {
 
     const passDropdownButtonProps = {
       ...dropdownButtonProps,
-      ...defaultPassValue,
       id: buttonId,
       className: classnames(
         dropdownClassNames.button,
@@ -227,9 +228,10 @@ export class Dropdown extends Component<DropdownProps> {
       'aria-labelledby': ariaLabelledByIds,
       onChange,
       name,
+      value: selectedValue || '',
     };
 
-    const listboxValue = alwaysShowVisualPlaceholder
+    const listboxDisplayValue = alwaysShowVisualPlaceholder
       ? visualPlaceholder
       : !!selectedValue
       ? selectedValue
@@ -254,7 +256,7 @@ export class Dropdown extends Component<DropdownProps> {
         </HtmlLabel>
         <ListboxInput {...listboxInputProps}>
           <ListboxButton {...passDropdownButtonProps}>
-            {listboxValue}
+            {listboxDisplayValue}
           </ListboxButton>
           {!!ListboxPopoverComponentReplace ? (
             <ListboxPopoverComponentReplace {...passDropdownPopoverProps}>

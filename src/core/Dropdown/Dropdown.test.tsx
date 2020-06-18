@@ -8,6 +8,7 @@ import { axeTest } from '../../utils/test/axe';
 
 const dropdownProps = {
   labelText: 'Dropdown test',
+  name: 'dropdown-test',
   className: 'dropdown-test',
   visualPlaceholder: 'Dropdown',
   id: 'test-id',
@@ -42,6 +43,20 @@ describe('Basic dropdown', () => {
       button = getAllByRole('button')[0];
     });
     expect(button).toHaveTextContent('Dropdown');
+  });
+
+  // name attribute
+  it('should have an input with provided name attribute', () => {
+    let input: any;
+    act(() => {
+      const DropdownWithValue = TestDropdown({
+        defaultValue: 'test-value',
+        ...dropdownProps,
+      });
+      const { container } = render(DropdownWithValue);
+      input = container.querySelector('input');
+    });
+    expect(input).toHaveValue('test-value');
   });
 
   it('should match snapshot', async () => {
@@ -82,6 +97,10 @@ describe('Dropdown with hidden label', () => {
     await act(() => promise);
   });
 });
+
+// controlled dropdown
+
+// action menu
 
 describe('Dropdown with additional aria-label', () => {
   const additionalLabelProps: DropdownProps = {
