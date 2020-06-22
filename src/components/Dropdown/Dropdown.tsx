@@ -234,7 +234,7 @@ export class Dropdown extends Component<DropdownProps> {
     const listboxDisplayValue = alwaysShowVisualPlaceholder
       ? visualPlaceholder
       : !!selectedValue
-      ? selectedValue
+      ? ''
       : visualPlaceholder;
 
     return (

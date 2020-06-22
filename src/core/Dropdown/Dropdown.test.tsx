@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, act } from '@testing-library/react';
+import { render, act, fireEvent } from '@testing-library/react';
 
 import { Dropdown, DropdownProps } from './Dropdown';
 import { baseStyles } from './Dropdown.baseStyles';
@@ -16,8 +16,8 @@ const dropdownProps = {
 
 const TestDropdown = (props: DropdownProps, testId?: string) => (
   <Dropdown {...props} data-testid={!!testId ? testId : ''}>
-    <Dropdown.item value={'item 1'}>Item 1</Dropdown.item>
-    <Dropdown.item value={'item 2'}>Item 2</Dropdown.item>
+    <Dropdown.item value={'item-1'}>Item 1</Dropdown.item>
+    <Dropdown.item value={'item-2'}>Item 2</Dropdown.item>
   </Dropdown>
 );
 
@@ -99,7 +99,60 @@ describe('Dropdown with hidden label', () => {
   });
 });
 
-// controlled dropdown
+describe('Controlled Dropdown', () => {
+  const controlledDropdownProps = {
+    labelText: 'Dropdown test',
+    name: 'dropdown-test',
+    className: 'dropdown-test',
+    value: 'item-2',
+    id: 'test-id',
+  };
+  const ControlledDropdown = TestDropdown(controlledDropdownProps);
+
+  it('should have provided value selected', () => {
+    let button: any;
+    let input: any;
+    act(() => {
+      const { getAllByRole, container } = render(ControlledDropdown);
+      button = getAllByRole('button')[0];
+      input = container.querySelector('input');
+    });
+    expect(button).toHaveTextContent('Item 2');
+    expect(input).toHaveValue('item-2');
+  });
+
+  it('should use value instead of internal state', async () => {
+    const { findAllByRole, findByText, rerender, findByDisplayValue } = render(
+      ControlledDropdown,
+    );
+    const button = await findAllByRole('button');
+    const input = await findByDisplayValue('item-2');
+    fireEvent.click(button[0]);
+    const option = await findByText('Item 1');
+    fireEvent.click(option);
+    expect(button[0]).toHaveTextContent('Item 2');
+    expect(input).toBeTruthy();
+
+    act(() => {
+      rerender(TestDropdown({ ...controlledDropdownProps, value: 'item-1' }));
+    });
+    const button2 = await findAllByRole('button');
+    const input2 = await findByDisplayValue('item-1');
+    expect(button2[0]).toHaveTextContent('Item 1');
+    expect(input2).toBeTruthy();
+  });
+
+  it('should match snapshot', async () => {
+    const promise = Promise.resolve();
+    let container: any;
+    act(() => {
+      const { container: cont } = render(ControlledDropdown);
+      container = cont;
+    });
+    expect(container).toMatchSnapshot();
+    await act(() => promise);
+  });
+});
 
 // action menu
 
