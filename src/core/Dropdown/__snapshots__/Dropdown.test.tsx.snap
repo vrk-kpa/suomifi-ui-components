@@ -110,6 +110,9 @@ exports[`Basic dropdown should match snapshot 1`] = `
   line-height: 1;
   position: relative;
   display: inline-block;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-height: 22px;
   padding: 7px 38px 7px 7px;
   text-align: left;
   line-height: 1.5;
@@ -315,6 +318,9 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   line-height: 1;
   position: relative;
   display: inline-block;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-height: 22px;
   padding: 7px 38px 7px 7px;
   text-align: left;
   line-height: 1.5;
@@ -521,6 +527,9 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   line-height: 1;
   position: relative;
   display: inline-block;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-height: 22px;
   padding: 7px 38px 7px 7px;
   text-align: left;
   line-height: 1.5;
@@ -726,6 +735,9 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   line-height: 1;
   position: relative;
   display: inline-block;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-height: 22px;
   padding: 7px 38px 7px 7px;
   text-align: left;
   line-height: 1.5;
@@ -919,6 +931,9 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   line-height: 1;
   position: relative;
   display: inline-block;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-height: 22px;
   padding: 7px 38px 7px 7px;
   text-align: left;
   line-height: 1.5;

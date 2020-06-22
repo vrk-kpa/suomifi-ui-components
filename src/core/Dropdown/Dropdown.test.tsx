@@ -112,9 +112,9 @@ describe('Controlled Dropdown', () => {
     fireEvent.click(option);
     expect(button).toHaveTextContent('Item 2');
     expect(input).toBeTruthy();
-    await rerender(
-      TestDropdown({ ...controlledDropdownProps, value: 'item-1' }),
-    );
+    await act(async () => {
+      rerender(TestDropdown({ ...controlledDropdownProps, value: 'item-1' }));
+    });
     const button2 = await findByRole('button');
     const input2 = await findByDisplayValue('item-1');
     expect(button2).toHaveTextContent('Item 1');
