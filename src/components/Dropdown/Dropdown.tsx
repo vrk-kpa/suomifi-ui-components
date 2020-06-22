@@ -9,7 +9,6 @@ import {
   ListboxPopoverProps,
   ListboxList,
   ListboxOption,
-  ListboxOptionProps,
   ListboxPopover,
 } from '@reach/listbox';
 import { positionMatchWidth } from '@reach/popover';
@@ -37,8 +36,6 @@ export interface DropdownItemProps {
   className?: string;
 }
 
-type DropdownPopoverItems = DropdownItemProps;
-
 interface DropdownState {
   selectedValue: string | undefined;
 }
@@ -53,9 +50,6 @@ type OptionalListboxPopoverProps = {
 } & {
   ref?: any;
 };
-type OptionalListboxOptionProps = {
-  [K in keyof ListboxOptionProps]?: ListboxOptionProps[K];
-} & { children?: any; className?: string };
 
 type DropdownLabel = 'hidden' | 'top';
 
@@ -99,12 +93,11 @@ export interface DropdownProps {
   /** Properties given to dropdown's popover-component, className etc. */
   dropdownPopoverProps?: OptionalListboxPopoverProps;
   listboxPopoverComponent?: React.ComponentType<OptionalListboxPopoverProps>;
-  /** Properties given to dropdown's item-component, className etc. */
-  dropdownItemProps?: OptionalListboxOptionProps;
+  dropdownItemClassName?: string;
   /** DropdownItems */
   children?:
-    | Array<ReactElement<DropdownPopoverItems>>
-    | ReactElement<DropdownPopoverItems>;
+    | Array<ReactElement<DropdownItemProps>>
+    | ReactElement<DropdownItemProps>;
 
   onChange?(newValue: string): void;
 }
@@ -112,9 +105,9 @@ export interface DropdownProps {
 export class Dropdown extends Component<DropdownProps> {
   state: DropdownState = {
     selectedValue:
-      this.props.value !== undefined
+      'value' in this.props
         ? this.props.value
-        : this.props.defaultValue !== undefined
+        : 'defaultValue' in this.props
         ? this.props.defaultValue
         : undefined,
   };
@@ -130,16 +123,13 @@ export class Dropdown extends Component<DropdownProps> {
     return null;
   }
 
-  dropdownItems = (
-    children: ReactNode,
-    dropdownItemProps?: OptionalListboxOptionProps,
-  ) =>
+  dropdownItems = (children: ReactNode, classNames?: { className: string }) =>
     React.Children.map(
       children,
-      (child: React.ReactElement<OptionalListboxOptionProps>) => {
+      (child: React.ReactElement<DropdownItemProps>) => {
         if (React.isValidElement(child)) {
           return React.cloneElement(child, {
-            ...dropdownItemProps,
+            ...classNames,
           });
         }
         return child;
@@ -162,7 +152,7 @@ export class Dropdown extends Component<DropdownProps> {
       dropdownButtonProps = {},
       dropdownPopoverProps = {},
       listboxPopoverComponent: ListboxPopoverComponentReplace,
-      dropdownItemProps = {},
+      dropdownItemClassName = {},
       onChange: propOnChange,
       ...passProps
     } = this.props;
@@ -208,11 +198,7 @@ export class Dropdown extends Component<DropdownProps> {
     };
 
     const passDropdownItemProps = {
-      ...dropdownItemProps,
-      className: classnames(
-        dropdownClassNames.item,
-        dropdownItemProps.className,
-      ),
+      className: classnames(dropdownClassNames.item, dropdownItemClassName),
     };
 
     const onChange = (newValue: string) => {

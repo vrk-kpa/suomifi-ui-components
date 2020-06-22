@@ -14,6 +14,9 @@ export const baseStyles = withSuomifiTheme(
       ${inputButton({ theme })}
       position: relative;
       display: inline-block;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      min-height: 22px;
       padding: 7px 38px 7px 7px;
       text-align: left;
       line-height: 1.5;
