@@ -125,6 +125,7 @@ describe('Controlled Dropdown', () => {
     const { findAllByRole, findByText, rerender, findByDisplayValue } = render(
       ControlledDropdown,
     );
+    // mouse event tests do not work properly with listbox
     const button = await findAllByRole('button');
     const input = await findByDisplayValue('item-2');
     fireEvent.click(button[0]);
@@ -154,7 +155,36 @@ describe('Controlled Dropdown', () => {
   });
 });
 
-// action menu
+describe('Dropdown as action menu', () => {
+  const onChange = (newValue: string) => {
+    console.log(newValue);
+  };
+  const actionMenuDropdownProps = {
+    labelText: 'Dropdown test',
+    defaultValue: 'item-2',
+    visualPlaceholder: 'Action menu',
+    alwaysShowVisualPlaceholder: true,
+    name: 'dropdown-test',
+    className: 'dropdown-test',
+    id: 'test-id',
+    onChange,
+  };
+
+  const ActionMenuDropdown = TestDropdown(actionMenuDropdownProps);
+
+  it('should always display visualPlaceholder value', async () => {
+    const { findByRole, queryByDisplayValue } = render(ActionMenuDropdown);
+    const button = await findByRole('button');
+    const input = await queryByDisplayValue('item-2');
+    expect(button).toHaveTextContent('Action menu');
+    expect(input).toBeTruthy();
+  });
+
+  it('should match snapshot', async () => {
+    const { container: cont } = render(ActionMenuDropdown);
+    expect(await cont).toMatchSnapshot();
+  });
+});
 
 describe('Dropdown with additional aria-label', () => {
   const additionalLabelProps: DropdownProps = {
