@@ -107,6 +107,7 @@ describe('Controlled Dropdown', () => {
     // mouse event tests do not work properly with listbox
     const button = await findByRole('button');
     const input = await findByDisplayValue('item-2');
+
     fireEvent.click(button);
     const option = await findByText('Item 1');
     fireEvent.click(option);
@@ -151,8 +152,10 @@ describe('Dropdown as action menu', () => {
   });
 
   it('should match snapshot', async () => {
-    const { container: cont } = render(ActionMenuDropdown);
-    expect(await cont).toMatchSnapshot();
+    const promise = Promise.resolve();
+    const { container } = render(ActionMenuDropdown);
+    expect(container).toMatchSnapshot();
+    await act(() => promise);
   });
 });
 
