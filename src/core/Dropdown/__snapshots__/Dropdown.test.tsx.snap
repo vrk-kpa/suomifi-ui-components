@@ -182,14 +182,14 @@ exports[`Basic dropdown should match snapshot 1`] = `
       data-reach-listbox-input=""
       data-state="closed"
       data-value=""
-      id="listbox-input--13"
+      id="listbox-input--19"
     >
       <span
         aria-haspopup="listbox"
         aria-labelledby="test-id-label"
         class="fi-dropdown_button"
         data-reach-listbox-button=""
-        id="button--listbox-input--13"
+        id="button--listbox-input--19"
         role="button"
         tabindex="0"
       >
@@ -391,14 +391,14 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
       data-reach-listbox-input=""
       data-state="closed"
       data-value="item-2"
-      id="listbox-input--35"
+      id="listbox-input--51"
     >
       <span
         aria-haspopup="listbox"
-        aria-labelledby="test-id-label button--listbox-input--35"
+        aria-labelledby="test-id-label button--listbox-input--51"
         class="fi-dropdown_button"
         data-reach-listbox-button=""
-        id="button--listbox-input--35"
+        id="button--listbox-input--51"
         role="button"
         tabindex="0"
       >
@@ -599,14 +599,14 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
       data-reach-listbox-input=""
       data-state="closed"
       data-value="item-2"
-      id="listbox-input--43"
+      id="listbox-input--63"
     >
       <span
         aria-haspopup="listbox"
-        aria-labelledby="test-id-label button--listbox-input--43"
+        aria-labelledby="test-id-label button--listbox-input--63"
         class="fi-dropdown_button"
         data-reach-listbox-button=""
-        id="button--listbox-input--43"
+        id="button--listbox-input--63"
         role="button"
         tabindex="0"
       >
@@ -807,14 +807,14 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
       data-reach-listbox-input=""
       data-state="closed"
       data-value=""
-      id="listbox-input--51"
+      id="listbox-input--75"
     >
       <span
         aria-haspopup="listbox"
         aria-labelledby="additional-label-id test-id-label"
         class="fi-dropdown_button"
         data-reach-listbox-button=""
-        id="button--listbox-input--51"
+        id="button--listbox-input--75"
         role="button"
         tabindex="0"
       >
@@ -1003,14 +1003,14 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
       data-reach-listbox-input=""
       data-state="closed"
       data-value=""
-      id="listbox-input--21"
+      id="listbox-input--31"
     >
       <span
         aria-haspopup="listbox"
         aria-labelledby="test-id-label"
         class="fi-dropdown_button"
         data-reach-listbox-button=""
-        id="button--listbox-input--21"
+        id="button--listbox-input--31"
         role="button"
         tabindex="0"
       >
