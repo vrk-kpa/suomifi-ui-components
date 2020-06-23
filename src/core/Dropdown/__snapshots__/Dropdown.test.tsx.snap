@@ -175,7 +175,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
       </p>
     </label>
     <button
-      aria-controls="menu--7"
+      aria-controls="menu--11"
       aria-haspopup="true"
       aria-labelledby="test-id-label"
       class="fi-dropdown_button"
@@ -364,7 +364,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
       </p>
     </label>
     <button
-      aria-controls="menu--19"
+      aria-controls="menu--31"
       aria-haspopup="true"
       aria-labelledby="additional-label-id test-id-label"
       class="fi-dropdown_button"
@@ -541,7 +541,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
       </span>
     </label>
     <button
-      aria-controls="menu--13"
+      aria-controls="menu--21"
       aria-haspopup="true"
       aria-labelledby="test-id-label"
       class="fi-dropdown_button"
