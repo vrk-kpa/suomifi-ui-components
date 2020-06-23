@@ -59,6 +59,10 @@ export const listboxPopoverStyles = withSuomifiTheme(
     border-width: 0 1px 1px 1px;
     border-radius: 0px 0px ${theme.radius.basic} ${theme.radius.basic};
     overflow: hidden;
+    &:focus-within {
+      outline: 0;
+      box-shadow: none;
+    }
   }
   
   & [data-reach-listbox-list] {
@@ -68,9 +72,6 @@ export const listboxPopoverStyles = withSuomifiTheme(
     white-space: normal;
     word-break: break-word;
     overflow-wrap: break-word;
-    &:focus {
-      outline: 0;
-    }
   }
 
   & [data-reach-listbox-option].fi-dropdown_item {
