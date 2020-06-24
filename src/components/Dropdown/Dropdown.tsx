@@ -30,9 +30,11 @@ export const dropdownClassNames = {
 export interface DropdownLabelProps extends HtmlLabelProps {}
 
 export interface DropdownItemProps {
+  /** Item value */
   value: string;
   /** Item content */
   children: ReactNode;
+  /** Classname for item */
   className?: string;
 }
 
@@ -98,7 +100,7 @@ export interface DropdownProps {
   children?:
     | Array<ReactElement<DropdownItemProps>>
     | ReactElement<DropdownItemProps>;
-
+  /** Callback that fires when the dropdown value changes. */
   onChange?(newValue: string): void;
 }
 
@@ -217,10 +219,12 @@ export class Dropdown extends Component<DropdownProps> {
       value: selectedValue || '',
     };
 
+    // If alwaysShowVisualPlaceholder is true or there is no selected value, use visualPlaceHolder.
+    // With seleceted value use null and let Reach fetch the seleceted item node from internal context.
     const listboxDisplayValue = alwaysShowVisualPlaceholder
       ? visualPlaceholder
       : !!selectedValue
-      ? ''
+      ? null
       : visualPlaceholder;
 
     return (
