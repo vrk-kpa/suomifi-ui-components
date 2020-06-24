@@ -5,14 +5,18 @@ import { element, inputButton, font } from '../theme/reset';
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     & .fi-dropdown_label-p {
-      margin-bottom: ${theme.spacing.insetL};
+      margin-bottom: ${theme.spacing.insetM};
       ${font({ theme })('actionElementInnerTextBold')};
       color: ${theme.colors.blackBase};
     }
 
-    & > [data-reach-menu-button].fi-dropdown_button {
+    & [data-reach-listbox-button].fi-dropdown_button {
       ${inputButton({ theme })}
       position: relative;
+      display: inline-block;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      min-height: 22px;
       padding: 7px 38px 7px 7px;
       text-align: left;
       line-height: 1.5;
@@ -39,9 +43,9 @@ export const baseStyles = withSuomifiTheme(
   `,
 );
 
-export const menuPopoverStyles = withSuomifiTheme(
+export const listboxPopoverStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
-  &[data-reach-menu-popover].fi-dropdown_popover {
+  &[data-reach-listbox-popover].fi-dropdown_popover {
     ${element({ theme })}
     ${theme.typography.actionElementInnerText}
     margin-top: -1px;
@@ -55,23 +59,28 @@ export const menuPopoverStyles = withSuomifiTheme(
     border-width: 0 1px 1px 1px;
     border-radius: 0px 0px ${theme.radius.basic} ${theme.radius.basic};
     overflow: hidden;
+    &:focus-within {
+      outline: 0;
+      box-shadow: none;
+    }
   }
   
-  & [data-reach-menu-items] {
+  & [data-reach-listbox-list] {
     border: 0;
     padding: 0;
+    margin: 0;
     white-space: normal;
     word-break: break-word;
     overflow-wrap: break-word;
   }
 
-  & [data-reach-menu-item].fi-dropdown_item {
+  & [data-reach-listbox-option].fi-dropdown_item {
     ${element({ theme })}
     ${theme.typography.actionElementInnerText}
     line-height: 1.5;
     padding: ${theme.spacing.insetM};
     border: 0;
-    &[data-selected] {
+    &[aria-selected='true'] {
       ${theme.typography.actionElementInnerText}
       color: ${theme.colors.blackBase};
       background-image: none;

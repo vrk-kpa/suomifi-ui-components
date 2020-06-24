@@ -1,15 +1,14 @@
 import React from 'react';
-import { render, act } from '@testing-library/react';
+import { render, act, fireEvent } from '@testing-library/react';
 
 import { Dropdown, DropdownProps } from './Dropdown';
 import { baseStyles } from './Dropdown.baseStyles';
 import { cssFromBaseStyles } from '../utils';
 import { axeTest } from '../../utils/test/axe';
 
-const doNothing = () => ({});
-
 const dropdownProps = {
   labelText: 'Dropdown test',
+  name: 'dropdown-test',
   className: 'dropdown-test',
   visualPlaceholder: 'Dropdown',
   id: 'test-id',
@@ -17,43 +16,45 @@ const dropdownProps = {
 
 const TestDropdown = (props: DropdownProps, testId?: string) => (
   <Dropdown {...props} data-testid={!!testId ? testId : ''}>
-    <Dropdown.item onSelect={doNothing}>Item 1</Dropdown.item>
-    <Dropdown.item onSelect={doNothing}>Item 2</Dropdown.item>
+    <Dropdown.item value={'item-1'}>Item 1</Dropdown.item>
+    <Dropdown.item value={'item-2'}>Item 2</Dropdown.item>
   </Dropdown>
 );
 
 describe('Basic dropdown', () => {
   const BasicDropdown = TestDropdown(dropdownProps, 'dropdown-test-id');
 
-  it('should have provided ids', () => {
-    let dropdown: any;
-    let label: any;
-    act(() => {
-      const { getAllByTestId } = render(BasicDropdown);
-      dropdown = getAllByTestId('dropdown-test-id')[0];
-      label = dropdown.getElementsByTagName('label')[0];
-    });
+  it('should have provided ids', async () => {
+    const { findByTestId } = render(BasicDropdown);
+    const dropdown = await findByTestId('dropdown-test-id');
+    const label = await dropdown.getElementsByTagName('label')[0];
     expect(dropdown).toHaveAttribute('id', 'test-id');
     expect(label).toHaveAttribute('id', 'test-id-label');
   });
 
-  it('should have visual placeholder', () => {
-    let button: any;
-    act(() => {
-      const { getAllByTestId } = render(BasicDropdown);
-      const dropdown = getAllByTestId('dropdown-test-id')[0];
-      button = dropdown.getElementsByTagName('button')[0];
-    });
+  it('should have visual placeholder', async () => {
+    const { findByRole } = render(BasicDropdown);
+    const button = await findByRole('button');
     expect(button).toHaveTextContent('Dropdown');
   });
 
-  it('should match snapshot', () => {
-    let container: any;
-    act(() => {
-      const { container: cont } = render(BasicDropdown);
-      container = cont;
+  // name attribute
+  it('should have an input with provided name attribute', async () => {
+    const DropdownWithValue = TestDropdown({
+      defaultValue: 'test-value',
+      ...dropdownProps,
     });
+    const { findByDisplayValue } = render(DropdownWithValue);
+    const input = await findByDisplayValue('test-value');
+    expect(input).toBeTruthy();
+    expect(input).toHaveAttribute('name', 'dropdown-test');
+  });
+
+  it('should match snapshot', async () => {
+    const promise = Promise.resolve();
+    const { container } = render(BasicDropdown);
     expect(container).toMatchSnapshot();
+    await act(() => promise);
   });
 });
 
@@ -67,22 +68,94 @@ describe('Dropdown with hidden label', () => {
     'dropdown-hidden-label-test-id',
   );
 
-  it('should have hidden label', () => {
-    let label: any;
-    act(() => {
-      const { getAllByText } = render(DropdownWithHiddenLabel);
-      label = getAllByText('Dropdown test')[0];
-    });
+  it('should have hidden label', async () => {
+    const { findByText } = render(DropdownWithHiddenLabel);
+    const label = await findByText('Dropdown test');
     expect(label).toHaveClass('fi-visually-hidden');
   });
 
-  it('should match snapshot', () => {
-    let container: any;
-    act(() => {
-      const { container: cont } = render(DropdownWithHiddenLabel);
-      container = cont;
-    });
+  it('should match snapshot', async () => {
+    const promise = Promise.resolve();
+    const { container } = render(DropdownWithHiddenLabel);
     expect(container).toMatchSnapshot();
+    await act(() => promise);
+  });
+});
+
+describe('Controlled Dropdown', () => {
+  const controlledDropdownProps = {
+    labelText: 'Dropdown test',
+    name: 'dropdown-test',
+    className: 'dropdown-test',
+    value: 'item-2',
+    id: 'test-id',
+  };
+  const ControlledDropdown = TestDropdown(controlledDropdownProps);
+
+  it('should have provided value selected', async () => {
+    const { findByRole, findByDisplayValue } = render(ControlledDropdown);
+    const button = await findByRole('button');
+    const input = await findByDisplayValue('item-2');
+    expect(button).toHaveTextContent('Item 2');
+    expect(input).toBeTruthy();
+  });
+
+  it('should use value instead of internal state', async () => {
+    const { findByRole, findByText, rerender, findByDisplayValue } = render(
+      ControlledDropdown,
+    );
+    // mouse event tests do not work properly with listbox
+    const button = await findByRole('button');
+    const input = await findByDisplayValue('item-2');
+
+    fireEvent.click(button);
+    const option = await findByText('Item 1');
+    fireEvent.click(option);
+    expect(button).toHaveTextContent('Item 2');
+    expect(input).toBeTruthy();
+    await act(async () => {
+      rerender(TestDropdown({ ...controlledDropdownProps, value: 'item-1' }));
+    });
+    const button2 = await findByRole('button');
+    const input2 = await findByDisplayValue('item-1');
+    expect(button2).toHaveTextContent('Item 1');
+    expect(input2).toBeTruthy();
+  });
+
+  it('should match snapshot', async () => {
+    const promise = Promise.resolve();
+    const { container } = render(ControlledDropdown);
+    expect(container).toMatchSnapshot();
+    await act(() => promise);
+  });
+});
+
+describe('Dropdown as action menu', () => {
+  const actionMenuDropdownProps = {
+    labelText: 'Dropdown test',
+    defaultValue: 'item-2',
+    visualPlaceholder: 'Action menu',
+    alwaysShowVisualPlaceholder: true,
+    name: 'dropdown-test',
+    className: 'dropdown-test',
+    id: 'test-id',
+  };
+
+  const ActionMenuDropdown = TestDropdown(actionMenuDropdownProps);
+
+  it('should always display visualPlaceholder value', async () => {
+    const { findByRole, queryByDisplayValue } = render(ActionMenuDropdown);
+    const button = await findByRole('button');
+    const input = await queryByDisplayValue('item-2');
+    expect(button).toHaveTextContent('Action menu');
+    expect(input).toBeTruthy();
+  });
+
+  it('should match snapshot', async () => {
+    const promise = Promise.resolve();
+    const { container } = render(ActionMenuDropdown);
+    expect(container).toMatchSnapshot();
+    await act(() => promise);
   });
 });
 
@@ -93,39 +166,35 @@ describe('Dropdown with additional aria-label', () => {
   };
   const DropdownWithExtraLabel = TestDropdown(additionalLabelProps);
 
-  it('should have aria-labelledby composed from label-id and provided aria-labelledby prop', () => {
-    let button: any;
-    act(() => {
-      const { getAllByRole } = render(DropdownWithExtraLabel);
-      button = getAllByRole('button')[0];
-    });
-    expect(button.getAttribute('aria-labelledby')).toBe(
+  it('should have aria-labelledby composed from label-id and provided aria-labelledby prop', async () => {
+    const { findByRole } = render(DropdownWithExtraLabel);
+    const button = await findByRole('button');
+    expect(button.getAttribute('aria-labelledby')).toContain(
       'additional-label-id test-id-label',
     );
   });
 
-  it('should match snapshot', () => {
-    let container: any;
-    act(() => {
-      const { container: cont } = render(DropdownWithExtraLabel);
-      container = cont;
-    });
+  it('should match snapshot', async () => {
+    const promise = Promise.resolve();
+    const { container } = render(DropdownWithExtraLabel);
     expect(container).toMatchSnapshot();
+    await act(() => promise);
   });
 });
 
 describe('Dropdown', () => {
   // Don't validate aria-attributes since Portal is not rendered and there is no pair for aria-controls
-  it(
-    'should not have basic accessibility issues',
-    axeTest(TestDropdown(dropdownProps), {
-      rules: {
-        'aria-valid-attr-value': {
-          enabled: false,
+  it('should not have basic accessibility issues', async () => {
+    await act(async () => {
+      axeTest(TestDropdown(dropdownProps), {
+        rules: {
+          'aria-valid-attr-value': {
+            enabled: false,
+          },
         },
-      },
-    }),
-  );
+      });
+    });
+  });
 });
 
 test('CSS export', () => {
