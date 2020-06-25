@@ -122,8 +122,8 @@
     "normalize.cssinjs": "1.1.1",
     "polished": "3.5.1",
     "react-svg": "11.0.16",
-    "suomifi-design-tokens": "2.0.0",
-    "suomifi-icons": "1.0.0",
+    "suomifi-design-tokens": "^2.0.0",
+    "suomifi-icons": "^1.0.0",
     "uuid": "7.0.3"
   },
   "peerDependencies": {
