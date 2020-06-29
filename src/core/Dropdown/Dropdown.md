@@ -52,7 +52,7 @@ import { Dropdown } from 'suomifi-ui-components';
 import { useState } from 'react';
 import { Dropdown } from 'suomifi-ui-components';
 
-const [value, setValue] = useState(undefined);
+const [value, setValue] = useState('');
 
 <Dropdown
   value={value}
