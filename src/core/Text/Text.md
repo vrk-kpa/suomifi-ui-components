@@ -3,7 +3,7 @@ import { Paragraph, Text } from 'suomifi-ui-components';
 
 <>
   <Paragraph>Paragraph text</Paragraph>
-  <Paragraph marginBottomSpacing="insetXl">
+  <Paragraph marginBottomSpacing="xl">
     <Text.lead>Leading text</Text.lead>
   </Paragraph>
   <Paragraph>
