@@ -35,7 +35,7 @@ const [checked, setChecked] = useState(false);
   <Toggle
     checked={checked}
     onClick={({ toggleState }) => {
-      if (confirm('Change Toggle state?')) {
+      if (window.confirm('Change Toggle state?')) {
         setChecked(toggleState);
       }
     }}
