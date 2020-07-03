@@ -150,7 +150,7 @@ exports[`calling render with the same component on the same container does not r
   </span>
   <svg
     aria-hidden="true"
-    class="c5 fi-link_icon"
+    class="fi-icon c5 fi-link_icon"
     fill="currentColor"
     focusable="false"
     height="1em"

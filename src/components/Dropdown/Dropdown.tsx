@@ -1,163 +1,268 @@
 import React, { Component, ReactNode, ReactElement } from 'react';
 import classnames from 'classnames';
-import { HtmlSpan } from '../../reset/HtmlSpan/HtmlSpan';
+import { HtmlLabel, HtmlLabelProps, HtmlSpan } from '../../reset';
+import { Paragraph, ParagraphProps } from '../Paragraph/Paragraph';
 import {
-  Menu,
-  MenuButton,
-  MenuButtonProps,
-  MenuPopoverProps,
-  MenuItems,
-  MenuItem,
-  MenuItemProps,
-  MenuPopover,
-} from '@reach/menu-button';
+  ListboxInput,
+  ListboxButton,
+  ListboxButtonProps,
+  ListboxPopoverProps,
+  ListboxList,
+  ListboxOption,
+  ListboxPopover,
+} from '@reach/listbox';
 import { positionMatchWidth } from '@reach/popover';
+import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import { logger } from '../../utils/logger';
-
-export { MenuItem as DropdownItem };
+import { idGenerator } from '../../utils/uuid';
+export { ListboxOption as DropdownItem };
 
 const baseClassName = 'fi-dropdown';
-const buttonClassName = `${baseClassName}_button`;
-const dropdownPopoverClassName = `${baseClassName}_popover`;
-const dropdownItemClassName = `${baseClassName}_item`;
+
+export const dropdownClassNames = {
+  baseClassName,
+  label: `${baseClassName}_label`,
+  button: `${baseClassName}_button`,
+  popover: `${baseClassName}_popover`,
+  item: `${baseClassName}_item`,
+};
+
+export interface DropdownLabelProps extends HtmlLabelProps {}
 
 export interface DropdownItemProps {
-  /** Operation to run on select */
-  onSelect: () => void;
+  /** Item value */
+  value: string;
   /** Item content */
   children: ReactNode;
+  /** Classname for item */
+  className?: string;
 }
-
-type DropdownPopoverItems = DropdownItemProps;
 
 interface DropdownState {
-  selectedName: ReactNode;
+  selectedValue: string | undefined;
 }
+type OptionalListboxButtonProps = {
+  [K in keyof ListboxButtonProps]?: ListboxButtonProps[K];
+} & {
+  className?: string;
+  id?: string;
+};
+type OptionalListboxPopoverProps = {
+  [K in keyof ListboxPopoverProps]?: ListboxPopoverProps[K];
+} & {
+  ref?: any;
+};
 
-type OptionalMenuButtonProps = {
-  [K in keyof MenuButtonProps]?: MenuButtonProps[K];
-};
-type OptionalMenuPopoverProps = {
-  [K in keyof MenuPopoverProps]?: MenuPopoverProps[K];
-};
-type OptionalMenuItemProps = { [K in keyof MenuItemProps]?: MenuItemProps[K] };
+type DropdownLabel = 'hidden' | 'top';
 
 export interface DropdownProps {
-  /** Name to show for the dropdown */
-  name: ReactNode;
-  /** Change name by selection
-   * @default true
+  /**
+   * Unique id
+   * If no id is specified, one will be generated using uuid
+   * @default uuidV4
    */
-  changeNameToSelection?: boolean;
+  id?: string;
+  /** Name used for input's form value. */
+  name?: string;
+  /** Default for non controlled Dropdown, intially selected value */
+  defaultValue?: string;
+  /** Controlled selected value, overrides defaultValue if provided. */
+  value?: string;
+  /** Label for the Dropdown component. */
+  labelText: string;
+  /** Visual hint to show if nothing is selected and no value or defaultValue is provided */
+  visualPlaceholder?: ReactNode;
+  /** Show the visual placeholder instead of selected value and act as an action menu */
+  alwaysShowVisualPlaceholder?: boolean;
+  /** Custom props for label container */
+  labelProps?: DropdownLabelProps;
+  /** Custom props for Label text element */
+  labelTextProps?: ParagraphProps;
+  /** Label displaymode -
+   * top: show above, hidden: use only for screenreader
+   * @default top
+   */
+  labelMode?: DropdownLabel;
+  /**
+   * Additional label id. E.g. form group label.
+   * Used in addition to labelText for screen readers.
+   */
+  'aria-labelledby'?: string;
   /** Custom classname to extend or customize */
   className?: string;
   /** Properties given to dropdown's Button-component, className etc. */
-  dropdownButtonProps?: OptionalMenuButtonProps;
+  dropdownButtonProps?: OptionalListboxButtonProps;
   /** Properties given to dropdown's popover-component, className etc. */
-  dropdownPopoverProps?: OptionalMenuPopoverProps;
-  menuPopoverComponent?: React.ComponentType<OptionalMenuPopoverProps>;
-  /** Properties given to dropdown's item-component, className etc. */
-  dropdownItemProps?: OptionalMenuItemProps;
+  dropdownPopoverProps?: OptionalListboxPopoverProps;
+  listboxPopoverComponent?: React.ComponentType<OptionalListboxPopoverProps>;
+  dropdownItemClassName?: string;
   /** DropdownItems */
   children?:
-    | Array<ReactElement<DropdownPopoverItems>>
-    | ReactElement<DropdownPopoverItems>;
+    | Array<ReactElement<DropdownItemProps>>
+    | ReactElement<DropdownItemProps>;
+  /** Callback that fires when the dropdown value changes. */
+  onChange?(newValue: string): void;
 }
 
 export class Dropdown extends Component<DropdownProps> {
-  state: DropdownState = { selectedName: undefined };
+  state: DropdownState = {
+    selectedValue:
+      'value' in this.props
+        ? this.props.value
+        : 'defaultValue' in this.props
+        ? this.props.defaultValue
+        : undefined,
+  };
 
-  changeName = (name: ReactNode) => this.setState({ selectedName: name });
+  static getDerivedStateFromProps(
+    nextProps: DropdownProps,
+    prevState: DropdownState,
+  ) {
+    const { value } = nextProps;
+    if ('value' in nextProps && value !== prevState.selectedValue) {
+      return { selectedValue: value };
+    }
+    return null;
+  }
 
-  dropDownItems = (
-    children: ReactNode,
-    changeNameToSelection: boolean,
-    dropdownItemProps?: OptionalMenuItemProps,
-  ) =>
-    React.Children.map(children, (child: React.ReactElement<MenuItemProps>) => {
-      const { children: childChildren } = child.props;
-      const isChildString =
-        !!changeNameToSelection &&
-        !!childChildren &&
-        typeof childChildren === 'string';
-      if (React.isValidElement(child)) {
-        return React.cloneElement(child, {
-          ...dropdownItemProps,
-          ...(!!isChildString && {
-            onSelect: () => {
-              child.props.onSelect();
-              this.changeName.bind(this)(childChildren);
-            },
-          }),
-        });
-      }
-      return child;
-    });
+  dropdownItems = (children: ReactNode, classNames?: { className: string }) =>
+    React.Children.map(
+      children,
+      (child: React.ReactElement<DropdownItemProps>) => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, {
+            ...classNames,
+          });
+        }
+        return child;
+      },
+    );
 
   render() {
     const {
-      children,
+      id: propId,
       name,
+      children,
+      labelProps,
+      labelText,
+      labelTextProps,
+      labelMode = 'top',
+      'aria-labelledby': ariaLabelledBy,
+      visualPlaceholder,
+      alwaysShowVisualPlaceholder,
       className,
       dropdownButtonProps = {},
       dropdownPopoverProps = {},
-      menuPopoverComponent: MenuPopoverComponentReplace,
-      dropdownItemProps = {},
-      changeNameToSelection = true,
+      listboxPopoverComponent: ListboxPopoverComponentReplace,
+      dropdownItemClassName = {},
+      onChange: propOnChange,
       ...passProps
     } = this.props;
 
     if (React.Children.count(children) < 1) {
-      logger.warn(`Dropdown '${name}' does not contain items`);
+      logger.warn(`Dropdown '${labelText}' does not contain items`);
       return null;
     }
 
-    const { selectedName } = this.state;
+    const id = idGenerator(propId);
+    const labelId = `${id}-label`;
+    const ariaLabelledByIds = `${
+      !!ariaLabelledBy ? `${ariaLabelledBy} ` : ''
+    }${labelId}`;
+    const buttonId = !!dropdownButtonProps.id
+      ? dropdownButtonProps.id
+      : `${id}_button`;
+
+    const { selectedValue } = this.state;
+
+    // don't read visualPlaceholder if nothing is selected
+    const buttonAriaLabelledByOverride =
+      selectedValue === undefined
+        ? { 'aria-labelledby': ariaLabelledByIds }
+        : {};
+
     const passDropdownButtonProps = {
       ...dropdownButtonProps,
-      className: classnames(buttonClassName, dropdownButtonProps.className),
+      id: buttonId,
+      className: classnames(
+        dropdownClassNames.button,
+        dropdownButtonProps.className,
+      ),
+      ...buttonAriaLabelledByOverride,
     };
+
     const passDropdownPopoverProps = {
       ...dropdownPopoverProps,
       className: classnames(
-        dropdownPopoverClassName,
+        dropdownClassNames.popover,
         dropdownPopoverProps.className,
       ),
     };
+
     const passDropdownItemProps = {
-      ...dropdownItemProps,
-      className: classnames(dropdownItemClassName, dropdownItemProps.className),
+      className: classnames(dropdownClassNames.item, dropdownItemClassName),
     };
 
+    const onChange = (newValue: string) => {
+      if (!!propOnChange) {
+        propOnChange(newValue);
+      }
+      if (!('value' in this.props)) {
+        this.setState({ selectedValue: newValue });
+      }
+    };
+
+    const listboxInputProps = {
+      'aria-labelledby': ariaLabelledByIds,
+      onChange,
+      name,
+      value: selectedValue || '',
+    };
+
+    // If alwaysShowVisualPlaceholder is true or there is no selected value, use visualPlaceHolder.
+    // With seleceted value use null and let Reach fetch the seleceted item node from internal context.
+    const listboxDisplayValue = alwaysShowVisualPlaceholder
+      ? visualPlaceholder
+      : !!selectedValue
+      ? null
+      : visualPlaceholder;
+
     return (
-      <HtmlSpan className={classnames(className, baseClassName)}>
-        <Menu {...passProps}>
-          <MenuButton {...passDropdownButtonProps}>
-            {!!selectedName ? selectedName : name}
-          </MenuButton>
-          {!!MenuPopoverComponentReplace ? (
-            <MenuPopoverComponentReplace {...passDropdownPopoverProps}>
-              {this.dropDownItems(
-                children,
-                changeNameToSelection,
-                passDropdownItemProps,
-              )}
-            </MenuPopoverComponentReplace>
+      <HtmlSpan
+        className={classnames(className, baseClassName)}
+        id={id}
+        {...passProps}
+      >
+        <HtmlLabel
+          id={labelId}
+          {...labelProps}
+          className={dropdownClassNames.label}
+        >
+          {labelMode === 'hidden' ? (
+            <VisuallyHidden>{labelText}</VisuallyHidden>
           ) : (
-            <MenuPopover
+            <Paragraph {...labelTextProps}>{labelText}</Paragraph>
+          )}
+        </HtmlLabel>
+        <ListboxInput {...listboxInputProps}>
+          <ListboxButton {...passDropdownButtonProps}>
+            {listboxDisplayValue}
+          </ListboxButton>
+          {!!ListboxPopoverComponentReplace ? (
+            <ListboxPopoverComponentReplace {...passDropdownPopoverProps}>
+              {this.dropdownItems(children, passDropdownItemProps)}
+            </ListboxPopoverComponentReplace>
+          ) : (
+            <ListboxPopover
               position={positionMatchWidth}
               {...passDropdownPopoverProps}
             >
-              <MenuItems>
-                {this.dropDownItems(
-                  children,
-                  changeNameToSelection,
-                  passDropdownItemProps,
-                )}
-              </MenuItems>
-            </MenuPopover>
+              <ListboxList>
+                {this.dropdownItems(children, passDropdownItemProps)}
+              </ListboxList>
+            </ListboxPopover>
           )}
-        </Menu>
+        </ListboxInput>
       </HtmlSpan>
     );
   }

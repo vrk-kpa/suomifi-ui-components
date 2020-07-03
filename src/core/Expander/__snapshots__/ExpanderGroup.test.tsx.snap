@@ -431,7 +431,7 @@ exports[`calling render with the same component on the same container does not r
         First
         <svg
           aria-hidden="true"
-          class="c8 fi-expander_title-icon"
+          class="fi-icon c8 fi-expander_title-icon"
           fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"
@@ -465,7 +465,7 @@ exports[`calling render with the same component on the same container does not r
         Second
         <svg
           aria-hidden="true"
-          class="c8 fi-expander_title-icon"
+          class="fi-icon c8 fi-expander_title-icon"
           fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"

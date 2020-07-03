@@ -9,9 +9,9 @@ exports[`calling render with the same component on the same container does not r
 <div>
   <svg
     aria-label="Test label"
-    class="c0 my-icon--test"
+    class="fi-icon c0 my-icon--test"
     data-testid="icon"
-    fill="hsl(202, 7%, 40%)"
+    fill="currentColor"
     height="1em"
     role="img"
     viewBox="0 0 24 24"
@@ -23,8 +23,8 @@ exports[`calling render with the same component on the same container does not r
   </svg>
   <svg
     aria-hidden="true"
-    class="c0"
-    fill="hsl(202, 7%, 40%)"
+    class="fi-icon c0"
+    fill="currentColor"
     focusable="false"
     height="1em"
     viewBox="0 0 24 24"

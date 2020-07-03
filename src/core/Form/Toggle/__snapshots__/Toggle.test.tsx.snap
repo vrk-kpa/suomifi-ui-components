@@ -208,17 +208,17 @@ exports[`Toggle variant default:  calling render with the same component on the 
   top: 0.1em;
 }
 
-.c1 + .fi-toggle--with-button:focus {
+.c1.fi-toggle--with-button:focus {
   outline: 0;
 }
 
-.c1 + .fi-toggle--with-button:focus .fi-toggle_icon-container {
+.c1.fi-toggle--with-button:focus .fi-toggle_icon-container {
   outline: 0;
   position: relative;
   position: absolute;
 }
 
-.c1 + .fi-toggle--with-button:focus .fi-toggle_icon-container:after {
+.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -234,35 +234,35 @@ exports[`Toggle variant default:  calling render with the same component on the 
   z-index: 9999;
 }
 
-.c1 + .fi-toggle--with-button:focus .fi-toggle_icon-container:not(:focus-visible):after {
+.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:not(:focus-visible):after {
   content: none;
 }
 
-.c1 + .fi-toggle--with-button:focus .fi-toggle_icon-container:after {
+.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:after {
   border-radius: 14px;
   right: -4px;
   left: -4px;
 }
 
-.c1 + .fi-toggle--with-button:focus:not(:focus-visible) {
+.c1.fi-toggle--with-button:focus:not(:focus-visible) {
   outline: 0;
 }
 
-.c1 + .fi-toggle--with-button:focus:not(:focus-visible) .fi-toggle_icon-container:after {
+.c1.fi-toggle--with-button:focus:not(:focus-visible) .fi-toggle_icon-container:after {
   content: none;
 }
 
-.c1 + .fi-toggle--with-input:focus-within {
+.c1.fi-toggle--with-input:focus-within {
   outline: 0;
 }
 
-.c1 + .fi-toggle--with-input:focus-within .fi-toggle_icon-container {
+.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container {
   outline: 0;
   position: relative;
   position: absolute;
 }
 
-.c1 + .fi-toggle--with-input:focus-within .fi-toggle_icon-container:after {
+.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -278,21 +278,21 @@ exports[`Toggle variant default:  calling render with the same component on the 
   z-index: 9999;
 }
 
-.c1 + .fi-toggle--with-input:focus-within .fi-toggle_icon-container:not(:focus-visible):after {
+.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:not(:focus-visible):after {
   content: none;
 }
 
-.c1 + .fi-toggle--with-input:focus-within .fi-toggle_icon-container:after {
+.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:after {
   border-radius: 14px;
   right: -4px;
   left: -4px;
 }
 
-.c1 + .fi-toggle--with-input:focus-within:not(:focus-visible) {
+.c1.fi-toggle--with-input:focus-within:not(:focus-visible) {
   outline: 0;
 }
 
-.c1 + .fi-toggle--with-input:focus-within:not(:focus-visible) .fi-toggle_icon-container:after {
+.c1.fi-toggle--with-input:focus-within:not(:focus-visible) .fi-toggle_icon-container:after {
   content: none;
 }
 
@@ -750,17 +750,17 @@ exports[`Toggle variant withInput:  calling render with the same component on th
   top: 0.1em;
 }
 
-.c1 + .fi-toggle--with-button:focus {
+.c1.fi-toggle--with-button:focus {
   outline: 0;
 }
 
-.c1 + .fi-toggle--with-button:focus .fi-toggle_icon-container {
+.c1.fi-toggle--with-button:focus .fi-toggle_icon-container {
   outline: 0;
   position: relative;
   position: absolute;
 }
 
-.c1 + .fi-toggle--with-button:focus .fi-toggle_icon-container:after {
+.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -776,35 +776,35 @@ exports[`Toggle variant withInput:  calling render with the same component on th
   z-index: 9999;
 }
 
-.c1 + .fi-toggle--with-button:focus .fi-toggle_icon-container:not(:focus-visible):after {
+.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:not(:focus-visible):after {
   content: none;
 }
 
-.c1 + .fi-toggle--with-button:focus .fi-toggle_icon-container:after {
+.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:after {
   border-radius: 14px;
   right: -4px;
   left: -4px;
 }
 
-.c1 + .fi-toggle--with-button:focus:not(:focus-visible) {
+.c1.fi-toggle--with-button:focus:not(:focus-visible) {
   outline: 0;
 }
 
-.c1 + .fi-toggle--with-button:focus:not(:focus-visible) .fi-toggle_icon-container:after {
+.c1.fi-toggle--with-button:focus:not(:focus-visible) .fi-toggle_icon-container:after {
   content: none;
 }
 
-.c1 + .fi-toggle--with-input:focus-within {
+.c1.fi-toggle--with-input:focus-within {
   outline: 0;
 }
 
-.c1 + .fi-toggle--with-input:focus-within .fi-toggle_icon-container {
+.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container {
   outline: 0;
   position: relative;
   position: absolute;
 }
 
-.c1 + .fi-toggle--with-input:focus-within .fi-toggle_icon-container:after {
+.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -820,21 +820,21 @@ exports[`Toggle variant withInput:  calling render with the same component on th
   z-index: 9999;
 }
 
-.c1 + .fi-toggle--with-input:focus-within .fi-toggle_icon-container:not(:focus-visible):after {
+.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:not(:focus-visible):after {
   content: none;
 }
 
-.c1 + .fi-toggle--with-input:focus-within .fi-toggle_icon-container:after {
+.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:after {
   border-radius: 14px;
   right: -4px;
   left: -4px;
 }
 
-.c1 + .fi-toggle--with-input:focus-within:not(:focus-visible) {
+.c1.fi-toggle--with-input:focus-within:not(:focus-visible) {
   outline: 0;
 }
 
-.c1 + .fi-toggle--with-input:focus-within:not(:focus-visible) .fi-toggle_icon-container:after {
+.c1.fi-toggle--with-input:focus-within:not(:focus-visible) .fi-toggle_icon-container:after {
   content: none;
 }
 

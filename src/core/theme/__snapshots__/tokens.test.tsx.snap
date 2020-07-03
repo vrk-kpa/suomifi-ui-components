@@ -430,7 +430,7 @@ exports[`snapshot testing 1`] = `
         Test expander 1
         <svg
           aria-hidden="true"
-          class="c8 fi-expander_title-icon"
+          class="fi-icon c8 fi-expander_title-icon"
           fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"
@@ -463,7 +463,7 @@ exports[`snapshot testing 1`] = `
         Test expander 2
         <svg
           aria-hidden="true"
-          class="c8 fi-expander_title-icon"
+          class="fi-icon c8 fi-expander_title-icon"
           fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"
@@ -496,7 +496,7 @@ exports[`snapshot testing 1`] = `
         Test expander 3
         <svg
           aria-hidden="true"
-          class="c8 fi-expander_title-icon"
+          class="fi-icon c8 fi-expander_title-icon"
           fill="hsl(212, 63%, 45%)"
           focusable="false"
           height="1em"
