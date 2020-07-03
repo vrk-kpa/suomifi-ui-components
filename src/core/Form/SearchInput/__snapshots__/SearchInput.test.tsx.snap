@@ -178,6 +178,15 @@ exports[`calling render with the same component on the same container does not r
   line-height: 20px;
 }
 
+.c2 .fi-text-input_hintText_p {
+  display: block;
+  margin-bottom: 10px;
+  font-size: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
 .c2 .fi-text-input_input {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
