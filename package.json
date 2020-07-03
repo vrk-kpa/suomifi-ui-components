@@ -1,6 +1,6 @@
 {
   "name": "suomifi-ui-components",
-  "version": "0.17.0",
+  "version": "1.0.0",
   "description": "Suomi.fi UI component library",
   "main": "dist/index.js",
   "module": "dist/suomifi-ui-components.esm.js",
@@ -18,11 +18,26 @@
     "url": "git+https://github.com/vrk-kpa/suomifi-ui-components.git"
   },
   "author": "Joonas Kallunki <jkallunki@gmail.com> (https://jkallunki.net/)",
+  "contributors": [
+    "Aappo Ålander",
+    "Joonas Kaski",
+    "Sami Korpela"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vrk-kpa/suomifi-ui-components/issues"
   },
   "homepage": "https://github.com/vrk-kpa/suomifi-ui-components#readme",
+  "keywords": [
+    "react",
+    "suomifi",
+    "styleguide",
+    "styled-components",
+    "typescript",
+    "UI",
+    "accessibility",
+    "a11y"
+  ],
   "scripts": {
     "prepare": "yarn run build",
     "start": "yarn styleguide",
