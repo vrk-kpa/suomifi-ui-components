@@ -23,6 +23,7 @@ const inputBaseClassName = `${baseClassName}_input`;
 const statusTextClassName = `${baseClassName}_statusText`;
 const statusTextContainerClassName = `${statusTextClassName}_container`;
 const statusTextSpanClassName = `${baseClassName}_statusText_span`;
+const hintTextSpanClassName = `${baseClassName}_hintText_p`;
 
 export interface TextInputLabelProps extends HtmlLabelProps {}
 
@@ -56,7 +57,9 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   /** Input container div to define custom styling */
   inputContainerProps?: HtmlDivProps;
   children?: ReactNode;
-  /** Showing the status text; like validation error beneath the component */
+  /** Hint text to be shown below the component */
+  hintText?: string;
+  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
 }
 
@@ -72,6 +75,7 @@ class BaseTextInput extends Component<TextInputProps> {
       inputContainerProps,
       children,
       statusText,
+      hintText,
       visualPlaceholder,
       id: propId,
       ...passProps
@@ -91,6 +95,11 @@ class BaseTextInput extends Component<TextInputProps> {
           <VisuallyHidden>{labelText}</VisuallyHidden>
         ) : (
           <Paragraph {...labelTextProps}>{labelText}</Paragraph>
+        )}
+        {hintText && (
+          <Paragraph className={hintTextSpanClassName} id={generatedId}>
+            {hintText}
+          </Paragraph>
         )}
         <HtmlDiv className={statusTextContainerClassName}>
           <HtmlDiv {...inputContainerProps}>

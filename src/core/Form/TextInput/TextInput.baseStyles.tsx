@@ -5,7 +5,7 @@ import { input, inputContainer, font } from '../../theme/reset';
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
   & .fi-text-input_label-p {
-    margin-bottom: ${theme.spacing.insetL};
+    margin-bottom: ${theme.spacing.xs};
     ${font({ theme })('actionElementInnerTextBold')};
     color: ${theme.colors.blackBase};
   }
@@ -24,6 +24,11 @@ export const baseStyles = withSuomifiTheme(
       line-height: 20px;
     }
   }
+  & .fi-text-input_hintText_p {
+      display: block;
+      margin-bottom: ${theme.spacing.xs};
+      font-size: ${theme.typography.bodyTextSmall};
+    }
 
   & .fi-text-input_input {
     ${input({ theme })}
