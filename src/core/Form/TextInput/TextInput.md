@@ -11,6 +11,11 @@ import { TextInput } from 'suomifi-ui-components';
     labelMode="hidden"
     visualPlaceholder="This input has a hidden label"
   />
+  <TextInput
+    onBlur={(event) => console.log(event.target.value)}
+    labelText="TextInput with hint text"
+    hintText="An example hint text"
+  />
 </>;
 ```
 
