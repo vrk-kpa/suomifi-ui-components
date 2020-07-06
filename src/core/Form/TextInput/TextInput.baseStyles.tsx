@@ -26,6 +26,7 @@ export const baseStyles = withSuomifiTheme(
   }
   & .fi-text-input_hintText_p {
       display: block;
+      color: ${theme.colors.blackBase};
       margin-bottom: ${theme.spacing.xs};
       font-size: ${theme.typography.bodyTextSmall};
     }
