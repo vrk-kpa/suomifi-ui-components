@@ -28,7 +28,7 @@ export const baseStyles = withSuomifiTheme(
       display: block;
       color: ${theme.colors.blackBase};
       margin-bottom: ${theme.spacing.xs};
-      font-size: ${theme.typography.bodyTextSmall};
+      ${font({ theme })('bodyTextSmall')};
     }
 
   & .fi-text-input_input {
