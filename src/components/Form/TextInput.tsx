@@ -82,7 +82,8 @@ class BaseTextInput extends Component<TextInputProps> {
     } = this.props;
 
     const hideLabel = labelMode === 'hidden';
-    const generatedId = `${idGenerator(propId)}-statusText`;
+    const generatedStatusTextId = `${idGenerator(propId)}-statusText`;
+    const generatedHintTextId = `${idGenerator(propId)}-hintText`;
 
     return (
       <HtmlLabel
@@ -97,7 +98,7 @@ class BaseTextInput extends Component<TextInputProps> {
           <Paragraph {...labelTextProps}>{labelText}</Paragraph>
         )}
         {hintText && (
-          <Paragraph className={hintTextSpanClassName} id={generatedId}>
+          <Paragraph className={hintTextSpanClassName} id={generatedHintTextId}>
             {hintText}
           </Paragraph>
         )}
@@ -108,13 +109,19 @@ class BaseTextInput extends Component<TextInputProps> {
               {...passProps}
               className={classnames(inputBaseClassName, inputClassName)}
               type="text"
-              aria-describedby={generatedId}
+              aria-describedby={[
+                generatedStatusTextId,
+                generatedHintTextId,
+              ].join(' ')}
               placeholder={visualPlaceholder}
             />
             {children}
           </HtmlDiv>
           {statusText && (
-            <HtmlSpan className={statusTextSpanClassName} id={generatedId}>
+            <HtmlSpan
+              className={statusTextSpanClassName}
+              id={generatedStatusTextId}
+            >
               {statusText}
             </HtmlSpan>
           )}
