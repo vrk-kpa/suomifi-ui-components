@@ -201,7 +201,16 @@ exports[`snapshots match error status with statustext 1`] = `
   display: block;
   color: hsl(0,0%,16%);
   margin-bottom: 10px;
-  font-size: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -287,7 +296,7 @@ exports[`snapshots match error status with statustext 1`] = `
       class="c4 fi-text-input_container"
     >
       <input
-        aria-describedby="test-id2-statusText"
+        aria-describedby="test-id2-statusText test-id2-hintText"
         class="c5 fi-text-input_input"
         data-testid="textinput2"
         id="test-id2"
@@ -494,7 +503,16 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   display: block;
   color: hsl(0,0%,16%);
   margin-bottom: 10px;
-  font-size: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -580,7 +598,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
       class="c5 fi-text-input_container"
     >
       <input
-        aria-describedby="test-id1-statusText"
+        aria-describedby="test-id1-statusText test-id1-hintText"
         class="c6 fi-text-input_input"
         data-testid="textinput1"
         id="test-id1"
@@ -769,7 +787,16 @@ exports[`snapshots match minimal implementation 1`] = `
   display: block;
   color: hsl(0,0%,16%);
   margin-bottom: 10px;
-  font-size: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -855,7 +882,7 @@ exports[`snapshots match minimal implementation 1`] = `
       class="c4 fi-text-input_container"
     >
       <input
-        aria-describedby="test-id-statusText"
+        aria-describedby="test-id-statusText test-id-hintText"
         class="c5 fi-text-input_input"
         data-testid="textinput"
         id="test-id"
