@@ -182,7 +182,16 @@ exports[`calling render with the same component on the same container does not r
   display: block;
   color: hsl(0,0%,16%);
   margin-bottom: 10px;
-  font-size: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -286,7 +295,7 @@ exports[`calling render with the same component on the same container does not r
       class="c4 fi-search-input_input-container fi-text-input_container"
     >
       <input
-        aria-describedby="test-id-statusText"
+        aria-describedby="test-id-statusText test-id-hintText"
         class="c5 fi-text-input_input fi-search-input_input"
         data-testid="textinput"
         id="test-id"
