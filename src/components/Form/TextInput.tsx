@@ -29,6 +29,8 @@ export interface TextInputLabelProps extends HtmlLabelProps {}
 
 type Label = 'hidden' | 'visible';
 
+type InputType = 'text' | 'email' | 'number' | 'password' | 'tel' | 'url';
+
 export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   /** Custom classname for the input to extend or customize */
   className?: string;
@@ -61,6 +63,10 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   hintText?: string;
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
+  /** 'text' | 'email' | 'number' | 'password' | 'tel' | 'url'
+   * @default text
+   */
+  type?: InputType;
 }
 
 class BaseTextInput extends Component<TextInputProps> {
@@ -78,6 +84,7 @@ class BaseTextInput extends Component<TextInputProps> {
       hintText,
       visualPlaceholder,
       id: propId,
+      type = 'text',
       ...passProps
     } = this.props;
 
@@ -111,7 +118,7 @@ class BaseTextInput extends Component<TextInputProps> {
               id={propId}
               {...passProps}
               className={classnames(inputBaseClassName, inputClassName)}
-              type="text"
+              type={type}
               aria-describedby={[
                 generatedStatusTextId,
                 generatedHintTextId,
