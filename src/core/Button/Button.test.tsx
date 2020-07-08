@@ -19,6 +19,23 @@ test('calling render with the same component on the same container does not remo
   expect(getByTestId('nottub').textContent).toBe('Test two');
 });
 
+test('disabled button is disabled', () => {
+  const button = render(
+    <Button data-testid="button" disabled={true}>
+      Test
+    </Button>,
+  );
+  const { getByTestId, rerender } = button;
+  expect(getByTestId('button')).toBeDisabled();
+
+  rerender(
+    <Button data-testid="button" disabled={false}>
+      Test
+    </Button>,
+  );
+  expect(getByTestId('button')).toBeEnabled();
+});
+
 test('should not have basic accessibility issues', axeTest(TestButton));
 
 test('CSS export', () => {

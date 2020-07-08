@@ -138,6 +138,7 @@ export class Button extends Component<ButtonProps> {
           {...onClickProps}
           aria-disabled={disabled}
           tabIndex={0}
+          disabled={!!disabled}
           className={classnames(baseClassName, className, {
             [disabledClassName]: !!disabled,
           })}
