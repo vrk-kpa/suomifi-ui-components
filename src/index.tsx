@@ -20,6 +20,8 @@ export {
   ToggleInputProps,
   SearchInput,
   SearchInputProps,
+  Radiobutton,
+  RadiobuttonProps,
 } from './core/Form/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';
