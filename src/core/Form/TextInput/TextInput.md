@@ -65,3 +65,20 @@ const status = errorState ? 'error' : 'default';
   </Button>
 </>;
 ```
+
+```js
+import { TextInput } from 'suomifi-ui-components';
+
+<>
+  <TextInput
+    labelText="TextInput with numbers"
+    type="number"
+    value={123}
+  />
+  <TextInput
+    labelText="TextInput with password"
+    type="password"
+    value="password"
+  />
+</>;
+```
