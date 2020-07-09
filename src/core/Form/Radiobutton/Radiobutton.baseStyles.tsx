@@ -64,6 +64,20 @@ export const baseStyles = withSuomifiTheme(
             border-radius: 50%;
           }
         }
+
+        &:disabled {
+          + label:before {
+            border: 1px solid ${theme.colors.depthLight1};
+          }
+
+          + label:after {
+            background: ${theme.colors.depthLight3};
+            width: 16px;
+            height: 16px;
+            top: 0;
+            left: -24px;
+          }
+        }
       }
     }
   `,

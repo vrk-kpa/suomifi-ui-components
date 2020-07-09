@@ -2,6 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { HtmlInput, HtmlLabel, HtmlSpan, HtmlDiv } from '../../reset';
 import { idGenerator } from '../../utils/uuid';
+import { logger } from '../../utils/logger';
 
 const baseClassName = 'fi-radiobutton';
 
@@ -31,6 +32,8 @@ export interface RadiobuttonProps {
    * Hint text to be displayed under the label.
    */
   hintText?: string;
+  /** Disable Radiobutton. Value won't be included when submitting */
+  disabled?: boolean;
 }
 
 export class Radiobutton extends Component<RadiobuttonProps> {
@@ -42,7 +45,15 @@ export class Radiobutton extends Component<RadiobuttonProps> {
       value,
       hintText,
       className,
+      disabled = false,
+      ...passProps
     } = this.props;
+
+    if (!children) {
+      logger.error(
+        'Radiobutton component should have a label or a child element that acts as one. Add label content or a child element.',
+      );
+    }
 
     const id = idGenerator(propId);
     const hintTextId = `${idGenerator(propId)}-hintText`;
@@ -57,8 +68,13 @@ export class Radiobutton extends Component<RadiobuttonProps> {
           name={name}
           value={value}
           id={id}
+          disabled={disabled}
         />
-        <HtmlLabel className={radiobuttonClassNames.label} htmlFor={id}>
+        <HtmlLabel
+          className={radiobuttonClassNames.label}
+          htmlFor={id}
+          {...passProps}
+        >
           {children}
         </HtmlLabel>
         <HtmlSpan className={radiobuttonClassNames.hintText} id={hintTextId}>
