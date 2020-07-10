@@ -13,6 +13,8 @@ const radiobuttonClassNames = {
   hintText: `${baseClassName}_hintText`,
 };
 
+type RadiobuttonVariant = 'small' | 'large';
+
 export interface RadiobuttonProps {
   /** Custom classname to extend or customize */
   className?: string;
@@ -34,6 +36,12 @@ export interface RadiobuttonProps {
   hintText?: string;
   /** Disable Radiobutton. Value won't be included when submitting */
   disabled?: boolean;
+  event: React.ChangeEvent<HTMLInputElement>;
+  /**
+   * 'small' | 'large'
+   * @default small
+   */
+  variant?: RadiobuttonVariant;
 }
 
 export class Radiobutton extends Component<RadiobuttonProps> {

@@ -1,10 +1,6 @@
 import { css } from 'styled-components';
-import {
-  withSuomifiTheme,
-  TokensAndTheme,
-  /* SuomifiThemeProp, */
-} from '../../theme';
-/* import { disabledCursor } from '../../../components/utils/css'; */
+import { withSuomifiTheme, TokensAndTheme } from '../../theme';
+import { disabledCursor } from '../../../components/utils/css';
 import { element, font } from '../../theme/reset';
 import { focus } from '../../theme/utils/focus';
 
@@ -14,8 +10,8 @@ export const baseStyles = withSuomifiTheme(
     ${font({ theme })('bodyText')}
 
 
-& .fi-radiobutton {
-      &_input {
+&.fi-radiobutton {
+      & .fi-radiobutton_input {
         opacity: 0;
 
         + label {
@@ -66,6 +62,10 @@ export const baseStyles = withSuomifiTheme(
         }
 
         &:disabled {
+          + label {
+            ${disabledCursor}
+          }
+
           + label:before {
             border: 1px solid ${theme.colors.depthLight1};
           }
@@ -76,6 +76,39 @@ export const baseStyles = withSuomifiTheme(
             height: 16px;
             top: 0;
             left: -24px;
+          }
+        }
+      }
+
+      &--large {
+        &.fi-radiobutton {
+          & .fi-radiobutton_input {
+            + label {
+              padding-left: 16px;
+
+              &::before {
+                left: -25px;
+                top: -6px;
+                width: 28px;
+                height: 28px;
+              }
+
+              &::after {
+                left: -18px;
+                top: 1px;
+                width: 16px;
+                height: 16px;
+              }
+            }
+
+            &:disabled {
+              + label:after {
+                width: 28px;
+                height: 28px;
+                top: -5px;
+                left: -24px;
+              }
+            }
           }
         }
       }

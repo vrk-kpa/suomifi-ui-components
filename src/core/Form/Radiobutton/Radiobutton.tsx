@@ -12,6 +12,7 @@ import classnames from 'classnames';
 const baseClassName = 'fi-radiobutton';
 const radiobuttonClassNames = {
   disabled: `${baseClassName}--disabled`,
+  large: `${baseClassName}--large`,
 };
 
 export interface RadiobuttonProps extends CompRadiobuttonProps, TokensProp {}
@@ -30,6 +31,7 @@ class DefaultRadiobutton extends Component<RadiobuttonProps> {
       children,
       disabled = false,
       className,
+      variant,
       ...passProps
     } = withSuomifiDefaultProps(this.props);
 
@@ -38,6 +40,7 @@ class DefaultRadiobutton extends Component<RadiobuttonProps> {
         disabled={disabled}
         className={classnames(baseClassName, className, {
           [radiobuttonClassNames.disabled]: disabled,
+          [radiobuttonClassNames.large]: variant === 'large',
         })}
         {...passProps}
       >
@@ -48,7 +51,10 @@ class DefaultRadiobutton extends Component<RadiobuttonProps> {
 }
 
 export class Radiobutton extends Component<RadiobuttonProps> {
-  // TODO: Large variant
+  static large = (props: RadiobuttonProps) => {
+    return <DefaultRadiobutton {...props} variant="large" />;
+  };
+
   render() {
     return <DefaultRadiobutton {...this.props} />;
   }
