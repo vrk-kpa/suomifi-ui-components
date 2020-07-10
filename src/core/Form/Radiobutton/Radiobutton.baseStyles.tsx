@@ -73,6 +73,7 @@ export const baseStyles = withSuomifiTheme(
         &:disabled {
           + label {
             ${disabledCursor}
+            color: ${theme.colors.depthBase};
           }
 
           + label:before {
@@ -87,6 +88,10 @@ export const baseStyles = withSuomifiTheme(
             left: -24px;
           }
         }
+      }
+
+      &--disabled .fi-radiobutton_hintText {
+            color: ${theme.colors.depthBase};
       }
 
       &--large {
@@ -126,6 +131,6 @@ export const baseStyles = withSuomifiTheme(
           }
         }
       }
-    }
+}
   `,
 );
