@@ -22,8 +22,10 @@ export interface RadiobuttonProps {
    * Label element content
    */
   children?: ReactNode;
-  name: string;
-  value: string;
+  /** Group multiple Radiobuttons to be inside same selection group */
+  name?: string;
+  /** Unique value to be used inside Radiobutton group for this item */
+  value?: string;
   /**
    * Unique id
    * If no id is specified, one will be generated using uuid
