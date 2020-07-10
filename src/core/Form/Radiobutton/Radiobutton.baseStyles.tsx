@@ -89,6 +89,10 @@ export const baseStyles = withSuomifiTheme(
 
       &--large {
         &.fi-radiobutton {
+          & .fi-radiobutton_hintText {
+            padding-left: 29px;
+          }
+
           & .fi-radiobutton_input {
             + label {
               padding-left: 16px;
