@@ -25,13 +25,15 @@ export const baseStyles = withSuomifiTheme(
           position: relative;
           display: inline-block;
           cursor: pointer;
+          min-height: 27px;
+          line-height: 1.5em;
 
           &::before {
             content: '';
             position: absolute;
             display: inline-block;
             left: -25px;
-            top: -1px;
+            top: 5px;
             width: 16px;
             height: 16px;
             border-radius: 50%;
@@ -44,7 +46,7 @@ export const baseStyles = withSuomifiTheme(
             position: absolute;
             display: inline-block;
             left: -20px;
-            top: 4px;
+            top: 10px;
             border-radius: 50%;
             width: 8px;
             height: 8px;
@@ -81,7 +83,7 @@ export const baseStyles = withSuomifiTheme(
             background: ${theme.colors.depthLight3};
             width: 16px;
             height: 16px;
-            top: 0;
+            top: 6px;
             left: -24px;
           }
         }
@@ -96,17 +98,18 @@ export const baseStyles = withSuomifiTheme(
           & .fi-radiobutton_input {
             + label {
               padding-left: 16px;
+              min-height: 30px;
 
               &::before {
                 left: -25px;
-                top: -6px;
+                top: 0;
                 width: 28px;
                 height: 28px;
               }
 
               &::after {
                 left: -18px;
-                top: 1px;
+                top: 7px;
                 width: 16px;
                 height: 16px;
               }
@@ -116,7 +119,7 @@ export const baseStyles = withSuomifiTheme(
               + label:after {
                 width: 28px;
                 height: 28px;
-                top: -5px;
+                top: 1px;
                 left: -24px;
               }
             }
