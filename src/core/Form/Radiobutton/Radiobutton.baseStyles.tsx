@@ -15,7 +15,7 @@ export const baseStyles = withSuomifiTheme(
         display: block;
         padding-left: 13px;
         color: ${theme.colors.depthDark1};
-        font-size: ${theme.typography.bodyTextSmall};
+        ${theme.typography.bodyTextSmall};
       }
 
       & .fi-radiobutton_input {
