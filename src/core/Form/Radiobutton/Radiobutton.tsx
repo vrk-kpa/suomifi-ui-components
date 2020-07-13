@@ -5,6 +5,7 @@ import {
   Radiobutton as CompRadiobutton,
   RadiobuttonProps as CompRadiobuttonProps,
 } from '../../../components/Form/Radiobutton';
+import { RadiobuttonGroup, RadiobuttonGroupProps } from './RadiobuttonGroup';
 import { baseStyles } from './Radiobutton.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import classnames from 'classnames';
@@ -51,6 +52,10 @@ class DefaultRadiobutton extends Component<RadiobuttonProps> {
 }
 
 export class Radiobutton extends Component<RadiobuttonProps> {
+  static group = (props: RadiobuttonGroupProps) => {
+    return <RadiobuttonGroup {...withSuomifiDefaultProps(props)} />;
+  };
+
   static large = (props: RadiobuttonProps) => {
     return <DefaultRadiobutton {...props} variant="large" />;
   };
