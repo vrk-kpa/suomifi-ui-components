@@ -57,14 +57,21 @@ export class RadiobuttonGroup extends Component<RadiobuttonGroupProps> {
     const hideLabel = labelMode === 'hidden';
 
     const id = idGenerator(propId);
+    const labelId = `${idGenerator(propId)}-label`;
     const hintTextId = `${idGenerator(propId)}-hintText`;
+    const labelledBy = [labelId, ...(hintText ? [hintTextId] : [])].join(' ');
 
     return (
-      <HtmlDiv className={classnames(className)} id={id}>
+      <HtmlDiv
+        className={classnames(className)}
+        id={id}
+        role="group"
+        aria-labelledby={labelledBy}
+      >
         {hideLabel ? (
-          <VisuallyHidden>{label}</VisuallyHidden>
+          <VisuallyHidden id={labelId}>{label}</VisuallyHidden>
         ) : (
-          <HtmlSpan className={radiobuttonGroupClassNames.label}>
+          <HtmlSpan className={radiobuttonGroupClassNames.label} id={labelId}>
             {label}
           </HtmlSpan>
         )}
