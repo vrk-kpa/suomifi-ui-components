@@ -21,6 +21,7 @@ export const baseStyles = withSuomifiTheme(
       & .fi-radiobutton_input {
         opacity: 0;
         position: absolute;
+        margin: 8px 0 0 3px;
 
         + label {
           position: relative;
@@ -103,6 +104,8 @@ export const baseStyles = withSuomifiTheme(
           }
 
           & .fi-radiobutton_input {
+              margin: 10px 0 0 9px;
+
             + label {
               padding-left: 40px;
               padding-top: 2px;
