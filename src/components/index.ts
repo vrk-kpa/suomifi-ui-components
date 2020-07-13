@@ -33,3 +33,7 @@ export { Text, TextProps } from './Text/Text';
 export { Textarea, TextareaProps } from './Form/Textarea';
 export { VisuallyHidden } from './Visually-hidden/Visually-hidden';
 export { Radiobutton, RadiobuttonProps } from './Form/Radiobutton';
+export {
+  RadiobuttonGroup,
+  RadiobuttonGroupProps,
+} from './Form/RadiobuttonGroup';

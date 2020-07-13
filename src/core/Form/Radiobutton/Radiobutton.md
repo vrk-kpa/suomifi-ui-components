@@ -72,3 +72,17 @@ import { Radiobutton } from './Radiobutton';
   </div>
 </>;
 ```
+
+```js
+import { Radiobutton } from './Radiobutton';
+import { RadiobuttonGroup } from './RadiobuttonGroup';
+
+<RadiobuttonGroup label="Make your choice" hintText="Choose wisely">
+  <Radiobutton name="test-group" value="value-test-1">
+    Choice 1
+  </Radiobutton>
+  <Radiobutton name="test-group" value="value-test-2">
+    Choice 2
+  </Radiobutton>
+</RadiobuttonGroup>;
+```
