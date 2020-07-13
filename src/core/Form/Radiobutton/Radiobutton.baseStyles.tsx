@@ -13,13 +13,14 @@ export const baseStyles = withSuomifiTheme(
 &.fi-radiobutton {
       & .fi-radiobutton_hintText {
         display: block;
-        padding-left: 13px;
+        padding-left: 26px;
         color: ${theme.colors.depthDark1};
         ${theme.typography.bodyTextSmall};
       }
 
       & .fi-radiobutton_input {
         opacity: 0;
+        position: absolute;
 
         + label {
           position: relative;
@@ -27,12 +28,13 @@ export const baseStyles = withSuomifiTheme(
           cursor: pointer;
           min-height: 27px;
           line-height: 1.5em;
+          padding-left: 26px;
 
           &::before {
             content: '';
             position: absolute;
             display: inline-block;
-            left: -25px;
+            left: 0;
             top: 5px;
             width: 16px;
             height: 16px;
@@ -45,7 +47,7 @@ export const baseStyles = withSuomifiTheme(
             content: '';
             position: absolute;
             display: inline-block;
-            left: -20px;
+            left: 5px;
             top: 10px;
             border-radius: 50%;
             width: 8px;
@@ -85,7 +87,7 @@ export const baseStyles = withSuomifiTheme(
             width: 16px;
             height: 16px;
             top: 6px;
-            left: -24px;
+            left: 1px;
           }
         }
       }
@@ -97,24 +99,25 @@ export const baseStyles = withSuomifiTheme(
       &--large {
         &.fi-radiobutton {
           & .fi-radiobutton_hintText {
-            padding-left: 29px;
+            padding-left: 40px;
           }
 
           & .fi-radiobutton_input {
             + label {
-              padding-left: 16px;
-              min-height: 30px;
+              padding-left: 40px;
+              padding-top: 2px;
+              min-height: 34px;
 
               &::before {
-                left: -25px;
-                top: 0;
+                left: 0px;
+                top: 2px;
                 width: 28px;
                 height: 28px;
               }
 
               &::after {
-                left: -18px;
-                top: 7px;
+                left: 7px;
+                top: 9px;
                 width: 16px;
                 height: 16px;
               }
@@ -124,8 +127,8 @@ export const baseStyles = withSuomifiTheme(
               + label:after {
                 width: 28px;
                 height: 28px;
-                top: 1px;
-                left: -24px;
+                top: 3px;
+                left: 1px;
               }
             }
           }
