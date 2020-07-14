@@ -3,6 +3,10 @@ import classnames from 'classnames';
 import { HtmlInput, HtmlLabel, HtmlSpan, HtmlDiv } from '../../reset';
 import { idGenerator } from '../../utils/uuid';
 import { logger } from '../../utils/logger';
+import {
+  RadiobuttonGroupConsumer,
+  RadiobuttonGroupProviderState,
+} from './RadiobuttonGroup';
 
 const baseClassName = 'fi-radiobutton';
 
@@ -44,9 +48,41 @@ export interface RadiobuttonProps {
    * @default small
    */
   variant?: RadiobuttonVariant;
+  radiobuttonGroup?: boolean;
+  consumer?: RadiobuttonGroupProviderState;
+  checked?: boolean;
 }
 
-export class Radiobutton extends Component<RadiobuttonProps> {
+export interface RadiobuttonState {
+  checkedState: boolean;
+}
+
+class RadiobuttonItem extends Component<RadiobuttonProps> {
+  state = {
+    checkedState: !!this.props.checked,
+  };
+
+  static getDerivedStateFromProps(
+    nextProps: RadiobuttonProps,
+    prevState: RadiobuttonState,
+  ) {
+    const { checked } = nextProps;
+    if (checked !== undefined && checked !== prevState.checkedState) {
+      return { checkedState: checked };
+    }
+    return null;
+  }
+
+  handleClick = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const {
+      radiobuttonGroup,
+      consumer: { onRadiobuttonChange } = { onRadiobuttonChange: undefined },
+    } = this.props;
+    if (!!radiobuttonGroup && !!onRadiobuttonChange) {
+      onRadiobuttonChange(event.target.value);
+    }
+  };
+
   render() {
     const {
       id: propId,
@@ -58,6 +94,7 @@ export class Radiobutton extends Component<RadiobuttonProps> {
       disabled = false,
       ...passProps
     } = this.props;
+    const { checkedState } = this.state;
 
     if (!children) {
       logger.error(
@@ -79,6 +116,8 @@ export class Radiobutton extends Component<RadiobuttonProps> {
           value={value}
           id={id}
           disabled={disabled}
+          onChange={this.handleClick}
+          checked={checkedState}
         />
         <HtmlLabel
           className={radiobuttonClassNames.label}
@@ -91,6 +130,18 @@ export class Radiobutton extends Component<RadiobuttonProps> {
           {hintText}
         </HtmlSpan>
       </HtmlDiv>
+    );
+  }
+}
+
+export class Radiobutton extends Component<RadiobuttonProps> {
+  render() {
+    return !!this.props.radiobuttonGroup ? (
+      <RadiobuttonGroupConsumer>
+        {(consumer) => <RadiobuttonItem {...this.props} consumer={consumer} />}
+      </RadiobuttonGroupConsumer>
+    ) : (
+      <RadiobuttonItem {...this.props} />
     );
   }
 }

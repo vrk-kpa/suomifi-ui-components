@@ -14,6 +14,7 @@ const baseClassName = 'fi-radiobutton';
 const radiobuttonClassNames = {
   disabled: `${baseClassName}--disabled`,
   large: `${baseClassName}--large`,
+  checked: `${baseClassName}--checked`,
 };
 
 export interface RadiobuttonProps extends CompRadiobuttonProps, TokensProp {}
@@ -33,6 +34,7 @@ class DefaultRadiobutton extends Component<RadiobuttonProps> {
       disabled = false,
       className,
       variant,
+      checked,
       ...passProps
     } = withSuomifiDefaultProps(this.props);
 
@@ -42,7 +44,9 @@ class DefaultRadiobutton extends Component<RadiobuttonProps> {
         className={classnames(baseClassName, className, {
           [radiobuttonClassNames.disabled]: disabled,
           [radiobuttonClassNames.large]: variant === 'large',
+          [radiobuttonClassNames.checked]: checked,
         })}
+        checked={checked}
         {...passProps}
       >
         {children}

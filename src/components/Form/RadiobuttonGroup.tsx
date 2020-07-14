@@ -1,10 +1,10 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component } from 'react';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlSpan } from '../../reset';
 import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import { idGenerator } from '../../utils/uuid';
 
-/* import { Radiobutton } from './Radiobutton'; */
+import { RadiobuttonProps } from './Radiobutton';
 
 const baseClassName = 'fi-radiobuttongroup';
 const radiobuttonGroupClassNames = {
@@ -24,8 +24,7 @@ export interface RadiobuttonGroupProps {
    * @default uuidV4
    */
   /** Radiobutton or RadiobuttonDivider */
-  /* children: Radiobutton[]; */
-  children: ReactNode;
+  children: Array<React.ReactElement<RadiobuttonProps>>;
   /**
    * Hint text to be displayed under the label.
    */
@@ -44,7 +43,48 @@ export interface RadiobuttonGroupProps {
   id?: string;
 }
 
+export interface RadiobuttonGroupProviderState {
+  onRadiobuttonChange: (value: string) => void;
+}
+
+const defaultProviderValue: RadiobuttonGroupProviderState = {
+  onRadiobuttonChange: () => null,
+};
+
+const { Provider, Consumer: RadiobuttonGroupConsumer } = React.createContext(
+  defaultProviderValue,
+);
+
+const RadiobuttonGroupItems = (
+  children: Array<React.ReactElement<RadiobuttonProps>>,
+  selectedValue?: string,
+) =>
+  React.Children.map(
+    children,
+    (child: React.ReactElement<RadiobuttonProps>) => {
+      if (React.isValidElement(child)) {
+        return React.cloneElement(child, {
+          radiobuttonGroup: true,
+          checked: selectedValue === child.props.value,
+        });
+      }
+      return child;
+    },
+  );
+
+export interface RadiobuttonGroupState {
+  selectedValue?: string;
+}
+
 export class RadiobuttonGroup extends Component<RadiobuttonGroupProps> {
+  state: RadiobuttonGroupState = {
+    selectedValue: undefined,
+  };
+
+  handleRadiobuttonChange = (value: string) => {
+    this.setState({ selectedValue: value });
+  };
+
   render() {
     const {
       children,
@@ -54,6 +94,7 @@ export class RadiobuttonGroup extends Component<RadiobuttonGroupProps> {
       hintText,
       id: propId,
     } = this.props;
+    const { selectedValue } = this.state;
     const hideLabel = labelMode === 'hidden';
 
     const id = idGenerator(propId);
@@ -84,9 +125,17 @@ export class RadiobuttonGroup extends Component<RadiobuttonGroupProps> {
           </HtmlSpan>
         )}
         <HtmlDiv className={radiobuttonGroupClassNames.container}>
-          {children}
+          <Provider
+            value={{
+              onRadiobuttonChange: this.handleRadiobuttonChange,
+            }}
+          >
+            {RadiobuttonGroupItems(children, selectedValue)}
+          </Provider>
         </HtmlDiv>
       </HtmlDiv>
     );
   }
 }
+
+export { RadiobuttonGroupConsumer };
