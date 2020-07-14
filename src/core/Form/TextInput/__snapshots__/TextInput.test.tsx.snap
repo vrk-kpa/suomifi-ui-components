@@ -282,7 +282,7 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 <label
-  class="c0 fi-text-input_label c1 c2 fi-text-input--error"
+  class="c0 fi-text-input_label c1 fi-text-input c2 fi-text-input--error"
 >
   <p
     class="c3 fi-paragraph fi-text-input_label-p"
@@ -584,7 +584,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 }
 
 <label
-  class="c0 fi-text-input_label c1 c2"
+  class="c0 fi-text-input_label c1 fi-text-input c2"
 >
   <span
     class="c3 c4 fi-visually-hidden"
@@ -868,7 +868,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 <label
-  class="c0 fi-text-input_label c1 c2"
+  class="c0 fi-text-input_label c1 fi-text-input c2"
 >
   <p
     class="c3 fi-paragraph fi-text-input_label-p"
