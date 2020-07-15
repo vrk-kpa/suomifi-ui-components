@@ -8,3 +8,4 @@ export { HtmlLi, HtmlLiProps } from './HtmlLi/HtmlLi';
 export { HtmlNav, HtmlNavProps } from './HtmlNav/HtmlNav';
 export { HtmlOl, HtmlOlProps } from './HtmlOl/HtmlOl';
 export { HtmlSpan, HtmlSpanProps } from './HtmlSpan/HtmlSpan';
+export { HtmlTextarea, HtmlTextareaProps } from './HtmlTextarea/HtmlTextarea';
