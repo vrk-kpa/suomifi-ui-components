@@ -40,6 +40,9 @@ export const baseStyles = withSuomifiTheme(
         &:focus {
           ${focus({ theme, noPseudo: true, variant: 'boxShadow' })}
         }
+        ::placeholder {
+          font-style: italic;
+        }
       }
 
       & .fi-textarea_statusText {
