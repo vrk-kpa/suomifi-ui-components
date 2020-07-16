@@ -79,9 +79,6 @@ class BaseTextarea extends Component<TextareaProps> {
     const statusTextId = `${idGenerator(propId)}-statusText`;
     const hintTextId = `${idGenerator(propId)}-hintText`;
 
-    const infoElementIds =
-      statusText || hintText ? [statusTextId, hintTextId].join(' ') : '';
-
     return (
       <HtmlLabel className={classnames(baseClassName, className, {})}>
         {hideLabel ? (
@@ -98,7 +95,6 @@ class BaseTextarea extends Component<TextareaProps> {
         )}
         <HtmlTextarea
           id={id}
-          aria-describedby={infoElementIds}
           className={textareaClassNames.textarea}
           disabled={disabled}
           defaultValue={children}
