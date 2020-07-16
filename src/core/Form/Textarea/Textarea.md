@@ -2,7 +2,11 @@
 import { Textarea } from 'suomifi-ui-components';
 
 <>
-  <Textarea hintText="Example hint text" labelText="Textarea label">
+  <Textarea
+    hintText="Example hint text"
+    labelText="Textarea with hint and optional texts"
+    optionalText="optional"
+  >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
     vestibulum iaculis augue, sit amet tincidunt ipsum.
   </Textarea>

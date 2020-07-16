@@ -19,6 +19,11 @@ export const baseStyles = withSuomifiTheme(
         color: ${theme.colors.blackBase};
       }
 
+      & .fi-textarea_optionalText {
+        ${theme.typography.bodyTextSmall};
+        margin-left: ${theme.spacing.xxs};
+      }
+
       & .fi-textarea_hintText {
         display: block;
         color: ${theme.colors.depthDark1};

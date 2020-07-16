@@ -14,6 +14,7 @@ import { idGenerator } from '../../utils/uuid';
 const baseClassName = 'fi-textarea';
 const textareaClassNames = {
   label: `${baseClassName}_label`,
+  optionalText: `${baseClassName}_optionalText`,
   textarea: `${baseClassName}_textarea`,
   hintText: `${baseClassName}_hintText`,
   statusText: `${baseClassName}_statusText`,
@@ -54,6 +55,7 @@ export interface TextareaProps extends HtmlTextareaProps {
       @default 'vertical' 
    */
   resize?: 'both' | 'vertical' | 'horizontal' | 'none';
+  optionalText?: string;
 }
 
 class BaseTextarea extends Component<TextareaProps> {
@@ -71,6 +73,7 @@ class BaseTextarea extends Component<TextareaProps> {
       statusText,
       visualPlaceholder,
       resize: dismissResize,
+      optionalText,
       ...passProps
     } = this.props;
 
@@ -84,8 +87,15 @@ class BaseTextarea extends Component<TextareaProps> {
         {hideLabel ? (
           <VisuallyHidden>{labelText}</VisuallyHidden>
         ) : (
-          <Paragraph className={textareaClassNames.label}>
-            {labelText}
+          <Paragraph>
+            <HtmlSpan className={textareaClassNames.label}>
+              {labelText}
+            </HtmlSpan>
+            {optionalText && (
+              <HtmlSpan className={textareaClassNames.optionalText}>
+                {`(${optionalText})`}
+              </HtmlSpan>
+            )}
           </Paragraph>
         )}
         {hintText && (
