@@ -12,7 +12,6 @@ import { idGenerator } from '../../utils/uuid';
 
 const baseClassName = 'fi-textarea';
 const textareaClassNames = {
-  container: `${baseClassName}_container`,
   label: `${baseClassName}_label`,
   textarea: `${baseClassName}_textarea`,
   hintText: `${baseClassName}_hintText`,
@@ -71,18 +70,13 @@ export class Textarea extends Component<TextareaProps> {
       statusText || hintText ? [statusTextId, hintTextId].join(' ') : '';
 
     return (
-      <HtmlLabel
-        className={classnames(
-          baseClassName,
-          textareaClassNames.container,
-          className,
-          {},
-        )}
-      >
+      <HtmlLabel className={classnames(baseClassName, className, {})}>
         {hideLabel ? (
           <VisuallyHidden>{labelText}</VisuallyHidden>
         ) : (
-          <Paragraph>{labelText}</Paragraph>
+          <Paragraph className={textareaClassNames.label}>
+            {labelText}
+          </Paragraph>
         )}
         {hintText && (
           <HtmlSpan className={textareaClassNames.hintText} id={hintTextId}>
