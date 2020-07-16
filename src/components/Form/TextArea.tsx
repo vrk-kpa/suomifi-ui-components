@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, ChangeEvent, FocusEvent } from 'react';
+import React, { Component, ChangeEvent, FocusEvent } from 'react';
 import {
   HtmlLabel,
   HtmlTextarea,
@@ -38,7 +38,7 @@ export interface TextareaProps extends HtmlTextareaProps {
   labelMode?: 'hidden' | 'visible';
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
-  children?: ReactNode;
+  children?: string;
   /** Hint text to be shown below the component */
   hintText?: string;
   status?: 'default' | 'error';
@@ -94,10 +94,9 @@ export class Textarea extends Component<TextareaProps> {
           aria-describedby={infoElementIds}
           className={textareaClassNames.textarea}
           disabled={disabled}
+          defaultValue={children}
           {...passProps}
-        >
-          {children}
-        </HtmlTextarea>
+        />
         {statusText && !disabled && (
           <HtmlSpan className={textareaClassNames.statusText} id={statusTextId}>
             {statusText}
