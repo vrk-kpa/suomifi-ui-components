@@ -29,7 +29,6 @@ export const baseStyles = withSuomifiTheme(
         border-radius: 2px;
         border: 1px solid ${theme.colors.depthLight1};
         box-shadow: ${theme.shadows.actionElementBoxShadow};
-        resize: vertical;
         padding: 8px 14px 13px 10px;
         margin-top: ${theme.spacing.insetL};
 

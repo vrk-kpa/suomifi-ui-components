@@ -8,6 +8,7 @@ import {
 import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import { Paragraph } from '../Paragraph/Paragraph';
 import classnames from 'classnames';
+import styled from 'styled-components';
 import { idGenerator } from '../../utils/uuid';
 
 const baseClassName = 'fi-textarea';
@@ -48,9 +49,14 @@ export interface TextareaProps extends HtmlTextareaProps {
   status?: 'default' | 'error';
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
+  /** Resize mode of the textarea
+      'both' | 'vertical' | 'horizontal' | 'none'
+      @default 'vertical' 
+   */
+  resize?: 'both' | 'vertical' | 'horizontal' | 'none';
 }
 
-export class Textarea extends Component<TextareaProps> {
+class BaseTextarea extends Component<TextareaProps> {
   render() {
     const {
       id: propId,
@@ -64,6 +70,7 @@ export class Textarea extends Component<TextareaProps> {
       status,
       statusText,
       visualPlaceholder,
+      resize: dismissResize,
       ...passProps
     } = this.props;
 
@@ -105,5 +112,19 @@ export class Textarea extends Component<TextareaProps> {
         )}
       </HtmlLabel>
     );
+  }
+}
+
+const StyledBaseTextarea = styled((props: TextareaProps) => (
+  <BaseTextarea {...props} />
+))`
+  & .${textareaClassNames.textarea} {
+    resize: ${(props) => props.resize || 'vertical'};
+  }
+`;
+
+export class Textarea extends Component<TextareaProps> {
+  render() {
+    return <StyledBaseTextarea {...this.props} />;
   }
 }
