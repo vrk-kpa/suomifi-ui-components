@@ -19,15 +19,15 @@ const textareaClassNames = {
 };
 
 export interface TextareaProps extends HtmlTextareaProps {
-  /** Custom classname for the input to extend or customize */
+  /** Custom classname to extend or customize */
   className?: string;
-  /** Disable input usage */
+  /** Disable usage */
   disabled?: boolean;
   /** Event handler to execute when clicked */
   onClick?: () => void;
-  /** To execute on input text change */
+  /** To execute on textarea text change */
   onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-  /** To execute on input text onBlur */
+  /** To execute on textarea text onBlur */
   onBlur?: (event: FocusEvent<HTMLTextAreaElement>) => void;
   /** Label */
   labelText: string;
@@ -37,9 +37,14 @@ export interface TextareaProps extends HtmlTextareaProps {
   labelMode?: 'hidden' | 'visible';
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
+  /** Text content for textarea */
   children?: string;
   /** Hint text to be shown below the component */
   hintText?: string;
+  /**
+   * 'default' | 'error'
+   * @default default
+   */
   status?: 'default' | 'error';
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
