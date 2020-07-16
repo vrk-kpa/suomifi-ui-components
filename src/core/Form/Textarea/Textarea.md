@@ -12,7 +12,7 @@ import { Textarea } from 'suomifi-ui-components';
   </Textarea>
 
   <Textarea
-    labelText="Textarea with error"
+    labelText="Textarea with error and status text"
     statusText="Something is wrong!"
     status="error"
   >
@@ -24,7 +24,15 @@ import { Textarea } from 'suomifi-ui-components';
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
     vestibulum iaculis augue, sit amet tincidunt ipsum.
   </Textarea>
+</>;
+```
 
+### resize
+
+```js
+import { Textarea } from 'suomifi-ui-components';
+
+<>
   <Textarea
     labelText="Textarea resizable only horizontally"
     resize="horizontal"
