@@ -58,6 +58,7 @@ export class Textarea extends Component<TextareaProps> {
       hintText,
       status,
       statusText,
+      visualPlaceholder,
       ...passProps
     } = this.props;
 
@@ -89,6 +90,7 @@ export class Textarea extends Component<TextareaProps> {
           className={textareaClassNames.textarea}
           disabled={disabled}
           defaultValue={children}
+          placeholder={visualPlaceholder}
           {...passProps}
         />
         {statusText && !disabled && (
