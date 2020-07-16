@@ -14,14 +14,6 @@ export const baseStyles = withSuomifiTheme(
       flex-direction: column;
       color: ${theme.colors.blackBase};
 
-      &--disabled {
-        color: blue;
-
-        & .fi-textarea_textarea {
-          ${disabledCursor}
-        }
-      }
-
       & .fi-textarea_label {
         ${font({ theme })('actionElementInnerTextBold')};
         color: ${theme.colors.blackBase};
@@ -52,6 +44,15 @@ export const baseStyles = withSuomifiTheme(
         font-size: 14px;
         line-height: 18px;
         font-weight: 600;
+      }
+
+      &.fi-textarea--disabled {
+        color: ${theme.colors.depthBase};
+        ${disabledCursor}
+
+        & .fi-textarea_textarea {
+          background-color: ${theme.colors.depthLight3};
+        }
       }
 
       &.fi-textarea--error {
