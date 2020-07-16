@@ -12,6 +12,7 @@ export const baseStyles = withSuomifiTheme(
     &.fi-textarea {
       display: flex;
       flex-direction: column;
+      color: ${theme.colors.blackBase};
 
       &--disabled {
         color: blue;
@@ -30,7 +31,6 @@ export const baseStyles = withSuomifiTheme(
         display: block;
         color: ${theme.colors.depthDark1};
         ${theme.typography.bodyTextSmall};
-        margin-bottom: ${theme.spacing.insetL};
       }
 
       & .fi-textarea_textarea {
@@ -39,9 +39,28 @@ export const baseStyles = withSuomifiTheme(
         box-shadow: ${theme.shadows.actionElementBoxShadow};
         resize: vertical;
         padding: 8px 14px 13px 10px;
+        margin-top: ${theme.spacing.insetL};
 
         &:focus {
           ${focus({ theme, noPseudo: true, variant: 'boxShadow' })}
+        }
+      }
+
+      & .fi-textarea_statusText {
+        display: block;
+        margin-top: ${theme.spacing.xxs};
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 600;
+      }
+
+      &.fi-textarea--error {
+        & .fi-textarea_textarea {
+          border: 2px solid ${theme.colors.alertBase};
+        }
+
+        & .fi-textarea_statusText {
+          color: ${theme.colors.alertBase};
         }
       }
     }
