@@ -3,11 +3,10 @@ import {
   HtmlLabel,
   HtmlTextarea,
   HtmlTextareaProps,
-  HtmlDiv,
   HtmlSpan,
 } from '../../reset';
-/* import { VisuallyHidden } from '../Visually-hidden/Visually-hidden'; */
-/* import { Paragraph, ParagraphProps } from '../Paragraph/Paragraph'; */
+import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
+import { Paragraph } from '../Paragraph/Paragraph';
 import classnames from 'classnames';
 import { idGenerator } from '../../utils/uuid';
 
@@ -55,12 +54,15 @@ export class Textarea extends Component<TextareaProps> {
       disabled = false,
       children,
       onClick: dismissOnClick,
+      labelMode,
       labelText,
       hintText,
       status,
       statusText,
       ...passProps
     } = this.props;
+
+    const hideLabel = labelMode === 'hidden';
     const id = idGenerator(propId);
     const statusTextId = `${idGenerator(propId)}-statusText`;
     const hintTextId = `${idGenerator(propId)}-hintText`;
@@ -69,7 +71,7 @@ export class Textarea extends Component<TextareaProps> {
       statusText || hintText ? [statusTextId, hintTextId].join(' ') : '';
 
     return (
-      <HtmlDiv
+      <HtmlLabel
         className={classnames(
           baseClassName,
           textareaClassNames.container,
@@ -77,10 +79,11 @@ export class Textarea extends Component<TextareaProps> {
           {},
         )}
       >
-        <HtmlLabel htmlFor={id} className={textareaClassNames.label}>
-          {labelText}
-        </HtmlLabel>
-
+        {hideLabel ? (
+          <VisuallyHidden>{labelText}</VisuallyHidden>
+        ) : (
+          <Paragraph>{labelText}</Paragraph>
+        )}
         {hintText && (
           <HtmlSpan className={textareaClassNames.hintText} id={hintTextId}>
             {hintText}
@@ -100,7 +103,7 @@ export class Textarea extends Component<TextareaProps> {
             {statusText}
           </HtmlSpan>
         )}
-      </HtmlDiv>
+      </HtmlLabel>
     );
   }
 }
