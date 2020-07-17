@@ -41,6 +41,8 @@ export interface RadiobuttonGroupProps {
    * @default uuidV4
    */
   id?: string;
+  /** Name for the group; this will be set to Radiobuttons */
+  name: string;
 }
 
 export interface RadiobuttonGroupProviderState {
@@ -57,6 +59,7 @@ const { Provider, Consumer: RadiobuttonGroupConsumer } = React.createContext(
 
 const RadiobuttonGroupItems = (
   children: Array<React.ReactElement<RadiobuttonProps>>,
+  groupName: string,
   selectedValue?: string,
 ) =>
   React.Children.map(
@@ -66,6 +69,7 @@ const RadiobuttonGroupItems = (
         return React.cloneElement(child, {
           radiobuttonGroup: true,
           checked: selectedValue === child.props.value,
+          name: groupName,
         });
       }
       return child;
@@ -93,6 +97,7 @@ export class RadiobuttonGroup extends Component<RadiobuttonGroupProps> {
       labelMode,
       hintText,
       id: propId,
+      name,
     } = this.props;
     const { selectedValue } = this.state;
     const hideLabel = labelMode === 'hidden';
@@ -130,7 +135,7 @@ export class RadiobuttonGroup extends Component<RadiobuttonGroupProps> {
               onRadiobuttonChange: this.handleRadiobuttonChange,
             }}
           >
-            {RadiobuttonGroupItems(children, selectedValue)}
+            {RadiobuttonGroupItems(children, name, selectedValue)}
           </Provider>
         </HtmlDiv>
       </HtmlDiv>

@@ -4,16 +4,11 @@ import { Radiobutton } from './Radiobutton';
 <Radiobutton.group
   label="Radiobuttons in group"
   hintText="Example hint text"
+  name="test-group"
 >
-  <Radiobutton name="test-group" value="value-test-1">
-    Choice 1
-  </Radiobutton>
-  <Radiobutton name="test-group" value="value-test-2">
-    Choice 2
-  </Radiobutton>
-  <Radiobutton name="test-group" value="value-test-3">
-    Choice 3
-  </Radiobutton>
+  <Radiobutton value="value-test-1">Choice 1</Radiobutton>
+  <Radiobutton value="value-test-2">Choice 2</Radiobutton>
+  <Radiobutton value="value-test-3">Choice 3</Radiobutton>
 </Radiobutton.group>;
 ```
 
@@ -87,34 +82,25 @@ import { Radiobutton } from './Radiobutton';
   <Radiobutton.group
     label="Large Radiobuttons in group"
     hintText="Example hint text"
+    name="test-group-large"
   >
-    <Radiobutton.large name="large-test" value="value-test-1">
+    <Radiobutton.large value="value-test-1">
       Large choice 1
     </Radiobutton.large>
-    <Radiobutton
-      name="large-test"
-      value="value-test-2"
-      variant="large"
-    >
+    <Radiobutton value="value-test-2" variant="large">
       Large choice 2
     </Radiobutton>
     <Radiobutton
-      name="large-test"
       value="value-test-3"
       variant="large"
       hintText="Example hint text"
     >
       Large choice 3
     </Radiobutton>
-    <Radiobutton.large
-      name="large-test"
-      value="value-test-4"
-      disabled
-    >
+    <Radiobutton.large value="value-test-4" disabled>
       Disabled large choice 4
     </Radiobutton.large>
     <Radiobutton.large
-      name="large-test"
       value="value-test-5"
       hintText="Example hint text"
       disabled
