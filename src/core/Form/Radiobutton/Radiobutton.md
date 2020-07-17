@@ -1,12 +1,32 @@
 ```js
 import { Radiobutton } from './Radiobutton';
 
+<Radiobutton.group
+  label="Radiobuttons in group"
+  hintText="Example hint text"
+>
+  <Radiobutton name="test-group" value="value-test-1">
+    Choice 1
+  </Radiobutton>
+  <Radiobutton name="test-group" value="value-test-2">
+    Choice 2
+  </Radiobutton>
+  <Radiobutton name="test-group" value="value-test-3">
+    Choice 3
+  </Radiobutton>
+</Radiobutton.group>;
+```
+
+### Standalone radio buttons
+
+```js
+import { Radiobutton } from './Radiobutton';
+
 const [selectedValue, setSelectedValue] = React.useState(
   'value-test-2'
 );
 
 const handleChange = (event) => {
-  console.log(event.target.value);
   setSelectedValue(event.target.value);
 };
 
@@ -37,14 +57,22 @@ const handleChange = (event) => {
     >
       Choice 3
     </Radiobutton>
-    <Radiobutton name="test" value="value-test-4" disabled>
+    <Radiobutton
+      name="test"
+      value="value-test-4"
+      checked={selectedValue === 'value-test-4'}
+      onChange={handleChange}
+      disabled
+    >
       Disabled choice 4
     </Radiobutton>
     <Radiobutton
       name="test"
       value="value-test-5"
-      disabled
       hintText="Example hint text"
+      checked={selectedValue === 'value-test-5'}
+      onChange={handleChange}
+      disabled
     >
       Disabled choice 5
     </Radiobutton>
@@ -56,7 +84,10 @@ const handleChange = (event) => {
 import { Radiobutton } from './Radiobutton';
 
 <>
-  <div>
+  <Radiobutton.group
+    label="Large Radiobuttons in group"
+    hintText="Example hint text"
+  >
     <Radiobutton.large name="large-test" value="value-test-1">
       Large choice 1
     </Radiobutton.large>
@@ -85,24 +116,11 @@ import { Radiobutton } from './Radiobutton';
     <Radiobutton.large
       name="large-test"
       value="value-test-5"
-      disabled
       hintText="Example hint text"
+      disabled
     >
       Disabled large choice 5
     </Radiobutton.large>
-  </div>
+  </Radiobutton.group>
 </>;
-```
-
-```js
-import { Radiobutton } from './Radiobutton';
-
-<Radiobutton.group label="Make your choice" hintText="Choose wisely">
-  <Radiobutton name="test-group" value="value-test-1">
-    Choice 1
-  </Radiobutton>
-  <Radiobutton name="test-group" value="value-test-2">
-    Choice 2
-  </Radiobutton>
-</Radiobutton.group>;
 ```
