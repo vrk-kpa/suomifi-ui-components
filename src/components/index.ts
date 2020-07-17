@@ -37,3 +37,4 @@ export {
   RadiobuttonGroup,
   RadiobuttonGroupProps,
 } from './Form/RadiobuttonGroup';
+export { RadiobuttonDivider } from './Form/RadiobuttonDivider';

@@ -6,6 +6,10 @@ import {
   RadiobuttonProps as CompRadiobuttonProps,
 } from '../../../components/Form/Radiobutton';
 import { RadiobuttonGroup, RadiobuttonGroupProps } from './RadiobuttonGroup';
+import {
+  RadiobuttonDivider,
+  RadiobuttonDividerProps,
+} from './RadiobuttonDivider';
 import { baseStyles } from './Radiobutton.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import classnames from 'classnames';
@@ -62,6 +66,10 @@ export class Radiobutton extends Component<RadiobuttonProps> {
 
   static large = (props: RadiobuttonProps) => {
     return <DefaultRadiobutton {...props} variant="large" />;
+  };
+
+  static divider = (props: RadiobuttonDividerProps) => {
+    return <RadiobuttonDivider {...props} />;
   };
 
   render() {
