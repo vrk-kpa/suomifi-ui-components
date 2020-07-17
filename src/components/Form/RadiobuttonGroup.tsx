@@ -43,6 +43,10 @@ export interface RadiobuttonGroupProps {
   id?: string;
   /** Name for the group; this will be set to Radiobuttons */
   name: string;
+  /** Value that is selected from group, should match with the value given to Radiobutton */
+  value?: string;
+  /** Value that is selected by default */
+  defaultValue?: string;
 }
 
 export interface RadiobuttonGroupProviderState {
@@ -82,8 +86,19 @@ export interface RadiobuttonGroupState {
 
 export class RadiobuttonGroup extends Component<RadiobuttonGroupProps> {
   state: RadiobuttonGroupState = {
-    selectedValue: undefined,
+    selectedValue: this.props.value || this.props.defaultValue,
   };
+
+  static getDerivedStateFromProps(
+    nextProps: RadiobuttonGroupProps,
+    prevState: RadiobuttonGroupState,
+  ) {
+    const { value } = nextProps;
+    if (value !== undefined && value !== prevState.selectedValue) {
+      return { selectedValue: value };
+    }
+    return null;
+  }
 
   handleRadiobuttonChange = (value: string) => {
     this.setState({ selectedValue: value });
@@ -98,6 +113,8 @@ export class RadiobuttonGroup extends Component<RadiobuttonGroupProps> {
       hintText,
       id: propId,
       name,
+      defaultValue: dismissDefaultValue,
+      ...passProps
     } = this.props;
     const { selectedValue } = this.state;
     const hideLabel = labelMode === 'hidden';
@@ -113,6 +130,7 @@ export class RadiobuttonGroup extends Component<RadiobuttonGroupProps> {
         id={id}
         role="group"
         aria-labelledby={labelledBy}
+        {...passProps}
       >
         {hideLabel ? (
           <VisuallyHidden id={labelId}>{label}</VisuallyHidden>
