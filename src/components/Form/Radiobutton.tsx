@@ -98,6 +98,7 @@ class RadiobuttonItem extends Component<RadiobuttonProps> {
       onChange: dismissOnChange,
       disabled = false,
       consumer,
+      radiobuttonGroup,
       ...passProps
     } = this.props;
     const { checkedState } = this.state;
