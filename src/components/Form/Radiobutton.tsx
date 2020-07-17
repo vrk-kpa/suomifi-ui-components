@@ -42,7 +42,6 @@ export interface RadiobuttonProps {
   hintText?: string;
   /** Disable Radiobutton. Value won't be included when submitting */
   disabled?: boolean;
-  event: React.ChangeEvent<HTMLInputElement>;
   /**
    * 'small' | 'large'
    * @default small
@@ -51,6 +50,7 @@ export interface RadiobuttonProps {
   radiobuttonGroup?: boolean;
   consumer?: RadiobuttonGroupProviderState;
   checked?: boolean;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface RadiobuttonState {
@@ -73,13 +73,17 @@ class RadiobuttonItem extends Component<RadiobuttonProps> {
     return null;
   }
 
-  handleClick = (event: React.ChangeEvent<HTMLInputElement>) => {
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {
       radiobuttonGroup,
+      onChange,
       consumer: { onRadiobuttonChange } = { onRadiobuttonChange: undefined },
     } = this.props;
     if (!!radiobuttonGroup && !!onRadiobuttonChange) {
       onRadiobuttonChange(event.target.value);
+    }
+    if (!!onChange) {
+      onChange(event);
     }
   };
 
@@ -91,6 +95,7 @@ class RadiobuttonItem extends Component<RadiobuttonProps> {
       value,
       hintText,
       className,
+      onChange: dismissOnChange,
       disabled = false,
       ...passProps
     } = this.props;
@@ -116,7 +121,7 @@ class RadiobuttonItem extends Component<RadiobuttonProps> {
           value={value}
           id={id}
           disabled={disabled}
-          onChange={this.handleClick}
+          onChange={this.handleChange}
           checked={checkedState}
         />
         <HtmlLabel

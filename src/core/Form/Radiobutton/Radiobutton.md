@@ -1,18 +1,39 @@
 ```js
 import { Radiobutton } from './Radiobutton';
 
+const [selectedValue, setSelectedValue] = React.useState(
+  'value-test-2'
+);
+
+const handleChange = (event) => {
+  console.log(event.target.value);
+  setSelectedValue(event.target.value);
+};
+
 <>
   <div>
-    <Radiobutton name="test" value="value-test-1">
+    <Radiobutton
+      name="test"
+      value="value-test-1"
+      checked={selectedValue === 'value-test-1'}
+      onChange={handleChange}
+    >
       Choice 1
     </Radiobutton>
-    <Radiobutton name="test" value="value-test-2">
+    <Radiobutton
+      name="test"
+      value="value-test-2"
+      checked={selectedValue === 'value-test-2'}
+      onChange={handleChange}
+    >
       Choice 2
     </Radiobutton>
     <Radiobutton
       name="test"
       value="value-test-3"
       hintText="Example hint text"
+      checked={selectedValue === 'value-test-3'}
+      onChange={handleChange}
     >
       Choice 3
     </Radiobutton>
