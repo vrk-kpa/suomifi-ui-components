@@ -19,11 +19,6 @@ type Label = 'hidden' | 'visible';
 export interface RadiobuttonGroupProps {
   /** Custom classname to extend or customize */
   className?: string;
-  /**
-   * Unique id
-   * If no id is specified, one will be generated using uuid
-   * @default uuidV4
-   */
   /** Radiobutton or RadiobuttonDivider */
   children: Array<React.ReactElement<RadiobuttonProps>>;
   /**
