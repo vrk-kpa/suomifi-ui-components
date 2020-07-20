@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import { HtmlSpan } from '../../reset';
 
 export interface RadiobuttonDividerProps {
-  children?: ReactNode;
+  children: ReactNode;
   className?: string;
   variant?: 'small' | 'large';
 }
