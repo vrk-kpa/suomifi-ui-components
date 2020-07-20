@@ -52,6 +52,7 @@ const handleChange = (event) => {
     >
       Choice 3
     </Radiobutton>
+    <Radiobutton.divider>or</Radiobutton.divider>
     <Radiobutton
       name="test"
       value="value-test-4"
@@ -97,6 +98,7 @@ import { Radiobutton } from './Radiobutton';
     >
       Large choice 3
     </Radiobutton>
+    <Radiobutton.divider variant="large">or</Radiobutton.divider>
     <Radiobutton.large value="value-test-4" disabled>
       Disabled large choice 4
     </Radiobutton.large>
