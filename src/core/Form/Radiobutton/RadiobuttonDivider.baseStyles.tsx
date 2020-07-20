@@ -10,11 +10,9 @@ export const baseStyles = withSuomifiTheme(
 
     &.fi-radiobuttondivider {
       display: block;
-      text-align: center;
-      width: 18px;
 
       &.fi-radiobuttondivider--large {
-        width: 30px;
+        margin-left: 6px;
       }
     }
   `,
