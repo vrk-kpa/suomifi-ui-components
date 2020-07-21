@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { Radiobutton } from './Radiobutton';
 
 describe('disabled', () => {
@@ -52,5 +52,27 @@ describe('hintText', () => {
     const hintText = getByText('Example hint text');
     expect(hintText.textContent).toBe('Example hint text');
     expect(hintText).toHaveClass('fi-radiobutton_hintText');
+  });
+});
+
+describe('variant', () => {
+  it('has "--large"-class when using large', () => {
+    const { container } = render(
+      <Radiobutton variant="large">Option 1</Radiobutton>,
+    );
+    expect(container.firstChild).toHaveClass('fi-radiobutton--large');
+  });
+});
+
+describe('onChange', () => {
+  it('is called when clicked', () => {
+    const mockClick = jest.fn();
+    const { getByRole } = render(
+      <Radiobutton onChange={mockClick}>Option 1</Radiobutton>,
+    );
+    const radio = getByRole('radio');
+    fireEvent.click(radio);
+
+    expect(mockClick).toHaveBeenCalledTimes(1);
   });
 });
