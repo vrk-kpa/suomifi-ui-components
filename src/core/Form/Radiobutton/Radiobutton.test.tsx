@@ -76,3 +76,20 @@ describe('onChange', () => {
     expect(mockClick).toHaveBeenCalledTimes(1);
   });
 });
+
+describe('id', () => {
+  it('has the given id', () => {
+    const { getByRole } = render(
+      <Radiobutton id="good-id">Option 1</Radiobutton>,
+    );
+    expect(getByRole('radio')).toHaveAttribute('id', 'good-id');
+  });
+});
+
+describe('children', () => {
+  it('has the given children as label', () => {
+    const { container } = render(<Radiobutton>Option 1</Radiobutton>);
+    const label = container.querySelector('label');
+    expect(label?.textContent).toBe('Option 1');
+  });
+});
