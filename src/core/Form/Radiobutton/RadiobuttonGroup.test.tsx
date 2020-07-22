@@ -3,17 +3,11 @@ import { render } from '@testing-library/react';
 import { Radiobutton } from './Radiobutton';
 import { RadiobuttonGroup } from './RadiobuttonGroup';
 
-const RadioChildren = [
-  <Radiobutton key="1" id="test-id1">
-    Label text 1
-  </Radiobutton>,
-  <Radiobutton key="2" id="test-id2">
-    Label text 2
-  </Radiobutton>,
-  <Radiobutton key="3" id="test-id3">
-    Label text 3
-  </Radiobutton>,
-];
+const RadioChildren = [1, 2, 3].map((value) => (
+  <Radiobutton key={value} id={`test-id-${value}`}>
+    {`Label text ${value}`}
+  </Radiobutton>
+));
 
 describe('className', () => {
   it('has the given classname', () => {
