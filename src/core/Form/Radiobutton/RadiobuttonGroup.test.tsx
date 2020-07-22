@@ -81,3 +81,15 @@ describe('id', () => {
     expect(container.firstChild).toHaveAttribute('id', 'good-id');
   });
 });
+
+describe('name', () => {
+  it('has children, which all have the given name', () => {
+    const { getAllByRole } = render(
+      <RadiobuttonGroup id="test-id" label="Label" name="nice-name">
+        {RadioChildren}
+      </RadiobuttonGroup>,
+    );
+    const radios = getAllByRole('radio');
+    radios.map((radio) => expect(radio).toHaveAttribute('name', 'nice-name'));
+  });
+});
