@@ -4,7 +4,7 @@ import { Radiobutton } from './Radiobutton';
 import { RadiobuttonGroup } from './RadiobuttonGroup';
 
 const RadioChildren = [1, 2, 3].map((value) => (
-  <Radiobutton key={value} id={`test-id-${value}`}>
+  <Radiobutton key={value} id={`test-id-${value}`} value={`${value}`}>
     {`Label text ${value}`}
   </Radiobutton>
 ));
@@ -91,5 +91,43 @@ describe('name', () => {
     );
     const radios = getAllByRole('radio');
     radios.map((radio) => expect(radio).toHaveAttribute('name', 'nice-name'));
+  });
+});
+
+describe('value', () => {
+  it('has the correct radio selected', () => {
+    const { container, rerender } = render(
+      <RadiobuttonGroup id="test-id" label="Label" name="name" value="2">
+        {RadioChildren}
+      </RadiobuttonGroup>,
+    );
+    const radiobuttons = container.querySelectorAll('.fi-radiobutton');
+    expect(radiobuttons[0]).not.toHaveClass('fi-radiobutton--checked');
+    expect(radiobuttons[1]).toHaveClass('fi-radiobutton--checked');
+    expect(radiobuttons[2]).not.toHaveClass('fi-radiobutton--checked');
+
+    rerender(
+      <RadiobuttonGroup id="test-id" label="Label" name="name" value="3">
+        {RadioChildren}
+      </RadiobuttonGroup>,
+    );
+
+    expect(radiobuttons[0]).not.toHaveClass('fi-radiobutton--checked');
+    expect(radiobuttons[1]).not.toHaveClass('fi-radiobutton--checked');
+    expect(radiobuttons[2]).toHaveClass('fi-radiobutton--checked');
+  });
+});
+
+describe('defaultValue', () => {
+  it('has the correct radio selected by default', () => {
+    const { container } = render(
+      <RadiobuttonGroup id="test-id" label="Label" name="name" defaultValue="3">
+        {RadioChildren}
+      </RadiobuttonGroup>,
+    );
+    const radiobuttons = container.querySelectorAll('.fi-radiobutton');
+    expect(radiobuttons[0]).not.toHaveClass('fi-radiobutton--checked');
+    expect(radiobuttons[1]).not.toHaveClass('fi-radiobutton--checked');
+    expect(radiobuttons[2]).toHaveClass('fi-radiobutton--checked');
   });
 });
