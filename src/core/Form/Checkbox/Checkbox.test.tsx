@@ -55,25 +55,27 @@ test('Calling render with the same component on the same container does not remo
   expect(getByTestId('regular_id_changed').textContent).toBe('Regular changed');
 });
 
-test(
-  'Input should not have basic accessibility issues',
-  axeTest(RegularTestCheckbox),
-);
+describe('accessibility', () => {
+  test(
+    'RegularTestCheckbox should not have basic accessibility issues',
+    axeTest(RegularTestCheckbox),
+  );
 
-test(
-  'Input should not have basic accessibility issues',
-  axeTest(LargeTestCheckboxWithHintText),
-);
+  test(
+    'LargeTestCheckboxWithHintText should not have basic accessibility issues',
+    axeTest(LargeTestCheckboxWithHintText),
+  );
 
-test(
-  'Input should not have basic accessibility issues',
-  axeTest(CheckedLargeTestCheckboxWithError),
-);
+  test(
+    'CheckedLargeTestCheckboxWithError should not have basic accessibility issues',
+    axeTest(CheckedLargeTestCheckboxWithError),
+  );
 
-test(
-  'Input should not have basic accessibility issues',
-  axeTest(DisabledTestCheckbox),
-);
+  test(
+    'DisabledTestCheckbox should not have basic accessibility issues',
+    axeTest(DisabledTestCheckbox),
+  );
+});
 
 describe('props', () => {
   describe('name', () => {
