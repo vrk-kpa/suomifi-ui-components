@@ -7,7 +7,7 @@ const BaseCheckbox = (props: CheckboxProps) => {
   const { id, children, ...passProps } = props;
   return (
     <Checkbox id="test" {...passProps}>
-      {children}
+      {children || 'Default label'}
     </Checkbox>
   );
 };
@@ -74,3 +74,13 @@ test(
   'Input should not have basic accessibility issues',
   axeTest(DisabledTestCheckbox),
 );
+
+describe('props', () => {
+  describe('name', () => {
+    it('name', () => {
+      const { getByRole } = render(<BaseCheckbox name="magical" />);
+      const input = getByRole('checkbox');
+      expect(input).toHaveAttribute('name', 'magical');
+    });
+  });
+});
