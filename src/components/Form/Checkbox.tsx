@@ -65,6 +65,7 @@ export interface CheckboxProps {
    * @default uuidV4
    */
   id?: string;
+  name?: string;
 }
 
 export interface CheckboxState {
@@ -111,6 +112,7 @@ export class Checkbox extends Component<CheckboxProps> {
       hintText,
       status,
       statusText,
+      name,
       ...passProps
     } = this.props;
     const { checkedState } = this.state;
@@ -146,6 +148,7 @@ export class Checkbox extends Component<CheckboxProps> {
           {...newCheckboxInputProps}
           type="checkbox"
           aria-describedby={infoElementIds}
+          name={name}
         />
         <HtmlLabel
           htmlFor={id}
