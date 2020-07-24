@@ -1,72 +1,43 @@
 import React from 'react';
 import { axeTest } from '../../../utils/test/axe';
 import { render } from '@testing-library/react';
-import { Checkbox } from './Checkbox';
+import { Checkbox, CheckboxProps } from './Checkbox';
 
-const createTestCheckbox = (
-  large: boolean,
-  error: boolean,
-  defaultChecked: boolean,
-  labelText: string,
-  hint?: string,
-  statusText?: string,
-  dataTestId?: string,
-  disabled?: boolean,
-) => (
-  <Checkbox
-    variant={large ? 'large' : 'small'}
-    defaultChecked={defaultChecked}
-    status={error ? 'error' : 'default'}
-    hintText={hint}
-    statusText={statusText}
-    data-testid={dataTestId}
-    id="test"
-    disabled={disabled}
+const BaseCheckbox = (props: CheckboxProps) => {
+  const { id, children, ...passProps } = props;
+  return (
+    <Checkbox id="test" {...passProps}>
+      {children}
+    </Checkbox>
+  );
+};
+
+const RegularTestCheckbox = (
+  <BaseCheckbox data-testid="regular_id">Regular</BaseCheckbox>
+);
+
+const LargeTestCheckboxWithHintText = (
+  <BaseCheckbox data-testid="large_id" variant="large" hintText="Take a hint">
+    Large
+  </BaseCheckbox>
+);
+
+const CheckedLargeTestCheckboxWithError = (
+  <BaseCheckbox
+    data-testid="largeError_id"
+    variant="large"
+    statusText="EROR EROR"
+    defaultChecked
+    status="error"
   >
-    {labelText}
-  </Checkbox>
+    Large Checked with error
+  </BaseCheckbox>
 );
 
-const RegularTestCheckbox = createTestCheckbox(
-  false,
-  false,
-  false,
-  'Regular',
-  undefined,
-  undefined,
-  'regular_id',
-  false,
-);
-const LargeTestCheckbox = createTestCheckbox(
-  true,
-  false,
-  false,
-  'Large',
-  'Take a hint',
-  undefined,
-  'large_id',
-  false,
-);
-const CheckedLargeTestCheckboxWithError = createTestCheckbox(
-  true,
-  true,
-  true,
-  'Large Checked with error',
-  undefined,
-  'EROR EROR',
-  'largeError_id',
-  false,
-);
-
-const DisabledTestCheckbox = createTestCheckbox(
-  false,
-  false,
-  false,
-  'Regular',
-  undefined,
-  undefined,
-  'regular_id',
-  true,
+const DisabledTestCheckbox = (
+  <BaseCheckbox data-testid="reguarlDisabled_id" disabled>
+    Regular disabled
+  </BaseCheckbox>
 );
 
 test('Calling render with the same component on the same container does not remount', () => {
@@ -77,15 +48,9 @@ test('Calling render with the same component on the same container does not remo
 
   // re-render the same component with different props
   rerender(
-    createTestCheckbox(
-      false,
-      false,
-      false,
-      'Regular changed',
-      undefined,
-      undefined,
-      'regular_id_changed',
-    ),
+    <BaseCheckbox data-testid="regular_id_changed">
+      Regular changed
+    </BaseCheckbox>,
   );
   expect(getByTestId('regular_id_changed').textContent).toBe('Regular changed');
 });
@@ -97,7 +62,7 @@ test(
 
 test(
   'Input should not have basic accessibility issues',
-  axeTest(LargeTestCheckbox),
+  axeTest(LargeTestCheckboxWithHintText),
 );
 
 test(
