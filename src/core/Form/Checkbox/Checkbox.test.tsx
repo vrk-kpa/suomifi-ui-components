@@ -37,21 +37,6 @@ const DisabledTestCheckbox = (
   <BaseCheckbox disabled>Regular disabled</BaseCheckbox>
 );
 
-test('Calling render with the same component on the same container does not remount', () => {
-  const checkboxRendered = render(RegularTestCheckbox);
-  const { getByTestId, container, rerender } = checkboxRendered;
-  expect(container.firstChild).toMatchSnapshot();
-  expect(getByTestId('regular_id').textContent).toBe('Regular');
-
-  // re-render the same component with different props
-  rerender(
-    <BaseCheckbox data-testid="regular_id_changed">
-      Regular changed
-    </BaseCheckbox>,
-  );
-  expect(getByTestId('regular_id_changed').textContent).toBe('Regular changed');
-});
-
 describe('accessibility', () => {
   test(
     'RegularTestCheckbox should not have basic accessibility issues',
@@ -76,10 +61,34 @@ describe('accessibility', () => {
 
 describe('props', () => {
   describe('name', () => {
-    it('name', () => {
-      const { getByRole } = render(<BaseCheckbox name="magical" />);
+    it('has the given name prop on start and after prop change', () => {
+      const { getByRole, rerender } = render(<BaseCheckbox name="magical" />);
       const input = getByRole('checkbox');
       expect(input).toHaveAttribute('name', 'magical');
+
+      rerender(<BaseCheckbox name="unicorn" />);
+      expect(input).toHaveAttribute('name', 'unicorn');
+    });
+  });
+
+  describe('children', () => {
+    it('has the given children and it changes on prop change', () => {
+      const { getByTestId, rerender } = render(RegularTestCheckbox);
+      expect(getByTestId('regular_id').textContent).toBe('Regular');
+
+      rerender(
+        <BaseCheckbox data-testid="regular_id_changed">
+          Regular changed
+        </BaseCheckbox>,
+      );
+      expect(getByTestId('regular_id_changed').textContent).toBe(
+        'Regular changed',
+      );
+    });
+
+    it('has matching snapshot', () => {
+      const { container } = render(RegularTestCheckbox);
+      expect(container.firstChild).toMatchSnapshot();
     });
   });
 });
