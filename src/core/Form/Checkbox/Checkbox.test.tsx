@@ -17,14 +17,13 @@ const RegularTestCheckbox = (
 );
 
 const LargeTestCheckboxWithHintText = (
-  <BaseCheckbox data-testid="large_id" variant="large" hintText="Take a hint">
+  <BaseCheckbox variant="large" hintText="Take a hint">
     Large
   </BaseCheckbox>
 );
 
 const CheckedLargeTestCheckboxWithError = (
   <BaseCheckbox
-    data-testid="largeError_id"
     variant="large"
     statusText="EROR EROR"
     defaultChecked
@@ -35,9 +34,7 @@ const CheckedLargeTestCheckboxWithError = (
 );
 
 const DisabledTestCheckbox = (
-  <BaseCheckbox data-testid="reguarlDisabled_id" disabled>
-    Regular disabled
-  </BaseCheckbox>
+  <BaseCheckbox disabled>Regular disabled</BaseCheckbox>
 );
 
 test('Calling render with the same component on the same container does not remount', () => {
