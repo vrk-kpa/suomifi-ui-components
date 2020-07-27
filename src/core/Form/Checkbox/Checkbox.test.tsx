@@ -71,6 +71,19 @@ describe('props', () => {
     });
   });
 
+  describe('value', () => {
+    it('has the given value prop on start and after prop change', () => {
+      const { getByRole, rerender } = render(
+        <BaseCheckbox value="test-value-1" />,
+      );
+      const input = getByRole('checkbox');
+      expect(input).toHaveAttribute('value', 'test-value-1');
+
+      rerender(<BaseCheckbox value="test-value-2" />);
+      expect(input).toHaveAttribute('value', 'test-value-2');
+    });
+  });
+
   describe('children', () => {
     it('has the given children and it changes on prop change', () => {
       const { getByTestId, rerender } = render(RegularTestCheckbox);

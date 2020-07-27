@@ -66,6 +66,7 @@ export interface CheckboxProps {
    */
   id?: string;
   name?: string;
+  value?: string;
 }
 
 export interface CheckboxState {
@@ -113,6 +114,7 @@ export class Checkbox extends Component<CheckboxProps> {
       status,
       statusText,
       name,
+      value,
       ...passProps
     } = this.props;
     const { checkedState } = this.state;
@@ -138,6 +140,8 @@ export class Checkbox extends Component<CheckboxProps> {
       checked: !!checkedState,
       className: checkboxBaseClassNames.input,
       onChange: this.handleClick,
+      name,
+      value,
     };
 
     return (
@@ -148,7 +152,6 @@ export class Checkbox extends Component<CheckboxProps> {
           {...newCheckboxInputProps}
           type="checkbox"
           aria-describedby={infoElementIds}
-          name={name}
         />
         <HtmlLabel
           htmlFor={id}
