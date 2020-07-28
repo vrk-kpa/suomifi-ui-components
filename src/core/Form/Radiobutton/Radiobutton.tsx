@@ -24,38 +24,34 @@ const radiobuttonClassNames = {
 export interface RadiobuttonProps extends CompRadiobuttonProps, TokensProp {}
 
 const StyledRadiobutton = styled(
-  ({ tokens, ...passProps }: RadiobuttonProps & InternalTokensProp) => (
-    <CompRadiobutton {...passProps} />
+  ({
+    tokens,
+    className,
+    disabled = false,
+    variant,
+    checked,
+    ...passProps
+  }: RadiobuttonProps & InternalTokensProp) => (
+    <CompRadiobutton
+      className={classnames(baseClassName, className, {
+        [radiobuttonClassNames.disabled]: disabled,
+        [radiobuttonClassNames.large]: variant === 'large',
+        [radiobuttonClassNames.checked]: checked,
+      })}
+      checked={checked}
+      disabled={disabled}
+      {...passProps}
+    />
   ),
 )`
   ${(props) => baseStyles(props)}
 `;
 
-class DefaultRadiobutton extends Component<RadiobuttonProps> {
+class DefaultRadiobutton extends Component<
+  RadiobuttonProps & InternalTokensProp
+> {
   render() {
-    const {
-      children,
-      disabled = false,
-      className,
-      variant,
-      checked,
-      ...passProps
-    } = withSuomifiDefaultProps(this.props);
-
-    return (
-      <StyledRadiobutton
-        disabled={disabled}
-        className={classnames(baseClassName, className, {
-          [radiobuttonClassNames.disabled]: disabled,
-          [radiobuttonClassNames.large]: variant === 'large',
-          [radiobuttonClassNames.checked]: checked,
-        })}
-        checked={checked}
-        {...passProps}
-      >
-        {children}
-      </StyledRadiobutton>
-    );
+    return <StyledRadiobutton {...this.props} />;
   }
 }
 
