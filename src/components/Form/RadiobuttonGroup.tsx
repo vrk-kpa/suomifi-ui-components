@@ -5,7 +5,6 @@ import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import { idGenerator } from '../../utils/uuid';
 
 import { RadiobuttonProps } from './Radiobutton';
-import { Radiobutton as CoreRadiobutton } from '../../core/Form/Radiobutton/Radiobutton';
 
 const baseClassName = 'fi-radiobuttongroup';
 const radiobuttonGroupClassNames = {
@@ -65,7 +64,7 @@ const RadiobuttonGroupItems = (
   React.Children.map(
     children,
     (child: React.ReactElement<RadiobuttonProps>) => {
-      if (React.isValidElement(child) && child.type === CoreRadiobutton) {
+      if (React.isValidElement(child) && child.props.value) {
         return React.cloneElement(child, {
           radiobuttonGroup: true,
           checked: selectedValue === child.props.value,
