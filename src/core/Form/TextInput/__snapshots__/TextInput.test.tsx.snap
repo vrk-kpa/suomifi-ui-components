@@ -305,7 +305,7 @@ exports[`snapshots match error status with statustext 1`] = `
       />
     </div>
     <span
-      class="c6 fi-text-input_statusText_span"
+      class="c6 fi-text-input_statusText"
       id="test-id2-statusText"
     >
       This is a status text
