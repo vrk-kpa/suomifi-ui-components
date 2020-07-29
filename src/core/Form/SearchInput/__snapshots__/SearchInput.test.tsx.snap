@@ -169,7 +169,7 @@ exports[`calling render with the same component on the same container does not r
   flex-direction: column;
 }
 
-.c2 .fi-text-input_statusText_container .fi-text-input_statusText_span {
+.c2 .fi-text-input_statusText_container .fi-text-input_statusText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -178,7 +178,7 @@ exports[`calling render with the same component on the same container does not r
   line-height: 20px;
 }
 
-.c2 .fi-text-input_hintText_p {
+.c2 .fi-text-input_hintText {
   display: block;
   color: hsl(0,0%,16%);
   margin-bottom: 10px;
@@ -248,7 +248,7 @@ exports[`calling render with the same component on the same container does not r
   border-color: hsl(3,59%,48%);
 }
 
-.c2.fi-text-input--error .fi-text-input_statusText_span {
+.c2.fi-text-input--error .fi-text-input_statusText {
   margin-top: 5px;
   color: hsl(3,59%,48%);
 }

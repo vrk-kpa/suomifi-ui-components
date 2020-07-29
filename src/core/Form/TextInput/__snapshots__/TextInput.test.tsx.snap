@@ -188,7 +188,7 @@ exports[`snapshots match error status with statustext 1`] = `
   flex-direction: column;
 }
 
-.c2 .fi-text-input_statusText_container .fi-text-input_statusText_span {
+.c2 .fi-text-input_statusText_container .fi-text-input_statusText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -197,7 +197,7 @@ exports[`snapshots match error status with statustext 1`] = `
   line-height: 20px;
 }
 
-.c2 .fi-text-input_hintText_p {
+.c2 .fi-text-input_hintText {
   display: block;
   color: hsl(0,0%,16%);
   margin-bottom: 10px;
@@ -267,7 +267,7 @@ exports[`snapshots match error status with statustext 1`] = `
   border-color: hsl(3,59%,48%);
 }
 
-.c2.fi-text-input--error .fi-text-input_statusText_span {
+.c2.fi-text-input--error .fi-text-input_statusText {
   margin-top: 5px;
   color: hsl(3,59%,48%);
 }
@@ -490,7 +490,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   flex-direction: column;
 }
 
-.c2 .fi-text-input_statusText_container .fi-text-input_statusText_span {
+.c2 .fi-text-input_statusText_container .fi-text-input_statusText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -499,7 +499,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   line-height: 20px;
 }
 
-.c2 .fi-text-input_hintText_p {
+.c2 .fi-text-input_hintText {
   display: block;
   color: hsl(0,0%,16%);
   margin-bottom: 10px;
@@ -569,7 +569,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   border-color: hsl(3,59%,48%);
 }
 
-.c2.fi-text-input--error .fi-text-input_statusText_span {
+.c2.fi-text-input--error .fi-text-input_statusText {
   margin-top: 5px;
   color: hsl(3,59%,48%);
 }
@@ -774,7 +774,7 @@ exports[`snapshots match minimal implementation 1`] = `
   flex-direction: column;
 }
 
-.c2 .fi-text-input_statusText_container .fi-text-input_statusText_span {
+.c2 .fi-text-input_statusText_container .fi-text-input_statusText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -783,7 +783,7 @@ exports[`snapshots match minimal implementation 1`] = `
   line-height: 20px;
 }
 
-.c2 .fi-text-input_hintText_p {
+.c2 .fi-text-input_hintText {
   display: block;
   color: hsl(0,0%,16%);
   margin-bottom: 10px;
@@ -853,7 +853,7 @@ exports[`snapshots match minimal implementation 1`] = `
   border-color: hsl(3,59%,48%);
 }
 
-.c2.fi-text-input--error .fi-text-input_statusText_span {
+.c2.fi-text-input--error .fi-text-input_statusText {
   margin-top: 5px;
   color: hsl(3,59%,48%);
 }

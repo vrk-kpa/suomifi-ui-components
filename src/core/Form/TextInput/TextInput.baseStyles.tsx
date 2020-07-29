@@ -18,13 +18,13 @@ export const baseStyles = withSuomifiTheme(
     display: flex;
     flex-direction: column;
 
-    & .fi-text-input_statusText_span {
+    & .fi-text-input_statusText {
       ${theme.typography.bodySemiBoldSmall}
       font-size: 14px;
       line-height: 20px;
     }
   }
-  & .fi-text-input_hintText_p {
+  & .fi-text-input_hintText {
       display: block;
       color: ${theme.colors.blackBase};
       margin-bottom: ${theme.spacing.xs};
@@ -49,7 +49,7 @@ export const baseStyles = withSuomifiTheme(
     & .fi-text-input_input {
       border-color: ${theme.colors.alertBase};
     }
-    & .fi-text-input_statusText_span {
+    & .fi-text-input_statusText {
       margin-top: ${theme.spacing.xxs};
       color: ${theme.colors.alertBase};
     }
