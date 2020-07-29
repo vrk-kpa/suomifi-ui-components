@@ -23,7 +23,7 @@ const inputBaseClassName = `${baseClassName}_input`;
 const statusTextClassName = `${baseClassName}_statusText`;
 const statusTextContainerClassName = `${statusTextClassName}_container`;
 const statusTextSpanClassName = `${baseClassName}_statusText_span`;
-const hintTextParagraphClassName = `${baseClassName}_hintText_p`;
+const hintTextClassName = `${baseClassName}_hintText`;
 
 export interface TextInputLabelProps extends HtmlLabelProps {}
 
@@ -105,10 +105,7 @@ class BaseTextInput extends Component<TextInputProps> {
           <Paragraph {...labelTextProps}>{labelText}</Paragraph>
         )}
         {hintText && (
-          <Paragraph
-            className={hintTextParagraphClassName}
-            id={generatedHintTextId}
-          >
+          <Paragraph className={hintTextClassName} id={generatedHintTextId}>
             {hintText}
           </Paragraph>
         )}
