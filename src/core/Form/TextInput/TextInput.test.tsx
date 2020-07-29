@@ -48,3 +48,24 @@ describe('snapshots match', () => {
 });
 
 test('should not have basic accessibility issues', axeTest(TestTextInput));
+
+describe('props', () => {
+  describe('className', () => {
+    it('has the given custom className', () => {
+      const { container } = render(
+        <TextInput labelText="Test input" className="custom-style" />,
+      );
+      expect(container.firstChild).toHaveClass('custom-style');
+    });
+  });
+
+  describe('hintText', () => {
+    it('has the hint text element', () => {
+      const { getByText } = render(
+        <TextInput labelText="Test input" hintText="Example hint text" />,
+      );
+      const hintText = getByText('Example hint text');
+      expect(hintText).toHaveClass('fi-text-input_hintText');
+    });
+  });
+});
