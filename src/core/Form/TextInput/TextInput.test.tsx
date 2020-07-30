@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { axeTest } from '../../../utils/test/axe';
 
 import { TextInput } from './TextInput';
@@ -66,6 +66,99 @@ describe('props', () => {
       );
       const hintText = getByText('Example hint text');
       expect(hintText).toHaveClass('fi-text-input_hintText');
+    });
+  });
+
+  describe('type', () => {
+    describe('text (default)', () => {
+      const textInput = (
+        <TextInput
+          labelText="Test input"
+          type="text"
+          data-testid="text-input"
+        />
+      );
+      const { getByTestId } = render(textInput);
+      const textfield = getByTestId('text-input') as HTMLInputElement;
+
+      it('shows the inputted text', () => {
+        fireEvent.change(textfield, { target: { value: 'abc 123' } });
+        expect(textfield.value).toBe('abc 123');
+      });
+    });
+
+    describe('number', () => {
+      const textInput = (
+        <TextInput
+          labelText="Test input"
+          type="number"
+          data-testid="number-input"
+        />
+      );
+      const { getByTestId } = render(textInput);
+      const numberfield = getByTestId('number-input') as HTMLInputElement;
+
+      it('shows the inputted numbers', () => {
+        fireEvent.change(numberfield, { target: { value: '123' } });
+        expect(numberfield.value).toBe('123');
+      });
+
+      it('does not allow text', () => {
+        fireEvent.change(numberfield, { target: { value: 'abc' } });
+        expect(numberfield.value).toBe('');
+        fireEvent.change(numberfield, { target: { value: 'abc 123' } });
+        expect(numberfield.value).toBe('');
+      });
+    });
+  });
+
+  describe('disabled', () => {
+    it('has disabled attribute and classname', () => {
+      const { container, getByTestId } = render(
+        <TextInput labelText="Test input" data-testid="input" disabled />,
+      );
+      expect(container.firstChild).toHaveClass('fi-text-input--disabled');
+
+      const inputField = getByTestId('input') as HTMLInputElement;
+      expect(inputField).toHaveAttribute('disabled');
+    });
+  });
+
+  describe('labelText', () => {
+    it('should be found ', () => {
+      const { getByText } = render(<TextInput labelText="Test input" />);
+      const label = getByText('Test input');
+      expect(label).toHaveClass('fi-text-input_label-p');
+    });
+  });
+
+  describe('labelMode', () => {
+    it('should be visible by default', () => {
+      const { getByText } = render(<TextInput labelText="Test input" />);
+      const label = getByText('Test input');
+      expect(label).toHaveClass('fi-text-input_label-p');
+    });
+
+    it('should be hidden', () => {
+      const { getByText } = render(
+        <TextInput labelText="Test input" labelMode="hidden" />,
+      );
+      const label = getByText('Test input');
+      expect(label).toHaveClass('fi-visually-hidden');
+    });
+  });
+
+  describe('visualPlaceholder', () => {
+    it('should have the given text', () => {
+      const { getByTestId } = render(
+        <TextInput
+          labelText="Test input"
+          data-testid="input"
+          visualPlaceholder="Enter text here"
+        />,
+      );
+      const inputField = getByTestId('input') as HTMLInputElement;
+      expect(inputField).toHaveAttribute('placeholder', 'Enter text here');
     });
   });
 });
