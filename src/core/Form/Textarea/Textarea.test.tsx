@@ -141,4 +141,67 @@ describe('props', () => {
       expect(hintText).toHaveClass('fi-textarea_hintText');
     });
   });
+
+  describe('statusText', () => {
+    it('should have element and correct classname for it', () => {
+      const { getByText } = render(
+        <Textarea labelText="label" statusText="EROR EROR" />,
+      );
+      const statusText = getByText('EROR EROR');
+      expect(statusText).toHaveClass('fi-textarea_statusText');
+    });
+  });
+
+  describe('status', () => {
+    it('should have error classname', () => {
+      const { container } = render(
+        <Textarea labelText="label" status="error" statusText="EROR EROR" />,
+      );
+      expect(container.firstChild).toHaveClass('fi-textarea--error');
+    });
+  });
+
+  describe('optionalText', () => {
+    it('should have element and correct classname for it', () => {
+      const { getByText } = render(
+        <Textarea labelText="label" optionalText="Optional" />,
+      );
+      const optionalText = getByText('(Optional)');
+      expect(optionalText).toHaveClass('fi-textarea_optionalText');
+    });
+  });
+
+  describe('resize', () => {
+    it('allows only vertical resizing', () => {
+      const { getByRole } = render(
+        <Textarea labelText="label" resize="vertical" />,
+      );
+      const textarea = getByRole('textbox') as HTMLTextAreaElement;
+      expect(textarea).toHaveStyle('resize: vertical');
+    });
+
+    it('allows only horizontal resizing', () => {
+      const { getByRole } = render(
+        <Textarea labelText="label" resize="horizontal" />,
+      );
+      const textarea = getByRole('textbox') as HTMLTextAreaElement;
+      expect(textarea).toHaveStyle('resize: horizontal');
+    });
+
+    it('allows horizontal and resizing', () => {
+      const { getByRole } = render(
+        <Textarea labelText="label" resize="both" />,
+      );
+      const textarea = getByRole('textbox') as HTMLTextAreaElement;
+      expect(textarea).toHaveStyle('resize: both');
+    });
+
+    it('does not allow resizing', () => {
+      const { getByRole } = render(
+        <Textarea labelText="label" resize="none" />,
+      );
+      const textarea = getByRole('textbox') as HTMLTextAreaElement;
+      expect(textarea).toHaveStyle('resize: none');
+    });
+  });
 });
