@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { axeTest } from '../../../utils/test/axe';
 
 import { Textarea } from './Textarea';
@@ -60,6 +60,18 @@ describe('props', () => {
       const textarea = getByRole('textbox');
       fireEvent.blur(textarea);
       expect(mockOnBlur).toBeCalledTimes(1);
+    });
+  });
+
+  describe('onClick', () => {
+    test('should notice click', () => {
+      const mockOnClick = jest.fn();
+      const { getByRole } = render(
+        <Textarea labelText="label" onClick={mockOnClick} />,
+      );
+      const textarea = getByRole('textbox');
+      fireEvent.mouseDown(textarea);
+      expect(mockOnClick).toBeCalledTimes(1);
     });
   });
 });

@@ -65,7 +65,7 @@ class BaseTextarea extends Component<TextareaProps> {
       className,
       disabled = false,
       children,
-      onClick: dismissOnClick,
+      onClick,
       labelMode,
       labelText,
       hintText,
@@ -76,6 +76,8 @@ class BaseTextarea extends Component<TextareaProps> {
       optionalText,
       ...passProps
     } = this.props;
+
+    const onClickProps = !!disabled ? {} : { onMouseDown: onClick };
 
     const hideLabel = labelMode === 'hidden';
     const id = idGenerator(propId);
@@ -110,6 +112,7 @@ class BaseTextarea extends Component<TextareaProps> {
           defaultValue={children}
           placeholder={visualPlaceholder}
           {...passProps}
+          {...onClickProps}
         />
         {statusText && !disabled && (
           <HtmlSpan className={textareaClassNames.statusText} id={statusTextId}>
