@@ -64,7 +64,7 @@ describe('props', () => {
   });
 
   describe('onClick', () => {
-    test('should notice click', () => {
+    it('should notice click', () => {
       const mockOnClick = jest.fn();
       const { getByRole } = render(
         <Textarea labelText="label" onClick={mockOnClick} />,
@@ -72,6 +72,73 @@ describe('props', () => {
       const textarea = getByRole('textbox');
       fireEvent.mouseDown(textarea);
       expect(mockOnClick).toBeCalledTimes(1);
+    });
+  });
+
+  describe('onChange', () => {
+    it('should notice change and have the given text', () => {
+      const mockOnChange = jest.fn();
+      const { getByRole } = render(
+        <Textarea labelText="label" onChange={mockOnChange} />,
+      );
+      const textarea = getByRole('textbox') as HTMLTextAreaElement;
+      fireEvent.change(textarea, { target: { value: 'abc' } });
+      expect(mockOnChange).toBeCalledTimes(1);
+      expect(textarea.value).toBe('abc');
+    });
+  });
+
+  describe('labelText', () => {
+    it('should have the given text on start and after changing to new', () => {
+      const { rerender, queryByText } = render(
+        <Textarea labelText="Summer time" />,
+      );
+      expect(queryByText('Summer time')).not.toBeNull();
+      rerender(<Textarea labelText="Winter is coming" />);
+      expect(queryByText('Winter is coming')).not.toBeNull();
+    });
+  });
+
+  describe('labelMode', () => {
+    it('hidden: should hide visually-hidden classname   ', () => {
+      const { getByText } = render(
+        <Textarea labelText="To be hidden" labelMode="hidden" />,
+      );
+      const label = getByText('To be hidden');
+      expect(label).toHaveClass('fi-visually-hidden');
+    });
+  });
+
+  describe('visualPlaceholder', () => {
+    it('should have the given text as attribute', () => {
+      const { getByRole } = render(
+        <Textarea
+          labelText="To be hidden"
+          visualPlaceholder="Enter text here"
+        />,
+      );
+      const textarea = getByRole('textbox') as HTMLTextAreaElement;
+      expect(textarea).toHaveAttribute('placeholder', 'Enter text here');
+    });
+  });
+
+  describe('children', () => {
+    it('should have given children as content for textarea', () => {
+      const { getByRole } = render(
+        <Textarea labelText="label">Text written!</Textarea>,
+      );
+      const textarea = getByRole('textbox') as HTMLTextAreaElement;
+      expect(textarea).toHaveTextContent('Text written!');
+    });
+  });
+
+  describe('hintText', () => {
+    it('should have element and correct classname for it', () => {
+      const { getByText } = render(
+        <Textarea labelText="label" hintText="Example hint text" />,
+      );
+      const hintText = getByText('Example hint text');
+      expect(hintText).toHaveClass('fi-textarea_hintText');
     });
   });
 });
