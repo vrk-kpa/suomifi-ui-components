@@ -65,7 +65,9 @@ export interface CheckboxProps {
    * @default uuidV4
    */
   id?: string;
+  /** Name */
   name?: string;
+  /** Value */
   value?: string;
 }
 
