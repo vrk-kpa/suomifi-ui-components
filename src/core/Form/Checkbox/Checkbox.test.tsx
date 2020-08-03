@@ -72,6 +72,12 @@ describe('props', () => {
   });
 
   describe('value', () => {
+    it('do not have value attribute if prop is not given', () => {
+      const { getByRole } = render(<BaseCheckbox />);
+      const input = getByRole('checkbox');
+      expect(input).not.toHaveAttribute('value');
+    });
+
     it('has the given value prop on start and after prop change', () => {
       const { getByRole, rerender } = render(
         <BaseCheckbox value="test-value-1" />,

@@ -141,7 +141,7 @@ export class Checkbox extends Component<CheckboxProps> {
       className: checkboxBaseClassNames.input,
       onChange: this.handleClick,
       name,
-      value,
+      ...(value ? { value } : {}),
     };
 
     return (
