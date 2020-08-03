@@ -295,7 +295,7 @@ exports[`calling render with the same component on the same container does not r
       class="c4 fi-search-input_input-container fi-text-input_container"
     >
       <input
-        aria-describedby="test-id-statusText test-id-hintText"
+        aria-describedby=""
         class="c5 fi-text-input_input fi-search-input_input"
         data-testid="textinput"
         id="test-id"
