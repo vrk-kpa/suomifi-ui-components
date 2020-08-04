@@ -39,6 +39,7 @@ export const baseStyles = withSuomifiTheme(
         box-shadow: ${theme.shadows.actionElementBoxShadow};
         padding: 8px 14px 13px 10px;
         margin-top: ${theme.spacing.insetL};
+        ${theme.typography.bodyTextSmall};
 
         &:focus {
           ${focus({ theme, noPseudo: true, variant: 'boxShadow' })}
