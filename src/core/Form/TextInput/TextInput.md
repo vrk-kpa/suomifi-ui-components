@@ -73,12 +73,12 @@ import { TextInput } from 'suomifi-ui-components';
   <TextInput
     labelText="TextInput with numbers"
     type="number"
-    value={123}
+    defaultValue={123}
   />
   <TextInput
     labelText="TextInput with password"
     type="password"
-    value="password"
+    defaultValue="password"
   />
 </>;
 ```
