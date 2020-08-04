@@ -120,11 +120,11 @@ class RadiobuttonItem extends Component<RadiobuttonProps> {
           className={radiobuttonClassNames.input}
           type="radio"
           name={name}
-          value={value}
           id={id}
           disabled={disabled}
           onChange={this.handleChange}
           checked={checkedState}
+          {...(value ? { value } : {})}
         />
         <HtmlLabel
           className={radiobuttonClassNames.label}
