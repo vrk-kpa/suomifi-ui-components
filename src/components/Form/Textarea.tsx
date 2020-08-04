@@ -59,6 +59,51 @@ export interface TextareaProps extends HtmlTextareaProps {
 }
 
 class BaseTextarea extends Component<TextareaProps> {
+  labelText = () => {
+    const { labelMode, labelText, optionalText } = this.props;
+    const hideLabel = labelMode === 'hidden';
+
+    return hideLabel ? (
+      <VisuallyHidden>{labelText}</VisuallyHidden>
+    ) : (
+      <Paragraph>
+        <HtmlSpan className={textareaClassNames.label}>{labelText}</HtmlSpan>
+        {optionalText && (
+          <HtmlSpan className={textareaClassNames.optionalText}>
+            {`(${optionalText})`}
+          </HtmlSpan>
+        )}
+      </Paragraph>
+    );
+  };
+
+  hintText = () => {
+    const { hintText, id: propId } = this.props;
+    const hintTextId = `${idGenerator(propId)}-hintText`;
+
+    return (
+      hintText && (
+        <HtmlSpan className={textareaClassNames.hintText} id={hintTextId}>
+          {hintText}
+        </HtmlSpan>
+      )
+    );
+  };
+
+  statusText = () => {
+    const { statusText, disabled, id: propId } = this.props;
+    const statusTextId = `${idGenerator(propId)}-statusText`;
+
+    return (
+      statusText &&
+      !disabled && (
+        <HtmlSpan className={textareaClassNames.statusText} id={statusTextId}>
+          {statusText}
+        </HtmlSpan>
+      )
+    );
+  };
+
   render() {
     const {
       id: propId,
@@ -78,33 +123,12 @@ class BaseTextarea extends Component<TextareaProps> {
     } = this.props;
 
     const onClickProps = !!disabled ? {} : { onMouseDown: onClick };
-
-    const hideLabel = labelMode === 'hidden';
     const id = idGenerator(propId);
-    const statusTextId = `${idGenerator(propId)}-statusText`;
-    const hintTextId = `${idGenerator(propId)}-hintText`;
 
     return (
       <HtmlLabel className={classnames(baseClassName, className, {})}>
-        {hideLabel ? (
-          <VisuallyHidden>{labelText}</VisuallyHidden>
-        ) : (
-          <Paragraph>
-            <HtmlSpan className={textareaClassNames.label}>
-              {labelText}
-            </HtmlSpan>
-            {optionalText && (
-              <HtmlSpan className={textareaClassNames.optionalText}>
-                {`(${optionalText})`}
-              </HtmlSpan>
-            )}
-          </Paragraph>
-        )}
-        {hintText && (
-          <HtmlSpan className={textareaClassNames.hintText} id={hintTextId}>
-            {hintText}
-          </HtmlSpan>
-        )}
+        {this.labelText()}
+        {this.hintText()}
         <HtmlTextarea
           id={id}
           className={textareaClassNames.textarea}
@@ -114,11 +138,7 @@ class BaseTextarea extends Component<TextareaProps> {
           {...passProps}
           {...onClickProps}
         />
-        {statusText && !disabled && (
-          <HtmlSpan className={textareaClassNames.statusText} id={statusTextId}>
-            {statusText}
-          </HtmlSpan>
-        )}
+        {this.statusText()}
       </HtmlLabel>
     );
   }
