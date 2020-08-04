@@ -8,7 +8,6 @@ import {
 import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import { Paragraph } from '../Paragraph/Paragraph';
 import classnames from 'classnames';
-import styled from 'styled-components';
 import { idGenerator } from '../../utils/uuid';
 
 const baseClassName = 'fi-textarea';
@@ -58,7 +57,7 @@ export interface TextareaProps extends HtmlTextareaProps {
   optionalText?: string;
 }
 
-class BaseTextarea extends Component<TextareaProps> {
+export class Textarea extends Component<TextareaProps> {
   labelText = () => {
     const { labelMode, labelText, optionalText } = this.props;
     const hideLabel = labelMode === 'hidden';
@@ -141,19 +140,5 @@ class BaseTextarea extends Component<TextareaProps> {
         {this.statusText()}
       </HtmlLabel>
     );
-  }
-}
-
-const StyledBaseTextarea = styled((props: TextareaProps) => (
-  <BaseTextarea {...props} />
-))`
-  & .${textareaClassNames.textarea} {
-    resize: ${(props) => props.resize || 'vertical'};
-  }
-`;
-
-export class Textarea extends Component<TextareaProps> {
-  render() {
-    return <StyledBaseTextarea {...this.props} />;
   }
 }

@@ -1,11 +1,13 @@
 import { css } from 'styled-components';
+import { TextareaProps } from './Textarea';
 import { withSuomifiTheme, TokensAndTheme } from '../../theme';
 import { disabledCursor } from '../../../components/utils/css';
 import { element, font } from '../../theme/reset';
 import { focus } from '../../theme/utils/focus';
+import { Omit } from '../../../utils/typescript';
 
 export const baseStyles = withSuomifiTheme(
-  ({ theme }: TokensAndTheme) => css`
+  ({ theme, resize }: TokensAndTheme & Omit<TextareaProps, 'labelText'>) => css`
     ${element({ theme })}
     ${font({ theme })('bodyText')}
 
@@ -31,6 +33,7 @@ export const baseStyles = withSuomifiTheme(
       }
 
       & .fi-textarea_textarea {
+        resize: ${!!resize ? resize : 'vertical'};
         border-radius: 2px;
         border: 1px solid ${theme.colors.depthLight1};
         box-shadow: ${theme.shadows.actionElementBoxShadow};
