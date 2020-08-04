@@ -1,0 +1,243 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot default structure should match snapshot 1`] = `
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  max-width: 100%;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.c4::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c1 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-textarea {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: hsl(0,0%,16%);
+}
+
+.c1.fi-textarea .fi-textarea_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
+}
+
+.c1.fi-textarea .fi-textarea_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-left: 5px;
+}
+
+.c1.fi-textarea .fi-textarea_hintText {
+  display: block;
+  color: hsl(202,7%,40%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-textarea .fi-textarea_textarea {
+  resize: vertical;
+  border-radius: 2px;
+  border: 1px solid hsl(202,7%,80%);
+  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+  padding: 8px 14px 13px 10px;
+  margin-top: 10px;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-textarea .fi-textarea_textarea:focus {
+  outline: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+}
+
+.c1.fi-textarea .fi-textarea_textarea:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.c1.fi-textarea .fi-textarea_textarea::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+.c1.fi-textarea .fi-textarea_textarea::-moz-placeholder {
+  font-style: italic;
+}
+
+.c1.fi-textarea .fi-textarea_textarea:-ms-input-placeholder {
+  font-style: italic;
+}
+
+.c1.fi-textarea .fi-textarea_textarea::placeholder {
+  font-style: italic;
+}
+
+.c1.fi-textarea .fi-textarea_statusText {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+}
+
+.c1.fi-textarea.fi-textarea--disabled {
+  color: hsl(202,7%,67%);
+  cursor: not-allowed;
+}
+
+.c1.fi-textarea.fi-textarea--disabled .fi-textarea_textarea {
+  background-color: hsl(202,7%,97%);
+}
+
+.c1.fi-textarea.fi-textarea--error .fi-textarea_textarea {
+  border: 2px solid hsl(3,59%,48%);
+}
+
+.c1.fi-textarea.fi-textarea--error .fi-textarea_statusText {
+  color: hsl(3,59%,48%);
+}
+
+<label
+  class="c0 fi-textarea c1"
+>
+  <p
+    class="c2 fi-paragraph"
+  >
+    <span
+      class="c3 fi-textarea_label"
+    >
+      Label text
+    </span>
+  </p>
+  <textarea
+    class="c4 fi-textarea_textarea"
+    id="48118810-fc06-4bbd-92cf-71e9e5bcdba7"
+  />
+</label>
+`;

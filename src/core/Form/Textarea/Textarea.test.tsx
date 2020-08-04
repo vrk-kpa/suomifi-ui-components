@@ -4,6 +4,13 @@ import { axeTest } from '../../../utils/test/axe';
 
 import { Textarea } from './Textarea';
 
+describe('snapshot', () => {
+  test('default structure should match snapshot', () => {
+    const { container } = render(<Textarea labelText="Label text" />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+});
+
 describe('props', () => {
   describe('default structure, with default props', () => {
     const DefaultTextareaComponent = <Textarea labelText="Label here" />;
