@@ -64,7 +64,10 @@ export class Textarea extends Component<TextareaProps> {
     const hideLabel = labelMode === 'hidden';
 
     return hideLabel ? (
-      <VisuallyHidden>{labelText}</VisuallyHidden>
+      <VisuallyHidden>
+        {labelText}
+        {optionalText && `(${optionalText})`}
+      </VisuallyHidden>
     ) : (
       <Paragraph>
         <HtmlSpan className={textareaClassNames.label}>{labelText}</HtmlSpan>
