@@ -54,6 +54,7 @@ export interface TextareaProps extends HtmlTextareaProps {
       @default 'vertical' 
    */
   resize?: 'both' | 'vertical' | 'horizontal' | 'none';
+  /** Optional text that is shown after labelText. Will be wrapped in parentheses. */
   optionalText?: string;
 }
 
