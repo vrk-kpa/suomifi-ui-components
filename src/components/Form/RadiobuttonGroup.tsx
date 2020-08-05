@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import { HtmlDiv, HtmlSpan } from '../../reset';
 import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import { idGenerator } from '../../utils/uuid';
+import { logger } from '../../utils/logger';
 
 import { RadiobuttonProps } from './Radiobutton';
 
@@ -60,11 +61,19 @@ const RadiobuttonGroupItems = (
   children: Array<React.ReactElement<RadiobuttonProps>>,
   groupName: string,
   selectedValue?: string,
-) =>
-  React.Children.map(
+) => {
+  const radiobuttonValues: string[] = [];
+
+  return React.Children.map(
     children,
     (child: React.ReactElement<RadiobuttonProps>) => {
       if (React.isValidElement(child) && child.props.value) {
+        if (radiobuttonValues.includes(child.props.value)) {
+          logger.error('Two or more radiobuttons have same value.');
+        } else {
+          radiobuttonValues.push(child.props.value);
+        }
+
         return React.cloneElement(child, {
           radiobuttonGroup: true,
           checked: selectedValue === child.props.value,
@@ -74,6 +83,7 @@ const RadiobuttonGroupItems = (
       return child;
     },
   );
+};
 
 export interface RadiobuttonGroupState {
   selectedValue?: string;
