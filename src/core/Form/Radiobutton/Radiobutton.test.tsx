@@ -12,7 +12,7 @@ const Radio = (props: RadiobuttonProps) => {
 };
 
 describe('disabled', () => {
-  const DisabledRadiobutton = <Radio disabled={true} />;
+  const DisabledRadiobutton = <Radio value="value" disabled={true} />;
 
   it('has "--disabled"-class', () => {
     const { container } = render(DisabledRadiobutton);
@@ -31,7 +31,9 @@ describe('disabled', () => {
 });
 
 describe('className', () => {
-  const ClassnameRadiobutton = <Radio className="custom-className" />;
+  const ClassnameRadiobutton = (
+    <Radio value="value" className="custom-className" />
+  );
 
   it('has the given custom className', () => {
     const { container } = render(ClassnameRadiobutton);
@@ -45,7 +47,7 @@ describe('className', () => {
 });
 
 describe('name', () => {
-  const NameRadiobutton = <Radio name="group-name" />;
+  const NameRadiobutton = <Radio value="value" name="group-name" />;
 
   it('has the given "name"-attribute', () => {
     const { getByRole } = render(NameRadiobutton);
@@ -73,7 +75,9 @@ describe('value', () => {
 });
 
 describe('hintText', () => {
-  const HintTextRadiobutton = <Radio hintText="Example hint text" />;
+  const HintTextRadiobutton = (
+    <Radio value="value" hintText="Example hint text" />
+  );
 
   it('has element for hintText when prop is given', () => {
     const { getByText } = render(HintTextRadiobutton);
@@ -88,7 +92,7 @@ describe('hintText', () => {
 });
 
 describe('variant', () => {
-  const VariantRadiobutton = <Radio variant="large" />;
+  const VariantRadiobutton = <Radio value="value" variant="large" />;
 
   it('has "--large"-class when using large', () => {
     const { container } = render(VariantRadiobutton);
@@ -104,7 +108,7 @@ describe('variant', () => {
 describe('onChange', () => {
   it('is called when clicked', () => {
     const mockClick = jest.fn();
-    const { getByRole } = render(<Radio onChange={mockClick} />);
+    const { getByRole } = render(<Radio value="value" onChange={mockClick} />);
     const radio = getByRole('radio');
     fireEvent.click(radio);
     expect(mockClick).toHaveBeenCalledTimes(1);
@@ -112,7 +116,7 @@ describe('onChange', () => {
 });
 
 describe('id', () => {
-  const IdRadiobutton = <Radio id="good-id" />;
+  const IdRadiobutton = <Radio value="value" id="good-id" />;
 
   it('has the given id', () => {
     const { getByRole } = render(IdRadiobutton);
@@ -126,7 +130,7 @@ describe('id', () => {
 });
 
 describe('children', () => {
-  const ChildrenRadiobutton = <Radio>Option 1</Radio>;
+  const ChildrenRadiobutton = <Radio value="value">Option 1</Radio>;
 
   it('has the given children as label', () => {
     const { container } = render(ChildrenRadiobutton);

@@ -29,7 +29,7 @@ export interface RadiobuttonProps {
   /** Group multiple Radiobuttons to be inside same selection group */
   name?: string;
   /** Unique value to be used inside Radiobutton group for this item */
-  value?: string;
+  value: string;
   /**
    * Unique id
    * If no id is specified, one will be generated using uuid

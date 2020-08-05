@@ -238,6 +238,7 @@ exports[`children should match snapshot 1`] = `
       class="c2 fi-radiobutton_input"
       id="test-id"
       type="radio"
+      value="value"
     />
     <label
       class="c3 fi-radiobutton_label"
@@ -487,6 +488,7 @@ exports[`className should match snapshot 1`] = `
       class="c2 fi-radiobutton_input"
       id="test-id"
       type="radio"
+      value="value"
     />
     <label
       class="c3 fi-radiobutton_label"
@@ -737,6 +739,7 @@ exports[`disabled should match snapshot 1`] = `
       disabled=""
       id="test-id"
       type="radio"
+      value="value"
     />
     <label
       class="c3 fi-radiobutton_label"
@@ -1010,6 +1013,7 @@ exports[`hintText should match snapshot 1`] = `
       class="c2 fi-radiobutton_input"
       id="test-id"
       type="radio"
+      value="value"
     />
     <label
       class="c3 fi-radiobutton_label"
@@ -1265,6 +1269,7 @@ exports[`id should match snapshot 1`] = `
       class="c2 fi-radiobutton_input"
       id="good-id"
       type="radio"
+      value="value"
     />
     <label
       class="c3 fi-radiobutton_label"
@@ -1515,6 +1520,7 @@ exports[`name should match snapshot 1`] = `
       id="test-id"
       name="group-name"
       type="radio"
+      value="value"
     />
     <label
       class="c3 fi-radiobutton_label"
@@ -2014,6 +2020,7 @@ exports[`variant should match snapshot 1`] = `
       class="c2 fi-radiobutton_input"
       id="test-id"
       type="radio"
+      value="value"
     />
     <label
       class="c3 fi-radiobutton_label"
