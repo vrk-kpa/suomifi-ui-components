@@ -23,7 +23,7 @@ export const baseStyles = withSuomifiTheme(
       position: absolute;
       margin: 8px 0 0 3px;
 
-      + label {
+      + .fi-radiobutton_label {
         position: relative;
         display: inline-block;
         cursor: pointer;
@@ -58,34 +58,34 @@ export const baseStyles = withSuomifiTheme(
 
       &:checked {
         /* Radio input background circle */
-        + label:before {
+        + .fi-radiobutton_label:before {
           border: 1px solid ${theme.colors.highlightBase};
         }
         /* Radio input circle when selected */
-        + label:after {
+        + .fi-radiobutton_label:after {
           background: ${theme.colors.highlightBase};
         }
       }
 
       &:focus {
         /* Radio input background circle */
-        + label::before {
+        + .fi-radiobutton_label::before {
           ${focus({ theme, noPseudo: true, variant: 'boxShadow' })}
           border-radius: 50%;
         }
       }
 
       &:disabled {
-        + label {
+        + .fi-radiobutton_label {
           ${disabledCursor}
           color: ${theme.colors.depthBase};
         }
         /* Radio input background circle */
-        + label:before {
+        + .fi-radiobutton_label:before {
           border: 1px solid ${theme.colors.depthLight1};
         }
         /* Radio input circle when selected */
-        + label:after {
+        + .fi-radiobutton_label:after {
           background: ${theme.colors.depthLight3};
           width: 16px;
           height: 16px;
@@ -96,7 +96,7 @@ export const baseStyles = withSuomifiTheme(
 
       &:disabled:checked {
         /* Radio input circle when selected */
-        + label:after {
+        + .fi-radiobutton_label:after {
           background: ${theme.colors.depthBase};
           width: 8px;
           height: 8px;
@@ -118,7 +118,7 @@ export const baseStyles = withSuomifiTheme(
     & .fi-radiobutton_input {
       margin: 10px 0 0 9px;
 
-      + label {
+      + .fi-radiobutton_label {
         padding-left: 40px;
         padding-top: 2px;
         min-height: 34px;
@@ -141,7 +141,7 @@ export const baseStyles = withSuomifiTheme(
 
       &:disabled {
         /* Radio input circle when selected */
-        + label:after {
+        + .fi-radiobutton_label:after {
           width: 28px;
           height: 28px;
           top: 3px;
@@ -151,7 +151,7 @@ export const baseStyles = withSuomifiTheme(
 
       &:disabled:checked {
         /* Radio input circle when selected */
-        + label:after {
+        + .fi-radiobutton_label:after {
           background: ${theme.colors.depthBase};
           width: 16px;
           height: 16px;

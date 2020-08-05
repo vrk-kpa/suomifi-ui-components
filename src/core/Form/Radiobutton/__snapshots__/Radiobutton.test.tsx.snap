@@ -106,7 +106,7 @@ exports[`children should match snapshot 1`] = `
   margin: 8px 0 0 3px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -115,7 +115,7 @@ exports[`children should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label::before {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label::before {
   content: '';
   position: absolute;
   display: inline-block;
@@ -128,7 +128,7 @@ exports[`children should match snapshot 1`] = `
   background: transparent;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label::after {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label::after {
   content: '';
   position: absolute;
   display: inline-block;
@@ -139,35 +139,35 @@ exports[`children should match snapshot 1`] = `
   height: 8px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:checked + label:before {
+.c1.fi-radiobutton .fi-radiobutton_input:checked + .fi-radiobutton_label:before {
   border: 1px solid hsl(212,63%,45%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:checked + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:checked + .fi-radiobutton_label:after {
   background: hsl(212,63%,45%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:focus + label::before {
+.c1.fi-radiobutton .fi-radiobutton_input:focus + .fi-radiobutton_label::before {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   border-radius: 50%;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:focus + label::before:not(:focus-visible) {
+.c1.fi-radiobutton .fi-radiobutton_input:focus + .fi-radiobutton_label::before:not(:focus-visible) {
   box-shadow: none;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label:before {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
   background: hsl(202,7%,97%);
   width: 16px;
   height: 16px;
@@ -175,7 +175,7 @@ exports[`children should match snapshot 1`] = `
   left: 1px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled:checked + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled:checked + .fi-radiobutton_label:after {
   background: hsl(202,7%,67%);
   width: 8px;
   height: 8px;
@@ -195,34 +195,34 @@ exports[`children should match snapshot 1`] = `
   margin: 10px 0 0 9px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label::before {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label::before {
   left: 0px;
   top: 2px;
   width: 28px;
   height: 28px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label::after {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label::after {
   left: 7px;
   top: 9px;
   width: 16px;
   height: 16px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input:disabled + label:after {
+.c1.fi-radiobutton--large .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
   width: 28px;
   height: 28px;
   top: 3px;
   left: 1px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input:disabled:checked + label:after {
+.c1.fi-radiobutton--large .fi-radiobutton_input:disabled:checked + .fi-radiobutton_label:after {
   background: hsl(202,7%,67%);
   width: 16px;
   height: 16px;
@@ -355,7 +355,7 @@ exports[`className should match snapshot 1`] = `
   margin: 8px 0 0 3px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -364,7 +364,7 @@ exports[`className should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label::before {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label::before {
   content: '';
   position: absolute;
   display: inline-block;
@@ -377,7 +377,7 @@ exports[`className should match snapshot 1`] = `
   background: transparent;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label::after {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label::after {
   content: '';
   position: absolute;
   display: inline-block;
@@ -388,35 +388,35 @@ exports[`className should match snapshot 1`] = `
   height: 8px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:checked + label:before {
+.c1.fi-radiobutton .fi-radiobutton_input:checked + .fi-radiobutton_label:before {
   border: 1px solid hsl(212,63%,45%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:checked + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:checked + .fi-radiobutton_label:after {
   background: hsl(212,63%,45%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:focus + label::before {
+.c1.fi-radiobutton .fi-radiobutton_input:focus + .fi-radiobutton_label::before {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   border-radius: 50%;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:focus + label::before:not(:focus-visible) {
+.c1.fi-radiobutton .fi-radiobutton_input:focus + .fi-radiobutton_label::before:not(:focus-visible) {
   box-shadow: none;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label:before {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
   background: hsl(202,7%,97%);
   width: 16px;
   height: 16px;
@@ -424,7 +424,7 @@ exports[`className should match snapshot 1`] = `
   left: 1px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled:checked + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled:checked + .fi-radiobutton_label:after {
   background: hsl(202,7%,67%);
   width: 8px;
   height: 8px;
@@ -444,34 +444,34 @@ exports[`className should match snapshot 1`] = `
   margin: 10px 0 0 9px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label::before {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label::before {
   left: 0px;
   top: 2px;
   width: 28px;
   height: 28px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label::after {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label::after {
   left: 7px;
   top: 9px;
   width: 16px;
   height: 16px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input:disabled + label:after {
+.c1.fi-radiobutton--large .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
   width: 28px;
   height: 28px;
   top: 3px;
   left: 1px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input:disabled:checked + label:after {
+.c1.fi-radiobutton--large .fi-radiobutton_input:disabled:checked + .fi-radiobutton_label:after {
   background: hsl(202,7%,67%);
   width: 16px;
   height: 16px;
@@ -604,7 +604,7 @@ exports[`disabled should match snapshot 1`] = `
   margin: 8px 0 0 3px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -613,7 +613,7 @@ exports[`disabled should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label::before {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label::before {
   content: '';
   position: absolute;
   display: inline-block;
@@ -626,7 +626,7 @@ exports[`disabled should match snapshot 1`] = `
   background: transparent;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label::after {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label::after {
   content: '';
   position: absolute;
   display: inline-block;
@@ -637,35 +637,35 @@ exports[`disabled should match snapshot 1`] = `
   height: 8px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:checked + label:before {
+.c1.fi-radiobutton .fi-radiobutton_input:checked + .fi-radiobutton_label:before {
   border: 1px solid hsl(212,63%,45%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:checked + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:checked + .fi-radiobutton_label:after {
   background: hsl(212,63%,45%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:focus + label::before {
+.c1.fi-radiobutton .fi-radiobutton_input:focus + .fi-radiobutton_label::before {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   border-radius: 50%;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:focus + label::before:not(:focus-visible) {
+.c1.fi-radiobutton .fi-radiobutton_input:focus + .fi-radiobutton_label::before:not(:focus-visible) {
   box-shadow: none;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label:before {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
   background: hsl(202,7%,97%);
   width: 16px;
   height: 16px;
@@ -673,7 +673,7 @@ exports[`disabled should match snapshot 1`] = `
   left: 1px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled:checked + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled:checked + .fi-radiobutton_label:after {
   background: hsl(202,7%,67%);
   width: 8px;
   height: 8px;
@@ -693,34 +693,34 @@ exports[`disabled should match snapshot 1`] = `
   margin: 10px 0 0 9px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label::before {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label::before {
   left: 0px;
   top: 2px;
   width: 28px;
   height: 28px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label::after {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label::after {
   left: 7px;
   top: 9px;
   width: 16px;
   height: 16px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input:disabled + label:after {
+.c1.fi-radiobutton--large .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
   width: 28px;
   height: 28px;
   top: 3px;
   left: 1px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input:disabled:checked + label:after {
+.c1.fi-radiobutton--large .fi-radiobutton_input:disabled:checked + .fi-radiobutton_label:after {
   background: hsl(202,7%,67%);
   width: 16px;
   height: 16px;
@@ -878,7 +878,7 @@ exports[`hintText should match snapshot 1`] = `
   margin: 8px 0 0 3px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -887,7 +887,7 @@ exports[`hintText should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label::before {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label::before {
   content: '';
   position: absolute;
   display: inline-block;
@@ -900,7 +900,7 @@ exports[`hintText should match snapshot 1`] = `
   background: transparent;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label::after {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label::after {
   content: '';
   position: absolute;
   display: inline-block;
@@ -911,35 +911,35 @@ exports[`hintText should match snapshot 1`] = `
   height: 8px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:checked + label:before {
+.c1.fi-radiobutton .fi-radiobutton_input:checked + .fi-radiobutton_label:before {
   border: 1px solid hsl(212,63%,45%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:checked + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:checked + .fi-radiobutton_label:after {
   background: hsl(212,63%,45%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:focus + label::before {
+.c1.fi-radiobutton .fi-radiobutton_input:focus + .fi-radiobutton_label::before {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   border-radius: 50%;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:focus + label::before:not(:focus-visible) {
+.c1.fi-radiobutton .fi-radiobutton_input:focus + .fi-radiobutton_label::before:not(:focus-visible) {
   box-shadow: none;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label:before {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
   background: hsl(202,7%,97%);
   width: 16px;
   height: 16px;
@@ -947,7 +947,7 @@ exports[`hintText should match snapshot 1`] = `
   left: 1px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled:checked + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled:checked + .fi-radiobutton_label:after {
   background: hsl(202,7%,67%);
   width: 8px;
   height: 8px;
@@ -967,34 +967,34 @@ exports[`hintText should match snapshot 1`] = `
   margin: 10px 0 0 9px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label::before {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label::before {
   left: 0px;
   top: 2px;
   width: 28px;
   height: 28px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label::after {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label::after {
   left: 7px;
   top: 9px;
   width: 16px;
   height: 16px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input:disabled + label:after {
+.c1.fi-radiobutton--large .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
   width: 28px;
   height: 28px;
   top: 3px;
   left: 1px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input:disabled:checked + label:after {
+.c1.fi-radiobutton--large .fi-radiobutton_input:disabled:checked + .fi-radiobutton_label:after {
   background: hsl(202,7%,67%);
   width: 16px;
   height: 16px;
@@ -1133,7 +1133,7 @@ exports[`id should match snapshot 1`] = `
   margin: 8px 0 0 3px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -1142,7 +1142,7 @@ exports[`id should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label::before {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label::before {
   content: '';
   position: absolute;
   display: inline-block;
@@ -1155,7 +1155,7 @@ exports[`id should match snapshot 1`] = `
   background: transparent;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label::after {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label::after {
   content: '';
   position: absolute;
   display: inline-block;
@@ -1166,35 +1166,35 @@ exports[`id should match snapshot 1`] = `
   height: 8px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:checked + label:before {
+.c1.fi-radiobutton .fi-radiobutton_input:checked + .fi-radiobutton_label:before {
   border: 1px solid hsl(212,63%,45%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:checked + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:checked + .fi-radiobutton_label:after {
   background: hsl(212,63%,45%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:focus + label::before {
+.c1.fi-radiobutton .fi-radiobutton_input:focus + .fi-radiobutton_label::before {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   border-radius: 50%;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:focus + label::before:not(:focus-visible) {
+.c1.fi-radiobutton .fi-radiobutton_input:focus + .fi-radiobutton_label::before:not(:focus-visible) {
   box-shadow: none;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label:before {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
   background: hsl(202,7%,97%);
   width: 16px;
   height: 16px;
@@ -1202,7 +1202,7 @@ exports[`id should match snapshot 1`] = `
   left: 1px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled:checked + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled:checked + .fi-radiobutton_label:after {
   background: hsl(202,7%,67%);
   width: 8px;
   height: 8px;
@@ -1222,34 +1222,34 @@ exports[`id should match snapshot 1`] = `
   margin: 10px 0 0 9px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label::before {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label::before {
   left: 0px;
   top: 2px;
   width: 28px;
   height: 28px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label::after {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label::after {
   left: 7px;
   top: 9px;
   width: 16px;
   height: 16px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input:disabled + label:after {
+.c1.fi-radiobutton--large .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
   width: 28px;
   height: 28px;
   top: 3px;
   left: 1px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input:disabled:checked + label:after {
+.c1.fi-radiobutton--large .fi-radiobutton_input:disabled:checked + .fi-radiobutton_label:after {
   background: hsl(202,7%,67%);
   width: 16px;
   height: 16px;
@@ -1382,7 +1382,7 @@ exports[`name should match snapshot 1`] = `
   margin: 8px 0 0 3px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -1391,7 +1391,7 @@ exports[`name should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label::before {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label::before {
   content: '';
   position: absolute;
   display: inline-block;
@@ -1404,7 +1404,7 @@ exports[`name should match snapshot 1`] = `
   background: transparent;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label::after {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label::after {
   content: '';
   position: absolute;
   display: inline-block;
@@ -1415,35 +1415,35 @@ exports[`name should match snapshot 1`] = `
   height: 8px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:checked + label:before {
+.c1.fi-radiobutton .fi-radiobutton_input:checked + .fi-radiobutton_label:before {
   border: 1px solid hsl(212,63%,45%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:checked + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:checked + .fi-radiobutton_label:after {
   background: hsl(212,63%,45%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:focus + label::before {
+.c1.fi-radiobutton .fi-radiobutton_input:focus + .fi-radiobutton_label::before {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   border-radius: 50%;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:focus + label::before:not(:focus-visible) {
+.c1.fi-radiobutton .fi-radiobutton_input:focus + .fi-radiobutton_label::before:not(:focus-visible) {
   box-shadow: none;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label:before {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
   background: hsl(202,7%,97%);
   width: 16px;
   height: 16px;
@@ -1451,7 +1451,7 @@ exports[`name should match snapshot 1`] = `
   left: 1px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled:checked + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled:checked + .fi-radiobutton_label:after {
   background: hsl(202,7%,67%);
   width: 8px;
   height: 8px;
@@ -1471,34 +1471,34 @@ exports[`name should match snapshot 1`] = `
   margin: 10px 0 0 9px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label::before {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label::before {
   left: 0px;
   top: 2px;
   width: 28px;
   height: 28px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label::after {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label::after {
   left: 7px;
   top: 9px;
   width: 16px;
   height: 16px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input:disabled + label:after {
+.c1.fi-radiobutton--large .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
   width: 28px;
   height: 28px;
   top: 3px;
   left: 1px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input:disabled:checked + label:after {
+.c1.fi-radiobutton--large .fi-radiobutton_input:disabled:checked + .fi-radiobutton_label:after {
   background: hsl(202,7%,67%);
   width: 16px;
   height: 16px;
@@ -1632,7 +1632,7 @@ exports[`value should match snapshot 1`] = `
   margin: 8px 0 0 3px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -1641,7 +1641,7 @@ exports[`value should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label::before {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label::before {
   content: '';
   position: absolute;
   display: inline-block;
@@ -1654,7 +1654,7 @@ exports[`value should match snapshot 1`] = `
   background: transparent;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label::after {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label::after {
   content: '';
   position: absolute;
   display: inline-block;
@@ -1665,35 +1665,35 @@ exports[`value should match snapshot 1`] = `
   height: 8px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:checked + label:before {
+.c1.fi-radiobutton .fi-radiobutton_input:checked + .fi-radiobutton_label:before {
   border: 1px solid hsl(212,63%,45%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:checked + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:checked + .fi-radiobutton_label:after {
   background: hsl(212,63%,45%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:focus + label::before {
+.c1.fi-radiobutton .fi-radiobutton_input:focus + .fi-radiobutton_label::before {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   border-radius: 50%;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:focus + label::before:not(:focus-visible) {
+.c1.fi-radiobutton .fi-radiobutton_input:focus + .fi-radiobutton_label::before:not(:focus-visible) {
   box-shadow: none;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label:before {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
   background: hsl(202,7%,97%);
   width: 16px;
   height: 16px;
@@ -1701,7 +1701,7 @@ exports[`value should match snapshot 1`] = `
   left: 1px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled:checked + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled:checked + .fi-radiobutton_label:after {
   background: hsl(202,7%,67%);
   width: 8px;
   height: 8px;
@@ -1721,34 +1721,34 @@ exports[`value should match snapshot 1`] = `
   margin: 10px 0 0 9px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label::before {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label::before {
   left: 0px;
   top: 2px;
   width: 28px;
   height: 28px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label::after {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label::after {
   left: 7px;
   top: 9px;
   width: 16px;
   height: 16px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input:disabled + label:after {
+.c1.fi-radiobutton--large .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
   width: 28px;
   height: 28px;
   top: 3px;
   left: 1px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input:disabled:checked + label:after {
+.c1.fi-radiobutton--large .fi-radiobutton_input:disabled:checked + .fi-radiobutton_label:after {
   background: hsl(202,7%,67%);
   width: 16px;
   height: 16px;
@@ -1882,7 +1882,7 @@ exports[`variant should match snapshot 1`] = `
   margin: 8px 0 0 3px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -1891,7 +1891,7 @@ exports[`variant should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label::before {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label::before {
   content: '';
   position: absolute;
   display: inline-block;
@@ -1904,7 +1904,7 @@ exports[`variant should match snapshot 1`] = `
   background: transparent;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input + label::after {
+.c1.fi-radiobutton .fi-radiobutton_input + .fi-radiobutton_label::after {
   content: '';
   position: absolute;
   display: inline-block;
@@ -1915,35 +1915,35 @@ exports[`variant should match snapshot 1`] = `
   height: 8px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:checked + label:before {
+.c1.fi-radiobutton .fi-radiobutton_input:checked + .fi-radiobutton_label:before {
   border: 1px solid hsl(212,63%,45%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:checked + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:checked + .fi-radiobutton_label:after {
   background: hsl(212,63%,45%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:focus + label::before {
+.c1.fi-radiobutton .fi-radiobutton_input:focus + .fi-radiobutton_label::before {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   border-radius: 50%;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:focus + label::before:not(:focus-visible) {
+.c1.fi-radiobutton .fi-radiobutton_input:focus + .fi-radiobutton_label::before:not(:focus-visible) {
   box-shadow: none;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label:before {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
   background: hsl(202,7%,97%);
   width: 16px;
   height: 16px;
@@ -1951,7 +1951,7 @@ exports[`variant should match snapshot 1`] = `
   left: 1px;
 }
 
-.c1.fi-radiobutton .fi-radiobutton_input:disabled:checked + label:after {
+.c1.fi-radiobutton .fi-radiobutton_input:disabled:checked + .fi-radiobutton_label:after {
   background: hsl(202,7%,67%);
   width: 8px;
   height: 8px;
@@ -1971,34 +1971,34 @@ exports[`variant should match snapshot 1`] = `
   margin: 10px 0 0 9px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label::before {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label::before {
   left: 0px;
   top: 2px;
   width: 28px;
   height: 28px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input + label::after {
+.c1.fi-radiobutton--large .fi-radiobutton_input + .fi-radiobutton_label::after {
   left: 7px;
   top: 9px;
   width: 16px;
   height: 16px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input:disabled + label:after {
+.c1.fi-radiobutton--large .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
   width: 28px;
   height: 28px;
   top: 3px;
   left: 1px;
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_input:disabled:checked + label:after {
+.c1.fi-radiobutton--large .fi-radiobutton_input:disabled:checked + .fi-radiobutton_label:after {
   background: hsl(202,7%,67%);
   width: 16px;
   height: 16px;
