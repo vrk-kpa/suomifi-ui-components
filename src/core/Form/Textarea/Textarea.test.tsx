@@ -6,7 +6,9 @@ import { Textarea } from './Textarea';
 
 describe('snapshot', () => {
   test('default structure should match snapshot', () => {
-    const { container } = render(<Textarea labelText="Label text" />);
+    const { container } = render(
+      <Textarea id="just-for-snapshot-to-be-same" labelText="Label text" />,
+    );
     expect(container.firstChild).toMatchSnapshot();
   });
 });

@@ -237,7 +237,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   </p>
   <textarea
     class="c4 fi-textarea_textarea"
-    id="48118810-fc06-4bbd-92cf-71e9e5bcdba7"
+    id="just-for-snapshot-to-be-same"
   />
 </label>
 `;

@@ -56,6 +56,10 @@ export interface TextareaProps extends HtmlTextareaProps {
   resize?: 'both' | 'vertical' | 'horizontal' | 'none';
   /** Optional text that is shown after labelText. Will be wrapped in parentheses. */
   optionalText?: string;
+  /** Unique id
+   * @default uuidV4
+   */
+  id?: string;
 }
 
 export class Textarea extends Component<TextareaProps> {
