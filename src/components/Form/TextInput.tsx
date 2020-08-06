@@ -91,10 +91,17 @@ class BaseTextInput extends Component<TextInputProps> {
     const generatedStatusTextId = `${idGenerator(propId)}-statusText`;
     const generatedHintTextId = `${idGenerator(propId)}-hintText`;
 
-    const describedBy = [
-      ...(statusText ? [generatedStatusTextId] : []),
-      ...(hintText ? [generatedHintTextId] : []),
-    ].join(' ');
+    const getDescribedBy = () => {
+      if (statusText || hintText) {
+        return {
+          'aria-describedby': [
+            ...(statusText ? [generatedStatusTextId] : []),
+            ...(hintText ? [generatedHintTextId] : []),
+          ].join(' '),
+        };
+      }
+      return;
+    };
 
     return (
       <HtmlLabel
@@ -120,7 +127,7 @@ class BaseTextInput extends Component<TextInputProps> {
               {...passProps}
               className={classnames(inputBaseClassName, inputClassName)}
               type={type}
-              aria-describedby={describedBy}
+              {...getDescribedBy()}
               placeholder={visualPlaceholder}
             />
             {children}
