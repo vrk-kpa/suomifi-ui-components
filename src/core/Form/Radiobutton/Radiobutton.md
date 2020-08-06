@@ -1,5 +1,5 @@
 ```js
-import { Radiobutton } from './Radiobutton';
+import { Radiobutton } from 'suomifi-ui-components';
 
 <Radiobutton.group
   label="Radiobuttons in group"
@@ -15,7 +15,7 @@ import { Radiobutton } from './Radiobutton';
 ### Standalone radio buttons
 
 ```js
-import { Radiobutton } from './Radiobutton';
+import { Radiobutton } from 'suomifi-ui-components';
 
 const [selectedValue, setSelectedValue] = React.useState(
   'value-test-2'
@@ -77,7 +77,7 @@ const handleChange = (event) => {
 ```
 
 ```js
-import { Radiobutton } from './Radiobutton';
+import { Radiobutton } from 'suomifi-ui-components';
 
 <>
   <Radiobutton.group
