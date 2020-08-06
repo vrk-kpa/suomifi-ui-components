@@ -222,6 +222,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 
 .c3.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c3.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
@@ -581,6 +582,7 @@ exports[`props className should match snapshot 1`] = `
 
 .c3.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c3.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
@@ -940,6 +942,7 @@ exports[`props defaultValue should match snapshot 1`] = `
 
 .c3.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c3.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
@@ -1300,6 +1303,7 @@ exports[`props hintText should match snapshot 1`] = `
 
 .c3.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c3.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
@@ -1665,6 +1669,7 @@ exports[`props id should match snapshot 1`] = `
 
 .c3.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c3.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
@@ -2024,6 +2029,7 @@ exports[`props label should match snapshot 1`] = `
 
 .c3.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c3.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
@@ -2395,6 +2401,7 @@ exports[`props labelMode should match snapshot 1`] = `
 
 .c4.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c4.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
@@ -2754,6 +2761,7 @@ exports[`props name should match snapshot 1`] = `
 
 .c3.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c3.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
@@ -3113,6 +3121,7 @@ exports[`props value should match snapshot 1`] = `
 
 .c3.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c3.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {

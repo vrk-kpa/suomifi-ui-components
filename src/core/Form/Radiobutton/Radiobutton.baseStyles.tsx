@@ -83,6 +83,7 @@ export const baseStyles = withSuomifiTheme(
         /* Radio input background circle */
         + .fi-radiobutton_label:before {
           border: 1px solid ${theme.colors.depthLight1};
+          background: ${theme.colors.depthLight3};
         }
         /* Radio input circle when selected */
         + .fi-radiobutton_label:after {

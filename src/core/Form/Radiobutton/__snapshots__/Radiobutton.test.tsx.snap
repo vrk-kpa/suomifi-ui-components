@@ -165,6 +165,7 @@ exports[`children should match snapshot 1`] = `
 
 .c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
@@ -415,6 +416,7 @@ exports[`className should match snapshot 1`] = `
 
 .c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
@@ -665,6 +667,7 @@ exports[`disabled should match snapshot 1`] = `
 
 .c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
@@ -940,6 +943,7 @@ exports[`hintText should match snapshot 1`] = `
 
 .c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
@@ -1196,6 +1200,7 @@ exports[`id should match snapshot 1`] = `
 
 .c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
@@ -1446,6 +1451,7 @@ exports[`name should match snapshot 1`] = `
 
 .c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
@@ -1697,6 +1703,7 @@ exports[`value should match snapshot 1`] = `
 
 .c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
@@ -1947,6 +1954,7 @@ exports[`variant should match snapshot 1`] = `
 
 .c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:before {
   border: 1px solid hsl(202,7%,80%);
+  background: hsl(202,7%,97%);
 }
 
 .c1.fi-radiobutton .fi-radiobutton_input:disabled + .fi-radiobutton_label:after {
