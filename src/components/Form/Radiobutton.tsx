@@ -108,6 +108,9 @@ class RadiobuttonItem extends Component<RadiobuttonProps> {
         'Radiobutton component should have a label or a child element that acts as one. Add label content or a child element.',
       );
     }
+    if ('value' in this.props && value.trim().length === 0) {
+      logger.error('Radiobutton value can not be empty.');
+    }
 
     const id = idGenerator(propId);
     const hintTextId = `${idGenerator(propId)}-hintText`;
