@@ -1,111 +1,113 @@
 import React from 'react';
 import { axeTest } from '../../../utils/test/axe';
 import { render } from '@testing-library/react';
-import { Checkbox } from './Checkbox';
+import { Checkbox, CheckboxProps } from './Checkbox';
 
-const createTestCheckbox = (
-  large: boolean,
-  error: boolean,
-  defaultChecked: boolean,
-  labelText: string,
-  hint?: string,
-  statusText?: string,
-  dataTestId?: string,
-  disabled?: boolean,
-) => (
-  <Checkbox
-    variant={large ? 'large' : 'small'}
-    defaultChecked={defaultChecked}
-    status={error ? 'error' : 'default'}
-    hintText={hint}
-    statusText={statusText}
-    data-testid={dataTestId}
-    id="test"
-    disabled={disabled}
-  >
-    {labelText}
-  </Checkbox>
-);
-
-const RegularTestCheckbox = createTestCheckbox(
-  false,
-  false,
-  false,
-  'Regular',
-  undefined,
-  undefined,
-  'regular_id',
-  false,
-);
-const LargeTestCheckbox = createTestCheckbox(
-  true,
-  false,
-  false,
-  'Large',
-  'Take a hint',
-  undefined,
-  'large_id',
-  false,
-);
-const CheckedLargeTestCheckboxWithError = createTestCheckbox(
-  true,
-  true,
-  true,
-  'Large Checked with error',
-  undefined,
-  'EROR EROR',
-  'largeError_id',
-  false,
-);
-
-const DisabledTestCheckbox = createTestCheckbox(
-  false,
-  false,
-  false,
-  'Regular',
-  undefined,
-  undefined,
-  'regular_id',
-  true,
-);
-
-test('Calling render with the same component on the same container does not remount', () => {
-  const checkboxRendered = render(RegularTestCheckbox);
-  const { getByTestId, container, rerender } = checkboxRendered;
-  expect(container.firstChild).toMatchSnapshot();
-  expect(getByTestId('regular_id').textContent).toBe('Regular');
-
-  // re-render the same component with different props
-  rerender(
-    createTestCheckbox(
-      false,
-      false,
-      false,
-      'Regular changed',
-      undefined,
-      undefined,
-      'regular_id_changed',
-    ),
+const BaseCheckbox = (props: CheckboxProps) => {
+  const { id, children, ...passProps } = props;
+  return (
+    <Checkbox id="test" {...passProps}>
+      {children || 'Default label'}
+    </Checkbox>
   );
-  expect(getByTestId('regular_id_changed').textContent).toBe('Regular changed');
+};
+
+const RegularTestCheckbox = (
+  <BaseCheckbox data-testid="regular_id">Regular</BaseCheckbox>
+);
+
+const LargeTestCheckboxWithHintText = (
+  <BaseCheckbox variant="large" hintText="Take a hint">
+    Large
+  </BaseCheckbox>
+);
+
+const CheckedLargeTestCheckboxWithError = (
+  <BaseCheckbox
+    variant="large"
+    statusText="EROR EROR"
+    defaultChecked
+    status="error"
+  >
+    Large Checked with error
+  </BaseCheckbox>
+);
+
+const DisabledTestCheckbox = (
+  <BaseCheckbox disabled>Regular disabled</BaseCheckbox>
+);
+
+describe('accessibility', () => {
+  test(
+    'RegularTestCheckbox should not have basic accessibility issues',
+    axeTest(RegularTestCheckbox),
+  );
+
+  test(
+    'LargeTestCheckboxWithHintText should not have basic accessibility issues',
+    axeTest(LargeTestCheckboxWithHintText),
+  );
+
+  test(
+    'CheckedLargeTestCheckboxWithError should not have basic accessibility issues',
+    axeTest(CheckedLargeTestCheckboxWithError),
+  );
+
+  test(
+    'DisabledTestCheckbox should not have basic accessibility issues',
+    axeTest(DisabledTestCheckbox),
+  );
 });
 
-test(
-  'Input should not have basic accessibility issues',
-  axeTest(RegularTestCheckbox),
-);
+describe('props', () => {
+  describe('name', () => {
+    it('has the given name prop on start and after prop change', () => {
+      const { getByRole, rerender } = render(<BaseCheckbox name="magical" />);
+      const input = getByRole('checkbox');
+      expect(input).toHaveAttribute('name', 'magical');
 
-test(
-  'Input should not have basic accessibility issues',
-  axeTest(LargeTestCheckbox),
-);
+      rerender(<BaseCheckbox name="unicorn" />);
+      expect(input).toHaveAttribute('name', 'unicorn');
+    });
+  });
 
-test(
-  'Input should not have basic accessibility issues',
-  axeTest(CheckedLargeTestCheckboxWithError),
-);
+  describe('value', () => {
+    it('do not have value attribute if prop is not given', () => {
+      const { getByRole } = render(<BaseCheckbox />);
+      const input = getByRole('checkbox');
+      expect(input).not.toHaveAttribute('value');
+    });
 
-test(
-  'Input should not have basic accessibility issues',
-  axeTest(DisabledTestCheckbox),
-);
+    it('has the given value prop on start and after prop change', () => {
+      const { getByRole, rerender } = render(
+        <BaseCheckbox value="test-value-1" />,
+      );
+      const input = getByRole('checkbox');
+      expect(input).toHaveAttribute('value', 'test-value-1');
+
+      rerender(<BaseCheckbox value="test-value-2" />);
+      expect(input).toHaveAttribute('value', 'test-value-2');
+    });
+  });
+
+  describe('children', () => {
+    it('has the given children and it changes on prop change', () => {
+      const { getByTestId, rerender } = render(RegularTestCheckbox);
+      expect(getByTestId('regular_id').textContent).toBe('Regular');
+
+      rerender(
+        <BaseCheckbox data-testid="regular_id_changed">
+          Regular changed
+        </BaseCheckbox>,
+      );
+      expect(getByTestId('regular_id_changed').textContent).toBe(
+        'Regular changed',
+      );
+    });
+
+    it('has matching snapshot', () => {
+      const { container } = render(RegularTestCheckbox);
+      expect(container.firstChild).toMatchSnapshot();
+    });
+  });
+});
