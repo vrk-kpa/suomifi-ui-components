@@ -100,7 +100,7 @@ class BaseTextInput extends Component<TextInputProps> {
           ].join(' '),
         };
       }
-      return;
+      return {};
     };
 
     return (
