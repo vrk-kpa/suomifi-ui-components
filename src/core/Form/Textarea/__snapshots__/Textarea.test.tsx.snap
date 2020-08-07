@@ -157,6 +157,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+  word-wrap: break-word;
 }
 
 .c1.fi-textarea .fi-textarea_textarea {
@@ -204,6 +205,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   font-size: 14px;
   line-height: 18px;
   font-weight: 600;
+  word-wrap: break-word;
 }
 
 .c1.fi-textarea.fi-textarea--disabled {
