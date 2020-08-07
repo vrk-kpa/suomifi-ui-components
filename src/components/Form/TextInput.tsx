@@ -22,11 +22,13 @@ const labelBaseClassName = `${baseClassName}_label`;
 const inputBaseClassName = `${baseClassName}_input`;
 const statusTextClassName = `${baseClassName}_statusText`;
 const statusTextContainerClassName = `${statusTextClassName}_container`;
-const statusTextSpanClassName = `${baseClassName}_statusText_span`;
+const hintTextClassName = `${baseClassName}_hintText`;
 
 export interface TextInputLabelProps extends HtmlLabelProps {}
 
 type Label = 'hidden' | 'visible';
+
+type InputType = 'text' | 'email' | 'number' | 'password' | 'tel' | 'url';
 
 export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   /** Custom classname for the input to extend or customize */
@@ -56,8 +58,14 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   /** Input container div to define custom styling */
   inputContainerProps?: HtmlDivProps;
   children?: ReactNode;
-  /** Showing the status text; like validation error beneath the component */
+  /** Hint text to be shown below the component */
+  hintText?: string;
+  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
+  /** 'text' | 'email' | 'number' | 'password' | 'tel' | 'url'
+   * @default text
+   */
+  type?: InputType;
 }
 
 class BaseTextInput extends Component<TextInputProps> {
@@ -72,13 +80,28 @@ class BaseTextInput extends Component<TextInputProps> {
       inputContainerProps,
       children,
       statusText,
+      hintText,
       visualPlaceholder,
       id: propId,
+      type = 'text',
       ...passProps
     } = this.props;
 
     const hideLabel = labelMode === 'hidden';
-    const generatedId = `${idGenerator(propId)}-statusText`;
+    const generatedStatusTextId = `${idGenerator(propId)}-statusText`;
+    const generatedHintTextId = `${idGenerator(propId)}-hintText`;
+
+    const getDescribedBy = () => {
+      if (statusText || hintText) {
+        return {
+          'aria-describedby': [
+            ...(statusText ? [generatedStatusTextId] : []),
+            ...(hintText ? [generatedHintTextId] : []),
+          ].join(' '),
+        };
+      }
+      return {};
+    };
 
     return (
       <HtmlLabel
@@ -92,20 +115,28 @@ class BaseTextInput extends Component<TextInputProps> {
         ) : (
           <Paragraph {...labelTextProps}>{labelText}</Paragraph>
         )}
+        {hintText && (
+          <Paragraph className={hintTextClassName} id={generatedHintTextId}>
+            {hintText}
+          </Paragraph>
+        )}
         <HtmlDiv className={statusTextContainerClassName}>
           <HtmlDiv {...inputContainerProps}>
             <HtmlInput
               id={propId}
               {...passProps}
               className={classnames(inputBaseClassName, inputClassName)}
-              type="text"
-              aria-describedby={generatedId}
+              type={type}
+              {...getDescribedBy()}
               placeholder={visualPlaceholder}
             />
             {children}
           </HtmlDiv>
           {statusText && (
-            <HtmlSpan className={statusTextSpanClassName} id={generatedId}>
+            <HtmlSpan
+              className={statusTextClassName}
+              id={generatedStatusTextId}
+            >
               {statusText}
             </HtmlSpan>
           )}

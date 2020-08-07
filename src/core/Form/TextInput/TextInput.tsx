@@ -53,7 +53,7 @@ const StyledTextInput = styled(
             textInputClassNames.inputContainer,
           ),
         }}
-        className={classnames(className, {
+        className={classnames(baseClassName, className, {
           [textInputClassNames.error]: status === 'error',
           [textInputClassNames.success]: status === 'success',
         })}
