@@ -25,7 +25,7 @@ export interface RadiobuttonGroupProps {
    * Hint text to be displayed under the label.
    */
   hintText?: string;
-  /** Label for group */
+  /** Label for the group */
   label: string;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
@@ -37,11 +37,11 @@ export interface RadiobuttonGroupProps {
    * @default uuidV4
    */
   id?: string;
-  /** Name for the group; this will be set to Radiobuttons */
+  /** Name for the group; this will be set to Radiobuttons. Overrides Radiobutton props name. */
   name: string;
-  /** Value that is selected from group, should match with the value given to Radiobutton */
+  /** Controlled value of the selected Radiobutton in the group. Overrides Radiobutton selected values. */
   value?: string;
-  /** Value that is selected by default */
+  /** Value of the Radiobutton selected by default */
   defaultValue?: string;
 }
 

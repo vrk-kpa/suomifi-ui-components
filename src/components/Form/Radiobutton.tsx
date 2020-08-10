@@ -22,13 +22,11 @@ type RadiobuttonVariant = 'small' | 'large';
 export interface RadiobuttonProps {
   /** Custom classname to extend or customize */
   className?: string;
-  /**
-   * Label element content
-   */
+  /** Label for element content */
   children?: ReactNode;
-  /** Group multiple Radiobuttons to be inside same selection group */
+  /** Group multiple Radiobuttons in a selection group, overridden by RadiobuttonGroup. */
   name?: string;
-  /** Unique value to be used inside Radiobutton group for this item */
+  /** Value for this item. Must be unique inside a Radiobutton group. */
   value: string;
   /**
    * Unique id
@@ -36,11 +34,9 @@ export interface RadiobuttonProps {
    * @default uuidV4
    */
   id?: string;
-  /**
-   * Hint text to be displayed under the label.
-   */
+  /** Hint text. Displayed under the label. */
   hintText?: string;
-  /** Disable Radiobutton. Value won't be included when submitting */
+  /** Disable Radiobutton. Value not included when submitting. */
   disabled?: boolean;
   /**
    * 'small' | 'large'
@@ -49,7 +45,9 @@ export interface RadiobuttonProps {
   variant?: RadiobuttonVariant;
   radiobuttonGroup?: boolean;
   consumer?: RadiobuttonGroupProviderState;
+  /** Checked state, overridden by RadiobuttonGroup. */
   checked?: boolean;
+  /** Callback for Radiobutton checked state changes. */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -128,12 +126,9 @@ class RadiobuttonItem extends Component<RadiobuttonProps> {
           onChange={this.handleChange}
           checked={checkedState}
           {...(value ? { value } : {})}
-        />
-        <HtmlLabel
-          className={radiobuttonClassNames.label}
-          htmlFor={id}
           {...passProps}
-        >
+        />
+        <HtmlLabel className={radiobuttonClassNames.label} htmlFor={id}>
           {children}
         </HtmlLabel>
         {hintText && (
