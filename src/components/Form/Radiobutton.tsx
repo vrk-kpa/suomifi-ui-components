@@ -49,6 +49,8 @@ export interface RadiobuttonProps {
   checked?: boolean;
   /** Callback for Radiobutton checked state changes. */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** Additional label id for screen readers. */
+  'aria-labelledby'?: string;
 }
 
 export interface RadiobuttonState {

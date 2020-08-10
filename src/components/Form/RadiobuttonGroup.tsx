@@ -21,9 +21,7 @@ export interface RadiobuttonGroupProps {
   className?: string;
   /** Radiobutton or RadiobuttonDivider */
   children: Array<React.ReactElement<RadiobuttonProps>>;
-  /**
-   * Hint text to be displayed under the label.
-   */
+  /** Hint text to be displayed under the label. */
   hintText?: string;
   /** Label for the group */
   label: string;
@@ -43,6 +41,8 @@ export interface RadiobuttonGroupProps {
   value?: string;
   /** Value of the Radiobutton selected by default */
   defaultValue?: string;
+  /** Callback for RadiobuttonGroup selected changes. */
+  onChange?: (value: string) => void;
 }
 
 export interface RadiobuttonGroupProviderState {
@@ -106,7 +106,12 @@ export class RadiobuttonGroup extends Component<RadiobuttonGroupProps> {
   }
 
   handleRadiobuttonChange = (value: string) => {
-    this.setState({ selectedValue: value });
+    if (!!this.props.onChange) {
+      this.props.onChange(value);
+    }
+    if (!('value' in this.props)) {
+      this.setState({ selectedValue: value });
+    }
   };
 
   render() {
@@ -119,6 +124,7 @@ export class RadiobuttonGroup extends Component<RadiobuttonGroupProps> {
       id: propId,
       name,
       defaultValue: dismissDefaultValue,
+      onChange,
       ...passProps
     } = this.props;
     const { selectedValue } = this.state;
