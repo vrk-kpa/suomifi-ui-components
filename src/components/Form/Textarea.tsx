@@ -4,6 +4,7 @@ import {
   HtmlTextarea,
   HtmlTextareaProps,
   HtmlSpan,
+  HtmlDiv,
 } from '../../reset';
 import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import { Paragraph } from '../Paragraph/Paragraph';
@@ -63,48 +64,49 @@ export interface TextareaProps extends HtmlTextareaProps {
 }
 
 export class Textarea extends Component<TextareaProps> {
-  labelText = () => {
+  labelText = (forId: string) => {
     const { labelMode, labelText, optionalText } = this.props;
     const hideLabel = labelMode === 'hidden';
 
     return hideLabel ? (
-      <VisuallyHidden>
-        {labelText}
-        {optionalText && `(${optionalText})`}
-      </VisuallyHidden>
+      <HtmlLabel for={forId}>
+        <VisuallyHidden>
+          {labelText}
+          {optionalText && `(${optionalText})`}
+        </VisuallyHidden>
+      </HtmlLabel>
     ) : (
-      <Paragraph>
-        <HtmlSpan className={textareaClassNames.label}>{labelText}</HtmlSpan>
-        {optionalText && (
-          <HtmlSpan className={textareaClassNames.optionalText}>
-            {`(${optionalText})`}
-          </HtmlSpan>
-        )}
-      </Paragraph>
+      <HtmlLabel for={forId}>
+        <Paragraph>
+          <HtmlSpan className={textareaClassNames.label}>{labelText}</HtmlSpan>
+          {optionalText && (
+            <HtmlSpan className={textareaClassNames.optionalText}>
+              {` (${optionalText})`}
+            </HtmlSpan>
+          )}
+        </Paragraph>
+      </HtmlLabel>
     );
   };
 
-  hintText = () => {
-    const { hintText, id: propId } = this.props;
-    const hintTextId = `${idGenerator(propId)}-hintText`;
+  hintText = (id: string) => {
+    const { hintText } = this.props;
 
     return (
       hintText && (
-        <HtmlSpan className={textareaClassNames.hintText} id={hintTextId}>
+        <HtmlSpan className={textareaClassNames.hintText} id={id}>
           {hintText}
         </HtmlSpan>
       )
     );
   };
 
-  statusText = () => {
-    const { statusText, disabled, id: propId } = this.props;
-    const statusTextId = `${idGenerator(propId)}-statusText`;
-
+  statusText = (id: string) => {
+    const { statusText, disabled } = this.props;
     return (
       statusText &&
       !disabled && (
-        <HtmlSpan className={textareaClassNames.statusText} id={statusTextId}>
+        <HtmlSpan className={textareaClassNames.statusText} id={id}>
           {statusText}
         </HtmlSpan>
       )
@@ -131,22 +133,41 @@ export class Textarea extends Component<TextareaProps> {
 
     const onClickProps = !!disabled ? {} : { onMouseDown: onClick };
     const id = idGenerator(propId);
+    const statusTextId = `${id}-statusText`;
+    const hintTextId = `${id}-hintText`;
+
+    const getDescribedBy = () => {
+      if (statusText || hintText) {
+        return {
+          'aria-describedby': [
+            ...(statusText ? [statusTextId] : []),
+            ...(hintText ? [hintTextId] : []),
+            this.props['aria-describedby'],
+          ].join(' '),
+        };
+      }
+      if (this.props['aria-describedby']) {
+        return { 'aria-describedby': this.props['aria-describedby'] };
+      }
+      return {};
+    };
 
     return (
-      <HtmlLabel className={classnames(baseClassName, className, {})}>
-        {this.labelText()}
-        {this.hintText()}
+      <HtmlDiv className={classnames(baseClassName, className, {})}>
+        {this.labelText(id)}
+        {this.hintText(hintTextId)}
         <HtmlTextarea
           id={id}
           className={textareaClassNames.textarea}
           disabled={disabled}
           defaultValue={children}
           placeholder={visualPlaceholder}
+          {...getDescribedBy()}
           {...passProps}
           {...onClickProps}
         />
-        {this.statusText()}
-      </HtmlLabel>
+        {this.statusText(statusTextId)}
+      </HtmlDiv>
     );
   }
 }
