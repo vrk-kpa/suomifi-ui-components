@@ -18,10 +18,34 @@ exports[`snapshot default structure should match snapshot 1`] = `
   color: inherit;
   background: none;
   cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
   max-width: 100%;
 }
 
-.c3 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -45,7 +69,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c4 {
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -68,12 +92,12 @@ exports[`snapshot default structure should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c4::-webkit-input-placeholder {
+.c5::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c2 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -147,7 +171,6 @@ exports[`snapshot default structure should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  margin-left: 5px;
 }
 
 .c1.fi-textarea .fi-textarea_hintText {
@@ -225,21 +248,26 @@ exports[`snapshot default structure should match snapshot 1`] = `
   color: hsl(3,59%,48%);
 }
 
-<label
+<div
   class="c0 fi-textarea c1"
 >
-  <p
-    class="c2 fi-paragraph"
+  <label
+    class="c2"
+    for="just-for-snapshot-to-be-same"
   >
-    <span
-      class="c3 fi-textarea_label"
+    <p
+      class="c3 fi-paragraph"
     >
-      Label text
-    </span>
-  </p>
+      <span
+        class="c4 fi-textarea_label"
+      >
+        Label text
+      </span>
+    </p>
+  </label>
   <textarea
-    class="c4 fi-textarea_textarea"
+    class="c5 fi-textarea_textarea"
     id="just-for-snapshot-to-be-same"
   />
-</label>
+</div>
 `;
