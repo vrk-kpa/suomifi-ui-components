@@ -23,7 +23,6 @@ export const baseStyles = withSuomifiTheme(
 
       & .fi-textarea_optionalText {
         ${theme.typography.bodyTextSmall};
-        margin-left: ${theme.spacing.xxs};
       }
 
       & .fi-textarea_hintText {
