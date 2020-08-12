@@ -69,14 +69,14 @@ export class Textarea extends Component<TextareaProps> {
     const hideLabel = labelMode === 'hidden';
 
     return hideLabel ? (
-      <HtmlLabel for={forId}>
+      <HtmlLabel htmlFor={forId}>
         <VisuallyHidden>
           {labelText}
           {optionalText && `(${optionalText})`}
         </VisuallyHidden>
       </HtmlLabel>
     ) : (
-      <HtmlLabel for={forId}>
+      <HtmlLabel htmlFor={forId}>
         <Paragraph>
           <HtmlSpan className={textareaClassNames.label}>{labelText}</HtmlSpan>
           {optionalText && (
@@ -137,7 +137,7 @@ export class Textarea extends Component<TextareaProps> {
     const hintTextId = `${id}-hintText`;
 
     const getDescribedBy = () => {
-      if (statusText || hintText) {
+      if (statusText || hintText || this.props['aria-describedby']) {
         return {
           'aria-describedby': [
             ...(statusText ? [statusTextId] : []),
@@ -145,9 +145,6 @@ export class Textarea extends Component<TextareaProps> {
             this.props['aria-describedby'],
           ].join(' '),
         };
-      }
-      if (this.props['aria-describedby']) {
-        return { 'aria-describedby': this.props['aria-describedby'] };
       }
       return {};
     };
