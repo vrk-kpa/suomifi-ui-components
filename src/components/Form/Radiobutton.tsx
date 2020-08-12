@@ -130,14 +130,17 @@ class RadiobuttonItem extends Component<RadiobuttonProps> {
           {...(value ? { value } : {})}
           {...passProps}
         />
-        <HtmlLabel className={radiobuttonClassNames.label} htmlFor={id}>
-          {children}
+        <HtmlLabel htmlFor={id} className={radiobuttonClassNames.label}>
+          <HtmlSpan>{children}</HtmlSpan>
+          {hintText && (
+            <HtmlSpan
+              className={radiobuttonClassNames.hintText}
+              id={hintTextId}
+            >
+              {hintText}
+            </HtmlSpan>
+          )}
         </HtmlLabel>
-        {hintText && (
-          <HtmlSpan className={radiobuttonClassNames.hintText} id={hintTextId}>
-            {hintText}
-          </HtmlSpan>
-        )}
       </HtmlDiv>
     );
   }
