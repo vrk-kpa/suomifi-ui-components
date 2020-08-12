@@ -113,7 +113,7 @@ class RadiobuttonItem extends Component<RadiobuttonProps> {
     }
 
     const id = idGenerator(propId);
-    const hintTextId = `${idGenerator(propId)}-hintText`;
+    const hintTextId = `${id}-hintText`;
 
     return (
       <HtmlDiv
@@ -127,20 +127,18 @@ class RadiobuttonItem extends Component<RadiobuttonProps> {
           disabled={disabled}
           onChange={this.handleChange}
           checked={checkedState}
+          {...(!!hintText ? { 'aria-describedby': hintTextId } : {})}
           {...(value ? { value } : {})}
           {...passProps}
         />
         <HtmlLabel htmlFor={id} className={radiobuttonClassNames.label}>
-          <HtmlSpan>{children}</HtmlSpan>
-          {hintText && (
-            <HtmlSpan
-              className={radiobuttonClassNames.hintText}
-              id={hintTextId}
-            >
-              {hintText}
-            </HtmlSpan>
-          )}
+          {children}
         </HtmlLabel>
+        {hintText && (
+          <HtmlSpan className={radiobuttonClassNames.hintText} id={hintTextId}>
+            {hintText}
+          </HtmlSpan>
+        )}
       </HtmlDiv>
     );
   }
