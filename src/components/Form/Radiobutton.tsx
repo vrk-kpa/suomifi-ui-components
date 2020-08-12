@@ -127,7 +127,7 @@ class RadiobuttonItem extends Component<RadiobuttonProps> {
           disabled={disabled}
           onChange={this.handleChange}
           checked={checkedState}
-          {...(!!hintText ? { 'aria-describedby': hintTextId } : {})}
+          {...(hintText ? { 'aria-describedby': hintTextId } : {})}
           {...(value ? { value } : {})}
           {...passProps}
         />
