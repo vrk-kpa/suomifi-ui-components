@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { Radiobutton } from './Radiobutton';
 import { RadiobuttonGroup } from './RadiobuttonGroup';
 
@@ -173,6 +173,13 @@ describe('props', () => {
       expect(radiobuttons[0]).not.toHaveClass('fi-radiobutton--checked');
       expect(radiobuttons[1]).not.toHaveClass('fi-radiobutton--checked');
       expect(radiobuttons[2]).toHaveClass('fi-radiobutton--checked');
+    });
+
+    it('controlled state persists when unchecked radio is clicked', () => {
+      const { getAllByRole } = render(ValueGroup);
+      const radiobuttons = getAllByRole('radio') as HTMLInputElement[];
+      fireEvent.click(radiobuttons[0]);
+      expect(radiobuttons[0].checked).toBe(false);
     });
 
     it('should match snapshot', () => {
