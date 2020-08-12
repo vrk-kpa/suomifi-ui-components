@@ -73,6 +73,30 @@ exports[`children should match snapshot 1`] = `
   max-width: 100%;
 }
 
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -92,7 +116,6 @@ exports[`children should match snapshot 1`] = `
 
 .c1.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -188,10 +211,6 @@ exports[`children should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c1.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -245,7 +264,11 @@ exports[`children should match snapshot 1`] = `
       class="c3 fi-radiobutton_label"
       for="test-id"
     >
-      Option 1
+      <span
+        class="c4"
+      >
+        Option 1
+      </span>
     </label>
   </div>
 </div>
@@ -324,6 +347,30 @@ exports[`className should match snapshot 1`] = `
   max-width: 100%;
 }
 
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -343,7 +390,6 @@ exports[`className should match snapshot 1`] = `
 
 .c1.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -439,10 +485,6 @@ exports[`className should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c1.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -496,7 +538,11 @@ exports[`className should match snapshot 1`] = `
       class="c3 fi-radiobutton_label"
       for="test-id"
     >
-      Label text here
+      <span
+        class="c4"
+      >
+        Label text here
+      </span>
     </label>
   </div>
 </div>
@@ -575,6 +621,30 @@ exports[`disabled should match snapshot 1`] = `
   max-width: 100%;
 }
 
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -594,7 +664,6 @@ exports[`disabled should match snapshot 1`] = `
 
 .c1.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -690,10 +759,6 @@ exports[`disabled should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c1.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -748,7 +813,11 @@ exports[`disabled should match snapshot 1`] = `
       class="c3 fi-radiobutton_label"
       for="test-id"
     >
-      Label text here
+      <span
+        class="c4"
+      >
+        Label text here
+      </span>
     </label>
   </div>
 </div>
@@ -870,7 +939,6 @@ exports[`hintText should match snapshot 1`] = `
 
 .c1.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -966,10 +1034,6 @@ exports[`hintText should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c1.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -1023,14 +1087,18 @@ exports[`hintText should match snapshot 1`] = `
       class="c3 fi-radiobutton_label"
       for="test-id"
     >
-      Label text here
+      <span
+        class="c4"
+      >
+        Label text here
+      </span>
+      <span
+        class="c4 fi-radiobutton_hintText"
+        id="test-id-hintText"
+      >
+        Example hint text
+      </span>
     </label>
-    <span
-      class="c4 fi-radiobutton_hintText"
-      id="test-id-hintText"
-    >
-      Example hint text
-    </span>
   </div>
 </div>
 `;
@@ -1108,6 +1176,30 @@ exports[`id should match snapshot 1`] = `
   max-width: 100%;
 }
 
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -1127,7 +1219,6 @@ exports[`id should match snapshot 1`] = `
 
 .c1.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -1223,10 +1314,6 @@ exports[`id should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c1.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -1280,7 +1367,11 @@ exports[`id should match snapshot 1`] = `
       class="c3 fi-radiobutton_label"
       for="good-id"
     >
-      Label text here
+      <span
+        class="c4"
+      >
+        Label text here
+      </span>
     </label>
   </div>
 </div>
@@ -1359,6 +1450,30 @@ exports[`name should match snapshot 1`] = `
   max-width: 100%;
 }
 
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -1378,7 +1493,6 @@ exports[`name should match snapshot 1`] = `
 
 .c1.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -1474,10 +1588,6 @@ exports[`name should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c1.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -1532,7 +1642,11 @@ exports[`name should match snapshot 1`] = `
       class="c3 fi-radiobutton_label"
       for="test-id"
     >
-      Label text here
+      <span
+        class="c4"
+      >
+        Label text here
+      </span>
     </label>
   </div>
 </div>
@@ -1611,6 +1725,30 @@ exports[`value should match snapshot 1`] = `
   max-width: 100%;
 }
 
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -1630,7 +1768,6 @@ exports[`value should match snapshot 1`] = `
 
 .c1.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -1726,10 +1863,6 @@ exports[`value should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c1.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -1783,7 +1916,11 @@ exports[`value should match snapshot 1`] = `
       class="c3 fi-radiobutton_label"
       for="test-id"
     >
-      Label text here
+      <span
+        class="c4"
+      >
+        Label text here
+      </span>
     </label>
   </div>
 </div>
@@ -1862,6 +1999,30 @@ exports[`variant should match snapshot 1`] = `
   max-width: 100%;
 }
 
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -1881,7 +2042,6 @@ exports[`variant should match snapshot 1`] = `
 
 .c1.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -1977,10 +2137,6 @@ exports[`variant should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c1.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -2034,7 +2190,11 @@ exports[`variant should match snapshot 1`] = `
       class="c3 fi-radiobutton_label"
       for="test-id"
     >
-      Label text here
+      <span
+        class="c4"
+      >
+        Label text here
+      </span>
     </label>
   </div>
 </div>

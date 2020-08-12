@@ -149,7 +149,6 @@ exports[`default, with only required props should match snapshot 1`] = `
 
 .c3.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -245,10 +244,6 @@ exports[`default, with only required props should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c3.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c3.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -318,7 +313,11 @@ exports[`default, with only required props should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-1"
         >
-          Label text 1
+          <span
+            class="c2"
+          >
+            Label text 1
+          </span>
         </label>
       </div>
       <div
@@ -335,7 +334,11 @@ exports[`default, with only required props should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-2"
         >
-          Label text 2
+          <span
+            class="c2"
+          >
+            Label text 2
+          </span>
         </label>
       </div>
       <div
@@ -352,7 +355,11 @@ exports[`default, with only required props should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-3"
         >
-          Label text 3
+          <span
+            class="c2"
+          >
+            Label text 3
+          </span>
         </label>
       </div>
     </div>
@@ -509,7 +516,6 @@ exports[`props className should match snapshot 1`] = `
 
 .c3.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -605,10 +611,6 @@ exports[`props className should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c3.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c3.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -678,7 +680,11 @@ exports[`props className should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-1"
         >
-          Label text 1
+          <span
+            class="c2"
+          >
+            Label text 1
+          </span>
         </label>
       </div>
       <div
@@ -695,7 +701,11 @@ exports[`props className should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-2"
         >
-          Label text 2
+          <span
+            class="c2"
+          >
+            Label text 2
+          </span>
         </label>
       </div>
       <div
@@ -712,7 +722,11 @@ exports[`props className should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-3"
         >
-          Label text 3
+          <span
+            class="c2"
+          >
+            Label text 3
+          </span>
         </label>
       </div>
     </div>
@@ -869,7 +883,6 @@ exports[`props defaultValue should match snapshot 1`] = `
 
 .c3.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -965,10 +978,6 @@ exports[`props defaultValue should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c3.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c3.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -1038,7 +1047,11 @@ exports[`props defaultValue should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-1"
         >
-          Label text 1
+          <span
+            class="c2"
+          >
+            Label text 1
+          </span>
         </label>
       </div>
       <div
@@ -1055,7 +1068,11 @@ exports[`props defaultValue should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-2"
         >
-          Label text 2
+          <span
+            class="c2"
+          >
+            Label text 2
+          </span>
         </label>
       </div>
       <div
@@ -1073,7 +1090,11 @@ exports[`props defaultValue should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-3"
         >
-          Label text 3
+          <span
+            class="c2"
+          >
+            Label text 3
+          </span>
         </label>
       </div>
     </div>
@@ -1230,7 +1251,6 @@ exports[`props hintText should match snapshot 1`] = `
 
 .c3.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -1326,10 +1346,6 @@ exports[`props hintText should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c3.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c3.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -1405,7 +1421,11 @@ exports[`props hintText should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-1"
         >
-          Label text 1
+          <span
+            class="c2"
+          >
+            Label text 1
+          </span>
         </label>
       </div>
       <div
@@ -1422,7 +1442,11 @@ exports[`props hintText should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-2"
         >
-          Label text 2
+          <span
+            class="c2"
+          >
+            Label text 2
+          </span>
         </label>
       </div>
       <div
@@ -1439,7 +1463,11 @@ exports[`props hintText should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-3"
         >
-          Label text 3
+          <span
+            class="c2"
+          >
+            Label text 3
+          </span>
         </label>
       </div>
     </div>
@@ -1596,7 +1624,6 @@ exports[`props id should match snapshot 1`] = `
 
 .c3.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -1692,10 +1719,6 @@ exports[`props id should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c3.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c3.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -1765,7 +1788,11 @@ exports[`props id should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-1"
         >
-          Label text 1
+          <span
+            class="c2"
+          >
+            Label text 1
+          </span>
         </label>
       </div>
       <div
@@ -1782,7 +1809,11 @@ exports[`props id should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-2"
         >
-          Label text 2
+          <span
+            class="c2"
+          >
+            Label text 2
+          </span>
         </label>
       </div>
       <div
@@ -1799,7 +1830,11 @@ exports[`props id should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-3"
         >
-          Label text 3
+          <span
+            class="c2"
+          >
+            Label text 3
+          </span>
         </label>
       </div>
     </div>
@@ -1956,7 +1991,6 @@ exports[`props label should match snapshot 1`] = `
 
 .c3.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -2052,10 +2086,6 @@ exports[`props label should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c3.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c3.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -2125,7 +2155,11 @@ exports[`props label should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-1"
         >
-          Label text 1
+          <span
+            class="c2"
+          >
+            Label text 1
+          </span>
         </label>
       </div>
       <div
@@ -2142,7 +2176,11 @@ exports[`props label should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-2"
         >
-          Label text 2
+          <span
+            class="c2"
+          >
+            Label text 2
+          </span>
         </label>
       </div>
       <div
@@ -2159,7 +2197,11 @@ exports[`props label should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-3"
         >
-          Label text 3
+          <span
+            class="c2"
+          >
+            Label text 3
+          </span>
         </label>
       </div>
     </div>
@@ -2328,7 +2370,6 @@ exports[`props labelMode should match snapshot 1`] = `
 
 .c4.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -2424,10 +2465,6 @@ exports[`props labelMode should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c4.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c4.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -2497,7 +2534,11 @@ exports[`props labelMode should match snapshot 1`] = `
           class="c6 fi-radiobutton_label"
           for="test-id-1"
         >
-          Label text 1
+          <span
+            class="c2"
+          >
+            Label text 1
+          </span>
         </label>
       </div>
       <div
@@ -2514,7 +2555,11 @@ exports[`props labelMode should match snapshot 1`] = `
           class="c6 fi-radiobutton_label"
           for="test-id-2"
         >
-          Label text 2
+          <span
+            class="c2"
+          >
+            Label text 2
+          </span>
         </label>
       </div>
       <div
@@ -2531,7 +2576,11 @@ exports[`props labelMode should match snapshot 1`] = `
           class="c6 fi-radiobutton_label"
           for="test-id-3"
         >
-          Label text 3
+          <span
+            class="c2"
+          >
+            Label text 3
+          </span>
         </label>
       </div>
     </div>
@@ -2688,7 +2737,6 @@ exports[`props name should match snapshot 1`] = `
 
 .c3.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -2784,10 +2832,6 @@ exports[`props name should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c3.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c3.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -2857,7 +2901,11 @@ exports[`props name should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-1"
         >
-          Label text 1
+          <span
+            class="c2"
+          >
+            Label text 1
+          </span>
         </label>
       </div>
       <div
@@ -2874,7 +2922,11 @@ exports[`props name should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-2"
         >
-          Label text 2
+          <span
+            class="c2"
+          >
+            Label text 2
+          </span>
         </label>
       </div>
       <div
@@ -2891,7 +2943,11 @@ exports[`props name should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-3"
         >
-          Label text 3
+          <span
+            class="c2"
+          >
+            Label text 3
+          </span>
         </label>
       </div>
     </div>
@@ -3048,7 +3104,6 @@ exports[`props value should match snapshot 1`] = `
 
 .c3.fi-radiobutton .fi-radiobutton_hintText {
   display: block;
-  padding-left: 26px;
   color: hsl(202,7%,40%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
@@ -3144,10 +3199,6 @@ exports[`props value should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c3.fi-radiobutton--large .fi-radiobutton_hintText {
-  padding-left: 40px;
-}
-
 .c3.fi-radiobutton--large .fi-radiobutton_input {
   margin: 10px 0 0 9px;
 }
@@ -3218,7 +3269,11 @@ exports[`props value should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-1"
         >
-          Label text 1
+          <span
+            class="c2"
+          >
+            Label text 1
+          </span>
         </label>
       </div>
       <div
@@ -3236,7 +3291,11 @@ exports[`props value should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-2"
         >
-          Label text 2
+          <span
+            class="c2"
+          >
+            Label text 2
+          </span>
         </label>
       </div>
       <div
@@ -3253,7 +3312,11 @@ exports[`props value should match snapshot 1`] = `
           class="c5 fi-radiobutton_label"
           for="test-id-3"
         >
-          Label text 3
+          <span
+            class="c2"
+          >
+            Label text 3
+          </span>
         </label>
       </div>
     </div>
