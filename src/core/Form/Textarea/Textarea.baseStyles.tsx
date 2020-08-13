@@ -29,7 +29,7 @@ export const baseStyles = withSuomifiTheme(
         display: block;
         color: ${theme.colors.depthDark1};
         ${theme.typography.bodyTextSmall};
-        word-wrap: break-word;
+        word-break: break-word;
       }
 
       & .fi-textarea_textarea {
@@ -55,7 +55,7 @@ export const baseStyles = withSuomifiTheme(
         font-size: 14px;
         line-height: 18px;
         font-weight: 600;
-        word-wrap: break-word;
+        word-break: break-word;
       }
 
       &.fi-textarea--disabled {
