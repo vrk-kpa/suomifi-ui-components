@@ -130,6 +130,14 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1 .fi-radiobutton_container {
+  margin-top: 10px;
+}
+
+.c1 .fi-radiobutton_container.fi-radiobutton--large {
+  margin-top: 15px;
+}
+
 .c3 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -488,6 +496,14 @@ exports[`props className should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c1 .fi-radiobutton_container {
+  margin-top: 10px;
+}
+
+.c1 .fi-radiobutton_container.fi-radiobutton--large {
+  margin-top: 15px;
 }
 
 .c3 {
@@ -850,6 +866,14 @@ exports[`props defaultValue should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1 .fi-radiobutton_container {
+  margin-top: 10px;
+}
+
+.c1 .fi-radiobutton_container.fi-radiobutton--large {
+  margin-top: 15px;
+}
+
 .c3 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -1209,6 +1233,14 @@ exports[`props hintText should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c1 .fi-radiobutton_container {
+  margin-top: 10px;
+}
+
+.c1 .fi-radiobutton_container.fi-radiobutton--large {
+  margin-top: 15px;
 }
 
 .c3 {
@@ -1577,6 +1609,14 @@ exports[`props id should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1 .fi-radiobutton_container {
+  margin-top: 10px;
+}
+
+.c1 .fi-radiobutton_container.fi-radiobutton--large {
+  margin-top: 15px;
+}
+
 .c3 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -1935,6 +1975,14 @@ exports[`props label should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c1 .fi-radiobutton_container {
+  margin-top: 10px;
+}
+
+.c1 .fi-radiobutton_container.fi-radiobutton--large {
+  margin-top: 15px;
 }
 
 .c3 {
@@ -2309,6 +2357,14 @@ exports[`props labelMode should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1 .fi-radiobutton_container {
+  margin-top: 10px;
+}
+
+.c1 .fi-radiobutton_container.fi-radiobutton--large {
+  margin-top: 15px;
+}
+
 .c4 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -2669,6 +2725,14 @@ exports[`props name should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1 .fi-radiobutton_container {
+  margin-top: 10px;
+}
+
+.c1 .fi-radiobutton_container.fi-radiobutton--large {
+  margin-top: 15px;
+}
+
 .c3 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -3027,6 +3091,14 @@ exports[`props value should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c1 .fi-radiobutton_container {
+  margin-top: 10px;
+}
+
+.c1 .fi-radiobutton_container.fi-radiobutton--large {
+  margin-top: 15px;
 }
 
 .c3 {
