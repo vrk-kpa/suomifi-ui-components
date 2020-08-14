@@ -18,5 +18,13 @@ export const baseStyles = withSuomifiTheme(
         ${theme.typography.bodyTextSmall};
       }
     }
+
+    & .fi-radiobutton_container {
+      margin-top: ${theme.spacing.xs};
+    }
+
+    & .fi-radiobutton_container.fi-radiobutton--large {
+      margin-top: ${theme.spacing.s};
+    }
   `,
 );
