@@ -111,7 +111,7 @@
     "react-docgen": "5.3.0",
     "react-docgen-typescript": "1.16.3",
     "react-dom": "16.13.1",
-    "react-styleguidist": "11.0.5",
+    "react-styleguidist": "11.0.8",
     "rollup-plugin-postcss": "2.5.0",
     "sass-loader": "8.0.2",
     "size-limit": "4.4.5",
@@ -127,7 +127,7 @@
     "tsdx": "0.13.1",
     "tslib": "1.11.1",
     "typescript": "3.8.3",
-    "webpack": "4.42.1"
+    "webpack": "4.44.1"
   },
   "dependencies": {
     "@reach/listbox": "0.10.4",
