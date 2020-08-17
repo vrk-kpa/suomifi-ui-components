@@ -8,10 +8,10 @@ export const baseStyles = withSuomifiTheme(
     ${font({ theme })('bodyText')}
 
 
-    &.fi-radiobuttondivider {
+    &.fi-radio-button-divider {
       display: block;
 
-      &.fi-radiobuttondivider--large {
+      &.fi-radio-button-divider--large {
         margin-left: 6px;
       }
     }

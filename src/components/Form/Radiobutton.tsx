@@ -4,29 +4,29 @@ import { HtmlInput, HtmlLabel, HtmlSpan, HtmlDiv } from '../../reset';
 import { idGenerator } from '../../utils/uuid';
 import { logger } from '../../utils/logger';
 import {
-  RadiobuttonGroupConsumer,
-  RadiobuttonGroupProviderState,
-} from './RadiobuttonGroup';
+  RadioButtonGroupConsumer,
+  RadioButtonGroupProviderState,
+} from './RadioButtonGroup';
 
-const baseClassName = 'fi-radiobutton';
+const baseClassName = 'fi-radio-button';
 
-const radiobuttonClassNames = {
+const radioButtonClassNames = {
   container: `${baseClassName}_container`,
   input: `${baseClassName}_input`,
   label: `${baseClassName}_label`,
   hintText: `${baseClassName}_hintText`,
 };
 
-type RadiobuttonVariant = 'small' | 'large';
+type RadioButtonVariant = 'small' | 'large';
 
-export interface RadiobuttonProps {
+export interface RadioButtonProps {
   /** Custom classname to extend or customize */
   className?: string;
   /** Label for element content */
   children?: ReactNode;
-  /** Group multiple Radiobuttons in a selection group, overridden by RadiobuttonGroup. */
+  /** Group multiple RadioButtons in a selection group, overridden by RadioButtonGroup. */
   name?: string;
-  /** Value for this item. Must be unique inside a Radiobutton group. */
+  /** Value for this item. Must be unique inside a RadioButtonGroup. */
   value: string;
   /**
    * Unique id
@@ -36,35 +36,35 @@ export interface RadiobuttonProps {
   id?: string;
   /** Hint text. Displayed under the label. */
   hintText?: string;
-  /** Disable Radiobutton. Value not included when submitting. */
+  /** Disable RadioButton. Value not included when submitting. */
   disabled?: boolean;
   /**
    * 'small' | 'large'
    * @default small
    */
-  variant?: RadiobuttonVariant;
-  radiobuttonGroup?: boolean;
-  consumer?: RadiobuttonGroupProviderState;
-  /** Checked state, overridden by RadiobuttonGroup. */
+  variant?: RadioButtonVariant;
+  radioButtonGroup?: boolean;
+  consumer?: RadioButtonGroupProviderState;
+  /** Checked state, overridden by RadioButtonGroup. */
   checked?: boolean;
-  /** Callback for Radiobutton checked state changes. */
+  /** Callback for RadioButton checked state changes. */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Additional label id for screen readers. */
   'aria-labelledby'?: string;
 }
 
-export interface RadiobuttonState {
+export interface RadioButtonState {
   checkedState: boolean;
 }
 
-class RadiobuttonItem extends Component<RadiobuttonProps> {
+class RadioButtonItem extends Component<RadioButtonProps> {
   state = {
     checkedState: !!this.props.checked,
   };
 
   static getDerivedStateFromProps(
-    nextProps: RadiobuttonProps,
-    prevState: RadiobuttonState,
+    nextProps: RadioButtonProps,
+    prevState: RadioButtonState,
   ) {
     const { checked } = nextProps;
     if (checked !== undefined && checked !== prevState.checkedState) {
@@ -75,12 +75,14 @@ class RadiobuttonItem extends Component<RadiobuttonProps> {
 
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {
-      radiobuttonGroup,
+      radioButtonGroup,
       onChange,
-      consumer: { onRadiobuttonChange } = { onRadiobuttonChange: undefined },
+      consumer: { onRadioButtonChange } = {
+        onRadioButtonChange: undefined,
+      },
     } = this.props;
-    if (!!radiobuttonGroup && !!onRadiobuttonChange) {
-      onRadiobuttonChange(event.target.value);
+    if (!!radioButtonGroup && !!onRadioButtonChange) {
+      onRadioButtonChange(event.target.value);
     }
     if (!!onChange) {
       onChange(event);
@@ -98,18 +100,18 @@ class RadiobuttonItem extends Component<RadiobuttonProps> {
       onChange: dismissOnChange,
       disabled = false,
       consumer,
-      radiobuttonGroup,
+      radioButtonGroup,
       ...passProps
     } = this.props;
     const { checkedState } = this.state;
 
     if (!children) {
       logger.error(
-        'Radiobutton component should have a label or a child element that acts as one. Add label content or a child element.',
+        'RadioButton component should have a label or a child element that acts as one. Add label content or a child element.',
       );
     }
     if ('value' in this.props && value.trim().length === 0) {
-      logger.error('Radiobutton value can not be empty.');
+      logger.error('RadioButton value can not be empty.');
     }
 
     const id = idGenerator(propId);
@@ -117,10 +119,10 @@ class RadiobuttonItem extends Component<RadiobuttonProps> {
 
     return (
       <HtmlDiv
-        className={classnames(radiobuttonClassNames.container, className)}
+        className={classnames(radioButtonClassNames.container, className)}
       >
         <HtmlInput
-          className={radiobuttonClassNames.input}
+          className={radioButtonClassNames.input}
           type="radio"
           name={name}
           id={id}
@@ -131,11 +133,11 @@ class RadiobuttonItem extends Component<RadiobuttonProps> {
           {...(value ? { value } : {})}
           {...passProps}
         />
-        <HtmlLabel htmlFor={id} className={radiobuttonClassNames.label}>
+        <HtmlLabel htmlFor={id} className={radioButtonClassNames.label}>
           {children}
         </HtmlLabel>
         {hintText && (
-          <HtmlSpan className={radiobuttonClassNames.hintText} id={hintTextId}>
+          <HtmlSpan className={radioButtonClassNames.hintText} id={hintTextId}>
             {hintText}
           </HtmlSpan>
         )}
@@ -144,14 +146,14 @@ class RadiobuttonItem extends Component<RadiobuttonProps> {
   }
 }
 
-export class Radiobutton extends Component<RadiobuttonProps> {
+export class RadioButton extends Component<RadioButtonProps> {
   render() {
-    return !!this.props.radiobuttonGroup ? (
-      <RadiobuttonGroupConsumer>
-        {(consumer) => <RadiobuttonItem {...this.props} consumer={consumer} />}
-      </RadiobuttonGroupConsumer>
+    return !!this.props.radioButtonGroup ? (
+      <RadioButtonGroupConsumer>
+        {(consumer) => <RadioButtonItem {...this.props} consumer={consumer} />}
+      </RadioButtonGroupConsumer>
     ) : (
-      <RadiobuttonItem {...this.props} />
+      <RadioButtonItem {...this.props} />
     );
   }
 }

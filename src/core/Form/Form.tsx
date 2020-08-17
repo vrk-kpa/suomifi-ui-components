@@ -7,8 +7,8 @@ export {
 export { TextInput, TextInputProps } from './TextInput/TextInput';
 export { SearchInput, SearchInputProps } from './SearchInput/SearchInput';
 export { Checkbox, CheckboxProps } from './Checkbox/Checkbox';
-export { Radiobutton, RadiobuttonProps } from './Radiobutton/Radiobutton';
+export { RadioButton, RadioButtonProps } from './RadioButton/RadioButton';
 export {
-  RadiobuttonGroup,
-  RadiobuttonGroupProps,
-} from './Radiobutton/RadiobuttonGroup';
+  RadioButtonGroup,
+  RadioButtonGroupProps,
+} from './RadioButton/RadioButtonGroup';

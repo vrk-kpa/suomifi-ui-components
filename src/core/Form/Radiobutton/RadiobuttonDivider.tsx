@@ -2,39 +2,39 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import {
-  RadiobuttonDivider as CompRadiobuttonDivider,
-  RadiobuttonDividerProps as CompRadiobuttonDividerProps,
-} from '../../../components/Form/RadiobuttonDivider';
-import { baseStyles } from './RadiobuttonDivider.baseStyles';
+  RadioButtonDivider as CompRadioButtonDivider,
+  RadioButtonDividerProps as CompRadioButtonDividerProps,
+} from '../../../components/Form/RadioButtonDivider';
+import { baseStyles } from './RadioButtonDivider.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import classnames from 'classnames';
 
-const baseClassName = 'fi-radiobuttondivider';
-const radiobuttonDividerClassNames = {
+const baseClassName = 'fi-radio-button-divider';
+const radioButtonDividerClassNames = {
   large: `${baseClassName}--large`,
 };
 
-export interface RadiobuttonDividerProps
-  extends CompRadiobuttonDividerProps,
+export interface RadioButtonDividerProps
+  extends CompRadioButtonDividerProps,
     TokensProp {}
 
-const StyledRadiobuttonDivider = styled(
-  ({ tokens, ...passProps }: RadiobuttonDividerProps & InternalTokensProp) => (
-    <CompRadiobuttonDivider {...passProps} />
+const StyledRadioButtonDivider = styled(
+  ({ tokens, ...passProps }: RadioButtonDividerProps & InternalTokensProp) => (
+    <CompRadioButtonDivider {...passProps} />
   ),
 )`
   ${(props) => baseStyles(props)}
 `;
 
-export class RadiobuttonDivider extends Component<RadiobuttonDividerProps> {
+export class RadioButtonDivider extends Component<RadioButtonDividerProps> {
   render() {
     const { className, variant, ...passProps } = withSuomifiDefaultProps(
       this.props,
     );
     return (
-      <StyledRadiobuttonDivider
+      <StyledRadioButtonDivider
         className={classnames(baseClassName, className, {
-          [radiobuttonDividerClassNames.large]: variant === 'large',
+          [radioButtonDividerClassNames.large]: variant === 'large',
         })}
         {...passProps}
       />

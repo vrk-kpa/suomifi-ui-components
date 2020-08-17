@@ -7,23 +7,23 @@ export const baseStyles = withSuomifiTheme(
     ${element({ theme })}
     ${font({ theme })('bodyText')}
 
-    &.fi-radiobuttongroup {
-      & .fi-radiobuttongroup_label {
+    &.fi-radio-button-group {
+      & .fi-radio-button-group_label {
         display: block;
         ${theme.typography.bodySemiBoldSmall};
       }
 
-      & .fi-radiobuttongroup_hintText {
+      & .fi-radio-button-group_hintText {
         color: ${theme.colors.depthDark1};
         ${theme.typography.bodyTextSmall};
       }
     }
 
-    & .fi-radiobutton_container {
+    & .fi-radio-button_container {
       margin-top: ${theme.spacing.xs};
     }
 
-    & .fi-radiobutton_container.fi-radiobutton--large {
+    & .fi-radio-button_container.fi-radio-button--large {
       margin-top: ${theme.spacing.s};
     }
   `,

@@ -1,21 +1,21 @@
 ```js
-import { Radiobutton } from 'suomifi-ui-components';
+import { RadioButton } from 'suomifi-ui-components';
 
-<Radiobutton.group
-  label="Radiobuttons in group"
+<RadioButton.group
+  label="RadioButtons in group"
   hintText="Example hint text"
   name="test-group"
 >
-  <Radiobutton value="value-test-1">Choice 1</Radiobutton>
-  <Radiobutton value="value-test-2">Choice 2</Radiobutton>
-  <Radiobutton value="value-test-3">Choice 3</Radiobutton>
-</Radiobutton.group>;
+  <RadioButton value="value-test-1">Choice 1</RadioButton>
+  <RadioButton value="value-test-2">Choice 2</RadioButton>
+  <RadioButton value="value-test-3">Choice 3</RadioButton>
+</RadioButton.group>;
 ```
 
 ### Standalone radio buttons
 
 ```js
-import { Radiobutton } from 'suomifi-ui-components';
+import { RadioButton } from 'suomifi-ui-components';
 
 const [selectedValue, setSelectedValue] = React.useState(
   'value-test-2'
@@ -27,23 +27,23 @@ const handleChange = (event) => {
 
 <>
   <div>
-    <Radiobutton
+    <RadioButton
       name="test"
       value="value-test-1"
       checked={selectedValue === 'value-test-1'}
       onChange={handleChange}
     >
       Choice 1
-    </Radiobutton>
-    <Radiobutton
+    </RadioButton>
+    <RadioButton
       name="test"
       value="value-test-2"
       checked={selectedValue === 'value-test-2'}
       onChange={handleChange}
     >
       Choice 2
-    </Radiobutton>
-    <Radiobutton
+    </RadioButton>
+    <RadioButton
       name="test"
       value="value-test-3"
       hintText="Example hint text"
@@ -51,9 +51,9 @@ const handleChange = (event) => {
       onChange={handleChange}
     >
       Choice 3
-    </Radiobutton>
-    <Radiobutton.divider>or</Radiobutton.divider>
-    <Radiobutton
+    </RadioButton>
+    <RadioButton.divider>or</RadioButton.divider>
+    <RadioButton
       name="test"
       value="value-test-4"
       checked={selectedValue === 'value-test-4'}
@@ -61,8 +61,8 @@ const handleChange = (event) => {
       disabled
     >
       Disabled choice 4
-    </Radiobutton>
-    <Radiobutton
+    </RadioButton>
+    <RadioButton
       name="test"
       value="value-test-5"
       hintText="Example hint text"
@@ -71,44 +71,44 @@ const handleChange = (event) => {
       disabled
     >
       Disabled choice 5
-    </Radiobutton>
+    </RadioButton>
   </div>
 </>;
 ```
 
 ```js
-import { Radiobutton } from 'suomifi-ui-components';
+import { RadioButton } from 'suomifi-ui-components';
 
 <>
-  <Radiobutton.group
-    label="Large Radiobuttons in group"
+  <RadioButton.group
+    label="Large RadioButtons in group"
     hintText="Example hint text"
     name="test-group-large"
   >
-    <Radiobutton.large value="value-test-1">
+    <RadioButton.large value="value-test-1">
       Large choice 1
-    </Radiobutton.large>
-    <Radiobutton value="value-test-2" variant="large">
+    </RadioButton.large>
+    <RadioButton value="value-test-2" variant="large">
       Large choice 2
-    </Radiobutton>
-    <Radiobutton
+    </RadioButton>
+    <RadioButton
       value="value-test-3"
       variant="large"
       hintText="Example hint text"
     >
       Large choice 3
-    </Radiobutton>
-    <Radiobutton.divider variant="large">or</Radiobutton.divider>
-    <Radiobutton.large value="value-test-4" disabled>
+    </RadioButton>
+    <RadioButton.divider variant="large">or</RadioButton.divider>
+    <RadioButton.large value="value-test-4" disabled>
       Disabled large choice 4
-    </Radiobutton.large>
-    <Radiobutton.large
+    </RadioButton.large>
+    <RadioButton.large
       value="value-test-5"
       hintText="Example hint text"
       disabled
     >
       Disabled large choice 5
-    </Radiobutton.large>
-  </Radiobutton.group>
+    </RadioButton.large>
+  </RadioButton.group>
 </>;
 ```

@@ -5,10 +5,10 @@ import { VisuallyHidden } from '../Visually-hidden/Visually-hidden';
 import { idGenerator } from '../../utils/uuid';
 import { logger } from '../../utils/logger';
 
-import { RadiobuttonProps } from './Radiobutton';
+import { RadioButtonProps } from './RadioButton';
 
-const baseClassName = 'fi-radiobuttongroup';
-const radiobuttonGroupClassNames = {
+const baseClassName = 'fi-radio-button-group';
+const radioButtonGroupClassNames = {
   container: `${baseClassName}_container`,
   label: `${baseClassName}_label`,
   hintText: `${baseClassName}_hintText`,
@@ -16,11 +16,11 @@ const radiobuttonGroupClassNames = {
 
 type Label = 'hidden' | 'visible';
 
-export interface RadiobuttonGroupProps {
+export interface RadioButtonGroupProps {
   /** Custom classname to extend or customize */
   className?: string;
-  /** Radiobutton or RadiobuttonDivider */
-  children: Array<React.ReactElement<RadiobuttonProps>>;
+  /** RadioButton or RadioButtonDivider */
+  children: Array<React.ReactElement<RadioButtonProps>>;
   /** Hint text to be displayed under the label. */
   hintText?: string;
   /** Label for the group */
@@ -35,47 +35,47 @@ export interface RadiobuttonGroupProps {
    * @default uuidV4
    */
   id?: string;
-  /** Name for the group; this will be set to Radiobuttons. Overrides Radiobutton props name. */
+  /** Name for the group; this will be set to RadioButtons. Overrides RadioButton props name. */
   name: string;
-  /** Controlled value of the selected Radiobutton in the group. Overrides Radiobutton selected values. */
+  /** Controlled value of the selected RadioButton in the group. Overrides RadioButton selected values. */
   value?: string;
-  /** Value of the Radiobutton selected by default */
+  /** Value of the RadioButton selected by default */
   defaultValue?: string;
-  /** Callback for RadiobuttonGroup selected changes. */
+  /** Callback for RadioButtonGroup selected changes. */
   onChange?: (value: string) => void;
 }
 
-export interface RadiobuttonGroupProviderState {
-  onRadiobuttonChange: (value: string) => void;
+export interface RadioButtonGroupProviderState {
+  onRadioButtonChange: (value: string) => void;
 }
 
-const defaultProviderValue: RadiobuttonGroupProviderState = {
-  onRadiobuttonChange: () => null,
+const defaultProviderValue: RadioButtonGroupProviderState = {
+  onRadioButtonChange: () => null,
 };
 
-const { Provider, Consumer: RadiobuttonGroupConsumer } = React.createContext(
+const { Provider, Consumer: RadioButtonGroupConsumer } = React.createContext(
   defaultProviderValue,
 );
 
-const RadiobuttonGroupItems = (
-  children: Array<React.ReactElement<RadiobuttonProps>>,
+const RadioButtonGroupItems = (
+  children: Array<React.ReactElement<RadioButtonProps>>,
   groupName: string,
   selectedValue?: string,
 ) => {
-  const radiobuttonValues: string[] = [];
+  const radioButtonValues: string[] = [];
 
   return React.Children.map(
     children,
-    (child: React.ReactElement<RadiobuttonProps>) => {
+    (child: React.ReactElement<RadioButtonProps>) => {
       if (React.isValidElement(child) && child.props.value) {
-        if (radiobuttonValues.includes(child.props.value)) {
-          logger.error('Two or more radiobuttons have same value.');
+        if (radioButtonValues.includes(child.props.value)) {
+          logger.error('Two or more radio buttons have same value.');
         } else {
-          radiobuttonValues.push(child.props.value);
+          radioButtonValues.push(child.props.value);
         }
 
         return React.cloneElement(child, {
-          radiobuttonGroup: true,
+          radioButtonGroup: true,
           checked: selectedValue === child.props.value,
           name: groupName,
         });
@@ -85,18 +85,18 @@ const RadiobuttonGroupItems = (
   );
 };
 
-export interface RadiobuttonGroupState {
+export interface RadioButtonGroupState {
   selectedValue?: string;
 }
 
-export class RadiobuttonGroup extends Component<RadiobuttonGroupProps> {
-  state: RadiobuttonGroupState = {
+export class RadioButtonGroup extends Component<RadioButtonGroupProps> {
+  state: RadioButtonGroupState = {
     selectedValue: this.props.value || this.props.defaultValue,
   };
 
   static getDerivedStateFromProps(
-    nextProps: RadiobuttonGroupProps,
-    prevState: RadiobuttonGroupState,
+    nextProps: RadioButtonGroupProps,
+    prevState: RadioButtonGroupState,
   ) {
     const { value } = nextProps;
     if (value !== undefined && value !== prevState.selectedValue) {
@@ -105,7 +105,7 @@ export class RadiobuttonGroup extends Component<RadiobuttonGroupProps> {
     return null;
   }
 
-  handleRadiobuttonChange = (value: string) => {
+  handleRadioButtonChange = (value: string) => {
     if (!!this.props.onChange) {
       this.props.onChange(value);
     }
@@ -146,25 +146,25 @@ export class RadiobuttonGroup extends Component<RadiobuttonGroupProps> {
         {hideLabel ? (
           <VisuallyHidden id={labelId}>{label}</VisuallyHidden>
         ) : (
-          <HtmlSpan className={radiobuttonGroupClassNames.label} id={labelId}>
+          <HtmlSpan className={radioButtonGroupClassNames.label} id={labelId}>
             {label}
           </HtmlSpan>
         )}
         {hintText && (
           <HtmlSpan
-            className={radiobuttonGroupClassNames.hintText}
+            className={radioButtonGroupClassNames.hintText}
             id={hintTextId}
           >
             {hintText}
           </HtmlSpan>
         )}
-        <HtmlDiv className={radiobuttonGroupClassNames.container}>
+        <HtmlDiv className={radioButtonGroupClassNames.container}>
           <Provider
             value={{
-              onRadiobuttonChange: this.handleRadiobuttonChange,
+              onRadioButtonChange: this.handleRadioButtonChange,
             }}
           >
-            {RadiobuttonGroupItems(children, name, selectedValue)}
+            {RadioButtonGroupItems(children, name, selectedValue)}
           </Provider>
         </HtmlDiv>
       </HtmlDiv>
@@ -172,4 +172,4 @@ export class RadiobuttonGroup extends Component<RadiobuttonGroupProps> {
   }
 }
 
-export { RadiobuttonGroupConsumer };
+export { RadioButtonGroupConsumer };

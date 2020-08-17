@@ -2,28 +2,28 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import {
-  Radiobutton as CompRadiobutton,
-  RadiobuttonProps as CompRadiobuttonProps,
-} from '../../../components/Form/Radiobutton';
-import { RadiobuttonGroup, RadiobuttonGroupProps } from './RadiobuttonGroup';
+  RadioButton as CompRadioButton,
+  RadioButtonProps as CompRadioButtonProps,
+} from '../../../components/Form/RadioButton';
+import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup';
 import {
-  RadiobuttonDivider,
-  RadiobuttonDividerProps,
-} from './RadiobuttonDivider';
-import { baseStyles } from './Radiobutton.baseStyles';
+  RadioButtonDivider,
+  RadioButtonDividerProps,
+} from './RadioButtonDivider';
+import { baseStyles } from './RadioButton.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import classnames from 'classnames';
 
-const baseClassName = 'fi-radiobutton';
-const radiobuttonClassNames = {
+const baseClassName = 'fi-radio-button';
+const radioButtonClassNames = {
   disabled: `${baseClassName}--disabled`,
   large: `${baseClassName}--large`,
   checked: `${baseClassName}--checked`,
 };
 
-export interface RadiobuttonProps extends CompRadiobuttonProps, TokensProp {}
+export interface RadioButtonProps extends CompRadioButtonProps, TokensProp {}
 
-const StyledRadiobutton = styled(
+const StyledRadioButton = styled(
   ({
     tokens,
     className,
@@ -31,12 +31,12 @@ const StyledRadiobutton = styled(
     variant,
     checked,
     ...passProps
-  }: RadiobuttonProps & InternalTokensProp) => (
-    <CompRadiobutton
+  }: RadioButtonProps & InternalTokensProp) => (
+    <CompRadioButton
       className={classnames(baseClassName, className, {
-        [radiobuttonClassNames.disabled]: disabled,
-        [radiobuttonClassNames.large]: variant === 'large',
-        [radiobuttonClassNames.checked]: checked,
+        [radioButtonClassNames.disabled]: disabled,
+        [radioButtonClassNames.large]: variant === 'large',
+        [radioButtonClassNames.checked]: checked,
       })}
       checked={checked}
       disabled={disabled}
@@ -47,30 +47,30 @@ const StyledRadiobutton = styled(
   ${(props) => baseStyles(props)}
 `;
 
-class DefaultRadiobutton extends Component<
-  RadiobuttonProps & InternalTokensProp
+class DefaultRadioButton extends Component<
+  RadioButtonProps & InternalTokensProp
 > {
   render() {
-    return <StyledRadiobutton {...this.props} />;
+    return <StyledRadioButton {...this.props} />;
   }
 }
 
-export class Radiobutton extends Component<RadiobuttonProps> {
-  static group = (props: RadiobuttonGroupProps) => {
-    return <RadiobuttonGroup {...withSuomifiDefaultProps(props)} />;
+export class RadioButton extends Component<RadioButtonProps> {
+  static group = (props: RadioButtonGroupProps) => {
+    return <RadioButtonGroup {...withSuomifiDefaultProps(props)} />;
   };
 
-  static large = (props: RadiobuttonProps) => {
+  static large = (props: RadioButtonProps) => {
     return (
-      <DefaultRadiobutton {...withSuomifiDefaultProps(props)} variant="large" />
+      <DefaultRadioButton {...withSuomifiDefaultProps(props)} variant="large" />
     );
   };
 
-  static divider = (props: RadiobuttonDividerProps) => {
-    return <RadiobuttonDivider {...withSuomifiDefaultProps(props)} />;
+  static divider = (props: RadioButtonDividerProps) => {
+    return <RadioButtonDivider {...withSuomifiDefaultProps(props)} />;
   };
 
   render() {
-    return <DefaultRadiobutton {...withSuomifiDefaultProps(this.props)} />;
+    return <DefaultRadioButton {...withSuomifiDefaultProps(this.props)} />;
   }
 }

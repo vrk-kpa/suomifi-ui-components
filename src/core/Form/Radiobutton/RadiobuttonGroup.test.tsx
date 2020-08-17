@@ -1,19 +1,19 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Radiobutton } from './Radiobutton';
-import { RadiobuttonGroup } from './RadiobuttonGroup';
+import { RadioButton } from './RadioButton';
+import { RadioButtonGroup } from './RadioButtonGroup';
 
 const RadioChildren = [1, 2, 3].map((value) => (
-  <Radiobutton key={value} id={`test-id-${value}`} value={`${value}`}>
+  <RadioButton key={value} id={`test-id-${value}`} value={`${value}`}>
     {`Label text ${value}`}
-  </Radiobutton>
+  </RadioButton>
 ));
 
 describe('default, with only required props', () => {
   const DefaultGroup = (
-    <RadiobuttonGroup id="test-id" label="Label" name="name">
+    <RadioButtonGroup id="test-id" label="Label" name="name">
       {RadioChildren}
-    </RadiobuttonGroup>
+    </RadioButtonGroup>
   );
 
   it('should match snapshot', () => {
@@ -25,14 +25,14 @@ describe('default, with only required props', () => {
 describe('props', () => {
   describe('className', () => {
     const ClassnameGroup = (
-      <RadiobuttonGroup
+      <RadioButtonGroup
         id="test-id"
         label="Label"
         name="name"
         className="custom-className"
       >
         {RadioChildren}
-      </RadiobuttonGroup>
+      </RadioButtonGroup>
     );
 
     it('has the given classname', () => {
@@ -48,20 +48,20 @@ describe('props', () => {
 
   describe('hintText', () => {
     const HintTextGroup = (
-      <RadiobuttonGroup
+      <RadioButtonGroup
         id="test-id"
         label="Label"
         name="name"
         hintText="Example hint text"
       >
         {RadioChildren}
-      </RadiobuttonGroup>
+      </RadioButtonGroup>
     );
 
     it('has hintText element', () => {
       const { getByText } = render(HintTextGroup);
       const hintText = getByText('Example hint text');
-      expect(hintText).toHaveClass('fi-radiobuttongroup_hintText');
+      expect(hintText).toHaveClass('fi-radio-button-group_hintText');
     });
 
     it('should match snapshot', () => {
@@ -72,15 +72,15 @@ describe('props', () => {
 
   describe('label', () => {
     const LabelGroup = (
-      <RadiobuttonGroup id="test-id" label="Label here" name="name">
+      <RadioButtonGroup id="test-id" label="Label here" name="name">
         {RadioChildren}
-      </RadiobuttonGroup>
+      </RadioButtonGroup>
     );
 
     it('has label element', () => {
       const { getByText } = render(LabelGroup);
       const label = getByText('Label here');
-      expect(label).toHaveClass('fi-radiobuttongroup_label');
+      expect(label).toHaveClass('fi-radio-button-group_label');
     });
 
     it('should match snapshot', () => {
@@ -91,14 +91,14 @@ describe('props', () => {
 
   describe('labelMode', () => {
     const LabelModeGroup = (
-      <RadiobuttonGroup
+      <RadioButtonGroup
         id="test-id"
         label="Label here"
         name="name"
         labelMode="hidden"
       >
         {RadioChildren}
-      </RadiobuttonGroup>
+      </RadioButtonGroup>
     );
 
     it('has visually hidden label element', () => {
@@ -115,9 +115,9 @@ describe('props', () => {
 
   describe('id', () => {
     const IdGroup = (
-      <RadiobuttonGroup id="good-id" label="Label" name="name">
+      <RadioButtonGroup id="good-id" label="Label" name="name">
         {RadioChildren}
-      </RadiobuttonGroup>
+      </RadioButtonGroup>
     );
 
     it('has the given id', () => {
@@ -133,9 +133,9 @@ describe('props', () => {
 
   describe('name', () => {
     const NameGroup = (
-      <RadiobuttonGroup id="test-id" label="Label" name="nice-name">
+      <RadioButtonGroup id="test-id" label="Label" name="nice-name">
         {RadioChildren}
-      </RadiobuttonGroup>
+      </RadioButtonGroup>
     );
 
     it('has children, which all have the given name', () => {
@@ -152,34 +152,34 @@ describe('props', () => {
 
   describe('value', () => {
     const ValueGroup = (
-      <RadiobuttonGroup id="test-id" label="Label" name="name" value="2">
+      <RadioButtonGroup id="test-id" label="Label" name="name" value="2">
         {RadioChildren}
-      </RadiobuttonGroup>
+      </RadioButtonGroup>
     );
 
     it('has the correct radio selected', () => {
       const { container, rerender } = render(ValueGroup);
-      const radiobuttons = container.querySelectorAll('.fi-radiobutton');
-      expect(radiobuttons[0]).not.toHaveClass('fi-radiobutton--checked');
-      expect(radiobuttons[1]).toHaveClass('fi-radiobutton--checked');
-      expect(radiobuttons[2]).not.toHaveClass('fi-radiobutton--checked');
+      const radioButtons = container.querySelectorAll('.fi-radio-button');
+      expect(radioButtons[0]).not.toHaveClass('fi-radio-button--checked');
+      expect(radioButtons[1]).toHaveClass('fi-radio-button--checked');
+      expect(radioButtons[2]).not.toHaveClass('fi-radio-button--checked');
 
       rerender(
-        <RadiobuttonGroup id="test-id" label="Label" name="name" value="3">
+        <RadioButtonGroup id="test-id" label="Label" name="name" value="3">
           {RadioChildren}
-        </RadiobuttonGroup>,
+        </RadioButtonGroup>,
       );
 
-      expect(radiobuttons[0]).not.toHaveClass('fi-radiobutton--checked');
-      expect(radiobuttons[1]).not.toHaveClass('fi-radiobutton--checked');
-      expect(radiobuttons[2]).toHaveClass('fi-radiobutton--checked');
+      expect(radioButtons[0]).not.toHaveClass('fi-radio-button--checked');
+      expect(radioButtons[1]).not.toHaveClass('fi-radio-button--checked');
+      expect(radioButtons[2]).toHaveClass('fi-radio-button--checked');
     });
 
     it('controlled state persists when unchecked radio is clicked', () => {
       const { getAllByRole } = render(ValueGroup);
-      const radiobuttons = getAllByRole('radio') as HTMLInputElement[];
-      fireEvent.click(radiobuttons[0]);
-      expect(radiobuttons[0].checked).toBe(false);
+      const radioButtons = getAllByRole('radio') as HTMLInputElement[];
+      fireEvent.click(radioButtons[0]);
+      expect(radioButtons[0].checked).toBe(false);
     });
 
     it('should match snapshot', () => {
@@ -190,17 +190,17 @@ describe('props', () => {
 
   describe('defaultValue', () => {
     const DefaultValueGroup = (
-      <RadiobuttonGroup id="test-id" label="Label" name="name" defaultValue="3">
+      <RadioButtonGroup id="test-id" label="Label" name="name" defaultValue="3">
         {RadioChildren}
-      </RadiobuttonGroup>
+      </RadioButtonGroup>
     );
 
     it('has the correct radio selected by default', () => {
       const { container } = render(DefaultValueGroup);
-      const radiobuttons = container.querySelectorAll('.fi-radiobutton');
-      expect(radiobuttons[0]).not.toHaveClass('fi-radiobutton--checked');
-      expect(radiobuttons[1]).not.toHaveClass('fi-radiobutton--checked');
-      expect(radiobuttons[2]).toHaveClass('fi-radiobutton--checked');
+      const radioButtons = container.querySelectorAll('.fi-radio-button');
+      expect(radioButtons[0]).not.toHaveClass('fi-radio-button--checked');
+      expect(radioButtons[1]).not.toHaveClass('fi-radio-button--checked');
+      expect(radioButtons[2]).toHaveClass('fi-radio-button--checked');
     });
 
     it('should match snapshot', () => {

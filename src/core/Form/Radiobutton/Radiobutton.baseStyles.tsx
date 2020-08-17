@@ -10,20 +10,20 @@ export const baseStyles = withSuomifiTheme(
     ${element({ theme })}
     ${font({ theme })('bodyText')}
 
-  &.fi-radiobutton {
-    & .fi-radiobutton_hintText {
+  &.fi-radio-button {
+    & .fi-radio-button_hintText {
         display: block;
         padding-left: 26px;
         color: ${theme.colors.depthDark1};
         ${theme.typography.bodyTextSmall};
     }
 
-    & .fi-radiobutton_input {
+    & .fi-radio-button_input {
       opacity: 0;
       position: absolute;
       margin: 8px 0 0 3px;
 
-      + .fi-radiobutton_label {
+      + .fi-radio-button_label {
         position: relative;
         display: inline-block;
         cursor: pointer;
@@ -58,35 +58,35 @@ export const baseStyles = withSuomifiTheme(
 
       &:checked {
         /* Radio input background circle */
-        + .fi-radiobutton_label:before {
+        + .fi-radio-button_label:before {
           border: 1px solid ${theme.colors.highlightBase};
         }
         /* Radio input circle when selected */
-        + .fi-radiobutton_label:after {
+        + .fi-radio-button_label:after {
           background: ${theme.colors.highlightBase};
         }
       }
 
       &:focus {
         /* Radio input background circle */
-        + .fi-radiobutton_label::before {
+        + .fi-radio-button_label::before {
           ${focus({ theme, noPseudo: true, variant: 'boxShadow' })}
           border-radius: 50%;
         }
       }
 
       &:disabled {
-        + .fi-radiobutton_label {
+        + .fi-radio-button_label {
           ${disabledCursor}
           color: ${theme.colors.depthBase};
         }
         /* Radio input background circle */
-        + .fi-radiobutton_label:before {
+        + .fi-radio-button_label:before {
           border: 1px solid ${theme.colors.depthLight1};
           background: ${theme.colors.depthLight3};
         }
         /* Radio input circle when selected */
-        + .fi-radiobutton_label:after {
+        + .fi-radio-button_label:after {
           background: ${theme.colors.depthLight3};
           width: 16px;
           height: 16px;
@@ -97,7 +97,7 @@ export const baseStyles = withSuomifiTheme(
 
       &:disabled:checked {
         /* Radio input circle when selected */
-        + .fi-radiobutton_label:after {
+        + .fi-radio-button_label:after {
           background: ${theme.colors.depthBase};
           width: 8px;
           height: 8px;
@@ -107,19 +107,19 @@ export const baseStyles = withSuomifiTheme(
       }
     }
 
-    &--disabled .fi-radiobutton_hintText {
+    &--disabled .fi-radio-button_hintText {
       color: ${theme.colors.depthBase};
     }
 
   &--large {
-    & .fi-radiobutton_hintText {
+    & .fi-radio-button_hintText {
       padding-left: 40px;
     }
     
-    & .fi-radiobutton_input {
+    & .fi-radio-button_input {
       margin: 10px 0 0 9px;
 
-      + .fi-radiobutton_label {
+      + .fi-radio-button_label {
         padding-left: 40px;
         padding-top: 2px;
         min-height: 34px;
@@ -142,7 +142,7 @@ export const baseStyles = withSuomifiTheme(
 
       &:disabled {
         /* Radio input circle when selected */
-        + .fi-radiobutton_label:after {
+        + .fi-radio-button_label:after {
           width: 28px;
           height: 28px;
           top: 3px;
@@ -152,7 +152,7 @@ export const baseStyles = withSuomifiTheme(
 
       &:disabled:checked {
         /* Radio input circle when selected */
-        + .fi-radiobutton_label:after {
+        + .fi-radio-button_label:after {
           background: ${theme.colors.depthBase};
           width: 16px;
           height: 16px;
