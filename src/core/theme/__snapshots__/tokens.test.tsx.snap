@@ -409,7 +409,6 @@ exports[`snapshot testing 1`] = `
     aria-disabled="false"
     class="c3 c4 fi-button c5 fi-expander-group_all-button fi-button"
     tabindex="0"
-    tokens="[object Object]"
     type="button"
   >
     Open all
