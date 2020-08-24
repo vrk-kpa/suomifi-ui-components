@@ -57,6 +57,7 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   visualPlaceholder?: string;
   /** Input container div to define custom styling */
   inputContainerProps?: HtmlDivProps;
+  /** A custom element to be passed to the component. Will be rendered after the input */
   children?: ReactNode;
   /** Hint text to be shown below the component */
   hintText?: string;
@@ -66,6 +67,8 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
    * @default text
    */
   type?: InputType;
+  name?: string;
+  value?: string;
 }
 
 class BaseTextInput extends Component<TextInputProps> {
