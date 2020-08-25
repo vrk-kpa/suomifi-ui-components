@@ -67,8 +67,8 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
    * @default text
    */
   type?: InputType;
+  /** Input name */
   name?: string;
-  value?: string;
 }
 
 class BaseTextInput extends Component<TextInputProps> {
