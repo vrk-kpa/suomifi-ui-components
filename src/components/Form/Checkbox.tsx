@@ -65,6 +65,10 @@ export interface CheckboxProps {
    * @default uuidV4
    */
   id?: string;
+  /** Name */
+  name?: string;
+  /** Value */
+  value?: string;
 }
 
 export interface CheckboxState {
@@ -111,6 +115,8 @@ export class Checkbox extends Component<CheckboxProps> {
       hintText,
       status,
       statusText,
+      name,
+      value,
       ...passProps
     } = this.props;
     const { checkedState } = this.state;
@@ -136,6 +142,8 @@ export class Checkbox extends Component<CheckboxProps> {
       checked: !!checkedState,
       className: checkboxBaseClassNames.input,
       onChange: this.handleClick,
+      name,
+      ...(value ? { value } : {}),
     };
 
     return (

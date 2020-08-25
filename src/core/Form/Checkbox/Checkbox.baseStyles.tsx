@@ -143,7 +143,7 @@ export const baseStyles = withSuomifiTheme(
     & .fi-checkbox_hintText {
       display: block;
       padding-left: ${theme.spacing.l};
-      font-size: ${theme.typography.bodyTextSmall};
+      ${theme.typography.bodyTextSmall};
       color: ${theme.colors.depthDark1};
     }
 

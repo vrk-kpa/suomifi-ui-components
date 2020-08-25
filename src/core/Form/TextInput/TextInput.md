@@ -11,6 +11,11 @@ import { TextInput } from 'suomifi-ui-components';
     labelMode="hidden"
     visualPlaceholder="This input has a hidden label"
   />
+  <TextInput
+    onBlur={(event) => console.log(event.target.value)}
+    labelText="TextInput with hint text"
+    hintText="An example hint text"
+  />
 </>;
 ```
 
@@ -58,5 +63,22 @@ const status = errorState ? 'error' : 'default';
   <Button onClick={() => setErrorState(!errorState)}>
     Toggle error state
   </Button>
+</>;
+```
+
+```js
+import { TextInput } from 'suomifi-ui-components';
+
+<>
+  <TextInput
+    labelText="TextInput with numbers"
+    type="number"
+    defaultValue={123}
+  />
+  <TextInput
+    labelText="TextInput with password"
+    type="password"
+    defaultValue="password"
+  />
 </>;
 ```

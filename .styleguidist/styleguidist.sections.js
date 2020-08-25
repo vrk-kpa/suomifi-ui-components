@@ -8,7 +8,9 @@ const primitiveComponents = [
   ['Form', 'TextInput'],
   ['Form', 'Toggle'],
   ['Form', 'SearchInput'],
-  ['Form', 'Checkbox']
+  ['Form', 'Checkbox'],
+  ['Form', 'Textarea'],
+  ['Form', 'RadioButton'],
 ];
 
 const getComponent = ({ name, underName }) =>
@@ -16,8 +18,8 @@ const getComponent = ({ name, underName }) =>
     __dirname,
     `../src/core/${!!underName ? underName : name}/${name}.tsx`,
   );
-const getComponents = arr =>
-  arr.map(component =>
+const getComponents = (arr) =>
+  arr.map((component) =>
     Array.isArray(component)
       ? getComponent({
           name: component[1],
@@ -25,9 +27,9 @@ const getComponents = arr =>
         })
       : getComponent({ name: component }),
   );
-const getComponentWithVariants = component => variants => [
+const getComponentWithVariants = (component) => (variants) => [
   getComponent({ name: component }),
-  ...variants.map(variant =>
+  ...variants.map((variant) =>
     getComponent({ underName: component, name: variant }),
   ),
 ];
