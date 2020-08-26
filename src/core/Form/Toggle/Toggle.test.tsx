@@ -96,7 +96,5 @@ describe('name', () => {
 
   it('has the given name attribute', () => {
     expect(namedToggle.name).toBe('testToggle');
-    fireEvent.change(namedToggle, { target: { name: 'newName' } });
-    expect(namedToggle.name).toBe('newName');
   });
 });

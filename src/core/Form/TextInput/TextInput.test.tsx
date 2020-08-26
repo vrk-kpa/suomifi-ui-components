@@ -99,8 +99,7 @@ describe('props', () => {
       const namedInput = getByTestId('input-name') as HTMLInputElement;
 
       it('has the given name attribute', () => {
-        fireEvent.change(namedInput, { target: { name: 'newName' } });
-        expect(namedInput.name).toBe('newName');
+        expect(namedInput.name).toBe('test-name');
       });
     });
 

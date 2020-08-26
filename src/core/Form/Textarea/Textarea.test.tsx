@@ -216,12 +216,10 @@ describe('props', () => {
   describe('name', () => {
     it('has the given name attribute', () => {
       const { getByRole } = render(
-        <Textarea labelText="label" resize="vertical" />,
+        <Textarea labelText="label" resize="vertical" name="test-name" />,
       );
       const textarea = getByRole('textbox') as HTMLInputElement;
-
-      fireEvent.change(textarea, { target: { name: 'newName' } });
-      expect(textarea.name).toBe('newName');
+      expect(textarea.name).toBe('test-name');
     });
   });
 });
