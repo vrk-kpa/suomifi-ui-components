@@ -213,4 +213,15 @@ describe('props', () => {
       expect(textarea).toHaveStyle('resize: none');
     });
   });
+  describe('name', () => {
+    it('has the given name attribute', () => {
+      const { getByRole } = render(
+        <Textarea labelText="label" resize="vertical" />,
+      );
+      const textarea = getByRole('textbox') as HTMLInputElement;
+
+      fireEvent.change(textarea, { target: { name: 'newName' } });
+      expect(textarea.name).toBe('newName');
+    });
+  });
 });

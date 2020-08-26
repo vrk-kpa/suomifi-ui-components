@@ -87,6 +87,23 @@ describe('props', () => {
       });
     });
 
+    describe('name', () => {
+      const textInput = (
+        <TextInput
+          labelText="Test input"
+          name="test-name"
+          data-testid="input-name"
+        />
+      );
+      const { getByTestId } = render(textInput);
+      const namedInput = getByTestId('input-name') as HTMLInputElement;
+
+      it('has the given name attribute', () => {
+        fireEvent.change(namedInput, { target: { name: 'newName' } });
+        expect(namedInput.name).toBe('newName');
+      });
+    });
+
     describe('number', () => {
       const textInput = (
         <TextInput
