@@ -61,6 +61,8 @@ export interface TextareaProps extends HtmlTextareaProps {
    * @default uuidV4
    */
   id?: string;
+  /** Input name */
+  name?: string;
 }
 
 export class Textarea extends Component<TextareaProps> {

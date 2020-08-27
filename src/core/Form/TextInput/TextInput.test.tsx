@@ -87,6 +87,22 @@ describe('props', () => {
       });
     });
 
+    describe('name', () => {
+      const textInput = (
+        <TextInput
+          labelText="Test input"
+          name="test-name"
+          data-testid="input-name"
+        />
+      );
+      const { getByTestId } = render(textInput);
+      const namedInput = getByTestId('input-name') as HTMLInputElement;
+
+      it('has the given name attribute', () => {
+        expect(namedInput.name).toBe('test-name');
+      });
+    });
+
     describe('number', () => {
       const textInput = (
         <TextInput
