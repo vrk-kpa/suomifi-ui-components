@@ -127,6 +127,15 @@ export class Checkbox extends Component<CheckboxProps> {
       );
     }
 
+    if (
+      ('name' in this.props && (typeof name !== 'string' || name === '')) ||
+      ('value' in this.props && (typeof value !== 'string' || value === ''))
+    ) {
+      logger.warn(
+        'Name and value props should have non-empty values if provided.',
+      );
+    }
+
     const id = idGenerator(propId);
     const statusTextId = `${idGenerator(propId)}-statusText`;
     const hintTextId = `${idGenerator(propId)}-hintText`;
