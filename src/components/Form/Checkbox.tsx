@@ -148,6 +148,7 @@ export class Checkbox extends Component<CheckboxProps> {
       id,
       'aria-label': ariaLabel,
       'aria-labelledby': ariaLabelledBy,
+      'aria-invalid': status === 'error',
       checked: !!checkedState,
       className: checkboxBaseClassNames.input,
       onChange: this.handleClick,
