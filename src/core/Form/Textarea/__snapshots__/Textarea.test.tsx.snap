@@ -266,6 +266,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
     </p>
   </label>
   <textarea
+    aria-invalid="false"
     class="c5 fi-textarea_textarea"
     id="just-for-snapshot-to-be-same"
   />
