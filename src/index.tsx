@@ -24,6 +24,8 @@ export {
   RadioButtonProps,
   RadioButtonGroup,
   RadioButtonGroupProps,
+  Chip,
+  ChipProps,
 } from './core/Form/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';
