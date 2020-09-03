@@ -1,14 +1,15 @@
 import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
-import { default as styled } from 'styled-components';
-import { baseStyles } from './Chip.baseStyles';
+// import { default as styled } from 'styled-components';
+// import { baseStyles } from './Chip.baseStyles';
 import { HtmlButton } from '../../../reset';
-import { TokensProp, InternalTokensProp } from 'core/theme';
+import { TokensProp } from 'core/theme';
+import { withSuomifiDefaultProps } from '../../theme/utils';
 
 const baseClassName = 'fi-chip';
 const disabledClassName = `${baseClassName}--disabled`;
 
-export interface ChipProps extends TokensProp {
+interface InternalChipProps {
   /** Chip element content */
   children: ReactNode;
   /** Custom class name for styling and customizing  */
@@ -26,9 +27,16 @@ export interface ChipProps extends TokensProp {
   removable?: boolean;
 }
 
-class BasicChip extends React.Component<ChipProps> {
+export interface ChipProps extends InternalChipProps, TokensProp {}
+
+export class Chip extends Component<ChipProps> {
   render() {
-    const { className, children, disabled = false, ...passProps } = this.props;
+    const {
+      className,
+      children,
+      disabled = false,
+      ...passProps
+    } = withSuomifiDefaultProps(this.props);
     return (
       <HtmlButton
         className={classnames(baseClassName, className, {
@@ -42,16 +50,15 @@ class BasicChip extends React.Component<ChipProps> {
   }
 }
 
-const StyledChip = styled(
-  ({ tokens, ...passProps }: ChipProps & InternalTokensProp) => (
-    <BasicChip {...passProps} />
-  ),
-)`
-  ${(props) => baseStyles(props)}
-`;
-
-export class Chip extends Component<ChipProps> {
+/*
   render() {
-    return <StyledChip {...this.props} />;
+    return styled(
+      ({ tokens, ...passProps }: ChipProps & InternalTokensProp) => (
+        <DefaultChip {...passProps} />
+      ),
+    )`
+      ${(props) => baseStyles(props)}
+    `;
   }
 }
+*/
