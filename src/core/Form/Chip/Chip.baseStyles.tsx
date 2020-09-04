@@ -10,12 +10,13 @@ export const baseStyles = withSuomifiTheme(
     ${focus({ theme })} /*  needs to be replaced by a custom */
 
     &.fi-chip {
-      border-radius: 15px;
+      border-radius: 14px;
       padding: ${theme.spacing.insetXxs} ${theme.spacing.insetL};
       color: ${theme.colors.whiteBase};
       background: ${theme.colors.highlightBase};
       cursor: pointer;
-      font: ${theme.typography.bodyTextSmall};
+      font: ${theme.typography.actionElementInnerText};
+      max-height: 28px;
 
       &:active {
         background: ${theme.colors.highlightDark1};
@@ -28,7 +29,15 @@ export const baseStyles = withSuomifiTheme(
       display: inline-block;
       height: 12px;
       margin-left: ${theme.spacing.insetS};
-      transform: translateY(0.05em)
+      transform: translateY(-0.35em);
+    }
+
+    & .fi-chip--content{
+      display: inline-block;
+      max-width: 268px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     }
   `,

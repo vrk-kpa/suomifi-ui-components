@@ -11,6 +11,7 @@ import { logger } from '../../../utils/logger';
 const baseClassName = 'fi-chip';
 const disabledClassName = `${baseClassName}--disabled`;
 const iconClassName = `${baseClassName}--icon`;
+const contentClassName = `${baseClassName}--content`;
 
 interface InternalChipProps {
   /** Chip element content */
@@ -22,7 +23,7 @@ interface InternalChipProps {
   /**
    * Event handler to execute when clicked
    */
-  onClick?: (event: MouseEvent | KeyboardEvent) => void;
+  onClick?: () => void;
   /**
    * Option to delete Chip by clicking on it
    * @default true
@@ -51,8 +52,10 @@ class DefaultChip extends Component<ChipProps> {
         'Provide removableLabel to communicate removability to screen readers',
       );
     }
-
-    const ariaLabel = removable ? { 'aria-label': removableLabel } : {};
+    /* Needs better logic for label + removableLabel handlind. This is just a bad placeholder */
+    const ariaLabel = removable
+      ? { 'aria-label': [children, removableLabel].join(' ') }
+      : {};
 
     return (
       <HtmlButton
@@ -60,10 +63,11 @@ class DefaultChip extends Component<ChipProps> {
           [disabledClassName]: !!disabled,
         })}
         disabled={disabled}
+        onClick={onClick}
         {...ariaLabel}
         {...passProps}
       >
-        {children}
+        <span className={contentClassName}>{children}</span>
         {!!removable && (
           <Icon
             mousePointer={true}
