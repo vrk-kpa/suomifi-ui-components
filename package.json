@@ -130,12 +130,14 @@
     "webpack": "4.44.1"
   },
   "dependencies": {
+    "@popperjs/core": "2.4.4",
     "@reach/listbox": "0.10.4",
     "@reach/menu-button": "0.10.4",
     "@reach/popover": "0.10.4",
     "classnames": "2.2.6",
     "normalize.cssinjs": "1.1.1",
     "polished": "3.5.1",
+    "react-popper": "2.2.3",
     "react-svg": "11.0.16",
     "suomifi-design-tokens": "^2.0.0",
     "suomifi-icons": "^1.0.0",

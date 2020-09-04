@@ -1,18 +1,20 @@
 ```js
-import { Button } from 'suomifi-ui-components';
+import { Button, Popover } from 'suomifi-ui-components';
 
 <>
-  <Button
-    className="my-button--test"
-    onClick={() => console.log('Test button click')}
-    type="submit"
-  >
-    Button
-  </Button>
+  <Popover>
+    <Button
+      className="my-button--test"
+      onClick={() => console.log('Test button click')}
+      type="submit"
+    >
+      Button
+    </Button>
 
-  <Button disabled fullWidth>
-    Button disabled fullWidth
-  </Button>
+    <Button disabled fullWidth>
+      Button disabled fullWidth
+    </Button>
+  </Popover>
 </>;
 ```
 
