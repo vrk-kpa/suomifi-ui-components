@@ -296,7 +296,7 @@ exports[`snapshots match error status with statustext 1`] = `
       class="c4 fi-text-input_container"
     >
       <input
-        aria-describedby="test-id2-statusText"
+        aria-invalid="true"
         class="c5 fi-text-input_input"
         data-testid="textinput2"
         id="test-id2"
@@ -598,6 +598,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
       class="c5 fi-text-input_container"
     >
       <input
+        aria-invalid="false"
         class="c6 fi-text-input_input"
         data-testid="textinput1"
         id="test-id1"
@@ -881,6 +882,7 @@ exports[`snapshots match minimal implementation 1`] = `
       class="c4 fi-text-input_container"
     >
       <input
+        aria-invalid="false"
         class="c5 fi-text-input_input"
         data-testid="textinput"
         id="test-id"

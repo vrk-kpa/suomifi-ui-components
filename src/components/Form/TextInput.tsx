@@ -30,6 +30,8 @@ type Label = 'hidden' | 'visible';
 
 type InputType = 'text' | 'email' | 'number' | 'password' | 'tel' | 'url';
 
+type TextInputStatus = 'default' | 'error' | 'success';
+
 export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   /** Custom classname for the input to extend or customize */
   className?: string;
@@ -61,6 +63,11 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   children?: ReactNode;
   /** Hint text to be shown below the component */
   hintText?: string;
+  /**
+   * 'default' | 'error' | 'success'
+   * @default default
+   */
+  status?: TextInputStatus;
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
   /** 'text' | 'email' | 'number' | 'password' | 'tel' | 'url'
@@ -82,6 +89,7 @@ class BaseTextInput extends Component<TextInputProps> {
       labelTextProps,
       inputContainerProps,
       children,
+      status,
       statusText,
       hintText,
       visualPlaceholder,
@@ -93,18 +101,6 @@ class BaseTextInput extends Component<TextInputProps> {
     const hideLabel = labelMode === 'hidden';
     const generatedStatusTextId = `${idGenerator(propId)}-statusText`;
     const generatedHintTextId = `${idGenerator(propId)}-hintText`;
-
-    const getDescribedBy = () => {
-      if (statusText || hintText) {
-        return {
-          'aria-describedby': [
-            ...(statusText ? [generatedStatusTextId] : []),
-            ...(hintText ? [generatedHintTextId] : []),
-          ].join(' '),
-        };
-      }
-      return {};
-    };
 
     return (
       <HtmlLabel
@@ -130,8 +126,8 @@ class BaseTextInput extends Component<TextInputProps> {
               {...passProps}
               className={classnames(inputBaseClassName, inputClassName)}
               type={type}
-              {...getDescribedBy()}
               placeholder={visualPlaceholder}
+              {...{ 'aria-invalid': status === 'error' }}
             />
             {children}
           </HtmlDiv>

@@ -161,6 +161,7 @@ export class Textarea extends Component<TextareaProps> {
           disabled={disabled}
           defaultValue={children}
           placeholder={visualPlaceholder}
+          {...{ 'aria-invalid': status === 'error' }}
           {...getDescribedBy()}
           {...passProps}
           {...onClickProps}

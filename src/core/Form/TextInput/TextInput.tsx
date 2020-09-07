@@ -17,15 +17,8 @@ export const textInputClassNames = {
   error: `${baseClassName}--error`,
   success: `${baseClassName}--success`,
 };
-type TextInputStatus = 'default' | 'error' | 'success';
 
-export interface TextInputProps extends CompTextInputProps, TokensProp {
-  /**
-   * 'default' | 'error' | 'success'
-   * @default default
-   */
-  status?: TextInputStatus;
-}
+export interface TextInputProps extends CompTextInputProps, TokensProp {}
 
 const StyledTextInput = styled(
   ({
@@ -39,6 +32,7 @@ const StyledTextInput = styled(
     return (
       <CompTextInput
         {...passProps}
+        status={status}
         labelTextProps={{
           ...labelTextProps,
           className: classnames(
