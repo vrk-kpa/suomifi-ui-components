@@ -9,22 +9,48 @@ import { baseStyles } from './Popover.baseStyles';
 import { HtmlDivProps } from 'reset';
 
 export interface PopoverProps extends TokensProp {
+  reference: Element;
   children: ReactNode;
+  placement?: 'top' | 'bottom';
+  allowFlip?: boolean;
 }
 
 const useEnhancedEffect =
   typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
+const sameWidth: any = {
+  name: 'sameWidth',
+  enabled: true,
+  phase: 'beforeWrite',
+  requires: ['computeStyles'],
+  /* eslint-disable no-param-reassign */
+  fn({ state }: { state: any }) {
+    state.styles.popper.width = `${state.rects.reference.width}px`;
+  },
+  effect({ state }: { state: any }) {
+    state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
+  },
+};
+
 export const Popover = (props: PopoverProps) => {
+  const { tokens, placement = 'bottom', allowFlip = false, children } = props;
   const [referenceElement, setReferenceElement] = useState<Element | null>(
     null,
   );
+  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
+
   const [showPortal, setShowPortal] = useState(false);
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
-  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
-  const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    modifiers: [{ name: 'arrow', options: { element: arrowElement } }],
+
+  const { styles } = usePopper(referenceElement, popperElement, {
+    modifiers: [
+      {
+        name: 'flip',
+        enabled: allowFlip,
+      },
+      sameWidth,
+    ],
+    placement,
   });
 
   useEnhancedEffect(() => {
@@ -46,16 +72,15 @@ export const Popover = (props: PopoverProps) => {
       >
         Reference element
       </button>
+      {console.log(styles)}
       {showPortal &&
         ReactDOM.createPortal(
           <div
             className={'fi-portal'}
             ref={setPopperElement}
             style={styles.popper}
-            {...attributes.popper}
           >
-            <div ref={setArrowElement} style={styles.arrow} />
-            <StyledDiv tokens={props.tokens}>{props.children}</StyledDiv>
+            <StyledDiv tokens={tokens}>{children}</StyledDiv>
           </div>,
           mountNode,
         )}
