@@ -12,6 +12,7 @@ const baseClassName = 'fi-chip';
 const disabledClassName = `${baseClassName}--disabled`;
 const iconClassName = `${baseClassName}--icon`;
 const contentClassName = `${baseClassName}--content`;
+const removableClassName = `${baseClassName}--removable`;
 
 interface InternalChipProps {
   /** Chip element content */
@@ -61,6 +62,7 @@ class DefaultChip extends Component<ChipProps> {
       <HtmlButton
         className={classnames(baseClassName, className, {
           [disabledClassName]: !!disabled,
+          [removableClassName]: !!removable,
         })}
         disabled={disabled}
         onClick={onClick}
@@ -96,7 +98,7 @@ export class Chip extends Component<ChipProps> {
     const {
       className,
       children,
-      disabled = false,
+      disabled,
       ...passProps
     } = withSuomifiDefaultProps(this.props);
     return (
@@ -104,6 +106,7 @@ export class Chip extends Component<ChipProps> {
         className={classnames(baseClassName, className, {
           [disabledClassName]: !!disabled,
         })}
+        disabled={disabled}
         {...passProps}
       >
         {children}
