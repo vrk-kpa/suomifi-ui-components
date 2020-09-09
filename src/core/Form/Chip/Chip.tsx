@@ -7,6 +7,7 @@ import { TokensProp, InternalTokensProp } from 'core/theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { Icon } from '../../Icon/Icon';
 import { logger } from '../../../utils/logger';
+import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
 
 const baseClassName = 'fi-chip';
 const disabledClassName = `${baseClassName}--disabled`;
@@ -16,7 +17,7 @@ const removableClassName = `${baseClassName}--removable`;
 
 interface InternalChipProps {
   /** Chip element content */
-  children: ReactNode;
+  children?: ReactNode;
   /** Custom class name for styling and customizing  */
   className?: string;
   /** Disable chip */
@@ -26,8 +27,8 @@ interface InternalChipProps {
    */
   onClick?: () => void;
   /**
-   * Option to delete Chip by clicking on it
-   * @default true
+   * Show X-icon next to the content to mark the chip as removable
+   * @default false
    */
   removable?: boolean;
   /** Aria-label attribute to let screen reader users know pressing the button will remove the chip/selection  */
@@ -53,10 +54,6 @@ class DefaultChip extends Component<ChipProps> {
         'Provide removableLabel to communicate removability to screen readers',
       );
     }
-    /* Needs better logic for label + removableLabel handlind. This is just a bad placeholder */
-    const ariaLabel = removable
-      ? { 'aria-label': [children, removableLabel].join(' ') }
-      : {};
 
     return (
       <HtmlButton
@@ -66,18 +63,20 @@ class DefaultChip extends Component<ChipProps> {
         })}
         disabled={disabled}
         onClick={onClick}
-        {...ariaLabel}
         {...passProps}
       >
         <span className={contentClassName}>{children}</span>
         {!!removable && (
-          <Icon
-            mousePointer={true}
-            icon="close"
-            color="currentColor"
-            className={classnames(iconClassName)}
-            aria-hidden={true}
-          />
+          <>
+            <Icon
+              mousePointer={true}
+              icon="close"
+              color="currentColor"
+              className={iconClassName}
+              aria-hidden={true}
+            />
+            <VisuallyHidden>{removableLabel}</VisuallyHidden>
+          </>
         )}
       </HtmlButton>
     );

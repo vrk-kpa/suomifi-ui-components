@@ -45,7 +45,6 @@ export const baseStyles = withSuomifiTheme(
       cursor: pointer;
       font: ${theme.typography.actionElementInnerText};
       max-height: 28px;
-      margin: 0 10px 15px 0; /* Vain demoa varten toistaiseksi */
 
        &:hover {
         background: ${theme.colors.highlightLight1};
