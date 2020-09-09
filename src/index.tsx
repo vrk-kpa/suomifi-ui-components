@@ -56,4 +56,4 @@ export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';
 export { Text, TextProps } from './core/Text/Text';
 export { Textarea, TextareaProps } from './core/Form/Textarea/Textarea';
 export { suomifiDesignTokens, DesignTokens } from 'suomifi-design-tokens';
-export { Popover } from './core/Popover/Popover';
+export { PopoverTest } from './core/Popover/Popover';

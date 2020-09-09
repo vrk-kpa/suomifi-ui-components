@@ -1,8 +1,8 @@
 ```js
-import { Button, Popover } from 'suomifi-ui-components';
+import { Button, PopoverTest } from 'suomifi-ui-components';
 
 <>
-  <Popover>
+  <PopoverTest>
     <Button
       className="my-button--test"
       onClick={() => console.log('Test button click')}
@@ -14,7 +14,7 @@ import { Button, Popover } from 'suomifi-ui-components';
     <Button disabled fullWidth>
       Button disabled fullWidth
     </Button>
-  </Popover>
+  </PopoverTest>
 </>;
 ```
 

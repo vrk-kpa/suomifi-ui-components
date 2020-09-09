@@ -9,9 +9,10 @@ import { baseStyles } from './Popover.baseStyles';
 import { HtmlDivProps } from 'reset';
 
 export interface PopoverProps extends TokensProp {
-  reference: Element;
+  reference: Element | null;
   children: ReactNode;
   placement?: 'top' | 'bottom';
+  matchWidth?: boolean;
   allowFlip?: boolean;
 }
 
@@ -32,34 +33,11 @@ const sameWidth: any = {
   },
 };
 
-export const Popover = (props: PopoverProps) => {
-  const { tokens, placement = 'bottom', allowFlip = false, children } = props;
+export const PopoverTest = ({ children }: { children: ReactNode }) => {
   const [referenceElement, setReferenceElement] = useState<Element | null>(
     null,
   );
-  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
-
   const [showPortal, setShowPortal] = useState(false);
-  const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
-
-  const { styles } = usePopper(referenceElement, popperElement, {
-    modifiers: [
-      {
-        name: 'flip',
-        enabled: allowFlip,
-      },
-      sameWidth,
-    ],
-    placement,
-  });
-
-  useEnhancedEffect(() => {
-    setMountNode(window.document.body);
-  });
-
-  if (!mountNode) {
-    return null;
-  }
 
   return (
     <>
@@ -72,18 +50,57 @@ export const Popover = (props: PopoverProps) => {
       >
         Reference element
       </button>
-      {console.log(styles)}
-      {showPortal &&
-        ReactDOM.createPortal(
-          <div
-            className={'fi-portal'}
-            ref={setPopperElement}
-            style={styles.popper}
-          >
-            <StyledDiv tokens={tokens}>{children}</StyledDiv>
-          </div>,
-          mountNode,
-        )}
+      <Popover reference={referenceElement} matchWidth={true}>
+        {showPortal && children}
+      </Popover>
+    </>
+  );
+};
+
+export const Popover = (props: PopoverProps) => {
+  const {
+    tokens,
+    placement = 'bottom',
+    allowFlip = false,
+    matchWidth = true,
+    children,
+    reference,
+  } = props;
+
+  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
+
+  const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
+
+  const { styles } = usePopper(reference, popperElement, {
+    modifiers: [
+      {
+        name: 'flip',
+        enabled: allowFlip,
+      },
+      matchWidth ? sameWidth : {},
+    ],
+    placement,
+  });
+
+  useEnhancedEffect(() => {
+    setMountNode(window.document.body);
+  });
+
+  if (!mountNode) {
+    return null;
+  }
+  return (
+    <>
+      {ReactDOM.createPortal(
+        <div
+          className={'fi-portal'}
+          ref={setPopperElement}
+          style={styles.popper}
+        >
+          <StyledDiv tokens={tokens}>{children}</StyledDiv>
+        </div>,
+        mountNode,
+      )}
     </>
   );
 };
