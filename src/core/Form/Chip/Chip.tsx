@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './Chip.baseStyles';
-import { HtmlButton } from '../../../reset';
+import { HtmlButton, HtmlSpan } from '../../../reset';
 import { TokensProp, InternalTokensProp } from 'core/theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { Icon } from '../../Icon/Icon';
@@ -14,6 +14,7 @@ const disabledClassName = `${baseClassName}--disabled`;
 const iconClassName = `${baseClassName}--icon`;
 const contentClassName = `${baseClassName}--content`;
 const removableClassName = `${baseClassName}--removable`;
+const buttonClassName = `${baseClassName}--button`;
 
 interface InternalChipProps {
   /** Chip element content */
@@ -55,30 +56,43 @@ class DefaultChip extends Component<ChipProps> {
       );
     }
 
+    if (!!onClick && !!removableLabel) {
+      return (
+        <HtmlButton
+          className={classnames(baseClassName, buttonClassName, className, {
+            [disabledClassName]: !!disabled,
+            [removableClassName]: !!removable,
+          })}
+          disabled={disabled}
+          onClick={onClick}
+          {...passProps}
+        >
+          <HtmlSpan className={contentClassName}>{children}</HtmlSpan>
+          {!!removable && (
+            <>
+              <Icon
+                mousePointer={true}
+                icon="close"
+                color="currentColor"
+                className={iconClassName}
+                aria-hidden={true}
+              />
+              <VisuallyHidden>{removableLabel}</VisuallyHidden>
+            </>
+          )}
+        </HtmlButton>
+      );
+    }
     return (
-      <HtmlButton
+      <HtmlSpan
         className={classnames(baseClassName, className, {
           [disabledClassName]: !!disabled,
           [removableClassName]: !!removable,
         })}
-        disabled={disabled}
-        onClick={onClick}
         {...passProps}
       >
-        <span className={contentClassName}>{children}</span>
-        {!!removable && (
-          <>
-            <Icon
-              mousePointer={true}
-              icon="close"
-              color="currentColor"
-              className={iconClassName}
-              aria-hidden={true}
-            />
-            <VisuallyHidden>{removableLabel}</VisuallyHidden>
-          </>
-        )}
-      </HtmlButton>
+        <HtmlSpan className={contentClassName}>{children}</HtmlSpan>
+      </HtmlSpan>
     );
   }
 }

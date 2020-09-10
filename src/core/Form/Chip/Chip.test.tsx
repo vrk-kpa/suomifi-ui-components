@@ -8,7 +8,9 @@ const Chip = (props: ChipProps) => {
 };
 
 describe('disabled', () => {
-  const DisabledChip = <Chip disabled={true} />;
+  const DisabledChip = (
+    <Chip disabled={true} onClick={() => null} removableLabel="Unselect" />
+  );
 
   it('has "--disabled"-class', () => {
     const { container } = render(DisabledChip);
@@ -64,7 +66,9 @@ describe('classnames', () => {
 });
 
 describe('variants', () => {
-  const removableChip = <Chip removable={true} />;
+  const removableChip = (
+    <Chip removable={true} onClick={() => null} removableLabel="Unselect" />
+  );
 
   it('has the elements corresponding the variant', () => {
     const { container } = render(removableChip);
@@ -76,7 +80,9 @@ describe('variants', () => {
 describe('onClick', () => {
   it('is called when clicked', () => {
     const mockClick = jest.fn();
-    const { getByRole } = render(<Chip onClick={mockClick} />);
+    const { getByRole } = render(
+      <Chip onClick={mockClick} removableLabel="Unselect" />,
+    );
     const chip = getByRole('button');
     fireEvent.click(chip);
     expect(mockClick).toHaveBeenCalledTimes(1);

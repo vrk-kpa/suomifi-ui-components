@@ -42,20 +42,22 @@ export const baseStyles = withSuomifiTheme(
       padding: ${theme.spacing.insetXxs} ${theme.spacing.insetL};
       color: ${theme.colors.whiteBase};
       background: ${theme.colors.highlightBase};
-      cursor: pointer;
       font: ${theme.typography.actionElementInnerText};
       max-height: 28px;
-
-       &:hover {
+      display: inline-block;
+    
+      &.fi-chip--button{
+        cursor: pointer;
+        &:hover {
         background: ${theme.colors.highlightLight1};
-      }
+        }
 
       &:active {
         background: ${theme.colors.highlightDark1};
+        }
       }
 
     & .fi-chip--icon{
-      display: inline-block;
       height: 12px;
       transform: translateY(-0.35em);
     }
@@ -66,6 +68,8 @@ export const baseStyles = withSuomifiTheme(
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      line-height: 1.5em;
+      vertical-align: center;
     }
     }
     ${removableStyles({ theme })};
