@@ -18,7 +18,7 @@ const buttonClassName = `${baseClassName}--button`;
 
 interface InternalChipProps {
   /** Chip element content */
-  children?: ReactNode;
+  children: ReactNode;
   /** Custom class name for styling and customizing  */
   className?: string;
   /** Disable chip */
