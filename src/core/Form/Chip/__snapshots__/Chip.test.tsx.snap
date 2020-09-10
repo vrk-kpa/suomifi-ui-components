@@ -1,0 +1,486 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`children should match snapshot 1`] = `
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.c0:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.c0::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.c0::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.c0::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.c0::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.c1 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  z-index: 9999;
+}
+
+.c1:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c1:focus:after {
+  border-radius: 16px;
+}
+
+.c1.fi-chip {
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
+  cursor: pointer;
+  font: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  max-height: 28px;
+}
+
+.c1.fi-chip:hover {
+  background: hsl(212,63%,49%);
+}
+
+.c1.fi-chip:active {
+  background: hsl(212,63%,37%);
+}
+
+.c1.fi-chip .fi-chip--icon {
+  display: inline-block;
+  height: 12px;
+  -webkit-transform: translateY(-0.35em);
+  -ms-transform: translateY(-0.35em);
+  transform: translateY(-0.35em);
+}
+
+.c1.fi-chip .fi-chip--content {
+  display: inline-block;
+  max-width: 270px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.c1.fi-chip--removable .fi-chip--content {
+  max-width: 248px;
+  margin-right: 6px;
+}
+
+.c1.fi-chip--disabled {
+  background: hsl(202,7%,80%);
+}
+
+.c1.fi-chip--disabled:hover,
+.c1.fi-chip--disabled:active {
+  background: hsl(202,7%,80%);
+}
+
+<div>
+  <button
+    class="c0 fi-chip c1 fi-chip"
+    type="button"
+  >
+    <span
+      class="fi-chip--content"
+    >
+      <div
+        data-testid="test-div"
+      >
+        Selection 1
+      </div>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`classnames should match snapshot 1`] = `
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.c0:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.c0::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.c0::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.c0::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.c0::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.c1 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  z-index: 9999;
+}
+
+.c1:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c1:focus:after {
+  border-radius: 16px;
+}
+
+.c1.fi-chip {
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
+  cursor: pointer;
+  font: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  max-height: 28px;
+}
+
+.c1.fi-chip:hover {
+  background: hsl(212,63%,49%);
+}
+
+.c1.fi-chip:active {
+  background: hsl(212,63%,37%);
+}
+
+.c1.fi-chip .fi-chip--icon {
+  display: inline-block;
+  height: 12px;
+  -webkit-transform: translateY(-0.35em);
+  -ms-transform: translateY(-0.35em);
+  transform: translateY(-0.35em);
+}
+
+.c1.fi-chip .fi-chip--content {
+  display: inline-block;
+  max-width: 270px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.c1.fi-chip--removable .fi-chip--content {
+  max-width: 248px;
+  margin-right: 6px;
+}
+
+.c1.fi-chip--disabled {
+  background: hsl(202,7%,80%);
+}
+
+.c1.fi-chip--disabled:hover,
+.c1.fi-chip--disabled:active {
+  background: hsl(202,7%,80%);
+}
+
+<div>
+  <button
+    class="c0 fi-chip c1 fi-chip custom-class"
+    type="button"
+  >
+    <span
+      class="fi-chip--content"
+    >
+      Chip content
+    </span>
+  </button>
+</div>
+`;
+
+exports[`disabled should match snapshot 1`] = `
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.c0:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.c0::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.c0::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.c0::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.c0::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.c1 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  z-index: 9999;
+}
+
+.c1:focus:not(:focus-visible):after {
+  content: none;
+}
+
+.c1:focus:after {
+  border-radius: 16px;
+}
+
+.c1.fi-chip {
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
+  cursor: pointer;
+  font: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  max-height: 28px;
+}
+
+.c1.fi-chip:hover {
+  background: hsl(212,63%,49%);
+}
+
+.c1.fi-chip:active {
+  background: hsl(212,63%,37%);
+}
+
+.c1.fi-chip .fi-chip--icon {
+  display: inline-block;
+  height: 12px;
+  -webkit-transform: translateY(-0.35em);
+  -ms-transform: translateY(-0.35em);
+  transform: translateY(-0.35em);
+}
+
+.c1.fi-chip .fi-chip--content {
+  display: inline-block;
+  max-width: 270px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.c1.fi-chip--removable .fi-chip--content {
+  max-width: 248px;
+  margin-right: 6px;
+}
+
+.c1.fi-chip--disabled {
+  background: hsl(202,7%,80%);
+}
+
+.c1.fi-chip--disabled:hover,
+.c1.fi-chip--disabled:active {
+  background: hsl(202,7%,80%);
+}
+
+<div>
+  <button
+    class="c0 fi-chip c1 fi-chip fi-chip--disabled fi-chip--disabled"
+    disabled=""
+    type="button"
+  >
+    <span
+      class="fi-chip--content"
+    >
+      Chip content
+    </span>
+  </button>
+</div>
+`;

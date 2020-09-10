@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { Chip as OrigChip, ChipProps } from './Chip';
 
 const Chip = (props: ChipProps) => {
@@ -68,7 +68,17 @@ describe('variants', () => {
 
   it('has the elements corresponding the variant', () => {
     const { container } = render(removableChip);
-    const icon = container.querySelector('#jepjoo');
+    const icon = container.querySelector('.fi-chip--icon');
     expect(container.contains(icon)).toBeTruthy();
+  });
+});
+
+describe('onClick', () => {
+  it('is called when clicked', () => {
+    const mockClick = jest.fn();
+    const { getByRole } = render(<Chip onClick={mockClick} />);
+    const chip = getByRole('button');
+    fireEvent.click(chip);
+    expect(mockClick).toHaveBeenCalledTimes(1);
   });
 });
