@@ -128,6 +128,7 @@ exports[`children should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+  font-weight: 600;
   max-height: 28px;
   display: inline-block;
 }
@@ -146,6 +147,7 @@ exports[`children should match snapshot 1`] = `
 
 .c1.fi-chip .fi-chip--icon {
   height: 12px;
+  width: 12px;
   -webkit-transform: translateY(-0.35em);
   -ms-transform: translateY(-0.35em);
   transform: translateY(-0.35em);
@@ -163,7 +165,7 @@ exports[`children should match snapshot 1`] = `
 
 .c1.fi-chip--removable .fi-chip--content {
   max-width: 248px;
-  margin-right: 6px;
+  margin-right: 10px;
 }
 
 .c1.fi-chip--disabled {
@@ -321,6 +323,7 @@ exports[`classnames should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+  font-weight: 600;
   max-height: 28px;
   display: inline-block;
 }
@@ -339,6 +342,7 @@ exports[`classnames should match snapshot 1`] = `
 
 .c1.fi-chip .fi-chip--icon {
   height: 12px;
+  width: 12px;
   -webkit-transform: translateY(-0.35em);
   -ms-transform: translateY(-0.35em);
   transform: translateY(-0.35em);
@@ -356,7 +360,7 @@ exports[`classnames should match snapshot 1`] = `
 
 .c1.fi-chip--removable .fi-chip--content {
   max-width: 248px;
-  margin-right: 6px;
+  margin-right: 10px;
 }
 
 .c1.fi-chip--disabled {
@@ -510,6 +514,7 @@ exports[`disabled should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+  font-weight: 600;
   max-height: 28px;
   display: inline-block;
 }
@@ -528,6 +533,7 @@ exports[`disabled should match snapshot 1`] = `
 
 .c1.fi-chip .fi-chip--icon {
   height: 12px;
+  width: 12px;
   -webkit-transform: translateY(-0.35em);
   -ms-transform: translateY(-0.35em);
   transform: translateY(-0.35em);
@@ -545,7 +551,7 @@ exports[`disabled should match snapshot 1`] = `
 
 .c1.fi-chip--removable .fi-chip--content {
   max-width: 248px;
-  margin-right: 6px;
+  margin-right: 10px;
 }
 
 .c1.fi-chip--disabled {
