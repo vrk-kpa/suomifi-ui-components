@@ -1,16 +1,18 @@
-import React, { useState, ReactNode, useLayoutEffect, useEffect } from 'react';
+import React, {
+  useState,
+  ReactNode,
+  useLayoutEffect,
+  useEffect,
+  useRef,
+} from 'react';
 import ReactDOM from 'react-dom';
-import { default as styled } from 'styled-components';
 import { usePopper } from 'react-popper';
+import { HtmlDiv, HtmlDivProps } from '../../reset/HtmlDiv/HtmlDiv';
 
-import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp } from '../theme';
-import { baseStyles } from './Popover.baseStyles';
-import { HtmlDivProps } from 'reset';
-
-export interface PopoverProps extends TokensProp {
-  reference: Element | null;
+export interface PopoverProps extends HtmlDivProps {
+  sourceRef: Element | null;
   children: ReactNode;
+  portalStyleProps?: React.CSSProperties;
   placement?: 'top' | 'bottom';
   matchWidth?: boolean;
   allowFlip?: boolean;
@@ -18,6 +20,67 @@ export interface PopoverProps extends TokensProp {
 
 const useEnhancedEffect =
   typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+
+export const PopoverTest = () => {
+  const [referenceElement, setReferenceElement] = useState<Element | null>(
+    null,
+  );
+  const firstChildRef = useRef<HTMLUListElement>(null);
+  const [showPortal, setShowPortal] = useState(false);
+
+  useEnhancedEffect(() => {
+    if (
+      firstChildRef !== null &&
+      firstChildRef.current !== null &&
+      showPortal
+    ) {
+      firstChildRef.current.focus();
+    }
+  }, [showPortal]);
+
+  return (
+    <>
+      <button
+        type="button"
+        ref={setReferenceElement}
+        onClick={() => {
+          setShowPortal(!showPortal);
+        }}
+        {...{
+          'aria-haspopup': true,
+          'aria-expanded': showPortal,
+          'aria-controls': 'popover-test',
+          tabIndex: 0,
+        }}
+      >
+        Reference element
+      </button>
+      <Popover
+        sourceRef={referenceElement}
+        matchWidth={true}
+        id="popover-test"
+        tabIndex={-1}
+        portalStyleProps={{ backgroundColor: 'white' }}
+      >
+        {showPortal && (
+          <ul tabIndex={-1} ref={firstChildRef}>
+            <li>
+              <button role="menuitem" tabIndex={0}>
+                One
+              </button>
+            </li>
+            <li>
+              <button role="menuitem">Two</button>
+            </li>
+            <li>
+              <button role="menuitem">Three</button>
+            </li>
+          </ul>
+        )}
+      </Popover>
+    </>
+  );
+};
 
 const sameWidth: any = {
   name: 'sameWidth',
@@ -33,45 +96,22 @@ const sameWidth: any = {
   },
 };
 
-export const PopoverTest = ({ children }: { children: ReactNode }) => {
-  const [referenceElement, setReferenceElement] = useState<Element | null>(
-    null,
-  );
-  const [showPortal, setShowPortal] = useState(false);
-
-  return (
-    <>
-      <button
-        type="button"
-        ref={setReferenceElement}
-        onClick={() => {
-          setShowPortal(!showPortal);
-        }}
-      >
-        Reference element
-      </button>
-      <Popover reference={referenceElement} matchWidth={true}>
-        {showPortal && children}
-      </Popover>
-    </>
-  );
-};
-
 export const Popover = (props: PopoverProps) => {
   const {
-    tokens,
+    portalStyleProps = {},
     placement = 'bottom',
     allowFlip = false,
     matchWidth = true,
     children,
-    reference,
+    sourceRef,
+    ...passProps
   } = props;
 
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
 
-  const { styles } = usePopper(reference, popperElement, {
+  const { styles } = usePopper(sourceRef, popperElement, {
     modifiers: [
       {
         name: 'flip',
@@ -95,20 +135,12 @@ export const Popover = (props: PopoverProps) => {
         <div
           className={'fi-portal'}
           ref={setPopperElement}
-          style={styles.popper}
+          style={{ ...styles.popper, ...portalStyleProps }}
         >
-          <StyledDiv tokens={tokens}>{children}</StyledDiv>
+          <HtmlDiv {...passProps}>{children}</HtmlDiv>
         </div>,
         mountNode,
       )}
     </>
   );
 };
-
-const StyledDiv = styled(
-  ({ tokens, children, ...passProps }: HtmlDivProps & TokensProp) => (
-    <div {...passProps}>{children}</div>
-  ),
-)`
-  ${(props) => baseStyles(withSuomifiDefaultProps(props))};
-`;
