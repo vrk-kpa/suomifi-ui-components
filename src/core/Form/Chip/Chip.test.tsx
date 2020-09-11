@@ -9,7 +9,9 @@ const Chip = (props: ChipProps) => {
 
 describe('disabled', () => {
   const DisabledChip = (
-    <Chip disabled={true} onClick={() => null} removableLabel="Unselect" />
+    <Chip disabled={true} onClick={() => null} actionLabel="Unselect">
+      Testcontent
+    </Chip>
   );
 
   it('has "--disabled"-class', () => {
@@ -47,7 +49,7 @@ describe('children', () => {
 });
 
 describe('classnames', () => {
-  const customClassChip = <Chip className="custom-class" />;
+  const customClassChip = <Chip className="custom-class">Testcontent</Chip>;
 
   it('contains base classname', () => {
     const { container } = render(customClassChip);
@@ -66,14 +68,23 @@ describe('classnames', () => {
 });
 
 describe('variants', () => {
-  const removableChip = (
-    <Chip removable={true} onClick={() => null} removableLabel="Unselect" />
+  const defaultChip = (
+    <Chip removable={true} onClick={() => null} actionLabel="Unselect">
+      Test content
+    </Chip>
   );
 
-  it('has the elements corresponding the variant', () => {
-    const { container } = render(removableChip);
+  const staticChip = <OrigChip.static>Test content</OrigChip.static>;
+
+  it('has icon element when set as removable', () => {
+    const { container } = render(defaultChip);
     const icon = container.querySelector('.fi-chip--icon');
     expect(container.contains(icon)).toBeTruthy();
+  });
+
+  it('has the elements corresponding the chosen variant', () => {
+    const { container } = render(staticChip);
+    expect(container.firstChild).not.toHaveClass('fi-chip--button');
   });
 });
 
@@ -81,7 +92,9 @@ describe('onClick', () => {
   it('is called when clicked', () => {
     const mockClick = jest.fn();
     const { getByRole } = render(
-      <Chip onClick={mockClick} removableLabel="Unselect" />,
+      <Chip onClick={mockClick} actionLabel="Unselect">
+        Testcontent
+      </Chip>,
     );
     const chip = getByRole('button');
     fireEvent.click(chip);

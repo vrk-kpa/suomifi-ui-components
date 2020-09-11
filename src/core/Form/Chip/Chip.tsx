@@ -16,6 +16,8 @@ const contentClassName = `${baseClassName}--content`;
 const removableClassName = `${baseClassName}--removable`;
 const buttonClassName = `${baseClassName}--button`;
 
+type ChipVariant = 'static' | 'default';
+
 interface InternalChipProps {
   /** Chip element content */
   children: ReactNode;
@@ -33,7 +35,12 @@ interface InternalChipProps {
    */
   removable?: boolean;
   /** Aria-label attribute to let screen reader users know pressing the button will remove the chip/selection  */
-  removableLabel?: string;
+  actionLabel?: string;
+  /**
+   * default | static - use default for an interactive chip and static for a purely visual chip.
+   * @default default
+   */
+  variant?: ChipVariant;
 }
 
 export interface ChipProps extends InternalChipProps, TokensProp {}
@@ -45,54 +52,55 @@ class DefaultChip extends Component<ChipProps> {
       children,
       onClick,
       removable,
-      removableLabel,
+      actionLabel,
+      variant,
       disabled = false,
       ...passProps
     } = this.props;
 
-    if (removable && !removableLabel) {
+    if (removable && !actionLabel) {
       logger.error(
-        'Provide removableLabel to communicate removability to screen readers',
+        'Provide actionLabel to communicate removability to screen readers',
       );
     }
 
-    if (!!onClick && !!removableLabel) {
+    if (variant === 'static') {
       return (
-        <HtmlButton
-          className={classnames(baseClassName, buttonClassName, className, {
+        <HtmlSpan
+          className={classnames(baseClassName, className, {
             [disabledClassName]: !!disabled,
             [removableClassName]: !!removable,
           })}
-          disabled={disabled}
-          onClick={onClick}
           {...passProps}
         >
           <HtmlSpan className={contentClassName}>{children}</HtmlSpan>
-          {!!removable && (
-            <>
-              <Icon
-                mousePointer={true}
-                icon="close"
-                color="currentColor"
-                className={iconClassName}
-                aria-hidden={true}
-              />
-              <VisuallyHidden>{removableLabel}</VisuallyHidden>
-            </>
-          )}
-        </HtmlButton>
+        </HtmlSpan>
       );
     }
     return (
-      <HtmlSpan
-        className={classnames(baseClassName, className, {
+      <HtmlButton
+        className={classnames(baseClassName, buttonClassName, className, {
           [disabledClassName]: !!disabled,
           [removableClassName]: !!removable,
         })}
+        disabled={disabled}
+        onClick={onClick}
         {...passProps}
       >
         <HtmlSpan className={contentClassName}>{children}</HtmlSpan>
-      </HtmlSpan>
+        {!!removable && (
+          <>
+            <Icon
+              mousePointer={true}
+              icon="close"
+              color="currentColor"
+              className={iconClassName}
+              aria-hidden={true}
+            />
+            <VisuallyHidden>{actionLabel}</VisuallyHidden>
+          </>
+        )}
+      </HtmlButton>
     );
   }
 }
@@ -107,23 +115,13 @@ const StyledChip = styled(
 /*  Might want to implement passProps in the withSuomifiDefaultProps as well */
 
 export class Chip extends Component<ChipProps> {
+  static static = (props: ChipProps) => {
+    const passProps = withSuomifiDefaultProps(props);
+    return <StyledChip {...passProps} variant="static" />;
+  };
+
   render() {
-    const {
-      className,
-      children,
-      disabled,
-      ...passProps
-    } = withSuomifiDefaultProps(this.props);
-    return (
-      <StyledChip
-        className={classnames(baseClassName, className, {
-          [disabledClassName]: !!disabled,
-        })}
-        disabled={disabled}
-        {...passProps}
-      >
-        {children}
-      </StyledChip>
-    );
+    const { ...passProps } = withSuomifiDefaultProps(this.props);
+    return <StyledChip {...passProps} />;
   }
 }

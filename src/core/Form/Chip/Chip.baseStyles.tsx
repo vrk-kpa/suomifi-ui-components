@@ -10,7 +10,7 @@ const removableStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-chip--removable {
     & .fi-chip--content {
       max-width: 248px;
-      margin-right: ${theme.spacing.insetS};
+      margin-right: ${theme.spacing.xs};
     }
   }
 `;
@@ -43,6 +43,7 @@ export const baseStyles = withSuomifiTheme(
       color: ${theme.colors.whiteBase};
       background: ${theme.colors.highlightBase};
       font: ${theme.typography.actionElementInnerText};
+      font-weight: 600;
       max-height: 28px;
       display: inline-block;
     
@@ -59,6 +60,7 @@ export const baseStyles = withSuomifiTheme(
 
     & .fi-chip--icon{
       height: 12px;
+      width: 12px;
       transform: translateY(-0.35em);
     }
 
@@ -71,6 +73,7 @@ export const baseStyles = withSuomifiTheme(
       line-height: 1.5em;
       vertical-align: center;
     }
+
     }
     ${removableStyles({ theme })};
     ${disabledStyles({ theme })};

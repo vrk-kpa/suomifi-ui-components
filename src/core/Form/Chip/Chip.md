@@ -7,20 +7,18 @@ const removeAction = () => {
 
 <>
   <div styles={{ display: 'inline' }}>
-    <Chip removable removableLabel="Unselect" onClick={removeAction}>
+    <Chip removable actionLabel="Unselect" onClick={removeAction}>
       Selected item 1
     </Chip>
-    <Chip removable removableLabel="Unselect" onClick={removeAction}>
+    <Chip removable actionLabel="Unselect" onClick={removeAction}>
       Selected item 2
     </Chip>
-    <Chip removable removableLabel="Unselect" onClick={removeAction}>
-      Selected item 3
-    </Chip>
+    <Chip onClick={removeAction}>Selected item 3</Chip>
   </div>
-  <Chip>
+  <Chip.static>
     <span>
       Selected item with a long content that exceeds the size limit
     </span>
-  </Chip>
+  </Chip.static>
 </>;
 ```
