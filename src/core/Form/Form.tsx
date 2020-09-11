@@ -12,4 +12,3 @@ export {
   RadioButtonGroup,
   RadioButtonGroupProps,
 } from './RadioButton/RadioButtonGroup';
-export { Chip, ChipProps } from './Chip/Chip';

@@ -9,6 +9,7 @@ export { Button, ButtonProps } from './core/Button/Button';
 export { UnstyledButton } from './core/Button/UnstyledButton';
 export { Dropdown, DropdownProps } from './core/Dropdown/Dropdown';
 export { DropdownItem, DropdownItemProps } from './core/Dropdown/DropdownItem';
+export { Chip, ChipProps } from './core/Chip/Chip';
 export {
   Checkbox,
   CheckboxProps,
@@ -24,8 +25,6 @@ export {
   RadioButtonProps,
   RadioButtonGroup,
   RadioButtonGroupProps,
-  Chip,
-  ChipProps,
 } from './core/Form/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';

@@ -5,13 +5,13 @@ const primitiveComponents = [
   'Block',
   'Button',
   'Heading',
+  'Chip',
   ['Form', 'TextInput'],
   ['Form', 'Toggle'],
   ['Form', 'SearchInput'],
   ['Form', 'Checkbox'],
   ['Form', 'Textarea'],
   ['Form', 'RadioButton'],
-  ['Form', 'Chip'],
 ];
 
 const getComponent = ({ name, underName }) =>

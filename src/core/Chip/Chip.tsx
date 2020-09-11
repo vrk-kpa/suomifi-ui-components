@@ -2,12 +2,12 @@ import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './Chip.baseStyles';
-import { HtmlButton, HtmlSpan } from '../../../reset';
+import { HtmlButton, HtmlSpan } from '../../reset';
 import { TokensProp, InternalTokensProp } from 'core/theme';
-import { withSuomifiDefaultProps } from '../../theme/utils';
-import { Icon } from '../../Icon/Icon';
-import { logger } from '../../../utils/logger';
-import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
+import { withSuomifiDefaultProps } from '../theme/utils';
+import { Icon } from '../Icon/Icon';
+import { logger } from '../../utils/logger';
+import { VisuallyHidden } from '../../components/Visually-hidden/Visually-hidden';
 
 const baseClassName = 'fi-chip';
 const disabledClassName = `${baseClassName}--disabled`;
@@ -112,7 +112,6 @@ const StyledChip = styled(
 )`
   ${(tokens) => baseStyles(withSuomifiDefaultProps(tokens))}
 `;
-/*  Might want to implement passProps in the withSuomifiDefaultProps as well */
 
 export class Chip extends Component<ChipProps> {
   static static = (props: ChipProps) => {

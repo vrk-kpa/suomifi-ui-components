@@ -1,10 +1,6 @@
 import { css } from 'styled-components';
-import {
-  withSuomifiTheme,
-  TokensAndTheme,
-  SuomifiThemeProp,
-} from '../../theme';
-import { element, font, focus } from '../../theme/reset';
+import { withSuomifiTheme, TokensAndTheme, SuomifiThemeProp } from '../theme';
+import { element, font, focus } from '../theme/reset';
 
 const removableStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-chip--removable {
