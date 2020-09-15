@@ -131,6 +131,7 @@ exports[`children should match snapshot 1`] = `
   font-weight: 600;
   max-height: 28px;
   display: inline-block;
+  cursor: default;
 }
 
 .c1.fi-chip.fi-chip--button {
@@ -170,6 +171,7 @@ exports[`children should match snapshot 1`] = `
 
 .c1.fi-chip--disabled.fi-chip {
   background: hsl(202,7%,80%);
+  cursor: not-allowed;
 }
 
 .c1.fi-chip--disabled.fi-chip:hover,
@@ -326,6 +328,7 @@ exports[`classnames should match snapshot 1`] = `
   font-weight: 600;
   max-height: 28px;
   display: inline-block;
+  cursor: default;
 }
 
 .c1.fi-chip.fi-chip--button {
@@ -365,6 +368,7 @@ exports[`classnames should match snapshot 1`] = `
 
 .c1.fi-chip--disabled.fi-chip {
   background: hsl(202,7%,80%);
+  cursor: not-allowed;
 }
 
 .c1.fi-chip--disabled.fi-chip:hover,
@@ -517,6 +521,7 @@ exports[`disabled should match snapshot 1`] = `
   font-weight: 600;
   max-height: 28px;
   display: inline-block;
+  cursor: default;
 }
 
 .c1.fi-chip.fi-chip--button {
@@ -556,6 +561,7 @@ exports[`disabled should match snapshot 1`] = `
 
 .c1.fi-chip--disabled.fi-chip {
   background: hsl(202,7%,80%);
+  cursor: not-allowed;
 }
 
 .c1.fi-chip--disabled.fi-chip:hover,
