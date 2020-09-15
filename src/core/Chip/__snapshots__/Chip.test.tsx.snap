@@ -131,7 +131,6 @@ exports[`children should match snapshot 1`] = `
   font-weight: 600;
   max-height: 28px;
   display: inline-block;
-  cursor: default;
 }
 
 .c1.fi-chip.fi-chip--button {
@@ -328,7 +327,6 @@ exports[`classnames should match snapshot 1`] = `
   font-weight: 600;
   max-height: 28px;
   display: inline-block;
-  cursor: default;
 }
 
 .c1.fi-chip.fi-chip--button {
@@ -521,7 +519,6 @@ exports[`disabled should match snapshot 1`] = `
   font-weight: 600;
   max-height: 28px;
   display: inline-block;
-  cursor: default;
 }
 
 .c1.fi-chip.fi-chip--button {

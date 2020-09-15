@@ -44,7 +44,6 @@ export const baseStyles = withSuomifiTheme(
       font-weight: 600;
       max-height: 28px;
       display: inline-block;
-      cursor: default;
     
       &.fi-chip--button{
         cursor: pointer;

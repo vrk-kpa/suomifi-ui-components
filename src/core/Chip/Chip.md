@@ -7,24 +7,22 @@ const removeAction = () => {
 
 <>
   <div styles={{ display: 'inline' }}>
-    <Chip
-      removable
-      actionLabel="Unselect"
-      onClick={removeAction}
-      disabled
-    >
-      Selected item 1
+    <Chip removable actionLabel="Unselect" onClick={removeAction}>
+      Removable chip 1
     </Chip>
 
     <Chip removable actionLabel="Unselect" onClick={removeAction}>
-      Selected item 2
+      Removable chip 2
     </Chip>
-
-    <Chip onClick={removeAction}>Selected item 3</Chip>
+  </div>
+  <div>
+    <Chip onClick={removeAction}>
+      Clickable chip without remove icon
+    </Chip>
   </div>
 
   <Chip.static>
-    Selected item with a long content that exceeds the size limit
+    Static chip with a long content that exceeds the size limit
   </Chip.static>
 
   <Chip.static disabled>Disabled static chip</Chip.static>
