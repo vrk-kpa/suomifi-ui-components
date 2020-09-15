@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme, SuomifiThemeProp } from '../theme';
 import { element, font, focus } from '../theme/reset';
+import { disabledCursor } from '../../components/utils/css';
 
 const removableStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-chip--removable {
@@ -18,6 +19,7 @@ const disabledStyles = ({ theme }: SuomifiThemeProp) => css`
     &:active {
       background: ${theme.colors.depthLight1};
     }
+    ${disabledCursor}
   }
 `;
 
@@ -42,6 +44,7 @@ export const baseStyles = withSuomifiTheme(
       font-weight: 600;
       max-height: 28px;
       display: inline-block;
+      cursor: default;
     
       &.fi-chip--button{
         cursor: pointer;
