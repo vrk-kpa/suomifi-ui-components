@@ -10,11 +10,13 @@ import { logger } from '../../utils/logger';
 import { VisuallyHidden } from '../../components/Visually-hidden/Visually-hidden';
 
 const baseClassName = 'fi-chip';
-const disabledClassName = `${baseClassName}--disabled`;
-const iconClassName = `${baseClassName}--icon`;
-const contentClassName = `${baseClassName}--content`;
-const removableClassName = `${baseClassName}--removable`;
-const buttonClassName = `${baseClassName}--button`;
+const chipClassNames = {
+  disabled: `${baseClassName}--disabled`,
+  icon: `${baseClassName}--icon`,
+  content: `${baseClassName}--content`,
+  removable: `${baseClassName}--removable`,
+  button: `${baseClassName}--button`,
+};
 
 type ChipVariant = 'static' | 'default';
 
@@ -68,33 +70,33 @@ class DefaultChip extends Component<ChipProps> {
       return (
         <HtmlSpan
           className={classnames(baseClassName, className, {
-            [disabledClassName]: !!disabled,
-            [removableClassName]: !!removable,
+            [chipClassNames.disabled]: !!disabled,
+            [chipClassNames.removable]: !!removable,
           })}
           {...passProps}
         >
-          <HtmlSpan className={contentClassName}>{children}</HtmlSpan>
+          <HtmlSpan className={chipClassNames.content}>{children}</HtmlSpan>
         </HtmlSpan>
       );
     }
     return (
       <HtmlButton
-        className={classnames(baseClassName, buttonClassName, className, {
-          [disabledClassName]: !!disabled,
-          [removableClassName]: !!removable,
+        className={classnames(baseClassName, chipClassNames.button, className, {
+          [chipClassNames.disabled]: !!disabled,
+          [chipClassNames.removable]: !!removable,
         })}
         disabled={disabled}
         onClick={onClick}
         {...passProps}
       >
-        <HtmlSpan className={contentClassName}>{children}</HtmlSpan>
+        <HtmlSpan className={chipClassNames.content}>{children}</HtmlSpan>
         {!!removable && (
           <>
             <Icon
               mousePointer={true}
               icon="close"
               color="currentColor"
-              className={iconClassName}
+              className={chipClassNames.icon}
               aria-hidden={true}
             />
             <VisuallyHidden>{actionLabel}</VisuallyHidden>
