@@ -26,7 +26,7 @@ const disabledStyles = ({ theme }: SuomifiThemeProp) => css`
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     ${element({ theme })}
-    ${font({ theme })('bodyText')}
+    ${font({ theme })('actionElementInnerTextBold')}
     ${focus({ theme })}
 
     &:focus{
@@ -40,8 +40,6 @@ export const baseStyles = withSuomifiTheme(
       padding: ${theme.spacing.insetXxs} ${theme.spacing.insetL};
       color: ${theme.colors.whiteBase};
       background: ${theme.colors.highlightBase};
-      font: ${theme.typography.actionElementInnerText};
-      font-weight: 600;
       max-height: 28px;
       display: inline-block;
     
