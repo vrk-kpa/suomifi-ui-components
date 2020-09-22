@@ -1,9 +1,7 @@
 ```js
-import { Button, PopoverTest } from 'suomifi-ui-components';
+import { Button } from 'suomifi-ui-components';
 
 <>
-  <PopoverTest />
-
   <Button
     className="my-button--test"
     onClick={() => console.log('Test button click')}
