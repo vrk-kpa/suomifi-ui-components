@@ -35,7 +35,7 @@ export const baseStyles = withSuomifiTheme(
   & .fi-text-input_input {
     ${input({ theme })}
     background-color: ${theme.colors.whiteBase};
-    width: 100%;
+    width: 290px;
     min-height:40px;
     padding-left: ${theme.spacing.insetL};
     ::placeholder{

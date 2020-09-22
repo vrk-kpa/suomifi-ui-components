@@ -219,7 +219,7 @@ exports[`calling render with the same component on the same container does not r
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0,0%,100%);
-  width: 100%;
+  width: 290px;
   min-height: 40px;
   padding-left: 10px;
 }
