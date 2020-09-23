@@ -13316,9 +13316,9 @@ suomifi-design-tokens@^2.0.0:
   integrity sha512-5jBQSmWlQJoIjyytG6JWB8ILhlWY0x416eO9iH4KxXuPpy7GeA+oyfabdsgPWFUPge0oOlO98A6qtLNZnsT9iA==
 
 suomifi-icons@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-1.0.1.tgz#6f6df2e382d0abb4c14fef2417b3378860400ae7"
-  integrity sha512-POcr+qdaMlRckEtLFC47wvovPDxMEfqC+O390aZGVRQKztP15PqpgvHZgjh7vkR3fMP3jcvNv3FV1JSyb5kQXw==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-1.0.2.tgz#ba4c078111d16fce12a2562b23b4643ab6543199"
+  integrity sha512-Py4ONldrjukDHtW7XsC7egFhSE51dvGpbmWCvGOzKZDJYJickemUhh/89WrBnq/Ms/KZ2oW4vFi52//cqXbsYA==
 
 supports-color@^2.0.0:
   version "2.0.0"
