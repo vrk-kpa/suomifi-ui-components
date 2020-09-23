@@ -4,6 +4,7 @@
     "project": "./tsconfig.json"
   },
   "env": {
+    "browser": true,
     "jest/globals": true
   },
   "extends": [
