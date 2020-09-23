@@ -58,6 +58,7 @@ const status = errorState ? 'error' : 'default';
     labelText="Test TextInput"
     statusText={statusText}
     status={status}
+    style={{ width: '400px' }}
   />
 
   <Button onClick={() => setErrorState(!errorState)}>

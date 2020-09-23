@@ -125,6 +125,11 @@ exports[`snapshots match error status with statustext 1`] = `
   cursor: not-allowed;
 }
 
+.c2.fi-text-input {
+  display: block;
+  width: 290px;
+}
+
 .c2 .fi-text-input_label-p {
   margin-bottom: 10px;
   -webkit-letter-spacing: 0;
@@ -238,7 +243,7 @@ exports[`snapshots match error status with statustext 1`] = `
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0,0%,100%);
-  width: 290px;
+  width: 100%;
   min-height: 40px;
   padding-left: 10px;
 }
@@ -443,6 +448,11 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   cursor: not-allowed;
 }
 
+.c2.fi-text-input {
+  display: block;
+  width: 290px;
+}
+
 .c2 .fi-text-input_label-p {
   margin-bottom: 10px;
   -webkit-letter-spacing: 0;
@@ -556,7 +566,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0,0%,100%);
-  width: 290px;
+  width: 100%;
   min-height: 40px;
   padding-left: 10px;
 }
@@ -743,6 +753,11 @@ exports[`snapshots match minimal implementation 1`] = `
   cursor: not-allowed;
 }
 
+.c2.fi-text-input {
+  display: block;
+  width: 290px;
+}
+
 .c2 .fi-text-input_label-p {
   margin-bottom: 10px;
   -webkit-letter-spacing: 0;
@@ -856,7 +871,7 @@ exports[`snapshots match minimal implementation 1`] = `
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0,0%,100%);
-  width: 290px;
+  width: 100%;
   min-height: 40px;
   padding-left: 10px;
 }
