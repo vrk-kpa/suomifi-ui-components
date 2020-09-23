@@ -4,6 +4,7 @@ import { TextInput } from 'suomifi-ui-components';
   <TextInput
     onBlur={(event) => console.log(event.target.value)}
     labelText="TextInput with visible label"
+    icon="search"
   />
   <TextInput
     onBlur={(event) => console.log(event.target.value)}
