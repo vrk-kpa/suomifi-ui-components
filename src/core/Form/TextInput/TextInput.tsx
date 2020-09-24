@@ -71,9 +71,14 @@ const StyledTextInput = styled(
  */
 export class TextInput extends Component<TextInputProps> {
   render() {
-    const { children, icon, iconProps, ...passProps } = withSuomifiDefaultProps(
-      this.props,
-    );
+    const { children, ...passProps } = withSuomifiDefaultProps(this.props);
+
+    const icon = this.props.icon || this.props.iconProps?.icon;
+
+    const iconProps = {
+      ...this.props.iconProps,
+      icon,
+    };
 
     return (
       <StyledTextInput
@@ -83,7 +88,7 @@ export class TextInput extends Component<TextInputProps> {
         })}
       >
         {children}
-        {icon && <Icon {...iconProps} icon={icon} />}
+        {icon && <Icon {...iconProps} />}
       </StyledTextInput>
     );
   }
