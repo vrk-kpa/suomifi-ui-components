@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshots match error status with statustext 1`] = `
-.c4 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -53,7 +53,7 @@ exports[`snapshots match error status with statustext 1`] = `
   opacity: 0.54;
 }
 
-.c0 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -97,7 +97,7 @@ exports[`snapshots match error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c3 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -126,7 +126,7 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c2.fi-text-input {
-  display: block;
+  display: inline-block;
   width: 290px;
 }
 
@@ -243,6 +243,7 @@ exports[`snapshots match error status with statustext 1`] = `
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0,0%,100%);
+  min-width: 40px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
@@ -302,41 +303,46 @@ exports[`snapshots match error status with statustext 1`] = `
   background-color: hsl(202,7%,97%);
 }
 
-<label
-  class="c0 fi-text-input_label c1 fi-text-input c2 fi-text-input--error"
+<div
+  class="c0 c1 fi-text-input c2 fi-text-input--error"
+  data-testid="textinput2"
 >
-  <p
-    class="c3 fi-paragraph fi-text-input_label-p"
+  <label
+    class="c3 fi-text-input_label"
   >
-    Test input
-  </p>
-  <div
-    class="c4 fi-text-input_statusText_container"
-  >
+    <p
+      class="c4 fi-paragraph fi-text-input_label-p"
+    >
+      Test input
+    </p>
     <div
-      class="c4 fi-text-input_container"
+      class="c0 fi-text-input_statusText_container"
     >
-      <input
-        aria-invalid="true"
-        class="c5 fi-text-input_input"
-        data-testid="textinput2"
-        id="test-id2"
-        placeholder="Test TextInput"
-        type="text"
-      />
+      <div
+        class="c0 fi-text-input_container"
+      >
+        <input
+          aria-invalid="true"
+          class="c5 fi-text-input_input"
+          id="test-id2"
+          placeholder="Test TextInput"
+          type="text"
+          value=""
+        />
+      </div>
+      <span
+        class="c6 fi-text-input_statusText"
+        id="test-id2-statusText"
+      >
+        This is a status text
+      </span>
     </div>
-    <span
-      class="c6 fi-text-input_statusText"
-      id="test-id2-statusText"
-    >
-      This is a status text
-    </span>
-  </div>
-</label>
+  </label>
+</div>
 `;
 
 exports[`snapshots match hidden label with placeholder 1`] = `
-.c5 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -388,7 +394,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   opacity: 0.54;
 }
 
-.c0 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -408,7 +414,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   max-width: 100%;
 }
 
-.c3 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -432,7 +438,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   white-space: normal;
 }
 
-.c4 {
+.c5 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -449,7 +455,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 }
 
 .c2.fi-text-input {
-  display: block;
+  display: inline-block;
   width: 290px;
 }
 
@@ -566,6 +572,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0,0%,100%);
+  min-width: 40px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
@@ -625,35 +632,40 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   background-color: hsl(202,7%,97%);
 }
 
-<label
-  class="c0 fi-text-input_label c1 fi-text-input c2"
+<div
+  class="c0 c1 fi-text-input c2"
+  data-testid="textinput1"
 >
-  <span
-    class="c3 c4 fi-visually-hidden"
+  <label
+    class="c3 fi-text-input_label"
   >
-    Test input
-  </span>
-  <div
-    class="c5 fi-text-input_statusText_container"
-  >
-    <div
-      class="c5 fi-text-input_container"
+    <span
+      class="c4 c5 fi-visually-hidden"
     >
-      <input
-        aria-invalid="false"
-        class="c6 fi-text-input_input"
-        data-testid="textinput1"
-        id="test-id1"
-        placeholder="Test TextInput"
-        type="text"
-      />
+      Test input
+    </span>
+    <div
+      class="c0 fi-text-input_statusText_container"
+    >
+      <div
+        class="c0 fi-text-input_container"
+      >
+        <input
+          aria-invalid="false"
+          class="c6 fi-text-input_input"
+          id="test-id1"
+          placeholder="Test TextInput"
+          type="text"
+          value=""
+        />
+      </div>
     </div>
-  </div>
-</label>
+  </label>
+</div>
 `;
 
 exports[`snapshots match minimal implementation 1`] = `
-.c4 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -705,7 +717,7 @@ exports[`snapshots match minimal implementation 1`] = `
   opacity: 0.54;
 }
 
-.c0 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -725,7 +737,7 @@ exports[`snapshots match minimal implementation 1`] = `
   max-width: 100%;
 }
 
-.c3 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -754,7 +766,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c2.fi-text-input {
-  display: block;
+  display: inline-block;
   width: 290px;
 }
 
@@ -871,6 +883,7 @@ exports[`snapshots match minimal implementation 1`] = `
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0,0%,100%);
+  min-width: 40px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
@@ -930,28 +943,33 @@ exports[`snapshots match minimal implementation 1`] = `
   background-color: hsl(202,7%,97%);
 }
 
-<label
-  class="c0 fi-text-input_label c1 fi-text-input c2"
+<div
+  class="c0 c1 fi-text-input c2"
+  data-testid="textinput"
 >
-  <p
-    class="c3 fi-paragraph fi-text-input_label-p"
+  <label
+    class="c3 fi-text-input_label"
   >
-    Test input
-  </p>
-  <div
-    class="c4 fi-text-input_statusText_container"
-  >
-    <div
-      class="c4 fi-text-input_container"
+    <p
+      class="c4 fi-paragraph fi-text-input_label-p"
     >
-      <input
-        aria-invalid="false"
-        class="c5 fi-text-input_input"
-        data-testid="textinput"
-        id="test-id"
-        type="text"
-      />
+      Test input
+    </p>
+    <div
+      class="c0 fi-text-input_statusText_container"
+    >
+      <div
+        class="c0 fi-text-input_container"
+      >
+        <input
+          aria-invalid="false"
+          class="c5 fi-text-input_input"
+          id="test-id"
+          type="text"
+          value=""
+        />
+      </div>
     </div>
-  </div>
-</label>
+  </label>
+</div>
 `;
