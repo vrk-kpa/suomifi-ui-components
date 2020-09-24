@@ -32,11 +32,9 @@ type InputType = 'text' | 'email' | 'number' | 'password' | 'tel' | 'url';
 
 type TextInputStatus = 'default' | 'error' | 'success';
 
-export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
+export interface TextInputProps extends Omit<HtmlDivProps, 'type'> {
   /** Custom classname for the input to extend or customize */
   className?: string;
-  /** Custom classname for the label to extend or customize */
-  inputClassName?: string;
   /** Disable input usage */
   disabled?: boolean;
   /** Event handler to execute when clicked */
@@ -55,10 +53,14 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
    * @default visible
    */
   labelMode?: Label;
+  /** Default value */
+  defaultValue?: string;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
   /** Input container div to define custom styling */
   inputContainerProps?: HtmlDivProps;
+  /** Input element props */
+  inputProps?: HtmlInputProps;
   /** A custom element to be passed to the component. Will be rendered after the input */
   children?: ReactNode;
   /** Hint text to be shown below the component */
@@ -76,18 +78,26 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   type?: InputType;
   /** Input name */
   name?: string;
+  /** Input id */
+  id?: string;
+  /** Set components width to 100% */
+  fullWidth?: boolean;
 }
 
 class BaseTextInput extends Component<TextInputProps> {
   render() {
     const {
-      className,
-      inputClassName,
+      disabled,
       labelText,
+      onBlur,
+      onClick,
+      onChange,
       labelMode,
       labelProps,
       labelTextProps,
+      defaultValue,
       inputContainerProps,
+      inputProps,
       children,
       status,
       statusText,
@@ -95,52 +105,63 @@ class BaseTextInput extends Component<TextInputProps> {
       visualPlaceholder,
       id: propId,
       type = 'text',
+      name,
+      fullWidth,
       ...passProps
     } = this.props;
 
     const hideLabel = labelMode === 'hidden';
     const generatedStatusTextId = `${idGenerator(propId)}-statusText`;
     const generatedHintTextId = `${idGenerator(propId)}-hintText`;
+    const inputElementProps = {
+      ...inputProps,
+      className: classnames(inputBaseClassName, inputProps?.className),
+      id: propId,
+      name,
+      type,
+      disabled,
+      defaultValue,
+      placeholder: visualPlaceholder,
+      ...{ 'aria-invalid': status === 'error' },
+      onBlur,
+      onClick,
+      onChange,
+    };
 
     return (
-      <HtmlLabel
-        {...labelProps}
-        className={classnames(labelBaseClassName, className, {
-          [disabledClassName]: !!passProps.disabled,
-        })}
-      >
-        {hideLabel ? (
-          <VisuallyHidden>{labelText}</VisuallyHidden>
-        ) : (
-          <Paragraph {...labelTextProps}>{labelText}</Paragraph>
-        )}
-        {hintText && (
-          <Paragraph className={hintTextClassName} id={generatedHintTextId}>
-            {hintText}
-          </Paragraph>
-        )}
-        <HtmlDiv className={statusTextContainerClassName}>
-          <HtmlDiv {...inputContainerProps}>
-            <HtmlInput
-              id={propId}
-              {...passProps}
-              className={classnames(inputBaseClassName, inputClassName)}
-              type={type}
-              placeholder={visualPlaceholder}
-              {...{ 'aria-invalid': status === 'error' }}
-            />
-            {children}
-          </HtmlDiv>
-          {statusText && (
-            <HtmlSpan
-              className={statusTextClassName}
-              id={generatedStatusTextId}
-            >
-              {statusText}
-            </HtmlSpan>
+      <HtmlDiv {...passProps}>
+        <HtmlLabel
+          {...labelProps}
+          className={classnames(labelBaseClassName, {
+            [disabledClassName]: !!disabled,
+          })}
+        >
+          {hideLabel ? (
+            <VisuallyHidden>{labelText}</VisuallyHidden>
+          ) : (
+            <Paragraph {...labelTextProps}>{labelText}</Paragraph>
           )}
-        </HtmlDiv>
-      </HtmlLabel>
+          {hintText && (
+            <Paragraph className={hintTextClassName} id={generatedHintTextId}>
+              {hintText}
+            </Paragraph>
+          )}
+          <HtmlDiv className={statusTextContainerClassName}>
+            <HtmlDiv {...inputContainerProps}>
+              <HtmlInput {...inputElementProps} />
+              {children}
+            </HtmlDiv>
+            {statusText && (
+              <HtmlSpan
+                className={statusTextClassName}
+                id={generatedStatusTextId}
+              >
+                {statusText}
+              </HtmlSpan>
+            )}
+          </HtmlDiv>
+        </HtmlLabel>
+      </HtmlDiv>
     );
   }
 }

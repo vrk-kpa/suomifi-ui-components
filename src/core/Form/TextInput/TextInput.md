@@ -58,12 +58,28 @@ const status = errorState ? 'error' : 'default';
     labelText="Test TextInput"
     statusText={statusText}
     status={status}
-    style={{ width: '400px' }}
   />
 
   <Button onClick={() => setErrorState(!errorState)}>
     Toggle error state
   </Button>
+</>;
+```
+
+```js
+import { TextInput, Button } from 'suomifi-ui-components';
+<>
+  <TextInput
+    labelText="Test TextInput with fixed custom width of 250px"
+    status={status}
+    style={{ width: '250px' }}
+  />
+
+  <TextInput
+    labelText="Test TextInput with 100% width"
+    status={status}
+    fullWidth
+  />
 </>;
 ```
 

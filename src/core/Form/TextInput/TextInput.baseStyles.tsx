@@ -9,11 +9,14 @@ export const baseStyles = withSuomifiTheme(
     theme,
     style,
     width,
+    fullWidth,
   }: TokensAndTheme & Omit<TextInputProps, 'labelText'>) => css`
   
   &.fi-text-input {
-    display: block;
-    width: ${style?.width ? style.width : width || '290px'};
+    display: inline-block;
+    width: ${
+      fullWidth ? '100%' : style?.width ? style.width : width || '290px'
+    };
   }
 
   & .fi-text-input_label-p {
@@ -36,16 +39,18 @@ export const baseStyles = withSuomifiTheme(
       line-height: 20px;
     }
   }
+
   & .fi-text-input_hintText {
-      display: block;
-      color: ${theme.colors.blackBase};
-      margin-bottom: ${theme.spacing.xs};
-      ${font({ theme })('bodyTextSmall')};
-    }
+    display: block;
+    color: ${theme.colors.blackBase};
+    margin-bottom: ${theme.spacing.xs};
+    ${font({ theme })('bodyTextSmall')};
+  }
 
   & .fi-text-input_input {
     ${input({ theme })}
     background-color: ${theme.colors.whiteBase};
+    min-width: 40px;
     width: 100%;
     min-height:40px;
     padding-left: ${theme.spacing.insetL};
@@ -55,27 +60,27 @@ export const baseStyles = withSuomifiTheme(
     :focus {
       box-shadow: ${theme.shadows.actionElementBoxShadow};
     }
-    }
+  }
     
   &.fi-text-input_with-icon {
     & .fi-text-input_container {
-    position: relative;
+      position: relative;
     }
 
     & .fi-text-input_input{
-    padding-right: ${math(
-      `${theme.spacing.insetXl} * 2 + ${theme.spacing.insetM}`,
-    )};
+      padding-right: ${math(
+        `${theme.spacing.insetXl} * 2 + ${theme.spacing.insetM}`,
+      )};
     }
 
     & .fi-icon{
-        position: absolute;
-        width: 18px;
-        height: 18px;
-        top: ${theme.spacing.insetL};
-        right: ${theme.spacing.insetL};
-      }
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      top: ${theme.spacing.insetL};
+      right: ${theme.spacing.insetL};
     }
+  }
 
   &.fi-text-input--error {
     & .fi-text-input_input {

@@ -23,7 +23,7 @@ const StyledTextInput = styled(
     className,
     labelTextProps = { className: undefined },
     inputContainerProps = { className: inputContainerBaseClassName },
-    inputClassName,
+    inputProps,
     ...passProps
   }: TextInputProps & InternalTokensProp) => (
     <CompSearchInput
@@ -44,7 +44,10 @@ const StyledTextInput = styled(
       }}
       {...passProps}
       className={classnames(className, baseClassName)}
-      inputClassName={classnames(inputClassName, inputBaseClassName)}
+      inputProps={{
+        ...inputProps,
+        className: classnames(inputProps?.className, inputBaseClassName),
+      }}
     />
   ),
 )`
