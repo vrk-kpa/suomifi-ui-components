@@ -31,9 +31,9 @@ const StyledTextInput = styled(
   ({
     tokens,
     status,
-    className,
+    inputContainerProps,
+    inputElementContainerClassName,
     labelTextProps = { className: undefined },
-    inputContainerProps = { className: undefined },
     ...passProps
   }: TextInputProps & InternalTokensProp) => {
     return (
@@ -49,15 +49,15 @@ const StyledTextInput = styled(
         }}
         inputContainerProps={{
           ...inputContainerProps,
-          className: classnames(
-            inputContainerProps.className,
-            textInputClassNames.inputContainer,
-          ),
+          className: classnames(baseClassName, inputContainerProps?.className, {
+            [textInputClassNames.error]: status === 'error',
+            [textInputClassNames.success]: status === 'success',
+          }),
         }}
-        className={classnames(baseClassName, className, {
-          [textInputClassNames.error]: status === 'error',
-          [textInputClassNames.success]: status === 'success',
-        })}
+        inputElementContainerClassName={classnames(
+          inputElementContainerClassName,
+          textInputClassNames.inputContainer,
+        )}
       />
     );
   },

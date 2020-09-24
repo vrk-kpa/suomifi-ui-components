@@ -32,9 +32,11 @@ type InputType = 'text' | 'email' | 'number' | 'password' | 'tel' | 'url';
 
 type TextInputStatus = 'default' | 'error' | 'success';
 
-export interface TextInputProps extends Omit<HtmlDivProps, 'type'> {
-  /** Custom classname for the input to extend or customize */
-  className?: string;
+export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
+  /** Input container div to define custom styling */
+  inputContainerProps?: HtmlDivProps;
+  /** Custom classname for the input element container div to extend or customize */
+  inputElementContainerClassName?: string;
   /** Disable input usage */
   disabled?: boolean;
   /** Event handler to execute when clicked */
@@ -53,14 +55,8 @@ export interface TextInputProps extends Omit<HtmlDivProps, 'type'> {
    * @default visible
    */
   labelMode?: Label;
-  /** Default value */
-  defaultValue?: string;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
-  /** Input container div to define custom styling */
-  inputContainerProps?: HtmlDivProps;
-  /** Input element props */
-  inputProps?: HtmlInputProps | { [key: string]: any };
   /** A custom element to be passed to the component. Will be rendered after the input */
   children?: ReactNode;
   /** Hint text to be shown below the component */
@@ -78,8 +74,6 @@ export interface TextInputProps extends Omit<HtmlDivProps, 'type'> {
   type?: InputType;
   /** Input name */
   name?: string;
-  /** Input id */
-  id?: string;
   /** Set components width to 100% */
   fullWidth?: boolean;
 }
@@ -87,17 +81,12 @@ export interface TextInputProps extends Omit<HtmlDivProps, 'type'> {
 class BaseTextInput extends Component<TextInputProps> {
   render() {
     const {
-      disabled,
+      inputElementContainerClassName,
       labelText,
-      onBlur,
-      onClick,
-      onChange,
       labelMode,
       labelProps,
       labelTextProps,
-      defaultValue,
       inputContainerProps,
-      inputProps,
       children,
       status,
       statusText,
@@ -105,37 +94,26 @@ class BaseTextInput extends Component<TextInputProps> {
       visualPlaceholder,
       id: propId,
       type = 'text',
-      name,
       fullWidth,
+      style,
       ...passProps
     } = this.props;
 
     const hideLabel = labelMode === 'hidden';
     const generatedStatusTextId = `${idGenerator(propId)}-statusText`;
     const generatedHintTextId = `${idGenerator(propId)}-hintText`;
-    const inputElementProps = {
-      ...inputProps,
-      className: classnames(inputBaseClassName, inputProps?.className),
-      id: propId,
-      name,
-      type,
-      disabled,
-      defaultValue,
-      placeholder: visualPlaceholder,
-      ...{ 'aria-invalid': status === 'error' },
-      onBlur,
-      onClick,
-      onChange,
-    };
 
     return (
       <HtmlDiv
-        {...passProps}
-        className={classnames(passProps?.className, {
-          [disabledClassName]: !!disabled,
+        {...inputContainerProps}
+        className={classnames(inputContainerProps?.className, {
+          [disabledClassName]: !!passProps.disabled,
         })}
       >
-        <HtmlLabel {...labelProps} className={labelBaseClassName}>
+        <HtmlLabel
+          {...labelProps}
+          className={classnames(labelBaseClassName, labelProps?.className)}
+        >
           {hideLabel ? (
             <VisuallyHidden>{labelText}</VisuallyHidden>
           ) : (
@@ -147,8 +125,15 @@ class BaseTextInput extends Component<TextInputProps> {
             </Paragraph>
           )}
           <HtmlDiv className={statusTextContainerClassName}>
-            <HtmlDiv {...inputContainerProps}>
-              <HtmlInput {...inputElementProps} />
+            <HtmlDiv className={inputElementContainerClassName}>
+              <HtmlInput
+                {...passProps}
+                id={propId}
+                className={classnames(inputBaseClassName, passProps?.className)}
+                type={type}
+                placeholder={visualPlaceholder}
+                {...{ 'aria-invalid': status === 'error' }}
+              />
               {children}
             </HtmlDiv>
             {statusText && (

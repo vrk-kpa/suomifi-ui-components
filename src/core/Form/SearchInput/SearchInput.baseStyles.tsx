@@ -6,17 +6,16 @@ import { math } from 'polished';
 export const baseStyles = withSuomifiTheme(
   ({
     theme,
-    style,
-    width,
+    inputContainerProps,
     fullWidth,
   }: TokensAndTheme & Omit<TextInputProps, 'labelText' | 'status'>) => css`
     &.fi-search-input {
       display: inline-block;
       width: ${fullWidth
         ? '100%'
-        : style?.width
-        ? style.width
-        : width || '290px'};
+        : inputContainerProps?.style?.width
+        ? inputContainerProps?.style?.width
+        : inputContainerProps?.width || '290px'};
     }
 
     & .fi-search-input {
