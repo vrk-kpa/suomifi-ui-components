@@ -7,7 +7,7 @@ import { SearchInput } from './SearchInput';
 const TestSearchInput = (
   <SearchInput
     labelText="Test search input"
-    data-testid="textinput"
+    inputProps={{ 'data-testid': 'textinput' }}
     id="test-id"
   />
 );

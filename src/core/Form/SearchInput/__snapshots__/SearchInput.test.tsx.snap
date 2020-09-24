@@ -310,7 +310,6 @@ exports[`calling render with the same component on the same container does not r
 
 <div
   class="c0 c1 c2 fi-search-input"
-  data-testid="textinput"
 >
   <label
     class="c3 fi-text-input_label"
@@ -329,6 +328,7 @@ exports[`calling render with the same component on the same container does not r
         <input
           aria-invalid="false"
           class="c5 fi-text-input_input fi-search-input_input"
+          data-testid="textinput"
           id="test-id"
           type="text"
           value=""

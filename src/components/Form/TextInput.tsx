@@ -60,7 +60,7 @@ export interface TextInputProps extends Omit<HtmlDivProps, 'type'> {
   /** Input container div to define custom styling */
   inputContainerProps?: HtmlDivProps;
   /** Input element props */
-  inputProps?: HtmlInputProps;
+  inputProps?: HtmlInputProps | { [key: string]: any };
   /** A custom element to be passed to the component. Will be rendered after the input */
   children?: ReactNode;
   /** Hint text to be shown below the component */
@@ -129,13 +129,13 @@ class BaseTextInput extends Component<TextInputProps> {
     };
 
     return (
-      <HtmlDiv {...passProps}>
-        <HtmlLabel
-          {...labelProps}
-          className={classnames(labelBaseClassName, {
-            [disabledClassName]: !!disabled,
-          })}
-        >
+      <HtmlDiv
+        {...passProps}
+        className={classnames(passProps?.className, {
+          [disabledClassName]: !!disabled,
+        })}
+      >
+        <HtmlLabel {...labelProps} className={labelBaseClassName}>
           {hideLabel ? (
             <VisuallyHidden>{labelText}</VisuallyHidden>
           ) : (

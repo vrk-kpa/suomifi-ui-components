@@ -11,7 +11,7 @@ const TestTextInput = (
 const TestTextInput2 = (
   <TextInput
     labelText="Test input"
-    data-testid="textinput1"
+    inputProps={{ 'data-testid': 'textinput1' }}
     id="test-id1"
     labelMode="hidden"
     visualPlaceholder="Test TextInput"
@@ -21,7 +21,7 @@ const TestTextInput2 = (
 const TestTextInput3 = (
   <TextInput
     labelText="Test input"
-    data-testid="textinput2"
+    inputProps={{ 'data-testid': 'textinput2' }}
     id="test-id2"
     visualPlaceholder="Test TextInput"
     statusText="This is a status text"
@@ -75,7 +75,7 @@ describe('props', () => {
         <TextInput
           labelText="Test input"
           type="text"
-          data-testid="text-input"
+          inputProps={{ 'data-testid': 'text-input' }}
         />
       );
       const { getByTestId } = render(textInput);
@@ -92,7 +92,7 @@ describe('props', () => {
         <TextInput
           labelText="Test input"
           name="test-name"
-          data-testid="input-name"
+          inputProps={{ 'data-testid': 'input-name' }}
         />
       );
       const { getByTestId } = render(textInput);
@@ -108,7 +108,7 @@ describe('props', () => {
         <TextInput
           labelText="Test input"
           type="number"
-          data-testid="number-input"
+          inputProps={{ 'data-testid': 'number-input' }}
         />
       );
       const { getByTestId } = render(textInput);
@@ -131,7 +131,11 @@ describe('props', () => {
   describe('disabled', () => {
     it('has disabled attribute and classname', () => {
       const { container, getByTestId } = render(
-        <TextInput labelText="Test input" data-testid="input" disabled />,
+        <TextInput
+          labelText="Test input"
+          inputProps={{ 'data-testid': 'input' }}
+          disabled
+        />,
       );
       expect(container.firstChild).toHaveClass('fi-text-input--disabled');
 
@@ -169,7 +173,7 @@ describe('props', () => {
       const { getByTestId } = render(
         <TextInput
           labelText="Test input"
-          data-testid="input"
+          inputProps={{ 'data-testid': 'input' }}
           visualPlaceholder="Enter text here"
         />,
       );
