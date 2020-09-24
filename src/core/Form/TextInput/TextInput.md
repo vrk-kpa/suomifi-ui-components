@@ -4,7 +4,6 @@ import { TextInput } from 'suomifi-ui-components';
   <TextInput
     onBlur={(event) => console.log(event.target.value)}
     labelText="TextInput with visible label"
-    icon="search"
   />
   <TextInput
     onBlur={(event) => console.log(event.target.value)}
@@ -80,6 +79,11 @@ import { TextInput } from 'suomifi-ui-components';
     labelText="TextInput with password"
     type="password"
     defaultValue="password"
+  />
+  <TextInput
+    labelText="TextInput with an icon"
+    icon="mapLocation"
+    iconProps={{ fill: 'red' }}
   />
 </>;
 ```
