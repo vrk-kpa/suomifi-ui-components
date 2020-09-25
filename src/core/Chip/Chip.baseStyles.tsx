@@ -13,13 +13,18 @@ const removableStyles = ({ theme }: SuomifiThemeProp) => css`
 `;
 
 const disabledStyles = ({ theme }: SuomifiThemeProp) => css`
-  &.fi-chip--disabled.fi-chip {
-    background: ${theme.colors.depthBase};
-    &:hover,
-    &:active {
+  &.fi-chip--disabled {
+    &.fi-chip {
+      ${disabledCursor}
       background: ${theme.colors.depthBase};
+      &:hover,
+      &:active {
+        background: ${theme.colors.depthBase};
+      }
     }
-    ${disabledCursor}
+    & .fi-chip--icon {
+      ${disabledCursor}
+    }
   }
 `;
 
