@@ -148,18 +148,18 @@ exports[`snapshots match error status with statustext 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c5 .fi-text-input_container > input:focus {
+.c5 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
 
-.c5 .fi-text-input_container:focus-within {
+.c5 .fi-text-input_input-element-container:focus-within {
   outline: 0;
   position: relative;
 }
 
-.c5 .fi-text-input_container:focus-within:after {
+.c5 .fi-text-input_input-element-container:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -175,11 +175,11 @@ exports[`snapshots match error status with statustext 1`] = `
   z-index: 9999;
 }
 
-.c5 .fi-text-input_container:focus-within:not(:focus-visible):after {
+.c5 .fi-text-input_input-element-container:focus-within:not(:focus-visible):after {
   content: none;
 }
 
-.c5 .fi-text-input_container:focus-within > input:focus {
+.c5 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
@@ -318,7 +318,7 @@ exports[`snapshots match error status with statustext 1`] = `
       class="c0 fi-text-input_statusText_container"
     >
       <div
-        class="c0 fi-text-input_container"
+        class="c0 fi-text-input_input-element-container"
       >
         <input
           aria-invalid="true"
@@ -476,18 +476,18 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c6 .fi-text-input_container > input:focus {
+.c6 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
 
-.c6 .fi-text-input_container:focus-within {
+.c6 .fi-text-input_input-element-container:focus-within {
   outline: 0;
   position: relative;
 }
 
-.c6 .fi-text-input_container:focus-within:after {
+.c6 .fi-text-input_input-element-container:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -503,11 +503,11 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   z-index: 9999;
 }
 
-.c6 .fi-text-input_container:focus-within:not(:focus-visible):after {
+.c6 .fi-text-input_input-element-container:focus-within:not(:focus-visible):after {
   content: none;
 }
 
-.c6 .fi-text-input_container:focus-within > input:focus {
+.c6 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
@@ -646,7 +646,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
       class="c0 fi-text-input_statusText_container"
     >
       <div
-        class="c0 fi-text-input_container"
+        class="c0 fi-text-input_input-element-container"
       >
         <input
           aria-invalid="false"
@@ -786,18 +786,18 @@ exports[`snapshots match minimal implementation 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c5 .fi-text-input_container > input:focus {
+.c5 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
 
-.c5 .fi-text-input_container:focus-within {
+.c5 .fi-text-input_input-element-container:focus-within {
   outline: 0;
   position: relative;
 }
 
-.c5 .fi-text-input_container:focus-within:after {
+.c5 .fi-text-input_input-element-container:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -813,11 +813,11 @@ exports[`snapshots match minimal implementation 1`] = `
   z-index: 9999;
 }
 
-.c5 .fi-text-input_container:focus-within:not(:focus-visible):after {
+.c5 .fi-text-input_input-element-container:focus-within:not(:focus-visible):after {
   content: none;
 }
 
-.c5 .fi-text-input_container:focus-within > input:focus {
+.c5 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
@@ -956,7 +956,7 @@ exports[`snapshots match minimal implementation 1`] = `
       class="c0 fi-text-input_statusText_container"
     >
       <div
-        class="c0 fi-text-input_container"
+        class="c0 fi-text-input_input-element-container"
       >
         <input
           aria-invalid="false"

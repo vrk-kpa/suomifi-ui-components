@@ -129,18 +129,18 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(0,0%,16%);
 }
 
-.c5 .fi-text-input_container > input:focus {
+.c5 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
 
-.c5 .fi-text-input_container:focus-within {
+.c5 .fi-text-input_input-element-container:focus-within {
   outline: 0;
   position: relative;
 }
 
-.c5 .fi-text-input_container:focus-within:after {
+.c5 .fi-text-input_input-element-container:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -156,11 +156,11 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.c5 .fi-text-input_container:focus-within:not(:focus-visible):after {
+.c5 .fi-text-input_input-element-container:focus-within:not(:focus-visible):after {
   content: none;
 }
 
-.c5 .fi-text-input_container:focus-within > input:focus {
+.c5 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
@@ -289,7 +289,7 @@ exports[`calling render with the same component on the same container does not r
   width: 290px;
 }
 
-.c5 .fi-search-input_input-container {
+.c5 .fi-text-input_input-element-container {
   position: relative;
 }
 
@@ -323,7 +323,7 @@ exports[`calling render with the same component on the same container does not r
       class="c0 fi-text-input_statusText_container"
     >
       <div
-        class="c0 fi-search-input_input-container fi-text-input_container"
+        class="c0 fi-text-input_input-element-container"
       >
         <input
           aria-invalid="false"
