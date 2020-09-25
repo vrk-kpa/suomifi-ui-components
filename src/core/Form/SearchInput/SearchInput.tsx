@@ -11,7 +11,6 @@ import classnames from 'classnames';
 import { Omit } from '../../../utils/typescript';
 
 const baseClassName = 'fi-search-input';
-const inputContainerBaseClassName = `${baseClassName}_input-container`;
 const inputBaseClassName = `${baseClassName}_input`;
 const iconBaseClassName = `${baseClassName}_icon`;
 
@@ -23,7 +22,6 @@ const StyledTextInput = styled(
     className,
     labelTextProps = { className: undefined },
     inputContainerProps,
-    inputElementContainerClassName,
     ...passProps
   }: TextInputProps & InternalTokensProp) => (
     <CompSearchInput
@@ -39,11 +37,6 @@ const StyledTextInput = styled(
         ...inputContainerProps,
         className: classnames(baseClassName, inputContainerProps?.className),
       }}
-      inputElementContainerClassName={classnames(
-        inputElementContainerClassName,
-        inputContainerBaseClassName,
-        textInputClassNames.inputContainer,
-      )}
       className={classnames(className, inputBaseClassName)}
     />
   ),

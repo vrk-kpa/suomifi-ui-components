@@ -12,11 +12,9 @@ import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
 import { Omit } from '../../../utils/typescript';
 
 const baseClassName = 'fi-text-input';
-
 export const textInputClassNames = {
   baseClassName,
   labelParagraph: `${baseClassName}_label-p`,
-  inputContainer: `${baseClassName}_container`,
   error: `${baseClassName}--error`,
   success: `${baseClassName}--success`,
   icon: `${baseClassName}_with-icon`,
@@ -32,7 +30,6 @@ const StyledTextInput = styled(
     tokens,
     status,
     inputContainerProps,
-    inputElementContainerClassName,
     labelTextProps = { className: undefined },
     ...passProps
   }: TextInputProps & InternalTokensProp) => {
@@ -54,10 +51,6 @@ const StyledTextInput = styled(
             [textInputClassNames.success]: status === 'success',
           }),
         }}
-        inputElementContainerClassName={classnames(
-          inputElementContainerClassName,
-          textInputClassNames.inputContainer,
-        )}
       />
     );
   },

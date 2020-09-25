@@ -17,12 +17,15 @@ import { disabledCursor } from '../utils/css';
 import { idGenerator } from '../../utils/uuid';
 
 const baseClassName = 'fi-text-input';
-const disabledClassName = `${baseClassName}--disabled`;
-const labelBaseClassName = `${baseClassName}_label`;
-const inputBaseClassName = `${baseClassName}_input`;
-const statusTextClassName = `${baseClassName}_statusText`;
-const statusTextContainerClassName = `${statusTextClassName}_container`;
-const hintTextClassName = `${baseClassName}_hintText`;
+const textInputClassNames = {
+  disabled: `${baseClassName}--disabled`,
+  label: `${baseClassName}_label`,
+  inputElement: `${baseClassName}_input`,
+  inputElementContainer: `${baseClassName}_input-element-container`,
+  statusText: `${baseClassName}_statusText`,
+  statusTextContainer: `${baseClassName}_statusText_container`,
+  hintText: `${baseClassName}_hintText`,
+};
 
 export interface TextInputLabelProps extends HtmlLabelProps {}
 
@@ -33,10 +36,8 @@ type InputType = 'text' | 'email' | 'number' | 'password' | 'tel' | 'url';
 type TextInputStatus = 'default' | 'error' | 'success';
 
 export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
-  /** Input container div to define custom styling */
+  /** TextInput container div props for custom styling */
   inputContainerProps?: HtmlDivProps;
-  /** Custom classname for the input element container div to extend or customize */
-  inputElementContainerClassName?: string;
   /** Disable input usage */
   disabled?: boolean;
   /** Event handler to execute when clicked */
@@ -81,7 +82,6 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
 class BaseTextInput extends Component<TextInputProps> {
   render() {
     const {
-      inputElementContainerClassName,
       labelText,
       labelMode,
       labelProps,
@@ -95,7 +95,6 @@ class BaseTextInput extends Component<TextInputProps> {
       id: propId,
       type = 'text',
       fullWidth,
-      style,
       ...passProps
     } = this.props;
 
@@ -107,12 +106,15 @@ class BaseTextInput extends Component<TextInputProps> {
       <HtmlDiv
         {...inputContainerProps}
         className={classnames(inputContainerProps?.className, {
-          [disabledClassName]: !!passProps.disabled,
+          [textInputClassNames.disabled]: !!passProps.disabled,
         })}
       >
         <HtmlLabel
           {...labelProps}
-          className={classnames(labelBaseClassName, labelProps?.className)}
+          className={classnames(
+            textInputClassNames.label,
+            labelProps?.className,
+          )}
         >
           {hideLabel ? (
             <VisuallyHidden>{labelText}</VisuallyHidden>
@@ -120,16 +122,22 @@ class BaseTextInput extends Component<TextInputProps> {
             <Paragraph {...labelTextProps}>{labelText}</Paragraph>
           )}
           {hintText && (
-            <Paragraph className={hintTextClassName} id={generatedHintTextId}>
+            <Paragraph
+              className={textInputClassNames.hintText}
+              id={generatedHintTextId}
+            >
               {hintText}
             </Paragraph>
           )}
-          <HtmlDiv className={statusTextContainerClassName}>
-            <HtmlDiv className={inputElementContainerClassName}>
+          <HtmlDiv className={textInputClassNames.statusTextContainer}>
+            <HtmlDiv className={textInputClassNames.inputElementContainer}>
               <HtmlInput
                 {...passProps}
                 id={propId}
-                className={classnames(inputBaseClassName, passProps?.className)}
+                className={classnames(
+                  textInputClassNames.inputElement,
+                  passProps?.className,
+                )}
                 type={type}
                 placeholder={visualPlaceholder}
                 {...{ 'aria-invalid': status === 'error' }}
@@ -138,7 +146,7 @@ class BaseTextInput extends Component<TextInputProps> {
             </HtmlDiv>
             {statusText && (
               <HtmlSpan
-                className={statusTextClassName}
+                className={textInputClassNames.statusText}
                 id={generatedStatusTextId}
               >
                 {statusText}
@@ -154,7 +162,7 @@ class BaseTextInput extends Component<TextInputProps> {
 export const StyledBaseTextInput = styled((props: TextInputProps) => (
   <BaseTextInput {...props} />
 ))`
-  &.${disabledClassName} {
+  &.${textInputClassNames.disabled} {
     ${disabledCursor}
   }
 `;

@@ -18,10 +18,11 @@ export const baseStyles = withSuomifiTheme(
         : inputContainerProps?.width || '290px'};
     }
 
+    & .fi-text-input_input-element-container {
+      position: relative;
+    }
+
     & .fi-search-input {
-      &_input-container {
-        position: relative;
-      }
       &_input {
         min-height: 40px;
         min-width: 65px;

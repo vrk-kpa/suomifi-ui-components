@@ -28,7 +28,7 @@ export const baseStyles = withSuomifiTheme(
     color: ${theme.colors.blackBase};
   }
 
-  & .fi-text-input_container {
+  & .fi-text-input_input-element-container {
     ${inputContainer({ theme })}
   }
 
