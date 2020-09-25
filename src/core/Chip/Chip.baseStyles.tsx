@@ -14,10 +14,10 @@ const removableStyles = ({ theme }: SuomifiThemeProp) => css`
 
 const disabledStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-chip--disabled.fi-chip {
-    background: ${theme.colors.depthLight1};
+    background: ${theme.colors.depthBase};
     &:hover,
     &:active {
-      background: ${theme.colors.depthLight1};
+      background: ${theme.colors.depthBase};
     }
     ${disabledCursor}
   }
