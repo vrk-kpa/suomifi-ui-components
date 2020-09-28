@@ -36,8 +36,10 @@ type InputType = 'text' | 'email' | 'number' | 'password' | 'tel' | 'url';
 type TextInputStatus = 'default' | 'error' | 'success';
 
 export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
-  /** TextInput container div props for custom styling */
-  inputContainerProps?: HtmlDivProps;
+  /** TextInput container div class name for custom styling. */
+  className?: string;
+  /** TextInput container div props */
+  inputContainerProps?: Omit<HtmlDivProps, 'className'>;
   /** Disable input usage */
   disabled?: boolean;
   /** Event handler to execute when clicked */
@@ -82,6 +84,7 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
 class BaseTextInput extends Component<TextInputProps> {
   render() {
     const {
+      className,
       labelText,
       labelMode,
       labelProps,
@@ -105,7 +108,7 @@ class BaseTextInput extends Component<TextInputProps> {
     return (
       <HtmlDiv
         {...inputContainerProps}
-        className={classnames(inputContainerProps?.className, {
+        className={classnames(className, {
           [textInputClassNames.disabled]: !!passProps.disabled,
         })}
       >
@@ -134,10 +137,7 @@ class BaseTextInput extends Component<TextInputProps> {
               <HtmlInput
                 {...passProps}
                 id={propId}
-                className={classnames(
-                  textInputClassNames.inputElement,
-                  passProps?.className,
-                )}
+                className={textInputClassNames.inputElement}
                 type={type}
                 placeholder={visualPlaceholder}
                 {...{ 'aria-invalid': status === 'error' }}

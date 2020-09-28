@@ -25,7 +25,7 @@ exports[`snapshots match error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c3 {
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -48,12 +48,12 @@ exports[`snapshots match error status with statustext 1`] = `
   max-width: 100%;
 }
 
-.c3::-webkit-input-placeholder {
+.c5::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c1 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -97,7 +97,7 @@ exports[`snapshots match error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c2 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -121,16 +121,16 @@ exports[`snapshots match error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c4.fi-text-input--disabled {
+.c1.fi-text-input--disabled {
   cursor: not-allowed;
 }
 
-.c5.fi-text-input {
+.c2.fi-text-input {
   display: inline-block;
   width: 290px;
 }
 
-.c5 .fi-text-input_label-p {
+.c2 .fi-text-input_label-p {
   margin-bottom: 10px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -148,18 +148,18 @@ exports[`snapshots match error status with statustext 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c5 .fi-text-input_input-element-container > input:focus {
+.c2 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
 
-.c5 .fi-text-input_input-element-container:focus-within {
+.c2 .fi-text-input_input-element-container:focus-within {
   outline: 0;
   position: relative;
 }
 
-.c5 .fi-text-input_input-element-container:focus-within:after {
+.c2 .fi-text-input_input-element-container:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -175,15 +175,15 @@ exports[`snapshots match error status with statustext 1`] = `
   z-index: 9999;
 }
 
-.c5 .fi-text-input_input-element-container:focus-within:not(:focus-visible):after {
+.c2 .fi-text-input_input-element-container:focus-within:not(:focus-visible):after {
   content: none;
 }
 
-.c5 .fi-text-input_input-element-container:focus-within > input:focus {
+.c2 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
-.c5 .fi-text-input_statusText_container {
+.c2 .fi-text-input_statusText_container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -193,7 +193,7 @@ exports[`snapshots match error status with statustext 1`] = `
   flex-direction: column;
 }
 
-.c5 .fi-text-input_statusText_container .fi-text-input_statusText {
+.c2 .fi-text-input_statusText_container .fi-text-input_statusText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -202,7 +202,7 @@ exports[`snapshots match error status with statustext 1`] = `
   line-height: 20px;
 }
 
-.c5 .fi-text-input_hintText {
+.c2 .fi-text-input_hintText {
   display: block;
   color: hsl(0,0%,16%);
   margin-bottom: 10px;
@@ -221,7 +221,7 @@ exports[`snapshots match error status with statustext 1`] = `
   font-weight: 400;
 }
 
-.c5 .fi-text-input_input {
+.c2 .fi-text-input_input {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -249,26 +249,27 @@ exports[`snapshots match error status with statustext 1`] = `
   padding-left: 10px;
 }
 
-.c5 .fi-text-input_input::-webkit-input-placeholder {
+.c2 .fi-text-input_input::-webkit-input-placeholder {
   font-style: italic;
 }
 
-.c5 .fi-text-input_input::-moz-placeholder {
+.c2 .fi-text-input_input::-moz-placeholder {
   font-style: italic;
 }
 
-.c5 .fi-text-input_input:-ms-input-placeholder {
+.c2 .fi-text-input_input:-ms-input-placeholder {
   font-style: italic;
 }
 
-.c5 .fi-text-input_input::placeholder {
+.c2 .fi-text-input_input::placeholder {
   font-style: italic;
 }
 
-.c5 .fi-text-input_input:focus {
+.c2 .fi-text-input_input:focus {
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
+<<<<<<< HEAD
 .c2.fi-text-input_with-icon .fi-text-input_container {
   position: relative;
 }
@@ -285,32 +286,34 @@ exports[`snapshots match error status with statustext 1`] = `
   right: 10px;
 }
 
+=======
+>>>>>>> Fix Search and TextInput className related issues after refactor. Update snapshots.
 .c2.fi-text-input--error .fi-text-input_input {
   border-color: hsl(3,59%,48%);
 }
 
-.c5.fi-text-input--error .fi-text-input_statusText {
+.c2.fi-text-input--error .fi-text-input_statusText {
   margin-top: 5px;
   color: hsl(3,59%,48%);
 }
 
-.c5.fi-text-input--success .fi-text-input_input {
+.c2.fi-text-input--success .fi-text-input_input {
   border-color: hsl(166,90%,36%);
 }
 
-.c5.fi-text-input--disabled .fi-text-input_input {
+.c2.fi-text-input--disabled .fi-text-input_input {
   color: hsl(202,7%,67%);
   background-color: hsl(202,7%,97%);
 }
 
 <div
-  class="c0 fi-text-input fi-text-input--error"
+  class="c0 c1 fi-text-input c2 fi-text-input--error"
 >
   <label
-    class="c1 fi-text-input_label"
+    class="c3 fi-text-input_label"
   >
     <p
-      class="c2 fi-paragraph fi-text-input_label-p"
+      class="c4 fi-paragraph fi-text-input_label-p"
     >
       Test input
     </p>
@@ -322,7 +325,7 @@ exports[`snapshots match error status with statustext 1`] = `
       >
         <input
           aria-invalid="true"
-          class="c3 fi-text-input_input c4 c5"
+          class="c5 fi-text-input_input"
           data-testid="textinput2"
           id="test-id2"
           placeholder="Test TextInput"
@@ -365,7 +368,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   white-space: normal;
 }
 
-.c4 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -388,12 +391,12 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   max-width: 100%;
 }
 
-.c4::-webkit-input-placeholder {
+.c6::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c1 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -413,7 +416,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   max-width: 100%;
 }
 
-.c2 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -437,7 +440,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   white-space: normal;
 }
 
-.c3 {
+.c5 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -449,16 +452,16 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   overflow: hidden;
 }
 
-.c5.fi-text-input--disabled {
+.c1.fi-text-input--disabled {
   cursor: not-allowed;
 }
 
-.c6.fi-text-input {
+.c2.fi-text-input {
   display: inline-block;
   width: 290px;
 }
 
-.c6 .fi-text-input_label-p {
+.c2 .fi-text-input_label-p {
   margin-bottom: 10px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -476,18 +479,18 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c6 .fi-text-input_input-element-container > input:focus {
+.c2 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
 
-.c6 .fi-text-input_input-element-container:focus-within {
+.c2 .fi-text-input_input-element-container:focus-within {
   outline: 0;
   position: relative;
 }
 
-.c6 .fi-text-input_input-element-container:focus-within:after {
+.c2 .fi-text-input_input-element-container:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -503,15 +506,15 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   z-index: 9999;
 }
 
-.c6 .fi-text-input_input-element-container:focus-within:not(:focus-visible):after {
+.c2 .fi-text-input_input-element-container:focus-within:not(:focus-visible):after {
   content: none;
 }
 
-.c6 .fi-text-input_input-element-container:focus-within > input:focus {
+.c2 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
-.c6 .fi-text-input_statusText_container {
+.c2 .fi-text-input_statusText_container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -521,7 +524,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   flex-direction: column;
 }
 
-.c6 .fi-text-input_statusText_container .fi-text-input_statusText {
+.c2 .fi-text-input_statusText_container .fi-text-input_statusText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -530,7 +533,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   line-height: 20px;
 }
 
-.c6 .fi-text-input_hintText {
+.c2 .fi-text-input_hintText {
   display: block;
   color: hsl(0,0%,16%);
   margin-bottom: 10px;
@@ -549,7 +552,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   font-weight: 400;
 }
 
-.c6 .fi-text-input_input {
+.c2 .fi-text-input_input {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -577,26 +580,27 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   padding-left: 10px;
 }
 
-.c6 .fi-text-input_input::-webkit-input-placeholder {
+.c2 .fi-text-input_input::-webkit-input-placeholder {
   font-style: italic;
 }
 
-.c6 .fi-text-input_input::-moz-placeholder {
+.c2 .fi-text-input_input::-moz-placeholder {
   font-style: italic;
 }
 
-.c6 .fi-text-input_input:-ms-input-placeholder {
+.c2 .fi-text-input_input:-ms-input-placeholder {
   font-style: italic;
 }
 
-.c6 .fi-text-input_input::placeholder {
+.c2 .fi-text-input_input::placeholder {
   font-style: italic;
 }
 
-.c6 .fi-text-input_input:focus {
+.c2 .fi-text-input_input:focus {
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
+<<<<<<< HEAD
 .c2.fi-text-input_with-icon .fi-text-input_container {
   position: relative;
 }
@@ -613,32 +617,34 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   right: 10px;
 }
 
+=======
+>>>>>>> Fix Search and TextInput className related issues after refactor. Update snapshots.
 .c2.fi-text-input--error .fi-text-input_input {
   border-color: hsl(3,59%,48%);
 }
 
-.c6.fi-text-input--error .fi-text-input_statusText {
+.c2.fi-text-input--error .fi-text-input_statusText {
   margin-top: 5px;
   color: hsl(3,59%,48%);
 }
 
-.c6.fi-text-input--success .fi-text-input_input {
+.c2.fi-text-input--success .fi-text-input_input {
   border-color: hsl(166,90%,36%);
 }
 
-.c6.fi-text-input--disabled .fi-text-input_input {
+.c2.fi-text-input--disabled .fi-text-input_input {
   color: hsl(202,7%,67%);
   background-color: hsl(202,7%,97%);
 }
 
 <div
-  class="c0 fi-text-input"
+  class="c0 c1 fi-text-input c2"
 >
   <label
-    class="c1 fi-text-input_label"
+    class="c3 fi-text-input_label"
   >
     <span
-      class="c2 c3 fi-visually-hidden"
+      class="c4 c5 fi-visually-hidden"
     >
       Test input
     </span>
@@ -650,7 +656,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
       >
         <input
           aria-invalid="false"
-          class="c4 fi-text-input_input c5 c6"
+          class="c6 fi-text-input_input"
           data-testid="textinput1"
           id="test-id1"
           placeholder="Test TextInput"
@@ -687,7 +693,7 @@ exports[`snapshots match minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c3 {
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -710,12 +716,12 @@ exports[`snapshots match minimal implementation 1`] = `
   max-width: 100%;
 }
 
-.c3::-webkit-input-placeholder {
+.c5::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c1 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -735,7 +741,7 @@ exports[`snapshots match minimal implementation 1`] = `
   max-width: 100%;
 }
 
-.c2 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -759,16 +765,16 @@ exports[`snapshots match minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c4.fi-text-input--disabled {
+.c1.fi-text-input--disabled {
   cursor: not-allowed;
 }
 
-.c5.fi-text-input {
+.c2.fi-text-input {
   display: inline-block;
   width: 290px;
 }
 
-.c5 .fi-text-input_label-p {
+.c2 .fi-text-input_label-p {
   margin-bottom: 10px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -786,18 +792,18 @@ exports[`snapshots match minimal implementation 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c5 .fi-text-input_input-element-container > input:focus {
+.c2 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
 
-.c5 .fi-text-input_input-element-container:focus-within {
+.c2 .fi-text-input_input-element-container:focus-within {
   outline: 0;
   position: relative;
 }
 
-.c5 .fi-text-input_input-element-container:focus-within:after {
+.c2 .fi-text-input_input-element-container:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -813,15 +819,15 @@ exports[`snapshots match minimal implementation 1`] = `
   z-index: 9999;
 }
 
-.c5 .fi-text-input_input-element-container:focus-within:not(:focus-visible):after {
+.c2 .fi-text-input_input-element-container:focus-within:not(:focus-visible):after {
   content: none;
 }
 
-.c5 .fi-text-input_input-element-container:focus-within > input:focus {
+.c2 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
-.c5 .fi-text-input_statusText_container {
+.c2 .fi-text-input_statusText_container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -831,7 +837,7 @@ exports[`snapshots match minimal implementation 1`] = `
   flex-direction: column;
 }
 
-.c5 .fi-text-input_statusText_container .fi-text-input_statusText {
+.c2 .fi-text-input_statusText_container .fi-text-input_statusText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -840,7 +846,7 @@ exports[`snapshots match minimal implementation 1`] = `
   line-height: 20px;
 }
 
-.c5 .fi-text-input_hintText {
+.c2 .fi-text-input_hintText {
   display: block;
   color: hsl(0,0%,16%);
   margin-bottom: 10px;
@@ -859,7 +865,7 @@ exports[`snapshots match minimal implementation 1`] = `
   font-weight: 400;
 }
 
-.c5 .fi-text-input_input {
+.c2 .fi-text-input_input {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -887,26 +893,27 @@ exports[`snapshots match minimal implementation 1`] = `
   padding-left: 10px;
 }
 
-.c5 .fi-text-input_input::-webkit-input-placeholder {
+.c2 .fi-text-input_input::-webkit-input-placeholder {
   font-style: italic;
 }
 
-.c5 .fi-text-input_input::-moz-placeholder {
+.c2 .fi-text-input_input::-moz-placeholder {
   font-style: italic;
 }
 
-.c5 .fi-text-input_input:-ms-input-placeholder {
+.c2 .fi-text-input_input:-ms-input-placeholder {
   font-style: italic;
 }
 
-.c5 .fi-text-input_input::placeholder {
+.c2 .fi-text-input_input::placeholder {
   font-style: italic;
 }
 
-.c5 .fi-text-input_input:focus {
+.c2 .fi-text-input_input:focus {
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
+<<<<<<< HEAD
 .c2.fi-text-input_with-icon .fi-text-input_container {
   position: relative;
 }
@@ -923,32 +930,34 @@ exports[`snapshots match minimal implementation 1`] = `
   right: 10px;
 }
 
+=======
+>>>>>>> Fix Search and TextInput className related issues after refactor. Update snapshots.
 .c2.fi-text-input--error .fi-text-input_input {
   border-color: hsl(3,59%,48%);
 }
 
-.c5.fi-text-input--error .fi-text-input_statusText {
+.c2.fi-text-input--error .fi-text-input_statusText {
   margin-top: 5px;
   color: hsl(3,59%,48%);
 }
 
-.c5.fi-text-input--success .fi-text-input_input {
+.c2.fi-text-input--success .fi-text-input_input {
   border-color: hsl(166,90%,36%);
 }
 
-.c5.fi-text-input--disabled .fi-text-input_input {
+.c2.fi-text-input--disabled .fi-text-input_input {
   color: hsl(202,7%,67%);
   background-color: hsl(202,7%,97%);
 }
 
 <div
-  class="c0 fi-text-input"
+  class="c0 c1 fi-text-input c2"
 >
   <label
-    class="c1 fi-text-input_label"
+    class="c3 fi-text-input_label"
   >
     <p
-      class="c2 fi-paragraph fi-text-input_label-p"
+      class="c4 fi-paragraph fi-text-input_label-p"
     >
       Test input
     </p>
@@ -960,7 +969,7 @@ exports[`snapshots match minimal implementation 1`] = `
       >
         <input
           aria-invalid="false"
-          class="c3 fi-text-input_input c4 c5"
+          class="c5 fi-text-input_input"
           data-testid="textinput"
           id="test-id"
           type="text"

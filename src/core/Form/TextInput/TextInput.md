@@ -2,6 +2,7 @@
 import { TextInput } from 'suomifi-ui-components';
 <>
   <TextInput
+    className="testClassName"
     onBlur={(event) => console.log(event.target.value)}
     labelText="TextInput with visible label"
   />
@@ -72,7 +73,7 @@ import { TextInput, Button } from 'suomifi-ui-components';
   <TextInput
     labelText="Test TextInput with fixed custom width of 250px"
     status={status}
-    style={{ width: '250px' }}
+    inputContainerProps={{ style: { width: '250px' } }}
   />
 
   <TextInput

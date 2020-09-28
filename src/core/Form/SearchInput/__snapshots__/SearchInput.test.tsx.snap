@@ -25,7 +25,7 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.c3 {
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -48,12 +48,12 @@ exports[`calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
-.c3::-webkit-input-placeholder {
+.c5::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c1 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -73,7 +73,7 @@ exports[`calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
-.c2 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -97,7 +97,7 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.c4.fi-text-input--disabled {
+.c1.fi-text-input--disabled {
   cursor: not-allowed;
 }
 
@@ -106,12 +106,12 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
 }
 
-.c5.fi-text-input {
+.c2.fi-text-input {
   display: inline-block;
   width: 290px;
 }
 
-.c5 .fi-text-input_label-p {
+.c2 .fi-text-input_label-p {
   margin-bottom: 10px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -129,18 +129,18 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(0,0%,16%);
 }
 
-.c5 .fi-text-input_input-element-container > input:focus {
+.c2 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
 
-.c5 .fi-text-input_input-element-container:focus-within {
+.c2 .fi-text-input_input-element-container:focus-within {
   outline: 0;
   position: relative;
 }
 
-.c5 .fi-text-input_input-element-container:focus-within:after {
+.c2 .fi-text-input_input-element-container:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -156,15 +156,15 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.c5 .fi-text-input_input-element-container:focus-within:not(:focus-visible):after {
+.c2 .fi-text-input_input-element-container:focus-within:not(:focus-visible):after {
   content: none;
 }
 
-.c5 .fi-text-input_input-element-container:focus-within > input:focus {
+.c2 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
-.c5 .fi-text-input_statusText_container {
+.c2 .fi-text-input_statusText_container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -174,7 +174,7 @@ exports[`calling render with the same component on the same container does not r
   flex-direction: column;
 }
 
-.c5 .fi-text-input_statusText_container .fi-text-input_statusText {
+.c2 .fi-text-input_statusText_container .fi-text-input_statusText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -183,7 +183,7 @@ exports[`calling render with the same component on the same container does not r
   line-height: 20px;
 }
 
-.c5 .fi-text-input_hintText {
+.c2 .fi-text-input_hintText {
   display: block;
   color: hsl(0,0%,16%);
   margin-bottom: 10px;
@@ -202,7 +202,7 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 400;
 }
 
-.c5 .fi-text-input_input {
+.c2 .fi-text-input_input {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -230,76 +230,60 @@ exports[`calling render with the same component on the same container does not r
   padding-left: 10px;
 }
 
-.c5 .fi-text-input_input::-webkit-input-placeholder {
+.c2 .fi-text-input_input::-webkit-input-placeholder {
   font-style: italic;
 }
 
-.c5 .fi-text-input_input::-moz-placeholder {
+.c2 .fi-text-input_input::-moz-placeholder {
   font-style: italic;
 }
 
-.c5 .fi-text-input_input:-ms-input-placeholder {
+.c2 .fi-text-input_input:-ms-input-placeholder {
   font-style: italic;
 }
 
-.c5 .fi-text-input_input::placeholder {
+.c2 .fi-text-input_input::placeholder {
   font-style: italic;
 }
 
-.c5 .fi-text-input_input:focus {
+.c2 .fi-text-input_input:focus {
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
-}
-
-.c2.fi-text-input_with-icon .fi-text-input_container {
-  position: relative;
-}
-
-.c2.fi-text-input_with-icon .fi-text-input_input {
-  padding-right: 40px;
-}
-
-.c2.fi-text-input_with-icon .fi-icon {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  top: 10px;
-  right: 10px;
 }
 
 .c2.fi-text-input--error .fi-text-input_input {
   border-color: hsl(3,59%,48%);
 }
 
-.c5.fi-text-input--error .fi-text-input_statusText {
+.c2.fi-text-input--error .fi-text-input_statusText {
   margin-top: 5px;
   color: hsl(3,59%,48%);
 }
 
-.c5.fi-text-input--success .fi-text-input_input {
+.c2.fi-text-input--success .fi-text-input_input {
   border-color: hsl(166,90%,36%);
 }
 
-.c5.fi-text-input--disabled .fi-text-input_input {
+.c2.fi-text-input--disabled .fi-text-input_input {
   color: hsl(202,7%,67%);
   background-color: hsl(202,7%,97%);
 }
 
-.c5.fi-search-input {
+.c2.fi-search-input {
   display: inline-block;
   width: 290px;
 }
 
-.c5 .fi-text-input_input-element-container {
+.c2.fi-search-input .fi-text-input_input-element-container {
   position: relative;
 }
 
-.c5 .fi-search-input_input {
+.c2.fi-search-input .fi-text-input_input {
   min-height: 40px;
   min-width: 65px;
   padding-right: 40px;
 }
 
-.c5 .fi-search-input_icon {
+.c2.fi-search-input .fi-search-input_icon {
   position: absolute;
   width: 18px;
   height: 18px;
@@ -309,13 +293,13 @@ exports[`calling render with the same component on the same container does not r
 }
 
 <div
-  class="c0 fi-search-input"
+  class="c0 c1 c2 fi-search-input"
 >
   <label
-    class="c1 fi-text-input_label"
+    class="c3 fi-text-input_label"
   >
     <p
-      class="c2 fi-paragraph fi-text-input_label-p"
+      class="c4 fi-paragraph fi-text-input_label-p"
     >
       Test search input
     </p>
@@ -327,7 +311,7 @@ exports[`calling render with the same component on the same container does not r
       >
         <input
           aria-invalid="false"
-          class="c3 fi-text-input_input c4 c5 fi-search-input_input"
+          class="c5 fi-text-input_input"
           data-testid="textinput"
           id="test-id"
           type="text"

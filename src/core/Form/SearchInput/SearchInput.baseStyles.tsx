@@ -16,21 +16,21 @@ export const baseStyles = withSuomifiTheme(
         : inputContainerProps?.style?.width
         ? inputContainerProps?.style?.width
         : inputContainerProps?.width || '290px'};
-    }
 
-    & .fi-text-input_input-element-container {
-      position: relative;
-    }
-
-    & .fi-search-input {
-      &_input {
-        min-height: 40px;
-        min-width: 65px;
-        padding-right: ${math(
-          `${theme.spacing.insetXl} * 2 + ${theme.spacing.insetM}`,
-        )};
+      & .fi-text-input {
+        &_input-element-container {
+          position: relative;
+        }
+        &_input {
+          min-height: 40px;
+          min-width: 65px;
+          padding-right: ${math(
+            `${theme.spacing.insetXl} * 2 + ${theme.spacing.insetM}`,
+          )};
+        }
       }
-      &_icon {
+
+      & .fi-search-input_icon {
         position: absolute;
         width: 18px;
         height: 18px;

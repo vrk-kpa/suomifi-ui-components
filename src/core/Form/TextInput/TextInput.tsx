@@ -28,6 +28,7 @@ export interface TextInputProps extends CompTextInputProps, TokensProp {
 const StyledTextInput = styled(
   ({
     tokens,
+    className,
     status,
     inputContainerProps,
     labelTextProps = { className: undefined },
@@ -44,13 +45,10 @@ const StyledTextInput = styled(
             textInputClassNames.labelParagraph,
           ),
         }}
-        inputContainerProps={{
-          ...inputContainerProps,
-          className: classnames(baseClassName, inputContainerProps?.className, {
-            [textInputClassNames.error]: status === 'error',
-            [textInputClassNames.success]: status === 'success',
-          }),
-        }}
+        className={classnames(baseClassName, className, {
+          [textInputClassNames.error]: status === 'error',
+          [textInputClassNames.success]: status === 'success',
+        })}
       />
     );
   },

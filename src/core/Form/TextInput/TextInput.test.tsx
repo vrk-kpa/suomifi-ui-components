@@ -53,10 +53,7 @@ describe('props', () => {
   describe('className', () => {
     it('has the given custom className', () => {
       const { container } = render(
-        <TextInput
-          labelText="Test input"
-          inputContainerProps={{ className: 'custom-style' }}
-        />,
+        <TextInput labelText="Test input" className="custom-style" />,
       );
       expect(container.firstChild).toHaveClass('custom-style');
     });

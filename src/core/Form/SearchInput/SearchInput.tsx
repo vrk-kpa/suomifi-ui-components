@@ -11,7 +11,6 @@ import classnames from 'classnames';
 import { Omit } from '../../../utils/typescript';
 
 const baseClassName = 'fi-search-input';
-const inputBaseClassName = `${baseClassName}_input`;
 const iconBaseClassName = `${baseClassName}_icon`;
 
 export interface SearchInputProps extends Omit<TextInputProps, 'status'> {}
@@ -33,11 +32,7 @@ const StyledTextInput = styled(
           textInputClassNames.labelParagraph,
         ),
       }}
-      inputContainerProps={{
-        ...inputContainerProps,
-        className: classnames(baseClassName, inputContainerProps?.className),
-      }}
-      className={classnames(className, inputBaseClassName)}
+      className={classnames(className, baseClassName)}
     />
   ),
 )`
