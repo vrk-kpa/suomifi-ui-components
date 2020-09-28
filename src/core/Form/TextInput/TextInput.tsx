@@ -79,22 +79,22 @@ export class TextInput extends Component<TextInputProps> {
       ...passProps
     } = withSuomifiDefaultProps(this.props);
 
-    const prioritizedIcon = icon || iconProps?.icon;
+    const resolvedIcon = icon || iconProps?.icon;
 
     const newIconProps = {
       ...iconProps,
-      icon: prioritizedIcon,
+      icon: resolvedIcon,
     };
 
     return (
       <StyledTextInput
         {...passProps}
         className={classnames(className, {
-          [textInputClassNames.icon]: prioritizedIcon !== undefined,
+          [textInputClassNames.icon]: resolvedIcon !== undefined,
         })}
       >
         {children}
-        {prioritizedIcon && <Icon {...newIconProps} />}
+        {resolvedIcon && <Icon {...newIconProps} />}
       </StyledTextInput>
     );
   }
