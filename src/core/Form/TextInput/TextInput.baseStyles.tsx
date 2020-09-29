@@ -35,10 +35,10 @@ export const baseStyles = withSuomifiTheme(
   & .fi-text-input_statusText_container {
     display: flex;
     flex-direction: column;
+    font-size: 14px;
 
     & .fi-text-input_statusText {
       ${theme.typography.bodySemiBoldSmall}
-      font-size: 14px;
       line-height: 20px;
     }
   }

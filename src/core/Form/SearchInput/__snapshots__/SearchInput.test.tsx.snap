@@ -172,6 +172,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  font-size: 14px;
 }
 
 .c2 .fi-text-input_statusText_container .fi-text-input_statusText {
@@ -179,7 +180,6 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  font-size: 14px;
   line-height: 20px;
 }
 
@@ -250,7 +250,7 @@ exports[`calling render with the same component on the same container does not r
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
-.c2.fi-text-input_with-icon .fi-text-input_container {
+.c2.fi-text-input_with-icon .fi-text-input_input-element-container {
   position: relative;
 }
 
