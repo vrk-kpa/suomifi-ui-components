@@ -269,7 +269,6 @@ exports[`snapshots match error status with statustext 1`] = `
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
-<<<<<<< HEAD
 .c2.fi-text-input_with-icon .fi-text-input_container {
   position: relative;
 }
@@ -286,8 +285,6 @@ exports[`snapshots match error status with statustext 1`] = `
   right: 10px;
 }
 
-=======
->>>>>>> Fix Search and TextInput className related issues after refactor. Update snapshots.
 .c2.fi-text-input--error .fi-text-input_input {
   border-color: hsl(3,59%,48%);
 }
@@ -600,7 +597,6 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
-<<<<<<< HEAD
 .c2.fi-text-input_with-icon .fi-text-input_container {
   position: relative;
 }
@@ -617,8 +613,6 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   right: 10px;
 }
 
-=======
->>>>>>> Fix Search and TextInput className related issues after refactor. Update snapshots.
 .c2.fi-text-input--error .fi-text-input_input {
   border-color: hsl(3,59%,48%);
 }
@@ -913,7 +907,6 @@ exports[`snapshots match minimal implementation 1`] = `
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
-<<<<<<< HEAD
 .c2.fi-text-input_with-icon .fi-text-input_container {
   position: relative;
 }
@@ -930,8 +923,6 @@ exports[`snapshots match minimal implementation 1`] = `
   right: 10px;
 }
 
-=======
->>>>>>> Fix Search and TextInput className related issues after refactor. Update snapshots.
 .c2.fi-text-input--error .fi-text-input_input {
   border-color: hsl(3,59%,48%);
 }
