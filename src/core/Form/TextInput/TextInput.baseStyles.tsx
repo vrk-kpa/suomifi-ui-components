@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../../theme';
 import { input, inputContainer, font } from '../../theme/reset';
+import { math } from 'polished';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
@@ -43,6 +44,26 @@ export const baseStyles = withSuomifiTheme(
     :focus {
       box-shadow: ${theme.shadows.actionElementBoxShadow};
     }
+    }
+    
+  &.fi-text-input_with-icon {
+    & .fi-text-input_container {
+    position: relative;
+    }
+
+    & .fi-text-input_input{
+    padding-right: ${math(
+      `${theme.spacing.insetXl} * 2 + ${theme.spacing.insetM}`,
+    )};
+    }
+
+    & .fi-icon{
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        top: ${theme.spacing.insetL};
+        right: ${theme.spacing.insetL};
+      }
     }
 
   &.fi-text-input--error {

@@ -177,4 +177,21 @@ describe('props', () => {
       expect(inputField).toHaveAttribute('placeholder', 'Enter text here');
     });
   });
+
+  describe('icon', () => {
+    it('should have the correct classname when icon prop is given', () => {
+      const { container } = render(
+        <TextInput labelText="Test input" icon="close" />,
+      );
+      expect(container.firstChild).toHaveClass('fi-text-input_with-icon');
+    });
+
+    it('should have an icon element when one is specified', () => {
+      const { container } = render(
+        <TextInput labelText="Test input" icon="close" />,
+      );
+      const icon = container.querySelector('.fi-icon');
+      expect(container.contains(icon)).toBeTruthy();
+    });
+  });
 });

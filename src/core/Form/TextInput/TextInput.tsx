@@ -8,6 +8,9 @@ import {
   TextInputProps as CompTextInputProps,
 } from '../../../components/Form/TextInput';
 import classnames from 'classnames';
+import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
+import { Omit } from '../../../utils/typescript';
+
 const baseClassName = 'fi-text-input';
 
 export const textInputClassNames = {
@@ -16,9 +19,13 @@ export const textInputClassNames = {
   inputContainer: `${baseClassName}_container`,
   error: `${baseClassName}--error`,
   success: `${baseClassName}--success`,
+  icon: `${baseClassName}_with-icon`,
 };
 
-export interface TextInputProps extends CompTextInputProps, TokensProp {}
+export interface TextInputProps extends CompTextInputProps, TokensProp {
+  icon?: BaseIconKeys;
+  iconProps?: Omit<IconProps, 'icon'>;
+}
 
 const StyledTextInput = styled(
   ({
@@ -64,8 +71,31 @@ const StyledTextInput = styled(
  */
 export class TextInput extends Component<TextInputProps> {
   render() {
-    const { ...passProps } = withSuomifiDefaultProps(this.props);
+    const {
+      children,
+      icon,
+      iconProps,
+      className,
+      ...passProps
+    } = withSuomifiDefaultProps(this.props);
 
-    return <StyledTextInput {...passProps} />;
+    const resolvedIcon = icon || iconProps?.icon;
+
+    const newIconProps = {
+      ...iconProps,
+      icon: resolvedIcon,
+    };
+
+    return (
+      <StyledTextInput
+        {...passProps}
+        className={classnames(className, {
+          [textInputClassNames.icon]: resolvedIcon !== undefined,
+        })}
+      >
+        {children}
+        {resolvedIcon && <Icon {...newIconProps} />}
+      </StyledTextInput>
+    );
   }
 }

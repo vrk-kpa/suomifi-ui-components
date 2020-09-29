@@ -80,5 +80,10 @@ import { TextInput } from 'suomifi-ui-components';
     type="password"
     defaultValue="password"
   />
+  <TextInput
+    labelText="TextInput with an icon"
+    icon="mapLocation"
+    iconProps={{ fill: 'red' }}
+  />
 </>;
 ```
