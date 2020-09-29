@@ -66,7 +66,7 @@ export const baseStyles = withSuomifiTheme(
   }
     
   &.fi-text-input_with-icon {
-    & .fi-text-input_container {
+    & .fi-text-input_input-element-container {
       position: relative;
     }
 
