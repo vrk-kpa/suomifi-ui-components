@@ -107,6 +107,19 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c2.fi-text-input {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
   display: inline-block;
   width: 290px;
 }
@@ -172,14 +185,15 @@ exports[`calling render with the same component on the same container does not r
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  font-size: 14px;
 }
 
 .c2 .fi-text-input_statusText_container .fi-text-input_statusText {
+  margin-top: 5px;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
+  font-size: 14px;
   line-height: 20px;
 }
 
@@ -271,7 +285,6 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c2.fi-text-input--error .fi-text-input_statusText {
-  margin-top: 5px;
   color: hsl(3,59%,48%);
 }
 
