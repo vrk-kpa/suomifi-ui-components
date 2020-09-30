@@ -32,7 +32,9 @@ const StyledTextInput = styled(
           textInputClassNames.labelParagraph,
         ),
       }}
-      className={classnames(className, baseClassName)}
+      className={classnames(className, baseClassName, {
+        [textInputClassNames.error]: !!passProps?.statusText,
+      })}
     />
   ),
 )`
