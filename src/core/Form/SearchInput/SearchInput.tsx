@@ -13,11 +13,14 @@ import { Omit } from '../../../utils/typescript';
 const baseClassName = 'fi-search-input';
 const iconBaseClassName = `${baseClassName}_icon`;
 
-export interface SearchInputProps extends Omit<TextInputProps, 'status'> {}
+export interface SearchInputProps extends Omit<TextInputProps, 'status'> {
+  status?: 'default' | 'error';
+}
 
 const StyledTextInput = styled(
   ({
     tokens,
+    status,
     className,
     labelTextProps = { className: undefined },
     inputContainerProps,
@@ -25,6 +28,7 @@ const StyledTextInput = styled(
   }: TextInputProps & InternalTokensProp) => (
     <CompSearchInput
       {...passProps}
+      status={status}
       labelTextProps={{
         ...labelTextProps,
         className: classnames(
@@ -33,7 +37,7 @@ const StyledTextInput = styled(
         ),
       }}
       className={classnames(className, baseClassName, {
-        [textInputClassNames.error]: !!passProps?.statusText,
+        [textInputClassNames.error]: status === 'error',
       })}
     />
   ),
