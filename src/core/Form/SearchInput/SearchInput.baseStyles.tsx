@@ -1,7 +1,8 @@
 import { css } from 'styled-components';
+import { math } from 'polished';
 import { TextInputProps } from '../TextInput/TextInput';
 import { withSuomifiTheme, TokensAndTheme } from '../../theme';
-import { math } from 'polished';
+import { font } from '../../theme/reset';
 
 export const baseStyles = withSuomifiTheme(
   ({
@@ -10,6 +11,7 @@ export const baseStyles = withSuomifiTheme(
     fullWidth,
   }: TokensAndTheme & Omit<TextInputProps, 'labelText' | 'status'>) => css`
     &.fi-search-input {
+      ${font({ theme })('bodyText')}
       display: inline-block;
       width: ${fullWidth
         ? '100%'
