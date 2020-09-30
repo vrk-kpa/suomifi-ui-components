@@ -12,6 +12,7 @@ export const baseStyles = withSuomifiTheme(
   }: TokensAndTheme & Omit<TextInputProps, 'labelText'>) => css`
   
   &.fi-text-input {
+    ${font({ theme })('bodyText')}
     display: inline-block;
     width: ${
       fullWidth
@@ -35,10 +36,11 @@ export const baseStyles = withSuomifiTheme(
   & .fi-text-input_statusText_container {
     display: flex;
     flex-direction: column;
-    font-size: 14px;
-
+    
     & .fi-text-input_statusText {
+      margin-top: ${theme.spacing.xxs};
       ${theme.typography.bodySemiBoldSmall}
+      font-size: 14px;
       line-height: 20px;
     }
   }
@@ -90,7 +92,6 @@ export const baseStyles = withSuomifiTheme(
       border-color: ${theme.colors.alertBase};
     }
     & .fi-text-input_statusText {
-      margin-top: ${theme.spacing.xxs};
       color: ${theme.colors.alertBase};
     }
   }
