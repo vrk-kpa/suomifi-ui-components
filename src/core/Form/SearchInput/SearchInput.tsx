@@ -48,7 +48,7 @@ const StyledTextInput = styled(
 
 /**
  * <i class="semantics" />
- * Use for user inputting search text
+ * Use for user inputting search text.
  * Props other than specified explicitly are passed on to underlying input element.
  */
 export class SearchInput extends Component<SearchInputProps> {
