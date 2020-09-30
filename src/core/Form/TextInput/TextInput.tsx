@@ -59,6 +59,7 @@ const StyledTextInput = styled(
 /**
  * <i class="semantics" />
  * Use for user inputting text
+ * Props other than specified explicitly are passed on to underlying input element.
  */
 export class TextInput extends Component<TextInputProps> {
   render() {
