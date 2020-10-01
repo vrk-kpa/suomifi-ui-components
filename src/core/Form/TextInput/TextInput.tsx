@@ -30,7 +30,6 @@ const StyledTextInput = styled(
     tokens,
     className,
     status,
-    inputContainerProps,
     labelTextProps = { className: undefined },
     ...passProps
   }: TextInputProps & InternalTokensProp) => {

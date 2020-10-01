@@ -23,7 +23,6 @@ const StyledTextInput = styled(
     status,
     className,
     labelTextProps = { className: undefined },
-    inputContainerProps,
     ...passProps
   }: TextInputProps & InternalTokensProp) => (
     <CompSearchInput
