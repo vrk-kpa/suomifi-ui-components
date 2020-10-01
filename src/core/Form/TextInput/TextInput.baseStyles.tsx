@@ -39,7 +39,7 @@ export const baseStyles = withSuomifiTheme(
     
     & .fi-text-input_statusText {
       margin-top: ${theme.spacing.xxs};
-      ${theme.typography.bodySemiBoldSmall}
+      ${font({ theme })('bodySemiBoldSmall')};
       font-size: 14px;
       line-height: 20px;
     }
