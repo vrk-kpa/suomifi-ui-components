@@ -11,23 +11,23 @@ import classnames from 'classnames';
 import { Omit } from '../../../utils/typescript';
 
 const baseClassName = 'fi-search-input';
-const inputContainerBaseClassName = `${baseClassName}_input-container`;
-const inputBaseClassName = `${baseClassName}_input`;
 const iconBaseClassName = `${baseClassName}_icon`;
 
-export interface SearchInputProps extends Omit<TextInputProps, 'status'> {}
+export interface SearchInputProps extends Omit<TextInputProps, 'status'> {
+  status?: 'default' | 'error';
+}
 
 const StyledTextInput = styled(
   ({
     tokens,
+    status,
     className,
     labelTextProps = { className: undefined },
-    inputContainerProps = { className: inputContainerBaseClassName },
-    inputClassName,
     ...passProps
   }: TextInputProps & InternalTokensProp) => (
     <CompSearchInput
       {...passProps}
+      status={status}
       labelTextProps={{
         ...labelTextProps,
         className: classnames(
@@ -35,16 +35,9 @@ const StyledTextInput = styled(
           textInputClassNames.labelParagraph,
         ),
       }}
-      inputContainerProps={{
-        ...inputContainerProps,
-        className: classnames(
-          inputContainerProps.className,
-          textInputClassNames.inputContainer,
-        ),
-      }}
-      {...passProps}
-      className={classnames(className, baseClassName)}
-      inputClassName={classnames(inputClassName, inputBaseClassName)}
+      className={classnames(className, baseClassName, {
+        [textInputClassNames.error]: status === 'error',
+      })}
     />
   ),
 )`
@@ -54,7 +47,8 @@ const StyledTextInput = styled(
 
 /**
  * <i class="semantics" />
- * Use for user inputting search text
+ * Use for user inputting search text.
+ * Props other than specified explicitly are passed on to underlying input element.
  */
 export class SearchInput extends Component<SearchInputProps> {
   render() {

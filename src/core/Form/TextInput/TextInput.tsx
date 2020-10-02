@@ -12,11 +12,9 @@ import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
 import { Omit } from '../../../utils/typescript';
 
 const baseClassName = 'fi-text-input';
-
 export const textInputClassNames = {
   baseClassName,
   labelParagraph: `${baseClassName}_label-p`,
-  inputContainer: `${baseClassName}_container`,
   error: `${baseClassName}--error`,
   success: `${baseClassName}--success`,
   icon: `${baseClassName}_with-icon`,
@@ -30,10 +28,9 @@ export interface TextInputProps extends CompTextInputProps, TokensProp {
 const StyledTextInput = styled(
   ({
     tokens,
-    status,
     className,
+    status,
     labelTextProps = { className: undefined },
-    inputContainerProps = { className: undefined },
     ...passProps
   }: TextInputProps & InternalTokensProp) => {
     return (
@@ -45,13 +42,6 @@ const StyledTextInput = styled(
           className: classnames(
             labelTextProps.className,
             textInputClassNames.labelParagraph,
-          ),
-        }}
-        inputContainerProps={{
-          ...inputContainerProps,
-          className: classnames(
-            inputContainerProps.className,
-            textInputClassNames.inputContainer,
           ),
         }}
         className={classnames(baseClassName, className, {
@@ -67,7 +57,8 @@ const StyledTextInput = styled(
 
 /**
  * <i class="semantics" />
- * Use for user inputting text
+ * Use for user inputting text.
+ * Props other than specified explicitly are passed on to underlying input element.
  */
 export class TextInput extends Component<TextInputProps> {
   render() {

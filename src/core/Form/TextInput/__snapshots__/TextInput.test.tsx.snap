@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshots match error status with statustext 1`] = `
-.c4 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -53,7 +53,7 @@ exports[`snapshots match error status with statustext 1`] = `
   opacity: 0.54;
 }
 
-.c0 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -97,7 +97,7 @@ exports[`snapshots match error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c3 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -125,6 +125,24 @@ exports[`snapshots match error status with statustext 1`] = `
   cursor: not-allowed;
 }
 
+.c2.fi-text-input {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: inline-block;
+  width: 290px;
+}
+
 .c2 .fi-text-input_label-p {
   margin-bottom: 10px;
   -webkit-letter-spacing: 0;
@@ -143,18 +161,18 @@ exports[`snapshots match error status with statustext 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c2 .fi-text-input_container > input:focus {
+.c2 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
 
-.c2 .fi-text-input_container:focus-within {
+.c2 .fi-text-input_input-element-container:focus-within {
   outline: 0;
   position: relative;
 }
 
-.c2 .fi-text-input_container:focus-within:after {
+.c2 .fi-text-input_input-element-container:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -170,11 +188,11 @@ exports[`snapshots match error status with statustext 1`] = `
   z-index: 9999;
 }
 
-.c2 .fi-text-input_container:focus-within:not(:focus-visible):after {
+.c2 .fi-text-input_input-element-container:focus-within:not(:focus-visible):after {
   content: none;
 }
 
-.c2 .fi-text-input_container:focus-within > input:focus {
+.c2 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
@@ -189,6 +207,16 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c2 .fi-text-input_statusText_container .fi-text-input_statusText {
+  margin-top: 5px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -238,6 +266,7 @@ exports[`snapshots match error status with statustext 1`] = `
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0,0%,100%);
+  min-width: 40px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
@@ -263,7 +292,7 @@ exports[`snapshots match error status with statustext 1`] = `
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
-.c2.fi-text-input_with-icon .fi-text-input_container {
+.c2.fi-text-input_with-icon .fi-text-input_input-element-container {
   position: relative;
 }
 
@@ -284,7 +313,6 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c2.fi-text-input--error .fi-text-input_statusText {
-  margin-top: 5px;
   color: hsl(3,59%,48%);
 }
 
@@ -297,41 +325,45 @@ exports[`snapshots match error status with statustext 1`] = `
   background-color: hsl(202,7%,97%);
 }
 
-<label
-  class="c0 fi-text-input_label c1 fi-text-input c2 fi-text-input--error"
+<div
+  class="c0 c1 fi-text-input c2 fi-text-input--error"
 >
-  <p
-    class="c3 fi-paragraph fi-text-input_label-p"
+  <label
+    class="c3 fi-text-input_label"
   >
-    Test input
-  </p>
-  <div
-    class="c4 fi-text-input_statusText_container"
-  >
+    <p
+      class="c4 fi-paragraph fi-text-input_label-p"
+    >
+      Test input
+    </p>
     <div
-      class="c4 fi-text-input_container"
+      class="c0 fi-text-input_statusText_container"
     >
-      <input
-        aria-invalid="true"
-        class="c5 fi-text-input_input"
-        data-testid="textinput2"
-        id="test-id2"
-        placeholder="Test TextInput"
-        type="text"
-      />
+      <div
+        class="c0 fi-text-input_input-element-container"
+      >
+        <input
+          aria-invalid="true"
+          class="c5 fi-text-input_input"
+          data-testid="textinput2"
+          id="test-id2"
+          placeholder="Test TextInput"
+          type="text"
+        />
+      </div>
+      <span
+        class="c6 fi-text-input_statusText"
+        id="test-id2-statusText"
+      >
+        This is a status text
+      </span>
     </div>
-    <span
-      class="c6 fi-text-input_statusText"
-      id="test-id2-statusText"
-    >
-      This is a status text
-    </span>
-  </div>
-</label>
+  </label>
+</div>
 `;
 
 exports[`snapshots match hidden label with placeholder 1`] = `
-.c5 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -383,7 +415,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   opacity: 0.54;
 }
 
-.c0 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -403,7 +435,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   max-width: 100%;
 }
 
-.c3 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -427,7 +459,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   white-space: normal;
 }
 
-.c4 {
+.c5 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -441,6 +473,24 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 
 .c1.fi-text-input--disabled {
   cursor: not-allowed;
+}
+
+.c2.fi-text-input {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: inline-block;
+  width: 290px;
 }
 
 .c2 .fi-text-input_label-p {
@@ -461,18 +511,18 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c2 .fi-text-input_container > input:focus {
+.c2 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
 
-.c2 .fi-text-input_container:focus-within {
+.c2 .fi-text-input_input-element-container:focus-within {
   outline: 0;
   position: relative;
 }
 
-.c2 .fi-text-input_container:focus-within:after {
+.c2 .fi-text-input_input-element-container:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -488,11 +538,11 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   z-index: 9999;
 }
 
-.c2 .fi-text-input_container:focus-within:not(:focus-visible):after {
+.c2 .fi-text-input_input-element-container:focus-within:not(:focus-visible):after {
   content: none;
 }
 
-.c2 .fi-text-input_container:focus-within > input:focus {
+.c2 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
@@ -507,6 +557,16 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 }
 
 .c2 .fi-text-input_statusText_container .fi-text-input_statusText {
+  margin-top: 5px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -556,6 +616,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0,0%,100%);
+  min-width: 40px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
@@ -581,7 +642,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
-.c2.fi-text-input_with-icon .fi-text-input_container {
+.c2.fi-text-input_with-icon .fi-text-input_input-element-container {
   position: relative;
 }
 
@@ -602,7 +663,6 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 }
 
 .c2.fi-text-input--error .fi-text-input_statusText {
-  margin-top: 5px;
   color: hsl(3,59%,48%);
 }
 
@@ -615,35 +675,39 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   background-color: hsl(202,7%,97%);
 }
 
-<label
-  class="c0 fi-text-input_label c1 fi-text-input c2"
+<div
+  class="c0 c1 fi-text-input c2"
 >
-  <span
-    class="c3 c4 fi-visually-hidden"
+  <label
+    class="c3 fi-text-input_label"
   >
-    Test input
-  </span>
-  <div
-    class="c5 fi-text-input_statusText_container"
-  >
-    <div
-      class="c5 fi-text-input_container"
+    <span
+      class="c4 c5 fi-visually-hidden"
     >
-      <input
-        aria-invalid="false"
-        class="c6 fi-text-input_input"
-        data-testid="textinput1"
-        id="test-id1"
-        placeholder="Test TextInput"
-        type="text"
-      />
+      Test input
+    </span>
+    <div
+      class="c0 fi-text-input_statusText_container"
+    >
+      <div
+        class="c0 fi-text-input_input-element-container"
+      >
+        <input
+          aria-invalid="false"
+          class="c6 fi-text-input_input"
+          data-testid="textinput1"
+          id="test-id1"
+          placeholder="Test TextInput"
+          type="text"
+        />
+      </div>
     </div>
-  </div>
-</label>
+  </label>
+</div>
 `;
 
 exports[`snapshots match minimal implementation 1`] = `
-.c4 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -695,7 +759,7 @@ exports[`snapshots match minimal implementation 1`] = `
   opacity: 0.54;
 }
 
-.c0 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -715,7 +779,7 @@ exports[`snapshots match minimal implementation 1`] = `
   max-width: 100%;
 }
 
-.c3 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -743,6 +807,24 @@ exports[`snapshots match minimal implementation 1`] = `
   cursor: not-allowed;
 }
 
+.c2.fi-text-input {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: inline-block;
+  width: 290px;
+}
+
 .c2 .fi-text-input_label-p {
   margin-bottom: 10px;
   -webkit-letter-spacing: 0;
@@ -761,18 +843,18 @@ exports[`snapshots match minimal implementation 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c2 .fi-text-input_container > input:focus {
+.c2 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
 
-.c2 .fi-text-input_container:focus-within {
+.c2 .fi-text-input_input-element-container:focus-within {
   outline: 0;
   position: relative;
 }
 
-.c2 .fi-text-input_container:focus-within:after {
+.c2 .fi-text-input_input-element-container:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -788,11 +870,11 @@ exports[`snapshots match minimal implementation 1`] = `
   z-index: 9999;
 }
 
-.c2 .fi-text-input_container:focus-within:not(:focus-visible):after {
+.c2 .fi-text-input_input-element-container:focus-within:not(:focus-visible):after {
   content: none;
 }
 
-.c2 .fi-text-input_container:focus-within > input:focus {
+.c2 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
@@ -807,6 +889,16 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c2 .fi-text-input_statusText_container .fi-text-input_statusText {
+  margin-top: 5px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -856,6 +948,7 @@ exports[`snapshots match minimal implementation 1`] = `
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0,0%,100%);
+  min-width: 40px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
@@ -881,7 +974,7 @@ exports[`snapshots match minimal implementation 1`] = `
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
-.c2.fi-text-input_with-icon .fi-text-input_container {
+.c2.fi-text-input_with-icon .fi-text-input_input-element-container {
   position: relative;
 }
 
@@ -902,7 +995,6 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c2.fi-text-input--error .fi-text-input_statusText {
-  margin-top: 5px;
   color: hsl(3,59%,48%);
 }
 
@@ -915,28 +1007,32 @@ exports[`snapshots match minimal implementation 1`] = `
   background-color: hsl(202,7%,97%);
 }
 
-<label
-  class="c0 fi-text-input_label c1 fi-text-input c2"
+<div
+  class="c0 c1 fi-text-input c2"
 >
-  <p
-    class="c3 fi-paragraph fi-text-input_label-p"
+  <label
+    class="c3 fi-text-input_label"
   >
-    Test input
-  </p>
-  <div
-    class="c4 fi-text-input_statusText_container"
-  >
-    <div
-      class="c4 fi-text-input_container"
+    <p
+      class="c4 fi-paragraph fi-text-input_label-p"
     >
-      <input
-        aria-invalid="false"
-        class="c5 fi-text-input_input"
-        data-testid="textinput"
-        id="test-id"
-        type="text"
-      />
+      Test input
+    </p>
+    <div
+      class="c0 fi-text-input_statusText_container"
+    >
+      <div
+        class="c0 fi-text-input_input-element-container"
+      >
+        <input
+          aria-invalid="false"
+          class="c5 fi-text-input_input"
+          data-testid="textinput"
+          id="test-id"
+          type="text"
+        />
+      </div>
     </div>
-  </div>
-</label>
+  </label>
+</div>
 `;

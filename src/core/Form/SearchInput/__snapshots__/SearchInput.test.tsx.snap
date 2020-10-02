@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
-.c4 {
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -53,7 +53,7 @@ exports[`calling render with the same component on the same container does not r
   opacity: 0.54;
 }
 
-.c0 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -73,7 +73,7 @@ exports[`calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
-.c3 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -106,6 +106,24 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
 }
 
+.c2.fi-text-input {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: inline-block;
+  width: 290px;
+}
+
 .c2 .fi-text-input_label-p {
   margin-bottom: 10px;
   -webkit-letter-spacing: 0;
@@ -124,18 +142,18 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(0,0%,16%);
 }
 
-.c2 .fi-text-input_container > input:focus {
+.c2 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
   outline-offset: 2px;
 }
 
-.c2 .fi-text-input_container:focus-within {
+.c2 .fi-text-input_input-element-container:focus-within {
   outline: 0;
   position: relative;
 }
 
-.c2 .fi-text-input_container:focus-within:after {
+.c2 .fi-text-input_input-element-container:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -151,11 +169,11 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.c2 .fi-text-input_container:focus-within:not(:focus-visible):after {
+.c2 .fi-text-input_input-element-container:focus-within:not(:focus-visible):after {
   content: none;
 }
 
-.c2 .fi-text-input_container:focus-within > input:focus {
+.c2 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
@@ -170,6 +188,16 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c2 .fi-text-input_statusText_container .fi-text-input_statusText {
+  margin-top: 5px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -219,6 +247,7 @@ exports[`calling render with the same component on the same container does not r
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0,0%,100%);
+  min-width: 40px;
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
@@ -244,7 +273,7 @@ exports[`calling render with the same component on the same container does not r
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
-.c2.fi-text-input_with-icon .fi-text-input_container {
+.c2.fi-text-input_with-icon .fi-text-input_input-element-container {
   position: relative;
 }
 
@@ -265,7 +294,6 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c2.fi-text-input--error .fi-text-input_statusText {
-  margin-top: 5px;
   color: hsl(3,59%,48%);
 }
 
@@ -278,16 +306,35 @@ exports[`calling render with the same component on the same container does not r
   background-color: hsl(202,7%,97%);
 }
 
-.c2 .fi-search-input_input-container {
+.c2.fi-search-input {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: inline-block;
+  width: 290px;
+}
+
+.c2.fi-search-input .fi-text-input_input-element-container {
   position: relative;
 }
 
-.c2 .fi-search-input_input {
+.c2.fi-search-input .fi-text-input_input {
   min-height: 40px;
+  min-width: 65px;
   padding-right: 40px;
 }
 
-.c2 .fi-search-input_icon {
+.c2.fi-search-input .fi-search-input_icon {
   position: absolute;
   width: 18px;
   height: 18px;
@@ -296,41 +343,45 @@ exports[`calling render with the same component on the same container does not r
   fill: hsl(202,7%,40%);
 }
 
-<label
-  class="c0 fi-text-input_label c1 c2 fi-search-input"
+<div
+  class="c0 c1 c2 fi-search-input"
 >
-  <p
-    class="c3 fi-paragraph fi-text-input_label-p"
+  <label
+    class="c3 fi-text-input_label"
   >
-    Test search input
-  </p>
-  <div
-    class="c4 fi-text-input_statusText_container"
-  >
-    <div
-      class="c4 fi-search-input_input-container fi-text-input_container"
+    <p
+      class="c4 fi-paragraph fi-text-input_label-p"
     >
-      <input
-        aria-invalid="false"
-        class="c5 fi-text-input_input fi-search-input_input"
-        data-testid="textinput"
-        id="test-id"
-        type="text"
-      />
-      <svg
-        aria-hidden="true"
-        class="fi-icon c6 fi-search-input_icon"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="0 0 24 24"
-        width="1em"
+      Test search input
+    </p>
+    <div
+      class="c0 fi-text-input_statusText_container"
+    >
+      <div
+        class="c0 fi-text-input_input-element-container"
       >
-        <path
-          d="M9 2C5.14 2 2 5.141 2 9.001 2 12.86 5.14 16 9 16s7-3.14 7-6.999C16 5.141 12.86 2 9 2m7.029 12.615l7.678 7.678a.999.999 0 11-1.414 1.414l-7.678-7.678A8.957 8.957 0 019 18c-4.962 0-9-4.037-9-8.999C0 4.038 4.038 0 9 0s9 4.038 9 9.001a8.955 8.955 0 01-1.971 5.614z"
+        <input
+          aria-invalid="false"
+          class="c5 fi-text-input_input"
+          data-testid="textinput"
+          id="test-id"
+          type="text"
         />
-      </svg>
+        <svg
+          aria-hidden="true"
+          class="fi-icon c6 fi-search-input_icon"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M9 2C5.14 2 2 5.141 2 9.001 2 12.86 5.14 16 9 16s7-3.14 7-6.999C16 5.141 12.86 2 9 2m7.029 12.615l7.678 7.678a.999.999 0 11-1.414 1.414l-7.678-7.678A8.957 8.957 0 019 18c-4.962 0-9-4.037-9-8.999C0 4.038 4.038 0 9 0s9 4.038 9 9.001a8.955 8.955 0 01-1.971 5.614z"
+          />
+        </svg>
+      </div>
     </div>
-  </div>
-</label>
+  </label>
+</div>
 `;
