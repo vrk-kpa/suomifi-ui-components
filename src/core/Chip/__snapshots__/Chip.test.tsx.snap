@@ -164,13 +164,17 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-chip--disabled.fi-chip {
-  background: hsl(202,7%,80%);
   cursor: not-allowed;
+  background: hsl(202,7%,67%);
 }
 
 .c1.fi-chip--disabled.fi-chip:hover,
 .c1.fi-chip--disabled.fi-chip:active {
-  background: hsl(202,7%,80%);
+  background: hsl(202,7%,67%);
+}
+
+.c1.fi-chip--disabled .fi-chip--icon {
+  cursor: not-allowed;
 }
 
 <div>
@@ -355,13 +359,17 @@ exports[`classnames should match snapshot 1`] = `
 }
 
 .c1.fi-chip--disabled.fi-chip {
-  background: hsl(202,7%,80%);
   cursor: not-allowed;
+  background: hsl(202,7%,67%);
 }
 
 .c1.fi-chip--disabled.fi-chip:hover,
 .c1.fi-chip--disabled.fi-chip:active {
-  background: hsl(202,7%,80%);
+  background: hsl(202,7%,67%);
+}
+
+.c1.fi-chip--disabled .fi-chip--icon {
+  cursor: not-allowed;
 }
 
 <div>
@@ -542,13 +550,17 @@ exports[`disabled should match snapshot 1`] = `
 }
 
 .c1.fi-chip--disabled.fi-chip {
-  background: hsl(202,7%,80%);
   cursor: not-allowed;
+  background: hsl(202,7%,67%);
 }
 
 .c1.fi-chip--disabled.fi-chip:hover,
 .c1.fi-chip--disabled.fi-chip:active {
-  background: hsl(202,7%,80%);
+  background: hsl(202,7%,67%);
+}
+
+.c1.fi-chip--disabled .fi-chip--icon {
+  cursor: not-allowed;
 }
 
 <div>
