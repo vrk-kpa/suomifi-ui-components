@@ -29,6 +29,14 @@ And include **required** styles and fonts from `dist/main.css` as best suited fo
 import 'suomifi-ui-components/dist/main.css';
 ```
 
+This stylesheet contains styles required by Reach UI, which is used by this library in a few places, as well as the default font for the library. If you already use Reach UI in your project or cannot import the CSS file for some reason (e.g. CSP for fonts), you can also import the styles directly from Reach UI by following [their instructions](https://reach.tech/styling/).
+
+In this case, however, you need to import the font separately e.g. by adding the following entry to your application's CSS.
+
+```javascript
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300:400,600&display=swap');
+```
+
 ### Peer dependencies
 
 You should also install the following dependencies, if your project does not already have them.
