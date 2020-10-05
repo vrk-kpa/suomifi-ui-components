@@ -105,6 +105,9 @@ export const baseStyles = withSuomifiTheme(
       color: ${theme.colors.depthBase};
       background-color: ${theme.colors.depthLight3};
     }
+    & .fi-icon{
+      fill: ${theme.colors.depthBase};
+    }
   }
 `,
 );

@@ -306,6 +306,10 @@ exports[`calling render with the same component on the same container does not r
   background-color: hsl(202,7%,97%);
 }
 
+.c2.fi-text-input--disabled .fi-icon {
+  fill: hsl(202,7%,67%);
+}
+
 .c2.fi-search-input {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;

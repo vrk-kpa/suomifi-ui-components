@@ -325,6 +325,10 @@ exports[`snapshots match error status with statustext 1`] = `
   background-color: hsl(202,7%,97%);
 }
 
+.c2.fi-text-input--disabled .fi-icon {
+  fill: hsl(202,7%,67%);
+}
+
 <div
   class="c0 c1 fi-text-input c2 fi-text-input--error"
 >
@@ -675,6 +679,10 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   background-color: hsl(202,7%,97%);
 }
 
+.c2.fi-text-input--disabled .fi-icon {
+  fill: hsl(202,7%,67%);
+}
+
 <div
   class="c0 c1 fi-text-input c2"
 >
@@ -1005,6 +1013,10 @@ exports[`snapshots match minimal implementation 1`] = `
 .c2.fi-text-input--disabled .fi-text-input_input {
   color: hsl(202,7%,67%);
   background-color: hsl(202,7%,97%);
+}
+
+.c2.fi-text-input--disabled .fi-icon {
+  fill: hsl(202,7%,67%);
 }
 
 <div
