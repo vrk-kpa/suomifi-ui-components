@@ -80,7 +80,7 @@ export const baseStyles = withSuomifiTheme(
       &_button {
         &-clear {
           ${focus({ theme })}
-          :focus {
+          &:focus {
             position: absolute;
           }
           position: absolute;
@@ -103,7 +103,7 @@ export const baseStyles = withSuomifiTheme(
 
         &-search {
           ${focus({ theme })}
-          :focus {
+          &:focus {
             position: absolute;
           }
           position: absolute;

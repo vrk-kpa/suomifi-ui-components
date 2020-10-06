@@ -6,6 +6,8 @@ import { SearchInput } from './SearchInput';
 
 const TestSearchInput = (
   <SearchInput
+    searchText="Search"
+    clearText="Clear"
     labelText="Test search input"
     data-testid="textinput"
     id="test-id"

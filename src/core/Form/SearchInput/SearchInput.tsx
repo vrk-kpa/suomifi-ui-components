@@ -41,16 +41,10 @@ export interface SearchInputProps
   inputContainerProps?: Omit<HtmlDivProps, 'className'>;
   /** Disable input usage */
   disabled?: boolean;
-  /** Event handler to execute when clicked */
-  onClick?: () => void;
   /** Pass custom props to label container */
   labelProps?: TextInputLabelProps;
   /** Pass custom props to Label text element */
   labelTextProps?: ParagraphProps;
-  /** To execute on input text change */
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  /** To execute on input text onBlur */
-  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Label */
   labelText: string;
   /** Hide or show label. Label element is always present, but can be visually hidden.
@@ -59,6 +53,10 @@ export interface SearchInputProps
   labelMode?: Label;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
+  /** Clear button text for screen readers */
+  clearText: string;
+  /** Search button text for screen readers */
+  searchText: string;
   /** A custom element to be passed to the component. Will be rendered after the input */
   children?: ReactNode;
   /** Hint text to be shown below the component */
@@ -78,6 +76,12 @@ export interface SearchInputProps
   name?: string;
   /** Set components width to 100% */
   fullWidth?: boolean;
+  /** Event handler to execute when clicked */
+  onClick?: () => void;
+  /** To execute on input text change */
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  /** To execute on input text onBlur */
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
 }
 
 const baseClassName = 'fi-search-input';
@@ -115,6 +119,8 @@ class BaseSearchInput extends Component<SearchInputProps> {
       labelMode,
       labelProps,
       labelTextProps = { className: undefined },
+      clearText,
+      searchText,
       inputContainerProps,
       onChange: userOnChange,
       children,
@@ -195,6 +201,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
                   tabIndex={0}
                 >
                   <Icon
+                    ariaLabel={clearText}
                     icon="close"
                     className={searchInputClassNames.clearIcon}
                   />
@@ -210,6 +217,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
               >
                 <Icon
                   icon="search"
+                  ariaLabel={searchText}
                   className={searchInputClassNames.searchIcon}
                 />
               </HtmlDiv>
