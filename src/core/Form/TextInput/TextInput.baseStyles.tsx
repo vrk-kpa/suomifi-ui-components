@@ -29,6 +29,10 @@ export const baseStyles = withSuomifiTheme(
     color: ${theme.colors.blackBase};
   }
 
+  & .fi-text-input_optionalText {
+        ${theme.typography.bodyTextSmall};
+  }
+
   & .fi-text-input_input-element-container {
     ${inputContainer({ theme })}
   }

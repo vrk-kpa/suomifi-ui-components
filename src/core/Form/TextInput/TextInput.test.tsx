@@ -148,6 +148,16 @@ describe('props', () => {
     });
   });
 
+  describe('optionalText', () => {
+    it('should have element and correct classname for it', () => {
+      const { getByText } = render(
+        <TextInput labelText="label" optionalText="Optional" />,
+      );
+      const optionalText = getByText('(Optional)');
+      expect(optionalText).toHaveClass('fi-text-input_optionalText');
+    });
+  });
+
   describe('labelMode', () => {
     it('should be visible by default', () => {
       const { getByText } = render(<TextInput labelText="Test input" />);

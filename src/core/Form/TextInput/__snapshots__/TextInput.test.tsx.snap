@@ -161,6 +161,13 @@ exports[`snapshots match error status with statustext 1`] = `
   color: hsl(0,0%,16%);
 }
 
+.c2 .fi-text-input_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
 .c2 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
@@ -515,6 +522,13 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   color: hsl(0,0%,16%);
 }
 
+.c2 .fi-text-input_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
 .c2 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(23,82%,53%);
   outline-width: 4px;
@@ -849,6 +863,13 @@ exports[`snapshots match minimal implementation 1`] = `
   line-height: 1.5;
   font-weight: 600;
   color: hsl(0,0%,16%);
+}
+
+.c2 .fi-text-input_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
 .c2 .fi-text-input_input-element-container > input:focus {

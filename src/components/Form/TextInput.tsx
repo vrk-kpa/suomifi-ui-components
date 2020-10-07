@@ -25,6 +25,7 @@ const textInputClassNames = {
   statusText: `${baseClassName}_statusText`,
   statusTextContainer: `${baseClassName}_statusText_container`,
   hintText: `${baseClassName}_hintText`,
+  optionalText: `${baseClassName}_optionalText`,
 };
 
 export interface TextInputLabelProps extends HtmlLabelProps {}
@@ -79,6 +80,8 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   name?: string;
   /** Set components width to 100% */
   fullWidth?: boolean;
+  /** Optional text that is shown after labelText. Will be wrapped in parentheses. */
+  optionalText?: string;
 }
 
 class BaseTextInput extends Component<TextInputProps> {
@@ -91,6 +94,7 @@ class BaseTextInput extends Component<TextInputProps> {
       labelTextProps,
       inputContainerProps,
       children,
+      optionalText,
       status,
       statusText,
       hintText,
@@ -120,9 +124,19 @@ class BaseTextInput extends Component<TextInputProps> {
           )}
         >
           {hideLabel ? (
-            <VisuallyHidden>{labelText}</VisuallyHidden>
+            <VisuallyHidden>
+              {labelText}
+              {optionalText && `(${optionalText})`}
+            </VisuallyHidden>
           ) : (
-            <Paragraph {...labelTextProps}>{labelText}</Paragraph>
+            <Paragraph {...labelTextProps}>
+              {labelText}
+              {optionalText && (
+                <HtmlSpan className={textInputClassNames.optionalText}>
+                  {` (${optionalText})`}
+                </HtmlSpan>
+              )}
+            </Paragraph>
           )}
           {hintText && (
             <Paragraph
