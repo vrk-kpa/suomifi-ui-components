@@ -61,13 +61,6 @@ export const baseStyles = withSuomifiTheme(
       &_statusText_container {
         display: flex;
         flex-direction: column;
-
-        & .fi-search-input_statusText {
-          margin-top: ${theme.spacing.xxs};
-          ${font({ theme })('bodySemiBoldSmall')};
-          font-size: 14px;
-          line-height: 20px;
-        }
       }
 
       &_hintText {
@@ -141,9 +134,6 @@ export const baseStyles = withSuomifiTheme(
       }
       & .fi-search-input_button-search {
         border-color: ${theme.colors.alertBase};
-      }
-      & .fi-search-input_statusText {
-        color: ${theme.colors.alertBase};
       }
     }
     &.fi-search-input--disabled {

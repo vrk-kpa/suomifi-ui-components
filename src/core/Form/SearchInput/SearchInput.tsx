@@ -7,13 +7,13 @@ import {
   HtmlInputProps,
   HtmlDiv,
   HtmlDivProps,
-  HtmlSpan,
 } from '../../../reset';
 import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
 import {
   Paragraph,
   ParagraphProps,
 } from '../../../components/Paragraph/Paragraph';
+import { StatusText } from '../StatusText/StatusText';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { baseStyles } from './SearchInput.baseStyles';
@@ -222,14 +222,13 @@ class BaseSearchInput extends Component<SearchInputProps> {
                 />
               </HtmlDiv>
             </HtmlDiv>
-            {statusText && (
-              <HtmlSpan
-                className={searchInputClassNames.statusText}
-                id={generatedStatusTextId}
-              >
-                {statusText}
-              </HtmlSpan>
-            )}
+            <StatusText
+              id={generatedStatusTextId}
+              status={status}
+              disabled={passProps.disabled}
+            >
+              {statusText}
+            </StatusText>
           </HtmlDiv>
         </HtmlLabel>
       </HtmlDiv>
