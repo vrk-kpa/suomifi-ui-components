@@ -21,26 +21,23 @@ import { baseStyles as inputBaseStyles } from '../TextInput/TextInput.baseStyles
 import { Icon } from '../../Icon/Icon';
 import classnames from 'classnames';
 import { Omit } from '../../../utils/typescript';
-import { disabledCursor } from '../../../components/utils/css';
 import { idGenerator } from '../../../utils/uuid';
 
 export interface TextInputLabelProps extends HtmlLabelProps {}
 
 type Label = 'hidden' | 'visible';
 
-type InputType = 'text' | 'email' | 'number' | 'password' | 'tel' | 'url';
+type StateValue = string | number | string[] | undefined;
 
 type SearchInputStatus = 'default' | 'error';
 
 export interface SearchInputProps
-  extends Omit<HtmlInputProps, 'type'>,
+  extends Omit<HtmlInputProps, 'type' | 'disabled' | 'onChange'>,
     TokensProp {
   /** TextInput container div class name for custom styling. */
   className?: string;
   /** TextInput container div props */
   inputContainerProps?: Omit<HtmlDivProps, 'className'>;
-  /** Disable input usage */
-  disabled?: boolean;
   /** Pass custom props to label container */
   labelProps?: TextInputLabelProps;
   /** Pass custom props to Label text element */
@@ -68,25 +65,22 @@ export interface SearchInputProps
   status?: SearchInputStatus;
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
-  /** 'text' | 'email' | 'number' | 'password' | 'tel' | 'url'
-   * @default text
-   */
-  type?: InputType;
   /** Input name */
   name?: string;
   /** Set components width to 100% */
   fullWidth?: boolean;
-  /** Event handler to execute when clicked */
+  /** Callback for click event */
   onClick?: () => void;
-  /** To execute on input text change */
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  /** To execute on input text onBlur */
+  /** Callback for input text change */
+  onChange?: (value: StateValue) => void;
+  /** Callback for onBlur event */
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+  /** Callback for search button click */
+  onSearch?: (value: StateValue) => void;
 }
 
 const baseClassName = 'fi-search-input';
 const searchInputClassNames = {
-  disabled: `${baseClassName}--disabled`,
   label: `${baseClassName}_label`,
   inputElement: `${baseClassName}_input`,
   inputElementContainer: `${baseClassName}_input-element-container`,
@@ -95,7 +89,7 @@ const searchInputClassNames = {
   statusTextContainer: `${baseClassName}_statusText_container`,
   hintText: `${baseClassName}_hintText`,
   searchButton: `${baseClassName}_button-search`,
-  searchButtonEmpty: `${baseClassName}_button-search-empty`,
+  searchButtonEnabled: `${baseClassName}_button-search-enabled`,
   clearButton: `${baseClassName}_button-clear`,
   clearIcon: `${baseClassName}_button-clear-icon`,
   searchIcon: `${baseClassName}_button-search-icon`,
@@ -104,16 +98,29 @@ const searchInputClassNames = {
 };
 
 interface SearchInputState {
-  inputEmpty: boolean;
+  value: string | number | string[] | undefined;
 }
 
 class BaseSearchInput extends Component<SearchInputProps> {
   state: SearchInputState = {
-    inputEmpty: !!!this.props.value && !!!this.props.defaultValue,
+    value: this.props.value || this.props.defaultValue || '',
   };
+
+  static getDerivedStateFromProps(
+    nextProps: SearchInputProps,
+    prevState: SearchInputState,
+  ) {
+    const { value } = nextProps;
+    if ('value' in nextProps && value !== prevState.value) {
+      return { value };
+    }
+    return null;
+  }
 
   render() {
     const {
+      value,
+      defaultValue,
       className,
       labelText,
       labelMode,
@@ -122,22 +129,30 @@ class BaseSearchInput extends Component<SearchInputProps> {
       clearText,
       searchText,
       inputContainerProps,
-      onChange: userOnChange,
+      onChange: propOnChange,
+      onSearch: propOnSearch,
       children,
       status,
       statusText,
       hintText,
       visualPlaceholder,
       id: propId,
-      type = 'text',
       fullWidth,
       ...passProps
     } = this.props;
 
-    const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-      this.setState({ inputEmpty: event.target.value === '' });
-      if (!!userOnChange) {
-        userOnChange(event);
+    const conditionalSetState = (newValue: StateValue) => {
+      if (!('value' in this.props)) {
+        this.setState({ value: newValue });
+      }
+      if (propOnChange) {
+        propOnChange(newValue);
+      }
+    };
+
+    const onSearch = () => {
+      if (!!propOnSearch) {
+        propOnSearch(this.state.value);
       }
     };
 
@@ -149,7 +164,6 @@ class BaseSearchInput extends Component<SearchInputProps> {
       <HtmlDiv
         {...inputContainerProps}
         className={classnames(className, baseClassName, {
-          [searchInputClassNames.disabled]: !!passProps.disabled,
           [searchInputClassNames.error]: status === 'error',
         })}
       >
@@ -186,16 +200,20 @@ class BaseSearchInput extends Component<SearchInputProps> {
               <HtmlDiv className={searchInputClassNames.inputFocusWrapper}>
                 <HtmlInput
                   {...passProps}
-                  onChange={onChange}
+                  type="text"
+                  value={this.state.value}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                    conditionalSetState(event.currentTarget.value);
+                  }}
                   id={propId}
                   className={searchInputClassNames.inputElement}
-                  type={type}
                   placeholder={visualPlaceholder}
                   {...{ 'aria-invalid': status === 'error' }}
                 />
               </HtmlDiv>
-              {!this.state.inputEmpty && (
+              {!!this.state.value && (
                 <HtmlDiv
+                  onClick={() => conditionalSetState('')}
                   className={classnames(searchInputClassNames.clearButton)}
                   role="button"
                   tabIndex={0}
@@ -209,10 +227,15 @@ class BaseSearchInput extends Component<SearchInputProps> {
               )}
               <HtmlDiv
                 role="button"
-                tabIndex={this.state.inputEmpty ? -1 : 0}
+                {...(!!this.state.value
+                  ? {
+                      tabIndex: 0,
+                      onClick: onSearch,
+                    }
+                  : {})}
                 className={classnames(searchInputClassNames.searchButton, {
-                  [searchInputClassNames.searchButtonEmpty]: this.state
-                    .inputEmpty,
+                  [searchInputClassNames.searchButtonEnabled]: !!this.state
+                    .value,
                 })}
               >
                 <Icon
@@ -222,11 +245,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
                 />
               </HtmlDiv>
             </HtmlDiv>
-            <StatusText
-              id={generatedStatusTextId}
-              status={status}
-              disabled={passProps.disabled}
-            >
+            <StatusText id={generatedStatusTextId} status={status}>
               {statusText}
             </StatusText>
           </HtmlDiv>
@@ -243,9 +262,6 @@ const StyledTextInput = styled(
 )`
   ${(props) => inputBaseStyles(props)}
   ${(props) => baseStyles(props)}
-  &.${searchInputClassNames.disabled} {
-    ${disabledCursor}
-  }
 `;
 
 /**

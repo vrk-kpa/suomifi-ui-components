@@ -41,6 +41,7 @@ export const baseStyles = withSuomifiTheme(
         ${input({ theme })}
         padding-top: ${theme.spacing.insetS};
         padding-bottom: ${theme.spacing.insetS};
+        width: 100%;
         border: 0;
         background-color: ${theme.colors.whiteBase};
         min-height: 36px;
@@ -87,18 +88,14 @@ export const baseStyles = withSuomifiTheme(
           justify-content: center;
           align-items: center;
           fill: ${theme.colors.depthDark1};
-          &_icon {
-            width: 14px;
-            height: 14px;
-            fill: ${theme.colors.depthBase};
+          &-icon {
+            width: 12px;
+            height: 12px;
+            fill: ${theme.colors.highlightDark1};
           }
         }
 
         &-search {
-          ${focus({ theme })}
-          &:focus {
-            position: absolute;
-          }
           position: absolute;
           top: 0px;
           display: flex;
@@ -107,18 +104,29 @@ export const baseStyles = withSuomifiTheme(
           min-height: 40px;
           right: 0px;
           width: 40px;
-          border-radius: 0 2px 2px 0;
-          background-color: ${theme.colors.highlightBase};
+          border-radius: 0 1px 1px 0;
+          
           &-icon {
             width: 18px;
             height: 18px;
-            fill: ${theme.colors.whiteBase};
+            fill: ${theme.colors.depthDark1};
           }
 
-          &-empty {
-            background-color: transparent;
+          &-enabled {
+            ${focus({ theme })}
+            &:focus {
+              position: absolute;
+            }
+            &:hover {
+              background: ${theme.gradients.highlightLight1ToHighlightBase};
+            }
+          
+            &:active {
+              background-color: ${theme.colors.highlightDark1};
+            }
+            background: ${theme.gradients.highlightBaseToHighlightDark1};
             & .fi-search-input_button-search-icon {
-              fill: ${theme.colors.depthBase};
+              fill: ${theme.colors.whiteBase};
             }
           }
         }
@@ -126,13 +134,7 @@ export const baseStyles = withSuomifiTheme(
     }
 
     &.fi-search-input--error {
-      & .fi-search-input_input {
-        border-color: ${theme.colors.alertBase};
-      }
-      & .fi-search-input_button-clear {
-        border-color: ${theme.colors.alertBase};
-      }
-      & .fi-search-input_button-search {
+      & .fi-search-input_input-element-container {
         border-color: ${theme.colors.alertBase};
       }
     }

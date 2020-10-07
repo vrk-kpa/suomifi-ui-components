@@ -1,5 +1,9 @@
 ```js
+import { useState } from 'react';
 import { SearchInput } from 'suomifi-ui-components';
+
+const [value, setValue] = useState('test');
+
 <>
   <SearchInput
     onBlur={(event) => console.log(event.target.value)}
@@ -9,14 +13,16 @@ import { SearchInput } from 'suomifi-ui-components';
   />
 
   <SearchInput
-    onBlur={(event) => console.log(event.target.value)}
+    onChange={(value) => console.log(value)}
     labelText="Search the site"
     labelMode="visible"
     visualPlaceholder="Search..."
   />
 
   <SearchInput
-    onBlur={(event) => console.log(event.target.value)}
+    onSearch={(value) => console.log(value)}
+    onChange={(value) => setValue(value)}
+    value={value}
     labelText="Search the site"
     labelMode="visible"
     defaultValue="Te"
