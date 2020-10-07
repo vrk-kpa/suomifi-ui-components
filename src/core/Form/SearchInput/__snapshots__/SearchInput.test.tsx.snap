@@ -393,6 +393,7 @@ exports[`calling render with the same component on the same container does not r
   line-height: 1;
   padding-top: 6px;
   padding-bottom: 6px;
+  width: 100%;
   border: 0;
   background-color: hsl(0,0%,100%);
   min-height: 36px;
@@ -443,25 +444,6 @@ exports[`calling render with the same component on the same container does not r
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-}
-
-.c1 .fi-search-input_statusText_container .fi-search-input_statusText {
-  margin-top: 5px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
 }
 
 .c1 .fi-search-input_hintText {
@@ -535,10 +517,10 @@ exports[`calling render with the same component on the same container does not r
   position: absolute;
 }
 
-.c1 .fi-search-input_button-clear_icon {
-  width: 14px;
-  height: 14px;
-  fill: hsl(202,7%,67%);
+.c1 .fi-search-input_button-clear-icon {
+  width: 12px;
+  height: 12px;
+  fill: hsl(212,63%,37%);
 }
 
 .c1 .fi-search-input_button-search {
@@ -559,16 +541,25 @@ exports[`calling render with the same component on the same container does not r
   min-height: 40px;
   right: 0px;
   width: 40px;
-  border-radius: 0 2px 2px 0;
-  background-color: hsl(212,63%,45%);
+  border-radius: 0 1px 1px 0;
 }
 
-.c1 .fi-search-input_button-search:focus {
+.c1 .fi-search-input_button-search-icon {
+  width: 18px;
+  height: 18px;
+  fill: hsl(202,7%,40%);
+}
+
+.c1 .fi-search-input_button-search-enabled {
+  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
+}
+
+.c1 .fi-search-input_button-search-enabled:focus {
   outline: 0;
   position: relative;
 }
 
-.c1 .fi-search-input_button-search:focus:after {
+.c1 .fi-search-input_button-search-enabled:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -584,51 +575,33 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.c1 .fi-search-input_button-search:focus:not(:focus-visible):after {
+.c1 .fi-search-input_button-search-enabled:focus:not(:focus-visible):after {
   content: none;
 }
 
-.c1 .fi-search-input_button-search:focus {
+.c1 .fi-search-input_button-search-enabled:focus {
   position: absolute;
 }
 
-.c1 .fi-search-input_button-search-icon {
-  width: 18px;
-  height: 18px;
+.c1 .fi-search-input_button-search-enabled:hover {
+  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+}
+
+.c1 .fi-search-input_button-search-enabled:active {
+  background-color: hsl(212,63%,37%);
+}
+
+.c1 .fi-search-input_button-search-enabled .fi-search-input_button-search-icon {
   fill: hsl(0,0%,100%);
 }
 
-.c1 .fi-search-input_button-search-empty {
-  background-color: transparent;
-}
-
-.c1 .fi-search-input_button-search-empty .fi-search-input_button-search-icon {
-  fill: hsl(202,7%,67%);
-}
-
-.c1.fi-search-input--error .fi-search-input_input {
+.c1.fi-search-input--error .fi-search-input_input-element-container {
   border-color: hsl(3,59%,48%);
-}
-
-.c1.fi-search-input--error .fi-search-input_button-clear {
-  border-color: hsl(3,59%,48%);
-}
-
-.c1.fi-search-input--error .fi-search-input_button-search {
-  border-color: hsl(3,59%,48%);
-}
-
-.c1.fi-search-input--error .fi-search-input_statusText {
-  color: hsl(3,59%,48%);
 }
 
 .c1.fi-search-input--disabled .fi-search-input_input {
   color: hsl(202,7%,67%);
   background-color: hsl(202,7%,97%);
-}
-
-.c1.fi-search-input--disabled {
-  cursor: not-allowed;
 }
 
 <div
@@ -657,12 +630,12 @@ exports[`calling render with the same component on the same container does not r
             data-testid="textinput"
             id="test-id"
             type="text"
+            value=""
           />
         </div>
         <div
-          class="c0 fi-search-input_button-search fi-search-input_button-search-empty"
+          class="c0 fi-search-input_button-search"
           role="button"
-          tabindex="-1"
         >
           <svg
             aria-label="Search"
