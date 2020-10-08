@@ -8,12 +8,8 @@ import {
   HtmlDiv,
   HtmlDivProps,
 } from '../../../reset';
-import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
-import {
-  Paragraph,
-  ParagraphProps,
-} from '../../../components/Paragraph/Paragraph';
 import { StatusText } from '../StatusText/StatusText';
+import { LabelText, LabelTextProps, LabelMode } from '../LabelText/LabelText';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { baseStyles } from './SearchInput.baseStyles';
@@ -24,8 +20,6 @@ import { Omit } from '../../../utils/typescript';
 import { idGenerator } from '../../../utils/uuid';
 
 export interface TextInputLabelProps extends HtmlLabelProps {}
-
-type Label = 'hidden' | 'visible';
 
 type StateValue = string | number | string[] | undefined;
 
@@ -41,13 +35,13 @@ export interface SearchInputProps
   /** Pass custom props to label container */
   labelProps?: TextInputLabelProps;
   /** Pass custom props to Label text element */
-  labelTextProps?: ParagraphProps;
+  labelTextProps?: LabelTextProps;
   /** Label */
   labelText: string;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
    */
-  labelMode?: Label;
+  labelMode?: LabelMode;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
   /** Clear button text for screen readers */
@@ -56,8 +50,6 @@ export interface SearchInputProps
   searchText: string;
   /** A custom element to be passed to the component. Will be rendered after the input */
   children?: ReactNode;
-  /** Hint text to be shown below the component */
-  hintText?: string;
   /**
    * 'default' | 'error' | 'success'
    * @default default
@@ -85,15 +77,13 @@ const searchInputClassNames = {
   inputElement: `${baseClassName}_input`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputFocusWrapper: `${baseClassName}_input-focus-wrapper`,
-  statusText: `${baseClassName}_statusText`,
   statusTextContainer: `${baseClassName}_statusText_container`,
-  hintText: `${baseClassName}_hintText`,
+  button: `${baseClassName}_button`,
   searchButton: `${baseClassName}_button-search`,
   searchButtonEnabled: `${baseClassName}_button-search-enabled`,
+  searchIcon: `${baseClassName}_button-search-icon`,
   clearButton: `${baseClassName}_button-clear`,
   clearIcon: `${baseClassName}_button-clear-icon`,
-  searchIcon: `${baseClassName}_button-search-icon`,
-  labelParagraph: `${baseClassName}_label-p`,
   error: `${baseClassName}--error`,
 };
 
@@ -125,7 +115,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
       labelText,
       labelMode,
       labelProps,
-      labelTextProps = { className: undefined },
+      labelTextProps,
       clearText,
       searchText,
       inputContainerProps,
@@ -134,7 +124,6 @@ class BaseSearchInput extends Component<SearchInputProps> {
       children,
       status,
       statusText,
-      hintText,
       visualPlaceholder,
       id: propId,
       fullWidth,
@@ -156,9 +145,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
       }
     };
 
-    const hideLabel = labelMode === 'hidden';
     const generatedStatusTextId = `${idGenerator(propId)}-statusText`;
-    const generatedHintTextId = `${idGenerator(propId)}-hintText`;
 
     return (
       <HtmlDiv
@@ -174,27 +161,9 @@ class BaseSearchInput extends Component<SearchInputProps> {
             labelProps?.className,
           )}
         >
-          {hideLabel ? (
-            <VisuallyHidden>{labelText}</VisuallyHidden>
-          ) : (
-            <Paragraph
-              {...labelTextProps}
-              className={classnames(
-                labelTextProps.className,
-                searchInputClassNames.labelParagraph,
-              )}
-            >
-              {labelText}
-            </Paragraph>
-          )}
-          {hintText && (
-            <Paragraph
-              className={searchInputClassNames.hintText}
-              id={generatedHintTextId}
-            >
-              {hintText}
-            </Paragraph>
-          )}
+          <LabelText labelMode={labelMode} {...labelTextProps}>
+            {labelText}
+          </LabelText>
           <HtmlDiv className={searchInputClassNames.statusTextContainer}>
             <HtmlDiv className={searchInputClassNames.inputElementContainer}>
               <HtmlDiv className={searchInputClassNames.inputFocusWrapper}>
@@ -210,11 +179,15 @@ class BaseSearchInput extends Component<SearchInputProps> {
                   placeholder={visualPlaceholder}
                   {...{ 'aria-invalid': status === 'error' }}
                 />
+                {children}
               </HtmlDiv>
               {!!this.state.value && (
                 <HtmlDiv
                   onClick={() => conditionalSetState('')}
-                  className={classnames(searchInputClassNames.clearButton)}
+                  className={classnames(
+                    searchInputClassNames.button,
+                    searchInputClassNames.clearButton,
+                  )}
                   role="button"
                   tabIndex={0}
                 >
@@ -233,10 +206,14 @@ class BaseSearchInput extends Component<SearchInputProps> {
                       onClick: onSearch,
                     }
                   : {})}
-                className={classnames(searchInputClassNames.searchButton, {
-                  [searchInputClassNames.searchButtonEnabled]: !!this.state
-                    .value,
-                })}
+                className={classnames(
+                  searchInputClassNames.button,
+                  searchInputClassNames.searchButton,
+                  {
+                    [searchInputClassNames.searchButtonEnabled]: !!this.state
+                      .value,
+                  },
+                )}
               >
                 <Icon
                   icon="search"

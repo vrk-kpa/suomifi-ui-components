@@ -53,12 +53,6 @@ export const baseStyles = withSuomifiTheme(
         }
       }
 
-      &_label-p {
-        margin-bottom: ${theme.spacing.xs};
-        ${font({ theme })('actionElementInnerTextBold')};
-        color: ${theme.colors.blackBase};
-      }
-
       &_statusText_container {
         display: flex;
         flex-direction: column;
@@ -72,21 +66,23 @@ export const baseStyles = withSuomifiTheme(
       }
 
       &_button {
+        position: absolute;
+        top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
         &-clear {
           ${focus({ theme })}
           &:focus {
             position: absolute;
           }
-          position: absolute;
-          top: 0px;
           right: 40px;
           height: 20px;
           width: 20px;
           border: 0;
           margin: 10px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          
           fill: ${theme.colors.depthDark1};
           &-icon {
             width: 12px;
@@ -96,16 +92,10 @@ export const baseStyles = withSuomifiTheme(
         }
 
         &-search {
-          position: absolute;
-          top: 0px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-height: 40px;
           right: 0px;
+          height: 40px;
           width: 40px;
           border-radius: 0 1px 1px 0;
-          
           &-icon {
             width: 18px;
             height: 18px;
@@ -113,6 +103,7 @@ export const baseStyles = withSuomifiTheme(
           }
 
           &-enabled {
+            background: ${theme.gradients.highlightBaseToHighlightDark1};
             ${focus({ theme })}
             &:focus {
               position: absolute;
@@ -124,7 +115,6 @@ export const baseStyles = withSuomifiTheme(
             &:active {
               background-color: ${theme.colors.highlightDark1};
             }
-            background: ${theme.gradients.highlightBaseToHighlightDark1};
             & .fi-search-input_button-search-icon {
               fill: ${theme.colors.whiteBase};
             }
