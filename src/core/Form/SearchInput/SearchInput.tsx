@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Component, ReactNode, FocusEvent } from 'react';
+import React, { ChangeEvent, Component, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import {
   HtmlLabel,
@@ -9,7 +9,7 @@ import {
   HtmlDivProps,
 } from '../../../reset';
 import { StatusText } from '../StatusText/StatusText';
-import { LabelText, LabelTextProps, LabelMode } from '../LabelText/LabelText';
+import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { baseStyles } from './SearchInput.baseStyles';
@@ -26,17 +26,16 @@ type StateValue = string | number | string[] | undefined;
 type SearchInputStatus = 'default' | 'error';
 
 export interface SearchInputProps
-  extends Omit<HtmlInputProps, 'type' | 'disabled' | 'onChange'>,
+  extends Omit<
+      HtmlInputProps,
+      'type' | 'disabled' | 'onChange' | 'children' | 'onClick'
+    >,
     TokensProp {
-  /** TextInput container div class name for custom styling. */
+  /** SearchInput container div class name for custom styling. */
   className?: string;
-  /** TextInput container div props */
+  /** SearchInput container div props */
   inputContainerProps?: Omit<HtmlDivProps, 'className'>;
-  /** Pass custom props to label container */
-  labelProps?: TextInputLabelProps;
-  /** Pass custom props to Label text element */
-  labelTextProps?: LabelTextProps;
-  /** Label */
+  /** Label text */
   labelText: string;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
@@ -44,12 +43,10 @@ export interface SearchInputProps
   labelMode?: LabelMode;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
-  /** Clear button text for screen readers */
-  clearText: string;
-  /** Search button text for screen readers */
-  searchText: string;
-  /** A custom element to be passed to the component. Will be rendered after the input */
-  children?: ReactNode;
+  /** Clear button label for screen readers */
+  clearButtonLabel: string;
+  /** Search button label for screen readers */
+  searchButtonLabel: string;
   /**
    * 'default' | 'error' | 'success'
    * @default default
@@ -61,8 +58,6 @@ export interface SearchInputProps
   name?: string;
   /** Set components width to 100% */
   fullWidth?: boolean;
-  /** Callback for click event */
-  onClick?: () => void;
   /** Callback for input text change */
   onChange?: (value: StateValue) => void;
   /** Callback for onBlur event */
@@ -114,10 +109,8 @@ class BaseSearchInput extends Component<SearchInputProps> {
       className,
       labelText,
       labelMode,
-      labelProps,
-      labelTextProps,
-      clearText,
-      searchText,
+      clearButtonLabel,
+      searchButtonLabel: searchText,
       inputContainerProps,
       onChange: propOnChange,
       onSearch: propOnSearch,
@@ -154,16 +147,8 @@ class BaseSearchInput extends Component<SearchInputProps> {
           [searchInputClassNames.error]: status === 'error',
         })}
       >
-        <HtmlLabel
-          {...labelProps}
-          className={classnames(
-            searchInputClassNames.label,
-            labelProps?.className,
-          )}
-        >
-          <LabelText labelMode={labelMode} {...labelTextProps}>
-            {labelText}
-          </LabelText>
+        <HtmlLabel className={searchInputClassNames.label}>
+          <LabelText labelMode={labelMode}>{labelText}</LabelText>
           <HtmlDiv className={searchInputClassNames.statusTextContainer}>
             <HtmlDiv className={searchInputClassNames.inputElementContainer}>
               <HtmlDiv className={searchInputClassNames.inputFocusWrapper}>
@@ -179,7 +164,6 @@ class BaseSearchInput extends Component<SearchInputProps> {
                   placeholder={visualPlaceholder}
                   {...{ 'aria-invalid': status === 'error' }}
                 />
-                {children}
               </HtmlDiv>
               {!!this.state.value && (
                 <HtmlDiv
@@ -192,7 +176,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
                   tabIndex={0}
                 >
                   <Icon
-                    ariaLabel={clearText}
+                    ariaLabel={clearButtonLabel}
                     icon="close"
                     className={searchInputClassNames.clearIcon}
                   />
