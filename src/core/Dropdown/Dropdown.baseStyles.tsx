@@ -74,6 +74,19 @@ export const listboxPopoverStyles = withSuomifiTheme(
     overflow-wrap: break-word;
   }
 
+  & [data-reach-listbox-option][data-current].fi-dropdown_item {
+    ${theme.typography.actionElementInnerTextBold}
+      color: ${theme.colors.blackBase};
+      background-image: none;
+      background-color: ${theme.colors.highlightLight3};
+      border: 0;
+
+      &.fi-dropdown_actionMenuItem{
+      background-color: ${theme.colors.whiteBase};
+      ${theme.typography.actionElementInnerText}
+    }
+  }
+
   & [data-reach-listbox-option].fi-dropdown_item {
     ${element({ theme })}
     ${theme.typography.actionElementInnerText}
@@ -81,7 +94,6 @@ export const listboxPopoverStyles = withSuomifiTheme(
     padding: ${theme.spacing.insetM};
     border: 0;
     &[aria-selected='true'] {
-      ${theme.typography.actionElementInnerText}
       color: ${theme.colors.blackBase};
       background-image: none;
       background-color: ${theme.colors.highlightLight3};
