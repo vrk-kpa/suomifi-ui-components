@@ -25,7 +25,7 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.c4 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -48,7 +48,7 @@ exports[`calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
-.c4::-webkit-input-placeholder {
+.c6::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
@@ -73,7 +73,7 @@ exports[`calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
-.c3 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -98,6 +98,46 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  color: hsl(0,0%,16%);
+}
+
+.c3.fi-label-text .fi-label-text_label-p {
+  margin-bottom: 10px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
+}
+
+.c7 {
   display: inline-block;
   vertical-align: baseline;
 }
@@ -418,24 +458,6 @@ exports[`calling render with the same component on the same container does not r
   font-style: italic;
 }
 
-.c1 .fi-search-input_label-p {
-  margin-bottom: 10px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-}
-
 .c1 .fi-search-input_statusText_container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -465,14 +487,9 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 400;
 }
 
-.c1 .fi-search-input_button-clear {
+.c1 .fi-search-input_button {
   position: absolute;
   top: 0px;
-  right: 40px;
-  height: 20px;
-  width: 20px;
-  border: 0;
-  margin: 10px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -485,6 +502,14 @@ exports[`calling render with the same component on the same container does not r
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c1 .fi-search-input_button-clear {
+  right: 40px;
+  height: 20px;
+  width: 20px;
+  border: 0;
+  margin: 10px;
   fill: hsl(202,7%,40%);
 }
 
@@ -524,22 +549,8 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c1 .fi-search-input_button-search {
-  position: absolute;
-  top: 0px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  min-height: 40px;
   right: 0px;
+  height: 40px;
   width: 40px;
   border-radius: 0 1px 1px 0;
 }
@@ -610,11 +621,15 @@ exports[`calling render with the same component on the same container does not r
   <label
     class="c2 fi-search-input_label"
   >
-    <p
-      class="c3 fi-paragraph fi-search-input_label-p"
+    <div
+      class="c0 c3 fi-label-text"
     >
-      Test search input
-    </p>
+      <p
+        class="c4 fi-paragraph c5 fi-label-text_label-p"
+      >
+        Test search input
+      </p>
+    </div>
     <div
       class="c0 fi-search-input_statusText_container"
     >
@@ -626,7 +641,7 @@ exports[`calling render with the same component on the same container does not r
         >
           <input
             aria-invalid="false"
-            class="c4 fi-search-input_input"
+            class="c6 fi-search-input_input"
             data-testid="textinput"
             id="test-id"
             type="text"
@@ -634,12 +649,12 @@ exports[`calling render with the same component on the same container does not r
           />
         </div>
         <div
-          class="c0 fi-search-input_button-search"
+          class="c0 fi-search-input_button fi-search-input_button-search"
           role="button"
         >
           <svg
             aria-label="Search"
-            class="fi-icon c5 fi-search-input_button-search-icon"
+            class="fi-icon c7 fi-search-input_button-search-icon"
             fill="currentColor"
             height="1em"
             role="img"
