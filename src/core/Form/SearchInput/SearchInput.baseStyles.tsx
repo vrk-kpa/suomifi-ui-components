@@ -10,7 +10,7 @@ export const baseStyles = withSuomifiTheme(
     &.fi-search-input {
       ${font({ theme })('bodyText')}
       display: inline-block;
-      width: '290px'
+      width: 290px;
     }
 
     & .fi-search-input {

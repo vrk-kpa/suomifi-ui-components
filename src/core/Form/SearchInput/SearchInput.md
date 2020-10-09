@@ -6,21 +6,22 @@ const [value, setValue] = useState('test');
 
 <>
   <SearchInput
-    onBlur={(event) => console.log(event.target.value)}
+    fullWidth
+    onChange={(value) => console.log(value)}
     labelText="Search..."
     labelMode="hidden"
     visualPlaceholder="Search..."
   />
 
   <SearchInput
-    onChange={(value) => console.log(value)}
+    inputContainerProps={{ style: { width: '400px' } }}
+    onSearch={(value) => console.log(value)}
     labelText="Search the site"
     labelMode="visible"
     visualPlaceholder="Search..."
   />
 
   <SearchInput
-    onSearch={(value) => console.log(value)}
     onChange={(value) => setValue(value)}
     value={value}
     labelText="Search the site"

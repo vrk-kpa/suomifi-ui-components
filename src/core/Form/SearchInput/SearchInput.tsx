@@ -148,7 +148,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
       ...(!!this.state.value
         ? {
             tabIndex: 0,
-            onClick: () => onSearch,
+            onClick: () => onSearch(),
           }
         : {}),
     };
