@@ -71,15 +71,14 @@ const searchInputClassNames = {
   label: `${baseClassName}_label`,
   inputElement: `${baseClassName}_input`,
   inputElementContainer: `${baseClassName}_input-element-container`,
-  inputFocusWrapper: `${baseClassName}_input-focus-wrapper`,
-  statusTextContainer: `${baseClassName}_statusText_container`,
+  functionalityContainer: `${baseClassName}_functionality-container`,
   button: `${baseClassName}_button`,
   searchButton: `${baseClassName}_button-search`,
-  searchButtonEnabled: `${baseClassName}_button-search-enabled`,
   searchIcon: `${baseClassName}_button-search-icon`,
   clearButton: `${baseClassName}_button-clear`,
   clearIcon: `${baseClassName}_button-clear-icon`,
   error: `${baseClassName}--error`,
+  notEmpty: `${baseClassName}--not-empty`,
 };
 
 interface SearchInputState {
@@ -139,77 +138,74 @@ class BaseSearchInput extends Component<SearchInputProps> {
     };
 
     const generatedStatusTextId = `${idGenerator(propId)}-statusText`;
+    const searchButtonProps = {
+      role: 'button',
+      className: classnames(
+        searchInputClassNames.button,
+        searchInputClassNames.searchButton,
+      ),
+      ...(!!this.state.value
+        ? {
+            tabIndex: 0,
+            onClick: () => onSearch,
+          }
+        : {}),
+    };
+    const clearButtonProps = {
+      role: 'button',
+      tabIndex: 0,
+      onClick: () => conditionalSetState(''),
+      className: classnames(
+        searchInputClassNames.button,
+        searchInputClassNames.clearButton,
+      ),
+    };
 
     return (
       <HtmlDiv
         {...inputContainerProps}
         className={classnames(className, baseClassName, {
           [searchInputClassNames.error]: status === 'error',
+          [searchInputClassNames.notEmpty]: !!this.state.value,
         })}
       >
         <HtmlLabel className={searchInputClassNames.label}>
           <LabelText labelMode={labelMode}>{labelText}</LabelText>
-          <HtmlDiv className={searchInputClassNames.statusTextContainer}>
+          <HtmlDiv className={searchInputClassNames.functionalityContainer}>
             <HtmlDiv className={searchInputClassNames.inputElementContainer}>
-              <HtmlDiv className={searchInputClassNames.inputFocusWrapper}>
-                <HtmlInput
-                  {...passProps}
-                  type="text"
-                  value={this.state.value}
-                  onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                    conditionalSetState(event.currentTarget.value);
-                  }}
-                  id={propId}
-                  className={searchInputClassNames.inputElement}
-                  placeholder={visualPlaceholder}
-                  {...{ 'aria-invalid': status === 'error' }}
-                />
-              </HtmlDiv>
-              {!!this.state.value && (
-                <HtmlDiv
-                  onClick={() => conditionalSetState('')}
-                  className={classnames(
-                    searchInputClassNames.button,
-                    searchInputClassNames.clearButton,
-                  )}
-                  role="button"
-                  tabIndex={0}
-                >
-                  <Icon
-                    ariaLabel={clearButtonLabel}
-                    icon="close"
-                    className={searchInputClassNames.clearIcon}
-                  />
-                </HtmlDiv>
-              )}
-              <HtmlDiv
-                role="button"
-                {...(!!this.state.value
-                  ? {
-                      tabIndex: 0,
-                      onClick: onSearch,
-                    }
-                  : {})}
-                className={classnames(
-                  searchInputClassNames.button,
-                  searchInputClassNames.searchButton,
-                  {
-                    [searchInputClassNames.searchButtonEnabled]: !!this.state
-                      .value,
-                  },
-                )}
-              >
-                <Icon
-                  icon="search"
-                  ariaLabel={searchText}
-                  className={searchInputClassNames.searchIcon}
-                />
-              </HtmlDiv>
+              <HtmlInput
+                {...passProps}
+                type="text"
+                value={this.state.value}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                  conditionalSetState(event.currentTarget.value);
+                }}
+                id={propId}
+                className={searchInputClassNames.inputElement}
+                placeholder={visualPlaceholder}
+                {...{ 'aria-invalid': status === 'error' }}
+              />
             </HtmlDiv>
-            <StatusText id={generatedStatusTextId} status={status}>
-              {statusText}
-            </StatusText>
+            {!!this.state.value && (
+              <HtmlDiv {...clearButtonProps}>
+                <Icon
+                  ariaLabel={clearButtonLabel}
+                  icon="close"
+                  className={searchInputClassNames.clearIcon}
+                />
+              </HtmlDiv>
+            )}
+            <HtmlDiv {...searchButtonProps}>
+              <Icon
+                icon="search"
+                ariaLabel={searchText}
+                className={searchInputClassNames.searchIcon}
+              />
+            </HtmlDiv>
           </HtmlDiv>
+          <StatusText id={generatedStatusTextId} status={status}>
+            {statusText}
+          </StatusText>
         </HtmlLabel>
       </HtmlDiv>
     );

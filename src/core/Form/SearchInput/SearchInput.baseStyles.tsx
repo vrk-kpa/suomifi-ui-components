@@ -22,19 +22,25 @@ export const baseStyles = withSuomifiTheme(
     }
 
     & .fi-search-input {
-      &_input-element-container {
-        position: relative;
-        min-height: 40px;
-        border: 1px solid ${theme.colors.depthLight1};
-        border-radius: ${theme.radius.basic};
-        :focus-within {
-          box-shadow: ${theme.shadows.actionElementBoxShadow};
-        }
+      &_label {
+        display: flex;
+        flex-direction: column;
       }
 
-      &_input-focus-wrapper {
-        width: calc(100% - 80px);
+      &_functionality-container {
+        position: relative;
+      }
+
+      &_input-element-container {
         ${inputContainer({ theme })}
+        &:focus-within {
+          box-shadow: ${theme.shadows.actionElementBoxShadow};
+        }
+        width: 100%;
+        height: 40px;
+        box-sizing: border-box;
+        border: 1px solid ${theme.colors.depthLight1};
+        border-radius: ${theme.radius.basic};
       }
 
       &_input {
@@ -42,47 +48,33 @@ export const baseStyles = withSuomifiTheme(
         padding-top: ${theme.spacing.insetS};
         padding-bottom: ${theme.spacing.insetS};
         width: 100%;
-        border: 0;
-        background-color: ${theme.colors.whiteBase};
-        min-height: 36px;
-        margin-top: 2px;
-        margin-bottom: 2px;
         min-width: 65px;
+        border: 0;
+        min-height: 36px;
+        margin-top: 1px;
+        margin-bottom: 1px;
         ::placeholder {
           font-style: italic;
         }
       }
 
-      &_statusText_container {
-        display: flex;
-        flex-direction: column;
-      }
-
-      &_hintText {
-        display: block;
-        color: ${theme.colors.blackBase};
-        margin-bottom: ${theme.spacing.xs};
-        ${font({ theme })('bodyTextSmall')};
-      }
-
       &_button {
         position: absolute;
-        top: 0px;
+        top: 0;
         display: flex;
         justify-content: center;
         align-items: center;
+        box-sizing: border-box;
+        ${focus({ theme })}
+        &:focus {
+          position: absolute;
+        }
 
         &-clear {
-          ${focus({ theme })}
-          &:focus {
-            position: absolute;
-          }
           right: 40px;
           height: 20px;
-          width: 20px;
-          border: 0;
+          min-width: 20px;
           margin: 10px;
-          
           fill: ${theme.colors.depthDark1};
           &-icon {
             width: 12px;
@@ -95,29 +87,12 @@ export const baseStyles = withSuomifiTheme(
           right: 0px;
           height: 40px;
           width: 40px;
-          border-radius: 0 1px 1px 0;
+          border-radius: 0 ${theme.radius.basic} ${theme.radius.basic} 0;
+          border: 0;
           &-icon {
             width: 18px;
             height: 18px;
             fill: ${theme.colors.depthDark1};
-          }
-
-          &-enabled {
-            background: ${theme.gradients.highlightBaseToHighlightDark1};
-            ${focus({ theme })}
-            &:focus {
-              position: absolute;
-            }
-            &:hover {
-              background: ${theme.gradients.highlightLight1ToHighlightBase};
-            }
-          
-            &:active {
-              background-color: ${theme.colors.highlightDark1};
-            }
-            & .fi-search-input_button-search-icon {
-              fill: ${theme.colors.whiteBase};
-            }
           }
         }
       }
@@ -125,13 +100,32 @@ export const baseStyles = withSuomifiTheme(
 
     &.fi-search-input--error {
       & .fi-search-input_input-element-container {
-        border-color: ${theme.colors.alertBase};
+        border: 1px solid ${theme.colors.alertBase};
+        border-right: 0;
+      }
+      & .fi-search-input_button-search {
+        border: 1px solid ${theme.colors.alertBase};
+        border-left: 0;
       }
     }
-    &.fi-search-input--disabled {
-      & .fi-search-input_input {
-        color: ${theme.colors.depthBase};
-        background-color: ${theme.colors.depthLight3};
+
+    &.fi-search-input--not-empty {
+      & .fi-search-input_input-element-container {
+        width: calc(100% - 40px);
+        border-radius: ${theme.radius.basic} 0 0 ${theme.radius.basic};
+      }
+  
+      & .fi-search-input_button-search {
+        background: ${theme.gradients.highlightBaseToHighlightDark1};
+        &:hover {
+          background: ${theme.gradients.highlightLight1ToHighlightBase};
+        }
+        &:active {
+          background-color: ${theme.colors.highlightDark1};
+        }
+        & .fi-search-input_button-search-icon {
+          fill: ${theme.colors.whiteBase};
+        }
       }
     }
   `,
