@@ -60,7 +60,7 @@ exports[`calling render with the same component on the same container does not r
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
 }
 
-.c1:focus:not(:focus-visible) {
+.c1:focus:not(:focus-within) {
   box-shadow: none;
 }
 

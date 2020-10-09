@@ -154,7 +154,7 @@ exports[`children should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before:not(:focus-visible) {
+.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before:not(:focus-within) {
   box-shadow: none;
 }
 
@@ -405,7 +405,7 @@ exports[`className should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before:not(:focus-visible) {
+.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before:not(:focus-within) {
   box-shadow: none;
 }
 
@@ -656,7 +656,7 @@ exports[`disabled should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before:not(:focus-visible) {
+.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before:not(:focus-within) {
   box-shadow: none;
 }
 
@@ -932,7 +932,7 @@ exports[`hintText should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before:not(:focus-visible) {
+.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before:not(:focus-within) {
   box-shadow: none;
 }
 
@@ -1190,7 +1190,7 @@ exports[`id should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before:not(:focus-visible) {
+.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before:not(:focus-within) {
   box-shadow: none;
 }
 
@@ -1441,7 +1441,7 @@ exports[`name should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before:not(:focus-visible) {
+.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before:not(:focus-within) {
   box-shadow: none;
 }
 
@@ -1693,7 +1693,7 @@ exports[`value should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before:not(:focus-visible) {
+.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before:not(:focus-within) {
   box-shadow: none;
 }
 
@@ -1944,7 +1944,7 @@ exports[`variant should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before:not(:focus-visible) {
+.c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before:not(:focus-within) {
   box-shadow: none;
 }
 

@@ -60,7 +60,7 @@ exports[`calling render with the same component on the same container does not r
   z-index: 9999;
 }
 
-.c1 > [data-reach-menu-button].fi-language-menu_button:focus:not(:focus-visible):after {
+.c1 > [data-reach-menu-button].fi-language-menu_button:focus:not(:focus-within):after {
   content: none;
 }
 

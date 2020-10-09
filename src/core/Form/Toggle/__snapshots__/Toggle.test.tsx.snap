@@ -234,7 +234,7 @@ exports[`Toggle variant default:  calling render with the same component on the 
   z-index: 9999;
 }
 
-.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:not(:focus-visible):after {
+.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:not(:focus-within):after {
   content: none;
 }
 
@@ -278,7 +278,7 @@ exports[`Toggle variant default:  calling render with the same component on the 
   z-index: 9999;
 }
 
-.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:not(:focus-visible):after {
+.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:not(:focus-within):after {
   content: none;
 }
 
@@ -776,7 +776,7 @@ exports[`Toggle variant withInput:  calling render with the same component on th
   z-index: 9999;
 }
 
-.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:not(:focus-visible):after {
+.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:not(:focus-within):after {
   content: none;
 }
 
@@ -820,7 +820,7 @@ exports[`Toggle variant withInput:  calling render with the same component on th
   z-index: 9999;
 }
 
-.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:not(:focus-visible):after {
+.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:not(:focus-within):after {
   content: none;
 }
 

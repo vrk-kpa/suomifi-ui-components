@@ -128,7 +128,7 @@ exports[`props children has matching snapshot 1`] = `
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
 }
 
-.c1:focus-within .fi-checkbox_label::before:not(:focus-visible) {
+.c1:focus-within .fi-checkbox_label::before:not(:focus-within) {
   box-shadow: none;
 }
 
