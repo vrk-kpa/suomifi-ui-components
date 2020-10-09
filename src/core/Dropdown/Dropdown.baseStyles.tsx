@@ -45,63 +45,62 @@ export const baseStyles = withSuomifiTheme(
 
 export const listboxPopoverStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
-  &[data-reach-listbox-popover].fi-dropdown_popover {
-    ${element({ theme })}
-    ${theme.typography.actionElementInnerText}
-    margin-top: -1px;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 100%;
-    border: 0;
-    background-color: ${theme.colors.whiteBase};
-    border-color: ${theme.colors.depthLight1};
-    border-style: solid;
-    border-width: 0 1px 1px 1px;
-    border-radius: 0px 0px ${theme.radius.basic} ${theme.radius.basic};
-    overflow: hidden;
-    &:focus-within {
-      outline: 0;
-      box-shadow: none;
-    }
-  }
-  
-  & [data-reach-listbox-list] {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    white-space: normal;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-
-  & [data-reach-listbox-option][data-current].fi-dropdown_item {
-    ${theme.typography.actionElementInnerTextBold}
-      color: ${theme.colors.blackBase};
-      background-image: none;
-      background-color: ${theme.colors.highlightLight3};
-      border: 0;
-
-      &.fi-dropdown_actionMenuItem{
-      background-color: ${theme.colors.whiteBase};
+    &[data-reach-listbox-popover].fi-dropdown_popover {
+      ${element({ theme })}
       ${theme.typography.actionElementInnerText}
+      margin-top: -1px;
+      padding: 0;
+      box-sizing: border-box;
+      font-size: 100%;
+      border: 0;
+      background-color: ${theme.colors.whiteBase};
+      border-color: ${theme.colors.depthLight1};
+      border-style: solid;
+      border-width: 0 1px 1px 1px;
+      border-radius: 0px 0px ${theme.radius.basic} ${theme.radius.basic};
+      overflow: hidden;
+      &:focus-within {
+        outline: 0;
+        box-shadow: none;
+      }
     }
-  }
 
-  & [data-reach-listbox-option].fi-dropdown_item {
-    ${element({ theme })}
-    ${theme.typography.actionElementInnerText}
-    line-height: 1.5;
-    padding: ${theme.spacing.insetM};
-    border: 0;
-    &[aria-selected='true'] {
-      color: ${theme.colors.blackBase};
+    & [data-reach-listbox-list] {
+      border: 0;
+      padding: 0;
+      margin: 0;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    & [data-reach-listbox-option][data-current].fi-dropdown_item {
+      ${theme.typography.actionElementInnerTextBold}
       background-image: none;
       background-color: ${theme.colors.highlightLight3};
       border: 0;
+
+      &.fi-dropdown_actionMenuItem {
+        background-color: ${theme.colors.whiteBase};
+        ${theme.typography.actionElementInnerText}
+      }
     }
-    &:focus {
-      outline: 0;
+
+    & [data-reach-listbox-option].fi-dropdown_item {
+      ${element({ theme })}
+      ${theme.typography.actionElementInnerText}
+      line-height: 1.5;
+      padding: ${theme.spacing.insetM};
+      border: 0;
+      &[aria-selected='true'] {
+        color: ${theme.colors.blackBase};
+        background-image: none;
+        background-color: ${theme.colors.highlightLight3};
+        border: 0;
+      }
+      &:focus {
+        outline: 0;
+      }
     }
-  }
-`,
+  `,
 );
