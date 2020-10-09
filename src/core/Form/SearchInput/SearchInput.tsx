@@ -68,6 +68,9 @@ export interface SearchInputProps
 
 const baseClassName = 'fi-search-input';
 const searchInputClassNames = {
+  fullWidth: `${baseClassName}--full-width`,
+  error: `${baseClassName}--error`,
+  notEmpty: `${baseClassName}--not-empty`,
   label: `${baseClassName}_label`,
   inputElement: `${baseClassName}_input`,
   inputElementContainer: `${baseClassName}_input-element-container`,
@@ -77,8 +80,6 @@ const searchInputClassNames = {
   searchIcon: `${baseClassName}_button-search-icon`,
   clearButton: `${baseClassName}_button-clear`,
   clearIcon: `${baseClassName}_button-clear-icon`,
-  error: `${baseClassName}--error`,
-  notEmpty: `${baseClassName}--not-empty`,
 };
 
 interface SearchInputState {
@@ -167,6 +168,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
         className={classnames(className, baseClassName, {
           [searchInputClassNames.error]: status === 'error',
           [searchInputClassNames.notEmpty]: !!this.state.value,
+          [searchInputClassNames.fullWidth]: fullWidth,
         })}
       >
         <HtmlLabel className={searchInputClassNames.label}>

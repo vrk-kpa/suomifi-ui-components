@@ -6,19 +6,11 @@ import { input, inputContainer, font, focus } from '../../theme/reset';
 export const baseStyles = withSuomifiTheme(
   ({
     theme,
-    inputContainerProps,
-    fullWidth,
   }: TokensAndTheme & Omit<TextInputProps, 'labelText' | 'status'>) => css`
     &.fi-search-input {
       ${font({ theme })('bodyText')}
       display: inline-block;
-      width: ${
-        fullWidth
-          ? '100%'
-          : inputContainerProps?.style?.width
-          ? inputContainerProps?.style?.width
-          : inputContainerProps?.width || '290px'
-      };
+      width: '290px'
     }
 
     & .fi-search-input {
@@ -96,6 +88,10 @@ export const baseStyles = withSuomifiTheme(
           }
         }
       }
+    }
+
+    &.fi-search-input--full-width {
+      width: 100%;
     }
 
     &.fi-search-input--error {
