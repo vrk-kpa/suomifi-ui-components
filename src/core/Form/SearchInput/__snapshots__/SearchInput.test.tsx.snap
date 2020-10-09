@@ -543,6 +543,10 @@ exports[`calling render with the same component on the same container does not r
   fill: hsl(202,7%,40%);
 }
 
+.c1.fi-search-input--full-width {
+  width: 100%;
+}
+
 .c1.fi-search-input--error .fi-search-input_input-element-container {
   border: 1px solid hsl(3,59%,48%);
   border-right: 0;
