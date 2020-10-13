@@ -2,34 +2,45 @@
 import { useState } from 'react';
 import { SearchInput } from 'suomifi-ui-components';
 
-const [value, setValue] = useState('test');
+const [value, setValue] = useState('About');
+
+const sharedProps = {
+  labelText: 'Search the site',
+  searchText: 'Search',
+  clearText: 'Clear',
+  visualPlaceholder: 'Search...'
+};
 
 <>
   <SearchInput
+    {...sharedProps}
     fullWidth
-    onChange={(value) => console.log(value)}
-    labelText="Search..."
-    labelMode="hidden"
-    visualPlaceholder="Search..."
-  />
-
-  <SearchInput
-    inputContainerProps={{ style: { width: '400px' } }}
     onSearch={(value) => console.log(value)}
-    labelText="Search the site"
-    labelMode="visible"
-    visualPlaceholder="Search..."
+    defaultValue="About"
   />
 
   <SearchInput
+    {...sharedProps}
+    inputContainerProps={{ style: { width: '400px' } }}
+    onChange={(value) => console.log(value)}
+    labelMode="hidden"
+  />
+
+  <SearchInput
+    {...sharedProps}
     onChange={(value) => setValue(value)}
     value={value}
-    labelText="Search the site"
-    labelMode="visible"
-    defaultValue="Te"
-    visualPlaceholder="Search..."
     status="error"
     statusText="At least 3 characters are required to search"
   />
+
+  <form action="https://www.suomi.fi/haku?">
+    <SearchInput
+      {...sharedProps}
+      labelText="Search Suomi.fi site"
+      name="q"
+      searchButtonProps={{ type: 'submit' }}
+    />
+  </form>
 </>;
 ```

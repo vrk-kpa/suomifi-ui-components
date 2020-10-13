@@ -57,10 +57,8 @@ export const baseStyles = withSuomifiTheme(
         justify-content: center;
         align-items: center;
         box-sizing: border-box;
-        ${focus({ theme })}
-        &:focus {
-          position: absolute;
-        }
+        outline: none;
+        box-shadow: none;
 
         &-clear {
           right: 40px;
@@ -111,6 +109,13 @@ export const baseStyles = withSuomifiTheme(
         border-radius: ${theme.radius.basic} 0 0 ${theme.radius.basic};
       }
   
+      & .fi-search-input_button {
+        ${focus({ theme })}
+        &:focus {
+          position: absolute;
+        }
+      }
+
       & .fi-search-input_button-search {
         background: ${theme.gradients.highlightBaseToHighlightDark1};
         &:hover {

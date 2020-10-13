@@ -7,6 +7,8 @@ import {
   HtmlInputProps,
   HtmlDiv,
   HtmlDivProps,
+  HtmlButton,
+  HtmlButtonProps,
 } from '../../../reset';
 import { StatusText } from '../StatusText/StatusText';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
@@ -47,8 +49,10 @@ export interface SearchInputProps
   clearButtonLabel: string;
   /** Search button label for screen readers */
   searchButtonLabel: string;
+  /** SearchButtonProps */
+  searchButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'role' | 'tabIndex'>;
   /**
-   * 'default' | 'error' | 'success'
+   * 'default' | 'error'
    * @default default
    */
   status?: SearchInputStatus;
@@ -110,7 +114,8 @@ class BaseSearchInput extends Component<SearchInputProps> {
       labelText,
       labelMode,
       clearButtonLabel,
-      searchButtonLabel: searchText,
+      searchButtonLabel,
+      searchButtonProps,
       inputContainerProps,
       onChange: propOnChange,
       onSearch: propOnSearch,
@@ -139,18 +144,19 @@ class BaseSearchInput extends Component<SearchInputProps> {
     };
 
     const generatedStatusTextId = `${idGenerator(propId)}-statusText`;
-    const searchButtonProps = {
+    const searchButtonDerivedProps = {
+      ...searchButtonProps,
       role: 'button',
       className: classnames(
+        searchButtonProps?.className,
         searchInputClassNames.button,
         searchInputClassNames.searchButton,
       ),
       ...(!!this.state.value
         ? {
-            tabIndex: 0,
             onClick: () => onSearch(),
           }
-        : {}),
+        : { tabIndex: -1 }),
     };
     const clearButtonProps = {
       role: 'button',
@@ -182,6 +188,11 @@ class BaseSearchInput extends Component<SearchInputProps> {
                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
                   conditionalSetState(event.currentTarget.value);
                 }}
+                onKeyPress={(event: React.KeyboardEvent<HTMLInputElement>) => {
+                  if (event?.key === 'Enter') {
+                    onSearch();
+                  }
+                }}
                 id={propId}
                 className={searchInputClassNames.inputElement}
                 placeholder={visualPlaceholder}
@@ -189,21 +200,21 @@ class BaseSearchInput extends Component<SearchInputProps> {
               />
             </HtmlDiv>
             {!!this.state.value && (
-              <HtmlDiv {...clearButtonProps}>
+              <HtmlButton {...clearButtonProps}>
                 <Icon
                   ariaLabel={clearButtonLabel}
                   icon="close"
                   className={searchInputClassNames.clearIcon}
                 />
-              </HtmlDiv>
+              </HtmlButton>
             )}
-            <HtmlDiv {...searchButtonProps}>
+            <HtmlButton {...searchButtonDerivedProps}>
               <Icon
                 icon="search"
-                ariaLabel={searchText}
+                ariaLabel={searchButtonLabel}
                 className={searchInputClassNames.searchIcon}
               />
-            </HtmlDiv>
+            </HtmlButton>
           </HtmlDiv>
           <StatusText id={generatedStatusTextId} status={status}>
             {statusText}
