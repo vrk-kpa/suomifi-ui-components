@@ -1,12 +1,16 @@
 import { css } from 'styled-components';
-import { TextInputProps } from '../TextInput/TextInput';
+import { SearchInputProps } from './SearchInput';
 import { withSuomifiTheme, TokensAndTheme } from '../../theme';
 import { input, inputContainer, font, focus } from '../../theme/reset';
 
 export const baseStyles = withSuomifiTheme(
   ({
     theme,
-  }: TokensAndTheme & Omit<TextInputProps, 'labelText' | 'status'>) => css`
+  }: TokensAndTheme &
+    Omit<
+      SearchInputProps,
+      'labelText' | 'clearButtonLabel' | 'searchButtonLabel'
+    >) => css`
     &.fi-search-input {
       ${font({ theme })('bodyText')}
       display: inline-block;

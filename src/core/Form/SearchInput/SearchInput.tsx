@@ -15,7 +15,6 @@ import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { baseStyles } from './SearchInput.baseStyles';
-import { baseStyles as inputBaseStyles } from '../TextInput/TextInput.baseStyles';
 import { Icon } from '../../Icon/Icon';
 import classnames from 'classnames';
 import { Omit } from '../../../utils/typescript';
@@ -229,7 +228,6 @@ const StyledTextInput = styled(
     return <BaseSearchInput {...passProps} />;
   },
 )`
-  ${(props) => inputBaseStyles(props)}
   ${(props) => baseStyles(props)}
 `;
 
