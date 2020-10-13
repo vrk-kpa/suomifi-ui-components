@@ -1,6 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
+.c7 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.c7:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.c7::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.c7::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.c7::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.c7::-webkit-outer-spin-button {
+  height: auto;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -137,7 +185,7 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(0,0%,16%);
 }
 
-.c7 {
+.c8 {
   display: inline-block;
   vertical-align: baseline;
 }
@@ -484,35 +532,8 @@ exports[`calling render with the same component on the same container does not r
   -ms-flex-align: center;
   align-items: center;
   box-sizing: border-box;
-}
-
-.c1 .fi-search-input_button:focus {
-  outline: 0;
-  position: relative;
-}
-
-.c1 .fi-search-input_button:focus:after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
-  z-index: 9999;
-}
-
-.c1 .fi-search-input_button:focus:not(:focus-within):after {
-  content: none;
-}
-
-.c1 .fi-search-input_button:focus {
-  position: absolute;
+  outline: none;
+  box-shadow: none;
 }
 
 .c1 .fi-search-input_button-clear {
@@ -562,6 +583,35 @@ exports[`calling render with the same component on the same container does not r
   border-radius: 2px 0 0 2px;
 }
 
+.c1.fi-search-input--not-empty .fi-search-input_button:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1.fi-search-input--not-empty .fi-search-input_button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  z-index: 9999;
+}
+
+.c1.fi-search-input--not-empty .fi-search-input_button:focus:not(:focus-within):after {
+  content: none;
+}
+
+.c1.fi-search-input--not-empty .fi-search-input_button:focus {
+  position: absolute;
+}
+
 .c1.fi-search-input--not-empty .fi-search-input_button-search {
   background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
 }
@@ -604,17 +654,19 @@ exports[`calling render with the same component on the same container does not r
           class="c6 fi-search-input_input"
           data-testid="textinput"
           id="test-id"
+          role="searchbox"
           type="text"
           value=""
         />
       </div>
-      <div
-        class="c0 fi-search-input_button fi-search-input_button-search"
-        role="button"
+      <button
+        class="c7 fi-search-input_button fi-search-input_button-search"
+        tabindex="-1"
+        type="button"
       >
         <svg
           aria-label="Search"
-          class="fi-icon c7 fi-search-input_button-search-icon"
+          class="fi-icon c8 fi-search-input_button-search-icon"
           fill="currentColor"
           height="1em"
           role="img"
@@ -625,7 +677,7 @@ exports[`calling render with the same component on the same container does not r
             d="M9 2C5.14 2 2 5.141 2 9.001 2 12.86 5.14 16 9 16s7-3.14 7-6.999C16 5.141 12.86 2 9 2m7.029 12.615l7.678 7.678a.999.999 0 11-1.414 1.414l-7.678-7.678A8.957 8.957 0 019 18c-4.962 0-9-4.037-9-8.999C0 4.038 4.038 0 9 0s9 4.038 9 9.001a8.955 8.955 0 01-1.971 5.614z"
           />
         </svg>
-      </div>
+      </button>
     </div>
   </label>
 </div>

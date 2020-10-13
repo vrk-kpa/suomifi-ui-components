@@ -50,7 +50,7 @@ export interface SearchInputProps
   /** Search button label for screen readers */
   searchButtonLabel: string;
   /** SearchButtonProps */
-  searchButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'role' | 'tabIndex'>;
+  searchButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'tabIndex'>;
   /**
    * 'default' | 'error'
    * @default default
@@ -146,7 +146,6 @@ class BaseSearchInput extends Component<SearchInputProps> {
     const generatedStatusTextId = `${idGenerator(propId)}-statusText`;
     const searchButtonDerivedProps = {
       ...searchButtonProps,
-      role: 'button',
       className: classnames(
         searchButtonProps?.className,
         searchInputClassNames.button,
@@ -159,7 +158,6 @@ class BaseSearchInput extends Component<SearchInputProps> {
         : { tabIndex: -1 }),
     };
     const clearButtonProps = {
-      role: 'button',
       tabIndex: 0,
       onClick: () => conditionalSetState(''),
       className: classnames(
@@ -184,6 +182,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
               <HtmlInput
                 {...passProps}
                 type="text"
+                role="searchbox"
                 value={this.state.value}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
                   conditionalSetState(event.currentTarget.value);
