@@ -162,6 +162,17 @@ exports[`Basic dropdown should match snapshot 1`] = `
   border-width: 0 4px 6px 4px;
 }
 
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled {
+  background-color: hsl(202,7%,97%);
+  color: hsl(202,7%,67%);
+  opacity: 1;
+  cursor: 'not-allowed';
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
+  border-color: hsl(202,7%,67%) transparent transparent transparent;
+}
+
 <div>
   <span
     class="c0 c1 dropdown-test fi-dropdown"
@@ -368,6 +379,17 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 .c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
   border-color: transparent transparent hsl(202,7%,40%) transparent;
   border-width: 0 4px 6px 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled {
+  background-color: hsl(202,7%,97%);
+  color: hsl(202,7%,67%);
+  opacity: 1;
+  cursor: 'not-allowed';
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
+  border-color: hsl(202,7%,67%) transparent transparent transparent;
 }
 
 <div>
@@ -579,6 +601,17 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   border-width: 0 4px 6px 4px;
 }
 
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled {
+  background-color: hsl(202,7%,97%);
+  color: hsl(202,7%,67%);
+  opacity: 1;
+  cursor: 'not-allowed';
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
+  border-color: hsl(202,7%,67%) transparent transparent transparent;
+}
+
 <div>
   <span
     class="c0 c1 dropdown-test fi-dropdown"
@@ -787,6 +820,17 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   border-width: 0 4px 6px 4px;
 }
 
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled {
+  background-color: hsl(202,7%,97%);
+  color: hsl(202,7%,67%);
+  opacity: 1;
+  cursor: 'not-allowed';
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
+  border-color: hsl(202,7%,67%) transparent transparent transparent;
+}
+
 <div>
   <span
     class="c0 c1 dropdown-test fi-dropdown"
@@ -981,6 +1025,17 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 .c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
   border-color: transparent transparent hsl(202,7%,40%) transparent;
   border-width: 0 4px 6px 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled {
+  background-color: hsl(202,7%,97%);
+  color: hsl(202,7%,67%);
+  opacity: 1;
+  cursor: 'not-allowed';
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
+  border-color: hsl(202,7%,67%) transparent transparent transparent;
 }
 
 <div>
