@@ -21,7 +21,7 @@ const sharedProps = {
 
   <SearchInput
     {...sharedProps}
-    inputContainerProps={{ style: { width: '400px' } }}
+    inputContainerProps={{ style: { width: '250px' } }}
     onChange={(value) => console.log(value)}
     labelMode="hidden"
   />
