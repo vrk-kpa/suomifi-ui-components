@@ -1,8 +1,7 @@
 import React, { ChangeEvent, Component, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
+import classnames from 'classnames';
 import {
-  HtmlLabel,
-  HtmlLabelProps,
   HtmlInput,
   HtmlInputProps,
   HtmlDiv,
@@ -10,17 +9,15 @@ import {
   HtmlButton,
   HtmlButtonProps,
 } from '../../../reset';
-import { StatusText } from '../StatusText/StatusText';
-import { LabelText, LabelMode } from '../LabelText/LabelText';
-import { TokensProp, InternalTokensProp } from '../../theme';
-import { withSuomifiDefaultProps } from '../../theme/utils';
-import { baseStyles } from './SearchInput.baseStyles';
-import { Icon } from '../../Icon/Icon';
-import classnames from 'classnames';
 import { Omit } from '../../../utils/typescript';
 import { idGenerator } from '../../../utils/uuid';
-
-export interface TextInputLabelProps extends HtmlLabelProps {}
+import { TokensProp, InternalTokensProp } from '../../theme';
+import { withSuomifiDefaultProps } from '../../theme/utils';
+import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
+import { StatusText } from '../StatusText/StatusText';
+import { LabelText, LabelMode } from '../LabelText/LabelText';
+import { Icon } from '../../Icon/Icon';
+import { baseStyles } from './SearchInput.baseStyles';
 
 type StateValue = string | number | string[] | undefined;
 
@@ -74,7 +71,6 @@ const searchInputClassNames = {
   fullWidth: `${baseClassName}--full-width`,
   error: `${baseClassName}--error`,
   notEmpty: `${baseClassName}--not-empty`,
-  label: `${baseClassName}_label`,
   inputElement: `${baseClassName}_input`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   functionalityContainer: `${baseClassName}_functionality-container`,
@@ -122,7 +118,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
       status,
       statusText,
       visualPlaceholder,
-      id: propId,
+      id,
       fullWidth,
       ...passProps
     } = this.props;
@@ -142,7 +138,9 @@ class BaseSearchInput extends Component<SearchInputProps> {
       }
     };
 
-    const generatedStatusTextId = `${idGenerator(propId)}-statusText`;
+    const generatedStatusTextId = `${idGenerator(id)}-statusText`;
+    const generatedLabelTextId = `${idGenerator(id)}-labelText`;
+
     const searchButtonDerivedProps = {
       ...searchButtonProps,
       className: classnames(
@@ -154,7 +152,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
         ? {
             onClick: () => onSearch(),
           }
-        : { tabIndex: -1 }),
+        : { tabIndex: -1, 'aria-hidden': true }),
     };
     const clearButtonProps = {
       tabIndex: 0,
@@ -174,50 +172,54 @@ class BaseSearchInput extends Component<SearchInputProps> {
           [searchInputClassNames.fullWidth]: fullWidth,
         })}
       >
-        <HtmlLabel className={searchInputClassNames.label}>
-          <LabelText labelMode={labelMode}>{labelText}</LabelText>
-          <HtmlDiv className={searchInputClassNames.functionalityContainer}>
-            <HtmlDiv className={searchInputClassNames.inputElementContainer}>
-              <HtmlInput
-                {...passProps}
-                type="text"
-                role="searchbox"
-                value={this.state.value}
-                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                  conditionalSetState(event.currentTarget.value);
-                }}
-                onKeyPress={(event: React.KeyboardEvent<HTMLInputElement>) => {
-                  if (event?.key === 'Enter') {
-                    onSearch();
-                  }
-                }}
-                id={propId}
-                className={searchInputClassNames.inputElement}
-                placeholder={visualPlaceholder}
-                {...{ 'aria-invalid': status === 'error' }}
-              />
-            </HtmlDiv>
-            {!!this.state.value && (
-              <HtmlButton {...clearButtonProps}>
-                <Icon
-                  ariaLabel={clearButtonLabel}
-                  icon="close"
-                  className={searchInputClassNames.clearIcon}
-                />
-              </HtmlButton>
-            )}
-            <HtmlButton {...searchButtonDerivedProps}>
+        <LabelText labelMode={labelMode} id={generatedLabelTextId}>
+          {labelText}
+        </LabelText>
+        <HtmlDiv className={searchInputClassNames.functionalityContainer}>
+          <HtmlDiv className={searchInputClassNames.inputElementContainer}>
+            <HtmlInput
+              {...{ 'aria-labelledby': generatedLabelTextId }}
+              {...{ 'aria-describedby': generatedStatusTextId }}
+              {...passProps}
+              type="text"
+              role="searchbox"
+              value={this.state.value}
+              onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                conditionalSetState(event.currentTarget.value);
+              }}
+              onKeyPress={(event: React.KeyboardEvent<HTMLInputElement>) => {
+                if (event?.key === 'Enter') {
+                  onSearch();
+                }
+              }}
+              id={id}
+              className={searchInputClassNames.inputElement}
+              placeholder={visualPlaceholder}
+              {...{ 'aria-invalid': status === 'error' }}
+            />
+          </HtmlDiv>
+          {!!this.state.value && (
+            <HtmlButton {...clearButtonProps}>
+              <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
               <Icon
-                icon="search"
-                ariaLabel={searchButtonLabel}
-                className={searchInputClassNames.searchIcon}
+                ariaHidden={true}
+                icon="close"
+                className={searchInputClassNames.clearIcon}
               />
             </HtmlButton>
-          </HtmlDiv>
-          <StatusText id={generatedStatusTextId} status={status}>
-            {statusText}
-          </StatusText>
-        </HtmlLabel>
+          )}
+          <HtmlButton {...searchButtonDerivedProps}>
+            <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
+            <Icon
+              ariaHidden={true}
+              icon="search"
+              className={searchInputClassNames.searchIcon}
+            />
+          </HtmlButton>
+        </HtmlDiv>
+        <StatusText id={generatedStatusTextId} status={status}>
+          {statusText}
+        </StatusText>
       </HtmlDiv>
     );
   }

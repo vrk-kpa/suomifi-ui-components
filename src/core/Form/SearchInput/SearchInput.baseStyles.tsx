@@ -18,11 +18,6 @@ export const baseStyles = withSuomifiTheme(
     }
 
     & .fi-search-input {
-      &_label {
-        display: flex;
-        flex-direction: column;
-      }
-
       &_functionality-container {
         position: relative;
       }

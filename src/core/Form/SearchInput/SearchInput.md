@@ -6,8 +6,8 @@ const [value, setValue] = useState('About');
 
 const sharedProps = {
   labelText: 'Search the site',
-  searchText: 'Search',
-  clearText: 'Clear',
+  searchButtonLabel: 'Search',
+  clearButtonLabel: 'Clear',
   visualPlaceholder: 'Search...'
 };
 
