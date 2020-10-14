@@ -202,7 +202,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
               aria-invalid={status === 'error'}
               id={id}
               className={searchInputClassNames.inputElement}
-              type="text"
+              type="search"
               role="searchbox"
               value={this.state.value}
               placeholder={visualPlaceholder}

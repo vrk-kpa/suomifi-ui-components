@@ -322,6 +322,25 @@ exports[`snapshot should have matching default structure 1`] = `
   font-style: italic;
 }
 
+.c1 .fi-search-input_input::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.c1 .fi-search-input_input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.c1 .fi-search-input_input::-webkit-search-decoration,
+.c1 .fi-search-input_input::-webkit-search-cancel-button,
+.c1 .fi-search-input_input::-webkit-search-results-button,
+.c1 .fi-search-input_input::-webkit-search-results-decoration {
+  display: none;
+}
+
 .c1 .fi-search-input_button {
   position: absolute;
   top: 0;
@@ -459,7 +478,7 @@ exports[`snapshot should have matching default structure 1`] = `
         data-testid="searchinput"
         id="test-id"
         role="searchbox"
-        type="text"
+        type="search"
         value=""
       />
     </div>

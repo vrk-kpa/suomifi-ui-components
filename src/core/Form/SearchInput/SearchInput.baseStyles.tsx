@@ -47,6 +47,12 @@ export const baseStyles = withSuomifiTheme(
         ::placeholder {
           font-style: italic;
         }
+        ::-ms-clear {  display: none; width : 0; height: 0; }
+        ::-ms-reveal {  display: none; width : 0; height: 0; }
+        ::-webkit-search-decoration,
+        ::-webkit-search-cancel-button,
+        ::-webkit-search-results-button,
+        ::-webkit-search-results-decoration { display: none; }
       }
 
       &_button {
