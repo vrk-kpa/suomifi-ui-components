@@ -80,7 +80,7 @@ export const listboxPopoverStyles = withSuomifiTheme(
       background-color: ${theme.colors.highlightLight3};
       border: 0;
 
-      &.fi-dropdown_actionMenuItem {
+      &.fi-dropdown_noSelectedStyles {
         background-color: ${theme.colors.whiteBase};
         ${theme.typography.actionElementInnerText}
       }

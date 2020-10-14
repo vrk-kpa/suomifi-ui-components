@@ -25,7 +25,7 @@ export const dropdownClassNames = {
   button: `${baseClassName}_button`,
   popover: `${baseClassName}_popover`,
   item: `${baseClassName}_item`,
-  actionMenuItem: `${baseClassName}_actionMenuItem`,
+  noSelectedStyles: `${baseClassName}_noSelectedStyles`,
 };
 
 export interface DropdownLabelProps extends HtmlLabelProps {}
@@ -202,7 +202,7 @@ export class Dropdown extends Component<DropdownProps> {
 
     const passDropdownItemProps = {
       className: classnames(dropdownClassNames.item, dropdownItemClassName, {
-        [dropdownClassNames.actionMenuItem]: alwaysShowVisualPlaceholder,
+        [dropdownClassNames.noSelectedStyles]: alwaysShowVisualPlaceholder,
       }),
     };
 
