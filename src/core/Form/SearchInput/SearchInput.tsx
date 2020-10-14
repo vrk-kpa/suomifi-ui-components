@@ -118,8 +118,9 @@ class BaseSearchInput extends Component<SearchInputProps> {
       status,
       statusText,
       visualPlaceholder,
-      id,
+      id: propId,
       fullWidth,
+      'aria-describedby': ariaDescribedBy,
       ...passProps
     } = this.props;
 
@@ -138,8 +139,14 @@ class BaseSearchInput extends Component<SearchInputProps> {
       }
     };
 
-    const generatedStatusTextId = `${idGenerator(id)}-statusText`;
-    const generatedLabelTextId = `${idGenerator(id)}-labelText`;
+    const onKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+      if (!!this.state.value && event?.key === 'Enter') {
+        onSearch();
+      }
+    };
+
+    const id = `${idGenerator(propId)}`;
+    const statusTextId = `${id}-statusText`;
 
     const searchButtonDerivedProps = {
       ...searchButtonProps,
@@ -163,6 +170,18 @@ class BaseSearchInput extends Component<SearchInputProps> {
       ),
     };
 
+    const getDescribedBy = () => {
+      if (statusText || ariaDescribedBy) {
+        return {
+          'aria-describedby': [
+            ...(statusText ? [statusTextId] : []),
+            ariaDescribedBy,
+          ].join(' '),
+        };
+      }
+      return {};
+    };
+
     return (
       <HtmlDiv
         {...inputContainerProps}
@@ -172,30 +191,25 @@ class BaseSearchInput extends Component<SearchInputProps> {
           [searchInputClassNames.fullWidth]: fullWidth,
         })}
       >
-        <LabelText labelMode={labelMode} id={generatedLabelTextId}>
+        <LabelText htmlFor={id} labelMode={labelMode} as="label">
           {labelText}
         </LabelText>
         <HtmlDiv className={searchInputClassNames.functionalityContainer}>
           <HtmlDiv className={searchInputClassNames.inputElementContainer}>
             <HtmlInput
-              {...{ 'aria-labelledby': generatedLabelTextId }}
-              {...{ 'aria-describedby': generatedStatusTextId }}
               {...passProps}
+              {...getDescribedBy()}
+              aria-invalid={status === 'error'}
+              id={id}
+              className={searchInputClassNames.inputElement}
               type="text"
               role="searchbox"
               value={this.state.value}
+              placeholder={visualPlaceholder}
               onChange={(event: ChangeEvent<HTMLInputElement>) => {
                 conditionalSetState(event.currentTarget.value);
               }}
-              onKeyPress={(event: React.KeyboardEvent<HTMLInputElement>) => {
-                if (event?.key === 'Enter') {
-                  onSearch();
-                }
-              }}
-              id={id}
-              className={searchInputClassNames.inputElement}
-              placeholder={visualPlaceholder}
-              {...{ 'aria-invalid': status === 'error' }}
+              onKeyPress={onKeyPress}
             />
           </HtmlDiv>
           {!!this.state.value && (
@@ -217,7 +231,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
             />
           </HtmlButton>
         </HtmlDiv>
-        <StatusText id={generatedStatusTextId} status={status}>
+        <StatusText id={statusTextId} status={status}>
           {statusText}
         </StatusText>
       </HtmlDiv>

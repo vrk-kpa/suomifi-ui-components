@@ -437,16 +437,16 @@ exports[`snapshot should have matching default structure 1`] = `
 <div
   class="c0 c1 fi-search-input"
 >
-  <div
+  <label
     class="c0 c2 fi-label-text"
-    id="test-id-labelText"
+    for="test-id"
   >
     <p
       class="c3 fi-paragraph c4 fi-label-text_label-p"
     >
       Test search input
     </p>
-  </div>
+  </label>
   <div
     class="c0 fi-search-input_functionality-container"
   >
@@ -454,9 +454,7 @@ exports[`snapshot should have matching default structure 1`] = `
       class="c0 fi-search-input_input-element-container"
     >
       <input
-        aria-describedby="test-id-statusText"
         aria-invalid="false"
-        aria-labelledby="test-id-labelText"
         class="c5 fi-search-input_input"
         data-testid="searchinput"
         id="test-id"

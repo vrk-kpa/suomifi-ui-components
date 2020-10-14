@@ -47,10 +47,11 @@ describe('props', () => {
       expect(inputElement).toHaveClass('fi-search-input_input');
     });
 
-    it('should have label text with correct class', () => {
+    it('should have label text with correct class and for id', () => {
       const { getByText } = render(TestSearchInput());
-      const label = getByText('Test search input').closest('div');
+      const label = getByText('Test search input').closest('label');
       expect(label).toHaveClass('fi-label-text');
+      expect(label).toHaveAttribute('for', 'test-id');
     });
 
     it(
@@ -170,6 +171,68 @@ describe('props', () => {
       const { getByRole } = render(TestSearchInput({ name: 'test-name' }));
       const inputElement = getByRole('searchbox') as HTMLInputElement;
       expect(inputElement.name).toBe('test-name');
+    });
+  });
+
+  describe('aria', () => {
+    it('input should have provided aria-describedby and attribute referencing status text', () => {
+      const { getByRole } = render(
+        TestSearchInput({
+          id: 'test-id-aria',
+          'aria-describedby': 'describedby-id',
+          statusText: 'Test status text',
+        }),
+      );
+      const inputElement = getByRole('searchbox') as HTMLInputElement;
+      expect(inputElement).toHaveAttribute(
+        'aria-describedby',
+        'test-id-aria-statusText describedby-id',
+      );
+    });
+
+    it('icons should have aria-hidden attribute set to true', () => {
+      const { container } = render(TestSearchInput());
+      const svgList = container.getElementsByTagName('svg');
+      for (let i = 0; i < svgList.length; i += 1) {
+        expect(svgList[i]).toHaveAttribute('aria-hidden', 'true');
+      }
+    });
+  });
+});
+
+describe('states', () => {
+  describe('empty input', () => {
+    it('should not have accessible buttons', () => {
+      const { queryAllByRole } = render(TestSearchInput({ defaultValue: '' }));
+      const buttons = queryAllByRole('button');
+      expect(buttons).toHaveLength(0);
+    });
+
+    it('should not react to enter before adding text to input', () => {
+      const mockOnSearch = jest.fn();
+      const { getByRole, getAllByRole } = render(
+        TestSearchInput({
+          onSearch: mockOnSearch,
+          defaultValue: '',
+        }),
+      );
+      const inputElement = getByRole('searchbox') as HTMLTextAreaElement;
+      fireEvent.keyPress(inputElement, {
+        key: 'Enter',
+        code: 13,
+        charCode: 13,
+      });
+      expect(mockOnSearch).toBeCalledTimes(0);
+      fireEvent.change(inputElement, { target: { value: 'abc' } });
+      fireEvent.keyPress(inputElement, {
+        key: 'Enter',
+        code: 13,
+        charCode: 13,
+      });
+      expect(mockOnSearch).toBeCalledTimes(1);
+      const searchButton = getAllByRole('button')[1];
+      fireEvent.click(searchButton);
+      expect(mockOnSearch).toBeCalledTimes(2);
     });
   });
 });
