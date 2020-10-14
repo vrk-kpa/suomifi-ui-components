@@ -91,6 +91,8 @@ export interface DropdownProps {
   'aria-labelledby'?: string;
   /** Custom classname to extend or customize */
   className?: string;
+  /** Disable component */
+  disabled?: boolean;
   /** Properties given to dropdown's Button-component, className etc. */
   dropdownButtonProps?: OptionalListboxButtonProps;
   /** Properties given to dropdown's popover-component, className etc. */
@@ -143,6 +145,7 @@ export class Dropdown extends Component<DropdownProps> {
     const {
       id: propId,
       name,
+      disabled = false,
       children,
       labelProps,
       labelText,
@@ -247,7 +250,7 @@ export class Dropdown extends Component<DropdownProps> {
             <Paragraph {...labelTextProps}>{labelText}</Paragraph>
           )}
         </HtmlLabel>
-        <ListboxInput {...listboxInputProps}>
+        <ListboxInput disabled={disabled} {...listboxInputProps}>
           <ListboxButton {...passDropdownButtonProps}>
             {listboxDisplayValue}
           </ListboxButton>
