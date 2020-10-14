@@ -202,7 +202,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
             <HtmlButton {...clearButtonProps}>
               <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
               <Icon
-                ariaHidden={true}
+                aria-hidden={true}
                 icon="close"
                 className={searchInputClassNames.clearIcon}
               />
@@ -211,7 +211,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
           <HtmlButton {...searchButtonDerivedProps}>
             <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
             <Icon
-              ariaHidden={true}
+              aria-hidden={true}
               icon="search"
               className={searchInputClassNames.searchIcon}
             />

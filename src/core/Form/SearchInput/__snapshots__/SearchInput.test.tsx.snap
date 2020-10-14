@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`calling render with the same component on the same container does not remount 1`] = `
+exports[`snapshot should have matching default structure 1`] = `
 .c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -458,7 +458,7 @@ exports[`calling render with the same component on the same container does not r
         aria-invalid="false"
         aria-labelledby="test-id-labelText"
         class="c5 fi-search-input_input"
-        data-testid="textinput"
+        data-testid="searchinput"
         id="test-id"
         role="searchbox"
         type="text"
