@@ -25,7 +25,7 @@ export const dropdownClassNames = {
   button: `${baseClassName}_button`,
   popover: `${baseClassName}_popover`,
   item: `${baseClassName}_item`,
-  noSelectedStyles: `${baseClassName}_noSelectedStyles`,
+  noSelectedStyles: `${baseClassName}--noSelectedStyles`,
 };
 
 export interface DropdownLabelProps extends HtmlLabelProps {}
