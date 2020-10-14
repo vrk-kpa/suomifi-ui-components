@@ -26,6 +26,7 @@ export const dropdownClassNames = {
   popover: `${baseClassName}_popover`,
   item: `${baseClassName}_item`,
   noSelectedStyles: `${baseClassName}--noSelectedStyles`,
+  disabled: `${baseClassName}--disabled`,
 };
 
 export interface DropdownLabelProps extends HtmlLabelProps {}
@@ -145,7 +146,7 @@ export class Dropdown extends Component<DropdownProps> {
     const {
       id: propId,
       name,
-      disabled = false,
+      disabled,
       children,
       labelProps,
       labelText,
@@ -191,6 +192,9 @@ export class Dropdown extends Component<DropdownProps> {
       className: classnames(
         dropdownClassNames.button,
         dropdownButtonProps.className,
+        {
+          [dropdownClassNames.disabled]: !!disabled,
+        },
       ),
       ...buttonAriaLabelledByOverride,
     };
@@ -220,6 +224,7 @@ export class Dropdown extends Component<DropdownProps> {
 
     const listboxInputProps = {
       'aria-labelledby': ariaLabelledByIds,
+      disabled,
       onChange,
       name,
       value: selectedValue || '',
@@ -250,7 +255,7 @@ export class Dropdown extends Component<DropdownProps> {
             <Paragraph {...labelTextProps}>{labelText}</Paragraph>
           )}
         </HtmlLabel>
-        <ListboxInput disabled={disabled} {...listboxInputProps}>
+        <ListboxInput {...listboxInputProps}>
           <ListboxButton {...passDropdownButtonProps}>
             {listboxDisplayValue}
           </ListboxButton>
