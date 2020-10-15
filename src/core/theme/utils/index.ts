@@ -3,6 +3,6 @@ export {
   themeOrTokens,
   TokensOrThemeProps,
 } from './defaults';
-export { focus } from './focus';
+export { focus, absoluteFocus } from './focus';
 export { boxshadowOutline } from './outline';
 export { margin, padding, spacingModifiers } from './spacing';
