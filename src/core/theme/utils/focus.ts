@@ -47,3 +47,9 @@ export const absoluteFocus = css`
   box-shadow: 0 0 0 2px ${colors.accentSecondary};
   z-index: ${zindexes.focus};
 `;
+
+export const boxShadowFocus = css`
+  outline: 0;
+  border-radius: ${radius.focus};
+  box-shadow: 0 0 0 2px ${colors.accentSecondary};
+`;
