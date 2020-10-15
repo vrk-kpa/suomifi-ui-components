@@ -202,10 +202,6 @@ exports[`snapshot default structure should match snapshot 1`] = `
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
 }
 
-.c1.fi-textarea .fi-textarea_textarea:focus:not(:focus-within) {
-  box-shadow: none;
-}
-
 .c1.fi-textarea .fi-textarea_textarea::-webkit-input-placeholder {
   font-style: italic;
 }

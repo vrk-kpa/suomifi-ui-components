@@ -3,7 +3,7 @@ import { TextareaProps } from './Textarea';
 import { withSuomifiTheme, TokensAndTheme } from '../../theme';
 import { disabledCursor } from '../../../components/utils/css';
 import { element, font } from '../../theme/reset';
-import { focus } from '../../theme/utils/focus';
+import { boxShadowFocus } from '../../theme/utils/focus';
 import { Omit } from '../../../utils/typescript';
 
 export const baseStyles = withSuomifiTheme(
@@ -42,7 +42,7 @@ export const baseStyles = withSuomifiTheme(
         ${theme.typography.bodyTextSmall};
 
         &:focus {
-          ${focus({ theme, noPseudo: true, variant: 'boxShadow' })}
+          ${boxShadowFocus}
         }
         ::placeholder {
           font-style: italic;
