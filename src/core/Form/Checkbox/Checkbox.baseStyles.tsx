@@ -6,7 +6,7 @@ import {
 } from '../../theme';
 import { disabledCursor } from '../../../components/utils/css';
 import { element, font } from '../../theme/reset';
-import { focus } from '../../theme/utils/focus';
+import { boxShadowFocus } from '../../theme/utils/focus';
 
 /* stylelint-disable no-descending-specificity */
 const checkedStyles = ({ theme }: SuomifiThemeProp) => css`
@@ -129,7 +129,7 @@ export const baseStyles = withSuomifiTheme(
     &:focus-within {
       & .fi-checkbox_label {
         &::before {
-          ${focus({ theme, noPseudo: true, variant: 'boxShadow' })}
+          ${boxShadowFocus}
         }
       }
     }
