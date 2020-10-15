@@ -1,8 +1,8 @@
-import React, { ChangeEvent, Component, FocusEvent } from 'react';
+import React, { ChangeEvent, Component, createRef, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import {
-  HtmlInput,
+  HtmlInputWithRef,
   HtmlInputProps,
   HtmlDiv,
   HtmlDivProps,
@@ -90,6 +90,8 @@ class BaseSearchInput extends Component<SearchInputProps> {
     value: this.props.value || this.props.defaultValue || '',
   };
 
+  private inputRef = createRef<HTMLInputElement>();
+
   static getDerivedStateFromProps(
     nextProps: SearchInputProps,
     prevState: SearchInputState,
@@ -163,7 +165,12 @@ class BaseSearchInput extends Component<SearchInputProps> {
     };
     const clearButtonProps = {
       tabIndex: 0,
-      onClick: () => conditionalSetState(''),
+      onClick: () => {
+        conditionalSetState('');
+        if (this.inputRef.current) {
+          this.inputRef.current.focus();
+        }
+      },
       className: classnames(
         searchInputClassNames.button,
         searchInputClassNames.clearButton,
@@ -196,9 +203,10 @@ class BaseSearchInput extends Component<SearchInputProps> {
         </LabelText>
         <HtmlDiv className={searchInputClassNames.functionalityContainer}>
           <HtmlDiv className={searchInputClassNames.inputElementContainer}>
-            <HtmlInput
+            <HtmlInputWithRef
               {...passProps}
               {...getDescribedBy()}
+              forwardRef={this.inputRef}
               aria-invalid={status === 'error'}
               id={id}
               className={searchInputClassNames.inputElement}

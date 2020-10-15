@@ -26,6 +26,12 @@ export const baseStyles = withSuomifiTheme(
         ${inputContainer({ theme })}
         &:focus-within {
           box-shadow: ${theme.shadows.actionElementBoxShadow};
+          &:after {
+            top: -3px;
+            bottom: -3px;
+            right: -3px;
+            left: -3px;
+          }
         }
         width: 100%;
         height: 40px;
@@ -112,6 +118,7 @@ export const baseStyles = withSuomifiTheme(
       & .fi-search-input_input-element-container {
         width: calc(100% - 40px);
         border-radius: ${theme.radius.basic} 0 0 ${theme.radius.basic};
+        border-right: 0;
       }
   
       & .fi-search-input_button {
