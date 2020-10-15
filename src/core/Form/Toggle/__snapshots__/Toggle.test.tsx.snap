@@ -905,7 +905,7 @@ exports[`Toggle variant withInput:  calling render with the same component on th
 }
 
 <label
-  class="sc-AxgMl c0 fi-toggle--with-input c1 fi-toggle fi-toggle_label"
+  class="sc-AxheI c0 fi-toggle--with-input c1 fi-toggle fi-toggle_label"
   data-testid="toggle"
   for="test-toggle"
 >
