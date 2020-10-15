@@ -1,7 +1,8 @@
 import { css } from 'styled-components';
 import { TextInputProps } from './TextInput';
 import { withSuomifiTheme, TokensAndTheme } from '../../theme';
-import { input, inputContainer, font } from '../../theme/reset';
+import { input, font } from '../../theme/reset';
+import { boxShadowFocus } from '../../theme/utils';
 import { math } from 'polished';
 
 export const baseStyles = withSuomifiTheme(
@@ -33,10 +34,6 @@ export const baseStyles = withSuomifiTheme(
         ${theme.typography.bodyTextSmall};
   }
 
-  & .fi-text-input_input-element-container {
-    ${inputContainer({ theme })}
-  }
-
   & .fi-text-input_statusText_container {
     display: flex;
     flex-direction: column;
@@ -63,11 +60,13 @@ export const baseStyles = withSuomifiTheme(
     width: 100%;
     min-height:40px;
     padding-left: ${theme.spacing.insetL};
-    ::placeholder{
-      font-style: italic;
+
+    &:focus {
+      ${boxShadowFocus}
     }
-    :focus {
-      box-shadow: ${theme.shadows.actionElementBoxShadow};
+
+    &::placeholder{
+      font-style: italic;
     }
   }
     

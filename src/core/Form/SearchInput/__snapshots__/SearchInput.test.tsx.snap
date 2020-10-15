@@ -272,7 +272,13 @@ exports[`snapshot should have matching default structure 1`] = `
   appearance: none;
 }
 
-.c1 .fi-search-input_input::-webkit-input-placeholder {
+.c2 .fi-text-input_input:focus {
+  outline: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+}
+
+.c2 .fi-text-input_input::-webkit-input-placeholder {
   font-style: italic;
 }
 
@@ -288,16 +294,8 @@ exports[`snapshot should have matching default structure 1`] = `
   font-style: italic;
 }
 
-.c1 .fi-search-input_input::-ms-clear {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-.c1 .fi-search-input_input::-ms-reveal {
-  display: none;
-  width: 0;
-  height: 0;
+.c2.fi-text-input_with-icon .fi-text-input_input-element-container {
+  position: relative;
 }
 
 .c1 .fi-search-input_input::-webkit-search-decoration,
