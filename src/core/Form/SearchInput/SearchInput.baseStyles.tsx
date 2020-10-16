@@ -24,6 +24,7 @@ export const baseStyles = withSuomifiTheme(
 
       &_input-element-container {
         ${inputContainer({ theme })}
+        background-color: ${theme.colors.whiteBase};
         &:focus-within {
           box-shadow: ${theme.shadows.actionElementBoxShadow};
           &:after {
