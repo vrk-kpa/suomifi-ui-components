@@ -1,8 +1,9 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../theme';
-import { button, element, font } from '../theme/reset';
+import { element, font } from '../theme/reset';
 import { absolute } from '../../utils/css';
-import { padding } from '../theme/utils';
+import { padding, absoluteFocus } from '../theme/utils';
+
 import { ExpanderProps } from './Expander';
 
 export const baseStyles = withSuomifiTheme(
@@ -29,17 +30,25 @@ export const baseStyles = withSuomifiTheme(
   }
 
   & .fi-expander_title {
-    ${button({ theme })}
     position: relative;
     display: block;
     width: 100%;
     font-size: ${theme.typography.bodySemiBold};
     min-height: 60px;
+
+    &:focus {
+      outline: 0;
+      &:after {
+        ${absoluteFocus}
+      }
+    }
+
     &--no-tag {
       padding: 17px ${theme.spacing.xxxl} 16px ${theme.spacing.m};
       color: ${theme.colors.highlightBase};
     }
   }
+
   & .fi-expander_title-icon {
     position: absolute;
     height: 20px;

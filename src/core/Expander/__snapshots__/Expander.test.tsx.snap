@@ -150,22 +150,6 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c2 .fi-expander_title {
-  color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
   position: relative;
   display: block;
   width: 100%;
@@ -178,7 +162,6 @@ exports[`calling render with the same component on the same container does not r
 
 .c2 .fi-expander_title:focus {
   outline: 0;
-  position: relative;
 }
 
 .c2 .fi-expander_title:focus:after {
@@ -195,10 +178,6 @@ exports[`calling render with the same component on the same container does not r
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c2 .fi-expander_title:focus:not(:focus-within):after {
-  content: none;
 }
 
 .c2 .fi-expander_title--no-tag {
