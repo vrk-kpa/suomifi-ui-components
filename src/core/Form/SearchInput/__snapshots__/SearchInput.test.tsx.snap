@@ -229,6 +229,7 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c1 .fi-search-input_input-element-container {
+  background-color: hsl(0,0%,100%);
   width: 100%;
   height: 40px;
   box-sizing: border-box;
