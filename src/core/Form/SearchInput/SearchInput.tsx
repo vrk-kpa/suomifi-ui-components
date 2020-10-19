@@ -147,7 +147,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
         if (this.inputRef.current) {
           this.inputRef.current.focus();
         }
-      }, 500);
+      }, 100);
     };
 
     const onKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -167,17 +167,17 @@ class BaseSearchInput extends Component<SearchInputProps> {
         searchInputClassNames.searchButton,
       ),
       ...(!!this.state.value
-        ? {
-            onClick: () => onSearch(),
-          }
+        ? { onClick: onSearch }
         : { tabIndex: -1, 'aria-hidden': true }),
     };
     const clearButtonProps = {
-      onClick: onClear,
       className: classnames(
         searchInputClassNames.button,
         searchInputClassNames.clearButton,
       ),
+      ...(!!this.state.value
+        ? { onClick: onClear }
+        : { tabIndex: -1, 'aria-hidden': true }),
     };
 
     const getDescribedBy = () => {

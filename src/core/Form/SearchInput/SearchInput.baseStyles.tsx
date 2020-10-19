@@ -45,7 +45,7 @@ export const baseStyles = withSuomifiTheme(
         ${input({ theme })}
         padding-top: ${theme.spacing.insetS};
         padding-bottom: ${theme.spacing.insetS};
-        width: 100%;
+        width: calc(100% - 24px);
         min-width: 65px;
         border: 0;
         min-height: 36px;
@@ -75,16 +75,18 @@ export const baseStyles = withSuomifiTheme(
         pointer-events: none;
         &-clear {
           right: 40px;
-          height: 20px;
-          min-width: 20px;
-          margin: 10px;
-          fill: ${theme.colors.depthDark1};
+          clip: rect(0 0 0 0);
+          height: 1px;
+          width: 1px;
+          margin: -1px;
+          padding: 0;
+          border: 0;
+          overflow: hidden;
           &-icon {
             width: 12px;
             height: 12px;
             fill: ${theme.colors.highlightDark1};
           }
-          display: none;
         }
 
         &-search {
@@ -146,7 +148,11 @@ export const baseStyles = withSuomifiTheme(
         }
       }
       & .fi-search-input_button-clear {
-        display: flex;
+        clip: auto;
+        overflow: visible;
+        height: 20px;
+        width: 20px;
+        margin: 10px;
       }
     }
   `,
