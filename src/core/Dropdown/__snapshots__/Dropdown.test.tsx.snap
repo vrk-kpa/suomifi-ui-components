@@ -166,7 +166,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   background-color: hsl(202,7%,97%);
   color: hsl(202,7%,67%);
   opacity: 1;
-  cursor: 'not-allowed';
+  cursor: not-allowed;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
@@ -385,7 +385,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   background-color: hsl(202,7%,97%);
   color: hsl(202,7%,67%);
   opacity: 1;
-  cursor: 'not-allowed';
+  cursor: not-allowed;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
@@ -605,7 +605,7 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   background-color: hsl(202,7%,97%);
   color: hsl(202,7%,67%);
   opacity: 1;
-  cursor: 'not-allowed';
+  cursor: not-allowed;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
@@ -824,7 +824,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   background-color: hsl(202,7%,97%);
   color: hsl(202,7%,67%);
   opacity: 1;
-  cursor: 'not-allowed';
+  cursor: not-allowed;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
@@ -1031,7 +1031,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   background-color: hsl(202,7%,97%);
   color: hsl(202,7%,67%);
   opacity: 1;
-  cursor: 'not-allowed';
+  cursor: not-allowed;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
