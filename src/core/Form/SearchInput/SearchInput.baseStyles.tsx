@@ -71,7 +71,8 @@ export const baseStyles = withSuomifiTheme(
         box-sizing: border-box;
         outline: none;
         box-shadow: none;
-
+        cursor: default;
+        pointer-events: none;
         &-clear {
           right: 40px;
           height: 20px;
@@ -83,6 +84,7 @@ export const baseStyles = withSuomifiTheme(
             height: 12px;
             fill: ${theme.colors.highlightDark1};
           }
+          display: none;
         }
 
         &-search {
@@ -127,6 +129,8 @@ export const baseStyles = withSuomifiTheme(
         &:focus {
           position: absolute;
         }
+        cursor: pointer;
+        pointer-events: all;
       }
 
       & .fi-search-input_button-search {
@@ -140,6 +144,9 @@ export const baseStyles = withSuomifiTheme(
         & .fi-search-input_button-search-icon {
           fill: ${theme.colors.whiteBase};
         }
+      }
+      & .fi-search-input_button-clear {
+        display: flex;
       }
     }
   `,

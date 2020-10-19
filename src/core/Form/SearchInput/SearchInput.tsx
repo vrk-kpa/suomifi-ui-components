@@ -141,6 +141,15 @@ class BaseSearchInput extends Component<SearchInputProps> {
       }
     };
 
+    const onClear = () => {
+      conditionalSetState('');
+      setTimeout(() => {
+        if (this.inputRef.current) {
+          this.inputRef.current.focus();
+        }
+      }, 500);
+    };
+
     const onKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (!!this.state.value && event?.key === 'Enter') {
         onSearch();
@@ -164,13 +173,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
         : { tabIndex: -1, 'aria-hidden': true }),
     };
     const clearButtonProps = {
-      tabIndex: 0,
-      onClick: () => {
-        conditionalSetState('');
-        if (this.inputRef.current) {
-          this.inputRef.current.focus();
-        }
-      },
+      onClick: onClear,
       className: classnames(
         searchInputClassNames.button,
         searchInputClassNames.clearButton,
@@ -220,16 +223,14 @@ class BaseSearchInput extends Component<SearchInputProps> {
               onKeyPress={onKeyPress}
             />
           </HtmlDiv>
-          {!!this.state.value && (
-            <HtmlButton {...clearButtonProps}>
-              <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
-              <Icon
-                aria-hidden={true}
-                icon="close"
-                className={searchInputClassNames.clearIcon}
-              />
-            </HtmlButton>
-          )}
+          <HtmlButton {...clearButtonProps}>
+            <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
+            <Icon
+              aria-hidden={true}
+              icon="close"
+              className={searchInputClassNames.clearIcon}
+            />
+          </HtmlButton>
           <HtmlButton {...searchButtonDerivedProps}>
             <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
             <Icon
