@@ -1,6 +1,5 @@
 ```js
 import { Dropdown } from 'suomifi-ui-components';
-
 <Dropdown
   name="Dropdown"
   labelText="Dropdown label"
@@ -18,20 +17,34 @@ import { Dropdown } from 'suomifi-ui-components';
 
 ```js
 import { Dropdown } from 'suomifi-ui-components';
+<>
+  <Dropdown
+    name="Dropdown"
+    visualPlaceholder="Dropdown with visually hidden label"
+    labelText="Dropdown label"
+    labelMode="hidden"
+  >
+    <Dropdown.item value={'dropdown-item-1'}>
+      Dropdown Item 1
+    </Dropdown.item>
+    <Dropdown.item value={'dropdown-item-2'}>
+      Dropdown Item 2
+    </Dropdown.item>
+  </Dropdown>
 
-<Dropdown
-  name="Dropdown"
-  visualPlaceholder="Dropdown with visually hidden label"
-  labelText="Dropdown label"
-  labelMode="hidden"
->
-  <Dropdown.item value={'dropdown-item-1'}>
-    Dropdown Item 1
-  </Dropdown.item>
-  <Dropdown.item value={'dropdown-item-2'}>
-    Dropdown Item 2
-  </Dropdown.item>
-</Dropdown>;
+  <Dropdown
+    labelText="Disabled dropdown"
+    defaultValue={'dropdown-item-2'}
+    disabled
+  >
+    <Dropdown.item value={'dropdown-item-1'}>
+      Dropdown Item 1
+    </Dropdown.item>
+    <Dropdown.item value={'dropdown-item-2'}>
+      Dropdown Item 2
+    </Dropdown.item>
+  </Dropdown>
+</>;
 ```
 
 ```js

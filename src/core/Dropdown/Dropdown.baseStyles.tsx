@@ -1,13 +1,9 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../theme';
-import { DropdownProps } from './Dropdown';
 import { element, inputButton, font } from '../theme/reset';
 
 export const baseStyles = withSuomifiTheme(
-  ({
-    theme,
-    disabled,
-  }: TokensAndTheme & Omit<DropdownProps, 'labelText'>) => css`
+  ({ theme }: TokensAndTheme) => css`
     & .fi-dropdown_label-p {
       margin-bottom: ${theme.spacing.insetM};
       ${font({ theme })('actionElementInnerTextBold')};
@@ -26,7 +22,7 @@ export const baseStyles = withSuomifiTheme(
       line-height: 1.5;
       background-color: ${theme.colors.whiteBase};
       box-shadow: ${theme.shadows.actionElementBoxShadow};
-      cursor: ${disabled ? 'not-allowed' : 'pointer'};
+      cursor: pointer;
       &:before {
         content: '';
         position: absolute;
@@ -47,7 +43,7 @@ export const baseStyles = withSuomifiTheme(
         background-color: ${theme.colors.depthLight3};
         color: ${theme.colors.depthBase};
         opacity: 1;
-        cursor: 'not-allowed';
+        cursor: not-allowed;
         &:before {
           border-color: ${theme.colors.depthBase} transparent transparent
             transparent;
