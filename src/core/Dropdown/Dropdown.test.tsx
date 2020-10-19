@@ -50,6 +50,16 @@ describe('Basic dropdown', () => {
     expect(input).toHaveAttribute('name', 'dropdown-test');
   });
 
+  it('should have disabled styles when disabled', async () => {
+    const { findByRole } = render(
+      <Dropdown labelText="Dropdown" disabled>
+        <Dropdown.item value={'item-1'}>Item 1</Dropdown.item>
+      </Dropdown>,
+    );
+    const button = await findByRole('button');
+    expect(button).toHaveClass('fi-dropdown--disabled');
+  });
+
   it('should match snapshot', async () => {
     const promise = Promise.resolve();
     const { container } = render(BasicDropdown);

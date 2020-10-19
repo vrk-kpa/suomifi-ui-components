@@ -39,6 +39,16 @@ export const baseStyles = withSuomifiTheme(
           transparent;
         border-width: 0 4px 6px 4px;
       }
+      &.fi-dropdown--disabled {
+        background-color: ${theme.colors.depthLight3};
+        color: ${theme.colors.depthBase};
+        opacity: 1;
+        cursor: not-allowed;
+        &:before {
+          border-color: ${theme.colors.depthBase} transparent transparent
+            transparent;
+        }
+      }
     }
   `,
 );
