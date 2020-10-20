@@ -64,7 +64,6 @@ export const button = (props: SuomifiThemeProp) => css`
   ${element(props)}
   ${font(props)('actionElementInnerTextBold')}
   font-size: 14px;
-  ${focus(props)}
   line-height: 20px;
 `;
 
