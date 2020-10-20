@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot should have matching default structure 1`] = `
-.c6 {
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,25 +27,25 @@ exports[`snapshot should have matching default structure 1`] = `
   cursor: pointer;
 }
 
-.c6:-moz-focusring {
+.c5:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c6::-moz-focus-inner {
+.c5::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c6::-webkit-file-upload-button {
+.c5::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c6::-webkit-inner-spin-button {
+.c5::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c6::-webkit-outer-spin-button {
+.c5::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -73,7 +73,7 @@ exports[`snapshot should have matching default structure 1`] = `
   white-space: normal;
 }
 
-.c5 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -96,12 +96,12 @@ exports[`snapshot should have matching default structure 1`] = `
   max-width: 100%;
 }
 
-.c5::-webkit-input-placeholder {
+.c4::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c7 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -125,7 +125,7 @@ exports[`snapshot should have matching default structure 1`] = `
   white-space: normal;
 }
 
-.c8 {
+.c6 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -137,54 +137,7 @@ exports[`snapshot should have matching default structure 1`] = `
   overflow: hidden;
 }
 
-.c3 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c4 {
-  color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  margin-top: 0;
-  margin-right: 0;
-  margin-bottom: 0;
-  margin-left: 0;
-  color: hsl(0,0%,16%);
-}
-
-.c2.fi-label-text .fi-label-text_label-p {
-  margin-bottom: 10px;
+.c2.fi-label-text .fi-label-text_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -198,10 +151,12 @@ exports[`snapshot should have matching default structure 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
-.c9 {
+.c7 {
   display: inline-block;
   vertical-align: baseline;
 }
@@ -489,11 +444,11 @@ exports[`snapshot should have matching default structure 1`] = `
     class="c0 c2 fi-label-text"
     for="test-id"
   >
-    <p
-      class="c3 fi-paragraph c4 fi-label-text_label-p"
+    <span
+      class="c3 fi-label-text_label-span"
     >
       Test search input
-    </p>
+    </span>
   </label>
   <div
     class="c0 fi-search-input_functionality-container"
@@ -503,7 +458,7 @@ exports[`snapshot should have matching default structure 1`] = `
     >
       <input
         aria-invalid="false"
-        class="c5 fi-search-input_input"
+        class="c4 fi-search-input_input"
         data-testid="searchinput"
         id="test-id"
         role="searchbox"
@@ -513,18 +468,18 @@ exports[`snapshot should have matching default structure 1`] = `
     </div>
     <button
       aria-hidden="true"
-      class="c6 fi-search-input_button fi-search-input_button-clear"
+      class="c5 fi-search-input_button fi-search-input_button-clear"
       tabindex="-1"
       type="button"
     >
       <span
-        class="c7 c8 fi-visually-hidden"
+        class="c3 c6 fi-visually-hidden"
       >
         Clear
       </span>
       <svg
         aria-hidden="true"
-        class="fi-icon c9 fi-search-input_button-clear-icon"
+        class="fi-icon c7 fi-search-input_button-clear-icon"
         fill="currentColor"
         focusable="false"
         height="1em"
@@ -538,18 +493,18 @@ exports[`snapshot should have matching default structure 1`] = `
     </button>
     <button
       aria-hidden="true"
-      class="c6 fi-search-input_button fi-search-input_button-search"
+      class="c5 fi-search-input_button fi-search-input_button-search"
       tabindex="-1"
       type="button"
     >
       <span
-        class="c7 c8 fi-visually-hidden"
+        class="c3 c6 fi-visually-hidden"
       >
         Search
       </span>
       <svg
         aria-hidden="true"
-        class="fi-icon c9 fi-search-input_button-search-icon"
+        class="fi-icon c7 fi-search-input_button-search-icon"
         fill="currentColor"
         focusable="false"
         height="1em"

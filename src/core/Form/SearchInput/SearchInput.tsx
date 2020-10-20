@@ -92,6 +92,10 @@ class BaseSearchInput extends Component<SearchInputProps> {
 
   private inputRef = createRef<HTMLInputElement>();
 
+  private id: string;
+
+  private statusTextId: string;
+
   static getDerivedStateFromProps(
     nextProps: SearchInputProps,
     prevState: SearchInputState,
@@ -101,6 +105,12 @@ class BaseSearchInput extends Component<SearchInputProps> {
       return { value };
     }
     return null;
+  }
+
+  constructor(props: SearchInputProps) {
+    super(props);
+    this.id = `${idGenerator(props.id)}`;
+    this.statusTextId = `${this.id}-statusText`;
   }
 
   render() {
@@ -120,7 +130,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
       status,
       statusText,
       visualPlaceholder,
-      id: propId,
+      id,
       fullWidth,
       'aria-describedby': ariaDescribedBy,
       ...passProps
@@ -156,9 +166,6 @@ class BaseSearchInput extends Component<SearchInputProps> {
       }
     };
 
-    const id = `${idGenerator(propId)}`;
-    const statusTextId = `${id}-statusText`;
-
     const searchButtonDerivedProps = {
       ...searchButtonProps,
       className: classnames(
@@ -184,7 +191,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
       if (statusText || ariaDescribedBy) {
         return {
           'aria-describedby': [
-            ...(statusText ? [statusTextId] : []),
+            ...(statusText ? [this.statusTextId] : []),
             ariaDescribedBy,
           ].join(' '),
         };
@@ -201,7 +208,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
           [searchInputClassNames.fullWidth]: fullWidth,
         })}
       >
-        <LabelText htmlFor={id} labelMode={labelMode} as="label">
+        <LabelText htmlFor={this.id} labelMode={labelMode} as="label">
           {labelText}
         </LabelText>
         <HtmlDiv className={searchInputClassNames.functionalityContainer}>
@@ -211,7 +218,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
               {...getDescribedBy()}
               forwardRef={this.inputRef}
               aria-invalid={status === 'error'}
-              id={id}
+              id={this.id}
               className={searchInputClassNames.inputElement}
               type="search"
               role="searchbox"
@@ -240,7 +247,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
             />
           </HtmlButton>
         </HtmlDiv>
-        <StatusText id={statusTextId} status={status}>
+        <StatusText id={this.statusTextId} status={status}>
           {statusText}
         </StatusText>
       </HtmlDiv>

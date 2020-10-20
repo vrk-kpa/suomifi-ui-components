@@ -8,7 +8,7 @@ const sharedProps = {
   labelText: 'Search the site',
   searchButtonLabel: 'Search',
   clearButtonLabel: 'Clear',
-  visualPlaceholder: 'Search...'
+  visualPlaceholder: 'Write search terms here...'
 };
 
 <>

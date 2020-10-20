@@ -5,8 +5,7 @@ import { baseStyles } from './LabelText.baseStyles';
 import { asPropType } from '../../../utils/typescript';
 import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
 import { withSuomifiDefaultProps } from '../../theme/utils';
-import { HtmlDiv, HtmlDivProps } from '../../../reset';
-import { Paragraph, ParagraphProps } from '../../Paragraph/Paragraph';
+import { HtmlSpan, HtmlSpanProps, HtmlDiv, HtmlDivProps } from '../../../reset';
 import { TokensProp, InternalTokensProp } from '../../theme';
 
 export type LabelMode = 'hidden' | 'visible';
@@ -22,8 +21,8 @@ interface InternalLabelTextProps extends HtmlDivProps {
    * @default visible
    */
   labelMode?: LabelMode;
-  /** Label paragraph props */
-  labelParagraphProps?: ParagraphProps;
+  /** Label span props */
+  labelSpanProps?: HtmlSpanProps;
   /** Render the wrapping element as anohter element */
   asProp?: asPropType;
 }
@@ -32,14 +31,14 @@ export interface LabelTextProps extends InternalLabelTextProps, TokensProp {}
 
 const baseClassName = 'fi-label-text';
 const labelTextClassNames = {
-  labelP: `${baseClassName}_label-p`,
+  labelSpan: `${baseClassName}_label-span`,
 };
 
 const StyledLabelText = styled(
   ({
     className,
     labelMode = 'visible',
-    labelParagraphProps = { className: undefined },
+    labelSpanProps = { className: undefined },
     children,
     tokens,
     asProp,
@@ -53,15 +52,15 @@ const StyledLabelText = styled(
       {labelMode === 'hidden' ? (
         <VisuallyHidden>{children}</VisuallyHidden>
       ) : (
-        <Paragraph
-          {...labelParagraphProps}
+        <HtmlSpan
+          {...labelSpanProps}
           className={classnames(
-            labelTextClassNames.labelP,
-            labelParagraphProps.className,
+            labelTextClassNames.labelSpan,
+            labelSpanProps.className,
           )}
         >
           {children}
-        </Paragraph>
+        </HtmlSpan>
       )}
     </HtmlDiv>
   ),
