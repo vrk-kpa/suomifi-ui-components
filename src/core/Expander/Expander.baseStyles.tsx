@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../theme';
-import { element, font } from '../theme/reset';
+import { button, element, font } from '../theme/reset';
 import { absolute } from '../../utils/css';
 import { padding, absoluteFocus } from '../theme/utils';
 
@@ -30,6 +30,7 @@ export const baseStyles = withSuomifiTheme(
   }
 
   & .fi-expander_title {
+    ${button({ theme })}
     position: relative;
     display: block;
     width: 100%;
