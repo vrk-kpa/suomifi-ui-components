@@ -1,8 +1,9 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme, SuomifiThemeProp } from '../theme';
 import { ButtonProps } from './Button';
-import { element, focus, button } from '../theme/reset';
+import { element, button } from '../theme/reset';
 import { alphaHex } from '../../utils/css';
+import { absoluteFocus } from '../theme/utils/focus';
 
 const invertedStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-button--inverted {
@@ -98,6 +99,15 @@ export const baseStyles = withSuomifiTheme(
   text-shadow: ${theme.shadows.invertTextShadow};
   cursor: pointer;
 
+  &:focus {
+    outline: none;
+    position: relative;
+
+    &::after {
+      ${absoluteFocus}
+    }
+  }
+
   &:hover {
     background: ${theme.gradients.highlightLight1ToHighlightBase};
   }
@@ -149,7 +159,6 @@ export const baseStyles = withSuomifiTheme(
 export const unStyled = withSuomifiTheme(
   ({ theme }: SuomifiThemeProp) => css`
   ${element({ theme })}
-  ${focus({ theme })}
   border-radius: ${theme.radius.basic};
   cursor: pointer;
 `,
