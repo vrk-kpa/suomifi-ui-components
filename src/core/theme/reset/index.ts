@@ -57,7 +57,6 @@ export const inputContainer = (props: TokensOrThemeProps) => css`
 
 export const inputButton = (props: SuomifiThemeProp) => css`
   ${input(props)}
-  ${focus(props)}
 `;
 
 export const button = (props: SuomifiThemeProp) => css`
