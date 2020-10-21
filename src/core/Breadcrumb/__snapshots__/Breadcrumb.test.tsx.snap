@@ -150,16 +150,6 @@ exports[`calling render with the same component on the same container does not r
   text-decoration: none;
 }
 
-.c5:focus {
-  outline: 0;
-  border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
-}
-
-.c5:focus:not(:focus-within) {
-  box-shadow: none;
-}
-
 .c5:hover,
 .c5:active,
 .c5:focus,
@@ -171,6 +161,12 @@ exports[`calling render with the same component on the same container does not r
 .c5:focus-within {
   -webkit-text-decoration: none;
   text-decoration: none;
+}
+
+.c5:focus {
+  outline: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
 }
 
 .c5:hover,
