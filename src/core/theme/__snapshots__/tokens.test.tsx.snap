@@ -110,31 +110,6 @@ exports[`snapshot testing 1`] = `
   cursor: pointer;
 }
 
-.c5:focus {
-  outline: 0;
-  position: relative;
-}
-
-.c5:focus:after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
-  z-index: 9999;
-}
-
-.c5:focus:not(:focus-within):after {
-  content: none;
-}
-
 .c2 {
   color: hsl(0,0%,16%);
   display: -webkit-box;
@@ -243,10 +218,6 @@ exports[`snapshot testing 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c2 > .fi-expander-group_all-button:focus:not(:focus-within):after {
-  content: none;
 }
 
 .c6 {
