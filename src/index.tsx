@@ -55,4 +55,5 @@ export { Expander, ExpanderProps } from './core/Expander/Expander';
 export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';
 export { Text, TextProps } from './core/Text/Text';
 export { Textarea, TextareaProps } from './core/Form/Textarea/Textarea';
+export { VisuallyHidden } from './core/VisuallyHidden/VisuallyHidden';
 export { suomifiDesignTokens, DesignTokens } from 'suomifi-design-tokens';

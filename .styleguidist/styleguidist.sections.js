@@ -6,6 +6,7 @@ const primitiveComponents = [
   'Button',
   'Heading',
   'Chip',
+  'VisuallyHidden',
   ['Form', 'TextInput'],
   ['Form', 'Toggle'],
   ['Form', 'SearchInput'],
@@ -77,7 +78,7 @@ module.exports = {
               ]),
             },
             {
-              name: 'Icons',
+              name: 'Icon',
               components: getComponents(['Icon', 'StaticIcon']),
             },
           ],
