@@ -41,10 +41,11 @@ describe('props', () => {
       expect(container.firstChild).toHaveClass('fi-search-input');
     });
 
-    it('should have <input type="text"> HTML-element with correct class ', () => {
+    it('should have <input type="search"> HTML-element with correct class ', () => {
       const { getByRole } = render(TestSearchInput());
       const inputElement = getByRole('searchbox');
       expect(inputElement).toHaveClass('fi-search-input_input');
+      expect(inputElement).toHaveAttribute('type', 'search');
     });
 
     it('should have label text with correct class and for id', () => {
