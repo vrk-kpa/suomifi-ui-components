@@ -142,10 +142,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c1 [data-reach-listbox-button].fi-dropdown_button:focus:not(:focus-within):after {
-  content: none;
-}
-
 .c1 [data-reach-listbox-button].fi-dropdown_button:before {
   content: '';
   position: absolute;
@@ -359,10 +355,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c1 [data-reach-listbox-button].fi-dropdown_button:focus:not(:focus-within):after {
-  content: none;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button:before {
@@ -581,10 +573,6 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c1 [data-reach-listbox-button].fi-dropdown_button:focus:not(:focus-within):after {
-  content: none;
-}
-
 .c1 [data-reach-listbox-button].fi-dropdown_button:before {
   content: '';
   position: absolute;
@@ -800,10 +788,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c1 [data-reach-listbox-button].fi-dropdown_button:focus:not(:focus-within):after {
-  content: none;
-}
-
 .c1 [data-reach-listbox-button].fi-dropdown_button:before {
   content: '';
   position: absolute;
@@ -1005,10 +989,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c1 [data-reach-listbox-button].fi-dropdown_button:focus:not(:focus-within):after {
-  content: none;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button:before {
