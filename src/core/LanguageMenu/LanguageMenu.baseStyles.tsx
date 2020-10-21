@@ -1,14 +1,14 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../theme';
 import { LanguageMenuProps } from './LanguageMenu';
-import { element, focus } from '../theme/reset';
+import { element } from '../theme/reset';
+import { absoluteFocus } from '../theme/utils/focus';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme & Partial<LanguageMenuProps>) => css`
   & > [data-reach-menu-button].fi-language-menu_button {
     ${element({ theme })}
     ${theme.typography.bodyText}
-    ${focus({ theme })}
     cursor: pointer;
     &.fi-language-menu-language_button {
       ${element({ theme })}
@@ -25,6 +25,16 @@ export const baseStyles = withSuomifiTheme(
         margin-left: ${theme.spacing.xs};
         fill: ${theme.colors.highlightBase};
       }
+
+      &:focus {
+        outline: 0;
+        position: relative;
+
+        &::after {
+          ${absoluteFocus}
+        }
+      }
+
       &:hover{
         border-color: ${theme.colors.depthLight1};
       }
