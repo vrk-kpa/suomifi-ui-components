@@ -8,6 +8,7 @@ export const baseStyles = withSuomifiTheme(
     &.fi-status-text {
       margin-top: ${theme.spacing.xxs};
       ${font({ theme })('bodySemiBoldSmall')};
+      color: ${theme.colors.blackBase};
       font-size: 14px;
       line-height: 20px;
 
