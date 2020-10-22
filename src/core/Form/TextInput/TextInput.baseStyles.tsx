@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import { TextInputProps } from './TextInput';
 import { withSuomifiTheme, TokensAndTheme } from '../../theme';
 import { input, font } from '../../theme/reset';
-import { boxShadowFocus } from '../../theme/utils';
+import { absoluteFocus } from '../../theme/utils';
 import { math } from 'polished';
 
 export const baseStyles = withSuomifiTheme(
@@ -34,6 +34,17 @@ export const baseStyles = withSuomifiTheme(
         ${theme.typography.bodyTextSmall};
   }
 
+  & .fi-text-input_input-element-container {
+    &:focus-within {
+      outline: none;
+      position: relative;
+
+      &::after {
+        ${absoluteFocus}
+      }
+    }
+  }
+
   & .fi-text-input_statusText_container {
     display: flex;
     flex-direction: column;
@@ -62,7 +73,7 @@ export const baseStyles = withSuomifiTheme(
     padding-left: ${theme.spacing.insetL};
 
     &:focus {
-      ${boxShadowFocus}
+      outline: none;
     }
 
     &::placeholder{
