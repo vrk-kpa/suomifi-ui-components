@@ -3,7 +3,7 @@ import { TextareaProps } from './Textarea';
 import { withSuomifiTheme, TokensAndTheme } from '../../theme';
 import { disabledCursor } from '../../../components/utils/css';
 import { element, font } from '../../theme/reset';
-import { boxShadowFocus } from '../../theme/utils/focus';
+import { absoluteFocus } from '../../theme/utils/focus';
 import { Omit } from '../../../utils/typescript';
 
 export const baseStyles = withSuomifiTheme(
@@ -32,18 +32,31 @@ export const baseStyles = withSuomifiTheme(
         word-break: break-word;
       }
 
+      & .fi-textarea_textarea-element-container {
+        margin-top: ${theme.spacing.insetL};
+        &:focus-within {
+          outline: none;
+          position: relative;
+
+          &::after {
+            ${absoluteFocus}
+          }
+        }
+      }
+
       & .fi-textarea_textarea {
         resize: ${!!resize ? resize : 'vertical'};
         border-radius: 2px;
         border: 1px solid ${theme.colors.depthLight1};
         box-shadow: ${theme.shadows.actionElementBoxShadow};
         padding: 8px 14px 13px 10px;
-        margin-top: ${theme.spacing.insetL};
         ${theme.typography.bodyTextSmall};
+        width: 100%;
 
         &:focus {
-          ${boxShadowFocus}
+          outline: none;
         }
+
         ::placeholder {
           font-style: italic;
         }

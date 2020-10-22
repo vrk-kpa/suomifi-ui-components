@@ -183,23 +183,46 @@ exports[`snapshot default structure should match snapshot 1`] = `
   word-break: break-word;
 }
 
+.c1.fi-textarea .fi-textarea_textarea-element-container {
+  margin-top: 10px;
+}
+
+.c1.fi-textarea .fi-textarea_textarea-element-container:focus-within {
+  outline: none;
+  position: relative;
+}
+
+.c1.fi-textarea .fi-textarea_textarea-element-container:focus-within::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  z-index: 9999;
+}
+
 .c1.fi-textarea .fi-textarea_textarea {
   resize: vertical;
   border-radius: 2px;
   border: 1px solid hsl(202,7%,80%);
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
   padding: 8px 14px 13px 10px;
-  margin-top: 10px;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+  width: 100%;
 }
 
 .c1.fi-textarea .fi-textarea_textarea:focus {
-  outline: 0;
-  border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  outline: none;
 }
 
 .c1.fi-textarea .fi-textarea_textarea::-webkit-input-placeholder {
@@ -261,10 +284,14 @@ exports[`snapshot default structure should match snapshot 1`] = `
       </span>
     </p>
   </label>
-  <textarea
-    aria-invalid="false"
-    class="c5 fi-textarea_textarea"
-    id="just-for-snapshot-to-be-same"
-  />
+  <div
+    class="c0 fi-textarea_textarea-element-container"
+  >
+    <textarea
+      aria-invalid="false"
+      class="c5 fi-textarea_textarea"
+      id="just-for-snapshot-to-be-same"
+    />
+  </div>
 </div>
 `;
