@@ -267,6 +267,9 @@ exports[`snapshot should have matching default structure 1`] = `
   min-height: 36px;
   margin-top: 1px;
   margin-bottom: 1px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .c1 .fi-search-input_input::-webkit-input-placeholder {
