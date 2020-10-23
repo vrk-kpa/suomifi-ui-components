@@ -19,7 +19,7 @@ import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { Icon } from '../../Icon/Icon';
 import { baseStyles } from './SearchInput.baseStyles';
 
-type StateValue = string | number | string[] | undefined;
+type SearchInputValue = string | number | string[] | undefined;
 
 type SearchInputStatus = 'default' | 'error';
 
@@ -59,11 +59,11 @@ export interface SearchInputProps
   /** Set components width to 100% */
   fullWidth?: boolean;
   /** Callback for input text change */
-  onChange?: (value: StateValue) => void;
+  onChange?: (value: SearchInputValue) => void;
   /** Callback for onBlur event */
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback for search button click */
-  onSearch?: (value: StateValue) => void;
+  onSearch?: (value: SearchInputValue) => void;
 }
 
 const baseClassName = 'fi-search-input';
@@ -82,7 +82,7 @@ const searchInputClassNames = {
 };
 
 interface SearchInputState {
-  value: string | number | string[] | undefined;
+  value: SearchInputValue;
 }
 
 class BaseSearchInput extends Component<SearchInputProps> {
@@ -136,7 +136,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
       ...passProps
     } = this.props;
 
-    const conditionalSetState = (newValue: StateValue) => {
+    const conditionalSetState = (newValue: SearchInputValue) => {
       if (!('value' in this.props)) {
         this.setState({ value: newValue });
       }

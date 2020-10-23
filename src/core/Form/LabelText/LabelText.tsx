@@ -23,7 +23,7 @@ interface InternalLabelTextProps extends HtmlDivProps {
   labelMode?: LabelMode;
   /** Label span props */
   labelSpanProps?: HtmlSpanProps;
-  /** Render the wrapping element as anohter element */
+  /** Render the wrapping element as another element */
   asProp?: asPropType;
 }
 

@@ -1,16 +1,9 @@
 import { css } from 'styled-components';
-import { SearchInputProps } from './SearchInput';
 import { withSuomifiTheme, TokensAndTheme } from '../../theme';
 import { input, inputContainer, font, focus } from '../../theme/reset';
 
 export const baseStyles = withSuomifiTheme(
-  ({
-    theme,
-  }: TokensAndTheme &
-    Omit<
-      SearchInputProps,
-      'labelText' | 'clearButtonLabel' | 'searchButtonLabel'
-    >) => css`
+  ({ theme }: TokensAndTheme) => css`
     &.fi-search-input {
       ${font({ theme })('bodyText')}
       display: inline-block;
@@ -60,6 +53,7 @@ export const baseStyles = withSuomifiTheme(
         ::-webkit-search-cancel-button,
         ::-webkit-search-results-button,
         ::-webkit-search-results-decoration { display: none; }
+        appearance: none;
       }
 
       &_button {
