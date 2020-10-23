@@ -166,6 +166,12 @@ class BaseSearchInput extends Component<SearchInputProps> {
       }
     };
 
+    const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+      if (event?.key === 'Escape') {
+        event.preventDefault();
+      }
+    };
+
     const searchButtonDerivedProps = {
       ...searchButtonProps,
       className: classnames(
@@ -228,6 +234,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
                 conditionalSetState(event.currentTarget.value);
               }}
               onKeyPress={onKeyPress}
+              onKeyDown={onKeyDown}
             />
           </HtmlDiv>
           <HtmlButton {...clearButtonProps}>
