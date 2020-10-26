@@ -7,14 +7,11 @@ const removeAction = () => {
 
 <>
   <div>
-    <Chip
-      removable
-      actionLabel="Deselect"
-      onClick={removeAction}
-      style={{ marginRight: '10px' }}
-    >
-      Removable chip 1
-    </Chip>
+    <span style={{ marginRight: '10px' }}>
+      <Chip removable actionLabel="Deselect" onClick={removeAction}>
+        Removable chip 1
+      </Chip>
+    </span>
 
     <Chip removable actionLabel="Deselect" onClick={removeAction}>
       Removable chip 2
