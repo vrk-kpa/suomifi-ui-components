@@ -111,7 +111,7 @@ exports[`children should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c1:focus:not(:focus-visible):after {
+.c1:focus:not(:focus-within):after {
   content: none;
 }
 
@@ -306,7 +306,7 @@ exports[`classnames should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c1:focus:not(:focus-visible):after {
+.c1:focus:not(:focus-within):after {
   content: none;
 }
 
@@ -497,7 +497,7 @@ exports[`disabled should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c1:focus:not(:focus-visible):after {
+.c1:focus:not(:focus-within):after {
   content: none;
 }
 

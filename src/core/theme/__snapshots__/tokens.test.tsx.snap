@@ -131,7 +131,7 @@ exports[`snapshot testing 1`] = `
   z-index: 9999;
 }
 
-.c5:focus:not(:focus-visible):after {
+.c5:focus:not(:focus-within):after {
   content: none;
 }
 
@@ -245,7 +245,7 @@ exports[`snapshot testing 1`] = `
   z-index: 9999;
 }
 
-.c2 > .fi-expander-group_all-button:focus:not(:focus-visible):after {
+.c2 > .fi-expander-group_all-button:focus:not(:focus-within):after {
   content: none;
 }
 
@@ -342,7 +342,7 @@ exports[`snapshot testing 1`] = `
   z-index: 9999;
 }
 
-.c6 .fi-expander_title:focus:not(:focus-visible):after {
+.c6 .fi-expander_title:focus:not(:focus-within):after {
   content: none;
 }
 
