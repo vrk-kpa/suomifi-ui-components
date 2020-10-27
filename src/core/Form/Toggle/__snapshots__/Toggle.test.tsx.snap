@@ -726,16 +726,6 @@ exports[`Toggle variant withInput:  calling render with the same component on th
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-<<<<<<< HEAD
-}
-
-.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:not(:focus-within):after {
-  content: none;
-}
-
-.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:after {
-=======
->>>>>>> Using the absoluteFocus with Toggle
   border-radius: 14px;
   right: -4px;
   left: -4px;

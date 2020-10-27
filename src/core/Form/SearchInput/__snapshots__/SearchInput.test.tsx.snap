@@ -183,81 +183,43 @@ exports[`snapshot should have matching default structure 1`] = `
   position: relative;
 }
 
-.c2 .fi-text-input_input-element-container:focus-within {
-  outline: none;
-  position: relative;
-}
-
-.c2 .fi-text-input_input-element-container:focus-within::after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
+.c1 .fi-search-input_input-element-container {
+  background-color: hsl(0,0%,100%);
+  color: hsl(0,0%,16%);
+  width: 100%;
+  height: 40px;
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
-  z-index: 9999;
-}
-
-.c2 .fi-text-input_statusText_container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c1 .fi-search-input_input-element-container > input:focus {
-  outline-color: hsl(23,82%,53%);
-  outline-width: 4px;
-  outline-offset: 2px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
 }
 
 .c1 .fi-search-input_input-element-container:focus-within {
-  outline: 0;
   position: relative;
-}
-
-.c1 .fi-search-input_input-element-container:focus-within:after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
-  z-index: 9999;
-}
-
-.c1 .fi-search-input_input-element-container:focus-within:not(:focus-within):after {
-  content: none;
-}
-
-.c1 .fi-search-input_input-element-container:focus-within > input:focus {
-  outline: none;
-}
-
-.c1 .fi-search-input_input-element-container:focus-within {
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
 .c1 .fi-search-input_input-element-container:focus-within:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  z-index: 9999;
   top: -3px;
   bottom: -3px;
   right: -3px;
   left: -3px;
+}
+
+.c1 .fi-search-input_input-element-container:focus-within > input:focus {
+  outline: none;
 }
 
 .c1 .fi-search-input_input {
@@ -294,11 +256,7 @@ exports[`snapshot should have matching default structure 1`] = `
   appearance: none;
 }
 
-.c2 .fi-text-input_input:focus {
-  outline: none;
-}
-
-.c2 .fi-text-input_input::-webkit-input-placeholder {
+.c1 .fi-search-input_input::-webkit-input-placeholder {
   font-style: italic;
 }
 
@@ -314,8 +272,16 @@ exports[`snapshot should have matching default structure 1`] = `
   font-style: italic;
 }
 
-.c2.fi-text-input_with-icon .fi-text-input_input-element-container {
-  position: relative;
+.c1 .fi-search-input_input::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.c1 .fi-search-input_input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .c1 .fi-search-input_input::-webkit-search-decoration,
@@ -404,11 +370,6 @@ exports[`snapshot should have matching default structure 1`] = `
   pointer-events: all;
 }
 
-.c1.fi-search-input--not-empty .fi-search-input_button:focus {
-  outline: 0;
-  position: relative;
-}
-
 .c1.fi-search-input--not-empty .fi-search-input_button:focus:after {
   content: '';
   position: absolute;
@@ -423,14 +384,6 @@ exports[`snapshot should have matching default structure 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c1.fi-search-input--not-empty .fi-search-input_button:focus:not(:focus-within):after {
-  content: none;
-}
-
-.c1.fi-search-input--not-empty .fi-search-input_button:focus {
-  position: absolute;
 }
 
 .c1.fi-search-input--not-empty .fi-search-input_button-search {
