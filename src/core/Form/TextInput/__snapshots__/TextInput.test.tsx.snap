@@ -168,8 +168,17 @@ exports[`snapshots match error status with statustext 1`] = `
   font-weight: 400;
 }
 
-.c2 .fi-text-input_input-element-container:focus-within {
+.c2 .fi-text-input_input-element-container > input:focus {
+  outline-color: hsl(196,77%,55%);
+  outline-width: 4px;
+  outline-offset: 2px;
+}
+
+.c2 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
+}
+
+.c2 .fi-text-input_input-element-container:focus-within {
   position: relative;
 }
 
@@ -263,10 +272,6 @@ exports[`snapshots match error status with statustext 1`] = `
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
-}
-
-.c2 .fi-text-input_input:focus {
-  outline: none;
 }
 
 .c2 .fi-text-input_input::-webkit-input-placeholder {
@@ -515,8 +520,17 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   font-weight: 400;
 }
 
-.c2 .fi-text-input_input-element-container:focus-within {
+.c2 .fi-text-input_input-element-container > input:focus {
+  outline-color: hsl(196,77%,55%);
+  outline-width: 4px;
+  outline-offset: 2px;
+}
+
+.c2 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
+}
+
+.c2 .fi-text-input_input-element-container:focus-within {
   position: relative;
 }
 
@@ -610,10 +624,6 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
-}
-
-.c2 .fi-text-input_input:focus {
-  outline: none;
 }
 
 .c2 .fi-text-input_input::-webkit-input-placeholder {
@@ -844,8 +854,17 @@ exports[`snapshots match minimal implementation 1`] = `
   font-weight: 400;
 }
 
-.c2 .fi-text-input_input-element-container:focus-within {
+.c2 .fi-text-input_input-element-container > input:focus {
+  outline-color: hsl(196,77%,55%);
+  outline-width: 4px;
+  outline-offset: 2px;
+}
+
+.c2 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
+}
+
+.c2 .fi-text-input_input-element-container:focus-within {
   position: relative;
 }
 
@@ -939,10 +958,6 @@ exports[`snapshots match minimal implementation 1`] = `
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
-}
-
-.c2 .fi-text-input_input:focus {
-  outline: none;
 }
 
 .c2 .fi-text-input_input::-webkit-input-placeholder {
