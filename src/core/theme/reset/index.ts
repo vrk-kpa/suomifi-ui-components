@@ -40,15 +40,14 @@ export const input = (props: SuomifiThemeProp) => {
   `;
 };
 
-export const inputContainer = (props: TokensOrThemeProps) => css`
+export const containerIEFocus = (props: TokensOrThemeProps) => css`
   > input:focus {
     /* For IE/Edge */
-    outline-color: ${themeOrTokens(props).colors.accentBase};
+    outline-color: ${themeOrTokens(props).colors.accentSecondary};
     outline-width: 4px;
     outline-offset: 2px;
   }
   &:focus-within {
-    ${focusUtil({ ...props, noPseudo: true })}
     > input:focus {
       outline: none;
     }
