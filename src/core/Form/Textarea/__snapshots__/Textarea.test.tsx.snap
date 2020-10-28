@@ -209,6 +209,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
 }
 
 .c1.fi-textarea .fi-textarea_textarea {
+  display: block;
   resize: vertical;
   border-radius: 2px;
   border: 1px solid hsl(202,7%,80%);

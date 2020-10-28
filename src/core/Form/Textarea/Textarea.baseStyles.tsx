@@ -45,6 +45,7 @@ export const baseStyles = withSuomifiTheme(
       }
 
       & .fi-textarea_textarea {
+        display: block;
         resize: ${!!resize ? resize : 'vertical'};
         border-radius: 2px;
         border: 1px solid ${theme.colors.depthLight1};
