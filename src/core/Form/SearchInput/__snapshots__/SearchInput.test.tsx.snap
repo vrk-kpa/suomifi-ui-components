@@ -193,6 +193,17 @@ exports[`snapshot should have matching default structure 1`] = `
   border-radius: 2px;
 }
 
+.c1 .fi-search-input_input-element-container > input:focus {
+  outline-color: hsl(196,77%,55%);
+  outline-width: 4px;
+  outline-offset: 2px;
+  outline-style: solid;
+}
+
+.c1 .fi-search-input_input-element-container:focus-within > input:focus {
+  outline: none;
+}
+
 .c1 .fi-search-input_input-element-container:focus-within {
   position: relative;
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
@@ -370,7 +381,18 @@ exports[`snapshot should have matching default structure 1`] = `
   pointer-events: all;
 }
 
-.c1.fi-search-input--not-empty .fi-search-input_button:focus:after {
+.c1.fi-search-input--not-empty .fi-search-input_button > input:focus {
+  outline-color: hsl(196,77%,55%);
+  outline-width: 4px;
+  outline-offset: 2px;
+  outline-style: solid;
+}
+
+.c1.fi-search-input--not-empty .fi-search-input_button:focus-within > input:focus {
+  outline: none;
+}
+
+.c1.fi-search-input--not-empty .fi-search-input_button:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;

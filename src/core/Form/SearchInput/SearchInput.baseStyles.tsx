@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../../theme';
-import { input, font } from '../../theme/reset';
+import { input, containerIEFocus, font } from '../../theme/reset';
 import { absoluteFocus } from '../../theme/utils';
 
 export const baseStyles = withSuomifiTheme(
@@ -19,6 +19,8 @@ export const baseStyles = withSuomifiTheme(
       &_input-element-container {
         background-color: ${theme.colors.whiteBase};
         color: ${theme.colors.blackBase};
+        ${containerIEFocus({ theme })}
+
         &:focus-within {
           position: relative;
           box-shadow: ${theme.shadows.actionElementBoxShadow};
@@ -127,7 +129,9 @@ export const baseStyles = withSuomifiTheme(
       }
   
       & .fi-search-input_button {
-        &:focus {
+        ${containerIEFocus({ theme })}
+
+        &:focus-within {
           &:after {
             ${absoluteFocus}
           }
