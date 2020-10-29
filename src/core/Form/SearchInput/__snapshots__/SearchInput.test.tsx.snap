@@ -195,7 +195,7 @@ exports[`snapshot should have matching default structure 1`] = `
 
 .c1 .fi-search-input_input-element-container > input:focus {
   outline-color: hsl(196,77%,55%);
-  outline-width: 4px;
+  outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
@@ -381,18 +381,7 @@ exports[`snapshot should have matching default structure 1`] = `
   pointer-events: all;
 }
 
-.c1.fi-search-input--not-empty .fi-search-input_button > input:focus {
-  outline-color: hsl(196,77%,55%);
-  outline-width: 4px;
-  outline-offset: 2px;
-  outline-style: solid;
-}
-
-.c1.fi-search-input--not-empty .fi-search-input_button:focus-within > input:focus {
-  outline: none;
-}
-
-.c1.fi-search-input--not-empty .fi-search-input_button:focus-within:after {
+.c1.fi-search-input--not-empty .fi-search-input_button:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;

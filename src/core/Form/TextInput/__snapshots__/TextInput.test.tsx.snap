@@ -170,7 +170,7 @@ exports[`snapshots match error status with statustext 1`] = `
 
 .c2 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(196,77%,55%);
-  outline-width: 4px;
+  outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
@@ -523,7 +523,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 
 .c2 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(196,77%,55%);
-  outline-width: 4px;
+  outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
@@ -858,7 +858,7 @@ exports[`snapshots match minimal implementation 1`] = `
 
 .c2 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(196,77%,55%);
-  outline-width: 4px;
+  outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
