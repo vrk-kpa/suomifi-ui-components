@@ -169,17 +169,21 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c2 .fi-text-input_input-element-container > input:focus {
-  outline-color: hsl(23,82%,53%);
-  outline-width: 4px;
+  outline-color: hsl(196,77%,55%);
+  outline-width: 2px;
   outline-offset: 2px;
+  outline-style: solid;
+}
+
+.c2 .fi-text-input_input-element-container:focus-within > input:focus {
+  outline: none;
 }
 
 .c2 .fi-text-input_input-element-container:focus-within {
-  outline: 0;
   position: relative;
 }
 
-.c2 .fi-text-input_input-element-container:focus-within:after {
+.c2 .fi-text-input_input-element-container:focus-within::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -193,14 +197,6 @@ exports[`snapshots match error status with statustext 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c2 .fi-text-input_input-element-container:focus-within:not(:focus-within):after {
-  content: none;
-}
-
-.c2 .fi-text-input_input-element-container:focus-within > input:focus {
-  outline: none;
 }
 
 .c2 .fi-text-input_statusText_container {
@@ -293,10 +289,6 @@ exports[`snapshots match error status with statustext 1`] = `
 
 .c2 .fi-text-input_input::placeholder {
   font-style: italic;
-}
-
-.c2 .fi-text-input_input:focus {
-  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
 .c2.fi-text-input_with-icon .fi-text-input_input-element-container {
@@ -530,17 +522,21 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 }
 
 .c2 .fi-text-input_input-element-container > input:focus {
-  outline-color: hsl(23,82%,53%);
-  outline-width: 4px;
+  outline-color: hsl(196,77%,55%);
+  outline-width: 2px;
   outline-offset: 2px;
+  outline-style: solid;
+}
+
+.c2 .fi-text-input_input-element-container:focus-within > input:focus {
+  outline: none;
 }
 
 .c2 .fi-text-input_input-element-container:focus-within {
-  outline: 0;
   position: relative;
 }
 
-.c2 .fi-text-input_input-element-container:focus-within:after {
+.c2 .fi-text-input_input-element-container:focus-within::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -554,14 +550,6 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c2 .fi-text-input_input-element-container:focus-within:not(:focus-within):after {
-  content: none;
-}
-
-.c2 .fi-text-input_input-element-container:focus-within > input:focus {
-  outline: none;
 }
 
 .c2 .fi-text-input_statusText_container {
@@ -654,10 +642,6 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 
 .c2 .fi-text-input_input::placeholder {
   font-style: italic;
-}
-
-.c2 .fi-text-input_input:focus {
-  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
 .c2.fi-text-input_with-icon .fi-text-input_input-element-container {
@@ -873,17 +857,21 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c2 .fi-text-input_input-element-container > input:focus {
-  outline-color: hsl(23,82%,53%);
-  outline-width: 4px;
+  outline-color: hsl(196,77%,55%);
+  outline-width: 2px;
   outline-offset: 2px;
+  outline-style: solid;
+}
+
+.c2 .fi-text-input_input-element-container:focus-within > input:focus {
+  outline: none;
 }
 
 .c2 .fi-text-input_input-element-container:focus-within {
-  outline: 0;
   position: relative;
 }
 
-.c2 .fi-text-input_input-element-container:focus-within:after {
+.c2 .fi-text-input_input-element-container:focus-within::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -897,14 +885,6 @@ exports[`snapshots match minimal implementation 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c2 .fi-text-input_input-element-container:focus-within:not(:focus-within):after {
-  content: none;
-}
-
-.c2 .fi-text-input_input-element-container:focus-within > input:focus {
-  outline: none;
 }
 
 .c2 .fi-text-input_statusText_container {
@@ -997,10 +977,6 @@ exports[`snapshots match minimal implementation 1`] = `
 
 .c2 .fi-text-input_input::placeholder {
   font-style: italic;
-}
-
-.c2 .fi-text-input_input:focus {
-  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
 .c2.fi-text-input_with-icon .fi-text-input_input-element-container {

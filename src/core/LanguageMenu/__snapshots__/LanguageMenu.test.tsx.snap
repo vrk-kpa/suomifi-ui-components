@@ -39,31 +39,6 @@ exports[`calling render with the same component on the same container does not r
   cursor: pointer;
 }
 
-.c1 > [data-reach-menu-button].fi-language-menu_button:focus {
-  outline: 0;
-  position: relative;
-}
-
-.c1 > [data-reach-menu-button].fi-language-menu_button:focus:after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
-  z-index: 9999;
-}
-
-.c1 > [data-reach-menu-button].fi-language-menu_button:focus:not(:focus-within):after {
-  content: none;
-}
-
 .c1 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button {
   color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -85,6 +60,27 @@ exports[`calling render with the same component on the same container does not r
   transform: translateY(0.2em);
   margin-left: 10px;
   fill: hsl(212,63%,45%);
+}
+
+.c1 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button:focus::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  z-index: 9999;
 }
 
 .c1 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button:hover {

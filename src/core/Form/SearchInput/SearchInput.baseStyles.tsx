@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../../theme';
-import { input, inputContainer, font, focus } from '../../theme/reset';
+import { input, containerIEFocus, font } from '../../theme/reset';
+import { absoluteFocus } from '../../theme/utils';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
@@ -16,15 +17,22 @@ export const baseStyles = withSuomifiTheme(
       }
 
       &_input-element-container {
-        ${inputContainer({ theme })}
         background-color: ${theme.colors.whiteBase};
+        color: ${theme.colors.blackBase};
+        ${containerIEFocus({ theme })}
+
         &:focus-within {
+          position: relative;
           box-shadow: ${theme.shadows.actionElementBoxShadow};
           &:after {
+            ${absoluteFocus}
             top: -3px;
             bottom: -3px;
             right: -3px;
             left: -3px;
+          }
+          > input:focus {
+            outline: none;
           }
         }
         width: 100%;
@@ -121,9 +129,11 @@ export const baseStyles = withSuomifiTheme(
       }
   
       & .fi-search-input_button {
-        ${focus({ theme })}
+
         &:focus {
-          position: absolute;
+          &:after {
+            ${absoluteFocus}
+          }
         }
         cursor: pointer;
         pointer-events: all;

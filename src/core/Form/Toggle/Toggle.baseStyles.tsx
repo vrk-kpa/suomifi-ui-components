@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../../theme';
-import { focus } from '../../theme/utils';
+import { absoluteFocus } from '../../theme/utils';
 import { element, font } from '../../theme/reset';
 
 // Contains double underscore because it is written in the SVG-file
@@ -9,12 +9,9 @@ const iconWidth = '40px';
 const iconHeight = '24px';
 
 const focusOverrides = css`
-  position: absolute;
-  &:after {
-    border-radius: 14px;
-    right: -4px;
-    left: -4px;
-  }
+  border-radius: 14px;
+  right: -4px;
+  left: -4px;
 `;
 
 /* stylelint-disable no-descending-specificity */
@@ -38,15 +35,9 @@ export const baseStyles = withSuomifiTheme(
       &:focus {
         outline: 0;
         & .fi-toggle_icon-container {
-          ${focus({ theme, noPseudo: true })}
-          ${focusOverrides}
-        }
-      }
-      &:focus:not(:focus-visible) {
-        outline: 0;
-        & .fi-toggle_icon-container {
           &:after {
-            content: none;
+            ${absoluteFocus}
+            ${focusOverrides}
           }
         }
       }
@@ -56,15 +47,9 @@ export const baseStyles = withSuomifiTheme(
       &:focus-within {
         outline: 0;
         & .fi-toggle_icon-container {
-          ${focus({ theme, noPseudo: true })}
-          ${focusOverrides}
-        }
-      }
-      &:focus-within:not(:focus-visible) {
-        outline: 0;
-        & .fi-toggle_icon-container {
           &:after {
-            content: none;
+            ${absoluteFocus}
+            ${focusOverrides}
           }
         }
       }

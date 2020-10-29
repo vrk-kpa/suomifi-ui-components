@@ -95,7 +95,7 @@ exports[`children should match snapshot 1`] = `
   position: relative;
 }
 
-.c1:focus:after {
+.c1:focus::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -109,13 +109,6 @@ exports[`children should match snapshot 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c1:focus:not(:focus-within):after {
-  content: none;
-}
-
-.c1:focus:after {
   border-radius: 16px;
 }
 
@@ -290,7 +283,7 @@ exports[`classnames should match snapshot 1`] = `
   position: relative;
 }
 
-.c1:focus:after {
+.c1:focus::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -304,13 +297,6 @@ exports[`classnames should match snapshot 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c1:focus:not(:focus-within):after {
-  content: none;
-}
-
-.c1:focus:after {
   border-radius: 16px;
 }
 
@@ -481,7 +467,7 @@ exports[`disabled should match snapshot 1`] = `
   position: relative;
 }
 
-.c1:focus:after {
+.c1:focus::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -495,13 +481,6 @@ exports[`disabled should match snapshot 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c1:focus:not(:focus-within):after {
-  content: none;
-}
-
-.c1:focus:after {
   border-radius: 16px;
 }
 

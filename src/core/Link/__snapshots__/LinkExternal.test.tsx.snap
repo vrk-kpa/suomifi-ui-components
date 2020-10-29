@@ -102,16 +102,6 @@ exports[`calling render with the same component on the same container does not r
   text-decoration: none;
 }
 
-.c1:focus {
-  outline: 0;
-  border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
-}
-
-.c1:focus:not(:focus-within) {
-  box-shadow: none;
-}
-
 .c1:hover,
 .c1:active,
 .c1:focus,
@@ -123,6 +113,12 @@ exports[`calling render with the same component on the same container does not r
 .c1:focus-within {
   -webkit-text-decoration: none;
   text-decoration: none;
+}
+
+.c1:focus {
+  outline: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
 }
 
 .c1:hover,

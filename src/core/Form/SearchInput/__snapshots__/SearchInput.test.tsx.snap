@@ -185,6 +185,7 @@ exports[`snapshot should have matching default structure 1`] = `
 
 .c1 .fi-search-input_input-element-container {
   background-color: hsl(0,0%,100%);
+  color: hsl(0,0%,16%);
   width: 100%;
   height: 40px;
   box-sizing: border-box;
@@ -193,14 +194,19 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c1 .fi-search-input_input-element-container > input:focus {
-  outline-color: hsl(23,82%,53%);
-  outline-width: 4px;
+  outline-color: hsl(196,77%,55%);
+  outline-width: 2px;
   outline-offset: 2px;
+  outline-style: solid;
+}
+
+.c1 .fi-search-input_input-element-container:focus-within > input:focus {
+  outline: none;
 }
 
 .c1 .fi-search-input_input-element-container:focus-within {
-  outline: 0;
   position: relative;
+  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
 .c1 .fi-search-input_input-element-container:focus-within:after {
@@ -217,25 +223,14 @@ exports[`snapshot should have matching default structure 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c1 .fi-search-input_input-element-container:focus-within:not(:focus-within):after {
-  content: none;
-}
-
-.c1 .fi-search-input_input-element-container:focus-within > input:focus {
-  outline: none;
-}
-
-.c1 .fi-search-input_input-element-container:focus-within {
-  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
-}
-
-.c1 .fi-search-input_input-element-container:focus-within:after {
   top: -3px;
   bottom: -3px;
   right: -3px;
   left: -3px;
+}
+
+.c1 .fi-search-input_input-element-container:focus-within > input:focus {
+  outline: none;
 }
 
 .c1 .fi-search-input_input {
@@ -386,11 +381,6 @@ exports[`snapshot should have matching default structure 1`] = `
   pointer-events: all;
 }
 
-.c1.fi-search-input--not-empty .fi-search-input_button:focus {
-  outline: 0;
-  position: relative;
-}
-
 .c1.fi-search-input--not-empty .fi-search-input_button:focus:after {
   content: '';
   position: absolute;
@@ -405,14 +395,6 @@ exports[`snapshot should have matching default structure 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c1.fi-search-input--not-empty .fi-search-input_button:focus:not(:focus-within):after {
-  content: none;
-}
-
-.c1.fi-search-input--not-empty .fi-search-input_button:focus {
-  position: absolute;
 }
 
 .c1.fi-search-input--not-empty .fi-search-input_button-search {

@@ -1,7 +1,8 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme, SuomifiThemeProp } from '../theme';
-import { element, font, focus } from '../theme/reset';
+import { element, font } from '../theme/reset';
 import { disabledCursor } from '../../components/utils/css';
+import { absoluteFocus } from '../theme/utils/focus';
 
 const removableStyles = ({ theme }: SuomifiThemeProp) => css`
   &.fi-chip--removable {
@@ -32,11 +33,14 @@ export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     ${element({ theme })}
     ${font({ theme })('actionElementInnerTextBold')}
-    ${focus({ theme })}
 
-    &:focus{
-      &:after {
-      border-radius: 16px;
+    &:focus {
+      outline: 0;
+      position: relative;
+
+      &::after {
+        ${absoluteFocus}
+        border-radius: 16px;
       }
     }
 
@@ -47,34 +51,33 @@ export const baseStyles = withSuomifiTheme(
       background: ${theme.colors.highlightBase};
       max-height: 28px;
       display: inline-block;
-    
-      &.fi-chip--button{
+
+      &.fi-chip--button {
         cursor: pointer;
         &:hover {
-        background: ${theme.colors.highlightLight1};
+          background: ${theme.colors.highlightLight1};
         }
 
-      &:active {
-        background: ${theme.colors.highlightDark1};
+        &:active {
+          background: ${theme.colors.highlightDark1};
         }
       }
 
-    & .fi-chip--icon{
-      height: 12px;
-      width: 12px;
-      transform: translateY(-0.35em);
-    }
+      & .fi-chip--icon {
+        height: 12px;
+        width: 12px;
+        transform: translateY(-0.35em);
+      }
 
-    & .fi-chip--content{
-      display: inline-block;
-      max-width: 270px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      line-height: 1.5em;
-      vertical-align: center;
-    }
-
+      & .fi-chip--content {
+        display: inline-block;
+        max-width: 270px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5em;
+        vertical-align: center;
+      }
     }
     ${removableStyles({ theme })};
     ${disabledStyles({ theme })};
