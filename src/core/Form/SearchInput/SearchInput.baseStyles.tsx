@@ -129,9 +129,8 @@ export const baseStyles = withSuomifiTheme(
       }
   
       & .fi-search-input_button {
-        ${containerIEFocus({ theme })}
 
-        &:focus-within {
+        &:focus {
           &:after {
             ${absoluteFocus}
           }

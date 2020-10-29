@@ -44,7 +44,7 @@ export const containerIEFocus = (props: TokensOrThemeProps) => css`
   > input:focus {
     /* For IE/Edge */
     outline-color: ${themeOrTokens(props).colors.accentSecondary};
-    outline-width: 4px;
+    outline-width: 2px;
     outline-offset: 2px;
     outline-style: solid;
   }
