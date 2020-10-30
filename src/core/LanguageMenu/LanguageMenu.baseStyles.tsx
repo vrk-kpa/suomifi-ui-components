@@ -93,12 +93,14 @@ export const languageMenuPopoverStyles = withSuomifiTheme(
     & [data-reach-menu-items] {
       border: 0;
       padding: 0;
+      white-space: normal;
     }
 
     & [data-reach-menu-item].fi-language-menu_item {
       ${element({ theme })}
       ${theme.typography.bodyText}
-    &[data-selected] {
+      word-break: break-word;
+      &[data-selected] {
         ${theme.typography.bodyText}
         color: ${theme.colors.blackBase};
         background-color: ${theme.colors.highlightLight3};

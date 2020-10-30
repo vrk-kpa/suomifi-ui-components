@@ -84,6 +84,7 @@ const LanguageMenuPopoverPosition = (
     left: `${targetRect.left - popoverRect.width + targetRect.width}px`,
     // eslint-disable-next-line no-undef
     top: `${targetRect.top + targetRect.height + window.pageYOffset}px`,
+    maxWidth: `${targetRect.width + targetRect.left - 20}px`,
   };
 };
 
