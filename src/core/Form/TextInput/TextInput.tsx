@@ -8,49 +8,40 @@ import {
   TextInputProps as CompTextInputProps,
 } from '../../../components/Form/TextInput';
 import classnames from 'classnames';
-const baseClassName = 'fi-text-input';
+import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
+import { Omit } from '../../../utils/typescript';
 
+const baseClassName = 'fi-text-input';
 export const textInputClassNames = {
   baseClassName,
   labelParagraph: `${baseClassName}_label-p`,
-  inputContainer: `${baseClassName}_container`,
   error: `${baseClassName}--error`,
   success: `${baseClassName}--success`,
+  icon: `${baseClassName}_with-icon`,
 };
-type TextInputStatus = 'default' | 'error' | 'success';
 
 export interface TextInputProps extends CompTextInputProps, TokensProp {
-  /**
-   * 'default' | 'error' | 'success'
-   * @default default
-   */
-  status?: TextInputStatus;
+  icon?: BaseIconKeys;
+  iconProps?: Omit<IconProps, 'icon'>;
 }
 
 const StyledTextInput = styled(
   ({
     tokens,
-    status,
     className,
+    status,
     labelTextProps = { className: undefined },
-    inputContainerProps = { className: undefined },
     ...passProps
   }: TextInputProps & InternalTokensProp) => {
     return (
       <CompTextInput
         {...passProps}
+        status={status}
         labelTextProps={{
           ...labelTextProps,
           className: classnames(
             labelTextProps.className,
             textInputClassNames.labelParagraph,
-          ),
-        }}
-        inputContainerProps={{
-          ...inputContainerProps,
-          className: classnames(
-            inputContainerProps.className,
-            textInputClassNames.inputContainer,
           ),
         }}
         className={classnames(baseClassName, className, {
@@ -66,12 +57,36 @@ const StyledTextInput = styled(
 
 /**
  * <i class="semantics" />
- * Use for user inputting text
+ * Use for user inputting text.
+ * Props other than specified explicitly are passed on to underlying input element.
  */
 export class TextInput extends Component<TextInputProps> {
   render() {
-    const { ...passProps } = withSuomifiDefaultProps(this.props);
+    const {
+      children,
+      icon,
+      iconProps,
+      className,
+      ...passProps
+    } = withSuomifiDefaultProps(this.props);
 
-    return <StyledTextInput {...passProps} />;
+    const resolvedIcon = icon || iconProps?.icon;
+
+    const newIconProps = {
+      ...iconProps,
+      icon: resolvedIcon,
+    };
+
+    return (
+      <StyledTextInput
+        {...passProps}
+        className={classnames(className, {
+          [textInputClassNames.icon]: resolvedIcon !== undefined,
+        })}
+      >
+        {children}
+        {resolvedIcon && <Icon {...newIconProps} />}
+      </StyledTextInput>
+    );
   }
 }

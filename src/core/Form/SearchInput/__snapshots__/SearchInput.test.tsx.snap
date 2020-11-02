@@ -1,7 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`calling render with the same component on the same container does not remount 1`] = `
-.c4 {
+exports[`snapshot should have matching default structure 1`] = `
+.c5 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.c5:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.c5::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.c5::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.c5::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.c5::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -25,7 +73,7 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.c5 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -48,29 +96,9 @@ exports[`calling render with the same component on the same container does not r
   max-width: 100%;
 }
 
-.c5::-webkit-input-placeholder {
+.c4::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
-}
-
-.c0 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  max-width: 100%;
 }
 
 .c3 {
@@ -90,24 +118,26 @@ exports[`calling render with the same component on the same container does not r
   color: inherit;
   background: none;
   cursor: inherit;
-  display: block;
+  display: inline;
   max-width: 100%;
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
 }
 
-.c1.fi-text-input--disabled {
-  cursor: not-allowed;
-}
-
 .c6 {
-  display: inline-block;
-  vertical-align: baseline;
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
 }
 
-.c2 .fi-text-input_label-p {
-  margin-bottom: 10px;
+.c2.fi-label-text .fi-label-text_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -121,21 +151,65 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
-.c2 .fi-text-input_container > input:focus {
-  outline-color: hsl(23,82%,53%);
-  outline-width: 4px;
-  outline-offset: 2px;
+.c7 {
+  display: inline-block;
+  vertical-align: baseline;
 }
 
-.c2 .fi-text-input_container:focus-within {
-  outline: 0;
+.c1.fi-search-input {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: inline-block;
+  width: 290px;
+}
+
+.c1 .fi-search-input_functionality-container {
   position: relative;
 }
 
-.c2 .fi-text-input_container:focus-within:after {
+.c1 .fi-search-input_input-element-container {
+  background-color: hsl(0,0%,100%);
+  color: hsl(0,0%,16%);
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+}
+
+.c1 .fi-search-input_input-element-container > input:focus {
+  outline-color: hsl(196,77%,55%);
+  outline-width: 2px;
+  outline-offset: 2px;
+  outline-style: solid;
+}
+
+.c1 .fi-search-input_input-element-container:focus-within > input:focus {
+  outline: none;
+}
+
+.c1 .fi-search-input_input-element-container:focus-within {
+  position: relative;
+  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+}
+
+.c1 .fi-search-input_input-element-container:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -149,55 +223,17 @@ exports[`calling render with the same component on the same container does not r
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
+  top: -3px;
+  bottom: -3px;
+  right: -3px;
+  left: -3px;
 }
 
-.c2 .fi-text-input_container:focus-within:not(:focus-visible):after {
-  content: none;
-}
-
-.c2 .fi-text-input_container:focus-within > input:focus {
+.c1 .fi-search-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
-.c2 .fi-text-input_statusText_container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c2 .fi-text-input_statusText_container .fi-text-input_statusText {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.c2 .fi-text-input_hintText {
-  display: block;
-  color: hsl(0,0%,16%);
-  margin-bottom: 10px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c2 .fi-text-input_input {
+.c1 .fi-search-input_input {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -218,91 +254,242 @@ exports[`calling render with the same component on the same container does not r
   border: 1px solid hsl(202,7%,80%);
   border-radius: 2px;
   line-height: 1;
-  background-color: hsl(0,0%,100%);
-  width: 100%;
-  min-height: 40px;
-  padding-left: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  width: calc(100% - 24px);
+  min-width: 65px;
+  border: 0;
+  min-height: 36px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
-.c2 .fi-text-input_input::-webkit-input-placeholder {
+.c1 .fi-search-input_input::-webkit-input-placeholder {
   font-style: italic;
 }
 
-.c2 .fi-text-input_input::-moz-placeholder {
+.c1 .fi-search-input_input::-moz-placeholder {
   font-style: italic;
 }
 
-.c2 .fi-text-input_input:-ms-input-placeholder {
+.c1 .fi-search-input_input:-ms-input-placeholder {
   font-style: italic;
 }
 
-.c2 .fi-text-input_input::placeholder {
+.c1 .fi-search-input_input::placeholder {
   font-style: italic;
 }
 
-.c2 .fi-text-input_input:focus {
-  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+.c1 .fi-search-input_input::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
-.c2.fi-text-input--error .fi-text-input_input {
-  border-color: hsl(3,59%,48%);
+.c1 .fi-search-input_input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
-.c2.fi-text-input--error .fi-text-input_statusText {
-  margin-top: 5px;
-  color: hsl(3,59%,48%);
+.c1 .fi-search-input_input::-webkit-search-decoration,
+.c1 .fi-search-input_input::-webkit-search-cancel-button,
+.c1 .fi-search-input_input::-webkit-search-results-button,
+.c1 .fi-search-input_input::-webkit-search-results-decoration {
+  display: none;
 }
 
-.c2.fi-text-input--success .fi-text-input_input {
-  border-color: hsl(166,90%,36%);
-}
-
-.c2.fi-text-input--disabled .fi-text-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
-}
-
-.c2 .fi-search-input_input-container {
-  position: relative;
-}
-
-.c2 .fi-search-input_input {
-  min-height: 40px;
-  padding-right: 40px;
-}
-
-.c2 .fi-search-input_icon {
+.c1 .fi-search-input_button {
   position: absolute;
+  top: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  outline: none;
+  box-shadow: none;
+  cursor: default;
+  pointer-events: none;
+}
+
+.c1 .fi-search-input_button-clear {
+  right: 40px;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.c1 .fi-search-input_button-clear-icon {
+  width: 12px;
+  height: 12px;
+  fill: hsl(212,63%,37%);
+}
+
+.c1 .fi-search-input_button-search {
+  right: 0px;
+  height: 40px;
+  width: 40px;
+  border-radius: 0 2px 2px 0;
+  border: 0;
+}
+
+.c1 .fi-search-input_button-search-icon {
   width: 18px;
   height: 18px;
-  top: 10px;
-  right: 10px;
   fill: hsl(202,7%,40%);
 }
 
-<label
-  class="c0 fi-text-input_label c1 c2 fi-search-input"
+.c1.fi-search-input--full-width {
+  width: 100%;
+}
+
+.c1.fi-search-input--error .fi-search-input_input-element-container {
+  border: 1px solid hsl(3,59%,48%);
+  border-right: 0;
+}
+
+.c1.fi-search-input--error .fi-search-input_button-search {
+  border: 1px solid hsl(3,59%,48%);
+  border-left: 0;
+}
+
+.c1.fi-search-input--not-empty .fi-search-input_input-element-container {
+  width: calc(100% - 40px);
+  border-radius: 2px 0 0 2px;
+  border-right: 0;
+}
+
+.c1.fi-search-input--not-empty .fi-search-input_button {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.c1.fi-search-input--not-empty .fi-search-input_button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  z-index: 9999;
+}
+
+.c1.fi-search-input--not-empty .fi-search-input_button-search {
+  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
+}
+
+.c1.fi-search-input--not-empty .fi-search-input_button-search:hover {
+  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+}
+
+.c1.fi-search-input--not-empty .fi-search-input_button-search:active {
+  background-color: hsl(212,63%,37%);
+}
+
+.c1.fi-search-input--not-empty .fi-search-input_button-search .fi-search-input_button-search-icon {
+  fill: hsl(0,0%,100%);
+}
+
+.c1.fi-search-input--not-empty .fi-search-input_button-clear {
+  -webkit-clip: auto;
+  clip: auto;
+  overflow: visible;
+  height: 20px;
+  width: 20px;
+  margin: 10px;
+}
+
+<div
+  class="c0 c1 fi-search-input"
 >
-  <p
-    class="c3 fi-paragraph fi-text-input_label-p"
+  <label
+    class="c0 c2 fi-label-text"
+    for="test-id"
   >
-    Test search input
-  </p>
+    <span
+      class="c3 fi-label-text_label-span"
+    >
+      Test search input
+    </span>
+  </label>
   <div
-    class="c4 fi-text-input_statusText_container"
+    class="c0 fi-search-input_functionality-container"
   >
     <div
-      class="c4 fi-search-input_input-container fi-text-input_container"
+      class="c0 fi-search-input_input-element-container"
     >
       <input
-        class="c5 fi-text-input_input fi-search-input_input"
-        data-testid="textinput"
+        aria-invalid="false"
+        class="c4 fi-search-input_input"
+        data-testid="searchinput"
         id="test-id"
-        type="text"
+        role="searchbox"
+        type="search"
+        value=""
       />
+    </div>
+    <button
+      aria-hidden="true"
+      class="c5 fi-search-input_button fi-search-input_button-clear"
+      tabindex="-1"
+      type="button"
+    >
+      <span
+        class="c3 c6 fi-visually-hidden"
+      >
+        Clear
+      </span>
       <svg
         aria-hidden="true"
-        class="fi-icon c6 fi-search-input_icon"
+        class="fi-icon c7 fi-search-input_button-clear-icon"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <path
+          d="M12 13.45L4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45z"
+        />
+      </svg>
+    </button>
+    <button
+      aria-hidden="true"
+      class="c5 fi-search-input_button fi-search-input_button-search"
+      tabindex="-1"
+      type="button"
+    >
+      <span
+        class="c3 c6 fi-visually-hidden"
+      >
+        Search
+      </span>
+      <svg
+        aria-hidden="true"
+        class="fi-icon c7 fi-search-input_button-search-icon"
         fill="currentColor"
         focusable="false"
         height="1em"
@@ -313,7 +500,7 @@ exports[`calling render with the same component on the same container does not r
           d="M9 2C5.14 2 2 5.141 2 9.001 2 12.86 5.14 16 9 16s7-3.14 7-6.999C16 5.141 12.86 2 9 2m7.029 12.615l7.678 7.678a.999.999 0 11-1.414 1.414l-7.678-7.678A8.957 8.957 0 019 18c-4.962 0-9-4.037-9-8.999C0 4.038 4.038 0 9 0s9 4.038 9 9.001a8.955 8.955 0 01-1.971 5.614z"
         />
       </svg>
-    </div>
+    </button>
   </div>
-</label>
+</div>
 `;

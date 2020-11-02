@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../../theme';
 import { disabledCursor } from '../../../components/utils/css';
 import { element, font } from '../../theme/reset';
-import { focus } from '../../theme/utils/focus';
+import { boxShadowFocus } from '../../theme/utils/focus';
 
 /* stylelint-disable no-descending-specificity */
 export const baseStyles = withSuomifiTheme(
@@ -70,7 +70,7 @@ export const baseStyles = withSuomifiTheme(
       &:focus {
         /* Radio input background circle */
         + .fi-radio-button_label::before {
-          ${focus({ theme, noPseudo: true, variant: 'boxShadow' })}
+          ${boxShadowFocus}
           border-radius: 50%;
         }
       }

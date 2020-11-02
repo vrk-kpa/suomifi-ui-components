@@ -42,6 +42,7 @@ export class Textarea extends Component<TextareaProps> {
           [textareaClassNames.disabled]: !!disabled,
           [textareaClassNames.error]: status === 'error' && !disabled,
         })}
+        status={status}
         {...passProps}
       >
         {children}

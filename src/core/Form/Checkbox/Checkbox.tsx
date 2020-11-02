@@ -80,6 +80,7 @@ class DefaultCheckbox extends Component<CheckboxProps> {
         disabled={disabled}
         onClick={this.handleClick}
         {...passProps}
+        status={status}
         className={classnames(baseClassName, className, {
           [checkboxClassNames.error]: status === 'error' && !disabled,
           [checkboxClassNames.checked]: checkedState && !disabled,

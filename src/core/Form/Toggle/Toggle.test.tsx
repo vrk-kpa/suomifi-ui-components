@@ -88,3 +88,13 @@ describe.each([['withInput'], ['default']])(
     );
   },
 );
+
+describe('name', () => {
+  const toggle = <Toggle.withInput toggleInputProps={{ name: 'testToggle' }} />;
+  const { getByRole } = render(toggle);
+  const namedToggle = getByRole('checkbox') as HTMLInputElement;
+
+  it('has the given name attribute', () => {
+    expect(namedToggle.name).toBe('testToggle');
+  });
+});

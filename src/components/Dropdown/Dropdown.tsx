@@ -25,6 +25,8 @@ export const dropdownClassNames = {
   button: `${baseClassName}_button`,
   popover: `${baseClassName}_popover`,
   item: `${baseClassName}_item`,
+  noSelectedStyles: `${baseClassName}--noSelectedStyles`,
+  disabled: `${baseClassName}--disabled`,
 };
 
 export interface DropdownLabelProps extends HtmlLabelProps {}
@@ -90,6 +92,8 @@ export interface DropdownProps {
   'aria-labelledby'?: string;
   /** Custom classname to extend or customize */
   className?: string;
+  /** Disable component */
+  disabled?: boolean;
   /** Properties given to dropdown's Button-component, className etc. */
   dropdownButtonProps?: OptionalListboxButtonProps;
   /** Properties given to dropdown's popover-component, className etc. */
@@ -142,6 +146,7 @@ export class Dropdown extends Component<DropdownProps> {
     const {
       id: propId,
       name,
+      disabled,
       children,
       labelProps,
       labelText,
@@ -187,6 +192,9 @@ export class Dropdown extends Component<DropdownProps> {
       className: classnames(
         dropdownClassNames.button,
         dropdownButtonProps.className,
+        {
+          [dropdownClassNames.disabled]: !!disabled,
+        },
       ),
       ...buttonAriaLabelledByOverride,
     };
@@ -200,7 +208,9 @@ export class Dropdown extends Component<DropdownProps> {
     };
 
     const passDropdownItemProps = {
-      className: classnames(dropdownClassNames.item, dropdownItemClassName),
+      className: classnames(dropdownClassNames.item, dropdownItemClassName, {
+        [dropdownClassNames.noSelectedStyles]: alwaysShowVisualPlaceholder,
+      }),
     };
 
     const onChange = (newValue: string) => {
@@ -214,6 +224,7 @@ export class Dropdown extends Component<DropdownProps> {
 
     const listboxInputProps = {
       'aria-labelledby': ariaLabelledByIds,
+      disabled,
       onChange,
       name,
       value: selectedValue || '',

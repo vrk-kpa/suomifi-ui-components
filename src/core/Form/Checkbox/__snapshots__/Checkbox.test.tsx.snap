@@ -128,10 +128,6 @@ exports[`props children has matching snapshot 1`] = `
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
 }
 
-.c1:focus-within .fi-checkbox_label::before:not(:focus-visible) {
-  box-shadow: none;
-}
-
 .c1 .fi-checkbox_input {
   position: absolute;
   opacity: 0;
@@ -230,6 +226,7 @@ exports[`props children has matching snapshot 1`] = `
 >
   <input
     aria-describedby=""
+    aria-invalid="false"
     class="c2 fi-checkbox_input"
     id="test"
     type="checkbox"

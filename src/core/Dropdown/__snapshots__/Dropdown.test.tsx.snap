@@ -142,10 +142,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c1 [data-reach-listbox-button].fi-dropdown_button:focus:not(:focus-visible):after {
-  content: none;
-}
-
 .c1 [data-reach-listbox-button].fi-dropdown_button:before {
   content: '';
   position: absolute;
@@ -160,6 +156,17 @@ exports[`Basic dropdown should match snapshot 1`] = `
 .c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
   border-color: transparent transparent hsl(202,7%,40%) transparent;
   border-width: 0 4px 6px 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled {
+  background-color: hsl(202,7%,97%);
+  color: hsl(202,7%,67%);
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
+  border-color: hsl(202,7%,67%) transparent transparent transparent;
 }
 
 <div>
@@ -182,14 +189,14 @@ exports[`Basic dropdown should match snapshot 1`] = `
       data-reach-listbox-input=""
       data-state="closed"
       data-value=""
-      id="listbox-input--19"
+      id="listbox-input--25"
     >
       <span
         aria-haspopup="listbox"
         aria-labelledby="test-id-label"
         class="fi-dropdown_button"
         data-reach-listbox-button=""
-        id="button--listbox-input--19"
+        id="button--listbox-input--25"
         role="button"
         tabindex="0"
       >
@@ -350,10 +357,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c1 [data-reach-listbox-button].fi-dropdown_button:focus:not(:focus-visible):after {
-  content: none;
-}
-
 .c1 [data-reach-listbox-button].fi-dropdown_button:before {
   content: '';
   position: absolute;
@@ -368,6 +371,17 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 .c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
   border-color: transparent transparent hsl(202,7%,40%) transparent;
   border-width: 0 4px 6px 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled {
+  background-color: hsl(202,7%,97%);
+  color: hsl(202,7%,67%);
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
+  border-color: hsl(202,7%,67%) transparent transparent transparent;
 }
 
 <div>
@@ -391,14 +405,14 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
       data-reach-listbox-input=""
       data-state="closed"
       data-value="item-2"
-      id="listbox-input--51"
+      id="listbox-input--57"
     >
       <span
         aria-haspopup="listbox"
-        aria-labelledby="test-id-label button--listbox-input--51"
+        aria-labelledby="test-id-label button--listbox-input--57"
         class="fi-dropdown_button"
         data-reach-listbox-button=""
-        id="button--listbox-input--51"
+        id="button--listbox-input--57"
         role="button"
         tabindex="0"
       >
@@ -559,10 +573,6 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c1 [data-reach-listbox-button].fi-dropdown_button:focus:not(:focus-visible):after {
-  content: none;
-}
-
 .c1 [data-reach-listbox-button].fi-dropdown_button:before {
   content: '';
   position: absolute;
@@ -577,6 +587,17 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
 .c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
   border-color: transparent transparent hsl(202,7%,40%) transparent;
   border-width: 0 4px 6px 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled {
+  background-color: hsl(202,7%,97%);
+  color: hsl(202,7%,67%);
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
+  border-color: hsl(202,7%,67%) transparent transparent transparent;
 }
 
 <div>
@@ -599,14 +620,14 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
       data-reach-listbox-input=""
       data-state="closed"
       data-value="item-2"
-      id="listbox-input--63"
+      id="listbox-input--69"
     >
       <span
         aria-haspopup="listbox"
-        aria-labelledby="test-id-label button--listbox-input--63"
+        aria-labelledby="test-id-label button--listbox-input--69"
         class="fi-dropdown_button"
         data-reach-listbox-button=""
-        id="button--listbox-input--63"
+        id="button--listbox-input--69"
         role="button"
         tabindex="0"
       >
@@ -767,10 +788,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c1 [data-reach-listbox-button].fi-dropdown_button:focus:not(:focus-visible):after {
-  content: none;
-}
-
 .c1 [data-reach-listbox-button].fi-dropdown_button:before {
   content: '';
   position: absolute;
@@ -785,6 +802,17 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 .c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
   border-color: transparent transparent hsl(202,7%,40%) transparent;
   border-width: 0 4px 6px 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled {
+  background-color: hsl(202,7%,97%);
+  color: hsl(202,7%,67%);
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
+  border-color: hsl(202,7%,67%) transparent transparent transparent;
 }
 
 <div>
@@ -807,14 +835,14 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
       data-reach-listbox-input=""
       data-state="closed"
       data-value=""
-      id="listbox-input--75"
+      id="listbox-input--81"
     >
       <span
         aria-haspopup="listbox"
         aria-labelledby="additional-label-id test-id-label"
         class="fi-dropdown_button"
         data-reach-listbox-button=""
-        id="button--listbox-input--75"
+        id="button--listbox-input--81"
         role="button"
         tabindex="0"
       >
@@ -963,10 +991,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c1 [data-reach-listbox-button].fi-dropdown_button:focus:not(:focus-visible):after {
-  content: none;
-}
-
 .c1 [data-reach-listbox-button].fi-dropdown_button:before {
   content: '';
   position: absolute;
@@ -981,6 +1005,17 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 .c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
   border-color: transparent transparent hsl(202,7%,40%) transparent;
   border-width: 0 4px 6px 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled {
+  background-color: hsl(202,7%,97%);
+  color: hsl(202,7%,67%);
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
+  border-color: hsl(202,7%,67%) transparent transparent transparent;
 }
 
 <div>
@@ -1003,14 +1038,14 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
       data-reach-listbox-input=""
       data-state="closed"
       data-value=""
-      id="listbox-input--31"
+      id="listbox-input--37"
     >
       <span
         aria-haspopup="listbox"
         aria-labelledby="test-id-label"
         class="fi-dropdown_button"
         data-reach-listbox-button=""
-        id="button--listbox-input--31"
+        id="button--listbox-input--37"
         role="button"
         tabindex="0"
       >

@@ -67,6 +67,18 @@ const status = errorState ? 'error' : 'default';
 ```
 
 ```js
+import { TextInput, Button } from 'suomifi-ui-components';
+<>
+  <TextInput
+    labelText="Test TextInput with fixed custom width of 250px"
+    inputContainerProps={{ style: { width: '250px' } }}
+  />
+
+  <TextInput labelText="Test TextInput with 100% width" fullWidth />
+</>;
+```
+
+```js
 import { TextInput } from 'suomifi-ui-components';
 
 <>
@@ -79,6 +91,11 @@ import { TextInput } from 'suomifi-ui-components';
     labelText="TextInput with password"
     type="password"
     defaultValue="password"
+  />
+  <TextInput
+    labelText="TextInput with an icon"
+    icon="mapLocation"
+    iconProps={{ fill: 'red' }}
   />
 </>;
 ```

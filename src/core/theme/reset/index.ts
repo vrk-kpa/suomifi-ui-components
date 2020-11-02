@@ -40,15 +40,15 @@ export const input = (props: SuomifiThemeProp) => {
   `;
 };
 
-export const inputContainer = (props: TokensOrThemeProps) => css`
+export const containerIEFocus = (props: TokensOrThemeProps) => css`
   > input:focus {
     /* For IE/Edge */
-    outline-color: ${themeOrTokens(props).colors.accentBase};
-    outline-width: 4px;
+    outline-color: ${themeOrTokens(props).colors.accentSecondary};
+    outline-width: 2px;
     outline-offset: 2px;
+    outline-style: solid;
   }
   &:focus-within {
-    ${focusUtil({ ...props, noPseudo: true })}
     > input:focus {
       outline: none;
     }
@@ -57,14 +57,12 @@ export const inputContainer = (props: TokensOrThemeProps) => css`
 
 export const inputButton = (props: SuomifiThemeProp) => css`
   ${input(props)}
-  ${focus(props)}
 `;
 
 export const button = (props: SuomifiThemeProp) => css`
   ${element(props)}
   ${font(props)('actionElementInnerTextBold')}
   font-size: 14px;
-  ${focus(props)}
   line-height: 20px;
 `;
 

@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../theme';
 import { element, inputButton, font } from '../theme/reset';
+import { absoluteFocus } from '../theme/utils';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
@@ -23,6 +24,16 @@ export const baseStyles = withSuomifiTheme(
       background-color: ${theme.colors.whiteBase};
       box-shadow: ${theme.shadows.actionElementBoxShadow};
       cursor: pointer;
+
+      &:focus {
+        outline: 0;
+        position: relative;
+
+        &:after {
+          ${absoluteFocus}
+        }
+      }
+
       &:before {
         content: '';
         position: absolute;
@@ -39,57 +50,78 @@ export const baseStyles = withSuomifiTheme(
           transparent;
         border-width: 0 4px 6px 4px;
       }
+      &.fi-dropdown--disabled {
+        background-color: ${theme.colors.depthLight3};
+        color: ${theme.colors.depthBase};
+        opacity: 1;
+        cursor: not-allowed;
+        &:before {
+          border-color: ${theme.colors.depthBase} transparent transparent
+            transparent;
+        }
+      }
     }
   `,
 );
 
 export const listboxPopoverStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
-  &[data-reach-listbox-popover].fi-dropdown_popover {
-    ${element({ theme })}
-    ${theme.typography.actionElementInnerText}
-    margin-top: -1px;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 100%;
-    border: 0;
-    background-color: ${theme.colors.whiteBase};
-    border-color: ${theme.colors.depthLight1};
-    border-style: solid;
-    border-width: 0 1px 1px 1px;
-    border-radius: 0px 0px ${theme.radius.basic} ${theme.radius.basic};
-    overflow: hidden;
-    &:focus-within {
-      outline: 0;
-      box-shadow: none;
-    }
-  }
-  
-  & [data-reach-listbox-list] {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    white-space: normal;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-
-  & [data-reach-listbox-option].fi-dropdown_item {
-    ${element({ theme })}
-    ${theme.typography.actionElementInnerText}
-    line-height: 1.5;
-    padding: ${theme.spacing.insetM};
-    border: 0;
-    &[aria-selected='true'] {
+    &[data-reach-listbox-popover].fi-dropdown_popover {
+      ${element({ theme })}
       ${theme.typography.actionElementInnerText}
-      color: ${theme.colors.blackBase};
+      margin-top: -1px;
+      padding: 0;
+      box-sizing: border-box;
+      font-size: 100%;
+      border: 0;
+      background-color: ${theme.colors.whiteBase};
+      border-color: ${theme.colors.depthLight1};
+      border-style: solid;
+      border-width: 0 1px 1px 1px;
+      border-radius: 0px 0px ${theme.radius.basic} ${theme.radius.basic};
+      overflow: hidden;
+      &:focus-within {
+        outline: 0;
+        box-shadow: none;
+      }
+    }
+
+    & [data-reach-listbox-list] {
+      border: 0;
+      padding: 0;
+      margin: 0;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    & [data-reach-listbox-option][data-current].fi-dropdown_item {
+      ${theme.typography.actionElementInnerTextBold}
       background-image: none;
       background-color: ${theme.colors.highlightLight3};
       border: 0;
+
+      &.fi-dropdown--noSelectedStyles {
+        background-color: ${theme.colors.whiteBase};
+        ${theme.typography.actionElementInnerText}
+      }
     }
-    &:focus {
-      outline: 0;
+
+    & [data-reach-listbox-option].fi-dropdown_item {
+      ${element({ theme })}
+      ${theme.typography.actionElementInnerText}
+      line-height: 1.5;
+      padding: ${theme.spacing.insetM};
+      border: 0;
+      &[aria-selected='true'] {
+        color: ${theme.colors.blackBase};
+        background-image: none;
+        background-color: ${theme.colors.highlightLight3};
+        border: 0;
+      }
+      &:focus {
+        outline: 0;
+      }
     }
-  }
-`,
+  `,
 );

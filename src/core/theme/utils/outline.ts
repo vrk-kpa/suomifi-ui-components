@@ -64,8 +64,8 @@ export const boxshadowOutline = ({
   afterPseudo?: boolean;
 }) => {
   const focusVisible = !!afterPseudo
-    ? '&:not(:focus-visible):after { content: none; }'
-    : '&:not(:focus-visible) { box-shadow: none; }';
+    ? '&:not(:focus-within):after { content: none; }'
+    : '&:not(:focus-within) { box-shadow: none; }';
   return css`
     outline: 0;
     ${!!afterPseudo

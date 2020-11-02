@@ -81,11 +81,11 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c2:focus {
-  outline: 0;
+  outline: none;
   position: relative;
 }
 
-.c2:focus:after {
+.c2:focus::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -99,10 +99,6 @@ exports[`calling render with the same component on the same container does not r
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c2:focus:not(:focus-visible):after {
-  content: none;
 }
 
 .c2:hover {

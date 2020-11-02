@@ -15,6 +15,7 @@ const baseClassName = 'fi-textarea';
 const textareaClassNames = {
   label: `${baseClassName}_label`,
   optionalText: `${baseClassName}_optionalText`,
+  textareaContainer: `${baseClassName}_textarea-element-container`,
   textarea: `${baseClassName}_textarea`,
   hintText: `${baseClassName}_hintText`,
   statusText: `${baseClassName}_statusText`,
@@ -61,6 +62,8 @@ export interface TextareaProps extends HtmlTextareaProps {
    * @default uuidV4
    */
   id?: string;
+  /** Input name */
+  name?: string;
 }
 
 export class Textarea extends Component<TextareaProps> {
@@ -153,16 +156,19 @@ export class Textarea extends Component<TextareaProps> {
       <HtmlDiv className={classnames(baseClassName, className, {})}>
         {this.labelText(id)}
         {this.hintText(hintTextId)}
-        <HtmlTextarea
-          id={id}
-          className={textareaClassNames.textarea}
-          disabled={disabled}
-          defaultValue={children}
-          placeholder={visualPlaceholder}
-          {...getDescribedBy()}
-          {...passProps}
-          {...onClickProps}
-        />
+        <HtmlDiv className={textareaClassNames.textareaContainer}>
+          <HtmlTextarea
+            id={id}
+            className={textareaClassNames.textarea}
+            disabled={disabled}
+            defaultValue={children}
+            placeholder={visualPlaceholder}
+            {...{ 'aria-invalid': status === 'error' }}
+            {...getDescribedBy()}
+            {...passProps}
+            {...onClickProps}
+          />
+        </HtmlDiv>
         {this.statusText(statusTextId)}
       </HtmlDiv>
     );

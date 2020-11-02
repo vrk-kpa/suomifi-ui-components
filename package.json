@@ -1,6 +1,6 @@
 {
   "name": "suomifi-ui-components",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Suomi.fi UI component library",
   "main": "dist/index.js",
   "module": "dist/suomifi-ui-components.esm.js",
@@ -99,12 +99,12 @@
     "jest-environment-jsdom-sixteen": "1.0.3",
     "jest-styled-components": "7.0.1",
     "lint-staged": "10.1.2",
-    "node-sass": "4.13.1",
+    "node-sass": "4.14.1",
     "npm-run-all": "4.1.5",
     "postcss-import": "12.0.1",
     "prettier": "2.0.4",
     "prettier-check": "2.0.0",
-    "prettier-eslint": "9.0.1",
+    "prettier-eslint": "11.0.0",
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-axe": "3.4.1",
@@ -124,18 +124,20 @@
     "stylelint-processor-styled-components": "1.10.0",
     "ts-jest": "26.1.1",
     "ts-loader": "7.0.1",
-    "tsdx": "0.13.1",
+    "tsdx": "0.13.3",
     "tslib": "1.11.1",
     "typescript": "3.8.3",
     "webpack": "4.44.1"
   },
   "dependencies": {
+    "@popperjs/core": "2.4.4",
     "@reach/listbox": "0.10.4",
     "@reach/menu-button": "0.10.4",
     "@reach/popover": "0.10.4",
     "classnames": "2.2.6",
     "normalize.cssinjs": "1.1.1",
     "polished": "3.5.1",
+    "react-popper": "2.2.3",
     "react-svg": "11.0.16",
     "suomifi-design-tokens": "^2.0.0",
     "suomifi-icons": "^1.0.0",
@@ -163,5 +165,8 @@
     {
       "path": "dist/suomifi-ui-components.esm.js"
     }
-  ]
+  ],
+  "resolutions": {
+    "tsdx/ts-jest": "^26.1.1"
+  }
 }

@@ -17,12 +17,16 @@ import { disabledCursor } from '../utils/css';
 import { idGenerator } from '../../utils/uuid';
 
 const baseClassName = 'fi-text-input';
-const disabledClassName = `${baseClassName}--disabled`;
-const labelBaseClassName = `${baseClassName}_label`;
-const inputBaseClassName = `${baseClassName}_input`;
-const statusTextClassName = `${baseClassName}_statusText`;
-const statusTextContainerClassName = `${statusTextClassName}_container`;
-const hintTextClassName = `${baseClassName}_hintText`;
+const textInputClassNames = {
+  disabled: `${baseClassName}--disabled`,
+  label: `${baseClassName}_label`,
+  inputElement: `${baseClassName}_input`,
+  inputElementContainer: `${baseClassName}_input-element-container`,
+  statusText: `${baseClassName}_statusText`,
+  statusTextContainer: `${baseClassName}_statusText_container`,
+  hintText: `${baseClassName}_hintText`,
+  optionalText: `${baseClassName}_optionalText`,
+};
 
 export interface TextInputLabelProps extends HtmlLabelProps {}
 
@@ -30,11 +34,13 @@ type Label = 'hidden' | 'visible';
 
 type InputType = 'text' | 'email' | 'number' | 'password' | 'tel' | 'url';
 
+type TextInputStatus = 'default' | 'error' | 'success';
+
 export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
-  /** Custom classname for the input to extend or customize */
+  /** TextInput container div class name for custom styling. */
   className?: string;
-  /** Custom classname for the label to extend or customize */
-  inputClassName?: string;
+  /** TextInput container div props */
+  inputContainerProps?: Omit<HtmlDivProps, 'className'>;
   /** Disable input usage */
   disabled?: boolean;
   /** Event handler to execute when clicked */
@@ -55,35 +61,47 @@ export interface TextInputProps extends Omit<HtmlInputProps, 'type'> {
   labelMode?: Label;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
-  /** Input container div to define custom styling */
-  inputContainerProps?: HtmlDivProps;
+  /** A custom element to be passed to the component. Will be rendered after the input */
   children?: ReactNode;
   /** Hint text to be shown below the component */
   hintText?: string;
+  /**
+   * 'default' | 'error' | 'success'
+   * @default default
+   */
+  status?: TextInputStatus;
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
   /** 'text' | 'email' | 'number' | 'password' | 'tel' | 'url'
    * @default text
    */
   type?: InputType;
+  /** Input name */
+  name?: string;
+  /** Set components width to 100% */
+  fullWidth?: boolean;
+  /** Optional text that is shown after labelText. Will be wrapped in parentheses. */
+  optionalText?: string;
 }
 
 class BaseTextInput extends Component<TextInputProps> {
   render() {
     const {
       className,
-      inputClassName,
       labelText,
       labelMode,
       labelProps,
       labelTextProps,
       inputContainerProps,
       children,
+      optionalText,
+      status,
       statusText,
       hintText,
       visualPlaceholder,
       id: propId,
       type = 'text',
+      fullWidth,
       ...passProps
     } = this.props;
 
@@ -91,57 +109,66 @@ class BaseTextInput extends Component<TextInputProps> {
     const generatedStatusTextId = `${idGenerator(propId)}-statusText`;
     const generatedHintTextId = `${idGenerator(propId)}-hintText`;
 
-    const getDescribedBy = () => {
-      if (statusText || hintText) {
-        return {
-          'aria-describedby': [
-            ...(statusText ? [generatedStatusTextId] : []),
-            ...(hintText ? [generatedHintTextId] : []),
-          ].join(' '),
-        };
-      }
-      return {};
-    };
-
     return (
-      <HtmlLabel
-        {...labelProps}
-        className={classnames(labelBaseClassName, className, {
-          [disabledClassName]: !!passProps.disabled,
+      <HtmlDiv
+        {...inputContainerProps}
+        className={classnames(className, {
+          [textInputClassNames.disabled]: !!passProps.disabled,
         })}
       >
-        {hideLabel ? (
-          <VisuallyHidden>{labelText}</VisuallyHidden>
-        ) : (
-          <Paragraph {...labelTextProps}>{labelText}</Paragraph>
-        )}
-        {hintText && (
-          <Paragraph className={hintTextClassName} id={generatedHintTextId}>
-            {hintText}
-          </Paragraph>
-        )}
-        <HtmlDiv className={statusTextContainerClassName}>
-          <HtmlDiv {...inputContainerProps}>
-            <HtmlInput
-              id={propId}
-              {...passProps}
-              className={classnames(inputBaseClassName, inputClassName)}
-              type={type}
-              {...getDescribedBy()}
-              placeholder={visualPlaceholder}
-            />
-            {children}
-          </HtmlDiv>
-          {statusText && (
-            <HtmlSpan
-              className={statusTextClassName}
-              id={generatedStatusTextId}
-            >
-              {statusText}
-            </HtmlSpan>
+        <HtmlLabel
+          {...labelProps}
+          className={classnames(
+            textInputClassNames.label,
+            labelProps?.className,
           )}
-        </HtmlDiv>
-      </HtmlLabel>
+        >
+          {hideLabel ? (
+            <VisuallyHidden>
+              {labelText}
+              {optionalText && `(${optionalText})`}
+            </VisuallyHidden>
+          ) : (
+            <Paragraph {...labelTextProps}>
+              {labelText}
+              {optionalText && (
+                <HtmlSpan className={textInputClassNames.optionalText}>
+                  {` (${optionalText})`}
+                </HtmlSpan>
+              )}
+            </Paragraph>
+          )}
+          {hintText && (
+            <Paragraph
+              className={textInputClassNames.hintText}
+              id={generatedHintTextId}
+            >
+              {hintText}
+            </Paragraph>
+          )}
+          <HtmlDiv className={textInputClassNames.statusTextContainer}>
+            <HtmlDiv className={textInputClassNames.inputElementContainer}>
+              <HtmlInput
+                {...passProps}
+                id={propId}
+                className={textInputClassNames.inputElement}
+                type={type}
+                placeholder={visualPlaceholder}
+                {...{ 'aria-invalid': status === 'error' }}
+              />
+              {children}
+            </HtmlDiv>
+            {statusText && (
+              <HtmlSpan
+                className={textInputClassNames.statusText}
+                id={generatedStatusTextId}
+              >
+                {statusText}
+              </HtmlSpan>
+            )}
+          </HtmlDiv>
+        </HtmlLabel>
+      </HtmlDiv>
     );
   }
 }
@@ -149,7 +176,7 @@ class BaseTextInput extends Component<TextInputProps> {
 export const StyledBaseTextInput = styled((props: TextInputProps) => (
   <BaseTextInput {...props} />
 ))`
-  &.${disabledClassName} {
+  &.${textInputClassNames.disabled} {
     ${disabledCursor}
   }
 `;

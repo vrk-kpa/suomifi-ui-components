@@ -212,12 +212,6 @@ exports[`Toggle variant default:  calling render with the same component on the 
   outline: 0;
 }
 
-.c1.fi-toggle--with-button:focus .fi-toggle_icon-container {
-  outline: 0;
-  position: relative;
-  position: absolute;
-}
-
 .c1.fi-toggle--with-button:focus .fi-toggle_icon-container:after {
   content: '';
   position: absolute;
@@ -232,36 +226,15 @@ exports[`Toggle variant default:  calling render with the same component on the 
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:not(:focus-visible):after {
-  content: none;
-}
-
-.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:after {
   border-radius: 14px;
   right: -4px;
   left: -4px;
-}
-
-.c1.fi-toggle--with-button:focus:not(:focus-visible) {
-  outline: 0;
-}
-
-.c1.fi-toggle--with-button:focus:not(:focus-visible) .fi-toggle_icon-container:after {
-  content: none;
 }
 
 .c1.fi-toggle--with-input:focus-within {
   outline: 0;
 }
 
-.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container {
-  outline: 0;
-  position: relative;
-  position: absolute;
-}
-
 .c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:after {
   content: '';
   position: absolute;
@@ -276,24 +249,9 @@ exports[`Toggle variant default:  calling render with the same component on the 
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:not(:focus-visible):after {
-  content: none;
-}
-
-.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:after {
   border-radius: 14px;
   right: -4px;
   left: -4px;
-}
-
-.c1.fi-toggle--with-input:focus-within:not(:focus-visible) {
-  outline: 0;
-}
-
-.c1.fi-toggle--with-input:focus-within:not(:focus-visible) .fi-toggle_icon-container:after {
-  content: none;
 }
 
 .c1 > .fi-toggle_input {
@@ -754,12 +712,6 @@ exports[`Toggle variant withInput:  calling render with the same component on th
   outline: 0;
 }
 
-.c1.fi-toggle--with-button:focus .fi-toggle_icon-container {
-  outline: 0;
-  position: relative;
-  position: absolute;
-}
-
 .c1.fi-toggle--with-button:focus .fi-toggle_icon-container:after {
   content: '';
   position: absolute;
@@ -774,36 +726,15 @@ exports[`Toggle variant withInput:  calling render with the same component on th
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:not(:focus-visible):after {
-  content: none;
-}
-
-.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:after {
   border-radius: 14px;
   right: -4px;
   left: -4px;
-}
-
-.c1.fi-toggle--with-button:focus:not(:focus-visible) {
-  outline: 0;
-}
-
-.c1.fi-toggle--with-button:focus:not(:focus-visible) .fi-toggle_icon-container:after {
-  content: none;
 }
 
 .c1.fi-toggle--with-input:focus-within {
   outline: 0;
 }
 
-.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container {
-  outline: 0;
-  position: relative;
-  position: absolute;
-}
-
 .c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:after {
   content: '';
   position: absolute;
@@ -818,24 +749,9 @@ exports[`Toggle variant withInput:  calling render with the same component on th
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,55%);
   z-index: 9999;
-}
-
-.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:not(:focus-visible):after {
-  content: none;
-}
-
-.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:after {
   border-radius: 14px;
   right: -4px;
   left: -4px;
-}
-
-.c1.fi-toggle--with-input:focus-within:not(:focus-visible) {
-  outline: 0;
-}
-
-.c1.fi-toggle--with-input:focus-within:not(:focus-visible) .fi-toggle_icon-container:after {
-  content: none;
 }
 
 .c1 > .fi-toggle_input {
@@ -905,7 +821,7 @@ exports[`Toggle variant withInput:  calling render with the same component on th
 }
 
 <label
-  class="sc-AxgMl c0 fi-toggle--with-input c1 fi-toggle fi-toggle_label"
+  class="sc-AxheI c0 fi-toggle--with-input c1 fi-toggle fi-toggle_label"
   data-testid="toggle"
   for="test-toggle"
 >

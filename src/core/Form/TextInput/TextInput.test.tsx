@@ -87,6 +87,22 @@ describe('props', () => {
       });
     });
 
+    describe('name', () => {
+      const textInput = (
+        <TextInput
+          labelText="Test input"
+          name="test-name"
+          data-testid="input-name"
+        />
+      );
+      const { getByTestId } = render(textInput);
+      const namedInput = getByTestId('input-name') as HTMLInputElement;
+
+      it('has the given name attribute', () => {
+        expect(namedInput.name).toBe('test-name');
+      });
+    });
+
     describe('number', () => {
       const textInput = (
         <TextInput
@@ -132,6 +148,16 @@ describe('props', () => {
     });
   });
 
+  describe('optionalText', () => {
+    it('should have element and correct classname for it', () => {
+      const { getByText } = render(
+        <TextInput labelText="label" optionalText="Optional" />,
+      );
+      const optionalText = getByText('(Optional)');
+      expect(optionalText).toHaveClass('fi-text-input_optionalText');
+    });
+  });
+
   describe('labelMode', () => {
     it('should be visible by default', () => {
       const { getByText } = render(<TextInput labelText="Test input" />);
@@ -159,6 +185,23 @@ describe('props', () => {
       );
       const inputField = getByTestId('input') as HTMLInputElement;
       expect(inputField).toHaveAttribute('placeholder', 'Enter text here');
+    });
+  });
+
+  describe('icon', () => {
+    it('should have the correct classname when icon prop is given', () => {
+      const { container } = render(
+        <TextInput labelText="Test input" icon="close" />,
+      );
+      expect(container.firstChild).toHaveClass('fi-text-input_with-icon');
+    });
+
+    it('should have an icon element when one is specified', () => {
+      const { container } = render(
+        <TextInput labelText="Test input" icon="close" />,
+      );
+      const icon = container.querySelector('.fi-icon');
+      expect(container.contains(icon)).toBeTruthy();
     });
   });
 });
