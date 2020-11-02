@@ -6,9 +6,9 @@ import { spacingModifiers } from '../theme/utils';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: BlockProps & TokensAndTheme) => css`
-  ${element({ theme })}
-  ${font({ theme })('bodyText')}
-  ${spacingModifiers({ theme })('margin')('&.fi-block--margin')}
-  ${spacingModifiers({ theme })('padding')('&.fi-block--padding')}
-`,
+    ${element({ theme })}
+    ${font({ theme })('bodyText')}
+    ${spacingModifiers({ theme })('margin')('&.fi-block--margin')}
+    ${spacingModifiers({ theme })('padding')('&.fi-block--padding')}
+  `,
 );

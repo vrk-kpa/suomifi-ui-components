@@ -23,25 +23,25 @@ const checkedStyles = ({ theme }: SuomifiThemeProp) => css`
 `;
 
 const disabledStyles = ({ theme }: SuomifiThemeProp) => css`
-    &.fi-checkbox--disabled{    
-        & .fi-checkbox_label{
-            ${disabledCursor}
-            color: ${theme.colors.depthBase};
-        &::before{
-            background-color: ${theme.colors.depthLight3};
-            border-color: ${theme.colors.depthLight1};
-            border-width: 1px;
-        }
-        & > .fi-checkbox_icon {
-          fill: ${theme.colors.depthLight1};
-        }
-    }
-    &.fi-checkbox--large{
-      & .fi-checkbox_label::before{
-          border-width: 2px;
-        }
+  &.fi-checkbox--disabled {
+    & .fi-checkbox_label {
+      ${disabledCursor}
+      color: ${theme.colors.depthBase};
+      &::before {
+        background-color: ${theme.colors.depthLight3};
+        border-color: ${theme.colors.depthLight1};
+        border-width: 1px;
+      }
+      & > .fi-checkbox_icon {
+        fill: ${theme.colors.depthLight1};
       }
     }
+    &.fi-checkbox--large {
+      & .fi-checkbox_label::before {
+        border-width: 2px;
+      }
+    }
+  }
 `;
 
 const errorStyles = ({ theme }: SuomifiThemeProp) => css`

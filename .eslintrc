@@ -28,8 +28,19 @@
     "tree-shaking"
   ],
   "rules": {
-    "@typescript-eslint/interface-name-prefix": ["warn", "never"],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": false
+        }
+      }
+    ],
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-empty-interface": [
       "warn",
       {
@@ -44,7 +55,9 @@
       }
     ],
     "@typescript-eslint/no-unused-vars": "off",
+    "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/ban-types": ["off", { "types": ["{}", "object"] }],
     "arrow-parens": ["error", "always"],
     "curly": "error",
     // "jsx-alignment": true,
@@ -106,7 +119,7 @@
     "react/button-has-type": "off",
     "react/prefer-stateless-function": "off",
     "react/jsx-fragments": "off",
-    "react/jsx-pascal-case": "error",
+    "react/jsx-pascal-case": "off",
     "react/destructuring-assignment": "off",
     "react/state-in-constructor": "off",
     "react/no-children-prop": "off",

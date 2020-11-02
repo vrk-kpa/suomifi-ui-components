@@ -55,12 +55,22 @@ export const baseStyles = withSuomifiTheme(
         ::placeholder {
           font-style: italic;
         }
-        ::-ms-clear {  display: none; width : 0; height: 0; }
-        ::-ms-reveal {  display: none; width : 0; height: 0; }
+        ::-ms-clear {
+          display: none;
+          width: 0;
+          height: 0;
+        }
+        ::-ms-reveal {
+          display: none;
+          width: 0;
+          height: 0;
+        }
         ::-webkit-search-decoration,
         ::-webkit-search-cancel-button,
         ::-webkit-search-results-button,
-        ::-webkit-search-results-decoration { display: none; }
+        ::-webkit-search-results-decoration {
+          display: none;
+        }
         appearance: none;
       }
 
@@ -127,7 +137,7 @@ export const baseStyles = withSuomifiTheme(
         border-radius: ${theme.radius.basic} 0 0 ${theme.radius.basic};
         border-right: 0;
       }
-  
+
       & .fi-search-input_button {
 
         &:focus {
