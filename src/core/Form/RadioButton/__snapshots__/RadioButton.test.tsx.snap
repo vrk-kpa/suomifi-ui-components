@@ -154,17 +154,17 @@ exports[`children should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label:before {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
   border: 1px solid hsl(202,7%,80%);
   background: hsl(202,7%,97%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label:after {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
   background: hsl(202,7%,97%);
   width: 16px;
   height: 16px;
@@ -172,7 +172,7 @@ exports[`children should match snapshot 1`] = `
   left: 1px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled:checked + .fi-radio-button_label:after {
+.c1.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
   background: hsl(202,7%,67%);
   width: 8px;
   height: 8px;
@@ -180,46 +180,46 @@ exports[`children should match snapshot 1`] = `
   left: 5px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--disabled .fi-radio-button_hintText {
+.c1.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_hintText {
+.c1.fi-radio-button--large .fi-radio-button_hintText {
   padding-left: 40px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input {
+.c1.fi-radio-button--large .fi-radio-button_input {
   margin: 10px 0 0 9px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label::before {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
   left: 0px;
   top: 2px;
   width: 28px;
   height: 28px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label::after {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
   left: 7px;
   top: 9px;
   width: 16px;
   height: 16px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
+.c1.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
   width: 28px;
   height: 28px;
   top: 3px;
   left: 1px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
+.c1.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
   background: hsl(202,7%,67%);
   width: 16px;
   height: 16px;
@@ -401,17 +401,17 @@ exports[`className should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label:before {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
   border: 1px solid hsl(202,7%,80%);
   background: hsl(202,7%,97%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label:after {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
   background: hsl(202,7%,97%);
   width: 16px;
   height: 16px;
@@ -419,7 +419,7 @@ exports[`className should match snapshot 1`] = `
   left: 1px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled:checked + .fi-radio-button_label:after {
+.c1.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
   background: hsl(202,7%,67%);
   width: 8px;
   height: 8px;
@@ -427,46 +427,46 @@ exports[`className should match snapshot 1`] = `
   left: 5px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--disabled .fi-radio-button_hintText {
+.c1.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_hintText {
+.c1.fi-radio-button--large .fi-radio-button_hintText {
   padding-left: 40px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input {
+.c1.fi-radio-button--large .fi-radio-button_input {
   margin: 10px 0 0 9px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label::before {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
   left: 0px;
   top: 2px;
   width: 28px;
   height: 28px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label::after {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
   left: 7px;
   top: 9px;
   width: 16px;
   height: 16px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
+.c1.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
   width: 28px;
   height: 28px;
   top: 3px;
   left: 1px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
+.c1.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
   background: hsl(202,7%,67%);
   width: 16px;
   height: 16px;
@@ -648,17 +648,17 @@ exports[`disabled should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label:before {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
   border: 1px solid hsl(202,7%,80%);
   background: hsl(202,7%,97%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label:after {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
   background: hsl(202,7%,97%);
   width: 16px;
   height: 16px;
@@ -666,7 +666,7 @@ exports[`disabled should match snapshot 1`] = `
   left: 1px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled:checked + .fi-radio-button_label:after {
+.c1.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
   background: hsl(202,7%,67%);
   width: 8px;
   height: 8px;
@@ -674,46 +674,46 @@ exports[`disabled should match snapshot 1`] = `
   left: 5px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--disabled .fi-radio-button_hintText {
+.c1.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_hintText {
+.c1.fi-radio-button--large .fi-radio-button_hintText {
   padding-left: 40px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input {
+.c1.fi-radio-button--large .fi-radio-button_input {
   margin: 10px 0 0 9px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label::before {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
   left: 0px;
   top: 2px;
   width: 28px;
   height: 28px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label::after {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
   left: 7px;
   top: 9px;
   width: 16px;
   height: 16px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
+.c1.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
   width: 28px;
   height: 28px;
   top: 3px;
   left: 1px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
+.c1.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
   background: hsl(202,7%,67%);
   width: 16px;
   height: 16px;
@@ -920,17 +920,17 @@ exports[`hintText should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label:before {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
   border: 1px solid hsl(202,7%,80%);
   background: hsl(202,7%,97%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label:after {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
   background: hsl(202,7%,97%);
   width: 16px;
   height: 16px;
@@ -938,7 +938,7 @@ exports[`hintText should match snapshot 1`] = `
   left: 1px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled:checked + .fi-radio-button_label:after {
+.c1.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
   background: hsl(202,7%,67%);
   width: 8px;
   height: 8px;
@@ -946,46 +946,46 @@ exports[`hintText should match snapshot 1`] = `
   left: 5px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--disabled .fi-radio-button_hintText {
+.c1.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_hintText {
+.c1.fi-radio-button--large .fi-radio-button_hintText {
   padding-left: 40px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input {
+.c1.fi-radio-button--large .fi-radio-button_input {
   margin: 10px 0 0 9px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label::before {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
   left: 0px;
   top: 2px;
   width: 28px;
   height: 28px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label::after {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
   left: 7px;
   top: 9px;
   width: 16px;
   height: 16px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
+.c1.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
   width: 28px;
   height: 28px;
   top: 3px;
   left: 1px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
+.c1.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
   background: hsl(202,7%,67%);
   width: 16px;
   height: 16px;
@@ -1174,17 +1174,17 @@ exports[`id should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label:before {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
   border: 1px solid hsl(202,7%,80%);
   background: hsl(202,7%,97%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label:after {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
   background: hsl(202,7%,97%);
   width: 16px;
   height: 16px;
@@ -1192,7 +1192,7 @@ exports[`id should match snapshot 1`] = `
   left: 1px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled:checked + .fi-radio-button_label:after {
+.c1.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
   background: hsl(202,7%,67%);
   width: 8px;
   height: 8px;
@@ -1200,46 +1200,46 @@ exports[`id should match snapshot 1`] = `
   left: 5px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--disabled .fi-radio-button_hintText {
+.c1.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_hintText {
+.c1.fi-radio-button--large .fi-radio-button_hintText {
   padding-left: 40px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input {
+.c1.fi-radio-button--large .fi-radio-button_input {
   margin: 10px 0 0 9px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label::before {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
   left: 0px;
   top: 2px;
   width: 28px;
   height: 28px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label::after {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
   left: 7px;
   top: 9px;
   width: 16px;
   height: 16px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
+.c1.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
   width: 28px;
   height: 28px;
   top: 3px;
   left: 1px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
+.c1.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
   background: hsl(202,7%,67%);
   width: 16px;
   height: 16px;
@@ -1421,17 +1421,17 @@ exports[`name should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label:before {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
   border: 1px solid hsl(202,7%,80%);
   background: hsl(202,7%,97%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label:after {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
   background: hsl(202,7%,97%);
   width: 16px;
   height: 16px;
@@ -1439,7 +1439,7 @@ exports[`name should match snapshot 1`] = `
   left: 1px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled:checked + .fi-radio-button_label:after {
+.c1.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
   background: hsl(202,7%,67%);
   width: 8px;
   height: 8px;
@@ -1447,46 +1447,46 @@ exports[`name should match snapshot 1`] = `
   left: 5px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--disabled .fi-radio-button_hintText {
+.c1.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_hintText {
+.c1.fi-radio-button--large .fi-radio-button_hintText {
   padding-left: 40px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input {
+.c1.fi-radio-button--large .fi-radio-button_input {
   margin: 10px 0 0 9px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label::before {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
   left: 0px;
   top: 2px;
   width: 28px;
   height: 28px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label::after {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
   left: 7px;
   top: 9px;
   width: 16px;
   height: 16px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
+.c1.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
   width: 28px;
   height: 28px;
   top: 3px;
   left: 1px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
+.c1.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
   background: hsl(202,7%,67%);
   width: 16px;
   height: 16px;
@@ -1669,17 +1669,17 @@ exports[`value should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label:before {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
   border: 1px solid hsl(202,7%,80%);
   background: hsl(202,7%,97%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label:after {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
   background: hsl(202,7%,97%);
   width: 16px;
   height: 16px;
@@ -1687,7 +1687,7 @@ exports[`value should match snapshot 1`] = `
   left: 1px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled:checked + .fi-radio-button_label:after {
+.c1.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
   background: hsl(202,7%,67%);
   width: 8px;
   height: 8px;
@@ -1695,46 +1695,46 @@ exports[`value should match snapshot 1`] = `
   left: 5px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--disabled .fi-radio-button_hintText {
+.c1.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_hintText {
+.c1.fi-radio-button--large .fi-radio-button_hintText {
   padding-left: 40px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input {
+.c1.fi-radio-button--large .fi-radio-button_input {
   margin: 10px 0 0 9px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label::before {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
   left: 0px;
   top: 2px;
   width: 28px;
   height: 28px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label::after {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
   left: 7px;
   top: 9px;
   width: 16px;
   height: 16px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
+.c1.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
   width: 28px;
   height: 28px;
   top: 3px;
   left: 1px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
+.c1.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
   background: hsl(202,7%,67%);
   width: 16px;
   height: 16px;
@@ -1916,17 +1916,17 @@ exports[`variant should match snapshot 1`] = `
   border-radius: 50%;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label:before {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
   border: 1px solid hsl(202,7%,80%);
   background: hsl(202,7%,97%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled + .fi-radio-button_label:after {
+.c1.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
   background: hsl(202,7%,97%);
   width: 16px;
   height: 16px;
@@ -1934,7 +1934,7 @@ exports[`variant should match snapshot 1`] = `
   left: 1px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input:focus:disabled:checked + .fi-radio-button_label:after {
+.c1.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
   background: hsl(202,7%,67%);
   width: 8px;
   height: 8px;
@@ -1942,46 +1942,46 @@ exports[`variant should match snapshot 1`] = `
   left: 5px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--disabled .fi-radio-button_hintText {
+.c1.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_hintText {
+.c1.fi-radio-button--large .fi-radio-button_hintText {
   padding-left: 40px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input {
+.c1.fi-radio-button--large .fi-radio-button_input {
   margin: 10px 0 0 9px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label::before {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
   left: 0px;
   top: 2px;
   width: 28px;
   height: 28px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input + .fi-radio-button_label::after {
+.c1.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
   left: 7px;
   top: 9px;
   width: 16px;
   height: 16px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
+.c1.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
   width: 28px;
   height: 28px;
   top: 3px;
   left: 1px;
 }
 
-.c1.fi-radio-button .fi-radio-button_input--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
+.c1.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
   background: hsl(202,7%,67%);
   width: 16px;
   height: 16px;
