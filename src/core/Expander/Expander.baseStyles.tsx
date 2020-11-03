@@ -6,6 +6,7 @@ import { padding, absoluteFocus } from '../theme/utils';
 
 import { ExpanderProps } from './Expander';
 
+/* stylelint-disable no-descending-specificity, no-duplicate-selectors */
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme & Partial<ExpanderProps>) => {
     return css`

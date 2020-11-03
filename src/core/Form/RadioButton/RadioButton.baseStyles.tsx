@@ -10,7 +10,7 @@ export const baseStyles = withSuomifiTheme(
     ${element({ theme })}
     ${font({ theme })('bodyText')}
 
-    &.fi-radio-button {
+  &.fi-radio-button {
       & .fi-radio-button_hintText {
         display: block;
         padding-left: 26px;
@@ -67,11 +67,12 @@ export const baseStyles = withSuomifiTheme(
           }
         }
 
-      &:focus {
-        /* Radio input background circle */
-        + .fi-radio-button_label::before {
-          ${boxShadowFocus}
-          border-radius: 50%;
+        &:focus {
+          /* Radio input background circle */
+          + .fi-radio-button_label::before {
+            ${boxShadowFocus}
+            border-radius: 50%;
+          }
         }
 
         &:disabled {

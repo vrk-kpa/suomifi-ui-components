@@ -6,19 +6,14 @@ import { absoluteFocus } from '../theme/utils/focus';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme & Partial<LanguageMenuProps>) => css`
-  & > [data-reach-menu-button].fi-language-menu_button {
-    ${element({ theme })}
-    ${theme.typography.bodyText}
-    cursor: pointer;
-    &.fi-language-menu-language_button {
+    & > [data-reach-menu-button].fi-language-menu_button {
       ${element({ theme })}
       ${theme.typography.bodyText}
-      ${focus({ theme })}
-      cursor: pointer;
+    cursor: pointer;
       &.fi-language-menu-language_button {
         ${element({ theme })}
         ${theme.typography.actionElementInnerTextBold}
-        padding: 9px ${theme.spacing.xs};
+      padding: 9px ${theme.spacing.xs};
         line-height: 24px;
         background-color: ${theme.colors.whiteBase};
         border: 1px solid transparent;
@@ -30,21 +25,21 @@ export const baseStyles = withSuomifiTheme(
           margin-left: ${theme.spacing.xs};
           fill: ${theme.colors.highlightBase};
         }
+
+        &:focus {
+          outline: 0;
+          position: relative;
+
+          &::after {
+            ${absoluteFocus}
+          }
+        }
+
         &:hover {
           border-color: ${theme.colors.depthLight1};
         }
       }
-
-      &:focus {
-        outline: 0;
-        position: relative;
-
-        &::after {
-          ${absoluteFocus}
-        }
-      }
-
-      &:hover{
+      &.fi-language-menu-language_button_open {
         border-color: ${theme.colors.depthLight1};
         & > .fi-language-menu-language_icon.fi-language-menu-language_icon {
           transform: translateY(0.2em) rotate(180deg);
@@ -59,7 +54,7 @@ export const languageMenuPopoverStyles = withSuomifiTheme(
     &[data-reach-menu-popover].fi-language-menu_popover {
       ${element({ theme })}
       ${theme.typography.bodyText}
-      margin-top: -2px;
+    margin-top: -2px;
       background-color: ${theme.colors.whiteBase};
       border: none;
       box-shadow: ${theme.shadows.menuShadow};
@@ -102,7 +97,7 @@ export const languageMenuPopoverStyles = withSuomifiTheme(
     & [data-reach-menu-item].fi-language-menu_item {
       ${element({ theme })}
       ${theme.typography.bodyText}
-      &[data-selected] {
+    &[data-selected] {
         ${theme.typography.bodyText}
         color: ${theme.colors.blackBase};
         background-color: ${theme.colors.highlightLight3};

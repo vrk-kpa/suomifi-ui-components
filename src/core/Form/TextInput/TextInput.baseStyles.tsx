@@ -14,38 +14,33 @@ export const baseStyles = withSuomifiTheme(
     &.fi-text-input {
       ${font({ theme })('bodyText')}
       display: inline-block;
-      width: ${
-        fullWidth
-          ? '100%'
-          : inputContainerProps?.style?.width
-          ? inputContainerProps?.style.width
-          : inputContainerProps?.width || '290px'
-      };
+      width: ${fullWidth
+        ? '100%'
+        : inputContainerProps?.style?.width
+        ? inputContainerProps?.style.width
+        : inputContainerProps?.width || '290px'};
     }
 
-  & .fi-text-input_hintText {
-    display: block;
-    color: ${theme.colors.blackBase};
-    margin-bottom: ${theme.spacing.xs};
-    ${font({ theme })('bodyTextSmall')};
-  }
-
-  & .fi-text-input_input {
-    ${input({ theme })}
-    background-color: ${theme.colors.whiteBase};
-    min-width: 40px;
-    width: 100%;
-    min-height:40px;
-    padding-left: ${theme.spacing.insetL};
-
-    &::placeholder{
-      font-style: italic;
+    & .fi-text-input_label-p {
+      margin-bottom: ${theme.spacing.xs};
+      ${font({ theme })('actionElementInnerTextBold')};
+      color: ${theme.colors.blackBase};
     }
-  }
-    
-  &.fi-text-input_with-icon {
+
+    & .fi-text-input_optionalText {
+      ${theme.typography.bodyTextSmall};
+    }
+
     & .fi-text-input_input-element-container {
-      ${inputContainer({ theme })}
+      ${containerIEFocus({ theme })}
+
+      &:focus-within {
+        position: relative;
+
+        &::after {
+          ${absoluteFocus}
+        }
+      }
     }
 
     & .fi-text-input_statusText_container {
@@ -74,11 +69,9 @@ export const baseStyles = withSuomifiTheme(
       width: 100%;
       min-height: 40px;
       padding-left: ${theme.spacing.insetL};
-      ::placeholder {
+
+      &::placeholder {
         font-style: italic;
-      }
-      :focus {
-        box-shadow: ${theme.shadows.actionElementBoxShadow};
       }
     }
 

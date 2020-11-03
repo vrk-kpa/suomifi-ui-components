@@ -139,7 +139,6 @@ export const baseStyles = withSuomifiTheme(
       }
 
       & .fi-search-input_button {
-
         &:focus {
           &:after {
             ${absoluteFocus}
