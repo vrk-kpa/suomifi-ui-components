@@ -143,10 +143,10 @@
     "uuid": "8.3.1"
   },
   "peerDependencies": {
-    "@types/styled-components": "4.1.8",
+    "@types/styled-components": ">=5.1.4",
     "@types/warning": ">=3.0.0",
     "react": ">=16.8.0",
-    "styled-components": ">=4.3.2"
+    "styled-components": ">=5.2.1"
   },
   "style": "dist/main.css",
   "husky": {

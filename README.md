@@ -51,11 +51,13 @@ yarn add styled-components
 
 - If using TypeScript, version 3.5 or above is required.
 
-- In case TypeScript is used and skipLibCheck compiler option is set to false, also typings for [react](https://www.npmjs.com/package/@types/react), [react-dom](https://www.npmjs.com/package/@types/react-dom), [styled-components](https://www.npmjs.com/package/@types/styled-components/v/4.1.8) and [warning](https://www.npmjs.com/package/@types/warning) are required. Typings for styled-components has to be exact version 4.1.8 (later versions have an open issue for including conflicting typings for react-native).
+- In case TypeScript is used and skipLibCheck compiler option is set to false, also typings for [react](https://www.npmjs.com/package/@types/react), [react-dom](https://www.npmjs.com/package/@types/react-dom), [styled-components](https://www.npmjs.com/package/@types/styled-components/) and [warning](https://www.npmjs.com/package/@types/warning) are required.
 
 ```bash
-yarn add @types/styled-components@4.1.8 @types/warning
+yarn add @types/styled-components @types/warning
 ```
+
+Types for styled-components has a known issue with including conflicting typings for react-native. Therefore, some some additional steps are required to allow skipLibCheck true compiler option. If using yarn, add a .yarnclean file next to your package.json file with `@types/react-native` as contents. If using npm, add `"postinstall": "rm -rf node_modules/@types/react-native"` to your package.json scripts.
 
 ## 🔨 Usage
 
