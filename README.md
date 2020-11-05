@@ -41,9 +41,11 @@ If you already use Reach UI in your project or cannot import the CSS file for so
 
 You should also install the following dependencies, if your project does not already have them.
 
-- suomifi-ui-components is a component library for React, it requires [react](https://www.npmjs.com/package/react) version >=16.3.0 and related dependencies and typings.
+- suomifi-ui-components is a component library for React, it requires [react](https://www.npmjs.com/package/react) version >=16.8.0 and related dependencies and typings.
 
-- suomifi-ui-components requires [styled-components](https://www.npmjs.com/package/styled-components) version >=4.3.2.
+- suomifi-ui-components requires [styled-components](https://www.npmjs.com/package/styled-components) version >=5.0.1.
+
+- The aim is to keep dependencies up to date and use the latest available versions. We encourage you to use the latest available versions of peer dependencies.
 
 ```bash
 yarn add styled-components
