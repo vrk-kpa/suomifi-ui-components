@@ -41,9 +41,11 @@ If you already use Reach UI in your project or cannot import the CSS file for so
 
 You should also install the following dependencies, if your project does not already have them.
 
-- suomifi-ui-components is a component library for React, it requires [react](https://www.npmjs.com/package/react) version >=16.3.0 and related dependencies and typings.
+- suomifi-ui-components is a component library for React, it requires [react](https://www.npmjs.com/package/react) version >=16.8.0 and related dependencies and typings.
 
-- suomifi-ui-components requires [styled-components](https://www.npmjs.com/package/styled-components) version >=4.3.2.
+- suomifi-ui-components requires [styled-components](https://www.npmjs.com/package/styled-components) version >=5.0.1.
+
+- The aim is to keep dependencies up to date and use the latest available versions. We encourage you to use the latest available versions of peer dependencies.
 
 ```bash
 yarn add styled-components
@@ -51,11 +53,13 @@ yarn add styled-components
 
 - If using TypeScript, version 3.5 or above is required.
 
-- In case TypeScript is used and skipLibCheck compiler option is set to false, also typings for [react](https://www.npmjs.com/package/@types/react), [react-dom](https://www.npmjs.com/package/@types/react-dom), [styled-components](https://www.npmjs.com/package/@types/styled-components/v/4.1.8) and [warning](https://www.npmjs.com/package/@types/warning) are required. Typings for styled-components has to be exact version 4.1.8 (later versions have an open issue for including conflicting typings for react-native).
+- In case TypeScript is used and skipLibCheck compiler option is set to false, also typings for [react](https://www.npmjs.com/package/@types/react), [react-dom](https://www.npmjs.com/package/@types/react-dom), [styled-components](https://www.npmjs.com/package/@types/styled-components/) and [warning](https://www.npmjs.com/package/@types/warning) are required.
 
 ```bash
-yarn add @types/styled-components@4.1.8 @types/warning
+yarn add @types/styled-components @types/warning
 ```
+
+Types for styled-components has a known issue with including conflicting typings for react-native. Therefore, some some additional steps are required to allow skipLibCheck true compiler option. If using yarn, add a .yarnclean file next to your package.json file with `@types/react-native` as contents. If using npm, add `"postinstall": "rm -rf node_modules/@types/react-native"` to your package.json scripts.
 
 ## 🔨 Usage
 

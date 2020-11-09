@@ -6,28 +6,29 @@ import { boxShadowFocus } from '../theme/utils/focus';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
-  ${element({ theme })}
-  ${font({ theme })('bodyText')}
+    ${element({ theme })}
+    ${font({ theme })('bodyText')}
   ${allStates(`color: ${theme.colors.highlightBase};`)};
-  color: ${theme.colors.highlightBase};
-  text-decoration: none;
-
-  &:focus, &:focus-within {
+    color: ${theme.colors.highlightBase};
     text-decoration: none;
-  }
 
-  &:focus {
-    ${boxShadowFocus}
-  }
+    &:focus,
+    &:focus-within {
+      text-decoration: none;
+    }
 
-  &:hover,
-  &:active {
-    text-decoration: underline;
-  }
-  &:visited {
-    color: ${theme.colors.accentTertiaryDark1};
-  }
-`,
+    &:focus {
+      ${boxShadowFocus}
+    }
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+    &:visited {
+      color: ${theme.colors.accentTertiaryDark1};
+    }
+  `,
 );
 
 export const externalStyles = withSuomifiTheme(

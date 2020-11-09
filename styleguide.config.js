@@ -2,7 +2,7 @@ const path = require('path');
 const packagejson = require('./package.json');
 
 // Filter props from styleguidist that don't have description in interface or are from react typings
-const propFilter = prop => {
+const propFilter = (prop) => {
   if (prop.description.length === 0) {
     return false;
   }
@@ -12,7 +12,7 @@ const propFilter = prop => {
   return prop.parent.fileName.indexOf('node_modules/@types/react') < 0;
 };
 
-const requireFiles = axe => [
+const requireFiles = (axe) => [
   ...(!!axe
     ? [path.join(__dirname, '.styleguidist/styleguidist.require.axe.js')]
     : []),
@@ -40,8 +40,10 @@ module.exports = {
   exampleMode: 'expand',
   usageMode: 'expand',
   pagePerSection: true,
+  tocMode: 'collapse',
   skipComponentsWithoutExample: true,
-  getExampleFilename: componentPath => componentPath.replace(/\.tsx?$/, '.md'),
+  getExampleFilename: (componentPath) =>
+    componentPath.replace(/\.tsx?$/, '.md'),
   template: {
     head: {
       links: [

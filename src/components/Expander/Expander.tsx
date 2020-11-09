@@ -92,7 +92,7 @@ const IfTitleTag = ({
   titleTag,
   children,
 }: {
-  titleTag?: string;
+  titleTag: string | undefined;
   children: ReactNode;
 }) => (
   <Fragment>

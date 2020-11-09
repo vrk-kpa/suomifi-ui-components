@@ -56,6 +56,7 @@ module.exports = {
         },
       ],
       sectionDepth: 1,
+      expand: true,
     },
     {
       name: 'Components',
@@ -82,6 +83,7 @@ module.exports = {
               components: getComponents(['Icon', 'StaticIcon']),
             },
           ],
+          expand: true,
         },
         {
           name: 'Modules',
@@ -113,9 +115,11 @@ module.exports = {
               ]),
             },
           ],
+          expand: true,
         },
       ],
       sectionDepth: 2,
+      expand: true,
     },
   ],
 };

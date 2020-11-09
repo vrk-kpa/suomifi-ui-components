@@ -19,14 +19,20 @@ import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { Icon } from '../../Icon/Icon';
 import { baseStyles } from './SearchInput.baseStyles';
 
-type SearchInputValue = string | number | string[] | undefined;
+type SearchInputValue = string | number | undefined;
 
 type SearchInputStatus = 'default' | 'error';
 
 export interface SearchInputProps
   extends Omit<
       HtmlInputProps,
-      'type' | 'disabled' | 'onChange' | 'children' | 'onClick'
+      | 'type'
+      | 'disabled'
+      | 'onChange'
+      | 'children'
+      | 'onClick'
+      | 'value'
+      | 'defaultValue'
     >,
     TokensProp {
   /** SearchInput container div class name for custom styling. */
@@ -58,6 +64,10 @@ export interface SearchInputProps
   name?: string;
   /** Set components width to 100% */
   fullWidth?: boolean;
+  /** Controlled value */
+  value?: SearchInputValue;
+  /** Default value */
+  defaultValue?: SearchInputValue;
   /** Callback for input text change */
   onChange?: (value: SearchInputValue) => void;
   /** Callback for onBlur event */

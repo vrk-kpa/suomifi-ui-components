@@ -43,7 +43,8 @@ const afterBoxshadow = ({
     box-sizing: border-box;
     box-shadow: 0 0 0 2px ${color};
     ${!!zIndex && `z-index: ${zIndex};`}
-  }`;
+  }
+`;
 
 // TODO Refactor, create interfaces (and extend with Partial<>), add JSDOC for functions
 export const boxshadowOutline = ({
