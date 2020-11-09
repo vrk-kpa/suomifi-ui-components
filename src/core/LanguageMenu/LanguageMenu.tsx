@@ -86,7 +86,7 @@ const LanguageMenuPopoverPosition = (
     top: `${targetRect.top + targetRect.height + window.pageYOffset}px`,
     maxWidth: `${Math.max(
       targetRect.width,
-      targetRect.width + targetRect.left - 20,
+      targetRect.width + targetRect.left - 30,
     )}px`,
     minWidth: `${targetRect.width - 2}px`,
   };
