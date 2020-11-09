@@ -1,24 +1,15 @@
 import { css } from 'styled-components';
-import { TextInputProps } from './TextInput';
 import { withSuomifiTheme, TokensAndTheme } from '../../theme';
 import { input, containerIEFocus, font } from '../../theme/reset';
 import { absoluteFocus } from '../../theme/utils';
 import { math } from 'polished';
 
 export const baseStyles = withSuomifiTheme(
-  ({
-    theme,
-    inputContainerProps,
-    fullWidth,
-  }: TokensAndTheme & Omit<TextInputProps, 'labelText'>) => css`
+  ({ theme }: TokensAndTheme) => css`
     &.fi-text-input {
       ${font({ theme })('bodyText')}
       display: inline-block;
-      width: ${fullWidth
-        ? '100%'
-        : inputContainerProps?.style?.width
-        ? inputContainerProps?.style.width
-        : inputContainerProps?.width || '290px'};
+      width: 290px;
     }
 
     & .fi-text-input_label-p {
@@ -41,6 +32,10 @@ export const baseStyles = withSuomifiTheme(
           ${absoluteFocus}
         }
       }
+    }
+
+    &.fi-text-input--full-width {
+      width: 100%;
     }
 
     & .fi-text-input_statusText_container {
