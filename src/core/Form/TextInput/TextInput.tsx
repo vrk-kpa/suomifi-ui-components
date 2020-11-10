@@ -12,10 +12,6 @@ import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './TextInput.baseStyles';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { StatusText, InputStatus } from '../StatusText/StatusText';
-// import {
-//   TextInput as CompTextInput,
-//   TextInputProps as CompTextInputProps,
-// } from '../../../components/Form/TextInput';
 import classnames from 'classnames';
 import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
 import { Omit } from '../../../utils/typescript';
