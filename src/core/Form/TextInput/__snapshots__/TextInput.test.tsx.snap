@@ -96,6 +96,13 @@ exports[`snapshots match error status with statustext 1`] = `
   color: hsl(0,0%,16%);
 }
 
+.c2.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
 .c5.fi-status-text {
   margin-top: 5px;
   -webkit-letter-spacing: 0;
@@ -138,31 +145,6 @@ exports[`snapshots match error status with statustext 1`] = `
   width: 290px;
 }
 
-.c1 .fi-text-input_label-p {
-  margin-bottom: 10px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-}
-
-.c1 .fi-text-input_optionalText {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
 .c2 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(196,77%,44%);
   outline-width: 2px;
@@ -196,54 +178,6 @@ exports[`snapshots match error status with statustext 1`] = `
 
 .c1.fi-text-input--full-width {
   width: 100%;
-}
-
-.c1 .fi-text-input_statusText_container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c1 .fi-text-input_statusText_container .fi-text-input_statusText {
-  margin-top: 5px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.c1 .fi-text-input_hintText {
-  display: block;
-  color: hsl(0,0%,16%);
-  margin-bottom: 10px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
 }
 
 .c1 .fi-text-input_input {
@@ -317,10 +251,6 @@ exports[`snapshots match error status with statustext 1`] = `
 
 .c1.fi-text-input--error .fi-text-input_input {
   border-color: hsl(3,59%,48%);
-}
-
-.c1.fi-text-input--error .fi-text-input_statusText {
-  color: hsl(3,59%,48%);
 }
 
 .c2.fi-text-input--success .fi-text-input_input {
@@ -482,6 +412,13 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   color: hsl(0,0%,16%);
 }
 
+.c2.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
 .c1.fi-text-input {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -498,31 +435,6 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   font-weight: 400;
   display: inline-block;
   width: 290px;
-}
-
-.c1 .fi-text-input_label-p {
-  margin-bottom: 10px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-}
-
-.c1 .fi-text-input_optionalText {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
 }
 
 .c2 .fi-text-input_input-element-container > input:focus {
@@ -557,54 +469,6 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 
 .c1.fi-text-input--full-width {
   width: 100%;
-}
-
-.c1 .fi-text-input_statusText_container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c1 .fi-text-input_statusText_container .fi-text-input_statusText {
-  margin-top: 5px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.c1 .fi-text-input_hintText {
-  display: block;
-  color: hsl(0,0%,16%);
-  margin-bottom: 10px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
 }
 
 .c1 .fi-text-input_input {
@@ -678,10 +542,6 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 
 .c1.fi-text-input--error .fi-text-input_input {
   border-color: hsl(3,59%,48%);
-}
-
-.c1.fi-text-input--error .fi-text-input_statusText {
-  color: hsl(3,59%,48%);
 }
 
 .c2.fi-text-input--success .fi-text-input_input {
@@ -825,6 +685,13 @@ exports[`snapshots match minimal implementation 1`] = `
   color: hsl(0,0%,16%);
 }
 
+.c2.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
 .c1.fi-text-input {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -841,31 +708,6 @@ exports[`snapshots match minimal implementation 1`] = `
   font-weight: 400;
   display: inline-block;
   width: 290px;
-}
-
-.c1 .fi-text-input_label-p {
-  margin-bottom: 10px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-}
-
-.c1 .fi-text-input_optionalText {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
 }
 
 .c2 .fi-text-input_input-element-container > input:focus {
@@ -901,54 +743,6 @@ exports[`snapshots match minimal implementation 1`] = `
 
 .c1.fi-text-input--full-width {
   width: 100%;
-}
-
-.c1 .fi-text-input_statusText_container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c1 .fi-text-input_statusText_container .fi-text-input_statusText {
-  margin-top: 5px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.c1 .fi-text-input_hintText {
-  display: block;
-  color: hsl(0,0%,16%);
-  margin-bottom: 10px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
 }
 
 .c1 .fi-text-input_input {
@@ -1022,10 +816,6 @@ exports[`snapshots match minimal implementation 1`] = `
 
 .c1.fi-text-input--error .fi-text-input_input {
   border-color: hsl(3,59%,48%);
-}
-
-.c1.fi-text-input--error .fi-text-input_statusText {
-  color: hsl(3,59%,48%);
 }
 
 .c2.fi-text-input--success .fi-text-input_input {
