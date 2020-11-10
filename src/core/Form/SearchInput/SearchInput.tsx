@@ -18,10 +18,11 @@ import { StatusText } from '../StatusText/StatusText';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { Icon } from '../../Icon/Icon';
 import { baseStyles } from './SearchInput.baseStyles';
+import { InputStatus } from '../types';
 
 type SearchInputValue = string | number | undefined;
 
-type SearchInputStatus = 'default' | 'error';
+type SearchInputStatus = Exclude<InputStatus, 'success'>;
 
 export interface SearchInputProps
   extends Omit<

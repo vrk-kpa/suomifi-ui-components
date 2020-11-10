@@ -10,7 +10,8 @@ import {
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './TextInput.baseStyles';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
-import { StatusText, InputStatus } from '../StatusText/StatusText';
+import { StatusText } from '../StatusText/StatusText';
+import { InputStatus } from '../types';
 import { HintText } from '../HintText/HintText';
 import classnames from 'classnames';
 import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
