@@ -65,7 +65,7 @@ describe('props', () => {
         <TextInput labelText="Test input" hintText="Example hint text" />,
       );
       const hintText = getByText('Example hint text');
-      expect(hintText).toHaveClass('fi-text-input_hintText');
+      expect(hintText).toHaveClass('fi-hint-text');
     });
   });
 
