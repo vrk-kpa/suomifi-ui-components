@@ -16,11 +16,11 @@ export type InputStatus = 'default' | 'error' | 'success';
 interface InternalStatusTextProps extends HtmlSpanProps {
   /** id */
   id?: string;
-  /** Chip element content */
+  /** StatusText element content */
   children?: ReactNode;
   /** Custom class name for styling and customizing  */
   className?: string;
-  /** Disable chip */
+  /** Disable StatusText */
   disabled?: boolean;
   /** Status */
   status?: InputStatus;
