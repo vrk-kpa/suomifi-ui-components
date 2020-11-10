@@ -89,11 +89,6 @@ export interface TextInputProps
   iconProps?: Omit<IconProps, 'icon'>;
 }
 
-/**
- * <i class="semantics" />
- * Use for user inputting text.
- * Props other than specified explicitly are passed on to underlying input element.
- */
 class BaseTextInput extends Component<TextInputProps> {
   private id: string;
 
@@ -195,6 +190,11 @@ const StyledTextInput = styled(
   ${(props) => baseStyles(props)}
 `;
 
+/**
+ * <i class="semantics" />
+ * Use for user inputting text.
+ * Props other than specified explicitly are passed on to underlying input element.
+ */
 export class TextInput extends Component<TextInputProps> {
   render() {
     return <StyledTextInput {...withSuomifiDefaultProps(this.props)} />;
