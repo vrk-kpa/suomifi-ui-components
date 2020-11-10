@@ -22,7 +22,6 @@ const baseClassName = 'fi-text-input';
 export const textInputClassNames = {
   baseClassName,
   fullWidth: `${baseClassName}--full-width`,
-  labelParagraph: `${baseClassName}_label-p`,
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
   success: `${baseClassName}--success`,
