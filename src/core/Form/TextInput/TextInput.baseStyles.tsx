@@ -12,16 +12,6 @@ export const baseStyles = withSuomifiTheme(
       width: 290px;
     }
 
-    & .fi-text-input_label-p {
-      margin-bottom: ${theme.spacing.xs};
-      ${font({ theme })('actionElementInnerTextBold')};
-      color: ${theme.colors.blackBase};
-    }
-
-    & .fi-text-input_optionalText {
-      ${theme.typography.bodyTextSmall};
-    }
-
     & .fi-text-input_input-element-container {
       ${containerIEFocus({ theme })}
 
@@ -36,25 +26,6 @@ export const baseStyles = withSuomifiTheme(
 
     &.fi-text-input--full-width {
       width: 100%;
-    }
-
-    & .fi-text-input_statusText_container {
-      display: flex;
-      flex-direction: column;
-
-      & .fi-text-input_statusText {
-        margin-top: ${theme.spacing.xxs};
-        ${font({ theme })('bodySemiBoldSmall')};
-        font-size: 14px;
-        line-height: 20px;
-      }
-    }
-
-    & .fi-text-input_hintText {
-      display: block;
-      color: ${theme.colors.blackBase};
-      margin-bottom: ${theme.spacing.xs};
-      ${font({ theme })('bodyTextSmall')};
     }
 
     & .fi-text-input_input {
@@ -96,9 +67,6 @@ export const baseStyles = withSuomifiTheme(
     &.fi-text-input--error {
       & .fi-text-input_input {
         border-color: ${theme.colors.alertBase};
-      }
-      & .fi-text-input_statusText {
-        color: ${theme.colors.alertBase};
       }
     }
     &.fi-text-input--success {
