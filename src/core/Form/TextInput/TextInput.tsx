@@ -7,7 +7,6 @@ import {
   HtmlDiv,
   HtmlDivProps,
 } from '../../../reset';
-import { ParagraphProps } from '../../Paragraph/Paragraph';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './TextInput.baseStyles';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
@@ -44,10 +43,6 @@ export interface TextInputProps
   disabled?: boolean;
   /** Event handler to execute when clicked */
   onClick?: () => void;
-  /** Pass custom props to label container */
-  labelProps?: TextInputLabelProps;
-  /** Pass custom props to Label text element */
-  labelTextProps?: ParagraphProps;
   /** To execute on input text change */
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   /** To execute on input text onBlur */
@@ -104,8 +99,6 @@ class BaseTextInput extends Component<TextInputProps> {
       className,
       labelText,
       labelMode,
-      labelProps,
-      labelTextProps = { className: undefined },
       inputContainerProps,
       optionalText,
       status,
@@ -143,9 +136,7 @@ class BaseTextInput extends Component<TextInputProps> {
           htmlFor={this.id}
           labelMode={labelMode}
           as="label"
-          labelSpanProps={labelTextProps}
           optionalText={optionalText}
-          {...labelProps}
         >
           {labelText}
         </LabelText>
