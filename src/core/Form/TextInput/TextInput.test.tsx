@@ -154,7 +154,7 @@ describe('props', () => {
         <TextInput labelText="label" optionalText="Optional" />,
       );
       const optionalText = getByText('(Optional)');
-      expect(optionalText).toHaveClass('fi-text-input_optionalText');
+      expect(optionalText).toHaveClass('fi-label-text_optionalText');
     });
   });
 
