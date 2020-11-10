@@ -272,7 +272,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
   }
 }
 
-const StyledTextInput = styled(
+const StyledSearchInput = styled(
   ({ tokens, ...passProps }: SearchInputProps & InternalTokensProp) => {
     return <BaseSearchInput {...passProps} />;
   },
@@ -287,6 +287,6 @@ const StyledTextInput = styled(
  */
 export class SearchInput extends Component<SearchInputProps> {
   render() {
-    return <StyledTextInput {...withSuomifiDefaultProps(this.props)} />;
+    return <StyledSearchInput {...withSuomifiDefaultProps(this.props)} />;
   }
 }
