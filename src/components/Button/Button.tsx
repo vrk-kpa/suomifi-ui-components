@@ -38,21 +38,21 @@ export const mouseNonFocus = ({
   handleClick,
 }: MouseNonFocusProps): MouseNonFocusReturnProps => {
   const doClick = (
-    e: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>,
+    event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>,
   ) => {
-    if (!!e) {
-      e.preventDefault();
+    if (!!event) {
+      event.preventDefault();
     }
-    handleClick(e);
+    handleClick(event);
   };
-  const keyboard = { enter: 13, space: 32 };
-  const ifKeyboard = (e: KeyboardEvent<HTMLButtonElement>) =>
-    (e.keyCode === keyboard.enter || e.keyCode === keyboard.space) &&
-    doClick(e);
+  const ifKeyboard = (event: KeyboardEvent<HTMLButtonElement>) =>
+    (event.key === 'Enter' || event.key === ' ') && doClick(event);
 
   return { onMouseDown: doClick, onKeyUp: ifKeyboard };
 };
-export interface ButtonProps extends AssertiveProps, HtmlButtonProps {
+export interface ButtonProps
+  extends AssertiveProps,
+    Omit<HtmlButtonProps, 'aria-disabled'> {
   /** Custom classname to extend or customize */
   className?: string;
   /** Event handler to execute when clicked
@@ -77,24 +77,26 @@ export interface ButtonProps extends AssertiveProps, HtmlButtonProps {
 interface AssertiveProps {
   /** Disable Button usage */
   disabled?: boolean;
+  /** Soft disable the button to allow tab-focus, but disable onClick functionality */
+  'aria-disabled'?: boolean;
   /** aria-live text for why Button is disabled */
   ariaAssertiveDisabled?: string;
   /** aria-live text when Button changed from disabled to enabled */
-  ariaAssertiveUnDisabled?: string;
+  ariaAssertiveEnabled?: string;
 }
 
 export class Assertive extends Component<AssertiveProps> {
   render() {
     const {
       ariaAssertiveDisabled,
-      ariaAssertiveUnDisabled,
+      ariaAssertiveEnabled,
       disabled,
     } = this.props;
 
-    if (!ariaAssertiveDisabled && !ariaAssertiveUnDisabled) {
+    if (!ariaAssertiveDisabled && !ariaAssertiveEnabled) {
       return null;
     }
-    const text = !!disabled ? ariaAssertiveDisabled : ariaAssertiveUnDisabled;
+    const text = !!disabled ? ariaAssertiveDisabled : ariaAssertiveEnabled;
     return !!text ? (
       <VisuallyHidden aria-live="assertive">{text}</VisuallyHidden>
     ) : null;
@@ -117,10 +119,11 @@ export class Button extends Component<ButtonProps> {
       mouseNoFocus,
       onClick,
       ariaAssertiveDisabled,
-      ariaAssertiveUnDisabled,
+      ariaAssertiveEnabled,
+      'aria-disabled': ariaDisabled,
       ...passProps
     } = this.props;
-    const ifMouseNoFocus =
+    const mouseClickHandler =
       !!mouseNoFocus && !!onClick
         ? () => {
             const doClick = mouseNonFocus({ handleClick: onClick });
@@ -130,7 +133,8 @@ export class Button extends Component<ButtonProps> {
             };
           }
         : () => ({ onClick });
-    const onClickProps = !!disabled ? {} : ifMouseNoFocus();
+    const onClickProps =
+      !!disabled || !!ariaDisabled ? {} : mouseClickHandler();
     return (
       <Fragment>
         <StyledHtmlButton
@@ -140,14 +144,14 @@ export class Button extends Component<ButtonProps> {
           tabIndex={0}
           disabled={!!disabled}
           className={classnames(baseClassName, className, {
-            [disabledClassName]: !!disabled,
+            [disabledClassName]: !!disabled || !!ariaDisabled,
           })}
         />
 
         <Assertive
           disabled={disabled}
           ariaAssertiveDisabled={ariaAssertiveDisabled}
-          ariaAssertiveUnDisabled={ariaAssertiveUnDisabled}
+          ariaAssertiveEnabled={ariaAssertiveEnabled}
         />
       </Fragment>
     );
