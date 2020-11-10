@@ -144,7 +144,7 @@ describe('props', () => {
     it('should be found ', () => {
       const { getByText } = render(<TextInput labelText="Test input" />);
       const label = getByText('Test input');
-      expect(label).toHaveClass('fi-text-input_label-p');
+      expect(label).toHaveClass('fi-label-text_label-span');
     });
   });
 
