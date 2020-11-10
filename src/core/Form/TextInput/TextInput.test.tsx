@@ -162,7 +162,7 @@ describe('props', () => {
     it('should be visible by default', () => {
       const { getByText } = render(<TextInput labelText="Test input" />);
       const label = getByText('Test input');
-      expect(label).toHaveClass('fi-text-input_label-p');
+      expect(label).toHaveClass('fi-label-text_label-span');
     });
 
     it('should be hidden', () => {
