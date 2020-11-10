@@ -144,6 +144,7 @@ class BaseTextInput extends Component<TextInputProps> {
           labelMode={labelMode}
           as="label"
           labelSpanProps={labelTextProps}
+          optionalText={optionalText}
           {...labelProps}
         >
           {labelText}
