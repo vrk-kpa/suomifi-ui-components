@@ -12,6 +12,7 @@ import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './TextInput.baseStyles';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { StatusText, InputStatus } from '../StatusText/StatusText';
+import { HintText } from '../HintText/HintText';
 import classnames from 'classnames';
 import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
 import { Omit } from '../../../utils/typescript';
@@ -88,11 +89,14 @@ export interface TextInputProps
 class BaseTextInput extends Component<TextInputProps> {
   private id: string;
 
+  private hintTextId: string;
+
   private statusTextId: string;
 
   constructor(props: TextInputProps) {
     super(props);
     this.id = `${idGenerator(props.id)}`;
+    this.hintTextId = `${this.id}-hintText`;
     this.statusTextId = `${this.id}-statusText`;
   }
 
@@ -145,17 +149,7 @@ class BaseTextInput extends Component<TextInputProps> {
         >
           {labelText}
         </LabelText>
-
-        {/*
-          {hintText && (
-            <Paragraph
-              className={textInputClassNames.hintText}
-              id={generatedHintTextId}
-            >
-              {hintText}
-            </Paragraph>
-          )}
-            */}
+        <HintText id={this.hintTextId}>{hintText}</HintText>
         <HtmlDiv className={textInputClassNames.functionalityContainer}>
           <HtmlDiv className={textInputClassNames.inputElementContainer}>
             <HtmlInput
