@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../theme';
 import { button, element, font } from '../theme/reset';
-import { absolute } from '../../utils/css';
+import { absolute, allStates } from '../../utils/css';
 import { padding, absoluteFocus } from '../theme/utils';
 
 import { ExpanderProps } from './Expander';
@@ -18,6 +18,9 @@ export const baseStyles = withSuomifiTheme(
       padding: 0;
       border-radius: ${theme.radius.basic};
       box-shadow: ${theme.shadows.panelShadow};
+      display: block;
+      width: 100%;
+      max-width: 100%;
 
       &:before {
         background-color: ${theme.colors.highlightLight4};
@@ -43,33 +46,14 @@ export const baseStyles = withSuomifiTheme(
           padding: 17px ${theme.spacing.xxxl} 16px ${theme.spacing.m};
           color: ${theme.colors.highlightBase};
         }
-      }
 
-      & .fi-expander_title-icon {
-        position: absolute;
-        height: 20px;
-        width: 20px;
-        top: 0;
-        right: 0;
-        margin: ${theme.spacing.m};
-      }
-      & .fi-expander_title--open .fi-expander_title-icon,
-      & .fi-expander_title-icon--open {
-        transform: rotate(-180deg);
-      }
-
-      & .fi-expander_title {
-        ${button({ theme })}
-        position: relative;
-        display: block;
-        width: 100%;
-        font-size: ${theme.typography.bodySemiBold};
-        min-height: 60px;
-        &--no-tag {
-          padding: 17px ${theme.spacing.xxxl} 16px ${theme.spacing.m};
-          color: ${theme.colors.highlightBase};
+        &,
+        & * {
+          cursor: pointer;
         }
+        ${allStates('cursor: pointer;')}
       }
+
       & .fi-expander_title-icon {
         position: absolute;
         height: 20px;

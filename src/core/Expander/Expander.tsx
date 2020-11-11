@@ -1,27 +1,79 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, ReactNode, Fragment } from 'react';
 import { default as styled } from 'styled-components';
+import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp, InternalTokensProp } from '../theme';
+import { HtmlDiv } from '../../reset';
 import { baseStyles } from './Expander.baseStyles';
-import {
-  Expander as CompExpander,
-  ExpanderProps as CompExpanderProps,
-} from '../../components/Expander/Expander';
 import { Icon } from '../Icon/Icon';
-import classnames from 'classnames';
+import { Button, ButtonProps } from '../../components/Button/Button';
 import {
   ExpanderGroupProps,
   ExpanderGroup,
   ExpanderGroupConsumer,
+  ExpanderProviderState,
 } from './ExpanderGroup';
 
-const iconClassName = 'fi-expander_title-icon';
+const baseClassName = 'fi-expander';
+const openClassName = `${baseClassName}--open`;
+const titleClassName = `${baseClassName}_title`;
+const titleOpenClassName = `${titleClassName}--open`;
+const titleNoTagClassName = `${titleClassName}--no-tag`;
+const titleTagClassName = `${titleClassName}-tag`;
+const iconClassName = `${titleClassName}-icon`;
 const iconOpenClassName = `${iconClassName}--open`;
-const noPaddingClassName = `fi-expander_content--no-padding`;
+const contentBaseClassName = `${baseClassName}_content`;
+const contentOpenClassName = `${contentBaseClassName}--open`;
+const noPaddingClassName = `${contentBaseClassName}--no-padding`;
 
 type ExpanderVariant = 'expander' | 'expanderGroup';
 
-export interface ExpanderProps extends CompExpanderProps, TokensProp {
+interface SharedExpanderProps {
+  /** Custom classname to extend or customize */
+  className?: string;
+  /**
+   * Expander element content
+   */
+  children?: ReactNode;
+}
+
+interface StyledExpanderContentProps extends SharedExpanderProps {
+  openState?: boolean;
+  hidden: boolean;
+}
+
+const StyledExpanderContent = styled(
+  ({ openState, className, ...passProps }: StyledExpanderContentProps) => (
+    <HtmlDiv {...passProps} className={classnames(className)} />
+  ),
+)`
+  display: ${({ openState }) => (!!openState ? 'block' : 'none')};
+`;
+
+interface InternalExpanderProps extends SharedExpanderProps {
+  /** Title for Expander */
+  title: ReactNode;
+  /** Title HTML-tag (h1, h2, h3 etc.)
+   * @default none
+   */
+  titleTag?: string;
+  open?: boolean;
+  /** Properties for title-Button */
+  titleProps?: ButtonProps & { open?: boolean };
+  /** Properties for the content div */
+  contentProps?: SharedExpanderProps;
+  /** Default status of expander open
+   * @default false
+   */
+  defaultOpen?: boolean;
+  /** Event handler to execute when clicked */
+  onClick?: ({ openState }: { openState: boolean }) => void;
+  index?: number;
+  expanderGroup?: boolean;
+  consumer?: ExpanderProviderState;
+}
+
+export interface ExpanderProps extends InternalExpanderProps, TokensProp {
   /** Remove padding from expandable content area (for background usage with padding in given container etc.) */
   noPadding?: boolean;
   /**
@@ -31,35 +83,24 @@ export interface ExpanderProps extends CompExpanderProps, TokensProp {
   variant?: ExpanderVariant;
 }
 
-const StyledExpander = styled(
-  ({ tokens, noPadding, ...passProps }: ExpanderProps & InternalTokensProp) => {
-    return (
-      <CompExpander
-        {...passProps}
-        contentProps={{
-          className: classnames({ [noPaddingClassName]: noPadding }),
-        }}
-      />
-    );
-  },
-)`
-  ${(props) => baseStyles(props)};
-`;
+const IfTitleTag = ({
+  titleTag,
+  children,
+}: {
+  titleTag: string | undefined;
+  children: ReactNode;
+}) => (
+  <Fragment>
+    {!!titleTag
+      ? React.createElement(titleTag, {
+          children,
+          className: titleTagClassName,
+        })
+      : children}
+  </Fragment>
+);
 
-interface ExpanderState {
-  openState: boolean;
-}
-
-/**
- * <i class="semantics" />
- * Used for openable expander
- */
-class ExpanderItem extends Component<ExpanderProps> {
-  static group = (props: ExpanderGroupProps) => {
-    return <ExpanderGroup {...withSuomifiDefaultProps(props)} />;
-  };
-
-  /** State is only used to update the caret-icon */
+class BaseExpanderItem extends Component<InternalExpanderProps> {
   state: ExpanderState = {
     openState:
       this.props.defaultOpen !== undefined ? this.props.defaultOpen : false,
@@ -116,8 +157,8 @@ class ExpanderItem extends Component<ExpanderProps> {
     const { open, onClick } = this.props;
     const { openState } = this.state;
     const controlled = open !== undefined;
-
     const newOpenState = controlled ? !!open : !openState;
+
     if (!controlled) {
       this.setState({ openState: newOpenState });
     }
@@ -128,29 +169,43 @@ class ExpanderItem extends Component<ExpanderProps> {
 
   render() {
     const {
-      variant = 'expander',
       open,
+      defaultOpen,
+      onClick,
+      className,
+      children,
       title,
       titleTag,
+      titleProps,
       index,
+      expanderGroup: dissmissExpanderGroup,
       consumer,
+      contentProps: { className: contentClassName, ...contentPassProps } = {
+        className: undefined,
+      },
       ...passProps
-    } = withSuomifiDefaultProps(this.props);
+    } = this.props;
     const openState = open !== undefined ? !!open : this.state.openState;
 
-    if (variant === 'expanderGroup' && 'openAll' in passProps) {
-      return <ExpanderGroup {...(passProps as ExpanderGroupProps)} />;
-    }
-
     return (
-      <StyledExpander
+      <HtmlDiv
         {...passProps}
-        index={index}
-        onClick={this.handleClick}
-        open={open}
-        titleTag={titleTag}
-        title={
-          <Fragment>
+        className={classnames(className, baseClassName, {
+          [openClassName]: !!openState,
+        })}
+      >
+        <IfTitleTag titleTag={titleTag}>
+          <Button
+            onClick={this.handleClick}
+            open={openState}
+            aria-expanded={!!openState}
+            mouseNoFocus={true}
+            className={classnames(titleClassName, {
+              [titleNoTagClassName]: !titleTag,
+              [titleOpenClassName]: !!openState,
+            })}
+            {...titleProps}
+          >
             {title}
             {!titleTag && (
               <Icon
@@ -158,16 +213,45 @@ class ExpanderItem extends Component<ExpanderProps> {
                 className={classnames(iconClassName, {
                   [iconOpenClassName]: openState,
                 })}
-                color={passProps.tokens.colors.highlightBase}
               />
             )}
-          </Fragment>
-        }
-      />
+          </Button>
+        </IfTitleTag>
+        <StyledExpanderContent
+          {...contentPassProps}
+          openState={openState}
+          className={classnames(contentBaseClassName, contentClassName, {
+            [contentOpenClassName]: !!openState,
+          })}
+          hidden={!openState}
+          key={String(openState)}
+          aria-hidden={!openState}
+        >
+          {children}
+        </StyledExpanderContent>
+      </HtmlDiv>
     );
   }
 }
 
+const StyledExpander = styled(
+  ({ noPadding, tokens, ...passProps }: ExpanderProps & InternalTokensProp) => {
+    return (
+      <BaseExpanderItem
+        {...passProps}
+        contentProps={{
+          className: classnames({ [noPaddingClassName]: noPadding }),
+        }}
+      />
+    );
+  },
+)`
+  ${(props) => baseStyles(props)};
+`;
+
+interface ExpanderState {
+  openState: boolean;
+}
 export class Expander extends Component<ExpanderProps> {
   static group = (props: ExpanderGroupProps) => {
     return <ExpanderGroup {...withSuomifiDefaultProps(props)} />;
@@ -176,10 +260,15 @@ export class Expander extends Component<ExpanderProps> {
   render() {
     return !!this.props.expanderGroup ? (
       <ExpanderGroupConsumer>
-        {(consumer) => <ExpanderItem {...this.props} consumer={consumer} />}
+        {(consumer) => (
+          <StyledExpander
+            {...withSuomifiDefaultProps(this.props)}
+            consumer={consumer}
+          />
+        )}
       </ExpanderGroupConsumer>
     ) : (
-      <ExpanderItem {...this.props} />
+      <StyledExpander {...withSuomifiDefaultProps(this.props)} />
     );
   }
 }

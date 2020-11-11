@@ -8,6 +8,9 @@ export const baseStyles = withSuomifiTheme(
     ${element({ theme })}
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+
     & > .fi-expander-group_expanders {
       flex: none;
 
@@ -18,6 +21,10 @@ export const baseStyles = withSuomifiTheme(
         border-top: 1px solid ${theme.colors.depthLight1};
         transition: margin ${`${theme.transitions.basicTime}
         ${theme.transitions.basicTimingFunction}`};
+
+        & .fi-icon {
+          color: ${theme.colors.highlightBase};
+        }
 
         &:first-child {
           border-radius: ${theme.radius.basic} ${theme.radius.basic} 0 0;

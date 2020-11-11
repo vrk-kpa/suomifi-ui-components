@@ -23,25 +23,33 @@ const TestExpander = TestExpanderWithProps(
   },
   'Test expander content',
 );
+describe('Basic expander', () => {
+  it('render with the same component on the same container does not remount', () => {
+    const expanderRenderer = render(TestExpander);
+    const { getByTestId, rerender } = expanderRenderer;
+    expect(getByTestId('expander-title').textContent).toBe('Test expander');
 
-test('calling render with the same component on the same container does not remount', () => {
-  const expanderRenderer = render(TestExpander);
-  const { getByTestId, container, rerender } = expanderRenderer;
-  expect(container.firstChild).toMatchSnapshot();
-  expect(getByTestId('expander-title').textContent).toBe('Test expander');
+    // re-render the same component with different props
+    rerender(
+      TestExpanderWithProps(
+        {
+          title: 'Test expander two',
+          titleProps: { 'data-testid': 'expander-title-2' },
+          className: 'expander-test',
+        },
+        'Test expander content',
+      ),
+    );
+    expect(getByTestId('expander-title-2').textContent).toBe(
+      'Test expander two',
+    );
+  });
 
-  // re-render the same component with different props
-  rerender(
-    TestExpanderWithProps(
-      {
-        title: 'Test expander two',
-        titleProps: { 'data-testid': 'expander-title-2' },
-        className: 'expander-test',
-      },
-      'Test expander content',
-    ),
-  );
-  expect(getByTestId('expander-title-2').textContent).toBe('Test expander two');
+  it('shoud match snapshot', () => {
+    const expanderRenderer = render(TestExpander);
+    const { container } = expanderRenderer;
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
 
 describe('defaultOpen', () => {

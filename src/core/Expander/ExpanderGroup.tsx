@@ -1,51 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { Omit } from '../../utils/typescript';
+import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp, InternalTokensProp } from '../theme';
-import {
-  ExpanderGroup as CompExpanderGroup,
-  ExpanderGroupProps as CompExpanderGroupProps,
-  ExpanderProviderState as CompExpanderProviderState,
-  ExpanderGroupState,
-  OpenExpanders,
-} from '../../components/Expander/ExpanderGroup';
-import { ExpanderProps as CompExpanderProps } from '../../components/Expander/Expander';
+import { HtmlDiv } from '../../reset';
+import { ExpanderProps } from './Expander';
 import { Button, ButtonProps } from '../Button/Button';
 import { baseStyles } from './ExpanderGroup.baseStyles';
 
-const openAllButtonClassName = 'fi-expander-group_all-button';
+const baseClassName = 'fi-expander-group';
+const openClassName = `${baseClassName}--open`;
+const expandersContainerClassName = `${baseClassName}_expanders`;
+const openAllButtonClassName = `${baseClassName}_all-button`;
 
-type ButtonOrText = React.ReactElement<ButtonProps> | string;
+type ToggleAllExpanderState = {
+  toState: boolean;
+};
 
-interface OpenCloseAll {
-  /** 'Open all'-component (Button) */
-  OpenAll: ButtonOrText;
-  /** 'Close all'-component (Button) */
-  CloseAll: ButtonOrText;
-}
-export interface ExpanderGroupProps
-  extends Omit<CompExpanderGroupProps, 'OpenAll' | 'CloseAll'>,
-    TokensProp,
-    OpenCloseAll {}
-
-interface ExpanderOpenAllButtonProps extends ButtonProps, TokensProp {
-  children: ButtonOrText;
+interface OpenExpanders {
+  [key: number]: boolean;
 }
 
-const StyledExpanderGroup = styled(
-  ({ tokens, ...passProps }: CompExpanderGroupProps & InternalTokensProp) => (
-    <CompExpanderGroup {...passProps} />
-  ),
-)`
-  ${(props) => baseStyles(props)};
-`;
+interface ExpanderGroupState {
+  /** Expanders that are open */
+  openExpanders: OpenExpanders;
+  toggleAllExpanderState: ToggleAllExpanderState;
+}
 
-const OpenAllButton = ({
-  children,
-  ...passProps
-}: ExpanderOpenAllButtonProps) => {
-  if (typeof children === 'string' || children.type !== Button) {
+interface OpenAllButtonProps extends ButtonProps {
+  onClick: (event: React.MouseEvent<Element>) => void;
+  children: React.ReactElement<ButtonProps> | string;
+}
+
+const OpenAllButton = ({ children, ...passProps }: OpenAllButtonProps) => {
+  if (typeof children === 'string' || children?.type !== Button) {
     return (
       <Button.unstyled {...passProps} className={openAllButtonClassName}>
         {children}
@@ -55,36 +43,39 @@ const OpenAllButton = ({
   return children;
 };
 
-const ExpanderGroupItems = (
-  children: Array<React.ReactElement<CompExpanderProps>>,
-) =>
-  React.Children.map(
-    children,
-    (child: React.ReactElement<CompExpanderProps>, index) => {
-      if (React.isValidElement(child)) {
-        const isChildOpen = child.props.open;
-        return React.cloneElement(child, {
-          index,
-          expanderGroup: true,
-          open: isChildOpen,
-        });
-      }
-      return child;
-    },
-  );
+interface InternalExpanderGroupProps {
+  /** 'Open all'-component (Button) */
+  OpenAll: React.ReactElement<ButtonProps> | string;
+  /** 'Close all'-component (Button) */
+  CloseAll: React.ReactElement<ButtonProps> | string;
+  /** Custom classname to extend or customize */
+  className?: string;
+  /**
+   * Use Expander's here
+   */
+  children: Array<React.ReactElement<ExpanderProps>>;
+  /** Properties for OpenAllButton */
+  openAllButtonProps?: ButtonProps;
+}
 
-const defaultProviderValue: CompExpanderProviderState = {
+export interface ExpanderProviderState {
+  onExpanderOpenChange: (index: number, toState: boolean) => void;
+  toggleAllExpanderState: ToggleAllExpanderState;
+}
+
+const defaultProviderValue: ExpanderProviderState = {
   onExpanderOpenChange: () => null,
   toggleAllExpanderState: {
     toState: false,
   },
 };
+
 const { Provider, Consumer: ExpanderGroupConsumer } = React.createContext(
   defaultProviderValue,
 );
 
 const InitialStateOfExpanders = (
-  children: Array<React.ReactElement<CompExpanderProps>>,
+  children: Array<React.ReactElement<ExpanderProps>>,
 ) => {
   const openExpanders: OpenExpanders = {};
 
@@ -101,11 +92,7 @@ const OpenExpandersCount = (expanders: OpenExpanders) => {
   return Object.values(expanders).filter((value) => value).length;
 };
 
-/**
- * <i class="semantics" />
- * Used for grouping expanders
- */
-export class ExpanderGroup extends React.Component<ExpanderGroupProps> {
+class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
   state: ExpanderGroupState = {
     openExpanders: InitialStateOfExpanders(this.props.children),
     toggleAllExpanderState: {
@@ -126,46 +113,93 @@ export class ExpanderGroup extends React.Component<ExpanderGroupProps> {
     });
   };
 
-  handleAllToggleClick = () => {
-    this.setState(
-      (prevState: ExpanderGroupState, props: ExpanderGroupProps) => {
-        return {
-          toState:
-            props.children.length > OpenExpandersCount(prevState.openExpanders),
-        };
-      },
+  allExpandersOpen = () => {
+    return (
+      this.props.children.length > OpenExpandersCount(this.state.openExpanders)
     );
   };
 
+  handleAllToggleClick = () => {
+    this.setState({
+      toggleAllExpanderState: {
+        toState: this.allExpandersOpen(),
+      },
+    });
+  };
+
   render() {
-    const { toggleAllExpanderState } = this.state;
-    const {
-      OpenAll,
-      CloseAll,
-      children,
-      ...passProps
-    } = withSuomifiDefaultProps(this.props);
+    const { className, children, OpenAll, CloseAll, ...passProps } = this.props;
+    const { openExpanders, toggleAllExpanderState } = this.state;
+    const openExpandersCount = OpenExpandersCount(openExpanders);
+    const allOpen = openExpandersCount === React.Children.count(children);
 
     return (
-      <Provider
-        value={{
-          onExpanderOpenChange: this.handleExpanderOpenChange,
-          toggleAllExpanderState,
-        }}
+      <HtmlDiv
+        {...passProps}
+        className={classnames(className, baseClassName, {
+          [openClassName]: openExpandersCount > 0,
+        })}
       >
-        <StyledExpanderGroup
-          {...passProps}
-          OpenAll={
-            <OpenAllButton tokens={passProps.tokens}>{OpenAll}</OpenAllButton>
-          }
-          CloseAll={
-            <OpenAllButton tokens={passProps.tokens}>{CloseAll}</OpenAllButton>
-          }
-          onClickAll={this.handleAllToggleClick}
-        >
-          {ExpanderGroupItems(children)}
-        </StyledExpanderGroup>
-      </Provider>
+        <OpenAllButton onClick={this.handleAllToggleClick}>
+          {allOpen ? CloseAll : OpenAll}
+        </OpenAllButton>
+        <HtmlDiv className={expandersContainerClassName}>
+          <Provider
+            value={{
+              onExpanderOpenChange: this.handleExpanderOpenChange,
+              toggleAllExpanderState,
+            }}
+          >
+            {ExpanderGroupItems(children)}
+          </Provider>
+        </HtmlDiv>
+      </HtmlDiv>
+    );
+  }
+}
+
+const StyledExpanderGroup = styled(
+  ({ tokens, ...passProps }: ExpanderGroupProps & InternalTokensProp) => (
+    <BaseExpanderGroup {...passProps} />
+  ),
+)`
+  ${(props) => baseStyles(props)};
+`;
+
+export interface ExpanderGroupProps
+  extends InternalExpanderGroupProps,
+    TokensProp {}
+
+const ExpanderGroupItems = (
+  children: Array<React.ReactElement<ExpanderProps>>,
+) =>
+  React.Children.map(
+    children,
+    (child: React.ReactElement<ExpanderProps>, index) => {
+      if (React.isValidElement(child)) {
+        const isChildOpen = child.props.open;
+        return React.cloneElement(child, {
+          index,
+          expanderGroup: true,
+          open: isChildOpen,
+        });
+      }
+      return child;
+    },
+  );
+
+/**
+ * <i class="semantics" />
+ * Used for grouping expanders
+ */
+export class ExpanderGroup extends React.Component<ExpanderGroupProps> {
+  render() {
+    const { children, ...passProps } = withSuomifiDefaultProps(this.props);
+
+    return (
+      <StyledExpanderGroup {...passProps}>
+        {ExpanderGroupItems(children)}
+      </StyledExpanderGroup>
     );
   }
 }

@@ -25,7 +25,6 @@ export {
   MenuItem,
   MenuLink,
 } from './LanguageMenu/LanguageMenu';
-export { Expander, ExpanderProps } from './Expander/Expander';
 export { Paragraph, ParagraphProps } from './Paragraph/Paragraph';
 export { Text, TextProps } from './Text/Text';
 export { VisuallyHidden } from './Visually-hidden/Visually-hidden';
