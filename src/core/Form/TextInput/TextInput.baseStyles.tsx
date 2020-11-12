@@ -71,7 +71,7 @@ export const baseStyles = withSuomifiTheme(
       padding-left: ${theme.spacing.insetL};
       border-color: ${theme.colors.depthDark3};
 
-      ::placeholder {
+      &::placeholder {
         font-style: italic;
         color: ${theme.colors.depthDark2};
         opacity: 1;

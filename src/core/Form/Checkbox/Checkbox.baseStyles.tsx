@@ -112,8 +112,7 @@ export const baseStyles = withSuomifiTheme(
         box-sizing: border-box;
         height: 18px;
         width: 18px;
-        color: ${theme.colors.depthDark3};
-        border: 1px solid;
+        border: 1px solid ${theme.colors.depthDark3};
         border-radius: ${theme.radius.basic};
         background-color: ${theme.colors.whiteBase};
       }

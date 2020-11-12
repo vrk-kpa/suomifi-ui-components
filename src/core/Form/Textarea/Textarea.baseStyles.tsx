@@ -58,7 +58,7 @@ export const baseStyles = withSuomifiTheme(
           outline: none;
         }
 
-        ::placeholder {
+        &::placeholder {
           font-style: italic;
           color: ${theme.colors.depthDark2};
           opacity: 1;

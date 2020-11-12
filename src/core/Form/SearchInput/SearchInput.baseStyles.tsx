@@ -52,7 +52,7 @@ export const baseStyles = withSuomifiTheme(
         min-height: 36px;
         margin-top: 1px;
         margin-bottom: 1px;
-        ::placeholder {
+        &::placeholder {
           font-style: italic;
           color: ${theme.colors.depthDark2};
           opacity: 1;
