@@ -13,11 +13,12 @@ export const baseStyles = withSuomifiTheme(
       &.fi-language-menu-language_button {
         ${element({ theme })}
         ${theme.typography.actionElementInnerTextBold}
-      padding: 9px ${theme.spacing.xs};
+        padding: 9px ${theme.spacing.xs};
         line-height: 24px;
         background-color: ${theme.colors.whiteBase};
         border: 1px solid transparent;
         border-radius: ${theme.radius.basic};
+        word-break: break-word;
         & > .fi-language-menu-language_icon {
           height: 1em;
           width: 1em;
@@ -92,12 +93,14 @@ export const languageMenuPopoverStyles = withSuomifiTheme(
     & [data-reach-menu-items] {
       border: 0;
       padding: 0;
+      white-space: normal;
     }
 
     & [data-reach-menu-item].fi-language-menu_item {
       ${element({ theme })}
       ${theme.typography.bodyText}
-    &[data-selected] {
+      word-break: break-word;
+      &[data-selected] {
         ${theme.typography.bodyText}
         color: ${theme.colors.blackBase};
         background-color: ${theme.colors.highlightLight3};
