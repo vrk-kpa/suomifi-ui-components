@@ -175,7 +175,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
 
 .c1.fi-textarea .fi-textarea_hintText {
   display: block;
-  color: hsl(202,7%,40%);
+  color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -204,7 +204,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
 }
 
@@ -212,7 +212,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   display: block;
   resize: vertical;
   border-radius: 2px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(201,7%,58%);
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
   padding: 8px 14px 13px 10px;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -228,18 +228,26 @@ exports[`snapshot default structure should match snapshot 1`] = `
 
 .c1.fi-textarea .fi-textarea_textarea::-webkit-input-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c1.fi-textarea .fi-textarea_textarea::-moz-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c1.fi-textarea .fi-textarea_textarea:-ms-input-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c1.fi-textarea .fi-textarea_textarea::placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c1.fi-textarea .fi-textarea_statusText {

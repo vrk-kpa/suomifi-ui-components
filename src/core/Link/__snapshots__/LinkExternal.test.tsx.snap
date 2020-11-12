@@ -118,7 +118,7 @@ exports[`calling render with the same component on the same container does not r
 .c1:focus {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
 }
 
 .c1:hover,
@@ -154,7 +154,8 @@ exports[`calling render with the same component on the same container does not r
     width="1em"
   >
     <path
-      d="M21 4.414l-7.793 7.793a.997.997 0 01-1.414 0 .999.999 0 010-1.414L19.586 3h-3.243a1 1 0 010-2H22a1 1 0 011 1v5.657a1 1 0 01-2 0V4.414zM4 22c-1.103 0-2-.897-2-2V6c0-1.103.897-2 2-2h8a1 1 0 010 2H4v14h15v-8a1 1 0 012 0v8c0 1.103-.897 2-2 2H4z"
+      d="M12 4a1 1 0 010 2H2v16h16V12a1 1 0 012 0v10c0 1.103-.897 2-2 2H2c-1.103 0-2-.897-2-2V6c0-1.103.897-2 2-2h10zm11-4a1 1 0 011 1v6.657a1 1 0 01-2 0l-.001-4.242-9.792 9.792a.997.997 0 01-1.414 0 .999.999 0 010-1.414L20.586 2h-4.243a1 1 0 010-2H23z"
+      fill-rule="evenodd"
     />
   </svg>
 </a>

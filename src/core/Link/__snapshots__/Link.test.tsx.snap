@@ -70,7 +70,7 @@ exports[`calling render with the same component on the same container does not r
 .c1:focus {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
 }
 
 .c1:hover,

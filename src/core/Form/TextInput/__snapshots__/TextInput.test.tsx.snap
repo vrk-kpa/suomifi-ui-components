@@ -169,7 +169,7 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c2 .fi-text-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,55%);
+  outline-color: hsl(196,77%,44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
@@ -195,7 +195,7 @@ exports[`snapshots match error status with statustext 1`] = `
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
 }
 
@@ -273,22 +273,31 @@ exports[`snapshots match error status with statustext 1`] = `
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
+  border-color: hsl(201,7%,58%);
 }
 
 .c2 .fi-text-input_input::-webkit-input-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c2 .fi-text-input_input::-moz-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c2 .fi-text-input_input:-ms-input-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c2 .fi-text-input_input::placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c2.fi-text-input_with-icon .fi-text-input_input-element-container {
@@ -316,7 +325,7 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c2.fi-text-input--success .fi-text-input_input {
-  border-color: hsl(166,90%,36%);
+  border-color: hsl(166,90%,34%);
 }
 
 .c2.fi-text-input--disabled .fi-text-input_input {
@@ -522,7 +531,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 }
 
 .c2 .fi-text-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,55%);
+  outline-color: hsl(196,77%,44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
@@ -548,7 +557,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
 }
 
@@ -626,22 +635,31 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
+  border-color: hsl(201,7%,58%);
 }
 
 .c2 .fi-text-input_input::-webkit-input-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c2 .fi-text-input_input::-moz-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c2 .fi-text-input_input:-ms-input-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c2 .fi-text-input_input::placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c2.fi-text-input_with-icon .fi-text-input_input-element-container {
@@ -669,7 +687,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 }
 
 .c2.fi-text-input--success .fi-text-input_input {
-  border-color: hsl(166,90%,36%);
+  border-color: hsl(166,90%,34%);
 }
 
 .c2.fi-text-input--disabled .fi-text-input_input {
@@ -857,7 +875,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c2 .fi-text-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,55%);
+  outline-color: hsl(196,77%,44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
@@ -883,7 +901,7 @@ exports[`snapshots match minimal implementation 1`] = `
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
 }
 
@@ -961,22 +979,31 @@ exports[`snapshots match minimal implementation 1`] = `
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
+  border-color: hsl(201,7%,58%);
 }
 
 .c2 .fi-text-input_input::-webkit-input-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c2 .fi-text-input_input::-moz-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c2 .fi-text-input_input:-ms-input-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c2 .fi-text-input_input::placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c2.fi-text-input_with-icon .fi-text-input_input-element-container {
@@ -1004,7 +1031,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c2.fi-text-input--success .fi-text-input_input {
-  border-color: hsl(166,90%,36%);
+  border-color: hsl(166,90%,34%);
 }
 
 .c2.fi-text-input--disabled .fi-text-input_input {

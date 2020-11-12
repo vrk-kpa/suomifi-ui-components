@@ -114,6 +114,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   overflow-wrap: break-word;
   min-height: 22px;
   padding: 7px 38px 7px 7px;
+  border-color: hsl(201,7%,58%);
   text-align: left;
   line-height: 1.5;
   background-color: hsl(0,0%,100%);
@@ -138,7 +139,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
 }
 
@@ -149,12 +150,12 @@ exports[`Basic dropdown should match snapshot 1`] = `
   right: 16px;
   margin-top: -3px;
   border-style: solid;
-  border-color: hsl(202,7%,40%) transparent transparent transparent;
+  border-color: hsl(201,7%,58%) transparent transparent transparent;
   border-width: 6px 4px 0 4px;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
-  border-color: transparent transparent hsl(202,7%,40%) transparent;
+  border-color: transparent transparent hsl(201,7%,58%) transparent;
   border-width: 0 4px 6px 4px;
 }
 
@@ -329,6 +330,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   overflow-wrap: break-word;
   min-height: 22px;
   padding: 7px 38px 7px 7px;
+  border-color: hsl(201,7%,58%);
   text-align: left;
   line-height: 1.5;
   background-color: hsl(0,0%,100%);
@@ -353,7 +355,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
 }
 
@@ -364,12 +366,12 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   right: 16px;
   margin-top: -3px;
   border-style: solid;
-  border-color: hsl(202,7%,40%) transparent transparent transparent;
+  border-color: hsl(201,7%,58%) transparent transparent transparent;
   border-width: 6px 4px 0 4px;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
-  border-color: transparent transparent hsl(202,7%,40%) transparent;
+  border-color: transparent transparent hsl(201,7%,58%) transparent;
   border-width: 0 4px 6px 4px;
 }
 
@@ -545,6 +547,7 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   overflow-wrap: break-word;
   min-height: 22px;
   padding: 7px 38px 7px 7px;
+  border-color: hsl(201,7%,58%);
   text-align: left;
   line-height: 1.5;
   background-color: hsl(0,0%,100%);
@@ -569,7 +572,7 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
 }
 
@@ -580,12 +583,12 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   right: 16px;
   margin-top: -3px;
   border-style: solid;
-  border-color: hsl(202,7%,40%) transparent transparent transparent;
+  border-color: hsl(201,7%,58%) transparent transparent transparent;
   border-width: 6px 4px 0 4px;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
-  border-color: transparent transparent hsl(202,7%,40%) transparent;
+  border-color: transparent transparent hsl(201,7%,58%) transparent;
   border-width: 0 4px 6px 4px;
 }
 
@@ -760,6 +763,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   overflow-wrap: break-word;
   min-height: 22px;
   padding: 7px 38px 7px 7px;
+  border-color: hsl(201,7%,58%);
   text-align: left;
   line-height: 1.5;
   background-color: hsl(0,0%,100%);
@@ -784,7 +788,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
 }
 
@@ -795,12 +799,12 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   right: 16px;
   margin-top: -3px;
   border-style: solid;
-  border-color: hsl(202,7%,40%) transparent transparent transparent;
+  border-color: hsl(201,7%,58%) transparent transparent transparent;
   border-width: 6px 4px 0 4px;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
-  border-color: transparent transparent hsl(202,7%,40%) transparent;
+  border-color: transparent transparent hsl(201,7%,58%) transparent;
   border-width: 0 4px 6px 4px;
 }
 
@@ -963,6 +967,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   overflow-wrap: break-word;
   min-height: 22px;
   padding: 7px 38px 7px 7px;
+  border-color: hsl(201,7%,58%);
   text-align: left;
   line-height: 1.5;
   background-color: hsl(0,0%,100%);
@@ -987,7 +992,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
 }
 
@@ -998,12 +1003,12 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   right: 16px;
   margin-top: -3px;
   border-style: solid;
-  border-color: hsl(202,7%,40%) transparent transparent transparent;
+  border-color: hsl(201,7%,58%) transparent transparent transparent;
   border-width: 6px 4px 0 4px;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
-  border-color: transparent transparent hsl(202,7%,40%) transparent;
+  border-color: transparent transparent hsl(201,7%,58%) transparent;
   border-width: 0 4px 6px 4px;
 }
 
