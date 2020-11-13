@@ -31,8 +31,6 @@ export const textInputClassNames = {
   functionalityContainer: `${baseClassName}_functionality-container`,
 };
 
-export interface TextInputLabelProps extends HtmlDivProps {}
-
 export interface TextInputProps
   extends Omit<HtmlInputProps, 'type'>,
     TokensProp {
