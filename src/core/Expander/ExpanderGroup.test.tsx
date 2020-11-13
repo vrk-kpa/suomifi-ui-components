@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { axeTest } from '../../utils/test/axe';
-
 import { Expander, ExpanderProps } from './Expander';
 
 const TestExpanderWithProps = (
@@ -27,49 +26,55 @@ const TestExpanderGroup = (
   </Expander.group>
 );
 
-test('calling render with the same component on the same container does not remount', () => {
-  const { getByTestId, container, rerender } = render(
-    TestExpanderGroup([
-      {
-        expanderProps: {
-          title: 'First',
-          titleProps: { 'data-testid': 'expander-title-1' },
-        },
-        content: 'First content',
-      },
-      {
-        expanderProps: {
-          title: 'Second',
-          titleProps: { 'data-testid': 'expander-title-2' },
-        },
-        content: 'Second content',
-      },
-    ]),
-  );
-  expect(container.firstChild).toMatchSnapshot();
-  expect(getByTestId('expander-title-1').textContent).toBe('First');
+const basicExpanderProps = [
+  {
+    expanderProps: {
+      title: 'First',
+      titleProps: { 'data-testid': 'expander-title-1' },
+    },
+    content: 'First content',
+  },
+  {
+    expanderProps: {
+      title: 'Second',
+      titleProps: { 'data-testid': 'expander-title-2' },
+    },
+    content: 'Second content',
+  },
+];
 
-  rerender(
-    TestExpanderGroup([
-      {
-        expanderProps: {
-          title: 'First but not the best',
-          titleProps: { 'data-testid': 'expander-title-1-1' },
+describe('Basic expander group', () => {
+  it('should not remount when calling render with the same component on the same container', () => {
+    const { getByTestId, rerender } = render(
+      TestExpanderGroup(basicExpanderProps),
+    );
+    expect(getByTestId('expander-title-1').textContent).toBe('First');
+    rerender(
+      TestExpanderGroup([
+        {
+          expanderProps: {
+            title: 'First but not the best',
+            titleProps: { 'data-testid': 'expander-title-1-1' },
+          },
+          content: 'First but not the content',
         },
-        content: 'First but not the content',
-      },
-      {
-        expanderProps: {
-          title: 'Second',
-          titleProps: { 'data-testid': 'expander-title-2' },
+        {
+          expanderProps: {
+            title: 'Second',
+            titleProps: { 'data-testid': 'expander-title-2' },
+          },
+          content: 'Second content',
         },
-        content: 'Second content',
-      },
-    ]),
-  );
-  expect(getByTestId('expander-title-1-1').textContent).toBe(
-    'First but not the best',
-  );
+      ]),
+    );
+    expect(getByTestId('expander-title-1-1').textContent).toBe(
+      'First but not the best',
+    );
+  });
+  it('should match snapshot', () => {
+    const { container } = render(TestExpanderGroup(basicExpanderProps));
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
 
 describe('default behaviour', () => {
@@ -99,18 +104,16 @@ describe('default behaviour', () => {
         .querySelector('svg')
         ?.classList.contains('fi-expander_title-icon--open'),
     ).toBe(false);
-    //
     const allOpenButton = getByText('Open all');
-    fireEvent.click(allOpenButton);
+    fireEvent.mouseDown(allOpenButton);
     expect(button.classList.contains('fi-expander_title--open')).toBe(true);
     expect(
       button
         .querySelector('svg')
         ?.classList.contains('fi-expander_title-icon--open'),
     ).toBe(true);
-    //
     const allCloseButton = getByText('Close all');
-    fireEvent.click(allCloseButton);
+    fireEvent.mouseDown(allCloseButton);
     expect(button.classList.contains('fi-expander_title--open')).toBe(false);
     expect(
       button

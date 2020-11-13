@@ -60,12 +60,14 @@ export const baseStyles = withSuomifiTheme(
     & > .fi-expander-group_all-button {
       ${element({ theme })}
       ${font({ theme })('actionElementInnerTextBold')}
-    flex: 1 1 auto;
+      flex: 1 1 auto;
       align-self: flex-end;
       margin-left: auto;
       margin-bottom: ${theme.spacing.insetM};
       padding: ${theme.spacing.insetXs} 0;
       color: ${theme.colors.highlightBase};
+      border-radius: ${theme.radius.basic};
+      border: none;
       cursor: pointer;
 
       &:focus {

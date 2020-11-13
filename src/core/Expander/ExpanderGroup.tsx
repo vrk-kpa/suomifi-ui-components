@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../theme/utils';
+import { noMouseFocus } from '../theme/utils/mousefocus';
 import { TokensProp, InternalTokensProp } from '../theme';
-import { HtmlDiv } from '../../reset';
+import { HtmlDiv, HtmlButton, HtmlButtonProps } from '../../reset';
 import { ExpanderProps } from './Expander';
-import { Button, ButtonProps } from '../Button/Button';
 import { baseStyles } from './ExpanderGroup.baseStyles';
 
 const baseClassName = 'fi-expander-group';
@@ -27,17 +27,16 @@ interface ExpanderGroupState {
   toggleAllExpanderState: ToggleAllExpanderState;
 }
 
-interface OpenAllButtonProps extends ButtonProps {
-  onClick: (event: React.MouseEvent<Element>) => void;
-  children: React.ReactElement<ButtonProps> | string;
+interface OpenAllButtonProps extends HtmlButtonProps {
+  children: React.ReactElement<HtmlButtonProps> | string;
 }
 
 const OpenAllButton = ({ children, ...passProps }: OpenAllButtonProps) => {
-  if (typeof children === 'string' || children?.type !== Button) {
+  if (typeof children === 'string' || children?.type !== HtmlButton) {
     return (
-      <Button.unstyled {...passProps} className={openAllButtonClassName}>
+      <HtmlButton {...passProps} className={openAllButtonClassName}>
         {children}
-      </Button.unstyled>
+      </HtmlButton>
     );
   }
   return children;
@@ -45,9 +44,9 @@ const OpenAllButton = ({ children, ...passProps }: OpenAllButtonProps) => {
 
 interface InternalExpanderGroupProps {
   /** 'Open all'-component (Button) */
-  OpenAll: React.ReactElement<ButtonProps> | string;
+  OpenAll: React.ReactElement<HtmlButtonProps> | string;
   /** 'Close all'-component (Button) */
-  CloseAll: React.ReactElement<ButtonProps> | string;
+  CloseAll: React.ReactElement<HtmlButtonProps> | string;
   /** Custom classname to extend or customize */
   className?: string;
   /**
@@ -55,7 +54,7 @@ interface InternalExpanderGroupProps {
    */
   children: Array<React.ReactElement<ExpanderProps>>;
   /** Properties for OpenAllButton */
-  openAllButtonProps?: ButtonProps;
+  openAllButtonProps?: HtmlButtonProps;
 }
 
 export interface ExpanderProviderState {
@@ -140,7 +139,9 @@ class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
           [openClassName]: openExpandersCount > 0,
         })}
       >
-        <OpenAllButton onClick={this.handleAllToggleClick}>
+        <OpenAllButton
+          {...noMouseFocus({ callback: this.handleAllToggleClick })}
+        >
           {allOpen ? CloseAll : OpenAll}
         </OpenAllButton>
         <HtmlDiv className={expandersContainerClassName}>
