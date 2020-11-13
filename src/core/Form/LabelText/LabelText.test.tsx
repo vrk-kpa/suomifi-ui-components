@@ -67,6 +67,18 @@ describe('props', () => {
       expect(container.firstChild).toBeInstanceOf(HTMLLabelElement);
     });
   });
+
+  describe('labelSpanProps', () => {
+    it('has the given props', () => {
+      const { getByText } = render(
+        <LabelText labelSpanProps={{ style: { fontSize: 12 } }}>
+          Test text
+        </LabelText>,
+      );
+      const textSpan = getByText('Test text');
+      expect(textSpan).toHaveAttribute('style', 'font-size: 12px;');
+    });
+  });
 });
 
 test(
