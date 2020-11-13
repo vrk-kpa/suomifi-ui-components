@@ -462,7 +462,7 @@ exports[`check that snapshot matches 1`] = `
   height: 196px;
   max-width: 100%;
   color: #000;
-  border-bottom: 4px solid hsl(202,7%,67%);
+  border-bottom: 4px solid hsl(201,7%,46%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -550,7 +550,7 @@ exports[`check that snapshot matches 1`] = `
   height: 196px;
   max-width: 100%;
   color: #000;
-  border-bottom: 4px solid hsl(202,7%,97%);
+  border-bottom: 4px solid hsl(201,7%,58%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -638,7 +638,7 @@ exports[`check that snapshot matches 1`] = `
   height: 196px;
   max-width: 100%;
   color: #000;
-  border-bottom: 4px solid hsl(202,7%,93%);
+  border-bottom: 4px solid hsl(202,7%,67%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -726,7 +726,7 @@ exports[`check that snapshot matches 1`] = `
   height: 196px;
   max-width: 100%;
   color: #000;
-  border-bottom: 4px solid hsl(202,7%,80%);
+  border-bottom: 4px solid hsl(202,7%,97%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -814,7 +814,7 @@ exports[`check that snapshot matches 1`] = `
   height: 196px;
   max-width: 100%;
   color: #000;
-  border-bottom: 4px solid hsl(215,100%,91%);
+  border-bottom: 4px solid hsl(202,7%,93%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -902,7 +902,7 @@ exports[`check that snapshot matches 1`] = `
   height: 196px;
   max-width: 100%;
   color: #000;
-  border-bottom: 4px solid hsl(215,100%,97%);
+  border-bottom: 4px solid hsl(202,7%,80%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -989,8 +989,8 @@ exports[`check that snapshot matches 1`] = `
   width: 208px;
   height: 196px;
   max-width: 100%;
-  color: #fff;
-  border-bottom: 4px solid hsl(212,63%,37%);
+  color: #000;
+  border-bottom: 4px solid hsl(215,100%,91%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -998,7 +998,7 @@ exports[`check that snapshot matches 1`] = `
 }
 
 .c12:hover {
-  border-bottom-color: #fff;
+  border-bottom-color: #000;
 }
 
 .c12 figcaption {
@@ -1077,8 +1077,8 @@ exports[`check that snapshot matches 1`] = `
   width: 208px;
   height: 196px;
   max-width: 100%;
-  color: #fff;
-  border-bottom: 4px solid hsl(212,63%,45%);
+  color: #000;
+  border-bottom: 4px solid hsl(215,100%,97%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -1086,7 +1086,7 @@ exports[`check that snapshot matches 1`] = `
 }
 
 .c13:hover {
-  border-bottom-color: #fff;
+  border-bottom-color: #000;
 }
 
 .c13 figcaption {
@@ -1165,8 +1165,8 @@ exports[`check that snapshot matches 1`] = `
   width: 208px;
   height: 196px;
   max-width: 100%;
-  color: #000;
-  border-bottom: 4px solid hsl(212,63%,49%);
+  color: #fff;
+  border-bottom: 4px solid hsl(212,63%,37%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -1174,7 +1174,7 @@ exports[`check that snapshot matches 1`] = `
 }
 
 .c14:hover {
-  border-bottom-color: #000;
+  border-bottom-color: #fff;
 }
 
 .c14 figcaption {
@@ -1253,8 +1253,8 @@ exports[`check that snapshot matches 1`] = `
   width: 208px;
   height: 196px;
   max-width: 100%;
-  color: #000;
-  border-bottom: 4px solid hsl(212,63%,90%);
+  color: #fff;
+  border-bottom: 4px solid hsl(212,63%,45%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -1262,7 +1262,7 @@ exports[`check that snapshot matches 1`] = `
 }
 
 .c15:hover {
-  border-bottom-color: #000;
+  border-bottom-color: #fff;
 }
 
 .c15 figcaption {
@@ -1342,7 +1342,7 @@ exports[`check that snapshot matches 1`] = `
   height: 196px;
   max-width: 100%;
   color: #000;
-  border-bottom: 4px solid hsl(212,63%,95%);
+  border-bottom: 4px solid hsl(212,63%,49%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -1430,7 +1430,7 @@ exports[`check that snapshot matches 1`] = `
   height: 196px;
   max-width: 100%;
   color: #000;
-  border-bottom: 4px solid hsl(212,63%,98%);
+  border-bottom: 4px solid hsl(212,63%,90%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -1518,7 +1518,7 @@ exports[`check that snapshot matches 1`] = `
   height: 196px;
   max-width: 100%;
   color: #000;
-  border-bottom: 4px solid hsl(23,82%,53%);
+  border-bottom: 4px solid hsl(212,63%,95%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -1606,7 +1606,7 @@ exports[`check that snapshot matches 1`] = `
   height: 196px;
   max-width: 100%;
   color: #000;
-  border-bottom: 4px solid hsl(196,77%,55%);
+  border-bottom: 4px solid hsl(212,63%,98%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -1694,7 +1694,7 @@ exports[`check that snapshot matches 1`] = `
   height: 196px;
   max-width: 100%;
   color: #000;
-  border-bottom: 4px solid hsl(196,77%,95%);
+  border-bottom: 4px solid hsl(23,82%,53%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -1781,8 +1781,8 @@ exports[`check that snapshot matches 1`] = `
   width: 208px;
   height: 196px;
   max-width: 100%;
-  color: #fff;
-  border-bottom: 4px solid hsl(284,36%,45%);
+  color: #000;
+  border-bottom: 4px solid hsl(196,77%,44%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -1790,7 +1790,7 @@ exports[`check that snapshot matches 1`] = `
 }
 
 .c21:hover {
-  border-bottom-color: #fff;
+  border-bottom-color: #000;
 }
 
 .c21 figcaption {
@@ -1870,7 +1870,7 @@ exports[`check that snapshot matches 1`] = `
   height: 196px;
   max-width: 100%;
   color: #000;
-  border-bottom: 4px solid hsl(284,36%,54%);
+  border-bottom: 4px solid hsl(196,77%,97%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -1957,8 +1957,8 @@ exports[`check that snapshot matches 1`] = `
   width: 208px;
   height: 196px;
   max-width: 100%;
-  color: #000;
-  border-bottom: 4px solid hsl(166,90%,36%);
+  color: #fff;
+  border-bottom: 4px solid hsl(284,36%,45%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -1966,7 +1966,7 @@ exports[`check that snapshot matches 1`] = `
 }
 
 .c23:hover {
-  border-bottom-color: #000;
+  border-bottom-color: #fff;
 }
 
 .c23 figcaption {
@@ -2046,7 +2046,7 @@ exports[`check that snapshot matches 1`] = `
   height: 196px;
   max-width: 100%;
   color: #000;
-  border-bottom: 4px solid hsl(166,54%,80%);
+  border-bottom: 4px solid hsl(284,36%,54%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -2134,7 +2134,7 @@ exports[`check that snapshot matches 1`] = `
   height: 196px;
   max-width: 100%;
   color: #000;
-  border-bottom: 4px solid hsl(42,100%,49%);
+  border-bottom: 4px solid hsl(166,90%,34%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -2221,8 +2221,8 @@ exports[`check that snapshot matches 1`] = `
   width: 208px;
   height: 196px;
   max-width: 100%;
-  color: #fff;
-  border-bottom: 4px solid hsl(3,59%,48%);
+  color: #000;
+  border-bottom: 4px solid hsl(166,54%,80%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -2230,7 +2230,7 @@ exports[`check that snapshot matches 1`] = `
 }
 
 .c26:hover {
-  border-bottom-color: #fff;
+  border-bottom-color: #000;
 }
 
 .c26 figcaption {
@@ -2310,7 +2310,7 @@ exports[`check that snapshot matches 1`] = `
   height: 196px;
   max-width: 100%;
   color: #000;
-  border-bottom: 4px solid hsl(3,59%,95%);
+  border-bottom: 4px solid hsl(42,100%,49%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -2373,6 +2373,182 @@ exports[`check that snapshot matches 1`] = `
 }
 
 .c27:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c28 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #fff;
+  border-bottom: 4px solid hsl(3,59%,48%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c28:hover {
+  border-bottom-color: #fff;
+}
+
+.c28 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c28 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c28 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c28 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c28 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c28 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c28:hover .fi-color_name--key {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c29 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  float: left;
+  width: 208px;
+  height: 196px;
+  max-width: 100%;
+  color: #000;
+  border-bottom: 4px solid hsl(0,59%,96%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+}
+
+.c29:hover {
+  border-bottom-color: #000;
+}
+
+.c29 figcaption {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+
+.c29 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.c29 svg rect {
+  width: 100%;
+  height: 100%;
+}
+
+.c29 .fi-color_name {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow-wrap: break-word;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.c29 .fi-color_name--hex {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: .4;
+}
+
+.c29 .fi-color_name--key {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c29:hover .fi-color_name--key {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -2563,6 +2739,76 @@ exports[`check that snapshot matches 1`] = `
   </figure>
   <figure
     class="c6"
+    color="hsl(201, 7%, 46%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(201, 7%, 46%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #6d787e
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        depthDark2
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(201, 7%, 46%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(201, 7%, 46%)"
+      >
+        <title>
+          depthDark2
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c7"
+    color="hsl(201, 7%, 58%)"
+    tabindex="0"
+  >
+    <figcaption>
+      <div
+        class="fi-color__name"
+      >
+        hsl(201, 7%, 58%)
+      </div>
+      <div
+        class="fi-color__name fi-color__name--hex"
+      >
+        #8c969b
+      </div>
+      <div
+        class="fi-color__name fi-color__name--key"
+      >
+        depthDark3
+      </div>
+    </figcaption>
+    <svg
+      aria-label="hsl(201, 7%, 58%)"
+      role="img"
+    >
+      <rect
+        fill="hsl(201, 7%, 58%)"
+      >
+        <title>
+          depthDark3
+        </title>
+      </rect>
+    </svg>
+  </figure>
+  <figure
+    class="c8"
     color="hsl(202, 7%, 67%)"
     tabindex="0"
   >
@@ -2597,7 +2843,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c7"
+    class="c9"
     color="hsl(202, 7%, 97%)"
     tabindex="0"
   >
@@ -2632,7 +2878,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c8"
+    class="c10"
     color="hsl(202, 7%, 93%)"
     tabindex="0"
   >
@@ -2667,7 +2913,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c9"
+    class="c11"
     color="hsl(202, 7%, 80%)"
     tabindex="0"
   >
@@ -2702,7 +2948,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c10"
+    class="c12"
     color="hsl(215, 100%, 91%)"
     tabindex="0"
   >
@@ -2737,7 +2983,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c11"
+    class="c13"
     color="hsl(215, 100%, 97%)"
     tabindex="0"
   >
@@ -2772,7 +3018,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c12"
+    class="c14"
     color="hsl(212, 63%, 37%)"
     tabindex="0"
   >
@@ -2807,7 +3053,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c13"
+    class="c15"
     color="hsl(212, 63%, 45%)"
     tabindex="0"
   >
@@ -2842,7 +3088,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c14"
+    class="c16"
     color="hsl(212, 63%, 49%)"
     tabindex="0"
   >
@@ -2877,7 +3123,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c15"
+    class="c17"
     color="hsl(212, 63%, 90%)"
     tabindex="0"
   >
@@ -2912,7 +3158,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c16"
+    class="c18"
     color="hsl(212, 63%, 95%)"
     tabindex="0"
   >
@@ -2947,7 +3193,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c17"
+    class="c19"
     color="hsl(212, 63%, 98%)"
     tabindex="0"
   >
@@ -2982,7 +3228,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c18"
+    class="c20"
     color="hsl(23, 82%, 53%)"
     tabindex="0"
   >
@@ -3017,20 +3263,20 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c19"
-    color="hsl(196, 77%, 55%)"
+    class="c21"
+    color="hsl(196, 77%, 44%)"
     tabindex="0"
   >
     <figcaption>
       <div
         class="fi-color__name"
       >
-        hsl(196, 77%, 55%)
+        hsl(196, 77%, 44%)
       </div>
       <div
         class="fi-color__name fi-color__name--hex"
       >
-        #34b5e5
+        #1a99c7
       </div>
       <div
         class="fi-color__name fi-color__name--key"
@@ -3039,11 +3285,11 @@ exports[`check that snapshot matches 1`] = `
       </div>
     </figcaption>
     <svg
-      aria-label="hsl(196, 77%, 55%)"
+      aria-label="hsl(196, 77%, 44%)"
       role="img"
     >
       <rect
-        fill="hsl(196, 77%, 55%)"
+        fill="hsl(196, 77%, 44%)"
       >
         <title>
           accentSecondary
@@ -3052,20 +3298,20 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c20"
-    color="hsl(196, 77%, 95%)"
+    class="c22"
+    color="hsl(196, 77%, 97%)"
     tabindex="0"
   >
     <figcaption>
       <div
         class="fi-color__name"
       >
-        hsl(196, 77%, 95%)
+        hsl(196, 77%, 97%)
       </div>
       <div
         class="fi-color__name fi-color__name--hex"
       >
-        #e8f7fc
+        #f1fafd
       </div>
       <div
         class="fi-color__name fi-color__name--key"
@@ -3074,11 +3320,11 @@ exports[`check that snapshot matches 1`] = `
       </div>
     </figcaption>
     <svg
-      aria-label="hsl(196, 77%, 95%)"
+      aria-label="hsl(196, 77%, 97%)"
       role="img"
     >
       <rect
-        fill="hsl(196, 77%, 95%)"
+        fill="hsl(196, 77%, 97%)"
       >
         <title>
           accentSecondaryLight1
@@ -3087,7 +3333,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c21"
+    class="c23"
     color="hsl(284, 36%, 45%)"
     tabindex="0"
   >
@@ -3122,7 +3368,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c22"
+    class="c24"
     color="hsl(284, 36%, 54%)"
     tabindex="0"
   >
@@ -3157,20 +3403,20 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c23"
-    color="hsl(166, 90%, 36%)"
+    class="c25"
+    color="hsl(166, 90%, 34%)"
     tabindex="0"
   >
     <figcaption>
       <div
         class="fi-color__name"
       >
-        hsl(166, 90%, 36%)
+        hsl(166, 90%, 34%)
       </div>
       <div
         class="fi-color__name fi-color__name--hex"
       >
-        #09ae88
+        #09a580
       </div>
       <div
         class="fi-color__name fi-color__name--key"
@@ -3179,11 +3425,11 @@ exports[`check that snapshot matches 1`] = `
       </div>
     </figcaption>
     <svg
-      aria-label="hsl(166, 90%, 36%)"
+      aria-label="hsl(166, 90%, 34%)"
       role="img"
     >
       <rect
-        fill="hsl(166, 90%, 36%)"
+        fill="hsl(166, 90%, 34%)"
       >
         <title>
           successBase
@@ -3192,7 +3438,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c24"
+    class="c26"
     color="hsl(166, 54%, 80%)"
     tabindex="0"
   >
@@ -3227,7 +3473,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c25"
+    class="c27"
     color="hsl(42, 100%, 49%)"
     tabindex="0"
   >
@@ -3262,7 +3508,7 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c26"
+    class="c28"
     color="hsl(3, 59%, 48%)"
     tabindex="0"
   >
@@ -3297,20 +3543,20 @@ exports[`check that snapshot matches 1`] = `
     </svg>
   </figure>
   <figure
-    class="c27"
-    color="hsl(3, 59%, 95%)"
+    class="c29"
+    color="hsl(0, 59%, 96%)"
     tabindex="0"
   >
     <figcaption>
       <div
         class="fi-color__name"
       >
-        hsl(3, 59%, 95%)
+        hsl(0, 59%, 96%)
       </div>
       <div
         class="fi-color__name fi-color__name--hex"
       >
-        #faebeb
+        #fbefef
       </div>
       <div
         class="fi-color__name fi-color__name--key"
@@ -3319,11 +3565,11 @@ exports[`check that snapshot matches 1`] = `
       </div>
     </figcaption>
     <svg
-      aria-label="hsl(3, 59%, 95%)"
+      aria-label="hsl(0, 59%, 96%)"
       role="img"
     >
       <rect
-        fill="hsl(3, 59%, 95%)"
+        fill="hsl(0, 59%, 96%)"
       >
         <title>
           alertLight1

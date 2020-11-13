@@ -108,8 +108,7 @@ exports[`props children has matching snapshot 1`] = `
   box-sizing: border-box;
   height: 18px;
   width: 18px;
-  color: hsl(202,7%,67%);
-  border: 1px solid;
+  border: 1px solid hsl(201,7%,58%);
   border-radius: 2px;
   background-color: hsl(0,0%,100%);
 }
@@ -125,7 +124,7 @@ exports[`props children has matching snapshot 1`] = `
 .c1:focus-within .fi-checkbox_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
 }
 
 .c1 .fi-checkbox_input {
@@ -166,7 +165,7 @@ exports[`props children has matching snapshot 1`] = `
   box-sizing: border-box;
   height: 30px;
   width: 30px;
-  color: hsl(202,7%,67%);
+  color: hsl(201,7%,58%);
   border: 2px solid;
 }
 

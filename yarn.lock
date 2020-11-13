@@ -12955,15 +12955,15 @@ sugarss@^2.0.0:
   dependencies:
     postcss "^7.0.2"
 
-suomifi-design-tokens@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/suomifi-design-tokens/-/suomifi-design-tokens-2.0.0.tgz#c7d7219ce0c1d97e76cf7238f507b99058835e92"
-  integrity sha512-5jBQSmWlQJoIjyytG6JWB8ILhlWY0x416eO9iH4KxXuPpy7GeA+oyfabdsgPWFUPge0oOlO98A6qtLNZnsT9iA==
+suomifi-design-tokens@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/suomifi-design-tokens/-/suomifi-design-tokens-3.0.0.tgz#e84b665b62234edbbc449f9ec8de96e23dcb308c"
+  integrity sha512-fbwY0XPI71K5BOrjICsmm7bVwWYsOCFYW48ZzKQtKCNCPEqdSkfh63C8CXDjYoEJNKW0gfR7dsHMHNhDzAhfdg==
 
-suomifi-icons@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-1.0.2.tgz#ba4c078111d16fce12a2562b23b4643ab6543199"
-  integrity sha512-Py4ONldrjukDHtW7XsC7egFhSE51dvGpbmWCvGOzKZDJYJickemUhh/89WrBnq/Ms/KZ2oW4vFi52//cqXbsYA==
+suomifi-icons@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-1.1.1.tgz#9b6ed2e98b2629f411af80897f1851b607686f1f"
+  integrity sha512-csdIAGuY/xL64LniHgIbmU4E5TSWeZJKjDEySie88Vx5iy4NGrH9eUfEC2LXyQuJnxQ6IggLAKpDlh8WSNs+kg==
 
 supports-color@^2.0.0:
   version "2.0.0"

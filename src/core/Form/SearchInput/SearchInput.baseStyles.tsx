@@ -38,7 +38,7 @@ export const baseStyles = withSuomifiTheme(
         width: 100%;
         height: 40px;
         box-sizing: border-box;
-        border: 1px solid ${theme.colors.depthLight1};
+        border: 1px solid ${theme.colors.depthDark3};
         border-radius: ${theme.radius.basic};
       }
 
@@ -52,23 +52,25 @@ export const baseStyles = withSuomifiTheme(
         min-height: 36px;
         margin-top: 1px;
         margin-bottom: 1px;
-        ::placeholder {
+        &::placeholder {
           font-style: italic;
+          color: ${theme.colors.depthDark2};
+          opacity: 1;
         }
-        ::-ms-clear {
+        &::-ms-clear {
           display: none;
           width: 0;
           height: 0;
         }
-        ::-ms-reveal {
+        &::-ms-reveal {
           display: none;
           width: 0;
           height: 0;
         }
-        ::-webkit-search-decoration,
-        ::-webkit-search-cancel-button,
-        ::-webkit-search-results-button,
-        ::-webkit-search-results-decoration {
+        &::-webkit-search-decoration,
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-results-button,
+        &::-webkit-search-results-decoration {
           display: none;
         }
         appearance: none;

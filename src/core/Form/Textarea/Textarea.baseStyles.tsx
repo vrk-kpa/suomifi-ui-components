@@ -27,7 +27,7 @@ export const baseStyles = withSuomifiTheme(
 
       & .fi-textarea_hintText {
         display: block;
-        color: ${theme.colors.depthDark1};
+        color: ${theme.colors.blackBase};
         ${theme.typography.bodyTextSmall};
         word-break: break-word;
       }
@@ -48,7 +48,7 @@ export const baseStyles = withSuomifiTheme(
         display: block;
         resize: ${!!resize ? resize : 'vertical'};
         border-radius: 2px;
-        border: 1px solid ${theme.colors.depthLight1};
+        border: 1px solid ${theme.colors.depthDark3};
         box-shadow: ${theme.shadows.actionElementBoxShadow};
         padding: 8px 14px 13px 10px;
         ${theme.typography.bodyTextSmall};
@@ -58,8 +58,10 @@ export const baseStyles = withSuomifiTheme(
           outline: none;
         }
 
-        ::placeholder {
+        &::placeholder {
           font-style: italic;
+          color: ${theme.colors.depthDark2};
+          opacity: 1;
         }
       }
 

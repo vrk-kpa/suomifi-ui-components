@@ -224,7 +224,7 @@ exports[`Toggle variant default:  calling render with the same component on the 
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
   border-radius: 14px;
   right: -4px;
@@ -247,7 +247,7 @@ exports[`Toggle variant default:  calling render with the same component on the 
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
   border-radius: 14px;
   right: -4px;
@@ -313,7 +313,7 @@ exports[`Toggle variant default:  calling render with the same component on the 
 }
 
 .c2 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-circle {
-  fill: hsl(166,90%,36%);
+  fill: hsl(166,90%,34%);
 }
 
 .c2 .fi-toggle_icon.fi-toggle_icon--checked.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-circle {
@@ -727,7 +727,7 @@ exports[`Toggle variant withInput:  calling render with the same component on th
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
   border-radius: 14px;
   right: -4px;
@@ -750,7 +750,7 @@ exports[`Toggle variant withInput:  calling render with the same component on th
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
   border-radius: 14px;
   right: -4px;
@@ -816,7 +816,7 @@ exports[`Toggle variant withInput:  calling render with the same component on th
 }
 
 .c2 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-circle {
-  fill: hsl(166,90%,36%);
+  fill: hsl(166,90%,34%);
 }
 
 .c2 .fi-toggle_icon.fi-toggle_icon--checked.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-circle {

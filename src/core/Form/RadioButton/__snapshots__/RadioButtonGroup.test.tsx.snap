@@ -189,7 +189,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -215,7 +215,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 .c3.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
@@ -553,7 +553,7 @@ exports[`props className should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -579,7 +579,7 @@ exports[`props className should match snapshot 1`] = `
 .c3.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
@@ -917,7 +917,7 @@ exports[`props defaultValue should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -943,7 +943,7 @@ exports[`props defaultValue should match snapshot 1`] = `
 .c3.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
@@ -1282,7 +1282,7 @@ exports[`props hintText should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -1308,7 +1308,7 @@ exports[`props hintText should match snapshot 1`] = `
 .c3.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
@@ -1652,7 +1652,7 @@ exports[`props id should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -1678,7 +1678,7 @@ exports[`props id should match snapshot 1`] = `
 .c3.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
@@ -2016,7 +2016,7 @@ exports[`props label should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -2042,7 +2042,7 @@ exports[`props label should match snapshot 1`] = `
 .c3.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
@@ -2392,7 +2392,7 @@ exports[`props labelMode should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -2418,7 +2418,7 @@ exports[`props labelMode should match snapshot 1`] = `
 .c4.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
@@ -2756,7 +2756,7 @@ exports[`props name should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -2782,7 +2782,7 @@ exports[`props name should match snapshot 1`] = `
 .c3.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
@@ -3120,7 +3120,7 @@ exports[`props value should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -3146,7 +3146,7 @@ exports[`props value should match snapshot 1`] = `
 .c3.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 

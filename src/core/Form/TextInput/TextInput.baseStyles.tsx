@@ -69,9 +69,12 @@ export const baseStyles = withSuomifiTheme(
       width: 100%;
       min-height: 40px;
       padding-left: ${theme.spacing.insetL};
+      border-color: ${theme.colors.depthDark3};
 
       &::placeholder {
         font-style: italic;
+        color: ${theme.colors.depthDark2};
+        opacity: 1;
       }
     }
 

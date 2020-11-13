@@ -40,7 +40,7 @@ export const baseStyles = withSuomifiTheme(
             width: 16px;
             height: 16px;
             border-radius: 50%;
-            border: 1px solid ${theme.colors.depthBase};
+            border: 1px solid ${theme.colors.depthDark3};
             background: transparent;
           }
           /* Radio input circle when selected */

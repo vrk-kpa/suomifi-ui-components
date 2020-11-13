@@ -75,7 +75,7 @@ const largeVariantStyles = ({ theme }: SuomifiThemeProp) => css`
         box-sizing: border-box;
         height: 30px;
         width: 30px;
-        color: ${theme.colors.depthBase};
+        color: ${theme.colors.depthDark3};
         border: 2px solid;
       }
       & .fi-checkbox_icon {
@@ -112,8 +112,7 @@ export const baseStyles = withSuomifiTheme(
         box-sizing: border-box;
         height: 18px;
         width: 18px;
-        color: ${theme.colors.depthBase};
-        border: 1px solid;
+        border: 1px solid ${theme.colors.depthDark3};
         border-radius: ${theme.radius.basic};
         background-color: ${theme.colors.whiteBase};
       }

@@ -124,7 +124,7 @@ exports[`children should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -150,7 +150,7 @@ exports[`children should match snapshot 1`] = `
 .c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
@@ -371,7 +371,7 @@ exports[`className should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -397,7 +397,7 @@ exports[`className should match snapshot 1`] = `
 .c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
@@ -618,7 +618,7 @@ exports[`disabled should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -644,7 +644,7 @@ exports[`disabled should match snapshot 1`] = `
 .c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
@@ -890,7 +890,7 @@ exports[`hintText should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -916,7 +916,7 @@ exports[`hintText should match snapshot 1`] = `
 .c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
@@ -1144,7 +1144,7 @@ exports[`id should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -1170,7 +1170,7 @@ exports[`id should match snapshot 1`] = `
 .c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
@@ -1391,7 +1391,7 @@ exports[`name should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -1417,7 +1417,7 @@ exports[`name should match snapshot 1`] = `
 .c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
@@ -1639,7 +1639,7 @@ exports[`value should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -1665,7 +1665,7 @@ exports[`value should match snapshot 1`] = `
 .c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
@@ -1886,7 +1886,7 @@ exports[`variant should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid hsl(202,7%,67%);
+  border: 1px solid hsl(201,7%,58%);
   background: transparent;
 }
 
@@ -1912,7 +1912,7 @@ exports[`variant should match snapshot 1`] = `
 .c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
