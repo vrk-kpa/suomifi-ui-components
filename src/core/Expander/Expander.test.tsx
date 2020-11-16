@@ -7,9 +7,9 @@ import { cssFromBaseStyles } from '../utils';
 import { baseStyles } from './Expander.baseStyles';
 
 const TestExpanderWithProps = (props: ExpanderProps, content: string) => {
-  const { title, ...passProps } = props;
+  const { title, id = 'test-id', ...passProps } = props;
   return (
-    <Expander title={title} {...passProps}>
+    <Expander id={id} title={title} {...passProps}>
       {content}
     </Expander>
   );
@@ -115,8 +115,8 @@ describe('onClick', () => {
           title: 'Test expander onClick testing',
           titleProps: {
             'data-testid': 'expander-onclick-testing-title',
-            onClick: mockClickHandler,
           },
+          onClick: mockClickHandler,
           className: 'expander-onclick-test',
         },
         'Test expander click testing content',
@@ -161,8 +161,8 @@ describe('open', () => {
           title: 'Test expander onClick testing',
           titleProps: {
             'data-testid': 'expander-onclick-testing-title',
-            onClick: mockClickHandler,
           },
+          onClick: mockClickHandler,
           className: 'expander-onclick-test',
           open: true,
         },

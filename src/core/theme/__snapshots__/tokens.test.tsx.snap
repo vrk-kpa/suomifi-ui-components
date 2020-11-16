@@ -327,6 +327,7 @@ exports[`snapshot testing 1`] = `
 }
 
 .c3 > .fi-expander_content {
+  visibility: hidden;
   position: relative;
   display: block;
   height: 0;
@@ -348,6 +349,7 @@ exports[`snapshot testing 1`] = `
 }
 
 .c3 > .fi-expander_content.fi-expander_content--open {
+  visibility: visible;
   height: 10%;
   overflow: visible;
   -webkit-animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
@@ -377,9 +379,11 @@ exports[`snapshot testing 1`] = `
       class="c0 c3 fi-expander"
     >
       <button
+        aria-controls="id-expander-1_content"
         aria-disabled="false"
         aria-expanded="false"
         class="c2 c4 fi-button fi-expander_title fi-expander_title--no-tag"
+        id="id-expander-1"
         tabindex="0"
         type="button"
       >
@@ -400,8 +404,10 @@ exports[`snapshot testing 1`] = `
       </button>
       <div
         aria-hidden="true"
+        aria-labelledby="id-expander-1"
         class="c0 c6 fi-expander_content"
-        hidden=""
+        id="id-expander-1_content"
+        role="region"
       >
         Test expander content 1
       </div>
@@ -410,9 +416,11 @@ exports[`snapshot testing 1`] = `
       class="c0 c3 fi-expander"
     >
       <button
+        aria-controls="id-expander-2_content"
         aria-disabled="false"
         aria-expanded="false"
         class="c2 c4 fi-button fi-expander_title fi-expander_title--no-tag"
+        id="id-expander-2"
         tabindex="0"
         type="button"
       >
@@ -433,8 +441,10 @@ exports[`snapshot testing 1`] = `
       </button>
       <div
         aria-hidden="true"
+        aria-labelledby="id-expander-2"
         class="c0 c6 fi-expander_content"
-        hidden=""
+        id="id-expander-2_content"
+        role="region"
       >
         Test expander content 2
       </div>
@@ -443,9 +453,11 @@ exports[`snapshot testing 1`] = `
       class="c0 c3 fi-expander"
     >
       <button
+        aria-controls="id-expander-3_content"
         aria-disabled="false"
         aria-expanded="false"
         class="c2 c4 fi-button fi-expander_title fi-expander_title--no-tag"
+        id="id-expander-3"
         tabindex="0"
         type="button"
       >
@@ -466,8 +478,10 @@ exports[`snapshot testing 1`] = `
       </button>
       <div
         aria-hidden="true"
+        aria-labelledby="id-expander-3"
         class="c0 c6 fi-expander_content"
-        hidden=""
+        id="id-expander-3_content"
+        role="region"
       >
         Test expander content 3
       </div>

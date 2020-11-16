@@ -13,13 +13,19 @@ const customColors = {
 
 const Test = (
   <Expander.group
-    OpenAll={'Open all'}
-    CloseAll={'Close all'}
+    OpenAllText={'Open all'}
+    CloseAllText={'Close all'}
     tokens={{ colors: customColors }}
   >
-    <Expander title="Test expander 1">Test expander content 1</Expander>
-    <Expander title="Test expander 2">Test expander content 2</Expander>
-    <Expander title="Test expander 3">Test expander content 3</Expander>
+    <Expander title="Test expander 1" id="id-expander-1">
+      Test expander content 1
+    </Expander>
+    <Expander title="Test expander 2" id="id-expander-2">
+      Test expander content 2
+    </Expander>
+    <Expander title="Test expander 3" id="id-expander-3">
+      Test expander content 3
+    </Expander>
   </Expander.group>
 );
 

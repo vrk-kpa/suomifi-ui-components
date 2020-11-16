@@ -2,6 +2,7 @@ import React, { Component, ReactNode, Fragment } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../theme/utils';
+import { idGenerator } from '../../utils/uuid';
 import { TokensProp, InternalTokensProp } from '../theme';
 import { HtmlDiv } from '../../reset';
 import { baseStyles } from './Expander.baseStyles';
@@ -35,16 +36,19 @@ interface SharedExpanderProps {
    * Expander element content
    */
   children?: ReactNode;
+  /**
+   * Id for expander button
+   */
+  id?: string;
 }
 
 interface StyledExpanderContentProps extends SharedExpanderProps {
   openState?: boolean;
-  hidden: boolean;
 }
 
 const StyledExpanderContent = styled(
   ({ openState, className, ...passProps }: StyledExpanderContentProps) => (
-    <HtmlDiv {...passProps} className={classnames(className)} />
+    <HtmlDiv {...passProps} className={classnames(className)} role="region" />
   ),
 )`
   display: ${({ openState }) => (!!openState ? 'block' : 'none')};
@@ -105,6 +109,10 @@ class BaseExpanderItem extends Component<InternalExpanderProps> {
     openState:
       this.props.defaultOpen !== undefined ? this.props.defaultOpen : false,
   };
+
+  id = idGenerator(this.props.id);
+
+  contentId = `${this.id}_content`;
 
   componentDidUpdate(prevProps: ExpanderProps, prevState: ExpanderState) {
     if (
@@ -169,6 +177,7 @@ class BaseExpanderItem extends Component<InternalExpanderProps> {
 
   render() {
     const {
+      id,
       open,
       defaultOpen,
       onClick,
@@ -196,6 +205,7 @@ class BaseExpanderItem extends Component<InternalExpanderProps> {
       >
         <IfTitleTag titleTag={titleTag}>
           <Button
+            {...titleProps}
             onClick={this.handleClick}
             open={openState}
             aria-expanded={!!openState}
@@ -204,7 +214,8 @@ class BaseExpanderItem extends Component<InternalExpanderProps> {
               [titleNoTagClassName]: !titleTag,
               [titleOpenClassName]: !!openState,
             })}
-            {...titleProps}
+            id={this.id}
+            {...{ 'aria-controls': this.contentId }}
           >
             {title}
             {!titleTag && (
@@ -219,11 +230,12 @@ class BaseExpanderItem extends Component<InternalExpanderProps> {
         </IfTitleTag>
         <StyledExpanderContent
           {...contentPassProps}
+          {...{ 'aria-labelledby': this.id }}
+          id={this.contentId}
           openState={openState}
           className={classnames(contentBaseClassName, contentClassName, {
             [contentOpenClassName]: !!openState,
           })}
-          hidden={!openState}
           key={String(openState)}
           aria-hidden={!openState}
         >

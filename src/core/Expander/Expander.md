@@ -9,7 +9,7 @@ import { Expander } from 'suomifi-ui-components';
 ```jsx
 import { Expander } from 'suomifi-ui-components';
 
-<Expander.group OpenAll="Open all" CloseAll="Close all">
+<Expander.group OpenAllText="Open all" CloseAllText="Close all">
   <Expander title="Test expander 1">Test expander content 1</Expander>
   <Expander title="Test expander 2">Test expander content 2</Expander>
   <Expander title="Test expander 3">Test expander content 3</Expander>
@@ -31,7 +31,7 @@ const [expanderThreeOpen, setExpanderThreeOpen] = React.useState(
 );
 
 <>
-  <Expander.group OpenAll="Open all" CloseAll="Close all">
+  <Expander.group OpenAllText="Open all" CloseAllText="Close all">
     <Expander title="Test expander 1">
       Test expander content 1
     </Expander>

@@ -27,34 +27,19 @@ interface ExpanderGroupState {
   toggleAllExpanderState: ToggleAllExpanderState;
 }
 
-interface OpenAllButtonProps extends HtmlButtonProps {
-  children: React.ReactElement<HtmlButtonProps> | string;
-}
-
-const OpenAllButton = ({ children, ...passProps }: OpenAllButtonProps) => {
-  if (typeof children === 'string' || children?.type !== HtmlButton) {
-    return (
-      <HtmlButton {...passProps} className={openAllButtonClassName}>
-        {children}
-      </HtmlButton>
-    );
-  }
-  return children;
-};
-
 interface InternalExpanderGroupProps {
   /** 'Open all'-component (Button) */
-  OpenAll: React.ReactElement<HtmlButtonProps> | string;
+  OpenAllText: string;
   /** 'Close all'-component (Button) */
-  CloseAll: React.ReactElement<HtmlButtonProps> | string;
+  CloseAllText: string;
   /** Custom classname to extend or customize */
   className?: string;
   /**
    * Use Expander's here
    */
   children: Array<React.ReactElement<ExpanderProps>>;
-  /** Properties for OpenAllButton */
-  openAllButtonProps?: HtmlButtonProps;
+  /** Properties for OpenAllButton, aria-hidden = true by default */
+  openAllButtonProps?: Omit<HtmlButtonProps, 'onClick'>;
 }
 
 export interface ExpanderProviderState {
@@ -127,7 +112,19 @@ class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
   };
 
   render() {
-    const { className, children, OpenAll, CloseAll, ...passProps } = this.props;
+    const {
+      className,
+      children,
+      OpenAllText,
+      CloseAllText,
+      openAllButtonProps: {
+        'aria-hidden': openAllAriaHidden,
+        ...openAllButtonPassProps
+      } = {
+        'aria-hidden': true,
+      },
+      ...passProps
+    } = this.props;
     const { openExpanders, toggleAllExpanderState } = this.state;
     const openExpandersCount = OpenExpandersCount(openExpanders);
     const allOpen = openExpandersCount === React.Children.count(children);
@@ -139,11 +136,14 @@ class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
           [openClassName]: openExpandersCount > 0,
         })}
       >
-        <OpenAllButton
+        <HtmlButton
+          {...openAllButtonPassProps}
+          {...openAllAriaHidden}
           {...noMouseFocus({ callback: this.handleAllToggleClick })}
+          className={openAllButtonClassName}
         >
-          {allOpen ? CloseAll : OpenAll}
-        </OpenAllButton>
+          {allOpen ? CloseAllText : OpenAllText}
+        </HtmlButton>
         <HtmlDiv className={expandersContainerClassName}>
           <Provider
             value={{

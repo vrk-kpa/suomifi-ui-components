@@ -68,6 +68,7 @@ export const baseStyles = withSuomifiTheme(
       }
 
       & > .fi-expander_content {
+        visibility: hidden;
         position: relative;
         display: block;
         height: 0;
@@ -82,6 +83,7 @@ export const baseStyles = withSuomifiTheme(
           padding: 0 ${theme.spacing.insetXl};
         }
         &.fi-expander_content--open {
+          visibility: visible;
           height: 10%;
           overflow: visible;
           /* This is very robust - cannot animate dynamic height with height-definition */
