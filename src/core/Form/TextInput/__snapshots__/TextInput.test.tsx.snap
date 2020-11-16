@@ -145,7 +145,7 @@ exports[`snapshots match error status with statustext 1`] = `
   width: 290px;
 }
 
-.c2 .fi-text-input_input-element-container > input:focus {
+.c1 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(196,77%,44%);
   outline-width: 2px;
   outline-offset: 2px;
@@ -253,7 +253,7 @@ exports[`snapshots match error status with statustext 1`] = `
   border-color: hsl(3,59%,48%);
 }
 
-.c2.fi-text-input--success .fi-text-input_input {
+.c1.fi-text-input--success .fi-text-input_input {
   border-color: hsl(166,90%,34%);
 }
 
@@ -437,7 +437,8 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   width: 290px;
 }
 
-.c2 .fi-text-input_input-element-container > input:focus {
+.c1 .fi-text-input_input-element-container > input:focus {
+  outline-color: hsl(196,77%,44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
@@ -544,7 +545,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   border-color: hsl(3,59%,48%);
 }
 
-.c2.fi-text-input--success .fi-text-input_input {
+.c1.fi-text-input--success .fi-text-input_input {
   border-color: hsl(166,90%,34%);
 }
 
@@ -710,7 +711,7 @@ exports[`snapshots match minimal implementation 1`] = `
   width: 290px;
 }
 
-.c2 .fi-text-input_input-element-container > input:focus {
+.c1 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(196,77%,44%);
   outline-width: 2px;
   outline-offset: 2px;
@@ -818,7 +819,7 @@ exports[`snapshots match minimal implementation 1`] = `
   border-color: hsl(3,59%,48%);
 }
 
-.c2.fi-text-input--success .fi-text-input_input {
+.c1.fi-text-input--success .fi-text-input_input {
   border-color: hsl(166,90%,34%);
 }
 
