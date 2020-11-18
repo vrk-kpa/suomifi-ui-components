@@ -28,7 +28,6 @@ export const textInputClassNames = {
   icon: `${baseClassName}_with-icon`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
-  functionalityContainer: `${baseClassName}_functionality-container`,
 };
 
 export interface TextInputProps
@@ -140,23 +139,21 @@ class BaseTextInput extends Component<TextInputProps> {
           {labelText}
         </LabelText>
         <HintText id={this.hintTextId}>{hintText}</HintText>
-        <HtmlDiv className={textInputClassNames.functionalityContainer}>
-          <HtmlDiv className={textInputClassNames.inputElementContainer}>
-            <HtmlInput
-              {...passProps}
-              id={this.id}
-              className={textInputClassNames.inputElement}
-              type={type}
-              placeholder={visualPlaceholder}
-              {...{ 'aria-invalid': status === 'error' }}
-            />
-            {children}
-            {resolvedIcon && <Icon {...newIconProps} />}
-          </HtmlDiv>
-          <StatusText id={this.statusTextId} status={status}>
-            {statusText}
-          </StatusText>
+        <HtmlDiv className={textInputClassNames.inputElementContainer}>
+          <HtmlInput
+            {...passProps}
+            id={this.id}
+            className={textInputClassNames.inputElement}
+            type={type}
+            placeholder={visualPlaceholder}
+            {...{ 'aria-invalid': status === 'error' }}
+          />
+          {children}
+          {resolvedIcon && <Icon {...newIconProps} />}
         </HtmlDiv>
+        <StatusText id={this.statusTextId} status={status}>
+          {statusText}
+        </StatusText>
       </HtmlDiv>
     );
   }

@@ -280,27 +280,23 @@ exports[`snapshots match error status with statustext 1`] = `
     </span>
   </label>
   <div
-    class="c0 fi-text-input_functionality-container"
+    class="c0 fi-text-input_input-element-container"
   >
-    <div
-      class="c0 fi-text-input_input-element-container"
-    >
-      <input
-        aria-invalid="true"
-        class="c4 fi-text-input_input"
-        data-testid="textinput2"
-        id="test-id2"
-        placeholder="Test TextInput"
-        type="text"
-      />
-    </div>
-    <span
-      class="c3 c5 fi-status-text fi-status-text--error"
-      id="test-id2-statusText"
-    >
-      This is a status text
-    </span>
+    <input
+      aria-invalid="true"
+      class="c4 fi-text-input_input"
+      data-testid="textinput2"
+      id="test-id2"
+      placeholder="Test TextInput"
+      type="text"
+    />
   </div>
+  <span
+    class="c3 c5 fi-status-text fi-status-text--error"
+    id="test-id2-statusText"
+  >
+    This is a status text
+  </span>
 </div>
 `;
 
@@ -572,20 +568,16 @@ exports[`snapshots match hidden label with placeholder 1`] = `
     </span>
   </label>
   <div
-    class="c0 fi-text-input_functionality-container"
+    class="c0 fi-text-input_input-element-container"
   >
-    <div
-      class="c0 fi-text-input_input-element-container"
-    >
-      <input
-        aria-invalid="false"
-        class="c5 fi-text-input_input"
-        data-testid="textinput1"
-        id="test-id1"
-        placeholder="Test TextInput"
-        type="text"
-      />
-    </div>
+    <input
+      aria-invalid="false"
+      class="c5 fi-text-input_input"
+      data-testid="textinput1"
+      id="test-id1"
+      placeholder="Test TextInput"
+      type="text"
+    />
   </div>
 </div>
 `;
@@ -846,19 +838,15 @@ exports[`snapshots match minimal implementation 1`] = `
     </span>
   </label>
   <div
-    class="c0 fi-text-input_functionality-container"
+    class="c0 fi-text-input_input-element-container"
   >
-    <div
-      class="c0 fi-text-input_input-element-container"
-    >
-      <input
-        aria-invalid="false"
-        class="c4 fi-text-input_input"
-        data-testid="textinput"
-        id="test-id"
-        type="text"
-      />
-    </div>
+    <input
+      aria-invalid="false"
+      class="c4 fi-text-input_input"
+      data-testid="textinput"
+      id="test-id"
+      type="text"
+    />
   </div>
 </div>
 `;
