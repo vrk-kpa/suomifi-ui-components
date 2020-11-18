@@ -73,7 +73,7 @@ export interface TextInputProps
   name?: string;
   /** Set components width to 100% */
   fullWidth?: boolean;
-  /** Optional text that is shown after labelText. Will be wrapped in parentheses. */
+  /** Text to mark a field optional. Will be wrapped in parentheses and shown after labelText. */
   optionalText?: string;
   icon?: BaseIconKeys;
   iconProps?: Omit<IconProps, 'icon'>;
