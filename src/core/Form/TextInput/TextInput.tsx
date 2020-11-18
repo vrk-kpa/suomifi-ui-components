@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, ChangeEvent, FocusEvent } from 'react';
+import React, { Component, ChangeEvent, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import {
@@ -53,8 +53,6 @@ export interface TextInputProps
   labelMode?: LabelMode;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
-  /** A custom element to be passed to the component. Will be rendered after the input */
-  children?: ReactNode;
   /** Hint text to be shown below the component */
   hintText?: string;
   /**
@@ -106,7 +104,6 @@ class BaseTextInput extends Component<TextInputProps> {
       id,
       type = 'text',
       fullWidth,
-      children,
       icon,
       iconProps,
       ...passProps
@@ -148,7 +145,6 @@ class BaseTextInput extends Component<TextInputProps> {
             placeholder={visualPlaceholder}
             {...{ 'aria-invalid': status === 'error' }}
           />
-          {children}
           {resolvedIcon && <Icon {...newIconProps} />}
         </HtmlDiv>
         <StatusText id={this.statusTextId} status={status}>
