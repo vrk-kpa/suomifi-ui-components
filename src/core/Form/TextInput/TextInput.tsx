@@ -106,6 +106,7 @@ class BaseTextInput extends Component<TextInputProps> {
       fullWidth,
       icon,
       iconProps,
+      'aria-describedby': ariaDescribedBy,
       ...passProps
     } = this.props;
 
@@ -117,11 +118,12 @@ class BaseTextInput extends Component<TextInputProps> {
     };
 
     const getDescribedBy = () => {
-      if (statusText || hintText) {
+      if (statusText || hintText || ariaDescribedBy) {
         return {
           'aria-describedby': [
             ...(statusText ? [this.statusTextId] : []),
             ...(hintText ? [this.hintTextId] : []),
+            ...(ariaDescribedBy ? [ariaDescribedBy] : []),
           ].join(' '),
         };
       }
