@@ -7,7 +7,6 @@ export {
   DropdownItem,
   DropdownItemProps,
 } from './Dropdown/Dropdown';
-export { Checkbox, CheckboxProps } from './Form/Checkbox';
 export {
   Toggle,
   ToggleProps,
