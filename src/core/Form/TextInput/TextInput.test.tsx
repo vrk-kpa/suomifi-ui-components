@@ -50,6 +50,21 @@ describe('snapshots match', () => {
 test('should not have basic accessibility issues', axeTest(TestTextInput));
 
 describe('props', () => {
+  describe('with only minimum props', () => {
+    it('has user given aria-describedby on input', () => {
+      const { getByRole } = render(
+        <TextInput
+          labelText="Test input"
+          aria-describedby="external-component-id"
+        />,
+      );
+      expect(getByRole('textbox')).toHaveAttribute(
+        'aria-describedby',
+        'external-component-id',
+      );
+    });
+  });
+
   describe('className', () => {
     it('has the given custom className', () => {
       const { container } = render(
@@ -66,6 +81,44 @@ describe('props', () => {
       );
       const hintText = getByText('Example hint text');
       expect(hintText).toHaveClass('fi-hint-text');
+    });
+
+    it('will be added to input aria-describedby', () => {
+      const { getByRole } = render(
+        <TextInput
+          labelText="Test input"
+          id="123"
+          hintText="Example hint text"
+        />,
+      );
+      expect(getByRole('textbox')).toHaveAttribute(
+        'aria-describedby',
+        '123-hintText',
+      );
+    });
+  });
+
+  describe('statusText', () => {
+    it('has the status text element', () => {
+      const { getByText } = render(
+        <TextInput labelText="Test input" statusText="Example status text" />,
+      );
+      const statusText = getByText('Example status text');
+      expect(statusText).toHaveClass('fi-status-text');
+    });
+
+    it('will be added to input aria-describedby', () => {
+      const { getByRole } = render(
+        <TextInput
+          labelText="Test input"
+          id="123"
+          statusText="Example status text"
+        />,
+      );
+      expect(getByRole('textbox')).toHaveAttribute(
+        'aria-describedby',
+        '123-statusText',
+      );
     });
   });
 
