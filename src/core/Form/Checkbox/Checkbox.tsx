@@ -1,13 +1,13 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
+import classnames from 'classnames';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './Checkbox.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { HtmlInput, HtmlLabel, HtmlSpan, HtmlDiv } from '../../../reset';
 import { logger } from '../../../utils/logger';
-import { idGenerator } from '../../../utils/uuid';
-import classnames from 'classnames';
 import { Icon } from '../../Icon/Icon';
+import { AutoId } from '../../../utils/AutoId';
 
 const baseClassName = 'fi-checkbox';
 
@@ -114,7 +114,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
 
   render() {
     const {
-      id: propId,
+      id,
       className,
       disabled = false,
       'aria-label': ariaLabel,
@@ -151,9 +151,8 @@ class BaseCheckbox extends Component<CheckboxProps> {
       );
     }
 
-    const id = idGenerator(propId);
-    const statusTextId = `${idGenerator(propId)}-statusText`;
-    const hintTextId = `${idGenerator(propId)}-hintText`;
+    const statusTextId = `${id}-statusText`;
+    const hintTextId = `${id}-hintText`;
 
     const getDescribedBy = () => {
       if (statusText || hintText || ariaDescribedBy) {
@@ -231,8 +230,14 @@ class BaseCheckbox extends Component<CheckboxProps> {
 }
 
 const StyledCheckbox = styled(
-  ({ tokens, ...passProps }: CheckboxProps & InternalTokensProp) => (
-    <BaseCheckbox {...passProps} />
+  ({
+    tokens,
+    id: propId,
+    ...passProps
+  }: CheckboxProps & InternalTokensProp) => (
+    <AutoId id={propId}>
+      {(id) => <BaseCheckbox id={id} {...passProps} />}
+    </AutoId>
   ),
 )`
   ${(props) => baseStyles(props)}
