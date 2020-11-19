@@ -283,6 +283,7 @@ exports[`snapshots match error status with statustext 1`] = `
     class="c0 fi-text-input_input-element-container"
   >
     <input
+      aria-describedby="test-id2-statusText"
       aria-invalid="true"
       class="c4 fi-text-input_input"
       data-testid="textinput2"

@@ -116,6 +116,18 @@ class BaseTextInput extends Component<TextInputProps> {
       icon: resolvedIcon,
     };
 
+    const getDescribedBy = () => {
+      if (statusText || hintText) {
+        return {
+          'aria-describedby': [
+            ...(statusText ? [this.statusTextId] : []),
+            ...(hintText ? [this.hintTextId] : []),
+          ].join(' '),
+        };
+      }
+      return {};
+    };
+
     return (
       <HtmlDiv
         {...inputContainerProps}
@@ -144,6 +156,7 @@ class BaseTextInput extends Component<TextInputProps> {
             type={type}
             placeholder={visualPlaceholder}
             {...{ 'aria-invalid': status === 'error' }}
+            {...getDescribedBy()}
           />
           {resolvedIcon && <Icon {...newIconProps} />}
         </HtmlDiv>
