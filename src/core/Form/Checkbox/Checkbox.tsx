@@ -1,18 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import { TokensProp, InternalTokensProp } from '../../theme';
-import {
-  Checkbox as CompCheckbox,
-  CheckboxProps as CompCheckboxProps,
-} from '../../../components/Form/Checkbox';
 import { baseStyles } from './Checkbox.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
+import { HtmlInput, HtmlLabel, HtmlSpan, HtmlDiv } from '../../../reset';
+import { logger } from '../../../utils/logger';
+import { idGenerator } from '../../../utils/uuid';
 import classnames from 'classnames';
 import { Icon } from '../../Icon/Icon';
 
 const baseClassName = 'fi-checkbox';
 
 const checkboxClassNames = {
+  container: `${baseClassName}_container`,
+  input: `${baseClassName}_input`,
+  label: `${baseClassName}_label`,
+  statusText: `${baseClassName}_status`,
+  hintText: `${baseClassName}_hintText`,
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
   checked: `${baseClassName}--checked`,
@@ -27,17 +31,61 @@ const iconClassnames = {
   error: `${iconBaseClassName}--error`,
 };
 
-export interface CheckboxProps extends CompCheckboxProps, TokensProp {}
+export interface CheckboxProps extends TokensProp {
+  /** Controlled checked-state - user actions use onClick to change  */
+  checked?: boolean;
+  /** Default status of Checkbox when not using controlled 'checked' state
+   * @default false
+   */
+  defaultChecked?: boolean;
+  /** Custom classname to extend or customize */
+  className?: string;
+  /** Disable Checkbox. Value won't be included when submitting */
+  disabled?: boolean;
+  /** Event handler to execute when clicked */
+  onClick?: ({ checkboxState }: { checkboxState: boolean }) => void;
+  /**
+   * Label element content
+   */
+  children?: ReactNode;
+  /**
+   * Variant of the Checkbox
+   * @default small
+   */
+  variant?: 'small' | 'large';
+  /**
+   * Status of the Checkbox
+   * @default default
+   */
+  status?: 'default' | 'error';
+  /**
+   * Status text to be displayed in the status text element. Will not be displayed when element is disabled.
+   */
+  statusText?: string;
+  /**
+   * Hint text to be displayed under the label.
+   */
+  hintText?: string;
+  /**
+   * aria-label for the HTML input-element,
+   * alternatively you can define aria-labelledby with label-element id
+   */
+  'aria-label'?: string;
+  'aria-labelledby'?: string;
+  'aria-describedby'?: string;
+  /**
+   * Unique id
+   * If no id is specified, one will be generated using uuid
+   * @default uuidV4
+   */
+  id?: string;
+  /** Name */
+  name?: string;
+  /** Value */
+  value?: string;
+}
 
-const StyledCheckbox = styled(
-  ({ tokens, ...passProps }: CheckboxProps & InternalTokensProp) => (
-    <CompCheckbox {...passProps} />
-  ),
-)`
-  ${(props) => baseStyles(props)}
-`;
-
-class DefaultCheckbox extends Component<CheckboxProps> {
+class BaseCheckbox extends Component<CheckboxProps> {
   state = {
     checkedState: !!this.props.checked || !!this.props.defaultChecked,
   };
@@ -66,50 +114,138 @@ class DefaultCheckbox extends Component<CheckboxProps> {
 
   render() {
     const {
-      children,
-      disabled = false,
-      onClick,
-      status,
-      variant,
+      id: propId,
       className,
+      disabled = false,
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledBy,
+      'aria-describedby': ariaDescribedBy,
+      children,
+      checked: dismissChecked,
+      defaultChecked: dismissDefaultChecked,
+      onClick: dismissOnClick,
+      hintText,
+      status,
+      statusText,
+      name,
+      value,
+      onClick,
+      variant,
       ...passProps
-    } = withSuomifiDefaultProps(this.props);
+    } = this.props;
+
     const { checkedState } = this.state;
+
+    if (!children) {
+      logger.error(
+        'Checkbox component should have a label or a child element that acts as one. Add label content or a child element.',
+      );
+    }
+
+    if (
+      ('name' in this.props && (typeof name !== 'string' || name === '')) ||
+      ('value' in this.props && (typeof value !== 'string' || value === ''))
+    ) {
+      logger.warn(
+        'Name and value props should have non-empty values if provided.',
+      );
+    }
+
+    const id = idGenerator(propId);
+    const statusTextId = `${idGenerator(propId)}-statusText`;
+    const hintTextId = `${idGenerator(propId)}-hintText`;
+
+    const getDescribedBy = () => {
+      if (statusText || hintText || ariaDescribedBy) {
+        return {
+          'aria-describedby': [
+            ...(statusText ? [statusTextId] : []),
+            ...(hintText ? [hintTextId] : []),
+            ...(ariaDescribedBy ? [ariaDescribedBy] : []),
+          ].join(' '),
+        };
+      }
+      return {};
+    };
+
+    const newCheckboxInputProps = {
+      disabled,
+      id,
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledBy,
+      'aria-invalid': status === 'error',
+      checked: !!checkedState,
+      className: checkboxClassNames.input,
+      onChange: this.handleClick,
+      name,
+      ...getDescribedBy(),
+      ...(value ? { value } : {}),
+    };
+
     return (
-      <StyledCheckbox
-        disabled={disabled}
-        onClick={this.handleClick}
-        {...passProps}
-        status={status}
-        className={classnames(baseClassName, className, {
-          [checkboxClassNames.error]: status === 'error' && !disabled,
-          [checkboxClassNames.checked]: checkedState && !disabled,
-          [checkboxClassNames.large]: variant === 'large',
-          [checkboxClassNames.disabled]: !!disabled,
-        })}
-      >
-        {!!checkedState && (
-          <Icon
-            icon="check"
-            className={classnames(iconBaseClassName, {
-              [iconClassnames.checked]: checkedState && !disabled,
-              [iconClassnames.error]: status === 'error' && !disabled,
-              [iconClassnames.disabled]: !!disabled,
-            })}
-          />
+      <HtmlDiv
+        className={classnames(
+          checkboxClassNames.container,
+          className,
+          baseClassName,
+          {
+            [checkboxClassNames.error]: status === 'error' && !disabled,
+            [checkboxClassNames.checked]: checkedState && !disabled,
+            [checkboxClassNames.large]: variant === 'large',
+            [checkboxClassNames.disabled]: !!disabled,
+          },
         )}
-        {children}
-      </StyledCheckbox>
+      >
+        <HtmlInput {...newCheckboxInputProps} type="checkbox" />
+        <HtmlLabel
+          htmlFor={id}
+          className={checkboxClassNames.label}
+          {...passProps}
+        >
+          {!!checkedState && (
+            <Icon
+              icon="check"
+              className={classnames(iconBaseClassName, {
+                [iconClassnames.checked]: checkedState && !disabled,
+                [iconClassnames.error]: status === 'error' && !disabled,
+                [iconClassnames.disabled]: !!disabled,
+              })}
+            />
+          )}
+          {children}
+        </HtmlLabel>
+        {hintText && (
+          <HtmlSpan className={checkboxClassNames.hintText} id={hintTextId}>
+            {hintText}
+          </HtmlSpan>
+        )}
+
+        {statusText && !disabled && (
+          <HtmlSpan className={checkboxClassNames.statusText} id={statusTextId}>
+            {statusText}
+          </HtmlSpan>
+        )}
+      </HtmlDiv>
     );
   }
 }
 
+const StyledCheckbox = styled(
+  ({ tokens, ...passProps }: CheckboxProps & InternalTokensProp) => (
+    <BaseCheckbox {...passProps} />
+  ),
+)`
+  ${(props) => baseStyles(props)}
+`;
+
 export class Checkbox extends Component<CheckboxProps> {
   static large = (props: CheckboxProps) => {
-    return <DefaultCheckbox {...props} variant="large" />;
+    return (
+      <StyledCheckbox {...withSuomifiDefaultProps(props)} variant="large" />
+    );
   };
 
   render() {
-    return <DefaultCheckbox {...this.props} />;
+    return <StyledCheckbox {...withSuomifiDefaultProps(this.props)} />;
   }
 }
