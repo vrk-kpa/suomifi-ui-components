@@ -16,6 +16,10 @@ import { TextInput } from 'suomifi-ui-components';
     labelText="TextInput with hint text"
     hintText="An example hint text"
   />
+  <TextInput
+    labelText="TextInput with optional text"
+    optionalText="optional"
+  />
 </>;
 ```
 

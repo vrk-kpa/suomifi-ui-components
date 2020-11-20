@@ -18,10 +18,11 @@ import { StatusText } from '../StatusText/StatusText';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { Icon } from '../../Icon/Icon';
 import { baseStyles } from './SearchInput.baseStyles';
+import { InputStatus } from '../types';
 
 type SearchInputValue = string | number | undefined;
 
-type SearchInputStatus = 'default' | 'error';
+type SearchInputStatus = Exclude<InputStatus, 'success'>;
 
 export interface SearchInputProps
   extends Omit<
@@ -272,7 +273,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
   }
 }
 
-const StyledTextInput = styled(
+const StyledSearchInput = styled(
   ({ tokens, ...passProps }: SearchInputProps & InternalTokensProp) => {
     return <BaseSearchInput {...passProps} />;
   },
@@ -287,6 +288,6 @@ const StyledTextInput = styled(
  */
 export class SearchInput extends Component<SearchInputProps> {
   render() {
-    return <StyledTextInput {...withSuomifiDefaultProps(this.props)} />;
+    return <StyledSearchInput {...withSuomifiDefaultProps(this.props)} />;
   }
 }

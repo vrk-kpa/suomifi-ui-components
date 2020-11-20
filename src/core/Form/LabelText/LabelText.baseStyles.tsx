@@ -10,6 +10,10 @@ export const baseStyles = withSuomifiTheme(
         display: block;
         margin-bottom: ${theme.spacing.xs};
         color: ${theme.colors.blackBase};
+
+        & .fi-label-text_optionalText {
+          ${theme.typography.bodyTextSmall};
+        }
       }
     }
   `,

@@ -50,6 +50,21 @@ describe('snapshots match', () => {
 test('should not have basic accessibility issues', axeTest(TestTextInput));
 
 describe('props', () => {
+  describe('with only minimum props', () => {
+    it('has user given aria-describedby on input', () => {
+      const { getByRole } = render(
+        <TextInput
+          labelText="Test input"
+          aria-describedby="external-component-id"
+        />,
+      );
+      expect(getByRole('textbox')).toHaveAttribute(
+        'aria-describedby',
+        'external-component-id',
+      );
+    });
+  });
+
   describe('className', () => {
     it('has the given custom className', () => {
       const { container } = render(
@@ -65,7 +80,45 @@ describe('props', () => {
         <TextInput labelText="Test input" hintText="Example hint text" />,
       );
       const hintText = getByText('Example hint text');
-      expect(hintText).toHaveClass('fi-text-input_hintText');
+      expect(hintText).toHaveClass('fi-hint-text');
+    });
+
+    it('will be added to input aria-describedby', () => {
+      const { getByRole } = render(
+        <TextInput
+          labelText="Test input"
+          id="123"
+          hintText="Example hint text"
+        />,
+      );
+      expect(getByRole('textbox')).toHaveAttribute(
+        'aria-describedby',
+        '123-hintText',
+      );
+    });
+  });
+
+  describe('statusText', () => {
+    it('has the status text element', () => {
+      const { getByText } = render(
+        <TextInput labelText="Test input" statusText="Example status text" />,
+      );
+      const statusText = getByText('Example status text');
+      expect(statusText).toHaveClass('fi-status-text');
+    });
+
+    it('will be added to input aria-describedby', () => {
+      const { getByRole } = render(
+        <TextInput
+          labelText="Test input"
+          id="123"
+          statusText="Example status text"
+        />,
+      );
+      expect(getByRole('textbox')).toHaveAttribute(
+        'aria-describedby',
+        '123-statusText',
+      );
     });
   });
 
@@ -144,7 +197,7 @@ describe('props', () => {
     it('should be found ', () => {
       const { getByText } = render(<TextInput labelText="Test input" />);
       const label = getByText('Test input');
-      expect(label).toHaveClass('fi-text-input_label-p');
+      expect(label).toHaveClass('fi-label-text_label-span');
     });
   });
 
@@ -154,7 +207,7 @@ describe('props', () => {
         <TextInput labelText="label" optionalText="Optional" />,
       );
       const optionalText = getByText('(Optional)');
-      expect(optionalText).toHaveClass('fi-text-input_optionalText');
+      expect(optionalText).toHaveClass('fi-label-text_optionalText');
     });
   });
 
@@ -162,7 +215,7 @@ describe('props', () => {
     it('should be visible by default', () => {
       const { getByText } = render(<TextInput labelText="Test input" />);
       const label = getByText('Test input');
-      expect(label).toHaveClass('fi-text-input_label-p');
+      expect(label).toHaveClass('fi-label-text_label-span');
     });
 
     it('should be hidden', () => {
