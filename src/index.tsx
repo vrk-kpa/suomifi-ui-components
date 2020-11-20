@@ -51,7 +51,16 @@ export {
   LanguageMenuLinkLanguage,
   LanguageMenuLinkLanguageProps,
 } from './core/LanguageMenu/LanguageMenuItem';
-export { Expander, ExpanderProps } from './core/Expander/Expander';
+export {
+  Expander,
+  ExpanderProps,
+  ExpanderGroup,
+  ExpanderGroupProps,
+  ExpanderContent,
+  ExpanderContentProps,
+  ExpanderTitle,
+  ExpanderTitleProps,
+} from './core/Expander/';
 export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';
 export { Text, TextProps } from './core/Text/Text';
 export { Textarea, TextareaProps } from './core/Form/Textarea/Textarea';

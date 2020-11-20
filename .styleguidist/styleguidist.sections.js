@@ -111,7 +111,10 @@ module.exports = {
             {
               name: 'Expander',
               components: getComponentWithVariants('Expander')([
-                'ExpanderGroup',
+                'Expander/Expander',
+                'ExpanderGroup/ExpanderGroup',
+                'ExpanderTitle/ExpanderTitle',
+                'ExpanderContent/ExpanderContent',
               ]),
             },
           ],

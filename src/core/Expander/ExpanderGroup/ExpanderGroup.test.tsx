@@ -1,46 +1,57 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { axeTest } from '../../utils/test/axe';
-import { Expander, ExpanderProps } from './Expander';
+import { axeTest } from '../../../utils/test/axe';
+import {
+  ExpanderGroup,
+  Expander,
+  ExpanderProps,
+  ExpanderTitle,
+  ExpanderTitleProps,
+  ExpanderContent,
+} from '../';
 
 const TestExpanderWithProps = (
-  props: ExpanderProps,
+  props: Omit<ExpanderProps, 'children'>,
+  titleProps: ExpanderTitleProps & { 'data-testid': string },
   content: string,
   key: number,
 ) => {
-  const { title, ...passProps } = props;
+  const { children: title, ...titlePassProps } = titleProps;
   return (
-    <Expander key={key} title={title} {...passProps}>
-      {content}
+    <Expander key={key} {...props}>
+      <ExpanderTitle {...titlePassProps}>{title}</ExpanderTitle>
+      <ExpanderContent>{content}</ExpanderContent>
     </Expander>
   );
 };
 
 const TestExpanderGroup = (
-  expanderDatas: { expanderProps: ExpanderProps; content: string }[],
+  expanderData: {
+    expanderProps: Omit<ExpanderProps, 'children'>;
+    titleProps: ExpanderTitleProps & { 'data-testid': string };
+    content: string;
+  }[],
 ) => (
-  <Expander.group OpenAllText="Open all" CloseAllText="Close all">
-    {expanderDatas.map((d, index) =>
-      TestExpanderWithProps(d.expanderProps, d.content, index),
+  <ExpanderGroup OpenAllText="Open all" CloseAllText="Close all">
+    {expanderData.map((d, index) =>
+      TestExpanderWithProps(d.expanderProps, d.titleProps, d.content, index),
     )}
-  </Expander.group>
+  </ExpanderGroup>
 );
 
 const basicExpanderProps = [
   {
     expanderProps: {
-      title: 'First',
       id: 'id-first',
-      titleProps: { 'data-testid': 'expander-title-1' },
     },
+    titleProps: { 'data-testid': 'expander-title-1', children: 'First' },
     content: 'First content',
   },
   {
     expanderProps: {
-      title: 'Second',
       id: 'id-second',
-      titleProps: { 'data-testid': 'expander-title-2' },
     },
+    titleProps: { 'data-testid': 'expander-title-2', children: 'Second' },
     content: 'Second content',
   },
 ];
@@ -55,18 +66,19 @@ describe('Basic expander group', () => {
       TestExpanderGroup([
         {
           expanderProps: {
-            title: 'First but not the best',
             id: 'id-first-2',
-            titleProps: { 'data-testid': 'expander-title-1-1' },
+          },
+          titleProps: {
+            'data-testid': 'expander-title-1-1',
+            children: 'First but not the best',
           },
           content: 'First but not the content',
         },
         {
           expanderProps: {
-            title: 'Second',
             id: 'id-second-2',
-            titleProps: { 'data-testid': 'expander-title-2' },
           },
+          titleProps: { 'data-testid': 'expander-title-2', children: 'Second' },
           content: 'Second content',
         },
       ]),
@@ -87,18 +99,16 @@ describe('default behaviour', () => {
       TestExpanderGroup([
         {
           expanderProps: {
-            title: 'First',
             id: 'id-first',
-            titleProps: { 'data-testid': 'expander-title-1' },
           },
+          titleProps: { 'data-testid': 'expander-title-1', children: 'First' },
           content: 'First content',
         },
         {
           expanderProps: {
-            title: 'Second',
             id: 'id-second',
-            titleProps: { 'data-testid': 'expander-title-2' },
           },
+          titleProps: { 'data-testid': 'expander-title-2', children: 'Second' },
           content: 'Second content',
         },
       ]),
@@ -135,19 +145,18 @@ describe('defaultOpen', () => {
       TestExpanderGroup([
         {
           expanderProps: {
-            title: 'First',
             id: 'id-first',
-            titleProps: { 'data-testid': 'expander-title-1' },
           },
+          titleProps: { 'data-testid': 'expander-title-1', children: 'First' },
           content: 'First content',
         },
         {
           expanderProps: {
-            title: 'Second',
             id: 'id-second',
-            titleProps: { 'data-testid': 'expander-title-2' },
+
             defaultOpen: true,
           },
+          titleProps: { 'data-testid': 'expander-title-2', children: 'Second' },
           content: 'Second content',
         },
       ]),
@@ -168,33 +177,41 @@ describe('defaultOpen', () => {
       TestExpanderGroup([
         {
           expanderProps: {
-            title: 'First',
             id: 'id-first',
-            titleProps: { 'data-testid': 'expander-title-1' },
+          },
+          titleProps: {
+            'data-testid': 'expander-title-1',
+            children: 'First',
           },
           content: 'First content',
         },
         {
           expanderProps: {
-            title: 'Second',
             id: 'id-second',
-            titleProps: { 'data-testid': 'expander-title-2' },
             defaultOpen: true,
             onClick: mockClickHandler,
+          },
+          titleProps: {
+            'data-testid': 'expander-title-2',
+            children: 'Second',
+            toggleButtonProps: {
+              'data-testid': 'toggle-button-2',
+            },
           },
           content: 'Second content',
         },
       ]),
     );
-    const buttonToClick = getByTestId('expander-title-2');
-    fireEvent.mouseDown(buttonToClick);
+    const button = getByTestId('toggle-button-2');
+    const wrapperDiv = getByTestId('expander-title-2');
+    fireEvent.mouseDown(button);
 
-    expect(buttonToClick.classList.contains('fi-expander_title--open')).toBe(
+    expect(wrapperDiv.classList.contains('fi-expander_title--open')).toBe(
       false,
     );
 
     expect(
-      buttonToClick
+      button
         .querySelector('svg')
         ?.classList.contains('fi-expander_title-icon--open'),
     ).toBe(false);
@@ -208,23 +225,27 @@ describe('onClick', () => {
       TestExpanderGroup([
         {
           expanderProps: {
-            title: 'First',
             id: 'id-first',
-            titleProps: { 'data-testid': 'expander-title-1' },
           },
+          titleProps: { 'data-testid': 'expander-title-1', children: 'First' },
           content: 'First content',
         },
         {
           expanderProps: {
-            title: 'Second',
-            titleProps: { 'data-testid': 'expander-title-2' },
             onClick: mockClickHandler,
+          },
+          titleProps: {
+            'data-testid': 'expander-title-2',
+            children: 'Second',
+            toggleButtonProps: {
+              'data-testid': 'toggle-button-2',
+            },
           },
           content: 'Second content',
         },
       ]),
     );
-    const button = getByTestId('expander-title-2');
+    const button = getByTestId('toggle-button-2');
     fireEvent.mouseDown(button);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
   });
@@ -236,29 +257,30 @@ describe('open', () => {
       TestExpanderGroup([
         {
           expanderProps: {
-            title: 'First',
             id: 'id-first',
-            titleProps: { 'data-testid': 'expander-title-1' },
             open: true,
           },
+          titleProps: { 'data-testid': 'expander-title-1', children: 'First' },
           content: 'First content',
         },
         {
           expanderProps: {
-            title: 'Second',
             id: 'id-second',
-            titleProps: { 'data-testid': 'expander-title-2' },
             open: true,
+          },
+          titleProps: {
+            'data-testid': 'expander-title-2',
+            children: 'Second',
           },
           content: 'Second content',
         },
       ]),
     );
-    const button = getByTestId('expander-title-2');
-    expect(button.classList.contains('fi-expander_title--open')).toBe(true);
+    const wrapperDiv = getByTestId('expander-title-2');
+    expect(wrapperDiv.classList.contains('fi-expander_title--open')).toBe(true);
 
     expect(
-      button
+      wrapperDiv
         .querySelector('svg')
         ?.classList.contains('fi-expander_title-icon--open'),
     ).toBe(true);
@@ -270,31 +292,34 @@ describe('open', () => {
       TestExpanderGroup([
         {
           expanderProps: {
-            title: 'First',
             id: 'id-first',
-            titleProps: { 'data-testid': 'expander-title-1' },
             open: true,
           },
+          titleProps: { 'data-testid': 'expander-title-1', children: 'First' },
           content: 'First content',
         },
         {
           expanderProps: {
-            title: 'Second',
             id: 'id-second',
-            titleProps: {
-              'data-testid': 'expander-title-2',
-            },
             onClick: mockClickHandler,
             open: true,
+          },
+          titleProps: {
+            'data-testid': 'expander-title-2',
+            children: 'Second',
+            toggleButtonProps: {
+              'data-testid': 'toggle-button-2',
+            },
           },
           content: 'Second content',
         },
       ]),
     );
-    const button = getByTestId('expander-title-2');
-    expect(button.classList.contains('fi-expander_title--open')).toBe(true);
+    const button = getByTestId('toggle-button-2');
+    const wrapperDiv = getByTestId('expander-title-2');
+    expect(wrapperDiv.classList.contains('fi-expander_title--open')).toBe(true);
     expect(
-      button
+      wrapperDiv
         .querySelector('svg')
         ?.classList.contains('fi-expander_title-icon--open'),
     ).toBe(true);
@@ -302,10 +327,10 @@ describe('open', () => {
     fireEvent.mouseDown(button);
 
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
-    expect(button.classList.contains('fi-expander_title--open')).toBe(true);
+    expect(wrapperDiv.classList.contains('fi-expander_title--open')).toBe(true);
 
     expect(
-      button
+      wrapperDiv
         .querySelector('svg')
         ?.classList.contains('fi-expander_title-icon--open'),
     ).toBe(true);
@@ -316,20 +341,18 @@ describe('open', () => {
       TestExpanderGroup([
         {
           expanderProps: {
-            title: 'First',
             id: 'id-first',
-            titleProps: { 'data-testid': 'expander-title-1' },
             open: false,
           },
+          titleProps: { 'data-testid': 'expander-title-1', children: 'First' },
           content: 'First content',
         },
         {
           expanderProps: {
-            title: 'Second',
             id: 'id-second',
-            titleProps: { 'data-testid': 'expander-title-2' },
             open: false,
           },
+          titleProps: { 'data-testid': 'expander-title-2', children: 'Second' },
           content: 'Second content',
         },
       ]),
@@ -358,18 +381,16 @@ test(
     TestExpanderGroup([
       {
         expanderProps: {
-          title: 'First',
           id: 'id-first',
-          titleProps: { 'data-testid': 'expander-title-1' },
         },
+        titleProps: { 'data-testid': 'expander-title-1', children: 'First' },
         content: 'First content',
       },
       {
         expanderProps: {
-          title: 'Second',
           id: 'id-second',
-          titleProps: { 'data-testid': 'expander-title-2' },
         },
+        titleProps: { 'data-testid': 'expander-title-2', children: 'Second' },
         content: 'Second content',
       },
     ]),

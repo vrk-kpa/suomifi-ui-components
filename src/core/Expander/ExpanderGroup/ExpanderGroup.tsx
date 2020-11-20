@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { withSuomifiDefaultProps } from '../theme/utils';
-import { noMouseFocus } from '../theme/utils/mousefocus';
-import { TokensProp, InternalTokensProp } from '../theme';
-import { HtmlDiv, HtmlButton, HtmlButtonProps } from '../../reset';
-import { ExpanderProps } from './Expander';
+import { withSuomifiDefaultProps } from '../../theme/utils';
+import { noMouseFocus } from '../../theme/utils/mousefocus';
+import { TokensProp, InternalTokensProp } from '../../theme';
+import { HtmlDiv, HtmlButton, HtmlButtonProps } from '../../../reset';
+import { ExpanderProps } from '../Expander/Expander';
 import { baseStyles } from './ExpanderGroup.baseStyles';
 
 const baseClassName = 'fi-expander-group';
@@ -42,12 +42,12 @@ interface InternalExpanderGroupProps {
   openAllButtonProps?: Omit<HtmlButtonProps, 'onClick'>;
 }
 
-export interface ExpanderProviderState {
+export interface ExpanderGroupProviderState {
   onExpanderOpenChange: (index: number, toState: boolean) => void;
   toggleAllExpanderState: ToggleAllExpanderState;
 }
 
-const defaultProviderValue: ExpanderProviderState = {
+const defaultProviderValue: ExpanderGroupProviderState = {
   onExpanderOpenChange: () => null,
   toggleAllExpanderState: {
     toState: false,
@@ -196,7 +196,6 @@ const ExpanderGroupItems = (
 export class ExpanderGroup extends React.Component<ExpanderGroupProps> {
   render() {
     const { children, ...passProps } = withSuomifiDefaultProps(this.props);
-
     return (
       <StyledExpanderGroup {...passProps}>
         {ExpanderGroupItems(children)}

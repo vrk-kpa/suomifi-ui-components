@@ -73,15 +73,6 @@ exports[`Basic expander group should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5 {
-  display: inline-block;
-  vertical-align: baseline;
-}
-
-.c4.fi-button--disabled {
-  cursor: not-allowed;
-}
-
 .c1 {
   color: hsl(0,0%,16%);
   display: -webkit-box;
@@ -200,10 +191,6 @@ exports[`Basic expander group should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c6 {
-  display: none;
-}
-
 .c3 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -221,7 +208,6 @@ exports[`Basic expander group should match snapshot 1`] = `
   font-weight: 400;
   background-color: hsl(0,0%,100%);
   position: relative;
-  position: relative;
   padding: 0;
   border-radius: 2px;
   box-shadow: 0 1px 2px 0 rgba(41,41,41,0.14),0 1px 5px 0 rgba(41,41,41,0.12);
@@ -231,22 +217,81 @@ exports[`Basic expander group should match snapshot 1`] = `
 }
 
 .c3:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.c3:before {
   background-color: hsl(212,63%,98%);
   opacity: 0;
 }
 
-.c3 .fi-expander_title {
+.c7 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: hsl(0,0%,100%);
+  position: relative;
+  visibility: hidden;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  word-break: break-word;
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: top;
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -webkit-transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
+  transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
+  will-change: transition,height;
+}
+
+.c7:not(.fi-expander_content--no-padding) {
+  padding: 0 16px;
+}
+
+.c7.fi-expander_content--open {
+  visibility: visible;
+  height: 10%;
+  overflow: visible;
+  -webkit-animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
+  animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
+}
+
+.c7.fi-expander_content--open:not(.fi-expander_content--no-padding) {
+  padding-top: 0;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.c6 {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.c5.fi-button--disabled {
+  cursor: not-allowed;
+}
+
+.c4 {
+  color: hsl(0,0%,16%);
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 60px;
+}
+
+.c4 .fi-expander_title-button {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -263,21 +308,41 @@ exports[`Basic expander group should match snapshot 1`] = `
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  position: relative;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: hsl(0,0%,100%);
+  color: hsl(212,63%,45%);
   display: block;
-  width: 100%;
   font-size: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 600;
+  width: 100%;
+  max-width: 100%;
   min-height: 60px;
+  padding: 17px 60px 16px 20px;
 }
 
-.c3 .fi-expander_title:focus {
+.c4 .fi-expander_title-button:focus {
   outline: 0;
 }
 
-.c3 .fi-expander_title:focus:after {
+.c4 .fi-expander_title-button:focus-within {
+  outline: 0;
+}
+
+.c4 .fi-expander_title-button:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -293,24 +358,19 @@ exports[`Basic expander group should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c3 .fi-expander_title--no-tag {
-  padding: 17px 60px 16px 20px;
-  color: hsl(212,63%,45%);
-}
-
-.c3 .fi-expander_title,
-.c3 .fi-expander_title * {
+.c4 .fi-expander_title-button,
+.c4 .fi-expander_title-button * {
   cursor: pointer;
 }
 
-.c3 .fi-expander_title:hover,
-.c3 .fi-expander_title:active,
-.c3 .fi-expander_title:focus,
-.c3 .fi-expander_title:focus-within {
+.c4 .fi-expander_title-button:hover,
+.c4 .fi-expander_title-button:active,
+.c4 .fi-expander_title-button:focus,
+.c4 .fi-expander_title-button:focus-within {
   cursor: pointer;
 }
 
-.c3 .fi-expander_title-icon {
+.c4 .fi-expander_title-icon {
   position: absolute;
   height: 20px;
   width: 20px;
@@ -319,48 +379,11 @@ exports[`Basic expander group should match snapshot 1`] = `
   margin: 20px;
 }
 
-.c3 .fi-expander_title--open .fi-expander_title-icon,
-.c3 .fi-expander_title-icon--open {
+.c4 .fi-expander_title--open .fi-expander_title-icon,
+.c4 .fi-expander_title-icon--open {
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   transform: rotate(-180deg);
-}
-
-.c3 > .fi-expander_content {
-  visibility: hidden;
-  position: relative;
-  display: block;
-  height: 0;
-  overflow: hidden;
-  word-break: break-word;
-  -webkit-transform: scaleY(0);
-  -ms-transform: scaleY(0);
-  transform: scaleY(0);
-  -webkit-transform-origin: top;
-  -ms-transform-origin: top;
-  transform-origin: top;
-  -webkit-transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
-  transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
-  will-change: transition,height;
-}
-
-.c3 > .fi-expander_content:not(.fi-expander_content--no-padding) {
-  padding: 0 16px;
-}
-
-.c3 > .fi-expander_content.fi-expander_content--open {
-  visibility: visible;
-  height: 10%;
-  overflow: visible;
-  -webkit-animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
-  animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
-}
-
-.c3 > .fi-expander_content.fi-expander_content--open:not(.fi-expander_content--no-padding) {
-  padding-top: 0;
-  padding-right: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
 }
 
 <div
@@ -378,37 +401,40 @@ exports[`Basic expander group should match snapshot 1`] = `
     <div
       class="c0 c3 fi-expander"
     >
-      <button
-        aria-controls="id-first_content"
-        aria-disabled="false"
-        aria-expanded="false"
-        class="c2 c4 fi-button fi-expander_title fi-expander_title--no-tag"
+      <div
+        class="c0 c4 fi-expander_title"
         data-testid="expander-title-1"
-        id="id-first"
-        tabindex="0"
-        type="button"
       >
-        First
-        <svg
-          aria-hidden="true"
-          class="fi-icon c5 fi-expander_title-icon"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
+        <button
+          aria-controls="id-first_content"
+          aria-disabled="false"
+          aria-expanded="false"
+          class="c2 c5 fi-button fi-expander_title-button"
+          id="id-first"
+          tabindex="0"
+          type="button"
         >
-          <path
-            d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
-          />
-        </svg>
-      </button>
+          First
+          <svg
+            aria-hidden="true"
+            class="fi-icon c6 fi-expander_title-icon"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
+            />
+          </svg>
+        </button>
+      </div>
       <div
         aria-hidden="true"
         aria-labelledby="id-first"
-        class="c0 c6 fi-expander_content"
+        class="c0 c7 fi-expander_content"
         id="id-first_content"
-        role="region"
       >
         First content
       </div>
@@ -416,37 +442,40 @@ exports[`Basic expander group should match snapshot 1`] = `
     <div
       class="c0 c3 fi-expander"
     >
-      <button
-        aria-controls="id-second_content"
-        aria-disabled="false"
-        aria-expanded="false"
-        class="c2 c4 fi-button fi-expander_title fi-expander_title--no-tag"
+      <div
+        class="c0 c4 fi-expander_title"
         data-testid="expander-title-2"
-        id="id-second"
-        tabindex="0"
-        type="button"
       >
-        Second
-        <svg
-          aria-hidden="true"
-          class="fi-icon c5 fi-expander_title-icon"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
+        <button
+          aria-controls="id-second_content"
+          aria-disabled="false"
+          aria-expanded="false"
+          class="c2 c5 fi-button fi-expander_title-button"
+          id="id-second"
+          tabindex="0"
+          type="button"
         >
-          <path
-            d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
-          />
-        </svg>
-      </button>
+          Second
+          <svg
+            aria-hidden="true"
+            class="fi-icon c6 fi-expander_title-icon"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
+            />
+          </svg>
+        </button>
+      </div>
       <div
         aria-hidden="true"
         aria-labelledby="id-second"
-        class="c0 c6 fi-expander_content"
+        class="c0 c7 fi-expander_content"
         id="id-second_content"
-        role="region"
       >
         Second content
       </div>

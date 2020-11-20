@@ -1,7 +1,7 @@
 import { MouseEvent, KeyboardEvent } from 'react';
 
-export interface NoMouseFocusProps {
-  callback: (event: MouseEvent<Element> | KeyboardEvent<Element>) => void;
+export interface NoMouseFocusProps<T, K> {
+  callback: (event: MouseEvent<T> | KeyboardEvent<K>) => void;
 }
 
 /**
@@ -9,24 +9,24 @@ export interface NoMouseFocusProps {
  * @property {function} onMouseDown handler for onMouseDown
  * @property {function} onKeyUp handler for onKeyUp
  */
-export interface NoMouseFocusReturnProps {
-  onMouseDown: (event: MouseEvent<HTMLButtonElement>) => void;
-  onKeyUp: (event: KeyboardEvent<HTMLButtonElement>) => void;
+export interface NoMouseFocusReturnProps<T, K> {
+  onMouseDown: (event: MouseEvent<T>) => void;
+  onKeyUp: (event: KeyboardEvent<K>) => void;
 }
 
 /** Prevent button :focus on mouse use and allow focus only with keyboard
  * @param {function} callback function to execute on click or on key press
  * @returns {clickAndKeyboardHandler}
  */
-export const noMouseFocus = ({
+export const noMouseFocus = <T, K>({
   callback,
-}: NoMouseFocusProps): NoMouseFocusReturnProps => {
+}: NoMouseFocusProps<T, K>): NoMouseFocusReturnProps<T, K> => {
   return {
-    onMouseDown: (event) => {
+    onMouseDown: (event: MouseEvent<T>) => {
       event.preventDefault();
       callback(event);
     },
-    onKeyUp: (event: any) => {
+    onKeyUp: (event: KeyboardEvent<K>) => {
       if (event.key === 'Enter' || event.key === ' ') {
         callback(event);
       }
