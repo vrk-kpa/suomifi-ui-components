@@ -80,8 +80,7 @@ export interface CheckboxProps extends TokensProp {
   'aria-describedby'?: string;
   /**
    * Unique id
-   * If no id is specified, one will be generated using uuid
-   * @default uuidV4
+   * If no id is specified, one will be generated automatically
    */
   id?: string;
   /** Name */
