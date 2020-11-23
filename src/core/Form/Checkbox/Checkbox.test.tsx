@@ -110,4 +110,68 @@ describe('props', () => {
       expect(container.firstChild).toMatchSnapshot();
     });
   });
+
+  describe('hintText', () => {
+    it('has the hint text element', () => {
+      const { getByText } = render(
+        <Checkbox hintText="Example hint text">Text</Checkbox>,
+      );
+      expect(getByText('Example hint text')).toHaveClass('fi-hint-text');
+    });
+
+    it('will be added to input aria-describedby', () => {
+      const { getByRole } = render(
+        <Checkbox id="123" hintText="Example hint text">
+          Text
+        </Checkbox>,
+      );
+      expect(getByRole('checkbox')).toHaveAttribute(
+        'aria-describedby',
+        '123-hintText',
+      );
+    });
+  });
+
+  describe('statusText', () => {
+    it('has the status text element', () => {
+      const { getByText } = render(
+        <Checkbox statusText="Example status text">Text</Checkbox>,
+      );
+      const statusText = getByText('Example status text');
+      expect(statusText).toHaveClass('fi-status-text');
+    });
+
+    it('will be added to input aria-describedby', () => {
+      const { getByRole } = render(
+        <Checkbox id="123" statusText="Example status text">
+          Text
+        </Checkbox>,
+      );
+      expect(getByRole('checkbox')).toHaveAttribute(
+        'aria-describedby',
+        '123-statusText',
+      );
+    });
+  });
+
+  describe('disabled', () => {
+    it('has disabled attribute and classname', () => {
+      const { container, getByRole } = render(
+        <Checkbox disabled statusText="Example status text">
+          Text
+        </Checkbox>,
+      );
+      expect(container.firstChild).toHaveClass('fi-checkbox--disabled');
+      expect(getByRole('checkbox')).toHaveAttribute('disabled');
+    });
+  });
+
+  describe('className', () => {
+    it('has the given custom className', () => {
+      const { container } = render(
+        <Checkbox className="custom-style">Text</Checkbox>,
+      );
+      expect(container.firstChild).toHaveClass('custom-style');
+    });
+  });
 });
