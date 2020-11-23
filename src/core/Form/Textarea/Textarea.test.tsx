@@ -34,6 +34,19 @@ describe('props', () => {
       expect(label).toHaveClass('fi-textarea_label');
     });
 
+    it('has user given aria-describedby on textarea', () => {
+      const { getByRole } = render(
+        <Textarea
+          labelText="Label here"
+          aria-describedby="external-component-id"
+        />,
+      );
+      expect(getByRole('textbox')).toHaveAttribute(
+        'aria-describedby',
+        'external-component-id',
+      );
+    });
+
     it(
       'should not have basic accessibility issues',
       axeTest(DefaultTextareaComponent),
@@ -149,6 +162,16 @@ describe('props', () => {
       const hintText = getByText('Example hint text');
       expect(hintText).toHaveClass('fi-textarea_hintText');
     });
+
+    it('will be added to input aria-describedby', () => {
+      const { getByRole } = render(
+        <Textarea id="123" labelText="label" hintText="Example hint text" />,
+      );
+      expect(getByRole('textbox')).toHaveAttribute(
+        'aria-describedby',
+        '123-hintText',
+      );
+    });
   });
 
   describe('statusText', () => {
@@ -158,6 +181,20 @@ describe('props', () => {
       );
       const statusText = getByText('EROR EROR');
       expect(statusText).toHaveClass('fi-textarea_statusText');
+    });
+
+    it('will be added to input aria-describedby', () => {
+      const { getByRole } = render(
+        <Textarea
+          id="123"
+          labelText="label"
+          statusText="Example status text"
+        />,
+      );
+      expect(getByRole('textbox')).toHaveAttribute(
+        'aria-describedby',
+        '123-statusText',
+      );
     });
   });
 
@@ -213,6 +250,7 @@ describe('props', () => {
       expect(textarea).toHaveStyle('resize: none');
     });
   });
+
   describe('name', () => {
     it('has the given name attribute', () => {
       const { getByRole } = render(
@@ -220,6 +258,16 @@ describe('props', () => {
       );
       const textarea = getByRole('textbox') as HTMLInputElement;
       expect(textarea.name).toBe('test-name');
+    });
+  });
+
+  describe('optionalText', () => {
+    it('should have element and correct classname for it', () => {
+      const { getByText } = render(
+        <Textarea labelText="label" optionalText="Optional" />,
+      );
+      const optionalText = getByText('(Optional)');
+      expect(optionalText).toHaveClass('fi-textarea_optionalText');
     });
   });
 });
