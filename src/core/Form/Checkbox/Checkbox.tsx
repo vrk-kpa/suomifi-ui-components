@@ -4,10 +4,13 @@ import classnames from 'classnames';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './Checkbox.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
-import { HtmlInput, HtmlLabel, HtmlSpan, HtmlDiv } from '../../../reset';
+import { HtmlInput, HtmlLabel, HtmlDiv } from '../../../reset';
 import { logger } from '../../../utils/logger';
 import { Icon } from '../../Icon/Icon';
 import { AutoId } from '../../../utils/AutoId';
+import { StatusText } from '../StatusText/StatusText';
+import { InputStatus } from '../types';
+import { HintText } from '../HintText/HintText';
 
 const baseClassName = 'fi-checkbox';
 
@@ -30,6 +33,8 @@ const iconClassnames = {
   checked: `${iconBaseClassName}--checked`,
   error: `${iconBaseClassName}--error`,
 };
+
+type CheckboxStatus = Exclude<InputStatus, 'success'>;
 
 export interface CheckboxProps extends TokensProp {
   /** Controlled checked-state - user actions use onClick to change  */
@@ -54,10 +59,10 @@ export interface CheckboxProps extends TokensProp {
    */
   variant?: 'small' | 'large';
   /**
-   * Status of the Checkbox
+   * 'default' | 'error'
    * @default default
    */
-  status?: 'default' | 'error';
+  status?: CheckboxStatus;
   /**
    * Status text to be displayed in the status text element. Will not be displayed when element is disabled.
    */
@@ -213,17 +218,10 @@ class BaseCheckbox extends Component<CheckboxProps> {
           )}
           {children}
         </HtmlLabel>
-        {hintText && (
-          <HtmlSpan className={checkboxClassNames.hintText} id={hintTextId}>
-            {hintText}
-          </HtmlSpan>
-        )}
-
-        {statusText && !disabled && (
-          <HtmlSpan className={checkboxClassNames.statusText} id={statusTextId}>
-            {statusText}
-          </HtmlSpan>
-        )}
+        <HintText id={hintTextId}>{hintText}</HintText>
+        <StatusText id={statusTextId} status={status}>
+          {statusText}
+        </StatusText>
       </HtmlDiv>
     );
   }

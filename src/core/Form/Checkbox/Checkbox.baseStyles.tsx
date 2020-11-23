@@ -55,9 +55,6 @@ const errorStyles = ({ theme }: SuomifiThemeProp) => css`
         fill: ${theme.colors.alertBase};
       }
     }
-    & .fi-checkbox_status {
-      color: ${theme.colors.alertBase};
-    }
   }
 `;
 
@@ -85,7 +82,7 @@ const largeVariantStyles = ({ theme }: SuomifiThemeProp) => css`
         top: 4px;
       }
     }
-    & .fi-checkbox_hintText {
+    & .fi-hint-text {
       padding-left: ${theme.spacing.xxl};
     }
   }
@@ -139,20 +136,15 @@ export const baseStyles = withSuomifiTheme(
       z-index: -9999;
     }
 
-    & .fi-checkbox_hintText {
-      display: block;
+    & .fi-hint-text {
       padding-left: ${theme.spacing.l};
-      ${theme.typography.bodyTextSmall};
       color: ${theme.colors.depthDark1};
+      margin-bottom: 0;
     }
 
-    & .fi-checkbox_status {
+    & .fi-status-text {
       display: block;
-      margin-top: ${theme.spacing.xxs};
-      color: ${theme.colors.blackBase};
-      font-size: 14px;
       line-height: 18px;
-      font-weight: 600;
     }
 
     ${largeVariantStyles({ theme })};
