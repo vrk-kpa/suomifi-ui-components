@@ -131,6 +131,7 @@ export class Textarea extends Component<TextareaProps> {
       visualPlaceholder,
       resize: dismissResize,
       optionalText,
+      'aria-describedby': ariaDescribedBy,
       ...passProps
     } = this.props;
 
@@ -140,12 +141,12 @@ export class Textarea extends Component<TextareaProps> {
     const hintTextId = `${id}-hintText`;
 
     const getDescribedBy = () => {
-      if (statusText || hintText || this.props['aria-describedby']) {
+      if (statusText || hintText || ariaDescribedBy) {
         return {
           'aria-describedby': [
             ...(statusText ? [statusTextId] : []),
             ...(hintText ? [hintTextId] : []),
-            this.props['aria-describedby'],
+            ...(ariaDescribedBy ? [ariaDescribedBy] : []),
           ].join(' '),
         };
       }
