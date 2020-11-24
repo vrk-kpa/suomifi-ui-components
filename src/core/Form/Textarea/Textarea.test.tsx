@@ -122,7 +122,7 @@ describe('props', () => {
   });
 
   describe('labelMode', () => {
-    it('hidden: should hide visually-hidden classname   ', () => {
+    it('hidden: should hide label; label to have visually-hidden classname', () => {
       const { getByText } = render(
         <Textarea labelText="To be hidden" labelMode="hidden" />,
       );
