@@ -270,4 +270,13 @@ describe('props', () => {
       expect(optionalText).toHaveClass('fi-textarea_optionalText');
     });
   });
+
+  describe('id', () => {
+    it('has the given id', () => {
+      const { getByRole } = render(
+        <Textarea labelText="label" id="custom-id" />,
+      );
+      expect(getByRole('textbox')).toHaveAttribute('id', 'custom-id');
+    });
+  });
 });
