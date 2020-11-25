@@ -1,4 +1,9 @@
 /** Based heavily on https://github.com/reach/reach-ui/tree/develop/packages/auto-id */
+/* As a11y API's needs element IDs and requiring user to give those all not suitable, we generate them automatically.
+ * Generating random IDs are not working as those will not match with the client & server side rendering.
+ *
+ * Idea of the AutoId is to patch incremented id after the first render.
+ */
 import React, { useState, useEffect } from 'react';
 
 let serverHandoffComplete = false;
