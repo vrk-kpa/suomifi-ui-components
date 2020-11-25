@@ -59,8 +59,6 @@ interface InternalExpanderProps {
   open?: boolean;
   /** Event handler to execute when clicked */
   onClick?: ({ openState }: { openState: boolean }) => void;
-  index?: number;
-  expanderGroup?: boolean;
   consumer?: ExpanderGroupProviderState;
 }
 
@@ -94,50 +92,45 @@ class BaseExpander extends Component<InternalExpanderProps> {
 
   contentId = `${this.id}_content`;
 
-  componentDidUpdate(prevProps: ExpanderProps, prevState: ExpanderState) {
-    if (
-      !!this.props.consumer &&
-      !!prevProps.consumer &&
-      this.props.consumer.toggleAllExpanderState !==
-        prevProps.consumer.toggleAllExpanderState
-    ) {
-      const { openState } = this.state;
-      const {
-        expanderGroup,
-        index,
-        consumer: { toggleAllExpanderState },
-        open,
-      } = this.props;
+  constructor(props: InternalExpanderProps) {
+    super(props);
+    if (!!props.consumer) {
+      const defaultOpen =
+        props.open !== undefined ? props.open : props.defaultOpen || false;
+      props.consumer.onExpanderOpenChange(this.id, defaultOpen);
+    }
+  }
 
+  componentDidUpdate(prevProps: ExpanderProps, prevState: ExpanderState) {
+    const { consumer, open } = this.props;
+    const controlled = open !== undefined;
+    if (
+      !!consumer &&
+      consumer.toggleAllExpanderState !==
+        prevProps.consumer?.toggleAllExpanderState
+    ) {
       if (
-        !!expanderGroup &&
-        index !== undefined &&
-        ((open === undefined &&
-          !!openState !== toggleAllExpanderState.toState) ||
-          (open !== undefined && !!open !== toggleAllExpanderState.toState))
+        (!controlled &&
+          !!this.state.openState !== consumer.toggleAllExpanderState.toState) ||
+        (controlled && open !== consumer.toggleAllExpanderState.toState)
       ) {
         this.handleClick();
       }
     }
-
-    const { open } = this.props;
-    const { openState } = this.state;
-    const controlled = open !== undefined;
     if (
-      (prevState.openState !== openState && !controlled) ||
-      (prevProps.open !== open && controlled)
+      (!controlled && prevState.openState !== this.state.openState) ||
+      (controlled && prevProps.open !== open)
     ) {
-      const {
-        expanderGroup,
-        index,
-        consumer: { onExpanderOpenChange } = {
-          onExpanderOpenChange: undefined,
-        },
-      } = this.props;
-      if (!!expanderGroup && !!onExpanderOpenChange && index !== undefined) {
-        const currentState = controlled ? !!open : openState;
-        onExpanderOpenChange(index, currentState);
+      if (!!consumer && this.id !== undefined) {
+        const currentState = controlled ? !!open : this.state.openState;
+        consumer.onExpanderOpenChange(this.id, currentState);
       }
+    }
+  }
+
+  componentWillUnmount() {
+    if (!!this.props.consumer && !!this.props.consumer.onExpanderOpenChange) {
+      this.props.consumer.onExpanderOpenChange(this.id, undefined);
     }
   }
 
@@ -162,8 +155,6 @@ class BaseExpander extends Component<InternalExpanderProps> {
       onClick,
       className,
       children,
-      index,
-      expanderGroup: dissmissExpanderGroup,
       consumer,
       ...passProps
     } = this.props;
@@ -205,7 +196,7 @@ interface ExpanderState {
 
 export class Expander extends Component<ExpanderProps> {
   render() {
-    return !!this.props.expanderGroup ? (
+    return (
       <ExpanderGroupConsumer>
         {(consumer) => (
           <StyledExpander
@@ -214,8 +205,6 @@ export class Expander extends Component<ExpanderProps> {
           />
         )}
       </ExpanderGroupConsumer>
-    ) : (
-      <StyledExpander {...withSuomifiDefaultProps(this.props)} />
     );
   }
 }

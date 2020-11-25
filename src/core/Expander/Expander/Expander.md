@@ -54,7 +54,16 @@ const [expanderThreeOpen, setExpanderThreeOpen] = React.useState(
   false
 );
 
+const [showExpander, setShowExpander] = React.useState(false);
+
 <>
+  <button
+    onClick={() => {
+      setShowExpander(!showExpander);
+    }}
+  >
+    {showExpander ? 'Hide' : 'Show'}
+  </button>
   <ExpanderGroup OpenAllText="Open all" CloseAllText="Close all">
     <Expander>
       <ExpanderTitle>Test expander 1</ExpanderTitle>
@@ -64,6 +73,12 @@ const [expanderThreeOpen, setExpanderThreeOpen] = React.useState(
       <ExpanderTitle>Test expander 2</ExpanderTitle>
       <ExpanderContent>Test expander content 2</ExpanderContent>
     </Expander>
+    {!!showExpander && (
+      <Expander>
+        <ExpanderTitle>Test expander X</ExpanderTitle>
+        <ExpanderContent>Test expander content X</ExpanderContent>
+      </Expander>
+    )}
     <Expander
       open={expanderThreeOpen}
       onClick={({ openState }) => {
