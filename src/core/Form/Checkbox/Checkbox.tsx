@@ -185,6 +185,17 @@ class BaseCheckbox extends Component<CheckboxProps> {
       ...(value ? { value } : {}),
     };
 
+    const CheckedIcon = () => (
+      <Icon
+        icon="check"
+        className={classnames(iconBaseClassName, {
+          [iconClassnames.checked]: checkedState && !disabled,
+          [iconClassnames.error]: status === 'error' && !disabled,
+          [iconClassnames.disabled]: !!disabled,
+        })}
+      />
+    );
+
     return (
       <HtmlDiv
         className={classnames(
@@ -205,16 +216,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
           className={checkboxClassNames.label}
           {...passProps}
         >
-          {!!checkedState && (
-            <Icon
-              icon="check"
-              className={classnames(iconBaseClassName, {
-                [iconClassnames.checked]: checkedState && !disabled,
-                [iconClassnames.error]: status === 'error' && !disabled,
-                [iconClassnames.disabled]: !!disabled,
-              })}
-            />
-          )}
+          {!!checkedState && <CheckedIcon />}
           {children}
         </HtmlLabel>
         <HintText id={hintTextId}>{hintText}</HintText>
