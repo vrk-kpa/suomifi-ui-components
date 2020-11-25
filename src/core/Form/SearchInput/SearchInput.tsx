@@ -75,6 +75,10 @@ export interface SearchInputProps
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback for search button click */
   onSearch?: (value: SearchInputValue) => void;
+  /** Debounce timer for debounce onChange function
+   * @default 1000
+   */
+  debounce?: number;
 }
 
 const baseClassName = 'fi-search-input';
@@ -118,10 +122,20 @@ class BaseSearchInput extends Component<SearchInputProps> {
     return null;
   }
 
+  private debouncedChange = debounce((value) => console.log(value), 200); // Ugly as hell - streamline
+
+  private debounceTime = 200;
+
   constructor(props: SearchInputProps) {
     super(props);
     this.id = `${idGenerator(props.id)}`;
     this.statusTextId = `${this.id}-statusText`;
+    if (this.props.debounce) {
+      this.debounceTime = this.props.debounce;
+    }
+    if (this.props.onChange !== undefined) {
+      this.debouncedChange = debounce(this.props.onChange, this.debounceTime);
+    }
   }
 
   render() {
@@ -152,7 +166,8 @@ class BaseSearchInput extends Component<SearchInputProps> {
         this.setState({ value: newValue });
       }
       if (propOnChange) {
-        propOnChange(newValue);
+        // const debouncedOnChange = debounce(propOnChange, 1000);
+        this.debouncedChange(newValue);
       }
     };
 
@@ -242,6 +257,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
               value={this.state.value}
               placeholder={visualPlaceholder}
               onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                event.persist();
                 conditionalSetState(event.currentTarget.value);
               }}
               onKeyPress={onKeyPress}
