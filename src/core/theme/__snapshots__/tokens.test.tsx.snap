@@ -73,12 +73,48 @@ exports[`snapshot testing 1`] = `
   white-space: normal;
 }
 
-.c6 {
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c8 {
   display: inline-block;
   vertical-align: baseline;
 }
 
-.c5.fi-button--disabled {
+.c4 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.c7.fi-button--disabled {
   cursor: not-allowed;
 }
 
@@ -200,7 +236,7 @@ exports[`snapshot testing 1`] = `
   z-index: 9999;
 }
 
-.c3 {
+.c5 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -225,12 +261,12 @@ exports[`snapshot testing 1`] = `
   max-width: 100%;
 }
 
-.c3:before {
+.c5:before {
   background-color: hsl(212,63%,98%);
   opacity: 0;
 }
 
-.c7 {
+.c9 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -263,11 +299,11 @@ exports[`snapshot testing 1`] = `
   will-change: transition,height;
 }
 
-.c7:not(.fi-expander_content--no-padding) {
+.c9:not(.fi-expander_content--no-padding) {
   padding: 0 16px;
 }
 
-.c7.fi-expander_content--open {
+.c9.fi-expander_content--open {
   visibility: visible;
   height: 10%;
   overflow: visible;
@@ -275,14 +311,14 @@ exports[`snapshot testing 1`] = `
   animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
 }
 
-.c7.fi-expander_content--open:not(.fi-expander_content--no-padding) {
+.c9.fi-expander_content--open:not(.fi-expander_content--no-padding) {
   padding-top: 0;
   padding-right: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
 }
 
-.c4 {
+.c6 {
   color: hsl(0,0%,16%);
   position: relative;
   display: block;
@@ -291,7 +327,7 @@ exports[`snapshot testing 1`] = `
   min-height: 60px;
 }
 
-.c4 .fi-expander_title-button {
+.c6 .fi-expander_title-button {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -334,15 +370,15 @@ exports[`snapshot testing 1`] = `
   padding: 17px 60px 16px 20px;
 }
 
-.c4 .fi-expander_title-button:focus {
+.c6 .fi-expander_title-button:focus {
   outline: 0;
 }
 
-.c4 .fi-expander_title-button:focus-within {
+.c6 .fi-expander_title-button:focus-within {
   outline: 0;
 }
 
-.c4 .fi-expander_title-button:focus-within:after {
+.c6 .fi-expander_title-button:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -358,19 +394,19 @@ exports[`snapshot testing 1`] = `
   z-index: 9999;
 }
 
-.c4 .fi-expander_title-button,
-.c4 .fi-expander_title-button * {
+.c6 .fi-expander_title-button,
+.c6 .fi-expander_title-button * {
   cursor: pointer;
 }
 
-.c4 .fi-expander_title-button:hover,
-.c4 .fi-expander_title-button:active,
-.c4 .fi-expander_title-button:focus,
-.c4 .fi-expander_title-button:focus-within {
+.c6 .fi-expander_title-button:hover,
+.c6 .fi-expander_title-button:active,
+.c6 .fi-expander_title-button:focus,
+.c6 .fi-expander_title-button:focus-within {
   cursor: pointer;
 }
 
-.c4 .fi-expander_title-icon {
+.c6 .fi-expander_title-icon {
   position: absolute;
   height: 20px;
   width: 20px;
@@ -379,8 +415,8 @@ exports[`snapshot testing 1`] = `
   margin: 20px;
 }
 
-.c4 .fi-expander_title--open .fi-expander_title-icon,
-.c4 .fi-expander_title-icon--open {
+.c6 .fi-expander_title--open .fi-expander_title-icon,
+.c6 .fi-expander_title-icon--open {
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   transform: rotate(-180deg);
@@ -393,22 +429,32 @@ exports[`snapshot testing 1`] = `
     class="c2 fi-expander-group_all-button"
     type="button"
   >
-    Open all
+    <span
+      aria-hidden="true"
+      class="c3"
+    >
+      Open all
+    </span>
+    <span
+      class="c3 c4 fi-visually-hidden"
+    >
+      Open all
+    </span>
   </button>
   <div
     class="c0 fi-expander-group_expanders"
   >
     <div
-      class="c0 c3 fi-expander"
+      class="c0 c5 fi-expander"
     >
       <div
-        class="c0 c4 fi-expander_title"
+        class="c0 c6 fi-expander_title"
       >
         <button
           aria-controls="id-expander-1_content"
           aria-disabled="false"
           aria-expanded="false"
-          class="c2 c5 fi-button fi-expander_title-button"
+          class="c2 c7 fi-button fi-expander_title-button"
           id="id-expander-1"
           tabindex="0"
           type="button"
@@ -416,7 +462,7 @@ exports[`snapshot testing 1`] = `
           Test expander 1
           <svg
             aria-hidden="true"
-            class="fi-icon c6 fi-expander_title-icon"
+            class="fi-icon c8 fi-expander_title-icon"
             fill="currentColor"
             focusable="false"
             height="1em"
@@ -431,16 +477,16 @@ exports[`snapshot testing 1`] = `
       </div>
     </div>
     <div
-      class="c0 c3 fi-expander"
+      class="c0 c5 fi-expander"
     >
       <div
-        class="c0 c4 fi-expander_title"
+        class="c0 c6 fi-expander_title"
       >
         <button
           aria-controls="id-expander-2_content"
           aria-disabled="false"
           aria-expanded="false"
-          class="c2 c5 fi-button fi-expander_title-button"
+          class="c2 c7 fi-button fi-expander_title-button"
           id="id-expander-2"
           tabindex="0"
           type="button"
@@ -448,7 +494,7 @@ exports[`snapshot testing 1`] = `
           Test expander 2
           <svg
             aria-hidden="true"
-            class="fi-icon c6 fi-expander_title-icon"
+            class="fi-icon c8 fi-expander_title-icon"
             fill="currentColor"
             focusable="false"
             height="1em"
@@ -464,23 +510,23 @@ exports[`snapshot testing 1`] = `
       <div
         aria-hidden="true"
         aria-labelledby="id-expander-2"
-        class="c0 c7 fi-expander_content"
+        class="c0 c9 fi-expander_content"
         id="id-expander-2_content"
       >
         Test expander content 2
       </div>
     </div>
     <div
-      class="c0 c3 fi-expander"
+      class="c0 c5 fi-expander"
     >
       <div
-        class="c0 c4 fi-expander_title"
+        class="c0 c6 fi-expander_title"
       >
         <button
           aria-controls="id-expander-3_content"
           aria-disabled="false"
           aria-expanded="false"
-          class="c2 c5 fi-button fi-expander_title-button"
+          class="c2 c7 fi-button fi-expander_title-button"
           id="id-expander-3"
           tabindex="0"
           type="button"
@@ -488,7 +534,7 @@ exports[`snapshot testing 1`] = `
           Test expander 3
           <svg
             aria-hidden="true"
-            class="fi-icon c6 fi-expander_title-icon"
+            class="fi-icon c8 fi-expander_title-icon"
             fill="currentColor"
             focusable="false"
             height="1em"
@@ -504,7 +550,7 @@ exports[`snapshot testing 1`] = `
       <div
         aria-hidden="true"
         aria-labelledby="id-expander-3"
-        class="c0 c7 fi-expander_content"
+        class="c0 c9 fi-expander_content"
         id="id-expander-3_content"
       >
         Test expander content 3

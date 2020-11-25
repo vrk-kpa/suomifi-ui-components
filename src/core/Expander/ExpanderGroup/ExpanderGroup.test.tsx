@@ -3,6 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 import { axeTest } from '../../../utils/test/axe';
 import {
   ExpanderGroup,
+  ExpanderGroupProps,
   Expander,
   ExpanderProps,
   ExpanderTitle,
@@ -31,8 +32,15 @@ const TestExpanderGroup = (
     titleProps: ExpanderTitleProps & { 'data-testid': string };
     content: string;
   }[],
+  expanderGroupProps?: Partial<ExpanderGroupProps>,
 ) => (
-  <ExpanderGroup OpenAllText="Open all" CloseAllText="Close all">
+  <ExpanderGroup
+    OpenAllText="Open all"
+    CloseAllText="Close all"
+    AriaOpenAllText="Open all expanders"
+    AriaCloseAllText="Close all expanders"
+    {...expanderGroupProps}
+  >
     {expanderData.map((d, index) =>
       TestExpanderWithProps(d.expanderProps, d.titleProps, d.content, index),
     )}
@@ -94,48 +102,60 @@ describe('Basic expander group', () => {
 });
 
 describe('default behaviour', () => {
+  const DefaultGroup = TestExpanderGroup(
+    [
+      {
+        expanderProps: {
+          id: 'id-first',
+        },
+        titleProps: { 'data-testid': 'expander-title-1', children: 'First' },
+        content: 'First content',
+      },
+      {
+        expanderProps: {
+          id: 'id-second',
+        },
+        titleProps: {
+          'data-testid': 'expander-title-2',
+          children: 'Second',
+          toggleButtonProps: { 'data-testid': 'expander-title-2-button' },
+        },
+        content: 'Second content',
+      },
+    ],
+    { openAllButtonProps: { 'data-testid': 'open-all-button' } },
+  );
   it('open/close all should open/close the Expanders', () => {
-    const { getByTestId, getByText } = render(
-      TestExpanderGroup([
-        {
-          expanderProps: {
-            id: 'id-first',
-          },
-          titleProps: { 'data-testid': 'expander-title-1', children: 'First' },
-          content: 'First content',
-        },
-        {
-          expanderProps: {
-            id: 'id-second',
-          },
-          titleProps: { 'data-testid': 'expander-title-2', children: 'Second' },
-          content: 'Second content',
-        },
-      ]),
+    const { getByTestId } = render(DefaultGroup);
+    const titleDiv = getByTestId('expander-title-2');
+    const button = getByTestId('expander-title-2-button');
+    expect(titleDiv).not.toHaveClass('fi-expander_title--open');
+    expect(button.querySelector('svg')).not.toHaveClass(
+      'fi-expander_title-icon--open',
     );
-    const button = getByTestId('expander-title-2');
-    expect(button.classList.contains('fi-expander_title--open')).toBe(false);
-    expect(
-      button
-        .querySelector('svg')
-        ?.classList.contains('fi-expander_title-icon--open'),
-    ).toBe(false);
-    const allOpenButton = getByText('Open all');
-    fireEvent.mouseDown(allOpenButton);
-    expect(button.classList.contains('fi-expander_title--open')).toBe(true);
-    expect(
-      button
-        .querySelector('svg')
-        ?.classList.contains('fi-expander_title-icon--open'),
-    ).toBe(true);
-    const allCloseButton = getByText('Close all');
-    fireEvent.mouseDown(allCloseButton);
-    expect(button.classList.contains('fi-expander_title--open')).toBe(false);
-    expect(
-      button
-        .querySelector('svg')
-        ?.classList.contains('fi-expander_title-icon--open'),
-    ).toBe(false);
+    fireEvent.mouseDown(button);
+    expect(titleDiv).toHaveClass('fi-expander_title--open');
+    expect(button.querySelector('svg')).toHaveClass(
+      'fi-expander_title-icon--open',
+    );
+    fireEvent.mouseDown(button);
+    expect(titleDiv).not.toHaveClass('fi-expander_title--open');
+    expect(button.querySelector('svg')).not.toHaveClass(
+      'fi-expander_title-icon--open',
+    );
+  });
+  it('open/close all should have providedTexts and screen reader texts', async () => {
+    const { getByTestId, getByText } = render(DefaultGroup);
+    const buttonVisibleText = getByText('Open all');
+    expect(buttonVisibleText).toHaveAttribute('aria-hidden', 'true');
+    const buttonAriaText = getByText('Open all expanders');
+    expect(buttonAriaText).toHaveClass('fi-visually-hidden');
+    const openAllbutton = getByTestId('open-all-button');
+    fireEvent.mouseDown(openAllbutton);
+    const buttonVisibleCloseText = getByText('Close all');
+    expect(buttonVisibleCloseText).toHaveAttribute('aria-hidden', 'true');
+    const buttonAriaCloseText = getByText('Close all expanders');
+    expect(buttonAriaCloseText).toHaveClass('fi-visually-hidden');
   });
 });
 
@@ -161,14 +181,11 @@ describe('defaultOpen', () => {
         },
       ]),
     );
-    const button = getByTestId('expander-title-2');
-    expect(button.classList.contains('fi-expander_title--open')).toBe(true);
-
-    expect(
-      button
-        .querySelector('svg')
-        ?.classList.contains('fi-expander_title-icon--open'),
-    ).toBe(true);
+    const titleDiv = getByTestId('expander-title-2');
+    expect(titleDiv).toHaveClass('fi-expander_title--open');
+    expect(titleDiv.querySelector('svg')).toHaveClass(
+      'fi-expander_title-icon--open',
+    );
   });
 
   it('classnames will be removed when clicked', () => {
@@ -195,26 +212,20 @@ describe('defaultOpen', () => {
             'data-testid': 'expander-title-2',
             children: 'Second',
             toggleButtonProps: {
-              'data-testid': 'toggle-button-2',
+              'data-testid': 'expander-title-2-button',
             },
           },
           content: 'Second content',
         },
       ]),
     );
-    const button = getByTestId('toggle-button-2');
-    const wrapperDiv = getByTestId('expander-title-2');
+    const button = getByTestId('expander-title-2-button');
+    const titleDiv = getByTestId('expander-title-2');
+    expect(titleDiv).toHaveClass('fi-expander_title--open');
     fireEvent.mouseDown(button);
-
-    expect(wrapperDiv.classList.contains('fi-expander_title--open')).toBe(
-      false,
+    expect(button.querySelector('svg')).not.toHaveClass(
+      'fi-expander_title-icon--open',
     );
-
-    expect(
-      button
-        .querySelector('svg')
-        ?.classList.contains('fi-expander_title-icon--open'),
-    ).toBe(false);
   });
 });
 
@@ -238,14 +249,14 @@ describe('onClick', () => {
             'data-testid': 'expander-title-2',
             children: 'Second',
             toggleButtonProps: {
-              'data-testid': 'toggle-button-2',
+              'data-testid': 'expander-title-2-button',
             },
           },
           content: 'Second content',
         },
       ]),
     );
-    const button = getByTestId('toggle-button-2');
+    const button = getByTestId('expander-title-2-button');
     fireEvent.mouseDown(button);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
   });
@@ -276,14 +287,12 @@ describe('open', () => {
         },
       ]),
     );
-    const wrapperDiv = getByTestId('expander-title-2');
-    expect(wrapperDiv.classList.contains('fi-expander_title--open')).toBe(true);
+    const titleDiv = getByTestId('expander-title-2');
+    expect(titleDiv).toHaveClass('fi-expander_title--open');
 
-    expect(
-      wrapperDiv
-        .querySelector('svg')
-        ?.classList.contains('fi-expander_title-icon--open'),
-    ).toBe(true);
+    expect(titleDiv.querySelector('svg')).toHaveClass(
+      'fi-expander_title-icon--open',
+    );
   });
 
   it('is clicked. Should not change as it is controlled outside', async () => {
@@ -308,70 +317,77 @@ describe('open', () => {
             'data-testid': 'expander-title-2',
             children: 'Second',
             toggleButtonProps: {
-              'data-testid': 'toggle-button-2',
+              'data-testid': 'expander-title-2-button',
             },
           },
           content: 'Second content',
         },
       ]),
     );
-    const button = getByTestId('toggle-button-2');
-    const wrapperDiv = getByTestId('expander-title-2');
-    expect(wrapperDiv.classList.contains('fi-expander_title--open')).toBe(true);
-    expect(
-      wrapperDiv
-        .querySelector('svg')
-        ?.classList.contains('fi-expander_title-icon--open'),
-    ).toBe(true);
-
+    const button = getByTestId('expander-title-2-button');
+    const titleDiv = getByTestId('expander-title-2');
+    expect(titleDiv).toHaveClass('fi-expander_title--open');
+    expect(titleDiv.querySelector('svg')).toHaveClass(
+      'fi-expander_title-icon--open',
+    );
     fireEvent.mouseDown(button);
-
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
-    expect(wrapperDiv.classList.contains('fi-expander_title--open')).toBe(true);
-
-    expect(
-      wrapperDiv
-        .querySelector('svg')
-        ?.classList.contains('fi-expander_title-icon--open'),
-    ).toBe(true);
+    expect(titleDiv).toHaveClass('fi-expander_title--open');
+    expect(titleDiv.querySelector('svg')).toHaveClass(
+      'fi-expander_title-icon--open',
+    );
   });
 
   it('open/close all clicked should not force the state to change.', () => {
-    const { getByTestId, getByText } = render(
-      TestExpanderGroup([
-        {
-          expanderProps: {
-            id: 'id-first',
-            open: false,
+    const { getByTestId } = render(
+      TestExpanderGroup(
+        [
+          {
+            expanderProps: {
+              id: 'id-first',
+              open: false,
+            },
+            titleProps: {
+              'data-testid': 'expander-title-1',
+              children: 'First',
+            },
+            content: 'First content',
           },
-          titleProps: { 'data-testid': 'expander-title-1', children: 'First' },
-          content: 'First content',
-        },
-        {
-          expanderProps: {
-            id: 'id-second',
-            open: false,
+          {
+            expanderProps: {
+              id: 'id-second',
+              open: false,
+            },
+            titleProps: {
+              'data-testid': 'expander-title-2',
+              children: 'Second',
+              toggleButtonProps: {
+                'data-testid': 'expander-title-2-button',
+              },
+            },
+            content: 'Second content',
           },
-          titleProps: { 'data-testid': 'expander-title-2', children: 'Second' },
-          content: 'Second content',
+        ],
+        {
+          openAllButtonProps: {
+            'data-testid': 'open-all-button',
+          },
         },
-      ]),
+      ),
     );
-    const button = getByTestId('expander-title-2');
-    expect(button.classList.contains('fi-expander_title--open')).toBe(false);
-    expect(
-      button
-        .querySelector('svg')
-        ?.classList.contains('fi-expander_title-icon--open'),
-    ).toBe(false);
-    const allOpenButton = getByText('Open all');
-    fireEvent.click(allOpenButton);
-    expect(button.classList.contains('fi-expander_title--open')).toBe(false);
-    expect(
-      button
-        .querySelector('svg')
-        ?.classList.contains('fi-expander_title-icon--open'),
-    ).toBe(false);
+    const titleDiv = getByTestId('expander-title-2');
+    const button = getByTestId('expander-title-2-button');
+    expect(titleDiv).not.toHaveClass('fi-expander_title--open');
+    expect(button.querySelector('svg')).not.toHaveClass(
+      'fi-expander_title-icon--open',
+    );
+    const openAllButton = getByTestId('open-all-button');
+
+    fireEvent.click(openAllButton);
+    expect(titleDiv).not.toHaveClass('fi-expander_title--open');
+    expect(button.querySelector('svg')).not.toHaveClass(
+      'fi-expander_title-icon--open',
+    );
   });
 });
 

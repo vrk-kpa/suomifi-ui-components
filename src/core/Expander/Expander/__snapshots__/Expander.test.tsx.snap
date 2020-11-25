@@ -73,6 +73,10 @@ exports[`Basic expander shoud match snapshot 1`] = `
   white-space: normal;
 }
 
+.c4.fi-button--disabled {
+  cursor: not-allowed;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -158,10 +162,6 @@ exports[`Basic expander shoud match snapshot 1`] = `
 .c5 {
   display: inline-block;
   vertical-align: baseline;
-}
-
-.c4.fi-button--disabled {
-  cursor: not-allowed;
 }
 
 .c2 {
