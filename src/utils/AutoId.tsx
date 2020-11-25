@@ -4,7 +4,8 @@
  *
  * Idea of the AutoId is to patch incremented id after the first render.
  */
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useEnhancedEffect } from './common';
 
 let serverHandoffComplete = false;
 let theId = 0;
@@ -13,24 +14,12 @@ const genId = () => {
   return theId;
 };
 
-function canUseDOM() {
-  return !!(
-    typeof window !== 'undefined' &&
-    window.document &&
-    window.document.createElement
-  );
-}
-
-const useIsomorphicLayoutEffect = canUseDOM()
-  ? React.useLayoutEffect
-  : React.useEffect;
-
 const useId = (idFromProps?: string | null) => {
   const initialId = idFromProps || (serverHandoffComplete ? genId() : null);
 
   const [id, setId] = useState(initialId);
 
-  useIsomorphicLayoutEffect(() => {
+  useEnhancedEffect(() => {
     if (id === null) {
       setId(genId());
     }
