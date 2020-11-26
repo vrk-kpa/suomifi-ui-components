@@ -171,20 +171,6 @@ class BaseCheckbox extends Component<CheckboxProps> {
       return {};
     };
 
-    const newCheckboxInputProps = {
-      disabled,
-      id,
-      'aria-label': ariaLabel,
-      'aria-labelledby': ariaLabelledBy,
-      'aria-invalid': status === 'error',
-      checked: !!checkedState,
-      className: checkboxClassNames.input,
-      onChange: this.handleClick,
-      name,
-      ...getDescribedBy(),
-      ...(value ? { value } : {}),
-    };
-
     const CheckedIcon = () => (
       <Icon
         icon="check"
@@ -210,7 +196,20 @@ class BaseCheckbox extends Component<CheckboxProps> {
           },
         )}
       >
-        <HtmlInput {...newCheckboxInputProps} type="checkbox" />
+        <HtmlInput
+          type="checkbox"
+          disabled={disabled}
+          id={id}
+          aria-label={ariaLabel}
+          aria-labelledby={ariaLabelledBy}
+          aria-invalid={status === 'error'}
+          checked={!!checkedState}
+          className={checkboxClassNames.input}
+          onChange={this.handleClick}
+          name={name}
+          {...getDescribedBy()}
+          {...(value ? { value } : {})}
+        />
         <HtmlLabel
           htmlFor={id}
           className={checkboxClassNames.label}
