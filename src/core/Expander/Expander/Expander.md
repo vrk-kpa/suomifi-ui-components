@@ -19,7 +19,12 @@ import {
   ExpanderContent
 } from 'suomifi-ui-components';
 
-<ExpanderGroup OpenAllText="Open all" CloseAllText="Close all">
+<ExpanderGroup
+  OpenAllText="Open all"
+  AriaOpenAll="Open all expanders"
+  CloseAllText="Close all"
+  AriaCloseAll="Close all expanders"
+>
   <Expander>
     <ExpanderTitle>Test expander 1</ExpanderTitle>
     <ExpanderContent>Test expander content 1</ExpanderContent>
@@ -64,7 +69,12 @@ const [showExpander, setShowExpander] = React.useState(false);
   >
     {showExpander ? 'Hide' : 'Show'}
   </button>
-  <ExpanderGroup OpenAllText="Open all" CloseAllText="Close all">
+  <ExpanderGroup
+    OpenAllText="Open all"
+    AriaOpenAll="Open all expanders"
+    CloseAllText="Close all"
+    AriaCloseAll="Close all expanders"
+  >
     <Expander>
       <ExpanderTitle>Test expander 1</ExpanderTitle>
       <ExpanderContent>Test expander content 1</ExpanderContent>
@@ -81,9 +91,9 @@ const [showExpander, setShowExpander] = React.useState(false);
     )}
     <Expander
       open={expanderThreeOpen}
-      onClick={({ openState }) => {
+      onOpenChange={(open) => {
         if (window.confirm('Toggle Expander 3')) {
-          setExpanderThreeOpen(!openState);
+          setExpanderThreeOpen(!open);
         }
       }}
     >

@@ -4,10 +4,9 @@ import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { noMouseFocus } from '../../theme/utils/mousefocus';
-import { HtmlDiv } from '../../../reset';
+import { HtmlDiv, HtmlButton, HtmlButtonProps } from '../../../reset';
 import { baseStyles } from './ExpanderTitle.baseStyles';
 import { Icon } from '../../Icon/Icon';
-import { Button, ButtonProps } from '../../../components/Button/Button';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 
 const baseClassName = 'fi-expander';
@@ -21,7 +20,10 @@ export interface ExpanderTitleProps {
   /** Title for Expander */
   children?: ReactNode;
   /** Properties for title open/close toggle button */
-  toggleButtonProps?: Omit<ButtonProps, 'onClick'>;
+  toggleButtonProps?: Omit<
+    HtmlButtonProps,
+    'onClick' | 'onKeyUp' | 'onMouseDown'
+  >;
 }
 
 export interface InternalExpanderTitleProps
@@ -45,12 +47,10 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
           [titleOpenClassName]: !!consumer.open,
         })}
       >
-        <Button
-          {...noMouseFocus({ callback: consumer.onToggleExpander })}
+        <HtmlButton
           {...toggleButtonProps}
-          open={consumer.open}
+          {...noMouseFocus({ callback: consumer.onToggleExpander })}
           aria-expanded={!!consumer.open}
-          mouseNoFocus={true}
           className={titleButtonClassName}
           id={consumer.titleId}
           {...{ 'aria-controls': `${consumer.contentId}` }}
@@ -62,7 +62,7 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
               [iconOpenClassName]: consumer.open,
             })}
           />
-        </Button>
+        </HtmlButton>
       </HtmlDiv>
     );
   }
@@ -80,6 +80,10 @@ const StyledExpanderTitle = styled(
   ${(props) => baseStyles(props)};
 `;
 
+/**
+ * <i class="semantics" />
+ * Expander title for content and toggle for content visiblity
+ */
 export class ExpanderTitle extends Component<ExpanderTitleProps & TokensProp> {
   render() {
     return <StyledExpanderTitle {...withSuomifiDefaultProps(this.props)} />;

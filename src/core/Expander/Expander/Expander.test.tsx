@@ -98,7 +98,7 @@ describe('defaultOpen', () => {
   it('classnames will be removed when clicked', () => {
     const mockClickHandler = jest.fn();
     const { getByTestId } = render(
-      <Expander onClick={mockClickHandler}>
+      <Expander onOpenChange={mockClickHandler}>
         <ExpanderTitle {...{ 'data-testid': 'expander-open-by-default-title' }}>
           Test expander open by default
         </ExpanderTitle>
@@ -121,11 +121,11 @@ describe('defaultOpen', () => {
   });
 });
 
-describe('onClick', () => {
+describe('onOpenChange', () => {
   it('is called', async () => {
     const mockClickHandler = jest.fn();
     const { getByRole } = render(
-      <Expander onClick={mockClickHandler}>
+      <Expander onOpenChange={mockClickHandler}>
         <ExpanderTitle>Test expander open by default</ExpanderTitle>
         <ExpanderContent>Test expander open by default content</ExpanderContent>
       </Expander>,
@@ -161,7 +161,7 @@ describe('open', () => {
   it('is clicked. Should not change as it is controlled outside', async () => {
     const mockClickHandler = jest.fn();
     const { getByRole, getByTestId } = render(
-      ControlledExpander({ onClick: mockClickHandler }),
+      ControlledExpander({ onOpenChange: mockClickHandler }),
     );
     const button = getByRole('button');
     fireEvent.mouseDown(button);

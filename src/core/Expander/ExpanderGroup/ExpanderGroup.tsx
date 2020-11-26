@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { noMouseFocus } from '../../theme/utils/mousefocus';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
-import { ExpanderProps } from '../Expander/Expander';
 import { baseStyles } from './ExpanderGroup.baseStyles';
 import { VisuallyHidden } from '../../../components';
 
@@ -25,14 +24,13 @@ interface ExpanderOpenState {
 interface ExpanderGroupState {
   /** Expanders that are open */
   expanders: ExpanderOpenState;
+  /** State change transition request */
   toggleAllExpanderState: ToggleAllExpanderState;
 }
 
 interface InternalExpanderGroupProps {
-  /**
-   * Use Expander's here
-   */
-  children: Array<React.ReactElement<ExpanderProps>>;
+  /** Expanders and option other components */
+  children: ReactNode;
   /** 'Open all' button text */
   OpenAllText: string;
   /** 'Close all'-component (Button) */
@@ -43,8 +41,10 @@ interface InternalExpanderGroupProps {
   AriaOpenAllText?: string;
   /** 'Close all' button text for screen readers, hides CloseAllText for screen readers if provided */
   AriaCloseAllText?: string;
-  /** Properties for OpenAllButton, aria-hidden = true by default */
-  openAllButtonProps?: Omit<HtmlButtonProps, 'onClick'>;
+  openAllButtonProps?: Omit<
+    HtmlButtonProps,
+    'onClick' | 'onKeyDown' | 'onMouseUp'
+  >;
 }
 
 export interface ExpanderGroupProviderState {
@@ -170,9 +170,9 @@ export interface ExpanderGroupProps
 
 /**
  * <i class="semantics" />
- * Used for grouping expanders
+ * Wrapper for multiple expanders with Open/Close All button
  */
-export class ExpanderGroup extends React.Component<ExpanderGroupProps> {
+export class ExpanderGroup extends Component<ExpanderGroupProps> {
   render() {
     const { ...passProps } = withSuomifiDefaultProps(this.props);
     return <StyledExpanderGroup {...passProps} />;

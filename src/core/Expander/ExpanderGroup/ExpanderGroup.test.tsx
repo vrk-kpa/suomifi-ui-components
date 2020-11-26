@@ -206,7 +206,7 @@ describe('defaultOpen', () => {
           expanderProps: {
             id: 'id-second',
             defaultOpen: true,
-            onClick: mockClickHandler,
+            onOpenChange: mockClickHandler,
           },
           titleProps: {
             'data-testid': 'expander-title-2',
@@ -229,7 +229,7 @@ describe('defaultOpen', () => {
   });
 });
 
-describe('onClick', () => {
+describe('onOpenChange', () => {
   it('is called', () => {
     const mockClickHandler = jest.fn();
     const { getByTestId } = render(
@@ -243,7 +243,7 @@ describe('onClick', () => {
         },
         {
           expanderProps: {
-            onClick: mockClickHandler,
+            onOpenChange: mockClickHandler,
           },
           titleProps: {
             'data-testid': 'expander-title-2',
@@ -310,7 +310,7 @@ describe('open', () => {
         {
           expanderProps: {
             id: 'id-second',
-            onClick: mockClickHandler,
+            onOpenChange: mockClickHandler,
             open: true,
           },
           titleProps: {

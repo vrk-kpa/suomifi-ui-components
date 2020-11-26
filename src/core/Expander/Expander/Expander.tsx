@@ -15,15 +15,13 @@ const baseClassName = 'fi-expander';
 const openClassName = `${baseClassName}--open`;
 
 export interface ExpanderProviderState {
+  /** Callback for communicating ExpanderTitle button event to Expander  */
   onToggleExpander: () => void;
+  /** Open state for expander */
   open: boolean;
-  /**
-   * Id for expander button
-   */
+  /** Id for expander button */
   titleId: string | undefined;
-  /**
-   * Id for expander content
-   */
+  /** Id for expander content */
   contentId: string | undefined;
 }
 
@@ -56,10 +54,10 @@ interface InternalExpanderProps {
    * @default false
    */
   defaultOpen?: boolean;
-  /* Controlled open property */
+  /** Controlled open property */
   open?: boolean;
   /** Event handler to execute when clicked */
-  onClick?: ({ openState }: { openState: boolean }) => void;
+  onOpenChange?: (open: boolean) => void;
   consumer?: ExpanderGroupProviderState;
 }
 
@@ -68,25 +66,20 @@ export interface ExpanderProps extends InternalExpanderProps, TokensProp {}
 export interface ExpanderTitleBaseProps {
   /** Custom classname to extend or customize */
   className?: string;
-  /**
-   * Expander consumer for open state and toggle open callback
-   */
+  /** Expander consumer for open state and toggle open callback */
   consumer: ExpanderProviderState;
 }
 
 export interface ExpanderContentBaseProps {
   /** Custom classname to extend or customize */
   className?: string;
-  /**
-   * Expander consumer for open state
-   */
+  /** Expander consumer for open state */
   consumer: ExpanderProviderState;
 }
 
 class BaseExpander extends Component<InternalExpanderProps> {
   state: ExpanderState = {
-    openState:
-      this.props.defaultOpen !== undefined ? this.props.defaultOpen : false,
+    openState: this.props.defaultOpen || false,
   };
 
   id = idGenerator(this.props.id);
@@ -115,7 +108,7 @@ class BaseExpander extends Component<InternalExpanderProps> {
           !!this.state.openState !== consumer.toggleAllExpanderState.toState) ||
         (controlled && open !== consumer.toggleAllExpanderState.toState)
       ) {
-        this.handleClick();
+        this.handleOpenChange();
       }
     }
     if (
@@ -135,16 +128,16 @@ class BaseExpander extends Component<InternalExpanderProps> {
     }
   }
 
-  handleClick = () => {
-    const { open, onClick } = this.props;
+  handleOpenChange = () => {
+    const { open, onOpenChange } = this.props;
     const { openState } = this.state;
     const controlled = open !== undefined;
     const newOpenState = controlled ? !!open : !openState;
     if (!controlled) {
       this.setState({ openState: newOpenState });
     }
-    if (!!onClick) {
-      onClick({ openState: newOpenState });
+    if (!!onOpenChange) {
+      onOpenChange(newOpenState);
     }
   };
 
@@ -153,7 +146,7 @@ class BaseExpander extends Component<InternalExpanderProps> {
       id,
       open,
       defaultOpen,
-      onClick,
+      onOpenChange,
       className,
       children,
       consumer,
@@ -173,7 +166,7 @@ class BaseExpander extends Component<InternalExpanderProps> {
             open: openState,
             contentId: this.contentId,
             titleId: this.id,
-            onToggleExpander: this.handleClick,
+            onToggleExpander: this.handleOpenChange,
           }}
         >
           {children}
@@ -195,6 +188,10 @@ interface ExpanderState {
   openState: boolean;
 }
 
+/**
+ * <i class="semantics" />
+ * Hide or show content with always visible title
+ */
 export class Expander extends Component<ExpanderProps> {
   render() {
     return (

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../../theme/utils';
@@ -16,6 +16,8 @@ const contentOpenClassName = `${contentBaseClassName}--open`;
 const noPaddingClassName = `${contentBaseClassName}--no-padding`;
 
 export interface ExpanderContentProps extends Omit<HtmlDivProps, 'id'> {
+  /** Content for expander */
+  children: ReactNode;
   /** Remove padding from expandable content area (for background usage with padding in given container etc.) */
   noPadding?: boolean;
 }
@@ -32,13 +34,14 @@ class BaseExpanderContent extends Component<InternalExpanderContentProps> {
       className,
       noPadding,
       consumer,
+      'aria-labelledby': ariaLabelledBy,
       ...passProps
     } = this.props;
     return (
       <HtmlDiv
         {...passProps}
         id={consumer.contentId}
-        {...{ 'aria-labelledby': consumer.titleId }}
+        {...{ 'aria-labelledby': [consumer.titleId, ariaLabelledBy].join(' ') }}
         className={classnames(className, contentBaseClassName, {
           [contentOpenClassName]: !!consumer.open,
           [noPaddingClassName]: noPadding,
@@ -51,7 +54,7 @@ class BaseExpanderContent extends Component<InternalExpanderContentProps> {
     );
   }
 }
-// display: ${({ openState }) => (!!openState ? 'block' : 'none')};
+
 const StyledExpanderContent = styled(
   ({
     tokens,
@@ -72,6 +75,10 @@ const StyledExpanderContent = styled(
   ${(props) => baseStyles(props)};
 `;
 
+/**
+ * <i class="semantics" />
+ * Expander content wrapper, controlled by expander
+ */
 export class ExpanderContent extends Component<
   ExpanderContentProps & TokensProp
 > {
