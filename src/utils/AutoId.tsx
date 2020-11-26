@@ -7,39 +7,42 @@
 import { useState, useEffect } from 'react';
 import { useEnhancedEffect } from './common';
 
-let serverHandoffComplete = false;
-let theId = 0;
-const genId = () => {
-  theId += 1;
-  return theId;
+let autoId = 0;
+let clientRender = false;
+
+const generateNextId = () => {
+  autoId += 1;
+  return autoId;
 };
 
-const useId = (idFromProps?: string | null) => {
-  const initialId = idFromProps || (serverHandoffComplete ? genId() : null);
-
-  const [id, setId] = useState(initialId);
+const useGeneratedId = (propId?: string | null) => {
+  const startId = propId || (clientRender ? generateNextId() : null);
+  const [generatedId, setId] = useState(startId);
 
   useEnhancedEffect(() => {
-    if (id === null) {
-      setId(genId());
+    if (generatedId === null) {
+      setId(generateNextId());
     }
   }, []);
 
   useEffect(() => {
-    if (serverHandoffComplete === false) {
-      serverHandoffComplete = true;
+    if (!clientRender) {
+      clientRender = true;
     }
   }, []);
-  return id != null ? String(id) : undefined;
+  return generatedId != null ? String(generatedId) : undefined;
 };
 
+/**
+ * Returns automatically generated id if one was not provided.
+ */
 export const AutoId = ({
   id,
   children,
 }: {
   id?: string;
-  children: (someId: string) => JSX.Element;
+  children: (passedId: string) => JSX.Element;
 }) => {
-  const generatedId = useId(id);
+  const generatedId = useGeneratedId(id);
   return children && generatedId ? children(generatedId) : null;
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function canUseDOM() {
+function windowAvailable() {
   return !!(
     typeof window !== 'undefined' &&
     window.document &&
@@ -8,6 +8,6 @@ export function canUseDOM() {
   );
 }
 
-export const useEnhancedEffect = canUseDOM()
+export const useEnhancedEffect = windowAvailable()
   ? React.useLayoutEffect
   : React.useEffect;
