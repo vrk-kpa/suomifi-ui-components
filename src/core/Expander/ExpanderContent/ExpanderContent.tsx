@@ -41,7 +41,11 @@ class BaseExpanderContent extends Component<InternalExpanderContentProps> {
       <HtmlDiv
         {...passProps}
         id={consumer.contentId}
-        {...{ 'aria-labelledby': [consumer.titleId, ariaLabelledBy].join(' ') }}
+        {...{
+          'aria-labelledby': ariaLabelledBy
+            ? [consumer.titleId, ariaLabelledBy].join(' ')
+            : consumer.titleId,
+        }}
         className={classnames(className, contentBaseClassName, {
           [contentOpenClassName]: !!consumer.open,
           [noPaddingClassName]: noPadding,

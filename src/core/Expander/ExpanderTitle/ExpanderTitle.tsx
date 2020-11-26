@@ -22,7 +22,12 @@ export interface ExpanderTitleProps {
   /** Properties for title open/close toggle button */
   toggleButtonProps?: Omit<
     HtmlButtonProps,
-    'onClick' | 'onKeyUp' | 'onMouseDown'
+    | 'onClick'
+    | 'onMouseDown'
+    | 'onMouseUp'
+    | 'onKeyPress'
+    | 'onKeyUp'
+    | 'onKeyDown'
   >;
 }
 

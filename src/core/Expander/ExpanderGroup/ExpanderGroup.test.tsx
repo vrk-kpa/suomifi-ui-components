@@ -123,7 +123,7 @@ describe('default behaviour', () => {
         content: 'Second content',
       },
     ],
-    { openAllButtonProps: { 'data-testid': 'open-all-button' } },
+    { toggleAllButtonProps: { 'data-testid': 'open-all-button' } },
   );
   it('open/close all should open/close the Expanders', () => {
     const { getByTestId } = render(DefaultGroup);
@@ -369,7 +369,7 @@ describe('open', () => {
           },
         ],
         {
-          openAllButtonProps: {
+          toggleAllButtonProps: {
             'data-testid': 'open-all-button',
           },
         },

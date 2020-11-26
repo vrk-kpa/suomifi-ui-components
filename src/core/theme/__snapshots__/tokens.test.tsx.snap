@@ -97,7 +97,7 @@ exports[`snapshot testing 1`] = `
   white-space: normal;
 }
 
-.c8 {
+.c7 {
   display: inline-block;
   vertical-align: baseline;
 }
@@ -112,10 +112,6 @@ exports[`snapshot testing 1`] = `
   padding: 0;
   border: 0;
   overflow: hidden;
-}
-
-.c7.fi-button--disabled {
-  cursor: not-allowed;
 }
 
 .c1 {
@@ -266,7 +262,7 @@ exports[`snapshot testing 1`] = `
   opacity: 0;
 }
 
-.c9 {
+.c8 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -299,11 +295,11 @@ exports[`snapshot testing 1`] = `
   will-change: transition,height;
 }
 
-.c9:not(.fi-expander_content--no-padding) {
+.c8:not(.fi-expander_content--no-padding) {
   padding: 0 16px;
 }
 
-.c9.fi-expander_content--open {
+.c8.fi-expander_content--open {
   visibility: visible;
   height: 10%;
   overflow: visible;
@@ -311,7 +307,7 @@ exports[`snapshot testing 1`] = `
   animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
 }
 
-.c9.fi-expander_content--open:not(.fi-expander_content--no-padding) {
+.c8.fi-expander_content--open:not(.fi-expander_content--no-padding) {
   padding-top: 0;
   padding-right: 20px;
   padding-bottom: 20px;
@@ -452,17 +448,15 @@ exports[`snapshot testing 1`] = `
       >
         <button
           aria-controls="id-expander-1_content"
-          aria-disabled="false"
           aria-expanded="false"
-          class="c2 c7 fi-button fi-expander_title-button"
+          class="c2 fi-expander_title-button"
           id="id-expander-1"
-          tabindex="0"
           type="button"
         >
           Test expander 1
           <svg
             aria-hidden="true"
-            class="fi-icon c8 fi-expander_title-icon"
+            class="fi-icon c7 fi-expander_title-icon"
             fill="currentColor"
             focusable="false"
             height="1em"
@@ -484,17 +478,15 @@ exports[`snapshot testing 1`] = `
       >
         <button
           aria-controls="id-expander-2_content"
-          aria-disabled="false"
           aria-expanded="false"
-          class="c2 c7 fi-button fi-expander_title-button"
+          class="c2 fi-expander_title-button"
           id="id-expander-2"
-          tabindex="0"
           type="button"
         >
           Test expander 2
           <svg
             aria-hidden="true"
-            class="fi-icon c8 fi-expander_title-icon"
+            class="fi-icon c7 fi-expander_title-icon"
             fill="currentColor"
             focusable="false"
             height="1em"
@@ -510,7 +502,7 @@ exports[`snapshot testing 1`] = `
       <div
         aria-hidden="true"
         aria-labelledby="id-expander-2"
-        class="c0 c9 fi-expander_content"
+        class="c0 c8 fi-expander_content"
         id="id-expander-2_content"
       >
         Test expander content 2
@@ -524,17 +516,15 @@ exports[`snapshot testing 1`] = `
       >
         <button
           aria-controls="id-expander-3_content"
-          aria-disabled="false"
           aria-expanded="false"
-          class="c2 c7 fi-button fi-expander_title-button"
+          class="c2 fi-expander_title-button"
           id="id-expander-3"
-          tabindex="0"
           type="button"
         >
           Test expander 3
           <svg
             aria-hidden="true"
-            class="fi-icon c8 fi-expander_title-icon"
+            class="fi-icon c7 fi-expander_title-icon"
             fill="currentColor"
             focusable="false"
             height="1em"
@@ -550,7 +540,7 @@ exports[`snapshot testing 1`] = `
       <div
         aria-hidden="true"
         aria-labelledby="id-expander-3"
-        class="c0 c9 fi-expander_content"
+        class="c0 c8 fi-expander_content"
         id="id-expander-3_content"
       >
         Test expander content 3

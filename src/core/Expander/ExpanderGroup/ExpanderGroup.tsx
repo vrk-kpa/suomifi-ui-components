@@ -41,9 +41,15 @@ interface InternalExpanderGroupProps {
   AriaOpenAllText?: string;
   /** 'Close all' button text for screen readers, hides CloseAllText for screen readers if provided */
   AriaCloseAllText?: string;
-  openAllButtonProps?: Omit<
+  /** Open/Close all button props */
+  toggleAllButtonProps?: Omit<
     HtmlButtonProps,
-    'onClick' | 'onKeyDown' | 'onMouseUp'
+    | 'onClick'
+    | 'onMouseDown'
+    | 'onMouseUp'
+    | 'onKeyPress'
+    | 'onKeyUp'
+    | 'onKeyDown'
   >;
 }
 
@@ -114,7 +120,7 @@ class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
       AriaOpenAllText,
       CloseAllText,
       AriaCloseAllText,
-      openAllButtonProps,
+      toggleAllButtonProps: openAllButtonProps,
       ...passProps
     } = this.props;
     const { toggleAllExpanderState } = this.state;
@@ -130,7 +136,10 @@ class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
         <HtmlButton
           {...openAllButtonProps}
           {...noMouseFocus({ callback: this.handleAllToggleClick })}
-          className={openAllButtonClassName}
+          className={classnames(
+            openAllButtonProps?.className,
+            openAllButtonClassName,
+          )}
         >
           <HtmlSpan {...{ 'aria-hidden': true }}>
             {allOpen ? CloseAllText : OpenAllText}

@@ -109,10 +109,6 @@ exports[`Basic expander group should match snapshot 1`] = `
   overflow: hidden;
 }
 
-.c7.fi-button--disabled {
-  cursor: not-allowed;
-}
-
 .c1 {
   color: hsl(0,0%,16%);
   display: -webkit-box;
@@ -261,7 +257,7 @@ exports[`Basic expander group should match snapshot 1`] = `
   opacity: 0;
 }
 
-.c9 {
+.c8 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -294,11 +290,11 @@ exports[`Basic expander group should match snapshot 1`] = `
   will-change: transition,height;
 }
 
-.c9:not(.fi-expander_content--no-padding) {
+.c8:not(.fi-expander_content--no-padding) {
   padding: 0 16px;
 }
 
-.c9.fi-expander_content--open {
+.c8.fi-expander_content--open {
   visibility: visible;
   height: 10%;
   overflow: visible;
@@ -306,14 +302,14 @@ exports[`Basic expander group should match snapshot 1`] = `
   animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
 }
 
-.c9.fi-expander_content--open:not(.fi-expander_content--no-padding) {
+.c8.fi-expander_content--open:not(.fi-expander_content--no-padding) {
   padding-top: 0;
   padding-right: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
 }
 
-.c8 {
+.c7 {
   display: inline-block;
   vertical-align: baseline;
 }
@@ -453,17 +449,15 @@ exports[`Basic expander group should match snapshot 1`] = `
       >
         <button
           aria-controls="id-first_content"
-          aria-disabled="false"
           aria-expanded="false"
-          class="c2 c7 fi-button fi-expander_title-button"
+          class="c2 fi-expander_title-button"
           id="id-first"
-          tabindex="0"
           type="button"
         >
           First
           <svg
             aria-hidden="true"
-            class="fi-icon c8 fi-expander_title-icon"
+            class="fi-icon c7 fi-expander_title-icon"
             fill="currentColor"
             focusable="false"
             height="1em"
@@ -479,7 +473,7 @@ exports[`Basic expander group should match snapshot 1`] = `
       <div
         aria-hidden="true"
         aria-labelledby="id-first"
-        class="c0 c9 fi-expander_content"
+        class="c0 c8 fi-expander_content"
         id="id-first_content"
       >
         First content
@@ -494,17 +488,15 @@ exports[`Basic expander group should match snapshot 1`] = `
       >
         <button
           aria-controls="id-second_content"
-          aria-disabled="false"
           aria-expanded="false"
-          class="c2 c7 fi-button fi-expander_title-button"
+          class="c2 fi-expander_title-button"
           id="id-second"
-          tabindex="0"
           type="button"
         >
           Second
           <svg
             aria-hidden="true"
-            class="fi-icon c8 fi-expander_title-icon"
+            class="fi-icon c7 fi-expander_title-icon"
             fill="currentColor"
             focusable="false"
             height="1em"
@@ -520,7 +512,7 @@ exports[`Basic expander group should match snapshot 1`] = `
       <div
         aria-hidden="true"
         aria-labelledby="id-second"
-        class="c0 c9 fi-expander_content"
+        class="c0 c8 fi-expander_content"
         id="id-second_content"
       >
         Second content
