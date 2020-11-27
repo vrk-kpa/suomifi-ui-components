@@ -5,7 +5,7 @@ import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './Textarea.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { HtmlTextarea, HtmlTextareaProps, HtmlDiv } from '../../../reset';
-import { idGenerator } from '../../../utils/uuid';
+import { AutoId } from '../../../utils/AutoId';
 import { LabelText } from '../LabelText/LabelText';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
@@ -66,7 +66,7 @@ export interface TextareaProps extends HtmlTextareaProps, TokensProp {
 class BaseTextarea extends Component<TextareaProps> {
   render() {
     const {
-      id: propId,
+      id,
       className,
       disabled = false,
       children,
@@ -84,7 +84,6 @@ class BaseTextarea extends Component<TextareaProps> {
     } = this.props;
 
     const onClickProps = !!disabled ? {} : { onMouseDown: onClick };
-    const id = idGenerator(propId);
     const statusTextId = `${id}-statusText`;
     const hintTextId = `${id}-hintText`;
 
@@ -137,8 +136,14 @@ class BaseTextarea extends Component<TextareaProps> {
 }
 
 const StyledTextarea = styled(
-  ({ tokens, ...passProps }: TextareaProps & InternalTokensProp) => (
-    <BaseTextarea {...passProps} />
+  ({
+    tokens,
+    id: propId,
+    ...passProps
+  }: TextareaProps & InternalTokensProp) => (
+    <AutoId id={propId}>
+      {(id) => <BaseTextarea id={id} {...passProps} />}
+    </AutoId>
   ),
 )`
   ${(props) => baseStyles(props)}
