@@ -31,7 +31,7 @@ describe('props', () => {
     it('should have label text with correct class', () => {
       const { getByText } = render(DefaultTextareaComponent);
       const label = getByText('Label here');
-      expect(label).toHaveClass('fi-textarea_label');
+      expect(label).toHaveClass('fi-label-text_label-span');
     });
 
     it('has user given aria-describedby on textarea', () => {
@@ -160,7 +160,7 @@ describe('props', () => {
         <Textarea labelText="label" hintText="Example hint text" />,
       );
       const hintText = getByText('Example hint text');
-      expect(hintText).toHaveClass('fi-textarea_hintText');
+      expect(hintText).toHaveClass('fi-hint-text');
     });
 
     it('will be added to input aria-describedby', () => {
@@ -180,7 +180,7 @@ describe('props', () => {
         <Textarea labelText="label" statusText="EROR EROR" />,
       );
       const statusText = getByText('EROR EROR');
-      expect(statusText).toHaveClass('fi-textarea_statusText');
+      expect(statusText).toHaveClass('fi-status-text');
     });
 
     it('will be added to input aria-describedby', () => {
@@ -213,7 +213,7 @@ describe('props', () => {
         <Textarea labelText="label" optionalText="Optional" />,
       );
       const optionalText = getByText('(Optional)');
-      expect(optionalText).toHaveClass('fi-textarea_optionalText');
+      expect(optionalText).toHaveClass('fi-label-text_optionalText');
     });
   });
 
@@ -258,16 +258,6 @@ describe('props', () => {
       );
       const textarea = getByRole('textbox') as HTMLInputElement;
       expect(textarea.name).toBe('test-name');
-    });
-  });
-
-  describe('optionalText', () => {
-    it('should have element and correct classname for it', () => {
-      const { getByText } = render(
-        <Textarea labelText="label" optionalText="Optional" />,
-      );
-      const optionalText = getByText('(Optional)');
-      expect(optionalText).toHaveClass('fi-textarea_optionalText');
     });
   });
 

@@ -5,6 +5,7 @@ import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './Textarea.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { HtmlTextarea, HtmlTextareaProps, HtmlDiv } from '../../../reset';
+import { idGenerator } from '../../../utils/uuid';
 import { LabelText } from '../LabelText/LabelText';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
@@ -65,7 +66,7 @@ export interface TextareaProps extends HtmlTextareaProps, TokensProp {
 class BaseTextarea extends Component<TextareaProps> {
   render() {
     const {
-      id,
+      id: propId,
       className,
       disabled = false,
       children,
@@ -83,6 +84,7 @@ class BaseTextarea extends Component<TextareaProps> {
     } = this.props;
 
     const onClickProps = !!disabled ? {} : { onMouseDown: onClick };
+    const id = idGenerator(propId);
     const statusTextId = `${id}-statusText`;
     const hintTextId = `${id}-hintText`;
 
@@ -106,7 +108,12 @@ class BaseTextarea extends Component<TextareaProps> {
           [textareaClassNames.error]: status === 'error' && !disabled,
         })}
       >
-        <LabelText htmlFor={id} optionalText={optionalText}>
+        <LabelText
+          htmlFor={id}
+          labelMode={labelMode}
+          as="label"
+          optionalText={optionalText}
+        >
           {labelText}
         </LabelText>
         <HintText id={hintTextId}>{hintText}</HintText>
