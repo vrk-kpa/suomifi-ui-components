@@ -75,10 +75,6 @@ export const baseStyles = withSuomifiTheme(
         & .fi-textarea_textarea {
           border: 2px solid ${theme.colors.alertBase};
         }
-
-        & .fi-status-text {
-          color: ${theme.colors.alertBase};
-        }
       }
     }
   `,

@@ -129,7 +129,9 @@ class BaseTextarea extends Component<TextareaProps> {
             {...onClickProps}
           />
         </HtmlDiv>
-        <StatusText id={statusTextId}>{statusText}</StatusText>
+        <StatusText id={statusTextId} status={status}>
+          {statusText}
+        </StatusText>
       </HtmlDiv>
     );
   }

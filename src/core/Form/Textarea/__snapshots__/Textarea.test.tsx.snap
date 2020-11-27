@@ -224,10 +224,6 @@ exports[`snapshot default structure should match snapshot 1`] = `
   border: 2px solid hsl(3,59%,48%);
 }
 
-.c1.fi-textarea.fi-textarea--error .fi-status-text {
-  color: hsl(3,59%,48%);
-}
-
 <div
   class="c0 fi-textarea c1"
 >
