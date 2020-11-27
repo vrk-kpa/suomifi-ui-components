@@ -17,6 +17,8 @@ const sharedProps = {
     fullWidth
     onSearch={(value) => console.log(value)}
     defaultValue="About"
+    onChange={(value) => console.log(value)}
+    debounce={500}
   />
 
   <SearchInput

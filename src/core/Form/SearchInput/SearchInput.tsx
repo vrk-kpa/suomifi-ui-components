@@ -19,6 +19,7 @@ import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { Icon } from '../../Icon/Icon';
 import { baseStyles } from './SearchInput.baseStyles';
 import { InputStatus } from '../types';
+import { Debounce } from '../../utils/Debounce/Debounce';
 
 type SearchInputValue = string | number | undefined;
 
@@ -122,20 +123,10 @@ class BaseSearchInput extends Component<SearchInputProps> {
     return null;
   }
 
-  private debouncedChange = debounce((value) => console.log(value), 200); // Ugly as hell - streamline
-
-  private debounceTime = 200;
-
   constructor(props: SearchInputProps) {
     super(props);
     this.id = `${idGenerator(props.id)}`;
     this.statusTextId = `${this.id}-statusText`;
-    if (this.props.debounce) {
-      this.debounceTime = this.props.debounce;
-    }
-    if (this.props.onChange !== undefined) {
-      this.debouncedChange = debounce(this.props.onChange, this.debounceTime);
-    }
   }
 
   render() {
@@ -164,10 +155,6 @@ class BaseSearchInput extends Component<SearchInputProps> {
     const conditionalSetState = (newValue: SearchInputValue) => {
       if (!('value' in this.props)) {
         this.setState({ value: newValue });
-      }
-      if (propOnChange) {
-        // const debouncedOnChange = debounce(propOnChange, 1000);
-        this.debouncedChange(newValue);
       }
     };
 
@@ -245,24 +232,30 @@ class BaseSearchInput extends Component<SearchInputProps> {
         </LabelText>
         <HtmlDiv className={searchInputClassNames.functionalityContainer}>
           <HtmlDiv className={searchInputClassNames.inputElementContainer}>
-            <HtmlInputWithRef
-              {...passProps}
-              {...getDescribedBy()}
-              forwardRef={this.inputRef}
-              aria-invalid={status === 'error'}
-              id={this.id}
-              className={searchInputClassNames.inputElement}
-              type="search"
-              role="searchbox"
-              value={this.state.value}
-              placeholder={visualPlaceholder}
-              onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                event.persist();
-                conditionalSetState(event.currentTarget.value);
-              }}
-              onKeyPress={onKeyPress}
-              onKeyDown={onKeyDown}
-            />
+            <Debounce
+              waitFor={this.props.debounce || 0}
+              debouncedCallback={propOnChange}
+            >
+              {() => (
+                <HtmlInputWithRef
+                  {...passProps}
+                  {...getDescribedBy()}
+                  forwardRef={this.inputRef}
+                  aria-invalid={status === 'error'}
+                  id={this.id}
+                  className={searchInputClassNames.inputElement}
+                  type="search"
+                  role="searchbox"
+                  value={this.state.value}
+                  placeholder={visualPlaceholder}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                    conditionalSetState(event.currentTarget.value);
+                  }}
+                  onKeyPress={onKeyPress}
+                  onKeyDown={onKeyDown}
+                />
+              )}
+            </Debounce>
           </HtmlDiv>
           <HtmlButton {...clearButtonProps}>
             <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
