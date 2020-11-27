@@ -11,12 +11,8 @@ import { StatusText } from '../StatusText/StatusText';
 
 const baseClassName = 'fi-textarea';
 const textareaClassNames = {
-  label: `${baseClassName}_label`,
-  optionalText: `${baseClassName}_optionalText`,
   textareaContainer: `${baseClassName}_textarea-element-container`,
   textarea: `${baseClassName}_textarea`,
-  hintText: `${baseClassName}_hintText`,
-  statusText: `${baseClassName}_statusText`,
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
 };

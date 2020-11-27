@@ -16,11 +16,6 @@ export const baseStyles = withSuomifiTheme(
       flex-direction: column;
       color: ${theme.colors.blackBase};
 
-      & .fi-textarea_label {
-        ${font({ theme })('actionElementInnerTextBold')};
-        color: ${theme.colors.blackBase};
-      }
-
       & .fi-label-text_label-span {
         margin-bottom: 0;
       }
