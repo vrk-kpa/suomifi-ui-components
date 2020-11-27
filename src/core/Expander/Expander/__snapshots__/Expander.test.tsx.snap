@@ -266,16 +266,17 @@ exports[`Basic expander shoud match snapshot 1`] = `
 
 <div
   class="c0 c1 expander-test fi-expander"
+  id="4"
 >
   <div
     class="c0 c2 fi-expander_title"
     data-testid="expander-title"
   >
     <button
-      aria-controls="test-id_content"
+      aria-controls="4_content"
       aria-expanded="false"
       class="c3 fi-expander_title-button"
-      id="test-id"
+      id="4_title"
       type="button"
     >
       Test expander
@@ -296,9 +297,9 @@ exports[`Basic expander shoud match snapshot 1`] = `
   </div>
   <div
     aria-hidden="true"
-    aria-labelledby="test-id"
+    aria-labelledby="4_title"
     class="c0 c5 fi-expander_content"
-    id="test-id_content"
+    id="4_content"
   >
     Test expander content
   </div>

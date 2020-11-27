@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../../theme/utils';
-import { idGenerator } from '../../../utils/uuid';
+import { AutoId } from '../../../utils/AutoId';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { HtmlDiv } from '../../../reset';
 import { baseStyles } from './Expander.baseStyles';
@@ -77,27 +77,34 @@ export interface ExpanderContentBaseProps {
   consumer: ExpanderProviderState;
 }
 
-class BaseExpander extends Component<InternalExpanderProps> {
+interface BaseExpanderProps extends InternalExpanderProps {
+  id: string;
+}
+
+class BaseExpander extends Component<BaseExpanderProps> {
   state: ExpanderState = {
     openState: this.props.defaultOpen || false,
   };
 
-  id = idGenerator(this.props.id);
-
-  contentId = `${this.id}_content`;
-
-  constructor(props: InternalExpanderProps) {
+  constructor(props: BaseExpanderProps) {
     super(props);
     if (!!props.consumer) {
       const defaultOpen =
         props.open !== undefined ? props.open : props.defaultOpen || false;
-      props.consumer.onExpanderOpenChange(this.id, defaultOpen);
+      props.consumer.onExpanderOpenChange(props.id, defaultOpen);
     }
   }
 
   componentDidUpdate(prevProps: ExpanderProps, prevState: ExpanderState) {
     const { consumer, open } = this.props;
     const controlled = open !== undefined;
+    if (
+      !!consumer &&
+      prevProps.id !== undefined &&
+      prevProps.id !== this.props.id
+    ) {
+      consumer.onExpanderOpenChange(prevProps.id, undefined);
+    }
     if (
       !!consumer &&
       consumer.toggleAllExpanderState !==
@@ -115,16 +122,16 @@ class BaseExpander extends Component<InternalExpanderProps> {
       (!controlled && prevState.openState !== this.state.openState) ||
       (controlled && prevProps.open !== open)
     ) {
-      if (!!consumer && this.id !== undefined) {
+      if (!!consumer && this.props.id !== undefined) {
         const currentState = controlled ? !!open : this.state.openState;
-        consumer.onExpanderOpenChange(this.id, currentState);
+        consumer.onExpanderOpenChange(this.props.id, currentState);
       }
     }
   }
 
   componentWillUnmount() {
     if (!!this.props.consumer && !!this.props.consumer.onExpanderOpenChange) {
-      this.props.consumer.onExpanderOpenChange(this.id, undefined);
+      this.props.consumer.onExpanderOpenChange(this.props.id, undefined);
     }
   }
 
@@ -153,9 +160,12 @@ class BaseExpander extends Component<InternalExpanderProps> {
       ...passProps
     } = this.props;
     const openState = open !== undefined ? !!open : this.state.openState;
+    const titleId = `${id}_title`;
+    const contentId = `${id}_content`;
 
     return (
       <HtmlDiv
+        id={id}
         {...passProps}
         className={classnames(className, baseClassName, {
           [openClassName]: !!openState,
@@ -164,8 +174,8 @@ class BaseExpander extends Component<InternalExpanderProps> {
         <ExpanderProvider
           value={{
             open: openState,
-            contentId: this.contentId,
-            titleId: this.id,
+            contentId,
+            titleId,
             onToggleExpander: this.handleOpenChange,
           }}
         >
@@ -177,9 +187,15 @@ class BaseExpander extends Component<InternalExpanderProps> {
 }
 
 const StyledExpander = styled(
-  ({ tokens, ...passProps }: ExpanderProps & InternalTokensProp) => {
-    return <BaseExpander {...passProps} />;
-  },
+  ({
+    tokens,
+    id: propId,
+    ...passProps
+  }: ExpanderProps & InternalTokensProp) => (
+    <AutoId id={propId}>
+      {(id) => <BaseExpander id={id} {...passProps} />}
+    </AutoId>
+  ),
 )`
   ${(props) => baseStyles(props)};
 `;

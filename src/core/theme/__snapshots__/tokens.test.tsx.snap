@@ -442,6 +442,7 @@ exports[`snapshot testing 1`] = `
   >
     <div
       class="c0 c5 fi-expander"
+      id="id-expander-1"
     >
       <div
         class="c0 c6 fi-expander_title"
@@ -450,7 +451,7 @@ exports[`snapshot testing 1`] = `
           aria-controls="id-expander-1_content"
           aria-expanded="false"
           class="c2 fi-expander_title-button"
-          id="id-expander-1"
+          id="id-expander-1_title"
           type="button"
         >
           Test expander 1
@@ -472,6 +473,7 @@ exports[`snapshot testing 1`] = `
     </div>
     <div
       class="c0 c5 fi-expander"
+      id="id-expander-2"
     >
       <div
         class="c0 c6 fi-expander_title"
@@ -480,7 +482,7 @@ exports[`snapshot testing 1`] = `
           aria-controls="id-expander-2_content"
           aria-expanded="false"
           class="c2 fi-expander_title-button"
-          id="id-expander-2"
+          id="id-expander-2_title"
           type="button"
         >
           Test expander 2
@@ -501,7 +503,7 @@ exports[`snapshot testing 1`] = `
       </div>
       <div
         aria-hidden="true"
-        aria-labelledby="id-expander-2"
+        aria-labelledby="id-expander-2_title"
         class="c0 c8 fi-expander_content"
         id="id-expander-2_content"
       >
@@ -510,6 +512,7 @@ exports[`snapshot testing 1`] = `
     </div>
     <div
       class="c0 c5 fi-expander"
+      id="id-expander-3"
     >
       <div
         class="c0 c6 fi-expander_title"
@@ -518,7 +521,7 @@ exports[`snapshot testing 1`] = `
           aria-controls="id-expander-3_content"
           aria-expanded="false"
           class="c2 fi-expander_title-button"
-          id="id-expander-3"
+          id="id-expander-3_title"
           type="button"
         >
           Test expander 3
@@ -539,7 +542,7 @@ exports[`snapshot testing 1`] = `
       </div>
       <div
         aria-hidden="true"
-        aria-labelledby="id-expander-3"
+        aria-labelledby="id-expander-3_title"
         class="c0 c8 fi-expander_content"
         id="id-expander-3_content"
       >

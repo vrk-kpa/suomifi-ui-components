@@ -442,6 +442,7 @@ exports[`Basic expander group should match snapshot 1`] = `
   >
     <div
       class="c0 c5 fi-expander"
+      id="id-first"
     >
       <div
         class="c0 c6 fi-expander_title"
@@ -451,7 +452,7 @@ exports[`Basic expander group should match snapshot 1`] = `
           aria-controls="id-first_content"
           aria-expanded="false"
           class="c2 fi-expander_title-button"
-          id="id-first"
+          id="id-first_title"
           type="button"
         >
           First
@@ -472,7 +473,7 @@ exports[`Basic expander group should match snapshot 1`] = `
       </div>
       <div
         aria-hidden="true"
-        aria-labelledby="id-first"
+        aria-labelledby="id-first_title"
         class="c0 c8 fi-expander_content"
         id="id-first_content"
       >
@@ -481,6 +482,7 @@ exports[`Basic expander group should match snapshot 1`] = `
     </div>
     <div
       class="c0 c5 fi-expander"
+      id="id-second"
     >
       <div
         class="c0 c6 fi-expander_title"
@@ -490,7 +492,7 @@ exports[`Basic expander group should match snapshot 1`] = `
           aria-controls="id-second_content"
           aria-expanded="false"
           class="c2 fi-expander_title-button"
-          id="id-second"
+          id="id-second_title"
           type="button"
         >
           Second
@@ -511,7 +513,7 @@ exports[`Basic expander group should match snapshot 1`] = `
       </div>
       <div
         aria-hidden="true"
-        aria-labelledby="id-second"
+        aria-labelledby="id-second_title"
         class="c0 c8 fi-expander_content"
         id="id-second_content"
       >
