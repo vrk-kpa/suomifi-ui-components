@@ -81,7 +81,7 @@ class BaseTextarea extends Component<TextareaProps> {
       status,
       statusText,
       visualPlaceholder,
-      resize: dismissResize,
+      resize,
       optionalText,
       'aria-describedby': ariaDescribedBy,
       ...passProps
