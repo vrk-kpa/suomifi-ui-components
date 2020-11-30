@@ -9,6 +9,7 @@ import { AutoId } from '../../../utils/AutoId';
 import { LabelText } from '../LabelText/LabelText';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
+import { InputStatus } from '../types';
 
 const baseClassName = 'fi-textarea';
 const textareaClassNames = {
@@ -17,6 +18,8 @@ const textareaClassNames = {
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
 };
+
+type TextareaStatus = Exclude<InputStatus, 'success'>;
 
 export interface TextareaProps extends HtmlTextareaProps, TokensProp {
   /** Custom classname to extend or customize */
@@ -45,7 +48,7 @@ export interface TextareaProps extends HtmlTextareaProps, TokensProp {
    * 'default' | 'error'
    * @default default
    */
-  status?: 'default' | 'error';
+  status?: TextareaStatus;
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
   /** Resize mode of the textarea
