@@ -2,7 +2,6 @@ import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../../theme/utils';
-import { noMouseFocus } from '../../theme/utils/mousefocus';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
 import { baseStyles } from './ExpanderGroup.baseStyles';
@@ -120,7 +119,7 @@ class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
       AriaOpenAllText,
       CloseAllText,
       AriaCloseAllText,
-      toggleAllButtonProps: openAllButtonProps,
+      toggleAllButtonProps,
       ...passProps
     } = this.props;
     const { toggleAllExpanderState } = this.state;
@@ -134,10 +133,10 @@ class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
         })}
       >
         <HtmlButton
-          {...openAllButtonProps}
-          {...noMouseFocus({ callback: this.handleAllToggleClick })}
+          {...toggleAllButtonProps}
+          onClick={this.handleAllToggleClick}
           className={classnames(
-            openAllButtonProps?.className,
+            toggleAllButtonProps?.className,
             openAllButtonClassName,
           )}
         >

@@ -3,7 +3,6 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { TokensProp, InternalTokensProp } from '../../theme';
-import { noMouseFocus } from '../../theme/utils/mousefocus';
 import { HtmlDiv, HtmlButton, HtmlButtonProps } from '../../../reset';
 import { baseStyles } from './ExpanderTitle.baseStyles';
 import { Icon } from '../../Icon/Icon';
@@ -54,7 +53,7 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
       >
         <HtmlButton
           {...toggleButtonProps}
-          {...noMouseFocus({ callback: consumer.onToggleExpander })}
+          onClick={consumer.onToggleExpander}
           aria-expanded={!!consumer.open}
           className={titleButtonClassName}
           id={consumer.titleId}

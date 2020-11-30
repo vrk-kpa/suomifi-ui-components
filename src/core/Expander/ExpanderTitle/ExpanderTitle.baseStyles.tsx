@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme, SuomifiTheme } from '../../theme';
 import { element, button, font } from '../../theme/reset';
 import { allStates } from '../../../utils/css';
-import { absoluteFocus } from '../../theme/utils';
+import { absoluteFocus, noMouseFocus } from '../../theme/utils';
 
 import { ExpanderTitleProps } from './ExpanderTitle';
 
@@ -51,6 +51,7 @@ export const expanderTitleButtonBaseStyle = (theme: SuomifiTheme) => {
         ${absoluteFocus}
       }
     }
+    ${noMouseFocus}
     &,
     & * {
       cursor: pointer;

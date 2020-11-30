@@ -21,9 +21,9 @@ import {
 
 <ExpanderGroup
   OpenAllText="Open all"
-  AriaOpenAll="Open all expanders"
+  AriaOpenAllText="Open all expanders"
   CloseAllText="Close all"
-  AriaCloseAll="Close all expanders"
+  AriaCloseAllText="Close all expanders"
 >
   <Expander>
     <ExpanderTitle>Test expander 1</ExpanderTitle>
@@ -71,9 +71,9 @@ const [showExpander, setShowExpander] = React.useState(false);
   </button>
   <ExpanderGroup
     OpenAllText="Open all"
-    AriaOpenAll="Open all expanders"
+    AriaOpenAllText="Open all expanders"
     CloseAllText="Close all"
-    AriaCloseAll="Close all expanders"
+    AriaCloseAllText="Close all expanders"
   >
     <Expander>
       <ExpanderTitle>Test expander 1</ExpanderTitle>
