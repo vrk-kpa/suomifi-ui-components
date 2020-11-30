@@ -236,6 +236,14 @@ exports[`Basic expander shoud match snapshot 1`] = `
   z-index: 9999;
 }
 
+.c2 .fi-expander_title-button:not(:focus-visible) {
+  outline: 0;
+}
+
+.c2 .fi-expander_title-button:not(:focus-visible):after {
+  content: none;
+}
+
 .c2 .fi-expander_title-button,
 .c2 .fi-expander_title-button * {
   cursor: pointer;

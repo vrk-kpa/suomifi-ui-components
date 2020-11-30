@@ -104,7 +104,7 @@ describe('defaultOpen', () => {
     );
     const buttonToClick = getByRole('button');
     const titleDiv = getByTestId('expander-open-by-default-title');
-    fireEvent.mouseDown(buttonToClick);
+    fireEvent.click(buttonToClick);
     expect(titleDiv).toHaveClass('fi-expander_title');
     expect(titleDiv).not.toHaveClass('fi-expander_title--open');
     expect(buttonToClick.querySelector('svg')).not.toHaveClass(
@@ -123,7 +123,7 @@ describe('onOpenChange', () => {
       </Expander>,
     );
     const button = getByRole('button');
-    fireEvent.mouseDown(button);
+    fireEvent.click(button);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
   });
 });
@@ -154,7 +154,7 @@ describe('open', () => {
       ControlledExpander({ onOpenChange: mockClickHandler }),
     );
     const button = getByRole('button');
-    fireEvent.mouseDown(button);
+    fireEvent.click(button);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
     const div = getByTestId('expander-title-id');
     expect(div).toHaveClass('fi-expander_title--open');

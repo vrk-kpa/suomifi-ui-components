@@ -133,12 +133,12 @@ describe('default behaviour', () => {
     expect(button.querySelector('svg')).not.toHaveClass(
       'fi-expander_title-icon--open',
     );
-    fireEvent.mouseDown(button);
+    fireEvent.click(button);
     expect(titleDiv).toHaveClass('fi-expander_title--open');
     expect(button.querySelector('svg')).toHaveClass(
       'fi-expander_title-icon--open',
     );
-    fireEvent.mouseDown(button);
+    fireEvent.click(button);
     expect(titleDiv).not.toHaveClass('fi-expander_title--open');
     expect(button.querySelector('svg')).not.toHaveClass(
       'fi-expander_title-icon--open',
@@ -151,7 +151,7 @@ describe('default behaviour', () => {
     const buttonAriaText = getByText('Open all expanders');
     expect(buttonAriaText).toHaveClass('fi-visually-hidden');
     const openAllbutton = getByTestId('open-all-button');
-    fireEvent.mouseDown(openAllbutton);
+    fireEvent.click(openAllbutton);
     const buttonVisibleCloseText = getByText('Close all');
     expect(buttonVisibleCloseText).toHaveAttribute('aria-hidden', 'true');
     const buttonAriaCloseText = getByText('Close all expanders');
@@ -222,7 +222,7 @@ describe('defaultOpen', () => {
     const button = getByTestId('expander-title-2-button');
     const titleDiv = getByTestId('expander-title-2');
     expect(titleDiv).toHaveClass('fi-expander_title--open');
-    fireEvent.mouseDown(button);
+    fireEvent.click(button);
     expect(button.querySelector('svg')).not.toHaveClass(
       'fi-expander_title-icon--open',
     );
@@ -257,7 +257,7 @@ describe('onOpenChange', () => {
       ]),
     );
     const button = getByTestId('expander-title-2-button');
-    fireEvent.mouseDown(button);
+    fireEvent.click(button);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
   });
 });
@@ -330,7 +330,7 @@ describe('open', () => {
     expect(titleDiv.querySelector('svg')).toHaveClass(
       'fi-expander_title-icon--open',
     );
-    fireEvent.mouseDown(button);
+    fireEvent.click(button);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
     expect(titleDiv).toHaveClass('fi-expander_title--open');
     expect(titleDiv.querySelector('svg')).toHaveClass(
