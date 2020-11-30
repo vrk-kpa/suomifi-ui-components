@@ -58,8 +58,9 @@ export interface TextareaProps extends HtmlTextareaProps, TokensProp {
   resize?: 'both' | 'vertical' | 'horizontal' | 'none';
   /** Optional text that is shown after labelText. Will be wrapped in parentheses. */
   optionalText?: string;
-  /** Unique id
-   * @default uuidV4
+  /**
+   * Unique id
+   * If no id is specified, one will be generated automatically
    */
   id?: string;
   /** Input name */
