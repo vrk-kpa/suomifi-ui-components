@@ -64,5 +64,13 @@ import { Textarea } from 'suomifi-ui-components';
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
     vestibulum iaculis augue, sit amet tincidunt ipsum.
   </Textarea>
+
+  <Textarea
+    labelText="Textarea with fixed width of 250px"
+    containerProps={{ style: { width: 250 } }}
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+    vestibulum iaculis augue, sit amet tincidunt ipsum.
+  </Textarea>
 </>;
 ```

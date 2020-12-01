@@ -276,4 +276,16 @@ describe('props', () => {
       expect(container.firstChild).toHaveClass('fi-textarea--full-width');
     });
   });
+
+  describe('containerProps', () => {
+    it('has the given props on the container', () => {
+      const { container } = render(
+        <Textarea
+          labelText="label"
+          containerProps={{ style: { width: 100 } }}
+        />,
+      );
+      expect(container.firstChild).toHaveAttribute('style', 'width: 100px;');
+    });
+  });
 });

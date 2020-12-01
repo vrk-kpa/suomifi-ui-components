@@ -4,7 +4,12 @@ import classnames from 'classnames';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './Textarea.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
-import { HtmlTextarea, HtmlTextareaProps, HtmlDiv } from '../../../reset';
+import {
+  HtmlTextarea,
+  HtmlTextareaProps,
+  HtmlDiv,
+  HtmlDivProps,
+} from '../../../reset';
 import { AutoId } from '../../../utils/AutoId';
 import { LabelText } from '../LabelText/LabelText';
 import { HintText } from '../HintText/HintText';
@@ -69,6 +74,8 @@ export interface TextareaProps extends HtmlTextareaProps, TokensProp {
   name?: string;
   /** Set components width to 100% */
   fullWidth?: boolean;
+  /** Textarea container div props */
+  containerProps?: Omit<HtmlDivProps, 'className'>;
 }
 
 class BaseTextarea extends Component<TextareaProps> {
@@ -89,6 +96,7 @@ class BaseTextarea extends Component<TextareaProps> {
       optionalText,
       'aria-describedby': ariaDescribedBy,
       fullWidth,
+      containerProps,
       ...passProps
     } = this.props;
 
@@ -98,6 +106,7 @@ class BaseTextarea extends Component<TextareaProps> {
 
     return (
       <HtmlDiv
+        {...containerProps}
         className={classnames(baseClassName, className, {
           [textareaClassNames.disabled]: !!disabled,
           [textareaClassNames.error]: status === 'error' && !disabled,
