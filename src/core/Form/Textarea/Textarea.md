@@ -55,3 +55,14 @@ import { Textarea } from 'suomifi-ui-components';
   </Textarea>
 </>;
 ```
+
+```js
+import { Textarea } from 'suomifi-ui-components';
+
+<>
+  <Textarea labelText="Textarea with 100% width" fullWidth>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+    vestibulum iaculis augue, sit amet tincidunt ipsum.
+  </Textarea>
+</>;
+```

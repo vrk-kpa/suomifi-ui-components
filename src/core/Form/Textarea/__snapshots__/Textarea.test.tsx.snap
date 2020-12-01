@@ -224,6 +224,10 @@ exports[`snapshot default structure should match snapshot 1`] = `
   border: 2px solid hsl(3,59%,48%);
 }
 
+.c1.fi-textarea--full-width {
+  width: 100%;
+}
+
 <div
   class="c0 fi-textarea c1"
 >

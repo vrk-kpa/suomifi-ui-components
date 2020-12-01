@@ -269,4 +269,11 @@ describe('props', () => {
       expect(getByRole('textbox')).toHaveAttribute('id', 'custom-id');
     });
   });
+
+  describe('fullWidth', () => {
+    it('has the required classname', () => {
+      const { container } = render(<Textarea labelText="label" fullWidth />);
+      expect(container.firstChild).toHaveClass('fi-textarea--full-width');
+    });
+  });
 });

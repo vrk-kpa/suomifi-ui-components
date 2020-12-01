@@ -77,5 +77,9 @@ export const baseStyles = withSuomifiTheme(
         }
       }
     }
+
+    &.fi-textarea--full-width {
+      width: 100%;
+    }
   `,
 );

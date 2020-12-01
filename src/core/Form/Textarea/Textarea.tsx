@@ -14,6 +14,7 @@ import { getAriaDescribedByProp } from '../../../utils/aria';
 
 const baseClassName = 'fi-textarea';
 const textareaClassNames = {
+  fullWidth: `${baseClassName}--full-width`,
   textareaContainer: `${baseClassName}_textarea-element-container`,
   textarea: `${baseClassName}_textarea`,
   disabled: `${baseClassName}--disabled`,
@@ -66,6 +67,8 @@ export interface TextareaProps extends HtmlTextareaProps, TokensProp {
   id?: string;
   /** Input name */
   name?: string;
+  /** Set components width to 100% */
+  fullWidth?: boolean;
 }
 
 class BaseTextarea extends Component<TextareaProps> {
@@ -85,6 +88,7 @@ class BaseTextarea extends Component<TextareaProps> {
       resize,
       optionalText,
       'aria-describedby': ariaDescribedBy,
+      fullWidth,
       ...passProps
     } = this.props;
 
@@ -97,6 +101,7 @@ class BaseTextarea extends Component<TextareaProps> {
         className={classnames(baseClassName, className, {
           [textareaClassNames.disabled]: !!disabled,
           [textareaClassNames.error]: status === 'error' && !disabled,
+          [textareaClassNames.fullWidth]: fullWidth,
         })}
       >
         <LabelText
