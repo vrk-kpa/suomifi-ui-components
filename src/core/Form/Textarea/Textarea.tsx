@@ -10,6 +10,7 @@ import { LabelText } from '../LabelText/LabelText';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
 import { InputStatus } from '../types';
+import { getAriaDescribedByProp } from '../../../utils/aria';
 
 const baseClassName = 'fi-textarea';
 const textareaClassNames = {
@@ -88,21 +89,8 @@ class BaseTextarea extends Component<TextareaProps> {
     } = this.props;
 
     const onClickProps = !!disabled ? {} : { onMouseDown: onClick };
-    const statusTextId = `${id}-statusText`;
-    const hintTextId = `${id}-hintText`;
-
-    const getDescribedBy = () => {
-      if (statusText || hintText || ariaDescribedBy) {
-        return {
-          'aria-describedby': [
-            ...(statusText ? [statusTextId] : []),
-            ...(hintText ? [hintTextId] : []),
-            ...(ariaDescribedBy ? [ariaDescribedBy] : []),
-          ].join(' '),
-        };
-      }
-      return {};
-    };
+    const statusTextId = statusText ? `${id}-statusText` : undefined;
+    const hintTextId = hintText ? `${id}-hintText` : undefined;
 
     return (
       <HtmlDiv
@@ -128,7 +116,11 @@ class BaseTextarea extends Component<TextareaProps> {
             defaultValue={children}
             placeholder={visualPlaceholder}
             {...{ 'aria-invalid': status === 'error' }}
-            {...getDescribedBy()}
+            {...getAriaDescribedByProp([
+              statusTextId,
+              hintTextId,
+              ariaDescribedBy,
+            ])}
             {...passProps}
             {...onClickProps}
           />
