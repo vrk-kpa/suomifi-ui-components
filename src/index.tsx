@@ -62,7 +62,10 @@ export {
   ExpanderTitle,
   ExpanderTitleProps,
 } from './core/Expander/';
-export { FilterInput, FilterInputProps } from './core/FilterInput/FilterInput';
+export {
+  FilterInput,
+  FilterInputProps,
+} from './core/Form/FilterInput/FilterInput';
 export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';
 export { Text, TextProps } from './core/Text/Text';
 export { Textarea, TextareaProps } from './core/Form/Textarea/Textarea';

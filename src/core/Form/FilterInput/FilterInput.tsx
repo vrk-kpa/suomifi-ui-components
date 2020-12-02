@@ -1,12 +1,17 @@
 import React, { Component, ChangeEvent, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaultProps } from '../theme/utils';
-import { HtmlInput, HtmlInputProps, HtmlDiv, HtmlDivProps } from '../../reset';
-import { TokensProp, InternalTokensProp } from '../theme';
+import { withSuomifiDefaultProps } from '../../theme/utils';
+import {
+  HtmlInput,
+  HtmlInputProps,
+  HtmlDiv,
+  HtmlDivProps,
+} from '../../../reset';
+import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './FilterInput.baseStyles';
-import { LabelText, LabelMode } from '../Form/LabelText/LabelText';
+import { LabelText, LabelMode } from '../LabelText/LabelText';
 import classnames from 'classnames';
-import { Omit } from '../../utils/typescript';
+import { Omit } from '../../../utils/typescript';
 
 const baseClassName = 'fi-filter-input';
 
@@ -16,6 +21,11 @@ export const filterInputClassNames = {
   disabled: `${baseClassName}--disabled`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
+};
+
+type FilterInputItem = {
+  label: string;
+  value: string;
 };
 
 export interface FilterInputProps
@@ -45,6 +55,7 @@ export interface FilterInputProps
   name?: string;
   /** Set components width to 100% */
   fullWidth?: boolean;
+  items: FilterInputItem[];
 }
 
 class BaseFilterInput extends Component<FilterInputProps> {
@@ -80,6 +91,11 @@ class BaseFilterInput extends Component<FilterInputProps> {
             type="text"
             placeholder={visualPlaceholder}
             aria-describedby={ariaDescribedBy}
+            autoComplete="off"
+            aria-autocomplete="list"
+            auto-capitalize="false"
+            spellCheck="false"
+            aria-controls="really-good-id"
           />
         </HtmlDiv>
       </HtmlDiv>

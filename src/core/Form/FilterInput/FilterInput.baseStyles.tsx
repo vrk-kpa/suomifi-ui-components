@@ -1,14 +1,14 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, TokensAndTheme } from '../theme';
-import { input, containerIEFocus, font } from '../theme/reset';
-import { absoluteFocus } from '../theme/utils';
+import { withSuomifiTheme, TokensAndTheme } from '../../theme';
+import { input, containerIEFocus, font } from '../../theme/reset';
+import { absoluteFocus } from '../../theme/utils';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     & .fi-filter-input {
       ${font({ theme })('bodyText')}
       display: inline-block;
-      width: 290px;
+      width: 100%;
     }
 
     & .fi-text-input_input-element-container {
@@ -21,10 +21,6 @@ export const baseStyles = withSuomifiTheme(
           ${absoluteFocus}
         }
       }
-    }
-
-    &.fi-filter-input--full-width {
-      width: 100%;
     }
 
     & .fi-filter-input_input {
