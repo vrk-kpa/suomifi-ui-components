@@ -2,15 +2,17 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { axeTest } from '../../../utils/test/axe';
 import { Expander, ExpanderProps } from './Expander';
-import { ExpanderContent, ExpanderTitle, ExpanderTitleProps } from '../';
-import { cssFromBaseStyles } from '../../utils';
-import { baseStyles } from './Expander.baseStyles';
+import {
+  ExpanderContent,
+  ExpanderTitleButton,
+  ExpanderTitleButtonProps,
+} from '../';
 
 describe('Basic expander', () => {
-  const TestExpanderWithProps = (titleProps: ExpanderTitleProps) => {
+  const TestExpanderWithProps = (titleProps: ExpanderTitleButtonProps) => {
     return (
       <Expander className="expander-test">
-        <ExpanderTitle
+        <ExpanderTitleButton
           {...titleProps}
           {...{ 'data-testid': 'expander-title' }}
         />
@@ -20,20 +22,28 @@ describe('Basic expander', () => {
   };
 
   const TestExpander = TestExpanderWithProps({
+    ariaCloseText: 'click to close expander',
+    ariaOpenText: 'click to open expander',
     children: 'Test expander',
   });
 
   it('render with the same component on the same container does not remount', () => {
     const { getByTestId, rerender } = render(TestExpander);
-    expect(getByTestId('expander-title').textContent).toBe('Test expander');
+    expect(getByTestId('expander-title').textContent).toBe(
+      'Test expanderclick to open expander',
+    );
 
     // re-render the same component with different props
     rerender(
       TestExpanderWithProps({
+        ariaCloseText: 'click to close expander',
+        ariaOpenText: 'click to open expander',
         children: 'Test expander two',
       }),
     );
-    expect(getByTestId('expander-title').textContent).toBe('Test expander two');
+    expect(getByTestId('expander-title').textContent).toBe(
+      'Test expander twoclick to open expander',
+    );
   });
 
   it('shoud match snapshot', () => {
@@ -45,14 +55,41 @@ describe('Basic expander', () => {
   it('should not have basic accessibility issues', axeTest(TestExpander));
 });
 
+describe('ExpanderTitleButton Aria attributes', () => {
+  const TestExpanderWithProps = (titleProps: ExpanderTitleButtonProps) => {
+    return (
+      <Expander className="expander-test">
+        <ExpanderTitleButton
+          {...titleProps}
+          {...{ 'data-testid': 'expander-title' }}
+        />
+        <ExpanderContent>Test expander content</ExpanderContent>
+      </Expander>
+    );
+  };
+
+  it('should be passed to title button', () => {
+    const TestExpander = TestExpanderWithProps({
+      ariaCloseText: 'click to close expander',
+      ariaOpenText: 'click to open expander',
+      children: 'Test expander',
+    });
+    const { getByText, getByRole } = render(TestExpander);
+    const button = getByRole('button');
+    expect(getByText('click to open expander')).toBeTruthy();
+    fireEvent.click(button);
+    expect(getByText('click to close expander')).toBeTruthy();
+  });
+});
+
 describe('Custom id', () => {
   const ExpanderWithCustomId = (
     <Expander id="test-id" {...{ 'data-testid': 'expander-custom-id' }}>
-      <ExpanderTitle
+      <ExpanderTitleButton
         toggleButtonProps={{ 'data-testid': 'expander-custom-id-title' }}
       >
         Test expander with custom id
-      </ExpanderTitle>
+      </ExpanderTitleButton>
       <ExpanderContent {...{ 'data-testid': 'expander-custom-id-content' }}>
         Test expander with custom id content
       </ExpanderContent>
@@ -81,9 +118,11 @@ describe('Custom id', () => {
 describe('defaultOpen', () => {
   const DefaultOpenExpander = (props?: Omit<ExpanderProps, 'children'>) => (
     <Expander {...props} defaultOpen={true}>
-      <ExpanderTitle {...{ 'data-testid': 'expander-open-by-default-title' }}>
+      <ExpanderTitleButton
+        {...{ 'data-testid': 'expander-open-by-default-title' }}
+      >
         Test expander open by default
-      </ExpanderTitle>
+      </ExpanderTitleButton>
       <ExpanderContent>Test expander open by default content</ExpanderContent>
     </Expander>
   );
@@ -118,7 +157,7 @@ describe('onOpenChange', () => {
     const mockClickHandler = jest.fn();
     const { getByRole } = render(
       <Expander onOpenChange={mockClickHandler}>
-        <ExpanderTitle>Test expander open by default</ExpanderTitle>
+        <ExpanderTitleButton>Test expander open by default</ExpanderTitleButton>
         <ExpanderContent>Test expander open by default content</ExpanderContent>
       </Expander>,
     );
@@ -131,9 +170,9 @@ describe('onOpenChange', () => {
 describe('open', () => {
   const ControlledExpander = (props?: Partial<ExpanderProps>) => (
     <Expander className="expander-onclick-test" open={true} {...props}>
-      <ExpanderTitle {...{ 'data-testid': 'expander-title-id' }}>
+      <ExpanderTitleButton {...{ 'data-testid': 'expander-title-id' }}>
         Test expander onClick testing
-      </ExpanderTitle>
+      </ExpanderTitleButton>
       <ExpanderContent>Test expander click testing content</ExpanderContent>
     </Expander>
   );
@@ -163,9 +202,4 @@ describe('open', () => {
       'fi-expander_title-icon--open',
     );
   });
-});
-
-test('CSS export', () => {
-  const css = cssFromBaseStyles(baseStyles);
-  expect(css).toEqual(expect.stringContaining('background-color'));
 });

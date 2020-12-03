@@ -11,22 +11,6 @@ const baseClassName = 'fi-expander-group';
 const openClassName = `${baseClassName}--open`;
 const expandersContainerClassName = `${baseClassName}_expanders`;
 const openAllButtonClassName = `${baseClassName}_all-button`;
-
-type ToggleAllExpanderState = {
-  toState: boolean;
-};
-
-interface ExpanderOpenState {
-  [key: string]: boolean;
-}
-
-interface ExpanderGroupState {
-  /** Expanders that are open */
-  expanders: ExpanderOpenState;
-  /** State change transition request */
-  toggleAllExpanderState: ToggleAllExpanderState;
-}
-
 interface InternalExpanderGroupProps {
   /** Expanders and option other components */
   children: ReactNode;
@@ -52,15 +36,30 @@ interface InternalExpanderGroupProps {
   >;
 }
 
+interface ExpanderOpenStates {
+  [key: string]: boolean;
+}
+
+type ExpanderGroupTargetOpenState = {
+  targetOpenState: boolean;
+};
+
+interface ExpanderGroupState {
+  /** Expanders that are open */
+  expanders: ExpanderOpenStates;
+  /** State change transition request */
+  expanderGroupOpenState: ExpanderGroupTargetOpenState;
+}
+
 export interface ExpanderGroupProviderState {
   onExpanderOpenChange: (id: string, toState: boolean | undefined) => void;
-  toggleAllExpanderState: ToggleAllExpanderState;
+  expanderGroupOpenState: ExpanderGroupTargetOpenState;
 }
 
 const defaultProviderValue: ExpanderGroupProviderState = {
   onExpanderOpenChange: () => null,
-  toggleAllExpanderState: {
-    toState: false,
+  expanderGroupOpenState: {
+    targetOpenState: false,
   },
 };
 
@@ -71,8 +70,8 @@ const { Provider, Consumer: ExpanderGroupConsumer } = React.createContext(
 class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
   state: ExpanderGroupState = {
     expanders: {},
-    toggleAllExpanderState: {
-      toState: false,
+    expanderGroupOpenState: {
+      targetOpenState: false,
     },
   };
 
@@ -105,8 +104,8 @@ class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
 
   handleAllToggleClick = () => {
     this.setState({
-      toggleAllExpanderState: {
-        toState: !this.expandersOpenState().allOpen,
+      expanderGroupOpenState: {
+        targetOpenState: !this.expandersOpenState().allOpen,
       },
     });
   };
@@ -122,7 +121,7 @@ class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
       toggleAllButtonProps,
       ...passProps
     } = this.props;
-    const { toggleAllExpanderState } = this.state;
+    const { expanderGroupOpenState } = this.state;
     const { openExpanderCount, allOpen } = this.expandersOpenState();
 
     return (
@@ -153,7 +152,7 @@ class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
           <Provider
             value={{
               onExpanderOpenChange: this.handleExpanderOpenChange,
-              toggleAllExpanderState,
+              expanderGroupOpenState,
             }}
           >
             {children}

@@ -8,6 +8,6 @@ export {
   ExpanderContentProps,
 } from './ExpanderContent/ExpanderContent';
 export {
-  ExpanderTitle,
-  ExpanderTitleProps,
-} from './ExpanderTitle/ExpanderTitle';
+  ExpanderTitleButton,
+  ExpanderTitleButtonProps,
+} from './ExpanderTitle/ExpanderTitleButton';

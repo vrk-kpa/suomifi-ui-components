@@ -6,21 +6,21 @@ import {
   ExpanderGroupProps,
   Expander,
   ExpanderProps,
-  ExpanderTitle,
-  ExpanderTitleProps,
+  ExpanderTitleButton,
+  ExpanderTitleButtonProps,
   ExpanderContent,
 } from '../';
 
 const TestExpanderWithProps = (
   props: Omit<ExpanderProps, 'children'>,
-  titleProps: ExpanderTitleProps & { 'data-testid': string },
+  titleProps: ExpanderTitleButtonProps & { 'data-testid': string },
   content: string,
   key: number,
 ) => {
   const { children: title, ...titlePassProps } = titleProps;
   return (
     <Expander key={key} {...props}>
-      <ExpanderTitle {...titlePassProps}>{title}</ExpanderTitle>
+      <ExpanderTitleButton {...titlePassProps}>{title}</ExpanderTitleButton>
       <ExpanderContent>{content}</ExpanderContent>
     </Expander>
   );
@@ -29,7 +29,7 @@ const TestExpanderWithProps = (
 const TestExpanderGroup = (
   expanderData: {
     expanderProps: Omit<ExpanderProps, 'children'>;
-    titleProps: ExpanderTitleProps & { 'data-testid': string };
+    titleProps: ExpanderTitleButtonProps & { 'data-testid': string };
     content: string;
   }[],
   expanderGroupProps?: Partial<ExpanderGroupProps>,

@@ -1,12 +1,12 @@
 ```jsx
 import {
   Expander,
-  ExpanderTitle,
+  ExpanderTitleButton,
   ExpanderContent
 } from 'suomifi-ui-components';
 
 <Expander className="expander-test" defaultOpen={true}>
-  <ExpanderTitle>Test expander</ExpanderTitle>
+  <ExpanderTitleButton>Test expander</ExpanderTitleButton>
   <ExpanderContent>Test expander</ExpanderContent>
 </Expander>;
 ```
@@ -15,7 +15,7 @@ import {
 import {
   Expander,
   ExpanderGroup,
-  ExpanderTitle,
+  ExpanderTitleButton,
   ExpanderContent
 } from 'suomifi-ui-components';
 
@@ -26,15 +26,15 @@ import {
   AriaCloseAllText="Close all expanders"
 >
   <Expander>
-    <ExpanderTitle>Test expander 1</ExpanderTitle>
+    <ExpanderTitleButton>Test expander 1</ExpanderTitleButton>
     <ExpanderContent>Test expander content 1</ExpanderContent>
   </Expander>
   <Expander>
-    <ExpanderTitle>Test expander 2</ExpanderTitle>
+    <ExpanderTitleButton>Test expander 2</ExpanderTitleButton>
     <ExpanderContent>Test expander content 2</ExpanderContent>
   </Expander>
   <Expander>
-    <ExpanderTitle>Test expander 3</ExpanderTitle>
+    <ExpanderTitleButton>Test expander 3</ExpanderTitleButton>
     <ExpanderContent>Test expander content 3</ExpanderContent>
   </Expander>
 </ExpanderGroup>;
@@ -51,7 +51,7 @@ import {
 import {
   Expander,
   ExpanderGroup,
-  ExpanderTitle,
+  ExpanderTitleButton,
   ExpanderContent
 } from 'suomifi-ui-components';
 
@@ -76,16 +76,16 @@ const [showExpander, setShowExpander] = React.useState(false);
     AriaCloseAllText="Close all expanders"
   >
     <Expander>
-      <ExpanderTitle>Test expander 1</ExpanderTitle>
+      <ExpanderTitleButton>Test expander 1</ExpanderTitleButton>
       <ExpanderContent>Test expander content 1</ExpanderContent>
     </Expander>
     <Expander>
-      <ExpanderTitle>Test expander 2</ExpanderTitle>
+      <ExpanderTitleButton>Test expander 2</ExpanderTitleButton>
       <ExpanderContent>Test expander content 2</ExpanderContent>
     </Expander>
     {!!showExpander && (
       <Expander>
-        <ExpanderTitle>Test expander X</ExpanderTitle>
+        <ExpanderTitleButton>Test expander X</ExpanderTitleButton>
         <ExpanderContent>Test expander content X</ExpanderContent>
       </Expander>
     )}
@@ -97,7 +97,7 @@ const [showExpander, setShowExpander] = React.useState(false);
         }
       }}
     >
-      <ExpanderTitle>Test expander 3</ExpanderTitle>
+      <ExpanderTitleButton>Test expander 3</ExpanderTitleButton>
       <ExpanderContent>Test expander content 3</ExpanderContent>
     </Expander>
   </ExpanderGroup>

@@ -6,7 +6,7 @@ import { defaultThemeTokens } from './';
 import {
   ExpanderGroup,
   Expander,
-  ExpanderTitle,
+  ExpanderTitleButton,
   ExpanderContent,
 } from '../../';
 
@@ -23,14 +23,14 @@ const Test = (
     tokens={{ colors: customColors }}
   >
     <Expander id="id-expander-1">
-      <ExpanderTitle>Test expander 1</ExpanderTitle>
+      <ExpanderTitleButton>Test expander 1</ExpanderTitleButton>
     </Expander>
     <Expander id="id-expander-2">
-      <ExpanderTitle>Test expander 2</ExpanderTitle>
+      <ExpanderTitleButton>Test expander 2</ExpanderTitleButton>
       <ExpanderContent>Test expander content 2</ExpanderContent>
     </Expander>
     <Expander id="id-expander-3">
-      <ExpanderTitle>Test expander 3</ExpanderTitle>
+      <ExpanderTitleButton>Test expander 3</ExpanderTitleButton>
       <ExpanderContent>Test expander content 3</ExpanderContent>
     </Expander>
   </ExpanderGroup>

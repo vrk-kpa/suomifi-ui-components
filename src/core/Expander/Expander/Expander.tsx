@@ -107,13 +107,14 @@ class BaseExpander extends Component<BaseExpanderProps> {
     }
     if (
       !!consumer &&
-      consumer.toggleAllExpanderState !==
-        prevProps.consumer?.toggleAllExpanderState
+      consumer.expanderGroupOpenState !==
+        prevProps.consumer?.expanderGroupOpenState
     ) {
       if (
         (!controlled &&
-          !!this.state.openState !== consumer.toggleAllExpanderState.toState) ||
-        (controlled && open !== consumer.toggleAllExpanderState.toState)
+          !!this.state.openState !==
+            consumer.expanderGroupOpenState.targetOpenState) ||
+        (controlled && open !== consumer.expanderGroupOpenState.targetOpenState)
       ) {
         this.handleOpenChange();
       }
@@ -160,8 +161,6 @@ class BaseExpander extends Component<BaseExpanderProps> {
       ...passProps
     } = this.props;
     const openState = open !== undefined ? !!open : this.state.openState;
-    const titleId = `${id}_title`;
-    const contentId = `${id}_content`;
 
     return (
       <HtmlDiv
@@ -174,8 +173,8 @@ class BaseExpander extends Component<BaseExpanderProps> {
         <ExpanderProvider
           value={{
             open: openState,
-            contentId,
-            titleId,
+            contentId: `${id}_content`,
+            titleId: `${id}_title`,
             onToggleExpander: this.handleOpenChange,
           }}
         >

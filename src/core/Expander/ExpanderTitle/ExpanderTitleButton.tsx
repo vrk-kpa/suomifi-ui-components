@@ -4,9 +4,10 @@ import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { HtmlDiv, HtmlButton, HtmlButtonProps } from '../../../reset';
-import { baseStyles } from './ExpanderTitle.baseStyles';
+import { expanderTitleButtonBaseStyles } from './ExpanderTitle.baseStyles';
 import { Icon } from '../../Icon/Icon';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
+import { VisuallyHidden } from '../../../components';
 
 const baseClassName = 'fi-expander';
 const titleClassName = `${baseClassName}_title`;
@@ -15,9 +16,13 @@ const titleButtonClassName = `${titleClassName}-button`;
 const iconClassName = `${titleClassName}-icon`;
 const iconOpenClassName = `${iconClassName}--open`;
 
-export interface ExpanderTitleProps {
+export interface ExpanderTitleButtonProps {
   /** Title for Expander */
   children?: ReactNode;
+  /** Additional text for closed expanders toggle button. E.g."open expander". */
+  ariaOpenText?: string;
+  /** Additional text for open expanders toggle button. E.g."close expander". */
+  ariaCloseText?: string;
   /** Properties for title open/close toggle button */
   toggleButtonProps?: Omit<
     HtmlButtonProps,
@@ -30,13 +35,17 @@ export interface ExpanderTitleProps {
   >;
 }
 
-export interface InternalExpanderTitleProps
-  extends ExpanderTitleProps,
+export interface InternalExpanderTitleButtonProps
+  extends ExpanderTitleButtonProps,
     ExpanderTitleBaseProps {}
 
-class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
+class BaseExpanderTitleButton extends Component<
+  InternalExpanderTitleButtonProps
+> {
   render() {
     const {
+      ariaCloseText,
+      ariaOpenText,
       children,
       className,
       toggleButtonProps,
@@ -60,6 +69,11 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
           {...{ 'aria-controls': `${consumer.contentId}` }}
         >
           {children}
+          {(!!ariaCloseText || !!ariaOpenText) && (
+            <VisuallyHidden>
+              {!!consumer.open ? ariaCloseText : ariaOpenText}
+            </VisuallyHidden>
+          )}
           <Icon
             icon="chevronDown"
             className={classnames(iconClassName, {
@@ -73,22 +87,26 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
 }
 
 const StyledExpanderTitle = styled(
-  ({ tokens, ...passProps }: ExpanderTitleProps & InternalTokensProp) => {
+  ({ tokens, ...passProps }: ExpanderTitleButtonProps & InternalTokensProp) => {
     return (
       <ExpanderConsumer>
-        {(consumer) => <BaseExpanderTitle consumer={consumer} {...passProps} />}
+        {(consumer) => (
+          <BaseExpanderTitleButton consumer={consumer} {...passProps} />
+        )}
       </ExpanderConsumer>
     );
   },
 )`
-  ${(props) => baseStyles(props)};
+  ${(props) => expanderTitleButtonBaseStyles(props)};
 `;
 
 /**
  * <i class="semantics" />
  * Expander title for content and toggle for content visiblity
  */
-export class ExpanderTitle extends Component<ExpanderTitleProps & TokensProp> {
+export class ExpanderTitleButton extends Component<
+  ExpanderTitleButtonProps & TokensProp
+> {
   render() {
     return <StyledExpanderTitle {...withSuomifiDefaultProps(this.props)} />;
   }

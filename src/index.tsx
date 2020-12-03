@@ -58,8 +58,8 @@ export {
   ExpanderGroupProps,
   ExpanderContent,
   ExpanderContentProps,
-  ExpanderTitle,
-  ExpanderTitleProps,
+  ExpanderTitleButton,
+  ExpanderTitleButtonProps,
 } from './core/Expander/';
 export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';
 export { Text, TextProps } from './core/Text/Text';

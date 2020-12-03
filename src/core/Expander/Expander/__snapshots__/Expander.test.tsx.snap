@@ -73,6 +73,42 @@ exports[`Basic expander shoud match snapshot 1`] = `
   white-space: normal;
 }
 
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c5 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -103,7 +139,7 @@ exports[`Basic expander shoud match snapshot 1`] = `
   opacity: 0;
 }
 
-.c5 {
+.c7 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -136,11 +172,11 @@ exports[`Basic expander shoud match snapshot 1`] = `
   will-change: transition,height;
 }
 
-.c5:not(.fi-expander_content--no-padding) {
+.c7:not(.fi-expander_content--no-padding) {
   padding: 0 16px;
 }
 
-.c5.fi-expander_content--open {
+.c7.fi-expander_content--open {
   visibility: visible;
   height: 10%;
   overflow: visible;
@@ -148,14 +184,14 @@ exports[`Basic expander shoud match snapshot 1`] = `
   animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
 }
 
-.c5.fi-expander_content--open:not(.fi-expander_content--no-padding) {
+.c7.fi-expander_content--open:not(.fi-expander_content--no-padding) {
   padding-top: 0;
   padding-right: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
 }
 
-.c4 {
+.c6 {
   display: inline-block;
   vertical-align: baseline;
 }
@@ -288,9 +324,14 @@ exports[`Basic expander shoud match snapshot 1`] = `
       type="button"
     >
       Test expander
+      <span
+        class="c4 c5 fi-visually-hidden"
+      >
+        click to open expander
+      </span>
       <svg
         aria-hidden="true"
-        class="fi-icon c4 fi-expander_title-icon"
+        class="fi-icon c6 fi-expander_title-icon"
         fill="currentColor"
         focusable="false"
         height="1em"
@@ -306,7 +347,7 @@ exports[`Basic expander shoud match snapshot 1`] = `
   <div
     aria-hidden="true"
     aria-labelledby="4_title"
-    class="c0 c5 fi-expander_content"
+    class="c0 c7 fi-expander_content"
     id="4_content"
   >
     Test expander content

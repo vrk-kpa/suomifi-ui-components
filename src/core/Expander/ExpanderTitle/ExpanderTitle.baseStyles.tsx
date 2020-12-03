@@ -4,11 +4,10 @@ import { element, button, font } from '../../theme/reset';
 import { allStates } from '../../../utils/css';
 import { absoluteFocus, noMouseFocus } from '../../theme/utils';
 
-import { ExpanderTitleProps } from './ExpanderTitle';
+import { ExpanderTitleButtonProps } from './ExpanderTitleButton';
 
-/* stylelint-disable no-descending-specificity, no-duplicate-selectors */
-export const baseStyles = withSuomifiTheme(
-  ({ theme }: TokensAndTheme & Partial<ExpanderTitleProps>) => {
+export const expanderTitleButtonBaseStyles = withSuomifiTheme(
+  ({ theme }: TokensAndTheme & Partial<ExpanderTitleButtonProps>) => {
     return css`
       ${expanderTitleBaseStyle(theme)}
       & .fi-expander_title-button {

@@ -5,7 +5,6 @@ import { padding } from '../../theme/utils';
 
 import { ExpanderContentProps } from './ExpanderContent';
 
-/* stylelint-disable no-descending-specificity, no-duplicate-selectors */
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme & Partial<ExpanderContentProps>) => {
     return css`
