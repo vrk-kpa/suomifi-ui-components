@@ -16,14 +16,14 @@ interface InternalExpanderGroupProps {
   children: ReactNode;
   /** 'Open all' button text */
   OpenAllText: string;
-  /** 'Close all'-component (Button) */
+  /** 'Close all' button text */
   CloseAllText: string;
-  /** Custom classname to extend or customize */
-  className?: string;
   /** 'Open all' button text for screen readers, hides OpenAllText for screen readers if provided */
   AriaOpenAllText?: string;
   /** 'Close all' button text for screen readers, hides CloseAllText for screen readers if provided */
   AriaCloseAllText?: string;
+  /** Custom classname to extend or customize */
+  className?: string;
   /** Open/Close all button props */
   toggleAllButtonProps?: Omit<
     HtmlButtonProps,
@@ -52,7 +52,7 @@ interface ExpanderGroupState {
 }
 
 export interface ExpanderGroupProviderState {
-  onExpanderOpenChange: (id: string, toState: boolean | undefined) => void;
+  onExpanderOpenChange: (id: string, newState: boolean | undefined) => void;
   expanderGroupOpenState: ExpanderGroupTargetOpenState;
 }
 
@@ -93,7 +93,7 @@ class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
   expandersOpenState = () => {
     const expanderCount = Object.keys(this.state.expanders).length;
     const openExpanderCount = Object.values(this.state.expanders).filter(
-      (value) => value === true,
+      (value) => value,
     ).length;
     return {
       expanderCount,
