@@ -28,7 +28,9 @@ const textareaClassNames = {
 
 type TextareaStatus = Exclude<InputStatus, 'success'>;
 
-export interface TextareaProps extends HtmlTextareaProps, TokensProp {
+export interface TextareaProps
+  extends Omit<HtmlTextareaProps, 'placeholder'>,
+    TokensProp {
   /** Custom classname to extend or customize */
   className?: string;
   /** Disable usage */
