@@ -76,9 +76,7 @@ export interface SearchInputProps
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback for search button click */
   onSearch?: (value: SearchInputValue) => void;
-  /** Debounce timer for debounce onChange function
-   * @default 1000
-   */
+  /** Debounce time for debounced onChange function */
   debounce?: number;
 }
 
@@ -232,11 +230,8 @@ class BaseSearchInput extends Component<SearchInputProps> {
         </LabelText>
         <HtmlDiv className={searchInputClassNames.functionalityContainer}>
           <HtmlDiv className={searchInputClassNames.inputElementContainer}>
-            <Debounce
-              waitFor={this.props.debounce || 0}
-              debouncedCallback={propOnChange}
-            >
-              {() => (
+            <Debounce waitFor={this.props.debounce || 0}>
+              {(debouncer: Function) => (
                 <HtmlInputWithRef
                   {...passProps}
                   {...getDescribedBy()}
@@ -249,7 +244,11 @@ class BaseSearchInput extends Component<SearchInputProps> {
                   value={this.state.value}
                   placeholder={visualPlaceholder}
                   onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                    event.persist();
                     conditionalSetState(event.currentTarget.value);
+                    if (propOnChange) {
+                      debouncer(propOnChange, event.currentTarget.value);
+                    }
                   }}
                   onKeyPress={onKeyPress}
                   onKeyDown={onKeyDown}

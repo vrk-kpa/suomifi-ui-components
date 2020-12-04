@@ -2,7 +2,6 @@ import React from 'react';
 
 export type DebounceProps<T> = T & {
   waitFor: number;
-  children(attr: T): React.ReactChild | Array<React.ReactChild> | null;
 };
 
 export class Debounce<T extends Object> extends React.PureComponent<
@@ -11,23 +10,32 @@ export class Debounce<T extends Object> extends React.PureComponent<
 > {
   timeout: ReturnType<typeof setTimeout> | null = null;
 
+  waitFor: number;
+
+  constructor(props: DebounceProps<T>) {
+    super(props);
+    this.waitFor = props.waitFor;
+    console.log(`hello from constructor. Waitfor value is ${this.waitFor}`);
+  }
+
   componentDidUpdate() {
     // casted to any due to https://github.com/Microsoft/TypeScript/issues/10727
-    const { children, waitFor, ...propsToDebounce } = this.props as any;
 
     this.clearTimeout();
-
-    this.timeout = setTimeout(() => {
-      this.timeout = null;
-      this.setState(propsToDebounce);
-      const { debouncedCallback } = propsToDebounce;
-      debouncedCallback();
-    }, waitFor);
+    this.waitFor = this.props.waitFor;
   }
 
   componentWillUnmount() {
     this.clearTimeout();
   }
+
+  debouncer = (callback: Function, value: any) => {
+    this.clearTimeout();
+    this.timeout = setTimeout(callback(value), this.waitFor);
+    console.log(
+      `hello from debouncer func. Waitfor value is ${this.waitFor}, callBack is ${callback} and value is ${value}`,
+    );
+  };
 
   clearTimeout() {
     if (this.timeout !== null) {
@@ -38,7 +46,7 @@ export class Debounce<T extends Object> extends React.PureComponent<
 
   render() {
     // casted to any due to https://github.com/Microsoft/TypeScript/issues/10727
-    const { children, waitFor, ...propsToDebounce } = this.props as any;
-    return children(this.state || (propsToDebounce as T));
+    const { children } = this.props as any;
+    return children(this.debouncer);
   }
 }
