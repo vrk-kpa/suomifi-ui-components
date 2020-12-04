@@ -15,6 +15,7 @@ export const baseStyles = withSuomifiTheme(
       display: flex;
       flex-direction: column;
       color: ${theme.colors.blackBase};
+      width: 290px;
 
       & .fi-label-text_label-span {
         margin-bottom: 0;

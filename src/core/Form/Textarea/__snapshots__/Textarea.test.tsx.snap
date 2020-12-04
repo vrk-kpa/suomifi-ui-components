@@ -129,6 +129,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   color: hsl(0,0%,16%);
+  width: 290px;
 }
 
 .c1.fi-textarea .fi-label-text_label-span {
