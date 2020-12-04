@@ -93,7 +93,7 @@ class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
   expandersOpenState = () => {
     const expanderCount = Object.keys(this.state.expanders).length;
     const openExpanderCount = Object.values(this.state.expanders).filter(
-      (value) => value,
+      (isOpen) => !!isOpen,
     ).length;
     return {
       expanderCount,

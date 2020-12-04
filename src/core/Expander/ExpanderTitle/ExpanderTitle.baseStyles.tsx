@@ -31,6 +31,10 @@ export const expanderTitleBaseStyle = (theme: SuomifiTheme) => {
     width: 100%;
     max-width: 100%;
     min-height: 60px;
+    background-color: ${theme.colors.highlightLight4};
+    &.fi-expander_title--open {
+      background-color: ${theme.colors.whiteBase};
+    }
   `;
 };
 
@@ -38,7 +42,6 @@ export const expanderTitleButtonBaseStyle = (theme: SuomifiTheme) => {
   return css`
     ${button({ theme })}
     ${font({ theme })('bodyText')}
-    background-color: ${theme.colors.whiteBase};
     color: ${theme.colors.highlightBase};
     display: block;
     &:focus {
