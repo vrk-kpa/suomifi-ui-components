@@ -4,10 +4,7 @@ import classnames from 'classnames';
 import { iconBaseStyles } from './Icon.baseStyles';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp } from '../theme';
-import {
-  ariaLabelOrHidden,
-  ariaFocusableNoLabel,
-} from '../../components/utils/aria';
+import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
 import { SuomifiIcon, SuomifiIconInterface } from 'suomifi-icons';
 import { logger } from '../../utils/logger';
 export { BaseIconKeys } from 'suomifi-icons';

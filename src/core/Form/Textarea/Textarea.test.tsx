@@ -31,7 +31,20 @@ describe('props', () => {
     it('should have label text with correct class', () => {
       const { getByText } = render(DefaultTextareaComponent);
       const label = getByText('Label here');
-      expect(label).toHaveClass('fi-textarea_label');
+      expect(label).toHaveClass('fi-label-text_label-span');
+    });
+
+    it('has user given aria-describedby on textarea', () => {
+      const { getByRole } = render(
+        <Textarea
+          labelText="Label here"
+          aria-describedby="external-component-id"
+        />,
+      );
+      expect(getByRole('textbox')).toHaveAttribute(
+        'aria-describedby',
+        'external-component-id',
+      );
     });
 
     it(
@@ -109,7 +122,7 @@ describe('props', () => {
   });
 
   describe('labelMode', () => {
-    it('hidden: should hide visually-hidden classname   ', () => {
+    it('hidden: should hide label; label to have visually-hidden classname', () => {
       const { getByText } = render(
         <Textarea labelText="To be hidden" labelMode="hidden" />,
       );
@@ -147,7 +160,17 @@ describe('props', () => {
         <Textarea labelText="label" hintText="Example hint text" />,
       );
       const hintText = getByText('Example hint text');
-      expect(hintText).toHaveClass('fi-textarea_hintText');
+      expect(hintText).toHaveClass('fi-hint-text');
+    });
+
+    it('will be added to input aria-describedby', () => {
+      const { getByRole } = render(
+        <Textarea id="123" labelText="label" hintText="Example hint text" />,
+      );
+      expect(getByRole('textbox')).toHaveAttribute(
+        'aria-describedby',
+        '123-hintText',
+      );
     });
   });
 
@@ -157,7 +180,21 @@ describe('props', () => {
         <Textarea labelText="label" statusText="EROR EROR" />,
       );
       const statusText = getByText('EROR EROR');
-      expect(statusText).toHaveClass('fi-textarea_statusText');
+      expect(statusText).toHaveClass('fi-status-text');
+    });
+
+    it('will be added to input aria-describedby', () => {
+      const { getByRole } = render(
+        <Textarea
+          id="123"
+          labelText="label"
+          statusText="Example status text"
+        />,
+      );
+      expect(getByRole('textbox')).toHaveAttribute(
+        'aria-describedby',
+        '123-statusText',
+      );
     });
   });
 
@@ -176,7 +213,7 @@ describe('props', () => {
         <Textarea labelText="label" optionalText="Optional" />,
       );
       const optionalText = getByText('(Optional)');
-      expect(optionalText).toHaveClass('fi-textarea_optionalText');
+      expect(optionalText).toHaveClass('fi-label-text_optionalText');
     });
   });
 
@@ -213,6 +250,7 @@ describe('props', () => {
       expect(textarea).toHaveStyle('resize: none');
     });
   });
+
   describe('name', () => {
     it('has the given name attribute', () => {
       const { getByRole } = render(
@@ -220,6 +258,34 @@ describe('props', () => {
       );
       const textarea = getByRole('textbox') as HTMLInputElement;
       expect(textarea.name).toBe('test-name');
+    });
+  });
+
+  describe('id', () => {
+    it('has the given id', () => {
+      const { getByRole } = render(
+        <Textarea labelText="label" id="custom-id" />,
+      );
+      expect(getByRole('textbox')).toHaveAttribute('id', 'custom-id');
+    });
+  });
+
+  describe('fullWidth', () => {
+    it('has the required classname', () => {
+      const { container } = render(<Textarea labelText="label" fullWidth />);
+      expect(container.firstChild).toHaveClass('fi-textarea--full-width');
+    });
+  });
+
+  describe('containerProps', () => {
+    it('has the given props on the container', () => {
+      const { container } = render(
+        <Textarea
+          labelText="label"
+          containerProps={{ style: { width: '100px' } }}
+        />,
+      );
+      expect(container.firstChild).toHaveAttribute('style', 'width: 100px;');
     });
   });
 });

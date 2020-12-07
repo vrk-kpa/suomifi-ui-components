@@ -15,21 +15,14 @@ export const baseStyles = withSuomifiTheme(
       display: flex;
       flex-direction: column;
       color: ${theme.colors.blackBase};
+      width: 290px;
 
-      & .fi-textarea_label {
-        ${font({ theme })('actionElementInnerTextBold')};
-        color: ${theme.colors.blackBase};
+      & .fi-label-text_label-span {
+        margin-bottom: 0;
       }
 
-      & .fi-textarea_optionalText {
-        ${theme.typography.bodyTextSmall};
-      }
-
-      & .fi-textarea_hintText {
-        display: block;
-        color: ${theme.colors.blackBase};
-        ${theme.typography.bodyTextSmall};
-        word-break: break-word;
+      & .fi-hint-text {
+        margin-bottom: 0;
       }
 
       & .fi-textarea_textarea-element-container {
@@ -65,13 +58,9 @@ export const baseStyles = withSuomifiTheme(
         }
       }
 
-      & .fi-textarea_statusText {
+      & .fi-status-text {
         display: block;
-        margin-top: ${theme.spacing.xxs};
-        font-size: 14px;
         line-height: 18px;
-        font-weight: 600;
-        word-break: break-word;
       }
 
       &.fi-textarea--disabled {
@@ -87,11 +76,11 @@ export const baseStyles = withSuomifiTheme(
         & .fi-textarea_textarea {
           border: 2px solid ${theme.colors.alertBase};
         }
-
-        & .fi-textarea_statusText {
-          color: ${theme.colors.alertBase};
-        }
       }
+    }
+
+    &.fi-textarea--full-width {
+      width: 100%;
     }
   `,
 );

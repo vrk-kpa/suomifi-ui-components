@@ -8,10 +8,7 @@ import {
   SuomifiComponentIconInterface,
   SuomifiComponentIcon,
 } from 'suomifi-icons';
-import {
-  ariaLabelOrHidden,
-  ariaFocusableNoLabel,
-} from '../../components/utils/aria';
+import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
 import { IconBaseProps, iconLogger } from '../Icon/Icon';
 export { IllustrativeIconKeys, DoctypeIconKeys } from 'suomifi-icons';
 
