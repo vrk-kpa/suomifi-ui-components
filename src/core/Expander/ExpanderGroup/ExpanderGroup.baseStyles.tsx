@@ -1,13 +1,16 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, TokensAndTheme } from '../theme';
-import { element, font } from '../theme/reset';
-import { absoluteFocus } from '../theme/utils';
+import { withSuomifiTheme, TokensAndTheme } from '../../theme';
+import { element, font } from '../../theme/reset';
+import { absoluteFocus, noMouseFocus } from '../../theme/utils';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     ${element({ theme })}
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+
     & > .fi-expander-group_expanders {
       flex: none;
 
@@ -18,6 +21,10 @@ export const baseStyles = withSuomifiTheme(
         border-top: 1px solid ${theme.colors.depthLight1};
         transition: margin ${`${theme.transitions.basicTime}
         ${theme.transitions.basicTimingFunction}`};
+
+        & .fi-icon {
+          color: ${theme.colors.highlightBase};
+        }
 
         &:first-child {
           border-radius: ${theme.radius.basic} ${theme.radius.basic} 0 0;
@@ -53,12 +60,14 @@ export const baseStyles = withSuomifiTheme(
     & > .fi-expander-group_all-button {
       ${element({ theme })}
       ${font({ theme })('actionElementInnerTextBold')}
-    flex: 1 1 auto;
+      flex: 1 1 auto;
       align-self: flex-end;
       margin-left: auto;
       margin-bottom: ${theme.spacing.insetM};
       padding: ${theme.spacing.insetXs} 0;
       color: ${theme.colors.highlightBase};
+      border-radius: ${theme.radius.basic};
+      border: none;
       cursor: pointer;
 
       &:focus {
@@ -69,6 +78,7 @@ export const baseStyles = withSuomifiTheme(
           ${absoluteFocus}
         }
       }
+      ${noMouseFocus}
     }
   `,
 );

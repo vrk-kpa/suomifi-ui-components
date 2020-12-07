@@ -53,3 +53,12 @@ export const boxShadowFocus = css`
   border-radius: ${radius.focus};
   box-shadow: 0 0 0 2px ${colors.accentSecondary};
 `;
+
+export const noMouseFocus = css`
+  :not(:focus-visible) {
+    outline: 0;
+    &:after {
+      content: none;
+    }
+  }
+`;
