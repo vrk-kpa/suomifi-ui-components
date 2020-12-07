@@ -17,6 +17,7 @@ describe('getAriaDescribedByProp', () => {
     const data = getAriaDescribedByProp([
       'other-id',
       'another-id',
+      undefined,
       'example-id',
     ]);
     const expectation = {
