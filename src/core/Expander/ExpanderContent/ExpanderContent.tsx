@@ -18,7 +18,10 @@ const noPaddingClassName = `${contentBaseClassName}--no-padding`;
 export interface ExpanderContentProps extends Omit<HtmlDivProps, 'id'> {
   /** Content for expander */
   children: ReactNode;
-  /** Remove padding from expandable content area (for background usage with padding in given container etc.) */
+  /**
+   * Remove padding from expandable content area (for background usage with padding in given container etc.)
+   * @default false
+   */
   noPadding?: boolean;
 }
 
@@ -48,7 +51,7 @@ class BaseExpanderContent extends Component<InternalExpanderContentProps> {
         }}
         className={classnames(className, contentBaseClassName, {
           [contentOpenClassName]: !!consumer.open,
-          [noPaddingClassName]: noPadding,
+          [noPaddingClassName]: !!noPadding,
         })}
         aria-hidden={!consumer.open}
         key={String(consumer.open)}

@@ -12,7 +12,7 @@ const openClassName = `${baseClassName}--open`;
 const expandersContainerClassName = `${baseClassName}_expanders`;
 const openAllButtonClassName = `${baseClassName}_all-button`;
 interface InternalExpanderGroupProps {
-  /** Expanders and option other components */
+  /** Expanders and optionally, other ReactNodes */
   children: ReactNode;
   /** 'Open all' button text */
   OpenAllText: string;
