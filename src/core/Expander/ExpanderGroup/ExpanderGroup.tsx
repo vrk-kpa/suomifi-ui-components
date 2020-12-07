@@ -45,7 +45,7 @@ type ExpanderGroupTargetOpenState = {
 };
 
 interface ExpanderGroupState {
-  /** Expanders that are open */
+  /** Expanders by id with current open state */
   expanders: ExpanderOpenStates;
   /** State change transition request */
   expanderGroupOpenState: ExpanderGroupTargetOpenState;
