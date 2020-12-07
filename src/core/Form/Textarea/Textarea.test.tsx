@@ -282,7 +282,7 @@ describe('props', () => {
       const { container } = render(
         <Textarea
           labelText="label"
-          containerProps={{ style: { width: 100 } }}
+          containerProps={{ style: { width: '100px' } }}
         />,
       );
       expect(container.firstChild).toHaveAttribute('style', 'width: 100px;');
