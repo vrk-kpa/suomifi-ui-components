@@ -1,31 +1,38 @@
 import { Component } from 'react';
+
 export type DebounceProps<T> = T & {
   waitFor: number;
 };
 export class Debounce<T extends Object> extends Component<DebounceProps<T>> {
-  state: { timeout: ReturnType<typeof setTimeout> | null; waitFor: number } = {
+  state: { timeout: ReturnType<typeof setTimeout> | null } = {
     timeout: null,
-    waitFor: 0,
   };
-
-  componentDidUpdate() {
-    if (this.props.waitFor !== this.state.waitFor) {
-      this.setState({ waitFor: this.props.waitFor });
-    }
-  }
 
   componentWillUnmount() {
     this.clearTimeout();
   }
 
   debouncer = (callback: Function, value: T) => {
+    if (!callback) {
+      return;
+    }
+
+    if (this.props.waitFor === 0) {
+      callback(value);
+      return;
+    }
+
     this.clearTimeout();
-    const { waitFor } = this.state;
+    const { waitFor } = this.props;
     this.setState({
       timeout: setTimeout(() => {
         callback(value);
       }, waitFor),
     });
+  };
+
+  cancelDebounce = () => {
+    this.clearTimeout();
   };
 
   clearTimeout() {
@@ -38,6 +45,6 @@ export class Debounce<T extends Object> extends Component<DebounceProps<T>> {
   render() {
     // casted to any due to https://github.com/Microsoft/TypeScript/issues/10727
     const { children } = this.props as any;
-    return children(this.debouncer);
+    return children(this.debouncer, this.cancelDebounce);
   }
 }
