@@ -76,7 +76,7 @@ export interface SearchInputProps
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback for search button click */
   onSearch?: (value: SearchInputValue) => void;
-  /** Debounce time for debounced onChange function */
+  /** Debounce time for onChange function. No debounce is applied if no value is given. */
   debounce?: number;
 }
 
@@ -164,6 +164,9 @@ class BaseSearchInput extends Component<SearchInputProps> {
 
     const onClear = () => {
       conditionalSetState('');
+      if (propOnChange) {
+        propOnChange('');
+      }
       setTimeout(() => {
         if (this.inputRef.current) {
           this.inputRef.current.focus();
@@ -244,10 +247,10 @@ class BaseSearchInput extends Component<SearchInputProps> {
                   value={this.state.value}
                   placeholder={visualPlaceholder}
                   onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                    event.persist();
-                    conditionalSetState(event.currentTarget.value);
+                    const eventValue = event.currentTarget.value;
+                    conditionalSetState(eventValue);
                     if (propOnChange) {
-                      debouncer(propOnChange, event.currentTarget.value);
+                      debouncer(propOnChange, eventValue);
                     }
                   }}
                   onKeyPress={onKeyPress}
