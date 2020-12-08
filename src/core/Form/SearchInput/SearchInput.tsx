@@ -231,10 +231,10 @@ class BaseSearchInput extends Component<SearchInputProps> {
         <LabelText htmlFor={this.id} labelMode={labelMode} as="label">
           {labelText}
         </LabelText>
-        <HtmlDiv className={searchInputClassNames.functionalityContainer}>
-          <HtmlDiv className={searchInputClassNames.inputElementContainer}>
-            <Debounce waitFor={this.props.debounce || 0}>
-              {(debouncer: Function) => (
+        <Debounce waitFor={this.props.debounce || 0}>
+          {(debouncer: Function, cancelDebounce: Function) => (
+            <HtmlDiv className={searchInputClassNames.functionalityContainer}>
+              <HtmlDiv className={searchInputClassNames.inputElementContainer}>
                 <HtmlInputWithRef
                   {...passProps}
                   {...getDescribedBy()}
@@ -256,26 +256,32 @@ class BaseSearchInput extends Component<SearchInputProps> {
                   onKeyPress={onKeyPress}
                   onKeyDown={onKeyDown}
                 />
-              )}
-            </Debounce>
-          </HtmlDiv>
-          <HtmlButton {...clearButtonProps}>
-            <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
-            <Icon
-              aria-hidden={true}
-              icon="close"
-              className={searchInputClassNames.clearIcon}
-            />
-          </HtmlButton>
-          <HtmlButton {...searchButtonDerivedProps}>
-            <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
-            <Icon
-              aria-hidden={true}
-              icon="search"
-              className={searchInputClassNames.searchIcon}
-            />
-          </HtmlButton>
-        </HtmlDiv>
+              </HtmlDiv>
+              <HtmlButton
+                {...clearButtonProps}
+                onClick={() => {
+                  onClear();
+                  cancelDebounce();
+                }}
+              >
+                <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
+                <Icon
+                  aria-hidden={true}
+                  icon="close"
+                  className={searchInputClassNames.clearIcon}
+                />
+              </HtmlButton>
+              <HtmlButton {...searchButtonDerivedProps}>
+                <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
+                <Icon
+                  aria-hidden={true}
+                  icon="search"
+                  className={searchInputClassNames.searchIcon}
+                />
+              </HtmlButton>
+            </HtmlDiv>
+          )}
+        </Debounce>
         <StatusText id={this.statusTextId} status={status}>
           {statusText}
         </StatusText>
