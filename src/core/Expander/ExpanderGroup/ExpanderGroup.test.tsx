@@ -129,19 +129,19 @@ describe('default behaviour', () => {
     const { getByTestId } = render(DefaultGroup);
     const titleDiv = getByTestId('expander-title-2');
     const button = getByTestId('expander-title-2-button');
-    expect(titleDiv).not.toHaveClass('fi-expander_title--open');
+    expect(titleDiv).not.toHaveClass('fi-expander_title-button--open');
     expect(button.querySelector('svg')).not.toHaveClass(
-      'fi-expander_title-icon--open',
+      'fi-expander_title-button-icon--open',
     );
     fireEvent.click(button);
-    expect(titleDiv).toHaveClass('fi-expander_title--open');
+    expect(titleDiv).toHaveClass('fi-expander_title-button--open');
     expect(button.querySelector('svg')).toHaveClass(
-      'fi-expander_title-icon--open',
+      'fi-expander_title-button-icon--open',
     );
     fireEvent.click(button);
-    expect(titleDiv).not.toHaveClass('fi-expander_title--open');
+    expect(titleDiv).not.toHaveClass('fi-expander_title-button--open');
     expect(button.querySelector('svg')).not.toHaveClass(
-      'fi-expander_title-icon--open',
+      'fi-expander_title-button-icon--open',
     );
   });
   it('open/close all should have providedTexts and screen reader texts', async () => {
@@ -182,9 +182,9 @@ describe('defaultOpen', () => {
       ]),
     );
     const titleDiv = getByTestId('expander-title-2');
-    expect(titleDiv).toHaveClass('fi-expander_title--open');
+    expect(titleDiv).toHaveClass('fi-expander_title-button--open');
     expect(titleDiv.querySelector('svg')).toHaveClass(
-      'fi-expander_title-icon--open',
+      'fi-expander_title-button-icon--open',
     );
   });
 
@@ -221,10 +221,10 @@ describe('defaultOpen', () => {
     );
     const button = getByTestId('expander-title-2-button');
     const titleDiv = getByTestId('expander-title-2');
-    expect(titleDiv).toHaveClass('fi-expander_title--open');
+    expect(titleDiv).toHaveClass('fi-expander_title-button--open');
     fireEvent.click(button);
     expect(button.querySelector('svg')).not.toHaveClass(
-      'fi-expander_title-icon--open',
+      'fi-expander_title-button-icon--open',
     );
   });
 });
@@ -288,10 +288,10 @@ describe('open', () => {
       ]),
     );
     const titleDiv = getByTestId('expander-title-2');
-    expect(titleDiv).toHaveClass('fi-expander_title--open');
+    expect(titleDiv).toHaveClass('fi-expander_title-button--open');
 
     expect(titleDiv.querySelector('svg')).toHaveClass(
-      'fi-expander_title-icon--open',
+      'fi-expander_title-button-icon--open',
     );
   });
 
@@ -326,15 +326,15 @@ describe('open', () => {
     );
     const button = getByTestId('expander-title-2-button');
     const titleDiv = getByTestId('expander-title-2');
-    expect(titleDiv).toHaveClass('fi-expander_title--open');
+    expect(titleDiv).toHaveClass('fi-expander_title-button--open');
     expect(titleDiv.querySelector('svg')).toHaveClass(
-      'fi-expander_title-icon--open',
+      'fi-expander_title-button-icon--open',
     );
     fireEvent.click(button);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
-    expect(titleDiv).toHaveClass('fi-expander_title--open');
+    expect(titleDiv).toHaveClass('fi-expander_title-button--open');
     expect(titleDiv.querySelector('svg')).toHaveClass(
-      'fi-expander_title-icon--open',
+      'fi-expander_title-button-icon--open',
     );
   });
 
@@ -377,16 +377,16 @@ describe('open', () => {
     );
     const titleDiv = getByTestId('expander-title-2');
     const button = getByTestId('expander-title-2-button');
-    expect(titleDiv).not.toHaveClass('fi-expander_title--open');
+    expect(titleDiv).not.toHaveClass('fi-expander_title-button--open');
     expect(button.querySelector('svg')).not.toHaveClass(
-      'fi-expander_title-icon--open',
+      'fi-expander_title-button-icon--open',
     );
     const openAllButton = getByTestId('open-all-button');
 
     fireEvent.click(openAllButton);
-    expect(titleDiv).not.toHaveClass('fi-expander_title--open');
+    expect(titleDiv).not.toHaveClass('fi-expander_title-button--open');
     expect(button.querySelector('svg')).not.toHaveClass(
-      'fi-expander_title-icon--open',
+      'fi-expander_title-button-icon--open',
     );
   });
 });

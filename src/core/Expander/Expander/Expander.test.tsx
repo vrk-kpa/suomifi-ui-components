@@ -130,9 +130,9 @@ describe('defaultOpen', () => {
   it('gives the classname to expander title and icon', () => {
     const { getByTestId } = render(DefaultOpenExpander());
     const div = getByTestId('expander-open-by-default-title');
-    expect(div).toHaveClass('fi-expander_title--open');
+    expect(div).toHaveClass('fi-expander_title-button--open');
     expect(div.querySelector('svg')).toHaveClass(
-      'fi-expander_title-icon--open',
+      'fi-expander_title-button-icon--open',
     );
   });
 
@@ -144,10 +144,10 @@ describe('defaultOpen', () => {
     const buttonToClick = getByRole('button');
     const titleDiv = getByTestId('expander-open-by-default-title');
     fireEvent.click(buttonToClick);
-    expect(titleDiv).toHaveClass('fi-expander_title');
-    expect(titleDiv).not.toHaveClass('fi-expander_title--open');
+    expect(titleDiv).toHaveClass('fi-expander_title-button');
+    expect(titleDiv).not.toHaveClass('fi-expander_title-button--open');
     expect(buttonToClick.querySelector('svg')).not.toHaveClass(
-      'fi-expander_title-icon--open',
+      'fi-expander_title-button-icon--open',
     );
   });
 });
@@ -180,10 +180,10 @@ describe('open', () => {
   it('open-classnames should be found ', async () => {
     const { getByTestId } = render(ControlledExpander());
     const div = getByTestId('expander-title-id');
-    expect(div).toHaveClass('fi-expander_title--open');
+    expect(div).toHaveClass('fi-expander_title-button--open');
 
     expect(div.querySelector('svg')).toHaveClass(
-      'fi-expander_title-icon--open',
+      'fi-expander_title-button-icon--open',
     );
   });
 
@@ -196,10 +196,10 @@ describe('open', () => {
     fireEvent.click(button);
     expect(mockClickHandler).toHaveBeenCalledTimes(1);
     const div = getByTestId('expander-title-id');
-    expect(div).toHaveClass('fi-expander_title--open');
+    expect(div).toHaveClass('fi-expander_title-button--open');
 
     expect(button.querySelector('svg')).toHaveClass(
-      'fi-expander_title-icon--open',
+      'fi-expander_title-button-icon--open',
     );
   });
 });

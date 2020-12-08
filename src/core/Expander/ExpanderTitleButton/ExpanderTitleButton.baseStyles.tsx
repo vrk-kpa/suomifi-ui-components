@@ -10,8 +10,6 @@ export const expanderTitleButtonBaseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme & Partial<ExpanderTitleButtonProps>) => {
     return css`
       ${element({ theme })}
-      ${font({ theme })('bodyText')}
-      font-size: ${theme.typography.bodySemiBold};
       position: relative;
       display: block;
       width: 100%;
@@ -30,6 +28,7 @@ export const expanderTitleButtonBaseStyles = withSuomifiTheme(
         color: ${theme.colors.highlightBase};
         display: inline-block;
         width: 100%;
+        max-width: 100%;
         min-height: 60px;
         padding: 17px ${theme.spacing.xxxl} 16px ${theme.spacing.m};
 
@@ -55,12 +54,9 @@ export const expanderTitleButtonBaseStyles = withSuomifiTheme(
         position: absolute;
         top: 0;
         right: 0;
-      }
-
-      & .fi-expander_title-button-icon {
-        margin: ${theme.spacing.m};
         height: 20px;
         width: 20px;
+        margin: ${theme.spacing.m};
       }
 
       & .fi-expander_title-button--open .fi-expander_title-button-icon,
