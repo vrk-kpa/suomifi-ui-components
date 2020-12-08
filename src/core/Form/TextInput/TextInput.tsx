@@ -17,6 +17,7 @@ import classnames from 'classnames';
 import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
 import { Omit } from '../../../utils/typescript';
 import { idGenerator } from '../../../utils/uuid';
+import { Debounce } from '../../utils/Debounce/Debounce';
 
 const baseClassName = 'fi-text-input';
 export const textInputClassNames = {
@@ -30,8 +31,10 @@ export const textInputClassNames = {
   inputElement: `${baseClassName}_input`,
 };
 
+type TextInputValue = string | number | undefined;
+
 export interface TextInputProps
-  extends Omit<HtmlInputProps, 'type'>,
+  extends Omit<HtmlInputProps, 'type' | 'onChange'>,
     TokensProp {
   /** TextInput container div class name for custom styling. */
   className?: string;
@@ -42,7 +45,7 @@ export interface TextInputProps
   /** Event handler to execute when clicked */
   onClick?: () => void;
   /** To execute on input text change */
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (value: TextInputValue) => void;
   /** To execute on input text onBlur */
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Label */
@@ -68,10 +71,14 @@ export interface TextInputProps
   type?: 'text' | 'email' | 'number' | 'password' | 'tel' | 'url';
   /** Input name */
   name?: string;
+  /** Controlled value */
+  value?: TextInputValue;
   /** Set components width to 100% */
   fullWidth?: boolean;
   /** Text to mark a field optional. Will be wrapped in parentheses and shown after labelText. */
   optionalText?: string;
+  /** Debounce time for onChange function. No debounce is applied if no value is given. */
+  debounce?: number;
   icon?: BaseIconKeys;
   iconProps?: Omit<IconProps, 'icon'>;
 }
@@ -95,6 +102,7 @@ class BaseTextInput extends Component<TextInputProps> {
       className,
       labelText,
       labelMode,
+      onChange: propOnChange,
       inputContainerProps,
       optionalText,
       status,
@@ -151,15 +159,25 @@ class BaseTextInput extends Component<TextInputProps> {
         </LabelText>
         <HintText id={this.hintTextId}>{hintText}</HintText>
         <HtmlDiv className={textInputClassNames.inputElementContainer}>
-          <HtmlInput
-            {...passProps}
-            id={this.id}
-            className={textInputClassNames.inputElement}
-            type={type}
-            placeholder={visualPlaceholder}
-            {...{ 'aria-invalid': status === 'error' }}
-            {...getDescribedBy()}
-          />
+          <Debounce waitFor={this.props.debounce || 0}>
+            {(debouncer: Function) => (
+              <HtmlInput
+                {...passProps}
+                id={this.id}
+                className={textInputClassNames.inputElement}
+                type={type}
+                placeholder={visualPlaceholder}
+                {...{ 'aria-invalid': status === 'error' }}
+                {...getDescribedBy()}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                  const eventValue = event.currentTarget.value;
+                  if (propOnChange) {
+                    debouncer(propOnChange, eventValue);
+                  }
+                }}
+              />
+            )}
+          </Debounce>
           {resolvedIcon && <Icon {...newIconProps} />}
         </HtmlDiv>
         <StatusText id={this.statusTextId} status={status}>
