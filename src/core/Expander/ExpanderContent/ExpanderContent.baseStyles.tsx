@@ -17,14 +17,17 @@ export const baseStyles = withSuomifiTheme(
       height: 0;
       overflow: hidden;
       word-break: break-word;
+
       transform: scaleY(0);
       transform-origin: top;
       transition: all ${`${theme.transitions.basicTime}
         ${theme.transitions.basicTimingFunction}`};
       will-change: transition, height;
+
       &:not(.fi-expander_content--no-padding) {
         padding: 0 ${theme.spacing.insetXl};
       }
+
       &.fi-expander_content--open {
         visibility: visible;
         height: 10%;

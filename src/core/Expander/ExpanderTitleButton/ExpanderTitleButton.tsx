@@ -4,19 +4,21 @@ import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { HtmlDiv, HtmlButton, HtmlButtonProps } from '../../../reset';
-import { expanderTitleButtonBaseStyles } from './ExpanderTitle.baseStyles';
+import { expanderTitleButtonBaseStyles } from './ExpanderTitleButton.baseStyles';
 import { Icon } from '../../Icon/Icon';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 import { VisuallyHidden } from '../../../components';
 
 const baseClassName = 'fi-expander';
-const titleClassName = `${baseClassName}_title`;
+const titleClassName = `${baseClassName}_title-button`;
 const titleOpenClassName = `${titleClassName}--open`;
-const titleButtonClassName = `${titleClassName}-button`;
+const titleButtonClassName = `${titleClassName}_button`;
 const iconClassName = `${titleClassName}-icon`;
 const iconOpenClassName = `${iconClassName}--open`;
 
 export interface ExpanderTitleButtonProps {
+  /** Custom classname to extend or customize */
+  className?: string;
   /** Title for Expander */
   children?: ReactNode;
   /** Additional text for closed expanders toggle button. E.g."open expander". */
@@ -102,7 +104,7 @@ const StyledExpanderTitle = styled(
 
 /**
  * <i class="semantics" />
- * Expander title for content and toggle for content visiblity
+ * Expander title button for static title content and toggle for content visiblity
  */
 export class ExpanderTitleButton extends Component<
   ExpanderTitleButtonProps & TokensProp
