@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme, SuomifiThemeProp } from '../theme';
 import { ButtonProps } from './Button';
-import { element, button } from '../theme/reset';
+import { button } from '../theme/reset';
 import { alphaHex } from '../../utils/css';
 import { absoluteFocus } from '../theme/utils/focus';
 
@@ -122,6 +122,7 @@ export const baseStyles = withSuomifiTheme(
       text-shadow: 0 1px 1px ${alphaHex(0.5)(theme.colors.blackBase)};
       background: ${theme.gradients.depthLight1ToDepthBase};
       user-select: none;
+      cursor: not-allowed;
     }
 
     &.fi-button--disabled::after {
@@ -153,13 +154,5 @@ export const baseStyles = withSuomifiTheme(
     &.fi-button--disabled > .fi-button_icon {
       cursor: not-allowed;
     }
-  `,
-);
-
-export const unStyled = withSuomifiTheme(
-  ({ theme }: SuomifiThemeProp) => css`
-    ${element({ theme })}
-    border-radius: ${theme.radius.basic};
-    cursor: pointer;
   `,
 );
