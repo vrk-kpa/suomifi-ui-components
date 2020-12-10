@@ -12,7 +12,7 @@ export class Debounce<T extends Object> extends Component<DebounceProps<T>> {
     this.clearTimeout();
   }
 
-  debouncer = (callback: Function, value: T) => {
+  debouncer = (callback: Function, value?: T) => {
     if (!callback) {
       return;
     }
@@ -45,6 +45,9 @@ export class Debounce<T extends Object> extends Component<DebounceProps<T>> {
   render() {
     // casted to any due to https://github.com/Microsoft/TypeScript/issues/10727
     const { children } = this.props as any;
-    return children(this.debouncer, this.cancelDebounce);
+    if (!!children) {
+      return children(this.debouncer, this.cancelDebounce);
+    }
+    return null;
   }
 }
