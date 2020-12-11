@@ -14,11 +14,10 @@ import { Icon } from '../../Icon/Icon';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 import { VisuallyHidden } from '../../../components';
 
-const baseClassName = 'fi-expander';
-const titleClassName = `${baseClassName}_title`;
-const titleOpenClassName = `${titleClassName}--open`;
-const titleButtonClassName = `${titleClassName}-button`;
-const iconClassName = `${titleClassName}-icon`;
+const baseClassName = 'fi-expander_title';
+const titleOpenClassName = `${baseClassName}--open`;
+const titleButtonClassName = `${baseClassName}-button`;
+const iconClassName = `${baseClassName}-icon`;
 const iconOpenClassName = `${iconClassName}--open`;
 
 export interface ExpanderTitleProps extends Omit<HtmlDivProps, 'classname'> {
@@ -42,7 +41,7 @@ export interface ExpanderTitleProps extends Omit<HtmlDivProps, 'classname'> {
   >;
 }
 
-export interface InternalExpanderTitleProps
+interface InternalExpanderTitleProps
   extends ExpanderTitleProps,
     ExpanderTitleBaseProps {}
 
@@ -61,7 +60,7 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
     return (
       <HtmlDiv
         {...passProps}
-        className={classnames(className, titleClassName, {
+        className={classnames(className, baseClassName, {
           [titleOpenClassName]: !!consumer.open,
         })}
       >

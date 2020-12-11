@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import React, { ReactNode } from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { ExpanderProviderState, ExpanderProvider } from '../Expander/Expander';
@@ -14,27 +13,27 @@ import { ExpanderTitle, ExpanderTitleProps } from './ExpanderTitle';
 const customRender = (
   ui: ReactNode,
   {
-    providerProps,
+    providerProps: origProviderProps,
     ...renderOptions
   }: { providerProps: ExpanderProviderState; [key: string]: any },
 ) => {
   const rendered = render(
-    <ExpanderProvider value={providerProps}>{ui}</ExpanderProvider>,
+    <ExpanderProvider value={origProviderProps}>{ui}</ExpanderProvider>,
     renderOptions,
   );
   return {
     ...rendered,
     rerender: (
-      ui: ReactNode,
+      rerenderUi: ReactNode,
       {
         providerProps,
-        ...renderOptions
+        ...rerenderOptions
       }: { providerProps: ExpanderProviderState },
     ) =>
-      customRender(ui, {
+      customRender(rerenderUi, {
         providerProps,
         container: rendered.container,
-        ...renderOptions,
+        ...rerenderOptions,
       }),
   };
 };

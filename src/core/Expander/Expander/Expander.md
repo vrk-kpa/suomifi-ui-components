@@ -20,7 +20,10 @@ import {
 } from 'suomifi-ui-components';
 
 <Expander className="expander-test" defaultOpen={true}>
-  <ExpanderTitle>
+  <ExpanderTitle
+    ariaOpenText="open expander"
+    ariaCloseText="close expander"
+  >
     <Checkbox hintText="Checkbox hint text">Checkbox label</Checkbox>
   </ExpanderTitle>
   <ExpanderContent>Test expander</ExpanderContent>
