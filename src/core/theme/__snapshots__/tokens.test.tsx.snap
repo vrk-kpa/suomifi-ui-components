@@ -146,9 +146,13 @@ exports[`snapshot testing 1`] = `
   color: hsl(1,2%,3%);
 }
 
+.c1 > .fi-expander-group_expanders .fi-expander > {
+  border-radius: 0;
+}
+
 .c1 > .fi-expander-group_expanders .fi-expander:first-child {
-  border-radius: 2px 2px 0 0;
   border-top: none;
+  border-radius: 2px 2px 0 0;
 }
 
 .c1 > .fi-expander-group_expanders .fi-expander:last-child {
@@ -165,16 +169,6 @@ exports[`snapshot testing 1`] = `
 
 .c1 > .fi-expander-group_expanders .fi-expander.fi-expander--open:not(:last-of-type) {
   margin-bottom: 16px;
-}
-
-.c1 > .fi-expander-group_expanders .fi-expander.fi-expander--open:first-child,
-.c1 > .fi-expander-group_expanders .fi-expander.fi-expander--open:first-child:before {
-  border-radius: 2px 2px 0 0;
-}
-
-.c1 > .fi-expander-group_expanders .fi-expander.fi-expander--open:last-child,
-.c1 > .fi-expander-group_expanders .fi-expander.fi-expander--open:last-child:before {
-  border-radius: 0 0 2px 2px;
 }
 
 .c1 > .fi-expander-group_expanders .fi-expander.fi-expander--open + .fi-expander {
@@ -263,7 +257,6 @@ exports[`snapshot testing 1`] = `
   display: block;
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
 }
 
 .c5:before {
@@ -287,6 +280,7 @@ exports[`snapshot testing 1`] = `
   line-height: 1.5;
   font-weight: 400;
   background-color: hsl(0,0%,100%);
+  border-radius: inherit;
   position: relative;
   visibility: hidden;
   display: block;
@@ -312,6 +306,8 @@ exports[`snapshot testing 1`] = `
   visibility: visible;
   height: 10%;
   overflow: visible;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   -webkit-animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
   animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
 }
@@ -331,10 +327,13 @@ exports[`snapshot testing 1`] = `
   max-width: 100%;
   min-height: 60px;
   background-color: hsl(212,63%,98%);
+  border-radius: inherit;
 }
 
 .c6.fi-expander_title-button--open {
   background-color: hsl(0,0%,100%);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .c6 .fi-expander_title-button_button {
@@ -411,7 +410,6 @@ exports[`snapshot testing 1`] = `
   content: none;
 }
 
-.c6 .fi-expander_title-button_button,
 .c6 .fi-expander_title-button_button * {
   cursor: pointer;
 }
@@ -527,6 +525,7 @@ exports[`snapshot testing 1`] = `
         aria-labelledby="id-expander-2_title"
         class="c0 c8 fi-expander_content"
         id="id-expander-2_content"
+        role="region"
       >
         Test expander content 2
       </div>
@@ -566,6 +565,7 @@ exports[`snapshot testing 1`] = `
         aria-labelledby="id-expander-3_title"
         class="c0 c8 fi-expander_content"
         id="id-expander-3_content"
+        role="region"
       >
         Test expander content 3
       </div>

@@ -139,6 +139,7 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   max-width: 100%;
   min-height: 60px;
   background-color: hsl(212,63%,98%);
+  border-radius: inherit;
   padding: 17px 60px 16px 20px;
   white-space: break-word;
   word-wrap: break-word;
@@ -146,6 +147,8 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
 
 .c1.fi-expander_title--open {
   background-color: hsl(0,0%,100%);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .c1 .fi-expander_title-button {
@@ -212,7 +215,6 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   content: none;
 }
 
-.c1 .fi-expander_title-button,
 .c1 .fi-expander_title-button * {
   cursor: pointer;
 }
