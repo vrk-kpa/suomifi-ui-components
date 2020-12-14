@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { Debounce } from '../Debounce/Debounce';
-import { TextInput } from '../../Form/TextInput/TextInput';
+import { HtmlInput } from '../../../reset/HtmlInput/HtmlInput';
 
 describe('debounce', () => {
   it('runs the children function wrapped by it', () => {
@@ -21,9 +21,8 @@ describe('debounce', () => {
       const { getByTestId } = render(
         <Debounce waitFor={1000}>
           {(debouncer: Function) => (
-            <TextInput
-              labelText="Test text input"
-              onChange={debouncer(mockOnChange)}
+            <HtmlInput
+              onChange={() => debouncer(mockOnChange)}
               data-testid="input"
             />
           )}

@@ -4,9 +4,7 @@ export type DebounceProps<T> = T & {
   waitFor: number;
 };
 export class Debounce<T extends Object> extends Component<DebounceProps<T>> {
-  state: { timeout: ReturnType<typeof setTimeout> | null } = {
-    timeout: null,
-  };
+  timeout: ReturnType<typeof setTimeout> | null = null;
 
   componentWillUnmount() {
     this.clearTimeout();
@@ -24,11 +22,9 @@ export class Debounce<T extends Object> extends Component<DebounceProps<T>> {
 
     this.clearTimeout();
     const { waitFor } = this.props;
-    this.setState({
-      timeout: setTimeout(() => {
-        callback(value);
-      }, waitFor),
-    });
+    this.timeout = setTimeout(() => {
+      callback(value);
+    }, waitFor);
   };
 
   cancelDebounce = () => {
@@ -36,9 +32,9 @@ export class Debounce<T extends Object> extends Component<DebounceProps<T>> {
   };
 
   clearTimeout() {
-    if (this.state.timeout !== null) {
-      clearTimeout(this.state.timeout);
-      this.setState({ timeout: null });
+    if (this.timeout !== null) {
+      clearTimeout(this.timeout);
+      this.timeout = null;
     }
   }
 
