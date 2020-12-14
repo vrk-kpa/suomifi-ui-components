@@ -20,7 +20,7 @@ const titleButtonClassName = `${baseClassName}-button`;
 const iconClassName = `${baseClassName}-icon`;
 const iconOpenClassName = `${iconClassName}--open`;
 
-export interface ExpanderTitleProps extends Omit<HtmlDivProps, 'classname'> {
+export interface ExpanderTitleProps extends Omit<HtmlDivProps, 'className'> {
   /** Custom classname to extend or customize */
   className?: string;
   /** Title for Expander */
