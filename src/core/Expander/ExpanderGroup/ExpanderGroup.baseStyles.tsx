@@ -25,15 +25,16 @@ export const baseStyles = withSuomifiTheme(
         & .fi-icon {
           color: ${theme.colors.highlightBase};
         }
-
+        & > {
+          border-radius: 0;
+        }
         &:first-child {
-          border-radius: ${theme.radius.basic} ${theme.radius.basic} 0 0;
           border-top: none;
+          border-radius: ${theme.radius.basic} ${theme.radius.basic} 0 0;
         }
         &:last-child {
           border-radius: 0 0 ${theme.radius.basic} ${theme.radius.basic};
         }
-
         &.fi-expander--open {
           border-top: none;
           &:not(:first-of-type) {
@@ -41,14 +42,6 @@ export const baseStyles = withSuomifiTheme(
           }
           &:not(:last-of-type) {
             margin-bottom: ${theme.spacing.insetXl};
-          }
-          &:first-child,
-          &:first-child:before {
-            border-radius: ${theme.radius.basic} ${theme.radius.basic} 0 0;
-          }
-          &:last-child,
-          &:last-child:before {
-            border-radius: 0 0 ${theme.radius.basic} ${theme.radius.basic};
           }
           & + .fi-expander {
             border-top: none;

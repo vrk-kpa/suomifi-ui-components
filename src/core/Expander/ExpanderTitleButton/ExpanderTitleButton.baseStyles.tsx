@@ -16,9 +16,12 @@ export const expanderTitleButtonBaseStyles = withSuomifiTheme(
       max-width: 100%;
       min-height: 60px;
       background-color: ${theme.colors.highlightLight4};
+      border-radius: inherit;
 
       &.fi-expander_title-button--open {
         background-color: ${theme.colors.whiteBase};
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
       }
 
       & .fi-expander_title-button_button {
@@ -43,7 +46,6 @@ export const expanderTitleButtonBaseStyles = withSuomifiTheme(
           }
         }
         ${noMouseFocus}
-        &,
         & * {
           cursor: pointer;
         }

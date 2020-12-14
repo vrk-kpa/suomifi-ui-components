@@ -17,7 +17,6 @@ export const baseStyles = withSuomifiTheme(
       display: block;
       width: 100%;
       max-width: 100%;
-      overflow: hidden;
 
       &:before {
         background-color: ${theme.colors.highlightLight4};

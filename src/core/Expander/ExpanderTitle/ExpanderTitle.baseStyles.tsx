@@ -18,12 +18,15 @@ export const expanderTitleBaseStyles = withSuomifiTheme(
       max-width: 100%;
       min-height: 60px;
       background-color: ${theme.colors.highlightLight4};
+      border-radius: inherit;
       padding: 17px ${theme.spacing.xxxl} 16px ${theme.spacing.m};
       white-space: break-word;
       word-wrap: break-word;
 
       &.fi-expander_title--open {
         background-color: ${theme.colors.whiteBase};
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
       }
 
       & .fi-expander_title-button {
@@ -50,8 +53,6 @@ export const expanderTitleBaseStyles = withSuomifiTheme(
           }
         }
         ${noMouseFocus}
-        &,
-
         & * {
           cursor: pointer;
         }

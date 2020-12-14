@@ -42,6 +42,7 @@ class BaseExpanderContent extends Component<InternalExpanderContentProps> {
     } = this.props;
     return (
       <HtmlDiv
+        role="region"
         {...passProps}
         id={consumer.contentId}
         {...{
