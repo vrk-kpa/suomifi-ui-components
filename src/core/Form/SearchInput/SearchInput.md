@@ -18,15 +18,13 @@ const sharedProps = {
     onSearch={(value) => console.log(value)}
     defaultValue="About"
     onChange={(value) => console.log(value)}
-    debounce={1000}
+    debounce={500}
   />
 
   <SearchInput
     {...sharedProps}
     inputContainerProps={{ style: { width: '250px' } }}
-    onChange={() => console.log('jee')}
     labelMode="hidden"
-    debounce={1000}
   />
 
   <SearchInput

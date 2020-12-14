@@ -77,7 +77,7 @@ export interface TextInputProps
   fullWidth?: boolean;
   /** Text to mark a field optional. Will be wrapped in parentheses and shown after labelText. */
   optionalText?: string;
-  /** Debounce time for onChange function. No debounce is applied if no value is given. */
+  /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
   debounce?: number;
   icon?: BaseIconKeys;
   iconProps?: Omit<IconProps, 'icon'>;

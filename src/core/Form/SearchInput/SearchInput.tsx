@@ -76,7 +76,7 @@ export interface SearchInputProps
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback for search button click */
   onSearch?: (value: SearchInputValue) => void;
-  /** Debounce time for onChange function. No debounce is applied if no value is given. */
+  /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
   debounce?: number;
 }
 

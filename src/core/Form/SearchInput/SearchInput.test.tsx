@@ -199,6 +199,46 @@ describe('props', () => {
       }
     });
   });
+  describe('debounce', () => {
+    it('delays the running of onChange by the given time', () => {
+      jest.useFakeTimers();
+      const mockOnChange = jest.fn();
+      const searchInput = (
+        <SearchInput
+          labelText="Debounced search"
+          clearButtonLabel="clear"
+          searchButtonLabel="search"
+          data-testid="debounced-search"
+          debounce={1000}
+          onChange={mockOnChange}
+        />
+      );
+      const { getByTestId } = render(searchInput);
+
+      const inputElement = getByTestId('debounced-search') as HTMLInputElement;
+      fireEvent.change(inputElement, { target: { value: 'new value' } });
+      expect(mockOnChange).not.toBeCalled();
+      jest.advanceTimersByTime(1000);
+      expect(mockOnChange).toBeCalledTimes(1);
+      expect(inputElement.value).toBe('new value');
+    });
+    it('resolves right when no onChange is given', () => {
+      const searchInput = (
+        <SearchInput
+          labelText="Debounced search"
+          clearButtonLabel="clear"
+          searchButtonLabel="search"
+          data-testid="debounced-search"
+          debounce={1000}
+        />
+      );
+      const { getByTestId } = render(searchInput);
+
+      const inputElement = getByTestId('debounced-search') as HTMLInputElement;
+      fireEvent.change(inputElement, { target: { value: 'new value' } });
+      expect(inputElement.value).toBe('new value');
+    });
+  });
 });
 
 describe('states', () => {

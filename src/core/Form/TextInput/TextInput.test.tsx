@@ -257,4 +257,71 @@ describe('props', () => {
       expect(container.contains(icon)).toBeTruthy();
     });
   });
+  describe('visualPlaceholder', () => {
+    it('should have the given text', () => {
+      const { getByTestId } = render(
+        <TextInput
+          labelText="Test input"
+          data-testid="input"
+          visualPlaceholder="Enter text here"
+        />,
+      );
+      const inputField = getByTestId('input') as HTMLInputElement;
+      expect(inputField).toHaveAttribute('placeholder', 'Enter text here');
+    });
+  });
+
+  describe('icon', () => {
+    it('should have the correct classname when icon prop is given', () => {
+      const { container } = render(
+        <TextInput labelText="Test input" icon="close" />,
+      );
+      expect(container.firstChild).toHaveClass('fi-text-input_with-icon');
+    });
+
+    it('should have an icon element when one is specified', () => {
+      const { container } = render(
+        <TextInput labelText="Test input" icon="close" />,
+      );
+      const icon = container.querySelector('.fi-icon');
+      expect(container.contains(icon)).toBeTruthy();
+    });
+  });
+
+  describe('debounce', () => {
+    it('delays the running of onChange by the given time', () => {
+      jest.useFakeTimers();
+      const mockOnChange = jest.fn();
+      const textInput = (
+        <TextInput
+          labelText="Debounced input"
+          data-testid="debounced-input"
+          debounce={1000}
+          onChange={mockOnChange}
+        />
+      );
+      const { getByTestId } = render(textInput);
+
+      const inputElement = getByTestId('debounced-input') as HTMLInputElement;
+      fireEvent.change(inputElement, { target: { value: 'new value' } });
+      expect(mockOnChange).not.toBeCalled();
+      jest.advanceTimersByTime(1000);
+      expect(mockOnChange).toBeCalledTimes(1);
+      expect(inputElement.value).toBe('new value');
+    });
+    it('resolves right when no onChange is given', () => {
+      const textInput = (
+        <TextInput
+          labelText="Debounced input"
+          data-testid="debounced-input"
+          debounce={1000}
+        />
+      );
+      const { getByTestId } = render(textInput);
+
+      const inputElement = getByTestId('debounced-input') as HTMLInputElement;
+      fireEvent.change(inputElement, { target: { value: 'new value' } });
+      expect(inputElement.value).toBe('new value');
+    });
+  });
 });
