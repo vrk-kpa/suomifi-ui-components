@@ -79,7 +79,9 @@ export interface TextInputProps
   optionalText?: string;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
   debounce?: number;
+  /** Suomi.fi icon to be shown inside the input field */
   icon?: BaseIconKeys;
+  /** Properties for the icon */
   iconProps?: Omit<IconProps, 'icon'>;
 }
 
@@ -159,7 +161,7 @@ class BaseTextInput extends Component<TextInputProps> {
         </LabelText>
         <HintText id={this.hintTextId}>{hintText}</HintText>
         <HtmlDiv className={textInputClassNames.inputElementContainer}>
-          <Debounce waitFor={this.props.debounce || 0}>
+          <Debounce waitFor={this.props.debounce}>
             {(debouncer: Function) => (
               <HtmlInput
                 {...passProps}
@@ -170,8 +172,8 @@ class BaseTextInput extends Component<TextInputProps> {
                 {...{ 'aria-invalid': status === 'error' }}
                 {...getDescribedBy()}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                  const eventValue = event.currentTarget.value;
                   if (propOnChange) {
+                    const eventValue = event.currentTarget.value;
                     debouncer(propOnChange, eventValue);
                   }
                 }}
