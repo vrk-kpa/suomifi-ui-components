@@ -208,14 +208,13 @@ describe('props', () => {
           labelText="Debounced search"
           clearButtonLabel="clear"
           searchButtonLabel="search"
-          data-testid="debounced-search"
           debounce={1000}
           onChange={mockOnChange}
         />
       );
-      const { getByTestId } = render(searchInput);
+      const { getByRole } = render(searchInput);
 
-      const inputElement = getByTestId('debounced-search') as HTMLInputElement;
+      const inputElement = getByRole('searchbox') as HTMLInputElement;
       fireEvent.change(inputElement, { target: { value: 'new value' } });
       expect(mockOnChange).not.toBeCalled();
       jest.advanceTimersByTime(1000);
@@ -232,9 +231,9 @@ describe('props', () => {
           debounce={1000}
         />
       );
-      const { getByTestId } = render(searchInput);
+      const { getByRole } = render(searchInput);
 
-      const inputElement = getByTestId('debounced-search') as HTMLInputElement;
+      const inputElement = getByRole('searchbox') as HTMLInputElement;
       fireEvent.change(inputElement, { target: { value: 'new value' } });
       expect(inputElement.value).toBe('new value');
     });
