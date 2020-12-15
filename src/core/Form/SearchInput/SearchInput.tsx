@@ -231,7 +231,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
         <LabelText htmlFor={this.id} labelMode={labelMode} as="label">
           {labelText}
         </LabelText>
-        <Debounce waitFor={this.props.debounce || 0}>
+        <Debounce waitFor={this.props.debounce}>
           {(debouncer: Function, cancelDebounce: Function) => (
             <HtmlDiv className={searchInputClassNames.functionalityContainer}>
               <HtmlDiv className={searchInputClassNames.inputElementContainer}>
