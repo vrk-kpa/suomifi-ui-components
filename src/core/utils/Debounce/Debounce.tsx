@@ -1,13 +1,13 @@
 import { Component } from 'react';
 
 export type DebounceProps<T> = T & {
-  waitFor: number;
+  waitFor: number | undefined;
 };
 export class Debounce<T extends Object> extends Component<DebounceProps<T>> {
   timeout: ReturnType<typeof setTimeout> | null = null;
 
   componentWillUnmount() {
-    this.clearTimeout();
+    this.cancelTimeout();
   }
 
   debouncer = (callback: Function, value?: T) => {
@@ -15,12 +15,12 @@ export class Debounce<T extends Object> extends Component<DebounceProps<T>> {
       return;
     }
 
-    if (this.props.waitFor === 0) {
+    if (!this.props.waitFor) {
       callback(value);
       return;
     }
 
-    this.clearTimeout();
+    this.cancelTimeout();
     const { waitFor } = this.props;
     this.timeout = setTimeout(() => {
       callback(value);
@@ -28,10 +28,10 @@ export class Debounce<T extends Object> extends Component<DebounceProps<T>> {
   };
 
   cancelDebounce = () => {
-    this.clearTimeout();
+    this.cancelTimeout();
   };
 
-  clearTimeout() {
+  cancelTimeout() {
     if (this.timeout !== null) {
       clearTimeout(this.timeout);
       this.timeout = null;
