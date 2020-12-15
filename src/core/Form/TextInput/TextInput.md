@@ -97,12 +97,12 @@ import { TextInput } from 'suomifi-ui-components';
     defaultValue="password"
   />
   <TextInput
+    onBlur={(event) => console.log(event.target.value)}
     labelText="TextInput with an icon"
     icon="mapLocation"
     iconProps={{ fill: 'red' }}
   />
   <TextInput
-    onBlur={(event) => console.log(event.target.value)}
     labelText="TextInput with debounced onChange event"
     onChange={(value) => console.log(value)}
     debounce={800}
