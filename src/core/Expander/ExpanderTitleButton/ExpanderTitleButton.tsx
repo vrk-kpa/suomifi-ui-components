@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { TokensProp, InternalTokensProp } from '../../theme';
-import { HtmlDiv, HtmlButton, HtmlButtonProps } from '../../../reset';
+import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
 import { expanderTitleButtonBaseStyles } from './ExpanderTitleButton.baseStyles';
 import { Icon } from '../../Icon/Icon';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
@@ -20,6 +20,8 @@ export interface ExpanderTitleButtonProps {
   className?: string;
   /** Title for Expander */
   children?: ReactNode;
+  /** Wrap the title button inside a heading tag */
+  asHeading?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   /** Additional text for closed expanders toggle button. E.g."open expander". */
   ariaOpenText?: string;
   /** Additional text for open expanders toggle button. E.g."close expander". */
@@ -47,6 +49,7 @@ class BaseExpanderTitleButton extends Component<
     const {
       ariaCloseText,
       ariaOpenText,
+      asHeading,
       children,
       className,
       toggleButtonProps,
@@ -61,27 +64,28 @@ class BaseExpanderTitleButton extends Component<
           [titleOpenClassName]: !!consumer.open,
         })}
       >
-        <HtmlButton
-          {...toggleButtonProps}
-          onClick={consumer.onToggleExpander}
-          aria-expanded={!!consumer.open}
-          className={titleButtonClassName}
-          id={consumer.titleId}
-          {...{ 'aria-controls': `${consumer.contentId}` }}
-        >
-          {children}
-          {(!!ariaCloseText || !!ariaOpenText) && (
-            <VisuallyHidden>
-              {!!consumer.open ? ariaCloseText : ariaOpenText}
-            </VisuallyHidden>
-          )}
-          <Icon
-            icon="chevronDown"
-            className={classnames(iconClassName, {
-              [iconOpenClassName]: consumer.open,
-            })}
-          />
-        </HtmlButton>
+        <HtmlSpan {...(!!asHeading ? { as: asHeading } : {})}>
+          <HtmlButton
+            {...toggleButtonProps}
+            onClick={consumer.onToggleExpander}
+            aria-expanded={!!consumer.open}
+            className={titleButtonClassName}
+            {...{ 'aria-controls': `${consumer.contentId}` }}
+          >
+            <HtmlSpan id={consumer.titleId}>{children}</HtmlSpan>
+            {(!!ariaCloseText || !!ariaOpenText) && (
+              <VisuallyHidden>
+                {!!consumer.open ? ariaCloseText : ariaOpenText}
+              </VisuallyHidden>
+            )}
+            <Icon
+              icon="chevronDown"
+              className={classnames(iconClassName, {
+                [iconOpenClassName]: consumer.open,
+              })}
+            />
+          </HtmlButton>
+        </HtmlSpan>
       </HtmlDiv>
     );
   }

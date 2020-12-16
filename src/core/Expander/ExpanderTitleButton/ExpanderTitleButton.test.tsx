@@ -84,6 +84,28 @@ describe('Basic ExpanderTitleButton', () => {
   });
 });
 
+describe('As heading', () => {
+  const TestExpanderWithProps = (props?: ExpanderTitleButtonProps) => (
+    <ExpanderTitleButton
+      ariaCloseText="click to close expander"
+      ariaOpenText="click to open expander"
+      {...props}
+    >
+      {props?.children ? props.children : 'Expander title button'}
+    </ExpanderTitleButton>
+  );
+
+  it('should wrap the button to h-element', () => {
+    const { getByRole } = customRender(
+      TestExpanderWithProps({ asHeading: 'h2' }),
+      {
+        providerProps,
+      },
+    );
+    expect(getByRole('heading')).toBeTruthy();
+  });
+});
+
 describe('Aria attributes', () => {
   const TestExpanderWithProps = (props?: ExpanderTitleButtonProps) => (
     <ExpanderTitleButton
@@ -119,16 +141,17 @@ describe('Custom id', () => {
     </ExpanderTitleButton>
   );
 
-  it('is passed on to button', () => {
-    const { getByRole } = customRender(TestExpanderWithProps(), {
+  it('is passed on to content and set to button aria-controls', () => {
+    const { getByRole, getByText } = customRender(TestExpanderWithProps(), {
       providerProps: {
         ...providerProps,
         titleId: 'test-id_title',
         contentId: 'test-id_content',
       },
     });
+    const span = getByText('Expander title button');
+    expect(span).toHaveAttribute('id', 'test-id_title');
     const button = getByRole('button');
-    expect(button).toHaveAttribute('id', 'test-id_title');
     expect(button).toHaveAttribute('aria-controls', 'test-id_content');
   });
 });

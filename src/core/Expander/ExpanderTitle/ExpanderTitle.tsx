@@ -8,6 +8,7 @@ import {
   HtmlButton,
   HtmlButtonProps,
   HtmlDivProps,
+  HtmlSpan,
 } from '../../../reset';
 import { expanderTitleBaseStyles } from './ExpanderTitle.baseStyles';
 import { Icon } from '../../Icon/Icon';
@@ -64,13 +65,12 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
           [titleOpenClassName]: !!consumer.open,
         })}
       >
-        {children}
+        <HtmlSpan id={consumer.titleId}>{children}</HtmlSpan>
         <HtmlButton
           {...toggleButtonProps}
           onClick={consumer.onToggleExpander}
           aria-expanded={!!consumer.open}
           className={titleButtonClassName}
-          id={consumer.titleId}
           {...{ 'aria-controls': `${consumer.contentId}` }}
         >
           <VisuallyHidden>

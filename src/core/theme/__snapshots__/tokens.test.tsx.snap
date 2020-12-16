@@ -466,28 +466,36 @@ exports[`snapshot testing 1`] = `
       <div
         class="c0 c6 fi-expander_title-button"
       >
-        <button
-          aria-controls="id-expander-1_content"
-          aria-expanded="false"
-          class="c2 fi-expander_title-button_button"
-          id="id-expander-1_title"
-          type="button"
+        <span
+          class="c3"
         >
-          Test expander 1
-          <svg
-            aria-hidden="true"
-            class="fi-icon c7 fi-expander_title-button-icon"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 24 24"
-            width="1em"
+          <button
+            aria-controls="id-expander-1_content"
+            aria-expanded="false"
+            class="c2 fi-expander_title-button_button"
+            type="button"
           >
-            <path
-              d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
-            />
-          </svg>
-        </button>
+            <span
+              class="c3"
+              id="id-expander-1_title"
+            >
+              Test expander 1
+            </span>
+            <svg
+              aria-hidden="true"
+              class="fi-icon c7 fi-expander_title-button-icon"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
+              />
+            </svg>
+          </button>
+        </span>
       </div>
     </div>
     <div
@@ -497,28 +505,36 @@ exports[`snapshot testing 1`] = `
       <div
         class="c0 c6 fi-expander_title-button"
       >
-        <button
-          aria-controls="id-expander-2_content"
-          aria-expanded="false"
-          class="c2 fi-expander_title-button_button"
-          id="id-expander-2_title"
-          type="button"
+        <span
+          class="c3"
         >
-          Test expander 2
-          <svg
-            aria-hidden="true"
-            class="fi-icon c7 fi-expander_title-button-icon"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 24 24"
-            width="1em"
+          <button
+            aria-controls="id-expander-2_content"
+            aria-expanded="false"
+            class="c2 fi-expander_title-button_button"
+            type="button"
           >
-            <path
-              d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
-            />
-          </svg>
-        </button>
+            <span
+              class="c3"
+              id="id-expander-2_title"
+            >
+              Test expander 2
+            </span>
+            <svg
+              aria-hidden="true"
+              class="fi-icon c7 fi-expander_title-button-icon"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
+              />
+            </svg>
+          </button>
+        </span>
       </div>
       <div
         aria-hidden="true"
@@ -537,28 +553,36 @@ exports[`snapshot testing 1`] = `
       <div
         class="c0 c6 fi-expander_title-button"
       >
-        <button
-          aria-controls="id-expander-3_content"
-          aria-expanded="false"
-          class="c2 fi-expander_title-button_button"
-          id="id-expander-3_title"
-          type="button"
+        <span
+          class="c3"
         >
-          Test expander 3
-          <svg
-            aria-hidden="true"
-            class="fi-icon c7 fi-expander_title-button-icon"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 24 24"
-            width="1em"
+          <button
+            aria-controls="id-expander-3_content"
+            aria-expanded="false"
+            class="c2 fi-expander_title-button_button"
+            type="button"
           >
-            <path
-              d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
-            />
-          </svg>
-        </button>
+            <span
+              class="c3"
+              id="id-expander-3_title"
+            >
+              Test expander 3
+            </span>
+            <svg
+              aria-hidden="true"
+              class="fi-icon c7 fi-expander_title-button-icon"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
+              />
+            </svg>
+          </button>
+        </span>
       </div>
       <div
         aria-hidden="true"

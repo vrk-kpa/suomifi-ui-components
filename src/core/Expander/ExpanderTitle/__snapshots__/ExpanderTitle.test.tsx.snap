@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
-.c2 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,25 +27,25 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c2:-moz-focusring {
+.c3:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c2::-moz-focus-inner {
+.c3::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c2::-webkit-file-upload-button {
+.c3::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c2::-webkit-inner-spin-button {
+.c3::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c2::-webkit-outer-spin-button {
+.c3::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -73,7 +73,7 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   white-space: normal;
 }
 
-.c3 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -243,16 +243,20 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   class="c0 c1 fi-expander_title"
   data-testid="expander-title"
 >
-  Expander title button
+  <span
+    class="c2"
+    id="test-id_title"
+  >
+    Expander title button
+  </span>
   <button
     aria-controls="test-id_content"
     aria-expanded="false"
-    class="c2 fi-expander_title-button"
-    id="test-id_title"
+    class="c3 fi-expander_title-button"
     type="button"
   >
     <span
-      class="c3 c4 fi-visually-hidden"
+      class="c2 c4 fi-visually-hidden"
     >
       open expander
     </span>
