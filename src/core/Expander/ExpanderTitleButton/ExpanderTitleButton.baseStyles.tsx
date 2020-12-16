@@ -4,14 +4,12 @@ import { element, button, font } from '../../theme/reset';
 import { allStates } from '../../../utils/css';
 import { absoluteFocus, noMouseFocus } from '../../theme/utils';
 
-import { ExpanderTitleProps } from './ExpanderTitle';
+import { ExpanderTitleButtonProps } from './ExpanderTitleButton';
 
-export const expanderTitleBaseStyles = withSuomifiTheme(
-  ({ theme }: TokensAndTheme & Partial<ExpanderTitleProps>) => {
+export const expanderTitleButtonBaseStyles = withSuomifiTheme(
+  ({ theme }: TokensAndTheme & Partial<ExpanderTitleButtonProps>) => {
     return css`
       ${element({ theme })}
-      ${font({ theme })('bodyText')}
-      font-size: ${theme.typography.bodySemiBold};
       position: relative;
       display: block;
       width: 100%;
@@ -19,28 +17,23 @@ export const expanderTitleBaseStyles = withSuomifiTheme(
       min-height: 60px;
       background-color: ${theme.colors.highlightLight4};
       border-radius: inherit;
-      padding: 17px ${theme.spacing.xxxl} 16px ${theme.spacing.m};
-      white-space: break-word;
-      word-wrap: break-word;
 
-      &.fi-expander_title--open {
+      &.fi-expander_title-button--open {
         background-color: ${theme.colors.whiteBase};
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
       }
 
-      & .fi-expander_title-button {
+      & .fi-expander_title-button_button {
         ${button({ theme })}
+        ${font({ theme })('bodyText')}
         font-size: ${theme.typography.bodySemiBold};
         color: ${theme.colors.highlightBase};
         display: inline-block;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 44px;
-        height: 44px;
-        padding: 12px;
-        margin: 13px;
+        width: 100%;
+        max-width: 100%;
+        min-height: 60px;
+        padding: 17px ${theme.spacing.xxxl} 16px ${theme.spacing.m};
 
         &:focus {
           outline: 0;
@@ -59,13 +52,17 @@ export const expanderTitleBaseStyles = withSuomifiTheme(
         ${allStates('cursor: pointer;')}
       }
 
-      & .fi-expander_title-icon {
-        position: relative;
+      & .fi-expander_title-button-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
         height: 20px;
         width: 20px;
+        margin: ${theme.spacing.m};
       }
-      & .fi-expander_title--open .fi-expander_title-icon,
-      & .fi-expander_title-icon--open {
+
+      & .fi-expander_title-button--open .fi-expander_title-button-icon,
+      & .fi-expander_title-button-icon--open {
         transform: rotate(-180deg);
       }
     `;

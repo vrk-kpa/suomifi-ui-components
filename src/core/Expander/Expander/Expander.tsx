@@ -222,4 +222,4 @@ export class Expander extends Component<ExpanderProps> {
   }
 }
 
-export { ExpanderConsumer };
+export { ExpanderConsumer, ExpanderProvider };

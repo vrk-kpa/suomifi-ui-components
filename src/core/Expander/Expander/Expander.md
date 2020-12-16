@@ -6,7 +6,28 @@ import {
 } from 'suomifi-ui-components';
 
 <Expander className="expander-test" defaultOpen={true}>
-  <ExpanderTitleButton>Test expander</ExpanderTitleButton>
+  <ExpanderTitleButton asHeading="h3">
+    Test expander
+  </ExpanderTitleButton>
+  <ExpanderContent>Test expander</ExpanderContent>
+</Expander>;
+```
+
+```jsx
+import {
+  Expander,
+  ExpanderTitle,
+  ExpanderContent,
+  Checkbox
+} from 'suomifi-ui-components';
+
+<Expander className="expander-test" defaultOpen={true}>
+  <ExpanderTitle
+    ariaOpenText="open expander"
+    ariaCloseText="close expander"
+  >
+    <Checkbox hintText="Checkbox hint text">Checkbox label</Checkbox>
+  </ExpanderTitle>
   <ExpanderContent>Test expander</ExpanderContent>
 </Expander>;
 ```
@@ -59,16 +80,7 @@ const [expanderThreeOpen, setExpanderThreeOpen] = React.useState(
   false
 );
 
-const [showExpander, setShowExpander] = React.useState(false);
-
 <>
-  <button
-    onClick={() => {
-      setShowExpander(!showExpander);
-    }}
-  >
-    {showExpander ? 'Hide' : 'Show'}
-  </button>
   <ExpanderGroup
     OpenAllText="Open all"
     AriaOpenAllText="Open all expanders"
@@ -83,12 +95,6 @@ const [showExpander, setShowExpander] = React.useState(false);
       <ExpanderTitleButton>Test expander 2</ExpanderTitleButton>
       <ExpanderContent>Test expander content 2</ExpanderContent>
     </Expander>
-    {!!showExpander && (
-      <Expander>
-        <ExpanderTitleButton>Test expander X</ExpanderTitleButton>
-        <ExpanderContent>Test expander content X</ExpanderContent>
-      </Expander>
-    )}
     <Expander
       open={expanderThreeOpen}
       onOpenChange={(open) => {

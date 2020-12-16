@@ -10,4 +10,8 @@ export {
 export {
   ExpanderTitleButton,
   ExpanderTitleButtonProps,
-} from './ExpanderTitle/ExpanderTitleButton';
+} from './ExpanderTitleButton/ExpanderTitleButton';
+export {
+  ExpanderTitle,
+  ExpanderTitleProps,
+} from './ExpanderTitle/ExpanderTitle';

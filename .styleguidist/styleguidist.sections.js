@@ -114,6 +114,7 @@ module.exports = {
                 'Expander/Expander',
                 'ExpanderGroup/ExpanderGroup',
                 'ExpanderTitle/ExpanderTitle',
+                'ExpanderTitleButton/ExpanderTitleButton',
                 'ExpanderContent/ExpanderContent',
               ]),
             },
