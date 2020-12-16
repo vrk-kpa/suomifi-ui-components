@@ -6,7 +6,9 @@ import {
 } from 'suomifi-ui-components';
 
 <Expander className="expander-test" defaultOpen={true}>
-  <ExpanderTitleButton>Test expander</ExpanderTitleButton>
+  <ExpanderTitleButton asHeading="h3">
+    Test expander
+  </ExpanderTitleButton>
   <ExpanderContent>Test expander</ExpanderContent>
 </Expander>;
 ```
