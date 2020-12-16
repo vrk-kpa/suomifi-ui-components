@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 export type DebounceProps<T> = T & {
-  waitFor: number | undefined;
+  waitFor?: number;
 };
 export class Debounce<T extends Object> extends Component<DebounceProps<T>> {
   timeout: ReturnType<typeof setTimeout> | null = null;

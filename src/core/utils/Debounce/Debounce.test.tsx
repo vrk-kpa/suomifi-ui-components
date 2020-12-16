@@ -4,37 +4,41 @@ import { Debounce } from '../Debounce/Debounce';
 import { HtmlInput } from '../../../reset/HtmlInput/HtmlInput';
 
 describe('debounce', () => {
-  it('runs the children function wrapped by it', () => {
+  it('runs given function immediately when no debounce time is specified', () => {
     const mockFunction = jest.fn(() => 12);
-    render(
-      <Debounce data-testid="abc" waitFor={1000}>
-        {mockFunction}
+    const { getByRole } = render(
+      <Debounce>
+        {(debouncer: Function) => (
+          <HtmlInput onChange={() => debouncer(mockFunction)} />
+        )}
       </Debounce>,
     );
+
+    const inputElement = getByRole('textbox') as HTMLInputElement;
+    expect(mockFunction).not.toBeCalled();
+    fireEvent.change(inputElement, { target: { value: 'new value' } });
     expect(mockFunction).toBeCalledTimes(1);
+    expect(inputElement.value).toBe('new value');
   });
+});
 
-  describe('debounce', () => {
-    jest.useFakeTimers();
-    it('should be applied to function given to debouncer', () => {
-      const mockOnChange = jest.fn();
-      const { getByTestId } = render(
-        <Debounce waitFor={1000}>
-          {(debouncer: Function) => (
-            <HtmlInput
-              onChange={() => debouncer(mockOnChange)}
-              data-testid="input"
-            />
-          )}
-        </Debounce>,
-      );
+describe('debounce', () => {
+  jest.useFakeTimers();
+  it('should be applied to function given to debouncer', () => {
+    const mockOnChange = jest.fn();
+    const { getByRole } = render(
+      <Debounce waitFor={1000}>
+        {(debouncer: Function) => (
+          <HtmlInput onChange={() => debouncer(mockOnChange)} />
+        )}
+      </Debounce>,
+    );
 
-      const inputElement = getByTestId('input') as HTMLInputElement;
-      fireEvent.change(inputElement, { target: { value: 'new value' } });
-      expect(mockOnChange).not.toBeCalled();
-      jest.advanceTimersByTime(1000);
-      expect(mockOnChange).toBeCalledTimes(1);
-      expect(inputElement.value).toBe('new value');
-    });
+    const inputElement = getByRole('textbox') as HTMLInputElement;
+    fireEvent.change(inputElement, { target: { value: 'new value' } });
+    expect(mockOnChange).not.toBeCalled();
+    jest.advanceTimersByTime(1000);
+    expect(mockOnChange).toBeCalledTimes(1);
+    expect(inputElement.value).toBe('new value');
   });
 });
