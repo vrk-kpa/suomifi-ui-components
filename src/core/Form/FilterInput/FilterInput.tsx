@@ -1,34 +1,28 @@
-import React, { Component, ChangeEvent, FocusEvent } from 'react';
-import { default as styled } from 'styled-components';
-import { withSuomifiDefaultProps } from '../../theme/utils';
+import React, { Component, ChangeEvent } from 'react';
+// import { default as styled } from 'styled-components';
+// import { withSuomifiDefaultProps } from '../../theme/utils';
 import {
   HtmlInput,
   HtmlInputProps,
   HtmlDiv,
   HtmlDivProps,
 } from '../../../reset';
-import { TokensProp, InternalTokensProp } from '../../theme';
-import { baseStyles } from './FilterInput.baseStyles';
-import { LabelText, LabelMode } from '../LabelText/LabelText';
+import { TokensProp } from '../../theme';
+// import { TokensProp, InternalTokensProp } from '../../theme';
+// import { baseStyles } from './FilterInput.baseStyles';
 import classnames from 'classnames';
 import { Omit } from '../../../utils/typescript';
 
 const baseClassName = 'fi-filter-input';
 
-export const filterInputClassNames = {
+const filterInputClassNames = {
   baseClassName,
-  fullWidth: `${baseClassName}--full-width`,
   disabled: `${baseClassName}--disabled`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
 };
 
-type FilterInputItem = {
-  label: string;
-  value: string;
-};
-
-export interface FilterInputProps
+export interface FilterInputProps<T>
   extends Omit<HtmlInputProps, 'type'>,
     TokensProp {
   /** FilterInput container div class name for custom styling. */
@@ -37,52 +31,52 @@ export interface FilterInputProps
   inputContainerProps?: Omit<HtmlDivProps, 'className'>;
   /** Disable input usage */
   disabled?: boolean;
-  /** Event handler to execute when clicked */
-  onClick?: () => void;
-  /** To execute on input text change */
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  /** To execute on input text onBlur */
-  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
-  /** Label */
-  labelText: string;
-  /** Hide or show label. Label element is always present, but can be visually hidden.
-   * @default visible
-   */
-  labelMode?: LabelMode;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
   /** FilterInput name */
   name?: string;
-  /** Set components width to 100% */
-  fullWidth?: boolean;
-  items: FilterInputItem[];
+  /** Items to be filtered */
+  items: Array<T>;
+  /** Returns the filtered items */
+  onFiltering: (filteredItems: Array<T>) => void;
+  /** Filtering rule to be used */
+  filterRule: (item: T, query: string) => boolean;
 }
 
-class BaseFilterInput extends Component<FilterInputProps> {
+class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
   render() {
     const {
       className,
-      labelText,
-      labelMode,
       inputContainerProps,
       visualPlaceholder,
       id,
-      fullWidth,
       'aria-describedby': ariaDescribedBy,
+      items: propItems,
+      onFiltering: propOnFiltering,
       ...passProps
     } = this.props;
+
+    const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+      const { items, onFiltering, filterRule } = this.props;
+      const { value } = event.target;
+
+      const filteredItems: T[] = items.reduce((filtered: T[], item: T) => {
+        if (filterRule(item, value)) {
+          filtered.push(item);
+        }
+        return filtered;
+      }, []);
+
+      onFiltering(filteredItems);
+    };
 
     return (
       <HtmlDiv
         {...inputContainerProps}
         className={classnames(baseClassName, className, {
           [filterInputClassNames.disabled]: !!passProps.disabled,
-          [filterInputClassNames.fullWidth]: fullWidth,
         })}
       >
-        <LabelText htmlFor={id} labelMode={labelMode} as="label">
-          {labelText}
-        </LabelText>
         <HtmlDiv className={filterInputClassNames.inputElementContainer}>
           <HtmlInput
             {...passProps}
@@ -95,7 +89,7 @@ class BaseFilterInput extends Component<FilterInputProps> {
             aria-autocomplete="list"
             auto-capitalize="false"
             spellCheck="false"
-            aria-controls="really-good-id"
+            onChange={onChangeHandler}
           />
         </HtmlDiv>
       </HtmlDiv>
@@ -103,21 +97,37 @@ class BaseFilterInput extends Component<FilterInputProps> {
   }
 }
 
-const StyledFilterInput = styled(
-  ({ tokens, ...passProps }: FilterInputProps & InternalTokensProp) => {
-    return <BaseFilterInput {...passProps} />;
-  },
-)`
-  ${(props) => baseStyles(props)}
-`;
+// NOTE: somewhat working..
+// function StyledFilterInput<T>() {
+//   return styled(
+//     ({ tokens, ...passProps }: FilterInputProps<T> & InternalTokensProp) => {
+//       return <BaseFilterInput<T> {...passProps} />;
+//     },
+//   )`
+//     ${(props) => baseStyles(props)}
+//   `;
+// }
 
 /**
  * <i class="semantics" />
  * Use for filtering.
  * Props other than specified explicitly are passed on to underlying input element.
  */
-export class FilterInput extends Component<FilterInputProps> {
+export class FilterInput<T> extends Component<FilterInputProps<T>> {
   render() {
-    return <StyledFilterInput {...withSuomifiDefaultProps(this.props)} />;
+    const { tokens, ...passProps } = this.props;
+    return <BaseFilterInput {...passProps} />;
   }
 }
+
+// export class FilterInput<T> extends Component<
+//   FilterInputProps<T> & TokensProp
+// > {
+//   render() {
+//     return (
+//       <StyledFilterInput<React.FC<FilterInputProps<T>>>
+//         {...withSuomifiDefaultProps(this.props)}
+//       />
+//     );
+//   }
+// }
