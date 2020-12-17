@@ -47,7 +47,9 @@ describe('debounce', () => {
     const inputElement = getByRole('textbox') as HTMLInputElement;
     fireEvent.change(inputElement, { target: { value: 'new value' } });
     expect(mockOnChange).not.toBeCalled();
-    jest.advanceTimersByTime(1000);
+    jest.advanceTimersByTime(500);
+    expect(mockOnChange).not.toBeCalled();
+    jest.advanceTimersByTime(500);
     expect(mockOnChange).toBeCalledTimes(1);
     expect(inputElement.value).toBe('new value');
   });
