@@ -21,18 +21,6 @@ describe('debounce', () => {
     expect(inputElement.value).toBe('new value');
   });
 
-  it('returns without doing anything when no callback is given', () => {
-    const { getByRole } = render(
-      <Debounce waitFor={1000}>
-        {(debouncer: Function) => <HtmlInput onChange={() => debouncer()} />}
-      </Debounce>,
-    );
-
-    const inputElement = getByRole('textbox') as HTMLInputElement;
-    fireEvent.change(inputElement, { target: { value: 'new value' } });
-    expect(inputElement.value).toBe('new value');
-  });
-
   jest.useFakeTimers();
   it('should be applied to function given to debouncer', () => {
     const mockOnChange = jest.fn();
