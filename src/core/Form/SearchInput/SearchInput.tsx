@@ -19,6 +19,7 @@ import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { Icon } from '../../Icon/Icon';
 import { baseStyles } from './SearchInput.baseStyles';
 import { InputStatus } from '../types';
+import { Debounce } from '../../utils/Debounce/Debounce';
 
 type SearchInputValue = string | number | undefined;
 
@@ -75,6 +76,8 @@ export interface SearchInputProps
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback for search button click */
   onSearch?: (value: SearchInputValue) => void;
+  /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
+  debounce?: number;
 }
 
 const baseClassName = 'fi-search-input';
@@ -151,9 +154,6 @@ class BaseSearchInput extends Component<SearchInputProps> {
       if (!('value' in this.props)) {
         this.setState({ value: newValue });
       }
-      if (propOnChange) {
-        propOnChange(newValue);
-      }
     };
 
     const onSearch = () => {
@@ -164,6 +164,9 @@ class BaseSearchInput extends Component<SearchInputProps> {
 
     const onClear = () => {
       conditionalSetState('');
+      if (propOnChange) {
+        propOnChange('');
+      }
       setTimeout(() => {
         if (this.inputRef.current) {
           this.inputRef.current.focus();
@@ -228,43 +231,57 @@ class BaseSearchInput extends Component<SearchInputProps> {
         <LabelText htmlFor={this.id} labelMode={labelMode} as="label">
           {labelText}
         </LabelText>
-        <HtmlDiv className={searchInputClassNames.functionalityContainer}>
-          <HtmlDiv className={searchInputClassNames.inputElementContainer}>
-            <HtmlInputWithRef
-              {...passProps}
-              {...getDescribedBy()}
-              forwardRef={this.inputRef}
-              aria-invalid={status === 'error'}
-              id={this.id}
-              className={searchInputClassNames.inputElement}
-              type="search"
-              role="searchbox"
-              value={this.state.value}
-              placeholder={visualPlaceholder}
-              onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                conditionalSetState(event.currentTarget.value);
-              }}
-              onKeyPress={onKeyPress}
-              onKeyDown={onKeyDown}
-            />
-          </HtmlDiv>
-          <HtmlButton {...clearButtonProps}>
-            <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
-            <Icon
-              aria-hidden={true}
-              icon="close"
-              className={searchInputClassNames.clearIcon}
-            />
-          </HtmlButton>
-          <HtmlButton {...searchButtonDerivedProps}>
-            <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
-            <Icon
-              aria-hidden={true}
-              icon="search"
-              className={searchInputClassNames.searchIcon}
-            />
-          </HtmlButton>
-        </HtmlDiv>
+        <Debounce waitFor={this.props.debounce}>
+          {(debouncer: Function, cancelDebounce: Function) => (
+            <HtmlDiv className={searchInputClassNames.functionalityContainer}>
+              <HtmlDiv className={searchInputClassNames.inputElementContainer}>
+                <HtmlInputWithRef
+                  {...passProps}
+                  {...getDescribedBy()}
+                  forwardRef={this.inputRef}
+                  aria-invalid={status === 'error'}
+                  id={this.id}
+                  className={searchInputClassNames.inputElement}
+                  type="search"
+                  role="searchbox"
+                  value={this.state.value}
+                  placeholder={visualPlaceholder}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                    const eventValue = event.currentTarget.value;
+                    conditionalSetState(eventValue);
+                    if (propOnChange) {
+                      debouncer(propOnChange, eventValue);
+                    }
+                  }}
+                  onKeyPress={onKeyPress}
+                  onKeyDown={onKeyDown}
+                />
+              </HtmlDiv>
+              <HtmlButton
+                {...clearButtonProps}
+                onClick={() => {
+                  onClear();
+                  cancelDebounce();
+                }}
+              >
+                <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
+                <Icon
+                  aria-hidden={true}
+                  icon="close"
+                  className={searchInputClassNames.clearIcon}
+                />
+              </HtmlButton>
+              <HtmlButton {...searchButtonDerivedProps}>
+                <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
+                <Icon
+                  aria-hidden={true}
+                  icon="search"
+                  className={searchInputClassNames.searchIcon}
+                />
+              </HtmlButton>
+            </HtmlDiv>
+          )}
+        </Debounce>
         <StatusText id={this.statusTextId} status={status}>
           {statusText}
         </StatusText>

@@ -4,50 +4,49 @@ import { axeTest } from '../../../utils/test/axe';
 
 import { TextInput } from './TextInput';
 
-const TestTextInput = (
-  <TextInput labelText="Test input" data-testid="textinput" id="test-id" />
-);
-
-const TestTextInput2 = (
-  <TextInput
-    labelText="Test input"
-    data-testid="textinput1"
-    id="test-id1"
-    labelMode="hidden"
-    visualPlaceholder="Test TextInput"
-  />
-);
-
-const TestTextInput3 = (
-  <TextInput
-    labelText="Test input"
-    data-testid="textinput2"
-    id="test-id2"
-    visualPlaceholder="Test TextInput"
-    statusText="This is a status text"
-    status="error"
-  />
-);
-
 describe('snapshots match', () => {
   test('minimal implementation', () => {
-    const buttonRendered = render(TestTextInput);
+    const buttonRendered = render(
+      <TextInput labelText="Test input" data-testid="textinput" id="test-id" />,
+    );
     const { container } = buttonRendered;
     expect(container.firstChild).toMatchSnapshot();
   });
   test('hidden label with placeholder', () => {
-    const buttonRendered = render(TestTextInput2);
+    const buttonRendered = render(
+      <TextInput
+        labelText="Test input"
+        data-testid="textinput1"
+        id="test-id1"
+        labelMode="hidden"
+        visualPlaceholder="Test TextInput"
+      />,
+    );
     const { container } = buttonRendered;
     expect(container.firstChild).toMatchSnapshot();
   });
   test('error status with statustext', () => {
-    const buttonRendered = render(TestTextInput3);
+    const buttonRendered = render(
+      <TextInput
+        labelText="Test input"
+        data-testid="textinput2"
+        id="test-id2"
+        visualPlaceholder="Test TextInput"
+        statusText="This is a status text"
+        status="error"
+      />,
+    );
     const { container } = buttonRendered;
     expect(container.firstChild).toMatchSnapshot();
   });
 });
 
-test('should not have basic accessibility issues', axeTest(TestTextInput));
+test(
+  'should not have basic accessibility issues',
+  axeTest(
+    <TextInput labelText="Test input" data-testid="textinput" id="test-id" />,
+  ),
+);
 
 describe('props', () => {
   describe('with only minimum props', () => {
@@ -124,15 +123,9 @@ describe('props', () => {
 
   describe('type', () => {
     describe('text (default)', () => {
-      const textInput = (
-        <TextInput
-          labelText="Test input"
-          type="text"
-          data-testid="text-input"
-        />
-      );
-      const { getByTestId } = render(textInput);
-      const textfield = getByTestId('text-input') as HTMLInputElement;
+      const textInput = <TextInput labelText="Test input" type="text" />;
+      const { getByRole } = render(textInput);
+      const textfield = getByRole('textbox') as HTMLInputElement;
 
       it('shows the inputted text', () => {
         fireEvent.change(textfield, { target: { value: 'abc 123' } });
@@ -142,14 +135,12 @@ describe('props', () => {
 
     describe('name', () => {
       const textInput = (
-        <TextInput
-          labelText="Test input"
-          name="test-name"
-          data-testid="input-name"
-        />
+        <TextInput labelText="Named test input" name="test-name" />
       );
-      const { getByTestId } = render(textInput);
-      const namedInput = getByTestId('input-name') as HTMLInputElement;
+      const { getByRole } = render(textInput);
+      const namedInput = getByRole('textbox', {
+        name: 'Named test input',
+      }) as HTMLInputElement;
 
       it('has the given name attribute', () => {
         expect(namedInput.name).toBe('test-name');
@@ -157,15 +148,9 @@ describe('props', () => {
     });
 
     describe('number', () => {
-      const textInput = (
-        <TextInput
-          labelText="Test input"
-          type="number"
-          data-testid="number-input"
-        />
-      );
-      const { getByTestId } = render(textInput);
-      const numberfield = getByTestId('number-input') as HTMLInputElement;
+      const textInput = <TextInput labelText="Number input" type="number" />;
+      const { getByRole } = render(textInput);
+      const numberfield = getByRole('spinbutton') as HTMLInputElement;
 
       it('shows the inputted numbers', () => {
         fireEvent.change(numberfield, { target: { value: '123' } });
@@ -183,12 +168,12 @@ describe('props', () => {
 
   describe('disabled', () => {
     it('has disabled attribute and classname', () => {
-      const { container, getByTestId } = render(
+      const { container, getByRole } = render(
         <TextInput labelText="Test input" data-testid="input" disabled />,
       );
       expect(container.firstChild).toHaveClass('fi-text-input--disabled');
 
-      const inputField = getByTestId('input') as HTMLInputElement;
+      const inputField = getByRole('textbox') as HTMLInputElement;
       expect(inputField).toHaveAttribute('disabled');
     });
   });
@@ -229,14 +214,13 @@ describe('props', () => {
 
   describe('visualPlaceholder', () => {
     it('should have the given text', () => {
-      const { getByTestId } = render(
+      const { getByRole } = render(
         <TextInput
           labelText="Test input"
-          data-testid="input"
           visualPlaceholder="Enter text here"
         />,
       );
-      const inputField = getByTestId('input') as HTMLInputElement;
+      const inputField = getByRole('textbox') as HTMLInputElement;
       expect(inputField).toHaveAttribute('placeholder', 'Enter text here');
     });
   });
@@ -255,6 +239,67 @@ describe('props', () => {
       );
       const icon = container.querySelector('.fi-icon');
       expect(container.contains(icon)).toBeTruthy();
+    });
+  });
+  describe('visualPlaceholder', () => {
+    it('should have the given text', () => {
+      const { getByRole } = render(
+        <TextInput
+          labelText="Test input"
+          visualPlaceholder="Enter text here"
+        />,
+      );
+      const inputField = getByRole('textbox') as HTMLInputElement;
+      expect(inputField).toHaveAttribute('placeholder', 'Enter text here');
+    });
+  });
+
+  describe('icon', () => {
+    it('should have the correct classname when icon prop is given', () => {
+      const { container } = render(
+        <TextInput labelText="Test input" icon="close" />,
+      );
+      expect(container.firstChild).toHaveClass('fi-text-input_with-icon');
+    });
+
+    it('should have an icon element when one is specified', () => {
+      const { container } = render(
+        <TextInput labelText="Test input" icon="close" />,
+      );
+      const icon = container.querySelector('.fi-icon');
+      expect(container.contains(icon)).toBeTruthy();
+    });
+  });
+
+  describe('debounce', () => {
+    it('delays the running of onChange by the given time', () => {
+      jest.useFakeTimers();
+      const mockOnChange = jest.fn();
+      const textInput = (
+        <TextInput
+          labelText="Debounced input"
+          debounce={1000}
+          onChange={mockOnChange}
+        />
+      );
+      const { getByRole } = render(textInput);
+
+      const inputElement = getByRole('textbox') as HTMLInputElement;
+      fireEvent.change(inputElement, { target: { value: 'new value' } });
+      expect(mockOnChange).not.toBeCalled();
+      jest.advanceTimersByTime(1000);
+      expect(mockOnChange).toBeCalledTimes(1);
+      expect(inputElement.value).toBe('new value');
+    });
+    it('resolves right when no onChange is given', () => {
+      const textInput = (
+        <TextInput labelText="Debounced input" debounce={1000} />
+      );
+      const { getByRole } = render(textInput);
+
+      const inputElement = getByRole('textbox') as HTMLInputElement;
+      fireEvent.change(inputElement, { target: { value: 'new value' } });
+      expect(inputElement.value).toBe('new value');
     });
   });
 });

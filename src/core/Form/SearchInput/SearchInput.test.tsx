@@ -199,6 +199,29 @@ describe('props', () => {
       }
     });
   });
+  describe('debounce', () => {
+    it('delays the running of onChange by the given time', () => {
+      jest.useFakeTimers();
+      const mockOnChange = jest.fn();
+      const searchInput = (
+        <SearchInput
+          labelText="Debounced search"
+          clearButtonLabel="clear"
+          searchButtonLabel="search"
+          debounce={1000}
+          onChange={mockOnChange}
+        />
+      );
+      const { getByRole } = render(searchInput);
+
+      const inputElement = getByRole('searchbox') as HTMLInputElement;
+      fireEvent.change(inputElement, { target: { value: 'new value' } });
+      expect(mockOnChange).not.toBeCalled();
+      jest.advanceTimersByTime(1000);
+      expect(mockOnChange).toBeCalledTimes(1);
+      expect(inputElement.value).toBe('new value');
+    });
+  });
 });
 
 describe('states', () => {
