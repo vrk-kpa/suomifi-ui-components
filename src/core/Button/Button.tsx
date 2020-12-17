@@ -49,10 +49,9 @@ export interface InternalButtonProps
    */
   icon?: BaseIconKeys;
   /**
-   * Align the icon either to left or right
-   * @default right
+   * Icon from suomifi-theme to be placed on right side
    */
-  alignIcon?: 'left' | 'right';
+  iconRight?: BaseIconKeys;
   /**
    * Properties given to Icon-component
    */
@@ -83,8 +82,9 @@ class BaseButton extends Component<ButtonProps> {
       ariaAssertiveEnabled,
       'aria-disabled': ariaDisabled,
       icon,
-      alignIcon = 'right',
+      iconRight,
       iconProps = { className: undefined },
+      children,
       ...passProps
     } = this.props;
     const { className: iconPropsClassName, ...passIconProps } = iconProps;
@@ -92,18 +92,6 @@ class BaseButton extends Component<ButtonProps> {
     const assertiveText = !!disabled
       ? ariaAssertiveDisabled
       : ariaAssertiveEnabled;
-
-    const iconWithProps = icon ? (
-      <Icon
-        mousePointer={true}
-        icon={icon}
-        color="currentColor"
-        className={classnames(iconClassName, iconPropsClassName, {
-          [iconRightClassName]: alignIcon === 'right',
-        })}
-        {...passIconProps}
-      />
-    ) : null;
 
     return (
       <>
@@ -119,9 +107,29 @@ class BaseButton extends Component<ButtonProps> {
             [fullWidthClassName]: fullWidth,
           })}
         >
-          {!!iconWithProps && alignIcon === 'left' && iconWithProps}
-          {passProps.children}
-          {!!iconWithProps && alignIcon !== 'left' && iconWithProps}
+          {!!icon && (
+            <Icon
+              {...passIconProps}
+              mousePointer={true}
+              icon={icon}
+              color="currentColor"
+              className={classnames(iconClassName, iconPropsClassName)}
+            />
+          )}
+          {children}
+          {!!iconRight && (
+            <Icon
+              {...passIconProps}
+              mousePointer={true}
+              icon={iconRight}
+              color="currentColor"
+              className={classnames(
+                iconClassName,
+                iconRightClassName,
+                iconPropsClassName,
+              )}
+            />
+          )}
         </HtmlButton>
         {!disabled && (
           <VisuallyHidden aria-live="assertive">{assertiveText}</VisuallyHidden>
