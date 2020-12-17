@@ -221,7 +221,7 @@ describe('props', () => {
       expect(mockOnChange).toBeCalledTimes(1);
       expect(inputElement.value).toBe('new value');
     });
-    it('resolves right when no callback is given to onChange', () => {
+    it('produces no errors when callback is given to onChange', () => {
       const searchInput = (
         <SearchInput
           labelText="Debounced search"

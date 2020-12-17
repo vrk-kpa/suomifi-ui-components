@@ -5,7 +5,7 @@ import { HtmlInput } from '../../../reset/HtmlInput/HtmlInput';
 
 describe('debounce', () => {
   it('runs given function immediately when no debounce time is specified', () => {
-    const mockFunction = jest.fn(() => 12);
+    const mockFunction = jest.fn();
     const { getByRole } = render(
       <Debounce>
         {(debouncer: Function) => (
