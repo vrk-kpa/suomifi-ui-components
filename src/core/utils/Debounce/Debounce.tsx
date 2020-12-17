@@ -39,8 +39,11 @@ export class Debounce<T extends Object> extends Component<DebounceProps<T>> {
   }
 
   render() {
-    // casted to any due to https://github.com/Microsoft/TypeScript/issues/10727
-    const { children } = this.props as any;
+    const children = this.props.children as (
+      debouncer: Function,
+      cancelDebounce: Function,
+    ) => JSX.Element;
+
     if (!!children) {
       return children(this.debouncer, this.cancelDebounce);
     }

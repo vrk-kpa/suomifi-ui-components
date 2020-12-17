@@ -221,22 +221,6 @@ describe('props', () => {
       expect(mockOnChange).toBeCalledTimes(1);
       expect(inputElement.value).toBe('new value');
     });
-    it('produces no errors when callback is given to onChange', () => {
-      const searchInput = (
-        <SearchInput
-          labelText="Debounced search"
-          clearButtonLabel="clear"
-          searchButtonLabel="search"
-          data-testid="debounced-search"
-          debounce={1000}
-        />
-      );
-      const { getByRole } = render(searchInput);
-
-      const inputElement = getByRole('searchbox') as HTMLInputElement;
-      fireEvent.change(inputElement, { target: { value: 'new value' } });
-      expect(inputElement.value).toBe('new value');
-    });
   });
 });
 
