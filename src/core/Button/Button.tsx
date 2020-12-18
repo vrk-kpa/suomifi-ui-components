@@ -88,8 +88,8 @@ class BaseButton extends Component<ButtonProps> {
       ...passProps
     } = this.props;
     const { className: iconPropsClassName, ...passIconProps } = iconProps;
-    const onClickProps = !!disabled || !!ariaDisabled ? {} : onClick;
-    const assertiveText = !!disabled
+    const onClickProps = !!disabled || !!ariaDisabled ? {} : { onClick };
+    const assertiveText = !!ariaDisabled
       ? ariaAssertiveDisabled
       : ariaAssertiveEnabled;
 
