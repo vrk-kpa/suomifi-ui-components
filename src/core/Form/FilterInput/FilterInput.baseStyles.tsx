@@ -11,7 +11,7 @@ export const baseStyles = withSuomifiTheme(
       width: 100%;
     }
 
-    & .fi-text-input_input-element-container {
+    & .fi-filter-input_input-element-container {
       ${containerIEFocus({ theme })}
 
       &:focus-within {

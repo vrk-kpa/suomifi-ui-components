@@ -1,15 +1,14 @@
 import React, { Component, ChangeEvent } from 'react';
-// import { default as styled } from 'styled-components';
-// import { withSuomifiDefaultProps } from '../../theme/utils';
+import { default as styled } from 'styled-components';
+import { withSuomifiDefaultProps } from '../../theme/utils';
 import {
   HtmlInput,
   HtmlInputProps,
   HtmlDiv,
   HtmlDivProps,
 } from '../../../reset';
-import { TokensProp } from '../../theme';
-// import { TokensProp, InternalTokensProp } from '../../theme';
-// import { baseStyles } from './FilterInput.baseStyles';
+import { TokensProp, InternalTokensProp } from '../../theme';
+import { baseStyles } from './FilterInput.baseStyles';
 import classnames from 'classnames';
 import { Omit } from '../../../utils/typescript';
 
@@ -97,16 +96,17 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
   }
 }
 
-// NOTE: somewhat working..
-// function StyledFilterInput<T>() {
-//   return styled(
-//     ({ tokens, ...passProps }: FilterInputProps<T> & InternalTokensProp) => {
-//       return <BaseFilterInput<T> {...passProps} />;
-//     },
-//   )`
-//     ${(props) => baseStyles(props)}
-//   `;
-// }
+const FilterInputWithoutTokens: <T>(
+  props: FilterInputProps<T> & InternalTokensProp,
+) => JSX.Element = ({
+  // eslint-disable-next-line react/prop-types
+  tokens,
+  ...passProps
+}) => <BaseFilterInput {...passProps} />;
+
+const StyledFilterInput = styled(FilterInputWithoutTokens)`
+  ${(props) => baseStyles(props)}
+`;
 
 /**
  * <i class="semantics" />
@@ -115,19 +115,6 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
  */
 export class FilterInput<T> extends Component<FilterInputProps<T>> {
   render() {
-    const { tokens, ...passProps } = this.props;
-    return <BaseFilterInput {...passProps} />;
+    return <StyledFilterInput {...withSuomifiDefaultProps(this.props)} />;
   }
 }
-
-// export class FilterInput<T> extends Component<
-//   FilterInputProps<T> & TokensProp
-// > {
-//   render() {
-//     return (
-//       <StyledFilterInput<React.FC<FilterInputProps<T>>>
-//         {...withSuomifiDefaultProps(this.props)}
-//       />
-//     );
-//   }
-// }
