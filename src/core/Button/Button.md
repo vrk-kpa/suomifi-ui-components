@@ -23,7 +23,6 @@ import { Button, Paragraph, Text } from 'suomifi-ui-components';
   <Button
     aria-describedby="additiona-info"
     aria-disabled={true}
-    ariaDisabledText="disabled"
     onClick={() => console.log('Test button click')}
     type="submit"
   >
