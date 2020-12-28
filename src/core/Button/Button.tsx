@@ -6,7 +6,6 @@ import { withSuomifiDefaultProps } from '../theme/utils';
 import { baseStyles } from './Button.baseStyles';
 import { HtmlButton, HtmlButtonProps } from '../../reset';
 import { Icon, IconProps, BaseIconKeys } from '../Icon/Icon';
-import { VisuallyHidden } from '../../components/Visually-hidden/Visually-hidden';
 
 type ButtonVariant =
   | 'default'
@@ -34,10 +33,6 @@ export interface InternalButtonProps
   disabled?: boolean;
   /** Soft disable the button to allow tab-focus, but disable onClick functionality */
   'aria-disabled'?: boolean;
-  /** aria-live text for why Button is disabled */
-  ariaAssertiveDisabled?: string;
-  /** aria-live text when Button changed from disabled to enabled */
-  ariaAssertiveEnabled?: string;
   /** Custom classname to extend or customize */
   className?: string;
   /**
@@ -78,8 +73,6 @@ class BaseButton extends Component<ButtonProps> {
       className,
       disabled = false,
       onClick,
-      ariaAssertiveDisabled,
-      ariaAssertiveEnabled,
       'aria-disabled': ariaDisabled,
       icon,
       iconRight,
@@ -89,16 +82,13 @@ class BaseButton extends Component<ButtonProps> {
     } = this.props;
     const { className: iconPropsClassName, ...passIconProps } = iconProps;
     const onClickProps = !!disabled || !!ariaDisabled ? {} : { onClick };
-    const assertiveText = !!ariaDisabled
-      ? ariaAssertiveDisabled
-      : ariaAssertiveEnabled;
 
     return (
       <>
         <HtmlButton
           {...passProps}
           {...onClickProps}
-          aria-disabled={disabled}
+          aria-disabled={ariaDisabled}
           tabIndex={0}
           disabled={!!disabled}
           className={classnames(baseClassName, className, {
@@ -131,9 +121,6 @@ class BaseButton extends Component<ButtonProps> {
             />
           )}
         </HtmlButton>
-        {!disabled && (
-          <VisuallyHidden aria-live="assertive">{assertiveText}</VisuallyHidden>
-        )}
       </>
     );
   }

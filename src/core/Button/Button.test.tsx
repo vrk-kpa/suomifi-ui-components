@@ -1,44 +1,84 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { axeTest } from '../../utils/test/axe';
+import { AutoId } from '../../utils/AutoId';
 
 import { Button } from './Button';
-import { cssFromBaseStyles } from '../utils';
-import { baseStyles } from './Button.baseStyles';
 
-const TestButton = <Button data-testid="button">Test</Button>;
+describe('Basic Button', () => {
+  it('render with the same component on the same container does not remount', () => {
+    const { getByRole, rerender } = render(
+      <AutoId>{(id) => <Button id={id}>Test</Button>}</AutoId>,
+    );
+    const button = getByRole('button');
+    expect(button.textContent).toBe('Test');
+    expect(button).toHaveAttribute('id', '1');
+    // re-render the same component with different props
+    rerender(<AutoId>{(id) => <Button id={id}>Test two</Button>}</AutoId>);
+    const rerendered = getByRole('button');
+    expect(rerendered.textContent).toBe('Test two');
+    expect(rerendered).toHaveAttribute('id', '1');
+  });
 
-test('calling render with the same component on the same container does not remount', () => {
-  const buttonRendered = render(TestButton);
-  const { getByTestId, container, rerender } = buttonRendered;
-  expect(container.firstChild).toMatchSnapshot();
-  expect(getByTestId('button').textContent).toBe('Test');
-
-  // re-render the same component with different props
-  rerender(<Button data-testid="nottub">Test two</Button>);
-  expect(getByTestId('nottub').textContent).toBe('Test two');
+  it(
+    'should not have basic accessibility issues',
+    axeTest(<Button>Test</Button>),
+  );
 });
 
-test('disabled button is disabled', () => {
-  const button = render(
-    <Button data-testid="button" disabled={true}>
-      Test
-    </Button>,
-  );
-  const { getByTestId, rerender } = button;
-  expect(getByTestId('button')).toBeDisabled();
+describe('Disabled Button', () => {
+  it('is disabled and changes to enabled', () => {
+    const button = render(<Button disabled={true}>Test</Button>);
+    const { getByRole, rerender } = button;
+    expect(getByRole('button')).toBeDisabled();
 
-  rerender(
-    <Button data-testid="button" disabled={false}>
-      Test
-    </Button>,
-  );
-  expect(getByTestId('button')).toBeEnabled();
+    rerender(<Button disabled={false}>Test</Button>);
+    expect(getByRole('button')).toBeEnabled();
+  });
+
+  it('is aria-disabled and changes to enabled', () => {
+    const button = render(
+      <Button aria-disabled={true}>Aria-disabled button</Button>,
+    );
+    const { getByRole, rerender } = button;
+    expect(getByRole('button')).toHaveAttribute('aria-disabled', 'true');
+    rerender(<Button aria-disabled={false}>Aria-disabled button</Button>);
+    expect(getByRole('button')).toHaveAttribute('aria-disabled', 'false');
+  });
 });
 
-test('should not have basic accessibility issues', axeTest(TestButton));
-
-test('CSS export', () => {
-  const css = cssFromBaseStyles(baseStyles);
-  expect(css).toEqual(expect.stringContaining('color'));
+describe('Button variant', () => {
+  it('default should match snapshot', () => {
+    const defaultButton = render(<Button>Button</Button>);
+    const { container } = defaultButton;
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it('inverted should match snapshot', () => {
+    const secondary = render(
+      <Button variant="inverted">Inverted button</Button>,
+    );
+    const { container } = secondary;
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it('secondary should match snapshot', () => {
+    const secondary = render(
+      <Button variant="secondary">Secondary button</Button>,
+    );
+    const { container } = secondary;
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it('secondary-noborder should match snapshot', () => {
+    const secondary = render(
+      <Button variant="secondary-noborder">Secondary-noborder button</Button>,
+    );
+    const { container } = secondary;
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it('tertiary match snapshot', () => {
+    const secondary = render(
+      <Button variant="tertiary">Tertiary button</Button>,
+    );
+    const { container } = secondary;
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

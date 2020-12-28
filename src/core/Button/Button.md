@@ -17,31 +17,21 @@ import { Button } from 'suomifi-ui-components';
 ```
 
 ```js
-import { useState } from 'react';
 import { Button, Paragraph, Text } from 'suomifi-ui-components';
 
-const [disabled, setDisabled] = useState(true);
-
 <>
-  <Button variant="secondary" onClick={() => setDisabled(!disabled)}>
-    Toggle disabled
-  </Button>
-
   <Button
-    aria-describedby="error_message"
-    aria-disabled={disabled}
-    ariaAssertiveDisabled="Submit button disabled"
-    ariaAssertiveEnabled="Submit button enabled"
+    aria-describedby="additiona-info"
+    aria-disabled={true}
+    ariaDisabledText="disabled"
     onClick={() => console.log('Test button click')}
     type="submit"
   >
-    Submit
+    Aria-disabled button
   </Button>
-  {!!disabled && (
-    <Paragraph id="error_message">
-      <Text>Error message</Text>
-    </Paragraph>
-  )}
+  <Paragraph id="additiona-info">
+    <Text>Disabled additional information</Text>
+  </Paragraph>
 </>;
 ```
 
