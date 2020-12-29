@@ -11,6 +11,8 @@ import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './FilterInput.baseStyles';
 import classnames from 'classnames';
 import { Omit } from '../../../utils/typescript';
+import { LabelText } from '../LabelText/LabelText';
+import { AutoId } from '../../../utils/AutoId';
 
 const baseClassName = 'fi-filter-input';
 
@@ -32,6 +34,10 @@ export interface FilterInputProps<T>
   disabled?: boolean;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
+  /** Label */
+  labelText: string;
+  /** Text to mark a field optional. Will be wrapped in parentheses and shown after labelText. */
+  optionalText?: string;
   /** FilterInput name */
   name?: string;
   /** Items to be filtered */
@@ -48,10 +54,13 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
       className,
       inputContainerProps,
       visualPlaceholder,
+      labelText,
+      optionalText,
       id,
       'aria-describedby': ariaDescribedBy,
       items: propItems,
       onFiltering: propOnFiltering,
+      filterRule: propFilterRule,
       ...passProps
     } = this.props;
 
@@ -76,6 +85,9 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
           [filterInputClassNames.disabled]: !!passProps.disabled,
         })}
       >
+        <LabelText htmlFor={id} as="label" optionalText={optionalText}>
+          {labelText}
+        </LabelText>
         <HtmlDiv className={filterInputClassNames.inputElementContainer}>
           <HtmlInput
             {...passProps}
@@ -101,8 +113,14 @@ const FilterInputWithoutTokens: <T>(
 ) => JSX.Element = ({
   // eslint-disable-next-line react/prop-types
   tokens,
+  // eslint-disable-next-line react/prop-types
+  id: propId,
   ...passProps
-}) => <BaseFilterInput {...passProps} />;
+}) => (
+  <AutoId id={propId}>
+    {(id) => <BaseFilterInput id={id} {...passProps} />}
+  </AutoId>
+);
 
 const StyledFilterInput = styled(FilterInputWithoutTokens)`
   ${(props) => baseStyles(props)}

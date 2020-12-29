@@ -10,13 +10,13 @@ const tools = [
 ];
 const [filteredItems, setFilteredItems] = React.useState(tools);
 
-// to do the magic on the component's side
 const filter = (tool, query) => {
   return tool.name.includes(query);
 };
 
 <>
   <FilterInput
+    labelText="Label"
     items={tools}
     onFiltering={(filtered) => setFilteredItems(filtered)}
     filterRule={filter}
@@ -26,7 +26,7 @@ const filter = (tool, query) => {
     <ul>
       {filteredItems.map((item, index) => {
         if (item) {
-          return <li>{item.name}</li>;
+          return <li key={index}>{item.name}</li>;
         } else {
           return { item };
         }
