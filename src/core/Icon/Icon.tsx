@@ -42,16 +42,14 @@ export const iconLogger = (
  * Apply Suomifi styles to Icon
  */
 const StyledSuomifiIcon = styled(
-  ({ ariaLabel, mousePointer, className, ...passProps }: IconProps) => {
-    return (
-      <SuomifiIcon
-        className={classnames(baseClassName, className)}
-        {...passProps}
-        {...ariaLabelOrHidden(ariaLabel)}
-        {...ariaFocusableNoLabel(ariaLabel)}
-      />
-    );
-  },
+  ({ ariaLabel, mousePointer, className, ...passProps }: IconProps) => (
+    <SuomifiIcon
+      className={classnames(baseClassName, className)}
+      {...passProps}
+      {...ariaLabelOrHidden(ariaLabel)}
+      {...ariaFocusableNoLabel(ariaLabel)}
+    />
+  ),
 )`
   ${(props) => iconBaseStyles(props)}
 `;

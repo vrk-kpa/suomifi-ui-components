@@ -242,11 +242,9 @@ const StyledCheckbox = styled(
 `;
 
 export class Checkbox extends Component<CheckboxProps> {
-  static large = (props: CheckboxProps) => {
-    return (
-      <StyledCheckbox {...withSuomifiDefaultProps(props)} variant="large" />
-    );
-  };
+  static large = (props: CheckboxProps) => (
+    <StyledCheckbox {...withSuomifiDefaultProps(props)} variant="large" />
+  );
 
   render() {
     return <StyledCheckbox {...withSuomifiDefaultProps(this.props)} />;

@@ -9,17 +9,15 @@ import {
 } from '../';
 
 describe('Basic expander', () => {
-  const TestExpanderWithProps = (titleProps: ExpanderTitleButtonProps) => {
-    return (
-      <Expander className="expander-test">
-        <ExpanderTitleButton
-          {...titleProps}
-          {...{ 'data-testid': 'expander-title' }}
-        />
-        <ExpanderContent>Test expander content</ExpanderContent>
-      </Expander>
-    );
-  };
+  const TestExpanderWithProps = (titleProps: ExpanderTitleButtonProps) => (
+    <Expander className="expander-test">
+      <ExpanderTitleButton
+        {...titleProps}
+        {...{ 'data-testid': 'expander-title' }}
+      />
+      <ExpanderContent>Test expander content</ExpanderContent>
+    </Expander>
+  );
 
   const TestExpander = TestExpanderWithProps({
     ariaCloseText: 'click to close expander',

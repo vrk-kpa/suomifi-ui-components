@@ -89,13 +89,11 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
 }
 
 const StyledExpanderTitle = styled(
-  ({ tokens, ...passProps }: ExpanderTitleProps & InternalTokensProp) => {
-    return (
-      <ExpanderConsumer>
-        {(consumer) => <BaseExpanderTitle consumer={consumer} {...passProps} />}
-      </ExpanderConsumer>
-    );
-  },
+  ({ tokens, ...passProps }: ExpanderTitleProps & InternalTokensProp) => (
+    <ExpanderConsumer>
+      {(consumer) => <BaseExpanderTitle consumer={consumer} {...passProps} />}
+    </ExpanderConsumer>
+  ),
 )`
   ${(props) => expanderTitleBaseStyles(props)};
 `;

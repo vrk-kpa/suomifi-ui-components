@@ -42,9 +42,7 @@ interface InternalExpanderTitleButtonProps
   extends ExpanderTitleButtonProps,
     ExpanderTitleBaseProps {}
 
-class BaseExpanderTitleButton extends Component<
-  InternalExpanderTitleButtonProps
-> {
+class BaseExpanderTitleButton extends Component<InternalExpanderTitleButtonProps> {
   render() {
     const {
       ariaCloseText,
@@ -92,15 +90,13 @@ class BaseExpanderTitleButton extends Component<
 }
 
 const StyledExpanderTitle = styled(
-  ({ tokens, ...passProps }: ExpanderTitleButtonProps & InternalTokensProp) => {
-    return (
-      <ExpanderConsumer>
-        {(consumer) => (
-          <BaseExpanderTitleButton consumer={consumer} {...passProps} />
-        )}
-      </ExpanderConsumer>
-    );
-  },
+  ({ tokens, ...passProps }: ExpanderTitleButtonProps & InternalTokensProp) => (
+    <ExpanderConsumer>
+      {(consumer) => (
+        <BaseExpanderTitleButton consumer={consumer} {...passProps} />
+      )}
+    </ExpanderConsumer>
+  ),
 )`
   ${(props) => expanderTitleButtonBaseStyles(props)};
 `;

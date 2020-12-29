@@ -90,11 +90,9 @@ class ToggleWithIcon extends Component<ToggleProps> {
 }
 
 export class Toggle extends Component<ToggleProps> {
-  static withInput = (props: ToggleProps) => {
-    return (
-      <ToggleWithIcon {...withSuomifiDefaultProps(props)} variant="withInput" />
-    );
-  };
+  static withInput = (props: ToggleProps) => (
+    <ToggleWithIcon {...withSuomifiDefaultProps(props)} variant="withInput" />
+  );
 
   render() {
     return <ToggleWithIcon {...withSuomifiDefaultProps(this.props)} />;

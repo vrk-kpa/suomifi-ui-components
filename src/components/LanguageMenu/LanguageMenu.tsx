@@ -58,9 +58,7 @@ export interface LanguageMenuProps {
   languageMenuOpenButtonClassName?: string;
   /** Properties given to LanguageMenu's popover-component, className etc. */
   languageMenuPopoverProps?: OptionalLanguageMenuPopoverProps;
-  languageMenuPopoverComponent?: React.ComponentType<
-    OptionalLanguageMenuPopoverProps
-  >;
+  languageMenuPopoverComponent?: React.ComponentType<OptionalLanguageMenuPopoverProps>;
   /** Menu items: MenuItem or MenuLink */
   children?:
     | Array<React.ReactElement<LanguageMenuPopoverItemsProps>>
@@ -88,30 +86,28 @@ export class LanguageMenu extends Component<LanguageMenuProps> {
     return (
       <HtmlSpan className={classnames(className, baseClassName)}>
         <Menu>
-          {({ isOpen }: { isOpen: boolean }) => {
-            return (
-              <Fragment>
-                <MenuButton
-                  {...passProps}
-                  className={classnames(
-                    menuButtonClassName,
-                    isOpen && menuButtonOpenClassName,
-                  )}
-                >
-                  {name}
-                </MenuButton>
-                {!!MenuPopoverComponentReplace ? (
-                  <MenuPopoverComponentReplace {...menuPopoverProps}>
-                    {children}
-                  </MenuPopoverComponentReplace>
-                ) : (
-                  <MenuPopover position={positionDefault} {...menuPopoverProps}>
-                    <MenuItems>{children}</MenuItems>
-                  </MenuPopover>
+          {({ isOpen }: { isOpen: boolean }) => (
+            <Fragment>
+              <MenuButton
+                {...passProps}
+                className={classnames(
+                  menuButtonClassName,
+                  isOpen && menuButtonOpenClassName,
                 )}
-              </Fragment>
-            );
-          }}
+              >
+                {name}
+              </MenuButton>
+              {!!MenuPopoverComponentReplace ? (
+                <MenuPopoverComponentReplace {...menuPopoverProps}>
+                  {children}
+                </MenuPopoverComponentReplace>
+              ) : (
+                <MenuPopover position={positionDefault} {...menuPopoverProps}>
+                  <MenuItems>{children}</MenuItems>
+                </MenuPopover>
+              )}
+            </Fragment>
+          )}
         </Menu>
       </HtmlSpan>
     );

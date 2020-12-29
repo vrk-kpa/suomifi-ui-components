@@ -201,10 +201,7 @@ export class Dropdown extends Component<DropdownProps> {
 
     const passDropdownPopoverProps = {
       ...dropdownPopoverProps,
-      className: classnames(
-        dropdownClassNames.popover,
-        dropdownPopoverProps.className,
-      ),
+      className: dropdownClassNames.popover,
     };
 
     const passDropdownItemProps = {
