@@ -13,6 +13,7 @@ type ButtonVariant =
   | 'secondary'
   | 'secondary-noborder'
   | 'tertiary';
+
 export interface InternalButtonProps
   extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'> {
   /**
@@ -81,13 +82,13 @@ class BaseButton extends Component<ButtonProps> {
       ...passProps
     } = this.props;
     const { className: iconPropsClassName, ...passIconProps } = iconProps;
-    const onClickProps = !!disabled || !!ariaDisabled ? {} : { onClick };
+    const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
 
     return (
       <>
         <HtmlButton
           {...passProps}
-          {...onClickProps}
+          {...onClickProp}
           aria-disabled={ariaDisabled}
           tabIndex={0}
           disabled={!!disabled}

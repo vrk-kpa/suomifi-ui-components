@@ -28,8 +28,9 @@ describe('Basic Button', () => {
 
 describe('Disabled Button', () => {
   it('is disabled and changes to enabled', () => {
-    const button = render(<Button disabled={true}>Test</Button>);
-    const { getByRole, rerender } = button;
+    const { getByRole, rerender } = render(
+      <Button disabled={true}>Test</Button>,
+    );
     expect(getByRole('button')).toBeDisabled();
 
     rerender(<Button disabled={false}>Test</Button>);
@@ -37,10 +38,9 @@ describe('Disabled Button', () => {
   });
 
   it('is aria-disabled and changes to enabled', () => {
-    const button = render(
+    const { getByRole, rerender } = render(
       <Button aria-disabled={true}>Aria-disabled button</Button>,
     );
-    const { getByRole, rerender } = button;
     expect(getByRole('button')).toHaveAttribute('aria-disabled', 'true');
     rerender(<Button aria-disabled={false}>Aria-disabled button</Button>);
     expect(getByRole('button')).toHaveAttribute('aria-disabled', 'false');
@@ -49,36 +49,35 @@ describe('Disabled Button', () => {
 
 describe('Button variant', () => {
   it('default should match snapshot', () => {
-    const defaultButton = render(<Button>Button</Button>);
-    const { container } = defaultButton;
+    const { container } = render(<Button>Button</Button>);
     expect(container.firstChild).toMatchSnapshot();
   });
+
   it('inverted should match snapshot', () => {
-    const secondary = render(
+    const { container } = render(
       <Button variant="inverted">Inverted button</Button>,
     );
-    const { container } = secondary;
     expect(container.firstChild).toMatchSnapshot();
   });
+
   it('secondary should match snapshot', () => {
-    const secondary = render(
+    const { container } = render(
       <Button variant="secondary">Secondary button</Button>,
     );
-    const { container } = secondary;
     expect(container.firstChild).toMatchSnapshot();
   });
+
   it('secondary-noborder should match snapshot', () => {
-    const secondary = render(
+    const { container } = render(
       <Button variant="secondary-noborder">Secondary-noborder button</Button>,
     );
-    const { container } = secondary;
     expect(container.firstChild).toMatchSnapshot();
   });
+
   it('tertiary match snapshot', () => {
-    const secondary = render(
+    const { container } = render(
       <Button variant="tertiary">Tertiary button</Button>,
     );
-    const { container } = secondary;
     expect(container.firstChild).toMatchSnapshot();
   });
 });

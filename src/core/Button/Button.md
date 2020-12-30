@@ -21,15 +21,15 @@ import { Button, Paragraph, Text } from 'suomifi-ui-components';
 
 <>
   <Button
-    aria-describedby="additiona-info"
+    aria-describedby="additional-info"
     aria-disabled={true}
     onClick={() => console.log('Test button click')}
     type="submit"
   >
     Aria-disabled button
   </Button>
-  <Paragraph id="additiona-info">
-    <Text>Disabled additional information</Text>
+  <Paragraph id="additional-info">
+    <Text>Additional information for aria-disabled button</Text>
   </Paragraph>
 </>;
 ```
