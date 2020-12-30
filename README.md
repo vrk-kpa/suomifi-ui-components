@@ -51,7 +51,7 @@ You should also install the following dependencies, if your project does not alr
 yarn add styled-components
 ```
 
-- If using TypeScript, version 3.5 or above is required.
+- If using TypeScript, version 3.8 or above is required.
 
 - In case TypeScript is used and skipLibCheck compiler option is set to false, also typings for [react](https://www.npmjs.com/package/@types/react), [react-dom](https://www.npmjs.com/package/@types/react-dom), [styled-components](https://www.npmjs.com/package/@types/styled-components/) and [warning](https://www.npmjs.com/package/@types/warning) are required.
 
