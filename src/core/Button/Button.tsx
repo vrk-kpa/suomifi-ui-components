@@ -128,9 +128,9 @@ class BaseButton extends Component<ButtonProps> {
 }
 
 const StyledButton = styled(
-  ({ tokens, ...passProps }: ButtonProps & InternalTokensProp) => {
-    return <BaseButton {...passProps} />;
-  },
+  ({ tokens, ...passProps }: ButtonProps & InternalTokensProp) => (
+    <BaseButton {...passProps} />
+  ),
 )`
   ${(props) => baseStyles(props)}
 `;
@@ -142,32 +142,24 @@ const StyledButton = styled(
  * define styles background color for all needed states (:hover, :active, :disabled)<br /><br />
  */
 export class Button extends Component<ButtonProps> {
-  static inverted = (props: ButtonProps) => {
-    return (
-      <StyledButton {...withSuomifiDefaultProps(props)} variant="inverted" />
-    );
-  };
+  static inverted = (props: ButtonProps) => (
+    <StyledButton {...withSuomifiDefaultProps(props)} variant="inverted" />
+  );
 
-  static secondary = (props: ButtonProps) => {
-    return (
-      <StyledButton {...withSuomifiDefaultProps(props)} variant="secondary" />
-    );
-  };
+  static secondary = (props: ButtonProps) => (
+    <StyledButton {...withSuomifiDefaultProps(props)} variant="secondary" />
+  );
 
-  static secondaryNoborder = (props: ButtonProps) => {
-    return (
-      <StyledButton
-        {...withSuomifiDefaultProps(props)}
-        variant="secondary-noborder"
-      />
-    );
-  };
+  static secondaryNoborder = (props: ButtonProps) => (
+    <StyledButton
+      {...withSuomifiDefaultProps(props)}
+      variant="secondary-noborder"
+    />
+  );
 
-  static tertiary = (props: ButtonProps) => {
-    return (
-      <StyledButton {...withSuomifiDefaultProps(props)} variant="tertiary" />
-    );
-  };
+  static tertiary = (props: ButtonProps) => (
+    <StyledButton {...withSuomifiDefaultProps(props)} variant="tertiary" />
+  );
 
   render() {
     return <StyledButton {...withSuomifiDefaultProps(this.props)} />;
