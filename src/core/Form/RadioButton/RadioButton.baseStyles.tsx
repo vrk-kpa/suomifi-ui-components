@@ -10,7 +10,7 @@ export const baseStyles = withSuomifiTheme(
     ${element({ theme })}
     ${font({ theme })('bodyText')}
 
-  &.fi-radio-button {
+    &.fi-radio-button {
       & .fi-radio-button_hintText {
         display: block;
         padding-left: 26px;

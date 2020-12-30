@@ -9,7 +9,8 @@ export const baseStyles = withSuomifiTheme(
     & > [data-reach-menu-button].fi-language-menu_button {
       ${element({ theme })}
       ${theme.typography.bodyText}
-    cursor: pointer;
+      cursor: pointer;
+
       &.fi-language-menu-language_button {
         ${element({ theme })}
         ${theme.typography.actionElementInnerTextBold}
@@ -55,10 +56,11 @@ export const languageMenuPopoverStyles = withSuomifiTheme(
     &[data-reach-menu-popover].fi-language-menu_popover {
       ${element({ theme })}
       ${theme.typography.bodyText}
-    margin-top: -2px;
+      margin-top: -2px;
       background-color: ${theme.colors.whiteBase};
       border: none;
       box-shadow: ${theme.shadows.menuShadow};
+
       &.fi-language-menu-language_popover {
         ${theme.typography.actionElementInnerText}
         position: absolute;

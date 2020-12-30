@@ -10,7 +10,7 @@ export const expanderTitleBaseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme & Partial<ExpanderTitleProps>) => css`
     ${element({ theme })}
     ${font({ theme })('bodyText')}
-      font-size: ${theme.typography.bodySemiBold};
+    font-size: ${theme.typography.bodySemiBold};
     position: relative;
     display: block;
     width: 100%;

@@ -8,7 +8,7 @@ export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme & Partial<ExpanderProps>) => css`
     ${element({ theme })}
     ${font({ theme })('bodyText')}
-      background-color: ${theme.colors.whiteBase};
+    background-color: ${theme.colors.whiteBase};
     position: relative;
     padding: 0;
     border-radius: ${theme.radius.basic};

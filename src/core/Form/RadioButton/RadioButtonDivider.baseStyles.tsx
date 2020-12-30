@@ -7,7 +7,6 @@ export const baseStyles = withSuomifiTheme(
     ${element({ theme })}
     ${font({ theme })('bodyText')}
 
-
     &.fi-radio-button-divider {
       display: block;
 

@@ -26,7 +26,7 @@ export const expanderTitleButtonBaseStyles = withSuomifiTheme(
     & .fi-expander_title-button_button {
       ${button({ theme })}
       ${font({ theme })('bodyText')}
-        font-size: ${theme.typography.bodySemiBold};
+      font-size: ${theme.typography.bodySemiBold};
       color: ${theme.colors.highlightBase};
       display: inline-block;
       width: 100%;
