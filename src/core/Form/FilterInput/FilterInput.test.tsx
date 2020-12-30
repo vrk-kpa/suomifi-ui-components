@@ -18,9 +18,7 @@ const tools: Product[] = [
   { name: 'Powersaw', price: 150, tax: false },
 ];
 
-const filter = (tool: Product, query: string) => {
-  return tool.name.includes(query);
-};
+const filter = (tool: Product, query: string) => tool.name.includes(query);
 
 const TestFilterInput = (
   <FilterInput
