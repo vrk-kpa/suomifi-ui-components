@@ -11,17 +11,20 @@ import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './FilterInput.baseStyles';
 import classnames from 'classnames';
 import { Omit } from '../../../utils/typescript';
-import { LabelText } from '../LabelText/LabelText';
+import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { AutoId } from '../../../utils/AutoId';
+import { InputStatus } from '../types';
+import { StatusText } from '../StatusText/StatusText';
 
 const baseClassName = 'fi-filter-input';
-
 const filterInputClassNames = {
-  baseClassName,
+  error: `${baseClassName}--error`,
   disabled: `${baseClassName}--disabled`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
 };
+
+type FilterInputStatus = Exclude<InputStatus, 'success'>;
 
 export interface FilterInputProps<T>
   extends Omit<HtmlInputProps, 'type'>,
@@ -36,8 +39,19 @@ export interface FilterInputProps<T>
   visualPlaceholder?: string;
   /** Label */
   labelText: string;
+  /** Hide or show label. Label element is always present, but can be visually hidden.
+   * @default visible
+   */
+  labelMode?: LabelMode;
   /** Text to mark a field optional. Will be wrapped in parentheses and shown after labelText. */
   optionalText?: string;
+  /**
+   * 'default' | 'error'
+   * @default default
+   */
+  status?: FilterInputStatus;
+  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
+  statusText?: string;
   /** FilterInput name */
   name?: string;
   /** Items to be filtered */
@@ -55,7 +69,10 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
       inputContainerProps,
       visualPlaceholder,
       labelText,
+      labelMode,
       optionalText,
+      status,
+      statusText,
       id,
       'aria-describedby': ariaDescribedBy,
       items: propItems,
@@ -78,14 +95,22 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
       onFiltering(filteredItems);
     };
 
+    const statusTextId = statusText ? `${id}-statusText` : undefined;
+
     return (
       <HtmlDiv
         {...inputContainerProps}
         className={classnames(baseClassName, className, {
           [filterInputClassNames.disabled]: !!passProps.disabled,
+          [filterInputClassNames.error]: status === 'error',
         })}
       >
-        <LabelText htmlFor={id} as="label" optionalText={optionalText}>
+        <LabelText
+          htmlFor={id}
+          as="label"
+          labelMode={labelMode}
+          optionalText={optionalText}
+        >
           {labelText}
         </LabelText>
         <HtmlDiv className={filterInputClassNames.inputElementContainer}>
@@ -103,6 +128,9 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
             onChange={onChangeHandler}
           />
         </HtmlDiv>
+        <StatusText id={statusTextId} status={status}>
+          {statusText}
+        </StatusText>
       </HtmlDiv>
     );
   }

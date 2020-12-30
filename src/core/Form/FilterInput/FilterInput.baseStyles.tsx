@@ -39,10 +39,18 @@ export const baseStyles = withSuomifiTheme(
       }
     }
 
+    &.fi-filter-input--error {
+      & .fi-filter-input_input {
+        border-color: ${theme.colors.alertBase};
+        border-width: 2px;
+      }
+    }
+
     &.fi-filter-input--disabled {
-      & .fi-text-input_input {
+      & .fi-filter-input_input {
         color: ${theme.colors.depthBase};
         background-color: ${theme.colors.depthLight3};
+        border-color: ${theme.colors.depthLight1};
       }
     }
   `,
