@@ -11,27 +11,36 @@ const tools = [
 const [filteredItems, setFilteredItems] = React.useState(tools);
 
 const filter = (tool, query) => {
-  return tool.name.includes(query);
+  return tool.name.toLowerCase().includes(query.toLowerCase());
 };
 
 <>
-  <FilterInput
-    labelText="Label"
-    items={tools}
-    onFiltering={(filtered) => setFilteredItems(filtered)}
-    filterRule={filter}
-  />
+  <div
+    style={{
+      height: 150,
+      display: 'flex',
+      flex: 1,
+      flexDirection: 'row'
+    }}
+  >
+    <FilterInput
+      labelText="Label"
+      items={tools}
+      onFiltering={(filtered) => setFilteredItems(filtered)}
+      filterRule={filter}
+    />
 
-  <div>
-    <ul>
-      {filteredItems.map((item, index) => {
-        if (item) {
-          return <li key={index}>{item.name}</li>;
-        } else {
-          return { item };
-        }
-      })}
-    </ul>
+    <div>
+      <ul>
+        {filteredItems.map((item, index) => {
+          if (item) {
+            return <li key={index}>{item.name}</li>;
+          } else {
+            return { item };
+          }
+        })}
+      </ul>
+    </div>
   </div>
 </>;
 ```
