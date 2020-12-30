@@ -146,13 +146,13 @@ class LanguageMenuVariation extends Component<LanguageMenuProps> {
  * Use for dropdown menu.
  */
 export class LanguageMenu extends Component<LanguageMenuProps> {
-  static languageItem = (props: LanguageMenuItemLanguageProps) => {
-    return <LanguageMenuItemLanguage {...props} />;
-  };
+  static languageItem = (props: LanguageMenuItemLanguageProps) => (
+    <LanguageMenuItemLanguage {...props} />
+  );
 
-  static LinkLanguage = (props: LanguageMenuLinkLanguageProps) => {
-    return <LanguageMenuLinkLanguage {...props} />;
-  };
+  static LinkLanguage = (props: LanguageMenuLinkLanguageProps) => (
+    <LanguageMenuLinkLanguage {...props} />
+  );
 
   render() {
     return <LanguageMenuVariation {...this.props} />;

@@ -136,8 +136,8 @@ export const baseStyles = withSuomifiTheme(
 
     ${invertedStyles({ theme })}
     ${secondaryStyles({ theme })}
-  ${secondaryNoBorderStyles({ theme })}
-  ${tertiaryStyles({ theme })}
+    ${secondaryNoBorderStyles({ theme })}
+    ${tertiaryStyles({ theme })}
 
   & > .fi-button_icon {
       width: 16px;

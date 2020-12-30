@@ -93,7 +93,7 @@ export const baseStyles = withSuomifiTheme(
     ${element({ theme })}
     ${font({ theme })('bodyText')}
 
-& .fi-checkbox_label {
+    & .fi-checkbox_label {
       position: relative;
       display: block;
       padding-left: ${theme.spacing.l};

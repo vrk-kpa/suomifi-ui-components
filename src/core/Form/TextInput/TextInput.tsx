@@ -191,9 +191,9 @@ class BaseTextInput extends Component<TextInputProps> {
 }
 
 const StyledTextInput = styled(
-  ({ tokens, ...passProps }: TextInputProps & InternalTokensProp) => {
-    return <BaseTextInput {...passProps} />;
-  },
+  ({ tokens, ...passProps }: TextInputProps & InternalTokensProp) => (
+    <BaseTextInput {...passProps} />
+  ),
 )`
   ${(props) => baseStyles(props)}
 `;

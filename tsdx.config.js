@@ -6,7 +6,7 @@ const typescript = require('@wessberg/rollup-plugin-ts');
 
 module.exports = {
   rollup(config, options) {
-    config.plugins = config.plugins.map(plugin => {
+    config.plugins = config.plugins.map((plugin) => {
       if (plugin && plugin.name === 'rpt2') {
         return typescript({
           transpiler: 'babel',
@@ -28,7 +28,7 @@ module.exports = {
         ],
         inject: false,
         // only write out CSS for the first bundle (avoids pointless extra files):
-        extract: !!options.writeMeta && 'dist/main.css',
+        extract: !!options.writeMeta && 'main.css',
       }),
     );
     return config;

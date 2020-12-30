@@ -122,36 +122,28 @@ class ButtonWithIcon extends Component<ButtonProps & InternalTokensProp> {
  * `import { UnstyledButton } from 'suomifi-ui-components';` or `<Button.unstyled />`.
  */
 export class Button extends Component<ButtonProps> {
-  static inverted = (props: ButtonProps) => {
-    return (
-      <ButtonWithIcon {...withSuomifiDefaultProps(props)} variant="inverted" />
-    );
-  };
+  static inverted = (props: ButtonProps) => (
+    <ButtonWithIcon {...withSuomifiDefaultProps(props)} variant="inverted" />
+  );
 
-  static secondary = (props: ButtonProps) => {
-    return (
-      <ButtonWithIcon {...withSuomifiDefaultProps(props)} variant="secondary" />
-    );
-  };
+  static secondary = (props: ButtonProps) => (
+    <ButtonWithIcon {...withSuomifiDefaultProps(props)} variant="secondary" />
+  );
 
-  static secondaryNoborder = (props: ButtonProps) => {
-    return (
-      <ButtonWithIcon
-        {...withSuomifiDefaultProps(props)}
-        variant="secondary-noborder"
-      />
-    );
-  };
+  static secondaryNoborder = (props: ButtonProps) => (
+    <ButtonWithIcon
+      {...withSuomifiDefaultProps(props)}
+      variant="secondary-noborder"
+    />
+  );
 
-  static tertiary = (props: ButtonProps) => {
-    return (
-      <ButtonWithIcon {...withSuomifiDefaultProps(props)} variant="tertiary" />
-    );
-  };
+  static tertiary = (props: ButtonProps) => (
+    <ButtonWithIcon {...withSuomifiDefaultProps(props)} variant="tertiary" />
+  );
 
-  static unstyled = (props: ButtonProps) => {
-    return <UnstyledButton {...withSuomifiDefaultProps(props)} />;
-  };
+  static unstyled = (props: ButtonProps) => (
+    <UnstyledButton {...withSuomifiDefaultProps(props)} />
+  );
 
   render() {
     return <ButtonWithIcon {...withSuomifiDefaultProps(this.props)} />;

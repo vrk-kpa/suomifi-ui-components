@@ -56,19 +56,17 @@ class DefaultRadioButton extends Component<
 }
 
 export class RadioButton extends Component<RadioButtonProps> {
-  static group = (props: RadioButtonGroupProps) => {
-    return <RadioButtonGroup {...withSuomifiDefaultProps(props)} />;
-  };
+  static group = (props: RadioButtonGroupProps) => (
+    <RadioButtonGroup {...withSuomifiDefaultProps(props)} />
+  );
 
-  static large = (props: RadioButtonProps) => {
-    return (
-      <DefaultRadioButton {...withSuomifiDefaultProps(props)} variant="large" />
-    );
-  };
+  static large = (props: RadioButtonProps) => (
+    <DefaultRadioButton {...withSuomifiDefaultProps(props)} variant="large" />
+  );
 
-  static divider = (props: RadioButtonDividerProps) => {
-    return <RadioButtonDivider {...withSuomifiDefaultProps(props)} />;
-  };
+  static divider = (props: RadioButtonDividerProps) => (
+    <RadioButtonDivider {...withSuomifiDefaultProps(props)} />
+  );
 
   render() {
     return <DefaultRadioButton {...withSuomifiDefaultProps(this.props)} />;

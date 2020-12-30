@@ -37,9 +37,9 @@ type VariantBreadcrumbProps =
  * Used for navigation path
  */
 export class Breadcrumb extends Component<VariantBreadcrumbProps> {
-  static link = (props: BreadcrumbLinkProps) => {
-    return <BreadcrumbLink {...withSuomifiDefaultProps(props)} />;
-  };
+  static link = (props: BreadcrumbLinkProps) => (
+    <BreadcrumbLink {...withSuomifiDefaultProps(props)} />
+  );
 
   render() {
     const {

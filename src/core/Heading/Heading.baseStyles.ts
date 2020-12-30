@@ -8,7 +8,7 @@ export const baseStyles = withSuomifiTheme(
   ({ theme, color }: TokensAndTheme & Partial<HeadingProps>) => css`
     ${element({ theme })}
     ${font({ theme })('bodyText')}
-  color: ${!!color ? objValue(theme.colors, color) : theme.colors.blackBase};
+    color: ${!!color ? objValue(theme.colors, color) : theme.colors.blackBase};
 
     &.fi-heading {
       &--h1hero {

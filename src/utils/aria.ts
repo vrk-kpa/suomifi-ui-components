@@ -1,18 +1,16 @@
 const ifAriaNoLabel = (ariaLabel?: string) => !!ariaLabel || ariaLabel === '';
 
-export const ariaLabelOrHidden = (ariaLabel?: string) => {
-  return ifAriaNoLabel(ariaLabel)
+export const ariaLabelOrHidden = (ariaLabel?: string) =>
+  ifAriaNoLabel(ariaLabel)
     ? { 'aria-label': ariaLabel, role: 'img' }
     : { 'aria-hidden': true };
-};
 
 /**
  * Set element ability to be focusable based on aria-label
  * @param {String} ariaLabel optional aria-label
  */
-export const ariaFocusableNoLabel = (ariaLabel?: string) => {
-  return ifAriaNoLabel(ariaLabel) ? {} : { focusable: false };
-};
+export const ariaFocusableNoLabel = (ariaLabel?: string) =>
+  ifAriaNoLabel(ariaLabel) ? {} : { focusable: false };
 
 /**
  * Returns object with 'aria-describedby' which can be spread to props.

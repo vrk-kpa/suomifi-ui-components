@@ -291,9 +291,9 @@ class BaseSearchInput extends Component<SearchInputProps> {
 }
 
 const StyledSearchInput = styled(
-  ({ tokens, ...passProps }: SearchInputProps & InternalTokensProp) => {
-    return <BaseSearchInput {...passProps} />;
-  },
+  ({ tokens, ...passProps }: SearchInputProps & InternalTokensProp) => (
+    <BaseSearchInput {...passProps} />
+  ),
 )`
   ${(props) => baseStyles(props)}
 `;

@@ -8,7 +8,7 @@ export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     ${element({ theme })}
     ${font({ theme })('bodyText')}
-  ${allStates(`color: ${theme.colors.highlightBase};`)};
+    ${allStates(`color: ${theme.colors.highlightBase};`)};
     color: ${theme.colors.highlightBase};
     text-decoration: none;
 
