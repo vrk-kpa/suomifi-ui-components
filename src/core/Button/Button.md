@@ -17,6 +17,24 @@ import { Button } from 'suomifi-ui-components';
 ```
 
 ```js
+import { Button, Paragraph, Text } from 'suomifi-ui-components';
+
+<>
+  <Button
+    aria-describedby="additional-info"
+    aria-disabled={true}
+    onClick={() => console.log('Test button click')}
+    type="submit"
+  >
+    Aria-disabled button
+  </Button>
+  <Paragraph id="additional-info">
+    <Text>Additional information for aria-disabled button</Text>
+  </Paragraph>
+</>;
+```
+
+```js
 import { Button } from 'suomifi-ui-components';
 
 <>

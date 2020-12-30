@@ -1,6 +1,5 @@
 export { Breadcrumb, BreadcrumbProps } from './Breadcrumb/Breadcrumb';
 export { Block, BlockProps } from './Block/Block';
-export { Button, ButtonProps } from './Button/Button';
 export {
   Dropdown,
   DropdownProps,
