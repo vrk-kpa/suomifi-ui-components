@@ -58,7 +58,6 @@
     "deploy-dev": "gh-pages -d styleguide -e dev -m \"[skip ci] Updates\""
   },
   "devDependencies": {
-    "@babel/core": "7.12.10",
     "@reach/rect": "0.12.1",
     "@testing-library/jest-dom": "5.11.6",
     "@testing-library/react": "11.2.2",
