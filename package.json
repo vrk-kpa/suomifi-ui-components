@@ -42,7 +42,7 @@
     "prepare": "yarn run build",
     "start": "yarn styleguide",
     "start:withaxe": "cross-env AXE=\"true\" yarn styleguidist server",
-    "test": "tsdx test --passWithNoTests --maxWorkers=4",
+    "test": "tsdx test --passWithNoTests",
     "test:updatesnapshots": "tsdx test --u",
     "lint": "run-p lint:tsdx-lint lint:stylelint",
     "lint:tsdx-lint": "tsdx lint src",
