@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './Checkbox.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
+import { getAriaDescribedByProp } from '../../../utils/aria';
 import { HtmlInput, HtmlLabel, HtmlDiv } from '../../../reset';
 import { logger } from '../../../utils/logger';
 import { Icon } from '../../Icon/Icon';
@@ -76,7 +77,14 @@ export interface CheckboxProps extends TokensProp {
    * alternatively you can define aria-labelledby with label-element id
    */
   'aria-label'?: string;
+  /**
+   * aria-labelledby for the HTML input-element,
+   * alternatively you can define aria-label
+   */
   'aria-labelledby'?: string;
+  /**
+   * aria-describedby for the HTML input-element,
+   */
   'aria-describedby'?: string;
   /**
    * Unique id
@@ -155,21 +163,8 @@ class BaseCheckbox extends Component<CheckboxProps> {
       );
     }
 
-    const statusTextId = `${id}-statusText`;
-    const hintTextId = `${id}-hintText`;
-
-    const getDescribedBy = () => {
-      if (statusText || hintText || ariaDescribedBy) {
-        return {
-          'aria-describedby': [
-            ...(statusText ? [statusTextId] : []),
-            ...(hintText ? [hintTextId] : []),
-            ...(ariaDescribedBy ? [ariaDescribedBy] : []),
-          ].join(' '),
-        };
-      }
-      return {};
-    };
+    const statusTextId = !!statusText ? `${id}-statusText` : undefined;
+    const hintTextId = !!hintText ? `${id}-hintText` : undefined;
 
     const CheckedIcon = () => (
       <Icon
@@ -200,14 +195,18 @@ class BaseCheckbox extends Component<CheckboxProps> {
           type="checkbox"
           disabled={disabled}
           id={id}
-          aria-label={ariaLabel}
-          aria-labelledby={ariaLabelledBy}
+          {...(ariaLabel ? { 'aria-label': ariaLabel } : {})}
+          {...(ariaLabelledBy ? { 'aria-labelledby': ariaLabelledBy } : {})}
           aria-invalid={status === 'error'}
           checked={!!checkedState}
           className={checkboxClassNames.input}
           onChange={this.handleClick}
           name={name}
-          {...getDescribedBy()}
+          {...getAriaDescribedByProp([
+            statusTextId,
+            hintTextId,
+            ariaDescribedBy,
+          ])}
           {...(value ? { value } : {})}
         />
         <HtmlLabel

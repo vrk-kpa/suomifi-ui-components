@@ -45,11 +45,11 @@ class BaseExpanderContent extends Component<InternalExpanderContentProps> {
         role="region"
         {...passProps}
         id={consumer.contentId}
-        {...{
-          'aria-labelledby': ariaLabelledBy
+        aria-labelledby={
+          !!ariaLabelledBy
             ? [consumer.titleId, ariaLabelledBy].join(' ')
-            : consumer.titleId,
-        }}
+            : consumer.titleId
+        }
         className={classnames(className, contentBaseClassName, {
           [contentOpenClassName]: !!consumer.open,
           [noPaddingClassName]: !!noPadding,

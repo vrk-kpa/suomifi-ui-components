@@ -53,7 +53,7 @@ export class Breadcrumb extends Component<VariantBreadcrumbProps> {
     return (
       <StyledBreadcrumb
         {...passProps}
-        aria-label={!!ariaLabel ? ariaLabel : 'Breadcrumb'}
+        {...(!!ariaLabel ? { 'aria-label': ariaLabel } : {})}
       />
     );
   }
