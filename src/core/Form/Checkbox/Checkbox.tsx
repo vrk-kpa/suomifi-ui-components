@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './Checkbox.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
-import { getAriaDescribedByProp } from '../../../utils/aria';
+import { getConditionalAriaProp } from '../../../utils/aria';
 import { HtmlInput, HtmlLabel, HtmlDiv } from '../../../reset';
 import { logger } from '../../../utils/logger';
 import { Icon } from '../../Icon/Icon';
@@ -195,18 +195,18 @@ class BaseCheckbox extends Component<CheckboxProps> {
           type="checkbox"
           disabled={disabled}
           id={id}
-          {...(ariaLabel ? { 'aria-label': ariaLabel } : {})}
-          {...(ariaLabelledBy ? { 'aria-labelledby': ariaLabelledBy } : {})}
+          {...getConditionalAriaProp('aria-label', [ariaLabel])}
+          {...getConditionalAriaProp('aria-labelledby', [ariaLabelledBy])}
+          {...getConditionalAriaProp('aria-describedby', [
+            statusTextId,
+            hintTextId,
+            ariaDescribedBy,
+          ])}
           aria-invalid={status === 'error'}
           checked={!!checkedState}
           className={checkboxClassNames.input}
           onChange={this.handleClick}
           name={name}
-          {...getAriaDescribedByProp([
-            statusTextId,
-            hintTextId,
-            ariaDescribedBy,
-          ])}
           {...(value ? { value } : {})}
         />
         <HtmlLabel

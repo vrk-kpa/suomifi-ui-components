@@ -12,32 +12,30 @@ export const ariaLabelOrHidden = (ariaLabel?: string) =>
 export const ariaFocusableNoLabel = (ariaLabel?: string) =>
   ifAriaNoLabel(ariaLabel) ? {} : { focusable: false };
 
+type ariaPropName = 'aria-describedby' | 'aria-labelledby' | 'aria-label';
+type ariaProp = { [key in ariaPropName]: string } | {};
 /**
- * Returns object with 'aria-describedby' which can be spread to props.
+ * Returns object with 'aria-' property which can be spread to props.
  * E.g:
  * @example
  * <Component
- *   {...getAriaDescribedBy([
+ *   {...getConditionalAriaProp('aria-describedby', [
  *      describingElement ? "id-of-describing-element" : undefined,
  *      otherDescribingElement ? "id-of-other-describing-element" : undefined,
  *   ])}
  * />
+ * @param propName String of Aria property name
  * @param describedByIds Array of id-strings
- * @returns Object with 'aria-describedby' if there is atleast one value that is not undefined. Otherwise returns empty Object.
+ * @returns Object with 'aria-' property if there is atleast one string value that is not undefined. Otherwise returns empty Object.
  */
-export const getAriaDescribedByProp = (
+export const getConditionalAriaProp = (
+  propName: ariaPropName,
   describedByIds: (string | undefined)[],
-):
-  | { 'aria-describedby': string }
-  | {
-      'aria-describedby'?: undefined;
-    } => {
+): ariaProp => {
   const existing = describedByIds.filter((id) => !!id);
   if (existing.length > 0) {
-    const ariaDescribedBy = existing.join(' ').trim();
-    return {
-      'aria-describedby': ariaDescribedBy,
-    };
+    const ariaIds = existing.join(' ').trim();
+    return { [propName]: ariaIds };
   }
   return {};
 };
