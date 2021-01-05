@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-// import { axeTest } from '../../../utils/test/axe';
+import { axeTest } from '../../../utils/test/axe';
 
 import { FilterInput } from './FilterInput';
 
@@ -29,7 +29,8 @@ const TestFilterInput = (
   />
 );
 
-// test('should not have basic accessibility issues', axeTest(TestFilterInput));
+test('should not have basic accessibility issues', async () =>
+  axeTest(TestFilterInput));
 
 test('snapshot matches', () => {
   const { container } = render(TestFilterInput);
