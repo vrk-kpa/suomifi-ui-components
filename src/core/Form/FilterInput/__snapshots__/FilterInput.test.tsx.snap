@@ -216,7 +216,7 @@ exports[`snapshot matches 1`] = `
   border-color: hsl(202,7%,80%);
 }
 
-.c1.fi-filter-input--label-align-left {
+.c1 .fi-filter-input--label-align-left {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -230,42 +230,46 @@ exports[`snapshot matches 1`] = `
   align-items: flex-start;
 }
 
-.c1.fi-filter-input--label-align-left .fi-label-text {
+.c1 .fi-filter-input--label-align-left .fi-label-text {
   padding-right: 10px;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
 }
 
-.c1.fi-filter-input--label-align-left .fi-label-text .fi-label-text_label-span {
+.c1 .fi-filter-input--label-align-left .fi-label-text .fi-label-text_label-span {
   margin-bottom: 0;
 }
 
 <div
   class="c0 fi-filter-input c1"
 >
-  <label
-    class="c0 c2 fi-label-text"
-    for="1"
-  >
-    <span
-      class="c3 fi-label-text_label-span"
-    >
-      Label
-    </span>
-  </label>
   <div
-    class="c0 fi-filter-input_input-element-container"
+    class="c0"
   >
-    <input
-      aria-autocomplete="list"
-      auto-capitalize="false"
-      autocomplete="off"
-      class="c4 fi-filter-input_input"
-      id="1"
-      spellcheck="false"
-      type="text"
-    />
+    <label
+      class="c0 c2 fi-label-text"
+      for="1"
+    >
+      <span
+        class="c3 fi-label-text_label-span"
+      >
+        Label
+      </span>
+    </label>
+    <div
+      class="c0 fi-filter-input_input-element-container"
+    >
+      <input
+        aria-autocomplete="list"
+        auto-capitalize="false"
+        autocomplete="off"
+        class="c4 fi-filter-input_input"
+        id="1"
+        spellcheck="false"
+        type="text"
+      />
+    </div>
   </div>
 </div>
 `;

@@ -106,38 +106,42 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
     return (
       <HtmlDiv
         {...inputContainerProps}
-        className={classnames(baseClassName, className, {
-          [filterInputClassNames.disabled]: !!passProps.disabled,
-          [filterInputClassNames.error]: status === 'error',
-          [filterInputClassNames.labelAlignLeft]: labelAlign === 'left',
-        })}
+        className={classnames(baseClassName, className)}
       >
-        <LabelText
-          htmlFor={id}
-          as="label"
-          labelMode={labelMode}
-          optionalText={optionalText}
+        <HtmlDiv
+          className={classnames({
+            [filterInputClassNames.disabled]: !!passProps.disabled,
+            [filterInputClassNames.error]: status === 'error',
+            [filterInputClassNames.labelAlignLeft]: labelAlign === 'left',
+          })}
         >
-          {labelText}
-        </LabelText>
-        <HtmlDiv className={filterInputClassNames.inputElementContainer}>
-          <HtmlInput
-            {...passProps}
-            id={id}
-            className={filterInputClassNames.inputElement}
-            type="text"
-            placeholder={visualPlaceholder}
-            aria-describedby={ariaDescribedBy}
-            autoComplete="off"
-            aria-autocomplete="list"
-            auto-capitalize="false"
-            spellCheck="false"
-            onChange={onChangeHandler}
-          />
+          <LabelText
+            htmlFor={id}
+            as="label"
+            labelMode={labelMode}
+            optionalText={optionalText}
+          >
+            {labelText}
+          </LabelText>
+          <HtmlDiv className={filterInputClassNames.inputElementContainer}>
+            <HtmlInput
+              {...passProps}
+              id={id}
+              className={filterInputClassNames.inputElement}
+              type="text"
+              placeholder={visualPlaceholder}
+              aria-describedby={ariaDescribedBy}
+              autoComplete="off"
+              aria-autocomplete="list"
+              auto-capitalize="false"
+              spellCheck="false"
+              onChange={onChangeHandler}
+            />
+          </HtmlDiv>
+          <StatusText id={statusTextId} status={status}>
+            {statusText}
+          </StatusText>
         </HtmlDiv>
-        <StatusText id={statusTextId} status={status}>
-          {statusText}
-        </StatusText>
       </HtmlDiv>
     );
   }

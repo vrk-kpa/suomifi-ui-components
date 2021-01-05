@@ -54,7 +54,7 @@ export const baseStyles = withSuomifiTheme(
       }
     }
 
-    &.fi-filter-input--label-align-left {
+    & .fi-filter-input--label-align-left {
       display: flex;
       flex-direction: row;
       align-items: flex-start;
