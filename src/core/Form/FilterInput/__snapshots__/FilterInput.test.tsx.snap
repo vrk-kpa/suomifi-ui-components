@@ -121,6 +121,10 @@ exports[`snapshot matches 1`] = `
   width: 100%;
 }
 
+.c1 .fi-filter-input_functionalityContainer {
+  line-height: 1.5;
+}
+
 .c1 .fi-filter-input_input-element-container > input:focus {
   outline-color: hsl(196,77%,44%);
   outline-width: 2px;
@@ -232,9 +236,10 @@ exports[`snapshot matches 1`] = `
 
 .c1 .fi-filter-input--label-align-left .fi-label-text {
   padding-right: 10px;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
+  padding-top: 8px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
 }
 
 .c1 .fi-filter-input--label-align-left .fi-label-text .fi-label-text_label-span {
@@ -258,17 +263,21 @@ exports[`snapshot matches 1`] = `
       </span>
     </label>
     <div
-      class="c0 fi-filter-input_input-element-container"
+      class="c0 fi-filter-input_functionalityContainer"
     >
-      <input
-        aria-autocomplete="list"
-        auto-capitalize="false"
-        autocomplete="off"
-        class="c4 fi-filter-input_input"
-        id="1"
-        spellcheck="false"
-        type="text"
-      />
+      <div
+        class="c0 fi-filter-input_input-element-container"
+      >
+        <input
+          aria-autocomplete="list"
+          auto-capitalize="false"
+          autocomplete="off"
+          class="c4 fi-filter-input_input"
+          id="1"
+          spellcheck="false"
+          type="text"
+        />
+      </div>
     </div>
   </div>
 </div>

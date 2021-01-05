@@ -24,6 +24,8 @@ const filter = (tool, query) => {
     }}
   >
     <FilterInput
+      status="error"
+      statusText="Eror eror"
       labelAlign="left"
       labelText="Label"
       items={tools}

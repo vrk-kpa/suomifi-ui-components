@@ -11,6 +11,10 @@ export const baseStyles = withSuomifiTheme(
       width: 100%;
     }
 
+    & .fi-filter-input_functionalityContainer {
+      line-height: 1.5;
+    }
+
     & .fi-filter-input_input-element-container {
       ${containerIEFocus({ theme })}
 
@@ -60,8 +64,9 @@ export const baseStyles = withSuomifiTheme(
       align-items: flex-start;
 
       & .fi-label-text {
-        padding-right: ${theme.spacing.xs};
-        align-self: center;
+        padding-right: ${theme.spacing.insetL};
+        padding-top: ${theme.spacing.insetM};
+        align-self: flex-start;
 
         & .fi-label-text_label-span {
           margin-bottom: 0;

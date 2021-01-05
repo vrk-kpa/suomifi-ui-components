@@ -20,6 +20,7 @@ const baseClassName = 'fi-filter-input';
 const filterInputClassNames = {
   error: `${baseClassName}--error`,
   disabled: `${baseClassName}--disabled`,
+  functionalityContainer: `${baseClassName}_functionalityContainer`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
   labelAlignLeft: `${baseClassName}--label-align-left`,
@@ -123,24 +124,26 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
           >
             {labelText}
           </LabelText>
-          <HtmlDiv className={filterInputClassNames.inputElementContainer}>
-            <HtmlInput
-              {...passProps}
-              id={id}
-              className={filterInputClassNames.inputElement}
-              type="text"
-              placeholder={visualPlaceholder}
-              aria-describedby={ariaDescribedBy}
-              autoComplete="off"
-              aria-autocomplete="list"
-              auto-capitalize="false"
-              spellCheck="false"
-              onChange={onChangeHandler}
-            />
+          <HtmlDiv className={filterInputClassNames.functionalityContainer}>
+            <HtmlDiv className={filterInputClassNames.inputElementContainer}>
+              <HtmlInput
+                {...passProps}
+                id={id}
+                className={filterInputClassNames.inputElement}
+                type="text"
+                placeholder={visualPlaceholder}
+                aria-describedby={ariaDescribedBy}
+                autoComplete="off"
+                aria-autocomplete="list"
+                auto-capitalize="false"
+                spellCheck="false"
+                onChange={onChangeHandler}
+              />
+            </HtmlDiv>
+            <StatusText id={statusTextId} status={status}>
+              {statusText}
+            </StatusText>
           </HtmlDiv>
-          <StatusText id={statusTextId} status={status}>
-            {statusText}
-          </StatusText>
         </HtmlDiv>
       </HtmlDiv>
     );
