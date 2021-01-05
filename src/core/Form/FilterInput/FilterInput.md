@@ -20,10 +20,12 @@ const filter = (tool, query) => {
       height: 150,
       display: 'flex',
       flex: 1,
-      flexDirection: 'row'
+      flexDirection: 'row',
+      alignItems: 'flex-start'
     }}
   >
     <FilterInput
+      labelAlign="left"
       labelText="Label"
       items={tools}
       onFiltering={(filtered) => setFilteredItems(filtered)}

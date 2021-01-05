@@ -22,6 +22,7 @@ const filterInputClassNames = {
   disabled: `${baseClassName}--disabled`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
+  labelAlignLeft: `${baseClassName}--label-align-left`,
 };
 
 type FilterInputStatus = Exclude<InputStatus, 'success'>;
@@ -54,6 +55,10 @@ export interface FilterInputProps<T>
   statusText?: string;
   /** FilterInput name */
   name?: string;
+  /** Align label on top or on the left side of the input field
+   * @default 'top'
+   */
+  labelAlign?: 'top' | 'left';
   /** Items to be filtered */
   items: Array<T>;
   /** Returns the filtered items */
@@ -74,6 +79,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
       status,
       statusText,
       id,
+      labelAlign,
       'aria-describedby': ariaDescribedBy,
       items: propItems,
       onFiltering: propOnFiltering,
@@ -103,6 +109,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
         className={classnames(baseClassName, className, {
           [filterInputClassNames.disabled]: !!passProps.disabled,
           [filterInputClassNames.error]: status === 'error',
+          [filterInputClassNames.labelAlignLeft]: labelAlign === 'left',
         })}
       >
         <LabelText

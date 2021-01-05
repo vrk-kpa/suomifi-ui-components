@@ -53,5 +53,20 @@ export const baseStyles = withSuomifiTheme(
         border-color: ${theme.colors.depthLight1};
       }
     }
+
+    &.fi-filter-input--label-align-left {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+
+      & .fi-label-text {
+        padding-right: ${theme.spacing.xs};
+        align-self: center;
+
+        & .fi-label-text_label-span {
+          margin-bottom: 0;
+        }
+      }
+    }
   `,
 );

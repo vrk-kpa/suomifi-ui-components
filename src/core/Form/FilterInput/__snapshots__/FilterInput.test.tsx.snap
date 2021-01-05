@@ -216,6 +216,31 @@ exports[`snapshot matches 1`] = `
   border-color: hsl(202,7%,80%);
 }
 
+.c1.fi-filter-input--label-align-left {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c1.fi-filter-input--label-align-left .fi-label-text {
+  padding-right: 10px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c1.fi-filter-input--label-align-left .fi-label-text .fi-label-text_label-span {
+  margin-bottom: 0;
+}
+
 <div
   class="c0 fi-filter-input c1"
 >
