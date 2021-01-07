@@ -42,6 +42,16 @@ export const baseStyles = withSuomifiTheme(
         color: ${theme.colors.depthDark2};
         opacity: 1;
       }
+      &::-ms-clear {
+        display: none;
+        width: 0;
+        height: 0;
+      }
+      &::-ms-reveal {
+        display: none;
+        width: 0;
+        height: 0;
+      }
     }
 
     &.fi-text-input_with-icon {
