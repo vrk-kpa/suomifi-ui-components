@@ -53,6 +53,22 @@ describe('props', () => {
     });
   });
 
+  describe('status', () => {
+    it('has the className when in error state', () => {
+      const { container } = render(
+        <FilterInput
+          className="custom-style"
+          labelText="Label"
+          status="error"
+          items={tools}
+          onFiltering={(filtered) => console.log(filtered)}
+          filterRule={filter}
+        />,
+      );
+      expect(container.firstChild).toHaveClass('fi-filter-input--error');
+    });
+  });
+
   describe('statusText', () => {
     it('has the status text element', () => {
       const { getByText } = render(
@@ -162,6 +178,22 @@ describe('props', () => {
       );
       const label = getByText('Label');
       expect(label).toHaveClass('fi-visually-hidden');
+    });
+  });
+
+  describe('visualPlaceholder', () => {
+    it('should have the given text', () => {
+      const { getByRole } = render(
+        <FilterInput
+          labelText="Label"
+          visualPlaceholder="Enter text here"
+          items={tools}
+          onFiltering={(filtered) => console.log(filtered)}
+          filterRule={filter}
+        />,
+      );
+      const inputField = getByRole('textbox') as HTMLInputElement;
+      expect(inputField).toHaveAttribute('placeholder', 'Enter text here');
     });
   });
 });
