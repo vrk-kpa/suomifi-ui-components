@@ -209,12 +209,12 @@ exports[`snapshot matches 1`] = `
   opacity: 1;
 }
 
-.c1 .fi-filter-input--error .fi-filter-input_input {
+.c1.fi-filter-input--error .fi-filter-input_input {
   border-color: hsl(3,59%,48%);
   border-width: 2px;
 }
 
-.c1 .fi-filter-input--disabled .fi-filter-input_input {
+.c1.fi-filter-input--disabled .fi-filter-input_input {
   color: hsl(202,7%,67%);
   background-color: hsl(202,7%,97%);
   border-color: hsl(202,7%,80%);
@@ -250,7 +250,7 @@ exports[`snapshot matches 1`] = `
   class="c0 fi-filter-input c1"
 >
   <div
-    class="c0"
+    class="c0 fi-filter-input_wrapper"
   >
     <label
       class="c0 c2 fi-label-text"

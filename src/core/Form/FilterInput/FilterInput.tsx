@@ -21,10 +21,11 @@ const baseClassName = 'fi-filter-input';
 const filterInputClassNames = {
   error: `${baseClassName}--error`,
   disabled: `${baseClassName}--disabled`,
+  labelAlignLeft: `${baseClassName}--label-align-left`,
+  wrapper: `${baseClassName}_wrapper`,
   functionalityContainer: `${baseClassName}_functionalityContainer`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
-  labelAlignLeft: `${baseClassName}--label-align-left`,
 };
 
 type FilterInputStatus = Exclude<InputStatus, 'success'>;
@@ -108,12 +109,13 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
     return (
       <HtmlDiv
         {...inputContainerProps}
-        className={classnames(baseClassName, className)}
+        className={classnames(baseClassName, className, {
+          [filterInputClassNames.disabled]: !!passProps.disabled,
+          [filterInputClassNames.error]: status === 'error',
+        })}
       >
         <HtmlDiv
-          className={classnames({
-            [filterInputClassNames.disabled]: !!passProps.disabled,
-            [filterInputClassNames.error]: status === 'error',
+          className={classnames(filterInputClassNames.wrapper, {
             [filterInputClassNames.labelAlignLeft]: labelAlign === 'left',
           })}
         >
