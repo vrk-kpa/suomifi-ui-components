@@ -84,23 +84,23 @@ describe('props', () => {
         '123-statusText',
       );
     });
+  });
 
-    describe('disabled', () => {
-      it('has disabled attribute and classname', () => {
-        const { container, getByRole } = render(
-          <FilterInput
-            disabled={true}
-            labelText="Label"
-            items={tools}
-            onFiltering={(filtered) => console.log(filtered)}
-            filterRule={filter}
-          />,
-        );
-        expect(container.firstChild).toHaveClass('fi-filter-input--disabled');
+  describe('disabled', () => {
+    it('has disabled attribute and classname', () => {
+      const { container, getByRole } = render(
+        <FilterInput
+          disabled={true}
+          labelText="Label"
+          items={tools}
+          onFiltering={(filtered) => console.log(filtered)}
+          filterRule={filter}
+        />,
+      );
+      expect(container.firstChild).toHaveClass('fi-filter-input--disabled');
 
-        const inputField = getByRole('textbox') as HTMLInputElement;
-        expect(inputField).toHaveAttribute('disabled');
-      });
+      const inputField = getByRole('textbox') as HTMLInputElement;
+      expect(inputField).toHaveAttribute('disabled');
     });
   });
 });
