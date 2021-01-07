@@ -103,4 +103,65 @@ describe('props', () => {
       expect(inputField).toHaveAttribute('disabled');
     });
   });
+
+  describe('labelText', () => {
+    it('should be found ', () => {
+      const { getByText } = render(
+        <FilterInput
+          labelText="Label"
+          items={tools}
+          onFiltering={(filtered) => console.log(filtered)}
+          filterRule={filter}
+        />,
+      );
+      const label = getByText('Label');
+      expect(label).toHaveClass('fi-label-text_label-span');
+    });
+  });
+
+  describe('optionalText', () => {
+    it('should have element and correct classname for it', () => {
+      const { getByText } = render(
+        <FilterInput
+          labelText="Label"
+          optionalText="Optional"
+          items={tools}
+          onFiltering={(filtered) => console.log(filtered)}
+          filterRule={filter}
+        />,
+      );
+      const optionalText = getByText('(Optional)');
+      expect(optionalText).toHaveClass('fi-label-text_optionalText');
+    });
+  });
+
+  describe('labelMode', () => {
+    it('should be visible by default', () => {
+      const { getByText } = render(
+        <FilterInput
+          labelText="Label"
+          optionalText="Optional"
+          items={tools}
+          onFiltering={(filtered) => console.log(filtered)}
+          filterRule={filter}
+        />,
+      );
+      const label = getByText('Label');
+      expect(label).toHaveClass('fi-label-text_label-span');
+    });
+
+    it('should be hidden', () => {
+      const { getByText } = render(
+        <FilterInput
+          labelText="Label"
+          labelMode="hidden"
+          items={tools}
+          onFiltering={(filtered) => console.log(filtered)}
+          filterRule={filter}
+        />,
+      );
+      const label = getByText('Label');
+      expect(label).toHaveClass('fi-visually-hidden');
+    });
+  });
 });
