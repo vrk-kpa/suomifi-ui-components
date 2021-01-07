@@ -15,6 +15,7 @@ import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { AutoId } from '../../../utils/AutoId';
 import { InputStatus } from '../types';
 import { StatusText } from '../StatusText/StatusText';
+import { getAriaDescribedByProp } from '../../../utils/aria';
 
 const baseClassName = 'fi-filter-input';
 const filterInputClassNames = {
@@ -132,7 +133,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
                 className={filterInputClassNames.inputElement}
                 type="text"
                 placeholder={visualPlaceholder}
-                aria-describedby={ariaDescribedBy}
+                {...getAriaDescribedByProp([statusTextId, ariaDescribedBy])}
                 autoComplete="off"
                 aria-autocomplete="list"
                 auto-capitalize="false"

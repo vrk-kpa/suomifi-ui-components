@@ -36,3 +36,53 @@ test('snapshot matches', () => {
   const { container } = render(TestFilterInput);
   expect(container.firstChild).toMatchSnapshot();
 });
+
+describe('props', () => {
+  describe('className', () => {
+    it('has the given custom className', () => {
+      const { container } = render(
+        <FilterInput
+          className="custom-style"
+          labelText="Label"
+          items={tools}
+          onFiltering={(filtered) => console.log(filtered)}
+          filterRule={filter}
+        />,
+      );
+      expect(container.firstChild).toHaveClass('custom-style');
+    });
+  });
+
+  describe('statusText', () => {
+    it('has the status text element', () => {
+      const { getByText } = render(
+        <FilterInput
+          statusText="Example status text"
+          labelText="Label"
+          items={tools}
+          onFiltering={(filtered) => console.log(filtered)}
+          filterRule={filter}
+        />,
+      );
+      const statusText = getByText('Example status text');
+      expect(statusText).toHaveClass('fi-status-text');
+    });
+
+    it('will be added to input aria-describedby', () => {
+      const { getByRole } = render(
+        <FilterInput
+          statusText="Example status text"
+          id="123"
+          labelText="Label"
+          items={tools}
+          onFiltering={(filtered) => console.log(filtered)}
+          filterRule={filter}
+        />,
+      );
+      expect(getByRole('textbox')).toHaveAttribute(
+        'aria-describedby',
+        '123-statusText',
+      );
+    });
+  });
+});
