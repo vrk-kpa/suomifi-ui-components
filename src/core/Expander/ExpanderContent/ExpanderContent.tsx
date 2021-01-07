@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { HtmlDiv, HtmlDivProps } from '../../../reset';
+import { getConditionalAriaProp } from '../../../utils/aria';
 import { baseStyles } from './ExpanderContent.baseStyles';
 import {
   ExpanderConsumer,
@@ -45,11 +46,10 @@ class BaseExpanderContent extends Component<InternalExpanderContentProps> {
         role="region"
         {...passProps}
         id={consumer.contentId}
-        {...{
-          'aria-labelledby': ariaLabelledBy
-            ? [consumer.titleId, ariaLabelledBy].join(' ')
-            : consumer.titleId,
-        }}
+        {...getConditionalAriaProp('aria-labelledby', [
+          consumer.titleId,
+          ariaLabelledBy,
+        ])}
         className={classnames(className, contentBaseClassName, {
           [contentOpenClassName]: !!consumer.open,
           [noPaddingClassName]: !!noPadding,

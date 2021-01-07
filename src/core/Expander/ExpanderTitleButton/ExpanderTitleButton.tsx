@@ -68,7 +68,7 @@ class BaseExpanderTitleButton extends Component<InternalExpanderTitleButtonProps
             onClick={consumer.onToggleExpander}
             aria-expanded={!!consumer.open}
             className={titleButtonClassName}
-            {...{ 'aria-controls': `${consumer.contentId}` }}
+            aria-controls={consumer.contentId}
           >
             <HtmlSpan id={consumer.titleId}>{children}</HtmlSpan>
             {(!!ariaCloseText || !!ariaOpenText) && (

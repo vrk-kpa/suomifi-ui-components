@@ -15,7 +15,7 @@ import { LabelText } from '../LabelText/LabelText';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
 import { InputStatus } from '../types';
-import { getAriaDescribedByProp } from '../../../utils/aria';
+import { getConditionalAriaProp } from '../../../utils/aria';
 
 const baseClassName = 'fi-textarea';
 const textareaClassNames = {
@@ -131,8 +131,8 @@ class BaseTextarea extends Component<TextareaProps> {
             disabled={disabled}
             defaultValue={children}
             placeholder={visualPlaceholder}
-            {...{ 'aria-invalid': status === 'error' }}
-            {...getAriaDescribedByProp([
+            aria-invalid={status === 'error'}
+            {...getConditionalAriaProp('aria-describedby', [
               statusTextId,
               hintTextId,
               ariaDescribedBy,

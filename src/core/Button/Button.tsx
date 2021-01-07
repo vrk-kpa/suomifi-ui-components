@@ -74,7 +74,7 @@ class BaseButton extends Component<ButtonProps> {
       className,
       disabled = false,
       onClick,
-      'aria-disabled': ariaDisabled,
+      'aria-disabled': ariaDisabled = false,
       icon,
       iconRight,
       iconProps = { className: undefined },
@@ -89,7 +89,7 @@ class BaseButton extends Component<ButtonProps> {
         <HtmlButton
           {...passProps}
           {...onClickProp}
-          aria-disabled={ariaDisabled}
+          aria-disabled={!!ariaDisabled || !!disabled}
           tabIndex={0}
           disabled={!!disabled}
           className={classnames(baseClassName, className, {

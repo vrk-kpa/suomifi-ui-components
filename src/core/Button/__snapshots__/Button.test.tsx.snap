@@ -263,6 +263,7 @@ exports[`Button variant default should match snapshot 1`] = `
 }
 
 <button
+  aria-disabled="false"
   class="c0 fi-button c1"
   tabindex="0"
   type="button"
@@ -534,6 +535,7 @@ exports[`Button variant inverted should match snapshot 1`] = `
 }
 
 <button
+  aria-disabled="false"
   class="c0 fi-button c1 fi-button--inverted"
   tabindex="0"
   type="button"
@@ -805,6 +807,7 @@ exports[`Button variant secondary should match snapshot 1`] = `
 }
 
 <button
+  aria-disabled="false"
   class="c0 fi-button c1 fi-button--secondary"
   tabindex="0"
   type="button"
@@ -1076,6 +1079,7 @@ exports[`Button variant secondary-noborder should match snapshot 1`] = `
 }
 
 <button
+  aria-disabled="false"
   class="c0 fi-button c1 fi-button--secondary-noborder"
   tabindex="0"
   type="button"
@@ -1347,6 +1351,7 @@ exports[`Button variant tertiary match snapshot 1`] = `
 }
 
 <button
+  aria-disabled="false"
   class="c0 fi-button c1 fi-button--tertiary"
   tabindex="0"
   type="button"

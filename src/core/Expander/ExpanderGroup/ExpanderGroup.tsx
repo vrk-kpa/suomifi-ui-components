@@ -139,7 +139,7 @@ class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
             openAllButtonClassName,
           )}
         >
-          <HtmlSpan {...{ 'aria-hidden': true }}>
+          <HtmlSpan aria-hidden={true}>
             {allOpen ? CloseAllText : OpenAllText}
           </HtmlSpan>
           <VisuallyHidden>
