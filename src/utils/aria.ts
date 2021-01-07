@@ -20,7 +20,7 @@ type ariaProp = { [key in ariaPropName]: string } | {};
  * @example
  * <Component
  *   {...getConditionalAriaProp('aria-describedby', [
- *      describingElement ? "id-of-describing-element" : undefined,
+ *      "id-of-describing-element",
  *      otherDescribingElement ? "id-of-other-describing-element" : undefined,
  *   ])}
  * />
