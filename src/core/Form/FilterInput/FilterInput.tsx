@@ -64,7 +64,7 @@ export interface FilterInputProps<T>
   /** Items to be filtered */
   items: Array<T>;
   /** Returns the filtered items */
-  onFiltering: (filteredItems: Array<T>) => void;
+  onFilter: (filteredItems: Array<T>) => void;
   /** Filtering rule to be used */
   filterRule: (item: T, query: string) => boolean;
 }
@@ -84,13 +84,13 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
       labelAlign,
       'aria-describedby': ariaDescribedBy,
       items: propItems,
-      onFiltering: propOnFiltering,
+      onFilter: propOnFiltering,
       filterRule: propFilterRule,
       ...passProps
     } = this.props;
 
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-      const { items, onFiltering, filterRule } = this.props;
+      const { items, onFilter: onFiltering, filterRule } = this.props;
       const { value } = event.target;
 
       const filteredItems: T[] = items.reduce((filtered: T[], item: T) => {

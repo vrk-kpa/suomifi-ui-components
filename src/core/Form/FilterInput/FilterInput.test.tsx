@@ -24,7 +24,7 @@ const TestFilterInput = (
   <FilterInput
     labelText="Label"
     items={tools}
-    onFiltering={(filtered) => console.log(filtered)}
+    onFilter={(filtered) => console.log(filtered)}
     filterRule={filter}
   />
 );
@@ -45,7 +45,7 @@ describe('props', () => {
           className="custom-style"
           labelText="Label"
           items={tools}
-          onFiltering={(filtered) => console.log(filtered)}
+          onFilter={(filtered) => console.log(filtered)}
           filterRule={filter}
         />,
       );
@@ -61,7 +61,7 @@ describe('props', () => {
           labelText="Label"
           status="error"
           items={tools}
-          onFiltering={(filtered) => console.log(filtered)}
+          onFilter={(filtered) => console.log(filtered)}
           filterRule={filter}
         />,
       );
@@ -76,7 +76,7 @@ describe('props', () => {
           statusText="Example status text"
           labelText="Label"
           items={tools}
-          onFiltering={(filtered) => console.log(filtered)}
+          onFilter={(filtered) => console.log(filtered)}
           filterRule={filter}
         />,
       );
@@ -91,7 +91,7 @@ describe('props', () => {
           id="123"
           labelText="Label"
           items={tools}
-          onFiltering={(filtered) => console.log(filtered)}
+          onFilter={(filtered) => console.log(filtered)}
           filterRule={filter}
         />,
       );
@@ -109,7 +109,7 @@ describe('props', () => {
           disabled={true}
           labelText="Label"
           items={tools}
-          onFiltering={(filtered) => console.log(filtered)}
+          onFilter={(filtered) => console.log(filtered)}
           filterRule={filter}
         />,
       );
@@ -126,7 +126,7 @@ describe('props', () => {
         <FilterInput
           labelText="Label"
           items={tools}
-          onFiltering={(filtered) => console.log(filtered)}
+          onFilter={(filtered) => console.log(filtered)}
           filterRule={filter}
         />,
       );
@@ -142,7 +142,7 @@ describe('props', () => {
           labelText="Label"
           optionalText="Optional"
           items={tools}
-          onFiltering={(filtered) => console.log(filtered)}
+          onFilter={(filtered) => console.log(filtered)}
           filterRule={filter}
         />,
       );
@@ -158,7 +158,7 @@ describe('props', () => {
           labelText="Label"
           optionalText="Optional"
           items={tools}
-          onFiltering={(filtered) => console.log(filtered)}
+          onFilter={(filtered) => console.log(filtered)}
           filterRule={filter}
         />,
       );
@@ -172,7 +172,7 @@ describe('props', () => {
           labelText="Label"
           labelMode="hidden"
           items={tools}
-          onFiltering={(filtered) => console.log(filtered)}
+          onFilter={(filtered) => console.log(filtered)}
           filterRule={filter}
         />,
       );
@@ -188,7 +188,7 @@ describe('props', () => {
           labelText="Label"
           visualPlaceholder="Enter text here"
           items={tools}
-          onFiltering={(filtered) => console.log(filtered)}
+          onFilter={(filtered) => console.log(filtered)}
           filterRule={filter}
         />,
       );
