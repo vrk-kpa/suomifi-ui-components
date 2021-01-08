@@ -10,7 +10,6 @@ import {
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './FilterInput.baseStyles';
 import classnames from 'classnames';
-import { Omit } from '../../../utils/typescript';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { AutoId } from '../../../utils/AutoId';
 import { InputStatus } from '../types';
