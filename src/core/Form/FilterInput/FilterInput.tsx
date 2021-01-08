@@ -1,5 +1,8 @@
 import React, { Component, ChangeEvent } from 'react';
 import { default as styled } from 'styled-components';
+import classnames from 'classnames';
+import { InputStatus } from '../types';
+import { TokensProp, InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import {
   HtmlInput,
@@ -7,14 +10,11 @@ import {
   HtmlDiv,
   HtmlDivProps,
 } from '../../../reset';
-import { TokensProp, InternalTokensProp } from '../../theme';
-import { baseStyles } from './FilterInput.baseStyles';
-import classnames from 'classnames';
-import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { AutoId } from '../../../utils/AutoId';
-import { InputStatus } from '../types';
-import { StatusText } from '../StatusText/StatusText';
 import { getConditionalAriaProp } from '../../../utils/aria';
+import { LabelText, LabelMode } from '../LabelText/LabelText';
+import { StatusText } from '../StatusText/StatusText';
+import { baseStyles } from './FilterInput.baseStyles';
 
 const baseClassName = 'fi-filter-input';
 const filterInputClassNames = {
