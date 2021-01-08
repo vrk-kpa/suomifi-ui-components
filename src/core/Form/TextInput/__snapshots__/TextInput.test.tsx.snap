@@ -233,6 +233,18 @@ exports[`snapshots match error status with statustext 1`] = `
   opacity: 1;
 }
 
+.c1 .fi-text-input_input::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.c1 .fi-text-input_input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 .c1.fi-text-input_with-icon .fi-text-input_input-element-container {
   position: relative;
 }
@@ -522,6 +534,18 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   opacity: 1;
 }
 
+.c1 .fi-text-input_input::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.c1 .fi-text-input_input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 .c1.fi-text-input_with-icon .fi-text-input_input-element-container {
   position: relative;
 }
@@ -790,6 +814,18 @@ exports[`snapshots match minimal implementation 1`] = `
   font-style: italic;
   color: hsl(201,7%,46%);
   opacity: 1;
+}
+
+.c1 .fi-text-input_input::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.c1 .fi-text-input_input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .c1.fi-text-input_with-icon .fi-text-input_input-element-container {
