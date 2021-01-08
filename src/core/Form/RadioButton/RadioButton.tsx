@@ -6,16 +6,7 @@ import { TokensProp, InternalTokensProp } from '../../theme';
 import { logger } from '../../../utils/logger';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { AutoId } from '../../../utils/AutoId';
-import {
-  RadioButtonGroup,
-  RadioButtonGroupProps,
-  RadioButtonGroupConsumer,
-  RadioButtonGroupProviderState,
-} from './RadioButtonGroup';
-import {
-  RadioButtonDivider,
-  RadioButtonDividerProps,
-} from './RadioButtonDivider';
+import { RadioButtonGroupConsumer } from './RadioButtonGroup';
 import { baseStyles } from './RadioButton.baseStyles';
 
 const baseClassName = 'fi-radio-button';
@@ -55,7 +46,6 @@ export interface RadioButtonProps extends TokensProp {
    * @default small
    */
   variant?: RadioButtonVariant;
-  consumer?: RadioButtonGroupProviderState;
   /** Checked state, overridden by RadioButtonGroup. */
   checked?: boolean;
   /** Callback for RadioButton checked state changes. */
@@ -84,22 +74,6 @@ class BaseRadioButton extends Component<RadioButtonProps> {
     return null;
   }
 
-  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const {
-      onChange,
-      consumer: { onRadioButtonChange } = {
-        onRadioButtonChange: undefined,
-      },
-    } = this.props;
-
-    if (!!onRadioButtonChange) {
-      onRadioButtonChange(event.target.value);
-    }
-    if (!!onChange) {
-      onChange(event);
-    }
-  };
-
   render() {
     const {
       id,
@@ -112,7 +86,6 @@ class BaseRadioButton extends Component<RadioButtonProps> {
       className,
       onChange,
       disabled = false,
-      consumer,
       ...passProps
     } = this.props;
 
@@ -146,7 +119,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
           name={name}
           id={id}
           disabled={disabled}
-          onChange={this.handleChange}
+          onChange={onChange}
           checked={checkedState}
           {...(hintText ? { 'aria-describedby': hintTextId } : {})}
           {...(value ? { value } : {})}
@@ -166,46 +139,41 @@ class BaseRadioButton extends Component<RadioButtonProps> {
 }
 
 const StyledRadioButton = styled(
-  ({
-    tokens,
-    id: propId,
-    ...passProps
-  }: RadioButtonProps & InternalTokensProp) => (
-    <AutoId id={propId}>
-      {(id) => (
-        <RadioButtonGroupConsumer>
-          {(consumer) => (
-            <BaseRadioButton
-              id={id}
-              {...passProps}
-              {...(!!consumer.selectedValue
-                ? { checked: consumer.selectedValue === passProps.value }
-                : {})}
-              {...(!!consumer.name ? { name: consumer.name } : {})}
-              consumer={consumer}
-            />
-          )}
-        </RadioButtonGroupConsumer>
-      )}
-    </AutoId>
+  ({ tokens, ...passProps }: RadioButtonProps & InternalTokensProp) => (
+    <BaseRadioButton {...passProps} />
   ),
 )`
   ${(tokens) => baseStyles(tokens)}
 `;
+
 export class RadioButton extends Component<RadioButtonProps> {
-  static group = (props: RadioButtonGroupProps) => (
-    <RadioButtonGroup {...withSuomifiDefaultProps(props)} />
-  );
-
-  static large = (props: RadioButtonProps) => (
-    <StyledRadioButton {...withSuomifiDefaultProps(props)} variant="large" />
-  );
-
-  static divider = (props: RadioButtonDividerProps) => (
-    <RadioButtonDivider {...withSuomifiDefaultProps(props)} />
-  );
-
   render() {
-    return <StyledRadioButton {...withSuomifiDefaultProps(this.props)} />;
+    const { id: propId, onChange, ...passProps } = this.props;
+    return (
+      <AutoId id={propId}>
+        {(id) => (
+          <RadioButtonGroupConsumer>
+            {(consumer) => (
+              <StyledRadioButton
+                {...withSuomifiDefaultProps(passProps)}
+                {...(!!consumer.selectedValue
+                  ? { checked: consumer.selectedValue === passProps.value }
+                  : {})}
+                {...(!!consumer.name ? { name: consumer.name } : {})}
+                id={id}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                  if (!!consumer.onRadioButtonChange) {
+                    consumer.onRadioButtonChange(event.target.value);
+                  }
+                  if (!!onChange) {
+                    onChange(event);
+                  }
+                }}
+              />
+            )}
+          </RadioButtonGroupConsumer>
+        )}
+      </AutoId>
+    );
   }
 }
