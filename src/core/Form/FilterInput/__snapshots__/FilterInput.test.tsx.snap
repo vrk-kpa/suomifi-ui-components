@@ -220,7 +220,7 @@ exports[`snapshot matches 1`] = `
   border-color: hsl(202,7%,80%);
 }
 
-.c1 .fi-filter-input--label-align-left {
+.c1.fi-filter-input--label-align-left .fi-filter-input_wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -234,7 +234,7 @@ exports[`snapshot matches 1`] = `
   align-items: flex-start;
 }
 
-.c1 .fi-filter-input--label-align-left .fi-label-text {
+.c1.fi-filter-input--label-align-left .fi-filter-input_wrapper .fi-label-text {
   padding-right: 10px;
   padding-top: 8px;
   -webkit-align-self: flex-start;
@@ -242,7 +242,7 @@ exports[`snapshot matches 1`] = `
   align-self: flex-start;
 }
 
-.c1 .fi-filter-input--label-align-left .fi-label-text .fi-label-text_label-span {
+.c1.fi-filter-input--label-align-left .fi-filter-input_wrapper .fi-label-text .fi-label-text_label-span {
   margin-bottom: 0;
 }
 

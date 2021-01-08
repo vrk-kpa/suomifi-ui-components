@@ -58,18 +58,20 @@ export const baseStyles = withSuomifiTheme(
       }
     }
 
-    & .fi-filter-input--label-align-left {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
+    &.fi-filter-input--label-align-left {
+      & .fi-filter-input_wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
 
-      & .fi-label-text {
-        padding-right: ${theme.spacing.insetL};
-        padding-top: ${theme.spacing.insetM};
-        align-self: flex-start;
+        & .fi-label-text {
+          padding-right: ${theme.spacing.insetL};
+          padding-top: ${theme.spacing.insetM};
+          align-self: flex-start;
 
-        & .fi-label-text_label-span {
-          margin-bottom: 0;
+          & .fi-label-text_label-span {
+            margin-bottom: 0;
+          }
         }
       }
     }

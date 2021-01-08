@@ -115,13 +115,10 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
         className={classnames(baseClassName, className, {
           [filterInputClassNames.disabled]: !!passProps.disabled,
           [filterInputClassNames.error]: status === 'error',
+          [filterInputClassNames.labelAlignLeft]: labelAlign === 'left',
         })}
       >
-        <HtmlDiv
-          className={classnames(filterInputClassNames.wrapper, {
-            [filterInputClassNames.labelAlignLeft]: labelAlign === 'left',
-          })}
-        >
+        <HtmlDiv className={classnames(filterInputClassNames.wrapper, {})}>
           <LabelText
             htmlFor={id}
             as="label"

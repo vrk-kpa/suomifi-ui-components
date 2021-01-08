@@ -120,6 +120,23 @@ describe('props', () => {
     });
   });
 
+  describe('labelAlign', () => {
+    it('has the className for left align', () => {
+      const { container } = render(
+        <FilterInput
+          labelAlign="left"
+          labelText="Label"
+          items={tools}
+          onFilter={(filtered) => console.log(filtered)}
+          filterFunc={filter}
+        />,
+      );
+      expect(container.firstChild).toHaveClass(
+        'fi-filter-input--label-align-left',
+      );
+    });
+  });
+
   describe('labelText', () => {
     it('should be found ', () => {
       const { getByText } = render(
