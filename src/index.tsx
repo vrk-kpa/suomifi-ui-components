@@ -81,3 +81,4 @@ export {
   VisuallyHiddenProps,
 } from './core/VisuallyHidden/VisuallyHidden';
 export { suomifiDesignTokens, DesignTokens } from 'suomifi-design-tokens';
+export { Combobox, ComboboxProps } from './core/Form/Form';
