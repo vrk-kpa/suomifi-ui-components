@@ -12,6 +12,8 @@ const primitiveComponents = [
   ['Form', 'SearchInput'],
   ['Form', 'Checkbox'],
   ['Form', 'Textarea'],
+  ['Form', 'RadioButton'],
+  ['Form', 'Combobox'],
 ];
 
 const getComponent = ({ name, underName }) =>
