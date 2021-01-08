@@ -25,7 +25,7 @@ const TestFilterInput = (
     labelText="Label"
     items={tools}
     onFilter={(filtered) => console.log(filtered)}
-    filterRule={filter}
+    filterFunc={filter}
   />
 );
 
@@ -46,7 +46,7 @@ describe('props', () => {
           labelText="Label"
           items={tools}
           onFilter={(filtered) => console.log(filtered)}
-          filterRule={filter}
+          filterFunc={filter}
         />,
       );
       expect(container.firstChild).toHaveClass('custom-style');
@@ -62,7 +62,7 @@ describe('props', () => {
           status="error"
           items={tools}
           onFilter={(filtered) => console.log(filtered)}
-          filterRule={filter}
+          filterFunc={filter}
         />,
       );
       expect(container.firstChild).toHaveClass('fi-filter-input--error');
@@ -77,7 +77,7 @@ describe('props', () => {
           labelText="Label"
           items={tools}
           onFilter={(filtered) => console.log(filtered)}
-          filterRule={filter}
+          filterFunc={filter}
         />,
       );
       const statusText = getByText('Example status text');
@@ -92,7 +92,7 @@ describe('props', () => {
           labelText="Label"
           items={tools}
           onFilter={(filtered) => console.log(filtered)}
-          filterRule={filter}
+          filterFunc={filter}
         />,
       );
       expect(getByRole('textbox')).toHaveAttribute(
@@ -110,7 +110,7 @@ describe('props', () => {
           labelText="Label"
           items={tools}
           onFilter={(filtered) => console.log(filtered)}
-          filterRule={filter}
+          filterFunc={filter}
         />,
       );
       expect(container.firstChild).toHaveClass('fi-filter-input--disabled');
@@ -127,7 +127,7 @@ describe('props', () => {
           labelText="Label"
           items={tools}
           onFilter={(filtered) => console.log(filtered)}
-          filterRule={filter}
+          filterFunc={filter}
         />,
       );
       const label = getByText('Label');
@@ -143,7 +143,7 @@ describe('props', () => {
           optionalText="Optional"
           items={tools}
           onFilter={(filtered) => console.log(filtered)}
-          filterRule={filter}
+          filterFunc={filter}
         />,
       );
       const optionalText = getByText('(Optional)');
@@ -159,7 +159,7 @@ describe('props', () => {
           optionalText="Optional"
           items={tools}
           onFilter={(filtered) => console.log(filtered)}
-          filterRule={filter}
+          filterFunc={filter}
         />,
       );
       const label = getByText('Label');
@@ -173,7 +173,7 @@ describe('props', () => {
           labelMode="hidden"
           items={tools}
           onFilter={(filtered) => console.log(filtered)}
-          filterRule={filter}
+          filterFunc={filter}
         />,
       );
       const label = getByText('Label');
@@ -189,7 +189,7 @@ describe('props', () => {
           visualPlaceholder="Enter text here"
           items={tools}
           onFilter={(filtered) => console.log(filtered)}
-          filterRule={filter}
+          filterFunc={filter}
         />,
       );
       const inputField = getByRole('textbox') as HTMLInputElement;
