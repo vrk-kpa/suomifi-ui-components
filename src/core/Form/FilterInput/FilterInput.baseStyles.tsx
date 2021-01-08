@@ -7,6 +7,9 @@ export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     & .fi-filter-input {
       ${font({ theme })('bodyText')}
+    }
+
+    & .fi-filter-input_wrapper {
       display: inline-block;
       width: 100%;
     }
