@@ -55,7 +55,6 @@ export interface RadioButtonProps extends TokensProp {
    * @default small
    */
   variant?: RadioButtonVariant;
-  radioButtonGroup?: boolean;
   consumer?: RadioButtonGroupProviderState;
   /** Checked state, overridden by RadioButtonGroup. */
   checked?: boolean;
@@ -87,14 +86,13 @@ class BaseRadioButton extends Component<RadioButtonProps> {
 
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {
-      radioButtonGroup,
       onChange,
       consumer: { onRadioButtonChange } = {
         onRadioButtonChange: undefined,
       },
     } = this.props;
 
-    if (!!radioButtonGroup && !!onRadioButtonChange) {
+    if (!!onRadioButtonChange) {
       onRadioButtonChange(event.target.value);
     }
     if (!!onChange) {
@@ -115,7 +113,6 @@ class BaseRadioButton extends Component<RadioButtonProps> {
       onChange,
       disabled = false,
       consumer,
-      radioButtonGroup,
       ...passProps
     } = this.props;
 
@@ -130,7 +127,6 @@ class BaseRadioButton extends Component<RadioButtonProps> {
 
     const { checkedState } = this.state;
     const hintTextId = `${id}-hintText`;
-
     return (
       <HtmlDiv
         className={classnames(
@@ -174,22 +170,25 @@ const StyledRadioButton = styled(
     tokens,
     id: propId,
     ...passProps
-  }: RadioButtonProps & InternalTokensProp) =>
-    !!passProps.radioButtonGroup ? (
-      <AutoId id={propId}>
-        {(id) => (
-          <RadioButtonGroupConsumer>
-            {(consumer) => (
-              <BaseRadioButton id={id} {...passProps} consumer={consumer} />
-            )}
-          </RadioButtonGroupConsumer>
-        )}
-      </AutoId>
-    ) : (
-      <AutoId id={propId}>
-        {(id) => <BaseRadioButton id={id} {...passProps} />}
-      </AutoId>
-    ),
+  }: RadioButtonProps & InternalTokensProp) => (
+    <AutoId id={propId}>
+      {(id) => (
+        <RadioButtonGroupConsumer>
+          {(consumer) => (
+            <BaseRadioButton
+              id={id}
+              {...passProps}
+              {...(!!consumer.selectedValue
+                ? { checked: consumer.selectedValue === passProps.value }
+                : {})}
+              {...(!!consumer.name ? { name: consumer.name } : {})}
+              consumer={consumer}
+            />
+          )}
+        </RadioButtonGroupConsumer>
+      )}
+    </AutoId>
+  ),
 )`
   ${(tokens) => baseStyles(tokens)}
 `;

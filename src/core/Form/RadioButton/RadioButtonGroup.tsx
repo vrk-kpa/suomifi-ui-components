@@ -7,7 +7,6 @@ import { RadioButtonProps } from './RadioButton';
 import { baseStyles } from './RadioButtonGroup.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { AutoId } from '../../../utils/AutoId';
-import { logger } from '../../../utils/logger';
 import classnames from 'classnames';
 
 const baseClassName = 'fi-radio-button-group';
@@ -49,6 +48,8 @@ export interface RadioButtonGroupProps extends TokensProp {
 
 export interface RadioButtonGroupProviderState {
   onRadioButtonChange: (value: string) => void;
+  name?: string;
+  selectedValue?: string;
 }
 
 const defaultProviderValue: RadioButtonGroupProviderState = {
@@ -58,34 +59,6 @@ const defaultProviderValue: RadioButtonGroupProviderState = {
 const { Provider, Consumer: RadioButtonGroupConsumer } = React.createContext(
   defaultProviderValue,
 );
-
-const RadioButtonGroupItems = (
-  children: Array<React.ReactElement<RadioButtonProps>>,
-  groupName: string,
-  selectedValue?: string,
-) => {
-  const radioButtonValues: string[] = [];
-
-  return React.Children.map(
-    children,
-    (child: React.ReactElement<RadioButtonProps>) => {
-      if (React.isValidElement(child) && child.props.value) {
-        if (radioButtonValues.includes(child.props.value)) {
-          logger.error('Two or more radio buttons have same value.');
-        } else {
-          radioButtonValues.push(child.props.value);
-        }
-
-        return React.cloneElement(child, {
-          radioButtonGroup: true,
-          checked: selectedValue === child.props.value,
-          name: groupName,
-        });
-      }
-      return child;
-    },
-  );
-};
 
 export interface RadioButtonGroupState {
   selectedValue?: string;
@@ -129,7 +102,6 @@ export class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
       onChange,
       ...passProps
     } = this.props;
-    const { selectedValue } = this.state;
     const hideLabel = labelMode === 'hidden';
     const labelId = `${id}-label`;
     const hintTextId = `${id}-hintText`;
@@ -162,9 +134,11 @@ export class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
           <Provider
             value={{
               onRadioButtonChange: this.handleRadioButtonChange,
+              selectedValue: this.state.selectedValue,
+              name,
             }}
           >
-            {RadioButtonGroupItems(children, name, selectedValue)}
+            {children}
           </Provider>
         </HtmlDiv>
       </HtmlDiv>
