@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { axeTest } from '../../../utils/test/axe';
-
 import { FilterInput } from './FilterInput';
 
 interface Product {
@@ -10,22 +9,12 @@ interface Product {
   tax: boolean;
 }
 
-const tools: Product[] = [
-  { name: 'Jackhammer', price: 230, tax: false },
-  { name: 'Hammer', price: 15, tax: true },
-  { name: 'Sledgehammer', price: 36, tax: false },
-  { name: 'Spade', price: 50, tax: true },
-  { name: 'Powersaw', price: 150, tax: false },
-];
-
-const filter = (tool: Product, query: string) => tool.name.includes(query);
-
 const TestFilterInput = (
   <FilterInput
     labelText="Label"
-    items={tools}
+    items={[]}
     onFilter={jest.fn()}
-    filterFunc={filter}
+    filterFunc={() => true}
   />
 );
 
@@ -38,7 +27,8 @@ test('snapshot matches', () => {
 });
 
 describe('props', () => {
-  const mockFn = jest.fn();
+  const mockOnFilter = jest.fn();
+  const mockFilterFunc = jest.fn(() => true);
 
   describe('className', () => {
     it('has the given custom className', () => {
@@ -46,9 +36,9 @@ describe('props', () => {
         <FilterInput
           className="custom-style"
           labelText="Label"
-          items={tools}
-          onFilter={mockFn}
-          filterFunc={filter}
+          items={[]}
+          onFilter={mockOnFilter}
+          filterFunc={mockFilterFunc}
         />,
       );
       expect(container.firstChild).toHaveClass('custom-style');
@@ -62,9 +52,9 @@ describe('props', () => {
           className="custom-style"
           labelText="Label"
           status="error"
-          items={tools}
-          onFilter={mockFn}
-          filterFunc={filter}
+          items={[]}
+          onFilter={mockOnFilter}
+          filterFunc={mockFilterFunc}
         />,
       );
       expect(container.firstChild).toHaveClass('fi-filter-input--error');
@@ -77,9 +67,9 @@ describe('props', () => {
         <FilterInput
           statusText="Example status text"
           labelText="Label"
-          items={tools}
-          onFilter={mockFn}
-          filterFunc={filter}
+          items={[]}
+          onFilter={mockOnFilter}
+          filterFunc={mockFilterFunc}
         />,
       );
       const statusText = getByText('Example status text');
@@ -92,9 +82,9 @@ describe('props', () => {
           statusText="Example status text"
           id="123"
           labelText="Label"
-          items={tools}
-          onFilter={mockFn}
-          filterFunc={filter}
+          items={[]}
+          onFilter={mockOnFilter}
+          filterFunc={mockFilterFunc}
         />,
       );
       expect(getByRole('textbox')).toHaveAttribute(
@@ -110,9 +100,9 @@ describe('props', () => {
         <FilterInput
           disabled={true}
           labelText="Label"
-          items={tools}
-          onFilter={mockFn}
-          filterFunc={filter}
+          items={[]}
+          onFilter={mockOnFilter}
+          filterFunc={mockFilterFunc}
         />,
       );
       expect(container.firstChild).toHaveClass('fi-filter-input--disabled');
@@ -128,9 +118,9 @@ describe('props', () => {
         <FilterInput
           labelAlign="left"
           labelText="Label"
-          items={tools}
-          onFilter={mockFn}
-          filterFunc={filter}
+          items={[]}
+          onFilter={mockOnFilter}
+          filterFunc={mockFilterFunc}
         />,
       );
       expect(container.firstChild).toHaveClass(
@@ -144,9 +134,9 @@ describe('props', () => {
       const { getByText } = render(
         <FilterInput
           labelText="Label"
-          items={tools}
-          onFilter={mockFn}
-          filterFunc={filter}
+          items={[]}
+          onFilter={mockOnFilter}
+          filterFunc={mockFilterFunc}
         />,
       );
       const label = getByText('Label');
@@ -160,9 +150,9 @@ describe('props', () => {
         <FilterInput
           labelText="Label"
           optionalText="Optional"
-          items={tools}
-          onFilter={mockFn}
-          filterFunc={filter}
+          items={[]}
+          onFilter={mockOnFilter}
+          filterFunc={mockFilterFunc}
         />,
       );
       const optionalText = getByText('(Optional)');
@@ -176,9 +166,9 @@ describe('props', () => {
         <FilterInput
           labelText="Label"
           optionalText="Optional"
-          items={tools}
-          onFilter={mockFn}
-          filterFunc={filter}
+          items={[]}
+          onFilter={mockOnFilter}
+          filterFunc={mockFilterFunc}
         />,
       );
       const label = getByText('Label');
@@ -190,9 +180,9 @@ describe('props', () => {
         <FilterInput
           labelText="Label"
           labelMode="hidden"
-          items={tools}
-          onFilter={mockFn}
-          filterFunc={filter}
+          items={[]}
+          onFilter={mockOnFilter}
+          filterFunc={mockFilterFunc}
         />,
       );
       const label = getByText('Label');
@@ -206,9 +196,9 @@ describe('props', () => {
         <FilterInput
           labelText="Label"
           visualPlaceholder="Enter text here"
-          items={tools}
-          onFilter={mockFn}
-          filterFunc={filter}
+          items={[]}
+          onFilter={mockOnFilter}
+          filterFunc={mockFilterFunc}
         />,
       );
       const inputField = getByRole('textbox') as HTMLInputElement;
@@ -217,8 +207,18 @@ describe('props', () => {
   });
 
   describe('onFilter', () => {
+    const tools: Product[] = [
+      { name: 'Jackhammer', price: 230, tax: false },
+      { name: 'Hammer', price: 15, tax: true },
+      { name: 'Sledgehammer', price: 36, tax: false },
+      { name: 'Spade', price: 50, tax: true },
+      { name: 'Powersaw', price: 150, tax: false },
+    ];
+
     it('should return filtered items', () => {
       const mockedOnFilter = jest.fn((filtered) => filtered);
+      const filter = (tool: Product, query: string) =>
+        tool.name.includes(query);
       const { getByRole } = render(
         <FilterInput
           labelText="Label"
