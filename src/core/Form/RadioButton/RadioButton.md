@@ -1,7 +1,7 @@
 ```js
-import { RadioButton } from 'suomifi-ui-components';
+import { RadioButton, RadioButtonGroup } from 'suomifi-ui-components';
 
-<RadioButton.group
+<RadioButtonGroup
   label="RadioButtons in group"
   hintText="Example hint text"
   name="test-group"
@@ -9,13 +9,16 @@ import { RadioButton } from 'suomifi-ui-components';
   <RadioButton value="value-test-1">Choice 1</RadioButton>
   <RadioButton value="value-test-2">Choice 2</RadioButton>
   <RadioButton value="value-test-3">Choice 3</RadioButton>
-</RadioButton.group>;
+</RadioButtonGroup>;
 ```
 
 ### Standalone radio buttons
 
 ```js
-import { RadioButton } from 'suomifi-ui-components';
+import {
+  RadioButton,
+  RadioButtonDivider
+} from 'suomifi-ui-components';
 
 const [selectedValue, setSelectedValue] = React.useState(
   'value-test-2'
@@ -52,7 +55,7 @@ const handleChange = (event) => {
     >
       Choice 3
     </RadioButton>
-    <RadioButton.divider>or</RadioButton.divider>
+    <RadioButtonDivider>or</RadioButtonDivider>
     <RadioButton
       name="test"
       value="value-test-4"
@@ -77,17 +80,21 @@ const handleChange = (event) => {
 ```
 
 ```js
-import { RadioButton } from 'suomifi-ui-components';
+import {
+  RadioButton,
+  RadioButtonGroup,
+  RadioButtonDivider
+} from 'suomifi-ui-components';
 
 <>
-  <RadioButton.group
+  <RadioButtonGroup
     label="Large RadioButtons in group"
     hintText="Example hint text"
     name="test-group-large"
   >
-    <RadioButton.large value="value-test-1">
+    <RadioButton variant="large" value="value-test-1">
       Large choice 1
-    </RadioButton.large>
+    </RadioButton>
     <RadioButton value="value-test-2" variant="large">
       Large choice 2
     </RadioButton>
@@ -98,17 +105,18 @@ import { RadioButton } from 'suomifi-ui-components';
     >
       Large choice 3
     </RadioButton>
-    <RadioButton.divider variant="large">or</RadioButton.divider>
-    <RadioButton.large value="value-test-4" disabled>
+    <RadioButtonDivider variant="large">or</RadioButtonDivider>
+    <RadioButton variant="large" value="value-test-4" disabled>
       Disabled large choice 4
-    </RadioButton.large>
-    <RadioButton.large
+    </RadioButton>
+    <RadioButton
+      variant="large"
       value="value-test-5"
       hintText="Example hint text"
       disabled
     >
       Disabled large choice 5
-    </RadioButton.large>
-  </RadioButton.group>
+    </RadioButton>
+  </RadioButtonGroup>
 </>;
 ```

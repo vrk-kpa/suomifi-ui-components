@@ -32,9 +32,7 @@ export interface RadioButtonProps extends TokensProp {
   /** Value for this item. Must be unique inside a RadioButtonGroup. */
   value: string;
   /**
-   * Unique id
-   * If no id is specified, one will be generated using uuid
-   * @default uuidV4
+   * Unique id. If no id is specified, one will be generated
    */
   id?: string;
   /** Hint text. Displayed under the label. */
