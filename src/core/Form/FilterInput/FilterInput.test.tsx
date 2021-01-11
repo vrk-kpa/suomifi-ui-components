@@ -24,7 +24,7 @@ const TestFilterInput = (
   <FilterInput
     labelText="Label"
     items={tools}
-    onFilter={(filtered) => console.log(filtered)}
+    onFilter={jest.fn()}
     filterFunc={filter}
   />
 );
@@ -38,6 +38,8 @@ test('snapshot matches', () => {
 });
 
 describe('props', () => {
+  const mockFn = jest.fn();
+
   describe('className', () => {
     it('has the given custom className', () => {
       const { container } = render(
@@ -45,7 +47,7 @@ describe('props', () => {
           className="custom-style"
           labelText="Label"
           items={tools}
-          onFilter={(filtered) => console.log(filtered)}
+          onFilter={mockFn}
           filterFunc={filter}
         />,
       );
@@ -61,7 +63,7 @@ describe('props', () => {
           labelText="Label"
           status="error"
           items={tools}
-          onFilter={(filtered) => console.log(filtered)}
+          onFilter={mockFn}
           filterFunc={filter}
         />,
       );
@@ -76,7 +78,7 @@ describe('props', () => {
           statusText="Example status text"
           labelText="Label"
           items={tools}
-          onFilter={(filtered) => console.log(filtered)}
+          onFilter={mockFn}
           filterFunc={filter}
         />,
       );
@@ -91,7 +93,7 @@ describe('props', () => {
           id="123"
           labelText="Label"
           items={tools}
-          onFilter={(filtered) => console.log(filtered)}
+          onFilter={mockFn}
           filterFunc={filter}
         />,
       );
@@ -109,7 +111,7 @@ describe('props', () => {
           disabled={true}
           labelText="Label"
           items={tools}
-          onFilter={(filtered) => console.log(filtered)}
+          onFilter={mockFn}
           filterFunc={filter}
         />,
       );
@@ -127,7 +129,7 @@ describe('props', () => {
           labelAlign="left"
           labelText="Label"
           items={tools}
-          onFilter={(filtered) => console.log(filtered)}
+          onFilter={mockFn}
           filterFunc={filter}
         />,
       );
@@ -143,7 +145,7 @@ describe('props', () => {
         <FilterInput
           labelText="Label"
           items={tools}
-          onFilter={(filtered) => console.log(filtered)}
+          onFilter={mockFn}
           filterFunc={filter}
         />,
       );
@@ -159,7 +161,7 @@ describe('props', () => {
           labelText="Label"
           optionalText="Optional"
           items={tools}
-          onFilter={(filtered) => console.log(filtered)}
+          onFilter={mockFn}
           filterFunc={filter}
         />,
       );
@@ -175,7 +177,7 @@ describe('props', () => {
           labelText="Label"
           optionalText="Optional"
           items={tools}
-          onFilter={(filtered) => console.log(filtered)}
+          onFilter={mockFn}
           filterFunc={filter}
         />,
       );
@@ -189,7 +191,7 @@ describe('props', () => {
           labelText="Label"
           labelMode="hidden"
           items={tools}
-          onFilter={(filtered) => console.log(filtered)}
+          onFilter={mockFn}
           filterFunc={filter}
         />,
       );
@@ -205,7 +207,7 @@ describe('props', () => {
           labelText="Label"
           visualPlaceholder="Enter text here"
           items={tools}
-          onFilter={(filtered) => console.log(filtered)}
+          onFilter={mockFn}
           filterFunc={filter}
         />,
       );
