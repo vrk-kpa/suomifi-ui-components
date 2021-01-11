@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { axeTest } from '../../../utils/test/axe';
 
 import { FilterInput } from './FilterInput';
@@ -213,6 +213,32 @@ describe('props', () => {
       );
       const inputField = getByRole('textbox') as HTMLInputElement;
       expect(inputField).toHaveAttribute('placeholder', 'Enter text here');
+    });
+  });
+
+  describe('onFilter', () => {
+    it('should return filtered items', () => {
+      const mockedOnFilter = jest.fn((filtered) => filtered);
+      const { getByRole } = render(
+        <FilterInput
+          labelText="Label"
+          visualPlaceholder="Enter text here"
+          items={tools}
+          onFilter={mockedOnFilter}
+          filterFunc={filter}
+        />,
+      );
+      const inputField = getByRole('textbox') as HTMLInputElement;
+      fireEvent.change(inputField, { target: { value: 'hammer' } });
+      expect(mockedOnFilter.mock.results).toEqual([
+        {
+          type: 'return',
+          value: [
+            { name: 'Jackhammer', price: 230, tax: false },
+            { name: 'Sledgehammer', price: 36, tax: false },
+          ],
+        },
+      ]);
     });
   });
 });
