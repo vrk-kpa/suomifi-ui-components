@@ -77,9 +77,8 @@ exports[`calling render with the same component on the same container does not r
 
 .c2 .fi-link_icon {
   padding-left: 4px;
-  -webkit-transform: translateY(0.1em);
-  -ms-transform: translateY(0.1em);
-  transform: translateY(0.1em);
+  font-size: 16px;
+  box-sizing: content-box;
 }
 
 .c1 {
