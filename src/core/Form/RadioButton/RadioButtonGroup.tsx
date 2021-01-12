@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { HtmlDiv, HtmlSpan } from '../../../reset';
@@ -20,8 +20,8 @@ type Label = 'hidden' | 'visible';
 
 export interface RadioButtonGroupProps extends TokensProp {
   /** Custom classname to extend or customize */ className?: string;
-  /** RadioButton or RadioButtonDivider */
-  children: Array<React.ReactElement<RadioButtonProps>>;
+  /** RadioButton or ReactNode */
+  children: Array<React.ReactElement<RadioButtonProps> | ReactNode>;
   /** Hint text to be displayed under the label. */
   hintText?: string;
   /** Label for the group */

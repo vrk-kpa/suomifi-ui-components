@@ -15,10 +15,7 @@ import { RadioButton, RadioButtonGroup } from 'suomifi-ui-components';
 ### Standalone radio buttons
 
 ```js
-import {
-  RadioButton,
-  RadioButtonDivider
-} from 'suomifi-ui-components';
+import { RadioButton } from 'suomifi-ui-components';
 
 const [selectedValue, setSelectedValue] = React.useState(
   'value-test-2'
@@ -55,7 +52,6 @@ const handleChange = (event) => {
     >
       Choice 3
     </RadioButton>
-    <RadioButtonDivider>or</RadioButtonDivider>
     <RadioButton
       name="test"
       value="value-test-4"
@@ -80,11 +76,7 @@ const handleChange = (event) => {
 ```
 
 ```js
-import {
-  RadioButton,
-  RadioButtonGroup,
-  RadioButtonDivider
-} from 'suomifi-ui-components';
+import { RadioButton, RadioButtonGroup } from 'suomifi-ui-components';
 
 <>
   <RadioButtonGroup
@@ -105,7 +97,6 @@ import {
     >
       Large choice 3
     </RadioButton>
-    <RadioButtonDivider variant="large">or</RadioButtonDivider>
     <RadioButton variant="large" value="value-test-4" disabled>
       Disabled large choice 4
     </RadioButton>
