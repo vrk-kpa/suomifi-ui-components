@@ -49,6 +49,11 @@ exports[`Button variant default should match snapshot 1`] = `
   height: auto;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -319,6 +324,11 @@ exports[`Button variant inverted should match snapshot 1`] = `
 
 .c0::-webkit-outer-spin-button {
   height: auto;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
 }
 
 .c1 {
@@ -593,6 +603,11 @@ exports[`Button variant secondary should match snapshot 1`] = `
   height: auto;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -865,6 +880,11 @@ exports[`Button variant secondary-noborder should match snapshot 1`] = `
   height: auto;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -1135,6 +1155,11 @@ exports[`Button variant tertiary match snapshot 1`] = `
 
 .c0::-webkit-outer-spin-button {
   height: auto;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
 }
 
 .c1 {

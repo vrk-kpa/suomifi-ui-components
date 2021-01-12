@@ -25,6 +25,11 @@ exports[`props children has matching snapshot 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -53,6 +58,11 @@ exports[`props children has matching snapshot 1`] = `
   opacity: 0.54;
 }
 
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -71,6 +81,11 @@ exports[`props children has matching snapshot 1`] = `
   background: none;
   cursor: inherit;
   max-width: 100%;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
 }
 
 .c1 {

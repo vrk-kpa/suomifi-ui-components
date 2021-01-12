@@ -49,6 +49,11 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   height: auto;
 }
 
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -73,6 +78,11 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -95,6 +105,11 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
 }
 
 .c4 {
