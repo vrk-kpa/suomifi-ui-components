@@ -6,6 +6,7 @@ import { TokensProp, InternalTokensProp } from '../../theme';
 import { logger } from '../../../utils/logger';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { AutoId } from '../../../utils/AutoId';
+import { getConditionalAriaProp } from '../../../utils/aria';
 import { RadioButtonGroupConsumer } from './RadioButtonGroup';
 import { baseStyles } from './RadioButton.baseStyles';
 
@@ -119,7 +120,9 @@ class BaseRadioButton extends Component<RadioButtonProps> {
           disabled={disabled}
           onChange={onChange}
           checked={checkedState}
-          {...(hintText ? { 'aria-describedby': hintTextId } : {})}
+          {...getConditionalAriaProp('aria-describedby', [
+            hintText ? hintTextId : undefined,
+          ])}
           {...(value ? { value } : {})}
           {...passProps}
         />

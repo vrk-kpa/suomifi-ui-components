@@ -7,6 +7,7 @@ import { RadioButtonProps } from './RadioButton';
 import { baseStyles } from './RadioButtonGroup.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { AutoId } from '../../../utils/AutoId';
+import { getConditionalAriaProp } from '../../../utils/aria';
 import classnames from 'classnames';
 
 const baseClassName = 'fi-radio-button-group';
@@ -105,14 +106,16 @@ export class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
     const hideLabel = labelMode === 'hidden';
     const labelId = `${id}-label`;
     const hintTextId = `${id}-hintText`;
-    const labelledBy = [labelId, ...(hintText ? [hintTextId] : [])].join(' ');
 
     return (
       <HtmlDiv
-        className={classnames(className)}
+        className={className}
         id={id}
         role="group"
-        aria-labelledby={labelledBy}
+        {...getConditionalAriaProp('aria-labelledby', [
+          labelId,
+          hintText ? hintTextId : undefined,
+        ])}
         {...passProps}
       >
         {hideLabel ? (
