@@ -13,9 +13,8 @@ import {
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles, listboxPopoverStyles } from './Dropdown.baseStyles';
-import { Paragraph, ParagraphProps } from '../Paragraph/Paragraph';
-import { HtmlLabel, HtmlLabelProps, HtmlSpan } from '../../reset';
-import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
+import { HtmlSpan } from '../../reset';
+import { LabelText, LabelMode } from '../Form/LabelText/LabelText';
 import { logger } from '../../utils/logger';
 import { idGenerator } from '../../utils/uuid';
 import { positionMatchWidth } from '@reach/popover';
@@ -33,13 +32,9 @@ export const dropdownClassNames = {
   labelParagraph: `${baseClassName}_label-p`,
 };
 
-const DropdownItem = (props: DropdownItemProps) => <ListboxOption {...props} />;
-
 type BaseListboxPopoverProps = ListboxPopoverProps & {
   ref?: any;
 };
-
-export interface DropdownLabelProps extends HtmlLabelProps {}
 
 export interface DropdownItemProps {
   /** Item value */
@@ -65,8 +60,6 @@ type OptionalListboxPopoverProps = {
   ref?: any;
 };
 
-type DropdownLabel = 'hidden' | 'top';
-
 export interface DropdownProps extends TokensProp {
   /**
    * Unique id
@@ -86,15 +79,13 @@ export interface DropdownProps extends TokensProp {
   visualPlaceholder?: ReactNode;
   /** Show the visual placeholder instead of selected value and act as an action menu */
   alwaysShowVisualPlaceholder?: boolean;
-  /** Custom props for label container */
-  labelProps?: DropdownLabelProps;
-  /** Custom props for Label text element */
-  labelTextProps?: ParagraphProps;
   /** Label displaymode -
    * top: show above, hidden: use only for screenreader
    * @default top
    */
-  labelMode?: DropdownLabel;
+  labelMode?: LabelMode;
+  /** Text to mark a field optional. Will be wrapped in parentheses and shown after labelText. */
+  optionalText?: string;
   /**
    * Additional label id. E.g. form group label.
    * Used in addition to labelText for screen readers.
@@ -158,10 +149,9 @@ export class BaseDropdown extends Component<DropdownProps> {
       name,
       disabled,
       children,
-      labelProps,
       labelText,
-      labelTextProps,
-      labelMode = 'top',
+      labelMode = 'visible',
+      optionalText,
       'aria-labelledby': ariaLabelledBy,
       visualPlaceholder,
       alwaysShowVisualPlaceholder,
@@ -251,17 +241,14 @@ export class BaseDropdown extends Component<DropdownProps> {
         id={id}
         {...passProps}
       >
-        <HtmlLabel
-          id={labelId}
-          {...labelProps}
-          className={dropdownClassNames.label}
+        <LabelText
+          htmlFor={id}
+          labelMode={labelMode}
+          as="label"
+          optionalText={optionalText}
         >
-          {labelMode === 'hidden' ? (
-            <VisuallyHidden>{labelText}</VisuallyHidden>
-          ) : (
-            <Paragraph {...labelTextProps}>{labelText}</Paragraph>
-          )}
-        </HtmlLabel>
+          {labelText}
+        </LabelText>
         <ListboxInput {...listboxInputProps}>
           <ListboxButton {...passDropdownButtonProps}>
             {listboxDisplayValue}
@@ -287,21 +274,8 @@ export class BaseDropdown extends Component<DropdownProps> {
 }
 
 const StyledDropdown = styled(
-  ({
-    tokens,
-    labelTextProps = { className: undefined },
-    ...passProps
-  }: DropdownProps & InternalTokensProp) => (
-    <BaseDropdown
-      {...passProps}
-      labelTextProps={{
-        ...labelTextProps,
-        className: classnames(
-          labelTextProps.className,
-          dropdownClassNames.labelParagraph,
-        ),
-      }}
-    />
+  ({ tokens, ...passProps }: DropdownProps & InternalTokensProp) => (
+    <BaseDropdown {...passProps} />
   ),
 )`
   ${(props) => baseStyles(props)}
@@ -318,6 +292,8 @@ const StyledListboxPopover = styled(
 )`
   ${(props) => listboxPopoverStyles(props.theme)}
 `;
+
+const DropdownItem = (props: DropdownItemProps) => <ListboxOption {...props} />;
 
 /**
  * <i class="semantics" />
