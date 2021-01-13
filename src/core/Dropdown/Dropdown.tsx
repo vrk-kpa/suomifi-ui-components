@@ -1,33 +1,291 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, ReactNode, ReactElement } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import {
+  ListboxInput,
+  ListboxButton,
+  ListboxButtonProps,
+  ListboxPopoverProps,
   ListboxList,
+  ListboxOption,
   ListboxPopover,
-  ListboxPopoverProps as ReachListBoxPopoverProps,
 } from '@reach/listbox';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles, listboxPopoverStyles } from './Dropdown.baseStyles';
-import {
-  Dropdown as CompDropdown,
-  DropdownProps as CompDropdownProps,
-} from '../../components/Dropdown/Dropdown';
-import { DropdownItem, DropdownItemProps } from './DropdownItem';
+import { Paragraph, ParagraphProps } from '../Paragraph/Paragraph';
+import { HtmlLabel, HtmlLabelProps, HtmlSpan } from '../../reset';
+import { DropdownItem } from './DropdownItem';
+import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
+import { logger } from '../../utils/logger';
+import { idGenerator } from '../../utils/uuid';
 import { positionMatchWidth } from '@reach/popover';
 
 const baseClassName = 'fi-dropdown';
 
-export const textInputClassNames = {
+export const dropdownClassNames = {
   baseClassName,
+  label: `${baseClassName}_label`,
+  button: `${baseClassName}_button`,
+  popover: `${baseClassName}_popover`,
+  item: `${baseClassName}_item`,
+  noSelectedStyles: `${baseClassName}--noSelectedStyles`,
+  disabled: `${baseClassName}--disabled`,
   labelParagraph: `${baseClassName}_label-p`,
 };
 
-type CompListboxPopoverProps = ReachListBoxPopoverProps & {
+export { ListboxOption as DropdownItem };
+
+type BaseListboxPopoverProps = ListboxPopoverProps & {
   ref?: any;
 };
 
-export interface DropdownProps extends CompDropdownProps, TokensProp {}
+export interface DropdownLabelProps extends HtmlLabelProps {}
+
+export interface DropdownItemProps {
+  /** Item value */
+  value: string;
+  /** Item content */
+  children: ReactNode;
+  /** Classname for item */
+  className?: string;
+}
+
+interface DropdownState {
+  selectedValue: string | undefined;
+}
+type OptionalListboxButtonProps = {
+  [K in keyof ListboxButtonProps]?: ListboxButtonProps[K];
+} & {
+  className?: string;
+  id?: string;
+};
+type OptionalListboxPopoverProps = {
+  [K in keyof ListboxPopoverProps]?: ListboxPopoverProps[K];
+} & {
+  ref?: any;
+};
+
+type DropdownLabel = 'hidden' | 'top';
+
+export interface DropdownProps extends TokensProp {
+  /**
+   * Unique id
+   * If no id is specified, one will be generated using uuid
+   * @default uuidV4
+   */
+  id?: string;
+  /** Name used for input's form value. */
+  name?: string;
+  /** Default for non controlled Dropdown, intially selected value */
+  defaultValue?: string;
+  /** Controlled selected value, overrides defaultValue if provided. */
+  value?: string;
+  /** Label for the Dropdown component. */
+  labelText: string;
+  /** Visual hint to show if nothing is selected and no value or defaultValue is provided */
+  visualPlaceholder?: ReactNode;
+  /** Show the visual placeholder instead of selected value and act as an action menu */
+  alwaysShowVisualPlaceholder?: boolean;
+  /** Custom props for label container */
+  labelProps?: DropdownLabelProps;
+  /** Custom props for Label text element */
+  labelTextProps?: ParagraphProps;
+  /** Label displaymode -
+   * top: show above, hidden: use only for screenreader
+   * @default top
+   */
+  labelMode?: DropdownLabel;
+  /**
+   * Additional label id. E.g. form group label.
+   * Used in addition to labelText for screen readers.
+   */
+  'aria-labelledby'?: string;
+  /** Custom classname to extend or customize */
+  className?: string;
+  /** Disable component */
+  disabled?: boolean;
+  /** Properties given to dropdown's Button-component, className etc. */
+  dropdownButtonProps?: OptionalListboxButtonProps;
+  /** Properties given to dropdown's popover-component, className etc. */
+  dropdownPopoverProps?: OptionalListboxPopoverProps;
+  listboxPopoverComponent?: React.ComponentType<OptionalListboxPopoverProps>;
+  dropdownItemClassName?: string;
+  /** DropdownItems */
+  children?:
+    | Array<ReactElement<DropdownItemProps>>
+    | ReactElement<DropdownItemProps>;
+  /** Callback that fires when the dropdown value changes. */
+  onChange?(newValue: string): void;
+}
+
+export class BaseDropdown extends Component<DropdownProps> {
+  state: DropdownState = {
+    selectedValue:
+      'value' in this.props
+        ? this.props.value
+        : 'defaultValue' in this.props
+        ? this.props.defaultValue
+        : undefined,
+  };
+
+  static getDerivedStateFromProps(
+    nextProps: DropdownProps,
+    prevState: DropdownState,
+  ) {
+    const { value } = nextProps;
+    if ('value' in nextProps && value !== prevState.selectedValue) {
+      return { selectedValue: value };
+    }
+    return null;
+  }
+
+  dropdownItems = (children: ReactNode, classNames?: { className: string }) =>
+    React.Children.map(
+      children,
+      (child: React.ReactElement<DropdownItemProps>) => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, {
+            ...classNames,
+          });
+        }
+        return child;
+      },
+    );
+
+  render() {
+    const {
+      id: propId,
+      name,
+      disabled,
+      children,
+      labelProps,
+      labelText,
+      labelTextProps,
+      labelMode = 'top',
+      'aria-labelledby': ariaLabelledBy,
+      visualPlaceholder,
+      alwaysShowVisualPlaceholder,
+      className,
+      dropdownButtonProps = {},
+      dropdownPopoverProps = {},
+      listboxPopoverComponent: ListboxPopoverComponentReplace,
+      dropdownItemClassName = {},
+      onChange: propOnChange,
+      ...passProps
+    } = this.props;
+
+    if (React.Children.count(children) < 1) {
+      logger.warn(`Dropdown '${labelText}' does not contain items`);
+      return null;
+    }
+
+    const id = idGenerator(propId);
+    const labelId = `${id}-label`;
+    const ariaLabelledByIds = `${
+      !!ariaLabelledBy ? `${ariaLabelledBy} ` : ''
+    }${labelId}`;
+    const buttonId = !!dropdownButtonProps.id
+      ? dropdownButtonProps.id
+      : `${id}_button`;
+
+    const { selectedValue } = this.state;
+
+    // don't read visualPlaceholder if nothing is selected
+    const buttonAriaLabelledByOverride =
+      selectedValue === undefined
+        ? { 'aria-labelledby': ariaLabelledByIds }
+        : {};
+
+    const passDropdownButtonProps = {
+      ...dropdownButtonProps,
+      id: buttonId,
+      className: classnames(
+        dropdownClassNames.button,
+        dropdownButtonProps.className,
+        {
+          [dropdownClassNames.disabled]: !!disabled,
+        },
+      ),
+      ...buttonAriaLabelledByOverride,
+    };
+
+    const passDropdownPopoverProps = {
+      ...dropdownPopoverProps,
+      className: dropdownClassNames.popover,
+    };
+
+    const passDropdownItemProps = {
+      className: classnames(dropdownClassNames.item, dropdownItemClassName, {
+        [dropdownClassNames.noSelectedStyles]: alwaysShowVisualPlaceholder,
+      }),
+    };
+
+    const onChange = (newValue: string) => {
+      if (!!propOnChange) {
+        propOnChange(newValue);
+      }
+      if (!('value' in this.props)) {
+        this.setState({ selectedValue: newValue });
+      }
+    };
+
+    const listboxInputProps = {
+      'aria-labelledby': ariaLabelledByIds,
+      disabled,
+      onChange,
+      name,
+      value: selectedValue || '',
+    };
+
+    // If alwaysShowVisualPlaceholder is true or there is no selected value, use visualPlaceHolder.
+    // With seleceted value use null and let Reach fetch the seleceted item node from internal context.
+    const listboxDisplayValue = alwaysShowVisualPlaceholder
+      ? visualPlaceholder
+      : !!selectedValue
+      ? null
+      : visualPlaceholder;
+
+    return (
+      <HtmlSpan
+        className={classnames(className, baseClassName)}
+        id={id}
+        {...passProps}
+      >
+        <HtmlLabel
+          id={labelId}
+          {...labelProps}
+          className={dropdownClassNames.label}
+        >
+          {labelMode === 'hidden' ? (
+            <VisuallyHidden>{labelText}</VisuallyHidden>
+          ) : (
+            <Paragraph {...labelTextProps}>{labelText}</Paragraph>
+          )}
+        </HtmlLabel>
+        <ListboxInput {...listboxInputProps}>
+          <ListboxButton {...passDropdownButtonProps}>
+            {listboxDisplayValue}
+          </ListboxButton>
+          {!!ListboxPopoverComponentReplace ? (
+            <ListboxPopoverComponentReplace {...passDropdownPopoverProps}>
+              {this.dropdownItems(children, passDropdownItemProps)}
+            </ListboxPopoverComponentReplace>
+          ) : (
+            <ListboxPopover
+              position={positionMatchWidth}
+              {...passDropdownPopoverProps}
+            >
+              <ListboxList>
+                {this.dropdownItems(children, passDropdownItemProps)}
+              </ListboxList>
+            </ListboxPopover>
+          )}
+        </ListboxInput>
+      </HtmlSpan>
+    );
+  }
+}
 
 const StyledDropdown = styled(
   ({
@@ -35,13 +293,13 @@ const StyledDropdown = styled(
     labelTextProps = { className: undefined },
     ...passProps
   }: DropdownProps & InternalTokensProp) => (
-    <CompDropdown
+    <BaseDropdown
       {...passProps}
       labelTextProps={{
         ...labelTextProps,
         className: classnames(
           labelTextProps.className,
-          textInputClassNames.labelParagraph,
+          dropdownClassNames.labelParagraph,
         ),
       }}
     />
@@ -50,10 +308,10 @@ const StyledDropdown = styled(
   ${(props) => baseStyles(props)}
 `;
 
-interface ListboxPopoverProps extends CompListboxPopoverProps, TokensProp {}
+interface NewListboxPopoverProps extends BaseListboxPopoverProps, TokensProp {}
 
 const StyledListboxPopover = styled(
-  ({ tokens, children, ...passProps }: ListboxPopoverProps) => (
+  ({ tokens, children, ...passProps }: NewListboxPopoverProps) => (
     <ListboxPopover position={positionMatchWidth} {...passProps}>
       <ListboxList>{children}</ListboxList>
     </ListboxPopover>
@@ -72,12 +330,10 @@ export class Dropdown extends Component<DropdownProps> {
   render() {
     const props = withSuomifiDefaultProps(this.props);
     return (
-      <Fragment>
-        <StyledDropdown
-          {...props}
-          listboxPopoverComponent={StyledListboxPopover}
-        />
-      </Fragment>
+      <StyledDropdown
+        {...props}
+        listboxPopoverComponent={StyledListboxPopover}
+      />
     );
   }
 }
