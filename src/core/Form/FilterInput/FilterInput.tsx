@@ -3,10 +3,10 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { InputStatus } from '../types';
 import {
-  HtmlInput,
   HtmlInputProps,
   HtmlDiv,
   HtmlDivProps,
+  HtmlInputWithRef,
 } from '../../../reset';
 import { AutoId } from '../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
@@ -63,6 +63,7 @@ export interface FilterInputProps<T> extends Omit<HtmlInputProps, 'type'> {
   onFilter: (filteredItems: Array<T>) => void;
   /** Filtering rule to be used */
   filterFunc: (item: T, query: string) => boolean;
+  forwardRef?: (element: Element | null) => void;
 }
 
 class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
@@ -82,6 +83,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
       items: propItems,
       onFilter: propOnFiltering,
       filterFunc: propFilterRule,
+      forwardRef,
       ...passProps
     } = this.props;
 
@@ -125,7 +127,8 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
           </LabelText>
           <HtmlDiv className={filterInputClassNames.functionalityContainer}>
             <HtmlDiv className={filterInputClassNames.inputElementContainer}>
-              <HtmlInput
+              <HtmlInputWithRef
+                forwardRef={forwardRef}
                 {...passProps}
                 id={id}
                 className={filterInputClassNames.inputElement}
