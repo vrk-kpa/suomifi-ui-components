@@ -63,6 +63,7 @@ interface InternalFilterInputProps<T> extends Omit<HtmlInputProps, 'type'> {
   onFilter: (filteredItems: Array<T>) => void;
   /** Filtering rule to be used */
   filterFunc: (item: T, query: string) => boolean;
+  forwardRef?: (element: Element | null) => void;
 }
 
 interface InnerRef {
@@ -92,6 +93,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       items: propItems,
       onFilter: propOnFiltering,
       filterFunc: propFilterRule,
+      forwardRef,
       ...passProps
     } = this.props;
 
@@ -136,6 +138,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
           <HtmlDiv className={filterInputClassNames.functionalityContainer}>
             <HtmlDiv className={filterInputClassNames.inputElementContainer}>
               <HtmlInput
+                forwardRef={forwardRef}
                 {...passProps}
                 id={id}
                 className={filterInputClassNames.inputElement}
