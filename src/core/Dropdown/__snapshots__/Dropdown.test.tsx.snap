@@ -21,6 +21,11 @@ exports[`Basic dropdown should match snapshot 1`] = `
   max-width: 100%;
 }
 
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -45,6 +50,11 @@ exports[`Basic dropdown should match snapshot 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -67,6 +77,11 @@ exports[`Basic dropdown should match snapshot 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
 }
 
 .c1 .fi-dropdown_label-p {
@@ -237,6 +252,11 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   max-width: 100%;
 }
 
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -261,6 +281,11 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -283,6 +308,11 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
 }
 
 .c1 .fi-dropdown_label-p {
@@ -454,6 +484,11 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   max-width: 100%;
 }
 
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -478,6 +513,11 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -500,6 +540,11 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
 }
 
 .c1 .fi-dropdown_label-p {
@@ -670,6 +715,11 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   max-width: 100%;
 }
 
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -694,6 +744,11 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -716,6 +771,11 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
 }
 
 .c1 .fi-dropdown_label-p {
@@ -886,6 +946,11 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   max-width: 100%;
 }
 
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -908,6 +973,11 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
 }
 
 .c3 {

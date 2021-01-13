@@ -25,6 +25,11 @@ exports[`Basic ExpanderContent shoud match snapshot 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;

@@ -49,6 +49,11 @@ exports[`Toggle variant default:  calling render with the same component on the 
   height: auto;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -71,6 +76,11 @@ exports[`Toggle variant default:  calling render with the same component on the 
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
 }
 
 .c1.fi-toggle--disabled {
@@ -528,6 +538,11 @@ exports[`Toggle variant withInput:  calling render with the same component on th
   opacity: 0.54;
 }
 
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -546,6 +561,11 @@ exports[`Toggle variant withInput:  calling render with the same component on th
   background: none;
   cursor: inherit;
   max-width: 100%;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
 }
 
 .c4 {
@@ -570,6 +590,11 @@ exports[`Toggle variant withInput:  calling render with the same component on th
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
 }
 
 .c1 {

@@ -25,6 +25,11 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c2 {
   display: inline-block;
   vertical-align: baseline;

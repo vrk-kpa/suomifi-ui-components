@@ -25,6 +25,11 @@ exports[`default, with only required props should match snapshot 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -53,6 +58,11 @@ exports[`default, with only required props should match snapshot 1`] = `
   opacity: 0.54;
 }
 
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
 .c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -71,6 +81,11 @@ exports[`default, with only required props should match snapshot 1`] = `
   background: none;
   cursor: inherit;
   max-width: 100%;
+}
+
+.c5::before,
+.c5::after {
+  box-sizing: border-box;
 }
 
 .c2 {
@@ -95,6 +110,11 @@ exports[`default, with only required props should match snapshot 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
 }
 
 .c1 {
@@ -191,6 +211,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   border-radius: 50%;
   border: 1px solid hsl(201,7%,58%);
   background: transparent;
+  box-sizing: content-box;
 }
 
 .c3.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
@@ -389,6 +410,11 @@ exports[`props className should match snapshot 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -417,6 +443,11 @@ exports[`props className should match snapshot 1`] = `
   opacity: 0.54;
 }
 
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
 .c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -435,6 +466,11 @@ exports[`props className should match snapshot 1`] = `
   background: none;
   cursor: inherit;
   max-width: 100%;
+}
+
+.c5::before,
+.c5::after {
+  box-sizing: border-box;
 }
 
 .c2 {
@@ -459,6 +495,11 @@ exports[`props className should match snapshot 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
 }
 
 .c1 {
@@ -555,6 +596,7 @@ exports[`props className should match snapshot 1`] = `
   border-radius: 50%;
   border: 1px solid hsl(201,7%,58%);
   background: transparent;
+  box-sizing: content-box;
 }
 
 .c3.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
@@ -753,6 +795,11 @@ exports[`props defaultValue should match snapshot 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -781,6 +828,11 @@ exports[`props defaultValue should match snapshot 1`] = `
   opacity: 0.54;
 }
 
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
 .c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -799,6 +851,11 @@ exports[`props defaultValue should match snapshot 1`] = `
   background: none;
   cursor: inherit;
   max-width: 100%;
+}
+
+.c5::before,
+.c5::after {
+  box-sizing: border-box;
 }
 
 .c2 {
@@ -823,6 +880,11 @@ exports[`props defaultValue should match snapshot 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
 }
 
 .c1 {
@@ -919,6 +981,7 @@ exports[`props defaultValue should match snapshot 1`] = `
   border-radius: 50%;
   border: 1px solid hsl(201,7%,58%);
   background: transparent;
+  box-sizing: content-box;
 }
 
 .c3.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
@@ -1118,6 +1181,11 @@ exports[`props hintText should match snapshot 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -1146,6 +1214,11 @@ exports[`props hintText should match snapshot 1`] = `
   opacity: 0.54;
 }
 
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
 .c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -1164,6 +1237,11 @@ exports[`props hintText should match snapshot 1`] = `
   background: none;
   cursor: inherit;
   max-width: 100%;
+}
+
+.c5::before,
+.c5::after {
+  box-sizing: border-box;
 }
 
 .c2 {
@@ -1188,6 +1266,11 @@ exports[`props hintText should match snapshot 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
 }
 
 .c1 {
@@ -1284,6 +1367,7 @@ exports[`props hintText should match snapshot 1`] = `
   border-radius: 50%;
   border: 1px solid hsl(201,7%,58%);
   background: transparent;
+  box-sizing: content-box;
 }
 
 .c3.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
@@ -1488,6 +1572,11 @@ exports[`props id should match snapshot 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -1516,6 +1605,11 @@ exports[`props id should match snapshot 1`] = `
   opacity: 0.54;
 }
 
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
 .c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -1534,6 +1628,11 @@ exports[`props id should match snapshot 1`] = `
   background: none;
   cursor: inherit;
   max-width: 100%;
+}
+
+.c5::before,
+.c5::after {
+  box-sizing: border-box;
 }
 
 .c2 {
@@ -1558,6 +1657,11 @@ exports[`props id should match snapshot 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
 }
 
 .c1 {
@@ -1654,6 +1758,7 @@ exports[`props id should match snapshot 1`] = `
   border-radius: 50%;
   border: 1px solid hsl(201,7%,58%);
   background: transparent;
+  box-sizing: content-box;
 }
 
 .c3.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
@@ -1852,6 +1957,11 @@ exports[`props label should match snapshot 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -1880,6 +1990,11 @@ exports[`props label should match snapshot 1`] = `
   opacity: 0.54;
 }
 
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
 .c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -1898,6 +2013,11 @@ exports[`props label should match snapshot 1`] = `
   background: none;
   cursor: inherit;
   max-width: 100%;
+}
+
+.c5::before,
+.c5::after {
+  box-sizing: border-box;
 }
 
 .c2 {
@@ -1922,6 +2042,11 @@ exports[`props label should match snapshot 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
 }
 
 .c1 {
@@ -2018,6 +2143,7 @@ exports[`props label should match snapshot 1`] = `
   border-radius: 50%;
   border: 1px solid hsl(201,7%,58%);
   background: transparent;
+  box-sizing: content-box;
 }
 
 .c3.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
@@ -2216,6 +2342,11 @@ exports[`props labelMode should match snapshot 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -2244,6 +2375,11 @@ exports[`props labelMode should match snapshot 1`] = `
   opacity: 0.54;
 }
 
+.c5::before,
+.c5::after {
+  box-sizing: border-box;
+}
+
 .c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -2262,6 +2398,11 @@ exports[`props labelMode should match snapshot 1`] = `
   background: none;
   cursor: inherit;
   max-width: 100%;
+}
+
+.c6::before,
+.c6::after {
+  box-sizing: border-box;
 }
 
 .c2 {
@@ -2286,6 +2427,11 @@ exports[`props labelMode should match snapshot 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
 }
 
 .c3 {
@@ -2394,6 +2540,7 @@ exports[`props labelMode should match snapshot 1`] = `
   border-radius: 50%;
   border: 1px solid hsl(201,7%,58%);
   background: transparent;
+  box-sizing: content-box;
 }
 
 .c4.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
@@ -2592,6 +2739,11 @@ exports[`props name should match snapshot 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -2620,6 +2772,11 @@ exports[`props name should match snapshot 1`] = `
   opacity: 0.54;
 }
 
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
 .c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -2638,6 +2795,11 @@ exports[`props name should match snapshot 1`] = `
   background: none;
   cursor: inherit;
   max-width: 100%;
+}
+
+.c5::before,
+.c5::after {
+  box-sizing: border-box;
 }
 
 .c2 {
@@ -2662,6 +2824,11 @@ exports[`props name should match snapshot 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
 }
 
 .c1 {
@@ -2758,6 +2925,7 @@ exports[`props name should match snapshot 1`] = `
   border-radius: 50%;
   border: 1px solid hsl(201,7%,58%);
   background: transparent;
+  box-sizing: content-box;
 }
 
 .c3.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
@@ -2956,6 +3124,11 @@ exports[`props value should match snapshot 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -2984,6 +3157,11 @@ exports[`props value should match snapshot 1`] = `
   opacity: 0.54;
 }
 
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
 .c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -3002,6 +3180,11 @@ exports[`props value should match snapshot 1`] = `
   background: none;
   cursor: inherit;
   max-width: 100%;
+}
+
+.c5::before,
+.c5::after {
+  box-sizing: border-box;
 }
 
 .c2 {
@@ -3026,6 +3209,11 @@ exports[`props value should match snapshot 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
 }
 
 .c1 {
@@ -3122,6 +3310,7 @@ exports[`props value should match snapshot 1`] = `
   border-radius: 50%;
   border: 1px solid hsl(201,7%,58%);
   background: transparent;
+  box-sizing: content-box;
 }
 
 .c3.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {

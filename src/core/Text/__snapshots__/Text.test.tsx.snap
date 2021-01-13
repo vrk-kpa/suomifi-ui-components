@@ -25,6 +25,11 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -91,6 +96,11 @@ exports[`calling render with the same component on the same container does not r
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
 }
 
 .c4 {

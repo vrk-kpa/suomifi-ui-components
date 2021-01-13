@@ -25,6 +25,11 @@ exports[`snapshots match error status with statustext 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -53,6 +58,11 @@ exports[`snapshots match error status with statustext 1`] = `
   opacity: 0.54;
 }
 
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -75,6 +85,11 @@ exports[`snapshots match error status with statustext 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
 }
 
 .c2.fi-label-text .fi-label-text_label-span {
@@ -338,6 +353,11 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -366,6 +386,11 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   opacity: 0.54;
 }
 
+.c5::before,
+.c5::after {
+  box-sizing: border-box;
+}
+
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -388,6 +413,11 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
 }
 
 .c4 {
@@ -632,6 +662,11 @@ exports[`snapshots match minimal implementation 1`] = `
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -660,6 +695,11 @@ exports[`snapshots match minimal implementation 1`] = `
   opacity: 0.54;
 }
 
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -682,6 +722,11 @@ exports[`snapshots match minimal implementation 1`] = `
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
 }
 
 .c2.fi-label-text .fi-label-text_label-span {

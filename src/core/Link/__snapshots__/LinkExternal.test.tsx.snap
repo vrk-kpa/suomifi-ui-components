@@ -24,6 +24,11 @@ exports[`calling render with the same component on the same container does not r
   text-decoration: underline;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c0:hover,
 .c0:active,
 .c0:focus,
@@ -58,6 +63,11 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
 .c5 {
   display: inline-block;
   vertical-align: baseline;
@@ -77,9 +87,8 @@ exports[`calling render with the same component on the same container does not r
 
 .c2 .fi-link_icon {
   padding-left: 4px;
-  -webkit-transform: translateY(0.1em);
-  -ms-transform: translateY(0.1em);
-  transform: translateY(0.1em);
+  font-size: 16px;
+  box-sizing: content-box;
 }
 
 .c1 {

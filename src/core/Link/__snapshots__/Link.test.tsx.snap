@@ -24,6 +24,11 @@ exports[`calling render with the same component on the same container does not r
   text-decoration: underline;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c0:hover,
 .c0:active,
 .c0:focus,
