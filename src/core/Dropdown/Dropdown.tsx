@@ -15,7 +15,6 @@ import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles, listboxPopoverStyles } from './Dropdown.baseStyles';
 import { Paragraph, ParagraphProps } from '../Paragraph/Paragraph';
 import { HtmlLabel, HtmlLabelProps, HtmlSpan } from '../../reset';
-import { DropdownItem } from './DropdownItem';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import { logger } from '../../utils/logger';
 import { idGenerator } from '../../utils/uuid';
@@ -34,7 +33,7 @@ export const dropdownClassNames = {
   labelParagraph: `${baseClassName}_label-p`,
 };
 
-export { ListboxOption as DropdownItem };
+const DropdownItem = (props: DropdownItemProps) => <ListboxOption {...props} />;
 
 type BaseListboxPopoverProps = ListboxPopoverProps & {
   ref?: any;
