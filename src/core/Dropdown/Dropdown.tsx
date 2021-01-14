@@ -16,7 +16,7 @@ import { baseStyles, listboxPopoverStyles } from './Dropdown.baseStyles';
 import { HtmlSpan } from '../../reset';
 import { LabelText, LabelMode } from '../Form/LabelText/LabelText';
 import { logger } from '../../utils/logger';
-import { idGenerator } from '../../utils/uuid';
+import { AutoId } from '../../utils/AutoId';
 import { positionMatchWidth } from '@reach/popover';
 
 const baseClassName = 'fi-dropdown';
@@ -63,8 +63,7 @@ type OptionalListboxPopoverProps = {
 export interface DropdownProps extends TokensProp {
   /**
    * Unique id
-   * If no id is specified, one will be generated using uuid
-   * @default uuidV4
+   * If no id is specified, one will be generated automatically
    */
   id?: string;
   /** Name used for input's form value. */
@@ -145,7 +144,7 @@ export class BaseDropdown extends Component<DropdownProps> {
 
   render() {
     const {
-      id: propId,
+      id,
       name,
       disabled,
       children,
@@ -169,7 +168,6 @@ export class BaseDropdown extends Component<DropdownProps> {
       return null;
     }
 
-    const id = idGenerator(propId);
     const labelId = `${id}-label`;
     const ariaLabelledByIds = `${
       !!ariaLabelledBy ? `${ariaLabelledBy} ` : ''
@@ -274,8 +272,14 @@ export class BaseDropdown extends Component<DropdownProps> {
 }
 
 const StyledDropdown = styled(
-  ({ tokens, ...passProps }: DropdownProps & InternalTokensProp) => (
-    <BaseDropdown {...passProps} />
+  ({
+    tokens,
+    id: propId,
+    ...passProps
+  }: DropdownProps & InternalTokensProp) => (
+    <AutoId id={propId}>
+      {(id) => <BaseDropdown id={id} {...passProps} />}
+    </AutoId>
   ),
 )`
   ${(props) => baseStyles(props)}
