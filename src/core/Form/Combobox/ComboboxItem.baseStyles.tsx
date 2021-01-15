@@ -4,21 +4,16 @@ import { font } from '../../theme/reset';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
-    & .fi-combobox {
+    & .fi-combobox-item {
       ${font({ theme })('bodyText')}
     }
 
-    & .fi-combobox_wrapper {
+    & .fi-combobox-item_wrapper {
       display: inline-block;
       width: 100%;
-    }
 
-    &.fi-combobox--open {
-      & .fi-filter-input_input {
-        border-bottom: 0;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-      }
+      padding: 10px;
+      font-size: 16px;
     }
   `,
 );

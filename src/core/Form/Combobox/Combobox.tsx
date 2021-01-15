@@ -6,7 +6,10 @@ import { TokensProp, InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { FilterInput } from '../FilterInput/FilterInput';
 import { Popover } from '../../Popover/Popover';
+import { ComboboxItemList } from './ComboboxItemList';
+import { ComboboxItem } from './ComboboxItem';
 import { baseStyles } from './Combobox.baseStyles';
+import { Checkbox } from '../Checkbox/Checkbox';
 
 interface Product {
   name: string;
@@ -15,9 +18,10 @@ interface Product {
 }
 
 const baseClassName = 'fi-combobox';
-// const comboboxClassNames = {
-//   wrapper: `${baseClassName}_wrapper`,
-// };
+const comboboxClassNames = {
+  wrapper: `${baseClassName}_wrapper`,
+  open: `${baseClassName}--open`,
+};
 
 export interface ComboboxProps extends TokensProp {
   /** Combobox container div class name for custom styling. */
@@ -61,32 +65,63 @@ class BaseCombobox extends Component<ComboboxProps> {
     return (
       <HtmlDiv
         {...passProps}
-        className={classnames(baseClassName, className, {})}
+        className={classnames(baseClassName, className, {
+          [comboboxClassNames.open]: this.state.showPopover,
+        })}
       >
-        <FilterInput
-          labelText="Combobox"
-          items={tools}
-          onFilter={(filtered) => this.setState({ items: filtered })}
-          filterFunc={filter}
-          forwardRef={this.setFilterInputRefElement}
-          onFocus={() => setPopoverVisibility(true)}
-          onBlur={() => setPopoverVisibility(false)}
-        />
-        <Popover
-          sourceRef={this.state.filterInputRef}
-          matchWidth={true}
-          id="popover-test"
-          tabIndex={-1}
-          portalStyleProps={{ backgroundColor: 'white' }}
-        >
-          {this.state.showPopover && (
-            <ul tabIndex={-1}>
-              {this.state.items.map((item) => (
-                <li key={item.name}>{item.name}</li>
-              ))}
-            </ul>
-          )}
-        </Popover>
+        <HtmlDiv className={classnames(comboboxClassNames.wrapper, {})}>
+          <FilterInput
+            labelText="Combobox"
+            items={tools}
+            onFilter={(filtered) => this.setState({ items: filtered })}
+            filterFunc={filter}
+            forwardRef={this.setFilterInputRefElement}
+            onFocus={() => setPopoverVisibility(true)}
+            onBlur={() => setPopoverVisibility(false)}
+          />
+          <Popover
+            sourceRef={this.state.filterInputRef}
+            matchWidth={true}
+            id="popover-test"
+            tabIndex={-1}
+            portalStyleProps={{ backgroundColor: 'white' }}
+          >
+            {this.state.showPopover && (
+              <ComboboxItemList>
+                {/* <ul tabIndex={-1}>
+                {this.state.items.map((item) => (
+                  <li key={item.name}>{item.name}</li>
+                  ))}
+                </ul> */}
+                {this.state.items.map((item) => (
+                  <HtmlDiv
+                    tabIndex={-1}
+                    key={item.name}
+                    className="fi-combobox-item"
+                    style={{ padding: 5 }}
+                  >
+                    <Checkbox>{item.name}</Checkbox>
+                  </HtmlDiv>
+                ))}
+              </ComboboxItemList>
+            )}
+          </Popover>
+          {/* TODO: modeling the combobox item */}
+          {/* <HtmlDiv className="fi-combobox-items">
+          <HtmlDiv className="fi-combobox-item">
+            <Checkbox>Item text here</Checkbox>
+          </HtmlDiv>
+        </HtmlDiv> */}
+          <ComboboxItemList>
+            <ComboboxItem>
+              <Checkbox>Happy chappy</Checkbox>
+            </ComboboxItem>
+            <ComboboxItem>
+              <Checkbox>Wrangler Doers</Checkbox>
+            </ComboboxItem>
+          </ComboboxItemList>
+          {/* TODO: ^^ modeling the combobox item ^^  */}
+        </HtmlDiv>
       </HtmlDiv>
     );
   }
