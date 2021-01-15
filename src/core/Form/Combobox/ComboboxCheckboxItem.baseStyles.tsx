@@ -11,7 +11,17 @@ export const baseStyles = withSuomifiTheme(
     & .fi-combobox-item_wrapper {
       display: inline-block;
       width: 100%;
-      padding: 10px;
+    }
+
+    &.fi-combobox-item {
+      & .fi-checkbox {
+        padding: 10px;
+      }
+
+      & .fi-checkbox--checked {
+        background-color: ${theme.colors.highlightBase};
+        color: ${theme.colors.whiteBase};
+      }
     }
   `,
 );
