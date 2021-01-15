@@ -9,7 +9,6 @@ import { Popover } from '../../Popover/Popover';
 import { ComboboxItemList } from './ComboboxItemList';
 import { ComboboxItem } from './ComboboxItem';
 import { baseStyles } from './Combobox.baseStyles';
-import { Checkbox } from '../Checkbox/Checkbox';
 
 interface Product {
   name: string;
@@ -88,38 +87,17 @@ class BaseCombobox extends Component<ComboboxProps> {
           >
             {this.state.showPopover && (
               <ComboboxItemList>
-                {/* <ul tabIndex={-1}>
                 {this.state.items.map((item) => (
-                  <li key={item.name}>{item.name}</li>
-                  ))}
-                </ul> */}
-                {this.state.items.map((item) => (
-                  <HtmlDiv
-                    tabIndex={-1}
-                    key={item.name}
-                    className="fi-combobox-item"
-                    style={{ padding: 5 }}
-                  >
-                    <Checkbox>{item.name}</Checkbox>
-                  </HtmlDiv>
+                  <ComboboxItem>{item.name}</ComboboxItem>
                 ))}
               </ComboboxItemList>
             )}
           </Popover>
           {/* TODO: modeling the combobox item */}
-          {/* <HtmlDiv className="fi-combobox-items">
-          <HtmlDiv className="fi-combobox-item">
-            <Checkbox>Item text here</Checkbox>
-          </HtmlDiv>
-        </HtmlDiv> */}
-          <ComboboxItemList>
-            <ComboboxItem>
-              <Checkbox>Happy chappy</Checkbox>
-            </ComboboxItem>
-            <ComboboxItem>
-              <Checkbox>Wrangler Doers</Checkbox>
-            </ComboboxItem>
-          </ComboboxItemList>
+          {/* <ComboboxItemList>
+            <ComboboxItem>Happy chappy</ComboboxItem>
+            <ComboboxItem>Wrangler Doers</ComboboxItem>
+          </ComboboxItemList> */}
           {/* TODO: ^^ modeling the combobox item ^^  */}
         </HtmlDiv>
       </HtmlDiv>
