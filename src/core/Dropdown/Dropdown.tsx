@@ -240,7 +240,7 @@ export class BaseDropdown extends Component<DropdownProps> {
         {...passProps}
       >
         <LabelText
-          htmlFor={id}
+          id={labelId}
           labelMode={labelMode}
           as="label"
           optionalText={optionalText}
