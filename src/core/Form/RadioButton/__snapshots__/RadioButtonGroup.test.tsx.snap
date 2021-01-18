@@ -318,7 +318,7 @@ exports[`default, with only required props should match snapshot 1`] = `
     aria-labelledby="test-id-label"
     class="c0 c1 fi-radio-button-group"
     id="test-id"
-    role="group"
+    role="radiogroup"
   >
     <span
       class="c2 fi-radio-button-group_label"
@@ -703,7 +703,7 @@ exports[`props className should match snapshot 1`] = `
     aria-labelledby="test-id-label"
     class="c0 c1 fi-radio-button-group custom-className"
     id="test-id"
-    role="group"
+    role="radiogroup"
   >
     <span
       class="c2 fi-radio-button-group_label"
@@ -1088,7 +1088,7 @@ exports[`props defaultValue should match snapshot 1`] = `
     aria-labelledby="test-id-label"
     class="c0 c1 fi-radio-button-group"
     id="test-id"
-    role="group"
+    role="radiogroup"
   >
     <span
       class="c2 fi-radio-button-group_label"
@@ -1474,7 +1474,7 @@ exports[`props hintText should match snapshot 1`] = `
     aria-labelledby="test-id-label test-id-hintText"
     class="c0 c1 fi-radio-button-group"
     id="test-id"
-    role="group"
+    role="radiogroup"
   >
     <span
       class="c2 fi-radio-button-group_label"
@@ -1865,7 +1865,7 @@ exports[`props id should match snapshot 1`] = `
     aria-labelledby="good-id-label"
     class="c0 c1 fi-radio-button-group"
     id="good-id"
-    role="group"
+    role="radiogroup"
   >
     <span
       class="c2 fi-radio-button-group_label"
@@ -2250,7 +2250,7 @@ exports[`props label should match snapshot 1`] = `
     aria-labelledby="test-id-label"
     class="c0 c1 fi-radio-button-group"
     id="test-id"
-    role="group"
+    role="radiogroup"
   >
     <span
       class="c2 fi-radio-button-group_label"
@@ -2647,7 +2647,7 @@ exports[`props labelMode should match snapshot 1`] = `
     aria-labelledby="test-id-label"
     class="c0 c1 fi-radio-button-group"
     id="test-id"
-    role="group"
+    role="radiogroup"
   >
     <span
       class="c2 c3 fi-visually-hidden"
@@ -3032,7 +3032,7 @@ exports[`props name should match snapshot 1`] = `
     aria-labelledby="test-id-label"
     class="c0 c1 fi-radio-button-group"
     id="test-id"
-    role="group"
+    role="radiogroup"
   >
     <span
       class="c2 fi-radio-button-group_label"
@@ -3417,7 +3417,7 @@ exports[`props value should match snapshot 1`] = `
     aria-labelledby="test-id-label"
     class="c0 c1 fi-radio-button-group"
     id="test-id"
-    role="group"
+    role="radiogroup"
     value="2"
   >
     <span

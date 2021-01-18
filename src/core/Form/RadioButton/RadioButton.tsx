@@ -49,7 +49,10 @@ export interface RadioButtonProps extends TokensProp {
   checked?: boolean;
   /** Callback for RadioButton checked state changes. */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  /** Additional label id for screen readers. */
+  /**
+   * Label id for screen readers when using external label element.
+   * Screen readers will ignore children as label if id is provided.
+   */
   'aria-labelledby'?: string;
 }
 
@@ -99,6 +102,16 @@ class BaseRadioButton extends Component<RadioButtonProps> {
 
     const { checkedState } = this.state;
     const hintTextId = `${id}-hintText`;
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      if (checked === undefined) {
+        this.setState({ checkedState: event.target.value });
+      }
+      if (!!onChange) {
+        onChange(event);
+      }
+    };
+
     return (
       <HtmlDiv
         className={classnames(
@@ -118,7 +131,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
           name={name}
           id={id}
           disabled={disabled}
-          onChange={onChange}
+          onChange={handleChange}
           checked={checkedState}
           {...getConditionalAriaProp('aria-describedby', [
             hintText ? hintTextId : undefined,

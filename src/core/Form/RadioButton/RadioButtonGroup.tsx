@@ -111,7 +111,7 @@ export class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
       <HtmlDiv
         className={className}
         id={id}
-        role="group"
+        role="radiogroup"
         {...getConditionalAriaProp('aria-labelledby', [
           labelId,
           hintText ? hintTextId : undefined,
