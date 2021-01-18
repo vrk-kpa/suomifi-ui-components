@@ -1,12 +1,6 @@
 export { Breadcrumb, BreadcrumbProps } from './Breadcrumb/Breadcrumb';
 export { Block, BlockProps } from './Block/Block';
 export {
-  Dropdown,
-  DropdownProps,
-  DropdownItem,
-  DropdownItemProps,
-} from './Dropdown/Dropdown';
-export {
   Toggle,
   ToggleProps,
   ToggleInputProps,
