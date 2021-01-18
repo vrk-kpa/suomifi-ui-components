@@ -7,12 +7,12 @@ import {
   ListboxButtonProps,
   ListboxPopoverProps,
   ListboxList,
-  ListboxOption,
   ListboxPopover,
 } from '@reach/listbox';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles, listboxPopoverStyles } from './Dropdown.baseStyles';
+import { DropdownItemProps } from './DropdownItem';
 import { HtmlSpan } from '../../reset';
 import { LabelText, LabelMode } from '../Form/LabelText/LabelText';
 import { logger } from '../../utils/logger';
@@ -35,15 +35,6 @@ export const dropdownClassNames = {
 type BaseListboxPopoverProps = ListboxPopoverProps & {
   ref?: any;
 };
-
-export interface DropdownItemProps {
-  /** Item value */
-  value: string;
-  /** Item content */
-  children: ReactNode;
-  /** Classname for item */
-  className?: string;
-}
 
 interface DropdownState {
   selectedValue: string | undefined;
@@ -297,15 +288,11 @@ const StyledListboxPopover = styled(
   ${(props) => listboxPopoverStyles(props.theme)}
 `;
 
-const DropdownItem = (props: DropdownItemProps) => <ListboxOption {...props} />;
-
 /**
  * <i class="semantics" />
  * Use for selectable dropdown with items.
  */
 export class Dropdown extends Component<DropdownProps> {
-  static item = (props: DropdownItemProps) => <DropdownItem {...props} />;
-
   render() {
     const props = withSuomifiDefaultProps(this.props);
     return (
