@@ -5,6 +5,7 @@ import { HtmlDiv } from '../../../reset';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { baseStyles } from './ComboboxItemList.baseStyles';
+import { ComboboxItemProps } from './ComboboxItem';
 
 const baseClassName = 'fi-combobox-item-list';
 
@@ -15,6 +16,7 @@ const comboboxItemListClassNames = {
 export interface ComboboxItemListProps extends TokensProp {
   /** ComboboxItemList container div class name for custom styling. */
   className?: string;
+  children: Array<React.ReactElement<ComboboxItemProps>>;
 }
 
 class BaseComboboxItemList extends Component<ComboboxItemListProps> {
