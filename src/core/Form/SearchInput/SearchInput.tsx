@@ -9,8 +9,8 @@ import {
   HtmlButton,
   HtmlButtonProps,
 } from '../../../reset';
-import { Omit } from '../../../utils/typescript';
-import { idGenerator } from '../../../utils/uuid';
+import { AutoId } from '../../../utils/AutoId';
+import { getConditionalAriaProp } from '../../../utils/aria';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
@@ -106,10 +106,6 @@ class BaseSearchInput extends Component<SearchInputProps> {
 
   private inputRef = createRef<HTMLInputElement>();
 
-  private id: string;
-
-  private statusTextId: string;
-
   static getDerivedStateFromProps(
     nextProps: SearchInputProps,
     prevState: SearchInputState,
@@ -119,12 +115,6 @@ class BaseSearchInput extends Component<SearchInputProps> {
       return { value };
     }
     return null;
-  }
-
-  constructor(props: SearchInputProps) {
-    super(props);
-    this.id = `${idGenerator(props.id)}`;
-    this.statusTextId = `${this.id}-statusText`;
   }
 
   render() {
@@ -149,6 +139,8 @@ class BaseSearchInput extends Component<SearchInputProps> {
       'aria-describedby': ariaDescribedBy,
       ...passProps
     } = this.props;
+
+    const statusTextId = `${id}-statusText`;
 
     const conditionalSetState = (newValue: SearchInputValue) => {
       if (!('value' in this.props)) {
@@ -207,18 +199,6 @@ class BaseSearchInput extends Component<SearchInputProps> {
         : { tabIndex: -1, 'aria-hidden': true }),
     };
 
-    const getDescribedBy = () => {
-      if (statusText || ariaDescribedBy) {
-        return {
-          'aria-describedby': [
-            ...(statusText ? [this.statusTextId] : []),
-            ariaDescribedBy,
-          ].join(' '),
-        };
-      }
-      return {};
-    };
-
     return (
       <HtmlDiv
         {...inputContainerProps}
@@ -228,7 +208,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
           [searchInputClassNames.fullWidth]: fullWidth,
         })}
       >
-        <LabelText htmlFor={this.id} labelMode={labelMode} as="label">
+        <LabelText htmlFor={id} labelMode={labelMode} as="label">
           {labelText}
         </LabelText>
         <Debounce waitFor={this.props.debounce}>
@@ -237,10 +217,13 @@ class BaseSearchInput extends Component<SearchInputProps> {
               <HtmlDiv className={searchInputClassNames.inputElementContainer}>
                 <HtmlInputWithRef
                   {...passProps}
-                  {...getDescribedBy()}
+                  {...getConditionalAriaProp('aria-describedby', [
+                    !!statusText ? statusTextId : undefined,
+                    ariaDescribedBy,
+                  ])}
                   forwardRef={this.inputRef}
                   aria-invalid={status === 'error'}
-                  id={this.id}
+                  id={id}
                   className={searchInputClassNames.inputElement}
                   type="search"
                   role="searchbox"
@@ -282,7 +265,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
             </HtmlDiv>
           )}
         </Debounce>
-        <StatusText id={this.statusTextId} status={status}>
+        <StatusText id={statusTextId} status={status}>
           {statusText}
         </StatusText>
       </HtmlDiv>
@@ -305,6 +288,14 @@ const StyledSearchInput = styled(
  */
 export class SearchInput extends Component<SearchInputProps> {
   render() {
-    return <StyledSearchInput {...withSuomifiDefaultProps(this.props)} />;
+    const { id: propId, ...passProps } = this.props;
+
+    return (
+      <AutoId id={propId}>
+        {(id) => (
+          <StyledSearchInput id={id} {...withSuomifiDefaultProps(passProps)} />
+        )}
+      </AutoId>
+    );
   }
 }

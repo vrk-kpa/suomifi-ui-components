@@ -462,7 +462,7 @@ exports[`snapshot should have matching default structure 1`] = `
 >
   <label
     class="c0 c2 fi-label-text"
-    for="test-id"
+    for="1"
   >
     <span
       class="c3 fi-label-text_label-span"
@@ -480,7 +480,7 @@ exports[`snapshot should have matching default structure 1`] = `
         aria-invalid="false"
         class="c4 fi-search-input_input"
         data-testid="searchinput"
-        id="test-id"
+        id="1"
         role="searchbox"
         type="search"
         value=""
