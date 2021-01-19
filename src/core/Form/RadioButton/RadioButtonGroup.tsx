@@ -1,13 +1,12 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import { TokensProp, InternalTokensProp } from '../../theme';
-import { HtmlDiv, HtmlSpan } from '../../../reset';
+import { HtmlDiv, HtmlSpan, HtmlFieldSet, HtmlLegend } from '../../../reset';
 import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
 import { RadioButtonProps } from './RadioButton';
 import { baseStyles } from './RadioButtonGroup.baseStyles';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { AutoId } from '../../../utils/AutoId';
-import { getConditionalAriaProp } from '../../../utils/aria';
 import classnames from 'classnames';
 
 const baseClassName = 'fi-radio-button-group';
@@ -33,8 +32,7 @@ export interface RadioButtonGroupProps extends TokensProp {
   labelMode?: Label;
   /**
    * Unique id
-   * If no id is specified, one will be generated using uuid
-   * @default uuidV4
+   * If no id is specified, one will be generated
    */
   id?: string;
   /** Name for the group; this will be set to RadioButtons. Overrides RadioButton props name. */
@@ -104,46 +102,37 @@ export class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
       ...passProps
     } = this.props;
     const hideLabel = labelMode === 'hidden';
-    const labelId = `${id}-label`;
-    const hintTextId = `${id}-hintText`;
 
     return (
-      <HtmlDiv
-        className={className}
-        id={id}
-        role="radiogroup"
-        {...getConditionalAriaProp('aria-labelledby', [
-          labelId,
-          hintText ? hintTextId : undefined,
-        ])}
-        {...passProps}
-      >
-        {hideLabel ? (
-          <VisuallyHidden id={labelId}>{label}</VisuallyHidden>
-        ) : (
-          <HtmlSpan className={radioButtonGroupClassNames.label} id={labelId}>
-            {label}
-          </HtmlSpan>
-        )}
-        {hintText && (
-          <HtmlSpan
-            className={radioButtonGroupClassNames.hintText}
-            id={hintTextId}
-          >
-            {hintText}
-          </HtmlSpan>
-        )}
-        <HtmlDiv className={radioButtonGroupClassNames.container}>
-          <Provider
-            value={{
-              onRadioButtonChange: this.handleRadioButtonChange,
-              selectedValue: this.state.selectedValue,
-              name,
-            }}
-          >
-            {children}
-          </Provider>
-        </HtmlDiv>
+      <HtmlDiv className={className} id={id} {...passProps}>
+        <HtmlFieldSet>
+          <HtmlLegend>
+            {hideLabel ? (
+              <VisuallyHidden>{label}</VisuallyHidden>
+            ) : (
+              <HtmlSpan className={radioButtonGroupClassNames.label}>
+                {label}
+              </HtmlSpan>
+            )}
+
+            {hintText && (
+              <HtmlSpan className={radioButtonGroupClassNames.hintText}>
+                {hintText}
+              </HtmlSpan>
+            )}
+          </HtmlLegend>
+          <HtmlDiv className={radioButtonGroupClassNames.container}>
+            <Provider
+              value={{
+                onRadioButtonChange: this.handleRadioButtonChange,
+                selectedValue: this.state.selectedValue,
+                name,
+              }}
+            >
+              {children}
+            </Provider>
+          </HtmlDiv>
+        </HtmlFieldSet>
       </HtmlDiv>
     );
   }
