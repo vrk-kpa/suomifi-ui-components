@@ -7,11 +7,16 @@ export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     &.fi-search-input {
       ${font({ theme })('bodyText')}
-      display: inline-block;
       width: 290px;
     }
 
     & .fi-search-input {
+      &_wrapper {
+        width: 100%;
+        min-width: 105px;
+        display: inline-block;
+      }
+
       &_functionality-container {
         position: relative;
       }

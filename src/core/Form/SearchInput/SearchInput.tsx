@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import {
   HtmlInputWithRef,
   HtmlInputProps,
+  HtmlSpan,
   HtmlDiv,
   HtmlDivProps,
   HtmlButton,
@@ -85,6 +86,7 @@ const searchInputClassNames = {
   fullWidth: `${baseClassName}--full-width`,
   error: `${baseClassName}--error`,
   notEmpty: `${baseClassName}--not-empty`,
+  styleWrapper: `${baseClassName}_wrapper`,
   inputElement: `${baseClassName}_input`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   functionalityContainer: `${baseClassName}_functionality-container`,
@@ -208,66 +210,70 @@ class BaseSearchInput extends Component<SearchInputProps> {
           [searchInputClassNames.fullWidth]: fullWidth,
         })}
       >
-        <LabelText htmlFor={id} labelMode={labelMode} as="label">
-          {labelText}
-        </LabelText>
-        <Debounce waitFor={this.props.debounce}>
-          {(debouncer: Function, cancelDebounce: Function) => (
-            <HtmlDiv className={searchInputClassNames.functionalityContainer}>
-              <HtmlDiv className={searchInputClassNames.inputElementContainer}>
-                <HtmlInputWithRef
-                  {...passProps}
-                  {...getConditionalAriaProp('aria-describedby', [
-                    !!statusText ? statusTextId : undefined,
-                    ariaDescribedBy,
-                  ])}
-                  forwardRef={this.inputRef}
-                  aria-invalid={status === 'error'}
-                  id={id}
-                  className={searchInputClassNames.inputElement}
-                  type="search"
-                  role="searchbox"
-                  value={this.state.value}
-                  placeholder={visualPlaceholder}
-                  onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                    const eventValue = event.currentTarget.value;
-                    conditionalSetState(eventValue);
-                    if (propOnChange) {
-                      debouncer(propOnChange, eventValue);
-                    }
+        <HtmlSpan className={searchInputClassNames.styleWrapper}>
+          <LabelText htmlFor={id} labelMode={labelMode} as="label">
+            {labelText}
+          </LabelText>
+          <Debounce waitFor={this.props.debounce}>
+            {(debouncer: Function, cancelDebounce: Function) => (
+              <HtmlDiv className={searchInputClassNames.functionalityContainer}>
+                <HtmlDiv
+                  className={searchInputClassNames.inputElementContainer}
+                >
+                  <HtmlInputWithRef
+                    {...passProps}
+                    {...getConditionalAriaProp('aria-describedby', [
+                      !!statusText ? statusTextId : undefined,
+                      ariaDescribedBy,
+                    ])}
+                    forwardRef={this.inputRef}
+                    aria-invalid={status === 'error'}
+                    id={id}
+                    className={searchInputClassNames.inputElement}
+                    type="search"
+                    role="searchbox"
+                    value={this.state.value}
+                    placeholder={visualPlaceholder}
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                      const eventValue = event.currentTarget.value;
+                      conditionalSetState(eventValue);
+                      if (propOnChange) {
+                        debouncer(propOnChange, eventValue);
+                      }
+                    }}
+                    onKeyPress={onKeyPress}
+                    onKeyDown={onKeyDown}
+                  />
+                </HtmlDiv>
+                <HtmlButton
+                  {...clearButtonProps}
+                  onClick={() => {
+                    onClear();
+                    cancelDebounce();
                   }}
-                  onKeyPress={onKeyPress}
-                  onKeyDown={onKeyDown}
-                />
+                >
+                  <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
+                  <Icon
+                    aria-hidden={true}
+                    icon="close"
+                    className={searchInputClassNames.clearIcon}
+                  />
+                </HtmlButton>
+                <HtmlButton {...searchButtonDerivedProps}>
+                  <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
+                  <Icon
+                    aria-hidden={true}
+                    icon="search"
+                    className={searchInputClassNames.searchIcon}
+                  />
+                </HtmlButton>
               </HtmlDiv>
-              <HtmlButton
-                {...clearButtonProps}
-                onClick={() => {
-                  onClear();
-                  cancelDebounce();
-                }}
-              >
-                <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
-                <Icon
-                  aria-hidden={true}
-                  icon="close"
-                  className={searchInputClassNames.clearIcon}
-                />
-              </HtmlButton>
-              <HtmlButton {...searchButtonDerivedProps}>
-                <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
-                <Icon
-                  aria-hidden={true}
-                  icon="search"
-                  className={searchInputClassNames.searchIcon}
-                />
-              </HtmlButton>
-            </HtmlDiv>
-          )}
-        </Debounce>
-        <StatusText id={statusTextId} status={status}>
-          {statusText}
-        </StatusText>
+            )}
+          </Debounce>
+          <StatusText id={statusTextId} status={status}>
+            {statusText}
+          </StatusText>
+        </HtmlSpan>
       </HtmlDiv>
     );
   }
