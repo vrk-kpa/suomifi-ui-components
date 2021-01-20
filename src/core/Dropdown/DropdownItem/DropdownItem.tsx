@@ -2,12 +2,10 @@ import React, { ReactNode } from 'react';
 import { ListboxOption } from '@reach/listbox';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './DropdownItem.basestyles';
-import { TokensProp, InternalTokensProp } from '../../theme';
+import { InternalTokensProp, TokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
-import { dropdownClassNames } from '../Dropdown';
+import { dropdownClassNames } from '../Dropdown/Dropdown';
 import classnames from 'classnames';
-
-const itemClassName = dropdownClassNames.item;
 
 export interface DropdownItemProps extends TokensProp {
   /** Item value */
@@ -20,7 +18,12 @@ export interface DropdownItemProps extends TokensProp {
 
 const BaseDropdownItem = (props: DropdownItemProps) => {
   const { className, ...passProps } = props;
-  return <ListboxOption className={classnames(itemClassName)} {...passProps} />;
+  return (
+    <ListboxOption
+      className={classnames(className, dropdownClassNames.item)}
+      {...passProps}
+    />
+  );
 };
 
 const StyledDropdownItem = styled(
