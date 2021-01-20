@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, TokensAndTheme } from '../theme';
-import { element, inputButton, font } from '../theme/reset';
-import { absoluteFocus } from '../theme/utils';
+import { withSuomifiTheme, TokensAndTheme } from '../../theme';
+import { element, inputButton, font } from '../../theme/reset';
+import { absoluteFocus } from '../../theme/utils';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
@@ -87,6 +87,13 @@ export const listboxPopoverStyles = withSuomifiTheme(
       }
     }
 
+    &.fi-dropdown--noSelectedStyles {
+      & .fi-dropdown_item {
+        background-color: ${theme.colors.whiteBase};
+        ${theme.typography.actionElementInnerText};
+      }
+    }
+
     & [data-reach-listbox-list] {
       border: 0;
       padding: 0;
@@ -94,35 +101,6 @@ export const listboxPopoverStyles = withSuomifiTheme(
       white-space: normal;
       word-break: break-word;
       overflow-wrap: break-word;
-    }
-
-    & [data-reach-listbox-option][data-current].fi-dropdown_item {
-      ${theme.typography.actionElementInnerTextBold}
-      background-image: none;
-      background-color: ${theme.colors.highlightLight3};
-      border: 0;
-
-      &.fi-dropdown--noSelectedStyles {
-        background-color: ${theme.colors.whiteBase};
-        ${theme.typography.actionElementInnerText}
-      }
-    }
-
-    & [data-reach-listbox-option].fi-dropdown_item {
-      ${element({ theme })}
-      ${theme.typography.actionElementInnerText}
-      line-height: 1.5;
-      padding: ${theme.spacing.insetM};
-      border: 0;
-      &[aria-selected='true'] {
-        color: ${theme.colors.blackBase};
-        background-image: none;
-        background-color: ${theme.colors.highlightLight3};
-        border: 0;
-      }
-      &:focus {
-        outline: 0;
-      }
     }
   `,
 );

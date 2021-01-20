@@ -9,14 +9,14 @@ import {
   ListboxList,
   ListboxPopover,
 } from '@reach/listbox';
-import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, InternalTokensProp } from '../theme';
+import { withSuomifiDefaultProps } from '../../theme/utils';
+import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles, listboxPopoverStyles } from './Dropdown.baseStyles';
-import { DropdownItemProps } from './DropdownItem';
-import { HtmlSpan } from '../../reset';
-import { LabelText, LabelMode } from '../Form/LabelText/LabelText';
-import { logger } from '../../utils/logger';
-import { AutoId } from '../../utils/AutoId';
+import { DropdownItemProps } from '../DropdownItem/DropdownItem';
+import { HtmlSpan } from '../../../reset';
+import { LabelText, LabelMode } from '../../Form/LabelText/LabelText';
+import { logger } from '../../../utils/logger';
+import { AutoId } from '../../../utils/AutoId';
 import { positionMatchWidth } from '@reach/popover';
 
 const baseClassName = 'fi-dropdown';
@@ -90,7 +90,6 @@ export interface DropdownProps extends TokensProp {
   /** Properties given to dropdown's popover-component, className etc. */
   dropdownPopoverProps?: OptionalListboxPopoverProps;
   listboxPopoverComponent?: React.ComponentType<OptionalListboxPopoverProps>;
-  dropdownItemClassName?: string;
   /** DropdownItems */
   children?:
     | Array<ReactElement<DropdownItemProps>>
@@ -120,19 +119,6 @@ export class BaseDropdown extends Component<DropdownProps> {
     return null;
   }
 
-  dropdownItems = (children: ReactNode, classNames?: { className: string }) =>
-    React.Children.map(
-      children,
-      (child: React.ReactElement<DropdownItemProps>) => {
-        if (React.isValidElement(child)) {
-          return React.cloneElement(child, {
-            ...classNames,
-          });
-        }
-        return child;
-      },
-    );
-
   render() {
     const {
       id,
@@ -149,7 +135,6 @@ export class BaseDropdown extends Component<DropdownProps> {
       dropdownButtonProps = {},
       dropdownPopoverProps = {},
       listboxPopoverComponent: ListboxPopoverComponentReplace,
-      dropdownItemClassName = {},
       onChange: propOnChange,
       ...passProps
     } = this.props;
@@ -175,27 +160,10 @@ export class BaseDropdown extends Component<DropdownProps> {
         ? { 'aria-labelledby': ariaLabelledByIds }
         : {};
 
-    const passDropdownButtonProps = {
-      ...dropdownButtonProps,
-      id: buttonId,
-      className: classnames(
-        dropdownClassNames.button,
-        dropdownButtonProps.className,
-        {
-          [dropdownClassNames.disabled]: !!disabled,
-        },
-      ),
-      ...buttonAriaLabelledByOverride,
-    };
-
     const passDropdownPopoverProps = {
       ...dropdownPopoverProps,
-      className: dropdownClassNames.popover,
-    };
-
-    const passDropdownItemProps = {
-      className: classnames(dropdownClassNames.item, dropdownItemClassName, {
-        [dropdownClassNames.noSelectedStyles]: alwaysShowVisualPlaceholder,
+      className: classnames(className, dropdownClassNames.popover, {
+        [dropdownClassNames.noSelectedStyles]: !!alwaysShowVisualPlaceholder,
       }),
     };
 
@@ -239,21 +207,30 @@ export class BaseDropdown extends Component<DropdownProps> {
           {labelText}
         </LabelText>
         <ListboxInput {...listboxInputProps}>
-          <ListboxButton {...passDropdownButtonProps}>
+          <ListboxButton
+            {...dropdownButtonProps}
+            id={buttonId}
+            className={classnames(
+              dropdownClassNames.button,
+              dropdownButtonProps.className,
+              {
+                [dropdownClassNames.disabled]: !!disabled,
+              },
+            )}
+            {...buttonAriaLabelledByOverride}
+          >
             {listboxDisplayValue}
           </ListboxButton>
           {!!ListboxPopoverComponentReplace ? (
             <ListboxPopoverComponentReplace {...passDropdownPopoverProps}>
-              {this.dropdownItems(children, passDropdownItemProps)}
+              {children}
             </ListboxPopoverComponentReplace>
           ) : (
             <ListboxPopover
               position={positionMatchWidth}
               {...passDropdownPopoverProps}
             >
-              <ListboxList>
-                {this.dropdownItems(children, passDropdownItemProps)}
-              </ListboxList>
+              <ListboxList>{children}</ListboxList>
             </ListboxPopover>
           )}
         </ListboxInput>

@@ -2,10 +2,10 @@ import React from 'react';
 import { render, act, fireEvent } from '@testing-library/react';
 
 import { Dropdown, DropdownProps } from './Dropdown';
-import { DropdownItem } from './DropdownItem';
+import { DropdownItem } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
-import { cssFromBaseStyles } from '../utils';
-import { axeTest } from '../../utils/test/axe';
+import { cssFromBaseStyles } from '../../utils';
+import { axeTest } from '../../../utils/test/axe';
 
 const dropdownProps = {
   labelText: 'Dropdown test',
