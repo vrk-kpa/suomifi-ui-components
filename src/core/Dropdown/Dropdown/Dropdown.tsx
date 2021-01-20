@@ -69,10 +69,7 @@ export interface DropdownProps extends TokensProp {
   visualPlaceholder?: ReactNode;
   /** Show the visual placeholder instead of selected value and act as an action menu */
   alwaysShowVisualPlaceholder?: boolean;
-  /** Label displaymode -
-   * top: show above, hidden: use only for screenreader
-   * @default top
-   */
+  /** Label display mode */
   labelMode?: LabelMode;
   /** Text to mark a field optional. Will be wrapped in parentheses and shown after labelText. */
   optionalText?: string;
