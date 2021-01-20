@@ -69,7 +69,9 @@ export interface DropdownProps extends TokensProp {
   visualPlaceholder?: ReactNode;
   /** Show the visual placeholder instead of selected value and act as an action menu */
   alwaysShowVisualPlaceholder?: boolean;
-  /** Label display mode */
+  /** Hide or show label. Label element is always present, but can be visually hidden.
+   * @default visible
+   */
   labelMode?: LabelMode;
   /** Text to mark a field optional. Will be wrapped in parentheses and shown after labelText. */
   optionalText?: string;
@@ -123,7 +125,7 @@ export class BaseDropdown extends Component<DropdownProps> {
       disabled,
       children,
       labelText,
-      labelMode = 'visible',
+      labelMode,
       optionalText,
       'aria-labelledby': ariaLabelledBy,
       visualPlaceholder,
