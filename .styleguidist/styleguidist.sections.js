@@ -12,7 +12,6 @@ const primitiveComponents = [
   ['Form', 'SearchInput'],
   ['Form', 'Checkbox'],
   ['Form', 'Textarea'],
-  ['Form', 'RadioButton'],
 ];
 
 const getComponent = ({ name, underName }) =>
@@ -70,6 +69,13 @@ module.exports = {
             {
               name: 'Text',
               components: getComponents(['Text', 'Paragraph']),
+            },
+            {
+              name: 'RadioButton',
+              components: getComponentWithVariants('Form/RadioButton')([
+                'RadioButton',
+                'RadioButtonGroup',
+              ]),
             },
             {
               name: 'Link',

@@ -21,8 +21,6 @@ const radioButtonClassNames = {
   checked: `${baseClassName}--checked`,
 };
 
-type RadioButtonVariant = 'small' | 'large';
-
 export interface RadioButtonProps extends TokensProp {
   /** Custom classname to extend or customize */
   className?: string;
@@ -44,9 +42,11 @@ export interface RadioButtonProps extends TokensProp {
    * 'small' | 'large'
    * @default small
    */
-  variant?: RadioButtonVariant;
+  variant?: 'small' | 'large';
   /** Checked state, overridden by RadioButtonGroup. */
   checked?: boolean;
+  /** Default checked state for uncontrolled use, overridden by RadioButtonGroup. */
+  defaultChecked?: boolean;
   /** Callback for RadioButton checked state changes. */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /**
@@ -82,6 +82,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
       name,
       variant,
       checked,
+      defaultChecked,
       children,
       value,
       hintText,
@@ -103,15 +104,6 @@ class BaseRadioButton extends Component<RadioButtonProps> {
     const { checkedState } = this.state;
     const hintTextId = `${id}-hintText`;
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      if (checked === undefined) {
-        this.setState({ checkedState: event.target.value });
-      }
-      if (!!onChange) {
-        onChange(event);
-      }
-    };
-
     return (
       <HtmlDiv
         className={classnames(
@@ -131,8 +123,10 @@ class BaseRadioButton extends Component<RadioButtonProps> {
           name={name}
           id={id}
           disabled={disabled}
-          onChange={handleChange}
-          checked={checkedState}
+          onChange={onChange}
+          {...(checked !== undefined
+            ? { checked: checkedState }
+            : { defaultChecked })}
           {...getConditionalAriaProp('aria-describedby', [
             hintText ? hintTextId : undefined,
           ])}
@@ -167,17 +161,19 @@ export class RadioButton extends Component<RadioButtonProps> {
       <AutoId id={propId}>
         {(id) => (
           <RadioButtonGroupConsumer>
-            {(consumer) => (
+            {({ onRadioButtonChange, selectedValue, name }) => (
               <StyledRadioButton
-                {...withSuomifiDefaultProps(passProps)}
-                {...(!!consumer.selectedValue
-                  ? { checked: consumer.selectedValue === passProps.value }
-                  : {})}
-                {...(!!consumer.name ? { name: consumer.name } : {})}
                 id={id}
+                {...withSuomifiDefaultProps(passProps)}
+                {...(!!onRadioButtonChange
+                  ? {
+                      checked: selectedValue === passProps.value,
+                      name,
+                    }
+                  : {})}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                  if (!!consumer.onRadioButtonChange) {
-                    consumer.onRadioButtonChange(event.target.value);
+                  if (!!onRadioButtonChange) {
+                    onRadioButtonChange(event.target.value);
                   }
                   if (!!onChange) {
                     onChange(event);

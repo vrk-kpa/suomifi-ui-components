@@ -16,8 +16,6 @@ const radioButtonGroupClassNames = {
   hintText: `${baseClassName}_hintText`,
 };
 
-type Label = 'hidden' | 'visible';
-
 export interface RadioButtonGroupProps extends TokensProp {
   /** Custom classname to extend or customize */ className?: string;
   /** RadioButton or ReactNode */
@@ -25,11 +23,11 @@ export interface RadioButtonGroupProps extends TokensProp {
   /** Hint text to be displayed under the label. */
   hintText?: string;
   /** Label for the group */
-  label: string;
+  labelText: string;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
    */
-  labelMode?: Label;
+  labelMode?: 'hidden' | 'visible';
   /**
    * Unique id
    * If no id is specified, one will be generated
@@ -46,14 +44,12 @@ export interface RadioButtonGroupProps extends TokensProp {
 }
 
 export interface RadioButtonGroupProviderState {
-  onRadioButtonChange: (value: string) => void;
+  onRadioButtonChange?: (value: string) => void;
   name?: string;
   selectedValue?: string;
 }
 
-const defaultProviderValue: RadioButtonGroupProviderState = {
-  onRadioButtonChange: () => null,
-};
+const defaultProviderValue: RadioButtonGroupProviderState = {};
 
 const { Provider, Consumer: RadioButtonGroupConsumer } = React.createContext(
   defaultProviderValue,
@@ -63,7 +59,7 @@ export interface RadioButtonGroupState {
   selectedValue?: string;
 }
 
-export class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
+class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
   state: RadioButtonGroupState = {
     selectedValue: this.props.value || this.props.defaultValue,
   };
@@ -92,7 +88,7 @@ export class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
     const {
       children,
       className,
-      label,
+      labelText,
       labelMode,
       hintText,
       id,
@@ -108,10 +104,10 @@ export class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
         <HtmlFieldSet>
           <HtmlLegend>
             {hideLabel ? (
-              <VisuallyHidden>{label}</VisuallyHidden>
+              <VisuallyHidden>{labelText}</VisuallyHidden>
             ) : (
               <HtmlSpan className={radioButtonGroupClassNames.label}>
-                {label}
+                {labelText}
               </HtmlSpan>
             )}
 
