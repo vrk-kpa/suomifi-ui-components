@@ -88,7 +88,7 @@ export const listboxPopoverStyles = withSuomifiTheme(
     }
 
     &.fi-dropdown--noSelectedStyles {
-      & .fi-dropdown_item {
+      & [data-reach-listbox-option][data-current].fi-dropdown_item {
         background-color: ${theme.colors.whiteBase};
         ${theme.typography.actionElementInnerText};
       }
