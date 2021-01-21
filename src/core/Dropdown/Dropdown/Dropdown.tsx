@@ -97,7 +97,7 @@ export interface DropdownProps extends TokensProp {
   onChange?(newValue: string): void;
 }
 
-export class BaseDropdown extends Component<DropdownProps> {
+class BaseDropdown extends Component<DropdownProps> {
   state: DropdownState = {
     selectedValue:
       'value' in this.props
@@ -252,10 +252,12 @@ const StyledDropdown = styled(
   ${(props) => baseStyles(props)}
 `;
 
-interface NewListboxPopoverProps extends BaseListboxPopoverProps, TokensProp {}
-
 const StyledListboxPopover = styled(
-  ({ tokens, children, ...passProps }: NewListboxPopoverProps) => (
+  ({
+    tokens,
+    children,
+    ...passProps
+  }: BaseListboxPopoverProps & TokensProp) => (
     <ListboxPopover position={positionMatchWidth} {...passProps}>
       <ListboxList>{children}</ListboxList>
     </ListboxPopover>
