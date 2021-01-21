@@ -5,7 +5,7 @@ import { HtmlDiv } from '../../../reset';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { CheckboxProps, Checkbox } from '../Checkbox/Checkbox';
-import { baseStyles } from './ComboboxItem.baseStyles';
+import { baseStyles } from './ComboboxCheckboxItem.baseStyles';
 
 const baseClassName = 'fi-combobox-item';
 
