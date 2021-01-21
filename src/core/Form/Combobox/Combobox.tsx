@@ -8,7 +8,8 @@ import { AutoId } from '../../../utils/AutoId';
 import { FilterInput } from '../FilterInput/FilterInput';
 import { Popover } from '../../Popover/Popover';
 import { ComboboxItemList } from './ComboboxItemList';
-import { ComboboxItem } from './ComboboxItem';
+// import { ComboboxItem } from './ComboboxItem';
+import { ComboboxItem } from './ComboboxCheckboxItem';
 import { baseStyles } from './Combobox.baseStyles';
 
 const baseClassName = 'fi-combobox';
@@ -81,7 +82,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             filterFunc={filter}
             forwardRef={this.setFilterInputRefElement}
             onFocus={() => setPopoverVisibility(true)}
-            onBlur={() => setPopoverVisibility(false)}
+            // onBlur={() => setPopoverVisibility(false)}
           />
           <Popover
             sourceRef={this.state.filterInputRef}
@@ -93,7 +94,9 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             {this.state.showPopover && (
               <ComboboxItemList>
                 {this.state.items.map((item) => (
-                  <ComboboxItem>{item.labelText}</ComboboxItem>
+                  <ComboboxItem defaultChecked={item.selected}>
+                    {item.labelText}
+                  </ComboboxItem>
                 ))}
               </ComboboxItemList>
             )}
