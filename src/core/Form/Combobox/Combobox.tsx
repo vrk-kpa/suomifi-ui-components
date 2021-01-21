@@ -94,7 +94,10 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             {this.state.showPopover && (
               <ComboboxItemList>
                 {this.state.items.map((item) => (
-                  <ComboboxItem defaultChecked={item.selected}>
+                  <ComboboxItem
+                    defaultChecked={item.selected}
+                    disabled={item.disabled}
+                  >
                     {item.labelText}
                   </ComboboxItem>
                 ))}
