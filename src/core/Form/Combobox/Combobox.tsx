@@ -48,7 +48,7 @@ interface ComboboxState<T extends ComboboxData> {
 }
 class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   state: ComboboxState<T & ComboboxData> = {
-    items: [],
+    items: this.props.items,
     filterInputRef: null,
     showPopover: false,
   };
