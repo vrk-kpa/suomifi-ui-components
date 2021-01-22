@@ -19,38 +19,36 @@ import { RadioButton, RadioButtonGroup } from 'suomifi-ui-components';
 ```js
 import { RadioButton, RadioButtonGroup } from 'suomifi-ui-components';
 
-<>
-  <RadioButtonGroup
-    label="Large RadioButtons in group"
+<RadioButtonGroup
+  label="Large RadioButtons in group"
+  hintText="Example hint text"
+  name="test-group-large"
+>
+  <RadioButton variant="large" value="value-test-1">
+    Large choice 1
+  </RadioButton>
+  <RadioButton value="value-test-2" variant="large">
+    Large choice 2
+  </RadioButton>
+  <RadioButton
+    value="value-test-3"
+    variant="large"
     hintText="Example hint text"
-    name="test-group-large"
   >
-    <RadioButton variant="large" value="value-test-1">
-      Large choice 1
-    </RadioButton>
-    <RadioButton value="value-test-2" variant="large">
-      Large choice 2
-    </RadioButton>
-    <RadioButton
-      value="value-test-3"
-      variant="large"
-      hintText="Example hint text"
-    >
-      Large choice 3
-    </RadioButton>
-    <RadioButton variant="large" value="value-test-4" disabled>
-      Disabled large choice 4
-    </RadioButton>
-    <RadioButton
-      variant="large"
-      value="value-test-5"
-      hintText="Example hint text"
-      disabled
-    >
-      Disabled large choice 5
-    </RadioButton>
-  </RadioButtonGroup>
-</>;
+    Large choice 3
+  </RadioButton>
+  <RadioButton variant="large" value="value-test-4" disabled>
+    Disabled large choice 4
+  </RadioButton>
+  <RadioButton
+    variant="large"
+    value="value-test-5"
+    hintText="Example hint text"
+    disabled
+  >
+    Disabled large choice 5
+  </RadioButton>
+</RadioButtonGroup>;
 ```
 
 ### Controlled radio buttons in group
@@ -83,27 +81,26 @@ const handleChange = (event) => {
 
 ```js
 import { RadioButton } from 'suomifi-ui-components';
-<>
-  <div>
-    <RadioButton
-      defaultChecked={true}
-      name="standalone-test"
-      value="value-test-1"
-    >
-      Choice 1
-    </RadioButton>
-    <RadioButton name="standalone-test" value="value-test-2">
-      Choice 2
-    </RadioButton>
-    <RadioButton
-      name="standalone-test"
-      value="value-test-3"
-      hintText="Example hint text"
-    >
-      Choice 3
-    </RadioButton>
-  </div>
-</>;
+
+<fieldset>
+  <RadioButton
+    defaultChecked={true}
+    name="standalone-test"
+    value="value-test-1"
+  >
+    Choice 1
+  </RadioButton>
+  <RadioButton name="standalone-test" value="value-test-2">
+    Choice 2
+  </RadioButton>
+  <RadioButton
+    name="standalone-test"
+    value="value-test-3"
+    hintText="Example hint text"
+  >
+    Choice 3
+  </RadioButton>
+</fieldset>;
 ```
 
 ### Controlled standalone radio buttons
@@ -119,52 +116,50 @@ const handleChange = (event) => {
   setSelectedValue(event.target.value);
 };
 
-<>
-  <div>
-    <RadioButton
-      name="standalone-test-controlled"
-      value="value-test-1"
-      checked={selectedValue === 'value-test-1'}
-      onChange={handleChange}
-    >
-      Choice 1
-    </RadioButton>
-    <RadioButton
-      name="standalone-test-controlled"
-      value="value-test-2"
-      checked={selectedValue === 'value-test-2'}
-      onChange={handleChange}
-    >
-      Choice 2
-    </RadioButton>
-    <RadioButton
-      name="standalone-test-controlled"
-      value="value-test-3"
-      hintText="Example hint text"
-      checked={selectedValue === 'value-test-3'}
-      onChange={handleChange}
-    >
-      Choice 3
-    </RadioButton>
-    <RadioButton
-      name="standalone-test-controlled"
-      value="value-test-4"
-      checked={selectedValue === 'value-test-4'}
-      onChange={handleChange}
-      disabled
-    >
-      Disabled choice 4
-    </RadioButton>
-    <RadioButton
-      name="standalone-test-controlled"
-      value="value-test-5"
-      hintText="Example hint text"
-      checked={selectedValue === 'value-test-5'}
-      onChange={handleChange}
-      disabled
-    >
-      Disabled choice 5
-    </RadioButton>
-  </div>
-</>;
+<fieldset>
+  <RadioButton
+    name="standalone-test-controlled"
+    value="value-test-1"
+    checked={selectedValue === 'value-test-1'}
+    onChange={handleChange}
+  >
+    Choice 1
+  </RadioButton>
+  <RadioButton
+    name="standalone-test-controlled"
+    value="value-test-2"
+    checked={selectedValue === 'value-test-2'}
+    onChange={handleChange}
+  >
+    Choice 2
+  </RadioButton>
+  <RadioButton
+    name="standalone-test-controlled"
+    value="value-test-3"
+    hintText="Example hint text"
+    checked={selectedValue === 'value-test-3'}
+    onChange={handleChange}
+  >
+    Choice 3
+  </RadioButton>
+  <RadioButton
+    name="standalone-test-controlled"
+    value="value-test-4"
+    checked={selectedValue === 'value-test-4'}
+    onChange={handleChange}
+    disabled
+  >
+    Disabled choice 4
+  </RadioButton>
+  <RadioButton
+    name="standalone-test-controlled"
+    value="value-test-5"
+    hintText="Example hint text"
+    checked={selectedValue === 'value-test-5'}
+    onChange={handleChange}
+    disabled
+  >
+    Disabled choice 5
+  </RadioButton>
+</fieldset>;
 ```

@@ -93,7 +93,7 @@ class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
       hintText,
       id,
       name,
-      defaultValue: dismissDefaultValue,
+      defaultValue,
       onChange,
       ...passProps
     } = this.props;
