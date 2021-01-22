@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { HtmlDiv } from '../../../reset';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
+import { CheckboxProps, Checkbox } from '../Checkbox/Checkbox';
 import { baseStyles } from './ComboboxItem.baseStyles';
 
 const baseClassName = 'fi-combobox-item';
@@ -12,7 +13,7 @@ const comboboxItemClassNames = {
   wrapper: `${baseClassName}_wrapper`,
 };
 
-export interface ComboboxItemProps extends TokensProp {
+export interface ComboboxItemProps extends CheckboxProps, TokensProp {
   /** ComboboxItem container div class name for custom styling. */
   className?: string;
 }
@@ -22,8 +23,8 @@ class BaseComboboxItem extends Component<ComboboxItemProps> {
     const { className, children, ...passProps } = this.props;
     return (
       <HtmlDiv className={classnames(baseClassName, className, {})}>
-        <HtmlDiv className={comboboxItemClassNames.wrapper} {...passProps}>
-          {children}
+        <HtmlDiv className={comboboxItemClassNames.wrapper}>
+          <Checkbox {...passProps}>{children}</Checkbox>
         </HtmlDiv>
       </HtmlDiv>
     );
