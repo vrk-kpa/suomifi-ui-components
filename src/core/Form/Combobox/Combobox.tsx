@@ -8,8 +8,7 @@ import { AutoId } from '../../../utils/AutoId';
 import { FilterInput } from '../FilterInput/FilterInput';
 import { Popover } from '../../Popover/Popover';
 import { ComboboxItemList } from './ComboboxItemList';
-// import { ComboboxItem } from './ComboboxItem';
-import { ComboboxItem } from './ComboboxCheckboxItem';
+import { ComboboxItem } from './ComboboxItem';
 import { baseStyles } from './Combobox.baseStyles';
 
 const baseClassName = 'fi-combobox';
