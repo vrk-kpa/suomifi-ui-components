@@ -41,13 +41,13 @@ export interface ComboboxProps<T extends ComboboxData> extends TokensProp {
   labelText: string;
 }
 interface ComboboxState<T extends ComboboxData> {
-  items: T[];
+  filteredItems: T[];
   filterInputRef: Element | null;
   showPopover: Boolean;
 }
 class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   state: ComboboxState<T & ComboboxData> = {
-    items: this.props.items,
+    filteredItems: this.props.items,
     filterInputRef: null,
     showPopover: false,
   };
@@ -77,7 +77,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           <FilterInput
             labelText={labelText}
             items={items}
-            onFilter={(filtered) => this.setState({ items: filtered })}
+            onFilter={(filtered) => this.setState({ filteredItems: filtered })}
             filterFunc={filter}
             forwardRef={this.setFilterInputRefElement}
             onFocus={() => setPopoverVisibility(true)}
@@ -92,7 +92,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           >
             {this.state.showPopover && (
               <ComboboxItemList>
-                {this.state.items.map((item) => (
+                {this.state.filteredItems.map((item) => (
                   <ComboboxItem
                     defaultChecked={item.selected}
                     disabled={item.disabled}
