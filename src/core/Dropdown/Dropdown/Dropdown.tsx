@@ -35,11 +35,6 @@ interface DropdownState {
   selectedValue: string | undefined;
 }
 
-type OptionalListboxButtonProps = Partial<ListboxButtonProps> & {
-  className?: string;
-  id?: string;
-};
-
 export interface DropdownProps extends TokensProp {
   /**
    * Unique id
@@ -74,7 +69,7 @@ export interface DropdownProps extends TokensProp {
   /** Disable component */
   disabled?: boolean;
   /** Properties given to dropdown's Button-component, className etc. */
-  dropdownButtonProps?: OptionalListboxButtonProps;
+  dropdownButtonProps?: ListboxButtonProps;
   /** Properties given to dropdown's popover-component, className etc. */
   dropdownPopoverProps?: ListboxPopoverProps;
   /** DropdownItems */
@@ -134,9 +129,7 @@ class BaseDropdown extends Component<DropdownProps> {
     const ariaLabelledByIds = `${
       !!ariaLabelledBy ? `${ariaLabelledBy} ` : ''
     }${labelId}`;
-    const buttonId = !!dropdownButtonProps.id
-      ? dropdownButtonProps.id
-      : `${id}_button`;
+    const buttonId = `${id}_button`;
 
     const { selectedValue } = this.state;
 
@@ -197,13 +190,9 @@ class BaseDropdown extends Component<DropdownProps> {
             <ListboxButton
               {...dropdownButtonProps}
               id={buttonId}
-              className={classnames(
-                dropdownClassNames.button,
-                dropdownButtonProps.className,
-                {
-                  [dropdownClassNames.disabled]: !!disabled,
-                },
-              )}
+              className={classnames(dropdownClassNames.button, {
+                [dropdownClassNames.disabled]: !!disabled,
+              })}
               {...buttonAriaLabelledByOverride}
             >
               {listboxDisplayValue}
