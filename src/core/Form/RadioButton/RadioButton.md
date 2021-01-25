@@ -60,10 +60,6 @@ const [selectedValue, setSelectedValue] = React.useState(
   'value-test-2'
 );
 
-const handleChange = (event) => {
-  setSelectedValue(event.target.value);
-};
-
 <RadioButtonGroup
   label="RadioButtons in group"
   hintText="Example hint text"
