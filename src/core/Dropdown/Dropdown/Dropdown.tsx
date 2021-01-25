@@ -29,7 +29,6 @@ export const dropdownClassNames = {
   item: `${baseClassName}_item`,
   noSelectedStyles: `${baseClassName}--noSelectedStyles`,
   disabled: `${baseClassName}--disabled`,
-  labelParagraph: `${baseClassName}_label-p`,
 };
 
 interface DropdownState {
