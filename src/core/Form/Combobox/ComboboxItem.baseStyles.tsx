@@ -4,16 +4,8 @@ import { font } from '../../theme/reset';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
-    & .fi-combobox-item {
-      ${font({ theme })('bodyText')}
-    }
-
-    & .fi-combobox-item_wrapper {
-      display: inline-block;
-      width: 100%;
-    }
-
     &.fi-combobox-item {
+      ${font({ theme })('bodyText')}
       & .fi-checkbox {
         padding: 10px;
       }
@@ -22,6 +14,11 @@ export const baseStyles = withSuomifiTheme(
         background-color: ${theme.colors.highlightBase};
         color: ${theme.colors.whiteBase};
       }
+    }
+
+    & .fi-combobox-item_wrapper {
+      display: inline-block;
+      width: 100%;
     }
   `,
 );
