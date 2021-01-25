@@ -5,6 +5,7 @@ import { HtmlDiv } from '../../../reset';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { AutoId } from '../../../utils/AutoId';
+import { Chip } from '../../Chip/Chip';
 import { FilterInput } from '../FilterInput/FilterInput';
 import { Popover } from '../../Popover/Popover';
 import { ComboboxItemList } from './ComboboxItemList';
@@ -20,7 +21,7 @@ const comboboxClassNames = {
 export interface ComboboxData {
   /** Is item selected or not */
   selected: boolean;
-  /** label that will be shown on combobox item and used on filter */
+  /** Unique label that will be shown on combobox item and used on filter */
   labelText: string;
   // use label if not chipText given
   chipText?: string;
@@ -39,17 +40,54 @@ export interface ComboboxProps<T extends ComboboxData> extends TokensProp {
   id?: string;
   /** Label */
   labelText: string;
+  onItemSelectionsChange?: (selectedItems: Array<T>) => void;
 }
 interface ComboboxState<T extends ComboboxData> {
+  items: T[];
   filteredItems: T[];
   filterInputRef: Element | null;
   showPopover: Boolean;
 }
+
+function getSelectedItems<T>(
+  items: (T & ComboboxData)[],
+): (T & ComboboxData)[] {
+  return items.reduce(
+    (selectedItems: (T & ComboboxData)[], item: T & ComboboxData) => {
+      if (item.selected) {
+        selectedItems.push(item);
+      }
+      return selectedItems;
+    },
+    [],
+  );
+}
+
 class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   state: ComboboxState<T & ComboboxData> = {
+    items: this.props.items,
     filteredItems: this.props.items,
     filterInputRef: null,
     showPopover: false,
+  };
+
+  private handleItemSelected = (labelText: string, selected: boolean) => {
+    this.setState((prevState: ComboboxState<T & ComboboxData>) => {
+      const { onItemSelectionsChange } = this.props;
+      const { items } = prevState;
+      const currentItem = items.filter(
+        (item) => item.labelText === labelText,
+      )[0];
+      const indexOfItem = items.indexOf(currentItem);
+      if (indexOfItem > -1) {
+        currentItem.selected = selected;
+        items[indexOfItem] = currentItem;
+      }
+      if (onItemSelectionsChange) {
+        onItemSelectionsChange(getSelectedItems(items));
+      }
+      return { items };
+    });
   };
 
   private setFilterInputRefElement = (element: Element | null) => {
@@ -57,7 +95,13 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   };
 
   render() {
-    const { className, items, labelText, ...passProps } = this.props;
+    const {
+      className,
+      items: propItems,
+      labelText,
+      onItemSelectionsChange,
+      ...passProps
+    } = this.props;
 
     const filter = (data: ComboboxData, query: string) =>
       data.labelText.toLowerCase().includes(query.toLowerCase());
@@ -66,6 +110,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       this.setState({ showPopover: toState });
     };
 
+    const { items, filteredItems } = this.state;
     return (
       <HtmlDiv
         {...passProps}
@@ -92,10 +137,14 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           >
             {this.state.showPopover && (
               <ComboboxItemList>
-                {this.state.filteredItems.map((item) => (
+                {filteredItems.map((item) => (
                   <ComboboxItem
+                    key={item.labelText}
                     defaultChecked={item.selected}
                     disabled={item.disabled}
+                    onClick={() =>
+                      this.handleItemSelected(item.labelText, !item.selected)
+                    }
                   >
                     {item.labelText}
                   </ComboboxItem>
@@ -103,6 +152,14 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
               </ComboboxItemList>
             )}
           </Popover>
+          {/* TODO: ChipList */}
+          <div>
+            {getSelectedItems(items).map((item) => (
+              <Chip key={item.labelText}>
+                {item.chipText ? item.chipText : item.labelText}
+              </Chip>
+            ))}
+          </div>
         </HtmlDiv>
       </HtmlDiv>
     );
