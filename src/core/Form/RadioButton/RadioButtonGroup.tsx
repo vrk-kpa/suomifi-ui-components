@@ -35,9 +35,9 @@ export interface RadioButtonGroupProps extends TokensProp {
   id?: string;
   /** Name for the group; this will be set to RadioButtons. Overrides RadioButton props name. */
   name: string;
-  /** Controlled value of the selected RadioButton in the group. Overrides RadioButton selected values. */
+  /** Controlled value of the selected RadioButton in the group. */
   value?: string;
-  /** Value of the RadioButton selected by default */
+  /** Value of the RadioButton selected by default. */
   defaultValue?: string;
   /** Callback for RadioButtonGroup selected changes. */
   onChange?: (value: string) => void;
@@ -148,6 +148,10 @@ const StyledRadioButtonGroup = styled(
   ${(props) => baseStyles(props)}
 `;
 
+/**
+ * Use for grouping RadioButtons.<br />
+ * Always overrides nested RadioButtons name, checked and defaultChecked props. Use RadioButtonGroup's name, value and defaultValue instead.
+ */
 export class RadioButtonGroup extends Component<RadioButtonGroupProps> {
   render() {
     const { children, className, ...passProps } = withSuomifiDefaultProps(
