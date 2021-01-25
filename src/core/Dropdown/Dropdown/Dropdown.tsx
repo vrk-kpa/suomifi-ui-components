@@ -12,7 +12,7 @@ import {
 import { positionMatchWidth } from '@reach/popover';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { TokensProp, InternalTokensProp } from '../../theme';
-import { HtmlSpan } from '../../../reset';
+import { HtmlSpan, HtmlDiv } from '../../../reset';
 import { LabelText, LabelMode } from '../../Form/LabelText/LabelText';
 import { logger } from '../../../utils/logger';
 import { AutoId } from '../../../utils/AutoId';
@@ -184,36 +184,38 @@ class BaseDropdown extends Component<DropdownProps> {
         id={id}
         {...passProps}
       >
-        <LabelText
-          id={labelId}
-          labelMode={labelMode}
-          as="label"
-          optionalText={optionalText}
-        >
-          {labelText}
-        </LabelText>
-        <ListboxInput {...listboxInputProps}>
-          <ListboxButton
-            {...dropdownButtonProps}
-            id={buttonId}
-            className={classnames(
-              dropdownClassNames.button,
-              dropdownButtonProps.className,
-              {
-                [dropdownClassNames.disabled]: !!disabled,
-              },
-            )}
-            {...buttonAriaLabelledByOverride}
+        <HtmlDiv>
+          <LabelText
+            id={labelId}
+            labelMode={labelMode}
+            as="label"
+            optionalText={optionalText}
           >
-            {listboxDisplayValue}
-          </ListboxButton>
-          <ListboxPopover
-            position={positionMatchWidth}
-            {...passDropdownPopoverProps}
-          >
-            <ListboxList>{children}</ListboxList>
-          </ListboxPopover>
-        </ListboxInput>
+            {labelText}
+          </LabelText>
+          <ListboxInput {...listboxInputProps}>
+            <ListboxButton
+              {...dropdownButtonProps}
+              id={buttonId}
+              className={classnames(
+                dropdownClassNames.button,
+                dropdownButtonProps.className,
+                {
+                  [dropdownClassNames.disabled]: !!disabled,
+                },
+              )}
+              {...buttonAriaLabelledByOverride}
+            >
+              {listboxDisplayValue}
+            </ListboxButton>
+            <ListboxPopover
+              position={positionMatchWidth}
+              {...passDropdownPopoverProps}
+            >
+              <ListboxList>{children}</ListboxList>
+            </ListboxPopover>
+          </ListboxInput>
+        </HtmlDiv>
       </HtmlSpan>
     );
   }
