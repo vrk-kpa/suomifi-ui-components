@@ -9,15 +9,15 @@ import {
   ListboxList,
   ListboxPopover,
 } from '@reach/listbox';
+import { positionMatchWidth } from '@reach/popover';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { TokensProp, InternalTokensProp } from '../../theme';
-import { baseStyles, listboxPopoverStyles } from './Dropdown.baseStyles';
-import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { HtmlSpan } from '../../../reset';
 import { LabelText, LabelMode } from '../../Form/LabelText/LabelText';
 import { logger } from '../../../utils/logger';
 import { AutoId } from '../../../utils/AutoId';
-import { positionMatchWidth } from '@reach/popover';
+import { DropdownItemProps } from '../DropdownItem/DropdownItem';
+import { baseStyles, listboxPopoverStyles } from './Dropdown.baseStyles';
 
 const baseClassName = 'fi-dropdown';
 
