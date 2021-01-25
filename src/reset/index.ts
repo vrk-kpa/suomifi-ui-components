@@ -15,3 +15,4 @@ export { HtmlNav, HtmlNavProps } from './HtmlNav/HtmlNav';
 export { HtmlOl, HtmlOlProps } from './HtmlOl/HtmlOl';
 export { HtmlSpan, HtmlSpanProps } from './HtmlSpan/HtmlSpan';
 export { HtmlTextarea, HtmlTextareaProps } from './HtmlTextarea/HtmlTextarea';
+export { HtmlUl, HtmlUlProps } from './HtmlUl/HtmlUl';

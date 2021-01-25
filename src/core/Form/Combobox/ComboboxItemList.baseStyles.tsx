@@ -4,8 +4,11 @@ import { font } from '../../theme/reset';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
-    & .fi-combobox-item-list {
+    &.fi-combobox-item-list {
       ${font({ theme })('bodyText')}
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
     }
 
     & .fi-combobox-item-list_wrapper {
