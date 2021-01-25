@@ -4,7 +4,7 @@
 import { RadioButton, RadioButtonGroup } from 'suomifi-ui-components';
 
 <RadioButtonGroup
-  label="RadioButtons in group"
+  labelText="RadioButtons in group"
   hintText="Example hint text"
   name="test-group"
 >
@@ -20,7 +20,7 @@ import { RadioButton, RadioButtonGroup } from 'suomifi-ui-components';
 import { RadioButton, RadioButtonGroup } from 'suomifi-ui-components';
 
 <RadioButtonGroup
-  label="Large RadioButtons in group"
+  labelText="Large RadioButtons in group"
   hintText="Example hint text"
   name="test-group-large"
 >
@@ -61,7 +61,7 @@ const [selectedValue, setSelectedValue] = React.useState(
 );
 
 <RadioButtonGroup
-  label="RadioButtons in group"
+  labelText="RadioButtons in group"
   hintText="Example hint text"
   name="test-group-controlled"
   value={selectedValue}
