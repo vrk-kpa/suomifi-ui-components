@@ -11,7 +11,7 @@ const RadioChildren = [1, 2, 3].map((value) => (
 
 describe('default, with only required props', () => {
   const DefaultGroup = (
-    <RadioButtonGroup id="test-id" label="Label" name="name">
+    <RadioButtonGroup id="test-id" labelText="Label" name="name">
       {RadioChildren}
     </RadioButtonGroup>
   );
@@ -27,7 +27,7 @@ describe('props', () => {
     const ClassnameGroup = (
       <RadioButtonGroup
         id="test-id"
-        label="Label"
+        labelText="Label"
         name="name"
         className="custom-className"
       >
@@ -50,7 +50,7 @@ describe('props', () => {
     const HintTextGroup = (
       <RadioButtonGroup
         id="test-id"
-        label="Label"
+        labelText="Label"
         name="name"
         hintText="Example hint text"
       >
@@ -72,7 +72,7 @@ describe('props', () => {
 
   describe('label', () => {
     const LabelGroup = (
-      <RadioButtonGroup id="test-id" label="Label here" name="name">
+      <RadioButtonGroup id="test-id" labelText="Label here" name="name">
         {RadioChildren}
       </RadioButtonGroup>
     );
@@ -93,7 +93,7 @@ describe('props', () => {
     const LabelModeGroup = (
       <RadioButtonGroup
         id="test-id"
-        label="Label here"
+        labelText="Label here"
         name="name"
         labelMode="hidden"
       >
@@ -115,7 +115,7 @@ describe('props', () => {
 
   describe('id', () => {
     const IdGroup = (
-      <RadioButtonGroup id="good-id" label="Label" name="name">
+      <RadioButtonGroup id="good-id" labelText="Label" name="name">
         {RadioChildren}
       </RadioButtonGroup>
     );
@@ -133,7 +133,7 @@ describe('props', () => {
 
   describe('name', () => {
     const NameGroup = (
-      <RadioButtonGroup id="test-id" label="Label" name="nice-name">
+      <RadioButtonGroup id="test-id" labelText="Label" name="nice-name">
         {RadioChildren}
       </RadioButtonGroup>
     );
@@ -152,7 +152,7 @@ describe('props', () => {
 
   describe('value', () => {
     const ValueGroup = (
-      <RadioButtonGroup id="test-id" label="Label" name="name" value="2">
+      <RadioButtonGroup id="test-id" labelText="Label" name="name" value="2">
         {RadioChildren}
       </RadioButtonGroup>
     );
@@ -165,7 +165,7 @@ describe('props', () => {
       expect(radioButtons[2]).not.toHaveClass('fi-radio-button--checked');
 
       rerender(
-        <RadioButtonGroup id="test-id" label="Label" name="name" value="3">
+        <RadioButtonGroup id="test-id" labelText="Label" name="name" value="3">
           {RadioChildren}
         </RadioButtonGroup>,
       );
@@ -190,7 +190,12 @@ describe('props', () => {
 
   describe('defaultValue', () => {
     const DefaultValueGroup = (
-      <RadioButtonGroup id="test-id" label="Label" name="name" defaultValue="3">
+      <RadioButtonGroup
+        id="test-id"
+        labelText="Label"
+        name="name"
+        defaultValue="3"
+      >
         {RadioChildren}
       </RadioButtonGroup>
     );

@@ -27,9 +27,3 @@ export {
 export { Paragraph, ParagraphProps } from './Paragraph/Paragraph';
 export { Text, TextProps } from './Text/Text';
 export { VisuallyHidden } from './Visually-hidden/Visually-hidden';
-export { RadioButton, RadioButtonProps } from './Form/RadioButton';
-export {
-  RadioButtonGroup,
-  RadioButtonGroupProps,
-} from './Form/RadioButtonGroup';
-export { RadioButtonDivider } from './Form/RadioButtonDivider';
