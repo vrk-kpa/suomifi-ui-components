@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv } from '../../../reset';
+import { HtmlDiv, HtmlUl } from '../../../reset';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { baseStyles } from './ComboboxItemList.baseStyles';
@@ -23,11 +23,11 @@ class BaseComboboxItemList extends Component<ComboboxItemListProps> {
   render() {
     const { className, children, ...passProps } = this.props;
     return (
-      <HtmlDiv className={classnames(baseClassName, className, {})}>
+      <HtmlUl className={classnames(baseClassName, className, {})}>
         <HtmlDiv className={comboboxItemListClassNames.wrapper} {...passProps}>
           {children}
         </HtmlDiv>
-      </HtmlDiv>
+      </HtmlUl>
     );
   }
 }
