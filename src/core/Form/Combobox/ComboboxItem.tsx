@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv } from '../../../reset';
+import { HtmlDiv, HtmlLi } from '../../../reset';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { CheckboxProps, Checkbox } from '../Checkbox/Checkbox';
@@ -22,11 +22,11 @@ class BaseComboboxItem extends Component<ComboboxItemProps> {
   render() {
     const { className, children, ...passProps } = this.props;
     return (
-      <HtmlDiv className={classnames(baseClassName, className, {})}>
+      <HtmlLi className={classnames(baseClassName, className, {})}>
         <HtmlDiv className={comboboxItemClassNames.wrapper}>
           <Checkbox {...passProps}>{children}</Checkbox>
         </HtmlDiv>
-      </HtmlDiv>
+      </HtmlLi>
     );
   }
 }
