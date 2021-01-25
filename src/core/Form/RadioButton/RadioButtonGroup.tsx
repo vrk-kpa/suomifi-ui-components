@@ -150,7 +150,8 @@ const StyledRadioButtonGroup = styled(
 
 /**
  * Use for grouping RadioButtons.<br />
- * Always overrides nested RadioButtons name, checked and defaultChecked props. Use RadioButtonGroup's name, value and defaultValue instead.
+ * Always overrides nested RadioButtons' name, checked and defaultChecked props.
+ * Use RadioButtonGroup's name, value and defaultValue instead.
  */
 export class RadioButtonGroup extends Component<RadioButtonGroupProps> {
   render() {
