@@ -17,7 +17,7 @@ import { LabelText, LabelMode } from '../../Form/LabelText/LabelText';
 import { logger } from '../../../utils/logger';
 import { AutoId } from '../../../utils/AutoId';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';
-import { baseStyles, listboxPopoverStyles } from './Dropdown.baseStyles';
+import { baseStyles } from './Dropdown.baseStyles';
 
 const baseClassName = 'fi-dropdown';
 
@@ -32,23 +32,13 @@ export const dropdownClassNames = {
   labelParagraph: `${baseClassName}_label-p`,
 };
 
-type BaseListboxPopoverProps = ListboxPopoverProps & {
-  ref?: any;
-};
-
 interface DropdownState {
   selectedValue: string | undefined;
 }
-type OptionalListboxButtonProps = {
-  [K in keyof ListboxButtonProps]?: ListboxButtonProps[K];
-} & {
+
+type OptionalListboxButtonProps = Partial<ListboxButtonProps> & {
   className?: string;
   id?: string;
-};
-type OptionalListboxPopoverProps = {
-  [K in keyof ListboxPopoverProps]?: ListboxPopoverProps[K];
-} & {
-  ref?: any;
 };
 
 export interface DropdownProps extends TokensProp {
@@ -87,8 +77,7 @@ export interface DropdownProps extends TokensProp {
   /** Properties given to dropdown's Button-component, className etc. */
   dropdownButtonProps?: OptionalListboxButtonProps;
   /** Properties given to dropdown's popover-component, className etc. */
-  dropdownPopoverProps?: OptionalListboxPopoverProps;
-  listboxPopoverComponent?: React.ComponentType<OptionalListboxPopoverProps>;
+  dropdownPopoverProps?: ListboxPopoverProps;
   /** DropdownItems */
   children?:
     | Array<ReactElement<DropdownItemProps>>
@@ -133,7 +122,6 @@ class BaseDropdown extends Component<DropdownProps> {
       className,
       dropdownButtonProps = {},
       dropdownPopoverProps = {},
-      listboxPopoverComponent: ListboxPopoverComponentReplace,
       onChange: propOnChange,
       ...passProps
     } = this.props;
@@ -220,18 +208,12 @@ class BaseDropdown extends Component<DropdownProps> {
           >
             {listboxDisplayValue}
           </ListboxButton>
-          {!!ListboxPopoverComponentReplace ? (
-            <ListboxPopoverComponentReplace {...passDropdownPopoverProps}>
-              {children}
-            </ListboxPopoverComponentReplace>
-          ) : (
-            <ListboxPopover
-              position={positionMatchWidth}
-              {...passDropdownPopoverProps}
-            >
-              <ListboxList>{children}</ListboxList>
-            </ListboxPopover>
-          )}
+          <ListboxPopover
+            position={positionMatchWidth}
+            {...passDropdownPopoverProps}
+          >
+            <ListboxList>{children}</ListboxList>
+          </ListboxPopover>
         </ListboxInput>
       </HtmlSpan>
     );
@@ -252,20 +234,6 @@ const StyledDropdown = styled(
   ${(props) => baseStyles(props)}
 `;
 
-const StyledListboxPopover = styled(
-  ({
-    tokens,
-    children,
-    ...passProps
-  }: BaseListboxPopoverProps & TokensProp) => (
-    <ListboxPopover position={positionMatchWidth} {...passProps}>
-      <ListboxList>{children}</ListboxList>
-    </ListboxPopover>
-  ),
-)`
-  ${(props) => listboxPopoverStyles(props.theme)}
-`;
-
 /**
  * <i class="semantics" />
  * Use for selectable dropdown with items.
@@ -273,11 +241,6 @@ const StyledListboxPopover = styled(
 export class Dropdown extends Component<DropdownProps> {
   render() {
     const props = withSuomifiDefaultProps(this.props);
-    return (
-      <StyledDropdown
-        {...props}
-        listboxPopoverComponent={StyledListboxPopover}
-      />
-    );
+    return <StyledDropdown {...props} />;
   }
 }

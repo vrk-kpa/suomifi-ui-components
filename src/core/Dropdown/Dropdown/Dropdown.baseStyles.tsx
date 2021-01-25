@@ -62,11 +62,6 @@ export const baseStyles = withSuomifiTheme(
         }
       }
     }
-  `,
-);
-
-export const listboxPopoverStyles = withSuomifiTheme(
-  ({ theme }: TokensAndTheme) => css`
     &[data-reach-listbox-popover].fi-dropdown_popover {
       ${element({ theme })}
       ${theme.typography.actionElementInnerText}
