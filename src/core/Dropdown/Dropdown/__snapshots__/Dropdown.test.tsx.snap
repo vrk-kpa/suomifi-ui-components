@@ -85,24 +85,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c1 .fi-dropdown_label-p {
-  margin-bottom: 8px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-}
-
 .c1 [data-reach-listbox-button].fi-dropdown_button {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -186,48 +168,93 @@ exports[`Basic dropdown should match snapshot 1`] = `
   border-color: hsl(202,7%,67%) transparent transparent transparent;
 }
 
+.c1[data-reach-listbox-popover].fi-dropdown_popover {
+  color: hsl(0,0%,16%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: -1px;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  border: 0;
+  background-color: hsl(0,0%,100%);
+  border-color: hsl(201,7%,58%);
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0px 0px 2px 2px;
+  overflow: hidden;
+}
+
+.c1[data-reach-listbox-popover].fi-dropdown_popover:focus-within {
+  outline: 0;
+  box-shadow: none;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current].fi-dropdown_item {
+  background-color: hsl(0,0%,100%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1 [data-reach-listbox-list] {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
 <div>
   <span
     class="c0 c1 dropdown-test fi-dropdown"
     data-testid="dropdown-test-id"
     id="test-id"
   >
-    <label
-      class="c2 c3 fi-label-text"
-      id="test-id-label"
-    >
-      <span
-        class="c0 fi-label-text_label-span"
-      >
-        Dropdown test
-      </span>
-    </label>
     <div
-      data-reach-listbox-input=""
-      data-state="closed"
-      data-value=""
-      id="listbox-input--25"
+      class="c2"
     >
-      <span
-        aria-haspopup="listbox"
-        aria-labelledby="test-id-label"
-        class="fi-dropdown_button"
-        data-reach-listbox-button=""
-        id="button--listbox-input--25"
-        role="button"
-        tabindex="0"
+      <label
+        class="c2 c3 fi-label-text"
+        id="test-id-label"
       >
-        Dropdown
-      </span>
+        <span
+          class="c0 fi-label-text_label-span"
+        >
+          Dropdown test
+        </span>
+      </label>
+      <div
+        data-reach-listbox-input=""
+        data-state="closed"
+        data-value=""
+        id="listbox-input--25"
+      >
+        <span
+          aria-haspopup="listbox"
+          aria-labelledby="test-id-label"
+          class="fi-dropdown_button"
+          data-reach-listbox-button=""
+          id="button--listbox-input--25"
+          role="button"
+          tabindex="0"
+        >
+          Dropdown
+        </span>
+      </div>
+      <input
+        data-reach-listbox-hidden-input=""
+        name="dropdown-test"
+        readonly=""
+        tabindex="-1"
+        type="hidden"
+        value=""
+      />
     </div>
-    <input
-      data-reach-listbox-hidden-input=""
-      name="dropdown-test"
-      readonly=""
-      tabindex="-1"
-      type="hidden"
-      value=""
-    />
   </span>
 </div>
 `;
@@ -317,24 +344,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c1 .fi-dropdown_label-p {
-  margin-bottom: 8px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-}
-
 .c1 [data-reach-listbox-button].fi-dropdown_button {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -418,6 +427,47 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   border-color: hsl(202,7%,67%) transparent transparent transparent;
 }
 
+.c1[data-reach-listbox-popover].fi-dropdown_popover {
+  color: hsl(0,0%,16%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: -1px;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  border: 0;
+  background-color: hsl(0,0%,100%);
+  border-color: hsl(201,7%,58%);
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0px 0px 2px 2px;
+  overflow: hidden;
+}
+
+.c1[data-reach-listbox-popover].fi-dropdown_popover:focus-within {
+  outline: 0;
+  box-shadow: none;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current].fi-dropdown_item {
+  background-color: hsl(0,0%,100%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1 [data-reach-listbox-list] {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
 <div>
   <span
     class="c0 c1 dropdown-test fi-dropdown"
@@ -425,42 +475,46 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
     id="test-id"
     value="item-2"
   >
-    <label
-      class="c2 c3 fi-label-text"
-      id="test-id-label"
-    >
-      <span
-        class="c0 fi-label-text_label-span"
-      >
-        Dropdown test
-      </span>
-    </label>
     <div
-      data-reach-listbox-input=""
-      data-state="closed"
-      data-value="item-2"
-      id="listbox-input--57"
+      class="c2"
     >
-      <span
-        aria-haspopup="listbox"
-        aria-labelledby="test-id-label button--listbox-input--57"
-        class="fi-dropdown_button"
-        data-reach-listbox-button=""
-        id="button--listbox-input--57"
-        role="button"
-        tabindex="0"
+      <label
+        class="c2 c3 fi-label-text"
+        id="test-id-label"
       >
-        Item 2
-      </span>
+        <span
+          class="c0 fi-label-text_label-span"
+        >
+          Dropdown test
+        </span>
+      </label>
+      <div
+        data-reach-listbox-input=""
+        data-state="closed"
+        data-value="item-2"
+        id="listbox-input--57"
+      >
+        <span
+          aria-haspopup="listbox"
+          aria-labelledby="test-id-label button--listbox-input--57"
+          class="fi-dropdown_button"
+          data-reach-listbox-button=""
+          id="button--listbox-input--57"
+          role="button"
+          tabindex="0"
+        >
+          Item 2
+        </span>
+      </div>
+      <input
+        data-reach-listbox-hidden-input=""
+        name="dropdown-test"
+        readonly=""
+        tabindex="-1"
+        type="hidden"
+        value="item-2"
+      />
     </div>
-    <input
-      data-reach-listbox-hidden-input=""
-      name="dropdown-test"
-      readonly=""
-      tabindex="-1"
-      type="hidden"
-      value="item-2"
-    />
   </span>
 </div>
 `;
@@ -550,24 +604,6 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c1 .fi-dropdown_label-p {
-  margin-bottom: 8px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-}
-
 .c1 [data-reach-listbox-button].fi-dropdown_button {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -651,48 +687,93 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   border-color: hsl(202,7%,67%) transparent transparent transparent;
 }
 
+.c1[data-reach-listbox-popover].fi-dropdown_popover {
+  color: hsl(0,0%,16%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: -1px;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  border: 0;
+  background-color: hsl(0,0%,100%);
+  border-color: hsl(201,7%,58%);
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0px 0px 2px 2px;
+  overflow: hidden;
+}
+
+.c1[data-reach-listbox-popover].fi-dropdown_popover:focus-within {
+  outline: 0;
+  box-shadow: none;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current].fi-dropdown_item {
+  background-color: hsl(0,0%,100%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1 [data-reach-listbox-list] {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
 <div>
   <span
     class="c0 c1 dropdown-test fi-dropdown"
     data-testid=""
     id="test-id"
   >
-    <label
-      class="c2 c3 fi-label-text"
-      id="test-id-label"
-    >
-      <span
-        class="c0 fi-label-text_label-span"
-      >
-        Dropdown test
-      </span>
-    </label>
     <div
-      data-reach-listbox-input=""
-      data-state="closed"
-      data-value="item-2"
-      id="listbox-input--69"
+      class="c2"
     >
-      <span
-        aria-haspopup="listbox"
-        aria-labelledby="test-id-label button--listbox-input--69"
-        class="fi-dropdown_button"
-        data-reach-listbox-button=""
-        id="button--listbox-input--69"
-        role="button"
-        tabindex="0"
+      <label
+        class="c2 c3 fi-label-text"
+        id="test-id-label"
       >
-        Action menu
-      </span>
+        <span
+          class="c0 fi-label-text_label-span"
+        >
+          Dropdown test
+        </span>
+      </label>
+      <div
+        data-reach-listbox-input=""
+        data-state="closed"
+        data-value="item-2"
+        id="listbox-input--69"
+      >
+        <span
+          aria-haspopup="listbox"
+          aria-labelledby="test-id-label button--listbox-input--69"
+          class="fi-dropdown_button"
+          data-reach-listbox-button=""
+          id="button--listbox-input--69"
+          role="button"
+          tabindex="0"
+        >
+          Action menu
+        </span>
+      </div>
+      <input
+        data-reach-listbox-hidden-input=""
+        name="dropdown-test"
+        readonly=""
+        tabindex="-1"
+        type="hidden"
+        value="item-2"
+      />
     </div>
-    <input
-      data-reach-listbox-hidden-input=""
-      name="dropdown-test"
-      readonly=""
-      tabindex="-1"
-      type="hidden"
-      value="item-2"
-    />
   </span>
 </div>
 `;
@@ -782,24 +863,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c1 .fi-dropdown_label-p {
-  margin-bottom: 8px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-}
-
 .c1 [data-reach-listbox-button].fi-dropdown_button {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -883,48 +946,93 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   border-color: hsl(202,7%,67%) transparent transparent transparent;
 }
 
+.c1[data-reach-listbox-popover].fi-dropdown_popover {
+  color: hsl(0,0%,16%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: -1px;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  border: 0;
+  background-color: hsl(0,0%,100%);
+  border-color: hsl(201,7%,58%);
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0px 0px 2px 2px;
+  overflow: hidden;
+}
+
+.c1[data-reach-listbox-popover].fi-dropdown_popover:focus-within {
+  outline: 0;
+  box-shadow: none;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current].fi-dropdown_item {
+  background-color: hsl(0,0%,100%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1 [data-reach-listbox-list] {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
 <div>
   <span
     class="c0 c1 dropdown-test fi-dropdown"
     data-testid=""
     id="test-id"
   >
-    <label
-      class="c2 c3 fi-label-text"
-      id="test-id-label"
-    >
-      <span
-        class="c0 fi-label-text_label-span"
-      >
-        Dropdown test
-      </span>
-    </label>
     <div
-      data-reach-listbox-input=""
-      data-state="closed"
-      data-value=""
-      id="listbox-input--81"
+      class="c2"
     >
-      <span
-        aria-haspopup="listbox"
-        aria-labelledby="additional-label-id test-id-label"
-        class="fi-dropdown_button"
-        data-reach-listbox-button=""
-        id="button--listbox-input--81"
-        role="button"
-        tabindex="0"
+      <label
+        class="c2 c3 fi-label-text"
+        id="test-id-label"
       >
-        Dropdown
-      </span>
+        <span
+          class="c0 fi-label-text_label-span"
+        >
+          Dropdown test
+        </span>
+      </label>
+      <div
+        data-reach-listbox-input=""
+        data-state="closed"
+        data-value=""
+        id="listbox-input--81"
+      >
+        <span
+          aria-haspopup="listbox"
+          aria-labelledby="additional-label-id test-id-label"
+          class="fi-dropdown_button"
+          data-reach-listbox-button=""
+          id="button--listbox-input--81"
+          role="button"
+          tabindex="0"
+        >
+          Dropdown
+        </span>
+      </div>
+      <input
+        data-reach-listbox-hidden-input=""
+        name="dropdown-test"
+        readonly=""
+        tabindex="-1"
+        type="hidden"
+        value=""
+      />
     </div>
-    <input
-      data-reach-listbox-hidden-input=""
-      name="dropdown-test"
-      readonly=""
-      tabindex="-1"
-      type="hidden"
-      value=""
-    />
   </span>
 </div>
 `;
@@ -1026,24 +1134,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c1 .fi-dropdown_label-p {
-  margin-bottom: 8px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-}
-
 .c1 [data-reach-listbox-button].fi-dropdown_button {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -1127,48 +1217,93 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   border-color: hsl(202,7%,67%) transparent transparent transparent;
 }
 
+.c1[data-reach-listbox-popover].fi-dropdown_popover {
+  color: hsl(0,0%,16%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: -1px;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  border: 0;
+  background-color: hsl(0,0%,100%);
+  border-color: hsl(201,7%,58%);
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0px 0px 2px 2px;
+  overflow: hidden;
+}
+
+.c1[data-reach-listbox-popover].fi-dropdown_popover:focus-within {
+  outline: 0;
+  box-shadow: none;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current].fi-dropdown_item {
+  background-color: hsl(0,0%,100%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1 [data-reach-listbox-list] {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
 <div>
   <span
     class="c0 c1 dropdown-test fi-dropdown"
     data-testid="dropdown-hidden-label-test-id"
     id="test-id"
   >
-    <label
-      class="c2 c3 fi-label-text"
-      id="test-id-label"
-    >
-      <span
-        class="c0 c4 fi-visually-hidden"
-      >
-        Dropdown test
-      </span>
-    </label>
     <div
-      data-reach-listbox-input=""
-      data-state="closed"
-      data-value=""
-      id="listbox-input--37"
+      class="c2"
     >
-      <span
-        aria-haspopup="listbox"
-        aria-labelledby="test-id-label"
-        class="fi-dropdown_button"
-        data-reach-listbox-button=""
-        id="button--listbox-input--37"
-        role="button"
-        tabindex="0"
+      <label
+        class="c2 c3 fi-label-text"
+        id="test-id-label"
       >
-        Dropdown
-      </span>
+        <span
+          class="c0 c4 fi-visually-hidden"
+        >
+          Dropdown test
+        </span>
+      </label>
+      <div
+        data-reach-listbox-input=""
+        data-state="closed"
+        data-value=""
+        id="listbox-input--37"
+      >
+        <span
+          aria-haspopup="listbox"
+          aria-labelledby="test-id-label"
+          class="fi-dropdown_button"
+          data-reach-listbox-button=""
+          id="button--listbox-input--37"
+          role="button"
+          tabindex="0"
+        >
+          Dropdown
+        </span>
+      </div>
+      <input
+        data-reach-listbox-hidden-input=""
+        name="dropdown-test"
+        readonly=""
+        tabindex="-1"
+        type="hidden"
+        value=""
+      />
     </div>
-    <input
-      data-reach-listbox-hidden-input=""
-      name="dropdown-test"
-      readonly=""
-      tabindex="-1"
-      type="hidden"
-      value=""
-    />
   </span>
 </div>
 `;
