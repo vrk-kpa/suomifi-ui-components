@@ -23,8 +23,11 @@ class BaseComboboxItemList extends Component<ComboboxItemListProps> {
   render() {
     const { className, children, ...passProps } = this.props;
     return (
-      <HtmlUl className={classnames(baseClassName, className, {})}>
-        <HtmlDiv className={comboboxItemListClassNames.wrapper} {...passProps}>
+      <HtmlUl
+        className={classnames(baseClassName, className, {})}
+        {...passProps}
+      >
+        <HtmlDiv className={comboboxItemListClassNames.wrapper}>
           {children}
         </HtmlDiv>
       </HtmlUl>
