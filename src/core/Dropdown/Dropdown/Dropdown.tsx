@@ -16,6 +16,7 @@ import { HtmlSpan, HtmlDiv } from '../../../reset';
 import { LabelText, LabelMode } from '../../Form/LabelText/LabelText';
 import { logger } from '../../../utils/logger';
 import { AutoId } from '../../../utils/AutoId';
+import { getConditionalAriaProp } from '../../../utils/aria';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
 
@@ -133,12 +134,6 @@ class BaseDropdown extends Component<DropdownProps> {
 
     const { selectedValue } = this.state;
 
-    // don't read visualPlaceholder if nothing is selected
-    const buttonAriaLabelledByOverride =
-      selectedValue === undefined
-        ? { 'aria-labelledby': ariaLabelledByIds }
-        : {};
-
     const passDropdownPopoverProps = {
       ...dropdownPopoverProps,
       className: classnames(className, dropdownClassNames.popover, {
@@ -153,14 +148,6 @@ class BaseDropdown extends Component<DropdownProps> {
       if (!('value' in this.props)) {
         this.setState({ selectedValue: newValue });
       }
-    };
-
-    const listboxInputProps = {
-      'aria-labelledby': ariaLabelledByIds,
-      disabled,
-      onChange,
-      name,
-      value: selectedValue || '',
     };
 
     // If alwaysShowVisualPlaceholder is true or there is no selected value, use visualPlaceHolder.
@@ -186,14 +173,22 @@ class BaseDropdown extends Component<DropdownProps> {
           >
             {labelText}
           </LabelText>
-          <ListboxInput {...listboxInputProps}>
+          <ListboxInput
+            aria-labelledby={ariaLabelledByIds}
+            disabled={disabled}
+            onChange={onChange}
+            name={name}
+            value={selectedValue || ''}
+          >
             <ListboxButton
               {...dropdownButtonProps}
               id={buttonId}
               className={classnames(dropdownClassNames.button, {
                 [dropdownClassNames.disabled]: !!disabled,
               })}
-              {...buttonAriaLabelledByOverride}
+              {...getConditionalAriaProp('aria-labelledby', [
+                selectedValue === undefined ? ariaLabelledByIds : undefined,
+              ])}
             >
               {listboxDisplayValue}
             </ListboxButton>
