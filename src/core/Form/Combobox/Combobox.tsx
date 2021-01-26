@@ -46,7 +46,7 @@ interface ComboboxState<T extends ComboboxData> {
   items: T[];
   filteredItems: T[];
   filterInputRef: Element | null;
-  showPopover: Boolean;
+  showPopover: boolean;
 }
 
 function getSelectedItems<T>(
@@ -64,6 +64,13 @@ function getSelectedItems<T>(
 }
 
 class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
+  private popoverListRef: React.RefObject<HTMLUListElement>;
+
+  constructor(props: ComboboxProps<T & ComboboxData>) {
+    super(props);
+    this.popoverListRef = React.createRef();
+  }
+
   state: ComboboxState<T & ComboboxData> = {
     items: this.props.items,
     filteredItems: this.props.items,
@@ -90,12 +97,34 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     });
   };
 
+  private handleKeyDown = (event: React.KeyboardEvent) => {
+    switch (event.key) {
+      case 'ArrowDown':
+        event.preventDefault();
+        // TODO: Opening closed list
+        // TODO: If open, get next item
+        console.log('TODO: Go to next item');
+        break;
+
+      case 'ArrowUp':
+        event.preventDefault();
+        // TODO: Opening closed list
+        // TODO: If open, get previous item
+        console.log('TODO: Go to previous item');
+        break;
+
+      default:
+        break;
+    }
+  };
+
   private setFilterInputRefElement = (element: Element | null) => {
     this.setState({ filterInputRef: element });
   };
 
   render() {
     const {
+      id,
       className,
       items: propItems,
       labelText,
@@ -113,6 +142,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     const { items, filteredItems } = this.state;
     return (
       <HtmlDiv
+        id={id}
         {...passProps}
         className={classnames(baseClassName, className, {
           [comboboxClassNames.open]: this.state.showPopover,
@@ -126,17 +156,21 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             filterFunc={filter}
             forwardRef={this.setFilterInputRefElement}
             onFocus={() => setPopoverVisibility(true)}
+            aria-haspopup={true}
+            aria-controls={`${id}-popover`}
+            aria-expanded={this.state.showPopover}
             // onBlur={() => setPopoverVisibility(false)}
+            onKeyDown={this.handleKeyDown}
           />
           <Popover
             sourceRef={this.state.filterInputRef}
             matchWidth={true}
-            // id="popover-test"
+            id={`${id}-popover`}
             tabIndex={-1}
             portalStyleProps={{ backgroundColor: 'white' }}
           >
             {this.state.showPopover && (
-              <ComboboxItemList>
+              <ComboboxItemList forwardRef={this.popoverListRef}>
                 {filteredItems.map((item) => (
                   <ComboboxItem
                     key={item.labelText}
