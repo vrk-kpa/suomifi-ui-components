@@ -206,14 +206,8 @@ class BaseDropdown extends Component<DropdownProps> {
 }
 
 const StyledDropdown = styled(
-  ({
-    tokens,
-    id: propId,
-    ...passProps
-  }: DropdownProps & InternalTokensProp) => (
-    <AutoId id={propId}>
-      {(id) => <BaseDropdown id={id} {...passProps} />}
-    </AutoId>
+  ({ tokens, ...passProps }: DropdownProps & InternalTokensProp) => (
+    <BaseDropdown {...passProps} />
   ),
 )`
   ${(props) => baseStyles(props)}
@@ -225,7 +219,11 @@ const StyledDropdown = styled(
  */
 export class Dropdown extends Component<DropdownProps> {
   render() {
-    const props = withSuomifiDefaultProps(this.props);
-    return <StyledDropdown {...props} />;
+    const { id: propId, ...passProps } = withSuomifiDefaultProps(this.props);
+    return (
+      <AutoId id={propId}>
+        {(id) => <StyledDropdown id={id} {...passProps} />}
+      </AutoId>
+    );
   }
 }
