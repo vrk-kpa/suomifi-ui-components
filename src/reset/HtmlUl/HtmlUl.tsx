@@ -20,8 +20,19 @@ const ulResets = css`
   padding-left: 40px;
 `;
 
-const Ol = (props: HtmlUlProps) => <ul {...props} />;
+const Ul = (props: HtmlUlProps) => <ul {...props} />;
 
-export const HtmlUl = styled(Ol)`
+export const HtmlUl = styled(Ul)`
+  ${ulResets}
+`;
+
+const UlWithRef = ({
+  forwardRef,
+  ...passProps
+}: HtmlUlProps & { forwardRef: React.RefObject<HTMLUListElement> }) => (
+  <ul {...passProps} ref={forwardRef} />
+);
+
+export const HtmlUlWithRef = styled(UlWithRef)`
   ${ulResets}
 `;
