@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, TokensAndTheme } from '../../theme';
-import { absoluteFocus } from '../../theme/utils';
-import { element, font } from '../../theme/reset';
+import { withSuomifiTheme, TokensAndTheme } from '../../../theme';
+import { absoluteFocus } from '../../../theme/utils';
+import { element, font } from '../../../theme/reset';
 
 // Contains double underscore because it is written in the SVG-file
 const svgPrefix = 'icon-toggle_svg__';

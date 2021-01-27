@@ -1,38 +1,26 @@
 ```js
 import { useState } from 'react';
 
-import { Toggle } from 'suomifi-ui-components';
+import { ToggleButton } from 'suomifi-ui-components';
 
 const [checked, setChecked] = useState(false);
 
 <>
-  <Toggle
+  <ToggleButton
     defaultChecked
     disabled
     onClick={({ toggleState }) => console.log(toggleState)}
   >
     Checked disabled using button
-  </Toggle>
+  </ToggleButton>
 
-  <Toggle.withInput
-    defaultChecked
+  <ToggleButton
     onClick={({ toggleState }) => console.log(toggleState)}
   >
-    Checked enabled using input
-  </Toggle.withInput>
-
-  <Toggle.withInput
-    disabled
-    onClick={({ toggleState }) => console.log(toggleState)}
-  >
-    Unchecked disabled using input
-  </Toggle.withInput>
-
-  <Toggle onClick={({ toggleState }) => console.log(toggleState)}>
     Unchecked enabled using button
-  </Toggle>
+  </ToggleButton>
 
-  <Toggle
+  <ToggleButton
     checked={checked}
     onClick={({ toggleState }) => {
       if (window.confirm('Change Toggle state?')) {
@@ -41,6 +29,6 @@ const [checked, setChecked] = useState(false);
     }}
   >
     Controlled checked state
-  </Toggle>
+  </ToggleButton>
 </>;
 ```
