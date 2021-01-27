@@ -10,8 +10,9 @@ import { disabledCursor } from '../../../../components/utils/css';
 
 const baseClassName = 'fi-toggle';
 const toggleDisabledClassName = `${baseClassName}--disabled`;
-const toggleClassName = `${baseClassName}--with-input`;
-const toggleInputClassName = `${baseClassName}_input`;
+const toggleInputClassName = `${baseClassName}--input`;
+const toggleButtonClassName = `${baseClassName}--button`;
+const toggleInputElementClassName = `${baseClassName}_input-element`;
 const toggleLabelClassName = `${baseClassName}_label`;
 const iconBaseClassName = 'fi-toggle_icon';
 const iconContainerClassName = 'fi-toggle_icon-container';
@@ -134,7 +135,6 @@ class BaseToggle extends Component<InternalToggleProps> {
     const { toggleState } = this.state;
 
     const inputOrButtonProps = {
-      className: toggleInputClassName,
       id,
       name,
       disabled,
@@ -145,23 +145,23 @@ class BaseToggle extends Component<InternalToggleProps> {
 
     return (
       <HtmlSpan
-        disabled={disabled}
-        htmlFor={id}
         className={classnames(
-          toggleClassName,
           className,
           baseClassName,
           {
             [toggleDisabledClassName]: !!disabled,
+            [toggleInputClassName]: variant === 'input',
+            [toggleButtonClassName]: variant === 'button',
           },
           toggleLabelClassName,
         )}
         {...passProps}
       >
         {variant === 'input' ? (
-          <HtmlLabel>
+          <HtmlLabel htmlFor={id}>
             <HtmlInput
               {...inputOrButtonProps}
+              className={toggleInputElementClassName}
               onChange={this.handleClick}
               type="checkbox"
             />

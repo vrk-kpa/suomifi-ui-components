@@ -31,7 +31,7 @@ export const baseStyles = withSuomifiTheme(
       top: 0.1em;
     }
 
-    &.fi-toggle--with-button {
+    &.fi-toggle--button > button {
       &:focus {
         outline: 0;
         & .fi-toggle_icon-container {
@@ -43,7 +43,7 @@ export const baseStyles = withSuomifiTheme(
       }
     }
 
-    &.fi-toggle--with-input {
+    &.fi-toggle--input {
       &:focus-within {
         outline: 0;
         & .fi-toggle_icon-container {
@@ -55,7 +55,7 @@ export const baseStyles = withSuomifiTheme(
       }
     }
 
-    & > .fi-toggle_input {
+    & .fi-toggle_input-element {
       ${element({ theme })}
       ${font({ theme })('bodyText')}
       position: absolute;
