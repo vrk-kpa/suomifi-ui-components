@@ -47,6 +47,9 @@ interface ComboboxState<T extends ComboboxData> {
   filteredItems: T[];
   filterInputRef: Element | null;
   showPopover: boolean;
+  // TODO: storing the current selection index from the popover list
+  // or labelText?
+  currentSelection: string | null;
 }
 
 function getSelectedItems<T>(
@@ -76,6 +79,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     filteredItems: this.props.items,
     filterInputRef: null,
     showPopover: false,
+    currentSelection: null,
   };
 
   private handleItemSelected = (labelText: string, selected: boolean) => {
@@ -97,27 +101,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     });
   };
 
-  private handleKeyDown = (event: React.KeyboardEvent) => {
-    switch (event.key) {
-      case 'ArrowDown':
-        event.preventDefault();
-        // TODO: Opening closed list
-        // TODO: If open, get next item
-        console.log('TODO: Go to next item');
-        break;
-
-      case 'ArrowUp':
-        event.preventDefault();
-        // TODO: Opening closed list
-        // TODO: If open, get previous item
-        console.log('TODO: Go to previous item');
-        break;
-
-      default:
-        break;
-    }
-  };
-
   private setFilterInputRefElement = (element: Element | null) => {
     this.setState({ filterInputRef: element });
   };
@@ -135,11 +118,60 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     const filter = (data: ComboboxData, query: string) =>
       data.labelText.toLowerCase().includes(query.toLowerCase());
 
+    const handleKeyDown = (event: React.KeyboardEvent) => {
+      // TODO: Current index of the selection, items should have unique id/hash. Used to see which is selected and aria-activedescendant
+      const index = this.state.items.findIndex(
+        ({ labelText: uniqueText }) =>
+          uniqueText === this.state.currentSelection,
+      );
+      const { filteredItems: items } = this.state;
+
+      const getNextItem = () => items[(index + 1) % items.length];
+      const getPreviousItem = () =>
+        items[(index - 1 + items.length) % items.length];
+
+      switch (event.key) {
+        case 'ArrowDown': {
+          event.preventDefault();
+          focusToMenuTest();
+          console.log('TODO: Go to next item');
+          const nextItem = getNextItem();
+          console.log('next item:', nextItem);
+          this.setState({ currentSelection: nextItem.labelText });
+          break;
+        }
+
+        case 'ArrowUp': {
+          event.preventDefault();
+          focusToMenuTest();
+          console.log('TODO: Go to previous item');
+          const previousItem = getPreviousItem();
+          console.log('previous item:', previousItem);
+          this.setState({ currentSelection: previousItem.labelText });
+          break;
+        }
+
+        default:
+          break;
+      }
+    };
+
     const setPopoverVisibility = (toState: Boolean) => {
       this.setState({ showPopover: toState });
     };
 
-    const { items, filteredItems, showPopover } = this.state;
+    const { items, filteredItems, showPopover, currentSelection } = this.state;
+
+    const focusToMenuTest = () => {
+      if (
+        this.popoverListRef !== null &&
+        this.popoverListRef.current !== null &&
+        showPopover
+      ) {
+        this.popoverListRef.current.focus();
+      }
+    };
+
     return (
       <HtmlDiv
         id={id}
@@ -147,6 +179,11 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         className={classnames(baseClassName, className, {
           [comboboxClassNames.open]: showPopover,
         })}
+        // TODO: make some hash string for it; the item should have the id that matches with this
+        // aria-activedescendant={currentSelection || undefined}
+        aria-activedescendant={
+          currentSelection ? `todoHash-${currentSelection}` : undefined
+        }
       >
         <HtmlDiv className={classnames(comboboxClassNames.wrapper, {})}>
           <FilterInput
@@ -160,29 +197,38 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             aria-controls={`${id}-popover`}
             aria-expanded={showPopover}
             // onBlur={() => setPopoverVisibility(false)}
-            onKeyDown={this.handleKeyDown}
+            onKeyDown={handleKeyDown}
           />
           <Popover
             sourceRef={this.state.filterInputRef}
             matchWidth={true}
             id={`${id}-popover`}
-            tabIndex={-1}
+            // tabIndex={-1}
             portalStyleProps={{ backgroundColor: 'white' }}
+            onKeyDown={handleKeyDown}
           >
             {showPopover && (
               <ComboboxItemList forwardRef={this.popoverListRef}>
-                {filteredItems.map((item) => (
-                  <ComboboxItem
-                    key={item.labelText}
-                    defaultChecked={item.selected}
-                    disabled={item.disabled}
-                    onClick={() =>
-                      this.handleItemSelected(item.labelText, !item.selected)
-                    }
-                  >
-                    {item.labelText}
-                  </ComboboxItem>
-                ))}
+                {filteredItems.map((item) => {
+                  const isCurrentlySelected =
+                    item.labelText === currentSelection;
+
+                  return (
+                    <ComboboxItem
+                      aria-selected={isCurrentlySelected}
+                      key={item.labelText}
+                      // id={String(makeHash(item.labelText))}
+                      id={`todoHash-${item.labelText}`}
+                      defaultChecked={item.selected}
+                      disabled={item.disabled}
+                      onClick={() =>
+                        this.handleItemSelected(item.labelText, !item.selected)
+                      }
+                    >
+                      {item.labelText}
+                    </ComboboxItem>
+                  );
+                })}
               </ComboboxItemList>
             )}
           </Popover>
