@@ -16,15 +16,38 @@ const comboboxItemClassNames = {
 export interface ComboboxItemProps extends CheckboxProps, TokensProp {
   /** ComboboxItem container div class name for custom styling. */
   className?: string;
+  'aria-selected': boolean;
 }
 
 class BaseComboboxItem extends Component<ComboboxItemProps> {
   render() {
-    const { className, children, ...passProps } = this.props;
+    const {
+      className,
+      children,
+      defaultChecked,
+      'aria-selected': ariaSelected,
+      disabled,
+      id,
+      ...passProps
+    } = this.props;
     return (
-      <HtmlLi className={classnames(baseClassName, className, {})}>
+      <HtmlLi
+        className={classnames(baseClassName, className, {})}
+        tabIndex={-1}
+        role="option"
+        // aria-selected={defaultChecked}
+        aria-disabled={disabled}
+        aria-selected={ariaSelected}
+        id={id}
+      >
         <HtmlDiv className={comboboxItemClassNames.wrapper}>
-          <Checkbox {...passProps}>{children}</Checkbox>
+          <Checkbox
+            disabled={disabled}
+            defaultChecked={defaultChecked}
+            {...passProps}
+          >
+            {children}
+          </Checkbox>
         </HtmlDiv>
       </HtmlLi>
     );
