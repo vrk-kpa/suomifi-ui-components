@@ -25,7 +25,12 @@ exports[`snapshots match error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c5 {
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -48,32 +53,17 @@ exports[`snapshots match error status with statustext 1`] = `
   max-width: 100%;
 }
 
-.c5::-webkit-input-placeholder {
+.c4::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c3 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
+.c4::before,
+.c4::after {
   box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  max-width: 100%;
 }
 
-.c6 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -97,35 +87,62 @@ exports[`snapshots match error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c4 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
+.c3::before,
+.c3::after {
   box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
+}
+
+.c2.fi-label-text .fi-label-text_label-span {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
   display: block;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
+  margin-bottom: 10px;
+  color: hsl(0,0%,16%);
 }
 
-.c1.fi-text-input--disabled {
-  cursor: not-allowed;
+.c2.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
-.c2.fi-text-input {
+.c5.fi-status-text {
+  margin-top: 5px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c5.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,48%);
+}
+
+.c1.fi-text-input {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -143,47 +160,22 @@ exports[`snapshots match error status with statustext 1`] = `
   width: 290px;
 }
 
-.c2 .fi-text-input_label-p {
-  margin-bottom: 10px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-}
-
-.c2 .fi-text-input_optionalText {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c2 .fi-text-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,55%);
+.c1 .fi-text-input_input-element-container > input:focus {
+  outline-color: hsl(196,77%,44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c2 .fi-text-input_input-element-container:focus-within > input:focus {
+.c1 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
-.c2 .fi-text-input_input-element-container:focus-within {
+.c1 .fi-text-input_input-element-container:focus-within {
   position: relative;
 }
 
-.c2 .fi-text-input_input-element-container:focus-within::after {
+.c1 .fi-text-input_input-element-container:focus-within::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -195,59 +187,15 @@ exports[`snapshots match error status with statustext 1`] = `
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
 }
 
-.c2 .fi-text-input_statusText_container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+.c1.fi-text-input--full-width {
+  width: 100%;
 }
 
-.c2 .fi-text-input_statusText_container .fi-text-input_statusText {
-  margin-top: 5px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.c2 .fi-text-input_hintText {
-  display: block;
-  color: hsl(0,0%,16%);
-  margin-bottom: 10px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c2 .fi-text-input_input {
+.c1 .fi-text-input_input {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -273,33 +221,54 @@ exports[`snapshots match error status with statustext 1`] = `
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
+  border-color: hsl(201,7%,58%);
 }
 
-.c2 .fi-text-input_input::-webkit-input-placeholder {
+.c1 .fi-text-input_input::-webkit-input-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
-.c2 .fi-text-input_input::-moz-placeholder {
+.c1 .fi-text-input_input::-moz-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
-.c2 .fi-text-input_input:-ms-input-placeholder {
+.c1 .fi-text-input_input:-ms-input-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
-.c2 .fi-text-input_input::placeholder {
+.c1 .fi-text-input_input::placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
-.c2.fi-text-input_with-icon .fi-text-input_input-element-container {
+.c1 .fi-text-input_input::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.c1 .fi-text-input_input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.c1.fi-text-input_with-icon .fi-text-input_input-element-container {
   position: relative;
 }
 
-.c2.fi-text-input_with-icon .fi-text-input_input {
+.c1.fi-text-input_with-icon .fi-text-input_input {
   padding-right: 40px;
 }
 
-.c2.fi-text-input_with-icon .fi-icon {
+.c1.fi-text-input_with-icon .fi-icon {
   position: absolute;
   width: 18px;
   height: 18px;
@@ -307,61 +276,55 @@ exports[`snapshots match error status with statustext 1`] = `
   right: 10px;
 }
 
-.c2.fi-text-input--error .fi-text-input_input {
+.c1.fi-text-input--error .fi-text-input_input {
   border-color: hsl(3,59%,48%);
 }
 
-.c2.fi-text-input--error .fi-text-input_statusText {
-  color: hsl(3,59%,48%);
+.c1.fi-text-input--success .fi-text-input_input {
+  border-color: hsl(166,90%,34%);
 }
 
-.c2.fi-text-input--success .fi-text-input_input {
-  border-color: hsl(166,90%,36%);
-}
-
-.c2.fi-text-input--disabled .fi-text-input_input {
+.c1.fi-text-input--disabled .fi-text-input_input {
   color: hsl(202,7%,67%);
   background-color: hsl(202,7%,97%);
 }
 
-.c2.fi-text-input--disabled .fi-icon {
+.c1.fi-text-input--disabled .fi-icon {
   fill: hsl(202,7%,67%);
 }
 
 <div
-  class="c0 c1 fi-text-input c2 fi-text-input--error"
+  class="c0 fi-text-input c1 fi-text-input--error"
 >
   <label
-    class="c3 fi-text-input_label"
+    class="c0 c2 fi-label-text"
+    for="test-id2"
   >
-    <p
-      class="c4 fi-paragraph fi-text-input_label-p"
+    <span
+      class="c3 fi-label-text_label-span"
     >
       Test input
-    </p>
-    <div
-      class="c0 fi-text-input_statusText_container"
-    >
-      <div
-        class="c0 fi-text-input_input-element-container"
-      >
-        <input
-          aria-invalid="true"
-          class="c5 fi-text-input_input"
-          data-testid="textinput2"
-          id="test-id2"
-          placeholder="Test TextInput"
-          type="text"
-        />
-      </div>
-      <span
-        class="c6 fi-text-input_statusText"
-        id="test-id2-statusText"
-      >
-        This is a status text
-      </span>
-    </div>
+    </span>
   </label>
+  <div
+    class="c0 fi-text-input_input-element-container"
+  >
+    <input
+      aria-describedby="test-id2-statusText"
+      aria-invalid="true"
+      class="c4 fi-text-input_input"
+      data-testid="textinput2"
+      id="test-id2"
+      placeholder="Test TextInput"
+      type="text"
+    />
+  </div>
+  <span
+    class="c3 c5 fi-status-text fi-status-text--error"
+    id="test-id2-statusText"
+  >
+    This is a status text
+  </span>
 </div>
 `;
 
@@ -390,351 +353,9 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   white-space: normal;
 }
 
-.c6 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  overflow: visible;
-  margin: 0;
-  padding: 0;
-  border: 0;
+.c0::before,
+.c0::after {
   box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline-block;
-  max-width: 100%;
-}
-
-.c6::-webkit-input-placeholder {
-  color: inherit;
-  opacity: 0.54;
-}
-
-.c3 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  max-width: 100%;
-}
-
-.c4 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c5 {
-  position: absolute;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-}
-
-.c1.fi-text-input--disabled {
-  cursor: not-allowed;
-}
-
-.c2.fi-text-input {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  display: inline-block;
-  width: 290px;
-}
-
-.c2 .fi-text-input_label-p {
-  margin-bottom: 10px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-}
-
-.c2 .fi-text-input_optionalText {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c2 .fi-text-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,55%);
-  outline-width: 2px;
-  outline-offset: 2px;
-  outline-style: solid;
-}
-
-.c2 .fi-text-input_input-element-container:focus-within > input:focus {
-  outline: none;
-}
-
-.c2 .fi-text-input_input-element-container:focus-within {
-  position: relative;
-}
-
-.c2 .fi-text-input_input-element-container:focus-within::after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
-  z-index: 9999;
-}
-
-.c2 .fi-text-input_statusText_container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c2 .fi-text-input_statusText_container .fi-text-input_statusText {
-  margin-top: 5px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.c2 .fi-text-input_hintText {
-  display: block;
-  color: hsl(0,0%,16%);
-  margin-bottom: 10px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c2 .fi-text-input_input {
-  color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-  min-width: 245px;
-  max-width: 100%;
-  padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
-  border-radius: 2px;
-  line-height: 1;
-  background-color: hsl(0,0%,100%);
-  min-width: 40px;
-  width: 100%;
-  min-height: 40px;
-  padding-left: 10px;
-}
-
-.c2 .fi-text-input_input::-webkit-input-placeholder {
-  font-style: italic;
-}
-
-.c2 .fi-text-input_input::-moz-placeholder {
-  font-style: italic;
-}
-
-.c2 .fi-text-input_input:-ms-input-placeholder {
-  font-style: italic;
-}
-
-.c2 .fi-text-input_input::placeholder {
-  font-style: italic;
-}
-
-.c2.fi-text-input_with-icon .fi-text-input_input-element-container {
-  position: relative;
-}
-
-.c2.fi-text-input_with-icon .fi-text-input_input {
-  padding-right: 40px;
-}
-
-.c2.fi-text-input_with-icon .fi-icon {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  top: 10px;
-  right: 10px;
-}
-
-.c2.fi-text-input--error .fi-text-input_input {
-  border-color: hsl(3,59%,48%);
-}
-
-.c2.fi-text-input--error .fi-text-input_statusText {
-  color: hsl(3,59%,48%);
-}
-
-.c2.fi-text-input--success .fi-text-input_input {
-  border-color: hsl(166,90%,36%);
-}
-
-.c2.fi-text-input--disabled .fi-text-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
-}
-
-.c2.fi-text-input--disabled .fi-icon {
-  fill: hsl(202,7%,67%);
-}
-
-<div
-  class="c0 c1 fi-text-input c2"
->
-  <label
-    class="c3 fi-text-input_label"
-  >
-    <span
-      class="c4 c5 fi-visually-hidden"
-    >
-      Test input
-    </span>
-    <div
-      class="c0 fi-text-input_statusText_container"
-    >
-      <div
-        class="c0 fi-text-input_input-element-container"
-      >
-        <input
-          aria-invalid="false"
-          class="c6 fi-text-input_input"
-          data-testid="textinput1"
-          id="test-id1"
-          placeholder="Test TextInput"
-          type="text"
-        />
-      </div>
-    </div>
-  </label>
-</div>
-`;
-
-exports[`snapshots match minimal implementation 1`] = `
-.c0 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
 }
 
 .c5 {
@@ -765,6 +386,11 @@ exports[`snapshots match minimal implementation 1`] = `
   opacity: 0.54;
 }
 
+.c5::before,
+.c5::after {
+  box-sizing: border-box;
+}
+
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -782,38 +408,57 @@ exports[`snapshots match minimal implementation 1`] = `
   color: inherit;
   background: none;
   cursor: inherit;
-  max-width: 100%;
-}
-
-.c4 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
+  display: inline;
   max-width: 100%;
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
 }
 
-.c1.fi-text-input--disabled {
-  cursor: not-allowed;
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
 }
 
-.c2.fi-text-input {
+.c4 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.c2.fi-label-text .fi-label-text_label-span {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+  color: hsl(0,0%,16%);
+}
+
+.c2.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-text-input {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -831,47 +476,22 @@ exports[`snapshots match minimal implementation 1`] = `
   width: 290px;
 }
 
-.c2 .fi-text-input_label-p {
-  margin-bottom: 10px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-}
-
-.c2 .fi-text-input_optionalText {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c2 .fi-text-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,55%);
+.c1 .fi-text-input_input-element-container > input:focus {
+  outline-color: hsl(196,77%,44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c2 .fi-text-input_input-element-container:focus-within > input:focus {
+.c1 .fi-text-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
-.c2 .fi-text-input_input-element-container:focus-within {
+.c1 .fi-text-input_input-element-container:focus-within {
   position: relative;
 }
 
-.c2 .fi-text-input_input-element-container:focus-within::after {
+.c1 .fi-text-input_input-element-container:focus-within::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -883,59 +503,15 @@ exports[`snapshots match minimal implementation 1`] = `
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
 }
 
-.c2 .fi-text-input_statusText_container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+.c1.fi-text-input--full-width {
+  width: 100%;
 }
 
-.c2 .fi-text-input_statusText_container .fi-text-input_statusText {
-  margin-top: 5px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.c2 .fi-text-input_hintText {
-  display: block;
-  color: hsl(0,0%,16%);
-  margin-bottom: 10px;
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c2 .fi-text-input_input {
+.c1 .fi-text-input_input {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -961,33 +537,54 @@ exports[`snapshots match minimal implementation 1`] = `
   width: 100%;
   min-height: 40px;
   padding-left: 10px;
+  border-color: hsl(201,7%,58%);
 }
 
-.c2 .fi-text-input_input::-webkit-input-placeholder {
+.c1 .fi-text-input_input::-webkit-input-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
-.c2 .fi-text-input_input::-moz-placeholder {
+.c1 .fi-text-input_input::-moz-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
-.c2 .fi-text-input_input:-ms-input-placeholder {
+.c1 .fi-text-input_input:-ms-input-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
-.c2 .fi-text-input_input::placeholder {
+.c1 .fi-text-input_input::placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
-.c2.fi-text-input_with-icon .fi-text-input_input-element-container {
+.c1 .fi-text-input_input::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.c1 .fi-text-input_input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.c1.fi-text-input_with-icon .fi-text-input_input-element-container {
   position: relative;
 }
 
-.c2.fi-text-input_with-icon .fi-text-input_input {
+.c1.fi-text-input_with-icon .fi-text-input_input {
   padding-right: 40px;
 }
 
-.c2.fi-text-input_with-icon .fi-icon {
+.c1.fi-text-input_with-icon .fi-icon {
   position: absolute;
   width: 18px;
   height: 18px;
@@ -995,53 +592,343 @@ exports[`snapshots match minimal implementation 1`] = `
   right: 10px;
 }
 
-.c2.fi-text-input--error .fi-text-input_input {
+.c1.fi-text-input--error .fi-text-input_input {
   border-color: hsl(3,59%,48%);
 }
 
-.c2.fi-text-input--error .fi-text-input_statusText {
-  color: hsl(3,59%,48%);
+.c1.fi-text-input--success .fi-text-input_input {
+  border-color: hsl(166,90%,34%);
 }
 
-.c2.fi-text-input--success .fi-text-input_input {
-  border-color: hsl(166,90%,36%);
-}
-
-.c2.fi-text-input--disabled .fi-text-input_input {
+.c1.fi-text-input--disabled .fi-text-input_input {
   color: hsl(202,7%,67%);
   background-color: hsl(202,7%,97%);
 }
 
-.c2.fi-text-input--disabled .fi-icon {
+.c1.fi-text-input--disabled .fi-icon {
   fill: hsl(202,7%,67%);
 }
 
 <div
-  class="c0 c1 fi-text-input c2"
+  class="c0 fi-text-input c1"
 >
   <label
-    class="c3 fi-text-input_label"
+    class="c0 c2 fi-label-text"
+    for="test-id1"
   >
-    <p
-      class="c4 fi-paragraph fi-text-input_label-p"
+    <span
+      class="c3 c4 fi-visually-hidden"
     >
       Test input
-    </p>
-    <div
-      class="c0 fi-text-input_statusText_container"
-    >
-      <div
-        class="c0 fi-text-input_input-element-container"
-      >
-        <input
-          aria-invalid="false"
-          class="c5 fi-text-input_input"
-          data-testid="textinput"
-          id="test-id"
-          type="text"
-        />
-      </div>
-    </div>
+    </span>
   </label>
+  <div
+    class="c0 fi-text-input_input-element-container"
+  >
+    <input
+      aria-invalid="false"
+      class="c5 fi-text-input_input"
+      data-testid="textinput1"
+      id="test-id1"
+      placeholder="Test TextInput"
+      type="text"
+    />
+  </div>
+</div>
+`;
+
+exports[`snapshots match minimal implementation 1`] = `
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.c4::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
+.c2.fi-label-text .fi-label-text_label-span {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+  color: hsl(0,0%,16%);
+}
+
+.c2.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-text-input {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: inline-block;
+  width: 290px;
+}
+
+.c1 .fi-text-input_input-element-container > input:focus {
+  outline-color: hsl(196,77%,44%);
+  outline-width: 2px;
+  outline-offset: 2px;
+  outline-style: solid;
+}
+
+.c1 .fi-text-input_input-element-container:focus-within > input:focus {
+  outline: none;
+}
+
+.c1 .fi-text-input_input-element-container:focus-within {
+  position: relative;
+}
+
+.c1 .fi-text-input_input-element-container:focus-within::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c1.fi-text-input--full-width {
+  width: 100%;
+}
+
+.c1 .fi-text-input_input {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+  line-height: 1;
+  background-color: hsl(0,0%,100%);
+  min-width: 40px;
+  width: 100%;
+  min-height: 40px;
+  padding-left: 10px;
+  border-color: hsl(201,7%,58%);
+}
+
+.c1 .fi-text-input_input::-webkit-input-placeholder {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
+.c1 .fi-text-input_input::-moz-placeholder {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
+.c1 .fi-text-input_input:-ms-input-placeholder {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
+.c1 .fi-text-input_input::placeholder {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
+.c1 .fi-text-input_input::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.c1 .fi-text-input_input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.c1.fi-text-input_with-icon .fi-text-input_input-element-container {
+  position: relative;
+}
+
+.c1.fi-text-input_with-icon .fi-text-input_input {
+  padding-right: 40px;
+}
+
+.c1.fi-text-input_with-icon .fi-icon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 10px;
+  right: 10px;
+}
+
+.c1.fi-text-input--error .fi-text-input_input {
+  border-color: hsl(3,59%,48%);
+}
+
+.c1.fi-text-input--success .fi-text-input_input {
+  border-color: hsl(166,90%,34%);
+}
+
+.c1.fi-text-input--disabled .fi-text-input_input {
+  color: hsl(202,7%,67%);
+  background-color: hsl(202,7%,97%);
+}
+
+.c1.fi-text-input--disabled .fi-icon {
+  fill: hsl(202,7%,67%);
+}
+
+<div
+  class="c0 fi-text-input c1"
+>
+  <label
+    class="c0 c2 fi-label-text"
+    for="test-id"
+  >
+    <span
+      class="c3 fi-label-text_label-span"
+    >
+      Test input
+    </span>
+  </label>
+  <div
+    class="c0 fi-text-input_input-element-container"
+  >
+    <input
+      aria-invalid="false"
+      class="c4 fi-text-input_input"
+      data-testid="textinput"
+      id="test-id"
+      type="text"
+    />
+  </div>
 </div>
 `;

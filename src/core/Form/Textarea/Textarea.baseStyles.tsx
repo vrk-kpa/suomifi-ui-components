@@ -15,21 +15,14 @@ export const baseStyles = withSuomifiTheme(
       display: flex;
       flex-direction: column;
       color: ${theme.colors.blackBase};
+      width: 290px;
 
-      & .fi-textarea_label {
-        ${font({ theme })('actionElementInnerTextBold')};
-        color: ${theme.colors.blackBase};
+      & .fi-label-text_label-span {
+        margin-bottom: 0;
       }
 
-      & .fi-textarea_optionalText {
-        ${theme.typography.bodyTextSmall};
-      }
-
-      & .fi-textarea_hintText {
-        display: block;
-        color: ${theme.colors.depthDark1};
-        ${theme.typography.bodyTextSmall};
-        word-break: break-word;
+      & .fi-hint-text {
+        margin-bottom: 0;
       }
 
       & .fi-textarea_textarea-element-container {
@@ -48,7 +41,7 @@ export const baseStyles = withSuomifiTheme(
         display: block;
         resize: ${!!resize ? resize : 'vertical'};
         border-radius: 2px;
-        border: 1px solid ${theme.colors.depthLight1};
+        border: 1px solid ${theme.colors.depthDark3};
         box-shadow: ${theme.shadows.actionElementBoxShadow};
         padding: 8px 14px 13px 10px;
         ${theme.typography.bodyTextSmall};
@@ -58,18 +51,16 @@ export const baseStyles = withSuomifiTheme(
           outline: none;
         }
 
-        ::placeholder {
+        &::placeholder {
           font-style: italic;
+          color: ${theme.colors.depthDark2};
+          opacity: 1;
         }
       }
 
-      & .fi-textarea_statusText {
+      & .fi-status-text {
         display: block;
-        margin-top: ${theme.spacing.xxs};
-        font-size: 14px;
         line-height: 18px;
-        font-weight: 600;
-        word-break: break-word;
       }
 
       &.fi-textarea--disabled {
@@ -85,11 +76,11 @@ export const baseStyles = withSuomifiTheme(
         & .fi-textarea_textarea {
           border: 2px solid ${theme.colors.alertBase};
         }
-
-        & .fi-textarea_statusText {
-          color: ${theme.colors.alertBase};
-        }
       }
+    }
+
+    &.fi-textarea--full-width {
+      width: 100%;
     }
   `,
 );

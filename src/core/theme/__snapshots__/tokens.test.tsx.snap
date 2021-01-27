@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot testing 1`] = `
-.c3 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,26 +27,31 @@ exports[`snapshot testing 1`] = `
   cursor: pointer;
 }
 
-.c3:-moz-focusring {
+.c2:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c3::-moz-focus-inner {
+.c2::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c3::-webkit-file-upload-button {
+.c2::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c3::-webkit-inner-spin-button {
+.c2::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c3::-webkit-outer-spin-button {
+.c2::-webkit-outer-spin-button {
   height: auto;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
 }
 
 .c0 {
@@ -73,44 +78,58 @@ exports[`snapshot testing 1`] = `
   white-space: normal;
 }
 
-.c8 {
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
+.c7 {
   display: inline-block;
   vertical-align: baseline;
 }
 
-.c4.fi-button--disabled {
-  cursor: not-allowed;
+.c4 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
 }
 
 .c1 {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-}
-
-.c9 {
-  display: none;
-}
-
-.c7,
-.c7 * {
-  cursor: pointer;
-}
-
-.c7:hover,
-.c7:active,
-.c7:focus,
-.c7:focus-within {
-  cursor: pointer;
-}
-
-.c5 {
-  color: hsl(0,0%,16%);
-  border-radius: 2px;
-  cursor: pointer;
-}
-
-.c2 {
   color: hsl(0,0%,16%);
   display: -webkit-box;
   display: -webkit-flex;
@@ -119,15 +138,17 @@ exports[`snapshot testing 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  width: 100%;
+  max-width: 100%;
 }
 
-.c2 > .fi-expander-group_expanders {
+.c1 > .fi-expander-group_expanders {
   -webkit-flex: none;
   -ms-flex: none;
   flex: none;
 }
 
-.c2 > .fi-expander-group_expanders .fi-expander {
+.c1 > .fi-expander-group_expanders .fi-expander {
   margin-top: 0;
   margin-bottom: 0;
   border-radius: 0;
@@ -136,42 +157,40 @@ exports[`snapshot testing 1`] = `
   transition: margin 50ms cubic-bezier(0.28,0.84,0.42,1);
 }
 
-.c2 > .fi-expander-group_expanders .fi-expander:first-child {
-  border-radius: 2px 2px 0 0;
-  border-top: none;
+.c1 > .fi-expander-group_expanders .fi-expander .fi-icon {
+  color: hsl(1,2%,3%);
 }
 
-.c2 > .fi-expander-group_expanders .fi-expander:last-child {
+.c1 > .fi-expander-group_expanders .fi-expander > {
+  border-radius: 0;
+}
+
+.c1 > .fi-expander-group_expanders .fi-expander:first-child {
+  border-top: none;
+  border-radius: 2px 2px 0 0;
+}
+
+.c1 > .fi-expander-group_expanders .fi-expander:last-child {
   border-radius: 0 0 2px 2px;
 }
 
-.c2 > .fi-expander-group_expanders .fi-expander.fi-expander--open {
+.c1 > .fi-expander-group_expanders .fi-expander.fi-expander--open {
   border-top: none;
 }
 
-.c2 > .fi-expander-group_expanders .fi-expander.fi-expander--open:not(:first-of-type) {
+.c1 > .fi-expander-group_expanders .fi-expander.fi-expander--open:not(:first-of-type) {
   margin-top: 16px;
 }
 
-.c2 > .fi-expander-group_expanders .fi-expander.fi-expander--open:not(:last-of-type) {
+.c1 > .fi-expander-group_expanders .fi-expander.fi-expander--open:not(:last-of-type) {
   margin-bottom: 16px;
 }
 
-.c2 > .fi-expander-group_expanders .fi-expander.fi-expander--open:first-child,
-.c2 > .fi-expander-group_expanders .fi-expander.fi-expander--open:first-child:before {
-  border-radius: 2px 2px 0 0;
-}
-
-.c2 > .fi-expander-group_expanders .fi-expander.fi-expander--open:last-child,
-.c2 > .fi-expander-group_expanders .fi-expander.fi-expander--open:last-child:before {
-  border-radius: 0 0 2px 2px;
-}
-
-.c2 > .fi-expander-group_expanders .fi-expander.fi-expander--open + .fi-expander {
+.c1 > .fi-expander-group_expanders .fi-expander.fi-expander--open + .fi-expander {
   border-top: none;
 }
 
-.c2 > .fi-expander-group_all-button {
+.c1 > .fi-expander-group_all-button {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -196,15 +215,17 @@ exports[`snapshot testing 1`] = `
   margin-bottom: 8px;
   padding: 4px 0;
   color: hsl(1,2%,3%);
+  border-radius: 2px;
+  border: none;
   cursor: pointer;
 }
 
-.c2 > .fi-expander-group_all-button:focus {
+.c1 > .fi-expander-group_all-button:focus {
   outline: 0;
   position: relative;
 }
 
-.c2 > .fi-expander-group_all-button:focus:after {
+.c1 > .fi-expander-group_all-button:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -216,11 +237,19 @@ exports[`snapshot testing 1`] = `
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
 }
 
-.c6 {
+.c1 > .fi-expander-group_all-button:not(:focus-visible) {
+  outline: 0;
+}
+
+.c1 > .fi-expander-group_all-button:not(:focus-visible):after {
+  content: none;
+}
+
+.c5 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -237,35 +266,92 @@ exports[`snapshot testing 1`] = `
   font-weight: 400;
   background-color: hsl(0,0%,100%);
   position: relative;
-  position: relative;
   padding: 0;
   border-radius: 2px;
   box-shadow: 0 1px 2px 0 rgba(41,41,41,0.14),0 1px 5px 0 rgba(41,41,41,0.12);
-}
-
-.c6:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  display: block;
   width: 100%;
-  height: 100%;
+  max-width: 100%;
 }
 
-.c6:before {
+.c5:before {
   background-color: hsl(212,63%,98%);
   opacity: 0;
 }
 
-.c6.fi-expander--open:before {
-  opacity: 1;
-  -webkit-transition: opacity 50ms cubic-bezier(0.28,0.84,0.42,1);
-  transition: opacity 50ms cubic-bezier(0.28,0.84,0.42,1);
+.c8 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: hsl(0,0%,100%);
+  border-radius: inherit;
+  position: relative;
+  visibility: hidden;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  word-break: break-word;
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: top;
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -webkit-transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
+  transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
+  will-change: transition,height;
 }
 
-.c6 .fi-expander_title {
+.c8:not(.fi-expander_content--no-padding) {
+  padding: 0 16px;
+}
+
+.c8.fi-expander_content--open {
+  visibility: visible;
+  height: 10%;
+  overflow: visible;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  -webkit-animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
+  animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
+}
+
+.c8.fi-expander_content--open:not(.fi-expander_content--no-padding) {
+  padding-top: 0;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.c6 {
+  color: hsl(0,0%,16%);
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 60px;
+  background-color: hsl(212,63%,98%);
+  border-radius: inherit;
+}
+
+.c6.fi-expander_title-button--open {
+  background-color: hsl(0,0%,100%);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c6 .fi-expander_title-button_button {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -282,21 +368,40 @@ exports[`snapshot testing 1`] = `
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  position: relative;
-  display: block;
-  width: 100%;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
   font-size: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 600;
+  color: hsl(212,63%,45%);
+  display: inline-block;
+  width: 100%;
+  max-width: 100%;
   min-height: 60px;
+  padding: 17px 60px 16px 20px;
 }
 
-.c6 .fi-expander_title:focus {
+.c6 .fi-expander_title-button_button:focus {
   outline: 0;
 }
 
-.c6 .fi-expander_title:focus:after {
+.c6 .fi-expander_title-button_button:focus-within {
+  outline: 0;
+}
+
+.c6 .fi-expander_title-button_button:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -308,175 +413,198 @@ exports[`snapshot testing 1`] = `
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
 }
 
-.c6 .fi-expander_title--no-tag {
-  padding: 17px 60px 16px 20px;
-  color: hsl(212,63%,45%);
+.c6 .fi-expander_title-button_button:not(:focus-visible) {
+  outline: 0;
 }
 
-.c6 .fi-expander_title-icon {
+.c6 .fi-expander_title-button_button:not(:focus-visible):after {
+  content: none;
+}
+
+.c6 .fi-expander_title-button_button * {
+  cursor: pointer;
+}
+
+.c6 .fi-expander_title-button_button:hover,
+.c6 .fi-expander_title-button_button:active,
+.c6 .fi-expander_title-button_button:focus,
+.c6 .fi-expander_title-button_button:focus-within {
+  cursor: pointer;
+}
+
+.c6 .fi-expander_title-button-icon {
   position: absolute;
-  height: 20px;
-  width: 20px;
   top: 0;
   right: 0;
+  height: 20px;
+  width: 20px;
   margin: 20px;
 }
 
-.c6 .fi-expander_title--open .fi-expander_title-icon,
-.c6 .fi-expander_title-icon--open {
+.c6 .fi-expander_title-button--open .fi-expander_title-button-icon,
+.c6 .fi-expander_title-button-icon--open {
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   transform: rotate(-180deg);
 }
 
-.c6 > .fi-expander_content {
-  position: relative;
-  display: block;
-  height: 0;
-  overflow: hidden;
-  word-break: break-word;
-  -webkit-transform: scaleY(0);
-  -ms-transform: scaleY(0);
-  transform: scaleY(0);
-  -webkit-transform-origin: top;
-  -ms-transform-origin: top;
-  transform-origin: top;
-  -webkit-transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
-  transition: all 50ms cubic-bezier(0.28,0.84,0.42,1);
-  will-change: transition,height;
-}
-
-.c6 > .fi-expander_content:not(.fi-expander_content--no-padding) {
-  padding: 0 16px;
-}
-
-.c6 > .fi-expander_content.fi-expander_content--open {
-  height: 10%;
-  overflow: visible;
-  -webkit-animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
-  animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
-}
-
-.c6 > .fi-expander_content.fi-expander_content--open:not(.fi-expander_content--no-padding) {
-  padding-top: 0;
-  padding-right: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
-}
-
 <div
-  class="c0 c1 c2 fi-expander-group"
+  class="c0 c1 fi-expander-group"
 >
   <button
-    aria-disabled="false"
-    class="c3 c4 fi-button c5 fi-expander-group_all-button fi-button"
-    tabindex="0"
+    class="c2 fi-expander-group_all-button"
     type="button"
   >
-    Open all
+    <span
+      aria-hidden="true"
+      class="c3"
+    >
+      Open all
+    </span>
+    <span
+      class="c3 c4 fi-visually-hidden"
+    >
+      Open all
+    </span>
   </button>
   <div
     class="c0 fi-expander-group_expanders"
   >
     <div
-      class="c0 c1 c6 fi-expander"
+      class="c0 c5 fi-expander"
+      id="id-expander-1"
     >
-      <button
-        aria-disabled="false"
-        aria-expanded="false"
-        class="c3 c4 fi-button c7 fi-expander_title fi-expander_title--no-tag"
-        tabindex="0"
-        type="button"
-      >
-        Test expander 1
-        <svg
-          aria-hidden="true"
-          class="fi-icon c8 fi-expander_title-icon"
-          fill="hsl(212, 63%, 45%)"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
-        >
-          <path
-            d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
-          />
-        </svg>
-      </button>
       <div
-        aria-hidden="true"
-        class="c0 c1 c9 fi-expander_content"
-        hidden=""
+        class="c0 c6 fi-expander_title-button"
       >
-        Test expander content 1
+        <span
+          class="c3"
+        >
+          <button
+            aria-controls="id-expander-1_content"
+            aria-expanded="false"
+            class="c2 fi-expander_title-button_button"
+            type="button"
+          >
+            <span
+              class="c3"
+              id="id-expander-1_title"
+            >
+              Test expander 1
+            </span>
+            <svg
+              aria-hidden="true"
+              class="fi-icon c7 fi-expander_title-button-icon"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
+              />
+            </svg>
+          </button>
+        </span>
       </div>
     </div>
     <div
-      class="c0 c1 c6 fi-expander"
+      class="c0 c5 fi-expander"
+      id="id-expander-2"
     >
-      <button
-        aria-disabled="false"
-        aria-expanded="false"
-        class="c3 c4 fi-button c7 fi-expander_title fi-expander_title--no-tag"
-        tabindex="0"
-        type="button"
+      <div
+        class="c0 c6 fi-expander_title-button"
       >
-        Test expander 2
-        <svg
-          aria-hidden="true"
-          class="fi-icon c8 fi-expander_title-icon"
-          fill="hsl(212, 63%, 45%)"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
+        <span
+          class="c3"
         >
-          <path
-            d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
-          />
-        </svg>
-      </button>
+          <button
+            aria-controls="id-expander-2_content"
+            aria-expanded="false"
+            class="c2 fi-expander_title-button_button"
+            type="button"
+          >
+            <span
+              class="c3"
+              id="id-expander-2_title"
+            >
+              Test expander 2
+            </span>
+            <svg
+              aria-hidden="true"
+              class="fi-icon c7 fi-expander_title-button-icon"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
+              />
+            </svg>
+          </button>
+        </span>
+      </div>
       <div
         aria-hidden="true"
-        class="c0 c1 c9 fi-expander_content"
-        hidden=""
+        aria-labelledby="id-expander-2_title"
+        class="c0 c8 fi-expander_content"
+        id="id-expander-2_content"
+        role="region"
       >
         Test expander content 2
       </div>
     </div>
     <div
-      class="c0 c1 c6 fi-expander"
+      class="c0 c5 fi-expander"
+      id="id-expander-3"
     >
-      <button
-        aria-disabled="false"
-        aria-expanded="false"
-        class="c3 c4 fi-button c7 fi-expander_title fi-expander_title--no-tag"
-        tabindex="0"
-        type="button"
+      <div
+        class="c0 c6 fi-expander_title-button"
       >
-        Test expander 3
-        <svg
-          aria-hidden="true"
-          class="fi-icon c8 fi-expander_title-icon"
-          fill="hsl(212, 63%, 45%)"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
+        <span
+          class="c3"
         >
-          <path
-            d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
-          />
-        </svg>
-      </button>
+          <button
+            aria-controls="id-expander-3_content"
+            aria-expanded="false"
+            class="c2 fi-expander_title-button_button"
+            type="button"
+          >
+            <span
+              class="c3"
+              id="id-expander-3_title"
+            >
+              Test expander 3
+            </span>
+            <svg
+              aria-hidden="true"
+              class="fi-icon c7 fi-expander_title-button-icon"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
+              />
+            </svg>
+          </button>
+        </span>
+      </div>
       <div
         aria-hidden="true"
-        class="c0 c1 c9 fi-expander_content"
-        hidden=""
+        aria-labelledby="id-expander-3_title"
+        class="c0 c8 fi-expander_content"
+        id="id-expander-3_content"
+        role="region"
       >
         Test expander content 3
       </div>

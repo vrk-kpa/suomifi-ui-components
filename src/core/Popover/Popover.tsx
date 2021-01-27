@@ -1,7 +1,8 @@
-import React, { useState, ReactNode, useLayoutEffect, useEffect } from 'react';
+import React, { useState, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { usePopper } from 'react-popper';
 import { HtmlDiv, HtmlDivProps } from '../../reset/HtmlDiv/HtmlDiv';
+import { useEnhancedEffect } from '../../utils/common';
 
 export interface PopoverProps extends HtmlDivProps {
   sourceRef: Element | null;
@@ -11,9 +12,6 @@ export interface PopoverProps extends HtmlDivProps {
   matchWidth?: boolean;
   allowFlip?: boolean;
 }
-
-const useEnhancedEffect =
-  typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 const sameWidth: any = {
   name: 'sameWidth',

@@ -122,14 +122,14 @@ const mergeTokens = <T>({
 }: {
   defaultTokens: T;
   customTokens?: Partial<T>;
-}): T => {
-  return Object.entries(customTokens).reduce((retObj, [key, value]) => {
-    return {
+}): T =>
+  Object.entries(customTokens).reduce(
+    (retObj, [key, value]) => ({
       ...retObj,
       [key]: value,
-    };
-  }, Object.assign({}, defaultTokens) as T);
-};
+    }),
+    Object.assign({}, defaultTokens) as T,
+  );
 
 /**
  * Function that will add theme to baseStyles-function using tokens

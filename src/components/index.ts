@@ -1,14 +1,11 @@
 export { Breadcrumb, BreadcrumbProps } from './Breadcrumb/Breadcrumb';
 export { Block, BlockProps } from './Block/Block';
-export { Button, ButtonProps } from './Button/Button';
 export {
   Dropdown,
   DropdownProps,
   DropdownItem,
   DropdownItemProps,
 } from './Dropdown/Dropdown';
-export { TextInput, TextInputProps } from './Form/TextInput';
-export { Checkbox, CheckboxProps } from './Form/Checkbox';
 export {
   Toggle,
   ToggleProps,
@@ -27,14 +24,6 @@ export {
   MenuItem,
   MenuLink,
 } from './LanguageMenu/LanguageMenu';
-export { Expander, ExpanderProps } from './Expander/Expander';
 export { Paragraph, ParagraphProps } from './Paragraph/Paragraph';
 export { Text, TextProps } from './Text/Text';
-export { Textarea, TextareaProps } from './Form/Textarea';
 export { VisuallyHidden } from './Visually-hidden/Visually-hidden';
-export { RadioButton, RadioButtonProps } from './Form/RadioButton';
-export {
-  RadioButtonGroup,
-  RadioButtonGroupProps,
-} from './Form/RadioButtonGroup';
-export { RadioButtonDivider } from './Form/RadioButtonDivider';

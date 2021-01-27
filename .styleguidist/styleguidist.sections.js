@@ -12,7 +12,6 @@ const primitiveComponents = [
   ['Form', 'SearchInput'],
   ['Form', 'Checkbox'],
   ['Form', 'Textarea'],
-  ['Form', 'RadioButton'],
 ];
 
 const getComponent = ({ name, underName }) =>
@@ -56,6 +55,7 @@ module.exports = {
         },
       ],
       sectionDepth: 1,
+      expand: true,
     },
     {
       name: 'Components',
@@ -71,6 +71,13 @@ module.exports = {
               components: getComponents(['Text', 'Paragraph']),
             },
             {
+              name: 'RadioButton',
+              components: getComponentWithVariants('Form/RadioButton')([
+                'RadioButton',
+                'RadioButtonGroup',
+              ]),
+            },
+            {
               name: 'Link',
               components: getComponentWithVariants('Link')([
                 'LinkSkip',
@@ -82,6 +89,7 @@ module.exports = {
               components: getComponents(['Icon', 'StaticIcon']),
             },
           ],
+          expand: true,
         },
         {
           name: 'Modules',
@@ -109,13 +117,19 @@ module.exports = {
             {
               name: 'Expander',
               components: getComponentWithVariants('Expander')([
-                'ExpanderGroup',
+                'Expander/Expander',
+                'ExpanderGroup/ExpanderGroup',
+                'ExpanderTitle/ExpanderTitle',
+                'ExpanderTitleButton/ExpanderTitleButton',
+                'ExpanderContent/ExpanderContent',
               ]),
             },
           ],
+          expand: true,
         },
       ],
       sectionDepth: 2,
+      expand: true,
     },
   ],
 };

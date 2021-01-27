@@ -19,6 +19,7 @@ export const baseStyles = withSuomifiTheme(
       overflow-wrap: break-word;
       min-height: 22px;
       padding: 7px 38px 7px 7px;
+      border-color: ${theme.colors.depthDark3};
       text-align: left;
       line-height: 1.5;
       background-color: ${theme.colors.whiteBase};
@@ -41,12 +42,12 @@ export const baseStyles = withSuomifiTheme(
         right: 16px;
         margin-top: -3px;
         border-style: solid;
-        border-color: ${theme.colors.depthDark1} transparent transparent
+        border-color: ${theme.colors.depthDark3} transparent transparent
           transparent;
         border-width: 6px 4px 0 4px;
       }
       &[aria-expanded='true']:before {
-        border-color: transparent transparent ${theme.colors.depthDark1}
+        border-color: transparent transparent ${theme.colors.depthDark3}
           transparent;
         border-width: 0 4px 6px 4px;
       }
@@ -75,7 +76,7 @@ export const listboxPopoverStyles = withSuomifiTheme(
       font-size: 100%;
       border: 0;
       background-color: ${theme.colors.whiteBase};
-      border-color: ${theme.colors.depthLight1};
+      border-color: ${theme.colors.depthDark3};
       border-style: solid;
       border-width: 0 1px 1px 1px;
       border-radius: 0px 0px ${theme.radius.basic} ${theme.radius.basic};

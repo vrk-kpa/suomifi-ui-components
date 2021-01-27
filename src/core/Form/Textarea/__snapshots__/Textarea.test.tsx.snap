@@ -25,27 +25,12 @@ exports[`snapshot default structure should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
+.c0::before,
+.c0::after {
   box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  max-width: 100%;
 }
 
-.c4 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -69,7 +54,12 @@ exports[`snapshot default structure should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5 {
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -92,33 +82,40 @@ exports[`snapshot default structure should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c5::-webkit-input-placeholder {
+.c4::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c3 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
+.c4::before,
+.c4::after {
   box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
+}
+
+.c2.fi-label-text .fi-label-text_label-span {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
   -webkit-text-decoration: none;
   text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
   display: block;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
+  margin-bottom: 10px;
+  color: hsl(0,0%,16%);
+}
+
+.c2.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
 .c1 {
@@ -147,40 +144,15 @@ exports[`snapshot default structure should match snapshot 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   color: hsl(0,0%,16%);
+  width: 290px;
 }
 
-.c1.fi-textarea .fi-textarea_label {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
+.c1.fi-textarea .fi-label-text_label-span {
+  margin-bottom: 0;
 }
 
-.c1.fi-textarea .fi-textarea_optionalText {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c1.fi-textarea .fi-textarea_hintText {
-  display: block;
-  color: hsl(202,7%,40%);
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-  word-break: break-word;
+.c1.fi-textarea .fi-hint-text {
+  margin-bottom: 0;
 }
 
 .c1.fi-textarea .fi-textarea_textarea-element-container {
@@ -204,7 +176,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
 }
 
@@ -212,7 +184,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   display: block;
   resize: vertical;
   border-radius: 2px;
-  border: 1px solid hsl(202,7%,80%);
+  border: 1px solid hsl(201,7%,58%);
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
   padding: 8px 14px 13px 10px;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -228,27 +200,31 @@ exports[`snapshot default structure should match snapshot 1`] = `
 
 .c1.fi-textarea .fi-textarea_textarea::-webkit-input-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c1.fi-textarea .fi-textarea_textarea::-moz-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c1.fi-textarea .fi-textarea_textarea:-ms-input-placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c1.fi-textarea .fi-textarea_textarea::placeholder {
   font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
-.c1.fi-textarea .fi-textarea_statusText {
+.c1.fi-textarea .fi-status-text {
   display: block;
-  margin-top: 5px;
-  font-size: 14px;
   line-height: 18px;
-  font-weight: 600;
-  word-break: break-word;
 }
 
 .c1.fi-textarea.fi-textarea--disabled {
@@ -264,33 +240,29 @@ exports[`snapshot default structure should match snapshot 1`] = `
   border: 2px solid hsl(3,59%,48%);
 }
 
-.c1.fi-textarea.fi-textarea--error .fi-textarea_statusText {
-  color: hsl(3,59%,48%);
+.c1.fi-textarea--full-width {
+  width: 100%;
 }
 
 <div
   class="c0 fi-textarea c1"
 >
   <label
-    class="c2"
+    class="c0 c2 fi-label-text"
     for="just-for-snapshot-to-be-same"
   >
-    <p
-      class="c3 fi-paragraph"
+    <span
+      class="c3 fi-label-text_label-span"
     >
-      <span
-        class="c4 fi-textarea_label"
-      >
-        Label text
-      </span>
-    </p>
+      Label text
+    </span>
   </label>
   <div
     class="c0 fi-textarea_textarea-element-container"
   >
     <textarea
       aria-invalid="false"
-      class="c5 fi-textarea_textarea"
+      class="c4 fi-textarea_textarea"
       id="just-for-snapshot-to-be-same"
     />
   </div>

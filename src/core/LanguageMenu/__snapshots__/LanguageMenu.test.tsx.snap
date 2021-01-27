@@ -25,6 +25,11 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
 .c2 {
   display: inline-block;
   vertical-align: baseline;
@@ -50,6 +55,7 @@ exports[`calling render with the same component on the same container does not r
   background-color: hsl(0,0%,100%);
   border: 1px solid transparent;
   border-radius: 2px;
+  word-break: break-word;
 }
 
 .c1 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button > .fi-language-menu-language_icon {
@@ -79,7 +85,7 @@ exports[`calling render with the same component on the same container does not r
   background-color: transparent;
   border: 0px solid hsl(0,0%,100%);
   box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
 }
 

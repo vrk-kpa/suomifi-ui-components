@@ -24,6 +24,11 @@ exports[`calling render with the same component on the same container does not r
   text-decoration: underline;
 }
 
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
 .c4:hover,
 .c4:active,
 .c4:focus,
@@ -54,6 +59,11 @@ exports[`calling render with the same component on the same container does not r
   display: list-item;
 }
 
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -73,6 +83,11 @@ exports[`calling render with the same component on the same container does not r
   cursor: inherit;
   display: block;
   max-width: 100%;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
 }
 
 .c2 {
@@ -101,6 +116,11 @@ exports[`calling render with the same component on the same container does not r
   padding-left: 40px;
 }
 
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
 .c7 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -123,6 +143,11 @@ exports[`calling render with the same component on the same container does not r
   word-wrap: normal;
   word-break: normal;
   white-space: normal;
+}
+
+.c7::before,
+.c7::after {
+  box-sizing: border-box;
 }
 
 .c6 {
@@ -166,7 +191,7 @@ exports[`calling render with the same component on the same container does not r
 .c5:focus {
   outline: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,55%);
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
 }
 
 .c5:hover,
@@ -246,9 +271,9 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c1 .fi-breadcrumb_icon {
-  -webkit-transform: translateY(.2em);
-  -ms-transform: translateY(.2em);
-  transform: translateY(.2em);
+  -webkit-transform: translateY(0.2em);
+  -ms-transform: translateY(0.2em);
+  transform: translateY(0.2em);
   margin: 0 4px;
   fill: hsl(202,7%,40%);
 }

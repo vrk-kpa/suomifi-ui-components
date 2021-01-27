@@ -27,18 +27,16 @@ export const font = (props: SuomifiThemeProp) => (
   ${props.theme.typography[typographyToken]}
 `;
 
-export const input = (props: SuomifiThemeProp) => {
-  return css`
-    ${element(props)}
-    ${font(props)('actionElementInnerText')}
-    min-width: 245px;
-    max-width: 100%;
-    padding: ${props.theme.spacing.insetM} ${props.theme.spacing.insetXl};
-    border: 1px solid ${props.theme.colors.depthLight1};
-    border-radius: ${props.theme.radius.basic};
-    line-height: 1;
-  `;
-};
+export const input = (props: SuomifiThemeProp) => css`
+  ${element(props)}
+  ${font(props)('actionElementInnerText')}
+  min-width: 245px;
+  max-width: 100%;
+  padding: ${props.theme.spacing.insetM} ${props.theme.spacing.insetXl};
+  border: 1px solid ${props.theme.colors.depthLight1};
+  border-radius: ${props.theme.radius.basic};
+  line-height: 1;
+`;
 
 export const containerIEFocus = (props: TokensOrThemeProps) => css`
   > input:focus {

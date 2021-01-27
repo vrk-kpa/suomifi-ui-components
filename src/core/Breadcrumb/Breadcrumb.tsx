@@ -9,6 +9,7 @@ import {
 } from '../../components/Breadcrumb/Breadcrumb';
 import { LinkProps } from '../Link/Link';
 import { BreadcrumbLink, BreadcrumbLinkProps } from './BreadcrumbLink';
+import { getConditionalAriaProp } from '../../utils/aria';
 
 type BreadcrumbVariant = 'default' | 'link';
 
@@ -37,9 +38,9 @@ type VariantBreadcrumbProps =
  * Used for navigation path
  */
 export class Breadcrumb extends Component<VariantBreadcrumbProps> {
-  static link = (props: BreadcrumbLinkProps) => {
-    return <BreadcrumbLink {...withSuomifiDefaultProps(props)} />;
-  };
+  static link = (props: BreadcrumbLinkProps) => (
+    <BreadcrumbLink {...withSuomifiDefaultProps(props)} />
+  );
 
   render() {
     const {
@@ -53,7 +54,7 @@ export class Breadcrumb extends Component<VariantBreadcrumbProps> {
     return (
       <StyledBreadcrumb
         {...passProps}
-        aria-label={!!ariaLabel ? ariaLabel : 'Breadcrumb'}
+        {...getConditionalAriaProp('aria-label', [ariaLabel])}
       />
     );
   }

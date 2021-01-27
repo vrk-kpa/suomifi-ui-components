@@ -84,6 +84,11 @@ const LanguageMenuPopoverPosition = (
     left: `${targetRect.left - popoverRect.width + targetRect.width}px`,
     // eslint-disable-next-line no-undef
     top: `${targetRect.top + targetRect.height + window.pageYOffset}px`,
+    maxWidth: `${Math.max(
+      targetRect.width,
+      targetRect.width + targetRect.left - 30,
+    )}px`,
+    minWidth: `${targetRect.width - 2}px`,
   };
 };
 
@@ -141,13 +146,13 @@ class LanguageMenuVariation extends Component<LanguageMenuProps> {
  * Use for dropdown menu.
  */
 export class LanguageMenu extends Component<LanguageMenuProps> {
-  static languageItem = (props: LanguageMenuItemLanguageProps) => {
-    return <LanguageMenuItemLanguage {...props} />;
-  };
+  static languageItem = (props: LanguageMenuItemLanguageProps) => (
+    <LanguageMenuItemLanguage {...props} />
+  );
 
-  static LinkLanguage = (props: LanguageMenuLinkLanguageProps) => {
-    return <LanguageMenuLinkLanguage {...props} />;
-  };
+  static LinkLanguage = (props: LanguageMenuLinkLanguageProps) => (
+    <LanguageMenuLinkLanguage {...props} />
+  );
 
   render() {
     return <LanguageMenuVariation {...this.props} />;

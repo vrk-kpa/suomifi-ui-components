@@ -25,6 +25,8 @@ interface InternalLabelTextProps extends HtmlDivProps {
   labelSpanProps?: HtmlSpanProps;
   /** Render the wrapping element as another element */
   asProp?: asPropType;
+  /** Optional text that is shown after labelText. Will be wrapped in parentheses. */
+  optionalText?: string;
 }
 
 export interface LabelTextProps extends InternalLabelTextProps, TokensProp {}
@@ -32,6 +34,7 @@ export interface LabelTextProps extends InternalLabelTextProps, TokensProp {}
 const baseClassName = 'fi-label-text';
 const labelTextClassNames = {
   labelSpan: `${baseClassName}_label-span`,
+  optionalText: `${baseClassName}_optionalText`,
 };
 
 const StyledLabelText = styled(
@@ -42,6 +45,7 @@ const StyledLabelText = styled(
     children,
     tokens,
     asProp,
+    optionalText,
     ...passProps
   }: LabelTextProps & InternalTokensProp) => (
     <HtmlDiv
@@ -50,7 +54,10 @@ const StyledLabelText = styled(
       {...passProps}
     >
       {labelMode === 'hidden' ? (
-        <VisuallyHidden>{children}</VisuallyHidden>
+        <VisuallyHidden>
+          {children}
+          {optionalText && `(${optionalText})`}
+        </VisuallyHidden>
       ) : (
         <HtmlSpan
           {...labelSpanProps}
@@ -60,6 +67,11 @@ const StyledLabelText = styled(
           )}
         >
           {children}
+          {optionalText && (
+            <HtmlSpan className={labelTextClassNames.optionalText}>
+              {` (${optionalText})`}
+            </HtmlSpan>
+          )}
         </HtmlSpan>
       )}
     </HtmlDiv>

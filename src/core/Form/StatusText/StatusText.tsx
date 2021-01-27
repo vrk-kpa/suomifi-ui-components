@@ -5,22 +5,21 @@ import { baseStyles } from './StatusText.baseStyles';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
 import { TokensProp, InternalTokensProp } from 'core/theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
+import { InputStatus } from '../types';
 
 const baseClassName = 'fi-status-text';
 const statusTextClassNames = {
   error: `${baseClassName}--error`,
 };
 
-export type InputStatus = 'default' | 'error' | 'success';
-
 interface InternalStatusTextProps extends HtmlSpanProps {
   /** id */
   id?: string;
-  /** Chip element content */
+  /** StatusText element content */
   children?: ReactNode;
   /** Custom class name for styling and customizing  */
   className?: string;
-  /** Disable chip */
+  /** Disable StatusText */
   disabled?: boolean;
   /** Status */
   status?: InputStatus;

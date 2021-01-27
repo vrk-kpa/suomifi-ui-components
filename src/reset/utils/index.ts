@@ -16,6 +16,11 @@ const common = css`
   color: inherit;
   background: none;
   cursor: inherit;
+
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
 `;
 
 const resets = {

@@ -11,9 +11,9 @@ export const baseStyles = withSuomifiTheme(
     color,
     marginBottomSpacing = '0',
   }: ParagraphProps & TokensAndTheme) => css`
-  ${element({ theme })}
-  ${font({ theme })('bodyText')}
-  ${margin({ theme })('0', '0', marginBottomSpacing, '0')};
-  color: ${!!color ? objValue(theme.colors, color) : theme.colors.blackBase};
-`,
+    ${element({ theme })}
+    ${font({ theme })('bodyText')}
+    ${margin({ theme })('0', '0', marginBottomSpacing, '0')};
+    color: ${!!color ? objValue(theme.colors, color) : theme.colors.blackBase};
+  `,
 );

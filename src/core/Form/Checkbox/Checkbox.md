@@ -1,5 +1,5 @@
 ```js
-import { Checkbox } from './Checkbox';
+import { Checkbox } from 'suomifi-ui-components';
 import { useState } from 'react';
 
 const [checked, setChecked] = useState(false);

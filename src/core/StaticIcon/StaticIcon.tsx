@@ -8,10 +8,7 @@ import {
   SuomifiComponentIconInterface,
   SuomifiComponentIcon,
 } from 'suomifi-icons';
-import {
-  ariaLabelOrHidden,
-  ariaFocusableNoLabel,
-} from '../../components/utils/aria';
+import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
 import { IconBaseProps, iconLogger } from '../Icon/Icon';
 export { IllustrativeIconKeys, DoctypeIconKeys } from 'suomifi-icons';
 
@@ -20,15 +17,13 @@ export interface StaticIconProps
     SuomifiStaticIconInterface {}
 
 const StyledSuomifiStaticIcon = styled(
-  ({ ariaLabel, mousePointer, ...passProps }: StaticIconProps) => {
-    return (
-      <SuomifiStaticIcon
-        {...passProps}
-        {...ariaLabelOrHidden(ariaLabel)}
-        {...ariaFocusableNoLabel(ariaLabel)}
-      />
-    );
-  },
+  ({ ariaLabel, mousePointer, ...passProps }: StaticIconProps) => (
+    <SuomifiStaticIcon
+      {...passProps}
+      {...ariaLabelOrHidden(ariaLabel)}
+      {...ariaFocusableNoLabel(ariaLabel)}
+    />
+  ),
 )`
   ${(props) => iconBaseStyles(props)}
 `;
@@ -56,15 +51,13 @@ export interface ComponentIconProps
     SuomifiComponentIconInterface {}
 
 const StyledSuomifiComponentIcon = styled(
-  ({ ariaLabel, mousePointer, ...passProps }: ComponentIconProps) => {
-    return (
-      <SuomifiComponentIcon
-        {...passProps}
-        {...ariaLabelOrHidden(ariaLabel)}
-        {...ariaFocusableNoLabel(ariaLabel)}
-      />
-    );
-  },
+  ({ ariaLabel, mousePointer, ...passProps }: ComponentIconProps) => (
+    <SuomifiComponentIcon
+      {...passProps}
+      {...ariaLabelOrHidden(ariaLabel)}
+      {...ariaFocusableNoLabel(ariaLabel)}
+    />
+  ),
 )`
   ${(props) => iconBaseStyles(props)}
 `;

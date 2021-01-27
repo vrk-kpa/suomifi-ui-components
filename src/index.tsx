@@ -6,7 +6,6 @@ export {
 } from './core/Breadcrumb/BreadcrumbLink';
 export { Block, BlockProps } from './core/Block/Block';
 export { Button, ButtonProps } from './core/Button/Button';
-export { UnstyledButton } from './core/Button/UnstyledButton';
 export { Dropdown, DropdownProps } from './core/Dropdown/Dropdown';
 export { DropdownItem, DropdownItemProps } from './core/Dropdown/DropdownItem';
 export { Chip, ChipProps } from './core/Chip/Chip';
@@ -51,7 +50,18 @@ export {
   LanguageMenuLinkLanguage,
   LanguageMenuLinkLanguageProps,
 } from './core/LanguageMenu/LanguageMenuItem';
-export { Expander, ExpanderProps } from './core/Expander/Expander';
+export {
+  Expander,
+  ExpanderProps,
+  ExpanderGroup,
+  ExpanderGroupProps,
+  ExpanderContent,
+  ExpanderContentProps,
+  ExpanderTitleButton,
+  ExpanderTitleButtonProps,
+  ExpanderTitle,
+  ExpanderTitleProps,
+} from './core/Expander/';
 export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';
 export { Text, TextProps } from './core/Text/Text';
 export { Textarea, TextareaProps } from './core/Form/Textarea/Textarea';

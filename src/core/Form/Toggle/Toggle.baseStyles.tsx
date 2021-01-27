@@ -96,11 +96,11 @@ export const baseStyles = withSuomifiTheme(
           fill: ${theme.colors.successBase};
         }
         &.fi-toggle_icon--disabled {
-        .${svgPrefix}fi-toggle-icon-circle {
-          fill: ${theme.colors.successSecondary};
+          .${svgPrefix}fi-toggle-icon-circle {
+            fill: ${theme.colors.successSecondary};
           }
         }
       }
     }
-`,
+  `,
 );

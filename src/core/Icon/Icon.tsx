@@ -4,10 +4,7 @@ import classnames from 'classnames';
 import { iconBaseStyles } from './Icon.baseStyles';
 import { withSuomifiDefaultProps } from '../theme/utils';
 import { TokensProp } from '../theme';
-import {
-  ariaLabelOrHidden,
-  ariaFocusableNoLabel,
-} from '../../components/utils/aria';
+import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
 import { SuomifiIcon, SuomifiIconInterface } from 'suomifi-icons';
 import { logger } from '../../utils/logger';
 export { BaseIconKeys } from 'suomifi-icons';
@@ -45,16 +42,14 @@ export const iconLogger = (
  * Apply Suomifi styles to Icon
  */
 const StyledSuomifiIcon = styled(
-  ({ ariaLabel, mousePointer, className, ...passProps }: IconProps) => {
-    return (
-      <SuomifiIcon
-        className={classnames(baseClassName, className)}
-        {...passProps}
-        {...ariaLabelOrHidden(ariaLabel)}
-        {...ariaFocusableNoLabel(ariaLabel)}
-      />
-    );
-  },
+  ({ ariaLabel, mousePointer, className, ...passProps }: IconProps) => (
+    <SuomifiIcon
+      className={classnames(baseClassName, className)}
+      {...passProps}
+      {...ariaLabelOrHidden(ariaLabel)}
+      {...ariaFocusableNoLabel(ariaLabel)}
+    />
+  ),
 )`
   ${(props) => iconBaseStyles(props)}
 `;

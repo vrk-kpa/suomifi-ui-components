@@ -23,25 +23,25 @@ const checkedStyles = ({ theme }: SuomifiThemeProp) => css`
 `;
 
 const disabledStyles = ({ theme }: SuomifiThemeProp) => css`
-    &.fi-checkbox--disabled{    
-        & .fi-checkbox_label{
-            ${disabledCursor}
-            color: ${theme.colors.depthBase};
-        &::before{
-            background-color: ${theme.colors.depthLight3};
-            border-color: ${theme.colors.depthLight1};
-            border-width: 1px;
-        }
-        & > .fi-checkbox_icon {
-          fill: ${theme.colors.depthLight1};
-        }
-    }
-    &.fi-checkbox--large{
-      & .fi-checkbox_label::before{
-          border-width: 2px;
-        }
+  &.fi-checkbox--disabled {
+    & .fi-checkbox_label {
+      ${disabledCursor}
+      color: ${theme.colors.depthBase};
+      &::before {
+        background-color: ${theme.colors.depthLight3};
+        border-color: ${theme.colors.depthLight1};
+        border-width: 1px;
+      }
+      & > .fi-checkbox_icon {
+        fill: ${theme.colors.depthLight1};
       }
     }
+    &.fi-checkbox--large {
+      & .fi-checkbox_label::before {
+        border-width: 2px;
+      }
+    }
+  }
 `;
 
 const errorStyles = ({ theme }: SuomifiThemeProp) => css`
@@ -54,9 +54,6 @@ const errorStyles = ({ theme }: SuomifiThemeProp) => css`
       & > .fi-checkbox_icon {
         fill: ${theme.colors.alertBase};
       }
-    }
-    & .fi-checkbox_status {
-      color: ${theme.colors.alertBase};
     }
   }
 `;
@@ -75,7 +72,7 @@ const largeVariantStyles = ({ theme }: SuomifiThemeProp) => css`
         box-sizing: border-box;
         height: 30px;
         width: 30px;
-        color: ${theme.colors.depthBase};
+        color: ${theme.colors.depthDark3};
         border: 2px solid;
       }
       & .fi-checkbox_icon {
@@ -85,7 +82,7 @@ const largeVariantStyles = ({ theme }: SuomifiThemeProp) => css`
         top: 4px;
       }
     }
-    & .fi-checkbox_hintText {
+    & .fi-hint-text {
       padding-left: ${theme.spacing.xxl};
     }
   }
@@ -96,7 +93,7 @@ export const baseStyles = withSuomifiTheme(
     ${element({ theme })}
     ${font({ theme })('bodyText')}
 
-& .fi-checkbox_label {
+    & .fi-checkbox_label {
       position: relative;
       display: block;
       padding-left: ${theme.spacing.l};
@@ -112,8 +109,7 @@ export const baseStyles = withSuomifiTheme(
         box-sizing: border-box;
         height: 18px;
         width: 18px;
-        color: ${theme.colors.depthBase};
-        border: 1px solid;
+        border: 1px solid ${theme.colors.depthDark3};
         border-radius: ${theme.radius.basic};
         background-color: ${theme.colors.whiteBase};
       }
@@ -140,20 +136,15 @@ export const baseStyles = withSuomifiTheme(
       z-index: -9999;
     }
 
-    & .fi-checkbox_hintText {
-      display: block;
+    & .fi-hint-text {
       padding-left: ${theme.spacing.l};
-      ${theme.typography.bodyTextSmall};
       color: ${theme.colors.depthDark1};
+      margin-bottom: 0;
     }
 
-    & .fi-checkbox_status {
+    & .fi-status-text {
       display: block;
-      margin-top: ${theme.spacing.xxs};
-      color: ${theme.colors.blackBase};
-      font-size: 14px;
       line-height: 18px;
-      font-weight: 600;
     }
 
     ${largeVariantStyles({ theme })};

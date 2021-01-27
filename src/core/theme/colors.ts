@@ -13,6 +13,8 @@ const {
   blackLight1,
   brandBase,
   depthDark1,
+  depthDark2,
+  depthDark3,
   depthBase,
   depthLight3,
   depthLight2,
@@ -47,6 +49,8 @@ export const colorTokens = {
   },
   depth: {
     depthDark1,
+    depthDark2,
+    depthDark3,
     depthBase,
     depthLight3,
     depthLight2,

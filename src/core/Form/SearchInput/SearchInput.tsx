@@ -18,15 +18,23 @@ import { StatusText } from '../StatusText/StatusText';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { Icon } from '../../Icon/Icon';
 import { baseStyles } from './SearchInput.baseStyles';
+import { InputStatus } from '../types';
+import { Debounce } from '../../utils/Debounce/Debounce';
 
-type SearchInputValue = string | number | string[] | undefined;
+type SearchInputValue = string | number | undefined;
 
-type SearchInputStatus = 'default' | 'error';
+type SearchInputStatus = Exclude<InputStatus, 'success'>;
 
 export interface SearchInputProps
   extends Omit<
       HtmlInputProps,
-      'type' | 'disabled' | 'onChange' | 'children' | 'onClick'
+      | 'type'
+      | 'disabled'
+      | 'onChange'
+      | 'children'
+      | 'onClick'
+      | 'value'
+      | 'defaultValue'
     >,
     TokensProp {
   /** SearchInput container div class name for custom styling. */
@@ -58,12 +66,18 @@ export interface SearchInputProps
   name?: string;
   /** Set components width to 100% */
   fullWidth?: boolean;
+  /** Controlled value */
+  value?: SearchInputValue;
+  /** Default value */
+  defaultValue?: SearchInputValue;
   /** Callback for input text change */
   onChange?: (value: SearchInputValue) => void;
   /** Callback for onBlur event */
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback for search button click */
   onSearch?: (value: SearchInputValue) => void;
+  /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
+  debounce?: number;
 }
 
 const baseClassName = 'fi-search-input';
@@ -140,9 +154,6 @@ class BaseSearchInput extends Component<SearchInputProps> {
       if (!('value' in this.props)) {
         this.setState({ value: newValue });
       }
-      if (propOnChange) {
-        propOnChange(newValue);
-      }
     };
 
     const onSearch = () => {
@@ -153,6 +164,9 @@ class BaseSearchInput extends Component<SearchInputProps> {
 
     const onClear = () => {
       conditionalSetState('');
+      if (propOnChange) {
+        propOnChange('');
+      }
       setTimeout(() => {
         if (this.inputRef.current) {
           this.inputRef.current.focus();
@@ -217,43 +231,57 @@ class BaseSearchInput extends Component<SearchInputProps> {
         <LabelText htmlFor={this.id} labelMode={labelMode} as="label">
           {labelText}
         </LabelText>
-        <HtmlDiv className={searchInputClassNames.functionalityContainer}>
-          <HtmlDiv className={searchInputClassNames.inputElementContainer}>
-            <HtmlInputWithRef
-              {...passProps}
-              {...getDescribedBy()}
-              forwardRef={this.inputRef}
-              aria-invalid={status === 'error'}
-              id={this.id}
-              className={searchInputClassNames.inputElement}
-              type="search"
-              role="searchbox"
-              value={this.state.value}
-              placeholder={visualPlaceholder}
-              onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                conditionalSetState(event.currentTarget.value);
-              }}
-              onKeyPress={onKeyPress}
-              onKeyDown={onKeyDown}
-            />
-          </HtmlDiv>
-          <HtmlButton {...clearButtonProps}>
-            <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
-            <Icon
-              aria-hidden={true}
-              icon="close"
-              className={searchInputClassNames.clearIcon}
-            />
-          </HtmlButton>
-          <HtmlButton {...searchButtonDerivedProps}>
-            <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
-            <Icon
-              aria-hidden={true}
-              icon="search"
-              className={searchInputClassNames.searchIcon}
-            />
-          </HtmlButton>
-        </HtmlDiv>
+        <Debounce waitFor={this.props.debounce}>
+          {(debouncer: Function, cancelDebounce: Function) => (
+            <HtmlDiv className={searchInputClassNames.functionalityContainer}>
+              <HtmlDiv className={searchInputClassNames.inputElementContainer}>
+                <HtmlInputWithRef
+                  {...passProps}
+                  {...getDescribedBy()}
+                  forwardRef={this.inputRef}
+                  aria-invalid={status === 'error'}
+                  id={this.id}
+                  className={searchInputClassNames.inputElement}
+                  type="search"
+                  role="searchbox"
+                  value={this.state.value}
+                  placeholder={visualPlaceholder}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                    const eventValue = event.currentTarget.value;
+                    conditionalSetState(eventValue);
+                    if (propOnChange) {
+                      debouncer(propOnChange, eventValue);
+                    }
+                  }}
+                  onKeyPress={onKeyPress}
+                  onKeyDown={onKeyDown}
+                />
+              </HtmlDiv>
+              <HtmlButton
+                {...clearButtonProps}
+                onClick={() => {
+                  onClear();
+                  cancelDebounce();
+                }}
+              >
+                <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
+                <Icon
+                  aria-hidden={true}
+                  icon="close"
+                  className={searchInputClassNames.clearIcon}
+                />
+              </HtmlButton>
+              <HtmlButton {...searchButtonDerivedProps}>
+                <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
+                <Icon
+                  aria-hidden={true}
+                  icon="search"
+                  className={searchInputClassNames.searchIcon}
+                />
+              </HtmlButton>
+            </HtmlDiv>
+          )}
+        </Debounce>
         <StatusText id={this.statusTextId} status={status}>
           {statusText}
         </StatusText>
@@ -262,10 +290,10 @@ class BaseSearchInput extends Component<SearchInputProps> {
   }
 }
 
-const StyledTextInput = styled(
-  ({ tokens, ...passProps }: SearchInputProps & InternalTokensProp) => {
-    return <BaseSearchInput {...passProps} />;
-  },
+const StyledSearchInput = styled(
+  ({ tokens, ...passProps }: SearchInputProps & InternalTokensProp) => (
+    <BaseSearchInput {...passProps} />
+  ),
 )`
   ${(props) => baseStyles(props)}
 `;
@@ -277,6 +305,6 @@ const StyledTextInput = styled(
  */
 export class SearchInput extends Component<SearchInputProps> {
   render() {
-    return <StyledTextInput {...withSuomifiDefaultProps(this.props)} />;
+    return <StyledSearchInput {...withSuomifiDefaultProps(this.props)} />;
   }
 }
