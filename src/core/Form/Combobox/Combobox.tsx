@@ -139,13 +139,13 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       this.setState({ showPopover: toState });
     };
 
-    const { items, filteredItems } = this.state;
+    const { items, filteredItems, showPopover } = this.state;
     return (
       <HtmlDiv
         id={id}
         {...passProps}
         className={classnames(baseClassName, className, {
-          [comboboxClassNames.open]: this.state.showPopover,
+          [comboboxClassNames.open]: showPopover,
         })}
       >
         <HtmlDiv className={classnames(comboboxClassNames.wrapper, {})}>
@@ -158,7 +158,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             onFocus={() => setPopoverVisibility(true)}
             aria-haspopup={true}
             aria-controls={`${id}-popover`}
-            aria-expanded={this.state.showPopover}
+            aria-expanded={showPopover}
             // onBlur={() => setPopoverVisibility(false)}
             onKeyDown={this.handleKeyDown}
           />
@@ -169,7 +169,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             tabIndex={-1}
             portalStyleProps={{ backgroundColor: 'white' }}
           >
-            {this.state.showPopover && (
+            {showPopover && (
               <ComboboxItemList forwardRef={this.popoverListRef}>
                 {filteredItems.map((item) => (
                   <ComboboxItem
