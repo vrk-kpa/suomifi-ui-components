@@ -2,6 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { InternalTokensProp } from '../../../theme';
+import { AutoId } from '../../../../utils/AutoId';
 import { baseStyles } from './Toggle.baseStyles';
 import { ComponentIcon } from '../../../StaticIcon/StaticIcon';
 import { Text } from '../../../Text/Text';
@@ -187,8 +188,12 @@ class BaseToggle extends Component<InternalToggleProps> {
 }
 
 export const StyledToggle = styled(
-  ({ tokens, ...passProps }: InternalToggleProps & InternalTokensProp) => (
-    <BaseToggle {...passProps} />
+  ({
+    tokens,
+    id: propId,
+    ...passProps
+  }: InternalToggleProps & InternalTokensProp) => (
+    <AutoId id={propId}>{(id) => <BaseToggle id={id} {...passProps} />}</AutoId>
   ),
 )`
   ${(props) => baseStyles(props)}
