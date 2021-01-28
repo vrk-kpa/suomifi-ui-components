@@ -261,9 +261,10 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                   return (
                     <ComboboxItem
                       currentSelection={isCurrentlySelected}
-                      key={item.labelText}
-                      // id={String(makeHash(item.labelText))}
+                      // FIXME: Quick and dirty; key should take note if any field of object is changed
+                      key={`${item.labelText}_${item.selected}_${item.disabled}`}
                       id={`todoHash-${item.labelText}`}
+                      // id={String(makeHash(item.labelText))}
                       defaultChecked={item.selected}
                       disabled={item.disabled}
                       onClick={() =>
