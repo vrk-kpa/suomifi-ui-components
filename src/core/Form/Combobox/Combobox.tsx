@@ -101,6 +101,35 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     });
   };
 
+  private toggleCurrentItemSelection = (index: number) => {
+    this.setState((prevState: ComboboxState<T & ComboboxData>) => {
+      const { items, filteredItems } = prevState;
+      const { onItemSelectionsChange } = this.props;
+      const currentItem = Object.assign({}, items[index]);
+
+      if (index > -1 && !currentItem.disabled) {
+        currentItem.selected = !currentItem.selected;
+        console.log('current item', currentItem);
+        items[index] = currentItem;
+      }
+      if (onItemSelectionsChange) {
+        onItemSelectionsChange(getSelectedItems(items));
+      }
+      // TODO: Should update filteredItems too..
+      const currentFilteredItem = filteredItems.filter(
+        (item) => item.labelText === currentItem.labelText,
+      )[0];
+      const indexOfFilteredItem = filteredItems.indexOf(currentFilteredItem);
+
+      if (indexOfFilteredItem > -1 && !currentItem.disabled) {
+        console.log('current filteredItem', currentItem);
+        filteredItems[indexOfFilteredItem] = currentItem;
+      }
+
+      return { items, filteredItems };
+    });
+  };
+
   private setFilterInputRefElement = (element: Element | null) => {
     this.setState({ filterInputRef: element });
   };
@@ -120,6 +149,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
 
     const handleKeyDown = (event: React.KeyboardEvent) => {
       // TODO: Current index of the selection, items should have unique id/hash. Used to see which is selected and aria-activedescendant
+      // TODO: indexOf to use instead to work better with IE
       const index = this.state.items.findIndex(
         ({ labelText: uniqueText }) =>
           uniqueText === this.state.currentSelection,
@@ -148,6 +178,12 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           const previousItem = getPreviousItem();
           console.log('previous item:', previousItem);
           this.setState({ currentSelection: previousItem.labelText });
+          break;
+        }
+
+        case 'Enter': {
+          event.preventDefault();
+          this.toggleCurrentItemSelection(index);
           break;
         }
 
