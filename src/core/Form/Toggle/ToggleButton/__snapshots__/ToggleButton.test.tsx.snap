@@ -215,11 +215,11 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   top: 0.1em;
 }
 
-.c1.fi-toggle--with-button:focus {
+.c1.fi-toggle--button > button:focus {
   outline: 0;
 }
 
-.c1.fi-toggle--with-button:focus .fi-toggle_icon-container:after {
+.c1.fi-toggle--button > button:focus .fi-toggle_icon-container:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -238,11 +238,11 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   left: -4px;
 }
 
-.c1.fi-toggle--with-input:focus-within {
+.c1.fi-toggle--input:focus-within {
   outline: 0;
 }
 
-.c1.fi-toggle--with-input:focus-within .fi-toggle_icon-container:after {
+.c1.fi-toggle--input:focus-within .fi-toggle_icon-container:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -261,7 +261,7 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   left: -4px;
 }
 
-.c1 > .fi-toggle_input {
+.c1 .fi-toggle_input-element {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -332,11 +332,12 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
 }
 
 <span
-  class="c0 fi-toggle--with-input c1 fi-toggle fi-toggle_label"
+  class="c0 c1 fi-toggle fi-toggle--button fi-toggle_label"
 >
   <button
     aria-pressed="false"
-    class="c2 fi-toggle_input"
+    class="c2"
+    id="3"
     tabindex="0"
     type="button"
   >
