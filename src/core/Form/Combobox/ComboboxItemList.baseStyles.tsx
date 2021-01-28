@@ -9,6 +9,10 @@ export const baseStyles = withSuomifiTheme(
       list-style-type: none;
       margin: 0;
       padding: 0;
+
+      &:focus {
+        outline: none;
+      }
     }
 
     & .fi-combobox-item-list_wrapper {

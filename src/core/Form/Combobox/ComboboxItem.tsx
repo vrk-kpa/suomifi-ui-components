@@ -11,12 +11,13 @@ const baseClassName = 'fi-combobox-item';
 
 const comboboxItemClassNames = {
   wrapper: `${baseClassName}_wrapper`,
+  currentSelection: `${baseClassName}--currentSelection`,
 };
 
 export interface ComboboxItemProps extends CheckboxProps, TokensProp {
   /** ComboboxItem container div class name for custom styling. */
   className?: string;
-  'aria-selected': boolean;
+  currentSelection: boolean;
 }
 
 class BaseComboboxItem extends Component<ComboboxItemProps> {
@@ -25,19 +26,21 @@ class BaseComboboxItem extends Component<ComboboxItemProps> {
       className,
       children,
       defaultChecked,
-      'aria-selected': ariaSelected,
+      currentSelection,
       disabled,
       id,
       ...passProps
     } = this.props;
     return (
       <HtmlLi
-        className={classnames(baseClassName, className, {})}
+        className={classnames(baseClassName, className, {
+          [comboboxItemClassNames.currentSelection]: currentSelection,
+        })}
         tabIndex={-1}
         role="option"
         // aria-selected={defaultChecked}
         aria-disabled={disabled}
-        aria-selected={ariaSelected}
+        aria-selected={currentSelection}
         id={id}
       >
         <HtmlDiv className={comboboxItemClassNames.wrapper}>
