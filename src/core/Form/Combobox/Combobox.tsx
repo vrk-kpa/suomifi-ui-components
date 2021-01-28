@@ -126,15 +126,16 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       );
       const { filteredItems: items } = this.state;
 
-      const getNextItem = () => items[(index + 1) % items.length];
-      const getPreviousItem = () =>
-        items[(index - 1 + items.length) % items.length];
+      const getNextIndex = () => (index + 1) % items.length;
+      const getPreviousIndex = () => (index - 1 + items.length) % items.length;
+
+      const getNextItem = () => items[getNextIndex()];
+      const getPreviousItem = () => items[getPreviousIndex()];
 
       switch (event.key) {
         case 'ArrowDown': {
           event.preventDefault();
-          focusToMenuTest();
-          console.log('TODO: Go to next item');
+          focusToMenu();
           const nextItem = getNextItem();
           console.log('next item:', nextItem);
           this.setState({ currentSelection: nextItem.labelText });
@@ -143,16 +144,20 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
 
         case 'ArrowUp': {
           event.preventDefault();
-          focusToMenuTest();
-          console.log('TODO: Go to previous item');
+          focusToMenu();
           const previousItem = getPreviousItem();
           console.log('previous item:', previousItem);
           this.setState({ currentSelection: previousItem.labelText });
           break;
         }
 
-        default:
+        default: {
+          // TODO: by default return focus to input?
+          // if (this.state.filterInputRef) {
+          //   const asd = this.state.filterInputRef;
+          // }
           break;
+        }
       }
     };
 
@@ -162,7 +167,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
 
     const { items, filteredItems, showPopover, currentSelection } = this.state;
 
-    const focusToMenuTest = () => {
+    const focusToMenu = () => {
       if (
         this.popoverListRef !== null &&
         this.popoverListRef.current !== null &&
@@ -174,6 +179,10 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
 
     return (
       <HtmlDiv
+        role="combobox"
+        aria-haspopup="listbox"
+        aria-controls={`${id}-popover`}
+        aria-expanded={showPopover}
         id={id}
         {...passProps}
         className={classnames(baseClassName, className, {
@@ -193,9 +202,9 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             filterFunc={filter}
             forwardRef={this.setFilterInputRefElement}
             onFocus={() => setPopoverVisibility(true)}
-            aria-haspopup={true}
-            aria-controls={`${id}-popover`}
-            aria-expanded={showPopover}
+            // aria-haspopup={true}
+            // aria-controls={`${id}-popover`}
+            // aria-expanded={showPopover}
             // onBlur={() => setPopoverVisibility(false)}
             onKeyDown={handleKeyDown}
           />
@@ -215,7 +224,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
 
                   return (
                     <ComboboxItem
-                      aria-selected={isCurrentlySelected}
+                      currentSelection={isCurrentlySelected}
                       key={item.labelText}
                       // id={String(makeHash(item.labelText))}
                       id={`todoHash-${item.labelText}`}
