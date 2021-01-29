@@ -109,33 +109,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     });
   };
 
-  private toggleCurrentItemSelection = (index: number) => {
-    this.setState((prevState: ComboboxState<T & ComboboxData>) => {
-      const { onItemSelectionsChange } = this.props;
-      const items = [...prevState.items];
-      const filteredItems = [...prevState.filteredItems];
-      const currentItem = Object.assign({}, items[index]);
-
-      if (index > -1 && !currentItem.disabled) {
-        currentItem.selected = !currentItem.selected;
-        items[index] = currentItem;
-      }
-      if (onItemSelectionsChange) {
-        onItemSelectionsChange(getSelectedItems(items));
-      }
-      const currentFilteredItem = filteredItems.filter(
-        (item) => item.labelText === currentItem.labelText,
-      )[0];
-      const indexOfFilteredItem = filteredItems.indexOf(currentFilteredItem);
-
-      if (indexOfFilteredItem > -1 && !currentItem.disabled) {
-        filteredItems[indexOfFilteredItem] = currentItem;
-      }
-
-      return { items, filteredItems };
-    });
-  };
-
   private setFilterInputRefElement = (element: Element | null) => {
     this.setState({ filterInputRef: element });
   };
@@ -156,10 +129,9 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     const handleKeyDown = (event: React.KeyboardEvent) => {
       // TODO: Current index of the selection, items should have unique id/hash. Used to see which is selected and aria-activedescendant
       // TODO: indexOf to use instead to work better with IE
-      const { filteredItems: items } = this.state;
+      const { filteredItems: items, currentSelection } = this.state;
       const index = items.findIndex(
-        ({ labelText: uniqueText }) =>
-          uniqueText === this.state.currentSelection,
+        ({ labelText: uniqueText }) => uniqueText === currentSelection,
       );
 
       const getNextIndex = () => (index + 1) % items.length;
@@ -187,7 +159,9 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
 
         case 'Enter': {
           event.preventDefault();
-          this.toggleCurrentItemSelection(index);
+          if (currentSelection) {
+            this.handleItemSelected(currentSelection);
+          }
           break;
         }
 
