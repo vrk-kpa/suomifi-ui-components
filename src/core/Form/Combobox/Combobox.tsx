@@ -83,9 +83,8 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   private handleItemSelected = (labelText: string) => {
     this.setState((prevState: ComboboxState<T & ComboboxData>) => {
       const { onItemSelectionsChange } = this.props;
-      const { items: prevItems, filteredItems: prevFilteredItems } = prevState;
-      const items = [...prevItems];
-      const filteredItems = [...prevFilteredItems];
+      const items = [...prevState.items];
+      const filteredItems = [...prevState.filteredItems];
       const currentItem = items.filter(
         (item) => item.labelText === labelText,
       )[0];
@@ -112,10 +111,9 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
 
   private toggleCurrentItemSelection = (index: number) => {
     this.setState((prevState: ComboboxState<T & ComboboxData>) => {
-      const { items: prevItems, filteredItems: prevFilteredItems } = prevState;
       const { onItemSelectionsChange } = this.props;
-      const items = [...prevItems];
-      const filteredItems = [...prevFilteredItems];
+      const items = [...prevState.items];
+      const filteredItems = [...prevState.filteredItems];
       const currentItem = Object.assign({}, items[index]);
 
       if (index > -1 && !currentItem.disabled) {
