@@ -127,9 +127,6 @@ class BaseDropdown extends Component<DropdownProps> {
     }
 
     const labelId = `${id}-label`;
-    const ariaLabelledByIds = `${
-      !!ariaLabelledBy ? `${ariaLabelledBy} ` : ''
-    }${labelId}`;
     const buttonId = `${id}_button`;
 
     const { selectedValue } = this.state;
@@ -174,7 +171,10 @@ class BaseDropdown extends Component<DropdownProps> {
             {labelText}
           </LabelText>
           <ListboxInput
-            aria-labelledby={ariaLabelledByIds}
+            {...getConditionalAriaProp('aria-labelledby', [
+              ariaLabelledBy,
+              labelId,
+            ])}
             disabled={disabled}
             onChange={onChange}
             name={name}
@@ -186,9 +186,10 @@ class BaseDropdown extends Component<DropdownProps> {
               className={classnames(dropdownClassNames.button, {
                 [dropdownClassNames.disabled]: !!disabled,
               })}
-              {...getConditionalAriaProp('aria-labelledby', [
-                selectedValue === undefined ? ariaLabelledByIds : undefined,
-              ])}
+              {...getConditionalAriaProp(
+                'aria-labelledby',
+                selectedValue === undefined ? [ariaLabelledBy, labelId] : [],
+              )}
             >
               {listboxDisplayValue}
             </ListboxButton>
