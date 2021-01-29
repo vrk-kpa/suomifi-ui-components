@@ -88,22 +88,22 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       const currentItem = items.filter(
         (item) => item.labelText === labelText,
       )[0];
-
       const indexOfItem = items.indexOf(currentItem);
-      if (indexOfItem > -1 && !currentItem.disabled) {
-        currentItem.selected = !currentItem.selected;
-        items[indexOfItem] = currentItem;
-      }
-      if (onItemSelectionsChange) {
-        onItemSelectionsChange(getSelectedItems(items));
-      }
-      const currentFilteredItem = filteredItems.filter(
-        (item) => item.labelText === labelText,
-      )[0];
-      const indexOfFilteredItem = filteredItems.indexOf(currentFilteredItem);
-
-      if (indexOfFilteredItem > -1 && !currentItem.disabled) {
-        filteredItems[indexOfFilteredItem] = currentItem;
+      if (!currentItem.disabled) {
+        if (indexOfItem > -1) {
+          currentItem.selected = !currentItem.selected;
+          items[indexOfItem] = currentItem;
+        }
+        if (onItemSelectionsChange) {
+          onItemSelectionsChange(getSelectedItems(items));
+        }
+        const currentFilteredItem = filteredItems.filter(
+          (item) => item.labelText === labelText,
+        )[0];
+        const indexOfFilteredItem = filteredItems.indexOf(currentFilteredItem);
+        if (indexOfFilteredItem > -1) {
+          filteredItems[indexOfFilteredItem] = currentItem;
+        }
       }
       return { items, filteredItems };
     });
