@@ -47,8 +47,6 @@ interface ComboboxState<T extends ComboboxData> {
   filteredItems: T[];
   filterInputRef: Element | null;
   showPopover: boolean;
-  // TODO: storing the current selection index from the popover list
-  // or labelText?
   currentSelection: string | null;
 }
 
@@ -82,47 +80,57 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     currentSelection: null,
   };
 
-  private handleItemSelected = (labelText: string, selected: boolean) => {
+  private handleItemSelected = (labelText: string) => {
     this.setState((prevState: ComboboxState<T & ComboboxData>) => {
       const { onItemSelectionsChange } = this.props;
-      const { items } = prevState;
+      const { items: prevItems, filteredItems: prevFilteredItems } = prevState;
+      const items = [...prevItems];
+      const filteredItems = [...prevFilteredItems];
       const currentItem = items.filter(
         (item) => item.labelText === labelText,
       )[0];
+
       const indexOfItem = items.indexOf(currentItem);
-      if (indexOfItem > -1) {
-        currentItem.selected = selected;
+      if (indexOfItem > -1 && !currentItem.disabled) {
+        currentItem.selected = !currentItem.selected;
         items[indexOfItem] = currentItem;
       }
       if (onItemSelectionsChange) {
         onItemSelectionsChange(getSelectedItems(items));
       }
-      return { items };
+      const currentFilteredItem = filteredItems.filter(
+        (item) => item.labelText === labelText,
+      )[0];
+      const indexOfFilteredItem = filteredItems.indexOf(currentFilteredItem);
+
+      if (indexOfFilteredItem > -1 && !currentItem.disabled) {
+        filteredItems[indexOfFilteredItem] = currentItem;
+      }
+      return { items, filteredItems };
     });
   };
 
   private toggleCurrentItemSelection = (index: number) => {
     this.setState((prevState: ComboboxState<T & ComboboxData>) => {
-      const { items, filteredItems } = prevState;
+      const { items: prevItems, filteredItems: prevFilteredItems } = prevState;
       const { onItemSelectionsChange } = this.props;
+      const items = [...prevItems];
+      const filteredItems = [...prevFilteredItems];
       const currentItem = Object.assign({}, items[index]);
 
       if (index > -1 && !currentItem.disabled) {
         currentItem.selected = !currentItem.selected;
-        console.log('current item', currentItem);
         items[index] = currentItem;
       }
       if (onItemSelectionsChange) {
         onItemSelectionsChange(getSelectedItems(items));
       }
-      // TODO: Should update filteredItems too..
       const currentFilteredItem = filteredItems.filter(
         (item) => item.labelText === currentItem.labelText,
       )[0];
       const indexOfFilteredItem = filteredItems.indexOf(currentFilteredItem);
 
       if (indexOfFilteredItem > -1 && !currentItem.disabled) {
-        console.log('current filteredItem', currentItem);
         filteredItems[indexOfFilteredItem] = currentItem;
       }
 
@@ -150,11 +158,11 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     const handleKeyDown = (event: React.KeyboardEvent) => {
       // TODO: Current index of the selection, items should have unique id/hash. Used to see which is selected and aria-activedescendant
       // TODO: indexOf to use instead to work better with IE
-      const index = this.state.items.findIndex(
+      const { filteredItems: items } = this.state;
+      const index = items.findIndex(
         ({ labelText: uniqueText }) =>
           uniqueText === this.state.currentSelection,
       );
-      const { filteredItems: items } = this.state;
 
       const getNextIndex = () => (index + 1) % items.length;
       const getPreviousIndex = () => (index - 1 + items.length) % items.length;
@@ -167,7 +175,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           event.preventDefault();
           focusToMenu();
           const nextItem = getNextItem();
-          console.log('next item:', nextItem);
           this.setState({ currentSelection: nextItem.labelText });
           break;
         }
@@ -176,7 +183,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           event.preventDefault();
           focusToMenu();
           const previousItem = getPreviousItem();
-          console.log('previous item:', previousItem);
           this.setState({ currentSelection: previousItem.labelText });
           break;
         }
@@ -189,12 +195,17 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
 
         default: {
           // TODO: by default return focus to input?
-          // if (this.state.filterInputRef) {
-          //   const asd = this.state.filterInputRef;
-          // }
+          if (this.state.filterInputRef) {
+            const inputElement = this.state.filterInputRef as HTMLInputElement;
+            inputElement.focus();
+          }
           break;
         }
       }
+    };
+
+    const handleBlur = () => {
+      // TODO: Prevent losing of blur if focus is still in popover or input
     };
 
     const setPopoverVisibility = (toState: Boolean) => {
@@ -224,8 +235,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         className={classnames(baseClassName, className, {
           [comboboxClassNames.open]: showPopover,
         })}
-        // TODO: make some hash string for it; the item should have the id that matches with this
-        // aria-activedescendant={currentSelection || undefined}
         aria-activedescendant={
           currentSelection ? `todoHash-${currentSelection}` : undefined
         }
@@ -238,17 +247,13 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             filterFunc={filter}
             forwardRef={this.setFilterInputRefElement}
             onFocus={() => setPopoverVisibility(true)}
-            // aria-haspopup={true}
-            // aria-controls={`${id}-popover`}
-            // aria-expanded={showPopover}
-            // onBlur={() => setPopoverVisibility(false)}
             onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
           />
           <Popover
             sourceRef={this.state.filterInputRef}
             matchWidth={true}
             id={`${id}-popover`}
-            // tabIndex={-1}
             portalStyleProps={{ backgroundColor: 'white' }}
             onKeyDown={handleKeyDown}
           >
@@ -264,12 +269,9 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                       // FIXME: Quick and dirty; key should take note if any field of object is changed
                       key={`${item.labelText}_${item.selected}_${item.disabled}`}
                       id={`todoHash-${item.labelText}`}
-                      // id={String(makeHash(item.labelText))}
                       defaultChecked={item.selected}
                       disabled={item.disabled}
-                      onClick={() =>
-                        this.handleItemSelected(item.labelText, !item.selected)
-                      }
+                      onClick={() => this.handleItemSelected(item.labelText)}
                     >
                       {item.labelText}
                     </ComboboxItem>
@@ -291,7 +293,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     );
   }
 }
-
 const ComboboxWithoutTokens: <T>(
   props: ComboboxProps<T & ComboboxData> & InternalTokensProp,
 ) => JSX.Element = ({
