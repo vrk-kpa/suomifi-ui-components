@@ -105,7 +105,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           filteredItems[indexOfFilteredItem] = currentItem;
         }
       }
-      return { items, filteredItems };
+      return { items, filteredItems, currentSelection: labelText };
     });
   };
 
