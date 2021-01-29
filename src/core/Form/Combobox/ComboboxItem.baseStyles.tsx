@@ -8,13 +8,17 @@ export const baseStyles = withSuomifiTheme(
     &.fi-combobox-item {
       ${font({ theme })('bodyText')}
 
+      &:focus {
+        outline: none;
+      }
+
       &--currentSelection {
-        /* background-color: red; */
         ${boxShadowFocus}
       }
 
       & .fi-checkbox {
         padding: 10px;
+        user-select: none;
       }
 
       & .fi-checkbox--checked {
