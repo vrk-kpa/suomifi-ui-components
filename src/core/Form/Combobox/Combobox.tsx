@@ -243,7 +243,10 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                       id={`todoHash-${item.labelText}`}
                       defaultChecked={item.selected}
                       disabled={item.disabled}
-                      onClick={() => this.handleItemSelected(item.labelText)}
+                      onClick={() => {
+                        focusToMenu();
+                        this.handleItemSelected(item.labelText);
+                      }}
                     >
                       {item.labelText}
                     </ComboboxItem>
