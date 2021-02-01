@@ -11,6 +11,7 @@ import { FilterInput } from '../FilterInput/FilterInput';
 import { Popover } from '../../Popover/Popover';
 import { ComboboxItemList } from './ComboboxItemList';
 import { ComboboxItem } from './ComboboxItem';
+import { ComboboxEmptyItem } from './ComboboxEmptyItem';
 import { baseStyles } from './Combobox.baseStyles';
 
 const baseClassName = 'fi-combobox';
@@ -265,27 +266,31 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                 forwardRef={this.popoverListRef}
                 onBlur={handleBlur}
               >
-                {filteredItems.map((item) => {
-                  const isCurrentlySelected =
-                    item.labelText === currentSelection;
+                {filteredItems.length > 0 ? (
+                  filteredItems.map((item) => {
+                    const isCurrentlySelected =
+                      item.labelText === currentSelection;
 
-                  return (
-                    <ComboboxItem
-                      currentSelection={isCurrentlySelected}
-                      // FIXME: Quick and dirty; key should take note if any field of object is changed
-                      key={`${item.labelText}_${item.selected}_${item.disabled}`}
-                      id={`todoHash-${item.labelText}`}
-                      defaultChecked={item.selected}
-                      disabled={item.disabled}
-                      onClick={() => {
-                        focusToMenu();
-                        this.handleItemSelected(item.labelText);
-                      }}
-                    >
-                      {item.labelText}
-                    </ComboboxItem>
-                  );
-                })}
+                    return (
+                      <ComboboxItem
+                        currentSelection={isCurrentlySelected}
+                        // FIXME: Quick and dirty; key should take note if any field of object is changed
+                        key={`${item.labelText}_${item.selected}_${item.disabled}`}
+                        id={`todoHash-${item.labelText}`}
+                        defaultChecked={item.selected}
+                        disabled={item.disabled}
+                        onClick={() => {
+                          focusToMenu();
+                          this.handleItemSelected(item.labelText);
+                        }}
+                      >
+                        {item.labelText}
+                      </ComboboxItem>
+                    );
+                  })
+                ) : (
+                  <ComboboxEmptyItem>No items</ComboboxEmptyItem>
+                )}
               </ComboboxItemList>
             )}
           </Popover>
