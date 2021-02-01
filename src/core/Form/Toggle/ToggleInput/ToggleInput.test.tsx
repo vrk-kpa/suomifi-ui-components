@@ -28,7 +28,7 @@ describe('Basic ToggleInput', () => {
   it('onClick should activate toggle and deactivate when clicked again', async () => {
     const mockClickHandler = jest.fn();
     const { getByRole, container } = render(
-      <ToggleInput onClick={mockClickHandler}>Test two</ToggleInput>,
+      <ToggleInput onChange={mockClickHandler}>Test two</ToggleInput>,
     );
     const toggle = getByRole('checkbox');
     fireEvent.click(toggle);
@@ -45,7 +45,7 @@ describe('Basic ToggleInput', () => {
   it('onClick should not change toggle state when checked is controlled', async () => {
     const mockClickHandler = jest.fn();
     const { getByRole, container } = render(
-      <ToggleInput checked={false} onClick={mockClickHandler}>
+      <ToggleInput checked={false} onChange={mockClickHandler}>
         Controlled checked state
       </ToggleInput>,
     );

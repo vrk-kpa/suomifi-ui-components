@@ -1,11 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Basic ToggleButton should match snapshot 1`] = `
-.c3 {
-  display: inline-block;
-  vertical-align: baseline;
-}
-
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -35,7 +30,7 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c4 {
+.c5 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -53,7 +48,7 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-text--bold {
+.c5.fi-text--bold {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -69,7 +64,7 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-text--lead {
+.c5.fi-text--lead {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -85,7 +80,7 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c4.fi-text--small-screen {
+.c5.fi-text--small-screen {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -101,7 +96,7 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c4.fi-text--small-screen.fi-text--bold {
+.c5.fi-text--small-screen.fi-text--bold {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -117,7 +112,7 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-text--small-screen.fi-text--lead {
+.c5.fi-text--small-screen.fi-text--lead {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -186,7 +181,55 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c1 {
+.c3 {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.c4 {
+  width: 40px;
+  height: 24px;
+  vertical-align: bottom;
+  overflow: visible;
+}
+
+.c4 .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(0,0%,100%);
+}
+
+.c4 .icon-toggle_svg__fi-toggle-icon-knob {
+  -webkit-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  transform: translateX(0%);
+}
+
+.c4.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(202,7%,97%);
+}
+
+.c4.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-slide {
+  fill: hsl(202,7%,93%);
+}
+
+.c4.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-knob {
+  -webkit-transform: translateX(47%);
+  -ms-transform: translateX(47%);
+  transform: translateX(47%);
+}
+
+.c4.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-slide {
+  fill: hsl(166,54%,80%);
+}
+
+.c4.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(166,90%,34%);
+}
+
+.c4.fi-toggle_icon--checked.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-circle {
+  fill: hsl(166,54%,80%);
+}
+
+.c1.fi-toggle--button > button {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -208,7 +251,11 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c1 .fi-toggle_icon-container {
+.c1.fi-toggle--button > button.fi-toggle--disabled {
+  cursor: not-allowed;
+}
+
+.c1.fi-toggle--button > button .fi-toggle_icon-container {
   position: absolute;
   margin-right: 10px;
   left: 0;
@@ -238,97 +285,12 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   left: -4px;
 }
 
-.c1.fi-toggle--input:focus-within {
+.c1.fi-toggle--button > button:not(:focus-visible) .fi-toggle_icon-container {
   outline: 0;
 }
 
-.c1.fi-toggle--input:focus-within .fi-toggle_icon-container:after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  z-index: 9999;
-  border-radius: 14px;
-  right: -4px;
-  left: -4px;
-}
-
-.c1 .fi-toggle_input-element {
-  color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  position: absolute;
-  width: 40px;
-  height: 24px;
-  opacity: 0;
-  z-index: -9999;
-  background-color: hsl(0,0%,100%);
-}
-
-.c1 .fi-toggle_icon {
-  width: 40px;
-  height: 24px;
-  vertical-align: bottom;
-  overflow: visible;
-}
-
-.c1 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-circle {
-  fill: hsl(0,0%,100%);
-}
-
-.c1 .fi-toggle_icon .icon-toggle_svg__fi-toggle-icon-knob {
-  -webkit-transform: translateX(0%);
-  -ms-transform: translateX(0%);
-  transform: translateX(0%);
-}
-
-.c1 .fi-toggle_icon.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-circle {
-  fill: hsl(202,7%,97%);
-}
-
-.c1 .fi-toggle_icon.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-slide {
-  fill: hsl(202,7%,93%);
-}
-
-.c1 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-knob {
-  -webkit-transform: translateX(47%);
-  -ms-transform: translateX(47%);
-  transform: translateX(47%);
-}
-
-.c1 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-slide {
-  fill: hsl(166,54%,80%);
-}
-
-.c1 .fi-toggle_icon.fi-toggle_icon--checked .icon-toggle_svg__fi-toggle-icon-circle {
-  fill: hsl(166,90%,34%);
-}
-
-.c1 .fi-toggle_icon.fi-toggle_icon--checked.fi-toggle_icon--disabled .icon-toggle_svg__fi-toggle-icon-circle {
-  fill: hsl(166,54%,80%);
-}
-
-.c1.fi-toggle--disabled {
-  cursor: not-allowed;
+.c1.fi-toggle--button > button:not(:focus-visible) .fi-toggle_icon-container:after {
+  content: none;
 }
 
 <span
@@ -337,7 +299,7 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   <button
     aria-pressed="false"
     class="c2"
-    id="3"
+    id="1"
     tabindex="0"
     type="button"
   >
@@ -346,7 +308,7 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="c3 fi-toggle_icon"
+        class="c3 fi-toggle_icon c4"
         focusable="false"
         height="1em"
         viewBox="0 0 37 20"
@@ -504,7 +466,7 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
       </svg>
     </span>
     <span
-      class="c0 fi-text c4 fi-text--body"
+      class="c0 fi-text c5 fi-text--body"
     >
       TestToggle
     </span>

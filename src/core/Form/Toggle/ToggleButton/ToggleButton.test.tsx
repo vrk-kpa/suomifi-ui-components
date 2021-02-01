@@ -60,11 +60,3 @@ describe('Basic ToggleButton', () => {
     axeTest(<ToggleButton>Toggle</ToggleButton>),
   );
 });
-
-describe('name', () => {
-  const { getByRole } = render(<ToggleButton name="testToggle" />);
-  const namedToggle = getByRole('button') as HTMLInputElement;
-  it('has the given name attribute', () => {
-    expect(namedToggle.name).toBe('testToggle');
-  });
-});

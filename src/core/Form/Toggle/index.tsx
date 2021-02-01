@@ -1,3 +1,2 @@
-export { ToggleProps } from './Toggle/Toggle';
-export { ToggleInput } from './ToggleInput/ToggleInput';
-export { ToggleButton } from './ToggleButton/ToggleButton';
+export { ToggleInput, ToggleInputProps } from './ToggleInput/ToggleInput';
+export { ToggleButton, ToggleButtonProps } from './ToggleButton/ToggleButton';
