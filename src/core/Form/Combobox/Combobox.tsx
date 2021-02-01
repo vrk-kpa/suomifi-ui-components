@@ -135,7 +135,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         currentSelection,
         showPopover,
       } = this.state;
-      if (!showPopover) {
+      if (!showPopover || items.length === 0) {
         return;
       }
       const index = items.findIndex(
