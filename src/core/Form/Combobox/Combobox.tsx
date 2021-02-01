@@ -5,6 +5,7 @@ import { HtmlDiv } from '../../../reset';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { AutoId } from '../../../utils/AutoId';
+import { windowAvailable } from '../../../utils/common';
 import { Chip } from '../../Chip/Chip';
 import { FilterInput } from '../FilterInput/FilterInput';
 import { Popover } from '../../Popover/Popover';
@@ -129,7 +130,14 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     const handleKeyDown = (event: React.KeyboardEvent) => {
       // TODO: Current index of the selection, items should have unique id/hash. Used to see which is selected and aria-activedescendant
       // TODO: indexOf to use instead to work better with IE
-      const { filteredItems: items, currentSelection } = this.state;
+      const {
+        filteredItems: items,
+        currentSelection,
+        showPopover,
+      } = this.state;
+      if (!showPopover) {
+        return;
+      }
       const index = items.findIndex(
         ({ labelText: uniqueText }) => uniqueText === currentSelection,
       );
@@ -176,8 +184,31 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       }
     };
 
-    const handleBlur = () => {
-      // TODO: Prevent losing of blur if focus is still in popover or input
+    const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+      event.preventDefault();
+      if (
+        this.popoverListRef !== null &&
+        this.popoverListRef.current !== null
+      ) {
+        const elem = this.popoverListRef.current;
+        const ownerDocument = windowAvailable()
+          ? elem
+            ? elem.ownerDocument
+            : document
+          : null;
+
+        if (!ownerDocument) {
+          return;
+        }
+        requestAnimationFrame(() => {
+          const focusInCombobox = this.popoverListRef.current?.contains(
+            ownerDocument.activeElement,
+          );
+          const focusInInput =
+            ownerDocument.activeElement === this.state.filterInputRef;
+          setPopoverVisibility(focusInCombobox || focusInInput);
+        });
+      }
     };
 
     const setPopoverVisibility = (toState: Boolean) => {
@@ -230,7 +261,10 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             onKeyDown={handleKeyDown}
           >
             {showPopover && (
-              <ComboboxItemList forwardRef={this.popoverListRef}>
+              <ComboboxItemList
+                forwardRef={this.popoverListRef}
+                onBlur={handleBlur}
+              >
                 {filteredItems.map((item) => {
                   const isCurrentlySelected =
                     item.labelText === currentSelection;
