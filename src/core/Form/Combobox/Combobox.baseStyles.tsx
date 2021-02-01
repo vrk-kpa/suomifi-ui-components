@@ -4,8 +4,9 @@ import { font } from '../../theme/reset';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
-    & .fi-combobox {
+    &.fi-combobox {
       ${font({ theme })('bodyText')}
+      width: 290px;
     }
 
     & .fi-combobox_wrapper {
