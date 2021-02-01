@@ -16,7 +16,9 @@ const comboboxItemListClassNames = {
 export interface ComboboxItemListProps extends TokensProp {
   /** ComboboxItemList container div class name for custom styling. */
   className?: string;
-  children: Array<React.ReactElement<ComboboxItemProps>>;
+  children:
+    | Array<React.ReactElement<ComboboxItemProps>>
+    | React.ReactElement<ComboboxItemProps>;
   forwardRef: React.RefObject<HTMLUListElement>;
   onBlur?: (event: React.FocusEvent<Element>) => void;
 }
