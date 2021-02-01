@@ -6,8 +6,6 @@ import { boxShadowFocus } from '../../theme/utils';
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     &.fi-combobox-item {
-      ${font({ theme })('bodyText')}
-
       &:focus {
         outline: none;
       }
@@ -19,6 +17,7 @@ export const baseStyles = withSuomifiTheme(
       & .fi-checkbox {
         padding: 10px;
         user-select: none;
+        ${font({ theme })('actionElementInnerText')}
       }
 
       & .fi-checkbox--checked {
