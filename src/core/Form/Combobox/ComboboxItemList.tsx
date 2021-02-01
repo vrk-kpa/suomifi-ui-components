@@ -18,11 +18,18 @@ export interface ComboboxItemListProps extends TokensProp {
   className?: string;
   children: Array<React.ReactElement<ComboboxItemProps>>;
   forwardRef: React.RefObject<HTMLUListElement>;
+  onBlur?: (event: React.FocusEvent<Element>) => void;
 }
 
 class BaseComboboxItemList extends Component<ComboboxItemListProps> {
   render() {
-    const { className, forwardRef, children, ...passProps } = this.props;
+    const {
+      className,
+      forwardRef,
+      children,
+      onBlur,
+      ...passProps
+    } = this.props;
     return (
       <HtmlUlWithRef
         tabIndex={0}
@@ -30,6 +37,7 @@ class BaseComboboxItemList extends Component<ComboboxItemListProps> {
         className={classnames(baseClassName, className, {})}
         {...passProps}
         role="listbox"
+        onBlur={onBlur}
       >
         <HtmlDiv className={comboboxItemListClassNames.wrapper}>
           {children}
