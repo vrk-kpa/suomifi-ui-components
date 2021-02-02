@@ -1,22 +1,22 @@
 ```js
-import { Dropdown } from 'suomifi-ui-components';
+import { Dropdown, DropdownItem } from 'suomifi-ui-components';
 <Dropdown
   name="Dropdown"
   labelText="Dropdown label"
   defaultValue={'dropdown-item-2'}
   onChange={(newValue) => console.log(newValue)}
 >
-  <Dropdown.item value={'dropdown-item-1'}>
+  <DropdownItem value={'dropdown-item-1'}>
     Dropdown Item 1
-  </Dropdown.item>
-  <Dropdown.item value={'dropdown-item-2'}>
+  </DropdownItem>
+  <DropdownItem value={'dropdown-item-2'}>
     Dropdown Item 2
-  </Dropdown.item>
+  </DropdownItem>
 </Dropdown>;
 ```
 
 ```js
-import { Dropdown } from 'suomifi-ui-components';
+import { Dropdown, DropdownItem } from 'suomifi-ui-components';
 <>
   <Dropdown
     name="Dropdown"
@@ -24,12 +24,12 @@ import { Dropdown } from 'suomifi-ui-components';
     labelText="Dropdown label"
     labelMode="hidden"
   >
-    <Dropdown.item value={'dropdown-item-1'}>
+    <DropdownItem value={'dropdown-item-1'}>
       Dropdown Item 1
-    </Dropdown.item>
-    <Dropdown.item value={'dropdown-item-2'}>
+    </DropdownItem>
+    <DropdownItem value={'dropdown-item-2'}>
       Dropdown Item 2
-    </Dropdown.item>
+    </DropdownItem>
   </Dropdown>
 
   <Dropdown
@@ -37,18 +37,18 @@ import { Dropdown } from 'suomifi-ui-components';
     defaultValue={'dropdown-item-2'}
     disabled
   >
-    <Dropdown.item value={'dropdown-item-1'}>
+    <DropdownItem value={'dropdown-item-1'}>
       Dropdown Item 1
-    </Dropdown.item>
-    <Dropdown.item value={'dropdown-item-2'}>
+    </DropdownItem>
+    <DropdownItem value={'dropdown-item-2'}>
       Dropdown Item 2
-    </Dropdown.item>
+    </DropdownItem>
   </Dropdown>
 </>;
 ```
 
 ```js
-import { Dropdown } from 'suomifi-ui-components';
+import { Dropdown, DropdownItem } from 'suomifi-ui-components';
 
 <Dropdown
   visualPlaceholder="Action menu"
@@ -56,14 +56,14 @@ import { Dropdown } from 'suomifi-ui-components';
   alwaysShowVisualPlaceholder={true}
   onChange={(action) => console.log(action, 'selected')}
 >
-  <Dropdown.item value={'action-item-1'}>Action Item 1</Dropdown.item>
-  <Dropdown.item value={'action-item-2'}>Action Item 2</Dropdown.item>
+  <DropdownItem value={'action-item-1'}>Action Item 1</DropdownItem>
+  <DropdownItem value={'action-item-2'}>Action Item 2</DropdownItem>
 </Dropdown>;
 ```
 
 ```js
 import { useState } from 'react';
-import { Dropdown } from 'suomifi-ui-components';
+import { Dropdown, DropdownItem } from 'suomifi-ui-components';
 
 const [value, setValue] = useState('');
 
@@ -78,17 +78,17 @@ const [value, setValue] = useState('');
     }
   }}
 >
-  <Dropdown.item value={'dropdown-item-1'}>
+  <DropdownItem value={'dropdown-item-1'}>
     Dropdown Item 1
-  </Dropdown.item>
-  <Dropdown.item value={'dropdown-item-2'}>
+  </DropdownItem>
+  <DropdownItem value={'dropdown-item-2'}>
     Dropdown Item 2
-  </Dropdown.item>
+  </DropdownItem>
 </Dropdown>;
 ```
 
 ```js
-import { Dropdown, Block } from 'suomifi-ui-components';
+import { Dropdown, DropdownItem, Block } from 'suomifi-ui-components';
 
 const dropdownProps = {
   'aria-labelledby': 'dropdown-group',
@@ -106,12 +106,12 @@ const dropdownProps = {
       labelText="Dropdown 1 label"
       {...dropdownProps}
     >
-      <Dropdown.item value={'dropdown-1-item-1'}>
+      <DropdownItem value={'dropdown-1-item-1'}>
         Dropdown 1 Item 1
-      </Dropdown.item>
-      <Dropdown.item value={'dropdown-1-item-2'}>
+      </DropdownItem>
+      <DropdownItem value={'dropdown-1-item-2'}>
         Dropdown 1 Item 2
-      </Dropdown.item>
+      </DropdownItem>
     </Dropdown>
   </Block>
   <Block padding="xs">
@@ -121,12 +121,12 @@ const dropdownProps = {
       labelText="Dropdown 2 label"
       {...dropdownProps}
     >
-      <Dropdown.item value={'dropdown-2-item-1'}>
+      <DropdownItem value={'dropdown-2-item-1'}>
         Dropdown 2 Item 1
-      </Dropdown.item>
-      <Dropdown.item value={'dropdown-2-item-2'}>
+      </DropdownItem>
+      <DropdownItem value={'dropdown-2-item-2'}>
         Dropdown 2 Item 2
-      </Dropdown.item>
+      </DropdownItem>
     </Dropdown>
   </Block>
 </div>;

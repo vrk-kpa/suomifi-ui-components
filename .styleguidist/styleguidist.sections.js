@@ -104,7 +104,8 @@ module.exports = {
             {
               name: 'Dropdown',
               components: getComponentWithVariants('Dropdown')([
-                'DropdownItem',
+                'Dropdown/Dropdown',
+                'DropdownItem/DropdownItem',
               ]),
             },
             {

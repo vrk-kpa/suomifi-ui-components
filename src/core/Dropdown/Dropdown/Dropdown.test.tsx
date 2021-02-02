@@ -2,9 +2,10 @@ import React from 'react';
 import { render, act, fireEvent } from '@testing-library/react';
 
 import { Dropdown, DropdownProps } from './Dropdown';
+import { DropdownItem } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
-import { cssFromBaseStyles } from '../utils';
-import { axeTest } from '../../utils/test/axe';
+import { cssFromBaseStyles } from '../../utils';
+import { axeTest } from '../../../utils/test/axe';
 
 const dropdownProps = {
   labelText: 'Dropdown test',
@@ -16,8 +17,8 @@ const dropdownProps = {
 
 const TestDropdown = (props: DropdownProps, testId?: string) => (
   <Dropdown {...props} data-testid={!!testId ? testId : ''}>
-    <Dropdown.item value={'item-1'}>Item 1</Dropdown.item>
-    <Dropdown.item value={'item-2'}>Item 2</Dropdown.item>
+    <DropdownItem value={'item-1'}>Item 1</DropdownItem>
+    <DropdownItem value={'item-2'}>Item 2</DropdownItem>
   </Dropdown>
 );
 
@@ -53,7 +54,7 @@ describe('Basic dropdown', () => {
   it('should have disabled styles when disabled', async () => {
     const { findByRole } = render(
       <Dropdown labelText="Dropdown" disabled>
-        <Dropdown.item value={'item-1'}>Item 1</Dropdown.item>
+        <DropdownItem value={'item-1'}>Item 1</DropdownItem>
       </Dropdown>,
     );
     const button = await findByRole('button');
