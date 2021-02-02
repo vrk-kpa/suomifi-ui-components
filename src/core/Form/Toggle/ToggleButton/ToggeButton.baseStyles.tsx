@@ -20,14 +20,6 @@ export const baseStyles = withSuomifiTheme(
           }
         }
       }
-      &:not(:focus-visible) {
-        & .fi-toggle_icon-container {
-          outline: 0;
-          &:after {
-            content: none;
-          }
-        }
-      }
     }
   `,
 );

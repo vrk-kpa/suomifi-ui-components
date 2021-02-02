@@ -285,14 +285,6 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   left: -4px;
 }
 
-.c1.fi-toggle--button > button:not(:focus-visible) .fi-toggle_icon-container {
-  outline: 0;
-}
-
-.c1.fi-toggle--button > button:not(:focus-visible) .fi-toggle_icon-container:after {
-  content: none;
-}
-
 <span
   class="c0 c1 fi-toggle fi-toggle--button fi-toggle_label"
 >
