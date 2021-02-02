@@ -131,14 +131,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     const handleKeyDown = (event: React.KeyboardEvent) => {
       // TODO: Current index of the selection, items should have unique id/hash. Used to see which is selected and aria-activedescendant
       // TODO: indexOf to use instead to work better with IE
-      const {
-        filteredItems: items,
-        currentSelection,
-        showPopover,
-      } = this.state;
-      if (!showPopover || items.length === 0) {
-        return;
-      }
+      const { filteredItems: items, currentSelection } = this.state;
       const index = items.findIndex(
         ({ labelText: uniqueText }) => uniqueText === currentSelection,
       );
@@ -154,7 +147,9 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           event.preventDefault();
           focusToMenu();
           const nextItem = getNextItem();
-          this.setState({ currentSelection: nextItem.labelText });
+          if (nextItem) {
+            this.setState({ currentSelection: nextItem.labelText });
+          }
           break;
         }
 
@@ -162,7 +157,9 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           event.preventDefault();
           focusToMenu();
           const previousItem = getPreviousItem();
-          this.setState({ currentSelection: previousItem.labelText });
+          if (previousItem) {
+            this.setState({ currentSelection: previousItem.labelText });
+          }
           break;
         }
 
@@ -174,11 +171,19 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           break;
         }
 
+        case 'Escape': {
+          event.preventDefault();
+          const inputElement = this.state.filterInputRef as HTMLInputElement;
+          inputElement.value = '';
+          setPopoverVisibility(false);
+          break;
+        }
+
         default: {
-          // TODO: by default return focus to input?
           if (this.state.filterInputRef) {
             const inputElement = this.state.filterInputRef as HTMLInputElement;
             inputElement.focus();
+            setPopoverVisibility(true);
           }
           break;
         }
