@@ -6,6 +6,7 @@ import { TokensProp, InternalTokensProp } from '../../theme';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { AutoId } from '../../../utils/AutoId';
 import { windowAvailable } from '../../../utils/common';
+import { Button } from '../../Button/Button';
 import { Chip } from '../../Chip/Chip';
 import { FilterInput } from '../FilterInput/FilterInput';
 import { Popover } from '../../Popover/Popover';
@@ -109,6 +110,24 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         }
       }
       return { items, filteredItems, currentSelection: labelText };
+    });
+  };
+
+  private removeAllSelectionsHandler = () => {
+    this.setState((prevState: ComboboxState<T & ComboboxData>) => {
+      const { onItemSelectionsChange } = this.props;
+      const updateItem = (item: T & ComboboxData) => ({
+        ...item,
+        selected: item.disabled ? item.selected : false,
+      });
+      const updatedItems = [...prevState.items].map((item) => updateItem(item));
+      const updatedFilteredItems = [...prevState.filteredItems].map((item) =>
+        updateItem(item),
+      );
+      if (onItemSelectionsChange) {
+        onItemSelectionsChange([]);
+      }
+      return { items: updatedItems, filteredItems: updatedFilteredItems };
     });
   };
 
@@ -313,6 +332,15 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
               </Chip>
             ))}
           </ChipList>
+          <HtmlDiv>
+            <Button
+              variant="secondary-noborder"
+              icon="remove"
+              onClick={this.removeAllSelectionsHandler}
+            >
+              Remove all selections
+            </Button>
+          </HtmlDiv>
         </HtmlDiv>
       </HtmlDiv>
     );
