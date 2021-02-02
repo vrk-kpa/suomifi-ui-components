@@ -131,6 +131,26 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     });
   };
 
+  private highlightQuery = (text: string, query: string) => {
+    const substrings = text.split(new RegExp(`(${query})`, 'gi'));
+    return substrings.map((substring, i) => {
+      const isMatch = substring.toLowerCase() === query.toLowerCase();
+      if (isMatch) {
+        // eslint-disable-next-line react/no-array-index-key
+        return <mark key={i}>{substring}</mark>;
+      }
+      return <>{substring}</>;
+    });
+  };
+
+  private getFilterInputValue = () => {
+    if (this.state.filterInputRef) {
+      const inputElement = this.state.filterInputRef as HTMLInputElement;
+      return inputElement.value;
+    }
+    return '';
+  };
+
   private setFilterInputRefElement = (element: Element | null) => {
     this.setState({ filterInputRef: element });
   };
@@ -309,7 +329,10 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                           this.handleItemSelected(item.labelText);
                         }}
                       >
-                        {item.labelText}
+                        {this.highlightQuery(
+                          item.labelText,
+                          this.getFilterInputValue(),
+                        )}
                       </ComboboxItem>
                     );
                   })
