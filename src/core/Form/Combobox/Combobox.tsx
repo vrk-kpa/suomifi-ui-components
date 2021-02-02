@@ -303,7 +303,12 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           {/* TODO: ChipList */}
           <ChipList>
             {getSelectedItems(items).map((item) => (
-              <Chip key={item.labelText}>
+              <Chip
+                key={item.labelText}
+                disabled={item.disabled}
+                removable={!item.disabled}
+                onClick={() => this.handleItemSelected(item.labelText)}
+              >
                 {item.chipText ? item.chipText : item.labelText}
               </Chip>
             ))}
