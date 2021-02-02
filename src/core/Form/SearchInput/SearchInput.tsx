@@ -40,8 +40,8 @@ export interface SearchInputProps
     TokensProp {
   /** SearchInput container div class name for custom styling. */
   className?: string;
-  /** SearchInput container div props */
-  inputContainerProps?: Omit<HtmlDivProps, 'className'>;
+  /** SearchInput wrapping div element props */
+  wrapperProps?: Omit<HtmlDivProps, 'className'>;
   /** Label text */
   labelText: string;
   /** Hide or show label. Label element is always present, but can be visually hidden.
@@ -129,7 +129,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
       clearButtonLabel,
       searchButtonLabel,
       searchButtonProps,
-      inputContainerProps,
+      wrapperProps,
       onChange: propOnChange,
       onSearch: propOnSearch,
       children,
@@ -203,7 +203,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
 
     return (
       <HtmlDiv
-        {...inputContainerProps}
+        {...wrapperProps}
         className={classnames(className, baseClassName, {
           [searchInputClassNames.error]: status === 'error',
           [searchInputClassNames.notEmpty]: !!this.state.value,

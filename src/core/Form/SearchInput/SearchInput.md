@@ -23,7 +23,7 @@ const sharedProps = {
 
   <SearchInput
     {...sharedProps}
-    inputContainerProps={{ style: { width: '250px' } }}
+    wrapperProps={{ style: { width: '250px' } }}
     labelMode="hidden"
   />
 
