@@ -12,6 +12,7 @@ import { Popover } from '../../Popover/Popover';
 import { ComboboxItemList } from './ComboboxItemList';
 import { ComboboxItem } from './ComboboxItem';
 import { ComboboxEmptyItem } from './ComboboxEmptyItem';
+import { ChipList } from './ChipList';
 import { baseStyles } from './Combobox.baseStyles';
 
 const baseClassName = 'fi-combobox';
@@ -300,13 +301,13 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             )}
           </Popover>
           {/* TODO: ChipList */}
-          <div>
+          <ChipList>
             {getSelectedItems(items).map((item) => (
               <Chip key={item.labelText}>
                 {item.chipText ? item.chipText : item.labelText}
               </Chip>
             ))}
-          </div>
+          </ChipList>
         </HtmlDiv>
       </HtmlDiv>
     );
