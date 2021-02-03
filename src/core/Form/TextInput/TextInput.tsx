@@ -156,8 +156,8 @@ class BaseTextInput extends Component<TextInputProps> {
                 placeholder={visualPlaceholder}
                 {...{ 'aria-invalid': status === 'error' }}
                 {...getConditionalAriaProp('aria-describedby', [
-                  this.statusTextId,
-                  this.hintTextId,
+                  statusText ? this.statusTextId : undefined,
+                  hintText ? this.hintTextId : undefined,
                   ariaDescribedBy,
                 ])}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
