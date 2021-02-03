@@ -85,50 +85,64 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   };
 
   private handleItemSelected = (labelText: string) => {
-    this.setState((prevState: ComboboxState<T & ComboboxData>) => {
-      const { onItemSelectionsChange } = this.props;
-      const items = [...prevState.items];
-      const filteredItems = [...prevState.filteredItems];
-      const currentItem = items.filter(
-        (item) => item.labelText === labelText,
-      )[0];
-      const indexOfItem = items.indexOf(currentItem);
-      if (!currentItem.disabled) {
-        if (indexOfItem > -1) {
-          currentItem.selected = !currentItem.selected;
-          items[indexOfItem] = currentItem;
-        }
-        if (onItemSelectionsChange) {
-          onItemSelectionsChange(getSelectedItems(items));
-        }
-        const currentFilteredItem = filteredItems.filter(
+    this.setState(
+      (
+        prevState: ComboboxState<T & ComboboxData>,
+        prevProps: ComboboxProps<T & ComboboxData>,
+      ) => {
+        const { onItemSelectionsChange } = prevProps;
+        const items = [...prevState.items];
+        const filteredItems = [...prevState.filteredItems];
+        const currentItem = items.filter(
           (item) => item.labelText === labelText,
         )[0];
-        const indexOfFilteredItem = filteredItems.indexOf(currentFilteredItem);
-        if (indexOfFilteredItem > -1) {
-          filteredItems[indexOfFilteredItem] = currentItem;
+        const indexOfItem = items.indexOf(currentItem);
+        if (!currentItem.disabled) {
+          if (indexOfItem > -1) {
+            currentItem.selected = !currentItem.selected;
+            items[indexOfItem] = currentItem;
+          }
+          if (onItemSelectionsChange) {
+            onItemSelectionsChange(getSelectedItems(items));
+          }
+          const currentFilteredItem = filteredItems.filter(
+            (item) => item.labelText === labelText,
+          )[0];
+          const indexOfFilteredItem = filteredItems.indexOf(
+            currentFilteredItem,
+          );
+          if (indexOfFilteredItem > -1) {
+            filteredItems[indexOfFilteredItem] = currentItem;
+          }
         }
-      }
-      return { items, filteredItems, currentSelection: labelText };
-    });
+        return { items, filteredItems, currentSelection: labelText };
+      },
+    );
   };
 
   private removeAllSelectionsHandler = () => {
-    this.setState((prevState: ComboboxState<T & ComboboxData>) => {
-      const { onItemSelectionsChange } = this.props;
-      const updateItem = (item: T & ComboboxData) => ({
-        ...item,
-        selected: item.disabled ? item.selected : false,
-      });
-      const updatedItems = [...prevState.items].map((item) => updateItem(item));
-      const updatedFilteredItems = [...prevState.filteredItems].map((item) =>
-        updateItem(item),
-      );
-      if (onItemSelectionsChange) {
-        onItemSelectionsChange([]);
-      }
-      return { items: updatedItems, filteredItems: updatedFilteredItems };
-    });
+    this.setState(
+      (
+        prevState: ComboboxState<T & ComboboxData>,
+        prevProps: ComboboxProps<T & ComboboxData>,
+      ) => {
+        const { onItemSelectionsChange } = prevProps;
+        const updateItem = (item: T & ComboboxData) => ({
+          ...item,
+          selected: item.disabled ? item.selected : false,
+        });
+        const updatedItems = [...prevState.items].map((item) =>
+          updateItem(item),
+        );
+        const updatedFilteredItems = [...prevState.filteredItems].map((item) =>
+          updateItem(item),
+        );
+        if (onItemSelectionsChange) {
+          onItemSelectionsChange([]);
+        }
+        return { items: updatedItems, filteredItems: updatedFilteredItems };
+      },
+    );
   };
 
   private highlightQuery = (text: string, query: string) => {
@@ -143,7 +157,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     });
   };
 
-  private getFilterInputValue = () => {
+  private filterInputValue = () => {
     if (this.state.filterInputRef) {
       const inputElement = this.state.filterInputRef as HTMLInputElement;
       return inputElement.value;
@@ -331,7 +345,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                       >
                         {this.highlightQuery(
                           item.labelText,
-                          this.getFilterInputValue(),
+                          this.filterInputValue(),
                         )}
                       </ComboboxItem>
                     );
