@@ -16,7 +16,7 @@ import { HintText } from '../HintText/HintText';
 import classnames from 'classnames';
 import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
 import { Omit } from '../../../utils/typescript';
-import { idGenerator } from '../../../utils/uuid';
+import { AutoId } from '../../../utils/AutoId';
 import { Debounce } from '../../utils/Debounce/Debounce';
 
 const baseClassName = 'fi-text-input';
@@ -86,17 +86,14 @@ export interface TextInputProps
 }
 
 class BaseTextInput extends Component<TextInputProps> {
-  private id: string;
-
   private hintTextId: string;
 
   private statusTextId: string;
 
   constructor(props: TextInputProps) {
     super(props);
-    this.id = `${idGenerator(props.id)}`;
-    this.hintTextId = `${this.id}-hintText`;
-    this.statusTextId = `${this.id}-statusText`;
+    this.hintTextId = `${props.id}-hintText`;
+    this.statusTextId = `${props.id}-statusText`;
   }
 
   render() {
@@ -152,7 +149,7 @@ class BaseTextInput extends Component<TextInputProps> {
         })}
       >
         <LabelText
-          htmlFor={this.id}
+          htmlFor={id}
           labelMode={labelMode}
           as="label"
           optionalText={optionalText}
@@ -165,7 +162,7 @@ class BaseTextInput extends Component<TextInputProps> {
             {(debouncer: Function) => (
               <HtmlInput
                 {...passProps}
-                id={this.id}
+                id={id}
                 className={textInputClassNames.inputElement}
                 type={type}
                 placeholder={visualPlaceholder}
@@ -205,6 +202,11 @@ const StyledTextInput = styled(
  */
 export class TextInput extends Component<TextInputProps> {
   render() {
-    return <StyledTextInput {...withSuomifiDefaultProps(this.props)} />;
+    const { id: propId, ...passProps } = withSuomifiDefaultProps(this.props);
+    return (
+      <AutoId id={propId}>
+        {(id) => <StyledTextInput id={id} {...passProps} />}
+      </AutoId>
+    );
   }
 }
