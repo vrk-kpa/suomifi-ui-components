@@ -18,11 +18,20 @@ export const baseStyles = withSuomifiTheme(
         padding: 10px;
         user-select: none;
         ${font({ theme })('actionElementInnerText')}
+
+        & mark {
+          background-color: transparent;
+          font-weight: bold;
+        }
       }
 
       & .fi-checkbox--checked {
         background-color: ${theme.colors.highlightBase};
         color: ${theme.colors.whiteBase};
+
+        & mark {
+          color: ${theme.colors.whiteBase};
+        }
       }
     }
 
