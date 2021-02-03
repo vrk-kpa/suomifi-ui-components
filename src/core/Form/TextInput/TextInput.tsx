@@ -18,6 +18,7 @@ import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
 import { Omit } from '../../../utils/typescript';
 import { AutoId } from '../../../utils/AutoId';
 import { Debounce } from '../../utils/Debounce/Debounce';
+import { getConditionalAriaProp } from '../../../utils/aria';
 
 const baseClassName = 'fi-text-input';
 export const textInputClassNames = {
@@ -124,19 +125,6 @@ class BaseTextInput extends Component<TextInputProps> {
       icon: resolvedIcon,
     };
 
-    const getDescribedBy = () => {
-      if (statusText || hintText || ariaDescribedBy) {
-        return {
-          'aria-describedby': [
-            ...(statusText ? [this.statusTextId] : []),
-            ...(hintText ? [this.hintTextId] : []),
-            ...(ariaDescribedBy ? [ariaDescribedBy] : []),
-          ].join(' '),
-        };
-      }
-      return {};
-    };
-
     return (
       <HtmlDiv
         {...inputContainerProps}
@@ -167,7 +155,11 @@ class BaseTextInput extends Component<TextInputProps> {
                 type={type}
                 placeholder={visualPlaceholder}
                 {...{ 'aria-invalid': status === 'error' }}
-                {...getDescribedBy()}
+                {...getConditionalAriaProp('aria-describedby', [
+                  this.statusTextId,
+                  this.hintTextId,
+                  ariaDescribedBy,
+                ])}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
                   if (propOnChange) {
                     const eventValue = event.currentTarget.value;
