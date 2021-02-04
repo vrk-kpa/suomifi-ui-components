@@ -8,8 +8,12 @@ export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     &.fi-text-input {
       ${font({ theme })('bodyText')}
-      display: inline-block;
       width: 290px;
+    }
+
+    &_wrapper {
+      width: 100%;
+      display: inline-block;
     }
 
     & .fi-text-input_input-element-container {
