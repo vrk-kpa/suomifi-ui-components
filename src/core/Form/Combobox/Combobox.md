@@ -40,6 +40,11 @@ const tools = [
   }
 ];
 <>
-  <Combobox labelText="Combobox" items={tools} />
+  <Combobox
+    labelText="Combobox"
+    items={tools}
+    chipListVisible={true}
+    removeAllButtonLabel="Remove all selections"
+  />
 </>;
 ```
