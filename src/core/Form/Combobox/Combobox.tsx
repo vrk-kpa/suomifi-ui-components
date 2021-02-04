@@ -27,7 +27,7 @@ export interface ComboboxData {
   selected: boolean;
   /** Unique label that will be shown on combobox item and used on filter */
   labelText: string;
-  // use label if not chipText given
+  /** use label if not chipText given */
   chipText?: string;
   /** Item selection disabled for the user */
   disabled?: boolean;
@@ -36,6 +36,7 @@ export interface ComboboxData {
 export interface ComboboxProps<T extends ComboboxData> extends TokensProp {
   /** Combobox container div class name for custom styling. */
   className?: string;
+  /** Items for the combobox */
   items: Array<T & ComboboxData>;
   /**
    * Unique id
@@ -45,7 +46,12 @@ export interface ComboboxProps<T extends ComboboxData> extends TokensProp {
   /** Label */
   labelText: string;
   onItemSelectionsChange?: (selectedItems: Array<T>) => void;
+  /** Show chip list */
+  chipListVisible?: boolean;
+  /** Label for remove button. If it is given, button will be shown. */
+  removeAllButtonLabel?: string;
 }
+
 interface ComboboxState<T extends ComboboxData> {
   items: T[];
   filteredItems: T[];
@@ -176,6 +182,8 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       items: propItems,
       labelText,
       onItemSelectionsChange,
+      chipListVisible,
+      removeAllButtonLabel,
       ...passProps
     } = this.props;
 
@@ -227,6 +235,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
 
         case 'Escape': {
           event.preventDefault();
+          // FIXME: Update the input value, so that filter updates
           const inputElement = this.state.filterInputRef as HTMLInputElement;
           inputElement.value = '';
           setPopoverVisibility(false);
@@ -356,28 +365,33 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
               </ComboboxItemList>
             )}
           </Popover>
-          {/* TODO: ChipList */}
-          <ChipList>
-            {getSelectedItems(items).map((item) => (
-              <Chip
-                key={item.labelText}
-                disabled={item.disabled}
-                removable={!item.disabled}
-                onClick={() => this.handleItemSelected(item.labelText)}
-              >
-                {item.chipText ? item.chipText : item.labelText}
-              </Chip>
-            ))}
-          </ChipList>
-          <HtmlDiv>
+          {chipListVisible && (
+            <ChipList>
+              {getSelectedItems(items).map((item) => (
+                <Chip
+                  key={item.labelText}
+                  disabled={item.disabled}
+                  removable={!item.disabled}
+                  onClick={() => this.handleItemSelected(item.labelText)}
+                  actionLabel={`Removes ${
+                    item.chipText ? item.chipText : item.labelText
+                  }`}
+                >
+                  {item.chipText ? item.chipText : item.labelText}
+                </Chip>
+              ))}
+            </ChipList>
+          )}
+          {removeAllButtonLabel && (
             <Button
               variant="secondary-noborder"
               icon="remove"
               onClick={this.removeAllSelectionsHandler}
+              style={{ padding: 0 }}
             >
-              Remove all selections
+              {removeAllButtonLabel}
             </Button>
-          </HtmlDiv>
+          )}
         </HtmlDiv>
       </HtmlDiv>
     );
