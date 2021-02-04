@@ -77,15 +77,17 @@ export const baseStyles = withSuomifiTheme(
     &.fi-text-input--error {
       & .fi-text-input_input {
         border: 2px solid ${theme.colors.alertBase};
-        height: 38px;
         padding-left: ${math(`${theme.spacing.insetL} - 1`)};
+        padding-top: 7px;
+        padding-bottom: 7px;
       }
     }
     &.fi-text-input--success {
       & .fi-text-input_input {
         border: 2px solid ${theme.colors.successBase};
-        height: 38px;
         padding-left: ${math(`${theme.spacing.insetL} - 1`)};
+        padding-top: 7px;
+        padding-bottom: 7px;
       }
     }
     &.fi-text-input--disabled {
