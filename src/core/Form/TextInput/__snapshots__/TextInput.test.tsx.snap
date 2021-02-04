@@ -277,11 +277,17 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c1.fi-text-input--error .fi-text-input_input {
-  border-color: hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,48%);
+  padding-left: 9px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .c1.fi-text-input--success .fi-text-input_input {
-  border-color: hsl(166,90%,34%);
+  border: 2px solid hsl(166,90%,34%);
+  padding-left: 9px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .c1.fi-text-input--disabled .fi-text-input_input {
@@ -593,11 +599,17 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 }
 
 .c1.fi-text-input--error .fi-text-input_input {
-  border-color: hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,48%);
+  padding-left: 9px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .c1.fi-text-input--success .fi-text-input_input {
-  border-color: hsl(166,90%,34%);
+  border: 2px solid hsl(166,90%,34%);
+  padding-left: 9px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .c1.fi-text-input--disabled .fi-text-input_input {
@@ -890,11 +902,17 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1.fi-text-input--error .fi-text-input_input {
-  border-color: hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,48%);
+  padding-left: 9px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .c1.fi-text-input--success .fi-text-input_input {
-  border-color: hsl(166,90%,34%);
+  border: 2px solid hsl(166,90%,34%);
+  padding-left: 9px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .c1.fi-text-input--disabled .fi-text-input_input {
