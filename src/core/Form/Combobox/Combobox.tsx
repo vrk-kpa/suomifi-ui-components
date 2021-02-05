@@ -90,7 +90,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     currentSelection: null,
   };
 
-  private handleItemSelected = (labelText: string) => {
+  handleItemSelected = (text: string) => {
     this.setState(
       (
         prevState: ComboboxState<T & ComboboxData>,
@@ -99,9 +99,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         const { onItemSelectionsChange } = prevProps;
         const items = [...prevState.items];
         const filteredItems = [...prevState.filteredItems];
-        const currentItem = items.filter(
-          (item) => item.labelText === labelText,
-        )[0];
+        const currentItem = items.filter((item) => item.labelText === text)[0];
         const indexOfItem = items.indexOf(currentItem);
         if (!currentItem.disabled) {
           if (indexOfItem > -1) {
@@ -112,7 +110,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             onItemSelectionsChange(getSelectedItems(items));
           }
           const currentFilteredItem = filteredItems.filter(
-            (item) => item.labelText === labelText,
+            (item) => item.labelText === text,
           )[0];
           const indexOfFilteredItem = filteredItems.indexOf(
             currentFilteredItem,
@@ -121,12 +119,12 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             filteredItems[indexOfFilteredItem] = currentItem;
           }
         }
-        return { items, filteredItems, currentSelection: labelText };
+        return { items, filteredItems, currentSelection: text };
       },
     );
   };
 
-  private removeAllSelectionsHandler = () => {
+  removeAllSelectionsHandler = () => {
     this.setState(
       (
         prevState: ComboboxState<T & ComboboxData>,
@@ -151,41 +149,30 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     );
   };
 
-  private highlightQuery = (text: string, query: string) => {
-    const substrings = text.split(new RegExp(`(${query})`, 'gi'));
-    return substrings.map((substring, i) => {
-      const isMatch = substring.toLowerCase() === query.toLowerCase();
-      if (isMatch) {
-        // eslint-disable-next-line react/no-array-index-key
-        return <mark key={i}>{substring}</mark>;
-      }
-      return <>{substring}</>;
-    });
-  };
-
-  private filterInputValue = () => {
-    if (this.state.filterInputRef) {
-      const inputElement = this.state.filterInputRef as HTMLInputElement;
-      return inputElement.value;
-    }
-    return '';
-  };
-
-  private setFilterInputRefElement = (element: Element | null) => {
+  setFilterInputRefElement = (element: Element | null) => {
     this.setState({ filterInputRef: element });
   };
 
   render() {
-    const {
-      id,
-      className,
-      items: propItems,
-      labelText,
-      onItemSelectionsChange,
-      chipListVisible,
-      removeAllButtonLabel,
-      ...passProps
-    } = this.props;
+    const highlightQuery = (text: string, query: string) => {
+      const substrings = text.split(new RegExp(`(${query})`, 'gi'));
+      return substrings.map((substring, i) => {
+        const isMatch = substring.toLowerCase() === query.toLowerCase();
+        if (isMatch) {
+          // eslint-disable-next-line react/no-array-index-key
+          return <mark key={i}>{substring}</mark>;
+        }
+        return <>{substring}</>;
+      });
+    };
+
+    const filterInputValue = () => {
+      if (this.state.filterInputRef) {
+        const inputElement = this.state.filterInputRef as HTMLInputElement;
+        return inputElement.value;
+      }
+      return '';
+    };
 
     const filter = (data: ComboboxData, query: string) =>
       data.labelText.toLowerCase().includes(query.toLowerCase());
@@ -296,6 +283,17 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       }
     };
 
+    const {
+      id,
+      className,
+      items: propItems,
+      labelText,
+      onItemSelectionsChange,
+      chipListVisible,
+      removeAllButtonLabel,
+      ...passProps
+    } = this.props;
+
     return (
       <HtmlDiv
         role="combobox"
@@ -352,10 +350,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                           this.handleItemSelected(item.labelText);
                         }}
                       >
-                        {this.highlightQuery(
-                          item.labelText,
-                          this.filterInputValue(),
-                        )}
+                        {highlightQuery(item.labelText, filterInputValue())}
                       </ComboboxItem>
                     );
                   })
