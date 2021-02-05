@@ -19,15 +19,15 @@ export interface ToggleBaseProps {
    */
   children?: ReactNode;
   /**
-   * aria-label for the HTML input-element,
+   * aria-label for toggle
    */
   'aria-label'?: string;
   /**
    * alternatively to aria-label you can define aria-labelledby with label-element id
    */
   'aria-labelledby'?: string;
-  /** Unique id
-   * @default uuidV4
+  /**
+   * Unique id. If no id is specified, one will be generated
    */
   id?: string;
   /**
