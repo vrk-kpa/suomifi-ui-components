@@ -45,6 +45,7 @@ export interface ComboboxProps<T extends ComboboxData> extends TokensProp {
   id?: string;
   /** Label */
   labelText: string;
+  /** Event that is sent when item selections change */
   onItemSelectionsChange?: (selectedItems: Array<T>) => void;
   /** Show chip list */
   chipListVisible?: boolean;
