@@ -49,6 +49,8 @@ export interface ComboboxProps<T extends ComboboxData> extends TokensProp {
   onItemSelectionsChange?: (selectedItems: Array<T>) => void;
   /** Show chip list */
   chipListVisible?: boolean;
+  /** Chip action label */
+  chipActionLabel?: string;
   /** Label for remove button. If it is given, button will be shown. */
   removeAllButtonLabel?: string;
 }
@@ -291,6 +293,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       labelText,
       onItemSelectionsChange,
       chipListVisible,
+      chipActionLabel,
       removeAllButtonLabel,
       ...passProps
     } = this.props;
@@ -369,7 +372,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                   disabled={item.disabled}
                   removable={!item.disabled}
                   onClick={() => this.handleItemSelected(item.labelText)}
-                  actionLabel={`Removes ${
+                  actionLabel={`${chipActionLabel} ${
                     item.chipText ? item.chipText : item.labelText
                   }`}
                 >
