@@ -30,11 +30,11 @@ interface ToggleState {
 
 export interface ToggleInputProps
   extends ToggleBaseProps,
-    Omit<HtmlInputProps, 'onChange'> {
+    Omit<HtmlInputProps, 'onChange' | 'type'> {
   /** Input name */
   name?: string;
   /** Event handler to execute when clicked */
-  onChange?: ({ toggleState }: { toggleState: boolean }) => void;
+  onChange?: (checked: boolean) => void;
 }
 class BaseToggleInput extends Component<ToggleInputProps & InternalTokensProp> {
   state: ToggleState = {
@@ -59,7 +59,7 @@ class BaseToggleInput extends Component<ToggleInputProps & InternalTokensProp> {
       this.setState({ toggleState: !toggleState });
     }
     if (!!onChange) {
-      onChange({ toggleState: !toggleState });
+      onChange(!toggleState);
     }
   };
 

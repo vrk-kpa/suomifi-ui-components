@@ -9,22 +9,20 @@ const [checked, setChecked] = useState(false);
   <ToggleButton
     defaultChecked
     disabled
-    onClick={({ toggleState }) => console.log(toggleState)}
+    onClick={(checked) => console.log(checked)}
   >
     Checked disabled using button
   </ToggleButton>
 
-  <ToggleButton
-    onClick={({ toggleState }) => console.log(toggleState)}
-  >
+  <ToggleButton onClick={(checked) => console.log(checked)}>
     Unchecked enabled using button
   </ToggleButton>
 
   <ToggleButton
     checked={checked}
-    onClick={({ toggleState }) => {
+    onClick={(checked) => {
       if (window.confirm('Change Toggle state?')) {
-        setChecked(toggleState);
+        setChecked(checked);
       }
     }}
   >

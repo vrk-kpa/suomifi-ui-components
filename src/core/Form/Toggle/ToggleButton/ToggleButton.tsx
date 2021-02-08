@@ -20,9 +20,9 @@ const toggleClassNames = {
 
 export interface ToggleButtonProps
   extends ToggleBaseProps,
-    Omit<HtmlButtonProps, 'onClick'> {
+    Omit<HtmlButtonProps, 'onClick' | 'type'> {
   /** Event handler to execute when clicked */
-  onClick?: ({ toggleState }: { toggleState: boolean }) => void;
+  onClick?: (checked: boolean) => void;
 }
 
 interface ToggleState {
@@ -54,7 +54,7 @@ class BaseToggleButton extends Component<
       this.setState({ toggleState: !toggleState });
     }
     if (!!onClick) {
-      onClick({ toggleState: !toggleState });
+      onClick(!toggleState);
     }
   };
 
