@@ -88,16 +88,6 @@ export interface TextInputProps
 }
 
 class BaseTextInput extends Component<TextInputProps> {
-  private hintTextId: string;
-
-  private statusTextId: string;
-
-  constructor(props: TextInputProps) {
-    super(props);
-    this.hintTextId = `${props.id}-hintText`;
-    this.statusTextId = `${props.id}-statusText`;
-  }
-
   render() {
     const {
       className,
@@ -119,12 +109,10 @@ class BaseTextInput extends Component<TextInputProps> {
       ...passProps
     } = this.props;
 
-    const resolvedIcon = icon || iconProps?.icon;
+    const resolvedIcon: BaseIconKeys = icon || iconProps?.icon;
 
-    const newIconProps = {
-      ...iconProps,
-      icon: resolvedIcon,
-    };
+    const hintTextId = `${id}-hintText`;
+    const statusTextId = `${id}-statusText`;
 
     return (
       <HtmlDiv
@@ -146,7 +134,7 @@ class BaseTextInput extends Component<TextInputProps> {
           >
             {labelText}
           </LabelText>
-          <HintText id={this.hintTextId}>{hintText}</HintText>
+          <HintText id={hintTextId}>{hintText}</HintText>
           <HtmlDiv className={textInputClassNames.inputElementContainer}>
             <Debounce waitFor={this.props.debounce}>
               {(debouncer: Function) => (
@@ -158,22 +146,21 @@ class BaseTextInput extends Component<TextInputProps> {
                   placeholder={visualPlaceholder}
                   {...{ 'aria-invalid': status === 'error' }}
                   {...getConditionalAriaProp('aria-describedby', [
-                    statusText ? this.statusTextId : undefined,
-                    hintText ? this.hintTextId : undefined,
+                    statusText ? statusTextId : undefined,
+                    hintText ? hintTextId : undefined,
                     ariaDescribedBy,
                   ])}
                   onChange={(event: ChangeEvent<HTMLInputElement>) => {
                     if (propOnChange) {
-                      const eventValue = event.currentTarget.value;
-                      debouncer(propOnChange, eventValue);
+                      debouncer(propOnChange, event.currentTarget.value);
                     }
                   }}
                 />
               )}
             </Debounce>
-            {resolvedIcon && <Icon {...newIconProps} />}
+            {resolvedIcon && <Icon {...{ iconProps, icon: resolvedIcon }} />}
           </HtmlDiv>
-          <StatusText id={this.statusTextId} status={status}>
+          <StatusText id={statusTextId} status={status}>
             {statusText}
           </StatusText>
         </HtmlSpan>

@@ -81,7 +81,7 @@ export const baseStyles = withSuomifiTheme(
     &.fi-text-input--error {
       & .fi-text-input_input {
         border: 2px solid ${theme.colors.alertBase};
-        padding-left: ${math(`${theme.spacing.insetL} - 1`)};
+        padding-left: 9px;
         padding-top: 7px;
         padding-bottom: 7px;
       }
@@ -89,7 +89,7 @@ export const baseStyles = withSuomifiTheme(
     &.fi-text-input--success {
       & .fi-text-input_input {
         border: 2px solid ${theme.colors.successBase};
-        padding-left: ${math(`${theme.spacing.insetL} - 1`)};
+        padding-left: 9px;
         padding-top: 7px;
         padding-bottom: 7px;
       }
