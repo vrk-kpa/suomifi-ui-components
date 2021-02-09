@@ -67,6 +67,13 @@ module.exports = {
           components: getComponents(primitiveComponents),
           sections: [
             {
+              name: 'Toggle',
+              components: getComponentWithVariants('Form/Toggle')([
+                'ToggleButton/ToggleButton',
+                'ToggleInput/ToggleInput',
+              ]),
+            },
+            {
               name: 'Text',
               components: getComponents(['Text', 'Paragraph']),
             },
