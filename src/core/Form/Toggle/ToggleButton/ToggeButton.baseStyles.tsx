@@ -6,7 +6,6 @@ import {
   focusOverrides,
 } from '../ToggleBase/Toggle.baseStyles';
 
-/* stylelint-disable no-descending-specificity */
 export const baseStyles = withSuomifiTheme(
   (tokensAndTheme: TokensAndTheme) => css`
     &.fi-toggle--button > button {

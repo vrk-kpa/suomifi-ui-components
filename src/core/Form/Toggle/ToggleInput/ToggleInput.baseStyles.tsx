@@ -9,7 +9,6 @@ import {
   focusOverrides,
 } from '../ToggleBase/Toggle.baseStyles';
 
-/* stylelint-disable no-descending-specificity */
 export const baseStyles = withSuomifiTheme(
   (tokesAndTheme: TokensAndTheme) => css`
     ${toggleBaseStyles(tokesAndTheme)}

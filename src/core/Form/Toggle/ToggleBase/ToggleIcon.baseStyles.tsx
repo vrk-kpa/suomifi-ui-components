@@ -5,7 +5,6 @@ import { iconWidth, iconHeight } from './Toggle.baseStyles';
 // Contains double underscore because it is written in the SVG-file
 const svgPrefix = 'icon-toggle_svg__';
 
-/* stylelint-disable no-descending-specificity */
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     width: ${iconWidth};
