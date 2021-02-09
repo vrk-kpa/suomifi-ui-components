@@ -27,7 +27,7 @@ export interface ComboboxData {
   selected: boolean;
   /** Unique label that will be shown on combobox item and used on filter */
   labelText: string;
-  /** use label if not chipText given */
+  /** Using labelText if chipText is not given */
   chipText?: string;
   /** Item selection disabled for the user */
   disabled?: boolean;
