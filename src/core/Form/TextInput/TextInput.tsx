@@ -6,6 +6,7 @@ import {
   HtmlInputProps,
   HtmlDiv,
   HtmlDivProps,
+  HtmlSpan,
 } from '../../../reset';
 import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './TextInput.baseStyles';
@@ -15,9 +16,9 @@ import { InputStatus } from '../types';
 import { HintText } from '../HintText/HintText';
 import classnames from 'classnames';
 import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
-import { Omit } from '../../../utils/typescript';
-import { idGenerator } from '../../../utils/uuid';
+import { AutoId } from '../../../utils/AutoId';
 import { Debounce } from '../../utils/Debounce/Debounce';
+import { getConditionalAriaProp } from '../../../utils/aria';
 
 const baseClassName = 'fi-text-input';
 export const textInputClassNames = {
@@ -29,6 +30,7 @@ export const textInputClassNames = {
   icon: `${baseClassName}_with-icon`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
+  styleWrapper: `${baseClassName}_wrapper`,
 };
 
 type TextInputValue = string | number | undefined;
@@ -38,8 +40,8 @@ export interface TextInputProps
     TokensProp {
   /** TextInput container div class name for custom styling. */
   className?: string;
-  /** TextInput container div props */
-  inputContainerProps?: Omit<HtmlDivProps, 'className'>;
+  /** TextInput wrapping div element props */
+  wrapperProps?: Omit<HtmlDivProps, 'className'>;
   /** Disable input usage */
   disabled?: boolean;
   /** Event handler to execute when clicked */
@@ -86,26 +88,13 @@ export interface TextInputProps
 }
 
 class BaseTextInput extends Component<TextInputProps> {
-  private id: string;
-
-  private hintTextId: string;
-
-  private statusTextId: string;
-
-  constructor(props: TextInputProps) {
-    super(props);
-    this.id = `${idGenerator(props.id)}`;
-    this.hintTextId = `${this.id}-hintText`;
-    this.statusTextId = `${this.id}-statusText`;
-  }
-
   render() {
     const {
       className,
       labelText,
       labelMode,
       onChange: propOnChange,
-      inputContainerProps,
+      wrapperProps,
       optionalText,
       status,
       statusText,
@@ -120,29 +109,14 @@ class BaseTextInput extends Component<TextInputProps> {
       ...passProps
     } = this.props;
 
-    const resolvedIcon = icon || iconProps?.icon;
+    const resolvedIcon: BaseIconKeys = icon || iconProps?.icon;
 
-    const newIconProps = {
-      ...iconProps,
-      icon: resolvedIcon,
-    };
-
-    const getDescribedBy = () => {
-      if (statusText || hintText || ariaDescribedBy) {
-        return {
-          'aria-describedby': [
-            ...(statusText ? [this.statusTextId] : []),
-            ...(hintText ? [this.hintTextId] : []),
-            ...(ariaDescribedBy ? [ariaDescribedBy] : []),
-          ].join(' '),
-        };
-      }
-      return {};
-    };
+    const hintTextId = `${id}-hintText`;
+    const statusTextId = `${id}-statusText`;
 
     return (
       <HtmlDiv
-        {...inputContainerProps}
+        {...wrapperProps}
         className={classnames(baseClassName, className, {
           [textInputClassNames.disabled]: !!passProps.disabled,
           [textInputClassNames.icon]: resolvedIcon !== undefined,
@@ -151,40 +125,45 @@ class BaseTextInput extends Component<TextInputProps> {
           [textInputClassNames.fullWidth]: fullWidth,
         })}
       >
-        <LabelText
-          htmlFor={this.id}
-          labelMode={labelMode}
-          as="label"
-          optionalText={optionalText}
-        >
-          {labelText}
-        </LabelText>
-        <HintText id={this.hintTextId}>{hintText}</HintText>
-        <HtmlDiv className={textInputClassNames.inputElementContainer}>
-          <Debounce waitFor={this.props.debounce}>
-            {(debouncer: Function) => (
-              <HtmlInput
-                {...passProps}
-                id={this.id}
-                className={textInputClassNames.inputElement}
-                type={type}
-                placeholder={visualPlaceholder}
-                {...{ 'aria-invalid': status === 'error' }}
-                {...getDescribedBy()}
-                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                  if (propOnChange) {
-                    const eventValue = event.currentTarget.value;
-                    debouncer(propOnChange, eventValue);
-                  }
-                }}
-              />
-            )}
-          </Debounce>
-          {resolvedIcon && <Icon {...newIconProps} />}
-        </HtmlDiv>
-        <StatusText id={this.statusTextId} status={status}>
-          {statusText}
-        </StatusText>
+        <HtmlSpan className={textInputClassNames.styleWrapper}>
+          <LabelText
+            htmlFor={id}
+            labelMode={labelMode}
+            as="label"
+            optionalText={optionalText}
+          >
+            {labelText}
+          </LabelText>
+          <HintText id={hintTextId}>{hintText}</HintText>
+          <HtmlDiv className={textInputClassNames.inputElementContainer}>
+            <Debounce waitFor={this.props.debounce}>
+              {(debouncer: Function) => (
+                <HtmlInput
+                  {...passProps}
+                  id={id}
+                  className={textInputClassNames.inputElement}
+                  type={type}
+                  placeholder={visualPlaceholder}
+                  {...{ 'aria-invalid': status === 'error' }}
+                  {...getConditionalAriaProp('aria-describedby', [
+                    statusText ? statusTextId : undefined,
+                    hintText ? hintTextId : undefined,
+                    ariaDescribedBy,
+                  ])}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                    if (propOnChange) {
+                      debouncer(propOnChange, event.currentTarget.value);
+                    }
+                  }}
+                />
+              )}
+            </Debounce>
+            {resolvedIcon && <Icon {...{ iconProps, icon: resolvedIcon }} />}
+          </HtmlDiv>
+          <StatusText id={statusTextId} status={status}>
+            {statusText}
+          </StatusText>
+        </HtmlSpan>
       </HtmlDiv>
     );
   }
@@ -205,6 +184,11 @@ const StyledTextInput = styled(
  */
 export class TextInput extends Component<TextInputProps> {
   render() {
-    return <StyledTextInput {...withSuomifiDefaultProps(this.props)} />;
+    const { id: propId, ...passProps } = withSuomifiDefaultProps(this.props);
+    return (
+      <AutoId id={propId}>
+        {(id) => <StyledTextInput id={id} {...passProps} />}
+      </AutoId>
+    );
   }
 }

@@ -8,8 +8,12 @@ export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     &.fi-text-input {
       ${font({ theme })('bodyText')}
-      display: inline-block;
       width: 290px;
+    }
+
+    &_wrapper {
+      width: 100%;
+      display: inline-block;
     }
 
     & .fi-text-input_input-element-container {
@@ -76,12 +80,18 @@ export const baseStyles = withSuomifiTheme(
 
     &.fi-text-input--error {
       & .fi-text-input_input {
-        border-color: ${theme.colors.alertBase};
+        border: 2px solid ${theme.colors.alertBase};
+        padding-left: 9px;
+        padding-top: 7px;
+        padding-bottom: 7px;
       }
     }
     &.fi-text-input--success {
       & .fi-text-input_input {
-        border-color: ${theme.colors.successBase};
+        border: 2px solid ${theme.colors.successBase};
+        padding-left: 9px;
+        padding-top: 7px;
+        padding-bottom: 7px;
       }
     }
     &.fi-text-input--disabled {

@@ -63,7 +63,7 @@ exports[`snapshots match error status with statustext 1`] = `
   box-sizing: border-box;
 }
 
-.c3 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -87,12 +87,12 @@ exports[`snapshots match error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c2::before,
+.c2::after {
   box-sizing: border-box;
 }
 
-.c2.fi-label-text .fi-label-text_label-span {
+.c3.fi-label-text .fi-label-text_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -111,7 +111,7 @@ exports[`snapshots match error status with statustext 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c2.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -156,8 +156,12 @@ exports[`snapshots match error status with statustext 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  display: inline-block;
   width: 290px;
+}
+
+.c1_wrapper {
+  width: 100%;
+  display: inline-block;
 }
 
 .c1 .fi-text-input_input-element-container > input:focus {
@@ -277,11 +281,17 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c1.fi-text-input--error .fi-text-input_input {
-  border-color: hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,48%);
+  padding-left: 9px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .c1.fi-text-input--success .fi-text-input_input {
-  border-color: hsl(166,90%,34%);
+  border: 2px solid hsl(166,90%,34%);
+  padding-left: 9px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .c1.fi-text-input--disabled .fi-text-input_input {
@@ -296,34 +306,38 @@ exports[`snapshots match error status with statustext 1`] = `
 <div
   class="c0 fi-text-input c1 fi-text-input--error"
 >
-  <label
-    class="c0 c2 fi-label-text"
-    for="test-id2"
-  >
-    <span
-      class="c3 fi-label-text_label-span"
-    >
-      Test input
-    </span>
-  </label>
-  <div
-    class="c0 fi-text-input_input-element-container"
-  >
-    <input
-      aria-describedby="test-id2-statusText"
-      aria-invalid="true"
-      class="c4 fi-text-input_input"
-      data-testid="textinput2"
-      id="test-id2"
-      placeholder="Test TextInput"
-      type="text"
-    />
-  </div>
   <span
-    class="c3 c5 fi-status-text fi-status-text--error"
-    id="test-id2-statusText"
+    class="c2 fi-text-input_wrapper"
   >
-    This is a status text
+    <label
+      class="c0 c3 fi-label-text"
+      for="test-id2"
+    >
+      <span
+        class="c2 fi-label-text_label-span"
+      >
+        Test input
+      </span>
+    </label>
+    <div
+      class="c0 fi-text-input_input-element-container"
+    >
+      <input
+        aria-describedby="test-id2-statusText"
+        aria-invalid="true"
+        class="c4 fi-text-input_input"
+        data-testid="textinput2"
+        id="test-id2"
+        placeholder="Test TextInput"
+        type="text"
+      />
+    </div>
+    <span
+      class="c2 c5 fi-status-text fi-status-text--error"
+      id="test-id2-statusText"
+    >
+      This is a status text
+    </span>
   </span>
 </div>
 `;
@@ -391,7 +405,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   box-sizing: border-box;
 }
 
-.c3 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -415,8 +429,8 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c2::before,
+.c2::after {
   box-sizing: border-box;
 }
 
@@ -432,7 +446,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   overflow: hidden;
 }
 
-.c2.fi-label-text .fi-label-text_label-span {
+.c3.fi-label-text .fi-label-text_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -451,7 +465,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c2.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -472,8 +486,12 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  display: inline-block;
   width: 290px;
+}
+
+.c1_wrapper {
+  width: 100%;
+  display: inline-block;
 }
 
 .c1 .fi-text-input_input-element-container > input:focus {
@@ -593,11 +611,17 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 }
 
 .c1.fi-text-input--error .fi-text-input_input {
-  border-color: hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,48%);
+  padding-left: 9px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .c1.fi-text-input--success .fi-text-input_input {
-  border-color: hsl(166,90%,34%);
+  border: 2px solid hsl(166,90%,34%);
+  padding-left: 9px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .c1.fi-text-input--disabled .fi-text-input_input {
@@ -612,28 +636,32 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 <div
   class="c0 fi-text-input c1"
 >
-  <label
-    class="c0 c2 fi-label-text"
-    for="test-id1"
+  <span
+    class="c2 fi-text-input_wrapper"
   >
-    <span
-      class="c3 c4 fi-visually-hidden"
+    <label
+      class="c0 c3 fi-label-text"
+      for="test-id1"
     >
-      Test input
-    </span>
-  </label>
-  <div
-    class="c0 fi-text-input_input-element-container"
-  >
-    <input
-      aria-invalid="false"
-      class="c5 fi-text-input_input"
-      data-testid="textinput1"
-      id="test-id1"
-      placeholder="Test TextInput"
-      type="text"
-    />
-  </div>
+      <span
+        class="c2 c4 fi-visually-hidden"
+      >
+        Test input
+      </span>
+    </label>
+    <div
+      class="c0 fi-text-input_input-element-container"
+    >
+      <input
+        aria-invalid="false"
+        class="c5 fi-text-input_input"
+        data-testid="textinput1"
+        id="test-id1"
+        placeholder="Test TextInput"
+        type="text"
+      />
+    </div>
+  </span>
 </div>
 `;
 
@@ -700,7 +728,7 @@ exports[`snapshots match minimal implementation 1`] = `
   box-sizing: border-box;
 }
 
-.c3 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -724,12 +752,12 @@ exports[`snapshots match minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c2::before,
+.c2::after {
   box-sizing: border-box;
 }
 
-.c2.fi-label-text .fi-label-text_label-span {
+.c3.fi-label-text .fi-label-text_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -748,7 +776,7 @@ exports[`snapshots match minimal implementation 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c2.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -769,8 +797,12 @@ exports[`snapshots match minimal implementation 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  display: inline-block;
   width: 290px;
+}
+
+.c1_wrapper {
+  width: 100%;
+  display: inline-block;
 }
 
 .c1 .fi-text-input_input-element-container > input:focus {
@@ -890,11 +922,17 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1.fi-text-input--error .fi-text-input_input {
-  border-color: hsl(3,59%,48%);
+  border: 2px solid hsl(3,59%,48%);
+  padding-left: 9px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .c1.fi-text-input--success .fi-text-input_input {
-  border-color: hsl(166,90%,34%);
+  border: 2px solid hsl(166,90%,34%);
+  padding-left: 9px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .c1.fi-text-input--disabled .fi-text-input_input {
@@ -909,26 +947,30 @@ exports[`snapshots match minimal implementation 1`] = `
 <div
   class="c0 fi-text-input c1"
 >
-  <label
-    class="c0 c2 fi-label-text"
-    for="test-id"
+  <span
+    class="c2 fi-text-input_wrapper"
   >
-    <span
-      class="c3 fi-label-text_label-span"
+    <label
+      class="c0 c3 fi-label-text"
+      for="test-id"
     >
-      Test input
-    </span>
-  </label>
-  <div
-    class="c0 fi-text-input_input-element-container"
-  >
-    <input
-      aria-invalid="false"
-      class="c4 fi-text-input_input"
-      data-testid="textinput"
-      id="test-id"
-      type="text"
-    />
-  </div>
+      <span
+        class="c2 fi-label-text_label-span"
+      >
+        Test input
+      </span>
+    </label>
+    <div
+      class="c0 fi-text-input_input-element-container"
+    >
+      <input
+        aria-invalid="false"
+        class="c4 fi-text-input_input"
+        data-testid="textinput"
+        id="test-id"
+        type="text"
+      />
+    </div>
+  </span>
 </div>
 `;
