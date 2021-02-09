@@ -372,9 +372,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                   disabled={item.disabled}
                   removable={!item.disabled}
                   onClick={() => this.handleItemSelected(item.labelText)}
-                  actionLabel={`${chipActionLabel} ${
-                    item.chipText ? item.chipText : item.labelText
-                  }`}
+                  actionLabel={chipActionLabel}
                 >
                   {item.chipText ? item.chipText : item.labelText}
                 </Chip>
