@@ -58,7 +58,6 @@ export interface ComboboxProps<T extends ComboboxData> extends TokensProp {
 interface ComboboxState<T extends ComboboxData> {
   items: T[];
   filteredItems: T[];
-  filterInputRef: Element | null;
   showPopover: boolean;
   currentSelection: string | null;
 }
@@ -80,15 +79,17 @@ function getSelectedItems<T>(
 class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   private popoverListRef: React.RefObject<HTMLUListElement>;
 
+  private filterInputRef: React.RefObject<HTMLInputElement>;
+
   constructor(props: ComboboxProps<T & ComboboxData>) {
     super(props);
     this.popoverListRef = React.createRef();
+    this.filterInputRef = React.createRef();
   }
 
   state: ComboboxState<T & ComboboxData> = {
     items: this.props.items,
     filteredItems: this.props.items,
-    filterInputRef: null,
     showPopover: false,
     currentSelection: null,
   };
@@ -152,10 +153,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     );
   };
 
-  setFilterInputRefElement = (element: Element | null) => {
-    this.setState({ filterInputRef: element });
-  };
-
   render() {
     const highlightQuery = (text: string, query: string) => {
       const substrings = text.split(new RegExp(`(${query})`, 'gi'));
@@ -167,14 +164,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         }
         return <>{substring}</>;
       });
-    };
-
-    const filterInputValue = () => {
-      if (this.state.filterInputRef) {
-        const inputElement = this.state.filterInputRef as HTMLInputElement;
-        return inputElement.value;
-      }
-      return '';
     };
 
     const filter = (data: ComboboxData, query: string) =>
@@ -226,16 +215,16 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         case 'Escape': {
           event.preventDefault();
           // FIXME: Update the input value, so that filter updates
-          const inputElement = this.state.filterInputRef as HTMLInputElement;
-          inputElement.value = '';
+          if (this.filterInputRef && this.filterInputRef.current) {
+            this.filterInputRef.current.value = '';
+          }
           setPopoverVisibility(false);
           break;
         }
 
         default: {
-          if (this.state.filterInputRef) {
-            const inputElement = this.state.filterInputRef as HTMLInputElement;
-            inputElement.focus();
+          if (this.filterInputRef && this.filterInputRef.current) {
+            this.filterInputRef.current.focus();
             setPopoverVisibility(true);
           }
           break;
@@ -264,7 +253,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             ownerDocument.activeElement,
           );
           const focusInInput =
-            ownerDocument.activeElement === this.state.filterInputRef;
+            ownerDocument.activeElement === this.filterInputRef.current;
           setPopoverVisibility(focusInCombobox || focusInInput);
         });
       }
@@ -319,13 +308,13 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             items={items}
             onFilter={(filtered) => this.setState({ filteredItems: filtered })}
             filterFunc={filter}
-            forwardRef={this.setFilterInputRefElement}
+            forwardRef={this.filterInputRef}
             onFocus={() => setPopoverVisibility(true)}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
           />
           <Popover
-            sourceRef={this.state.filterInputRef}
+            sourceRef={this.filterInputRef.current}
             matchWidth={true}
             id={`${id}-popover`}
             portalStyleProps={{ backgroundColor: 'white' }}
@@ -354,7 +343,12 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                           this.handleItemSelected(item.labelText);
                         }}
                       >
-                        {highlightQuery(item.labelText, filterInputValue())}
+                        {highlightQuery(
+                          item.labelText,
+                          this.filterInputRef.current
+                            ? this.filterInputRef.current.value
+                            : '',
+                        )}
                       </ComboboxItem>
                     );
                   })
