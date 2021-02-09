@@ -158,7 +158,7 @@ class BaseTextInput extends Component<TextInputProps> {
                 />
               )}
             </Debounce>
-            {resolvedIcon && <Icon {...{ iconProps, icon: resolvedIcon }} />}
+            {resolvedIcon && <Icon {...{ ...iconProps, icon: resolvedIcon }} />}
           </HtmlDiv>
           <StatusText id={statusTextId} status={status}>
             {statusText}
