@@ -63,7 +63,7 @@ export interface FilterInputProps<T> extends Omit<HtmlInputProps, 'type'> {
   onFilter: (filteredItems: Array<T>) => void;
   /** Filtering rule to be used */
   filterFunc: (item: T, query: string) => boolean;
-  forwardRef?: (element: Element | null) => void;
+  forwardRef?: React.RefObject<HTMLInputElement>;
 }
 
 class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
