@@ -44,6 +44,7 @@ const tools = [
     labelText="Combobox"
     items={tools}
     chipListVisible={true}
+    chipActionLabel="Remove"
     removeAllButtonLabel="Remove all selections"
   />
 </>;
