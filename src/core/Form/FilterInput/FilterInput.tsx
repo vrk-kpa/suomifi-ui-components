@@ -28,7 +28,7 @@ const filterInputClassNames = {
 type FilterInputStatus = Exclude<InputStatus, 'success'>;
 
 interface InternalFilterInputProps<T>
-  extends Omit<HtmlInputProps, 'type'>,
+  extends Omit<HtmlInputProps, 'type' | 'onChange'>,
     StatusTextCommonProps {
   /** FilterInput container div class name for custom styling. */
   className?: string;
@@ -63,7 +63,8 @@ interface InternalFilterInputProps<T>
   onFilter: (filteredItems: Array<T>) => void;
   /** Filtering rule to be used */
   filterFunc: (item: T, query: string) => boolean;
-  forwardRef?: React.RefObject<HTMLInputElement>;
+  forwardedRef?: React.RefObject<HTMLInputElement>;
+  onChange?: (value: string | undefined) => void;
 }
 
 interface InnerRef {
@@ -86,7 +87,6 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       optionalText,
       status,
       statusText,
-      forwardedRef,
       id,
       labelAlign,
       'aria-describedby': ariaDescribedBy,
@@ -94,7 +94,8 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       items: propItems,
       onFilter: propOnFiltering,
       filterFunc: propFilterRule,
-      forwardRef,
+      forwardedRef,
+      onChange: propOnChange,
       ...passProps
     } = this.props;
 
@@ -104,16 +105,19 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
         onFilter: onFiltering,
         filterFunc: filterRule,
       } = this.props;
-      const { value } = event.target;
+      const { value: eventValue } = event.target;
 
       const filteredItems: T[] = items.reduce((filtered: T[], item: T) => {
-        if (filterRule(item, value)) {
+        if (filterRule(item, eventValue)) {
           filtered.push(item);
         }
         return filtered;
       }, []);
 
       onFiltering(filteredItems);
+      if (propOnChange) {
+        propOnChange(eventValue);
+      }
     };
 
     const statusTextId = statusText ? `${id}-statusText` : undefined;
@@ -139,7 +143,6 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
           <HtmlDiv className={filterInputClassNames.functionalityContainer}>
             <HtmlDiv className={filterInputClassNames.inputElementContainer}>
               <HtmlInput
-                forwardRef={forwardRef}
                 {...passProps}
                 id={id}
                 className={filterInputClassNames.inputElement}
