@@ -57,6 +57,7 @@ export interface ComboboxProps<T extends ComboboxData> extends TokensProp {
 
 interface ComboboxState<T extends ComboboxData> {
   items: T[];
+  filterInputValue: string | undefined;
   filteredItems: T[];
   showPopover: boolean;
   currentSelection: string | null;
@@ -89,6 +90,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
 
   state: ComboboxState<T & ComboboxData> = {
     items: this.props.items,
+    filterInputValue: undefined,
     filteredItems: this.props.items,
     showPopover: false,
     currentSelection: null,
@@ -214,9 +216,11 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
 
         case 'Escape': {
           event.preventDefault();
-          // FIXME: Update the input value, so that filter updates
           if (this.filterInputRef && this.filterInputRef.current) {
-            this.filterInputRef.current.value = '';
+            this.setState((prevState: ComboboxState<T & ComboboxData>) => ({
+              filterInputValue: '',
+              filteredItems: prevState.items,
+            }));
           }
           setPopoverVisibility(false);
           break;
@@ -275,6 +279,10 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       }
     };
 
+    const filterInputOnChangeHandler = (value: string | undefined) => {
+      this.setState({ filterInputValue: value });
+    };
+
     const {
       id,
       className,
@@ -312,6 +320,8 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             onFocus={() => setPopoverVisibility(true)}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
+            value={this.state.filterInputValue}
+            onChange={filterInputOnChangeHandler}
           />
           <Popover
             sourceRef={this.filterInputRef.current}
