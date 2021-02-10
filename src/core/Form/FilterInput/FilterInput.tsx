@@ -27,7 +27,7 @@ const filterInputClassNames = {
 
 type FilterInputStatus = Exclude<InputStatus, 'success'>;
 
-export interface FilterInputProps<T> extends Omit<HtmlInputProps, 'type'> {
+export interface FilterInputProps<T> extends Omit<HtmlInputProps, 'type' | 'onChange'> {
   /** FilterInput container div class name for custom styling. */
   className?: string;
   /** FilterInput container div props */
@@ -64,6 +64,7 @@ export interface FilterInputProps<T> extends Omit<HtmlInputProps, 'type'> {
   /** Filtering rule to be used */
   filterFunc: (item: T, query: string) => boolean;
   forwardRef?: React.RefObject<HTMLInputElement>;
+  onChange?: (value: string | undefined) => void;
 }
 
 class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
@@ -84,6 +85,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
       onFilter: propOnFiltering,
       filterFunc: propFilterRule,
       forwardRef,
+      onChange: propOnChange,
       ...passProps
     } = this.props;
 
@@ -93,16 +95,19 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
         onFilter: onFiltering,
         filterFunc: filterRule,
       } = this.props;
-      const { value } = event.target;
+      const { value: eventValue } = event.target;
 
       const filteredItems: T[] = items.reduce((filtered: T[], item: T) => {
-        if (filterRule(item, value)) {
+        if (filterRule(item, eventValue)) {
           filtered.push(item);
         }
         return filtered;
       }, []);
 
       onFiltering(filteredItems);
+      if (propOnChange) {
+        propOnChange(eventValue);
+      }
     };
 
     const statusTextId = statusText ? `${id}-statusText` : undefined;
