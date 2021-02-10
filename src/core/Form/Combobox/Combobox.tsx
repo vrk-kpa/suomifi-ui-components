@@ -90,7 +90,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
 
   state: ComboboxState<T & ComboboxData> = {
     items: this.props.items,
-    filterInputValue: undefined,
+    filterInputValue: '',
     filteredItems: this.props.items,
     showPopover: false,
     currentSelection: null,
@@ -253,12 +253,20 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           return;
         }
         requestAnimationFrame(() => {
-          const focusInCombobox = this.popoverListRef.current?.contains(
+          const focusInPopover = this.popoverListRef.current?.contains(
             ownerDocument.activeElement,
           );
           const focusInInput =
             ownerDocument.activeElement === this.filterInputRef.current;
-          setPopoverVisibility(focusInCombobox || focusInInput);
+          const focusInCombobox = focusInPopover || focusInInput;
+          setPopoverVisibility(focusInCombobox);
+
+          if (!focusInCombobox) {
+            this.setState((prevState: ComboboxState<T & ComboboxData>) => ({
+              filterInputValue: '',
+              filteredItems: prevState.items,
+            }));
+          }
         });
       }
     };
