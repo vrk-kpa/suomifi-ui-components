@@ -17,6 +17,14 @@ export const baseStyles = withSuomifiTheme(
         &::after {
           ${absoluteFocus}
         }
+        & .fi-checkbox {
+          background-color: ${theme.colors.highlightBase};
+          color: ${theme.colors.whiteBase};
+
+          & mark {
+            color: ${theme.colors.whiteBase};
+          }
+        }
       }
 
       & .fi-checkbox {
