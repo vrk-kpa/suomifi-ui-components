@@ -14,10 +14,17 @@ export { IllustrativeIconKeys, DoctypeIconKeys } from 'suomifi-icons';
 
 export interface StaticIconProps
   extends IconBaseProps,
-    SuomifiStaticIconInterface {}
+    SuomifiStaticIconInterface {
+  highlightColor?: string;
+}
 
 const StyledSuomifiStaticIcon = styled(
-  ({ ariaLabel, mousePointer, ...passProps }: StaticIconProps) => (
+  ({
+    ariaLabel,
+    mousePointer,
+    highlightColor,
+    ...passProps
+  }: StaticIconProps) => (
     <SuomifiStaticIcon
       {...passProps}
       {...ariaLabelOrHidden(ariaLabel)}
@@ -33,11 +40,24 @@ const StyledSuomifiStaticIcon = styled(
  */
 export class StaticIcon extends Component<StaticIconProps> {
   render() {
-    const { icon, tokens, ...passProps } = withSuomifiDefaultProps(this.props);
+    const {
+      icon,
+      tokens,
+      highlightColor,
+      ...passProps
+    } = withSuomifiDefaultProps(this.props);
     const { className, ariaLabel } = this.props;
 
     if (icon !== undefined) {
-      return <StyledSuomifiStaticIcon {...passProps} icon={icon} />;
+      return (
+        <StyledSuomifiStaticIcon
+          {...passProps}
+          {...(!!highlightColor
+            ? { highlightColor }
+            : { highlightColor: tokens.colors.accentBase })}
+          icon={icon}
+        />
+      );
     }
 
     iconLogger(ariaLabel, className);

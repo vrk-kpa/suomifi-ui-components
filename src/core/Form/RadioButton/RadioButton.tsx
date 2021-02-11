@@ -7,6 +7,7 @@ import { logger } from '../../../utils/logger';
 import { withSuomifiDefaultProps } from '../../theme/utils';
 import { AutoId } from '../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
+import { ComponentIcon } from '../../StaticIcon/StaticIcon';
 import { RadioButtonGroupConsumer } from './RadioButtonGroup';
 import { baseStyles } from './RadioButton.baseStyles';
 
@@ -14,6 +15,7 @@ const baseClassName = 'fi-radio-button';
 const radioButtonClassNames = {
   container: `${baseClassName}_container`,
   input: `${baseClassName}_input`,
+  icon: `${baseClassName}_icon`,
   label: `${baseClassName}_label`,
   hintText: `${baseClassName}_hintText`,
   disabled: `${baseClassName}--disabled`,
@@ -103,7 +105,6 @@ class BaseRadioButton extends Component<RadioButtonProps> {
 
     const { checkedState } = this.state;
     const hintTextId = `${id}-hintText`;
-
     return (
       <HtmlDiv
         className={classnames(
@@ -132,6 +133,10 @@ class BaseRadioButton extends Component<RadioButtonProps> {
           ])}
           {...(value ? { value } : {})}
           {...passProps}
+        />
+        <ComponentIcon
+          className={radioButtonClassNames.icon}
+          icon={variant === 'large' ? 'radioButtonLarge' : 'radioButton'}
         />
         <HtmlLabel htmlFor={id} className={radioButtonClassNames.label}>
           {children}

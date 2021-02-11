@@ -105,7 +105,7 @@ import { RadioButton } from 'suomifi-ui-components';
 import { RadioButton } from 'suomifi-ui-components';
 
 const [selectedValue, setSelectedValue] = React.useState(
-  'value-test-2'
+  'value-test-5'
 );
 
 const handleChange = (event) => {
