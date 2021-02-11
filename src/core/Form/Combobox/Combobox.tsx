@@ -96,7 +96,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     currentSelection: null,
   };
 
-  handleItemSelected = (text: string) => {
+  handleItemSelected = (text: string, mouseClick?: boolean) => {
     this.setState(
       (
         prevState: ComboboxState<T & ComboboxData>,
@@ -125,7 +125,11 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             filteredItems[indexOfFilteredItem] = currentItem;
           }
         }
-        return { items, filteredItems, currentSelection: text };
+        return {
+          items,
+          filteredItems,
+          currentSelection: mouseClick ? null : text,
+        };
       },
     );
   };
@@ -383,7 +387,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                         disabled={item.disabled}
                         onClick={() => {
                           focusToMenu();
-                          this.handleItemSelected(item.labelText);
+                          this.handleItemSelected(item.labelText, true);
                         }}
                       >
                         {highlightQuery(
