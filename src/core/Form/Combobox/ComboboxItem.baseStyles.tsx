@@ -38,6 +38,16 @@ export const baseStyles = withSuomifiTheme(
           color: ${theme.colors.whiteBase};
         }
       }
+
+      &:hover {
+        & .fi-checkbox {
+          background-color: ${theme.colors.highlightBase};
+          color: ${theme.colors.whiteBase};
+          & mark {
+            color: ${theme.colors.whiteBase};
+          }
+        }
+      }
     }
 
     & .fi-combobox-item_wrapper {
