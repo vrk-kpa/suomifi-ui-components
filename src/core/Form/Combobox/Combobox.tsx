@@ -264,37 +264,10 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           setPopoverVisibility(focusInCombobox);
 
           if (!focusInCombobox) {
-            this.setState((prevState: ComboboxState<T & ComboboxData>) => {
-              const currentFilteredItems = prevState.filteredItems;
-              if (
-                currentFilteredItems.length === 1 &&
-                currentFilteredItems[0].labelText.toLowerCase() ===
-                  prevState.filterInputValue?.toLowerCase()
-              ) {
-                const items = [...prevState.items];
-                const currentItem = items.filter(
-                  (item) => item.labelText === prevState.filterInputValue,
-                )[0];
-                const indexOfItem = items.indexOf(currentItem);
-                if (currentItem && !currentItem.disabled) {
-                  if (indexOfItem > -1) {
-                    currentItem.selected = !currentItem.selected;
-                    items[indexOfItem] = currentItem;
-                  }
-                  if (onItemSelectionsChange) {
-                    onItemSelectionsChange(getSelectedItems(items));
-                  }
-                }
-                return {
-                  filterInputValue: '',
-                  filteredItems: items,
-                };
-              }
-              return {
-                filterInputValue: '',
-                filteredItems: prevState.items,
-              };
-            });
+            this.setState((prevState: ComboboxState<T & ComboboxData>) => ({
+              filterInputValue: '',
+              filteredItems: prevState.items,
+            }));
           }
         });
       }
