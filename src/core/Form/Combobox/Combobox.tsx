@@ -418,10 +418,10 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           )}
           {removeAllButtonLabel && (
             <Button
-              variant="secondary-noborder"
+              variant="secondary"
               icon="remove"
               onClick={this.removeAllSelectionsHandler}
-              style={{ padding: 0 }}
+              style={{ borderRadius: 20, marginTop: 10 }}
             >
               {removeAllButtonLabel}
             </Button>
