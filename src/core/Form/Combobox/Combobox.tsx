@@ -176,8 +176,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       data.labelText.toLowerCase().includes(query.toLowerCase());
 
     const handleKeyDown = (event: React.KeyboardEvent) => {
-      // TODO: Current index of the selection, items should have unique id/hash. Used to see which is selected and aria-activedescendant
-      // TODO: indexOf to use instead to work better with IE
       const { filteredItems: items, currentSelection } = this.state;
       const index = items.findIndex(
         ({ labelText: uniqueText }) => uniqueText === currentSelection,
