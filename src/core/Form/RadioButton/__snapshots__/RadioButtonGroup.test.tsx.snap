@@ -257,10 +257,13 @@ exports[`default, with only required props should match snapshot 1`] = `
   opacity: 0;
   position: absolute;
   z-index: -9999;
-  margin: 8px 0 0 3px;
+  height: 18px;
+  width: 18px;
+  top: 5px;
+  left: 0px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon {
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
   top: 5px;
   left: 0;
   height: 18px;
@@ -268,15 +271,15 @@ exports[`default, with only required props should match snapshot 1`] = `
   position: absolute;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(212,63%,45%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(212,63%,45%);
 }
 
@@ -284,7 +287,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   outline: 0;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon {
+.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
@@ -301,12 +304,12 @@ exports[`default, with only required props should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   fill: hsl(202,7%,97%);
   stroke: hsl(202,7%,80%);
 }
 
-.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
 }
 
@@ -315,15 +318,22 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon {
-  top: 0;
+  top: 2px;
   left: 0;
   height: 30px;
   width: 30px;
-  position: absolute;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 2px;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
 }
 
 .c5.fi-radio-button--large .fi-radio-button_label {
@@ -362,32 +372,36 @@ exports[`default, with only required props should match snapshot 1`] = `
             type="radio"
             value="1"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-1"
@@ -405,32 +419,36 @@ exports[`default, with only required props should match snapshot 1`] = `
             type="radio"
             value="2"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-2"
@@ -448,32 +466,36 @@ exports[`default, with only required props should match snapshot 1`] = `
             type="radio"
             value="3"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-3"
@@ -744,10 +766,13 @@ exports[`props className should match snapshot 1`] = `
   opacity: 0;
   position: absolute;
   z-index: -9999;
-  margin: 8px 0 0 3px;
+  height: 18px;
+  width: 18px;
+  top: 5px;
+  left: 0px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon {
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
   top: 5px;
   left: 0;
   height: 18px;
@@ -755,15 +780,15 @@ exports[`props className should match snapshot 1`] = `
   position: absolute;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(212,63%,45%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(212,63%,45%);
 }
 
@@ -771,7 +796,7 @@ exports[`props className should match snapshot 1`] = `
   outline: 0;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon {
+.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
@@ -788,12 +813,12 @@ exports[`props className should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   fill: hsl(202,7%,97%);
   stroke: hsl(202,7%,80%);
 }
 
-.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
 }
 
@@ -802,15 +827,22 @@ exports[`props className should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon {
-  top: 0;
+  top: 2px;
   left: 0;
   height: 30px;
   width: 30px;
-  position: absolute;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 2px;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
 }
 
 .c5.fi-radio-button--large .fi-radio-button_label {
@@ -849,32 +881,36 @@ exports[`props className should match snapshot 1`] = `
             type="radio"
             value="1"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-1"
@@ -892,32 +928,36 @@ exports[`props className should match snapshot 1`] = `
             type="radio"
             value="2"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-2"
@@ -935,32 +975,36 @@ exports[`props className should match snapshot 1`] = `
             type="radio"
             value="3"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-3"
@@ -1231,10 +1275,13 @@ exports[`props defaultValue should match snapshot 1`] = `
   opacity: 0;
   position: absolute;
   z-index: -9999;
-  margin: 8px 0 0 3px;
+  height: 18px;
+  width: 18px;
+  top: 5px;
+  left: 0px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon {
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
   top: 5px;
   left: 0;
   height: 18px;
@@ -1242,15 +1289,15 @@ exports[`props defaultValue should match snapshot 1`] = `
   position: absolute;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(212,63%,45%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(212,63%,45%);
 }
 
@@ -1258,7 +1305,7 @@ exports[`props defaultValue should match snapshot 1`] = `
   outline: 0;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon {
+.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
@@ -1275,12 +1322,12 @@ exports[`props defaultValue should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   fill: hsl(202,7%,97%);
   stroke: hsl(202,7%,80%);
 }
 
-.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
 }
 
@@ -1289,15 +1336,22 @@ exports[`props defaultValue should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon {
-  top: 0;
+  top: 2px;
   left: 0;
   height: 30px;
   width: 30px;
-  position: absolute;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 2px;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
 }
 
 .c5.fi-radio-button--large .fi-radio-button_label {
@@ -1336,32 +1390,36 @@ exports[`props defaultValue should match snapshot 1`] = `
             type="radio"
             value="1"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-1"
@@ -1379,32 +1437,36 @@ exports[`props defaultValue should match snapshot 1`] = `
             type="radio"
             value="2"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-2"
@@ -1423,32 +1485,36 @@ exports[`props defaultValue should match snapshot 1`] = `
             type="radio"
             value="3"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-3"
@@ -1719,10 +1785,13 @@ exports[`props hintText should match snapshot 1`] = `
   opacity: 0;
   position: absolute;
   z-index: -9999;
-  margin: 8px 0 0 3px;
+  height: 18px;
+  width: 18px;
+  top: 5px;
+  left: 0px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon {
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
   top: 5px;
   left: 0;
   height: 18px;
@@ -1730,15 +1799,15 @@ exports[`props hintText should match snapshot 1`] = `
   position: absolute;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(212,63%,45%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(212,63%,45%);
 }
 
@@ -1746,7 +1815,7 @@ exports[`props hintText should match snapshot 1`] = `
   outline: 0;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon {
+.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
@@ -1763,12 +1832,12 @@ exports[`props hintText should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   fill: hsl(202,7%,97%);
   stroke: hsl(202,7%,80%);
 }
 
-.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
 }
 
@@ -1777,15 +1846,22 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon {
-  top: 0;
+  top: 2px;
   left: 0;
   height: 30px;
   width: 30px;
-  position: absolute;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 2px;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
 }
 
 .c5.fi-radio-button--large .fi-radio-button_label {
@@ -1829,32 +1905,36 @@ exports[`props hintText should match snapshot 1`] = `
             type="radio"
             value="1"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-1"
@@ -1872,32 +1952,36 @@ exports[`props hintText should match snapshot 1`] = `
             type="radio"
             value="2"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-2"
@@ -1915,32 +1999,36 @@ exports[`props hintText should match snapshot 1`] = `
             type="radio"
             value="3"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-3"
@@ -2211,10 +2299,13 @@ exports[`props id should match snapshot 1`] = `
   opacity: 0;
   position: absolute;
   z-index: -9999;
-  margin: 8px 0 0 3px;
+  height: 18px;
+  width: 18px;
+  top: 5px;
+  left: 0px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon {
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
   top: 5px;
   left: 0;
   height: 18px;
@@ -2222,15 +2313,15 @@ exports[`props id should match snapshot 1`] = `
   position: absolute;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(212,63%,45%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(212,63%,45%);
 }
 
@@ -2238,7 +2329,7 @@ exports[`props id should match snapshot 1`] = `
   outline: 0;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon {
+.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
@@ -2255,12 +2346,12 @@ exports[`props id should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   fill: hsl(202,7%,97%);
   stroke: hsl(202,7%,80%);
 }
 
-.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
 }
 
@@ -2269,15 +2360,22 @@ exports[`props id should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon {
-  top: 0;
+  top: 2px;
   left: 0;
   height: 30px;
   width: 30px;
-  position: absolute;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 2px;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
 }
 
 .c5.fi-radio-button--large .fi-radio-button_label {
@@ -2316,32 +2414,36 @@ exports[`props id should match snapshot 1`] = `
             type="radio"
             value="1"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-1"
@@ -2359,32 +2461,36 @@ exports[`props id should match snapshot 1`] = `
             type="radio"
             value="2"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-2"
@@ -2402,32 +2508,36 @@ exports[`props id should match snapshot 1`] = `
             type="radio"
             value="3"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-3"
@@ -2698,10 +2808,13 @@ exports[`props label should match snapshot 1`] = `
   opacity: 0;
   position: absolute;
   z-index: -9999;
-  margin: 8px 0 0 3px;
+  height: 18px;
+  width: 18px;
+  top: 5px;
+  left: 0px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon {
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
   top: 5px;
   left: 0;
   height: 18px;
@@ -2709,15 +2822,15 @@ exports[`props label should match snapshot 1`] = `
   position: absolute;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(212,63%,45%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(212,63%,45%);
 }
 
@@ -2725,7 +2838,7 @@ exports[`props label should match snapshot 1`] = `
   outline: 0;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon {
+.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
@@ -2742,12 +2855,12 @@ exports[`props label should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   fill: hsl(202,7%,97%);
   stroke: hsl(202,7%,80%);
 }
 
-.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
 }
 
@@ -2756,15 +2869,22 @@ exports[`props label should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon {
-  top: 0;
+  top: 2px;
   left: 0;
   height: 30px;
   width: 30px;
-  position: absolute;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 2px;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
 }
 
 .c5.fi-radio-button--large .fi-radio-button_label {
@@ -2803,32 +2923,36 @@ exports[`props label should match snapshot 1`] = `
             type="radio"
             value="1"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-1"
@@ -2846,32 +2970,36 @@ exports[`props label should match snapshot 1`] = `
             type="radio"
             value="2"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-2"
@@ -2889,32 +3017,36 @@ exports[`props label should match snapshot 1`] = `
             type="radio"
             value="3"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-3"
@@ -3197,10 +3329,13 @@ exports[`props labelMode should match snapshot 1`] = `
   opacity: 0;
   position: absolute;
   z-index: -9999;
-  margin: 8px 0 0 3px;
+  height: 18px;
+  width: 18px;
+  top: 5px;
+  left: 0px;
 }
 
-.c6.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon {
+.c6.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
   top: 5px;
   left: 0;
   height: 18px;
@@ -3208,15 +3343,15 @@ exports[`props labelMode should match snapshot 1`] = `
   position: absolute;
 }
 
-.c6.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c6.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
 }
 
-.c6.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c6.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(212,63%,45%);
 }
 
-.c6.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-base {
+.c6.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(212,63%,45%);
 }
 
@@ -3224,7 +3359,7 @@ exports[`props labelMode should match snapshot 1`] = `
   outline: 0;
 }
 
-.c6.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon {
+.c6.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
@@ -3241,12 +3376,12 @@ exports[`props labelMode should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c6.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c6.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   fill: hsl(202,7%,97%);
   stroke: hsl(202,7%,80%);
 }
 
-.c6.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c6.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
 }
 
@@ -3255,15 +3390,22 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c6.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
-}
-
-.c6.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon {
-  top: 0;
+  top: 2px;
   left: 0;
   height: 30px;
   width: 30px;
-  position: absolute;
+}
+
+.c6.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 2px;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c6.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
 }
 
 .c6.fi-radio-button--large .fi-radio-button_label {
@@ -3302,32 +3444,36 @@ exports[`props labelMode should match snapshot 1`] = `
             type="radio"
             value="1"
           />
-          <svg
-            aria-hidden="true"
-            class="c8 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c8 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c9 fi-radio-button_label"
             for="test-id-1"
@@ -3345,32 +3491,36 @@ exports[`props labelMode should match snapshot 1`] = `
             type="radio"
             value="2"
           />
-          <svg
-            aria-hidden="true"
-            class="c8 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c8 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c9 fi-radio-button_label"
             for="test-id-2"
@@ -3388,32 +3538,36 @@ exports[`props labelMode should match snapshot 1`] = `
             type="radio"
             value="3"
           />
-          <svg
-            aria-hidden="true"
-            class="c8 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c8 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c9 fi-radio-button_label"
             for="test-id-3"
@@ -3684,10 +3838,13 @@ exports[`props name should match snapshot 1`] = `
   opacity: 0;
   position: absolute;
   z-index: -9999;
-  margin: 8px 0 0 3px;
+  height: 18px;
+  width: 18px;
+  top: 5px;
+  left: 0px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon {
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
   top: 5px;
   left: 0;
   height: 18px;
@@ -3695,15 +3852,15 @@ exports[`props name should match snapshot 1`] = `
   position: absolute;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(212,63%,45%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(212,63%,45%);
 }
 
@@ -3711,7 +3868,7 @@ exports[`props name should match snapshot 1`] = `
   outline: 0;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon {
+.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
@@ -3728,12 +3885,12 @@ exports[`props name should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   fill: hsl(202,7%,97%);
   stroke: hsl(202,7%,80%);
 }
 
-.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
 }
 
@@ -3742,15 +3899,22 @@ exports[`props name should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon {
-  top: 0;
+  top: 2px;
   left: 0;
   height: 30px;
   width: 30px;
-  position: absolute;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 2px;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
 }
 
 .c5.fi-radio-button--large .fi-radio-button_label {
@@ -3789,32 +3953,36 @@ exports[`props name should match snapshot 1`] = `
             type="radio"
             value="1"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-1"
@@ -3832,32 +4000,36 @@ exports[`props name should match snapshot 1`] = `
             type="radio"
             value="2"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-2"
@@ -3875,32 +4047,36 @@ exports[`props name should match snapshot 1`] = `
             type="radio"
             value="3"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-3"
@@ -4171,10 +4347,13 @@ exports[`props value should match snapshot 1`] = `
   opacity: 0;
   position: absolute;
   z-index: -9999;
-  margin: 8px 0 0 3px;
+  height: 18px;
+  width: 18px;
+  top: 5px;
+  left: 0px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon {
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
   top: 5px;
   left: 0;
   height: 18px;
@@ -4182,15 +4361,15 @@ exports[`props value should match snapshot 1`] = `
   position: absolute;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(212,63%,45%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(212,63%,45%);
 }
 
@@ -4198,7 +4377,7 @@ exports[`props value should match snapshot 1`] = `
   outline: 0;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon {
+.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
@@ -4215,12 +4394,12 @@ exports[`props value should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon .fi-icon-radio-base {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   fill: hsl(202,7%,97%);
   stroke: hsl(202,7%,80%);
 }
 
-.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon .fi-icon-radio-checked {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
   fill: hsl(202,7%,67%);
 }
 
@@ -4229,15 +4408,22 @@ exports[`props value should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon {
-  top: 0;
+  top: 2px;
   left: 0;
   height: 30px;
   width: 30px;
-  position: absolute;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 2px;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
 }
 
 .c5.fi-radio-button--large .fi-radio-button_label {
@@ -4277,32 +4463,36 @@ exports[`props value should match snapshot 1`] = `
             type="radio"
             value="1"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-1"
@@ -4321,32 +4511,36 @@ exports[`props value should match snapshot 1`] = `
             type="radio"
             value="2"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-2"
@@ -4364,32 +4558,36 @@ exports[`props value should match snapshot 1`] = `
             type="radio"
             value="3"
           />
-          <svg
-            aria-hidden="true"
-            class="c7 fi-radio-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 18 18"
-            width="1em"
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
             >
-              <circle
-                class="fi-icon-radio-base"
-                cx="9"
-                cy="9"
-                r="8.5"
-              />
-              <circle
-                class="fi-icon-radio-checked"
-                cx="9"
-                cy="9"
-                r="4"
-              />
-            </g>
-          </svg>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
             class="c8 fi-radio-button_label"
             for="test-id-3"

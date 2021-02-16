@@ -32,9 +32,12 @@ export const baseStyles = withSuomifiTheme(
         opacity: 0;
         position: absolute;
         z-index: -9999;
-        margin: 8px 0 0 3px;
+        height: 18px;
+        width: 18px;
+        top: 5px;
+        left: 0px;
 
-        + .fi-radio-button_icon {
+        + .fi-radio-button_icon_wrapper {
           top: 5px;
           left: 0;
           height: 18px;
@@ -46,7 +49,7 @@ export const baseStyles = withSuomifiTheme(
         }
 
         &:checked {
-          + .fi-radio-button_icon {
+          + .fi-radio-button_icon_wrapper {
             & .fi-icon-radio-checked {
               fill: ${theme.colors.highlightBase};
             }
@@ -58,7 +61,7 @@ export const baseStyles = withSuomifiTheme(
 
         &:focus {
           outline: 0;
-          + .fi-radio-button_icon {
+          + .fi-radio-button_icon_wrapper {
             ${boxShadowFocus}
             border-radius: 50%;
           }
@@ -76,14 +79,14 @@ export const baseStyles = withSuomifiTheme(
         }
 
         & .fi-radio-button_input {
-          + .fi-radio-button_icon {
+          + .fi-radio-button_icon_wrapper {
             & .fi-icon-radio-base {
               fill: ${theme.colors.depthLight3};
               stroke: ${theme.colors.depthLight1};
             }
           }
           &:checked {
-            + .fi-radio-button_icon {
+            + .fi-radio-button_icon_wrapper {
               & .fi-icon-radio-checked {
                 fill: ${theme.colors.depthBase};
               }
@@ -98,13 +101,19 @@ export const baseStyles = withSuomifiTheme(
         }
 
         & .fi-radio-button_input {
-          margin: 10px 0 0 9px;
-          + .fi-radio-button_icon {
-            top: 0;
+          top: 2px;
+          left: 0;
+          height: 30px;
+          width: 30px;
+          + .fi-radio-button_icon_wrapper {
+            top: 2px;
             left: 0;
             height: 30px;
             width: 30px;
-            position: absolute;
+            & .fi-radio-button_icon {
+              height: 30px;
+              width: 30px;
+            }
           }
         }
 

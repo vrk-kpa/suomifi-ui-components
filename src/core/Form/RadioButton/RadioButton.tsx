@@ -15,6 +15,7 @@ const baseClassName = 'fi-radio-button';
 const radioButtonClassNames = {
   container: `${baseClassName}_container`,
   input: `${baseClassName}_input`,
+  iconWrapper: `${baseClassName}_icon_wrapper`,
   icon: `${baseClassName}_icon`,
   label: `${baseClassName}_label`,
   hintText: `${baseClassName}_hintText`,
@@ -134,10 +135,12 @@ class BaseRadioButton extends Component<RadioButtonProps> {
           {...(value ? { value } : {})}
           {...passProps}
         />
-        <ComponentIcon
-          className={radioButtonClassNames.icon}
-          icon={variant === 'large' ? 'radioButtonLarge' : 'radioButton'}
-        />
+        <HtmlSpan className={radioButtonClassNames.iconWrapper}>
+          <ComponentIcon
+            className={radioButtonClassNames.icon}
+            icon={variant === 'large' ? 'radioButtonLarge' : 'radioButton'}
+          />
+        </HtmlSpan>
         <HtmlLabel htmlFor={id} className={radioButtonClassNames.label}>
           {children}
         </HtmlLabel>
