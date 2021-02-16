@@ -170,7 +170,8 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           // eslint-disable-next-line react/no-array-index-key
           return <mark key={i}>{substring}</mark>;
         }
-        return <>{substring}</>;
+        // eslint-disable-next-line react/no-array-index-key
+        return <span key={i}>{substring}</span>;
       });
     };
 
