@@ -82,6 +82,8 @@ export interface TextInputProps
   icon?: BaseIconKeys;
   /** Properties for the icon */
   iconProps?: Omit<IconProps, 'icon'>;
+  /** Ref object to be passed */
+  customRef?: React.RefObject<HTMLInputElement>;
 }
 
 class BaseTextInput extends Component<TextInputProps> {
@@ -102,6 +104,7 @@ class BaseTextInput extends Component<TextInputProps> {
       fullWidth,
       icon,
       iconProps,
+      customRef,
       'aria-describedby': ariaDescribedBy,
       ...passProps
     } = this.props;
@@ -140,6 +143,7 @@ class BaseTextInput extends Component<TextInputProps> {
                   id={id}
                   className={textInputClassNames.inputElement}
                   type={type}
+                  ref={customRef}
                   placeholder={visualPlaceholder}
                   {...{ 'aria-invalid': status === 'error' }}
                   {...getConditionalAriaProp('aria-describedby', [
