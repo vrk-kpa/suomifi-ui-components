@@ -53,6 +53,8 @@ export interface ComboboxProps<T extends ComboboxData> extends TokensProp {
   chipActionLabel?: string;
   /** Label for remove button. If it is given, button will be shown. */
   removeAllButtonLabel?: string;
+  /** Placeholder text for input. Use only as visual aid, not for instructions. */
+  visualPlaceholder?: string;
 }
 
 interface ComboboxState<T extends ComboboxData> {
@@ -300,6 +302,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       chipListVisible,
       chipActionLabel,
       removeAllButtonLabel,
+      visualPlaceholder,
       ...passProps
     } = this.props;
 
@@ -330,6 +333,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             onBlur={handleBlur}
             value={this.state.filterInputValue}
             onChange={filterInputOnChangeHandler}
+            visualPlaceholder={visualPlaceholder}
           />
           <Popover
             sourceRef={this.filterInputRef.current}
