@@ -1,8 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { TokensProp, InternalTokensProp } from '../theme';
-import { withSuomifiDefaultProps } from '../theme/utils';
 import { baseStyles } from './Button.baseStyles';
 import { HtmlButton, HtmlButtonProps } from '../../reset';
 import { Icon, IconProps, BaseIconKeys } from '../Icon/Icon';
@@ -14,7 +12,7 @@ type ButtonVariant =
   | 'secondary-noborder'
   | 'tertiary';
 
-export interface InternalButtonProps
+export interface ButtonProps
   extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'> {
   /**
    * 'default' | 'inverted' | 'secondary' | 'secondary-noborder' | 'tertiary'
@@ -57,8 +55,6 @@ export interface InternalButtonProps
    */
   onClick?: (event: MouseEvent | KeyboardEvent) => void;
 }
-
-export interface ButtonProps extends InternalButtonProps, TokensProp {}
 
 const baseClassName = 'fi-button';
 const disabledClassName = `${baseClassName}--disabled`;
@@ -127,12 +123,8 @@ class BaseButton extends Component<ButtonProps> {
   }
 }
 
-const StyledButton = styled(
-  ({ tokens, ...passProps }: ButtonProps & InternalTokensProp) => (
-    <BaseButton {...passProps} />
-  ),
-)`
-  ${(props) => baseStyles(props)}
+const StyledButton = styled((props: ButtonProps) => <BaseButton {...props} />)`
+  ${baseStyles}
 `;
 
 /**
@@ -143,25 +135,22 @@ const StyledButton = styled(
  */
 export class Button extends Component<ButtonProps> {
   static inverted = (props: ButtonProps) => (
-    <StyledButton {...withSuomifiDefaultProps(props)} variant="inverted" />
+    <StyledButton {...props} variant="inverted" />
   );
 
   static secondary = (props: ButtonProps) => (
-    <StyledButton {...withSuomifiDefaultProps(props)} variant="secondary" />
+    <StyledButton {...props} variant="secondary" />
   );
 
   static secondaryNoborder = (props: ButtonProps) => (
-    <StyledButton
-      {...withSuomifiDefaultProps(props)}
-      variant="secondary-noborder"
-    />
+    <StyledButton {...props} variant="secondary-noborder" />
   );
 
   static tertiary = (props: ButtonProps) => (
-    <StyledButton {...withSuomifiDefaultProps(props)} variant="tertiary" />
+    <StyledButton {...props} variant="tertiary" />
   );
 
   render() {
-    return <StyledButton {...withSuomifiDefaultProps(this.props)} />;
+    return <StyledButton {...this.props} />;
   }
 }
