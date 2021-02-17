@@ -129,7 +129,7 @@ class BaseTextInput extends Component<TextInputProps> {
           <LabelText
             htmlFor={id}
             labelMode={labelMode}
-            as="label"
+            asProp="label"
             optionalText={optionalText}
           >
             {labelText}

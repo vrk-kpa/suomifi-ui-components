@@ -63,7 +63,9 @@ describe('props', () => {
     });
 
     it('has the given wrapper element', () => {
-      const { container } = render(<LabelText as="label">Test text</LabelText>);
+      const { container } = render(
+        <LabelText asProp="label">Test text</LabelText>,
+      );
       expect(container.firstChild).toBeInstanceOf(HTMLLabelElement);
     });
   });

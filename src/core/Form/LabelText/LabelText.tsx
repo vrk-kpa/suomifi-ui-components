@@ -4,12 +4,11 @@ import { default as styled } from 'styled-components';
 import { baseStyles } from './LabelText.baseStyles';
 import { asPropType } from '../../../utils/typescript';
 import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
-import { withSuomifiDefaultProps } from '../../theme/utils';
 import { HtmlSpan, HtmlSpanProps, HtmlDiv, HtmlDivProps } from '../../../reset';
 
 export type LabelMode = 'hidden' | 'visible';
 
-export interface LabelTextProps extends HtmlDivProps {
+export interface LabelTextProps extends Omit<HtmlDivProps, 'as'> {
   /** id */
   id?: string;
   /** Label element content */
@@ -78,7 +77,6 @@ const StyledLabelText = styled(
 
 export class LabelText extends Component<LabelTextProps> {
   render() {
-    const { ...passProps } = withSuomifiDefaultProps(this.props);
-    return <StyledLabelText {...passProps} />;
+    return <StyledLabelText {...this.props} />;
   }
 }

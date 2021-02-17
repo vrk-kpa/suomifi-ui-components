@@ -165,7 +165,7 @@ class BaseDropdown extends Component<DropdownProps> {
           <LabelText
             id={labelId}
             labelMode={labelMode}
-            as="label"
+            asProp="label"
             optionalText={optionalText}
           >
             {labelText}

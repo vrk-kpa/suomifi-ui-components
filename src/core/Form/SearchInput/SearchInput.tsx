@@ -211,7 +211,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
         })}
       >
         <HtmlSpan className={searchInputClassNames.styleWrapper}>
-          <LabelText htmlFor={id} labelMode={labelMode} as="label">
+          <LabelText htmlFor={id} labelMode={labelMode} asProp="label">
             {labelText}
           </LabelText>
           <Debounce waitFor={this.props.debounce}>
