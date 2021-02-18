@@ -55,6 +55,8 @@ export interface ComboboxProps<T extends ComboboxData> extends TokensProp {
   removeAllButtonLabel?: string;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
+  /** Label to show when no items to show, e.g filtered all out */
+  emptyItemsLabel: string;
 }
 
 interface ComboboxState<T extends ComboboxData> {
@@ -308,6 +310,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       chipActionLabel,
       removeAllButtonLabel,
       visualPlaceholder,
+      emptyItemsLabel,
       ...passProps
     } = this.props;
 
@@ -383,7 +386,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                     );
                   })
                 ) : (
-                  <ComboboxEmptyItem>No items</ComboboxEmptyItem>
+                  <ComboboxEmptyItem>{emptyItemsLabel}</ComboboxEmptyItem>
                 )}
               </ComboboxItemList>
             )}
