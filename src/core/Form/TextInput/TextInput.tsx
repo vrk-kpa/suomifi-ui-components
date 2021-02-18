@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import React, { Component, ChangeEvent, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import {
@@ -83,7 +84,7 @@ export interface TextInputProps
   /** Properties for the icon */
   iconProps?: Omit<IconProps, 'icon'>;
   /** Ref object to be passed */
-  customRef?: React.RefObject<HTMLInputElement>;
+  ref?: React.ForwardedRef<BaseTextInput>;
 }
 
 class BaseTextInput extends Component<TextInputProps> {
@@ -104,7 +105,7 @@ class BaseTextInput extends Component<TextInputProps> {
       fullWidth,
       icon,
       iconProps,
-      customRef,
+      ref,
       'aria-describedby': ariaDescribedBy,
       ...passProps
     } = this.props;
@@ -113,7 +114,6 @@ class BaseTextInput extends Component<TextInputProps> {
 
     const hintTextId = `${id}-hintText`;
     const statusTextId = `${id}-statusText`;
-
     return (
       <HtmlDiv
         {...wrapperProps}
@@ -143,7 +143,7 @@ class BaseTextInput extends Component<TextInputProps> {
                   id={id}
                   className={textInputClassNames.inputElement}
                   type={type}
-                  ref={customRef}
+                  ref={ref}
                   placeholder={visualPlaceholder}
                   {...{ 'aria-invalid': status === 'error' }}
                   {...getConditionalAriaProp('aria-describedby', [
@@ -181,11 +181,15 @@ const StyledTextInput = styled(BaseTextInput)`
  */
 export class TextInput extends Component<TextInputProps> {
   render() {
-    const { id: propId, ...passProps } = this.props;
-    return (
-      <AutoId id={propId}>
-        {(id) => <StyledTextInput id={id} {...passProps} />}
-      </AutoId>
+    return React.forwardRef<HTMLInputElement, TextInputProps>(
+      (props: TextInputProps, ref) => {
+        const { id: propId, ...passProps } = withSuomifiDefaultProps(props);
+        return (
+          <AutoId id={propId}>
+            {(id) => <StyledTextInput id={id} customRef={ref} {...passProps} />}
+          </AutoId>
+        );
+      },
     );
   }
 }
