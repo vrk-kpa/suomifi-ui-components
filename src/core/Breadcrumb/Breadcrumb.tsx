@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles } from './Breadcrumb.baseStyles';
 import {
   Breadcrumb as CompBreadcrumb,
@@ -13,7 +11,7 @@ import { getConditionalAriaProp } from '../../utils/aria';
 
 type BreadcrumbVariant = 'default' | 'link';
 
-export interface BreadcrumbProps extends CompBreadcrumbProps, TokensProp {
+export interface BreadcrumbProps extends CompBreadcrumbProps {
   /**
    * 'default' | 'expansion'
    * @default default
@@ -21,12 +19,10 @@ export interface BreadcrumbProps extends CompBreadcrumbProps, TokensProp {
   variant?: BreadcrumbVariant;
 }
 
-const StyledBreadcrumb = styled(
-  ({ tokens, ...passProps }: BreadcrumbProps & InternalTokensProp) => (
-    <CompBreadcrumb {...passProps} />
-  ),
-)`
-  ${(props) => baseStyles(props)};
+const StyledBreadcrumb = styled((props: BreadcrumbProps) => (
+  <CompBreadcrumb {...props} />
+))`
+  ${baseStyles};
 `;
 
 type VariantBreadcrumbProps =
@@ -38,16 +34,10 @@ type VariantBreadcrumbProps =
  * Used for navigation path
  */
 export class Breadcrumb extends Component<VariantBreadcrumbProps> {
-  static link = (props: BreadcrumbLinkProps) => (
-    <BreadcrumbLink {...withSuomifiDefaultProps(props)} />
-  );
+  static link = (props: BreadcrumbLinkProps) => <BreadcrumbLink {...props} />;
 
   render() {
-    const {
-      variant,
-      'aria-label': ariaLabel,
-      ...passProps
-    } = withSuomifiDefaultProps(this.props);
+    const { variant, 'aria-label': ariaLabel, ...passProps } = this.props;
     if (variant === 'link') {
       return <BreadcrumbLink {...(passProps as BreadcrumbLinkProps)} />;
     }
