@@ -1,6 +1,5 @@
 import React, { Component, ChangeEvent, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaultProps } from '../../theme/utils';
 import {
   HtmlInput,
   HtmlInputProps,
@@ -8,7 +7,6 @@ import {
   HtmlDivProps,
   HtmlSpan,
 } from '../../../reset';
-import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './TextInput.baseStyles';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { StatusText } from '../StatusText/StatusText';
@@ -36,8 +34,7 @@ export const textInputClassNames = {
 type TextInputValue = string | number | undefined;
 
 export interface TextInputProps
-  extends Omit<HtmlInputProps, 'type' | 'onChange'>,
-    TokensProp {
+  extends Omit<HtmlInputProps, 'type' | 'onChange'> {
   /** TextInput container div class name for custom styling. */
   className?: string;
   /** TextInput wrapping div element props */
@@ -169,12 +166,10 @@ class BaseTextInput extends Component<TextInputProps> {
   }
 }
 
-const StyledTextInput = styled(
-  ({ tokens, ...passProps }: TextInputProps & InternalTokensProp) => (
-    <BaseTextInput {...passProps} />
-  ),
-)`
-  ${(props) => baseStyles(props)}
+const StyledTextInput = styled((props: TextInputProps) => (
+  <BaseTextInput {...props} />
+))`
+  ${baseStyles}
 `;
 
 /**
@@ -184,7 +179,7 @@ const StyledTextInput = styled(
  */
 export class TextInput extends Component<TextInputProps> {
   render() {
-    const { id: propId, ...passProps } = withSuomifiDefaultProps(this.props);
+    const { id: propId, ...passProps } = this.props;
     return (
       <AutoId id={propId}>
         {(id) => <StyledTextInput id={id} {...passProps} />}
