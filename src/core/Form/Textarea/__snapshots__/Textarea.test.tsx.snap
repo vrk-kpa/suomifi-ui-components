@@ -222,6 +222,18 @@ exports[`snapshot default structure should match snapshot 1`] = `
   opacity: 1;
 }
 
+.c1.fi-textarea .fi-textarea_textarea-resize--horizontal {
+  resize: horizontal;
+}
+
+.c1.fi-textarea .fi-textarea_textarea-resize--both {
+  resize: both;
+}
+
+.c1.fi-textarea .fi-textarea_textarea-resize--none {
+  resize: none;
+}
+
 .c1.fi-textarea .fi-status-text {
   display: block;
   line-height: 18px;

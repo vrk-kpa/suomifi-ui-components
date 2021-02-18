@@ -1,9 +1,7 @@
 import React, { Component, ChangeEvent, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './Textarea.baseStyles';
-import { withSuomifiDefaultProps } from '../../theme/utils';
 import {
   HtmlTextarea,
   HtmlTextareaProps,
@@ -22,15 +20,16 @@ const textareaClassNames = {
   fullWidth: `${baseClassName}--full-width`,
   textareaContainer: `${baseClassName}_textarea-element-container`,
   textarea: `${baseClassName}_textarea`,
+  resizeHorizontal: `${baseClassName}_textarea-resize--horizontal`,
+  resizeBoth: `${baseClassName}_textarea-resize--both`,
+  resizeNone: `${baseClassName}_textarea-resize--none`,
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
 };
 
 type TextareaStatus = Exclude<InputStatus, 'success'>;
 
-export interface TextareaProps
-  extends Omit<HtmlTextareaProps, 'placeholder'>,
-    TokensProp {
+export interface TextareaProps extends Omit<HtmlTextareaProps, 'placeholder'> {
   /** Custom classname to extend or customize */
   className?: string;
   /** Disable usage */
@@ -127,7 +126,11 @@ class BaseTextarea extends Component<TextareaProps> {
         <HtmlDiv className={textareaClassNames.textareaContainer}>
           <HtmlTextarea
             id={id}
-            className={textareaClassNames.textarea}
+            className={classnames(textareaClassNames.textarea, {
+              [textareaClassNames.resizeBoth]: resize === 'both',
+              [textareaClassNames.resizeHorizontal]: resize === 'horizontal',
+              [textareaClassNames.resizeNone]: resize === 'none',
+            })}
             disabled={disabled}
             defaultValue={children}
             placeholder={visualPlaceholder}
@@ -149,22 +152,14 @@ class BaseTextarea extends Component<TextareaProps> {
   }
 }
 
-const StyledTextarea = styled(
-  ({
-    tokens,
-    id: propId,
-    ...passProps
-  }: TextareaProps & InternalTokensProp) => (
-    <AutoId id={propId}>
-      {(id) => <BaseTextarea id={id} {...passProps} />}
-    </AutoId>
-  ),
-)`
-  ${(props) => baseStyles(props)}
+const StyledTextarea = styled(({ id: propId, ...passProps }: TextareaProps) => (
+  <AutoId id={propId}>{(id) => <BaseTextarea id={id} {...passProps} />}</AutoId>
+))`
+  ${baseStyles}
 `;
 
 export class Textarea extends Component<TextareaProps> {
   render() {
-    return <StyledTextarea {...withSuomifiDefaultProps(this.props)} />;
+    return <StyledTextarea {...this.props} />;
   }
 }
