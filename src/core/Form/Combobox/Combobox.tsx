@@ -126,7 +126,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             currentFilteredItem,
           );
           if (indexOfFilteredItem > -1) {
-            filteredItems[indexOfFilteredItem] = currentItem;
+            currentFilteredItem.selected = selectState;
           }
         }
         return {
