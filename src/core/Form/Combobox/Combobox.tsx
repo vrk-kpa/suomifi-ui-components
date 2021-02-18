@@ -155,7 +155,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           updateItem(item),
         );
         if (onItemSelectionsChange) {
-          onItemSelectionsChange([]);
+          onItemSelectionsChange(getSelectedItems(updatedItems));
         }
         return { items: updatedItems, filteredItems: updatedFilteredItems };
       },
