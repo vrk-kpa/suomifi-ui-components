@@ -10,8 +10,6 @@ import {
   ListboxPopover,
 } from '@reach/listbox';
 import { positionMatchWidth } from '@reach/popover';
-import { withSuomifiDefaultProps } from '../../theme/utils';
-import { TokensProp, InternalTokensProp } from '../../theme';
 import { HtmlSpan, HtmlDiv } from '../../../reset';
 import { LabelText, LabelMode } from '../../Form/LabelText/LabelText';
 import { logger } from '../../../utils/logger';
@@ -36,7 +34,7 @@ interface DropdownState {
   selectedValue: string | undefined;
 }
 
-export interface DropdownProps extends TokensProp {
+export interface DropdownProps {
   /**
    * Unique id
    * If no id is specified, one will be generated automatically
@@ -206,12 +204,10 @@ class BaseDropdown extends Component<DropdownProps> {
   }
 }
 
-const StyledDropdown = styled(
-  ({ tokens, ...passProps }: DropdownProps & InternalTokensProp) => (
-    <BaseDropdown {...passProps} />
-  ),
-)`
-  ${(props) => baseStyles(props)}
+const StyledDropdown = styled((props: DropdownProps) => (
+  <BaseDropdown {...props} />
+))`
+  ${baseStyles}
 `;
 
 /**
@@ -220,7 +216,7 @@ const StyledDropdown = styled(
  */
 export class Dropdown extends Component<DropdownProps> {
   render() {
-    const { id: propId, ...passProps } = withSuomifiDefaultProps(this.props);
+    const { id: propId, ...passProps } = this.props;
     return (
       <AutoId id={propId}>
         {(id) => <StyledDropdown id={id} {...passProps} />}
