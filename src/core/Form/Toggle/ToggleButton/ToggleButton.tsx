@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { InternalTokensProp, TokensProp } from '../../../theme';
 import { AutoId } from '../../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { Text } from '../../../Text/Text';
 import { HtmlSpan, HtmlButton, HtmlButtonProps } from '../../../../reset';
-import { withSuomifiDefaultProps } from '../../../theme/utils';
 import { ToggleBaseProps, baseClassName } from '../ToggleBase/ToggleBase';
 import { baseStyles } from './ToggeButton.baseStyles';
 import { ToggleIcon } from '../ToggleBase/ToggleIcon';
@@ -29,9 +27,7 @@ interface ToggleState {
   toggleState: boolean;
 }
 
-class BaseToggleButton extends Component<
-  ToggleButtonProps & InternalTokensProp
-> {
+class BaseToggleButton extends Component<ToggleButtonProps> {
   state: ToggleState = {
     toggleState: !!this.props.checked || !!this.props.defaultChecked,
   };
@@ -65,7 +61,6 @@ class BaseToggleButton extends Component<
       onClick,
       id,
       className,
-      tokens,
       'aria-label': ariaLabel,
       'aria-labelledby': ariaLabelledBy,
       checked,
@@ -100,11 +95,7 @@ class BaseToggleButton extends Component<
           {...getConditionalAriaProp('aria-labelledby', [ariaLabelledBy])}
         >
           <HtmlSpan className={toggleClassNames.iconContainer}>
-            <ToggleIcon
-              disabled={disabled}
-              checked={toggleState}
-              tokens={tokens}
-            />
+            <ToggleIcon disabled={disabled} checked={toggleState} />
           </HtmlSpan>
           <Text color={!!disabled ? 'depthBase' : 'blackBase'}>{children}</Text>
         </HtmlButton>
@@ -113,12 +104,10 @@ class BaseToggleButton extends Component<
   }
 }
 
-const StyledToggleButton = styled(
-  (props: ToggleBaseProps & InternalTokensProp) => (
-    <BaseToggleButton {...props} />
-  ),
-)`
-  ${(props) => baseStyles(props)}
+const StyledToggleButton = styled((props: ToggleBaseProps) => (
+  <BaseToggleButton {...props} />
+))`
+  ${baseStyles}
 `;
 
 /**
@@ -126,14 +115,12 @@ const StyledToggleButton = styled(
  * Use for toggling application state.
  * Additional props are passed to the button element.
  */
-export class ToggleButton extends Component<ToggleButtonProps & TokensProp> {
+export class ToggleButton extends Component<ToggleButtonProps> {
   render() {
     const { id: propId, ...passProps } = this.props;
     return (
       <AutoId id={propId}>
-        {(id) => (
-          <StyledToggleButton id={id} {...withSuomifiDefaultProps(passProps)} />
-        )}
+        {(id) => <StyledToggleButton id={id} {...passProps} />}
       </AutoId>
     );
   }

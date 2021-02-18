@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, TokensAndTheme } from '../../../theme';
+import { defaultThemeTokens as theme } from '../../../theme';
 import { iconWidth, iconHeight } from './Toggle.baseStyles';
 
 export const baseStyles = withSuomifiTheme(
@@ -50,5 +50,5 @@ export const baseStyles = withSuomifiTheme(
         fill: ${theme.colors.whiteBase};
       }
     }
-  `,
-);
+  }
+`;

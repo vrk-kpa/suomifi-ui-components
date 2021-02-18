@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { TokensAndTheme } from '../../../theme';
+import { defaultThemeTokens as theme } from '../../../theme';
 import { disabledCursor } from '../../../../components/utils/css';
 import { element, font } from '../../../theme/reset';
 
@@ -12,7 +12,7 @@ export const focusOverrides = css`
   left: -4px;
 `;
 
-export const toggleBaseStyles = ({ theme }: TokensAndTheme) => css`
+export const toggleBaseStyles = css`
   ${element({ theme })}
   ${font({ theme })('bodyText')}
   background-color: ${theme.colors.whiteBase};
