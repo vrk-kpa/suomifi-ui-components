@@ -98,7 +98,11 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     currentSelection: null,
   };
 
-  handleItemSelected = (text: string, mouseClick?: boolean) => {
+  handleItemSelected = (
+    text: string,
+    selectState: boolean,
+    mouseClick?: boolean,
+  ) => {
     this.setState(
       (
         prevState: ComboboxState<T & ComboboxData>,
@@ -110,7 +114,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         const indexOfItem = items.indexOf(currentItem);
         if (!currentItem.disabled) {
           if (indexOfItem > -1) {
-            currentItem.selected = !currentItem.selected;
+            currentItem.selected = selectState;
           }
           if (onItemSelectionsChange) {
             onItemSelectionsChange(getSelectedItems(items));
@@ -185,6 +189,8 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       const getPreviousIndex = () => (index - 1 + items.length) % items.length;
 
       const getNextItem = () => items[getNextIndex()];
+      const getCurrentItem = () =>
+        items.find((item) => item.labelText === currentSelection);
       const getPreviousItem = () => items[getPreviousIndex()];
 
       switch (event.key) {
@@ -211,7 +217,8 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         case 'Enter': {
           event.preventDefault();
           if (currentSelection) {
-            this.handleItemSelected(currentSelection);
+            const currentSelectState = getCurrentItem()?.selected;
+            this.handleItemSelected(currentSelection, !currentSelectState);
           }
           break;
         }
@@ -359,7 +366,11 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                         disabled={item.disabled}
                         onClick={() => {
                           focusToMenu();
-                          this.handleItemSelected(item.labelText, true);
+                          this.handleItemSelected(
+                            item.labelText,
+                            !item.selected,
+                            true,
+                          );
                         }}
                       >
                         {highlightQuery(
@@ -384,7 +395,9 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                   key={item.labelText}
                   disabled={item.disabled}
                   removable={!item.disabled}
-                  onClick={() => this.handleItemSelected(item.labelText)}
+                  onClick={() =>
+                    this.handleItemSelected(item.labelText, !item.selected)
+                  }
                   actionLabel={chipActionLabel}
                 >
                   {item.chipText ? item.chipText : item.labelText}
