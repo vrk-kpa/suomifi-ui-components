@@ -1,10 +1,10 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, TokensAndTheme, SuomifiThemeProp } from '../theme';
+import { defaultThemeTokens as theme } from '../theme';
 import { element, font } from '../theme/reset';
 import { disabledCursor } from '../../components/utils/css';
 import { absoluteFocus } from '../theme/utils/focus';
 
-const removableStyles = ({ theme }: SuomifiThemeProp) => css`
+const removableStyles = css`
   &.fi-chip--removable {
     & .fi-chip--content {
       max-width: 248px;
@@ -13,7 +13,7 @@ const removableStyles = ({ theme }: SuomifiThemeProp) => css`
   }
 `;
 
-const disabledStyles = ({ theme }: SuomifiThemeProp) => css`
+const disabledStyles = css`
   &.fi-chip--disabled {
     &.fi-chip {
       ${disabledCursor}
@@ -29,57 +29,55 @@ const disabledStyles = ({ theme }: SuomifiThemeProp) => css`
   }
 `;
 
-export const baseStyles = withSuomifiTheme(
-  ({ theme }: TokensAndTheme) => css`
-    ${element({ theme })}
-    ${font({ theme })('actionElementInnerTextBold')}
+export const baseStyles = css`
+  ${element({ theme })}
+  ${font({ theme })('actionElementInnerTextBold')}
 
     &:focus {
-      outline: 0;
-      position: relative;
+    outline: 0;
+    position: relative;
 
-      &::after {
-        ${absoluteFocus}
-        border-radius: 16px;
+    &::after {
+      ${absoluteFocus}
+      border-radius: 16px;
+    }
+  }
+
+  &.fi-chip {
+    border-radius: 14px;
+    padding: ${theme.spacing.insetXxs} ${theme.spacing.insetL};
+    color: ${theme.colors.whiteBase};
+    background: ${theme.colors.highlightBase};
+    max-height: 28px;
+    display: inline-block;
+
+    &.fi-chip--button {
+      cursor: pointer;
+      &:hover {
+        background: ${theme.colors.highlightLight1};
+      }
+
+      &:active {
+        background: ${theme.colors.highlightDark1};
       }
     }
 
-    &.fi-chip {
-      border-radius: 14px;
-      padding: ${theme.spacing.insetXxs} ${theme.spacing.insetL};
-      color: ${theme.colors.whiteBase};
-      background: ${theme.colors.highlightBase};
-      max-height: 28px;
+    & .fi-chip--icon {
+      height: 12px;
+      width: 12px;
+      transform: translateY(-0.35em);
+    }
+
+    & .fi-chip--content {
       display: inline-block;
-
-      &.fi-chip--button {
-        cursor: pointer;
-        &:hover {
-          background: ${theme.colors.highlightLight1};
-        }
-
-        &:active {
-          background: ${theme.colors.highlightDark1};
-        }
-      }
-
-      & .fi-chip--icon {
-        height: 12px;
-        width: 12px;
-        transform: translateY(-0.35em);
-      }
-
-      & .fi-chip--content {
-        display: inline-block;
-        max-width: 270px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        line-height: 1.5em;
-        vertical-align: center;
-      }
+      max-width: 270px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.5em;
+      vertical-align: center;
     }
-    ${removableStyles({ theme })};
-    ${disabledStyles({ theme })};
-  `,
-);
+  }
+  ${removableStyles};
+  ${disabledStyles};
+`;
