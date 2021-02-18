@@ -105,14 +105,12 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         prevProps: ComboboxProps<T & ComboboxData>,
       ) => {
         const { onItemSelectionsChange } = prevProps;
-        const items = [...prevState.items];
-        const filteredItems = [...prevState.filteredItems];
+        const { items, filteredItems } = prevState;
         const currentItem = items.filter((item) => item.labelText === text)[0];
         const indexOfItem = items.indexOf(currentItem);
         if (!currentItem.disabled) {
           if (indexOfItem > -1) {
             currentItem.selected = !currentItem.selected;
-            items[indexOfItem] = currentItem;
           }
           if (onItemSelectionsChange) {
             onItemSelectionsChange(getSelectedItems(items));
@@ -143,14 +141,13 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         prevProps: ComboboxProps<T & ComboboxData>,
       ) => {
         const { onItemSelectionsChange } = prevProps;
+        const { items, filteredItems } = prevState;
         const updateItem = (item: T & ComboboxData) => ({
           ...item,
           selected: item.disabled ? item.selected : false,
         });
-        const updatedItems = [...prevState.items].map((item) =>
-          updateItem(item),
-        );
-        const updatedFilteredItems = [...prevState.filteredItems].map((item) =>
+        const updatedItems = items.map((item) => updateItem(item));
+        const updatedFilteredItems = filteredItems.map((item) =>
           updateItem(item),
         );
         if (onItemSelectionsChange) {
