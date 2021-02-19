@@ -2,8 +2,6 @@ import React, { Component, ReactNode, Fragment } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { classnamesValue } from '../../utils/typescript';
-import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, InternalTokensProp } from '../theme';
 import {
   baseStyles,
   languageMenuPopoverStyles,
@@ -36,14 +34,12 @@ const popoverClassName = 'fi-language-menu_popover';
 const popoverLangClassName = 'fi-language-menu-language_popover';
 const iconLangClassName = 'fi-language-menu-language_icon';
 
-export interface LanguageMenuProps extends CompLanguageMenuProps, TokensProp {}
+export interface LanguageMenuProps extends CompLanguageMenuProps {}
 
-const StyledLanguageMenu = styled(
-  ({ tokens, ...passProps }: LanguageMenuProps & InternalTokensProp) => (
-    <CompLanguageMenu {...passProps} />
-  ),
-)`
-  ${(props) => baseStyles(props)}
+const StyledLanguageMenu = styled((props: LanguageMenuProps) => (
+  <CompLanguageMenu {...props} />
+))`
+  ${baseStyles}
 `;
 
 const LanguageMenuPopoverWithProps = (
@@ -71,7 +67,7 @@ const languageName = (name: ReactNode) => (
   </Fragment>
 );
 
-interface LanguageMenuPopoverProps extends CompMenuPopoverProps, TokensProp {}
+interface LanguageMenuPopoverProps extends CompMenuPopoverProps {}
 
 const LanguageMenuPopoverPosition = (
   targetRect: PRect | null,
@@ -93,13 +89,13 @@ const LanguageMenuPopoverPosition = (
 };
 
 const StyledMenuPopover = styled(
-  ({ tokens, children, ...passProps }: LanguageMenuPopoverProps) => (
+  ({ children, ...passProps }: LanguageMenuPopoverProps) => (
     <CompMenuPopover {...passProps} position={LanguageMenuPopoverPosition}>
       <CompMenuItems>{children}</CompMenuItems>
     </CompMenuPopover>
   ),
 )`
-  ${(props) => languageMenuPopoverStyles(props.theme)}
+  ${languageMenuPopoverStyles}
 `;
 
 class LanguageMenuVariation extends Component<LanguageMenuProps> {
@@ -110,7 +106,7 @@ class LanguageMenuVariation extends Component<LanguageMenuProps> {
       className,
       languageMenuPopoverComponent: MenuPopoverComponentProp,
       ...passProps
-    } = withSuomifiDefaultProps(this.props);
+    } = this.props;
     const languageMenuButtonClassName = classnames(
       buttonClassName,
       buttonLangClassName,
