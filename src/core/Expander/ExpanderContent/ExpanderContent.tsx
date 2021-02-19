@@ -1,8 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { withSuomifiDefaultProps } from '../../theme/utils';
-import { TokensProp, InternalTokensProp } from '../../theme';
 import { HtmlDiv, HtmlDivProps } from '../../../reset';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { baseStyles } from './ExpanderContent.baseStyles';
@@ -64,11 +62,7 @@ class BaseExpanderContent extends Component<InternalExpanderContentProps> {
 }
 
 const StyledExpanderContent = styled(
-  ({
-    tokens,
-    className,
-    ...passProps
-  }: ExpanderContentProps & InternalTokensProp) => (
+  ({ className, ...passProps }: ExpanderContentProps) => (
     <ExpanderConsumer>
       {(consumer) => (
         <BaseExpanderContent
@@ -80,17 +74,15 @@ const StyledExpanderContent = styled(
     </ExpanderConsumer>
   ),
 )`
-  ${(props) => baseStyles(props)};
+  ${baseStyles};
 `;
 
 /**
  * <i class="semantics" />
  * Expander content wrapper, controlled by expander
  */
-export class ExpanderContent extends Component<
-  ExpanderContentProps & TokensProp
-> {
+export class ExpanderContent extends Component<ExpanderContentProps> {
   render() {
-    return <StyledExpanderContent {...withSuomifiDefaultProps(this.props)} />;
+    return <StyledExpanderContent {...this.props} />;
   }
 }
