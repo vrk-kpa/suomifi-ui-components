@@ -23,8 +23,6 @@ const comboboxClassNames = {
 };
 
 export interface ComboboxData {
-  /** Is item selected or not */
-  selected: boolean;
   /** Unique label that will be shown on combobox item and used on filter */
   labelText: string;
   /** Using labelText if chipText is not given */
@@ -57,28 +55,32 @@ export interface ComboboxProps<T extends ComboboxData> extends TokensProp {
   visualPlaceholder?: string;
   /** Label to show when no items to show, e.g filtered all out */
   emptyItemsLabel: string;
+  /** Default selected items */
+  defaultSelectedItems?: Array<T & ComboboxData>;
+}
+
+// actual boolean value does not matter, only if it exists on the list
+interface SelectedItemKeys {
+  [key: string]: boolean;
 }
 
 interface ComboboxState<T extends ComboboxData> {
-  items: T[];
+  // items: T[];
   filterInputValue: string | undefined;
   filteredItems: T[];
   showPopover: boolean;
   currentSelection: string | null;
+  selectedKeys: SelectedItemKeys;
+  selectedItems: T[];
 }
 
-function getSelectedItems<T>(
-  items: (T & ComboboxData)[],
-): (T & ComboboxData)[] {
-  return items.reduce(
-    (selectedItems: (T & ComboboxData)[], item: T & ComboboxData) => {
-      if (item.selected) {
-        selectedItems.push(item);
-      }
-      return selectedItems;
-    },
-    [],
-  );
+function getSelectedKeys<T>(items: (T & ComboboxData)[]): SelectedItemKeys {
+  const selectedKeys: SelectedItemKeys = {};
+  // eslint-disable-next-line no-restricted-syntax
+  for (const item of items) {
+    selectedKeys[item.labelText] = false;
+  }
+  return selectedKeys;
 }
 
 class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
@@ -93,75 +95,65 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   }
 
   state: ComboboxState<T & ComboboxData> = {
-    items: this.props.items,
     filterInputValue: '',
     filteredItems: this.props.items,
     showPopover: false,
     currentSelection: null,
+    selectedKeys: getSelectedKeys(this.props.defaultSelectedItems || []),
+    selectedItems: this.props.defaultSelectedItems || [],
   };
 
-  handleItemSelected = (
-    text: string,
-    selectState: boolean,
-    mouseClick?: boolean,
-  ) => {
+  handleItemSelection = (item: T & ComboboxData) => {
     this.setState(
       (
         prevState: ComboboxState<T & ComboboxData>,
         prevProps: ComboboxProps<T & ComboboxData>,
       ) => {
         const { onItemSelectionsChange } = prevProps;
-        const { items, filteredItems } = prevState;
-        const currentItem = items.filter((item) => item.labelText === text)[0];
-        const indexOfItem = items.indexOf(currentItem);
-        if (!currentItem.disabled) {
-          if (indexOfItem > -1) {
-            currentItem.selected = selectState;
+        const { selectedKeys, selectedItems } = prevState;
+        const newSelectedKeys = Object.assign({}, selectedKeys);
+        if (!item.disabled) {
+          if (item.labelText in newSelectedKeys) {
+            delete newSelectedKeys[item.labelText];
+            const newSelectedItems = selectedItems.filter(
+              (selectedItem) => selectedItem.labelText !== item.labelText,
+            );
+            if (onItemSelectionsChange) {
+              onItemSelectionsChange(newSelectedItems);
+            }
+            return {
+              selectedKeys: newSelectedKeys,
+              selectedItems: newSelectedItems,
+            };
           }
+          newSelectedKeys[item.labelText] = false;
+          const newSelectedItems = selectedItems.concat([item]);
           if (onItemSelectionsChange) {
-            onItemSelectionsChange(getSelectedItems(items));
+            onItemSelectionsChange(newSelectedItems);
           }
-          const currentFilteredItem = filteredItems.filter(
-            (item) => item.labelText === text,
-          )[0];
-          const indexOfFilteredItem = filteredItems.indexOf(
-            currentFilteredItem,
-          );
-          if (indexOfFilteredItem > -1) {
-            currentFilteredItem.selected = selectState;
-          }
+          return {
+            selectedKeys: newSelectedKeys,
+            selectedItems: newSelectedItems,
+          };
         }
-        return {
-          items,
-          filteredItems,
-          currentSelection: mouseClick ? null : text,
-        };
       },
     );
   };
 
-  removeAllSelectionsHandler = () => {
-    this.setState(
-      (
-        prevState: ComboboxState<T & ComboboxData>,
-        prevProps: ComboboxProps<T & ComboboxData>,
-      ) => {
-        const { onItemSelectionsChange } = prevProps;
-        const { items, filteredItems } = prevState;
-        const updateItem = (item: T & ComboboxData) => ({
-          ...item,
-          selected: item.disabled ? item.selected : false,
-        });
-        const updatedItems = items.map((item) => updateItem(item));
-        const updatedFilteredItems = filteredItems.map((item) =>
-          updateItem(item),
-        );
-        if (onItemSelectionsChange) {
-          onItemSelectionsChange(getSelectedItems(updatedItems));
+  handleRemoveAllSelections = () => {
+    this.setState((prevState: ComboboxState<T & ComboboxData>) => {
+      const { selectedItems } = prevState;
+      const disabledItems = [];
+      const newSelectedKeys: SelectedItemKeys = {};
+      // eslint-disable-next-line no-restricted-syntax
+      for (const item of selectedItems) {
+        if (item.disabled) {
+          disabledItems.push(item);
+          newSelectedKeys[item.labelText] = false;
         }
-        return { items: updatedItems, filteredItems: updatedFilteredItems };
-      },
-    );
+      }
+      return { selectedKeys: newSelectedKeys, selectedItems: disabledItems };
+    });
   };
 
   render() {
@@ -191,8 +183,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       const getPreviousIndex = () => (index - 1 + items.length) % items.length;
 
       const getNextItem = () => items[getNextIndex()];
-      const getCurrentItem = () =>
-        items.find((item) => item.labelText === currentSelection);
       const getPreviousItem = () => items[getPreviousIndex()];
 
       switch (event.key) {
@@ -219,18 +209,27 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         case 'Enter': {
           event.preventDefault();
           if (currentSelection) {
-            const currentSelectState = getCurrentItem()?.selected;
-            this.handleItemSelected(currentSelection, !currentSelectState);
+            const currentItem = items.find(
+              ({ labelText: uniqueText }) => uniqueText === currentSelection,
+            );
+            if (currentItem) {
+              this.handleItemSelection(currentItem);
+            }
           }
           break;
         }
 
         case 'Escape': {
           event.preventDefault();
-          this.setState((prevState: ComboboxState<T & ComboboxData>) => ({
-            filterInputValue: '',
-            filteredItems: prevState.items,
-          }));
+          this.setState(
+            (
+              _: ComboboxState<T & ComboboxData>,
+              prevProps: ComboboxProps<T & ComboboxData>,
+            ) => ({
+              filterInputValue: '',
+              filteredItems: prevProps.items,
+            }),
+          );
           setPopoverVisibility(false);
           break;
         }
@@ -271,10 +270,15 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           setPopoverVisibility(focusInCombobox);
 
           if (!focusInCombobox) {
-            this.setState((prevState: ComboboxState<T & ComboboxData>) => ({
-              filterInputValue: '',
-              filteredItems: prevState.items,
-            }));
+            this.setState(
+              (
+                _: ComboboxState<T & ComboboxData>,
+                prevProps: ComboboxProps<T & ComboboxData>,
+              ) => ({
+                filterInputValue: '',
+                filteredItems: prevProps.items,
+              }),
+            );
           }
         });
       }
@@ -284,7 +288,13 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       this.setState({ showPopover: toState });
     };
 
-    const { items, filteredItems, showPopover, currentSelection } = this.state;
+    const {
+      filteredItems,
+      showPopover,
+      currentSelection,
+      selectedKeys,
+      selectedItems,
+    } = this.state;
 
     const focusToMenu = () => {
       if (
@@ -311,6 +321,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       removeAllButtonLabel,
       visualPlaceholder,
       emptyItemsLabel,
+      defaultSelectedItems,
       ...passProps
     } = this.props;
 
@@ -332,7 +343,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         <HtmlDiv className={classnames(comboboxClassNames.wrapper, {})}>
           <FilterInput
             labelText={labelText}
-            items={items}
+            items={propItems}
             onFilter={(filtered) => this.setState({ filteredItems: filtered })}
             filterFunc={filter}
             forwardRef={this.filterInputRef}
@@ -363,17 +374,15 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                     return (
                       <ComboboxItem
                         currentSelection={isCurrentlySelected}
-                        key={`${item.labelText}_${item.selected}_${item.disabled}`}
+                        key={`${item.labelText}_${
+                          item.labelText in selectedKeys
+                        }`}
                         id={`${id}-${item.labelText}`}
-                        defaultChecked={item.selected}
+                        defaultChecked={item.labelText in selectedKeys}
                         disabled={item.disabled}
                         onClick={() => {
                           focusToMenu();
-                          this.handleItemSelected(
-                            item.labelText,
-                            !item.selected,
-                            true,
-                          );
+                          this.handleItemSelection(item);
                         }}
                       >
                         {highlightQuery(
@@ -393,14 +402,12 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           </Popover>
           {chipListVisible && (
             <ChipList>
-              {getSelectedItems(items).map((item) => (
+              {selectedItems.map((item) => (
                 <Chip
                   key={item.labelText}
                   disabled={item.disabled}
                   removable={!item.disabled}
-                  onClick={() =>
-                    this.handleItemSelected(item.labelText, !item.selected)
-                  }
+                  onClick={() => this.handleItemSelection(item)}
                   actionLabel={chipActionLabel}
                 >
                   {item.chipText ? item.chipText : item.labelText}
@@ -412,7 +419,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             <Button
               variant="secondary"
               icon="remove"
-              onClick={this.removeAllSelectionsHandler}
+              onClick={this.handleRemoveAllSelections}
               style={{ borderRadius: 20, marginTop: 10 }}
             >
               {removeAllButtonLabel}
