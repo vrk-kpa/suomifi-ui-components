@@ -45,36 +45,74 @@ exports[`calling render with the same component on the same container does not r
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  margin-top: 0;
-  margin-right: 0;
-  margin-bottom: 0;
-  margin-left: 0;
-  color: hsl(0,0%,16%);
+  margin: 0;
+}
+
+.c1.fi-paragraph--margin-xxs {
+  margin-bottom: 5px;
+}
+
+.c1.fi-paragraph--margin-xs {
+  margin-bottom: 10px;
+}
+
+.c1.fi-paragraph--margin-s {
+  margin-bottom: 15px;
+}
+
+.c1.fi-paragraph--margin-m {
+  margin-bottom: 20px;
+}
+
+.c1.fi-paragraph--margin-l {
+  margin-bottom: 25px;
+}
+
+.c1.fi-paragraph--margin-xl {
+  margin-bottom: 30px;
+}
+
+.c1.fi-paragraph--margin-xxl {
+  margin-bottom: 40px;
+}
+
+.c1.fi-paragraph--margin-xxxl {
+  margin-bottom: 60px;
+}
+
+.c1.fi-paragraph--margin-xxxxl {
+  margin-bottom: 80px;
+}
+
+.c1.fi-paragraph--margin-insetXxs {
+  margin-bottom: 2px;
+}
+
+.c1.fi-paragraph--margin-insetXs {
+  margin-bottom: 4px;
+}
+
+.c1.fi-paragraph--margin-insetS {
+  margin-bottom: 6px;
+}
+
+.c1.fi-paragraph--margin-insetM {
+  margin-bottom: 8px;
+}
+
+.c1.fi-paragraph--margin-insetL {
+  margin-bottom: 10px;
+}
+
+.c1.fi-paragraph--margin-insetXl {
+  margin-bottom: 16px;
+}
+
+.c1.fi-paragraph--margin-insetXxl {
+  margin-bottom: 20px;
 }
 
 .c2 {
-  color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  margin-top: 0;
-  margin-right: 0;
-  margin-bottom: 15px;
-  margin-left: 0;
-  color: hsl(0,0%,16%);
-}
-
-.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -98,12 +136,12 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c2::before,
+.c2::after {
   box-sizing: border-box;
 }
 
-.c4 {
+.c3 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -121,7 +159,7 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-text--bold {
+.c3.fi-text--bold {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -137,7 +175,7 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 600;
 }
 
-.c4.fi-text--lead {
+.c3.fi-text--lead {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -153,7 +191,7 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 400;
 }
 
-.c4.fi-text--small-screen {
+.c3.fi-text--small-screen {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -169,7 +207,7 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 400;
 }
 
-.c4.fi-text--small-screen.fi-text--bold {
+.c3.fi-text--small-screen.fi-text--bold {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -185,7 +223,7 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 600;
 }
 
-.c4.fi-text--small-screen.fi-text--lead {
+.c3.fi-text--small-screen.fi-text--lead {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -210,10 +248,10 @@ exports[`calling render with the same component on the same container does not r
     Paragraph text
   </p>
   <p
-    class="c0 fi-paragraph c2"
+    class="c0 fi-paragraph c1 fi-paragraph--margin-s"
   >
     <span
-      class="c3 fi-text c4 fi-text--lead"
+      class="c2 fi-text c3 fi-text--lead"
     >
       Leading text
     </span>
@@ -222,12 +260,12 @@ exports[`calling render with the same component on the same container does not r
     class="c0 fi-paragraph c1"
   >
     <span
-      class="c3 fi-text c4 fi-text--body"
+      class="c2 fi-text c3 fi-text--body"
     >
       Body text
     </span>
     <span
-      class="c3 fi-text c4 fi-text--bold"
+      class="c2 fi-text c3 fi-text--bold"
     >
       Bold text
     </span>
@@ -236,12 +274,12 @@ exports[`calling render with the same component on the same container does not r
     class="c0 fi-paragraph c1"
   >
     <span
-      class="c3 fi-text c4 fi-text--body fi-text--small-screen"
+      class="c2 fi-text c3 fi-text--body fi-text--small-screen"
     >
       Body text
     </span>
     <span
-      class="c3 fi-text c4 fi-text--bold fi-text--small-screen"
+      class="c2 fi-text c3 fi-text--bold fi-text--small-screen"
     >
       Bold text
     </span>
