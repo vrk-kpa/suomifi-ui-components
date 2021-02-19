@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, ColorProp, InternalTokensProp } from '../theme';
+import classnames from 'classnames';
+import { ColorProp } from '../theme';
 import {
   Paragraph as CompParagraph,
   ParagraphProps as CompParagraphProps,
+  baseClassName,
 } from '../../components/Paragraph/Paragraph';
 import { baseStyles } from './Paragraph.baseStyles';
 import { SpacingWithoutInsetProp } from '../theme/utils/spacing';
 
-export interface ParagraphProps extends CompParagraphProps, TokensProp {
+export interface ParagraphProps extends CompParagraphProps {
   /** Change color */
   color?: ColorProp;
   /** Spacing token for bottom margin */
@@ -17,14 +18,16 @@ export interface ParagraphProps extends CompParagraphProps, TokensProp {
 }
 
 const StyledParagraph = styled(
-  ({
-    tokens,
-    color,
-    marginBottomSpacing,
-    ...passProps
-  }: ParagraphProps & InternalTokensProp) => <CompParagraph {...passProps} />,
+  ({ marginBottomSpacing, className, ...passProps }: ParagraphProps) => (
+    <CompParagraph
+      className={classnames(className, {
+        [`${baseClassName}--margin-${marginBottomSpacing}`]: !!marginBottomSpacing,
+      })}
+      {...passProps}
+    />
+  ),
 )`
-  ${(props) => baseStyles(props)};
+  ${baseStyles}
 `;
 
 /**
@@ -32,6 +35,6 @@ const StyledParagraph = styled(
  */
 export class Paragraph extends Component<ParagraphProps> {
   render() {
-    return <StyledParagraph {...withSuomifiDefaultProps(this.props)} />;
+    return <StyledParagraph {...this.props} />;
   }
 }

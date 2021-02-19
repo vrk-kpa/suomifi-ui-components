@@ -1,19 +1,11 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, TokensAndTheme } from '../theme';
-import { ParagraphProps } from './Paragraph';
+import { defaultThemeTokens as theme } from '../theme';
 import { element, font } from '../theme/reset';
-import { objValue } from '../../utils/typescript';
-import { margin } from '../theme/utils/spacing';
+import { spacingModifiers } from '../theme/utils';
 
-export const baseStyles = withSuomifiTheme(
-  ({
-    theme,
-    color,
-    marginBottomSpacing = '0',
-  }: ParagraphProps & TokensAndTheme) => css`
-    ${element({ theme })}
-    ${font({ theme })('bodyText')}
-    ${margin({ theme })('0', '0', marginBottomSpacing, '0')};
-    color: ${!!color ? objValue(theme.colors, color) : theme.colors.blackBase};
-  `,
-);
+export const baseStyles = css`
+  ${element({ theme })}
+  ${font({ theme })('bodyText')}
+  margin: 0;
+  ${spacingModifiers({ theme })('margin-bottom')('&.fi-paragraph--margin')}
+`;

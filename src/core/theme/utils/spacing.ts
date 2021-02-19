@@ -71,7 +71,7 @@ export const padding = (props: SuomifiThemeProp) =>
  * @return {(spacingType) => (selector: String) => String}
  */
 export const spacingModifiers = (props: SuomifiThemeProp) => (
-  spacing: 'padding' | 'margin',
+  spacing: 'padding' | 'margin' | 'margin-bottom',
 ) => (selector: string) =>
   spacingTokensKeys.reduce(
     (ret, k) =>
