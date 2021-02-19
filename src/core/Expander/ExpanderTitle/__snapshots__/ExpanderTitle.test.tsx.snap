@@ -129,6 +129,14 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   vertical-align: baseline;
 }
 
+.c5.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c5.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;

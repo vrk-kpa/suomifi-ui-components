@@ -186,6 +186,14 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   vertical-align: baseline;
 }
 
+.c3.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c3.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c4 {
   width: 40px;
   height: 24px;

@@ -117,6 +117,14 @@ exports[`Basic ExpanderTitleButton shoud match snapshot 1`] = `
   vertical-align: baseline;
 }
 
+.c4.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c4.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   position: relative;
