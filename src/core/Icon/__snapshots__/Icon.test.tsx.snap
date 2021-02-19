@@ -6,6 +6,14 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
 }
 
+.c0.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c0.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 <div>
   <svg
     aria-label="Test label"

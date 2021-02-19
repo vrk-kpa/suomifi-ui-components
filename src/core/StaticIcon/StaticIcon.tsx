@@ -7,14 +7,22 @@ import {
   SuomifiComponentIconInterface,
   SuomifiComponentIcon,
 } from 'suomifi-icons';
-import { withSuomifiDefaultProps } from '../theme/utils';
 import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
 import { iconBaseStyles } from '../Icon/Icon.baseStyles';
-import { IconBaseProps, iconLogger } from '../Icon/Icon';
+import {
+  IconBaseProps,
+  iconLogger,
+  cursorPointerClassName,
+  baseClassName,
+} from '../Icon/Icon';
 export { IllustrativeIconKeys, DoctypeIconKeys } from 'suomifi-icons';
 
-const baseClassName = 'fi-static-icon';
+const staticIconBaseClassName = `fi-static-icon`;
 
+const getClassNames = ({ className, mousePointer }: StaticIconProps) =>
+  classnames(baseClassName, staticIconBaseClassName, className, {
+    [cursorPointerClassName]: !!mousePointer,
+  });
 export interface StaticIconProps
   extends IconBaseProps,
     SuomifiStaticIconInterface {
@@ -35,7 +43,7 @@ const StyledSuomifiStaticIcon = styled(
     />
   ),
 )`
-  ${(props) => iconBaseStyles(props)}
+  ${iconBaseStyles}
 `;
 
 /**
@@ -49,18 +57,18 @@ export class StaticIcon extends Component<StaticIconProps> {
       highlightColor,
       className,
       ...passProps
-    } = withSuomifiDefaultProps(this.props);
+    } = this.props;
     const { ariaLabel } = this.props;
 
     if (icon !== undefined) {
       return (
         <StyledSuomifiStaticIcon
           {...passProps}
-          className={classnames(baseClassName, className)}
           {...(!!highlightColor
             ? { highlightColor }
             : { highlightColor: tokens.colors.accentBase })}
           icon={icon}
+          className={getClassNames(this.props)}
         />
       );
     }
@@ -84,16 +92,21 @@ const StyledSuomifiComponentIcon = styled(
     />
   ),
 )`
-  ${(props) => iconBaseStyles(props)}
+  ${iconBaseStyles}
 `;
 
 export class ComponentIcon extends Component<ComponentIconProps> {
   render() {
-    const { icon, tokens, ...passProps } = withSuomifiDefaultProps(this.props);
-    const { className, ariaLabel } = this.props;
-
+    const { icon, className, ariaLabel, ...passProps } = this.props;
     if (icon !== undefined) {
-      return <StyledSuomifiComponentIcon {...passProps} icon={icon} />;
+      return (
+        <StyledSuomifiComponentIcon
+          {...passProps}
+          ariaLabel={ariaLabel}
+          className={className}
+          icon={icon}
+        />
+      );
     }
 
     iconLogger(ariaLabel, className);
