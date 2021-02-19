@@ -2,11 +2,11 @@
 import React, { Component, ChangeEvent, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import {
-  HtmlInput,
   HtmlInputProps,
   HtmlDiv,
   HtmlDivProps,
   HtmlSpan,
+  HtmlInputWithRef,
 } from '../../../reset';
 import { baseStyles } from './TextInput.baseStyles';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
@@ -84,7 +84,7 @@ export interface TextInputProps
   /** Properties for the icon */
   iconProps?: Omit<IconProps, 'icon'>;
   /** Ref object to be passed */
-  ref?: React.ForwardedRef<BaseTextInput>;
+  customRef?: React.ForwardedRef<HTMLInputElement>;
 }
 
 class BaseTextInput extends Component<TextInputProps> {
@@ -105,7 +105,7 @@ class BaseTextInput extends Component<TextInputProps> {
       fullWidth,
       icon,
       iconProps,
-      ref,
+      customRef,
       'aria-describedby': ariaDescribedBy,
       ...passProps
     } = this.props;
@@ -138,12 +138,12 @@ class BaseTextInput extends Component<TextInputProps> {
           <HtmlDiv className={textInputClassNames.inputElementContainer}>
             <Debounce waitFor={this.props.debounce}>
               {(debouncer: Function) => (
-                <HtmlInput
+                <HtmlInputWithRef
                   {...passProps}
                   id={id}
                   className={textInputClassNames.inputElement}
                   type={type}
-                  ref={ref}
+                  ref={customRef}
                   placeholder={visualPlaceholder}
                   {...{ 'aria-invalid': status === 'error' }}
                   {...getConditionalAriaProp('aria-describedby', [
@@ -181,15 +181,11 @@ const StyledTextInput = styled(BaseTextInput)`
  */
 export class TextInput extends Component<TextInputProps> {
   render() {
-    return React.forwardRef<HTMLInputElement, TextInputProps>(
-      (props: TextInputProps, ref) => {
-        const { id: propId, ...passProps } = withSuomifiDefaultProps(props);
-        return (
-          <AutoId id={propId}>
-            {(id) => <StyledTextInput id={id} customRef={ref} {...passProps} />}
-          </AutoId>
-        );
-      },
+    const { id: propId, ...passProps } = withSuomifiDefaultProps(this.props);
+    return (
+      <AutoId id={propId}>
+        {(id) => <StyledTextInput id={id} {...passProps} />}
+      </AutoId>
     );
   }
 }
