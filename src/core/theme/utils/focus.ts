@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { themeOrTokens, TokensOrThemeProps } from '../utils';
+import { SuomifiTheme } from '../';
 
 import { radius } from '../radius';
 import { colors } from '../colors';
@@ -15,14 +15,14 @@ export const focus = ({
   outline,
   noPseudo,
   variant = 'afterPseudo',
-  ...tokensOrTheme
-}: TokensOrThemeProps & FocusConfig) => {
+  ...theme
+}: SuomifiTheme & FocusConfig) => {
   const style =
     variant === 'outline' && !!outline
       ? outline
       : variant === 'afterPseudo'
-      ? themeOrTokens(tokensOrTheme).outlines.afterPseudo
-      : themeOrTokens(tokensOrTheme).outlines.boxShadow;
+      ? theme.outlines.afterPseudo
+      : theme.outlines.boxShadow;
   return !!noPseudo
     ? style
     : css`

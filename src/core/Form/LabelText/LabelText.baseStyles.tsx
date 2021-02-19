@@ -5,7 +5,7 @@ import { font } from '../../theme/reset';
 export const baseStyles = css`
   &.fi-label-text {
     & .fi-label-text_label-span {
-      ${font({ theme })('actionElementInnerTextBold')};
+      ${font(theme)('actionElementInnerTextBold')};
       display: block;
       margin-bottom: ${theme.spacing.xs};
       color: ${theme.colors.blackBase};

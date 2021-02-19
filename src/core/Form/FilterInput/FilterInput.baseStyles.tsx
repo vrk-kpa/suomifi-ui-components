@@ -5,7 +5,7 @@ import { absoluteFocus } from '../../theme/utils';
 
 export const baseStyles = css`
   & .fi-filter-input {
-    ${font({ theme })('bodyText')}
+    ${font(theme)('bodyText')}
   }
 
   & .fi-filter-input_wrapper {
@@ -18,7 +18,7 @@ export const baseStyles = css`
   }
 
   & .fi-filter-input_input-element-container {
-    ${containerIEFocus({ theme })}
+    ${containerIEFocus(theme)}
 
     &:focus-within {
       position: relative;
@@ -30,7 +30,7 @@ export const baseStyles = css`
   }
 
   & .fi-filter-input_input {
-    ${input({ theme })}
+    ${input(theme)}
     background-color: ${theme.colors.whiteBase};
     min-width: 40px;
     width: 100%;

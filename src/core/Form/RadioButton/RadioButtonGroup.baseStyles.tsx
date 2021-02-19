@@ -3,8 +3,8 @@ import { defaultThemeTokens as theme } from '../../theme';
 import { element, font } from '../../theme/reset';
 
 export const baseStyles = css`
-  ${element({ theme })}
-  ${font({ theme })('bodyText')}
+  ${element(theme)}
+  ${font(theme)('bodyText')}
 
     &.fi-radio-button-group {
     & .fi-radio-button-group_label {

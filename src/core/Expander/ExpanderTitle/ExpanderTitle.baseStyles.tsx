@@ -5,8 +5,8 @@ import { allStates } from '../../../utils/css';
 import { absoluteFocus, noMouseFocus } from '../../theme/utils';
 
 export const expanderTitleBaseStyles = css`
-  ${element({ theme })}
-  ${font({ theme })('bodyText')}
+  ${element(theme)}
+  ${font(theme)('bodyText')}
   font-size: ${theme.typography.bodySemiBold};
   position: relative;
   display: block;
@@ -26,7 +26,7 @@ export const expanderTitleBaseStyles = css`
   }
 
   & .fi-expander_title-button {
-    ${button({ theme })}
+    ${button(theme)}
     font-size: ${theme.typography.bodySemiBold};
     color: ${theme.colors.highlightBase};
     display: inline-block;

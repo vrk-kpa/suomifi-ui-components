@@ -4,7 +4,7 @@ import { element, font } from '../../theme/reset';
 import { absoluteFocus, noMouseFocus } from '../../theme/utils';
 
 export const baseStyles = css`
-  ${element({ theme })}
+  ${element(theme)}
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -50,8 +50,8 @@ export const baseStyles = css`
   }
 
   & > .fi-expander-group_all-button {
-    ${element({ theme })}
-    ${font({ theme })('actionElementInnerTextBold')}
+    ${element(theme)}
+    ${font(theme)('actionElementInnerTextBold')}
     flex: 1 1 auto;
     align-self: flex-end;
     margin-left: auto;

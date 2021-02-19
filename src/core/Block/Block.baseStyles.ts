@@ -4,8 +4,8 @@ import { element, font } from '../theme/reset';
 import { spacingModifiers } from '../theme/utils';
 
 export const baseStyles = css`
-  ${element({ theme })}
-  ${font({ theme })('bodyText')}
-  ${spacingModifiers({ theme })('margin')('&.fi-block--margin')}
-  ${spacingModifiers({ theme })('padding')('&.fi-block--padding')}
+  ${element(theme)}
+  ${font(theme)('bodyText')}
+  ${spacingModifiers(theme)('margin')('&.fi-block--margin')}
+  ${spacingModifiers(theme)('padding')('&.fi-block--padding')}
 `;

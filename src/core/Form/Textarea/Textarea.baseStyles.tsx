@@ -5,8 +5,8 @@ import { element, font } from '../../theme/reset';
 import { absoluteFocus } from '../../theme/utils/focus';
 
 export const baseStyles = css`
-  ${element({ theme })}
-  ${font({ theme })('bodyText')}
+  ${element(theme)}
+  ${font(theme)('bodyText')}
 
     &.fi-textarea {
     display: flex;

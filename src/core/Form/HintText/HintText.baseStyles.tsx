@@ -7,6 +7,6 @@ export const baseStyles = css`
     display: block;
     color: ${theme.colors.blackBase};
     margin-bottom: ${theme.spacing.xs};
-    ${font({ theme })('bodyTextSmall')};
+    ${font(theme)('bodyTextSmall')};
   }
 `;

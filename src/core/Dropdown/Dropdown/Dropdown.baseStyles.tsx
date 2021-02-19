@@ -5,7 +5,7 @@ import { absoluteFocus } from '../../theme/utils';
 
 export const baseStyles = css`
   & [data-reach-listbox-button].fi-dropdown_button {
-    ${inputButton({ theme })}
+    ${inputButton(theme)}
     position: relative;
     display: inline-block;
     word-break: break-word;
@@ -56,7 +56,7 @@ export const baseStyles = css`
     }
   }
   &[data-reach-listbox-popover].fi-dropdown_popover {
-    ${element({ theme })}
+    ${element(theme)}
     ${theme.typography.actionElementInnerText}
       margin-top: -1px;
     padding: 0;

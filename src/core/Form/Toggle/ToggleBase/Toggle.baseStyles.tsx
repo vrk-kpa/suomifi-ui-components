@@ -13,8 +13,8 @@ export const focusOverrides = css`
 `;
 
 export const toggleBaseStyles = css`
-  ${element({ theme })}
-  ${font({ theme })('bodyText')}
+  ${element(theme)}
+  ${font(theme)('bodyText')}
   background-color: ${theme.colors.whiteBase};
   padding-left: 50px;
   position: relative;

@@ -5,8 +5,8 @@ import { allStates } from '../../utils/css';
 import { boxShadowFocus } from '../theme/utils/focus';
 
 export const baseStyles = css`
-  ${element({ theme })}
-  ${font({ theme })('bodyText')}
+  ${element(theme)}
+  ${font(theme)('bodyText')}
     ${allStates(`color: ${theme.colors.highlightBase};`)};
   color: ${theme.colors.highlightBase};
   text-decoration: none;

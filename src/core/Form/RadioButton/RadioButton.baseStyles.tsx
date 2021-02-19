@@ -6,8 +6,8 @@ import { boxShadowFocus } from '../../theme/utils/focus';
 
 /* stylelint-disable no-descending-specificity */
 export const baseStyles = css`
-  ${element({ theme })}
-  ${font({ theme })('bodyText')}
+  ${element(theme)}
+  ${font(theme)('bodyText')}
 
     &.fi-radio-button {
     position: relative;

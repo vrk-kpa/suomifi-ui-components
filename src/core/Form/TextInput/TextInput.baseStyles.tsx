@@ -6,7 +6,7 @@ import { math } from 'polished';
 
 export const baseStyles = css`
   &.fi-text-input {
-    ${font({ theme })('bodyText')}
+    ${font(theme)('bodyText')}
     width: 290px;
   }
 
@@ -16,7 +16,7 @@ export const baseStyles = css`
   }
 
   & .fi-text-input_input-element-container {
-    ${containerIEFocus({ theme })}
+    ${containerIEFocus(theme)}
 
     &:focus-within {
       position: relative;
@@ -32,7 +32,7 @@ export const baseStyles = css`
   }
 
   & .fi-text-input_input {
-    ${input({ theme })}
+    ${input(theme)}
     background-color: ${theme.colors.whiteBase};
     min-width: 40px;
     width: 100%;

@@ -4,21 +4,21 @@ import { cssValueToString } from '../../utils/css';
 import { nav, list, listItem, font } from '../theme/reset';
 
 export const baseStyles = css`
-  ${nav({ theme })}
-  ${font({ theme })('bodyTextSmall')}
+  ${nav(theme)}
+  ${font(theme)('bodyTextSmall')}
     background-color: ${theme.colors.whiteBase};
   height: 1.5em;
 
   & .fi-breadcrumb {
     &_list {
-      ${list({ theme })}
-      ${font({ theme })('bodyTextSmall')}
+      ${list(theme)}
+      ${font(theme)('bodyTextSmall')}
         margin: 0;
       padding: 0;
     }
     &_item {
-      ${listItem({ theme })}
-      ${font({ theme })('bodyTextSmall')}
+      ${listItem(theme)}
+      ${font(theme)('bodyTextSmall')}
         float: left;
       color: ${theme.colors.depthDark1};
     }

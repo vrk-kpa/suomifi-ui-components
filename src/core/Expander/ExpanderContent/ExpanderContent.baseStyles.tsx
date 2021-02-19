@@ -4,8 +4,8 @@ import { element, font } from '../../theme/reset';
 import { padding } from '../../theme/utils';
 
 export const baseStyles = css`
-  ${element({ theme })}
-  ${font({ theme })('bodyText')}
+  ${element(theme)}
+  ${font(theme)('bodyText')}
     background-color: ${theme.colors.whiteBase};
   border-radius: inherit;
   position: relative;
@@ -35,7 +35,7 @@ export const baseStyles = css`
     animation: fi-expander_content-anim ${theme.transitions.basicTime}
       ${theme.transitions.basicTimingFunction} 1 forwards;
     &:not(.fi-expander_content--no-padding) {
-      ${padding({ theme })('0', 'm', 'm', 'm')}
+      ${padding(theme)('0', 'm', 'm', 'm')}
     }
   }
   @keyframes fi-expander_content-anim {

@@ -24,9 +24,9 @@ export const baseStyles = css`
   }
 
   & .fi-toggle_input-element {
-    ${element({ theme })}
-    ${font({ theme })('bodyText')}
-      position: absolute;
+    ${element(theme)}
+    ${font(theme)('bodyText')}
+    position: absolute;
     width: ${iconWidth};
     height: ${iconHeight};
     opacity: 0;

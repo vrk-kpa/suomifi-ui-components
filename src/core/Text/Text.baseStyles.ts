@@ -3,24 +3,24 @@ import { defaultThemeTokens as theme } from '../theme';
 import { element, font } from '../theme/reset';
 
 export const baseStyles = css`
-  ${element({ theme })}
-  ${font({ theme })('bodyText')}
+  ${element(theme)}
+  ${font(theme)('bodyText')}
     color: ${theme.colors.blackBase};
 
   &.fi-text {
     &--bold {
-      ${font({ theme })('bodySemiBold')}
+      ${font(theme)('bodySemiBold')}
     }
     &--lead {
-      ${font({ theme })('leadText')}
+      ${font(theme)('leadText')}
     }
     &--small-screen {
-      ${font({ theme })('bodyTextSmall')}
+      ${font(theme)('bodyTextSmall')}
       &.fi-text--bold {
-        ${font({ theme })('bodySemiBoldSmall')}
+        ${font(theme)('bodySemiBoldSmall')}
       }
       &.fi-text--lead {
-        ${font({ theme })('leadTextSmallScreen')}
+        ${font(theme)('leadTextSmallScreen')}
       }
     }
   }

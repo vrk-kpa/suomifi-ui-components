@@ -1,8 +1,5 @@
 import { SpacingProp, spacingTokensKeys } from '../spacing';
-
-// TODO make this whole util again to work with suomifiTheme-util
-
-import { SuomifiThemeProp, SuomifiTheme } from '../';
+import { SuomifiTheme } from '../';
 
 export type SpacingWithoutInsetProp =
   | 'xxs'
@@ -56,13 +53,12 @@ const space = (theme: SuomifiTheme) => (type: 'padding' | 'margin') => (
  * Set margin based on theme
  * @param {Object} theme
  */
-export const margin = (props: SuomifiThemeProp) => space(props.theme)('margin');
+export const margin = (theme: SuomifiTheme) => space(theme)('margin');
 /**
  * Set padding based on theme
  * @param {Object} theme
  */
-export const padding = (props: SuomifiThemeProp) =>
-  space(props.theme)('padding');
+export const padding = (theme: SuomifiTheme) => space(theme)('padding');
 
 /**
  * Create spacing styles for CSS-selector (-xxs, -xs, -s...)
@@ -70,13 +66,13 @@ export const padding = (props: SuomifiThemeProp) =>
  * @param {Object} tokens Design tokens
  * @return {(spacingType) => (selector: String) => String}
  */
-export const spacingModifiers = (props: SuomifiThemeProp) => (
+export const spacingModifiers = (theme: SuomifiTheme) => (
   spacing: 'padding' | 'margin' | 'margin-bottom',
 ) => (selector: string) =>
   spacingTokensKeys.reduce(
     (ret, k) =>
       `${ret}${selector}-${k}{
-        ${spacing}: ${spaceVal(props.theme)(k)}
+        ${spacing}: ${spaceVal(theme)(k)}
   } `,
     '',
   );

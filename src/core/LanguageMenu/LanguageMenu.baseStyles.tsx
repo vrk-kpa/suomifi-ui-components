@@ -5,12 +5,12 @@ import { absoluteFocus } from '../theme/utils/focus';
 
 export const baseStyles = css`
   & > [data-reach-menu-button].fi-language-menu_button {
-    ${element({ theme })}
+    ${element(theme)}
     ${theme.typography.bodyText}
       cursor: pointer;
 
     &.fi-language-menu-language_button {
-      ${element({ theme })}
+      ${element(theme)}
       ${theme.typography.actionElementInnerTextBold}
         padding: 9px ${theme.spacing.xs};
       line-height: 24px;
@@ -50,7 +50,7 @@ export const baseStyles = css`
 
 export const languageMenuPopoverStyles = css`
   &[data-reach-menu-popover].fi-language-menu_popover {
-    ${element({ theme })}
+    ${element(theme)}
     ${theme.typography.bodyText}
       margin-top: -2px;
     background-color: ${theme.colors.whiteBase};
@@ -95,7 +95,7 @@ export const languageMenuPopoverStyles = css`
   }
 
   & [data-reach-menu-item].fi-language-menu_item {
-    ${element({ theme })}
+    ${element(theme)}
     ${theme.typography.bodyText}
       word-break: break-word;
     &[data-selected] {

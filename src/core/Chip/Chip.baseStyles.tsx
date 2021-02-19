@@ -30,8 +30,8 @@ const disabledStyles = css`
 `;
 
 export const baseStyles = css`
-  ${element({ theme })}
-  ${font({ theme })('actionElementInnerTextBold')}
+  ${element(theme)}
+  ${font(theme)('actionElementInnerTextBold')}
 
     &:focus {
     outline: 0;

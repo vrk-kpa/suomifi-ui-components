@@ -87,7 +87,7 @@ const tertiaryStyles = css`
 `;
 
 export const baseStyles = css`
-  ${button({ theme })}
+  ${button(theme)}
   padding: ${theme.spacing.insetL} ${theme.spacing.insetXxl};
   min-height: 40px;
   color: ${theme.colors.whiteBase};

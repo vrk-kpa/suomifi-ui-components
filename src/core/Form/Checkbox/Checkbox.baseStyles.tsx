@@ -85,8 +85,8 @@ const largeVariantStyles = css`
 `;
 
 export const baseStyles = css`
-  ${element({ theme })}
-  ${font({ theme })('bodyText')}
+  ${element(theme)}
+  ${font(theme)('bodyText')}
 
     & .fi-checkbox_label {
     position: relative;

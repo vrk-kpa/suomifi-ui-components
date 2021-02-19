@@ -4,7 +4,7 @@ import { element } from '../../theme/reset';
 
 export const baseStyles = css`
   &[data-reach-listbox-option].fi-dropdown_item {
-    ${element({ theme })}
+    ${element(theme)}
     ${theme.typography.actionElementInnerText}
       line-height: 1.5;
     padding: ${theme.spacing.insetM};

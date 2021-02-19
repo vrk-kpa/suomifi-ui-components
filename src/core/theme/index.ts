@@ -34,22 +34,6 @@ export interface PartialTokens {
   spacing?: Partial<SpacingDesignTokens>;
   typography?: Partial<TypographyDesignTokens>;
 }
-export interface TokensProp {
-  /** Custom  Design-tokens or one category of tokens customized, clone defaultTokens for base */
-  tokens?: PartialTokens;
-}
-
-export interface InternalTokensProp {
-  tokens: SuomifiTokens;
-}
-
-export interface SuomifiThemeProp {
-  theme: SuomifiTheme;
-}
-
-export interface TokensAndTheme extends SuomifiThemeProp {
-  tokens: SuomifiTokens;
-}
 
 type DefaultInternalTokens = typeof internalTokens;
 const internalTokens = {
