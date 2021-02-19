@@ -1,5 +1,4 @@
 import './fontFaces.css';
-import { FlattenSimpleInterpolation } from 'styled-components';
 import {
   colors as colorTokens,
   shadows,
@@ -130,15 +129,3 @@ const mergeTokens = <T>({
     }),
     Object.assign({}, defaultTokens) as T,
   );
-
-/**
- * Function that will add theme to baseStyles-function using tokens
- * @param {function} baseStyles Function that will get components' props including tokens-prop and return CSS-styles
- */
-export const withSuomifiTheme = (
-  baseStyles: <K>(props: K & TokensAndTheme) => FlattenSimpleInterpolation,
-) => <T extends InternalTokensProp>({
-  tokens,
-  ...passProps
-}: { tokens: SuomifiTokens } & T) =>
-  baseStyles({ ...passProps, tokens, theme: suomifiTheme(tokens) });
