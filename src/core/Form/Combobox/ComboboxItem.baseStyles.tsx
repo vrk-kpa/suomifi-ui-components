@@ -1,7 +1,6 @@
 import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../../theme';
 import { font } from '../../theme/reset';
-import { absoluteFocus } from '../../theme/utils';
 
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
@@ -14,9 +13,6 @@ export const baseStyles = withSuomifiTheme(
         outline: 0;
         position: relative;
 
-        &::after {
-          ${absoluteFocus}
-        }
         & .fi-checkbox {
           background-color: ${theme.colors.highlightBase};
           color: ${theme.colors.whiteBase};
