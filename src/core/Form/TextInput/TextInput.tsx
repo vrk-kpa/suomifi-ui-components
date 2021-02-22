@@ -192,7 +192,7 @@ const StyledTextInput = styled(
  */
 export const TextInput = React.forwardRef(
   (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
-    const { id: propId, ...passProps } = withSuomifiDefaultProps(props);
+    const { id: propId, ...passProps } = props;
     return (
       <AutoId id={propId}>
         {(id) => <StyledTextInput id={id} forwardedRef={ref} {...passProps} />}
