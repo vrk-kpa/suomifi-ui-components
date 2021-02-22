@@ -34,7 +34,7 @@ export const textInputClassNames = {
 
 type TextInputValue = string | number | undefined;
 
-export interface TextInputProps
+interface InternalTextInputProps
   extends Omit<HtmlInputProps, 'type' | 'onChange'> {
   /** TextInput container div class name for custom styling. */
   className?: string;
@@ -83,11 +83,18 @@ export interface TextInputProps
   icon?: BaseIconKeys;
   /** Properties for the icon */
   iconProps?: Omit<IconProps, 'icon'>;
-  /** Ref object to be passed */
-  customRef?: React.ForwardedRef<HTMLInputElement>;
 }
 
-class BaseTextInput extends Component<TextInputProps> {
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLInputElement>;
+}
+
+export interface TextInputProps extends InternalTextInputProps {
+  /** Ref object to be passed */
+  ref?: React.RefObject<HTMLInputElement>;
+}
+
+class BaseTextInput extends Component<TextInputProps & InnerRef> {
   render() {
     const {
       className,
@@ -105,7 +112,7 @@ class BaseTextInput extends Component<TextInputProps> {
       fullWidth,
       icon,
       iconProps,
-      customRef,
+      forwardedRef,
       'aria-describedby': ariaDescribedBy,
       ...passProps
     } = this.props;
@@ -143,7 +150,7 @@ class BaseTextInput extends Component<TextInputProps> {
                   id={id}
                   className={textInputClassNames.inputElement}
                   type={type}
-                  ref={customRef}
+                  forwardedRef={forwardedRef}
                   placeholder={visualPlaceholder}
                   {...{ 'aria-invalid': status === 'error' }}
                   {...getConditionalAriaProp('aria-describedby', [
@@ -170,7 +177,11 @@ class BaseTextInput extends Component<TextInputProps> {
   }
 }
 
-const StyledTextInput = styled(BaseTextInput)`
+const StyledTextInput = styled(
+  ({ ...passProps }: InternalTextInputProps & InnerRef) => {
+    return <BaseTextInput {...passProps} />;
+  },
+)`
   ${baseStyles}
 `;
 
@@ -179,13 +190,13 @@ const StyledTextInput = styled(BaseTextInput)`
  * Use for user inputting text.
  * Props other than specified explicitly are passed on to underlying input element.
  */
-export class TextInput extends Component<TextInputProps> {
-  render() {
-    const { id: propId, ...passProps } = withSuomifiDefaultProps(this.props);
+export const TextInput = React.forwardRef(
+  (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
+    const { id: propId, ...passProps } = withSuomifiDefaultProps(props);
     return (
       <AutoId id={propId}>
-        {(id) => <StyledTextInput id={id} {...passProps} />}
+        {(id) => <StyledTextInput id={id} forwardedRef={ref} {...passProps} />}
       </AutoId>
     );
-  }
-}
+  },
+);
