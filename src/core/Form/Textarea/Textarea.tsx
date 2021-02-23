@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Textarea.baseStyles';
 import {
-  HtmlTextarea,
+  HtmlTextareaWithRef,
   HtmlTextareaProps,
   HtmlDiv,
   HtmlDivProps,
@@ -29,7 +29,7 @@ const textareaClassNames = {
 
 type TextareaStatus = Exclude<InputStatus, 'success'>;
 
-export interface TextareaProps extends Omit<HtmlTextareaProps, 'placeholder'> {
+interface InternalTextareaProps extends Omit<HtmlTextareaProps, 'placeholder'> {
   /** Custom classname to extend or customize */
   className?: string;
   /** Disable usage */
@@ -79,7 +79,16 @@ export interface TextareaProps extends Omit<HtmlTextareaProps, 'placeholder'> {
   containerProps?: Omit<HtmlDivProps, 'className'>;
 }
 
-class BaseTextarea extends Component<TextareaProps> {
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLTextAreaElement>;
+}
+
+export interface TextareaProps extends InternalTextareaProps {
+  /** Ref object to be passed */
+  ref?: React.RefObject<HTMLTextAreaElement>;
+}
+
+class BaseTextarea extends Component<TextareaProps & InnerRef> {
   render() {
     const {
       id,
@@ -98,6 +107,7 @@ class BaseTextarea extends Component<TextareaProps> {
       'aria-describedby': ariaDescribedBy,
       fullWidth,
       containerProps,
+      forwardedRef,
       ...passProps
     } = this.props;
 
@@ -124,7 +134,7 @@ class BaseTextarea extends Component<TextareaProps> {
         </LabelText>
         <HintText id={hintTextId}>{hintText}</HintText>
         <HtmlDiv className={textareaClassNames.textareaContainer}>
-          <HtmlTextarea
+          <HtmlTextareaWithRef
             id={id}
             className={classnames(textareaClassNames.textarea, {
               [textareaClassNames.resizeBoth]: resize === 'both',
@@ -133,6 +143,7 @@ class BaseTextarea extends Component<TextareaProps> {
             })}
             disabled={disabled}
             defaultValue={children}
+            forwardedRef={forwardedRef}
             placeholder={visualPlaceholder}
             aria-invalid={status === 'error'}
             {...getConditionalAriaProp('aria-describedby', [
@@ -152,17 +163,21 @@ class BaseTextarea extends Component<TextareaProps> {
   }
 }
 
-const StyledTextarea = styled(BaseTextarea)`
+const StyledTextarea = styled(
+  ({ ...passProps }: InternalTextareaProps & InnerRef) => (
+    <BaseTextarea {...passProps} />
+  ),
+)`
   ${baseStyles}
 `;
 
-export class Textarea extends Component<TextareaProps> {
-  render() {
-    const { id: propId, ...passProps } = this.props;
+export const Textarea = React.forwardRef(
+  (props: TextareaProps, ref: React.Ref<HTMLTextAreaElement>) => {
+    const { id: propId, ...passProps } = props;
     return (
       <AutoId id={propId}>
-        {(id) => <StyledTextarea id={id} {...passProps} />}
+        {(id) => <StyledTextarea id={id} forwardedRef={ref} {...passProps} />}
       </AutoId>
     );
-  }
-}
+  },
+);

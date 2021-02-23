@@ -1,11 +1,17 @@
 ```js
 import { Textarea } from 'suomifi-ui-components';
+import React from 'react';
 
+const testiReffi = React.createRef();
 <>
   <Textarea
     hintText="Example hint text"
     labelText="Textarea with hint and optional texts"
     optionalText="optional"
+    ref={testiReffi}
+    onChange={() => {
+      console.log(testiReffi.current);
+    }}
   >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
     vestibulum iaculis augue, sit amet tincidunt ipsum.
