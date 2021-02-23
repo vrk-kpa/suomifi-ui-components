@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { withSuomifiDefaultProps } from '../../theme/utils';
-import { TokensProp, InternalTokensProp } from '../../theme';
-import { HtmlDiv, HtmlDivProps } from '../../../reset';
-import { AutoId } from '../../../utils/AutoId';
+import { withSuomifiDefaultProps } from '../../../theme/utils';
+import { TokensProp, InternalTokensProp } from '../../../theme';
+import { HtmlDiv, HtmlDivProps } from '../../../../reset';
+import { AutoId } from '../../../../utils/AutoId';
 import { baseStyles } from './ChipList.baseStyles';
 
 const baseClassName = 'fi-chip-list';
