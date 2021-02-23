@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Checkbox.baseStyles';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { HtmlInput, HtmlLabel, HtmlDiv } from '../../../reset';
+import { HtmlLabel, HtmlDiv, HtmlInputWithRef } from '../../../reset';
 import { logger } from '../../../utils/logger';
 import { Icon } from '../../Icon/Icon';
 import { AutoId } from '../../../utils/AutoId';
@@ -35,7 +35,7 @@ const iconClassnames = {
 
 type CheckboxStatus = Exclude<InputStatus, 'success'>;
 
-export interface CheckboxProps {
+interface InternalCheckboxProps {
   /** Controlled checked-state - user actions use onClick to change  */
   checked?: boolean;
   /** Default status of Checkbox when not using controlled 'checked' state
@@ -95,7 +95,16 @@ export interface CheckboxProps {
   value?: string;
 }
 
-class BaseCheckbox extends Component<CheckboxProps> {
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLInputElement>;
+}
+
+export interface CheckboxProps extends InternalCheckboxProps {
+  /** Ref object to be passed */
+  ref?: React.RefObject<HTMLInputElement>;
+}
+
+class BaseCheckbox extends Component<CheckboxProps & InnerRef> {
   state = {
     checkedState: !!this.props.checked || !!this.props.defaultChecked,
   };
@@ -139,6 +148,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
       statusText,
       name,
       value,
+      forwardedRef,
       onClick,
       variant,
       ...passProps
@@ -189,7 +199,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
           },
         )}
       >
-        <HtmlInput
+        <HtmlInputWithRef
           type="checkbox"
           disabled={disabled}
           id={id}
@@ -205,6 +215,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
           className={checkboxClassNames.input}
           onChange={this.handleClick}
           name={name}
+          forwardedRef={forwardedRef}
           {...(value ? { value } : {})}
         />
         <HtmlLabel
@@ -224,17 +235,21 @@ class BaseCheckbox extends Component<CheckboxProps> {
   }
 }
 
-const StyledCheckbox = styled(BaseCheckbox)`
+const StyledCheckbox = styled(
+  ({ ...passProps }: InternalCheckboxProps & InnerRef) => (
+    <BaseCheckbox {...passProps} />
+  ),
+)`
   ${baseStyles}
 `;
 
-export class Checkbox extends Component<CheckboxProps> {
-  render() {
-    const { id: propId, ...passProps } = this.props;
+export const Checkbox = React.forwardRef(
+  (props: CheckboxProps, ref: React.RefObject<HTMLInputElement>) => {
+    const { id: propId, ...passProps } = props;
     return (
       <AutoId id={propId}>
-        {(id) => <StyledCheckbox id={id} {...passProps} />}
+        {(id) => <StyledCheckbox id={id} forwardedRef={ref} {...passProps} />}
       </AutoId>
     );
-  }
-}
+  },
+);

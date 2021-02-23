@@ -1,10 +1,19 @@
 ```js
 import { Checkbox } from 'suomifi-ui-components';
-import { useState } from 'react';
+import React from 'react';
 
-const [checked, setChecked] = useState(false);
+const testi = React.createRef();
+
+const [checked, setChecked] = React.useState(false);
 <>
-  <Checkbox defaultChecked hintText="This is an example hint text">
+  <Checkbox
+    defaultChecked
+    hintText="This is an example hint text"
+    ref={testi}
+    onClick={() => {
+      console.log(testi.current);
+    }}
+  >
     Regular checkbox that is checked and has a hint text
   </Checkbox>
 
