@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlUlWithRef } from '../../../reset';
-import { TokensProp, InternalTokensProp } from '../../theme';
-import { withSuomifiDefaultProps } from '../../theme/utils';
+import { HtmlDiv, HtmlUlWithRef } from '../../../../reset';
+import { TokensProp, InternalTokensProp } from '../../../theme';
+import { withSuomifiDefaultProps } from '../../../theme/utils';
 import { baseStyles } from './ComboboxItemList.baseStyles';
-import { ComboboxItemProps } from './ComboboxItem';
+import { ComboboxItemProps } from '../ComboboxItem/ComboboxItem';
 
 const baseClassName = 'fi-combobox-item-list';
 

@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv } from '../../../reset';
-import { TokensProp, InternalTokensProp } from '../../theme';
-import { withSuomifiDefaultProps } from '../../theme/utils';
-import { AutoId } from '../../../utils/AutoId';
-import { windowAvailable } from '../../../utils/common';
-import { Button } from '../../Button/Button';
-import { Chip } from '../../Chip/Chip';
-import { FilterInput } from '../FilterInput/FilterInput';
-import { Popover } from '../../Popover/Popover';
-import { ComboboxItemList } from './ComboboxItemList';
-import { ComboboxItem } from './ComboboxItem';
-import { ComboboxEmptyItem } from './ComboboxEmptyItem';
-import { ChipList } from './ChipList';
+import { HtmlDiv } from '../../../../reset';
+import { TokensProp, InternalTokensProp } from '../../../theme';
+import { withSuomifiDefaultProps } from '../../../theme/utils';
+import { AutoId } from '../../../../utils/AutoId';
+import { windowAvailable } from '../../../../utils/common';
+import { Button } from '../../../Button/Button';
+import { Chip } from '../../../Chip/Chip';
+import { FilterInput } from '../../FilterInput/FilterInput';
+import { Popover } from '../../../Popover/Popover';
+import { ComboboxItemList } from '../ComboboxItemList/ComboboxItemList';
+import { ComboboxItem } from '../ComboboxItem/ComboboxItem';
+import { ComboboxEmptyItem } from '../ComboboxEmptyItem/ComboboxEmptyItem';
+import { ChipList } from '../ChipList/ChipList';
 import { baseStyles } from './Combobox.baseStyles';
 
 const baseClassName = 'fi-combobox';
@@ -141,19 +141,28 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   };
 
   handleRemoveAllSelections = () => {
-    this.setState((prevState: ComboboxState<T & ComboboxData>) => {
-      const { selectedItems } = prevState;
-      const disabledItems = [];
-      const newSelectedKeys: SelectedItemKeys = {};
-      // eslint-disable-next-line no-restricted-syntax
-      for (const item of selectedItems) {
-        if (item.disabled) {
-          disabledItems.push(item);
-          newSelectedKeys[item.labelText] = false;
+    this.setState(
+      (
+        prevState: ComboboxState<T & ComboboxData>,
+        prevProps: ComboboxProps<T & ComboboxData>,
+      ) => {
+        const { selectedItems } = prevState;
+        const { onItemSelectionsChange } = prevProps;
+        const disabledItems = [];
+        const newSelectedKeys: SelectedItemKeys = {};
+        // eslint-disable-next-line no-restricted-syntax
+        for (const item of selectedItems) {
+          if (item.disabled) {
+            disabledItems.push(item);
+            newSelectedKeys[item.labelText] = false;
+          }
         }
-      }
-      return { selectedKeys: newSelectedKeys, selectedItems: disabledItems };
-    });
+        if (onItemSelectionsChange) {
+          onItemSelectionsChange(disabledItems);
+        }
+        return { selectedKeys: newSelectedKeys, selectedItems: disabledItems };
+      },
+    );
   };
 
   render() {

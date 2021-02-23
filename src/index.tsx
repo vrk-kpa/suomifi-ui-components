@@ -25,6 +25,9 @@ export {
   RadioButtonProps,
   RadioButtonGroup,
   RadioButtonGroupProps,
+  Combobox,
+  ComboboxProps,
+  ComboboxData,
 } from './core/Form/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';
@@ -78,4 +81,3 @@ export { Text, TextProps } from './core/Text/Text';
 export { Textarea, TextareaProps } from './core/Form/Textarea/Textarea';
 export { VisuallyHidden } from './core/VisuallyHidden/VisuallyHidden';
 export { suomifiDesignTokens, DesignTokens } from 'suomifi-design-tokens';
-export { Combobox, ComboboxProps, ComboboxData } from './core/Form/Form';

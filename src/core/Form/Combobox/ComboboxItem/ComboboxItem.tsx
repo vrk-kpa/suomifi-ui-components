@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlLi } from '../../../reset';
-import { TokensProp, InternalTokensProp } from '../../theme';
-import { withSuomifiDefaultProps } from '../../theme/utils';
-import { CheckboxProps, Checkbox } from '../Checkbox/Checkbox';
+import { HtmlDiv, HtmlLi } from '../../../../reset';
+import { TokensProp, InternalTokensProp } from '../../../theme';
+import { withSuomifiDefaultProps } from '../../../theme/utils';
+import { CheckboxProps, Checkbox } from '../../Checkbox/Checkbox';
 import { baseStyles } from './ComboboxItem.baseStyles';
 
 const baseClassName = 'fi-combobox-item';
