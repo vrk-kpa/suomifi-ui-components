@@ -223,7 +223,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
                       !!statusText ? statusTextId : undefined,
                       ariaDescribedBy,
                     ])}
-                    forwardRef={this.inputRef}
+                    forwardedRef={this.inputRef}
                     aria-invalid={status === 'error'}
                     id={id}
                     className={searchInputClassNames.inputElement}
