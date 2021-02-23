@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlLi } from '../../../reset';
-import { TokensProp, InternalTokensProp } from '../../theme';
-import { withSuomifiDefaultProps } from '../../theme/utils';
+import { HtmlDiv, HtmlLi } from '../../../../reset';
+import { TokensProp, InternalTokensProp } from '../../../theme';
+import { withSuomifiDefaultProps } from '../../../theme/utils';
 import { baseStyles } from './ComboboxEmptyItem.baseStyles';
 
 const baseClassName = 'fi-combobox-empty-item';
