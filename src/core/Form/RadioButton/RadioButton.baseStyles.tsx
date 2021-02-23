@@ -38,8 +38,9 @@ export const baseStyles = withSuomifiTheme(
         left: 0px;
 
         + .fi-radio-button_icon_wrapper {
-          top: 5px;
+          top: 3px;
           left: 0;
+          margin: 2px;
           height: 18px;
           width: 18px;
           position: absolute;
@@ -64,6 +65,11 @@ export const baseStyles = withSuomifiTheme(
           + .fi-radio-button_icon_wrapper {
             ${boxShadowFocus}
             border-radius: 50%;
+          }
+        }
+        &:focus:not(:focus-visible) {
+          + .fi-radio-button_icon_wrapper {
+            box-shadow: none;
           }
         }
       }

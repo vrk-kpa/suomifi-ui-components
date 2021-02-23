@@ -264,8 +264,9 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
-  top: 5px;
+  top: 3px;
   left: 0;
+  margin: 2px;
   height: 18px;
   width: 18px;
   position: absolute;
@@ -292,6 +293,10 @@ exports[`default, with only required props should match snapshot 1`] = `
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
 }
 
 .c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
@@ -773,8 +778,9 @@ exports[`props className should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
-  top: 5px;
+  top: 3px;
   left: 0;
+  margin: 2px;
   height: 18px;
   width: 18px;
   position: absolute;
@@ -801,6 +807,10 @@ exports[`props className should match snapshot 1`] = `
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
 }
 
 .c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
@@ -1282,8 +1292,9 @@ exports[`props defaultValue should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
-  top: 5px;
+  top: 3px;
   left: 0;
+  margin: 2px;
   height: 18px;
   width: 18px;
   position: absolute;
@@ -1310,6 +1321,10 @@ exports[`props defaultValue should match snapshot 1`] = `
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
 }
 
 .c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
@@ -1792,8 +1807,9 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
-  top: 5px;
+  top: 3px;
   left: 0;
+  margin: 2px;
   height: 18px;
   width: 18px;
   position: absolute;
@@ -1820,6 +1836,10 @@ exports[`props hintText should match snapshot 1`] = `
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
 }
 
 .c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
@@ -2306,8 +2326,9 @@ exports[`props id should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
-  top: 5px;
+  top: 3px;
   left: 0;
+  margin: 2px;
   height: 18px;
   width: 18px;
   position: absolute;
@@ -2334,6 +2355,10 @@ exports[`props id should match snapshot 1`] = `
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
 }
 
 .c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
@@ -2815,8 +2840,9 @@ exports[`props label should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
-  top: 5px;
+  top: 3px;
   left: 0;
+  margin: 2px;
   height: 18px;
   width: 18px;
   position: absolute;
@@ -2843,6 +2869,10 @@ exports[`props label should match snapshot 1`] = `
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
 }
 
 .c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
@@ -3336,8 +3366,9 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c6.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
-  top: 5px;
+  top: 3px;
   left: 0;
+  margin: 2px;
   height: 18px;
   width: 18px;
   position: absolute;
@@ -3364,6 +3395,10 @@ exports[`props labelMode should match snapshot 1`] = `
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
+}
+
+.c6.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
 }
 
 .c6.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
@@ -3845,8 +3880,9 @@ exports[`props name should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
-  top: 5px;
+  top: 3px;
   left: 0;
+  margin: 2px;
   height: 18px;
   width: 18px;
   position: absolute;
@@ -3873,6 +3909,10 @@ exports[`props name should match snapshot 1`] = `
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
 }
 
 .c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
@@ -4354,8 +4394,9 @@ exports[`props value should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
-  top: 5px;
+  top: 3px;
   left: 0;
+  margin: 2px;
   height: 18px;
   width: 18px;
   position: absolute;
@@ -4382,6 +4423,10 @@ exports[`props value should match snapshot 1`] = `
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
 }
 
 .c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
