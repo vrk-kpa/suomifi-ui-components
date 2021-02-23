@@ -22,3 +22,14 @@ const Textarea = (props: HtmlTextareaProps) => <textarea {...props} />;
 export const HtmlTextarea = styled(Textarea)`
   ${textareaResets}
 `;
+
+const TextareaWithRef = ({
+  forwardedRef,
+  ...passProps
+}: HtmlTextareaProps & {
+  forwardedRef: React.RefObject<HTMLTextAreaElement>;
+}) => <textarea {...passProps} ref={forwardedRef} />;
+
+export const HtmlTextareaWithRef = styled(TextareaWithRef)`
+  ${textareaResets}
+`;

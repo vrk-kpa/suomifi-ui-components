@@ -31,10 +31,10 @@ export const HtmlInput = styled(Input)`
 
 const InputWithRef = ({
   type,
-  forwardRef,
+  forwardedRef,
   ...passProps
-}: HtmlInputProps & { forwardRef: React.RefObject<HTMLInputElement> }) => (
-  <input {...passProps} type={!!type ? type : 'text'} ref={forwardRef} />
+}: HtmlInputProps & { forwardedRef: React.RefObject<HTMLInputElement> }) => (
+  <input {...passProps} type={!!type ? type : 'text'} ref={forwardedRef} />
 );
 
 export const HtmlInputWithRef = styled(InputWithRef)`

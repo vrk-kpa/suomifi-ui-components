@@ -1,5 +1,9 @@
 export { HtmlA, HtmlAProps } from './HtmlA/HtmlA';
-export { HtmlButton, HtmlButtonProps } from './HtmlButton/HtmlButton';
+export {
+  HtmlButton,
+  HtmlButtonProps,
+  HtmlButtonWithRef,
+} from './HtmlButton/HtmlButton';
 export { HtmlDiv, HtmlDivProps } from './HtmlDiv/HtmlDiv';
 export { HtmlFieldSet, HtmlFieldSetProps } from './HtmlFieldSet/HtmlFieldSet';
 export { HtmlH, HtmlHProps } from './HtmlH/HtmlH';
@@ -14,4 +18,8 @@ export { HtmlLi, HtmlLiProps } from './HtmlLi/HtmlLi';
 export { HtmlNav, HtmlNavProps } from './HtmlNav/HtmlNav';
 export { HtmlOl, HtmlOlProps } from './HtmlOl/HtmlOl';
 export { HtmlSpan, HtmlSpanProps } from './HtmlSpan/HtmlSpan';
-export { HtmlTextarea, HtmlTextareaProps } from './HtmlTextarea/HtmlTextarea';
+export {
+  HtmlTextarea,
+  HtmlTextareaProps,
+  HtmlTextareaWithRef,
+} from './HtmlTextarea/HtmlTextarea';
