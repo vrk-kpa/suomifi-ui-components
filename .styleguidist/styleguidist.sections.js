@@ -104,6 +104,12 @@ module.exports = {
               name: 'Icon',
               components: getComponents(['Icon', 'StaticIcon']),
             },
+            {
+              name: 'Combobox',
+              components: getComponentWithVariants('Form/Combobox')([
+                'Combobox/Combobox',
+              ]),
+            },
           ],
           expand: true,
         },
