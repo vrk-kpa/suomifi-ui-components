@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaultProps } from '../theme/utils';
-import { iconBaseStyles } from '../Icon/Icon.baseStyles';
+import classnames from 'classnames';
 import {
   SuomifiStaticIcon,
   SuomifiStaticIconInterface,
   SuomifiComponentIconInterface,
   SuomifiComponentIcon,
 } from 'suomifi-icons';
+import { withSuomifiDefaultProps } from '../theme/utils';
 import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
+import { iconBaseStyles } from '../Icon/Icon.baseStyles';
 import { IconBaseProps, iconLogger } from '../Icon/Icon';
 export { IllustrativeIconKeys, DoctypeIconKeys } from 'suomifi-icons';
+
+const baseClassName = 'fi-static-icon';
 
 export interface StaticIconProps
   extends IconBaseProps,
@@ -44,14 +47,16 @@ export class StaticIcon extends Component<StaticIconProps> {
       icon,
       tokens,
       highlightColor,
+      className,
       ...passProps
     } = withSuomifiDefaultProps(this.props);
-    const { className, ariaLabel } = this.props;
+    const { ariaLabel } = this.props;
 
     if (icon !== undefined) {
       return (
         <StyledSuomifiStaticIcon
           {...passProps}
+          className={classnames(baseClassName, className)}
           {...(!!highlightColor
             ? { highlightColor }
             : { highlightColor: tokens.colors.accentBase })}
