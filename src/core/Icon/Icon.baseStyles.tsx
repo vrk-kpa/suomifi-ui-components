@@ -7,6 +7,7 @@ export const iconBaseStyles = ({
 }) => css`
   display: inline-block;
   vertical-align: baseline;
+
   ${!!highlightColor &&
   `.fi-icon-illustative-highlight-fill {
     fill: ${highlightColor};
@@ -15,6 +16,7 @@ export const iconBaseStyles = ({
     stroke: ${highlightColor}
   }
   `}
+
   &.fi-icon--cursor-pointer {
     cursor: pointer;
     & * {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
+import { defaultThemeTokens } from '../theme';
 import classnames from 'classnames';
 import {
   SuomifiStaticIcon,
@@ -51,13 +52,7 @@ const StyledSuomifiStaticIcon = styled(
  */
 export class StaticIcon extends Component<StaticIconProps> {
   render() {
-    const {
-      icon,
-      tokens,
-      highlightColor,
-      className,
-      ...passProps
-    } = this.props;
+    const { icon, highlightColor, className, ...passProps } = this.props;
     const { ariaLabel } = this.props;
 
     if (icon !== undefined) {
@@ -66,7 +61,7 @@ export class StaticIcon extends Component<StaticIconProps> {
           {...passProps}
           {...(!!highlightColor
             ? { highlightColor }
-            : { highlightColor: tokens.colors.accentBase })}
+            : { highlightColor: defaultThemeTokens.colors.accentBase })}
           icon={icon}
           className={getClassNames(this.props)}
         />

@@ -172,6 +172,14 @@ exports[`default, with only required props should match snapshot 1`] = `
   vertical-align: baseline;
 }
 
+.c7.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c7.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -684,6 +692,14 @@ exports[`props className should match snapshot 1`] = `
 .c7 {
   display: inline-block;
   vertical-align: baseline;
+}
+
+.c7.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c7.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c1 {
@@ -1200,6 +1216,14 @@ exports[`props defaultValue should match snapshot 1`] = `
   vertical-align: baseline;
 }
 
+.c7.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c7.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -1713,6 +1737,14 @@ exports[`props hintText should match snapshot 1`] = `
 .c7 {
   display: inline-block;
   vertical-align: baseline;
+}
+
+.c7.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c7.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c1 {
@@ -2234,6 +2266,14 @@ exports[`props id should match snapshot 1`] = `
   vertical-align: baseline;
 }
 
+.c7.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c7.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -2748,6 +2788,14 @@ exports[`props label should match snapshot 1`] = `
   vertical-align: baseline;
 }
 
+.c7.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c7.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -3260,6 +3308,14 @@ exports[`props labelMode should match snapshot 1`] = `
 .c8 {
   display: inline-block;
   vertical-align: baseline;
+}
+
+.c8.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c8.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c5 {
@@ -3788,6 +3844,14 @@ exports[`props name should match snapshot 1`] = `
   vertical-align: baseline;
 }
 
+.c7.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c7.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -4300,6 +4364,14 @@ exports[`props value should match snapshot 1`] = `
 .c7 {
   display: inline-block;
   vertical-align: baseline;
+}
+
+.c7.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c7.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c1 {
