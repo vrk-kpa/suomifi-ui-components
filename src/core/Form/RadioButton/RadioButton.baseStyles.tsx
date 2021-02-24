@@ -35,7 +35,7 @@ export const baseStyles = withSuomifiTheme(
         height: 18px;
         width: 18px;
         top: 5px;
-        left: 0px;
+        left: 2px;
 
         + .fi-radio-button_icon_wrapper {
           top: 3px;
@@ -108,11 +108,11 @@ export const baseStyles = withSuomifiTheme(
 
         & .fi-radio-button_input {
           top: 2px;
-          left: 0;
+          left: 2px;
           height: 30px;
           width: 30px;
           + .fi-radio-button_icon_wrapper {
-            top: 2px;
+            top: 0;
             left: 0;
             height: 30px;
             width: 30px;
