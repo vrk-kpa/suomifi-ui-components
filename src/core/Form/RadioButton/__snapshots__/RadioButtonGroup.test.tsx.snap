@@ -88,7 +88,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c7 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -108,8 +108,8 @@ exports[`default, with only required props should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c7::before,
-.c7::after {
+.c8::before,
+.c8::after {
   box-sizing: border-box;
 }
 
@@ -165,6 +165,11 @@ exports[`default, with only required props should match snapshot 1`] = `
 .c4::before,
 .c4::after {
   box-sizing: border-box;
+}
+
+.c7 {
+  display: inline-block;
+  vertical-align: baseline;
 }
 
 .c1 {
@@ -225,6 +230,10 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c5.fi-radio-button {
+  position: relative;
+}
+
 .c5.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
@@ -235,13 +244,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c5.fi-radio-button .fi-radio-button_input {
-  opacity: 0;
-  position: absolute;
-  margin: 8px 0 0 3px;
-}
-
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label {
+.c5.fi-radio-button .fi-radio-button_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -250,74 +253,69 @@ exports[`default, with only required props should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::before {
-  content: '';
+.c5.fi-radio-button .fi-radio-button_input {
+  opacity: 0;
   position: absolute;
-  display: inline-block;
-  left: 0;
+  z-index: -9999;
+  height: 18px;
+  width: 18px;
   top: 5px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 1px solid hsl(201,7%,58%);
-  background: transparent;
-  box-sizing: content-box;
+  left: 2px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
-  content: '';
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 3px;
+  left: 0;
+  margin: 2px;
+  height: 18px;
+  width: 18px;
   position: absolute;
-  display: inline-block;
-  left: 5px;
-  top: 10px;
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:before {
-  border: 1px solid hsl(212,63%,45%);
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201,7%,58%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:after {
-  background: hsl(212,63%,45%);
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212,63%,45%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212,63%,45%);
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus {
+  outline: 0;
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
+.c5.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
-  border: 1px solid hsl(202,7%,80%);
-  background: hsl(202,7%,97%);
-}
-
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  background: hsl(202,7%,97%);
-  width: 16px;
-  height: 16px;
-  top: 6px;
-  left: 1px;
-}
-
-.c5.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 8px;
-  height: 8px;
-  top: 10px;
-  left: 5px;
-}
-
-.c5.fi-radio-button--disabled .fi-radio-button_hintText {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
+  cursor: not-allowed;
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202,7%,97%);
+  stroke: hsl(202,7%,80%);
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202,7%,67%);
 }
 
 .c5.fi-radio-button--large .fi-radio-button_hintText {
@@ -325,42 +323,28 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
+  top: 2px;
+  left: 2px;
+  height: 30px;
+  width: 30px;
 }
 
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
-  left: 0px;
-  top: 2px;
-  width: 28px;
-  height: 28px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
-  left: 7px;
-  top: 9px;
-  width: 16px;
-  height: 16px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  width: 28px;
-  height: 28px;
-  top: 3px;
-  left: 1px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 16px;
-  height: 16px;
-  top: 9px;
-  left: 7px;
 }
 
 <div>
@@ -393,8 +377,38 @@ exports[`default, with only required props should match snapshot 1`] = `
             type="radio"
             value="1"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-1"
           >
             Label text 1
@@ -410,8 +424,38 @@ exports[`default, with only required props should match snapshot 1`] = `
             type="radio"
             value="2"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-2"
           >
             Label text 2
@@ -427,8 +471,38 @@ exports[`default, with only required props should match snapshot 1`] = `
             type="radio"
             value="3"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-3"
           >
             Label text 3
@@ -528,7 +602,7 @@ exports[`props className should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c7 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -548,8 +622,8 @@ exports[`props className should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c7::before,
-.c7::after {
+.c8::before,
+.c8::after {
   box-sizing: border-box;
 }
 
@@ -605,6 +679,11 @@ exports[`props className should match snapshot 1`] = `
 .c4::before,
 .c4::after {
   box-sizing: border-box;
+}
+
+.c7 {
+  display: inline-block;
+  vertical-align: baseline;
 }
 
 .c1 {
@@ -665,6 +744,10 @@ exports[`props className should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c5.fi-radio-button {
+  position: relative;
+}
+
 .c5.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
@@ -675,13 +758,7 @@ exports[`props className should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c5.fi-radio-button .fi-radio-button_input {
-  opacity: 0;
-  position: absolute;
-  margin: 8px 0 0 3px;
-}
-
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label {
+.c5.fi-radio-button .fi-radio-button_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -690,74 +767,69 @@ exports[`props className should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::before {
-  content: '';
+.c5.fi-radio-button .fi-radio-button_input {
+  opacity: 0;
   position: absolute;
-  display: inline-block;
-  left: 0;
+  z-index: -9999;
+  height: 18px;
+  width: 18px;
   top: 5px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 1px solid hsl(201,7%,58%);
-  background: transparent;
-  box-sizing: content-box;
+  left: 2px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
-  content: '';
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 3px;
+  left: 0;
+  margin: 2px;
+  height: 18px;
+  width: 18px;
   position: absolute;
-  display: inline-block;
-  left: 5px;
-  top: 10px;
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:before {
-  border: 1px solid hsl(212,63%,45%);
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201,7%,58%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:after {
-  background: hsl(212,63%,45%);
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212,63%,45%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212,63%,45%);
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus {
+  outline: 0;
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
+.c5.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
-  border: 1px solid hsl(202,7%,80%);
-  background: hsl(202,7%,97%);
-}
-
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  background: hsl(202,7%,97%);
-  width: 16px;
-  height: 16px;
-  top: 6px;
-  left: 1px;
-}
-
-.c5.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 8px;
-  height: 8px;
-  top: 10px;
-  left: 5px;
-}
-
-.c5.fi-radio-button--disabled .fi-radio-button_hintText {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
+  cursor: not-allowed;
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202,7%,97%);
+  stroke: hsl(202,7%,80%);
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202,7%,67%);
 }
 
 .c5.fi-radio-button--large .fi-radio-button_hintText {
@@ -765,42 +837,28 @@ exports[`props className should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
+  top: 2px;
+  left: 2px;
+  height: 30px;
+  width: 30px;
 }
 
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
-  left: 0px;
-  top: 2px;
-  width: 28px;
-  height: 28px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
-  left: 7px;
-  top: 9px;
-  width: 16px;
-  height: 16px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  width: 28px;
-  height: 28px;
-  top: 3px;
-  left: 1px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 16px;
-  height: 16px;
-  top: 9px;
-  left: 7px;
 }
 
 <div>
@@ -833,8 +891,38 @@ exports[`props className should match snapshot 1`] = `
             type="radio"
             value="1"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-1"
           >
             Label text 1
@@ -850,8 +938,38 @@ exports[`props className should match snapshot 1`] = `
             type="radio"
             value="2"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-2"
           >
             Label text 2
@@ -867,8 +985,38 @@ exports[`props className should match snapshot 1`] = `
             type="radio"
             value="3"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-3"
           >
             Label text 3
@@ -968,7 +1116,7 @@ exports[`props defaultValue should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c7 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -988,8 +1136,8 @@ exports[`props defaultValue should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c7::before,
-.c7::after {
+.c8::before,
+.c8::after {
   box-sizing: border-box;
 }
 
@@ -1045,6 +1193,11 @@ exports[`props defaultValue should match snapshot 1`] = `
 .c4::before,
 .c4::after {
   box-sizing: border-box;
+}
+
+.c7 {
+  display: inline-block;
+  vertical-align: baseline;
 }
 
 .c1 {
@@ -1105,6 +1258,10 @@ exports[`props defaultValue should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c5.fi-radio-button {
+  position: relative;
+}
+
 .c5.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
@@ -1115,13 +1272,7 @@ exports[`props defaultValue should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c5.fi-radio-button .fi-radio-button_input {
-  opacity: 0;
-  position: absolute;
-  margin: 8px 0 0 3px;
-}
-
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label {
+.c5.fi-radio-button .fi-radio-button_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -1130,74 +1281,69 @@ exports[`props defaultValue should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::before {
-  content: '';
+.c5.fi-radio-button .fi-radio-button_input {
+  opacity: 0;
   position: absolute;
-  display: inline-block;
-  left: 0;
+  z-index: -9999;
+  height: 18px;
+  width: 18px;
   top: 5px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 1px solid hsl(201,7%,58%);
-  background: transparent;
-  box-sizing: content-box;
+  left: 2px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
-  content: '';
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 3px;
+  left: 0;
+  margin: 2px;
+  height: 18px;
+  width: 18px;
   position: absolute;
-  display: inline-block;
-  left: 5px;
-  top: 10px;
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:before {
-  border: 1px solid hsl(212,63%,45%);
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201,7%,58%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:after {
-  background: hsl(212,63%,45%);
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212,63%,45%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212,63%,45%);
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus {
+  outline: 0;
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
+.c5.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
-  border: 1px solid hsl(202,7%,80%);
-  background: hsl(202,7%,97%);
-}
-
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  background: hsl(202,7%,97%);
-  width: 16px;
-  height: 16px;
-  top: 6px;
-  left: 1px;
-}
-
-.c5.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 8px;
-  height: 8px;
-  top: 10px;
-  left: 5px;
-}
-
-.c5.fi-radio-button--disabled .fi-radio-button_hintText {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
+  cursor: not-allowed;
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202,7%,97%);
+  stroke: hsl(202,7%,80%);
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202,7%,67%);
 }
 
 .c5.fi-radio-button--large .fi-radio-button_hintText {
@@ -1205,42 +1351,28 @@ exports[`props defaultValue should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
+  top: 2px;
+  left: 2px;
+  height: 30px;
+  width: 30px;
 }
 
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
-  left: 0px;
-  top: 2px;
-  width: 28px;
-  height: 28px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
-  left: 7px;
-  top: 9px;
-  width: 16px;
-  height: 16px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  width: 28px;
-  height: 28px;
-  top: 3px;
-  left: 1px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 16px;
-  height: 16px;
-  top: 9px;
-  left: 7px;
 }
 
 <div>
@@ -1273,8 +1405,38 @@ exports[`props defaultValue should match snapshot 1`] = `
             type="radio"
             value="1"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-1"
           >
             Label text 1
@@ -1290,8 +1452,38 @@ exports[`props defaultValue should match snapshot 1`] = `
             type="radio"
             value="2"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-2"
           >
             Label text 2
@@ -1308,8 +1500,38 @@ exports[`props defaultValue should match snapshot 1`] = `
             type="radio"
             value="3"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-3"
           >
             Label text 3
@@ -1409,7 +1631,7 @@ exports[`props hintText should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c7 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -1429,8 +1651,8 @@ exports[`props hintText should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c7::before,
-.c7::after {
+.c8::before,
+.c8::after {
   box-sizing: border-box;
 }
 
@@ -1486,6 +1708,11 @@ exports[`props hintText should match snapshot 1`] = `
 .c4::before,
 .c4::after {
   box-sizing: border-box;
+}
+
+.c7 {
+  display: inline-block;
+  vertical-align: baseline;
 }
 
 .c1 {
@@ -1546,6 +1773,10 @@ exports[`props hintText should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c5.fi-radio-button {
+  position: relative;
+}
+
 .c5.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
@@ -1556,13 +1787,7 @@ exports[`props hintText should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c5.fi-radio-button .fi-radio-button_input {
-  opacity: 0;
-  position: absolute;
-  margin: 8px 0 0 3px;
-}
-
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label {
+.c5.fi-radio-button .fi-radio-button_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -1571,74 +1796,69 @@ exports[`props hintText should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::before {
-  content: '';
+.c5.fi-radio-button .fi-radio-button_input {
+  opacity: 0;
   position: absolute;
-  display: inline-block;
-  left: 0;
+  z-index: -9999;
+  height: 18px;
+  width: 18px;
   top: 5px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 1px solid hsl(201,7%,58%);
-  background: transparent;
-  box-sizing: content-box;
+  left: 2px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
-  content: '';
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 3px;
+  left: 0;
+  margin: 2px;
+  height: 18px;
+  width: 18px;
   position: absolute;
-  display: inline-block;
-  left: 5px;
-  top: 10px;
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:before {
-  border: 1px solid hsl(212,63%,45%);
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201,7%,58%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:after {
-  background: hsl(212,63%,45%);
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212,63%,45%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212,63%,45%);
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus {
+  outline: 0;
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
+.c5.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
-  border: 1px solid hsl(202,7%,80%);
-  background: hsl(202,7%,97%);
-}
-
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  background: hsl(202,7%,97%);
-  width: 16px;
-  height: 16px;
-  top: 6px;
-  left: 1px;
-}
-
-.c5.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 8px;
-  height: 8px;
-  top: 10px;
-  left: 5px;
-}
-
-.c5.fi-radio-button--disabled .fi-radio-button_hintText {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
+  cursor: not-allowed;
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202,7%,97%);
+  stroke: hsl(202,7%,80%);
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202,7%,67%);
 }
 
 .c5.fi-radio-button--large .fi-radio-button_hintText {
@@ -1646,42 +1866,28 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
+  top: 2px;
+  left: 2px;
+  height: 30px;
+  width: 30px;
 }
 
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
-  left: 0px;
-  top: 2px;
-  width: 28px;
-  height: 28px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
-  left: 7px;
-  top: 9px;
-  width: 16px;
-  height: 16px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  width: 28px;
-  height: 28px;
-  top: 3px;
-  left: 1px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 16px;
-  height: 16px;
-  top: 9px;
-  left: 7px;
 }
 
 <div>
@@ -1719,8 +1925,38 @@ exports[`props hintText should match snapshot 1`] = `
             type="radio"
             value="1"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-1"
           >
             Label text 1
@@ -1736,8 +1972,38 @@ exports[`props hintText should match snapshot 1`] = `
             type="radio"
             value="2"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-2"
           >
             Label text 2
@@ -1753,8 +2019,38 @@ exports[`props hintText should match snapshot 1`] = `
             type="radio"
             value="3"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-3"
           >
             Label text 3
@@ -1854,7 +2150,7 @@ exports[`props id should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c7 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -1874,8 +2170,8 @@ exports[`props id should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c7::before,
-.c7::after {
+.c8::before,
+.c8::after {
   box-sizing: border-box;
 }
 
@@ -1931,6 +2227,11 @@ exports[`props id should match snapshot 1`] = `
 .c4::before,
 .c4::after {
   box-sizing: border-box;
+}
+
+.c7 {
+  display: inline-block;
+  vertical-align: baseline;
 }
 
 .c1 {
@@ -1991,6 +2292,10 @@ exports[`props id should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c5.fi-radio-button {
+  position: relative;
+}
+
 .c5.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
@@ -2001,13 +2306,7 @@ exports[`props id should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c5.fi-radio-button .fi-radio-button_input {
-  opacity: 0;
-  position: absolute;
-  margin: 8px 0 0 3px;
-}
-
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label {
+.c5.fi-radio-button .fi-radio-button_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -2016,74 +2315,69 @@ exports[`props id should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::before {
-  content: '';
+.c5.fi-radio-button .fi-radio-button_input {
+  opacity: 0;
   position: absolute;
-  display: inline-block;
-  left: 0;
+  z-index: -9999;
+  height: 18px;
+  width: 18px;
   top: 5px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 1px solid hsl(201,7%,58%);
-  background: transparent;
-  box-sizing: content-box;
+  left: 2px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
-  content: '';
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 3px;
+  left: 0;
+  margin: 2px;
+  height: 18px;
+  width: 18px;
   position: absolute;
-  display: inline-block;
-  left: 5px;
-  top: 10px;
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:before {
-  border: 1px solid hsl(212,63%,45%);
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201,7%,58%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:after {
-  background: hsl(212,63%,45%);
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212,63%,45%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212,63%,45%);
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus {
+  outline: 0;
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
+.c5.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
-  border: 1px solid hsl(202,7%,80%);
-  background: hsl(202,7%,97%);
-}
-
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  background: hsl(202,7%,97%);
-  width: 16px;
-  height: 16px;
-  top: 6px;
-  left: 1px;
-}
-
-.c5.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 8px;
-  height: 8px;
-  top: 10px;
-  left: 5px;
-}
-
-.c5.fi-radio-button--disabled .fi-radio-button_hintText {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
+  cursor: not-allowed;
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202,7%,97%);
+  stroke: hsl(202,7%,80%);
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202,7%,67%);
 }
 
 .c5.fi-radio-button--large .fi-radio-button_hintText {
@@ -2091,42 +2385,28 @@ exports[`props id should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
+  top: 2px;
+  left: 2px;
+  height: 30px;
+  width: 30px;
 }
 
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
-  left: 0px;
-  top: 2px;
-  width: 28px;
-  height: 28px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
-  left: 7px;
-  top: 9px;
-  width: 16px;
-  height: 16px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  width: 28px;
-  height: 28px;
-  top: 3px;
-  left: 1px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 16px;
-  height: 16px;
-  top: 9px;
-  left: 7px;
 }
 
 <div>
@@ -2159,8 +2439,38 @@ exports[`props id should match snapshot 1`] = `
             type="radio"
             value="1"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-1"
           >
             Label text 1
@@ -2176,8 +2486,38 @@ exports[`props id should match snapshot 1`] = `
             type="radio"
             value="2"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-2"
           >
             Label text 2
@@ -2193,8 +2533,38 @@ exports[`props id should match snapshot 1`] = `
             type="radio"
             value="3"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-3"
           >
             Label text 3
@@ -2294,7 +2664,7 @@ exports[`props label should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c7 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2314,8 +2684,8 @@ exports[`props label should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c7::before,
-.c7::after {
+.c8::before,
+.c8::after {
   box-sizing: border-box;
 }
 
@@ -2371,6 +2741,11 @@ exports[`props label should match snapshot 1`] = `
 .c4::before,
 .c4::after {
   box-sizing: border-box;
+}
+
+.c7 {
+  display: inline-block;
+  vertical-align: baseline;
 }
 
 .c1 {
@@ -2431,6 +2806,10 @@ exports[`props label should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c5.fi-radio-button {
+  position: relative;
+}
+
 .c5.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
@@ -2441,13 +2820,7 @@ exports[`props label should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c5.fi-radio-button .fi-radio-button_input {
-  opacity: 0;
-  position: absolute;
-  margin: 8px 0 0 3px;
-}
-
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label {
+.c5.fi-radio-button .fi-radio-button_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -2456,74 +2829,69 @@ exports[`props label should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::before {
-  content: '';
+.c5.fi-radio-button .fi-radio-button_input {
+  opacity: 0;
   position: absolute;
-  display: inline-block;
-  left: 0;
+  z-index: -9999;
+  height: 18px;
+  width: 18px;
   top: 5px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 1px solid hsl(201,7%,58%);
-  background: transparent;
-  box-sizing: content-box;
+  left: 2px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
-  content: '';
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 3px;
+  left: 0;
+  margin: 2px;
+  height: 18px;
+  width: 18px;
   position: absolute;
-  display: inline-block;
-  left: 5px;
-  top: 10px;
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:before {
-  border: 1px solid hsl(212,63%,45%);
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201,7%,58%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:after {
-  background: hsl(212,63%,45%);
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212,63%,45%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212,63%,45%);
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus {
+  outline: 0;
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
+.c5.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
-  border: 1px solid hsl(202,7%,80%);
-  background: hsl(202,7%,97%);
-}
-
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  background: hsl(202,7%,97%);
-  width: 16px;
-  height: 16px;
-  top: 6px;
-  left: 1px;
-}
-
-.c5.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 8px;
-  height: 8px;
-  top: 10px;
-  left: 5px;
-}
-
-.c5.fi-radio-button--disabled .fi-radio-button_hintText {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
+  cursor: not-allowed;
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202,7%,97%);
+  stroke: hsl(202,7%,80%);
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202,7%,67%);
 }
 
 .c5.fi-radio-button--large .fi-radio-button_hintText {
@@ -2531,42 +2899,28 @@ exports[`props label should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
+  top: 2px;
+  left: 2px;
+  height: 30px;
+  width: 30px;
 }
 
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
-  left: 0px;
-  top: 2px;
-  width: 28px;
-  height: 28px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
-  left: 7px;
-  top: 9px;
-  width: 16px;
-  height: 16px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  width: 28px;
-  height: 28px;
-  top: 3px;
-  left: 1px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 16px;
-  height: 16px;
-  top: 9px;
-  left: 7px;
 }
 
 <div>
@@ -2599,8 +2953,38 @@ exports[`props label should match snapshot 1`] = `
             type="radio"
             value="1"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-1"
           >
             Label text 1
@@ -2616,8 +3000,38 @@ exports[`props label should match snapshot 1`] = `
             type="radio"
             value="2"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-2"
           >
             Label text 2
@@ -2633,8 +3047,38 @@ exports[`props label should match snapshot 1`] = `
             type="radio"
             value="3"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-3"
           >
             Label text 3
@@ -2734,7 +3178,7 @@ exports[`props labelMode should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c8 {
+.c9 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2754,8 +3198,8 @@ exports[`props labelMode should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c8::before,
-.c8::after {
+.c9::before,
+.c9::after {
   box-sizing: border-box;
 }
 
@@ -2811,6 +3255,11 @@ exports[`props labelMode should match snapshot 1`] = `
 .c4::before,
 .c4::after {
   box-sizing: border-box;
+}
+
+.c8 {
+  display: inline-block;
+  vertical-align: baseline;
 }
 
 .c5 {
@@ -2883,6 +3332,10 @@ exports[`props labelMode should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c6.fi-radio-button {
+  position: relative;
+}
+
 .c6.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
@@ -2893,13 +3346,7 @@ exports[`props labelMode should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c6.fi-radio-button .fi-radio-button_input {
-  opacity: 0;
-  position: absolute;
-  margin: 8px 0 0 3px;
-}
-
-.c6.fi-radio-button .fi-radio-button_input + .fi-radio-button_label {
+.c6.fi-radio-button .fi-radio-button_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -2908,74 +3355,69 @@ exports[`props labelMode should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c6.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::before {
-  content: '';
+.c6.fi-radio-button .fi-radio-button_input {
+  opacity: 0;
   position: absolute;
-  display: inline-block;
-  left: 0;
+  z-index: -9999;
+  height: 18px;
+  width: 18px;
   top: 5px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 1px solid hsl(201,7%,58%);
-  background: transparent;
-  box-sizing: content-box;
+  left: 2px;
 }
 
-.c6.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
-  content: '';
+.c6.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 3px;
+  left: 0;
+  margin: 2px;
+  height: 18px;
+  width: 18px;
   position: absolute;
-  display: inline-block;
-  left: 5px;
-  top: 10px;
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
 }
 
-.c6.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:before {
-  border: 1px solid hsl(212,63%,45%);
+.c6.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201,7%,58%);
 }
 
-.c6.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:after {
-  background: hsl(212,63%,45%);
+.c6.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212,63%,45%);
 }
 
-.c6.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
+.c6.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212,63%,45%);
+}
+
+.c6.fi-radio-button .fi-radio-button_input:focus {
+  outline: 0;
+}
+
+.c6.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
-.c6.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
+.c6.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
+}
+
+.c6.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c6.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
-  border: 1px solid hsl(202,7%,80%);
-  background: hsl(202,7%,97%);
-}
-
-.c6.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  background: hsl(202,7%,97%);
-  width: 16px;
-  height: 16px;
-  top: 6px;
-  left: 1px;
-}
-
-.c6.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 8px;
-  height: 8px;
-  top: 10px;
-  left: 5px;
-}
-
-.c6.fi-radio-button--disabled .fi-radio-button_hintText {
+.c6.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
+  cursor: not-allowed;
+}
+
+.c6.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202,7%,97%);
+  stroke: hsl(202,7%,80%);
+}
+
+.c6.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202,7%,67%);
 }
 
 .c6.fi-radio-button--large .fi-radio-button_hintText {
@@ -2983,42 +3425,28 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c6.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
+  top: 2px;
+  left: 2px;
+  height: 30px;
+  width: 30px;
 }
 
-.c6.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
+.c6.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c6.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
+}
+
+.c6.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
-}
-
-.c6.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
-  left: 0px;
-  top: 2px;
-  width: 28px;
-  height: 28px;
-}
-
-.c6.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
-  left: 7px;
-  top: 9px;
-  width: 16px;
-  height: 16px;
-}
-
-.c6.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  width: 28px;
-  height: 28px;
-  top: 3px;
-  left: 1px;
-}
-
-.c6.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 16px;
-  height: 16px;
-  top: 9px;
-  left: 7px;
 }
 
 <div>
@@ -3051,8 +3479,38 @@ exports[`props labelMode should match snapshot 1`] = `
             type="radio"
             value="1"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c8 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c8 fi-radio-button_label"
+            class="c9 fi-radio-button_label"
             for="test-id-1"
           >
             Label text 1
@@ -3068,8 +3526,38 @@ exports[`props labelMode should match snapshot 1`] = `
             type="radio"
             value="2"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c8 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c8 fi-radio-button_label"
+            class="c9 fi-radio-button_label"
             for="test-id-2"
           >
             Label text 2
@@ -3085,8 +3573,38 @@ exports[`props labelMode should match snapshot 1`] = `
             type="radio"
             value="3"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c8 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c8 fi-radio-button_label"
+            class="c9 fi-radio-button_label"
             for="test-id-3"
           >
             Label text 3
@@ -3186,7 +3704,7 @@ exports[`props name should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c7 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -3206,8 +3724,8 @@ exports[`props name should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c7::before,
-.c7::after {
+.c8::before,
+.c8::after {
   box-sizing: border-box;
 }
 
@@ -3263,6 +3781,11 @@ exports[`props name should match snapshot 1`] = `
 .c4::before,
 .c4::after {
   box-sizing: border-box;
+}
+
+.c7 {
+  display: inline-block;
+  vertical-align: baseline;
 }
 
 .c1 {
@@ -3323,6 +3846,10 @@ exports[`props name should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c5.fi-radio-button {
+  position: relative;
+}
+
 .c5.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
@@ -3333,13 +3860,7 @@ exports[`props name should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c5.fi-radio-button .fi-radio-button_input {
-  opacity: 0;
-  position: absolute;
-  margin: 8px 0 0 3px;
-}
-
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label {
+.c5.fi-radio-button .fi-radio-button_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -3348,74 +3869,69 @@ exports[`props name should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::before {
-  content: '';
+.c5.fi-radio-button .fi-radio-button_input {
+  opacity: 0;
   position: absolute;
-  display: inline-block;
-  left: 0;
+  z-index: -9999;
+  height: 18px;
+  width: 18px;
   top: 5px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 1px solid hsl(201,7%,58%);
-  background: transparent;
-  box-sizing: content-box;
+  left: 2px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
-  content: '';
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 3px;
+  left: 0;
+  margin: 2px;
+  height: 18px;
+  width: 18px;
   position: absolute;
-  display: inline-block;
-  left: 5px;
-  top: 10px;
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:before {
-  border: 1px solid hsl(212,63%,45%);
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201,7%,58%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:after {
-  background: hsl(212,63%,45%);
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212,63%,45%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212,63%,45%);
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus {
+  outline: 0;
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
+.c5.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
-  border: 1px solid hsl(202,7%,80%);
-  background: hsl(202,7%,97%);
-}
-
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  background: hsl(202,7%,97%);
-  width: 16px;
-  height: 16px;
-  top: 6px;
-  left: 1px;
-}
-
-.c5.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 8px;
-  height: 8px;
-  top: 10px;
-  left: 5px;
-}
-
-.c5.fi-radio-button--disabled .fi-radio-button_hintText {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
+  cursor: not-allowed;
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202,7%,97%);
+  stroke: hsl(202,7%,80%);
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202,7%,67%);
 }
 
 .c5.fi-radio-button--large .fi-radio-button_hintText {
@@ -3423,42 +3939,28 @@ exports[`props name should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
+  top: 2px;
+  left: 2px;
+  height: 30px;
+  width: 30px;
 }
 
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
-  left: 0px;
-  top: 2px;
-  width: 28px;
-  height: 28px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
-  left: 7px;
-  top: 9px;
-  width: 16px;
-  height: 16px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  width: 28px;
-  height: 28px;
-  top: 3px;
-  left: 1px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 16px;
-  height: 16px;
-  top: 9px;
-  left: 7px;
 }
 
 <div>
@@ -3491,8 +3993,38 @@ exports[`props name should match snapshot 1`] = `
             type="radio"
             value="1"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-1"
           >
             Label text 1
@@ -3508,8 +4040,38 @@ exports[`props name should match snapshot 1`] = `
             type="radio"
             value="2"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-2"
           >
             Label text 2
@@ -3525,8 +4087,38 @@ exports[`props name should match snapshot 1`] = `
             type="radio"
             value="3"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-3"
           >
             Label text 3
@@ -3626,7 +4218,7 @@ exports[`props value should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c7 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -3646,8 +4238,8 @@ exports[`props value should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c7::before,
-.c7::after {
+.c8::before,
+.c8::after {
   box-sizing: border-box;
 }
 
@@ -3703,6 +4295,11 @@ exports[`props value should match snapshot 1`] = `
 .c4::before,
 .c4::after {
   box-sizing: border-box;
+}
+
+.c7 {
+  display: inline-block;
+  vertical-align: baseline;
 }
 
 .c1 {
@@ -3763,6 +4360,10 @@ exports[`props value should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c5.fi-radio-button {
+  position: relative;
+}
+
 .c5.fi-radio-button .fi-radio-button_hintText {
   display: block;
   padding-left: 26px;
@@ -3773,13 +4374,7 @@ exports[`props value should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c5.fi-radio-button .fi-radio-button_input {
-  opacity: 0;
-  position: absolute;
-  margin: 8px 0 0 3px;
-}
-
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label {
+.c5.fi-radio-button .fi-radio-button_label {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -3788,74 +4383,69 @@ exports[`props value should match snapshot 1`] = `
   padding-left: 26px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::before {
-  content: '';
+.c5.fi-radio-button .fi-radio-button_input {
+  opacity: 0;
   position: absolute;
-  display: inline-block;
-  left: 0;
+  z-index: -9999;
+  height: 18px;
+  width: 18px;
   top: 5px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 1px solid hsl(201,7%,58%);
-  background: transparent;
-  box-sizing: content-box;
+  left: 2px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_label::after {
-  content: '';
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 3px;
+  left: 0;
+  margin: 2px;
+  height: 18px;
+  width: 18px;
   position: absolute;
-  display: inline-block;
-  left: 5px;
-  top: 10px;
-  border-radius: 50%;
-  width: 8px;
-  height: 8px;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:before {
-  border: 1px solid hsl(212,63%,45%);
+.c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(201,7%,58%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_label:after {
-  background: hsl(212,63%,45%);
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(212,63%,45%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_label::before {
+.c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  stroke: hsl(212,63%,45%);
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus {
+  outline: 0;
+}
+
+.c5.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   border-radius: 50%;
 }
 
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label {
+.c5.fi-radio-button .fi-radio-button_input:focus:not(:focus-visible) + .fi-radio-button_icon_wrapper {
+  box-shadow: none;
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_label {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:before {
-  border: 1px solid hsl(202,7%,80%);
-  background: hsl(202,7%,97%);
-}
-
-.c5.fi-radio-button .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  background: hsl(202,7%,97%);
-  width: 16px;
-  height: 16px;
-  top: 6px;
-  left: 1px;
-}
-
-.c5.fi-radio-button .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 8px;
-  height: 8px;
-  top: 10px;
-  left: 5px;
-}
-
-.c5.fi-radio-button--disabled .fi-radio-button_hintText {
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_hintText {
   color: hsl(202,7%,67%);
+  cursor: not-allowed;
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
+  fill: hsl(202,7%,97%);
+  stroke: hsl(202,7%,80%);
+}
+
+.c5.fi-radio-button.fi-radio-button--disabled .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
+  fill: hsl(202,7%,67%);
 }
 
 .c5.fi-radio-button--large .fi-radio-button_hintText {
@@ -3863,42 +4453,28 @@ exports[`props value should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button--large .fi-radio-button_input {
-  margin: 10px 0 0 9px;
+  top: 2px;
+  left: 2px;
+  height: 30px;
+  width: 30px;
 }
 
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label {
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper {
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-radio-button_icon {
+  height: 30px;
+  width: 30px;
+}
+
+.c5.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
   padding-top: 2px;
   min-height: 34px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::before {
-  left: 0px;
-  top: 2px;
-  width: 28px;
-  height: 28px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input + .fi-radio-button_label::after {
-  left: 7px;
-  top: 9px;
-  width: 16px;
-  height: 16px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input:disabled + .fi-radio-button_label:after {
-  width: 28px;
-  height: 28px;
-  top: 3px;
-  left: 1px;
-}
-
-.c5.fi-radio-button--large .fi-radio-button_input:disabled:checked + .fi-radio-button_label:after {
-  background: hsl(202,7%,67%);
-  width: 16px;
-  height: 16px;
-  top: 9px;
-  left: 7px;
 }
 
 <div>
@@ -3932,8 +4508,38 @@ exports[`props value should match snapshot 1`] = `
             type="radio"
             value="1"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-1"
           >
             Label text 1
@@ -3950,8 +4556,38 @@ exports[`props value should match snapshot 1`] = `
             type="radio"
             value="2"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-2"
           >
             Label text 2
@@ -3967,8 +4603,38 @@ exports[`props value should match snapshot 1`] = `
             type="radio"
             value="3"
           />
+          <span
+            class="c4 fi-radio-button_icon_wrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="c7 fi-radio-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 18 18"
+              width="1em"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <circle
+                  class="fi-icon-radio-base"
+                  cx="9"
+                  cy="9"
+                  r="8.5"
+                />
+                <circle
+                  class="fi-icon-radio-checked"
+                  cx="9"
+                  cy="9"
+                  r="4"
+                />
+              </g>
+            </svg>
+          </span>
           <label
-            class="c7 fi-radio-button_label"
+            class="c8 fi-radio-button_label"
             for="test-id-3"
           >
             Label text 3

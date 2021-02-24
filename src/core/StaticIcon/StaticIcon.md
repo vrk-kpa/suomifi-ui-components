@@ -1,5 +1,8 @@
 ```jsx
-import { StaticIcon } from 'suomifi-ui-components';
+import {
+  StaticIcon,
+  suomifiDesignTokens
+} from 'suomifi-ui-components';
 import { default as styled } from 'styled-components';
 
 const StyledStaticIcon = styled((props) => <StaticIcon {...props} />)(
@@ -14,6 +17,7 @@ const StyledStaticIcon = styled((props) => <StaticIcon {...props} />)(
   icon="settings"
   ariaLabel="Settings"
   className="my-static-icon--test"
+  highlightColor={suomifiDesignTokens.colors.accentTertiaryDark1}
 />;
 ```
 

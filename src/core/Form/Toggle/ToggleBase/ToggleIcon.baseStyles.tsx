@@ -2,43 +2,52 @@ import { css } from 'styled-components';
 import { withSuomifiTheme, TokensAndTheme } from '../../../theme';
 import { iconWidth, iconHeight } from './Toggle.baseStyles';
 
-// Contains double underscore because it is written in the SVG-file
-const svgPrefix = 'icon-toggle_svg__';
-
 export const baseStyles = withSuomifiTheme(
   ({ theme }: TokensAndTheme) => css`
     width: ${iconWidth};
     height: ${iconHeight};
     vertical-align: bottom;
     overflow: visible;
-    .${svgPrefix}fi-toggle-icon-circle {
+    & .fi-icon-toggle-base {
+      stroke: ${theme.colors.depthDark3};
       fill: ${theme.colors.whiteBase};
     }
-    .${svgPrefix}fi-toggle-icon-knob {
-      transform: translateX(0%);
+    & .fi-icon-toggle-knob {
+      fill: ${theme.colors.depthDark2};
+      transform: translateX(-17px);
     }
-    &.fi-toggle_icon--disabled {
-      .${svgPrefix}fi-toggle-icon-circle {
-        fill: ${theme.colors.depthLight3};
-      }
-      & .${svgPrefix}fi-toggle-icon-slide {
-        fill: ${theme.colors.depthLight2};
-      }
+    & .fi-icon-toggle-checkmark {
+      fill: none;
     }
     &.fi-toggle_icon--checked {
-      .${svgPrefix}fi-toggle-icon-knob {
-        transform: translateX(47%);
+      & .fi-icon-toggle-base {
+        stroke: ${theme.colors.depthDark3};
       }
-      .${svgPrefix}fi-toggle-icon-slide {
-        fill: ${theme.colors.successSecondary};
-      }
-      .${svgPrefix}fi-toggle-icon-circle {
+      & .fi-icon-toggle-knob {
         fill: ${theme.colors.successBase};
+        transform: translateX(0px);
       }
-      &.fi-toggle_icon--disabled {
-        .${svgPrefix}fi-toggle-icon-circle {
-          fill: ${theme.colors.successSecondary};
-        }
+      & .fi-icon-toggle-checkmark {
+        fill: ${theme.colors.whiteBase};
+      }
+    }
+
+    &.fi-toggle_icon--disabled {
+      & .fi-icon-toggle-base {
+        stroke: ${theme.colors.depthLight1};
+        fill: ${theme.colors.depthLight3};
+      }
+      & .fi-icon-toggle-knob {
+        fill: ${theme.colors.depthLight1};
+      }
+      & .fi-icon-toggle-checkmark {
+        fill: none;
+      }
+    }
+
+    &.fi-toggle_icon--checked.fi-toggle_icon--disabled {
+      & .fi-icon-toggle-checkmark {
+        fill: ${theme.colors.whiteBase};
       }
     }
   `,
