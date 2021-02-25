@@ -4,7 +4,6 @@ import { Link, LinkProps } from '../Link/Link';
 import { Icon } from '../Icon/Icon';
 import { HtmlSpan } from '../../reset';
 import classnames from 'classnames';
-import { Omit } from '../../utils/typescript';
 
 const linkClassName = `${baseClassName}_link`;
 const iconClassName = `${baseClassName}_icon`;
