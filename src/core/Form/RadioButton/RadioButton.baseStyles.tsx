@@ -1,6 +1,5 @@
 import { css } from 'styled-components';
 import { defaultThemeTokens as theme } from '../../theme';
-import { disabledCursor } from '../../../components/utils/css';
 import { element, font } from '../../theme/reset';
 import { boxShadowFocus } from '../../theme/utils/focus';
 
@@ -68,12 +67,12 @@ export const baseStyles = css`
     }
     &.fi-radio-button--disabled {
       & .fi-radio-button_label {
-        ${disabledCursor}
+        cursor: not-allowed;
         color: ${theme.colors.depthBase};
       }
       & .fi-radio-button_hintText {
         color: ${theme.colors.depthBase};
-        ${disabledCursor}
+        cursor: not-allowed;
       }
       & .fi-radio-button_input {
         + .fi-radio-button_icon_wrapper {

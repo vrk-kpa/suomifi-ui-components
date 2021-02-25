@@ -5,7 +5,7 @@ import { element, font } from '../../theme/reset';
 export const baseStyles = css`
   ${element(theme)}
   ${font(theme)('bodyText')}
-    background-color: ${theme.colors.whiteBase};
+  background-color: ${theme.colors.whiteBase};
   position: relative;
   padding: 0;
   border-radius: ${theme.radius.basic};

@@ -103,7 +103,7 @@ class DefaultChip extends Component<ChipProps> {
   }
 }
 
-const StyledChip = styled((props: ChipProps) => <DefaultChip {...props} />)`
+const StyledChip = styled(DefaultChip)`
   ${baseStyles}
 `;
 

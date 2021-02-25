@@ -276,9 +276,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
   }
 }
 
-const StyledSearchInput = styled((props: SearchInputProps) => (
-  <BaseSearchInput {...props} />
-))`
+const StyledSearchInput = styled(BaseSearchInput)`
   ${baseStyles}
 `;
 

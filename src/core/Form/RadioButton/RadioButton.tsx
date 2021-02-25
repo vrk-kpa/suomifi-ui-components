@@ -152,9 +152,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
   }
 }
 
-const StyledRadioButton = styled((props: RadioButtonProps) => (
-  <BaseRadioButton {...props} />
-))`
+const StyledRadioButton = styled(BaseRadioButton)`
   ${baseStyles}
 `;
 

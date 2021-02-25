@@ -86,11 +86,7 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
   }
 }
 
-const StyledExpanderTitle = styled((props: ExpanderTitleProps) => (
-  <ExpanderConsumer>
-    {(consumer) => <BaseExpanderTitle consumer={consumer} {...props} />}
-  </ExpanderConsumer>
-))`
+const StyledExpanderTitle = styled(BaseExpanderTitle)`
   ${expanderTitleBaseStyles}
 `;
 
@@ -100,6 +96,12 @@ const StyledExpanderTitle = styled((props: ExpanderTitleProps) => (
  */
 export class ExpanderTitle extends Component<ExpanderTitleProps> {
   render() {
-    return <StyledExpanderTitle {...this.props} />;
+    return (
+      <ExpanderConsumer>
+        {(consumer) => (
+          <StyledExpanderTitle consumer={consumer} {...this.props} />
+        )}
+      </ExpanderConsumer>
+    );
   }
 }

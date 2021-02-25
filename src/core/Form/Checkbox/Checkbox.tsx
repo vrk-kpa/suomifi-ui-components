@@ -224,18 +224,17 @@ class BaseCheckbox extends Component<CheckboxProps> {
   }
 }
 
-const StyledCheckbox = styled(({ id: propId, ...passProps }: CheckboxProps) => (
-  <AutoId id={propId}>{(id) => <BaseCheckbox id={id} {...passProps} />}</AutoId>
-))`
+const StyledCheckbox = styled(BaseCheckbox)`
   ${baseStyles}
 `;
 
 export class Checkbox extends Component<CheckboxProps> {
-  static large = (props: CheckboxProps) => (
-    <StyledCheckbox {...props} variant="large" />
-  );
-
   render() {
-    return <StyledCheckbox {...this.props} />;
+    const { id: propId, ...passProps } = this.props;
+    return (
+      <AutoId id={propId}>
+        {(id) => <StyledCheckbox id={id} {...passProps} />}
+      </AutoId>
+    );
   }
 }

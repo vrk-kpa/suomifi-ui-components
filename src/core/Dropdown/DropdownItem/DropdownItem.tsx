@@ -24,9 +24,7 @@ const BaseDropdownItem = (props: DropdownItemProps) => {
   );
 };
 
-const StyledDropdownItem = styled((props: DropdownItemProps) => (
-  <BaseDropdownItem {...props} />
-))`
+const StyledDropdownItem = styled(BaseDropdownItem)`
   ${baseStyles}
 `;
 

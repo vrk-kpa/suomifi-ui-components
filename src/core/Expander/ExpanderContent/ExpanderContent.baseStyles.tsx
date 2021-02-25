@@ -6,7 +6,7 @@ import { padding } from '../../theme/utils';
 export const baseStyles = css`
   ${element(theme)}
   ${font(theme)('bodyText')}
-    background-color: ${theme.colors.whiteBase};
+  background-color: ${theme.colors.whiteBase};
   border-radius: inherit;
   position: relative;
   visibility: hidden;

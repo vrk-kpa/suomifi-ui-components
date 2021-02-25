@@ -3,7 +3,6 @@ import { render, act, fireEvent } from '@testing-library/react';
 
 import { Dropdown, DropdownProps } from './Dropdown';
 import { DropdownItem } from '../DropdownItem/DropdownItem';
-import { baseStyles } from './Dropdown.baseStyles';
 import { axeTest } from '../../../utils/test/axe';
 
 const dropdownProps = {
@@ -205,8 +204,4 @@ describe('Dropdown', () => {
       });
     });
   });
-});
-
-test('CSS export', () => {
-  expect(baseStyles.join('')).toEqual(expect.stringContaining('color'));
 });

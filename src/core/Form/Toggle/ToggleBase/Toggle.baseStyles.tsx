@@ -1,6 +1,5 @@
 import { css } from 'styled-components';
 import { defaultThemeTokens as theme } from '../../../theme';
-import { disabledCursor } from '../../../../components/utils/css';
 import { element, font } from '../../../theme/reset';
 
 export const iconWidth = '40px';
@@ -22,7 +21,7 @@ export const toggleBaseStyles = css`
   cursor: pointer;
 
   &.fi-toggle--disabled {
-    ${disabledCursor}
+    cursor: not-allowed;
   }
 
   & .fi-toggle_icon-container {

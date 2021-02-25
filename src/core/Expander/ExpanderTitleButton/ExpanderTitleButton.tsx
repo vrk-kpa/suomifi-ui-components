@@ -87,11 +87,7 @@ class BaseExpanderTitleButton extends Component<InternalExpanderTitleButtonProps
   }
 }
 
-const StyledExpanderTitle = styled((props: ExpanderTitleButtonProps) => (
-  <ExpanderConsumer>
-    {(consumer) => <BaseExpanderTitleButton consumer={consumer} {...props} />}
-  </ExpanderConsumer>
-))`
+const StyledExpanderTitle = styled(BaseExpanderTitleButton)`
   ${expanderTitleButtonBaseStyles}
 `;
 
@@ -101,6 +97,12 @@ const StyledExpanderTitle = styled((props: ExpanderTitleButtonProps) => (
  */
 export class ExpanderTitleButton extends Component<ExpanderTitleButtonProps> {
   render() {
-    return <StyledExpanderTitle {...this.props} />;
+    return (
+      <ExpanderConsumer>
+        {(consumer) => (
+          <StyledExpanderTitle consumer={consumer} {...this.props} />
+        )}
+      </ExpanderConsumer>
+    );
   }
 }

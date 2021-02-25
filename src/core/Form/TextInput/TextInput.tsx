@@ -166,9 +166,7 @@ class BaseTextInput extends Component<TextInputProps> {
   }
 }
 
-const StyledTextInput = styled((props: TextInputProps) => (
-  <BaseTextInput {...props} />
-))`
+const StyledTextInput = styled(BaseTextInput)`
   ${baseStyles}
 `;
 

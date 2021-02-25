@@ -8,7 +8,7 @@ import {
 } from '../../components/Heading/Heading';
 import { baseStyles } from './Heading.baseStyles';
 import classnames from 'classnames';
-import { Omit, asPropType } from '../../utils/typescript';
+import { asPropType } from '../../utils/typescript';
 import { logger } from '../../utils/logger';
 
 const baseClassName = 'fi-heading';

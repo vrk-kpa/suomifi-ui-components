@@ -19,9 +19,7 @@ export interface BreadcrumbProps extends CompBreadcrumbProps {
   variant?: BreadcrumbVariant;
 }
 
-const StyledBreadcrumb = styled((props: BreadcrumbProps) => (
-  <CompBreadcrumb {...props} />
-))`
+const StyledBreadcrumb = styled(CompBreadcrumb)`
   ${baseStyles};
 `;
 

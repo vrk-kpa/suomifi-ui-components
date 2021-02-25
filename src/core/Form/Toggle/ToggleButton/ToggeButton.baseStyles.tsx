@@ -1,6 +1,5 @@
 import { css } from 'styled-components';
 import { absoluteFocus } from '../../../theme/utils';
-import { disabledCursor } from '../../../../components/utils/css';
 import {
   toggleBaseStyles,
   focusOverrides,
@@ -9,7 +8,7 @@ import {
 export const baseStyles = css`
   ${toggleBaseStyles}
   &.fi-toggle--disabled > button {
-    ${disabledCursor}
+    cursor: not-allowed;
   }
   &.fi-toggle--button > button {
     &:focus {

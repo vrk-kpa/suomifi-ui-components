@@ -12,7 +12,7 @@ export const baseStyles = css`
     &.fi-language-menu-language_button {
       ${element(theme)}
       ${theme.typography.actionElementInnerTextBold}
-        padding: 9px ${theme.spacing.xs};
+      padding: 9px ${theme.spacing.xs};
       line-height: 24px;
       background-color: ${theme.colors.whiteBase};
       border: 1px solid transparent;
@@ -52,7 +52,7 @@ export const languageMenuPopoverStyles = css`
   &[data-reach-menu-popover].fi-language-menu_popover {
     ${element(theme)}
     ${theme.typography.bodyText}
-      margin-top: -2px;
+    margin-top: -2px;
     background-color: ${theme.colors.whiteBase};
     border: none;
     box-shadow: ${theme.shadows.menuShadow};
@@ -97,7 +97,7 @@ export const languageMenuPopoverStyles = css`
   & [data-reach-menu-item].fi-language-menu_item {
     ${element(theme)}
     ${theme.typography.bodyText}
-      word-break: break-word;
+    word-break: break-word;
     &[data-selected] {
       ${theme.typography.bodyText}
       color: ${theme.colors.blackBase};

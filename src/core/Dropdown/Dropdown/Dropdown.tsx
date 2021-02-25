@@ -204,9 +204,7 @@ class BaseDropdown extends Component<DropdownProps> {
   }
 }
 
-const StyledDropdown = styled((props: DropdownProps) => (
-  <BaseDropdown {...props} />
-))`
+const StyledDropdown = styled(BaseDropdown)`
   ${baseStyles}
 `;
 

@@ -58,7 +58,7 @@ export const baseStyles = css`
   &[data-reach-listbox-popover].fi-dropdown_popover {
     ${element(theme)}
     ${theme.typography.actionElementInnerText}
-      margin-top: -1px;
+    margin-top: -1px;
     padding: 0;
     box-sizing: border-box;
     font-size: 100%;

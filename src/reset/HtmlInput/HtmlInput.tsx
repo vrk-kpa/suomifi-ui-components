@@ -1,7 +1,7 @@
 import React, { HTMLProps } from 'react';
 import { default as styled, css } from 'styled-components';
 import { resets, resetWithSelectors } from '../utils';
-import { Omit, asPropType } from '../../utils/typescript';
+import { asPropType } from '../../utils/typescript';
 export interface HtmlInputProps
   extends Omit<HTMLProps<HTMLInputElement>, 'ref' | 'as'> {
   as?: asPropType;

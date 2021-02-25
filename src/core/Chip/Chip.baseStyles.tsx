@@ -1,7 +1,6 @@
 import { css } from 'styled-components';
 import { defaultThemeTokens as theme } from '../theme';
 import { element, font } from '../theme/reset';
-import { disabledCursor } from '../../components/utils/css';
 import { absoluteFocus } from '../theme/utils/focus';
 
 const removableStyles = css`
@@ -16,7 +15,7 @@ const removableStyles = css`
 const disabledStyles = css`
   &.fi-chip--disabled {
     &.fi-chip {
-      ${disabledCursor}
+      cursor: not-allowed;
       background: ${theme.colors.depthBase};
       &:hover,
       &:active {
@@ -24,7 +23,7 @@ const disabledStyles = css`
       }
     }
     & .fi-chip--icon {
-      ${disabledCursor}
+      cursor: not-allowed;
     }
   }
 `;

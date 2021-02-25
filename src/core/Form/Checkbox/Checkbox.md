@@ -16,11 +16,15 @@ const [checked, setChecked] = useState(false);
     Regular checkbox with a hint text and an error message
   </Checkbox>
 
-  <Checkbox.large>Large checkbox</Checkbox.large>
+  <Checkbox variant="large">Large checkbox</Checkbox>
 
-  <Checkbox.large defaultChecked hintText="Example hint text">
+  <Checkbox
+    variant="large"
+    defaultChecked
+    hintText="Example hint text"
+  >
     Checked large checkbox with a hint text
-  </Checkbox.large>
+  </Checkbox>
 
   <Checkbox disabled>Disabled checkbox</Checkbox>
 

@@ -61,19 +61,7 @@ class BaseExpanderContent extends Component<InternalExpanderContentProps> {
   }
 }
 
-const StyledExpanderContent = styled(
-  ({ className, ...passProps }: ExpanderContentProps) => (
-    <ExpanderConsumer>
-      {(consumer) => (
-        <BaseExpanderContent
-          {...passProps}
-          consumer={consumer}
-          className={className}
-        />
-      )}
-    </ExpanderConsumer>
-  ),
-)`
+const StyledExpanderContent = styled(BaseExpanderContent)`
   ${baseStyles};
 `;
 
@@ -83,6 +71,12 @@ const StyledExpanderContent = styled(
  */
 export class ExpanderContent extends Component<ExpanderContentProps> {
   render() {
-    return <StyledExpanderContent {...this.props} />;
+    return (
+      <ExpanderConsumer>
+        {(consumer) => (
+          <StyledExpanderContent consumer={consumer} {...this.props} />
+        )}
+      </ExpanderConsumer>
+    );
   }
 }

@@ -98,7 +98,11 @@ class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
     const hideLabel = labelMode === 'hidden';
 
     return (
-      <HtmlDiv className={className} id={id} {...passProps}>
+      <HtmlDiv
+        className={classnames(baseClassName, className)}
+        id={id}
+        {...passProps}
+      >
         <HtmlFieldSet>
           <HtmlLegend>
             {hideLabel ? (
@@ -132,13 +136,7 @@ class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
   }
 }
 
-const StyledRadioButtonGroup = styled(
-  ({ id: propId, ...passProps }: RadioButtonGroupProps) => (
-    <AutoId id={propId}>
-      {(id) => <BaseRadioButtonGroup id={id} {...passProps} />}
-    </AutoId>
-  ),
-)`
+const StyledRadioButtonGroup = styled(BaseRadioButtonGroup)`
   ${baseStyles}
 `;
 
@@ -149,15 +147,11 @@ const StyledRadioButtonGroup = styled(
  */
 export class RadioButtonGroup extends Component<RadioButtonGroupProps> {
   render() {
-    const { children, className, ...passProps } = this.props;
-
+    const { id: propId, ...passProps } = this.props;
     return (
-      <StyledRadioButtonGroup
-        className={classnames(baseClassName, className, {})}
-        {...passProps}
-      >
-        {children}
-      </StyledRadioButtonGroup>
+      <AutoId id={propId}>
+        {(id) => <StyledRadioButtonGroup id={id} {...passProps} />}
+      </AutoId>
     );
   }
 }

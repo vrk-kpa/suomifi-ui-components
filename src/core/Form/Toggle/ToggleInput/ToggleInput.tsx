@@ -114,9 +114,7 @@ class BaseToggleInput extends Component<ToggleInputProps> {
   }
 }
 
-const StyledToggleInput = styled((props: ToggleInputProps) => (
-  <BaseToggleInput {...props} />
-))`
+const StyledToggleInput = styled(BaseToggleInput)`
   ${baseStyles}
 `;
 

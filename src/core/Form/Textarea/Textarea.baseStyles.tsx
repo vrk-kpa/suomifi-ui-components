@@ -1,6 +1,5 @@
 import { css } from 'styled-components';
 import { defaultThemeTokens as theme } from '../../theme';
-import { disabledCursor } from '../../../components/utils/css';
 import { element, font } from '../../theme/reset';
 import { absoluteFocus } from '../../theme/utils/focus';
 
@@ -74,7 +73,7 @@ export const baseStyles = css`
 
     &.fi-textarea--disabled {
       color: ${theme.colors.depthBase};
-      ${disabledCursor}
+      cursor: not-allowed;
 
       & .fi-textarea_textarea {
         background-color: ${theme.colors.depthLight3};

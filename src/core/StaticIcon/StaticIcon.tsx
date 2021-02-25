@@ -20,10 +20,6 @@ export { IllustrativeIconKeys, DoctypeIconKeys } from 'suomifi-icons';
 
 const staticIconBaseClassName = `fi-static-icon`;
 
-const getClassNames = ({ className, mousePointer }: StaticIconProps) =>
-  classnames(baseClassName, staticIconBaseClassName, className, {
-    [cursorPointerClassName]: !!mousePointer,
-  });
 export interface StaticIconProps
   extends IconBaseProps,
     SuomifiStaticIconInterface {
@@ -52,7 +48,13 @@ const StyledSuomifiStaticIcon = styled(
  */
 export class StaticIcon extends Component<StaticIconProps> {
   render() {
-    const { icon, highlightColor, className, ...passProps } = this.props;
+    const {
+      icon,
+      highlightColor,
+      className,
+      mousePointer,
+      ...passProps
+    } = this.props;
     const { ariaLabel } = this.props;
 
     if (icon !== undefined) {
@@ -63,7 +65,14 @@ export class StaticIcon extends Component<StaticIconProps> {
             ? { highlightColor }
             : { highlightColor: defaultThemeTokens.colors.accentBase })}
           icon={icon}
-          className={getClassNames(this.props)}
+          className={classnames(
+            baseClassName,
+            staticIconBaseClassName,
+            className,
+            {
+              [cursorPointerClassName]: !!mousePointer,
+            },
+          )}
         />
       );
     }

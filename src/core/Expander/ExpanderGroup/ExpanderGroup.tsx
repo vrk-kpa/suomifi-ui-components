@@ -161,9 +161,7 @@ class BaseExpanderGroup extends Component<ExpanderGroupProps> {
   }
 }
 
-const StyledExpanderGroup = styled((props: ExpanderGroupProps) => (
-  <BaseExpanderGroup {...props} />
-))`
+const StyledExpanderGroup = styled(BaseExpanderGroup)`
   ${baseStyles}
 `;
 

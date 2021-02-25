@@ -123,7 +123,7 @@ class BaseButton extends Component<ButtonProps> {
   }
 }
 
-const StyledButton = styled((props: ButtonProps) => <BaseButton {...props} />)`
+const StyledButton = styled(BaseButton)`
   ${baseStyles}
 `;
 

@@ -104,9 +104,7 @@ class BaseToggleButton extends Component<ToggleButtonProps> {
   }
 }
 
-const StyledToggleButton = styled((props: ToggleBaseProps) => (
-  <BaseToggleButton {...props} />
-))`
+const StyledToggleButton = styled(BaseToggleButton)`
   ${baseStyles}
 `;
 

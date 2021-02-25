@@ -7,7 +7,6 @@ import {
 } from '../../components/Link/LinkExternal';
 import { Icon } from '../Icon/Icon';
 import { externalStyles } from './Link.baseStyles';
-import { Omit } from '../../utils/typescript';
 import { VisuallyHidden } from '../../components';
 import { logger } from '../../utils/logger';
 

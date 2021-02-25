@@ -152,14 +152,17 @@ class BaseTextarea extends Component<TextareaProps> {
   }
 }
 
-const StyledTextarea = styled(({ id: propId, ...passProps }: TextareaProps) => (
-  <AutoId id={propId}>{(id) => <BaseTextarea id={id} {...passProps} />}</AutoId>
-))`
+const StyledTextarea = styled(BaseTextarea)`
   ${baseStyles}
 `;
 
 export class Textarea extends Component<TextareaProps> {
   render() {
-    return <StyledTextarea {...this.props} />;
+    const { id: propId, ...passProps } = this.props;
+    return (
+      <AutoId id={propId}>
+        {(id) => <StyledTextarea id={id} {...passProps} />}
+      </AutoId>
+    );
   }
 }

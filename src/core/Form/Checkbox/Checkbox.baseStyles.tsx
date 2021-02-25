@@ -1,6 +1,5 @@
 import { css } from 'styled-components';
 import { defaultThemeTokens as theme } from '../../theme';
-import { disabledCursor } from '../../../components/utils/css';
 import { element, font } from '../../theme/reset';
 import { boxShadowFocus } from '../../theme/utils/focus';
 
@@ -21,7 +20,7 @@ const checkedStyles = css`
 const disabledStyles = css`
   &.fi-checkbox--disabled {
     & .fi-checkbox_label {
-      ${disabledCursor}
+      cursor: not-allowed;
       color: ${theme.colors.depthBase};
       &::before {
         background-color: ${theme.colors.depthLight3};
