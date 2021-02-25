@@ -13,7 +13,6 @@ import { VisuallyHidden, SearchInput } from 'suomifi-ui-components';
     labelText="This label is only for screen readers"
     labelMode="hidden"
     fullWidth
-    hintText="This input has a label which is hidden internally by the VisuallyHidden component"
   />
 </>;
 ```
