@@ -1,14 +1,22 @@
 ```js
 import { Chip } from 'suomifi-ui-components';
+import React from 'react';
 
 const removeAction = () => {
   alert('Selection removed');
 };
 
+const testi = React.createRef();
+
 <>
   <div>
     <span style={{ marginRight: '10px' }}>
-      <Chip removable actionLabel="Deselect" onClick={removeAction}>
+      <Chip
+        removable
+        actionLabel="Deselect"
+        ref={testi}
+        onClick={() => console.log(testi.current)}
+      >
         Removable chip 1
       </Chip>
     </span>
@@ -23,11 +31,13 @@ const removeAction = () => {
     </Chip>
   </div>
 
-  <Chip.static>
+  <Chip variant="static">
     Static chip with a long content that doesn't fit into the
     component's maximum width of 290px
-  </Chip.static>
+  </Chip>
 
-  <Chip.static disabled>Disabled static chip</Chip.static>
+  <Chip variant="static" disabled>
+    Disabled static chip
+  </Chip>
 </>;
 ```

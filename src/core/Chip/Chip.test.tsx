@@ -74,7 +74,7 @@ describe('variants', () => {
     </Chip>
   );
 
-  const staticChip = <OrigChip.static>Test content</OrigChip.static>;
+  const staticChip = <OrigChip variant="static">Test content</OrigChip>;
 
   it('has icon element when set as removable', () => {
     const { container } = render(defaultChip);

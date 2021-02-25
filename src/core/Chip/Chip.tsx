@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './Chip.baseStyles';
-import { HtmlButton, HtmlSpan } from '../../reset';
+import { HtmlButtonWithRef, HtmlSpan } from '../../reset';
 import { Icon } from '../Icon/Icon';
 import { logger } from '../../utils/logger';
 import { VisuallyHidden } from '../../components/Visually-hidden/Visually-hidden';
@@ -18,7 +18,7 @@ const chipClassNames = {
 
 type ChipVariant = 'static' | 'default';
 
-export interface ChipProps {
+export interface InternalChipProps {
   /** Chip element content */
   children: ReactNode;
   /** Custom class name for styling and customizing  */
@@ -43,7 +43,16 @@ export interface ChipProps {
   variant?: ChipVariant;
 }
 
-class DefaultChip extends Component<ChipProps> {
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLButtonElement>;
+}
+
+export interface ChipProps extends InternalChipProps {
+  /** Ref object to be passed to the input element */
+  ref?: React.RefObject<HTMLButtonElement>;
+}
+
+class DefaultChip extends Component<ChipProps & InnerRef> {
   render() {
     const {
       className,
@@ -51,6 +60,7 @@ class DefaultChip extends Component<ChipProps> {
       onClick,
       removable,
       actionLabel,
+      forwardedRef,
       variant,
       disabled = false,
       ...passProps
@@ -76,13 +86,14 @@ class DefaultChip extends Component<ChipProps> {
       );
     }
     return (
-      <HtmlButton
+      <HtmlButtonWithRef
         className={classnames(baseClassName, chipClassNames.button, className, {
           [chipClassNames.disabled]: !!disabled,
           [chipClassNames.removable]: !!removable,
         })}
         disabled={disabled}
         onClick={onClick}
+        forwardedRef={forwardedRef}
         {...passProps}
       >
         <HtmlSpan className={chipClassNames.content}>{children}</HtmlSpan>
@@ -98,21 +109,20 @@ class DefaultChip extends Component<ChipProps> {
             <VisuallyHidden>{actionLabel}</VisuallyHidden>
           </>
         )}
-      </HtmlButton>
+      </HtmlButtonWithRef>
     );
   }
 }
 
-const StyledChip = styled(DefaultChip)`
+const StyledChip = styled(({ ...passProps }: InternalChipProps & InnerRef) => (
+  <DefaultChip {...passProps} />
+))`
   ${baseStyles}
 `;
 
-export class Chip extends Component<ChipProps> {
-  static static = (props: ChipProps) => (
-    <StyledChip {...props} variant="static" />
-  );
-
-  render() {
-    return <StyledChip {...this.props} />;
-  }
-}
+export const Chip = React.forwardRef(
+  (props: ChipProps, ref: React.RefObject<HTMLButtonElement>) => {
+    const { ...passProps } = props;
+    return <StyledChip forwardedRef={ref} {...passProps} />;
+  },
+);
