@@ -1,11 +1,14 @@
 import { css } from 'styled-components';
 import { defaultThemeTokens as theme } from '../theme';
 import { element, font } from '../theme/reset';
+import { HeadingProps } from './Heading';
 
-export const baseStyles = css`
+export const baseStyles = ({ color }: HeadingProps) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
-  color: ${theme.colors.blackBase};
+  color: ${!!color && color in theme.colors
+    ? theme.colors[color]
+    : theme.colors.blackBase};
 
   &.fi-heading {
     &--h1hero {

@@ -32,6 +32,7 @@ const StyledHeading = styled(
     smallScreen,
     className,
     variant,
+    color,
     asProp, // as-property is defined internally as asProp and need to be implemented back if used
     ...passProps
   }: HeadingProps) => (
@@ -45,7 +46,7 @@ const StyledHeading = styled(
     />
   ),
 )`
-  ${baseStyles}
+  ${(props) => baseStyles(props)}
 `;
 
 /**
