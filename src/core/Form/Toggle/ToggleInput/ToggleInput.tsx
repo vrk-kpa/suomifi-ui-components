@@ -7,8 +7,8 @@ import { Text } from '../../../Text/Text';
 import {
   HtmlLabel,
   HtmlSpan,
-  HtmlInput,
   HtmlInputProps,
+  HtmlInputWithRef,
 } from '../../../../reset';
 import { baseStyles } from './ToggleInput.baseStyles';
 import { ToggleIcon } from '../ToggleBase/ToggleIcon';
@@ -33,8 +33,15 @@ export interface ToggleInputProps
   name?: string;
   /** Event handler to execute when clicked */
   onChange?: (checked: boolean) => void;
+  /** Ref object to be passed to the button element */
+  ref?: React.RefObject<HTMLInputElement>;
 }
-class BaseToggleInput extends Component<ToggleInputProps> {
+
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLInputElement>;
+}
+
+class BaseToggleInput extends Component<ToggleInputProps & InnerRef> {
   state: ToggleState = {
     toggleState: !!this.props.checked || !!this.props.defaultChecked,
   };
@@ -92,7 +99,7 @@ class BaseToggleInput extends Component<ToggleInputProps> {
         {...toggleWrapperProps}
       >
         <HtmlLabel className={toggleClassNames.label} htmlFor={id}>
-          <HtmlInput
+          <HtmlInputWithRef
             {...passProps}
             checked={!!toggleState}
             id={id}
@@ -114,7 +121,9 @@ class BaseToggleInput extends Component<ToggleInputProps> {
   }
 }
 
-const StyledToggleInput = styled(BaseToggleInput)`
+const StyledToggleInput = styled((props: ToggleBaseProps & InnerRef) => (
+  <BaseToggleInput {...props} />
+))`
   ${baseStyles}
 `;
 
@@ -123,13 +132,15 @@ const StyledToggleInput = styled(BaseToggleInput)`
  * Use for toggling form selection
  * Additional props are passed to the checkbox input element.
  */
-export class ToggleInput extends Component<ToggleInputProps> {
-  render() {
-    const { id: propId, ...passProps } = this.props;
+export const ToggleInput = React.forwardRef(
+  (props: ToggleInputProps, ref: React.RefObject<HTMLInputElement>) => {
+    const { id: propId, ...passProps } = props;
     return (
       <AutoId id={propId}>
-        {(id) => <StyledToggleInput id={id} {...passProps} />}
+        {(id) => (
+          <StyledToggleInput id={id} forwardedRef={ref} {...passProps} />
+        )}
       </AutoId>
     );
-  }
-}
+  },
+);

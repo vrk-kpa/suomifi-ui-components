@@ -1,14 +1,15 @@
 ```js
-import { useState } from 'react';
+import { createRef, useState } from 'react';
 
 import { ToggleInput } from 'suomifi-ui-components';
 
 const [checked, setChecked] = useState(false);
-
+const testi = createRef();
 <>
   <ToggleInput
     defaultChecked
-    onChange={(checked) => console.log(checked)}
+    ref={testi}
+    onChange={() => console.log(testi.current)} //TODO: change back to logging checked state
   >
     Checked enabled using input
   </ToggleInput>
