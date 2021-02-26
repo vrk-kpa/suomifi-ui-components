@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv } from '../../../../reset';
-import { TokensProp, InternalTokensProp } from '../../../theme';
-import { withSuomifiDefaultProps } from '../../../theme/utils';
 import { AutoId } from '../../../../utils/AutoId';
 import { windowAvailable } from '../../../../utils/common';
 import { Button } from '../../../Button/Button';
@@ -31,7 +29,7 @@ export interface ComboboxData {
   disabled?: boolean;
 }
 
-export interface ComboboxProps<T extends ComboboxData> extends TokensProp {
+export interface ComboboxProps<T extends ComboboxData> {
   /** Combobox container div class name for custom styling. */
   className?: string;
   /** Items for the combobox */
@@ -439,11 +437,10 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     );
   }
 }
-const ComboboxWithoutTokens: <T>(
-  props: ComboboxProps<T & ComboboxData> & InternalTokensProp,
+
+const ComboboxWithAutoId: <T>(
+  props: ComboboxProps<T & ComboboxData>,
 ) => JSX.Element = ({
-  // eslint-disable-next-line react/prop-types
-  tokens,
   // eslint-disable-next-line react/prop-types
   id: propId,
   ...passProps
@@ -451,12 +448,12 @@ const ComboboxWithoutTokens: <T>(
   <AutoId id={propId}>{(id) => <BaseCombobox id={id} {...passProps} />}</AutoId>
 );
 
-const StyledCombobox = styled(ComboboxWithoutTokens)`
-  ${(props) => baseStyles(props)}
+const StyledCombobox = styled(ComboboxWithAutoId)`
+  ${baseStyles}
 `;
 
 export class Combobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   render() {
-    return <StyledCombobox {...withSuomifiDefaultProps(this.props)} />;
+    return <StyledCombobox {...this.props} />;
   }
 }
