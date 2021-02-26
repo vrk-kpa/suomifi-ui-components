@@ -37,7 +37,7 @@ class BaseComboboxItem extends Component<ComboboxItemProps> {
         tabIndex={-1}
         role="option"
         aria-selected={defaultChecked}
-        aria-disabled={disabled}
+        aria-disabled={disabled || false}
         id={id}
       >
         <HtmlDiv className={comboboxItemClassNames.wrapper}>
