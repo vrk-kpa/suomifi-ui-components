@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
+import { defaultThemeTokens } from '../theme';
 import classnames from 'classnames';
 import {
   SuomifiStaticIcon,
@@ -7,13 +8,17 @@ import {
   SuomifiComponentIconInterface,
   SuomifiComponentIcon,
 } from 'suomifi-icons';
-import { withSuomifiDefaultProps } from '../theme/utils';
 import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
 import { iconBaseStyles } from '../Icon/Icon.baseStyles';
-import { IconBaseProps, iconLogger } from '../Icon/Icon';
+import {
+  IconBaseProps,
+  iconLogger,
+  cursorPointerClassName,
+  baseClassName,
+} from '../Icon/Icon';
 export { IllustrativeIconKeys, DoctypeIconKeys } from 'suomifi-icons';
 
-const baseClassName = 'fi-static-icon';
+const staticIconBaseClassName = `fi-static-icon`;
 
 export interface StaticIconProps
   extends IconBaseProps,
@@ -35,7 +40,7 @@ const StyledSuomifiStaticIcon = styled(
     />
   ),
 )`
-  ${(props) => iconBaseStyles(props)}
+  ${iconBaseStyles}
 `;
 
 /**
@@ -45,22 +50,29 @@ export class StaticIcon extends Component<StaticIconProps> {
   render() {
     const {
       icon,
-      tokens,
       highlightColor,
       className,
+      mousePointer,
       ...passProps
-    } = withSuomifiDefaultProps(this.props);
+    } = this.props;
     const { ariaLabel } = this.props;
 
     if (icon !== undefined) {
       return (
         <StyledSuomifiStaticIcon
           {...passProps}
-          className={classnames(baseClassName, className)}
           {...(!!highlightColor
             ? { highlightColor }
-            : { highlightColor: tokens.colors.accentBase })}
+            : { highlightColor: defaultThemeTokens.colors.accentBase })}
           icon={icon}
+          className={classnames(
+            baseClassName,
+            staticIconBaseClassName,
+            className,
+            {
+              [cursorPointerClassName]: !!mousePointer,
+            },
+          )}
         />
       );
     }
@@ -84,16 +96,21 @@ const StyledSuomifiComponentIcon = styled(
     />
   ),
 )`
-  ${(props) => iconBaseStyles(props)}
+  ${iconBaseStyles}
 `;
 
 export class ComponentIcon extends Component<ComponentIconProps> {
   render() {
-    const { icon, tokens, ...passProps } = withSuomifiDefaultProps(this.props);
-    const { className, ariaLabel } = this.props;
-
+    const { icon, className, ariaLabel, ...passProps } = this.props;
     if (icon !== undefined) {
-      return <StyledSuomifiComponentIcon {...passProps} icon={icon} />;
+      return (
+        <StyledSuomifiComponentIcon
+          {...passProps}
+          ariaLabel={ariaLabel}
+          className={className}
+          icon={icon}
+        />
+      );
     }
 
     iconLogger(ariaLabel, className);

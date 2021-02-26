@@ -1,6 +1,5 @@
 import { css } from 'styled-components';
-import { TokensAndTheme } from '../../../theme';
-import { disabledCursor } from '../../../../components/utils/css';
+import { defaultThemeTokens as theme } from '../../../theme';
 import { element, font } from '../../../theme/reset';
 
 export const iconWidth = '40px';
@@ -12,9 +11,9 @@ export const focusOverrides = css`
   left: -4px;
 `;
 
-export const toggleBaseStyles = ({ theme }: TokensAndTheme) => css`
-  ${element({ theme })}
-  ${font({ theme })('bodyText')}
+export const toggleBaseStyles = css`
+  ${element(theme)}
+  ${font(theme)('bodyText')}
   background-color: ${theme.colors.whiteBase};
   padding-left: 50px;
   position: relative;
@@ -22,7 +21,7 @@ export const toggleBaseStyles = ({ theme }: TokensAndTheme) => css`
   cursor: pointer;
 
   &.fi-toggle--disabled {
-    ${disabledCursor}
+    cursor: not-allowed;
   }
 
   & .fi-toggle_icon-container {

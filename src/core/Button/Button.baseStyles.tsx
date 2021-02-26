@@ -1,11 +1,10 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, TokensAndTheme, SuomifiThemeProp } from '../theme';
-import { ButtonProps } from './Button';
+import { defaultThemeTokens as theme } from '../theme';
 import { button } from '../theme/reset';
 import { alphaHex } from '../../utils/css';
 import { absoluteFocus } from '../theme/utils/focus';
 
-const invertedStyles = ({ theme }: SuomifiThemeProp) => css`
+const invertedStyles = css`
   &.fi-button--inverted {
     background: none;
     background-color: ${theme.colors.highlightBase};
@@ -31,7 +30,7 @@ const invertedStyles = ({ theme }: SuomifiThemeProp) => css`
   }
 `;
 
-const secondary = ({ theme }: SuomifiThemeProp) => css`
+const secondary = css`
   color: ${theme.colors.highlightBase};
   background: none;
   background-color: ${theme.colors.whiteBase};
@@ -58,22 +57,22 @@ const secondary = ({ theme }: SuomifiThemeProp) => css`
   }
 `;
 
-const secondaryStyles = ({ theme }: SuomifiThemeProp) => css`
+const secondaryStyles = css`
   &.fi-button--secondary {
-    ${secondary({ theme })}
+    ${secondary}
   }
 `;
 
-const secondaryNoBorderStyles = ({ theme }: SuomifiThemeProp) => css`
+const secondaryNoBorderStyles = css`
   &.fi-button--secondary-noborder {
-    ${secondary({ theme })}
+    ${secondary}
     border: none;
   }
 `;
 
-const tertiaryStyles = ({ theme }: SuomifiThemeProp) => css`
+const tertiaryStyles = css`
   &.fi-button--tertiary {
-    ${secondary({ theme })}
+    ${secondary}
     background: ${theme.gradients.highlightLight3ToHighlightLight2};
     border: none;
 
@@ -87,72 +86,70 @@ const tertiaryStyles = ({ theme }: SuomifiThemeProp) => css`
   }
 `;
 
-export const baseStyles = withSuomifiTheme(
-  ({ theme }: TokensAndTheme & Partial<ButtonProps>) => css`
-    ${button({ theme })}
-    padding: ${theme.spacing.insetL} ${theme.spacing.insetXxl};
-    min-height: 40px;
-    color: ${theme.colors.whiteBase};
-    background: ${theme.gradients.highlightBaseToHighlightDark1};
-    border-radius: ${theme.radius.basic};
-    text-align: center;
-    text-shadow: ${theme.shadows.invertTextShadow};
-    cursor: pointer;
+export const baseStyles = css`
+  ${button(theme)}
+  padding: ${theme.spacing.insetL} ${theme.spacing.insetXxl};
+  min-height: 40px;
+  color: ${theme.colors.whiteBase};
+  background: ${theme.gradients.highlightBaseToHighlightDark1};
+  border-radius: ${theme.radius.basic};
+  text-align: center;
+  text-shadow: ${theme.shadows.invertTextShadow};
+  cursor: pointer;
 
-    &:focus {
-      outline: none;
-      position: relative;
+  &:focus {
+    outline: none;
+    position: relative;
 
-      &::after {
-        ${absoluteFocus}
-      }
+    &::after {
+      ${absoluteFocus}
     }
+  }
 
-    &:hover {
-      background: ${theme.gradients.highlightLight1ToHighlightBase};
-    }
+  &:hover {
+    background: ${theme.gradients.highlightLight1ToHighlightBase};
+  }
 
-    &:active {
-      background: ${theme.colors.highlightDark1};
-    }
+  &:active {
+    background: ${theme.colors.highlightDark1};
+  }
 
-    &.fi-button--disabled,
-    &[disabled],
-    &:disabled {
-      text-shadow: 0 1px 1px ${alphaHex(0.5)(theme.colors.blackBase)};
-      background: ${theme.gradients.depthLight1ToDepthBase};
-      user-select: none;
-      cursor: not-allowed;
-    }
+  &.fi-button--disabled,
+  &[disabled],
+  &:disabled {
+    text-shadow: 0 1px 1px ${alphaHex(0.5)(theme.colors.blackBase)};
+    background: ${theme.gradients.depthLight1ToDepthBase};
+    user-select: none;
+    cursor: not-allowed;
+  }
 
-    &.fi-button--disabled::after {
-      border: none;
-      box-shadow: none;
-    }
+  &.fi-button--disabled::after {
+    border: none;
+    box-shadow: none;
+  }
 
-    &.fi-button--fullwidth {
-      display: block;
-      width: 100%;
-    }
+  &.fi-button--fullwidth {
+    display: block;
+    width: 100%;
+  }
 
-    ${invertedStyles({ theme })}
-    ${secondaryStyles({ theme })}
-    ${secondaryNoBorderStyles({ theme })}
-    ${tertiaryStyles({ theme })}
+  ${invertedStyles}
+  ${secondaryStyles}
+  ${secondaryNoBorderStyles}
+  ${tertiaryStyles}
 
   & > .fi-button_icon {
-      width: 16px;
-      height: 16px;
-      margin-right: ${theme.spacing.insetM};
-      vertical-align: middle;
-      transform: translateY(-0.1em);
-      &.fi-button_icon--right {
-        margin-right: 0;
-        margin-left: ${theme.spacing.insetM};
-      }
+    width: 16px;
+    height: 16px;
+    margin-right: ${theme.spacing.insetM};
+    vertical-align: middle;
+    transform: translateY(-0.1em);
+    &.fi-button_icon--right {
+      margin-right: 0;
+      margin-left: ${theme.spacing.insetM};
     }
-    &.fi-button--disabled > .fi-button_icon {
-      cursor: not-allowed;
-    }
-  `,
-);
+  }
+  &.fi-button--disabled > .fi-button_icon {
+    cursor: not-allowed;
+  }
+`;

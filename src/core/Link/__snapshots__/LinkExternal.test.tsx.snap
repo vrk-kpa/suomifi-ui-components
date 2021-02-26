@@ -73,6 +73,14 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
 }
 
+.c5.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c5.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c4 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);

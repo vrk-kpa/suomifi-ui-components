@@ -3,8 +3,6 @@ import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './Chip.baseStyles';
 import { HtmlButton, HtmlSpan } from '../../reset';
-import { TokensProp, InternalTokensProp } from 'core/theme';
-import { withSuomifiDefaultProps } from '../theme/utils';
 import { Icon } from '../Icon/Icon';
 import { logger } from '../../utils/logger';
 import { VisuallyHidden } from '../../components/Visually-hidden/Visually-hidden';
@@ -20,7 +18,7 @@ const chipClassNames = {
 
 type ChipVariant = 'static' | 'default';
 
-interface InternalChipProps {
+export interface ChipProps {
   /** Chip element content */
   children: ReactNode;
   /** Custom class name for styling and customizing  */
@@ -44,8 +42,6 @@ interface InternalChipProps {
    */
   variant?: ChipVariant;
 }
-
-export interface ChipProps extends InternalChipProps, TokensProp {}
 
 class DefaultChip extends Component<ChipProps> {
   render() {
@@ -107,22 +103,16 @@ class DefaultChip extends Component<ChipProps> {
   }
 }
 
-const StyledChip = styled(
-  ({ tokens, ...passProps }: ChipProps & InternalTokensProp) => (
-    <DefaultChip {...passProps} />
-  ),
-)`
-  ${(tokens) => baseStyles(withSuomifiDefaultProps(tokens))}
+const StyledChip = styled(DefaultChip)`
+  ${baseStyles}
 `;
 
 export class Chip extends Component<ChipProps> {
-  static static = (props: ChipProps) => {
-    const passProps = withSuomifiDefaultProps(props);
-    return <StyledChip {...passProps} variant="static" />;
-  };
+  static static = (props: ChipProps) => (
+    <StyledChip {...props} variant="static" />
+  );
 
   render() {
-    const { ...passProps } = withSuomifiDefaultProps(this.props);
-    return <StyledChip {...passProps} />;
+    return <StyledChip {...this.props} />;
   }
 }

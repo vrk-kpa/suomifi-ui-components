@@ -186,6 +186,14 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   vertical-align: baseline;
 }
 
+.c3.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c3.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c4 {
   width: 40px;
   height: 24px;
@@ -241,7 +249,7 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   fill: hsl(0,0%,100%);
 }
 
-.c1.fi-toggle--button > button {
+.c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -263,15 +271,19 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c1.fi-toggle--button > button.fi-toggle--disabled {
+.c1.fi-toggle--disabled {
   cursor: not-allowed;
 }
 
-.c1.fi-toggle--button > button .fi-toggle_icon-container {
+.c1 .fi-toggle_icon-container {
   position: absolute;
   margin-right: 10px;
   left: 0;
   top: 0.1em;
+}
+
+.c1.fi-toggle--disabled > button {
+  cursor: not-allowed;
 }
 
 .c1.fi-toggle--button > button:focus {
@@ -345,6 +357,7 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
     </span>
     <span
       class="c0 fi-text c5 fi-text--body"
+      color="blackBase"
     >
       TestToggle
     </span>

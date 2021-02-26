@@ -2,12 +2,10 @@ import React, { ReactNode } from 'react';
 import { ListboxOption } from '@reach/listbox';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './DropdownItem.basestyles';
-import { InternalTokensProp, TokensProp } from '../../theme';
-import { withSuomifiDefaultProps } from '../../theme/utils';
 import { dropdownClassNames } from '../Dropdown/Dropdown';
 import classnames from 'classnames';
 
-export interface DropdownItemProps extends TokensProp {
+export interface DropdownItemProps {
   /** Item value */
   value: string;
   /** Item content */
@@ -26,14 +24,10 @@ const BaseDropdownItem = (props: DropdownItemProps) => {
   );
 };
 
-const StyledDropdownItem = styled(
-  ({ tokens, ...passProps }: DropdownItemProps & InternalTokensProp) => (
-    <BaseDropdownItem {...passProps} />
-  ),
-)`
-  ${(props) => baseStyles(props)}
+const StyledDropdownItem = styled(BaseDropdownItem)`
+  ${baseStyles}
 `;
 
 export const DropdownItem = (props: DropdownItemProps) => (
-  <StyledDropdownItem {...withSuomifiDefaultProps(props)} />
+  <StyledDropdownItem {...props} />
 );

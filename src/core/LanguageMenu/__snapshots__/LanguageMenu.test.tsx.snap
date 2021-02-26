@@ -35,6 +35,14 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
 }
 
+.c2.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c2.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c1 > [data-reach-menu-button].fi-language-menu_button {
   color: hsl(0,0%,16%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;

@@ -1,8 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { withSuomifiDefaultProps } from '../../theme/utils';
-import { TokensProp, InternalTokensProp } from '../../theme';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
 import { baseStyles } from './ExpanderGroup.baseStyles';
 import { VisuallyHidden } from '../../../components';
@@ -11,7 +9,7 @@ const baseClassName = 'fi-expander-group';
 const openClassName = `${baseClassName}--open`;
 const expandersContainerClassName = `${baseClassName}_expanders`;
 const openAllButtonClassName = `${baseClassName}_all-button`;
-interface InternalExpanderGroupProps {
+export interface ExpanderGroupProps {
   /** Expanders and optionally, other ReactNodes */
   children: ReactNode;
   /** 'Open all' button text */
@@ -67,7 +65,7 @@ const { Provider, Consumer: ExpanderGroupConsumer } = React.createContext(
   defaultProviderValue,
 );
 
-class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
+class BaseExpanderGroup extends Component<ExpanderGroupProps> {
   state: ExpanderGroupState = {
     expanders: {},
     expanderGroupOpenState: {
@@ -163,17 +161,9 @@ class BaseExpanderGroup extends Component<InternalExpanderGroupProps> {
   }
 }
 
-const StyledExpanderGroup = styled(
-  ({ tokens, ...passProps }: ExpanderGroupProps & InternalTokensProp) => (
-    <BaseExpanderGroup {...passProps} />
-  ),
-)`
-  ${(props) => baseStyles(props)};
+const StyledExpanderGroup = styled(BaseExpanderGroup)`
+  ${baseStyles}
 `;
-
-export interface ExpanderGroupProps
-  extends InternalExpanderGroupProps,
-    TokensProp {}
 
 /**
  * <i class="semantics" />
@@ -181,8 +171,7 @@ export interface ExpanderGroupProps
  */
 export class ExpanderGroup extends Component<ExpanderGroupProps> {
   render() {
-    const { ...passProps } = withSuomifiDefaultProps(this.props);
-    return <StyledExpanderGroup {...passProps} />;
+    return <StyledExpanderGroup {...this.props} />;
   }
 }
 

@@ -1,8 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { withSuomifiDefaultProps } from '../../theme/utils';
-import { TokensProp, InternalTokensProp } from '../../theme';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
 import { expanderTitleButtonBaseStyles } from './ExpanderTitleButton.baseStyles';
 import { Icon } from '../../Icon/Icon';
@@ -89,26 +87,22 @@ class BaseExpanderTitleButton extends Component<InternalExpanderTitleButtonProps
   }
 }
 
-const StyledExpanderTitle = styled(
-  ({ tokens, ...passProps }: ExpanderTitleButtonProps & InternalTokensProp) => (
-    <ExpanderConsumer>
-      {(consumer) => (
-        <BaseExpanderTitleButton consumer={consumer} {...passProps} />
-      )}
-    </ExpanderConsumer>
-  ),
-)`
-  ${(props) => expanderTitleButtonBaseStyles(props)};
+const StyledExpanderTitle = styled(BaseExpanderTitleButton)`
+  ${expanderTitleButtonBaseStyles}
 `;
 
 /**
  * <i class="semantics" />
  * Expander title button for static title content and toggle for content visiblity
  */
-export class ExpanderTitleButton extends Component<
-  ExpanderTitleButtonProps & TokensProp
-> {
+export class ExpanderTitleButton extends Component<ExpanderTitleButtonProps> {
   render() {
-    return <StyledExpanderTitle {...withSuomifiDefaultProps(this.props)} />;
+    return (
+      <ExpanderConsumer>
+        {(consumer) => (
+          <StyledExpanderTitle consumer={consumer} {...this.props} />
+        )}
+      </ExpanderConsumer>
+    );
   }
 }

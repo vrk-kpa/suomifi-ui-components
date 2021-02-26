@@ -6,7 +6,7 @@ export interface ParagraphProps extends HtmlPProps {
   className?: string;
 }
 
-const baseClassName = 'fi-paragraph';
+export const baseClassName = 'fi-paragraph';
 
 export class Paragraph extends Component<ParagraphProps> {
   render() {

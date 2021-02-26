@@ -1,7 +1,7 @@
 import { HTMLProps } from 'react';
 import { default as styled, css } from 'styled-components';
 import { resets } from '../utils';
-import { Omit, asPropType } from '../../utils/typescript';
+import { asPropType } from '../../utils/typescript';
 
 export type hLevels = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
 

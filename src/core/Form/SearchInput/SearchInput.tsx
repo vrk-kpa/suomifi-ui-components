@@ -12,8 +12,6 @@ import {
 } from '../../../reset';
 import { AutoId } from '../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { TokensProp, InternalTokensProp } from '../../theme';
-import { withSuomifiDefaultProps } from '../../theme/utils';
 import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
 import { StatusText } from '../StatusText/StatusText';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
@@ -28,16 +26,15 @@ type SearchInputStatus = Exclude<InputStatus, 'success'>;
 
 export interface SearchInputProps
   extends Omit<
-      HtmlInputProps,
-      | 'type'
-      | 'disabled'
-      | 'onChange'
-      | 'children'
-      | 'onClick'
-      | 'value'
-      | 'defaultValue'
-    >,
-    TokensProp {
+    HtmlInputProps,
+    | 'type'
+    | 'disabled'
+    | 'onChange'
+    | 'children'
+    | 'onClick'
+    | 'value'
+    | 'defaultValue'
+  > {
   /** SearchInput container div class name for custom styling. */
   className?: string;
   /** SearchInput wrapping div element props */
@@ -211,7 +208,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
         })}
       >
         <HtmlSpan className={searchInputClassNames.styleWrapper}>
-          <LabelText htmlFor={id} labelMode={labelMode} as="label">
+          <LabelText htmlFor={id} labelMode={labelMode} asProp="label">
             {labelText}
           </LabelText>
           <Debounce waitFor={this.props.debounce}>
@@ -279,12 +276,8 @@ class BaseSearchInput extends Component<SearchInputProps> {
   }
 }
 
-const StyledSearchInput = styled(
-  ({ tokens, ...passProps }: SearchInputProps & InternalTokensProp) => (
-    <BaseSearchInput {...passProps} />
-  ),
-)`
-  ${(props) => baseStyles(props)}
+const StyledSearchInput = styled(BaseSearchInput)`
+  ${baseStyles}
 `;
 
 /**
@@ -298,9 +291,7 @@ export class SearchInput extends Component<SearchInputProps> {
 
     return (
       <AutoId id={propId}>
-        {(id) => (
-          <StyledSearchInput id={id} {...withSuomifiDefaultProps(passProps)} />
-        )}
+        {(id) => <StyledSearchInput id={id} {...passProps} />}
       </AutoId>
     );
   }

@@ -4,13 +4,11 @@ import { default as styled } from 'styled-components';
 import { baseStyles } from './LabelText.baseStyles';
 import { asPropType } from '../../../utils/typescript';
 import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
-import { withSuomifiDefaultProps } from '../../theme/utils';
 import { HtmlSpan, HtmlSpanProps, HtmlDiv, HtmlDivProps } from '../../../reset';
-import { TokensProp, InternalTokensProp } from '../../theme';
 
 export type LabelMode = 'hidden' | 'visible';
 
-interface InternalLabelTextProps extends HtmlDivProps {
+export interface LabelTextProps extends Omit<HtmlDivProps, 'as'> {
   /** id */
   id?: string;
   /** Label element content */
@@ -29,8 +27,6 @@ interface InternalLabelTextProps extends HtmlDivProps {
   optionalText?: string;
 }
 
-export interface LabelTextProps extends InternalLabelTextProps, TokensProp {}
-
 const baseClassName = 'fi-label-text';
 const labelTextClassNames = {
   labelSpan: `${baseClassName}_label-span`,
@@ -43,11 +39,10 @@ const StyledLabelText = styled(
     labelMode = 'visible',
     labelSpanProps = { className: undefined },
     children,
-    tokens,
     asProp,
     optionalText,
     ...passProps
-  }: LabelTextProps & InternalTokensProp) => (
+  }: LabelTextProps) => (
     <HtmlDiv
       {...(asProp ? { as: asProp } : {})}
       className={classnames(className, baseClassName)}
@@ -77,12 +72,11 @@ const StyledLabelText = styled(
     </HtmlDiv>
   ),
 )`
-  ${(tokens) => baseStyles(withSuomifiDefaultProps(tokens))}
+  ${baseStyles}
 `;
 
 export class LabelText extends Component<LabelTextProps> {
   render() {
-    const { ...passProps } = withSuomifiDefaultProps(this.props);
-    return <StyledLabelText {...passProps} />;
+    return <StyledLabelText {...this.props} />;
   }
 }

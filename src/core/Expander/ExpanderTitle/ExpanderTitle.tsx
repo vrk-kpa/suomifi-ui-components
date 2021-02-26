@@ -1,8 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { withSuomifiDefaultProps } from '../../theme/utils';
-import { TokensProp, InternalTokensProp } from '../../theme';
 import {
   HtmlDiv,
   HtmlButton,
@@ -88,22 +86,22 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
   }
 }
 
-const StyledExpanderTitle = styled(
-  ({ tokens, ...passProps }: ExpanderTitleProps & InternalTokensProp) => (
-    <ExpanderConsumer>
-      {(consumer) => <BaseExpanderTitle consumer={consumer} {...passProps} />}
-    </ExpanderConsumer>
-  ),
-)`
-  ${(props) => expanderTitleBaseStyles(props)};
+const StyledExpanderTitle = styled(BaseExpanderTitle)`
+  ${expanderTitleBaseStyles}
 `;
 
 /**
  * <i class="semantics" />
  * Expander title for focusable content and toggle button for content visiblity
  */
-export class ExpanderTitle extends Component<ExpanderTitleProps & TokensProp> {
+export class ExpanderTitle extends Component<ExpanderTitleProps> {
   render() {
-    return <StyledExpanderTitle {...withSuomifiDefaultProps(this.props)} />;
+    return (
+      <ExpanderConsumer>
+        {(consumer) => (
+          <StyledExpanderTitle consumer={consumer} {...this.props} />
+        )}
+      </ExpanderConsumer>
+    );
   }
 }

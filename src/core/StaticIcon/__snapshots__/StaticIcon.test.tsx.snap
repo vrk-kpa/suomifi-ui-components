@@ -14,10 +14,18 @@ exports[`calling render with the same component on the same container does not r
   stroke: hsl(23,82%,53%);
 }
 
+.c0.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c0.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 <div>
   <svg
     aria-label="Test label"
-    class="c0 fi-static-icon my-icon--test"
+    class="c0 fi-icon fi-static-icon my-icon--test"
     data-testid="icon"
     height="1em"
     role="img"
@@ -48,7 +56,7 @@ exports[`calling render with the same component on the same container does not r
   </svg>
   <svg
     aria-hidden="true"
-    class="c0 fi-static-icon"
+    class="c0 fi-icon fi-static-icon"
     focusable="false"
     height="1em"
     viewBox="0 0 80 80"

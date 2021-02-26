@@ -188,6 +188,14 @@ exports[`snapshot should have matching default structure 1`] = `
   vertical-align: baseline;
 }
 
+.c7.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c7.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c1.fi-search-input {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;

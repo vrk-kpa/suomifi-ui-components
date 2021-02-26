@@ -1,9 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { withSuomifiDefaultProps } from '../../theme/utils';
 import { AutoId } from '../../../utils/AutoId';
-import { TokensProp, InternalTokensProp } from '../../theme';
 import { HtmlDiv } from '../../../reset';
 import { baseStyles } from './Expander.baseStyles';
 import {
@@ -37,7 +35,7 @@ const {
   Consumer: ExpanderConsumer,
 } = React.createContext(defaultProviderValue);
 
-interface InternalExpanderProps {
+export interface ExpanderProps {
   /**
    * Children, extend type ExpanderTitleBaseProps or ExpanderContentBaseProps
    * ExpanderProviderState context is used to communicate between title, content and expander
@@ -61,8 +59,6 @@ interface InternalExpanderProps {
   consumer?: ExpanderGroupProviderState;
 }
 
-export interface ExpanderProps extends InternalExpanderProps, TokensProp {}
-
 export interface ExpanderTitleBaseProps {
   /** Custom classname to extend or customize */
   className?: string;
@@ -77,7 +73,7 @@ export interface ExpanderContentBaseProps {
   consumer: ExpanderProviderState;
 }
 
-interface BaseExpanderProps extends InternalExpanderProps {
+interface BaseExpanderProps extends ExpanderProps {
   id: string;
 }
 
@@ -185,18 +181,8 @@ class BaseExpander extends Component<BaseExpanderProps> {
   }
 }
 
-const StyledExpander = styled(
-  ({
-    tokens,
-    id: propId,
-    ...passProps
-  }: ExpanderProps & InternalTokensProp) => (
-    <AutoId id={propId}>
-      {(id) => <BaseExpander id={id} {...passProps} />}
-    </AutoId>
-  ),
-)`
-  ${(props) => baseStyles(props)};
+const StyledExpander = styled(BaseExpander)`
+  ${baseStyles};
 `;
 
 interface ExpanderState {
@@ -209,15 +195,17 @@ interface ExpanderState {
  */
 export class Expander extends Component<ExpanderProps> {
   render() {
+    const { id: propId, ...passProps } = this.props;
     return (
-      <ExpanderGroupConsumer>
-        {(consumer) => (
-          <StyledExpander
-            {...withSuomifiDefaultProps(this.props)}
-            consumer={consumer}
-          />
+      <AutoId id={propId}>
+        {(id) => (
+          <ExpanderGroupConsumer>
+            {(consumer) => (
+              <StyledExpander id={id} {...passProps} consumer={consumer} />
+            )}
+          </ExpanderGroupConsumer>
         )}
-      </ExpanderGroupConsumer>
+      </AutoId>
     );
   }
 }

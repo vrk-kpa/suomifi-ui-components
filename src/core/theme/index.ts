@@ -1,5 +1,4 @@
 import './fontFaces.css';
-import { FlattenSimpleInterpolation } from 'styled-components';
 import {
   colors as colorTokens,
   shadows,
@@ -34,22 +33,6 @@ export interface PartialTokens {
   colors?: Partial<ColorDesignTokens>;
   spacing?: Partial<SpacingDesignTokens>;
   typography?: Partial<TypographyDesignTokens>;
-}
-export interface TokensProp {
-  /** Custom  Design-tokens or one category of tokens customized, clone defaultTokens for base */
-  tokens?: PartialTokens;
-}
-
-export interface InternalTokensProp {
-  tokens: SuomifiTokens;
-}
-
-export interface SuomifiThemeProp {
-  theme: SuomifiTheme;
-}
-
-export interface TokensAndTheme extends SuomifiThemeProp {
-  tokens: SuomifiTokens;
 }
 
 type DefaultInternalTokens = typeof internalTokens;
@@ -130,15 +113,3 @@ const mergeTokens = <T>({
     }),
     Object.assign({}, defaultTokens) as T,
   );
-
-/**
- * Function that will add theme to baseStyles-function using tokens
- * @param {function} baseStyles Function that will get components' props including tokens-prop and return CSS-styles
- */
-export const withSuomifiTheme = (
-  baseStyles: <K>(props: K & TokensAndTheme) => FlattenSimpleInterpolation,
-) => <T extends InternalTokensProp>({
-  tokens,
-  ...passProps
-}: { tokens: SuomifiTokens } & T) =>
-  baseStyles({ ...passProps, tokens, theme: suomifiTheme(tokens) });

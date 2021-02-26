@@ -122,6 +122,14 @@ exports[`children should match snapshot 1`] = `
   vertical-align: baseline;
 }
 
+.c4.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c4.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -426,6 +434,14 @@ exports[`className should match snapshot 1`] = `
 .c4 {
   display: inline-block;
   vertical-align: baseline;
+}
+
+.c4.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c4.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c1 {
@@ -734,6 +750,14 @@ exports[`disabled should match snapshot 1`] = `
   vertical-align: baseline;
 }
 
+.c4.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c4.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -1039,6 +1063,14 @@ exports[`hintText should match snapshot 1`] = `
 .c4 {
   display: inline-block;
   vertical-align: baseline;
+}
+
+.c4.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c4.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c1 {
@@ -1354,6 +1386,14 @@ exports[`id should match snapshot 1`] = `
   vertical-align: baseline;
 }
 
+.c4.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c4.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -1658,6 +1698,14 @@ exports[`name should match snapshot 1`] = `
 .c4 {
   display: inline-block;
   vertical-align: baseline;
+}
+
+.c4.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c4.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c1 {
@@ -1967,6 +2015,14 @@ exports[`value should match snapshot 1`] = `
   vertical-align: baseline;
 }
 
+.c4.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c4.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -2271,6 +2327,14 @@ exports[`variant should match snapshot 1`] = `
 .c4 {
   display: inline-block;
   vertical-align: baseline;
+}
+
+.c4.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c4.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c1 {

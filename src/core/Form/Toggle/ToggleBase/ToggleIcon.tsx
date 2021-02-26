@@ -1,7 +1,6 @@
 import React from 'react';
 import { default as styled } from 'styled-components';
 import { ComponentIcon } from '../../../StaticIcon/StaticIcon';
-import { InternalTokensProp } from '../../../theme';
 import classnames from 'classnames';
 import { baseStyles } from './ToggleIcon.baseStyles';
 
@@ -15,16 +14,14 @@ export interface ToggleIconProps {
   className?: string;
 }
 
-export const ToggleIcon = styled(
-  (props: ToggleIconProps & InternalTokensProp) => (
-    <ComponentIcon
-      icon="toggle"
-      className={classnames(iconBaseClassName, props.className, {
-        [iconDisabledClassName]: !!props.disabled,
-        [iconCheckedClassName]: !!props.checked,
-      })}
-    />
-  ),
-)`
-  ${(props) => baseStyles(props)}
+export const ToggleIcon = styled((props: ToggleIconProps) => (
+  <ComponentIcon
+    icon="toggle"
+    className={classnames(iconBaseClassName, props.className, {
+      [iconDisabledClassName]: !!props.disabled,
+      [iconCheckedClassName]: !!props.checked,
+    })}
+  />
+))`
+  ${baseStyles}
 `;

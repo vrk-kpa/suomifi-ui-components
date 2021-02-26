@@ -1,9 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { TokensProp, InternalTokensProp } from '../../theme';
 import { baseStyles } from './Checkbox.baseStyles';
-import { withSuomifiDefaultProps } from '../../theme/utils';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { HtmlInput, HtmlLabel, HtmlDiv } from '../../../reset';
 import { logger } from '../../../utils/logger';
@@ -37,7 +35,7 @@ const iconClassnames = {
 
 type CheckboxStatus = Exclude<InputStatus, 'success'>;
 
-export interface CheckboxProps extends TokensProp {
+export interface CheckboxProps {
   /** Controlled checked-state - user actions use onClick to change  */
   checked?: boolean;
   /** Default status of Checkbox when not using controlled 'checked' state
@@ -226,26 +224,17 @@ class BaseCheckbox extends Component<CheckboxProps> {
   }
 }
 
-const StyledCheckbox = styled(
-  ({
-    tokens,
-    id: propId,
-    ...passProps
-  }: CheckboxProps & InternalTokensProp) => (
-    <AutoId id={propId}>
-      {(id) => <BaseCheckbox id={id} {...passProps} />}
-    </AutoId>
-  ),
-)`
-  ${(props) => baseStyles(props)}
+const StyledCheckbox = styled(BaseCheckbox)`
+  ${baseStyles}
 `;
 
 export class Checkbox extends Component<CheckboxProps> {
-  static large = (props: CheckboxProps) => (
-    <StyledCheckbox {...withSuomifiDefaultProps(props)} variant="large" />
-  );
-
   render() {
-    return <StyledCheckbox {...withSuomifiDefaultProps(this.props)} />;
+    const { id: propId, ...passProps } = this.props;
+    return (
+      <AutoId id={propId}>
+        {(id) => <StyledCheckbox id={id} {...passProps} />}
+      </AutoId>
+    );
   }
 }

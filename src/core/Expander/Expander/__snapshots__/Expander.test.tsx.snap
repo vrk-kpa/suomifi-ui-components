@@ -214,6 +214,14 @@ exports[`Basic expander shoud match snapshot 1`] = `
   vertical-align: baseline;
 }
 
+.c6.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c6.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c2 {
   color: hsl(0,0%,16%);
   position: relative;

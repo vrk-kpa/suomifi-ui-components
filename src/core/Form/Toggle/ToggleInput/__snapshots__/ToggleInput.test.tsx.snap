@@ -191,6 +191,14 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
   vertical-align: baseline;
 }
 
+.c4.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c4.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c5 {
   width: 40px;
   height: 24px;
@@ -375,6 +383,7 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
     </span>
     <span
       class="c0 fi-text c6 fi-text--body"
+      color="blackBase"
     >
       TestToggle
     </span>

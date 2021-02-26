@@ -2,9 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlInput, HtmlLabel, HtmlSpan, HtmlDiv } from '../../../reset';
-import { TokensProp, InternalTokensProp } from '../../theme';
 import { logger } from '../../../utils/logger';
-import { withSuomifiDefaultProps } from '../../theme/utils';
 import { AutoId } from '../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { ComponentIcon } from '../../StaticIcon/StaticIcon';
@@ -24,7 +22,7 @@ const radioButtonClassNames = {
   checked: `${baseClassName}--checked`,
 };
 
-export interface RadioButtonProps extends TokensProp {
+export interface RadioButtonProps {
   /** Custom classname to extend or customize */
   className?: string;
   /** Label for element content */
@@ -154,12 +152,8 @@ class BaseRadioButton extends Component<RadioButtonProps> {
   }
 }
 
-const StyledRadioButton = styled(
-  ({ tokens, ...passProps }: RadioButtonProps & InternalTokensProp) => (
-    <BaseRadioButton {...passProps} />
-  ),
-)`
-  ${(tokens) => baseStyles(tokens)}
+const StyledRadioButton = styled(BaseRadioButton)`
+  ${baseStyles}
 `;
 
 export class RadioButton extends Component<RadioButtonProps> {
@@ -172,7 +166,7 @@ export class RadioButton extends Component<RadioButtonProps> {
             {({ onRadioButtonChange, selectedValue, name }) => (
               <StyledRadioButton
                 id={id}
-                {...withSuomifiDefaultProps(passProps)}
+                {...passProps}
                 {...(!!onRadioButtonChange
                   ? {
                       checked: selectedValue === passProps.value,

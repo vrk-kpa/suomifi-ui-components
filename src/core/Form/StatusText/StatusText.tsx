@@ -3,8 +3,6 @@ import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './StatusText.baseStyles';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
-import { TokensProp, InternalTokensProp } from 'core/theme';
-import { withSuomifiDefaultProps } from '../../theme/utils';
 import { InputStatus } from '../types';
 
 const baseClassName = 'fi-status-text';
@@ -12,7 +10,7 @@ const statusTextClassNames = {
   error: `${baseClassName}--error`,
 };
 
-interface InternalStatusTextProps extends HtmlSpanProps {
+export interface StatusTextProps extends HtmlSpanProps {
   /** id */
   id?: string;
   /** StatusText element content */
@@ -25,16 +23,8 @@ interface InternalStatusTextProps extends HtmlSpanProps {
   status?: InputStatus;
 }
 
-export interface StatusTextProps extends InternalStatusTextProps, TokensProp {}
-
 const StyledStatusText = styled(
-  ({
-    className,
-    children,
-    tokens,
-    status,
-    ...passProps
-  }: StatusTextProps & InternalTokensProp) => (
+  ({ className, children, status, ...passProps }: StatusTextProps) => (
     <HtmlSpan
       {...passProps}
       className={classnames(className, baseClassName, {
@@ -45,14 +35,12 @@ const StyledStatusText = styled(
     </HtmlSpan>
   ),
 )`
-  ${(tokens) => baseStyles(withSuomifiDefaultProps(tokens))}
+  ${baseStyles}
 `;
 
 export class StatusText extends Component<StatusTextProps> {
   render() {
-    const { disabled, children, ...passProps } = withSuomifiDefaultProps(
-      this.props,
-    );
+    const { disabled, children, ...passProps } = this.props;
     if (disabled || !children) {
       return null;
     }

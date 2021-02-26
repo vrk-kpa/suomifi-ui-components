@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { withSuomifiDefaultProps } from '../../../theme/utils';
-import { InternalTokensProp, TokensProp } from '../../../theme';
 import { AutoId } from '../../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { Text } from '../../../Text/Text';
@@ -36,7 +34,7 @@ export interface ToggleInputProps
   /** Event handler to execute when clicked */
   onChange?: (checked: boolean) => void;
 }
-class BaseToggleInput extends Component<ToggleInputProps & InternalTokensProp> {
+class BaseToggleInput extends Component<ToggleInputProps> {
   state: ToggleState = {
     toggleState: !!this.props.checked || !!this.props.defaultChecked,
   };
@@ -71,7 +69,6 @@ class BaseToggleInput extends Component<ToggleInputProps & InternalTokensProp> {
       id,
       name,
       className,
-      tokens,
       'aria-label': ariaLabel,
       'aria-labelledby': ariaLabelledBy,
       checked,
@@ -108,11 +105,7 @@ class BaseToggleInput extends Component<ToggleInputProps & InternalTokensProp> {
             {...getConditionalAriaProp('aria-labelledby', [ariaLabelledBy])}
           />
           <HtmlSpan className={toggleClassNames.iconContainer}>
-            <ToggleIcon
-              disabled={disabled}
-              checked={toggleState}
-              tokens={tokens}
-            />
+            <ToggleIcon disabled={disabled} checked={toggleState} />
           </HtmlSpan>
           <Text color={!!disabled ? 'depthBase' : 'blackBase'}>{children}</Text>
         </HtmlLabel>
@@ -121,12 +114,8 @@ class BaseToggleInput extends Component<ToggleInputProps & InternalTokensProp> {
   }
 }
 
-const StyledToggleInput = styled(
-  (props: ToggleInputProps & InternalTokensProp) => (
-    <BaseToggleInput {...props} />
-  ),
-)`
-  ${(props) => baseStyles(props)}
+const StyledToggleInput = styled(BaseToggleInput)`
+  ${baseStyles}
 `;
 
 /**
@@ -134,14 +123,12 @@ const StyledToggleInput = styled(
  * Use for toggling form selection
  * Additional props are passed to the checkbox input element.
  */
-export class ToggleInput extends Component<ToggleInputProps & TokensProp> {
+export class ToggleInput extends Component<ToggleInputProps> {
   render() {
     const { id: propId, ...passProps } = this.props;
     return (
       <AutoId id={propId}>
-        {(id) => (
-          <StyledToggleInput id={id} {...withSuomifiDefaultProps(passProps)} />
-        )}
+        {(id) => <StyledToggleInput id={id} {...passProps} />}
       </AutoId>
     );
   }

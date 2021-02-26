@@ -2,8 +2,6 @@ import React, { Component, ChangeEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { InputStatus } from '../types';
-import { TokensProp, InternalTokensProp } from '../../theme';
-import { withSuomifiDefaultProps } from '../../theme/utils';
 import {
   HtmlInput,
   HtmlInputProps,
@@ -29,9 +27,7 @@ const filterInputClassNames = {
 
 type FilterInputStatus = Exclude<InputStatus, 'success'>;
 
-export interface FilterInputProps<T>
-  extends Omit<HtmlInputProps, 'type'>,
-    TokensProp {
+export interface FilterInputProps<T> extends Omit<HtmlInputProps, 'type'> {
   /** FilterInput container div class name for custom styling. */
   className?: string;
   /** FilterInput container div props */
@@ -121,7 +117,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
         <HtmlDiv className={classnames(filterInputClassNames.wrapper, {})}>
           <LabelText
             htmlFor={id}
-            as="label"
+            asProp="label"
             labelMode={labelMode}
             optionalText={optionalText}
           >
@@ -157,10 +153,8 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
 }
 
 const FilterInputWithoutTokens: <T>(
-  props: FilterInputProps<T> & InternalTokensProp,
+  props: FilterInputProps<T>,
 ) => JSX.Element = ({
-  // eslint-disable-next-line react/prop-types
-  tokens,
   // eslint-disable-next-line react/prop-types
   id: propId,
   ...passProps
@@ -171,7 +165,7 @@ const FilterInputWithoutTokens: <T>(
 );
 
 const StyledFilterInput = styled(FilterInputWithoutTokens)`
-  ${(props) => baseStyles(props)}
+  ${baseStyles}
 `;
 
 /**
@@ -181,6 +175,6 @@ const StyledFilterInput = styled(FilterInputWithoutTokens)`
  */
 export class FilterInput<T> extends Component<FilterInputProps<T>> {
   render() {
-    return <StyledFilterInput {...withSuomifiDefaultProps(this.props)} />;
+    return <StyledFilterInput {...this.props} />;
   }
 }
