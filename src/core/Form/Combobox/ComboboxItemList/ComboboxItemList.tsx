@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlUlWithRef } from '../../../../reset';
-import { baseStyles } from './ComboboxItemList.baseStyles';
 import { ComboboxItemProps } from '../ComboboxItem/ComboboxItem';
+import { baseStyles } from './ComboboxItemList.baseStyles';
 
 const baseClassName = 'fi-combobox-item-list';
 
