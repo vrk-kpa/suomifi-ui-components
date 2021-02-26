@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlLi } from '../../../../reset';
-import { TokensProp, InternalTokensProp } from '../../../theme';
-import { withSuomifiDefaultProps } from '../../../theme/utils';
 import { baseStyles } from './ComboboxEmptyItem.baseStyles';
 
 const baseClassName = 'fi-combobox-empty-item';
@@ -12,7 +10,7 @@ const comboboxItemClassNames = {
   wrapper: `${baseClassName}_wrapper`,
 };
 
-export interface ComboboxEmptyItemProps extends TokensProp {
+export interface ComboboxEmptyItemProps {
   /** ComboboxItem container div class name for custom styling. */
   className?: string;
 }
@@ -34,16 +32,12 @@ class BaseComboboxEmptyItem extends Component<ComboboxEmptyItemProps> {
   }
 }
 
-const StyledComboboxEmptyItem = styled(
-  ({ tokens, ...passProps }: ComboboxEmptyItemProps & InternalTokensProp) => (
-    <BaseComboboxEmptyItem {...passProps} />
-  ),
-)`
-  ${(props) => baseStyles(props)}
+const StyledComboboxEmptyItem = styled(BaseComboboxEmptyItem)`
+  ${baseStyles}
 `;
 
 export class ComboboxEmptyItem extends Component<ComboboxEmptyItemProps> {
   render() {
-    return <StyledComboboxEmptyItem {...withSuomifiDefaultProps(this.props)} />;
+    return <StyledComboboxEmptyItem {...this.props} />;
   }
 }

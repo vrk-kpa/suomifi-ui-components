@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { withSuomifiDefaultProps } from '../../../theme/utils';
-import { TokensProp, InternalTokensProp } from '../../../theme';
 import { HtmlDiv, HtmlDivProps } from '../../../../reset';
 import { AutoId } from '../../../../utils/AutoId';
 import { baseStyles } from './ChipList.baseStyles';
@@ -13,7 +11,7 @@ const chipListClassNames = {
   wrapper: `${baseClassName}_wrapper`,
 };
 
-export interface ChipListProps extends HtmlDivProps, TokensProp {
+export interface ChipListProps extends HtmlDivProps {
   className?: string;
   /**
    * Unique id
@@ -35,22 +33,14 @@ class BaseChipList extends Component<ChipListProps> {
   }
 }
 
-const StyledChipList = styled(
-  ({
-    tokens,
-    id: propId,
-    ...passProps
-  }: ChipListProps & InternalTokensProp) => (
-    <AutoId id={propId}>
-      {(id) => <BaseChipList id={id} {...passProps} />}
-    </AutoId>
-  ),
-)`
-  ${(props) => baseStyles(props)}
+const StyledChipList = styled(({ id: propId, ...passProps }: ChipListProps) => (
+  <AutoId id={propId}>{(id) => <BaseChipList id={id} {...passProps} />}</AutoId>
+))`
+  ${baseStyles}
 `;
 
 export class ChipList extends Component<ChipListProps> {
   render() {
-    return <StyledChipList {...withSuomifiDefaultProps(this.props)} />;
+    return <StyledChipList {...this.props} />;
   }
 }
