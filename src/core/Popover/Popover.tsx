@@ -68,6 +68,7 @@ export const Popover = (props: PopoverProps) => {
           ref={setPopperElement}
           style={{ ...styles.popper, ...portalStyleProps }}
           tabIndex={-1}
+          role="presentation"
         >
           <HtmlDiv {...passProps}>{children}</HtmlDiv>
         </div>,
