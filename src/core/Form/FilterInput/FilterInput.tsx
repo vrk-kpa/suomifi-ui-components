@@ -146,7 +146,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
                 ])}
                 autoComplete="off"
                 aria-autocomplete="list"
-                auto-capitalize="false"
+                autoCapitalize="none"
                 spellCheck="false"
                 onChange={onChangeHandler}
               />

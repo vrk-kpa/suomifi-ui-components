@@ -288,7 +288,7 @@ exports[`snapshot matches 1`] = `
       >
         <input
           aria-autocomplete="list"
-          auto-capitalize="false"
+          autocapitalize="none"
           autocomplete="off"
           class="c4 fi-filter-input_input"
           id="1"
