@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlLi } from '../../../../reset';
-import { TokensProp, InternalTokensProp } from '../../../theme';
-import { withSuomifiDefaultProps } from '../../../theme/utils';
 import { CheckboxProps, Checkbox } from '../../Checkbox/Checkbox';
 import { baseStyles } from './ComboboxItem.baseStyles';
 
@@ -14,7 +12,7 @@ const comboboxItemClassNames = {
   currentSelection: `${baseClassName}--currentSelection`,
 };
 
-export interface ComboboxItemProps extends CheckboxProps, TokensProp {
+export interface ComboboxItemProps extends CheckboxProps {
   /** ComboboxItem container div class name for custom styling. */
   className?: string;
   currentSelection: boolean;
@@ -57,16 +55,12 @@ class BaseComboboxItem extends Component<ComboboxItemProps> {
   }
 }
 
-const StyledComboboxItem = styled(
-  ({ tokens, ...passProps }: ComboboxItemProps & InternalTokensProp) => (
-    <BaseComboboxItem {...passProps} />
-  ),
-)`
-  ${(props) => baseStyles(props)}
+const StyledComboboxItem = styled(BaseComboboxItem)`
+  ${baseStyles}
 `;
 
 export class ComboboxItem extends Component<ComboboxItemProps> {
   render() {
-    return <StyledComboboxItem {...withSuomifiDefaultProps(this.props)} />;
+    return <StyledComboboxItem {...this.props} />;
   }
 }
