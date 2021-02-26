@@ -27,7 +27,8 @@ const filterInputClassNames = {
 
 type FilterInputStatus = Exclude<InputStatus, 'success'>;
 
-export interface FilterInputProps<T> extends Omit<HtmlInputProps, 'type' | 'onChange'> {
+export interface FilterInputProps<T>
+  extends Omit<HtmlInputProps, 'type' | 'onChange'> {
   /** FilterInput container div class name for custom styling. */
   className?: string;
   /** FilterInput container div props */
