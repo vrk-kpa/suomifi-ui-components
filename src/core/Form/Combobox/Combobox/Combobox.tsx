@@ -343,9 +343,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         className={classnames(baseClassName, className, {
           [comboboxClassNames.open]: showPopover,
         })}
-        aria-activedescendant={
-          currentSelection ? `${id}-${currentSelection}` : undefined
-        }
       >
         <HtmlDiv className={classnames(comboboxClassNames.wrapper, {})}>
           <FilterInput
@@ -372,6 +369,9 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
               <ComboboxItemList
                 forwardRef={this.popoverListRef}
                 onBlur={handleBlur}
+                aria-activedescendant={
+                  currentSelection ? `${id}-${currentSelection}` : undefined
+                }
               >
                 {filteredItems.length > 0 ? (
                   filteredItems.map((item) => {
