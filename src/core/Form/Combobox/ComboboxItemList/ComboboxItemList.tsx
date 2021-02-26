@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlUlWithRef } from '../../../../reset';
-import { TokensProp, InternalTokensProp } from '../../../theme';
-import { withSuomifiDefaultProps } from '../../../theme/utils';
 import { baseStyles } from './ComboboxItemList.baseStyles';
 import { ComboboxItemProps } from '../ComboboxItem/ComboboxItem';
 
@@ -13,7 +11,7 @@ const comboboxItemListClassNames = {
   wrapper: `${baseClassName}_wrapper`,
 };
 
-export interface ComboboxItemListProps extends TokensProp {
+export interface ComboboxItemListProps {
   /** ComboboxItemList container div class name for custom styling. */
   className?: string;
   children:
@@ -49,16 +47,12 @@ class BaseComboboxItemList extends Component<ComboboxItemListProps> {
   }
 }
 
-const StyledComboboxItemList = styled(
-  ({ tokens, ...passProps }: ComboboxItemListProps & InternalTokensProp) => (
-    <BaseComboboxItemList {...passProps} />
-  ),
-)`
-  ${(props) => baseStyles(props)}
+const StyledComboboxItemList = styled(BaseComboboxItemList)`
+  ${baseStyles}
 `;
 
 export class ComboboxItemList extends Component<ComboboxItemListProps> {
   render() {
-    return <StyledComboboxItemList {...withSuomifiDefaultProps(this.props)} />;
+    return <StyledComboboxItemList {...this.props} />;
   }
 }
