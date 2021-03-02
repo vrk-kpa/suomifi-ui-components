@@ -3,6 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv } from '../../../../reset';
 import { AutoId } from '../../../../utils/AutoId';
+import { Debounce } from '../../../utils/Debounce/Debounce';
 import { windowAvailable } from '../../../../utils/common';
 import { Button } from '../../../Button/Button';
 import { Chip } from '../../../Chip/Chip';
@@ -57,6 +58,8 @@ export interface ComboboxProps<T extends ComboboxData> {
   defaultSelectedItems?: Array<T & ComboboxData>;
   /** Event sent when filter changes */
   onChange?: (value: string | undefined) => void;
+  /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
+  debounce?: number;
 }
 
 // actual boolean value does not matter, only if it exists on the list
@@ -327,15 +330,9 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       emptyItemsLabel,
       defaultSelectedItems,
       onChange: propOnChange,
+      debounce,
       ...passProps
     } = this.props;
-
-    const filterInputOnChangeHandler = (value: string | undefined) => {
-      if (propOnChange) {
-        propOnChange(value);
-      }
-      this.setState({ filterInputValue: value });
-    };
 
     return (
       <HtmlDiv
@@ -350,19 +347,30 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         })}
       >
         <HtmlDiv className={classnames(comboboxClassNames.wrapper, {})}>
-          <FilterInput
-            labelText={labelText}
-            items={propItems}
-            onFilter={(filtered) => this.setState({ filteredItems: filtered })}
-            filterFunc={filter}
-            forwardRef={this.filterInputRef}
-            onFocus={() => setPopoverVisibility(true)}
-            onKeyDown={handleKeyDown}
-            onBlur={handleBlur}
-            value={this.state.filterInputValue}
-            onChange={filterInputOnChangeHandler}
-            visualPlaceholder={visualPlaceholder}
-          />
+          <Debounce waitFor={debounce}>
+            {(debouncer: Function) => (
+              <FilterInput
+                labelText={labelText}
+                items={propItems}
+                onFilter={(filtered) =>
+                  this.setState({ filteredItems: filtered })
+                }
+                filterFunc={filter}
+                forwardRef={this.filterInputRef}
+                onFocus={() => setPopoverVisibility(true)}
+                onKeyDown={handleKeyDown}
+                onBlur={handleBlur}
+                value={this.state.filterInputValue}
+                onChange={(value: string | undefined) => {
+                  if (propOnChange) {
+                    debouncer(propOnChange, value);
+                  }
+                  this.setState({ filterInputValue: value });
+                }}
+                visualPlaceholder={visualPlaceholder}
+              />
+            )}
+          </Debounce>
           <Popover
             sourceRef={this.filterInputRef.current}
             matchWidth={true}
