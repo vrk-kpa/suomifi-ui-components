@@ -63,7 +63,6 @@ interface SelectedItemKeys {
 }
 
 interface ComboboxState<T extends ComboboxData> {
-  // items: T[];
   filterInputValue: string | undefined;
   filteredItems: T[];
   showPopover: boolean;
