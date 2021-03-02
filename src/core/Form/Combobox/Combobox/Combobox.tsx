@@ -55,6 +55,8 @@ export interface ComboboxProps<T extends ComboboxData> {
   emptyItemsLabel: string;
   /** Default selected items */
   defaultSelectedItems?: Array<T & ComboboxData>;
+  /** Event sent when filter changes */
+  onChange?: (value: string | undefined) => void;
 }
 
 // actual boolean value does not matter, only if it exists on the list
@@ -312,10 +314,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       }
     };
 
-    const filterInputOnChangeHandler = (value: string | undefined) => {
-      this.setState({ filterInputValue: value });
-    };
-
     const {
       id,
       className,
@@ -328,8 +326,16 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       visualPlaceholder,
       emptyItemsLabel,
       defaultSelectedItems,
+      onChange: propOnChange,
       ...passProps
     } = this.props;
+
+    const filterInputOnChangeHandler = (value: string | undefined) => {
+      if (propOnChange) {
+        propOnChange(value);
+      }
+      this.setState({ filterInputValue: value });
+    };
 
     return (
       <HtmlDiv
