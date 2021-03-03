@@ -42,9 +42,10 @@ export const HtmlButton = styled(Button)`
 
 const ButtonWithRef = ({
   forwardedRef,
+  type,
   ...passProps
 }: HtmlButtonProps & { forwardedRef: React.RefObject<HTMLButtonElement> }) => (
-  <button {...passProps} ref={forwardedRef} />
+  <button {...passProps} ref={forwardedRef} type={!!type ? type : 'button'} />
 );
 
 export const HtmlButtonWithRef = styled(ButtonWithRef)`
