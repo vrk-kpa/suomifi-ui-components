@@ -92,6 +92,13 @@ module.exports = {
               ]),
             },
             {
+              name: 'Chip',
+              components: getComponentWithVariants('Chip')([
+                'Chip/Chip',
+                'StaticChip',
+              ]),
+            },
+            {
               name: 'Icon',
               components: getComponents(['Icon', 'StaticIcon']),
             },
