@@ -3,10 +3,10 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { InputStatus } from '../types';
 import {
-  HtmlInput,
   HtmlInputProps,
   HtmlDiv,
   HtmlDivProps,
+  HtmlInputWithRef,
 } from '../../../reset';
 import { AutoId } from '../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
@@ -27,7 +27,7 @@ const filterInputClassNames = {
 
 type FilterInputStatus = Exclude<InputStatus, 'success'>;
 
-export interface FilterInputProps<T> extends Omit<HtmlInputProps, 'type'> {
+interface InternalFilterInputProps<T> extends Omit<HtmlInputProps, 'type'> {
   /** FilterInput container div class name for custom styling. */
   className?: string;
   /** FilterInput container div props */
@@ -65,7 +65,17 @@ export interface FilterInputProps<T> extends Omit<HtmlInputProps, 'type'> {
   filterFunc: (item: T, query: string) => boolean;
 }
 
-class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLInputElement>;
+}
+
+export interface FilterInputProps extends InternalFilterInputProps<any> {
+  // TODO: remove any
+  /** Ref object to be passed to the input element */
+  ref?: React.RefObject<HTMLInputElement>;
+}
+
+class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
   render() {
     const {
       className,
@@ -76,6 +86,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
       optionalText,
       status,
       statusText,
+      forwardedRef,
       id,
       labelAlign,
       'aria-describedby': ariaDescribedBy,
@@ -125,11 +136,12 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
           </LabelText>
           <HtmlDiv className={filterInputClassNames.functionalityContainer}>
             <HtmlDiv className={filterInputClassNames.inputElementContainer}>
-              <HtmlInput
+              <HtmlInputWithRef
                 {...passProps}
                 id={id}
                 className={filterInputClassNames.inputElement}
                 type="text"
+                forwardedRef={forwardedRef}
                 placeholder={visualPlaceholder}
                 {...getConditionalAriaProp('aria-describedby', [
                   statusTextId,
@@ -153,16 +165,11 @@ class BaseFilterInput<T> extends Component<FilterInputProps<T>> {
 }
 
 const FilterInputWithoutTokens: <T>(
-  props: FilterInputProps<T>,
+  props: InternalFilterInputProps<T> & InnerRef,
 ) => JSX.Element = ({
   // eslint-disable-next-line react/prop-types
-  id: propId,
   ...passProps
-}) => (
-  <AutoId id={propId}>
-    {(id) => <BaseFilterInput id={id} {...passProps} />}
-  </AutoId>
-);
+}) => <BaseFilterInput {...passProps} />;
 
 const StyledFilterInput = styled(FilterInputWithoutTokens)`
   ${baseStyles}
@@ -173,8 +180,15 @@ const StyledFilterInput = styled(FilterInputWithoutTokens)`
  * Use for filtering.
  * Props other than specified explicitly are passed on to underlying input element.
  */
-export class FilterInput<T> extends Component<FilterInputProps<T>> {
-  render() {
-    return <StyledFilterInput {...this.props} />;
-  }
-}
+export const FilterInput = React.forwardRef(
+  (props: FilterInputProps, ref: React.RefObject<HTMLInputElement>) => {
+    const { id: propId, ...passProps } = props;
+    return (
+      <AutoId id={propId}>
+        {(id) => (
+          <StyledFilterInput id={id} forwardedRef={ref} {...passProps} />
+        )}
+      </AutoId>
+    );
+  },
+);
