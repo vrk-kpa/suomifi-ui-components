@@ -195,6 +195,7 @@ exports[`children should match snapshot 1`] = `
 <div>
   <button
     class="c0 fi-chip fi-chip--button c1"
+    type="button"
   >
     <span
       class="c2 fi-chip--content"
@@ -404,6 +405,7 @@ exports[`classnames should match snapshot 1`] = `
 <div>
   <button
     class="c0 fi-chip fi-chip--button c1 custom-class"
+    type="button"
   >
     <span
       class="c2 fi-chip--content"
@@ -610,6 +612,7 @@ exports[`disabled should match snapshot 1`] = `
   <button
     class="c0 fi-chip fi-chip--button c1 fi-chip--disabled"
     disabled=""
+    type="button"
   >
     <span
       class="c2 fi-chip--content"
