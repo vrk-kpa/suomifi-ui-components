@@ -8,7 +8,7 @@ import { windowAvailable } from '../../../../utils/common';
 import { Button } from '../../../Button/Button';
 import { Chip } from '../../../Chip/Chip';
 import { Popover } from '../../../Popover/Popover';
-import { FilterInput } from '../../FilterInput/FilterInput';
+import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
 import { ComboboxItemList } from '../ComboboxItemList/ComboboxItemList';
 import { ComboboxItem } from '../ComboboxItem/ComboboxItem';
 import { ComboboxEmptyItem } from '../ComboboxEmptyItem/ComboboxEmptyItem';
@@ -60,6 +60,13 @@ export interface ComboboxProps<T extends ComboboxData> {
   onChange?: (value: string | undefined) => void;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
   debounce?: number;
+  /**
+   * 'default' | 'error'
+   * @default default
+   */
+  status?: FilterInputStatus;
+  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
+  statusText?: string;
 }
 
 // actual boolean value does not matter, only if it exists on the list
@@ -331,6 +338,8 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       defaultSelectedItems,
       onChange: propOnChange,
       debounce,
+      status,
+      statusText,
       ...passProps
     } = this.props;
 
@@ -368,6 +377,8 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                   this.setState({ filterInputValue: value });
                 }}
                 visualPlaceholder={visualPlaceholder}
+                status={status}
+                statusText={statusText}
               />
             )}
           </Debounce>

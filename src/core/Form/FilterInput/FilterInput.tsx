@@ -25,7 +25,7 @@ const filterInputClassNames = {
   inputElement: `${baseClassName}_input`,
 };
 
-type FilterInputStatus = Exclude<InputStatus, 'success'>;
+export type FilterInputStatus = Exclude<InputStatus, 'success'>;
 
 interface InternalFilterInputProps<T>
   extends Omit<HtmlInputProps, 'type' | 'onChange'>,
