@@ -1,30 +1,14 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './Chip.baseStyles';
-import { HtmlButtonWithRef, HtmlSpan } from '../../reset';
-import { Icon } from '../Icon/Icon';
-import { logger } from '../../utils/logger';
-import { VisuallyHidden } from '../../components/Visually-hidden/Visually-hidden';
+import { HtmlButtonWithRef, HtmlSpan } from '../../../reset';
+import { Icon } from '../../Icon/Icon';
+import { logger } from '../../../utils/logger';
+import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
+import { StaticChipProps, chipClassNames, baseClassName } from '../StaticChip';
 
-const baseClassName = 'fi-chip';
-const chipClassNames = {
-  disabled: `${baseClassName}--disabled`,
-  icon: `${baseClassName}--icon`,
-  content: `${baseClassName}--content`,
-  removable: `${baseClassName}--removable`,
-  button: `${baseClassName}--button`,
-};
-
-type ChipVariant = 'static' | 'default';
-
-export interface InternalChipProps {
-  /** Chip element content */
-  children: ReactNode;
-  /** Custom class name for styling and customizing  */
-  className?: string;
-  /** Disable chip */
-  disabled?: boolean;
+interface InternalChipProps extends StaticChipProps {
   /**
    * Event handler to execute when clicked
    */
@@ -36,11 +20,6 @@ export interface InternalChipProps {
   removable?: boolean;
   /** Aria-label attribute to let screen reader users know pressing the button will remove the chip/selection  */
   actionLabel?: string;
-  /**
-   * default | static - use default for an interactive chip and static for a purely visual chip.
-   * @default default
-   */
-  variant?: ChipVariant;
 }
 
 interface InnerRef {
@@ -61,7 +40,6 @@ class DefaultChip extends Component<ChipProps & InnerRef> {
       removable,
       actionLabel,
       forwardedRef,
-      variant,
       disabled = false,
       ...passProps
     } = this.props;
@@ -69,20 +47,6 @@ class DefaultChip extends Component<ChipProps & InnerRef> {
     if (removable && !actionLabel) {
       logger.error(
         'Provide actionLabel to communicate removability to screen readers',
-      );
-    }
-
-    if (variant === 'static') {
-      return (
-        <HtmlSpan
-          className={classnames(baseClassName, className, {
-            [chipClassNames.disabled]: !!disabled,
-            [chipClassNames.removable]: !!removable,
-          })}
-          {...passProps}
-        >
-          <HtmlSpan className={chipClassNames.content}>{children}</HtmlSpan>
-        </HtmlSpan>
       );
     }
     return (

@@ -3,34 +3,9 @@ import { defaultThemeTokens as theme } from '../theme';
 import { element, font } from '../theme/reset';
 import { absoluteFocus } from '../theme/utils/focus';
 
-const removableStyles = css`
-  &.fi-chip--removable {
-    & .fi-chip--content {
-      max-width: 248px;
-      margin-right: ${theme.spacing.xs};
-    }
-  }
-`;
-
-const disabledStyles = css`
-  &.fi-chip--disabled {
-    &.fi-chip {
-      cursor: not-allowed;
-      background: ${theme.colors.depthBase};
-      &:hover,
-      &:active {
-        background: ${theme.colors.depthBase};
-      }
-    }
-    & .fi-chip--icon {
-      cursor: not-allowed;
-    }
-  }
-`;
-
-export const baseStyles = css`
-  ${element(theme)}
-  ${font(theme)('actionElementInnerTextBold')}
+export const staticChipBaseStyles = css`
+    ${element({ theme })}
+    ${font({ theme })('actionElementInnerTextBold')}
 
     &:focus {
     outline: 0;
@@ -76,7 +51,19 @@ export const baseStyles = css`
       line-height: 1.5em;
       vertical-align: center;
     }
-  }
-  ${removableStyles};
-  ${disabledStyles};
-`;
+
+    &.fi-chip--disabled {
+      &.fi-chip {
+        ${disabledCursor}
+        background: ${theme.colors.depthBase};
+        &:hover,
+        &:active {
+          background: ${theme.colors.depthBase};
+        }
+      }
+      & .fi-chip--icon {
+        ${disabledCursor}
+      }
+    }
+  `,
+);

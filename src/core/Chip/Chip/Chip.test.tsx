@@ -67,24 +67,17 @@ describe('classnames', () => {
   });
 });
 
-describe('variants', () => {
+describe('variant specifics', () => {
   const defaultChip = (
     <Chip removable={true} onClick={() => null} actionLabel="Unselect">
       Test content
     </Chip>
   );
 
-  const staticChip = <OrigChip variant="static">Test content</OrigChip>;
-
   it('has icon element when set as removable', () => {
     const { container } = render(defaultChip);
     const icon = container.querySelector('.fi-chip--icon');
     expect(container.contains(icon)).toBeTruthy();
-  });
-
-  it('has the elements corresponding the chosen variant', () => {
-    const { container } = render(staticChip);
-    expect(container.firstChild).not.toHaveClass('fi-chip--button');
   });
 });
 

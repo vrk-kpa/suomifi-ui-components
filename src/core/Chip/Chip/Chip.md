@@ -17,7 +17,7 @@ const testi = React.createRef();
         ref={testi}
         onClick={() => console.log(testi.current)}
       >
-        Removable chip 1
+        Removable chip with ref
       </Chip>
     </span>
 
@@ -31,13 +31,11 @@ const testi = React.createRef();
     </Chip>
   </div>
 
-  <Chip variant="static">
-    Static chip with a long content that doesn't fit into the
-    component's maximum width of 290px
+  <Chip>
+    Chip with a long content that doesn't fit into the component's
+    maximum width of 290px
   </Chip>
 
-  <Chip variant="static" disabled>
-    Disabled static chip
-  </Chip>
+  <Chip disabled>Disabled chip</Chip>
 </>;
 ```

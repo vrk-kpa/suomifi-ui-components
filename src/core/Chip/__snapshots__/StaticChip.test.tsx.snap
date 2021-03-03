@@ -1,0 +1,410 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`children should match snapshot 1`] = `
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c1 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c1:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1:focus::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+  border-radius: 16px;
+}
+
+.c1.fi-chip {
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
+  max-height: 28px;
+  display: inline-block;
+}
+
+.c1.fi-chip.fi-chip--button {
+  cursor: pointer;
+}
+
+.c1.fi-chip.fi-chip--button:hover {
+  background: hsl(212,63%,49%);
+}
+
+.c1.fi-chip.fi-chip--button:active {
+  background: hsl(212,63%,37%);
+}
+
+.c1.fi-chip .fi-chip--icon {
+  height: 12px;
+  width: 12px;
+  -webkit-transform: translateY(-0.35em);
+  -ms-transform: translateY(-0.35em);
+  transform: translateY(-0.35em);
+}
+
+.c1.fi-chip .fi-chip--content {
+  display: inline-block;
+  max-width: 270px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5em;
+  vertical-align: center;
+}
+
+.c1.fi-chip--disabled.fi-chip {
+  cursor: not-allowed;
+  background: hsl(202,7%,67%);
+}
+
+.c1.fi-chip--disabled.fi-chip:hover,
+.c1.fi-chip--disabled.fi-chip:active {
+  background: hsl(202,7%,67%);
+}
+
+.c1.fi-chip--disabled .fi-chip--icon {
+  cursor: not-allowed;
+}
+
+<div>
+  <span
+    class="c0 fi-chip c1"
+  >
+    <span
+      class="c0 fi-chip--content"
+    >
+      <div
+        data-testid="test-div"
+      >
+        Selection 1
+      </div>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`classnames should match snapshot 1`] = `
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c1 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c1:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1:focus::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+  border-radius: 16px;
+}
+
+.c1.fi-chip {
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
+  max-height: 28px;
+  display: inline-block;
+}
+
+.c1.fi-chip.fi-chip--button {
+  cursor: pointer;
+}
+
+.c1.fi-chip.fi-chip--button:hover {
+  background: hsl(212,63%,49%);
+}
+
+.c1.fi-chip.fi-chip--button:active {
+  background: hsl(212,63%,37%);
+}
+
+.c1.fi-chip .fi-chip--icon {
+  height: 12px;
+  width: 12px;
+  -webkit-transform: translateY(-0.35em);
+  -ms-transform: translateY(-0.35em);
+  transform: translateY(-0.35em);
+}
+
+.c1.fi-chip .fi-chip--content {
+  display: inline-block;
+  max-width: 270px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5em;
+  vertical-align: center;
+}
+
+.c1.fi-chip--disabled.fi-chip {
+  cursor: not-allowed;
+  background: hsl(202,7%,67%);
+}
+
+.c1.fi-chip--disabled.fi-chip:hover,
+.c1.fi-chip--disabled.fi-chip:active {
+  background: hsl(202,7%,67%);
+}
+
+.c1.fi-chip--disabled .fi-chip--icon {
+  cursor: not-allowed;
+}
+
+<div>
+  <span
+    class="c0 fi-chip c1 custom-class"
+  >
+    <span
+      class="c0 fi-chip--content"
+    >
+      Testcontent
+    </span>
+  </span>
+</div>
+`;
+
+exports[`disabled should match snapshot 1`] = `
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c1 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c1:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1:focus::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+  border-radius: 16px;
+}
+
+.c1.fi-chip {
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
+  max-height: 28px;
+  display: inline-block;
+}
+
+.c1.fi-chip.fi-chip--button {
+  cursor: pointer;
+}
+
+.c1.fi-chip.fi-chip--button:hover {
+  background: hsl(212,63%,49%);
+}
+
+.c1.fi-chip.fi-chip--button:active {
+  background: hsl(212,63%,37%);
+}
+
+.c1.fi-chip .fi-chip--icon {
+  height: 12px;
+  width: 12px;
+  -webkit-transform: translateY(-0.35em);
+  -ms-transform: translateY(-0.35em);
+  transform: translateY(-0.35em);
+}
+
+.c1.fi-chip .fi-chip--content {
+  display: inline-block;
+  max-width: 270px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5em;
+  vertical-align: center;
+}
+
+.c1.fi-chip--disabled.fi-chip {
+  cursor: not-allowed;
+  background: hsl(202,7%,67%);
+}
+
+.c1.fi-chip--disabled.fi-chip:hover,
+.c1.fi-chip--disabled.fi-chip:active {
+  background: hsl(202,7%,67%);
+}
+
+.c1.fi-chip--disabled .fi-chip--icon {
+  cursor: not-allowed;
+}
+
+<div>
+  <span
+    class="c0 fi-chip c1 fi-chip--disabled"
+  >
+    <span
+      class="c0 fi-chip--content"
+    >
+      Testcontent
+    </span>
+  </span>
+</div>
+`;
