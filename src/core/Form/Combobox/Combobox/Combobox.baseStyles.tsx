@@ -20,6 +20,7 @@ export const baseStyles = css`
         border-color: ${theme.colors.depthDark3} transparent transparent
           transparent;
         border-width: 6px 4px 0 4px;
+        pointer-events: none;
       }
     }
   }
