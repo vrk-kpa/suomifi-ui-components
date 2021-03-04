@@ -7,6 +7,17 @@ export const baseStyles = css`
   &.fi-combobox-item-list {
     ${font(theme)('bodyText')}
     list-style-type: none;
+
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    border-color: ${theme.colors.depthDark3};
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 260px;
+
     margin: 0;
     padding: 0;
 
@@ -28,11 +39,5 @@ export const baseStyles = css`
   & .fi-combobox-item-list_wrapper {
     display: inline-block;
     width: 100%;
-
-    border-width: 0 1px 1px 1px;
-    border-style: solid;
-    border-color: ${theme.colors.depthDark3};
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
   }
 `;

@@ -203,6 +203,34 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       const getNextItem = () => items[getNextIndex()];
       const getPreviousItem = () => items[getPreviousIndex()];
 
+      const scrollItemList = (lblTxt: string) => {
+        if (
+          this.popoverListRef !== null &&
+          this.popoverListRef.current !== null &&
+          showPopover
+        ) {
+          const idOfCurrentElement = `${id}-${lblTxt}`;
+          if (idOfCurrentElement) {
+            const elementOffsetTop =
+              document.getElementById(idOfCurrentElement)?.offsetTop || 0;
+            const elementOffsetHeight =
+              document.getElementById(idOfCurrentElement)?.offsetHeight || 0;
+            if (elementOffsetTop < this.popoverListRef.current.scrollTop) {
+              this.popoverListRef.current.scrollTop = elementOffsetTop;
+            } else {
+              const offsetBottom = elementOffsetTop + elementOffsetHeight;
+              const scrollBottom =
+                this.popoverListRef.current.scrollTop +
+                this.popoverListRef.current.offsetHeight;
+              if (offsetBottom > scrollBottom) {
+                this.popoverListRef.current.scrollTop =
+                  offsetBottom - this.popoverListRef.current.offsetHeight;
+              }
+            }
+          }
+        }
+      };
+
       switch (event.key) {
         case 'ArrowDown': {
           event.preventDefault();
@@ -210,6 +238,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           const nextItem = getNextItem();
           if (nextItem) {
             this.setState({ currentSelection: nextItem.labelText });
+            scrollItemList(nextItem.labelText);
           }
           break;
         }
@@ -220,6 +249,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           const previousItem = getPreviousItem();
           if (previousItem) {
             this.setState({ currentSelection: previousItem.labelText });
+            scrollItemList(previousItem.labelText);
           }
           break;
         }
