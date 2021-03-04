@@ -60,7 +60,7 @@ interface InnerRef {
   forwardedRef: React.RefObject<HTMLButtonElement>;
 }
 
-export interface ButtonProps extends InternalButtonProps, TokensProp {
+export interface ButtonProps extends InternalButtonProps {
   /** Ref object to be passed to the input element */
   ref?: React.RefObject<HTMLButtonElement>;
 }
@@ -135,7 +135,7 @@ class BaseButton extends Component<ButtonProps & InnerRef> {
 }
 
 const StyledButton = styled(
-  ({ ...passProps }: InternalButtonProps & InternalTokensProp & InnerRef) => (
+  ({ ...passProps }: InternalButtonProps & InnerRef) => (
     <BaseButton {...passProps} />
   ),
 )`

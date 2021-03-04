@@ -4,8 +4,8 @@ import { element, font } from '../theme/reset';
 import { absoluteFocus } from '../theme/utils/focus';
 
 export const staticChipBaseStyles = css`
-    ${element({ theme })}
-    ${font({ theme })('actionElementInnerTextBold')}
+  ${element(theme)}
+  ${font(theme)('actionElementInnerTextBold')}
 
     &:focus {
     outline: 0;
@@ -54,7 +54,7 @@ export const staticChipBaseStyles = css`
 
     &.fi-chip--disabled {
       &.fi-chip {
-        ${disabledCursor}
+        cursor: not-allowed;
         background: ${theme.colors.depthBase};
         &:hover,
         &:active {
@@ -62,8 +62,8 @@ export const staticChipBaseStyles = css`
         }
       }
       & .fi-chip--icon {
-        ${disabledCursor}
+        cursor: not-allowed;
       }
     }
-  `,
-);
+  }
+`;

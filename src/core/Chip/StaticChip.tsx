@@ -3,8 +3,6 @@ import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { staticChipBaseStyles } from './StaticChip.baseStyles';
 import { HtmlSpan } from '../../reset';
-import { TokensProp, InternalTokensProp } from 'core/theme';
-import { withSuomifiDefaultProps } from '../theme/utils';
 
 export const baseClassName = 'fi-chip';
 export const chipClassNames = {
@@ -15,7 +13,7 @@ export const chipClassNames = {
   button: `${baseClassName}--button`,
 };
 
-export interface StaticChipProps extends TokensProp {
+export interface StaticChipProps {
   /** Chip element content */
   children: ReactNode;
   /** Custom class name for styling and customizing  */
@@ -41,17 +39,15 @@ class BaseChip extends Component<StaticChipProps> {
   }
 }
 
-const StyledChip = styled(
-  ({ tokens, ...passProps }: StaticChipProps & InternalTokensProp) => (
-    <BaseChip {...passProps} />
-  ),
-)`
-  ${(tokens) => staticChipBaseStyles(withSuomifiDefaultProps(tokens))}
+const StyledChip = styled(({ ...passProps }: StaticChipProps) => (
+  <BaseChip {...passProps} />
+))`
+  ${staticChipBaseStyles}
 `;
 
 export class StaticChip extends Component<StaticChipProps> {
   render() {
-    const { ...passProps } = withSuomifiDefaultProps(this.props);
+    const { ...passProps } = this.props;
     return <StyledChip {...passProps} />;
   }
 }
