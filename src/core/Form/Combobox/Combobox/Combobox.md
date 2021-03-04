@@ -32,6 +32,31 @@ const tools = [
     tax: false,
     labelText: 'Powersaw',
     disabled: true
+  },
+  {
+    name: 'Shovel',
+    price: 115,
+    tax: true,
+    labelText: 'Shovel'
+  },
+  {
+    name: 'Iron stick',
+    price: 85,
+    tax: false,
+    labelText: 'Iron stick'
+  },
+  {
+    name: 'Rake',
+    price: 50,
+    tax: true,
+    labelText: 'Rake'
+  },
+  {
+    name: 'Motorsaw',
+    price: 450,
+    tax: false,
+    labelText: 'Motorsaw',
+    disabled: true
   }
 ];
 
