@@ -51,19 +51,19 @@ export const staticChipBaseStyles = css`
       line-height: 1.5em;
       vertical-align: center;
     }
+  }
 
-    &.fi-chip--disabled {
-      &.fi-chip {
-        cursor: not-allowed;
+  &.fi-chip--disabled {
+    &.fi-chip {
+      cursor: not-allowed;
+      background: ${theme.colors.depthBase};
+      &:hover,
+      &:active {
         background: ${theme.colors.depthBase};
-        &:hover,
-        &:active {
-          background: ${theme.colors.depthBase};
-        }
       }
-      & .fi-chip--icon {
-        cursor: not-allowed;
-      }
+    }
+    & .fi-chip--icon {
+      cursor: not-allowed;
     }
   }
 `;
