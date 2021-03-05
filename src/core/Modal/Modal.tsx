@@ -48,7 +48,7 @@ export interface ModalProps
   /** Secondary button props */
   secondaryButtonProps?: ButtonProps;
   /** Callback for handling esc key press, e.g. close modal */
-  onEscKeyDown: () => void;
+  onEscKeyDown?: () => void;
 }
 
 const baseClassName = 'fi-modal';
@@ -205,8 +205,9 @@ class BaseModal extends Component<ModalProps> {
         </HtmlDiv>
       </div>
     );
-
-    if (!this.portalMountNode) {
+    // if no mount node is available or if we are on a server
+    // TODO: see if we should use an effect instead of direct render to avoid SSR issues
+    if (!this.portalMountNode || typeof window !== 'undefined') {
       return content;
     }
 
