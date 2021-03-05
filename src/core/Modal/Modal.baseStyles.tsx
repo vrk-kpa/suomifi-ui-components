@@ -13,6 +13,7 @@ export const baseStyles = css`
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 100;
 
     & .fi-modal_overlay {
       background-color: ${alphaHex(0.5)(theme.colors.blackBase)};
@@ -58,6 +59,28 @@ export const baseStyles = css`
         padding-left: ${theme.spacing.s};
         & .fi-modal_button {
           margin-left: ${theme.spacing.s};
+        }
+      }
+    }
+    &--small-screen {
+      & .fi-modal_content-container {
+        width: 100%;
+        height: 100%;
+        & .fi-modal_content {
+          padding: 0 ${theme.spacing.m} ${theme.spacing.m} ${theme.spacing.m};
+          & .fi-modal_heading {
+            padding: ${theme.spacing.m} 0;
+          }
+        }
+        & .fi-modal_footer {
+          padding-top: 0;
+          padding-right: ${theme.spacing.m};
+          padding-bottom: ${theme.spacing.s};
+          padding-left: ${theme.spacing.xxs};
+          & .fi-modal_button {
+            margin-top: ${theme.spacing.s};
+            margin-left: ${theme.spacing.s};
+          }
         }
       }
     }

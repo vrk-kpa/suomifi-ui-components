@@ -150,7 +150,9 @@ class BaseModal extends Component<ModalProps> {
         aria-describedby={titleId}
         role="dialog"
         aria-modal="true"
-        className={classnames(className, baseClassName)}
+        className={classnames(className, baseClassName, {
+          [modalClassNames.smallScreen]: variant === 'smallScreen',
+        })}
       >
         <HtmlDiv className={modalClassNames.overlay}>
           <HtmlDiv className={modalClassNames.contentContainer} {...passProps}>

@@ -23,7 +23,7 @@ const [visible, setVisible] = useState(false);
     visible={visible}
     primaryButtonProps={{ onClick: () => setVisible(!visible) }}
     onEscKeyDown={() => setVisible(!visible)}
-    style={{ height: '500px' }}
+    variant="smallScreen"
   >
     <Paragraph>
       <Text>
