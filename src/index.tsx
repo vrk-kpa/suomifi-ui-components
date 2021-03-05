@@ -51,6 +51,7 @@ export {
   LanguageMenuLinkLanguage,
   LanguageMenuLinkLanguageProps,
 } from './core/LanguageMenu/LanguageMenuItem';
+export { Modal, ModalProps } from './core/Modal/Modal';
 export {
   Expander,
   ExpanderProps,

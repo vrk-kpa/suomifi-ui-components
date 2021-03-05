@@ -6,6 +6,7 @@ const primitiveComponents = [
   'Button',
   'Heading',
   'Chip',
+  'Modal',
   'VisuallyHidden',
   ['Form', 'TextInput'],
   ['Form', 'Toggle'],
