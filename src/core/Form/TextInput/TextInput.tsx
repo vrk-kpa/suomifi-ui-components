@@ -1,5 +1,5 @@
 /* eslint-disable arrow-body-style */
-import React, { Component, ChangeEvent, FocusEvent } from 'react';
+import React, { forwardRef, Component, ChangeEvent, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import {
   HtmlInputProps,
@@ -189,8 +189,9 @@ const StyledTextInput = styled(
  * <i class="semantics" />
  * Use for user inputting text.
  * Props other than specified explicitly are passed on to underlying input element.
+ * @component
  */
-export const TextInput = React.forwardRef(
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
@@ -200,3 +201,6 @@ export const TextInput = React.forwardRef(
     );
   },
 );
+
+// eslint-disable-next-line import/no-default-export
+export default TextInput;

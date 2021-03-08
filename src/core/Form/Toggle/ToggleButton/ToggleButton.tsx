@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../../../utils/AutoId';
@@ -125,7 +125,7 @@ const StyledToggleButton = styled((props: ToggleBaseProps & InnerRef) => (
  * Use for toggling application state.
  * Additional props are passed to the button element.
  */
-export const ToggleButton = React.forwardRef(
+export const ToggleButton = forwardRef(
   (props: ToggleButtonProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { id: propId, ...passProps } = props;
     return (

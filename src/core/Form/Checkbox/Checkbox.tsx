@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Checkbox.baseStyles';
@@ -243,7 +243,7 @@ const StyledCheckbox = styled(
   ${baseStyles}
 `;
 
-export const Checkbox = React.forwardRef(
+export const Checkbox = forwardRef(
   (props: CheckboxProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (

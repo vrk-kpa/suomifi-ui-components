@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './Chip.baseStyles';
@@ -84,7 +84,7 @@ const StyledChip = styled(({ ...passProps }: InternalChipProps & InnerRef) => (
   ${baseStyles}
 `;
 
-export const Chip = React.forwardRef(
+export const Chip = forwardRef(
   (props: ChipProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { ...passProps } = props;
     return <StyledChip forwardedRef={ref} {...passProps} />;

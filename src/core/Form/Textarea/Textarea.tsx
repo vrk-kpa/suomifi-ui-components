@@ -1,4 +1,4 @@
-import React, { Component, ChangeEvent, FocusEvent } from 'react';
+import React, { Component, ChangeEvent, FocusEvent, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Textarea.baseStyles';
@@ -171,7 +171,7 @@ const StyledTextarea = styled(
   ${baseStyles}
 `;
 
-export const Textarea = React.forwardRef(
+export const Textarea = forwardRef(
   (props: TextareaProps, ref: React.Ref<HTMLTextAreaElement>) => {
     const { id: propId, ...passProps } = props;
     return (

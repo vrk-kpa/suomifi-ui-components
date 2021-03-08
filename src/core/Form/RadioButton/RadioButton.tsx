@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlLabel, HtmlSpan, HtmlDiv, HtmlInputWithRef } from '../../../reset';
@@ -171,7 +171,7 @@ const StyledRadioButton = styled(
   ${baseStyles}
 `;
 
-export const RadioButton = React.forwardRef(
+export const RadioButton = forwardRef(
   (props: RadioButtonProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, onChange, ...passProps } = props;
     return (

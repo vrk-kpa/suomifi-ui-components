@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../../../utils/AutoId';
@@ -132,7 +132,7 @@ const StyledToggleInput = styled((props: ToggleBaseProps & InnerRef) => (
  * Use for toggling form selection
  * Additional props are passed to the checkbox input element.
  */
-export const ToggleInput = React.forwardRef(
+export const ToggleInput = forwardRef(
   (props: ToggleInputProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (

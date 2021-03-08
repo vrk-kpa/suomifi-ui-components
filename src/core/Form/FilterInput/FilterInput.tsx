@@ -1,4 +1,4 @@
-import React, { Component, ChangeEvent } from 'react';
+import React, { Component, ChangeEvent, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { InputStatus } from '../types';
@@ -180,7 +180,7 @@ const StyledFilterInput = styled(FilterInputWithoutTokens)`
  * Use for filtering.
  * Props other than specified explicitly are passed on to underlying input element.
  */
-export const FilterInput = React.forwardRef(
+export const FilterInput = forwardRef(
   (props: FilterInputProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (

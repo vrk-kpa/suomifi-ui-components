@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Button.baseStyles';
@@ -148,7 +148,7 @@ const StyledButton = styled(
  * When using Button secondaryNoborder variant with other than white background,<br />
  * define styles background color for all needed states (:hover, :active, :disabled)<br /><br />
  */
-export const Button = React.forwardRef(
+export const Button = forwardRef(
   (props: ButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
     <StyledButton forwardedRef={ref} {...props} />
   ),

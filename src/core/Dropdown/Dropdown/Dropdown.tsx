@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, ReactElement } from 'react';
+import React, { Component, ReactNode, ReactElement, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import {
@@ -227,7 +227,7 @@ const StyledDropdown = styled(
  * <i class="semantics" />
  * Use for selectable dropdown with items.
  */
-export const Dropdown = React.forwardRef(
+export const Dropdown = forwardRef(
   (props: DropdownProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
