@@ -11,6 +11,7 @@ describe('Basic modal', () => {
       primaryButtonLabel="OK"
       visible={true}
       style={{ height: '500px' }}
+      usePortal={false}
     >
       <p>
         Im baby cold-pressed selfies edison bulb, hot chicken master cleanse

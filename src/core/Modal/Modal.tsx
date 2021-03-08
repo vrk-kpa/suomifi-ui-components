@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import './Modal.globals.scss';
 import { HtmlDiv, HtmlDivProps, HtmlSpan } from '../../reset';
 import { AutoId } from '../../utils/AutoId';
+import { windowAvailable } from '../../utils/common';
 import { VisuallyHidden } from '../../components/Visually-hidden/Visually-hidden';
 import { Button, ButtonProps } from '../Button/Button';
 import { baseStyles } from './Modal.baseStyles';
@@ -31,6 +32,12 @@ export interface ModalProps
    * @default 'default'
    */
   variant?: 'smallScreen' | 'default';
+  /**
+   * Use portal instead of injecting content inside the Modal component
+   * @default true
+   * Portal is never used when rendering on server or modal mount node is not available.
+   */
+  usePortal?: boolean;
   /** Focusable emenent ref when modal is opened, if not provided, first focusable element is focused */
   focusOnOpenRef?: React.RefObject<any>;
   /** Focusable element when dialog is closed, if not provided, browser default behaviour will occur (e.g. body gains focus) */
@@ -53,6 +60,7 @@ export interface ModalProps
 
 const baseClassName = 'fi-modal';
 const modalClassNames = {
+  noPortal: `${baseClassName}--no-portal`,
   smallScreen: `${baseClassName}--small-screen`,
   overlay: `${baseClassName}_overlay`,
   contentContainer: `${baseClassName}_content-container`,
@@ -131,6 +139,7 @@ class BaseModal extends Component<ModalProps> {
       children,
       scrollable,
       variant,
+      usePortal = true,
       focusOnOpenRef,
       focusOnCloseRef = null,
       primaryButtonLabel,
@@ -152,6 +161,7 @@ class BaseModal extends Component<ModalProps> {
         aria-modal="true"
         className={classnames(className, baseClassName, {
           [modalClassNames.smallScreen]: variant === 'smallScreen',
+          [modalClassNames.noPortal]: usePortal === false,
         })}
       >
         <HtmlDiv className={modalClassNames.overlay}>
@@ -207,9 +217,8 @@ class BaseModal extends Component<ModalProps> {
         </HtmlDiv>
       </div>
     );
-    // if no mount node is available or if we are on a server
-    // TODO: see if we should use an effect instead of direct render to avoid SSR issues
-    if (!this.portalMountNode || typeof window !== 'undefined') {
+    // Skip portal if no mount node is available, if we are on a server or if explicitly requested
+    if (!this.portalMountNode || !windowAvailable() || usePortal === false) {
       return content;
     }
 
