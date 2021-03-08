@@ -70,7 +70,6 @@ interface InnerRef {
 }
 
 export interface FilterInputProps extends InternalFilterInputProps<any> {
-  // TODO: remove any
   /** Ref object to be passed to the input element */
   ref?: React.RefObject<HTMLInputElement>;
 }

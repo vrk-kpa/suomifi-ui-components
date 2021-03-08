@@ -1,22 +1,23 @@
 ```js
 import React, { useState } from 'react';
-
 import { ToggleButton } from 'suomifi-ui-components';
 
 const [checked, setChecked] = useState(false);
-const testi = React.createRef();
+const exampleRef = React.createRef();
 
 <>
-  <ToggleButton
-    defaultChecked
-    disabled
-    ref={testi}
-    onClick={() => console.log(testi.current)}
-  >
+  <ToggleButton defaultChecked disabled>
     Checked disabled using button
   </ToggleButton>
 
   <ToggleButton onClick={(checked) => console.log(checked)}>
+    Unchecked enabled using button
+  </ToggleButton>
+  <ToggleButton
+    onClick={(checked) => console.log(checked)}
+    ref={exampleRef}
+    onClick={() => console.log(exampleRef.current)}
+  >
     Unchecked enabled using button
   </ToggleButton>
 

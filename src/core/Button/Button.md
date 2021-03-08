@@ -2,23 +2,27 @@
 import { Button } from 'suomifi-ui-components';
 import React from 'react';
 
-const testi = React.createRef();
+const exampleRef = React.createRef();
 
 <>
   <Button
     className="my-button--test"
     onClick={() => console.log('Test button click')}
     type="submit"
-    ref={testi}
-    onClick={() => {
-      console.log(testi.current);
-    }}
   >
     Button
   </Button>
 
   <Button disabled fullWidth>
     Button disabled fullWidth
+  </Button>
+  <Button
+    ref={exampleRef}
+    onClick={() => {
+      console.log(exampleRef.current);
+    }}
+  >
+    Button with ref
   </Button>
 </>;
 ```

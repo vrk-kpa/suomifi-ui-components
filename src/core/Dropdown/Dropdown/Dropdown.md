@@ -1,14 +1,11 @@
 ```js
 import { Dropdown, DropdownItem } from 'suomifi-ui-components';
-import { createRef } from 'react';
 
-const testi = createRef();
 <Dropdown
   name="Dropdown"
   labelText="Dropdown label"
   defaultValue={'dropdown-item-2'}
-  ref={testi}
-  onChange={() => console.log(testi.current)}
+  onChange={(value) => console.log(value)}
 >
   <DropdownItem value={'dropdown-item-1'}>
     Dropdown Item 1
@@ -21,12 +18,17 @@ const testi = createRef();
 
 ```js
 import { Dropdown, DropdownItem } from 'suomifi-ui-components';
+import { createRef } from 'react';
+
+const exampleRef = createRef();
 <>
   <Dropdown
     name="Dropdown"
-    visualPlaceholder="Dropdown with visually hidden label"
+    visualPlaceholder="Dropdown with visually hidden label and ref"
     labelText="Dropdown label"
     labelMode="hidden"
+    ref={exampleRef}
+    onChange={() => console.log(exampleRef.current)}
   >
     <DropdownItem value={'dropdown-item-1'}>
       Dropdown Item 1
