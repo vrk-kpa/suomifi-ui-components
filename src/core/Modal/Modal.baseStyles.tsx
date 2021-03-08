@@ -14,7 +14,7 @@ export const baseStyles = css`
     top: 0;
     left: 0;
 
-    & .fi-modal--no-portal {
+    &--no-portal {
       z-index: 100;
     }
 

@@ -73,6 +73,8 @@ const modalClassNames = {
 };
 
 class BaseModal extends Component<ModalProps> {
+  private previouslyFocusedElement: any;
+
   private focusTrapWrapperRef: React.RefObject<HTMLDivElement>;
 
   private portalMountNode: HTMLElement | null = !!document
@@ -84,6 +86,9 @@ class BaseModal extends Component<ModalProps> {
   constructor(props: ModalProps) {
     super(props);
     this.focusTrapWrapperRef = React.createRef();
+    if (windowAvailable()) {
+      this.previouslyFocusedElement = document.activeElement;
+    }
   }
 
   componentDidMount() {
@@ -126,6 +131,14 @@ class BaseModal extends Component<ModalProps> {
         document.body.classList.remove(modalClassNames.disableBodyContent);
         window.removeEventListener('keydown', this.handleKeyDown);
         if (!!this.focusTrap) this.focusTrap.deactivate();
+        if (!!this.props.focusOnCloseRef) {
+          this.props.focusOnCloseRef.current.focus();
+        } else if (
+          !!this.previouslyFocusedElement &&
+          this.previouslyFocusedElement.focus
+        ) {
+          this.previouslyFocusedElement.focus();
+        }
       }
     }
   };
@@ -186,7 +199,7 @@ class BaseModal extends Component<ModalProps> {
                 {...primaryButtonProps}
                 className={classnames(
                   modalClassNames.button,
-                  secondaryButtonProps?.className,
+                  primaryButtonProps?.className,
                 )}
               >
                 <HtmlSpan aria-hidden={!!ariaPrimaryButtonLabel}>
@@ -198,6 +211,7 @@ class BaseModal extends Component<ModalProps> {
               </Button>
               {!!secondaryButtonLabel && (
                 <Button
+                  variant="secondary"
                   {...secondaryButtonProps}
                   className={classnames(
                     modalClassNames.button,
