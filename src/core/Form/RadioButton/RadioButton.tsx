@@ -1,7 +1,7 @@
 import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlLabel, HtmlSpan, HtmlDiv, HtmlInputWithRef } from '../../../reset';
+import { HtmlLabel, HtmlSpan, HtmlDiv, HtmlInput } from '../../../reset';
 import { logger } from '../../../utils/logger';
 import { AutoId } from '../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
@@ -127,7 +127,7 @@ class BaseRadioButton extends Component<RadioButtonProps & InnerRef> {
           },
         )}
       >
-        <HtmlInputWithRef
+        <HtmlInput
           className={radioButtonClassNames.input}
           type="radio"
           name={name}

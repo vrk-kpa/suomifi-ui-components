@@ -2,7 +2,7 @@ import React, { ChangeEvent, Component, createRef, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import {
-  HtmlInputWithRef,
+  HtmlInput,
   HtmlInputProps,
   HtmlSpan,
   HtmlDiv,
@@ -217,7 +217,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
                 <HtmlDiv
                   className={searchInputClassNames.inputElementContainer}
                 >
-                  <HtmlInputWithRef
+                  <HtmlInput
                     {...passProps}
                     {...getConditionalAriaProp('aria-describedby', [
                       !!statusText ? statusTextId : undefined,

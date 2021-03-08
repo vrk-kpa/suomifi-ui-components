@@ -6,7 +6,7 @@ import {
   HtmlDiv,
   HtmlDivProps,
   HtmlSpan,
-  HtmlInputWithRef,
+  HtmlInput,
 } from '../../../reset';
 import { baseStyles } from './TextInput.baseStyles';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
@@ -145,7 +145,7 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
           <HtmlDiv className={textInputClassNames.inputElementContainer}>
             <Debounce waitFor={this.props.debounce}>
               {(debouncer: Function) => (
-                <HtmlInputWithRef
+                <HtmlInput
                   {...passProps}
                   id={id}
                   className={textInputClassNames.inputElement}

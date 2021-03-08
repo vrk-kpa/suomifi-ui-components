@@ -10,6 +10,8 @@ export interface HtmlInputProps
    * @default text
    */
   type?: string;
+  /** Ref object for the input element */
+  forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 
 const inputResets = css`
@@ -21,22 +23,10 @@ const inputResets = css`
   max-width: 100%;
 `;
 
-const Input = ({ type, ...passProps }: HtmlInputProps) => (
-  <input {...passProps} type={!!type ? type : 'text'} />
-);
-
-export const HtmlInput = styled(Input)`
-  ${inputResets}
-`;
-
-const InputWithRef = ({
-  type,
-  forwardedRef,
-  ...passProps
-}: HtmlInputProps & { forwardedRef: React.RefObject<HTMLInputElement> }) => (
+const Input = ({ type, forwardedRef, ...passProps }: HtmlInputProps) => (
   <input {...passProps} type={!!type ? type : 'text'} ref={forwardedRef} />
 );
 
-export const HtmlInputWithRef = styled(InputWithRef)`
+export const HtmlInput = styled(Input)`
   ${inputResets}
 `;

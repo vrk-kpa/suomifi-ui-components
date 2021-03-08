@@ -6,7 +6,7 @@ import {
   HtmlInputProps,
   HtmlDiv,
   HtmlDivProps,
-  HtmlInputWithRef,
+  HtmlInput,
 } from '../../../reset';
 import { AutoId } from '../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
@@ -136,7 +136,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
           </LabelText>
           <HtmlDiv className={filterInputClassNames.functionalityContainer}>
             <HtmlDiv className={filterInputClassNames.inputElementContainer}>
-              <HtmlInputWithRef
+              <HtmlInput
                 {...passProps}
                 id={id}
                 className={filterInputClassNames.inputElement}
@@ -164,14 +164,14 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
   }
 }
 
-const FilterInputWithoutTokens: <T>(
+const UnstyledFilterInput: <T>(
   props: InternalFilterInputProps<T> & InnerRef,
 ) => JSX.Element = ({
   // eslint-disable-next-line react/prop-types
   ...passProps
 }) => <BaseFilterInput {...passProps} />;
 
-const StyledFilterInput = styled(FilterInputWithoutTokens)`
+const StyledFilterInput = styled(UnstyledFilterInput)`
   ${baseStyles}
 `;
 

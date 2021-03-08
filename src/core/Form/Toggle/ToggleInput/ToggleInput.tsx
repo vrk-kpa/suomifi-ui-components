@@ -8,7 +8,7 @@ import {
   HtmlLabel,
   HtmlSpan,
   HtmlInputProps,
-  HtmlInputWithRef,
+  HtmlInput,
 } from '../../../../reset';
 import { baseStyles } from './ToggleInput.baseStyles';
 import { ToggleIcon } from '../ToggleBase/ToggleIcon';
@@ -99,7 +99,7 @@ class BaseToggleInput extends Component<ToggleInputProps & InnerRef> {
         {...toggleWrapperProps}
       >
         <HtmlLabel className={toggleClassNames.label} htmlFor={id}>
-          <HtmlInputWithRef
+          <HtmlInput
             {...passProps}
             checked={!!toggleState}
             id={id}

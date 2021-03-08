@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Textarea.baseStyles';
 import {
-  HtmlTextareaWithRef,
+  HtmlTextarea,
   HtmlTextareaProps,
   HtmlDiv,
   HtmlDivProps,
@@ -134,7 +134,7 @@ class BaseTextarea extends Component<TextareaProps & InnerRef> {
         </LabelText>
         <HintText id={hintTextId}>{hintText}</HintText>
         <HtmlDiv className={textareaClassNames.textareaContainer}>
-          <HtmlTextareaWithRef
+          <HtmlTextarea
             id={id}
             className={classnames(textareaClassNames.textarea, {
               [textareaClassNames.resizeBoth]: resize === 'both',

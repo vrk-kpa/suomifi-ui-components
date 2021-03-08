@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Checkbox.baseStyles';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { HtmlLabel, HtmlDiv, HtmlInputWithRef } from '../../../reset';
+import { HtmlLabel, HtmlDiv, HtmlInput } from '../../../reset';
 import { logger } from '../../../utils/logger';
 import { Icon } from '../../Icon/Icon';
 import { AutoId } from '../../../utils/AutoId';
@@ -199,7 +199,7 @@ class BaseCheckbox extends Component<CheckboxProps & InnerRef> {
           },
         )}
       >
-        <HtmlInputWithRef
+        <HtmlInput
           type="checkbox"
           disabled={disabled}
           id={id}
