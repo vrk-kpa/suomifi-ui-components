@@ -13,7 +13,10 @@ export const baseStyles = css`
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 100;
+
+    & .fi-modal--no-portal {
+      z-index: 100;
+    }
 
     & .fi-modal_overlay {
       background-color: ${alphaHex(0.5)(theme.colors.blackBase)};
