@@ -632,6 +632,9 @@ exports[`Basic modal should match snapshot 1`] = `
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.c0.fi-modal--no-portal {
   z-index: 100;
 }
 
@@ -735,9 +738,9 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 <div
-  aria-describedby="1_title"
+  aria-describedby="5_title"
   aria-modal="true"
-  class="c0 fi-modal"
+  class="c0 fi-modal fi-modal--no-portal"
   role="dialog"
 >
   <div
@@ -745,19 +748,18 @@ exports[`Basic modal should match snapshot 1`] = `
   >
     <div
       class="c1 fi-modal_content-container"
-      style="height: 500px;"
     >
       <div
         class="c1 fi-modal_content"
       >
         <h2
           class="c2 fi-heading c3 fi-modal_heading fi-heading--h3"
-          id="1_title"
+          id="5_title"
         >
           Test modal
         </h2>
         <p>
-          Im baby cold-pressed selfies edison bulb, hot chicken master cleanse hoodie tote bag 3 wolf moon yuccie shoreditch quinoa put a bird on it. XOXO lo-fi man bun raclette vice thundercats hoodie ethical godard master cleanse 8-bit chillwave church-key pok pok. Food truck beard bushwick four loko, flexitarian ugh mixtape tattooed jianbing tbh irony pitchfork small batch bitters. Hoodie DIY man braid kale chips, gochujang trust fund neutra edison bulb roof party single-origin coffee iceland. Direct trade heirloom cliche tote bag YOLO. Wolf mumblecore lumbersexual tattooed ethical authentic. Kale chips post-ironic sartorial ugh mustache helvetica fashion axe, vinyl wolf neutra jean shorts.
+          Modal Content
         </p>
       </div>
       <div
