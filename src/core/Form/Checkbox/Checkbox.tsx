@@ -100,7 +100,7 @@ interface InnerRef {
 }
 
 export interface CheckboxProps extends InternalCheckboxProps {
-  /** Ref object to be passed */
+  /** Ref object to be passed to the input element */
   ref?: React.RefObject<HTMLInputElement>;
 }
 

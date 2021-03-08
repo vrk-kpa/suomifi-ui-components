@@ -186,7 +186,7 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
             disabled={disabled}
             onChange={onChange}
             ref={forwardedRef}
-            name={name} // TODO: Find the correct typing for forwardRef
+            name={name}
             value={selectedValue || ''}
           >
             <ListboxButton

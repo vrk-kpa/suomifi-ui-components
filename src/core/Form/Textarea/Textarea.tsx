@@ -84,7 +84,7 @@ interface InnerRef {
 }
 
 export interface TextareaProps extends InternalTextareaProps {
-  /** Ref object to be passed */
+  /** Ref object to be passed to the textarea element */
   ref?: React.RefObject<HTMLTextAreaElement>;
 }
 

@@ -27,7 +27,7 @@ interface InnerRef {
 }
 
 export interface ChipProps extends InternalChipProps {
-  /** Ref object to be passed to the input element */
+  /** Ref object to be passed to the button element */
   ref?: React.RefObject<HTMLButtonElement>;
 }
 
