@@ -4,11 +4,7 @@ import classnames from 'classnames';
 import { AutoId } from '../../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { Text } from '../../../Text/Text';
-import {
-  HtmlSpan,
-  HtmlButtonProps,
-  HtmlButtonWithRef,
-} from '../../../../reset';
+import { HtmlSpan, HtmlButtonProps, HtmlButton } from '../../../../reset';
 import { ToggleBaseProps, baseClassName } from '../ToggleBase/ToggleBase';
 import { baseStyles } from './ToggeButton.baseStyles';
 import { ToggleIcon } from '../ToggleBase/ToggleIcon';
@@ -94,7 +90,7 @@ class BaseToggleButton extends Component<ToggleButtonProps & InnerRef> {
         )}
         {...toggleWrapperProps}
       >
-        <HtmlButtonWithRef
+        <HtmlButton
           {...passProps}
           onClick={this.handleClick}
           aria-pressed={!!toggleState}
@@ -108,7 +104,7 @@ class BaseToggleButton extends Component<ToggleButtonProps & InnerRef> {
             <ToggleIcon disabled={disabled} checked={toggleState} />
           </HtmlSpan>
           <Text color={!!disabled ? 'depthBase' : 'blackBase'}>{children}</Text>
-        </HtmlButtonWithRef>
+        </HtmlButton>
       </HtmlSpan>
     );
   }

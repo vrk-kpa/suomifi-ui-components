@@ -1,9 +1,5 @@
 export { HtmlA, HtmlAProps } from './HtmlA/HtmlA';
-export {
-  HtmlButton,
-  HtmlButtonProps,
-  HtmlButtonWithRef,
-} from './HtmlButton/HtmlButton';
+export { HtmlButton, HtmlButtonProps } from './HtmlButton/HtmlButton';
 export { HtmlDiv, HtmlDivProps } from './HtmlDiv/HtmlDiv';
 export { HtmlFieldSet, HtmlFieldSetProps } from './HtmlFieldSet/HtmlFieldSet';
 export { HtmlH, HtmlHProps } from './HtmlH/HtmlH';

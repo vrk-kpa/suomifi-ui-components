@@ -2,26 +2,27 @@
 import { Chip } from 'suomifi-ui-components';
 import React from 'react';
 
+const removeAction = () => {
+  alert('Selection removed');
+};
+
 const exampleRef = React.createRef();
 
 <>
   <div>
     <span style={{ marginRight: '10px' }}>
-      <Chip
-        removable
-        actionLabel="Log referenced element"
-        onClick={() => alert('Selection removed')}
-      >
-        Removable chip with ref
+      <Chip removable actionLabel="Deselect" onClick={removeAction}>
+        Removable chip
       </Chip>
     </span>
 
     <Chip
       removable
-      actionLabel="Deselect"
+      actionLabel="Log referenced element"
+      ref={exampleRef}
       onClick={() => console.log(exampleRef.current)}
     >
-      Removable chip 2
+      Removable chip with ref
     </Chip>
   </div>
   <div>

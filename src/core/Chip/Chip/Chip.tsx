@@ -2,7 +2,7 @@ import React, { Component, forwardRef } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './Chip.baseStyles';
-import { HtmlButtonWithRef, HtmlSpan } from '../../../reset';
+import { HtmlButton, HtmlSpan } from '../../../reset';
 import { Icon } from '../../Icon/Icon';
 import { logger } from '../../../utils/logger';
 import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
@@ -50,7 +50,7 @@ class DefaultChip extends Component<ChipProps & InnerRef> {
       );
     }
     return (
-      <HtmlButtonWithRef
+      <HtmlButton
         className={classnames(baseClassName, chipClassNames.button, className, {
           [chipClassNames.disabled]: !!disabled,
           [chipClassNames.removable]: !!removable,
@@ -73,7 +73,7 @@ class DefaultChip extends Component<ChipProps & InnerRef> {
             <VisuallyHidden>{actionLabel}</VisuallyHidden>
           </>
         )}
-      </HtmlButtonWithRef>
+      </HtmlButton>
     );
   }
 }
