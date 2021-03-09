@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
+import classnames from 'classnames';
+import { SpacingWithoutInsetProp } from '../theme/spacing';
 import {
   Block as CompBlock,
   BlockProps as CompBlockProps,
 } from '../../components/Block/Block';
-import { SpacingWithoutInsetProp } from '../theme/spacing';
 import { baseStyles } from './Block.baseStyles';
-import classnames from 'classnames';
 
 const baseClassName = 'fi-block';
 

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
-import { staticChipBaseStyles } from './StaticChip.baseStyles';
 import { HtmlSpan } from '../../../reset';
 import {
   BaseChipProps,
   baseClassName,
   chipClassNames,
 } from '../BaseChip/BaseChip';
+import { staticChipBaseStyles } from './StaticChip.baseStyles';
 
 export interface StaticChipProps extends BaseChipProps {}
 
