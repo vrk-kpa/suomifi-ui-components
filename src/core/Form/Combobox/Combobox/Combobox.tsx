@@ -210,22 +210,20 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           showPopover
         ) {
           const idOfCurrentElement = `${id}-${lblTxt}`;
-          if (idOfCurrentElement) {
-            const elementOffsetTop =
-              document.getElementById(idOfCurrentElement)?.offsetTop || 0;
-            const elementOffsetHeight =
-              document.getElementById(idOfCurrentElement)?.offsetHeight || 0;
-            if (elementOffsetTop < this.popoverListRef.current.scrollTop) {
-              this.popoverListRef.current.scrollTop = elementOffsetTop;
-            } else {
-              const offsetBottom = elementOffsetTop + elementOffsetHeight;
-              const scrollBottom =
-                this.popoverListRef.current.scrollTop +
-                this.popoverListRef.current.offsetHeight;
-              if (offsetBottom > scrollBottom) {
-                this.popoverListRef.current.scrollTop =
-                  offsetBottom - this.popoverListRef.current.offsetHeight;
-              }
+          const elementOffsetTop =
+            document.getElementById(idOfCurrentElement)?.offsetTop || 0;
+          const elementOffsetHeight =
+            document.getElementById(idOfCurrentElement)?.offsetHeight || 0;
+          if (elementOffsetTop < this.popoverListRef.current.scrollTop) {
+            this.popoverListRef.current.scrollTop = elementOffsetTop;
+          } else {
+            const offsetBottom = elementOffsetTop + elementOffsetHeight;
+            const scrollBottom =
+              this.popoverListRef.current.scrollTop +
+              this.popoverListRef.current.offsetHeight;
+            if (offsetBottom > scrollBottom) {
+              this.popoverListRef.current.scrollTop =
+                offsetBottom - this.popoverListRef.current.offsetHeight;
             }
           }
         }
