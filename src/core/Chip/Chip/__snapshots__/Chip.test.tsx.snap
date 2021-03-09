@@ -131,18 +131,6 @@ exports[`children should match snapshot 1`] = `
   display: inline-block;
 }
 
-.c1.fi-chip.fi-chip--button {
-  cursor: pointer;
-}
-
-.c1.fi-chip.fi-chip--button:hover {
-  background: hsl(212,63%,49%);
-}
-
-.c1.fi-chip.fi-chip--button:active {
-  background: hsl(212,63%,37%);
-}
-
 .c1.fi-chip .fi-chip--icon {
   height: 12px;
   width: 12px;
@@ -341,18 +329,6 @@ exports[`classnames should match snapshot 1`] = `
   display: inline-block;
 }
 
-.c1.fi-chip.fi-chip--button {
-  cursor: pointer;
-}
-
-.c1.fi-chip.fi-chip--button:hover {
-  background: hsl(212,63%,49%);
-}
-
-.c1.fi-chip.fi-chip--button:active {
-  background: hsl(212,63%,37%);
-}
-
 .c1.fi-chip .fi-chip--icon {
   height: 12px;
   width: 12px;
@@ -545,18 +521,6 @@ exports[`disabled should match snapshot 1`] = `
   background: hsl(212,63%,45%);
   max-height: 28px;
   display: inline-block;
-}
-
-.c1.fi-chip.fi-chip--button {
-  cursor: pointer;
-}
-
-.c1.fi-chip.fi-chip--button:hover {
-  background: hsl(212,63%,49%);
-}
-
-.c1.fi-chip.fi-chip--button:active {
-  background: hsl(212,63%,37%);
 }
 
 .c1.fi-chip .fi-chip--icon {

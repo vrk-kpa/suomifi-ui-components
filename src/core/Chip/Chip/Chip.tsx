@@ -1,29 +1,23 @@
-import React, { Component, forwardRef, ReactNode } from 'react';
+import React, { Component, forwardRef } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
-import { baseStyles } from './Chip.baseStyles';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
+import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
 import { Icon } from '../../Icon/Icon';
 import { logger } from '../../../utils/logger';
-import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
-
-const baseClassName = 'fi-chip';
-const chipClassNames = {
-  disabled: `${baseClassName}--disabled`,
-  icon: `${baseClassName}--icon`,
-  content: `${baseClassName}--content`,
-  removable: `${baseClassName}--removable`,
-  button: `${baseClassName}--button`,
-};
+import { baseStyles } from './Chip.baseStyles';
+import {
+  BaseChipProps,
+  baseClassName,
+  chipClassNames,
+} from '../BaseChip/BaseChip';
 
 interface InternalChipProps
-  extends Omit<HtmlButtonProps, 'forwardedRef' | 'disabled' | 'onClick'> {
-  /** Chip element content */
-  children: ReactNode;
-  /** Custom class name for styling and customizing  */
-  className?: string;
-  /** Disable chip */
-  disabled?: boolean;
+  extends BaseChipProps,
+    Omit<
+      HtmlButtonProps,
+      'forwardedRef' | 'disabled' | 'onClick' | 'children'
+    > {
   /**
    * Event handler to execute when clicked
    */

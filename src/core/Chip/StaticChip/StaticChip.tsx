@@ -1,26 +1,15 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { staticChipBaseStyles } from './StaticChip.baseStyles';
 import { HtmlSpan } from '../../../reset';
+import {
+  BaseChipProps,
+  baseClassName,
+  chipClassNames,
+} from '../BaseChip/BaseChip';
 
-const baseClassName = 'fi-chip';
-const chipClassNames = {
-  disabled: `${baseClassName}--disabled`,
-  icon: `${baseClassName}--icon`,
-  content: `${baseClassName}--content`,
-  removable: `${baseClassName}--removable`,
-  button: `${baseClassName}--button`,
-};
-
-export interface StaticChipProps {
-  /** Chip element content */
-  children: ReactNode;
-  /** Custom class name for styling and customizing  */
-  className?: string;
-  /** Disable chip */
-  disabled?: boolean;
-}
+export interface StaticChipProps extends BaseChipProps {}
 
 class BaseChip extends Component<StaticChipProps> {
   render() {

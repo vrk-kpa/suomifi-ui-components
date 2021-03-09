@@ -1,15 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { StaticChip as OrigStaticChip, StaticChipProps } from './StaticChip';
-
-const StaticChip = (props: StaticChipProps) => {
-  const { children, ...passProps } = props;
-  return (
-    <OrigStaticChip {...passProps}>
-      {children || 'StaticChip content'}
-    </OrigStaticChip>
-  );
-};
+import { StaticChip } from './StaticChip';
 
 describe('disabled', () => {
   const DisabledChip = <StaticChip disabled={true}>Testcontent</StaticChip>;

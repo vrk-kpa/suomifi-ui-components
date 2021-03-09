@@ -1,11 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Chip as OrigChip, ChipProps } from './Chip';
-
-const Chip = (props: ChipProps) => {
-  const { children, ...passProps } = props;
-  return <OrigChip {...passProps}>{children || 'Chip content'}</OrigChip>;
-};
+import { Chip } from './Chip';
 
 describe('disabled', () => {
   const DisabledChip = (
@@ -86,7 +81,7 @@ describe('onClick', () => {
     const mockClick = jest.fn();
     const { getByRole } = render(
       <Chip onClick={mockClick} actionLabel="Unselect">
-        Testcontent
+        Test content
       </Chip>,
     );
     const chip = getByRole('button');

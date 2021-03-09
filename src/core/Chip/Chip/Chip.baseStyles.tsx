@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
 import { defaultThemeTokens as theme } from '../../theme';
-import { staticChipBaseStyles } from '../StaticChip/StaticChip.baseStyles';
+import { baseChipBaseStyles } from '../BaseChip/BaseChip.baseStyles';
 
 export const baseStyles = css`
-  ${staticChipBaseStyles}
+  ${baseChipBaseStyles}
   &.fi-chip--button {
     cursor: pointer;
     &:hover {
