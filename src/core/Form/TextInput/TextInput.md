@@ -2,16 +2,12 @@
 import { TextInput } from 'suomifi-ui-components';
 import React from 'react';
 
-const testRef = React.createRef();
+const exampleRef = React.createRef();
 
 <>
   <TextInput
     onBlur={(event) => console.log(event.target.value)}
     labelText="TextInput with visible label"
-    ref={testRef}
-    onChange={() => {
-      console.log(testRef.current);
-    }}
   />
   <TextInput
     onBlur={(event) => console.log(event.target.value)}
@@ -25,8 +21,12 @@ const testRef = React.createRef();
     hintText="An example hint text"
   />
   <TextInput
-    labelText="TextInput with optional text"
+    labelText="TextInput with optional text and ref"
     optionalText="optional"
+    ref={exampleRef}
+    onChange={() => {
+      console.log(exampleRef.current);
+    }}
   />
 </>;
 ```
