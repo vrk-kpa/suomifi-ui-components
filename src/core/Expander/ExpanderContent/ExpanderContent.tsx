@@ -3,11 +3,11 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlDivProps } from '../../../reset';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { baseStyles } from './ExpanderContent.baseStyles';
 import {
   ExpanderConsumer,
   ExpanderContentBaseProps,
 } from '../Expander/Expander';
+import { baseStyles } from './ExpanderContent.baseStyles';
 
 const baseClassName = 'fi-expander';
 const contentBaseClassName = `${baseClassName}_content`;

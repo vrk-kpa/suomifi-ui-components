@@ -1,15 +1,15 @@
 import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { baseStyles } from './Checkbox.baseStyles';
-import { getConditionalAriaProp } from '../../../utils/aria';
-import { HtmlLabel, HtmlDiv, HtmlInput } from '../../../reset';
-import { logger } from '../../../utils/logger';
-import { Icon } from '../../Icon/Icon';
-import { AutoId } from '../../../utils/AutoId';
-import { StatusText } from '../StatusText/StatusText';
 import { InputStatus } from '../types';
+import { getConditionalAriaProp } from '../../../utils/aria';
+import { logger } from '../../../utils/logger';
+import { AutoId } from '../../../utils/AutoId';
+import { HtmlLabel, HtmlDiv, HtmlInput } from '../../../reset';
+import { Icon } from '../../Icon/Icon';
+import { StatusText } from '../StatusText/StatusText';
 import { HintText } from '../HintText/HintText';
+import { baseStyles } from './Checkbox.baseStyles';
 
 const baseClassName = 'fi-checkbox';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { default as styled } from 'styled-components';
-import { ComponentIcon } from '../../../StaticIcon/StaticIcon';
 import classnames from 'classnames';
+import { ComponentIcon } from '../../../StaticIcon/StaticIcon';
 import { baseStyles } from './ToggleIcon.baseStyles';
 
 const iconBaseClassName = 'fi-toggle_icon';

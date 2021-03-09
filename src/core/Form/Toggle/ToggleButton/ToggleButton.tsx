@@ -6,8 +6,8 @@ import { getConditionalAriaProp } from '../../../../utils/aria';
 import { Text } from '../../../Text/Text';
 import { HtmlSpan, HtmlButtonProps, HtmlButton } from '../../../../reset';
 import { ToggleBaseProps, baseClassName } from '../ToggleBase/ToggleBase';
-import { baseStyles } from './ToggeButton.baseStyles';
 import { ToggleIcon } from '../ToggleBase/ToggleIcon';
+import { baseStyles } from './ToggeButton.baseStyles';
 
 const toggleClassNames = {
   disabled: `${baseClassName}--disabled`,

@@ -10,9 +10,9 @@ import {
   HtmlInputProps,
   HtmlInput,
 } from '../../../../reset';
-import { baseStyles } from './ToggleInput.baseStyles';
 import { ToggleIcon } from '../ToggleBase/ToggleIcon';
 import { ToggleBaseProps, baseClassName } from '../ToggleBase/ToggleBase';
+import { baseStyles } from './ToggleInput.baseStyles';
 
 const toggleClassNames = {
   disabled: `${baseClassName}--disabled`,

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { iconBaseStyles } from './Icon.baseStyles';
-import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
 import { SuomifiIcon, SuomifiIconInterface } from 'suomifi-icons';
 import { logger } from '../../utils/logger';
+import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
+import { iconBaseStyles } from './Icon.baseStyles';
+
 export { BaseIconKeys } from 'suomifi-icons';
 
 export const baseClassName = 'fi-icon';

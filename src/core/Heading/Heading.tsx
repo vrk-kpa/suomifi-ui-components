@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { ColorProp } from '../theme';
+import classnames from 'classnames';
+import { asPropType } from '../../utils/typescript';
+import { logger } from '../../utils/logger';
 import {
   Heading as CompHeading,
   HeadingProps as CompHeadingProps,
   hLevels,
 } from '../../components/Heading/Heading';
+import { ColorProp } from '../theme';
 import { baseStyles } from './Heading.baseStyles';
-import classnames from 'classnames';
-import { asPropType } from '../../utils/typescript';
-import { logger } from '../../utils/logger';
 
 const baseClassName = 'fi-heading';
 const smallScreenClassName = `${baseClassName}--small-screen`;

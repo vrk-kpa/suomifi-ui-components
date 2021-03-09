@@ -1,8 +1,8 @@
 import React, { useState, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { usePopper } from 'react-popper';
-import { HtmlDiv, HtmlDivProps } from '../../reset/HtmlDiv/HtmlDiv';
 import { useEnhancedEffect } from '../../utils/common';
+import { HtmlDiv, HtmlDivProps } from '../../reset/HtmlDiv/HtmlDiv';
 
 export interface PopoverProps extends HtmlDivProps {
   sourceRef: Element | null;

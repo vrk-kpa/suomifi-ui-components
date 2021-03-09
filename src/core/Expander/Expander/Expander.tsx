@@ -3,11 +3,11 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../../utils/AutoId';
 import { HtmlDiv } from '../../../reset';
-import { baseStyles } from './Expander.baseStyles';
 import {
   ExpanderGroupConsumer,
   ExpanderGroupProviderState,
 } from '../ExpanderGroup/ExpanderGroup';
+import { baseStyles } from './Expander.baseStyles';
 
 const baseClassName = 'fi-expander';
 const openClassName = `${baseClassName}--open`;

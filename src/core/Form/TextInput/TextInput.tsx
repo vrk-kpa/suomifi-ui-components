@@ -1,6 +1,10 @@
 /* eslint-disable arrow-body-style */
 import React, { forwardRef, Component, ChangeEvent, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
+import classnames from 'classnames';
+import { AutoId } from '../../../utils/AutoId';
+import { Debounce } from '../../utils/Debounce/Debounce';
+import { getConditionalAriaProp } from '../../../utils/aria';
 import {
   HtmlInputProps,
   HtmlDiv,
@@ -8,16 +12,12 @@ import {
   HtmlSpan,
   HtmlInput,
 } from '../../../reset';
-import { baseStyles } from './TextInput.baseStyles';
+import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { StatusText } from '../StatusText/StatusText';
-import { InputStatus } from '../types';
 import { HintText } from '../HintText/HintText';
-import classnames from 'classnames';
-import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
-import { AutoId } from '../../../utils/AutoId';
-import { Debounce } from '../../utils/Debounce/Debounce';
-import { getConditionalAriaProp } from '../../../utils/aria';
+import { InputStatus } from '../types';
+import { baseStyles } from './TextInput.baseStyles';
 
 const baseClassName = 'fi-text-input';
 export const textInputClassNames = {

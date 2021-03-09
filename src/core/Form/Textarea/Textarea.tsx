@@ -1,19 +1,19 @@
 import React, { Component, ChangeEvent, FocusEvent, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { baseStyles } from './Textarea.baseStyles';
+import { getConditionalAriaProp } from '../../../utils/aria';
+import { AutoId } from '../../../utils/AutoId';
 import {
   HtmlTextarea,
   HtmlTextareaProps,
   HtmlDiv,
   HtmlDivProps,
 } from '../../../reset';
-import { AutoId } from '../../../utils/AutoId';
 import { LabelText } from '../LabelText/LabelText';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
 import { InputStatus } from '../types';
-import { getConditionalAriaProp } from '../../../utils/aria';
+import { baseStyles } from './Textarea.baseStyles';
 
 const baseClassName = 'fi-textarea';
 const textareaClassNames = {

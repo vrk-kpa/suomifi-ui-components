@@ -8,10 +8,10 @@ import {
   HtmlDivProps,
   HtmlSpan,
 } from '../../../reset';
-import { expanderTitleBaseStyles } from './ExpanderTitle.baseStyles';
 import { Icon } from '../../Icon/Icon';
-import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 import { VisuallyHidden } from '../../../components';
+import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
+import { expanderTitleBaseStyles } from './ExpanderTitle.baseStyles';
 
 const baseClassName = 'fi-expander_title';
 const titleOpenClassName = `${baseClassName}--open`;

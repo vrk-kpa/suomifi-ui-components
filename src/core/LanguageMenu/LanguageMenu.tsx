@@ -3,10 +3,6 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { classnamesValue } from '../../utils/typescript';
 import {
-  baseStyles,
-  languageMenuPopoverStyles,
-} from './LanguageMenu.baseStyles';
-import {
   LanguageMenu as CompLanguageMenu,
   LanguageMenuProps as CompLanguageMenuProps,
   LanguageMenuPopoverItemsProps,
@@ -21,6 +17,10 @@ import {
   LanguageMenuLinkLanguage,
   LanguageMenuLinkLanguageProps,
 } from './LanguageMenuItem';
+import {
+  baseStyles,
+  languageMenuPopoverStyles,
+} from './LanguageMenu.baseStyles';
 
 import { Icon } from '../Icon/Icon';
 
