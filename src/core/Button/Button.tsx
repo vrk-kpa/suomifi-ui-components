@@ -2,7 +2,7 @@ import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Button.baseStyles';
-import { HtmlButtonWithRef, HtmlButtonProps } from '../../reset';
+import { HtmlButton, HtmlButtonProps } from '../../reset';
 import { Icon, IconProps, BaseIconKeys } from '../Icon/Icon';
 
 type ButtonVariant =
@@ -92,7 +92,7 @@ class BaseButton extends Component<ButtonProps & InnerRef> {
 
     return (
       <>
-        <HtmlButtonWithRef
+        <HtmlButton
           {...passProps}
           {...onClickProp}
           aria-disabled={!!ariaDisabled || !!disabled}
@@ -128,7 +128,7 @@ class BaseButton extends Component<ButtonProps & InnerRef> {
               )}
             />
           )}
-        </HtmlButtonWithRef>
+        </HtmlButton>
       </>
     );
   }
