@@ -2,10 +2,10 @@ import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { staticChipBaseStyles } from './StaticChip.baseStyles';
-import { HtmlSpan } from '../../reset';
+import { HtmlSpan } from '../../../reset';
 
-export const baseClassName = 'fi-chip';
-export const chipClassNames = {
+const baseClassName = 'fi-chip';
+const chipClassNames = {
   disabled: `${baseClassName}--disabled`,
   icon: `${baseClassName}--icon`,
   content: `${baseClassName}--content`,

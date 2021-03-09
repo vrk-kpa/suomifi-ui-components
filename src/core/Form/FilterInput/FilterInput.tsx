@@ -162,15 +162,15 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
     );
   }
 }
-
-const UnstyledFilterInput: <T>(
+/** This wrapper is needed to make TypeScript work with styled components and generics */
+const BaseFilterInputWrapper: <T>(
   props: InternalFilterInputProps<T> & InnerRef,
 ) => JSX.Element = ({
   // eslint-disable-next-line react/prop-types
   ...passProps
 }) => <BaseFilterInput {...passProps} />;
 
-const StyledFilterInput = styled(UnstyledFilterInput)`
+const StyledFilterInput = styled(BaseFilterInputWrapper)`
   ${baseStyles}
 `;
 

@@ -95,7 +95,7 @@ module.exports = {
               name: 'Chip',
               components: getComponentWithVariants('Chip')([
                 'Chip/Chip',
-                'StaticChip',
+                'StaticChip/StaticChip',
               ]),
             },
             {

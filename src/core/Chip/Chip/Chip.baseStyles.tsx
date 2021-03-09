@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { defaultThemeTokens as theme } from '../../theme';
-import { staticChipBaseStyles } from '../StaticChip.baseStyles';
+import { staticChipBaseStyles } from '../StaticChip/StaticChip.baseStyles';
 
 export const baseStyles = css`
   ${staticChipBaseStyles}

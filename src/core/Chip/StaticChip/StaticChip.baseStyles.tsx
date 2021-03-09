@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../theme';
-import { element, font } from '../theme/reset';
-import { absoluteFocus } from '../theme/utils/focus';
+import { defaultThemeTokens as theme } from '../../theme';
+import { element, font } from '../../theme/reset';
+import { absoluteFocus } from '../../theme/utils/focus';
 
 export const staticChipBaseStyles = css`
   ${element(theme)}
