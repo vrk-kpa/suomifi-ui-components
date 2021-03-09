@@ -2,7 +2,7 @@ import React, { Component, forwardRef, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './Chip.baseStyles';
-import { HtmlButton, HtmlSpan } from '../../../reset';
+import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
 import { Icon } from '../../Icon/Icon';
 import { logger } from '../../../utils/logger';
 import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
@@ -16,7 +16,8 @@ const chipClassNames = {
   button: `${baseClassName}--button`,
 };
 
-interface InternalChipProps {
+interface InternalChipProps
+  extends Omit<HtmlButtonProps, 'forwardedRef' | 'disabled' | 'onClick'> {
   /** Chip element content */
   children: ReactNode;
   /** Custom class name for styling and customizing  */

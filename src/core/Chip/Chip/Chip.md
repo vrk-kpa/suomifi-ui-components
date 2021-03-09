@@ -11,7 +11,11 @@ const exampleRef = React.createRef();
 <>
   <div>
     <span style={{ marginRight: '10px' }}>
-      <Chip removable actionLabel="Deselect" onClick={removeAction}>
+      <Chip
+        removable
+        actionLabel="Deselect item"
+        onClick={removeAction}
+      >
         Removable chip
       </Chip>
     </span>
