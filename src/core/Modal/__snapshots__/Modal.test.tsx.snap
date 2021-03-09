@@ -629,7 +629,7 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 600;
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 }
