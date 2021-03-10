@@ -1,4 +1,3 @@
-/* eslint-disable arrow-body-style */
 import React, { forwardRef, Component, ChangeEvent, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
@@ -178,9 +177,9 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
 }
 
 const StyledTextInput = styled(
-  ({ ...passProps }: InternalTextInputProps & InnerRef) => {
-    return <BaseTextInput {...passProps} />;
-  },
+  ({ ...passProps }: InternalTextInputProps & InnerRef) => (
+    <BaseTextInput {...passProps} />
+  ),
 )`
   ${baseStyles}
 `;
@@ -201,6 +200,3 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     );
   },
 );
-
-// eslint-disable-next-line import/no-default-export
-export default TextInput;
