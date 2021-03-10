@@ -491,22 +491,17 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   }
 }
 
-const ComboboxWithAutoId: <T>(
-  props: ComboboxProps<T & ComboboxData>,
-) => JSX.Element = ({
-  // eslint-disable-next-line react/prop-types
-  id: propId,
-  ...passProps
-}) => (
-  <AutoId id={propId}>{(id) => <BaseCombobox id={id} {...passProps} />}</AutoId>
-);
-
-const StyledCombobox = styled(ComboboxWithAutoId)`
+const StyledCombobox = styled(BaseCombobox)`
   ${baseStyles}
 `;
 
 export class Combobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   render() {
-    return <StyledCombobox {...this.props} />;
+    const { id: propId, ...passProps } = this.props;
+    return (
+      <AutoId id={propId}>
+        {(id) => <StyledCombobox id={id} {...passProps} />}
+      </AutoId>
+    );
   }
 }
