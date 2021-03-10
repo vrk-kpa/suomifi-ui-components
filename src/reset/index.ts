@@ -3,11 +3,7 @@ export { HtmlButton, HtmlButtonProps } from './HtmlButton/HtmlButton';
 export { HtmlDiv, HtmlDivProps } from './HtmlDiv/HtmlDiv';
 export { HtmlFieldSet, HtmlFieldSetProps } from './HtmlFieldSet/HtmlFieldSet';
 export { HtmlH, HtmlHProps } from './HtmlH/HtmlH';
-export {
-  HtmlInput,
-  HtmlInputProps,
-  HtmlInputWithRef,
-} from './HtmlInput/HtmlInput';
+export { HtmlInput, HtmlInputProps } from './HtmlInput/HtmlInput';
 export { HtmlLabel, HtmlLabelProps } from './HtmlLabel/HtmlLabel';
 export { HtmlLegend, HtmlLegendProps } from './HtmlLegend/HtmlLegend';
 export { HtmlLi, HtmlLiProps } from './HtmlLi/HtmlLi';

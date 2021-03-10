@@ -2,20 +2,21 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { defaultThemeTokens } from '../theme';
 import classnames from 'classnames';
+import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
 import {
   SuomifiStaticIcon,
   SuomifiStaticIconInterface,
   SuomifiComponentIconInterface,
   SuomifiComponentIcon,
 } from 'suomifi-icons';
-import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
-import { iconBaseStyles } from '../Icon/Icon.baseStyles';
 import {
   IconBaseProps,
   iconLogger,
   cursorPointerClassName,
   baseClassName,
 } from '../Icon/Icon';
+import { iconBaseStyles } from '../Icon/Icon.baseStyles';
+
 export { IllustrativeIconKeys, DoctypeIconKeys } from 'suomifi-icons';
 
 const staticIconBaseClassName = `fi-static-icon`;

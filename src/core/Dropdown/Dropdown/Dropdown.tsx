@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, ReactElement } from 'react';
+import React, { Component, ReactNode, ReactElement, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import {
@@ -10,11 +10,11 @@ import {
   ListboxPopover,
 } from '@reach/listbox';
 import { positionMatchWidth } from '@reach/popover';
-import { HtmlSpan, HtmlDiv } from '../../../reset';
-import { LabelText, LabelMode } from '../../Form/LabelText/LabelText';
 import { logger } from '../../../utils/logger';
 import { AutoId } from '../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
+import { HtmlSpan, HtmlDiv } from '../../../reset';
+import { LabelText, LabelMode } from '../../Form/LabelText/LabelText';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
 
@@ -34,7 +34,7 @@ interface DropdownState {
   selectedValue: string | undefined;
 }
 
-export interface DropdownProps {
+interface InternalDropdownProps {
   /**
    * Unique id
    * If no id is specified, one will be generated automatically
@@ -79,7 +79,16 @@ export interface DropdownProps {
   onChange?(newValue: string): void;
 }
 
-class BaseDropdown extends Component<DropdownProps> {
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLDivElement>;
+}
+
+export interface DropdownProps extends InternalDropdownProps {
+  /** Ref object to be passed to the input element */
+  ref?: React.RefObject<HTMLDivElement>;
+}
+
+class BaseDropdown extends Component<DropdownProps & InnerRef> {
   state: DropdownState = {
     selectedValue:
       'value' in this.props
@@ -108,6 +117,7 @@ class BaseDropdown extends Component<DropdownProps> {
       children,
       labelText,
       labelMode,
+      forwardedRef,
       optionalText,
       'aria-labelledby': ariaLabelledBy,
       visualPlaceholder,
@@ -175,6 +185,7 @@ class BaseDropdown extends Component<DropdownProps> {
             ])}
             disabled={disabled}
             onChange={onChange}
+            ref={forwardedRef}
             name={name}
             value={selectedValue || ''}
           >
@@ -204,7 +215,11 @@ class BaseDropdown extends Component<DropdownProps> {
   }
 }
 
-const StyledDropdown = styled(BaseDropdown)`
+const StyledDropdown = styled(
+  ({ ...passProps }: InternalDropdownProps & InnerRef) => (
+    <BaseDropdown {...passProps} />
+  ),
+)`
   ${baseStyles}
 `;
 
@@ -212,13 +227,13 @@ const StyledDropdown = styled(BaseDropdown)`
  * <i class="semantics" />
  * Use for selectable dropdown with items.
  */
-export class Dropdown extends Component<DropdownProps> {
-  render() {
-    const { id: propId, ...passProps } = this.props;
+export const Dropdown = forwardRef(
+  (props: DropdownProps, ref: React.RefObject<HTMLDivElement>) => {
+    const { id: propId, ...passProps } = props;
     return (
       <AutoId id={propId}>
-        {(id) => <StyledDropdown id={id} {...passProps} />}
+        {(id) => <StyledDropdown id={id} forwardedRef={ref} {...passProps} />}
       </AutoId>
     );
-  }
-}
+  },
+);

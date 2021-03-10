@@ -1,8 +1,8 @@
 import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
-import { baseStyles } from './HintText.baseStyles';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
+import { baseStyles } from './HintText.baseStyles';
 
 const baseClassName = 'fi-hint-text';
 

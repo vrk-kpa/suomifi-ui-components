@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../../../utils/AutoId';
@@ -7,12 +7,12 @@ import { Text } from '../../../Text/Text';
 import {
   HtmlLabel,
   HtmlSpan,
-  HtmlInput,
   HtmlInputProps,
+  HtmlInput,
 } from '../../../../reset';
-import { baseStyles } from './ToggleInput.baseStyles';
 import { ToggleIcon } from '../ToggleBase/ToggleIcon';
 import { ToggleBaseProps, baseClassName } from '../ToggleBase/ToggleBase';
+import { baseStyles } from './ToggleInput.baseStyles';
 
 const toggleClassNames = {
   disabled: `${baseClassName}--disabled`,
@@ -33,8 +33,15 @@ export interface ToggleInputProps
   name?: string;
   /** Event handler to execute when clicked */
   onChange?: (checked: boolean) => void;
+  /** Ref object to be passed to the input element */
+  ref?: React.RefObject<HTMLInputElement>;
 }
-class BaseToggleInput extends Component<ToggleInputProps> {
+
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLInputElement>;
+}
+
+class BaseToggleInput extends Component<ToggleInputProps & InnerRef> {
   state: ToggleState = {
     toggleState: !!this.props.checked || !!this.props.defaultChecked,
   };
@@ -114,7 +121,9 @@ class BaseToggleInput extends Component<ToggleInputProps> {
   }
 }
 
-const StyledToggleInput = styled(BaseToggleInput)`
+const StyledToggleInput = styled((props: ToggleBaseProps & InnerRef) => (
+  <BaseToggleInput {...props} />
+))`
   ${baseStyles}
 `;
 
@@ -123,13 +132,15 @@ const StyledToggleInput = styled(BaseToggleInput)`
  * Use for toggling form selection
  * Additional props are passed to the checkbox input element.
  */
-export class ToggleInput extends Component<ToggleInputProps> {
-  render() {
-    const { id: propId, ...passProps } = this.props;
+export const ToggleInput = forwardRef(
+  (props: ToggleInputProps, ref: React.RefObject<HTMLInputElement>) => {
+    const { id: propId, ...passProps } = props;
     return (
       <AutoId id={propId}>
-        {(id) => <StyledToggleInput id={id} {...passProps} />}
+        {(id) => (
+          <StyledToggleInput id={id} forwardedRef={ref} {...passProps} />
+        )}
       </AutoId>
     );
-  }
-}
+  },
+);

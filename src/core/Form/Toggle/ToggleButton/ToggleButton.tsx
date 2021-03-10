@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { Text } from '../../../Text/Text';
-import { HtmlSpan, HtmlButton, HtmlButtonProps } from '../../../../reset';
+import { HtmlSpan, HtmlButtonProps, HtmlButton } from '../../../../reset';
 import { ToggleBaseProps, baseClassName } from '../ToggleBase/ToggleBase';
-import { baseStyles } from './ToggeButton.baseStyles';
 import { ToggleIcon } from '../ToggleBase/ToggleIcon';
+import { baseStyles } from './ToggeButton.baseStyles';
 
 const toggleClassNames = {
   disabled: `${baseClassName}--disabled`,
@@ -21,13 +21,19 @@ export interface ToggleButtonProps
     Omit<HtmlButtonProps, 'onClick' | 'type'> {
   /** Event handler to execute when clicked */
   onClick?: (checked: boolean) => void;
+  /** Ref object to be passed to the button element */
+  ref?: React.RefObject<HTMLButtonElement>;
+}
+
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLButtonElement>;
 }
 
 interface ToggleState {
   toggleState: boolean;
 }
 
-class BaseToggleButton extends Component<ToggleButtonProps> {
+class BaseToggleButton extends Component<ToggleButtonProps & InnerRef> {
   state: ToggleState = {
     toggleState: !!this.props.checked || !!this.props.defaultChecked,
   };
@@ -104,7 +110,9 @@ class BaseToggleButton extends Component<ToggleButtonProps> {
   }
 }
 
-const StyledToggleButton = styled(BaseToggleButton)`
+const StyledToggleButton = styled((props: ToggleBaseProps & InnerRef) => (
+  <BaseToggleButton {...props} />
+))`
   ${baseStyles}
 `;
 
@@ -113,13 +121,15 @@ const StyledToggleButton = styled(BaseToggleButton)`
  * Use for toggling application state.
  * Additional props are passed to the button element.
  */
-export class ToggleButton extends Component<ToggleButtonProps> {
-  render() {
-    const { id: propId, ...passProps } = this.props;
+export const ToggleButton = forwardRef(
+  (props: ToggleButtonProps, ref: React.RefObject<HTMLButtonElement>) => {
+    const { id: propId, ...passProps } = props;
     return (
       <AutoId id={propId}>
-        {(id) => <StyledToggleButton id={id} {...passProps} />}
+        {(id) => (
+          <StyledToggleButton id={id} forwardedRef={ref} {...passProps} />
+        )}
       </AutoId>
     );
-  }
-}
+  },
+);

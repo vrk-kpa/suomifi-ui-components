@@ -4,11 +4,10 @@ import { useState } from 'react';
 import { ToggleInput } from 'suomifi-ui-components';
 
 const [checked, setChecked] = useState(false);
-
 <>
   <ToggleInput
     defaultChecked
-    onChange={(checked) => console.log(checked)}
+    onChange={(value) => console.log(value)}
   >
     Checked enabled using input
   </ToggleInput>

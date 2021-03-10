@@ -1,9 +1,9 @@
 import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
-import { baseStyles } from './StatusText.baseStyles';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
 import { InputStatus } from '../types';
+import { baseStyles } from './StatusText.baseStyles';
 
 const baseClassName = 'fi-status-text';
 const statusTextClassNames = {

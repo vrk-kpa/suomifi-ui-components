@@ -1,5 +1,9 @@
 ```js
 import { TextInput } from 'suomifi-ui-components';
+import React from 'react';
+
+const exampleRef = React.createRef();
+
 <>
   <TextInput
     onBlur={(event) => console.log(event.target.value)}
@@ -17,8 +21,12 @@ import { TextInput } from 'suomifi-ui-components';
     hintText="An example hint text"
   />
   <TextInput
-    labelText="TextInput with optional text"
+    labelText="TextInput with optional text and ref"
     optionalText="optional"
+    ref={exampleRef}
+    onChange={() => {
+      console.log(exampleRef.current);
+    }}
   />
 </>;
 ```

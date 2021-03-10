@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
+import { asPropType } from '../../utils/typescript';
 import {
   Link as CompLink,
   LinkProps as CompLinkProps,
 } from '../../components/Link/Link';
-import { asPropType } from '../../utils/typescript';
 import { LinkExternal, LinkExternalProps } from './LinkExternal';
 import { LinkSkip, LinkSkipProps } from './LinkSkip';
 import { baseStyles } from './Link.baseStyles';

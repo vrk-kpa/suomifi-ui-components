@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { Link, LinkProps } from './Link';
 import {
   LinkSkip as CompLinkSkip,
   LinkSkipProps as CompLinkSkipProps,
 } from '../../components/Link/LinkSkip';
+import { Link, LinkProps } from './Link';
 
 import { skipLinkStyles } from './Link.baseStyles';
 

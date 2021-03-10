@@ -1,7 +1,7 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlInput, HtmlLabel, HtmlSpan, HtmlDiv } from '../../../reset';
+import { HtmlLabel, HtmlSpan, HtmlDiv, HtmlInput } from '../../../reset';
 import { logger } from '../../../utils/logger';
 import { AutoId } from '../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
@@ -22,7 +22,7 @@ const radioButtonClassNames = {
   checked: `${baseClassName}--checked`,
 };
 
-export interface RadioButtonProps {
+interface InternalRadioButtonProps {
   /** Custom classname to extend or customize */
   className?: string;
   /** Label for element content */
@@ -61,7 +61,16 @@ interface RadioButtonState {
   checkedState: boolean;
 }
 
-class BaseRadioButton extends Component<RadioButtonProps> {
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLInputElement>;
+}
+
+export interface RadioButtonProps extends InternalRadioButtonProps {
+  /** Ref object to be passed to the input element */
+  ref?: React.RefObject<HTMLInputElement>;
+}
+
+class BaseRadioButton extends Component<RadioButtonProps & InnerRef> {
   state = {
     checkedState: !!this.props.checked,
   };
@@ -88,6 +97,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
       value,
       hintText,
       className,
+      forwardedRef,
       onChange,
       disabled = false,
       ...passProps
@@ -123,6 +133,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
           name={name}
           id={id}
           disabled={disabled}
+          forwardedRef={forwardedRef}
           onChange={onChange}
           {...(checked !== undefined
             ? { checked: checkedState }
@@ -152,13 +163,17 @@ class BaseRadioButton extends Component<RadioButtonProps> {
   }
 }
 
-const StyledRadioButton = styled(BaseRadioButton)`
+const StyledRadioButton = styled(
+  ({ ...passProps }: InternalRadioButtonProps & InnerRef) => (
+    <BaseRadioButton {...passProps} />
+  ),
+)`
   ${baseStyles}
 `;
 
-export class RadioButton extends Component<RadioButtonProps> {
-  render() {
-    const { id: propId, onChange, ...passProps } = this.props;
+export const RadioButton = forwardRef(
+  (props: RadioButtonProps, ref: React.RefObject<HTMLInputElement>) => {
+    const { id: propId, onChange, ...passProps } = props;
     return (
       <AutoId id={propId}>
         {(id) => (
@@ -166,6 +181,7 @@ export class RadioButton extends Component<RadioButtonProps> {
             {({ onRadioButtonChange, selectedValue, name }) => (
               <StyledRadioButton
                 id={id}
+                forwardedRef={ref}
                 {...passProps}
                 {...(!!onRadioButtonChange
                   ? {
@@ -187,5 +203,5 @@ export class RadioButton extends Component<RadioButtonProps> {
         )}
       </AutoId>
     );
-  }
-}
+  },
+);

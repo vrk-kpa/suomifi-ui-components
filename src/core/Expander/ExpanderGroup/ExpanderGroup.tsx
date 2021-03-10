@@ -2,8 +2,8 @@ import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
-import { baseStyles } from './ExpanderGroup.baseStyles';
 import { VisuallyHidden } from '../../../components';
+import { baseStyles } from './ExpanderGroup.baseStyles';
 
 const baseClassName = 'fi-expander-group';
 const openClassName = `${baseClassName}--open`;

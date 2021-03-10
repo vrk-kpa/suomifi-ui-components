@@ -2,10 +2,10 @@ import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
-import { expanderTitleButtonBaseStyles } from './ExpanderTitleButton.baseStyles';
 import { Icon } from '../../Icon/Icon';
-import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 import { VisuallyHidden } from '../../../components';
+import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
+import { expanderTitleButtonBaseStyles } from './ExpanderTitleButton.baseStyles';
 
 const baseClassName = 'fi-expander_title-button';
 const titleOpenClassName = `${baseClassName}--open`;

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { baseStyles } from './Breadcrumb.baseStyles';
+import { getConditionalAriaProp } from '../../utils/aria';
 import {
   Breadcrumb as CompBreadcrumb,
   BreadcrumbProps as CompBreadcrumbProps,
 } from '../../components/Breadcrumb/Breadcrumb';
 import { LinkProps } from '../Link/Link';
 import { BreadcrumbLink, BreadcrumbLinkProps } from './BreadcrumbLink';
-import { getConditionalAriaProp } from '../../utils/aria';
+import { baseStyles } from './Breadcrumb.baseStyles';
 
 type BreadcrumbVariant = 'default' | 'link';
 

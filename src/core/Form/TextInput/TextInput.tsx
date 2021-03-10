@@ -1,22 +1,22 @@
-import React, { Component, ChangeEvent, FocusEvent } from 'react';
+import React, { forwardRef, Component, ChangeEvent, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
+import classnames from 'classnames';
+import { AutoId } from '../../../utils/AutoId';
+import { Debounce } from '../../utils/Debounce/Debounce';
+import { getConditionalAriaProp } from '../../../utils/aria';
 import {
-  HtmlInput,
   HtmlInputProps,
   HtmlDiv,
   HtmlDivProps,
   HtmlSpan,
+  HtmlInput,
 } from '../../../reset';
-import { baseStyles } from './TextInput.baseStyles';
+import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { StatusText } from '../StatusText/StatusText';
-import { InputStatus } from '../types';
 import { HintText } from '../HintText/HintText';
-import classnames from 'classnames';
-import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
-import { AutoId } from '../../../utils/AutoId';
-import { Debounce } from '../../utils/Debounce/Debounce';
-import { getConditionalAriaProp } from '../../../utils/aria';
+import { InputStatus } from '../types';
+import { baseStyles } from './TextInput.baseStyles';
 
 const baseClassName = 'fi-text-input';
 export const textInputClassNames = {
@@ -33,7 +33,7 @@ export const textInputClassNames = {
 
 type TextInputValue = string | number | undefined;
 
-export interface TextInputProps
+interface InternalTextInputProps
   extends Omit<HtmlInputProps, 'type' | 'onChange'> {
   /** TextInput container div class name for custom styling. */
   className?: string;
@@ -84,7 +84,16 @@ export interface TextInputProps
   iconProps?: Omit<IconProps, 'icon'>;
 }
 
-class BaseTextInput extends Component<TextInputProps> {
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLInputElement>;
+}
+
+export interface TextInputProps extends InternalTextInputProps {
+  /** Ref object to be passed to the input element */
+  ref?: React.RefObject<HTMLInputElement>;
+}
+
+class BaseTextInput extends Component<TextInputProps & InnerRef> {
   render() {
     const {
       className,
@@ -102,6 +111,7 @@ class BaseTextInput extends Component<TextInputProps> {
       fullWidth,
       icon,
       iconProps,
+      forwardedRef,
       'aria-describedby': ariaDescribedBy,
       ...passProps
     } = this.props;
@@ -110,7 +120,6 @@ class BaseTextInput extends Component<TextInputProps> {
 
     const hintTextId = `${id}-hintText`;
     const statusTextId = `${id}-statusText`;
-
     return (
       <HtmlDiv
         {...wrapperProps}
@@ -140,6 +149,7 @@ class BaseTextInput extends Component<TextInputProps> {
                   id={id}
                   className={textInputClassNames.inputElement}
                   type={type}
+                  forwardedRef={forwardedRef}
                   placeholder={visualPlaceholder}
                   {...{ 'aria-invalid': status === 'error' }}
                   {...getConditionalAriaProp('aria-describedby', [
@@ -166,7 +176,11 @@ class BaseTextInput extends Component<TextInputProps> {
   }
 }
 
-const StyledTextInput = styled(BaseTextInput)`
+const StyledTextInput = styled(
+  ({ ...passProps }: InternalTextInputProps & InnerRef) => (
+    <BaseTextInput {...passProps} />
+  ),
+)`
   ${baseStyles}
 `;
 
@@ -174,14 +188,15 @@ const StyledTextInput = styled(BaseTextInput)`
  * <i class="semantics" />
  * Use for user inputting text.
  * Props other than specified explicitly are passed on to underlying input element.
+ * @component
  */
-export class TextInput extends Component<TextInputProps> {
-  render() {
-    const { id: propId, ...passProps } = this.props;
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+  (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
+    const { id: propId, ...passProps } = props;
     return (
       <AutoId id={propId}>
-        {(id) => <StyledTextInput id={id} {...passProps} />}
+        {(id) => <StyledTextInput id={id} forwardedRef={ref} {...passProps} />}
       </AutoId>
     );
-  }
-}
+  },
+);

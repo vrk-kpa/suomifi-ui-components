@@ -1,8 +1,11 @@
 import React, { ChangeEvent, Component, createRef, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import { AutoId } from '../../../utils/AutoId';
+import { getConditionalAriaProp } from '../../../utils/aria';
+import { Debounce } from '../../utils/Debounce/Debounce';
 import {
-  HtmlInputWithRef,
+  HtmlInput,
   HtmlInputProps,
   HtmlSpan,
   HtmlDiv,
@@ -10,15 +13,12 @@ import {
   HtmlButton,
   HtmlButtonProps,
 } from '../../../reset';
-import { AutoId } from '../../../utils/AutoId';
-import { getConditionalAriaProp } from '../../../utils/aria';
 import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
 import { StatusText } from '../StatusText/StatusText';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { Icon } from '../../Icon/Icon';
-import { baseStyles } from './SearchInput.baseStyles';
 import { InputStatus } from '../types';
-import { Debounce } from '../../utils/Debounce/Debounce';
+import { baseStyles } from './SearchInput.baseStyles';
 
 type SearchInputValue = string | number | undefined;
 
@@ -217,13 +217,13 @@ class BaseSearchInput extends Component<SearchInputProps> {
                 <HtmlDiv
                   className={searchInputClassNames.inputElementContainer}
                 >
-                  <HtmlInputWithRef
+                  <HtmlInput
                     {...passProps}
                     {...getConditionalAriaProp('aria-describedby', [
                       !!statusText ? statusTextId : undefined,
                       ariaDescribedBy,
                     ])}
-                    forwardRef={this.inputRef}
+                    forwardedRef={this.inputRef}
                     aria-invalid={status === 'error'}
                     id={id}
                     className={searchInputClassNames.inputElement}

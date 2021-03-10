@@ -6,6 +6,8 @@ import { asPropType } from '../../utils/typescript';
 export interface HtmlTextareaProps
   extends Omit<HTMLProps<HTMLTextAreaElement>, 'ref' | 'as'> {
   as?: asPropType;
+  /** Ref object passed to the element */
+  forwardedRef?: React.RefObject<HTMLTextAreaElement>;
 }
 
 const textareaResets = css`
@@ -17,7 +19,9 @@ const textareaResets = css`
   max-width: 100%;
 `;
 
-const Textarea = (props: HtmlTextareaProps) => <textarea {...props} />;
+const Textarea = ({ forwardedRef, ...passProps }: HtmlTextareaProps) => (
+  <textarea {...passProps} ref={forwardedRef} />
+);
 
 export const HtmlTextarea = styled(Textarea)`
   ${textareaResets}

@@ -12,6 +12,7 @@ export interface HtmlButtonProps
    */
   type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
   'data-testid'?: string;
+  forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
 
 const buttonResets = css`
@@ -32,8 +33,8 @@ const buttonResets = css`
   cursor: pointer;
 `;
 
-const Button = ({ type, ...passProps }: HtmlButtonProps) => (
-  <button {...passProps} type={!!type ? type : 'button'} />
+const Button = ({ forwardedRef, type, ...passProps }: HtmlButtonProps) => (
+  <button {...passProps} ref={forwardedRef} type={!!type ? type : 'button'} />
 );
 
 export const HtmlButton = styled(Button)`

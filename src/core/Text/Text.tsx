@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
+import classnames from 'classnames';
 import { ColorProp } from '../theme';
 import {
   Text as CompText,
   TextProps as CompTextProps,
 } from '../../components/Text/Text';
 import { baseStyles } from './Text.baseStyles';
-import classnames from 'classnames';
 
 const baseClassName = 'fi-text';
 const smallScreenClassName = `${baseClassName}--small-screen`;

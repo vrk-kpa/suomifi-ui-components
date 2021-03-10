@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { Link, LinkProps } from './Link';
+import { logger } from '../../utils/logger';
 import {
   LinkExternal as CompLinkExternal,
   LinkExternalProps as CompLinkExternalProps,
 } from '../../components/Link/LinkExternal';
 import { Icon } from '../Icon/Icon';
-import { externalStyles } from './Link.baseStyles';
+import { Link, LinkProps } from './Link';
 import { VisuallyHidden } from '../../components';
-import { logger } from '../../utils/logger';
+import { externalStyles } from './Link.baseStyles';
 
 const iconClassName = 'fi-link_icon';
 
