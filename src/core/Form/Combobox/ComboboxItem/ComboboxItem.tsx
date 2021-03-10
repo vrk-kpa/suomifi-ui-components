@@ -12,7 +12,8 @@ const comboboxItemClassNames = {
   currentSelection: `${baseClassName}--currentSelection`,
 };
 
-export interface ComboboxItemProps extends CheckboxProps {
+export interface ComboboxItemProps
+  extends Omit<CheckboxProps, 'ref' | 'forwardedRef'> {
   /** ComboboxItem container div class name for custom styling. */
   className?: string;
   currentSelection: boolean;
