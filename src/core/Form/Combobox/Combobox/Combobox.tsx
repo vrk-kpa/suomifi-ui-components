@@ -6,7 +6,7 @@ import { windowAvailable } from '../../../../utils/common';
 import { AutoId } from '../../../../utils/AutoId';
 import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Button } from '../../../Button/Button';
-import { Chip } from '../../../Chip/Chip';
+import { Chip } from '../../../Chip';
 import { Popover } from '../../../Popover/Popover';
 import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
 import { ComboboxItemList } from '../ComboboxItemList/ComboboxItemList';
@@ -393,7 +393,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                   this.setState({ filteredItems: filtered })
                 }
                 filterFunc={filter}
-                forwardRef={this.filterInputRef}
+                forwardedRef={this.filterInputRef}
                 onFocus={() => setPopoverVisibility(true)}
                 onKeyDown={handleKeyDown}
                 onBlur={handleBlur}
