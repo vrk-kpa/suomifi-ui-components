@@ -3,10 +3,7 @@ import { ReactNode } from 'react';
 export const baseClassName = 'fi-chip';
 export const chipClassNames = {
   disabled: `${baseClassName}--disabled`,
-  icon: `${baseClassName}--icon`,
   content: `${baseClassName}--content`,
-  removable: `${baseClassName}--removable`,
-  button: `${baseClassName}--button`,
 };
 
 export interface BaseChipProps {

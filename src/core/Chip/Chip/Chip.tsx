@@ -1,16 +1,22 @@
 import React, { Component, forwardRef } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
+import { logger } from '../../../utils/logger';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
 import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
 import { Icon } from '../../Icon/Icon';
-import { logger } from '../../../utils/logger';
-import { baseStyles } from './Chip.baseStyles';
 import {
   BaseChipProps,
   baseClassName,
   chipClassNames,
 } from '../BaseChip/BaseChip';
+import { baseStyles } from './Chip.baseStyles';
+
+const chipButtonClassNames = {
+  removable: `${baseClassName}--removable`,
+  button: `${baseClassName}--button`,
+  icon: `${baseClassName}--icon`,
+};
 
 interface InternalChipProps
   extends BaseChipProps,
@@ -60,10 +66,15 @@ class DefaultChip extends Component<ChipProps & InnerRef> {
     }
     return (
       <HtmlButton
-        className={classnames(baseClassName, chipClassNames.button, className, {
-          [chipClassNames.disabled]: !!disabled,
-          [chipClassNames.removable]: !!removable,
-        })}
+        className={classnames(
+          baseClassName,
+          chipButtonClassNames.button,
+          className,
+          {
+            [chipClassNames.disabled]: !!disabled,
+            [chipButtonClassNames.removable]: !!removable,
+          },
+        )}
         disabled={disabled}
         onClick={onClick}
         forwardedRef={forwardedRef}
@@ -76,7 +87,7 @@ class DefaultChip extends Component<ChipProps & InnerRef> {
               mousePointer={true}
               icon="close"
               color="currentColor"
-              className={chipClassNames.icon}
+              className={chipButtonClassNames.icon}
               aria-hidden={true}
             />
             <VisuallyHidden>{actionLabel}</VisuallyHidden>
