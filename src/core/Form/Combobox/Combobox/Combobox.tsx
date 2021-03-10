@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv } from '../../../../reset';
+import { windowAvailable } from '../../../../utils/common';
 import { AutoId } from '../../../../utils/AutoId';
 import { Debounce } from '../../../utils/Debounce/Debounce';
-import { windowAvailable } from '../../../../utils/common';
 import { Button } from '../../../Button/Button';
 import { Chip } from '../../../Chip/Chip';
 import { Popover } from '../../../Popover/Popover';
@@ -475,6 +475,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             </ChipList>
           )}
           {removeAllButtonLabel && (
+            /* TODO: Change to use the link-variant of Button when it is available. */
             <Button
               variant="secondary"
               icon="remove"
