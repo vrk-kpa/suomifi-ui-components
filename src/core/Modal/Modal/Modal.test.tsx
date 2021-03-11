@@ -1,37 +1,28 @@
 import React, { ReactNode, useRef, useState } from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import { axeTest } from '../../utils/test/axe';
+import { axeTest } from '../../../utils/test/axe';
 
 import { Modal, ModalProps } from './Modal';
+import { ModalContent, ModalFooter, ModalTitle, ModalButton } from '../';
 
 describe('Basic modal', () => {
   const text = 'Modal Content';
 
   const BasicModal = (props?: Partial<ModalProps>) => (
-    <Modal
-      title="Test modal"
-      primaryButtonLabel="OK"
-      visible={true}
-      usePortal={false}
-      {...props}
-    >
-      <p>{text}</p>
+    <Modal visible={true} usePortal={false} {...props}>
+      <ModalContent>
+        <ModalTitle>Test modal</ModalTitle>
+        <p>{text}</p>
+      </ModalContent>
+      <ModalFooter>
+        <ModalButton>OK</ModalButton>
+      </ModalFooter>
     </Modal>
   );
 
   it('should be hidden when visible is set to false', () => {
     const { container } = render(BasicModal({ visible: false }));
     expect(container.firstChild).toBe(null);
-  });
-
-  it('should have given title', () => {
-    const { getByText } = render(BasicModal());
-    expect(getByText('Test modal')).toBeTruthy();
-  });
-
-  it('should have given children', () => {
-    const { getByText } = render(BasicModal());
-    expect(getByText(text)).toBeTruthy();
   });
 
   it('should have given className', () => {
@@ -49,15 +40,15 @@ describe('Basic modal', () => {
 
 describe('Modal variant', () => {
   const ModalWithProps = (props?: Partial<ModalProps>) => (
-    <Modal
-      title="Test modal"
-      primaryButtonLabel="OK"
-      secondaryButtonLabel="Cancel"
-      visible={true}
-      usePortal={false}
-      {...props}
-    >
-      <p>Modal Content</p>
+    <Modal visible={true} usePortal={false} {...props}>
+      <ModalContent>
+        <ModalTitle>Test modal</ModalTitle>
+        <p>Modal Content</p>
+      </ModalContent>
+      <ModalFooter>
+        <ModalButton>OK</ModalButton>
+        <ModalButton variant="secondary">Cancel</ModalButton>
+      </ModalFooter>
     </Modal>
   );
 
@@ -67,76 +58,23 @@ describe('Modal variant', () => {
   });
 });
 
-describe('Modal buttons', () => {
-  const ModalWithProps = (props?: Partial<ModalProps>) => (
-    <Modal
-      title="Test modal"
-      primaryButtonLabel="OK"
-      secondaryButtonLabel="Cancel"
-      visible={true}
-      usePortal={false}
-      {...props}
-    >
-      <p>Modal Content</p>
-    </Modal>
-  );
-
-  it('should have given text', () => {
-    const { getAllByRole } = render(ModalWithProps());
-    const buttons = getAllByRole('button');
-    expect(buttons[0]).toHaveTextContent('OK');
-    expect(buttons[1]).toHaveTextContent('Cancel');
-  });
-
-  it('should have given props', () => {
-    const { getAllByRole } = render(
-      ModalWithProps({
-        primaryButtonProps: { className: 'primary-test-class-name' },
-        secondaryButtonProps: { className: 'secondary-test-class-name' },
-      }),
-    );
-    const buttons = getAllByRole('button');
-    expect(buttons[0]).toHaveClass('primary-test-class-name');
-    expect(buttons[1]).toHaveClass('secondary-test-class-name');
-  });
-
-  it('should handle given callbacks', () => {
-    const mockPrimary = jest.fn();
-    const mockSecondary = jest.fn();
-    const { getAllByRole } = render(
-      ModalWithProps({
-        primaryButtonProps: { onClick: mockPrimary },
-        secondaryButtonProps: { onClick: mockSecondary },
-      }),
-    );
-    const buttons = getAllByRole('button');
-    expect(mockPrimary).toHaveBeenCalledTimes(0);
-    expect(mockSecondary).toHaveBeenCalledTimes(0);
-    fireEvent.click(buttons[0]);
-    expect(mockPrimary).toHaveBeenCalledTimes(1);
-    expect(mockSecondary).toHaveBeenCalledTimes(0);
-    fireEvent.click(buttons[1]);
-    expect(mockPrimary).toHaveBeenCalledTimes(1);
-    expect(mockSecondary).toHaveBeenCalledTimes(1);
-  });
-});
-
 describe('Modal focus', () => {
   const ModalWithProps = (children: ReactNode, props?: Partial<ModalProps>) => (
-    <Modal
-      title="Test modal"
-      primaryButtonLabel="OK"
-      visible={true}
-      usePortal={false}
-      {...props}
-    >
-      {children}
+    <Modal visible={true} usePortal={false} {...props}>
+      <ModalContent>
+        <ModalTitle>Test modal</ModalTitle>
+        {children}
+      </ModalContent>
+      <ModalFooter>
+        <ModalButton>OK</ModalButton>
+        <ModalButton variant="secondary">Cancel</ModalButton>
+      </ModalFooter>
     </Modal>
   );
 
   it('should be on primary button if there is no other focusable content', async () => {
-    const { getByRole } = render(ModalWithProps(<p>Modal Content</p>));
-    await waitFor(() => expect(getByRole('button')).toHaveFocus());
+    const { getAllByRole } = render(ModalWithProps(<p>Modal Content</p>));
+    await waitFor(() => expect(getAllByRole('button')[0]).toHaveFocus());
   });
 
   it('should be on the first element by default', async () => {
@@ -148,15 +86,16 @@ describe('Modal focus', () => {
     const RefTest1 = () => {
       const ref = useRef(null);
       return (
-        <Modal
-          title="Test modal"
-          primaryButtonLabel="OK"
-          visible={true}
-          usePortal={false}
-          focusOnOpenRef={ref}
-        >
-          <button>Test button 1</button>
-          <button ref={ref}>Test button 2</button>
+        <Modal visible={true} usePortal={false} focusOnOpenRef={ref}>
+          <ModalContent>
+            <ModalTitle>Test modal</ModalTitle>
+            <button>Test button 1</button>
+            <button ref={ref}>Test button 2</button>
+          </ModalContent>
+          <ModalFooter>
+            <ModalButton>OK</ModalButton>
+            <ModalButton variant="secondary">Cancel</ModalButton>
+          </ModalFooter>
         </Modal>
       );
     };
@@ -174,15 +113,20 @@ describe('Closing Modal', () => {
         <button onClick={() => setOpen(!open)}>Toggle modal</button>
         <input ref={ref} type="text" />
         <Modal
-          title="Test modal"
-          primaryButtonLabel="OK"
           visible={open}
           usePortal={false}
           focusOnCloseRef={ref}
           {...props}
         >
-          Test Content
-          <button onClick={() => setOpen(false)}>Close modal</button>
+          <ModalContent>
+            <ModalTitle>Test modal</ModalTitle>
+            Test Content
+            <button onClick={() => setOpen(false)}>Close modal</button>
+          </ModalContent>
+          <ModalFooter>
+            <ModalButton>OK</ModalButton>
+            <ModalButton variant="secondary">Cancel</ModalButton>
+          </ModalFooter>
         </Modal>
       </>
     );

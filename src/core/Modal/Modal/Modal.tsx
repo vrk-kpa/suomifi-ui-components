@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import { default as styled } from 'styled-components';
 import { createFocusTrap, FocusTrap } from 'focus-trap';
 import classnames from 'classnames';
+import { HtmlDiv, HtmlDivProps } from '../../../reset';
+import { AutoId } from '../../../utils/AutoId';
+import { windowAvailable } from '../../../utils/common';
+import { ModalContent, ModalFooter } from '../';
 import './Modal.globals.scss';
-import { HtmlDiv, HtmlDivProps, HtmlSpan } from '../../reset';
-import { AutoId } from '../../utils/AutoId';
-import { windowAvailable } from '../../utils/common';
-import { VisuallyHidden } from '../../components/Visually-hidden/Visually-hidden';
-import { Button, ButtonProps } from '../Button/Button';
 import { baseStyles } from './Modal.baseStyles';
-import { Heading } from '../Heading/Heading';
+
+export type ModalVariant = 'smallScreen' | 'default';
 
 export interface ModalProps
   extends Omit<HtmlDivProps, 'children' | 'className' | 'title' | 'ref'> {
@@ -18,20 +18,13 @@ export interface ModalProps
   visible: boolean;
   /** Modal container div class name for custom styling. */
   className?: string;
-  /** Title content */
-  title: ReactNode;
   /** Children */
-  children: ReactNode;
-  /**
-   * Show vertical scroll bar if needed and show horizontal divider before buttons.
-   * @default true
-   */
-  scrollable?: boolean;
+  children: ModalContent | ModalFooter | ReactNode;
   /**
    * Variant. Use smallScreen for mobile and small displays
    * @default 'default'
    */
-  variant?: 'smallScreen' | 'default';
+  variant?: ModalVariant;
   /**
    * Use portal instead of injecting content inside the Modal component
    * @default true
@@ -42,23 +35,28 @@ export interface ModalProps
   focusOnOpenRef?: React.RefObject<any>;
   /** Focusable element when dialog is closed, if not provided, browser default behaviour will occur (e.g. body gains focus) */
   focusOnCloseRef?: React.RefObject<any>;
-  /** Primary button label */
-  primaryButtonLabel: string;
-  /** Primary button label for screen readers, if not provided, primaryButtonLabel will be used */
-  ariaPrimaryButtonLabel?: string;
-  /** Primary button props */
-  primaryButtonProps?: ButtonProps;
-  /** Secondary button label, if not provided, no button will be shown */
-  secondaryButtonLabel?: string;
-  /** Secondary button label for screen readers, if not provided, primaryButtonLabel will be used */
-  ariaSecondaryButtonLabel?: string;
-  /** Secondary button props */
-  secondaryButtonProps?: ButtonProps;
   /** Callback for handling esc key press, e.g. close modal */
   onEscKeyDown?: () => void;
 }
 
-const baseClassName = 'fi-modal';
+export interface ModalProviderState {
+  variant: ModalVariant;
+  titleId: string | undefined;
+}
+
+const defaultProviderValue: ModalProviderState = {
+  /** Modal's smallScreen setting */
+  variant: 'default',
+  /** Id for title to connect it to modal for screen readers */
+  titleId: 'id',
+};
+
+const {
+  Provider: ModalProvider,
+  Consumer: ModalConsumer,
+} = React.createContext(defaultProviderValue);
+
+export const baseClassName = 'fi-modal';
 const modalClassNames = {
   noPortal: `${baseClassName}--no-portal`,
   smallScreen: `${baseClassName}--small-screen`,
@@ -148,19 +146,11 @@ class BaseModal extends Component<ModalProps> {
       visible,
       id,
       className,
-      title,
       children,
-      scrollable,
-      variant,
+      variant = 'default',
       usePortal = true,
       focusOnOpenRef,
       focusOnCloseRef = null,
-      primaryButtonLabel,
-      ariaPrimaryButtonLabel,
-      primaryButtonProps,
-      secondaryButtonLabel,
-      ariaSecondaryButtonLabel,
-      secondaryButtonProps,
       onEscKeyDown,
       ...passProps
     } = this.props;
@@ -179,54 +169,9 @@ class BaseModal extends Component<ModalProps> {
       >
         <HtmlDiv className={modalClassNames.overlay}>
           <HtmlDiv className={modalClassNames.contentContainer} {...passProps}>
-            <HtmlDiv
-              className={classnames(modalClassNames.content, {
-                [modalClassNames.noScroll]: scrollable === false,
-              })}
-            >
-              <Heading
-                className={modalClassNames.heading}
-                id={titleId}
-                variant="h3"
-                as={'h2'}
-              >
-                {title}
-              </Heading>
+            <ModalProvider value={{ titleId, variant }}>
               {children}
-            </HtmlDiv>
-            <HtmlDiv className={modalClassNames.footer}>
-              <Button
-                {...primaryButtonProps}
-                className={classnames(
-                  modalClassNames.button,
-                  primaryButtonProps?.className,
-                )}
-              >
-                <HtmlSpan aria-hidden={!!ariaPrimaryButtonLabel}>
-                  {primaryButtonLabel}
-                </HtmlSpan>
-                {!!ariaPrimaryButtonLabel && (
-                  <VisuallyHidden>{ariaPrimaryButtonLabel}</VisuallyHidden>
-                )}
-              </Button>
-              {!!secondaryButtonLabel && (
-                <Button
-                  variant="secondary"
-                  {...secondaryButtonProps}
-                  className={classnames(
-                    modalClassNames.button,
-                    secondaryButtonProps?.className,
-                  )}
-                >
-                  <HtmlSpan aria-hidden={!!ariaSecondaryButtonLabel}>
-                    {secondaryButtonLabel}
-                  </HtmlSpan>
-                  {!!ariaSecondaryButtonLabel && (
-                    <VisuallyHidden>{ariaSecondaryButtonLabel}</VisuallyHidden>
-                  )}
-                </Button>
-              )}
-            </HtmlDiv>
+            </ModalProvider>
           </HtmlDiv>
         </HtmlDiv>
       </div>
@@ -260,3 +205,5 @@ export class Modal extends Component<ModalProps> {
     );
   }
 }
+
+export { ModalProvider, ModalConsumer };

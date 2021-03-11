@@ -6,7 +6,6 @@ const primitiveComponents = [
   'Button',
   'Heading',
   'Chip',
-  'Modal',
   'VisuallyHidden',
   ['Form', 'TextInput'],
   ['Form', 'Toggle'],
@@ -138,6 +137,14 @@ module.exports = {
                 'ExpanderTitle/ExpanderTitle',
                 'ExpanderTitleButton/ExpanderTitleButton',
                 'ExpanderContent/ExpanderContent',
+              ]),
+            },
+            {
+              name: 'Modal',
+              components: getComponentWithVariants('Modal')([
+                'Modal/Modal',
+                'ModalContent/ModalContent',
+                'ModalFooter/ModalFooter',
               ]),
             },
           ],
