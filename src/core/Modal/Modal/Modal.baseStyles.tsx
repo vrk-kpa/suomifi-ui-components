@@ -32,17 +32,28 @@ export const baseStyles = css`
       border-radius: ${radius.modal};
       background-color: ${theme.colors.whiteBase};
       border-top: ${theme.spacing.insetXs} solid ${theme.colors.highlightBase};
-      height: 50%;
-      width: 500px;
       overflow: hidden;
+      max-height: calc(100vh - 50px);
+      min-height: 230px;
+      width: 800px;
+      flex: 0 1 auto;
       display: flex;
       flex-direction: column;
       align-items: stretch;
     }
+
+    &--no-scroll {
+      & .fi-modal_content-container {
+        width: 540px;
+        min-height: 190px;
+      }
+    }
+
     &--small-screen {
       & .fi-modal_content-container {
         width: 100%;
         height: 100%;
+        max-height: 100%;
       }
     }
   }

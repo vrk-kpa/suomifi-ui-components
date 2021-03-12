@@ -19,11 +19,13 @@ export interface ModalTitleProps
 interface InternalModalTitleProps extends ModalTitleProps {
   id?: string;
   modalVariant: ModalVariant;
+  scrollable: boolean;
 }
 
 const headingClassName = `${baseClassName}_title`;
 const headingClassNames = {
   smallScreen: `${headingClassName}--smallScreen`,
+  noScroll: `${headingClassName}--no-scroll`,
 };
 
 class BaseModalTitle extends Component<InternalModalTitleProps> {
@@ -32,6 +34,7 @@ class BaseModalTitle extends Component<InternalModalTitleProps> {
       className,
       children,
       modalVariant,
+      scrollable,
       variant = 'h3',
       as = 'h2',
       id,
@@ -42,6 +45,7 @@ class BaseModalTitle extends Component<InternalModalTitleProps> {
       <Heading
         className={classnames(className, headingClassName, {
           [headingClassNames.smallScreen]: modalVariant === 'smallScreen',
+          [headingClassNames.noScroll]: scrollable === false,
         })}
         id={id}
         variant={variant}
@@ -68,10 +72,11 @@ export class ModalTitle extends Component<ModalTitleProps> {
   render() {
     return (
       <ModalConsumer>
-        {(consumer) => (
+        {({ variant, titleId, scrollable }) => (
           <StyledModalTitle
-            id={consumer.titleId}
-            modalVariant={consumer.variant}
+            id={titleId}
+            modalVariant={variant}
+            scrollable={scrollable}
             {...this.props}
           />
         )}

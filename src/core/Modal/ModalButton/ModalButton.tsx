@@ -51,8 +51,8 @@ export class ModalButton extends Component<ModalButtonProps> {
   render() {
     return (
       <ModalConsumer>
-        {(consumer) => (
-          <StyledModalButton variant={consumer.variant} {...this.props} />
+        {({ variant }) => (
+          <StyledModalButton modalVariant={variant} {...this.props} />
         )}
       </ModalConsumer>
     );

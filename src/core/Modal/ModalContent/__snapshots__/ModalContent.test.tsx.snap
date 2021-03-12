@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Basic modal should match snapshot 1`] = `
+exports[`Basic ModalContent should match snapshot 1`] = `
 .c1 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -110,9 +110,13 @@ exports[`Basic modal should match snapshot 1`] = `
   border-radius: 4px;
   background-color: hsl(0,0%,100%);
   border-top: 4px solid hsl(212,63%,45%);
-  height: 50%;
-  width: 500px;
   overflow: hidden;
+  max-height: calc(100vh - 50px);
+  min-height: 230px;
+  width: 800px;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -126,27 +130,50 @@ exports[`Basic modal should match snapshot 1`] = `
   align-items: stretch;
 }
 
+.c0.fi-modal--no-scroll .fi-modal_content-container {
+  width: 540px;
+  min-height: 190px;
+}
+
 .c0.fi-modal--small-screen .fi-modal_content-container {
   width: 100%;
   height: 100%;
+  max-height: 100%;
 }
 
 .c2.fi-modal_content {
-  -webkit-flex: 1 1;
-  -ms-flex: 1 1;
-  flex: 1 1;
+  position: relative;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.c2.fi-modal_content .fi-modal_content_wrapper {
   overflow-y: auto;
   border-bottom: 1px solid hsl(202,7%,80%);
-  padding: 24px 30px 30px 30px;
+  padding: 24px 30px 50px 30px;
 }
 
-.c2.fi-modal_content--no-scroll {
+.c2.fi-modal_content .fi-modal_content_gradient-overlay {
+  height: 50px;
+  width: calc(100% - 40px);
+  position: absolute;
+  top: calc(100% - 51px);
+  margin: 0 20px;
+  background: linear-gradient( 0deg, hsl(0,0%,100%), rgba(255,255,255,0) );
+}
+
+.c2.fi-modal_content--no-scroll .fi-modal_content_wrapper {
   overflow: hidden;
   border-bottom: none;
+  padding: 34px 30px 10px 30px;
 }
 
-.c2.fi-modal_content--small-screen {
-  padding: 20px;
+.c2.fi-modal_content--small-screen .fi-modal_content_wrapper {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 50px;
+  padding-right: 20px;
 }
 
 .c4 {
@@ -411,6 +438,10 @@ exports[`Basic modal should match snapshot 1`] = `
   padding-bottom: 20px;
 }
 
+.c5.fi-modal_title--no-scroll {
+  padding-bottom: 10px;
+}
+
 .c5.fi-modal_title--small-screen {
   padding-bottom: 20px;
 }
@@ -428,21 +459,28 @@ exports[`Basic modal should match snapshot 1`] = `
       class="c1 fi-modal_content-container"
     >
       <div
-        class="c1 c2 fi-modal_content"
-        data-testid="modal-content-id"
+        class="c1 fi-modal_content"
       >
-        <h2
-          class="c3 fi-heading c4 c5 fi-modal_title fi-heading--h3"
-          id="5_title"
+        <div
+          class="c1 c2 fi-modal_content_wrapper"
+          data-testid="modal-content-id"
         >
-          Test modal
-        </h2>
-        <p>
-          Modal Content
-        </p>
-        <button>
-          x
-        </button>
+          <h2
+            class="c3 fi-heading c4 c5 fi-modal_title fi-heading--h3"
+            id="5_title"
+          >
+            Test modal
+          </h2>
+          <p>
+            Modal Content
+          </p>
+          <button>
+            x
+          </button>
+        </div>
+        <div
+          class="c1 fi-modal_content_gradient-overlay"
+        />
       </div>
     </div>
   </div>

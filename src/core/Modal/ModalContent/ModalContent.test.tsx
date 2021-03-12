@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { ModalContent, ModalContentProps } from './ModalContent';
 import { ModalTitle, Modal } from '../';
 
-describe('Basic modal', () => {
+describe('Basic ModalContent', () => {
   const text = 'Modal Content';
 
   const BasicModal = (props?: Partial<ModalContentProps>) => (
@@ -39,7 +39,7 @@ describe('Basic modal', () => {
   });
 });
 
-describe('Modal variant', () => {
+describe('ModalContent variant', () => {
   const SmallScreenModal = (
     <Modal visible={true} usePortal={false} variant="smallScreen">
       <ModalContent data-testid="modal-content-id">
@@ -52,7 +52,7 @@ describe('Modal variant', () => {
 
   it('smallScreen should have correct classname', () => {
     const { getByTestId } = render(SmallScreenModal);
-    expect(getByTestId('modal-content-id')).toHaveClass(
+    expect(getByTestId('modal-content-id').parentElement).toHaveClass(
       'fi-modal_content--small-screen',
     );
   });

@@ -5,8 +5,10 @@ export const baseStyles = css`
   &.fi-modal_button {
     margin-left: ${theme.spacing.s};
     &--small-screen {
+      display: block;
+      width: 100%;
+      margin-left: 0;
       margin-top: ${theme.spacing.s};
-      margin-left: ${theme.spacing.s};
     }
   }
 `;

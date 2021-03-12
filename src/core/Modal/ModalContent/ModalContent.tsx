@@ -11,22 +11,20 @@ export interface ModalContentProps
   className?: string;
   /** Children */
   children: ReactNode;
-  /**
-   * Show vertical scroll bar if needed and show horizontal divider before buttons.
-   * @default true
-   */
-  scrollable?: boolean;
 }
 
 interface InternalModalContentProps extends ModalContentProps {
   id?: string;
-  variant: ModalVariant;
+  modalVariant: ModalVariant;
+  scrollable: boolean;
 }
 
 const contentClassName = `${baseClassName}_content`;
 const modalContentClassNames = {
   smallScreen: `${contentClassName}--small-screen`,
   noScroll: `${contentClassName}--no-scroll`,
+  contentWrapper: `${contentClassName}_wrapper`,
+  gradientOverlay: `${contentClassName}_gradient-overlay`,
   heading: `${contentClassName}_heading`,
 };
 
@@ -37,19 +35,29 @@ class BaseModalContent extends Component<InternalModalContentProps> {
       title,
       children,
       scrollable,
-      variant,
+      modalVariant,
       ...passProps
     } = this.props;
 
     return (
       <HtmlDiv
-        className={classnames(className, contentClassName, {
+        className={classnames(contentClassName, {
           [modalContentClassNames.noScroll]: scrollable === false,
-          [modalContentClassNames.smallScreen]: variant === 'smallScreen',
+          [modalContentClassNames.smallScreen]: modalVariant === 'smallScreen',
         })}
-        {...passProps}
       >
-        {children}
+        <HtmlDiv
+          className={classnames(
+            className,
+            modalContentClassNames.contentWrapper,
+          )}
+          {...passProps}
+        >
+          {children}
+        </HtmlDiv>
+        {scrollable && (
+          <HtmlDiv className={modalContentClassNames.gradientOverlay} />
+        )}
       </HtmlDiv>
     );
   }
@@ -68,8 +76,12 @@ export class ModalContent extends Component<ModalContentProps> {
   render() {
     return (
       <ModalConsumer>
-        {(consumer) => (
-          <StyledModalContent variant={consumer.variant} {...this.props} />
+        {({ variant, scrollable }) => (
+          <StyledModalContent
+            modalVariant={variant}
+            scrollable={scrollable}
+            {...this.props}
+          />
         )}
       </ModalConsumer>
     );

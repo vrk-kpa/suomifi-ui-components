@@ -90,10 +90,11 @@ const [visible, setVisible] = useState(false);
   </Button>
   <Modal
     visible={visible}
+    scrollable={false}
     onEscKeyDown={() => setVisible(false)}
     style={{ height: '200px' }}
   >
-    <ModalContent scrollable={false}>
+    <ModalContent>
       <ModalTitle>Test modal</ModalTitle>
       <Paragraph>
         <Text>
@@ -142,10 +143,11 @@ const [visible, setVisible] = useState(false);
   <Modal
     visible={visible}
     usePortal={false}
+    scrollable={false}
     variant="smallScreen"
     onEscKeyDown={() => setVisible(false)}
   >
-    <ModalContent scrollable={false}>
+    <ModalContent>
       <ModalTitle>Test modal</ModalTitle>
       <Paragraph>
         <Text>
@@ -161,6 +163,12 @@ const [visible, setVisible] = useState(false);
     </ModalContent>
     <ModalFooter>
       <ModalButton onClick={() => setVisible(false)}>OK</ModalButton>
+      <ModalButton
+        variant="secondary"
+        onClick={() => setVisible(false)}
+      >
+        Cancel
+      </ModalButton>
     </ModalFooter>
   </Modal>
 </>;

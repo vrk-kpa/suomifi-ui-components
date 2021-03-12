@@ -52,8 +52,8 @@ export class ModalFooter extends Component<ModalFooterProps> {
   render() {
     return (
       <ModalConsumer>
-        {(consumer) => (
-          <StyledModalFooter modalVariant={consumer.variant} {...this.props} />
+        {({ variant }) => (
+          <StyledModalFooter modalVariant={variant} {...this.props} />
         )}
       </ModalConsumer>
     );

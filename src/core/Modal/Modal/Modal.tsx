@@ -26,6 +26,11 @@ export interface ModalProps
    */
   variant?: ModalVariant;
   /**
+   * Show vertical scroll bar if needed and show horizontal divider before buttons.
+   * @default true
+   */
+  scrollable?: boolean;
+  /**
    * Use portal instead of injecting content inside the Modal component
    * @default true
    * Portal is never used when rendering on server or modal mount node is not available.
@@ -42,6 +47,7 @@ export interface ModalProps
 export interface ModalProviderState {
   variant: ModalVariant;
   titleId: string | undefined;
+  scrollable: boolean;
 }
 
 const defaultProviderValue: ModalProviderState = {
@@ -49,6 +55,8 @@ const defaultProviderValue: ModalProviderState = {
   variant: 'default',
   /** Id for title to connect it to modal for screen readers */
   titleId: 'id',
+  /** If modal should have scrollable content and size */
+  scrollable: true,
 };
 
 const {
@@ -63,7 +71,7 @@ const modalClassNames = {
   overlay: `${baseClassName}_overlay`,
   contentContainer: `${baseClassName}_content-container`,
   content: `${baseClassName}_content`,
-  noScroll: `${baseClassName}_content--no-scroll`,
+  noScroll: `${baseClassName}--no-scroll`,
   heading: `${baseClassName}_heading`,
   footer: `${baseClassName}_footer`,
   button: `${baseClassName}_button`,
@@ -148,6 +156,7 @@ class BaseModal extends Component<ModalProps> {
       className,
       children,
       variant = 'default',
+      scrollable = true,
       usePortal = true,
       focusOnOpenRef,
       focusOnCloseRef = null,
@@ -164,12 +173,13 @@ class BaseModal extends Component<ModalProps> {
         aria-modal="true"
         className={classnames(className, baseClassName, {
           [modalClassNames.smallScreen]: variant === 'smallScreen',
+          [modalClassNames.noScroll]: scrollable === false,
           [modalClassNames.noPortal]: usePortal === false,
         })}
       >
         <HtmlDiv className={modalClassNames.overlay}>
           <HtmlDiv className={modalClassNames.contentContainer} {...passProps}>
-            <ModalProvider value={{ titleId, variant }}>
+            <ModalProvider value={{ titleId, variant, scrollable }}>
               {children}
             </ModalProvider>
           </HtmlDiv>
