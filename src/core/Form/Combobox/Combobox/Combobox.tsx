@@ -112,6 +112,19 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     selectedItems: this.props.defaultSelectedItems || [],
   };
 
+  static getDerivedStateFromProps<U>(
+    nextProps: ComboboxProps<U & ComboboxData>,
+    prevState: ComboboxState<U & ComboboxData>,
+  ) {
+    const { items: propItems } = nextProps;
+    if (prevState.filteredItems !== propItems) {
+      return {
+        filteredItems: propItems,
+      };
+    }
+    return null;
+  }
+
   handleItemSelection = (item: T & ComboboxData) => {
     this.setState(
       (
