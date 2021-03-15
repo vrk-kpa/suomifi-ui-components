@@ -6,57 +6,66 @@ const tools = [
     name: 'Jackhammer',
     price: 230,
     tax: false,
-    labelText: 'Jackhammer'
+    labelText: 'Jackhammer',
+    uniqueItemId: 'jh2435626'
   },
   {
     name: 'Hammer',
     price: 15,
     tax: true,
-    labelText: 'Hammer'
+    labelText: 'Hammer',
+    uniqueItemId: 'h9823523'
   },
   {
     name: 'Sledgehammer',
     price: 36,
     tax: false,
-    labelText: 'Sledgehammer'
+    labelText: 'Sledgehammer',
+    uniqueItemId: 'sh908293482'
   },
   {
     name: 'Spade',
     price: 50,
     tax: true,
-    labelText: 'Spade'
+    labelText: 'Spade',
+    uniqueItemId: 's82502335'
   },
   {
     name: 'Powersaw',
     price: 150,
     tax: false,
     labelText: 'Powersaw',
-    disabled: true
+    disabled: true,
+    uniqueItemId: 'ps9081231'
   },
   {
     name: 'Shovel',
     price: 115,
     tax: true,
-    labelText: 'Shovel'
+    labelText: 'Shovel',
+    uniqueItemId: 's05111511'
   },
   {
     name: 'Iron stick',
     price: 85,
     tax: false,
-    labelText: 'Iron stick'
+    labelText: 'Iron stick',
+    uniqueItemId: 'is3451261'
   },
   {
     name: 'Rake',
     price: 50,
     tax: true,
-    labelText: 'Rake'
+    labelText: 'Rake',
+    uniqueItemId: 'r09282626'
   },
   {
     name: 'Motorsaw',
     price: 450,
     tax: false,
     labelText: 'Motorsaw',
-    disabled: true
+    disabled: true,
+    uniqueItemId: 'ms6126266'
   }
 ];
 
@@ -65,14 +74,16 @@ const defaultSelectedTools = [
     name: 'Hammer',
     price: 15,
     tax: true,
-    labelText: 'Hammer'
+    labelText: 'Hammer',
+    uniqueItemId: 'h9823523'
   },
   {
     name: 'Powersaw',
     price: 150,
     tax: false,
     labelText: 'Powersaw',
-    disabled: true
+    disabled: true,
+    uniqueItemId: 'ps9081231'
   }
 ];
 
