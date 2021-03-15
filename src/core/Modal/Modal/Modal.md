@@ -19,6 +19,16 @@ import {
 
 const [visible, setVisible] = useState(false);
 
+const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Phasellus scelerisque elit a consectetur tempor. Morbi sit
+amet lobortis ipsum. Nunc ac ante ligula. Mauris sem urna,
+feugiat eu faucibus in, vehicula sit amet nibh. Duis non
+egestas enim. Sed pharetra, eros a feugiat porttitor, nisi
+eros dapibus mi, in semper augue erat sit amet nulla.
+Quisque non sapien sem.`;
+
+const textArr = new Array(10).fill(text);
+
 <>
   <Button
     onClick={() => {
@@ -31,15 +41,7 @@ const [visible, setVisible] = useState(false);
     <ModalContent>
       <ModalTitle>Test modal</ModalTitle>
       <Paragraph>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Phasellus scelerisque elit a consectetur tempor. Morbi sit
-          amet lobortis ipsum. Nunc ac ante ligula. Mauris sem urna,
-          feugiat eu faucibus in, vehicula sit amet nibh. Duis non
-          egestas enim. Sed pharetra, eros a feugiat porttitor, nisi
-          eros dapibus mi, in semper augue erat sit amet nulla.
-          Quisque non sapien sem.
-        </Text>
+        <Text>{textArr.map((text) => text)}</Text>
       </Paragraph>
     </ModalContent>
     <ModalFooter>
@@ -190,7 +192,9 @@ import {
   ModalButton,
   Button,
   Paragraph,
-  Text
+  Text,
+  TextInput,
+  Block
 } from 'suomifi-ui-components';
 
 const [visible, setVisible] = useState(false);
@@ -206,7 +210,10 @@ const initialFocusRef = useRef(null);
   >
     Open modal dialog
   </Button>
-  <input ref={returnFocusRef} />
+  <TextInput
+    labelText="TextInput for focus on close"
+    ref={returnFocusRef}
+  />
   <Modal
     visible={visible}
     focusOnOpenRef={initialFocusRef}
@@ -216,7 +223,12 @@ const initialFocusRef = useRef(null);
     <ModalContent>
       <ModalTitle>Test modal</ModalTitle>
       <Button>Test Button</Button>
-      <input ref={initialFocusRef} />
+      <Block style={{ margin: '20px 0' }}>
+        <TextInput
+          labelText="TextInput for initial focus"
+          ref={initialFocusRef}
+        />
+      </Block>
       <Paragraph>
         <Text>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.

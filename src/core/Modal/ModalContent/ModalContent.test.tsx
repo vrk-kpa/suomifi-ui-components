@@ -52,7 +52,7 @@ describe('ModalContent variant', () => {
 
   it('smallScreen should have correct classname', () => {
     const { getByTestId } = render(SmallScreenModal);
-    expect(getByTestId('modal-content-id').parentElement).toHaveClass(
+    expect(getByTestId('modal-content-id')).toHaveClass(
       'fi-modal_content--small-screen',
     );
   });

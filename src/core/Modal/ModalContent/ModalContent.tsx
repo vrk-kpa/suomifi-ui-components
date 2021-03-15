@@ -23,7 +23,6 @@ const contentClassName = `${baseClassName}_content`;
 const modalContentClassNames = {
   smallScreen: `${contentClassName}--small-screen`,
   noScroll: `${contentClassName}--no-scroll`,
-  contentWrapper: `${contentClassName}_wrapper`,
   gradientOverlay: `${contentClassName}_gradient-overlay`,
   heading: `${contentClassName}_heading`,
 };
@@ -41,23 +40,13 @@ class BaseModalContent extends Component<InternalModalContentProps> {
 
     return (
       <HtmlDiv
-        className={classnames(contentClassName, {
+        className={classnames(contentClassName, className, {
           [modalContentClassNames.noScroll]: scrollable === false,
           [modalContentClassNames.smallScreen]: modalVariant === 'smallScreen',
         })}
+        {...passProps}
       >
-        <HtmlDiv
-          className={classnames(
-            className,
-            modalContentClassNames.contentWrapper,
-          )}
-          {...passProps}
-        >
-          {children}
-        </HtmlDiv>
-        {scrollable && (
-          <HtmlDiv className={modalContentClassNames.gradientOverlay} />
-        )}
+        {children}
       </HtmlDiv>
     );
   }

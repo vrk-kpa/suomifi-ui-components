@@ -169,10 +169,20 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
+  position: relative;
   padding-top: 20px;
   padding-right: 30px;
   padding-bottom: 20px;
   padding-left: 15px;
+}
+
+.c2.fi-modal_footer .fi-modal_footer_content-gradient-overlay {
+  height: 50px;
+  width: calc(100% - 40px);
+  position: absolute;
+  top: -51px;
+  margin: 0 20px 0 5px;
+  background: linear-gradient( 0deg, hsl(0,0%,100%), rgba(255,255,255,0) );
 }
 
 .c2.fi-modal_footer--small-screen {
@@ -438,6 +448,9 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
         >
           Cancel
         </button>
+        <div
+          class="c1 fi-modal_footer_content-gradient-overlay"
+        />
       </div>
     </div>
   </div>

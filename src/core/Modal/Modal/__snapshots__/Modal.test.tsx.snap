@@ -195,34 +195,22 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c2.fi-modal_content {
-  position: relative;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-}
-
-.c2.fi-modal_content .fi-modal_content_wrapper {
-  overflow-y: auto;
+  max-height: 100%;
   border-bottom: 1px solid hsl(202,7%,80%);
   padding: 24px 30px 50px 30px;
+  overflow-y: auto;
 }
 
-.c2.fi-modal_content .fi-modal_content_gradient-overlay {
-  height: 50px;
-  width: calc(100% - 40px);
-  position: absolute;
-  top: calc(100% - 51px);
-  margin: 0 20px;
-  background: linear-gradient( 0deg, hsl(0,0%,100%), rgba(255,255,255,0) );
-}
-
-.c2.fi-modal_content--no-scroll .fi-modal_content_wrapper {
+.c2.fi-modal_content--no-scroll {
   overflow: hidden;
   border-bottom: none;
   padding: 34px 30px 10px 30px;
 }
 
-.c2.fi-modal_content--small-screen .fi-modal_content_wrapper {
+.c2.fi-modal_content--small-screen {
   padding-top: 20px;
   padding-left: 20px;
   padding-bottom: 50px;
@@ -503,10 +491,20 @@ exports[`Basic modal should match snapshot 1`] = `
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
+  position: relative;
   padding-top: 20px;
   padding-right: 30px;
   padding-bottom: 20px;
   padding-left: 15px;
+}
+
+.c6.fi-modal_footer .fi-modal_footer_content-gradient-overlay {
+  height: 50px;
+  width: calc(100% - 40px);
+  position: absolute;
+  top: -51px;
+  margin: 0 20px 0 5px;
+  background: linear-gradient( 0deg, hsl(0,0%,100%), rgba(255,255,255,0) );
 }
 
 .c6.fi-modal_footer--small-screen {
@@ -753,24 +751,17 @@ exports[`Basic modal should match snapshot 1`] = `
       class="c1 fi-modal_content-container"
     >
       <div
-        class="c1 fi-modal_content"
+        class="c1 fi-modal_content c2"
       >
-        <div
-          class="c1 c2 fi-modal_content_wrapper"
+        <h2
+          class="c3 fi-heading c4 c5 fi-modal_title fi-heading--h3"
+          id="3_title"
         >
-          <h2
-            class="c3 fi-heading c4 c5 fi-modal_title fi-heading--h3"
-            id="3_title"
-          >
-            Test modal
-          </h2>
-          <p>
-            Modal Content
-          </p>
-        </div>
-        <div
-          class="c1 fi-modal_content_gradient-overlay"
-        />
+          Test modal
+        </h2>
+        <p>
+          Modal Content
+        </p>
       </div>
       <div
         class="c1 fi-modal_footer c6"
@@ -783,6 +774,9 @@ exports[`Basic modal should match snapshot 1`] = `
         >
           OK
         </button>
+        <div
+          class="c1 fi-modal_footer_content-gradient-overlay"
+        />
       </div>
     </div>
   </div>
