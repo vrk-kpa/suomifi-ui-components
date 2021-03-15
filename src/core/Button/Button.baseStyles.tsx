@@ -67,11 +67,13 @@ const secondaryNoBorderStyles = css`
   &.fi-button--secondary-noborder {
     ${secondary}
     border: none;
+    background-color: transparent;
   }
 `;
 
-const tertiaryStyles = css`
-  &.fi-button--tertiary {
+const linkStyles = css`
+  &.fi-button--link {
+    color: ${theme.colors.highlightBase};
     ${secondary}
     background: ${theme.gradients.highlightLight3ToHighlightLight2};
     border: none;
@@ -136,7 +138,7 @@ export const baseStyles = css`
   ${invertedStyles}
   ${secondaryStyles}
   ${secondaryNoBorderStyles}
-  ${tertiaryStyles}
+  ${linkStyles}
 
   & > .fi-button_icon {
     width: 16px;
