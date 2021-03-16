@@ -83,6 +83,7 @@ interface ComboboxState<T extends ComboboxData> {
   currentSelection: string | null;
   selectedKeys: SelectedItemKeys;
   selectedItems: T[];
+  initialItems: T[];
 }
 
 function getSelectedKeys<T>(items: (T & ComboboxData)[]): SelectedItemKeys {
@@ -112,6 +113,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     currentSelection: null,
     selectedKeys: getSelectedKeys(this.props.defaultSelectedItems || []),
     selectedItems: this.props.defaultSelectedItems || [],
+    initialItems: this.props.items,
   };
 
   static getDerivedStateFromProps<U>(
@@ -119,9 +121,10 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     prevState: ComboboxState<U & ComboboxData>,
   ) {
     const { items: propItems } = nextProps;
-    if (prevState.filteredItems !== propItems) {
+    if (propItems !== prevState.initialItems) {
       return {
         filteredItems: propItems,
+        initialItems: propItems,
       };
     }
     return null;
