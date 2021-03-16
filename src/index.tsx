@@ -60,8 +60,6 @@ export {
   ModalTitleProps,
   ModalFooter,
   ModalFooterProps,
-  ModalButton,
-  ModalButtonProps,
 } from './core/Modal/';
 export {
   Expander,

@@ -146,14 +146,12 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   max-height: 100%;
-  border-bottom: 1px solid hsl(202,7%,80%);
   padding: 24px 30px 50px 30px;
   overflow-y: auto;
 }
 
 .c2.fi-modal_content--no-scroll {
   overflow: hidden;
-  border-bottom: none;
   padding: 34px 30px 10px 30px;
 }
 

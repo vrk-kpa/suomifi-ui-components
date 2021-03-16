@@ -170,26 +170,46 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   position: relative;
-  padding-top: 20px;
+}
+
+.c2.fi-modal_footer .fi-modal_footer_content {
+  padding-top: 0;
   padding-right: 30px;
   padding-bottom: 20px;
   padding-left: 15px;
 }
 
+.c2.fi-modal_footer .fi-modal_footer_content > * {
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
 .c2.fi-modal_footer .fi-modal_footer_content-gradient-overlay {
-  height: 50px;
-  width: calc(100% - 40px);
   position: absolute;
+  height: 51px;
+  width: 100%;
   top: -51px;
-  margin: 0 20px 0 5px;
+  border-bottom: 1px solid hsl(202,7%,80%);
+}
+
+.c2.fi-modal_footer .fi-modal_footer_content-gradient-overlay .fi-modal_footer_content-gradient {
+  height: 50px;
+  margin: 0 20px 0 20px;
   background: linear-gradient( 0deg, hsl(0,0%,100%), rgba(255,255,255,0) );
 }
 
-.c2.fi-modal_footer--small-screen {
+.c2.fi-modal_footer--small-screen .fi-modal_footer_content {
   padding-top: 0;
   padding-right: 20px;
   padding-bottom: 15px;
   padding-left: 20px;
+}
+
+.c2.fi-modal_footer--small-screen .fi-modal_footer_content > * {
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+  margin-left: 0;
 }
 
 .c4 {
@@ -405,17 +425,6 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c5.fi-modal_button {
-  margin-left: 15px;
-}
-
-.c5.fi-modal_button--small-screen {
-  display: block;
-  width: 100%;
-  margin-left: 0;
-  margin-top: 15px;
-}
-
 <div
   aria-describedby="3_title"
   aria-modal="true"
@@ -429,28 +438,36 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
       class="c1 fi-modal_content-container"
     >
       <div
-        class="c1 fi-modal_footer c2"
-        data-testid="modal-footer-id"
+        class="c1 fi-modal_footer"
       >
-        <button
-          aria-disabled="false"
-          class="c3 fi-button c4 fi-modal_button c5"
-          tabindex="0"
-          type="button"
+        <div
+          class="c1 c2 fi-modal_footer_content"
+          data-testid="modal-footer-id"
         >
-          OK
-        </button>
-        <button
-          aria-disabled="false"
-          class="c3 fi-button c4 fi-modal_button c5 fi-button--secondary"
-          tabindex="0"
-          type="button"
-        >
-          Cancel
-        </button>
+          <button
+            aria-disabled="false"
+            class="c3 fi-button c4"
+            tabindex="0"
+            type="button"
+          >
+            OK
+          </button>
+          <button
+            aria-disabled="false"
+            class="c3 fi-button c4 fi-button--secondary"
+            tabindex="0"
+            type="button"
+          >
+            Cancel
+          </button>
+        </div>
         <div
           class="c1 fi-modal_footer_content-gradient-overlay"
-        />
+        >
+          <div
+            class="c1 fi-modal_footer_content-gradient"
+          />
+        </div>
       </div>
     </div>
   </div>

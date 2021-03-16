@@ -23,7 +23,6 @@ const contentClassName = `${baseClassName}_content`;
 const modalContentClassNames = {
   smallScreen: `${contentClassName}--small-screen`,
   noScroll: `${contentClassName}--no-scroll`,
-  gradientOverlay: `${contentClassName}_gradient-overlay`,
   heading: `${contentClassName}_heading`,
 };
 

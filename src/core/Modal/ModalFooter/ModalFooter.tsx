@@ -15,7 +15,9 @@ interface InternalModalFooterProps extends ModalFooterProps {
 export const footerBaseClassName = `${baseClassName}_footer`;
 const footerClassNames = {
   smallScreen: `${footerBaseClassName}--small-screen`,
+  content: `${footerBaseClassName}_content`,
   contentGradientOverlay: `${footerBaseClassName}_content-gradient-overlay`,
+  contentGradient: `${footerBaseClassName}_content-gradient`,
   button: `${footerBaseClassName}_button`,
 };
 
@@ -31,14 +33,20 @@ class BaseModalFooter extends Component<InternalModalFooterProps> {
 
     return (
       <HtmlDiv
-        className={classnames(footerBaseClassName, className, {
+        className={classnames(footerBaseClassName, {
           [footerClassNames.smallScreen]: modalVariant === 'smallScreen',
         })}
-        {...passProps}
       >
-        {children}
+        <HtmlDiv
+          className={classnames(className, footerClassNames.content)}
+          {...passProps}
+        >
+          {children}
+        </HtmlDiv>
         {scrollable && (
-          <HtmlDiv className={footerClassNames.contentGradientOverlay} />
+          <HtmlDiv className={footerClassNames.contentGradientOverlay}>
+            <HtmlDiv className={footerClassNames.contentGradient} />
+          </HtmlDiv>
         )}
       </HtmlDiv>
     );
@@ -51,8 +59,9 @@ const StyledModalFooter = styled(BaseModalFooter)`
 
 /**
  * <i class="semantics" />
- * Use for showing modal content.
- * Props other than specified explicitly are passed on to outermost content div.
+ * Use for showing modal footer.
+ * Applies variant specific spacings to immediate children.
+ * Props other than specified explicitly are passed on to the content wrapping div.
  */
 export class ModalFooter extends Component<ModalFooterProps> {
   render() {

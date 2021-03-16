@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, MouseEvent } from 'react';
 import ReactDOM from 'react-dom';
 import { default as styled } from 'styled-components';
 import { createFocusTrap, FocusTrap } from 'focus-trap';
@@ -149,6 +149,9 @@ class BaseModal extends Component<ModalProps> {
     }
   };
 
+  private preventCursorEscape = (event: MouseEvent<HTMLDivElement>) =>
+    event.preventDefault();
+
   render() {
     const {
       visible,
@@ -177,7 +180,11 @@ class BaseModal extends Component<ModalProps> {
           [modalClassNames.noPortal]: usePortal === false,
         })}
       >
-        <HtmlDiv className={modalClassNames.overlay}>
+        <HtmlDiv
+          className={modalClassNames.overlay}
+          onClick={this.preventCursorEscape}
+          onMouseDown={this.preventCursorEscape}
+        >
           <HtmlDiv className={modalClassNames.contentContainer} {...passProps}>
             <ModalProvider value={{ titleId, variant, scrollable }}>
               {children}

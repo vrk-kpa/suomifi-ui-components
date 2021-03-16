@@ -2,6 +2,8 @@
 
 Visibility of the Modal is controlled outside the component. Opening and closing the Modal needs to be explicitly set on desired functionality (primary and secondary buttons, esc key).
 
+Small screen variant takes all available screen space.
+
 Aria props override the primary and secondary button labels for screenreaders and allow more detailed description.
 
 ```js
@@ -11,13 +13,14 @@ import {
   ModalContent,
   ModalTitle,
   ModalFooter,
-  ModalButton,
   Button,
   Paragraph,
-  Text
+  Text,
+  ToggleInput
 } from 'suomifi-ui-components';
 
 const [visible, setVisible] = useState(false);
+const [smallScreen, setSmallScreen] = useState(false);
 
 const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Phasellus scelerisque elit a consectetur tempor. Morbi sit
@@ -30,14 +33,15 @@ Quisque non sapien sem.`;
 const textArr = new Array(10).fill(text);
 
 <>
-  <Button
-    onClick={() => {
-      setVisible(true);
-    }}
+  <Button onClick={() => setVisible(true)}>Open modal dialog</Button>
+  <ToggleInput onChange={(value) => setSmallScreen(value)}>
+    smallScreen
+  </ToggleInput>
+  <Modal
+    visible={visible}
+    variant={smallScreen ? 'smallScreen' : 'default'}
+    onEscKeyDown={() => setVisible(false)}
   >
-    Open modal dialog
-  </Button>
-  <Modal visible={visible} onEscKeyDown={() => setVisible(false)}>
     <ModalContent>
       <ModalTitle>Test modal</ModalTitle>
       <Paragraph>
@@ -45,19 +49,19 @@ const textArr = new Array(10).fill(text);
       </Paragraph>
     </ModalContent>
     <ModalFooter>
-      <ModalButton
+      <Button
         arial-label="Accept changes and close modal dialog"
         onClick={() => setVisible(false)}
       >
         OK
-      </ModalButton>
-      <ModalButton
+      </Button>
+      <Button
         variant="secondary"
         arial-label="Discard changes and close modal dialog"
         onClick={() => setVisible(false)}
       >
         Cancel
-      </ModalButton>
+      </Button>
     </ModalFooter>
   </Modal>
 </>;
@@ -74,27 +78,25 @@ import {
   ModalContent,
   ModalTitle,
   ModalFooter,
-  ModalButton,
   Button,
   Paragraph,
-  Text
+  Text,
+  ToggleInput
 } from 'suomifi-ui-components';
 
 const [visible, setVisible] = useState(false);
+const [smallScreen, setSmallScreen] = useState(false);
 
 <>
-  <Button
-    onClick={() => {
-      setVisible(!visible);
-    }}
-  >
-    Open modal dialog
-  </Button>
+  <Button onClick={() => setVisible(true)}>Open modal dialog</Button>
+  <ToggleInput onChange={(value) => setSmallScreen(value)}>
+    smallScreen
+  </ToggleInput>
   <Modal
     visible={visible}
+    variant={smallScreen ? 'smallScreen' : 'default'}
     scrollable={false}
     onEscKeyDown={() => setVisible(false)}
-    style={{ height: '200px' }}
   >
     <ModalContent>
       <ModalTitle>Test modal</ModalTitle>
@@ -105,72 +107,10 @@ const [visible, setVisible] = useState(false);
       </Paragraph>
     </ModalContent>
     <ModalFooter>
-      <ModalButton onClick={() => setVisible(false)}>OK</ModalButton>
-    </ModalFooter>
-  </Modal>
-</>;
-```
-
-### Modal Small Screen Variant with no portal
-
-Small screen variant takes all available screen space.
-
-Not scrollable modals do not allow content scrolling by default. Disabling scrolling also removes the horizontal divider line above the buttons.
-
-Disabling portal renders content inside the modal component, not as the last DOM node when using a portal. When portals are disabled, z-index of the portal is set to 100.
-
-```js
-import { useState } from 'react';
-import {
-  Modal,
-  ModalContent,
-  ModalTitle,
-  ModalFooter,
-  ModalButton,
-  Button,
-  Paragraph,
-  Text
-} from 'suomifi-ui-components';
-
-const [visible, setVisible] = useState(false);
-
-<>
-  <Button
-    onClick={() => {
-      setVisible(!visible);
-    }}
-  >
-    Open modal dialog
-  </Button>
-  <Modal
-    visible={visible}
-    usePortal={false}
-    scrollable={false}
-    variant="smallScreen"
-    onEscKeyDown={() => setVisible(false)}
-  >
-    <ModalContent>
-      <ModalTitle>Test modal</ModalTitle>
-      <Paragraph>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Phasellus scelerisque elit a consectetur tempor. Morbi sit
-          amet lobortis ipsum. Nunc ac ante ligula. Mauris sem urna,
-          feugiat eu faucibus in, vehicula sit amet nibh. Duis non
-          egestas enim. Sed pharetra, eros a feugiat porttitor, nisi
-          eros dapibus mi, in semper augue erat sit amet nulla.
-          Quisque non sapien sem.
-        </Text>
-      </Paragraph>
-    </ModalContent>
-    <ModalFooter>
-      <ModalButton onClick={() => setVisible(false)}>OK</ModalButton>
-      <ModalButton
-        variant="secondary"
-        onClick={() => setVisible(false)}
-      >
+      <Button onClick={() => setVisible(false)}>OK</Button>
+      <Button variant="secondary" onClick={() => setVisible(false)}>
         Cancel
-      </ModalButton>
+      </Button>
     </ModalFooter>
   </Modal>
 </>;
@@ -189,7 +129,6 @@ import {
   ModalContent,
   ModalTitle,
   ModalFooter,
-  ModalButton,
   Button,
   Paragraph,
   Text,
@@ -242,7 +181,156 @@ const initialFocusRef = useRef(null);
       </Paragraph>
     </ModalContent>
     <ModalFooter>
-      <ModalButton onClick={() => setVisible(false)}>OK</ModalButton>
+      <Button onClick={() => setVisible(false)}>OK</Button>
+      <Button onClick={() => setVisible(false)}>Cancel</Button>
+    </ModalFooter>
+  </Modal>
+</>;
+```
+
+### Complex Modal with no portal
+
+Disabling portal renders content inside the modal component, not as the last DOM node when using a portal. When portals are disabled, z-index of the portal is set to 100.
+
+```js
+import { useState } from 'react';
+import {
+  Modal,
+  ModalContent,
+  ModalTitle,
+  ModalFooter,
+  Block,
+  TextInput,
+  Button,
+  ButtopProps,
+  Heading,
+  Paragraph,
+  Text,
+  ToggleInput,
+  Icon
+} from 'suomifi-ui-components';
+
+const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Phasellus scelerisque elit a consectetur tempor. Morbi sit
+amet lobortis ipsum. Nunc ac ante ligula. Mauris sem urna,
+feugiat eu faucibus in, vehicula sit amet nibh. Duis non
+egestas enim. Sed pharetra, eros a feugiat porttitor, nisi
+eros dapibus mi, in semper augue erat sit amet nulla.
+Quisque non sapien sem.`;
+
+const textArr = new Array(10).fill(text);
+
+const [visible, setVisible] = useState(false);
+const [smallScreen, setSmallScreen] = useState(false);
+
+const ModalHeading = (variant) => (
+  <Text.lead
+    style={{
+      padding:
+        variant === smallScreen ? '20px' : '24px 30px 20px 30px',
+      borderBottom: '1px solid hsl(202,7%,80%)'
+    }}
+  >
+    <span
+      style={{ display: 'inline-block', verticalAlign: 'middle' }}
+    >
+      <Icon
+        color="hsl(3, 59%, 48%)"
+        icon="error"
+        style={{ marginRight: '10px' }}
+      />
+    </span>
+    Exotic static header with important information
+  </Text.lead>
+);
+
+const ModalButton = ({ smallScreen, style, ...passProps }) => (
+  <Button
+    style={{
+      marginRight: smallScreen ? '0' : '15px',
+      marginTop: '10px',
+      ...style
+    }}
+    {...passProps}
+  >
+    Reset
+  </Button>
+);
+
+<>
+  <Button
+    onClick={() => {
+      setVisible(!visible);
+    }}
+  >
+    Open modal dialog
+  </Button>
+  <ToggleInput onChange={(value) => setSmallScreen(value)}>
+    smallScreen
+  </ToggleInput>
+  <Modal
+    visible={visible}
+    variant={smallScreen ? 'smallScreen' : 'default'}
+    usePortal={false}
+    onEscKeyDown={() => setVisible(false)}
+  >
+    <ModalHeading variant={smallScreen ? 'smallScreen' : 'default'} />
+    <ModalContent>
+      <ModalTitle>Test modal</ModalTitle>
+      <Paragraph>
+        <Text>{textArr.map((text) => text)}</Text>
+      </Paragraph>
+    </ModalContent>
+    <ModalFooter>
+      <Text
+        style={{
+          display: 'block',
+          margin: smallScreen
+            ? '20px 20px 0 0'
+            : '20px 20px 15px 15px'
+        }}
+      >
+        <span
+          style={{ display: 'inline-block', verticalAlign: 'middle' }}
+        >
+          <Icon
+            color="hsl(166, 90%, 34%)"
+            icon="info"
+            style={{ marginRight: '10px' }}
+          />
+        </span>
+        Additonal information in footer
+      </Text>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: smallScreen ? 'column' : 'row'
+        }}
+      >
+        <ModalButton
+          smallScreen={smallScreen}
+          onClick={() => setVisible(false)}
+        >
+          OK
+        </ModalButton>
+        <ModalButton
+          smallScreen={smallScreen}
+          variant="secondary"
+          onClick={() => setVisible(false)}
+        >
+          Reset
+        </ModalButton>
+        <ModalButton
+          smallScreen={smallScreen}
+          style={{
+            marginLeft: smallScreen ? '0' : 'auto'
+          }}
+          variant="secondary"
+          onClick={() => setVisible(false)}
+        >
+          Cancel
+        </ModalButton>
+      </div>
     </ModalFooter>
   </Modal>
 </>;

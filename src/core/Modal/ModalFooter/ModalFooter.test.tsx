@@ -1,14 +1,15 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { ModalButton, Modal } from '../';
+import { Modal } from '../';
 import { ModalFooter, ModalFooterProps } from './ModalFooter';
+import { Button } from '../../../';
 
 describe('Basic ModalFooter', () => {
   const BasicModal = (props?: Partial<ModalFooterProps>) => (
     <Modal visible={true} usePortal={false}>
       <ModalFooter {...props} data-testid="modal-footer-id">
-        <ModalButton>OK</ModalButton>
-        <ModalButton variant="secondary">Cancel</ModalButton>
+        <Button>OK</Button>
+        <Button variant="secondary">Cancel</Button>
       </ModalFooter>
     </Modal>
   );
@@ -30,15 +31,15 @@ describe('ModalFooter variant', () => {
   const SmallScreenModal = (
     <Modal visible={true} usePortal={false} variant="smallScreen">
       <ModalFooter data-testid="modal-footer-id">
-        <ModalButton>OK</ModalButton>
-        <ModalButton variant="secondary">Cancel</ModalButton>
+        <Button>OK</Button>
+        <Button variant="secondary">Cancel</Button>
       </ModalFooter>
     </Modal>
   );
 
   it('smallScreen should have correct classname', () => {
     const { getByTestId } = render(SmallScreenModal);
-    expect(getByTestId('modal-footer-id')).toHaveClass(
+    expect(getByTestId('modal-footer-id').parentElement).toHaveClass(
       'fi-modal_footer--small-screen',
     );
   });

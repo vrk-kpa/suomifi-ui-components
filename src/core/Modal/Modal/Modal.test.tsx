@@ -3,7 +3,8 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import { axeTest } from '../../../utils/test/axe';
 
 import { Modal, ModalProps } from './Modal';
-import { ModalContent, ModalFooter, ModalTitle, ModalButton } from '../';
+import { ModalContent, ModalFooter, ModalTitle } from '../';
+import { Button } from '../../../';
 
 describe('Basic modal', () => {
   const text = 'Modal Content';
@@ -15,7 +16,7 @@ describe('Basic modal', () => {
         <p>{text}</p>
       </ModalContent>
       <ModalFooter>
-        <ModalButton>OK</ModalButton>
+        <Button>OK</Button>
       </ModalFooter>
     </Modal>
   );
@@ -46,8 +47,8 @@ describe('Modal variant', () => {
         <p>Modal Content</p>
       </ModalContent>
       <ModalFooter>
-        <ModalButton>OK</ModalButton>
-        <ModalButton variant="secondary">Cancel</ModalButton>
+        <Button>OK</Button>
+        <Button variant="secondary">Cancel</Button>
       </ModalFooter>
     </Modal>
   );
@@ -66,8 +67,8 @@ describe('Modal focus', () => {
         {children}
       </ModalContent>
       <ModalFooter>
-        <ModalButton>OK</ModalButton>
-        <ModalButton variant="secondary">Cancel</ModalButton>
+        <Button>OK</Button>
+        <Button variant="secondary">Cancel</Button>
       </ModalFooter>
     </Modal>
   );
@@ -93,8 +94,8 @@ describe('Modal focus', () => {
             <button ref={ref}>Test button 2</button>
           </ModalContent>
           <ModalFooter>
-            <ModalButton>OK</ModalButton>
-            <ModalButton variant="secondary">Cancel</ModalButton>
+            <Button>OK</Button>
+            <Button variant="secondary">Cancel</Button>
           </ModalFooter>
         </Modal>
       );
@@ -124,8 +125,8 @@ describe('Closing Modal', () => {
             <button onClick={() => setOpen(false)}>Close modal</button>
           </ModalContent>
           <ModalFooter>
-            <ModalButton>OK</ModalButton>
-            <ModalButton variant="secondary">Cancel</ModalButton>
+            <Button>OK</Button>
+            <Button variant="secondary">Cancel</Button>
           </ModalFooter>
         </Modal>
       </>
