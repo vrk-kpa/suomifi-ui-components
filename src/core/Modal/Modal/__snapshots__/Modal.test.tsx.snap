@@ -494,14 +494,14 @@ exports[`Basic modal should match snapshot 1`] = `
 
 .c6.fi-modal_footer .fi-modal_footer_content {
   padding-top: 0;
-  padding-right: 30px;
+  padding-right: 15px;
   padding-bottom: 20px;
-  padding-left: 15px;
+  padding-left: 30px;
 }
 
 .c6.fi-modal_footer .fi-modal_footer_content > * {
   margin-top: 20px;
-  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .c6.fi-modal_footer .fi-modal_footer_content-gradient-overlay {
@@ -519,17 +519,15 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c6.fi-modal_footer--small-screen .fi-modal_footer_content {
-  padding-top: 0;
-  padding-right: 20px;
+  padding-right: 5px;
   padding-bottom: 15px;
   padding-left: 20px;
 }
 
 .c6.fi-modal_footer--small-screen .fi-modal_footer_content > * {
   display: block;
-  width: 100%;
+  width: calc(100% - 15px);
   margin-top: 15px;
-  margin-left: 0;
 }
 
 .c8 {
@@ -771,10 +769,10 @@ exports[`Basic modal should match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="c1 fi-modal_footer"
+        class="c1 c6 fi-modal_footer"
       >
         <div
-          class="c1 c6 fi-modal_footer_content"
+          class="c1 fi-modal_footer_content"
         >
           <button
             aria-disabled="false"

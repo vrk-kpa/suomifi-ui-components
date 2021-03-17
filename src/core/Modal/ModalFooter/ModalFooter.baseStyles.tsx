@@ -7,12 +7,12 @@ export const baseStyles = css`
     position: relative;
     & .fi-modal_footer_content {
       padding-top: 0;
-      padding-right: ${theme.spacing.xl};
+      padding-right: ${theme.spacing.s};
       padding-bottom: ${theme.spacing.m};
-      padding-left: ${theme.spacing.s};
+      padding-left: ${theme.spacing.xl};
       & > * {
         margin-top: ${theme.spacing.m};
-        margin-left: ${theme.spacing.s};
+        margin-right: ${theme.spacing.s};
       }
     }
 
@@ -35,15 +35,13 @@ export const baseStyles = css`
 
     &--small-screen {
       & .fi-modal_footer_content {
-        padding-top: 0;
-        padding-right: ${theme.spacing.m};
+        padding-right: ${theme.spacing.xxs};
         padding-bottom: ${theme.spacing.s};
         padding-left: ${theme.spacing.m};
         & > * {
           display: block;
-          width: 100%;
+          width: calc(100% - ${theme.spacing.s});
           margin-top: ${theme.spacing.s};
-          margin-left: 0;
         }
       }
     }

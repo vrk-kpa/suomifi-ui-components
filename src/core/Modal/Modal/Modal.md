@@ -199,15 +199,16 @@ import {
   ModalContent,
   ModalTitle,
   ModalFooter,
-  Block,
-  TextInput,
   Button,
-  ButtopProps,
-  Heading,
+  Expander,
+  ExpanderGroup,
+  ExpanderTitleButton,
+  ExpanderContent,
+  Icon,
   Paragraph,
   Text,
   ToggleInput,
-  Icon
+  suomifiDesignTokens
 } from 'suomifi-ui-components';
 
 const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -222,40 +223,6 @@ const textArr = new Array(10).fill(text);
 
 const [visible, setVisible] = useState(false);
 const [smallScreen, setSmallScreen] = useState(false);
-
-const ModalHeading = (variant) => (
-  <Text.lead
-    style={{
-      padding:
-        variant === smallScreen ? '20px' : '24px 30px 20px 30px',
-      borderBottom: '1px solid hsl(202,7%,80%)'
-    }}
-  >
-    <span
-      style={{ display: 'inline-block', verticalAlign: 'middle' }}
-    >
-      <Icon
-        color="hsl(3, 59%, 48%)"
-        icon="error"
-        style={{ marginRight: '10px' }}
-      />
-    </span>
-    Exotic static header with important information
-  </Text.lead>
-);
-
-const ModalButton = ({ smallScreen, style, ...passProps }) => (
-  <Button
-    style={{
-      marginRight: smallScreen ? '0' : '15px',
-      marginTop: '10px',
-      ...style
-    }}
-    {...passProps}
-  >
-    Reset
-  </Button>
-);
 
 <>
   <Button
@@ -274,63 +241,73 @@ const ModalButton = ({ smallScreen, style, ...passProps }) => (
     usePortal={false}
     onEscKeyDown={() => setVisible(false)}
   >
-    <ModalHeading variant={smallScreen ? 'smallScreen' : 'default'} />
     <ModalContent>
       <ModalTitle>Test modal</ModalTitle>
-      <Paragraph>
-        <Text>{textArr.map((text) => text)}</Text>
-      </Paragraph>
+      <ExpanderGroup
+        OpenAllText="Open all"
+        AriaOpenAllText="Open all expanders"
+        CloseAllText="Close all"
+        AriaCloseAllText="Close all expanders"
+      >
+        {textArr.map((text, index) => (
+          <Expander>
+            <ExpanderTitleButton>
+              Test expander {index + 1}
+            </ExpanderTitleButton>
+            <ExpanderContent>
+              <Paragraph>
+                <Text>{text}</Text>
+              </Paragraph>
+            </ExpanderContent>
+          </Expander>
+        ))}
+      </ExpanderGroup>
     </ModalContent>
     <ModalFooter>
-      <Text
+      <Paragraph
         style={{
           display: 'block',
-          margin: smallScreen
-            ? '20px 20px 0 0'
-            : '20px 20px 15px 15px'
+          borderLeft: `4px solid ${suomifiDesignTokens.colors.alertBase}`,
+          padding: `${suomifiDesignTokens.spacing.s} ${suomifiDesignTokens.spacing.m}`,
+          backgroundColor: suomifiDesignTokens.colors.alertLight1,
+          marginRight: suomifiDesignTokens.spacing.s,
+          marginTop: smallScreen
+            ? suomifiDesignTokens.spacing.s
+            : suomifiDesignTokens.spacing.m
         }}
       >
-        <span
-          style={{ display: 'inline-block', verticalAlign: 'middle' }}
+        <Text
+          style={{
+            display: 'inline-block'
+          }}
         >
           <Icon
-            color="hsl(166, 90%, 34%)"
-            icon="info"
-            style={{ marginRight: '10px' }}
+            color={suomifiDesignTokens.colors.alertBase}
+            icon="error"
+            style={{
+              display: 'inline-block',
+              verticalAlign: 'middle',
+              transform: 'translateY(-0.1em)',
+              marginRight: '10px'
+            }}
           />
-        </span>
-        Additonal information in footer
-      </Text>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: smallScreen ? 'column' : 'row'
-        }}
+          We are experiencing connectivity issues
+        </Text>
+      </Paragraph>
+      <Button
+        aria-disabled={true}
+        smallScreen={smallScreen}
+        onClick={() => setVisible(false)}
       >
-        <ModalButton
-          smallScreen={smallScreen}
-          onClick={() => setVisible(false)}
-        >
-          OK
-        </ModalButton>
-        <ModalButton
-          smallScreen={smallScreen}
-          variant="secondary"
-          onClick={() => setVisible(false)}
-        >
-          Reset
-        </ModalButton>
-        <ModalButton
-          smallScreen={smallScreen}
-          style={{
-            marginLeft: smallScreen ? '0' : 'auto'
-          }}
-          variant="secondary"
-          onClick={() => setVisible(false)}
-        >
-          Cancel
-        </ModalButton>
-      </div>
+        Save
+      </Button>
+      <Button
+        smallScreen={smallScreen}
+        variant="secondary"
+        onClick={() => setVisible(false)}
+      >
+        Cancel
+      </Button>
     </ModalFooter>
   </Modal>
 </>;

@@ -10,6 +10,7 @@ export interface ModalFooterProps extends HtmlDivProps {}
 interface InternalModalFooterProps extends ModalFooterProps {
   modalVariant: ModalVariant;
   scrollable: boolean;
+  propClassName?: string;
 }
 
 export const footerBaseClassName = `${baseClassName}_footer`;
@@ -26,6 +27,7 @@ class BaseModalFooter extends Component<InternalModalFooterProps> {
     const {
       children,
       className,
+      propClassName,
       modalVariant = 'default',
       scrollable = true,
       ...passProps
@@ -33,12 +35,12 @@ class BaseModalFooter extends Component<InternalModalFooterProps> {
 
     return (
       <HtmlDiv
-        className={classnames(footerBaseClassName, {
+        className={classnames(className, footerBaseClassName, {
           [footerClassNames.smallScreen]: modalVariant === 'smallScreen',
         })}
       >
         <HtmlDiv
-          className={classnames(className, footerClassNames.content)}
+          className={classnames(propClassName, footerClassNames.content)}
           {...passProps}
         >
           {children}
@@ -65,13 +67,15 @@ const StyledModalFooter = styled(BaseModalFooter)`
  */
 export class ModalFooter extends Component<ModalFooterProps> {
   render() {
+    const { className, ...passProps } = this.props;
     return (
       <ModalConsumer>
         {({ variant, scrollable }) => (
           <StyledModalFooter
             modalVariant={variant}
             scrollable={scrollable}
-            {...this.props}
+            propClassName={className}
+            {...passProps}
           />
         )}
       </ModalConsumer>
