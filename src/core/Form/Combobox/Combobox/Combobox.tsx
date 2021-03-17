@@ -69,10 +69,16 @@ export interface ComboboxProps<T extends ComboboxData> {
   status?: FilterInputStatus;
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
+  /** Controlled items; if item is in array, it is selected. If item has disabled: true, it will be disabled. */
+  controlledItems?: Array<T & ComboboxData>;
+  /** Selecting the item will send event with the id */
+  onItemSelect?: (uniqueItemId: string) => void;
+  /** Event to be sent when pressing remove all button */
+  onRemoveAll?: () => void;
 }
 
 // actual boolean value does not matter, only if it exists on the list
-interface SelectedItemKeys {
+interface ItemKeys {
   [key: string]: boolean;
 }
 
@@ -81,18 +87,30 @@ interface ComboboxState<T extends ComboboxData> {
   filteredItems: T[];
   showPopover: boolean;
   currentSelection: string | null;
-  selectedKeys: SelectedItemKeys;
+  selectedKeys: ItemKeys;
   selectedItems: T[];
   initialItems: T[];
+  disabledKeys: ItemKeys;
 }
 
-function getSelectedKeys<T>(items: (T & ComboboxData)[]): SelectedItemKeys {
-  const selectedKeys: SelectedItemKeys = {};
+function getSelectedKeys<T>(items: (T & ComboboxData)[]): ItemKeys {
+  const selectedKeys: ItemKeys = {};
   // eslint-disable-next-line no-restricted-syntax
   for (const item of items) {
     selectedKeys[item.uniqueItemId] = false;
   }
   return selectedKeys;
+}
+
+function getDisabledKeys<T>(items: (T & ComboboxData)[]): ItemKeys {
+  const disabledKeys: ItemKeys = {};
+  // eslint-disable-next-line no-restricted-syntax
+  for (const item of items) {
+    if (item.disabled) {
+      disabledKeys[item.uniqueItemId] = false;
+    }
+  }
+  return disabledKeys;
 }
 
 class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
@@ -111,20 +129,42 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     filteredItems: this.props.items,
     showPopover: false,
     currentSelection: null,
-    selectedKeys: getSelectedKeys(this.props.defaultSelectedItems || []),
-    selectedItems: this.props.defaultSelectedItems || [],
+    selectedKeys: this.props.controlledItems
+      ? getSelectedKeys(this.props.controlledItems || [])
+      : getSelectedKeys(this.props.defaultSelectedItems || []),
+    selectedItems: this.props.controlledItems
+      ? this.props.controlledItems || []
+      : this.props.defaultSelectedItems || [],
     initialItems: this.props.items,
+    disabledKeys: this.props.controlledItems
+      ? getDisabledKeys(this.props.controlledItems || [])
+      : getDisabledKeys(this.props.items || []),
   };
 
   static getDerivedStateFromProps<U>(
     nextProps: ComboboxProps<U & ComboboxData>,
     prevState: ComboboxState<U & ComboboxData>,
   ) {
-    const { items: propItems } = nextProps;
+    const {
+      items: propItems,
+      controlledItems,
+      defaultSelectedItems,
+    } = nextProps;
     if (propItems !== prevState.initialItems) {
       return {
         filteredItems: propItems,
         initialItems: propItems,
+        disabledKeys: getDisabledKeys(propItems),
+      };
+    }
+    if (
+      'controlledItems' in nextProps &&
+      controlledItems !== prevState.selectedItems
+    ) {
+      return {
+        selectedItems: controlledItems || defaultSelectedItems || [],
+        selectedKeys: getSelectedKeys(controlledItems || []),
+        disabledKeys: getDisabledKeys(controlledItems || []),
       };
     }
     return null;
@@ -136,15 +176,34 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         prevState: ComboboxState<T & ComboboxData>,
         prevProps: ComboboxProps<T & ComboboxData>,
       ) => {
-        const { onItemSelectionsChange } = prevProps;
+        const {
+          onItemSelectionsChange,
+          onItemSelect,
+          controlledItems,
+        } = prevProps;
         const { selectedKeys, selectedItems } = prevState;
         const newSelectedKeys = Object.assign({}, selectedKeys);
         if (!item.disabled) {
-          if (item.uniqueItemId in newSelectedKeys) {
-            delete newSelectedKeys[item.uniqueItemId];
-            const newSelectedItems = selectedItems.filter(
-              (selectedItem) => selectedItem.uniqueItemId !== item.uniqueItemId,
-            );
+          if (onItemSelect) {
+            onItemSelect(item.uniqueItemId);
+          }
+          if (!controlledItems) {
+            if (item.uniqueItemId in newSelectedKeys) {
+              delete newSelectedKeys[item.uniqueItemId];
+              const newSelectedItems = selectedItems.filter(
+                (selectedItem) =>
+                  selectedItem.uniqueItemId !== item.uniqueItemId,
+              );
+              if (onItemSelectionsChange) {
+                onItemSelectionsChange(newSelectedItems);
+              }
+              return {
+                selectedKeys: newSelectedKeys,
+                selectedItems: newSelectedItems,
+              };
+            }
+            newSelectedKeys[item.uniqueItemId] = false;
+            const newSelectedItems = selectedItems.concat([item]);
             if (onItemSelectionsChange) {
               onItemSelectionsChange(newSelectedItems);
             }
@@ -153,15 +212,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
               selectedItems: newSelectedItems,
             };
           }
-          newSelectedKeys[item.uniqueItemId] = false;
-          const newSelectedItems = selectedItems.concat([item]);
-          if (onItemSelectionsChange) {
-            onItemSelectionsChange(newSelectedItems);
-          }
-          return {
-            selectedKeys: newSelectedKeys,
-            selectedItems: newSelectedItems,
-          };
         }
       },
     );
@@ -174,9 +224,12 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         prevProps: ComboboxProps<T & ComboboxData>,
       ) => {
         const { selectedItems } = prevState;
-        const { onItemSelectionsChange } = prevProps;
+        const { onItemSelectionsChange, onRemoveAll } = prevProps;
         const disabledItems = [];
-        const newSelectedKeys: SelectedItemKeys = {};
+        const newSelectedKeys: ItemKeys = {};
+        if (onRemoveAll) {
+          onRemoveAll();
+        }
         // eslint-disable-next-line no-restricted-syntax
         for (const item of selectedItems) {
           if (item.disabled) {
@@ -358,6 +411,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       currentSelection,
       selectedKeys,
       selectedItems,
+      disabledKeys,
     } = this.state;
 
     const focusToMenu = () => {
@@ -386,6 +440,9 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       debounce,
       status,
       statusText,
+      controlledItems,
+      onItemSelect,
+      onRemoveAll,
       ...passProps
     } = this.props;
 
@@ -455,8 +512,9 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                           item.uniqueItemId in selectedKeys
                         }`}
                         id={`${id}-${item.uniqueItemId}`}
-                        defaultChecked={item.uniqueItemId in selectedKeys}
-                        disabled={item.disabled}
+                        checked={item.uniqueItemId in selectedKeys}
+                        disabled={item.uniqueItemId in disabledKeys}
+                        //
                         onClick={() => {
                           focusToMenu();
                           this.handleItemSelection(item);
