@@ -26,19 +26,19 @@ export interface ModalProps
    */
   variant?: ModalVariant;
   /**
-   * Show vertical scroll bar if needed and show horizontal divider before buttons.
+   * Show vertical scroll bar if needed and show horizontal divider between content and footer.
    * @default true
    */
   scrollable?: boolean;
   /**
    * Use portal instead of injecting content inside the Modal component
    * @default true
-   * Portal is never used when rendering on server or modal mount node is not available.
+   * Portal is never used when rendering on server or when modal mount node is not available.
    */
   usePortal?: boolean;
-  /** Focusable emenent ref when modal is opened, if not provided, first focusable element is focused */
+  /** Focusable element ref when modal is opened. If not provided, first focusable element is focused */
   focusOnOpenRef?: React.RefObject<any>;
-  /** Focusable element when dialog is closed, if not provided, browser default behaviour will occur (e.g. body gains focus) */
+  /** Focusable element ref when modal is closed. If not provided, browser default behaviour will occur (e.g. body gains focus) */
   focusOnCloseRef?: React.RefObject<any>;
   /** Callback for handling esc key press, e.g. close modal */
   onEscKeyDown?: () => void;
