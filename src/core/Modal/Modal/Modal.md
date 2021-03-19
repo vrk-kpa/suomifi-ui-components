@@ -182,7 +182,9 @@ const initialFocusRef = useRef(null);
     </ModalContent>
     <ModalFooter>
       <Button onClick={() => setVisible(false)}>OK</Button>
-      <Button onClick={() => setVisible(false)}>Cancel</Button>
+      <Button variant="secondary" onClick={() => setVisible(false)}>
+        Cancel
+      </Button>
     </ModalFooter>
   </Modal>
 </>;
@@ -250,7 +252,7 @@ const [smallScreen, setSmallScreen] = useState(false);
         AriaCloseAllText="Close all expanders"
       >
         {textArr.map((text, index) => (
-          <Expander>
+          <Expander key={index}>
             <ExpanderTitleButton>
               Test expander {index + 1}
             </ExpanderTitleButton>
@@ -294,18 +296,10 @@ const [smallScreen, setSmallScreen] = useState(false);
           We are experiencing connectivity issues
         </Text>
       </Paragraph>
-      <Button
-        aria-disabled={true}
-        smallScreen={smallScreen}
-        onClick={() => setVisible(false)}
-      >
+      <Button aria-disabled={true} onClick={() => setVisible(false)}>
         Save
       </Button>
-      <Button
-        smallScreen={smallScreen}
-        variant="secondary"
-        onClick={() => setVisible(false)}
-      >
+      <Button variant="secondary" onClick={() => setVisible(false)}>
         Cancel
       </Button>
     </ModalFooter>
