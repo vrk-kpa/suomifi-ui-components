@@ -7,6 +7,7 @@ import { HtmlDiv, HtmlDivProps } from '../../../reset';
 import { AutoId } from '../../../utils/AutoId';
 import { windowAvailable } from '../../../utils/common';
 import { ModalContent, ModalFooter } from '../';
+/* Styles for disabling scrolling. See file for more info. */
 import './Modal.globals.scss';
 import { baseStyles } from './Modal.baseStyles';
 
