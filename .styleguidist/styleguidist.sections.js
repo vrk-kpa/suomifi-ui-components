@@ -139,6 +139,14 @@ module.exports = {
                 'ExpanderContent/ExpanderContent',
               ]),
             },
+            {
+              name: 'Modal',
+              components: getComponentWithVariants('Modal')([
+                'Modal/Modal',
+                'ModalContent/ModalContent',
+                'ModalFooter/ModalFooter',
+              ]),
+            },
           ],
           expand: true,
         },

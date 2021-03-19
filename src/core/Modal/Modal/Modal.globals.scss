@@ -1,0 +1,8 @@
+/**
+ * Styles for disabling main content scrolling when masked by Modal.
+ * Styled Components does not provide any feasible solutions for global styles for libraries.
+ * This file is compiled into main.css and the class is applied to body when modal is visible.
+ */
+.fi-modal--disable-body-content {
+  overflow: hidden;
+}
