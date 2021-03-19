@@ -75,15 +75,23 @@ const linkStyles = css`
   &.fi-button--link {
     color: ${theme.colors.highlightBase};
     ${secondary}
-    background: ${theme.gradients.highlightLight3ToHighlightLight2};
+    background: ${theme.gradients.depthSecondaryToDepthSecondaryDark1};
     border: none;
 
     &:hover {
-      background: ${theme.colors.highlightLight3};
+      background: ${theme.gradients.highlightLight4ToDepthSecondary};
     }
 
     &:active {
       background: ${theme.gradients.depthLight3ToDepthLight2};
+    }
+
+    &.fi-button--disabled,
+    &[disabled],
+    &:disabled {
+      color: ${theme.colors.depthBase};
+      background: none;
+      background-color: ${theme.colors.depthLight3};
     }
   }
 `;

@@ -87,16 +87,15 @@ import { Button } from 'suomifi-ui-components';
   <Button variant="secondary" disabled fullWidth icon="login">
     Secondary Button disabled fullWidth icon="login"
   </Button>
-
-  <Button variant="secondaryNoborder">
+  <Button variant="secondary-noborder">
     Borderless secondary Button
   </Button>
 
-  <Button variant="secondaryNoborder" icon="login">
+  <Button variant="secondary-noborder" icon="login">
     Borderless secondary Button icon="login"
   </Button>
 
-  <Button variant="secondaryNoborder" disabled icon="login">
+  <Button variant="secondary-noborder" disabled icon="login">
     Borderless secondary Button disabled icon="login"
   </Button>
 </>;
@@ -106,10 +105,10 @@ import { Button } from 'suomifi-ui-components';
 import { Button } from 'suomifi-ui-components';
 
 <>
-  <Button variant="tertiary">Tertiary Button</Button>
+  <Button variant="link">Link Button</Button>
 
-  <Button variant="tertiary" disabled icon="login">
-    Tertiary Button disabled icon="login"
+  <Button variant="link" disabled icon="login">
+    Link Button disabled icon="login"
   </Button>
 </>;
 ```
