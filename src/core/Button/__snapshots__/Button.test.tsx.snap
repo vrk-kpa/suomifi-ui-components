@@ -183,7 +183,7 @@ exports[`Button variant default should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c1.fi-button--secondaryNoBorder {
+.c1.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -193,18 +193,18 @@ exports[`Button variant default should match snapshot 1`] = `
   background-color: transparent;
 }
 
-.c1.fi-button--secondaryNoBorder:hover {
+.c1.fi-button--secondary-noborder:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c1.fi-button--secondaryNoBorder:active {
+.c1.fi-button--secondary-noborder:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c1.fi-button--secondaryNoBorder.fi-button--disabled,
-.c1.fi-button--secondaryNoBorder[disabled],
-.c1.fi-button--secondaryNoBorder:disabled {
+.c1.fi-button--secondary-noborder.fi-button--disabled,
+.c1.fi-button--secondary-noborder[disabled],
+.c1.fi-button--secondary-noborder:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -470,7 +470,7 @@ exports[`Button variant inverted should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c1.fi-button--secondaryNoBorder {
+.c1.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -480,18 +480,18 @@ exports[`Button variant inverted should match snapshot 1`] = `
   background-color: transparent;
 }
 
-.c1.fi-button--secondaryNoBorder:hover {
+.c1.fi-button--secondary-noborder:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c1.fi-button--secondaryNoBorder:active {
+.c1.fi-button--secondary-noborder:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c1.fi-button--secondaryNoBorder.fi-button--disabled,
-.c1.fi-button--secondaryNoBorder[disabled],
-.c1.fi-button--secondaryNoBorder:disabled {
+.c1.fi-button--secondary-noborder.fi-button--disabled,
+.c1.fi-button--secondary-noborder[disabled],
+.c1.fi-button--secondary-noborder:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -757,7 +757,7 @@ exports[`Button variant link match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c1.fi-button--secondaryNoBorder {
+.c1.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -767,18 +767,18 @@ exports[`Button variant link match snapshot 1`] = `
   background-color: transparent;
 }
 
-.c1.fi-button--secondaryNoBorder:hover {
+.c1.fi-button--secondary-noborder:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c1.fi-button--secondaryNoBorder:active {
+.c1.fi-button--secondary-noborder:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c1.fi-button--secondaryNoBorder.fi-button--disabled,
-.c1.fi-button--secondaryNoBorder[disabled],
-.c1.fi-button--secondaryNoBorder:disabled {
+.c1.fi-button--secondary-noborder.fi-button--disabled,
+.c1.fi-button--secondary-noborder[disabled],
+.c1.fi-button--secondary-noborder:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -1044,7 +1044,7 @@ exports[`Button variant secondary should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c1.fi-button--secondaryNoBorder {
+.c1.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -1054,18 +1054,18 @@ exports[`Button variant secondary should match snapshot 1`] = `
   background-color: transparent;
 }
 
-.c1.fi-button--secondaryNoBorder:hover {
+.c1.fi-button--secondary-noborder:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c1.fi-button--secondaryNoBorder:active {
+.c1.fi-button--secondary-noborder:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c1.fi-button--secondaryNoBorder.fi-button--disabled,
-.c1.fi-button--secondaryNoBorder[disabled],
-.c1.fi-button--secondaryNoBorder:disabled {
+.c1.fi-button--secondary-noborder.fi-button--disabled,
+.c1.fi-button--secondary-noborder[disabled],
+.c1.fi-button--secondary-noborder:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -1331,7 +1331,7 @@ exports[`Button variant secondaryNoBorder should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c1.fi-button--secondaryNoBorder {
+.c1.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -1341,18 +1341,18 @@ exports[`Button variant secondaryNoBorder should match snapshot 1`] = `
   background-color: transparent;
 }
 
-.c1.fi-button--secondaryNoBorder:hover {
+.c1.fi-button--secondary-noborder:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c1.fi-button--secondaryNoBorder:active {
+.c1.fi-button--secondary-noborder:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c1.fi-button--secondaryNoBorder.fi-button--disabled,
-.c1.fi-button--secondaryNoBorder[disabled],
-.c1.fi-button--secondaryNoBorder:disabled {
+.c1.fi-button--secondary-noborder.fi-button--disabled,
+.c1.fi-button--secondary-noborder[disabled],
+.c1.fi-button--secondary-noborder:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -1427,7 +1427,7 @@ exports[`Button variant secondaryNoBorder should match snapshot 1`] = `
 
 <button
   aria-disabled="false"
-  class="c0 fi-button c1 fi-button--secondaryNoBorder"
+  class="c0 fi-button c1 fi-button--secondary-noborder"
   tabindex="0"
   type="button"
 >

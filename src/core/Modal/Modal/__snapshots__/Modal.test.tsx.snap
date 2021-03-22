@@ -659,7 +659,7 @@ exports[`Basic modal should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c8.fi-button--secondaryNoBorder {
+.c8.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -669,18 +669,18 @@ exports[`Basic modal should match snapshot 1`] = `
   background-color: transparent;
 }
 
-.c8.fi-button--secondaryNoBorder:hover {
+.c8.fi-button--secondary-noborder:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c8.fi-button--secondaryNoBorder:active {
+.c8.fi-button--secondary-noborder:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c8.fi-button--secondaryNoBorder.fi-button--disabled,
-.c8.fi-button--secondaryNoBorder[disabled],
-.c8.fi-button--secondaryNoBorder:disabled {
+.c8.fi-button--secondary-noborder.fi-button--disabled,
+.c8.fi-button--secondary-noborder[disabled],
+.c8.fi-button--secondary-noborder:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
