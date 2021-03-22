@@ -101,7 +101,11 @@ class BaseButton extends Component<ButtonProps & InnerRef> {
           disabled={!!disabled}
           className={classnames(baseClassName, className, {
             [disabledClassName]: !!disabled || !!ariaDisabled,
-            [`${baseClassName}--${variant}`]: variant !== 'default',
+            [`${baseClassName}--inverted`]: variant === 'inverted',
+            [`${baseClassName}--secondary`]: variant === 'secondary',
+            [`${baseClassName}--secondary-noborder`]:
+              variant === 'secondaryNoBorder',
+            [`${baseClassName}--link`]: variant === 'link',
             [fullWidthClassName]: fullWidth,
           })}
         >

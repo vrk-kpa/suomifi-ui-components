@@ -87,6 +87,7 @@ import { Button } from 'suomifi-ui-components';
   <Button variant="secondary" disabled fullWidth icon="login">
     Secondary Button disabled fullWidth icon="login"
   </Button>
+
   <Button variant="secondaryNoBorder">
     Borderless secondary Button
   </Button>
