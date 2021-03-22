@@ -119,15 +119,16 @@ describe('Chips', () => {
   it('first Chip should be removable and removed when clicked', async () => {
     await act(async () => {
       const { container } = render(BasicCombobox);
-      const chip = container.querySelectorAll('.fi-chip')[0];
+      let chips = container.querySelectorAll('.fi-chip');
+      const chip = chips[0];
       expect(chip).toHaveTextContent('Hammer');
       expect(chip.querySelector('.fi-chip--icon')).not.toBeNull();
       await act(async () => {
         fireEvent.click(chip, {});
       });
-      const chips = await container.querySelectorAll('.fi-chip');
+      chips = container.querySelectorAll('.fi-chip');
       expect(chips.length).toEqual(1);
-      const disabledChip = await container.querySelectorAll('.fi-chip')[0];
+      const disabledChip = chips[0];
       expect(disabledChip).toHaveTextContent('Powersaw');
     });
   });
@@ -150,8 +151,58 @@ describe('Chips', () => {
       await act(async () => {
         fireEvent.click(removeAllButton, {});
       });
-      const chips = await container.querySelectorAll('.fi-chip');
+      const chips = container.querySelectorAll('.fi-chip');
       expect(chips.length).toEqual(1);
+    });
+  });
+});
+
+describe('controlled', () => {
+  it('has the controlled items as selected + disabled', async () => {
+    const controlledItems = [
+      {
+        name: 'Shovel',
+        price: 115,
+        tax: true,
+        labelText: 'Shovel',
+        uniqueItemId: 's05111511',
+        disabled: true,
+      },
+      {
+        name: 'Sledgehammer',
+        price: 36,
+        tax: false,
+        labelText: 'Sledgehammer',
+        uniqueItemId: 'sh908293482',
+      },
+    ];
+    const combobox = (
+      <Combobox
+        controlledItems={controlledItems}
+        labelText="Combobox"
+        items={tools}
+        chipListVisible={true}
+        chipActionLabel="Remove"
+        removeAllButtonLabel="Remove all selections"
+        visualPlaceholder="Choose your tool(s)"
+        emptyItemsLabel="No items"
+        defaultSelectedItems={defaultSelectedTools}
+      />
+    );
+
+    await act(async () => {
+      const { container } = render(combobox);
+      expect(container.querySelectorAll('.fi-chip').length).toEqual(2);
+
+      const chips = container.querySelectorAll('.fi-chip');
+
+      const disabledChip = chips[0];
+      expect(disabledChip).toHaveTextContent('Shovel');
+      expect(disabledChip).toHaveClass('fi-chip--disabled');
+      expect(disabledChip).toHaveAttribute('disabled');
+
+      const otherChip = chips[1];
+      expect(otherChip).toHaveTextContent('Sledgehammer');
     });
   });
 });
