@@ -9,13 +9,13 @@ type ButtonVariant =
   | 'default'
   | 'inverted'
   | 'secondary'
-  | 'secondary-noborder'
+  | 'secondaryNoBorder'
   | 'link';
 
 interface InternalButtonProps
   extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'> {
   /**
-   * 'default' | 'inverted' | 'secondary' | 'secondary-noborder' | 'link'
+   * 'default' | 'inverted' | 'secondary' | 'secondaryNoBorder' | 'link'
    * @default default
    */
   variant?: ButtonVariant;

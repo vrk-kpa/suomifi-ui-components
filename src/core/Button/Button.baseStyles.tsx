@@ -64,7 +64,7 @@ const secondaryStyles = css`
 `;
 
 const secondaryNoBorderStyles = css`
-  &.fi-button--secondary-noborder {
+  &.fi-button--secondaryNoBorder {
     ${secondary}
     border: none;
     background-color: transparent;
