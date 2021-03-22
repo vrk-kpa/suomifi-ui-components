@@ -9,13 +9,13 @@ type ButtonVariant =
   | 'default'
   | 'inverted'
   | 'secondary'
-  | 'secondary-noborder'
-  | 'tertiary';
+  | 'secondaryNoBorder'
+  | 'link';
 
 interface InternalButtonProps
   extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'> {
   /**
-   * 'default' | 'inverted' | 'secondary' | 'secondary-noborder' | 'tertiary'
+   * 'default' | 'inverted' | 'secondary' | 'secondaryNoBorder' | 'link'
    * @default default
    */
   variant?: ButtonVariant;
@@ -101,7 +101,11 @@ class BaseButton extends Component<ButtonProps & InnerRef> {
           disabled={!!disabled}
           className={classnames(baseClassName, className, {
             [disabledClassName]: !!disabled || !!ariaDisabled,
-            [`${baseClassName}--${variant}`]: variant !== 'default',
+            [`${baseClassName}--inverted`]: variant === 'inverted',
+            [`${baseClassName}--secondary`]: variant === 'secondary',
+            [`${baseClassName}--secondary-noborder`]:
+              variant === 'secondaryNoBorder',
+            [`${baseClassName}--link`]: variant === 'link',
             [fullWidthClassName]: fullWidth,
           })}
         >
@@ -145,8 +149,6 @@ const StyledButton = styled(
 /**
  * <i class="semantics" />
  * Use for inside Application onClick events.<br />
- * When using Button secondaryNoborder variant with other than white background,<br />
- * define styles background color for all needed states (:hover, :active, :disabled)<br /><br />
  */
 export const Button = forwardRef(
   (props: ButtonProps, ref: React.RefObject<HTMLButtonElement>) => (

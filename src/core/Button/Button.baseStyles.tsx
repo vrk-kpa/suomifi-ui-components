@@ -67,21 +67,31 @@ const secondaryNoBorderStyles = css`
   &.fi-button--secondary-noborder {
     ${secondary}
     border: none;
+    background-color: transparent;
   }
 `;
 
-const tertiaryStyles = css`
-  &.fi-button--tertiary {
+const linkStyles = css`
+  &.fi-button--link {
+    color: ${theme.colors.highlightBase};
     ${secondary}
-    background: ${theme.gradients.highlightLight3ToHighlightLight2};
+    background: ${theme.gradients.depthSecondaryToDepthSecondaryDark1};
     border: none;
 
     &:hover {
-      background: ${theme.colors.highlightLight3};
+      background: ${theme.gradients.highlightLight4ToDepthSecondary};
     }
 
     &:active {
       background: ${theme.gradients.depthLight3ToDepthLight2};
+    }
+
+    &.fi-button--disabled,
+    &[disabled],
+    &:disabled {
+      color: ${theme.colors.depthBase};
+      background: none;
+      background-color: ${theme.colors.depthLight3};
     }
   }
 `;
@@ -136,7 +146,7 @@ export const baseStyles = css`
   ${invertedStyles}
   ${secondaryStyles}
   ${secondaryNoBorderStyles}
-  ${tertiaryStyles}
+  ${linkStyles}
 
   & > .fi-button_icon {
     width: 16px;
