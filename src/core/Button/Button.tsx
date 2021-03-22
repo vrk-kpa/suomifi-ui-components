@@ -145,8 +145,6 @@ const StyledButton = styled(
 /**
  * <i class="semantics" />
  * Use for inside Application onClick events.<br />
- * When using Button secondaryNoborder variant with other than white background,<br />
- * define styles background color for all needed states (:hover, :active, :disabled)<br /><br />
  */
 export const Button = forwardRef(
   (props: ButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
