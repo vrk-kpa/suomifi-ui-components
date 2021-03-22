@@ -102,26 +102,34 @@ const BasicCombobox = (
   />
 );
 
-test('should not have basic accessibility issues', async () =>
-  axeTest(BasicCombobox));
+test('should not have basic accessibility issues', async () => {
+  await act(async () => {
+    axeTest(BasicCombobox);
+  });
+});
 
 describe('Chips', () => {
-  it('should have selected Chips shown', () => {
-    const { container } = render(BasicCombobox);
-    expect(container.querySelectorAll('.fi-chip').length).toEqual(2);
+  it('should have selected Chips shown', async () => {
+    await act(async () => {
+      const { container } = render(BasicCombobox);
+      expect(container.querySelectorAll('.fi-chip').length).toEqual(2);
+    });
   });
 
   it('first Chip should be removable and removed when clicked', async () => {
-    const promise = Promise.resolve();
-    const { container } = render(BasicCombobox);
-    const chip = container.querySelectorAll('.fi-chip')[0];
-    expect(chip).toHaveTextContent('Hammer');
-    expect(chip.querySelector('.fi-chip--icon')).not.toBeNull();
-    fireEvent.click(chip, {});
-    await act(() => promise);
-    expect(container.querySelectorAll('.fi-chip').length).toEqual(1);
-    const disabledChip = container.querySelectorAll('.fi-chip')[0];
-    expect(disabledChip).toHaveTextContent('Powersaw');
+    await act(async () => {
+      const { container } = render(BasicCombobox);
+      const chip = container.querySelectorAll('.fi-chip')[0];
+      expect(chip).toHaveTextContent('Hammer');
+      expect(chip.querySelector('.fi-chip--icon')).not.toBeNull();
+      await act(async () => {
+        fireEvent.click(chip, {});
+      });
+      const chips = await container.querySelectorAll('.fi-chip');
+      expect(chips.length).toEqual(1);
+      const disabledChip = await container.querySelectorAll('.fi-chip')[0];
+      expect(disabledChip).toHaveTextContent('Powersaw');
+    });
   });
 
   it('second Chip should be disabled', () => {
@@ -133,14 +141,17 @@ describe('Chips', () => {
   });
 
   it('should remove all non-disabled Chips', async () => {
-    const promise = Promise.resolve();
-    const { container } = render(BasicCombobox);
-    expect(container.querySelectorAll('.fi-chip').length).toEqual(2);
-    const removeAllButton = container.querySelectorAll(
-      '.fi-combobox-removeAll',
-    )[0];
-    fireEvent.click(removeAllButton, {});
-    await act(() => promise);
-    expect(container.querySelectorAll('.fi-chip').length).toEqual(1);
+    await act(async () => {
+      const { container } = render(BasicCombobox);
+      expect(container.querySelectorAll('.fi-chip').length).toEqual(2);
+      const removeAllButton = container.querySelectorAll(
+        '.fi-combobox-removeAll',
+      )[0];
+      await act(async () => {
+        fireEvent.click(removeAllButton, {});
+      });
+      const chips = await container.querySelectorAll('.fi-chip');
+      expect(chips.length).toEqual(1);
+    });
   });
 });
