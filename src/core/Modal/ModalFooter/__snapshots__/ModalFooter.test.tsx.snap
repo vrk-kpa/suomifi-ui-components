@@ -321,7 +321,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
 }
 
 .c4.fi-button--secondary:hover {
-  background: linear-gradient(0deg,hsl(202,7%,93%) 0%,hsl(0,0%,100%) 100%);
+  background: linear-gradient(-180deg,#ecedee 0%,rgba(255,255,255,0) 100%);
 }
 
 .c4.fi-button--secondary:active {
@@ -346,10 +346,11 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
   border: none;
+  background-color: transparent;
 }
 
 .c4.fi-button--secondary-noborder:hover {
-  background: linear-gradient(0deg,hsl(202,7%,93%) 0%,hsl(0,0%,100%) 100%);
+  background: linear-gradient(-180deg,#ecedee 0%,rgba(255,255,255,0) 100%);
 }
 
 .c4.fi-button--secondary-noborder:active {
@@ -367,28 +368,29 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c4.fi-button--tertiary {
+.c4.fi-button--link {
+  color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(212,63%,90%),hsl(212,63%,95%));
+  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(215,100%,95%));
   border: none;
 }
 
-.c4.fi-button--tertiary:hover {
-  background: linear-gradient(0deg,hsl(202,7%,93%) 0%,hsl(0,0%,100%) 100%);
+.c4.fi-button--link:hover {
+  background: linear-gradient(-180deg,#ecedee 0%,rgba(255,255,255,0) 100%);
 }
 
-.c4.fi-button--tertiary:active {
+.c4.fi-button--link:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c4.fi-button--tertiary.fi-button--disabled,
-.c4.fi-button--tertiary[disabled],
-.c4.fi-button--tertiary:disabled {
+.c4.fi-button--link.fi-button--disabled,
+.c4.fi-button--link[disabled],
+.c4.fi-button--link:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -396,12 +398,20 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c4.fi-button--tertiary:hover {
-  background: hsl(212,63%,95%);
+.c4.fi-button--link:hover {
+  background: linear-gradient(0deg,hsl(212,63%,98%),hsl(215,100%,97%));
 }
 
-.c4.fi-button--tertiary:active {
+.c4.fi-button--link:active {
   background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
+}
+
+.c4.fi-button--link.fi-button--disabled,
+.c4.fi-button--link[disabled],
+.c4.fi-button--link:disabled {
+  color: hsl(202,7%,67%);
+  background: none;
+  background-color: hsl(202,7%,97%);
 }
 
 .c4 > .fi-button_icon {
