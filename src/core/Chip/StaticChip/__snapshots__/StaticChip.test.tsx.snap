@@ -71,23 +71,11 @@ exports[`children should match snapshot 1`] = `
 
 .c1.fi-chip {
   border-radius: 14px;
-  padding-top: 2px;
-  padding-right: 22px;
-  padding-bottom: 2px;
-  padding-left: 10px;
+  padding: 2px 10px;
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
   max-height: 28px;
   display: inline-block;
-  position: relative;
-}
-
-.c1.fi-chip .fi-chip--icon {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  height: 12px;
-  width: 12px;
 }
 
 .c1.fi-chip .fi-chip--content {
@@ -108,10 +96,6 @@ exports[`children should match snapshot 1`] = `
 .c1.fi-chip--disabled.fi-chip:hover,
 .c1.fi-chip--disabled.fi-chip:active {
   background: hsl(202,7%,67%);
-}
-
-.c1.fi-chip--disabled .fi-chip--icon {
-  cursor: not-allowed;
 }
 
 <div>
@@ -202,23 +186,11 @@ exports[`classnames should match snapshot 1`] = `
 
 .c1.fi-chip {
   border-radius: 14px;
-  padding-top: 2px;
-  padding-right: 22px;
-  padding-bottom: 2px;
-  padding-left: 10px;
+  padding: 2px 10px;
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
   max-height: 28px;
   display: inline-block;
-  position: relative;
-}
-
-.c1.fi-chip .fi-chip--icon {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  height: 12px;
-  width: 12px;
 }
 
 .c1.fi-chip .fi-chip--content {
@@ -239,10 +211,6 @@ exports[`classnames should match snapshot 1`] = `
 .c1.fi-chip--disabled.fi-chip:hover,
 .c1.fi-chip--disabled.fi-chip:active {
   background: hsl(202,7%,67%);
-}
-
-.c1.fi-chip--disabled .fi-chip--icon {
-  cursor: not-allowed;
 }
 
 <div>
@@ -329,23 +297,11 @@ exports[`disabled should match snapshot 1`] = `
 
 .c1.fi-chip {
   border-radius: 14px;
-  padding-top: 2px;
-  padding-right: 22px;
-  padding-bottom: 2px;
-  padding-left: 10px;
+  padding: 2px 10px;
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
   max-height: 28px;
   display: inline-block;
-  position: relative;
-}
-
-.c1.fi-chip .fi-chip--icon {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  height: 12px;
-  width: 12px;
 }
 
 .c1.fi-chip .fi-chip--content {
@@ -366,10 +322,6 @@ exports[`disabled should match snapshot 1`] = `
 .c1.fi-chip--disabled.fi-chip:hover,
 .c1.fi-chip--disabled.fi-chip:active {
   background: hsl(202,7%,67%);
-}
-
-.c1.fi-chip--disabled .fi-chip--icon {
-  cursor: not-allowed;
 }
 
 <div>

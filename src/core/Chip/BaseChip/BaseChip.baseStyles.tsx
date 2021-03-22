@@ -19,23 +19,11 @@ export const baseChipBaseStyles = css`
 
   &.fi-chip {
     border-radius: 14px;
-    padding-top: ${theme.spacing.insetXxs};
-    padding-right: 22px;
-    padding-bottom: ${theme.spacing.insetXxs};
-    padding-left: ${theme.spacing.insetL};
+    padding: ${theme.spacing.insetXxs} ${theme.spacing.insetL};
     color: ${theme.colors.whiteBase};
     background: ${theme.colors.highlightBase};
     max-height: 28px;
     display: inline-block;
-    position: relative;
-
-    & .fi-chip--icon {
-      position: absolute;
-      top: 8px;
-      right: 10px;
-      height: 12px;
-      width: 12px;
-    }
 
     & .fi-chip--content {
       display: inline-block;
@@ -56,9 +44,6 @@ export const baseChipBaseStyles = css`
       &:active {
         background: ${theme.colors.depthBase};
       }
-    }
-    & .fi-chip--icon {
-      cursor: not-allowed;
     }
   }
 `;

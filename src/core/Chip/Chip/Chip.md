@@ -29,7 +29,7 @@ const chipStyle = {
       ref={exampleRef}
       onClick={() => console.log(exampleRef.current)}
     >
-      Removable chip with ref
+      Chip with ref
     </Chip>
   </div>
   <div>
