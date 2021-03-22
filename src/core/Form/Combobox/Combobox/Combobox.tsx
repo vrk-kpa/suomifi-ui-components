@@ -553,6 +553,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           {removeAllButtonLabel && (
             /* TODO: Change to use the link-variant of Button when it is available. */
             <Button
+              className="fi-combobox-removeAll"
               variant="secondary"
               icon="remove"
               onClick={this.handleRemoveAllSelections}

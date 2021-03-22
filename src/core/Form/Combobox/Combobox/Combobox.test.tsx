@@ -1,7 +1,5 @@
 import React from 'react';
-// import { render, prettyDOM } from '@testing-library/react';
 import { render, fireEvent, act } from '@testing-library/react';
-// import { render } from '@testing-library/react';
 import { axeTest } from '../../../../utils/test/axe';
 import { Combobox } from './Combobox';
 
@@ -132,5 +130,17 @@ describe('Chips', () => {
     expect(disabledChip).toHaveTextContent('Powersaw');
     expect(disabledChip).toHaveClass('fi-chip--disabled');
     expect(disabledChip).toHaveAttribute('disabled');
+  });
+
+  it('should remove all non-disabled Chips', async () => {
+    const promise = Promise.resolve();
+    const { container } = render(BasicCombobox);
+    expect(container.querySelectorAll('.fi-chip').length).toEqual(2);
+    const removeAllButton = container.querySelectorAll(
+      '.fi-combobox-removeAll',
+    )[0];
+    fireEvent.click(removeAllButton, {});
+    await act(() => promise);
+    expect(container.querySelectorAll('.fi-chip').length).toEqual(1);
   });
 });
