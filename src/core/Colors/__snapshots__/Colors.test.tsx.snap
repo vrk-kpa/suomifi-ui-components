@@ -990,7 +990,7 @@ exports[`check that snapshot matches 1`] = `
   height: 196px;
   max-width: 100%;
   color: #000;
-  border-bottom: 4px solid hsl(215,100%,91%);
+  border-bottom: 4px solid hsl(215,100%,95%);
   cursor: pointer;
   z-index: 2;
   position: relative;
@@ -2949,19 +2949,19 @@ exports[`check that snapshot matches 1`] = `
   </figure>
   <figure
     class="c12"
-    color="hsl(215, 100%, 91%)"
+    color="hsl(215, 100%, 95%)"
     tabindex="0"
   >
     <figcaption>
       <div
         class="fi-color__name"
       >
-        hsl(215, 100%, 91%)
+        hsl(215, 100%, 95%)
       </div>
       <div
         class="fi-color__name fi-color__name--hex"
       >
-        #d1e4ff
+        #e5f0ff
       </div>
       <div
         class="fi-color__name fi-color__name--key"
@@ -2970,11 +2970,11 @@ exports[`check that snapshot matches 1`] = `
       </div>
     </figcaption>
     <svg
-      aria-label="hsl(215, 100%, 91%)"
+      aria-label="hsl(215, 100%, 95%)"
       role="img"
     >
       <rect
-        fill="hsl(215, 100%, 91%)"
+        fill="hsl(215, 100%, 95%)"
       >
         <title>
           depthSecondaryDark1
