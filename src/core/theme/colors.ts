@@ -106,9 +106,9 @@ export const gradients = {
   whiteBaseNegative: `linear-gradient(-180deg, ${alphaHex(0.1)(
     colors.whiteBase,
   )} 0%, ${alphaHex(0)(colors.whiteBase)} 100%)`,
-  whiteBaseToDepthLight2: `linear-gradient(-180deg, ${alphaHex(1)(
-    colors.depthLight2,
-  )} 0%, ${alphaHex(0)(colors.whiteBase)} 100%)`,
+  whiteBaseToDepthLight2: `linear-gradient(-180deg, ${
+    colors.depthLight2
+  } 0%, ${alphaHex(0)(colors.whiteBase)} 100%)`,
   highlightLight3ToHighlightLight2: `linear-gradient(0deg, ${colors.highlightLight2}, ${colors.highlightLight3})`,
   depthLight3ToDepthLight2: `linear-gradient(0deg, ${colors.depthLight2}, ${colors.depthLight3})`,
   depthSecondaryToDepthSecondaryDark1: `linear-gradient(0deg, ${colors.depthSecondary}, ${colors.depthSecondaryDark1})`,
