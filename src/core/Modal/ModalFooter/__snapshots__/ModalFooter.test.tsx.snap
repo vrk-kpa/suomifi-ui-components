@@ -321,7 +321,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
 }
 
 .c4.fi-button--secondary:hover {
-  background: linear-gradient(-180deg,#ecedee 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
 .c4.fi-button--secondary:active {
@@ -339,7 +339,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c4.fi-button--secondary-noborder {
+.c4.fi-button--secondaryNoBorder {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -349,18 +349,18 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   background-color: transparent;
 }
 
-.c4.fi-button--secondary-noborder:hover {
-  background: linear-gradient(-180deg,#ecedee 0%,rgba(255,255,255,0) 100%);
+.c4.fi-button--secondaryNoBorder:hover {
+  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c4.fi-button--secondary-noborder:active {
+.c4.fi-button--secondaryNoBorder:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c4.fi-button--secondary-noborder.fi-button--disabled,
-.c4.fi-button--secondary-noborder[disabled],
-.c4.fi-button--secondary-noborder:disabled {
+.c4.fi-button--secondaryNoBorder.fi-button--disabled,
+.c4.fi-button--secondaryNoBorder[disabled],
+.c4.fi-button--secondaryNoBorder:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -380,7 +380,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
 }
 
 .c4.fi-button--link:hover {
-  background: linear-gradient(-180deg,#ecedee 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
 .c4.fi-button--link:active {
