@@ -24,7 +24,6 @@ const chipStyle = {
     </Chip>
     <Chip
       style={chipStyle}
-      removable
       actionLabel="Log referenced element"
       ref={exampleRef}
       onClick={() => console.log(exampleRef.current)}
