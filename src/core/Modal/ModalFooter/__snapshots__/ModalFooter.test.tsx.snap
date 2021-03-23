@@ -375,7 +375,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   background-color: hsl(0,0%,100%);
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(215,100%,95%));
+  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
   border: none;
 }
 
@@ -399,7 +399,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
 }
 
 .c4.fi-button--link:hover {
-  background: linear-gradient(0deg,hsl(212,63%,98%),hsl(215,100%,97%));
+  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
 
 .c4.fi-button--link:active {

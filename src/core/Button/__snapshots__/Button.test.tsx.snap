@@ -219,7 +219,7 @@ exports[`Button variant default should match snapshot 1`] = `
   background-color: hsl(0,0%,100%);
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(215,100%,95%));
+  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
   border: none;
 }
 
@@ -243,7 +243,7 @@ exports[`Button variant default should match snapshot 1`] = `
 }
 
 .c1.fi-button--link:hover {
-  background: linear-gradient(0deg,hsl(212,63%,98%),hsl(215,100%,97%));
+  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
 
 .c1.fi-button--link:active {
@@ -506,7 +506,7 @@ exports[`Button variant inverted should match snapshot 1`] = `
   background-color: hsl(0,0%,100%);
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(215,100%,95%));
+  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
   border: none;
 }
 
@@ -530,7 +530,7 @@ exports[`Button variant inverted should match snapshot 1`] = `
 }
 
 .c1.fi-button--link:hover {
-  background: linear-gradient(0deg,hsl(212,63%,98%),hsl(215,100%,97%));
+  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
 
 .c1.fi-button--link:active {
@@ -793,7 +793,7 @@ exports[`Button variant link match snapshot 1`] = `
   background-color: hsl(0,0%,100%);
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(215,100%,95%));
+  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
   border: none;
 }
 
@@ -817,7 +817,7 @@ exports[`Button variant link match snapshot 1`] = `
 }
 
 .c1.fi-button--link:hover {
-  background: linear-gradient(0deg,hsl(212,63%,98%),hsl(215,100%,97%));
+  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
 
 .c1.fi-button--link:active {
@@ -1080,7 +1080,7 @@ exports[`Button variant secondary should match snapshot 1`] = `
   background-color: hsl(0,0%,100%);
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(215,100%,95%));
+  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
   border: none;
 }
 
@@ -1104,7 +1104,7 @@ exports[`Button variant secondary should match snapshot 1`] = `
 }
 
 .c1.fi-button--link:hover {
-  background: linear-gradient(0deg,hsl(212,63%,98%),hsl(215,100%,97%));
+  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
 
 .c1.fi-button--link:active {
@@ -1367,7 +1367,7 @@ exports[`Button variant secondaryNoBorder should match snapshot 1`] = `
   background-color: hsl(0,0%,100%);
   border: 1px solid hsl(212,63%,45%);
   text-shadow: none;
-  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(215,100%,95%));
+  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
   border: none;
 }
 
@@ -1391,7 +1391,7 @@ exports[`Button variant secondaryNoBorder should match snapshot 1`] = `
 }
 
 .c1.fi-button--link:hover {
-  background: linear-gradient(0deg,hsl(212,63%,98%),hsl(215,100%,97%));
+  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
 
 .c1.fi-button--link:active {
