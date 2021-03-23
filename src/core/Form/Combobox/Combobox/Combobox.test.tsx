@@ -178,7 +178,7 @@ describe('controlled', () => {
     ];
     const combobox = (
       <Combobox
-        controlledItems={controlledItems}
+        selectedItems={controlledItems}
         labelText="Combobox"
         items={tools}
         chipListVisible={true}
