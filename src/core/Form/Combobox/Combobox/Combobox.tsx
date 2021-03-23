@@ -446,6 +446,21 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       ...passProps
     } = this.props;
 
+    const selectedAndDisabledKeys = Object.keys(selectedKeys).reduce(
+      (amount: number, key: any) => {
+        if (key in disabledKeys) {
+          return amount + 1;
+        }
+        return amount;
+      },
+      0,
+    );
+
+    const showRemoveAllButton =
+      removeAllButtonLabel &&
+      Object.keys(selectedKeys).length > 0 &&
+      Object.keys(selectedKeys).length !== selectedAndDisabledKeys;
+
     return (
       <HtmlDiv
         role="combobox"
@@ -550,7 +565,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
               ))}
             </ChipList>
           )}
-          {removeAllButtonLabel && (
+          {showRemoveAllButton && (
             /* TODO: Change to use the link-variant of Button when it is available. */
             <Button
               className="fi-combobox-removeAll"
