@@ -146,7 +146,7 @@ describe('Chips', () => {
       const { container } = render(BasicCombobox);
       expect(container.querySelectorAll('.fi-chip').length).toEqual(2);
       const removeAllButton = container.querySelectorAll(
-        '.fi-combobox-removeAll',
+        '.fi-combobox_removeAllButton',
       )[0];
       await act(async () => {
         fireEvent.click(removeAllButton, {});
