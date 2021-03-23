@@ -19,6 +19,7 @@ const baseClassName = 'fi-combobox';
 const comboboxClassNames = {
   wrapper: `${baseClassName}_wrapper`,
   open: `${baseClassName}--open`,
+  removeAllButton: `${baseClassName}_removeAllButton`,
 };
 
 export interface ComboboxData {
@@ -566,13 +567,11 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             </ChipList>
           )}
           {showRemoveAllButton && (
-            /* TODO: Change to use the link-variant of Button when it is available. */
             <Button
-              className="fi-combobox-removeAll"
-              variant="secondary"
+              className={classnames(comboboxClassNames.removeAllButton, {})}
+              variant="link"
               icon="remove"
               onClick={this.handleRemoveAllSelections}
-              style={{ borderRadius: 20, marginTop: 10 }}
             >
               {removeAllButtonLabel}
             </Button>
