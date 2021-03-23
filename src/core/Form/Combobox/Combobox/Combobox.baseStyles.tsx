@@ -44,4 +44,8 @@ export const baseStyles = css`
       border-bottom-right-radius: 0;
     }
   }
+
+  & .fi-combobox_removeAllButton {
+    margin-top: 10px;
+  }
 `;
