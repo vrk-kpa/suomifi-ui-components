@@ -24,11 +24,15 @@ const chipStyle = {
     </Chip>
     <Chip
       style={chipStyle}
+      removable
       actionLabel="Log referenced element"
       ref={exampleRef}
-      onClick={() => console.log(exampleRef.current)}
+      onClick={() => {
+        console.log(exampleRef.current);
+        removeAction();
+      }}
     >
-      Chip with ref
+      Removable chip with ref
     </Chip>
   </div>
   <div>

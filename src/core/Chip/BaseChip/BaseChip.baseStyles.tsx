@@ -32,7 +32,6 @@ export const baseChipBaseStyles = css`
       overflow: hidden;
       text-overflow: ellipsis;
       line-height: 1.5em;
-      vertical-align: center;
     }
   }
 

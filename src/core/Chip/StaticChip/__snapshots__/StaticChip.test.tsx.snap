@@ -85,7 +85,6 @@ exports[`children should match snapshot 1`] = `
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.5em;
-  vertical-align: center;
 }
 
 .c1.fi-chip--disabled.fi-chip {
@@ -200,7 +199,6 @@ exports[`classnames should match snapshot 1`] = `
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.5em;
-  vertical-align: center;
 }
 
 .c1.fi-chip--disabled.fi-chip {
@@ -311,7 +309,6 @@ exports[`disabled should match snapshot 1`] = `
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.5em;
-  vertical-align: center;
 }
 
 .c1.fi-chip--disabled.fi-chip {

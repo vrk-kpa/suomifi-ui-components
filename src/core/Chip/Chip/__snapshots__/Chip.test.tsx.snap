@@ -138,7 +138,6 @@ exports[`children should match snapshot 1`] = `
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.5em;
-  vertical-align: center;
 }
 
 .c1.fi-chip--disabled.fi-chip {
@@ -184,7 +183,7 @@ exports[`children should match snapshot 1`] = `
   margin-right: 10px;
 }
 
-.c1.fi-chip--disabled .fi-chip--icon {
+.c1.fi-chip--removable.fi-chip--disabled .fi-chip--icon {
   cursor: not-allowed;
 }
 
@@ -344,7 +343,6 @@ exports[`classnames should match snapshot 1`] = `
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.5em;
-  vertical-align: center;
 }
 
 .c1.fi-chip--disabled.fi-chip {
@@ -390,7 +388,7 @@ exports[`classnames should match snapshot 1`] = `
   margin-right: 10px;
 }
 
-.c1.fi-chip--disabled .fi-chip--icon {
+.c1.fi-chip--removable.fi-chip--disabled .fi-chip--icon {
   cursor: not-allowed;
 }
 
@@ -546,7 +544,6 @@ exports[`disabled should match snapshot 1`] = `
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.5em;
-  vertical-align: center;
 }
 
 .c1.fi-chip--disabled.fi-chip {
@@ -592,7 +589,7 @@ exports[`disabled should match snapshot 1`] = `
   margin-right: 10px;
 }
 
-.c1.fi-chip--disabled .fi-chip--icon {
+.c1.fi-chip--removable.fi-chip--disabled .fi-chip--icon {
   cursor: not-allowed;
 }
 

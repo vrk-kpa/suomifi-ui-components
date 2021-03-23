@@ -34,11 +34,11 @@ export const baseStyles = css`
       max-width: 248px;
       margin-right: ${theme.spacing.xs};
     }
-  }
 
-  &.fi-chip--disabled {
-    & .fi-chip--icon {
-      cursor: not-allowed;
+    &.fi-chip--disabled {
+      & .fi-chip--icon {
+        cursor: not-allowed;
+      }
     }
   }
 `;
