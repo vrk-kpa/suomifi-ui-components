@@ -71,7 +71,7 @@ export interface ComboboxProps<T extends ComboboxData> {
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
   /** Controlled items; if item is in array, it is selected. If item has disabled: true, it will be disabled. */
-  controlledItems?: Array<T & ComboboxData>;
+  selectedItems?: Array<T & ComboboxData>;
   /** Selecting the item will send event with the id */
   onItemSelect?: (uniqueItemId: string) => void;
   /** Event to be sent when pressing remove all button */
@@ -130,15 +130,15 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     filteredItems: this.props.items,
     showPopover: false,
     currentSelection: null,
-    selectedKeys: this.props.controlledItems
-      ? getSelectedKeys(this.props.controlledItems || [])
+    selectedKeys: this.props.selectedItems
+      ? getSelectedKeys(this.props.selectedItems || [])
       : getSelectedKeys(this.props.defaultSelectedItems || []),
-    selectedItems: this.props.controlledItems
-      ? this.props.controlledItems || []
+    selectedItems: this.props.selectedItems
+      ? this.props.selectedItems || []
       : this.props.defaultSelectedItems || [],
     initialItems: this.props.items,
-    disabledKeys: this.props.controlledItems
-      ? getDisabledKeys(this.props.controlledItems || [])
+    disabledKeys: this.props.selectedItems
+      ? getDisabledKeys(this.props.selectedItems || [])
       : getDisabledKeys(this.props.items || []),
   };
 
@@ -146,11 +146,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     nextProps: ComboboxProps<U & ComboboxData>,
     prevState: ComboboxState<U & ComboboxData>,
   ) {
-    const {
-      items: propItems,
-      controlledItems,
-      defaultSelectedItems,
-    } = nextProps;
+    const { items: propItems, selectedItems, defaultSelectedItems } = nextProps;
     if (propItems !== prevState.initialItems) {
       return {
         filteredItems: propItems,
@@ -159,13 +155,13 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       };
     }
     if (
-      'controlledItems' in nextProps &&
-      controlledItems !== prevState.selectedItems
+      'selectedItems' in nextProps &&
+      selectedItems !== prevState.selectedItems
     ) {
       return {
-        selectedItems: controlledItems || defaultSelectedItems || [],
-        selectedKeys: getSelectedKeys(controlledItems || []),
-        disabledKeys: getDisabledKeys(controlledItems || []),
+        selectedItems: selectedItems || defaultSelectedItems || [],
+        selectedKeys: getSelectedKeys(selectedItems || []),
+        disabledKeys: getDisabledKeys(selectedItems || []),
       };
     }
     return null;
@@ -180,7 +176,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         const {
           onItemSelectionsChange,
           onItemSelect,
-          controlledItems,
+          selectedItems: controlledItems,
         } = prevProps;
         const { selectedKeys, selectedItems } = prevState;
         const newSelectedKeys = Object.assign({}, selectedKeys);
@@ -441,7 +437,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       debounce,
       status,
       statusText,
-      controlledItems,
+      selectedItems: controlledItems,
       onItemSelect,
       onRemoveAll,
       ...passProps
