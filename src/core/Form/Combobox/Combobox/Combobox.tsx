@@ -448,7 +448,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     } = this.props;
 
     const selectedAndDisabledKeys = Object.keys(selectedKeys).reduce(
-      (amount: number, key: any) => {
+      (amount: number, key: string) => {
         if (key in disabledKeys) {
           return amount + 1;
         }
