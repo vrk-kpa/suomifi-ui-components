@@ -141,8 +141,7 @@
     "react-popper": "2.2.4",
     "react-svg": "11.2.1",
     "suomifi-design-tokens": "3.1.0",
-    "suomifi-icons": "^2.0.0",
-    "uuid": "8.3.2"
+    "suomifi-icons": "^2.0.0"
   },
   "peerDependencies": {
     "@types/styled-components": ">=5.1.4",
