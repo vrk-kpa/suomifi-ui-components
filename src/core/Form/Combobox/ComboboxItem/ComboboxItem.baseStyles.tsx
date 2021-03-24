@@ -31,6 +31,10 @@ export const baseStyles = css`
         background-color: transparent;
         font-weight: bold;
       }
+
+      & .fi-checkbox_icon {
+        pointer-events: none;
+      }
     }
 
     & .fi-checkbox--checked {
