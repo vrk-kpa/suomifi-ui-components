@@ -147,13 +147,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     prevState: ComboboxState<U & ComboboxData>,
   ) {
     const { items: propItems, selectedItems, defaultSelectedItems } = nextProps;
-    if (propItems !== prevState.initialItems) {
-      return {
-        filteredItems: propItems,
-        initialItems: propItems,
-        disabledKeys: getDisabledKeys(propItems),
-      };
-    }
     if (
       'selectedItems' in nextProps &&
       selectedItems !== prevState.selectedItems
@@ -162,6 +155,13 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         selectedItems: selectedItems || defaultSelectedItems || [],
         selectedKeys: getSelectedKeys(selectedItems || []),
         disabledKeys: getDisabledKeys(selectedItems || []),
+      };
+    }
+    if (propItems !== prevState.initialItems) {
+      return {
+        filteredItems: propItems,
+        initialItems: propItems,
+        disabledKeys: getDisabledKeys(propItems),
       };
     }
     return null;
@@ -526,7 +526,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                         id={`${id}-${item.uniqueItemId}`}
                         checked={item.uniqueItemId in selectedKeys}
                         disabled={item.uniqueItemId in disabledKeys}
-                        //
                         onClick={() => {
                           focusToMenu();
                           this.handleItemSelection(item);
