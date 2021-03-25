@@ -43,8 +43,8 @@ type ExpanderGroupTargetOpenState = {
 };
 
 interface ExpanderGroupState {
-  /** Expanders by id with current open state */
-  expanders: ExpanderOpenStates;
+  /** Current combined open state of all expanders */
+  allOpen: boolean | undefined;
   /** State change transition request */
   expanderGroupOpenState: ExpanderGroupTargetOpenState;
 }
@@ -67,30 +67,31 @@ const { Provider, Consumer: ExpanderGroupConsumer } = React.createContext(
 
 class BaseExpanderGroup extends Component<ExpanderGroupProps> {
   state: ExpanderGroupState = {
-    expanders: {},
+    allOpen: undefined,
     expanderGroupOpenState: {
       targetOpenState: false,
     },
   };
 
+  /** Expanders by id with current open state */
+  private expanders: ExpanderOpenStates = {};
+
   handleExpanderOpenChange = (id: string, newState: boolean | undefined) => {
-    this.setState((prevState: ExpanderGroupState) => {
-      const { expanders: prevExpanders } = prevState;
-      const expanders = Object.assign({}, prevExpanders);
-      if (newState !== undefined) {
-        expanders[id] = newState;
-        return {
-          expanders,
-        };
-      }
-      delete expanders[id];
-      return { expanders };
-    });
+    if (newState !== undefined) {
+      this.expanders[id] = newState;
+    } else {
+      delete this.expanders[id];
+    }
+    const newAllOpenState = this.expandersOpenState();
+    console.log(this.state.allOpen, newAllOpenState.allOpen, id, newState);
+    if (this.state.allOpen !== newAllOpenState.allOpen) {
+      this.setState({ allOpen: newAllOpenState.allOpen });
+    }
   };
 
   expandersOpenState = () => {
-    const expanderCount = Object.keys(this.state.expanders).length;
-    const openExpanderCount = Object.values(this.state.expanders).filter(
+    const expanderCount = Object.keys(this.expanders).length;
+    const openExpanderCount = Object.values(this.expanders).filter(
       (isOpen) => !!isOpen,
     ).length;
     return {
@@ -121,7 +122,6 @@ class BaseExpanderGroup extends Component<ExpanderGroupProps> {
     } = this.props;
     const { expanderGroupOpenState } = this.state;
     const { openExpanderCount, allOpen } = this.expandersOpenState();
-
     return (
       <HtmlDiv
         {...passProps}
