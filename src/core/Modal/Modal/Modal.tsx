@@ -1,9 +1,9 @@
-import React, { Component, ReactNode, MouseEvent } from 'react';
+import React, { Component, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { default as styled } from 'styled-components';
 import { createFocusTrap, FocusTrap } from 'focus-trap';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlDivProps } from '../../../reset';
+import { HtmlDiv, HtmlDivProps, HtmlDivWithRef } from '../../../reset';
 import { AutoId } from '../../../utils/AutoId';
 import { windowAvailable } from '../../../utils/common';
 import { ModalContent, ModalFooter } from '../';
@@ -150,9 +150,6 @@ class BaseModal extends Component<ModalProps> {
     }
   };
 
-  private preventCursorEscape = (event: MouseEvent<HTMLDivElement>) =>
-    event.preventDefault();
-
   render() {
     const {
       visible,
@@ -170,8 +167,8 @@ class BaseModal extends Component<ModalProps> {
 
     const titleId = `${id}_title`;
     const content = (
-      <div
-        ref={this.focusTrapWrapperRef}
+      <HtmlDivWithRef
+        forwardedRef={this.focusTrapWrapperRef}
         aria-describedby={titleId}
         role="dialog"
         aria-modal="true"
@@ -181,18 +178,14 @@ class BaseModal extends Component<ModalProps> {
           [modalClassNames.noPortal]: usePortal === false,
         })}
       >
-        <HtmlDiv
-          className={modalClassNames.overlay}
-          onClick={this.preventCursorEscape}
-          onMouseDown={this.preventCursorEscape}
-        >
+        <HtmlDiv className={modalClassNames.overlay}>
           <HtmlDiv className={modalClassNames.contentContainer} {...passProps}>
             <ModalProvider value={{ titleId, variant, scrollable }}>
               {children}
             </ModalProvider>
           </HtmlDiv>
         </HtmlDiv>
-      </div>
+      </HtmlDivWithRef>
     );
     // Skip portal if no mount node is available, if we are on a server or if explicitly requested
     if (!this.portalMountNode || !windowAvailable() || usePortal === false) {

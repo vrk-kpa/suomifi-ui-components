@@ -51,6 +51,7 @@ export const baseStyles = css`
 
     &--small-screen {
       & .fi-modal_content-container {
+        border-radius: 0;
         width: 100%;
         height: 100%;
         max-height: 100%;

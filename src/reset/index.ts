@@ -1,6 +1,11 @@
 export { HtmlA, HtmlAProps } from './HtmlA/HtmlA';
 export { HtmlButton, HtmlButtonProps } from './HtmlButton/HtmlButton';
-export { HtmlDiv, HtmlDivProps } from './HtmlDiv/HtmlDiv';
+export {
+  HtmlDiv,
+  HtmlDivProps,
+  HtmlDivWithRef,
+  HtmlDivWithRefProps,
+} from './HtmlDiv/HtmlDiv';
 export { HtmlFieldSet, HtmlFieldSetProps } from './HtmlFieldSet/HtmlFieldSet';
 export { HtmlH, HtmlHProps } from './HtmlH/HtmlH';
 export { HtmlInput, HtmlInputProps } from './HtmlInput/HtmlInput';
