@@ -84,7 +84,7 @@ class BaseModal extends Component<ModalProps> {
 
   private focusTrapWrapperRef: React.RefObject<HTMLDivElement>;
 
-  private contentWrapperRef: React.RefObject<HTMLDivElement>;
+  private contentContainerRef: React.RefObject<HTMLDivElement>;
 
   private portalMountNode: HTMLElement | null = !!document
     ? document.body
@@ -95,7 +95,7 @@ class BaseModal extends Component<ModalProps> {
   constructor(props: ModalProps) {
     super(props);
     this.focusTrapWrapperRef = React.createRef();
-    this.contentWrapperRef = React.createRef();
+    this.contentContainerRef = React.createRef();
     if (windowAvailable()) {
       this.previouslyFocusedElement = document.activeElement;
     }
@@ -154,7 +154,7 @@ class BaseModal extends Component<ModalProps> {
   };
 
   private preventCursorEscape = (event: MouseEvent<HTMLDivElement>) => {
-    if (!this.contentWrapperRef.current?.contains(event.target as Node)) {
+    if (!this.contentContainerRef.current?.contains(event.target as Node)) {
       event.preventDefault();
       event.stopPropagation();
     }
@@ -188,18 +188,21 @@ class BaseModal extends Component<ModalProps> {
           [modalClassNames.noPortal]: usePortal === false,
         })}
       >
-        <HtmlDivWithRef
-          ref={this.contentWrapperRef}
+        <HtmlDiv
           className={modalClassNames.overlay}
           onClick={this.preventCursorEscape}
           onMouseDown={this.preventCursorEscape}
         >
-          <HtmlDiv className={modalClassNames.contentContainer} {...passProps}>
+          <HtmlDivWithRef
+            className={modalClassNames.contentContainer}
+            forwardedRef={this.contentContainerRef}
+            {...passProps}
+          >
             <ModalProvider value={{ titleId, variant, scrollable }}>
               {children}
             </ModalProvider>
-          </HtmlDiv>
-        </HtmlDivWithRef>
+          </HtmlDivWithRef>
+        </HtmlDiv>
       </div>
     );
     // Skip portal if no mount node is available, if we are on a server or if explicitly requested
