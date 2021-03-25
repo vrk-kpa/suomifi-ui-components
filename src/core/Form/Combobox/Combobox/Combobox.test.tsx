@@ -206,3 +206,46 @@ describe('controlled', () => {
     });
   });
 });
+
+it('should have correct baseClassName', async () => {
+  await act(async () => {
+    const { container } = render(BasicCombobox);
+    expect(container.firstChild).toHaveClass('fi-combobox');
+  });
+});
+
+it('has given custom classname', async () => {
+  await act(async () => {
+    const { container } = render(
+      <Combobox
+        labelText="Combobox"
+        items={[]}
+        emptyItemsLabel="No items"
+        className="custom-class"
+      />,
+    );
+    expect(container.firstChild).toHaveClass('custom-class');
+  });
+});
+
+it('has the given text as label', async () => {
+  await act(async () => {
+    const { queryByText } = render(
+      <Combobox labelText="Combobox" items={[]} emptyItemsLabel="No items" />,
+    );
+    expect(queryByText('Combobox')).not.toBeNull();
+  });
+});
+
+it('has the given text as placeholder attribute', () => {
+  const { getByRole } = render(
+    <Combobox
+      labelText="Combobox"
+      items={[]}
+      emptyItemsLabel="No items"
+      visualPlaceholder="Select item(s)"
+    />,
+  );
+  const inputfield = getByRole('textbox') as HTMLInputElement;
+  expect(inputfield).toHaveAttribute('placeholder', 'Select item(s)');
+});
