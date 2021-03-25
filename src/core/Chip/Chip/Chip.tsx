@@ -22,7 +22,7 @@ interface InternalChipProps
   extends BaseChipProps,
     Omit<
       HtmlButtonProps,
-      'forwardedRef' | 'disabled' | 'onClick' | 'children'
+      'forwardedRef' | 'disabled' | 'onClick' | 'children' | 'as'
     > {
   /**
    * Event handler to execute when clicked

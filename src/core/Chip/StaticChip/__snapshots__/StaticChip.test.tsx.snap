@@ -78,14 +78,6 @@ exports[`children should match snapshot 1`] = `
   display: inline-block;
 }
 
-.c1.fi-chip .fi-chip--icon {
-  height: 12px;
-  width: 12px;
-  -webkit-transform: translateY(-0.35em);
-  -ms-transform: translateY(-0.35em);
-  transform: translateY(-0.35em);
-}
-
 .c1.fi-chip .fi-chip--content {
   display: inline-block;
   max-width: 270px;
@@ -93,7 +85,6 @@ exports[`children should match snapshot 1`] = `
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.5em;
-  vertical-align: center;
 }
 
 .c1.fi-chip--disabled.fi-chip {
@@ -104,10 +95,6 @@ exports[`children should match snapshot 1`] = `
 .c1.fi-chip--disabled.fi-chip:hover,
 .c1.fi-chip--disabled.fi-chip:active {
   background: hsl(202,7%,67%);
-}
-
-.c1.fi-chip--disabled .fi-chip--icon {
-  cursor: not-allowed;
 }
 
 <div>
@@ -205,14 +192,6 @@ exports[`classnames should match snapshot 1`] = `
   display: inline-block;
 }
 
-.c1.fi-chip .fi-chip--icon {
-  height: 12px;
-  width: 12px;
-  -webkit-transform: translateY(-0.35em);
-  -ms-transform: translateY(-0.35em);
-  transform: translateY(-0.35em);
-}
-
 .c1.fi-chip .fi-chip--content {
   display: inline-block;
   max-width: 270px;
@@ -220,7 +199,6 @@ exports[`classnames should match snapshot 1`] = `
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.5em;
-  vertical-align: center;
 }
 
 .c1.fi-chip--disabled.fi-chip {
@@ -231,10 +209,6 @@ exports[`classnames should match snapshot 1`] = `
 .c1.fi-chip--disabled.fi-chip:hover,
 .c1.fi-chip--disabled.fi-chip:active {
   background: hsl(202,7%,67%);
-}
-
-.c1.fi-chip--disabled .fi-chip--icon {
-  cursor: not-allowed;
 }
 
 <div>
@@ -328,14 +302,6 @@ exports[`disabled should match snapshot 1`] = `
   display: inline-block;
 }
 
-.c1.fi-chip .fi-chip--icon {
-  height: 12px;
-  width: 12px;
-  -webkit-transform: translateY(-0.35em);
-  -ms-transform: translateY(-0.35em);
-  transform: translateY(-0.35em);
-}
-
 .c1.fi-chip .fi-chip--content {
   display: inline-block;
   max-width: 270px;
@@ -343,7 +309,6 @@ exports[`disabled should match snapshot 1`] = `
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.5em;
-  vertical-align: center;
 }
 
 .c1.fi-chip--disabled.fi-chip {
@@ -354,10 +319,6 @@ exports[`disabled should match snapshot 1`] = `
 .c1.fi-chip--disabled.fi-chip:hover,
 .c1.fi-chip--disabled.fi-chip:active {
   background: hsl(202,7%,67%);
-}
-
-.c1.fi-chip--disabled .fi-chip--icon {
-  cursor: not-allowed;
 }
 
 <div>

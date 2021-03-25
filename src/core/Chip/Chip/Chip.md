@@ -7,24 +7,30 @@ const removeAction = () => {
 };
 
 const exampleRef = React.createRef();
-
+const chipStyle = {
+  display: 'inline-block',
+  marginRight: '10px',
+  marginBottom: '24px'
+};
 <>
   <div>
-    <span style={{ marginRight: '10px' }}>
-      <Chip
-        removable
-        actionLabel="Deselect item"
-        onClick={removeAction}
-      >
-        Removable chip
-      </Chip>
-    </span>
-
     <Chip
+      style={chipStyle}
+      removable
+      actionLabel="Deselect item"
+      onClick={removeAction}
+    >
+      Removable chip
+    </Chip>
+    <Chip
+      style={chipStyle}
       removable
       actionLabel="Log referenced element"
       ref={exampleRef}
-      onClick={() => console.log(exampleRef.current)}
+      onClick={() => {
+        console.log(exampleRef.current);
+        removeAction();
+      }}
     >
       Removable chip with ref
     </Chip>

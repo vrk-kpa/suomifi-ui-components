@@ -25,12 +25,6 @@ export const baseChipBaseStyles = css`
     max-height: 28px;
     display: inline-block;
 
-    & .fi-chip--icon {
-      height: 12px;
-      width: 12px;
-      transform: translateY(-0.35em);
-    }
-
     & .fi-chip--content {
       display: inline-block;
       max-width: 270px;
@@ -38,7 +32,6 @@ export const baseChipBaseStyles = css`
       overflow: hidden;
       text-overflow: ellipsis;
       line-height: 1.5em;
-      vertical-align: center;
     }
   }
 
@@ -50,9 +43,6 @@ export const baseChipBaseStyles = css`
       &:active {
         background: ${theme.colors.depthBase};
       }
-    }
-    & .fi-chip--icon {
-      cursor: not-allowed;
     }
   }
 `;
