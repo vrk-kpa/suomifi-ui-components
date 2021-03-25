@@ -135,6 +135,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
       visualPlaceholder,
       id,
       fullWidth,
+      debounce,
       'aria-describedby': ariaDescribedBy,
       ...passProps
     } = this.props;
@@ -211,7 +212,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
           <LabelText htmlFor={id} labelMode={labelMode} asProp="label">
             {labelText}
           </LabelText>
-          <Debounce waitFor={this.props.debounce}>
+          <Debounce waitFor={debounce}>
             {(debouncer: Function, cancelDebounce: Function) => (
               <HtmlDiv className={searchInputClassNames.functionalityContainer}>
                 <HtmlDiv

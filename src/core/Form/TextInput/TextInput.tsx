@@ -112,6 +112,7 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
       icon,
       iconProps,
       forwardedRef,
+      debounce,
       'aria-describedby': ariaDescribedBy,
       ...passProps
     } = this.props;
@@ -142,7 +143,7 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
           </LabelText>
           <HintText id={hintTextId}>{hintText}</HintText>
           <HtmlDiv className={textInputClassNames.inputElementContainer}>
-            <Debounce waitFor={this.props.debounce}>
+            <Debounce waitFor={debounce}>
               {(debouncer: Function) => (
                 <HtmlInput
                   {...passProps}
