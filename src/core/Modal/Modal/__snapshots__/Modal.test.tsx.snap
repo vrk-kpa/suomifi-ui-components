@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Basic modal should match snapshot 1`] = `
-.c7 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,30 +27,30 @@ exports[`Basic modal should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c7:-moz-focusring {
+.c8:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c7::-moz-focus-inner {
+.c8::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c7::-webkit-file-upload-button {
+.c8::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c7::-webkit-inner-spin-button {
+.c8::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c7::-webkit-outer-spin-button {
+.c8::-webkit-outer-spin-button {
   height: auto;
 }
 
-.c7::before,
-.c7::after {
+.c8::before,
+.c8::after {
   box-sizing: border-box;
 }
 
@@ -83,7 +83,7 @@ exports[`Basic modal should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c3 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -107,8 +107,37 @@ exports[`Basic modal should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c4::before,
+.c4::after {
   box-sizing: border-box;
 }
 
@@ -194,7 +223,7 @@ exports[`Basic modal should match snapshot 1`] = `
   max-height: 100%;
 }
 
-.c2.fi-modal_content {
+.c3.fi-modal_content {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -203,19 +232,19 @@ exports[`Basic modal should match snapshot 1`] = `
   overflow-y: auto;
 }
 
-.c2.fi-modal_content--no-scroll {
+.c3.fi-modal_content--no-scroll {
   overflow: hidden;
   padding: 34px 30px 10px 30px;
 }
 
-.c2.fi-modal_content--small-screen {
+.c3.fi-modal_content--small-screen {
   padding-top: 20px;
   padding-left: 20px;
   padding-bottom: 50px;
   padding-right: 20px;
 }
 
-.c4 {
+.c5 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -233,7 +262,7 @@ exports[`Basic modal should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-heading--h1hero {
+.c5.fi-heading--h1hero {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -249,7 +278,7 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--h1 {
+.c5.fi-heading--h1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -265,7 +294,7 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 300;
 }
 
-.c4.fi-heading--h2 {
+.c5.fi-heading--h2 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -281,7 +310,7 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--h3 {
+.c5.fi-heading--h3 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -297,7 +326,7 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--h4 {
+.c5.fi-heading--h4 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -313,7 +342,7 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--h5 {
+.c5.fi-heading--h5 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -329,7 +358,7 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--h6 {
+.c5.fi-heading--h6 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -345,7 +374,7 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--small-screen {
+.c5.fi-heading--small-screen {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -361,7 +390,7 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 300;
 }
 
-.c4.fi-heading--small-screen.fi-heading--h1hero {
+.c5.fi-heading--small-screen.fi-heading--h1hero {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -377,7 +406,7 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--small-screen.fi-heading--h1 {
+.c5.fi-heading--small-screen.fi-heading--h1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -393,7 +422,7 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 300;
 }
 
-.c4.fi-heading--small-screen.fi-heading--h2 {
+.c5.fi-heading--small-screen.fi-heading--h2 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -409,7 +438,7 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--small-screen.fi-heading--h3 {
+.c5.fi-heading--small-screen.fi-heading--h3 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -425,7 +454,7 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--small-screen.fi-heading--h4 {
+.c5.fi-heading--small-screen.fi-heading--h4 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -441,7 +470,7 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--small-screen.fi-heading--h5 {
+.c5.fi-heading--small-screen.fi-heading--h5 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -457,7 +486,7 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--small-screen.fi-heading--h6 {
+.c5.fi-heading--small-screen.fi-heading--h6 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -473,38 +502,38 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c5.fi-modal_title {
+.c6.fi-modal_title {
   padding-bottom: 20px;
 }
 
-.c5.fi-modal_title--no-scroll {
+.c6.fi-modal_title--no-scroll {
   padding-bottom: 10px;
 }
 
-.c5.fi-modal_title--small-screen {
+.c6.fi-modal_title--small-screen {
   padding-bottom: 20px;
 }
 
-.c6.fi-modal_footer {
+.c7.fi-modal_footer {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   position: relative;
 }
 
-.c6.fi-modal_footer .fi-modal_footer_content {
+.c7.fi-modal_footer .fi-modal_footer_content {
   padding-top: 0;
   padding-right: 15px;
   padding-bottom: 20px;
   padding-left: 30px;
 }
 
-.c6.fi-modal_footer .fi-modal_footer_content > * {
+.c7.fi-modal_footer .fi-modal_footer_content > * {
   margin-top: 20px;
   margin-right: 15px;
 }
 
-.c6.fi-modal_footer .fi-modal_footer_content-gradient-overlay {
+.c7.fi-modal_footer .fi-modal_footer_content-gradient-overlay {
   position: absolute;
   height: 51px;
   width: 100%;
@@ -512,25 +541,25 @@ exports[`Basic modal should match snapshot 1`] = `
   border-bottom: 1px solid hsl(202,7%,80%);
 }
 
-.c6.fi-modal_footer .fi-modal_footer_content-gradient-overlay .fi-modal_footer_content-gradient {
+.c7.fi-modal_footer .fi-modal_footer_content-gradient-overlay .fi-modal_footer_content-gradient {
   height: 50px;
   margin: 0 20px 0 20px;
   background: linear-gradient( 0deg, hsl(0,0%,100%), rgba(255,255,255,0) );
 }
 
-.c6.fi-modal_footer--small-screen .fi-modal_footer_content {
+.c7.fi-modal_footer--small-screen .fi-modal_footer_content {
   padding-right: 5px;
   padding-bottom: 15px;
   padding-left: 20px;
 }
 
-.c6.fi-modal_footer--small-screen .fi-modal_footer_content > * {
+.c7.fi-modal_footer--small-screen .fi-modal_footer_content > * {
   display: block;
   width: calc(100% - 15px);
   margin-top: 15px;
 }
 
-.c8 {
+.c9 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -557,12 +586,12 @@ exports[`Basic modal should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c8:focus {
+.c9:focus {
   outline: none;
   position: relative;
 }
 
-.c8:focus::after {
+.c9:focus::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -578,17 +607,17 @@ exports[`Basic modal should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c8:hover {
+.c9:hover {
   background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
 }
 
-.c8:active {
+.c9:active {
   background: hsl(212,63%,37%);
 }
 
-.c8.fi-button--disabled,
-.c8[disabled],
-.c8:disabled {
+.c9.fi-button--disabled,
+.c9[disabled],
+.c9:disabled {
   text-shadow: 0 1px 1px rgba(41,41,41,0.5);
   background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
   -webkit-user-select: none;
@@ -598,41 +627,41 @@ exports[`Basic modal should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c8.fi-button--disabled::after {
+.c9.fi-button--disabled::after {
   border: none;
   box-shadow: none;
 }
 
-.c8.fi-button--fullwidth {
+.c9.fi-button--fullwidth {
   display: block;
   width: 100%;
 }
 
-.c8.fi-button--inverted {
+.c9.fi-button--inverted {
   background: none;
   background-color: hsl(212,63%,45%);
   border: 1px solid hsl(0,0%,100%);
   text-shadow: none;
 }
 
-.c8.fi-button--inverted:hover {
+.c9.fi-button--inverted:hover {
   background: linear-gradient(-180deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c8.fi-button--inverted:active {
+.c9.fi-button--inverted:active {
   background: none;
   background-color: hsl(212,63%,45%);
 }
 
-.c8.fi-button--inverted.fi-button--disabled,
-.c8.fi-button--inverted[disabled],
-.c8.fi-button--inverted:disabled {
+.c9.fi-button--inverted.fi-button--disabled,
+.c9.fi-button--inverted[disabled],
+.c9.fi-button--inverted:disabled {
   opacity: 0.41;
   background: none;
   background-color: none;
 }
 
-.c8.fi-button--secondary {
+.c9.fi-button--secondary {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -640,18 +669,18 @@ exports[`Basic modal should match snapshot 1`] = `
   text-shadow: none;
 }
 
-.c8.fi-button--secondary:hover {
+.c9.fi-button--secondary:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c8.fi-button--secondary:active {
+.c9.fi-button--secondary:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c8.fi-button--secondary.fi-button--disabled,
-.c8.fi-button--secondary[disabled],
-.c8.fi-button--secondary:disabled {
+.c9.fi-button--secondary.fi-button--disabled,
+.c9.fi-button--secondary[disabled],
+.c9.fi-button--secondary:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -659,7 +688,7 @@ exports[`Basic modal should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c8.fi-button--secondary-noborder {
+.c9.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -669,18 +698,18 @@ exports[`Basic modal should match snapshot 1`] = `
   background-color: transparent;
 }
 
-.c8.fi-button--secondary-noborder:hover {
+.c9.fi-button--secondary-noborder:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c8.fi-button--secondary-noborder:active {
+.c9.fi-button--secondary-noborder:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c8.fi-button--secondary-noborder.fi-button--disabled,
-.c8.fi-button--secondary-noborder[disabled],
-.c8.fi-button--secondary-noborder:disabled {
+.c9.fi-button--secondary-noborder.fi-button--disabled,
+.c9.fi-button--secondary-noborder[disabled],
+.c9.fi-button--secondary-noborder:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -688,7 +717,7 @@ exports[`Basic modal should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c8.fi-button--link {
+.c9.fi-button--link {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
   background: none;
@@ -699,18 +728,18 @@ exports[`Basic modal should match snapshot 1`] = `
   border: none;
 }
 
-.c8.fi-button--link:hover {
+.c9.fi-button--link:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c8.fi-button--link:active {
+.c9.fi-button--link:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c8.fi-button--link.fi-button--disabled,
-.c8.fi-button--link[disabled],
-.c8.fi-button--link:disabled {
+.c9.fi-button--link.fi-button--disabled,
+.c9.fi-button--link[disabled],
+.c9.fi-button--link:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -718,23 +747,23 @@ exports[`Basic modal should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c8.fi-button--link:hover {
+.c9.fi-button--link:hover {
   background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
 
-.c8.fi-button--link:active {
+.c9.fi-button--link:active {
   background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
 }
 
-.c8.fi-button--link.fi-button--disabled,
-.c8.fi-button--link[disabled],
-.c8.fi-button--link:disabled {
+.c9.fi-button--link.fi-button--disabled,
+.c9.fi-button--link[disabled],
+.c9.fi-button--link:disabled {
   color: hsl(202,7%,67%);
   background: none;
   background-color: hsl(202,7%,97%);
 }
 
-.c8 > .fi-button_icon {
+.c9 > .fi-button_icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
@@ -744,12 +773,12 @@ exports[`Basic modal should match snapshot 1`] = `
   transform: translateY(-0.1em);
 }
 
-.c8 > .fi-button_icon.fi-button_icon--right {
+.c9 > .fi-button_icon.fi-button_icon--right {
   margin-right: 0;
   margin-left: 8px;
 }
 
-.c8.fi-button--disabled > .fi-button_icon {
+.c9.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
 
@@ -763,13 +792,13 @@ exports[`Basic modal should match snapshot 1`] = `
     class="c1 fi-modal_overlay"
   >
     <div
-      class="c1 fi-modal_content-container"
+      class="c2 fi-modal_content-container"
     >
       <div
-        class="c1 fi-modal_content c2"
+        class="c1 fi-modal_content c3"
       >
         <h2
-          class="c3 fi-heading c4 c5 fi-modal_title fi-heading--h3"
+          class="c4 fi-heading c5 c6 fi-modal_title fi-heading--h3"
           id="3_title"
         >
           Test modal
@@ -779,14 +808,14 @@ exports[`Basic modal should match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="c1 c6 fi-modal_footer"
+        class="c1 c7 fi-modal_footer"
       >
         <div
           class="c1 fi-modal_footer_content"
         >
           <button
             aria-disabled="false"
-            class="c7 fi-button c8"
+            class="c8 fi-button c9"
             tabindex="0"
             type="button"
           >

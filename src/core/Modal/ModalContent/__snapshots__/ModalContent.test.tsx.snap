@@ -30,7 +30,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c3 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -54,8 +54,37 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c4::before,
+.c4::after {
   box-sizing: border-box;
 }
 
@@ -141,7 +170,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   max-height: 100%;
 }
 
-.c2.fi-modal_content {
+.c3.fi-modal_content {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -150,19 +179,19 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   overflow-y: auto;
 }
 
-.c2.fi-modal_content--no-scroll {
+.c3.fi-modal_content--no-scroll {
   overflow: hidden;
   padding: 34px 30px 10px 30px;
 }
 
-.c2.fi-modal_content--small-screen {
+.c3.fi-modal_content--small-screen {
   padding-top: 20px;
   padding-left: 20px;
   padding-bottom: 50px;
   padding-right: 20px;
 }
 
-.c4 {
+.c5 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -180,7 +209,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-heading--h1hero {
+.c5.fi-heading--h1hero {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -196,7 +225,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--h1 {
+.c5.fi-heading--h1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -212,7 +241,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-weight: 300;
 }
 
-.c4.fi-heading--h2 {
+.c5.fi-heading--h2 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -228,7 +257,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--h3 {
+.c5.fi-heading--h3 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -244,7 +273,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--h4 {
+.c5.fi-heading--h4 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -260,7 +289,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--h5 {
+.c5.fi-heading--h5 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -276,7 +305,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--h6 {
+.c5.fi-heading--h6 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -292,7 +321,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--small-screen {
+.c5.fi-heading--small-screen {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -308,7 +337,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-weight: 300;
 }
 
-.c4.fi-heading--small-screen.fi-heading--h1hero {
+.c5.fi-heading--small-screen.fi-heading--h1hero {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -324,7 +353,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--small-screen.fi-heading--h1 {
+.c5.fi-heading--small-screen.fi-heading--h1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -340,7 +369,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-weight: 300;
 }
 
-.c4.fi-heading--small-screen.fi-heading--h2 {
+.c5.fi-heading--small-screen.fi-heading--h2 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -356,7 +385,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--small-screen.fi-heading--h3 {
+.c5.fi-heading--small-screen.fi-heading--h3 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -372,7 +401,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--small-screen.fi-heading--h4 {
+.c5.fi-heading--small-screen.fi-heading--h4 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -388,7 +417,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--small-screen.fi-heading--h5 {
+.c5.fi-heading--small-screen.fi-heading--h5 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -404,7 +433,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-heading--small-screen.fi-heading--h6 {
+.c5.fi-heading--small-screen.fi-heading--h6 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -420,15 +449,15 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c5.fi-modal_title {
+.c6.fi-modal_title {
   padding-bottom: 20px;
 }
 
-.c5.fi-modal_title--no-scroll {
+.c6.fi-modal_title--no-scroll {
   padding-bottom: 10px;
 }
 
-.c5.fi-modal_title--small-screen {
+.c6.fi-modal_title--small-screen {
   padding-bottom: 20px;
 }
 
@@ -442,14 +471,14 @@ exports[`Basic ModalContent should match snapshot 1`] = `
     class="c1 fi-modal_overlay"
   >
     <div
-      class="c1 fi-modal_content-container"
+      class="c2 fi-modal_content-container"
     >
       <div
-        class="c1 fi-modal_content c2"
+        class="c1 fi-modal_content c3"
         data-testid="modal-content-id"
       >
         <h2
-          class="c3 fi-heading c4 c5 fi-modal_title fi-heading--h3"
+          class="c4 fi-heading c5 c6 fi-modal_title fi-heading--h3"
           id="5_title"
         >
           Test modal
