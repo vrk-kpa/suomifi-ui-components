@@ -23,3 +23,12 @@ const Div = (props: HtmlDivProps) => <div {...props} />;
 export const HtmlDiv = styled(Div)`
   ${divResets}
 `;
+
+export interface HtmlDivWithRefProps
+  extends Omit<HTMLProps<HTMLDivElement>, 'as'> {}
+
+const DivWithRef = (props: HtmlDivWithRefProps) => <div {...props} />;
+
+export const HtmlDivWithRef = styled(DivWithRef)`
+  ${divResets}
+`;

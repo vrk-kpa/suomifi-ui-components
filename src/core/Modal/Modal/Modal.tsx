@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { default as styled } from 'styled-components';
 import { createFocusTrap, FocusTrap } from 'focus-trap';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlDivProps } from '../../../reset';
+import { HtmlDiv, HtmlDivProps, HtmlDivWithRef } from '../../../reset';
 import { AutoId } from '../../../utils/AutoId';
 import { windowAvailable } from '../../../utils/common';
 import { ModalContent, ModalFooter } from '../';
@@ -84,6 +84,8 @@ class BaseModal extends Component<ModalProps> {
 
   private focusTrapWrapperRef: React.RefObject<HTMLDivElement>;
 
+  private contentWrapperRef: React.RefObject<HTMLDivElement>;
+
   private portalMountNode: HTMLElement | null = !!document
     ? document.body
     : null;
@@ -93,6 +95,7 @@ class BaseModal extends Component<ModalProps> {
   constructor(props: ModalProps) {
     super(props);
     this.focusTrapWrapperRef = React.createRef();
+    this.contentWrapperRef = React.createRef();
     if (windowAvailable()) {
       this.previouslyFocusedElement = document.activeElement;
     }
@@ -150,8 +153,12 @@ class BaseModal extends Component<ModalProps> {
     }
   };
 
-  private preventCursorEscape = (event: MouseEvent<HTMLDivElement>) =>
-    event.preventDefault();
+  private preventCursorEscape = (event: MouseEvent<HTMLDivElement>) => {
+    if (!this.contentWrapperRef.current?.contains(event.target as Node)) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  };
 
   render() {
     const {
@@ -181,7 +188,8 @@ class BaseModal extends Component<ModalProps> {
           [modalClassNames.noPortal]: usePortal === false,
         })}
       >
-        <HtmlDiv
+        <HtmlDivWithRef
+          ref={this.contentWrapperRef}
           className={modalClassNames.overlay}
           onClick={this.preventCursorEscape}
           onMouseDown={this.preventCursorEscape}
@@ -191,7 +199,7 @@ class BaseModal extends Component<ModalProps> {
               {children}
             </ModalProvider>
           </HtmlDiv>
-        </HtmlDiv>
+        </HtmlDivWithRef>
       </div>
     );
     // Skip portal if no mount node is available, if we are on a server or if explicitly requested
