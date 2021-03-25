@@ -54,35 +54,6 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c1 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c1::before,
-.c1::after {
-  box-sizing: border-box;
-}
-
 .c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -112,7 +83,36 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c0.fi-modal {
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c1.fi-modal {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -134,11 +134,11 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   left: 0;
 }
 
-.c0.fi-modal--no-portal {
+.c1.fi-modal--no-portal {
   z-index: 100;
 }
 
-.c0.fi-modal .fi-modal_overlay {
+.c1.fi-modal .fi-modal_overlay {
   background-color: rgba(41,41,41,0.5);
   width: 100vw;
   height: 100vh;
@@ -159,7 +159,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   align-items: center;
 }
 
-.c0.fi-modal .fi-modal_content-container {
+.c1.fi-modal .fi-modal_content-container {
   border-radius: 4px;
   background-color: hsl(0,0%,100%);
   border-top: 4px solid hsl(212,63%,45%);
@@ -183,12 +183,12 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   align-items: stretch;
 }
 
-.c0.fi-modal--no-scroll .fi-modal_content-container {
+.c1.fi-modal--no-scroll .fi-modal_content-container {
   width: 540px;
   min-height: 190px;
 }
 
-.c0.fi-modal--small-screen .fi-modal_content-container {
+.c1.fi-modal--small-screen .fi-modal_content-container {
   border-radius: 0;
   width: 100%;
   height: 100%;
@@ -466,20 +466,20 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
 <div
   aria-describedby="3_title"
   aria-modal="true"
-  class="c0 fi-modal fi-modal--no-portal"
+  class="c0 c1 fi-modal fi-modal--no-portal"
   role="dialog"
 >
   <div
-    class="c1 fi-modal_overlay"
+    class="c2 fi-modal_overlay"
   >
     <div
       class="c2 fi-modal_content-container"
     >
       <div
-        class="c1 c3 fi-modal_footer"
+        class="c2 c3 fi-modal_footer"
       >
         <div
-          class="c1 fi-modal_footer_content"
+          class="c2 fi-modal_footer_content"
           data-testid="modal-footer-id"
         >
           <button
@@ -500,10 +500,10 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
           </button>
         </div>
         <div
-          class="c1 fi-modal_footer_content-gradient-overlay"
+          class="c2 fi-modal_footer_content-gradient-overlay"
         >
           <div
-            class="c1 fi-modal_footer_content-gradient"
+            class="c2 fi-modal_footer_content-gradient"
           />
         </div>
       </div>

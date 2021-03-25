@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, MouseEvent } from 'react';
+import React, { Component, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { default as styled } from 'styled-components';
 import { createFocusTrap, FocusTrap } from 'focus-trap';
@@ -84,8 +84,6 @@ class BaseModal extends Component<ModalProps> {
 
   private focusTrapWrapperRef: React.RefObject<HTMLDivElement>;
 
-  private contentContainerRef: React.RefObject<HTMLDivElement>;
-
   private portalMountNode: HTMLElement | null = !!document
     ? document.body
     : null;
@@ -95,7 +93,6 @@ class BaseModal extends Component<ModalProps> {
   constructor(props: ModalProps) {
     super(props);
     this.focusTrapWrapperRef = React.createRef();
-    this.contentContainerRef = React.createRef();
     if (windowAvailable()) {
       this.previouslyFocusedElement = document.activeElement;
     }
@@ -153,13 +150,6 @@ class BaseModal extends Component<ModalProps> {
     }
   };
 
-  private preventCursorEscape = (event: MouseEvent<HTMLDivElement>) => {
-    if (!this.contentContainerRef.current?.contains(event.target as Node)) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-  };
-
   render() {
     const {
       visible,
@@ -177,8 +167,8 @@ class BaseModal extends Component<ModalProps> {
 
     const titleId = `${id}_title`;
     const content = (
-      <div
-        ref={this.focusTrapWrapperRef}
+      <HtmlDivWithRef
+        forwardedRef={this.focusTrapWrapperRef}
         aria-describedby={titleId}
         role="dialog"
         aria-modal="true"
@@ -188,22 +178,14 @@ class BaseModal extends Component<ModalProps> {
           [modalClassNames.noPortal]: usePortal === false,
         })}
       >
-        <HtmlDiv
-          className={modalClassNames.overlay}
-          onClick={this.preventCursorEscape}
-          onMouseDown={this.preventCursorEscape}
-        >
-          <HtmlDivWithRef
-            className={modalClassNames.contentContainer}
-            forwardedRef={this.contentContainerRef}
-            {...passProps}
-          >
+        <HtmlDiv className={modalClassNames.overlay}>
+          <HtmlDiv className={modalClassNames.contentContainer} {...passProps}>
             <ModalProvider value={{ titleId, variant, scrollable }}>
               {children}
             </ModalProvider>
-          </HtmlDivWithRef>
+          </HtmlDiv>
         </HtmlDiv>
-      </div>
+      </HtmlDivWithRef>
     );
     // Skip portal if no mount node is available, if we are on a server or if explicitly requested
     if (!this.portalMountNode || !windowAvailable() || usePortal === false) {
