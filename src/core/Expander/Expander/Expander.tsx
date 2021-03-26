@@ -56,7 +56,6 @@ export interface ExpanderProps {
   open?: boolean;
   /** Event handler to execute when clicked */
   onOpenChange?: (open: boolean) => void;
-  consumer?: ExpanderGroupProviderState;
 }
 
 export interface ExpanderTitleBaseProps {
@@ -75,6 +74,7 @@ export interface ExpanderContentBaseProps {
 
 interface BaseExpanderProps extends ExpanderProps {
   id: string;
+  consumer: ExpanderGroupProviderState;
 }
 
 class BaseExpander extends Component<BaseExpanderProps> {
@@ -84,27 +84,28 @@ class BaseExpander extends Component<BaseExpanderProps> {
 
   constructor(props: BaseExpanderProps) {
     super(props);
-    if (!!props.consumer) {
+    if (!!props.id) {
       const defaultOpen =
         props.open !== undefined ? props.open : props.defaultOpen || false;
       props.consumer.onExpanderOpenChange(props.id, defaultOpen);
     }
   }
 
-  componentDidUpdate(prevProps: ExpanderProps, prevState: ExpanderState) {
+  componentDidUpdate(prevProps: BaseExpanderProps, prevState: ExpanderState) {
     const { consumer, open } = this.props;
     const controlled = open !== undefined;
-    if (
-      !!consumer &&
-      prevProps.id !== undefined &&
-      prevProps.id !== this.props.id
-    ) {
-      consumer.onExpanderOpenChange(prevProps.id, undefined);
+    const currentState = controlled ? !!open : this.state.openState;
+    // update group state when id changes
+    if (prevProps.id !== this.props.id) {
+      if (!!prevProps.id) {
+        consumer.onExpanderOpenChange(prevProps.id, undefined);
+      }
+      consumer.onExpanderOpenChange(this.props.id, currentState);
     }
+    // handle consumer open change event
     if (
-      !!consumer &&
       consumer.expanderGroupOpenState !==
-        prevProps.consumer?.expanderGroupOpenState
+      prevProps.consumer?.expanderGroupOpenState
     ) {
       if (
         (!controlled &&
@@ -115,21 +116,19 @@ class BaseExpander extends Component<BaseExpanderProps> {
         this.handleOpenChange();
       }
     }
+    // handle expander open change event
     if (
       (!controlled && prevState.openState !== this.state.openState) ||
       (controlled && prevProps.open !== open)
     ) {
-      if (!!consumer && this.props.id !== undefined) {
-        const currentState = controlled ? !!open : this.state.openState;
+      if (!!this.props.id) {
         consumer.onExpanderOpenChange(this.props.id, currentState);
       }
     }
   }
 
   componentWillUnmount() {
-    if (!!this.props.consumer && !!this.props.consumer.onExpanderOpenChange) {
-      this.props.consumer.onExpanderOpenChange(this.props.id, undefined);
-    }
+    this.props.consumer.onExpanderOpenChange(this.props.id, undefined);
   }
 
   handleOpenChange = () => {

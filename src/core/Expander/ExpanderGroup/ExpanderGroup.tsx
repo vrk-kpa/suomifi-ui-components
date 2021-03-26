@@ -83,7 +83,6 @@ class BaseExpanderGroup extends Component<ExpanderGroupProps> {
       delete this.expanders[id];
     }
     const newAllOpenState = this.expandersOpenState();
-    console.log(this.state.allOpen, newAllOpenState.allOpen, id, newState);
     if (this.state.allOpen !== newAllOpenState.allOpen) {
       this.setState({ allOpen: newAllOpenState.allOpen });
     }
