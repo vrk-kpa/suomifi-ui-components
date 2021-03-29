@@ -6,13 +6,15 @@ import { Heading, HeadingProps } from './Heading';
 
 const TestHeadings = (
   <div data-testid="Heading">
-    <Heading.h1hero>Test Heading</Heading.h1hero>
-    <Heading.h1>Test Heading</Heading.h1>
-    <Heading.h2>Test Heading</Heading.h2>
-    <Heading.h3 as="h2">h3 as h2 text</Heading.h3>
-    <Heading.h3>Test Heading</Heading.h3>
-    <Heading.h4>Test Heading</Heading.h4>
-    <Heading.h5>Test Heading</Heading.h5>
+    <Heading variant="h1hero">Test Heading</Heading>
+    <Heading variant="h1">Test Heading</Heading>
+    <Heading variant="h2">Test Heading</Heading>
+    <Heading variant="h3" as="h2">
+      h3 as h2 text
+    </Heading>
+    <Heading variant="h3">Test Heading</Heading>
+    <Heading variant="h4">Test Heading</Heading>
+    <Heading variant="h5">Test Heading</Heading>
   </div>
 );
 
@@ -24,7 +26,9 @@ test('calling render with the same component on the same container does not remo
 
 describe('Heading with props', () => {
   const TestHeading = (props: Partial<HeadingProps>) => (
-    <Heading.h1 {...props}>Test Heading</Heading.h1>
+    <Heading variant="h1" {...props}>
+      Test Heading
+    </Heading>
   );
 
   it('should have given color', () => {
