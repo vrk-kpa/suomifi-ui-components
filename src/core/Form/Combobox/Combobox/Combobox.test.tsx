@@ -102,7 +102,7 @@ const BasicCombobox = (
   />
 );
 
-test('should not have basic accessibility issues', async () => {
+it('should not have basic accessibility issues', async () => {
   await act(async () => {
     axeTest(BasicCombobox);
   });
@@ -120,16 +120,41 @@ describe('Chips', () => {
     await act(async () => {
       const { container } = render(BasicCombobox);
       let chips = container.querySelectorAll('.fi-chip');
-      const chip = chips[0];
-      expect(chip).toHaveTextContent('Hammer');
-      expect(chip.querySelector('.fi-chip--icon')).not.toBeNull();
+      const hammerChip = chips[0];
+      expect(hammerChip).toHaveTextContent('Hammer');
+      expect(hammerChip.querySelector('.fi-chip--icon')).not.toBeNull();
       await act(async () => {
-        fireEvent.click(chip, {});
+        fireEvent.click(hammerChip, {});
       });
       chips = container.querySelectorAll('.fi-chip');
       expect(chips.length).toEqual(1);
       const disabledChip = chips[0];
       expect(disabledChip).toHaveTextContent('Powersaw');
+    });
+  });
+
+  test('onItemSelect: called with uniqueItem id, when clicking non-disabled Chip', async () => {
+    await act(async () => {
+      const onItemSelect = (uniqueItemId: string) => console.log(uniqueItemId);
+      const onItemSelectSpy = jest.spyOn(console, 'log');
+      const { container } = render(
+        <Combobox
+          labelText="Combobox"
+          items={tools}
+          chipListVisible={true}
+          chipActionLabel="Remove"
+          removeAllButtonLabel="Remove all selections"
+          visualPlaceholder="Choose your tool(s)"
+          emptyItemsLabel="No items"
+          defaultSelectedItems={defaultSelectedTools}
+          onItemSelect={onItemSelect}
+        />,
+      );
+      const hammerChip = container.querySelectorAll('.fi-chip')[0];
+      await act(async () => {
+        fireEvent.click(hammerChip, {});
+      });
+      expect(onItemSelectSpy).toBeCalledWith('h9823523');
     });
   });
 
@@ -141,7 +166,7 @@ describe('Chips', () => {
     expect(disabledChip).toHaveAttribute('disabled');
   });
 
-  it('should remove all non-disabled Chips', async () => {
+  it('should remove all non-disabled Chips when pressing "Remove all" button', async () => {
     await act(async () => {
       const { container } = render(BasicCombobox);
       expect(container.querySelectorAll('.fi-chip').length).toEqual(2);
@@ -155,9 +180,35 @@ describe('Chips', () => {
       expect(chips.length).toEqual(1);
     });
   });
+
+  test('onRemoveAll: should be called when pressing "Remove all" button', async () => {
+    await act(async () => {
+      const mockOnRemoveAll = jest.fn();
+      const { container } = render(
+        <Combobox
+          labelText="Combobox"
+          items={tools}
+          chipListVisible={true}
+          chipActionLabel="Remove"
+          removeAllButtonLabel="Remove all selections"
+          visualPlaceholder="Choose your tool(s)"
+          emptyItemsLabel="No items"
+          defaultSelectedItems={defaultSelectedTools}
+          onRemoveAll={mockOnRemoveAll}
+        />,
+      );
+      const removeAllButton = container.querySelectorAll(
+        '.fi-combobox_removeAllButton',
+      )[0];
+      await act(async () => {
+        fireEvent.click(removeAllButton, {});
+      });
+      expect(mockOnRemoveAll).toBeCalledTimes(1);
+    });
+  });
 });
 
-describe('controlled', () => {
+describe('Controlled', () => {
   it('has the controlled items as selected + disabled', async () => {
     const controlledItems = [
       {
@@ -214,7 +265,7 @@ it('should have correct baseClassName', async () => {
   });
 });
 
-it('has given custom classname', async () => {
+test('className: has given custom classname', async () => {
   await act(async () => {
     const { container } = render(
       <Combobox
@@ -228,7 +279,7 @@ it('has given custom classname', async () => {
   });
 });
 
-it('has the given text as label', async () => {
+test('labelText: has the given text as label', async () => {
   await act(async () => {
     const { queryByText } = render(
       <Combobox labelText="Combobox" items={[]} emptyItemsLabel="No items" />,
@@ -237,7 +288,7 @@ it('has the given text as label', async () => {
   });
 });
 
-it('has the given text as placeholder attribute', () => {
+test('visualPlaceholder: has the given text as placeholder attribute', () => {
   const { getByRole } = render(
     <Combobox
       labelText="Combobox"
