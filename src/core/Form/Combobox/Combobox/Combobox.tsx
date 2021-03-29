@@ -96,23 +96,21 @@ interface ComboboxState<T extends ComboboxData> {
 }
 
 function getSelectedKeys<T>(items: (T & ComboboxData)[] = []): ItemKeys {
-  const selectedKeys: ItemKeys = {};
-  // eslint-disable-next-line no-restricted-syntax
-  for (const item of items) {
-    selectedKeys[item.uniqueItemId] = false;
-  }
-  return selectedKeys;
+  return items.reduce((keys: ItemKeys, item: T & ComboboxData) => {
+    const newSelectedKeys: ItemKeys = { ...keys };
+    newSelectedKeys[item.uniqueItemId] = false;
+    return newSelectedKeys;
+  }, {});
 }
 
 function getDisabledKeys<T>(items: (T & ComboboxData)[] = []): ItemKeys {
-  const disabledKeys: ItemKeys = {};
-  // eslint-disable-next-line no-restricted-syntax
-  for (const item of items) {
+  return items.reduce((keys: ItemKeys, item: T & ComboboxData) => {
+    const newDisabledKeys: ItemKeys = { ...keys };
     if (item.disabled) {
-      disabledKeys[item.uniqueItemId] = false;
+      newDisabledKeys[item.uniqueItemId] = false;
     }
-  }
-  return disabledKeys;
+    return newDisabledKeys;
+  }, {});
 }
 
 class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
