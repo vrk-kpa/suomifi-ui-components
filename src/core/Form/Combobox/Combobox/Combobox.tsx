@@ -409,6 +409,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       selectedKeys,
       selectedItems,
       disabledKeys,
+      filterInputValue,
     } = this.state;
 
     const focusToMenu = () => {
@@ -484,7 +485,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                 onFocus={() => setPopoverVisibility(true)}
                 onKeyDown={handleKeyDown}
                 onBlur={handleBlur}
-                value={this.state.filterInputValue}
+                value={filterInputValue}
                 onChange={(value: string | undefined) => {
                   if (propOnChange) {
                     debouncer(propOnChange, value);
