@@ -20,6 +20,7 @@ const comboboxClassNames = {
   wrapper: `${baseClassName}_wrapper`,
   open: `${baseClassName}--open`,
   removeAllButton: `${baseClassName}_removeAllButton`,
+  error: `${baseClassName}--error`,
 };
 
 export interface ComboboxData {
@@ -465,16 +466,17 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         aria-haspopup="listbox"
         aria-controls={`${id}-popover`}
         aria-expanded={showPopover}
-        id={id}
         {...passProps}
         className={classnames(baseClassName, className, {
           [comboboxClassNames.open]: showPopover,
+          [comboboxClassNames.error]: status === 'error',
         })}
       >
         <HtmlDiv className={classnames(comboboxClassNames.wrapper, {})}>
           <Debounce waitFor={debounce}>
             {(debouncer: Function) => (
               <FilterInput
+                id={id}
                 labelText={labelText}
                 items={propItems}
                 onFilter={(filtered) =>

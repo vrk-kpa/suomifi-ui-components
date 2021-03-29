@@ -300,3 +300,65 @@ test('visualPlaceholder: has the given text as placeholder attribute', () => {
   const inputfield = getByRole('textbox') as HTMLInputElement;
   expect(inputfield).toHaveAttribute('placeholder', 'Select item(s)');
 });
+
+test('id: has the given id', () => {
+  const { getByRole } = render(
+    <Combobox
+      id="cb-123"
+      labelText="Combobox"
+      items={[]}
+      emptyItemsLabel="No items"
+    />,
+  );
+  expect(getByRole('textbox')).toHaveAttribute('id', 'cb-123');
+});
+
+describe('statusText', () => {
+  it('should have element and correct classname for it', () => {
+    const { getByText } = render(
+      <Combobox
+        id="123"
+        labelText="Combobox"
+        items={[]}
+        emptyItemsLabel="No items"
+        visualPlaceholder="Select item(s)"
+        statusText="EROR EROR"
+      />,
+    );
+    const statusText = getByText('EROR EROR');
+    expect(statusText).toHaveClass('fi-status-text');
+  });
+
+  it('will be added to input aria-describedby', () => {
+    const { getByRole } = render(
+      <Combobox
+        id="123"
+        labelText="Combobox"
+        items={[]}
+        emptyItemsLabel="No items"
+        visualPlaceholder="Select item(s)"
+        statusText="EROR EROR"
+      />,
+    );
+    expect(getByRole('textbox')).toHaveAttribute(
+      'aria-describedby',
+      '123-statusText',
+    );
+  });
+});
+
+describe('status', () => {
+  it('should have error classname', () => {
+    const { container } = render(
+      <Combobox
+        id="123"
+        labelText="Combobox"
+        items={[]}
+        emptyItemsLabel="No items"
+        visualPlaceholder="Select item(s)"
+        status="error"
+      />,
+    );
+    expect(container.firstChild).toHaveClass('fi-combobox--error');
+  });
+});
