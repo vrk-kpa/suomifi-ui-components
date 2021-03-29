@@ -76,36 +76,32 @@ class BaseExpanderGroup extends Component<ExpanderGroupProps> {
   /** Expanders by id with current open state */
   private expanders: ExpanderOpenStates = {};
 
+  /** Number of currently open Expanders */
+  private openExpanderCount = 0;
+
   handleExpanderOpenChange = (id: string, newState: boolean | undefined) => {
     if (newState !== undefined) {
       this.expanders[id] = newState;
     } else {
       delete this.expanders[id];
     }
-    const newAllOpenState = this.expandersOpenState();
-    if (this.state.allOpen !== newAllOpenState.allOpen) {
-      this.setState({ allOpen: newAllOpenState.allOpen });
+    this.openExpanderCount = Object.values(this.expanders).filter(
+      (isOpen) => !!isOpen,
+    ).length;
+
+    const allOpen =
+      Object.keys(this.expanders).length === this.openExpanderCount;
+    if (this.state.allOpen !== allOpen) {
+      this.setState({ allOpen });
     }
   };
 
-  expandersOpenState = () => {
-    const expanderCount = Object.keys(this.expanders).length;
-    const openExpanderCount = Object.values(this.expanders).filter(
-      (isOpen) => !!isOpen,
-    ).length;
-    return {
-      expanderCount,
-      openExpanderCount,
-      allOpen: expanderCount === openExpanderCount,
-    };
-  };
-
   handleAllToggleClick = () => {
-    this.setState({
+    this.setState((prevState: ExpanderGroupState) => ({
       expanderGroupOpenState: {
-        targetOpenState: !this.expandersOpenState().allOpen,
+        targetOpenState: !prevState.allOpen,
       },
-    });
+    }));
   };
 
   render() {
@@ -119,13 +115,12 @@ class BaseExpanderGroup extends Component<ExpanderGroupProps> {
       toggleAllButtonProps,
       ...passProps
     } = this.props;
-    const { expanderGroupOpenState } = this.state;
-    const { openExpanderCount, allOpen } = this.expandersOpenState();
+    const { expanderGroupOpenState, allOpen } = this.state;
     return (
       <HtmlDiv
         {...passProps}
         className={classnames(className, baseClassName, {
-          [openClassName]: openExpanderCount > 0,
+          [openClassName]: this.openExpanderCount > 0,
         })}
       >
         <HtmlButton
