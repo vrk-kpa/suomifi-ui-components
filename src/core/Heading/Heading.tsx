@@ -20,10 +20,11 @@ export interface HeadingProps extends Omit<CompHeadingProps, 'variant'> {
    * @default h1
    */
   variant: hLevels | 'h1hero';
-  /** Change color for text from theme colors */
-  smallScreen?: boolean;
   /** Change font to smaller screen size and style */
+  smallScreen?: boolean;
+  /** Change color for text from theme colors */
   color?: ColorProp;
+  /** Render the heading as another element */
   asProp?: asPropType;
 }
 
