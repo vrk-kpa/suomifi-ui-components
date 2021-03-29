@@ -95,7 +95,7 @@ interface ComboboxState<T extends ComboboxData> {
   disabledKeys: ItemKeys;
 }
 
-function getSelectedKeys<T>(items: (T & ComboboxData)[]): ItemKeys {
+function getSelectedKeys<T>(items: (T & ComboboxData)[] = []): ItemKeys {
   const selectedKeys: ItemKeys = {};
   // eslint-disable-next-line no-restricted-syntax
   for (const item of items) {
@@ -104,7 +104,7 @@ function getSelectedKeys<T>(items: (T & ComboboxData)[]): ItemKeys {
   return selectedKeys;
 }
 
-function getDisabledKeys<T>(items: (T & ComboboxData)[]): ItemKeys {
+function getDisabledKeys<T>(items: (T & ComboboxData)[] = []): ItemKeys {
   const disabledKeys: ItemKeys = {};
   // eslint-disable-next-line no-restricted-syntax
   for (const item of items) {
@@ -132,15 +132,15 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     showPopover: false,
     currentSelection: null,
     selectedKeys: this.props.selectedItems
-      ? getSelectedKeys(this.props.selectedItems || [])
-      : getSelectedKeys(this.props.defaultSelectedItems || []),
+      ? getSelectedKeys(this.props.selectedItems)
+      : getSelectedKeys(this.props.defaultSelectedItems),
     selectedItems: this.props.selectedItems
       ? this.props.selectedItems || []
       : this.props.defaultSelectedItems || [],
     initialItems: this.props.items,
     disabledKeys: this.props.selectedItems
-      ? getDisabledKeys(this.props.selectedItems || [])
-      : getDisabledKeys(this.props.items || []),
+      ? getDisabledKeys(this.props.selectedItems)
+      : getDisabledKeys(this.props.items),
   };
 
   static getDerivedStateFromProps<U>(
@@ -154,8 +154,8 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     ) {
       return {
         selectedItems: selectedItems || defaultSelectedItems || [],
-        selectedKeys: getSelectedKeys(selectedItems || []),
-        disabledKeys: getDisabledKeys(selectedItems || []),
+        selectedKeys: getSelectedKeys(selectedItems),
+        disabledKeys: getDisabledKeys(selectedItems),
       };
     }
     if (propItems !== prevState.initialItems) {
