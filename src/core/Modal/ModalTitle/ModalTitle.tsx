@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { hLevels } from '../../../components/Heading/Heading';
+import { hLevels } from '../../../reset';
 import { Heading, HeadingProps } from '../../Heading/Heading';
 import { ModalConsumer, ModalVariant, baseClassName } from '../Modal/Modal';
 import { baseStyles } from './ModalTitle.baseStyles';

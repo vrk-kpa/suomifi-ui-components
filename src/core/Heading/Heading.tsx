@@ -3,18 +3,14 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { asPropType } from '../../utils/typescript';
 import { logger } from '../../utils/logger';
-import {
-  Heading as CompHeading,
-  HeadingProps as CompHeadingProps,
-  hLevels,
-} from '../../components/Heading/Heading';
 import { ColorProp } from '../theme';
 import { baseStyles } from './Heading.baseStyles';
+import { HtmlH, HtmlHProps, hLevels } from '../../reset';
 
 const baseClassName = 'fi-heading';
 const smallScreenClassName = `${baseClassName}--small-screen`;
 
-export interface HeadingProps extends Omit<CompHeadingProps, 'variant'> {
+export interface HeadingProps extends HtmlHProps {
   /**
    * Heading level
    * @default h1
@@ -32,14 +28,19 @@ const StyledHeading = styled(
     className,
     variant,
     color,
-    asProp, // as-property is defined internally as asProp and need to be implemented back if used
+    asProp,
     ...passProps
   }: HeadingProps & { asProp?: asPropType }) => (
-    <CompHeading
+    <HtmlH
       {...passProps}
-      className={classnames(className, [`${baseClassName}--${variant}`], {
-        [smallScreenClassName]: smallScreen,
-      })}
+      className={classnames(
+        baseClassName,
+        className,
+        [`${baseClassName}--${variant}`],
+        {
+          [smallScreenClassName]: smallScreen,
+        },
+      )}
       variant={variant === 'h1hero' ? 'h1' : variant}
       as={asProp}
     />
