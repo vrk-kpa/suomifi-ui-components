@@ -21,6 +21,10 @@ export interface HeadingProps extends HtmlHProps {
   smallScreen?: boolean;
   /** Change color for text from theme colors */
   color?: ColorProp;
+  /** Custom class name for styling */
+  className?: string;
+  /** Render the heading as another element. Will override variant prop. */
+  as?: asPropType;
 }
 
 const getSemanticVariant = (variant: styleVariants) => {
