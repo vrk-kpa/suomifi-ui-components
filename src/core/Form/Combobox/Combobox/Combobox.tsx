@@ -161,13 +161,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         initialItems: propItems,
       };
     }
-    // if (propItems !== prevState.initialItems) {
-    //   return {
-    //     filteredItems: propItems,
-    //     initialItems: propItems,
-    //     disabledKeys: getDisabledKeys(propItems),
-    //   };
-    // }
     return null;
   }
 
