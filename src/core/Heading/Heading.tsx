@@ -13,7 +13,7 @@ type styleVariants = hLevels | 'h1hero';
 
 export interface HeadingProps extends HtmlHProps {
   /**
-   * Heading level
+   * Heading level to assign semantic element and styling.
    * @default h1
    */
   variant: styleVariants;
@@ -23,7 +23,7 @@ export interface HeadingProps extends HtmlHProps {
   color?: ColorProp;
   /** Custom class name for styling */
   className?: string;
-  /** Render the heading as another element. Will override variant prop. */
+  /** Render the heading as another element e.g. h3 as h2. Will override semantics derived from variant prop but keep the variant styles. */
   as?: asPropType;
 }
 
