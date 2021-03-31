@@ -79,18 +79,41 @@ class BaseExpanderGroup extends Component<ExpanderGroupProps> {
   /** Number of currently open Expanders */
   private openExpanderCount = 0;
 
+  /** Number of Expanders inside the ExpanderGroup */
+  private expanderCount = 0;
+
+  /**
+   * This function keeps track of number of expander, number of open expanders
+   * and current state of each expander. Updating is done in granular level
+   * for each change to avoid iterating over the whole Expander set on updates.
+   */
   handleExpanderOpenChange = (id: string, newState: boolean | undefined) => {
     if (newState !== undefined) {
+      // change or add new expander state
+      if (this.expanders[id] !== undefined && this.expanders[id] !== newState) {
+        if (newState === true) {
+          this.openExpanderCount += 1;
+        } else {
+          this.openExpanderCount -= 1;
+        }
+      }
+      // add new expander
+      if (this.expanders[id] === undefined) {
+        this.expanderCount += 1;
+        if (newState === true) {
+          this.openExpanderCount += 1;
+        }
+      }
       this.expanders[id] = newState;
     } else {
+      // remove expander
+      if (this.expanders[id] === true) {
+        this.openExpanderCount -= 1;
+      }
+      this.expanderCount -= 1;
       delete this.expanders[id];
     }
-    this.openExpanderCount = Object.values(this.expanders).filter(
-      (isOpen) => !!isOpen,
-    ).length;
-
-    const allOpen =
-      Object.keys(this.expanders).length === this.openExpanderCount;
+    const allOpen = this.openExpanderCount === this.expanderCount;
     if (this.state.allOpen !== allOpen) {
       this.setState({ allOpen });
     }
