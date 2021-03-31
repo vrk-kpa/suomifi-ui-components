@@ -8,20 +8,6 @@ export const baseStyles = css`
       outline: none;
     }
 
-    &--currentSelection {
-      outline: 0;
-      position: relative;
-
-      & .fi-checkbox {
-        background-color: ${theme.colors.highlightBase};
-        color: ${theme.colors.whiteBase};
-
-        & mark {
-          color: ${theme.colors.whiteBase};
-        }
-      }
-    }
-
     & .fi-checkbox {
       padding: 10px;
       user-select: none;
@@ -38,11 +24,31 @@ export const baseStyles = css`
     }
 
     & .fi-checkbox--checked {
-      background-color: ${theme.colors.highlightBase};
-      color: ${theme.colors.whiteBase};
+      background-color: ${theme.colors.depthSecondaryDark1};
+      color: ${theme.colors.blackBase};
 
       & mark {
+        color: ${theme.colors.blackBase};
+      }
+    }
+
+    &--currentSelection {
+      & .fi-checkbox {
+        background-color: ${theme.colors.highlightBase};
         color: ${theme.colors.whiteBase};
+
+        & mark {
+          color: ${theme.colors.whiteBase};
+        }
+
+        &.fi-checkbox--checked {
+          background-color: ${theme.colors.highlightBase};
+          color: ${theme.colors.whiteBase};
+
+          & mark {
+            color: ${theme.colors.whiteBase};
+          }
+        }
       }
     }
 

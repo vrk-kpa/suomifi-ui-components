@@ -1,7 +1,6 @@
 import { css } from 'styled-components';
 import { defaultThemeTokens as theme } from '../../../theme';
 import { font } from '../../../theme/reset';
-import { absoluteFocus } from '../../../theme/utils';
 
 export const baseStyles = css`
   &.fi-combobox-item-list {
@@ -23,16 +22,6 @@ export const baseStyles = css`
 
     &:focus {
       outline: none;
-    }
-    &:focus-visible {
-      & .fi-combobox-item--currentSelection {
-        outline: 0;
-        position: relative;
-
-        &::after {
-          ${absoluteFocus}
-        }
-      }
     }
   }
 
