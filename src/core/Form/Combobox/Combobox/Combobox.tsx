@@ -147,22 +147,27 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   ) {
     const { items: propItems, selectedItems, defaultSelectedItems } = nextProps;
     if (
-      'selectedItems' in nextProps &&
-      selectedItems !== prevState.selectedItems
+      ('selectedItems' in nextProps &&
+        selectedItems !== prevState.selectedItems) ||
+      propItems !== prevState.initialItems
     ) {
       return {
         selectedItems: selectedItems || defaultSelectedItems || [],
         selectedKeys: getSelectedKeys(selectedItems),
-        disabledKeys: getDisabledKeys(selectedItems),
-      };
-    }
-    if (propItems !== prevState.initialItems) {
-      return {
+        disabledKeys: selectedItems
+          ? getDisabledKeys(selectedItems)
+          : getDisabledKeys(propItems),
         filteredItems: propItems,
         initialItems: propItems,
-        disabledKeys: getDisabledKeys(propItems),
       };
     }
+    // if (propItems !== prevState.initialItems) {
+    //   return {
+    //     filteredItems: propItems,
+    //     initialItems: propItems,
+    //     disabledKeys: getDisabledKeys(propItems),
+    //   };
+    // }
     return null;
   }
 
