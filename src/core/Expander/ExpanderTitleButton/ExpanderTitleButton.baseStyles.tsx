@@ -22,8 +22,7 @@ export const expanderTitleButtonBaseStyles = css`
 
   & .fi-expander_title-button_button {
     ${button(theme)}
-    ${font(theme)('bodyText')}
-    font-size: ${theme.typography.bodySemiBold};
+    ${font(theme)('bodySemiBold')}
     color: ${theme.colors.highlightBase};
     display: inline-block;
     width: 100%;

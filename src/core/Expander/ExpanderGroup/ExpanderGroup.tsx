@@ -43,8 +43,8 @@ type ExpanderGroupTargetOpenState = {
 };
 
 interface ExpanderGroupState {
-  /** Expanders by id with current open state */
-  expanders: ExpanderOpenStates;
+  /** Current combined open state of all expanders */
+  allOpen: boolean | undefined;
   /** State change transition request */
   expanderGroupOpenState: ExpanderGroupTargetOpenState;
 }
@@ -67,45 +67,64 @@ const { Provider, Consumer: ExpanderGroupConsumer } = React.createContext(
 
 class BaseExpanderGroup extends Component<ExpanderGroupProps> {
   state: ExpanderGroupState = {
-    expanders: {},
+    allOpen: undefined,
     expanderGroupOpenState: {
       targetOpenState: false,
     },
   };
 
-  handleExpanderOpenChange = (id: string, newState: boolean | undefined) => {
-    this.setState((prevState: ExpanderGroupState) => {
-      const { expanders: prevExpanders } = prevState;
-      const expanders = Object.assign({}, prevExpanders);
-      if (newState !== undefined) {
-        expanders[id] = newState;
-        return {
-          expanders,
-        };
-      }
-      delete expanders[id];
-      return { expanders };
-    });
-  };
+  /** Expanders by id with current open state */
+  private expanders: ExpanderOpenStates = {};
 
-  expandersOpenState = () => {
-    const expanderCount = Object.keys(this.state.expanders).length;
-    const openExpanderCount = Object.values(this.state.expanders).filter(
-      (isOpen) => !!isOpen,
-    ).length;
-    return {
-      expanderCount,
-      openExpanderCount,
-      allOpen: expanderCount === openExpanderCount,
-    };
+  /** Number of currently open Expanders */
+  private openExpanderCount = 0;
+
+  /** Number of Expanders inside the ExpanderGroup */
+  private expanderCount = 0;
+
+  /**
+   * This function keeps track of number of expander, number of open expanders
+   * and current state of each expander. Updating is done in granular level
+   * for each change to avoid iterating over the whole Expander set on updates.
+   */
+  handleExpanderOpenChange = (id: string, newState: boolean | undefined) => {
+    if (newState !== undefined) {
+      // change or add new expander state
+      if (this.expanders[id] !== undefined && this.expanders[id] !== newState) {
+        if (newState === true) {
+          this.openExpanderCount += 1;
+        } else {
+          this.openExpanderCount -= 1;
+        }
+      }
+      // add new expander
+      if (this.expanders[id] === undefined) {
+        this.expanderCount += 1;
+        if (newState === true) {
+          this.openExpanderCount += 1;
+        }
+      }
+      this.expanders[id] = newState;
+    } else {
+      // remove expander
+      if (this.expanders[id] === true) {
+        this.openExpanderCount -= 1;
+      }
+      this.expanderCount -= 1;
+      delete this.expanders[id];
+    }
+    const allOpen = this.openExpanderCount === this.expanderCount;
+    if (this.state.allOpen !== allOpen) {
+      this.setState({ allOpen });
+    }
   };
 
   handleAllToggleClick = () => {
-    this.setState({
+    this.setState((prevState: ExpanderGroupState) => ({
       expanderGroupOpenState: {
-        targetOpenState: !this.expandersOpenState().allOpen,
+        targetOpenState: !prevState.allOpen,
       },
-    });
+    }));
   };
 
   render() {
@@ -119,14 +138,12 @@ class BaseExpanderGroup extends Component<ExpanderGroupProps> {
       toggleAllButtonProps,
       ...passProps
     } = this.props;
-    const { expanderGroupOpenState } = this.state;
-    const { openExpanderCount, allOpen } = this.expandersOpenState();
-
+    const { expanderGroupOpenState, allOpen } = this.state;
     return (
       <HtmlDiv
         {...passProps}
         className={classnames(className, baseClassName, {
-          [openClassName]: openExpanderCount > 0,
+          [openClassName]: this.openExpanderCount > 0,
         })}
       >
         <HtmlButton

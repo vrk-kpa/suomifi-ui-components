@@ -171,10 +171,6 @@ exports[`Basic ExpanderTitleButton shoud match snapshot 1`] = `
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
-  font-weight: 400;
-  font-size: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
   font-weight: 600;
   color: hsl(212,63%,45%);
   display: inline-block;
