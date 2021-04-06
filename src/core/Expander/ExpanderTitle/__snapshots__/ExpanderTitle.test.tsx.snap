@@ -151,10 +151,6 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
-  font-weight: 400;
-  font-size: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
   font-weight: 600;
   position: relative;
   display: block;
@@ -191,7 +187,16 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  font-size: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 600;
