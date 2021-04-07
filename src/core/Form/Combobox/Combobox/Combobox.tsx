@@ -451,6 +451,9 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       0,
     );
 
+    const showChipList =
+      chipListVisible && selectedItems && selectedItems.length > 0;
+
     const showRemoveAllButton =
       removeAllButtonLabel &&
       Object.keys(selectedKeys).length > 0 &&
@@ -545,7 +548,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
               </ComboboxItemList>
             )}
           </Popover>
-          {chipListVisible && (
+          {showChipList && (
             <ChipList>
               {selectedItems.map((item) => (
                 <Chip
