@@ -39,6 +39,119 @@ describe('Basic modal', () => {
   it('should not have basic accessibility issues', axeTest(BasicModal()));
 });
 
+describe('Modal sibling DOM nodes', () => {
+  const ModalWithSiblings = () => {
+    const [open, setOpen] = useState(true);
+    return (
+      <>
+        <div data-testid="test-sibling">Test content</div>
+        <div
+          data-testid="test-sibling-with-aria-hidden-true"
+          aria-hidden="true"
+        >
+          Test content with Aria-hidden true
+        </div>
+        <div
+          data-testid="test-sibling-with-aria-hidden-false"
+          aria-hidden="false"
+        >
+          Test content with Aria-hidden false
+        </div>
+        <div data-testid="portal-containing-node">
+          <Modal
+            data-testid="modal"
+            visible={open}
+            usePortal={false}
+            onEscKeyDown={() => setOpen(false)}
+          >
+            <ModalContent>
+              <ModalTitle>Test modal</ModalTitle>
+              <p>Some test text</p>
+            </ModalContent>
+            <ModalFooter>
+              <Button>OK</Button>
+            </ModalFooter>
+          </Modal>
+          <div data-testid="test-sibling-inside-portal-node">
+            Test siblign inside portal node
+          </div>
+          <div
+            data-testid="test-sibling-inside-portal-node-aria-hidden-true"
+            aria-hidden="true"
+          >
+            Test siblign inside portal node aria hidden true
+          </div>
+          <div
+            data-testid="test-sibling-inside-portal-node-aria-hidden-false"
+            aria-hidden="false"
+          >
+            Test siblign inside portal node aria-hidden false
+          </div>
+        </div>
+      </>
+    );
+  };
+
+  it('containing the modal should not be aria-hidden', () => {
+    const { getByTestId, baseElement } = render(<ModalWithSiblings />);
+    expect(baseElement).not.toHaveAttribute('aria-hidden');
+    expect(getByTestId('portal-containing-node')).not.toHaveAttribute(
+      'aria-hidden',
+    );
+    expect(getByTestId('modal')).not.toHaveAttribute('aria-hidden');
+  });
+
+  it('not containing the modal should be aria-hidden', () => {
+    const { getByTestId } = render(<ModalWithSiblings />);
+    expect(getByTestId('test-sibling')).toHaveAttribute('aria-hidden', 'true');
+    expect(getByTestId('test-sibling-with-aria-hidden-true')).toHaveAttribute(
+      'aria-hidden',
+      'true',
+    );
+    expect(getByTestId('test-sibling-with-aria-hidden-false')).toHaveAttribute(
+      'aria-hidden',
+      'true',
+    );
+    expect(getByTestId('test-sibling-inside-portal-node')).toHaveAttribute(
+      'aria-hidden',
+      'true',
+    );
+    expect(
+      getByTestId('test-sibling-inside-portal-node-aria-hidden-true'),
+    ).toHaveAttribute('aria-hidden', 'true');
+    expect(
+      getByTestId('test-sibling-inside-portal-node-aria-hidden-false'),
+    ).toHaveAttribute('aria-hidden', 'true');
+  });
+
+  it('should preserve aria-hidden state after closing modal', () => {
+    const { getByTestId } = render(<ModalWithSiblings />);
+    fireEvent.keyDown(getByTestId('modal'), {
+      key: 'Esc',
+      code: 27,
+      charCode: 27,
+    });
+    expect(getByTestId('test-sibling')).not.toHaveAttribute('aria-hidden');
+    expect(getByTestId('test-sibling-with-aria-hidden-true')).toHaveAttribute(
+      'aria-hidden',
+      'true',
+    );
+    expect(getByTestId('test-sibling-with-aria-hidden-false')).toHaveAttribute(
+      'aria-hidden',
+      'false',
+    );
+    expect(getByTestId('test-sibling-inside-portal-node')).not.toHaveAttribute(
+      'aria-hidden',
+    );
+    expect(
+      getByTestId('test-sibling-inside-portal-node-aria-hidden-true'),
+    ).toHaveAttribute('aria-hidden', 'true');
+    expect(
+      getByTestId('test-sibling-inside-portal-node-aria-hidden-false'),
+    ).toHaveAttribute('aria-hidden', 'false');
+  });
+});
+
 describe('Modal variant', () => {
   const ModalWithProps = (props?: Partial<ModalProps>) => (
     <Modal visible={true} usePortal={false} {...props}>

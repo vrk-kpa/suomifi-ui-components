@@ -51,6 +51,11 @@ export interface ModalProviderState {
   scrollable: boolean;
 }
 
+interface HiddenDOMNode {
+  element: HTMLElement;
+  prevState: 'false' | null;
+}
+
 const defaultProviderValue: ModalProviderState = {
   /** Modal's smallScreen setting */
   variant: 'default',
@@ -90,6 +95,8 @@ class BaseModal extends Component<ModalProps> {
 
   private focusTrap: FocusTrap | null = null;
 
+  private hiddenNodes: HiddenDOMNode[] = [];
+
   constructor(props: ModalProps) {
     super(props);
     this.focusTrapWrapperRef = React.createRef();
@@ -128,15 +135,66 @@ class BaseModal extends Component<ModalProps> {
     }
   };
 
+  // set aria-hiddenm for Modal sibling DOM nodes when necessary
+  private hideSiblingDOMNodes = (
+    node: HTMLElement,
+    modalMountNode: HTMLElement,
+  ): HiddenDOMNode[] => {
+    if (node === modalMountNode) {
+      return [];
+    }
+    let hiddenNodes: HiddenDOMNode[] = [];
+    for (let i = 0; i < node.children.length; i += 1) {
+      if (node.children[i].contains(modalMountNode)) {
+        hiddenNodes = hiddenNodes.concat(
+          this.hideSiblingDOMNodes(
+            node.children[i] as HTMLElement,
+            modalMountNode,
+          ),
+        );
+      } else {
+        const prevState = node.children[i].getAttribute('aria-hidden');
+        // only hide nodes that are not yet hidden
+        if (prevState !== 'true') {
+          (node.children[i] as HTMLElement).setAttribute('aria-hidden', 'true');
+          hiddenNodes.push({
+            element: node.children[i] as HTMLElement,
+            prevState: prevState === 'false' ? 'false' : null,
+          });
+        }
+      }
+    }
+    return hiddenNodes;
+  };
+
+  // revert Modal sibling DOM node aria-hidden state when closing
+  private showSiblingDOMNodes = (nodes: HiddenDOMNode[]) => {
+    nodes.forEach((node) => {
+      if (node.prevState === 'false') {
+        node.element.setAttribute('aria-hidden', node.prevState);
+      } else {
+        node.element.removeAttribute('aria-hidden');
+      }
+    });
+  };
+
   private toggleModalStylesAndControls = (visible: boolean) => {
     if (!!document && !!window) {
       if (!!visible) {
         document.body.classList.add(modalClassNames.disableBodyContent);
         window.addEventListener('keydown', this.handleKeyDown);
+        if (!!this.focusTrapWrapperRef.current) {
+          this.hiddenNodes = this.hideSiblingDOMNodes(
+            document.body,
+            this.focusTrapWrapperRef.current,
+          );
+        }
         if (!!this.focusTrap) this.focusTrap.activate();
       } else {
         document.body.classList.remove(modalClassNames.disableBodyContent);
         window.removeEventListener('keydown', this.handleKeyDown);
+        this.showSiblingDOMNodes(this.hiddenNodes);
+        this.hiddenNodes = [];
         if (!!this.focusTrap) this.focusTrap.deactivate();
         if (!!this.props.focusOnCloseRef) {
           this.props.focusOnCloseRef.current.focus();
@@ -204,6 +262,8 @@ const StyledModal = styled(BaseModal)`
  * <i class="semantics" />
  * Use for showing modal content.
  * Props other than specified explicitly are passed on to outermost content div.
+ * NOTE: Modal modifies body element styles and sibling DOM element aria-hidden properties.
+ * It assumes aria-hidden for sibling DOM nodes remains unchanged while Modal is visilbe.
  */
 export class Modal extends Component<ModalProps> {
   render() {
