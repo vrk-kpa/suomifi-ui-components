@@ -126,8 +126,6 @@ and with CSS-ClassName:
 
 Don't use ~~!important~~, if really needed - for specificity hack you can use `.fi-button.button--custom.button--custom {...}`
 
-- TBD: CSS-exports (tested to be working , not implemented for all components)
-
 ## Git
 
 Pull requests can be submitted from fork. [Read more from here.](https://guides.github.com/activities/forking/)
