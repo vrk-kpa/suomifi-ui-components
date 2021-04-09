@@ -1,35 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Basic ModalContent should match snapshot 1`] = `
-.c2 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c2::before,
-.c2::after {
-  box-sizing: border-box;
-}
-
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -56,6 +27,35 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 
 .c0::before,
 .c0::after {
+  box-sizing: border-box;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2::before,
+.c2::after {
   box-sizing: border-box;
 }
 
@@ -463,19 +463,21 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 <div
-  aria-describedby="5_title"
-  aria-modal="true"
   class="c0 c1 fi-modal fi-modal--no-portal"
-  role="dialog"
+  role="presentation"
 >
   <div
-    class="c2 fi-modal_overlay"
+    class="c0 fi-modal_overlay"
+    role="presentation"
   >
     <div
+      aria-describedby="5_title"
+      aria-modal="true"
       class="c2 fi-modal_content-container"
+      role="dialog"
     >
       <div
-        class="c2 fi-modal_content c3"
+        class="c0 fi-modal_content c3"
         data-testid="modal-content-id"
       >
         <h2

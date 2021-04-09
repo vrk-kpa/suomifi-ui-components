@@ -53,7 +53,7 @@ export interface ModalProviderState {
 
 type PrevState = { [key: string]: any };
 
-interface HiddenDOMNode {
+interface DisabledDOMNode {
   element: HTMLElement;
   prevState: PrevState | null;
 }
@@ -97,7 +97,7 @@ class BaseModal extends Component<ModalProps> {
 
   private focusTrap: FocusTrap | null = null;
 
-  private disabledNodes: HiddenDOMNode[] = [];
+  private disabledNodes: DisabledDOMNode[] = [];
 
   constructor(props: ModalProps) {
     super(props);
@@ -137,41 +137,38 @@ class BaseModal extends Component<ModalProps> {
     }
   };
 
-  // set aria-hidden for Modal sibling DOM nodes when necessary and add role none presentations to parent nodes
+  // set aria-hidden for Modal sibling DOM nodes when necessary and add role presentations to parent nodes
   private disableNonModalDOMNodes = (
     node: HTMLElement,
     modalMountNode: HTMLElement,
-  ): HiddenDOMNode[] => {
-    if (node === modalMountNode) {
-      return [];
-    }
-    let hiddenNodes: HiddenDOMNode[] = [];
+  ): DisabledDOMNode[] => {
+    let disabledNodes: DisabledDOMNode[] = [];
     for (let i = 0; i < node.children.length; i += 1) {
-      if (node.children[i].contains(modalMountNode)) {
+      if (
+        node.children[i].contains(modalMountNode) &&
+        node.children[i] !== modalMountNode
+      ) {
         const role = (node.children[i] as HTMLElement).getAttribute('role');
-        (node.children[i] as HTMLElement).setAttribute(
-          'role',
-          'none presentation',
-        );
-        hiddenNodes.push({
+        (node.children[i] as HTMLElement).setAttribute('role', 'presentation');
+        disabledNodes.push({
           element: node.children[i] as HTMLElement,
           prevState:
             typeof role === 'string' && role?.length > 0 ? { role } : null,
         });
-        hiddenNodes = hiddenNodes.concat(
+        disabledNodes = disabledNodes.concat(
           this.disableNonModalDOMNodes(
             node.children[i] as HTMLElement,
             modalMountNode,
           ),
         );
-      } else {
+      } else if (node.children[i] !== modalMountNode) {
         const currentAriaHiddenState = node.children[i].getAttribute(
           'aria-hidden',
         );
         // only hide nodes that are not yet hidden
         if (currentAriaHiddenState !== 'true') {
           (node.children[i] as HTMLElement).setAttribute('aria-hidden', 'true');
-          hiddenNodes.push({
+          disabledNodes.push({
             element: node.children[i] as HTMLElement,
             prevState:
               currentAriaHiddenState === 'false'
@@ -181,11 +178,11 @@ class BaseModal extends Component<ModalProps> {
         }
       }
     }
-    return hiddenNodes;
+    return disabledNodes;
   };
 
   // revert Modal sibling DOM node aria-hidden state when closing
-  private showSiblingDOMNodes = (nodes: HiddenDOMNode[]) => {
+  private enableDisabledDOMNodes = (nodes: DisabledDOMNode[]) => {
     nodes.forEach((node) => {
       if (node.prevState !== null) {
         const key = Object.keys(node.prevState)[0];
@@ -212,7 +209,7 @@ class BaseModal extends Component<ModalProps> {
       } else {
         document.body.classList.remove(modalClassNames.disableBodyContent);
         window.removeEventListener('keydown', this.handleKeyDown);
-        this.showSiblingDOMNodes(this.disabledNodes);
+        this.enableDisabledDOMNodes(this.disabledNodes);
         this.disabledNodes = [];
         if (!!this.focusTrap) this.focusTrap.deactivate();
         if (!!this.props.focusOnCloseRef) {
@@ -245,14 +242,13 @@ class BaseModal extends Component<ModalProps> {
     const titleId = `${id}_title`;
     const content = (
       <HtmlDiv
-        role="presentation none"
         className={classnames(className, baseClassName, {
           [modalClassNames.smallScreen]: variant === 'smallScreen',
           [modalClassNames.noScroll]: scrollable === false,
           [modalClassNames.noPortal]: usePortal === false,
         })}
       >
-        <HtmlDiv role="presentation none" className={modalClassNames.overlay}>
+        <HtmlDiv className={modalClassNames.overlay}>
           <HtmlDivWithRef
             forwardedRef={this.focusTrapWrapperRef}
             aria-describedby={titleId}
