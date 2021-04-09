@@ -51,9 +51,11 @@ export interface ModalProviderState {
   scrollable: boolean;
 }
 
+type PrevState = { [key: string]: any };
+
 interface HiddenDOMNode {
   element: HTMLElement;
-  prevState: 'false' | null;
+  prevState: PrevState | null;
 }
 
 const defaultProviderValue: ModalProviderState = {
@@ -95,7 +97,7 @@ class BaseModal extends Component<ModalProps> {
 
   private focusTrap: FocusTrap | null = null;
 
-  private hiddenNodes: HiddenDOMNode[] = [];
+  private disabledNodes: HiddenDOMNode[] = [];
 
   constructor(props: ModalProps) {
     super(props);
@@ -135,8 +137,8 @@ class BaseModal extends Component<ModalProps> {
     }
   };
 
-  // set aria-hiddenm for Modal sibling DOM nodes when necessary
-  private hideSiblingDOMNodes = (
+  // set aria-hidden for Modal sibling DOM nodes when necessary and add role none presentations to parent nodes
+  private disableNonModalDOMNodes = (
     node: HTMLElement,
     modalMountNode: HTMLElement,
   ): HiddenDOMNode[] => {
@@ -146,20 +148,35 @@ class BaseModal extends Component<ModalProps> {
     let hiddenNodes: HiddenDOMNode[] = [];
     for (let i = 0; i < node.children.length; i += 1) {
       if (node.children[i].contains(modalMountNode)) {
+        const role = (node.children[i] as HTMLElement).getAttribute('role');
+        (node.children[i] as HTMLElement).setAttribute(
+          'role',
+          'none presentation',
+        );
+        hiddenNodes.push({
+          element: node.children[i] as HTMLElement,
+          prevState:
+            typeof role === 'string' && role?.length > 0 ? { role } : null,
+        });
         hiddenNodes = hiddenNodes.concat(
-          this.hideSiblingDOMNodes(
+          this.disableNonModalDOMNodes(
             node.children[i] as HTMLElement,
             modalMountNode,
           ),
         );
       } else {
-        const prevState = node.children[i].getAttribute('aria-hidden');
+        const currentAriaHiddenState = node.children[i].getAttribute(
+          'aria-hidden',
+        );
         // only hide nodes that are not yet hidden
-        if (prevState !== 'true') {
+        if (currentAriaHiddenState !== 'true') {
           (node.children[i] as HTMLElement).setAttribute('aria-hidden', 'true');
           hiddenNodes.push({
             element: node.children[i] as HTMLElement,
-            prevState: prevState === 'false' ? 'false' : null,
+            prevState:
+              currentAriaHiddenState === 'false'
+                ? { 'aria-hidden': 'false' }
+                : null,
           });
         }
       }
@@ -170,10 +187,12 @@ class BaseModal extends Component<ModalProps> {
   // revert Modal sibling DOM node aria-hidden state when closing
   private showSiblingDOMNodes = (nodes: HiddenDOMNode[]) => {
     nodes.forEach((node) => {
-      if (node.prevState === 'false') {
-        node.element.setAttribute('aria-hidden', node.prevState);
+      if (node.prevState !== null) {
+        const key = Object.keys(node.prevState)[0];
+        node.element.setAttribute(key, node.prevState[key]);
       } else {
         node.element.removeAttribute('aria-hidden');
+        node.element.removeAttribute('role');
       }
     });
   };
@@ -184,7 +203,7 @@ class BaseModal extends Component<ModalProps> {
         document.body.classList.add(modalClassNames.disableBodyContent);
         window.addEventListener('keydown', this.handleKeyDown);
         if (!!this.focusTrapWrapperRef.current) {
-          this.hiddenNodes = this.hideSiblingDOMNodes(
+          this.disabledNodes = this.disableNonModalDOMNodes(
             document.body,
             this.focusTrapWrapperRef.current,
           );
@@ -193,8 +212,8 @@ class BaseModal extends Component<ModalProps> {
       } else {
         document.body.classList.remove(modalClassNames.disableBodyContent);
         window.removeEventListener('keydown', this.handleKeyDown);
-        this.showSiblingDOMNodes(this.hiddenNodes);
-        this.hiddenNodes = [];
+        this.showSiblingDOMNodes(this.disabledNodes);
+        this.disabledNodes = [];
         if (!!this.focusTrap) this.focusTrap.deactivate();
         if (!!this.props.focusOnCloseRef) {
           this.props.focusOnCloseRef.current.focus();
@@ -225,25 +244,29 @@ class BaseModal extends Component<ModalProps> {
 
     const titleId = `${id}_title`;
     const content = (
-      <HtmlDivWithRef
-        forwardedRef={this.focusTrapWrapperRef}
-        aria-describedby={titleId}
-        role="dialog"
-        aria-modal="true"
+      <HtmlDiv
+        role="presentation none"
         className={classnames(className, baseClassName, {
           [modalClassNames.smallScreen]: variant === 'smallScreen',
           [modalClassNames.noScroll]: scrollable === false,
           [modalClassNames.noPortal]: usePortal === false,
         })}
       >
-        <HtmlDiv className={modalClassNames.overlay}>
-          <HtmlDiv className={modalClassNames.contentContainer} {...passProps}>
+        <HtmlDiv role="presentation none" className={modalClassNames.overlay}>
+          <HtmlDivWithRef
+            forwardedRef={this.focusTrapWrapperRef}
+            aria-describedby={titleId}
+            role="dialog"
+            aria-modal="true"
+            className={modalClassNames.contentContainer}
+            {...passProps}
+          >
             <ModalProvider value={{ titleId, variant, scrollable }}>
               {children}
             </ModalProvider>
-          </HtmlDiv>
+          </HtmlDivWithRef>
         </HtmlDiv>
-      </HtmlDivWithRef>
+      </HtmlDiv>
     );
     // Skip portal if no mount node is available, if we are on a server or if explicitly requested
     if (!this.portalMountNode || !windowAvailable() || usePortal === false) {
