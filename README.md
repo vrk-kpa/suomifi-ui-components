@@ -1,19 +1,23 @@
-# [<img src="https://avatars0.githubusercontent.com/u/11345641?s=88&v=4" alt="VRK" width="18"/> suomifi-ui-components](https://vrk-kpa.github.io/suomifi-ui-components/)
+# [<img src="https://avatars0.githubusercontent.com/u/11345641?s=88&v=4" alt="DVV" width="18"/> suomifi-ui-components](https://vrk-kpa.github.io/suomifi-ui-components/)
+
+![npm](https://img.shields.io/npm/v/suomifi-ui-components)
+
+![NPM](https://img.shields.io/npm/l/suomifi-ui-components)
+
+![WCAG](https://img.shields.io/badge/WCAG%202.1-AA-green)
 
 Suomi.fi-styleguide in React components. [Living styleguide](https://vrk-kpa.github.io/suomifi-ui-components/) (latest release/master-branch).
 
 ## ✨ Features
 
+- Accessibility WCAG 2.1 level AA
 - React-components with TypeScript support
-- Highly modular - all browser/app CSS-resets without global styles
-- Should work on all different existing React apps (>=16.3, >=16.8 recommended)
+- Suomi.fi brand styles
 - Highly customizable (CSS, CSS-in-JS)
 
-Uses [React 16.13.0](https://github.com/facebook/react) with [Styled Components](https://github.com/styled-components/styled-components) and written in [TypeScript](https://github.com/Microsoft/TypeScript). [Styleguidist](https://github.com/styleguidist/react-styleguidist) for presenting components.
+Works with [React >= 16.8.0](https://github.com/facebook/react) and [Styled Components >= 5.2.1](https://github.com/styled-components/styled-components). Supports [TypeScript](https://github.com/Microsoft/TypeScript). CJS and ESM builds provided via the npm package.
 
-[tsdx](https://github.com/jaredpalmer/tsdx) and [eslint](https://eslint.org/).
-
-For testing: [React-testing-library](https://github.com/kentcdodds/react-testing-library) run by [Jest](https://github.com/facebook/jest) with [ts-jest](https://github.com/kulshekhar/ts-jest) (code coverage with built-in [Istanbul](https://github.com/istanbuljs)). Code style with [Prettier](https://github.com/prettier/prettier).
+Supports and tested on latest versions of Chrome, Firefox, Safari and Edge. Also tested with NVDA, VoiceOver and TalkBack screen readers.
 
 ## 📦 Install
 
@@ -29,21 +33,14 @@ And include **required** styles and fonts from `dist/main.css` as best suited fo
 import 'suomifi-ui-components/dist/main.css';
 ```
 
-This stylesheet contains the default fonts for the library as well as Reach UI peer dependency styles.
-
-If you already use Reach UI in your project or cannot import the CSS file for some reason (e.g. CSP for fonts), you can also import the styles directly from Reach UI by following [their instructions](https://reach.tech/styling/). In this case you need to import the font separately e.g. by adding the following entry to your application's CSS.
-
-```javascript
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300:400,600&display=swap');
-```
+This stylesheet contains the default fonts for the library, some global styles and Reach UI peer dependency styles.
 
 ### Peer dependencies
 
-You should also install the following dependencies, if your project does not already have them.
+You should also install the following peer dependencies.
 
-- suomifi-ui-components is a component library for React, it requires [react](https://www.npmjs.com/package/react) version >=16.8.0 and related dependencies and typings.
-
-- suomifi-ui-components requires [styled-components](https://www.npmjs.com/package/styled-components) version >=5.0.1.
+- [React](https://www.npmjs.com/package/react) version >=16.8.0 and related dependencies and typings.
+- [styled-components](https://www.npmjs.com/package/styled-components) version >=5.2.1 and related dependencies and typings.
 
 - The aim is to keep dependencies up to date and use the latest available versions. We encourage you to use the latest available versions of peer dependencies.
 
@@ -59,8 +56,6 @@ yarn add styled-components
 yarn add @types/styled-components @types/warning
 ```
 
-Types for styled-components has a known issue with including conflicting typings for react-native. Therefore, some some additional steps are required to allow skipLibCheck true compiler option. If using yarn, add a .yarnclean file next to your package.json file with `@types/react-native` as contents. If using npm, add `"postinstall": "rm -rf node_modules/@types/react-native"` to your package.json scripts.
-
 ## 🔨 Usage
 
 ```jsx
@@ -68,13 +63,13 @@ import { Button } from 'suomifi-ui-components';
 ReactDOM.render(<Button />, mountNode);
 ```
 
-### 🌊 `Component.variant`
+### 🌊 Component variants
 
-Components have variant-property for different versions of the current component. Easiest way to use variant-prop is with (static method) `Component.variant`.
+Components have variant-property for different versions of the current component. Some components might also have static variants e.g. `Component.variant`, but using these is discouraged as they are being removed in future releases.
 
 ```jsx
 import { Button } from 'suomifi-ui-components';
-<Button.secondary>This is seconday button</Button.secondary>;
+<Button variant=”secondary”>This is a seconday button</Button>;
 ```
 
 ### ⛱ Extending styles
@@ -85,7 +80,7 @@ Components' styles can be customized with [Styled Components](https://github.com
 styled(Button)...
 ```
 
-_HOX!!! If you use Styled Components you cannot use Component.variant (static methods) and you need to use variant-property to get variants from the styled(Component)._
+_HOX!!! If you use Styled Components you cannot use Component.variant (static methods) and you need to use variant-property to get variants from the styled(Component)._ Partly for this reason we are getting rid of the static variants in the future releases.
 
 **or** using CSS-ClassName:
 
@@ -109,7 +104,9 @@ See [FAQ.md](/FAQ.md).
 
 See [DEVELOPMENT.md](/DEVELOPMENT.md).
 
-## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+## 🤝 Contributing
+
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 We welcome all contributions. Please read our [CONTRIBUTING.md](/CONTRIBUTING.md) first.
 

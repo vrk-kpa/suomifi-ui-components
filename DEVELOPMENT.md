@@ -1,5 +1,11 @@
 # ⌨️ Development
 
+[Styleguidist](https://github.com/styleguidist/react-styleguidist) for presenting components.
+
+[tsdx](https://github.com/jaredpalmer/tsdx) and [eslint](https://eslint.org/).
+
+For testing: [React-testing-library](https://github.com/kentcdodds/react-testing-library) run by [Jest](https://github.com/facebook/jest) with [ts-jest](https://github.com/kulshekhar/ts-jest) (code coverage with built-in [Istanbul](https://github.com/istanbuljs)). Code style with [Prettier](https://github.com/prettier/prettier).
+
 After cloning suomifi-ui-components, run `yarn` to fetch its dependencies. Then, you can run several commands:
 
 1. `yarn start` runs Styleguidist for displaying components stories.
@@ -20,18 +26,14 @@ After cloning suomifi-ui-components, run `yarn` to fetch its dependencies. Then,
 
 9. `yarn bundle-analyzer` shows analyzation of bundle size.
 
-
-
 ❗️After you pull changes from the repo, remember to run `yarn` to make sure that you have all the needed dependencies installed on your setup.
 
 ## Source
 
-[![suomifi-ui-components architecture diagram](suomifi-ui-components.png 'suomifi-ui-components architecture')](suomifi-ui-components.png)
-
 Source contains 3 stages of components:
 
 1. `reset` is for resetting html tags (don't do too opinionated stuff here).
-2. `components` are accessible/a11y version of components and HTML-semantics without Suomi.fi related.
+2. `components` are accessible/a11y version of components and HTML-semantics without Suomi.fi related. The components level is being removed, and is not supported any longer.
 3. `core` contains Suomi.fi-styleguide as theme, components and CSS exports.
 
 - _Export `src/core`-components at `src/core/index` and `src/index`._
@@ -39,15 +41,15 @@ Source contains 3 stages of components:
 
 **Don't do relative imports from `src/index`, use those 3-levels export locations.**
 
-**Do not create duplication of source or styles for component, use syntax that can be used in exports.**
+**Do not create duplication of source or styles for component.**
 
 Export interfaces for exported functions/components. Typescript will generate declaration files from exported interfaces (.d.ts). Write comments/documentatiion to all properties that need to be shown at styleguide.
 
 ### Props that are passed on to another component
 
 ```jsx
-// put rest of the props to passProps, but takeAwayProp and takeAanother
-const { takeAwayProp, takeAanother: renamedAsProp, ...passprops } = withSuomifiDefaultProps(this.props);
+// put rest of the props to passProps, but takeAwayProp and takeAnother
+const { takeAwayProp, takeAnother: renamedAsProp, ...passprops } = withSuomifiDefaultProps(this.props);
 const customProps = {
   takeAwayProp: !!takeAwayProp ? takeAwayProp : renamedAsProp,
   basedOnCondition: passProps.notTakenAwayProp ? 'one' : 'two',¨
@@ -64,20 +66,11 @@ return <Component {...passProps}>
 
 ```jsx
 const StyledButton = styled(
-  ({
-    tokens,
-    className,
-    ...passProps
-  }: ButtonProps & InternalTokensProp) => (
-    <CompButton
-      {...passProps}
-      className={classnames(className, {
-        [`${baseClassName}--${variant}`]: variant !== 'default'
-      })}
-    />
+  ({ ...passProps }: ButtonProps & InnerRef) => (
+    <BaseButton {...passProps} />
   )
 )`
-  ${props => baseStyles(props)}
+  ${baseStyles}
 `;
 ```
 
@@ -89,32 +82,23 @@ styled(Component)`
 `;
 ```
 
-Then with arrow-function to:
-
-```jsx
-styled(props => <Component {...props} />)`
-  ${props => baseStyles(props)}
-`;
-```
-
 ## Styling
 
-`src/components` will provide 'fi-' -prefixed classNames to all components - and then at `src/core` styling is based on those base classNames.
+components will have ’fi-’ -prefixed class names and styling is based on those class names.
 
 Use BEM naming convention with `fi-`-prefix:
 
 ```css
 .fi-block
-.fi-block--modifier
-.fi-block_element
-.fi-block_element--modifier
+  .fi-block--modifier
+  .fi-block_element
+  .fi-block_element--modifier;
 ```
 
 and/or atom-classes:
 
 ```css
-.fi-block.fi-rounded
-.fi-block_element.fi-highlight
+.fi-block.fi-rounded .fi-block_element.fi-highlight;
 ```
 
 - All colors, typography and spacing must come from tokens (suomifi-design-tokens) and all tokens not defined in suomifi-design-tokens must be defined at internal tokens
@@ -156,7 +140,7 @@ git add <file1> <file2> ...
 git commit -m "My commit message"
 ```
 
-### Pushing your feature to Github:
+### Pushing your feature to GitHub:
 
 ```bash
 git checkout develop
@@ -180,4 +164,4 @@ git push --force-with-lease
 
 (If your remote does not accept your local new branch: `git push -u origin HEAD`)
 
-- Make a Pull Request at Github website.
+- Make a Pull Request at GitHub website.
