@@ -84,7 +84,7 @@ styled(Component)`
 
 ## Styling
 
-components will have ’fi-’ -prefixed class names and styling is based on those class names.
+components will have `fi-` -prefixed class names and styling is based on those class names.
 
 Use BEM naming convention with `fi-`-prefix:
 
