@@ -1,6 +1,6 @@
 # [<img src="https://avatars0.githubusercontent.com/u/11345641?s=88&v=4" alt="DVV" width="18"/> suomifi-ui-components](https://vrk-kpa.github.io/suomifi-ui-components/)
 
-![npm](https://img.shields.io/npm/v/suomifi-ui-components) ![NPM](https://img.shields.io/npm/l/suomifi-ui-components) ![WCAG](https://img.shields.io/badge/WCAG%202.1-AA-green) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+![npm](https://img.shields.io/npm/v/suomifi-ui-components) ![NPM](https://img.shields.io/npm/l/suomifi-ui-components) ![WCAG](https://img.shields.io/badge/WCAG%202.1-AA-green) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](http://makeapullrequest.com)
 
 Suomi.fi-styleguide in React components. [Living styleguide](https://vrk-kpa.github.io/suomifi-ui-components/) (latest release/master-branch).
 
