@@ -8,7 +8,7 @@ export const baseStyles = css`
     padding-top: 15px;
   }
 
-  & .fi-chip-list_wrapper {
+  & .fi-chip-list_content_wrapper {
     display: inline-flex;
     flex-wrap: wrap;
     width: 100%;

@@ -8,7 +8,7 @@ import { baseStyles } from './ChipList.baseStyles';
 const baseClassName = 'fi-chip-list';
 
 const chipListClassNames = {
-  wrapper: `${baseClassName}_wrapper`,
+  content_wrapper: `${baseClassName}_content_wrapper`,
 };
 
 export interface ChipListProps extends HtmlDivProps {
@@ -25,7 +25,7 @@ class BaseChipList extends Component<ChipListProps> {
     const { className, children, id, ...passProps } = this.props;
     return (
       <HtmlDiv className={classnames(baseClassName, className, {})} id={id}>
-        <HtmlDiv className={chipListClassNames.wrapper} {...passProps}>
+        <HtmlDiv className={chipListClassNames.content_wrapper} {...passProps}>
           {children}
         </HtmlDiv>
       </HtmlDiv>
