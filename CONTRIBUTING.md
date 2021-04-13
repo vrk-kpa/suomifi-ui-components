@@ -2,7 +2,7 @@
 
 We maintain two branches, `master` and `develop`. Send your pull requests to develop.
 
-Create branches with prefixes `bugfix/`, `feature/` and `hotfix/`.
+Create branches with prefixes such as `fix/` and `feature/`.
 
 If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment stating that you intend to work on it so other people don’t accidentally duplicate your effort.
 
@@ -20,7 +20,7 @@ We will review your pull request and either merge it, request changes to it, or 
 
 4. Ensure the test suite passes (`yarn test`)
 
-- [ ] TODO: 5. Run `yarn test -- -u` to update jest snapshot and commit these changes as well (if has).
+5. Run `yarn test -u` to update jest snapshots. Commit any changes.
 
 6. Make sure your code lints (`yarn test:lint`). Tip: Lint runs automatically when you build.
 
@@ -30,16 +30,14 @@ See [DEVELOPMENT.md](/DEVELOPMENT.md).
 
 ## Releasing
 
-On release `develop` is merged to `master` and tagged with version. Releasenotes can be added to version via Github.
+On release `develop` is merged to `master` and tagged with version. Release notes can be added to version via GitHub. We are mostly following [git flow](https://nvie.com/posts/a-successful-git-branching-model/).
 
-If API changes are approved to `develop`, release deprecation warning to `master` and rebase `master` to `develop`.
+If API changes are approved to `develop`, rebase `master` to `develop`. Use semantic versioning to communicate the changes.
 
-## Bugs
+Minor versions and patches are only applied to the latest major version.
 
-We are using GitHub Issues for bug tracing.
+## Feature requests and bug reports
 
-Before you reporting a bug, please make sure you've searched exists issues.
+We are using GitHub Issues for bug tracking and feature request.
 
-## Proposing a change
-
-If you intend to change the public API or introduce new feature, contact [VRK organization](https://github.com/vrk-kpa) design processes or create a feature request issue.
+Before reporting a bug, please make sure you've searched exists issues to see if it has already been reported.
