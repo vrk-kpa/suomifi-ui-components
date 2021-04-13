@@ -33,14 +33,17 @@ class BaseChipList extends Component<ChipListProps> {
   }
 }
 
-const StyledChipList = styled(({ id: propId, ...passProps }: ChipListProps) => (
-  <AutoId id={propId}>{(id) => <BaseChipList id={id} {...passProps} />}</AutoId>
-))`
+const StyledChipList = styled(BaseChipList)`
   ${baseStyles}
 `;
 
 export class ChipList extends Component<ChipListProps> {
   render() {
-    return <StyledChipList {...this.props} />;
+    const { id: propId, ...passProps } = this.props;
+    return (
+      <AutoId id={propId}>
+        {(id) => <StyledChipList id={id} {...passProps} />}
+      </AutoId>
+    );
   }
 }
