@@ -20,7 +20,7 @@ We will review your pull request and either merge it, request changes to it, or 
 
 4. Ensure the test suite passes (`yarn test`)
 
-5. Run `yarn test -- -u` to update jest snapshots. Commit any changes.
+5. Run `yarn test -u` to update jest snapshots. Commit any changes.
 
 6. Make sure your code lints (`yarn test:lint`). Tip: Lint runs automatically when you build.
 
