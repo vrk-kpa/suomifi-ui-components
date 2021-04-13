@@ -33,7 +33,7 @@ After cloning suomifi-ui-components, run `yarn` to fetch its dependencies. Then,
 Source contains 3 stages of components:
 
 1. `reset` is for resetting html tags (don't do too opinionated stuff here).
-2. `components` are accessible/a11y version of components and HTML-semantics without Suomi.fi related. The components level is being removed, and is not supported any longer.
+2. `components` are bare bones accessibility implementations without Suomi.fi styles. This abstraction is being removed and will not be used in the future.
 3. `core` contains Suomi.fi-styleguide as theme, components and CSS exports.
 
 - _Export `src/core`-components at `src/core/index` and `src/index`._
@@ -48,7 +48,7 @@ Export interfaces for exported functions/components. Typescript will generate de
 ### Props that are passed on to another component
 
 ```jsx
-// put rest of the props to passProps, but takeAwayProp and takeAnother
+// destructure takeAway and takeAnother props and put rest of the props to passProps.
 const { takeAwayProp, takeAnother: renamedAsProp, ...passprops } = withSuomifiDefaultProps(this.props);
 const customProps = {
   takeAwayProp: !!takeAwayProp ? takeAwayProp : renamedAsProp,
