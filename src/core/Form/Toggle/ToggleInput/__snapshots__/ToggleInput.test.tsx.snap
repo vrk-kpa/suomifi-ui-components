@@ -383,7 +383,6 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
     </span>
     <span
       class="c0 fi-text c6 fi-text--body"
-      color="blackBase"
     >
       TestToggle
     </span>

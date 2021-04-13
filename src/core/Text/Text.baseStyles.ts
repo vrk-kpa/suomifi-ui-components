@@ -1,11 +1,12 @@
 import { css } from 'styled-components';
 import { defaultThemeTokens as theme } from '../theme';
 import { element, font } from '../theme/reset';
+import { TextProps } from './Text';
 
-export const baseStyles = css`
+export const baseStyles = ({ color }: TextProps) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
-  color: ${theme.colors.blackBase};
+  color: ${!!color ? theme.colors[color] : theme.colors.blackBase};
 
   &.fi-text {
     &--bold {

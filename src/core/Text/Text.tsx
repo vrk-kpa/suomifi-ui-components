@@ -24,7 +24,13 @@ export interface TextProps extends CompTextProps {
 }
 
 const StyledText = styled(
-  ({ variant = 'body', smallScreen, className, ...passProps }: TextProps) => (
+  ({
+    variant = 'body',
+    smallScreen,
+    className,
+    color,
+    ...passProps
+  }: TextProps) => (
     <CompText
       {...passProps}
       className={classnames(className, [`${baseClassName}--${variant}`], {
@@ -33,7 +39,7 @@ const StyledText = styled(
     />
   ),
 )`
-  ${baseStyles};
+  ${(props) => baseStyles(props)};
 `;
 
 /**
