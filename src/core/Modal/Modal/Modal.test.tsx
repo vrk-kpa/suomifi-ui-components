@@ -48,16 +48,22 @@ describe('Modal sibling DOM nodes', () => {
         <div
           data-testid="test-sibling-with-aria-hidden-true"
           aria-hidden="true"
+          role="presentation"
         >
           Test content with Aria-hidden true
         </div>
         <div
           data-testid="test-sibling-with-aria-hidden-false"
           aria-hidden="false"
+          role="presentation"
         >
           Test content with Aria-hidden false
         </div>
-        <div data-testid="portal-containing-node">
+        <div
+          data-testid="portal-containing-node"
+          aria-hidden="false"
+          role="button"
+        >
           <Modal
             data-testid="modal"
             visible={open}
@@ -78,12 +84,14 @@ describe('Modal sibling DOM nodes', () => {
           <div
             data-testid="test-sibling-inside-portal-node-aria-hidden-true"
             aria-hidden="true"
+            role="button"
           >
             Test siblign inside portal node aria hidden true
           </div>
           <div
             data-testid="test-sibling-inside-portal-node-aria-hidden-false"
             aria-hidden="false"
+            role="button"
           >
             Test siblign inside portal node aria-hidden false
           </div>
@@ -95,8 +103,9 @@ describe('Modal sibling DOM nodes', () => {
   it('containing the modal should not be aria-hidden', () => {
     const { getByTestId, baseElement } = render(<ModalWithSiblings />);
     expect(baseElement).not.toHaveAttribute('aria-hidden');
-    expect(getByTestId('portal-containing-node')).not.toHaveAttribute(
+    expect(getByTestId('portal-containing-node')).toHaveAttribute(
       'aria-hidden',
+      'false',
     );
     expect(getByTestId('modal')).not.toHaveAttribute('aria-hidden');
   });
@@ -124,7 +133,7 @@ describe('Modal sibling DOM nodes', () => {
     ).toHaveAttribute('aria-hidden', 'true');
   });
 
-  it('should preserve aria-hidden state after closing modal', () => {
+  it('should preserve aria-hidden and role state after closing modal', () => {
     const { getByTestId } = render(<ModalWithSiblings />);
     fireEvent.keyDown(getByTestId('modal'), {
       key: 'Esc',
@@ -136,9 +145,25 @@ describe('Modal sibling DOM nodes', () => {
       'aria-hidden',
       'true',
     );
+    expect(getByTestId('test-sibling-with-aria-hidden-true')).toHaveAttribute(
+      'role',
+      'presentation',
+    );
     expect(getByTestId('test-sibling-with-aria-hidden-false')).toHaveAttribute(
       'aria-hidden',
       'false',
+    );
+    expect(getByTestId('test-sibling-with-aria-hidden-false')).toHaveAttribute(
+      'role',
+      'presentation',
+    );
+    expect(getByTestId('portal-containing-node')).toHaveAttribute(
+      'aria-hidden',
+      'false',
+    );
+    expect(getByTestId('portal-containing-node')).toHaveAttribute(
+      'role',
+      'button',
     );
     expect(getByTestId('test-sibling-inside-portal-node')).not.toHaveAttribute(
       'aria-hidden',
@@ -147,8 +172,14 @@ describe('Modal sibling DOM nodes', () => {
       getByTestId('test-sibling-inside-portal-node-aria-hidden-true'),
     ).toHaveAttribute('aria-hidden', 'true');
     expect(
+      getByTestId('test-sibling-inside-portal-node-aria-hidden-true'),
+    ).toHaveAttribute('role', 'button');
+    expect(
       getByTestId('test-sibling-inside-portal-node-aria-hidden-false'),
     ).toHaveAttribute('aria-hidden', 'false');
+    expect(
+      getByTestId('test-sibling-inside-portal-node-aria-hidden-false'),
+    ).toHaveAttribute('role', 'button');
   });
 });
 

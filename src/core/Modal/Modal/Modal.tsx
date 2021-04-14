@@ -137,6 +137,31 @@ class BaseModal extends Component<ModalProps> {
     }
   };
 
+  private getNodePrevState = (node: HTMLElement): null | PrevState => {
+    const ariaDisabledPrevState = node.getAttribute('aria-hidden');
+    const rolePrevState = node.getAttribute('role');
+    const prevState: PrevState = {};
+    if (
+      typeof ariaDisabledPrevState === 'string' &&
+      ariaDisabledPrevState.length > 0
+    ) {
+      prevState['aria-hidden'] = ariaDisabledPrevState;
+    }
+    if (typeof rolePrevState === 'string' && rolePrevState.length > 0) {
+      prevState.role = rolePrevState;
+    }
+    return Object.keys(prevState).length > 0 ? prevState : null;
+  };
+
+  private restoreNodePrevState = (disabledNode: DisabledDOMNode) => {
+    if (disabledNode.prevState === null) return;
+    Object.keys(disabledNode.prevState).forEach((key) => {
+      if (!!disabledNode.prevState && disabledNode.prevState[key] !== null) {
+        disabledNode.element.setAttribute(key, disabledNode.prevState[key]);
+      }
+    });
+  };
+
   // set aria-hidden for Modal sibling DOM nodes when necessary and add role presentations to parent nodes
   private disableNonModalDOMNodes = (
     node: HTMLElement,
@@ -148,13 +173,20 @@ class BaseModal extends Component<ModalProps> {
         node.children[i].contains(modalMountNode) &&
         node.children[i] !== modalMountNode
       ) {
-        const role = (node.children[i] as HTMLElement).getAttribute('role');
-        (node.children[i] as HTMLElement).setAttribute('role', 'presentation');
-        disabledNodes.push({
-          element: node.children[i] as HTMLElement,
-          prevState:
-            typeof role === 'string' && role?.length > 0 ? { role } : null,
-        });
+        const prevState = this.getNodePrevState(
+          node.children[i] as HTMLElement,
+        );
+        // only disable nodes that are not yet disabled
+        if (prevState === null || prevState.role !== 'presentation') {
+          (node.children[i] as HTMLElement).setAttribute(
+            'role',
+            'presentation',
+          );
+          disabledNodes.push({
+            element: node.children[i] as HTMLElement,
+            prevState,
+          });
+        }
         disabledNodes = disabledNodes.concat(
           this.disableNonModalDOMNodes(
             node.children[i] as HTMLElement,
@@ -162,18 +194,15 @@ class BaseModal extends Component<ModalProps> {
           ),
         );
       } else if (node.children[i] !== modalMountNode) {
-        const currentAriaHiddenState = node.children[i].getAttribute(
-          'aria-hidden',
+        const prevState = this.getNodePrevState(
+          node.children[i] as HTMLElement,
         );
         // only hide nodes that are not yet hidden
-        if (currentAriaHiddenState !== 'true') {
+        if (prevState === null || prevState['aria-hidden'] !== 'true') {
           (node.children[i] as HTMLElement).setAttribute('aria-hidden', 'true');
           disabledNodes.push({
             element: node.children[i] as HTMLElement,
-            prevState:
-              currentAriaHiddenState === 'false'
-                ? { 'aria-hidden': 'false' }
-                : null,
+            prevState,
           });
         }
       }
@@ -184,12 +213,10 @@ class BaseModal extends Component<ModalProps> {
   // revert Modal sibling DOM node aria-hidden state when closing
   private enableDisabledDOMNodes = (nodes: DisabledDOMNode[]) => {
     nodes.forEach((node) => {
+      node.element.removeAttribute('aria-hidden');
+      node.element.removeAttribute('role');
       if (node.prevState !== null) {
-        const key = Object.keys(node.prevState)[0];
-        node.element.setAttribute(key, node.prevState[key]);
-      } else {
-        node.element.removeAttribute('aria-hidden');
-        node.element.removeAttribute('role');
+        this.restoreNodePrevState(node);
       }
     });
   };
