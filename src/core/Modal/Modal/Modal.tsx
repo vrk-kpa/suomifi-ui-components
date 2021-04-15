@@ -138,14 +138,14 @@ class BaseModal extends Component<ModalProps> {
   };
 
   private getNodePrevState = (node: HTMLElement): null | PrevState => {
-    const ariaDisabledPrevState = node.getAttribute('aria-hidden');
+    const ariaHiddenPrevState = node.getAttribute('aria-hidden');
     const rolePrevState = node.getAttribute('role');
     const prevState: PrevState = {};
     if (
-      typeof ariaDisabledPrevState === 'string' &&
-      ariaDisabledPrevState.length > 0
+      typeof ariaHiddenPrevState === 'string' &&
+      ariaHiddenPrevState.length > 0
     ) {
-      prevState['aria-hidden'] = ariaDisabledPrevState;
+      prevState['aria-hidden'] = ariaHiddenPrevState;
     }
     if (typeof rolePrevState === 'string' && rolePrevState.length > 0) {
       prevState.role = rolePrevState;
@@ -308,8 +308,8 @@ const StyledModal = styled(BaseModal)`
  * <i class="semantics" />
  * Use for showing modal content.
  * Props other than specified explicitly are passed on to outermost content div.
- * NOTE: Modal modifies body element styles and sibling DOM element aria-hidden properties.
- * It assumes aria-hidden for sibling DOM nodes remains unchanged while Modal is visilbe.
+ * NOTE: Modal modifies body element styles and sibling DOM node aria-hidden and parent DOM node role properties.
+ * It assumes aria-hidden for sibling DOM nodes and role for parent DOM nodes remains unchanged while Modal is visilbe.
  */
 export class Modal extends Component<ModalProps> {
   render() {
