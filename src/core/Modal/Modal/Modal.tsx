@@ -51,6 +51,13 @@ export interface ModalProviderState {
   scrollable: boolean;
 }
 
+type PrevState = { [key: string]: any };
+
+interface DisabledDOMNode {
+  element: HTMLElement;
+  prevState: PrevState | null;
+}
+
 const defaultProviderValue: ModalProviderState = {
   /** Modal's smallScreen setting */
   variant: 'default',
@@ -90,6 +97,8 @@ class BaseModal extends Component<ModalProps> {
 
   private focusTrap: FocusTrap | null = null;
 
+  private disabledNodes: DisabledDOMNode[] = [];
+
   constructor(props: ModalProps) {
     super(props);
     this.focusTrapWrapperRef = React.createRef();
@@ -128,15 +137,107 @@ class BaseModal extends Component<ModalProps> {
     }
   };
 
+  private getNodePrevState = (node: HTMLElement): null | PrevState => {
+    const ariaHiddenPrevState = node.getAttribute('aria-hidden');
+    const rolePrevState = node.getAttribute('role');
+    const prevState: PrevState = {};
+    if (
+      typeof ariaHiddenPrevState === 'string' &&
+      ariaHiddenPrevState.length > 0
+    ) {
+      prevState['aria-hidden'] = ariaHiddenPrevState;
+    }
+    if (typeof rolePrevState === 'string' && rolePrevState.length > 0) {
+      prevState.role = rolePrevState;
+    }
+    return Object.keys(prevState).length > 0 ? prevState : null;
+  };
+
+  private restoreNodePrevState = (disabledNode: DisabledDOMNode) => {
+    if (disabledNode.prevState === null) return;
+    Object.keys(disabledNode.prevState).forEach((key) => {
+      if (!!disabledNode.prevState && disabledNode.prevState[key] !== null) {
+        disabledNode.element.setAttribute(key, disabledNode.prevState[key]);
+      }
+    });
+  };
+
+  // set aria-hidden for Modal sibling DOM nodes when necessary and add role presentations to parent nodes
+  private disableNonModalDOMNodes = (
+    node: HTMLElement,
+    modalMountNode: HTMLElement,
+  ): DisabledDOMNode[] => {
+    let disabledNodes: DisabledDOMNode[] = [];
+    for (let i = 0; i < node.children.length; i += 1) {
+      if (
+        node.children[i].contains(modalMountNode) &&
+        node.children[i] !== modalMountNode
+      ) {
+        const prevState = this.getNodePrevState(
+          node.children[i] as HTMLElement,
+        );
+        // only disable nodes that are not yet disabled
+        if (prevState === null || prevState.role !== 'presentation') {
+          (node.children[i] as HTMLElement).setAttribute(
+            'role',
+            'presentation',
+          );
+          disabledNodes.push({
+            element: node.children[i] as HTMLElement,
+            prevState,
+          });
+        }
+        disabledNodes = disabledNodes.concat(
+          this.disableNonModalDOMNodes(
+            node.children[i] as HTMLElement,
+            modalMountNode,
+          ),
+        );
+      } else if (node.children[i] !== modalMountNode) {
+        const prevState = this.getNodePrevState(
+          node.children[i] as HTMLElement,
+        );
+        // only hide nodes that are not yet hidden
+        if (prevState === null || prevState['aria-hidden'] !== 'true') {
+          (node.children[i] as HTMLElement).setAttribute('aria-hidden', 'true');
+          disabledNodes.push({
+            element: node.children[i] as HTMLElement,
+            prevState,
+          });
+        }
+      }
+    }
+    return disabledNodes;
+  };
+
+  // revert Modal sibling DOM node aria-hidden state when closing
+  private enableDisabledDOMNodes = (nodes: DisabledDOMNode[]) => {
+    nodes.forEach((node) => {
+      node.element.removeAttribute('aria-hidden');
+      node.element.removeAttribute('role');
+      if (node.prevState !== null) {
+        this.restoreNodePrevState(node);
+      }
+    });
+  };
+
   private toggleModalStylesAndControls = (visible: boolean) => {
     if (!!document && !!window) {
       if (!!visible) {
         document.body.classList.add(modalClassNames.disableBodyContent);
         window.addEventListener('keydown', this.handleKeyDown);
+        if (!!this.focusTrapWrapperRef.current) {
+          this.disabledNodes = this.disableNonModalDOMNodes(
+            document.body,
+            this.focusTrapWrapperRef.current,
+          );
+        }
         if (!!this.focusTrap) this.focusTrap.activate();
       } else {
         document.body.classList.remove(modalClassNames.disableBodyContent);
         window.removeEventListener('keydown', this.handleKeyDown);
+        this.enableDisabledDOMNodes(this.disabledNodes);
+        this.disabledNodes = [];
         if (!!this.focusTrap) this.focusTrap.deactivate();
         if (!!this.props.focusOnCloseRef) {
           this.props.focusOnCloseRef.current.focus();
@@ -167,11 +268,7 @@ class BaseModal extends Component<ModalProps> {
 
     const titleId = `${id}_title`;
     const content = (
-      <HtmlDivWithRef
-        forwardedRef={this.focusTrapWrapperRef}
-        aria-describedby={titleId}
-        role="dialog"
-        aria-modal="true"
+      <HtmlDiv
         className={classnames(className, baseClassName, {
           [modalClassNames.smallScreen]: variant === 'smallScreen',
           [modalClassNames.noScroll]: scrollable === false,
@@ -179,13 +276,20 @@ class BaseModal extends Component<ModalProps> {
         })}
       >
         <HtmlDiv className={modalClassNames.overlay}>
-          <HtmlDiv className={modalClassNames.contentContainer} {...passProps}>
+          <HtmlDivWithRef
+            forwardedRef={this.focusTrapWrapperRef}
+            aria-describedby={titleId}
+            role="dialog"
+            aria-modal="true"
+            className={modalClassNames.contentContainer}
+            {...passProps}
+          >
             <ModalProvider value={{ titleId, variant, scrollable }}>
               {children}
             </ModalProvider>
-          </HtmlDiv>
+          </HtmlDivWithRef>
         </HtmlDiv>
-      </HtmlDivWithRef>
+      </HtmlDiv>
     );
     // Skip portal if no mount node is available, if we are on a server or if explicitly requested
     if (!this.portalMountNode || !windowAvailable() || usePortal === false) {
@@ -204,6 +308,8 @@ const StyledModal = styled(BaseModal)`
  * <i class="semantics" />
  * Use for showing modal content.
  * Props other than specified explicitly are passed on to outermost content div.
+ * NOTE: Modal modifies body element styles and sibling DOM node aria-hidden and parent DOM node role properties.
+ * It assumes aria-hidden for sibling DOM nodes and role for parent DOM nodes remains unchanged while Modal is visilbe.
  */
 export class Modal extends Component<ModalProps> {
   render() {

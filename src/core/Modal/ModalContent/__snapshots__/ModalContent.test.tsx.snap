@@ -1,35 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Basic ModalContent should match snapshot 1`] = `
-.c2 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c2::before,
-.c2::after {
-  box-sizing: border-box;
-}
-
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -56,6 +27,35 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 
 .c0::before,
 .c0::after {
+  box-sizing: border-box;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2::before,
+.c2::after {
   box-sizing: border-box;
 }
 
@@ -103,8 +103,8 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
@@ -116,8 +116,8 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 
 .c1.fi-modal .fi-modal_overlay {
   background-color: rgba(41,41,41,0.5);
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -140,7 +140,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   background-color: hsl(0,0%,100%);
   border-top: 4px solid hsl(212,63%,45%);
   overflow: hidden;
-  max-height: calc(100vh - 50px);
+  max-height: calc(100% - 50px);
   min-height: 230px;
   width: 800px;
   -webkit-flex: 0 1 auto;
@@ -463,19 +463,21 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 <div
-  aria-describedby="5_title"
-  aria-modal="true"
   class="c0 c1 fi-modal fi-modal--no-portal"
-  role="dialog"
+  role="presentation"
 >
   <div
-    class="c2 fi-modal_overlay"
+    class="c0 fi-modal_overlay"
+    role="presentation"
   >
     <div
+      aria-describedby="5_title"
+      aria-modal="true"
       class="c2 fi-modal_content-container"
+      role="dialog"
     >
       <div
-        class="c2 fi-modal_content c3"
+        class="c0 fi-modal_content c3"
         data-testid="modal-content-id"
       >
         <h2

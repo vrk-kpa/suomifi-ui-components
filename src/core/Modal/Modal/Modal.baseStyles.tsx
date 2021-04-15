@@ -8,8 +8,8 @@ export const baseStyles = css`
   &.fi-modal {
     ${element(theme)}
     ${font(theme)('actionElementInnerTextBold')}
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
@@ -20,8 +20,8 @@ export const baseStyles = css`
 
     & .fi-modal_overlay {
       background-color: ${alphaHex(0.5)(theme.colors.blackBase)};
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -33,7 +33,7 @@ export const baseStyles = css`
       background-color: ${theme.colors.whiteBase};
       border-top: ${theme.spacing.insetXs} solid ${theme.colors.highlightBase};
       overflow: hidden;
-      max-height: calc(100vh - 50px);
+      max-height: calc(100% - 50px);
       min-height: 230px;
       width: 800px;
       flex: 0 1 auto;
