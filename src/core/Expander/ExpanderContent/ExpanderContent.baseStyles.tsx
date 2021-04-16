@@ -27,8 +27,7 @@ export const baseStyles = css`
 
   &.fi-expander_content--open {
     visibility: visible;
-    height: 10%;
-    overflow: visible;
+    height: auto;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     /* This is very robust - cannot animate dynamic height with height-definition */

@@ -153,6 +153,7 @@ class BaseExpanderGroup extends Component<ExpanderGroupProps> {
             toggleAllButtonProps?.className,
             openAllButtonClassName,
           )}
+          aria-expanded={allOpen}
         >
           <HtmlSpan aria-hidden={true}>
             {allOpen ? CloseAllText : OpenAllText}

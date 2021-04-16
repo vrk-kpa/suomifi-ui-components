@@ -314,8 +314,7 @@ exports[`Basic expander group should match snapshot 1`] = `
 
 .c8.fi-expander_content--open {
   visibility: visible;
-  height: 10%;
-  overflow: visible;
+  height: auto;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   -webkit-animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
@@ -460,6 +459,7 @@ exports[`Basic expander group should match snapshot 1`] = `
   class="c0 c1 fi-expander-group"
 >
   <button
+    aria-expanded="false"
     class="c2 fi-expander-group_all-button"
     type="button"
   >
