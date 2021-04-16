@@ -275,10 +275,15 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
     class="c2"
     id="test-id_title"
   >
-    Expander title button
+    <span
+      id="title-id"
+    >
+      Expander title button
+    </span>
   </span>
   <button
     aria-controls="test-id_content"
+    aria-describedby="title-id"
     aria-expanded="false"
     class="c3 fi-expander_title-button"
     type="button"

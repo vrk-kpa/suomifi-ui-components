@@ -25,8 +25,11 @@ import {
   <ExpanderTitle
     ariaOpenText="open expander"
     ariaCloseText="close expander"
+    toggleButtonAriaDescribedBy="checkbox-id"
   >
-    <Checkbox hintText="Checkbox hint text">Checkbox label</Checkbox>
+    <Checkbox hintText="Checkbox hint text" id="checkbox-id">
+      Checkbox label
+    </Checkbox>
   </ExpanderTitle>
   <ExpanderContent>Test expander</ExpanderContent>
 </Expander>;

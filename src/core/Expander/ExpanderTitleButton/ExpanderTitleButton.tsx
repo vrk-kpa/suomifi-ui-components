@@ -3,7 +3,6 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
 import { Icon } from '../../Icon/Icon';
-import { VisuallyHidden } from '../../../components';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 import { expanderTitleButtonBaseStyles } from './ExpanderTitleButton.baseStyles';
 
@@ -20,10 +19,6 @@ export interface ExpanderTitleButtonProps {
   children?: ReactNode;
   /** Wrap the title button inside a heading tag */
   asHeading?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  /** Additional text for closed expanders toggle button. E.g."open expander". */
-  ariaOpenText?: string;
-  /** Additional text for open expanders toggle button. E.g."close expander". */
-  ariaCloseText?: string;
   /** Properties for title open/close toggle button */
   toggleButtonProps?: Omit<
     HtmlButtonProps,
@@ -43,8 +38,6 @@ interface InternalExpanderTitleButtonProps
 class BaseExpanderTitleButton extends Component<InternalExpanderTitleButtonProps> {
   render() {
     const {
-      ariaCloseText,
-      ariaOpenText,
       asHeading,
       children,
       className,
@@ -69,11 +62,6 @@ class BaseExpanderTitleButton extends Component<InternalExpanderTitleButtonProps
             aria-controls={consumer.contentId}
           >
             <HtmlSpan id={consumer.titleId}>{children}</HtmlSpan>
-            {(!!ariaCloseText || !!ariaOpenText) && (
-              <VisuallyHidden>
-                {!!consumer.open ? ariaCloseText : ariaOpenText}
-              </VisuallyHidden>
-            )}
             <Icon
               icon="chevronDown"
               className={classnames(iconClassName, {
