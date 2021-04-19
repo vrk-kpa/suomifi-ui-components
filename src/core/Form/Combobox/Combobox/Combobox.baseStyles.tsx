@@ -25,7 +25,7 @@ export const baseStyles = css`
     }
   }
 
-  & .fi-combobox_wrapper {
+  & .fi-combobox_content_wrapper {
     display: inline-block;
     width: 100%;
   }
