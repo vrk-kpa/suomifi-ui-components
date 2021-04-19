@@ -17,7 +17,7 @@ import { baseStyles } from './Combobox.baseStyles';
 
 const baseClassName = 'fi-combobox';
 const comboboxClassNames = {
-  wrapper: `${baseClassName}_wrapper`,
+  content_wrapper: `${baseClassName}_content_wrapper`,
   open: `${baseClassName}--open`,
   removeAllButton: `${baseClassName}_removeAllButton`,
   error: `${baseClassName}--error`,
@@ -474,7 +474,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           [comboboxClassNames.error]: status === 'error',
         })}
       >
-        <HtmlDiv className={classnames(comboboxClassNames.wrapper, {})}>
+        <HtmlDiv className={classnames(comboboxClassNames.content_wrapper, {})}>
           <Debounce waitFor={debounce}>
             {(debouncer: Function) => (
               <FilterInput
