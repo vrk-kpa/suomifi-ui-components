@@ -13,13 +13,13 @@ export interface ExpanderGroupProps {
   /** Expanders and optionally, other ReactNodes */
   children: ReactNode;
   /** 'Open all' button text */
-  OpenAllText: string;
+  openAllText: string;
   /** 'Close all' button text */
-  CloseAllText: string;
+  closeAllText: string;
   /** 'Open all' button text for screen readers, hides OpenAllText for screen readers if provided */
-  AriaOpenAllText?: string;
+  ariaOpenAllText?: string;
   /** 'Close all' button text for screen readers, hides CloseAllText for screen readers if provided */
-  AriaCloseAllText?: string;
+  ariaCloseAllText?: string;
   /** Custom classname to extend or customize */
   className?: string;
   /** Open/Close all button props */
@@ -131,10 +131,10 @@ class BaseExpanderGroup extends Component<ExpanderGroupProps> {
     const {
       className,
       children,
-      OpenAllText,
-      AriaOpenAllText,
-      CloseAllText,
-      AriaCloseAllText,
+      openAllText,
+      ariaOpenAllText,
+      closeAllText,
+      ariaCloseAllText,
       toggleAllButtonProps,
       ...passProps
     } = this.props;
@@ -156,12 +156,12 @@ class BaseExpanderGroup extends Component<ExpanderGroupProps> {
           aria-expanded={allOpen}
         >
           <HtmlSpan aria-hidden={true}>
-            {allOpen ? CloseAllText : OpenAllText}
+            {allOpen ? closeAllText : openAllText}
           </HtmlSpan>
           <VisuallyHidden>
             {allOpen
-              ? AriaCloseAllText || CloseAllText
-              : AriaOpenAllText || OpenAllText}
+              ? ariaCloseAllText || closeAllText
+              : ariaOpenAllText || openAllText}
           </VisuallyHidden>
         </HtmlButton>
         <HtmlDiv className={expandersContainerClassName}>
