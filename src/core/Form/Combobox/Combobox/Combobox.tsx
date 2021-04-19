@@ -145,15 +145,18 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     nextProps: ComboboxProps<U & ComboboxData>,
     prevState: ComboboxState<U & ComboboxData>,
   ) {
-    const { items: propItems, selectedItems, defaultSelectedItems } = nextProps;
+    const { items: propItems, selectedItems } = nextProps;
     if (
       ('selectedItems' in nextProps &&
         selectedItems !== prevState.selectedItems) ||
       propItems !== prevState.initialItems
     ) {
       return {
-        selectedItems: selectedItems || defaultSelectedItems || [],
-        selectedKeys: getSelectedKeys(selectedItems),
+        selectedItems: selectedItems || prevState.selectedItems || [],
+        selectedKeys:
+          'selectedItems' in nextProps
+            ? getSelectedKeys(selectedItems)
+            : getSelectedKeys(prevState.selectedItems),
         disabledKeys: selectedItems
           ? getDisabledKeys(selectedItems)
           : getDisabledKeys(propItems),
