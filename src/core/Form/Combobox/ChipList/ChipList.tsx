@@ -12,6 +12,7 @@ const chipListClassNames = {
 };
 
 export interface ChipListProps extends HtmlDivProps {
+  /** ChipList container div class name for custom styling. */
   className?: string;
   /**
    * Unique id
