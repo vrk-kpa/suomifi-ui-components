@@ -244,16 +244,19 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
 
   render() {
     const highlightQuery = (text: string, query: string) => {
-      const substrings = text.split(new RegExp(`(${query})`, 'gi'));
-      return substrings.map((substring, i) => {
-        const isMatch = substring.toLowerCase() === query.toLowerCase();
-        if (isMatch) {
+      if (query.length > 0) {
+        const substrings = text.split(new RegExp(`(${query})`, 'gi'));
+        return substrings.map((substring, i) => {
+          const isMatch = substring.toLowerCase() === query.toLowerCase();
+          if (isMatch) {
+            // eslint-disable-next-line react/no-array-index-key
+            return <mark key={i}>{substring}</mark>;
+          }
           // eslint-disable-next-line react/no-array-index-key
-          return <mark key={i}>{substring}</mark>;
-        }
-        // eslint-disable-next-line react/no-array-index-key
-        return <span key={i}>{substring}</span>;
-      });
+          return <React.Fragment key={i}>{substring}</React.Fragment>;
+        });
+      }
+      return text;
     };
 
     const filter = (data: ComboboxData, query: string) =>
