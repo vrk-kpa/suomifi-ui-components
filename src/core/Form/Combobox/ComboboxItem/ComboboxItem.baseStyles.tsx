@@ -32,7 +32,7 @@ export const baseStyles = css`
       }
     }
 
-    &--currentSelection {
+    &--hasKeyboardFocus {
       & .fi-checkbox {
         background-color: ${theme.colors.highlightBase};
         color: ${theme.colors.whiteBase};

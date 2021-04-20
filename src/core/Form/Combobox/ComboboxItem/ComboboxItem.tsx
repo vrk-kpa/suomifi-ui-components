@@ -9,14 +9,15 @@ const baseClassName = 'fi-combobox-item';
 
 const comboboxItemClassNames = {
   wrapper: `${baseClassName}_wrapper`,
-  currentSelection: `${baseClassName}--currentSelection`,
+  hasKeyboardFocus: `${baseClassName}--hasKeyboardFocus`,
 };
 
 export interface ComboboxItemProps
   extends Omit<CheckboxProps, 'ref' | 'forwardedRef'> {
   /** ComboboxItem container div class name for custom styling. */
   className?: string;
-  currentSelection: boolean;
+  /** Indicates if the current item has keyboard focus. */
+  hasKeyboardFocus: boolean;
 }
 
 class BaseComboboxItem extends Component<ComboboxItemProps> {
@@ -25,7 +26,7 @@ class BaseComboboxItem extends Component<ComboboxItemProps> {
       className,
       children,
       defaultChecked,
-      currentSelection,
+      hasKeyboardFocus,
       disabled,
       id,
       ...passProps
@@ -33,7 +34,7 @@ class BaseComboboxItem extends Component<ComboboxItemProps> {
     return (
       <HtmlLi
         className={classnames(baseClassName, className, {
-          [comboboxItemClassNames.currentSelection]: currentSelection,
+          [comboboxItemClassNames.hasKeyboardFocus]: hasKeyboardFocus,
         })}
         tabIndex={-1}
         role="option"
