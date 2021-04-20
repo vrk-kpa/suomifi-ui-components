@@ -8,7 +8,7 @@ import { baseStyles } from './ComboboxItemList.baseStyles';
 const baseClassName = 'fi-combobox-item-list';
 
 const comboboxItemListClassNames = {
-  wrapper: `${baseClassName}_wrapper`,
+  content_wrapper: `${baseClassName}_content_wrapper`,
 };
 
 export interface ComboboxItemListProps {
@@ -39,7 +39,7 @@ class BaseComboboxItemList extends Component<ComboboxItemListProps> {
         role="listbox"
         onBlur={onBlur}
       >
-        <HtmlDiv className={comboboxItemListClassNames.wrapper}>
+        <HtmlDiv className={comboboxItemListClassNames.content_wrapper}>
           {children}
         </HtmlDiv>
       </HtmlUlWithRef>
