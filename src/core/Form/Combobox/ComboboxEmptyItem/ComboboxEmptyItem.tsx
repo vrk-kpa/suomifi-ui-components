@@ -7,7 +7,7 @@ import { baseStyles } from './ComboboxEmptyItem.baseStyles';
 const baseClassName = 'fi-combobox-empty-item';
 
 const comboboxItemClassNames = {
-  wrapper: `${baseClassName}_wrapper`,
+  content_wrapper: `${baseClassName}_content_wrapper`,
 };
 
 export interface ComboboxEmptyItemProps {
@@ -24,7 +24,10 @@ class BaseComboboxEmptyItem extends Component<ComboboxEmptyItemProps> {
         tabIndex={-1}
         role="option"
       >
-        <HtmlDiv className={comboboxItemClassNames.wrapper} {...passProps}>
+        <HtmlDiv
+          className={comboboxItemClassNames.content_wrapper}
+          {...passProps}
+        >
           {children}
         </HtmlDiv>
       </HtmlLi>

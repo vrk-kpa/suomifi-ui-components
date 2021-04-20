@@ -11,7 +11,7 @@ export const baseStyles = css`
       outline: none;
     }
   }
-  & .fi-combobox-empty-item_wrapper {
+  & .fi-combobox-empty-item_content_wrapper {
     display: inline-block;
     width: 100%;
   }
