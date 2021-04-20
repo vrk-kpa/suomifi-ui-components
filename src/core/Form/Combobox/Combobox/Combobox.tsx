@@ -524,7 +524,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
 
                     return (
                       <ComboboxItem
-                        currentSelection={isCurrentlySelected}
+                        hasKeyboardFocus={isCurrentlySelected}
                         key={`${item.uniqueItemId}_${
                           item.uniqueItemId in selectedKeys
                         }`}
