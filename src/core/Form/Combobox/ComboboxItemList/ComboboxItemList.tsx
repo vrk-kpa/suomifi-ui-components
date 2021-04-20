@@ -37,6 +37,7 @@ class BaseComboboxItemList extends Component<ComboboxItemListProps> {
         className={classnames(baseClassName, className, {})}
         {...passProps}
         role="listbox"
+        aria-multiselectable="true"
         onBlur={onBlur}
       >
         <HtmlDiv className={comboboxItemListClassNames.content_wrapper}>
