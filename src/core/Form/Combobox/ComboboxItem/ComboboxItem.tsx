@@ -25,7 +25,7 @@ class BaseComboboxItem extends Component<ComboboxItemProps> {
     const {
       className,
       children,
-      defaultChecked,
+      checked,
       hasKeyboardFocus,
       disabled,
       id,
@@ -38,16 +38,12 @@ class BaseComboboxItem extends Component<ComboboxItemProps> {
         })}
         tabIndex={-1}
         role="option"
-        aria-selected={defaultChecked}
+        aria-selected={checked}
         aria-disabled={disabled || false}
         id={id}
       >
         <HtmlDiv className={comboboxItemClassNames.wrapper}>
-          <Checkbox
-            disabled={disabled}
-            defaultChecked={defaultChecked}
-            {...passProps}
-          >
+          <Checkbox disabled={disabled} checked={checked} {...passProps}>
             {children}
           </Checkbox>
         </HtmlDiv>
