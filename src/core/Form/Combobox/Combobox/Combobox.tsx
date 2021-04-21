@@ -514,7 +514,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             sourceRef={this.filterInputRef.current}
             matchWidth={true}
             id={`${id}-popover`}
-            portalStyleProps={{ backgroundColor: 'white' }}
             onKeyDown={handleKeyDown}
           >
             {showPopover && (
