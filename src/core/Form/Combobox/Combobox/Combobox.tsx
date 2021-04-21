@@ -21,6 +21,7 @@ const comboboxClassNames = {
   open: `${baseClassName}--open`,
   removeAllButton: `${baseClassName}_removeAllButton`,
   error: `${baseClassName}--error`,
+  queryHighlight: `${baseClassName}-item--query_highlight`,
 };
 
 export interface ComboboxData {
@@ -249,8 +250,12 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         return substrings.map((substring, i) => {
           const isMatch = substring.toLowerCase() === query.toLowerCase();
           if (isMatch) {
-            // eslint-disable-next-line react/no-array-index-key
-            return <mark key={i}>{substring}</mark>;
+            return (
+              // eslint-disable-next-line react/no-array-index-key
+              <mark className={comboboxClassNames.queryHighlight} key={i}>
+                {substring}
+              </mark>
+            );
           }
           // eslint-disable-next-line react/no-array-index-key
           return <React.Fragment key={i}>{substring}</React.Fragment>;

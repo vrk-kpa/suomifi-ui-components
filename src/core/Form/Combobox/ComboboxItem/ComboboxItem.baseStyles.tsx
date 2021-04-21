@@ -13,7 +13,7 @@ export const baseStyles = css`
       user-select: none;
       ${font(theme)('actionElementInnerText')}
 
-      & mark {
+      & .fi-combobox-item--query_highlight {
         background-color: transparent;
         font-weight: bold;
       }
@@ -27,7 +27,7 @@ export const baseStyles = css`
       background-color: ${theme.colors.depthSecondaryDark1};
       color: ${theme.colors.blackBase};
 
-      & mark {
+      & .fi-combobox-item--query_highlight {
         color: ${theme.colors.blackBase};
       }
     }
@@ -37,7 +37,7 @@ export const baseStyles = css`
         background-color: ${theme.colors.highlightBase};
         color: ${theme.colors.whiteBase};
 
-        & mark {
+        & .fi-combobox-item--query_highlight {
           color: ${theme.colors.whiteBase};
         }
 
@@ -45,7 +45,7 @@ export const baseStyles = css`
           background-color: ${theme.colors.highlightBase};
           color: ${theme.colors.whiteBase};
 
-          & mark {
+          & .fi-combobox-item--query_highlight {
             color: ${theme.colors.whiteBase};
           }
         }
@@ -56,7 +56,7 @@ export const baseStyles = css`
       & .fi-checkbox {
         background-color: ${theme.colors.highlightBase};
         color: ${theme.colors.whiteBase};
-        & mark {
+        & .fi-combobox-item--query_highlight {
           color: ${theme.colors.whiteBase};
         }
       }
