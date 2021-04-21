@@ -5,7 +5,7 @@ import { font } from '../../../theme/reset';
 export const baseStyles = css`
   &.fi-combobox-empty-item {
     ${font(theme)('actionElementInnerText')}
-    padding: 10px;
+    padding: ${theme.spacing.insetL};
 
     &:focus {
       outline: none;
