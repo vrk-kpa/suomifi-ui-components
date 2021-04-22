@@ -10,11 +10,6 @@ describe('props', () => {
       const { container } = render(<StatusText>Test text</StatusText>);
       expect(container.firstChild).toHaveTextContent('Test text');
     });
-
-    it('is null when no children given', () => {
-      const { container } = render(<StatusText />);
-      expect(container.firstChild).toEqual(null);
-    });
   });
 
   describe('id', () => {
@@ -41,13 +36,6 @@ describe('props', () => {
         <StatusText status="error">Test text</StatusText>,
       );
       expect(container.firstChild).toHaveClass('fi-status-text--error');
-    });
-  });
-
-  describe('disabled', () => {
-    it('is null when disabled', () => {
-      const { container } = render(<StatusText disabled>Test text</StatusText>);
-      expect(container.firstChild).toEqual(null);
     });
   });
 });
