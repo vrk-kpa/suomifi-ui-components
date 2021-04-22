@@ -24,10 +24,17 @@ export interface StatusTextProps extends HtmlSpanProps {
 }
 
 const StyledStatusText = styled(
-  ({ className, children, status, ...passProps }: StatusTextProps) => (
+  ({
+    className,
+    children,
+    disabled,
+    status,
+    ...passProps
+  }: StatusTextProps) => (
     <HtmlSpan
       {...passProps}
-      className={classnames(className, baseClassName, {
+      className={classnames(className, {
+        [baseClassName]: children && !disabled,
         [statusTextClassNames.error]: status === 'error',
       })}
     >
@@ -40,10 +47,7 @@ const StyledStatusText = styled(
 
 export class StatusText extends Component<StatusTextProps> {
   render() {
-    const { disabled, children, ...passProps } = this.props;
-    if (disabled || !children) {
-      return null;
-    }
+    const { children, ...passProps } = this.props;
     return <StyledStatusText {...passProps}>{children}</StyledStatusText>;
   }
 }
