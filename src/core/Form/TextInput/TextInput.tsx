@@ -82,6 +82,10 @@ interface InternalTextInputProps
   icon?: BaseIconKeys;
   /** Properties for the icon */
   iconProps?: Omit<IconProps, 'icon'>;
+  /** Aria-live mode for the status text element
+   * @default assertive
+   */
+  statusTextAriaLiveMode?: 'assertive' | 'polite' | 'off';
 }
 
 interface InnerRef {
@@ -113,6 +117,7 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
       iconProps,
       forwardedRef,
       debounce,
+      statusTextAriaLiveMode = 'assertive',
       'aria-describedby': ariaDescribedBy,
       ...passProps
     } = this.props;
@@ -168,7 +173,11 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
             </Debounce>
             {resolvedIcon && <Icon {...{ ...iconProps, icon: resolvedIcon }} />}
           </HtmlDiv>
-          <StatusText id={statusTextId} status={status}>
+          <StatusText
+            id={statusTextId}
+            status={status}
+            aria-live={statusTextAriaLiveMode}
+          >
             {statusText}
           </StatusText>
         </HtmlSpan>
