@@ -30,7 +30,7 @@ const headingClassNames = {
 
 class BaseModalTitle extends Component<InternalModalTitleProps> {
   state = {
-    tabIndex: 0,
+    titleFocusable: true,
   };
 
   render() {
@@ -51,8 +51,8 @@ class BaseModalTitle extends Component<InternalModalTitleProps> {
           [headingClassNames.smallScreen]: modalVariant === 'smallScreen',
           [headingClassNames.noScroll]: scrollable === false,
         })}
-        tabIndex={this.state.tabIndex}
-        onBlur={() => this.setState({ tabIndex: -1 })}
+        {...(this.state.titleFocusable ? { tabIndex: 0 } : {})}
+        onBlur={() => this.setState({ titleFocusable: false })}
         id={id}
         variant={variant}
         as={as}
