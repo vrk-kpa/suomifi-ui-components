@@ -29,6 +29,10 @@ const headingClassNames = {
 };
 
 class BaseModalTitle extends Component<InternalModalTitleProps> {
+  state = {
+    tabIndex: 0,
+  };
+
   render() {
     const {
       className,
@@ -47,6 +51,8 @@ class BaseModalTitle extends Component<InternalModalTitleProps> {
           [headingClassNames.smallScreen]: modalVariant === 'smallScreen',
           [headingClassNames.noScroll]: scrollable === false,
         })}
+        tabIndex={this.state.tabIndex}
+        onBlur={() => this.setState({ tabIndex: -1 })}
         id={id}
         variant={variant}
         as={as}

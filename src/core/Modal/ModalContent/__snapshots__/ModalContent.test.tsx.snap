@@ -88,7 +88,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c1.fi-modal {
+.c1.fi-modal_base {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -110,11 +110,11 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   left: 0;
 }
 
-.c1.fi-modal--no-portal {
+.c1.fi-modal_base--no-portal {
   z-index: 100;
 }
 
-.c1.fi-modal .fi-modal_overlay {
+.c1.fi-modal_base .fi-modal_overlay {
   background-color: rgba(41,41,41,0.5);
   width: 100%;
   height: 100%;
@@ -135,7 +135,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   align-items: center;
 }
 
-.c1.fi-modal .fi-modal_content-container {
+.c1 .fi-modal {
   border-radius: 4px;
   background-color: hsl(0,0%,100%);
   border-top: 4px solid hsl(212,63%,45%);
@@ -159,12 +159,12 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   align-items: stretch;
 }
 
-.c1.fi-modal--no-scroll .fi-modal_content-container {
+.c1 .fi-modal--no-scroll {
   width: 540px;
   min-height: 190px;
 }
 
-.c1.fi-modal--small-screen .fi-modal_content-container {
+.c1 .fi-modal--small-screen {
   border-radius: 0;
   width: 100%;
   height: 100%;
@@ -451,19 +451,42 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6.fi-modal_title {
-  padding-bottom: 20px;
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.c6.fi-modal_title:focus {
+  outline: 0;
+}
+
+.c6.fi-modal_title:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
 }
 
 .c6.fi-modal_title--no-scroll {
-  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .c6.fi-modal_title--small-screen {
-  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 <div
-  class="c0 c1 fi-modal fi-modal--no-portal"
+  class="c0 c1 fi-modal_base fi-modal_base--no-portal"
   role="presentation"
 >
   <div
@@ -471,9 +494,8 @@ exports[`Basic ModalContent should match snapshot 1`] = `
     role="presentation"
   >
     <div
-      aria-describedby="5_title"
       aria-modal="true"
-      class="c2 fi-modal_content-container"
+      class="c2 fi-modal"
       role="dialog"
     >
       <div
@@ -483,6 +505,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
         <h2
           class="c4 fi-heading c5 c6 fi-modal_title fi-heading--h3"
           id="5_title"
+          tabindex="0"
         >
           Test modal
         </h2>

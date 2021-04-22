@@ -17,7 +17,7 @@ export interface ModalProps
   extends Omit<HtmlDivProps, 'children' | 'className' | 'title' | 'ref'> {
   /** Show or hide the modal */
   visible: boolean;
-  /** Modal container div class name for custom styling. */
+  /** Modal container div classname for custom styling. */
   className?: string;
   /** Children */
   children: ModalContent | ModalFooter | ReactNode;
@@ -74,8 +74,9 @@ const {
 
 export const baseClassName = 'fi-modal';
 const modalClassNames = {
-  noPortal: `${baseClassName}--no-portal`,
   smallScreen: `${baseClassName}--small-screen`,
+  base: `${baseClassName}_base`,
+  noPortal: `${baseClassName}_base--no-portal`,
   overlay: `${baseClassName}_overlay`,
   contentContainer: `${baseClassName}_content-container`,
   content: `${baseClassName}_content`,
@@ -86,7 +87,7 @@ const modalClassNames = {
   disableBodyContent: `${baseClassName}--disable-body-content`,
 };
 
-class BaseModal extends Component<ModalProps> {
+class BaseModal extends Component<ModalProps & { propClassName?: string }> {
   private previouslyFocusedElement: any;
 
   private focusTrapWrapperRef: React.RefObject<HTMLDivElement>;
@@ -255,6 +256,7 @@ class BaseModal extends Component<ModalProps> {
     const {
       visible,
       id,
+      propClassName,
       className,
       children,
       variant = 'default',
@@ -269,19 +271,19 @@ class BaseModal extends Component<ModalProps> {
     const titleId = `${id}_title`;
     const content = (
       <HtmlDiv
-        className={classnames(className, baseClassName, {
-          [modalClassNames.smallScreen]: variant === 'smallScreen',
-          [modalClassNames.noScroll]: scrollable === false,
+        className={classnames(className, modalClassNames.base, {
           [modalClassNames.noPortal]: usePortal === false,
         })}
       >
         <HtmlDiv className={modalClassNames.overlay}>
           <HtmlDivWithRef
             forwardedRef={this.focusTrapWrapperRef}
-            aria-describedby={titleId}
             role="dialog"
             aria-modal="true"
-            className={modalClassNames.contentContainer}
+            className={classnames(propClassName, baseClassName, {
+              [modalClassNames.smallScreen]: variant === 'smallScreen',
+              [modalClassNames.noScroll]: scrollable === false,
+            })}
             {...passProps}
           >
             <ModalProvider value={{ titleId, variant, scrollable }}>
@@ -313,11 +315,23 @@ const StyledModal = styled(BaseModal)`
  */
 export class Modal extends Component<ModalProps> {
   render() {
-    const { id: propId, visible, ...passProps } = this.props;
+    const {
+      id: propId,
+      visible,
+      className: propClassName,
+      ...passProps
+    } = this.props;
     if (!visible) return null;
     return (
       <AutoId id={propId}>
-        {(id) => <StyledModal id={id} visible={visible} {...passProps} />}
+        {(id) => (
+          <StyledModal
+            id={id}
+            visible={visible}
+            propClassName={propClassName}
+            {...passProps}
+          />
+        )}
       </AutoId>
     );
   }
