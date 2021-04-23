@@ -1,7 +1,7 @@
 import React, { Component, ChangeEvent, FocusEvent, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { getConditionalAriaProp } from '../../../utils/aria';
+import { getConditionalAriaProp, ariaLiveModes } from '../../../utils/aria';
 import { AutoId } from '../../../utils/AutoId';
 import {
   HtmlTextarea,
@@ -77,6 +77,10 @@ interface InternalTextareaProps extends Omit<HtmlTextareaProps, 'placeholder'> {
   fullWidth?: boolean;
   /** Textarea container div props */
   containerProps?: Omit<HtmlDivProps, 'className'>;
+  /** Aria-live mode for the status text element
+   * @default assertive
+   */
+  statusTextAriaLiveMode?: ariaLiveModes;
 }
 
 interface InnerRef {
@@ -108,6 +112,7 @@ class BaseTextarea extends Component<TextareaProps & InnerRef> {
       fullWidth,
       containerProps,
       forwardedRef,
+      statusTextAriaLiveMode = 'assertive',
       ...passProps
     } = this.props;
 
@@ -155,7 +160,11 @@ class BaseTextarea extends Component<TextareaProps & InnerRef> {
             {...onClickProps}
           />
         </HtmlDiv>
-        <StatusText id={statusTextId} status={status}>
+        <StatusText
+          id={statusTextId}
+          status={status}
+          aria-live={statusTextAriaLiveMode}
+        >
           {statusText}
         </StatusText>
       </HtmlDiv>

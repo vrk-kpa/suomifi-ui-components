@@ -2,7 +2,7 @@ import React, { ChangeEvent, Component, createRef, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../../utils/AutoId';
-import { getConditionalAriaProp } from '../../../utils/aria';
+import { getConditionalAriaProp, ariaLiveModes } from '../../../utils/aria';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import {
   HtmlInput,
@@ -76,6 +76,10 @@ export interface SearchInputProps
   onSearch?: (value: SearchInputValue) => void;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
   debounce?: number;
+  /** Aria-live mode for the status text element
+   * @default assertive
+   */
+  statusTextAriaLiveMode?: ariaLiveModes;
 }
 
 const baseClassName = 'fi-search-input';
@@ -137,6 +141,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
       fullWidth,
       debounce,
       'aria-describedby': ariaDescribedBy,
+      statusTextAriaLiveMode = 'assertive',
       ...passProps
     } = this.props;
 
@@ -268,7 +273,11 @@ class BaseSearchInput extends Component<SearchInputProps> {
               </HtmlDiv>
             )}
           </Debounce>
-          <StatusText id={statusTextId} status={status}>
+          <StatusText
+            id={statusTextId}
+            status={status}
+            aria-live={statusTextAriaLiveMode}
+          >
             {statusText}
           </StatusText>
         </HtmlSpan>

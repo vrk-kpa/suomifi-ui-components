@@ -9,7 +9,7 @@ import {
   HtmlInput,
 } from '../../../reset';
 import { AutoId } from '../../../utils/AutoId';
-import { getConditionalAriaProp } from '../../../utils/aria';
+import { getConditionalAriaProp, ariaLiveModes } from '../../../utils/aria';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { StatusText } from '../StatusText/StatusText';
 import { baseStyles } from './FilterInput.baseStyles';
@@ -51,6 +51,10 @@ interface InternalFilterInputProps<T> extends Omit<HtmlInputProps, 'type'> {
   status?: FilterInputStatus;
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
+  /** Aria-live mode for the status text element
+   * @default assertive
+   */
+  statusTextAriaLiveMode?: ariaLiveModes;
   /** FilterInput name */
   name?: string;
   /** Align label on top or on the left side of the input field
@@ -89,6 +93,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       id,
       labelAlign,
       'aria-describedby': ariaDescribedBy,
+      statusTextAriaLiveMode = 'assertive',
       items: propItems,
       onFilter: propOnFiltering,
       filterFunc: propFilterRule,
@@ -153,7 +158,11 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
                 onChange={onChangeHandler}
               />
             </HtmlDiv>
-            <StatusText id={statusTextId} status={status}>
+            <StatusText
+              id={statusTextId}
+              status={status}
+              aria-live={statusTextAriaLiveMode}
+            >
               {statusText}
             </StatusText>
           </HtmlDiv>
