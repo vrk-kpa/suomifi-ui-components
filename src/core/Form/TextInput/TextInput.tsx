@@ -64,6 +64,10 @@ interface InternalTextInputProps
   status?: InputStatus;
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
+  /** Aria-live mode for the status text element
+   * @default assertive
+   */
+  statusTextAriaLiveMode?: ariaLiveModes;
   /** 'text' | 'email' | 'number' | 'password' | 'tel' | 'url'
    * @default text
    */
@@ -82,10 +86,6 @@ interface InternalTextInputProps
   icon?: BaseIconKeys;
   /** Properties for the icon */
   iconProps?: Omit<IconProps, 'icon'>;
-  /** Aria-live mode for the status text element
-   * @default assertive
-   */
-  statusTextAriaLiveMode?: ariaLiveModes;
 }
 
 interface InnerRef {

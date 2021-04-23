@@ -60,6 +60,10 @@ export interface SearchInputProps
   status?: SearchInputStatus;
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
+  /** Aria-live mode for the status text element
+   * @default assertive
+   */
+  statusTextAriaLiveMode?: ariaLiveModes;
   /** Input name */
   name?: string;
   /** Set components width to 100% */
@@ -76,10 +80,6 @@ export interface SearchInputProps
   onSearch?: (value: SearchInputValue) => void;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
   debounce?: number;
-  /** Aria-live mode for the status text element
-   * @default assertive
-   */
-  statusTextAriaLiveMode?: ariaLiveModes;
 }
 
 const baseClassName = 'fi-search-input';

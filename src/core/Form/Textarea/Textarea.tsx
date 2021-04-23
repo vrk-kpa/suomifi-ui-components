@@ -59,6 +59,10 @@ interface InternalTextareaProps extends Omit<HtmlTextareaProps, 'placeholder'> {
   status?: TextareaStatus;
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
+  /** Aria-live mode for the status text element
+   * @default assertive
+   */
+  statusTextAriaLiveMode?: ariaLiveModes;
   /** Resize mode of the textarea
       'both' | 'vertical' | 'horizontal' | 'none'
       @default 'vertical' 
@@ -77,10 +81,6 @@ interface InternalTextareaProps extends Omit<HtmlTextareaProps, 'placeholder'> {
   fullWidth?: boolean;
   /** Textarea container div props */
   containerProps?: Omit<HtmlDivProps, 'className'>;
-  /** Aria-live mode for the status text element
-   * @default assertive
-   */
-  statusTextAriaLiveMode?: ariaLiveModes;
 }
 
 interface InnerRef {
