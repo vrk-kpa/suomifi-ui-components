@@ -293,6 +293,7 @@ exports[`props children has matching snapshot 1`] = `
     Regular
   </label>
   <span
+    aria-live="assertive"
     class="c4 c5"
   />
 </div>

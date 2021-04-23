@@ -578,6 +578,7 @@ exports[`snapshot should have matching default structure 1`] = `
       </button>
     </div>
     <span
+      aria-live="assertive"
       class="c2 c8"
       id="1-statusText"
     />

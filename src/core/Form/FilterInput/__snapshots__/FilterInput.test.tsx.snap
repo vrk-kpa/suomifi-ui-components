@@ -321,6 +321,7 @@ exports[`snapshot matches 1`] = `
         />
       </div>
       <span
+        aria-live="assertive"
         class="c3 c5"
       />
     </div>
