@@ -44,10 +44,10 @@ import {
 } from 'suomifi-ui-components';
 
 <ExpanderGroup
-  OpenAllText="Open all"
-  AriaOpenAllText="Open all expanders"
-  CloseAllText="Close all"
-  AriaCloseAllText="Close all expanders"
+  openAllText="Open all"
+  ariaOpenAllText="Open all expanders"
+  closeAllText="Close all"
+  ariaCloseAllText="Close all expanders"
 >
   <Expander>
     <ExpanderTitleButton>Test expander 1</ExpanderTitleButton>
@@ -85,10 +85,10 @@ const [expanderThreeOpen, setExpanderThreeOpen] = React.useState(
 
 <>
   <ExpanderGroup
-    OpenAllText="Open all"
-    AriaOpenAllText="Open all expanders"
-    CloseAllText="Close all"
-    AriaCloseAllText="Close all expanders"
+    openAllText="Open all"
+    ariaOpenAllText="Open all expanders"
+    closeAllText="Close all"
+    ariaCloseAllText="Close all expanders"
   >
     <Expander>
       <ExpanderTitleButton>Test expander 1</ExpanderTitleButton>
