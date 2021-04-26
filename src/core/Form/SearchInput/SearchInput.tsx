@@ -2,7 +2,7 @@ import React, { ChangeEvent, Component, createRef, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../../utils/AutoId';
-import { getConditionalAriaProp, ariaLiveModes } from '../../../utils/aria';
+import { getConditionalAriaProp, AriaLiveModes } from '../../../utils/aria';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import {
   HtmlInput,
@@ -63,7 +63,7 @@ export interface SearchInputProps
   /** Aria-live mode for the status text element
    * @default assertive
    */
-  statusTextAriaLiveMode?: ariaLiveModes;
+  statusTextAriaLiveMode?: AriaLiveModes;
   /** Input name */
   name?: string;
   /** Set components width to 100% */
@@ -276,7 +276,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
           <StatusText
             id={statusTextId}
             status={status}
-            aria-live={statusTextAriaLiveMode}
+            ariaLiveMode={statusTextAriaLiveMode}
           >
             {statusText}
           </StatusText>

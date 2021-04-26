@@ -9,7 +9,7 @@ import {
   HtmlInput,
 } from '../../../reset';
 import { AutoId } from '../../../utils/AutoId';
-import { getConditionalAriaProp, ariaLiveModes } from '../../../utils/aria';
+import { getConditionalAriaProp, AriaLiveModes } from '../../../utils/aria';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { StatusText } from '../StatusText/StatusText';
 import { baseStyles } from './FilterInput.baseStyles';
@@ -54,7 +54,7 @@ interface InternalFilterInputProps<T> extends Omit<HtmlInputProps, 'type'> {
   /** Aria-live mode for the status text element
    * @default assertive
    */
-  statusTextAriaLiveMode?: ariaLiveModes;
+  statusTextAriaLiveMode?: AriaLiveModes;
   /** FilterInput name */
   name?: string;
   /** Align label on top or on the left side of the input field
@@ -161,7 +161,8 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
             <StatusText
               id={statusTextId}
               status={status}
-              aria-live={statusTextAriaLiveMode}
+              disabled={passProps.disabled}
+              ariaLiveMode={statusTextAriaLiveMode}
             >
               {statusText}
             </StatusText>

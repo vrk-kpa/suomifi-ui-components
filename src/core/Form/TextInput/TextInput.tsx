@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../../utils/AutoId';
 import { Debounce } from '../../utils/Debounce/Debounce';
-import { ariaLiveModes, getConditionalAriaProp } from '../../../utils/aria';
+import { AriaLiveModes, getConditionalAriaProp } from '../../../utils/aria';
 import {
   HtmlInputProps,
   HtmlDiv,
@@ -67,7 +67,7 @@ interface InternalTextInputProps
   /** Aria-live mode for the status text element
    * @default assertive
    */
-  statusTextAriaLiveMode?: ariaLiveModes;
+  statusTextAriaLiveMode?: AriaLiveModes;
   /** 'text' | 'email' | 'number' | 'password' | 'tel' | 'url'
    * @default text
    */
@@ -176,7 +176,8 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
           <StatusText
             id={statusTextId}
             status={status}
-            aria-live={statusTextAriaLiveMode}
+            ariaLiveMode={statusTextAriaLiveMode}
+            disabled={passProps.disabled}
           >
             {statusText}
           </StatusText>

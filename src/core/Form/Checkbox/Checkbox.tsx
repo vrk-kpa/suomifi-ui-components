@@ -2,7 +2,7 @@ import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { InputStatus } from '../types';
-import { getConditionalAriaProp, ariaLiveModes } from '../../../utils/aria';
+import { getConditionalAriaProp, AriaLiveModes } from '../../../utils/aria';
 import { logger } from '../../../utils/logger';
 import { AutoId } from '../../../utils/AutoId';
 import { HtmlLabel, HtmlDiv, HtmlInput } from '../../../reset';
@@ -69,7 +69,7 @@ interface InternalCheckboxProps {
   /** Aria-live mode for the status text element
    * @default assertive
    */
-  statusTextAriaLiveMode?: ariaLiveModes;
+  statusTextAriaLiveMode?: AriaLiveModes;
   /**
    * Hint text to be displayed under the label.
    */
@@ -235,7 +235,8 @@ class BaseCheckbox extends Component<CheckboxProps & InnerRef> {
         <StatusText
           id={statusTextId}
           status={status}
-          aria-live={statusTextAriaLiveMode}
+          disabled={disabled}
+          ariaLiveMode={statusTextAriaLiveMode}
         >
           {statusText}
         </StatusText>
