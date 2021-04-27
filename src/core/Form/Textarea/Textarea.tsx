@@ -1,7 +1,7 @@
 import React, { Component, ChangeEvent, FocusEvent, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { getConditionalAriaProp, AriaLiveModes } from '../../../utils/aria';
+import { getConditionalAriaProp, AriaLiveMode } from '../../../utils/aria';
 import { AutoId } from '../../../utils/AutoId';
 import {
   HtmlTextarea,
@@ -62,7 +62,7 @@ interface InternalTextareaProps extends Omit<HtmlTextareaProps, 'placeholder'> {
   /** Aria-live mode for the status text element
    * @default assertive
    */
-  statusTextAriaLiveMode?: AriaLiveModes;
+  statusTextAriaLiveMode?: AriaLiveMode;
   /** Resize mode of the textarea
       'both' | 'vertical' | 'horizontal' | 'none'
       @default 'vertical' 

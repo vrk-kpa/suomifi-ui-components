@@ -4,7 +4,7 @@ import { default as styled } from 'styled-components';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
 import { InputStatus } from '../types';
 import { baseStyles } from './StatusText.baseStyles';
-import { AriaLiveModes } from 'utils/aria';
+import { AriaLiveMode } from 'utils/aria';
 
 const baseClassName = 'fi-status-text';
 const statusTextClassNames = {
@@ -24,7 +24,7 @@ export interface StatusTextProps extends HtmlSpanProps {
   /** Status */
   status?: InputStatus;
   /** aria-live mode for the element */
-  ariaLiveMode?: AriaLiveModes;
+  ariaLiveMode?: AriaLiveMode;
 }
 
 const StyledStatusText = styled(
