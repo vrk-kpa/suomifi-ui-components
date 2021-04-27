@@ -65,17 +65,15 @@ const statusText = errorState
   : undefined;
 const status = errorState ? 'error' : 'default';
 
-<>
-  <TextInput
-    labelText="Test TextInput"
-    statusText={statusText}
-    status={status}
-  />
-
-  <Button onClick={() => setErrorState(!errorState)}>
-    Toggle error state
-  </Button>
-</>;
+<TextInput
+  labelText="TextInput with changing error status"
+  statusText={statusText}
+  status={status}
+  debounce={300}
+  onChange={() => {
+    setErrorState(!errorState);
+  }}
+/>;
 ```
 
 ```js
