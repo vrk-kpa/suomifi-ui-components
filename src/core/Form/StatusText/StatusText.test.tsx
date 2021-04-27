@@ -38,6 +38,24 @@ describe('props', () => {
       expect(container.firstChild).toHaveClass('fi-status-text--error');
     });
   });
+
+  describe('aria-live', () => {
+    it('should have the specified aria-live attribute', () => {
+      const { container } = render(
+        <StatusText ariaLiveMode="assertive">Test text</StatusText>,
+      );
+      expect(container.firstChild).toHaveAttribute('aria-live', 'assertive');
+    });
+
+    it('should not have aria-live attribute when disabled', () => {
+      const { container } = render(
+        <StatusText disabled ariaLiveMode="assertive">
+          Test text
+        </StatusText>,
+      );
+      expect(container.firstChild).not.toHaveAttribute('aria-live');
+    });
+  });
 });
 
 test(
