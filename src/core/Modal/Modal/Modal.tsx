@@ -45,6 +45,15 @@ export interface ModalProps
   onEscKeyDown?: () => void;
 }
 
+interface InternalModalProps extends ModalProps {
+  /**
+   * Used to capture user provided classname for use with BaseModal.
+   * Passed on to the BaseModal inner element with fi-modal classname to allow custom styles.
+   * className is internally reserved for BaseModal root element to allow styled component style injection.
+   */
+  propClassName?: string;
+}
+
 export interface ModalProviderState {
   variant: ModalVariant;
   titleId: string | undefined;
@@ -87,7 +96,7 @@ const modalClassNames = {
   disableBodyContent: `${baseClassName}--disable-body-content`,
 };
 
-class BaseModal extends Component<ModalProps & { propClassName?: string }> {
+class BaseModal extends Component<InternalModalProps> {
   private previouslyFocusedElement: any;
 
   private focusTrapWrapperRef: React.RefObject<HTMLDivElement>;

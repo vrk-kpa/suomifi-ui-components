@@ -118,9 +118,11 @@ const [smallScreen, setSmallScreen] = useState(false);
 
 ### Modal with onClose and onOpen focus set
 
-By default, Modal will focus the first focusable element inside the modal when opened and return the focus to where it was before opening the modal.
+By default, initial focus will be in the modal title. When closed, focus will return to where it was before opening.
 
 _focusOnOpenRef_ and _focusOnCloseRef_ props can be used to change this behaviour.
+
+NOTE: **use with caution** as screen reader users may get confused if initial focus is not in the beginning of modal or if focus does not return to where it was before opening the modal.
 
 ```js
 import { useState, useRef } from 'react';
