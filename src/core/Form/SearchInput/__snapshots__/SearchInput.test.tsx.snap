@@ -158,7 +158,6 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c8.fi-status-text {
-  margin-top: 5px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -179,6 +178,10 @@ exports[`snapshot should have matching default structure 1`] = `
 
 .c8.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
+}
+
+.c8.fi-status-text.fi-status-text--hasContent {
+  margin-top: 5px;
 }
 
 .c3.fi-label-text .fi-label-text_label-span {
@@ -579,7 +582,7 @@ exports[`snapshot should have matching default structure 1`] = `
     </div>
     <span
       aria-live="assertive"
-      class="c2 c8"
+      class="c2 c8 fi-status-text"
       id="1-statusText"
     />
   </span>
