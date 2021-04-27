@@ -4,10 +4,12 @@ import { default as styled } from 'styled-components';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
 import { InputStatus } from '../types';
 import { baseStyles } from './StatusText.baseStyles';
+import { AriaLiveModes } from 'utils/aria';
 
 const baseClassName = 'fi-status-text';
 const statusTextClassNames = {
   error: `${baseClassName}--error`,
+  hasContent: `${baseClassName}--hasContent`,
 };
 
 export interface StatusTextProps extends HtmlSpanProps {
@@ -21,6 +23,8 @@ export interface StatusTextProps extends HtmlSpanProps {
   disabled?: boolean;
   /** Status */
   status?: InputStatus;
+  /** aria-live mode for the element */
+  ariaLiveMode?: AriaLiveModes;
 }
 
 const StyledStatusText = styled(
@@ -29,18 +33,24 @@ const StyledStatusText = styled(
     children,
     disabled,
     status,
+    ariaLiveMode,
     ...passProps
-  }: StatusTextProps) => (
-    <HtmlSpan
-      {...passProps}
-      className={classnames(className, {
-        [baseClassName]: children && !disabled,
-        [statusTextClassNames.error]: status === 'error',
-      })}
-    >
-      {children}
-    </HtmlSpan>
-  ),
+  }: StatusTextProps) => {
+    const ariaLiveProp = !disabled ? { 'aria-live': ariaLiveMode } : {};
+
+    return (
+      <HtmlSpan
+        {...passProps}
+        {...ariaLiveProp}
+        className={classnames(className, baseClassName, {
+          [statusTextClassNames.hasContent]: children,
+          [statusTextClassNames.error]: status === 'error',
+        })}
+      >
+        {children}
+      </HtmlSpan>
+    );
+  },
 )`
   ${baseStyles}
 `;
