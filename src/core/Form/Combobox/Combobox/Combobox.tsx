@@ -243,173 +243,180 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     );
   };
 
-  render() {
-    const highlightQuery = (text: string, query: string) => {
-      if (query.length > 0) {
-        const substrings = text.split(new RegExp(`(${query})`, 'gi'));
-        return substrings.map((substring, i) => {
-          const isMatch = substring.toLowerCase() === query.toLowerCase();
-          if (isMatch) {
-            return (
-              // eslint-disable-next-line react/no-array-index-key
-              <mark className={comboboxClassNames.queryHighlight} key={i}>
-                {substring}
-              </mark>
-            );
-          }
-          // eslint-disable-next-line react/no-array-index-key
-          return <React.Fragment key={i}>{substring}</React.Fragment>;
-        });
+  private highlightQuery = (text: string, query: string) => {
+    if (query.length > 0) {
+      const substrings = text.split(new RegExp(`(${query})`, 'gi'));
+      return substrings.map((substring, i) => {
+        const isMatch = substring.toLowerCase() === query.toLowerCase();
+        if (isMatch) {
+          return (
+            // eslint-disable-next-line react/no-array-index-key
+            <mark className={comboboxClassNames.queryHighlight} key={i}>
+              {substring}
+            </mark>
+          );
+        }
+        // eslint-disable-next-line react/no-array-index-key
+        return <React.Fragment key={i}>{substring}</React.Fragment>;
+      });
+    }
+    return text;
+  };
+
+  private filter = (data: ComboboxData, query: string) =>
+    data.labelText.toLowerCase().includes(query.toLowerCase());
+
+  private setPopoverVisibility = (toState: Boolean) => {
+    this.setState({ showPopover: toState });
+  };
+
+  private handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    if (this.popoverListRef !== null && this.popoverListRef.current !== null) {
+      const elem = this.popoverListRef.current;
+      const ownerDocument = windowAvailable()
+        ? elem
+          ? elem.ownerDocument
+          : document
+        : null;
+
+      if (!ownerDocument) {
+        return;
       }
-      return text;
-    };
+      requestAnimationFrame(() => {
+        const focusInPopover = this.popoverListRef.current?.contains(
+          ownerDocument.activeElement,
+        );
+        const focusInInput =
+          ownerDocument.activeElement === this.filterInputRef.current;
+        const focusInCombobox = focusInPopover || focusInInput;
+        this.setPopoverVisibility(focusInCombobox);
 
-    const filter = (data: ComboboxData, query: string) =>
-      data.labelText.toLowerCase().includes(query.toLowerCase());
-
-    const handleKeyDown = (event: React.KeyboardEvent) => {
-      const { filteredItems: items, currentSelection } = this.state;
-      const index = items.findIndex(
-        ({ uniqueItemId }) => uniqueItemId === currentSelection,
-      );
-
-      const getNextIndex = () => (index + 1) % items.length;
-      const getPreviousIndex = () => (index - 1 + items.length) % items.length;
-
-      const getNextItem = () => items[getNextIndex()];
-      const getPreviousItem = () => items[getPreviousIndex()];
-
-      const scrollItemList = (lblTxt: string) => {
-        if (
-          this.popoverListRef !== null &&
-          this.popoverListRef.current !== null &&
-          showPopover
-        ) {
-          const idOfCurrentElement = `${id}-${lblTxt}`;
-          const elementOffsetTop =
-            document.getElementById(idOfCurrentElement)?.offsetTop || 0;
-          const elementOffsetHeight =
-            document.getElementById(idOfCurrentElement)?.offsetHeight || 0;
-          if (elementOffsetTop < this.popoverListRef.current.scrollTop) {
-            this.popoverListRef.current.scrollTop = elementOffsetTop;
-          } else {
-            const offsetBottom = elementOffsetTop + elementOffsetHeight;
-            const scrollBottom =
-              this.popoverListRef.current.scrollTop +
-              this.popoverListRef.current.offsetHeight;
-            if (offsetBottom > scrollBottom) {
-              this.popoverListRef.current.scrollTop =
-                offsetBottom - this.popoverListRef.current.offsetHeight;
-            }
-          }
-        }
-      };
-
-      switch (event.key) {
-        case 'ArrowDown': {
-          event.preventDefault();
-          focusToMenu();
-          const nextItem = getNextItem();
-          if (nextItem) {
-            this.setState({ currentSelection: nextItem.uniqueItemId });
-            scrollItemList(nextItem.uniqueItemId);
-          }
-          break;
-        }
-
-        case 'ArrowUp': {
-          event.preventDefault();
-          focusToMenu();
-          const previousItem = getPreviousItem();
-          if (previousItem) {
-            this.setState({ currentSelection: previousItem.uniqueItemId });
-            scrollItemList(previousItem.uniqueItemId);
-          }
-          break;
-        }
-
-        case 'Enter': {
-          event.preventDefault();
-          if (currentSelection) {
-            const currentItem = items.find(
-              ({ uniqueItemId }) => uniqueItemId === currentSelection,
-            );
-            if (currentItem) {
-              this.handleItemSelection(currentItem);
-            }
-          }
-          break;
-        }
-
-        case 'Escape': {
-          event.preventDefault();
+        if (!focusInCombobox) {
           this.setState(
             (
-              _prevState: ComboboxState<T & ComboboxData>,
+              _: ComboboxState<T & ComboboxData>,
               prevProps: ComboboxProps<T & ComboboxData>,
             ) => ({
               filterInputValue: '',
               filteredItems: prevProps.items,
             }),
           );
-          setPopoverVisibility(false);
-          break;
         }
+      });
+    }
+  };
 
-        default: {
-          if (this.filterInputRef && this.filterInputRef.current) {
-            this.filterInputRef.current.focus();
-            setPopoverVisibility(true);
-          }
-          break;
-        }
-      }
-    };
+  private focusToMenu = () => {
+    if (
+      this.popoverListRef !== null &&
+      this.popoverListRef.current !== null &&
+      this.state.showPopover
+    ) {
+      this.popoverListRef.current.focus();
+    }
+  };
 
-    const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-      event.preventDefault();
+  private handleKeyDown = (event: React.KeyboardEvent) => {
+    const { filteredItems: items, currentSelection } = this.state;
+    const index = items.findIndex(
+      ({ uniqueItemId }) => uniqueItemId === currentSelection,
+    );
+
+    const getNextIndex = () => (index + 1) % items.length;
+    const getPreviousIndex = () => (index - 1 + items.length) % items.length;
+
+    const getNextItem = () => items[getNextIndex()];
+    const getPreviousItem = () => items[getPreviousIndex()];
+
+    const scrollItemList = (lblTxt: string) => {
       if (
         this.popoverListRef !== null &&
-        this.popoverListRef.current !== null
+        this.popoverListRef.current !== null &&
+        this.state.showPopover
       ) {
-        const elem = this.popoverListRef.current;
-        const ownerDocument = windowAvailable()
-          ? elem
-            ? elem.ownerDocument
-            : document
-          : null;
-
-        if (!ownerDocument) {
-          return;
-        }
-        requestAnimationFrame(() => {
-          const focusInPopover = this.popoverListRef.current?.contains(
-            ownerDocument.activeElement,
-          );
-          const focusInInput =
-            ownerDocument.activeElement === this.filterInputRef.current;
-          const focusInCombobox = focusInPopover || focusInInput;
-          setPopoverVisibility(focusInCombobox);
-
-          if (!focusInCombobox) {
-            this.setState(
-              (
-                _: ComboboxState<T & ComboboxData>,
-                prevProps: ComboboxProps<T & ComboboxData>,
-              ) => ({
-                filterInputValue: '',
-                filteredItems: prevProps.items,
-              }),
-            );
+        const idOfCurrentElement = `${this.props.id}-${lblTxt}`;
+        const elementOffsetTop =
+          document.getElementById(idOfCurrentElement)?.offsetTop || 0;
+        const elementOffsetHeight =
+          document.getElementById(idOfCurrentElement)?.offsetHeight || 0;
+        if (elementOffsetTop < this.popoverListRef.current.scrollTop) {
+          this.popoverListRef.current.scrollTop = elementOffsetTop;
+        } else {
+          const offsetBottom = elementOffsetTop + elementOffsetHeight;
+          const scrollBottom =
+            this.popoverListRef.current.scrollTop +
+            this.popoverListRef.current.offsetHeight;
+          if (offsetBottom > scrollBottom) {
+            this.popoverListRef.current.scrollTop =
+              offsetBottom - this.popoverListRef.current.offsetHeight;
           }
-        });
+        }
       }
     };
 
-    const setPopoverVisibility = (toState: Boolean) => {
-      this.setState({ showPopover: toState });
-    };
+    switch (event.key) {
+      case 'ArrowDown': {
+        event.preventDefault();
+        this.focusToMenu();
+        const nextItem = getNextItem();
+        if (nextItem) {
+          this.setState({ currentSelection: nextItem.uniqueItemId });
+          scrollItemList(nextItem.uniqueItemId);
+        }
+        break;
+      }
 
+      case 'ArrowUp': {
+        event.preventDefault();
+        this.focusToMenu();
+        const previousItem = getPreviousItem();
+        if (previousItem) {
+          this.setState({ currentSelection: previousItem.uniqueItemId });
+          scrollItemList(previousItem.uniqueItemId);
+        }
+        break;
+      }
+
+      case 'Enter': {
+        event.preventDefault();
+        if (currentSelection) {
+          const currentItem = items.find(
+            ({ uniqueItemId }) => uniqueItemId === currentSelection,
+          );
+          if (currentItem) {
+            this.handleItemSelection(currentItem);
+          }
+        }
+        break;
+      }
+
+      case 'Escape': {
+        event.preventDefault();
+        this.setState(
+          (
+            _prevState: ComboboxState<T & ComboboxData>,
+            prevProps: ComboboxProps<T & ComboboxData>,
+          ) => ({
+            filterInputValue: '',
+            filteredItems: prevProps.items,
+          }),
+        );
+        this.setPopoverVisibility(false);
+        break;
+      }
+
+      default: {
+        if (this.filterInputRef && this.filterInputRef.current) {
+          this.filterInputRef.current.focus();
+          this.setPopoverVisibility(true);
+        }
+        break;
+      }
+    }
+  };
+
+  render() {
     const {
       filteredItems,
       showPopover,
@@ -419,16 +426,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       disabledKeys,
       filterInputValue,
     } = this.state;
-
-    const focusToMenu = () => {
-      if (
-        this.popoverListRef !== null &&
-        this.popoverListRef.current !== null &&
-        showPopover
-      ) {
-        this.popoverListRef.current.focus();
-      }
-    };
 
     const {
       id,
@@ -492,11 +489,11 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                 onFilter={(filtered) =>
                   this.setState({ filteredItems: filtered })
                 }
-                filterFunc={filter}
+                filterFunc={this.filter}
                 forwardedRef={this.filterInputRef}
-                onFocus={() => setPopoverVisibility(true)}
-                onKeyDown={handleKeyDown}
-                onBlur={handleBlur}
+                onFocus={() => this.setPopoverVisibility(true)}
+                onKeyDown={this.handleKeyDown}
+                onBlur={this.handleBlur}
                 value={filterInputValue}
                 onChange={(value: string | undefined) => {
                   if (propOnChange) {
@@ -514,12 +511,12 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             sourceRef={this.filterInputRef.current}
             matchWidth={true}
             id={`${id}-popover`}
-            onKeyDown={handleKeyDown}
+            onKeyDown={this.handleKeyDown}
           >
             {showPopover && (
               <ComboboxItemList
                 forwardRef={this.popoverListRef}
-                onBlur={handleBlur}
+                onBlur={this.handleBlur}
                 aria-activedescendant={
                   currentSelection ? `${id}-${currentSelection}` : undefined
                 }
@@ -539,11 +536,11 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                         checked={item.uniqueItemId in selectedKeys}
                         disabled={item.uniqueItemId in disabledKeys}
                         onClick={() => {
-                          focusToMenu();
+                          this.focusToMenu();
                           this.handleItemSelection(item);
                         }}
                       >
-                        {highlightQuery(
+                        {this.highlightQuery(
                           item.labelText,
                           this.filterInputRef.current
                             ? this.filterInputRef.current.value
