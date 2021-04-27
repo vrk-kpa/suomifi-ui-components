@@ -345,7 +345,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           event.preventDefault();
           this.setState(
             (
-              _: ComboboxState<T & ComboboxData>,
+              _prevState: ComboboxState<T & ComboboxData>,
               prevProps: ComboboxProps<T & ComboboxData>,
             ) => ({
               filterInputValue: '',
