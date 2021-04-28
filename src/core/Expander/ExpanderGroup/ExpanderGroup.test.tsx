@@ -35,10 +35,10 @@ const TestExpanderGroup = (
   expanderGroupProps?: Partial<ExpanderGroupProps>,
 ) => (
   <ExpanderGroup
-    OpenAllText="Open all"
-    CloseAllText="Close all"
-    AriaOpenAllText="Open all expanders"
-    AriaCloseAllText="Close all expanders"
+    openAllText="Open all"
+    closeAllText="Close all"
+    ariaOpenAllText="Open all expanders"
+    ariaCloseAllText="Close all expanders"
     {...expanderGroupProps}
   >
     {expanderData.map((d, index) =>
