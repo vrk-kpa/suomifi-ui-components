@@ -76,9 +76,15 @@ export const baseStyles = css`
   }
 
   &.fi-dropdown--noSelectedStyles {
-    & [data-reach-listbox-option][data-current].fi-dropdown_item {
+    & [data-reach-listbox-option][data-current-selected].fi-dropdown_item {
       background-color: ${theme.colors.whiteBase};
       ${theme.typography.actionElementInnerText};
+    }
+    & [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
+      color: ${theme.colors.blackBase};
+      background-image: none;
+      background-color: ${theme.colors.highlightLight3};
+      border: 0;
     }
   }
 

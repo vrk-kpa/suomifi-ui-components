@@ -192,12 +192,19 @@ exports[`Basic dropdown should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current].fi-dropdown_item {
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-selected].fi-dropdown_item {
   background-color: hsl(0,0%,100%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
+  color: hsl(0,0%,16%);
+  background-image: none;
+  background-color: hsl(212,63%,95%);
+  border: 0;
 }
 
 .c1 [data-reach-listbox-list] {
@@ -451,12 +458,19 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current].fi-dropdown_item {
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-selected].fi-dropdown_item {
   background-color: hsl(0,0%,100%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
+  color: hsl(0,0%,16%);
+  background-image: none;
+  background-color: hsl(212,63%,95%);
+  border: 0;
 }
 
 .c1 [data-reach-listbox-list] {
@@ -711,12 +725,19 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current].fi-dropdown_item {
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-selected].fi-dropdown_item {
   background-color: hsl(0,0%,100%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
+  color: hsl(0,0%,16%);
+  background-image: none;
+  background-color: hsl(212,63%,95%);
+  border: 0;
 }
 
 .c1 [data-reach-listbox-list] {
@@ -970,12 +991,19 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current].fi-dropdown_item {
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-selected].fi-dropdown_item {
   background-color: hsl(0,0%,100%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
+  color: hsl(0,0%,16%);
+  background-image: none;
+  background-color: hsl(212,63%,95%);
+  border: 0;
 }
 
 .c1 [data-reach-listbox-list] {
@@ -1241,12 +1269,19 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current].fi-dropdown_item {
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-selected].fi-dropdown_item {
   background-color: hsl(0,0%,100%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
+  color: hsl(0,0%,16%);
+  background-image: none;
+  background-color: hsl(212,63%,95%);
+  border: 0;
 }
 
 .c1 [data-reach-listbox-list] {
