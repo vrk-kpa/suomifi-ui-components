@@ -97,7 +97,7 @@ const BasicCombobox = (
     chipActionLabel="Remove"
     removeAllButtonLabel="Remove all selections"
     visualPlaceholder="Choose your tool(s)"
-    emptyItemsLabel="No items"
+    noItemsText="No items"
     defaultSelectedItems={defaultSelectedTools}
   />
 );
@@ -145,7 +145,7 @@ describe('Chips', () => {
           chipActionLabel="Remove"
           removeAllButtonLabel="Remove all selections"
           visualPlaceholder="Choose your tool(s)"
-          emptyItemsLabel="No items"
+          noItemsText="No items"
           defaultSelectedItems={defaultSelectedTools}
           onItemSelect={onItemSelect}
         />,
@@ -192,7 +192,7 @@ describe('Chips', () => {
           chipActionLabel="Remove"
           removeAllButtonLabel="Remove all selections"
           visualPlaceholder="Choose your tool(s)"
-          emptyItemsLabel="No items"
+          noItemsText="No items"
           defaultSelectedItems={defaultSelectedTools}
           onRemoveAll={mockOnRemoveAll}
         />,
@@ -236,7 +236,7 @@ describe('Controlled', () => {
         chipActionLabel="Remove"
         removeAllButtonLabel="Remove all selections"
         visualPlaceholder="Choose your tool(s)"
-        emptyItemsLabel="No items"
+        noItemsText="No items"
         defaultSelectedItems={defaultSelectedTools}
       />
     );
@@ -271,7 +271,7 @@ test('className: has given custom classname', async () => {
       <Combobox
         labelText="Combobox"
         items={[]}
-        emptyItemsLabel="No items"
+        noItemsText="No items"
         className="custom-class"
       />,
     );
@@ -282,7 +282,7 @@ test('className: has given custom classname', async () => {
 test('labelText: has the given text as label', async () => {
   await act(async () => {
     const { queryByText } = render(
-      <Combobox labelText="Combobox" items={[]} emptyItemsLabel="No items" />,
+      <Combobox labelText="Combobox" items={[]} noItemsText="No items" />,
     );
     expect(queryByText('Combobox')).not.toBeNull();
   });
@@ -293,7 +293,7 @@ test('visualPlaceholder: has the given text as placeholder attribute', () => {
     <Combobox
       labelText="Combobox"
       items={[]}
-      emptyItemsLabel="No items"
+      noItemsText="No items"
       visualPlaceholder="Select item(s)"
     />,
   );
@@ -307,7 +307,7 @@ test('id: has the given id', () => {
       id="cb-123"
       labelText="Combobox"
       items={[]}
-      emptyItemsLabel="No items"
+      noItemsText="No items"
     />,
   );
   expect(getByRole('textbox')).toHaveAttribute('id', 'cb-123');
@@ -320,7 +320,7 @@ describe('statusText', () => {
         id="123"
         labelText="Combobox"
         items={[]}
-        emptyItemsLabel="No items"
+        noItemsText="No items"
         visualPlaceholder="Select item(s)"
         statusText="EROR EROR"
       />,
@@ -335,7 +335,7 @@ describe('statusText', () => {
         id="123"
         labelText="Combobox"
         items={[]}
-        emptyItemsLabel="No items"
+        noItemsText="No items"
         visualPlaceholder="Select item(s)"
         statusText="EROR EROR"
       />,
@@ -354,7 +354,7 @@ describe('status', () => {
         id="123"
         labelText="Combobox"
         items={[]}
-        emptyItemsLabel="No items"
+        noItemsText="No items"
         visualPlaceholder="Select item(s)"
         status="error"
       />,

@@ -95,7 +95,7 @@ const defaultSelectedTools = [
     chipActionLabel="Remove"
     removeAllButtonLabel="Remove all selections"
     visualPlaceholder="Choose your tool(s)"
-    emptyItemsLabel="No items"
+    noItemsText="No items"
     defaultSelectedItems={defaultSelectedTools}
   />
 </>;
