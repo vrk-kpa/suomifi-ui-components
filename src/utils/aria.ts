@@ -5,8 +5,6 @@ export const ariaLabelOrHidden = (ariaLabel?: string) =>
     ? { 'aria-label': ariaLabel, role: 'img' }
     : { 'aria-hidden': true };
 
-export type AriaLiveMode = 'assertive' | 'polite' | 'off';
-
 /**
  * Set element ability to be focusable based on aria-label
  * @param {String} ariaLabel optional aria-label

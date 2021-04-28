@@ -2,9 +2,8 @@ import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
-import { InputStatus } from '../types';
+import { InputStatus, AriaLiveMode } from '../types';
 import { baseStyles } from './StatusText.baseStyles';
-import { AriaLiveMode } from 'utils/aria';
 
 const baseClassName = 'fi-status-text';
 const statusTextClassNames = {
