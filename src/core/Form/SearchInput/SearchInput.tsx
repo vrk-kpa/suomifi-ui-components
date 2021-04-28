@@ -2,7 +2,7 @@ import React, { ChangeEvent, Component, createRef, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../../utils/AutoId';
-import { getConditionalAriaProp, AriaLiveMode } from '../../../utils/aria';
+import { getConditionalAriaProp } from '../../../utils/aria';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import {
   HtmlInput,
@@ -17,7 +17,7 @@ import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hid
 import { StatusText } from '../StatusText/StatusText';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { Icon } from '../../Icon/Icon';
-import { InputStatus } from '../types';
+import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './SearchInput.baseStyles';
 
 type SearchInputValue = string | number | undefined;
@@ -25,16 +25,17 @@ type SearchInputValue = string | number | undefined;
 type SearchInputStatus = Exclude<InputStatus, 'success'>;
 
 export interface SearchInputProps
-  extends Omit<
-    HtmlInputProps,
-    | 'type'
-    | 'disabled'
-    | 'onChange'
-    | 'children'
-    | 'onClick'
-    | 'value'
-    | 'defaultValue'
-  > {
+  extends StatusTextCommonProps,
+    Omit<
+      HtmlInputProps,
+      | 'type'
+      | 'disabled'
+      | 'onChange'
+      | 'children'
+      | 'onClick'
+      | 'value'
+      | 'defaultValue'
+    > {
   /** SearchInput container div class name for custom styling. */
   className?: string;
   /** SearchInput wrapping div element props */
@@ -58,12 +59,6 @@ export interface SearchInputProps
    * @default default
    */
   status?: SearchInputStatus;
-  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
-  statusText?: string;
-  /** Aria-live mode for the status text element
-   * @default assertive
-   */
-  statusTextAriaLiveMode?: AriaLiveMode;
   /** Input name */
   name?: string;
   /** Set components width to 100% */

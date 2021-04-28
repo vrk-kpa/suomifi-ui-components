@@ -1,7 +1,7 @@
 import React, { Component, ChangeEvent, FocusEvent, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { getConditionalAriaProp, AriaLiveMode } from '../../../utils/aria';
+import { getConditionalAriaProp } from '../../../utils/aria';
 import { AutoId } from '../../../utils/AutoId';
 import {
   HtmlTextarea,
@@ -12,7 +12,7 @@ import {
 import { LabelText } from '../LabelText/LabelText';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
-import { InputStatus } from '../types';
+import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './Textarea.baseStyles';
 
 const baseClassName = 'fi-textarea';
@@ -29,7 +29,9 @@ const textareaClassNames = {
 
 type TextareaStatus = Exclude<InputStatus, 'success'>;
 
-interface InternalTextareaProps extends Omit<HtmlTextareaProps, 'placeholder'> {
+interface InternalTextareaProps
+  extends StatusTextCommonProps,
+    Omit<HtmlTextareaProps, 'placeholder'> {
   /** Custom classname to extend or customize */
   className?: string;
   /** Disable usage */
@@ -57,12 +59,6 @@ interface InternalTextareaProps extends Omit<HtmlTextareaProps, 'placeholder'> {
    * @default default
    */
   status?: TextareaStatus;
-  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
-  statusText?: string;
-  /** Aria-live mode for the status text element
-   * @default assertive
-   */
-  statusTextAriaLiveMode?: AriaLiveMode;
   /** Resize mode of the textarea
       'both' | 'vertical' | 'horizontal' | 'none'
       @default 'vertical' 

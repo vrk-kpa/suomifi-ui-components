@@ -1,8 +1,8 @@
 import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { InputStatus } from '../types';
-import { getConditionalAriaProp, AriaLiveMode } from '../../../utils/aria';
+import { InputStatus, StatusTextCommonProps } from '../types';
+import { getConditionalAriaProp } from '../../../utils/aria';
 import { logger } from '../../../utils/logger';
 import { AutoId } from '../../../utils/AutoId';
 import { HtmlLabel, HtmlDiv, HtmlInput } from '../../../reset';
@@ -35,7 +35,7 @@ const iconClassnames = {
 
 type CheckboxStatus = Exclude<InputStatus, 'success'>;
 
-interface InternalCheckboxProps {
+interface InternalCheckboxProps extends StatusTextCommonProps {
   /** Controlled checked-state - user actions use onClick to change  */
   checked?: boolean;
   /** Default status of Checkbox when not using controlled 'checked' state
@@ -62,14 +62,6 @@ interface InternalCheckboxProps {
    * @default default
    */
   status?: CheckboxStatus;
-  /**
-   * Status text to be displayed in the status text element. Will not be displayed when element is disabled.
-   */
-  statusText?: string;
-  /** Aria-live mode for the status text element
-   * @default assertive
-   */
-  statusTextAriaLiveMode?: AriaLiveMode;
   /**
    * Hint text to be displayed under the label.
    */

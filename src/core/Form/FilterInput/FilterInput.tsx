@@ -1,7 +1,7 @@
 import React, { Component, ChangeEvent, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { InputStatus } from '../types';
+import { InputStatus, StatusTextCommonProps } from '../types';
 import {
   HtmlInputProps,
   HtmlDiv,
@@ -9,7 +9,7 @@ import {
   HtmlInput,
 } from '../../../reset';
 import { AutoId } from '../../../utils/AutoId';
-import { getConditionalAriaProp, AriaLiveMode } from '../../../utils/aria';
+import { getConditionalAriaProp } from '../../../utils/aria';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { StatusText } from '../StatusText/StatusText';
 import { baseStyles } from './FilterInput.baseStyles';
@@ -27,7 +27,9 @@ const filterInputClassNames = {
 
 type FilterInputStatus = Exclude<InputStatus, 'success'>;
 
-interface InternalFilterInputProps<T> extends Omit<HtmlInputProps, 'type'> {
+interface InternalFilterInputProps<T>
+  extends Omit<HtmlInputProps, 'type'>,
+    StatusTextCommonProps {
   /** FilterInput container div class name for custom styling. */
   className?: string;
   /** FilterInput container div props */
@@ -49,12 +51,6 @@ interface InternalFilterInputProps<T> extends Omit<HtmlInputProps, 'type'> {
    * @default default
    */
   status?: FilterInputStatus;
-  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
-  statusText?: string;
-  /** Aria-live mode for the status text element
-   * @default assertive
-   */
-  statusTextAriaLiveMode?: AriaLiveMode;
   /** FilterInput name */
   name?: string;
   /** Align label on top or on the left side of the input field
