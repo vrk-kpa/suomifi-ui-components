@@ -52,7 +52,7 @@ export interface ComboboxProps<T extends ComboboxData> {
   /** Show chip list */
   chipListVisible?: boolean;
   /** Chip action label */
-  chipActionLabel?: string;
+  ariaChipActionLabel?: string;
   /** Label for remove button. If it is given, button will be shown. */
   removeAllButtonLabel?: string;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
@@ -434,7 +434,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       labelText,
       onItemSelectionsChange,
       chipListVisible,
-      chipActionLabel,
+      ariaChipActionLabel,
       removeAllButtonLabel,
       visualPlaceholder,
       noItemsText,
@@ -563,7 +563,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                   disabled={item.disabled}
                   removable={!item.disabled}
                   onClick={() => this.handleItemSelection(item)}
-                  actionLabel={chipActionLabel}
+                  actionLabel={ariaChipActionLabel}
                 >
                   {item.chipText ? item.chipText : item.labelText}
                 </Chip>
