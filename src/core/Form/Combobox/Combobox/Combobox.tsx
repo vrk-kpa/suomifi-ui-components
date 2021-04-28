@@ -57,8 +57,8 @@ export interface ComboboxProps<T extends ComboboxData> {
   removeAllButtonLabel?: string;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
-  /** Label to show when no items to show, e.g filtered all out */
-  emptyItemsLabel: string;
+  /** Text to show when no items to show, e.g filtered all out */
+  noItemsText: string;
   /** Default selected items */
   defaultSelectedItems?: Array<T & ComboboxData>;
   /** Event sent when filter changes */
@@ -437,7 +437,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       chipActionLabel,
       removeAllButtonLabel,
       visualPlaceholder,
-      emptyItemsLabel,
+      noItemsText,
       defaultSelectedItems,
       onChange: propOnChange,
       debounce,
@@ -550,7 +550,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                     );
                   })
                 ) : (
-                  <ComboboxEmptyItem>{emptyItemsLabel}</ComboboxEmptyItem>
+                  <ComboboxEmptyItem>{noItemsText}</ComboboxEmptyItem>
                 )}
               </ComboboxItemList>
             )}
