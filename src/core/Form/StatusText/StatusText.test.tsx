@@ -10,6 +10,10 @@ describe('props', () => {
       const { container } = render(<StatusText>Test text</StatusText>);
       expect(container.firstChild).toHaveTextContent('Test text');
     });
+    it('renders element even without content', () => {
+      const { container } = render(<StatusText />);
+      expect(container.children.length).toEqual(1);
+    });
   });
 
   describe('id', () => {
