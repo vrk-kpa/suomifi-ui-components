@@ -1,16 +1,28 @@
 import { css } from 'styled-components';
 import { defaultThemeTokens as theme } from '../../theme';
+import { absoluteFocus } from '../../theme/utils';
 
 export const baseStyles = css`
   &.fi-modal_title {
-    padding-bottom: ${theme.spacing.m};
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+
+    &:focus {
+      outline: 0;
+      &:after {
+        ${absoluteFocus}
+      }
+    }
+
+    margin-bottom: ${theme.spacing.m};
 
     &--no-scroll {
-      padding-bottom: ${theme.spacing.xs};
+      margin-bottom: ${theme.spacing.xs};
     }
 
     &--small-screen {
-      padding-bottom: ${theme.spacing.m};
+      margin-bottom: ${theme.spacing.m};
     }
   }
 `;
