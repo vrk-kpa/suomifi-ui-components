@@ -100,3 +100,43 @@ const defaultSelectedTools = [
   />
 </>;
 ```
+
+### Controlled
+
+```
+const [selectedAnimals, setSelectedAnimals] = React.useState([]);
+const animals = [
+  {
+    age: 2,
+    labelText: 'Rabbit',
+    uniqueItemId: 'rabbit-123'
+  },
+  {
+    age: 1,
+    labelText: 'Snail',
+    uniqueItemId: 'snail-321'
+  },
+  {
+    price: 5,
+    labelText: 'Turtle',
+    uniqueItemId: 'turtle-987'
+  }
+];
+
+<>
+    <Combobox
+      items={animals}
+      selectedItems={selectedAnimals}
+      labelText="Animals"
+      noItemsText="No animals"
+      chipListVisible={true}
+      visualPlaceholder="Try to choose animal(s)"
+      ariaChipActionLabel="Remove"
+    />
+
+    <span>There can be only one!</span>
+    <button onClick={() => setSelectedAnimals([{ labelText: 'Turtle', uniqueItemId: 'turtle-987' }])}>Turtle</button>
+    <button onClick={() => setSelectedAnimals([{ labelText: 'Rabbit', uniqueItemId: 'rabbit-123' }])}>Rabbit</button>
+    <button onClick={() => setSelectedAnimals([{ labelText: 'Snail', uniqueItemId: 'snail-321' }])}>Snail</button>
+</>
+```
