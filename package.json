@@ -42,7 +42,7 @@
     "prepare": "npm-run-all husky:install build",
     "husky:install": "husky install",
     "pre-commit": "run-p lint prettier:check",
-    "pre-push": "validate",
+    "pre-push": "yarn validate",
     "start": "yarn styleguide",
     "start:withaxe": "cross-env AXE=\"true\" yarn styleguidist server",
     "test": "tsdx test --passWithNoTests",
