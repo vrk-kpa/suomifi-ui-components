@@ -41,7 +41,7 @@
   "scripts": {
     "prepare": "npm-run-all husky:install build",
     "husky:install": "husky install",
-    "pre-commit": "run-p lint prettier:check",
+    "pre-commit": "lint-staged",
     "pre-push": "yarn validate",
     "start": "yarn styleguide",
     "start:withaxe": "cross-env AXE=\"true\" yarn styleguidist server",
@@ -154,7 +154,8 @@
   "style": "dist/main.css",
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier-check"
+      "prettier-check",
+      "lint"
     ]
   },
   "size-limit": [
