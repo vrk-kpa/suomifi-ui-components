@@ -295,7 +295,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         if (!focusInCombobox) {
           this.setState(
             (
-              _: ComboboxState<T & ComboboxData>,
+              _prevState: ComboboxState<T & ComboboxData>,
               prevProps: ComboboxProps<T & ComboboxData>,
             ) => ({
               filterInputValue: '',
