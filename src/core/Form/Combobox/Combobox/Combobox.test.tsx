@@ -250,6 +250,47 @@ describe('Controlled', () => {
       expect(otherChip).toHaveTextContent('Sledgehammer');
     });
   });
+
+  it('does not allow removing of items by clicking', async () => {
+    const animals = [
+      {
+        age: 2,
+        labelText: 'Rabbit',
+        uniqueItemId: 'rabbit-123',
+      },
+      {
+        age: 1,
+        labelText: 'Snail',
+        uniqueItemId: 'snail-321',
+      },
+      {
+        price: 5,
+        labelText: 'Turtle',
+        uniqueItemId: 'turtle-987',
+      },
+    ];
+
+    const combobox = (
+      <Combobox
+        items={animals}
+        selectedItems={[
+          { price: 5, labelText: 'Turtle', uniqueItemId: 'turtle-987' },
+        ]}
+        labelText="Animals"
+        noItemsText="No animals"
+        chipListVisible={true}
+        visualPlaceholder="Try to choose animal(s)"
+        ariaChipActionLabel="Remove"
+      />
+    );
+
+    const { getByText } = render(combobox);
+    const turtleChip = getByText('Turtle');
+    await act(async () => {
+      fireEvent.click(turtleChip, {});
+    });
+    expect(getByText('Turtle')).not.toBeNull();
+  });
 });
 
 it('should have correct baseClassName', async () => {
