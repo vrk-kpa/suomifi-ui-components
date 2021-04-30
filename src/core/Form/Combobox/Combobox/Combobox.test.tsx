@@ -118,18 +118,12 @@ describe('Chips', () => {
 
   it('first Chip should be removable and removed when clicked', async () => {
     await act(async () => {
-      const { container } = render(BasicCombobox);
-      let chips = container.querySelectorAll('.fi-chip');
-      const hammerChip = chips[0];
-      expect(hammerChip).toHaveTextContent('Hammer');
-      expect(hammerChip.querySelector('.fi-chip--icon')).not.toBeNull();
+      const { getByText, queryByText } = render(BasicCombobox);
+      const hammerChip = getByText('Hammer');
       await act(async () => {
         fireEvent.click(hammerChip, {});
       });
-      chips = container.querySelectorAll('.fi-chip');
-      expect(chips.length).toEqual(1);
-      const disabledChip = chips[0];
-      expect(disabledChip).toHaveTextContent('Powersaw');
+      expect(queryByText('Hammer')).toBe(null);
     });
   });
 
