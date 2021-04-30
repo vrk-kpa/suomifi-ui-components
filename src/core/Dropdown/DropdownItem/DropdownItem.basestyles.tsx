@@ -9,19 +9,20 @@ export const baseStyles = css`
     line-height: 1.5;
     padding: ${theme.spacing.insetM};
     border: 0;
-    &[aria-selected='true'] {
-      color: ${theme.colors.blackBase};
-      background-image: none;
-      background-color: ${theme.colors.highlightLight3};
-      border: 0;
-    }
     &:focus {
       outline: 0;
     }
   }
 
-  &[data-reach-listbox-option][data-current].fi-dropdown_item {
+  &[data-reach-listbox-option][data-current-selected].fi-dropdown_item {
     ${theme.typography.actionElementInnerTextBold}
+    background-image: none;
+    background-color: ${theme.colors.highlightLight3};
+    border: 0;
+  }
+
+  &[data-reach-listbox-option][data-current-nav].fi-dropdown_item {
+    color: ${theme.colors.blackBase};
     background-image: none;
     background-color: ${theme.colors.highlightLight3};
     border: 0;

@@ -248,10 +248,10 @@ const [smallScreen, setSmallScreen] = useState(false);
     <ModalContent>
       <ModalTitle>Test modal</ModalTitle>
       <ExpanderGroup
-        OpenAllText="Open all"
-        AriaOpenAllText="Open all expanders"
-        CloseAllText="Close all"
-        AriaCloseAllText="Close all expanders"
+        openAllText="Open all"
+        ariaOpenAllText="Open all expanders"
+        closeAllText="Close all"
+        ariaCloseAllText="Close all expanders"
       >
         {textArr.map((text, index) => (
           <Expander key={index}>
