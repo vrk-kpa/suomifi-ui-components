@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { default as styled } from 'styled-components';
-import createFocusTrap, { FocusTrap } from 'focus-trap';
+import { createFocusTrap, FocusTrap } from 'focus-trap';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlDivProps, HtmlDivWithRef } from '../../../reset';
 import { AutoId } from '../../../utils/AutoId';

@@ -137,7 +137,7 @@
     "@reach/menu-button": "0.15.1",
     "@reach/popover": "0.15.0",
     "classnames": "2.3.1",
-    "focus-trap": "5.1.0",
+    "focus-trap": "6.4.0",
     "normalize.cssinjs": "1.1.1",
     "polished": "4.1.2",
     "react-popper": "2.2.5",
@@ -153,8 +153,8 @@
   },
   "style": "dist/main.css",
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier-check",
-    "**/*.{js,jsx,ts,tsx}": [
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier-check",
+    "src/**/*.{js,jsx,ts,tsx}": [
       "tsdx lint",
       "stylelint"
     ]
