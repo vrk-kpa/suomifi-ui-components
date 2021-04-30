@@ -64,7 +64,7 @@ interface InternalFilterInputProps<T>
   /** Filtering rule to be used */
   filterFunc: (item: T, query: string) => boolean;
   forwardedRef?: React.RefObject<HTMLInputElement>;
-  onChange?: (value: string | undefined) => void;
+  onChange?: (value: string) => void;
 }
 
 interface InnerRef {

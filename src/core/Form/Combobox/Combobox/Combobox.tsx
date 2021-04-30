@@ -62,7 +62,7 @@ export interface ComboboxProps<T extends ComboboxData> {
   /** Default selected items */
   defaultSelectedItems?: Array<T & ComboboxData>;
   /** Event sent when filter changes */
-  onChange?: (value: string | undefined) => void;
+  onChange?: (value: string) => void;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
   debounce?: number;
   /**
@@ -86,7 +86,7 @@ interface ItemKeys {
 }
 
 interface ComboboxState<T extends ComboboxData> {
-  filterInputValue: string | undefined;
+  filterInputValue: string;
   filteredItems: T[];
   showPopover: boolean;
   currentSelection: string | null;
@@ -495,7 +495,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                 onKeyDown={this.handleKeyDown}
                 onBlur={this.handleBlur}
                 value={filterInputValue}
-                onChange={(value: string | undefined) => {
+                onChange={(value: string) => {
                   if (propOnChange) {
                     debouncer(propOnChange, value);
                   }
