@@ -14,6 +14,7 @@ export const ariaFocusableNoLabel = (ariaLabel?: string) =>
 
 type ariaPropName = 'aria-describedby' | 'aria-labelledby' | 'aria-label';
 type ariaProp = { [key in ariaPropName]: string } | {};
+
 /**
  * Returns object with 'aria-' property which can be spread to props.
  * E.g:

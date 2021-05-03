@@ -17,7 +17,7 @@ import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hid
 import { StatusText } from '../StatusText/StatusText';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { Icon } from '../../Icon/Icon';
-import { InputStatus } from '../types';
+import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './SearchInput.baseStyles';
 
 type SearchInputValue = string | number | undefined;
@@ -25,16 +25,17 @@ type SearchInputValue = string | number | undefined;
 type SearchInputStatus = Exclude<InputStatus, 'success'>;
 
 export interface SearchInputProps
-  extends Omit<
-    HtmlInputProps,
-    | 'type'
-    | 'disabled'
-    | 'onChange'
-    | 'children'
-    | 'onClick'
-    | 'value'
-    | 'defaultValue'
-  > {
+  extends StatusTextCommonProps,
+    Omit<
+      HtmlInputProps,
+      | 'type'
+      | 'disabled'
+      | 'onChange'
+      | 'children'
+      | 'onClick'
+      | 'value'
+      | 'defaultValue'
+    > {
   /** SearchInput container div class name for custom styling. */
   className?: string;
   /** SearchInput wrapping div element props */
@@ -58,8 +59,6 @@ export interface SearchInputProps
    * @default default
    */
   status?: SearchInputStatus;
-  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
-  statusText?: string;
   /** Input name */
   name?: string;
   /** Set components width to 100% */
@@ -137,6 +136,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
       fullWidth,
       debounce,
       'aria-describedby': ariaDescribedBy,
+      statusTextAriaLiveMode = 'assertive',
       ...passProps
     } = this.props;
 
@@ -268,7 +268,11 @@ class BaseSearchInput extends Component<SearchInputProps> {
               </HtmlDiv>
             )}
           </Debounce>
-          <StatusText id={statusTextId} status={status}>
+          <StatusText
+            id={statusTextId}
+            status={status}
+            ariaLiveMode={statusTextAriaLiveMode}
+          >
             {statusText}
           </StatusText>
         </HtmlSpan>

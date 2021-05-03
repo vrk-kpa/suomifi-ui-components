@@ -10,10 +10,9 @@ describe('props', () => {
       const { container } = render(<StatusText>Test text</StatusText>);
       expect(container.firstChild).toHaveTextContent('Test text');
     });
-
-    it('is null when no children given', () => {
+    it('renders element even without content', () => {
       const { container } = render(<StatusText />);
-      expect(container.firstChild).toEqual(null);
+      expect(container.children.length).toEqual(1);
     });
   });
 
@@ -44,10 +43,25 @@ describe('props', () => {
     });
   });
 
-  describe('disabled', () => {
-    it('is null when disabled', () => {
-      const { container } = render(<StatusText disabled>Test text</StatusText>);
-      expect(container.firstChild).toEqual(null);
+  describe('aria-live', () => {
+    it('should have given aria-live attribute even when empty', () => {
+      const { container } = render(<StatusText ariaLiveMode="assertive" />);
+      expect(container.firstChild).toHaveAttribute('aria-live', 'assertive');
+    });
+    it('should have the specified aria-live attribute', () => {
+      const { container } = render(
+        <StatusText ariaLiveMode="polite">Test text</StatusText>,
+      );
+      expect(container.firstChild).toHaveAttribute('aria-live', 'polite');
+    });
+
+    it('aria-live should be off when disabled', () => {
+      const { container } = render(
+        <StatusText disabled ariaLiveMode="assertive">
+          Test text
+        </StatusText>,
+      );
+      expect(container.firstChild).toHaveAttribute('aria-live', 'off');
     });
   });
 });

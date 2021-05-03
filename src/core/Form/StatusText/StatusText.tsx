@@ -2,12 +2,13 @@ import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
-import { InputStatus } from '../types';
+import { InputStatus, AriaLiveMode } from '../types';
 import { baseStyles } from './StatusText.baseStyles';
 
 const baseClassName = 'fi-status-text';
 const statusTextClassNames = {
   error: `${baseClassName}--error`,
+  hasContent: `${baseClassName}--hasContent`,
 };
 
 export interface StatusTextProps extends HtmlSpanProps {
@@ -21,29 +22,43 @@ export interface StatusTextProps extends HtmlSpanProps {
   disabled?: boolean;
   /** Status */
   status?: InputStatus;
+  /** aria-live mode for the element */
+  ariaLiveMode?: AriaLiveMode;
 }
 
 const StyledStatusText = styled(
-  ({ className, children, status, ...passProps }: StatusTextProps) => (
-    <HtmlSpan
-      {...passProps}
-      className={classnames(className, baseClassName, {
-        [statusTextClassNames.error]: status === 'error',
-      })}
-    >
-      {children}
-    </HtmlSpan>
-  ),
+  ({
+    className,
+    children,
+    disabled,
+    status,
+    ariaLiveMode,
+    ...passProps
+  }: StatusTextProps) => {
+    const ariaLiveProp = !disabled
+      ? { 'aria-live': ariaLiveMode }
+      : { 'aria-live': 'off' };
+
+    return (
+      <HtmlSpan
+        {...passProps}
+        {...ariaLiveProp}
+        className={classnames(className, baseClassName, {
+          [statusTextClassNames.hasContent]: children,
+          [statusTextClassNames.error]: status === 'error',
+        })}
+      >
+        {children}
+      </HtmlSpan>
+    );
+  },
 )`
   ${baseStyles}
 `;
 
 export class StatusText extends Component<StatusTextProps> {
   render() {
-    const { disabled, children, ...passProps } = this.props;
-    if (disabled || !children) {
-      return null;
-    }
+    const { children, ...passProps } = this.props;
     return <StyledStatusText {...passProps}>{children}</StyledStatusText>;
   }
 }

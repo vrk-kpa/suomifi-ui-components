@@ -119,7 +119,6 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c5.fi-status-text {
-  margin-top: 5px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -140,6 +139,10 @@ exports[`snapshots match error status with statustext 1`] = `
 
 .c5.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
+}
+
+.c5.fi-status-text.fi-status-text--hasContent {
+  margin-top: 5px;
 }
 
 .c1.fi-text-input {
@@ -333,7 +336,8 @@ exports[`snapshots match error status with statustext 1`] = `
       />
     </div>
     <span
-      class="c2 c5 fi-status-text fi-status-text--error"
+      aria-live="assertive"
+      class="c2 c5 fi-status-text fi-status-text--hasContent fi-status-text--error"
       id="test-id2-statusText"
     >
       This is a status text
@@ -470,6 +474,33 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c6.fi-status-text {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c6.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,48%);
+}
+
+.c6.fi-status-text.fi-status-text--hasContent {
+  margin-top: 5px;
 }
 
 .c1.fi-text-input {
@@ -661,6 +692,11 @@ exports[`snapshots match hidden label with placeholder 1`] = `
         type="text"
       />
     </div>
+    <span
+      aria-live="assertive"
+      class="c2 c6 fi-status-text"
+      id="test-id1-statusText"
+    />
   </span>
 </div>
 `;
@@ -781,6 +817,33 @@ exports[`snapshots match minimal implementation 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c5.fi-status-text {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c5.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,48%);
+}
+
+.c5.fi-status-text.fi-status-text--hasContent {
+  margin-top: 5px;
 }
 
 .c1.fi-text-input {
@@ -971,6 +1034,11 @@ exports[`snapshots match minimal implementation 1`] = `
         type="text"
       />
     </div>
+    <span
+      aria-live="assertive"
+      class="c2 c5 fi-status-text"
+      id="test-id-statusText"
+    />
   </span>
 </div>
 `;
