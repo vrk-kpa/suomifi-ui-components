@@ -44,7 +44,7 @@ describe('props', () => {
   });
 
   describe('aria-live', () => {
-    it('should have aria-live=assertive as default even when empty', () => {
+    it('should have given aria-live attribute even when empty', () => {
       const { container } = render(<StatusText ariaLiveMode="assertive" />);
       expect(container.firstChild).toHaveAttribute('aria-live', 'assertive');
     });
