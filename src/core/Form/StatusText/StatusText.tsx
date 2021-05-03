@@ -35,7 +35,9 @@ const StyledStatusText = styled(
     ariaLiveMode,
     ...passProps
   }: StatusTextProps) => {
-    const ariaLiveProp = !disabled ? { 'aria-live': ariaLiveMode } : {};
+    const ariaLiveProp = !disabled
+      ? { 'aria-live': ariaLiveMode }
+      : { 'aria-live': 'off' };
 
     return (
       <HtmlSpan
