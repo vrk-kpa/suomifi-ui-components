@@ -1,7 +1,7 @@
 import React, { Component, ChangeEvent, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { InputStatus } from '../types';
+import { InputStatus, StatusTextCommonProps } from '../types';
 import {
   HtmlInputProps,
   HtmlDiv,
@@ -27,7 +27,9 @@ const filterInputClassNames = {
 
 type FilterInputStatus = Exclude<InputStatus, 'success'>;
 
-interface InternalFilterInputProps<T> extends Omit<HtmlInputProps, 'type'> {
+interface InternalFilterInputProps<T>
+  extends Omit<HtmlInputProps, 'type'>,
+    StatusTextCommonProps {
   /** FilterInput container div class name for custom styling. */
   className?: string;
   /** FilterInput container div props */
@@ -49,8 +51,6 @@ interface InternalFilterInputProps<T> extends Omit<HtmlInputProps, 'type'> {
    * @default default
    */
   status?: FilterInputStatus;
-  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
-  statusText?: string;
   /** FilterInput name */
   name?: string;
   /** Align label on top or on the left side of the input field
@@ -89,6 +89,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       id,
       labelAlign,
       'aria-describedby': ariaDescribedBy,
+      statusTextAriaLiveMode = 'assertive',
       items: propItems,
       onFilter: propOnFiltering,
       filterFunc: propFilterRule,
@@ -153,7 +154,12 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
                 onChange={onChangeHandler}
               />
             </HtmlDiv>
-            <StatusText id={statusTextId} status={status}>
+            <StatusText
+              id={statusTextId}
+              status={status}
+              disabled={passProps.disabled}
+              ariaLiveMode={statusTextAriaLiveMode}
+            >
               {statusText}
             </StatusText>
           </HtmlDiv>

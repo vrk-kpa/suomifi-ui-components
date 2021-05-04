@@ -86,11 +86,7 @@ describe('Basic ExpanderTitleButton', () => {
 
 describe('As heading', () => {
   const TestExpanderWithProps = (props?: ExpanderTitleButtonProps) => (
-    <ExpanderTitleButton
-      ariaCloseText="click to close expander"
-      ariaOpenText="click to open expander"
-      {...props}
-    >
+    <ExpanderTitleButton {...props}>
       {props?.children ? props.children : 'Expander title button'}
     </ExpanderTitleButton>
   );
@@ -103,34 +99,6 @@ describe('As heading', () => {
       },
     );
     expect(getByRole('heading')).toBeTruthy();
-  });
-});
-
-describe('Aria attributes', () => {
-  const TestExpanderWithProps = (props?: ExpanderTitleButtonProps) => (
-    <ExpanderTitleButton
-      ariaCloseText="click to close expander"
-      ariaOpenText="click to open expander"
-      {...{ 'data-testid': 'expander-title' }}
-      {...props}
-    >
-      {props?.children ? props.children : 'Expander title button'}
-    </ExpanderTitleButton>
-  );
-
-  it('should be passed to title button', () => {
-    const { getByText, rerender } = customRender(TestExpanderWithProps(), {
-      providerProps,
-    });
-    expect(getByText('click to open expander')).toBeTruthy();
-    const adjustedProviderProps = {
-      ...providerProps,
-      open: true,
-    };
-    rerender(TestExpanderWithProps(), {
-      providerProps: adjustedProviderProps,
-    });
-    expect(getByText('click to close expander')).toBeTruthy();
   });
 });
 

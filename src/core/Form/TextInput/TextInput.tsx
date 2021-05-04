@@ -15,7 +15,7 @@ import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { StatusText } from '../StatusText/StatusText';
 import { HintText } from '../HintText/HintText';
-import { InputStatus } from '../types';
+import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './TextInput.baseStyles';
 
 const baseClassName = 'fi-text-input';
@@ -34,7 +34,8 @@ export const textInputClassNames = {
 type TextInputValue = string | number | undefined;
 
 interface InternalTextInputProps
-  extends Omit<HtmlInputProps, 'type' | 'onChange'> {
+  extends StatusTextCommonProps,
+    Omit<HtmlInputProps, 'type' | 'onChange'> {
   /** TextInput container div class name for custom styling. */
   className?: string;
   /** TextInput wrapping div element props */
@@ -62,8 +63,6 @@ interface InternalTextInputProps
    * @default default
    */
   status?: InputStatus;
-  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
-  statusText?: string;
   /** 'text' | 'email' | 'number' | 'password' | 'tel' | 'url'
    * @default text
    */
@@ -113,6 +112,7 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
       iconProps,
       forwardedRef,
       debounce,
+      statusTextAriaLiveMode = 'assertive',
       'aria-describedby': ariaDescribedBy,
       ...passProps
     } = this.props;
@@ -168,7 +168,12 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
             </Debounce>
             {resolvedIcon && <Icon {...{ ...iconProps, icon: resolvedIcon }} />}
           </HtmlDiv>
-          <StatusText id={statusTextId} status={status}>
+          <StatusText
+            id={statusTextId}
+            status={status}
+            ariaLiveMode={statusTextAriaLiveMode}
+            disabled={passProps.disabled}
+          >
             {statusText}
           </StatusText>
         </HtmlSpan>

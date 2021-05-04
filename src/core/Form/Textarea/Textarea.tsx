@@ -12,7 +12,7 @@ import {
 import { LabelText } from '../LabelText/LabelText';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
-import { InputStatus } from '../types';
+import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './Textarea.baseStyles';
 
 const baseClassName = 'fi-textarea';
@@ -29,7 +29,9 @@ const textareaClassNames = {
 
 type TextareaStatus = Exclude<InputStatus, 'success'>;
 
-interface InternalTextareaProps extends Omit<HtmlTextareaProps, 'placeholder'> {
+interface InternalTextareaProps
+  extends StatusTextCommonProps,
+    Omit<HtmlTextareaProps, 'placeholder'> {
   /** Custom classname to extend or customize */
   className?: string;
   /** Disable usage */
@@ -57,8 +59,6 @@ interface InternalTextareaProps extends Omit<HtmlTextareaProps, 'placeholder'> {
    * @default default
    */
   status?: TextareaStatus;
-  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
-  statusText?: string;
   /** Resize mode of the textarea
       'both' | 'vertical' | 'horizontal' | 'none'
       @default 'vertical' 
@@ -108,6 +108,7 @@ class BaseTextarea extends Component<TextareaProps & InnerRef> {
       fullWidth,
       containerProps,
       forwardedRef,
+      statusTextAriaLiveMode = 'assertive',
       ...passProps
     } = this.props;
 
@@ -155,7 +156,12 @@ class BaseTextarea extends Component<TextareaProps & InnerRef> {
             {...onClickProps}
           />
         </HtmlDiv>
-        <StatusText id={statusTextId} status={status}>
+        <StatusText
+          id={statusTextId}
+          status={status}
+          disabled={disabled}
+          ariaLiveMode={statusTextAriaLiveMode}
+        >
           {statusText}
         </StatusText>
       </HtmlDiv>

@@ -1,7 +1,7 @@
 import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { InputStatus } from '../types';
+import { InputStatus, StatusTextCommonProps } from '../types';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { logger } from '../../../utils/logger';
 import { AutoId } from '../../../utils/AutoId';
@@ -35,7 +35,7 @@ const iconClassnames = {
 
 type CheckboxStatus = Exclude<InputStatus, 'success'>;
 
-interface InternalCheckboxProps {
+interface InternalCheckboxProps extends StatusTextCommonProps {
   /** Controlled checked-state - user actions use onClick to change  */
   checked?: boolean;
   /** Default status of Checkbox when not using controlled 'checked' state
@@ -62,10 +62,6 @@ interface InternalCheckboxProps {
    * @default default
    */
   status?: CheckboxStatus;
-  /**
-   * Status text to be displayed in the status text element. Will not be displayed when element is disabled.
-   */
-  statusText?: string;
   /**
    * Hint text to be displayed under the label.
    */
@@ -139,6 +135,7 @@ class BaseCheckbox extends Component<CheckboxProps & InnerRef> {
       'aria-label': ariaLabel,
       'aria-labelledby': ariaLabelledBy,
       'aria-describedby': ariaDescribedBy,
+      statusTextAriaLiveMode = 'assertive',
       children,
       checked: dismissChecked,
       defaultChecked: dismissDefaultChecked,
@@ -227,7 +224,12 @@ class BaseCheckbox extends Component<CheckboxProps & InnerRef> {
           {children}
         </HtmlLabel>
         <HintText id={hintTextId}>{hintText}</HintText>
-        <StatusText id={statusTextId} status={status}>
+        <StatusText
+          id={statusTextId}
+          status={status}
+          disabled={disabled}
+          ariaLiveMode={statusTextAriaLiveMode}
+        >
           {statusText}
         </StatusText>
       </HtmlDiv>

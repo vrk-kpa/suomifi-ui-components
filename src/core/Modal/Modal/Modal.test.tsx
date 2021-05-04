@@ -27,8 +27,8 @@ describe('Basic modal', () => {
   });
 
   it('should have given className', () => {
-    const { container } = render(BasicModal({ className: 'test-class-name' }));
-    expect(container.firstChild).toHaveClass('test-class-name');
+    const { getByRole } = render(BasicModal({ className: 'test-class-name' }));
+    expect(getByRole('dialog')).toHaveClass('test-class-name');
   });
 
   it('should match snapshot', () => {
@@ -198,8 +198,8 @@ describe('Modal variant', () => {
   );
 
   it('smallScreen should have correct classname', () => {
-    const { container } = render(ModalWithProps({ variant: 'smallScreen' }));
-    expect(container.firstChild).toHaveClass('fi-modal--small-screen');
+    const { getByRole } = render(ModalWithProps({ variant: 'smallScreen' }));
+    expect(getByRole('dialog')).toHaveClass('fi-modal--small-screen');
   });
 });
 
@@ -217,17 +217,12 @@ describe('Modal focus', () => {
     </Modal>
   );
 
-  it('should be on primary button if there is no other focusable content', async () => {
+  it('should be on heading by default', async () => {
     const { getAllByRole } = render(ModalWithProps(<p>Modal Content</p>));
-    await waitFor(() => expect(getAllByRole('button')[0]).toHaveFocus());
+    await waitFor(() => expect(getAllByRole('heading')[0]).toHaveFocus());
   });
 
-  it('should be on the first element by default', async () => {
-    const { getByRole } = render(ModalWithProps(<input type="text" />));
-    await waitFor(() => expect(getByRole('textbox')).toHaveFocus());
-  });
-
-  it('should be on given element by default', async () => {
+  it('should be on element provided in props', async () => {
     const RefTest1 = () => {
       const ref = useRef(null);
       return (
