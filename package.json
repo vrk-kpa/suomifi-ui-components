@@ -142,7 +142,7 @@
     "polished": "4.1.2",
     "react-popper": "2.2.5",
     "react-svg": "13.0.3",
-    "suomifi-design-tokens": "3.1.0",
+    "suomifi-design-tokens": "3.1.1",
     "suomifi-icons": "^2.0.0"
   },
   "peerDependencies": {
