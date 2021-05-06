@@ -306,6 +306,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
     />
   </div>
   <span
+    aria-atomic="true"
     aria-live="assertive"
     class="c3 c5 fi-status-text"
   />

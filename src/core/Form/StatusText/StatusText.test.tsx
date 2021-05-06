@@ -43,7 +43,7 @@ describe('props', () => {
     });
   });
 
-  describe('aria-live', () => {
+  describe('aria attributes', () => {
     it('should have given aria-live attribute even when empty', () => {
       const { container } = render(<StatusText ariaLiveMode="assertive" />);
       expect(container.firstChild).toHaveAttribute('aria-live', 'assertive');
@@ -53,6 +53,10 @@ describe('props', () => {
         <StatusText ariaLiveMode="polite">Test text</StatusText>,
       );
       expect(container.firstChild).toHaveAttribute('aria-live', 'polite');
+    });
+    it('should have aria-atomic set to true by default', () => {
+      const { container } = render(<StatusText>Test text</StatusText>);
+      expect(container.firstChild).toHaveAttribute('aria-atomic', 'true');
     });
 
     it('aria-live should be off when disabled', () => {
