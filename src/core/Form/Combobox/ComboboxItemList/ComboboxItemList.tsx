@@ -19,6 +19,8 @@ export interface ComboboxItemListProps {
     | React.ReactElement<ComboboxItemProps>;
   forwardRef: React.RefObject<HTMLUListElement>;
   onBlur?: (event: React.FocusEvent<Element>) => void;
+  /** Id needed for aria-owns and aria-controls in Combobox */
+  id: string;
 }
 
 class BaseComboboxItemList extends Component<ComboboxItemListProps> {
@@ -28,10 +30,12 @@ class BaseComboboxItemList extends Component<ComboboxItemListProps> {
       forwardRef,
       children,
       onBlur,
+      id,
       ...passProps
     } = this.props;
     return (
       <HtmlUlWithRef
+        id={id}
         tabIndex={0}
         forwardRef={forwardRef}
         className={classnames(baseClassName, className, {})}
