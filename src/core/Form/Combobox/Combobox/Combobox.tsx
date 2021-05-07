@@ -467,11 +467,16 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       Object.keys(selectedKeys).length > 0 &&
       Object.keys(selectedKeys).length !== selectedAndDisabledKeys;
 
+    const ariaActiveDescendant = currentSelection
+      ? `${id}-${currentSelection}`
+      : '';
+    const popoverItemListId = `${id}-popover`;
+
     return (
       <HtmlDiv
         role="combobox"
         aria-haspopup="listbox"
-        aria-controls={`${id}-popover`}
+        aria-owns={popoverItemListId}
         aria-expanded={showPopover}
         {...passProps}
         className={classnames(baseClassName, className, {
@@ -504,22 +509,21 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                 visualPlaceholder={visualPlaceholder}
                 status={status}
                 statusText={statusText}
+                aria-controls={popoverItemListId}
               />
             )}
           </Debounce>
           <Popover
             sourceRef={this.filterInputRef.current}
             matchWidth={true}
-            id={`${id}-popover`}
             onKeyDown={this.handleKeyDown}
           >
             {showPopover && (
               <ComboboxItemList
+                id={popoverItemListId}
                 forwardRef={this.popoverListRef}
                 onBlur={this.handleBlur}
-                aria-activedescendant={
-                  currentSelection ? `${id}-${currentSelection}` : undefined
-                }
+                aria-activedescendant={ariaActiveDescendant}
               >
                 {filteredItems.length > 0 ? (
                   filteredItems.map((item) => {
