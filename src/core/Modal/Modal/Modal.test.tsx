@@ -114,6 +114,24 @@ describe('Modal variant', () => {
   });
 });
 
+describe('Modal style', () => {
+  it('should have given inline styles', () => {
+    const { getByRole } = render(
+      <Modal appElementId="root" visible={true} style={{ width: '1000px' }}>
+        <ModalContent>
+          <ModalTitle>Test modal</ModalTitle>
+          <p>Modal Content</p>
+        </ModalContent>
+        <ModalFooter>
+          <Button>OK</Button>
+          <Button variant="secondary">Cancel</Button>
+        </ModalFooter>
+      </Modal>,
+    );
+    expect(getByRole('dialog')).toHaveStyle('width: 1000px');
+  });
+});
+
 describe('Modal focus', () => {
   const ModalWithProps = (children: ReactNode, props?: Partial<ModalProps>) => (
     <Modal appElementId="root" visible={true} {...props}>

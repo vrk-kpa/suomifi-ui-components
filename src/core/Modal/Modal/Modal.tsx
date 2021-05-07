@@ -16,6 +16,8 @@ export interface ModalProps {
   appElementId?: string;
   /** Modal container div classname for custom styling. */
   className?: string;
+  /** Modal content wrapper styles */
+  style?: React.CSSProperties;
   /** Children */
   children: ModalContent | ModalFooter | ReactNode;
   /**
@@ -88,6 +90,7 @@ class BaseModal extends Component<InternalModalProps> {
   render() {
     const {
       visible,
+      style,
       appElementId,
       propClassName,
       className,
@@ -129,6 +132,7 @@ class BaseModal extends Component<InternalModalProps> {
         shouldReturnFocusAfterClose={!focusOnCloseRef}
         shouldCloseOnOverlayClick={false}
         shouldCloseOnEsc={true}
+        {...(!!style ? { style: { content: { ...style } } } : {})}
       >
         <ModalProvider value={{ titleRef: this.titleRef, variant, scrollable }}>
           {children}

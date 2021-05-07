@@ -207,6 +207,10 @@ const initialFocusRef = useRef(null);
 
 ### Complex Modal
 
+Modal content wrapper default styles, e.g. width, can be overriden using the `style` prop. However, also styles for the smallScreen variant should be provided as inline styles override all variant defaults. Modal should always be fullscreen on small sceens.
+
+It is possible to override the default styles using css as well. Using the className prop e.g. with `custom` and defining `.fi-modal.custom` and `.fi-modal--small-screen.custom` styles overrides the defaults.
+
 ```js
 import { useState } from 'react';
 import {
@@ -254,6 +258,7 @@ const [smallScreen, setSmallScreen] = useState(false);
     appElementId="rsg-root"
     visible={visible}
     variant={smallScreen ? 'smallScreen' : 'default'}
+    style={{ width: smallScreen ? '100%' : '1000px' }}
     onEscKeyDown={() => setVisible(false)}
   >
     <ModalContent>
