@@ -7,7 +7,7 @@ import { ModalConsumer, ModalVariant, baseClassName } from '../Modal/Modal';
 import { baseStyles } from './ModalTitle.baseStyles';
 
 export interface ModalTitleProps
-  extends Omit<HeadingProps, 'className' | 'id' | 'variant'> {
+  extends Omit<HeadingProps, 'className' | 'variant'> {
   /** Children */
   children: ReactNode;
   /** Modal container div class name for custom styling. */
@@ -17,7 +17,7 @@ export interface ModalTitleProps
 }
 
 interface InternalModalTitleProps extends ModalTitleProps {
-  id?: string;
+  titleRef: React.RefObject<HTMLHeadingElement>;
   modalVariant: ModalVariant;
   scrollable: boolean;
 }
@@ -37,11 +37,11 @@ class BaseModalTitle extends Component<InternalModalTitleProps> {
     const {
       className,
       children,
+      titleRef,
       modalVariant,
       scrollable,
       variant = 'h3',
       as = 'h2',
-      id,
       ...passProps
     } = this.props;
 
@@ -53,8 +53,8 @@ class BaseModalTitle extends Component<InternalModalTitleProps> {
         })}
         {...(this.state.titleFocusable ? { tabIndex: 0 } : {})}
         onBlur={() => this.setState({ titleFocusable: false })}
-        id={id}
         variant={variant}
+        ref={titleRef}
         as={as}
         {...passProps}
       >
@@ -78,9 +78,9 @@ export class ModalTitle extends Component<ModalTitleProps> {
   render() {
     return (
       <ModalConsumer>
-        {({ variant, titleId, scrollable }) => (
+        {({ titleRef, variant, scrollable }) => (
           <StyledModalTitle
-            id={titleId}
+            {...(titleRef ? { titleRef } : {})}
             modalVariant={variant}
             scrollable={scrollable}
             {...this.props}

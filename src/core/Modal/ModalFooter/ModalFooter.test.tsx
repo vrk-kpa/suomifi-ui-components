@@ -6,7 +6,7 @@ import { Button } from '../../../';
 
 describe('Basic ModalFooter', () => {
   const BasicModal = (props?: Partial<ModalFooterProps>) => (
-    <Modal visible={true} usePortal={false}>
+    <Modal visible={true}>
       <ModalFooter {...props} data-testid="modal-footer-id">
         <Button>OK</Button>
         <Button variant="secondary">Cancel</Button>
@@ -22,14 +22,14 @@ describe('Basic ModalFooter', () => {
   });
 
   it('should match snapshot', () => {
-    const { container } = render(BasicModal());
-    expect(container.firstChild).toMatchSnapshot();
+    const { baseElement } = render(BasicModal());
+    expect(baseElement).toMatchSnapshot();
   });
 });
 
 describe('ModalFooter variant', () => {
   const SmallScreenModal = (
-    <Modal visible={true} usePortal={false} variant="smallScreen">
+    <Modal visible={true} variant="smallScreen">
       <ModalFooter data-testid="modal-footer-id">
         <Button>OK</Button>
         <Button variant="secondary">Cancel</Button>

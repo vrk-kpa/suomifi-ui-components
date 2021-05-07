@@ -16,7 +16,9 @@ import {
   Button,
   Paragraph,
   Text,
-  ToggleInput
+  ToggleInput,
+  Dropdown,
+  DropdownItem
 } from 'suomifi-ui-components';
 
 const [visible, setVisible] = useState(false);
@@ -38,12 +40,21 @@ const textArr = new Array(10).fill(text);
     smallScreen
   </ToggleInput>
   <Modal
+    appElementId="rsg-root"
     visible={visible}
     variant={smallScreen ? 'smallScreen' : 'default'}
     onEscKeyDown={() => setVisible(false)}
   >
     <ModalContent>
       <ModalTitle>Test modal</ModalTitle>
+      <Dropdown labelText="Dropdown" defaultValue={'dropdown-item-2'}>
+        <DropdownItem value={'dropdown-item-1'}>
+          Dropdown Item 1
+        </DropdownItem>
+        <DropdownItem value={'dropdown-item-2'}>
+          Dropdown Item 2
+        </DropdownItem>
+      </Dropdown>
       <Paragraph>
         <Text>{textArr.map((text) => text)}</Text>
       </Paragraph>
@@ -93,6 +104,7 @@ const [smallScreen, setSmallScreen] = useState(false);
     smallScreen
   </ToggleInput>
   <Modal
+    appElementId="rsg-root"
     visible={visible}
     variant={smallScreen ? 'smallScreen' : 'default'}
     scrollable={false}
@@ -156,6 +168,7 @@ const initialFocusRef = useRef(null);
     ref={returnFocusRef}
   />
   <Modal
+    appElementId="rsg-root"
     visible={visible}
     focusOnOpenRef={initialFocusRef}
     focusOnCloseRef={returnFocusRef}
@@ -192,9 +205,7 @@ const initialFocusRef = useRef(null);
 </>;
 ```
 
-### Complex Modal with no portal
-
-Disabling portal renders content inside the modal component, not as the last DOM node when using a portal. When portals are disabled, z-index of the portal is set to 100.
+### Complex Modal
 
 ```js
 import { useState } from 'react';
@@ -240,9 +251,9 @@ const [smallScreen, setSmallScreen] = useState(false);
     smallScreen
   </ToggleInput>
   <Modal
+    appElementId="rsg-root"
     visible={visible}
     variant={smallScreen ? 'smallScreen' : 'default'}
-    usePortal={false}
     onEscKeyDown={() => setVisible(false)}
   >
     <ModalContent>

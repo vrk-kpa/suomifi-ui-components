@@ -1,11 +1,7 @@
-import React, { Component, ReactNode } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component, ReactNode, createRef } from 'react';
 import { default as styled } from 'styled-components';
-import { createFocusTrap, FocusTrap } from 'focus-trap';
+import { default as ReactModal } from 'react-modal';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlDivProps, HtmlDivWithRef } from '../../../reset';
-import { AutoId } from '../../../utils/AutoId';
-import { windowAvailable } from '../../../utils/common';
 import { ModalContent, ModalFooter } from '../';
 /* Styles for disabling scrolling. See file for more info. */
 import './Modal.globals.scss';
@@ -13,10 +9,11 @@ import { baseStyles } from './Modal.baseStyles';
 
 export type ModalVariant = 'smallScreen' | 'default';
 
-export interface ModalProps
-  extends Omit<HtmlDivProps, 'children' | 'className' | 'title' | 'ref'> {
+export interface ModalProps {
   /** Show or hide the modal */
   visible: boolean;
+  /** Application root element id for setting aria-hidden when necessary */
+  appElementId?: string;
   /** Modal container div classname for custom styling. */
   className?: string;
   /** Children */
@@ -31,15 +28,9 @@ export interface ModalProps
    * @default true
    */
   scrollable?: boolean;
-  /**
-   * Use portal instead of injecting content inside the Modal component
-   * @default true
-   * Portal is never used when rendering on server or when modal mount node is not available.
-   */
-  usePortal?: boolean;
-  /** Focusable element ref when modal is opened. If not provided, first focusable element is focused */
+  /** Focusable element ref when modal is opened. If not provided, modal title is focused. */
   focusOnOpenRef?: React.RefObject<any>;
-  /** Focusable element ref when modal is closed. If not provided, browser default behaviour will occur (e.g. body gains focus) */
+  /** Focusable element ref when modal is closed. If not provided, previously focused element will regain focus. */
   focusOnCloseRef?: React.RefObject<any>;
   /** Callback for handling esc key press, e.g. close modal */
   onEscKeyDown?: () => void;
@@ -55,23 +46,16 @@ interface InternalModalProps extends ModalProps {
 }
 
 export interface ModalProviderState {
+  titleRef: React.RefObject<HTMLHeadElement> | null;
   variant: ModalVariant;
-  titleId: string | undefined;
   scrollable: boolean;
 }
 
-type PrevState = { [key: string]: any };
-
-interface DisabledDOMNode {
-  element: HTMLElement;
-  prevState: PrevState | null;
-}
-
 const defaultProviderValue: ModalProviderState = {
+  /** Modal title ref for focusing */
+  titleRef: null,
   /** Modal's smallScreen setting */
   variant: 'default',
-  /** Id for title to connect it to modal for screen readers */
-  titleId: 'id',
   /** If modal should have scrollable content and size */
   scrollable: true,
 };
@@ -83,231 +67,74 @@ const {
 
 export const baseClassName = 'fi-modal';
 const modalClassNames = {
-  smallScreen: `${baseClassName}--small-screen`,
-  base: `${baseClassName}_base`,
-  noPortal: `${baseClassName}_base--no-portal`,
-  overlay: `${baseClassName}_overlay`,
-  contentContainer: `${baseClassName}_content-container`,
-  content: `${baseClassName}_content`,
-  noScroll: `${baseClassName}--no-scroll`,
-  heading: `${baseClassName}_heading`,
-  footer: `${baseClassName}_footer`,
-  button: `${baseClassName}_button`,
   disableBodyContent: `${baseClassName}--disable-body-content`,
+  smallScreen: `${baseClassName}--small-screen`,
+  noScroll: `${baseClassName}--no-scroll`,
+  overlay: `${baseClassName}_overlay`,
+  base: `${baseClassName}_base`,
+  contentContainer: `${baseClassName}_content-container`,
 };
 
 class BaseModal extends Component<InternalModalProps> {
-  private previouslyFocusedElement: any;
+  private titleRef = createRef<HTMLHeadElement>();
 
-  private focusTrapWrapperRef: React.RefObject<HTMLDivElement>;
-
-  private portalMountNode: HTMLElement | null = !!document
-    ? document.body
-    : null;
-
-  private focusTrap: FocusTrap | null = null;
-
-  private disabledNodes: DisabledDOMNode[] = [];
-
-  constructor(props: ModalProps) {
+  constructor(props: InternalModalProps) {
     super(props);
-    this.focusTrapWrapperRef = React.createRef();
-    if (windowAvailable()) {
-      this.previouslyFocusedElement = document.activeElement;
+    if (props.appElementId) {
+      ReactModal.setAppElement(`#${props.appElementId}`);
     }
   }
-
-  componentDidMount() {
-    const { visible, focusOnOpenRef } = this.props;
-    this.focusTrap = createFocusTrap(
-      this.focusTrapWrapperRef.current as HTMLElement,
-      {
-        escapeDeactivates: false,
-        returnFocusOnDeactivate: false,
-        ...(focusOnOpenRef ? { initialFocus: focusOnOpenRef.current } : {}),
-      },
-    );
-    this.toggleModalStylesAndControls(visible);
-  }
-
-  componentDidUpdate(prevProps: ModalProps) {
-    const { visible } = this.props;
-    if (prevProps.visible !== visible) {
-      this.toggleModalStylesAndControls(visible);
-    }
-  }
-
-  componentWillUnmount() {
-    this.toggleModalStylesAndControls(false);
-  }
-
-  private handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === 'Escape' || event.key === 'Esc' || event.keyCode === 27) {
-      if (!!this.props.onEscKeyDown) this.props.onEscKeyDown();
-    }
-  };
-
-  private getNodePrevState = (node: HTMLElement): null | PrevState => {
-    const ariaHiddenPrevState = node.getAttribute('aria-hidden');
-    const rolePrevState = node.getAttribute('role');
-    const prevState: PrevState = {};
-    if (
-      typeof ariaHiddenPrevState === 'string' &&
-      ariaHiddenPrevState.length > 0
-    ) {
-      prevState['aria-hidden'] = ariaHiddenPrevState;
-    }
-    if (typeof rolePrevState === 'string' && rolePrevState.length > 0) {
-      prevState.role = rolePrevState;
-    }
-    return Object.keys(prevState).length > 0 ? prevState : null;
-  };
-
-  private restoreNodePrevState = (disabledNode: DisabledDOMNode) => {
-    if (disabledNode.prevState === null) return;
-    Object.keys(disabledNode.prevState).forEach((key) => {
-      if (!!disabledNode.prevState && disabledNode.prevState[key] !== null) {
-        disabledNode.element.setAttribute(key, disabledNode.prevState[key]);
-      }
-    });
-  };
-
-  // set aria-hidden for Modal sibling DOM nodes when necessary and add role presentations to parent nodes
-  private disableNonModalDOMNodes = (
-    node: HTMLElement,
-    modalMountNode: HTMLElement,
-  ): DisabledDOMNode[] => {
-    let disabledNodes: DisabledDOMNode[] = [];
-    for (let i = 0; i < node.children.length; i += 1) {
-      if (
-        node.children[i].contains(modalMountNode) &&
-        node.children[i] !== modalMountNode
-      ) {
-        const prevState = this.getNodePrevState(
-          node.children[i] as HTMLElement,
-        );
-        // only disable nodes that are not yet disabled
-        if (prevState === null || prevState.role !== 'presentation') {
-          (node.children[i] as HTMLElement).setAttribute(
-            'role',
-            'presentation',
-          );
-          disabledNodes.push({
-            element: node.children[i] as HTMLElement,
-            prevState,
-          });
-        }
-        disabledNodes = disabledNodes.concat(
-          this.disableNonModalDOMNodes(
-            node.children[i] as HTMLElement,
-            modalMountNode,
-          ),
-        );
-      } else if (node.children[i] !== modalMountNode) {
-        const prevState = this.getNodePrevState(
-          node.children[i] as HTMLElement,
-        );
-        // only hide nodes that are not yet hidden
-        if (prevState === null || prevState['aria-hidden'] !== 'true') {
-          (node.children[i] as HTMLElement).setAttribute('aria-hidden', 'true');
-          disabledNodes.push({
-            element: node.children[i] as HTMLElement,
-            prevState,
-          });
-        }
-      }
-    }
-    return disabledNodes;
-  };
-
-  // revert Modal sibling DOM node aria-hidden state when closing
-  private enableDisabledDOMNodes = (nodes: DisabledDOMNode[]) => {
-    nodes.forEach((node) => {
-      node.element.removeAttribute('aria-hidden');
-      node.element.removeAttribute('role');
-      if (node.prevState !== null) {
-        this.restoreNodePrevState(node);
-      }
-    });
-  };
-
-  private toggleModalStylesAndControls = (visible: boolean) => {
-    if (!!document && !!window) {
-      if (!!visible) {
-        document.body.classList.add(modalClassNames.disableBodyContent);
-        window.addEventListener('keydown', this.handleKeyDown);
-        if (!!this.focusTrapWrapperRef.current) {
-          this.disabledNodes = this.disableNonModalDOMNodes(
-            document.body,
-            this.focusTrapWrapperRef.current,
-          );
-        }
-        if (!!this.focusTrap) this.focusTrap.activate();
-      } else {
-        document.body.classList.remove(modalClassNames.disableBodyContent);
-        window.removeEventListener('keydown', this.handleKeyDown);
-        this.enableDisabledDOMNodes(this.disabledNodes);
-        this.disabledNodes = [];
-        if (!!this.focusTrap) this.focusTrap.deactivate();
-        if (!!this.props.focusOnCloseRef) {
-          this.props.focusOnCloseRef.current.focus();
-        } else if (
-          !!this.previouslyFocusedElement &&
-          this.previouslyFocusedElement.focus
-        ) {
-          this.previouslyFocusedElement.focus();
-        }
-      }
-    }
-  };
 
   render() {
     const {
       visible,
-      id,
+      appElementId,
       propClassName,
       className,
       children,
       variant = 'default',
       scrollable = true,
-      usePortal = true,
       focusOnOpenRef,
       focusOnCloseRef = null,
       onEscKeyDown,
-      ...passProps
     } = this.props;
 
-    const titleId = `${id}_title`;
-    const content = (
-      <HtmlDiv
-        className={classnames(className, modalClassNames.base, {
-          [modalClassNames.noPortal]: usePortal === false,
+    return (
+      <ReactModal
+        bodyOpenClassName={modalClassNames.disableBodyContent}
+        portalClassName={classnames(className, modalClassNames.base)}
+        overlayClassName={classnames(modalClassNames.overlay)}
+        className={classnames(propClassName, baseClassName, {
+          [modalClassNames.smallScreen]: variant === 'smallScreen',
+          [modalClassNames.noScroll]: scrollable === false,
         })}
+        ariaHideApp={!!appElementId}
+        isOpen={visible}
+        onAfterOpen={() => {
+          if (!!focusOnOpenRef && !!focusOnOpenRef.current) {
+            focusOnOpenRef.current.focus();
+          } else if (!!this.titleRef && !!this.titleRef.current) {
+            this.titleRef.current.focus();
+          }
+        }}
+        onAfterClose={() => {
+          if (!!focusOnCloseRef && !!focusOnCloseRef.current) {
+            focusOnCloseRef.current.focus();
+          }
+        }}
+        onRequestClose={() => {
+          if (!!onEscKeyDown) onEscKeyDown();
+        }}
+        shouldFocusAfterRender={true}
+        shouldReturnFocusAfterClose={!focusOnCloseRef}
+        shouldCloseOnOverlayClick={false}
+        shouldCloseOnEsc={true}
       >
-        <HtmlDiv className={modalClassNames.overlay}>
-          <HtmlDivWithRef
-            forwardedRef={this.focusTrapWrapperRef}
-            role="dialog"
-            aria-modal="true"
-            className={classnames(propClassName, baseClassName, {
-              [modalClassNames.smallScreen]: variant === 'smallScreen',
-              [modalClassNames.noScroll]: scrollable === false,
-            })}
-            {...passProps}
-          >
-            <ModalProvider value={{ titleId, variant, scrollable }}>
-              {children}
-            </ModalProvider>
-          </HtmlDivWithRef>
-        </HtmlDiv>
-      </HtmlDiv>
+        <ModalProvider value={{ titleRef: this.titleRef, variant, scrollable }}>
+          {children}
+        </ModalProvider>
+      </ReactModal>
     );
-    // Skip portal if no mount node is available, if we are on a server or if explicitly requested
-    if (!this.portalMountNode || !windowAvailable() || usePortal === false) {
-      return content;
-    }
-
-    return <>{ReactDOM.createPortal(content, this.portalMountNode)}</>;
   }
 }
 
@@ -318,31 +145,12 @@ const StyledModal = styled(BaseModal)`
 /**
  * <i class="semantics" />
  * Use for showing modal content.
- * Props other than specified explicitly are passed on to outermost content div.
- * NOTE: Modal modifies body element styles and sibling DOM node aria-hidden and parent DOM node role properties.
- * It assumes aria-hidden for sibling DOM nodes and role for parent DOM nodes remains unchanged while Modal is visilbe.
+ * NOTE: Modal hides the application root node from screen readers using the provided appElementId.
  */
 export class Modal extends Component<ModalProps> {
   render() {
-    const {
-      id: propId,
-      visible,
-      className: propClassName,
-      ...passProps
-    } = this.props;
-    if (!visible) return null;
-    return (
-      <AutoId id={propId}>
-        {(id) => (
-          <StyledModal
-            id={id}
-            visible={visible}
-            propClassName={propClassName}
-            {...passProps}
-          />
-        )}
-      </AutoId>
-    );
+    const { className: propClassName, ...passProps } = this.props;
+    return <StyledModal propClassName={propClassName} {...passProps} />;
   }
 }
 

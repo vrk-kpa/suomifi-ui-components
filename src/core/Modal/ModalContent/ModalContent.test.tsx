@@ -7,7 +7,7 @@ describe('Basic ModalContent', () => {
   const text = 'Modal Content';
 
   const BasicModal = (props?: Partial<ModalContentProps>) => (
-    <Modal visible={true} usePortal={false}>
+    <Modal visible={true}>
       <ModalContent {...props} data-testid="modal-content-id">
         <ModalTitle>Test modal</ModalTitle>
         <p>{text}</p>
@@ -34,14 +34,14 @@ describe('Basic ModalContent', () => {
   });
 
   it('should match snapshot', () => {
-    const { container } = render(BasicModal());
-    expect(container.firstChild).toMatchSnapshot();
+    const { baseElement } = render(BasicModal());
+    expect(baseElement).toMatchSnapshot();
   });
 });
 
 describe('ModalContent variant', () => {
   const SmallScreenModal = (
-    <Modal visible={true} usePortal={false} variant="smallScreen">
+    <Modal visible={true} variant="smallScreen">
       <ModalContent data-testid="modal-content-id">
         <ModalTitle>Test modal</ModalTitle>
         <p>Modal Content</p>

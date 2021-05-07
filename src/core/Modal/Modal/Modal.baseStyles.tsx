@@ -8,18 +8,12 @@ export const baseStyles = css`
   &.fi-modal_base {
     ${element(theme)}
     ${font(theme)('actionElementInnerTextBold')}
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    &--no-portal {
-      z-index: 100;
-    }
 
     & .fi-modal_overlay {
       background-color: ${alphaHex(0.5)(theme.colors.blackBase)};
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       display: flex;
