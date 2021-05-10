@@ -336,6 +336,7 @@ exports[`snapshots match error status with statustext 1`] = `
       />
     </div>
     <span
+      aria-atomic="true"
       aria-live="assertive"
       class="c2 c5 fi-status-text fi-status-text--hasContent fi-status-text--error"
       id="test-id2-statusText"
@@ -693,6 +694,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
       />
     </div>
     <span
+      aria-atomic="true"
       aria-live="assertive"
       class="c2 c6 fi-status-text"
       id="test-id1-statusText"
@@ -1035,6 +1037,7 @@ exports[`snapshots match minimal implementation 1`] = `
       />
     </div>
     <span
+      aria-atomic="true"
       aria-live="assertive"
       class="c2 c5 fi-status-text"
       id="test-id-statusText"

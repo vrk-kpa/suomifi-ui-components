@@ -47,6 +47,7 @@ const StyledStatusText = styled(
           [statusTextClassNames.hasContent]: children,
           [statusTextClassNames.error]: status === 'error',
         })}
+        aria-atomic="true"
       >
         {children}
       </HtmlSpan>
