@@ -12,7 +12,7 @@ const comboboxItemClassNames = {
   hasKeyboardFocus: `${baseClassName}--hasKeyboardFocus`,
   selected: `${baseClassName}--selected`,
   disabled: `${baseClassName}--disabled`,
-  text: `${baseClassName}_text`,
+  icon_wrapper: `${baseClassName}_icon_wrapper`,
 };
 
 const iconBaseClassName = `${baseClassName}_checkbox_icon`;
@@ -72,7 +72,7 @@ class BaseComboboxItem extends Component<ComboboxItemProps> {
       >
         <HtmlSpan
           aria-hidden={true}
-          className={comboboxItemClassNames.text}
+          className={comboboxItemClassNames.icon_wrapper}
           {...passProps}
         >
           {!!checked && <CheckedIcon />}
