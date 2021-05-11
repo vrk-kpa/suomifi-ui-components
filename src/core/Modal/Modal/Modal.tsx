@@ -49,11 +49,14 @@ interface InternalModalProps extends ModalProps {
 
 export interface ModalProviderState {
   titleRef: React.RefObject<HTMLHeadElement> | null;
+  focusTitleOnOpen: boolean;
   variant: ModalVariant;
   scrollable: boolean;
 }
 
 const defaultProviderValue: ModalProviderState = {
+  /** Focus title on open for resolving title tab index */
+  focusTitleOnOpen: true,
   /** Modal title ref for focusing */
   titleRef: null,
   /** Modal's smallScreen setting */
@@ -134,7 +137,14 @@ class BaseModal extends Component<InternalModalProps> {
         shouldCloseOnEsc={true}
         {...(!!style ? { style: { content: { ...style } } } : {})}
       >
-        <ModalProvider value={{ titleRef: this.titleRef, variant, scrollable }}>
+        <ModalProvider
+          value={{
+            focusTitleOnOpen: !focusOnOpenRef,
+            titleRef: this.titleRef,
+            variant,
+            scrollable,
+          }}
+        >
           {children}
         </ModalProvider>
       </ReactModal>

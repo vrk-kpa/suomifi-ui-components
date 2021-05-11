@@ -17,6 +17,7 @@ export interface ModalTitleProps
 }
 
 interface InternalModalTitleProps extends ModalTitleProps {
+  focusTitleOnOpen: boolean;
   titleRef: React.RefObject<HTMLHeadingElement>;
   modalVariant: ModalVariant;
   scrollable: boolean;
@@ -30,10 +31,15 @@ const titleClassNames = {
 };
 
 class BaseModalTitle extends Component<InternalModalTitleProps> {
+  state = {
+    titleFocusable: true,
+  };
+
   render() {
     const {
       className,
       children,
+      focusTitleOnOpen,
       titleRef,
       modalVariant,
       scrollable,
@@ -51,7 +57,10 @@ class BaseModalTitle extends Component<InternalModalTitleProps> {
       >
         <Heading
           className={titleClassNames.focusWrapper}
-          tabIndex={-1}
+          {...(this.state.titleFocusable && focusTitleOnOpen
+            ? { tabIndex: 0 }
+            : {})}
+          onBlur={() => this.setState({ titleFocusable: false })}
           variant={variant}
           ref={titleRef}
           as={as}
@@ -78,8 +87,9 @@ export class ModalTitle extends Component<ModalTitleProps> {
   render() {
     return (
       <ModalConsumer>
-        {({ titleRef, variant, scrollable }) => (
+        {({ focusTitleOnOpen, titleRef, variant, scrollable }) => (
           <StyledModalTitle
+            focusTitleOnOpen={focusTitleOnOpen}
             {...(titleRef ? { titleRef } : {})}
             modalVariant={variant}
             scrollable={scrollable}

@@ -525,7 +525,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
           >
             <h2
               class="c5 fi-heading c6 fi-modal_title_focus-wrapper fi-heading--h3"
-              tabindex="-1"
+              tabindex="0"
             >
               Test modal
             </h2>
