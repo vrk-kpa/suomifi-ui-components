@@ -15,6 +15,29 @@ export const baseStyles = css`
       background-color: transparent;
       font-weight: bold;
     }
+
+    &--selected {
+      background-color: ${theme.colors.depthSecondaryDark1};
+      color: ${theme.colors.blackBase};
+
+      & > .fi-combobox-item_checkbox_icon {
+        position: absolute;
+        fill: ${theme.colors.highlightBase};
+      }
+
+      & .fi-combobox-item_icon_wrapper {
+        &::before {
+          border-color: ${theme.colors.highlightBase};
+        }
+        & > .fi-combobox-item_checkbox_icon {
+          fill: ${theme.colors.highlightBase};
+        }
+      }
+      & .fi-combobox-item--query_highlight {
+        color: ${theme.colors.blackBase};
+      }
+    }
+
     & .fi-combobox-item_icon_wrapper {
       position: relative;
       padding-left: ${theme.spacing.l};
@@ -41,28 +64,6 @@ export const baseStyles = css`
         width: 10px;
         left: 4px;
         top: 9px;
-      }
-    }
-
-    &--selected {
-      background-color: ${theme.colors.depthSecondaryDark1};
-      color: ${theme.colors.blackBase};
-
-      & > .fi-combobox-item_checkbox_icon {
-        position: absolute;
-        fill: ${theme.colors.highlightBase};
-      }
-
-      & .fi-combobox-item_icon_wrapper {
-        &::before {
-          border-color: ${theme.colors.highlightBase};
-        }
-        & > .fi-combobox-item_checkbox_icon {
-          fill: ${theme.colors.highlightBase};
-        }
-      }
-      & .fi-combobox-item--query_highlight {
-        color: ${theme.colors.blackBase};
       }
     }
 
