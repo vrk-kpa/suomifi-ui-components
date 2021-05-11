@@ -158,6 +158,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
                 autoCapitalize="none"
                 spellCheck="false"
                 onChange={onChangeHandler}
+                aria-multiline={false}
               />
             </HtmlDiv>
             <StatusText

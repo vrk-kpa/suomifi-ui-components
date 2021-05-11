@@ -540,7 +540,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                         checked={item.uniqueItemId in selectedKeys}
                         disabled={item.uniqueItemId in disabledKeys}
                         onClick={() => {
-                          this.focusToMenu();
                           this.handleItemSelection(item);
                         }}
                       >
