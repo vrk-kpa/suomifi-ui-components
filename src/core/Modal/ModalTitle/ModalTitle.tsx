@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { hLevels } from '../../../reset';
+import { hLevels, HtmlSpan } from '../../../reset';
 import { Heading, HeadingProps } from '../../Heading/Heading';
 import { ModalConsumer, ModalVariant, baseClassName } from '../Modal/Modal';
 import { baseStyles } from './ModalTitle.baseStyles';
@@ -22,17 +22,14 @@ interface InternalModalTitleProps extends ModalTitleProps {
   scrollable: boolean;
 }
 
-const headingClassName = `${baseClassName}_title`;
-const headingClassNames = {
-  smallScreen: `${headingClassName}--smallScreen`,
-  noScroll: `${headingClassName}--no-scroll`,
+const titleClassName = `${baseClassName}_title`;
+const titleClassNames = {
+  smallScreen: `${titleClassName}--smallScreen`,
+  noScroll: `${titleClassName}--no-scroll`,
+  focusWrapper: `${titleClassName}_focus-wrapper`,
 };
 
 class BaseModalTitle extends Component<InternalModalTitleProps> {
-  state = {
-    titleFocusable: true,
-  };
-
   render() {
     const {
       className,
@@ -46,20 +43,23 @@ class BaseModalTitle extends Component<InternalModalTitleProps> {
     } = this.props;
 
     return (
-      <Heading
-        className={classnames(className, headingClassName, {
-          [headingClassNames.smallScreen]: modalVariant === 'smallScreen',
-          [headingClassNames.noScroll]: scrollable === false,
+      <HtmlSpan
+        className={classnames(className, titleClassName, {
+          [titleClassNames.smallScreen]: modalVariant === 'smallScreen',
+          [titleClassNames.noScroll]: scrollable === false,
         })}
-        {...(this.state.titleFocusable ? { tabIndex: 0 } : {})}
-        onBlur={() => this.setState({ titleFocusable: false })}
-        variant={variant}
-        ref={titleRef}
-        as={as}
-        {...passProps}
       >
-        {children}
-      </Heading>
+        <Heading
+          className={titleClassNames.focusWrapper}
+          tabIndex={-1}
+          variant={variant}
+          ref={titleRef}
+          as={as}
+          {...passProps}
+        >
+          {children}
+        </Heading>
+      </HtmlSpan>
     );
   }
 }

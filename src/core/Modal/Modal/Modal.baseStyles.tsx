@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 import { defaultThemeTokens as theme } from '../../theme';
 import { radius } from '../../theme/radius';
+import { boxShadowFocus } from '../../theme/utils';
 import { alphaHex } from '../../../utils/css';
 import { element, font } from '../../theme/reset';
 
@@ -34,6 +35,10 @@ export const baseStyles = css`
     display: flex;
     flex-direction: column;
     align-items: stretch;
+
+    &:focus-visible {
+      ${boxShadowFocus}
+    }
 
     &--no-scroll {
       width: 540px;
