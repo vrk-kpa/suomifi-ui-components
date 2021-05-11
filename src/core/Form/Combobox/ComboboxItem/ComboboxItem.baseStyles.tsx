@@ -15,7 +15,7 @@ export const baseStyles = css`
       background-color: transparent;
       font-weight: bold;
     }
-    & .fi-combobox-item_text {
+    & .fi-combobox-item_icon_wrapper {
       position: relative;
       padding-left: ${theme.spacing.l};
       min-height: 27px;
@@ -53,7 +53,7 @@ export const baseStyles = css`
         fill: ${theme.colors.highlightBase};
       }
 
-      & .fi-combobox-item_text {
+      & .fi-combobox-item_icon_wrapper {
         &::before {
           border-color: ${theme.colors.highlightBase};
         }
@@ -67,7 +67,7 @@ export const baseStyles = css`
     }
 
     &--disabled {
-      & .fi-combobox-item_text {
+      & .fi-combobox-item_icon_wrapper {
         cursor: not-allowed;
         color: ${theme.colors.depthBase};
         &::before {
