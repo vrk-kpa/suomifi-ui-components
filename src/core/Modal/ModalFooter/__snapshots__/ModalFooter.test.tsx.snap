@@ -66,6 +66,10 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   align-items: stretch;
 }
 
+.c0 .fi-modal:focus {
+  outline: none;
+}
+
 .c0 .fi-modal:focus-visible {
   outline: 0;
   border-radius: 2px;
