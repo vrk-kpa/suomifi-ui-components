@@ -206,30 +206,30 @@ describe('Closing Modal', () => {
     );
   };
 
-  // it('should be possible with ESC key', async () => {
-  //   const mockEsc = jest.fn();
-  //   const { getByText, baseElement } = render(
-  //     <RefTest
-  //       focusOnCloseRef={undefined}
-  //       onEscKeyDown={() => {
-  //         console.log('mock esc to be called');
-  //         mockEsc();
-  //       }}
-  //     />,
-  //   );
-  //   const openButton = getByText('Toggle modal');
-  //   fireEvent.click(openButton);
-  //   const content = getByText('Test Content');
-  //   expect(content).toBeTruthy();
+  it('should be possible with ESC key', () => {
+    const mockEsc = jest.fn();
+    const { getByText } = render(
+      <RefTest
+        focusOnCloseRef={undefined}
+        onEscKeyDown={() => {
+          console.log('mock esc to be called');
+          mockEsc();
+        }}
+      />,
+    );
+    const openButton = getByText('Toggle modal');
+    fireEvent.click(openButton);
+    const content = getByText('Test Content');
+    expect(content).toBeTruthy();
 
-  //   fireEvent.keyDown(baseElement, {
-  //     key: 'Esc',
-  //     code: 27,
-  //     charCode: 27,
-  //   });
+    fireEvent.keyDown(content, {
+      key: 'Escape',
+      code: 'Escape',
+      keyCode: 27,
+    });
 
-  //   await waitFor(() => expect(mockEsc).toHaveBeenCalledTimes(1));
-  // });
+    expect(mockEsc).toHaveBeenCalledTimes(1);
+  });
 
   it('should return focus to original element', async () => {
     const { getByText } = render(<RefTest focusOnCloseRef={undefined} />);
