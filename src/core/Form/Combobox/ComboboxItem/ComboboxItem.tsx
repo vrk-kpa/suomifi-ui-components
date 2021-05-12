@@ -65,7 +65,7 @@ class BaseComboboxItem extends Component<ComboboxItemProps> {
         })}
         tabIndex={-1}
         role="option"
-        aria-selected={disabled ? undefined : checked}
+        aria-selected={checked}
         aria-disabled={disabled || false}
         id={id}
         onClick={onClick}
