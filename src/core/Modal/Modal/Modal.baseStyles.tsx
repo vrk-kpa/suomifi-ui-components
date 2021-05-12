@@ -36,6 +36,10 @@ export const baseStyles = css`
     flex-direction: column;
     align-items: stretch;
 
+    &:focus {
+      outline: none;
+    }
+
     &:focus-visible {
       ${boxShadowFocus}
     }
