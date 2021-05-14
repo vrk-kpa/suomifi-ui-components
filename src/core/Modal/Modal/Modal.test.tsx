@@ -212,7 +212,6 @@ describe('Closing Modal', () => {
       <RefTest
         focusOnCloseRef={undefined}
         onEscKeyDown={() => {
-          console.log('mock esc to be called');
           mockEsc();
         }}
       />,
