@@ -1,12 +1,29 @@
 import React from 'react';
+import { unmountComponentAtNode } from 'react-dom';
 import { render } from '@testing-library/react';
 import { Modal } from '../';
 import { ModalFooter, ModalFooterProps } from './ModalFooter';
 import { Button } from '../../../';
 
+let appRoot: HTMLDivElement | null = null;
+
+beforeEach(() => {
+  appRoot = document.createElement('div');
+  appRoot.setAttribute('id', 'root');
+  document.body.appendChild(appRoot);
+});
+
+afterEach(() => {
+  if (!!appRoot) {
+    unmountComponentAtNode(appRoot);
+    appRoot.remove();
+    appRoot = null;
+  }
+});
+
 describe('Basic ModalFooter', () => {
   const BasicModal = (props?: Partial<ModalFooterProps>) => (
-    <Modal visible={true}>
+    <Modal appElementId="root" visible={true}>
       <ModalFooter {...props} data-testid="modal-footer-id">
         <Button>OK</Button>
         <Button variant="secondary">Cancel</Button>
@@ -29,7 +46,7 @@ describe('Basic ModalFooter', () => {
 
 describe('ModalFooter variant', () => {
   const SmallScreenModal = (
-    <Modal visible={true} variant="smallScreen">
+    <Modal appElementId="root" visible={true} variant="smallScreen">
       <ModalFooter data-testid="modal-footer-id">
         <Button>OK</Button>
         <Button variant="secondary">Cancel</Button>

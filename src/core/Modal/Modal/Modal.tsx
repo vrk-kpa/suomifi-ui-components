@@ -1,5 +1,6 @@
 import React, { Component, ReactNode, createRef } from 'react';
 import { default as styled } from 'styled-components';
+import { logger } from '../../../utils/logger';
 import { default as ReactModal } from 'react-modal';
 import classnames from 'classnames';
 import { ModalContent, ModalFooter } from '../';
@@ -104,6 +105,10 @@ class BaseModal extends Component<InternalModalProps> {
       focusOnCloseRef = null,
       onEscKeyDown,
     } = this.props;
+
+    if (!!appElementId) {
+      logger.error(`Invalid or missing appElementId.`);
+    }
 
     return (
       <ReactModal

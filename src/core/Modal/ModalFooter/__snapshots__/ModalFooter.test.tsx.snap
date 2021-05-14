@@ -446,6 +446,10 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
     style="position: absolute; opacity: 0;"
     tabindex="0"
   />
+  <div
+    aria-hidden="true"
+    id="root"
+  />
   <div />
   <div
     data-react-modal-body-trap=""
