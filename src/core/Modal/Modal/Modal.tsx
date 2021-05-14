@@ -12,8 +12,8 @@ export type ModalVariant = 'smallScreen' | 'default';
 export interface ModalProps {
   /** Show or hide the modal */
   visible: boolean;
-  /** Application root element id for setting aria-hidden when necessary */
-  appElementId?: string;
+  /** Application root element id for setting aria-hidden where needed */
+  appElementId: string;
   /** Modal container div classname for custom styling. */
   className?: string;
   /** Modal content wrapper styles */
