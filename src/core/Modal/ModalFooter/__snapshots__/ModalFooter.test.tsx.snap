@@ -1,7 +1,94 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Basic ModalFooter should match snapshot 1`] = `
-.c4 {
+.c0.fi-modal_base {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c0.fi-modal_base .fi-modal_overlay {
+  background-color: rgba(41,41,41,0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 .fi-modal {
+  border-radius: 4px;
+  background-color: hsl(0,0%,100%);
+  border-top: 4px solid hsl(212,63%,45%);
+  overflow: hidden;
+  max-height: calc(100% - 50px);
+  min-height: 230px;
+  width: 800px;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.c0 .fi-modal:focus {
+  outline: none;
+}
+
+.c0 .fi-modal:focus-visible {
+  outline: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+}
+
+.c0 .fi-modal--no-scroll {
+  width: 540px;
+  min-height: 190px;
+}
+
+.c0 .fi-modal--small-screen {
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+}
+
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,34 +114,34 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c4:-moz-focusring {
+.c3:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c4::-moz-focus-inner {
+.c3::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c4::-webkit-file-upload-button {
+.c3::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c4::-webkit-inner-spin-button {
+.c3::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c4::-webkit-outer-spin-button {
+.c3::-webkit-outer-spin-button {
   height: auto;
 }
 
-.c4::before,
-.c4::after {
+.c3::before,
+.c3::after {
   box-sizing: border-box;
 }
 
-.c0 {
+.c1 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -78,143 +165,31 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c0::before,
-.c0::after {
+.c1::before,
+.c1::after {
   box-sizing: border-box;
 }
 
-.c2 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c2::before,
-.c2::after {
-  box-sizing: border-box;
-}
-
-.c1.fi-modal_base {
-  color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-.c1.fi-modal_base--no-portal {
-  z-index: 100;
-}
-
-.c1.fi-modal_base .fi-modal_overlay {
-  background-color: rgba(41,41,41,0.5);
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c1 .fi-modal {
-  border-radius: 4px;
-  background-color: hsl(0,0%,100%);
-  border-top: 4px solid hsl(212,63%,45%);
-  overflow: hidden;
-  max-height: calc(100% - 50px);
-  min-height: 230px;
-  width: 800px;
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-}
-
-.c1 .fi-modal--no-scroll {
-  width: 540px;
-  min-height: 190px;
-}
-
-.c1 .fi-modal--small-screen {
-  border-radius: 0;
-  width: 100%;
-  height: 100%;
-  max-height: 100%;
-}
-
-.c3.fi-modal_footer {
+.c2.fi-modal_footer {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   position: relative;
 }
 
-.c3.fi-modal_footer .fi-modal_footer_content {
+.c2.fi-modal_footer .fi-modal_footer_content {
   padding-top: 0;
   padding-right: 15px;
   padding-bottom: 20px;
   padding-left: 30px;
 }
 
-.c3.fi-modal_footer .fi-modal_footer_content > * {
+.c2.fi-modal_footer .fi-modal_footer_content > * {
   margin-top: 20px;
   margin-right: 15px;
 }
 
-.c3.fi-modal_footer .fi-modal_footer_content-gradient-overlay {
+.c2.fi-modal_footer .fi-modal_footer_content-gradient-overlay {
   position: absolute;
   height: 51px;
   width: 100%;
@@ -222,25 +197,25 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   border-bottom: 1px solid hsl(202,7%,80%);
 }
 
-.c3.fi-modal_footer .fi-modal_footer_content-gradient-overlay .fi-modal_footer_content-gradient {
+.c2.fi-modal_footer .fi-modal_footer_content-gradient-overlay .fi-modal_footer_content-gradient {
   height: 50px;
   margin: 0 20px 0 20px;
   background: linear-gradient( 0deg, hsl(0,0%,100%), rgba(255,255,255,0) );
 }
 
-.c3.fi-modal_footer--small-screen .fi-modal_footer_content {
+.c2.fi-modal_footer--small-screen .fi-modal_footer_content {
   padding-right: 5px;
   padding-bottom: 15px;
   padding-left: 20px;
 }
 
-.c3.fi-modal_footer--small-screen .fi-modal_footer_content > * {
+.c2.fi-modal_footer--small-screen .fi-modal_footer_content > * {
   display: block;
   width: calc(100% - 15px);
   margin-top: 15px;
 }
 
-.c5 {
+.c4 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -267,12 +242,12 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c5:focus {
+.c4:focus {
   outline: none;
   position: relative;
 }
 
-.c5:focus::after {
+.c4:focus::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -288,17 +263,17 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c5:hover {
+.c4:hover {
   background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
 }
 
-.c5:active {
+.c4:active {
   background: hsl(212,63%,37%);
 }
 
-.c5.fi-button--disabled,
-.c5[disabled],
-.c5:disabled {
+.c4.fi-button--disabled,
+.c4[disabled],
+.c4:disabled {
   text-shadow: 0 1px 1px rgba(41,41,41,0.5);
   background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
   -webkit-user-select: none;
@@ -308,41 +283,41 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c5.fi-button--disabled::after {
+.c4.fi-button--disabled::after {
   border: none;
   box-shadow: none;
 }
 
-.c5.fi-button--fullwidth {
+.c4.fi-button--fullwidth {
   display: block;
   width: 100%;
 }
 
-.c5.fi-button--inverted {
+.c4.fi-button--inverted {
   background: none;
   background-color: hsl(212,63%,45%);
   border: 1px solid hsl(0,0%,100%);
   text-shadow: none;
 }
 
-.c5.fi-button--inverted:hover {
+.c4.fi-button--inverted:hover {
   background: linear-gradient(-180deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c5.fi-button--inverted:active {
+.c4.fi-button--inverted:active {
   background: none;
   background-color: hsl(212,63%,45%);
 }
 
-.c5.fi-button--inverted.fi-button--disabled,
-.c5.fi-button--inverted[disabled],
-.c5.fi-button--inverted:disabled {
+.c4.fi-button--inverted.fi-button--disabled,
+.c4.fi-button--inverted[disabled],
+.c4.fi-button--inverted:disabled {
   opacity: 0.41;
   background: none;
   background-color: none;
 }
 
-.c5.fi-button--secondary {
+.c4.fi-button--secondary {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -350,18 +325,18 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   text-shadow: none;
 }
 
-.c5.fi-button--secondary:hover {
+.c4.fi-button--secondary:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c5.fi-button--secondary:active {
+.c4.fi-button--secondary:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c5.fi-button--secondary.fi-button--disabled,
-.c5.fi-button--secondary[disabled],
-.c5.fi-button--secondary:disabled {
+.c4.fi-button--secondary.fi-button--disabled,
+.c4.fi-button--secondary[disabled],
+.c4.fi-button--secondary:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -369,7 +344,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c5.fi-button--secondary-noborder {
+.c4.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -379,18 +354,18 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   background-color: transparent;
 }
 
-.c5.fi-button--secondary-noborder:hover {
+.c4.fi-button--secondary-noborder:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c5.fi-button--secondary-noborder:active {
+.c4.fi-button--secondary-noborder:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c5.fi-button--secondary-noborder.fi-button--disabled,
-.c5.fi-button--secondary-noborder[disabled],
-.c5.fi-button--secondary-noborder:disabled {
+.c4.fi-button--secondary-noborder.fi-button--disabled,
+.c4.fi-button--secondary-noborder[disabled],
+.c4.fi-button--secondary-noborder:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -398,7 +373,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c5.fi-button--link {
+.c4.fi-button--link {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
   background: none;
@@ -409,18 +384,18 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   border: none;
 }
 
-.c5.fi-button--link:hover {
+.c4.fi-button--link:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c5.fi-button--link:active {
+.c4.fi-button--link:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c5.fi-button--link.fi-button--disabled,
-.c5.fi-button--link[disabled],
-.c5.fi-button--link:disabled {
+.c4.fi-button--link.fi-button--disabled,
+.c4.fi-button--link[disabled],
+.c4.fi-button--link:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -428,23 +403,23 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c5.fi-button--link:hover {
+.c4.fi-button--link:hover {
   background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
 
-.c5.fi-button--link:active {
+.c4.fi-button--link:active {
   background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
 }
 
-.c5.fi-button--link.fi-button--disabled,
-.c5.fi-button--link[disabled],
-.c5.fi-button--link:disabled {
+.c4.fi-button--link.fi-button--disabled,
+.c4.fi-button--link[disabled],
+.c4.fi-button--link:disabled {
   color: hsl(202,7%,67%);
   background: none;
   background-color: hsl(202,7%,97%);
 }
 
-.c5 > .fi-button_icon {
+.c4 > .fi-button_icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
@@ -454,61 +429,79 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   transform: translateY(-0.1em);
 }
 
-.c5 > .fi-button_icon.fi-button_icon--right {
+.c4 > .fi-button_icon.fi-button_icon--right {
   margin-right: 0;
   margin-left: 8px;
 }
 
-.c5.fi-button--disabled > .fi-button_icon {
+.c4.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
 
-<div
-  class="c0 c1 fi-modal_base fi-modal_base--no-portal"
-  role="presentation"
+<body
+  class="fi-modal--disable-body-content"
 >
   <div
-    class="c0 fi-modal_overlay"
-    role="presentation"
+    data-react-modal-body-trap=""
+    style="position: absolute; opacity: 0;"
+    tabindex="0"
+  />
+  <div
+    aria-hidden="true"
+    id="root"
+  />
+  <div />
+  <div
+    data-react-modal-body-trap=""
+    style="position: absolute; opacity: 0;"
+    tabindex="0"
+  />
+  <div
+    class="c0 fi-modal_base"
   >
     <div
-      aria-modal="true"
-      class="c2 fi-modal"
-      role="dialog"
+      class="ReactModal__Overlay ReactModal__Overlay--after-open fi-modal_overlay"
     >
       <div
-        class="c0 c3 fi-modal_footer"
+        aria-modal="true"
+        class="ReactModal__Content ReactModal__Content--after-open fi-modal"
+        role="dialog"
+        tabindex="-1"
       >
         <div
-          class="c0 fi-modal_footer_content"
-          data-testid="modal-footer-id"
-        >
-          <button
-            aria-disabled="false"
-            class="c4 fi-button c5"
-            tabindex="0"
-            type="button"
-          >
-            OK
-          </button>
-          <button
-            aria-disabled="false"
-            class="c4 fi-button c5 fi-button--secondary"
-            tabindex="0"
-            type="button"
-          >
-            Cancel
-          </button>
-        </div>
-        <div
-          class="c0 fi-modal_footer_content-gradient-overlay"
+          class="c1 c2 fi-modal_footer"
         >
           <div
-            class="c0 fi-modal_footer_content-gradient"
-          />
+            class="c1 fi-modal_footer_content"
+            data-testid="modal-footer-id"
+          >
+            <button
+              aria-disabled="false"
+              class="c3 fi-button c4"
+              tabindex="0"
+              type="button"
+            >
+              OK
+            </button>
+            <button
+              aria-disabled="false"
+              class="c3 fi-button c4 fi-button--secondary"
+              tabindex="0"
+              type="button"
+            >
+              Cancel
+            </button>
+          </div>
+          <div
+            class="c1 fi-modal_footer_content-gradient-overlay"
+          >
+            <div
+              class="c1 fi-modal_footer_content-gradient"
+            />
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</body>
 `;

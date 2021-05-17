@@ -4,14 +4,18 @@ import { absoluteFocus } from '../../theme/utils';
 
 export const baseStyles = css`
   &.fi-modal_title {
-    position: relative;
-    display: inline-block;
     max-width: 100%;
+    display: block;
 
-    &:focus {
-      outline: 0;
-      &:after {
-        ${absoluteFocus}
+    & .fi-modal_title_focus-wrapper {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+      &:focus {
+        outline: 0;
+        &:after {
+          ${absoluteFocus}
+        }
       }
     }
 

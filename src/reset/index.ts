@@ -7,7 +7,7 @@ export {
   HtmlDivWithRefProps,
 } from './HtmlDiv/HtmlDiv';
 export { HtmlFieldSet, HtmlFieldSetProps } from './HtmlFieldSet/HtmlFieldSet';
-export { HtmlH, HtmlHProps, hLevels } from './HtmlH/HtmlH';
+export { HtmlH, HtmlHProps, HtmlHWithRefProps, hLevels } from './HtmlH/HtmlH';
 export { HtmlInput, HtmlInputProps } from './HtmlInput/HtmlInput';
 export { HtmlLabel, HtmlLabelProps } from './HtmlLabel/HtmlLabel';
 export { HtmlLegend, HtmlLegendProps } from './HtmlLegend/HtmlLegend';

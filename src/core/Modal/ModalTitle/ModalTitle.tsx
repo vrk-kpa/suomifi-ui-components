@@ -1,13 +1,13 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { hLevels } from '../../../reset';
+import { hLevels, HtmlSpan } from '../../../reset';
 import { Heading, HeadingProps } from '../../Heading/Heading';
 import { ModalConsumer, ModalVariant, baseClassName } from '../Modal/Modal';
 import { baseStyles } from './ModalTitle.baseStyles';
 
 export interface ModalTitleProps
-  extends Omit<HeadingProps, 'className' | 'id' | 'variant'> {
+  extends Omit<HeadingProps, 'className' | 'variant'> {
   /** Children */
   children: ReactNode;
   /** Modal container div class name for custom styling. */
@@ -17,15 +17,17 @@ export interface ModalTitleProps
 }
 
 interface InternalModalTitleProps extends ModalTitleProps {
-  id?: string;
+  focusTitleOnOpen: boolean;
+  titleRef: React.RefObject<HTMLHeadingElement>;
   modalVariant: ModalVariant;
   scrollable: boolean;
 }
 
-const headingClassName = `${baseClassName}_title`;
-const headingClassNames = {
-  smallScreen: `${headingClassName}--smallScreen`,
-  noScroll: `${headingClassName}--no-scroll`,
+const titleClassName = `${baseClassName}_title`;
+const titleClassNames = {
+  smallScreen: `${titleClassName}--smallScreen`,
+  noScroll: `${titleClassName}--no-scroll`,
+  focusWrapper: `${titleClassName}_focus-wrapper`,
 };
 
 class BaseModalTitle extends Component<InternalModalTitleProps> {
@@ -37,29 +39,36 @@ class BaseModalTitle extends Component<InternalModalTitleProps> {
     const {
       className,
       children,
+      focusTitleOnOpen,
+      titleRef,
       modalVariant,
       scrollable,
       variant = 'h3',
       as = 'h2',
-      id,
       ...passProps
     } = this.props;
 
     return (
-      <Heading
-        className={classnames(className, headingClassName, {
-          [headingClassNames.smallScreen]: modalVariant === 'smallScreen',
-          [headingClassNames.noScroll]: scrollable === false,
+      <HtmlSpan
+        className={classnames(className, titleClassName, {
+          [titleClassNames.smallScreen]: modalVariant === 'smallScreen',
+          [titleClassNames.noScroll]: scrollable === false,
         })}
-        {...(this.state.titleFocusable ? { tabIndex: 0 } : {})}
-        onBlur={() => this.setState({ titleFocusable: false })}
-        id={id}
-        variant={variant}
-        as={as}
-        {...passProps}
       >
-        {children}
-      </Heading>
+        <Heading
+          className={titleClassNames.focusWrapper}
+          {...(this.state.titleFocusable && focusTitleOnOpen
+            ? { tabIndex: 0 }
+            : {})}
+          onBlur={() => this.setState({ titleFocusable: false })}
+          variant={variant}
+          ref={titleRef}
+          as={as}
+          {...passProps}
+        >
+          {children}
+        </Heading>
+      </HtmlSpan>
     );
   }
 }
@@ -78,9 +87,10 @@ export class ModalTitle extends Component<ModalTitleProps> {
   render() {
     return (
       <ModalConsumer>
-        {({ variant, titleId, scrollable }) => (
+        {({ focusTitleOnOpen, titleRef, variant, scrollable }) => (
           <StyledModalTitle
-            id={titleId}
+            focusTitleOnOpen={focusTitleOnOpen}
+            {...(titleRef ? { titleRef } : {})}
             modalVariant={variant}
             scrollable={scrollable}
             {...this.props}

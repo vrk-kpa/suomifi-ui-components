@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { asPropType } from '../../utils/typescript';
@@ -27,6 +27,11 @@ export interface HeadingProps extends HtmlHProps {
   as?: asPropType;
 }
 
+interface InternalHeadingProps extends HeadingProps {
+  forwardedRef?: React.RefObject<HTMLHeadingElement>;
+  asProp?: asPropType;
+}
+
 const getSemanticVariant = (variant: styleVariants) => {
   if (variant === 'h1hero') return 'h1';
   return variant;
@@ -40,7 +45,7 @@ const StyledHeading = styled(
     color,
     asProp,
     ...passProps
-  }: HeadingProps & { asProp?: asPropType }) => (
+  }: InternalHeadingProps) => (
     <HtmlH
       {...passProps}
       className={classnames(
@@ -51,7 +56,6 @@ const StyledHeading = styled(
           [smallScreenClassName]: smallScreen,
         },
       )}
-      variant={getSemanticVariant(variant)}
       as={!!asProp ? asProp : getSemanticVariant(variant)}
     />
   ),
@@ -63,15 +67,22 @@ const StyledHeading = styled(
  * <i class="semantics" />
  * Used displaying headings with correct fonts
  */
-export class Heading extends Component<HeadingProps> {
-  render() {
-    const { as, variant, ...passProps } = this.props;
+export const Heading = forwardRef(
+  (props: HeadingProps, ref: React.RefObject<HTMLHeadingElement>) => {
+    const { as, variant, ...passProps } = props;
     if (!variant) {
       logger.warn(
         `Does not contain heading level (variant): ${passProps.children}`,
       );
       return null;
     }
-    return <StyledHeading asProp={as} {...passProps} variant={variant} />;
-  }
-}
+    return (
+      <StyledHeading
+        forwardedRef={ref}
+        asProp={as}
+        {...passProps}
+        variant={variant}
+      />
+    );
+  },
+);

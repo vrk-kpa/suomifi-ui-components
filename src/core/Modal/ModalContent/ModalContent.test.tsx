@@ -1,13 +1,30 @@
 import React from 'react';
+import { unmountComponentAtNode } from 'react-dom';
 import { render } from '@testing-library/react';
 import { ModalContent, ModalContentProps } from './ModalContent';
 import { ModalTitle, Modal } from '../';
+
+let appRoot: HTMLDivElement | null = null;
+
+beforeEach(() => {
+  appRoot = document.createElement('div');
+  appRoot.setAttribute('id', 'root');
+  document.body.appendChild(appRoot);
+});
+
+afterEach(() => {
+  if (!!appRoot) {
+    unmountComponentAtNode(appRoot);
+    appRoot.remove();
+    appRoot = null;
+  }
+});
 
 describe('Basic ModalContent', () => {
   const text = 'Modal Content';
 
   const BasicModal = (props?: Partial<ModalContentProps>) => (
-    <Modal visible={true} usePortal={false}>
+    <Modal appElementId="root" visible={true}>
       <ModalContent {...props} data-testid="modal-content-id">
         <ModalTitle>Test modal</ModalTitle>
         <p>{text}</p>
@@ -34,14 +51,14 @@ describe('Basic ModalContent', () => {
   });
 
   it('should match snapshot', () => {
-    const { container } = render(BasicModal());
-    expect(container.firstChild).toMatchSnapshot();
+    const { baseElement } = render(BasicModal());
+    expect(baseElement).toMatchSnapshot();
   });
 });
 
 describe('ModalContent variant', () => {
   const SmallScreenModal = (
-    <Modal visible={true} usePortal={false} variant="smallScreen">
+    <Modal appElementId="root" visible={true} variant="smallScreen">
       <ModalContent data-testid="modal-content-id">
         <ModalTitle>Test modal</ModalTitle>
         <p>Modal Content</p>
