@@ -106,7 +106,7 @@ class BaseModal extends Component<InternalModalProps> {
       onEscKeyDown,
     } = this.props;
 
-    if (!!appElementId) {
+    if (!appElementId) {
       logger.error(`Invalid or missing appElementId.`);
     }
 
