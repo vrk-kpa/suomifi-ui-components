@@ -43,7 +43,7 @@ export const baseStyles = css`
       padding-left: ${theme.spacing.l};
       min-height: 27px;
       line-height: 1.5em;
-      padding-top: 1px;
+      padding-top: 3px;
       &::before {
         content: '';
         position: absolute;
