@@ -68,9 +68,9 @@ export const baseStyles = css`
     }
 
     &--disabled {
+      color: ${theme.colors.depthBase};
+      cursor: not-allowed;
       & .fi-combobox-item_icon_wrapper {
-        cursor: not-allowed;
-        color: ${theme.colors.depthBase};
         &::before {
           background-color: ${theme.colors.depthLight3};
           border-color: ${theme.colors.depthLight1};
