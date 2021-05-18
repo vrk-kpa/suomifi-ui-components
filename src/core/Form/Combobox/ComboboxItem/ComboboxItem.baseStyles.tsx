@@ -80,6 +80,10 @@ export const baseStyles = css`
           fill: ${theme.colors.depthLight1};
         }
       }
+
+      &.fi-combobox-item:hover {
+        color: ${theme.colors.depthBase};
+      }
     }
 
     &--hasKeyboardFocus {
