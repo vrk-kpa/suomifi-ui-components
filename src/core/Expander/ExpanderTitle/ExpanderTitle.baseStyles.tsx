@@ -24,6 +24,10 @@ export const expanderTitleBaseStyles = css`
     border-bottom-right-radius: 0;
   }
 
+  & .fi-expander_title-content {
+    display: inline-block;
+  }
+
   & .fi-expander_title-button {
     ${button(theme)}
     ${font(theme)('bodySemiBold')}
