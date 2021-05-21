@@ -168,6 +168,22 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     return null;
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('click', this.globalClickHandler, {
+      capture: true,
+    });
+  }
+
+  private globalClickHandler = (nativeEvent: MouseEvent) => {
+    if (
+      this.popoverListRef.current?.contains(nativeEvent.target as Node) ||
+      this.filterInputRef.current?.contains(nativeEvent.target as Node)
+    ) {
+      return;
+    }
+    this.setPopoverVisibility(false);
+  };
+
   handleItemSelection = (item: T & ComboboxData) => {
     this.setState(
       (
@@ -266,8 +282,17 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   private filter = (data: ComboboxData, query: string) =>
     data.labelText.toLowerCase().includes(query.toLowerCase());
 
-  private setPopoverVisibility = (toState: Boolean) => {
-    this.setState({ showPopover: toState });
+  private setPopoverVisibility = (visible: Boolean) => {
+    if (visible) {
+      document.addEventListener('click', this.globalClickHandler, {
+        capture: true,
+      });
+    } else {
+      document.removeEventListener('click', this.globalClickHandler, {
+        capture: true,
+      });
+    }
+    this.setState({ showPopover: visible });
   };
 
   private handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
@@ -522,7 +547,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
               <ComboboxItemList
                 id={popoverItemListId}
                 forwardRef={this.popoverListRef}
-                onBlur={this.handleBlur}
                 aria-activedescendant={ariaActiveDescendant}
               >
                 {filteredItems.length > 0 ? (
