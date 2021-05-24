@@ -235,6 +235,10 @@ exports[`Basic modal should match snapshot 1`] = `
   max-height: 100%;
   padding: 24px 30px 50px 30px;
   overflow-y: auto;
+  -webkit-scroll-padding-bottom: 75px;
+  -moz-scroll-padding-bottom: 75px;
+  -ms-scroll-padding-bottom: 75px;
+  scroll-padding-bottom: 75px;
 }
 
 .c2.fi-modal_content--no-scroll {
