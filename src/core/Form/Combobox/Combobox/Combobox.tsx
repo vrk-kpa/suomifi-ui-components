@@ -8,6 +8,7 @@ import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Button } from '../../../Button/Button';
 import { Chip } from '../../../Chip';
 import { Popover } from '../../../Popover/Popover';
+import { VisuallyHidden } from '../../../VisuallyHidden/VisuallyHidden';
 import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
 import { ComboboxItemList } from '../ComboboxItemList/ComboboxItemList';
 import { ComboboxItem } from '../ComboboxItem/ComboboxItem';
@@ -78,6 +79,8 @@ export interface ComboboxProps<T extends ComboboxData> {
   onItemSelect?: (uniqueItemId: string) => void;
   /** Event to be sent when pressing remove all button */
   onRemoveAll?: () => void;
+  /** Text to be read by screenreader to indicate how many items are selected */
+  ariaSelectedAmountText: string;
 }
 
 // actual boolean value does not matter, only if it exists on the list
@@ -471,6 +474,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       selectedItems: controlledItems,
       onItemSelect,
       onRemoveAll,
+      ariaSelectedAmountText,
       ...passProps
     } = this.props;
 
@@ -498,117 +502,130 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     const popoverItemListId = `${id}-popover`;
 
     return (
-      <HtmlDiv
-        role="combobox"
-        aria-haspopup="listbox"
-        aria-owns={popoverItemListId}
-        aria-expanded={showPopover}
-        {...passProps}
-        className={classnames(baseClassName, className, {
-          [comboboxClassNames.open]: showPopover,
-          [comboboxClassNames.error]: status === 'error',
-        })}
-      >
-        <HtmlDiv className={classnames(comboboxClassNames.content_wrapper, {})}>
-          <Debounce waitFor={debounce}>
-            {(debouncer: Function) => (
-              <FilterInput
-                id={id}
-                labelText={labelText}
-                items={propItems}
-                onFilter={(filtered) =>
-                  this.setState({ filteredItems: filtered })
-                }
-                filterFunc={this.filter}
-                forwardedRef={this.filterInputRef}
-                onFocus={() => this.setPopoverVisibility(true)}
-                onKeyDown={this.handleKeyDown}
-                onBlur={this.handleBlur}
-                value={filterInputValue}
-                onChange={(value: string) => {
-                  if (propOnChange) {
-                    debouncer(propOnChange, value);
-                  }
-                  this.setState({ filterInputValue: value });
-                }}
-                visualPlaceholder={visualPlaceholder}
-                status={status}
-                statusText={statusText}
-                aria-controls={popoverItemListId}
-              />
-            )}
-          </Debounce>
-          <Popover
-            sourceRef={this.filterInputRef.current}
-            matchWidth={true}
-            onKeyDown={this.handleKeyDown}
+      <>
+        <VisuallyHidden
+          aria-live="polite"
+          aria-atomic="true"
+          id={`${id}-selectedItems-length`}
+        >
+          {selectedItems.length}
+          {ariaSelectedAmountText}
+        </VisuallyHidden>
+        <HtmlDiv
+          role="combobox"
+          aria-haspopup="listbox"
+          aria-owns={popoverItemListId}
+          aria-expanded={showPopover}
+          {...passProps}
+          className={classnames(baseClassName, className, {
+            [comboboxClassNames.open]: showPopover,
+            [comboboxClassNames.error]: status === 'error',
+          })}
+        >
+          <HtmlDiv
+            className={classnames(comboboxClassNames.content_wrapper, {})}
           >
-            {showPopover && (
-              <ComboboxItemList
-                id={popoverItemListId}
-                forwardRef={this.popoverListRef}
-                aria-activedescendant={ariaActiveDescendant}
-              >
-                {filteredItems.length > 0 ? (
-                  filteredItems.map((item) => {
-                    const isCurrentlySelected =
-                      item.uniqueItemId === currentSelection;
-
-                    return (
-                      <ComboboxItem
-                        hasKeyboardFocus={isCurrentlySelected}
-                        key={`${item.uniqueItemId}_${
-                          item.uniqueItemId in selectedKeys
-                        }`}
-                        id={`${id}-${item.uniqueItemId}`}
-                        checked={item.uniqueItemId in selectedKeys}
-                        disabled={item.uniqueItemId in disabledKeys}
-                        onClick={() => {
-                          this.handleItemSelection(item);
-                        }}
-                      >
-                        {this.highlightQuery(
-                          item.labelText,
-                          this.filterInputRef.current
-                            ? this.filterInputRef.current.value
-                            : '',
-                        )}
-                      </ComboboxItem>
-                    );
-                  })
-                ) : (
-                  <ComboboxEmptyItem>{noItemsText}</ComboboxEmptyItem>
-                )}
-              </ComboboxItemList>
-            )}
-          </Popover>
-          {showChipList && (
-            <ChipList>
-              {selectedItems.map((item) => (
-                <Chip
-                  key={item.uniqueItemId}
-                  disabled={item.disabled}
-                  removable={!item.disabled}
-                  onClick={() => this.handleItemSelection(item)}
-                  actionLabel={ariaChipActionLabel}
-                >
-                  {item.chipText ? item.chipText : item.labelText}
-                </Chip>
-              ))}
-            </ChipList>
-          )}
-          {showRemoveAllButton && (
-            <Button
-              className={classnames(comboboxClassNames.removeAllButton, {})}
-              variant="link"
-              icon="remove"
-              onClick={this.handleRemoveAllSelections}
+            <Debounce waitFor={debounce}>
+              {(debouncer: Function) => (
+                <FilterInput
+                  id={id}
+                  labelText={labelText}
+                  items={propItems}
+                  onFilter={(filtered) =>
+                    this.setState({ filteredItems: filtered })
+                  }
+                  filterFunc={this.filter}
+                  forwardedRef={this.filterInputRef}
+                  onFocus={() => this.setPopoverVisibility(true)}
+                  onKeyDown={this.handleKeyDown}
+                  onBlur={this.handleBlur}
+                  value={filterInputValue}
+                  onChange={(value: string) => {
+                    if (propOnChange) {
+                      debouncer(propOnChange, value);
+                    }
+                    this.setState({ filterInputValue: value });
+                  }}
+                  visualPlaceholder={visualPlaceholder}
+                  status={status}
+                  statusText={statusText}
+                  aria-controls={popoverItemListId}
+                  aria-describedby={`${id}-selectedItems-length`}
+                />
+              )}
+            </Debounce>
+            <Popover
+              sourceRef={this.filterInputRef.current}
+              matchWidth={true}
+              onKeyDown={this.handleKeyDown}
             >
-              {removeAllButtonLabel}
-            </Button>
-          )}
+              {showPopover && (
+                <ComboboxItemList
+                  id={popoverItemListId}
+                  forwardRef={this.popoverListRef}
+                  aria-activedescendant={ariaActiveDescendant}
+                >
+                  {filteredItems.length > 0 ? (
+                    filteredItems.map((item) => {
+                      const isCurrentlySelected =
+                        item.uniqueItemId === currentSelection;
+
+                      return (
+                        <ComboboxItem
+                          hasKeyboardFocus={isCurrentlySelected}
+                          key={`${item.uniqueItemId}_${
+                            item.uniqueItemId in selectedKeys
+                          }`}
+                          id={`${id}-${item.uniqueItemId}`}
+                          checked={item.uniqueItemId in selectedKeys}
+                          disabled={item.uniqueItemId in disabledKeys}
+                          onClick={() => {
+                            this.handleItemSelection(item);
+                          }}
+                        >
+                          {this.highlightQuery(
+                            item.labelText,
+                            this.filterInputRef.current
+                              ? this.filterInputRef.current.value
+                              : '',
+                          )}
+                        </ComboboxItem>
+                      );
+                    })
+                  ) : (
+                    <ComboboxEmptyItem>{noItemsText}</ComboboxEmptyItem>
+                  )}
+                </ComboboxItemList>
+              )}
+            </Popover>
+            {showChipList && (
+              <ChipList>
+                {selectedItems.map((item) => (
+                  <Chip
+                    key={item.uniqueItemId}
+                    disabled={item.disabled}
+                    removable={!item.disabled}
+                    onClick={() => this.handleItemSelection(item)}
+                    actionLabel={ariaChipActionLabel}
+                  >
+                    {item.chipText ? item.chipText : item.labelText}
+                  </Chip>
+                ))}
+              </ChipList>
+            )}
+            {showRemoveAllButton && (
+              <Button
+                className={classnames(comboboxClassNames.removeAllButton, {})}
+                variant="link"
+                icon="remove"
+                onClick={this.handleRemoveAllSelections}
+              >
+                {removeAllButtonLabel}
+              </Button>
+            )}
+          </HtmlDiv>
         </HtmlDiv>
-      </HtmlDiv>
+      </>
     );
   }
 }
