@@ -260,6 +260,9 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         return { selectedKeys: newSelectedKeys, selectedItems: disabledItems };
       },
     );
+    if (this.filterInputRef && this.filterInputRef.current) {
+      this.filterInputRef.current.focus();
+    }
   };
 
   private highlightQuery = (text: string, query: string) => {
