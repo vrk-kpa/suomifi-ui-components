@@ -506,14 +506,6 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
 
     return (
       <>
-        <VisuallyHidden
-          aria-live="polite"
-          aria-atomic="true"
-          id={`${id}-selectedItems-length`}
-        >
-          {selectedItems.length}
-          {ariaSelectedAmountText}
-        </VisuallyHidden>
         <HtmlDiv
           role="combobox"
           aria-haspopup="listbox"
@@ -628,6 +620,14 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             )}
           </HtmlDiv>
         </HtmlDiv>
+        <VisuallyHidden
+          aria-live="polite"
+          aria-atomic="true"
+          id={`${id}-selectedItems-length`}
+        >
+          {selectedItems.length}
+          {ariaSelectedAmountText}
+        </VisuallyHidden>
       </>
     );
   }
