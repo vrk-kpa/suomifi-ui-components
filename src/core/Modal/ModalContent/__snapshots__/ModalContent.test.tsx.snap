@@ -186,6 +186,10 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   -moz-scroll-padding-bottom: 75px;
   -ms-scroll-padding-bottom: 75px;
   scroll-padding-bottom: 75px;
+  -webkit-scroll-padding-top: 75px;
+  -moz-scroll-padding-top: 75px;
+  -ms-scroll-padding-top: 75px;
+  scroll-padding-top: 75px;
 }
 
 .c2.fi-modal_content--no-scroll {
