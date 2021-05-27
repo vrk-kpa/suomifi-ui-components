@@ -99,6 +99,7 @@ const BasicCombobox = (
     visualPlaceholder="Choose your tool(s)"
     noItemsText="No items"
     defaultSelectedItems={defaultSelectedTools}
+    ariaSelectedAmountText="tools selected"
   />
 );
 
@@ -142,6 +143,7 @@ describe('Chips', () => {
           noItemsText="No items"
           defaultSelectedItems={defaultSelectedTools}
           onItemSelect={onItemSelect}
+          ariaSelectedAmountText="tools selected"
         />,
       );
       const hammerChip = container.querySelectorAll('.fi-chip')[0];
@@ -189,6 +191,7 @@ describe('Chips', () => {
           noItemsText="No items"
           defaultSelectedItems={defaultSelectedTools}
           onRemoveAll={mockOnRemoveAll}
+          ariaSelectedAmountText="tools selected"
         />,
       );
       const removeAllButton = container.querySelectorAll(
@@ -232,6 +235,7 @@ describe('Controlled', () => {
         visualPlaceholder="Choose your tool(s)"
         noItemsText="No items"
         defaultSelectedItems={defaultSelectedTools}
+        ariaSelectedAmountText="tools selected"
       />
     );
 
@@ -281,6 +285,7 @@ describe('Controlled', () => {
         chipListVisible={true}
         visualPlaceholder="Try to choose animal(s)"
         ariaChipActionLabel="Remove"
+        ariaSelectedAmountText="tools selected"
       />
     );
 
@@ -308,6 +313,7 @@ test('className: has given custom classname', async () => {
         items={[]}
         noItemsText="No items"
         className="custom-class"
+        ariaSelectedAmountText=""
       />,
     );
     expect(container.firstChild).toHaveClass('custom-class');
@@ -317,7 +323,12 @@ test('className: has given custom classname', async () => {
 test('labelText: has the given text as label', async () => {
   await act(async () => {
     const { queryByText } = render(
-      <Combobox labelText="Combobox" items={[]} noItemsText="No items" />,
+      <Combobox
+        labelText="Combobox"
+        items={[]}
+        noItemsText="No items"
+        ariaSelectedAmountText=""
+      />,
     );
     expect(queryByText('Combobox')).not.toBeNull();
   });
@@ -330,6 +341,7 @@ test('visualPlaceholder: has the given text as placeholder attribute', () => {
       items={[]}
       noItemsText="No items"
       visualPlaceholder="Select item(s)"
+      ariaSelectedAmountText=""
     />,
   );
   const inputfield = getByRole('textbox') as HTMLInputElement;
@@ -343,6 +355,7 @@ test('id: has the given id', () => {
       labelText="Combobox"
       items={[]}
       noItemsText="No items"
+      ariaSelectedAmountText=""
     />,
   );
   expect(getByRole('textbox')).toHaveAttribute('id', 'cb-123');
@@ -358,6 +371,7 @@ describe('statusText', () => {
         noItemsText="No items"
         visualPlaceholder="Select item(s)"
         statusText="EROR EROR"
+        ariaSelectedAmountText=""
       />,
     );
     const statusText = getByText('EROR EROR');
@@ -373,6 +387,7 @@ describe('statusText', () => {
         noItemsText="No items"
         visualPlaceholder="Select item(s)"
         statusText="EROR EROR"
+        ariaSelectedAmountText=""
       />,
     );
     expect(getByRole('textbox')).toHaveAttribute(
@@ -392,6 +407,7 @@ describe('status', () => {
         noItemsText="No items"
         visualPlaceholder="Select item(s)"
         status="error"
+        ariaSelectedAmountText=""
       />,
     );
     expect(container.firstChild).toHaveClass('fi-combobox--error');
