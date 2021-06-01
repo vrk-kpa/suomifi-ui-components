@@ -7,6 +7,8 @@ export const baseStyles = css`
     max-height: 100%;
     padding: 24px ${theme.spacing.xl} 50px ${theme.spacing.xl};
     overflow-y: auto;
+    scroll-padding-bottom: 75px;
+    scroll-padding-top: 75px;
 
     &--no-scroll {
       overflow: hidden;

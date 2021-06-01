@@ -170,6 +170,10 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   border-bottom-right-radius: 0;
 }
 
+.c1 .fi-expander_title-content {
+  display: inline-block;
+}
+
 .c1 .fi-expander_title-button {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -272,7 +276,7 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   data-testid="expander-title"
 >
   <span
-    class="c2"
+    class="c2 fi-expander_title-content"
     id="test-id_title"
   >
     <span

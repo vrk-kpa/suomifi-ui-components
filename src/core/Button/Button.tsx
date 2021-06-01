@@ -95,8 +95,8 @@ class BaseButton extends Component<ButtonProps & InnerRef> {
         <HtmlButton
           {...passProps}
           {...onClickProp}
+          {...(!!disabled ? {} : { tabIndex: 0 })}
           aria-disabled={!!ariaDisabled || !!disabled}
-          tabIndex={0}
           forwardedRef={forwardedRef}
           disabled={!!disabled}
           className={classnames(baseClassName, className, {

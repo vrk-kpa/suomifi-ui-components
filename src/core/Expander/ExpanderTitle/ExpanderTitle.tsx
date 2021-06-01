@@ -15,6 +15,7 @@ import { expanderTitleBaseStyles } from './ExpanderTitle.baseStyles';
 
 const baseClassName = 'fi-expander_title';
 const titleOpenClassName = `${baseClassName}--open`;
+const titleContentClassName = `${baseClassName}-content`;
 const titleButtonClassName = `${baseClassName}-button`;
 const iconClassName = `${baseClassName}-icon`;
 const iconOpenClassName = `${iconClassName}--open`;
@@ -66,7 +67,9 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
           [titleOpenClassName]: !!consumer.open,
         })}
       >
-        <HtmlSpan id={consumer.titleId}>{children}</HtmlSpan>
+        <HtmlSpan className={titleContentClassName} id={consumer.titleId}>
+          {children}
+        </HtmlSpan>
         <HtmlButton
           {...toggleButtonProps}
           onClick={consumer.onToggleExpander}

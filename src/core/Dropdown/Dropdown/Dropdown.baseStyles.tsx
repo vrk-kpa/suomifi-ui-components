@@ -4,6 +4,10 @@ import { element, inputButton } from '../../theme/reset';
 import { absoluteFocus } from '../../theme/utils';
 
 export const baseStyles = css`
+  &.fi-dropdown {
+    display: inline-block;
+  }
+
   & [data-reach-listbox-button].fi-dropdown_button {
     ${inputButton(theme)}
     position: relative;

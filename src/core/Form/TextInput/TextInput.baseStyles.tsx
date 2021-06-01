@@ -10,7 +10,7 @@ export const baseStyles = css`
     width: 290px;
   }
 
-  &_wrapper {
+  & .fi-text-input_wrapper {
     width: 100%;
     display: inline-block;
   }

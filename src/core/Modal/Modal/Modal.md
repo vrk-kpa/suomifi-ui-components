@@ -6,6 +6,8 @@ Small screen variant takes all available screen space.
 
 Aria props override the primary and secondary button labels for screenreaders and allow more detailed description.
 
+**NOTE:** React-modal does not consider some inline elements to be focusable. To ensure focusability inside Modal, components must have non-zero size, be visible, have tabindex of 0 or greater, must be of node type input, select, textarea, button, object or a with either tabIndex or href attribute and cannot be disabled! ([source](https://github.com/reactjs/react-modal/blob/827796d48e7d4c74b4362cf90955e162082ee46d/src/helpers/tabbable.js))
+
 ```js
 import { useState } from 'react';
 import {
@@ -211,6 +213,8 @@ Modal content wrapper default styles, e.g. width, can be overriden using the `st
 
 It is possible to override the default styles using css as well. Using the className prop e.g. with `custom` and defining `.fi-modal.custom` and `.fi-modal--small-screen.custom` styles overrides the defaults.
 
+ModalContent `scroll-padding-bottom` style defaults to 75px and determines how the browser scrolls the content when focus shifts outside or close to the borders of the current view. This style can be overridden with method described above using `.fi-modal_content` classname.
+
 ```js
 import { useState } from 'react';
 import {
@@ -261,7 +265,7 @@ const [smallScreen, setSmallScreen] = useState(false);
     style={{ width: smallScreen ? '100%' : '1000px' }}
     onEscKeyDown={() => setVisible(false)}
   >
-    <ModalContent>
+    <ModalContent style={{ scrollPaddingBottom: '150px' }}>
       <ModalTitle>Test modal</ModalTitle>
       <ExpanderGroup
         openAllText="Open all"
