@@ -98,6 +98,13 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
         : undefined,
   };
 
+  buttonRef: React.RefObject<HTMLButtonElement>;
+
+  constructor(props: DropdownProps & InnerRef) {
+    super(props);
+    this.buttonRef = React.createRef();
+  }
+
   static getDerivedStateFromProps(
     nextProps: DropdownProps,
     prevState: DropdownState,
@@ -190,6 +197,7 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
             value={selectedValue || ''}
           >
             <ListboxButton
+              ref={this.buttonRef}
               {...dropdownButtonProps}
               id={buttonId}
               className={classnames(dropdownClassNames.button, {
@@ -205,6 +213,12 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
             <ListboxPopover
               position={positionMatchWidth}
               {...passDropdownPopoverProps}
+              onKeyDownCapture={(event: KeyboardEvent) => {
+                if (event.code === 'Tab' && !!this.buttonRef.current) {
+                  event.preventDefault();
+                  this.buttonRef.current.focus();
+                }
+              }}
             >
               <ListboxList>{children}</ListboxList>
             </ListboxPopover>
