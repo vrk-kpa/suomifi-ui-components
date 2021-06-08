@@ -117,14 +117,18 @@ describe('Chips', () => {
     });
   });
 
-  it('first Chip should be removable and removed when clicked', async () => {
+  it('second Chip should be removable and removed when clicked', async () => {
     await act(async () => {
-      const { getByText, queryByText } = render(BasicCombobox);
+      const { getByText } = render(BasicCombobox);
       const hammerChip = getByText('Hammer');
+      expect(hammerChip.classList).toContain('fi-chip--content');
       await act(async () => {
         fireEvent.click(hammerChip, {});
       });
-      expect(queryByText('Hammer')).toBe(null);
+
+      // Popover is open, therefore we are finding item
+      const hammerLi = getByText('Hammer');
+      expect(hammerLi.classList).toContain('fi-combobox-item');
     });
   });
 
@@ -146,7 +150,7 @@ describe('Chips', () => {
           ariaSelectedAmountText="tools selected"
         />,
       );
-      const hammerChip = container.querySelectorAll('.fi-chip')[0];
+      const hammerChip = container.querySelectorAll('.fi-chip')[1];
       await act(async () => {
         fireEvent.click(hammerChip, {});
       });
@@ -154,9 +158,9 @@ describe('Chips', () => {
     });
   });
 
-  it('second Chip should be disabled', () => {
+  it('first Chip should be disabled', () => {
     const { container } = render(BasicCombobox);
-    const disabledChip = container.querySelectorAll('.fi-chip')[1];
+    const disabledChip = container.querySelectorAll('.fi-chip')[0];
     expect(disabledChip).toHaveTextContent('Powersaw');
     expect(disabledChip).toHaveClass('fi-chip--disabled');
     expect(disabledChip).toHaveAttribute('disabled');
@@ -289,12 +293,13 @@ describe('Controlled', () => {
       />
     );
 
-    const { getByText } = render(combobox);
+    const { getByText, getAllByText } = render(combobox);
     const turtleChip = getByText('Turtle');
     await act(async () => {
       fireEvent.click(turtleChip, {});
     });
-    expect(getByText('Turtle')).not.toBeNull();
+    // Popover is open, so therefore two
+    expect(getAllByText('Turtle').length).toBe(2);
   });
 });
 

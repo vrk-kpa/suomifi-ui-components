@@ -504,6 +504,23 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       : '';
     const popoverItemListId = `${id}-popover`;
 
+    const chipRefs = selectedItems
+      .filter((item) => !item.disabled)
+      .reduce(
+        (
+          arr: Array<React.RefObject<HTMLButtonElement>>,
+          _chip: T & ComboboxData,
+          index: number,
+        ) => {
+          const mutatedArr: Array<React.RefObject<HTMLButtonElement>> = [
+            ...arr,
+          ];
+          mutatedArr[index] = React.createRef();
+          return mutatedArr;
+        },
+        [],
+      );
+
     return (
       <>
         <HtmlDiv
@@ -595,17 +612,47 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             </Popover>
             {showChipList && (
               <ChipList>
-                {selectedItems.map((item) => (
-                  <Chip
-                    key={item.uniqueItemId}
-                    disabled={item.disabled}
-                    removable={!item.disabled}
-                    onClick={() => this.handleItemSelection(item)}
-                    actionLabel={ariaChipActionLabel}
-                  >
-                    {item.chipText ? item.chipText : item.labelText}
-                  </Chip>
-                ))}
+                {selectedItems
+                  .filter((item) => item.disabled)
+                  .map((disabledItem) => (
+                    <Chip key={disabledItem.uniqueItemId} disabled>
+                      {disabledItem.chipText
+                        ? disabledItem.chipText
+                        : disabledItem.labelText}
+                    </Chip>
+                  ))}
+                {selectedItems
+                  .filter((item) => !item.disabled)
+                  .map((enabledItem, index) => (
+                    <Chip
+                      key={enabledItem.uniqueItemId}
+                      removable={!enabledItem.disabled}
+                      onClick={() => {
+                        if (
+                          selectedItems.filter((item) => !item.disabled)
+                            .length > 1
+                        ) {
+                          if (index > 0) {
+                            // eslint-disable-next-line no-unused-expressions
+                            chipRefs[index - 1]?.current?.focus();
+                          } else if (index === 0) {
+                            // eslint-disable-next-line no-unused-expressions
+                            chipRefs[1]?.current?.focus();
+                          }
+                        } else {
+                          // eslint-disable-next-line no-unused-expressions
+                          this.filterInputRef?.current?.focus();
+                        }
+                        this.handleItemSelection(enabledItem);
+                      }}
+                      actionLabel={ariaChipActionLabel}
+                      ref={chipRefs[index]}
+                    >
+                      {enabledItem.chipText
+                        ? enabledItem.chipText
+                        : enabledItem.labelText}
+                    </Chip>
+                  ))}
               </ChipList>
             )}
             {showRemoveAllButton && (
