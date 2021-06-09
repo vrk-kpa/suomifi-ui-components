@@ -50,6 +50,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   max-height: calc(100% - 50px);
   min-height: 230px;
   width: 800px;
+  max-width: 100%;
   -webkit-flex: 0 1 auto;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
