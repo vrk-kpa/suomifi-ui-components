@@ -35,7 +35,7 @@ interface InternalChipProps
   removable?: boolean;
   /** Aria-label attribute to let screen reader users know pressing the button will remove the chip/selection  */
   actionLabel?: string;
-  /** Soft disable the button to allow tab-focus, but disable onClick functionality */
+  /** Soft disable the chip to allow tab-focus, but disable onClick functionality */
   'aria-disabled'?: boolean;
 }
 
