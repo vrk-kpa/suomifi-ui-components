@@ -62,6 +62,8 @@ class DefaultChip extends Component<ChipProps & InnerRef> {
       ...passProps
     } = this.props;
 
+    const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
+
     if (removable && !actionLabel) {
       logger.error(
         'Provide actionLabel to communicate removability to screen readers',
@@ -80,7 +82,7 @@ class DefaultChip extends Component<ChipProps & InnerRef> {
         )}
         disabled={disabled}
         aria-disabled={!!ariaDisabled || !!disabled}
-        onClick={onClick}
+        {...onClickProp}
         forwardedRef={forwardedRef}
         {...passProps}
       >
