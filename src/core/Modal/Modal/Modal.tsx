@@ -120,6 +120,7 @@ class BaseModal extends Component<InternalModalProps> {
           [modalClassNames.noScroll]: scrollable === false,
         })}
         ariaHideApp={!!appElementId}
+        aria={{ modal: false }}
         isOpen={visible}
         onAfterOpen={() => {
           if (!!focusOnOpenRef && !!focusOnOpenRef.current) {
