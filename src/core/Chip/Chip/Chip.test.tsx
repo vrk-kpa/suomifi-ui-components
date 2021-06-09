@@ -19,6 +19,15 @@ describe('disabled', () => {
     expect(getByRole('button')).toHaveAttribute('disabled');
   });
 
+  it('is aria-disabled and changes to enabled', () => {
+    const { getByRole, rerender } = render(
+      <Chip aria-disabled={true}>Aria-disabled Chip</Chip>,
+    );
+    expect(getByRole('button')).toHaveAttribute('aria-disabled', 'true');
+    rerender(<Chip aria-disabled={false}>Aria-disabled Chip</Chip>);
+    expect(getByRole('button')).toHaveAttribute('aria-disabled', 'false');
+  });
+
   it('should match snapshot', () => {
     const { container } = render(DisabledChip);
     expect(container).toMatchSnapshot();

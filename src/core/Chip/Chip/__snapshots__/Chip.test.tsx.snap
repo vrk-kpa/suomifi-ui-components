@@ -189,6 +189,7 @@ exports[`children should match snapshot 1`] = `
 
 <div>
   <button
+    aria-disabled="false"
     class="c0 fi-chip fi-chip--button c1"
     type="button"
   >
@@ -394,6 +395,7 @@ exports[`classnames should match snapshot 1`] = `
 
 <div>
   <button
+    aria-disabled="false"
     class="c0 fi-chip fi-chip--button c1 custom-class"
     type="button"
   >
@@ -595,6 +597,7 @@ exports[`disabled should match snapshot 1`] = `
 
 <div>
   <button
+    aria-disabled="true"
     class="c0 fi-chip fi-chip--button c1 fi-chip--disabled"
     disabled=""
     type="button"
