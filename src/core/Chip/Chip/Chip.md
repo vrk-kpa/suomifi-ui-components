@@ -47,5 +47,7 @@ const chipStyle = {
   </Chip>
 
   <Chip disabled>Disabled chip</Chip>
+
+  <Chip aria-disabled>Aria-disabled chip</Chip>
 </>;
 ```
