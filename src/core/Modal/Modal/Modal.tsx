@@ -74,6 +74,7 @@ const {
 export const baseClassName = 'fi-modal';
 const modalClassNames = {
   disableBodyContent: `${baseClassName}--disable-body-content`,
+  disableBodyContentSmallScreen: `${baseClassName}--disable-body-content--small-screen`,
   smallScreen: `${baseClassName}--small-screen`,
   noScroll: `${baseClassName}--no-scroll`,
   overlay: `${baseClassName}_overlay`,
@@ -112,7 +113,11 @@ class BaseModal extends Component<InternalModalProps> {
 
     return (
       <ReactModal
-        bodyOpenClassName={modalClassNames.disableBodyContent}
+        bodyOpenClassName={
+          variant === 'smallScreen'
+            ? modalClassNames.disableBodyContentSmallScreen
+            : modalClassNames.disableBodyContent
+        }
         portalClassName={classnames(className, modalClassNames.base)}
         overlayClassName={classnames(modalClassNames.overlay)}
         className={classnames(propClassName, baseClassName, {

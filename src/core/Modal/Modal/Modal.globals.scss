@@ -6,3 +6,8 @@
 .fi-modal--disable-body-content {
   overflow: hidden;
 }
+
+.fi-modal--disable-body-content--small-screen {
+  overflow: hidden;
+  position: fixed;
+}
