@@ -158,12 +158,12 @@ describe('Chips', () => {
     });
   });
 
-  it('first Chip should be disabled', () => {
+  it('first Chip should be aria-disabled', () => {
     const { container } = render(BasicCombobox);
     const disabledChip = container.querySelectorAll('.fi-chip')[0];
     expect(disabledChip).toHaveTextContent('Powersaw');
     expect(disabledChip).toHaveClass('fi-chip--disabled');
-    expect(disabledChip).toHaveAttribute('disabled');
+    expect(disabledChip).toHaveAttribute('aria-disabled');
   });
 
   it('should remove all non-disabled Chips when pressing "Remove all" button', async () => {
@@ -252,7 +252,7 @@ describe('Controlled', () => {
       const disabledChip = chips[0];
       expect(disabledChip).toHaveTextContent('Shovel');
       expect(disabledChip).toHaveClass('fi-chip--disabled');
-      expect(disabledChip).toHaveAttribute('disabled');
+      expect(disabledChip).toHaveAttribute('aria-disabled');
 
       const otherChip = chips[1];
       expect(otherChip).toHaveTextContent('Sledgehammer');

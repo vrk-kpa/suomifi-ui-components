@@ -615,7 +615,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                 {selectedItems
                   .filter((item) => item.disabled)
                   .map((disabledItem) => (
-                    <Chip key={disabledItem.uniqueItemId} disabled>
+                    <Chip aria-disabled={true} key={disabledItem.uniqueItemId}>
                       {disabledItem.chipText
                         ? disabledItem.chipText
                         : disabledItem.labelText}
