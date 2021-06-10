@@ -35,6 +35,8 @@ interface InternalChipProps
   removable?: boolean;
   /** Aria-label attribute to let screen reader users know pressing the button will remove the chip/selection  */
   actionLabel?: string;
+  /** Soft disable the chip to allow tab-focus, but disable onClick functionality */
+  'aria-disabled'?: boolean;
 }
 
 interface InnerRef {
@@ -56,8 +58,11 @@ class DefaultChip extends Component<ChipProps & InnerRef> {
       actionLabel,
       forwardedRef,
       disabled = false,
+      'aria-disabled': ariaDisabled = false,
       ...passProps
     } = this.props;
+
+    const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
 
     if (removable && !actionLabel) {
       logger.error(
@@ -71,12 +76,13 @@ class DefaultChip extends Component<ChipProps & InnerRef> {
           chipButtonClassNames.button,
           className,
           {
-            [chipClassNames.disabled]: !!disabled,
+            [chipClassNames.disabled]: !!disabled || !!ariaDisabled,
             [chipButtonClassNames.removable]: !!removable,
           },
         )}
         disabled={disabled}
-        onClick={onClick}
+        aria-disabled={!!ariaDisabled || !!disabled}
+        {...onClickProp}
         forwardedRef={forwardedRef}
         {...passProps}
       >
