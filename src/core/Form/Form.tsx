@@ -12,4 +12,4 @@ export {
   RadioButtonGroup,
   RadioButtonGroupProps,
 } from './RadioButton/RadioButtonGroup';
-export { Combobox, ComboboxProps, ComboboxData } from './Combobox';
+export { MultiSelect, MultiSelectProps, MultiSelectData } from './MultiSelect';

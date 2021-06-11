@@ -3,7 +3,7 @@ import { defaultThemeTokens as theme } from '../../../theme';
 import { font } from '../../../theme/reset';
 
 export const baseStyles = css`
-  &.fi-combobox {
+  &.fi-multiselect {
     ${font(theme)('bodyText')}
     width: 290px;
 
@@ -25,12 +25,12 @@ export const baseStyles = css`
     }
   }
 
-  & .fi-combobox_content_wrapper {
+  & .fi-multiselect_content_wrapper {
     display: inline-block;
     width: 100%;
   }
 
-  &.fi-combobox--open {
+  &.fi-multiselect--open {
     & .fi-filter-input_input-element-container {
       &:before {
         border-color: transparent transparent ${theme.colors.depthDark3}
@@ -45,7 +45,7 @@ export const baseStyles = css`
     }
   }
 
-  & .fi-combobox_removeAllButton {
+  & .fi-multiselect_removeAllButton {
     margin-top: 10px;
   }
 `;

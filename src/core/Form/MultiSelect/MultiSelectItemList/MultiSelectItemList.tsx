@@ -2,28 +2,28 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlUlWithRef } from '../../../../reset';
-import { ComboboxItemProps } from '../ComboboxItem/ComboboxItem';
-import { baseStyles } from './ComboboxItemList.baseStyles';
+import { MultiSelectItemProps } from '../MultiSelectItem/MultiSelectItem';
+import { baseStyles } from './MultiSelectItemList.baseStyles';
 
-const baseClassName = 'fi-combobox-item-list';
+const baseClassName = 'fi-multiselect-item-list';
 
-const comboboxItemListClassNames = {
+const multiSelectItemListClassNames = {
   content_wrapper: `${baseClassName}_content_wrapper`,
 };
 
-export interface ComboboxItemListProps {
-  /** ComboboxItemList container div class name for custom styling. */
+export interface MultiSelectItemListProps {
+  /** MultiSelectItemList container div class name for custom styling. */
   className?: string;
   children:
-    | Array<React.ReactElement<ComboboxItemProps>>
-    | React.ReactElement<ComboboxItemProps>;
+    | Array<React.ReactElement<MultiSelectItemProps>>
+    | React.ReactElement<MultiSelectItemProps>;
   forwardRef: React.RefObject<HTMLUListElement>;
   onBlur?: (event: React.FocusEvent<Element>) => void;
   /** Id needed for aria-owns and aria-controls in Combobox */
   id: string;
 }
 
-class BaseComboboxItemList extends Component<ComboboxItemListProps> {
+class BaseMultiSelectItemList extends Component<MultiSelectItemListProps> {
   render() {
     const {
       className,
@@ -44,7 +44,7 @@ class BaseComboboxItemList extends Component<ComboboxItemListProps> {
         aria-multiselectable="true"
         onBlur={onBlur}
       >
-        <HtmlDiv className={comboboxItemListClassNames.content_wrapper}>
+        <HtmlDiv className={multiSelectItemListClassNames.content_wrapper}>
           {children}
         </HtmlDiv>
       </HtmlUlWithRef>
@@ -52,12 +52,12 @@ class BaseComboboxItemList extends Component<ComboboxItemListProps> {
   }
 }
 
-const StyledComboboxItemList = styled(BaseComboboxItemList)`
+const StyledMultiSelectItemList = styled(BaseMultiSelectItemList)`
   ${baseStyles}
 `;
 
-export class ComboboxItemList extends Component<ComboboxItemListProps> {
+export class MultiSelectItemList extends Component<MultiSelectItemListProps> {
   render() {
-    return <StyledComboboxItemList {...this.props} />;
+    return <StyledMultiSelectItemList {...this.props} />;
   }
 }

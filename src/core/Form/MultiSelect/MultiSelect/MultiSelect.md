@@ -1,5 +1,5 @@
 ```js
-import { Combobox } from 'suomifi-ui-components';
+import { MultiSelect } from 'suomifi-ui-components';
 
 const tools = [
   {
@@ -88,8 +88,8 @@ const defaultSelectedTools = [
 ];
 
 <>
-  <Combobox
-    labelText="Combobox"
+  <MultiSelect
+    labelText="MultiSelect"
     items={tools}
     chipListVisible={true}
     ariaChipActionLabel="Remove"
@@ -125,7 +125,7 @@ const animals = [
 ];
 
 <>
-    <Combobox
+    <MultiSelect
       items={animals}
       selectedItems={selectedAnimals}
       labelText="Animals"
