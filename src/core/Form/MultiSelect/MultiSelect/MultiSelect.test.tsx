@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
 import { axeTest } from '../../../../utils/test/axe';
-import { Combobox } from './Combobox';
+import { MultiSelect } from './MultiSelect';
 
 const tools = [
   {
@@ -90,8 +90,8 @@ const defaultSelectedTools = [
 ];
 
 const BasicCombobox = (
-  <Combobox
-    labelText="Combobox"
+  <MultiSelect
+    labelText="MultiSelect"
     items={tools}
     chipListVisible={true}
     ariaChipActionLabel="Remove"
@@ -128,7 +128,7 @@ describe('Chips', () => {
 
       // Popover is open, therefore we are finding item
       const hammerLi = getByText('Hammer');
-      expect(hammerLi.classList).toContain('fi-combobox-item');
+      expect(hammerLi.classList).toContain('fi-multiselect-item');
     });
   });
 
@@ -137,8 +137,8 @@ describe('Chips', () => {
       const onItemSelect = (uniqueItemId: string) => console.log(uniqueItemId);
       const onItemSelectSpy = jest.spyOn(console, 'log');
       const { container } = render(
-        <Combobox
-          labelText="Combobox"
+        <MultiSelect
+          labelText="MultiSelect"
           items={tools}
           chipListVisible={true}
           ariaChipActionLabel="Remove"
@@ -171,7 +171,7 @@ describe('Chips', () => {
       const { container } = render(BasicCombobox);
       expect(container.querySelectorAll('.fi-chip').length).toEqual(2);
       const removeAllButton = container.querySelectorAll(
-        '.fi-combobox_removeAllButton',
+        '.fi-multiselect_removeAllButton',
       )[0];
       await act(async () => {
         fireEvent.click(removeAllButton, {});
@@ -185,8 +185,8 @@ describe('Chips', () => {
     await act(async () => {
       const mockOnRemoveAll = jest.fn();
       const { container } = render(
-        <Combobox
-          labelText="Combobox"
+        <MultiSelect
+          labelText="MultiSelect"
           items={tools}
           chipListVisible={true}
           ariaChipActionLabel="Remove"
@@ -199,7 +199,7 @@ describe('Chips', () => {
         />,
       );
       const removeAllButton = container.querySelectorAll(
-        '.fi-combobox_removeAllButton',
+        '.fi-multiselect_removeAllButton',
       )[0];
       await act(async () => {
         fireEvent.click(removeAllButton, {});
@@ -228,10 +228,10 @@ describe('Controlled', () => {
         uniqueItemId: 'sh908293482',
       },
     ];
-    const combobox = (
-      <Combobox
+    const multiselect = (
+      <MultiSelect
         selectedItems={controlledItems}
-        labelText="Combobox"
+        labelText="MultiSelect"
         items={tools}
         chipListVisible={true}
         ariaChipActionLabel="Remove"
@@ -244,7 +244,7 @@ describe('Controlled', () => {
     );
 
     await act(async () => {
-      const { container } = render(combobox);
+      const { container } = render(multiselect);
       expect(container.querySelectorAll('.fi-chip').length).toEqual(2);
 
       const chips = container.querySelectorAll('.fi-chip');
@@ -278,8 +278,8 @@ describe('Controlled', () => {
       },
     ];
 
-    const combobox = (
-      <Combobox
+    const multiselect = (
+      <MultiSelect
         items={animals}
         selectedItems={[
           { price: 5, labelText: 'Turtle', uniqueItemId: 'turtle-987' },
@@ -293,7 +293,7 @@ describe('Controlled', () => {
       />
     );
 
-    const { getByText, getAllByText } = render(combobox);
+    const { getByText, getAllByText } = render(multiselect);
     const turtleChip = getByText('Turtle');
     await act(async () => {
       fireEvent.click(turtleChip, {});
@@ -306,15 +306,15 @@ describe('Controlled', () => {
 it('should have correct baseClassName', async () => {
   await act(async () => {
     const { container } = render(BasicCombobox);
-    expect(container.firstChild).toHaveClass('fi-combobox');
+    expect(container.firstChild).toHaveClass('fi-multiselect');
   });
 });
 
 test('className: has given custom classname', async () => {
   await act(async () => {
     const { container } = render(
-      <Combobox
-        labelText="Combobox"
+      <MultiSelect
+        labelText="MultiSelect"
         items={[]}
         noItemsText="No items"
         className="custom-class"
@@ -328,21 +328,21 @@ test('className: has given custom classname', async () => {
 test('labelText: has the given text as label', async () => {
   await act(async () => {
     const { queryByText } = render(
-      <Combobox
-        labelText="Combobox"
+      <MultiSelect
+        labelText="MultiSelect"
         items={[]}
         noItemsText="No items"
         ariaSelectedAmountText=""
       />,
     );
-    expect(queryByText('Combobox')).not.toBeNull();
+    expect(queryByText('MultiSelect')).not.toBeNull();
   });
 });
 
 test('visualPlaceholder: has the given text as placeholder attribute', () => {
   const { getByRole } = render(
-    <Combobox
-      labelText="Combobox"
+    <MultiSelect
+      labelText="MultiSelect"
       items={[]}
       noItemsText="No items"
       visualPlaceholder="Select item(s)"
@@ -355,9 +355,9 @@ test('visualPlaceholder: has the given text as placeholder attribute', () => {
 
 test('id: has the given id', () => {
   const { getByRole } = render(
-    <Combobox
+    <MultiSelect
       id="cb-123"
-      labelText="Combobox"
+      labelText="MultiSelect"
       items={[]}
       noItemsText="No items"
       ariaSelectedAmountText=""
@@ -369,9 +369,9 @@ test('id: has the given id', () => {
 describe('statusText', () => {
   it('should have element and correct classname for it', () => {
     const { getByText } = render(
-      <Combobox
+      <MultiSelect
         id="123"
-        labelText="Combobox"
+        labelText="MultiSelect"
         items={[]}
         noItemsText="No items"
         visualPlaceholder="Select item(s)"
@@ -385,9 +385,9 @@ describe('statusText', () => {
 
   it('will be added to input aria-describedby', () => {
     const { getByRole } = render(
-      <Combobox
+      <MultiSelect
         id="123"
-        labelText="Combobox"
+        labelText="MultiSelect"
         items={[]}
         noItemsText="No items"
         visualPlaceholder="Select item(s)"
@@ -405,9 +405,9 @@ describe('statusText', () => {
 describe('status', () => {
   it('should have error classname', () => {
     const { container } = render(
-      <Combobox
+      <MultiSelect
         id="123"
-        labelText="Combobox"
+        labelText="MultiSelect"
         items={[]}
         noItemsText="No items"
         visualPlaceholder="Select item(s)"
@@ -415,6 +415,6 @@ describe('status', () => {
         ariaSelectedAmountText=""
       />,
     );
-    expect(container.firstChild).toHaveClass('fi-combobox--error');
+    expect(container.firstChild).toHaveClass('fi-multiselect--error');
   });
 });

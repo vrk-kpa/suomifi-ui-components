@@ -2,20 +2,20 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlLi } from '../../../../reset';
-import { baseStyles } from './ComboboxEmptyItem.baseStyles';
+import { baseStyles } from './MultiSelectEmptyItem.baseStyles';
 
-const baseClassName = 'fi-combobox-empty-item';
+const baseClassName = 'fi-multiselect-empty-item';
 
-const comboboxItemClassNames = {
+const multiSelectItemClassNames = {
   content_wrapper: `${baseClassName}_content_wrapper`,
 };
 
-export interface ComboboxEmptyItemProps {
-  /** ComboboxItem container div class name for custom styling. */
+export interface MultiSelectEmptyItemProps {
+  /** MultiSelectItem container div class name for custom styling. */
   className?: string;
 }
 
-class BaseComboboxEmptyItem extends Component<ComboboxEmptyItemProps> {
+class BaseMultiSelectEmptyItem extends Component<MultiSelectEmptyItemProps> {
   render() {
     const { className, children, ...passProps } = this.props;
     return (
@@ -25,7 +25,7 @@ class BaseComboboxEmptyItem extends Component<ComboboxEmptyItemProps> {
         role="option"
       >
         <HtmlDiv
-          className={comboboxItemClassNames.content_wrapper}
+          className={multiSelectItemClassNames.content_wrapper}
           {...passProps}
         >
           {children}
@@ -35,12 +35,12 @@ class BaseComboboxEmptyItem extends Component<ComboboxEmptyItemProps> {
   }
 }
 
-const StyledComboboxEmptyItem = styled(BaseComboboxEmptyItem)`
+const StyledMultiSelectEmptyItem = styled(BaseMultiSelectEmptyItem)`
   ${baseStyles}
 `;
 
-export class ComboboxEmptyItem extends Component<ComboboxEmptyItemProps> {
+export class MultiSelectEmptyItem extends Component<MultiSelectEmptyItemProps> {
   render() {
-    return <StyledComboboxEmptyItem {...this.props} />;
+    return <StyledMultiSelectEmptyItem {...this.props} />;
   }
 }

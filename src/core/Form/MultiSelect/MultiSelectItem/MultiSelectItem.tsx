@@ -3,11 +3,11 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlLi, HtmlSpan } from '../../../../reset';
 import { Icon } from '../../../Icon/Icon';
-import { baseStyles } from './ComboboxItem.baseStyles';
+import { baseStyles } from './MultiSelectItem.baseStyles';
 
-const baseClassName = 'fi-combobox-item';
+const baseClassName = 'fi-multiselect-item';
 
-const comboboxItemClassNames = {
+const multiSelectItemClassNames = {
   wrapper: `${baseClassName}_wrapper`,
   hasKeyboardFocus: `${baseClassName}--hasKeyboardFocus`,
   selected: `${baseClassName}--selected`,
@@ -21,8 +21,8 @@ const iconClassnames = {
   checked: `${iconBaseClassName}--checked`,
 };
 
-export interface ComboboxItemProps {
-  /** ComboboxItem container div class name for custom styling. */
+export interface MultiSelectItemProps {
+  /** MultiSelectItem container div class name for custom styling. */
   className?: string;
   /** Indicates if the current item has keyboard focus. */
   hasKeyboardFocus: boolean;
@@ -33,7 +33,7 @@ export interface ComboboxItemProps {
   onClick: () => void;
 }
 
-class BaseComboboxItem extends Component<ComboboxItemProps> {
+class BaseMultiSelectItem extends Component<MultiSelectItemProps> {
   render() {
     const {
       className,
@@ -59,9 +59,9 @@ class BaseComboboxItem extends Component<ComboboxItemProps> {
     return (
       <HtmlLi
         className={classnames(baseClassName, className, {
-          [comboboxItemClassNames.hasKeyboardFocus]: hasKeyboardFocus,
-          [comboboxItemClassNames.selected]: checked,
-          [comboboxItemClassNames.disabled]: disabled,
+          [multiSelectItemClassNames.hasKeyboardFocus]: hasKeyboardFocus,
+          [multiSelectItemClassNames.selected]: checked,
+          [multiSelectItemClassNames.disabled]: disabled,
         })}
         tabIndex={-1}
         role="option"
@@ -72,7 +72,7 @@ class BaseComboboxItem extends Component<ComboboxItemProps> {
       >
         <HtmlSpan
           aria-hidden={true}
-          className={comboboxItemClassNames.icon_wrapper}
+          className={multiSelectItemClassNames.icon_wrapper}
           {...passProps}
         >
           {!!checked && <CheckedIcon />}
@@ -83,12 +83,12 @@ class BaseComboboxItem extends Component<ComboboxItemProps> {
   }
 }
 
-const StyledComboboxItem = styled(BaseComboboxItem)`
+const StyledMultiSelectItem = styled(BaseMultiSelectItem)`
   ${baseStyles}
 `;
 
-export class ComboboxItem extends Component<ComboboxItemProps> {
+export class MultiSelectItem extends Component<MultiSelectItemProps> {
   render() {
-    return <StyledComboboxItem {...this.props} />;
+    return <StyledMultiSelectItem {...this.props} />;
   }
 }

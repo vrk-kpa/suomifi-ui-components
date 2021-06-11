@@ -25,9 +25,9 @@ export {
   RadioButtonProps,
   RadioButtonGroup,
   RadioButtonGroupProps,
-  Combobox,
-  ComboboxProps,
-  ComboboxData,
+  MultiSelect,
+  MultiSelectProps,
+  MultiSelectData,
 } from './core/Form/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';

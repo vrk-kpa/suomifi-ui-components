@@ -10,14 +10,14 @@ import { Chip } from '../../../Chip';
 import { Popover } from '../../../Popover/Popover';
 import { VisuallyHidden } from '../../../VisuallyHidden/VisuallyHidden';
 import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
-import { ComboboxItemList } from '../ComboboxItemList/ComboboxItemList';
-import { ComboboxItem } from '../ComboboxItem/ComboboxItem';
-import { ComboboxEmptyItem } from '../ComboboxEmptyItem/ComboboxEmptyItem';
+import { MultiSelectItemList } from '../MultiSelectItemList/MultiSelectItemList';
+import { MultiSelectItem } from '../MultiSelectItem/MultiSelectItem';
+import { MultiSelectEmptyItem } from '../MultiSelectEmptyItem/MultiSelectEmptyItem';
 import { ChipList } from '../ChipList/ChipList';
-import { baseStyles } from './Combobox.baseStyles';
+import { baseStyles } from './MultiSelect.baseStyles';
 
-const baseClassName = 'fi-combobox';
-const comboboxClassNames = {
+const baseClassName = 'fi-multiselect';
+const multiSelectClassNames = {
   content_wrapper: `${baseClassName}_content_wrapper`,
   open: `${baseClassName}--open`,
   removeAllButton: `${baseClassName}_removeAllButton`,
@@ -25,8 +25,8 @@ const comboboxClassNames = {
   queryHighlight: `${baseClassName}-item--query_highlight`,
 };
 
-export interface ComboboxData {
-  /** Unique label that will be shown on combobox item and used on filter */
+export interface MultiSelectData {
+  /** Unique label that will be shown on MultiSelect item and used on filter */
   labelText: string;
   /** Using labelText if chipText is not given */
   chipText?: string;
@@ -36,11 +36,11 @@ export interface ComboboxData {
   uniqueItemId: string;
 }
 
-export interface ComboboxProps<T extends ComboboxData> {
-  /** Combobox container div class name for custom styling. */
+export interface MultiSelectProps<T extends MultiSelectData> {
+  /** MultiSelect container div class name for custom styling. */
   className?: string;
-  /** Items for the combobox */
-  items: Array<T & ComboboxData>;
+  /** Items for the MultiSelect */
+  items: Array<T & MultiSelectData>;
   /**
    * Unique id
    * If no id is specified, one will be generated automatically
@@ -61,7 +61,7 @@ export interface ComboboxProps<T extends ComboboxData> {
   /** Text to show when no items to show, e.g filtered all out */
   noItemsText: string;
   /** Default selected items */
-  defaultSelectedItems?: Array<T & ComboboxData>;
+  defaultSelectedItems?: Array<T & MultiSelectData>;
   /** Event sent when filter changes */
   onChange?: (value: string) => void;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
@@ -74,7 +74,7 @@ export interface ComboboxProps<T extends ComboboxData> {
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
   /** Controlled items; if item is in array, it is selected. If item has disabled: true, it will be disabled. */
-  selectedItems?: Array<T & ComboboxData>;
+  selectedItems?: Array<T & MultiSelectData>;
   /** Selecting the item will send event with the id */
   onItemSelect?: (uniqueItemId: string) => void;
   /** Event to be sent when pressing remove all button */
@@ -88,7 +88,7 @@ interface ItemKeys {
   [key: string]: boolean;
 }
 
-interface ComboboxState<T extends ComboboxData> {
+interface MultiSelectState<T extends MultiSelectData> {
   filterInputValue: string;
   filteredItems: T[];
   showPopover: boolean;
@@ -99,16 +99,16 @@ interface ComboboxState<T extends ComboboxData> {
   disabledKeys: ItemKeys;
 }
 
-function getSelectedKeys<T>(items: (T & ComboboxData)[] = []): ItemKeys {
-  return items.reduce((keys: ItemKeys, item: T & ComboboxData) => {
+function getSelectedKeys<T>(items: (T & MultiSelectData)[] = []): ItemKeys {
+  return items.reduce((keys: ItemKeys, item: T & MultiSelectData) => {
     const newSelectedKeys: ItemKeys = { ...keys };
     newSelectedKeys[item.uniqueItemId] = false;
     return newSelectedKeys;
   }, {});
 }
 
-function getDisabledKeys<T>(items: (T & ComboboxData)[] = []): ItemKeys {
-  return items.reduce((keys: ItemKeys, item: T & ComboboxData) => {
+function getDisabledKeys<T>(items: (T & MultiSelectData)[] = []): ItemKeys {
+  return items.reduce((keys: ItemKeys, item: T & MultiSelectData) => {
     const newDisabledKeys: ItemKeys = { ...keys };
     if (item.disabled) {
       newDisabledKeys[item.uniqueItemId] = false;
@@ -117,18 +117,20 @@ function getDisabledKeys<T>(items: (T & ComboboxData)[] = []): ItemKeys {
   }, {});
 }
 
-class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
+class BaseMultiSelect<T> extends Component<
+  MultiSelectProps<T & MultiSelectData>
+> {
   private popoverListRef: React.RefObject<HTMLUListElement>;
 
   private filterInputRef: React.RefObject<HTMLInputElement>;
 
-  constructor(props: ComboboxProps<T & ComboboxData>) {
+  constructor(props: MultiSelectProps<T & MultiSelectData>) {
     super(props);
     this.popoverListRef = React.createRef();
     this.filterInputRef = React.createRef();
   }
 
-  state: ComboboxState<T & ComboboxData> = {
+  state: MultiSelectState<T & MultiSelectData> = {
     filterInputValue: '',
     filteredItems: this.props.items,
     showPopover: false,
@@ -146,8 +148,8 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   };
 
   static getDerivedStateFromProps<U>(
-    nextProps: ComboboxProps<U & ComboboxData>,
-    prevState: ComboboxState<U & ComboboxData>,
+    nextProps: MultiSelectProps<U & MultiSelectData>,
+    prevState: MultiSelectState<U & MultiSelectData>,
   ) {
     const { items: propItems, selectedItems } = nextProps;
     if (
@@ -187,11 +189,11 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     this.setPopoverVisibility(false);
   };
 
-  handleItemSelection = (item: T & ComboboxData) => {
+  handleItemSelection = (item: T & MultiSelectData) => {
     this.setState(
       (
-        prevState: ComboboxState<T & ComboboxData>,
-        prevProps: ComboboxProps<T & ComboboxData>,
+        prevState: MultiSelectState<T & MultiSelectData>,
+        prevProps: MultiSelectProps<T & MultiSelectData>,
       ) => {
         const {
           onItemSelectionsChange,
@@ -237,8 +239,8 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   handleRemoveAllSelections = () => {
     this.setState(
       (
-        prevState: ComboboxState<T & ComboboxData>,
-        prevProps: ComboboxProps<T & ComboboxData>,
+        prevState: MultiSelectState<T & MultiSelectData>,
+        prevProps: MultiSelectProps<T & MultiSelectData>,
       ) => {
         const { selectedItems } = prevState;
         const { onItemSelectionsChange, onRemoveAll } = prevProps;
@@ -273,7 +275,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         if (isMatch) {
           return (
             // eslint-disable-next-line react/no-array-index-key
-            <mark className={comboboxClassNames.queryHighlight} key={i}>
+            <mark className={multiSelectClassNames.queryHighlight} key={i}>
               {substring}
             </mark>
           );
@@ -285,7 +287,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
     return text;
   };
 
-  private filter = (data: ComboboxData, query: string) =>
+  private filter = (data: MultiSelectData, query: string) =>
     data.labelText.toLowerCase().includes(query.toLowerCase());
 
   private setPopoverVisibility = (visible: Boolean) => {
@@ -326,8 +328,8 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         if (!focusInCombobox) {
           this.setState(
             (
-              _prevState: ComboboxState<T & ComboboxData>,
-              prevProps: ComboboxProps<T & ComboboxData>,
+              _prevState: MultiSelectState<T & MultiSelectData>,
+              prevProps: MultiSelectProps<T & MultiSelectData>,
             ) => ({
               filterInputValue: '',
               filteredItems: prevProps.items,
@@ -426,8 +428,8 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
         event.preventDefault();
         this.setState(
           (
-            _prevState: ComboboxState<T & ComboboxData>,
-            prevProps: ComboboxProps<T & ComboboxData>,
+            _prevState: MultiSelectState<T & MultiSelectData>,
+            prevProps: MultiSelectProps<T & MultiSelectData>,
           ) => ({
             filterInputValue: '',
             filteredItems: prevProps.items,
@@ -509,7 +511,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
       .reduce(
         (
           arr: Array<React.RefObject<HTMLButtonElement>>,
-          _chip: T & ComboboxData,
+          _chip: T & MultiSelectData,
           index: number,
         ) => {
           const mutatedArr: Array<React.RefObject<HTMLButtonElement>> = [
@@ -530,12 +532,12 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
           aria-expanded={showPopover}
           {...passProps}
           className={classnames(baseClassName, className, {
-            [comboboxClassNames.open]: showPopover,
-            [comboboxClassNames.error]: status === 'error',
+            [multiSelectClassNames.open]: showPopover,
+            [multiSelectClassNames.error]: status === 'error',
           })}
         >
           <HtmlDiv
-            className={classnames(comboboxClassNames.content_wrapper, {})}
+            className={classnames(multiSelectClassNames.content_wrapper, {})}
           >
             <Debounce waitFor={debounce}>
               {(debouncer: Function) => (
@@ -572,7 +574,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
               onKeyDown={this.handleKeyDown}
             >
               {showPopover && (
-                <ComboboxItemList
+                <MultiSelectItemList
                   id={popoverItemListId}
                   forwardRef={this.popoverListRef}
                   aria-activedescendant={ariaActiveDescendant}
@@ -583,7 +585,7 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                         item.uniqueItemId === currentSelection;
 
                       return (
-                        <ComboboxItem
+                        <MultiSelectItem
                           hasKeyboardFocus={isCurrentlySelected}
                           key={`${item.uniqueItemId}_${
                             item.uniqueItemId in selectedKeys
@@ -601,13 +603,13 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
                               ? this.filterInputRef.current.value
                               : '',
                           )}
-                        </ComboboxItem>
+                        </MultiSelectItem>
                       );
                     })
                   ) : (
-                    <ComboboxEmptyItem>{noItemsText}</ComboboxEmptyItem>
+                    <MultiSelectEmptyItem>{noItemsText}</MultiSelectEmptyItem>
                   )}
-                </ComboboxItemList>
+                </MultiSelectItemList>
               )}
             </Popover>
             {showChipList && (
@@ -657,7 +659,10 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
             )}
             {showRemoveAllButton && (
               <Button
-                className={classnames(comboboxClassNames.removeAllButton, {})}
+                className={classnames(
+                  multiSelectClassNames.removeAllButton,
+                  {},
+                )}
                 variant="link"
                 icon="remove"
                 onClick={this.handleRemoveAllSelections}
@@ -680,16 +685,18 @@ class BaseCombobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
   }
 }
 
-const StyledCombobox = styled(BaseCombobox)`
+const MultiSelectCombobox = styled(BaseMultiSelect)`
   ${baseStyles}
 `;
 
-export class Combobox<T> extends Component<ComboboxProps<T & ComboboxData>> {
+export class MultiSelect<T> extends Component<
+  MultiSelectProps<T & MultiSelectData>
+> {
   render() {
     const { id: propId, ...passProps } = this.props;
     return (
       <AutoId id={propId}>
-        {(id) => <StyledCombobox id={id} {...passProps} />}
+        {(id) => <MultiSelectCombobox id={id} {...passProps} />}
       </AutoId>
     );
   }

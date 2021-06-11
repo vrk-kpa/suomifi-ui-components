@@ -3,7 +3,7 @@ import { defaultThemeTokens as theme } from '../../../theme';
 import { font } from '../../../theme/reset';
 
 export const baseStyles = css`
-  &.fi-combobox-empty-item {
+  &.fi-multiselect-empty-item {
     ${font(theme)('actionElementInnerText')}
     padding: ${theme.spacing.insetL};
 
@@ -11,7 +11,7 @@ export const baseStyles = css`
       outline: none;
     }
   }
-  & .fi-combobox-empty-item_content_wrapper {
+  & .fi-multiselect-empty-item_content_wrapper {
     display: inline-block;
     width: 100%;
   }

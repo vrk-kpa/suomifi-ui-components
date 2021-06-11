@@ -3,7 +3,7 @@ import { defaultThemeTokens as theme } from '../../../theme';
 import { font } from '../../../theme/reset';
 
 export const baseStyles = css`
-  &.fi-combobox-item-list {
+  &.fi-multiselect-item-list {
     ${font(theme)('bodyText')}
     list-style-type: none;
 
@@ -26,7 +26,7 @@ export const baseStyles = css`
     }
   }
 
-  & .fi-combobox-item-list_content_wrapper {
+  & .fi-multiselect-item-list_content_wrapper {
     display: inline-block;
     width: 100%;
   }
