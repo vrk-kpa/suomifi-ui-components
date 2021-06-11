@@ -109,6 +109,11 @@ it('should not have basic accessibility issues', async () => {
   });
 });
 
+it('has matching snapshot', () => {
+  const { container } = render(BasicCombobox);
+  expect(container.firstChild).toMatchSnapshot();
+});
+
 describe('Chips', () => {
   it('should have selected Chips shown', async () => {
     await act(async () => {
