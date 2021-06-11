@@ -87,6 +87,13 @@ const defaultSelectedTools = [
     disabled: true,
     uniqueItemId: 'ps9081231',
   },
+  {
+    name: 'Rake',
+    price: 50,
+    tax: true,
+    labelText: 'Rake',
+    uniqueItemId: 'r09282626',
+  },
 ];
 
 const BasicCombobox = (
@@ -118,22 +125,22 @@ describe('Chips', () => {
   it('should have selected Chips shown', async () => {
     await act(async () => {
       const { container } = render(BasicCombobox);
-      expect(container.querySelectorAll('.fi-chip').length).toEqual(2);
+      expect(container.querySelectorAll('.fi-chip').length).toEqual(3);
     });
   });
 
   it('second Chip should be removable and removed when clicked', async () => {
     await act(async () => {
-      const { getByText } = render(BasicCombobox);
+      const { getByText, queryByText } = render(BasicCombobox);
       const hammerChip = getByText('Hammer');
+
       expect(hammerChip.classList).toContain('fi-chip--content');
       await act(async () => {
         fireEvent.click(hammerChip, {});
       });
 
-      // Popover is open, therefore we are finding item
-      const hammerLi = getByText('Hammer');
-      expect(hammerLi.classList).toContain('fi-multiselect-item');
+      const removedHammerChip = queryByText('Hammer');
+      expect(removedHammerChip).toBeNull();
     });
   });
 
@@ -174,7 +181,7 @@ describe('Chips', () => {
   it('should remove all non-disabled Chips when pressing "Remove all" button', async () => {
     await act(async () => {
       const { container } = render(BasicCombobox);
-      expect(container.querySelectorAll('.fi-chip').length).toEqual(2);
+      expect(container.querySelectorAll('.fi-chip').length).toEqual(3);
       const removeAllButton = container.querySelectorAll(
         '.fi-multiselect_removeAllButton',
       )[0];
