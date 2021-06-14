@@ -4,8 +4,6 @@ Visibility of the Modal is controlled outside the component. Opening and closing
 
 Small screen variant takes all available screen space.
 
-Aria props override the primary and secondary button labels for screenreaders and allow more detailed description.
-
 **NOTE:** React-modal does not consider some inline elements to be focusable. To ensure focusability inside Modal, components must have non-zero size, be visible, have tabindex of 0 or greater, must be of node type input, select, textarea, button, object or a with either tabIndex or href attribute and cannot be disabled! ([source](https://github.com/reactjs/react-modal/blob/827796d48e7d4c74b4362cf90955e162082ee46d/src/helpers/tabbable.js))
 
 ```js

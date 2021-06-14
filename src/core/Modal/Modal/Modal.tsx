@@ -71,8 +71,6 @@ const {
 
 export const baseClassName = 'fi-modal';
 const modalClassNames = {
-  disableBodyContent: `${baseClassName}--disable-body-content`,
-  disableBodyContentSmallScreen: `${baseClassName}--disable-body-content--small-screen`,
   smallScreen: `${baseClassName}--small-screen`,
   noScroll: `${baseClassName}--no-scroll`,
   overlay: `${baseClassName}_overlay`,
