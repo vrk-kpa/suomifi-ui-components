@@ -137,6 +137,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   max-height: calc(100% - 50px);
   min-height: 230px;
   width: 800px;
+  max-width: 100%;
   -webkit-flex: 0 1 auto;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
@@ -503,7 +504,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 <body
-  class="fi-modal--disable-body-content"
+  class="ReactModal__Body--open"
 >
   <div
     data-react-modal-body-trap=""
@@ -527,7 +528,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
       class="ReactModal__Overlay ReactModal__Overlay--after-open fi-modal_overlay"
     >
       <div
-        aria-modal="true"
+        aria-modal="false"
         class="ReactModal__Content ReactModal__Content--after-open fi-modal"
         role="dialog"
         tabindex="-1"

@@ -31,6 +31,7 @@ export const baseStyles = css`
     max-height: calc(100% - 50px);
     min-height: 230px;
     width: 800px;
+    max-width: 100%;
     flex: 0 1 auto;
     display: flex;
     flex-direction: column;
