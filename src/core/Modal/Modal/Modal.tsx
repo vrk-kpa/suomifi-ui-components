@@ -89,6 +89,10 @@ class BaseModal extends Component<InternalModalProps> {
     }
   }
 
+  /**
+   * Disable body scrolling and persist scroll position.
+   * JS-based solution is required due to iOS Safari scroll chaining behviour.
+   */
   toggleBodyScroll = () => {
     if (!!document && !!document.body && !!document.scrollingElement) {
       if (
