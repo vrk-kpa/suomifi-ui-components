@@ -4,8 +4,6 @@ import { logger } from '../../../utils/logger';
 import { default as ReactModal } from 'react-modal';
 import classnames from 'classnames';
 import { ModalContent, ModalFooter } from '../';
-/* Styles for disabling scrolling. See file for more info. */
-import './Modal.globals.scss';
 import { baseStyles } from './Modal.baseStyles';
 
 export type ModalVariant = 'smallScreen' | 'default';
@@ -81,8 +79,9 @@ const modalClassNames = {
   base: `${baseClassName}_base`,
   contentContainer: `${baseClassName}_content-container`,
 };
-
 class BaseModal extends Component<InternalModalProps> {
+  state = { bodyScrollDisabled: false, scrollTop: 0, scrollLeft: 0 };
+
   private titleRef = createRef<HTMLHeadElement>();
 
   constructor(props: InternalModalProps) {
@@ -91,6 +90,37 @@ class BaseModal extends Component<InternalModalProps> {
       ReactModal.setAppElement(`#${props.appElementId}`);
     }
   }
+
+  toggleBodyScroll = () => {
+    if (!!document && !!document.body && !!document.scrollingElement) {
+      if (
+        this.state.bodyScrollDisabled === true &&
+        document.body.hasAttribute('data-fi-modal')
+      ) {
+        document.body.style.position = 'static';
+        document.body.style.overflow = 'auto';
+        document.scrollingElement.scrollTop = this.state.scrollTop;
+        document.scrollingElement.scrollLeft = this.state.scrollLeft;
+        document.body.removeAttribute('data-fi-modal');
+        this.setState({ bodyScrollDisabled: false });
+      } else if (!document.body.hasAttribute('data-fi-modal')) {
+        document.body.setAttribute('data-fi-modal', '');
+        const newState = {
+          bodyScrollDisabled: true,
+          scrollTop: document.scrollingElement?.scrollTop,
+          scrollLeft: document.scrollingElement?.scrollLeft,
+        };
+        this.setState(newState);
+        document.body.style.position =
+          this.props.variant === 'smallScreen' ? 'fixed' : 'sticky';
+        document.body.style.overflow = 'hidden';
+        if (!!newState.scrollTop && !!newState.scrollLeft) {
+          document.scrollingElement.scrollTop = newState.scrollTop;
+          document.scrollingElement.scrollLeft = newState.scrollLeft;
+        }
+      }
+    }
+  };
 
   render() {
     const {
@@ -113,11 +143,6 @@ class BaseModal extends Component<InternalModalProps> {
 
     return (
       <ReactModal
-        bodyOpenClassName={
-          variant === 'smallScreen'
-            ? modalClassNames.disableBodyContentSmallScreen
-            : modalClassNames.disableBodyContent
-        }
         portalClassName={classnames(className, modalClassNames.base)}
         overlayClassName={classnames(modalClassNames.overlay)}
         className={classnames(propClassName, baseClassName, {
@@ -128,6 +153,7 @@ class BaseModal extends Component<InternalModalProps> {
         aria={{ modal: false }}
         isOpen={visible}
         onAfterOpen={() => {
+          this.toggleBodyScroll();
           if (!!focusOnOpenRef && !!focusOnOpenRef.current) {
             focusOnOpenRef.current.focus();
           } else if (!!this.titleRef && !!this.titleRef.current) {
@@ -135,6 +161,7 @@ class BaseModal extends Component<InternalModalProps> {
           }
         }}
         onAfterClose={() => {
+          this.toggleBodyScroll();
           if (!!focusOnCloseRef && !!focusOnCloseRef.current) {
             focusOnCloseRef.current.focus();
           }

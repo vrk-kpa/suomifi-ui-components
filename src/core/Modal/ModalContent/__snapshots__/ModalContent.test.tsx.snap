@@ -504,7 +504,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 <body
-  class="fi-modal--disable-body-content"
+  class="ReactModal__Body--open"
 >
   <div
     data-react-modal-body-trap=""
