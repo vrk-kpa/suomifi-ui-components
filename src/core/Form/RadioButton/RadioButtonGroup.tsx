@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import { HtmlDiv, HtmlSpan, HtmlFieldSet, HtmlLegend } from '../../../reset';
-import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
+import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { RadioButtonProps } from './RadioButton';
 import { baseStyles } from './RadioButtonGroup.baseStyles';
 import { AutoId } from '../../../utils/AutoId';

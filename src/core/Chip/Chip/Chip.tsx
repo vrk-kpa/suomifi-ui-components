@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { logger } from '../../../utils/logger';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
-import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
+import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { Icon } from '../../Icon/Icon';
 import {
   BaseChipProps,

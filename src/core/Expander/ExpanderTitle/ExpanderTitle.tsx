@@ -9,7 +9,7 @@ import {
   HtmlSpan,
 } from '../../../reset';
 import { Icon } from '../../Icon/Icon';
-import { VisuallyHidden } from '../../../components';
+import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 import { expanderTitleBaseStyles } from './ExpanderTitle.baseStyles';
 

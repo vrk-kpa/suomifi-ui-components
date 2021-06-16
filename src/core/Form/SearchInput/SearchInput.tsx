@@ -13,7 +13,7 @@ import {
   HtmlButton,
   HtmlButtonProps,
 } from '../../../reset';
-import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
+import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { StatusText } from '../StatusText/StatusText';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { Icon } from '../../Icon/Icon';

@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './LabelText.baseStyles';
 import { asPropType } from '../../../utils/typescript';
-import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
+import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { HtmlSpan, HtmlSpanProps, HtmlDiv, HtmlDivProps } from '../../../reset';
 
 export type LabelMode = 'hidden' | 'visible';
