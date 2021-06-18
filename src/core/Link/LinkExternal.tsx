@@ -7,7 +7,7 @@ import {
 } from '../../components/Link/LinkExternal';
 import { Icon } from '../Icon/Icon';
 import { Link, LinkProps } from './Link';
-import { VisuallyHidden } from '../../components';
+import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import { externalStyles } from './Link.baseStyles';
 
 const iconClassName = 'fi-link_icon';

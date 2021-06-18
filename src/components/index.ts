@@ -13,4 +13,3 @@ export {
 } from './LanguageMenu/LanguageMenu';
 export { Paragraph, ParagraphProps } from './Paragraph/Paragraph';
 export { Text, TextProps } from './Text/Text';
-export { VisuallyHidden } from './Visually-hidden/Visually-hidden';

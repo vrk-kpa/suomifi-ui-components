@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
-import { VisuallyHidden } from '../../../components';
+import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { baseStyles } from './ExpanderGroup.baseStyles';
 
 const baseClassName = 'fi-expander-group';
