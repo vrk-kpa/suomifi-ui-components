@@ -25,10 +25,10 @@ const filterInputClassNames = {
   inputElement: `${baseClassName}_input`,
 };
 
-type FilterInputStatus = Exclude<InputStatus, 'success'>;
+export type FilterInputStatus = Exclude<InputStatus, 'success'>;
 
 interface InternalFilterInputProps<T>
-  extends Omit<HtmlInputProps, 'type'>,
+  extends Omit<HtmlInputProps, 'type' | 'onChange'>,
     StatusTextCommonProps {
   /** FilterInput container div class name for custom styling. */
   className?: string;
@@ -63,6 +63,8 @@ interface InternalFilterInputProps<T>
   onFilter: (filteredItems: Array<T>) => void;
   /** Filtering rule to be used */
   filterFunc: (item: T, query: string) => boolean;
+  forwardedRef?: React.RefObject<HTMLInputElement>;
+  onChange?: (value: string) => void;
 }
 
 interface InnerRef {
@@ -85,7 +87,6 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       optionalText,
       status,
       statusText,
-      forwardedRef,
       id,
       labelAlign,
       'aria-describedby': ariaDescribedBy,
@@ -93,6 +94,8 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       items: propItems,
       onFilter: propOnFiltering,
       filterFunc: propFilterRule,
+      forwardedRef,
+      onChange: propOnChange,
       ...passProps
     } = this.props;
 
@@ -102,16 +105,19 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
         onFilter: onFiltering,
         filterFunc: filterRule,
       } = this.props;
-      const { value } = event.target;
+      const { value: eventValue } = event.target;
 
       const filteredItems: T[] = items.reduce((filtered: T[], item: T) => {
-        if (filterRule(item, value)) {
+        if (filterRule(item, eventValue)) {
           filtered.push(item);
         }
         return filtered;
       }, []);
 
       onFiltering(filteredItems);
+      if (propOnChange) {
+        propOnChange(eventValue);
+      }
     };
 
     const statusTextId = statusText ? `${id}-statusText` : undefined;
@@ -149,9 +155,10 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
                 ])}
                 autoComplete="off"
                 aria-autocomplete="list"
-                auto-capitalize="false"
+                autoCapitalize="none"
                 spellCheck="false"
                 onChange={onChangeHandler}
+                aria-multiline={false}
               />
             </HtmlDiv>
             <StatusText
