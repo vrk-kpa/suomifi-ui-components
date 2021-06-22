@@ -13,7 +13,7 @@ const primitiveComponents = [
   ['Form', 'Checkbox'],
   ['Form', 'Textarea'],
   ['Form', 'RadioButton'],
-  ['Form', 'Combobox'],
+  ['Form', 'MultiSelect'],
 ];
 
 const getComponent = ({ name, underName }) =>
@@ -105,9 +105,9 @@ module.exports = {
               components: getComponents(['Icon', 'StaticIcon']),
             },
             {
-              name: 'Combobox',
-              components: getComponentWithVariants('Form/Combobox')([
-                'Combobox/Combobox',
+              name: 'MultiSelect',
+              components: getComponentWithVariants('Form/MultiSelect')([
+                'MultiSelect/MultiSelect',
               ]),
             },
           ],
