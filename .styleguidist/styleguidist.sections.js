@@ -124,6 +124,12 @@ module.exports = {
                 'MultiSelect/MultiSelect',
               ]),
             },
+            {
+              name: 'Select',
+              components: getComponentWithVariants('Form/Select')([
+                'Select/Select',
+              ]),
+            },
           ],
           expand: true,
         },

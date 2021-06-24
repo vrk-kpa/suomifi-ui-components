@@ -81,6 +81,27 @@ export interface FilterInputProps extends InternalFilterInputProps<any> {
 }
 
 class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
+  componentDidUpdate(prevProps: FilterInputProps) {
+    if (!!this.props.onFilter && prevProps.value !== this.props.value) {
+      const value = !!this.props.value ? this.props.value.toString() : '';
+      this.props.onFilter(
+        this.filterItems(this.props.items, this.props.filterFunc, value),
+      );
+    }
+  }
+
+  private filterItems = (
+    items: Array<T>,
+    filterFunc: (item: T, query: string) => boolean,
+    value: string,
+  ) =>
+    items.reduce((filtered: T[], item: T) => {
+      if (filterFunc(item, value)) {
+        filtered.push(item);
+      }
+      return filtered;
+    }, []);
+
   render() {
     const {
       className,
@@ -105,21 +126,16 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
     } = this.props;
 
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-      const {
-        items,
-        onFilter: onFiltering,
-        filterFunc: filterRule,
-      } = this.props;
+      const { items, onFilter, filterFunc } = this.props;
       const { value: eventValue } = event.target;
 
-      const filteredItems: T[] = items.reduce((filtered: T[], item: T) => {
-        if (filterRule(item, eventValue)) {
-          filtered.push(item);
-        }
-        return filtered;
-      }, []);
+      const filteredItems: T[] = this.filterItems(
+        items,
+        filterFunc,
+        eventValue,
+      );
 
-      onFiltering(filteredItems);
+      onFilter(filteredItems);
       if (propOnChange) {
         propOnChange(eventValue);
       }
