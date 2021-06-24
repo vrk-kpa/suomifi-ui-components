@@ -617,7 +617,12 @@ class BaseMultiSelect<T> extends Component<
                 {selectedItems
                   .filter((item) => item.disabled)
                   .map((disabledItem) => (
-                    <Chip aria-disabled={true} key={disabledItem.uniqueItemId}>
+                    <Chip
+                      aria-disabled={true}
+                      key={disabledItem.uniqueItemId}
+                      actionLabel={ariaChipActionLabel}
+                      removable={true}
+                    >
                       {disabledItem.chipText
                         ? disabledItem.chipText
                         : disabledItem.labelText}
