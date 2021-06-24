@@ -7,6 +7,9 @@ export const staticIconBaseStyles = ({
   highlightColor?: string;
   baseColor?: string;
 }) => css`
+  display: inline-block;
+  vertical-align: baseline;
+
   ${!!highlightColor &&
   `.fi-icon-illustrative-highlight-fill {
     fill: ${highlightColor};
@@ -23,6 +26,12 @@ export const staticIconBaseStyles = ({
   .fi-icon-illustrative-base-stroke {
     stroke: ${baseColor}
   }
-
   `}
+
+  &.fi-icon--cursor-pointer {
+    cursor: pointer;
+    & * {
+      cursor: inherit;
+    }
+  }
 `;

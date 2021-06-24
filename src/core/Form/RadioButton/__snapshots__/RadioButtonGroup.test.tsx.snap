@@ -395,6 +395,7 @@ exports[`default, with only required props should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -442,6 +443,7 @@ exports[`default, with only required props should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -489,6 +491,7 @@ exports[`default, with only required props should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -917,6 +920,7 @@ exports[`props className should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -964,6 +968,7 @@ exports[`props className should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -1011,6 +1016,7 @@ exports[`props className should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -1439,6 +1445,7 @@ exports[`props defaultValue should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -1486,6 +1493,7 @@ exports[`props defaultValue should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -1534,6 +1542,7 @@ exports[`props defaultValue should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -1967,6 +1976,7 @@ exports[`props hintText should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -2014,6 +2024,7 @@ exports[`props hintText should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -2061,6 +2072,7 @@ exports[`props hintText should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -2489,6 +2501,7 @@ exports[`props id should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -2536,6 +2549,7 @@ exports[`props id should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -2583,6 +2597,7 @@ exports[`props id should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -3011,6 +3026,7 @@ exports[`props label should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -3058,6 +3074,7 @@ exports[`props label should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -3105,6 +3122,7 @@ exports[`props label should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -3545,6 +3563,7 @@ exports[`props labelMode should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -3592,6 +3611,7 @@ exports[`props labelMode should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -3639,6 +3659,7 @@ exports[`props labelMode should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -4067,6 +4088,7 @@ exports[`props name should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -4114,6 +4136,7 @@ exports[`props name should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -4161,6 +4184,7 @@ exports[`props name should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -4590,6 +4614,7 @@ exports[`props value should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -4638,6 +4663,7 @@ exports[`props value should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"
@@ -4685,6 +4711,7 @@ exports[`props value should match snapshot 1`] = `
               height="1em"
               viewBox="0 0 18 18"
               width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <g
                 fill="none"

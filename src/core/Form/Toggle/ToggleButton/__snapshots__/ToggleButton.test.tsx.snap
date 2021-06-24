@@ -329,6 +329,7 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
         height="1em"
         viewBox="0 0 37 20"
         width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <g
           fill="none"
