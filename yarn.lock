@@ -13517,10 +13517,10 @@ suomifi-design-tokens@3.1.1:
   resolved "https://registry.yarnpkg.com/suomifi-design-tokens/-/suomifi-design-tokens-3.1.1.tgz#5df2372d484152b4d361f656cfeefa1bdca4af55"
   integrity sha512-74RX9W99Hruk464ga11Fi+MaUYaQm5bLg8YI+kneGP9YktOXHtjgeQx75iDAqpNsXNBVnkQ/JjCfNsEX9hDz9g==
 
-suomifi-icons@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-2.0.0.tgz#fd75aecbe12e737d1fca91215418a24b185677eb"
-  integrity sha512-BCfj80f0ESqN0FEoI623VCMTJBJPOf2amIydUO9t9X9U/HujOU4bfn8cNLZwl5/W6GU9UfnTsSpXcuC7EOYcHg==
+suomifi-icons@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-3.0.0.tgz#b314a13eb1a9b1c2eb2135a9b85f97394c008914"
+  integrity sha512-XAxeyLVV9kqTA10j1GjN7e7xHx+bxlspSa3fYKitD7INOIFlNeJtUTNoXdyPzIWeW4roxqyz8uGZqRCY2lGFlA==
 
 supports-color@^2.0.0:
   version "2.0.0"
