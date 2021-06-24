@@ -23,7 +23,15 @@ const staticIconBaseClassName = `fi-static-icon`;
 export interface StaticIconProps
   extends IconBaseProps,
     SuomifiStaticIconInterface {
+  /**
+   * Highlight fill and stroke color for the icon
+   * @default accentBase
+   */
   highlightColor?: string;
+  /**
+   * Base fill and stroke color for the icon
+   * @default depthBase
+   */
   baseColor?: string;
 }
 
