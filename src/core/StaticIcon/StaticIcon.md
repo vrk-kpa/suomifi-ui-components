@@ -18,6 +18,7 @@ const StyledStaticIcon = styled((props) => <StaticIcon {...props} />)(
   ariaLabel="Settings"
   className="my-static-icon--test"
   highlightColor={suomifiDesignTokens.colors.accentTertiaryDark1}
+  baseColor={suomifiDesignTokens.colors.accentSecondary}
 />;
 ```
 

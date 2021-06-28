@@ -284,6 +284,7 @@ exports[`children should match snapshot 1`] = `
         height="1em"
         viewBox="0 0 18 18"
         width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <g
           fill="none"
@@ -598,6 +599,7 @@ exports[`className should match snapshot 1`] = `
         height="1em"
         viewBox="0 0 18 18"
         width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <g
           fill="none"
@@ -913,6 +915,7 @@ exports[`disabled should match snapshot 1`] = `
         height="1em"
         viewBox="0 0 18 18"
         width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <g
           fill="none"
@@ -1228,6 +1231,7 @@ exports[`hintText should match snapshot 1`] = `
         height="1em"
         viewBox="0 0 18 18"
         width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <g
           fill="none"
@@ -1548,6 +1552,7 @@ exports[`id should match snapshot 1`] = `
         height="1em"
         viewBox="0 0 18 18"
         width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <g
           fill="none"
@@ -1863,6 +1868,7 @@ exports[`name should match snapshot 1`] = `
         height="1em"
         viewBox="0 0 18 18"
         width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <g
           fill="none"
@@ -2177,6 +2183,7 @@ exports[`value should match snapshot 1`] = `
         height="1em"
         viewBox="0 0 18 18"
         width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <g
           fill="none"
@@ -2491,6 +2498,7 @@ exports[`variant should match snapshot 1`] = `
         height="1em"
         viewBox="0 0 30 30"
         width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <g
           fill="none"

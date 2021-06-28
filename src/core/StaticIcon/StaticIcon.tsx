@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { defaultThemeTokens } from '../theme';
 import classnames from 'classnames';
 import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
 import {
@@ -15,7 +14,7 @@ import {
   cursorPointerClassName,
   baseClassName,
 } from '../Icon/Icon';
-import { iconBaseStyles } from '../Icon/Icon.baseStyles';
+import { staticIconBaseStyles } from './StaticIcon.baseStyles';
 
 export { IllustrativeIconKeys, DoctypeIconKeys } from 'suomifi-icons';
 
@@ -24,7 +23,16 @@ const staticIconBaseClassName = `fi-static-icon`;
 export interface StaticIconProps
   extends IconBaseProps,
     SuomifiStaticIconInterface {
+  /**
+   * Highlight fill and stroke color for the icon
+   * @default accentBase
+   */
   highlightColor?: string;
+  /**
+   * Base fill and stroke color for the icon
+   * @default depthBase
+   */
+  baseColor?: string;
 }
 
 const StyledSuomifiStaticIcon = styled(
@@ -41,7 +49,7 @@ const StyledSuomifiStaticIcon = styled(
     />
   ),
 )`
-  ${iconBaseStyles}
+  ${staticIconBaseStyles}
 `;
 
 /**
@@ -49,22 +57,13 @@ const StyledSuomifiStaticIcon = styled(
  */
 export class StaticIcon extends Component<StaticIconProps> {
   render() {
-    const {
-      icon,
-      highlightColor,
-      className,
-      mousePointer,
-      ...passProps
-    } = this.props;
+    const { icon, className, mousePointer, ...passProps } = this.props;
     const { ariaLabel } = this.props;
 
     if (icon !== undefined) {
       return (
         <StyledSuomifiStaticIcon
           {...passProps}
-          {...(!!highlightColor
-            ? { highlightColor }
-            : { highlightColor: defaultThemeTokens.colors.accentBase })}
           icon={icon}
           className={classnames(
             baseClassName,
@@ -97,7 +96,7 @@ const StyledSuomifiComponentIcon = styled(
     />
   ),
 )`
-  ${iconBaseStyles}
+  ${staticIconBaseStyles}
 `;
 
 export class ComponentIcon extends Component<ComponentIconProps> {
