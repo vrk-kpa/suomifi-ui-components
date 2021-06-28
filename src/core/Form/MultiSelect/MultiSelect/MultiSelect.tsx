@@ -48,6 +48,8 @@ export interface MultiSelectProps<T extends MultiSelectData> {
   id?: string;
   /** Label */
   labelText: string;
+  /** Hint text to be shown below the label */
+  hintText?: string;
   /** Event that is fired when item selections change */
   onItemSelectionsChange?: (selectedItems: Array<T>) => void;
   /** Show chip list */
@@ -465,6 +467,7 @@ class BaseMultiSelect<T> extends Component<
       className,
       items: propItems,
       labelText,
+      hintText,
       onItemSelectionsChange,
       chipListVisible,
       ariaChipActionLabel,
@@ -544,6 +547,7 @@ class BaseMultiSelect<T> extends Component<
                 <FilterInput
                   id={id}
                   labelText={labelText}
+                  hintText={hintText}
                   items={propItems}
                   onFilter={(filtered) =>
                     this.setState({ filteredItems: filtered })
