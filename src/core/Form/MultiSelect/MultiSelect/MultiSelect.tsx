@@ -309,7 +309,7 @@ class BaseMultiSelect<T> extends Component<
     this.setState({ showPopover: visible });
   };
 
-  private focusInInput = () => {
+  private getOwnerDocument = () => {
     if (this.popoverListRef !== null && this.popoverListRef.current !== null) {
       const elem = this.popoverListRef.current;
       const ownerDocument = windowAvailable()
@@ -317,23 +317,20 @@ class BaseMultiSelect<T> extends Component<
           ? elem.ownerDocument
           : document
         : null;
-      if (ownerDocument) {
-        return ownerDocument.activeElement === this.filterInputRef.current;
-      }
+      return ownerDocument;
     }
-    return false;
+    return null;
   };
+
+  private focusInInput = (ownerDocument: Document | null) =>
+    ownerDocument
+      ? ownerDocument.activeElement === this.filterInputRef.current
+      : false;
 
   private handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     event.preventDefault();
     if (this.popoverListRef !== null && this.popoverListRef.current !== null) {
-      const elem = this.popoverListRef.current;
-      const ownerDocument = windowAvailable()
-        ? elem
-          ? elem.ownerDocument
-          : document
-        : null;
-
+      const ownerDocument = this.getOwnerDocument();
       if (!ownerDocument) {
         return;
       }
@@ -341,8 +338,7 @@ class BaseMultiSelect<T> extends Component<
         const focusInPopover = this.popoverListRef.current?.contains(
           ownerDocument.activeElement,
         );
-        const focusInInput =
-          ownerDocument.activeElement === this.filterInputRef.current;
+        const focusInInput = this.focusInInput(ownerDocument);
         const focusInCombobox = focusInPopover || focusInInput;
         this.setPopoverVisibility(focusInCombobox);
 
@@ -714,7 +710,7 @@ class BaseMultiSelect<T> extends Component<
           aria-atomic="true"
           id={`${id}-filteredItems-length`}
         >
-          {this.focusInInput() ? (
+          {this.focusInInput(this.getOwnerDocument()) ? (
             <>
               {filteredItems.length}
               {ariaFilteredAmountText}
