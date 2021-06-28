@@ -81,8 +81,12 @@ export interface MultiSelectProps<T extends MultiSelectData> {
   onItemSelect?: (uniqueItemId: string) => void;
   /** Event to be sent when pressing remove all button */
   onRemoveAll?: () => void;
-  /** Text to be read by screenreader to indicate how many items are selected */
+  /** Text for screen reader to indicate how many items are selected */
   ariaSelectedAmountText: string;
+  /** Text for screen reader indicating the amount of available options after filtering by typing. Will be read after the amount.
+   * E.g '4 options available'
+   */
+  ariaOptionsAvailableText: string;
 }
 
 // actual boolean value does not matter, only if it exists on the list
@@ -305,6 +309,21 @@ class BaseMultiSelect<T> extends Component<
     this.setState({ showPopover: visible });
   };
 
+  private focusInInput = () => {
+    if (this.popoverListRef !== null && this.popoverListRef.current !== null) {
+      const elem = this.popoverListRef.current;
+      const ownerDocument = windowAvailable()
+        ? elem
+          ? elem.ownerDocument
+          : document
+        : null;
+      if (ownerDocument) {
+        return ownerDocument.activeElement === this.filterInputRef.current;
+      }
+    }
+    return false;
+  };
+
   private handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     event.preventDefault();
     if (this.popoverListRef !== null && this.popoverListRef.current !== null) {
@@ -483,6 +502,7 @@ class BaseMultiSelect<T> extends Component<
       onItemSelect,
       onRemoveAll,
       ariaSelectedAmountText,
+      ariaOptionsAvailableText: ariaFilteredAmountText,
       ...passProps
     } = this.props;
 
@@ -688,6 +708,18 @@ class BaseMultiSelect<T> extends Component<
         >
           {selectedItems.length}
           {ariaSelectedAmountText}
+        </VisuallyHidden>
+        <VisuallyHidden
+          aria-live="polite"
+          aria-atomic="true"
+          id={`${id}-filteredItems-length`}
+        >
+          {this.focusInInput() ? (
+            <>
+              {filteredItems.length}
+              {ariaFilteredAmountText}
+            </>
+          ) : null}
         </VisuallyHidden>
       </>
     );
