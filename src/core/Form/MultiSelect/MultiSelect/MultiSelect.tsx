@@ -85,6 +85,7 @@ export interface MultiSelectProps<T extends MultiSelectData> {
   ariaSelectedAmountText: string;
   /** Text for screen reader indicating the amount of available options after filtering by typing. Will be read after the amount.
    * E.g '4 options available'
+   * E.g 'options available' as prop value would result in '<amount> options available' being read to screen reader upon removal.
    */
   ariaOptionsAvailableText: string;
 }
