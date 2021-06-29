@@ -84,10 +84,13 @@ export interface MultiSelectProps<T extends MultiSelectData> {
   /** Text for screen reader to indicate how many items are selected */
   ariaSelectedAmountText: string;
   /** Text for screen reader indicating the amount of available options after filtering by typing. Will be read after the amount.
-   * E.g '4 options available'
    * E.g 'options available' as prop value would result in '<amount> options available' being read to screen reader upon removal.
    */
   ariaOptionsAvailableText: string;
+  /** Text for screen reader to read, after labelText/chipText, when selected option is removed from chip list.
+   * E.g 'removed' as prop value would result in '<option> removed' being read to screen reader upon removal.
+   */
+  ariaOptionChipRemovedText: string;
 }
 
 // actual boolean value does not matter, only if it exists on the list
@@ -104,6 +107,7 @@ interface MultiSelectState<T extends MultiSelectData> {
   selectedItems: T[];
   initialItems: T[];
   disabledKeys: ItemKeys;
+  chipRemovalAnnounceText: string;
 }
 
 function getSelectedKeys<T>(items: (T & MultiSelectData)[] = []): ItemKeys {
@@ -152,6 +156,7 @@ class BaseMultiSelect<T> extends Component<
     disabledKeys: this.props.selectedItems
       ? getDisabledKeys(this.props.selectedItems)
       : getDisabledKeys(this.props.items),
+    chipRemovalAnnounceText: '',
   };
 
   static getDerivedStateFromProps<U>(
@@ -499,7 +504,8 @@ class BaseMultiSelect<T> extends Component<
       onItemSelect,
       onRemoveAll,
       ariaSelectedAmountText,
-      ariaOptionsAvailableText: ariaFilteredAmountText,
+      ariaOptionsAvailableText,
+      ariaOptionChipRemovedText,
       ...passProps
     } = this.props;
 
@@ -671,6 +677,13 @@ class BaseMultiSelect<T> extends Component<
                           // eslint-disable-next-line no-unused-expressions
                           this.filterInputRef?.current?.focus();
                         }
+                        this.setState({
+                          chipRemovalAnnounceText: `${
+                            enabledItem.chipText
+                              ? enabledItem.chipText
+                              : enabledItem.labelText
+                          } ${ariaOptionChipRemovedText}`,
+                        });
                         this.handleItemSelection(enabledItem);
                       }}
                       actionLabel={ariaChipActionLabel}
@@ -714,9 +727,16 @@ class BaseMultiSelect<T> extends Component<
           {this.focusInInput(this.getOwnerDocument()) ? (
             <>
               {filteredItems.length}
-              {ariaFilteredAmountText}
+              {ariaOptionsAvailableText}
             </>
           ) : null}
+        </VisuallyHidden>
+        <VisuallyHidden
+          aria-live="assertive"
+          aria-atomic="true"
+          id={`${id}-chip-removal-announce`}
+        >
+          {this.state.chipRemovalAnnounceText}
         </VisuallyHidden>
       </>
     );

@@ -108,6 +108,7 @@ const BasicCombobox = (
     defaultSelectedItems={defaultSelectedTools}
     ariaSelectedAmountText="tools selected"
     ariaOptionsAvailableText="tools left"
+    ariaOptionChipRemovedText="removed"
   />
 );
 
@@ -163,6 +164,7 @@ describe('Chips', () => {
           onItemSelect={onItemSelect}
           ariaSelectedAmountText="tools selected"
           ariaOptionsAvailableText="tools left"
+          ariaOptionChipRemovedText="removed"
         />,
       );
       const hammerChip = container.querySelectorAll('.fi-chip')[1];
@@ -212,6 +214,7 @@ describe('Chips', () => {
           onRemoveAll={mockOnRemoveAll}
           ariaSelectedAmountText="tools selected"
           ariaOptionsAvailableText="tools left"
+          ariaOptionChipRemovedText="removed"
         />,
       );
       const removeAllButton = container.querySelectorAll(
@@ -257,6 +260,7 @@ describe('Controlled', () => {
         defaultSelectedItems={defaultSelectedTools}
         ariaSelectedAmountText="tools selected"
         ariaOptionsAvailableText="tools left"
+        ariaOptionChipRemovedText="removed"
       />
     );
 
@@ -308,6 +312,7 @@ describe('Controlled', () => {
         ariaChipActionLabel="Remove"
         ariaSelectedAmountText="tools selected"
         ariaOptionsAvailableText="tools left"
+        ariaOptionChipRemovedText="removed"
       />
     );
 
@@ -338,6 +343,7 @@ test('className: has given custom classname', async () => {
         className="custom-class"
         ariaSelectedAmountText=""
         ariaOptionsAvailableText=""
+        ariaOptionChipRemovedText=""
       />,
     );
     expect(container.firstChild).toHaveClass('custom-class');
@@ -353,6 +359,7 @@ test('labelText: has the given text as label', async () => {
         noItemsText="No items"
         ariaSelectedAmountText=""
         ariaOptionsAvailableText=""
+        ariaOptionChipRemovedText=""
       />,
     );
     expect(queryByText('MultiSelect')).not.toBeNull();
@@ -368,6 +375,7 @@ test('visualPlaceholder: has the given text as placeholder attribute', () => {
       visualPlaceholder="Select item(s)"
       ariaSelectedAmountText=""
       ariaOptionsAvailableText=""
+      ariaOptionChipRemovedText=""
     />,
   );
   const inputfield = getByRole('textbox') as HTMLInputElement;
@@ -383,6 +391,7 @@ test('id: has the given id', () => {
       noItemsText="No items"
       ariaSelectedAmountText=""
       ariaOptionsAvailableText=""
+      ariaOptionChipRemovedText=""
     />,
   );
   expect(getByRole('textbox')).toHaveAttribute('id', 'cb-123');
@@ -400,6 +409,7 @@ describe('statusText', () => {
         statusText="EROR EROR"
         ariaSelectedAmountText=""
         ariaOptionsAvailableText=""
+        ariaOptionChipRemovedText=""
       />,
     );
     const statusText = getByText('EROR EROR');
@@ -417,6 +427,7 @@ describe('statusText', () => {
         statusText="EROR EROR"
         ariaSelectedAmountText=""
         ariaOptionsAvailableText=""
+        ariaOptionChipRemovedText=""
       />,
     );
     expect(getByRole('textbox')).toHaveAttribute(
@@ -438,6 +449,7 @@ describe('status', () => {
         status="error"
         ariaSelectedAmountText=""
         ariaOptionsAvailableText=""
+        ariaOptionChipRemovedText=""
       />,
     );
     expect(container.firstChild).toHaveClass('fi-multiselect--error');
