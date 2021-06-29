@@ -1,5 +1,9 @@
 ```js
 import { TextInput } from 'suomifi-ui-components';
+import React from 'react';
+
+const exampleRef = React.createRef();
+
 <>
   <TextInput
     onBlur={(event) => console.log(event.target.value)}
@@ -17,8 +21,12 @@ import { TextInput } from 'suomifi-ui-components';
     hintText="An example hint text"
   />
   <TextInput
-    labelText="TextInput with optional text"
+    labelText="TextInput with optional text and ref"
     optionalText="optional"
+    ref={exampleRef}
+    onChange={() => {
+      console.log(exampleRef.current);
+    }}
   />
 </>;
 ```
@@ -57,17 +65,15 @@ const statusText = errorState
   : undefined;
 const status = errorState ? 'error' : 'default';
 
-<>
-  <TextInput
-    labelText="Test TextInput"
-    statusText={statusText}
-    status={status}
-  />
-
-  <Button onClick={() => setErrorState(!errorState)}>
-    Toggle error state
-  </Button>
-</>;
+<TextInput
+  labelText="TextInput with changing error status"
+  statusText={statusText}
+  status={status}
+  debounce={300}
+  onChange={() => {
+    setErrorState(!errorState);
+  }}
+/>;
 ```
 
 ```js
@@ -75,7 +81,7 @@ import { TextInput, Button } from 'suomifi-ui-components';
 <>
   <TextInput
     labelText="Test TextInput with fixed custom width of 250px"
-    inputContainerProps={{ style: { width: '250px' } }}
+    wrapperProps={{ style: { width: '250px' } }}
   />
 
   <TextInput labelText="Test TextInput with 100% width" fullWidth />

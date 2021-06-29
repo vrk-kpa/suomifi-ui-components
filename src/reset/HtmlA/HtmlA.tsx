@@ -2,7 +2,7 @@ import React, { ReactNode, HTMLProps } from 'react';
 import { default as styled, css } from 'styled-components';
 import { resets } from '../utils';
 import { allStates } from '../../utils/css';
-import { Omit, asPropType } from '../../utils/typescript';
+import { asPropType } from '../../utils/typescript';
 
 export interface HtmlAProps
   extends Omit<HTMLProps<HTMLAnchorElement>, 'ref' | 'as'> {

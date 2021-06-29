@@ -67,17 +67,15 @@ describe('Button variant', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('secondary-noborder should match snapshot', () => {
+  it('secondaryNoBorder should match snapshot', () => {
     const { container } = render(
-      <Button variant="secondary-noborder">Secondary-noborder button</Button>,
+      <Button variant="secondaryNoBorder">secondaryNoBorder button</Button>,
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('tertiary match snapshot', () => {
-    const { container } = render(
-      <Button variant="tertiary">Tertiary button</Button>,
-    );
+  it('link match snapshot', () => {
+    const { container } = render(<Button variant="link">Link button</Button>);
     expect(container.firstChild).toMatchSnapshot();
   });
 });

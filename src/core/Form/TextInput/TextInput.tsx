@@ -1,23 +1,22 @@
-import React, { Component, ChangeEvent, FocusEvent } from 'react';
+import React, { forwardRef, Component, ChangeEvent, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaultProps } from '../../theme/utils';
+import classnames from 'classnames';
+import { AutoId } from '../../../utils/AutoId';
+import { Debounce } from '../../utils/Debounce/Debounce';
+import { getConditionalAriaProp } from '../../../utils/aria';
 import {
-  HtmlInput,
   HtmlInputProps,
   HtmlDiv,
   HtmlDivProps,
+  HtmlSpan,
+  HtmlInput,
 } from '../../../reset';
-import { TokensProp, InternalTokensProp } from '../../theme';
-import { baseStyles } from './TextInput.baseStyles';
+import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { StatusText } from '../StatusText/StatusText';
-import { InputStatus } from '../types';
 import { HintText } from '../HintText/HintText';
-import classnames from 'classnames';
-import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
-import { Omit } from '../../../utils/typescript';
-import { idGenerator } from '../../../utils/uuid';
-import { Debounce } from '../../utils/Debounce/Debounce';
+import { InputStatus, StatusTextCommonProps } from '../types';
+import { baseStyles } from './TextInput.baseStyles';
 
 const baseClassName = 'fi-text-input';
 export const textInputClassNames = {
@@ -29,17 +28,18 @@ export const textInputClassNames = {
   icon: `${baseClassName}_with-icon`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
+  styleWrapper: `${baseClassName}_wrapper`,
 };
 
 type TextInputValue = string | number | undefined;
 
-export interface TextInputProps
-  extends Omit<HtmlInputProps, 'type' | 'onChange'>,
-    TokensProp {
+interface InternalTextInputProps
+  extends StatusTextCommonProps,
+    Omit<HtmlInputProps, 'type' | 'onChange'> {
   /** TextInput container div class name for custom styling. */
   className?: string;
-  /** TextInput container div props */
-  inputContainerProps?: Omit<HtmlDivProps, 'className'>;
+  /** TextInput wrapping div element props */
+  wrapperProps?: Omit<HtmlDivProps, 'className'>;
   /** Disable input usage */
   disabled?: boolean;
   /** Event handler to execute when clicked */
@@ -63,8 +63,6 @@ export interface TextInputProps
    * @default default
    */
   status?: InputStatus;
-  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
-  statusText?: string;
   /** 'text' | 'email' | 'number' | 'password' | 'tel' | 'url'
    * @default text
    */
@@ -85,27 +83,23 @@ export interface TextInputProps
   iconProps?: Omit<IconProps, 'icon'>;
 }
 
-class BaseTextInput extends Component<TextInputProps> {
-  private id: string;
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLInputElement>;
+}
 
-  private hintTextId: string;
+export interface TextInputProps extends InternalTextInputProps {
+  /** Ref object to be passed to the input element */
+  ref?: React.RefObject<HTMLInputElement>;
+}
 
-  private statusTextId: string;
-
-  constructor(props: TextInputProps) {
-    super(props);
-    this.id = `${idGenerator(props.id)}`;
-    this.hintTextId = `${this.id}-hintText`;
-    this.statusTextId = `${this.id}-statusText`;
-  }
-
+class BaseTextInput extends Component<TextInputProps & InnerRef> {
   render() {
     const {
       className,
       labelText,
       labelMode,
       onChange: propOnChange,
-      inputContainerProps,
+      wrapperProps,
       optionalText,
       status,
       statusText,
@@ -116,33 +110,20 @@ class BaseTextInput extends Component<TextInputProps> {
       fullWidth,
       icon,
       iconProps,
+      forwardedRef,
+      debounce,
+      statusTextAriaLiveMode = 'assertive',
       'aria-describedby': ariaDescribedBy,
       ...passProps
     } = this.props;
 
-    const resolvedIcon = icon || iconProps?.icon;
+    const resolvedIcon: BaseIconKeys = icon || iconProps?.icon;
 
-    const newIconProps = {
-      ...iconProps,
-      icon: resolvedIcon,
-    };
-
-    const getDescribedBy = () => {
-      if (statusText || hintText || ariaDescribedBy) {
-        return {
-          'aria-describedby': [
-            ...(statusText ? [this.statusTextId] : []),
-            ...(hintText ? [this.hintTextId] : []),
-            ...(ariaDescribedBy ? [ariaDescribedBy] : []),
-          ].join(' '),
-        };
-      }
-      return {};
-    };
-
+    const hintTextId = `${id}-hintText`;
+    const statusTextId = `${id}-statusText`;
     return (
       <HtmlDiv
-        {...inputContainerProps}
+        {...wrapperProps}
         className={classnames(baseClassName, className, {
           [textInputClassNames.disabled]: !!passProps.disabled,
           [textInputClassNames.icon]: resolvedIcon !== undefined,
@@ -151,60 +132,77 @@ class BaseTextInput extends Component<TextInputProps> {
           [textInputClassNames.fullWidth]: fullWidth,
         })}
       >
-        <LabelText
-          htmlFor={this.id}
-          labelMode={labelMode}
-          as="label"
-          optionalText={optionalText}
-        >
-          {labelText}
-        </LabelText>
-        <HintText id={this.hintTextId}>{hintText}</HintText>
-        <HtmlDiv className={textInputClassNames.inputElementContainer}>
-          <Debounce waitFor={this.props.debounce}>
-            {(debouncer: Function) => (
-              <HtmlInput
-                {...passProps}
-                id={this.id}
-                className={textInputClassNames.inputElement}
-                type={type}
-                placeholder={visualPlaceholder}
-                {...{ 'aria-invalid': status === 'error' }}
-                {...getDescribedBy()}
-                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                  if (propOnChange) {
-                    const eventValue = event.currentTarget.value;
-                    debouncer(propOnChange, eventValue);
-                  }
-                }}
-              />
-            )}
-          </Debounce>
-          {resolvedIcon && <Icon {...newIconProps} />}
-        </HtmlDiv>
-        <StatusText id={this.statusTextId} status={status}>
-          {statusText}
-        </StatusText>
+        <HtmlSpan className={textInputClassNames.styleWrapper}>
+          <LabelText
+            htmlFor={id}
+            labelMode={labelMode}
+            asProp="label"
+            optionalText={optionalText}
+          >
+            {labelText}
+          </LabelText>
+          <HintText id={hintTextId}>{hintText}</HintText>
+          <HtmlDiv className={textInputClassNames.inputElementContainer}>
+            <Debounce waitFor={debounce}>
+              {(debouncer: Function) => (
+                <HtmlInput
+                  {...passProps}
+                  id={id}
+                  className={textInputClassNames.inputElement}
+                  type={type}
+                  forwardedRef={forwardedRef}
+                  placeholder={visualPlaceholder}
+                  {...{ 'aria-invalid': status === 'error' }}
+                  {...getConditionalAriaProp('aria-describedby', [
+                    statusText ? statusTextId : undefined,
+                    hintText ? hintTextId : undefined,
+                    ariaDescribedBy,
+                  ])}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                    if (propOnChange) {
+                      debouncer(propOnChange, event.currentTarget.value);
+                    }
+                  }}
+                />
+              )}
+            </Debounce>
+            {resolvedIcon && <Icon {...{ ...iconProps, icon: resolvedIcon }} />}
+          </HtmlDiv>
+          <StatusText
+            id={statusTextId}
+            status={status}
+            ariaLiveMode={statusTextAriaLiveMode}
+            disabled={passProps.disabled}
+          >
+            {statusText}
+          </StatusText>
+        </HtmlSpan>
       </HtmlDiv>
     );
   }
 }
 
 const StyledTextInput = styled(
-  ({ tokens, ...passProps }: TextInputProps & InternalTokensProp) => (
+  ({ ...passProps }: InternalTextInputProps & InnerRef) => (
     <BaseTextInput {...passProps} />
   ),
 )`
-  ${(props) => baseStyles(props)}
+  ${baseStyles}
 `;
 
 /**
  * <i class="semantics" />
  * Use for user inputting text.
  * Props other than specified explicitly are passed on to underlying input element.
+ * @component
  */
-export class TextInput extends Component<TextInputProps> {
-  render() {
-    return <StyledTextInput {...withSuomifiDefaultProps(this.props)} />;
-  }
-}
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+  (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
+    const { id: propId, ...passProps } = props;
+    return (
+      <AutoId id={propId}>
+        {(id) => <StyledTextInput id={id} forwardedRef={ref} {...passProps} />}
+      </AutoId>
+    );
+  },
+);

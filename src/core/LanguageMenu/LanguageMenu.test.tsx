@@ -3,8 +3,6 @@ import { render } from '@testing-library/react';
 
 import { LanguageMenu } from './LanguageMenu';
 import { LanguageMenuItem, LanguageMenuLink } from './LanguageMenuItem';
-import { baseStyles } from './LanguageMenu.baseStyles';
-import { cssFromBaseStyles } from '../utils';
 import { axeTest } from '../../utils/test/axe';
 
 const doNothing = () => ({});
@@ -34,8 +32,3 @@ test(
     },
   }),
 );
-
-test('CSS export', () => {
-  const css = cssFromBaseStyles(baseStyles);
-  expect(css).toEqual(expect.stringContaining('color'));
-});

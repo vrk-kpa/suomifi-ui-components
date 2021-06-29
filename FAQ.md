@@ -28,9 +28,9 @@ If you are using TypeScript, make sure you have the latest version of `@types/we
 
 Also notice that `__webpack_nonce__` does not work with hot reload in local development environment by default.
 
-## 3. Some components won't work on old browsers (e.g. IE) at all
+## 3. Some components won't work on old browsers (e.g. IE) at all.
 
-Add polyfills to your application.
+Add polyfills to your application. Internet Explorer is not officially supported.
 
 ## 4. Do you support server side rendering?
 

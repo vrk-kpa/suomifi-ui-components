@@ -1,8 +1,6 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { TokensProp, InternalTokensProp } from '../theme';
-import { withSuomifiDefaultProps } from '../theme/utils';
 import { baseStyles } from './Button.baseStyles';
 import { HtmlButton, HtmlButtonProps } from '../../reset';
 import { Icon, IconProps, BaseIconKeys } from '../Icon/Icon';
@@ -11,13 +9,13 @@ type ButtonVariant =
   | 'default'
   | 'inverted'
   | 'secondary'
-  | 'secondary-noborder'
-  | 'tertiary';
+  | 'secondaryNoBorder'
+  | 'link';
 
-export interface InternalButtonProps
+interface InternalButtonProps
   extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'> {
   /**
-   * 'default' | 'inverted' | 'secondary' | 'secondary-noborder' | 'tertiary'
+   * 'default' | 'inverted' | 'secondary' | 'secondaryNoBorder' | 'link'
    * @default default
    */
   variant?: ButtonVariant;
@@ -58,7 +56,14 @@ export interface InternalButtonProps
   onClick?: (event: MouseEvent | KeyboardEvent) => void;
 }
 
-export interface ButtonProps extends InternalButtonProps, TokensProp {}
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLButtonElement>;
+}
+
+export interface ButtonProps extends InternalButtonProps {
+  /** Ref object to be passed to the input element */
+  ref?: React.RefObject<HTMLButtonElement>;
+}
 
 const baseClassName = 'fi-button';
 const disabledClassName = `${baseClassName}--disabled`;
@@ -66,7 +71,7 @@ const iconClassName = `${baseClassName}_icon`;
 const iconRightClassName = `${baseClassName}_icon--right`;
 const fullWidthClassName = `${baseClassName}--fullwidth`;
 
-class BaseButton extends Component<ButtonProps> {
+class BaseButton extends Component<ButtonProps & InnerRef> {
   render() {
     const {
       fullWidth,
@@ -78,6 +83,7 @@ class BaseButton extends Component<ButtonProps> {
       icon,
       iconRight,
       iconProps = { className: undefined },
+      forwardedRef,
       children,
       ...passProps
     } = this.props;
@@ -89,12 +95,17 @@ class BaseButton extends Component<ButtonProps> {
         <HtmlButton
           {...passProps}
           {...onClickProp}
+          {...(!!disabled ? {} : { tabIndex: 0 })}
           aria-disabled={!!ariaDisabled || !!disabled}
-          tabIndex={0}
+          forwardedRef={forwardedRef}
           disabled={!!disabled}
           className={classnames(baseClassName, className, {
             [disabledClassName]: !!disabled || !!ariaDisabled,
-            [`${baseClassName}--${variant}`]: variant !== 'default',
+            [`${baseClassName}--inverted`]: variant === 'inverted',
+            [`${baseClassName}--secondary`]: variant === 'secondary',
+            [`${baseClassName}--secondary-noborder`]:
+              variant === 'secondaryNoBorder',
+            [`${baseClassName}--link`]: variant === 'link',
             [fullWidthClassName]: fullWidth,
           })}
         >
@@ -128,40 +139,19 @@ class BaseButton extends Component<ButtonProps> {
 }
 
 const StyledButton = styled(
-  ({ tokens, ...passProps }: ButtonProps & InternalTokensProp) => (
+  ({ ...passProps }: InternalButtonProps & InnerRef) => (
     <BaseButton {...passProps} />
   ),
 )`
-  ${(props) => baseStyles(props)}
+  ${baseStyles}
 `;
 
 /**
  * <i class="semantics" />
  * Use for inside Application onClick events.<br />
- * When using Button.secondaryNoborder with other than white background,<br />
- * define styles background color for all needed states (:hover, :active, :disabled)<br /><br />
  */
-export class Button extends Component<ButtonProps> {
-  static inverted = (props: ButtonProps) => (
-    <StyledButton {...withSuomifiDefaultProps(props)} variant="inverted" />
-  );
-
-  static secondary = (props: ButtonProps) => (
-    <StyledButton {...withSuomifiDefaultProps(props)} variant="secondary" />
-  );
-
-  static secondaryNoborder = (props: ButtonProps) => (
-    <StyledButton
-      {...withSuomifiDefaultProps(props)}
-      variant="secondary-noborder"
-    />
-  );
-
-  static tertiary = (props: ButtonProps) => (
-    <StyledButton {...withSuomifiDefaultProps(props)} variant="tertiary" />
-  );
-
-  render() {
-    return <StyledButton {...withSuomifiDefaultProps(this.props)} />;
-  }
-}
+export const Button = forwardRef(
+  (props: ButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
+    <StyledButton forwardedRef={ref} {...props} />
+  ),
+);

@@ -1,12 +1,11 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlInput, HtmlLabel, HtmlSpan, HtmlDiv } from '../../../reset';
-import { TokensProp, InternalTokensProp } from '../../theme';
+import { HtmlLabel, HtmlSpan, HtmlDiv, HtmlInput } from '../../../reset';
 import { logger } from '../../../utils/logger';
-import { withSuomifiDefaultProps } from '../../theme/utils';
 import { AutoId } from '../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
+import { ComponentIcon } from '../../StaticIcon/StaticIcon';
 import { RadioButtonGroupConsumer } from './RadioButtonGroup';
 import { baseStyles } from './RadioButton.baseStyles';
 
@@ -14,6 +13,8 @@ const baseClassName = 'fi-radio-button';
 const radioButtonClassNames = {
   container: `${baseClassName}_container`,
   input: `${baseClassName}_input`,
+  iconWrapper: `${baseClassName}_icon_wrapper`,
+  icon: `${baseClassName}_icon`,
   label: `${baseClassName}_label`,
   hintText: `${baseClassName}_hintText`,
   disabled: `${baseClassName}--disabled`,
@@ -21,7 +22,7 @@ const radioButtonClassNames = {
   checked: `${baseClassName}--checked`,
 };
 
-export interface RadioButtonProps extends TokensProp {
+interface InternalRadioButtonProps {
   /** Custom classname to extend or customize */
   className?: string;
   /** Label for element content */
@@ -60,7 +61,16 @@ interface RadioButtonState {
   checkedState: boolean;
 }
 
-class BaseRadioButton extends Component<RadioButtonProps> {
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLInputElement>;
+}
+
+export interface RadioButtonProps extends InternalRadioButtonProps {
+  /** Ref object to be passed to the input element */
+  ref?: React.RefObject<HTMLInputElement>;
+}
+
+class BaseRadioButton extends Component<RadioButtonProps & InnerRef> {
   state = {
     checkedState: !!this.props.checked,
   };
@@ -87,6 +97,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
       value,
       hintText,
       className,
+      forwardedRef,
       onChange,
       disabled = false,
       ...passProps
@@ -103,7 +114,6 @@ class BaseRadioButton extends Component<RadioButtonProps> {
 
     const { checkedState } = this.state;
     const hintTextId = `${id}-hintText`;
-
     return (
       <HtmlDiv
         className={classnames(
@@ -123,6 +133,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
           name={name}
           id={id}
           disabled={disabled}
+          forwardedRef={forwardedRef}
           onChange={onChange}
           {...(checked !== undefined
             ? { checked: checkedState }
@@ -133,6 +144,12 @@ class BaseRadioButton extends Component<RadioButtonProps> {
           {...(value ? { value } : {})}
           {...passProps}
         />
+        <HtmlSpan className={radioButtonClassNames.iconWrapper}>
+          <ComponentIcon
+            className={radioButtonClassNames.icon}
+            icon={variant === 'large' ? 'radioButtonLarge' : 'radioButton'}
+          />
+        </HtmlSpan>
         <HtmlLabel htmlFor={id} className={radioButtonClassNames.label}>
           {children}
         </HtmlLabel>
@@ -147,16 +164,16 @@ class BaseRadioButton extends Component<RadioButtonProps> {
 }
 
 const StyledRadioButton = styled(
-  ({ tokens, ...passProps }: RadioButtonProps & InternalTokensProp) => (
+  ({ ...passProps }: InternalRadioButtonProps & InnerRef) => (
     <BaseRadioButton {...passProps} />
   ),
 )`
-  ${(tokens) => baseStyles(tokens)}
+  ${baseStyles}
 `;
 
-export class RadioButton extends Component<RadioButtonProps> {
-  render() {
-    const { id: propId, onChange, ...passProps } = this.props;
+export const RadioButton = forwardRef(
+  (props: RadioButtonProps, ref: React.RefObject<HTMLInputElement>) => {
+    const { id: propId, onChange, ...passProps } = props;
     return (
       <AutoId id={propId}>
         {(id) => (
@@ -164,7 +181,8 @@ export class RadioButton extends Component<RadioButtonProps> {
             {({ onRadioButtonChange, selectedValue, name }) => (
               <StyledRadioButton
                 id={id}
-                {...withSuomifiDefaultProps(passProps)}
+                forwardedRef={ref}
+                {...passProps}
                 {...(!!onRadioButtonChange
                   ? {
                       checked: selectedValue === passProps.value,
@@ -185,5 +203,5 @@ export class RadioButton extends Component<RadioButtonProps> {
         )}
       </AutoId>
     );
-  }
-}
+  },
+);

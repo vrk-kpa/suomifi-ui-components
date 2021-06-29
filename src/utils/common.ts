@@ -1,6 +1,6 @@
 import React from 'react';
 
-function windowAvailable() {
+export function windowAvailable() {
   return !!(
     typeof window !== 'undefined' &&
     window.document &&

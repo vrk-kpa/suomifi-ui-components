@@ -73,6 +73,14 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
 }
 
+.c5.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c5.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c4 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
@@ -141,7 +149,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 <a
-  class="c0 sc-bdfBwQ c0 c1 c2 fi-link fi-link--external"
+  class="c0 sc-bdvvaa c0 c1 c2 fi-link fi-link--external"
   data-testid="test-link"
   href="/"
   rel="noopener"
@@ -161,6 +169,7 @@ exports[`calling render with the same component on the same container does not r
     height="1em"
     viewBox="0 0 24 24"
     width="1em"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <path
       d="M12 4a1 1 0 010 2H2v16h16V12a1 1 0 012 0v10c0 1.103-.897 2-2 2H2c-1.103 0-2-.897-2-2V6c0-1.103.897-2 2-2h10zm11-4a1 1 0 011 1v6.657a1 1 0 01-2 0l-.001-4.242-9.792 9.792a.997.997 0 01-1.414 0 .999.999 0 010-1.414L20.586 2h-4.243a1 1 0 010-2H23z"

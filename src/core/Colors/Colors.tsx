@@ -1,18 +1,17 @@
 import React, { Component, ReactNode } from 'react';
-import { withSuomifiDefaultProps } from '../theme/utils';
+import { defaultThemeTokens as theme } from '../theme';
 import { hslaToHex } from '../../utils/css';
 import { default as styled } from 'styled-components';
-import { TokensProp, InternalTokensProp } from '../theme';
 import { baseStyles, containerStyles } from './Colors.baseStyles';
 import clipboardCopy from 'clipboard-copy';
 
-export interface ColorsProps extends TokensProp {
+export interface ColorsProps {
   colors?: {
     [key: string]: string;
   };
 }
 
-export interface ColorProps extends TokensProp {
+export interface ColorProps {
   keyName: string;
   color: string;
   children?: ReactNode;
@@ -27,10 +26,10 @@ const onEnterPressed = (keyName: string) => (e: React.KeyboardEvent) => {
 };
 
 const StyledFigure = styled.figure`
-  ${(props: ColorProps & InternalTokensProp) => baseStyles(props)};
+  ${(props: ColorProps) => baseStyles(props)};
 `;
 
-const ColorFigure = (props: ColorProps & InternalTokensProp) => {
+const ColorFigure = (props: ColorProps) => {
   const { color, keyName } = props;
   const hslaAsHex = hslaToHex(color);
 
@@ -63,9 +62,7 @@ const ColorsContainer = styled.div`
 
 export class Colors extends Component<ColorsProps> {
   render() {
-    const { colors } = this.props;
-    const props = withSuomifiDefaultProps(this.props);
-    const useColors = !!colors ? colors : props.tokens.colors;
+    const useColors = !!this.props.colors ? this.props.colors : theme.colors;
     return (
       <ColorsContainer>
         {Object.entries(useColors).reduce<JSX.Element[]>(
@@ -75,7 +72,7 @@ export class Colors extends Component<ColorsProps> {
                 key={key.toString()}
                 keyName={key.toString()}
                 color={value as string}
-                {...props}
+                {...this.props}
               />
             );
             return [...arr, item];

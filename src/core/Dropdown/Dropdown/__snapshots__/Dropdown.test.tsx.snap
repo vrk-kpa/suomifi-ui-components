@@ -1,0 +1,1364 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Basic dropdown should match snapshot 1`] = `
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c3.fi-label-text .fi-label-text_label-span {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+  color: hsl(0,0%,16%);
+}
+
+.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-dropdown {
+  display: inline-block;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-height: 22px;
+  padding: 7px 38px 7px 7px;
+  border-color: hsl(201,7%,58%);
+  text-align: left;
+  line-height: 1.5;
+  background-color: hsl(0,0%,100%);
+  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+  cursor: pointer;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  margin-top: -3px;
+  border-style: solid;
+  border-color: hsl(201,7%,58%) transparent transparent transparent;
+  border-width: 6px 4px 0 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
+  border-color: transparent transparent hsl(201,7%,58%) transparent;
+  border-width: 0 4px 6px 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled {
+  background-color: hsl(202,7%,97%);
+  color: hsl(202,7%,67%);
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
+  border-color: hsl(202,7%,67%) transparent transparent transparent;
+}
+
+.c1[data-reach-listbox-popover].fi-dropdown_popover {
+  color: hsl(0,0%,16%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: -1px;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  border: 0;
+  background-color: hsl(0,0%,100%);
+  border-color: hsl(201,7%,58%);
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0px 0px 2px 2px;
+  overflow: hidden;
+}
+
+.c1[data-reach-listbox-popover].fi-dropdown_popover:focus-within {
+  outline: 0;
+  box-shadow: none;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-selected].fi-dropdown_item {
+  background-color: hsl(0,0%,100%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
+  color: hsl(0,0%,16%);
+  background-image: none;
+  background-color: hsl(212,63%,95%);
+  border: 0;
+}
+
+.c1 [data-reach-listbox-list] {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+<div>
+  <span
+    class="c0 c1 dropdown-test fi-dropdown"
+    data-testid="dropdown-test-id"
+    id="test-id"
+  >
+    <div
+      class="c2"
+    >
+      <label
+        class="c2 c3 fi-label-text"
+        id="test-id-label"
+      >
+        <span
+          class="c0 fi-label-text_label-span"
+        >
+          Dropdown test
+        </span>
+      </label>
+      <div
+        data-reach-listbox-input=""
+        data-state="closed"
+        data-value=""
+        id="listbox-input--25"
+      >
+        <span
+          aria-haspopup="listbox"
+          aria-labelledby="test-id-label"
+          class="fi-dropdown_button"
+          data-reach-listbox-button=""
+          id="button--listbox-input--25"
+          role="button"
+          tabindex="0"
+        >
+          Dropdown
+        </span>
+      </div>
+      <input
+        data-reach-listbox-hidden-input=""
+        name="dropdown-test"
+        readonly=""
+        tabindex="-1"
+        type="hidden"
+        value=""
+      />
+    </div>
+  </span>
+</div>
+`;
+
+exports[`Controlled Dropdown should match snapshot 1`] = `
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c3.fi-label-text .fi-label-text_label-span {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+  color: hsl(0,0%,16%);
+}
+
+.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-dropdown {
+  display: inline-block;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-height: 22px;
+  padding: 7px 38px 7px 7px;
+  border-color: hsl(201,7%,58%);
+  text-align: left;
+  line-height: 1.5;
+  background-color: hsl(0,0%,100%);
+  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+  cursor: pointer;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  margin-top: -3px;
+  border-style: solid;
+  border-color: hsl(201,7%,58%) transparent transparent transparent;
+  border-width: 6px 4px 0 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
+  border-color: transparent transparent hsl(201,7%,58%) transparent;
+  border-width: 0 4px 6px 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled {
+  background-color: hsl(202,7%,97%);
+  color: hsl(202,7%,67%);
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
+  border-color: hsl(202,7%,67%) transparent transparent transparent;
+}
+
+.c1[data-reach-listbox-popover].fi-dropdown_popover {
+  color: hsl(0,0%,16%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: -1px;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  border: 0;
+  background-color: hsl(0,0%,100%);
+  border-color: hsl(201,7%,58%);
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0px 0px 2px 2px;
+  overflow: hidden;
+}
+
+.c1[data-reach-listbox-popover].fi-dropdown_popover:focus-within {
+  outline: 0;
+  box-shadow: none;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-selected].fi-dropdown_item {
+  background-color: hsl(0,0%,100%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
+  color: hsl(0,0%,16%);
+  background-image: none;
+  background-color: hsl(212,63%,95%);
+  border: 0;
+}
+
+.c1 [data-reach-listbox-list] {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+<div>
+  <span
+    class="c0 c1 dropdown-test fi-dropdown"
+    data-testid=""
+    id="test-id"
+    value="item-2"
+  >
+    <div
+      class="c2"
+    >
+      <label
+        class="c2 c3 fi-label-text"
+        id="test-id-label"
+      >
+        <span
+          class="c0 fi-label-text_label-span"
+        >
+          Dropdown test
+        </span>
+      </label>
+      <div
+        data-reach-listbox-input=""
+        data-state="closed"
+        data-value="item-2"
+        id="listbox-input--57"
+      >
+        <span
+          aria-haspopup="listbox"
+          aria-labelledby="test-id-label button--listbox-input--57"
+          class="fi-dropdown_button"
+          data-reach-listbox-button=""
+          id="button--listbox-input--57"
+          role="button"
+          tabindex="0"
+        >
+          Item 2
+        </span>
+      </div>
+      <input
+        data-reach-listbox-hidden-input=""
+        name="dropdown-test"
+        readonly=""
+        tabindex="-1"
+        type="hidden"
+        value="item-2"
+      />
+    </div>
+  </span>
+</div>
+`;
+
+exports[`Dropdown as action menu should match snapshot 1`] = `
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c3.fi-label-text .fi-label-text_label-span {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+  color: hsl(0,0%,16%);
+}
+
+.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-dropdown {
+  display: inline-block;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-height: 22px;
+  padding: 7px 38px 7px 7px;
+  border-color: hsl(201,7%,58%);
+  text-align: left;
+  line-height: 1.5;
+  background-color: hsl(0,0%,100%);
+  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+  cursor: pointer;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  margin-top: -3px;
+  border-style: solid;
+  border-color: hsl(201,7%,58%) transparent transparent transparent;
+  border-width: 6px 4px 0 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
+  border-color: transparent transparent hsl(201,7%,58%) transparent;
+  border-width: 0 4px 6px 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled {
+  background-color: hsl(202,7%,97%);
+  color: hsl(202,7%,67%);
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
+  border-color: hsl(202,7%,67%) transparent transparent transparent;
+}
+
+.c1[data-reach-listbox-popover].fi-dropdown_popover {
+  color: hsl(0,0%,16%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: -1px;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  border: 0;
+  background-color: hsl(0,0%,100%);
+  border-color: hsl(201,7%,58%);
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0px 0px 2px 2px;
+  overflow: hidden;
+}
+
+.c1[data-reach-listbox-popover].fi-dropdown_popover:focus-within {
+  outline: 0;
+  box-shadow: none;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-selected].fi-dropdown_item {
+  background-color: hsl(0,0%,100%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
+  color: hsl(0,0%,16%);
+  background-image: none;
+  background-color: hsl(212,63%,95%);
+  border: 0;
+}
+
+.c1 [data-reach-listbox-list] {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+<div>
+  <span
+    class="c0 c1 dropdown-test fi-dropdown"
+    data-testid=""
+    id="test-id"
+  >
+    <div
+      class="c2"
+    >
+      <label
+        class="c2 c3 fi-label-text"
+        id="test-id-label"
+      >
+        <span
+          class="c0 fi-label-text_label-span"
+        >
+          Dropdown test
+        </span>
+      </label>
+      <div
+        data-reach-listbox-input=""
+        data-state="closed"
+        data-value="item-2"
+        id="listbox-input--69"
+      >
+        <span
+          aria-haspopup="listbox"
+          aria-labelledby="test-id-label button--listbox-input--69"
+          class="fi-dropdown_button"
+          data-reach-listbox-button=""
+          id="button--listbox-input--69"
+          role="button"
+          tabindex="0"
+        >
+          Action menu
+        </span>
+      </div>
+      <input
+        data-reach-listbox-hidden-input=""
+        name="dropdown-test"
+        readonly=""
+        tabindex="-1"
+        type="hidden"
+        value="item-2"
+      />
+    </div>
+  </span>
+</div>
+`;
+
+exports[`Dropdown with additional aria-label should match snapshot 1`] = `
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c3.fi-label-text .fi-label-text_label-span {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+  color: hsl(0,0%,16%);
+}
+
+.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-dropdown {
+  display: inline-block;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-height: 22px;
+  padding: 7px 38px 7px 7px;
+  border-color: hsl(201,7%,58%);
+  text-align: left;
+  line-height: 1.5;
+  background-color: hsl(0,0%,100%);
+  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+  cursor: pointer;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  margin-top: -3px;
+  border-style: solid;
+  border-color: hsl(201,7%,58%) transparent transparent transparent;
+  border-width: 6px 4px 0 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
+  border-color: transparent transparent hsl(201,7%,58%) transparent;
+  border-width: 0 4px 6px 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled {
+  background-color: hsl(202,7%,97%);
+  color: hsl(202,7%,67%);
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
+  border-color: hsl(202,7%,67%) transparent transparent transparent;
+}
+
+.c1[data-reach-listbox-popover].fi-dropdown_popover {
+  color: hsl(0,0%,16%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: -1px;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  border: 0;
+  background-color: hsl(0,0%,100%);
+  border-color: hsl(201,7%,58%);
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0px 0px 2px 2px;
+  overflow: hidden;
+}
+
+.c1[data-reach-listbox-popover].fi-dropdown_popover:focus-within {
+  outline: 0;
+  box-shadow: none;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-selected].fi-dropdown_item {
+  background-color: hsl(0,0%,100%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
+  color: hsl(0,0%,16%);
+  background-image: none;
+  background-color: hsl(212,63%,95%);
+  border: 0;
+}
+
+.c1 [data-reach-listbox-list] {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+<div>
+  <span
+    class="c0 c1 dropdown-test fi-dropdown"
+    data-testid=""
+    id="test-id"
+  >
+    <div
+      class="c2"
+    >
+      <label
+        class="c2 c3 fi-label-text"
+        id="test-id-label"
+      >
+        <span
+          class="c0 fi-label-text_label-span"
+        >
+          Dropdown test
+        </span>
+      </label>
+      <div
+        data-reach-listbox-input=""
+        data-state="closed"
+        data-value=""
+        id="listbox-input--81"
+      >
+        <span
+          aria-haspopup="listbox"
+          aria-labelledby="additional-label-id test-id-label"
+          class="fi-dropdown_button"
+          data-reach-listbox-button=""
+          id="button--listbox-input--81"
+          role="button"
+          tabindex="0"
+        >
+          Dropdown
+        </span>
+      </div>
+      <input
+        data-reach-listbox-hidden-input=""
+        name="dropdown-test"
+        readonly=""
+        tabindex="-1"
+        type="hidden"
+        value=""
+      />
+    </div>
+  </span>
+</div>
+`;
+
+exports[`Dropdown with hidden label should match snapshot 1`] = `
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c4 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.c3.fi-label-text .fi-label-text_label-span {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+  color: hsl(0,0%,16%);
+}
+
+.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-dropdown {
+  display: inline-block;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-height: 22px;
+  padding: 7px 38px 7px 7px;
+  border-color: hsl(201,7%,58%);
+  text-align: left;
+  line-height: 1.5;
+  background-color: hsl(0,0%,100%);
+  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+  cursor: pointer;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  margin-top: -3px;
+  border-style: solid;
+  border-color: hsl(201,7%,58%) transparent transparent transparent;
+  border-width: 6px 4px 0 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
+  border-color: transparent transparent hsl(201,7%,58%) transparent;
+  border-width: 0 4px 6px 4px;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled {
+  background-color: hsl(202,7%,97%);
+  color: hsl(202,7%,67%);
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.c1 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
+  border-color: hsl(202,7%,67%) transparent transparent transparent;
+}
+
+.c1[data-reach-listbox-popover].fi-dropdown_popover {
+  color: hsl(0,0%,16%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: -1px;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  border: 0;
+  background-color: hsl(0,0%,100%);
+  border-color: hsl(201,7%,58%);
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0px 0px 2px 2px;
+  overflow: hidden;
+}
+
+.c1[data-reach-listbox-popover].fi-dropdown_popover:focus-within {
+  outline: 0;
+  box-shadow: none;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-selected].fi-dropdown_item {
+  background-color: hsl(0,0%,100%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
+  color: hsl(0,0%,16%);
+  background-image: none;
+  background-color: hsl(212,63%,95%);
+  border: 0;
+}
+
+.c1 [data-reach-listbox-list] {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+<div>
+  <span
+    class="c0 c1 dropdown-test fi-dropdown"
+    data-testid="dropdown-hidden-label-test-id"
+    id="test-id"
+  >
+    <div
+      class="c2"
+    >
+      <label
+        class="c2 c3 fi-label-text"
+        id="test-id-label"
+      >
+        <span
+          class="c0 c4 fi-visually-hidden"
+        >
+          Dropdown test
+        </span>
+      </label>
+      <div
+        data-reach-listbox-input=""
+        data-state="closed"
+        data-value=""
+        id="listbox-input--37"
+      >
+        <span
+          aria-haspopup="listbox"
+          aria-labelledby="test-id-label"
+          class="fi-dropdown_button"
+          data-reach-listbox-button=""
+          id="button--listbox-input--37"
+          role="button"
+          tabindex="0"
+        >
+          Dropdown
+        </span>
+      </div>
+      <input
+        data-reach-listbox-hidden-input=""
+        name="dropdown-test"
+        readonly=""
+        tabindex="-1"
+        type="hidden"
+        value=""
+      />
+    </div>
+  </span>
+</div>
+`;

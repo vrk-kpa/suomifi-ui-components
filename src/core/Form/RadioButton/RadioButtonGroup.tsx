@@ -1,11 +1,9 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
-import { TokensProp, InternalTokensProp } from '../../theme';
 import { HtmlDiv, HtmlSpan, HtmlFieldSet, HtmlLegend } from '../../../reset';
-import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
+import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { RadioButtonProps } from './RadioButton';
 import { baseStyles } from './RadioButtonGroup.baseStyles';
-import { withSuomifiDefaultProps } from '../../theme/utils';
 import { AutoId } from '../../../utils/AutoId';
 import classnames from 'classnames';
 
@@ -16,7 +14,7 @@ const radioButtonGroupClassNames = {
   hintText: `${baseClassName}_hintText`,
 };
 
-export interface RadioButtonGroupProps extends TokensProp {
+export interface RadioButtonGroupProps {
   /** Custom classname to extend or customize */ className?: string;
   /** RadioButton or ReactNode */
   children: Array<React.ReactElement<RadioButtonProps> | ReactNode>;
@@ -100,7 +98,11 @@ class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
     const hideLabel = labelMode === 'hidden';
 
     return (
-      <HtmlDiv className={className} id={id} {...passProps}>
+      <HtmlDiv
+        className={classnames(baseClassName, className)}
+        id={id}
+        {...passProps}
+      >
         <HtmlFieldSet>
           <HtmlLegend>
             {hideLabel ? (
@@ -134,18 +136,8 @@ class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
   }
 }
 
-const StyledRadioButtonGroup = styled(
-  ({
-    tokens,
-    id: propId,
-    ...passProps
-  }: RadioButtonGroupProps & InternalTokensProp) => (
-    <AutoId id={propId}>
-      {(id) => <BaseRadioButtonGroup id={id} {...passProps} />}
-    </AutoId>
-  ),
-)`
-  ${(props) => baseStyles(props)}
+const StyledRadioButtonGroup = styled(BaseRadioButtonGroup)`
+  ${baseStyles}
 `;
 
 /**
@@ -155,17 +147,11 @@ const StyledRadioButtonGroup = styled(
  */
 export class RadioButtonGroup extends Component<RadioButtonGroupProps> {
   render() {
-    const { children, className, ...passProps } = withSuomifiDefaultProps(
-      this.props,
-    );
-
+    const { id: propId, ...passProps } = this.props;
     return (
-      <StyledRadioButtonGroup
-        className={classnames(baseClassName, className, {})}
-        {...passProps}
-      >
-        {children}
-      </StyledRadioButtonGroup>
+      <AutoId id={propId}>
+        {(id) => <StyledRadioButtonGroup id={id} {...passProps} />}
+      </AutoId>
     );
   }
 }

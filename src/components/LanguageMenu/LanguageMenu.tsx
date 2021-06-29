@@ -13,7 +13,6 @@ import {
 import { positionDefault } from '@reach/popover';
 import { PRect } from '@reach/rect';
 import { logger } from '../../utils/logger';
-import { Omit } from '../../utils/typescript';
 
 export { MenuItems, MenuItem, MenuLink, MenuPopover, MenuPopoverProps, PRect };
 

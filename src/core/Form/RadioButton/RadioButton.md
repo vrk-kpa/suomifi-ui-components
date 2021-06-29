@@ -2,13 +2,21 @@
 
 ```js
 import { RadioButton, RadioButtonGroup } from 'suomifi-ui-components';
+import React from 'react';
+
+const exampleRef = React.createRef();
 
 <RadioButtonGroup
   labelText="RadioButtons in group"
   hintText="Example hint text"
   name="test-group"
+  onChange={() => {
+    console.log(exampleRef.current);
+  }}
 >
-  <RadioButton value="value-test-1">Choice 1</RadioButton>
+  <RadioButton ref={exampleRef} value="value-test-1">
+    Choice 1
+  </RadioButton>
   <RadioButton value="value-test-2">Choice 2</RadioButton>
   <RadioButton value="value-test-3">Choice 3</RadioButton>
 </RadioButtonGroup>;

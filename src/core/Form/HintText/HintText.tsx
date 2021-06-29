@@ -1,14 +1,12 @@
 import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
-import { baseStyles } from './HintText.baseStyles';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
-import { TokensProp, InternalTokensProp } from 'core/theme';
-import { withSuomifiDefaultProps } from '../../theme/utils';
+import { baseStyles } from './HintText.baseStyles';
 
 const baseClassName = 'fi-hint-text';
 
-interface InternalHintTextProps extends HtmlSpanProps {
+export interface HintTextProps extends HtmlSpanProps {
   /** id */
   id?: string;
   /** HintText element content */
@@ -17,15 +15,8 @@ interface InternalHintTextProps extends HtmlSpanProps {
   className?: string;
 }
 
-export interface HintTextProps extends InternalHintTextProps, TokensProp {}
-
 const StyledHintText = styled(
-  ({
-    className,
-    children,
-    tokens,
-    ...passProps
-  }: HintTextProps & InternalTokensProp) => (
+  ({ className, children, ...passProps }: HintTextProps) => (
     <HtmlSpan
       {...passProps}
       className={classnames(className, baseClassName, {})}
@@ -34,11 +25,11 @@ const StyledHintText = styled(
     </HtmlSpan>
   ),
 )`
-  ${(tokens) => baseStyles(withSuomifiDefaultProps(tokens))}
+  ${baseStyles}
 `;
 export class HintText extends Component<HintTextProps> {
   render() {
-    const { children, ...passProps } = withSuomifiDefaultProps(this.props);
+    const { children, ...passProps } = this.props;
     if (!children) {
       return null;
     }

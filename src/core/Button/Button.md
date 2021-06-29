@@ -1,5 +1,8 @@
 ```js
 import { Button } from 'suomifi-ui-components';
+import React from 'react';
+
+const exampleRef = React.createRef();
 
 <>
   <Button
@@ -12,6 +15,14 @@ import { Button } from 'suomifi-ui-components';
 
   <Button disabled fullWidth>
     Button disabled fullWidth
+  </Button>
+  <Button
+    ref={exampleRef}
+    onClick={() => {
+      console.log(exampleRef.current);
+    }}
+  >
+    Button with ref
   </Button>
 </>;
 ```
@@ -54,11 +65,11 @@ import { Button } from 'suomifi-ui-components';
 
 <>
   <div example="inverted">
-    <Button.inverted>Button.inverted</Button.inverted>
+    <Button variant="inverted">Inverted Button </Button>
 
-    <Button.inverted disabled fullWidth icon="login">
-      Button.inverted disabled fullWidth icon="login"
-    </Button.inverted>
+    <Button variant="inverted" disabled fullWidth icon="login">
+      Inverted Button disabled fullWidth icon="login"
+    </Button>
   </div>
 </>;
 ```
@@ -67,27 +78,27 @@ import { Button } from 'suomifi-ui-components';
 import { Button } from 'suomifi-ui-components';
 
 <>
-  <Button.secondary>Button.secondary</Button.secondary>
+  <Button variant="secondary">Button</Button>
 
-  <Button.secondary icon="login">
-    Button.secondary icon="login"
-  </Button.secondary>
+  <Button variant="secondary" icon="login">
+    Secondary Button icon="login"
+  </Button>
 
-  <Button.secondary disabled fullWidth icon="login">
-    Button.secondary disabled fullWidth icon="login"
-  </Button.secondary>
+  <Button variant="secondary" disabled fullWidth icon="login">
+    Secondary Button disabled fullWidth icon="login"
+  </Button>
 
-  <Button.secondaryNoborder>
-    Button.secondaryNoborder
-  </Button.secondaryNoborder>
+  <Button variant="secondaryNoBorder">
+    Borderless secondary Button
+  </Button>
 
-  <Button.secondaryNoborder icon="login">
-    Button icon="login"
-  </Button.secondaryNoborder>
+  <Button variant="secondaryNoBorder" icon="login">
+    Borderless secondary Button icon="login"
+  </Button>
 
-  <Button.secondaryNoborder disabled icon="login">
-    Button.secondaryNoborder disabled icon="login"
-  </Button.secondaryNoborder>
+  <Button variant="secondaryNoBorder" disabled icon="login">
+    Borderless secondary Button disabled icon="login"
+  </Button>
 </>;
 ```
 
@@ -95,10 +106,10 @@ import { Button } from 'suomifi-ui-components';
 import { Button } from 'suomifi-ui-components';
 
 <>
-  <Button.tertiary>Button.tertiary</Button.tertiary>
+  <Button variant="link">Link Button</Button>
 
-  <Button.tertiary disabled icon="login">
-    Button.tertiary disabled icon="login"
-  </Button.tertiary>
+  <Button variant="link" disabled icon="login">
+    Link Button disabled icon="login"
+  </Button>
 </>;
 ```
