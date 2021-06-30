@@ -10,6 +10,9 @@ export { Dropdown, DropdownProps } from './core/Dropdown/';
 export { DropdownItem, DropdownItemProps } from './core/Dropdown/';
 export { Chip, ChipProps } from './core/Chip/';
 export { StaticChip, StaticChipProps } from './core/Chip/';
+// MultiSelect,
+// MultiSelectProps,
+// MultiSelectData,
 export {
   Checkbox,
   CheckboxProps,
@@ -25,9 +28,6 @@ export {
   RadioButtonProps,
   RadioButtonGroup,
   RadioButtonGroupProps,
-  MultiSelect,
-  MultiSelectProps,
-  MultiSelectData,
 } from './core/Form/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';

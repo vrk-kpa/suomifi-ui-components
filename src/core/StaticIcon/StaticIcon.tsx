@@ -40,6 +40,7 @@ const StyledSuomifiStaticIcon = styled(
     ariaLabel,
     mousePointer,
     highlightColor,
+    baseColor,
     ...passProps
   }: StaticIconProps) => (
     <SuomifiStaticIcon
