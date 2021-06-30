@@ -157,6 +157,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
                 placeholder={visualPlaceholder}
                 {...getConditionalAriaProp('aria-describedby', [
                   statusTextId,
+                  hintTextId,
                   ariaDescribedBy,
                 ])}
                 autoComplete="off"
