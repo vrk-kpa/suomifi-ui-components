@@ -1,36 +1,37 @@
-import React, { Component, ChangeEvent, FocusEvent } from 'react';
+import React, { Component, ChangeEvent, FocusEvent, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { TokensProp, InternalTokensProp } from '../../theme';
-import { baseStyles } from './Textarea.baseStyles';
-import { withSuomifiDefaultProps } from '../../theme/utils';
+import { getConditionalAriaProp } from '../../../utils/aria';
+import { AutoId } from '../../../utils/AutoId';
 import {
   HtmlTextarea,
   HtmlTextareaProps,
   HtmlDiv,
   HtmlDivProps,
 } from '../../../reset';
-import { AutoId } from '../../../utils/AutoId';
 import { LabelText } from '../LabelText/LabelText';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
-import { InputStatus } from '../types';
-import { getConditionalAriaProp } from '../../../utils/aria';
+import { InputStatus, StatusTextCommonProps } from '../types';
+import { baseStyles } from './Textarea.baseStyles';
 
 const baseClassName = 'fi-textarea';
 const textareaClassNames = {
   fullWidth: `${baseClassName}--full-width`,
   textareaContainer: `${baseClassName}_textarea-element-container`,
   textarea: `${baseClassName}_textarea`,
+  resizeHorizontal: `${baseClassName}_textarea-resize--horizontal`,
+  resizeBoth: `${baseClassName}_textarea-resize--both`,
+  resizeNone: `${baseClassName}_textarea-resize--none`,
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
 };
 
 type TextareaStatus = Exclude<InputStatus, 'success'>;
 
-export interface TextareaProps
-  extends Omit<HtmlTextareaProps, 'placeholder'>,
-    TokensProp {
+interface InternalTextareaProps
+  extends StatusTextCommonProps,
+    Omit<HtmlTextareaProps, 'placeholder'> {
   /** Custom classname to extend or customize */
   className?: string;
   /** Disable usage */
@@ -58,8 +59,6 @@ export interface TextareaProps
    * @default default
    */
   status?: TextareaStatus;
-  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
-  statusText?: string;
   /** Resize mode of the textarea
       'both' | 'vertical' | 'horizontal' | 'none'
       @default 'vertical' 
@@ -80,7 +79,16 @@ export interface TextareaProps
   containerProps?: Omit<HtmlDivProps, 'className'>;
 }
 
-class BaseTextarea extends Component<TextareaProps> {
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLTextAreaElement>;
+}
+
+export interface TextareaProps extends InternalTextareaProps {
+  /** Ref object to be passed to the textarea element */
+  ref?: React.RefObject<HTMLTextAreaElement>;
+}
+
+class BaseTextarea extends Component<TextareaProps & InnerRef> {
   render() {
     const {
       id,
@@ -99,6 +107,8 @@ class BaseTextarea extends Component<TextareaProps> {
       'aria-describedby': ariaDescribedBy,
       fullWidth,
       containerProps,
+      forwardedRef,
+      statusTextAriaLiveMode = 'assertive',
       ...passProps
     } = this.props;
 
@@ -118,7 +128,7 @@ class BaseTextarea extends Component<TextareaProps> {
         <LabelText
           htmlFor={id}
           labelMode={labelMode}
-          as="label"
+          asProp="label"
           optionalText={optionalText}
         >
           {labelText}
@@ -127,9 +137,14 @@ class BaseTextarea extends Component<TextareaProps> {
         <HtmlDiv className={textareaClassNames.textareaContainer}>
           <HtmlTextarea
             id={id}
-            className={textareaClassNames.textarea}
+            className={classnames(textareaClassNames.textarea, {
+              [textareaClassNames.resizeBoth]: resize === 'both',
+              [textareaClassNames.resizeHorizontal]: resize === 'horizontal',
+              [textareaClassNames.resizeNone]: resize === 'none',
+            })}
             disabled={disabled}
             defaultValue={children}
+            forwardedRef={forwardedRef}
             placeholder={visualPlaceholder}
             aria-invalid={status === 'error'}
             {...getConditionalAriaProp('aria-describedby', [
@@ -141,7 +156,12 @@ class BaseTextarea extends Component<TextareaProps> {
             {...onClickProps}
           />
         </HtmlDiv>
-        <StatusText id={statusTextId} status={status}>
+        <StatusText
+          id={statusTextId}
+          status={status}
+          disabled={disabled}
+          ariaLiveMode={statusTextAriaLiveMode}
+        >
           {statusText}
         </StatusText>
       </HtmlDiv>
@@ -150,21 +170,20 @@ class BaseTextarea extends Component<TextareaProps> {
 }
 
 const StyledTextarea = styled(
-  ({
-    tokens,
-    id: propId,
-    ...passProps
-  }: TextareaProps & InternalTokensProp) => (
-    <AutoId id={propId}>
-      {(id) => <BaseTextarea id={id} {...passProps} />}
-    </AutoId>
+  ({ ...passProps }: InternalTextareaProps & InnerRef) => (
+    <BaseTextarea {...passProps} />
   ),
 )`
-  ${(props) => baseStyles(props)}
+  ${baseStyles}
 `;
 
-export class Textarea extends Component<TextareaProps> {
-  render() {
-    return <StyledTextarea {...withSuomifiDefaultProps(this.props)} />;
-  }
-}
+export const Textarea = forwardRef(
+  (props: TextareaProps, ref: React.Ref<HTMLTextAreaElement>) => {
+    const { id: propId, ...passProps } = props;
+    return (
+      <AutoId id={propId}>
+        {(id) => <StyledTextarea id={id} forwardedRef={ref} {...passProps} />}
+      </AutoId>
+    );
+  },
+);

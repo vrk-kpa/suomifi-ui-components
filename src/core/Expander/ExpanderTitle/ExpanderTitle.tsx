@@ -1,8 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { withSuomifiDefaultProps } from '../../theme/utils';
-import { TokensProp, InternalTokensProp } from '../../theme';
 import {
   HtmlDiv,
   HtmlButton,
@@ -10,13 +8,14 @@ import {
   HtmlDivProps,
   HtmlSpan,
 } from '../../../reset';
-import { expanderTitleBaseStyles } from './ExpanderTitle.baseStyles';
 import { Icon } from '../../Icon/Icon';
+import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
-import { VisuallyHidden } from '../../../components';
+import { expanderTitleBaseStyles } from './ExpanderTitle.baseStyles';
 
 const baseClassName = 'fi-expander_title';
 const titleOpenClassName = `${baseClassName}--open`;
+const titleContentClassName = `${baseClassName}-content`;
 const titleButtonClassName = `${baseClassName}-button`;
 const iconClassName = `${baseClassName}-icon`;
 const iconOpenClassName = `${iconClassName}--open`;
@@ -26,10 +25,12 @@ export interface ExpanderTitleProps extends Omit<HtmlDivProps, 'className'> {
   className?: string;
   /** Title for Expander */
   children?: ReactNode;
-  /** Additional text for closed expanders toggle button. E.g."open expander". */
+  /** Screen reader action label for collapsed expander toggle button. E.g."open expander". */
   ariaOpenText: string;
-  /** Additional text for open expanders toggle button. E.g."close expander". */
+  /** Screen reader action label for expanded expander toggle button. E.g."close expander". */
   ariaCloseText: string;
+  /** Expander title id for screen reader reference in expander toggle button. */
+  toggleButtonAriaDescribedBy: string;
   /** Properties for title open/close toggle button */
   toggleButtonProps?: Omit<
     HtmlButtonProps,
@@ -53,6 +54,7 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
       ariaOpenText,
       children,
       className,
+      toggleButtonAriaDescribedBy,
       toggleButtonProps,
       consumer,
       ...passProps
@@ -65,13 +67,16 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
           [titleOpenClassName]: !!consumer.open,
         })}
       >
-        <HtmlSpan id={consumer.titleId}>{children}</HtmlSpan>
+        <HtmlSpan className={titleContentClassName} id={consumer.titleId}>
+          {children}
+        </HtmlSpan>
         <HtmlButton
           {...toggleButtonProps}
           onClick={consumer.onToggleExpander}
           aria-expanded={!!consumer.open}
           className={titleButtonClassName}
           aria-controls={consumer.contentId}
+          aria-describedby={toggleButtonAriaDescribedBy}
         >
           <VisuallyHidden>
             {!!consumer.open ? ariaCloseText : ariaOpenText}
@@ -88,22 +93,22 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
   }
 }
 
-const StyledExpanderTitle = styled(
-  ({ tokens, ...passProps }: ExpanderTitleProps & InternalTokensProp) => (
-    <ExpanderConsumer>
-      {(consumer) => <BaseExpanderTitle consumer={consumer} {...passProps} />}
-    </ExpanderConsumer>
-  ),
-)`
-  ${(props) => expanderTitleBaseStyles(props)};
+const StyledExpanderTitle = styled(BaseExpanderTitle)`
+  ${expanderTitleBaseStyles}
 `;
 
 /**
  * <i class="semantics" />
  * Expander title for focusable content and toggle button for content visiblity
  */
-export class ExpanderTitle extends Component<ExpanderTitleProps & TokensProp> {
+export class ExpanderTitle extends Component<ExpanderTitleProps> {
   render() {
-    return <StyledExpanderTitle {...withSuomifiDefaultProps(this.props)} />;
+    return (
+      <ExpanderConsumer>
+        {(consumer) => (
+          <StyledExpanderTitle consumer={consumer} {...this.props} />
+        )}
+      </ExpanderConsumer>
+    );
   }
 }

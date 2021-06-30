@@ -155,6 +155,14 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
 }
 
+.c6.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c6.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c5 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -303,6 +311,7 @@ exports[`calling render with the same component on the same container does not r
         height="1em"
         viewBox="0 0 24 24"
         width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <path
           d="M6 18v-2.12l5.902-2.328 3.748-1.492v-.12l-3.748-1.492L6 8.119V6l12 5.015v1.97z"
@@ -326,6 +335,7 @@ exports[`calling render with the same component on the same container does not r
         height="1em"
         viewBox="0 0 24 24"
         width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <path
           d="M6 18v-2.12l5.902-2.328 3.748-1.492v-.12l-3.748-1.492L6 8.119V6l12 5.015v1.97z"

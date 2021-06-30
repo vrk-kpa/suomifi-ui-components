@@ -1,28 +1,24 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, InternalTokensProp } from '../theme';
+import { asPropType } from '../../utils/typescript';
 import {
   Link as CompLink,
   LinkProps as CompLinkProps,
 } from '../../components/Link/Link';
-import { asPropType } from '../../utils/typescript';
 import { LinkExternal, LinkExternalProps } from './LinkExternal';
 import { LinkSkip, LinkSkipProps } from './LinkSkip';
 import { baseStyles } from './Link.baseStyles';
 
 type LinkVariant = 'default' | 'external' | 'skip';
-export interface LinkProps extends CompLinkProps, TokensProp {
+export interface LinkProps extends CompLinkProps {
   variant?: LinkVariant;
   asProp?: asPropType;
 }
 
-const StyledLink = styled(
-  ({ tokens, asProp, ...passProps }: LinkProps & InternalTokensProp) => (
-    <CompLink {...passProps} as={asProp} />
-  ),
-)`
-  ${(props) => baseStyles(props)};
+const StyledLink = styled(({ asProp, ...passProps }: LinkProps) => (
+  <CompLink {...passProps} as={asProp} />
+))`
+  ${baseStyles};
 `;
 
 /**
@@ -35,7 +31,7 @@ export class Link extends Component<LinkProps | LinkExternalProps> {
   static skip = (props: LinkSkipProps) => <LinkSkip {...props} />;
 
   render() {
-    const { variant, ...passProps } = withSuomifiDefaultProps(this.props);
+    const { variant, ...passProps } = this.props;
 
     if (variant === 'external' && 'labelNewWindow' in passProps) {
       return <LinkExternal {...(passProps as LinkExternalProps)} />;

@@ -6,18 +6,22 @@ export {
 } from './core/Breadcrumb/BreadcrumbLink';
 export { Block, BlockProps } from './core/Block/Block';
 export { Button, ButtonProps } from './core/Button/Button';
-export { Dropdown, DropdownProps } from './core/Dropdown/Dropdown';
-export { DropdownItem, DropdownItemProps } from './core/Dropdown/DropdownItem';
-export { Chip, ChipProps } from './core/Chip/Chip';
+export { Dropdown, DropdownProps } from './core/Dropdown/';
+export { DropdownItem, DropdownItemProps } from './core/Dropdown/';
+export { Chip, ChipProps } from './core/Chip/';
+export { StaticChip, StaticChipProps } from './core/Chip/';
+// MultiSelect,
+// MultiSelectProps,
+// MultiSelectData,
 export {
   Checkbox,
   CheckboxProps,
   TextInput,
   TextInputProps,
-  Toggle,
-  ToggleProps,
   ToggleInput,
   ToggleInputProps,
+  ToggleButton,
+  ToggleButtonProps,
   SearchInput,
   SearchInputProps,
   RadioButton,
@@ -51,6 +55,16 @@ export {
   LanguageMenuLinkLanguageProps,
 } from './core/LanguageMenu/LanguageMenuItem';
 export {
+  Modal,
+  ModalProps,
+  ModalContent,
+  ModalContentProps,
+  ModalTitle,
+  ModalTitleProps,
+  ModalFooter,
+  ModalFooterProps,
+} from './core/Modal/';
+export {
   Expander,
   ExpanderProps,
   ExpanderGroup,
@@ -65,5 +79,8 @@ export {
 export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';
 export { Text, TextProps } from './core/Text/Text';
 export { Textarea, TextareaProps } from './core/Form/Textarea/Textarea';
-export { VisuallyHidden } from './core/VisuallyHidden/VisuallyHidden';
+export {
+  VisuallyHidden,
+  VisuallyHiddenProps,
+} from './core/VisuallyHidden/VisuallyHidden';
 export { suomifiDesignTokens, DesignTokens } from 'suomifi-design-tokens';

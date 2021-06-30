@@ -44,5 +44,5 @@ export const AutoId = ({
   children: (passedId: string) => JSX.Element;
 }) => {
   const generatedId = useGeneratedId(id);
-  return children && generatedId ? children(generatedId) : null;
+  return children(!!generatedId ? generatedId : '');
 };

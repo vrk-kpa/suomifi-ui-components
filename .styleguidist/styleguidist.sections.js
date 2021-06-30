@@ -12,6 +12,8 @@ const primitiveComponents = [
   ['Form', 'SearchInput'],
   ['Form', 'Checkbox'],
   ['Form', 'Textarea'],
+  ['Form', 'RadioButton'],
+  ['Form', 'MultiSelect'],
 ];
 
 const getComponent = ({ name, underName }) =>
@@ -67,6 +69,13 @@ module.exports = {
           components: getComponents(primitiveComponents),
           sections: [
             {
+              name: 'Toggle',
+              components: getComponentWithVariants('Form/Toggle')([
+                'ToggleButton/ToggleButton',
+                'ToggleInput/ToggleInput',
+              ]),
+            },
+            {
               name: 'Text',
               components: getComponents(['Text', 'Paragraph']),
             },
@@ -85,9 +94,22 @@ module.exports = {
               ]),
             },
             {
+              name: 'Chip',
+              components: getComponentWithVariants('Chip')([
+                'Chip/Chip',
+                'StaticChip/StaticChip',
+              ]),
+            },
+            {
               name: 'Icon',
               components: getComponents(['Icon', 'StaticIcon']),
             },
+            // {
+            //   name: 'MultiSelect',
+            //   components: getComponentWithVariants('Form/MultiSelect')([
+            //     'MultiSelect/MultiSelect',
+            //   ]),
+            // },
           ],
           expand: true,
         },
@@ -104,7 +126,8 @@ module.exports = {
             {
               name: 'Dropdown',
               components: getComponentWithVariants('Dropdown')([
-                'DropdownItem',
+                'Dropdown/Dropdown',
+                'DropdownItem/DropdownItem',
               ]),
             },
             {
@@ -122,6 +145,14 @@ module.exports = {
                 'ExpanderTitle/ExpanderTitle',
                 'ExpanderTitleButton/ExpanderTitleButton',
                 'ExpanderContent/ExpanderContent',
+              ]),
+            },
+            {
+              name: 'Modal',
+              components: getComponentWithVariants('Modal')([
+                'Modal/Modal',
+                'ModalContent/ModalContent',
+                'ModalFooter/ModalFooter',
               ]),
             },
           ],

@@ -1,31 +1,28 @@
 import { css } from 'styled-components';
-import { withSuomifiTheme, TokensAndTheme } from '../theme';
-import { TextProps } from './Text';
+import { defaultThemeTokens as theme } from '../theme';
 import { element, font } from '../theme/reset';
-import { objValue } from '../../utils/typescript';
+import { TextProps } from './Text';
 
-export const baseStyles = withSuomifiTheme(
-  ({ theme, color }: TokensAndTheme & TextProps) => css`
-    ${element({ theme })}
-    ${font({ theme })('bodyText')}
-    color: ${!!color ? objValue(theme.colors, color) : theme.colors.blackBase};
+export const baseStyles = ({ color }: TextProps) => css`
+  ${element(theme)}
+  ${font(theme)('bodyText')}
+  color: ${!!color ? theme.colors[color] : theme.colors.blackBase};
 
-    &.fi-text {
-      &--bold {
-        ${font({ theme })('bodySemiBold')}
+  &.fi-text {
+    &--bold {
+      ${font(theme)('bodySemiBold')}
+    }
+    &--lead {
+      ${font(theme)('leadText')}
+    }
+    &--small-screen {
+      ${font(theme)('bodyTextSmall')}
+      &.fi-text--bold {
+        ${font(theme)('bodySemiBoldSmall')}
       }
-      &--lead {
-        ${font({ theme })('leadText')}
-      }
-      &--small-screen {
-        ${font({ theme })('bodyTextSmall')}
-        &.fi-text--bold {
-          ${font({ theme })('bodySemiBoldSmall')}
-        }
-        &.fi-text--lead {
-          ${font({ theme })('leadTextSmallScreen')}
-        }
+      &.fi-text--lead {
+        ${font(theme)('leadTextSmallScreen')}
       }
     }
-  `,
-);
+  }
+`;

@@ -52,8 +52,13 @@ describe('Basic ExpanderTitle', () => {
       {...props}
       ariaOpenText="open expander"
       ariaCloseText="close expander"
+      toggleButtonAriaDescribedBy="title-id"
     >
-      {props?.children ? props.children : 'Expander title button'}
+      {props?.children ? (
+        props.children
+      ) : (
+        <span id="title-id">Expander title button</span>
+      )}
     </ExpanderTitle>
   );
 
@@ -91,17 +96,26 @@ describe('Aria attributes', () => {
     <ExpanderTitle
       ariaCloseText="click to close expander"
       ariaOpenText="click to open expander"
+      toggleButtonAriaDescribedBy="title-id"
       {...{ 'data-testid': 'expander-title' }}
       {...props}
     >
-      {props?.children ? props.children : 'Expander title button'}
+      {props?.children ? (
+        props.children
+      ) : (
+        <span id="title-id">Expander title button</span>
+      )}
     </ExpanderTitle>
   );
 
   it('should be passed to title button', () => {
-    const { getByText, rerender } = customRender(TestExpanderWithProps(), {
-      providerProps,
-    });
+    const { getByText, getByRole, rerender } = customRender(
+      TestExpanderWithProps(),
+      {
+        providerProps,
+      },
+    );
+    expect(getByRole('button')).toHaveAttribute('aria-describedby', 'title-id');
     expect(getByText('click to open expander')).toBeTruthy();
     const adjustedProviderProps = {
       ...providerProps,
@@ -120,8 +134,13 @@ describe('Custom id', () => {
       {...props}
       ariaCloseText="click to close expander"
       ariaOpenText="click to open expander"
+      toggleButtonAriaDescribedBy="title-id"
     >
-      {props?.children ? props.children : 'Expander title button'}
+      {props?.children ? (
+        props.children
+      ) : (
+        <span id="title-id">Expander title button</span>
+      )}
     </ExpanderTitle>
   );
 
@@ -134,7 +153,7 @@ describe('Custom id', () => {
       },
     });
     const span = getByText('Expander title button');
-    expect(span).toHaveAttribute('id', 'test-id_title');
+    expect(span.parentElement).toHaveAttribute('id', 'test-id_title');
     const button = getByRole('button');
     expect(button).toHaveAttribute('aria-controls', 'test-id_content');
   });
@@ -146,9 +165,14 @@ describe('Provider open property', () => {
       {...{ 'data-testid': 'expander-open-by-default-title' }}
       ariaCloseText="click to close expander"
       ariaOpenText="click to open expander"
+      toggleButtonAriaDescribedBy="title-id"
       {...props}
     >
-      {props?.children ? props.children : 'Test expander open by default'}
+      {props?.children ? (
+        props.children
+      ) : (
+        <span id="title-id">Test expander open by default</span>
+      )}
     </ExpanderTitle>
   );
 

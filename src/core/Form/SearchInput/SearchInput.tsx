@@ -1,32 +1,32 @@
 import React, { ChangeEvent, Component, createRef, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import { AutoId } from '../../../utils/AutoId';
+import { getConditionalAriaProp } from '../../../utils/aria';
+import { Debounce } from '../../utils/Debounce/Debounce';
 import {
-  HtmlInputWithRef,
+  HtmlInput,
   HtmlInputProps,
+  HtmlSpan,
   HtmlDiv,
   HtmlDivProps,
   HtmlButton,
   HtmlButtonProps,
 } from '../../../reset';
-import { Omit } from '../../../utils/typescript';
-import { idGenerator } from '../../../utils/uuid';
-import { TokensProp, InternalTokensProp } from '../../theme';
-import { withSuomifiDefaultProps } from '../../theme/utils';
-import { VisuallyHidden } from '../../../components/Visually-hidden/Visually-hidden';
+import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { StatusText } from '../StatusText/StatusText';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { Icon } from '../../Icon/Icon';
+import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './SearchInput.baseStyles';
-import { InputStatus } from '../types';
-import { Debounce } from '../../utils/Debounce/Debounce';
 
 type SearchInputValue = string | number | undefined;
 
 type SearchInputStatus = Exclude<InputStatus, 'success'>;
 
 export interface SearchInputProps
-  extends Omit<
+  extends StatusTextCommonProps,
+    Omit<
       HtmlInputProps,
       | 'type'
       | 'disabled'
@@ -35,12 +35,11 @@ export interface SearchInputProps
       | 'onClick'
       | 'value'
       | 'defaultValue'
-    >,
-    TokensProp {
+    > {
   /** SearchInput container div class name for custom styling. */
   className?: string;
-  /** SearchInput container div props */
-  inputContainerProps?: Omit<HtmlDivProps, 'className'>;
+  /** SearchInput wrapping div element props */
+  wrapperProps?: Omit<HtmlDivProps, 'className'>;
   /** Label text */
   labelText: string;
   /** Hide or show label. Label element is always present, but can be visually hidden.
@@ -60,8 +59,6 @@ export interface SearchInputProps
    * @default default
    */
   status?: SearchInputStatus;
-  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
-  statusText?: string;
   /** Input name */
   name?: string;
   /** Set components width to 100% */
@@ -85,6 +82,7 @@ const searchInputClassNames = {
   fullWidth: `${baseClassName}--full-width`,
   error: `${baseClassName}--error`,
   notEmpty: `${baseClassName}--not-empty`,
+  styleWrapper: `${baseClassName}_wrapper`,
   inputElement: `${baseClassName}_input`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   functionalityContainer: `${baseClassName}_functionality-container`,
@@ -106,10 +104,6 @@ class BaseSearchInput extends Component<SearchInputProps> {
 
   private inputRef = createRef<HTMLInputElement>();
 
-  private id: string;
-
-  private statusTextId: string;
-
   static getDerivedStateFromProps(
     nextProps: SearchInputProps,
     prevState: SearchInputState,
@@ -119,12 +113,6 @@ class BaseSearchInput extends Component<SearchInputProps> {
       return { value };
     }
     return null;
-  }
-
-  constructor(props: SearchInputProps) {
-    super(props);
-    this.id = `${idGenerator(props.id)}`;
-    this.statusTextId = `${this.id}-statusText`;
   }
 
   render() {
@@ -137,7 +125,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
       clearButtonLabel,
       searchButtonLabel,
       searchButtonProps,
-      inputContainerProps,
+      wrapperProps,
       onChange: propOnChange,
       onSearch: propOnSearch,
       children,
@@ -146,9 +134,13 @@ class BaseSearchInput extends Component<SearchInputProps> {
       visualPlaceholder,
       id,
       fullWidth,
+      debounce,
       'aria-describedby': ariaDescribedBy,
+      statusTextAriaLiveMode = 'assertive',
       ...passProps
     } = this.props;
+
+    const statusTextId = `${id}-statusText`;
 
     const conditionalSetState = (newValue: SearchInputValue) => {
       if (!('value' in this.props)) {
@@ -207,95 +199,90 @@ class BaseSearchInput extends Component<SearchInputProps> {
         : { tabIndex: -1, 'aria-hidden': true }),
     };
 
-    const getDescribedBy = () => {
-      if (statusText || ariaDescribedBy) {
-        return {
-          'aria-describedby': [
-            ...(statusText ? [this.statusTextId] : []),
-            ariaDescribedBy,
-          ].join(' '),
-        };
-      }
-      return {};
-    };
-
     return (
       <HtmlDiv
-        {...inputContainerProps}
+        {...wrapperProps}
         className={classnames(className, baseClassName, {
           [searchInputClassNames.error]: status === 'error',
           [searchInputClassNames.notEmpty]: !!this.state.value,
           [searchInputClassNames.fullWidth]: fullWidth,
         })}
       >
-        <LabelText htmlFor={this.id} labelMode={labelMode} as="label">
-          {labelText}
-        </LabelText>
-        <Debounce waitFor={this.props.debounce}>
-          {(debouncer: Function, cancelDebounce: Function) => (
-            <HtmlDiv className={searchInputClassNames.functionalityContainer}>
-              <HtmlDiv className={searchInputClassNames.inputElementContainer}>
-                <HtmlInputWithRef
-                  {...passProps}
-                  {...getDescribedBy()}
-                  forwardRef={this.inputRef}
-                  aria-invalid={status === 'error'}
-                  id={this.id}
-                  className={searchInputClassNames.inputElement}
-                  type="search"
-                  role="searchbox"
-                  value={this.state.value}
-                  placeholder={visualPlaceholder}
-                  onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                    const eventValue = event.currentTarget.value;
-                    conditionalSetState(eventValue);
-                    if (propOnChange) {
-                      debouncer(propOnChange, eventValue);
-                    }
+        <HtmlSpan className={searchInputClassNames.styleWrapper}>
+          <LabelText htmlFor={id} labelMode={labelMode} asProp="label">
+            {labelText}
+          </LabelText>
+          <Debounce waitFor={debounce}>
+            {(debouncer: Function, cancelDebounce: Function) => (
+              <HtmlDiv className={searchInputClassNames.functionalityContainer}>
+                <HtmlDiv
+                  className={searchInputClassNames.inputElementContainer}
+                >
+                  <HtmlInput
+                    {...passProps}
+                    {...getConditionalAriaProp('aria-describedby', [
+                      !!statusText ? statusTextId : undefined,
+                      ariaDescribedBy,
+                    ])}
+                    forwardedRef={this.inputRef}
+                    aria-invalid={status === 'error'}
+                    id={id}
+                    className={searchInputClassNames.inputElement}
+                    type="search"
+                    role="searchbox"
+                    value={this.state.value}
+                    placeholder={visualPlaceholder}
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                      const eventValue = event.currentTarget.value;
+                      conditionalSetState(eventValue);
+                      if (propOnChange) {
+                        debouncer(propOnChange, eventValue);
+                      }
+                    }}
+                    onKeyPress={onKeyPress}
+                    onKeyDown={onKeyDown}
+                  />
+                </HtmlDiv>
+                <HtmlButton
+                  {...clearButtonProps}
+                  onClick={() => {
+                    onClear();
+                    cancelDebounce();
                   }}
-                  onKeyPress={onKeyPress}
-                  onKeyDown={onKeyDown}
-                />
+                >
+                  <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
+                  <Icon
+                    aria-hidden={true}
+                    icon="close"
+                    className={searchInputClassNames.clearIcon}
+                  />
+                </HtmlButton>
+                <HtmlButton {...searchButtonDerivedProps}>
+                  <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
+                  <Icon
+                    aria-hidden={true}
+                    icon="search"
+                    className={searchInputClassNames.searchIcon}
+                  />
+                </HtmlButton>
               </HtmlDiv>
-              <HtmlButton
-                {...clearButtonProps}
-                onClick={() => {
-                  onClear();
-                  cancelDebounce();
-                }}
-              >
-                <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
-                <Icon
-                  aria-hidden={true}
-                  icon="close"
-                  className={searchInputClassNames.clearIcon}
-                />
-              </HtmlButton>
-              <HtmlButton {...searchButtonDerivedProps}>
-                <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
-                <Icon
-                  aria-hidden={true}
-                  icon="search"
-                  className={searchInputClassNames.searchIcon}
-                />
-              </HtmlButton>
-            </HtmlDiv>
-          )}
-        </Debounce>
-        <StatusText id={this.statusTextId} status={status}>
-          {statusText}
-        </StatusText>
+            )}
+          </Debounce>
+          <StatusText
+            id={statusTextId}
+            status={status}
+            ariaLiveMode={statusTextAriaLiveMode}
+          >
+            {statusText}
+          </StatusText>
+        </HtmlSpan>
       </HtmlDiv>
     );
   }
 }
 
-const StyledSearchInput = styled(
-  ({ tokens, ...passProps }: SearchInputProps & InternalTokensProp) => (
-    <BaseSearchInput {...passProps} />
-  ),
-)`
-  ${(props) => baseStyles(props)}
+const StyledSearchInput = styled(BaseSearchInput)`
+  ${baseStyles}
 `;
 
 /**
@@ -305,6 +292,12 @@ const StyledSearchInput = styled(
  */
 export class SearchInput extends Component<SearchInputProps> {
   render() {
-    return <StyledSearchInput {...withSuomifiDefaultProps(this.props)} />;
+    const { id: propId, ...passProps } = this.props;
+
+    return (
+      <AutoId id={propId}>
+        {(id) => <StyledSearchInput id={id} {...passProps} />}
+      </AutoId>
+    );
   }
 }

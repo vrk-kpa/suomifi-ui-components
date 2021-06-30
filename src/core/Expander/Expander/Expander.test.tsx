@@ -20,28 +20,20 @@ describe('Basic expander', () => {
   );
 
   const TestExpander = TestExpanderWithProps({
-    ariaCloseText: 'click to close expander',
-    ariaOpenText: 'click to open expander',
     children: 'Test expander',
   });
 
   it('render with the same component on the same container does not remount', () => {
     const { getByTestId, rerender } = render(TestExpander);
-    expect(getByTestId('expander-title').textContent).toBe(
-      'Test expanderclick to open expander',
-    );
+    expect(getByTestId('expander-title').textContent).toBe('Test expander');
 
     // re-render the same component with different props
     rerender(
       TestExpanderWithProps({
-        ariaCloseText: 'click to close expander',
-        ariaOpenText: 'click to open expander',
         children: 'Test expander two',
       }),
     );
-    expect(getByTestId('expander-title').textContent).toBe(
-      'Test expander twoclick to open expander',
-    );
+    expect(getByTestId('expander-title').textContent).toBe('Test expander two');
   });
 
   it('shoud match snapshot', () => {

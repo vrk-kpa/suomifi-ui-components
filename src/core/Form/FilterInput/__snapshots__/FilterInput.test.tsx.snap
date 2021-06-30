@@ -118,6 +118,33 @@ exports[`snapshot matches 1`] = `
   font-weight: 400;
 }
 
+.c5.fi-status-text {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c5.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,48%);
+}
+
+.c5.fi-status-text.fi-status-text--hasContent {
+  margin-top: 5px;
+}
+
 .c1 .fi-filter-input {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -288,7 +315,8 @@ exports[`snapshot matches 1`] = `
       >
         <input
           aria-autocomplete="list"
-          auto-capitalize="false"
+          aria-multiline="false"
+          autocapitalize="none"
           autocomplete="off"
           class="c4 fi-filter-input_input"
           id="1"
@@ -296,6 +324,11 @@ exports[`snapshot matches 1`] = `
           type="text"
         />
       </div>
+      <span
+        aria-atomic="true"
+        aria-live="assertive"
+        class="c3 c5 fi-status-text"
+      />
     </div>
   </div>
 </div>

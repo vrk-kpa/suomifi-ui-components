@@ -1,17 +1,15 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { TokensProp, InternalTokensProp } from '../../theme';
-import { baseStyles } from './Checkbox.baseStyles';
-import { withSuomifiDefaultProps } from '../../theme/utils';
+import { InputStatus, StatusTextCommonProps } from '../types';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { HtmlInput, HtmlLabel, HtmlDiv } from '../../../reset';
 import { logger } from '../../../utils/logger';
-import { Icon } from '../../Icon/Icon';
 import { AutoId } from '../../../utils/AutoId';
+import { HtmlLabel, HtmlDiv, HtmlInput } from '../../../reset';
+import { Icon } from '../../Icon/Icon';
 import { StatusText } from '../StatusText/StatusText';
-import { InputStatus } from '../types';
 import { HintText } from '../HintText/HintText';
+import { baseStyles } from './Checkbox.baseStyles';
 
 const baseClassName = 'fi-checkbox';
 
@@ -37,7 +35,7 @@ const iconClassnames = {
 
 type CheckboxStatus = Exclude<InputStatus, 'success'>;
 
-export interface CheckboxProps extends TokensProp {
+interface InternalCheckboxProps extends StatusTextCommonProps {
   /** Controlled checked-state - user actions use onClick to change  */
   checked?: boolean;
   /** Default status of Checkbox when not using controlled 'checked' state
@@ -64,10 +62,6 @@ export interface CheckboxProps extends TokensProp {
    * @default default
    */
   status?: CheckboxStatus;
-  /**
-   * Status text to be displayed in the status text element. Will not be displayed when element is disabled.
-   */
-  statusText?: string;
   /**
    * Hint text to be displayed under the label.
    */
@@ -97,7 +91,16 @@ export interface CheckboxProps extends TokensProp {
   value?: string;
 }
 
-class BaseCheckbox extends Component<CheckboxProps> {
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLInputElement>;
+}
+
+export interface CheckboxProps extends InternalCheckboxProps {
+  /** Ref object to be passed to the input element */
+  ref?: React.RefObject<HTMLInputElement>;
+}
+
+class BaseCheckbox extends Component<CheckboxProps & InnerRef> {
   state = {
     checkedState: !!this.props.checked || !!this.props.defaultChecked,
   };
@@ -132,6 +135,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
       'aria-label': ariaLabel,
       'aria-labelledby': ariaLabelledBy,
       'aria-describedby': ariaDescribedBy,
+      statusTextAriaLiveMode = 'assertive',
       children,
       checked: dismissChecked,
       defaultChecked: dismissDefaultChecked,
@@ -141,6 +145,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
       statusText,
       name,
       value,
+      forwardedRef,
       onClick,
       variant,
       ...passProps
@@ -207,6 +212,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
           className={checkboxClassNames.input}
           onChange={this.handleClick}
           name={name}
+          forwardedRef={forwardedRef}
           {...(value ? { value } : {})}
         />
         <HtmlLabel
@@ -218,7 +224,12 @@ class BaseCheckbox extends Component<CheckboxProps> {
           {children}
         </HtmlLabel>
         <HintText id={hintTextId}>{hintText}</HintText>
-        <StatusText id={statusTextId} status={status}>
+        <StatusText
+          id={statusTextId}
+          status={status}
+          disabled={disabled}
+          ariaLiveMode={statusTextAriaLiveMode}
+        >
           {statusText}
         </StatusText>
       </HtmlDiv>
@@ -227,25 +238,20 @@ class BaseCheckbox extends Component<CheckboxProps> {
 }
 
 const StyledCheckbox = styled(
-  ({
-    tokens,
-    id: propId,
-    ...passProps
-  }: CheckboxProps & InternalTokensProp) => (
-    <AutoId id={propId}>
-      {(id) => <BaseCheckbox id={id} {...passProps} />}
-    </AutoId>
+  ({ ...passProps }: InternalCheckboxProps & InnerRef) => (
+    <BaseCheckbox {...passProps} />
   ),
 )`
-  ${(props) => baseStyles(props)}
+  ${baseStyles}
 `;
 
-export class Checkbox extends Component<CheckboxProps> {
-  static large = (props: CheckboxProps) => (
-    <StyledCheckbox {...withSuomifiDefaultProps(props)} variant="large" />
-  );
-
-  render() {
-    return <StyledCheckbox {...withSuomifiDefaultProps(this.props)} />;
-  }
-}
+export const Checkbox = forwardRef(
+  (props: CheckboxProps, ref: React.RefObject<HTMLInputElement>) => {
+    const { id: propId, ...passProps } = props;
+    return (
+      <AutoId id={propId}>
+        {(id) => <StyledCheckbox id={id} forwardedRef={ref} {...passProps} />}
+      </AutoId>
+    );
+  },
+);

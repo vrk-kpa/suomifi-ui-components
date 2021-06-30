@@ -1,18 +1,17 @@
 import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
-import { baseStyles } from './StatusText.baseStyles';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
-import { TokensProp, InternalTokensProp } from 'core/theme';
-import { withSuomifiDefaultProps } from '../../theme/utils';
-import { InputStatus } from '../types';
+import { InputStatus, AriaLiveMode } from '../types';
+import { baseStyles } from './StatusText.baseStyles';
 
 const baseClassName = 'fi-status-text';
 const statusTextClassNames = {
   error: `${baseClassName}--error`,
+  hasContent: `${baseClassName}--hasContent`,
 };
 
-interface InternalStatusTextProps extends HtmlSpanProps {
+export interface StatusTextProps extends HtmlSpanProps {
   /** id */
   id?: string;
   /** StatusText element content */
@@ -23,39 +22,44 @@ interface InternalStatusTextProps extends HtmlSpanProps {
   disabled?: boolean;
   /** Status */
   status?: InputStatus;
+  /** aria-live mode for the element */
+  ariaLiveMode?: AriaLiveMode;
 }
-
-export interface StatusTextProps extends InternalStatusTextProps, TokensProp {}
 
 const StyledStatusText = styled(
   ({
     className,
     children,
-    tokens,
+    disabled,
     status,
+    ariaLiveMode,
     ...passProps
-  }: StatusTextProps & InternalTokensProp) => (
-    <HtmlSpan
-      {...passProps}
-      className={classnames(className, baseClassName, {
-        [statusTextClassNames.error]: status === 'error',
-      })}
-    >
-      {children}
-    </HtmlSpan>
-  ),
+  }: StatusTextProps) => {
+    const ariaLiveProp = !disabled
+      ? { 'aria-live': ariaLiveMode }
+      : { 'aria-live': 'off' };
+
+    return (
+      <HtmlSpan
+        {...passProps}
+        {...ariaLiveProp}
+        className={classnames(className, baseClassName, {
+          [statusTextClassNames.hasContent]: children,
+          [statusTextClassNames.error]: status === 'error',
+        })}
+        aria-atomic="true"
+      >
+        {children}
+      </HtmlSpan>
+    );
+  },
 )`
-  ${(tokens) => baseStyles(withSuomifiDefaultProps(tokens))}
+  ${baseStyles}
 `;
 
 export class StatusText extends Component<StatusTextProps> {
   render() {
-    const { disabled, children, ...passProps } = withSuomifiDefaultProps(
-      this.props,
-    );
-    if (disabled || !children) {
-      return null;
-    }
+    const { children, ...passProps } = this.props;
     return <StyledStatusText {...passProps}>{children}</StyledStatusText>;
   }
 }

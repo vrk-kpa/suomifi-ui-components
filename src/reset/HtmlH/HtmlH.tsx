@@ -1,13 +1,18 @@
-import { HTMLProps } from 'react';
+import React, { HTMLProps } from 'react';
 import { default as styled, css } from 'styled-components';
 import { resets } from '../utils';
-import { Omit, asPropType } from '../../utils/typescript';
+import { asPropType } from '../../utils/typescript';
 
 export type hLevels = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
 
 export interface HtmlHProps
   extends Omit<HTMLProps<HTMLHeadingElement>, 'ref' | 'as'> {
   as?: asPropType;
+}
+
+export interface HtmlHWithRefProps extends HtmlHProps {
+  /** Ref object for the heading element */
+  forwardedRef?: React.RefObject<HTMLHeadingElement>;
 }
 
 const hResets = css`
@@ -20,6 +25,16 @@ const hResets = css`
   white-space: normal;
 `;
 
-export const HtmlH = styled.h1<HtmlHProps>`
+const StyledHtmlH = styled.h1<HtmlHWithRefProps>`
   ${hResets}
 `;
+
+export const HtmlH = ({
+  forwardedRef,
+  children,
+  ...passProps
+}: HtmlHWithRefProps) => (
+  <StyledHtmlH ref={forwardedRef} {...passProps}>
+    {children}
+  </StyledHtmlH>
+);

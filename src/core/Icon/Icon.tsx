@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { iconBaseStyles } from './Icon.baseStyles';
-import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp } from '../theme';
-import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
 import { SuomifiIcon, SuomifiIconInterface } from 'suomifi-icons';
 import { logger } from '../../utils/logger';
+import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
+import { iconBaseStyles } from './Icon.baseStyles';
+
 export { BaseIconKeys } from 'suomifi-icons';
 
-const baseClassName = 'fi-icon';
+export const baseClassName = 'fi-icon';
+export const cursorPointerClassName = `${baseClassName}--cursor-pointer`;
 
-export interface IconBaseProps extends TokensProp {
+export interface IconBaseProps {
   /** Aria-label for SVG, undefined hides SVG from screen reader
    * @default undefined
    */
@@ -44,14 +44,16 @@ export const iconLogger = (
 const StyledSuomifiIcon = styled(
   ({ ariaLabel, mousePointer, className, ...passProps }: IconProps) => (
     <SuomifiIcon
-      className={classnames(baseClassName, className)}
+      className={classnames(baseClassName, className, {
+        [cursorPointerClassName]: !!mousePointer,
+      })}
       {...passProps}
       {...ariaLabelOrHidden(ariaLabel)}
       {...ariaFocusableNoLabel(ariaLabel)}
     />
   ),
 )`
-  ${(props) => iconBaseStyles(props)}
+  ${iconBaseStyles}
 `;
 
 /**
@@ -59,9 +61,7 @@ const StyledSuomifiIcon = styled(
  */
 export class Icon extends Component<IconProps> {
   render() {
-    const { color, icon, tokens, ...passProps } = withSuomifiDefaultProps(
-      this.props,
-    );
+    const { color, icon, ...passProps } = this.props;
     const { className, ariaLabel } = this.props;
 
     const iconColor = color !== undefined ? color : 'currentColor';

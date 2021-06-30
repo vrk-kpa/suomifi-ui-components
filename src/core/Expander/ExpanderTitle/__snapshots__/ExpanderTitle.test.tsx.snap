@@ -129,6 +129,14 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   vertical-align: baseline;
 }
 
+.c5.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c5.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -141,10 +149,6 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  font-size: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 600;
@@ -166,6 +170,10 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   border-bottom-right-radius: 0;
 }
 
+.c1 .fi-expander_title-content {
+  display: inline-block;
+}
+
 .c1 .fi-expander_title-button {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -183,7 +191,16 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  font-size: font-family:'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 600;
@@ -259,13 +276,18 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   data-testid="expander-title"
 >
   <span
-    class="c2"
+    class="c2 fi-expander_title-content"
     id="test-id_title"
   >
-    Expander title button
+    <span
+      id="title-id"
+    >
+      Expander title button
+    </span>
   </span>
   <button
     aria-controls="test-id_content"
+    aria-describedby="title-id"
     aria-expanded="false"
     class="c3 fi-expander_title-button"
     type="button"
@@ -283,6 +305,7 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
       height="1em"
       viewBox="0 0 24 24"
       width="1em"
+      xmlns="http://www.w3.org/2000/svg"
     >
       <path
         d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"

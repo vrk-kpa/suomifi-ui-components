@@ -1,15 +1,13 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { withSuomifiDefaultProps } from '../../theme/utils';
 import { AutoId } from '../../../utils/AutoId';
-import { TokensProp, InternalTokensProp } from '../../theme';
 import { HtmlDiv } from '../../../reset';
-import { baseStyles } from './Expander.baseStyles';
 import {
   ExpanderGroupConsumer,
   ExpanderGroupProviderState,
 } from '../ExpanderGroup/ExpanderGroup';
+import { baseStyles } from './Expander.baseStyles';
 
 const baseClassName = 'fi-expander';
 const openClassName = `${baseClassName}--open`;
@@ -37,7 +35,7 @@ const {
   Consumer: ExpanderConsumer,
 } = React.createContext(defaultProviderValue);
 
-interface InternalExpanderProps {
+export interface ExpanderProps {
   /**
    * Children, extend type ExpanderTitleBaseProps or ExpanderContentBaseProps
    * ExpanderProviderState context is used to communicate between title, content and expander
@@ -58,10 +56,7 @@ interface InternalExpanderProps {
   open?: boolean;
   /** Event handler to execute when clicked */
   onOpenChange?: (open: boolean) => void;
-  consumer?: ExpanderGroupProviderState;
 }
-
-export interface ExpanderProps extends InternalExpanderProps, TokensProp {}
 
 export interface ExpanderTitleBaseProps {
   /** Custom classname to extend or customize */
@@ -77,8 +72,9 @@ export interface ExpanderContentBaseProps {
   consumer: ExpanderProviderState;
 }
 
-interface BaseExpanderProps extends InternalExpanderProps {
+interface BaseExpanderProps extends ExpanderProps {
   id: string;
+  consumer: ExpanderGroupProviderState;
 }
 
 class BaseExpander extends Component<BaseExpanderProps> {
@@ -88,27 +84,28 @@ class BaseExpander extends Component<BaseExpanderProps> {
 
   constructor(props: BaseExpanderProps) {
     super(props);
-    if (!!props.consumer) {
+    if (!!props.id) {
       const defaultOpen =
         props.open !== undefined ? props.open : props.defaultOpen || false;
       props.consumer.onExpanderOpenChange(props.id, defaultOpen);
     }
   }
 
-  componentDidUpdate(prevProps: ExpanderProps, prevState: ExpanderState) {
+  componentDidUpdate(prevProps: BaseExpanderProps, prevState: ExpanderState) {
     const { consumer, open } = this.props;
     const controlled = open !== undefined;
-    if (
-      !!consumer &&
-      prevProps.id !== undefined &&
-      prevProps.id !== this.props.id
-    ) {
-      consumer.onExpanderOpenChange(prevProps.id, undefined);
+    const currentState = controlled ? !!open : this.state.openState;
+    // update group state when id changes
+    if (prevProps.id !== this.props.id) {
+      if (!!prevProps.id) {
+        consumer.onExpanderOpenChange(prevProps.id, undefined);
+      }
+      consumer.onExpanderOpenChange(this.props.id, currentState);
     }
+    // handle consumer open change event
     if (
-      !!consumer &&
       consumer.expanderGroupOpenState !==
-        prevProps.consumer?.expanderGroupOpenState
+      prevProps.consumer?.expanderGroupOpenState
     ) {
       if (
         (!controlled &&
@@ -119,21 +116,19 @@ class BaseExpander extends Component<BaseExpanderProps> {
         this.handleOpenChange();
       }
     }
+    // handle expander open change event
     if (
       (!controlled && prevState.openState !== this.state.openState) ||
       (controlled && prevProps.open !== open)
     ) {
-      if (!!consumer && this.props.id !== undefined) {
-        const currentState = controlled ? !!open : this.state.openState;
+      if (!!this.props.id) {
         consumer.onExpanderOpenChange(this.props.id, currentState);
       }
     }
   }
 
   componentWillUnmount() {
-    if (!!this.props.consumer && !!this.props.consumer.onExpanderOpenChange) {
-      this.props.consumer.onExpanderOpenChange(this.props.id, undefined);
-    }
+    this.props.consumer.onExpanderOpenChange(this.props.id, undefined);
   }
 
   handleOpenChange = () => {
@@ -185,18 +180,8 @@ class BaseExpander extends Component<BaseExpanderProps> {
   }
 }
 
-const StyledExpander = styled(
-  ({
-    tokens,
-    id: propId,
-    ...passProps
-  }: ExpanderProps & InternalTokensProp) => (
-    <AutoId id={propId}>
-      {(id) => <BaseExpander id={id} {...passProps} />}
-    </AutoId>
-  ),
-)`
-  ${(props) => baseStyles(props)};
+const StyledExpander = styled(BaseExpander)`
+  ${baseStyles};
 `;
 
 interface ExpanderState {
@@ -209,15 +194,17 @@ interface ExpanderState {
  */
 export class Expander extends Component<ExpanderProps> {
   render() {
+    const { id: propId, ...passProps } = this.props;
     return (
-      <ExpanderGroupConsumer>
-        {(consumer) => (
-          <StyledExpander
-            {...withSuomifiDefaultProps(this.props)}
-            consumer={consumer}
-          />
+      <AutoId id={propId}>
+        {(id) => (
+          <ExpanderGroupConsumer>
+            {(consumer) => (
+              <StyledExpander id={id} {...passProps} consumer={consumer} />
+            )}
+          </ExpanderGroupConsumer>
         )}
-      </ExpanderGroupConsumer>
+      </AutoId>
     );
   }
 }

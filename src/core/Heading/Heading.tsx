@@ -1,95 +1,88 @@
-import React, { Component } from 'react';
+import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
-import { withSuomifiDefaultProps } from '../theme/utils';
-import { TokensProp, ColorProp, InternalTokensProp } from '../theme';
-import {
-  Heading as CompHeading,
-  HeadingProps as CompHeadingProps,
-  hLevels,
-} from '../../components/Heading/Heading';
-import { baseStyles } from './Heading.baseStyles';
 import classnames from 'classnames';
-import { Omit, asPropType } from '../../utils/typescript';
+import { asPropType } from '../../utils/typescript';
 import { logger } from '../../utils/logger';
+import { ColorProp } from '../theme';
+import { baseStyles } from './Heading.baseStyles';
+import { HtmlH, HtmlHProps, hLevels } from '../../reset';
 
 const baseClassName = 'fi-heading';
 const smallScreenClassName = `${baseClassName}--small-screen`;
+type styleVariants = hLevels | 'h1hero';
 
-export interface HeadingProps
-  extends Omit<CompHeadingProps, 'variant'>,
-    TokensProp {
+export interface HeadingProps extends HtmlHProps {
   /**
-   * Heading level
+   * Heading level to assign semantic element and styling.
    * @default h1
    */
-  variant: hLevels | 'h1hero';
-  /** Change color for text from theme colors */
-  smallScreen?: boolean;
+  variant: styleVariants;
   /** Change font to smaller screen size and style */
+  smallScreen?: boolean;
+  /** Change color for text from theme colors */
   color?: ColorProp;
+  /** Custom class name for styling */
+  className?: string;
+  /** Render the heading as another element e.g. h3 as h2. Will override semantics derived from variant prop but keep the variant styles. */
+  as?: asPropType;
+}
+
+interface InternalHeadingProps extends HeadingProps {
+  forwardedRef?: React.RefObject<HTMLHeadingElement>;
   asProp?: asPropType;
 }
 
+const getSemanticVariant = (variant: styleVariants) => {
+  if (variant === 'h1hero') return 'h1';
+  return variant;
+};
+
 const StyledHeading = styled(
   ({
-    tokens,
-    color,
     smallScreen,
     className,
     variant,
-    asProp, // as-property is defined internally as asProp and need to be implemented back if used
+    color,
+    asProp,
     ...passProps
-  }: HeadingProps & InternalTokensProp) => (
-    <CompHeading
+  }: InternalHeadingProps) => (
+    <HtmlH
       {...passProps}
-      className={classnames(className, [`${baseClassName}--${variant}`], {
-        [smallScreenClassName]: smallScreen,
-      })}
-      variant={variant === 'h1hero' ? 'h1' : variant}
-      as={asProp}
+      className={classnames(
+        baseClassName,
+        className,
+        [`${baseClassName}--${variant}`],
+        {
+          [smallScreenClassName]: smallScreen,
+        },
+      )}
+      as={!!asProp ? asProp : getSemanticVariant(variant)}
     />
   ),
 )`
-  ${(props) => baseStyles(props)};
+  ${(props) => baseStyles(props)}
 `;
 
 /**
  * <i class="semantics" />
  * Used displaying headings with correct fonts
  */
-export class Heading extends Component<HeadingProps> {
-  static h1hero = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h1hero" />
-  );
-
-  static h1 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h1" />
-  );
-
-  static h2 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h2" />
-  );
-
-  static h3 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h3" />
-  );
-
-  static h4 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h4" />
-  );
-
-  static h5 = (props: Omit<HeadingProps, 'variant'>) => (
-    <StyledHeading {...withSuomifiDefaultProps(props)} variant="h5" />
-  );
-
-  render() {
-    const { variant, ...passProps } = withSuomifiDefaultProps(this.props);
+export const Heading = forwardRef(
+  (props: HeadingProps, ref: React.RefObject<HTMLHeadingElement>) => {
+    const { as, variant, ...passProps } = props;
     if (!variant) {
       logger.warn(
         `Does not contain heading level (variant): ${passProps.children}`,
       );
       return null;
     }
-    return <StyledHeading {...passProps} variant={variant} />;
-  }
-}
+    return (
+      <StyledHeading
+        forwardedRef={ref}
+        asProp={as}
+        {...passProps}
+        variant={variant}
+      />
+    );
+  },
+);

@@ -1,10 +1,18 @@
 ```js
 import { Checkbox } from 'suomifi-ui-components';
-import { useState } from 'react';
+import React from 'react';
 
-const [checked, setChecked] = useState(false);
+const exampleRef = React.createRef();
+
+const [checked, setChecked] = React.useState(false);
 <>
-  <Checkbox defaultChecked hintText="This is an example hint text">
+  <Checkbox
+    defaultChecked
+    hintText="This is an example hint text"
+    onClick={(value) => {
+      console.log(value);
+    }}
+  >
     Regular checkbox that is checked and has a hint text
   </Checkbox>
 
@@ -16,11 +24,19 @@ const [checked, setChecked] = useState(false);
     Regular checkbox with a hint text and an error message
   </Checkbox>
 
-  <Checkbox.large>Large checkbox</Checkbox.large>
+  <Checkbox variant="large">Large checkbox</Checkbox>
 
-  <Checkbox.large defaultChecked hintText="Example hint text">
-    Checked large checkbox with a hint text
-  </Checkbox.large>
+  <Checkbox
+    variant="large"
+    defaultChecked
+    hintText="Example hint text"
+    ref={exampleRef}
+    onClick={() => {
+      console.log(exampleRef.current);
+    }}
+  >
+    Checked large checkbox with a hint text and ref
+  </Checkbox>
 
   <Checkbox disabled>Disabled checkbox</Checkbox>
 
