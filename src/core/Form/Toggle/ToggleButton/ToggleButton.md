@@ -14,9 +14,8 @@ const exampleRef = React.createRef();
     Unchecked enabled using button
   </ToggleButton>
   <ToggleButton
-    onClick={(checked) => console.log(checked)}
+    onClick={(checked) => console.log(checked, exampleRef.current)}
     ref={exampleRef}
-    onClick={() => console.log(exampleRef.current)}
   >
     Unchecked enabled using button
   </ToggleButton>
