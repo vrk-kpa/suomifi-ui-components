@@ -18,10 +18,6 @@ export interface TextProps extends HtmlSpanProps {
    * @default body
    */
   variant?: 'body' | 'lead' | 'bold';
-  /**
-   * Custom class name for the component
-   */
-  className?: string;
 }
 
 const StyledText = styled(
