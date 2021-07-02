@@ -80,6 +80,8 @@ class BaseSelect<T> extends Component<SelectProps<T & SelectData>> {
 
   private filterInputRef: React.RefObject<HTMLInputElement>;
 
+  private preventPopupToggle = false;
+
   constructor(props: SelectProps<T & SelectData>) {
     super(props);
     this.popoverListRef = React.createRef();
@@ -192,6 +194,9 @@ class BaseSelect<T> extends Component<SelectProps<T & SelectData>> {
           ownerDocument.activeElement === this.filterInputRef.current;
         const focusInCombobox = focusInPopover || focusInInput;
         this.setPopoverVisibility(focusInCombobox);
+        if (!focusInCombobox) {
+          this.resetInputValue();
+        }
       });
     }
   };
@@ -211,6 +216,16 @@ class BaseSelect<T> extends Component<SelectProps<T & SelectData>> {
       this.filterInputRef.current.focus();
       this.setPopoverVisibility(false);
     }
+  };
+
+  private resetInputValue = () => {
+    const currentItem = this.props.items.find(
+      ({ uniqueItemId }) => uniqueItemId === this.state.selectedKey,
+    );
+
+    this.setState((_prevState: SelectState<T & SelectData>) => ({
+      filterInputValue: !!currentItem ? currentItem.labelText : '',
+    }));
   };
 
   private handleItemSelection = (
@@ -314,15 +329,7 @@ class BaseSelect<T> extends Component<SelectProps<T & SelectData>> {
 
       case 'Escape': {
         event.preventDefault();
-        this.setState(
-          (
-            _prevState: SelectState<T & SelectData>,
-            prevProps: SelectProps<T & SelectData>,
-          ) => ({
-            filterInputValue: '',
-            filteredItems: prevProps.items,
-          }),
-        );
+        this.resetInputValue();
         this.focusToInputAndCloseMenu();
         break;
       }
@@ -392,9 +399,26 @@ class BaseSelect<T> extends Component<SelectProps<T & SelectData>> {
                   onFilter={(filtered) =>
                     this.setState({ filteredItems: filtered })
                   }
+                  onMouseDown={() => {
+                    if (
+                      !!document &&
+                      document.activeElement &&
+                      this.filterInputRef.current !== document.activeElement
+                    ) {
+                      this.preventPopupToggle = true;
+                    }
+                    this.setPopoverVisibility(!this.state.showPopover);
+                  }}
+                  onMouseUp={() => {
+                    this.preventPopupToggle = false;
+                  }}
                   filterFunc={this.filter}
                   forwardedRef={this.filterInputRef}
-                  onFocus={() => this.setPopoverVisibility(true)}
+                  onFocus={() => {
+                    if (!this.preventPopupToggle) {
+                      this.setPopoverVisibility(true);
+                    }
+                  }}
                   onKeyDown={this.handleKeyDown}
                   onBlur={this.handleBlur}
                   value={filterInputValue}

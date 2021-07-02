@@ -69,43 +69,29 @@ const tools = [
   }
 ];
 
-const defaultSelectedTools = [
-  {
-    name: 'Hammer',
-    price: 15,
-    tax: true,
-    labelText: 'Hammer',
-    uniqueItemId: 'h9823523'
-  },
-  {
-    name: 'Powersaw',
-    price: 150,
-    tax: false,
-    labelText: 'Powersaw',
-    disabled: true,
-    uniqueItemId: 'ps9081231'
-  }
-];
+const defaultSelectedTool = {
+  name: 'Hammer',
+  price: 15,
+  tax: true,
+  labelText: 'Hammer',
+  uniqueItemId: 'h9823523'
+};
 
 <>
   <Select
     labelText="Select"
     items={tools}
-    chipListVisible={true}
-    ariaChipActionLabel="Remove"
-    removeAllButtonLabel="Remove all selections"
     visualPlaceholder="Choose your tool(s)"
     noItemsText="No items"
-    defaultSelectedItems={defaultSelectedTools}
-    ariaSelectedAmountText="tools selected"
+    defaultSelectedItem={defaultSelectedTool}
   />
 </>;
 ```
 
 ### Controlled
 
-```
-const [selectedAnimals, setSelectedAnimals] = React.useState([]);
+```js
+const [selectedAnimal, setSelectedAnimal] = React.useState(null);
 const animals = [
   {
     age: 2,
@@ -125,20 +111,46 @@ const animals = [
 ];
 
 <>
-    <Select
-      items={animals}
-      selectedItems={selectedAnimals}
-      labelText="Animals"
-      noItemsText="No animals"
-      chipListVisible={true}
-      visualPlaceholder="Try to choose animal(s)"
-      ariaChipActionLabel="Remove"
-      ariaSelectedAmountText="animals selected"
-    />
+  <Select
+    items={animals}
+    selectedItem={selectedAnimal}
+    labelText="Animals"
+    noItemsText="No animals"
+    visualPlaceholder="Try to choose animal(s)"
+    ariaChipActionLabel="Remove"
+    ariaSelectedAmountText="animals selected"
+  />
 
-    <span>There can be only one!</span>
-    <button onClick={() => setSelectedAnimals([{ labelText: 'Turtle', uniqueItemId: 'turtle-987' }])}>Turtle</button>
-    <button onClick={() => setSelectedAnimals([{ labelText: 'Rabbit', uniqueItemId: 'rabbit-123' }])}>Rabbit</button>
-    <button onClick={() => setSelectedAnimals([{ labelText: 'Snail', uniqueItemId: 'snail-321' }])}>Snail</button>
-</>
+  <span>There can be only one!</span>
+  <button
+    onClick={() =>
+      setSelectedAnimal({
+        labelText: 'Turtle',
+        uniqueItemId: 'turtle-987'
+      })
+    }
+  >
+    Turtle
+  </button>
+  <button
+    onClick={() =>
+      setSelectedAnimal({
+        labelText: 'Rabbit',
+        uniqueItemId: 'rabbit-123'
+      })
+    }
+  >
+    Rabbit
+  </button>
+  <button
+    onClick={() =>
+      setSelectedAnimal({
+        labelText: 'Snail',
+        uniqueItemId: 'snail-321'
+      })
+    }
+  >
+    Snail
+  </button>
+</>;
 ```
