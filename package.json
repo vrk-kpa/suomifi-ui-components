@@ -1,6 +1,6 @@
 {
   "name": "suomifi-ui-components",
-  "version": "5.0.0",
+  "version": "4.1.0-beta.0",
   "description": "Suomi.fi UI component library",
   "main": "dist/index.js",
   "module": "dist/suomifi-ui-components.esm.js",
