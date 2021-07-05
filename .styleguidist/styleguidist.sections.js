@@ -104,12 +104,12 @@ module.exports = {
               name: 'Icon',
               components: getComponents(['Icon', 'StaticIcon']),
             },
-            // {
-            //   name: 'MultiSelect',
-            //   components: getComponentWithVariants('Form/MultiSelect')([
-            //     'MultiSelect/MultiSelect',
-            //   ]),
-            // },
+            {
+              name: 'MultiSelect',
+              components: getComponentWithVariants('Form/MultiSelect')([
+                'MultiSelect/MultiSelect',
+              ]),
+            },
           ],
           expand: true,
         },
