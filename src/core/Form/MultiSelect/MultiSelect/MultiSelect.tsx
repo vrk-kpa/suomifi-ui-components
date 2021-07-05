@@ -84,11 +84,11 @@ export interface MultiSelectProps<T extends MultiSelectData> {
   /** Text for screen reader to indicate how many items are selected */
   ariaSelectedAmountText: string;
   /** Text for screen reader indicating the amount of available options after filtering by typing. Will be read after the amount.
-   * E.g 'options available' as prop value would result in '{amount} options available' being read to screen reader upon removal.
+   * E.g 'options available' as prop value would result in '{amount} options available' being read by screen reader upon removal.
    */
   ariaOptionsAvailableText: string;
   /** Text for screen reader to read, after labelText/chipText, when selected option is removed from chip list.
-   * E.g 'removed' as prop value would result in '{option} removed' being read to screen reader upon removal.
+   * E.g 'removed' as prop value would result in '{option} removed' being read by screen reader upon removal.
    */
   ariaOptionChipRemovedText: string;
 }
