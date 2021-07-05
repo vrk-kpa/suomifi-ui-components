@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import { baseClassName } from '../../components/Breadcrumb/Breadcrumb';
 import { Link, LinkProps } from '../Link/Link';
 import { Icon } from '../Icon/Icon';
 import { HtmlSpan } from '../../reset';
 import classnames from 'classnames';
 
+const baseClassName = 'fi-breadcrumb';
 const linkClassName = `${baseClassName}_link`;
 const iconClassName = `${baseClassName}_icon`;
 
@@ -29,6 +29,7 @@ export const BreadcrumbLink = ({
       </HtmlSpan>
     );
   }
+
   return (
     <Fragment>
       <Link

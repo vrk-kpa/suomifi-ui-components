@@ -1,9 +1,9 @@
 ```jsx
-import { Breadcrumb } from 'suomifi-ui-components';
+import { Breadcrumb, BreadcrumbLink } from 'suomifi-ui-components';
 
 <Breadcrumb aria-label="breadcrumb">
-  <Breadcrumb.link href="/">Frontpage</Breadcrumb.link>
-  <Breadcrumb.link href="/sub">Sub page</Breadcrumb.link>
-  <Breadcrumb.link current>Sub sub page</Breadcrumb.link>
+  <BreadcrumbLink href="/">Frontpage</BreadcrumbLink>
+  <BreadcrumbLink href="/sub">Sub page</BreadcrumbLink>
+  <BreadcrumbLink current>Sub sub page</BreadcrumbLink>
 </Breadcrumb>;
 ```
