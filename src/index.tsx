@@ -10,10 +10,10 @@ export { Dropdown, DropdownProps } from './core/Dropdown/';
 export { DropdownItem, DropdownItemProps } from './core/Dropdown/';
 export { Chip, ChipProps } from './core/Chip/';
 export { StaticChip, StaticChipProps } from './core/Chip/';
-// MultiSelect,
-// MultiSelectProps,
-// MultiSelectData,
 export {
+  MultiSelect,
+  MultiSelectProps,
+  MultiSelectData,
   Checkbox,
   CheckboxProps,
   TextInput,
