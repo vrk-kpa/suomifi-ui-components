@@ -2,16 +2,16 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { axeTest } from '../../utils/test/axe';
 
-import { Link } from './Link';
+import { LinkExternal } from './LinkExternal';
 
 const TestLinkExternal = (
-  <Link.external
+  <LinkExternal
     href="/"
     data-testid="test-link"
     labelNewWindow="Opens in a new window"
   >
     Hey this is test
-  </Link.external>
+  </LinkExternal>
 );
 
 test('calling render with the same component on the same container does not remount', () => {

@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 import { default as styled } from 'styled-components';
-import {
-  LinkSkip as CompLinkSkip,
-  LinkSkipProps as CompLinkSkipProps,
-} from '../../components/Link/LinkSkip';
 import { Link, LinkProps } from './Link';
-
 import { skipLinkStyles } from './Link.baseStyles';
 
-export interface LinkSkipProps extends CompLinkSkipProps, LinkProps {}
+const skipClassName = 'fi-link--skip';
 
-const StyledLinkSkip = styled((props: LinkSkipProps) => (
-  <Link {...props} asProp={CompLinkSkip} />
-))`
+export interface LinkSkipProps extends LinkProps {}
+
+const StyledLinkSkip = styled((props: LinkSkipProps) => <Link {...props} />)`
   ${skipLinkStyles}
 `;
 
@@ -22,6 +18,12 @@ const StyledLinkSkip = styled((props: LinkSkipProps) => (
  */
 export class LinkSkip extends Component<LinkSkipProps> {
   render() {
-    return <StyledLinkSkip {...this.props} />;
+    const { className, ...passProps } = this.props;
+    return (
+      <StyledLinkSkip
+        {...passProps}
+        className={classnames(className, skipClassName)}
+      />
+    );
   }
 }

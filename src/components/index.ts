@@ -1,5 +1,3 @@
-export { Link, LinkProps } from './Link/Link';
-export { LinkExternal, LinkExternalProps } from './Link/LinkExternal';
 export {
   LanguageMenu,
   LanguageMenuProps,
