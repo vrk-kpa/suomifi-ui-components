@@ -1,27 +1,43 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { logger } from '../../utils/logger';
-import {
-  LinkExternal as CompLinkExternal,
-  LinkExternalProps as CompLinkExternalProps,
-} from '../../components/Link/LinkExternal';
+import classnames from 'classnames';
 import { Icon } from '../Icon/Icon';
 import { Link, LinkProps } from './Link';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import { externalStyles } from './Link.baseStyles';
 
 const iconClassName = 'fi-link_icon';
+const externalClassName = 'fi-link--external';
 
-export interface LinkExternalProps extends CompLinkExternalProps, LinkProps {
+export interface LinkExternalProps extends LinkProps {
   /** Translated explanation of 'opens to a new window' */
   labelNewWindow: string;
   /** Hide the icon */
   hideIcon?: boolean;
+  /** Open to a new window
+   * @default true
+   */
+  toNewWindow?: boolean;
+}
+
+class BaseLinkExternal extends Component<LinkExternalProps> {
+  render() {
+    const { className, toNewWindow = true, ...passProps } = this.props;
+    return (
+      <Link
+        {...passProps}
+        className={classnames(className, externalClassName)}
+        target={!!toNewWindow ? '_blank' : undefined}
+        rel={!!toNewWindow ? 'noopener' : undefined}
+      />
+    );
+  }
 }
 
 const StyledLinkExternal = styled(
   (props: Omit<LinkExternalProps, 'labelNewWindow' | 'hideIcon'>) => (
-    <Link {...props} asProp={CompLinkExternal} />
+    <Link {...props} asProp={BaseLinkExternal} />
   ),
 )`
   ${externalStyles};
