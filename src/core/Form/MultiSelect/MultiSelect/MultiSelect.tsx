@@ -14,6 +14,7 @@ import { MultiSelectItemList } from '../MultiSelectItemList/MultiSelectItemList'
 import { MultiSelectItem } from '../MultiSelectItem/MultiSelectItem';
 import { MultiSelectEmptyItem } from '../MultiSelectEmptyItem/MultiSelectEmptyItem';
 import { ChipList } from '../ChipList/ChipList';
+import { AriaAnnounceText } from './AriaAnnounceText';
 import { baseStyles } from './MultiSelect.baseStyles';
 
 const baseClassName = 'fi-multiselect';
@@ -719,18 +720,10 @@ class BaseMultiSelect<T> extends Component<
           {selectedItems.length}
           {ariaSelectedAmountText}
         </VisuallyHidden>
-        <VisuallyHidden
-          aria-live="polite"
-          aria-atomic="true"
+        <AriaAnnounceText
           id={`${id}-filteredItems-length`}
-        >
-          {this.focusInInput(this.getOwnerDocument()) ? (
-            <>
-              {filteredItems.length}
-              {ariaOptionsAvailableText}
-            </>
-          ) : null}
-        </VisuallyHidden>
+          announceText={`${filteredItems.length} ${ariaOptionsAvailableText}`}
+        />
         <VisuallyHidden
           aria-live="assertive"
           aria-atomic="true"
