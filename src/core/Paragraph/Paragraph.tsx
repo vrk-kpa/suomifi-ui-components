@@ -18,7 +18,7 @@ export interface ParagraphProps extends HtmlPProps {
 const StyledParagraph = styled(
   ({ marginBottomSpacing, className, ...passProps }: ParagraphProps) => (
     <HtmlP
-      className={classnames(className, {
+      className={classnames(baseClassName, className, {
         [`${baseClassName}--margin-${marginBottomSpacing}`]: !!marginBottomSpacing,
       })}
       {...passProps}
