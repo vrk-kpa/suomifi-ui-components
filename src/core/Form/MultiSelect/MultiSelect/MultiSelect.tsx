@@ -8,7 +8,6 @@ import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Button } from '../../../Button/Button';
 import { Chip } from '../../../Chip';
 import { Popover } from '../../../Popover/Popover';
-import { VisuallyHidden } from '../../../VisuallyHidden/VisuallyHidden';
 import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
 import { MultiSelectItemList } from '../MultiSelectItemList/MultiSelectItemList';
 import { MultiSelectItem } from '../MultiSelectItem/MultiSelectItem';
@@ -482,6 +481,7 @@ class BaseMultiSelect<T> extends Component<
       selectedItems,
       disabledKeys,
       filterInputValue,
+      chipRemovalAnnounceText,
     } = this.state;
 
     const {
@@ -712,25 +712,20 @@ class BaseMultiSelect<T> extends Component<
             )}
           </HtmlDiv>
         </HtmlDiv>
-        <VisuallyHidden
-          aria-live="polite"
-          aria-atomic="true"
+        <AriaAnnounceText
           id={`${id}-selectedItems-length`}
-        >
-          {selectedItems.length}
-          {ariaSelectedAmountText}
-        </VisuallyHidden>
+          announceText={`${selectedItems.length} ${ariaSelectedAmountText}`}
+        />
         <AriaAnnounceText
           id={`${id}-filteredItems-length`}
           announceText={`${filteredItems.length} ${ariaOptionsAvailableText}`}
         />
-        <VisuallyHidden
-          aria-live="assertive"
-          aria-atomic="true"
+        <AriaAnnounceText
           id={`${id}-chip-removal-announce`}
-        >
-          {this.state.chipRemovalAnnounceText}
-        </VisuallyHidden>
+          ariaLiveMode="assertive"
+          waitFor={100}
+          announceText={chipRemovalAnnounceText}
+        />
       </>
     );
   }
