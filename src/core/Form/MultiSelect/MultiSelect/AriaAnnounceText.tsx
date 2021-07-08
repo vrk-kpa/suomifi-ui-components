@@ -1,4 +1,5 @@
 import React from 'react';
+import { AriaLiveMode } from '../../types';
 import { VisuallyHidden } from '../../../VisuallyHidden/VisuallyHidden';
 
 const debounce = (func: Function, waitFor: number) => {
@@ -22,6 +23,8 @@ const debounce = (func: Function, waitFor: number) => {
 export interface AriaAnnounceTextProps {
   id: string;
   announceText: string;
+  ariaLiveMode?: AriaLiveMode;
+  waitFor?: number;
 }
 
 interface AriaAnnounceTextState {
@@ -40,14 +43,17 @@ export class AriaAnnounceText extends React.Component<AriaAnnounceTextProps> {
   };
 
   componentDidMount() {
-    this.debounceStatusUpdate = debounce(() => {
-      if (!this.state.debounced) {
-        this.setState((prevState: AriaAnnounceTextState) => ({
-          debounced: true,
-          toggle: !prevState.toggle,
-        }));
-      }
-    }, 1000);
+    this.debounceStatusUpdate = debounce(
+      () => {
+        if (!this.state.debounced) {
+          this.setState((prevState: AriaAnnounceTextState) => ({
+            debounced: true,
+            toggle: !prevState.toggle,
+          }));
+        }
+      },
+      this.props.waitFor ? this.props.waitFor : 1000,
+    );
   }
 
   static getDerivedStateFromProps(
@@ -61,14 +67,14 @@ export class AriaAnnounceText extends React.Component<AriaAnnounceTextProps> {
   }
 
   render() {
-    const { id, announceText } = this.props;
+    const { id, announceText, ariaLiveMode = 'polite' } = this.props;
     const { debounced, toggle } = this.state;
     if (this.debounceStatusUpdate) {
       this.debounceStatusUpdate();
     }
     return (
       <VisuallyHidden
-        aria-live="polite"
+        aria-live={ariaLiveMode}
         aria-atomic="true"
         id={id}
         key={`${toggle}`}
