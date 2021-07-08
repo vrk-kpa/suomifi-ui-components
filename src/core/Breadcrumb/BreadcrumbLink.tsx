@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Link, LinkProps } from '../Link/Link';
+import { Link, LinkProps } from '../Link';
 import { Icon } from '../Icon/Icon';
 import { HtmlSpan } from '../../reset';
 import classnames from 'classnames';
