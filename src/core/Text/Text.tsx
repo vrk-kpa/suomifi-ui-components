@@ -30,9 +30,14 @@ const StyledText = styled(
   }: TextProps) => (
     <HtmlSpan
       {...passProps}
-      className={classnames(className, [`${baseClassName}--${variant}`], {
-        [smallScreenClassName]: smallScreen,
-      })}
+      className={classnames(
+        baseClassName,
+        className,
+        [`${baseClassName}--${variant}`],
+        {
+          [smallScreenClassName]: smallScreen,
+        },
+      )}
     />
   ),
 )`
