@@ -21,9 +21,13 @@ const debounce = (func: Function, waitFor: number) => {
 };
 
 export interface AriaAnnounceTextProps {
+  /** Unique id */
   id: string;
+  /** Text that is announced by screen reader. Change in this will also trigger the debounce. */
   announceText: string;
+  /** aria-live mode for the element. */
   ariaLiveMode?: AriaLiveMode;
+  /** Debounce time in milliseconds. */
   waitFor?: number;
 }
 
