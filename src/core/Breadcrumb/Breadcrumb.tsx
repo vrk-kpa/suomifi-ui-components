@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../utils/aria';
-import { LinkProps } from '../Link/Link';
+import { BaseLinkProps } from '../Link/BaseLink/BaseLink';
 import { BreadcrumbLink, BreadcrumbLinkProps } from './BreadcrumbLink';
 import { HtmlLi, HtmlNav, HtmlNavProps, HtmlOl } from '../../reset';
 import { baseStyles } from './Breadcrumb.baseStyles';
@@ -30,7 +30,7 @@ export interface BreadcrumbProps extends HtmlNavProps {
 
 type VariantBreadcrumbProps =
   | BreadcrumbProps
-  | (LinkProps & { variant?: BreadcrumbVariant });
+  | (BaseLinkProps & { variant?: BreadcrumbVariant });
 
 const breadcrumbItems = (children: ReactNode) =>
   React.Children.map(children, (child) => (
