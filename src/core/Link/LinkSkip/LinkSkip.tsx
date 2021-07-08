@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
-import { Link, LinkProps } from './Link';
-import { skipLinkStyles } from './Link.baseStyles';
+import { Link } from '../Link/Link';
+import { linkSkipStyles } from './LinkSkip.baseStyles';
+import { BaseLinkProps } from '../BaseLink/BaseLink';
 
 const skipClassName = 'fi-link--skip';
 
-export interface LinkSkipProps extends LinkProps {}
+export interface LinkSkipProps extends BaseLinkProps {}
 
 const StyledLinkSkip = styled((props: LinkSkipProps) => <Link {...props} />)`
-  ${skipLinkStyles}
+  ${linkSkipStyles}
 `;
 
 /**
