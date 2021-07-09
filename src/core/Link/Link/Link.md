@@ -24,7 +24,7 @@ Show link for keyboard navigation.
 - To see the component, click below on the dashed area and then press `Tab`.
 
 ```js
-import { LinkSkip } from 'suomifi-ui-components';
+import { SkipLink } from 'suomifi-ui-components';
 <div>
   <div
     style={{
@@ -35,7 +35,7 @@ import { LinkSkip } from 'suomifi-ui-components';
       borderWidth: '1px'
     }}
   >
-    <LinkSkip href="#">Skip to main content</LinkSkip>
+    <SkipLink href="#">Skip to main content</SkipLink>
   </div>
 </div>;
 ```
@@ -43,14 +43,14 @@ import { LinkSkip } from 'suomifi-ui-components';
 ### External link
 
 ```js
-import { LinkExternal } from 'suomifi-ui-components';
+import { ExternalLink } from 'suomifi-ui-components';
 
-<LinkExternal
+<ExternalLink
   href="https://www.sweden.se/"
   labelNewWindow="Opens to a new window"
 >
   External link
-</LinkExternal>;
+</ExternalLink>;
 ```
 
 ### Change component for the link

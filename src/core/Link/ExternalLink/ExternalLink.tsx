@@ -4,14 +4,14 @@ import { logger } from '../../../utils/logger';
 import classnames from 'classnames';
 import { Icon } from '../../Icon/Icon';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
-import { linkExternalStyles } from './LinkExternal.baseStyles';
+import { ExternalLinkStyles } from './ExternalLink.baseStyles';
 import { HtmlA } from '../../../reset';
 import { BaseLinkProps, baseClassName } from '../BaseLink/BaseLink';
 
 const iconClassName = 'fi-link_icon';
 const externalClassName = 'fi-link--external';
 
-export interface LinkExternalProps extends BaseLinkProps {
+export interface ExternalLinkProps extends BaseLinkProps {
   /** Translated explanation of 'opens to a new window' */
   labelNewWindow: string;
   /** Hide the icon */
@@ -22,7 +22,7 @@ export interface LinkExternalProps extends BaseLinkProps {
   toNewWindow?: boolean;
 }
 
-class BaseLinkExternal extends Component<LinkExternalProps> {
+class BaseExternalLink extends Component<ExternalLinkProps> {
   render() {
     const {
       asProp,
@@ -55,17 +55,17 @@ class BaseLinkExternal extends Component<LinkExternalProps> {
   }
 }
 
-const StyledLinkExternal = styled((props: LinkExternalProps) => (
-  <BaseLinkExternal {...props} />
+const StyledExternalLink = styled((props: ExternalLinkProps) => (
+  <BaseExternalLink {...props} />
 ))`
-  ${linkExternalStyles};
+  ${ExternalLinkStyles};
 `;
 
 /**
  * <i class="semantics" />
  * Used for adding a external site link
  */
-export class LinkExternal extends Component<LinkExternalProps> {
+export class ExternalLink extends Component<ExternalLinkProps> {
   render() {
     const { labelNewWindow, ...passProps } = this.props;
     if (!labelNewWindow) {
@@ -74,7 +74,7 @@ export class LinkExternal extends Component<LinkExternalProps> {
       );
     }
     return (
-      <StyledLinkExternal labelNewWindow={labelNewWindow} {...passProps} />
+      <StyledExternalLink labelNewWindow={labelNewWindow} {...passProps} />
     );
   }
 }

@@ -1,3 +1,3 @@
 export { Link, LinkProps } from './Link/Link';
-export { LinkExternal, LinkExternalProps } from './LinkExternal/LinkExternal';
-export { LinkSkip, LinkSkipProps } from './LinkSkip/LinkSkip';
+export { ExternalLink, ExternalLinkProps } from './ExternalLink/ExternalLink';
+export { SkipLink, SkipLinkProps } from './SkipLink/SkipLink';
