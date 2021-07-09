@@ -150,19 +150,6 @@ exports[`calling render with the same component on the same container does not r
   box-sizing: border-box;
 }
 
-.c6 {
-  display: inline-block;
-  vertical-align: baseline;
-}
-
-.c6.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c6.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
 .c5 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -210,6 +197,19 @@ exports[`calling render with the same component on the same container does not r
 
 .c5:visited {
   color: hsl(284,36%,45%);
+}
+
+.c6 {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.c6.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c6.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c1 {
@@ -298,7 +298,7 @@ exports[`calling render with the same component on the same container does not r
       class="c3 fi-breadcrumb_item"
     >
       <a
-        class="c4 c5 fi-breadcrumb_link fi-link"
+        class="c4 fi-link c5 fi-breadcrumb_link"
         href="/"
       >
         Frontpage
@@ -322,7 +322,7 @@ exports[`calling render with the same component on the same container does not r
       class="c3 fi-breadcrumb_item"
     >
       <a
-        class="c4 c5 fi-breadcrumb_link fi-link"
+        class="c4 fi-link c5 fi-breadcrumb_link"
         href="/sub"
       >
         Sub page
