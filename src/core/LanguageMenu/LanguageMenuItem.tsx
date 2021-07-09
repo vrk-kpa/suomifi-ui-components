@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-  LanguageMenuItemProps,
-  LanguageMenuLinkProps,
-} from '../../components/LanguageMenu/LanguageMenu';
+import { LanguageMenuItemProps, LanguageMenuLinkProps } from './LanguageMenu';
 import {
   LanguageMenuItemLanguage,
   LanguageMenuItemLanguageProps,
