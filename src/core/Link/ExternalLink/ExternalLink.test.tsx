@@ -2,20 +2,20 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { axeTest } from '../../../utils/test/axe';
 
-import { LinkExternal } from './LinkExternal';
+import { ExternalLink } from './ExternalLink';
 
-const TestLinkExternal = (
-  <LinkExternal
+const TestExternalLink = (
+  <ExternalLink
     href="/"
     data-testid="test-link"
     labelNewWindow="Opens in a new window"
   >
     Hey this is test
-  </LinkExternal>
+  </ExternalLink>
 );
 
 test('calling render with the same component on the same container does not remount', () => {
-  const LinkRendered = render(TestLinkExternal);
+  const LinkRendered = render(TestExternalLink);
   const { getByTestId, container } = LinkRendered;
   expect(container.firstChild).toMatchSnapshot();
   expect(getByTestId('test-link').textContent).toBe(
@@ -23,4 +23,4 @@ test('calling render with the same component on the same container does not remo
   );
 });
 
-test('should not have basic accessibility issues', axeTest(TestLinkExternal));
+test('should not have basic accessibility issues', axeTest(TestExternalLink));

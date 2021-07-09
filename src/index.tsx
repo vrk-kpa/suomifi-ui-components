@@ -40,10 +40,10 @@ export {
 export {
   Link,
   LinkProps,
-  LinkExternal,
-  LinkExternalProps,
-  LinkSkip,
-  LinkSkipProps,
+  ExternalLink,
+  ExternalLinkProps,
+  SkipLink,
+  SkipLinkProps,
 } from './core/Link/';
 export {
   LanguageMenu,

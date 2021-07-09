@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import { defaultThemeTokens as theme } from '../../theme';
 import { baseStyles } from '../BaseLink/BaseLink.baseStyles';
 
-export const linkSkipStyles = css`
+export const SkipLinkStyles = css`
   ${baseStyles}
   &.fi-link--skip {
     position: absolute;
