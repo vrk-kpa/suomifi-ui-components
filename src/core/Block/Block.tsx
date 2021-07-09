@@ -21,30 +21,23 @@ export interface BlockProps extends HtmlDivProps {
 
 class SemanticBlock extends Component<BlockProps> {
   render() {
-    const { className, variant, ...passProps } = this.props;
+    const { className, variant, padding, margin, ...passProps } = this.props;
     const ComponentVariant =
       !variant || variant === 'default' ? HtmlDiv : variant;
     return (
       <ComponentVariant
         {...passProps}
-        className={classnames(baseClassName, className)}
+        className={classnames(baseClassName, className, {
+          [`${baseClassName}--padding-${padding}`]: !!padding,
+          [`${baseClassName}--margin-${margin}`]: !!margin,
+          [`${baseClassName}--${variant}`]: !!variant,
+        })}
       />
     );
   }
 }
 
-const StyledBlock = styled(
-  ({ className, padding, margin, ...passProps }: BlockProps) => (
-    <SemanticBlock
-      {...passProps}
-      className={classnames(className, {
-        [`${baseClassName}--padding-${padding}`]: !!padding,
-        [`${baseClassName}--margin-${margin}`]: !!margin,
-        [`${baseClassName}--${passProps.variant}`]: !!passProps.variant,
-      })}
-    />
-  ),
-)`
+const StyledBlock = styled((props: BlockProps) => <SemanticBlock {...props} />)`
   ${baseStyles};
 `;
 
