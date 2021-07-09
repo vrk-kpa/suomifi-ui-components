@@ -3,14 +3,12 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SpacingWithoutInsetProp } from '../theme/utils/spacing';
 import { ColorProp } from '../theme';
-import {
-  Paragraph as CompParagraph,
-  ParagraphProps as CompParagraphProps,
-  baseClassName,
-} from '../../components/Paragraph/Paragraph';
 import { baseStyles } from './Paragraph.baseStyles';
+import { HtmlP, HtmlPProps } from '../../reset/HtmlP/HtmlP';
 
-export interface ParagraphProps extends CompParagraphProps {
+const baseClassName = 'fi-paragraph';
+
+export interface ParagraphProps extends HtmlPProps {
   /** Change color */
   color?: ColorProp;
   /** Spacing token for bottom margin */
@@ -19,8 +17,8 @@ export interface ParagraphProps extends CompParagraphProps {
 
 const StyledParagraph = styled(
   ({ marginBottomSpacing, className, ...passProps }: ParagraphProps) => (
-    <CompParagraph
-      className={classnames(className, {
+    <HtmlP
+      className={classnames(baseClassName, className, {
         [`${baseClassName}--margin-${marginBottomSpacing}`]: !!marginBottomSpacing,
       })}
       {...passProps}

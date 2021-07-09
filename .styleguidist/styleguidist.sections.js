@@ -89,8 +89,9 @@ module.exports = {
             {
               name: 'Link',
               components: getComponentWithVariants('Link')([
-                'LinkSkip',
-                'LinkExternal',
+                'Link/Link',
+                'SkipLink/SkipLink',
+                'ExternalLink/ExternalLink',
               ]),
             },
             {

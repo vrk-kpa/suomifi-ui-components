@@ -1,14 +1,14 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { axeTest } from '../../utils/test/axe';
-
 import { Breadcrumb } from './Breadcrumb';
+import { BreadcrumbLink } from './BreadcrumbLink';
 
 const TestBreadcrumb = (
   <Breadcrumb data-testid="Breadcrumb" aria-label="breadcrumb">
-    <Breadcrumb.link href="/">Frontpage</Breadcrumb.link>
-    <Breadcrumb.link href="/sub">Sub page</Breadcrumb.link>
-    <Breadcrumb.link current={true}>Sub sub page</Breadcrumb.link>
+    <BreadcrumbLink href="/">Frontpage</BreadcrumbLink>
+    <BreadcrumbLink href="/sub">Sub page</BreadcrumbLink>
+    <BreadcrumbLink current={true}>Sub sub page</BreadcrumbLink>
   </Breadcrumb>
 );
 

@@ -1,6 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
+.c4 {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.c4.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c4.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c3 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -37,66 +91,6 @@ exports[`calling render with the same component on the same container does not r
   -webkit-text-decoration: underline;
   text-decoration: underline;
   cursor: pointer;
-}
-
-.c3 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c3::before,
-.c3::after {
-  box-sizing: border-box;
-}
-
-.c5 {
-  display: inline-block;
-  vertical-align: baseline;
-}
-
-.c5.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c5.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
-.c4 {
-  position: absolute;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-}
-
-.c2 .fi-link_icon {
-  padding-left: 4px;
-  font-size: 16px;
-  box-sizing: content-box;
 }
 
 .c1 {
@@ -148,8 +142,14 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(284,36%,45%);
 }
 
+.c1 .fi-link_icon {
+  padding-left: 4px;
+  font-size: 16px;
+  box-sizing: content-box;
+}
+
 <a
-  class="c0 sc-bdvvaa c0 c1 c2 fi-link fi-link--external"
+  class="c0 fi-link c1 fi-link--external"
   data-testid="test-link"
   href="/"
   rel="noopener"
@@ -157,13 +157,13 @@ exports[`calling render with the same component on the same container does not r
 >
   Hey this is test
   <span
-    class="c3 c4 fi-visually-hidden"
+    class="c2 c3 fi-visually-hidden"
   >
     Opens in a new window
   </span>
   <svg
     aria-hidden="true"
-    class="fi-icon c5 fi-link_icon"
+    class="fi-icon c4 fi-link_icon"
     fill="currentColor"
     focusable="false"
     height="1em"

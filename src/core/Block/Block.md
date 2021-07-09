@@ -13,5 +13,5 @@ import { Block } from 'suomifi-ui-components';
 ```js
 import { Block } from 'suomifi-ui-components';
 
-<Block.section>I'm semantically a section</Block.section>;
+<Block variant="section">I'm semantically a section</Block>;
 ```

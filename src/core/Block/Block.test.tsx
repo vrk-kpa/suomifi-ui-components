@@ -8,7 +8,7 @@ const TestBlock = (
   <div data-testid="test-block">
     <Block>Hey this is test</Block>
     <Block padding="xxxl">Hey this is test lead</Block>
-    <Block.section>Hey this is test bold</Block.section>
+    <Block variant="section">Hey this is test bold</Block>
   </div>
 );
 
