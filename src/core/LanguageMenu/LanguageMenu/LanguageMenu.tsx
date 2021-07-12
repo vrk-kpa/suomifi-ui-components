@@ -10,15 +10,14 @@ import {
 } from '@reach/menu-button';
 import { positionDefault } from '@reach/popover';
 import { PRect } from '@reach/rect';
-import { classnamesValue } from '../../utils/typescript';
-import { logger } from '../../utils/logger';
-import { HtmlSpan } from '../../reset/HtmlSpan/HtmlSpan';
+import { classnamesValue } from '../../../utils/typescript';
+import { logger } from '../../../utils/logger';
+import { HtmlSpan } from '../../../reset/HtmlSpan/HtmlSpan';
+import { Icon } from '../../Icon/Icon';
 import {
   baseStyles,
   languageMenuPopoverStyles,
 } from './LanguageMenu.baseStyles';
-
-import { Icon } from '../Icon/Icon';
 
 const baseClassName = 'fi-language-menu';
 const languageMenuClassNames = {

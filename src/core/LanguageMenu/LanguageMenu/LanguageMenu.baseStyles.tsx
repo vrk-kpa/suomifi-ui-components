@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../theme';
-import { element } from '../theme/reset';
-import { absoluteFocus } from '../theme/utils/focus';
+import { defaultThemeTokens as theme } from '../../theme';
+import { element } from '../../theme/reset';
+import { absoluteFocus } from '../../theme/utils/focus';
 
 export const baseStyles = css`
   & > [data-reach-menu-button].fi-language-menu_button {
