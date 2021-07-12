@@ -48,17 +48,11 @@ export {
 export {
   LanguageMenu,
   LanguageMenuProps,
-} from './core/LanguageMenu/LanguageMenu';
-export {
   LanguageMenuItem,
   LanguageMenuItemProps,
   LanguageMenuLink,
   LanguageMenuLinkProps,
-  LanguageMenuItemLanguage,
-  LanguageMenuItemLanguageProps,
-  LanguageMenuLinkLanguage,
-  LanguageMenuLinkLanguageProps,
-} from './core/LanguageMenu/LanguageMenuItem';
+} from './core/LanguageMenu';
 export {
   Modal,
   ModalProps,

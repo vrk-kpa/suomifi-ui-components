@@ -32,7 +32,7 @@ const popoverClassName = 'fi-language-menu_popover';
 const popoverLangClassName = 'fi-language-menu-language_popover';
 const iconLangClassName = 'fi-language-menu-language_icon';
 
-export interface LanguageMenuItemProps {
+export interface LanguageMenuItemBaseProps {
   /** Operation to run on select */
   onSelect: () => void;
   /** Item content */
@@ -51,11 +51,11 @@ interface LanguageMenuLinkPropsWithType {
   as?: SupportedMenuLinkComponent;
 }
 
-export interface LanguageMenuLinkProps
+export interface LanguageMenuLinkBaseProps
   extends Omit<LanguageMenuLinkPropsWithType, 'type'> {}
 
 export type LanguageMenuPopoverItemsProps =
-  | LanguageMenuItemProps
+  | LanguageMenuItemBaseProps
   | LanguageMenuLinkPropsWithType;
 type OptionalLanguageMenuPopoverProps = {
   [K in keyof MenuPopoverProps]?: MenuPopoverProps[K];
