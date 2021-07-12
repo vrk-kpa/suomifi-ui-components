@@ -2,7 +2,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import { LanguageMenu } from './LanguageMenu';
-import { LanguageMenuItem, LanguageMenuLink } from './LanguageMenuItem';
+import { LanguageMenuItem } from './LanguageMenuItem';
+import { LanguageMenuLink } from './LanguageMenuLink';
 import { axeTest } from '../../utils/test/axe';
 
 const doNothing = () => ({});
