@@ -134,8 +134,9 @@ module.exports = {
             {
               name: 'LanguageMenu',
               components: getComponentWithVariants('LanguageMenu')([
-                'LanguageMenuItem',
-                'LanguageMenuLink',
+                'LanguageMenu/LanguageMenu',
+                'LanguageMenuItem/LanguageMenuItem',
+                'LanguageMenuLink/LanguageMenuLink',
               ]),
             },
             {

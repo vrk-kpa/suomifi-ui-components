@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
+import { axeTest } from '../../../utils/test/axe';
 import { LanguageMenu } from './LanguageMenu';
-import { LanguageMenuItem } from './LanguageMenuItem';
-import { LanguageMenuLink } from './LanguageMenuLink';
-import { axeTest } from '../../utils/test/axe';
+import { LanguageMenuItem } from '../LanguageMenuItem';
+import { LanguageMenuLink } from '../LanguageMenuLink';
 
 const doNothing = () => ({});
 
