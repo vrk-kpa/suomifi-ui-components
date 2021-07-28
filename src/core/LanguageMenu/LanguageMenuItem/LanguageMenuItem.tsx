@@ -1,22 +1,20 @@
 import React from 'react';
 import classnames from 'classnames';
-import {
-  MenuItem as CompMenuItem,
-  LanguageMenuItemProps,
-} from '../../components/LanguageMenu/LanguageMenu';
+import { MenuItem } from '@reach/menu-button';
+import { LanguageMenuItemBaseProps } from '../LanguageMenu';
 
-export interface LanguageMenuItemLanguageProps extends LanguageMenuItemProps {
+export interface LanguageMenuItemProps extends LanguageMenuItemBaseProps {
   /** Show item as selected one */
   selected?: boolean;
   className?: string;
 }
 
-export const LanguageMenuItemLanguage = ({
+export const LanguageMenuItem = ({
   selected,
   className,
   ...passProps
-}: LanguageMenuItemLanguageProps) => (
-  <CompMenuItem
+}: LanguageMenuItemProps) => (
+  <MenuItem
     {...passProps}
     className={classnames(className, {
       'fi-language-menu-lang-item-selected': selected,

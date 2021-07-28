@@ -1,22 +1,20 @@
 import React from 'react';
 import classnames from 'classnames';
-import {
-  MenuLink as CompMenuLink,
-  LanguageMenuLinkProps,
-} from '../../components/LanguageMenu/LanguageMenu';
+import { MenuLink } from '@reach/menu-button';
+import { LanguageMenuLinkBaseProps } from '../LanguageMenu';
 
-export interface LanguageMenuLinkLanguageProps extends LanguageMenuLinkProps {
+export interface LanguageMenuLinkProps extends LanguageMenuLinkBaseProps {
   /** Show item as selected one */
   selected?: boolean;
   className?: string;
 }
 
-export const LanguageMenuLinkLanguage = ({
+export const LanguageMenuLink = ({
   selected,
   className,
   ...passProps
-}: LanguageMenuLinkLanguageProps) => (
-  <CompMenuLink
+}: LanguageMenuLinkProps) => (
+  <MenuLink
     {...passProps}
     className={classnames(className, {
       'fi-language-menu-lang-item-selected': selected,
