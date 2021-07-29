@@ -1,6 +1,1 @@
-export {
-  LanguageMenu,
-  LanguageMenuProps,
-  LanguageMenuItemBaseProps,
-  LanguageMenuLinkBaseProps,
-} from './LanguageMenu';
+export { LanguageMenu, LanguageMenuProps } from './LanguageMenu';

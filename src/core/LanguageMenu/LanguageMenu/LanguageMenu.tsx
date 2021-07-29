@@ -18,6 +18,7 @@ import {
   baseStyles,
   languageMenuPopoverStyles,
 } from './LanguageMenu.baseStyles';
+import { LanguageMenuItemProps, LanguageMenuLinkProps } from '../index';
 
 const baseClassName = 'fi-language-menu';
 const languageMenuClassNames = {
@@ -26,39 +27,12 @@ const languageMenuClassNames = {
   button: `${baseClassName}_button`,
   buttonOpen: `${baseClassName}-language_button_open`,
   buttonLang: `${baseClassName}-language_button`,
-  popover: `${baseClassName}_popover`,
-  popoverLang: `${baseClassName}-language_popover`,
   iconLang: `${baseClassName}-language_icon`,
 };
 
-export interface LanguageMenuItemBaseProps {
-  /** Operation to run on select */
-  onSelect: () => void;
-  /** Item content */
-  children: ReactNode;
-}
-
-type SupportedMenuLinkComponent = keyof JSX.IntrinsicElements;
-
-interface LanguageMenuLinkPropsWithType {
-  type: 'menulink';
-  /** Url to direct to */
-  href: string;
-  /** Item content */
-  children: ReactNode;
-  className?: string;
-  as?: SupportedMenuLinkComponent;
-}
-
-export interface LanguageMenuLinkBaseProps
-  extends Omit<LanguageMenuLinkPropsWithType, 'type'> {}
-
 export type LanguageMenuPopoverItemsProps =
-  | LanguageMenuItemBaseProps
-  | LanguageMenuLinkPropsWithType;
-type OptionalLanguageMenuPopoverProps = {
-  [K in keyof MenuPopoverProps]?: MenuPopoverProps[K];
-};
+  | LanguageMenuItemProps
+  | LanguageMenuLinkProps;
 
 export interface LanguageMenuProps {
   /** Name or content of menubutton */
@@ -69,9 +43,6 @@ export interface LanguageMenuProps {
   languageMenuButtonClassName?: string;
   /** Custom classname to apply when menu is open */
   languageMenuOpenButtonClassName?: string;
-  /** Properties given to LanguageMenu's popover-component, className etc. */
-  languageMenuPopoverProps?: OptionalLanguageMenuPopoverProps;
-  languageMenuPopoverComponent?: React.ComponentType<OptionalLanguageMenuPopoverProps>;
   /** Menu items: MenuItem or MenuLink */
   children?:
     | Array<React.ReactElement<LanguageMenuPopoverItemsProps>>
@@ -87,8 +58,6 @@ class BaseLanguageMenu extends Component<LanguageMenuProps> {
       className,
       languageMenuButtonClassName: menuButtonClassName,
       languageMenuOpenButtonClassName: menuButtonOpenClassName,
-      languageMenuPopoverProps: menuPopoverProps = {},
-      languageMenuPopoverComponent: MenuPopoverComponentReplace,
       ...passProps
     } = this.props;
 
@@ -110,15 +79,9 @@ class BaseLanguageMenu extends Component<LanguageMenuProps> {
               >
                 {name}
               </MenuButton>
-              {!!MenuPopoverComponentReplace ? (
-                <MenuPopoverComponentReplace {...menuPopoverProps}>
-                  {children}
-                </MenuPopoverComponentReplace>
-              ) : (
-                <MenuPopover position={positionDefault} {...menuPopoverProps}>
-                  <MenuItems>{children}</MenuItems>
-                </MenuPopover>
-              )}
+              <StyledMenuPopover position={positionDefault}>
+                <MenuItems>{children}</MenuItems>
+              </StyledMenuPopover>
             </Fragment>
           )}
         </Menu>
@@ -142,7 +105,6 @@ const LanguageMenuPopoverWithProps = (
       // Set defaul component-prop/type to be 'a' needed for links
       if (React.isValidElement(child)) {
         return React.cloneElement(child, {
-          as: 'a',
           className: classnames(languageMenuClassNames.item, addClass),
         });
       }
@@ -192,24 +154,12 @@ const StyledMenuPopover = styled(
  */
 export class LanguageMenu extends Component<LanguageMenuProps> {
   render() {
-    const {
-      children,
-      name,
-      className,
-      languageMenuPopoverComponent: MenuPopoverComponentProp,
-      ...passProps
-    } = this.props;
+    const { children, name, className, ...passProps } = this.props;
     const languageMenuButtonClassName = classnames(
       languageMenuClassNames.button,
       languageMenuClassNames.buttonLang,
       className,
     );
-    const menuPopoverProps = {
-      className: classnames(
-        languageMenuClassNames.popover,
-        languageMenuClassNames.popoverLang,
-      ),
-    };
 
     return (
       <Fragment>
@@ -218,12 +168,6 @@ export class LanguageMenu extends Component<LanguageMenuProps> {
           name={languageName(name)}
           languageMenuButtonClassName={languageMenuButtonClassName}
           languageMenuOpenButtonClassName={languageMenuClassNames.buttonOpen}
-          languageMenuPopoverProps={menuPopoverProps}
-          languageMenuPopoverComponent={
-            !!MenuPopoverComponentProp
-              ? MenuPopoverComponentProp
-              : StyledMenuPopover
-          }
         >
           {LanguageMenuPopoverWithProps(
             children,
