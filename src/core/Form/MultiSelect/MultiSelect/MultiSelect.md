@@ -89,15 +89,18 @@ const defaultSelectedTools = [
 
 <>
   <MultiSelect
-    labelText="MultiSelect"
+    labelText="Tools"
+    hintText="You can filter results by typing in the field"
     items={tools}
     chipListVisible={true}
     ariaChipActionLabel="Remove"
     removeAllButtonLabel="Remove all selections"
-    visualPlaceholder="Choose your tool(s)"
+    visualPlaceholder="Choose your tools"
     noItemsText="No items"
     defaultSelectedItems={defaultSelectedTools}
     ariaSelectedAmountText="tools selected"
+    ariaOptionsAvailableText="options left"
+    ariaOptionChipRemovedText="removed"
   />
 </>;
 ```
@@ -129,11 +132,14 @@ const animals = [
       items={animals}
       selectedItems={selectedAnimals}
       labelText="Animals"
+      hintText="You can filter results by typing in the field"
       noItemsText="No animals"
       chipListVisible={true}
-      visualPlaceholder="Try to choose animal(s)"
+      visualPlaceholder="Try to choose animals"
       ariaChipActionLabel="Remove"
       ariaSelectedAmountText="animals selected"
+      ariaOptionsAvailableText="options left"
+      ariaOptionChipRemovedText="removed"
     />
 
     <span>There can be only one!</span>

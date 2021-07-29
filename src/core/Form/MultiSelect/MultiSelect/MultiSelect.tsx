@@ -8,12 +8,12 @@ import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Button } from '../../../Button/Button';
 import { Chip } from '../../../Chip';
 import { Popover } from '../../../Popover/Popover';
-import { VisuallyHidden } from '../../../VisuallyHidden/VisuallyHidden';
 import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
 import { MultiSelectItemList } from '../MultiSelectItemList/MultiSelectItemList';
 import { MultiSelectItem } from '../MultiSelectItem/MultiSelectItem';
 import { MultiSelectEmptyItem } from '../MultiSelectEmptyItem/MultiSelectEmptyItem';
 import { ChipList } from '../ChipList/ChipList';
+import { AriaAnnounceText } from './AriaAnnounceText';
 import { baseStyles } from './MultiSelect.baseStyles';
 
 const baseClassName = 'fi-multiselect';
@@ -48,6 +48,8 @@ export interface MultiSelectProps<T extends MultiSelectData> {
   id?: string;
   /** Label */
   labelText: string;
+  /** Hint text to be shown below the label */
+  hintText?: string;
   /** Event that is fired when item selections change */
   onItemSelectionsChange?: (selectedItems: Array<T>) => void;
   /** Show chip list */
@@ -79,8 +81,16 @@ export interface MultiSelectProps<T extends MultiSelectData> {
   onItemSelect?: (uniqueItemId: string) => void;
   /** Event to be sent when pressing remove all button */
   onRemoveAll?: () => void;
-  /** Text to be read by screenreader to indicate how many items are selected */
+  /** Text for screen reader to indicate how many items are selected */
   ariaSelectedAmountText: string;
+  /** Text for screen reader indicating the amount of available options after filtering by typing. Will be read after the amount.
+   * E.g 'options available' as prop value would result in '{amount} options available' being read by screen reader upon removal.
+   */
+  ariaOptionsAvailableText: string;
+  /** Text for screen reader to read, after labelText/chipText, when selected option is removed from chip list.
+   * E.g 'removed' as prop value would result in '{option} removed' being read by screen reader upon removal.
+   */
+  ariaOptionChipRemovedText: string;
 }
 
 // actual boolean value does not matter, only if it exists on the list
@@ -97,6 +107,7 @@ interface MultiSelectState<T extends MultiSelectData> {
   selectedItems: T[];
   initialItems: T[];
   disabledKeys: ItemKeys;
+  chipRemovalAnnounceText: string;
 }
 
 function getSelectedKeys<T>(items: (T & MultiSelectData)[] = []): ItemKeys {
@@ -145,6 +156,7 @@ class BaseMultiSelect<T> extends Component<
     disabledKeys: this.props.selectedItems
       ? getDisabledKeys(this.props.selectedItems)
       : getDisabledKeys(this.props.items),
+    chipRemovalAnnounceText: '',
   };
 
   static getDerivedStateFromProps<U>(
@@ -303,8 +315,7 @@ class BaseMultiSelect<T> extends Component<
     this.setState({ showPopover: visible });
   };
 
-  private handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    event.preventDefault();
+  private getOwnerDocument = () => {
     if (this.popoverListRef !== null && this.popoverListRef.current !== null) {
       const elem = this.popoverListRef.current;
       const ownerDocument = windowAvailable()
@@ -312,7 +323,20 @@ class BaseMultiSelect<T> extends Component<
           ? elem.ownerDocument
           : document
         : null;
+      return ownerDocument;
+    }
+    return null;
+  };
 
+  private focusInInput = (ownerDocument: Document | null) =>
+    ownerDocument
+      ? ownerDocument.activeElement === this.filterInputRef.current
+      : false;
+
+  private handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    if (this.popoverListRef !== null && this.popoverListRef.current !== null) {
+      const ownerDocument = this.getOwnerDocument();
       if (!ownerDocument) {
         return;
       }
@@ -320,8 +344,7 @@ class BaseMultiSelect<T> extends Component<
         const focusInPopover = this.popoverListRef.current?.contains(
           ownerDocument.activeElement,
         );
-        const focusInInput =
-          ownerDocument.activeElement === this.filterInputRef.current;
+        const focusInInput = this.focusInInput(ownerDocument);
         const focusInCombobox = focusInPopover || focusInInput;
         this.setPopoverVisibility(focusInCombobox);
 
@@ -458,6 +481,7 @@ class BaseMultiSelect<T> extends Component<
       selectedItems,
       disabledKeys,
       filterInputValue,
+      chipRemovalAnnounceText,
     } = this.state;
 
     const {
@@ -465,6 +489,7 @@ class BaseMultiSelect<T> extends Component<
       className,
       items: propItems,
       labelText,
+      hintText,
       onItemSelectionsChange,
       chipListVisible,
       ariaChipActionLabel,
@@ -480,6 +505,8 @@ class BaseMultiSelect<T> extends Component<
       onItemSelect,
       onRemoveAll,
       ariaSelectedAmountText,
+      ariaOptionsAvailableText,
+      ariaOptionChipRemovedText,
       ...passProps
     } = this.props;
 
@@ -544,6 +571,7 @@ class BaseMultiSelect<T> extends Component<
                 <FilterInput
                   id={id}
                   labelText={labelText}
+                  hintText={hintText}
                   items={propItems}
                   onFilter={(filtered) =>
                     this.setState({ filteredItems: filtered })
@@ -617,7 +645,12 @@ class BaseMultiSelect<T> extends Component<
                 {selectedItems
                   .filter((item) => item.disabled)
                   .map((disabledItem) => (
-                    <Chip aria-disabled={true} key={disabledItem.uniqueItemId}>
+                    <Chip
+                      aria-disabled={true}
+                      key={disabledItem.uniqueItemId}
+                      actionLabel={ariaChipActionLabel}
+                      removable={true}
+                    >
                       {disabledItem.chipText
                         ? disabledItem.chipText
                         : disabledItem.labelText}
@@ -645,6 +678,13 @@ class BaseMultiSelect<T> extends Component<
                           // eslint-disable-next-line no-unused-expressions
                           this.filterInputRef?.current?.focus();
                         }
+                        this.setState({
+                          chipRemovalAnnounceText: `${
+                            enabledItem.chipText
+                              ? enabledItem.chipText
+                              : enabledItem.labelText
+                          } ${ariaOptionChipRemovedText}`,
+                        });
                         this.handleItemSelection(enabledItem);
                       }}
                       actionLabel={ariaChipActionLabel}
@@ -672,14 +712,20 @@ class BaseMultiSelect<T> extends Component<
             )}
           </HtmlDiv>
         </HtmlDiv>
-        <VisuallyHidden
-          aria-live="polite"
-          aria-atomic="true"
+        <AriaAnnounceText
           id={`${id}-selectedItems-length`}
-        >
-          {selectedItems.length}
-          {ariaSelectedAmountText}
-        </VisuallyHidden>
+          announceText={`${selectedItems.length} ${ariaSelectedAmountText}`}
+        />
+        <AriaAnnounceText
+          id={`${id}-filteredItems-length`}
+          announceText={`${filteredItems.length} ${ariaOptionsAvailableText}`}
+        />
+        <AriaAnnounceText
+          id={`${id}-chip-removal-announce`}
+          ariaLiveMode="assertive"
+          waitFor={100}
+          announceText={chipRemovalAnnounceText}
+        />
       </>
     );
   }

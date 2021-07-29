@@ -11,6 +11,7 @@ import {
 import { AutoId } from '../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
+import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
 import { baseStyles } from './FilterInput.baseStyles';
 
@@ -46,6 +47,8 @@ interface InternalFilterInputProps<T>
   labelMode?: LabelMode;
   /** Text to mark a field optional. Will be wrapped in parentheses and shown after labelText. */
   optionalText?: string;
+  /** Hint text to be shown below the label */
+  hintText?: string;
   /**
    * 'default' | 'error'
    * @default default
@@ -84,6 +87,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       visualPlaceholder,
       labelText,
       labelMode,
+      hintText,
       optionalText,
       status,
       statusText,
@@ -120,6 +124,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       }
     };
 
+    const hintTextId = hintText ? `${id}-hintText` : undefined;
     const statusTextId = statusText ? `${id}-statusText` : undefined;
 
     return (
@@ -140,6 +145,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
           >
             {labelText}
           </LabelText>
+          <HintText id={hintTextId}>{hintText}</HintText>
           <HtmlDiv className={filterInputClassNames.functionalityContainer}>
             <HtmlDiv className={filterInputClassNames.inputElementContainer}>
               <HtmlInput
@@ -151,6 +157,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
                 placeholder={visualPlaceholder}
                 {...getConditionalAriaProp('aria-describedby', [
                   statusTextId,
+                  hintTextId,
                   ariaDescribedBy,
                 ])}
                 autoComplete="off"
