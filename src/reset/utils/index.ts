@@ -1,7 +1,5 @@
 import { css } from 'styled-components';
-import { normalizeCssInJs } from 'normalize.cssinjs';
-
-const normalize = normalizeCssInJs({ cssToString: true });
+import { normalize } from './normalize';
 
 const common = css`
   margin: 0;
