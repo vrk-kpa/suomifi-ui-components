@@ -49,42 +49,37 @@ export const baseStyles = css`
 `;
 
 export const languageMenuPopoverStyles = css`
-  &[data-reach-menu-popover].fi-language-menu_popover {
+  &[data-reach-menu-popover] {
     ${element(theme)}
     ${theme.typography.bodyText}
-    margin-top: -2px;
     background-color: ${theme.colors.whiteBase};
-    border: none;
     box-shadow: ${theme.shadows.menuShadow};
-
-    &.fi-language-menu-language_popover {
-      ${theme.typography.actionElementInnerText}
+    ${theme.typography.actionElementInnerText}
+    position: absolute;
+    box-sizing: content-box;
+    margin-top: 12px;
+    border: 1px solid ${theme.colors.depthLight1};
+    border-radius: ${theme.radius.basic};
+    &:before,
+    &:after {
+      content: '';
       position: absolute;
-      box-sizing: content-box;
-      margin-top: 12px;
-      border: 1px solid ${theme.colors.depthLight1};
-      border-radius: ${theme.radius.basic};
-      &:before,
-      &:after {
-        content: '';
-        position: absolute;
-        height: 0;
-        width: 0;
-        bottom: 100%;
-        right: ${theme.spacing.l};
-        border: solid transparent;
-        pointer-events: none;
-      }
-      &:before {
-        border-bottom-color: ${theme.colors.depthLight1};
-        border-width: 8px;
-        margin-right: -8px;
-      }
-      &:after {
-        border-bottom-color: ${theme.colors.whiteBase};
-        border-width: 6.5px;
-        margin-right: -6.5px;
-      }
+      height: 0;
+      width: 0;
+      bottom: 100%;
+      right: ${theme.spacing.l};
+      border: solid transparent;
+      pointer-events: none;
+    }
+    &:before {
+      border-bottom-color: ${theme.colors.depthLight1};
+      border-width: 8px;
+      margin-right: -8px;
+    }
+    &:after {
+      border-bottom-color: ${theme.colors.whiteBase};
+      border-width: 6.5px;
+      margin-right: -6.5px;
     }
   }
 

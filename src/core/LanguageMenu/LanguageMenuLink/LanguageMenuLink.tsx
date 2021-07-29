@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classnames from 'classnames';
 import { MenuLink } from '@reach/menu-button';
-import { LanguageMenuLinkBaseProps } from '../LanguageMenu';
 
-export interface LanguageMenuLinkProps extends LanguageMenuLinkBaseProps {
+export interface LanguageMenuLinkProps {
+  /** Url to direct to */
+  href: string;
+  /** Item content */
+  children: ReactNode;
   /** Show item as selected one */
   selected?: boolean;
   className?: string;
