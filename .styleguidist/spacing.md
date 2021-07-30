@@ -33,7 +33,7 @@ const Container = styled(({ size, name, ...passProps }) => (
 `
 );
 
-const Square = styled(props => (
+const Square = styled((props) => (
   <div {...props}>
     <div className="box" />
   </div>
@@ -53,7 +53,7 @@ const Square = styled(props => (
   `
 );
 
-const Bar = styled(props => (
+const Bar = styled((props) => (
   <div {...props}>
     <div className="row" />
     <div className="col" />
@@ -84,7 +84,7 @@ const Bar = styled(props => (
 
 const Name = styled(({ name, value, ...passProps }) => (
   <div {...passProps}>
-    <Text.lead>{name}</Text.lead>
+    <Text variant="lead">{name}</Text>
     <Text>{value}</Text>
   </div>
 ))(
