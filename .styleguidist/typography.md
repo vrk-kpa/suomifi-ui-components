@@ -8,14 +8,14 @@ import { suomifiTheme } from '../src/core/theme';
 import clipboardCopy from 'clipboard-copy';
 
 const fontFamily = 'Source Sans Pro';
-const typographyTokens = suomifiTheme().typography;
+const typographyTokens = suomifiTheme.typography;
 
 const Row = styled(({ mb, code, ...passProps }) => (
   <div
     {...passProps}
     onClick={() => (!!code ? clipboardCopy(code) : {})}
   />
-))(props => ({
+))((props) => ({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
@@ -34,8 +34,10 @@ const Item = ({ flex, Component, ...passProps }) => (
   </div>
 );
 
-const TextItem = props => <Item {...props} Component={Text} />;
-const HeadingItem = props => <Item {...props} Component={Heading} />;
+const TextItem = (props) => <Item {...props} Component={Text} />;
+const HeadingItem = (props) => (
+  <Item {...props} Component={Heading} />
+);
 
 const TextSet = ({ name, size, mb, code, ...passProps }) => (
   <Row mb={mb} code={code}>
@@ -106,7 +108,7 @@ const HeadingSet = ({ name, size, mb, code, ...passProps }) => (
     code="<Heading.h1hero smallScreen></Heading.h1hero>"
   />
 
-  {[1, 2, 3, 4, 5].map(n => (
+  {[1, 2, 3, 4, 5].map((n) => (
     <React.Fragment key={n}>
       <HeadingSet
         variant={`h${n}`}
