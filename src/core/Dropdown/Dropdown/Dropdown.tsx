@@ -10,9 +10,9 @@ import {
   ListboxPopover,
 } from '@reach/listbox';
 import { positionMatchWidth } from '@reach/popover';
-import { logger } from '../../../utils/logger';
-import { AutoId } from '../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
+import { logger } from '../../../utils/log';
+import { AutoId } from '../../utils/AutoId/AutoId';
 import { HtmlSpan, HtmlDiv } from '../../../reset';
 import { LabelText, LabelMode } from '../../Form/LabelText/LabelText';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';

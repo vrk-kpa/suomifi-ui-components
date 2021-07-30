@@ -11,7 +11,7 @@ import {
 import { positionDefault } from '@reach/popover';
 import { PRect } from '@reach/rect';
 import { classnamesValue } from '../../../utils/typescript';
-import { logger } from '../../../utils/logger';
+import { logger } from '../../../utils/log';
 import { HtmlSpan } from '../../../reset/HtmlSpan/HtmlSpan';
 import { Icon } from '../../Icon/Icon';
 import {

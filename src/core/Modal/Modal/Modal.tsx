@@ -1,6 +1,6 @@
 import React, { Component, ReactNode, createRef } from 'react';
 import { default as styled } from 'styled-components';
-import { logger } from '../../../utils/logger';
+import { logger } from '../../../utils/log';
 import { default as ReactModal } from 'react-modal';
 import classnames from 'classnames';
 import { ModalContent, ModalFooter } from '../';

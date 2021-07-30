@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlDivProps } from '../../../../reset';
-import { AutoId } from '../../../../utils/AutoId';
+import { AutoId } from '../../../utils/AutoId/AutoId';
 import { baseStyles } from './ChipList.baseStyles';
 
 const baseClassName = 'fi-chip-list';

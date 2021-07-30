@@ -8,7 +8,7 @@ import {
   HtmlDivProps,
   HtmlInput,
 } from '../../../reset';
-import { AutoId } from '../../../utils/AutoId';
+import { AutoId } from '../../utils/AutoId/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { HintText } from '../HintText/HintText';

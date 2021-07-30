@@ -1,23 +1,22 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../theme';
+import { suomifiTheme } from '../theme';
 import { button } from '../theme/reset';
 import { alphaHex } from '../../utils/css';
-import { absoluteFocus } from '../theme/utils/focus';
 
 const invertedStyles = css`
   &.fi-button--inverted {
     background: none;
-    background-color: ${theme.colors.highlightBase};
-    border: 1px solid ${theme.colors.whiteBase};
+    background-color: ${suomifiTheme.colors.highlightBase};
+    border: 1px solid ${suomifiTheme.colors.whiteBase};
     text-shadow: none;
 
     &:hover {
-      background: ${theme.gradients.whiteBaseNegative};
+      background: ${suomifiTheme.gradients.whiteBaseNegative};
     }
 
     &:active {
       background: none;
-      background-color: ${theme.colors.highlightBase};
+      background-color: ${suomifiTheme.colors.highlightBase};
     }
 
     &.fi-button--disabled,
@@ -31,29 +30,29 @@ const invertedStyles = css`
 `;
 
 const secondary = css`
-  color: ${theme.colors.highlightBase};
+  color: ${suomifiTheme.colors.highlightBase};
   background: none;
-  background-color: ${theme.colors.whiteBase};
-  border: 1px solid ${theme.colors.highlightBase};
+  background-color: ${suomifiTheme.colors.whiteBase};
+  border: 1px solid ${suomifiTheme.colors.highlightBase};
   text-shadow: none;
 
   &:hover {
-    background: ${theme.gradients.whiteBaseToDepthLight2};
+    background: ${suomifiTheme.gradients.whiteBaseToDepthLight2};
   }
 
   &:active {
     background: none;
-    background-color: ${theme.colors.depthLight2};
+    background-color: ${suomifiTheme.colors.depthLight2};
   }
 
   &.fi-button--disabled,
   &[disabled],
   &:disabled {
-    color: ${theme.colors.depthBase};
+    color: ${suomifiTheme.colors.depthBase};
     text-shadow: none;
     background: none;
-    background-color: ${theme.colors.highlightLight4};
-    border-color: ${theme.colors.depthBase};
+    background-color: ${suomifiTheme.colors.highlightLight4};
+    border-color: ${suomifiTheme.colors.depthBase};
   }
 `;
 
@@ -73,38 +72,38 @@ const secondaryNoBorderStyles = css`
 
 const linkStyles = css`
   &.fi-button--link {
-    color: ${theme.colors.highlightBase};
+    color: ${suomifiTheme.colors.highlightBase};
     ${secondary}
-    background: ${theme.gradients.depthSecondaryToDepthSecondaryDark1};
+    background: ${suomifiTheme.gradients.depthSecondaryToDepthSecondaryDark1};
     border: none;
 
     &:hover {
-      background: ${theme.gradients.highlightLight4ToDepthSecondary};
+      background: ${suomifiTheme.gradients.highlightLight4ToDepthSecondary};
     }
 
     &:active {
-      background: ${theme.gradients.depthLight3ToDepthLight2};
+      background: ${suomifiTheme.gradients.depthLight3ToDepthLight2};
     }
 
     &.fi-button--disabled,
     &[disabled],
     &:disabled {
-      color: ${theme.colors.depthBase};
+      color: ${suomifiTheme.colors.depthBase};
       background: none;
-      background-color: ${theme.colors.depthLight3};
+      background-color: ${suomifiTheme.colors.depthLight3};
     }
   }
 `;
 
 export const baseStyles = css`
-  ${button(theme)}
-  padding: ${theme.spacing.insetL} ${theme.spacing.insetXxl};
+  ${button(suomifiTheme)}
+  padding: ${suomifiTheme.spacing.insetL} ${suomifiTheme.spacing.insetXxl};
   min-height: 40px;
-  color: ${theme.colors.whiteBase};
-  background: ${theme.gradients.highlightBaseToHighlightDark1};
-  border-radius: ${theme.radius.basic};
+  color: ${suomifiTheme.colors.whiteBase};
+  background: ${suomifiTheme.gradients.highlightBaseToHighlightDark1};
+  border-radius: ${suomifiTheme.radius.basic};
   text-align: center;
-  text-shadow: ${theme.shadows.invertTextShadow};
+  text-shadow: ${suomifiTheme.shadows.invertTextShadow};
   cursor: pointer;
 
   &:focus {
@@ -112,23 +111,23 @@ export const baseStyles = css`
     position: relative;
 
     &::after {
-      ${absoluteFocus}
+      ${suomifiTheme.focus.absoluteFocus}
     }
   }
 
   &:hover {
-    background: ${theme.gradients.highlightLight1ToHighlightBase};
+    background: ${suomifiTheme.gradients.highlightLight1ToHighlightBase};
   }
 
   &:active {
-    background: ${theme.colors.highlightDark1};
+    background: ${suomifiTheme.colors.highlightDark1};
   }
 
   &.fi-button--disabled,
   &[disabled],
   &:disabled {
-    text-shadow: 0 1px 1px ${alphaHex(0.5)(theme.colors.blackBase)};
-    background: ${theme.gradients.depthLight1ToDepthBase};
+    text-shadow: 0 1px 1px ${alphaHex(0.5)(suomifiTheme.colors.blackBase)};
+    background: ${suomifiTheme.gradients.depthLight1ToDepthBase};
     user-select: none;
     cursor: not-allowed;
   }
@@ -151,12 +150,12 @@ export const baseStyles = css`
   & > .fi-button_icon {
     width: 16px;
     height: 16px;
-    margin-right: ${theme.spacing.insetM};
+    margin-right: ${suomifiTheme.spacing.insetM};
     vertical-align: middle;
     transform: translateY(-0.1em);
     &.fi-button_icon--right {
       margin-right: 0;
-      margin-left: ${theme.spacing.insetM};
+      margin-left: ${suomifiTheme.spacing.insetM};
     }
   }
   &.fi-button--disabled > .fi-button_icon {

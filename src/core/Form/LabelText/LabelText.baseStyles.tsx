@@ -1,17 +1,17 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { suomifiTheme } from '../../theme';
 import { font } from '../../theme/reset';
 
 export const baseStyles = css`
   &.fi-label-text {
     & .fi-label-text_label-span {
-      ${font(theme)('actionElementInnerTextBold')};
+      ${font(suomifiTheme)('actionElementInnerTextBold')};
       display: block;
-      margin-bottom: ${theme.spacing.xs};
-      color: ${theme.colors.blackBase};
+      margin-bottom: ${suomifiTheme.spacing.xs};
+      color: ${suomifiTheme.colors.blackBase};
 
       & .fi-label-text_optionalText {
-        ${theme.typography.bodyTextSmall};
+        ${suomifiTheme.typography.bodyTextSmall};
       }
     }
   }

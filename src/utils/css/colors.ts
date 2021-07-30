@@ -1,5 +1,5 @@
 import { parseToRgb, toColorString, hslToColorString } from 'polished';
-import { logger } from '../../utils/logger';
+import { logger } from '../log';
 
 /**
  * Set alpha value to hex-color

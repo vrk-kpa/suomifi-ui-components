@@ -1,0 +1,1 @@
+export { axeTest } from './axe';

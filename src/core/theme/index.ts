@@ -3,7 +3,6 @@ import {
   colors as colorTokens,
   shadows,
   gradients,
-  outlines,
   ColorDesignTokens,
 } from './colors';
 import {
@@ -15,19 +14,27 @@ import {
   SpacingProp,
   SpacingDesignTokens,
 } from './spacing';
+import { boxShadowFocus, absoluteFocus, noMouseFocus } from './focus';
 import { zindexes } from './zindexes';
 import { transitions } from './transitions';
 import { radius } from './radius';
+
+export {
+  TypographyDesignTokens,
+  ColorDesignTokens,
+  SpacingDesignTokens,
+  RawDesignTokens,
+  RawColorDesignTokens,
+  RawSpacingDesignTokens,
+  RawTypographyDesignTokens,
+} from 'suomifi-design-tokens';
+
+export type ColorProp = keyof typeof desingTokens.colors;
+export type TypographyProp = keyof typeof suomifiDesignTokens.typography;
 export { SpacingProp };
 
-export type SuomifiTokens = typeof importedTokens;
-export type DefaultSuomifiTokens = typeof defaultThemeTokens;
-export type ColorProp = keyof typeof importedTokens.colors;
-export type SuomifiTheme = ReturnType<typeof suomifiTheme>;
-
-export type TypographyProp = keyof typeof suomifiDesignTokens.typography;
-
-export { TypographyDesignTokens } from 'suomifi-design-tokens';
+export type SuomifiDesignTokens = typeof desingTokens;
+export type SuomifiTheme = typeof suomifiTheme;
 
 export interface PartialTokens {
   colors?: Partial<ColorDesignTokens>;
@@ -35,39 +42,44 @@ export interface PartialTokens {
   typography?: Partial<TypographyDesignTokens>;
 }
 
-type DefaultInternalTokens = typeof internalTokens;
-const internalTokens = {
+const desingTokens = {
   shadows,
   gradients,
-  outlines,
   zindexes,
   transitions,
   radius,
-};
-
-const importedTokens = {
   colors: colorTokens,
   spacing: spacingTokens,
   typography: suomifiDesignTokens.typography,
   values: suomifiDesignTokens.values,
 };
 
-export const defaultThemeTokens = {
-  ...importedTokens,
-  ...internalTokens,
+const derivedTokens = {
+  focus: {
+    absoluteFocus: absoluteFocus(desingTokens),
+    boxShadowFocus: boxShadowFocus(desingTokens),
+    noMouseFocus,
+  },
+};
+
+export const suomifiTheme = {
+  // Get all design tokens
+  ...desingTokens,
+  // Get all derived tokens
+  ...derivedTokens,
 };
 
 /**
- *  Theme tokens and tokens as CSS
+ * Generate theme using provided tokens. Returns generated theme with provided tokens as CSS.
  * @param tokens SuomifiTokens with libraryTokenOverrides, defaults to suomifi-design-tokens
  * @param tokens.colors color tokens, defaults to suomifi-design-tokens colors
  * @param tokens.spacing spacing tokens, defaults to suomifi-design-tokens spacing
  * @param tokens.typography typography tokens, defaults to suomifi-design-tokens typography
  * @param tokens.values token values in object format, defaults to suomifi-design-tokens values, not connected to other params
  */
-export const suomifiTheme = (
-  props: Partial<DefaultInternalTokens & PartialTokens>,
-) => {
+export const getSuomifiTheme = (
+  props: Partial<SuomifiDesignTokens>,
+): SuomifiTheme => {
   const {
     // If custom tokens are not provided, default tokens will be used instead
     colors = {},
@@ -77,23 +89,23 @@ export const suomifiTheme = (
     ...libraryTokenOverrides
   } = props || {};
   const theme = {
-    // Get all internalTokens
-    ...internalTokens,
+    // Get the default theme
+    ...suomifiTheme,
     // Override if any defined
     ...(!!libraryTokenOverrides ? libraryTokenOverrides : {}),
+    // merge provided custom styles with default theme
     colors: mergeTokens({
-      defaultTokens: defaultThemeTokens.colors,
+      defaultTokens: desingTokens.colors,
       customTokens: colors,
     }),
     spacing: mergeTokens({
-      defaultTokens: defaultThemeTokens.spacing,
+      defaultTokens: desingTokens.spacing,
       customTokens: spacing,
     }),
     typography: mergeTokens({
-      defaultTokens: defaultThemeTokens.typography,
+      defaultTokens: desingTokens.typography,
       customTokens: typography,
     }),
-    values: defaultThemeTokens.values,
   };
   return theme;
 };

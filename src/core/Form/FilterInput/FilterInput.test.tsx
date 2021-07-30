@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { axeTest } from '../../../utils/test/axe';
+import { axeTest } from '../../../utils/test';
 import { FilterInput } from './FilterInput';
 
 interface Product {

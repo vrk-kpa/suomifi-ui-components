@@ -1,28 +1,28 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { suomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
 
 export const baseStyles = css`
-  ${element(theme)}
-  ${font(theme)('bodyText')}
+  ${element(suomifiTheme)}
+  ${font(suomifiTheme)('bodyText')}
 
     &.fi-radio-button-group {
     & .fi-radio-button-group_label {
       display: block;
-      ${theme.typography.bodySemiBoldSmall};
+      ${suomifiTheme.typography.bodySemiBoldSmall};
     }
 
     & .fi-radio-button-group_hintText {
-      color: ${theme.colors.depthDark1};
-      ${theme.typography.bodyTextSmall};
+      color: ${suomifiTheme.colors.depthDark1};
+      ${suomifiTheme.typography.bodyTextSmall};
     }
   }
 
   & .fi-radio-button_container {
-    margin-top: ${theme.spacing.xs};
+    margin-top: ${suomifiTheme.spacing.xs};
   }
 
   & .fi-radio-button_container.fi-radio-button--large {
-    margin-top: ${theme.spacing.s};
+    margin-top: ${suomifiTheme.spacing.s};
   }
 `;

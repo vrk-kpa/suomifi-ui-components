@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { suomifiTheme } from '../../theme';
 
 export const baseStyles = css`
   &.fi-modal_footer {
@@ -7,12 +7,12 @@ export const baseStyles = css`
     position: relative;
     & .fi-modal_footer_content {
       padding-top: 0;
-      padding-right: ${theme.spacing.s};
-      padding-bottom: ${theme.spacing.m};
-      padding-left: ${theme.spacing.xl};
+      padding-right: ${suomifiTheme.spacing.s};
+      padding-bottom: ${suomifiTheme.spacing.m};
+      padding-left: ${suomifiTheme.spacing.xl};
       & > * {
-        margin-top: ${theme.spacing.m};
-        margin-right: ${theme.spacing.s};
+        margin-top: ${suomifiTheme.spacing.m};
+        margin-right: ${suomifiTheme.spacing.s};
       }
     }
 
@@ -21,13 +21,13 @@ export const baseStyles = css`
       height: 51px;
       width: 100%;
       top: -51px;
-      border-bottom: 1px solid ${theme.colors.depthLight1};
+      border-bottom: 1px solid ${suomifiTheme.colors.depthLight1};
       & .fi-modal_footer_content-gradient {
         height: 50px;
-        margin: 0 ${theme.spacing.m} 0 ${theme.spacing.m};
+        margin: 0 ${suomifiTheme.spacing.m} 0 ${suomifiTheme.spacing.m};
         background: linear-gradient(
           0deg,
-          ${theme.colors.whiteBase},
+          ${suomifiTheme.colors.whiteBase},
           rgba(255, 255, 255, 0)
         );
       }
@@ -35,13 +35,13 @@ export const baseStyles = css`
 
     &--small-screen {
       & .fi-modal_footer_content {
-        padding-right: ${theme.spacing.xxs};
-        padding-bottom: ${theme.spacing.s};
-        padding-left: ${theme.spacing.m};
+        padding-right: ${suomifiTheme.spacing.xxs};
+        padding-bottom: ${suomifiTheme.spacing.s};
+        padding-left: ${suomifiTheme.spacing.m};
         & > * {
           display: block;
-          width: calc(100% - ${theme.spacing.s});
-          margin-top: ${theme.spacing.s};
+          width: calc(100% - ${suomifiTheme.spacing.s});
+          margin-top: ${suomifiTheme.spacing.s};
         }
       }
     }

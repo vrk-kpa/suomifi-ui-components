@@ -1,16 +1,16 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../../theme';
+import { suomifiTheme } from '../../../theme';
 import { font } from '../../../theme/reset';
 
 export const baseStyles = css`
   &.fi-multiselect-item-list {
-    ${font(theme)('bodyText')}
+    ${font(suomifiTheme)('bodyText')}
     list-style-type: none;
 
-    background-color: ${theme.colors.whiteBase};
+    background-color: ${suomifiTheme.colors.whiteBase};
     border-width: 0 1px 1px 1px;
     border-style: solid;
-    border-color: ${theme.colors.depthDark3};
+    border-color: ${suomifiTheme.colors.depthDark3};
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
 

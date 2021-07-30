@@ -1,7 +1,7 @@
 import React, { forwardRef, Component, ChangeEvent, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { AutoId } from '../../../utils/AutoId';
+import { AutoId } from '../../utils/AutoId/AutoId';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import {
