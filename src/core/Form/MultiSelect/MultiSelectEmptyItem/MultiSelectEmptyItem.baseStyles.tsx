@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../../theme';
+import { suomifiTheme } from '../../../theme';
 import { font } from '../../../theme/reset';
 
 export const baseStyles = css`
   &.fi-multiselect-empty-item {
-    ${font(theme)('actionElementInnerText')}
-    padding: ${theme.spacing.insetL};
+    ${font(suomifiTheme)('actionElementInnerText')}
+    padding: ${suomifiTheme.spacing.insetL};
 
     &:focus {
       outline: none;

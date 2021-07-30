@@ -1,10 +1,10 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../../theme';
+import { suomifiTheme } from '../../../theme';
 import { font } from '../../../theme/reset';
 
 export const baseStyles = css`
   &.fi-chip-list {
-    ${font(theme)('bodyText')}
+    ${font(suomifiTheme)('bodyText')}
     padding-top: 5px;
   }
 

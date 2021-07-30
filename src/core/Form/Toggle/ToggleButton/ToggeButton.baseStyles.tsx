@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { absoluteFocus } from '../../../theme/utils';
+import { suomifiTheme } from '../../../theme';
 import {
   toggleBaseStyles,
   focusOverrides,
@@ -15,7 +15,7 @@ export const baseStyles = css`
       outline: 0;
       & .fi-toggle_icon-container {
         &:after {
-          ${absoluteFocus}
+          ${suomifiTheme.focus.absoluteFocus}
           ${focusOverrides}
         }
       }

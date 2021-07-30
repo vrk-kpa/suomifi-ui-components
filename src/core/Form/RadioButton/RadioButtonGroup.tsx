@@ -4,7 +4,7 @@ import { HtmlDiv, HtmlSpan, HtmlFieldSet, HtmlLegend } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { RadioButtonProps } from './RadioButton';
 import { baseStyles } from './RadioButtonGroup.baseStyles';
-import { AutoId } from '../../../utils/AutoId';
+import { AutoId } from '../../utils/AutoId/AutoId';
 import classnames from 'classnames';
 
 const baseClassName = 'fi-radio-button-group';

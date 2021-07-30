@@ -1,27 +1,26 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { suomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
-import { absoluteFocus } from '../../theme/utils/focus';
 
 export const baseChipBaseStyles = css`
-  ${element(theme)}
-  ${font(theme)('actionElementInnerTextBold')}
+  ${element(suomifiTheme)}
+  ${font(suomifiTheme)('actionElementInnerTextBold')}
 
     &:focus {
     outline: 0;
     position: relative;
 
     &::after {
-      ${absoluteFocus}
+      ${suomifiTheme.focus.absoluteFocus}
       border-radius: 16px;
     }
   }
 
   &.fi-chip {
     border-radius: 14px;
-    padding: ${theme.spacing.insetXxs} ${theme.spacing.insetL};
-    color: ${theme.colors.whiteBase};
-    background: ${theme.colors.highlightBase};
+    padding: ${suomifiTheme.spacing.insetXxs} ${suomifiTheme.spacing.insetL};
+    color: ${suomifiTheme.colors.whiteBase};
+    background: ${suomifiTheme.colors.highlightBase};
     max-height: 28px;
     display: inline-block;
 
@@ -38,10 +37,10 @@ export const baseChipBaseStyles = css`
   &.fi-chip--disabled {
     &.fi-chip {
       cursor: not-allowed;
-      background: ${theme.colors.depthBase};
+      background: ${suomifiTheme.colors.depthBase};
       &:hover,
       &:active {
-        background: ${theme.colors.depthBase};
+        background: ${suomifiTheme.colors.depthBase};
       }
     }
   }

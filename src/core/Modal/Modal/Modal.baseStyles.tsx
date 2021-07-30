@@ -1,17 +1,15 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
-import { radius } from '../../theme/radius';
-import { boxShadowFocus } from '../../theme/utils';
+import { suomifiTheme } from '../../theme';
 import { alphaHex } from '../../../utils/css';
 import { element, font } from '../../theme/reset';
 
 export const baseStyles = css`
   &.fi-modal_base {
-    ${element(theme)}
-    ${font(theme)('actionElementInnerTextBold')}
+    ${element(suomifiTheme)}
+    ${font(suomifiTheme)('actionElementInnerTextBold')}
 
     & .fi-modal_overlay {
-      background-color: ${alphaHex(0.5)(theme.colors.blackBase)};
+      background-color: ${alphaHex(0.5)(suomifiTheme.colors.blackBase)};
       position: fixed;
       top: 0;
       left: 0;
@@ -24,9 +22,10 @@ export const baseStyles = css`
     }
   }
   & .fi-modal {
-    border-radius: ${radius.modal};
-    background-color: ${theme.colors.whiteBase};
-    border-top: ${theme.spacing.insetXs} solid ${theme.colors.highlightBase};
+    border-radius: ${suomifiTheme.radius.modal};
+    background-color: ${suomifiTheme.colors.whiteBase};
+    border-top: ${suomifiTheme.spacing.insetXs} solid
+      ${suomifiTheme.colors.highlightBase};
     overflow: hidden;
     max-height: calc(100% - 50px);
     min-height: 230px;
@@ -42,7 +41,7 @@ export const baseStyles = css`
     }
 
     &:focus-visible {
-      ${boxShadowFocus}
+      ${suomifiTheme.focus.boxShadowFocus}
     }
 
     &--no-scroll {

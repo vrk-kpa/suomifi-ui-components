@@ -1,6 +1,5 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
-import { absoluteFocus } from '../../theme/utils';
+import { suomifiTheme } from '../../theme';
 
 export const baseStyles = css`
   &.fi-modal_title {
@@ -14,19 +13,19 @@ export const baseStyles = css`
       &:focus {
         outline: 0;
         &:after {
-          ${absoluteFocus}
+          ${suomifiTheme.focus.absoluteFocus}
         }
       }
     }
 
-    margin-bottom: ${theme.spacing.m};
+    margin-bottom: ${suomifiTheme.spacing.m};
 
     &--no-scroll {
-      margin-bottom: ${theme.spacing.xs};
+      margin-bottom: ${suomifiTheme.spacing.xs};
     }
 
     &--small-screen {
-      margin-bottom: ${theme.spacing.m};
+      margin-bottom: ${suomifiTheme.spacing.m};
     }
   }
 `;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { axeTest } from '../../utils/test/axe';
-import { AutoId } from '../../utils/AutoId';
+import { axeTest } from '../../utils/test';
+import { AutoId } from '../utils/AutoId/AutoId';
 
 import { Button } from './Button';
 

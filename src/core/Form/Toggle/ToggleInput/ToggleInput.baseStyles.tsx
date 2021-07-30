@@ -1,6 +1,5 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../../theme';
-import { absoluteFocus } from '../../../theme/utils';
+import { suomifiTheme } from '../../../theme';
 import { element, font } from '../../../theme/reset';
 import {
   toggleBaseStyles,
@@ -16,7 +15,7 @@ export const baseStyles = css`
       outline: 0;
       & .fi-toggle_icon-container {
         &:after {
-          ${absoluteFocus}
+          ${suomifiTheme.focus.absoluteFocus}
           ${focusOverrides}
         }
       }
@@ -24,13 +23,13 @@ export const baseStyles = css`
   }
 
   & .fi-toggle_input-element {
-    ${element(theme)}
-    ${font(theme)('bodyText')}
+    ${element(suomifiTheme)}
+    ${font(suomifiTheme)('bodyText')}
     position: absolute;
     width: ${iconWidth};
     height: ${iconHeight};
     opacity: 0;
     z-index: -9999;
-    background-color: ${theme.colors.whiteBase};
+    background-color: ${suomifiTheme.colors.whiteBase};
   }
 `;

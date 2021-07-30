@@ -1,11 +1,10 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { suomifiTheme } from '../../theme';
 import { input, containerIEFocus, font } from '../../theme/reset';
-import { absoluteFocus } from '../../theme/utils';
 
 export const baseStyles = css`
   & .fi-filter-input {
-    ${font(theme)('bodyText')}
+    ${font(suomifiTheme)('bodyText')}
   }
 
   & .fi-filter-input_wrapper {
@@ -18,45 +17,45 @@ export const baseStyles = css`
   }
 
   & .fi-filter-input_input-element-container {
-    ${containerIEFocus(theme)}
+    ${containerIEFocus(suomifiTheme)}
 
     &:focus-within {
       position: relative;
 
       &::after {
-        ${absoluteFocus}
+        ${suomifiTheme.focus.absoluteFocus}
       }
     }
   }
 
   & .fi-filter-input_input {
-    ${input(theme)}
-    background-color: ${theme.colors.whiteBase};
+    ${input(suomifiTheme)}
+    background-color: ${suomifiTheme.colors.whiteBase};
     min-width: 40px;
     width: 100%;
     min-height: 40px;
-    padding-left: ${theme.spacing.insetL};
-    border-color: ${theme.colors.depthDark3};
+    padding-left: ${suomifiTheme.spacing.insetL};
+    border-color: ${suomifiTheme.colors.depthDark3};
 
     &::placeholder {
       font-style: italic;
-      color: ${theme.colors.depthDark2};
+      color: ${suomifiTheme.colors.depthDark2};
       opacity: 1;
     }
   }
 
   &.fi-filter-input--error {
     & .fi-filter-input_input {
-      border-color: ${theme.colors.alertBase};
+      border-color: ${suomifiTheme.colors.alertBase};
       border-width: 2px;
     }
   }
 
   &.fi-filter-input--disabled {
     & .fi-filter-input_input {
-      color: ${theme.colors.depthBase};
-      background-color: ${theme.colors.depthLight3};
-      border-color: ${theme.colors.depthLight1};
+      color: ${suomifiTheme.colors.depthBase};
+      background-color: ${suomifiTheme.colors.depthLight3};
+      border-color: ${suomifiTheme.colors.depthLight1};
     }
   }
 
@@ -67,8 +66,8 @@ export const baseStyles = css`
       align-items: flex-start;
 
       & .fi-label-text {
-        padding-right: ${theme.spacing.insetL};
-        padding-top: ${theme.spacing.insetM};
+        padding-right: ${suomifiTheme.spacing.insetL};
+        padding-top: ${suomifiTheme.spacing.insetM};
         align-self: flex-start;
 
         & .fi-label-text_label-span {

@@ -1,13 +1,12 @@
 import { css } from 'styled-components';
 import { readableColor } from 'polished';
-import { defaultThemeTokens as theme } from '../theme';
-import { clearfix } from '../../utils/css/utils';
+import { suomifiTheme } from '../theme';
 import { ColorProps } from './Colors';
 
 export const baseStyles = ({ color: colorProp }: Partial<ColorProps>) => {
-  const color = !!colorProp ? colorProp : theme.colors.blackBase;
+  const color = !!colorProp ? colorProp : suomifiTheme.colors.blackBase;
   return css`
-    ${theme.typography.bodyText}
+    ${suomifiTheme.typography.bodyText}
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -31,8 +30,8 @@ export const baseStyles = ({ color: colorProp }: Partial<ColorProps>) => {
       flex-direction: column;
       justify-content: flex-end;
       position: absolute;
-      left: ${theme.spacing.insetM};
-      bottom: ${theme.spacing.insetM};
+      left: ${suomifiTheme.spacing.insetM};
+      bottom: ${suomifiTheme.spacing.insetM};
     }
 
     svg {
@@ -54,12 +53,12 @@ export const baseStyles = ({ color: colorProp }: Partial<ColorProps>) => {
       pointer-events: none;
 
       &--hex {
-        ${theme.typography.bodyTextSmall}
+        ${suomifiTheme.typography.bodyTextSmall}
         opacity: .4;
       }
 
       &--key {
-        ${theme.typography.bodySemiBold}
+        ${suomifiTheme.typography.bodySemiBold}
       }
     }
 
@@ -70,5 +69,9 @@ export const baseStyles = ({ color: colorProp }: Partial<ColorProps>) => {
 };
 
 export const containerStyles = css`
-  ${clearfix}
+  &:after {
+    display: block;
+    content: '';
+    clear: both;
+  }
 `;

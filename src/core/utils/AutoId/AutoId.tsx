@@ -5,7 +5,7 @@
  * Idea of the AutoId is to patch incremented id after the first render.
  */
 import { useState, useEffect } from 'react';
-import { useEnhancedEffect } from './common';
+import { useEnhancedEffect } from '../../../utils/common';
 
 let autoId = 0;
 let clientRender = false;

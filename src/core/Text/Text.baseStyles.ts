@@ -1,27 +1,29 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../theme';
+import { suomifiTheme } from '../theme';
 import { element, font } from '../theme/reset';
 import { TextProps } from './Text';
 
 export const baseStyles = ({ color }: TextProps) => css`
-  ${element(theme)}
-  ${font(theme)('bodyText')}
-  color: ${!!color ? theme.colors[color] : theme.colors.blackBase};
+  ${element(suomifiTheme)}
+  ${font(suomifiTheme)('bodyText')}
+  color: ${!!color
+    ? suomifiTheme.colors[color]
+    : suomifiTheme.colors.blackBase};
 
   &.fi-text {
     &--bold {
-      ${font(theme)('bodySemiBold')}
+      ${font(suomifiTheme)('bodySemiBold')}
     }
     &--lead {
-      ${font(theme)('leadText')}
+      ${font(suomifiTheme)('leadText')}
     }
     &--small-screen {
-      ${font(theme)('bodyTextSmall')}
+      ${font(suomifiTheme)('bodyTextSmall')}
       &.fi-text--bold {
-        ${font(theme)('bodySemiBoldSmall')}
+        ${font(suomifiTheme)('bodySemiBoldSmall')}
       }
       &.fi-text--lead {
-        ${font(theme)('leadTextSmallScreen')}
+        ${font(suomifiTheme)('leadTextSmallScreen')}
       }
     }
   }

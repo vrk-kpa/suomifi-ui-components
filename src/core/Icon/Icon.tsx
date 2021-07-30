@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiIcon, SuomifiIconInterface } from 'suomifi-icons';
-import { logger } from '../../utils/logger';
+import { logger } from '../../utils/log';
 import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
 import { iconBaseStyles } from './Icon.baseStyles';
 

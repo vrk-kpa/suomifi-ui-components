@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { suomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
 import { padding } from '../../theme/utils';
 
 export const baseStyles = css`
-  ${element(theme)}
-  ${font(theme)('bodyText')}
-  background-color: ${theme.colors.whiteBase};
+  ${element(suomifiTheme)}
+  ${font(suomifiTheme)('bodyText')}
+  background-color: ${suomifiTheme.colors.whiteBase};
   border-radius: inherit;
   position: relative;
   visibility: hidden;
@@ -17,12 +17,12 @@ export const baseStyles = css`
 
   transform: scaleY(0);
   transform-origin: top;
-  transition: all ${`${theme.transitions.basicTime}
-        ${theme.transitions.basicTimingFunction}`};
+  transition: all ${`${suomifiTheme.transitions.basicTime}
+        ${suomifiTheme.transitions.basicTimingFunction}`};
   will-change: transition, height;
 
   &:not(.fi-expander_content--no-padding) {
-    padding: 0 ${theme.spacing.insetXl};
+    padding: 0 ${suomifiTheme.spacing.insetXl};
   }
 
   &.fi-expander_content--open {
@@ -31,10 +31,10 @@ export const baseStyles = css`
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     /* This is very robust - cannot animate dynamic height with height-definition */
-    animation: fi-expander_content-anim ${theme.transitions.basicTime}
-      ${theme.transitions.basicTimingFunction} 1 forwards;
+    animation: fi-expander_content-anim ${suomifiTheme.transitions.basicTime}
+      ${suomifiTheme.transitions.basicTimingFunction} 1 forwards;
     &:not(.fi-expander_content--no-padding) {
-      ${padding(theme)('0', 'm', 'm', 'm')}
+      ${padding(suomifiTheme)('0', 'm', 'm', 'm')}
     }
   }
   @keyframes fi-expander_content-anim {

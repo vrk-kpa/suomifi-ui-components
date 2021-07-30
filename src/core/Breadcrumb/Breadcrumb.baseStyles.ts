@@ -1,38 +1,38 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../theme';
+import { suomifiTheme } from '../theme';
 import { cssValueToString } from '../../utils/css';
 import { nav, list, listItem, font } from '../theme/reset';
 
 export const baseStyles = css`
-  ${nav(theme)}
-  ${font(theme)('bodyTextSmall')}
-  background-color: ${theme.colors.whiteBase};
+  ${nav(suomifiTheme)}
+  ${font(suomifiTheme)('bodyTextSmall')}
+  background-color: ${suomifiTheme.colors.whiteBase};
   height: 1.5em;
 
   & .fi-breadcrumb {
     &_list {
-      ${list(theme)}
-      ${font(theme)('bodyTextSmall')}
+      ${list(suomifiTheme)}
+      ${font(suomifiTheme)('bodyTextSmall')}
       margin: 0;
       padding: 0;
     }
     &_item {
-      ${listItem(theme)}
-      ${font(theme)('bodyTextSmall')}
+      ${listItem(suomifiTheme)}
+      ${font(suomifiTheme)('bodyTextSmall')}
       float: left;
-      color: ${theme.colors.depthDark1};
+      color: ${suomifiTheme.colors.depthDark1};
     }
     &_item,
     &_link,
     &_icon {
       font-size: ${cssValueToString(
-        theme.values.typography.bodyTextSmall.fontSize,
+        suomifiTheme.values.typography.bodyTextSmall.fontSize,
       )};
     }
     &_icon {
       transform: translateY(0.2em);
-      margin: 0 ${theme.spacing.insetXs};
-      fill: ${theme.colors.depthDark1};
+      margin: 0 ${suomifiTheme.spacing.insetXs};
+      fill: ${suomifiTheme.colors.depthDark1};
     }
   }
 `;

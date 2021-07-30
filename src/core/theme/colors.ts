@@ -1,7 +1,5 @@
 import { suomifiDesignTokens } from 'suomifi-design-tokens';
 import { alphaHex } from '../../utils/css';
-import { boxshadowOutline } from './utils/outline';
-import { zindexes } from './zindexes';
 
 export { ColorDesignTokens } from 'suomifi-design-tokens';
 
@@ -113,16 +111,4 @@ export const gradients = {
   depthLight3ToDepthLight2: `linear-gradient(0deg, ${colors.depthLight2}, ${colors.depthLight3})`,
   depthSecondaryToDepthSecondaryDark1: `linear-gradient(0deg, ${colors.depthSecondaryDark1}, ${colors.depthSecondary})`,
   highlightLight4ToDepthSecondary: `linear-gradient(0deg, ${colors.depthSecondary}, ${colors.highlightLight4})`,
-};
-
-export const outlines = {
-  afterPseudo: boxshadowOutline({
-    border: '0px',
-    offset: '2px',
-    zIndex: zindexes.focus,
-    afterPseudo: true,
-  }),
-  boxShadow: boxshadowOutline({
-    afterPseudo: false,
-  }),
 };

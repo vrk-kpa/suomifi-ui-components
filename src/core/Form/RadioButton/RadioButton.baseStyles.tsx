@@ -1,19 +1,18 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { suomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
-import { boxShadowFocus } from '../../theme/utils/focus';
 
 /* stylelint-disable no-descending-specificity */
 export const baseStyles = css`
-  ${element(theme)}
-  ${font(theme)('bodyText')}
+  ${element(suomifiTheme)}
+  ${font(suomifiTheme)('bodyText')}
     &.fi-radio-button {
     position: relative;
     & .fi-radio-button_hintText {
       display: block;
       padding-left: 26px;
-      color: ${theme.colors.depthDark1};
-      ${theme.typography.bodyTextSmall};
+      color: ${suomifiTheme.colors.depthDark1};
+      ${suomifiTheme.typography.bodyTextSmall};
     }
     & .fi-radio-button_label {
       position: relative;
@@ -39,23 +38,23 @@ export const baseStyles = css`
         width: 18px;
         position: absolute;
         & .fi-icon-radio-base {
-          stroke: ${theme.colors.depthDark3};
+          stroke: ${suomifiTheme.colors.depthDark3};
         }
       }
       &:checked {
         + .fi-radio-button_icon_wrapper {
           & .fi-icon-radio-checked {
-            fill: ${theme.colors.highlightBase};
+            fill: ${suomifiTheme.colors.highlightBase};
           }
           & .fi-icon-radio-base {
-            stroke: ${theme.colors.highlightBase};
+            stroke: ${suomifiTheme.colors.highlightBase};
           }
         }
       }
       &:focus {
         outline: 0;
         + .fi-radio-button_icon_wrapper {
-          ${boxShadowFocus}
+          ${suomifiTheme.focus.boxShadowFocus}
           border-radius: 50%;
         }
       }
@@ -68,23 +67,23 @@ export const baseStyles = css`
     &.fi-radio-button--disabled {
       & .fi-radio-button_label {
         cursor: not-allowed;
-        color: ${theme.colors.depthBase};
+        color: ${suomifiTheme.colors.depthBase};
       }
       & .fi-radio-button_hintText {
-        color: ${theme.colors.depthBase};
+        color: ${suomifiTheme.colors.depthBase};
         cursor: not-allowed;
       }
       & .fi-radio-button_input {
         + .fi-radio-button_icon_wrapper {
           & .fi-icon-radio-base {
-            fill: ${theme.colors.depthLight3};
-            stroke: ${theme.colors.depthLight1};
+            fill: ${suomifiTheme.colors.depthLight3};
+            stroke: ${suomifiTheme.colors.depthLight1};
           }
         }
         &:checked {
           + .fi-radio-button_icon_wrapper {
             & .fi-icon-radio-checked {
-              fill: ${theme.colors.depthBase};
+              fill: ${suomifiTheme.colors.depthBase};
             }
           }
         }

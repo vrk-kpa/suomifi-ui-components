@@ -1,8 +1,5 @@
 import { css } from 'styled-components';
 import { TypographyProp, SuomifiTheme } from '../';
-import { focus as focusUtil } from '../utils';
-
-export const focus = (theme: SuomifiTheme) => focusUtil(theme);
 
 export const element = (theme: SuomifiTheme) => css`
   color: ${theme.colors.blackBase};

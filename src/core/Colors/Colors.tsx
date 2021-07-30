@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from 'react';
-import { defaultThemeTokens as theme } from '../theme';
+import { suomifiTheme } from '../theme';
 import { hslaToHex } from '../../utils/css';
 import { default as styled } from 'styled-components';
 import { baseStyles, containerStyles } from './Colors.baseStyles';
@@ -62,7 +62,9 @@ const ColorsContainer = styled.div`
 
 export class Colors extends Component<ColorsProps> {
   render() {
-    const useColors = !!this.props.colors ? this.props.colors : theme.colors;
+    const useColors = !!this.props.colors
+      ? this.props.colors
+      : suomifiTheme.colors;
     return (
       <ColorsContainer>
         {Object.entries(useColors).reduce<JSX.Element[]>(

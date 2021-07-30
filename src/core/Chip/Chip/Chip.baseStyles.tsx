@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { suomifiTheme } from '../../theme';
 import { baseChipBaseStyles } from '../BaseChip/BaseChip.baseStyles';
 
 export const baseStyles = css`
@@ -7,19 +7,19 @@ export const baseStyles = css`
   &.fi-chip--button {
     cursor: pointer;
     &:hover {
-      background: ${theme.colors.highlightLight1};
+      background: ${suomifiTheme.colors.highlightLight1};
     }
 
     &:active {
-      background: ${theme.colors.highlightDark1};
+      background: ${suomifiTheme.colors.highlightDark1};
     }
   }
 
   &.fi-chip--removable {
-    padding-top: ${theme.spacing.insetXxs};
+    padding-top: ${suomifiTheme.spacing.insetXxs};
     padding-right: 22px;
-    padding-bottom: ${theme.spacing.insetXxs};
-    padding-left: ${theme.spacing.insetL};
+    padding-bottom: ${suomifiTheme.spacing.insetXxs};
+    padding-left: ${suomifiTheme.spacing.insetL};
     position: relative;
 
     & .fi-chip--icon {
@@ -32,7 +32,7 @@ export const baseStyles = css`
 
     & .fi-chip--content {
       max-width: 248px;
-      margin-right: ${theme.spacing.xs};
+      margin-right: ${suomifiTheme.spacing.xs};
     }
 
     &.fi-chip--disabled {

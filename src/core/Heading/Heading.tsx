@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { asPropType } from '../../utils/typescript';
-import { logger } from '../../utils/logger';
+import { logger } from '../../utils/log';
 import { ColorProp } from '../theme';
 import { baseStyles } from './Heading.baseStyles';
 import { HtmlH, HtmlHProps, hLevels } from '../../reset';

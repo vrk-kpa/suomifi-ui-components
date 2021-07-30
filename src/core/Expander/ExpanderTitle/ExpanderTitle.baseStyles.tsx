@@ -1,25 +1,24 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { suomifiTheme } from '../../theme';
 import { element, button, font } from '../../theme/reset';
 import { allStates } from '../../../utils/css';
-import { absoluteFocus, noMouseFocus } from '../../theme/utils';
 
 export const expanderTitleBaseStyles = css`
-  ${element(theme)}
-  ${font(theme)('bodySemiBold')}
+  ${element(suomifiTheme)}
+  ${font(suomifiTheme)('bodySemiBold')}
   position: relative;
   display: block;
   width: 100%;
   max-width: 100%;
   min-height: 60px;
-  background-color: ${theme.colors.highlightLight4};
+  background-color: ${suomifiTheme.colors.highlightLight4};
   border-radius: inherit;
-  padding: 17px ${theme.spacing.xxxl} 16px ${theme.spacing.m};
+  padding: 17px ${suomifiTheme.spacing.xxxl} 16px ${suomifiTheme.spacing.m};
   white-space: break-word;
   word-wrap: break-word;
 
   &.fi-expander_title--open {
-    background-color: ${theme.colors.whiteBase};
+    background-color: ${suomifiTheme.colors.whiteBase};
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -29,9 +28,9 @@ export const expanderTitleBaseStyles = css`
   }
 
   & .fi-expander_title-button {
-    ${button(theme)}
-    ${font(theme)('bodySemiBold')}
-    color: ${theme.colors.highlightBase};
+    ${button(suomifiTheme)}
+    ${font(suomifiTheme)('bodySemiBold')}
+    color: ${suomifiTheme.colors.highlightBase};
     display: inline-block;
     position: absolute;
     right: 0;
@@ -48,10 +47,10 @@ export const expanderTitleBaseStyles = css`
     &:focus-within {
       outline: 0;
       &:after {
-        ${absoluteFocus}
+        ${suomifiTheme.focus.absoluteFocus}
       }
     }
-    ${noMouseFocus}
+    ${suomifiTheme.focus.noMouseFocus}
     & * {
       cursor: pointer;
     }
