@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { readableColor } from 'polished';
-import { suomifiTheme } from '../theme';
+import { suomifiTheme } from '../../core/theme';
 import { ColorProps } from './Colors';
 
 export const baseStyles = ({ color: colorProp }: Partial<ColorProps>) => {

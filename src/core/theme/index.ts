@@ -1,19 +1,7 @@
 import './fontFaces.css';
-import {
-  colors as colorTokens,
-  shadows,
-  gradients,
-  ColorDesignTokens,
-} from './colors';
-import {
-  suomifiDesignTokens,
-  TypographyDesignTokens,
-} from 'suomifi-design-tokens';
-import {
-  spacing as spacingTokens,
-  SpacingProp,
-  SpacingDesignTokens,
-} from './spacing';
+import { colors as colorTokens, shadows, gradients } from './colors';
+import { suomifiDesignTokens } from 'suomifi-design-tokens';
+import { spacing as spacingTokens, SpacingProp } from './spacing';
 import { boxShadowFocus, absoluteFocus, noMouseFocus } from './focus';
 import { zindexes } from './zindexes';
 import { transitions } from './transitions';
@@ -35,12 +23,6 @@ export { SpacingProp };
 
 export type SuomifiDesignTokens = typeof desingTokens;
 export type SuomifiTheme = typeof suomifiTheme;
-
-export interface PartialTokens {
-  colors?: Partial<ColorDesignTokens>;
-  spacing?: Partial<SpacingDesignTokens>;
-  typography?: Partial<TypographyDesignTokens>;
-}
 
 const desingTokens = {
   shadows,
