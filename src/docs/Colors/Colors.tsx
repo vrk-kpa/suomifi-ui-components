@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from 'react';
-import { suomifiTheme } from '../theme';
+import { suomifiTheme } from '../../core/theme';
 import { hslaToHex } from '../../utils/css';
 import { default as styled } from 'styled-components';
 import { baseStyles, containerStyles } from './Colors.baseStyles';
@@ -19,7 +19,9 @@ export interface ColorProps {
 
 const copyKey = (key: string) => () => clipboardCopy(key);
 
-const onEnterPressed = (keyName: string) => (e: React.KeyboardEvent) => {
+const onEnterPressed = (keyName: string) => (
+  e: React.KeyboardEvent<HTMLElement>,
+) => {
   if (e.key === 'Enter') {
     clipboardCopy(keyName);
   }

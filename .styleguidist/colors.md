@@ -3,7 +3,7 @@ Suomifi-styleguide colors
 ## Base
 
 ```jsx noeditor
-import { Colors } from '../src/core/Colors/Colors';
+import { Colors } from '../src/docs/Colors/Colors';
 import { colorTokens } from '../src/core/theme/colors';
 <Colors colors={colorTokens.base} />;
 ```
@@ -11,7 +11,7 @@ import { colorTokens } from '../src/core/theme/colors';
 ## Brand
 
 ```js noeditor
-import { Colors } from '../src/core/Colors/Colors';
+import { Colors } from '../src/docs/Colors/Colors';
 import { colorTokens } from '../src/core/theme/colors';
 <Colors colors={colorTokens.brand} />;
 ```
@@ -19,7 +19,7 @@ import { colorTokens } from '../src/core/theme/colors';
 ## Depth
 
 ```js noeditor
-import { Colors } from '../src/core/Colors/Colors';
+import { Colors } from '../src/docs/Colors/Colors';
 import { colorTokens } from '../src/core/theme/colors';
 <Colors colors={colorTokens.depth} />;
 ```
@@ -27,7 +27,7 @@ import { colorTokens } from '../src/core/theme/colors';
 ### DepthSecondary
 
 ```js noeditor
-import { Colors } from '../src/core/Colors/Colors';
+import { Colors } from '../src/docs/Colors/Colors';
 import { colorTokens } from '../src/core/theme/colors';
 <Colors colors={colorTokens.depthSecondary} />;
 ```
@@ -35,7 +35,7 @@ import { colorTokens } from '../src/core/theme/colors';
 ## Highlight
 
 ```js noeditor
-import { Colors } from '../src/core/Colors/Colors';
+import { Colors } from '../src/docs/Colors/Colors';
 import { colorTokens } from '../src/core/theme/colors';
 <Colors colors={colorTokens.hightlight} />;
 ```
@@ -43,7 +43,7 @@ import { colorTokens } from '../src/core/theme/colors';
 ## Accent
 
 ```js noeditor
-import { Colors } from '../src/core/Colors/Colors';
+import { Colors } from '../src/docs/Colors/Colors';
 import { colorTokens } from '../src/core/theme/colors';
 <Colors colors={colorTokens.accent} />;
 ```
@@ -51,7 +51,7 @@ import { colorTokens } from '../src/core/theme/colors';
 ## Trafficlights
 
 ```js noeditor
-import { Colors } from '../src/core/Colors/Colors';
+import { Colors } from '../src/docs/Colors/Colors';
 import { colorTokens } from '../src/core/theme/colors';
 <Colors colors={colorTokens.trafficlights} />;
 ```
