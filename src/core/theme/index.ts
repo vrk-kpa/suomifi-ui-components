@@ -1,6 +1,12 @@
 import './fontFaces.css';
 import { colors as colorTokens, shadows, gradients } from './colors';
-import { suomifiDesignTokens } from 'suomifi-design-tokens';
+import {
+  ColorDesignTokens,
+  RawDesignTokens,
+  SpacingDesignTokens,
+  suomifiDesignTokens,
+  TypographyDesignTokens,
+} from 'suomifi-design-tokens';
 import { spacing as spacingTokens, SpacingProp } from './spacing';
 import { boxShadowFocus, absoluteFocus, noMouseFocus } from './focus';
 import { zindexes } from './zindexes';
@@ -12,17 +18,55 @@ export {
   ColorDesignTokens,
   SpacingDesignTokens,
   RawDesignTokens,
+  ValueUnit,
   RawColorDesignTokens,
+  ColorToken,
   RawSpacingDesignTokens,
   RawTypographyDesignTokens,
+  TypographyToken,
 } from 'suomifi-design-tokens';
+
+export type GradientDesignTokens = typeof gradients;
+export type FocusDesignTokens = typeof derivedTokens.focus;
+export type RadiusDesignTokens = typeof radius;
+export type ShadowDesignTokens = typeof shadows;
+export type TransitionDesignTokens = typeof transitions;
 
 export type ColorProp = keyof typeof desingTokens.colors;
 export type TypographyProp = keyof typeof suomifiDesignTokens.typography;
 export { SpacingProp };
 
 export type SuomifiDesignTokens = typeof desingTokens;
-export type SuomifiTheme = typeof suomifiTheme;
+
+/**
+ * SuomifiTheme
+ * General styles and design tokens for suomifi-ui-components
+ */
+export interface SuomifiTheme {
+  /** Color design tokens as [key:string]: CSS string format with color name as key. */
+  colors: ColorDesignTokens;
+  /** Gradient design tokens as [key:string]: CSS string format with key derived from gradient name colors */
+  gradients: GradientDesignTokens;
+  /** Focus design tokens as [key:string]: CSS string format for pseudo and regular styles and disabling mouse focus  */
+  focus: FocusDesignTokens;
+  /** Radius design tokens as [key:string]: CSS string format with radius use case name as key */
+  radius: RadiusDesignTokens;
+  /** Shadow design tokens as [key:string]: CSS string format with shadow type name as key */
+  shadows: ShadowDesignTokens;
+  /** Spacing design tokens as [key:string]: CSS string format with spacing size name as key */
+  spacing: SpacingDesignTokens;
+  /** Transition design tokens as [key:string]: CSS string format with transition type name as key */
+  transitions: TransitionDesignTokens;
+  /** Typography design tokens as [key:string]: CSS string format with text type name as key */
+  typography: TypographyDesignTokens;
+  /**
+   * Colors, typography and spacing design token values in granular format for custom composition of styles
+   * Colors as [key: string]: ColorToken with color name as key.
+   * Typography as [key: string]: TypographyToken with text type as key
+   * Spacing as [key: string]: ValueUnit with spacing size name as key.
+   */
+  values: RawDesignTokens;
+}
 
 const desingTokens = {
   shadows,
@@ -44,7 +88,8 @@ const derivedTokens = {
   },
 };
 
-export const suomifiTheme = {
+/** Suomi.fi theme */
+export const suomifiTheme: SuomifiTheme = {
   // Get all design tokens
   ...desingTokens,
   // Get all derived tokens
