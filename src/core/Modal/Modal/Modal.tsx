@@ -5,6 +5,7 @@ import { default as ReactModal } from 'react-modal';
 import classnames from 'classnames';
 import { ModalContent, ModalFooter } from '../';
 import { baseStyles } from './Modal.baseStyles';
+import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
 
 export type ModalVariant = 'smallScreen' | 'default';
 
@@ -44,6 +45,8 @@ interface InternalModalProps extends ModalProps {
    * className is internally reserved for BaseModal root element to allow styled component style injection.
    */
   propClassName?: string;
+  /** SuomifiTheme for styles */
+  theme: SuomifiTheme;
 }
 
 export interface ModalProviderState {
@@ -193,7 +196,7 @@ class BaseModal extends Component<InternalModalProps> {
 }
 
 const StyledModal = styled(BaseModal)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**
@@ -204,7 +207,17 @@ const StyledModal = styled(BaseModal)`
 export class Modal extends Component<ModalProps> {
   render() {
     const { className: propClassName, ...passProps } = this.props;
-    return <StyledModal propClassName={propClassName} {...passProps} />;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledModal
+            theme={suomifiTheme}
+            propClassName={propClassName}
+            {...passProps}
+          />
+        )}
+      </SuomifiThemeConsumer>
+    );
   }
 }
 

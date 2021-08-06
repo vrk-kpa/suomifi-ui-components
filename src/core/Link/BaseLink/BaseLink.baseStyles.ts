@@ -1,13 +1,13 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
 import { allStates } from '../../../utils/css';
 
-export const baseStyles = css`
-  ${element(suomifiTheme)}
-  ${font(suomifiTheme)('bodyText')}
-  ${allStates(`color: ${suomifiTheme.colors.highlightBase};`)};
-  color: ${suomifiTheme.colors.highlightBase};
+export const baseStyles = (theme: SuomifiTheme) => css`
+  ${element(theme)}
+  ${font(theme)('bodyText')}
+  ${allStates(`color: ${theme.colors.highlightBase};`)};
+  color: ${theme.colors.highlightBase};
   text-decoration: none;
 
   &:focus,
@@ -16,7 +16,7 @@ export const baseStyles = css`
   }
 
   &:focus {
-    ${suomifiTheme.focus.boxShadowFocus}
+    ${theme.focus.boxShadowFocus}
   }
 
   &:hover,
@@ -24,6 +24,6 @@ export const baseStyles = css`
     text-decoration: underline;
   }
   &:visited {
-    color: ${suomifiTheme.colors.accentTertiaryDark1};
+    color: ${theme.colors.accentTertiaryDark1};
   }
 `;

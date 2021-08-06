@@ -10,6 +10,7 @@ import {
 } from '../../../reset';
 import { Icon } from '../../Icon/Icon';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
+import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 import { expanderTitleBaseStyles } from './ExpanderTitle.baseStyles';
 
@@ -45,7 +46,9 @@ export interface ExpanderTitleProps extends Omit<HtmlDivProps, 'className'> {
 
 interface InternalExpanderTitleProps
   extends ExpanderTitleProps,
-    ExpanderTitleBaseProps {}
+    ExpanderTitleBaseProps {
+  theme: SuomifiTheme;
+}
 
 class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
   render() {
@@ -54,6 +57,7 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
       ariaOpenText,
       children,
       className,
+      theme,
       toggleButtonAriaDescribedBy,
       toggleButtonProps,
       consumer,
@@ -94,7 +98,7 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
 }
 
 const StyledExpanderTitle = styled(BaseExpanderTitle)`
-  ${expanderTitleBaseStyles}
+  ${({ theme }) => expanderTitleBaseStyles(theme)}
 `;
 
 /**
@@ -104,11 +108,19 @@ const StyledExpanderTitle = styled(BaseExpanderTitle)`
 export class ExpanderTitle extends Component<ExpanderTitleProps> {
   render() {
     return (
-      <ExpanderConsumer>
-        {(consumer) => (
-          <StyledExpanderTitle consumer={consumer} {...this.props} />
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <ExpanderConsumer>
+            {(consumer) => (
+              <StyledExpanderTitle
+                theme={suomifiTheme}
+                consumer={consumer}
+                {...this.props}
+              />
+            )}
+          </ExpanderConsumer>
         )}
-      </ExpanderConsumer>
+      </SuomifiThemeConsumer>
     );
   }
 }

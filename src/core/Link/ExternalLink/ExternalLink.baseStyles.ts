@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { baseStyles } from '../BaseLink/BaseLink.baseStyles';
 
-export const ExternalLinkStyles = css`
-  ${baseStyles}
+export const ExternalLinkStyles = (theme: SuomifiTheme) => css`
+  ${baseStyles(theme)}
   & .fi-link_icon {
-    padding-left: ${suomifiTheme.spacing.insetXs};
+    padding-left: ${theme.spacing.insetXs};
     font-size: 16px;
     box-sizing: content-box;
   }

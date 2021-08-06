@@ -1,13 +1,13 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
 
 /* stylelint-disable no-descending-specificity */
-const checkedStyles = css`
+const checkedStyles = (theme: SuomifiTheme) => css`
   &.fi-checkbox--checked {
     & .fi-checkbox_label {
       &::before {
-        border-color: ${suomifiTheme.colors.highlightBase};
+        border-color: ${theme.colors.highlightBase};
       }
       & > .fi-checkbox_icon .fi-icon-base-fill {
         fill: ${theme.colors.highlightBase};
@@ -16,14 +16,14 @@ const checkedStyles = css`
   }
 `;
 
-const disabledStyles = css`
+const disabledStyles = (theme: SuomifiTheme) => css`
   &.fi-checkbox--disabled {
     & .fi-checkbox_label {
       cursor: not-allowed;
-      color: ${suomifiTheme.colors.depthBase};
+      color: ${theme.colors.depthBase};
       &::before {
-        background-color: ${suomifiTheme.colors.depthLight3};
-        border-color: ${suomifiTheme.colors.depthLight1};
+        background-color: ${theme.colors.depthLight3};
+        border-color: ${theme.colors.depthLight1};
         border-width: 1px;
       }
       & > .fi-checkbox_icon .fi-icon-base-fill {
@@ -38,11 +38,11 @@ const disabledStyles = css`
   }
 `;
 
-const errorStyles = css`
+const errorStyles = (theme: SuomifiTheme) => css`
   &.fi-checkbox--error {
     & .fi-checkbox_label {
       &::before {
-        border-color: ${suomifiTheme.colors.alertBase};
+        border-color: ${theme.colors.alertBase};
         border-width: 2px;
       }
       & > .fi-checkbox_icon .fi-icon-base-fill {
@@ -52,10 +52,10 @@ const errorStyles = css`
   }
 `;
 
-const largeVariantStyles = css`
+const largeVariantStyles = (theme: SuomifiTheme) => css`
   &.fi-checkbox--large {
     & .fi-checkbox_label {
-      padding-left: ${suomifiTheme.spacing.xxl};
+      padding-left: ${theme.spacing.xxl};
       min-height: 30px;
 
       &::before {
@@ -66,7 +66,7 @@ const largeVariantStyles = css`
         box-sizing: border-box;
         height: 30px;
         width: 30px;
-        color: ${suomifiTheme.colors.depthDark3};
+        color: ${theme.colors.depthDark3};
         border: 2px solid;
       }
       & .fi-checkbox_icon {
@@ -77,19 +77,19 @@ const largeVariantStyles = css`
       }
     }
     & .fi-hint-text {
-      padding-left: ${suomifiTheme.spacing.xxl};
+      padding-left: ${theme.spacing.xxl};
     }
   }
 `;
 
-export const baseStyles = css`
-  ${element(suomifiTheme)}
-  ${font(suomifiTheme)('bodyText')}
+export const baseStyles = (theme: SuomifiTheme) => css`
+  ${element(theme)}
+  ${font(theme)('bodyText')}
 
     & .fi-checkbox_label {
     position: relative;
     display: block;
-    padding-left: ${suomifiTheme.spacing.l};
+    padding-left: ${theme.spacing.l};
     cursor: pointer;
     min-height: 27px;
     line-height: 1.5em;
@@ -98,13 +98,13 @@ export const baseStyles = css`
       content: '';
       position: absolute;
       left: 0px;
-      top: ${suomifiTheme.spacing.xxs};
+      top: ${theme.spacing.xxs};
       box-sizing: border-box;
       height: 18px;
       width: 18px;
-      border: 1px solid ${suomifiTheme.colors.depthDark3};
-      border-radius: ${suomifiTheme.radius.basic};
-      background-color: ${suomifiTheme.colors.whiteBase};
+      border: 1px solid ${theme.colors.depthDark3};
+      border-radius: ${theme.radius.basic};
+      background-color: ${theme.colors.whiteBase};
     }
   }
   & .fi-checkbox_icon {
@@ -118,7 +118,7 @@ export const baseStyles = css`
   &:focus-within {
     & .fi-checkbox_label {
       &::before {
-        ${suomifiTheme.focus.boxShadowFocus}
+        ${theme.focus.boxShadowFocus}
       }
     }
   }
@@ -130,8 +130,8 @@ export const baseStyles = css`
   }
 
   & .fi-hint-text {
-    padding-left: ${suomifiTheme.spacing.l};
-    color: ${suomifiTheme.colors.depthDark1};
+    padding-left: ${theme.spacing.l};
+    color: ${theme.colors.depthDark1};
     margin-bottom: 0;
   }
 
@@ -140,8 +140,8 @@ export const baseStyles = css`
     line-height: 18px;
   }
 
-  ${largeVariantStyles};
-  ${checkedStyles};
-  ${errorStyles};
-  ${disabledStyles};
+  ${largeVariantStyles(theme)};
+  ${checkedStyles(theme)};
+  ${errorStyles(theme)};
+  ${disabledStyles(theme)};
 `;

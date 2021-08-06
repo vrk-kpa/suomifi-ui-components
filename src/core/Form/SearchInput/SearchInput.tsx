@@ -2,6 +2,7 @@ import React, { ChangeEvent, Component, createRef, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
+import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import {
@@ -97,7 +98,9 @@ interface SearchInputState {
   value: SearchInputValue;
 }
 
-class BaseSearchInput extends Component<SearchInputProps> {
+class BaseSearchInput extends Component<
+  SearchInputProps & { theme: SuomifiTheme }
+> {
   state: SearchInputState = {
     value: this.props.value || this.props.defaultValue || '',
   };
@@ -135,6 +138,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
       id,
       fullWidth,
       debounce,
+      theme,
       'aria-describedby': ariaDescribedBy,
       statusTextAriaLiveMode = 'assertive',
       ...passProps
@@ -282,7 +286,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
 }
 
 const StyledSearchInput = styled(BaseSearchInput)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**
@@ -295,9 +299,15 @@ export class SearchInput extends Component<SearchInputProps> {
     const { id: propId, ...passProps } = this.props;
 
     return (
-      <AutoId id={propId}>
-        {(id) => <StyledSearchInput id={id} {...passProps} />}
-      </AutoId>
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <StyledSearchInput theme={suomifiTheme} id={id} {...passProps} />
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
     );
   }
 }

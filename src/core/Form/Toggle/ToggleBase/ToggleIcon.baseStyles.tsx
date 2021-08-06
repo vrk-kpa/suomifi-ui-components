@@ -1,18 +1,18 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../../theme';
+import { SuomifiTheme } from '../../../theme';
 import { iconWidth, iconHeight } from './Toggle.baseStyles';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   width: ${iconWidth};
   height: ${iconHeight};
   vertical-align: bottom;
   overflow: visible;
   & .fi-icon-toggle-base {
-    stroke: ${suomifiTheme.colors.depthDark3};
-    fill: ${suomifiTheme.colors.whiteBase};
+    stroke: ${theme.colors.depthDark3};
+    fill: ${theme.colors.whiteBase};
   }
   & .fi-icon-toggle-knob {
-    fill: ${suomifiTheme.colors.depthDark2};
+    fill: ${theme.colors.depthDark2};
     transform: translateX(-17px);
   }
   & .fi-icon-toggle-checkmark {
@@ -20,24 +20,24 @@ export const baseStyles = css`
   }
   &.fi-toggle_icon--checked {
     & .fi-icon-toggle-base {
-      stroke: ${suomifiTheme.colors.depthDark3};
+      stroke: ${theme.colors.depthDark3};
     }
     & .fi-icon-toggle-knob {
-      fill: ${suomifiTheme.colors.successBase};
+      fill: ${theme.colors.successBase};
       transform: translateX(0px);
     }
     & .fi-icon-toggle-checkmark {
-      fill: ${suomifiTheme.colors.whiteBase};
+      fill: ${theme.colors.whiteBase};
     }
   }
 
   &.fi-toggle_icon--disabled {
     & .fi-icon-toggle-base {
-      stroke: ${suomifiTheme.colors.depthLight1};
-      fill: ${suomifiTheme.colors.depthLight3};
+      stroke: ${theme.colors.depthLight1};
+      fill: ${theme.colors.depthLight3};
     }
     & .fi-icon-toggle-knob {
-      fill: ${suomifiTheme.colors.depthLight1};
+      fill: ${theme.colors.depthLight1};
     }
     & .fi-icon-toggle-checkmark {
       fill: none;
@@ -46,7 +46,7 @@ export const baseStyles = css`
 
   &.fi-toggle_icon--checked.fi-toggle_icon--disabled {
     & .fi-icon-toggle-checkmark {
-      fill: ${suomifiTheme.colors.whiteBase};
+      fill: ${theme.colors.whiteBase};
     }
   }
 `;

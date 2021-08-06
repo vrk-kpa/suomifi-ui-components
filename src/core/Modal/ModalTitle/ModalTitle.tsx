@@ -5,6 +5,7 @@ import { hLevels, HtmlSpan } from '../../../reset';
 import { Heading, HeadingProps } from '../../Heading/Heading';
 import { ModalConsumer, ModalVariant, baseClassName } from '../Modal/Modal';
 import { baseStyles } from './ModalTitle.baseStyles';
+import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
 
 export interface ModalTitleProps
   extends Omit<HeadingProps, 'className' | 'variant'> {
@@ -21,6 +22,7 @@ interface InternalModalTitleProps extends ModalTitleProps {
   titleRef: React.RefObject<HTMLHeadingElement>;
   modalVariant: ModalVariant;
   scrollable: boolean;
+  theme: SuomifiTheme;
 }
 
 const titleClassName = `${baseClassName}_title`;
@@ -38,6 +40,7 @@ class BaseModalTitle extends Component<InternalModalTitleProps> {
   render() {
     const {
       className,
+      theme,
       children,
       focusTitleOnOpen,
       titleRef,
@@ -74,7 +77,7 @@ class BaseModalTitle extends Component<InternalModalTitleProps> {
 }
 
 const StyledModalTitle = styled(BaseModalTitle)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**
@@ -86,17 +89,22 @@ const StyledModalTitle = styled(BaseModalTitle)`
 export class ModalTitle extends Component<ModalTitleProps> {
   render() {
     return (
-      <ModalConsumer>
-        {({ focusTitleOnOpen, titleRef, variant, scrollable }) => (
-          <StyledModalTitle
-            focusTitleOnOpen={focusTitleOnOpen}
-            {...(titleRef ? { titleRef } : {})}
-            modalVariant={variant}
-            scrollable={scrollable}
-            {...this.props}
-          />
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <ModalConsumer>
+            {({ focusTitleOnOpen, titleRef, variant, scrollable }) => (
+              <StyledModalTitle
+                focusTitleOnOpen={focusTitleOnOpen}
+                {...(titleRef ? { titleRef } : {})}
+                modalVariant={variant}
+                scrollable={scrollable}
+                theme={suomifiTheme}
+                {...this.props}
+              />
+            )}
+          </ModalConsumer>
         )}
-      </ModalConsumer>
+      </SuomifiThemeConsumer>
     );
   }
 }

@@ -1,10 +1,10 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { input, containerIEFocus, font } from '../../theme/reset';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   & .fi-filter-input {
-    ${font(suomifiTheme)('bodyText')}
+    ${font(theme)('bodyText')}
   }
 
   & .fi-filter-input_wrapper {
@@ -17,45 +17,45 @@ export const baseStyles = css`
   }
 
   & .fi-filter-input_input-element-container {
-    ${containerIEFocus(suomifiTheme)}
+    ${containerIEFocus(theme)}
 
     &:focus-within {
       position: relative;
 
       &::after {
-        ${suomifiTheme.focus.absoluteFocus}
+        ${theme.focus.absoluteFocus}
       }
     }
   }
 
   & .fi-filter-input_input {
-    ${input(suomifiTheme)}
-    background-color: ${suomifiTheme.colors.whiteBase};
+    ${input(theme)}
+    background-color: ${theme.colors.whiteBase};
     min-width: 40px;
     width: 100%;
     min-height: 40px;
-    padding-left: ${suomifiTheme.spacing.insetL};
-    border-color: ${suomifiTheme.colors.depthDark3};
+    padding-left: ${theme.spacing.insetL};
+    border-color: ${theme.colors.depthDark3};
 
     &::placeholder {
       font-style: italic;
-      color: ${suomifiTheme.colors.depthDark2};
+      color: ${theme.colors.depthDark2};
       opacity: 1;
     }
   }
 
   &.fi-filter-input--error {
     & .fi-filter-input_input {
-      border-color: ${suomifiTheme.colors.alertBase};
+      border-color: ${theme.colors.alertBase};
       border-width: 2px;
     }
   }
 
   &.fi-filter-input--disabled {
     & .fi-filter-input_input {
-      color: ${suomifiTheme.colors.depthBase};
-      background-color: ${suomifiTheme.colors.depthLight3};
-      border-color: ${suomifiTheme.colors.depthLight1};
+      color: ${theme.colors.depthBase};
+      background-color: ${theme.colors.depthLight3};
+      border-color: ${theme.colors.depthLight1};
     }
   }
 
@@ -66,8 +66,8 @@ export const baseStyles = css`
       align-items: flex-start;
 
       & .fi-label-text {
-        padding-right: ${suomifiTheme.spacing.insetL};
-        padding-top: ${suomifiTheme.spacing.insetM};
+        padding-right: ${theme.spacing.insetL};
+        padding-top: ${theme.spacing.insetM};
         align-self: flex-start;
 
         & .fi-label-text_label-span {

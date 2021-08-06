@@ -3,6 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { AutoId } from '../../utils/AutoId/AutoId';
+import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
 import {
   HtmlTextarea,
   HtmlTextareaProps,
@@ -170,20 +171,34 @@ class BaseTextarea extends Component<TextareaProps & InnerRef> {
 }
 
 const StyledTextarea = styled(
-  ({ ...passProps }: InternalTextareaProps & InnerRef) => (
+  ({
+    theme,
+    ...passProps
+  }: InternalTextareaProps & InnerRef & { theme: SuomifiTheme }) => (
     <BaseTextarea {...passProps} />
   ),
 )`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export const Textarea = forwardRef(
   (props: TextareaProps, ref: React.Ref<HTMLTextAreaElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <AutoId id={propId}>
-        {(id) => <StyledTextarea id={id} forwardedRef={ref} {...passProps} />}
-      </AutoId>
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <StyledTextarea
+                theme={suomifiTheme}
+                id={id}
+                forwardedRef={ref}
+                {...passProps}
+              />
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
     );
   },
 );

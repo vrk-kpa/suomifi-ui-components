@@ -1,15 +1,15 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../../theme';
+import { SuomifiTheme } from '../../../theme';
 import { font } from '../../../theme/reset';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-multiselect-item {
     &:focus {
       outline: none;
     }
 
     padding: 10px;
-    ${font(suomifiTheme)('actionElementInnerText')}
+    ${font(theme)('actionElementInnerText')}
 
     & .fi-multiselect-item--query_highlight {
       background-color: transparent;
@@ -17,30 +17,30 @@ export const baseStyles = css`
     }
 
     &--selected {
-      background-color: ${suomifiTheme.colors.depthSecondaryDark1};
-      color: ${suomifiTheme.colors.blackBase};
+      background-color: ${theme.colors.depthSecondaryDark1};
+      color: ${theme.colors.blackBase};
 
       & > .fi-multiselect-item_checkbox_icon {
         position: absolute;
-        fill: ${suomifiTheme.colors.highlightBase};
+        fill: ${theme.colors.highlightBase};
       }
 
       & .fi-multiselect-item_icon_wrapper {
         &::before {
-          border-color: ${suomifiTheme.colors.highlightBase};
+          border-color: ${theme.colors.highlightBase};
         }
         & > .fi-multiselect-item_checkbox_icon {
-          fill: ${suomifiTheme.colors.highlightBase};
+          fill: ${theme.colors.highlightBase};
         }
       }
       & .fi-multiselect-item--query_highlight {
-        color: ${suomifiTheme.colors.blackBase};
+        color: ${theme.colors.blackBase};
       }
     }
 
     & .fi-multiselect-item_icon_wrapper {
       position: relative;
-      padding-left: ${suomifiTheme.spacing.l};
+      padding-left: ${theme.spacing.l};
       min-height: 27px;
       line-height: 1.5em;
       padding-top: 3px;
@@ -48,13 +48,13 @@ export const baseStyles = css`
         content: '';
         position: absolute;
         left: 0px;
-        top: ${suomifiTheme.spacing.xxs};
+        top: ${theme.spacing.xxs};
         box-sizing: border-box;
         height: 18px;
         width: 18px;
-        border: 1px solid ${suomifiTheme.colors.depthDark3};
-        border-radius: ${suomifiTheme.radius.basic};
-        background-color: ${suomifiTheme.colors.whiteBase};
+        border: 1px solid ${theme.colors.depthDark3};
+        border-radius: ${theme.radius.basic};
+        background-color: ${theme.colors.whiteBase};
       }
 
       & .fi-multiselect-item_checkbox_icon {
@@ -68,40 +68,40 @@ export const baseStyles = css`
     }
 
     &--disabled {
-      color: ${suomifiTheme.colors.depthBase};
+      color: ${theme.colors.depthBase};
       cursor: not-allowed;
       & .fi-multiselect-item_icon_wrapper {
         &::before {
-          background-color: ${suomifiTheme.colors.depthLight3};
-          border-color: ${suomifiTheme.colors.depthLight1};
+          background-color: ${theme.colors.depthLight3};
+          border-color: ${theme.colors.depthLight1};
           border-width: 1px;
         }
         & > .fi-multiselect-item_checkbox_icon {
-          fill: ${suomifiTheme.colors.depthLight1};
+          fill: ${theme.colors.depthLight1};
         }
       }
 
       &.fi-multiselect-item:hover {
-        color: ${suomifiTheme.colors.depthBase};
+        color: ${theme.colors.depthBase};
       }
     }
 
     &--hasKeyboardFocus {
-      background-color: ${suomifiTheme.colors.highlightBase};
-      color: ${suomifiTheme.colors.whiteBase};
+      background-color: ${theme.colors.highlightBase};
+      color: ${theme.colors.whiteBase};
 
       & .fi-multiselect-item--query_highlight {
-        color: ${suomifiTheme.colors.whiteBase};
+        color: ${theme.colors.whiteBase};
 
-        background-color: ${suomifiTheme.colors.highlightBase};
+        background-color: ${theme.colors.highlightBase};
       }
     }
 
     &:hover {
-      background-color: ${suomifiTheme.colors.highlightBase};
-      color: ${suomifiTheme.colors.whiteBase};
+      background-color: ${theme.colors.highlightBase};
+      color: ${theme.colors.whiteBase};
       & .fi-multiselect-item--query_highlight {
-        color: ${suomifiTheme.colors.whiteBase};
+        color: ${theme.colors.whiteBase};
       }
     }
   }

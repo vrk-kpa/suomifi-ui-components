@@ -1,15 +1,15 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
 
-export const baseStyles = css`
-  ${element(suomifiTheme)}
-  ${font(suomifiTheme)('bodyText')}
+export const baseStyles = (theme: SuomifiTheme) => css`
+  ${element(theme)}
+  ${font(theme)('bodyText')}
 
     &.fi-textarea {
     display: flex;
     flex-direction: column;
-    color: ${suomifiTheme.colors.blackBase};
+    color: ${theme.colors.blackBase};
     width: 290px;
 
     & .fi-label-text_label-span {
@@ -21,13 +21,13 @@ export const baseStyles = css`
     }
 
     & .fi-textarea_textarea-element-container {
-      margin-top: ${suomifiTheme.spacing.insetL};
+      margin-top: ${theme.spacing.insetL};
       &:focus-within {
         outline: none;
         position: relative;
 
         &::after {
-          ${suomifiTheme.focus.absoluteFocus}
+          ${theme.focus.absoluteFocus}
         }
       }
     }
@@ -36,10 +36,10 @@ export const baseStyles = css`
       display: block;
       resize: vertical;
       border-radius: 2px;
-      border: 1px solid ${suomifiTheme.colors.depthDark3};
-      box-shadow: ${suomifiTheme.shadows.actionElementBoxShadow};
+      border: 1px solid ${theme.colors.depthDark3};
+      box-shadow: ${theme.shadows.actionElementBoxShadow};
       padding: 8px 14px 13px 10px;
-      ${suomifiTheme.typography.bodyTextSmall};
+      ${theme.typography.bodyTextSmall};
       width: 100%;
 
       &:focus {
@@ -48,7 +48,7 @@ export const baseStyles = css`
 
       &::placeholder {
         font-style: italic;
-        color: ${suomifiTheme.colors.depthDark2};
+        color: ${theme.colors.depthDark2};
         opacity: 1;
       }
 
@@ -71,17 +71,17 @@ export const baseStyles = css`
     }
 
     &.fi-textarea--disabled {
-      color: ${suomifiTheme.colors.depthBase};
+      color: ${theme.colors.depthBase};
       cursor: not-allowed;
 
       & .fi-textarea_textarea {
-        background-color: ${suomifiTheme.colors.depthLight3};
+        background-color: ${theme.colors.depthLight3};
       }
     }
 
     &.fi-textarea--error {
       & .fi-textarea_textarea {
-        border: 2px solid ${suomifiTheme.colors.alertBase};
+        border: 2px solid ${theme.colors.alertBase};
       }
     }
   }

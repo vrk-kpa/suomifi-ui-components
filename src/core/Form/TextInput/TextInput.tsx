@@ -2,6 +2,7 @@ import React, { forwardRef, Component, ChangeEvent, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
+import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import {
@@ -183,11 +184,14 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
 }
 
 const StyledTextInput = styled(
-  ({ ...passProps }: InternalTextInputProps & InnerRef) => (
+  ({
+    theme,
+    ...passProps
+  }: InternalTextInputProps & InnerRef & { theme: SuomifiTheme }) => (
     <BaseTextInput {...passProps} />
   ),
 )`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**
@@ -200,9 +204,20 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <AutoId id={propId}>
-        {(id) => <StyledTextInput id={id} forwardedRef={ref} {...passProps} />}
-      </AutoId>
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <StyledTextInput
+                theme={suomifiTheme}
+                id={id}
+                forwardedRef={ref}
+                {...passProps}
+              />
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
     );
   },
 );

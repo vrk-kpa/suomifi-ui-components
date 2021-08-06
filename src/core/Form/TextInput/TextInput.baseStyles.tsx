@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { input, containerIEFocus, font } from '../../theme/reset';
 import { math } from 'polished';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-text-input {
-    ${font(suomifiTheme)('bodyText')}
+    ${font(theme)('bodyText')}
     width: 290px;
   }
 
@@ -15,13 +15,13 @@ export const baseStyles = css`
   }
 
   & .fi-text-input_input-element-container {
-    ${containerIEFocus(suomifiTheme)}
+    ${containerIEFocus(theme)}
 
     &:focus-within {
       position: relative;
 
       &::after {
-        ${suomifiTheme.focus.absoluteFocus}
+        ${theme.focus.absoluteFocus}
       }
     }
   }
@@ -31,17 +31,17 @@ export const baseStyles = css`
   }
 
   & .fi-text-input_input {
-    ${input(suomifiTheme)}
-    background-color: ${suomifiTheme.colors.whiteBase};
+    ${input(theme)}
+    background-color: ${theme.colors.whiteBase};
     min-width: 40px;
     width: 100%;
     min-height: 40px;
-    padding-left: ${suomifiTheme.spacing.insetL};
-    border-color: ${suomifiTheme.colors.depthDark3};
+    padding-left: ${theme.spacing.insetL};
+    border-color: ${theme.colors.depthDark3};
 
     &::placeholder {
       font-style: italic;
-      color: ${suomifiTheme.colors.depthDark2};
+      color: ${theme.colors.depthDark2};
       opacity: 1;
     }
     &::-ms-clear {
@@ -63,7 +63,7 @@ export const baseStyles = css`
 
     & .fi-text-input_input {
       padding-right: ${math(
-        `${suomifiTheme.spacing.insetXl} * 2 + ${suomifiTheme.spacing.insetM}`,
+        `${theme.spacing.insetXl} * 2 + ${theme.spacing.insetM}`,
       )};
     }
 
@@ -71,14 +71,14 @@ export const baseStyles = css`
       position: absolute;
       width: 18px;
       height: 18px;
-      top: ${suomifiTheme.spacing.insetL};
-      right: ${suomifiTheme.spacing.insetL};
+      top: ${theme.spacing.insetL};
+      right: ${theme.spacing.insetL};
     }
   }
 
   &.fi-text-input--error {
     & .fi-text-input_input {
-      border: 2px solid ${suomifiTheme.colors.alertBase};
+      border: 2px solid ${theme.colors.alertBase};
       padding-left: 9px;
       padding-top: 7px;
       padding-bottom: 7px;
@@ -86,7 +86,7 @@ export const baseStyles = css`
   }
   &.fi-text-input--success {
     & .fi-text-input_input {
-      border: 2px solid ${suomifiTheme.colors.successBase};
+      border: 2px solid ${theme.colors.successBase};
       padding-left: 9px;
       padding-top: 7px;
       padding-bottom: 7px;
@@ -94,8 +94,8 @@ export const baseStyles = css`
   }
   &.fi-text-input--disabled {
     & .fi-text-input_input {
-      color: ${suomifiTheme.colors.depthBase};
-      background-color: ${suomifiTheme.colors.depthLight3};
+      color: ${theme.colors.depthBase};
+      background-color: ${theme.colors.depthLight3};
     }
     & .fi-icon-base-fill {
       fill: ${theme.colors.depthBase};

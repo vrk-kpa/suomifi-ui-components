@@ -1,9 +1,91 @@
 import React, { Component, ReactNode } from 'react';
-import { suomifiTheme } from '../../core/theme';
+import {
+  SuomifiTheme,
+  SuomifiThemeConsumer,
+  defaultSuomifiTheme,
+} from '../../core/theme';
 import { hslaToHex } from '../../utils/css';
 import { default as styled } from 'styled-components';
 import { baseStyles, containerStyles } from './Colors.baseStyles';
 import clipboardCopy from 'clipboard-copy';
+
+const {
+  whiteBase,
+  blackBase,
+  blackLight1,
+  brandBase,
+  depthDark1,
+  depthDark2,
+  depthDark3,
+  depthBase,
+  depthLight3,
+  depthLight2,
+  depthLight1,
+  depthSecondaryDark1,
+  depthSecondary,
+  highlightDark1,
+  highlightBase,
+  highlightLight1,
+  highlightLight2,
+  highlightLight3,
+  highlightLight4,
+  accentBase,
+  accentSecondary,
+  accentSecondaryLight1,
+  accentTertiaryDark1,
+  accentTertiary,
+  successBase,
+  successSecondary,
+  warningBase,
+  alertBase,
+  alertLight1,
+} = defaultSuomifiTheme.colors;
+
+export const colorTokens = {
+  base: {
+    whiteBase,
+    blackBase,
+    blackLight1,
+  },
+  brand: {
+    brandBase,
+  },
+  depth: {
+    depthDark1,
+    depthDark2,
+    depthDark3,
+    depthBase,
+    depthLight3,
+    depthLight2,
+    depthLight1,
+  },
+  depthSecondary: {
+    depthSecondaryDark1,
+    depthSecondary,
+  },
+  hightlight: {
+    highlightDark1,
+    highlightBase,
+    highlightLight1,
+    highlightLight2,
+    highlightLight3,
+    highlightLight4,
+  },
+  accent: {
+    accentBase,
+    accentSecondary,
+    accentSecondaryLight1,
+    accentTertiaryDark1,
+    accentTertiary,
+  },
+  trafficlights: {
+    successBase,
+    successSecondary,
+    warningBase,
+    alertBase,
+    alertLight1,
+  },
+};
 
 export interface ColorsProps {
   colors?: {
@@ -28,10 +110,10 @@ const onEnterPressed = (keyName: string) => (
 };
 
 const StyledFigure = styled.figure`
-  ${(props: ColorProps) => baseStyles(props)};
+  ${(props: ColorProps & { theme: SuomifiTheme }) => baseStyles(props)};
 `;
 
-const ColorFigure = (props: ColorProps) => {
+const ColorFigure = (props: ColorProps & { theme: SuomifiTheme }) => {
   const { color, keyName } = props;
   const hslaAsHex = hslaToHex(color);
 
@@ -64,26 +146,33 @@ const ColorsContainer = styled.div`
 
 export class Colors extends Component<ColorsProps> {
   render() {
-    const useColors = !!this.props.colors
-      ? this.props.colors
-      : suomifiTheme.colors;
     return (
-      <ColorsContainer>
-        {Object.entries(useColors).reduce<JSX.Element[]>(
-          (arr, [key, value]) => {
-            const item = (
-              <ColorFigure
-                key={key.toString()}
-                keyName={key.toString()}
-                color={value as string}
-                {...this.props}
-              />
-            );
-            return [...arr, item];
-          },
-          [],
-        )}
-      </ColorsContainer>
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => {
+          const useColors = !!this.props.colors
+            ? this.props.colors
+            : suomifiTheme.colors;
+          return (
+            <ColorsContainer>
+              {Object.entries(useColors).reduce<JSX.Element[]>(
+                (arr, [key, value]) => {
+                  const item = (
+                    <ColorFigure
+                      theme={suomifiTheme}
+                      key={key.toString()}
+                      keyName={key.toString()}
+                      color={value as string}
+                      {...this.props}
+                    />
+                  );
+                  return [...arr, item];
+                },
+                [],
+              )}
+            </ColorsContainer>
+          );
+        }}
+      </SuomifiThemeConsumer>
     );
   }
 }

@@ -3,6 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
 import { Icon } from '../../Icon/Icon';
+import { SuomifiThemeConsumer, SuomifiTheme } from '../../theme';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 import { expanderTitleButtonBaseStyles } from './ExpanderTitleButton.baseStyles';
 
@@ -33,7 +34,9 @@ export interface ExpanderTitleButtonProps {
 
 interface InternalExpanderTitleButtonProps
   extends ExpanderTitleButtonProps,
-    ExpanderTitleBaseProps {}
+    ExpanderTitleBaseProps {
+  theme: SuomifiTheme;
+}
 
 class BaseExpanderTitleButton extends Component<InternalExpanderTitleButtonProps> {
   render() {
@@ -41,6 +44,7 @@ class BaseExpanderTitleButton extends Component<InternalExpanderTitleButtonProps
       asHeading,
       children,
       className,
+      theme,
       toggleButtonProps,
       consumer,
       ...passProps
@@ -76,7 +80,7 @@ class BaseExpanderTitleButton extends Component<InternalExpanderTitleButtonProps
 }
 
 const StyledExpanderTitle = styled(BaseExpanderTitleButton)`
-  ${expanderTitleButtonBaseStyles}
+  ${({ theme }) => expanderTitleButtonBaseStyles(theme)}
 `;
 
 /**
@@ -86,11 +90,19 @@ const StyledExpanderTitle = styled(BaseExpanderTitleButton)`
 export class ExpanderTitleButton extends Component<ExpanderTitleButtonProps> {
   render() {
     return (
-      <ExpanderConsumer>
-        {(consumer) => (
-          <StyledExpanderTitle consumer={consumer} {...this.props} />
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <ExpanderConsumer>
+            {(consumer) => (
+              <StyledExpanderTitle
+                theme={suomifiTheme}
+                consumer={consumer}
+                {...this.props}
+              />
+            )}
+          </ExpanderConsumer>
         )}
-      </ExpanderConsumer>
+      </SuomifiThemeConsumer>
     );
   }
 }

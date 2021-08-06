@@ -1,60 +1,63 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../theme';
+import { SuomifiTheme } from '../theme';
 import { element, font } from '../theme/reset';
 import { HeadingProps } from './Heading';
 
-export const baseStyles = ({ color }: HeadingProps) => css`
-  ${element(suomifiTheme)}
-  ${font(suomifiTheme)('bodyText')}
-  color: ${!!color && color in suomifiTheme.colors
-    ? suomifiTheme.colors[color]
-    : suomifiTheme.colors.blackBase};
+export const baseStyles = ({
+  color,
+  theme,
+}: HeadingProps & { theme: SuomifiTheme }) => css`
+  ${element(theme)}
+  ${font(theme)('bodyText')}
+  color: ${!!color && color in theme.colors
+    ? theme.colors[color]
+    : theme.colors.blackBase};
 
   &.fi-heading {
     &--h1hero {
-      ${font(suomifiTheme)('heading1Hero')}
+      ${font(theme)('heading1Hero')}
     }
     &--h1 {
-      ${font(suomifiTheme)('heading1')}
+      ${font(theme)('heading1')}
     }
     &--h2 {
-      ${font(suomifiTheme)('heading2')}
+      ${font(theme)('heading2')}
     }
     &--h3 {
-      ${font(suomifiTheme)('heading3')}
+      ${font(theme)('heading3')}
     }
     &--h4 {
-      ${font(suomifiTheme)('heading4')}
+      ${font(theme)('heading4')}
     }
     &--h5 {
-      ${font(suomifiTheme)('heading5')}
+      ${font(theme)('heading5')}
     }
     &--h6 {
-      ${font(suomifiTheme)('heading5')}
+      ${font(theme)('heading5')}
     }
     &--small-screen {
-      ${font(suomifiTheme)('heading1SmallScreen')}
+      ${font(theme)('heading1SmallScreen')}
       &.fi-heading {
         &--h1hero {
-          ${font(suomifiTheme)('heading1HeroSmallScreen')}
+          ${font(theme)('heading1HeroSmallScreen')}
         }
         &--h1 {
-          ${font(suomifiTheme)('heading1SmallScreen')}
+          ${font(theme)('heading1SmallScreen')}
         }
         &--h2 {
-          ${font(suomifiTheme)('heading2SmallScreen')}
+          ${font(theme)('heading2SmallScreen')}
         }
         &--h3 {
-          ${font(suomifiTheme)('heading3SmallScreen')}
+          ${font(theme)('heading3SmallScreen')}
         }
         &--h4 {
-          ${font(suomifiTheme)('heading4SmallScreen')}
+          ${font(theme)('heading4SmallScreen')}
         }
         &--h5 {
-          ${font(suomifiTheme)('heading5SmallScreen')}
+          ${font(theme)('heading5SmallScreen')}
         }
         &--h6 {
-          ${font(suomifiTheme)('heading5SmallScreen')}
+          ${font(theme)('heading5SmallScreen')}
         }
       }
     }

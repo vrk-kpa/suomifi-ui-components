@@ -1,13 +1,13 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { element } from '../../theme/reset';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   &[data-reach-listbox-option].fi-dropdown_item {
-    ${element(suomifiTheme)}
-    ${suomifiTheme.typography.actionElementInnerText}
+    ${element(theme)}
+    ${theme.typography.actionElementInnerText}
     line-height: 1.5;
-    padding: ${suomifiTheme.spacing.insetM};
+    padding: ${theme.spacing.insetM};
     border: 0;
     &:focus {
       outline: 0;
@@ -15,16 +15,16 @@ export const baseStyles = css`
   }
 
   &[data-reach-listbox-option][data-current-selected].fi-dropdown_item {
-    ${suomifiTheme.typography.actionElementInnerTextBold}
+    ${theme.typography.actionElementInnerTextBold}
     background-image: none;
-    background-color: ${suomifiTheme.colors.highlightLight3};
+    background-color: ${theme.colors.highlightLight3};
     border: 0;
   }
 
   &[data-reach-listbox-option][data-current-nav].fi-dropdown_item {
-    color: ${suomifiTheme.colors.blackBase};
+    color: ${theme.colors.blackBase};
     background-image: none;
-    background-color: ${suomifiTheme.colors.highlightLight3};
+    background-color: ${theme.colors.highlightLight3};
     border: 0;
   }
 `;

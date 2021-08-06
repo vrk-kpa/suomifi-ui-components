@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { HtmlLabel, HtmlSpan, HtmlDiv, HtmlInput } from '../../../reset';
 import { logger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
+import { SuomifiThemeConsumer, SuomifiTheme } from '../../theme';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { ComponentIcon } from '../../StaticIcon/StaticIcon';
 import { RadioButtonGroupConsumer } from './RadioButtonGroup';
@@ -164,44 +165,52 @@ class BaseRadioButton extends Component<RadioButtonProps & InnerRef> {
 }
 
 const StyledRadioButton = styled(
-  ({ ...passProps }: InternalRadioButtonProps & InnerRef) => (
+  ({
+    theme,
+    ...passProps
+  }: InternalRadioButtonProps & InnerRef & { theme: SuomifiTheme }) => (
     <BaseRadioButton {...passProps} />
   ),
 )`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export const RadioButton = forwardRef(
   (props: RadioButtonProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, onChange, ...passProps } = props;
     return (
-      <AutoId id={propId}>
-        {(id) => (
-          <RadioButtonGroupConsumer>
-            {({ onRadioButtonChange, selectedValue, name }) => (
-              <StyledRadioButton
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-                {...(!!onRadioButtonChange
-                  ? {
-                      checked: selectedValue === passProps.value,
-                      name,
-                    }
-                  : {})}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                  if (!!onRadioButtonChange) {
-                    onRadioButtonChange(event.target.value);
-                  }
-                  if (!!onChange) {
-                    onChange(event);
-                  }
-                }}
-              />
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <RadioButtonGroupConsumer>
+                {({ onRadioButtonChange, selectedValue, name }) => (
+                  <StyledRadioButton
+                    theme={suomifiTheme}
+                    id={id}
+                    forwardedRef={ref}
+                    {...passProps}
+                    {...(!!onRadioButtonChange
+                      ? {
+                          checked: selectedValue === passProps.value,
+                          name,
+                        }
+                      : {})}
+                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                      if (!!onRadioButtonChange) {
+                        onRadioButtonChange(event.target.value);
+                      }
+                      if (!!onChange) {
+                        onChange(event);
+                      }
+                    }}
+                  />
+                )}
+              </RadioButtonGroupConsumer>
             )}
-          </RadioButtonGroupConsumer>
+          </AutoId>
         )}
-      </AutoId>
+      </SuomifiThemeConsumer>
     );
   },
 );
