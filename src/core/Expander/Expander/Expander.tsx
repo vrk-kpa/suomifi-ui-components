@@ -3,6 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { HtmlDiv } from '../../../reset';
+import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
 import {
   ExpanderGroupConsumer,
   ExpanderGroupProviderState,
@@ -77,12 +78,14 @@ interface BaseExpanderProps extends ExpanderProps {
   consumer: ExpanderGroupProviderState;
 }
 
-class BaseExpander extends Component<BaseExpanderProps> {
+class BaseExpander extends Component<
+  BaseExpanderProps & { theme: SuomifiTheme }
+> {
   state: ExpanderState = {
     openState: this.props.defaultOpen || false,
   };
 
-  constructor(props: BaseExpanderProps) {
+  constructor(props: BaseExpanderProps & { theme: SuomifiTheme }) {
     super(props);
     if (!!props.id) {
       const defaultOpen =
@@ -151,6 +154,7 @@ class BaseExpander extends Component<BaseExpanderProps> {
       defaultOpen,
       onOpenChange,
       className,
+      theme,
       children,
       consumer,
       ...passProps
@@ -181,7 +185,7 @@ class BaseExpander extends Component<BaseExpanderProps> {
 }
 
 const StyledExpander = styled(BaseExpander)`
-  ${baseStyles};
+  ${({ theme }) => baseStyles(theme)};
 `;
 
 interface ExpanderState {
@@ -196,15 +200,24 @@ export class Expander extends Component<ExpanderProps> {
   render() {
     const { id: propId, ...passProps } = this.props;
     return (
-      <AutoId id={propId}>
-        {(id) => (
-          <ExpanderGroupConsumer>
-            {(consumer) => (
-              <StyledExpander id={id} {...passProps} consumer={consumer} />
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <ExpanderGroupConsumer>
+                {(consumer) => (
+                  <StyledExpander
+                    theme={suomifiTheme}
+                    id={id}
+                    {...passProps}
+                    consumer={consumer}
+                  />
+                )}
+              </ExpanderGroupConsumer>
             )}
-          </ExpanderGroupConsumer>
+          </AutoId>
         )}
-      </AutoId>
+      </SuomifiThemeConsumer>
     );
   }
 }

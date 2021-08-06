@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../../theme';
+import { SuomifiTheme } from '../../../theme';
 import { element, font } from '../../../theme/reset';
 
 export const iconWidth = '40px';
@@ -11,10 +11,10 @@ export const focusOverrides = css`
   left: -4px;
 `;
 
-export const toggleBaseStyles = css`
-  ${element(suomifiTheme)}
-  ${font(suomifiTheme)('bodyText')}
-  background-color: ${suomifiTheme.colors.whiteBase};
+export const toggleBaseStyles = (theme: SuomifiTheme) => css`
+  ${element(theme)}
+  ${font(theme)('bodyText')}
+  background-color: ${theme.colors.whiteBase};
   padding-left: 50px;
   position: relative;
   display: inline-block;
@@ -26,7 +26,7 @@ export const toggleBaseStyles = css`
 
   & .fi-toggle_icon-container {
     position: absolute;
-    margin-right: ${suomifiTheme.spacing.insetL};
+    margin-right: ${theme.spacing.insetL};
     left: 0;
     top: 0.1em;
   }

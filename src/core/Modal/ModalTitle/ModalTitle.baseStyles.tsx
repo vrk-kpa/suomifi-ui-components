@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-modal_title {
     max-width: 100%;
     display: block;
@@ -13,19 +13,19 @@ export const baseStyles = css`
       &:focus {
         outline: 0;
         &:after {
-          ${suomifiTheme.focus.absoluteFocus}
+          ${theme.focus.absoluteFocus}
         }
       }
     }
 
-    margin-bottom: ${suomifiTheme.spacing.m};
+    margin-bottom: ${theme.spacing.m};
 
     &--no-scroll {
-      margin-bottom: ${suomifiTheme.spacing.xs};
+      margin-bottom: ${theme.spacing.xs};
     }
 
     &--small-screen {
-      margin-bottom: ${suomifiTheme.spacing.m};
+      margin-bottom: ${theme.spacing.m};
     }
   }
 `;

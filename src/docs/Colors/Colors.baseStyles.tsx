@@ -1,12 +1,15 @@
 import { css } from 'styled-components';
 import { readableColor } from 'polished';
-import { suomifiTheme } from '../../core/theme';
+import { SuomifiTheme } from '../../core/theme';
 import { ColorProps } from './Colors';
 
-export const baseStyles = ({ color: colorProp }: Partial<ColorProps>) => {
-  const color = !!colorProp ? colorProp : suomifiTheme.colors.blackBase;
+export const baseStyles = ({
+  color: colorProp,
+  theme,
+}: Partial<ColorProps> & { theme: SuomifiTheme }) => {
+  const color = !!colorProp ? colorProp : theme.colors.blackBase;
   return css`
-    ${suomifiTheme.typography.bodyText}
+    ${theme.typography.bodyText}
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -30,8 +33,8 @@ export const baseStyles = ({ color: colorProp }: Partial<ColorProps>) => {
       flex-direction: column;
       justify-content: flex-end;
       position: absolute;
-      left: ${suomifiTheme.spacing.insetM};
-      bottom: ${suomifiTheme.spacing.insetM};
+      left: ${theme.spacing.insetM};
+      bottom: ${theme.spacing.insetM};
     }
 
     svg {
@@ -53,12 +56,12 @@ export const baseStyles = ({ color: colorProp }: Partial<ColorProps>) => {
       pointer-events: none;
 
       &--hex {
-        ${suomifiTheme.typography.bodyTextSmall}
+        ${theme.typography.bodyTextSmall}
         opacity: .4;
       }
 
       &--key {
-        ${suomifiTheme.typography.bodySemiBold}
+        ${theme.typography.bodySemiBold}
       }
     }
 

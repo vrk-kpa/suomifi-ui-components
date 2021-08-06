@@ -1,33 +1,33 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { element, button, font } from '../../theme/reset';
 import { allStates } from '../../../utils/css';
 
-export const expanderTitleButtonBaseStyles = css`
-  ${element(suomifiTheme)}
+export const expanderTitleButtonBaseStyles = (theme: SuomifiTheme) => css`
+  ${element(theme)}
   position: relative;
   display: block;
   width: 100%;
   max-width: 100%;
   min-height: 60px;
-  background-color: ${suomifiTheme.colors.highlightLight4};
+  background-color: ${theme.colors.highlightLight4};
   border-radius: inherit;
 
   &.fi-expander_title-button--open {
-    background-color: ${suomifiTheme.colors.whiteBase};
+    background-color: ${theme.colors.whiteBase};
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
 
   & .fi-expander_title-button_button {
-    ${button(suomifiTheme)}
-    ${font(suomifiTheme)('bodySemiBold')}
-    color: ${suomifiTheme.colors.highlightBase};
+    ${button(theme)}
+    ${font(theme)('bodySemiBold')}
+    color: ${theme.colors.highlightBase};
     display: inline-block;
     width: 100%;
     max-width: 100%;
     min-height: 60px;
-    padding: 17px ${suomifiTheme.spacing.xxxl} 16px ${suomifiTheme.spacing.m};
+    padding: 17px ${theme.spacing.xxxl} 16px ${theme.spacing.m};
 
     &:focus {
       outline: 0;
@@ -36,10 +36,10 @@ export const expanderTitleButtonBaseStyles = css`
     &:focus-within {
       outline: 0;
       &:after {
-        ${suomifiTheme.focus.absoluteFocus}
+        ${theme.focus.absoluteFocus}
       }
     }
-    ${suomifiTheme.focus.noMouseFocus}
+    ${theme.focus.noMouseFocus}
     & * {
       cursor: pointer;
     }
@@ -52,7 +52,7 @@ export const expanderTitleButtonBaseStyles = css`
     right: 0;
     height: 20px;
     width: 20px;
-    margin: ${suomifiTheme.spacing.m};
+    margin: ${theme.spacing.m};
   }
 
   & .fi-expander_title-button--open .fi-expander_title-button-icon,

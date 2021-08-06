@@ -1,11 +1,9 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components';
-import { SuomifiDesignTokens } from '.';
+import { SuomifiDesignTokens } from '../';
 
 export const absoluteFocus: (
   tokens: SuomifiDesignTokens,
-) => FlattenSimpleInterpolation = (
-  tokens: SuomifiDesignTokens,
-): FlattenSimpleInterpolation => css`
+) => FlattenSimpleInterpolation = (tokens) => css`
   content: '';
   position: absolute;
   pointer-events: none;
@@ -23,7 +21,7 @@ export const absoluteFocus: (
 
 export const boxShadowFocus: (
   tokens: SuomifiDesignTokens,
-) => FlattenSimpleInterpolation = (tokens: SuomifiDesignTokens) => css`
+) => FlattenSimpleInterpolation = (tokens) => css`
   outline: 0;
   border-radius: ${tokens.radius.focus};
   box-shadow: 0 0 0 2px ${tokens.colors.accentSecondary};

@@ -1,18 +1,18 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { baseStyles } from '../BaseLink/BaseLink.baseStyles';
 
-export const SkipLinkStyles = css`
-  ${baseStyles}
+export const SkipLinkStyles = (theme: SuomifiTheme) => css`
+  ${baseStyles(theme)}
   &.fi-link--skip {
     position: absolute;
     z-index: 10000;
     left: -1000px;
-    margin: ${suomifiTheme.spacing.insetXl};
-    padding: ${suomifiTheme.spacing.insetM};
-    background: ${suomifiTheme.colors.highlightLight3};
-    border: 1px solid ${suomifiTheme.colors.depthLight1};
-    color: ${suomifiTheme.colors.blackBase};
+    margin: ${theme.spacing.insetXl};
+    padding: ${theme.spacing.insetM};
+    background: ${theme.colors.highlightLight3};
+    border: 1px solid ${theme.colors.depthLight1};
+    color: ${theme.colors.blackBase};
     text-decoration: none;
   }
 

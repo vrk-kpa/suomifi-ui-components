@@ -1,6 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
+import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
 import { InputStatus, AriaLiveMode } from '../types';
 import { baseStyles } from './StatusText.baseStyles';
@@ -32,9 +33,10 @@ const StyledStatusText = styled(
     children,
     disabled,
     status,
+    theme,
     ariaLiveMode,
     ...passProps
-  }: StatusTextProps) => {
+  }: StatusTextProps & { theme: SuomifiTheme }) => {
     const ariaLiveProp = !disabled
       ? { 'aria-live': ariaLiveMode }
       : { 'aria-live': 'off' };
@@ -54,12 +56,20 @@ const StyledStatusText = styled(
     );
   },
 )`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export class StatusText extends Component<StatusTextProps> {
   render() {
     const { children, ...passProps } = this.props;
-    return <StyledStatusText {...passProps}>{children}</StyledStatusText>;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledStatusText theme={suomifiTheme} {...passProps}>
+            {children}
+          </StyledStatusText>
+        )}
+      </SuomifiThemeConsumer>
+    );
   }
 }

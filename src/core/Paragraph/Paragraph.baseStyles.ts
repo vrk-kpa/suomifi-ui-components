@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../theme';
+import { SuomifiTheme } from '../theme';
 import { element, font } from '../theme/reset';
 import { spacingModifiers } from '../theme/utils';
 
-export const baseStyles = css`
-  ${element(suomifiTheme)}
-  ${font(suomifiTheme)('bodyText')}
+export const baseStyles = (theme: SuomifiTheme) => css`
+  ${element(theme)}
+  ${font(theme)('bodyText')}
   margin: 0;
-  ${spacingModifiers(suomifiTheme)('margin-bottom')('&.fi-paragraph--margin')}
+  ${spacingModifiers(theme)('margin-bottom')('&.fi-paragraph--margin')}
 `;

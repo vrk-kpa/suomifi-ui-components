@@ -1,5 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
+import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
 import { HtmlDiv, HtmlSpan, HtmlFieldSet, HtmlLegend } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { RadioButtonProps } from './RadioButton';
@@ -57,7 +58,9 @@ export interface RadioButtonGroupState {
   selectedValue?: string;
 }
 
-class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
+class BaseRadioButtonGroup extends Component<
+  RadioButtonGroupProps & { theme: SuomifiTheme }
+> {
   state: RadioButtonGroupState = {
     selectedValue: this.props.value || this.props.defaultValue,
   };
@@ -86,6 +89,7 @@ class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
     const {
       children,
       className,
+      theme,
       labelText,
       labelMode,
       hintText,
@@ -137,7 +141,7 @@ class BaseRadioButtonGroup extends Component<RadioButtonGroupProps> {
 }
 
 const StyledRadioButtonGroup = styled(BaseRadioButtonGroup)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**
@@ -149,9 +153,19 @@ export class RadioButtonGroup extends Component<RadioButtonGroupProps> {
   render() {
     const { id: propId, ...passProps } = this.props;
     return (
-      <AutoId id={propId}>
-        {(id) => <StyledRadioButtonGroup id={id} {...passProps} />}
-      </AutoId>
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <StyledRadioButtonGroup
+                theme={suomifiTheme}
+                id={id}
+                {...passProps}
+              />
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
     );
   }
 }

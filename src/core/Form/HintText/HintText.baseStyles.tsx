@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { font } from '../../theme/reset';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-hint-text {
     display: block;
-    color: ${suomifiTheme.colors.blackBase};
-    margin-bottom: ${suomifiTheme.spacing.xs};
-    ${font(suomifiTheme)('bodyTextSmall')};
+    color: ${theme.colors.blackBase};
+    margin-bottom: ${theme.spacing.xs};
+    ${font(theme)('bodyTextSmall')};
   }
 `;

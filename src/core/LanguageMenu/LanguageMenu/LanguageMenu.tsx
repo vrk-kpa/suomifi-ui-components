@@ -10,6 +10,7 @@ import {
 } from '@reach/menu-button';
 import { positionDefault } from '@reach/popover';
 import { PRect } from '@reach/rect';
+import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
 import { classnamesValue } from '../../../utils/typescript';
 import { logger } from '../../../utils/log';
 import { HtmlSpan } from '../../../reset/HtmlSpan/HtmlSpan';
@@ -50,12 +51,15 @@ export interface LanguageMenuProps {
     | undefined;
 }
 
-class BaseLanguageMenu extends Component<LanguageMenuProps> {
+class BaseLanguageMenu extends Component<
+  LanguageMenuProps & { theme: SuomifiTheme }
+> {
   render() {
     const {
       children,
       name,
       className,
+      theme,
       languageMenuButtonClassName: menuButtonClassName,
       languageMenuOpenButtonClassName: menuButtonOpenClassName,
       ...passProps
@@ -79,7 +83,7 @@ class BaseLanguageMenu extends Component<LanguageMenuProps> {
               >
                 {name}
               </MenuButton>
-              <StyledMenuPopover position={positionDefault}>
+              <StyledMenuPopover theme={theme} position={positionDefault}>
                 <MenuItems>{children}</MenuItems>
               </StyledMenuPopover>
             </Fragment>
@@ -89,10 +93,12 @@ class BaseLanguageMenu extends Component<LanguageMenuProps> {
     );
   }
 }
-const StyledLanguageMenu = styled((props: LanguageMenuProps) => (
-  <BaseLanguageMenu {...props} />
-))`
-  ${baseStyles}
+const StyledLanguageMenu = styled(
+  (props: LanguageMenuProps & { theme: SuomifiTheme }) => (
+    <BaseLanguageMenu {...props} />
+  ),
+)`
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 const LanguageMenuPopoverWithProps = (
@@ -139,13 +145,17 @@ const LanguageMenuPopoverPosition = (
 };
 
 const StyledMenuPopover = styled(
-  ({ children, ...passProps }: MenuPopoverProps) => (
+  ({
+    theme,
+    children,
+    ...passProps
+  }: MenuPopoverProps & { theme: SuomifiTheme }) => (
     <MenuPopover {...passProps} position={LanguageMenuPopoverPosition}>
       <MenuItems>{children}</MenuItems>
     </MenuPopover>
   ),
 )`
-  ${languageMenuPopoverStyles}
+  ${({ theme }) => languageMenuPopoverStyles(theme)}
 `;
 
 /**
@@ -162,19 +172,22 @@ export class LanguageMenu extends Component<LanguageMenuProps> {
     );
 
     return (
-      <Fragment>
-        <StyledLanguageMenu
-          {...passProps}
-          name={languageName(name)}
-          languageMenuButtonClassName={languageMenuButtonClassName}
-          languageMenuOpenButtonClassName={languageMenuClassNames.buttonOpen}
-        >
-          {LanguageMenuPopoverWithProps(
-            children,
-            languageMenuClassNames.itemLang,
-          )}
-        </StyledLanguageMenu>
-      </Fragment>
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledLanguageMenu
+            theme={suomifiTheme}
+            {...passProps}
+            name={languageName(name)}
+            languageMenuButtonClassName={languageMenuButtonClassName}
+            languageMenuOpenButtonClassName={languageMenuClassNames.buttonOpen}
+          >
+            {LanguageMenuPopoverWithProps(
+              children,
+              languageMenuClassNames.itemLang,
+            )}
+          </StyledLanguageMenu>
+        )}
+      </SuomifiThemeConsumer>
     );
   }
 }

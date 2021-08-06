@@ -1,10 +1,10 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { input, containerIEFocus, font } from '../../theme/reset';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-search-input {
-    ${font(suomifiTheme)('bodyText')}
+    ${font(theme)('bodyText')}
     width: 290px;
   }
 
@@ -20,15 +20,15 @@ export const baseStyles = css`
     }
 
     &_input-element-container {
-      background-color: ${suomifiTheme.colors.whiteBase};
-      color: ${suomifiTheme.colors.blackBase};
-      ${containerIEFocus(suomifiTheme)}
+      background-color: ${theme.colors.whiteBase};
+      color: ${theme.colors.blackBase};
+      ${containerIEFocus(theme)}
 
       &:focus-within {
         position: relative;
-        box-shadow: ${suomifiTheme.shadows.actionElementBoxShadow};
+        box-shadow: ${theme.shadows.actionElementBoxShadow};
         &:after {
-          ${suomifiTheme.focus.absoluteFocus}
+          ${theme.focus.absoluteFocus}
           top: -3px;
           bottom: -3px;
           right: -3px;
@@ -41,14 +41,14 @@ export const baseStyles = css`
       width: 100%;
       height: 40px;
       box-sizing: border-box;
-      border: 1px solid ${suomifiTheme.colors.depthDark3};
-      border-radius: ${suomifiTheme.radius.basic};
+      border: 1px solid ${theme.colors.depthDark3};
+      border-radius: ${theme.radius.basic};
     }
 
     &_input {
-      ${input(suomifiTheme)}
-      padding-top: ${suomifiTheme.spacing.insetS};
-      padding-bottom: ${suomifiTheme.spacing.insetS};
+      ${input(theme)}
+      padding-top: ${theme.spacing.insetS};
+      padding-bottom: ${theme.spacing.insetS};
       width: calc(100% - 24px);
       min-width: 65px;
       border: 0;
@@ -57,7 +57,7 @@ export const baseStyles = css`
       margin-bottom: 1px;
       &::placeholder {
         font-style: italic;
-        color: ${suomifiTheme.colors.depthDark2};
+        color: ${theme.colors.depthDark2};
         opacity: 1;
       }
       &::-ms-clear {
@@ -102,7 +102,7 @@ export const baseStyles = css`
         &-icon {
           width: 12px;
           height: 12px;
-          fill: ${suomifiTheme.colors.highlightDark1};
+          fill: ${theme.colors.highlightDark1};
         }
       }
 
@@ -110,13 +110,12 @@ export const baseStyles = css`
         right: 0px;
         height: 40px;
         width: 40px;
-        border-radius: 0 ${suomifiTheme.radius.basic}
-          ${suomifiTheme.radius.basic} 0;
+        border-radius: 0 ${theme.radius.basic} ${theme.radius.basic} 0;
         border: 0;
         &-icon {
           width: 18px;
           height: 18px;
-          fill: ${suomifiTheme.colors.depthDark1};
+          fill: ${theme.colors.depthDark1};
         }
       }
     }
@@ -128,11 +127,11 @@ export const baseStyles = css`
 
   &.fi-search-input--error {
     & .fi-search-input_input-element-container {
-      border: 1px solid ${suomifiTheme.colors.alertBase};
+      border: 1px solid ${theme.colors.alertBase};
       border-right: 0;
     }
     & .fi-search-input_button-search {
-      border: 1px solid ${suomifiTheme.colors.alertBase};
+      border: 1px solid ${theme.colors.alertBase};
       border-left: 0;
     }
   }
@@ -140,15 +139,14 @@ export const baseStyles = css`
   &.fi-search-input--not-empty {
     & .fi-search-input_input-element-container {
       width: calc(100% - 40px);
-      border-radius: ${suomifiTheme.radius.basic} 0 0
-        ${suomifiTheme.radius.basic};
+      border-radius: ${theme.radius.basic} 0 0 ${theme.radius.basic};
       border-right: 0;
     }
 
     & .fi-search-input_button {
       &:focus {
         &:after {
-          ${suomifiTheme.focus.absoluteFocus}
+          ${theme.focus.absoluteFocus}
         }
       }
       cursor: pointer;
@@ -156,15 +154,15 @@ export const baseStyles = css`
     }
 
     & .fi-search-input_button-search {
-      background: ${suomifiTheme.gradients.highlightBaseToHighlightDark1};
+      background: ${theme.gradients.highlightBaseToHighlightDark1};
       &:hover {
-        background: ${suomifiTheme.gradients.highlightLight1ToHighlightBase};
+        background: ${theme.gradients.highlightLight1ToHighlightBase};
       }
       &:active {
-        background-color: ${suomifiTheme.colors.highlightDark1};
+        background-color: ${theme.colors.highlightDark1};
       }
       & .fi-search-input_button-search-icon {
-        fill: ${suomifiTheme.colors.whiteBase};
+        fill: ${theme.colors.whiteBase};
       }
     }
     & .fi-search-input_button-clear {

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { SpacingWithoutInsetProp } from '../theme/spacing';
+import { SpacingWithoutInsetProp } from '../theme/utils/spacing';
 import { baseStyles } from './Block.baseStyles';
 import { HtmlDiv, HtmlDivProps } from '../../reset';
+import { SuomifiTheme, SuomifiThemeConsumer } from '../theme';
 
 const baseClassName = 'fi-block';
 
@@ -37,8 +38,11 @@ class SemanticBlock extends Component<BlockProps> {
   }
 }
 
-const StyledBlock = styled((props: BlockProps) => <SemanticBlock {...props} />)`
-  ${baseStyles};
+const StyledBlock = styled((props: BlockProps & { theme: SuomifiTheme }) => {
+  const { theme, ...passProps } = props;
+  return <SemanticBlock {...passProps} />;
+})`
+  ${({ theme }) => baseStyles(theme)};
 `;
 
 /**
@@ -46,6 +50,12 @@ const StyledBlock = styled((props: BlockProps) => <SemanticBlock {...props} />)`
  */
 export class Block extends Component<BlockProps> {
   render() {
-    return <StyledBlock {...this.props} />;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledBlock theme={suomifiTheme} {...this.props} />
+        )}
+      </SuomifiThemeConsumer>
+    );
   }
 }

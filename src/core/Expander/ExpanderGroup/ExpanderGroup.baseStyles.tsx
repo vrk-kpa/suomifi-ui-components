@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
 
-export const baseStyles = css`
-  ${element(suomifiTheme)}
+export const baseStyles = (theme: SuomifiTheme) => css`
+  ${element(theme)}
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -16,34 +16,32 @@ export const baseStyles = css`
       margin-top: 0;
       margin-bottom: 0;
       border-radius: 0;
-      border-top: 1px solid ${suomifiTheme.colors.depthLight1};
-      transition: margin ${`${suomifiTheme.transitions.basicTime}
-        ${suomifiTheme.transitions.basicTimingFunction}`};
+      border-top: 1px solid ${theme.colors.depthLight1};
+      transition: margin ${`${theme.transitions.basicTime}
+        ${theme.transitions.basicTimingFunction}`};
 
       & .fi-icon {
-        color: ${suomifiTheme.colors.highlightBase};
+        color: ${theme.colors.highlightBase};
       }
       & > {
         border-radius: 0;
       }
       &:first-child {
         border-top: none;
-        border-radius: ${suomifiTheme.radius.basic} ${suomifiTheme.radius.basic}
-          0 0;
+        border-radius: ${theme.radius.basic} ${theme.radius.basic} 0 0;
       }
       &:last-child {
         /* stylelint-disable */
         /* prettier-ignore */
-        border-radius: 0 0 ${suomifiTheme.radius.basic} ${suomifiTheme.radius
-          .basic};
+        border-radius: 0 0 ${theme.radius.basic} ${theme.radius.basic};
       }
       &.fi-expander--open {
         border-top: none;
         &:not(:first-of-type) {
-          margin-top: ${suomifiTheme.spacing.insetXl};
+          margin-top: ${theme.spacing.insetXl};
         }
         &:not(:last-of-type) {
-          margin-bottom: ${suomifiTheme.spacing.insetXl};
+          margin-bottom: ${theme.spacing.insetXl};
         }
         & + .fi-expander {
           border-top: none;
@@ -53,15 +51,15 @@ export const baseStyles = css`
   }
 
   & > .fi-expander-group_all-button {
-    ${element(suomifiTheme)}
-    ${font(suomifiTheme)('actionElementInnerTextBold')}
+    ${element(theme)}
+    ${font(theme)('actionElementInnerTextBold')}
     flex: 1 1 auto;
     align-self: flex-end;
     margin-left: auto;
-    margin-bottom: ${suomifiTheme.spacing.insetM};
-    padding: ${suomifiTheme.spacing.insetXs} 0;
-    color: ${suomifiTheme.colors.highlightBase};
-    border-radius: ${suomifiTheme.radius.basic};
+    margin-bottom: ${theme.spacing.insetM};
+    padding: ${theme.spacing.insetXs} 0;
+    color: ${theme.colors.highlightBase};
+    border-radius: ${theme.radius.basic};
     border: none;
     cursor: pointer;
 
@@ -70,9 +68,9 @@ export const baseStyles = css`
       position: relative;
 
       &:after {
-        ${suomifiTheme.focus.absoluteFocus}
+        ${theme.focus.absoluteFocus}
       }
     }
-    ${suomifiTheme.focus.noMouseFocus}
+    ${theme.focus.noMouseFocus}
   }
 `;

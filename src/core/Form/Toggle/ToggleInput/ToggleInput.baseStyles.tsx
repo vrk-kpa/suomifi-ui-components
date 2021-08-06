@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../../theme';
+import { SuomifiTheme } from '../../../theme';
 import { element, font } from '../../../theme/reset';
 import {
   toggleBaseStyles,
@@ -8,14 +8,14 @@ import {
   focusOverrides,
 } from '../ToggleBase/Toggle.baseStyles';
 
-export const baseStyles = css`
-  ${toggleBaseStyles}
+export const baseStyles = (theme: SuomifiTheme) => css`
+  ${toggleBaseStyles(theme)}
   &.fi-toggle--input {
     &:focus-within {
       outline: 0;
       & .fi-toggle_icon-container {
         &:after {
-          ${suomifiTheme.focus.absoluteFocus}
+          ${theme.focus.absoluteFocus}
           ${focusOverrides}
         }
       }
@@ -23,13 +23,13 @@ export const baseStyles = css`
   }
 
   & .fi-toggle_input-element {
-    ${element(suomifiTheme)}
-    ${font(suomifiTheme)('bodyText')}
+    ${element(theme)}
+    ${font(theme)('bodyText')}
     position: absolute;
     width: ${iconWidth};
     height: ${iconHeight};
     opacity: 0;
     z-index: -9999;
-    background-color: ${suomifiTheme.colors.whiteBase};
+    background-color: ${theme.colors.whiteBase};
   }
 `;

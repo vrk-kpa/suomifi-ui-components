@@ -1,5 +1,15 @@
-import { SpacingProp, spacingTokensKeys } from '../spacing';
-import { SuomifiTheme } from '../';
+import {
+  SuomifiTheme,
+  SpacingProp,
+  SpacingDesignTokens,
+  defaultSuomifiTheme,
+} from '../SuomifiTheme/SuomifiTheme';
+
+type SpacingDesignTokensKeys = keyof SpacingDesignTokens;
+
+export const spacingTokensKeys = Object.keys(
+  defaultSuomifiTheme.spacing,
+) as SpacingDesignTokensKeys[];
 
 export type SpacingWithoutInsetProp =
   | 'xxs'

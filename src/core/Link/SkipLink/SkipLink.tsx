@@ -4,13 +4,19 @@ import { default as styled } from 'styled-components';
 import { Link } from '../Link/Link';
 import { SkipLinkStyles } from './SkipLink.baseStyles';
 import { BaseLinkProps } from '../BaseLink/BaseLink';
+import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
 
 const skipClassName = 'fi-link--skip';
 
 export interface SkipLinkProps extends BaseLinkProps {}
 
-const StyledSkipLink = styled((props: SkipLinkProps) => <Link {...props} />)`
-  ${SkipLinkStyles}
+const StyledSkipLink = styled(
+  (props: SkipLinkProps & { theme: SuomifiTheme }) => {
+    const { theme, ...passProps } = props;
+    return <Link {...passProps} />;
+  },
+)`
+  ${({ theme }) => SkipLinkStyles(theme)}
 `;
 
 /**
@@ -21,10 +27,15 @@ export class SkipLink extends Component<SkipLinkProps> {
   render() {
     const { className, ...passProps } = this.props;
     return (
-      <StyledSkipLink
-        {...passProps}
-        className={classnames(className, skipClassName)}
-      />
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledSkipLink
+            theme={suomifiTheme}
+            {...passProps}
+            className={classnames(className, skipClassName)}
+          />
+        )}
+      </SuomifiThemeConsumer>
     );
   }
 }

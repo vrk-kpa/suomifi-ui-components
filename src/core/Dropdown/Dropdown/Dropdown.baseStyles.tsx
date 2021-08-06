@@ -1,25 +1,25 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { element, inputButton } from '../../theme/reset';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-dropdown {
     display: inline-block;
   }
 
   & [data-reach-listbox-button].fi-dropdown_button {
-    ${inputButton(suomifiTheme)}
+    ${inputButton(theme)}
     position: relative;
     display: inline-block;
     word-break: break-word;
     overflow-wrap: break-word;
     min-height: 22px;
     padding: 7px 38px 7px 7px;
-    border-color: ${suomifiTheme.colors.depthDark3};
+    border-color: ${theme.colors.depthDark3};
     text-align: left;
     line-height: 1.5;
-    background-color: ${suomifiTheme.colors.whiteBase};
-    box-shadow: ${suomifiTheme.shadows.actionElementBoxShadow};
+    background-color: ${theme.colors.whiteBase};
+    box-shadow: ${theme.shadows.actionElementBoxShadow};
     cursor: pointer;
 
     &:focus {
@@ -27,7 +27,7 @@ export const baseStyles = css`
       position: relative;
 
       &:after {
-        ${suomifiTheme.focus.absoluteFocus}
+        ${theme.focus.absoluteFocus}
       }
     }
 
@@ -38,42 +38,41 @@ export const baseStyles = css`
       right: 16px;
       margin-top: -3px;
       border-style: solid;
-      border-color: ${suomifiTheme.colors.depthDark3} transparent transparent
+      border-color: ${theme.colors.depthDark3} transparent transparent
         transparent;
       border-width: 6px 4px 0 4px;
     }
     &[aria-expanded='true']:before {
-      border-color: transparent transparent ${suomifiTheme.colors.depthDark3}
+      border-color: transparent transparent ${theme.colors.depthDark3}
         transparent;
       border-width: 0 4px 6px 4px;
     }
     &.fi-dropdown--disabled {
-      background-color: ${suomifiTheme.colors.depthLight3};
-      color: ${suomifiTheme.colors.depthBase};
+      background-color: ${theme.colors.depthLight3};
+      color: ${theme.colors.depthBase};
       opacity: 1;
       cursor: not-allowed;
       &:before {
-        border-color: ${suomifiTheme.colors.depthBase} transparent transparent
+        border-color: ${theme.colors.depthBase} transparent transparent
           transparent;
       }
     }
   }
   &[data-reach-listbox-popover].fi-dropdown_popover {
-    ${element(suomifiTheme)}
-    ${suomifiTheme.typography.actionElementInnerText}
+    ${element(theme)}
+    ${theme.typography.actionElementInnerText}
     margin-top: -1px;
     padding: 0;
     box-sizing: border-box;
     font-size: 100%;
     border: 0;
-    background-color: ${suomifiTheme.colors.whiteBase};
-    border-color: ${suomifiTheme.colors.depthDark3};
+    background-color: ${theme.colors.whiteBase};
+    border-color: ${theme.colors.depthDark3};
     border-style: solid;
     border-width: 0 1px 1px 1px;
     /* stylelint-disable */
     /* prettier-ignore */
-    border-radius: 0px 0px ${suomifiTheme.radius.basic} ${suomifiTheme.radius
-      .basic};
+    border-radius: 0px 0px ${theme.radius.basic} ${theme.radius.basic};
     overflow: hidden;
     &:focus-within {
       outline: 0;
@@ -83,13 +82,13 @@ export const baseStyles = css`
 
   &.fi-dropdown--noSelectedStyles {
     & [data-reach-listbox-option][data-current-selected].fi-dropdown_item {
-      background-color: ${suomifiTheme.colors.whiteBase};
-      ${suomifiTheme.typography.actionElementInnerText};
+      background-color: ${theme.colors.whiteBase};
+      ${theme.typography.actionElementInnerText};
     }
     & [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
-      color: ${suomifiTheme.colors.blackBase};
+      color: ${theme.colors.blackBase};
       background-image: none;
-      background-color: ${suomifiTheme.colors.highlightLight3};
+      background-color: ${theme.colors.highlightLight3};
       border: 0;
     }
   }

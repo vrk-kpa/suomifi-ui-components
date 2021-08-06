@@ -1,10 +1,10 @@
 import { css } from 'styled-components';
-import { suomifiTheme } from '../../../theme';
+import { SuomifiTheme } from '../../../theme';
 import { font } from '../../../theme/reset';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-multiselect {
-    ${font(suomifiTheme)('bodyText')}
+    ${font(theme)('bodyText')}
     width: 290px;
 
     & .fi-filter-input_input-element-container {
@@ -17,7 +17,7 @@ export const baseStyles = css`
         right: 16px;
         margin-top: -3px;
         border-style: solid;
-        border-color: ${suomifiTheme.colors.depthDark3} transparent transparent
+        border-color: ${theme.colors.depthDark3} transparent transparent
           transparent;
         border-width: 6px 4px 0 4px;
         pointer-events: none;
@@ -33,7 +33,7 @@ export const baseStyles = css`
   &.fi-multiselect--open {
     & .fi-filter-input_input-element-container {
       &:before {
-        border-color: transparent transparent ${suomifiTheme.colors.depthDark3}
+        border-color: transparent transparent ${theme.colors.depthDark3}
           transparent;
         border-width: 0 4px 6px 4px;
       }
