@@ -5,7 +5,7 @@ import { InputStatus, StatusTextCommonProps } from '../types';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { logger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlLabel, HtmlDiv, HtmlInput } from '../../../reset';
 import { Icon } from '../../Icon/Icon';
 import { StatusText } from '../StatusText/StatusText';
@@ -242,7 +242,7 @@ const StyledCheckbox = styled(
   ({
     theme,
     ...passProps
-  }: InternalCheckboxProps & InnerRef & { theme: SuomifiTheme }) => (
+  }: InternalCheckboxProps & InnerRef & SuomifiThemeProp) => (
     <BaseCheckbox {...passProps} />
   ),
 )`

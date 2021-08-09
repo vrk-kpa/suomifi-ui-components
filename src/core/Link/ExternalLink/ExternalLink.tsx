@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import { logger } from '../../../utils/log';
 import classnames from 'classnames';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { Icon } from '../../Icon/Icon';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { ExternalLinkStyles } from './ExternalLink.baseStyles';
@@ -57,7 +57,7 @@ class BaseExternalLink extends Component<ExternalLinkProps> {
 }
 
 const StyledExternalLink = styled(
-  (props: ExternalLinkProps & { theme: SuomifiTheme }) => {
+  (props: ExternalLinkProps & SuomifiThemeProp) => {
     const { theme, ...passProps } = props;
     return <BaseExternalLink {...passProps} />;
   },

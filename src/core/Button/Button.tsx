@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { baseStyles } from './Button.baseStyles';
 import { HtmlButton, HtmlButtonProps } from '../../reset';
 import { Icon, IconProps, BaseIconKeys } from '../Icon/Icon';
-import { SuomifiThemeConsumer, SuomifiTheme } from '../theme';
+import { SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
 
 type ButtonVariant =
   | 'default'
@@ -143,7 +143,7 @@ const StyledButton = styled(
   ({
     theme,
     ...passProps
-  }: InternalButtonProps & InnerRef & { theme: SuomifiTheme }) => (
+  }: InternalButtonProps & InnerRef & SuomifiThemeProp) => (
     <BaseButton {...passProps} />
   ),
 )`

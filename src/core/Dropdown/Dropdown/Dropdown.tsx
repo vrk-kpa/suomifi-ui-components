@@ -17,7 +17,7 @@ import { HtmlSpan, HtmlDiv } from '../../../reset';
 import { LabelText, LabelMode } from '../../Form/LabelText/LabelText';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 
 const baseClassName = 'fi-dropdown';
 
@@ -234,7 +234,7 @@ const StyledDropdown = styled(
   ({
     theme,
     ...passProps
-  }: InternalDropdownProps & InnerRef & { theme: SuomifiTheme }) => (
+  }: InternalDropdownProps & InnerRef & SuomifiThemeProp) => (
     <BaseDropdown {...passProps} />
   ),
 )`

@@ -11,7 +11,7 @@ import {
   chipClassNames,
 } from '../BaseChip/BaseChip';
 import { baseStyles } from './Chip.baseStyles';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 
 const chipButtonClassNames = {
   removable: `${baseClassName}--removable`,
@@ -109,7 +109,7 @@ const StyledChip = styled(
   ({
     theme,
     ...passProps
-  }: InternalChipProps & InnerRef & { theme: SuomifiTheme }) => (
+  }: InternalChipProps & InnerRef & SuomifiThemeProp) => (
     <DefaultChip {...passProps} />
   ),
 )`

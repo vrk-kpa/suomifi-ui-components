@@ -9,7 +9,7 @@ import {
   HtmlInput,
 } from '../../../reset';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { HintText } from '../HintText/HintText';
@@ -185,7 +185,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
 }
 /** This wrapper is needed to make TypeScript work with styled components and generics */
 const BaseFilterInputWrapper: <T>(
-  props: InternalFilterInputProps<T> & InnerRef & { theme: SuomifiTheme },
+  props: InternalFilterInputProps<T> & InnerRef & SuomifiThemeProp,
 ) => JSX.Element = ({
   // eslint-disable-next-line react/prop-types
   theme,

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SpacingWithoutInsetProp } from '../theme/utils/spacing';
-import { ColorProp, SuomifiTheme, SuomifiThemeConsumer } from '../theme';
+import { ColorProp, SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { baseStyles } from './Paragraph.baseStyles';
 import { HtmlP, HtmlPProps } from '../../reset/HtmlP/HtmlP';
 
@@ -21,7 +21,7 @@ const StyledParagraph = styled(
     className,
     theme,
     ...passProps
-  }: ParagraphProps & { theme: SuomifiTheme }) => (
+  }: ParagraphProps & SuomifiThemeProp) => (
     <HtmlP
       className={classnames(baseClassName, className, {
         [`${baseClassName}--margin-${marginBottomSpacing}`]: !!marginBottomSpacing,
