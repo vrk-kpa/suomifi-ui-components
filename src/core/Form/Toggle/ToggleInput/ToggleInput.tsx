@@ -2,7 +2,7 @@ import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../../utils/AutoId/AutoId';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { Text } from '../../../Text/Text';
 import {
@@ -123,7 +123,7 @@ class BaseToggleInput extends Component<ToggleInputProps & InnerRef> {
 }
 
 const StyledToggleInput = styled(
-  (props: ToggleBaseProps & InnerRef & { theme: SuomifiTheme }) => {
+  (props: ToggleBaseProps & InnerRef & SuomifiThemeProp) => {
     const { theme, ...passProps } = props;
     return <BaseToggleInput {...passProps} />;
   },

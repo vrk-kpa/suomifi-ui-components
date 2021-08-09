@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { ColorProp, SuomifiThemeConsumer, SuomifiTheme } from '../theme';
+import { ColorProp, SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
 import { baseStyles } from './Text.baseStyles';
 import { HtmlSpan, HtmlSpanProps } from '../../reset';
 
@@ -28,7 +28,7 @@ const StyledText = styled(
     theme,
     color,
     ...passProps
-  }: TextProps & { theme: SuomifiTheme }) => (
+  }: TextProps & SuomifiThemeProp) => (
     <HtmlSpan
       {...passProps}
       className={classnames(

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 import { HtmlDiv } from '../../../../reset';
 import { windowAvailable } from '../../../../utils/common';
 import { AutoId } from '../../../utils/AutoId/AutoId';
@@ -130,15 +130,13 @@ function getDisabledKeys<T>(items: (T & MultiSelectData)[] = []): ItemKeys {
 }
 
 class BaseMultiSelect<T> extends Component<
-  MultiSelectProps<T & MultiSelectData> & { theme: SuomifiTheme }
+  MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp
 > {
   private popoverListRef: React.RefObject<HTMLUListElement>;
 
   private filterInputRef: React.RefObject<HTMLInputElement>;
 
-  constructor(
-    props: MultiSelectProps<T & MultiSelectData> & { theme: SuomifiTheme },
-  ) {
+  constructor(props: MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp) {
     super(props);
     this.popoverListRef = React.createRef();
     this.filterInputRef = React.createRef();

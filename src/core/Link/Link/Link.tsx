@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from '../BaseLink/BaseLink.baseStyles';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlA } from '../../../reset';
 import { BaseLinkProps, baseClassName } from '../BaseLink/BaseLink';
 
@@ -14,7 +14,7 @@ const StyledLink = styled(
     className,
     theme,
     ...passProps
-  }: LinkProps & { theme: SuomifiTheme }) => (
+  }: LinkProps & SuomifiThemeProp) => (
     <HtmlA
       {...passProps}
       className={classnames(baseClassName, className)}

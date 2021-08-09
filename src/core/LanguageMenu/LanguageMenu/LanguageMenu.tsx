@@ -10,7 +10,7 @@ import {
 } from '@reach/menu-button';
 import { positionDefault } from '@reach/popover';
 import { PRect } from '@reach/rect';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { classnamesValue } from '../../../utils/typescript';
 import { logger } from '../../../utils/log';
 import { HtmlSpan } from '../../../reset/HtmlSpan/HtmlSpan';
@@ -51,9 +51,7 @@ export interface LanguageMenuProps {
     | undefined;
 }
 
-class BaseLanguageMenu extends Component<
-  LanguageMenuProps & { theme: SuomifiTheme }
-> {
+class BaseLanguageMenu extends Component<LanguageMenuProps & SuomifiThemeProp> {
   render() {
     const {
       children,
@@ -94,7 +92,7 @@ class BaseLanguageMenu extends Component<
   }
 }
 const StyledLanguageMenu = styled(
-  (props: LanguageMenuProps & { theme: SuomifiTheme }) => (
+  (props: LanguageMenuProps & SuomifiThemeProp) => (
     <BaseLanguageMenu {...props} />
   ),
 )`
@@ -145,11 +143,7 @@ const LanguageMenuPopoverPosition = (
 };
 
 const StyledMenuPopover = styled(
-  ({
-    theme,
-    children,
-    ...passProps
-  }: MenuPopoverProps & { theme: SuomifiTheme }) => (
+  ({ theme, children, ...passProps }: MenuPopoverProps & SuomifiThemeProp) => (
     <MenuPopover {...passProps} position={LanguageMenuPopoverPosition}>
       <MenuItems>{children}</MenuItems>
     </MenuPopover>

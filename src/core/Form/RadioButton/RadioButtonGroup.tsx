@@ -1,6 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlDiv, HtmlSpan, HtmlFieldSet, HtmlLegend } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { RadioButtonProps } from './RadioButton';
@@ -59,7 +59,7 @@ export interface RadioButtonGroupState {
 }
 
 class BaseRadioButtonGroup extends Component<
-  RadioButtonGroupProps & { theme: SuomifiTheme }
+  RadioButtonGroupProps & SuomifiThemeProp
 > {
   state: RadioButtonGroupState = {
     selectedValue: this.props.value || this.props.defaultValue,

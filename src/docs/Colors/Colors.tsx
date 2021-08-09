@@ -1,6 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import {
-  SuomifiTheme,
+  SuomifiThemeProp,
   SuomifiThemeConsumer,
   defaultSuomifiTheme,
 } from '../../core/theme';
@@ -110,10 +110,10 @@ const onEnterPressed = (keyName: string) => (
 };
 
 const StyledFigure = styled.figure`
-  ${(props: ColorProps & { theme: SuomifiTheme }) => baseStyles(props)};
+  ${(props: ColorProps & SuomifiThemeProp) => baseStyles(props)};
 `;
 
-const ColorFigure = (props: ColorProps & { theme: SuomifiTheme }) => {
+const ColorFigure = (props: ColorProps & SuomifiThemeProp) => {
   const { color, keyName } = props;
   const hslaAsHex = hslaToHex(color);
 

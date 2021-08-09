@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
 import { readableColor } from 'polished';
-import { SuomifiTheme } from '../../core/theme';
+import { SuomifiThemeProp } from '../../core/theme';
 import { ColorProps } from './Colors';
 
 export const baseStyles = ({
   color: colorProp,
   theme,
-}: Partial<ColorProps> & { theme: SuomifiTheme }) => {
+}: Partial<ColorProps> & SuomifiThemeProp) => {
   const color = !!colorProp ? colorProp : theme.colors.blackBase;
   return css`
     ${theme.typography.bodyText}

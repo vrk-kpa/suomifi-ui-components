@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 import { HtmlDiv, HtmlLi } from '../../../../reset';
 import { baseStyles } from './MultiSelectEmptyItem.baseStyles';
 
@@ -17,7 +17,7 @@ export interface MultiSelectEmptyItemProps {
 }
 
 class BaseMultiSelectEmptyItem extends Component<
-  MultiSelectEmptyItemProps & { theme: SuomifiTheme }
+  MultiSelectEmptyItemProps & SuomifiThemeProp
 > {
   render() {
     const { className, theme, children, ...passProps } = this.props;

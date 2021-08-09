@@ -2,7 +2,7 @@ import React, { forwardRef, Component, ChangeEvent, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import {
@@ -187,7 +187,7 @@ const StyledTextInput = styled(
   ({
     theme,
     ...passProps
-  }: InternalTextInputProps & InnerRef & { theme: SuomifiTheme }) => (
+  }: InternalTextInputProps & InnerRef & SuomifiThemeProp) => (
     <BaseTextInput {...passProps} />
   ),
 )`

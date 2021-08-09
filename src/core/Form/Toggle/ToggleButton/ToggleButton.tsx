@@ -8,7 +8,7 @@ import { HtmlSpan, HtmlButtonProps, HtmlButton } from '../../../../reset';
 import { ToggleBaseProps, baseClassName } from '../ToggleBase/ToggleBase';
 import { ToggleIcon } from '../ToggleBase/ToggleIcon';
 import { baseStyles } from './ToggeButton.baseStyles';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 
 const toggleClassNames = {
   disabled: `${baseClassName}--disabled`,
@@ -112,7 +112,7 @@ class BaseToggleButton extends Component<ToggleButtonProps & InnerRef> {
 }
 
 const StyledToggleButton = styled(
-  (props: ToggleBaseProps & InnerRef & { theme: SuomifiTheme }) => {
+  (props: ToggleBaseProps & InnerRef & SuomifiThemeProp) => {
     const { theme, ...passProps } = props;
     return <BaseToggleButton {...passProps} />;
   },

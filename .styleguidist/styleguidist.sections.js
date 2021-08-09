@@ -69,7 +69,7 @@ module.exports = {
           ],
         },
       ],
-      sectionDepth: 1,
+      sectionDepth: 2,
       expand: true,
     },
     {

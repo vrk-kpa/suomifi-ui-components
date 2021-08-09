@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 import { HtmlDiv, HtmlDivProps } from '../../../../reset';
 import { AutoId } from '../../../utils/AutoId/AutoId';
 import { baseStyles } from './ChipList.baseStyles';
@@ -22,7 +22,7 @@ export interface ChipListProps extends HtmlDivProps {
   id?: string;
 }
 
-class BaseChipList extends Component<ChipListProps & { theme: SuomifiTheme }> {
+class BaseChipList extends Component<ChipListProps & SuomifiThemeProp> {
   render() {
     const { className, theme, children, id, ...passProps } = this.props;
     return (

@@ -68,6 +68,10 @@ export interface SuomifiTheme {
   zindexes: ZIndexDesignTokens;
 }
 
+export interface SuomifiThemeProp {
+  theme: SuomifiTheme;
+}
+
 const desingTokens = {
   zindexes,
   transitions,

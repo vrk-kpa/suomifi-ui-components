@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './HintText.baseStyles';
 
 const baseClassName = 'fi-hint-text';
@@ -22,7 +22,7 @@ const StyledHintText = styled(
     theme,
     children,
     ...passProps
-  }: HintTextProps & { theme: SuomifiTheme }) => (
+  }: HintTextProps & SuomifiThemeProp) => (
     <HtmlSpan
       {...passProps}
       className={classnames(className, baseClassName, {})}

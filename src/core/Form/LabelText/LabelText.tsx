@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './LabelText.baseStyles';
 import { asPropType } from '../../../utils/typescript';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
@@ -44,7 +44,7 @@ const StyledLabelText = styled(
     asProp,
     optionalText,
     ...passProps
-  }: LabelTextProps & { theme: SuomifiTheme }) => (
+  }: LabelTextProps & SuomifiThemeProp) => (
     <HtmlDiv
       {...(asProp ? { as: asProp } : {})}
       className={classnames(className, baseClassName)}

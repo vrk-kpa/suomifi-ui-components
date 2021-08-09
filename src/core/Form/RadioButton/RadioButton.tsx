@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { HtmlLabel, HtmlSpan, HtmlDiv, HtmlInput } from '../../../reset';
 import { logger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { SuomifiThemeConsumer, SuomifiTheme } from '../../theme';
+import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { ComponentIcon } from '../../StaticIcon/StaticIcon';
 import { RadioButtonGroupConsumer } from './RadioButtonGroup';
@@ -168,7 +168,7 @@ const StyledRadioButton = styled(
   ({
     theme,
     ...passProps
-  }: InternalRadioButtonProps & InnerRef & { theme: SuomifiTheme }) => (
+  }: InternalRadioButtonProps & InnerRef & SuomifiThemeProp) => (
     <BaseRadioButton {...passProps} />
   ),
 )`

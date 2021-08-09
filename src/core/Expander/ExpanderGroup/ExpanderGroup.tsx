@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { baseStyles } from './ExpanderGroup.baseStyles';
 
@@ -67,7 +67,7 @@ const { Provider, Consumer: ExpanderGroupConsumer } = React.createContext(
 );
 
 class BaseExpanderGroup extends Component<
-  ExpanderGroupProps & { theme: SuomifiTheme }
+  ExpanderGroupProps & SuomifiThemeProp
 > {
   state: ExpanderGroupState = {
     allOpen: undefined,

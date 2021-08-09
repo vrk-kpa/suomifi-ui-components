@@ -8,7 +8,7 @@ import {
   chipClassNames,
 } from '../BaseChip/BaseChip';
 import { staticChipBaseStyles } from './StaticChip.baseStyles';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 
 export interface StaticChipProps extends BaseChipProps {}
 
@@ -30,7 +30,7 @@ class BaseChip extends Component<StaticChipProps> {
 }
 
 const StyledChip = styled(
-  ({ theme, ...passProps }: StaticChipProps & { theme: SuomifiTheme }) => (
+  ({ theme, ...passProps }: StaticChipProps & SuomifiThemeProp) => (
     <BaseChip {...passProps} />
   ),
 )`

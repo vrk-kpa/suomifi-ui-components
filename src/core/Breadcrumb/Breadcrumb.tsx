@@ -6,7 +6,7 @@ import { BaseLinkProps } from '../Link/BaseLink/BaseLink';
 import { BreadcrumbLink, BreadcrumbLinkProps } from './BreadcrumbLink';
 import { HtmlLi, HtmlNav, HtmlNavProps, HtmlOl } from '../../reset';
 import { baseStyles } from './Breadcrumb.baseStyles';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 
 type BreadcrumbVariant = 'default' | 'link';
 const baseClassName = 'fi-breadcrumb';
@@ -38,9 +38,7 @@ const breadcrumbItems = (children: ReactNode) =>
     <HtmlLi className={itemClassName}>{child}</HtmlLi>
   ));
 
-class BaseBreadcrumb extends Component<
-  BreadcrumbProps & { theme: SuomifiTheme }
-> {
+class BaseBreadcrumb extends Component<BreadcrumbProps & SuomifiThemeProp> {
   render() {
     const { className, theme, children, ...passProps } = this.props;
     return (

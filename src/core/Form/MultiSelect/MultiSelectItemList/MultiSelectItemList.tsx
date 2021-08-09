@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 import { HtmlDiv, HtmlUlWithRef } from '../../../../reset';
 import { MultiSelectItemProps } from '../MultiSelectItem/MultiSelectItem';
 import { baseStyles } from './MultiSelectItemList.baseStyles';
@@ -25,7 +25,7 @@ export interface MultiSelectItemListProps {
 }
 
 class BaseMultiSelectItemList extends Component<
-  MultiSelectItemListProps & { theme: SuomifiTheme }
+  MultiSelectItemListProps & SuomifiThemeProp
 > {
   render() {
     const {

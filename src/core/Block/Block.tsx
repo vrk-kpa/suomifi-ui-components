@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { SpacingWithoutInsetProp } from '../theme/utils/spacing';
 import { baseStyles } from './Block.baseStyles';
 import { HtmlDiv, HtmlDivProps } from '../../reset';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 
 const baseClassName = 'fi-block';
 
@@ -38,7 +38,7 @@ class SemanticBlock extends Component<BlockProps> {
   }
 }
 
-const StyledBlock = styled((props: BlockProps & { theme: SuomifiTheme }) => {
+const StyledBlock = styled((props: BlockProps & SuomifiThemeProp) => {
   const { theme, ...passProps } = props;
   return <SemanticBlock {...passProps} />;
 })`

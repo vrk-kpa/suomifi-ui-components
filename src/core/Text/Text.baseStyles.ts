@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
-import { SuomifiTheme } from '../theme';
+import { SuomifiThemeProp } from '../theme';
 import { element, font } from '../theme/reset';
 import { TextProps } from './Text';
 
 export const baseStyles = ({
   theme,
   color,
-}: TextProps & { theme: SuomifiTheme }) => css`
+}: TextProps & SuomifiThemeProp) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
   color: ${!!color ? theme.colors[color] : theme.colors.blackBase};

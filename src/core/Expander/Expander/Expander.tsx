@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { HtmlDiv } from '../../../reset';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
   ExpanderGroupConsumer,
   ExpanderGroupProviderState,
@@ -78,14 +78,12 @@ interface BaseExpanderProps extends ExpanderProps {
   consumer: ExpanderGroupProviderState;
 }
 
-class BaseExpander extends Component<
-  BaseExpanderProps & { theme: SuomifiTheme }
-> {
+class BaseExpander extends Component<BaseExpanderProps & SuomifiThemeProp> {
   state: ExpanderState = {
     openState: this.props.defaultOpen || false,
   };
 
-  constructor(props: BaseExpanderProps & { theme: SuomifiTheme }) {
+  constructor(props: BaseExpanderProps & SuomifiThemeProp) {
     super(props);
     if (!!props.id) {
       const defaultOpen =
