@@ -17,26 +17,30 @@ interface ThemePropsProps {
 const ThemeValues = (props: { values: ValueType }) => (
   <div>
     <table>
-      <tr>
-        <th>Token name</th>
-        <th>Token default value</th>
-      </tr>
-      {Object.entries(props.values).map((element) => {
-        const value =
-          typeof element[1] === 'string'
-            ? element[1]
-            : Array.isArray(element[1])
-            ? element[1].join(',')
-            : typeof element[1] === 'object'
-            ? JSON.stringify(element[1])
-            : element[1].toString();
-        return (
-          <tr>
-            <td className="prop-name">{element[0].toString()}</td>
-            <td className="prop-value">{value}</td>
-          </tr>
-        );
-      })}
+      <thead>
+        <tr>
+          <th>Token name</th>
+          <th>Token default value</th>
+        </tr>
+      </thead>
+      <tbody>
+        {Object.entries(props.values).map((element) => {
+          const value =
+            typeof element[1] === 'string'
+              ? element[1]
+              : Array.isArray(element[1])
+              ? element[1].join(',')
+              : typeof element[1] === 'object'
+              ? JSON.stringify(element[1])
+              : element[1].toString();
+          return (
+            <tr key={element[0]}>
+              <td className="prop-name">{element[0].toString()}</td>
+              <td className="prop-value">{value}</td>
+            </tr>
+          );
+        })}
+      </tbody>
     </table>
   </div>
 );
