@@ -334,6 +334,11 @@ class BaseMultiSelect<T> extends Component<
       ? ownerDocument.activeElement === this.filterInputRef.current
       : false;
 
+  private focusInPopover = (ownerDocument: Document | null) =>
+    ownerDocument
+      ? this.popoverListRef.current?.contains(ownerDocument.activeElement)
+      : false;
+
   private handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     event.preventDefault();
     if (this.popoverListRef !== null && this.popoverListRef.current !== null) {
@@ -342,9 +347,7 @@ class BaseMultiSelect<T> extends Component<
         return;
       }
       requestAnimationFrame(() => {
-        const focusInPopover = this.popoverListRef.current?.contains(
-          ownerDocument.activeElement,
-        );
+        const focusInPopover = this.focusInPopover(ownerDocument);
         const focusInInput = this.focusInInput(ownerDocument);
         const focusInCombobox = focusInPopover || focusInInput;
         this.setPopoverVisibility(focusInCombobox);
@@ -370,7 +373,9 @@ class BaseMultiSelect<T> extends Component<
       this.popoverListRef.current !== null &&
       this.state.showPopover
     ) {
-      this.popoverListRef.current.focus();
+      if (!this.focusInPopover(this.getOwnerDocument())) {
+        this.popoverListRef.current.focus();
+      }
     }
   };
 
