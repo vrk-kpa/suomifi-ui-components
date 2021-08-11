@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { HtmlDiv, HtmlDivProps } from '../../../reset';
 import { ModalConsumer, ModalVariant, baseClassName } from '../Modal/Modal';
 import { baseStyles } from './ModalContent.baseStyles';
-import { SuomifiThemeConsumer, SuomifiTheme } from '../../theme';
+import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 
 export interface ModalContentProps
   extends Omit<HtmlDivProps, 'children' | 'className'> {
@@ -14,11 +14,12 @@ export interface ModalContentProps
   children: ReactNode;
 }
 
-interface InternalModalContentProps extends ModalContentProps {
+interface InternalModalContentProps
+  extends ModalContentProps,
+    SuomifiThemeProp {
   id?: string;
   modalVariant: ModalVariant;
   scrollable: boolean;
-  theme: SuomifiTheme;
 }
 
 const contentClassName = `${baseClassName}_content`;

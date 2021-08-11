@@ -83,9 +83,7 @@ export {
   VisuallyHiddenProps,
 } from './core/VisuallyHidden/VisuallyHidden';
 export {
-  defaultSuomifiTheme,
   SuomifiTheme,
-  SuomifiDesignTokens,
   TypographyDesignTokens,
   ColorDesignTokens,
   SpacingDesignTokens,
@@ -102,10 +100,15 @@ export {
   ShadowDesignTokens,
   TransitionDesignTokens,
   ZIndexDesignTokens,
-  SuomifiThemeConsumer,
-  SuomifiThemeContext,
+  SuomifiDesignTokens,
+  defaultSuomifiTheme,
   SuomifiThemeProvider,
   SuomifiThemeProviderProps,
+  SuomifiThemeConsumer,
+  SuomifiThemeContext,
   PartialSuomifiTheme,
+  ColorProp,
+  TypographyProp,
+  SpacingProp,
 } from './core/theme';
 export { suomifiDesignTokens, DesignTokens } from 'suomifi-design-tokens';

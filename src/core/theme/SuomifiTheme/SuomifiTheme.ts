@@ -30,7 +30,7 @@ export type RadiusDesignTokens = typeof radius;
 export type ShadowDesignTokens = typeof derivedTokens.shadows;
 export type TransitionDesignTokens = typeof transitions;
 export type ZIndexDesignTokens = typeof zindexes;
-export type SuomifiDesignTokens = typeof desingTokens;
+export type SuomifiDesignTokens = typeof designTokens;
 
 export type ColorProp = keyof ColorDesignTokens;
 export type TypographyProp = keyof TypographyDesignTokens;
@@ -72,7 +72,7 @@ export interface SuomifiThemeProp {
   theme: SuomifiTheme;
 }
 
-const desingTokens = {
+const designTokens = {
   zindexes,
   transitions,
   radius,
@@ -84,18 +84,18 @@ const desingTokens = {
 
 const derivedTokens = {
   focus: {
-    absoluteFocus: absoluteFocus(desingTokens),
-    boxShadowFocus: boxShadowFocus(desingTokens),
+    absoluteFocus: absoluteFocus(designTokens),
+    boxShadowFocus: boxShadowFocus(designTokens),
     noMouseFocus,
   },
-  shadows: shadows(desingTokens.colors),
-  gradients: gradients(desingTokens.colors),
+  shadows: shadows(designTokens.colors),
+  gradients: gradients(designTokens.colors),
 };
 
-/** Suomi.fi theme */
+/** SuomifiTheme with default values */
 export const defaultSuomifiTheme: SuomifiTheme = {
   // Get all design tokens
-  ...desingTokens,
+  ...designTokens,
   // Get all derived tokens
   ...derivedTokens,
 };
@@ -109,7 +109,7 @@ export interface PartialSuomifiTheme {
   spacing?: Partial<SpacingDesignTokens>;
   transitions?: Partial<TransitionDesignTokens>;
   typography?: Partial<TypographyDesignTokens>;
-  zindexes: Partial<ZIndexDesignTokens>;
+  zindexes?: Partial<ZIndexDesignTokens>;
 }
 
 export interface SuomifiCustomThemeProps {
