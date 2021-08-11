@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
 import { Icon } from '../../Icon/Icon';
-import { SuomifiThemeConsumer, SuomifiTheme } from '../../theme';
+import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 import { expanderTitleButtonBaseStyles } from './ExpanderTitleButton.baseStyles';
 
@@ -34,9 +34,8 @@ export interface ExpanderTitleButtonProps {
 
 interface InternalExpanderTitleButtonProps
   extends ExpanderTitleButtonProps,
-    ExpanderTitleBaseProps {
-  theme: SuomifiTheme;
-}
+    ExpanderTitleBaseProps,
+    SuomifiThemeProp {}
 
 class BaseExpanderTitleButton extends Component<InternalExpanderTitleButtonProps> {
   render() {

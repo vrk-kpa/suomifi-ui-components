@@ -5,7 +5,7 @@ import { hLevels, HtmlSpan } from '../../../reset';
 import { Heading, HeadingProps } from '../../Heading/Heading';
 import { ModalConsumer, ModalVariant, baseClassName } from '../Modal/Modal';
 import { baseStyles } from './ModalTitle.baseStyles';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 
 export interface ModalTitleProps
   extends Omit<HeadingProps, 'className' | 'variant'> {
@@ -17,12 +17,11 @@ export interface ModalTitleProps
   variant?: hLevels | 'h1hero';
 }
 
-interface InternalModalTitleProps extends ModalTitleProps {
+interface InternalModalTitleProps extends ModalTitleProps, SuomifiThemeProp {
   focusTitleOnOpen: boolean;
   titleRef: React.RefObject<HTMLHeadingElement>;
   modalVariant: ModalVariant;
   scrollable: boolean;
-  theme: SuomifiTheme;
 }
 
 const titleClassName = `${baseClassName}_title`;

@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlDivProps } from '../../../reset';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
   ExpanderConsumer,
   ExpanderContentBaseProps,
@@ -27,9 +27,8 @@ export interface ExpanderContentProps extends Omit<HtmlDivProps, 'id'> {
 
 interface InternalExpanderContentProps
   extends ExpanderContentBaseProps,
-    ExpanderContentProps {
-  theme: SuomifiTheme;
-}
+    ExpanderContentProps,
+    SuomifiThemeProp {}
 
 class BaseExpanderContent extends Component<InternalExpanderContentProps> {
   render() {

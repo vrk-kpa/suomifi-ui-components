@@ -5,7 +5,7 @@ import { default as ReactModal } from 'react-modal';
 import classnames from 'classnames';
 import { ModalContent, ModalFooter } from '../';
 import { baseStyles } from './Modal.baseStyles';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 
 export type ModalVariant = 'smallScreen' | 'default';
 
@@ -38,15 +38,13 @@ export interface ModalProps {
   onEscKeyDown?: () => void;
 }
 
-interface InternalModalProps extends ModalProps {
+interface InternalModalProps extends ModalProps, SuomifiThemeProp {
   /**
    * Used to capture user provided classname for use with BaseModal.
    * Passed on to the BaseModal inner element with fi-modal classname to allow custom styles.
    * className is internally reserved for BaseModal root element to allow styled component style injection.
    */
   propClassName?: string;
-  /** SuomifiTheme for styles */
-  theme: SuomifiTheme;
 }
 
 export interface ModalProviderState {

@@ -4,15 +4,14 @@ import classnames from 'classnames';
 import { HtmlDiv, HtmlDivProps } from '../../../reset';
 import { ModalConsumer, ModalVariant, baseClassName } from '../Modal/Modal';
 import { baseStyles } from './ModalFooter.baseStyles';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 
 export interface ModalFooterProps extends HtmlDivProps {}
 
-interface InternalModalFooterProps extends ModalFooterProps {
+interface InternalModalFooterProps extends ModalFooterProps, SuomifiThemeProp {
   modalVariant: ModalVariant;
   scrollable: boolean;
   propClassName?: string;
-  theme: SuomifiTheme;
 }
 
 export const footerBaseClassName = `${baseClassName}_footer`;

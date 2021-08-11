@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { asPropType } from '../../utils/typescript';
 import { logger } from '../../utils/log';
-import { ColorProp, SuomifiTheme, SuomifiThemeConsumer } from '../theme';
+import { ColorProp, SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { baseStyles } from './Heading.baseStyles';
 import { HtmlH, HtmlHProps, hLevels } from '../../reset';
 
@@ -27,10 +27,9 @@ export interface HeadingProps extends HtmlHProps {
   as?: asPropType;
 }
 
-interface InternalHeadingProps extends HeadingProps {
+interface InternalHeadingProps extends HeadingProps, SuomifiThemeProp {
   forwardedRef?: React.RefObject<HTMLHeadingElement>;
   asProp?: asPropType;
-  theme: SuomifiTheme;
 }
 
 const getSemanticVariant = (variant: styleVariants) => {
