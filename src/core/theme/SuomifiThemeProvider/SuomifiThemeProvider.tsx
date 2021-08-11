@@ -1,4 +1,4 @@
-import React, { useMemo, useContext } from 'react';
+import React, { useMemo, useContext, ReactNode } from 'react';
 import {
   PartialSuomifiTheme,
   getSuomifiTheme,
@@ -19,8 +19,8 @@ export interface SuomifiThemeProviderProps {
    * Gradients, Shadows and Focus are derived from provided colors, except if explicitly defined.
    */
   theme: PartialSuomifiTheme;
-  /** Children, returns null if no childred are provided */
-  children?: JSX.Element;
+  /** Children, returns null if no children are provided */
+  children?: ReactNode;
 }
 
 export const SuomifiThemeProvider = (props: SuomifiThemeProviderProps) => {

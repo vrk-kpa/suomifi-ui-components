@@ -32,7 +32,7 @@ import { ThemeProps } from '../src/docs/Theme/ThemeProps';
 
 ### Typography
 
-Theme typography is of type _`TypographyDesignTokens`_ and defines most typograhpy styles used in the components.
+Theme typography is of type _`TypographyDesignTokens`_ and defines most typography styles used in the components.
 
 ```js noeditor
 import { SuomifiThemeConsumer } from '../src/core/theme';
