@@ -10,7 +10,7 @@ import {
 } from '../../../reset';
 import { Icon } from '../../Icon/Icon';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
-import { SuomifiTheme, SuomifiThemeConsumer } from '../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 import { expanderTitleBaseStyles } from './ExpanderTitle.baseStyles';
 
@@ -46,9 +46,8 @@ export interface ExpanderTitleProps extends Omit<HtmlDivProps, 'className'> {
 
 interface InternalExpanderTitleProps
   extends ExpanderTitleProps,
-    ExpanderTitleBaseProps {
-  theme: SuomifiTheme;
-}
+    ExpanderTitleBaseProps,
+    SuomifiThemeProp {}
 
 class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
   render() {
