@@ -1,7 +1,7 @@
 import React, { ReactNode, useRef, useState } from 'react';
 import { unmountComponentAtNode } from 'react-dom';
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import { axeTest } from '../../../utils/test/axe';
+import { axeTest } from '../../../utils/test';
 
 import { Modal, ModalProps } from './Modal';
 import { ModalContent, ModalFooter, ModalTitle } from '../';

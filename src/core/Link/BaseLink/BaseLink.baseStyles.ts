@@ -1,10 +1,9 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
 import { allStates } from '../../../utils/css';
-import { boxShadowFocus } from '../../theme/utils/focus';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
   ${allStates(`color: ${theme.colors.highlightBase};`)};
@@ -17,7 +16,7 @@ export const baseStyles = css`
   }
 
   &:focus {
-    ${boxShadowFocus}
+    ${theme.focus.boxShadowFocus}
   }
 
   &:hover,

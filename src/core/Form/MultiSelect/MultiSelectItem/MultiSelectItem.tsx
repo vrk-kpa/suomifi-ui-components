@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 import { HtmlLi, HtmlSpan } from '../../../../reset';
 import { Icon } from '../../../Icon/Icon';
 import { baseStyles } from './MultiSelectItem.baseStyles';
@@ -33,10 +34,13 @@ export interface MultiSelectItemProps {
   onClick: () => void;
 }
 
-class BaseMultiSelectItem extends Component<MultiSelectItemProps> {
+class BaseMultiSelectItem extends Component<
+  MultiSelectItemProps & SuomifiThemeProp
+> {
   render() {
     const {
       className,
+      theme,
       children,
       checked,
       hasKeyboardFocus,
@@ -84,11 +88,17 @@ class BaseMultiSelectItem extends Component<MultiSelectItemProps> {
 }
 
 const StyledMultiSelectItem = styled(BaseMultiSelectItem)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export class MultiSelectItem extends Component<MultiSelectItemProps> {
   render() {
-    return <StyledMultiSelectItem {...this.props} />;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledMultiSelectItem theme={suomifiTheme} {...this.props} />
+        )}
+      </SuomifiThemeConsumer>
+    );
   }
 }

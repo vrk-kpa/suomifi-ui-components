@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { baseStyles } from '../BaseLink/BaseLink.baseStyles';
 
-export const SkipLinkStyles = css`
-  ${baseStyles}
+export const SkipLinkStyles = (theme: SuomifiTheme) => css`
+  ${baseStyles(theme)}
   &.fi-link--skip {
     position: absolute;
     z-index: 10000;

@@ -5,15 +5,11 @@ const primitiveComponents = [
   'Block',
   'Button',
   'Heading',
-  'Chip',
   'VisuallyHidden',
   ['Form', 'TextInput'],
-  ['Form', 'Toggle'],
   ['Form', 'SearchInput'],
   ['Form', 'Checkbox'],
   ['Form', 'Textarea'],
-  ['Form', 'RadioButton'],
-  ['Form', 'MultiSelect'],
 ];
 
 const getComponent = ({ name, underName }) =>
@@ -55,8 +51,25 @@ module.exports = {
           name: 'Spacing',
           content: './.styleguidist/spacing.md',
         },
+        {
+          name: 'Theme',
+          content: './.styleguidist/theme.md',
+          sections: [
+            {
+              name: 'SuomifiThemeProvider',
+              components: getComponent({
+                underName: 'theme/SuomifiThemeProvider',
+                name: 'SuomifiThemeProvider',
+              }),
+            },
+            {
+              name: 'Default Theme',
+              content: './.styleguidist/themevalues.md',
+            },
+          ],
+        },
       ],
-      sectionDepth: 1,
+      sectionDepth: 2,
       expand: true,
     },
     {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { ColorProp } from '../theme';
+import { ColorProp, SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
 import { baseStyles } from './Text.baseStyles';
 import { HtmlSpan, HtmlSpanProps } from '../../reset';
 
@@ -25,9 +25,10 @@ const StyledText = styled(
     variant = 'body',
     smallScreen,
     className,
+    theme,
     color,
     ...passProps
-  }: TextProps) => (
+  }: TextProps & SuomifiThemeProp) => (
     <HtmlSpan
       {...passProps}
       className={classnames(
@@ -49,6 +50,12 @@ const StyledText = styled(
  */
 export class Text extends Component<TextProps> {
   render() {
-    return <StyledText {...this.props} />;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledText theme={suomifiTheme} {...this.props} />
+        )}
+      </SuomifiThemeConsumer>
+    );
   }
 }

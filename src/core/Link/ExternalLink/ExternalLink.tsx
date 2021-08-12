@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { logger } from '../../../utils/logger';
+import { logger } from '../../../utils/log';
 import classnames from 'classnames';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { Icon } from '../../Icon/Icon';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { ExternalLinkStyles } from './ExternalLink.baseStyles';
@@ -55,10 +56,13 @@ class BaseExternalLink extends Component<ExternalLinkProps> {
   }
 }
 
-const StyledExternalLink = styled((props: ExternalLinkProps) => (
-  <BaseExternalLink {...props} />
-))`
-  ${ExternalLinkStyles};
+const StyledExternalLink = styled(
+  (props: ExternalLinkProps & SuomifiThemeProp) => {
+    const { theme, ...passProps } = props;
+    return <BaseExternalLink {...passProps} />;
+  },
+)`
+  ${({ theme }) => ExternalLinkStyles(theme)};
 `;
 
 /**
@@ -74,7 +78,15 @@ export class ExternalLink extends Component<ExternalLinkProps> {
       );
     }
     return (
-      <StyledExternalLink labelNewWindow={labelNewWindow} {...passProps} />
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledExternalLink
+            theme={suomifiTheme}
+            labelNewWindow={labelNewWindow}
+            {...passProps}
+          />
+        )}
+      </SuomifiThemeConsumer>
     );
   }
 }

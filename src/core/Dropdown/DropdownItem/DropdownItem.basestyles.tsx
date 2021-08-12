@@ -1,8 +1,8 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { element } from '../../theme/reset';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   &[data-reach-listbox-option].fi-dropdown_item {
     ${element(theme)}
     ${theme.typography.actionElementInnerText}

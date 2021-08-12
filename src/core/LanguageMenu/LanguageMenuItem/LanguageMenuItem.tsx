@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classnames from 'classnames';
 import { MenuItem } from '@reach/menu-button';
-import { LanguageMenuItemBaseProps } from '../LanguageMenu';
-
-export interface LanguageMenuItemProps extends LanguageMenuItemBaseProps {
+export interface LanguageMenuItemProps {
+  /** Operation to run on select */
+  onSelect: () => void;
+  /** Item content */
+  children: ReactNode;
   /** Show item as selected one */
   selected?: boolean;
   className?: string;

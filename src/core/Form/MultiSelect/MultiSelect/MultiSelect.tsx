@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 import { HtmlDiv } from '../../../../reset';
 import { windowAvailable } from '../../../../utils/common';
-import { AutoId } from '../../../../utils/AutoId';
+import { AutoId } from '../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Button } from '../../../Button/Button';
 import { Chip } from '../../../Chip';
@@ -129,13 +130,13 @@ function getDisabledKeys<T>(items: (T & MultiSelectData)[] = []): ItemKeys {
 }
 
 class BaseMultiSelect<T> extends Component<
-  MultiSelectProps<T & MultiSelectData>
+  MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp
 > {
   private popoverListRef: React.RefObject<HTMLUListElement>;
 
   private filterInputRef: React.RefObject<HTMLInputElement>;
 
-  constructor(props: MultiSelectProps<T & MultiSelectData>) {
+  constructor(props: MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp) {
     super(props);
     this.popoverListRef = React.createRef();
     this.filterInputRef = React.createRef();
@@ -487,6 +488,7 @@ class BaseMultiSelect<T> extends Component<
     const {
       id,
       className,
+      theme,
       items: propItems,
       labelText,
       hintText,
@@ -732,7 +734,7 @@ class BaseMultiSelect<T> extends Component<
 }
 
 const MultiSelectCombobox = styled(BaseMultiSelect)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export class MultiSelect<T> extends Component<
@@ -741,9 +743,19 @@ export class MultiSelect<T> extends Component<
   render() {
     const { id: propId, ...passProps } = this.props;
     return (
-      <AutoId id={propId}>
-        {(id) => <MultiSelectCombobox id={id} {...passProps} />}
-      </AutoId>
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <MultiSelectCombobox
+                theme={suomifiTheme}
+                id={id}
+                {...passProps}
+              />
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
     );
   }
 }

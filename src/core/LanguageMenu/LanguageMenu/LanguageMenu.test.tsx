@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { axeTest } from '../../../utils/test/axe';
+import { axeTest } from '../../../utils/test';
 import { LanguageMenu } from './LanguageMenu';
 import { LanguageMenuItem } from '../LanguageMenuItem';
 import { LanguageMenuLink } from '../LanguageMenuLink';

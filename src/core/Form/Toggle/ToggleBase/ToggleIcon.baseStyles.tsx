@@ -1,8 +1,8 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../../theme';
+import { SuomifiTheme } from '../../../theme';
 import { iconWidth, iconHeight } from './Toggle.baseStyles';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   width: ${iconWidth};
   height: ${iconHeight};
   vertical-align: bottom;

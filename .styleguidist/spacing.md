@@ -1,9 +1,8 @@
 ```js noeditor
 import { default as styled } from 'styled-components';
-import { colors } from '../src/core/theme/colors';
+import { defaultSuomifiTheme } from '../src/core/theme';
 import { cssValueToString } from '../src/utils/css';
 import { element, fonts } from '../src/core/theme/reset';
-import { spacing } from '../src/core/theme/spacing';
 import { Text } from '../src/core/Text/Text';
 import clipboardCopy from 'clipboard-copy';
 
@@ -20,7 +19,7 @@ const Container = styled(({ size, name, ...passProps }) => (
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: ${cssValueToString(spacing.xl)};
+  margin-bottom: ${cssValueToString(defaultSuomifiTheme.spacing.xl)};
   cursor: pointer;
 
   * {
@@ -28,12 +27,12 @@ const Container = styled(({ size, name, ...passProps }) => (
   }
 
   > div:not(:first-of-type) {
-    margin-left: ${cssValueToString(spacing.s)};
+    margin-left: ${cssValueToString(defaultSuomifiTheme.spacing.s)};
   }
 `
 );
 
-const Square = styled(props => (
+const Square = styled((props) => (
   <div {...props}>
     <div className="box" />
   </div>
@@ -47,13 +46,13 @@ const Square = styled(props => (
     > .box {
       height: ${size};
       width: ${size};
-      border: 1px dashed ${colors.blackBase};
+      border: 1px dashed ${defaultSuomifiTheme.colors.blackBase};
       overflow: hidden;
     }
   `
 );
 
-const Bar = styled(props => (
+const Bar = styled((props) => (
   <div {...props}>
     <div className="row" />
     <div className="col" />
@@ -69,7 +68,7 @@ const Bar = styled(props => (
     > .row {
       height: ${size};
       width: 100%;
-      background-color: ${colors.depthDark1};
+      background-color: ${defaultSuomifiTheme.colors.depthDark1};
     }
     > .col {
       position: absolute;
@@ -77,14 +76,14 @@ const Bar = styled(props => (
       right: 0;
       height: 100%;
       width: ${size};
-      background-color: ${colors.depthDark1};
+      background-color: ${defaultSuomifiTheme.colors.depthDark1};
     }
   `
 );
 
 const Name = styled(({ name, value, ...passProps }) => (
   <div {...passProps}>
-    <Text.lead>{name}</Text.lead>
+    <Text variant="lead">{name}</Text>
     <Text>{value}</Text>
   </div>
 ))(
@@ -95,7 +94,7 @@ const Name = styled(({ name, value, ...passProps }) => (
 `
 );
 
-Object.entries(spacing).map(([key, value]) => {
+Object.entries(defaultSuomifiTheme.spacing).map(([key, value]) => {
   const spacingValue = cssValueToString(value);
   return (
     <Container size={spacingValue} name={key} key={key}>

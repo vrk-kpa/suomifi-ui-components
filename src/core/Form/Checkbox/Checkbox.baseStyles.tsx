@@ -1,10 +1,9 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
-import { boxShadowFocus } from '../../theme/utils/focus';
 
 /* stylelint-disable no-descending-specificity */
-const checkedStyles = css`
+const checkedStyles = (theme: SuomifiTheme) => css`
   &.fi-checkbox--checked {
     & .fi-checkbox_label {
       &::before {
@@ -17,7 +16,7 @@ const checkedStyles = css`
   }
 `;
 
-const disabledStyles = css`
+const disabledStyles = (theme: SuomifiTheme) => css`
   &.fi-checkbox--disabled {
     & .fi-checkbox_label {
       cursor: not-allowed;
@@ -39,7 +38,7 @@ const disabledStyles = css`
   }
 `;
 
-const errorStyles = css`
+const errorStyles = (theme: SuomifiTheme) => css`
   &.fi-checkbox--error {
     & .fi-checkbox_label {
       &::before {
@@ -53,7 +52,7 @@ const errorStyles = css`
   }
 `;
 
-const largeVariantStyles = css`
+const largeVariantStyles = (theme: SuomifiTheme) => css`
   &.fi-checkbox--large {
     & .fi-checkbox_label {
       padding-left: ${theme.spacing.xxl};
@@ -83,7 +82,7 @@ const largeVariantStyles = css`
   }
 `;
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
 
@@ -119,7 +118,7 @@ export const baseStyles = css`
   &:focus-within {
     & .fi-checkbox_label {
       &::before {
-        ${boxShadowFocus}
+        ${theme.focus.boxShadowFocus}
       }
     }
   }
@@ -141,8 +140,8 @@ export const baseStyles = css`
     line-height: 18px;
   }
 
-  ${largeVariantStyles};
-  ${checkedStyles};
-  ${errorStyles};
-  ${disabledStyles};
+  ${largeVariantStyles(theme)};
+  ${checkedStyles(theme)};
+  ${errorStyles(theme)};
+  ${disabledStyles(theme)};
 `;

@@ -1,9 +1,8 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { input, containerIEFocus, font } from '../../theme/reset';
-import { absoluteFocus } from '../../theme/utils';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-search-input {
     ${font(theme)('bodyText')}
     width: 290px;
@@ -29,7 +28,7 @@ export const baseStyles = css`
         position: relative;
         box-shadow: ${theme.shadows.actionElementBoxShadow};
         &:after {
-          ${absoluteFocus}
+          ${theme.focus.absoluteFocus}
           top: -3px;
           bottom: -3px;
           right: -3px;
@@ -147,7 +146,7 @@ export const baseStyles = css`
     & .fi-search-input_button {
       &:focus {
         &:after {
-          ${absoluteFocus}
+          ${theme.focus.absoluteFocus}
         }
       }
       cursor: pointer;

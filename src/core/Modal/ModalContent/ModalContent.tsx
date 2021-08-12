@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { HtmlDiv, HtmlDivProps } from '../../../reset';
 import { ModalConsumer, ModalVariant, baseClassName } from '../Modal/Modal';
 import { baseStyles } from './ModalContent.baseStyles';
+import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 
 export interface ModalContentProps
   extends Omit<HtmlDivProps, 'children' | 'className'> {
@@ -13,7 +14,9 @@ export interface ModalContentProps
   children: ReactNode;
 }
 
-interface InternalModalContentProps extends ModalContentProps {
+interface InternalModalContentProps
+  extends ModalContentProps,
+    SuomifiThemeProp {
   id?: string;
   modalVariant: ModalVariant;
   scrollable: boolean;
@@ -30,6 +33,7 @@ class BaseModalContent extends Component<InternalModalContentProps> {
   render() {
     const {
       className,
+      theme,
       title,
       children,
       scrollable,
@@ -52,7 +56,7 @@ class BaseModalContent extends Component<InternalModalContentProps> {
 }
 
 const StyledModalContent = styled(BaseModalContent)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**
@@ -63,15 +67,20 @@ const StyledModalContent = styled(BaseModalContent)`
 export class ModalContent extends Component<ModalContentProps> {
   render() {
     return (
-      <ModalConsumer>
-        {({ variant, scrollable }) => (
-          <StyledModalContent
-            modalVariant={variant}
-            scrollable={scrollable}
-            {...this.props}
-          />
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <ModalConsumer>
+            {({ variant, scrollable }) => (
+              <StyledModalContent
+                theme={suomifiTheme}
+                modalVariant={variant}
+                scrollable={scrollable}
+                {...this.props}
+              />
+            )}
+          </ModalConsumer>
         )}
-      </ModalConsumer>
+      </SuomifiThemeConsumer>
     );
   }
 }

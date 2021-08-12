@@ -6,6 +6,7 @@ import { BaseLinkProps } from '../Link/BaseLink/BaseLink';
 import { BreadcrumbLink, BreadcrumbLinkProps } from './BreadcrumbLink';
 import { HtmlLi, HtmlNav, HtmlNavProps, HtmlOl } from '../../reset';
 import { baseStyles } from './Breadcrumb.baseStyles';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 
 type BreadcrumbVariant = 'default' | 'link';
 const baseClassName = 'fi-breadcrumb';
@@ -37,9 +38,9 @@ const breadcrumbItems = (children: ReactNode) =>
     <HtmlLi className={itemClassName}>{child}</HtmlLi>
   ));
 
-class BaseBreadcrumb extends Component<BreadcrumbProps> {
+class BaseBreadcrumb extends Component<BreadcrumbProps & SuomifiThemeProp> {
   render() {
-    const { className, children, ...passProps } = this.props;
+    const { className, theme, children, ...passProps } = this.props;
     return (
       <HtmlNav {...passProps} className={classnames(baseClassName, className)}>
         <HtmlOl className={listClassName}>{breadcrumbItems(children)}</HtmlOl>
@@ -49,7 +50,7 @@ class BaseBreadcrumb extends Component<BreadcrumbProps> {
 }
 
 const StyledBreadcrumb = styled(BaseBreadcrumb)`
-  ${baseStyles};
+  ${({ theme }) => baseStyles(theme)};
 `;
 
 /**
@@ -63,10 +64,15 @@ export class Breadcrumb extends Component<VariantBreadcrumbProps> {
       return <BreadcrumbLink {...(passProps as BreadcrumbLinkProps)} />;
     }
     return (
-      <StyledBreadcrumb
-        {...passProps}
-        {...getConditionalAriaProp('aria-label', [ariaLabel])}
-      />
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledBreadcrumb
+            theme={suomifiTheme}
+            {...passProps}
+            {...getConditionalAriaProp('aria-label', [ariaLabel])}
+          />
+        )}
+      </SuomifiThemeConsumer>
     );
   }
 }

@@ -2,6 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { baseStyles } from './ExpanderGroup.baseStyles';
 
@@ -65,7 +66,9 @@ const { Provider, Consumer: ExpanderGroupConsumer } = React.createContext(
   defaultProviderValue,
 );
 
-class BaseExpanderGroup extends Component<ExpanderGroupProps> {
+class BaseExpanderGroup extends Component<
+  ExpanderGroupProps & SuomifiThemeProp
+> {
   state: ExpanderGroupState = {
     allOpen: undefined,
     expanderGroupOpenState: {
@@ -130,6 +133,7 @@ class BaseExpanderGroup extends Component<ExpanderGroupProps> {
   render() {
     const {
       className,
+      theme,
       children,
       openAllText,
       ariaOpenAllText,
@@ -180,7 +184,7 @@ class BaseExpanderGroup extends Component<ExpanderGroupProps> {
 }
 
 const StyledExpanderGroup = styled(BaseExpanderGroup)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**
@@ -189,7 +193,13 @@ const StyledExpanderGroup = styled(BaseExpanderGroup)`
  */
 export class ExpanderGroup extends Component<ExpanderGroupProps> {
   render() {
-    return <StyledExpanderGroup {...this.props} />;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledExpanderGroup theme={suomifiTheme} {...this.props} />
+        )}
+      </SuomifiThemeConsumer>
+    );
   }
 }
 

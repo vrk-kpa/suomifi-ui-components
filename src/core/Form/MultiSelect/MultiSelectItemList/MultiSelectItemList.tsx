@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 import { HtmlDiv, HtmlUlWithRef } from '../../../../reset';
 import { MultiSelectItemProps } from '../MultiSelectItem/MultiSelectItem';
 import { baseStyles } from './MultiSelectItemList.baseStyles';
@@ -23,10 +24,13 @@ export interface MultiSelectItemListProps {
   id: string;
 }
 
-class BaseMultiSelectItemList extends Component<MultiSelectItemListProps> {
+class BaseMultiSelectItemList extends Component<
+  MultiSelectItemListProps & SuomifiThemeProp
+> {
   render() {
     const {
       className,
+      theme,
       forwardRef,
       children,
       onBlur,
@@ -53,11 +57,17 @@ class BaseMultiSelectItemList extends Component<MultiSelectItemListProps> {
 }
 
 const StyledMultiSelectItemList = styled(BaseMultiSelectItemList)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export class MultiSelectItemList extends Component<MultiSelectItemListProps> {
   render() {
-    return <StyledMultiSelectItemList {...this.props} />;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledMultiSelectItemList theme={suomifiTheme} {...this.props} />
+        )}
+      </SuomifiThemeConsumer>
+    );
   }
 }

@@ -2,6 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './HintText.baseStyles';
 
 const baseClassName = 'fi-hint-text';
@@ -16,7 +17,12 @@ export interface HintTextProps extends HtmlSpanProps {
 }
 
 const StyledHintText = styled(
-  ({ className, children, ...passProps }: HintTextProps) => (
+  ({
+    className,
+    theme,
+    children,
+    ...passProps
+  }: HintTextProps & SuomifiThemeProp) => (
     <HtmlSpan
       {...passProps}
       className={classnames(className, baseClassName, {})}
@@ -25,7 +31,7 @@ const StyledHintText = styled(
     </HtmlSpan>
   ),
 )`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 export class HintText extends Component<HintTextProps> {
   render() {
@@ -33,6 +39,14 @@ export class HintText extends Component<HintTextProps> {
     if (!children) {
       return null;
     }
-    return <StyledHintText {...passProps}>{children}</StyledHintText>;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledHintText theme={suomifiTheme} {...passProps}>
+            {children}
+          </StyledHintText>
+        )}
+      </SuomifiThemeConsumer>
+    );
   }
 }

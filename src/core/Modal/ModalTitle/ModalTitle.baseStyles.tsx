@@ -1,8 +1,7 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
-import { absoluteFocus } from '../../theme/utils';
+import { SuomifiTheme } from '../../theme';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-modal_title {
     max-width: 100%;
     display: block;
@@ -14,7 +13,7 @@ export const baseStyles = css`
       &:focus {
         outline: 0;
         &:after {
-          ${absoluteFocus}
+          ${theme.focus.absoluteFocus}
         }
       }
     }

@@ -24,7 +24,7 @@ export class Debounce<T extends Object> extends Component<DebounceProps<T>> {
     const { waitFor } = this.props;
     this.timeout = setTimeout(() => {
       callback(value);
-    }, waitFor);
+    }, waitFor) as any;
   };
 
   cancelDebounce = () => {

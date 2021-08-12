@@ -1,9 +1,8 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
-import { absoluteFocus, noMouseFocus } from '../../theme/utils';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   display: flex;
   flex-direction: column;
@@ -32,6 +31,8 @@ export const baseStyles = css`
         border-radius: ${theme.radius.basic} ${theme.radius.basic} 0 0;
       }
       &:last-child {
+        /* stylelint-disable */
+        /* prettier-ignore */
         border-radius: 0 0 ${theme.radius.basic} ${theme.radius.basic};
       }
       &.fi-expander--open {
@@ -67,9 +68,9 @@ export const baseStyles = css`
       position: relative;
 
       &:after {
-        ${absoluteFocus}
+        ${theme.focus.absoluteFocus}
       }
     }
-    ${noMouseFocus}
+    ${theme.focus.noMouseFocus}
   }
 `;

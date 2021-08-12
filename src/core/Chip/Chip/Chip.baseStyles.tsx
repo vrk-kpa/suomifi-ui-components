@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { baseChipBaseStyles } from '../BaseChip/BaseChip.baseStyles';
 
-export const baseStyles = css`
-  ${baseChipBaseStyles}
+export const baseStyles = (theme: SuomifiTheme) => css`
+  ${baseChipBaseStyles(theme)}
   &.fi-chip--button {
     cursor: pointer;
     &:hover {
