@@ -1,4 +1,3 @@
-import './fontFaces.css';
 export {
   SuomifiThemeProvider,
   SuomifiThemeProviderProps,
