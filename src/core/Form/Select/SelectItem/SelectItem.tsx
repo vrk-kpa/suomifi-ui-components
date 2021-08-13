@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlLi } from '../../../../reset';
 import { baseStyles } from './SelectItem.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from 'core/theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 
 const baseClassName = 'fi-select-item';
 

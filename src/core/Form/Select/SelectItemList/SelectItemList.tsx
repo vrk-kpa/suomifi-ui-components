@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { HtmlDiv, HtmlUlWithRef } from '../../../../reset';
 import { SelectItemProps } from '../SelectItem/SelectItem';
 import { baseStyles } from './SelectItemList.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from 'core/theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 
 const baseClassName = 'fi-select-item-list';
 
