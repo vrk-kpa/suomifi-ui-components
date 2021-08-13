@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv } from '../../../../reset';
 import { windowAvailable } from '../../../../utils/common';
-import { AutoId } from '../../../../utils/AutoId';
+import { AutoId } from '../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Popover } from '../../../Popover/Popover';
 import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
@@ -11,6 +11,7 @@ import { SelectItemList } from '../SelectItemList/SelectItemList';
 import { SelectItem } from '../SelectItem/SelectItem';
 import { SelectEmptyItem } from '../SelectEmptyItem/SelectEmptyItem';
 import { baseStyles } from './Select.baseStyles';
+import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 
 const baseClassName = 'fi-select';
 const selectClassNames = {
@@ -75,14 +76,16 @@ interface SelectState<T extends SelectData> {
   initialItems: T[];
 }
 
-class BaseSelect<T> extends Component<SelectProps<T & SelectData>> {
+class BaseSelect<T> extends Component<
+  SelectProps<T & SelectData> & SuomifiThemeProp
+> {
   private popoverListRef: React.RefObject<HTMLUListElement>;
 
   private filterInputRef: React.RefObject<HTMLInputElement>;
 
   private preventPopupToggle = false;
 
-  constructor(props: SelectProps<T & SelectData>) {
+  constructor(props: SelectProps<T & SelectData> & SuomifiThemeProp) {
     super(props);
     this.popoverListRef = React.createRef();
     this.filterInputRef = React.createRef();
@@ -356,6 +359,7 @@ class BaseSelect<T> extends Component<SelectProps<T & SelectData>> {
     const {
       id,
       className,
+      theme,
       items: propItems,
       labelText,
       onItemSelectionChange,
@@ -488,16 +492,22 @@ class BaseSelect<T> extends Component<SelectProps<T & SelectData>> {
 }
 
 const SelectCombobox = styled(BaseSelect)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export class Select<T> extends Component<SelectProps<T & SelectData>> {
   render() {
     const { id: propId, ...passProps } = this.props;
     return (
-      <AutoId id={propId}>
-        {(id) => <SelectCombobox id={id} {...passProps} />}
-      </AutoId>
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <SelectCombobox theme={suomifiTheme} id={id} {...passProps} />
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
     );
   }
 }

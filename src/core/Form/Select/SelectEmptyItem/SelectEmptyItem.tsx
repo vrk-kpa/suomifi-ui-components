@@ -3,6 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlLi } from '../../../../reset';
 import { baseStyles } from './SelectEmptyItem.baseStyles';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 
 const baseClassName = 'fi-select-empty-item';
 
@@ -15,7 +16,9 @@ export interface SelectEmptyItemProps {
   className?: string;
 }
 
-class BaseSelectEmptyItem extends Component<SelectEmptyItemProps> {
+class BaseSelectEmptyItem extends Component<
+  SelectEmptyItemProps & SuomifiThemeProp
+> {
   render() {
     const { className, children, ...passProps } = this.props;
     return (
@@ -36,11 +39,17 @@ class BaseSelectEmptyItem extends Component<SelectEmptyItemProps> {
 }
 
 const StyledSelectEmptyItem = styled(BaseSelectEmptyItem)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export class SelectEmptyItem extends Component<SelectEmptyItemProps> {
   render() {
-    return <StyledSelectEmptyItem {...this.props} />;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledSelectEmptyItem theme={suomifiTheme} {...this.props} />
+        )}
+      </SuomifiThemeConsumer>
+    );
   }
 }

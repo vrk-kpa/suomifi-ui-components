@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { HtmlDiv, HtmlUlWithRef } from '../../../../reset';
 import { SelectItemProps } from '../SelectItem/SelectItem';
 import { baseStyles } from './SelectItemList.baseStyles';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from 'core/theme';
 
 const baseClassName = 'fi-select-item-list';
 
@@ -23,7 +24,9 @@ export interface SelectItemListProps {
   id: string;
 }
 
-class BaseSelectItemList extends Component<SelectItemListProps> {
+class BaseSelectItemList extends Component<
+  SelectItemListProps & SuomifiThemeProp
+> {
   render() {
     const {
       className,
@@ -52,11 +55,17 @@ class BaseSelectItemList extends Component<SelectItemListProps> {
 }
 
 const StyledSelectItemList = styled(BaseSelectItemList)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export class SelectItemList extends Component<SelectItemListProps> {
   render() {
-    return <StyledSelectItemList {...this.props} />;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledSelectItemList theme={suomifiTheme} {...this.props} />
+        )}
+      </SuomifiThemeConsumer>
+    );
   }
 }

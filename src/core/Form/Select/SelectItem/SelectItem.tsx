@@ -3,6 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlLi } from '../../../../reset';
 import { baseStyles } from './SelectItem.baseStyles';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from 'core/theme';
 
 const baseClassName = 'fi-select-item';
 
@@ -26,7 +27,7 @@ export interface SelectItemProps {
   onClick: () => void;
 }
 
-class BaseSelectItem extends Component<SelectItemProps> {
+class BaseSelectItem extends Component<SelectItemProps & SuomifiThemeProp> {
   render() {
     const {
       className,
@@ -61,11 +62,17 @@ class BaseSelectItem extends Component<SelectItemProps> {
 }
 
 const StyledSelectItem = styled(BaseSelectItem)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export class SelectItem extends Component<SelectItemProps> {
   render() {
-    return <StyledSelectItem {...this.props} />;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledSelectItem theme={suomifiTheme} {...this.props} />
+        )}
+      </SuomifiThemeConsumer>
+    );
   }
 }
