@@ -37,7 +37,7 @@ Include **required** fonts as best suited for your project. You can, for example
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap');
 ```
 
-The following fonts and variants are required: Font-family: 'Source Sans Pro' Font-weight: 300, 400, 600
+The following fonts and variants are required: Font-family: 'Source Sans Pro', Font-weight: 300, 400, 600
 
 ### Peer dependencies
 
