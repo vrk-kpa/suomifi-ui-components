@@ -55,4 +55,3 @@ const resetWithSelectors = (selectors: string | string[]): string => {
 export { resets, resetWithSelectors };
 
 // TODO: Add tests
-// TODO: create versioned interface for normalize.css
