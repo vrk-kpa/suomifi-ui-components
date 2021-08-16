@@ -1,4 +1,4 @@
-- Uses currentColor by default if `fill` prop is not given.
+- Uses currentColor by default if no `fill` or `color` prop is given.
 
 ```jsx
 import { Icon } from 'suomifi-ui-components';
