@@ -2,13 +2,10 @@ import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../utils/aria';
-import { BaseLinkProps } from '../Link/BaseLink/BaseLink';
-import { BreadcrumbLink, BreadcrumbLinkProps } from './BreadcrumbLink';
 import { HtmlLi, HtmlNav, HtmlNavProps, HtmlOl } from '../../reset';
 import { baseStyles } from './Breadcrumb.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 
-type BreadcrumbVariant = 'default' | 'link';
 const baseClassName = 'fi-breadcrumb';
 const listClassName = `${baseClassName}_list`;
 const itemClassName = `${baseClassName}_item`;
@@ -22,16 +19,7 @@ export interface BreadcrumbProps extends HtmlNavProps {
    * Link element displayed content
    */
   children?: ReactNode;
-  /**
-   * 'default' | 'link'
-   * @default default
-   */
-  variant?: BreadcrumbVariant;
 }
-
-type VariantBreadcrumbProps =
-  | BreadcrumbProps
-  | (BaseLinkProps & { variant?: BreadcrumbVariant });
 
 const breadcrumbItems = (children: ReactNode) =>
   React.Children.map(children, (child) => (
@@ -57,12 +45,9 @@ const StyledBreadcrumb = styled(BaseBreadcrumb)`
  * <i class="semantics" />
  * Used for navigation path
  */
-export class Breadcrumb extends Component<VariantBreadcrumbProps> {
+export class Breadcrumb extends Component<BreadcrumbProps> {
   render() {
-    const { variant, 'aria-label': ariaLabel, ...passProps } = this.props;
-    if (variant === 'link') {
-      return <BreadcrumbLink {...(passProps as BreadcrumbLinkProps)} />;
-    }
+    const { 'aria-label': ariaLabel, ...passProps } = this.props;
     return (
       <SuomifiThemeConsumer>
         {({ suomifiTheme }) => (
