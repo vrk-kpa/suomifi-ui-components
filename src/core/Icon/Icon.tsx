@@ -61,10 +61,10 @@ const StyledSuomifiIcon = styled(
  */
 export class Icon extends Component<IconProps> {
   render() {
-    const { color, icon, ...passProps } = this.props;
+    const { color, icon, fill, ...passProps } = this.props;
     const { className, ariaLabel } = this.props;
 
-    const iconColor = color !== undefined ? color : 'currentColor';
+    const iconColor = fill ?? color ?? 'currentColor';
 
     if (icon !== undefined) {
       return <StyledSuomifiIcon {...passProps} icon={icon} color={iconColor} />;
