@@ -1,11 +1,11 @@
 import React from 'react';
 import { default as styled } from 'styled-components';
-import { Link, LinkProps } from '../Link';
-import { Icon } from '../Icon/Icon';
-import { HtmlSpan } from '../../reset';
+import { Link, LinkProps } from '../../Link';
+import { Icon } from '../../Icon/Icon';
+import { HtmlSpan } from '../../../reset';
 import classnames from 'classnames';
 import { baseStyles } from './BreadcrumbLink.baseStyles';
-import { SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
+import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 
 const baseClassName = 'fi-breadcrumb-link';
 const breadcrumbClassNames = {
