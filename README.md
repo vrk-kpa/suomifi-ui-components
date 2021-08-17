@@ -29,7 +29,7 @@ Include **required** styles from `dist/main.css` as best suited for your project
 import 'suomifi-ui-components/dist/main.css';
 ```
 
-This stylesheet contains part of the global styles for the library and Reach UI peer dependency styles.
+This stylesheet contains part of the global styles for the library as well as Reach UI peer dependency styles.
 
 Include **required** fonts as best suited for your project. You can, for example, use the following import with your global css.
 
