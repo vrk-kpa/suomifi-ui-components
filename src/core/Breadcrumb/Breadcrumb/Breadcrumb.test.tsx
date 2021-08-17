@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { axeTest } from '../../utils/test';
+import { axeTest } from '../../../utils/test';
 import { Breadcrumb } from './Breadcrumb';
-import { BreadcrumbLink } from './BreadcrumbLink';
+import { BreadcrumbLink } from '../BreadcrumbLink/BreadcrumbLink';
 
 const TestBreadcrumb = (
   <Breadcrumb data-testid="Breadcrumb" aria-label="breadcrumb">

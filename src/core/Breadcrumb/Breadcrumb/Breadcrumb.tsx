@@ -1,10 +1,10 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { getConditionalAriaProp } from '../../utils/aria';
-import { HtmlLi, HtmlNav, HtmlNavProps, HtmlOl } from '../../reset';
+import { getConditionalAriaProp } from '../../../utils/aria';
+import { HtmlLi, HtmlNav, HtmlNavProps, HtmlOl } from '../../../reset';
 import { baseStyles } from './Breadcrumb.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 
 const baseClassName = 'fi-breadcrumb';
 const listClassName = `${baseClassName}_list`;

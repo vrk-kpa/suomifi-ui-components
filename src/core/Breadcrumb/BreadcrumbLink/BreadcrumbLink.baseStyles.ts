@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
-import { SuomifiTheme } from '../theme';
-import { font } from '../theme/reset';
-import { cssValueToString } from '../../utils/css';
+import { SuomifiTheme } from '../../theme';
+import { font } from '../../theme/reset';
+import { cssValueToString } from '../../../utils/css';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-breadcrumb-link {
