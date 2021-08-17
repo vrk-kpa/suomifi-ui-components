@@ -1,9 +1,10 @@
 import './styles.scss';
-export { Breadcrumb, BreadcrumbProps } from './core/Breadcrumb/Breadcrumb';
 export {
+  Breadcrumb,
+  BreadcrumbProps,
   BreadcrumbLink,
   BreadcrumbLinkProps,
-} from './core/Breadcrumb/BreadcrumbLink';
+} from './core/Breadcrumb';
 export { Block, BlockProps } from './core/Block/Block';
 export { Button, ButtonProps } from './core/Button/Button';
 export { Dropdown, DropdownProps } from './core/Dropdown/';

@@ -134,7 +134,8 @@ module.exports = {
             {
               name: 'Breadcrumb',
               components: getComponentWithVariants('Breadcrumb')([
-                'BreadcrumbLink',
+                'Breadcrumb/Breadcrumb',
+                'BreadcrumbLink/BreadcrumbLink',
               ]),
             },
             {
