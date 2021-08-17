@@ -341,30 +341,28 @@ class BaseMultiSelect<T> extends Component<
 
   private handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     event.preventDefault();
-    if (this.popoverListRef !== null && this.popoverListRef.current !== null) {
-      const ownerDocument = this.getOwnerDocument();
-      if (!ownerDocument) {
-        return;
-      }
-      requestAnimationFrame(() => {
-        const focusInPopover = this.focusInPopover(ownerDocument);
-        const focusInInput = this.focusInInput(ownerDocument);
-        const focusInCombobox = focusInPopover || focusInInput;
-        this.setPopoverVisibility(focusInCombobox);
-
-        if (!focusInCombobox) {
-          this.setState(
-            (
-              _prevState: MultiSelectState<T & MultiSelectData>,
-              prevProps: MultiSelectProps<T & MultiSelectData>,
-            ) => ({
-              filterInputValue: '',
-              filteredItems: prevProps.items,
-            }),
-          );
-        }
-      });
+    const ownerDocument = this.getOwnerDocument();
+    if (!ownerDocument) {
+      return;
     }
+    requestAnimationFrame(() => {
+      const focusInPopover = this.focusInPopover(ownerDocument);
+      const focusInInput = this.focusInInput(ownerDocument);
+      const focusInCombobox = focusInPopover || focusInInput;
+      this.setPopoverVisibility(focusInCombobox);
+
+      if (!focusInCombobox) {
+        this.setState(
+          (
+            _prevState: MultiSelectState<T & MultiSelectData>,
+            prevProps: MultiSelectProps<T & MultiSelectData>,
+          ) => ({
+            filterInputValue: '',
+            filteredItems: prevProps.items,
+          }),
+        );
+      }
+    });
   };
 
   private focusToMenu = () => {
