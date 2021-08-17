@@ -14,7 +14,7 @@ import { MultiSelectItemList } from '../MultiSelectItemList/MultiSelectItemList'
 import { MultiSelectItem } from '../MultiSelectItem/MultiSelectItem';
 import { MultiSelectEmptyItem } from '../MultiSelectEmptyItem/MultiSelectEmptyItem';
 import { ChipList } from '../ChipList/ChipList';
-import { AriaAnnounceText } from './AriaAnnounceText';
+import { VisuallyHidden } from '../../../VisuallyHidden/VisuallyHidden';
 import { baseStyles } from './MultiSelect.baseStyles';
 
 const baseClassName = 'fi-multiselect';
@@ -717,20 +717,33 @@ class BaseMultiSelect<T> extends Component<
             )}
           </HtmlDiv>
         </HtmlDiv>
-        <AriaAnnounceText
+        <VisuallyHidden
+          aria-live="polite"
+          aria-atomic="true"
           id={`${id}-selectedItems-length`}
-          announceText={`${selectedItems.length} ${ariaSelectedAmountText}`}
-        />
-        <AriaAnnounceText
+        >
+          {selectedItems.length}
+          {ariaSelectedAmountText}
+        </VisuallyHidden>
+        <VisuallyHidden
+          aria-live="polite"
+          aria-atomic="true"
           id={`${id}-filteredItems-length`}
-          announceText={`${filteredItems.length} ${ariaOptionsAvailableText}`}
-        />
-        <AriaAnnounceText
+        >
+          {this.focusInInput(this.getOwnerDocument()) ? (
+            <>
+              {filteredItems.length}
+              {ariaOptionsAvailableText}
+            </>
+          ) : null}
+        </VisuallyHidden>
+        <VisuallyHidden
+          aria-live="assertive"
+          aria-atomic="true"
           id={`${id}-chip-removal-announce`}
-          ariaLiveMode="assertive"
-          waitFor={100}
-          announceText={chipRemovalAnnounceText}
-        />
+        >
+          {chipRemovalAnnounceText}
+        </VisuallyHidden>
       </>
     );
   }
