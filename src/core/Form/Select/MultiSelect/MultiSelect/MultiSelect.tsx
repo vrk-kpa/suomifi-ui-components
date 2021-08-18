@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
-import { HtmlDiv } from '../../../../reset';
-import { windowAvailable } from '../../../../utils/common';
-import { AutoId } from '../../../utils/AutoId/AutoId';
-import { Debounce } from '../../../utils/Debounce/Debounce';
-import { Button } from '../../../Button/Button';
-import { Chip } from '../../../Chip';
-import { Popover } from '../../../Popover/Popover';
-import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
-import { MultiSelectItemList } from '../MultiSelectItemList/MultiSelectItemList';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
+import { HtmlDiv } from '../../../../../reset';
+import { windowAvailable } from '../../../../../utils/common';
+import { AutoId } from '../../../../utils/AutoId/AutoId';
+import { Debounce } from '../../../../utils/Debounce/Debounce';
+import { Button } from '../../../../Button/Button';
+import { Chip } from '../../../../Chip';
+import { Popover } from '../../../../Popover/Popover';
+import {
+  FilterInput,
+  FilterInputStatus,
+} from '../../../FilterInput/FilterInput';
+import { SelectItemList } from '../../BaseSelect/SelectItemList/SelectItemList';
 import { MultiSelectItem } from '../MultiSelectItem/MultiSelectItem';
-import { MultiSelectEmptyItem } from '../MultiSelectEmptyItem/MultiSelectEmptyItem';
-import { ChipList } from '../ChipList/ChipList';
-import { VisuallyHidden } from '../../../VisuallyHidden/VisuallyHidden';
+import { SelectEmptyItem } from '../../BaseSelect/SelectEmptyItem/SelectEmptyItem';
+import { ChipList } from '../../../../Chip/ChipList/ChipList';
+import { VisuallyHidden } from '../../../../VisuallyHidden/VisuallyHidden';
 import { baseStyles } from './MultiSelect.baseStyles';
 
 const baseClassName = 'fi-multiselect';
@@ -607,10 +610,11 @@ class BaseMultiSelect<T> extends Component<
               onKeyDown={this.handleKeyDown}
             >
               {showPopover && (
-                <MultiSelectItemList
+                <SelectItemList
                   id={popoverItemListId}
                   forwardRef={this.popoverListRef}
                   aria-activedescendant={ariaActiveDescendant}
+                  aria-multiselectable="true"
                 >
                   {filteredItems.length > 0 ? (
                     filteredItems.map((item) => {
@@ -640,9 +644,9 @@ class BaseMultiSelect<T> extends Component<
                       );
                     })
                   ) : (
-                    <MultiSelectEmptyItem>{noItemsText}</MultiSelectEmptyItem>
+                    <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
                   )}
-                </MultiSelectItemList>
+                </SelectItemList>
               )}
             </Popover>
             {showChipList && (

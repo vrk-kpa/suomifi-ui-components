@@ -1,21 +1,8 @@
 import { css } from 'styled-components';
-import { SuomifiTheme } from '../../../theme';
-import { font } from '../../../theme/reset';
+import { SuomifiTheme } from '../../../../theme';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-multiselect-item {
-    &:focus {
-      outline: none;
-    }
-
-    padding: 10px;
-    ${font(theme)('actionElementInnerText')}
-
-    & .fi-multiselect-item--query_highlight {
-      background-color: transparent;
-      font-weight: bold;
-    }
-
     &--selected {
       background-color: ${theme.colors.depthSecondaryDark1};
       color: ${theme.colors.blackBase};
@@ -27,9 +14,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         & > .fi-multiselect-item_checkbox_icon .fi-icon-base-fill {
           fill: ${theme.colors.highlightBase};
         }
-      }
-      & .fi-multiselect-item--query_highlight {
-        color: ${theme.colors.blackBase};
       }
     }
 
@@ -63,8 +47,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     &--disabled {
-      color: ${theme.colors.depthBase};
-      cursor: not-allowed;
       & .fi-multiselect-item_icon_wrapper {
         &::before {
           background-color: ${theme.colors.depthLight3};
@@ -75,34 +57,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           fill: ${theme.colors.depthLight1};
         }
       }
-
-      &.fi-multiselect-item:hover {
-        color: ${theme.colors.depthBase};
-      }
     }
-
-    &--hasKeyboardFocus {
-      background-color: ${theme.colors.highlightBase};
-      color: ${theme.colors.whiteBase};
-
-      & .fi-multiselect-item--query_highlight {
-        color: ${theme.colors.whiteBase};
-
-        background-color: ${theme.colors.highlightBase};
-      }
-    }
-
-    &:hover {
-      background-color: ${theme.colors.highlightBase};
-      color: ${theme.colors.whiteBase};
-      & .fi-multiselect-item--query_highlight {
-        color: ${theme.colors.whiteBase};
-      }
-    }
-  }
-
-  & .fi-multiselect-item_wrapper {
-    display: inline-block;
-    width: 100%;
   }
 `;

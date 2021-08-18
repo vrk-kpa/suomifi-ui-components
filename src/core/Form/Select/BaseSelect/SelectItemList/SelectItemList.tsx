@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlUlWithRef } from '../../../../reset';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
+import { HtmlDiv, HtmlUlWithRef } from '../../../../../reset';
 import { SelectItemProps } from '../SelectItem/SelectItem';
 import { baseStyles } from './SelectItemList.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 
 const baseClassName = 'fi-select-item-list';
 
@@ -30,6 +30,7 @@ class BaseSelectItemList extends Component<
   render() {
     const {
       className,
+      theme,
       forwardRef,
       children,
       onBlur,

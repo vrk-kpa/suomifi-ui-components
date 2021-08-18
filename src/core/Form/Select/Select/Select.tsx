@@ -7,9 +7,9 @@ import { AutoId } from '../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Popover } from '../../../Popover/Popover';
 import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
-import { SelectItemList } from '../SelectItemList/SelectItemList';
-import { SelectItem } from '../SelectItem/SelectItem';
-import { SelectEmptyItem } from '../SelectEmptyItem/SelectEmptyItem';
+import { SelectItemList } from '../BaseSelect/SelectItemList/SelectItemList';
+import { SelectItem } from '../BaseSelect/SelectItem/SelectItem';
+import { SelectEmptyItem } from '../BaseSelect/SelectEmptyItem/SelectEmptyItem';
 import { baseStyles } from './Select.baseStyles';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 

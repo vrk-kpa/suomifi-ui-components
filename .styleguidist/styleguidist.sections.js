@@ -120,8 +120,8 @@ module.exports = {
             },
             {
               name: 'MultiSelect',
-              components: getComponentWithVariants('Form/MultiSelect')([
-                'MultiSelect/MultiSelect',
+              components: getComponentWithVariants('Form/Select')([
+                'MultiSelect/MultiSelect/MultiSelect',
               ]),
             },
             {

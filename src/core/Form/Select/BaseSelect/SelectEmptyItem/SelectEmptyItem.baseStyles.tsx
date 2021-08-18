@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
-import { SuomifiTheme } from '../../../theme';
-import { font } from '../../../theme/reset';
+import { SuomifiTheme } from '../../../../theme';
+import { font } from '../../../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  &.fi-multiselect-empty-item {
+  &.fi-select-empty-item {
     ${font(theme)('actionElementInnerText')}
     padding: ${theme.spacing.insetL};
 
@@ -11,7 +11,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       outline: none;
     }
   }
-  & .fi-multiselect-empty-item_content_wrapper {
+  & .fi-select-empty-item_content_wrapper {
     display: inline-block;
     width: 100%;
   }

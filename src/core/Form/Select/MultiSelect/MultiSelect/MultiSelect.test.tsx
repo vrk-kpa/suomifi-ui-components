@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
-import { axeTest } from '../../../../utils/test';
+import { axeTest } from '../../../../../utils/test';
 import { MultiSelect } from './MultiSelect';
 
 const tools = [

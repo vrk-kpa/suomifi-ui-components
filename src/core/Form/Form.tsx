@@ -12,5 +12,11 @@ export {
   RadioButtonGroup,
   RadioButtonGroupProps,
 } from './RadioButton/RadioButtonGroup';
-export { MultiSelect, MultiSelectProps, MultiSelectData } from './MultiSelect';
-export { Select, SelectProps, SelectData } from './Select';
+export {
+  MultiSelect,
+  MultiSelectProps,
+  MultiSelectData,
+  Select,
+  SelectProps,
+  SelectData,
+} from './Select';

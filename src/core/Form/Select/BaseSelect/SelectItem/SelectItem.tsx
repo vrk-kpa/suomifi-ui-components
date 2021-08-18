@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlLi } from '../../../../reset';
+import { HtmlLi } from '../../../../../reset';
 import { baseStyles } from './SelectItem.baseStyles';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
 
 const baseClassName = 'fi-select-item';
 
@@ -31,6 +31,7 @@ class BaseSelectItem extends Component<SelectItemProps & SuomifiThemeProp> {
   render() {
     const {
       className,
+      theme,
       children,
       checked,
       hasKeyboardFocus,

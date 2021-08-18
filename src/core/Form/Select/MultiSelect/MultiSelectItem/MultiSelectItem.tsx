@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
-import { HtmlLi, HtmlSpan } from '../../../../reset';
-import { Icon } from '../../../Icon/Icon';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
+import { HtmlSpan } from '../../../../../reset';
+import { Icon } from '../../../../Icon/Icon';
+import {
+  SelectItem,
+  SelectItemProps,
+} from '../../BaseSelect/SelectItem/SelectItem';
 import { baseStyles } from './MultiSelectItem.baseStyles';
 
 const baseClassName = 'fi-multiselect-item';
-
 const multiSelectItemClassNames = {
-  wrapper: `${baseClassName}_wrapper`,
-  hasKeyboardFocus: `${baseClassName}--hasKeyboardFocus`,
+  icon_wrapper: `${baseClassName}_icon_wrapper`,
   selected: `${baseClassName}--selected`,
   disabled: `${baseClassName}--disabled`,
-  icon_wrapper: `${baseClassName}_icon_wrapper`,
 };
 
 const iconBaseClassName = `${baseClassName}_checkbox_icon`;
@@ -22,17 +23,7 @@ const iconClassnames = {
   checked: `${iconBaseClassName}--checked`,
 };
 
-export interface MultiSelectItemProps {
-  /** MultiSelectItem container div class name for custom styling. */
-  className?: string;
-  /** Indicates if the current item has keyboard focus. */
-  hasKeyboardFocus: boolean;
-
-  checked: boolean;
-  disabled?: boolean;
-  id?: string;
-  onClick: () => void;
-}
+export interface MultiSelectItemProps extends SelectItemProps {}
 
 class BaseMultiSelectItem extends Component<
   MultiSelectItemProps & SuomifiThemeProp
@@ -61,16 +52,14 @@ class BaseMultiSelectItem extends Component<
     );
 
     return (
-      <HtmlLi
+      <SelectItem
         className={classnames(baseClassName, className, {
-          [multiSelectItemClassNames.hasKeyboardFocus]: hasKeyboardFocus,
           [multiSelectItemClassNames.selected]: checked,
           [multiSelectItemClassNames.disabled]: disabled,
         })}
-        tabIndex={-1}
-        role="option"
-        aria-selected={checked}
-        aria-disabled={disabled || false}
+        checked={checked}
+        hasKeyboardFocus={hasKeyboardFocus}
+        disabled={disabled}
         id={id}
         onClick={onClick}
       >
@@ -82,7 +71,7 @@ class BaseMultiSelectItem extends Component<
           {!!checked && <CheckedIcon />}
         </HtmlSpan>
         {children}
-      </HtmlLi>
+      </SelectItem>
     );
   }
 }
