@@ -119,7 +119,7 @@
     "size-limit": "4.10.2",
     "style-loader": "2.0.0",
     "styled-components": "5.2.3",
-    "stylelint": "13.13.0",
+    "stylelint": "13.13.1",
     "stylelint-config-recommended": "5.0.0",
     "stylelint-config-styled-components": "0.1.1",
     "stylelint-custom-processor-loader": "0.6.0",
