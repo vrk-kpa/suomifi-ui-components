@@ -11,3 +11,16 @@ export function windowAvailable() {
 export const useEnhancedEffect = windowAvailable()
   ? React.useLayoutEffect
   : React.useEffect;
+
+export const getOwnerDocument = (elementRef: React.RefObject<any>) => {
+  if (elementRef !== null && elementRef.current !== null) {
+    const elem = elementRef.current;
+    const ownerDocument = windowAvailable()
+      ? elem
+        ? elem.ownerDocument
+        : document
+      : null;
+    return ownerDocument;
+  }
+  return null;
+};

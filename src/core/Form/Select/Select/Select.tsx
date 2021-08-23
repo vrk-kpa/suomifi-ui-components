@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv } from '../../../../reset';
-import { windowAvailable } from '../../../../utils/common';
+import { getOwnerDocument } from '../../../../utils/common';
 import { AutoId } from '../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Popover } from '../../../Popover/Popover';
@@ -124,84 +124,27 @@ class BaseSelect<T> extends Component<
     return null;
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('click', this.globalClickHandler, {
-      capture: true,
-    });
-  }
-
-  private globalClickHandler = (nativeEvent: MouseEvent) => {
-    if (
-      this.popoverListRef.current?.contains(nativeEvent.target as Node) ||
-      this.filterInputRef.current?.contains(nativeEvent.target as Node)
-    ) {
-      return;
-    }
-    this.setPopoverVisibility(false);
-  };
-
-  private highlightQuery = (text: string, query: string) => {
-    if (query.length > 0) {
-      const substrings = text.split(new RegExp(`(${query})`, 'gi'));
-      return substrings.map((substring, i) => {
-        const isMatch = substring.toLowerCase() === query.toLowerCase();
-        if (isMatch) {
-          return (
-            // eslint-disable-next-line react/no-array-index-key
-            <mark className={selectClassNames.queryHighlight} key={i}>
-              {substring}
-            </mark>
-          );
-        }
-        // eslint-disable-next-line react/no-array-index-key
-        return <React.Fragment key={i}>{substring}</React.Fragment>;
-      });
-    }
-    return text;
-  };
-
   private filter = (data: SelectData, query: string) =>
     data.labelText.toLowerCase().includes(query.toLowerCase());
 
-  private setPopoverVisibility = (visible: Boolean) => {
-    if (visible) {
-      document.addEventListener('click', this.globalClickHandler, {
-        capture: true,
-      });
-    } else {
-      document.removeEventListener('click', this.globalClickHandler, {
-        capture: true,
-      });
-    }
-    this.setState({ showPopover: visible });
-  };
-
   private handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     event.preventDefault();
-    if (this.popoverListRef !== null && this.popoverListRef.current !== null) {
-      const elem = this.popoverListRef.current;
-      const ownerDocument = windowAvailable()
-        ? elem
-          ? elem.ownerDocument
-          : document
-        : null;
-
-      if (!ownerDocument) {
-        return;
-      }
-      requestAnimationFrame(() => {
-        const focusInPopover = this.popoverListRef.current?.contains(
-          ownerDocument.activeElement,
-        );
-        const focusInInput =
-          ownerDocument.activeElement === this.filterInputRef.current;
-        const focusInCombobox = focusInPopover || focusInInput;
-        this.setPopoverVisibility(focusInCombobox);
-        if (!focusInCombobox) {
-          this.resetInputValue();
-        }
-      });
+    const ownerDocument = getOwnerDocument(this.popoverListRef);
+    if (!ownerDocument) {
+      return;
     }
+    requestAnimationFrame(() => {
+      const focusInPopover = this.popoverListRef.current?.contains(
+        ownerDocument.activeElement,
+      );
+      const focusInInput =
+        ownerDocument.activeElement === this.filterInputRef.current;
+      const focusInCombobox = focusInPopover || focusInInput;
+      this.setState({ showPopover: focusInCombobox });
+      if (!focusInCombobox) {
+        this.resetInputValue();
+      }
+    });
   };
 
   private focusToMenu = () => {
@@ -217,7 +160,7 @@ class BaseSelect<T> extends Component<
   private focusToInputAndCloseMenu = () => {
     if (!!this.filterInputRef && this.filterInputRef.current) {
       this.filterInputRef.current.focus();
-      this.setPopoverVisibility(false);
+      this.setState({ showPopover: false });
     }
   };
 
@@ -269,7 +212,7 @@ class BaseSelect<T> extends Component<
         event.preventDefault();
         this.focusToMenu();
         if (!this.state.showPopover) {
-          this.setPopoverVisibility(true);
+          this.setState({ showPopover: true });
           this.focusToMenu();
         }
         const nextItem = getNextItem();
@@ -312,7 +255,7 @@ class BaseSelect<T> extends Component<
       default: {
         if (this.filterInputRef && this.filterInputRef.current) {
           this.filterInputRef.current.focus();
-          this.setPopoverVisibility(true);
+          this.setState({ showPopover: true });
         }
         break;
       }
@@ -383,7 +326,9 @@ class BaseSelect<T> extends Component<
                     ) {
                       this.preventPopupToggle = true;
                     }
-                    this.setPopoverVisibility(!this.state.showPopover);
+                    this.setState((prevState: SelectState<T & SelectData>) => ({
+                      showPopover: !prevState.showPopover,
+                    }));
                   }}
                   onMouseUp={() => {
                     this.preventPopupToggle = false;
@@ -392,7 +337,7 @@ class BaseSelect<T> extends Component<
                   forwardedRef={this.filterInputRef}
                   onFocus={() => {
                     if (!this.preventPopupToggle) {
-                      this.setPopoverVisibility(true);
+                      this.setState({ showPopover: true });
                     }
                   }}
                   onKeyDown={this.handleKeyDown}
@@ -413,9 +358,14 @@ class BaseSelect<T> extends Component<
               )}
             </Debounce>
             <Popover
-              sourceRef={this.filterInputRef.current}
+              sourceRef={this.filterInputRef}
               matchWidth={true}
               onKeyDown={this.handleKeyDown}
+              onClickOutside={() => {
+                if (this.state.showPopover) {
+                  this.setState({ showPopover: false });
+                }
+              }}
             >
               {showPopover && (
                 <SelectItemList
@@ -441,13 +391,9 @@ class BaseSelect<T> extends Component<
                           onClick={() => {
                             this.handleItemSelection(item);
                           }}
+                          hightlightQuery={this.filterInputRef.current?.value}
                         >
-                          {this.highlightQuery(
-                            item.labelText,
-                            this.filterInputRef.current
-                              ? this.filterInputRef.current.value
-                              : '',
-                          )}
+                          {item.labelText}
                         </SelectItem>
                       );
                     })

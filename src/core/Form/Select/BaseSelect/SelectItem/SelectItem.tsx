@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlLi } from '../../../../../reset';
@@ -10,6 +10,7 @@ const baseClassName = 'fi-select-item';
 const selectItemClassNames = {
   wrapper: `${baseClassName}_wrapper`,
   hasKeyboardFocus: `${baseClassName}--hasKeyboardFocus`,
+  queryHighlight: `${baseClassName}--query_highlight`,
   selected: `${baseClassName}--selected`,
   disabled: `${baseClassName}--disabled`,
   icon_wrapper: `${baseClassName}_icon_wrapper`,
@@ -20,14 +21,35 @@ export interface SelectItemProps {
   className?: string;
   /** Indicates if the current item has keyboard focus. */
   hasKeyboardFocus: boolean;
-
+  hightlightQuery: string | undefined;
   checked: boolean;
   disabled?: boolean;
   id?: string;
   onClick: () => void;
+  children: ReactNode;
 }
 
 class BaseSelectItem extends Component<SelectItemProps & SuomifiThemeProp> {
+  private highlightQuery = (text: string, query: string = '') => {
+    if (query.length > 0) {
+      const substrings = text.split(new RegExp(`(${query})`, 'gi'));
+      return substrings.map((substring, i) => {
+        const isMatch = substring.toLowerCase() === query.toLowerCase();
+        if (isMatch) {
+          return (
+            // eslint-disable-next-line react/no-array-index-key
+            <mark className={selectItemClassNames.queryHighlight} key={i}>
+              {substring}
+            </mark>
+          );
+        }
+        // eslint-disable-next-line react/no-array-index-key
+        return <React.Fragment key={i}>{substring}</React.Fragment>;
+      });
+    }
+    return text;
+  };
+
   render() {
     const {
       className,
@@ -35,6 +57,7 @@ class BaseSelectItem extends Component<SelectItemProps & SuomifiThemeProp> {
       children,
       checked,
       hasKeyboardFocus,
+      hightlightQuery,
       disabled,
       id,
       onClick,
@@ -56,7 +79,12 @@ class BaseSelectItem extends Component<SelectItemProps & SuomifiThemeProp> {
         onClick={onClick}
         {...passProps}
       >
-        {children}
+        {React.Children.map(children, (child) => {
+          if (typeof child === 'string') {
+            return this.highlightQuery(child, hightlightQuery);
+          }
+          return child;
+        })}
       </HtmlLi>
     );
   }

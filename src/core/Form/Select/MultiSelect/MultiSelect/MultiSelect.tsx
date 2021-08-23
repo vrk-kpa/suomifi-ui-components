@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
 import { HtmlDiv } from '../../../../../reset';
-import { windowAvailable } from '../../../../../utils/common';
+import { getOwnerDocument } from '../../../../../utils/common';
 import { AutoId } from '../../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../../utils/Debounce/Debounce';
 import { Button } from '../../../../Button/Button';
@@ -26,7 +26,6 @@ const multiSelectClassNames = {
   open: `${baseClassName}--open`,
   removeAllButton: `${baseClassName}_removeAllButton`,
   error: `${baseClassName}--error`,
-  queryHighlight: `${baseClassName}-item--query_highlight`,
 };
 
 export interface MultiSelectData {
@@ -189,22 +188,6 @@ class BaseMultiSelect<T> extends Component<
     return null;
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('click', this.globalClickHandler, {
-      capture: true,
-    });
-  }
-
-  private globalClickHandler = (nativeEvent: MouseEvent) => {
-    if (
-      this.popoverListRef.current?.contains(nativeEvent.target as Node) ||
-      this.filterInputRef.current?.contains(nativeEvent.target as Node)
-    ) {
-      return;
-    }
-    this.setPopoverVisibility(false);
-  };
-
   handleItemSelection = (item: T & MultiSelectData) => {
     this.setState(
       (
@@ -283,54 +266,8 @@ class BaseMultiSelect<T> extends Component<
     }
   };
 
-  private highlightQuery = (text: string, query: string) => {
-    if (query.length > 0) {
-      const substrings = text.split(new RegExp(`(${query})`, 'gi'));
-      return substrings.map((substring, i) => {
-        const isMatch = substring.toLowerCase() === query.toLowerCase();
-        if (isMatch) {
-          return (
-            // eslint-disable-next-line react/no-array-index-key
-            <mark className={multiSelectClassNames.queryHighlight} key={i}>
-              {substring}
-            </mark>
-          );
-        }
-        // eslint-disable-next-line react/no-array-index-key
-        return <React.Fragment key={i}>{substring}</React.Fragment>;
-      });
-    }
-    return text;
-  };
-
   private filter = (data: MultiSelectData, query: string) =>
     data.labelText.toLowerCase().includes(query.toLowerCase());
-
-  private setPopoverVisibility = (visible: Boolean) => {
-    if (visible) {
-      document.addEventListener('click', this.globalClickHandler, {
-        capture: true,
-      });
-    } else {
-      document.removeEventListener('click', this.globalClickHandler, {
-        capture: true,
-      });
-    }
-    this.setState({ showPopover: visible });
-  };
-
-  private getOwnerDocument = () => {
-    if (this.popoverListRef !== null && this.popoverListRef.current !== null) {
-      const elem = this.popoverListRef.current;
-      const ownerDocument = windowAvailable()
-        ? elem
-          ? elem.ownerDocument
-          : document
-        : null;
-      return ownerDocument;
-    }
-    return null;
-  };
 
   private focusInInput = (ownerDocument: Document | null) =>
     ownerDocument
@@ -344,7 +281,7 @@ class BaseMultiSelect<T> extends Component<
 
   private handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     event.preventDefault();
-    const ownerDocument = this.getOwnerDocument();
+    const ownerDocument = getOwnerDocument(this.popoverListRef);
     if (!ownerDocument) {
       return;
     }
@@ -352,7 +289,7 @@ class BaseMultiSelect<T> extends Component<
       const focusInPopover = this.focusInPopover(ownerDocument);
       const focusInInput = this.focusInInput(ownerDocument);
       const focusInCombobox = focusInPopover || focusInInput;
-      this.setPopoverVisibility(focusInCombobox);
+      this.setState({ showPopover: focusInCombobox });
 
       if (!focusInCombobox) {
         this.setState(
@@ -374,7 +311,7 @@ class BaseMultiSelect<T> extends Component<
       this.popoverListRef.current !== null &&
       this.state.showPopover
     ) {
-      if (!this.focusInPopover(this.getOwnerDocument())) {
+      if (!this.focusInPopover(getOwnerDocument(this.popoverListRef))) {
         this.popoverListRef.current.focus();
       }
     }
@@ -437,14 +374,14 @@ class BaseMultiSelect<T> extends Component<
             filteredItems: prevProps.items,
           }),
         );
-        this.setPopoverVisibility(false);
+        this.setState({ showPopover: false });
         break;
       }
 
       default: {
         if (this.filterInputRef && this.filterInputRef.current) {
           this.filterInputRef.current.focus();
-          this.setPopoverVisibility(true);
+          this.setState({ showPopover: true });
         }
         break;
       }
@@ -558,7 +495,7 @@ class BaseMultiSelect<T> extends Component<
                   }
                   filterFunc={this.filter}
                   forwardedRef={this.filterInputRef}
-                  onFocus={() => this.setPopoverVisibility(true)}
+                  onFocus={() => this.setState({ showPopover: true })}
                   onKeyDown={this.handleKeyDown}
                   onBlur={this.handleBlur}
                   value={filterInputValue}
@@ -577,9 +514,14 @@ class BaseMultiSelect<T> extends Component<
               )}
             </Debounce>
             <Popover
-              sourceRef={this.filterInputRef.current}
+              sourceRef={this.filterInputRef}
               matchWidth={true}
               onKeyDown={this.handleKeyDown}
+              onClickOutside={() => {
+                if (this.state.showPopover) {
+                  this.setState({ showPopover: false });
+                }
+              }}
             >
               {showPopover && (
                 <SelectItemList
@@ -606,13 +548,9 @@ class BaseMultiSelect<T> extends Component<
                           onClick={() => {
                             this.handleItemSelection(item);
                           }}
+                          hightlightQuery={this.filterInputRef.current?.value}
                         >
-                          {this.highlightQuery(
-                            item.labelText,
-                            this.filterInputRef.current
-                              ? this.filterInputRef.current.value
-                              : '',
-                          )}
+                          {item.labelText}
                         </MultiSelectItem>
                       );
                     })
@@ -707,7 +645,7 @@ class BaseMultiSelect<T> extends Component<
           aria-atomic="true"
           id={`${id}-filteredItems-length`}
         >
-          {this.focusInInput(this.getOwnerDocument()) ? (
+          {this.focusInInput(getOwnerDocument(this.popoverListRef)) ? (
             <>
               {filteredItems.length}
               {ariaOptionsAvailableText}

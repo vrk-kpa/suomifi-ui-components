@@ -1,16 +1,16 @@
-import React, { useState, ReactNode } from 'react';
+import React, { useState, ReactNode, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { usePopper } from 'react-popper';
 import { useEnhancedEffect } from '../../utils/common';
-import { HtmlDiv, HtmlDivProps } from '../../reset/HtmlDiv/HtmlDiv';
-
+import { HtmlDivProps, HtmlDivWithRef } from '../../reset/HtmlDiv/HtmlDiv';
 export interface PopoverProps extends HtmlDivProps {
-  sourceRef: Element | null;
+  sourceRef: React.RefObject<any>;
   children: ReactNode;
   portalStyleProps?: React.CSSProperties;
   placement?: 'top' | 'bottom';
   matchWidth?: boolean;
   allowFlip?: boolean;
+  onClickOutside?: () => void;
 }
 
 const sameWidth: any = {
@@ -35,6 +35,7 @@ export const Popover = (props: PopoverProps) => {
     matchWidth = true,
     children,
     sourceRef,
+    onClickOutside,
     ...passProps
   } = props;
 
@@ -42,7 +43,9 @@ export const Popover = (props: PopoverProps) => {
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
 
-  const { styles } = usePopper(sourceRef, popperElement, {
+  const portalRef = useRef<HTMLDivElement>(null);
+
+  const { styles } = usePopper(sourceRef.current, popperElement, {
     modifiers: [
       {
         name: 'flip',
@@ -53,9 +56,30 @@ export const Popover = (props: PopoverProps) => {
     placement,
   });
 
+  useEffect(() => {
+    document.addEventListener('click', globalClickHandler, {
+      capture: true,
+    });
+    return () => {
+      document.removeEventListener('click', globalClickHandler, {
+        capture: true,
+      });
+    };
+  }, []);
+
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
   });
+
+  const globalClickHandler = (nativeEvent: MouseEvent) => {
+    if (
+      !portalRef.current?.contains(nativeEvent.target as Node) &&
+      !sourceRef?.current?.contains(nativeEvent.target as Node) &&
+      !!onClickOutside
+    ) {
+      onClickOutside();
+    }
+  };
 
   if (!mountNode) {
     return null;
@@ -70,7 +94,9 @@ export const Popover = (props: PopoverProps) => {
           tabIndex={-1}
           role="presentation"
         >
-          <HtmlDiv {...passProps}>{children}</HtmlDiv>
+          <HtmlDivWithRef forwardedRef={portalRef} {...passProps}>
+            {children}
+          </HtmlDivWithRef>
         </div>,
         mountNode,
       )}

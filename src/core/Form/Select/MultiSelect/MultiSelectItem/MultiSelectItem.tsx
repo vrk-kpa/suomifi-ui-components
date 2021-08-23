@@ -35,6 +35,7 @@ class BaseMultiSelectItem extends Component<
       children,
       checked,
       hasKeyboardFocus,
+      hightlightQuery,
       disabled,
       id,
       onClick,
@@ -61,6 +62,7 @@ class BaseMultiSelectItem extends Component<
         hasKeyboardFocus={hasKeyboardFocus}
         disabled={disabled}
         id={id}
+        hightlightQuery={hightlightQuery}
         onClick={onClick}
       >
         <HtmlSpan
