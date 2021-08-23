@@ -19,6 +19,7 @@ export interface SelectItemListProps {
     | Array<React.ReactElement<SelectItemProps>>
     | React.ReactElement<SelectItemProps>;
   forwardRef: React.RefObject<HTMLUListElement>;
+  focusedDescendantId: { id: string };
   onBlur?: (event: React.FocusEvent<Element>) => void;
   /** Id needed for aria-owns and aria-controls in Combobox */
   id: string;
@@ -27,6 +28,39 @@ export interface SelectItemListProps {
 class BaseSelectItemList extends Component<
   SelectItemListProps & SuomifiThemeProp
 > {
+  componentDidUpdate(prevProps: SelectItemListProps & SuomifiThemeProp) {
+    if (
+      this.props.focusedDescendantId !== prevProps.focusedDescendantId &&
+      !!this.props.focusedDescendantId.id
+    ) {
+      this.scrollItemList(this.props.focusedDescendantId.id);
+    }
+  }
+
+  private scrollItemList = (elementId: string) => {
+    if (
+      this.props.forwardRef !== null &&
+      this.props.forwardRef.current !== null
+    ) {
+      const elementOffsetTop =
+        document.getElementById(elementId)?.offsetTop || 0;
+      const elementOffsetHeight =
+        document.getElementById(elementId)?.offsetHeight || 0;
+      if (elementOffsetTop < this.props.forwardRef.current.scrollTop) {
+        this.props.forwardRef.current.scrollTop = elementOffsetTop;
+      } else {
+        const offsetBottom = elementOffsetTop + elementOffsetHeight;
+        const scrollBottom =
+          this.props.forwardRef.current.scrollTop +
+          this.props.forwardRef.current.offsetHeight;
+        if (offsetBottom > scrollBottom) {
+          this.props.forwardRef.current.scrollTop =
+            offsetBottom - this.props.forwardRef.current.offsetHeight;
+        }
+      }
+    }
+  };
+
   render() {
     const {
       className,

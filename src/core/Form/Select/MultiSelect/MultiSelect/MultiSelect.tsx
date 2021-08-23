@@ -106,7 +106,7 @@ interface MultiSelectState<T extends MultiSelectData> {
   filterInputValue: string;
   filteredItems: T[];
   showPopover: boolean;
-  currentSelection: string | null;
+  focusedDescendantId: string | null;
   selectedKeys: ItemKeys;
   selectedItems: T[];
   initialItems: T[];
@@ -149,7 +149,7 @@ class BaseMultiSelect<T> extends Component<
     filterInputValue: '',
     filteredItems: this.props.items,
     showPopover: false,
-    currentSelection: null,
+    focusedDescendantId: null,
     selectedKeys: this.props.selectedItems
       ? getSelectedKeys(this.props.selectedItems)
       : getSelectedKeys(this.props.defaultSelectedItems),
@@ -381,9 +381,9 @@ class BaseMultiSelect<T> extends Component<
   };
 
   private handleKeyDown = (event: React.KeyboardEvent) => {
-    const { filteredItems: items, currentSelection } = this.state;
+    const { filteredItems: items, focusedDescendantId } = this.state;
     const index = items.findIndex(
-      ({ uniqueItemId }) => uniqueItemId === currentSelection,
+      ({ uniqueItemId }) => uniqueItemId === focusedDescendantId,
     );
 
     const getNextIndex = () => (index + 1) % items.length;
@@ -392,40 +392,13 @@ class BaseMultiSelect<T> extends Component<
     const getNextItem = () => items[getNextIndex()];
     const getPreviousItem = () => items[getPreviousIndex()];
 
-    const scrollItemList = (lblTxt: string) => {
-      if (
-        this.popoverListRef !== null &&
-        this.popoverListRef.current !== null &&
-        this.state.showPopover
-      ) {
-        const idOfCurrentElement = `${this.props.id}-${lblTxt}`;
-        const elementOffsetTop =
-          document.getElementById(idOfCurrentElement)?.offsetTop || 0;
-        const elementOffsetHeight =
-          document.getElementById(idOfCurrentElement)?.offsetHeight || 0;
-        if (elementOffsetTop < this.popoverListRef.current.scrollTop) {
-          this.popoverListRef.current.scrollTop = elementOffsetTop;
-        } else {
-          const offsetBottom = elementOffsetTop + elementOffsetHeight;
-          const scrollBottom =
-            this.popoverListRef.current.scrollTop +
-            this.popoverListRef.current.offsetHeight;
-          if (offsetBottom > scrollBottom) {
-            this.popoverListRef.current.scrollTop =
-              offsetBottom - this.popoverListRef.current.offsetHeight;
-          }
-        }
-      }
-    };
-
     switch (event.key) {
       case 'ArrowDown': {
         event.preventDefault();
         this.focusToMenu();
         const nextItem = getNextItem();
         if (nextItem) {
-          this.setState({ currentSelection: nextItem.uniqueItemId });
-          scrollItemList(nextItem.uniqueItemId);
+          this.setState({ focusedDescendantId: nextItem.uniqueItemId });
         }
         break;
       }
@@ -435,20 +408,19 @@ class BaseMultiSelect<T> extends Component<
         this.focusToMenu();
         const previousItem = getPreviousItem();
         if (previousItem) {
-          this.setState({ currentSelection: previousItem.uniqueItemId });
-          scrollItemList(previousItem.uniqueItemId);
+          this.setState({ focusedDescendantId: previousItem.uniqueItemId });
         }
         break;
       }
 
       case 'Enter': {
         event.preventDefault();
-        if (currentSelection) {
-          const currentItem = items.find(
-            ({ uniqueItemId }) => uniqueItemId === currentSelection,
+        if (focusedDescendantId) {
+          const focusedItem = items.find(
+            ({ uniqueItemId }) => uniqueItemId === focusedDescendantId,
           );
-          if (currentItem) {
-            this.handleItemSelection(currentItem);
+          if (focusedItem) {
+            this.handleItemSelection(focusedItem);
           }
         }
         break;
@@ -483,7 +455,7 @@ class BaseMultiSelect<T> extends Component<
     const {
       filteredItems,
       showPopover,
-      currentSelection,
+      focusedDescendantId,
       selectedKeys,
       selectedItems,
       disabledKeys,
@@ -536,8 +508,8 @@ class BaseMultiSelect<T> extends Component<
       Object.keys(selectedKeys).length > 0 &&
       Object.keys(selectedKeys).length !== selectedAndDisabledKeys;
 
-    const ariaActiveDescendant = currentSelection
-      ? `${id}-${currentSelection}`
+    const ariaActiveDescendant = focusedDescendantId
+      ? `${id}-${focusedDescendantId}`
       : '';
     const popoverItemListId = `${id}-popover`;
 
@@ -613,13 +585,14 @@ class BaseMultiSelect<T> extends Component<
                 <SelectItemList
                   id={popoverItemListId}
                   forwardRef={this.popoverListRef}
+                  focusedDescendantId={{ id: ariaActiveDescendant }}
                   aria-activedescendant={ariaActiveDescendant}
                   aria-multiselectable="true"
                 >
                   {filteredItems.length > 0 ? (
                     filteredItems.map((item) => {
                       const isCurrentlySelected =
-                        item.uniqueItemId === currentSelection;
+                        item.uniqueItemId === focusedDescendantId;
 
                       return (
                         <MultiSelectItem

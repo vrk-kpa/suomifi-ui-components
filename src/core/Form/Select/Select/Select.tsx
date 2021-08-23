@@ -71,7 +71,7 @@ interface SelectState<T extends SelectData> {
   filterInputValue: string;
   filteredItems: T[];
   showPopover: boolean;
-  currentSelection: string | null;
+  focusedDescendantId: string | null;
   selectedKey: string | null;
   initialItems: T[];
 }
@@ -95,7 +95,7 @@ class BaseSelect<T> extends Component<
     filterInputValue: '',
     filteredItems: this.props.items,
     showPopover: false,
-    currentSelection: null,
+    focusedDescendantId: null,
     selectedKey: this.props.selectedItem
       ? this.props.selectedItem.uniqueItemId
       : this.props.defaultSelectedItem?.uniqueItemId || null,
@@ -222,12 +222,12 @@ class BaseSelect<T> extends Component<
   };
 
   private resetInputValue = () => {
-    const currentItem = this.props.items.find(
+    const focusedItem = this.props.items.find(
       ({ uniqueItemId }) => uniqueItemId === this.state.selectedKey,
     );
 
     this.setState((_prevState: SelectState<T & SelectData>) => ({
-      filterInputValue: !!currentItem ? currentItem.labelText : '',
+      filterInputValue: !!focusedItem ? focusedItem.labelText : '',
     }));
   };
 
@@ -253,9 +253,9 @@ class BaseSelect<T> extends Component<
   };
 
   private handleKeyDown = (event: React.KeyboardEvent) => {
-    const { filteredItems: items, currentSelection } = this.state;
+    const { filteredItems: items, focusedDescendantId } = this.state;
     const index = items.findIndex(
-      ({ uniqueItemId }) => uniqueItemId === currentSelection,
+      ({ uniqueItemId }) => uniqueItemId === focusedDescendantId,
     );
 
     const getNextIndex = () => (index + 1) % items.length;
@@ -263,32 +263,6 @@ class BaseSelect<T> extends Component<
 
     const getNextItem = () => items[getNextIndex()];
     const getPreviousItem = () => items[getPreviousIndex()];
-
-    const scrollItemList = (lblTxt: string) => {
-      if (
-        this.popoverListRef !== null &&
-        this.popoverListRef.current !== null &&
-        this.state.showPopover
-      ) {
-        const idOfCurrentElement = `${this.props.id}-${lblTxt}`;
-        const elementOffsetTop =
-          document.getElementById(idOfCurrentElement)?.offsetTop || 0;
-        const elementOffsetHeight =
-          document.getElementById(idOfCurrentElement)?.offsetHeight || 0;
-        if (elementOffsetTop < this.popoverListRef.current.scrollTop) {
-          this.popoverListRef.current.scrollTop = elementOffsetTop;
-        } else {
-          const offsetBottom = elementOffsetTop + elementOffsetHeight;
-          const scrollBottom =
-            this.popoverListRef.current.scrollTop +
-            this.popoverListRef.current.offsetHeight;
-          if (offsetBottom > scrollBottom) {
-            this.popoverListRef.current.scrollTop =
-              offsetBottom - this.popoverListRef.current.offsetHeight;
-          }
-        }
-      }
-    };
 
     switch (event.key) {
       case 'ArrowDown': {
@@ -300,8 +274,7 @@ class BaseSelect<T> extends Component<
         }
         const nextItem = getNextItem();
         if (nextItem) {
-          this.setState({ currentSelection: nextItem.uniqueItemId });
-          scrollItemList(nextItem.uniqueItemId);
+          this.setState({ focusedDescendantId: nextItem.uniqueItemId });
         }
         break;
       }
@@ -311,20 +284,19 @@ class BaseSelect<T> extends Component<
         this.focusToMenu();
         const previousItem = getPreviousItem();
         if (previousItem) {
-          this.setState({ currentSelection: previousItem.uniqueItemId });
-          scrollItemList(previousItem.uniqueItemId);
+          this.setState({ focusedDescendantId: previousItem.uniqueItemId });
         }
         break;
       }
 
       case 'Enter': {
         event.preventDefault();
-        if (currentSelection) {
-          const currentItem = items.find(
-            ({ uniqueItemId }) => uniqueItemId === currentSelection,
+        if (focusedDescendantId) {
+          const focusedItem = items.find(
+            ({ uniqueItemId }) => uniqueItemId === focusedDescendantId,
           );
-          if (currentItem) {
-            this.handleItemSelection(currentItem);
+          if (focusedItem) {
+            this.handleItemSelection(focusedItem);
           }
         }
         break;
@@ -351,7 +323,7 @@ class BaseSelect<T> extends Component<
     const {
       filteredItems,
       showPopover,
-      currentSelection,
+      focusedDescendantId,
       filterInputValue,
       selectedKey,
     } = this.state;
@@ -375,8 +347,8 @@ class BaseSelect<T> extends Component<
       ...passProps
     } = this.props;
 
-    const ariaActiveDescendant = currentSelection
-      ? `${id}-${currentSelection}`
+    const ariaActiveDescendant = focusedDescendantId
+      ? `${id}-${focusedDescendantId}`
       : '';
     const popoverItemListId = `${id}-popover`;
 
@@ -449,12 +421,13 @@ class BaseSelect<T> extends Component<
                 <SelectItemList
                   id={popoverItemListId}
                   forwardRef={this.popoverListRef}
+                  focusedDescendantId={{ id: ariaActiveDescendant }}
                   aria-activedescendant={ariaActiveDescendant}
                 >
                   {filteredItems.length > 0 ? (
                     filteredItems.map((item) => {
                       const isCurrentlySelected =
-                        item.uniqueItemId === currentSelection;
+                        item.uniqueItemId === focusedDescendantId;
 
                       return (
                         <SelectItem
