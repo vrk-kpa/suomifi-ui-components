@@ -72,7 +72,7 @@ interface SelectState<T extends SelectData> {
   filteredItems: T[];
   showPopover: boolean;
   focusedDescendantId: string | null;
-  selectedKey: string | null;
+  selectedItem: (T & SelectData) | null;
   initialItems: T[];
 }
 
@@ -96,9 +96,9 @@ class BaseSelect<T> extends Component<
     filteredItems: this.props.items,
     showPopover: false,
     focusedDescendantId: null,
-    selectedKey: this.props.selectedItem
-      ? this.props.selectedItem.uniqueItemId
-      : this.props.defaultSelectedItem?.uniqueItemId || null,
+    selectedItem: this.props.selectedItem
+      ? this.props.selectedItem
+      : this.props.defaultSelectedItem || null,
     initialItems: this.props.items,
   };
 
@@ -108,15 +108,13 @@ class BaseSelect<T> extends Component<
   ) {
     const { items: propItems, selectedItem } = nextProps;
     if (
-      ('selectedItems' in nextProps &&
-        selectedItem?.uniqueItemId !== prevState.selectedKey) ||
+      ('selectedItem' in nextProps &&
+        selectedItem?.uniqueItemId !== prevState.selectedItem?.uniqueItemId) ||
       propItems !== prevState.initialItems
     ) {
       return {
-        selectedKey:
-          'selectedItem' in nextProps
-            ? selectedItem?.uniqueItemId
-            : prevState.selectedKey,
+        selectedItem:
+          'selectedItem' in nextProps ? selectedItem : prevState.selectedItem,
         filteredItems: propItems,
         initialItems: propItems,
       };
@@ -165,12 +163,10 @@ class BaseSelect<T> extends Component<
   };
 
   private resetInputValue = () => {
-    const focusedItem = this.props.items.find(
-      ({ uniqueItemId }) => uniqueItemId === this.state.selectedKey,
-    );
-
     this.setState((_prevState: SelectState<T & SelectData>) => ({
-      filterInputValue: !!focusedItem ? focusedItem.labelText : '',
+      filterInputValue: !!_prevState.selectedItem
+        ? _prevState.selectedItem.labelText
+        : '',
     }));
   };
 
@@ -182,7 +178,7 @@ class BaseSelect<T> extends Component<
     const { onItemSelect, onItemSelectionChange, selectedItem } = this.props;
     if (!selectedItem) {
       this.setState({
-        selectedKey: item?.uniqueItemId || null,
+        selectedItem: item || null,
         filterInputValue: item?.labelText || inputValue || '',
       });
     }
@@ -268,7 +264,7 @@ class BaseSelect<T> extends Component<
       showPopover,
       focusedDescendantId,
       filterInputValue,
-      selectedKey,
+      selectedItem,
     } = this.state;
 
     const {
@@ -285,7 +281,7 @@ class BaseSelect<T> extends Component<
       debounce,
       status,
       statusText,
-      selectedItem: controlledItems,
+      selectedItem: controlledItem,
       onItemSelect,
       ...passProps
     } = this.props;
@@ -383,10 +379,12 @@ class BaseSelect<T> extends Component<
                         <SelectItem
                           hasKeyboardFocus={isCurrentlySelected}
                           key={`${item.uniqueItemId}_${
-                            item.uniqueItemId === selectedKey
+                            item.uniqueItemId === selectedItem?.uniqueItemId
                           }`}
                           id={`${id}-${item.uniqueItemId}`}
-                          checked={item.uniqueItemId === selectedKey}
+                          checked={
+                            item.uniqueItemId === selectedItem?.uniqueItemId
+                          }
                           disabled={item.disabled}
                           onClick={() => {
                             this.handleItemSelection(item);

@@ -149,8 +149,7 @@ describe('Chips', () => {
 
   test('onItemSelect: called with uniqueItem id, when clicking non-disabled Chip', async () => {
     await act(async () => {
-      const onItemSelect = (uniqueItemId: string) => console.log(uniqueItemId);
-      const onItemSelectSpy = jest.spyOn(console, 'log');
+      const mockOnItemSelect = jest.fn();
       const { container } = render(
         <MultiSelect
           labelText="MultiSelect"
@@ -161,7 +160,7 @@ describe('Chips', () => {
           visualPlaceholder="Choose your tool(s)"
           noItemsText="No items"
           defaultSelectedItems={defaultSelectedTools}
-          onItemSelect={onItemSelect}
+          onItemSelect={mockOnItemSelect}
           ariaSelectedAmountText="tools selected"
           ariaOptionsAvailableText="tools left"
           ariaOptionChipRemovedText="removed"
@@ -171,7 +170,7 @@ describe('Chips', () => {
       await act(async () => {
         fireEvent.click(hammerChip, {});
       });
-      expect(onItemSelectSpy).toBeCalledWith('h9823523');
+      expect(mockOnItemSelect).toBeCalledWith('h9823523');
     });
   });
 
@@ -299,12 +298,15 @@ describe('Controlled', () => {
       },
     ];
 
+    const mockItemSelectionsChange = jest.fn();
+
     const multiselect = (
       <MultiSelect
         items={animals}
         selectedItems={[
           { price: 5, labelText: 'Turtle', uniqueItemId: 'turtle-987' },
         ]}
+        onItemSelect={mockItemSelectionsChange}
         labelText="Animals"
         noItemsText="No animals"
         chipListVisible={true}
@@ -321,6 +323,8 @@ describe('Controlled', () => {
     await act(async () => {
       fireEvent.click(turtleChip, {});
     });
+    expect(mockItemSelectionsChange).toBeCalledTimes(1);
+    expect(mockItemSelectionsChange).toBeCalledWith('turtle-987');
     // Popover is open, so therefore two
     expect(getAllByText('Turtle').length).toBe(2);
   });

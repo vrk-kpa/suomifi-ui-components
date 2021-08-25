@@ -6,8 +6,6 @@ import { HtmlDiv } from '../../../../../reset';
 import { getOwnerDocument } from '../../../../../utils/common';
 import { AutoId } from '../../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../../utils/Debounce/Debounce';
-import { Button } from '../../../../Button/Button';
-import { Chip } from '../../../../Chip';
 import { Popover } from '../../../../Popover/Popover';
 import {
   FilterInput,
@@ -16,9 +14,10 @@ import {
 import { SelectItemList } from '../../BaseSelect/SelectItemList/SelectItemList';
 import { MultiSelectItem } from '../MultiSelectItem/MultiSelectItem';
 import { SelectEmptyItem } from '../../BaseSelect/SelectEmptyItem/SelectEmptyItem';
-import { ChipList } from '../../../../Chip/ChipList/ChipList';
 import { VisuallyHidden } from '../../../../VisuallyHidden/VisuallyHidden';
 import { baseStyles } from './MultiSelect.baseStyles';
+import { MultiSelectChipList } from '../MultiSelectChipList/MultiSelectChipList';
+import { MultiSelectRemoveAllButton } from '../MultiSelectRemoveAllButton/MultiSelectRemoveAllButton';
 
 const baseClassName = 'fi-multiselect';
 const multiSelectClassNames = {
@@ -37,6 +36,10 @@ export interface MultiSelectData {
   disabled?: boolean;
   /** Unique id to identify the item */
   uniqueItemId: string;
+}
+
+interface CheckedProp {
+  checked: boolean;
 }
 
 export interface MultiSelectProps<T extends MultiSelectData> {
@@ -96,41 +99,15 @@ export interface MultiSelectProps<T extends MultiSelectData> {
   ariaOptionChipRemovedText: string;
 }
 
-// actual boolean value does not matter, only if it exists on the list
-interface ItemKeys {
-  [key: string]: boolean;
-}
-
 interface MultiSelectState<T extends MultiSelectData> {
   filterInputValue: string;
   filteredItems: T[];
   showPopover: boolean;
   focusedDescendantId: string | null;
-  selectedKeys: ItemKeys;
   selectedItems: T[];
   initialItems: T[];
-  disabledKeys: ItemKeys;
   chipRemovalAnnounceText: string;
 }
-
-function getSelectedKeys<T>(items: (T & MultiSelectData)[] = []): ItemKeys {
-  return items.reduce((keys: ItemKeys, item: T & MultiSelectData) => {
-    const newSelectedKeys: ItemKeys = { ...keys };
-    newSelectedKeys[item.uniqueItemId] = false;
-    return newSelectedKeys;
-  }, {});
-}
-
-function getDisabledKeys<T>(items: (T & MultiSelectData)[] = []): ItemKeys {
-  return items.reduce((keys: ItemKeys, item: T & MultiSelectData) => {
-    const newDisabledKeys: ItemKeys = { ...keys };
-    if (item.disabled) {
-      newDisabledKeys[item.uniqueItemId] = false;
-    }
-    return newDisabledKeys;
-  }, {});
-}
-
 class BaseMultiSelect<T> extends Component<
   MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp
 > {
@@ -149,16 +126,10 @@ class BaseMultiSelect<T> extends Component<
     filteredItems: this.props.items,
     showPopover: false,
     focusedDescendantId: null,
-    selectedKeys: this.props.selectedItems
-      ? getSelectedKeys(this.props.selectedItems)
-      : getSelectedKeys(this.props.defaultSelectedItems),
     selectedItems: this.props.selectedItems
       ? this.props.selectedItems || []
       : this.props.defaultSelectedItems || [],
     initialItems: this.props.items,
-    disabledKeys: this.props.selectedItems
-      ? getDisabledKeys(this.props.selectedItems)
-      : getDisabledKeys(this.props.items),
     chipRemovalAnnounceText: '',
   };
 
@@ -174,13 +145,6 @@ class BaseMultiSelect<T> extends Component<
     ) {
       return {
         selectedItems: selectedItems || prevState.selectedItems || [],
-        selectedKeys:
-          'selectedItems' in nextProps
-            ? getSelectedKeys(selectedItems)
-            : getSelectedKeys(prevState.selectedItems),
-        disabledKeys: selectedItems
-          ? getDisabledKeys(selectedItems)
-          : getDisabledKeys(propItems),
         filteredItems: propItems,
         initialItems: propItems,
       };
@@ -199,16 +163,17 @@ class BaseMultiSelect<T> extends Component<
           onItemSelect,
           selectedItems: controlledItems,
         } = prevProps;
-        const { selectedKeys, selectedItems } = prevState;
-        const newSelectedKeys = Object.assign({}, selectedKeys);
         if (!item.disabled) {
           if (onItemSelect) {
             onItemSelect(item.uniqueItemId);
           }
           if (!controlledItems) {
-            if (item.uniqueItemId in newSelectedKeys) {
-              delete newSelectedKeys[item.uniqueItemId];
-              const newSelectedItems = selectedItems.filter(
+            if (
+              prevState.selectedItems.find(
+                (prevItem) => prevItem.uniqueItemId === item.uniqueItemId,
+              )
+            ) {
+              const newSelectedItems = prevState.selectedItems.filter(
                 (selectedItem) =>
                   selectedItem.uniqueItemId !== item.uniqueItemId,
               );
@@ -216,17 +181,14 @@ class BaseMultiSelect<T> extends Component<
                 onItemSelectionsChange(newSelectedItems);
               }
               return {
-                selectedKeys: newSelectedKeys,
                 selectedItems: newSelectedItems,
               };
             }
-            newSelectedKeys[item.uniqueItemId] = false;
-            const newSelectedItems = selectedItems.concat([item]);
+            const newSelectedItems = prevState.selectedItems.concat([item]);
             if (onItemSelectionsChange) {
               onItemSelectionsChange(newSelectedItems);
             }
             return {
-              selectedKeys: newSelectedKeys,
               selectedItems: newSelectedItems,
             };
           }
@@ -244,7 +206,6 @@ class BaseMultiSelect<T> extends Component<
         const { selectedItems } = prevState;
         const { onItemSelectionsChange, onRemoveAll } = prevProps;
         const disabledItems = [];
-        const newSelectedKeys: ItemKeys = {};
         if (onRemoveAll) {
           onRemoveAll();
         }
@@ -252,13 +213,12 @@ class BaseMultiSelect<T> extends Component<
         for (const item of selectedItems) {
           if (item.disabled) {
             disabledItems.push(item);
-            newSelectedKeys[item.uniqueItemId] = false;
           }
         }
         if (onItemSelectionsChange) {
           onItemSelectionsChange(disabledItems);
         }
-        return { selectedKeys: newSelectedKeys, selectedItems: disabledItems };
+        return { selectedItems: disabledItems };
       },
     );
     if (this.filterInputRef && this.filterInputRef.current) {
@@ -393,9 +353,7 @@ class BaseMultiSelect<T> extends Component<
       filteredItems,
       showPopover,
       focusedDescendantId,
-      selectedKeys,
       selectedItems,
-      disabledKeys,
       filterInputValue,
       chipRemovalAnnounceText,
     } = this.state;
@@ -427,45 +385,19 @@ class BaseMultiSelect<T> extends Component<
       ...passProps
     } = this.props;
 
-    const selectedAndDisabledKeys = Object.keys(selectedKeys).reduce(
-      (amount: number, key: string) => {
-        if (key in disabledKeys) {
-          return amount + 1;
-        }
-        return amount;
-      },
-      0,
-    );
-
-    const showChipList =
-      chipListVisible && selectedItems && selectedItems.length > 0;
-
-    const showRemoveAllButton =
-      removeAllButtonLabel &&
-      Object.keys(selectedKeys).length > 0 &&
-      Object.keys(selectedKeys).length !== selectedAndDisabledKeys;
+    const filteredItemsWithChecked: (T &
+      MultiSelectData &
+      CheckedProp)[] = filteredItems.map((item) => ({
+      ...item,
+      checked: !!selectedItems.find(
+        (selectedItem) => selectedItem.uniqueItemId === item.uniqueItemId,
+      ),
+    }));
 
     const ariaActiveDescendant = focusedDescendantId
       ? `${id}-${focusedDescendantId}`
       : '';
     const popoverItemListId = `${id}-popover`;
-
-    const chipRefs = selectedItems
-      .filter((item) => !item.disabled)
-      .reduce(
-        (
-          arr: Array<React.RefObject<HTMLButtonElement>>,
-          _chip: T & MultiSelectData,
-          index: number,
-        ) => {
-          const mutatedArr: Array<React.RefObject<HTMLButtonElement>> = [
-            ...arr,
-          ];
-          mutatedArr[index] = React.createRef();
-          return mutatedArr;
-        },
-        [],
-      );
 
     return (
       <>
@@ -531,20 +463,17 @@ class BaseMultiSelect<T> extends Component<
                   aria-activedescendant={ariaActiveDescendant}
                   aria-multiselectable="true"
                 >
-                  {filteredItems.length > 0 ? (
-                    filteredItems.map((item) => {
+                  {filteredItemsWithChecked.length > 0 ? (
+                    filteredItemsWithChecked.map((item) => {
                       const isCurrentlySelected =
                         item.uniqueItemId === focusedDescendantId;
-
                       return (
                         <MultiSelectItem
                           hasKeyboardFocus={isCurrentlySelected}
-                          key={`${item.uniqueItemId}_${
-                            item.uniqueItemId in selectedKeys
-                          }`}
+                          key={`${item.uniqueItemId}_${item.checked}`}
                           id={`${id}-${item.uniqueItemId}`}
-                          checked={item.uniqueItemId in selectedKeys}
-                          disabled={item.uniqueItemId in disabledKeys}
+                          checked={item.checked}
+                          disabled={item.disabled}
                           onClick={() => {
                             this.handleItemSelection(item);
                           }}
@@ -560,76 +489,28 @@ class BaseMultiSelect<T> extends Component<
                 </SelectItemList>
               )}
             </Popover>
-            {showChipList && (
-              <ChipList>
-                {selectedItems
-                  .filter((item) => item.disabled)
-                  .map((disabledItem) => (
-                    <Chip
-                      aria-disabled={true}
-                      key={disabledItem.uniqueItemId}
-                      actionLabel={ariaChipActionLabel}
-                      removable={true}
-                    >
-                      {disabledItem.chipText
-                        ? disabledItem.chipText
-                        : disabledItem.labelText}
-                    </Chip>
-                  ))}
-                {selectedItems
-                  .filter((item) => !item.disabled)
-                  .map((enabledItem, index) => (
-                    <Chip
-                      key={enabledItem.uniqueItemId}
-                      removable={!enabledItem.disabled}
-                      onClick={() => {
-                        if (
-                          selectedItems.filter((item) => !item.disabled)
-                            .length > 1
-                        ) {
-                          if (index > 0) {
-                            // eslint-disable-next-line no-unused-expressions
-                            chipRefs[index - 1]?.current?.focus();
-                          } else if (index === 0) {
-                            // eslint-disable-next-line no-unused-expressions
-                            chipRefs[1]?.current?.focus();
-                          }
-                        } else {
-                          // eslint-disable-next-line no-unused-expressions
-                          this.filterInputRef?.current?.focus();
-                        }
-                        this.setState({
-                          chipRemovalAnnounceText: `${
-                            enabledItem.chipText
-                              ? enabledItem.chipText
-                              : enabledItem.labelText
-                          } ${ariaOptionChipRemovedText}`,
-                        });
-                        this.handleItemSelection(enabledItem);
-                      }}
-                      actionLabel={ariaChipActionLabel}
-                      ref={chipRefs[index]}
-                    >
-                      {enabledItem.chipText
-                        ? enabledItem.chipText
-                        : enabledItem.labelText}
-                    </Chip>
-                  ))}
-              </ChipList>
+            {chipListVisible && (
+              <MultiSelectChipList
+                sourceRef={this.filterInputRef}
+                selectedItems={selectedItems}
+                ariaChipActionLabel={ariaChipActionLabel}
+                onClick={(item: MultiSelectData & T) => {
+                  this.setState({
+                    chipRemovalAnnounceText: `${
+                      item.chipText ? item.chipText : item.labelText
+                    } ${ariaOptionChipRemovedText}`,
+                  });
+                  this.handleItemSelection(item);
+                }}
+              />
             )}
-            {showRemoveAllButton && (
-              <Button
-                className={classnames(
-                  multiSelectClassNames.removeAllButton,
-                  {},
-                )}
-                variant="link"
-                icon="remove"
-                onClick={this.handleRemoveAllSelections}
-              >
-                {removeAllButtonLabel}
-              </Button>
-            )}
+            <MultiSelectRemoveAllButton
+              className={multiSelectClassNames.removeAllButton}
+              selectedItems={selectedItems}
+              onClick={this.handleRemoveAllSelections}
+            >
+              {removeAllButtonLabel}
+            </MultiSelectRemoveAllButton>
           </HtmlDiv>
         </HtmlDiv>
         <VisuallyHidden
@@ -664,7 +545,7 @@ class BaseMultiSelect<T> extends Component<
   }
 }
 
-const MultiSelectCombobox = styled(BaseMultiSelect)`
+const StyledMultiSelect = styled(BaseMultiSelect)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
@@ -678,11 +559,7 @@ export class MultiSelect<T> extends Component<
         {({ suomifiTheme }) => (
           <AutoId id={propId}>
             {(id) => (
-              <MultiSelectCombobox
-                theme={suomifiTheme}
-                id={id}
-                {...passProps}
-              />
+              <StyledMultiSelect theme={suomifiTheme} id={id} {...passProps} />
             )}
           </AutoId>
         )}
