@@ -1,6 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`has matching snapshot 1`] = `
+.c7 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.c7:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.c7::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.c7::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.c7::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.c7::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.c7::before,
+.c7::after {
+  box-sizing: border-box;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -90,6 +143,18 @@ exports[`has matching snapshot 1`] = `
 .c4::before,
 .c4::after {
   box-sizing: border-box;
+}
+
+.c9 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
 }
 
 .c3.fi-label-text .fi-label-text_label-span {
@@ -291,6 +356,64 @@ exports[`has matching snapshot 1`] = `
   margin-bottom: 0;
 }
 
+.c10 {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.c10.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c10.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c8.fi-clear-button {
+  cursor: pointer;
+  pointer-events: all;
+  height: 20px;
+  width: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c8.fi-clear-button:focus {
+  outline: none;
+}
+
+.c8.fi-clear-button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c8.fi-clear-button .fi-clear-button_icon {
+  width: 16px;
+  height: 16px;
+  fill: hsl(212,63%,37%);
+}
+
 .c1.fi-select {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -324,9 +447,42 @@ exports[`has matching snapshot 1`] = `
   pointer-events: none;
 }
 
+.c1.fi-select--value-selected .fi-filter-input_input {
+  padding-right: 58px;
+}
+
 .c1 .fi-select_content_wrapper {
   display: inline-block;
   width: 100%;
+  position: relative;
+}
+
+.c1 .fi-select_content_wrapper .fi-select_selected-value {
+  position: absolute;
+  top: 38px;
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  max-width: 100%;
+  padding: 8px 11px;
+  line-height: 1;
+}
+
+.c1 .fi-select_content_wrapper .fi-select_clear-button {
+  position: absolute;
+  top: 43px;
+  right: 38px;
 }
 
 .c1.fi-select--open .fi-filter-input_input-element-container:before {
@@ -344,7 +500,7 @@ exports[`has matching snapshot 1`] = `
   aria-expanded="false"
   aria-haspopup="listbox"
   aria-owns="2-popover"
-  class="c0 fi-select c1"
+  class="c0 fi-select c1 fi-select--value-selected"
   role="combobox"
 >
   <div
@@ -381,7 +537,7 @@ exports[`has matching snapshot 1`] = `
               autocomplete="off"
               class="c5 fi-filter-input_input"
               id="1"
-              placeholder="Choose your tool(s)"
+              placeholder=""
               spellcheck="false"
               type="text"
               value=""
@@ -395,6 +551,35 @@ exports[`has matching snapshot 1`] = `
         </div>
       </div>
     </div>
+    <span
+      class="c4 fi-select_selected-value"
+    >
+      Hammer
+    </span>
+    <button
+      class="c7 fi-clear-button c8 fi-select_clear-button"
+      type="button"
+    >
+      <span
+        class="c4 c9 fi-visually-hidden"
+      >
+        Clear selection
+      </span>
+      <svg
+        aria-hidden="true"
+        class="fi-icon c10 fi-clear-button_icon"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 13.45L4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45z"
+        />
+      </svg>
+    </button>
   </div>
 </div>
 `;
