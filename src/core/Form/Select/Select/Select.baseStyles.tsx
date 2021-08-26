@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../../theme';
-import { font } from '../../../theme/reset';
+import { font, element } from '../../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-select {
@@ -23,11 +23,32 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         pointer-events: none;
       }
     }
+
+    &--value-selected {
+      & .fi-filter-input_input {
+        padding-right: 58px;
+      }
+    }
   }
 
   & .fi-select_content_wrapper {
     display: inline-block;
     width: 100%;
+    position: relative;
+    & .fi-select_selected-value {
+      position: absolute;
+      top: 38px;
+      ${element(theme)}
+      ${font(theme)('actionElementInnerText')}
+      max-width: 100%;
+      padding: ${theme.spacing.insetM} 11px;
+      line-height: 1;
+    }
+    & .fi-select_clear-button {
+      position: absolute;
+      top: 43px;
+      right: 38px;
+    }
   }
 
   &.fi-select--open {

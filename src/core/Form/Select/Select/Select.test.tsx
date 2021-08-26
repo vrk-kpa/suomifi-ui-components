@@ -82,6 +82,7 @@ const defaultSelectedTool = {
 const BasicCombobox = (
   <Select
     labelText="MultiSelect"
+    clearButtonLabel="Clear selection"
     items={tools}
     visualPlaceholder="Choose your tool(s)"
     noItemsText="No items"

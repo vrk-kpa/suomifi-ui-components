@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv } from '../../../../reset';
+import { HtmlDiv, HtmlSpan } from '../../../../reset';
 import { getOwnerDocument } from '../../../../utils/common';
 import { AutoId } from '../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Popover } from '../../../Popover/Popover';
 import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
+import { ClearButton } from '../../ClearButton/ClearButton';
 import { SelectItemList } from '../BaseSelect/SelectItemList/SelectItemList';
 import { SelectItem } from '../BaseSelect/SelectItem/SelectItem';
 import { SelectEmptyItem } from '../BaseSelect/SelectEmptyItem/SelectEmptyItem';
@@ -15,7 +16,10 @@ import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 
 const baseClassName = 'fi-select';
 const selectClassNames = {
-  content_wrapper: `${baseClassName}_content_wrapper`,
+  valueSelected: `${baseClassName}--value-selected`,
+  contentWrapper: `${baseClassName}_content_wrapper`,
+  selectedValue: `${baseClassName}_selected-value`,
+  clearButton: `${baseClassName}_clear-button`,
   open: `${baseClassName}--open`,
   error: `${baseClassName}--error`,
   queryHighlight: `${baseClassName}-item--query_highlight`,
@@ -42,6 +46,8 @@ export interface SelectProps<T extends SelectData> {
   id?: string;
   /** Label */
   labelText: string;
+  /** Clear button label for screen readers */
+  clearButtonLabel: string;
   /** Event that is fired when item selections change */
   onItemSelectionChange?: (selectedItem: T | null) => void;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
@@ -163,23 +169,16 @@ class BaseSelect<T> extends Component<
   };
 
   private resetInputValue = () => {
-    this.setState((_prevState: SelectState<T & SelectData>) => ({
-      filterInputValue: !!_prevState.selectedItem
-        ? _prevState.selectedItem.labelText
-        : '',
-    }));
+    this.setState({ filterInputValue: '' });
   };
 
-  private handleItemSelection = (
-    item: (T & SelectData) | null,
-    inputValue?: string,
-  ) => {
+  private handleItemSelection = (item: (T & SelectData) | null) => {
     if (item !== null && item.disabled) return;
     const { onItemSelect, onItemSelectionChange, selectedItem } = this.props;
     if (!selectedItem) {
       this.setState({
         selectedItem: item || null,
-        filterInputValue: item?.labelText || inputValue || '',
+        filterInputValue: '',
       });
     }
     if (!!onItemSelect) {
@@ -282,6 +281,7 @@ class BaseSelect<T> extends Component<
       status,
       statusText,
       selectedItem: controlledItem,
+      clearButtonLabel,
       onItemSelect,
       ...passProps
     } = this.props;
@@ -300,57 +300,74 @@ class BaseSelect<T> extends Component<
           aria-expanded={showPopover}
           {...passProps}
           className={classnames(baseClassName, className, {
+            [selectClassNames.valueSelected]: !!selectedItem,
             [selectClassNames.open]: showPopover,
             [selectClassNames.error]: status === 'error',
           })}
         >
-          <HtmlDiv className={classnames(selectClassNames.content_wrapper, {})}>
+          <HtmlDiv className={classnames(selectClassNames.contentWrapper, {})}>
             <Debounce waitFor={debounce}>
               {(debouncer: Function) => (
-                <FilterInput
-                  id={id}
-                  labelText={labelText}
-                  items={propItems}
-                  onFilter={(filtered) =>
-                    this.setState({ filteredItems: filtered })
-                  }
-                  onMouseDown={() => {
-                    if (
-                      !!document &&
-                      document.activeElement &&
-                      this.filterInputRef.current !== document.activeElement
-                    ) {
-                      this.preventPopupToggle = true;
+                <>
+                  <FilterInput
+                    id={id}
+                    labelText={labelText}
+                    items={propItems}
+                    onFilter={(filtered) =>
+                      this.setState({ filteredItems: filtered })
                     }
-                    this.setState((prevState: SelectState<T & SelectData>) => ({
-                      showPopover: !prevState.showPopover,
-                    }));
-                  }}
-                  onMouseUp={() => {
-                    this.preventPopupToggle = false;
-                  }}
-                  filterFunc={this.filter}
-                  forwardedRef={this.filterInputRef}
-                  onFocus={() => {
-                    if (!this.preventPopupToggle) {
-                      this.setState({ showPopover: true });
-                    }
-                  }}
-                  onKeyDown={this.handleKeyDown}
-                  onBlur={this.handleBlur}
-                  value={filterInputValue}
-                  onChange={(value: string) => {
-                    if (propOnChange) {
-                      debouncer(propOnChange, value);
-                    }
-                    this.setState({ filterInputValue: value });
-                  }}
-                  visualPlaceholder={visualPlaceholder}
-                  status={status}
-                  statusText={statusText}
-                  aria-controls={popoverItemListId}
-                  aria-describedby={`${id}-selectedItems-length`}
-                />
+                    onMouseDown={() => {
+                      if (
+                        !!document &&
+                        document.activeElement &&
+                        this.filterInputRef.current !== document.activeElement
+                      ) {
+                        this.preventPopupToggle = true;
+                      }
+                      this.setState(
+                        (prevState: SelectState<T & SelectData>) => ({
+                          showPopover: !prevState.showPopover,
+                        }),
+                      );
+                    }}
+                    onMouseUp={() => {
+                      this.preventPopupToggle = false;
+                    }}
+                    filterFunc={this.filter}
+                    forwardedRef={this.filterInputRef}
+                    onFocus={() => {
+                      if (!this.preventPopupToggle) {
+                        this.setState({ showPopover: true });
+                      }
+                    }}
+                    onKeyDown={this.handleKeyDown}
+                    onBlur={this.handleBlur}
+                    value={filterInputValue}
+                    onChange={(value: string) => {
+                      if (propOnChange) {
+                        debouncer(propOnChange, value);
+                      }
+                      this.setState({ filterInputValue: value });
+                    }}
+                    visualPlaceholder={!selectedItem ? visualPlaceholder : ''}
+                    status={status}
+                    statusText={statusText}
+                    aria-controls={popoverItemListId}
+                    aria-describedby={`${id}-selectedItems-length`}
+                  />
+                  {!filterInputValue && (
+                    <HtmlSpan className={selectClassNames.selectedValue}>
+                      {selectedItem?.labelText}
+                    </HtmlSpan>
+                  )}
+                  {!!selectedItem && (
+                    <ClearButton
+                      className={selectClassNames.clearButton}
+                      onClick={() => this.handleItemSelection(null)}
+                      label={clearButtonLabel}
+                    />
+                  )}
+                </>
               )}
             </Debounce>
             <Popover
