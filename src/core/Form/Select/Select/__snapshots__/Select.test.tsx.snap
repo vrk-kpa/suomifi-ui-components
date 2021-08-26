@@ -447,8 +447,12 @@ exports[`has matching snapshot 1`] = `
   pointer-events: none;
 }
 
+.c1.fi-select .fi-filter-input_input {
+  padding-right: 40px;
+}
+
 .c1.fi-select--value-selected .fi-filter-input_input {
-  padding-right: 58px;
+  padding-right: 64px;
 }
 
 .c1 .fi-select_content_wrapper {
@@ -531,7 +535,7 @@ exports[`has matching snapshot 1`] = `
             <input
               aria-autocomplete="list"
               aria-controls="2-popover"
-              aria-describedby="2-selectedItems-length"
+              aria-describedby="2-aria-status"
               aria-multiline="false"
               autocapitalize="none"
               autocomplete="off"
@@ -581,5 +585,16 @@ exports[`has matching snapshot 1`] = `
       </svg>
     </button>
   </div>
+  <span
+    class="c4 c9 fi-visually-hidden"
+  >
+    <span
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="all"
+      class="c4"
+      id="2-aria-status"
+    />
+  </span>
 </div>
 `;
