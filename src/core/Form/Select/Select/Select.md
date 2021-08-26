@@ -84,6 +84,7 @@ const defaultSelectedTool = {
     visualPlaceholder="Choose your tool(s)"
     noItemsText="No items"
     defaultSelectedItem={defaultSelectedTool}
+    ariaOptionsAvailableText="Options available"
   />
 </>;
 ```
@@ -117,8 +118,7 @@ const animals = [
     labelText="Animals"
     noItemsText="No animals"
     visualPlaceholder="Try to choose animal(s)"
-    ariaChipActionLabel="Remove"
-    ariaSelectedAmountText="animals selected"
+    ariaOptionsAvailableText="Options available"
   />
 
   <span>There can be only one!</span>

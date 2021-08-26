@@ -24,9 +24,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
+    & .fi-filter-input_input {
+      padding-right: 40px;
+    }
+
     &--value-selected {
       & .fi-filter-input_input {
-        padding-right: 58px;
+        padding-right: 64px;
       }
     }
   }

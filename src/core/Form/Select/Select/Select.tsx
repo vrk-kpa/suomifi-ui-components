@@ -13,6 +13,7 @@ import { SelectItem } from '../BaseSelect/SelectItem/SelectItem';
 import { SelectEmptyItem } from '../BaseSelect/SelectEmptyItem/SelectEmptyItem';
 import { baseStyles } from './Select.baseStyles';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
+import { SelectAriaStatus } from '../BaseSelect/AriaStatus/AriaStatus';
 
 const baseClassName = 'fi-select';
 const selectClassNames = {
@@ -71,6 +72,10 @@ export interface SelectProps<T extends SelectData> {
   selectedItem?: T & SelectData;
   /** Selecting the item will send event with the id */
   onItemSelect?: (uniqueItemId: string | null) => void;
+  /** Text for screen reader indicating the amount of available options after filtering by typing. Will be read after the amount.
+   * E.g 'options available' as prop value would result in '{amount} options available' being read by screen reader upon removal.
+   */
+  ariaOptionsAvailableText: string;
 }
 
 interface SelectState<T extends SelectData> {
@@ -282,6 +287,7 @@ class BaseSelect<T> extends Component<
       statusText,
       selectedItem: controlledItem,
       clearButtonLabel,
+      ariaOptionsAvailableText,
       onItemSelect,
       ...passProps
     } = this.props;
@@ -290,6 +296,7 @@ class BaseSelect<T> extends Component<
       ? `${id}-${focusedDescendantId}`
       : '';
     const popoverItemListId = `${id}-popover`;
+    const ariaStatusId = `${id}-aria-status`;
 
     return (
       <>
@@ -353,7 +360,7 @@ class BaseSelect<T> extends Component<
                     status={status}
                     statusText={statusText}
                     aria-controls={popoverItemListId}
-                    aria-describedby={`${id}-selectedItems-length`}
+                    aria-describedby={ariaStatusId}
                   />
                   {!filterInputValue && (
                     <HtmlSpan className={selectClassNames.selectedValue}>
@@ -419,6 +426,12 @@ class BaseSelect<T> extends Component<
               )}
             </Popover>
           </HtmlDiv>
+          <SelectAriaStatus
+            id={ariaStatusId}
+            ariaLiveMode="assertive"
+            debounce={1500}
+            status={`${filteredItems.length} ${ariaOptionsAvailableText}`}
+          />
         </HtmlDiv>
       </>
     );

@@ -87,6 +87,7 @@ const BasicCombobox = (
     visualPlaceholder="Choose your tool(s)"
     noItemsText="No items"
     defaultSelectedItem={defaultSelectedTool}
+    ariaOptionsAvailableText="Options available"
   />
 );
 

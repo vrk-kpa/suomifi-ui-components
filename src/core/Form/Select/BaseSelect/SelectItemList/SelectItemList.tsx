@@ -69,6 +69,7 @@ class BaseSelectItemList extends Component<
       children,
       onBlur,
       id,
+      focusedDescendantId,
       ...passProps
     } = this.props;
     return (
