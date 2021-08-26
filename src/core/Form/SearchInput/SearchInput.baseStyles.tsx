@@ -148,17 +148,17 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     & .fi-search-input_button {
-      &:focus {
-        &:after {
-          ${theme.focus.absoluteFocus}
-        }
-      }
       cursor: pointer;
       pointer-events: all;
     }
 
     & .fi-search-input_button-search {
       background: ${theme.gradients.highlightBaseToHighlightDark1};
+      &:focus {
+        &:after {
+          ${theme.focus.absoluteFocus}
+        }
+      }
       &:hover {
         background: ${theme.gradients.highlightLight1ToHighlightBase};
       }
