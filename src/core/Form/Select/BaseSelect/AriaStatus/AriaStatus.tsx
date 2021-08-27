@@ -22,12 +22,10 @@ export const SelectAriaStatus = (props: SelectAriaStatusProps) => {
   } = props;
 
   useEffect(() => {
-    console.log('useEffect');
     clearTimeout(timeoutId as any);
     setEffectiveStatus('');
     setTimeOutId(
       setTimeout(() => {
-        console.log('setEffectiveStatus', status);
         setEffectiveStatus(status);
       }, debounce),
     );
@@ -42,7 +40,7 @@ export const SelectAriaStatus = (props: SelectAriaStatusProps) => {
   return (
     <VisuallyHidden>
       <HtmlSpan
-        aria-atomic="true"
+        aria-atomic="false"
         aria-relevant="all"
         aria-live={ariaLiveMode}
         {...passProps}

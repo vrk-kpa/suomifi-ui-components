@@ -428,8 +428,7 @@ class BaseSelect<T> extends Component<
           </HtmlDiv>
           <SelectAriaStatus
             id={ariaStatusId}
-            ariaLiveMode="assertive"
-            debounce={1500}
+            debounce={150}
             status={`${filteredItems.length} ${ariaOptionsAvailableText}`}
           />
         </HtmlDiv>
