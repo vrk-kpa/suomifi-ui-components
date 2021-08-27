@@ -94,6 +94,10 @@ module.exports = {
               components: getComponents(['Text', 'Paragraph']),
             },
             {
+              name: 'Alert',
+              components: getComponents(['Alert']),
+            },
+            {
               name: 'RadioButton',
               components: getComponentWithVariants('Form/RadioButton')([
                 'RadioButton',
