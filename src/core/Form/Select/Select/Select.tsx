@@ -13,7 +13,7 @@ import { SelectItem } from '../BaseSelect/SelectItem/SelectItem';
 import { SelectEmptyItem } from '../BaseSelect/SelectEmptyItem/SelectEmptyItem';
 import { baseStyles } from './Select.baseStyles';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
-import { SelectAriaStatus } from '../BaseSelect/AriaStatus/AriaStatus';
+import { SelectAriaStatus } from '../BaseSelect/SelectAriaStatus/SelectAriaStatus';
 
 const baseClassName = 'fi-select';
 const selectClassNames = {

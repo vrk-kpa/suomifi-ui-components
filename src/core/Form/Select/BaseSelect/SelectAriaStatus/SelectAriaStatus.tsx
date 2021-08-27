@@ -1,6 +1,6 @@
 import React, { ReactNode, useState, useEffect } from 'react';
 import { HtmlSpan, HtmlSpanProps } from '../../../../../reset';
-import { AriaLiveMode } from '../../../../Form/types';
+import { AriaLiveMode } from '../../../types';
 import { VisuallyHidden } from '../../../../VisuallyHidden/VisuallyHidden';
 
 export interface SelectAriaStatusProps extends HtmlSpanProps {

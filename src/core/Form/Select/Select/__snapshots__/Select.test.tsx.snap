@@ -589,8 +589,8 @@ exports[`has matching snapshot 1`] = `
     class="c4 c9 fi-visually-hidden"
   >
     <span
-      aria-atomic="true"
-      aria-live="assertive"
+      aria-atomic="false"
+      aria-live="polite"
       aria-relevant="all"
       class="c4"
       id="2-aria-status"
