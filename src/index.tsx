@@ -5,6 +5,7 @@ export {
   BreadcrumbLink,
   BreadcrumbLinkProps,
 } from './core/Breadcrumb';
+export { Alert, AlertProps } from './core/Alert/Alert';
 export { Block, BlockProps } from './core/Block/Block';
 export { Button, ButtonProps } from './core/Button/Button';
 export { Dropdown, DropdownProps } from './core/Dropdown/';
