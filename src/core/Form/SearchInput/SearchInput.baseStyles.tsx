@@ -162,7 +162,7 @@ export const baseStyles = css`
       &:active {
         background-color: ${theme.colors.highlightDark1};
       }
-      & .fi-search-input_button-search-icon {
+      & .fi-search-input_button-search-icon .fi-icon-base-fill {
         fill: ${theme.colors.whiteBase};
       }
     }
