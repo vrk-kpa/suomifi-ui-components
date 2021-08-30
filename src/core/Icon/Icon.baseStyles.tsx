@@ -1,21 +1,31 @@
 import { css } from 'styled-components';
 
-export const iconBaseStyles = ({ color }: { color?: string }) => css`
-  display: inline-block;
-  vertical-align: baseline;
+export const iconBaseStyles = ({
+  color,
+  fill,
+}: {
+  color?: string;
+  fill: string;
+}) => {
+  const resolvedColor = fill ?? color ?? 'currentColor';
 
-  ${!!color &&
-  `.fi-icon-base-fill {
-    fill: ${color};
-  }
-  .fi-icon-base-stroke {
-    stroke: ${color}
-  }`}
+  return css`
+    display: inline-block;
+    vertical-align: baseline;
 
-  &.fi-icon--cursor-pointer {
-    cursor: pointer;
-    & * {
-      cursor: inherit;
+    .fi-icon-base-fill {
+      fill: ${resolvedColor};
     }
-  }
-`;
+
+    .fi-icon-base-stroke {
+      stroke: ${resolvedColor};
+    }
+
+    &.fi-icon--cursor-pointer {
+      cursor: pointer;
+      & * {
+        cursor: inherit;
+      }
+    }
+  `;
+};
