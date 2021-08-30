@@ -35,6 +35,14 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
 }
 
+.c2 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c2 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
 .c2.fi-icon--cursor-pointer {
   cursor: pointer;
 }
@@ -73,6 +81,9 @@ exports[`calling render with the same component on the same container does not r
   -ms-transform: translateY(0.2em);
   transform: translateY(0.2em);
   margin-left: 10px;
+}
+
+.c1 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button > .fi-language-menu-language_icon .fi-icon-base-fill {
   fill: hsl(212,63%,45%);
 }
 
@@ -127,7 +138,6 @@ exports[`calling render with the same component on the same container does not r
       <svg
         aria-hidden="true"
         class="fi-icon c2 fi-language-menu-language_icon"
-        fill="currentColor"
         focusable="false"
         height="1em"
         viewBox="0 0 24 24"
@@ -135,7 +145,10 @@ exports[`calling render with the same component on the same container does not r
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M13 15.6c-.3.3-.6.4-1 .4s-.7-.1-1-.4l-5.6-5.3c-.5-.5-.5-1.4 0-1.9s1.4-.5 2 0l4.6 4.4 4.6-4.4c.5-.5 1.4-.5 2 0 .5.5.5 1.4 0 1.9L13 15.6z"
+          class="fi-icon-base-fill"
+          d="M12.99 15.61c-.273.26-.632.39-.99.39s-.717-.13-.99-.39l-5.6-5.334a1.287 1.287 0 010-1.885 1.448 1.448 0 011.98 0l4.61 4.39 4.61-4.39a1.448 1.448 0 011.98 0c.547.52.547 1.365 0 1.885l-5.6 5.333z"
+          fill="#292929"
+          fill-rule="evenodd"
         />
       </svg>
     </button>
