@@ -102,7 +102,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         &-icon {
           width: 12px;
           height: 12px;
-          fill: ${theme.colors.highlightDark1};
+          & .fi-icon-base-fill {
+            fill: ${theme.colors.highlightDark1};
+          }
         }
       }
 
@@ -115,7 +117,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         &-icon {
           width: 18px;
           height: 18px;
-          fill: ${theme.colors.depthDark1};
+          & .fi-icon-base-fill {
+            fill: ${theme.colors.depthDark1};
+          }
         }
       }
     }
