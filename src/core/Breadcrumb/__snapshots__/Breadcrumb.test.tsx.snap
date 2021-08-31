@@ -291,6 +291,9 @@ exports[`calling render with the same component on the same container does not r
   -ms-transform: translateY(0.2em);
   transform: translateY(0.2em);
   margin: 0 4px;
+}
+
+.c1 .fi-breadcrumb_icon .fi-icon-base-fill {
   fill: hsl(202,7%,40%);
 }
 

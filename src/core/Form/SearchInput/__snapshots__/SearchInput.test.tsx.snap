@@ -422,6 +422,9 @@ exports[`snapshot should have matching default structure 1`] = `
 .c1 .fi-search-input_button-clear-icon {
   width: 12px;
   height: 12px;
+}
+
+.c1 .fi-search-input_button-clear-icon .fi-icon-base-fill {
   fill: hsl(212,63%,37%);
 }
 
@@ -436,6 +439,9 @@ exports[`snapshot should have matching default structure 1`] = `
 .c1 .fi-search-input_button-search-icon {
   width: 18px;
   height: 18px;
+}
+
+.c1 .fi-search-input_button-search-icon .fi-icon-base-fill {
   fill: hsl(202,7%,40%);
 }
 
