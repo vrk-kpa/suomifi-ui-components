@@ -533,6 +533,7 @@ exports[`has matching snapshot 1`] = `
             class="c0 fi-filter-input_input-element-container"
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="2-popover"
               aria-describedby="2-aria-status"
@@ -542,9 +543,10 @@ exports[`has matching snapshot 1`] = `
               class="c5 fi-filter-input_input"
               id="1"
               placeholder=""
+              readonly=""
               spellcheck="false"
               type="text"
-              value=""
+              value="Hammer"
             />
           </div>
           <span
@@ -555,11 +557,6 @@ exports[`has matching snapshot 1`] = `
         </div>
       </div>
     </div>
-    <span
-      class="c4 fi-select_selected-value"
-    >
-      Hammer
-    </span>
     <button
       class="c7 fi-clear-button c8 fi-select_clear-button"
       type="button"
