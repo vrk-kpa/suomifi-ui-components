@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlSpan } from '../../../../reset';
+import { HtmlDiv } from '../../../../reset';
 import { getOwnerDocument } from '../../../../utils/common';
 import { AutoId } from '../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../utils/Debounce/Debounce';
@@ -94,8 +94,6 @@ class BaseSelect<T> extends Component<
 
   private filterInputRef: React.RefObject<HTMLInputElement>;
 
-  private preventPopupToggle = false;
-
   constructor(props: SelectProps<T & SelectData> & SuomifiThemeProp) {
     super(props);
     this.popoverListRef = React.createRef();
@@ -103,7 +101,9 @@ class BaseSelect<T> extends Component<
   }
 
   state: SelectState<T & SelectData> = {
-    filterInputValue: '',
+    filterInputValue: this.props.selectedItem?.labelText
+      ? this.props.selectedItem.labelText
+      : this.props.defaultSelectedItem?.labelText || '',
     filteredItems: this.props.items,
     showPopover: false,
     focusedDescendantId: null,
@@ -151,19 +151,11 @@ class BaseSelect<T> extends Component<
       const focusInCombobox = focusInPopover || focusInInput;
       this.setState({ showPopover: focusInCombobox });
       if (!focusInCombobox) {
-        this.resetInputValue();
+        this.setState((prevState: SelectState<T & SelectData>) => ({
+          filterInputValue: prevState.selectedItem?.labelText,
+        }));
       }
     });
-  };
-
-  private focusToMenu = () => {
-    if (
-      this.popoverListRef !== null &&
-      this.popoverListRef.current !== null &&
-      this.state.showPopover
-    ) {
-      this.popoverListRef.current.focus();
-    }
   };
 
   private focusToInputAndCloseMenu = () => {
@@ -173,17 +165,13 @@ class BaseSelect<T> extends Component<
     }
   };
 
-  private resetInputValue = () => {
-    this.setState({ filterInputValue: '' });
-  };
-
   private handleItemSelection = (item: (T & SelectData) | null) => {
     if (item !== null && item.disabled) return;
     const { onItemSelect, onItemSelectionChange, selectedItem } = this.props;
     if (!selectedItem) {
       this.setState({
         selectedItem: item || null,
-        filterInputValue: '',
+        filterInputValue: item?.labelText || '',
       });
     }
     if (!!onItemSelect) {
@@ -196,24 +184,26 @@ class BaseSelect<T> extends Component<
   };
 
   private handleKeyDown = (event: React.KeyboardEvent) => {
-    const { filteredItems: items, focusedDescendantId } = this.state;
-    const index = items.findIndex(
+    const { filteredItems, focusedDescendantId, selectedItem } = this.state;
+    const popoverItems = !!selectedItem ? this.props.items : filteredItems;
+
+    const index = popoverItems.findIndex(
       ({ uniqueItemId }) => uniqueItemId === focusedDescendantId,
     );
 
-    const getNextIndex = () => (index + 1) % items.length;
-    const getPreviousIndex = () => (index - 1 + items.length) % items.length;
+    const getNextIndex = () => (index + 1) % popoverItems.length;
+    const getPreviousIndex = () =>
+      (index - 1 + popoverItems.length) % popoverItems.length;
 
-    const getNextItem = () => items[getNextIndex()];
-    const getPreviousItem = () => items[getPreviousIndex()];
+    const getNextItem = () => popoverItems[getNextIndex()];
+    const getPreviousItem = () => popoverItems[getPreviousIndex()];
 
     switch (event.key) {
       case 'ArrowDown': {
         event.preventDefault();
-        this.focusToMenu();
+
         if (!this.state.showPopover) {
           this.setState({ showPopover: true });
-          this.focusToMenu();
         }
         const nextItem = getNextItem();
         if (nextItem) {
@@ -224,7 +214,6 @@ class BaseSelect<T> extends Component<
 
       case 'ArrowUp': {
         event.preventDefault();
-        this.focusToMenu();
         const previousItem = getPreviousItem();
         if (previousItem) {
           this.setState({ focusedDescendantId: previousItem.uniqueItemId });
@@ -235,7 +224,7 @@ class BaseSelect<T> extends Component<
       case 'Enter': {
         event.preventDefault();
         if (focusedDescendantId) {
-          const focusedItem = items.find(
+          const focusedItem = popoverItems.find(
             ({ uniqueItemId }) => uniqueItemId === focusedDescendantId,
           );
           if (focusedItem) {
@@ -247,16 +236,14 @@ class BaseSelect<T> extends Component<
 
       case 'Escape': {
         event.preventDefault();
-        this.resetInputValue();
+        if (!this.state.selectedItem) {
+          this.setState({ filterInputValue: '' });
+        }
         this.focusToInputAndCloseMenu();
         break;
       }
 
       default: {
-        if (this.filterInputRef && this.filterInputRef.current) {
-          this.filterInputRef.current.focus();
-          this.setState({ showPopover: true });
-        }
         break;
       }
     }
@@ -298,6 +285,8 @@ class BaseSelect<T> extends Component<
     const popoverItemListId = `${id}-popover`;
     const ariaStatusId = `${id}-aria-status`;
 
+    const popoverItems = !!selectedItem ? propItems : filteredItems;
+
     return (
       <>
         <HtmlDiv
@@ -317,56 +306,42 @@ class BaseSelect<T> extends Component<
               {(debouncer: Function) => (
                 <>
                   <FilterInput
+                    readOnly={!!selectedItem}
+                    aria-activedescendant={ariaActiveDescendant}
                     id={id}
+                    aria-controls={popoverItemListId}
+                    aria-describedby={ariaStatusId}
                     labelText={labelText}
                     items={propItems}
                     onFilter={(filtered) =>
                       this.setState({ filteredItems: filtered })
                     }
-                    onMouseDown={() => {
-                      if (
-                        !!document &&
-                        document.activeElement &&
-                        this.filterInputRef.current !== document.activeElement
-                      ) {
-                        this.preventPopupToggle = true;
-                      }
-                      this.setState(
-                        (prevState: SelectState<T & SelectData>) => ({
-                          showPopover: !prevState.showPopover,
-                        }),
-                      );
-                    }}
-                    onMouseUp={() => {
-                      this.preventPopupToggle = false;
-                    }}
                     filterFunc={this.filter}
                     forwardedRef={this.filterInputRef}
                     onFocus={() => {
-                      if (!this.preventPopupToggle) {
-                        this.setState({ showPopover: true });
-                      }
+                      this.setState({ showPopover: true });
+                    }}
+                    onClick={() => {
+                      this.setState({ showPopover: true });
                     }}
                     onKeyDown={this.handleKeyDown}
                     onBlur={this.handleBlur}
                     value={filterInputValue}
                     onChange={(value: string) => {
-                      if (propOnChange) {
-                        debouncer(propOnChange, value);
+                      if (!selectedItem) {
+                        if (propOnChange) {
+                          debouncer(propOnChange, value);
+                        }
+                        this.setState({
+                          filterInputValue: value,
+                          showPopover: true,
+                        });
                       }
-                      this.setState({ filterInputValue: value });
                     }}
                     visualPlaceholder={!selectedItem ? visualPlaceholder : ''}
                     status={status}
                     statusText={statusText}
-                    aria-controls={popoverItemListId}
-                    aria-describedby={ariaStatusId}
                   />
-                  {!filterInputValue && (
-                    <HtmlSpan className={selectClassNames.selectedValue}>
-                      {selectedItem?.labelText}
-                    </HtmlSpan>
-                  )}
                   {!!selectedItem && (
                     <ClearButton
                       className={selectClassNames.clearButton}
@@ -392,10 +367,9 @@ class BaseSelect<T> extends Component<
                   id={popoverItemListId}
                   forwardRef={this.popoverListRef}
                   focusedDescendantId={{ id: ariaActiveDescendant }}
-                  aria-activedescendant={ariaActiveDescendant}
                 >
-                  {filteredItems.length > 0 ? (
-                    filteredItems.map((item) => {
+                  {popoverItems.length > 0 ? (
+                    popoverItems.map((item) => {
                       const isCurrentlySelected =
                         item.uniqueItemId === focusedDescendantId;
 
@@ -429,7 +403,7 @@ class BaseSelect<T> extends Component<
           <SelectAriaStatus
             id={ariaStatusId}
             debounce={150}
-            status={`${filteredItems.length} ${ariaOptionsAvailableText}`}
+            status={`${popoverItems.length} ${ariaOptionsAvailableText}`}
           />
         </HtmlDiv>
       </>

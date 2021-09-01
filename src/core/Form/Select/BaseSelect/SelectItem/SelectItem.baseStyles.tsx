@@ -24,29 +24,36 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
-    &--disabled {
-      color: ${theme.colors.depthBase};
-      cursor: not-allowed;
-
-      &.fi-select-item:hover {
-        color: ${theme.colors.depthBase};
-      }
-    }
-
     &--hasKeyboardFocus {
       background-color: ${theme.colors.highlightBase};
       color: ${theme.colors.whiteBase};
 
       & .fi-select-item--query_highlight {
         color: ${theme.colors.whiteBase};
-
         background-color: ${theme.colors.highlightBase};
+      }
+    }
+
+    &--disabled {
+      color: ${theme.colors.depthBase};
+      cursor: not-allowed;
+
+      & .fi-select-item--query_highlight {
+        color: ${theme.colors.depthBase};
+      }
+
+      &.fi-select-item:hover {
+        color: ${theme.colors.depthBase};
+        & .fi-select-item--query_highlight {
+          color: ${theme.colors.depthBase};
+        }
       }
     }
 
     &:hover {
       background-color: ${theme.colors.highlightBase};
       color: ${theme.colors.whiteBase};
+      /* stylelint-disable no-descending-specificity */
       & .fi-select-item--query_highlight {
         color: ${theme.colors.whiteBase};
       }
