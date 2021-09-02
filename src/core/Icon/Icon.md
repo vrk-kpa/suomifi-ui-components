@@ -1,14 +1,33 @@
-- Uses currentColor by default if no `fill` or `color` prop is given.
+- Uses currentColor by default if no `fill` or `color` prop is given
+- Icons can be styled via props or internal classes.
 
 ```jsx
 import { Icon } from 'suomifi-ui-components';
 
 <>
-  <Icon
-    icon="login"
-    ariaLabel="Login here"
-    className="my-icon--test"
-  />
+  <Icon icon="login" ariaLabel="Login here" className="custom-icon" />
+  <div style={{ color: 'orange' }}>
+    <Icon
+      icon="search"
+      ariaLabel="Search"
+      className="my-icon--test"
+    />
+  </div>
+  <Icon icon="checkSelected" ariaLabel="Selected" color="green" />
+</>;
+```
+
+```jsx
+import { Icon } from 'suomifi-ui-components';
+
+/**
+ .fi-icon.custom-icon .fi-icon-base-fill {
+   fill: red;
+ }
+*/
+
+<>
+  <Icon icon="login" ariaLabel="Login here" className="custom-icon" />
   <div style={{ color: 'orange' }}>
     <Icon
       icon="login"
