@@ -5,17 +5,21 @@
 import { Icon } from 'suomifi-ui-components';
 
 <>
-  <Icon icon="login" ariaLabel="Login here" className="custom-icon" />
+  <Icon
+    icon="login"
+    ariaLabel="Login here"
+    className="my-icon-class"
+  />
+
   <div style={{ color: 'orange' }}>
-    <Icon
-      icon="search"
-      ariaLabel="Search"
-      className="my-icon--test"
-    />
+    <Icon icon="search" ariaLabel="Search" />
   </div>
+
   <Icon icon="checkSelected" ariaLabel="Selected" color="green" />
 </>;
 ```
+
+### Styling using classNames
 
 ```jsx
 import { Icon } from 'suomifi-ui-components';
@@ -28,6 +32,7 @@ import { Icon } from 'suomifi-ui-components';
 
 <>
   <Icon icon="login" ariaLabel="Login here" className="custom-icon" />
+
   <div style={{ color: 'orange' }}>
     <Icon
       icon="login"
