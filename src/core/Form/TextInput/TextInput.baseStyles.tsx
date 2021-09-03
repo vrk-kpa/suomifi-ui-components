@@ -98,7 +98,7 @@ export const baseStyles = css`
       color: ${theme.colors.depthBase};
       background-color: ${theme.colors.depthLight3};
     }
-    & .fi-icon {
+    & .fi-icon-base-fill {
       fill: ${theme.colors.depthBase};
     }
   }

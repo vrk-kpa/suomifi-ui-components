@@ -32,7 +32,9 @@ export const baseStyles = css`
     &_icon {
       transform: translateY(0.2em);
       margin: 0 ${theme.spacing.insetXs};
-      fill: ${theme.colors.depthDark1};
+      & .fi-icon-base-fill {
+        fill: ${theme.colors.depthDark1};
+      }
     }
   }
 `;

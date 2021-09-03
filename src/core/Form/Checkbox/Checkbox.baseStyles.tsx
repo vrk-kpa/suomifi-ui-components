@@ -10,7 +10,7 @@ const checkedStyles = css`
       &::before {
         border-color: ${theme.colors.highlightBase};
       }
-      & > .fi-checkbox_icon {
+      & > .fi-checkbox_icon .fi-icon-base-fill {
         fill: ${theme.colors.highlightBase};
       }
     }
@@ -27,7 +27,7 @@ const disabledStyles = css`
         border-color: ${theme.colors.depthLight1};
         border-width: 1px;
       }
-      & > .fi-checkbox_icon {
+      & > .fi-checkbox_icon .fi-icon-base-fill {
         fill: ${theme.colors.depthLight1};
       }
     }
@@ -46,7 +46,7 @@ const errorStyles = css`
         border-color: ${theme.colors.alertBase};
         border-width: 2px;
       }
-      & > .fi-checkbox_icon {
+      & > .fi-checkbox_icon .fi-icon-base-fill {
         fill: ${theme.colors.alertBase};
       }
     }

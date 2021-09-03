@@ -18,6 +18,10 @@ export interface IconBaseProps {
   ariaLabel?: string;
   /** Show mouse cursor as hand-pointer */
   mousePointer?: boolean;
+  /** Custom fill color */
+  color?: string;
+  /** Custom fill color, takes precedence over color if both are provided */
+  fill?: string;
   testId?: string;
 }
 
@@ -61,13 +65,11 @@ const StyledSuomifiIcon = styled(
  */
 export class Icon extends Component<IconProps> {
   render() {
-    const { color, icon, ...passProps } = this.props;
+    const { icon, ...passProps } = this.props;
     const { className, ariaLabel } = this.props;
 
-    const iconColor = color !== undefined ? color : 'currentColor';
-
     if (icon !== undefined) {
-      return <StyledSuomifiIcon {...passProps} icon={icon} color={iconColor} />;
+      return <StyledSuomifiIcon {...passProps} icon={icon} />;
     }
 
     iconLogger(ariaLabel, className);
