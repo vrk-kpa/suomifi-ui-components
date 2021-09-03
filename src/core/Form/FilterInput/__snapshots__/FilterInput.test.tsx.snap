@@ -30,7 +30,7 @@ exports[`snapshot matches 1`] = `
   box-sizing: border-box;
 }
 
-.c4 {
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -53,13 +53,13 @@ exports[`snapshot matches 1`] = `
   max-width: 100%;
 }
 
-.c4::-webkit-input-placeholder {
+.c5::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c4::before,
-.c4::after {
+.c5::before,
+.c5::after {
   box-sizing: border-box;
 }
 
@@ -92,6 +92,18 @@ exports[`snapshot matches 1`] = `
   box-sizing: border-box;
 }
 
+.c4 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
 .c2.fi-label-text .fi-label-text_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -118,7 +130,7 @@ exports[`snapshot matches 1`] = `
   font-weight: 400;
 }
 
-.c5.fi-status-text {
+.c6.fi-status-text {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -137,11 +149,11 @@ exports[`snapshot matches 1`] = `
   line-height: 20px;
 }
 
-.c5.fi-status-text.fi-status-text--error {
+.c6.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
 }
 
-.c5.fi-status-text.fi-status-text--hasContent {
+.c6.fi-status-text.fi-status-text--hasContent {
   margin-top: 5px;
 }
 
@@ -305,6 +317,9 @@ exports[`snapshot matches 1`] = `
         class="c3 fi-label-text_label-span"
       >
         Label
+        <span
+          class="c3 c4 fi-visually-hidden"
+        />
       </span>
     </label>
     <div
@@ -318,7 +333,7 @@ exports[`snapshot matches 1`] = `
           aria-multiline="false"
           autocapitalize="none"
           autocomplete="off"
-          class="c4 fi-filter-input_input"
+          class="c5 fi-filter-input_input"
           id="1"
           spellcheck="false"
           type="text"
@@ -327,7 +342,7 @@ exports[`snapshot matches 1`] = `
       <span
         aria-atomic="true"
         aria-live="assertive"
-        class="c3 c5 fi-status-text"
+        class="c3 c6 fi-status-text"
       />
     </div>
   </div>
