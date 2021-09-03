@@ -79,10 +79,12 @@ const defaultSelectedTool = {
 
 <>
   <Select
-    labelText="Select"
+    labelText="Tool"
+    clearButtonLabel="Clear selection"
+    ariaFilterInstructionText="To clear selected option, use following button. When no option is selected, type to filter options."
     items={tools}
-    visualPlaceholder="Choose your tool(s)"
-    noItemsText="No items"
+    visualPlaceholder="Choose a tool"
+    noItemsText="No matching options"
     defaultSelectedItem={defaultSelectedTool}
     ariaOptionsAvailableText="Options available"
   />
@@ -115,9 +117,11 @@ const animals = [
   <Select
     items={animals}
     selectedItem={selectedAnimal}
-    labelText="Animals"
-    noItemsText="No animals"
-    visualPlaceholder="Try to choose animal(s)"
+    clearButtonLabel="Clear selection"
+    ariaFilterInstructionText="Select an option. To clear selected option, use following button. When no option is selected, type to filter options."
+    labelText="Animal"
+    noItemsText="No matching options"
+    visualPlaceholder="Try to choose animal"
     ariaOptionsAvailableText="Options available"
   />
 

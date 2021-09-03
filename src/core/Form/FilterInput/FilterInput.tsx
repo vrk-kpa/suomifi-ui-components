@@ -14,6 +14,7 @@ import { getConditionalAriaProp } from '../../../utils/aria';
 import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
+import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { baseStyles } from './FilterInput.baseStyles';
 
 const baseClassName = 'fi-filter-input';
@@ -46,6 +47,8 @@ interface InternalFilterInputProps<T>
    * @default visible
    */
   labelMode?: LabelMode;
+  /**  */
+  ariaAdditionalLabelText?: string;
   /** Text to mark a field optional. Will be wrapped in parentheses and shown after labelText. */
   optionalText?: string;
   /** Hint text to be shown below the label */
@@ -108,6 +111,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       inputContainerProps,
       visualPlaceholder,
       labelText,
+      ariaAdditionalLabelText,
       labelMode,
       hintText,
       optionalText,
@@ -161,6 +165,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
             optionalText={optionalText}
           >
             {labelText}
+            <VisuallyHidden>{ariaAdditionalLabelText}</VisuallyHidden>
           </LabelText>
           <HintText id={hintTextId}>{hintText}</HintText>
           <HtmlDiv className={filterInputClassNames.functionalityContainer}>

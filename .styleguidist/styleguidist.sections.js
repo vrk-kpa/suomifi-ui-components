@@ -127,7 +127,7 @@ module.exports = {
             {
               name: 'Select',
               components: getComponentWithVariants('Form/Select')([
-                'Select/Select',
+                'Select/Select/Select',
               ]),
             },
           ],

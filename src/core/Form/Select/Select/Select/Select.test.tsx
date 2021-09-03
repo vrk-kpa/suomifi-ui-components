@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, act } from '@testing-library/react';
-import { axeTest } from '../../../../utils/test/axe';
+import { axeTest } from '../../../../../utils/test/axe';
 import { Select } from './Select';
 
 const tools = [
@@ -88,6 +88,7 @@ const BasicCombobox = (
     noItemsText="No items"
     defaultSelectedItem={defaultSelectedTool}
     ariaOptionsAvailableText="Options available"
+    ariaFilterInstructionText="Type to filter options, clear selection using the following button to enable filter."
   />
 );
 

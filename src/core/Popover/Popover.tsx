@@ -10,7 +10,7 @@ export interface PopoverProps extends HtmlDivProps {
   placement?: 'top' | 'bottom';
   matchWidth?: boolean;
   allowFlip?: boolean;
-  onClickOutside?: () => void;
+  onClickOutside?: (event: MouseEvent) => void;
 }
 
 const sameWidth: any = {
@@ -77,7 +77,7 @@ export const Popover = (props: PopoverProps) => {
       !sourceRef?.current?.contains(nativeEvent.target as Node) &&
       !!onClickOutside
     ) {
-      onClickOutside();
+      onClickOutside(nativeEvent);
     }
   };
 
