@@ -24,6 +24,7 @@ const selectClassNames = {
   valueSelected: `${baseClassName}--value-selected`,
   contentWrapper: `${baseClassName}_content_wrapper`,
   selectedValue: `${baseClassName}_selected-value`,
+  clearButtonWrapper: `${baseClassName}_clear-button_wrapper`,
   clearButton: `${baseClassName}_clear-button`,
   toggleButton: `${baseClassName}_toggle-button`,
   open: `${baseClassName}--open`,
@@ -168,10 +169,16 @@ class BaseSelect<T> extends Component<
       const focusInClearButton = this.clearButtonRef.current?.contains(
         ownerDocument.activeElement,
       );
+      const focusInToggleButton = this.toggleButtonRef.current?.contains(
+        ownerDocument.activeElement,
+      );
       const focusInInput =
         ownerDocument.activeElement === this.filterInputRef.current;
       const focusInCombobox =
-        focusInPopover || focusInInput || focusInClearButton;
+        focusInPopover ||
+        focusInInput ||
+        focusInClearButton ||
+        focusInToggleButton;
       this.setState({ showPopover: focusInCombobox });
       if (!focusInCombobox) {
         this.setState((prevState: SelectState<T & SelectData>) => ({
@@ -379,13 +386,15 @@ class BaseSelect<T> extends Component<
                     statusText={statusText}
                   />
                   {!!selectedItem && (
-                    <ClearButton
-                      forwardedRef={this.clearButtonRef}
-                      className={selectClassNames.clearButton}
-                      onClick={() => this.handleItemSelection(null)}
-                      onBlur={(event) => this.handleBlur(event)}
-                      label={clearButtonLabel}
-                    />
+                    <HtmlDiv className={selectClassNames.clearButtonWrapper}>
+                      <ClearButton
+                        forwardedRef={this.clearButtonRef}
+                        className={selectClassNames.clearButton}
+                        onClick={() => this.handleItemSelection(null)}
+                        onBlur={(event) => this.handleBlur(event)}
+                        label={clearButtonLabel}
+                      />
+                    </HtmlDiv>
                   )}
                   <SelectToggleButton
                     open={showPopover}
@@ -398,7 +407,6 @@ class BaseSelect<T> extends Component<
                         }),
                       );
                     }}
-                    onBlur={() => this.handleBlur}
                     aria-hidden={true}
                     tabIndex={-1}
                   />

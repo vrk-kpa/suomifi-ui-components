@@ -3,15 +3,14 @@ import { SuomifiTheme } from '../../../../theme';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-select-toggle-button {
-    width: 24px;
+    width: 38px;
     height: 20px;
     position: relative;
-    border-left: 1px solid ${theme.colors.depthBase};
 
     & .fi-select-toggle-button_button {
       position: absolute;
       top: 0;
-      right: 0;
+      right: 9px;
       cursor: pointer;
       pointer-events: all;
       height: 20px;
@@ -19,13 +18,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       display: flex;
       justify-content: center;
       align-items: center;
-
-      &:focus {
-        outline: none;
-        &:after {
-          ${theme.focus.absoluteFocus}
-        }
-      }
 
       & .fi-select-toggle-button_icon {
         pointer-events: none;

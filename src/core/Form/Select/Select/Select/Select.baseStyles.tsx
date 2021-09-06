@@ -8,12 +8,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     width: 290px;
 
     & .fi-filter-input_input {
-      padding-right: 40px;
+      padding-right: 38px;
     }
 
     &--value-selected {
       & .fi-filter-input_input {
-        padding-right: 64px;
+        padding-right: 75px;
       }
     }
   }
@@ -31,16 +31,23 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       padding: ${theme.spacing.insetM} 11px;
       line-height: 1;
     }
-    & .fi-select_clear-button {
-      position: absolute;
+    & .fi-select_clear-button_wrapper {
+      border-right: 1px solid ${theme.colors.depthBase};
+      width: 37px;
+      height: 20px;
       top: 43px;
       right: 38px;
+      position: absolute;
+      & .fi-select_clear-button {
+        position: absolute;
+        top: 0;
+        right: 8px;
+      }
     }
-
     & .fi-select_toggle-button {
       position: absolute;
       top: 43px;
-      right: 8px;
+      right: 0;
     }
   }
 
