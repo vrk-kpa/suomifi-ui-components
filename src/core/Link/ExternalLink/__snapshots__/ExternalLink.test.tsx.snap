@@ -6,6 +6,14 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
 }
 
+.c4 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c4 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
 .c4.fi-icon--cursor-pointer {
   cursor: pointer;
 }
@@ -83,20 +91,13 @@ exports[`calling render with the same component on the same container does not r
   box-sizing: border-box;
 }
 
-.c5 {
-  display: inline-block;
-  vertical-align: baseline;
-}
-
-.c5 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c5 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c5.fi-icon--cursor-pointer {
+.c0:hover,
+.c0:active,
+.c0:focus,
+.c0:focus-within {
+  color: inherit;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
   cursor: pointer;
 }
 
@@ -170,7 +171,7 @@ exports[`calling render with the same component on the same container does not r
   </span>
   <svg
     aria-hidden="true"
-    class="fi-icon c5 fi-link_icon"
+    class="fi-icon c4 fi-link_icon"
     focusable="false"
     height="1em"
     viewBox="0 0 24 24"
