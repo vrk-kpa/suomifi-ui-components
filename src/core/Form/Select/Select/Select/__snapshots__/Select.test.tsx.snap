@@ -556,7 +556,7 @@ exports[`has matching snapshot 1`] = `
             <span
               class="c4 c5 fi-visually-hidden"
             >
-              . Type to filter options, clear selection using the following button to enable filter.. 9 Options available
+              . 9 Options available.
             </span>
           </span>
         </label>
@@ -577,7 +577,6 @@ exports[`has matching snapshot 1`] = `
               class="c6 fi-filter-input_input"
               id="1"
               placeholder=""
-              readonly=""
               spellcheck="false"
               type="text"
               value="Hammer"

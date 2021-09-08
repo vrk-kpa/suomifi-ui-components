@@ -81,7 +81,6 @@ const defaultSelectedTool = {
   <Select
     labelText="Tool"
     clearButtonLabel="Clear selection"
-    ariaFilterInstructionText="To clear selected option, use following button. When no option is selected, type to filter options."
     items={tools}
     visualPlaceholder="Choose a tool"
     noItemsText="No matching options"
@@ -118,7 +117,6 @@ const animals = [
     items={animals}
     selectedItem={selectedAnimal}
     clearButtonLabel="Clear selection"
-    ariaFilterInstructionText="Select an option. To clear selected option, use following button. When no option is selected, type to filter options."
     labelText="Animal"
     noItemsText="No matching options"
     visualPlaceholder="Try to choose animal"

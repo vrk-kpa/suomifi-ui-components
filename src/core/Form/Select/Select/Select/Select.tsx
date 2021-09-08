@@ -66,11 +66,6 @@ export interface SelectProps<T extends SelectData> {
    * E.g 'options available' as prop value would result in '{amount} options available' being read by screen reader upon removal.
    */
   ariaOptionsAvailableText: string;
-  /**
-   * Text for screen readers instucting the use of component.
-   * E.g. "Type to filter options, clear selection with the following button to enable filter again."
-   */
-  ariaFilterInstructionText: string;
   /** Default selected items */
   defaultSelectedItem?: T & SelectData;
   /** Event sent when filter changes */
@@ -93,6 +88,7 @@ export interface SelectProps<T extends SelectData> {
 interface SelectState<T extends SelectData> {
   filterInputValue: string;
   filteredItems: T[];
+  filterMode: boolean;
   showPopover: boolean;
   focusedDescendantId: string | null;
   selectedItem: (T & SelectData) | null;
@@ -110,6 +106,8 @@ class BaseSelect<T> extends Component<
 
   private clearButtonRef: React.RefObject<HTMLButtonElement>;
 
+  private preventShowPopoverOnInputFocus = false;
+
   constructor(props: SelectProps<T & SelectData> & SuomifiThemeProp) {
     super(props);
     this.popoverListRef = React.createRef();
@@ -123,6 +121,7 @@ class BaseSelect<T> extends Component<
       ? this.props.selectedItem.labelText
       : this.props.defaultSelectedItem?.labelText || '',
     filteredItems: this.props.items,
+    filterMode: !!this.props.selectedItem || !!this.props.defaultSelectedItem,
     showPopover: false,
     focusedDescendantId: null,
     selectedItem: this.props.selectedItem
@@ -145,6 +144,10 @@ class BaseSelect<T> extends Component<
         selectedItem:
           'selectedItem' in nextProps ? selectedItem : prevState.selectedItem,
         filteredItems: propItems,
+        filterMode:
+          'selectedItem' in nextProps && selectedItem !== prevState.selectedItem
+            ? !selectedItem
+            : prevState.filterMode,
         initialItems: propItems,
       };
     }
@@ -166,33 +169,50 @@ class BaseSelect<T> extends Component<
       const focusInPopover = this.popoverListRef.current?.contains(
         ownerDocument.activeElement,
       );
-      const focusInClearButton = this.clearButtonRef.current?.contains(
-        ownerDocument.activeElement,
-      );
       const focusInToggleButton = this.toggleButtonRef.current?.contains(
         ownerDocument.activeElement,
       );
       const focusInInput =
         ownerDocument.activeElement === this.filterInputRef.current;
-      const focusInCombobox =
-        focusInPopover ||
-        focusInInput ||
-        focusInClearButton ||
-        focusInToggleButton;
-      this.setState({ showPopover: focusInCombobox });
-      if (!focusInCombobox) {
+      const focusInSelect =
+        focusInPopover || focusInInput || focusInToggleButton;
+      this.setState({ showPopover: focusInSelect });
+      if (!focusInSelect) {
         this.setState((prevState: SelectState<T & SelectData>) => ({
           filterInputValue: prevState.selectedItem?.labelText,
+          filterMode: false,
         }));
       }
     });
   };
 
-  private focusToInputAndCloseMenu = () => {
+  private handleOnChange = (value: string) => {
+    this.setState((prevState: SelectState<T & SelectData>) => {
+      const newValue =
+        prevState.filterMode || !prevState.selectedItem
+          ? value
+          : value.replace(
+              new RegExp(`^${prevState.selectedItem?.labelText}`),
+              '',
+            );
+      return {
+        filterInputValue: newValue,
+        showPopover: true,
+        filterMode: true,
+      };
+    });
+  };
+
+  private focusToInputAndSelectText = () => {
     if (!!this.filterInputRef && this.filterInputRef.current) {
       this.filterInputRef.current.focus();
-      this.setState({ showPopover: false });
+      setTimeout(() => this.filterInputRef.current?.select(), 100);
     }
+  };
+
+  private focusToInputAndCloseMenu = () => {
+    this.focusToInputAndSelectText();
+    this.setState({ showPopover: false, filterMode: false });
   };
 
   private handleItemSelection = (item: (T & SelectData) | null) => {
@@ -214,9 +234,8 @@ class BaseSelect<T> extends Component<
   };
 
   private handleKeyDown = (event: React.KeyboardEvent) => {
-    const { filteredItems, focusedDescendantId, selectedItem } = this.state;
-    const popoverItems = !!selectedItem ? this.props.items : filteredItems;
-
+    const { filteredItems, focusedDescendantId, filterMode } = this.state;
+    const popoverItems = !!filterMode ? filteredItems : this.props.items;
     const index = popoverItems.findIndex(
       ({ uniqueItemId }) => uniqueItemId === focusedDescendantId,
     );
@@ -281,7 +300,7 @@ class BaseSelect<T> extends Component<
     }
   };
 
-  private isToggleClick(event: MouseEvent | KeyboardEvent) {
+  private isOutsideClick(event: MouseEvent | KeyboardEvent) {
     return (
       !!this.toggleButtonRef &&
       (this.toggleButtonRef.current as Node).contains(event.target as Node)
@@ -291,6 +310,7 @@ class BaseSelect<T> extends Component<
   render() {
     const {
       filteredItems,
+      filterMode,
       showPopover,
       focusedDescendantId,
       filterInputValue,
@@ -314,7 +334,6 @@ class BaseSelect<T> extends Component<
       selectedItem: controlledItem,
       clearButtonLabel,
       ariaOptionsAvailableText,
-      ariaFilterInstructionText,
       onItemSelect,
       ...passProps
     } = this.props;
@@ -325,7 +344,7 @@ class BaseSelect<T> extends Component<
     const popoverItemListId = `${id}-popover`;
     const ariaStatusId = `${id}-aria-status`;
 
-    const popoverItems = !!selectedItem ? propItems : filteredItems;
+    const popoverItems = filterMode ? filteredItems : propItems;
 
     return (
       <>
@@ -346,9 +365,8 @@ class BaseSelect<T> extends Component<
               {(debouncer: Function) => (
                 <>
                   <FilterInput
-                    readOnly={!!selectedItem}
                     aria-activedescendant={ariaActiveDescendant}
-                    ariaAdditionalLabelText={`. ${ariaFilterInstructionText}. ${popoverItems.length} ${ariaOptionsAvailableText}`}
+                    ariaAdditionalLabelText={`. ${popoverItems.length} ${ariaOptionsAvailableText}.`}
                     id={id}
                     aria-controls={popoverItemListId}
                     aria-describedby={ariaStatusId}
@@ -360,26 +378,33 @@ class BaseSelect<T> extends Component<
                     filterFunc={this.filter}
                     forwardedRef={this.filterInputRef}
                     onFocus={() => {
-                      this.setState({ showPopover: true });
-                    }}
-                    onClick={(event) => {
-                      if (!this.isToggleClick((event as any) as MouseEvent)) {
+                      if (!this.preventShowPopoverOnInputFocus) {
                         this.setState({ showPopover: true });
                       }
+                      this.preventShowPopoverOnInputFocus = false;
+                    }}
+                    onClick={(event) => {
+                      if (!this.isOutsideClick((event as any) as MouseEvent)) {
+                        this.setState(
+                          (prevState: SelectState<T & SelectData>) => ({
+                            showPopover: true,
+                            filterInputValue: prevState.filterMode
+                              ? prevState.filterInputValue
+                              : '',
+                            filterMode: true,
+                          }),
+                        );
+                      }
+                      this.focusToInputAndSelectText();
                     }}
                     onKeyDown={this.handleKeyDown}
                     onBlur={this.handleBlur}
                     value={filterInputValue}
                     onChange={(value: string) => {
-                      if (!selectedItem) {
-                        if (propOnChange) {
-                          debouncer(propOnChange, value);
-                        }
-                        this.setState({
-                          filterInputValue: value,
-                          showPopover: true,
-                        });
+                      if (propOnChange) {
+                        debouncer(propOnChange, value);
                       }
+                      this.handleOnChange(value);
                     }}
                     visualPlaceholder={!selectedItem ? visualPlaceholder : ''}
                     status={status}
@@ -400,12 +425,15 @@ class BaseSelect<T> extends Component<
                     open={showPopover}
                     buttonRef={this.toggleButtonRef}
                     className={selectClassNames.toggleButton}
-                    onClick={() => {
+                    onClick={(event) => {
+                      event.preventDefault();
                       this.setState(
                         (prevState: SelectState<T & SelectData>) => ({
                           showPopover: !prevState.showPopover,
                         }),
                       );
+                      this.preventShowPopoverOnInputFocus = true;
+                      this.focusToInputAndSelectText();
                     }}
                     aria-hidden={true}
                     tabIndex={-1}
@@ -419,7 +447,7 @@ class BaseSelect<T> extends Component<
                 matchWidth={true}
                 onKeyDown={this.handleKeyDown}
                 onClickOutside={(event) => {
-                  if (!this.isToggleClick(event)) {
+                  if (!this.isOutsideClick(event)) {
                     this.setState({ showPopover: false });
                   }
                 }}

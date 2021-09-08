@@ -88,7 +88,6 @@ const BasicCombobox = (
     noItemsText="No items"
     defaultSelectedItem={defaultSelectedTool}
     ariaOptionsAvailableText="Options available"
-    ariaFilterInstructionText="Type to filter options, clear selection using the following button to enable filter."
   />
 );
 
