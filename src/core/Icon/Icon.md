@@ -57,7 +57,8 @@ import { suomifiDesignTokens } from 'suomifi-design-tokens';
 const StyledIcon = styled((props) => <Icon {...props} />)({
   height: '50px',
   width: 'auto',
-  margin: '8px'
+  margin: '8px',
+  color: `${suomifiDesignTokens.colors.depthDark1}`
 });
 
 <div>
@@ -67,7 +68,6 @@ const StyledIcon = styled((props) => <Icon {...props} />)({
       icon={icon}
       key={icon}
       onClick={() => clipboardCopy(icon)}
-      color={suomifiDesignTokens.colors.depthDark1}
     />
   ))}
 </div>;
