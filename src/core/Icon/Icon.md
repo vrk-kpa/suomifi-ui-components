@@ -1,4 +1,4 @@
-- Uses currentColor by default if no `fill` or `color` prop is given
+- Uses _currentColor_ by default if no `fill` or `color` prop is given
 - Icons can be styled via props or internal classes.
 
 ```jsx
@@ -34,11 +34,7 @@ import { Icon } from 'suomifi-ui-components';
   <Icon icon="login" ariaLabel="Login here" className="custom-icon" />
 
   <div style={{ color: 'orange' }}>
-    <Icon
-      icon="login"
-      ariaLabel="Login here"
-      className="my-icon--test"
-    />
+    <Icon icon="login" ariaLabel="Login here" />
   </div>
 </>;
 ```
@@ -61,8 +57,7 @@ import { suomifiDesignTokens } from 'suomifi-design-tokens';
 const StyledIcon = styled((props) => <Icon {...props} />)({
   height: '50px',
   width: 'auto',
-  margin: '8px',
-  fill: `${suomifiDesignTokens.colors.depthDark1}`
+  margin: '8px'
 });
 
 <div>
@@ -72,6 +67,7 @@ const StyledIcon = styled((props) => <Icon {...props} />)({
       icon={icon}
       key={icon}
       onClick={() => clipboardCopy(icon)}
+      color={suomifiDesignTokens.colors.depthDark1}
     />
   ))}
 </div>;
