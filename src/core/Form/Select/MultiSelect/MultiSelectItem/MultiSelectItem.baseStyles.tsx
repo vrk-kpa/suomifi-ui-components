@@ -4,9 +4,6 @@ import { SuomifiTheme } from '../../../../theme';
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-multiselect-item {
     &--selected {
-      background-color: ${theme.colors.depthSecondaryDark1};
-      color: ${theme.colors.blackBase};
-
       & .fi-multiselect-item_icon_wrapper {
         &::before {
           border-color: ${theme.colors.highlightBase};

@@ -419,6 +419,9 @@ exports[`has matching snapshot 1`] = `
 .c9.fi-clear-button .fi-clear-button_icon {
   width: 16px;
   height: 16px;
+}
+
+.c9.fi-clear-button .fi-clear-button_icon .fi-icon-base-fill {
   fill: hsl(212,63%,37%);
 }
 

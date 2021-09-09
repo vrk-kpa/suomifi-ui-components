@@ -20,7 +20,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-clear-button_icon {
       width: 16px;
       height: 16px;
-      fill: ${theme.colors.highlightDark1};
+      & .fi-icon-base-fill {
+        fill: ${theme.colors.highlightDark1};
+      }
     }
   }
 `;

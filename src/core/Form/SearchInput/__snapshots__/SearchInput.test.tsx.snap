@@ -273,6 +273,9 @@ exports[`snapshot should have matching default structure 1`] = `
 .c6.fi-clear-button .fi-clear-button_icon {
   width: 16px;
   height: 16px;
+}
+
+.c6.fi-clear-button .fi-clear-button_icon .fi-icon-base-fill {
   fill: hsl(212,63%,37%);
 }
 
