@@ -20,16 +20,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       background-color: ${theme.colors.depthSecondaryDark1};
       color: ${theme.colors.blackBase};
 
-      & > .fi-multiselect-item_checkbox_icon {
-        position: absolute;
-        fill: ${theme.colors.highlightBase};
-      }
-
       & .fi-multiselect-item_icon_wrapper {
         &::before {
           border-color: ${theme.colors.highlightBase};
         }
-        & > .fi-multiselect-item_checkbox_icon {
+        & > .fi-multiselect-item_checkbox_icon .fi-icon-base-fill {
           fill: ${theme.colors.highlightBase};
         }
       }
@@ -76,7 +71,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           border-color: ${theme.colors.depthLight1};
           border-width: 1px;
         }
-        & > .fi-multiselect-item_checkbox_icon {
+        & > .fi-multiselect-item_checkbox_icon .fi-icon-base-fill {
           fill: ${theme.colors.depthLight1};
         }
       }

@@ -22,7 +22,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         width: 1em;
         transform: translateY(0.2em);
         margin-left: ${theme.spacing.xs};
-        fill: ${theme.colors.highlightBase};
+
+        & .fi-icon-base-fill {
+          fill: ${theme.colors.highlightBase};
+        }
       }
 
       &:focus {

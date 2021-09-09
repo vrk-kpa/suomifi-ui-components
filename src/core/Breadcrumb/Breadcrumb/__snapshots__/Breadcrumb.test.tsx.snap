@@ -236,6 +236,14 @@ exports[`calling render with the same component on the same container does not r
   vertical-align: baseline;
 }
 
+.c8 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c8 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
 .c8.fi-icon--cursor-pointer {
   cursor: pointer;
 }
@@ -274,6 +282,9 @@ exports[`calling render with the same component on the same container does not r
   -ms-transform: translateY(0.2em);
   transform: translateY(0.2em);
   margin: 0 4px;
+}
+
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_icon .fi-icon-base-fill {
   fill: hsl(202,7%,40%);
 }
 
@@ -300,7 +311,6 @@ exports[`calling render with the same component on the same container does not r
         <svg
           aria-hidden="true"
           class="fi-icon c8 fi-breadcrumb-link_icon"
-          fill="currentColor"
           focusable="false"
           height="1em"
           viewBox="0 0 24 24"
@@ -308,7 +318,10 @@ exports[`calling render with the same component on the same container does not r
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
+            class="fi-icon-base-fill"
             d="M6 18v-2.12l5.902-2.328 3.748-1.492v-.12l-3.748-1.492L6 8.119V6l12 5.015v1.97z"
+            fill="#292929"
+            fill-rule="evenodd"
           />
         </svg>
       </span>
@@ -328,7 +341,6 @@ exports[`calling render with the same component on the same container does not r
         <svg
           aria-hidden="true"
           class="fi-icon c8 fi-breadcrumb-link_icon"
-          fill="currentColor"
           focusable="false"
           height="1em"
           viewBox="0 0 24 24"
@@ -336,7 +348,10 @@ exports[`calling render with the same component on the same container does not r
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
+            class="fi-icon-base-fill"
             d="M6 18v-2.12l5.902-2.328 3.748-1.492v-.12l-3.748-1.492L6 8.119V6l12 5.015v1.97z"
+            fill="#292929"
+            fill-rule="evenodd"
           />
         </svg>
       </span>
