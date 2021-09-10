@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`has matching snapshot 1`] = `
-.c8 {
+.c7 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,30 +27,30 @@ exports[`has matching snapshot 1`] = `
   cursor: pointer;
 }
 
-.c8:-moz-focusring {
+.c7:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c8::-moz-focus-inner {
+.c7::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c8::-webkit-file-upload-button {
+.c7::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c8::-webkit-inner-spin-button {
+.c7::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c8::-webkit-outer-spin-button {
+.c7::-webkit-outer-spin-button {
   height: auto;
 }
 
-.c8::before,
-.c8::after {
+.c7::before,
+.c7::after {
   box-sizing: border-box;
 }
 
@@ -83,7 +83,7 @@ exports[`has matching snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c6 {
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -106,13 +106,13 @@ exports[`has matching snapshot 1`] = `
   max-width: 100%;
 }
 
-.c6::-webkit-input-placeholder {
+.c5::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c6::before,
-.c6::after {
+.c5::before,
+.c5::after {
   box-sizing: border-box;
 }
 
@@ -145,7 +145,7 @@ exports[`has matching snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5 {
+.c9 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -183,7 +183,7 @@ exports[`has matching snapshot 1`] = `
   font-weight: 400;
 }
 
-.c7.fi-status-text {
+.c6.fi-status-text {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -202,11 +202,11 @@ exports[`has matching snapshot 1`] = `
   line-height: 20px;
 }
 
-.c7.fi-status-text.fi-status-text--error {
+.c6.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
 }
 
-.c7.fi-status-text.fi-status-text--hasContent {
+.c6.fi-status-text.fi-status-text--hasContent {
   margin-top: 5px;
 }
 
@@ -377,7 +377,7 @@ exports[`has matching snapshot 1`] = `
   cursor: inherit;
 }
 
-.c9.fi-clear-button {
+.c8.fi-clear-button {
   cursor: pointer;
   pointer-events: all;
   height: 20px;
@@ -396,11 +396,11 @@ exports[`has matching snapshot 1`] = `
   align-items: center;
 }
 
-.c9.fi-clear-button:focus {
+.c8.fi-clear-button:focus {
   outline: none;
 }
 
-.c9.fi-clear-button:focus:after {
+.c8.fi-clear-button:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -416,12 +416,12 @@ exports[`has matching snapshot 1`] = `
   z-index: 9999;
 }
 
-.c9.fi-clear-button .fi-clear-button_icon {
+.c8.fi-clear-button .fi-clear-button_icon {
   width: 16px;
   height: 16px;
 }
 
-.c9.fi-clear-button .fi-clear-button_icon .fi-icon-base-fill {
+.c8.fi-clear-button .fi-clear-button_icon .fi-icon-base-fill {
   fill: hsl(212,63%,37%);
 }
 
@@ -564,11 +564,6 @@ exports[`has matching snapshot 1`] = `
             class="c4 fi-label-text_label-span"
           >
             MultiSelect
-            <span
-              class="c4 c5 fi-visually-hidden"
-            >
-              . 9 Options available.
-            </span>
           </span>
         </label>
         <div
@@ -585,7 +580,7 @@ exports[`has matching snapshot 1`] = `
               aria-multiline="false"
               autocapitalize="none"
               autocomplete="off"
-              class="c6 fi-filter-input_input"
+              class="c5 fi-filter-input_input"
               id="1"
               placeholder=""
               spellcheck="false"
@@ -596,7 +591,7 @@ exports[`has matching snapshot 1`] = `
           <span
             aria-atomic="true"
             aria-live="assertive"
-            class="c4 c7 fi-status-text"
+            class="c4 c6 fi-status-text"
           />
         </div>
       </div>
@@ -605,11 +600,11 @@ exports[`has matching snapshot 1`] = `
       class="c0 fi-select_clear-button_wrapper"
     >
       <button
-        class="c8 fi-clear-button c9 fi-select_clear-button"
+        class="c7 fi-clear-button c8 fi-select_clear-button"
         type="button"
       >
         <span
-          class="c4 c5 fi-visually-hidden"
+          class="c4 c9 fi-visually-hidden"
         >
           Clear selection
         </span>
@@ -636,12 +631,12 @@ exports[`has matching snapshot 1`] = `
     >
       <button
         aria-hidden="true"
-        class="c8 fi-select-toggle-button_button"
+        class="c7 fi-select-toggle-button_button"
         tabindex="-1"
         type="button"
       >
         <span
-          class="c4 c5 fi-visually-hidden"
+          class="c4 c9 fi-visually-hidden"
         />
         <svg
           aria-hidden="true"
@@ -665,7 +660,7 @@ exports[`has matching snapshot 1`] = `
   <span
     aria-atomic="true"
     aria-live="polite"
-    class="c4 c5 fi-visually-hidden"
+    class="c4 c9 fi-visually-hidden"
     id="2-aria-status"
   >
     9 Options available

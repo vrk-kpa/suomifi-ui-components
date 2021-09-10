@@ -366,7 +366,6 @@ class BaseSelect<T> extends Component<
                 <>
                   <FilterInput
                     aria-activedescendant={ariaActiveDescendant}
-                    ariaAdditionalLabelText={`. ${popoverItems.length} ${ariaOptionsAvailableText}.`}
                     id={id}
                     aria-controls={popoverItemListId}
                     aria-describedby={ariaStatusId}
