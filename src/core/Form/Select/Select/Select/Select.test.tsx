@@ -1,7 +1,7 @@
 import React from 'react';
-import { render, act } from '@testing-library/react';
+import { render, act, fireEvent, waitFor } from '@testing-library/react';
 import { axeTest } from '../../../../../utils/test/axe';
-import { Select } from './Select';
+import { Select, SelectData } from './Select';
 
 const tools = [
   {
@@ -79,9 +79,9 @@ const defaultSelectedTool = {
   uniqueItemId: 'h9823523',
 };
 
-const BasicCombobox = (
+const BasicSelect = (
   <Select
-    labelText="MultiSelect"
+    labelText="Select"
     clearButtonLabel="Clear selection"
     items={tools}
     visualPlaceholder="Choose your tool(s)"
@@ -93,221 +93,219 @@ const BasicCombobox = (
 
 it('should not have basic accessibility issues', async () => {
   await act(async () => {
-    axeTest(BasicCombobox);
+    axeTest(BasicSelect);
   });
 });
 
 it('has matching snapshot', () => {
-  const { container } = render(BasicCombobox);
+  const { container } = render(BasicSelect);
   expect(container.firstChild).toMatchSnapshot();
 });
 
-// describe('Controlled', () => {
-//   it('has the controlled items as selected + disabled', async () => {
-//     const controlledItems = [
-//       {
-//         name: 'Shovel',
-//         price: 115,
-//         tax: true,
-//         labelText: 'Shovel',
-//         uniqueItemId: 's05111511',
-//         disabled: true,
-//       },
-//       {
-//         name: 'Sledgehammer',
-//         price: 36,
-//         tax: false,
-//         labelText: 'Sledgehammer',
-//         uniqueItemId: 'sh908293482',
-//       },
-//     ];
-//     const multiselect = (
-//       <Select
-//         selectedItems={controlledItems}
-//         labelText="MultiSelect"
-//         items={tools}
-//         chipListVisible={true}
-//         ariaChipActionLabel="Remove"
-//         removeAllButtonLabel="Remove all selections"
-//         visualPlaceholder="Choose your tool(s)"
-//         noItemsText="No items"
-//         defaultSelectedItems={defaultSelectedTools}
-//         ariaSelectedAmountText="tools selected"
-//       />
-//     );
+describe('Controlled', () => {
+  it('has the controlled items as selected', async () => {
+    const controlledItem: {
+      name: string;
+      price: number;
+      tax: boolean;
+    } & SelectData = {
+      name: 'Powersaw',
+      price: 150,
+      tax: false,
+      labelText: 'Powersaw',
+      disabled: true,
+      uniqueItemId: 'ps9081231',
+    };
+    const select = (
+      <Select
+        selectedItem={controlledItem}
+        labelText="Select"
+        clearButtonLabel="Clear selection"
+        items={tools}
+        visualPlaceholder="Choose your tool"
+        noItemsText="No items"
+        defaultSelectedItem={defaultSelectedTool}
+        ariaOptionsAvailableText="Options available"
+      />
+    );
 
-//     await act(async () => {
-//       const { container } = render(multiselect);
-//       expect(container.querySelectorAll('.fi-chip').length).toEqual(2);
+    await act(async () => {
+      const { getByRole, getByText } = render(select);
+      expect(getByRole('textbox')).toHaveValue('Powersaw');
+      const input = getByRole('textbox');
+      await act(async () => {
+        fireEvent.click(input);
+      });
+      const item = await waitFor(() => getByText('Powersaw'));
+      expect(item.parentNode).toHaveAttribute('aria-disabled');
+      expect(item.parentNode).toHaveClass('fi-select-item--disabled');
+    });
+  });
 
-//       const chips = container.querySelectorAll('.fi-chip');
+  it('does not allow removing of items by clicking', async () => {
+    type AnimalData = SelectData & { age: number };
+    const animals: AnimalData[] = [
+      {
+        age: 2,
+        labelText: 'Rabbit',
+        uniqueItemId: 'rabbit-123',
+      },
+      {
+        age: 1,
+        labelText: 'Snail',
+        uniqueItemId: 'snail-321',
+      },
+      {
+        age: 5,
+        labelText: 'Turtle',
+        uniqueItemId: 'turtle-987',
+      },
+    ];
 
-//       const disabledChip = chips[0];
-//       expect(disabledChip).toHaveTextContent('Shovel');
-//       expect(disabledChip).toHaveClass('fi-chip--disabled');
-//       expect(disabledChip).toHaveAttribute('aria-disabled');
+    const select = (
+      <Select<AnimalData>
+        items={animals}
+        clearButtonLabel="Clear selection"
+        selectedItem={{
+          age: 5,
+          labelText: 'Turtle',
+          uniqueItemId: 'turtle-987',
+        }}
+        labelText="Animals"
+        noItemsText="No items"
+        visualPlaceholder="Try to choose animal(s)"
+        ariaOptionsAvailableText="Options available"
+      />
+    );
 
-//       const otherChip = chips[1];
-//       expect(otherChip).toHaveTextContent('Sledgehammer');
-//     });
-//   });
+    const { getByText, getByRole } = render(select);
+    const clearButton = getByText('Clear selection');
+    await act(async () => {
+      fireEvent.click(clearButton, {});
+    });
+    expect(getByRole('textbox')).toHaveValue('Turtle');
+  });
+});
 
-//   it('does not allow removing of items by clicking', async () => {
-//     const animals = [
-//       {
-//         age: 2,
-//         labelText: 'Rabbit',
-//         uniqueItemId: 'rabbit-123',
-//       },
-//       {
-//         age: 1,
-//         labelText: 'Snail',
-//         uniqueItemId: 'snail-321',
-//       },
-//       {
-//         price: 5,
-//         labelText: 'Turtle',
-//         uniqueItemId: 'turtle-987',
-//       },
-//     ];
+it('should have correct baseClassName', async () => {
+  await act(async () => {
+    const { container } = render(BasicSelect);
+    expect(container.firstChild).toHaveClass('fi-select');
+  });
+});
 
-//     const multiselect = (
-//       <Select
-//         items={animals}
-//         selectedItems={[
-//           { price: 5, labelText: 'Turtle', uniqueItemId: 'turtle-987' },
-//         ]}
-//         labelText="Animals"
-//         noItemsText="No animals"
-//         chipListVisible={true}
-//         visualPlaceholder="Try to choose animal(s)"
-//         ariaChipActionLabel="Remove"
-//         ariaSelectedAmountText="tools selected"
-//       />
-//     );
+test('className: has given custom classname', async () => {
+  await act(async () => {
+    const { container } = render(
+      <Select
+        labelText="Select"
+        clearButtonLabel="Clear selection"
+        items={[]}
+        noItemsText="No items"
+        className="custom-class"
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+    expect(container.firstChild).toHaveClass('custom-class');
+  });
+});
 
-//     const { getByText, getAllByText } = render(multiselect);
-//     const turtleChip = getByText('Turtle');
-//     await act(async () => {
-//       fireEvent.click(turtleChip, {});
-//     });
-//     // Popover is open, so therefore two
-//     expect(getAllByText('Turtle').length).toBe(2);
-//   });
-// });
+test('labelText: has the given text as label', async () => {
+  await act(async () => {
+    const { queryByText } = render(
+      <Select
+        labelText="Select"
+        clearButtonLabel="Clear selection"
+        items={[]}
+        noItemsText="No items"
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+    expect(queryByText('Select')).not.toBeNull();
+  });
+});
 
-// it('should have correct baseClassName', async () => {
-//   await act(async () => {
-//     const { container } = render(BasicCombobox);
-//     expect(container.firstChild).toHaveClass('fi-multiselect');
-//   });
-// });
+test('visualPlaceholder: has the given text as placeholder attribute', () => {
+  const { getByRole } = render(
+    <Select
+      labelText="Select"
+      clearButtonLabel="Clear selection"
+      items={[]}
+      noItemsText="No items"
+      visualPlaceholder="Select item"
+      ariaOptionsAvailableText="Options available"
+    />,
+  );
+  const inputfield = getByRole('textbox') as HTMLInputElement;
+  expect(inputfield).toHaveAttribute('placeholder', 'Select item');
+});
 
-// test('className: has given custom classname', async () => {
-//   await act(async () => {
-//     const { container } = render(
-//       <Select
-//         labelText="MultiSelect"
-//         items={[]}
-//         noItemsText="No items"
-//         className="custom-class"
-//         ariaSelectedAmountText=""
-//       />,
-//     );
-//     expect(container.firstChild).toHaveClass('custom-class');
-//   });
-// });
+test('id: has the given id', () => {
+  const { getByRole } = render(
+    <Select
+      id="cb-123"
+      labelText="Select"
+      clearButtonLabel="Clear selection"
+      items={[]}
+      noItemsText="No items"
+      ariaOptionsAvailableText="Options available"
+    />,
+  );
+  expect(getByRole('textbox')).toHaveAttribute('id', 'cb-123');
+});
 
-// test('labelText: has the given text as label', async () => {
-//   await act(async () => {
-//     const { queryByText } = render(
-//       <Select
-//         labelText="MultiSelect"
-//         items={[]}
-//         noItemsText="No items"
-//         ariaSelectedAmountText=""
-//       />,
-//     );
-//     expect(queryByText('MultiSelect')).not.toBeNull();
-//   });
-// });
+describe('statusText', () => {
+  it('should have element and correct classname for it', () => {
+    const { getByText } = render(
+      <Select
+        id="123"
+        labelText="Select"
+        clearButtonLabel="Clear selection"
+        items={[]}
+        noItemsText="No items"
+        visualPlaceholder="Select item(s)"
+        statusText="EROR EROR"
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+    const statusText = getByText('EROR EROR');
+    expect(statusText).toHaveClass('fi-status-text');
+  });
 
-// test('visualPlaceholder: has the given text as placeholder attribute', () => {
-//   const { getByRole } = render(
-//     <Select
-//       labelText="MultiSelect"
-//       items={[]}
-//       noItemsText="No items"
-//       visualPlaceholder="Select item(s)"
-//       ariaSelectedAmountText=""
-//     />,
-//   );
-//   const inputfield = getByRole('textbox') as HTMLInputElement;
-//   expect(inputfield).toHaveAttribute('placeholder', 'Select item(s)');
-// });
+  it('will be added to input aria-describedby', () => {
+    const { getByRole } = render(
+      <Select
+        id="123"
+        labelText="Select"
+        clearButtonLabel="Clear selection"
+        items={[]}
+        noItemsText="No items"
+        visualPlaceholder="Select item(s)"
+        statusText="EROR EROR"
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+    expect(getByRole('textbox')).toHaveAttribute(
+      'aria-describedby',
+      '123-statusText 123-aria-status',
+    );
+  });
+});
 
-// test('id: has the given id', () => {
-//   const { getByRole } = render(
-//     <Select
-//       id="cb-123"
-//       labelText="MultiSelect"
-//       items={[]}
-//       noItemsText="No items"
-//       ariaSelectedAmountText=""
-//     />,
-//   );
-//   expect(getByRole('textbox')).toHaveAttribute('id', 'cb-123');
-// });
-
-// describe('statusText', () => {
-//   it('should have element and correct classname for it', () => {
-//     const { getByText } = render(
-//       <Select
-//         id="123"
-//         labelText="MultiSelect"
-//         items={[]}
-//         noItemsText="No items"
-//         visualPlaceholder="Select item(s)"
-//         statusText="EROR EROR"
-//         ariaSelectedAmountText=""
-//       />,
-//     );
-//     const statusText = getByText('EROR EROR');
-//     expect(statusText).toHaveClass('fi-status-text');
-//   });
-
-//   it('will be added to input aria-describedby', () => {
-//     const { getByRole } = render(
-//       <Select
-//         id="123"
-//         labelText="MultiSelect"
-//         items={[]}
-//         noItemsText="No items"
-//         visualPlaceholder="Select item(s)"
-//         statusText="EROR EROR"
-//         ariaSelectedAmountText=""
-//       />,
-//     );
-//     expect(getByRole('textbox')).toHaveAttribute(
-//       'aria-describedby',
-//       '123-statusText 123-selectedItems-length',
-//     );
-//   });
-// });
-
-// describe('status', () => {
-//   it('should have error classname', () => {
-//     const { container } = render(
-//       <Select
-//         id="123"
-//         labelText="MultiSelect"
-//         items={[]}
-//         noItemsText="No items"
-//         visualPlaceholder="Select item(s)"
-//         status="error"
-//         ariaSelectedAmountText=""
-//       />,
-//     );
-//     expect(container.firstChild).toHaveClass('fi-multiselect--error');
-//   });
-// });
+describe('status', () => {
+  it('should have error classname', () => {
+    const { container } = render(
+      <Select
+        id="123"
+        labelText="Select"
+        clearButtonLabel="Clear selection"
+        items={[]}
+        noItemsText="No items"
+        visualPlaceholder="Select item(s)"
+        status="error"
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+    expect(container.firstChild).toHaveClass('fi-select--error');
+  });
+});

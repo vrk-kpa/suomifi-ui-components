@@ -563,7 +563,7 @@ exports[`has matching snapshot 1`] = `
           <span
             class="c4 fi-label-text_label-span"
           >
-            MultiSelect
+            Select
           </span>
         </label>
         <div

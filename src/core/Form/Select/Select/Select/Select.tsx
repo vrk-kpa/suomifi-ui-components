@@ -135,19 +135,17 @@ class BaseSelect<T> extends Component<
     prevState: SelectState<U & SelectData>,
   ) {
     const { items: propItems, selectedItem } = nextProps;
-    if (
-      ('selectedItem' in nextProps &&
-        selectedItem?.uniqueItemId !== prevState.selectedItem?.uniqueItemId) ||
-      propItems !== prevState.initialItems
-    ) {
+    const selectedItemChanged =
+      'selectedItem' in nextProps &&
+      selectedItem?.uniqueItemId !== prevState.selectedItem?.uniqueItemId;
+    if (selectedItemChanged || propItems !== prevState.initialItems) {
+      const resolvedSelectedItem =
+        'selectedItem' in nextProps ? selectedItem : prevState.selectedItem;
       return {
-        selectedItem:
-          'selectedItem' in nextProps ? selectedItem : prevState.selectedItem,
+        selectedItem: resolvedSelectedItem,
         filteredItems: propItems,
-        filterMode:
-          'selectedItem' in nextProps && selectedItem !== prevState.selectedItem
-            ? !selectedItem
-            : prevState.filterMode,
+        filterInputValue: resolvedSelectedItem?.labelText,
+        filterMode: selectedItemChanged ? !selectedItem : prevState.filterMode,
         initialItems: propItems,
       };
     }
