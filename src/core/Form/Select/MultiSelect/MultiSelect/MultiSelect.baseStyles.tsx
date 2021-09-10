@@ -17,7 +17,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         right: 16px;
         margin-top: -3px;
         border-style: solid;
-        border-color: ${theme.colors.depthDark3} transparent transparent
+        border-color: ${theme.colors.blackBase} transparent transparent
           transparent;
         border-width: 6px 4px 0 4px;
         pointer-events: none;
@@ -33,7 +33,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-multiselect--open {
     & .fi-filter-input_input-element-container {
       &:before {
-        border-color: transparent transparent ${theme.colors.depthDark3}
+        border-color: transparent transparent ${theme.colors.blackBase}
           transparent;
         border-width: 0 4px 6px 4px;
       }

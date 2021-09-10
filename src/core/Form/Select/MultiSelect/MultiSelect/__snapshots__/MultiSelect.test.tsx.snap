@@ -766,7 +766,7 @@ exports[`has matching snapshot 1`] = `
   right: 16px;
   margin-top: -3px;
   border-style: solid;
-  border-color: hsl(201,7%,58%) transparent transparent transparent;
+  border-color: hsl(0,0%,16%) transparent transparent transparent;
   border-width: 6px 4px 0 4px;
   pointer-events: none;
 }
@@ -777,7 +777,7 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c1.fi-multiselect--open .fi-filter-input_input-element-container:before {
-  border-color: transparent transparent hsl(201,7%,58%) transparent;
+  border-color: transparent transparent hsl(0,0%,16%) transparent;
   border-width: 0 4px 6px 4px;
 }
 
