@@ -12,7 +12,7 @@ import {
   FilterInputStatus,
 } from '../../../FilterInput/FilterInput';
 import { SelectItemList } from '../../BaseSelect/SelectItemList/SelectItemList';
-import { MultiSelectItem } from '../MultiSelectItem/MultiSelectItem';
+import { SelectItem } from '../../BaseSelect/SelectItem/SelectItem';
 import { SelectEmptyItem } from '../../BaseSelect/SelectEmptyItem/SelectEmptyItem';
 import { VisuallyHidden } from '../../../../VisuallyHidden/VisuallyHidden';
 import { baseStyles } from './MultiSelect.baseStyles';
@@ -468,7 +468,7 @@ class BaseMultiSelect<T> extends Component<
                       const isCurrentlySelected =
                         item.uniqueItemId === focusedDescendantId;
                       return (
-                        <MultiSelectItem
+                        <SelectItem
                           hasKeyboardFocus={isCurrentlySelected}
                           key={`${item.uniqueItemId}_${item.checked}`}
                           id={`${id}-${item.uniqueItemId}`}
@@ -480,7 +480,7 @@ class BaseMultiSelect<T> extends Component<
                           hightlightQuery={this.filterInputRef.current?.value}
                         >
                           {item.labelText}
-                        </MultiSelectItem>
+                        </SelectItem>
                       );
                     })
                   ) : (

@@ -16,7 +16,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 245px;
+    max-height: 265px;
 
     margin: 0;
     padding: 0;

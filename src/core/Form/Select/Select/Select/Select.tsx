@@ -473,7 +473,9 @@ class BaseSelect<T> extends Component<
                           onClick={() => {
                             this.handleItemSelection(item);
                           }}
-                          hightlightQuery={this.filterInputRef.current?.value}
+                          hightlightQuery={
+                            filterMode ? this.filterInputRef.current?.value : ''
+                          }
                         >
                           {item.labelText}
                         </SelectItem>

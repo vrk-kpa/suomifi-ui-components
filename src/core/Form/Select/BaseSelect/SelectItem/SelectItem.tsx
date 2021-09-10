@@ -2,8 +2,9 @@ import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlLi } from '../../../../../reset';
-import { baseStyles } from './SelectItem.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
+import { Icon } from '../../../../Icon/Icon';
+import { baseStyles } from './SelectItem.baseStyles';
 
 const baseClassName = 'fi-select-item';
 
@@ -13,7 +14,7 @@ const selectItemClassNames = {
   queryHighlight: `${baseClassName}--query_highlight`,
   selected: `${baseClassName}--selected`,
   disabled: `${baseClassName}--disabled`,
-  icon_wrapper: `${baseClassName}_icon_wrapper`,
+  icon: `${baseClassName}_icon`,
 };
 
 export interface SelectItemProps {
@@ -85,6 +86,14 @@ class BaseSelectItem extends Component<SelectItemProps & SuomifiThemeProp> {
           }
           return child;
         })}
+
+        {checked && (
+          <Icon
+            icon="check"
+            className={selectItemClassNames.icon}
+            aria-hidden={true}
+          />
+        )}
       </HtmlLi>
     );
   }

@@ -4,16 +4,25 @@ import { font } from '../../../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-select-item {
+    position: relative;
+    padding: 8px 32px 8px 10px;
+    ${font(theme)('actionElementInnerText')}
+
     &:focus {
       outline: none;
     }
 
-    padding: 10px;
-    ${font(theme)('actionElementInnerText')}
-
     & .fi-select-item--query_highlight {
       background-color: transparent;
       font-weight: bold;
+    }
+
+    & .fi-select-item_icon {
+      position: absolute;
+      top: 14px;
+      right: 10px;
+      height: 12px;
+      width: 12px;
     }
 
     &--selected {
