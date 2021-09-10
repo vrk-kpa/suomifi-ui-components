@@ -210,6 +210,66 @@ test('className: has given custom classname', async () => {
   });
 });
 
+describe('filter', () => {
+  it('should be available with default selection', async () => {
+    const { getByRole, getAllByRole } = render(BasicSelect);
+    const input = getByRole('textbox');
+    expect(input).toHaveValue('Hammer');
+    fireEvent.change(input, { target: { value: 'h' } });
+    expect(input).toHaveValue('h');
+    const items = await waitFor(() => getAllByRole('option'));
+    expect(items).toHaveLength(4);
+  });
+
+  it('should be available when nothing is selected', async () => {
+    const { getByRole, getAllByRole } = render(
+      <Select
+        labelText="Select"
+        clearButtonLabel="Clear selection"
+        items={tools}
+        visualPlaceholder="Choose your tool(s)"
+        noItemsText="No items"
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+    const input = getByRole('textbox');
+    fireEvent.change(input, { target: { value: 'h' } });
+    expect(input).toHaveValue('h');
+    const items = await waitFor(() => getAllByRole('option'));
+    expect(items).toHaveLength(4);
+  });
+
+  it('should be removed onBlur', async () => {
+    const { getByRole, getAllByRole } = render(BasicSelect);
+    const input = getByRole('textbox');
+    expect(input).toHaveValue('Hammer');
+    fireEvent.change(input, { target: { value: 'h' } });
+    expect(input).toHaveValue('h');
+    await act(async () => {
+      fireEvent.blur(input);
+    });
+    expect(input).toHaveValue('Hammer');
+    fireEvent.focus(input);
+    const options = await waitFor(() => getAllByRole('option'));
+    expect(options).toHaveLength(9);
+  });
+});
+
+test('option: should be selected when clicked', async () => {
+  await act(async () => {
+    const { getByText, getByRole } = render(BasicSelect);
+    const input = getByRole('textbox');
+    await act(async () => {
+      fireEvent.click(input);
+    });
+    const option = await waitFor(() => getByText('Rake'));
+    await act(async () => {
+      fireEvent.click(option);
+    });
+    expect(input).toHaveValue('Rake');
+  });
+});
+
 test('labelText: has the given text as label', async () => {
   await act(async () => {
     const { queryByText } = render(
