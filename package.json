@@ -141,7 +141,7 @@
     "polished": "4.1.3",
     "react-modal": "3.14.3",
     "react-popper": "2.2.5",
-    "react-svg": "13.0.3",
+    "react-svg": "14.0.11",
     "suomifi-design-tokens": "3.1.1",
     "suomifi-icons": "^5.0.0"
   },
