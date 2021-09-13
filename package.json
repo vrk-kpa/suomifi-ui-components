@@ -61,7 +61,7 @@
     "deploy-dev": "gh-pages -d styleguide -e dev -m \"[skip ci] Updates\""
   },
   "devDependencies": {
-    "@reach/rect": "0.15.0",
+    "@reach/rect": "0.16.0",
     "@testing-library/jest-dom": "5.14.1",
     "@testing-library/react": "11.2.6",
     "@types/classnames": "2.3.1",
