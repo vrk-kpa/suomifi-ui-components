@@ -108,6 +108,7 @@ interface MultiSelectState<T extends MultiSelectData> {
   initialItems: T[];
   chipRemovalAnnounceText: string;
 }
+
 class BaseMultiSelect<T> extends Component<
   MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp
 > {
@@ -445,17 +446,17 @@ class BaseMultiSelect<T> extends Component<
                 />
               )}
             </Debounce>
-            <Popover
-              sourceRef={this.filterInputRef}
-              matchWidth={true}
-              onKeyDown={this.handleKeyDown}
-              onClickOutside={() => {
-                if (this.state.showPopover) {
-                  this.setState({ showPopover: false });
-                }
-              }}
-            >
-              {showPopover && (
+            {showPopover && (
+              <Popover
+                sourceRef={this.filterInputRef}
+                matchWidth={true}
+                onKeyDown={this.handleKeyDown}
+                onClickOutside={() => {
+                  if (this.state.showPopover) {
+                    this.setState({ showPopover: false });
+                  }
+                }}
+              >
                 <SelectItemList
                   id={popoverItemListId}
                   forwardRef={this.popoverListRef}
@@ -487,8 +488,8 @@ class BaseMultiSelect<T> extends Component<
                     <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
                   )}
                 </SelectItemList>
-              )}
-            </Popover>
+              </Popover>
+            )}
             {chipListVisible && (
               <MultiSelectChipList
                 sourceRef={this.filterInputRef}

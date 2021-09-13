@@ -56,21 +56,6 @@ export const Popover = (props: PopoverProps) => {
     placement,
   });
 
-  useEffect(() => {
-    document.addEventListener('click', globalClickHandler, {
-      capture: true,
-    });
-    return () => {
-      document.removeEventListener('click', globalClickHandler, {
-        capture: true,
-      });
-    };
-  }, []);
-
-  useEnhancedEffect(() => {
-    setMountNode(window.document.body);
-  });
-
   const globalClickHandler = (nativeEvent: MouseEvent) => {
     if (
       !portalRef.current?.contains(nativeEvent.target as Node) &&
@@ -80,6 +65,21 @@ export const Popover = (props: PopoverProps) => {
       onClickOutside(nativeEvent);
     }
   };
+
+  useEffect(() => {
+    document.addEventListener('click', globalClickHandler, {
+      capture: true,
+    });
+    return () => {
+      document.removeEventListener('click', globalClickHandler, {
+        capture: true,
+      });
+    };
+  }, [globalClickHandler]);
+
+  useEnhancedEffect(() => {
+    setMountNode(window.document.body);
+  });
 
   if (!mountNode) {
     return null;
