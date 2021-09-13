@@ -116,7 +116,7 @@
     "react-styleguidist": "11.1.7",
     "rollup-plugin-postcss": "4.0.1",
     "sass-loader": "10.1.0",
-    "size-limit": "4.10.2",
+    "size-limit": "5.0.3",
     "style-loader": "2.0.0",
     "styled-components": "5.3.1",
     "stylelint": "13.13.1",
