@@ -133,9 +133,9 @@
   },
   "dependencies": {
     "@popperjs/core": "2.10.1",
-    "@reach/listbox": "0.15.0",
-    "@reach/menu-button": "0.15.1",
-    "@reach/popover": "0.15.0",
+    "@reach/listbox": "0.16.1",
+    "@reach/menu-button": "0.16.1",
+    "@reach/popover": "0.16.0",
     "@types/react-modal": "3.12.1",
     "classnames": "2.3.1",
     "polished": "4.1.3",

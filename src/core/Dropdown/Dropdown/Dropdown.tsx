@@ -214,7 +214,7 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
             <ListboxPopover
               position={positionMatchWidth}
               {...passDropdownPopoverProps}
-              onKeyDownCapture={(event: KeyboardEvent) => {
+              onKeyDownCapture={(event: React.KeyboardEvent) => {
                 if (event.code === 'Tab' && !!this.buttonRef.current) {
                   event.preventDefault();
                   this.buttonRef.current.focus();
