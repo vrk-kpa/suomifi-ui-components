@@ -62,9 +62,8 @@ const defaultProviderValue: ExpanderGroupProviderState = {
   },
 };
 
-const { Provider, Consumer: ExpanderGroupConsumer } = React.createContext(
-  defaultProviderValue,
-);
+const { Provider, Consumer: ExpanderGroupConsumer } =
+  React.createContext(defaultProviderValue);
 
 class BaseExpanderGroup extends Component<
   ExpanderGroupProps & SuomifiThemeProp

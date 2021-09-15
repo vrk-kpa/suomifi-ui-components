@@ -1,6 +1,5 @@
 export const normalize = {
-  html:
-    'line-height: 1.15; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;',
+  html: 'line-height: 1.15; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;',
   h1: 'font-size: 2em; margin: 0.67em 0;',
   'dl dl': 'margin: 0;',
   'dl ol': 'margin: 0;',

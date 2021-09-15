@@ -28,15 +28,8 @@ class BaseMultiSelectItemList extends Component<
   MultiSelectItemListProps & SuomifiThemeProp
 > {
   render() {
-    const {
-      className,
-      theme,
-      forwardRef,
-      children,
-      onBlur,
-      id,
-      ...passProps
-    } = this.props;
+    const { className, theme, forwardRef, children, onBlur, id, ...passProps } =
+      this.props;
     return (
       <HtmlUlWithRef
         id={id}

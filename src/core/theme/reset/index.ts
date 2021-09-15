@@ -13,12 +13,12 @@ const fontBase = css`
   -webkit-font-smoothing: antialiased;
 `;
 
-export const font = (theme: SuomifiTheme) => (
-  typographyToken: TypographyProp,
-) => css`
-  ${fontBase}
-  ${theme.typography[typographyToken]}
-`;
+export const font =
+  (theme: SuomifiTheme) => (typographyToken: TypographyProp) =>
+    css`
+      ${fontBase}
+      ${theme.typography[typographyToken]}
+    `;
 
 export const input = (theme: SuomifiTheme) => css`
   ${element(theme)}

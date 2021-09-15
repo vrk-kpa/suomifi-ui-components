@@ -46,18 +46,16 @@ const spaceVal = (theme: SuomifiTheme) => (val?: SpacingProp) => {
  * @param {Object} theme suomifiTheme
  * @return {(spacingType) => (spacingTokens) => String}
  */
-const space = (theme: SuomifiTheme) => (type: 'padding' | 'margin') => (
-  t?: SpacingProp,
-  r?: SpacingProp,
-  b?: SpacingProp,
-  l?: SpacingProp,
-) =>
-  !!t
-    ? `${!!t ? `${type}-top: ${spaceVal(theme)(t)};` : ''}
+const space =
+  (theme: SuomifiTheme) =>
+  (type: 'padding' | 'margin') =>
+  (t?: SpacingProp, r?: SpacingProp, b?: SpacingProp, l?: SpacingProp) =>
+    !!t
+      ? `${!!t ? `${type}-top: ${spaceVal(theme)(t)};` : ''}
     ${!!r ? `${type}-right: ${spaceVal(theme)(r)};` : ''}
     ${!!b ? `${type}-bottom: ${spaceVal(theme)(b)};` : ''}
     ${!!l ? `${type}-left:${spaceVal(theme)(l)};` : ''}`
-    : '';
+      : '';
 
 /**
  * Set margin based on theme
@@ -76,13 +74,14 @@ export const padding = (theme: SuomifiTheme) => space(theme)('padding');
  * @param {Object} tokens Design tokens
  * @return {(spacingType) => (selector: String) => String}
  */
-export const spacingModifiers = (theme: SuomifiTheme) => (
-  spacing: 'padding' | 'margin' | 'margin-bottom',
-) => (selector: string) =>
-  spacingTokensKeys.reduce(
-    (ret, k) =>
-      `${ret}${selector}-${k}{
+export const spacingModifiers =
+  (theme: SuomifiTheme) =>
+  (spacing: 'padding' | 'margin' | 'margin-bottom') =>
+  (selector: string) =>
+    spacingTokensKeys.reduce(
+      (ret, k) =>
+        `${ret}${selector}-${k}{
         ${spacing}: ${spaceVal(theme)(k)}
   } `,
-    '',
-  );
+      '',
+    );
