@@ -12,21 +12,17 @@ import {
   FilterInputStatus,
 } from '../../../FilterInput/FilterInput';
 import { VisuallyHidden } from '../../../../VisuallyHidden/VisuallyHidden';
-import { ClearButton } from '../../../ClearButton/ClearButton';
+import { InputClearButton } from '../../../InputClearButton/InputClearButton';
 import { SelectItemList } from '../../BaseSelect/SelectItemList/SelectItemList';
 import { SelectItem } from '../../BaseSelect/SelectItem/SelectItem';
 import { SelectEmptyItem } from '../../BaseSelect/SelectEmptyItem/SelectEmptyItem';
-import { SelectToggleButton } from '../SelectToggleButton/SelectToggleButton';
+import { InputToggleButton } from '../../../InputToggleButton/InputToggleButton';
 import { baseStyles } from './Select.baseStyles';
 
 const baseClassName = 'fi-select';
 const selectClassNames = {
   valueSelected: `${baseClassName}--value-selected`,
-  contentWrapper: `${baseClassName}_content_wrapper`,
-  selectedValue: `${baseClassName}_selected-value`,
   clearButtonWrapper: `${baseClassName}_clear-button_wrapper`,
-  clearButton: `${baseClassName}_clear-button`,
-  toggleButton: `${baseClassName}_toggle-button`,
   open: `${baseClassName}--open`,
   error: `${baseClassName}--error`,
   queryHighlight: `${baseClassName}-item--query_highlight`,
@@ -177,7 +173,7 @@ class BaseSelect<T> extends Component<
       this.setState({ showPopover: focusInSelect });
       if (!focusInSelect) {
         this.setState((prevState: SelectState<T & SelectData>) => ({
-          filterInputValue: prevState.selectedItem?.labelText,
+          filterInputValue: prevState.selectedItem?.labelText || '',
           filterMode: false,
         }));
       }
@@ -358,136 +354,127 @@ class BaseSelect<T> extends Component<
             [selectClassNames.error]: status === 'error',
           })}
         >
-          <HtmlDiv className={classnames(selectClassNames.contentWrapper, {})}>
-            <Debounce waitFor={debounce}>
-              {(debouncer: Function) => (
-                <>
-                  <FilterInput
-                    aria-activedescendant={ariaActiveDescendant}
-                    id={id}
-                    aria-controls={popoverItemListId}
-                    aria-describedby={ariaStatusId}
-                    labelText={labelText}
-                    items={propItems}
-                    onFilter={(filtered) =>
-                      this.setState({ filteredItems: filtered })
-                    }
-                    filterFunc={this.filter}
-                    forwardedRef={this.filterInputRef}
-                    onFocus={() => {
-                      if (!this.preventShowPopoverOnInputFocus) {
-                        this.setState({ showPopover: true });
-                      }
-                      this.preventShowPopoverOnInputFocus = false;
-                    }}
-                    onClick={(event) => {
-                      if (!this.isOutsideClick((event as any) as MouseEvent)) {
-                        this.setState(
-                          (prevState: SelectState<T & SelectData>) => ({
-                            showPopover: true,
-                            filterInputValue: prevState.filterMode
-                              ? prevState.filterInputValue
-                              : '',
-                            filterMode: true,
-                          }),
-                        );
-                      }
-                      this.focusToInputAndSelectText();
-                    }}
-                    onKeyDown={this.handleKeyDown}
-                    onBlur={this.handleBlur}
-                    value={filterInputValue}
-                    onChange={(value: string) => {
-                      if (propOnChange) {
-                        debouncer(propOnChange, value);
-                      }
-                      this.handleOnChange(value);
-                    }}
-                    visualPlaceholder={!selectedItem ? visualPlaceholder : ''}
-                    status={status}
-                    statusText={statusText}
-                  />
-                  {!!selectedItem && (
-                    <HtmlDiv className={selectClassNames.clearButtonWrapper}>
-                      <ClearButton
-                        forwardedRef={this.clearButtonRef}
-                        className={selectClassNames.clearButton}
-                        onClick={() => this.handleItemSelection(null)}
-                        onBlur={(event) => this.handleBlur(event)}
-                        label={clearButtonLabel}
-                      />
-                    </HtmlDiv>
-                  )}
-                  <SelectToggleButton
-                    open={showPopover}
-                    buttonRef={this.toggleButtonRef}
-                    className={selectClassNames.toggleButton}
-                    onClick={(event) => {
-                      event.preventDefault();
-                      this.setState(
-                        (prevState: SelectState<T & SelectData>) => ({
-                          showPopover: !prevState.showPopover,
-                        }),
-                      );
-                      this.preventShowPopoverOnInputFocus = true;
-                      this.focusToInputAndSelectText();
-                    }}
-                    aria-hidden={true}
-                    tabIndex={-1}
-                  />
-                </>
-              )}
-            </Debounce>
-            {showPopover && (
-              <Popover
-                sourceRef={this.filterInputRef}
-                matchWidth={true}
-                onKeyDown={this.handleKeyDown}
-                onClickOutside={(event) => {
-                  if (!this.isOutsideClick(event)) {
-                    this.setState({ showPopover: false });
+          <Debounce waitFor={debounce}>
+            {(debouncer: Function) => (
+              <FilterInput
+                aria-activedescendant={ariaActiveDescendant}
+                id={id}
+                aria-controls={popoverItemListId}
+                aria-describedby={ariaStatusId}
+                labelText={labelText}
+                items={propItems}
+                onFilter={(filtered) =>
+                  this.setState({ filteredItems: filtered })
+                }
+                filterFunc={this.filter}
+                forwardedRef={this.filterInputRef}
+                onFocus={() => {
+                  if (!this.preventShowPopoverOnInputFocus) {
+                    this.setState({ showPopover: true });
                   }
+                  this.preventShowPopoverOnInputFocus = false;
                 }}
+                onClick={(event) => {
+                  if (!this.isOutsideClick((event as any) as MouseEvent)) {
+                    this.setState((prevState: SelectState<T & SelectData>) => ({
+                      showPopover: true,
+                      filterInputValue: prevState.filterMode
+                        ? prevState.filterInputValue
+                        : '',
+                      filterMode: true,
+                    }));
+                  }
+                  this.focusToInputAndSelectText();
+                }}
+                onKeyDown={this.handleKeyDown}
+                onBlur={this.handleBlur}
+                value={filterInputValue}
+                onChange={(value: string) => {
+                  if (propOnChange) {
+                    debouncer(propOnChange, value);
+                  }
+                  this.handleOnChange(value);
+                }}
+                visualPlaceholder={!selectedItem ? visualPlaceholder : ''}
+                status={status}
+                statusText={statusText}
               >
-                <SelectItemList
-                  id={popoverItemListId}
-                  forwardRef={this.popoverListRef}
-                  focusedDescendantId={{ id: ariaActiveDescendant }}
-                >
-                  {popoverItems.length > 0 ? (
-                    popoverItems.map((item) => {
-                      const isCurrentlySelected =
-                        item.uniqueItemId === focusedDescendantId;
-
-                      return (
-                        <SelectItem
-                          hasKeyboardFocus={isCurrentlySelected}
-                          key={`${item.uniqueItemId}_${
-                            item.uniqueItemId === selectedItem?.uniqueItemId
-                          }`}
-                          id={`${id}-${item.uniqueItemId}`}
-                          checked={
-                            item.uniqueItemId === selectedItem?.uniqueItemId
-                          }
-                          disabled={item.disabled}
-                          onClick={() => {
-                            this.handleItemSelection(item);
-                          }}
-                          hightlightQuery={
-                            filterMode ? this.filterInputRef.current?.value : ''
-                          }
-                        >
-                          {item.labelText}
-                        </SelectItem>
-                      );
-                    })
-                  ) : (
-                    <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
-                  )}
-                </SelectItemList>
-              </Popover>
+                {!!selectedItem && (
+                  <HtmlDiv className={selectClassNames.clearButtonWrapper}>
+                    <InputClearButton
+                      forwardedRef={this.clearButtonRef}
+                      onClick={() => this.handleItemSelection(null)}
+                      onBlur={(event) => this.handleBlur(event)}
+                      label={clearButtonLabel}
+                    />
+                  </HtmlDiv>
+                )}
+                <InputToggleButton
+                  open={showPopover}
+                  buttonRef={this.toggleButtonRef}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    this.setState((prevState: SelectState<T & SelectData>) => ({
+                      showPopover: !prevState.showPopover,
+                    }));
+                    this.preventShowPopoverOnInputFocus = true;
+                    this.focusToInputAndSelectText();
+                  }}
+                  aria-hidden={true}
+                  tabIndex={-1}
+                />
+              </FilterInput>
             )}
-          </HtmlDiv>
+          </Debounce>
+          {showPopover && (
+            <Popover
+              sourceRef={this.filterInputRef}
+              matchWidth={true}
+              onKeyDown={this.handleKeyDown}
+              onClickOutside={(event) => {
+                if (!this.isOutsideClick(event)) {
+                  this.setState({ showPopover: false });
+                }
+              }}
+            >
+              <SelectItemList
+                id={popoverItemListId}
+                forwardRef={this.popoverListRef}
+                focusedDescendantId={{ id: ariaActiveDescendant }}
+              >
+                {popoverItems.length > 0 ? (
+                  popoverItems.map((item) => {
+                    const isCurrentlySelected =
+                      item.uniqueItemId === focusedDescendantId;
+
+                    return (
+                      <SelectItem
+                        hasKeyboardFocus={isCurrentlySelected}
+                        key={`${item.uniqueItemId}_${
+                          item.uniqueItemId === selectedItem?.uniqueItemId
+                        }`}
+                        id={`${id}-${item.uniqueItemId}`}
+                        checked={
+                          item.uniqueItemId === selectedItem?.uniqueItemId
+                        }
+                        disabled={item.disabled}
+                        onClick={() => {
+                          this.handleItemSelection(item);
+                        }}
+                        hightlightQuery={
+                          filterMode ? this.filterInputRef.current?.value : ''
+                        }
+                      >
+                        {item.labelText}
+                      </SelectItem>
+                    );
+                  })
+                ) : (
+                  <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
+                )}
+              </SelectItemList>
+            </Popover>
+          )}
           <VisuallyHidden
             aria-live="polite"
             aria-atomic="true"

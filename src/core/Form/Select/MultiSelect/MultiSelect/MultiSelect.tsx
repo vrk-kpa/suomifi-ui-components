@@ -15,16 +15,16 @@ import { SelectItemList } from '../../BaseSelect/SelectItemList/SelectItemList';
 import { SelectItem } from '../../BaseSelect/SelectItem/SelectItem';
 import { SelectEmptyItem } from '../../BaseSelect/SelectEmptyItem/SelectEmptyItem';
 import { VisuallyHidden } from '../../../../VisuallyHidden/VisuallyHidden';
-import { baseStyles } from './MultiSelect.baseStyles';
 import { MultiSelectChipList } from '../MultiSelectChipList/MultiSelectChipList';
 import { MultiSelectRemoveAllButton } from '../MultiSelectRemoveAllButton/MultiSelectRemoveAllButton';
+import { baseStyles } from './MultiSelect.baseStyles';
 
 const baseClassName = 'fi-multiselect';
 const multiSelectClassNames = {
-  content_wrapper: `${baseClassName}_content_wrapper`,
   open: `${baseClassName}--open`,
-  removeAllButton: `${baseClassName}_removeAllButton`,
   error: `${baseClassName}--error`,
+  content_wrapper: `${baseClassName}_content_wrapper`,
+  removeAllButton: `${baseClassName}_removeAllButton`,
 };
 
 export interface MultiSelectData {

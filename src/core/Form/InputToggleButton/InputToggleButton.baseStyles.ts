@@ -2,26 +2,21 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  &.fi-clear-button {
+  &.fi-input-toggle-button {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     pointer-events: all;
-    height: 20px;
-    width: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    &:focus {
-      outline: none;
-      &:after {
-        ${theme.focus.absoluteFocus}
-      }
-    }
 
-    & .fi-clear-button_icon {
-      width: 16px;
-      height: 16px;
+    & .fi-input-toggle-button_icon {
+      pointer-events: none;
+      width: 8px;
+      height: 8px;
       & .fi-icon-base-fill {
-        fill: ${theme.colors.highlightDark1};
+        fill: ${theme.colors.blackBase};
       }
     }
   }

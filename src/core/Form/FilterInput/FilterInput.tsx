@@ -15,6 +15,7 @@ import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
 import { baseStyles } from './FilterInput.baseStyles';
+import { ReactNode } from 'hoist-non-react-statics/node_modules/@types/react';
 
 const baseClassName = 'fi-filter-input';
 const filterInputClassNames = {
@@ -25,6 +26,7 @@ const filterInputClassNames = {
   functionalityContainer: `${baseClassName}_functionalityContainer`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
+  actionElementsContainer: `${baseClassName}_action-elements-container`,
 };
 
 export type FilterInputStatus = Exclude<InputStatus, 'success'>;
@@ -67,8 +69,12 @@ interface InternalFilterInputProps<T>
   onFilter: (filteredItems: Array<T>) => void;
   /** Filtering rule to be used */
   filterFunc: (item: T, query: string) => boolean;
+  /** Ref for input element */
   forwardedRef?: React.RefObject<HTMLInputElement>;
+  /** Input value onChange handler */
   onChange?: (value: string) => void;
+  /** Children for the input container element. Renders inside and on top of the input. Alignes to right. */
+  children?: ReactNode;
 }
 
 interface InnerRef {
@@ -122,6 +128,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       filterFunc: propFilterRule,
       forwardedRef,
       onChange: propOnChange,
+      children,
       ...passProps
     } = this.props;
 
@@ -184,6 +191,15 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
                 onChange={onChangeHandler}
                 aria-multiline={false}
               />
+            </HtmlDiv>
+            <HtmlDiv
+              className={filterInputClassNames.actionElementsContainer}
+              onMouseDownCapture={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+              }}
+            >
+              {children}
             </HtmlDiv>
             <StatusText
               id={statusTextId}
