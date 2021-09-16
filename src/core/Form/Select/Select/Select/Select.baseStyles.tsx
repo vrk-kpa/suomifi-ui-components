@@ -19,7 +19,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   &.fi-select--open {
-    & .fi-filter-input_input-element-container {
+    & .fi-filter-input_input {
       border-bottom: 0;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;

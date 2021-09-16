@@ -27,12 +27,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       & > * {
         box-sizing: content-box;
         display: flex;
-        padding: 0 10px;
+        padding: 0 8px;
         flex: 0 0 auto;
       }
       & :not(:last-child) {
         border-right: 1px solid ${theme.colors.depthBase};
-        padding-right: 10px;
+        padding-right: 8px;
         height: 20px;
       }
     }

@@ -14,7 +14,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         content: '';
         position: absolute;
         top: 50%;
-        right: 16px;
+        right: 14px;
         margin-top: -3px;
         border-style: solid;
         border-color: ${theme.colors.blackBase} transparent transparent

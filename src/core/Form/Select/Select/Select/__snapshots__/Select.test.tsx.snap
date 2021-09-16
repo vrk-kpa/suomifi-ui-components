@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`has matching snapshot 1`] = `
-.c7 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,30 +27,30 @@ exports[`has matching snapshot 1`] = `
   cursor: pointer;
 }
 
-.c7:-moz-focusring {
+.c6:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c7::-moz-focus-inner {
+.c6::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c7::-webkit-file-upload-button {
+.c6::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c7::-webkit-inner-spin-button {
+.c6::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c7::-webkit-outer-spin-button {
+.c6::-webkit-outer-spin-button {
   height: auto;
 }
 
-.c7::before,
-.c7::after {
+.c6::before,
+.c6::after {
   box-sizing: border-box;
 }
 
@@ -145,7 +145,7 @@ exports[`has matching snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c9 {
+.c8 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -183,7 +183,7 @@ exports[`has matching snapshot 1`] = `
   font-weight: 400;
 }
 
-.c6.fi-status-text {
+.c11.fi-status-text {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -202,11 +202,11 @@ exports[`has matching snapshot 1`] = `
   line-height: 20px;
 }
 
-.c6.fi-status-text.fi-status-text--error {
+.c11.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
 }
 
-.c6.fi-status-text.fi-status-text--hasContent {
+.c11.fi-status-text.fi-status-text--hasContent {
   margin-top: 5px;
 }
 
@@ -233,6 +233,43 @@ exports[`has matching snapshot 1`] = `
 
 .c2 .fi-filter-input_functionalityContainer {
   line-height: 1.5;
+  position: relative;
+}
+
+.c2 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container > * {
+  box-sizing: content-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 8px;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c2 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container :not(:last-child) {
+  border-right: 1px solid hsl(202,7%,67%);
+  padding-right: 8px;
+  height: 20px;
 }
 
 .c2 .fi-filter-input_input-element-container > input:focus {
@@ -356,28 +393,28 @@ exports[`has matching snapshot 1`] = `
   margin-bottom: 0;
 }
 
-.c10 {
+.c9 {
   display: inline-block;
   vertical-align: baseline;
 }
 
-.c10 .fi-icon-base-fill {
+.c9 .fi-icon-base-fill {
   fill: currentColor;
 }
 
-.c10 .fi-icon-base-stroke {
+.c9 .fi-icon-base-stroke {
   stroke: currentColor;
 }
 
-.c10.fi-icon--cursor-pointer {
+.c9.fi-icon--cursor-pointer {
   cursor: pointer;
 }
 
-.c10.fi-icon--cursor-pointer * {
+.c9.fi-icon--cursor-pointer * {
   cursor: inherit;
 }
 
-.c8.fi-clear-button {
+.c7.fi-input-clear-button {
   cursor: pointer;
   pointer-events: all;
   height: 20px;
@@ -396,11 +433,12 @@ exports[`has matching snapshot 1`] = `
   align-items: center;
 }
 
-.c8.fi-clear-button:focus {
+.c7.fi-input-clear-button:focus {
+  position: relative;
   outline: none;
 }
 
-.c8.fi-clear-button:focus:after {
+.c7.fi-input-clear-button:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -416,29 +454,20 @@ exports[`has matching snapshot 1`] = `
   z-index: 9999;
 }
 
-.c8.fi-clear-button .fi-clear-button_icon {
+.c7.fi-input-clear-button .fi-input-clear-button_icon {
   width: 16px;
   height: 16px;
 }
 
-.c8.fi-clear-button .fi-clear-button_icon .fi-icon-base-fill {
+.c7.fi-input-clear-button .fi-input-clear-button_icon .fi-icon-base-fill {
   fill: hsl(212,63%,37%);
 }
 
-.c11.fi-select-toggle-button {
-  width: 38px;
+.c10.fi-input-toggle-button {
+  width: 20px;
   height: 20px;
-  position: relative;
-}
-
-.c11.fi-select-toggle-button .fi-select-toggle-button_button {
-  position: absolute;
-  top: 0;
-  right: 9px;
   cursor: pointer;
   pointer-events: all;
-  height: 20px;
-  width: 20px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -453,11 +482,14 @@ exports[`has matching snapshot 1`] = `
   align-items: center;
 }
 
-.c11.fi-select-toggle-button .fi-select-toggle-button_button .fi-select-toggle-button_icon {
+.c10.fi-input-toggle-button .fi-input-toggle-button_icon {
   pointer-events: none;
-  width: 8px;
-  height: 8px;
-  fill: hsl(212,63%,37%);
+  width: 10px;
+  height: 10px;
+}
+
+.c10.fi-input-toggle-button .fi-input-toggle-button_icon .fi-icon-base-fill {
+  fill: hsl(0,0%,16%);
 }
 
 .c1.fi-select {
@@ -485,55 +517,6 @@ exports[`has matching snapshot 1`] = `
   padding-right: 75px;
 }
 
-.c1 .fi-select_content_wrapper {
-  display: inline-block;
-  width: 100%;
-  position: relative;
-}
-
-.c1 .fi-select_content_wrapper .fi-select_selected-value {
-  position: absolute;
-  top: 38px;
-  color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-  max-width: 100%;
-  padding: 8px 11px;
-  line-height: 1;
-}
-
-.c1 .fi-select_content_wrapper .fi-select_clear-button_wrapper {
-  border-right: 1px solid hsl(202,7%,67%);
-  width: 37px;
-  height: 20px;
-  top: 43px;
-  right: 38px;
-  position: absolute;
-}
-
-.c1 .fi-select_content_wrapper .fi-select_clear-button_wrapper .fi-select_clear-button {
-  position: absolute;
-  top: 0;
-  right: 8px;
-}
-
-.c1 .fi-select_content_wrapper .fi-select_toggle-button {
-  position: absolute;
-  top: 43px;
-  right: 0;
-}
-
 .c1.fi-select--open .fi-filter-input_input {
   border-bottom: 0;
   border-bottom-left-radius: 0;
@@ -548,119 +531,115 @@ exports[`has matching snapshot 1`] = `
   role="combobox"
 >
   <div
-    class="c0 fi-select_content_wrapper"
+    class="c0 fi-filter-input c2"
   >
     <div
-      class="c0 fi-filter-input c2"
+      class="c0 fi-filter-input_wrapper"
     >
-      <div
-        class="c0 fi-filter-input_wrapper"
+      <label
+        class="c0 c3 fi-label-text"
+        for="1"
       >
-        <label
-          class="c0 c3 fi-label-text"
-          for="1"
+        <span
+          class="c4 fi-label-text_label-span"
         >
-          <span
-            class="c4 fi-label-text_label-span"
-          >
-            Select
-          </span>
-        </label>
+          Select
+        </span>
+      </label>
+      <div
+        class="c0 fi-filter-input_functionalityContainer"
+      >
         <div
-          class="c0 fi-filter-input_functionalityContainer"
+          class="c0 fi-filter-input_input-element-container"
         >
-          <div
-            class="c0 fi-filter-input_input-element-container"
-          >
-            <input
-              aria-activedescendant=""
-              aria-autocomplete="list"
-              aria-controls="2-popover"
-              aria-describedby="2-aria-status"
-              aria-multiline="false"
-              autocapitalize="none"
-              autocomplete="off"
-              class="c5 fi-filter-input_input"
-              id="1"
-              placeholder=""
-              spellcheck="false"
-              type="text"
-              value="Hammer"
-            />
-          </div>
-          <span
-            aria-atomic="true"
-            aria-live="assertive"
-            class="c4 c6 fi-status-text"
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="2-popover"
+            aria-describedby="2-aria-status"
+            aria-multiline="false"
+            autocapitalize="none"
+            autocomplete="off"
+            class="c5 fi-filter-input_input"
+            id="1"
+            placeholder=""
+            spellcheck="false"
+            type="text"
+            value="Hammer"
           />
         </div>
+        <div
+          class="c0 fi-filter-input_action-elements-container"
+        >
+          <div
+            class="c0 fi-select_clear-button_wrapper"
+          >
+            <button
+              class="c6 fi-input-clear-button c7"
+              type="button"
+            >
+              <span
+                class="c4 c8 fi-visually-hidden"
+              >
+                Clear selection
+              </span>
+              <svg
+                aria-hidden="true"
+                class="fi-icon c9 fi-input-clear-button_icon"
+                focusable="false"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="fi-icon-base-fill"
+                  d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
+                  fill="#292929"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+          <button
+            aria-hidden="true"
+            class="c6 fi-input-toggle-button c10"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="c4 c8 fi-visually-hidden"
+            />
+            <svg
+              aria-hidden="true"
+              class="fi-icon c9 fi-input-toggle-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 10 10"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="fi-icon-base-fill"
+                d="M5 8l4-6H1z"
+                fill="#292929"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+        <span
+          aria-atomic="true"
+          aria-live="assertive"
+          class="c4 c11 fi-status-text"
+        />
       </div>
     </div>
-    <div
-      class="c0 fi-select_clear-button_wrapper"
-    >
-      <button
-        class="c7 fi-clear-button c8 fi-select_clear-button"
-        type="button"
-      >
-        <span
-          class="c4 c9 fi-visually-hidden"
-        >
-          Clear selection
-        </span>
-        <svg
-          aria-hidden="true"
-          class="fi-icon c10 fi-clear-button_icon"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            class="fi-icon-base-fill"
-            d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
-            fill="#292929"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </button>
-    </div>
-    <span
-      class="c4 fi-select-toggle-button c11 fi-select_toggle-button"
-    >
-      <button
-        aria-hidden="true"
-        class="c7 fi-select-toggle-button_button"
-        tabindex="-1"
-        type="button"
-      >
-        <span
-          class="c4 c9 fi-visually-hidden"
-        />
-        <svg
-          aria-hidden="true"
-          class="fi-icon c10 fi-select-toggle-button_icon"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 10 10"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            class="fi-icon-base-fill"
-            d="M5 8l4-6H1z"
-            fill="#292929"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </button>
-    </span>
   </div>
   <span
     aria-atomic="true"
     aria-live="polite"
-    class="c4 c9 fi-visually-hidden"
+    class="c4 c8 fi-visually-hidden"
     id="2-aria-status"
   >
     9 Options available

@@ -13,8 +13,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     & .fi-input-toggle-button_icon {
       pointer-events: none;
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       & .fi-icon-base-fill {
         fill: ${theme.colors.blackBase};
       }

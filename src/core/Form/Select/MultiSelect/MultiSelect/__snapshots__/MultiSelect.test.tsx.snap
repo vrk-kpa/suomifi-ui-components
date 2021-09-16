@@ -233,6 +233,43 @@ exports[`has matching snapshot 1`] = `
 
 .c2 .fi-filter-input_functionalityContainer {
   line-height: 1.5;
+  position: relative;
+}
+
+.c2 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container > * {
+  box-sizing: content-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 8px;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c2 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container :not(:last-child) {
+  border-right: 1px solid hsl(202,7%,67%);
+  padding-right: 8px;
+  height: 20px;
 }
 
 .c2 .fi-filter-input_input-element-container > input:focus {
@@ -763,7 +800,7 @@ exports[`has matching snapshot 1`] = `
   content: '';
   position: absolute;
   top: 50%;
-  right: 16px;
+  right: 14px;
   margin-top: -3px;
   border-style: solid;
   border-color: hsl(0,0%,16%) transparent transparent transparent;
