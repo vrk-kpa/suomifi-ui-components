@@ -375,7 +375,7 @@ class BaseSelect<T> extends Component<
                   this.preventShowPopoverOnInputFocus = false;
                 }}
                 onClick={(event) => {
-                  if (!this.isOutsideClick((event as any) as MouseEvent)) {
+                  if (!this.isOutsideClick(event as any as MouseEvent)) {
                     this.setState((prevState: SelectState<T & SelectData>) => ({
                       showPopover: true,
                       filterInputValue: prevState.filterMode

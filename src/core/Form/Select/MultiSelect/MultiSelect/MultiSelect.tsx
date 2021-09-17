@@ -386,14 +386,13 @@ class BaseMultiSelect<T> extends Component<
       ...passProps
     } = this.props;
 
-    const filteredItemsWithChecked: (T &
-      MultiSelectData &
-      CheckedProp)[] = filteredItems.map((item) => ({
-      ...item,
-      checked: !!selectedItems.find(
-        (selectedItem) => selectedItem.uniqueItemId === item.uniqueItemId,
-      ),
-    }));
+    const filteredItemsWithChecked: (T & MultiSelectData & CheckedProp)[] =
+      filteredItems.map((item) => ({
+        ...item,
+        checked: !!selectedItems.find(
+          (selectedItem) => selectedItem.uniqueItemId === item.uniqueItemId,
+        ),
+      }));
 
     const ariaActiveDescendant = focusedDescendantId
       ? `${id}-${focusedDescendantId}`

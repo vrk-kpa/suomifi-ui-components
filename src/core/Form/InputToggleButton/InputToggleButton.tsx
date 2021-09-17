@@ -22,15 +22,8 @@ class BaseInputToggleButton extends Component<
   InputToggleButtonProps & SuomifiThemeProp
 > {
   render() {
-    const {
-      className,
-      label,
-      theme,
-      open,
-      buttonRef,
-      onClick,
-      ...passProps
-    } = this.props;
+    const { className, label, theme, open, buttonRef, onClick, ...passProps } =
+      this.props;
 
     return (
       <HtmlButton
