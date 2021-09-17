@@ -1,4 +1,10 @@
-import React, { Component, ReactNode, ReactElement, forwardRef } from 'react';
+import React, {
+  Component,
+  ReactNode,
+  ReactElement,
+  forwardRef,
+  KeyboardEvent,
+} from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import {
@@ -214,7 +220,7 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
             <ListboxPopover
               position={positionMatchWidth}
               {...passDropdownPopoverProps}
-              onKeyDownCapture={(event: React.KeyboardEvent) => {
+              onKeyDownCapture={(event: KeyboardEvent) => {
                 if (event.code === 'Tab' && !!this.buttonRef.current) {
                   event.preventDefault();
                   this.buttonRef.current.focus();
