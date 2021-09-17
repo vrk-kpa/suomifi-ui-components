@@ -101,13 +101,12 @@ export interface ColorProps {
 
 const copyKey = (key: string) => () => clipboardCopy(key);
 
-const onEnterPressed = (keyName: string) => (
-  e: React.KeyboardEvent<HTMLElement>,
-) => {
-  if (e.key === 'Enter') {
-    clipboardCopy(keyName);
-  }
-};
+const onEnterPressed =
+  (keyName: string) => (e: React.KeyboardEvent<HTMLElement>) => {
+    if (e.key === 'Enter') {
+      clipboardCopy(keyName);
+    }
+  };
 
 const StyledFigure = styled.figure`
   ${(props: ColorProps & SuomifiThemeProp) => baseStyles(props)};

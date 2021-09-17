@@ -50,9 +50,8 @@ export interface RadioButtonGroupProviderState {
 
 const defaultProviderValue: RadioButtonGroupProviderState = {};
 
-const { Provider, Consumer: RadioButtonGroupConsumer } = React.createContext(
-  defaultProviderValue,
-);
+const { Provider, Consumer: RadioButtonGroupConsumer } =
+  React.createContext(defaultProviderValue);
 
 export interface RadioButtonGroupState {
   selectedValue?: string;

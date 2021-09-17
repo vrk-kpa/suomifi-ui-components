@@ -79,9 +79,8 @@ import {
   ExpanderContent
 } from 'suomifi-ui-components';
 
-const [expanderThreeOpen, setExpanderThreeOpen] = React.useState(
-  false
-);
+const [expanderThreeOpen, setExpanderThreeOpen] =
+  React.useState(false);
 
 <>
   <ExpanderGroup

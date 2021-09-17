@@ -5,12 +5,8 @@ import { axeTest } from '../../../utils/test';
 import { SearchInput, SearchInputProps } from './SearchInput';
 
 const TestSearchInput = (props: Partial<SearchInputProps> = {}) => {
-  const {
-    labelText,
-    clearButtonLabel,
-    searchButtonLabel,
-    ...passProps
-  } = props;
+  const { labelText, clearButtonLabel, searchButtonLabel, ...passProps } =
+    props;
   return (
     <SearchInput
       data-testid="searchinput"

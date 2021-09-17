@@ -65,10 +65,8 @@ const defaultProviderValue: ModalProviderState = {
   scrollable: true,
 };
 
-const {
-  Provider: ModalProvider,
-  Consumer: ModalConsumer,
-} = React.createContext(defaultProviderValue);
+const { Provider: ModalProvider, Consumer: ModalConsumer } =
+  React.createContext(defaultProviderValue);
 
 export const baseClassName = 'fi-modal';
 const modalClassNames = {

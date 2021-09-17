@@ -461,11 +461,11 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
     class="c0 fi-modal_base"
   >
     <div
-      class="ReactModal__Overlay ReactModal__Overlay--after-open fi-modal_overlay"
+      class="ReactModal__Overlay fi-modal_overlay"
     >
       <div
         aria-modal="false"
-        class="ReactModal__Content ReactModal__Content--after-open fi-modal"
+        class="ReactModal__Content fi-modal"
         role="dialog"
         tabindex="-1"
       >

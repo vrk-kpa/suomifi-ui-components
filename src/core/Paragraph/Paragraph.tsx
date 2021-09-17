@@ -24,7 +24,8 @@ const StyledParagraph = styled(
   }: ParagraphProps & SuomifiThemeProp) => (
     <HtmlP
       className={classnames(baseClassName, className, {
-        [`${baseClassName}--margin-${marginBottomSpacing}`]: !!marginBottomSpacing,
+        [`${baseClassName}--margin-${marginBottomSpacing}`]:
+          !!marginBottomSpacing,
       })}
       {...passProps}
     />

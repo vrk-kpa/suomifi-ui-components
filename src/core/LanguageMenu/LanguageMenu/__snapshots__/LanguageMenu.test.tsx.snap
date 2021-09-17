@@ -131,7 +131,7 @@ exports[`calling render with the same component on the same container does not r
       aria-haspopup="true"
       class="fi-language-menu_button fi-language-menu-language_button menu-language-test"
       data-reach-menu-button=""
-      id="menu-button--menu--1"
+      id="menu-button--menu"
       type="button"
     >
       FI

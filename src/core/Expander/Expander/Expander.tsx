@@ -31,10 +31,8 @@ const defaultProviderValue: ExpanderProviderState = {
   contentId: undefined,
 };
 
-const {
-  Provider: ExpanderProvider,
-  Consumer: ExpanderConsumer,
-} = React.createContext(defaultProviderValue);
+const { Provider: ExpanderProvider, Consumer: ExpanderConsumer } =
+  React.createContext(defaultProviderValue);
 
 export interface ExpanderProps {
   /**
