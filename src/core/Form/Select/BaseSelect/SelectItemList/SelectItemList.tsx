@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
-import { HtmlDiv, HtmlUlWithRef } from '../../../../../reset';
+import { HtmlDivWithRef, HtmlUlWithRef } from '../../../../../reset';
 import { SelectItemProps } from '../SelectItem/SelectItem';
 import { baseStyles } from './SelectItemList.baseStyles';
 
@@ -28,6 +28,13 @@ export interface SelectItemListProps {
 class BaseSelectItemList extends Component<
   SelectItemListProps & SuomifiThemeProp
 > {
+  private wrapperRef: React.RefObject<HTMLDivElement>;
+
+  constructor(props: SelectItemListProps & SuomifiThemeProp) {
+    super(props);
+    this.wrapperRef = React.createRef();
+  }
+
   componentDidUpdate(prevProps: SelectItemListProps & SuomifiThemeProp) {
     if (
       this.props.focusedDescendantId !== prevProps.focusedDescendantId &&
@@ -38,24 +45,21 @@ class BaseSelectItemList extends Component<
   }
 
   private scrollItemList = (elementId: string) => {
-    if (
-      this.props.forwardRef !== null &&
-      this.props.forwardRef.current !== null
-    ) {
+    if (this.wrapperRef !== null && this.wrapperRef.current !== null) {
       const elementOffsetTop =
         document.getElementById(elementId)?.offsetTop || 0;
       const elementOffsetHeight =
         document.getElementById(elementId)?.offsetHeight || 0;
-      if (elementOffsetTop < this.props.forwardRef.current.scrollTop) {
-        this.props.forwardRef.current.scrollTop = elementOffsetTop;
+      if (elementOffsetTop < this.wrapperRef.current.scrollTop) {
+        this.wrapperRef.current.scrollTop = elementOffsetTop;
       } else {
         const offsetBottom = elementOffsetTop + elementOffsetHeight;
         const scrollBottom =
-          this.props.forwardRef.current.scrollTop +
-          this.props.forwardRef.current.offsetHeight;
+          this.wrapperRef.current.scrollTop +
+          this.wrapperRef.current.offsetHeight;
         if (offsetBottom > scrollBottom) {
-          this.props.forwardRef.current.scrollTop =
-            offsetBottom - this.props.forwardRef.current.offsetHeight;
+          this.wrapperRef.current.scrollTop =
+            offsetBottom - this.wrapperRef.current.offsetHeight;
         }
       }
     }
@@ -82,9 +86,12 @@ class BaseSelectItemList extends Component<
         role="listbox"
         onBlur={onBlur}
       >
-        <HtmlDiv className={selectItemListClassNames.content_wrapper}>
+        <HtmlDivWithRef
+          forwardedRef={this.wrapperRef}
+          className={selectItemListClassNames.content_wrapper}
+        >
           {children}
-        </HtmlDiv>
+        </HtmlDivWithRef>
       </HtmlUlWithRef>
     );
   }

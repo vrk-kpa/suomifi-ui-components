@@ -56,17 +56,17 @@ export const Popover = (props: PopoverProps) => {
     placement,
   });
 
-  const globalClickHandler = (nativeEvent: MouseEvent) => {
-    if (
-      !portalRef.current?.contains(nativeEvent.target as Node) &&
-      !sourceRef?.current?.contains(nativeEvent.target as Node) &&
-      !!onClickOutside
-    ) {
-      onClickOutside(nativeEvent);
-    }
-  };
-
   useEffect(() => {
+    const globalClickHandler = (nativeEvent: MouseEvent) => {
+      if (
+        !portalRef.current?.contains(nativeEvent.target as Node) &&
+        !sourceRef?.current?.contains(nativeEvent.target as Node) &&
+        !!onClickOutside
+      ) {
+        onClickOutside(nativeEvent);
+      }
+    };
+
     document.addEventListener('click', globalClickHandler, {
       capture: true,
     });
@@ -75,7 +75,7 @@ export const Popover = (props: PopoverProps) => {
         capture: true,
       });
     };
-  }, [globalClickHandler]);
+  }, []);
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
