@@ -1,4 +1,4 @@
-import React, { Component, ChangeEvent, forwardRef } from 'react';
+import React, { Component, ChangeEvent, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { InputStatus, StatusTextCommonProps } from '../types';
@@ -15,7 +15,6 @@ import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
 import { baseStyles } from './FilterInput.baseStyles';
-import { ReactNode } from 'hoist-non-react-statics/node_modules/@types/react';
 
 const baseClassName = 'fi-filter-input';
 const filterInputClassNames = {
@@ -65,7 +64,7 @@ interface InternalFilterInputProps<T>
   labelAlign?: 'top' | 'left';
   /** Items to be filtered */
   items: Array<T>;
-  /** Returns the filtered items */
+  /** Callback for items filtering event  */
   onFilter: (filteredItems: Array<T>) => void;
   /** Filtering rule to be used */
   filterFunc: (item: T, query: string) => boolean;
@@ -73,7 +72,7 @@ interface InternalFilterInputProps<T>
   forwardedRef?: React.RefObject<HTMLInputElement>;
   /** Input value onChange handler */
   onChange?: (value: string) => void;
-  /** Children for the input container element. Renders inside and on top of the input. Alignes to right. */
+  /** Children for the input container element. Renders inside and on top of the input. Aligns to right. */
   children?: ReactNode;
 }
 

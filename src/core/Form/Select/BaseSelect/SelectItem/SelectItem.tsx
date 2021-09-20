@@ -22,6 +22,7 @@ export interface SelectItemProps {
   className?: string;
   /** Indicates if the current item has keyboard focus. */
   hasKeyboardFocus: boolean;
+  /** Query for matching string type item children for highlighting text. */
   hightlightQuery: string | undefined;
   checked: boolean;
   disabled?: boolean;
