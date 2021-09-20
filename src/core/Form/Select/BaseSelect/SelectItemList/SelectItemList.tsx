@@ -51,15 +51,17 @@ class BaseSelectItemList extends Component<
       const elementOffsetHeight =
         document.getElementById(elementId)?.offsetHeight || 0;
       if (elementOffsetTop < this.wrapperRef.current.scrollTop) {
-        this.wrapperRef.current.scrollTop = elementOffsetTop;
+        // 4px reduction to scroll position is required due to container padding.
+        this.wrapperRef.current.scrollTop = elementOffsetTop - 4;
       } else {
         const offsetBottom = elementOffsetTop + elementOffsetHeight;
         const scrollBottom =
           this.wrapperRef.current.scrollTop +
           this.wrapperRef.current.offsetHeight;
         if (offsetBottom > scrollBottom) {
+          // 4px reduction to scroll position is required due to container padding.
           this.wrapperRef.current.scrollTop =
-            offsetBottom - this.wrapperRef.current.offsetHeight;
+            offsetBottom - this.wrapperRef.current.offsetHeight - 4;
         }
       }
     }
