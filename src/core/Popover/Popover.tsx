@@ -75,7 +75,7 @@ export const Popover = (props: PopoverProps) => {
         capture: true,
       });
     };
-  }, []);
+  }, [onClickOutside, sourceRef]);
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
