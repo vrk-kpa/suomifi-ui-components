@@ -173,6 +173,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
             <HtmlDiv className={filterInputClassNames.inputElementContainer}>
               <HtmlInput
                 {...passProps}
+                aria-invalid={status === 'error'}
                 id={id}
                 className={filterInputClassNames.inputElement}
                 type="text"

@@ -18,7 +18,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     & .fi-filter-input_action-elements-container {
       position: absolute;
-      height: 100%;
+      height: 40px;
       right: 0;
       top: 0;
       display: flex;

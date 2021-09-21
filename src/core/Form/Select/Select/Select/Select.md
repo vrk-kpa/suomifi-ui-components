@@ -77,15 +77,33 @@ const defaultSelectedTool = {
   uniqueItemId: 'h9823523'
 };
 
+const [selectedValue, setSelectedValue] = React.useState(
+  defaultSelectedTool
+);
+const [status, setStatus] = React.useState('default');
+
 <>
   <Select
     labelText="Tool"
+    hintText="You can filter options by typing in the field"
     clearButtonLabel="Clear selection"
     items={tools}
     visualPlaceholder="Choose a tool"
     noItemsText="No matching options"
     defaultSelectedItem={defaultSelectedTool}
     ariaOptionsAvailableText="Options available"
+    onItemSelectionChange={(item) => {
+      setSelectedValue(item);
+    }}
+    onBlur={() => {
+      if (!selectedValue) {
+        setStatus('error');
+      } else {
+        setStatus('default');
+      }
+    }}
+    status={status}
+    statusText={status === 'error' ? 'You must select a tool.' : ''}
   />
 </>;
 ```
@@ -114,10 +132,11 @@ const animals = [
 
 <>
   <Select
+    labelText="Animal"
+    hintText="You can filter options by typing in the field"
+    clearButtonLabel="Clear selection"
     items={animals}
     selectedItem={selectedAnimal}
-    clearButtonLabel="Clear selection"
-    labelText="Animal"
     noItemsText="No matching options"
     visualPlaceholder="Try to choose animal"
     ariaOptionsAvailableText="Options available"

@@ -49,6 +49,10 @@ export interface SelectProps<T extends SelectData> {
   id?: string;
   /** Label */
   labelText: string;
+  /** Text to mark a field optional. Wrapped in parentheses and shown after labelText. */
+  optionalText?: string;
+  /** Hint text to be shown below the label */
+  hintText?: string;
   /** Clear button label for screen readers */
   clearButtonLabel: string;
   /** Event that is fired when item selections change */
@@ -66,6 +70,8 @@ export interface SelectProps<T extends SelectData> {
   defaultSelectedItem?: T & SelectData;
   /** Event sent when filter changes */
   onChange?: (value: string) => void;
+  /** onBlur event handler */
+  onBlur?: () => void;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
   debounce?: number;
   /**
@@ -140,7 +146,7 @@ class BaseSelect<T> extends Component<
       return {
         selectedItem: resolvedSelectedItem,
         filteredItems: propItems,
-        filterInputValue: resolvedSelectedItem?.labelText,
+        filterInputValue: resolvedSelectedItem?.labelText || '',
         filterMode: selectedItemChanged ? !selectedItem : prevState.filterMode,
         initialItems: propItems,
       };
@@ -155,6 +161,9 @@ class BaseSelect<T> extends Component<
     event: React.FocusEvent<HTMLInputElement | HTMLButtonElement>,
   ) => {
     event.preventDefault();
+    if (!!this.props.onBlur) {
+      this.props.onBlur();
+    }
     const ownerDocument = getOwnerDocument(this.popoverListRef);
     if (!ownerDocument) {
       return;
@@ -317,11 +326,14 @@ class BaseSelect<T> extends Component<
       theme,
       items: propItems,
       labelText,
+      optionalText,
+      hintText,
       onItemSelectionChange,
       visualPlaceholder,
       noItemsText,
       defaultSelectedItem,
       onChange: propOnChange,
+      onBlur,
       debounce,
       status,
       statusText,
@@ -336,7 +348,7 @@ class BaseSelect<T> extends Component<
       ? `${id}-${focusedDescendantId}`
       : '';
     const popoverItemListId = `${id}-popover`;
-    const ariaStatusId = `${id}-aria-status`;
+    const ariaOptionsAvailableTextId = `${id}-aria-status`;
 
     const popoverItems = filterMode ? filteredItems : propItems;
 
@@ -360,8 +372,10 @@ class BaseSelect<T> extends Component<
                 aria-activedescendant={ariaActiveDescendant}
                 id={id}
                 aria-controls={popoverItemListId}
-                aria-describedby={ariaStatusId}
+                aria-describedby={ariaOptionsAvailableTextId}
                 labelText={labelText}
+                optionalText={optionalText}
+                hintText={hintText}
                 items={propItems}
                 onFilter={(filtered) =>
                   this.setState({ filteredItems: filtered })
@@ -478,7 +492,7 @@ class BaseSelect<T> extends Component<
           <VisuallyHidden
             aria-live="polite"
             aria-atomic="true"
-            id={ariaStatusId}
+            id={ariaOptionsAvailableTextId}
           >
             {`${popoverItems.length} ${ariaOptionsAvailableText}`}
           </VisuallyHidden>

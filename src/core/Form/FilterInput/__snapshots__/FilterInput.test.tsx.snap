@@ -173,7 +173,7 @@ exports[`snapshot matches 1`] = `
 
 .c1 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container {
   position: absolute;
-  height: 100%;
+  height: 40px;
   right: 0;
   top: 0;
   display: -webkit-box;
@@ -352,6 +352,7 @@ exports[`snapshot matches 1`] = `
       >
         <input
           aria-autocomplete="list"
+          aria-invalid="false"
           aria-multiline="false"
           autocapitalize="none"
           autocomplete="off"

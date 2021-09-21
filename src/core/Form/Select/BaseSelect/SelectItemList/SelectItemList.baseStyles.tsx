@@ -28,7 +28,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   & .fi-select-item-list_content_wrapper {
-    display: inline-block;
+    display: block;
     width: 100%;
     max-height: inherit;
     overflow-y: auto;

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`has matching snapshot 1`] = `
-.c6 {
+.c7 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,30 +27,30 @@ exports[`has matching snapshot 1`] = `
   cursor: pointer;
 }
 
-.c6:-moz-focusring {
+.c7:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c6::-moz-focus-inner {
+.c7::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c6::-webkit-file-upload-button {
+.c7::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c6::-webkit-inner-spin-button {
+.c7::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c6::-webkit-outer-spin-button {
+.c7::-webkit-outer-spin-button {
   height: auto;
 }
 
-.c6::before,
-.c6::after {
+.c7::before,
+.c7::after {
   box-sizing: border-box;
 }
 
@@ -83,7 +83,7 @@ exports[`has matching snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -106,13 +106,13 @@ exports[`has matching snapshot 1`] = `
   max-width: 100%;
 }
 
-.c5::-webkit-input-placeholder {
+.c6::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c5::before,
-.c5::after {
+.c6::before,
+.c6::after {
   box-sizing: border-box;
 }
 
@@ -145,7 +145,7 @@ exports[`has matching snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c8 {
+.c9 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -183,7 +183,26 @@ exports[`has matching snapshot 1`] = `
   font-weight: 400;
 }
 
-.c11.fi-status-text {
+.c5.fi-hint-text {
+  display: block;
+  color: hsl(0,0%,16%);
+  margin-bottom: 10px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c12.fi-status-text {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -202,11 +221,11 @@ exports[`has matching snapshot 1`] = `
   line-height: 20px;
 }
 
-.c11.fi-status-text.fi-status-text--error {
+.c12.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
 }
 
-.c11.fi-status-text.fi-status-text--hasContent {
+.c12.fi-status-text.fi-status-text--hasContent {
   margin-top: 5px;
 }
 
@@ -238,7 +257,7 @@ exports[`has matching snapshot 1`] = `
 
 .c2 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container {
   position: absolute;
-  height: 100%;
+  height: 40px;
   right: 0;
   top: 0;
   display: -webkit-box;
@@ -393,28 +412,28 @@ exports[`has matching snapshot 1`] = `
   margin-bottom: 0;
 }
 
-.c9 {
+.c10 {
   display: inline-block;
   vertical-align: baseline;
 }
 
-.c9 .fi-icon-base-fill {
+.c10 .fi-icon-base-fill {
   fill: currentColor;
 }
 
-.c9 .fi-icon-base-stroke {
+.c10 .fi-icon-base-stroke {
   stroke: currentColor;
 }
 
-.c9.fi-icon--cursor-pointer {
+.c10.fi-icon--cursor-pointer {
   cursor: pointer;
 }
 
-.c9.fi-icon--cursor-pointer * {
+.c10.fi-icon--cursor-pointer * {
   cursor: inherit;
 }
 
-.c7.fi-input-clear-button {
+.c8.fi-input-clear-button {
   cursor: pointer;
   pointer-events: all;
   height: 20px;
@@ -433,12 +452,12 @@ exports[`has matching snapshot 1`] = `
   align-items: center;
 }
 
-.c7.fi-input-clear-button:focus {
+.c8.fi-input-clear-button:focus {
   position: relative;
   outline: none;
 }
 
-.c7.fi-input-clear-button:focus:after {
+.c8.fi-input-clear-button:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -454,16 +473,16 @@ exports[`has matching snapshot 1`] = `
   z-index: 9999;
 }
 
-.c7.fi-input-clear-button .fi-input-clear-button_icon {
+.c8.fi-input-clear-button .fi-input-clear-button_icon {
   width: 16px;
   height: 16px;
 }
 
-.c7.fi-input-clear-button .fi-input-clear-button_icon .fi-icon-base-fill {
+.c8.fi-input-clear-button .fi-input-clear-button_icon .fi-icon-base-fill {
   fill: hsl(212,63%,37%);
 }
 
-.c10.fi-input-toggle-button {
+.c11.fi-input-toggle-button {
   width: 20px;
   height: 20px;
   cursor: pointer;
@@ -482,13 +501,13 @@ exports[`has matching snapshot 1`] = `
   align-items: center;
 }
 
-.c10.fi-input-toggle-button .fi-input-toggle-button_icon {
+.c11.fi-input-toggle-button .fi-input-toggle-button_icon {
   pointer-events: none;
   width: 10px;
   height: 10px;
 }
 
-.c10.fi-input-toggle-button .fi-input-toggle-button_icon .fi-icon-base-fill {
+.c11.fi-input-toggle-button .fi-input-toggle-button_icon .fi-icon-base-fill {
   fill: hsl(0,0%,16%);
 }
 
@@ -546,6 +565,12 @@ exports[`has matching snapshot 1`] = `
           Select
         </span>
       </label>
+      <span
+        class="c4 c5 fi-hint-text"
+        id="1-hintText"
+      >
+        You can filter options by typing in the field
+      </span>
       <div
         class="c0 fi-filter-input_functionalityContainer"
       >
@@ -556,11 +581,12 @@ exports[`has matching snapshot 1`] = `
             aria-activedescendant=""
             aria-autocomplete="list"
             aria-controls="2-popover"
-            aria-describedby="2-aria-status"
+            aria-describedby="1-hintText 2-aria-status"
+            aria-invalid="false"
             aria-multiline="false"
             autocapitalize="none"
             autocomplete="off"
-            class="c5 fi-filter-input_input"
+            class="c6 fi-filter-input_input"
             id="1"
             placeholder=""
             spellcheck="false"
@@ -575,17 +601,17 @@ exports[`has matching snapshot 1`] = `
             class="c0 fi-select_clear-button_wrapper"
           >
             <button
-              class="c6 fi-input-clear-button c7"
+              class="c7 fi-input-clear-button c8"
               type="button"
             >
               <span
-                class="c4 c8 fi-visually-hidden"
+                class="c4 c9 fi-visually-hidden"
               >
                 Clear selection
               </span>
               <svg
                 aria-hidden="true"
-                class="fi-icon c9 fi-input-clear-button_icon"
+                class="fi-icon c10 fi-input-clear-button_icon"
                 focusable="false"
                 height="1em"
                 viewBox="0 0 24 24"
@@ -603,16 +629,16 @@ exports[`has matching snapshot 1`] = `
           </div>
           <button
             aria-hidden="true"
-            class="c6 fi-input-toggle-button c10"
+            class="c7 fi-input-toggle-button c11"
             tabindex="-1"
             type="button"
           >
             <span
-              class="c4 c8 fi-visually-hidden"
+              class="c4 c9 fi-visually-hidden"
             />
             <svg
               aria-hidden="true"
-              class="fi-icon c9 fi-input-toggle-button_icon"
+              class="fi-icon c10 fi-input-toggle-button_icon"
               focusable="false"
               height="1em"
               viewBox="0 0 10 10"
@@ -631,7 +657,7 @@ exports[`has matching snapshot 1`] = `
         <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c4 c11 fi-status-text"
+          class="c4 c12 fi-status-text"
         />
       </div>
     </div>
@@ -639,7 +665,7 @@ exports[`has matching snapshot 1`] = `
   <span
     aria-atomic="true"
     aria-live="polite"
-    class="c4 c8 fi-visually-hidden"
+    class="c4 c9 fi-visually-hidden"
     id="2-aria-status"
   >
     9 Options available

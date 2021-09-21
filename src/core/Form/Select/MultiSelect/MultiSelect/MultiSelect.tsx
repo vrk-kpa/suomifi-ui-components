@@ -54,6 +54,8 @@ export interface MultiSelectProps<T extends MultiSelectData> {
   id?: string;
   /** Label */
   labelText: string;
+  /** Text to mark a field optional. Wrapped in parentheses and shown after labelText. */
+  optionalText?: string;
   /** Hint text to be shown below the label */
   hintText?: string;
   /** Event that is fired when item selections change */
@@ -72,6 +74,8 @@ export interface MultiSelectProps<T extends MultiSelectData> {
   defaultSelectedItems?: Array<T & MultiSelectData>;
   /** Event sent when filter changes */
   onChange?: (value: string) => void;
+  /** onBlur event handler */
+  onBlur?: () => void;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
   debounce?: number;
   /**
@@ -241,6 +245,9 @@ class BaseMultiSelect<T> extends Component<
       : false;
 
   private handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    if (!!this.props.onBlur) {
+      this.props.onBlur();
+    }
     event.preventDefault();
     const ownerDocument = getOwnerDocument(this.popoverListRef);
     if (!ownerDocument) {
@@ -365,6 +372,7 @@ class BaseMultiSelect<T> extends Component<
       theme,
       items: propItems,
       labelText,
+      optionalText,
       hintText,
       onItemSelectionsChange,
       chipListVisible,
@@ -380,6 +388,7 @@ class BaseMultiSelect<T> extends Component<
       selectedItems: controlledItems,
       onItemSelect,
       onRemoveAll,
+      onBlur,
       ariaSelectedAmountText,
       ariaOptionsAvailableText,
       ariaOptionChipRemovedText,
@@ -420,6 +429,7 @@ class BaseMultiSelect<T> extends Component<
                 <FilterInput
                   id={id}
                   labelText={labelText}
+                  optionalText={optionalText}
                   hintText={hintText}
                   items={propItems}
                   onFilter={(filtered) =>

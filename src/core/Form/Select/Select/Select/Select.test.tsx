@@ -82,6 +82,7 @@ const defaultSelectedTool = {
 const BasicSelect = (
   <Select
     labelText="Select"
+    hintText="You can filter options by typing in the field"
     clearButtonLabel="Clear selection"
     items={tools}
     visualPlaceholder="Choose your tool(s)"

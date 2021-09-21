@@ -238,7 +238,7 @@ exports[`has matching snapshot 1`] = `
 
 .c2 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container {
   position: absolute;
-  height: 100%;
+  height: 40px;
   right: 0;
   top: 0;
   display: -webkit-box;
@@ -864,6 +864,7 @@ exports[`has matching snapshot 1`] = `
               aria-autocomplete="list"
               aria-controls="3-popover"
               aria-describedby="3-selectedItems-length"
+              aria-invalid="false"
               aria-multiline="false"
               autocapitalize="none"
               autocomplete="off"
