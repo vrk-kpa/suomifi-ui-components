@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, MouseEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlLi } from '../../../../../reset';
@@ -27,7 +27,7 @@ export interface SelectItemProps {
   checked: boolean;
   disabled?: boolean;
   id?: string;
-  onClick: () => void;
+  onClick: (event: MouseEvent<HTMLLIElement>) => void;
   children: ReactNode;
 }
 
@@ -78,7 +78,15 @@ class BaseSelectItem extends Component<SelectItemProps & SuomifiThemeProp> {
         aria-selected={checked}
         aria-disabled={disabled || false}
         id={id}
-        onClick={onClick}
+        onClick={(event) => {
+          if (!!onClick) {
+            onClick(event);
+          }
+        }}
+        onMouseDown={(event) => {
+          // prevent focusing the li element
+          event.preventDefault();
+        }}
         {...passProps}
       >
         {React.Children.map(children, (child) => {

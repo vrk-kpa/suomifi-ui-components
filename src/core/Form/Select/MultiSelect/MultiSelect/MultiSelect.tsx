@@ -239,11 +239,6 @@ class BaseMultiSelect<T> extends Component<
       ? ownerDocument.activeElement === this.filterInputRef.current
       : false;
 
-  private focusInPopover = (ownerDocument: Document | null) =>
-    ownerDocument
-      ? this.popoverListRef.current?.contains(ownerDocument.activeElement)
-      : false;
-
   private handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     if (!!this.props.onBlur) {
       this.props.onBlur();
@@ -254,12 +249,10 @@ class BaseMultiSelect<T> extends Component<
       return;
     }
     requestAnimationFrame(() => {
-      const focusInPopover = this.focusInPopover(ownerDocument);
       const focusInInput = this.focusInInput(ownerDocument);
-      const focusInCombobox = focusInPopover || focusInInput;
-      this.setState({ showPopover: focusInCombobox });
+      this.setState({ showPopover: focusInInput });
 
-      if (!focusInCombobox) {
+      if (!focusInInput) {
         this.setState(
           (
             _prevState: MultiSelectState<T & MultiSelectData>,
@@ -271,18 +264,6 @@ class BaseMultiSelect<T> extends Component<
         );
       }
     });
-  };
-
-  private focusToMenu = () => {
-    if (
-      this.popoverListRef !== null &&
-      this.popoverListRef.current !== null &&
-      this.state.showPopover
-    ) {
-      if (!this.focusInPopover(getOwnerDocument(this.popoverListRef))) {
-        this.popoverListRef.current.focus();
-      }
-    }
   };
 
   private handleKeyDown = (event: React.KeyboardEvent) => {
@@ -300,7 +281,7 @@ class BaseMultiSelect<T> extends Component<
     switch (event.key) {
       case 'ArrowDown': {
         event.preventDefault();
-        this.focusToMenu();
+        this.setState({ showPopover: true });
         const nextItem = getNextItem();
         if (nextItem) {
           this.setState({ focusedDescendantId: nextItem.uniqueItemId });
@@ -310,7 +291,7 @@ class BaseMultiSelect<T> extends Component<
 
       case 'ArrowUp': {
         event.preventDefault();
-        this.focusToMenu();
+        this.setState({ showPopover: true });
         const previousItem = getPreviousItem();
         if (previousItem) {
           this.setState({ focusedDescendantId: previousItem.uniqueItemId });
@@ -347,10 +328,7 @@ class BaseMultiSelect<T> extends Component<
       }
 
       default: {
-        if (this.filterInputRef && this.filterInputRef.current) {
-          this.filterInputRef.current.focus();
-          this.setState({ showPopover: true });
-        }
+        this.setState({ showPopover: true });
         break;
       }
     }
@@ -427,6 +405,7 @@ class BaseMultiSelect<T> extends Component<
             <Debounce waitFor={debounce}>
               {(debouncer: Function) => (
                 <FilterInput
+                  aria-activedescendant={ariaActiveDescendant}
                   id={id}
                   labelText={labelText}
                   optionalText={optionalText}
@@ -470,7 +449,6 @@ class BaseMultiSelect<T> extends Component<
                   id={popoverItemListId}
                   forwardRef={this.popoverListRef}
                   focusedDescendantId={{ id: ariaActiveDescendant }}
-                  aria-activedescendant={ariaActiveDescendant}
                   aria-multiselectable="true"
                 >
                   {filteredItemsWithChecked.length > 0 ? (
