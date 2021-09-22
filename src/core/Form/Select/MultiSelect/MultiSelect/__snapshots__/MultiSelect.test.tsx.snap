@@ -861,6 +861,7 @@ exports[`has matching snapshot 1`] = `
             class="c0 fi-filter-input_input-element-container"
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="3-popover"
               aria-describedby="3-selectedItems-length"
