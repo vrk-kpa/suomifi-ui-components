@@ -16,6 +16,8 @@ const alertClassNames = {
   closeButton: `${baseClassName}-close-button`,
   contentWrapper: `${baseClassName}-content-wrapper`,
   textContentWrapper: `${baseClassName}-text-content-wrapper`,
+  smallScreen: `${baseClassName}--small-screen`,
+  inline: `${baseClassName}--inline`,
 };
 
 export interface AlertProps extends HtmlSpanProps {
@@ -54,8 +56,8 @@ class BaseAlert extends Component<AlertProps> {
         {...passProps}
         className={classnames(baseClassName, className, {
           [`${baseClassName}--${variant}`]: !!variant,
-          [`${baseClassName}--inline`]: !!inline,
-          [`${baseClassName}--small-screen`]: !!smallScreen,
+          [alertClassNames.inline]: !!inline,
+          [alertClassNames.smallScreen]: !!smallScreen,
         })}
       >
         <HtmlSpan className={alertClassNames.iconWrapper}>
