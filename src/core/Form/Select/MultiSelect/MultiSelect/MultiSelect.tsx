@@ -239,6 +239,11 @@ class BaseMultiSelect<T> extends Component<
       ? ownerDocument.activeElement === this.filterInputRef.current
       : false;
 
+  private focusInPopover = (ownerDocument: Document | null) =>
+    ownerDocument
+      ? this.popoverListRef.current?.contains(ownerDocument.activeElement)
+      : false;
+
   private handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     if (!!this.props.onBlur) {
       this.props.onBlur();
@@ -249,10 +254,12 @@ class BaseMultiSelect<T> extends Component<
       return;
     }
     requestAnimationFrame(() => {
+      const focusInPopover = this.focusInPopover(ownerDocument);
       const focusInInput = this.focusInInput(ownerDocument);
-      this.setState({ showPopover: focusInInput });
+      const focusInCombobox = focusInPopover || focusInInput;
+      this.setState({ showPopover: focusInCombobox });
 
-      if (!focusInInput) {
+      if (!focusInCombobox) {
         this.setState(
           (
             _prevState: MultiSelectState<T & MultiSelectData>,
