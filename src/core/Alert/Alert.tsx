@@ -3,11 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Alert.baseStyles';
 import { HtmlDiv, HtmlSpan, HtmlSpanProps } from '../../reset';
-import {
-  SuomifiThemeProp,
-  SuomifiThemeConsumer,
-  defaultSuomifiTheme,
-} from '../theme';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { Icon } from '../../core/Icon/Icon';
 
 const baseClassName = 'fi-alert';
@@ -16,69 +12,69 @@ const alertClassNames = {
   content: `${baseClassName}-content`,
   label: `${baseClassName}-label`,
   icon: `${baseClassName}-icon`,
+  iconWrapper: `${baseClassName}-icon-wrapper`,
   closeButton: `${baseClassName}-close-button`,
   contentWrapper: `${baseClassName}-content-wrapper`,
   textContentWrapper: `${baseClassName}-text-content-wrapper`,
 };
 
 export interface AlertProps extends HtmlSpanProps {
-  /** Style variant. Use maintenance for scheduled events and disturbance for urgent issues
-   * @default 'disturbance'
+  /** Style variant. Affects color and icon used.
+   * @default 'notification'
    */
-  variant?: 'maintenance' | 'disturbance';
+  variant?: 'notification' | 'warning' | 'error';
   /** Label for the  alert */
   labelText?: string;
+  /** Use inline version of alert */
   inline?: boolean;
+  /** Main content of the alert */
   children?: ReactNode;
-  closeText: string;
+  /** Text to show next to the closing icon. Not shown when small screen styles are in use. */
+  closeText?: string;
+  /** Use small screen styling */
+  smallScreen?: boolean;
 }
 
 class BaseAlert extends Component<AlertProps> {
   render() {
     const {
       className,
-      variant = 'disturbance',
+      variant = 'notification',
       labelText,
       children,
       inline,
       closeText,
+      smallScreen,
       ...passProps
     } = this.props;
 
-    const variantIcon = variant === 'maintenance' ? 'info' : 'error';
+    const variantIcon = variant === 'notification' ? 'info' : variant;
     return (
       <HtmlDiv
         {...passProps}
         className={classnames(baseClassName, className, {
           [`${baseClassName}--${variant}`]: !!variant,
           [`${baseClassName}--inline`]: !!inline,
+          [`${baseClassName}--small-screen`]: !!smallScreen,
         })}
       >
-        <HtmlSpan className={classnames(alertClassNames.contentWrapper)}>
-          <Icon
-            icon={variantIcon}
-            color={
-              variant === 'maintenance'
-                ? defaultSuomifiTheme.colors.brandBase
-                : defaultSuomifiTheme.colors.alertBase
-            }
-            className={classnames(alertClassNames.icon)}
-          />
-          <HtmlDiv className={classnames(alertClassNames.textContentWrapper)}>
-            {labelText && (
-              <HtmlSpan className={classnames(alertClassNames.label)}>
-                {labelText}
-              </HtmlSpan>
-            )}
-            <HtmlSpan className={classnames(alertClassNames.content)}>
-              {children}
-            </HtmlSpan>
-          </HtmlDiv>
-          <HtmlDiv className={classnames(alertClassNames.closeButton)}>
-            {closeText}
+        <HtmlSpan className={alertClassNames.iconWrapper}>
+          <Icon icon={variantIcon} className={alertClassNames.icon} />
+        </HtmlSpan>
+        <HtmlDiv className={alertClassNames.textContentWrapper}>
+          {labelText && inline && (
+            <HtmlDiv className={alertClassNames.label}>{labelText}</HtmlDiv>
+          )}
+          <HtmlDiv className={alertClassNames.content}>{children}</HtmlDiv>
+        </HtmlDiv>
+
+        {/** Needs to be an actual button */}
+        {!inline && (
+          <HtmlDiv className={alertClassNames.closeButton}>
+            {!smallScreen ? closeText : ''}
             <Icon icon="close" />
           </HtmlDiv>
-        </HtmlSpan>
+        )}
       </HtmlDiv>
     );
   }
