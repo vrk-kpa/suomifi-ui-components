@@ -808,6 +808,10 @@ exports[`has matching snapshot 1`] = `
   pointer-events: none;
 }
 
+.c1.fi-multiselect .fi-filter-input_input {
+  padding-right: 36px;
+}
+
 .c1 .fi-multiselect_content_wrapper {
   display: inline-block;
   width: 100%;

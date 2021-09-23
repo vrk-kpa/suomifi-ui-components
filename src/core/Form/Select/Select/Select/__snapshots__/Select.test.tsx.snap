@@ -529,11 +529,11 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c1.fi-select .fi-filter-input_input {
-  padding-right: 38px;
+  padding-right: 36px;
 }
 
 .c1.fi-select--value-selected .fi-filter-input_input {
-  padding-right: 75px;
+  padding-right: 73px;
 }
 
 .c1.fi-select--open .fi-filter-input_input {

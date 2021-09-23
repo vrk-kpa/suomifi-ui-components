@@ -16,7 +16,9 @@ export {
   MultiSelect,
   MultiSelectProps,
   MultiSelectData,
+  MultiSelectStatus,
   Select,
   SelectProps,
   SelectData,
+  SelectStatus,
 } from './Select';

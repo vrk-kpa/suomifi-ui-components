@@ -8,12 +8,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     width: 290px;
 
     & .fi-filter-input_input {
-      padding-right: 38px;
+      padding-right: 36px;
     }
 
     &--value-selected {
       & .fi-filter-input_input {
-        padding-right: 75px;
+        padding-right: 73px;
       }
     }
   }

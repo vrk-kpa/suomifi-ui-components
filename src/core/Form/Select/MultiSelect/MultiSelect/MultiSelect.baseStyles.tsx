@@ -23,6 +23,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         pointer-events: none;
       }
     }
+    & .fi-filter-input_input {
+      padding-right: 36px;
+    }
   }
 
   & .fi-multiselect_content_wrapper {

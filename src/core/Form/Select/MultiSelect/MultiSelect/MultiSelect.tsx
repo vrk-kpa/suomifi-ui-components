@@ -42,6 +42,8 @@ interface CheckedProp {
   checked: boolean;
 }
 
+export type MultiSelectStatus = FilterInputStatus & {};
+
 export interface MultiSelectProps<T extends MultiSelectData> {
   /** MultiSelect container div class name for custom styling. */
   className?: string;
@@ -82,7 +84,7 @@ export interface MultiSelectProps<T extends MultiSelectData> {
    * 'default' | 'error'
    * @default default
    */
-  status?: FilterInputStatus;
+  status?: MultiSelectStatus;
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
   /** Controlled items; if item is in array, it is selected. If item has disabled: true, it will be disabled. */
