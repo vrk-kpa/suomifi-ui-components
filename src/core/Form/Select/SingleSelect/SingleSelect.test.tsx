@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, act, fireEvent, waitFor } from '@testing-library/react';
-import { axeTest } from '../../../../../utils/test/axe';
-import { Select, SelectData } from './Select';
+import { axeTest } from '../../../../utils/test/axe';
+import { SingleSelect, SingleSelectData } from './SingleSelect';
 
 const tools = [
   {
@@ -79,9 +79,9 @@ const defaultSelectedTool = {
   uniqueItemId: 'h9823523',
 };
 
-const BasicSelect = (
-  <Select
-    labelText="Select"
+const BasicSingleSelect = (
+  <SingleSelect
+    labelText="SingleSelect"
     hintText="You can filter options by typing in the field"
     clearButtonLabel="Clear selection"
     items={tools}
@@ -94,12 +94,12 @@ const BasicSelect = (
 
 it('should not have basic accessibility issues', async () => {
   await act(async () => {
-    axeTest(BasicSelect);
+    axeTest(BasicSingleSelect);
   });
 });
 
 it('has matching snapshot', () => {
-  const { container } = render(BasicSelect);
+  const { container } = render(BasicSingleSelect);
   expect(container.firstChild).toMatchSnapshot();
 });
 
@@ -109,7 +109,7 @@ describe('Controlled', () => {
       name: string;
       price: number;
       tax: boolean;
-    } & SelectData = {
+    } & SingleSelectData = {
       name: 'Powersaw',
       price: 150,
       tax: false,
@@ -117,10 +117,10 @@ describe('Controlled', () => {
       disabled: true,
       uniqueItemId: 'ps9081231',
     };
-    const select = (
-      <Select
+    const singleSelect = (
+      <SingleSelect
         selectedItem={controlledItem}
-        labelText="Select"
+        labelText="SingleSelect"
         clearButtonLabel="Clear selection"
         items={tools}
         visualPlaceholder="Choose your tool"
@@ -131,7 +131,7 @@ describe('Controlled', () => {
     );
 
     await act(async () => {
-      const { getByRole, getByText } = render(select);
+      const { getByRole, getByText } = render(singleSelect);
       expect(getByRole('textbox')).toHaveValue('Powersaw');
       const input = getByRole('textbox');
       await act(async () => {
@@ -144,7 +144,7 @@ describe('Controlled', () => {
   });
 
   it('does not allow removing of items by clicking', async () => {
-    type AnimalData = SelectData & { age: number };
+    type AnimalData = SingleSelectData & { age: number };
     const animals: AnimalData[] = [
       {
         age: 2,
@@ -163,8 +163,8 @@ describe('Controlled', () => {
       },
     ];
 
-    const select = (
-      <Select<AnimalData>
+    const singleSelect = (
+      <SingleSelect<AnimalData>
         items={animals}
         clearButtonLabel="Clear selection"
         selectedItem={{
@@ -179,7 +179,7 @@ describe('Controlled', () => {
       />
     );
 
-    const { getByText, getByRole } = render(select);
+    const { getByText, getByRole } = render(singleSelect);
     const clearButton = getByText('Clear selection');
     await act(async () => {
       fireEvent.click(clearButton, {});
@@ -190,16 +190,16 @@ describe('Controlled', () => {
 
 it('should have correct baseClassName', async () => {
   await act(async () => {
-    const { container } = render(BasicSelect);
-    expect(container.firstChild).toHaveClass('fi-select');
+    const { container } = render(BasicSingleSelect);
+    expect(container.firstChild).toHaveClass('fi-single-select');
   });
 });
 
 test('className: has given custom classname', async () => {
   await act(async () => {
     const { container } = render(
-      <Select
-        labelText="Select"
+      <SingleSelect
+        labelText="SingleSelect"
         clearButtonLabel="Clear selection"
         items={[]}
         noItemsText="No items"
@@ -213,7 +213,7 @@ test('className: has given custom classname', async () => {
 
 describe('filter', () => {
   it('should be available with default selection', async () => {
-    const { getByRole, getAllByRole } = render(BasicSelect);
+    const { getByRole, getAllByRole } = render(BasicSingleSelect);
     const input = getByRole('textbox');
     expect(input).toHaveValue('Hammer');
     fireEvent.change(input, { target: { value: 'h' } });
@@ -224,8 +224,8 @@ describe('filter', () => {
 
   it('should be available when nothing is selected', async () => {
     const { getByRole, getAllByRole } = render(
-      <Select
-        labelText="Select"
+      <SingleSelect
+        labelText="SingleSelect"
         clearButtonLabel="Clear selection"
         items={tools}
         visualPlaceholder="Choose your tool(s)"
@@ -241,7 +241,7 @@ describe('filter', () => {
   });
 
   it('should be removed onBlur', async () => {
-    const { getByRole, getAllByRole } = render(BasicSelect);
+    const { getByRole, getAllByRole } = render(BasicSingleSelect);
     const input = getByRole('textbox');
     expect(input).toHaveValue('Hammer');
     fireEvent.change(input, { target: { value: 'h' } });
@@ -258,7 +258,7 @@ describe('filter', () => {
 
 test('option: should be selected when clicked', async () => {
   await act(async () => {
-    const { getByText, getByRole } = render(BasicSelect);
+    const { getByText, getByRole } = render(BasicSingleSelect);
     const input = getByRole('textbox');
     await act(async () => {
       fireEvent.click(input);
@@ -274,22 +274,22 @@ test('option: should be selected when clicked', async () => {
 test('labelText: has the given text as label', async () => {
   await act(async () => {
     const { queryByText } = render(
-      <Select
-        labelText="Select"
+      <SingleSelect
+        labelText="SingleSelect"
         clearButtonLabel="Clear selection"
         items={[]}
         noItemsText="No items"
         ariaOptionsAvailableText="Options available"
       />,
     );
-    expect(queryByText('Select')).not.toBeNull();
+    expect(queryByText('SingleSelect')).not.toBeNull();
   });
 });
 
 test('visualPlaceholder: has the given text as placeholder attribute', () => {
   const { getByRole } = render(
-    <Select
-      labelText="Select"
+    <SingleSelect
+      labelText="SingleSelect"
       clearButtonLabel="Clear selection"
       items={[]}
       noItemsText="No items"
@@ -303,9 +303,9 @@ test('visualPlaceholder: has the given text as placeholder attribute', () => {
 
 test('id: has the given id', () => {
   const { getByRole } = render(
-    <Select
+    <SingleSelect
       id="cb-123"
-      labelText="Select"
+      labelText="SingleSelect"
       clearButtonLabel="Clear selection"
       items={[]}
       noItemsText="No items"
@@ -318,13 +318,13 @@ test('id: has the given id', () => {
 describe('statusText', () => {
   it('should have element and correct classname for it', () => {
     const { getByText } = render(
-      <Select
+      <SingleSelect
         id="123"
-        labelText="Select"
+        labelText="SingleSelect"
         clearButtonLabel="Clear selection"
         items={[]}
         noItemsText="No items"
-        visualPlaceholder="Select item(s)"
+        visualPlaceholder="Select item"
         statusText="EROR EROR"
         ariaOptionsAvailableText="Options available"
       />,
@@ -335,13 +335,13 @@ describe('statusText', () => {
 
   it('will be added to input aria-describedby', () => {
     const { getByRole } = render(
-      <Select
+      <SingleSelect
         id="123"
-        labelText="Select"
+        labelText="SingleSelect"
         clearButtonLabel="Clear selection"
         items={[]}
         noItemsText="No items"
-        visualPlaceholder="Select item(s)"
+        visualPlaceholder="Select item"
         statusText="EROR EROR"
         ariaOptionsAvailableText="Options available"
       />,
@@ -356,17 +356,17 @@ describe('statusText', () => {
 describe('status', () => {
   it('should have error classname', () => {
     const { container } = render(
-      <Select
+      <SingleSelect
         id="123"
-        labelText="Select"
+        labelText="SingleSelect"
         clearButtonLabel="Clear selection"
         items={[]}
         noItemsText="No items"
-        visualPlaceholder="Select item(s)"
+        visualPlaceholder="Select item"
         status="error"
         ariaOptionsAvailableText="Options available"
       />,
     );
-    expect(container.firstChild).toHaveClass('fi-select--error');
+    expect(container.firstChild).toHaveClass('fi-single-select--error');
   });
 });

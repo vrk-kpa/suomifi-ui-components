@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
-import { SuomifiTheme } from '../../../../theme';
-import { font } from '../../../../theme/reset';
+import { SuomifiTheme } from '../../../theme';
+import { font } from '../../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  &.fi-select {
+  &.fi-single-select {
     ${font(theme)('bodyText')}
     width: 290px;
 
@@ -18,7 +18,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
   }
 
-  &.fi-select--open {
+  &.fi-single-select--open {
     & .fi-filter-input_input {
       border-bottom: 0;
       border-bottom-left-radius: 0;

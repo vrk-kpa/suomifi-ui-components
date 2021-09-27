@@ -511,7 +511,7 @@ exports[`has matching snapshot 1`] = `
   fill: hsl(0,0%,16%);
 }
 
-.c1.fi-select {
+.c1.fi-single-select {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -528,22 +528,22 @@ exports[`has matching snapshot 1`] = `
   width: 290px;
 }
 
-.c1.fi-select .fi-filter-input_input {
+.c1.fi-single-select .fi-filter-input_input {
   padding-right: 36px;
 }
 
-.c1.fi-select--value-selected .fi-filter-input_input {
+.c1.fi-single-select--value-selected .fi-filter-input_input {
   padding-right: 73px;
 }
 
-.c1.fi-select--open .fi-filter-input_input {
+.c1.fi-single-select--open .fi-filter-input_input {
   border-bottom: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
 <div
-  class="c0 fi-select c1 fi-select--value-selected"
+  class="c0 fi-single-select c1 fi-single-select--value-selected"
 >
   <div
     class="c0 fi-filter-input c2"
@@ -558,7 +558,7 @@ exports[`has matching snapshot 1`] = `
         <span
           class="c4 fi-label-text_label-span"
         >
-          Select
+          SingleSelect
         </span>
       </label>
       <span
@@ -599,7 +599,7 @@ exports[`has matching snapshot 1`] = `
           class="c0 fi-filter-input_action-elements-container"
         >
           <div
-            class="c0 fi-select_clear-button_wrapper"
+            class="c0 fi-single-select_clear-button_wrapper"
           >
             <button
               class="c7 fi-input-clear-button c8"

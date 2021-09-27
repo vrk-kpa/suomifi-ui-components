@@ -30,10 +30,10 @@ export {
   MultiSelectProps,
   MultiSelectData,
   MultiSelectStatus,
-  Select,
-  SelectProps,
-  SelectData,
-  SelectStatus,
+  SingleSelect,
+  SingleSelectProps,
+  SingleSelectData,
+  SingleSelectStatus,
 } from './core/Form/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';

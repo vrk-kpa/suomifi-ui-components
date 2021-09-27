@@ -1,5 +1,5 @@
 ```js
-import { Select } from 'suomifi-ui-components';
+import { SingleSelect } from 'suomifi-ui-components';
 
 const tools = [
   {
@@ -83,7 +83,7 @@ const [selectedValue, setSelectedValue] = React.useState(
 const [status, setStatus] = React.useState('default');
 
 <>
-  <Select
+  <SingleSelect
     labelText="Tool"
     hintText="You can filter options by typing in the field"
     clearButtonLabel="Clear selection"
@@ -111,6 +111,7 @@ const [status, setStatus] = React.useState('default');
 ### Controlled
 
 ```js
+import { SingleSelect } from 'suomifi-ui-components';
 const [selectedAnimal, setSelectedAnimal] = React.useState(null);
 const animals = [
   {
@@ -131,7 +132,7 @@ const animals = [
 ];
 
 <>
-  <Select
+  <SingleSelect
     labelText="Animal"
     hintText="You can filter options by typing in the field"
     clearButtonLabel="Clear selection"

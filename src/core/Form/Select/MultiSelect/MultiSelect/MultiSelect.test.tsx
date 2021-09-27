@@ -96,7 +96,7 @@ const defaultSelectedTools = [
   },
 ];
 
-const BasicCombobox = (
+const BasicMultiSelect = (
   <MultiSelect
     labelText="MultiSelect"
     items={tools}
@@ -114,26 +114,26 @@ const BasicCombobox = (
 
 it('should not have basic accessibility issues', async () => {
   await act(async () => {
-    axeTest(BasicCombobox);
+    axeTest(BasicMultiSelect);
   });
 });
 
 it('has matching snapshot', () => {
-  const { container } = render(BasicCombobox);
+  const { container } = render(BasicMultiSelect);
   expect(container.firstChild).toMatchSnapshot();
 });
 
 describe('Chips', () => {
   it('should have selected Chips shown', async () => {
     await act(async () => {
-      const { container } = render(BasicCombobox);
+      const { container } = render(BasicMultiSelect);
       expect(container.querySelectorAll('.fi-chip').length).toEqual(3);
     });
   });
 
   it('second Chip should be removable and removed when clicked', async () => {
     await act(async () => {
-      const { getByText, queryByText } = render(BasicCombobox);
+      const { getByText, queryByText } = render(BasicMultiSelect);
       const hammerChip = getByText('Hammer');
       expect(queryByText('Hammer')).not.toBeNull();
 
@@ -175,7 +175,7 @@ describe('Chips', () => {
   });
 
   it('first Chip should be aria-disabled', () => {
-    const { container } = render(BasicCombobox);
+    const { container } = render(BasicMultiSelect);
     const disabledChip = container.querySelectorAll('.fi-chip')[0];
     expect(disabledChip).toHaveTextContent('Powersaw');
     expect(disabledChip).toHaveClass('fi-chip--disabled');
@@ -184,7 +184,7 @@ describe('Chips', () => {
 
   it('should remove all non-disabled Chips when pressing "Remove all" button', async () => {
     await act(async () => {
-      const { container } = render(BasicCombobox);
+      const { container } = render(BasicMultiSelect);
       expect(container.querySelectorAll('.fi-chip').length).toEqual(3);
       const removeAllButton = container.querySelectorAll(
         '.fi-multiselect_removeAllButton',
@@ -332,7 +332,7 @@ describe('Controlled', () => {
 
 it('should have correct baseClassName', async () => {
   await act(async () => {
-    const { container } = render(BasicCombobox);
+    const { container } = render(BasicMultiSelect);
     expect(container.firstChild).toHaveClass('fi-multiselect');
   });
 });

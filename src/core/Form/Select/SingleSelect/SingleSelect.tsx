@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv } from '../../../../../reset';
-import { getOwnerDocument } from '../../../../../utils/common';
-import { AutoId } from '../../../../utils/AutoId/AutoId';
-import { Debounce } from '../../../../utils/Debounce/Debounce';
-import { Popover } from '../../../../Popover/Popover';
-import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../../theme';
-import {
-  FilterInput,
-  FilterInputStatus,
-} from '../../../FilterInput/FilterInput';
-import { VisuallyHidden } from '../../../../VisuallyHidden/VisuallyHidden';
-import { InputClearButton } from '../../../InputClearButton/InputClearButton';
-import { SelectItemList } from '../../BaseSelect/SelectItemList/SelectItemList';
-import { SelectItem } from '../../BaseSelect/SelectItem/SelectItem';
-import { SelectEmptyItem } from '../../BaseSelect/SelectEmptyItem/SelectEmptyItem';
-import { InputToggleButton } from '../../../InputToggleButton/InputToggleButton';
-import { baseStyles } from './Select.baseStyles';
+import { HtmlDiv } from '../../../../reset';
+import { getOwnerDocument } from '../../../../utils/common';
+import { AutoId } from '../../../utils/AutoId/AutoId';
+import { Debounce } from '../../../utils/Debounce/Debounce';
+import { Popover } from '../../../Popover/Popover';
+import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
+import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
+import { VisuallyHidden } from '../../../VisuallyHidden/VisuallyHidden';
+import { InputClearButton } from '../../InputClearButton/InputClearButton';
+import { SelectItemList } from '../BaseSelect/SelectItemList/SelectItemList';
+import { SelectItem } from '../BaseSelect/SelectItem/SelectItem';
+import { SelectEmptyItem } from '../BaseSelect/SelectEmptyItem/SelectEmptyItem';
+import { InputToggleButton } from '../../InputToggleButton/InputToggleButton';
+import { baseStyles } from './SingleSelect.baseStyles';
 
-const baseClassName = 'fi-select';
-const selectClassNames = {
+const baseClassName = 'fi-single-select';
+const singleSelectClassNames = {
   valueSelected: `${baseClassName}--value-selected`,
   clearButtonWrapper: `${baseClassName}_clear-button_wrapper`,
   open: `${baseClassName}--open`,
@@ -28,8 +25,8 @@ const selectClassNames = {
   queryHighlight: `${baseClassName}-item--query_highlight`,
 };
 
-export interface SelectData {
-  /** Unique label that will be shown on Select item and used on filter */
+export interface SingleSelectData {
+  /** Unique label that will be shown on SingleSelect item and used on filter */
   labelText: string;
   /** Item selection disabled for the user */
   disabled?: boolean;
@@ -37,13 +34,13 @@ export interface SelectData {
   uniqueItemId: string;
 }
 
-export type SelectStatus = FilterInputStatus & {};
+export type SingleSelectStatus = FilterInputStatus & {};
 
-export interface SelectProps<T extends SelectData> {
-  /** Select container div class name for custom styling. */
+export interface SingleSelectProps<T extends SingleSelectData> {
+  /** SingleSelect container div class name for custom styling. */
   className?: string;
-  /** Items for the Select */
-  items: Array<T & SelectData>;
+  /** Items for the SingleSelect */
+  items: Array<T & SingleSelectData>;
   /**
    * Unique id
    * If no id is specified, one will be generated automatically
@@ -69,7 +66,7 @@ export interface SelectProps<T extends SelectData> {
    */
   ariaOptionsAvailableText: string;
   /** Default selected items */
-  defaultSelectedItem?: T & SelectData;
+  defaultSelectedItem?: T & SingleSelectData;
   /** Event sent when filter changes */
   onChange?: (value: string) => void;
   /** onBlur event handler */
@@ -80,27 +77,27 @@ export interface SelectProps<T extends SelectData> {
    * 'default' | 'error'
    * @default default
    */
-  status?: SelectStatus;
+  status?: SingleSelectStatus;
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
   /** Controlled items; if item is in array, it is selected. If item has disabled: true, it will be disabled. */
-  selectedItem?: T & SelectData;
+  selectedItem?: T & SingleSelectData;
   /** Selecting the item will send event with the id */
   onItemSelect?: (uniqueItemId: string | null) => void;
 }
 
-interface SelectState<T extends SelectData> {
+interface SingleSelectState<T extends SingleSelectData> {
   filterInputValue: string;
   filteredItems: T[];
   filterMode: boolean;
   showPopover: boolean;
   focusedDescendantId: string | null;
-  selectedItem: (T & SelectData) | null;
+  selectedItem: (T & SingleSelectData) | null;
   initialItems: T[];
 }
 
-class BaseSelect<T> extends Component<
-  SelectProps<T & SelectData> & SuomifiThemeProp
+class BaseSingleSelect<T> extends Component<
+  SingleSelectProps<T & SingleSelectData> & SuomifiThemeProp
 > {
   private popoverListRef: React.RefObject<HTMLUListElement>;
 
@@ -112,7 +109,9 @@ class BaseSelect<T> extends Component<
 
   private preventShowPopoverOnInputFocus = false;
 
-  constructor(props: SelectProps<T & SelectData> & SuomifiThemeProp) {
+  constructor(
+    props: SingleSelectProps<T & SingleSelectData> & SuomifiThemeProp,
+  ) {
     super(props);
     this.popoverListRef = React.createRef();
     this.filterInputRef = React.createRef();
@@ -120,7 +119,7 @@ class BaseSelect<T> extends Component<
     this.clearButtonRef = React.createRef();
   }
 
-  state: SelectState<T & SelectData> = {
+  state: SingleSelectState<T & SingleSelectData> = {
     filterInputValue: this.props.selectedItem?.labelText
       ? this.props.selectedItem.labelText
       : this.props.defaultSelectedItem?.labelText || '',
@@ -135,8 +134,8 @@ class BaseSelect<T> extends Component<
   };
 
   static getDerivedStateFromProps<U>(
-    nextProps: SelectProps<U & SelectData>,
-    prevState: SelectState<U & SelectData>,
+    nextProps: SingleSelectProps<U & SingleSelectData>,
+    prevState: SingleSelectState<U & SingleSelectData>,
   ) {
     const { items: propItems, selectedItem } = nextProps;
     const selectedItemChanged =
@@ -156,7 +155,7 @@ class BaseSelect<T> extends Component<
     return null;
   }
 
-  private filter = (data: SelectData, query: string) =>
+  private filter = (data: SingleSelectData, query: string) =>
     data.labelText.toLowerCase().includes(query.toLowerCase());
 
   private handleBlur = () => {
@@ -176,11 +175,11 @@ class BaseSelect<T> extends Component<
       );
       const focusInInput =
         ownerDocument.activeElement === this.filterInputRef.current;
-      const focusInSelect =
+      const focusInSingleSelect =
         focusInPopover || focusInInput || focusInToggleButton;
-      this.setState({ showPopover: focusInSelect });
-      if (!focusInSelect) {
-        this.setState((prevState: SelectState<T & SelectData>) => ({
+      this.setState({ showPopover: focusInSingleSelect });
+      if (!focusInSingleSelect) {
+        this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
           filterInputValue: prevState.selectedItem?.labelText || '',
           filterMode: false,
         }));
@@ -189,7 +188,7 @@ class BaseSelect<T> extends Component<
   };
 
   private handleOnChange = (value: string) => {
-    this.setState((prevState: SelectState<T & SelectData>) => {
+    this.setState((prevState: SingleSelectState<T & SingleSelectData>) => {
       const newValue =
         prevState.filterMode || !prevState.selectedItem
           ? value
@@ -217,7 +216,7 @@ class BaseSelect<T> extends Component<
     this.setState({ showPopover: false, filterMode: false });
   };
 
-  private handleItemSelection = (item: (T & SelectData) | null) => {
+  private handleItemSelection = (item: (T & SingleSelectData) | null) => {
     if (item !== null && item.disabled) return;
     const { onItemSelect, onItemSelectionChange, selectedItem } = this.props;
     if (!selectedItem) {
@@ -352,9 +351,9 @@ class BaseSelect<T> extends Component<
         <HtmlDiv
           {...passProps}
           className={classnames(baseClassName, className, {
-            [selectClassNames.valueSelected]: !!selectedItem,
-            [selectClassNames.open]: showPopover,
-            [selectClassNames.error]: status === 'error',
+            [singleSelectClassNames.valueSelected]: !!selectedItem,
+            [singleSelectClassNames.open]: showPopover,
+            [singleSelectClassNames.error]: status === 'error',
           })}
         >
           <Debounce waitFor={debounce}>
@@ -387,13 +386,15 @@ class BaseSelect<T> extends Component<
                 }}
                 onClick={(event) => {
                   if (!this.isOutsideClick(event as any as MouseEvent)) {
-                    this.setState((prevState: SelectState<T & SelectData>) => ({
-                      showPopover: true,
-                      filterInputValue: prevState.filterMode
-                        ? prevState.filterInputValue
-                        : '',
-                      filterMode: true,
-                    }));
+                    this.setState(
+                      (prevState: SingleSelectState<T & SingleSelectData>) => ({
+                        showPopover: true,
+                        filterInputValue: prevState.filterMode
+                          ? prevState.filterInputValue
+                          : '',
+                        filterMode: true,
+                      }),
+                    );
                   }
                   this.focusToInputAndSelectText();
                 }}
@@ -411,7 +412,9 @@ class BaseSelect<T> extends Component<
                 statusText={statusText}
               >
                 {!!selectedItem && (
-                  <HtmlDiv className={selectClassNames.clearButtonWrapper}>
+                  <HtmlDiv
+                    className={singleSelectClassNames.clearButtonWrapper}
+                  >
                     <InputClearButton
                       forwardedRef={this.clearButtonRef}
                       onClick={() => this.handleItemSelection(null)}
@@ -425,9 +428,11 @@ class BaseSelect<T> extends Component<
                   buttonRef={this.toggleButtonRef}
                   onClick={(event) => {
                     event.preventDefault();
-                    this.setState((prevState: SelectState<T & SelectData>) => ({
-                      showPopover: !prevState.showPopover,
-                    }));
+                    this.setState(
+                      (prevState: SingleSelectState<T & SingleSelectData>) => ({
+                        showPopover: !prevState.showPopover,
+                      }),
+                    );
                     this.preventShowPopoverOnInputFocus = true;
                     this.focusToInputAndSelectText();
                   }}
@@ -499,11 +504,13 @@ class BaseSelect<T> extends Component<
   }
 }
 
-const SelectCombobox = styled(BaseSelect)`
+const StyledSingleSelect = styled(BaseSingleSelect)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export class Select<T> extends Component<SelectProps<T & SelectData>> {
+export class SingleSelect<T> extends Component<
+  SingleSelectProps<T & SingleSelectData>
+> {
   render() {
     const { id: propId, ...passProps } = this.props;
     return (
@@ -511,7 +518,7 @@ export class Select<T> extends Component<SelectProps<T & SelectData>> {
         {({ suomifiTheme }) => (
           <AutoId id={propId}>
             {(id) => (
-              <SelectCombobox theme={suomifiTheme} id={id} {...passProps} />
+              <StyledSingleSelect theme={suomifiTheme} id={id} {...passProps} />
             )}
           </AutoId>
         )}

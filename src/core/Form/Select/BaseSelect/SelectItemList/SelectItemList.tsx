@@ -21,7 +21,7 @@ export interface SelectItemListProps {
   forwardRef: React.RefObject<HTMLUListElement>;
   focusedDescendantId: { id: string };
   onBlur?: (event: React.FocusEvent<Element>) => void;
-  /** Id needed for aria-owns and aria-controls in Combobox */
+  /** Id needed for aria-owns and aria-controls */
   id: string;
 }
 

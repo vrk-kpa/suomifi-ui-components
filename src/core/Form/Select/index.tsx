@@ -1,4 +1,9 @@
-export { Select, SelectProps, SelectData, SelectStatus } from './Select';
+export {
+  SingleSelect,
+  SingleSelectProps,
+  SingleSelectData,
+  SingleSelectStatus,
+} from './SingleSelect/SingleSelect';
 export {
   MultiSelect,
   MultiSelectProps,

@@ -257,10 +257,10 @@ class BaseMultiSelect<T> extends Component<
     requestAnimationFrame(() => {
       const focusInPopover = this.focusInPopover(ownerDocument);
       const focusInInput = this.focusInInput(ownerDocument);
-      const focusInCombobox = focusInPopover || focusInInput;
-      this.setState({ showPopover: focusInCombobox });
+      const focusInMultiSelect = focusInPopover || focusInInput;
+      this.setState({ showPopover: focusInMultiSelect });
 
-      if (!focusInCombobox) {
+      if (!focusInMultiSelect) {
         this.setState(
           (
             _prevState: MultiSelectState<T & MultiSelectData>,
