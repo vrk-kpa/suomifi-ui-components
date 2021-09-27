@@ -37,6 +37,8 @@ interface InternalFilterInputProps<T>
   className?: string;
   /** FilterInput container div props */
   inputContainerProps?: Omit<HtmlDivProps, 'className'>;
+  /** FilterInput element container div props, e.g. for widget roles */
+  inputElementContainerProps?: Omit<HtmlDivProps, 'className'>;
   /** Disable input usage */
   disabled?: boolean;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
@@ -111,6 +113,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
     const {
       className,
       inputContainerProps,
+      inputElementContainerProps,
       visualPlaceholder,
       labelText,
       labelMode,
@@ -147,6 +150,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       }
     };
 
+    const labelId = `${id}-label`;
     const hintTextId = hintText ? `${id}-hintText` : undefined;
     const statusTextId = statusText ? `${id}-statusText` : undefined;
 
@@ -161,7 +165,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       >
         <HtmlDiv className={classnames(filterInputClassNames.wrapper, {})}>
           <LabelText
-            htmlFor={id}
+            id={labelId}
             asProp="label"
             labelMode={labelMode}
             optionalText={optionalText}
@@ -170,9 +174,13 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
           </LabelText>
           <HintText id={hintTextId}>{hintText}</HintText>
           <HtmlDiv className={filterInputClassNames.functionalityContainer}>
-            <HtmlDiv className={filterInputClassNames.inputElementContainer}>
+            <HtmlDiv
+              className={filterInputClassNames.inputElementContainer}
+              {...inputElementContainerProps}
+            >
               <HtmlInput
                 {...passProps}
+                aria-labelledby={labelId}
                 aria-invalid={status === 'error'}
                 id={id}
                 className={filterInputClassNames.inputElement}

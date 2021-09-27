@@ -543,11 +543,7 @@ exports[`has matching snapshot 1`] = `
 }
 
 <div
-  aria-expanded="false"
-  aria-haspopup="listbox"
-  aria-owns="2-popover"
   class="c0 fi-select c1 fi-select--value-selected"
-  role="combobox"
 >
   <div
     class="c0 fi-filter-input c2"
@@ -557,7 +553,7 @@ exports[`has matching snapshot 1`] = `
     >
       <label
         class="c0 c3 fi-label-text"
-        for="1"
+        id="1-label"
       >
         <span
           class="c4 fi-label-text_label-span"
@@ -575,7 +571,11 @@ exports[`has matching snapshot 1`] = `
         class="c0 fi-filter-input_functionalityContainer"
       >
         <div
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="2-popover"
           class="c0 fi-filter-input_input-element-container"
+          role="combobox"
         >
           <input
             aria-activedescendant=""
@@ -583,6 +583,7 @@ exports[`has matching snapshot 1`] = `
             aria-controls="2-popover"
             aria-describedby="1-hintText 2-aria-status"
             aria-invalid="false"
+            aria-labelledby="1-label"
             aria-multiline="false"
             autocapitalize="none"
             autocomplete="off"

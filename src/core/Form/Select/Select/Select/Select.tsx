@@ -159,10 +159,7 @@ class BaseSelect<T> extends Component<
   private filter = (data: SelectData, query: string) =>
     data.labelText.toLowerCase().includes(query.toLowerCase());
 
-  private handleBlur = (
-    event: React.FocusEvent<HTMLInputElement | HTMLButtonElement>,
-  ) => {
-    event.preventDefault();
+  private handleBlur = () => {
     if (!!this.props.onBlur) {
       this.props.onBlur();
     }
@@ -254,7 +251,6 @@ class BaseSelect<T> extends Component<
 
     switch (event.key) {
       case 'ArrowDown': {
-        event.preventDefault();
         if (!this.state.showPopover) {
           this.setState({ showPopover: true });
         }
@@ -266,7 +262,6 @@ class BaseSelect<T> extends Component<
       }
 
       case 'ArrowUp': {
-        event.preventDefault();
         if (!this.state.showPopover) {
           this.setState({ showPopover: true });
         }
@@ -278,7 +273,6 @@ class BaseSelect<T> extends Component<
       }
 
       case 'Enter': {
-        event.preventDefault();
         if (focusedDescendantId) {
           const focusedItem = popoverItems.find(
             ({ uniqueItemId }) => uniqueItemId === focusedDescendantId,
@@ -291,7 +285,6 @@ class BaseSelect<T> extends Component<
       }
 
       case 'Escape': {
-        event.preventDefault();
         if (!this.state.selectedItem) {
           this.setState({ filterInputValue: '' });
         }
@@ -357,10 +350,6 @@ class BaseSelect<T> extends Component<
     return (
       <>
         <HtmlDiv
-          role="combobox"
-          aria-haspopup="listbox"
-          aria-owns={popoverItemListId}
-          aria-expanded={showPopover}
           {...passProps}
           className={classnames(baseClassName, className, {
             [selectClassNames.valueSelected]: !!selectedItem,
@@ -371,6 +360,12 @@ class BaseSelect<T> extends Component<
           <Debounce waitFor={debounce}>
             {(debouncer: Function) => (
               <FilterInput
+                inputElementContainerProps={{
+                  role: 'combobox',
+                  'aria-haspopup': 'listbox',
+                  'aria-owns': popoverItemListId,
+                  'aria-expanded': showPopover,
+                }}
                 aria-activedescendant={ariaActiveDescendant}
                 id={id}
                 aria-controls={popoverItemListId}
@@ -420,7 +415,7 @@ class BaseSelect<T> extends Component<
                     <InputClearButton
                       forwardedRef={this.clearButtonRef}
                       onClick={() => this.handleItemSelection(null)}
-                      onBlur={(event) => this.handleBlur(event)}
+                      onBlur={this.handleBlur}
                       label={clearButtonLabel}
                     />
                   </HtmlDiv>

@@ -246,11 +246,10 @@ class BaseMultiSelect<T> extends Component<
       ? this.popoverListRef.current?.contains(ownerDocument.activeElement)
       : false;
 
-  private handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+  private handleBlur = () => {
     if (!!this.props.onBlur) {
       this.props.onBlur();
     }
-    event.preventDefault();
     const ownerDocument = getOwnerDocument(this.popoverListRef);
     if (!ownerDocument) {
       return;
@@ -289,7 +288,6 @@ class BaseMultiSelect<T> extends Component<
 
     switch (event.key) {
       case 'ArrowDown': {
-        event.preventDefault();
         this.setState({ showPopover: true });
         const nextItem = getNextItem();
         if (nextItem) {
@@ -299,7 +297,6 @@ class BaseMultiSelect<T> extends Component<
       }
 
       case 'ArrowUp': {
-        event.preventDefault();
         this.setState({ showPopover: true });
         const previousItem = getPreviousItem();
         if (previousItem) {
@@ -309,7 +306,6 @@ class BaseMultiSelect<T> extends Component<
       }
 
       case 'Enter': {
-        event.preventDefault();
         if (focusedDescendantId) {
           const focusedItem = items.find(
             ({ uniqueItemId }) => uniqueItemId === focusedDescendantId,
@@ -322,7 +318,6 @@ class BaseMultiSelect<T> extends Component<
       }
 
       case 'Escape': {
-        event.preventDefault();
         this.setState(
           (
             _prevState: MultiSelectState<T & MultiSelectData>,
@@ -337,7 +332,6 @@ class BaseMultiSelect<T> extends Component<
       }
 
       default: {
-        this.setState({ showPopover: true });
         break;
       }
     }
@@ -398,10 +392,6 @@ class BaseMultiSelect<T> extends Component<
     return (
       <>
         <HtmlDiv
-          role="combobox"
-          aria-haspopup="listbox"
-          aria-owns={popoverItemListId}
-          aria-expanded={showPopover}
           {...passProps}
           className={classnames(baseClassName, className, {
             [multiSelectClassNames.open]: showPopover,
@@ -414,6 +404,12 @@ class BaseMultiSelect<T> extends Component<
             <Debounce waitFor={debounce}>
               {(debouncer: Function) => (
                 <FilterInput
+                  inputElementContainerProps={{
+                    role: 'combobox',
+                    'aria-haspopup': 'listbox',
+                    'aria-owns': popoverItemListId,
+                    'aria-expanded': showPopover,
+                  }}
                   aria-activedescendant={ariaActiveDescendant}
                   id={id}
                   labelText={labelText}
@@ -433,7 +429,10 @@ class BaseMultiSelect<T> extends Component<
                     if (propOnChange) {
                       debouncer(propOnChange, value);
                     }
-                    this.setState({ filterInputValue: value });
+                    this.setState({
+                      filterInputValue: value,
+                      showPopover: true,
+                    });
                   }}
                   visualPlaceholder={visualPlaceholder}
                   status={status}
