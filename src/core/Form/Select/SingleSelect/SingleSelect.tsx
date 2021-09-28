@@ -91,6 +91,7 @@ interface SingleSelectState<T extends SingleSelectData> {
   filteredItems: T[];
   filterMode: boolean;
   showPopover: boolean;
+  showOptionsAvailableText: boolean;
   focusedDescendantId: string | null;
   selectedItem: (T & SingleSelectData) | null;
   initialItems: T[];
@@ -126,6 +127,7 @@ class BaseSingleSelect<T> extends Component<
     filteredItems: this.props.items,
     filterMode: !!this.props.selectedItem || !!this.props.defaultSelectedItem,
     showPopover: false,
+    showOptionsAvailableText: false,
     focusedDescendantId: null,
     selectedItem: this.props.selectedItem
       ? this.props.selectedItem
@@ -177,11 +179,12 @@ class BaseSingleSelect<T> extends Component<
         ownerDocument.activeElement === this.filterInputRef.current;
       const focusInSingleSelect =
         focusInPopover || focusInInput || focusInToggleButton;
-      this.setState({ showPopover: focusInSingleSelect });
       if (!focusInSingleSelect) {
         this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
           filterInputValue: prevState.selectedItem?.labelText || '',
           filterMode: false,
+          showOptionsAvailableText: false,
+          showPopover: focusInSingleSelect,
         }));
       }
     });
@@ -382,6 +385,7 @@ class BaseSingleSelect<T> extends Component<
                   if (!this.preventShowPopoverOnInputFocus) {
                     this.setState({ showPopover: true });
                   }
+                  this.setState({ showOptionsAvailableText: true });
                   this.preventShowPopoverOnInputFocus = false;
                 }}
                 onClick={(event) => {
@@ -491,13 +495,15 @@ class BaseSingleSelect<T> extends Component<
               </SelectItemList>
             </Popover>
           )}
-          <VisuallyHidden
-            aria-live="polite"
-            aria-atomic="true"
-            id={ariaOptionsAvailableTextId}
-          >
-            {`${popoverItems.length} ${ariaOptionsAvailableText}`}
-          </VisuallyHidden>
+          {this.state.showOptionsAvailableText && (
+            <VisuallyHidden
+              aria-live="polite"
+              aria-atomic="true"
+              id={ariaOptionsAvailableTextId}
+            >
+              {`${popoverItems.length} ${ariaOptionsAvailableText}`}
+            </VisuallyHidden>
+          )}
         </HtmlDiv>
       </>
     );

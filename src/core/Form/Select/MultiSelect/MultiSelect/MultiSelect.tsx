@@ -109,6 +109,7 @@ interface MultiSelectState<T extends MultiSelectData> {
   filterInputValue: string;
   filteredItems: T[];
   showPopover: boolean;
+  showOptionsAvailableText: boolean;
   focusedDescendantId: string | null;
   selectedItems: T[];
   initialItems: T[];
@@ -132,6 +133,7 @@ class BaseMultiSelect<T> extends Component<
     filterInputValue: '',
     filteredItems: this.props.items,
     showPopover: false,
+    showOptionsAvailableText: false,
     focusedDescendantId: null,
     selectedItems: this.props.selectedItems
       ? this.props.selectedItems || []
@@ -258,7 +260,6 @@ class BaseMultiSelect<T> extends Component<
       const focusInPopover = this.focusInPopover(ownerDocument);
       const focusInInput = this.focusInInput(ownerDocument);
       const focusInMultiSelect = focusInPopover || focusInInput;
-      this.setState({ showPopover: focusInMultiSelect });
 
       if (!focusInMultiSelect) {
         this.setState(
@@ -268,6 +269,8 @@ class BaseMultiSelect<T> extends Component<
           ) => ({
             filterInputValue: '',
             filteredItems: prevProps.items,
+            showPopover: false,
+            showOptionsAvailableText: false,
           }),
         );
       }
@@ -421,7 +424,12 @@ class BaseMultiSelect<T> extends Component<
                   }
                   filterFunc={this.filter}
                   forwardedRef={this.filterInputRef}
-                  onFocus={() => this.setState({ showPopover: true })}
+                  onFocus={() =>
+                    this.setState({
+                      showPopover: true,
+                      showOptionsAvailableText: true,
+                    })
+                  }
                   onKeyDown={this.handleKeyDown}
                   onBlur={this.handleBlur}
                   value={filterInputValue}
@@ -509,33 +517,37 @@ class BaseMultiSelect<T> extends Component<
             </MultiSelectRemoveAllButton>
           </HtmlDiv>
         </HtmlDiv>
-        <VisuallyHidden
-          aria-live="polite"
-          aria-atomic="true"
-          id={`${id}-selectedItems-length`}
-        >
-          {selectedItems.length}
-          {ariaSelectedAmountText}
-        </VisuallyHidden>
-        <VisuallyHidden
-          aria-live="polite"
-          aria-atomic="true"
-          id={`${id}-filteredItems-length`}
-        >
-          {this.focusInInput(getOwnerDocument(this.popoverListRef)) ? (
-            <>
-              {filteredItems.length}
-              {ariaOptionsAvailableText}
-            </>
-          ) : null}
-        </VisuallyHidden>
-        <VisuallyHidden
-          aria-live="assertive"
-          aria-atomic="true"
-          id={`${id}-chip-removal-announce`}
-        >
-          {chipRemovalAnnounceText}
-        </VisuallyHidden>
+        {this.state.showOptionsAvailableText && (
+          <>
+            <VisuallyHidden
+              aria-live="polite"
+              aria-atomic="true"
+              id={`${id}-selectedItems-length`}
+            >
+              {selectedItems.length}
+              {ariaSelectedAmountText}
+            </VisuallyHidden>
+            <VisuallyHidden
+              aria-live="polite"
+              aria-atomic="true"
+              id={`${id}-filteredItems-length`}
+            >
+              {this.focusInInput(getOwnerDocument(this.popoverListRef)) ? (
+                <>
+                  {filteredItems.length}
+                  {ariaOptionsAvailableText}
+                </>
+              ) : null}
+            </VisuallyHidden>
+            <VisuallyHidden
+              aria-live="assertive"
+              aria-atomic="true"
+              id={`${id}-chip-removal-announce`}
+            >
+              {chipRemovalAnnounceText}
+            </VisuallyHidden>
+          </>
+        )}
       </>
     );
   }

@@ -663,13 +663,5 @@ exports[`has matching snapshot 1`] = `
       </div>
     </div>
   </div>
-  <span
-    aria-atomic="true"
-    aria-live="polite"
-    class="c4 c9 fi-visually-hidden"
-    id="2-aria-status"
-  >
-    9 Options available
-  </span>
 </div>
 `;
