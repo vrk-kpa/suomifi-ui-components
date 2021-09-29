@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Alert.baseStyles';
-import { HtmlDiv, HtmlSpan, HtmlSpanProps } from '../../reset';
+import { HtmlDiv, HtmlSpan, HtmlSpanProps, HtmlButton } from '../../reset';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { Icon } from '../../core/Icon/Icon';
 
@@ -72,10 +72,10 @@ class BaseAlert extends Component<AlertProps> {
 
         {/** Needs to be an actual button */}
         {!inline && (
-          <HtmlDiv className={alertClassNames.closeButton}>
-            {!smallScreen ? closeText : ''}
+          <HtmlButton className={alertClassNames.closeButton}>
+            {!smallScreen ? closeText?.toUpperCase() : ''}
             <Icon icon="close" />
-          </HtmlDiv>
+          </HtmlButton>
         )}
       </HtmlDiv>
     );
