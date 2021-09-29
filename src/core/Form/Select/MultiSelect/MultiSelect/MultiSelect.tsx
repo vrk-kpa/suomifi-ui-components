@@ -123,6 +123,9 @@ class BaseMultiSelect<T> extends Component<
 
   private filterInputRef: React.RefObject<HTMLInputElement>;
 
+  private chipRemovalAnnounceTimeOut: ReturnType<typeof setTimeout> | null =
+    null;
+
   constructor(props: MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp) {
     super(props);
     this.popoverListRef = React.createRef();
@@ -159,6 +162,12 @@ class BaseMultiSelect<T> extends Component<
       };
     }
     return null;
+  }
+
+  componentWillUnmount() {
+    if (this.chipRemovalAnnounceTimeOut) {
+      clearTimeout(this.chipRemovalAnnounceTimeOut);
+    }
   }
 
   handleItemSelection = (item: T & MultiSelectData) => {
@@ -499,6 +508,12 @@ class BaseMultiSelect<T> extends Component<
                 selectedItems={selectedItems}
                 ariaChipActionLabel={ariaChipActionLabel}
                 onClick={(item: MultiSelectData & T) => {
+                  if (!!this.chipRemovalAnnounceTimeOut) {
+                    clearTimeout(this.chipRemovalAnnounceTimeOut);
+                  }
+                  this.chipRemovalAnnounceTimeOut = setTimeout(() => {
+                    this.setState({ chipRemovalAnnounceText: '' });
+                  }, 1000);
                   this.setState({
                     chipRemovalAnnounceText: `${
                       item.chipText ? item.chipText : item.labelText
@@ -539,15 +554,15 @@ class BaseMultiSelect<T> extends Component<
                 </>
               ) : null}
             </VisuallyHidden>
-            <VisuallyHidden
-              aria-live="assertive"
-              aria-atomic="true"
-              id={`${id}-chip-removal-announce`}
-            >
-              {chipRemovalAnnounceText}
-            </VisuallyHidden>
           </>
         )}
+        <VisuallyHidden
+          aria-live="assertive"
+          aria-atomic="true"
+          id={`${id}-chip-removal-announce`}
+        >
+          {chipRemovalAnnounceText}
+        </VisuallyHidden>
       </>
     );
   }
