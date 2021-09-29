@@ -2,6 +2,7 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../theme';
 import { element, font } from '../theme/reset';
 
+/* stylelint-disable no-descending-specificity */
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodyTextSmall')}
@@ -45,11 +46,32 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       flex: 1 0 auto;
       display: flex;
       flex-wrap: nowrap;
+      box-sizing: border-box;
+      min-height: 24px;
+      min-width: 24px;
+      padding: 2px;
+
+      &:focus {
+        outline: 0;
+        position: relative;
+
+        &:after {
+          ${theme.focus.absoluteFocus}
+        }
+      }
+      &:active {
+        background: none;
+        background-color: ${theme.colors.depthLight2};
+      }
+      &:hover {
+        border: 1px solid black;
+      }
+
       & .fi-icon {
         width: 14px;
         height: 14px;
-        margin-left: ${theme.spacing.insetS};
-        margin-top: ${theme.spacing.insetS};
+        margin-left: ${theme.spacing.xxs};
+        margin-top: ${theme.spacing.xxs};
       }
     }
 
@@ -74,31 +96,31 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
-    /** Inline variant styles  */
-    &--inline {
-      padding: 20px 10px;
-
-      &.fi-alert--notification {
-        border-left: 5px solid ${theme.colors.accentSecondary};
-      }
-
-      &.fi-alert--error {
-        border-left: 5px solid ${theme.colors.alertBase};
-      }
-
-      &.fi-alert--warning {
-        border-left: 5px solid ${theme.colors.warningBase};
-      }
-    }
     /** Small screen variant styles */
     &--small-screen {
       & .fi-alert-close-button {
         justify-content: flex-end;
         & .fi-icon {
-          margin-top: 0;
           margin-right: ${theme.spacing.xxs};
         }
       }
+    }
+  }
+
+  /** Inline variant styles  */
+  &--inline {
+    padding: 20px 10px;
+
+    &.fi-alert--notification {
+      border-left: 5px solid ${theme.colors.accentSecondary};
+    }
+
+    &.fi-alert--error {
+      border-left: 5px solid ${theme.colors.alertBase};
+    }
+
+    &.fi-alert--warning {
+      border-left: 5px solid ${theme.colors.warningBase};
     }
   }
 `;
