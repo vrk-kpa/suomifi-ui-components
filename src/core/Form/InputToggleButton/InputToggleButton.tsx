@@ -1,4 +1,4 @@
-import React, { Component, RefObject } from 'react';
+import React, { Component, RefObject, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlButtonProps, HtmlButton } from '../../../reset';
@@ -12,22 +12,32 @@ const baseClassName = 'fi-input-toggle-button';
 const InputToggleButtonClassNames = {
   icon: `${baseClassName}_icon`,
 };
-
 export interface InputToggleButtonProps extends HtmlButtonProps {
+  /** Open state of the input related menu for arrow icon direction */
   open: boolean;
-  buttonRef?: RefObject<HTMLButtonElement>;
+}
+
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLButtonElement>;
 }
 
 class BaseInputToggleButton extends Component<
-  InputToggleButtonProps & SuomifiThemeProp
+  InputToggleButtonProps & InnerRef & SuomifiThemeProp
 > {
   render() {
-    const { className, label, theme, open, buttonRef, onClick, ...passProps } =
-      this.props;
+    const {
+      className,
+      label,
+      theme,
+      open,
+      forwardedRef,
+      onClick,
+      ...passProps
+    } = this.props;
 
     return (
       <HtmlButton
-        forwardedRef={buttonRef}
+        forwardedRef={forwardedRef}
         {...passProps}
         className={classnames(baseClassName, className)}
         onClick={onClick}
@@ -47,14 +57,16 @@ const StyledInputToggleButton = styled(BaseInputToggleButton)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export class InputToggleButton extends Component<InputToggleButtonProps> {
-  render() {
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledInputToggleButton theme={suomifiTheme} {...this.props} />
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+export const InputToggleButton = forwardRef(
+  (props: InputToggleButtonProps, ref: RefObject<HTMLButtonElement>) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledInputToggleButton
+          theme={suomifiTheme}
+          forwardedRef={ref}
+          {...props}
+        />
+      )}
+    </SuomifiThemeConsumer>
+  ),
+);

@@ -429,7 +429,7 @@ class BaseSingleSelect<T> extends Component<
                 )}
                 <InputToggleButton
                   open={showPopover}
-                  buttonRef={this.toggleButtonRef}
+                  ref={this.toggleButtonRef}
                   onClick={(event) => {
                     event.preventDefault();
                     this.setState(
@@ -459,8 +459,8 @@ class BaseSingleSelect<T> extends Component<
             >
               <SelectItemList
                 id={popoverItemListId}
-                forwardRef={this.popoverListRef}
-                focusedDescendantId={{ id: ariaActiveDescendant }}
+                ref={this.popoverListRef}
+                focusedDescendantId={ariaActiveDescendant}
               >
                 {popoverItems.length > 0 ? (
                   popoverItems.map((item) => {

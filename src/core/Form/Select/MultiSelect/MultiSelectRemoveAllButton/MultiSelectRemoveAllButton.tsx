@@ -3,9 +3,13 @@ import { Button } from '../../../../Button/Button';
 import { MultiSelectData } from '../MultiSelect/MultiSelect';
 
 export interface MultiSelectRemoveAllButtonProps<T extends MultiSelectData> {
+  /** Array of currently selected items, used for controlling the button visibility and state */
   selectedItems: (T & MultiSelectData)[];
+  /** Button content */
   children: ReactNode;
+  /** Classname for the button element */
   className?: string;
+  /** onClick event handler */
   onClick?: () => void;
 }
 

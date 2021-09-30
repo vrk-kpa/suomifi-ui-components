@@ -472,8 +472,8 @@ class BaseMultiSelect<T> extends Component<
               >
                 <SelectItemList
                   id={popoverItemListId}
-                  forwardRef={this.popoverListRef}
-                  focusedDescendantId={{ id: ariaActiveDescendant }}
+                  ref={this.popoverListRef}
+                  focusedDescendantId={ariaActiveDescendant}
                   aria-multiselectable="true"
                 >
                   {filteredItemsWithChecked.length > 0 ? (

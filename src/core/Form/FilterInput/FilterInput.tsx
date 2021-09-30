@@ -70,8 +70,6 @@ interface InternalFilterInputProps<T>
   onFilter: (filteredItems: Array<T>) => void;
   /** Filtering rule to be used */
   filterFunc: (item: T, query: string) => boolean;
-  /** Ref for input element */
-  forwardedRef?: React.RefObject<HTMLInputElement>;
   /** Input value onChange handler */
   onChange?: (value: string) => void;
   /** Children for the input container element. Renders inside and on top of the input. Aligns to right. */
@@ -83,7 +81,7 @@ interface InnerRef {
 }
 
 export interface FilterInputProps extends InternalFilterInputProps<any> {
-  /** Ref object to be passed to the input element */
+  /** Ref object for the input element */
   ref?: React.RefObject<HTMLInputElement>;
 }
 

@@ -4,12 +4,22 @@ import { usePopper } from 'react-popper';
 import { useEnhancedEffect } from '../../utils/common';
 import { HtmlDivProps, HtmlDivWithRef } from '../../reset/HtmlDiv/HtmlDiv';
 export interface PopoverProps extends HtmlDivProps {
+  /** Source ref for positioning the Popover */
   sourceRef: React.RefObject<any>;
+  /** Content for the Popover */
   children: ReactNode;
+  /** Style props for portal element */
   portalStyleProps?: React.CSSProperties;
+  /**
+   * Menu placement, top or bottom
+   * @default bottom
+   */
   placement?: 'top' | 'bottom';
+  /** Match the width of the popoever with the source ref element */
   matchWidth?: boolean;
+  /** Allow flipping the popover to top or bottom when necessary due to lack of available space */
   allowFlip?: boolean;
+  /** Event hanlder for clicks outside the popover element */
   onClickOutside?: (event: MouseEvent) => void;
 }
 

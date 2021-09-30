@@ -18,17 +18,22 @@ const selectItemClassNames = {
 };
 
 export interface SelectItemProps {
-  /** SelectItem container div class name for custom styling. */
-  className?: string;
+  /** Unique id for the item */
+  id: string;
   /** Indicates if the current item has keyboard focus. */
   hasKeyboardFocus: boolean;
   /** Query for matching string type item children for highlighting text. */
   hightlightQuery: string | undefined;
+  /** Checked state for the item */
   checked: boolean;
-  disabled?: boolean;
-  id?: string;
+  /** onClick event handler */
   onClick: (event: MouseEvent<HTMLLIElement>) => void;
+  /** Item children, dislayed as item content */
   children: ReactNode;
+  /** SelectItem container div class name for custom styling. */
+  className?: string;
+  /** Item disabled state */
+  disabled?: boolean;
 }
 
 class BaseSelectItem extends Component<SelectItemProps & SuomifiThemeProp> {

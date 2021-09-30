@@ -4,9 +4,13 @@ import { ChipList, Chip } from '../../../../Chip';
 import { MultiSelectData } from '../MultiSelect/MultiSelect';
 
 export interface MultiSelectChipListProps<T extends MultiSelectData> {
+  /** Array of currently selected items to be displayed as Chips */
   selectedItems: (T & MultiSelectData)[];
+  /** Chip click action label for screen readers */
   ariaChipActionLabel?: string;
+  /** Ref for the element to focus when last not disabled chip is removed */
   sourceRef?: RefObject<any>;
+  /** onClick event handler */
   onClick?: (item: T & MultiSelectData) => void;
 }
 
