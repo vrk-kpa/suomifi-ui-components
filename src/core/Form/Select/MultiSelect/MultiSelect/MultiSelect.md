@@ -90,7 +90,7 @@ const defaultSelectedTools = [
 <>
   <MultiSelect
     labelText="Tools"
-    hintText="You can filter results by typing in the field"
+    hintText="You can filter options by typing in the field"
     items={tools}
     chipListVisible={true}
     ariaChipActionLabel="Remove"
@@ -99,7 +99,7 @@ const defaultSelectedTools = [
     noItemsText="No items"
     defaultSelectedItems={defaultSelectedTools}
     ariaSelectedAmountText="tools selected"
-    ariaOptionsAvailableText="options left"
+    ariaOptionsAvailableText="options available"
     ariaOptionChipRemovedText="removed"
   />
 </>;
@@ -132,13 +132,13 @@ const animals = [
       items={animals}
       selectedItems={selectedAnimals}
       labelText="Animals"
-      hintText="You can filter results by typing in the field"
+      hintText="You can filter options by typing in the field"
       noItemsText="No animals"
       chipListVisible={true}
       visualPlaceholder="Try to choose animals"
       ariaChipActionLabel="Remove"
       ariaSelectedAmountText="animals selected"
-      ariaOptionsAvailableText="options left"
+      ariaOptionsAvailableText="options available"
       ariaOptionChipRemovedText="removed"
     />
 

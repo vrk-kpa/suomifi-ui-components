@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
-import { axeTest } from '../../../../utils/test';
+import { axeTest } from '../../../../../utils/test';
 import { MultiSelect } from './MultiSelect';
 
 const tools = [
@@ -96,7 +96,7 @@ const defaultSelectedTools = [
   },
 ];
 
-const BasicCombobox = (
+const BasicMultiSelect = (
   <MultiSelect
     labelText="MultiSelect"
     items={tools}
@@ -114,26 +114,26 @@ const BasicCombobox = (
 
 it('should not have basic accessibility issues', async () => {
   await act(async () => {
-    axeTest(BasicCombobox);
+    axeTest(BasicMultiSelect);
   });
 });
 
 it('has matching snapshot', () => {
-  const { container } = render(BasicCombobox);
+  const { container } = render(BasicMultiSelect);
   expect(container.firstChild).toMatchSnapshot();
 });
 
 describe('Chips', () => {
   it('should have selected Chips shown', async () => {
     await act(async () => {
-      const { container } = render(BasicCombobox);
+      const { container } = render(BasicMultiSelect);
       expect(container.querySelectorAll('.fi-chip').length).toEqual(3);
     });
   });
 
   it('second Chip should be removable and removed when clicked', async () => {
     await act(async () => {
-      const { getByText, queryByText } = render(BasicCombobox);
+      const { getByText, queryByText } = render(BasicMultiSelect);
       const hammerChip = getByText('Hammer');
       expect(queryByText('Hammer')).not.toBeNull();
 
@@ -149,8 +149,7 @@ describe('Chips', () => {
 
   test('onItemSelect: called with uniqueItem id, when clicking non-disabled Chip', async () => {
     await act(async () => {
-      const onItemSelect = (uniqueItemId: string) => console.log(uniqueItemId);
-      const onItemSelectSpy = jest.spyOn(console, 'log');
+      const mockOnItemSelect = jest.fn();
       const { container } = render(
         <MultiSelect
           labelText="MultiSelect"
@@ -161,7 +160,7 @@ describe('Chips', () => {
           visualPlaceholder="Choose your tool(s)"
           noItemsText="No items"
           defaultSelectedItems={defaultSelectedTools}
-          onItemSelect={onItemSelect}
+          onItemSelect={mockOnItemSelect}
           ariaSelectedAmountText="tools selected"
           ariaOptionsAvailableText="tools left"
           ariaOptionChipRemovedText="removed"
@@ -171,12 +170,12 @@ describe('Chips', () => {
       await act(async () => {
         fireEvent.click(hammerChip, {});
       });
-      expect(onItemSelectSpy).toBeCalledWith('h9823523');
+      expect(mockOnItemSelect).toBeCalledWith('h9823523');
     });
   });
 
   it('first Chip should be aria-disabled', () => {
-    const { container } = render(BasicCombobox);
+    const { container } = render(BasicMultiSelect);
     const disabledChip = container.querySelectorAll('.fi-chip')[0];
     expect(disabledChip).toHaveTextContent('Powersaw');
     expect(disabledChip).toHaveClass('fi-chip--disabled');
@@ -185,7 +184,7 @@ describe('Chips', () => {
 
   it('should remove all non-disabled Chips when pressing "Remove all" button', async () => {
     await act(async () => {
-      const { container } = render(BasicCombobox);
+      const { container } = render(BasicMultiSelect);
       expect(container.querySelectorAll('.fi-chip').length).toEqual(3);
       const removeAllButton = container.querySelectorAll(
         '.fi-multiselect_removeAllButton',
@@ -299,12 +298,15 @@ describe('Controlled', () => {
       },
     ];
 
+    const mockItemSelectionsChange = jest.fn();
+
     const multiselect = (
       <MultiSelect
         items={animals}
         selectedItems={[
           { price: 5, labelText: 'Turtle', uniqueItemId: 'turtle-987' },
         ]}
+        onItemSelect={mockItemSelectionsChange}
         labelText="Animals"
         noItemsText="No animals"
         chipListVisible={true}
@@ -321,6 +323,8 @@ describe('Controlled', () => {
     await act(async () => {
       fireEvent.click(turtleChip, {});
     });
+    expect(mockItemSelectionsChange).toBeCalledTimes(1);
+    expect(mockItemSelectionsChange).toBeCalledWith('turtle-987');
     // Popover is open, so therefore two
     expect(getAllByText('Turtle').length).toBe(2);
   });
@@ -328,7 +332,7 @@ describe('Controlled', () => {
 
 it('should have correct baseClassName', async () => {
   await act(async () => {
-    const { container } = render(BasicCombobox);
+    const { container } = render(BasicMultiSelect);
     expect(container.firstChild).toHaveClass('fi-multiselect');
   });
 });

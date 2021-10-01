@@ -145,7 +145,7 @@ exports[`snapshot should have matching default structure 1`] = `
   box-sizing: border-box;
 }
 
-.c6 {
+.c7 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -157,7 +157,7 @@ exports[`snapshot should have matching default structure 1`] = `
   overflow: hidden;
 }
 
-.c8.fi-status-text {
+.c9.fi-status-text {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -176,11 +176,11 @@ exports[`snapshot should have matching default structure 1`] = `
   line-height: 20px;
 }
 
-.c8.fi-status-text.fi-status-text--error {
+.c9.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
 }
 
-.c8.fi-status-text.fi-status-text--hasContent {
+.c9.fi-status-text.fi-status-text--hasContent {
   margin-top: 5px;
 }
 
@@ -210,25 +210,74 @@ exports[`snapshot should have matching default structure 1`] = `
   font-weight: 400;
 }
 
-.c7 {
+.c8 {
   display: inline-block;
   vertical-align: baseline;
 }
 
-.c7 .fi-icon-base-fill {
+.c8 .fi-icon-base-fill {
   fill: currentColor;
 }
 
-.c7 .fi-icon-base-stroke {
+.c8 .fi-icon-base-stroke {
   stroke: currentColor;
 }
 
-.c7.fi-icon--cursor-pointer {
+.c8.fi-icon--cursor-pointer {
   cursor: pointer;
 }
 
-.c7.fi-icon--cursor-pointer * {
+.c8.fi-icon--cursor-pointer * {
   cursor: inherit;
+}
+
+.c6.fi-input-clear-button {
+  cursor: pointer;
+  pointer-events: all;
+  height: 20px;
+  width: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c6.fi-input-clear-button:focus {
+  position: relative;
+  outline: none;
+}
+
+.c6.fi-input-clear-button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c6.fi-input-clear-button .fi-input-clear-button_icon {
+  width: 16px;
+  height: 16px;
+}
+
+.c6.fi-input-clear-button .fi-input-clear-button_icon .fi-icon-base-fill {
+  fill: hsl(212,63%,37%);
 }
 
 .c1.fi-search-input {
@@ -470,7 +519,11 @@ exports[`snapshot should have matching default structure 1`] = `
   pointer-events: all;
 }
 
-.c1.fi-search-input--not-empty .fi-search-input_button:focus:after {
+.c1.fi-search-input--not-empty .fi-search-input_button-search {
+  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
+}
+
+.c1.fi-search-input--not-empty .fi-search-input_button-search:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -484,10 +537,6 @@ exports[`snapshot should have matching default structure 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
-}
-
-.c1.fi-search-input--not-empty .fi-search-input_button-search {
-  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
 }
 
 .c1.fi-search-input--not-empty .fi-search-input_button-search:hover {
@@ -545,18 +594,18 @@ exports[`snapshot should have matching default structure 1`] = `
       </div>
       <button
         aria-hidden="true"
-        class="c5 fi-search-input_button fi-search-input_button-clear"
+        class="c5 fi-input-clear-button c6 fi-search-input_button fi-search-input_button-clear"
         tabindex="-1"
         type="button"
       >
         <span
-          class="c2 c6 fi-visually-hidden"
+          class="c2 c7 fi-visually-hidden"
         >
           Clear
         </span>
         <svg
           aria-hidden="true"
-          class="fi-icon c7 fi-search-input_button-clear-icon"
+          class="fi-icon c8 fi-input-clear-button_icon"
           focusable="false"
           height="1em"
           viewBox="0 0 24 24"
@@ -578,13 +627,13 @@ exports[`snapshot should have matching default structure 1`] = `
         type="button"
       >
         <span
-          class="c2 c6 fi-visually-hidden"
+          class="c2 c7 fi-visually-hidden"
         >
           Search
         </span>
         <svg
           aria-hidden="true"
-          class="fi-icon c7 fi-search-input_button-search-icon"
+          class="fi-icon c8 fi-search-input_button-search-icon"
           focusable="false"
           height="1em"
           viewBox="0 0 24 24"
@@ -603,7 +652,7 @@ exports[`snapshot should have matching default structure 1`] = `
     <span
       aria-atomic="true"
       aria-live="assertive"
-      class="c2 c8 fi-status-text"
+      class="c2 c9 fi-status-text"
       id="1-statusText"
     />
   </span>

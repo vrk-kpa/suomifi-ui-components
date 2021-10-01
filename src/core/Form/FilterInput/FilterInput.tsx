@@ -1,4 +1,4 @@
-import React, { Component, ChangeEvent, forwardRef } from 'react';
+import React, { Component, ChangeEvent, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { InputStatus, StatusTextCommonProps } from '../types';
@@ -25,6 +25,7 @@ const filterInputClassNames = {
   functionalityContainer: `${baseClassName}_functionalityContainer`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
+  actionElementsContainer: `${baseClassName}_action-elements-container`,
 };
 
 export type FilterInputStatus = Exclude<InputStatus, 'success'>;
@@ -36,6 +37,8 @@ interface InternalFilterInputProps<T>
   className?: string;
   /** FilterInput container div props */
   inputContainerProps?: Omit<HtmlDivProps, 'className'>;
+  /** FilterInput element container div props, e.g. for widget roles */
+  inputElementContainerProps?: Omit<HtmlDivProps, 'className'>;
   /** Disable input usage */
   disabled?: boolean;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
@@ -63,12 +66,14 @@ interface InternalFilterInputProps<T>
   labelAlign?: 'top' | 'left';
   /** Items to be filtered */
   items: Array<T>;
-  /** Returns the filtered items */
+  /** Callback for items filtering event  */
   onFilter: (filteredItems: Array<T>) => void;
   /** Filtering rule to be used */
   filterFunc: (item: T, query: string) => boolean;
-  forwardedRef?: React.RefObject<HTMLInputElement>;
+  /** Input value onChange handler */
   onChange?: (value: string) => void;
+  /** Children for the input container element. Renders inside and on top of the input. Aligns to right. */
+  children?: ReactNode;
 }
 
 interface InnerRef {
@@ -76,15 +81,37 @@ interface InnerRef {
 }
 
 export interface FilterInputProps extends InternalFilterInputProps<any> {
-  /** Ref object to be passed to the input element */
+  /** Ref object for the input element */
   ref?: React.RefObject<HTMLInputElement>;
 }
 
 class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
+  componentDidUpdate(prevProps: FilterInputProps) {
+    if (!!this.props.onFilter && prevProps.value !== this.props.value) {
+      const value = !!this.props.value ? this.props.value.toString() : '';
+      this.props.onFilter(
+        this.filterItems(this.props.items, this.props.filterFunc, value),
+      );
+    }
+  }
+
+  private filterItems = (
+    items: Array<T>,
+    filterFunc: (item: T, query: string) => boolean,
+    value: string,
+  ) =>
+    items.reduce((filtered: T[], item: T) => {
+      if (filterFunc(item, value)) {
+        filtered.push(item);
+      }
+      return filtered;
+    }, []);
+
   render() {
     const {
       className,
       inputContainerProps,
+      inputElementContainerProps,
       visualPlaceholder,
       labelText,
       labelMode,
@@ -101,30 +128,27 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       filterFunc: propFilterRule,
       forwardedRef,
       onChange: propOnChange,
+      children,
       ...passProps
     } = this.props;
 
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-      const {
-        items,
-        onFilter: onFiltering,
-        filterFunc: filterRule,
-      } = this.props;
+      const { items, onFilter, filterFunc } = this.props;
       const { value: eventValue } = event.target;
 
-      const filteredItems: T[] = items.reduce((filtered: T[], item: T) => {
-        if (filterRule(item, eventValue)) {
-          filtered.push(item);
-        }
-        return filtered;
-      }, []);
+      const filteredItems: T[] = this.filterItems(
+        items,
+        filterFunc,
+        eventValue,
+      );
 
-      onFiltering(filteredItems);
+      onFilter(filteredItems);
       if (propOnChange) {
         propOnChange(eventValue);
       }
     };
 
+    const labelId = `${id}-label`;
     const hintTextId = hintText ? `${id}-hintText` : undefined;
     const statusTextId = statusText ? `${id}-statusText` : undefined;
 
@@ -139,7 +163,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       >
         <HtmlDiv className={classnames(filterInputClassNames.wrapper, {})}>
           <LabelText
-            htmlFor={id}
+            id={labelId}
             asProp="label"
             labelMode={labelMode}
             optionalText={optionalText}
@@ -148,9 +172,14 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
           </LabelText>
           <HintText id={hintTextId}>{hintText}</HintText>
           <HtmlDiv className={filterInputClassNames.functionalityContainer}>
-            <HtmlDiv className={filterInputClassNames.inputElementContainer}>
+            <HtmlDiv
+              className={filterInputClassNames.inputElementContainer}
+              {...inputElementContainerProps}
+            >
               <HtmlInput
                 {...passProps}
+                aria-labelledby={labelId}
+                aria-invalid={status === 'error'}
                 id={id}
                 className={filterInputClassNames.inputElement}
                 type="text"
@@ -169,6 +198,17 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
                 aria-multiline={false}
               />
             </HtmlDiv>
+            {React.Children.count(children) > 0 && (
+              <HtmlDiv
+                className={filterInputClassNames.actionElementsContainer}
+                onMouseDownCapture={(event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }}
+              >
+                {children}
+              </HtmlDiv>
+            )}
             <StatusText
               id={statusTextId}
               status={status}

@@ -20,6 +20,7 @@ import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { Icon } from '../../Icon/Icon';
 import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './SearchInput.baseStyles';
+import { InputClearButton } from '../InputClearButton/InputClearButton';
 
 type SearchInputValue = string | number | undefined;
 
@@ -245,20 +246,14 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     onKeyDown={onKeyDown}
                   />
                 </HtmlDiv>
-                <HtmlButton
+                <InputClearButton
                   {...clearButtonProps}
+                  label={clearButtonLabel}
                   onClick={() => {
                     onClear();
                     cancelDebounce();
                   }}
-                >
-                  <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
-                  <Icon
-                    aria-hidden={true}
-                    icon="close"
-                    className={searchInputClassNames.clearIcon}
-                  />
-                </HtmlButton>
+                />
                 <HtmlButton {...searchButtonDerivedProps}>
                   <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
                   <Icon

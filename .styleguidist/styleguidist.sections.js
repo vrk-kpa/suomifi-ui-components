@@ -26,12 +26,13 @@ const getComponents = (arr) =>
         })
       : getComponent({ name: component }),
   );
-const getComponentWithVariants = (component) => (variants) => [
-  getComponent({ name: component }),
-  ...variants.map((variant) =>
-    getComponent({ underName: component, name: variant }),
-  ),
-];
+const getComponentWithVariants = (component) => (variants) =>
+  [
+    getComponent({ name: component }),
+    ...variants.map((variant) =>
+      getComponent({ underName: component, name: variant }),
+    ),
+  ];
 
 module.exports = {
   sections: [
@@ -120,8 +121,14 @@ module.exports = {
             },
             {
               name: 'MultiSelect',
-              components: getComponentWithVariants('Form/MultiSelect')([
-                'MultiSelect/MultiSelect',
+              components: getComponentWithVariants('Form/Select')([
+                'MultiSelect/MultiSelect/MultiSelect',
+              ]),
+            },
+            {
+              name: 'SingleSelect',
+              components: getComponentWithVariants('Form/Select')([
+                'SingleSelect/SingleSelect',
               ]),
             },
           ],
