@@ -4,6 +4,7 @@ import React, {
   ReactElement,
   forwardRef,
   KeyboardEvent,
+  useLayoutEffect,
 } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
@@ -14,6 +15,7 @@ import {
   ListboxPopoverProps,
   ListboxList,
   ListboxPopover,
+  useListboxContext,
 } from '@reach/listbox';
 import { positionMatchWidth } from '@reach/popover';
 import { getConditionalAriaProp } from '../../../utils/aria';
@@ -94,6 +96,21 @@ export interface DropdownProps extends InternalDropdownProps {
   /** Ref object to be passed to the input element */
   ref?: React.RefObject<HTMLDivElement>;
 }
+
+const ListBoxContextWrapper = (props: {
+  // eslint-disable-next-line react/require-default-props
+  children?:
+    | Array<ReactElement<DropdownItemProps>>
+    | ReactElement<DropdownItemProps>;
+}) => {
+  const { highlightedOptionRef } = useListboxContext();
+  useLayoutEffect(() => {
+    if (!!highlightedOptionRef.current) {
+      console.log(highlightedOptionRef);
+    }
+  });
+  return <>{props.children}</>;
+};
 
 class BaseDropdown extends Component<DropdownProps & InnerRef> {
   state: DropdownState = {
@@ -227,7 +244,9 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
                 }
               }}
             >
-              <ListboxList>{children}</ListboxList>
+              <ListboxList>
+                <ListBoxContextWrapper>{children}</ListBoxContextWrapper>
+              </ListboxList>
             </ListboxPopover>
           </ListboxInput>
         </HtmlDiv>
