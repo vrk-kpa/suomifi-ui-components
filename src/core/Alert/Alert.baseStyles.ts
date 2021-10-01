@@ -10,13 +10,15 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-alert {
     display: flex;
     align-items: flex-start;
-    padding: 16px 10px 15px 10px;
+    padding: 0px 0px 15px 10px;
     width: 100%;
 
     & .fi-alert-icon-wrapper {
       display: flex;
       flex: 1 0 auto;
       justify-content: flex-end;
+      margin-left: 10px;
+      margin-top: ${theme.spacing.insetXl};
 
       & .fi-alert-icon {
         height: 24px;
@@ -30,6 +32,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       flex: 3 1 auto;
       flex-direction: column;
       padding: 0 20px;
+      margin-top: ${theme.spacing.insetXl};
 
       & .fi-alert-label {
         ${font(theme)('bodySemiBoldSmall')}
@@ -47,9 +50,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       display: flex;
       flex-wrap: nowrap;
       box-sizing: border-box;
-      min-height: 24px;
-      min-width: 24px;
-      padding: 2px;
+      margin-top: ${theme.spacing.insetXl};
+      margin-right: ${theme.spacing.xs};
+      min-height: 40px;
+      min-width: 40px;
+      padding: 8px 10px;
 
       &:focus {
         outline: 0;
@@ -65,6 +70,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
       &:hover {
         border: 1px solid black;
+        border-radius: ${theme.radius.basic};
       }
 
       & .fi-icon {
@@ -100,6 +106,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &--small-screen {
       & .fi-alert-close-button {
         justify-content: flex-end;
+        margin: 0;
         & .fi-icon {
           margin-right: ${theme.spacing.xxs};
         }
