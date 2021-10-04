@@ -62,7 +62,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       border: 1px solid transparent;
       border-radius: ${theme.radius.basic};
 
-      &:focus {
+      &:focus-visible {
         outline: 0;
         position: relative;
 
