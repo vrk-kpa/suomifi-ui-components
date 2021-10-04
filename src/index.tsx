@@ -11,6 +11,10 @@ export { Dropdown, DropdownProps } from './core/Dropdown/';
 export { DropdownItem, DropdownItemProps } from './core/Dropdown/';
 export { Chip, ChipProps } from './core/Chip/';
 export { StaticChip, StaticChipProps } from './core/Chip/';
+// SingleSelect,
+// SingleSelectProps,
+// SingleSelectData,
+// SingleSelectStatus,
 export {
   Checkbox,
   CheckboxProps,
@@ -30,10 +34,6 @@ export {
   MultiSelectProps,
   MultiSelectData,
   MultiSelectStatus,
-  SingleSelect,
-  SingleSelectProps,
-  SingleSelectData,
-  SingleSelectStatus,
 } from './core/Form/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';
