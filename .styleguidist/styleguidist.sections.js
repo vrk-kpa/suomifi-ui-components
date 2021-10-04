@@ -125,12 +125,12 @@ module.exports = {
                 'MultiSelect/MultiSelect/MultiSelect',
               ]),
             },
-            {
-              name: 'SingleSelect',
-              components: getComponentWithVariants('Form/Select')([
-                'SingleSelect/SingleSelect',
-              ]),
-            },
+            // {
+            //   name: 'SingleSelect',
+            //   components: getComponentWithVariants('Form/Select')([
+            //     'SingleSelect/SingleSelect',
+            //   ]),
+            // },
           ],
           expand: true,
         },
