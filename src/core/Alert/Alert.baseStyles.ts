@@ -10,14 +10,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-alert {
     display: flex;
     align-items: flex-start;
-    padding: 0px 0px 15px 10px;
     width: 100%;
 
     & .fi-alert-icon-wrapper {
       display: flex;
       flex: 1 0 auto;
       justify-content: flex-end;
-      margin-left: 10px;
+      margin-left: ${theme.spacing.s};
       margin-top: ${theme.spacing.insetXl};
 
       & .fi-alert-icon {
@@ -33,6 +32,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       flex-direction: column;
       padding: 0 20px;
       margin-top: ${theme.spacing.insetXl};
+      margin-bottom: ${theme.spacing.s};
 
       & .fi-alert-label {
         ${font(theme)('bodySemiBoldSmall')}
@@ -44,17 +44,23 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
-    & .fi-alert-close-button {
-      ${font(theme)('bodyTextSmall')}
+    & .fi-alert-close-button-wrapper {
       flex: 1 0 auto;
       display: flex;
       flex-wrap: nowrap;
       box-sizing: border-box;
-      margin-top: ${theme.spacing.insetXl};
+      margin-top: 7px;
       margin-right: ${theme.spacing.xs};
-      min-height: 40px;
+      margin-bottom: ${theme.spacing.insetM};
+    }
+
+    & .fi-alert-close-button {
+      ${font(theme)('bodyTextSmall')}
+      height: 40px;
       min-width: 40px;
-      padding: 8px 10px;
+      padding: 7px 8px;
+      border: 1px solid transparent;
+      border-radius: ${theme.radius.basic};
 
       &:focus {
         outline: 0;
@@ -65,12 +71,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         }
       }
       &:active {
-        background: none;
-        background-color: ${theme.colors.depthLight2};
+        background: ${theme.gradients.whiteBaseToDepthLight1};
       }
       &:hover {
-        border: 1px solid black;
-        border-radius: ${theme.radius.basic};
+        border-color: ${theme.colors.blackBase};
       }
 
       & .fi-icon {
@@ -78,6 +82,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         height: 14px;
         margin-left: ${theme.spacing.xxs};
         margin-top: ${theme.spacing.xxs};
+        transform: translateY(1px);
       }
     }
 
@@ -104,7 +109,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     /** Small screen variant styles */
     &--small-screen {
-      & .fi-alert-close-button {
+      & .fi-alert-close-button-wrapper {
         justify-content: flex-end;
         margin: 0;
         & .fi-icon {
@@ -112,22 +117,22 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         }
       }
     }
-  }
 
-  /** Inline variant styles  */
-  &--inline {
-    padding: 20px 10px;
+    /** Inline variant styles  */
+    &--inline {
+      padding: 5px 0px 4px 0px;
 
-    &.fi-alert--notification {
-      border-left: 5px solid ${theme.colors.accentSecondary};
-    }
+      &.fi-alert--notification {
+        border-left: 5px solid ${theme.colors.accentSecondary};
+      }
 
-    &.fi-alert--error {
-      border-left: 5px solid ${theme.colors.alertBase};
-    }
+      &.fi-alert--error {
+        border-left: 5px solid ${theme.colors.alertBase};
+      }
 
-    &.fi-alert--warning {
-      border-left: 5px solid ${theme.colors.warningBase};
+      &.fi-alert--warning {
+        border-left: 5px solid ${theme.colors.warningBase};
+      }
     }
   }
 `;
