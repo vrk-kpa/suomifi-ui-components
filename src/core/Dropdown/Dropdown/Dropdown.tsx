@@ -4,7 +4,6 @@ import React, {
   ReactElement,
   forwardRef,
   KeyboardEvent,
-  useLayoutEffect,
 } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
@@ -98,18 +97,29 @@ export interface DropdownProps extends InternalDropdownProps {
 }
 
 const ListBoxContextWrapper = (props: {
+  scrollContainerRef: React.RefObject<HTMLDivElement>;
   // eslint-disable-next-line react/require-default-props
   children?:
     | Array<ReactElement<DropdownItemProps>>
     | ReactElement<DropdownItemProps>;
 }) => {
   const { highlightedOptionRef } = useListboxContext();
-  useLayoutEffect(() => {
-    if (!!highlightedOptionRef.current) {
-      console.log(highlightedOptionRef);
-    }
-  });
-  return <>{props.children}</>;
+  return (
+    <ListboxList
+      onKeyDown={() => {
+        if (
+          !!highlightedOptionRef.current &&
+          !!props.scrollContainerRef.current
+        ) {
+          // eslint-disable-next-line no-param-reassign
+          props.scrollContainerRef.current.scrollTop =
+            highlightedOptionRef.current.offsetTop;
+        }
+      }}
+    >
+      {props.children}
+    </ListboxList>
+  );
 };
 
 class BaseDropdown extends Component<DropdownProps & InnerRef> {
@@ -124,9 +134,12 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
 
   buttonRef: React.RefObject<HTMLButtonElement>;
 
+  popoverRef: React.RefObject<HTMLDivElement>;
+
   constructor(props: DropdownProps & InnerRef) {
     super(props);
     this.buttonRef = React.createRef();
+    this.popoverRef = React.createRef();
   }
 
   static getDerivedStateFromProps(
@@ -235,6 +248,7 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
               {listboxDisplayValue}
             </ListboxButton>
             <ListboxPopover
+              ref={this.popoverRef}
               position={positionMatchWidth}
               {...passDropdownPopoverProps}
               onKeyDownCapture={(event: KeyboardEvent) => {
@@ -244,9 +258,9 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
                 }
               }}
             >
-              <ListboxList>
-                <ListBoxContextWrapper>{children}</ListBoxContextWrapper>
-              </ListboxList>
+              <ListBoxContextWrapper scrollContainerRef={this.popoverRef}>
+                {children}
+              </ListBoxContextWrapper>
             </ListboxPopover>
           </ListboxInput>
         </HtmlDiv>
