@@ -32,29 +32,42 @@ const StyledStaticIcon = styled((props) => <StaticIcon {...props} />)(
   {
     height: '50px',
     width: 'auto',
-    margin: '8px'
+    margin: '8px 8px 0 0'
   }
 );
+const IconWpr = styled.div`
+  display: inline-block;
+  width: 200px;
+  p {
+    margin-top: 0;
+  }
+`;
 
 <div>
   <div>
     {illustrativeIcons.map((icon) => (
-      <StyledStaticIcon
-        mousePointer
-        icon={icon}
-        key={icon}
-        onClick={() => clipboardCopy(icon)}
-      />
+      <IconWpr>
+        <StyledStaticIcon
+          mousePointer
+          icon={icon}
+          key={icon}
+          onClick={() => clipboardCopy(icon)}
+        />
+        <p>{icon}</p>
+      </IconWpr>
     ))}
   </div>
   <div>
     {doctypeIcons.map((icon) => (
-      <StyledStaticIcon
-        mousePointer
-        icon={icon}
-        key={icon}
-        onClick={() => clipboardCopy(icon)}
-      />
+      <IconWpr>
+        <StyledStaticIcon
+          mousePointer
+          icon={icon}
+          key={icon}
+          onClick={() => clipboardCopy(icon)}
+        />
+        <p>{icon}</p>
+      </IconWpr>
     ))}
   </div>
 </div>;
