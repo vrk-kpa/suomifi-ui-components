@@ -3,6 +3,7 @@ import { SuomifiTheme } from '../../theme';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-input-clear-button {
+    position: relative;
     cursor: pointer;
     pointer-events: all;
     height: 20px;
@@ -11,7 +12,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     justify-content: center;
     align-items: center;
     &:focus {
-      position: relative;
       outline: none;
       &:after {
         ${theme.focus.absoluteFocus}

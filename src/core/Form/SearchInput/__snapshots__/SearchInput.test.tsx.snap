@@ -232,6 +232,7 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c6.fi-input-clear-button {
+  position: relative;
   cursor: pointer;
   pointer-events: all;
   height: 20px;
@@ -251,7 +252,6 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c6.fi-input-clear-button:focus {
-  position: relative;
   outline: none;
 }
 
