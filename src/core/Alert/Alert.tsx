@@ -1,10 +1,11 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { baseStyles } from './Alert.baseStyles';
-import { HtmlDiv, HtmlSpan, HtmlSpanProps, HtmlButton } from '../../reset';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import { HtmlDiv, HtmlDivProps, HtmlButton } from '../../reset';
 import { Icon } from '../../core/Icon/Icon';
+import { getConditionalAriaProp } from '../../utils/aria';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import { baseStyles } from './Alert.baseStyles';
 
 const baseClassName = 'fi-alert';
 
@@ -21,18 +22,20 @@ const alertClassNames = {
   inline: `${baseClassName}--inline`,
 };
 
-export interface AlertProps extends HtmlSpanProps {
+export interface AlertProps extends HtmlDivProps {
   /** Style variant. Affects color and icon used.
-   * @default 'notification'
+   * @default 'neutral'
    */
-  variant?: 'notification' | 'warning' | 'error';
+  status?: 'neutral' | 'warning' | 'error';
+  /** Set `role="alert"` for the element. */
+  alert?: boolean;
   /** Label for the  alert */
   labelText?: string;
   /** Use inline version of alert */
   inline?: boolean;
   /** Main content of the alert */
   children?: ReactNode;
-  /** Text to show next to the closing icon. Not shown when small screen styles are in use. */
+  /** Text to to label the close button. Visible in regular size and used as `aria-label` in small screen variant */
   closeText?: string;
   /** Use small screen styling */
   smallScreen?: boolean;
@@ -42,7 +45,8 @@ class BaseAlert extends Component<AlertProps> {
   render() {
     const {
       className,
-      variant = 'notification',
+      status = 'neutral',
+      alert,
       labelText,
       children,
       inline,
@@ -51,19 +55,19 @@ class BaseAlert extends Component<AlertProps> {
       ...passProps
     } = this.props;
 
-    const variantIcon = variant === 'notification' ? 'info' : variant;
+    const variantIcon = status === 'neutral' ? 'info' : status;
     return (
       <HtmlDiv
         {...passProps}
         className={classnames(baseClassName, className, {
-          [`${baseClassName}--${variant}`]: !!variant,
+          [`${baseClassName}--${status}`]: !!status,
           [alertClassNames.inline]: !!inline,
           [alertClassNames.smallScreen]: !!smallScreen,
         })}
       >
-        <HtmlSpan className={alertClassNames.iconWrapper}>
+        <HtmlDiv className={alertClassNames.iconWrapper}>
           <Icon icon={variantIcon} className={alertClassNames.icon} />
-        </HtmlSpan>
+        </HtmlDiv>
         <HtmlDiv className={alertClassNames.textContentWrapper}>
           {labelText && inline && (
             <HtmlDiv className={alertClassNames.label}>{labelText}</HtmlDiv>
@@ -72,7 +76,10 @@ class BaseAlert extends Component<AlertProps> {
         </HtmlDiv>
         <HtmlDiv className={alertClassNames.closeButtonWrapper}>
           {!inline && (
-            <HtmlButton className={alertClassNames.closeButton}>
+            <HtmlButton
+              className={alertClassNames.closeButton}
+              {...getConditionalAriaProp('aria-label', [closeText])}
+            >
               {!smallScreen ? closeText?.toUpperCase() : ''}
               <Icon icon="close" />
             </HtmlButton>

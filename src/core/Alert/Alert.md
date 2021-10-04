@@ -22,22 +22,22 @@ import { Alert } from 'suomifi-ui-components';
     metus sed rhoncus.
   </Alert>
 
-  <Alert variant="error" inline>
+  <Alert status="error" inline>
     Palvelussa huoltokatko 5.6.2018 klo 21.00 – 23.59. Pahoittelemme
     häiriötä.
   </Alert>
 
-  <Alert variant="error" closeText="Pidempi sulje-teksti">
+  <Alert status="error" closeText="Pidempi sulje-teksti">
     Palvelussa huoltokatko 5.6.2018 klo 21.00 – 23.59. Pahoittelemme
     häiriötä.
   </Alert>
 
-  <Alert variant="warning" closeText="Sulje">
+  <Alert status="warning" closeText="Sulje">
     Palvelussa huoltokatko 5.6.2018 klo 21.00 – 23.59. Pahoittelemme
     häiriötä.
   </Alert>
 
-  <Alert inline variant="warning" labelText="Varoitus">
+  <Alert inline status="warning" labelText="Varoitus">
     Palvelussa huoltokatko 5.6.2018 klo 21.00 – 23.59. Pahoittelemme
     häiriötä.
   </Alert>
