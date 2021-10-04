@@ -86,7 +86,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
-    &--notification {
+    &--neutral {
       background-color: ${theme.colors.accentSecondaryLight1};
       & .fi-alert-icon-wrapper .fi-icon .fi-icon-base-fill {
         fill: ${theme.colors.highlightBase};
