@@ -14,6 +14,7 @@ const alertClassNames = {
   icon: `${baseClassName}-icon`,
   iconWrapper: `${baseClassName}-icon-wrapper`,
   closeButton: `${baseClassName}-close-button`,
+  closeButtonWrapper: `${baseClassName}-close-button-wrapper`,
   contentWrapper: `${baseClassName}-content-wrapper`,
   textContentWrapper: `${baseClassName}-text-content-wrapper`,
   smallScreen: `${baseClassName}--small-screen`,
@@ -69,14 +70,14 @@ class BaseAlert extends Component<AlertProps> {
           )}
           <HtmlDiv className={alertClassNames.content}>{children}</HtmlDiv>
         </HtmlDiv>
-
-        {/** Needs to be an actual button */}
-        {!inline && (
-          <HtmlButton className={alertClassNames.closeButton}>
-            {!smallScreen ? closeText?.toUpperCase() : ''}
-            <Icon icon="close" />
-          </HtmlButton>
-        )}
+        <HtmlDiv className={alertClassNames.closeButtonWrapper}>
+          {!inline && (
+            <HtmlButton className={alertClassNames.closeButton}>
+              {!smallScreen ? closeText?.toUpperCase() : ''}
+              <Icon icon="close" />
+            </HtmlButton>
+          )}
+        </HtmlDiv>
       </HtmlDiv>
     );
   }
