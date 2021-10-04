@@ -434,6 +434,7 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c8.fi-input-clear-button {
+  position: relative;
   cursor: pointer;
   pointer-events: all;
   height: 20px;
@@ -453,7 +454,6 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c8.fi-input-clear-button:focus {
-  position: relative;
   outline: none;
 }
 
