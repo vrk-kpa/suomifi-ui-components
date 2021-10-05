@@ -60,11 +60,13 @@ const StyledIcon = styled((props) => <Icon {...props} />)({
   margin: '8px 8px 0 0',
   color: `${suomifiDesignTokens.colors.depthDark1}`
 });
-const IconWpr = styled.div`
+const IconWpr = styled.figure`
   display: inline-block;
   width: 200px;
-  p {
+  margin: 0;
+  figcaption {
     margin-top: 0;
+    margin-bottom: 10px;
   }
 `;
 
@@ -77,7 +79,7 @@ const IconWpr = styled.div`
         key={icon}
         onClick={() => clipboardCopy(icon)}
       />
-      <p>{icon}</p>
+      <figcaption>{icon}</figcaption>
     </IconWpr>
   ))}
 </div>;
