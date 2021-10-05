@@ -1,7 +1,8 @@
 import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { AutoId } from '../../../../utils/AutoId';
+import { AutoId } from '../../../utils/AutoId/AutoId';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { Text } from '../../../Text/Text';
 import {
@@ -121,10 +122,13 @@ class BaseToggleInput extends Component<ToggleInputProps & InnerRef> {
   }
 }
 
-const StyledToggleInput = styled((props: ToggleBaseProps & InnerRef) => (
-  <BaseToggleInput {...props} />
-))`
-  ${baseStyles}
+const StyledToggleInput = styled(
+  (props: ToggleBaseProps & InnerRef & SuomifiThemeProp) => {
+    const { theme, ...passProps } = props;
+    return <BaseToggleInput {...passProps} />;
+  },
+)`
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**
@@ -136,11 +140,20 @@ export const ToggleInput = forwardRef(
   (props: ToggleInputProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <AutoId id={propId}>
-        {(id) => (
-          <StyledToggleInput id={id} forwardedRef={ref} {...passProps} />
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <StyledToggleInput
+                theme={suomifiTheme}
+                id={id}
+                forwardedRef={ref}
+                {...passProps}
+              />
+            )}
+          </AutoId>
         )}
-      </AutoId>
+      </SuomifiThemeConsumer>
     );
   },
 );

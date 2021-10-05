@@ -1,10 +1,9 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../theme';
+import { SuomifiTheme } from '../theme';
 import { button } from '../theme/reset';
 import { alphaHex } from '../../utils/css';
-import { absoluteFocus } from '../theme/utils/focus';
 
-const invertedStyles = css`
+const invertedStyles = (theme: SuomifiTheme) => css`
   &.fi-button--inverted {
     background: none;
     background-color: ${theme.colors.highlightBase};
@@ -30,7 +29,7 @@ const invertedStyles = css`
   }
 `;
 
-const secondary = css`
+const secondary = (theme: SuomifiTheme) => css`
   color: ${theme.colors.highlightBase};
   background: none;
   background-color: ${theme.colors.whiteBase};
@@ -57,24 +56,24 @@ const secondary = css`
   }
 `;
 
-const secondaryStyles = css`
+const secondaryStyles = (theme: SuomifiTheme) => css`
   &.fi-button--secondary {
-    ${secondary}
+    ${secondary(theme)}
   }
 `;
 
-const secondaryNoBorderStyles = css`
+const secondaryNoBorderStyles = (theme: SuomifiTheme) => css`
   &.fi-button--secondary-noborder {
-    ${secondary}
+    ${secondary(theme)}
     border: none;
     background-color: transparent;
   }
 `;
 
-const linkStyles = css`
+const linkStyles = (theme: SuomifiTheme) => css`
   &.fi-button--link {
     color: ${theme.colors.highlightBase};
-    ${secondary}
+    ${secondary(theme)}
     background: ${theme.gradients.depthSecondaryToDepthSecondaryDark1};
     border: none;
 
@@ -96,7 +95,7 @@ const linkStyles = css`
   }
 `;
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   ${button(theme)}
   padding: ${theme.spacing.insetL} ${theme.spacing.insetXxl};
   min-height: 40px;
@@ -112,7 +111,7 @@ export const baseStyles = css`
     position: relative;
 
     &::after {
-      ${absoluteFocus}
+      ${theme.focus.absoluteFocus}
     }
   }
 
@@ -143,10 +142,10 @@ export const baseStyles = css`
     width: 100%;
   }
 
-  ${invertedStyles}
-  ${secondaryStyles}
-  ${secondaryNoBorderStyles}
-  ${linkStyles}
+  ${invertedStyles(theme)}
+  ${secondaryStyles(theme)}
+  ${secondaryNoBorderStyles(theme)}
+  ${linkStyles(theme)}
 
   & > .fi-button_icon {
     width: 16px;

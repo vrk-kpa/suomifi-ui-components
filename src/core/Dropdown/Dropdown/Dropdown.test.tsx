@@ -3,7 +3,7 @@ import { render, act, fireEvent } from '@testing-library/react';
 
 import { Dropdown, DropdownProps } from './Dropdown';
 import { DropdownItem } from '../DropdownItem/DropdownItem';
-import { axeTest } from '../../../utils/test/axe';
+import { axeTest } from '../../../utils/test';
 
 const dropdownProps = {
   labelText: 'Dropdown test',
@@ -110,9 +110,8 @@ describe('Controlled Dropdown', () => {
   });
 
   it('should use value instead of internal state', async () => {
-    const { findByRole, findByText, rerender, findByDisplayValue } = render(
-      ControlledDropdown,
-    );
+    const { findByRole, findByText, rerender, findByDisplayValue } =
+      render(ControlledDropdown);
     // mouse event tests do not work properly with listbox
     const button = await findByRole('button');
     const input = await findByDisplayValue('item-2');

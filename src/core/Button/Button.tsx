@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { baseStyles } from './Button.baseStyles';
 import { HtmlButton, HtmlButtonProps } from '../../reset';
 import { Icon, IconProps, BaseIconKeys } from '../Icon/Icon';
+import { SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
 
 type ButtonVariant =
   | 'default'
@@ -139,11 +140,14 @@ class BaseButton extends Component<ButtonProps & InnerRef> {
 }
 
 const StyledButton = styled(
-  ({ ...passProps }: InternalButtonProps & InnerRef) => (
+  ({
+    theme,
+    ...passProps
+  }: InternalButtonProps & InnerRef & SuomifiThemeProp) => (
     <BaseButton {...passProps} />
   ),
 )`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**
@@ -152,6 +156,10 @@ const StyledButton = styled(
  */
 export const Button = forwardRef(
   (props: ButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
-    <StyledButton forwardedRef={ref} {...props} />
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledButton theme={suomifiTheme} forwardedRef={ref} {...props} />
+      )}
+    </SuomifiThemeConsumer>
   ),
 );

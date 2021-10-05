@@ -64,9 +64,8 @@ import { RadioButton, RadioButtonGroup } from 'suomifi-ui-components';
 ```js
 import { RadioButton, RadioButtonGroup } from 'suomifi-ui-components';
 
-const [selectedValue, setSelectedValue] = React.useState(
-  'value-test-2'
-);
+const [selectedValue, setSelectedValue] =
+  React.useState('value-test-2');
 
 <RadioButtonGroup
   labelText="RadioButtons in group"
@@ -112,9 +111,8 @@ import { RadioButton } from 'suomifi-ui-components';
 ```js
 import { RadioButton } from 'suomifi-ui-components';
 
-const [selectedValue, setSelectedValue] = React.useState(
-  'value-test-2'
-);
+const [selectedValue, setSelectedValue] =
+  React.useState('value-test-2');
 
 const handleChange = (event) => {
   setSelectedValue(event.target.value);

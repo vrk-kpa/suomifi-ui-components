@@ -4,6 +4,7 @@ import { default as styled } from 'styled-components';
 import { baseStyles } from './DropdownItem.basestyles';
 import { dropdownClassNames } from '../Dropdown/Dropdown';
 import classnames from 'classnames';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 
 export interface DropdownItemProps {
   /** Item value */
@@ -14,8 +15,8 @@ export interface DropdownItemProps {
   className?: string;
 }
 
-const BaseDropdownItem = (props: DropdownItemProps) => {
-  const { className, ...passProps } = props;
+const BaseDropdownItem = (props: DropdownItemProps & SuomifiThemeProp) => {
+  const { className, theme, ...passProps } = props;
   return (
     <ListboxOption
       className={classnames(className, dropdownClassNames.item)}
@@ -25,9 +26,13 @@ const BaseDropdownItem = (props: DropdownItemProps) => {
 };
 
 const StyledDropdownItem = styled(BaseDropdownItem)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export const DropdownItem = (props: DropdownItemProps) => (
-  <StyledDropdownItem {...props} />
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => (
+      <StyledDropdownItem theme={suomifiTheme} {...props} />
+    )}
+  </SuomifiThemeConsumer>
 );

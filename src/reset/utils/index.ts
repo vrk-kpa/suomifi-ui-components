@@ -1,7 +1,5 @@
 import { css } from 'styled-components';
-import { normalizeCssInJs } from 'normalize.cssinjs';
-
-const normalize = normalizeCssInJs({ cssToString: true });
+import { normalize } from './normalize';
 
 const common = css`
   margin: 0;
@@ -57,4 +55,3 @@ const resetWithSelectors = (selectors: string | string[]): string => {
 export { resets, resetWithSelectors };
 
 // TODO: Add tests
-// TODO: create versioned interface for normalize.css

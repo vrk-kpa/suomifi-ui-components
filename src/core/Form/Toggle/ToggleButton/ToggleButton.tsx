@@ -1,13 +1,14 @@
 import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { AutoId } from '../../../../utils/AutoId';
+import { AutoId } from '../../../utils/AutoId/AutoId';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { Text } from '../../../Text/Text';
 import { HtmlSpan, HtmlButtonProps, HtmlButton } from '../../../../reset';
 import { ToggleBaseProps, baseClassName } from '../ToggleBase/ToggleBase';
 import { ToggleIcon } from '../ToggleBase/ToggleIcon';
 import { baseStyles } from './ToggeButton.baseStyles';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 
 const toggleClassNames = {
   disabled: `${baseClassName}--disabled`,
@@ -110,10 +111,13 @@ class BaseToggleButton extends Component<ToggleButtonProps & InnerRef> {
   }
 }
 
-const StyledToggleButton = styled((props: ToggleBaseProps & InnerRef) => (
-  <BaseToggleButton {...props} />
-))`
-  ${baseStyles}
+const StyledToggleButton = styled(
+  (props: ToggleBaseProps & InnerRef & SuomifiThemeProp) => {
+    const { theme, ...passProps } = props;
+    return <BaseToggleButton {...passProps} />;
+  },
+)`
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**
@@ -125,11 +129,20 @@ export const ToggleButton = forwardRef(
   (props: ToggleButtonProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <AutoId id={propId}>
-        {(id) => (
-          <StyledToggleButton id={id} forwardedRef={ref} {...passProps} />
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <StyledToggleButton
+                theme={suomifiTheme}
+                id={id}
+                forwardedRef={ref}
+                {...passProps}
+              />
+            )}
+          </AutoId>
         )}
-      </AutoId>
+      </SuomifiThemeConsumer>
     );
   },
 );

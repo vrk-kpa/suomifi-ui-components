@@ -4,10 +4,11 @@ import classnames from 'classnames';
 import { HtmlDiv, HtmlDivProps } from '../../../reset';
 import { ModalConsumer, ModalVariant, baseClassName } from '../Modal/Modal';
 import { baseStyles } from './ModalFooter.baseStyles';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 
 export interface ModalFooterProps extends HtmlDivProps {}
 
-interface InternalModalFooterProps extends ModalFooterProps {
+interface InternalModalFooterProps extends ModalFooterProps, SuomifiThemeProp {
   modalVariant: ModalVariant;
   scrollable: boolean;
   propClassName?: string;
@@ -27,6 +28,7 @@ class BaseModalFooter extends Component<InternalModalFooterProps> {
     const {
       children,
       className,
+      theme,
       propClassName,
       modalVariant = 'default',
       scrollable = true,
@@ -56,7 +58,7 @@ class BaseModalFooter extends Component<InternalModalFooterProps> {
 }
 
 const StyledModalFooter = styled(BaseModalFooter)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**
@@ -69,16 +71,21 @@ export class ModalFooter extends Component<ModalFooterProps> {
   render() {
     const { className, ...passProps } = this.props;
     return (
-      <ModalConsumer>
-        {({ variant, scrollable }) => (
-          <StyledModalFooter
-            modalVariant={variant}
-            scrollable={scrollable}
-            propClassName={className}
-            {...passProps}
-          />
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <ModalConsumer>
+            {({ variant, scrollable }) => (
+              <StyledModalFooter
+                modalVariant={variant}
+                scrollable={scrollable}
+                propClassName={className}
+                theme={suomifiTheme}
+                {...passProps}
+              />
+            )}
+          </ModalConsumer>
         )}
-      </ModalConsumer>
+      </SuomifiThemeConsumer>
     );
   }
 }

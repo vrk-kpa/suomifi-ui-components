@@ -1,10 +1,11 @@
 import React, { Component, ReactNode, createRef } from 'react';
 import { default as styled } from 'styled-components';
-import { logger } from '../../../utils/logger';
+import { logger } from '../../../utils/log';
 import { default as ReactModal } from 'react-modal';
 import classnames from 'classnames';
 import { ModalContent, ModalFooter } from '../';
 import { baseStyles } from './Modal.baseStyles';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 
 export type ModalVariant = 'smallScreen' | 'default';
 
@@ -37,7 +38,7 @@ export interface ModalProps {
   onEscKeyDown?: () => void;
 }
 
-interface InternalModalProps extends ModalProps {
+interface InternalModalProps extends ModalProps, SuomifiThemeProp {
   /**
    * Used to capture user provided classname for use with BaseModal.
    * Passed on to the BaseModal inner element with fi-modal classname to allow custom styles.
@@ -64,10 +65,8 @@ const defaultProviderValue: ModalProviderState = {
   scrollable: true,
 };
 
-const {
-  Provider: ModalProvider,
-  Consumer: ModalConsumer,
-} = React.createContext(defaultProviderValue);
+const { Provider: ModalProvider, Consumer: ModalConsumer } =
+  React.createContext(defaultProviderValue);
 
 export const baseClassName = 'fi-modal';
 const modalClassNames = {
@@ -193,7 +192,7 @@ class BaseModal extends Component<InternalModalProps> {
 }
 
 const StyledModal = styled(BaseModal)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**
@@ -204,7 +203,17 @@ const StyledModal = styled(BaseModal)`
 export class Modal extends Component<ModalProps> {
   render() {
     const { className: propClassName, ...passProps } = this.props;
-    return <StyledModal propClassName={propClassName} {...passProps} />;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledModal
+            theme={suomifiTheme}
+            propClassName={propClassName}
+            {...passProps}
+          />
+        )}
+      </SuomifiThemeConsumer>
+    );
   }
 }
 

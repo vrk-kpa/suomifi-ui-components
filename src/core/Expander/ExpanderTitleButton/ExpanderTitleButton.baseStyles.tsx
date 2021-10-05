@@ -1,10 +1,9 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { element, button, font } from '../../theme/reset';
 import { allStates } from '../../../utils/css';
-import { absoluteFocus, noMouseFocus } from '../../theme/utils';
 
-export const expanderTitleButtonBaseStyles = css`
+export const expanderTitleButtonBaseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   position: relative;
   display: block;
@@ -37,10 +36,10 @@ export const expanderTitleButtonBaseStyles = css`
     &:focus-within {
       outline: 0;
       &:after {
-        ${absoluteFocus}
+        ${theme.focus.absoluteFocus}
       }
     }
-    ${noMouseFocus}
+    ${theme.focus.noMouseFocus}
     & * {
       cursor: pointer;
     }

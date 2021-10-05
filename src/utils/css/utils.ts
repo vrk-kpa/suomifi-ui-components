@@ -1,5 +1,5 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components';
-import { cssValueToString } from './';
+import { cssValueToString } from './cssvalue';
 
 export const clearfix = css`
   &:after {

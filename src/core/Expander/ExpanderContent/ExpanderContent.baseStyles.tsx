@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
 import { padding } from '../../theme/utils';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
   background-color: ${theme.colors.whiteBase};

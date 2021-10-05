@@ -1,8 +1,5 @@
 import { css } from 'styled-components';
 import { TypographyProp, SuomifiTheme } from '../';
-import { focus as focusUtil } from '../utils';
-
-export const focus = (theme: SuomifiTheme) => focusUtil(theme);
 
 export const element = (theme: SuomifiTheme) => css`
   color: ${theme.colors.blackBase};
@@ -16,12 +13,12 @@ const fontBase = css`
   -webkit-font-smoothing: antialiased;
 `;
 
-export const font = (theme: SuomifiTheme) => (
-  typographyToken: TypographyProp,
-) => css`
-  ${fontBase}
-  ${theme.typography[typographyToken]}
-`;
+export const font =
+  (theme: SuomifiTheme) => (typographyToken: TypographyProp) =>
+    css`
+      ${fontBase}
+      ${theme.typography[typographyToken]}
+    `;
 
 export const input = (theme: SuomifiTheme) => css`
   ${element(theme)}

@@ -168,6 +168,43 @@ exports[`snapshot matches 1`] = `
 
 .c1 .fi-filter-input_functionalityContainer {
   line-height: 1.5;
+  position: relative;
+}
+
+.c1 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container {
+  position: absolute;
+  height: 40px;
+  right: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container > * {
+  box-sizing: content-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 8px;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c1 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container :not(:last-child) {
+  border-right: 1px solid hsl(202,7%,67%);
+  padding-right: 8px;
+  height: 20px;
 }
 
 .c1 .fi-filter-input_input-element-container > input:focus {
@@ -299,7 +336,7 @@ exports[`snapshot matches 1`] = `
   >
     <label
       class="c0 c2 fi-label-text"
-      for="1"
+      id="1-label"
     >
       <span
         class="c3 fi-label-text_label-span"
@@ -315,6 +352,8 @@ exports[`snapshot matches 1`] = `
       >
         <input
           aria-autocomplete="list"
+          aria-invalid="false"
+          aria-labelledby="1-label"
           aria-multiline="false"
           autocapitalize="none"
           autocomplete="off"

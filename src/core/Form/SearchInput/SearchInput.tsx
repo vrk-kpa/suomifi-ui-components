@@ -1,7 +1,8 @@
 import React, { ChangeEvent, Component, createRef, FocusEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { AutoId } from '../../../utils/AutoId';
+import { AutoId } from '../../utils/AutoId/AutoId';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import {
@@ -19,6 +20,7 @@ import { LabelText, LabelMode } from '../LabelText/LabelText';
 import { Icon } from '../../Icon/Icon';
 import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './SearchInput.baseStyles';
+import { InputClearButton } from '../InputClearButton/InputClearButton';
 
 type SearchInputValue = string | number | undefined;
 
@@ -97,7 +99,7 @@ interface SearchInputState {
   value: SearchInputValue;
 }
 
-class BaseSearchInput extends Component<SearchInputProps> {
+class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
   state: SearchInputState = {
     value: this.props.value || this.props.defaultValue || '',
   };
@@ -135,6 +137,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
       id,
       fullWidth,
       debounce,
+      theme,
       'aria-describedby': ariaDescribedBy,
       statusTextAriaLiveMode = 'assertive',
       ...passProps
@@ -243,20 +246,14 @@ class BaseSearchInput extends Component<SearchInputProps> {
                     onKeyDown={onKeyDown}
                   />
                 </HtmlDiv>
-                <HtmlButton
+                <InputClearButton
                   {...clearButtonProps}
+                  label={clearButtonLabel}
                   onClick={() => {
                     onClear();
                     cancelDebounce();
                   }}
-                >
-                  <VisuallyHidden>{clearButtonLabel}</VisuallyHidden>
-                  <Icon
-                    aria-hidden={true}
-                    icon="close"
-                    className={searchInputClassNames.clearIcon}
-                  />
-                </HtmlButton>
+                />
                 <HtmlButton {...searchButtonDerivedProps}>
                   <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
                   <Icon
@@ -282,7 +279,7 @@ class BaseSearchInput extends Component<SearchInputProps> {
 }
 
 const StyledSearchInput = styled(BaseSearchInput)`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**
@@ -295,9 +292,15 @@ export class SearchInput extends Component<SearchInputProps> {
     const { id: propId, ...passProps } = this.props;
 
     return (
-      <AutoId id={propId}>
-        {(id) => <StyledSearchInput id={id} {...passProps} />}
-      </AutoId>
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <StyledSearchInput theme={suomifiTheme} id={id} {...passProps} />
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
     );
   }
 }

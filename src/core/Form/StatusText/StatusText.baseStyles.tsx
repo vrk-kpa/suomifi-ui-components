@@ -1,8 +1,8 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { font } from '../../theme/reset';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-status-text {
     ${font(theme)('bodySemiBoldSmall')};
     color: ${theme.colors.blackBase};

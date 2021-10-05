@@ -1,6 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './LabelText.baseStyles';
 import { asPropType } from '../../../utils/typescript';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
@@ -36,13 +37,14 @@ const labelTextClassNames = {
 const StyledLabelText = styled(
   ({
     className,
+    theme,
     labelMode = 'visible',
     labelSpanProps = { className: undefined },
     children,
     asProp,
     optionalText,
     ...passProps
-  }: LabelTextProps) => (
+  }: LabelTextProps & SuomifiThemeProp) => (
     <HtmlDiv
       {...(asProp ? { as: asProp } : {})}
       className={classnames(className, baseClassName)}
@@ -72,11 +74,17 @@ const StyledLabelText = styled(
     </HtmlDiv>
   ),
 )`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export class LabelText extends Component<LabelTextProps> {
   render() {
-    return <StyledLabelText {...this.props} />;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledLabelText theme={suomifiTheme} {...this.props} />
+        )}
+      </SuomifiThemeConsumer>
+    );
   }
 }

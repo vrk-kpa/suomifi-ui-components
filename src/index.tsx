@@ -1,18 +1,20 @@
 import './styles.scss';
-export { Breadcrumb, BreadcrumbProps } from './core/Breadcrumb/Breadcrumb';
 export {
+  Breadcrumb,
+  BreadcrumbProps,
   BreadcrumbLink,
   BreadcrumbLinkProps,
-} from './core/Breadcrumb/BreadcrumbLink';
+} from './core/Breadcrumb';
 export { Block, BlockProps } from './core/Block/Block';
 export { Button, ButtonProps } from './core/Button/Button';
 export { Dropdown, DropdownProps } from './core/Dropdown/';
 export { DropdownItem, DropdownItemProps } from './core/Dropdown/';
 export { Chip, ChipProps } from './core/Chip/';
 export { StaticChip, StaticChipProps } from './core/Chip/';
-// MultiSelect,
-// MultiSelectProps,
-// MultiSelectData,
+// SingleSelect,
+// SingleSelectProps,
+// SingleSelectData,
+// SingleSelectStatus,
 export {
   Checkbox,
   CheckboxProps,
@@ -28,6 +30,10 @@ export {
   RadioButtonProps,
   RadioButtonGroup,
   RadioButtonGroupProps,
+  MultiSelect,
+  MultiSelectProps,
+  MultiSelectData,
+  MultiSelectStatus,
 } from './core/Form/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';
@@ -37,23 +43,22 @@ export {
   IllustrativeIconKeys,
   DoctypeIconKeys,
 } from './core/StaticIcon/StaticIcon';
-export { Link, LinkProps } from './core/Link/Link';
-export { LinkExternal, LinkExternalProps } from './core/Link/LinkExternal';
-export { LinkSkip, LinkSkipProps } from './core/Link/LinkSkip';
+export {
+  Link,
+  LinkProps,
+  ExternalLink,
+  ExternalLinkProps,
+  SkipLink,
+  SkipLinkProps,
+} from './core/Link/';
 export {
   LanguageMenu,
   LanguageMenuProps,
-} from './core/LanguageMenu/LanguageMenu';
-export {
   LanguageMenuItem,
   LanguageMenuItemProps,
   LanguageMenuLink,
   LanguageMenuLinkProps,
-  LanguageMenuItemLanguage,
-  LanguageMenuItemLanguageProps,
-  LanguageMenuLinkLanguage,
-  LanguageMenuLinkLanguageProps,
-} from './core/LanguageMenu/LanguageMenuItem';
+} from './core/LanguageMenu';
 export {
   Modal,
   ModalProps,
@@ -83,4 +88,33 @@ export {
   VisuallyHidden,
   VisuallyHiddenProps,
 } from './core/VisuallyHidden/VisuallyHidden';
+export {
+  SuomifiTheme,
+  TypographyDesignTokens,
+  ColorDesignTokens,
+  SpacingDesignTokens,
+  RawDesignTokens,
+  ValueUnit,
+  RawColorDesignTokens,
+  ColorToken,
+  RawSpacingDesignTokens,
+  RawTypographyDesignTokens,
+  TypographyToken,
+  GradientDesignTokens,
+  FocusDesignTokens,
+  RadiusDesignTokens,
+  ShadowDesignTokens,
+  TransitionDesignTokens,
+  ZIndexDesignTokens,
+  SuomifiDesignTokens,
+  defaultSuomifiTheme,
+  SuomifiThemeProvider,
+  SuomifiThemeProviderProps,
+  SuomifiThemeConsumer,
+  SuomifiThemeContext,
+  PartialSuomifiTheme,
+  ColorProp,
+  TypographyProp,
+  SpacingProp,
+} from './core/theme';
 export { suomifiDesignTokens, DesignTokens } from 'suomifi-design-tokens';

@@ -1,16 +1,12 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { axeTest } from '../../../utils/test/axe';
+import { axeTest } from '../../../utils/test';
 
 import { SearchInput, SearchInputProps } from './SearchInput';
 
 const TestSearchInput = (props: Partial<SearchInputProps> = {}) => {
-  const {
-    labelText,
-    clearButtonLabel,
-    searchButtonLabel,
-    ...passProps
-  } = props;
+  const { labelText, clearButtonLabel, searchButtonLabel, ...passProps } =
+    props;
   return (
     <SearchInput
       data-testid="searchinput"

@@ -1,9 +1,8 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
-import { absoluteFocus } from '../../theme/utils/focus';
 
-export const baseChipBaseStyles = css`
+export const baseChipBaseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('actionElementInnerTextBold')}
 
@@ -12,7 +11,7 @@ export const baseChipBaseStyles = css`
     position: relative;
 
     &::after {
-      ${absoluteFocus}
+      ${theme.focus.absoluteFocus}
       border-radius: 16px;
     }
   }
