@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { axeTest } from '../../utils/test/axe';
+import { axeTest } from '../../utils/test';
 
 import { Paragraph } from '../Paragraph/Paragraph';
 import { Text } from './Text';
@@ -9,15 +9,17 @@ const TestTexts = (
   <div data-testid="test-text">
     <Paragraph>Paragraph text</Paragraph>
     <Paragraph marginBottomSpacing="s">
-      <Text.lead>Leading text</Text.lead>
+      <Text variant="lead">Leading text</Text>
     </Paragraph>
     <Paragraph>
       <Text>Body text</Text>
-      <Text.bold>Bold text</Text.bold>
+      <Text variant="bold">Bold text</Text>
     </Paragraph>
     <Paragraph>
       <Text smallScreen={true}>Body text</Text>
-      <Text.bold smallScreen={true}>Bold text</Text.bold>
+      <Text variant="bold" smallScreen={true}>
+        Bold text
+      </Text>
     </Paragraph>
   </div>
 );

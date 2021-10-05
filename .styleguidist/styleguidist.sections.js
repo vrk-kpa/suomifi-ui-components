@@ -5,15 +5,11 @@ const primitiveComponents = [
   'Block',
   'Button',
   'Heading',
-  'Chip',
   'VisuallyHidden',
   ['Form', 'TextInput'],
-  ['Form', 'Toggle'],
   ['Form', 'SearchInput'],
   ['Form', 'Checkbox'],
   ['Form', 'Textarea'],
-  ['Form', 'RadioButton'],
-  ['Form', 'MultiSelect'],
 ];
 
 const getComponent = ({ name, underName }) =>
@@ -30,12 +26,13 @@ const getComponents = (arr) =>
         })
       : getComponent({ name: component }),
   );
-const getComponentWithVariants = (component) => (variants) => [
-  getComponent({ name: component }),
-  ...variants.map((variant) =>
-    getComponent({ underName: component, name: variant }),
-  ),
-];
+const getComponentWithVariants = (component) => (variants) =>
+  [
+    getComponent({ name: component }),
+    ...variants.map((variant) =>
+      getComponent({ underName: component, name: variant }),
+    ),
+  ];
 
 module.exports = {
   sections: [
@@ -55,8 +52,25 @@ module.exports = {
           name: 'Spacing',
           content: './.styleguidist/spacing.md',
         },
+        {
+          name: 'Theme',
+          content: './.styleguidist/theme.md',
+          sections: [
+            {
+              name: 'SuomifiThemeProvider',
+              components: getComponent({
+                underName: 'theme/SuomifiThemeProvider',
+                name: 'SuomifiThemeProvider',
+              }),
+            },
+            {
+              name: 'Default Theme',
+              content: './.styleguidist/themevalues.md',
+            },
+          ],
+        },
       ],
-      sectionDepth: 1,
+      sectionDepth: 2,
       expand: true,
     },
     {
@@ -89,8 +103,9 @@ module.exports = {
             {
               name: 'Link',
               components: getComponentWithVariants('Link')([
-                'LinkSkip',
-                'LinkExternal',
+                'Link/Link',
+                'SkipLink/SkipLink',
+                'ExternalLink/ExternalLink',
               ]),
             },
             {
@@ -104,10 +119,16 @@ module.exports = {
               name: 'Icon',
               components: getComponents(['Icon', 'StaticIcon']),
             },
+            {
+              name: 'MultiSelect',
+              components: getComponentWithVariants('Form/Select')([
+                'MultiSelect/MultiSelect/MultiSelect',
+              ]),
+            },
             // {
-            //   name: 'MultiSelect',
-            //   components: getComponentWithVariants('Form/MultiSelect')([
-            //     'MultiSelect/MultiSelect',
+            //   name: 'SingleSelect',
+            //   components: getComponentWithVariants('Form/Select')([
+            //     'SingleSelect/SingleSelect',
             //   ]),
             // },
           ],
@@ -120,7 +141,8 @@ module.exports = {
             {
               name: 'Breadcrumb',
               components: getComponentWithVariants('Breadcrumb')([
-                'BreadcrumbLink',
+                'Breadcrumb/Breadcrumb',
+                'BreadcrumbLink/BreadcrumbLink',
               ]),
             },
             {
@@ -133,8 +155,9 @@ module.exports = {
             {
               name: 'LanguageMenu',
               components: getComponentWithVariants('LanguageMenu')([
-                'LanguageMenuItemLanguage',
-                'LanguageMenuLinkLanguage',
+                'LanguageMenu/LanguageMenu',
+                'LanguageMenuItem/LanguageMenuItem',
+                'LanguageMenuLink/LanguageMenuLink',
               ]),
             },
             {

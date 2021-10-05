@@ -3,6 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlDivProps } from '../../../reset';
 import { getConditionalAriaProp } from '../../../utils/aria';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
   ExpanderConsumer,
   ExpanderContentBaseProps,
@@ -26,7 +27,8 @@ export interface ExpanderContentProps extends Omit<HtmlDivProps, 'id'> {
 
 interface InternalExpanderContentProps
   extends ExpanderContentBaseProps,
-    ExpanderContentProps {}
+    ExpanderContentProps,
+    SuomifiThemeProp {}
 
 class BaseExpanderContent extends Component<InternalExpanderContentProps> {
   render() {
@@ -34,6 +36,7 @@ class BaseExpanderContent extends Component<InternalExpanderContentProps> {
       children,
       title,
       className,
+      theme,
       noPadding,
       consumer,
       'aria-labelledby': ariaLabelledBy,
@@ -62,7 +65,7 @@ class BaseExpanderContent extends Component<InternalExpanderContentProps> {
 }
 
 const StyledExpanderContent = styled(BaseExpanderContent)`
-  ${baseStyles};
+  ${({ theme }) => baseStyles(theme)};
 `;
 
 /**
@@ -72,11 +75,19 @@ const StyledExpanderContent = styled(BaseExpanderContent)`
 export class ExpanderContent extends Component<ExpanderContentProps> {
   render() {
     return (
-      <ExpanderConsumer>
-        {(consumer) => (
-          <StyledExpanderContent consumer={consumer} {...this.props} />
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <ExpanderConsumer>
+            {(consumer) => (
+              <StyledExpanderContent
+                theme={suomifiTheme}
+                consumer={consumer}
+                {...this.props}
+              />
+            )}
+          </ExpanderConsumer>
         )}
-      </ExpanderConsumer>
+      </SuomifiThemeConsumer>
     );
   }
 }

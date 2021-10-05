@@ -1,4 +1,10 @@
-import React, { Component, ReactNode, ReactElement, forwardRef } from 'react';
+import React, {
+  Component,
+  ReactNode,
+  ReactElement,
+  forwardRef,
+  KeyboardEvent,
+} from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import {
@@ -10,13 +16,14 @@ import {
   ListboxPopover,
 } from '@reach/listbox';
 import { positionMatchWidth } from '@reach/popover';
-import { logger } from '../../../utils/logger';
-import { AutoId } from '../../../utils/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
+import { logger } from '../../../utils/log';
+import { AutoId } from '../../utils/AutoId/AutoId';
 import { HtmlSpan, HtmlDiv } from '../../../reset';
 import { LabelText, LabelMode } from '../../Form/LabelText/LabelText';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 
 const baseClassName = 'fi-dropdown';
 
@@ -230,11 +237,14 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
 }
 
 const StyledDropdown = styled(
-  ({ ...passProps }: InternalDropdownProps & InnerRef) => (
+  ({
+    theme,
+    ...passProps
+  }: InternalDropdownProps & InnerRef & SuomifiThemeProp) => (
     <BaseDropdown {...passProps} />
   ),
 )`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**
@@ -245,9 +255,20 @@ export const Dropdown = forwardRef(
   (props: DropdownProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <AutoId id={propId}>
-        {(id) => <StyledDropdown id={id} forwardedRef={ref} {...passProps} />}
-      </AutoId>
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <StyledDropdown
+                theme={suomifiTheme}
+                id={id}
+                forwardedRef={ref}
+                {...passProps}
+              />
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
     );
   },
 );

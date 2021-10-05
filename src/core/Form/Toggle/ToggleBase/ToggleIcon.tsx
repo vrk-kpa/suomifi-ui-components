@@ -3,6 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { ComponentIcon } from '../../../StaticIcon/StaticIcon';
 import { baseStyles } from './ToggleIcon.baseStyles';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 
 const iconBaseClassName = 'fi-toggle_icon';
 const iconDisabledClassName = `${iconBaseClassName}--disabled`;
@@ -14,7 +15,7 @@ export interface ToggleIconProps {
   className?: string;
 }
 
-export const ToggleIcon = styled((props: ToggleIconProps) => (
+const StyledToggleIcon = styled((props: ToggleIconProps & SuomifiThemeProp) => (
   <ComponentIcon
     icon="toggle"
     className={classnames(iconBaseClassName, props.className, {
@@ -23,5 +24,17 @@ export const ToggleIcon = styled((props: ToggleIconProps) => (
     })}
   />
 ))`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
+
+export class ToggleIcon extends React.Component<ToggleIconProps> {
+  render() {
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledToggleIcon theme={suomifiTheme} {...this.props} />
+        )}
+      </SuomifiThemeConsumer>
+    );
+  }
+}

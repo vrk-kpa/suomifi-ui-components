@@ -1,9 +1,8 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { element, inputButton } from '../../theme/reset';
-import { absoluteFocus } from '../../theme/utils';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-dropdown {
     display: inline-block;
   }
@@ -28,7 +27,7 @@ export const baseStyles = css`
       position: relative;
 
       &:after {
-        ${absoluteFocus}
+        ${theme.focus.absoluteFocus}
       }
     }
 

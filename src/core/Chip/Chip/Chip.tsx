@@ -1,7 +1,7 @@
 import React, { Component, forwardRef } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
-import { logger } from '../../../utils/logger';
+import { logger } from '../../../utils/log';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { Icon } from '../../Icon/Icon';
@@ -11,6 +11,7 @@ import {
   chipClassNames,
 } from '../BaseChip/BaseChip';
 import { baseStyles } from './Chip.baseStyles';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 
 const chipButtonClassNames = {
   removable: `${baseClassName}--removable`,
@@ -104,15 +105,26 @@ class DefaultChip extends Component<ChipProps & InnerRef> {
   }
 }
 
-const StyledChip = styled(({ ...passProps }: InternalChipProps & InnerRef) => (
-  <DefaultChip {...passProps} />
-))`
-  ${baseStyles}
+const StyledChip = styled(
+  ({
+    theme,
+    ...passProps
+  }: InternalChipProps & InnerRef & SuomifiThemeProp) => (
+    <DefaultChip {...passProps} />
+  ),
+)`
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export const Chip = forwardRef(
   (props: ChipProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { ...passProps } = props;
-    return <StyledChip forwardedRef={ref} {...passProps} />;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledChip theme={suomifiTheme} forwardedRef={ref} {...passProps} />
+        )}
+      </SuomifiThemeConsumer>
+    );
   },
 );

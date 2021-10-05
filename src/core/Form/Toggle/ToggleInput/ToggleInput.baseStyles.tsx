@@ -1,6 +1,5 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../../theme';
-import { absoluteFocus } from '../../../theme/utils';
+import { SuomifiTheme } from '../../../theme';
 import { element, font } from '../../../theme/reset';
 import {
   toggleBaseStyles,
@@ -9,14 +8,14 @@ import {
   focusOverrides,
 } from '../ToggleBase/Toggle.baseStyles';
 
-export const baseStyles = css`
-  ${toggleBaseStyles}
+export const baseStyles = (theme: SuomifiTheme) => css`
+  ${toggleBaseStyles(theme)}
   &.fi-toggle--input {
     &:focus-within {
       outline: 0;
       & .fi-toggle_icon-container {
         &:after {
-          ${absoluteFocus}
+          ${theme.focus.absoluteFocus}
           ${focusOverrides}
         }
       }

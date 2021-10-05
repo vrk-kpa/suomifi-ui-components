@@ -1,9 +1,8 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { input, containerIEFocus, font } from '../../theme/reset';
-import { absoluteFocus } from '../../theme/utils';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   & .fi-filter-input {
     ${font(theme)('bodyText')}
   }
@@ -15,6 +14,28 @@ export const baseStyles = css`
 
   & .fi-filter-input_functionalityContainer {
     line-height: 1.5;
+    position: relative;
+
+    & .fi-filter-input_action-elements-container {
+      position: absolute;
+      height: 40px;
+      right: 0;
+      top: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      & > * {
+        box-sizing: content-box;
+        display: flex;
+        padding: 0 8px;
+        flex: 0 0 auto;
+      }
+      & :not(:last-child) {
+        border-right: 1px solid ${theme.colors.depthBase};
+        padding-right: 8px;
+        height: 20px;
+      }
+    }
   }
 
   & .fi-filter-input_input-element-container {
@@ -24,7 +45,7 @@ export const baseStyles = css`
       position: relative;
 
       &::after {
-        ${absoluteFocus}
+        ${theme.focus.absoluteFocus}
       }
     }
   }

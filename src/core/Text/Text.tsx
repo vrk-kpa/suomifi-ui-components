@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { ColorProp } from '../theme';
-import {
-  Text as CompText,
-  TextProps as CompTextProps,
-} from '../../components/Text/Text';
+import { ColorProp, SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
 import { baseStyles } from './Text.baseStyles';
+import { HtmlSpan, HtmlSpanProps } from '../../reset';
 
 const baseClassName = 'fi-text';
 const smallScreenClassName = `${baseClassName}--small-screen`;
 
-export interface TextProps extends CompTextProps {
+export interface TextProps extends HtmlSpanProps {
   /** Change font to smaller screen size and style */
   smallScreen?: boolean;
   /** Change color for text from theme colors */
@@ -28,14 +25,20 @@ const StyledText = styled(
     variant = 'body',
     smallScreen,
     className,
+    theme,
     color,
     ...passProps
-  }: TextProps) => (
-    <CompText
+  }: TextProps & SuomifiThemeProp) => (
+    <HtmlSpan
       {...passProps}
-      className={classnames(className, [`${baseClassName}--${variant}`], {
-        [smallScreenClassName]: smallScreen,
-      })}
+      className={classnames(
+        baseClassName,
+        className,
+        [`${baseClassName}--${variant}`],
+        {
+          [smallScreenClassName]: smallScreen,
+        },
+      )}
     />
   ),
 )`
@@ -46,11 +49,13 @@ const StyledText = styled(
  * Used displaying text with correct fonts
  */
 export class Text extends Component<TextProps> {
-  static lead = (props: TextProps) => <StyledText {...props} variant="lead" />;
-
-  static bold = (props: TextProps) => <StyledText {...props} variant="bold" />;
-
   render() {
-    return <StyledText {...this.props} />;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledText theme={suomifiTheme} {...this.props} />
+        )}
+      </SuomifiThemeConsumer>
+    );
   }
 }

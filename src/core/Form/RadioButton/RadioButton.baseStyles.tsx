@@ -1,10 +1,9 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
-import { boxShadowFocus } from '../../theme/utils/focus';
 
 /* stylelint-disable no-descending-specificity */
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
     &.fi-radio-button {
@@ -55,7 +54,7 @@ export const baseStyles = css`
       &:focus {
         outline: 0;
         + .fi-radio-button_icon_wrapper {
-          ${boxShadowFocus}
+          ${theme.focus.boxShadowFocus}
           border-radius: 50%;
         }
       }

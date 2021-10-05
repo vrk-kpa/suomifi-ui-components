@@ -3,8 +3,9 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { InputStatus, StatusTextCommonProps } from '../types';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { logger } from '../../../utils/logger';
-import { AutoId } from '../../../utils/AutoId';
+import { logger } from '../../../utils/log';
+import { AutoId } from '../../utils/AutoId/AutoId';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlLabel, HtmlDiv, HtmlInput } from '../../../reset';
 import { Icon } from '../../Icon/Icon';
 import { StatusText } from '../StatusText/StatusText';
@@ -238,20 +239,34 @@ class BaseCheckbox extends Component<CheckboxProps & InnerRef> {
 }
 
 const StyledCheckbox = styled(
-  ({ ...passProps }: InternalCheckboxProps & InnerRef) => (
+  ({
+    theme,
+    ...passProps
+  }: InternalCheckboxProps & InnerRef & SuomifiThemeProp) => (
     <BaseCheckbox {...passProps} />
   ),
 )`
-  ${baseStyles}
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export const Checkbox = forwardRef(
   (props: CheckboxProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
-      <AutoId id={propId}>
-        {(id) => <StyledCheckbox id={id} forwardedRef={ref} {...passProps} />}
-      </AutoId>
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <StyledCheckbox
+                theme={suomifiTheme}
+                id={id}
+                forwardedRef={ref}
+                {...passProps}
+              />
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
     );
   },
 );

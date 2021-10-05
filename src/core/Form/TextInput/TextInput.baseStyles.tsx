@@ -1,10 +1,9 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
+import { SuomifiTheme } from '../../theme';
 import { input, containerIEFocus, font } from '../../theme/reset';
-import { absoluteFocus } from '../../theme/utils';
 import { math } from 'polished';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-text-input {
     ${font(theme)('bodyText')}
     width: 290px;
@@ -22,7 +21,7 @@ export const baseStyles = css`
       position: relative;
 
       &::after {
-        ${absoluteFocus}
+        ${theme.focus.absoluteFocus}
       }
     }
   }

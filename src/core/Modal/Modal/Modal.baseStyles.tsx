@@ -1,11 +1,9 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../theme';
-import { radius } from '../../theme/radius';
-import { boxShadowFocus } from '../../theme/utils';
+import { SuomifiTheme } from '../../theme';
 import { alphaHex } from '../../../utils/css';
 import { element, font } from '../../theme/reset';
 
-export const baseStyles = css`
+export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-modal_base {
     ${element(theme)}
     ${font(theme)('actionElementInnerTextBold')}
@@ -24,7 +22,7 @@ export const baseStyles = css`
     }
   }
   & .fi-modal {
-    border-radius: ${radius.modal};
+    border-radius: ${theme.radius.modal};
     background-color: ${theme.colors.whiteBase};
     border-top: ${theme.spacing.insetXs} solid ${theme.colors.highlightBase};
     overflow: hidden;
@@ -42,7 +40,7 @@ export const baseStyles = css`
     }
 
     &:focus-visible {
-      ${boxShadowFocus}
+      ${theme.focus.boxShadowFocus}
     }
 
     &--no-scroll {

@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { defaultThemeTokens as theme } from '../../../theme';
+import { SuomifiTheme } from '../../../theme';
 import { element, font } from '../../../theme/reset';
 
 export const iconWidth = '40px';
@@ -11,7 +11,7 @@ export const focusOverrides = css`
   left: -4px;
 `;
 
-export const toggleBaseStyles = css`
+export const toggleBaseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
   background-color: ${theme.colors.whiteBase};

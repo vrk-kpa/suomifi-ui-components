@@ -1,0 +1,667 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`has matching snapshot 1`] = `
+.c7 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.c7:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.c7::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.c7::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.c7::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.c7::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.c7::before,
+.c7::after {
+  box-sizing: border-box;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c6 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.c6::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+.c6::before,
+.c6::after {
+  box-sizing: border-box;
+}
+
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
+.c9 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.c3.fi-label-text .fi-label-text_label-span {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+  color: hsl(0,0%,16%);
+}
+
+.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c5.fi-hint-text {
+  display: block;
+  color: hsl(0,0%,16%);
+  margin-bottom: 10px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c12.fi-status-text {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c12.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,48%);
+}
+
+.c12.fi-status-text.fi-status-text--hasContent {
+  margin-top: 5px;
+}
+
+.c2 .fi-filter-input {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c2 .fi-filter-input_wrapper {
+  display: inline-block;
+  width: 100%;
+}
+
+.c2 .fi-filter-input_functionalityContainer {
+  line-height: 1.5;
+  position: relative;
+}
+
+.c2 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container {
+  position: absolute;
+  height: 40px;
+  right: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container > * {
+  box-sizing: content-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 8px;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c2 .fi-filter-input_functionalityContainer .fi-filter-input_action-elements-container :not(:last-child) {
+  border-right: 1px solid hsl(202,7%,67%);
+  padding-right: 8px;
+  height: 20px;
+}
+
+.c2 .fi-filter-input_input-element-container > input:focus {
+  outline-color: hsl(196,77%,44%);
+  outline-width: 2px;
+  outline-offset: 2px;
+  outline-style: solid;
+}
+
+.c2 .fi-filter-input_input-element-container:focus-within > input:focus {
+  outline: none;
+}
+
+.c2 .fi-filter-input_input-element-container:focus-within {
+  position: relative;
+}
+
+.c2 .fi-filter-input_input-element-container:focus-within::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c2 .fi-filter-input_input {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+  line-height: 1;
+  background-color: hsl(0,0%,100%);
+  min-width: 40px;
+  width: 100%;
+  min-height: 40px;
+  padding-left: 10px;
+  border-color: hsl(201,7%,58%);
+}
+
+.c2 .fi-filter-input_input::-webkit-input-placeholder {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
+.c2 .fi-filter-input_input::-moz-placeholder {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
+.c2 .fi-filter-input_input:-ms-input-placeholder {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
+.c2 .fi-filter-input_input::placeholder {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
+.c2.fi-filter-input--error .fi-filter-input_input {
+  border-color: hsl(3,59%,48%);
+  border-width: 2px;
+}
+
+.c2.fi-filter-input--disabled .fi-filter-input_input {
+  color: hsl(202,7%,67%);
+  background-color: hsl(202,7%,97%);
+  border-color: hsl(202,7%,80%);
+}
+
+.c2.fi-filter-input--label-align-left .fi-filter-input_wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c2.fi-filter-input--label-align-left .fi-filter-input_wrapper .fi-label-text {
+  padding-right: 10px;
+  padding-top: 8px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c2.fi-filter-input--label-align-left .fi-filter-input_wrapper .fi-label-text .fi-label-text_label-span {
+  margin-bottom: 0;
+}
+
+.c10 {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.c10 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c10 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c10.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c10.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c8.fi-input-clear-button {
+  position: relative;
+  cursor: pointer;
+  pointer-events: all;
+  height: 20px;
+  width: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c8.fi-input-clear-button:focus {
+  outline: none;
+}
+
+.c8.fi-input-clear-button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c8.fi-input-clear-button .fi-input-clear-button_icon {
+  width: 16px;
+  height: 16px;
+}
+
+.c8.fi-input-clear-button .fi-input-clear-button_icon .fi-icon-base-fill {
+  fill: hsl(212,63%,37%);
+}
+
+.c11.fi-input-toggle-button {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  pointer-events: all;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c11.fi-input-toggle-button .fi-input-toggle-button_icon {
+  pointer-events: none;
+  width: 10px;
+  height: 10px;
+}
+
+.c11.fi-input-toggle-button .fi-input-toggle-button_icon .fi-icon-base-fill {
+  fill: hsl(0,0%,16%);
+}
+
+.c1.fi-single-select {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  width: 290px;
+}
+
+.c1.fi-single-select .fi-filter-input_input {
+  padding-right: 36px;
+}
+
+.c1.fi-single-select--value-selected .fi-filter-input_input {
+  padding-right: 73px;
+}
+
+.c1.fi-single-select--open .fi-filter-input_input {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+<div
+  class="c0 fi-single-select c1 fi-single-select--value-selected"
+>
+  <div
+    class="c0 fi-filter-input c2"
+  >
+    <div
+      class="c0 fi-filter-input_wrapper"
+    >
+      <label
+        class="c0 c3 fi-label-text"
+        id="1-label"
+      >
+        <span
+          class="c4 fi-label-text_label-span"
+        >
+          SingleSelect
+        </span>
+      </label>
+      <span
+        class="c4 c5 fi-hint-text"
+        id="1-hintText"
+      >
+        You can filter options by typing in the field
+      </span>
+      <div
+        class="c0 fi-filter-input_functionalityContainer"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="2-popover"
+          class="c0 fi-filter-input_input-element-container"
+          role="combobox"
+        >
+          <input
+            aria-activedescendant=""
+            aria-autocomplete="list"
+            aria-controls="2-popover"
+            aria-describedby="1-hintText 2-aria-status"
+            aria-invalid="false"
+            aria-labelledby="1-label"
+            aria-multiline="false"
+            autocapitalize="none"
+            autocomplete="off"
+            class="c6 fi-filter-input_input"
+            id="1"
+            placeholder=""
+            spellcheck="false"
+            type="text"
+            value="Hammer"
+          />
+        </div>
+        <div
+          class="c0 fi-filter-input_action-elements-container"
+        >
+          <div
+            class="c0 fi-single-select_clear-button_wrapper"
+          >
+            <button
+              class="c7 fi-input-clear-button c8"
+              type="button"
+            >
+              <span
+                class="c4 c9 fi-visually-hidden"
+              >
+                Clear selection
+              </span>
+              <svg
+                aria-hidden="true"
+                class="fi-icon c10 fi-input-clear-button_icon"
+                focusable="false"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="fi-icon-base-fill"
+                  d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
+                  fill="#292929"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+          <button
+            aria-hidden="true"
+            class="c7 fi-input-toggle-button c11"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="c4 c9 fi-visually-hidden"
+            />
+            <svg
+              aria-hidden="true"
+              class="fi-icon c10 fi-input-toggle-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 10 10"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="fi-icon-base-fill"
+                d="M5 8l4-6H1z"
+                fill="#292929"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+        <span
+          aria-atomic="true"
+          aria-live="assertive"
+          class="c4 c12 fi-status-text"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
-import { absoluteFocus } from '../../../theme/utils';
+import { SuomifiTheme } from '../../../theme';
 import {
   toggleBaseStyles,
   focusOverrides,
 } from '../ToggleBase/Toggle.baseStyles';
 
-export const baseStyles = css`
-  ${toggleBaseStyles}
+export const baseStyles = (theme: SuomifiTheme) => css`
+  ${toggleBaseStyles(theme)}
   &.fi-toggle--disabled > button {
     cursor: not-allowed;
   }
@@ -15,7 +15,7 @@ export const baseStyles = css`
       outline: 0;
       & .fi-toggle_icon-container {
         &:after {
-          ${absoluteFocus}
+          ${theme.focus.absoluteFocus}
           ${focusOverrides}
         }
       }
