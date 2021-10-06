@@ -3,6 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlDivProps, HtmlButton } from '../../reset';
 import { Icon } from '../../core/Icon/Icon';
+import { AutoId } from '../utils/AutoId/AutoId';
 import { getConditionalAriaProp } from '../../utils/aria';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { baseStyles } from './Alert.baseStyles';
@@ -39,7 +40,10 @@ export interface AlertProps extends HtmlDivProps {
   closeText?: string;
   /** Use small screen styling */
   smallScreen?: boolean;
+  onCloseClick?: () => void;
 }
+
+// TODO: add Ref to component for closing / moving focus
 
 class BaseAlert extends Component<AlertProps> {
   render() {
@@ -51,41 +55,48 @@ class BaseAlert extends Component<AlertProps> {
       children,
       inline,
       closeText,
+      onCloseClick,
       smallScreen,
       ...passProps
     } = this.props;
 
     const variantIcon = status === 'neutral' ? 'info' : status;
     return (
-      <HtmlDiv
-        {...passProps}
-        className={classnames(baseClassName, className, {
-          [`${baseClassName}--${status}`]: !!status,
-          [alertClassNames.inline]: !!inline,
-          [alertClassNames.smallScreen]: !!smallScreen,
-        })}
-      >
-        <HtmlDiv className={alertClassNames.iconWrapper}>
-          <Icon icon={variantIcon} className={alertClassNames.icon} />
-        </HtmlDiv>
-        <HtmlDiv className={alertClassNames.textContentWrapper}>
-          {labelText && inline && (
-            <HtmlDiv className={alertClassNames.label}>{labelText}</HtmlDiv>
-          )}
-          <HtmlDiv className={alertClassNames.content}>{children}</HtmlDiv>
-        </HtmlDiv>
-        <HtmlDiv className={alertClassNames.closeButtonWrapper}>
-          {!inline && (
-            <HtmlButton
-              className={alertClassNames.closeButton}
-              {...getConditionalAriaProp('aria-label', [closeText])}
-            >
-              {!smallScreen ? closeText?.toUpperCase() : ''}
-              <Icon icon="close" />
-            </HtmlButton>
-          )}
-        </HtmlDiv>
-      </HtmlDiv>
+      <AutoId>
+        {(id) => (
+          <HtmlDiv
+            {...passProps}
+            className={classnames(baseClassName, className, {
+              [`${baseClassName}--${status}`]: !!status,
+              [alertClassNames.inline]: !!inline,
+              [alertClassNames.smallScreen]: !!smallScreen,
+            })}
+          >
+            <HtmlDiv className={alertClassNames.iconWrapper}>
+              <Icon icon={variantIcon} className={alertClassNames.icon} />
+            </HtmlDiv>
+            <HtmlDiv className={alertClassNames.textContentWrapper} id={id}>
+              {labelText && inline && (
+                <HtmlDiv className={alertClassNames.label}>{labelText}</HtmlDiv>
+              )}
+              <HtmlDiv className={alertClassNames.content}>{children}</HtmlDiv>
+            </HtmlDiv>
+            <HtmlDiv className={alertClassNames.closeButtonWrapper}>
+              {!inline && (
+                <HtmlButton
+                  className={alertClassNames.closeButton}
+                  aria-describedby={id}
+                  onClick={onCloseClick}
+                  {...getConditionalAriaProp('aria-label', [closeText])}
+                >
+                  {!smallScreen ? closeText?.toUpperCase() : ''}
+                  <Icon icon="close" />
+                </HtmlButton>
+              )}
+            </HtmlDiv>
+          </HtmlDiv>
+        )}
+      </AutoId>
     );
   }
 }
