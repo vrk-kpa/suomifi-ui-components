@@ -32,7 +32,7 @@ See [DEVELOPMENT.md](/DEVELOPMENT.md).
 
 On release `develop` is merged to `master` and tagged with version. Release notes can be added to version via GitHub. We are mostly following [git flow](https://nvie.com/posts/a-successful-git-branching-model/).
 
-If API changes are approved to `develop`, rebase `master` to `develop`. Use semantic versioning to communicate the changes.
+Use semantic versioning to communicate the changes.
 
 Minor versions and patches are only applied to the latest major version.
 

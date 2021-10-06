@@ -1,4 +1,6 @@
-Suomifi-styleguide typography
+Suomifi-styleguide typography.
+
+Click the examples to copy related JSX tags to clipboard.
 
 ```js noeditor
 import { default as styled } from 'styled-components';
@@ -75,14 +77,14 @@ const HeadingSet = ({ name, size, mb, code, ...passProps }) => (
     variant="body"
     name="Body text"
     size={typographyTokens.bodyTextSmall.fontSize}
-    code="<Text smallScreen></Text>"
+    code="<Text smallScreen='true'></Text>"
   />
 
   <TextSet
     variant="lead"
     name="Lead text"
     size={typographyTokens.leadText.fontSize}
-    code="<Text.lead></Text.lead>"
+    code="<Text variant='lead'></Text>"
   />
   <TextSet
     mb
@@ -90,14 +92,14 @@ const HeadingSet = ({ name, size, mb, code, ...passProps }) => (
     variant="lead"
     name="Lead text"
     size={typographyTokens.leadTextSmallScreen.fontSize}
-    code="<Text.lead smallScreen></Text.lead>"
+    code="<Text variant='lead' smallScreen='true'></Text>"
   />
 
   <HeadingSet
     variant="h1hero"
     name="Heading 1 hero"
     size={typographyTokens.heading1.fontSize}
-    code="<Heading.h1hero></Heading.h1hero>"
+    code="<Heading variant='h1hero'></Heading>"
   />
   <HeadingSet
     mb
@@ -105,7 +107,7 @@ const HeadingSet = ({ name, size, mb, code, ...passProps }) => (
     variant="h1hero"
     name="Heading 1 hero"
     size={typographyTokens.heading1SmallScreen.fontSize}
-    code="<Heading.h1hero smallScreen></Heading.h1hero>"
+    code="<Heading variant='h1hero' smallScreen='true'></Heading>"
   />
 
   {[1, 2, 3, 4, 5].map((n) => (
@@ -114,7 +116,7 @@ const HeadingSet = ({ name, size, mb, code, ...passProps }) => (
         variant={`h${n}`}
         name={`Heading ${n}`}
         size={typographyTokens[`heading${n}`].fontSize}
-        code={`<Heading.h${n}></Heading.h${n}>`}
+        code={`<Heading variant='h${n}'></Heading>`}
       />
       <HeadingSet
         mb
@@ -122,7 +124,7 @@ const HeadingSet = ({ name, size, mb, code, ...passProps }) => (
         variant={`h${n}`}
         name={`Heading ${n}`}
         size={typographyTokens[`heading${n}SmallScreen`].fontSize}
-        code={`<Heading.h${n} smallScreen></Heading.h${n}>`}
+        code={`<Heading variant='h${n}' smallScreen='true'></Heading>`}
       />
     </React.Fragment>
   ))}

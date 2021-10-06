@@ -13,18 +13,18 @@ import { Button } from 'suomifi-ui-components';
 ReactDOM.render(<Button />, mountNode);
 ```
 
-### 🌊 `Component.variant`
+### 🌊 `Component variants`
 
-Components have variant-property for different versions of the current component. Easiest way to use variant-prop is with (static method) `Component.variant`.
+Components have variant-property for different versions of the current component.
 
 ```jsx static
 import { Button } from 'suomifi-ui-components';
-<Button.secondary>This is seconday button</Button.secondary>;
+<Button variant="secondary">This is seconday button</Button>;
 ```
 
 ### ⛱ Extending styles
 
-Components' styles can be customized with [Styled Components](https://github.com/styled-components/styled-components) / [Emotion](https://github.com/emotion-js/emotion):
+Components' styles can be customized with [Styled Components](https://github.com/styled-components/styled-components):
 
 ```javascript static
 styled(Button)...
