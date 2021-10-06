@@ -1,4 +1,6 @@
-Suomifi-styleguide typography
+Suomifi-styleguide typography.
+
+Click the examples to copy the typography token name to clipboard.
 
 ```js noeditor
 import { default as styled } from 'styled-components';
