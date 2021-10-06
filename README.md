@@ -69,7 +69,7 @@ ReactDOM.render(<Button />, mountNode);
 
 ### 🌊 Component variants
 
-Components have variant-property for different versions of the current component. Some components might also have static variants e.g. `Component.variant`, but using these is discouraged as they are being removed in future releases.
+Components have variant-property for different versions of the current component.
 
 ```jsx
 import { Button } from 'suomifi-ui-components';

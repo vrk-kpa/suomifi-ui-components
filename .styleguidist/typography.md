@@ -1,6 +1,6 @@
 Suomifi-styleguide typography.
 
-Click the examples to copy the typography token name to clipboard.
+Click the examples to copy related JSX tags to clipboard.
 
 ```js noeditor
 import { default as styled } from 'styled-components';
