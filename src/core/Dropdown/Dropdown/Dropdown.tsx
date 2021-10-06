@@ -4,6 +4,8 @@ import React, {
   ReactElement,
   forwardRef,
   KeyboardEvent,
+  useLayoutEffect,
+  useRef,
 } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
@@ -104,16 +106,42 @@ const ListBoxContextWrapper = (props: {
     | ReactElement<DropdownItemProps>;
 }) => {
   const { highlightedOptionRef } = useListboxContext();
-  return (
-    <ListboxList
-      onKeyDown={() => {
-        if (
-          !!highlightedOptionRef.current &&
-          !!props.scrollContainerRef.current
-        ) {
+  const scrollToHighlightedOptionRef = useRef(false);
+  useLayoutEffect(() => {
+    if (scrollToHighlightedOptionRef.current) {
+      scrollItemList();
+      scrollToHighlightedOptionRef.current = false;
+    }
+  });
+
+  const scrollItemList = () => {
+    if (!!highlightedOptionRef.current && !!props.scrollContainerRef.current) {
+      const elementOffsetTop = highlightedOptionRef.current.offsetTop || 0;
+      const elementOffsetHeight =
+        highlightedOptionRef.current.offsetHeight || 0;
+
+      if (elementOffsetTop < props.scrollContainerRef.current.scrollTop) {
+        // eslint-disable-next-line no-param-reassign
+        props.scrollContainerRef.current.scrollTop = elementOffsetTop;
+      } else {
+        const offsetBottom = elementOffsetTop + elementOffsetHeight;
+        const scrollBottom =
+          props.scrollContainerRef.current.scrollTop +
+          props.scrollContainerRef.current.offsetHeight;
+        if (offsetBottom > scrollBottom) {
           // eslint-disable-next-line no-param-reassign
           props.scrollContainerRef.current.scrollTop =
-            highlightedOptionRef.current.offsetTop;
+            offsetBottom - props.scrollContainerRef.current.offsetHeight;
+        }
+      }
+    }
+  };
+
+  return (
+    <ListboxList
+      onKeyDown={(event) => {
+        if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+          scrollToHighlightedOptionRef.current = true;
         }
       }}
     >
