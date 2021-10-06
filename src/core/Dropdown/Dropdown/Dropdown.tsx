@@ -4,7 +4,6 @@ import React, {
   ReactElement,
   forwardRef,
   KeyboardEvent,
-  useLayoutEffect,
   useRef,
 } from 'react';
 import { default as styled } from 'styled-components';
@@ -20,6 +19,7 @@ import {
 } from '@reach/listbox';
 import { positionMatchWidth } from '@reach/popover';
 import { getConditionalAriaProp } from '../../../utils/aria';
+import { useEnhancedEffect } from '../../../utils/common';
 import { logger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { HtmlSpan, HtmlDiv } from '../../../reset';
@@ -107,7 +107,7 @@ const ListBoxContextWrapper = (props: {
 }) => {
   const { highlightedOptionRef } = useListboxContext();
   const scrollToHighlightedOptionRef = useRef(false);
-  useLayoutEffect(() => {
+  useEnhancedEffect(() => {
     if (scrollToHighlightedOptionRef.current) {
       scrollItemList();
       scrollToHighlightedOptionRef.current = false;
