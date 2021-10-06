@@ -73,18 +73,16 @@ Components have variant-property for different versions of the current component
 
 ```jsx
 import { Button } from 'suomifi-ui-components';
-<Button variant=”secondary”>This is a seconday button</Button>;
+<Button variant="secondary">This is a seconday button</Button>;
 ```
 
 ### ⛱ Extending styles
 
-Components' styles can be customized with [Styled Components](https://github.com/styled-components/styled-components) / [Emotion](https://github.com/emotion-js/emotion):
+Components' styles can be customized with [Styled Components](https://github.com/styled-components/styled-components):
 
 ```javascript
 styled(Button)...
 ```
-
-_HOX!!! If you use Styled Components you cannot use Component.variant (static methods) and you need to use variant-property to get variants from the styled(Component)._ Partly for this reason we are getting rid of the static variants in the future releases.
 
 **or** using CSS-ClassName:
 
