@@ -57,13 +57,14 @@ import { suomifiDesignTokens } from 'suomifi-design-tokens';
 const StyledIcon = styled((props) => <Icon {...props} />)({
   height: '50px',
   width: 'auto',
-  margin: '8px 8px 0 0',
+  margin: '8px 0 0 0',
   color: `${suomifiDesignTokens.colors.depthDark1}`
 });
 const IconWpr = styled.figure`
   display: inline-block;
   width: 200px;
   margin: 0;
+  text-align: center;
   figcaption {
     margin-top: 0;
     margin-bottom: 10px;

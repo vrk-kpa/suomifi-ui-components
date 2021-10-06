@@ -32,13 +32,14 @@ const StyledStaticIcon = styled((props) => <StaticIcon {...props} />)(
   {
     height: '50px',
     width: 'auto',
-    margin: '8px 8px 0 0'
+    margin: '8px 0 0 0'
   }
 );
 const IconWpr = styled.figure`
   display: inline-block;
   width: 200px;
   margin: 0;
+  text-align: center;
   figcaption {
     margin-top: 0;
     margin-bottom: 10px;
