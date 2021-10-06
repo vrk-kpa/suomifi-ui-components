@@ -1,4 +1,6 @@
-Suomifi-styleguide colors
+Suomifi-styleguide colors.
+
+Click the figures to copy the color token name to clipboard.
 
 ## Base
 
