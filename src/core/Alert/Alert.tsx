@@ -40,10 +40,10 @@ export interface AlertProps extends HtmlDivProps {
   closeText?: string;
   /** Use small screen styling */
   smallScreen?: boolean;
-  onCloseClick?: () => void;
+  onCloseButtonClick?: () => void;
 }
 
-// TODO: add Ref to component for closing / moving focus
+// TODO: add Ref to component for closing / moving focus - check Chip for reference
 
 class BaseAlert extends Component<AlertProps> {
   render() {
@@ -55,7 +55,7 @@ class BaseAlert extends Component<AlertProps> {
       children,
       inline,
       closeText,
-      onCloseClick,
+      onCloseButtonClick,
       smallScreen,
       ...passProps
     } = this.props;
@@ -75,7 +75,11 @@ class BaseAlert extends Component<AlertProps> {
             <HtmlDiv className={alertClassNames.iconWrapper}>
               <Icon icon={variantIcon} className={alertClassNames.icon} />
             </HtmlDiv>
-            <HtmlDiv className={alertClassNames.textContentWrapper} id={id}>
+            <HtmlDiv
+              className={alertClassNames.textContentWrapper}
+              id={id}
+              role="alert"
+            >
               {labelText && inline && (
                 <HtmlDiv className={alertClassNames.label}>{labelText}</HtmlDiv>
               )}
@@ -86,7 +90,7 @@ class BaseAlert extends Component<AlertProps> {
                 <HtmlButton
                   className={alertClassNames.closeButton}
                   aria-describedby={id}
-                  onClick={onCloseClick}
+                  onClick={onCloseButtonClick}
                   {...getConditionalAriaProp('aria-label', [closeText])}
                 >
                   {!smallScreen ? closeText?.toUpperCase() : ''}
