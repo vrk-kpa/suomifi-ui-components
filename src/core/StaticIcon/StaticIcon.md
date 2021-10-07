@@ -4,12 +4,11 @@ import {
   suomifiDesignTokens
 } from 'suomifi-ui-components';
 import { default as styled } from 'styled-components';
-
 const StyledStaticIcon = styled((props) => <StaticIcon {...props} />)(
   {
     height: '50px',
     width: 'auto',
-    margin: '8px'
+    margin: `${suomifiDesignTokens.spacing.insetXs}`
   }
 );
 
@@ -27,12 +26,13 @@ import { StaticIcon } from 'suomifi-ui-components';
 import { default as styled } from 'styled-components';
 import { illustrativeIcons, doctypeIcons } from 'suomifi-icons';
 import clipboardCopy from 'clipboard-copy';
+import { suomifiDesignTokens } from 'suomifi-design-tokens';
 
 const StyledStaticIcon = styled((props) => <StaticIcon {...props} />)(
   {
     height: '50px',
     width: 'auto',
-    margin: '8px 0 0 0'
+    margin: `${suomifiDesignTokens.spacing.xs} 0 0 0`
   }
 );
 const IconWpr = styled.figure`
@@ -42,7 +42,7 @@ const IconWpr = styled.figure`
   text-align: center;
   figcaption {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: ${suomifiDesignTokens.spacing.xs};
   }
 `;
 
