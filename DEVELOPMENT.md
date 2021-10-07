@@ -30,20 +30,18 @@ After cloning suomifi-ui-components, run `yarn` to fetch its dependencies. Then,
 
 ## Source
 
-Source contains 3 stages of components:
+Source contains 2 stages of components:
 
-1. `reset` is for resetting html tags (don't do too opinionated stuff here).
-2. `components` are bare bones accessibility implementations without Suomi.fi styles. This abstraction is being removed and will not be used in the future.
-3. `core` contains Suomi.fi-styleguide as theme, components and CSS exports.
+1. `reset` is for resetting html tag styles to avoid external styles affecting the components (don't do too opinionated stuff here).
+2. `core` contains the actual components, theme and CSS exports.
 
 - _Export `src/core`-components at `src/core/index` and `src/index`._
-- Export `src/components`-components at `src/components/index`.
 
-**Don't do relative imports from `src/index`, use those 3-levels export locations.**
+**Don't do relative imports from `src/index`, use those 2-levels export locations.**
 
 **Do not create duplication of source or styles for component.**
 
-Export interfaces for exported functions/components. Typescript will generate declaration files from exported interfaces (.d.ts). Write comments/documentatiion to all properties that need to be shown at styleguide.
+Export interfaces for exported functions/components. Typescript will generate declaration files from exported interfaces (.d.ts). Write comments/documentation to all properties that need to be shown at styleguide.
 
 ### Props that are passed on to another component
 
@@ -101,12 +99,11 @@ and/or atom-classes:
 .fi-block.fi-rounded .fi-block_element.fi-highlight;
 ```
 
-- All colors, typography and spacing must come from tokens (suomifi-design-tokens) and all tokens not defined in suomifi-design-tokens must be defined at internal tokens
+- All colors, typography and spacing must come from tokens (suomifi-design-tokens) and all reusable tokens not defined in suomifi-design-tokens must be defined internally
 - Don't use relative units without an important reason
 - Comment CSS when doing project specific solutions
-- All opinionated resets to **theme**
 
-Components' styles can be customized with [Styled Components](https://github.com/styled-components/styled-components) / [Emotion](https://github.com/emotion-js/emotion):
+Components' styles can be customized with [Styled Components](https://github.com/styled-components/styled-components):
 
 ```javascript
 styled(Button)...
