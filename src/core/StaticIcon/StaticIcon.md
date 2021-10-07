@@ -8,7 +8,7 @@ const StyledStaticIcon = styled((props) => <StaticIcon {...props} />)(
   {
     height: '50px',
     width: 'auto',
-    margin: `${suomifiDesignTokens.spacing.insetXs}`
+    margin: `${suomifiDesignTokens.spacing.xs} 0 0 0`
   }
 );
 
