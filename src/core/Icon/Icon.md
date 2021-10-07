@@ -60,7 +60,7 @@ const StyledIcon = styled((props) => <Icon {...props} />)({
   margin: `${suomifiDesignTokens.spacing.xs} 0 0 0`,
   color: `${suomifiDesignTokens.colors.depthDark1}`
 });
-const IconWpr = styled.figure`
+const IconWrapper = styled.figure`
   display: inline-block;
   width: 200px;
   margin: 0;
@@ -73,7 +73,7 @@ const IconWpr = styled.figure`
 
 <div>
   {baseIcons.map((icon) => (
-    <IconWpr>
+    <IconWrapper>
       <StyledIcon
         mousePointer
         icon={icon}
@@ -81,7 +81,7 @@ const IconWpr = styled.figure`
         onClick={() => clipboardCopy(icon)}
       />
       <figcaption>{icon}</figcaption>
-    </IconWpr>
+    </IconWrapper>
   ))}
 </div>;
 ```

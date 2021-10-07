@@ -35,7 +35,7 @@ const StyledStaticIcon = styled((props) => <StaticIcon {...props} />)(
     margin: `${suomifiDesignTokens.spacing.xs} 0 0 0`
   }
 );
-const IconWpr = styled.figure`
+const IconWrapper = styled.figure`
   display: inline-block;
   width: 200px;
   margin: 0;
@@ -49,7 +49,7 @@ const IconWpr = styled.figure`
 <div>
   <div>
     {illustrativeIcons.map((icon) => (
-      <IconWpr>
+      <IconWrapper>
         <StyledStaticIcon
           mousePointer
           icon={icon}
@@ -57,12 +57,12 @@ const IconWpr = styled.figure`
           onClick={() => clipboardCopy(icon)}
         />
         <figcaption>{icon}</figcaption>
-      </IconWpr>
+      </IconWrapper>
     ))}
   </div>
   <div>
     {doctypeIcons.map((icon) => (
-      <IconWpr>
+      <IconWrapper>
         <StyledStaticIcon
           mousePointer
           icon={icon}
@@ -70,7 +70,7 @@ const IconWpr = styled.figure`
           onClick={() => clipboardCopy(icon)}
         />
         <figcaption>{icon}</figcaption>
-      </IconWpr>
+      </IconWrapper>
     ))}
   </div>
 </div>;
