@@ -1,7 +1,13 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlDivProps, HtmlButton } from '../../reset';
+import {
+  HtmlDiv,
+  HtmlDivWithRef,
+  HtmlDivWithRefProps,
+  HtmlButton,
+  HtmlButtonProps,
+} from '../../reset';
 import { Icon } from '../../core/Icon/Icon';
 import { AutoId } from '../utils/AutoId/AutoId';
 import { getConditionalAriaProp } from '../../utils/aria';
@@ -17,19 +23,20 @@ const alertClassNames = {
   iconWrapper: `${baseClassName}-icon-wrapper`,
   closeButton: `${baseClassName}-close-button`,
   closeButtonWrapper: `${baseClassName}-close-button-wrapper`,
-  contentWrapper: `${baseClassName}-content-wrapper`,
   textContentWrapper: `${baseClassName}-text-content-wrapper`,
   smallScreen: `${baseClassName}--small-screen`,
   inline: `${baseClassName}--inline`,
 };
 
-export interface AlertProps extends HtmlDivProps {
+export interface AlertProps extends HtmlDivWithRefProps {
   /** Style variant. Affects color and icon used.
    * @default 'neutral'
    */
   status?: 'neutral' | 'warning' | 'error';
-  /** Set `role="alert"` for the element. */
-  alert?: boolean;
+  /** Set aria-live mode for the alert text content and label.
+   * @default 'assertive'
+   */
+  ariaLiveMode?: 'polite' | 'assertive' | 'off';
   /** Label for the  alert */
   labelText?: string;
   /** Use inline version of alert */
@@ -40,7 +47,10 @@ export interface AlertProps extends HtmlDivProps {
   closeText?: string;
   /** Use small screen styling */
   smallScreen?: boolean;
+  /** Click handler for the close button */
   onCloseButtonClick?: () => void;
+  /** Custom props passed to the close button */
+  closeButtonProps?: Omit<HtmlButtonProps, 'onClick'>;
 }
 
 // TODO: add Ref to component for closing / moving focus - check Chip for reference
@@ -50,21 +60,29 @@ class BaseAlert extends Component<AlertProps> {
     const {
       className,
       status = 'neutral',
-      alert,
+      ariaLiveMode = 'assertive',
       labelText,
       children,
       inline,
       closeText,
       onCloseButtonClick,
       smallScreen,
+      closeButtonProps = {},
       ...passProps
     } = this.props;
+
+    const {
+      className: customCloseButtonClassName,
+      'aria-describedby': closeButtonPropsAriaDescribedBy,
+      ...trimmedCloseButtonProps
+    } = closeButtonProps;
 
     const variantIcon = status === 'neutral' ? 'info' : status;
     return (
       <AutoId>
         {(id) => (
-          <HtmlDiv
+          <HtmlDivWithRef
+            as="section"
             {...passProps}
             className={classnames(baseClassName, className, {
               [`${baseClassName}--${status}`]: !!status,
@@ -75,10 +93,11 @@ class BaseAlert extends Component<AlertProps> {
             <HtmlDiv className={alertClassNames.iconWrapper}>
               <Icon icon={variantIcon} className={alertClassNames.icon} />
             </HtmlDiv>
+
             <HtmlDiv
               className={alertClassNames.textContentWrapper}
               id={id}
-              role="alert"
+              aria-live={ariaLiveMode}
             >
               {labelText && inline && (
                 <HtmlDiv className={alertClassNames.label}>{labelText}</HtmlDiv>
@@ -88,17 +107,24 @@ class BaseAlert extends Component<AlertProps> {
             <HtmlDiv className={alertClassNames.closeButtonWrapper}>
               {!inline && (
                 <HtmlButton
-                  className={alertClassNames.closeButton}
-                  aria-describedby={id}
+                  className={classnames(
+                    alertClassNames.closeButton,
+                    customCloseButtonClassName,
+                  )}
+                  {...getConditionalAriaProp('aria-describedby', [
+                    id,
+                    closeButtonPropsAriaDescribedBy,
+                  ])}
                   onClick={onCloseButtonClick}
                   {...getConditionalAriaProp('aria-label', [closeText])}
+                  {...trimmedCloseButtonProps}
                 >
                   {!smallScreen ? closeText?.toUpperCase() : ''}
                   <Icon icon="close" />
                 </HtmlButton>
               )}
             </HtmlDiv>
-          </HtmlDiv>
+          </HtmlDivWithRef>
         )}
       </AutoId>
     );
