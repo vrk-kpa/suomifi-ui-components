@@ -227,6 +227,10 @@ class BaseSingleSelect<T> extends Component<
         selectedItem: item || null,
         filterInputValue: item?.labelText || '',
       });
+    } else {
+      this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
+        filterInputValue: prevState.selectedItem?.labelText || '',
+      }));
     }
     if (!!onItemSelect) {
       onItemSelect(item?.uniqueItemId || null);
