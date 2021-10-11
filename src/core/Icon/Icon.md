@@ -57,18 +57,31 @@ import { suomifiDesignTokens } from 'suomifi-design-tokens';
 const StyledIcon = styled((props) => <Icon {...props} />)({
   height: '50px',
   width: 'auto',
-  margin: '8px',
+  margin: `${suomifiDesignTokens.spacing.xs} 0 0 0`,
   color: `${suomifiDesignTokens.colors.depthDark1}`
 });
+const IconWrapper = styled.figure`
+  display: inline-block;
+  width: 200px;
+  margin: 0;
+  text-align: center;
+  figcaption {
+    margin-top: 0;
+    margin-bottom: ${suomifiDesignTokens.spacing.xs};
+  }
+`;
 
 <div>
   {baseIcons.map((icon) => (
-    <StyledIcon
-      mousePointer
-      icon={icon}
-      key={icon}
-      onClick={() => clipboardCopy(icon)}
-    />
+    <IconWrapper>
+      <StyledIcon
+        mousePointer
+        icon={icon}
+        key={icon}
+        onClick={() => clipboardCopy(icon)}
+      />
+      <figcaption>{icon}</figcaption>
+    </IconWrapper>
   ))}
 </div>;
 ```
