@@ -22,7 +22,7 @@ describe('children', () => {
 });
 
 describe('classnames', () => {
-  const customClassAlert = <Alert className="custom-class">Testcontent</Alert>;
+  const customClassAlert = <Alert className="custom-class">Test content</Alert>;
 
   it('contains base classname', () => {
     const { container } = render(customClassAlert);
@@ -40,20 +40,52 @@ describe('classnames', () => {
   });
 });
 
-describe('variants', () => {
-  const InlineAlert = (
+describe('props', () => {
+  const AlertWithButtonProps = (
     <Alert
-      className="custom-class"
-      closeText="Sulje"
-      inline
-      labelText="Alert label"
+      closeText="Close"
+      closeButtonProps={{ 'aria-labelledby': 'test-element', disabled: true }}
     >
       Testcontent
     </Alert>
   );
-  it('inline variant should contain given label text', () => {
-    const { container } = render(InlineAlert);
-    expect(container.firstChild).toHaveClass('fi-alert');
+
+  it('Button should have given props', () => {
+    const { getByRole } = render(AlertWithButtonProps);
+    expect(getByRole('button')).toHaveAttribute(
+      'aria-labelledby',
+      'test-element',
+    );
+    expect(getByRole('button')).toHaveAttribute('disabled');
+  });
+
+  const InlineAlert = (
+    <Alert
+      className="custom-class"
+      closeText="Close"
+      labelText="Alert label"
+      inline
+    >
+      Testcontent
+    </Alert>
+  );
+
+  it('Inline variant should contain given labelText', () => {
+    const { getByText } = render(InlineAlert);
+    const label = getByText('Alert label');
+    expect(label).toHaveClass('fi-alert-label');
+  });
+
+  const ErrorAlert = (
+    <Alert status="error" closeText="Close" smallScreen>
+      Testcontent
+    </Alert>
+  );
+
+  it('should have status and smallScreen prop specific classNames', () => {
+    const { container } = render(ErrorAlert);
+    expect(container.firstChild).toHaveClass('fi-alert--error');
+    expect(container.firstChild).toHaveClass('fi-alert--small-screen');
   });
 });
 
