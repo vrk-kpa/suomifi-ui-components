@@ -10,7 +10,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-alert {
     display: flex;
     align-items: flex-start;
-    width: 100%;
+    width: 900px;
 
     & .fi-alert-icon-wrapper {
       display: flex;
@@ -22,7 +22,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       & .fi-alert-icon {
         height: 24px;
         width: 24px;
-        transform: translateY(-1px); /** Let's try to get rid of this */
       }
     }
 
@@ -101,7 +100,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     &--warning {
-      background-color: #fff6e0; /** needs to be warningLight1 but the token is missing from the library  */
+      background-color: #fff6e0; /** needs to be warningLight1 but the token is yet to be added */
       & .fi-alert-icon-wrapper .fi-icon .fi-icon-base-fill {
         fill: ${theme.colors.warningBase};
       }
