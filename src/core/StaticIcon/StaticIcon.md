@@ -49,11 +49,10 @@ const IconWrapper = styled.figure`
 <div>
   <div>
     {illustrativeIcons.map((icon) => (
-      <IconWrapper>
+      <IconWrapper key={icon}>
         <StyledStaticIcon
           mousePointer
           icon={icon}
-          key={icon}
           onClick={() => clipboardCopy(icon)}
         />
         <figcaption>{icon}</figcaption>
@@ -62,11 +61,10 @@ const IconWrapper = styled.figure`
   </div>
   <div>
     {doctypeIcons.map((icon) => (
-      <IconWrapper>
+      <IconWrapper key={icon}>
         <StyledStaticIcon
           mousePointer
           icon={icon}
-          key={icon}
           onClick={() => clipboardCopy(icon)}
         />
         <figcaption>{icon}</figcaption>

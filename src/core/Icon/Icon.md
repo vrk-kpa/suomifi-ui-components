@@ -73,11 +73,10 @@ const IconWrapper = styled.figure`
 
 <div>
   {baseIcons.map((icon) => (
-    <IconWrapper>
+    <IconWrapper key={icon}>
       <StyledIcon
         mousePointer
         icon={icon}
-        key={icon}
         onClick={() => clipboardCopy(icon)}
       />
       <figcaption>{icon}</figcaption>
