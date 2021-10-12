@@ -159,7 +159,7 @@ exports[`children should match snapshot 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  width: 900px;
+  width: 100%;
 }
 
 .c1.fi-alert .fi-alert-icon-wrapper {
@@ -589,7 +589,7 @@ exports[`classnames should match snapshot 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  width: 900px;
+  width: 100%;
 }
 
 .c1.fi-alert .fi-alert-icon-wrapper {
