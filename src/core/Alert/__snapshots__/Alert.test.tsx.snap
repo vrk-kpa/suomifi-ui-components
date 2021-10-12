@@ -159,7 +159,7 @@ exports[`children should match snapshot 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  width: 100%;
+  width: 900px;
 }
 
 .c1.fi-alert .fi-alert-icon-wrapper {
@@ -181,9 +181,6 @@ exports[`children should match snapshot 1`] = `
 .c1.fi-alert .fi-alert-icon-wrapper .fi-alert-icon {
   height: 24px;
   width: 24px;
-  -webkit-transform: translateY(-1px);
-  -ms-transform: translateY(-1px);
-  transform: translateY(-1px);
 }
 
 .c1.fi-alert .fi-alert-text-content-wrapper {
@@ -592,7 +589,7 @@ exports[`classnames should match snapshot 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  width: 100%;
+  width: 900px;
 }
 
 .c1.fi-alert .fi-alert-icon-wrapper {
@@ -614,9 +611,6 @@ exports[`classnames should match snapshot 1`] = `
 .c1.fi-alert .fi-alert-icon-wrapper .fi-alert-icon {
   height: 24px;
   width: 24px;
-  -webkit-transform: translateY(-1px);
-  -ms-transform: translateY(-1px);
-  transform: translateY(-1px);
 }
 
 .c1.fi-alert .fi-alert-text-content-wrapper {
