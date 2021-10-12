@@ -10,7 +10,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-alert {
     display: flex;
     align-items: flex-start;
-    width: 900px;
+    width: 100%;
 
     & .fi-alert-icon-wrapper {
       display: flex;
