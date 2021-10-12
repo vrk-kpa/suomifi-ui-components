@@ -37,7 +37,7 @@ const StyledStaticIcon = styled((props) => <StaticIcon {...props} />)(
 );
 const IconWrapper = styled.figure`
   display: inline-block;
-  width: 200px;
+  width: 160px;
   margin: 0;
   text-align: center;
   figcaption {
