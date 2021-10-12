@@ -57,15 +57,11 @@ describe('props', () => {
       'test-element',
     );
     expect(getByRole('button')).toHaveAttribute('disabled');
+    expect(getByRole('button')).toHaveTextContent('CLOSE');
   });
 
   const InlineAlert = (
-    <Alert
-      className="custom-class"
-      closeText="Close"
-      labelText="Alert label"
-      inline
-    >
+    <Alert closeText="Close" labelText="Alert label" inline>
       Testcontent
     </Alert>
   );
@@ -86,6 +82,23 @@ describe('props', () => {
     const { container } = render(ErrorAlert);
     expect(container.firstChild).toHaveClass('fi-alert--error');
     expect(container.firstChild).toHaveClass('fi-alert--small-screen');
+  });
+
+  const AlertWithDefaultAriaLiveMode = (
+    <Alert closeText="Close" ariaLiveMode="off">
+      Testcontent
+    </Alert>
+  );
+
+  it('should have specified aria-live mode', () => {
+    const { container } = render(AlertWithDefaultAriaLiveMode);
+    expect(container.firstChild?.firstChild?.nextSibling).toHaveClass(
+      'fi-alert-text-content-wrapper',
+    );
+    expect(container.firstChild?.firstChild?.nextSibling).toHaveAttribute(
+      'aria-live',
+      'off',
+    );
   });
 });
 
