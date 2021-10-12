@@ -19,11 +19,11 @@ const baseClassName = 'fi-alert';
 const alertClassNames = {
   content: `${baseClassName}-content`,
   label: `${baseClassName}-label`,
+  textContentWrapper: `${baseClassName}-text-content-wrapper`,
   icon: `${baseClassName}-icon`,
   iconWrapper: `${baseClassName}-icon-wrapper`,
   closeButton: `${baseClassName}-close-button`,
   closeButtonWrapper: `${baseClassName}-close-button-wrapper`,
-  textContentWrapper: `${baseClassName}-text-content-wrapper`,
   smallScreen: `${baseClassName}--small-screen`,
   inline: `${baseClassName}--inline`,
 };
@@ -43,7 +43,7 @@ export interface AlertProps extends HtmlDivWithRefProps {
   inline?: boolean;
   /** Main content of the alert */
   children?: ReactNode;
-  /** Text to to label the close button. Visible in regular size and used as `aria-label` in small screen variant */
+  /** Text to to label the close button. Visible + `aria-label` in regular size and only used as `aria-label` in small screen variant */
   closeText?: string;
   /** Use small screen styling */
   smallScreen?: boolean;
