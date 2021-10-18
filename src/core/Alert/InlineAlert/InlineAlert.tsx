@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlDivWithRef } from '../../../reset';
@@ -17,7 +17,11 @@ export interface InlineAlertProps extends BaseAlertProps {
   labelText?: string;
 }
 
-class BaseInlineAlert extends Component<InlineAlertProps> {
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLDivElement>;
+}
+
+class BaseInlineAlert extends Component<InlineAlertProps & InnerRef> {
   render() {
     const {
       className,
@@ -65,7 +69,7 @@ class BaseInlineAlert extends Component<InlineAlertProps> {
 }
 
 const StyledInlineAlert = styled(
-  (props: InlineAlertProps & SuomifiThemeProp) => {
+  (props: InlineAlertProps & InnerRef & SuomifiThemeProp) => {
     const { theme, ...passProps } = props;
     return <BaseInlineAlert {...passProps} />;
   },
@@ -73,19 +77,24 @@ const StyledInlineAlert = styled(
   ${({ theme }) => baseStyles(theme)};
 `;
 
-export class InlineAlert extends Component<InlineAlertProps> {
-  render() {
-    const { id: propId, ...passProps } = this.props;
+export const InlineAlert = forwardRef(
+  (props: InlineAlertProps, ref: React.RefObject<HTMLDivElement>) => {
+    const { id: propId, ...passProps } = props;
     return (
       <SuomifiThemeConsumer>
         {({ suomifiTheme }) => (
           <AutoId id={propId}>
             {(id) => (
-              <StyledInlineAlert theme={suomifiTheme} id={id} {...passProps} />
+              <StyledInlineAlert
+                forwardedRef={ref}
+                theme={suomifiTheme}
+                id={id}
+                {...passProps}
+              />
             )}
           </AutoId>
         )}
       </SuomifiThemeConsumer>
     );
-  }
-}
+  },
+);
