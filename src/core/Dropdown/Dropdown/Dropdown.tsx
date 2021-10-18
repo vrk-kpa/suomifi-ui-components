@@ -105,7 +105,8 @@ const ListBoxContextWrapper = (props: {
     | Array<ReactElement<DropdownItemProps>>
     | ReactElement<DropdownItemProps>;
 }) => {
-  const { highlightedOptionRef } = useListboxContext();
+  const { highlightedOptionRef, selectedOptionRef, isExpanded } =
+    useListboxContext();
   const scrollToHighlightedOptionRef = useRef(false);
   useEnhancedEffect(() => {
     if (scrollToHighlightedOptionRef.current) {
@@ -114,12 +115,21 @@ const ListBoxContextWrapper = (props: {
     }
   });
 
-  const scrollItemList = () => {
-    if (!!highlightedOptionRef.current && !!props.scrollContainerRef.current) {
-      const elementOffsetTop = highlightedOptionRef.current.offsetTop || 0;
-      const elementOffsetHeight =
-        highlightedOptionRef.current.offsetHeight || 0;
+  useEnhancedEffect(() => {
+    if (isExpanded) {
+      scrollItemList(selectedOptionRef);
+    }
+  }, [isExpanded]);
 
+  const scrollItemList = (
+    scrollToRef?: React.RefObject<HTMLElement | null>,
+  ) => {
+    const scrollToItem = !!scrollToRef?.current
+      ? scrollToRef.current
+      : highlightedOptionRef.current;
+    if (!!scrollToItem && !!props.scrollContainerRef.current) {
+      const elementOffsetTop = scrollToItem.offsetTop || 0;
+      const elementOffsetHeight = scrollToItem.offsetHeight || 0;
       if (elementOffsetTop < props.scrollContainerRef.current.scrollTop) {
         // eslint-disable-next-line no-param-reassign
         props.scrollContainerRef.current.scrollTop = elementOffsetTop;

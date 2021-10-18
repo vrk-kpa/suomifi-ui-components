@@ -97,7 +97,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     border: 0;
     padding: 0;
     margin: 0;
-    max-height: inherit;
     white-space: normal;
     word-break: break-word;
     overflow-wrap: break-word;
