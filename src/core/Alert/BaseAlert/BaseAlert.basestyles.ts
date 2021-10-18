@@ -37,7 +37,6 @@ export const baseAlertBaseStyles = (theme: SuomifiTheme) => css`
       & .fi-alert_content {
         vertical-align: middle;
         ${font(theme)('bodyTextSmall')}
-        margin-top: ${theme.spacing.xxs}
       }
     }
 

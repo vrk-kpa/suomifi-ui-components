@@ -7,6 +7,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${baseAlertBaseStyles(theme)}
   & .fi-alert_label {
     ${font(theme)('bodySemiBold')}
+    margin-bottom: ${theme.spacing.xxs};
   }
 
   /** Inline variant styles  */
