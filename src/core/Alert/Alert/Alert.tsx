@@ -29,7 +29,11 @@ export interface AlertProps extends BaseAlertProps {
   smallScreen?: boolean;
 }
 
-class BaseAlert extends Component<AlertProps> {
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLDivElement>;
+}
+
+class BaseAlert extends Component<AlertProps & InnerRef> {
   render() {
     const {
       className,
@@ -97,10 +101,12 @@ class BaseAlert extends Component<AlertProps> {
   }
 }
 
-const StyledAlert = styled((props: AlertProps & SuomifiThemeProp) => {
-  const { theme, ...passProps } = props;
-  return <BaseAlert {...passProps} />;
-})`
+const StyledAlert = styled(
+  (props: AlertProps & InnerRef & SuomifiThemeProp) => {
+    const { theme, ...passProps } = props;
+    return <BaseAlert {...passProps} />;
+  },
+)`
   ${({ theme }) => baseStyles(theme)};
 `;
 
