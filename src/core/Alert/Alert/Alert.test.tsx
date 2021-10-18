@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Alert } from './Alert';
-import { axeTest } from '../../utils/test';
+import { axeTest } from '../../../utils/test';
 
 describe('children', () => {
   const alertWithElementChild = (
-    <Alert>
+    <Alert closeText="Close">
       <div data-testid="test-div">Test alert</div>
     </Alert>
   );
@@ -22,7 +22,11 @@ describe('children', () => {
 });
 
 describe('classnames', () => {
-  const customClassAlert = <Alert className="custom-class">Test content</Alert>;
+  const customClassAlert = (
+    <Alert closeText="Close" className="custom-class">
+      Test content
+    </Alert>
+  );
 
   it('contains base classname', () => {
     const { container } = render(customClassAlert);
@@ -61,7 +65,7 @@ describe('props', () => {
   });
 
   const InlineAlert = (
-    <Alert closeText="Close" labelText="Alert label" inline>
+    <Alert closeText="Close" labelText="Inline Alert label">
       Testcontent
     </Alert>
   );
