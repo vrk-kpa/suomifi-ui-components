@@ -95,7 +95,10 @@ module.exports = {
             },
             {
               name: 'Alert',
-              components: getComponents(['Alert']),
+              components: getComponentWithVariants('Alert')([
+                'Alert/Alert',
+                'InlineAlert/InlineAlert',
+              ]),
             },
             {
               name: 'RadioButton',
