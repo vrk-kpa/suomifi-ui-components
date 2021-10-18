@@ -4,6 +4,7 @@ import { HtmlDivWithRefProps } from '../../../reset';
 export const baseClassName = 'fi-alert';
 
 export const alertClassNames = {
+  styleWrapper: `${baseClassName}_style-wrapper`,
   content: `${baseClassName}_content`,
   label: `${baseClassName}_label`,
   textContentWrapper: `${baseClassName}_text-content-wrapper`,
