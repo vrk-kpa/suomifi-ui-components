@@ -3,12 +3,14 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlDivWithRef } from '../../../reset';
 import { Icon } from '../../../core/Icon/Icon';
-import { BaseAlertProps, alertClassNames } from '../BaseAlert/BaseAlert';
+import {
+  BaseAlertProps,
+  alertClassNames,
+  baseClassName,
+} from '../BaseAlert/BaseAlert';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './InlineAlert.baseStyles';
-
-const baseClassName = 'fi-alert';
 
 export interface InlineAlertProps extends BaseAlertProps {
   /** Label for the  alert */
@@ -41,19 +43,21 @@ class BaseInlineAlert extends Component<InlineAlertProps> {
           },
         )}
       >
-        <HtmlDiv className={alertClassNames.iconWrapper}>
-          <Icon icon={variantIcon} className={alertClassNames.icon} />
-        </HtmlDiv>
+        <HtmlDiv className={alertClassNames.styleWrapper}>
+          <HtmlDiv className={alertClassNames.iconWrapper}>
+            <Icon icon={variantIcon} className={alertClassNames.icon} />
+          </HtmlDiv>
 
-        <HtmlDiv
-          className={alertClassNames.textContentWrapper}
-          id={id}
-          aria-live={ariaLiveMode}
-        >
-          {labelText && (
-            <HtmlDiv className={alertClassNames.label}>{labelText}</HtmlDiv>
-          )}
-          <HtmlDiv className={alertClassNames.content}>{children}</HtmlDiv>
+          <HtmlDiv
+            className={alertClassNames.textContentWrapper}
+            id={id}
+            aria-live={ariaLiveMode}
+          >
+            {labelText && (
+              <HtmlDiv className={alertClassNames.label}>{labelText}</HtmlDiv>
+            )}
+            <HtmlDiv className={alertClassNames.content}>{children}</HtmlDiv>
+          </HtmlDiv>
         </HtmlDiv>
       </HtmlDivWithRef>
     );
@@ -70,7 +74,6 @@ const StyledInlineAlert = styled(
 `;
 
 export class InlineAlert extends Component<InlineAlertProps> {
-  // lisää ref logiikka
   render() {
     const { id: propId, ...passProps } = this.props;
     return (

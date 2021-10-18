@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import {
@@ -8,13 +8,15 @@ import {
   HtmlButtonProps,
 } from '../../../reset';
 import { Icon } from '../../../core/Icon/Icon';
-import { BaseAlertProps, alertClassNames } from '../BaseAlert/BaseAlert';
+import {
+  BaseAlertProps,
+  alertClassNames,
+  baseClassName,
+} from '../BaseAlert/BaseAlert';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './Alert.baseStyles';
-
-const baseClassName = 'fi-alert';
 
 export interface AlertProps extends BaseAlertProps {
   /** Text to to label the close button. Visible + `aria-label` in regular size and only used as `aria-label` in small screen variant */
@@ -59,34 +61,36 @@ class BaseAlert extends Component<AlertProps> {
           [alertClassNames.smallScreen]: !!smallScreen,
         })}
       >
-        <HtmlDiv className={alertClassNames.iconWrapper}>
-          <Icon icon={variantIcon} className={alertClassNames.icon} />
-        </HtmlDiv>
+        <HtmlDiv className={alertClassNames.styleWrapper}>
+          <HtmlDiv className={alertClassNames.iconWrapper}>
+            <Icon icon={variantIcon} className={alertClassNames.icon} />
+          </HtmlDiv>
 
-        <HtmlDiv
-          className={alertClassNames.textContentWrapper}
-          id={id}
-          aria-live={ariaLiveMode}
-        >
-          <HtmlDiv className={alertClassNames.content}>{children}</HtmlDiv>
-        </HtmlDiv>
-        <HtmlDiv className={alertClassNames.closeButtonWrapper}>
-          <HtmlButton
-            className={classnames(
-              alertClassNames.closeButton,
-              customCloseButtonClassName,
-            )}
-            {...getConditionalAriaProp('aria-describedby', [
-              id,
-              closeButtonPropsAriaDescribedBy,
-            ])}
-            onClick={onCloseButtonClick}
-            {...getConditionalAriaProp('aria-label', [closeText])}
-            {...closeButtonPassProps}
+          <HtmlDiv
+            className={alertClassNames.textContentWrapper}
+            id={id}
+            aria-live={ariaLiveMode}
           >
-            {!smallScreen ? closeText?.toUpperCase() : ''}
-            <Icon icon="close" />
-          </HtmlButton>
+            <HtmlDiv className={alertClassNames.content}>{children}</HtmlDiv>
+          </HtmlDiv>
+          <HtmlDiv className={alertClassNames.closeButtonWrapper}>
+            <HtmlButton
+              className={classnames(
+                alertClassNames.closeButton,
+                customCloseButtonClassName,
+              )}
+              {...getConditionalAriaProp('aria-describedby', [
+                id,
+                closeButtonPropsAriaDescribedBy,
+              ])}
+              onClick={onCloseButtonClick}
+              {...getConditionalAriaProp('aria-label', [closeText])}
+              {...closeButtonPassProps}
+            >
+              {!smallScreen ? closeText?.toUpperCase() : ''}
+              <Icon icon="close" />
+            </HtmlButton>
+          </HtmlDiv>
         </HtmlDiv>
       </HtmlDivWithRef>
     );
@@ -100,20 +104,25 @@ const StyledAlert = styled((props: AlertProps & SuomifiThemeProp) => {
   ${({ theme }) => baseStyles(theme)};
 `;
 
-export class Alert extends Component<AlertProps> {
-  // lisää ref logiikka
-  render() {
-    const { id: propId, ...passProps } = this.props;
+export const Alert = forwardRef(
+  (props: AlertProps, ref: React.RefObject<HTMLDivElement>) => {
+    // lisää ref logiikka
+    const { id: propId, ...passProps } = props;
     return (
       <SuomifiThemeConsumer>
         {({ suomifiTheme }) => (
           <AutoId id={propId}>
             {(id) => (
-              <StyledAlert theme={suomifiTheme} id={id} {...passProps} />
+              <StyledAlert
+                forwardedRef={ref}
+                theme={suomifiTheme}
+                id={id}
+                {...passProps}
+              />
             )}
           </AutoId>
         )}
       </SuomifiThemeConsumer>
     );
-  }
-}
+  },
+);
