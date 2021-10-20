@@ -47,10 +47,10 @@
     "pre-push": "yarn validate",
     "start": "yarn styleguide",
     "start:withaxe": "cross-env AXE=\"true\" yarn styleguidist server",
-    "test": "tsdx test --passWithNoTests",
-    "test:updatesnapshots": "tsdx test --u",
-    "lint": "run-p lint:tsdx-lint lint:stylelint",
-    "lint:tsdx-lint": "tsdx lint src",
+    "test": "jest test --passWithNoTests",
+    "test:updatesnapshots": "jest test --u",
+    "lint": "run-p lint:eslint lint:stylelint",
+    "lint:eslint": "eslint src",
     "lint:stylelint": "stylelint \"./src/**/*.{ts,tsx}\"",
     "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "prettier:check": "prettier-check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
@@ -175,7 +175,7 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier-check",
     "src/**/*.{js,jsx,ts,tsx}": [
-      "tsdx lint",
+      "eslint",
       "stylelint"
     ]
   },
