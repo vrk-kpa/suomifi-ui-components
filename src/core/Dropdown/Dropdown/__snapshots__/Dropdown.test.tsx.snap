@@ -188,7 +188,9 @@ exports[`Basic dropdown should match snapshot 1`] = `
   border-style: solid;
   border-width: 0 1px 1px 1px;
   border-radius: 0px 0px 2px 2px;
-  overflow: hidden;
+  max-height: 265px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .c1[data-reach-listbox-popover].fi-dropdown_popover:focus-within {
@@ -458,7 +460,9 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   border-style: solid;
   border-width: 0 1px 1px 1px;
   border-radius: 0px 0px 2px 2px;
-  overflow: hidden;
+  max-height: 265px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .c1[data-reach-listbox-popover].fi-dropdown_popover:focus-within {
@@ -729,7 +733,9 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   border-style: solid;
   border-width: 0 1px 1px 1px;
   border-radius: 0px 0px 2px 2px;
-  overflow: hidden;
+  max-height: 265px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .c1[data-reach-listbox-popover].fi-dropdown_popover:focus-within {
@@ -999,7 +1005,9 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   border-style: solid;
   border-width: 0 1px 1px 1px;
   border-radius: 0px 0px 2px 2px;
-  overflow: hidden;
+  max-height: 265px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .c1[data-reach-listbox-popover].fi-dropdown_popover:focus-within {
@@ -1281,7 +1289,9 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   border-style: solid;
   border-width: 0 1px 1px 1px;
   border-radius: 0px 0px 2px 2px;
-  overflow: hidden;
+  max-height: 265px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .c1[data-reach-listbox-popover].fi-dropdown_popover:focus-within {

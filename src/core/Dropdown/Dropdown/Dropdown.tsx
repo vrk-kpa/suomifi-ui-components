@@ -4,6 +4,7 @@ import React, {
   ReactElement,
   forwardRef,
   KeyboardEvent,
+  useRef,
 } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
@@ -14,9 +15,11 @@ import {
   ListboxPopoverProps,
   ListboxList,
   ListboxPopover,
+  useListboxContext,
 } from '@reach/listbox';
 import { positionMatchWidth } from '@reach/popover';
 import { getConditionalAriaProp } from '../../../utils/aria';
+import { useEnhancedEffect } from '../../../utils/common';
 import { logger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { HtmlSpan, HtmlDiv } from '../../../reset';
@@ -95,6 +98,68 @@ export interface DropdownProps extends InternalDropdownProps {
   ref?: React.RefObject<HTMLDivElement>;
 }
 
+const ListBoxContextWrapper = (props: {
+  scrollContainerRef: React.RefObject<HTMLDivElement>;
+  // eslint-disable-next-line react/require-default-props
+  children?:
+    | Array<ReactElement<DropdownItemProps>>
+    | ReactElement<DropdownItemProps>;
+}) => {
+  const { highlightedOptionRef, selectedOptionRef, isExpanded } =
+    useListboxContext();
+  const scrollToHighlightedOptionRef = useRef(false);
+  useEnhancedEffect(() => {
+    if (scrollToHighlightedOptionRef.current) {
+      scrollItemList();
+      scrollToHighlightedOptionRef.current = false;
+    }
+  });
+
+  useEnhancedEffect(() => {
+    if (isExpanded) {
+      scrollItemList(selectedOptionRef);
+    }
+  }, [isExpanded]);
+
+  const scrollItemList = (
+    scrollToRef?: React.RefObject<HTMLElement | null>,
+  ) => {
+    const scrollToItem = !!scrollToRef?.current
+      ? scrollToRef.current
+      : highlightedOptionRef.current;
+    if (!!scrollToItem && !!props.scrollContainerRef.current) {
+      const elementOffsetTop = scrollToItem.offsetTop || 0;
+      const elementOffsetHeight = scrollToItem.offsetHeight || 0;
+      if (elementOffsetTop < props.scrollContainerRef.current.scrollTop) {
+        // eslint-disable-next-line no-param-reassign
+        props.scrollContainerRef.current.scrollTop = elementOffsetTop;
+      } else {
+        const offsetBottom = elementOffsetTop + elementOffsetHeight;
+        const scrollBottom =
+          props.scrollContainerRef.current.scrollTop +
+          props.scrollContainerRef.current.offsetHeight;
+        if (offsetBottom > scrollBottom) {
+          // eslint-disable-next-line no-param-reassign
+          props.scrollContainerRef.current.scrollTop =
+            offsetBottom - props.scrollContainerRef.current.offsetHeight;
+        }
+      }
+    }
+  };
+
+  return (
+    <ListboxList
+      onKeyDown={(event) => {
+        if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+          scrollToHighlightedOptionRef.current = true;
+        }
+      }}
+    >
+      {props.children}
+    </ListboxList>
+  );
+};
+
 class BaseDropdown extends Component<DropdownProps & InnerRef> {
   state: DropdownState = {
     selectedValue:
@@ -107,9 +172,12 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
 
   buttonRef: React.RefObject<HTMLButtonElement>;
 
+  popoverRef: React.RefObject<HTMLDivElement>;
+
   constructor(props: DropdownProps & InnerRef) {
     super(props);
     this.buttonRef = React.createRef();
+    this.popoverRef = React.createRef();
   }
 
   static getDerivedStateFromProps(
@@ -218,6 +286,7 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
               {listboxDisplayValue}
             </ListboxButton>
             <ListboxPopover
+              ref={this.popoverRef}
               position={positionMatchWidth}
               {...passDropdownPopoverProps}
               onKeyDownCapture={(event: KeyboardEvent) => {
@@ -227,7 +296,9 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
                 }
               }}
             >
-              <ListboxList>{children}</ListboxList>
+              <ListBoxContextWrapper scrollContainerRef={this.popoverRef}>
+                {children}
+              </ListBoxContextWrapper>
             </ListboxPopover>
           </ListboxInput>
         </HtmlDiv>
