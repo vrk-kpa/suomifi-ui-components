@@ -10,7 +10,7 @@ import {
 } from '../BaseAlert/BaseAlert';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { baseStyles } from './InlineAlert.baseStyles';
+import { baseStyles } from './InlineAlert.baseStyles2';
 
 export interface InlineAlertProps extends BaseAlertProps {
   /** Label for the  alert */
