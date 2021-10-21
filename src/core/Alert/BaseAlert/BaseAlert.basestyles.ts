@@ -31,7 +31,7 @@ export const baseAlertBaseStyles = (theme: SuomifiTheme) => css`
       flex: 3 1 auto;
       flex-direction: column;
       padding: 0 20px;
-      margin-top: ${theme.spacing.insetXl};
+      margin-top: 20px;
       margin-bottom: ${theme.spacing.s};
 
       & .fi-alert_content {
