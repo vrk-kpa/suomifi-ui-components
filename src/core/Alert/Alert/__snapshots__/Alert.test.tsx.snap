@@ -195,7 +195,7 @@ exports[`children should match snapshot 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 0 20px;
-  margin-top: 16px;
+  margin-top: 20px;
   margin-bottom: 15px;
 }
 
@@ -599,7 +599,7 @@ exports[`classnames should match snapshot 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 0 20px;
-  margin-top: 16px;
+  margin-top: 20px;
   margin-bottom: 15px;
 }
 
