@@ -1,6 +1,7 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { Alert } from './Alert';
+import { InlineAlert } from '../InlineAlert/InlineAlert';
 import { axeTest } from '../../../utils/test';
 
 describe('children', () => {
@@ -64,16 +65,14 @@ describe('props', () => {
     expect(getByRole('button')).toHaveTextContent('CLOSE');
   });
 
-  const InlineAlert = (
-    <Alert closeText="Close" labelText="Inline Alert label">
-      Testcontent
-    </Alert>
+  const InlineAlertComponent = (
+    <InlineAlert labelText="Inline Alert label">Testcontent</InlineAlert>
   );
 
-  it('Inline variant should contain given labelText', () => {
-    const { getByText } = render(InlineAlert);
-    const label = getByText('Alert label');
-    expect(label).toHaveClass('fi-alert-label');
+  it('Inline component should contain given labelText', () => {
+    const { getByText } = render(InlineAlertComponent);
+    const label = getByText('Inline Alert label');
+    expect(label).toHaveClass('fi-alert_label');
   });
 
   const ErrorAlert = (
@@ -89,17 +88,17 @@ describe('props', () => {
   });
 
   const AlertWithDefaultAriaLiveMode = (
-    <Alert closeText="Close" ariaLiveMode="off">
+    <Alert id="testId" closeText="Close" ariaLiveMode="off">
       Testcontent
     </Alert>
   );
 
   it('should have specified aria-live mode', () => {
     const { container } = render(AlertWithDefaultAriaLiveMode);
-    expect(container.firstChild?.firstChild?.nextSibling).toHaveClass(
-      'fi-alert-text-content-wrapper',
+    expect(container.querySelector('#testId')).toHaveClass(
+      'fi-alert_text-content-wrapper',
     );
-    expect(container.firstChild?.firstChild?.nextSibling).toHaveAttribute(
+    expect(container.querySelector('#testId')).toHaveAttribute(
       'aria-live',
       'off',
     );
@@ -107,10 +106,19 @@ describe('props', () => {
 });
 
 describe('accessibility', () => {
-  const TestAlert = (
-    <Alert className="custom-class" closeText="Sulje">
-      Testcontent
-    </Alert>
-  );
+  const TestAlert = <Alert closeText="Close">Testcontent</Alert>;
   test('should not have basic accessibility issues', axeTest(TestAlert));
+});
+describe('test onClick', () => {
+  it('is called when clicked', () => {
+    const mockClick = jest.fn();
+    const { getByRole } = render(
+      <Alert closeText="Close" onClick={mockClick}>
+        Test content
+      </Alert>,
+    );
+    const button = getByRole('button');
+    fireEvent.click(button);
+    expect(mockClick).toHaveBeenCalledTimes(1);
+  });
 });
