@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
 import { font } from '../../theme/reset';
-import { baseAlertBaseStyles } from '../BaseAlert/BaseAlert.baseStyles2';
+import { baseAlertBaseStyles } from '../BaseAlert/BaseAlert.baseStyles';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${baseAlertBaseStyles(theme)}
