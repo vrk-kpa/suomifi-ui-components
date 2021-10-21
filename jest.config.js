@@ -32,14 +32,8 @@ module.exports = {
   transform: {
     ...tsjPreset.transform,
     '\\.(svg)$': '<rootDir>/jest/jest.transformer.js',
-    '\\.(css||scss)$':
-      '<rootDir>/jest/jest.transformer.js' /** hack to dismiss css imports */,
+    '\\.(css||scss)$': '<rootDir>/jest/jest.transformer.stub.js',
   },
 
   setupFilesAfterEnv: [require.resolve('./jest/jest.setup.js')],
-
-  // Not working after jest update
-  // moduleNameMapper: {
-  //   '\\.(css||scss)$': 'identity-obj-proxy',
-  // },
 };
