@@ -19,7 +19,7 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './Alert.baseStyles';
 
 export interface AlertProps extends BaseAlertProps {
-  /** Text to to label the close button. Visible + `aria-label` in regular size and only used as `aria-label` in small screen variant */
+  /** Text to label the close button. Visible + `aria-label` in regular size and only used as `aria-label` in small screen variant */
   closeText: string;
   /** Click handler for the close button */
   onCloseButtonClick?: () => void;
@@ -112,7 +112,6 @@ const StyledAlert = styled(
 
 export const Alert = forwardRef(
   (props: AlertProps, ref: React.RefObject<HTMLDivElement>) => {
-    // lisää ref logiikka
     const { id: propId, ...passProps } = props;
     return (
       <SuomifiThemeConsumer>
