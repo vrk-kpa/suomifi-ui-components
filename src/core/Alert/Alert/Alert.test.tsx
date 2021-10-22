@@ -12,8 +12,8 @@ describe('children', () => {
   );
 
   it('has the given content', () => {
-    const { getByTestId } = render(alertWithElementChild);
-    expect(getByTestId('test-div').textContent).toBe('Test alert');
+    const { container } = render(alertWithElementChild);
+    expect(container.firstChild).toHaveTextContent('Test alert');
   });
 
   it('should match snapshot', () => {
@@ -37,11 +37,6 @@ describe('classnames', () => {
   it('contains custom classname', () => {
     const { container } = render(customClassAlert);
     expect(container.firstChild).toHaveClass('custom-class');
-  });
-
-  it('should match snapshot', () => {
-    const { container } = render(customClassAlert);
-    expect(container).toMatchSnapshot();
   });
 });
 
@@ -76,7 +71,12 @@ describe('props', () => {
   });
 
   const ErrorAlert = (
-    <Alert status="error" closeText="Close" smallScreen>
+    <Alert
+      status="error"
+      className="alert-test-class"
+      closeText="Close"
+      smallScreen
+    >
       Testcontent
     </Alert>
   );
@@ -85,6 +85,10 @@ describe('props', () => {
     const { container } = render(ErrorAlert);
     expect(container.firstChild).toHaveClass('fi-alert--error');
     expect(container.firstChild).toHaveClass('fi-alert--small-screen');
+  });
+  it('should have given className as props', () => {
+    const { container } = render(ErrorAlert);
+    expect(container.firstChild).toHaveClass('alert-test-class');
   });
 
   const AlertWithDefaultAriaLiveMode = (
@@ -103,14 +107,7 @@ describe('props', () => {
       'off',
     );
   });
-});
-
-describe('accessibility', () => {
-  const TestAlert = <Alert closeText="Close">Testcontent</Alert>;
-  test('should not have basic accessibility issues', axeTest(TestAlert));
-});
-describe('test onClick', () => {
-  it('is called when clicked', () => {
+  test('onClick event is called when clicked', () => {
     const mockClick = jest.fn();
     const { getByRole } = render(
       <Alert closeText="Close" onClick={mockClick}>
@@ -121,4 +118,9 @@ describe('test onClick', () => {
     fireEvent.click(button);
     expect(mockClick).toHaveBeenCalledTimes(1);
   });
+});
+
+describe('accessibility', () => {
+  const TestAlert = <Alert closeText="Close">Testcontent</Alert>;
+  test('should not have basic accessibility issues', axeTest(TestAlert));
 });
