@@ -13,7 +13,7 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './InlineAlert.baseStyles';
 
 export interface InlineAlertProps extends BaseAlertProps {
-  /** Label for the  alert */
+  /** Label for the alert */
   labelText?: string;
 }
 
