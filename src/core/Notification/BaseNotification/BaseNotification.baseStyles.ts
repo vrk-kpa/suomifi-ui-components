@@ -39,26 +39,27 @@ export const baseNotificationBaseStyles = (theme: SuomifiTheme) => css`
         ${font(theme)('bodyTextSmall')}
       }
     }
-
+    box-shadow: 0px 4px 8px 0px rgba(41, 41, 41, 0.2);
+    border-radius: 4px;
     /** Status variant styles */
     &--neutral {
-      background-color: ${theme.colors.accentSecondaryLight1};
+      border-top: 5px solid ${theme.colors.accentSecondary};
       & .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
         fill: ${theme.colors.highlightBase};
       }
     }
 
     &--error {
-      background-color: ${theme.colors.alertLight1};
+      border-top: 5px solid ${theme.colors.alertBase};
       & .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
         fill: ${theme.colors.alertBase};
       }
     }
 
-    &--warning {
-      background-color: #fff6e0; /** needs to be warningLight1 but the token is yet to be added */
+    &--success {
+      border-top: 5px solid ${theme.colors.successBase};
       & .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-        fill: ${theme.colors.warningBase};
+        fill: ${theme.colors.successBase};
       }
     }
   }

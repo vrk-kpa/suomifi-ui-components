@@ -1,7 +1,8 @@
 ```js
 import {
   Notification,
-  InlineNotification
+  InlineNotification,
+  Button
 } from 'suomifi-ui-components';
 
 <>
@@ -27,21 +28,27 @@ import {
   </Notification>
 
   <InlineNotification status="error">
-    Something went wrong. Please try again in a moment.
+    <p>Something went wrong. Please try again in a moment.</p>
+    <Button fullWidth variant="secondary">
+      Button fullWidth variant="secondary"
+    </Button>
   </InlineNotification>
 
   <Notification status="error" closeText="Long close text">
     Something went wrong. Please try again in a moment.
   </Notification>
 
-  <Notification status="warning" closeText="Close">
-    The service will be temporarily unavailable on 5.6.2021 at 21.00 –
-    23.59 due to maintenance.
+  <Notification status="success" closeText="Close">
+    This is a long notification text. Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit. Morbi est nulla, rhoncus ac odio at,
+    blandit ornare mi. Suspendisse potenti. Vestibulum ante ipsum
+    primis in faucibus orci luctus et ultrices posuere cubilia curae;
+    Suspendisse efficitur et turpis eget tempor. Nam sed lacus ut
+    lorem feugiat tincidunt.
   </Notification>
 
-  <InlineNotification status="warning" labelText="Warning">
-    The service will be temporarily unavailable on 5.6.2021 at 21.00 –
-    23.59 due to maintenance.
+  <InlineNotification status="success" labelText="Warning">
+    Password Uptated.
   </InlineNotification>
 
   <InlineNotification labelText="Long label Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi est nulla, rhoncus ac odio at">

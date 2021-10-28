@@ -34,8 +34,13 @@ class BaseInlineNotification extends Component<
       id,
       ...passProps
     } = this.props;
+    const variantIcon =
+      status === 'neutral'
+        ? 'info'
+        : status === 'success'
+        ? 'checkCircle'
+        : status;
 
-    const variantIcon = status === 'neutral' ? 'info' : status;
     return (
       <HtmlDivWithRef
         as="section"
