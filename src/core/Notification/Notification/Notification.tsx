@@ -37,8 +37,8 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
   render() {
     const {
       className,
-      status = 'neutral',
       ariaLiveMode = 'assertive',
+      status = 'neutral',
       labelText,
       children,
       id,
@@ -54,8 +54,12 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
       'aria-describedby': closeButtonPropsAriaDescribedBy,
       ...closeButtonPassProps
     } = closeButtonProps;
-
-    const variantIcon = status === 'neutral' ? 'info' : status;
+    const variantIcon =
+      status === 'neutral'
+        ? 'info'
+        : status === 'success'
+        ? 'checkCircle'
+        : status;
     return (
       <HtmlDivWithRef
         as="section"

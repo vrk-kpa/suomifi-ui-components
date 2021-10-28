@@ -16,16 +16,5 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     .fi-notification_icon-wrapper {
       flex: 0;
     }
-    &.fi-notification--neutral {
-      border-left: 5px solid ${theme.colors.accentSecondary};
-    }
-
-    &.fi-notification--error {
-      border-left: 5px solid ${theme.colors.alertBase};
-    }
-
-    &.fi-notification--warning {
-      border-left: 5px solid ${theme.colors.warningBase};
-    }
   }
 `;
