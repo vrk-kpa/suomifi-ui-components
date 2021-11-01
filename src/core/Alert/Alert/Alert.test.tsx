@@ -40,6 +40,27 @@ describe('classnames', () => {
   });
 });
 
+describe('Error view tests', () => {
+  const ErrorAlert = (
+    <Alert
+      status="error"
+      className="alert-test-class"
+      closeText="Close"
+      smallScreen
+    >
+      Testcontent
+    </Alert>
+  );
+  it('should have status and smallScreen prop specific classNames', () => {
+    const { container } = render(ErrorAlert);
+    expect(container.firstChild).toHaveClass('fi-alert--error');
+    expect(container.firstChild).toHaveClass('fi-alert--small-screen');
+  });
+  it('should have given className as props', () => {
+    const { container } = render(ErrorAlert);
+    expect(container.firstChild).toHaveClass('alert-test-class');
+  });
+});
 describe('props', () => {
   const AlertWithButtonProps = (
     <Alert
@@ -75,27 +96,6 @@ describe('props', () => {
     const { getByText } = render(InlineAlertComponent);
     const label = getByText('Inline Alert label');
     expect(label).toHaveClass('fi-alert_label');
-  });
-
-  const ErrorAlert = (
-    <Alert
-      status="error"
-      className="alert-test-class"
-      closeText="Close"
-      smallScreen
-    >
-      Testcontent
-    </Alert>
-  );
-
-  it('should have status and smallScreen prop specific classNames', () => {
-    const { container } = render(ErrorAlert);
-    expect(container.firstChild).toHaveClass('fi-alert--error');
-    expect(container.firstChild).toHaveClass('fi-alert--small-screen');
-  });
-  it('should have given className as props', () => {
-    const { container } = render(ErrorAlert);
-    expect(container.firstChild).toHaveClass('alert-test-class');
   });
 
   const AlertWithDefaultAriaLiveMode = (
