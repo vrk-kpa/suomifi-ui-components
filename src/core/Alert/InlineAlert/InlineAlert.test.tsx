@@ -6,7 +6,7 @@ import { axeTest } from '../../../utils/test';
 describe('children', () => {
   const alertWithElementChild = (
     <InlineAlert>
-      <div data-testid="test-div">Test alert</div>
+      <div>Test alert</div>
     </InlineAlert>
   );
   it('has the given content', () => {
