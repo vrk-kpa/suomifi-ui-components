@@ -6,9 +6,12 @@ export const baseAlertBaseStyles = (theme: SuomifiTheme) => css`
   &.fi-alert {
     ${element(theme)}
     ${font(theme)('bodyTextSmall')}
-    display: flex;
-    align-items: flex-start;
     width: 100%;
+
+    & .fi-alert_style-wrapper {
+      display: flex;
+      align-items: flex-start;
+    }
 
     & .fi-alert_icon-wrapper {
       display: flex;
@@ -28,13 +31,12 @@ export const baseAlertBaseStyles = (theme: SuomifiTheme) => css`
       flex: 3 1 auto;
       flex-direction: column;
       padding: 0 20px;
-      margin-top: ${theme.spacing.insetXl};
+      margin-top: 20px;
       margin-bottom: ${theme.spacing.s};
 
       & .fi-alert_content {
         vertical-align: middle;
         ${font(theme)('bodyTextSmall')}
-        margin-top: ${theme.spacing.xxs}
       }
     }
 

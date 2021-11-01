@@ -7,12 +7,15 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${baseAlertBaseStyles(theme)}
   & .fi-alert_label {
     ${font(theme)('bodySemiBold')}
+    margin-bottom: ${theme.spacing.xxs};
   }
 
   /** Inline variant styles  */
   &.fi-alert--inline {
     padding: 5px 0px 4px 0px;
-
+    .fi-alert_icon-wrapper {
+      flex: 0;
+    }
     &.fi-alert--neutral {
       border-left: 5px solid ${theme.colors.accentSecondary};
     }
