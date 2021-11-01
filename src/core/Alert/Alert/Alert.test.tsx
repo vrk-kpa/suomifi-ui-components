@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { Alert } from './Alert';
-import { InlineAlert } from '../InlineAlert/InlineAlert';
 import { axeTest } from '../../../utils/test';
 
 describe('children', () => {
@@ -86,16 +85,6 @@ describe('props', () => {
     );
     expect(getByRole('button')).toHaveAttribute('disabled');
     expect(getByRole('button')).toHaveTextContent('CLOSE');
-  });
-
-  const InlineAlertComponent = (
-    <InlineAlert labelText="Inline Alert label">Testcontent</InlineAlert>
-  );
-
-  it('Inline component should contain given labelText', () => {
-    const { getByText } = render(InlineAlertComponent);
-    const label = getByText('Inline Alert label');
-    expect(label).toHaveClass('fi-alert_label');
   });
 
   const AlertWithDefaultAriaLiveMode = (
