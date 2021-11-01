@@ -364,9 +364,7 @@ exports[`children should match snapshot 1`] = `
         <div
           class="c2 fi-alert_content"
         >
-          <div
-            data-testid="test-div"
-          >
+          <div>
             Test alert
           </div>
         </div>
