@@ -55,7 +55,7 @@ export const baseAlertBaseStyles = (theme: SuomifiTheme) => css`
     &--warning {
       background-color: #fff6e0; /** needs to be warningLight1 but the token is yet to be added */
       & .fi-alert_icon-wrapper .fi-icon .fi-icon-base-fill {
-        fill: ${theme.colors.warningBase};
+        fill: #c33932;
       }
     }
   }

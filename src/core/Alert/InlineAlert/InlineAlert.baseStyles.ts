@@ -17,15 +17,15 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       flex: 0;
     }
     &.fi-alert--neutral {
-      border-left: 5px solid ${theme.colors.accentSecondary};
+      border-left: 4px solid ${theme.colors.accentSecondary};
     }
 
     &.fi-alert--error {
-      border-left: 5px solid ${theme.colors.alertBase};
+      border-left: 4px solid ${theme.colors.alertBase};
     }
 
     &.fi-alert--warning {
-      border-left: 5px solid ${theme.colors.warningBase};
+      border-left: 4px solid #c33932;
     }
   }
 `;
