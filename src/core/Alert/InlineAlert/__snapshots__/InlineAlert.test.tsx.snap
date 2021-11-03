@@ -110,18 +110,7 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-alert .fi-alert_icon-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  margin-left: 15px;
+  margin-left: 20px;
   margin-top: 16px;
 }
 
@@ -142,7 +131,7 @@ exports[`children should match snapshot 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 0 20px;
-  margin-top: 20px;
+  margin-top: 15px;
   margin-bottom: 15px;
 }
 
