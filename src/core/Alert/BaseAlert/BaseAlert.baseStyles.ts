@@ -14,10 +14,7 @@ export const baseAlertBaseStyles = (theme: SuomifiTheme) => css`
     }
 
     & .fi-alert_icon-wrapper {
-      display: flex;
-      flex: 1 0 auto;
-      justify-content: flex-end;
-      margin-left: ${theme.spacing.s};
+      margin-left: ${theme.spacing.m};
       margin-top: ${theme.spacing.insetXl};
 
       & .fi-alert_icon {
@@ -31,7 +28,7 @@ export const baseAlertBaseStyles = (theme: SuomifiTheme) => css`
       flex: 3 1 auto;
       flex-direction: column;
       padding: 0 20px;
-      margin-top: 20px;
+      margin-top: ${theme.spacing.s};
       margin-bottom: ${theme.spacing.s};
 
       & .fi-alert_content {
