@@ -210,7 +210,7 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-alert--neutral .fi-alert_icon-wrapper .fi-icon .fi-icon-base-fill {
-  fill: hsl(212,63%,45%);
+  fill: #4698c3;
 }
 
 .c1.fi-alert--error {
@@ -226,7 +226,7 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-alert--warning .fi-alert_icon-wrapper .fi-icon .fi-icon-base-fill {
-  fill: #c33932;
+  fill: #b54439;
 }
 
 .c1 .fi-alert_close-button-wrapper {

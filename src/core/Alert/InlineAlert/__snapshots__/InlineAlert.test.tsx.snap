@@ -157,7 +157,7 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-alert--neutral .fi-alert_icon-wrapper .fi-icon .fi-icon-base-fill {
-  fill: hsl(212,63%,45%);
+  fill: #4698c3;
 }
 
 .c1.fi-alert--error {
@@ -173,7 +173,7 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-alert--warning .fi-alert_icon-wrapper .fi-icon .fi-icon-base-fill {
-  fill: #c33932;
+  fill: #b54439;
 }
 
 .c1 .fi-alert_label {
@@ -204,11 +204,11 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-alert--inline.fi-alert--neutral {
-  border-left: 4px solid hsl(196,77%,44%);
+  border-left: 4px solid #4698c3;
 }
 
 .c1.fi-alert--inline.fi-alert--error {
-  border-left: 4px solid hsl(3,59%,48%);
+  border-left: 4px solid #b54439;
 }
 
 .c1.fi-alert--inline.fi-alert--warning {

@@ -17,11 +17,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       flex: 0;
     }
     &.fi-alert--neutral {
-      border-left: 4px solid ${theme.colors.accentSecondary};
+      border-left: 4px solid #4698c3; /* Later add theme.colors.example styling */
     }
 
     &.fi-alert--error {
-      border-left: 4px solid ${theme.colors.alertBase};
+      border-left: 4px solid #b54439; /* Later add theme.colors.example styling */
     }
 
     &.fi-alert--warning {
