@@ -43,12 +43,19 @@ describe('props', () => {
   const NotificationWithButtonProps = (
     <Notification
       closeText="Close"
-      closeButtonProps={{ 'aria-labelledby': 'test-element', disabled: true }}
+      closeButtonProps={{
+        'aria-labelledby': 'test-element',
+        disabled: true,
+        className: 'testClass',
+      }}
     >
       Testcontent
     </Notification>
   );
-
+  it('Button should contains custom classname', () => {
+    const { getByRole } = render(NotificationWithButtonProps);
+    expect(getByRole('button')).toHaveClass('testClass');
+  });
   it('Button should have given props', () => {
     const { getByRole } = render(NotificationWithButtonProps);
     expect(getByRole('button')).toHaveAttribute(
