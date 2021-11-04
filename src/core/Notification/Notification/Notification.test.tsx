@@ -38,7 +38,28 @@ describe('classnames', () => {
     expect(container.firstChild).toHaveClass('custom-class');
   });
 });
+describe('Error view tests', () => {
+  const ErrorNotification = (
+    <Notification
+      status="error"
+      className="notification-test-class"
+      closeText="Close"
+      smallScreen
+    >
+      Testcontent
+    </Notification>
+  );
 
+  it('should have status and smallScreen prop specific classNames', () => {
+    const { container } = render(ErrorNotification);
+    expect(container.firstChild).toHaveClass('fi-notification--error');
+    expect(container.firstChild).toHaveClass('fi-notification--small-screen');
+  });
+  it('should have given className as props', () => {
+    const { container } = render(ErrorNotification);
+    expect(container.firstChild).toHaveClass('notification-test-class');
+  });
+});
 describe('props', () => {
   const NotificationWithButtonProps = (
     <Notification
@@ -64,27 +85,6 @@ describe('props', () => {
     );
     expect(getByRole('button')).toHaveAttribute('disabled');
     expect(getByRole('button')).toHaveTextContent('CLOSE');
-  });
-
-  const ErrorNotification = (
-    <Notification
-      status="error"
-      className="notification-test-class"
-      closeText="Close"
-      smallScreen
-    >
-      Testcontent
-    </Notification>
-  );
-
-  it('should have status and smallScreen prop specific classNames', () => {
-    const { container } = render(ErrorNotification);
-    expect(container.firstChild).toHaveClass('fi-notification--error');
-    expect(container.firstChild).toHaveClass('fi-notification--small-screen');
-  });
-  it('should have given className as props', () => {
-    const { container } = render(ErrorNotification);
-    expect(container.firstChild).toHaveClass('notification-test-class');
   });
 
   const NotificationWithDefaultAriaLiveMode = (
