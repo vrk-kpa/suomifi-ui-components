@@ -165,19 +165,8 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_icon-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  margin-left: 15px;
-  margin-top: 16px;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
 .c1.fi-notification .fi-notification_icon-wrapper .fi-notification_icon {
@@ -197,7 +186,7 @@ exports[`children should match snapshot 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 0 20px;
-  margin-top: 20px;
+  margin-top: 15px;
   margin-bottom: 15px;
 }
 
@@ -219,23 +208,23 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-notification--neutral {
-  border-top: 5px solid hsl(196,77%,44%);
+  border-top: 4px solid #4698c3;
 }
 
 .c1.fi-notification--neutral .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-  fill: hsl(212,63%,45%);
+  fill: #4698c3;
 }
 
 .c1.fi-notification--error {
-  border-top: 5px solid hsl(3,59%,48%);
+  border-top: 4px solid #b54439;
 }
 
 .c1.fi-notification--error .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-  fill: hsl(3,59%,48%);
+  fill: #b54439;
 }
 
 .c1.fi-notification--success {
-  border-top: 5px solid hsl(166,90%,34%);
+  border-top: 4px solid hsl(166,90%,34%);
 }
 
 .c1.fi-notification--success .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
