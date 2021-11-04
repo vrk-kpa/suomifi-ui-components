@@ -38,23 +38,23 @@ export const baseNotificationBaseStyles = (theme: SuomifiTheme) => css`
     }
     box-shadow: 0px 4px 8px 0px rgba(41, 41, 41, 0.2);
     border-radius: 4px;
-    /** Status variant styles */
+    /* Status variant styles */
     &--neutral {
-      border-top: 5px solid ${theme.colors.accentSecondary};
+      border-top: 4px solid #4698c3; /* Later add theme.colors.example styling */
       & .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-        fill: ${theme.colors.highlightBase};
+        fill: #4698c3;
       }
     }
 
     &--error {
-      border-top: 5px solid ${theme.colors.alertBase};
+      border-top: 4px solid #b54439; /* Later add theme.colors.example styling */
       & .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-        fill: ${theme.colors.alertBase};
+        fill: #b54439;
       }
     }
 
     &--success {
-      border-top: 5px solid ${theme.colors.successBase};
+      border-top: 4px solid ${theme.colors.successBase};
       & .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
         fill: ${theme.colors.successBase};
       }
