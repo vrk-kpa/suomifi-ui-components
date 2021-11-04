@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { Notification } from './Notification';
-import { InlineNotification } from '../InlineNotification/InlineNotification';
 import { axeTest } from '../../../utils/test';
 
 describe('children', () => {
@@ -58,18 +57,6 @@ describe('props', () => {
     );
     expect(getByRole('button')).toHaveAttribute('disabled');
     expect(getByRole('button')).toHaveTextContent('CLOSE');
-  });
-
-  const InlineNotificationComponent = (
-    <InlineNotification labelText="Inline Notification label">
-      Testcontent
-    </InlineNotification>
-  );
-
-  it('Inline component should contain given labelText', () => {
-    const { getByText } = render(InlineNotificationComponent);
-    const label = getByText('Inline Notification label');
-    expect(label).toHaveClass('fi-notification_label');
   });
 
   const ErrorNotification = (
