@@ -14,11 +14,8 @@ export const baseNotificationBaseStyles = (theme: SuomifiTheme) => css`
     }
 
     & .fi-notification_icon-wrapper {
-      display: flex;
-      flex: 1 0 auto;
-      justify-content: flex-end;
-      margin-left: ${theme.spacing.s};
-      margin-top: ${theme.spacing.insetXl};
+      margin-left: ${theme.spacing.m};
+      margin-top: ${theme.spacing.m};
 
       & .fi-notification_icon {
         height: 24px;
@@ -31,7 +28,7 @@ export const baseNotificationBaseStyles = (theme: SuomifiTheme) => css`
       flex: 3 1 auto;
       flex-direction: column;
       padding: 0 20px;
-      margin-top: 20px;
+      margin-top: ${theme.spacing.s};
       margin-bottom: ${theme.spacing.s};
 
       & .fi-notification_content {
