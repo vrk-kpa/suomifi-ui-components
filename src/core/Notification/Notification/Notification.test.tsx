@@ -6,7 +6,7 @@ import { axeTest } from '../../../utils/test';
 describe('children', () => {
   const notificationWithElementChild = (
     <Notification closeText="Close">
-      <div data-testid="test-div">Test notification</div>
+      <div>Test notification</div>
     </Notification>
   );
 
