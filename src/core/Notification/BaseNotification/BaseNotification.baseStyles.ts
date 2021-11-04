@@ -42,14 +42,14 @@ export const baseNotificationBaseStyles = (theme: SuomifiTheme) => css`
     &--neutral {
       border-top: 4px solid #4698c3; /* Later add theme.colors.example styling */
       & .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-        fill: #4698c3;
+        fill: #4698c3; /* Later add theme.colors.example styling */
       }
     }
 
     &--error {
       border-top: 4px solid #b54439; /* Later add theme.colors.example styling */
       & .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-        fill: #b54439;
+        fill: #b54439; /* Later add theme.colors.example styling */
       }
     }
 
