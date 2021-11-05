@@ -81,22 +81,34 @@ describe('props', () => {
     expect(closeButton).toHaveAttribute('disabled');
     expect(closeButton).toHaveClass('testClass');
   });
-
-  const AlertWithDefaultAriaLiveMode = (
-    <Alert id="testId" closeText="Close" ariaLiveMode="off">
-      Testcontent
-    </Alert>
-  );
-
-  it('should have specified aria-live mode', () => {
-    const { container } = render(AlertWithDefaultAriaLiveMode);
-    expect(container.querySelector('#testId')).toHaveClass(
-      'fi-alert_text-content-wrapper',
+  describe('Aria-live mode and className check', () => {
+    const AlertWithDefaultAriaLiveMode = (
+      <Alert id="testIdDefault" closeText="Close">
+        Testcontent
+      </Alert>
     );
-    expect(container.querySelector('#testId')).toHaveAttribute(
-      'aria-live',
-      'off',
+    const AlertWithAriaLiveModeOff = (
+      <Alert id="testIdOff" closeText="Close" ariaLiveMode="off">
+        Testcontent
+      </Alert>
     );
+    it('should have default aria-live mode', () => {
+      const { container } = render(AlertWithDefaultAriaLiveMode);
+      expect(container.querySelector('#testIdDefault')).toHaveClass(
+        'fi-alert_text-content-wrapper',
+      );
+      expect(container.querySelector('#testIdDefault')).toHaveAttribute(
+        'aria-live',
+        'assertive',
+      );
+    });
+    it('should have specified aria-live mode', () => {
+      const { container } = render(AlertWithAriaLiveModeOff);
+      expect(container.querySelector('#testIdOff')).toHaveAttribute(
+        'aria-live',
+        'off',
+      );
+    });
   });
   test('onClick event is called when clicked', () => {
     const mockClick = jest.fn();
