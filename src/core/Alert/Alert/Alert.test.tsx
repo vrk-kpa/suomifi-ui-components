@@ -21,24 +21,6 @@ describe('children', () => {
   });
 });
 
-describe('classnames', () => {
-  const customClassAlert = (
-    <Alert closeText="Close" className="custom-class">
-      Test content
-    </Alert>
-  );
-
-  it('contains base classname', () => {
-    const { container } = render(customClassAlert);
-    expect(container.firstChild).toHaveClass('fi-alert');
-  });
-
-  it('contains custom classname', () => {
-    const { container } = render(customClassAlert);
-    expect(container.firstChild).toHaveClass('custom-class');
-  });
-});
-
 describe('Error view tests', () => {
   const ErrorAlert = (
     <Alert
@@ -61,6 +43,21 @@ describe('Error view tests', () => {
   });
 });
 describe('props', () => {
+  const customClassAlert = (
+    <Alert closeText="Close" className="custom-class">
+      Test content
+    </Alert>
+  );
+
+  it('contains base classname', () => {
+    const { container } = render(customClassAlert);
+    expect(container.firstChild).toHaveClass('fi-alert');
+  });
+
+  it('contains custom classname', () => {
+    const { container } = render(customClassAlert);
+    expect(container.firstChild).toHaveClass('custom-class');
+  });
   const AlertWithButtonProps = (
     <Alert
       closeText="Close"
