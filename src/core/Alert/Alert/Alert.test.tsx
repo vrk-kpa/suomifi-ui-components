@@ -3,24 +3,6 @@ import { render, fireEvent } from '@testing-library/react';
 import { Alert } from './Alert';
 import { axeTest } from '../../../utils/test';
 
-describe('children', () => {
-  const alertWithElementChild = (
-    <Alert closeText="Close">
-      <div>Test alert</div>
-    </Alert>
-  );
-
-  it('has the given content', () => {
-    const { container } = render(alertWithElementChild);
-    expect(container.firstChild).toHaveTextContent('Test alert');
-  });
-
-  it('should match snapshot', () => {
-    const { container } = render(alertWithElementChild);
-    expect(container).toMatchSnapshot();
-  });
-});
-
 describe('status', () => {
   const ErrorAlert = (
     <Alert status="error" closeText="Close">
@@ -45,6 +27,23 @@ describe('status', () => {
   });
 });
 describe('props', () => {
+  describe('children', () => {
+    const alertWithElementChild = (
+      <Alert closeText="Close">
+        <div>Test alert</div>
+      </Alert>
+    );
+
+    it('has the given content', () => {
+      const { container } = render(alertWithElementChild);
+      expect(container.firstChild).toHaveTextContent('Test alert');
+    });
+
+    it('should match snapshot', () => {
+      const { container } = render(alertWithElementChild);
+      expect(container).toMatchSnapshot();
+    });
+  });
   const customClassAlert = (
     <Alert closeText="Close" className="custom-class">
       Test content
