@@ -23,12 +23,7 @@ describe('children', () => {
 
 describe('Error view tests', () => {
   const ErrorAlert = (
-    <Alert
-      status="error"
-      className="alert-test-class"
-      closeText="Close"
-      smallScreen
-    >
+    <Alert status="error" closeText="Close" smallScreen>
       Testcontent
     </Alert>
   );
@@ -36,10 +31,6 @@ describe('Error view tests', () => {
     const { container } = render(ErrorAlert);
     expect(container.firstChild).toHaveClass('fi-alert--error');
     expect(container.firstChild).toHaveClass('fi-alert--small-screen');
-  });
-  it('should have given className as props', () => {
-    const { container } = render(ErrorAlert);
-    expect(container.firstChild).toHaveClass('alert-test-class');
   });
 });
 describe('props', () => {
