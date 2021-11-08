@@ -6,6 +6,7 @@ export {
   BreadcrumbLinkProps,
 } from './core/Breadcrumb';
 export { Alert, AlertProps, InlineAlert, InlineAlertProps } from './core/Alert';
+export { Notification, NotificationProps } from './core/Notification';
 export { Block, BlockProps } from './core/Block/Block';
 export { Button, ButtonProps } from './core/Button/Button';
 export { Dropdown, DropdownProps } from './core/Dropdown/';

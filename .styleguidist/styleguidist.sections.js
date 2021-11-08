@@ -101,6 +101,12 @@ module.exports = {
               ]),
             },
             {
+              name: 'Notification',
+              components: getComponentWithVariants('Notification')([
+                'Notification/Notification',
+              ]),
+            },
+            {
               name: 'RadioButton',
               components: getComponentWithVariants('Form/RadioButton')([
                 'RadioButton',
