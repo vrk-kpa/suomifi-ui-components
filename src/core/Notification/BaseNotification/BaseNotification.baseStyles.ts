@@ -7,22 +7,18 @@ export const baseNotificationBaseStyles = (theme: SuomifiTheme) => css`
     ${element(theme)}
     ${font(theme)('bodyTextSmall')}
     width: 100%;
-
     & .fi-notification_style-wrapper {
       display: flex;
       align-items: flex-start;
     }
-
     & .fi-notification_icon-wrapper {
       margin-left: ${theme.spacing.m};
       margin-top: ${theme.spacing.m};
-
       & .fi-notification_icon {
         height: 24px;
         width: 24px;
       }
     }
-
     & .fi-notification_text-content-wrapper {
       display: flex;
       flex: 3 1 auto;
@@ -30,7 +26,6 @@ export const baseNotificationBaseStyles = (theme: SuomifiTheme) => css`
       padding: 0 20px;
       margin-top: ${theme.spacing.s};
       margin-bottom: ${theme.spacing.s};
-
       & .fi-notification_content {
         vertical-align: middle;
         ${font(theme)('bodyTextSmall')}
@@ -38,23 +33,21 @@ export const baseNotificationBaseStyles = (theme: SuomifiTheme) => css`
     }
     box-shadow: 0px 4px 8px 0px rgba(41, 41, 41, 0.2);
     border-radius: 4px;
-    /** Status variant styles */
+    /* Status variant styles */
     &--neutral {
-      border-top: 5px solid ${theme.colors.accentSecondary};
+      border-top: 4px solid #4698c3; /* Later add theme.colors.example styling */
       & .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-        fill: ${theme.colors.highlightBase};
+        fill: #4698c3; /* Later add theme.colors.example styling */
       }
     }
-
     &--error {
-      border-top: 5px solid ${theme.colors.alertBase};
+      border-top: 4px solid #b54439; /* Later add theme.colors.example styling */
       & .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-        fill: ${theme.colors.alertBase};
+        fill: #b54439; /* Later add theme.colors.example styling */
       }
     }
-
     &--success {
-      border-top: 5px solid ${theme.colors.successBase};
+      border-top: 4px solid ${theme.colors.successBase};
       & .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
         fill: ${theme.colors.successBase};
       }
