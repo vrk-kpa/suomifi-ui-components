@@ -39,7 +39,6 @@ class BaseAlert extends Component<AlertProps & InnerRef> {
       className,
       status = 'neutral',
       ariaLiveMode = 'assertive',
-      labelText,
       children,
       id,
       closeText,
