@@ -3,30 +3,30 @@ import { render, fireEvent } from '@testing-library/react';
 import { Alert } from './Alert';
 import { axeTest } from '../../../utils/test';
 
-describe('status', () => {
-  const ErrorAlert = (
-    <Alert status="error" closeText="Close">
-      Testcontent
-    </Alert>
-  );
-
-  test('error status should have correct classname applied', () => {
-    const { container } = render(ErrorAlert);
-    expect(container.firstChild).toHaveClass('fi-alert--error');
-  });
-
-  const WarningAlert = (
-    <Alert status="warning" closeText="Close">
-      General warning
-    </Alert>
-  );
-
-  test('warning status should have correct classname applied', () => {
-    const { container } = render(WarningAlert);
-    expect(container.firstChild).toHaveClass('fi-alert--warning');
-  });
-});
 describe('props', () => {
+  describe('status', () => {
+    const ErrorAlert = (
+      <Alert status="error" closeText="Close">
+        Testcontent
+      </Alert>
+    );
+
+    test('error status should have correct classname applied', () => {
+      const { container } = render(ErrorAlert);
+      expect(container.firstChild).toHaveClass('fi-alert--error');
+    });
+
+    const WarningAlert = (
+      <Alert status="warning" closeText="Close">
+        General warning
+      </Alert>
+    );
+
+    test('warning status should have correct classname applied', () => {
+      const { container } = render(WarningAlert);
+      expect(container.firstChild).toHaveClass('fi-alert--warning');
+    });
+  });
   describe('className', () => {
     const customClassAlert = (
       <Alert closeText="Close" className="custom-class">
