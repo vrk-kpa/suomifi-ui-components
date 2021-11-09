@@ -27,6 +27,23 @@ describe('status', () => {
   });
 });
 describe('props', () => {
+  describe('className', () => {
+    const customClassAlert = (
+      <Alert closeText="Close" className="custom-class">
+        Test content
+      </Alert>
+    );
+
+    it('contains base classname', () => {
+      const { container } = render(customClassAlert);
+      expect(container.firstChild).toHaveClass('fi-alert');
+    });
+
+    it('contains custom classname', () => {
+      const { container } = render(customClassAlert);
+      expect(container.firstChild).toHaveClass('custom-class');
+    });
+  });
   describe('children', () => {
     const alertWithElementChild = (
       <Alert closeText="Close">
@@ -43,21 +60,6 @@ describe('props', () => {
       const { container } = render(alertWithElementChild);
       expect(container).toMatchSnapshot();
     });
-  });
-  const customClassAlert = (
-    <Alert closeText="Close" className="custom-class">
-      Test content
-    </Alert>
-  );
-
-  it('contains base classname', () => {
-    const { container } = render(customClassAlert);
-    expect(container.firstChild).toHaveClass('fi-alert');
-  });
-
-  it('contains custom classname', () => {
-    const { container } = render(customClassAlert);
-    expect(container.firstChild).toHaveClass('custom-class');
   });
 
   test('closeButton should have the given closeButtonProps', () => {

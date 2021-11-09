@@ -348,7 +348,7 @@ exports[`props children should match snapshot 1`] = `
       <div
         aria-live="assertive"
         class="c2 fi-alert_text-content-wrapper"
-        id="5"
+        id="7"
       >
         <div
           class="c2 fi-alert_content"
@@ -362,7 +362,7 @@ exports[`props children should match snapshot 1`] = `
         class="c2 fi-alert_close-button-wrapper"
       >
         <button
-          aria-describedby="5"
+          aria-describedby="7"
           aria-label="Close"
           class="c4 fi-alert_close-button"
           type="button"
