@@ -7,7 +7,7 @@ import { Alert, InlineAlert } from 'suomifi-ui-components';
     23.59 due to maintenance.
   </Alert>
 
-  <Alert closeText="Close" labelText="Maintenance notification">
+  <Alert closeText="Close">
     This is a long alert text. Lorem ipsum dolor sit amet, consectetur
     adipiscing elit. Morbi est nulla, rhoncus ac odio at, blandit
     ornare mi. Suspendisse potenti. Vestibulum ante ipsum primis in
