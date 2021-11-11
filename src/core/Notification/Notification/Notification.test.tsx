@@ -3,41 +3,6 @@ import { render, fireEvent } from '@testing-library/react';
 import { Notification } from './Notification';
 import { axeTest } from '../../../utils/test';
 
-describe('children', () => {
-  const notificationWithElementChild = (
-    <Notification closeText="Close">
-      <div>Test notification</div>
-    </Notification>
-  );
-
-  it('has the given content', () => {
-    const { container } = render(notificationWithElementChild);
-    expect(container.firstChild).toHaveTextContent('Test notification');
-  });
-
-  it('should match snapshot', () => {
-    const { container } = render(notificationWithElementChild);
-    expect(container).toMatchSnapshot();
-  });
-});
-
-describe('classnames', () => {
-  const customClassNotification = (
-    <Notification closeText="Close" className="custom-class">
-      Test content
-    </Notification>
-  );
-
-  it('contains base classname', () => {
-    const { container } = render(customClassNotification);
-    expect(container.firstChild).toHaveClass('fi-notification');
-  });
-
-  it('contains custom classname', () => {
-    const { container } = render(customClassNotification);
-    expect(container.firstChild).toHaveClass('custom-class');
-  });
-});
 describe('Error view tests', () => {
   const ErrorNotification = (
     <Notification
@@ -61,6 +26,41 @@ describe('Error view tests', () => {
   });
 });
 describe('props', () => {
+  describe('children', () => {
+    const notificationWithElementChild = (
+      <Notification closeText="Close">
+        <div>Test notification</div>
+      </Notification>
+    );
+
+    it('has the given content', () => {
+      const { container } = render(notificationWithElementChild);
+      expect(container.firstChild).toHaveTextContent('Test notification');
+    });
+
+    it('should match snapshot', () => {
+      const { container } = render(notificationWithElementChild);
+      expect(container).toMatchSnapshot();
+    });
+  });
+
+  describe('classnames', () => {
+    const customClassNotification = (
+      <Notification closeText="Close" className="custom-class">
+        Test content
+      </Notification>
+    );
+
+    it('contains base classname', () => {
+      const { container } = render(customClassNotification);
+      expect(container.firstChild).toHaveClass('fi-notification');
+    });
+
+    it('contains custom classname', () => {
+      const { container } = render(customClassNotification);
+      expect(container.firstChild).toHaveClass('custom-class');
+    });
+  });
   const NotificationWithButtonProps = (
     <Notification
       closeText="Close"

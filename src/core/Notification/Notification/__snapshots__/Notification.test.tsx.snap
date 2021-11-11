@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`children should match snapshot 1`] = `
+exports[`props children should match snapshot 1`] = `
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -350,7 +350,7 @@ exports[`children should match snapshot 1`] = `
       <div
         aria-live="assertive"
         class="c2 fi-notification_text-content-wrapper"
-        id="3"
+        id="5"
       >
         <div
           class="c2 fi-notification_content"
@@ -364,7 +364,7 @@ exports[`children should match snapshot 1`] = `
         class="c2 fi-notification_close-button-wrapper"
       >
         <button
-          aria-describedby="3"
+          aria-describedby="5"
           aria-label="Close"
           class="c4 fi-notification_close-button"
           type="button"
