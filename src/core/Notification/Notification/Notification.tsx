@@ -59,7 +59,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
         ? 'info'
         : status === 'success'
         ? 'checkCircle'
-        : status;
+        : 'error';
     return (
       <HtmlDivWithRef
         as="section"
