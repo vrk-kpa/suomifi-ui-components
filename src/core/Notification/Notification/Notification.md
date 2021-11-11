@@ -47,7 +47,7 @@ import {
     lorem feugiat tincidunt.
   </Notification>
 
-  <InlineNotification status="success" labelText="Warning">
+  <InlineNotification status="success" labelText="All good">
     Password Uptated.
   </InlineNotification>
 
