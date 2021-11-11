@@ -14,7 +14,7 @@ import { baseStyles } from './InlineNotification.baseStyles';
 
 export interface InlineNotificationProps extends BaseNotificationProps {
   /** Label for the Notification */
-  labelText?: string;
+  labelText: string;
 }
 
 interface InnerRef {

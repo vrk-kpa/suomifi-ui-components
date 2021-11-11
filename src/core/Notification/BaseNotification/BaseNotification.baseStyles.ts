@@ -3,6 +3,10 @@ import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
 
 export const baseNotificationBaseStyles = (theme: SuomifiTheme) => css`
+  & .fi-notification_label {
+    ${font(theme)('bodySemiBold')}
+    margin-bottom: ${theme.spacing.xxs};
+  }
   &.fi-notification {
     ${element(theme)}
     ${font(theme)('bodyTextSmall')}

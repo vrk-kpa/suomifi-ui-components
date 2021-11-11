@@ -10,6 +10,7 @@ describe('Error view tests', () => {
       className="notification-test-class"
       closeText="Close"
       smallScreen
+      labelText="Lorem ipsum dolor sit"
     >
       Testcontent
     </Notification>
@@ -28,7 +29,7 @@ describe('Error view tests', () => {
 describe('props', () => {
   describe('children', () => {
     const notificationWithElementChild = (
-      <Notification closeText="Close">
+      <Notification closeText="Close" labelText="Lorem ipsum dolor sit">
         <div>Test notification</div>
       </Notification>
     );
@@ -46,7 +47,11 @@ describe('props', () => {
 
   describe('classnames', () => {
     const customClassNotification = (
-      <Notification closeText="Close" className="custom-class">
+      <Notification
+        closeText="Close"
+        className="custom-class"
+        labelText="Lorem ipsum dolor sit"
+      >
         Test content
       </Notification>
     );
@@ -63,6 +68,7 @@ describe('props', () => {
   });
   const NotificationWithButtonProps = (
     <Notification
+      labelText="Lorem ipsum dolor sit"
       closeText="Close"
       closeButtonProps={{
         'aria-labelledby': 'test-element',
@@ -88,7 +94,12 @@ describe('props', () => {
   });
 
   const NotificationWithDefaultAriaLiveMode = (
-    <Notification id="testId" closeText="Close" ariaLiveMode="off">
+    <Notification
+      id="testId"
+      closeText="Close"
+      ariaLiveMode="off"
+      labelText="Lorem ipsum dolor sit"
+    >
       Testcontent
     </Notification>
   );
@@ -106,7 +117,11 @@ describe('props', () => {
   test('onClick event is called when clicked', () => {
     const mockClick = jest.fn();
     const { getByRole } = render(
-      <Notification closeText="Close" onClick={mockClick}>
+      <Notification
+        closeText="Close"
+        onClick={mockClick}
+        labelText="Lorem ipsum dolor sit"
+      >
         Test content
       </Notification>,
     );
@@ -118,7 +133,9 @@ describe('props', () => {
 
 describe('accessibility', () => {
   const TestNotification = (
-    <Notification closeText="Close">Testcontent</Notification>
+    <Notification closeText="Close" labelText="Lorem ipsum dolor sit">
+      Testcontent
+    </Notification>
   );
   test('should not have basic accessibility issues', axeTest(TestNotification));
 });

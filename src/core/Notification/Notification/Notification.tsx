@@ -27,6 +27,8 @@ export interface NotificationProps extends BaseNotificationProps {
   closeButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'aria-label'>;
   /** Use small screen styling */
   smallScreen?: boolean;
+  /** LabelText is header of component */
+  labelText: string;
 }
 
 interface InnerRef {
@@ -80,6 +82,11 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
             aria-live={ariaLiveMode}
           >
             <HtmlDiv className={notificationClassNames.content}>
+              {labelText && (
+                <HtmlDiv className={notificationClassNames.label}>
+                  {labelText}
+                </HtmlDiv>
+              )}
               {children}
             </HtmlDiv>
           </HtmlDiv>

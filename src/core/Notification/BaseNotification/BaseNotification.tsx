@@ -26,7 +26,7 @@ export interface BaseNotificationProps extends HtmlDivWithRefProps {
    */
   ariaLiveMode?: 'polite' | 'assertive' | 'off';
   /** Label for the Notication */
-  labelText?: string;
+  labelText: string;
   /** Main content of the Notication */
   children?: ReactNode;
 }

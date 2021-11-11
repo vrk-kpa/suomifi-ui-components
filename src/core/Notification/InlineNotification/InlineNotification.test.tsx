@@ -6,7 +6,7 @@ import { axeTest } from '../../../utils/test';
 describe('props', () => {
   describe('children', () => {
     const notificationWithElementChild = (
-      <InlineNotification>
+      <InlineNotification labelText="Lorem ipsum dolor sit">
         <div>Test notification</div>
       </InlineNotification>
     );
@@ -34,6 +34,10 @@ describe('props', () => {
   });
 });
 describe('accessibility', () => {
-  const TestNotification = <InlineNotification>Testcontent</InlineNotification>;
+  const TestNotification = (
+    <InlineNotification labelText="Lorem ipsum dolor sit">
+      Testcontent
+    </InlineNotification>
+  );
   test('should not have basic accessibility issues', axeTest(TestNotification));
 });

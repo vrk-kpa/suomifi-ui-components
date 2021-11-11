@@ -133,6 +133,23 @@ exports[`props children should match snapshot 1`] = `
   cursor: inherit;
 }
 
+.c1 .fi-notification_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
 .c1.fi-notification {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -355,6 +372,11 @@ exports[`props children should match snapshot 1`] = `
         <div
           class="c2 fi-notification_content"
         >
+          <div
+            class="c2 fi-notification_label"
+          >
+            Lorem ipsum dolor sit
+          </div>
           <div>
             Test notification
           </div>
