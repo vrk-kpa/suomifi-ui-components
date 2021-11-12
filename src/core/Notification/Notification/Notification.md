@@ -1,9 +1,5 @@
 ```js
-import {
-  Notification,
-  InlineNotification,
-  Button
-} from 'suomifi-ui-components';
+import { Notification, Button } from 'suomifi-ui-components';
 
 <>
   <Notification
@@ -17,13 +13,6 @@ import {
     </p>
     <Button variant="secondary">Button</Button>
   </Notification>
-  <InlineNotification
-    closeText="Close"
-    labelText="Lorem ipsum dolor sit"
-  >
-    The service will be temporarily unavailable on 5.6.2021 at 21.00 –
-    23.59 due to maintenance.
-  </InlineNotification>
   <Notification
     closeText="Close"
     labelText="Maintenance notification"
@@ -43,13 +32,6 @@ import {
     </p>
     <Button variant="secondary">Button</Button>
   </Notification>
-
-  <InlineNotification
-    status="error"
-    labelText="Lorem ipsum dolor sit"
-  >
-    <p>Something went wrong. Please try again in a moment.</p>
-  </InlineNotification>
 
   <Notification
     status="error"
@@ -71,14 +53,5 @@ import {
     Suspendisse efficitur et turpis eget tempor. Nam sed lacus ut
     lorem feugiat tincidunt.
   </Notification>
-
-  <InlineNotification status="success" labelText="All good">
-    Password Uptated.
-  </InlineNotification>
-
-  <InlineNotification labelText="Long label Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi est nulla, rhoncus ac odio at">
-    The service will be temporarily unavailable on 5.6.2021 at 21.00 –
-    23.59 due to maintenance.
-  </InlineNotification>
 </>;
 ```
