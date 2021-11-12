@@ -9,6 +9,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-notification--inline {
     padding: 5px 0px 4px 0px;
     .fi-notification_icon-wrapper {
+      margin-left: ${theme.spacing.m};
       flex: 0;
     }
   }

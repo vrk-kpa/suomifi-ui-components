@@ -16,8 +16,8 @@ export const baseNotificationBaseStyles = (theme: SuomifiTheme) => css`
       align-items: flex-start;
     }
     & .fi-notification_icon-wrapper {
-      margin-left: ${theme.spacing.m};
       margin-top: ${theme.spacing.m};
+      flex: 0;
       & .fi-notification_icon {
         height: 24px;
         width: 24px;

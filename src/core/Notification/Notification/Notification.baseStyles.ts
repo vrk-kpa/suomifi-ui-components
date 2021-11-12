@@ -11,10 +11,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     flex-wrap: nowrap;
     box-sizing: border-box;
     margin-top: 7px;
-    margin-right: ${theme.spacing.xs};
+    margin-right: -5px;
     margin-bottom: ${theme.spacing.insetM};
   }
-
+  & .fi-notification_style-wrapper {
+    padding: 0 43px 10px 43px;
+  }
   & .fi-notification_close-button {
     ${font(theme)('bodyTextSmall')}
     height: 40px;
@@ -46,15 +48,20 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       transform: translateY(1px);
     }
   }
-
   /** Small screen variant styles */
-  &--small-screen {
-    & .fi-notification-close-button-wrapper {
+  &.fi-notification--small-screen {
+    & .fi-notification_close-button-wrapper {
       justify-content: flex-end;
       margin: 0;
       & .fi-icon {
         margin-right: ${theme.spacing.xxs};
       }
+    }
+    & .fi-notification_style-wrapper {
+      padding: 0;
+    }
+    & .fi-notification_icon-wrapper {
+      margin-left: ${theme.spacing.m};
     }
   }
 `;

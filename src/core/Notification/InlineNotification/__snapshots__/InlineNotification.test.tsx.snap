@@ -129,8 +129,10 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_icon-wrapper {
-  margin-left: 20px;
   margin-top: 20px;
+  -webkit-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
 }
 
 .c1.fi-notification .fi-notification_icon-wrapper .fi-notification_icon {
@@ -200,6 +202,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification--inline .fi-notification_icon-wrapper {
+  margin-left: 20px;
   -webkit-flex: 0;
   -ms-flex: 0;
   flex: 0;
