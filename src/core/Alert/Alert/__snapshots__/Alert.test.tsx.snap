@@ -359,9 +359,9 @@ exports[`props children should match snapshot 1`] = `
         </svg>
       </div>
       <div
-        aria-live="assertive"
         class="c2 fi-alert_text-content-wrapper"
         id="7"
+        role="alert"
       >
         <div
           class="c2 fi-alert_content"
