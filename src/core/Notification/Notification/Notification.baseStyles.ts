@@ -5,6 +5,12 @@ import { baseNotificationBaseStyles } from '../BaseNotification/BaseNotification
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${baseNotificationBaseStyles(theme)}
+  & .fi-notification_content-button-wrapper {
+    margin: 0 20px 0 85px;
+    & .fi-button {
+      margin-right: ${theme.spacing.s};
+    }
+  }
   & .fi-notification_close-button-wrapper {
     flex: 1 0 auto;
     display: flex;
@@ -62,6 +68,14 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
     & .fi-notification_icon-wrapper {
       margin-left: ${theme.spacing.m};
+    }
+    & .fi-notification_content-button-wrapper {
+      margin: 0 20px 0 25px;
+      & .fi-button {
+        width: 100%;
+        margin-bottom: ${theme.spacing.s};
+        margin-right: 0;
+      }
     }
   }
 `;

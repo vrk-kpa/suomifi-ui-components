@@ -10,6 +10,7 @@ export const baseNotificationBaseStyles = (theme: SuomifiTheme) => css`
   &.fi-notification {
     ${element(theme)}
     ${font(theme)('bodyTextSmall')}
+    padding-bottom: ${theme.spacing.l};
     width: 100%;
     & .fi-notification_style-wrapper {
       display: flex;
@@ -29,7 +30,7 @@ export const baseNotificationBaseStyles = (theme: SuomifiTheme) => css`
       flex-direction: column;
       padding: 0 20px;
       margin-top: ${theme.spacing.s};
-      margin-bottom: ${theme.spacing.s};
+      margin-bottom: 0;
       & .fi-notification_content {
         vertical-align: middle;
         ${font(theme)('bodyTextSmall')}

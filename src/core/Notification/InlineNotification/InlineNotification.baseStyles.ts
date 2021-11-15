@@ -12,5 +12,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       margin-left: ${theme.spacing.m};
       flex: 0;
     }
+    & .fi-button {
+      margin: 0 0 25px 25px;
+    }
   }
 `;

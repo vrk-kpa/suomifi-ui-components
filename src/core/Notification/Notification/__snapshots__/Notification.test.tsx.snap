@@ -165,6 +165,7 @@ exports[`props children should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+  padding-bottom: 25px;
   width: 100%;
   box-shadow: 0px 4px 8px 0px rgba(41,41,41,0.2);
   border-radius: 4px;
@@ -206,7 +207,7 @@ exports[`props children should match snapshot 1`] = `
   flex-direction: column;
   padding: 0 20px;
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 0;
 }
 
 .c1.fi-notification .fi-notification_text-content-wrapper .fi-notification_content {
@@ -248,6 +249,14 @@ exports[`props children should match snapshot 1`] = `
 
 .c1.fi-notification--success .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
   fill: hsl(166,90%,34%);
+}
+
+.c1 .fi-notification_content-button-wrapper {
+  margin: 0 20px 0 85px;
+}
+
+.c1 .fi-notification_content-button-wrapper .fi-button {
+  margin-right: 15px;
 }
 
 .c1 .fi-notification_close-button-wrapper {
@@ -349,6 +358,16 @@ exports[`props children should match snapshot 1`] = `
 
 .c1.fi-notification--small-screen .fi-notification_icon-wrapper {
   margin-left: 20px;
+}
+
+.c1.fi-notification--small-screen .fi-notification_content-button-wrapper {
+  margin: 0 20px 0 25px;
+}
+
+.c1.fi-notification--small-screen .fi-notification_content-button-wrapper .fi-button {
+  width: 100%;
+  margin-bottom: 15px;
+  margin-right: 0;
 }
 
 <div>

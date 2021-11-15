@@ -14,6 +14,7 @@ export const notificationClassNames = {
   closeButtonWrapper: `${baseClassName}_close-button-wrapper`,
   smallScreen: `${baseClassName}--small-screen`,
   inline: `${baseClassName}--inline`,
+  buttonContentWrapper: `${baseClassName}_content-button-wrapper`,
 };
 
 export interface BaseNotificationProps extends HtmlDivWithRefProps {
@@ -29,4 +30,5 @@ export interface BaseNotificationProps extends HtmlDivWithRefProps {
   labelText: string;
   /** Main content of the Notication */
   children?: ReactNode;
+  buttonContent?: ReactNode;
 }
