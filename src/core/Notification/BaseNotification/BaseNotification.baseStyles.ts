@@ -39,15 +39,15 @@ export const baseNotificationBaseStyles = (theme: SuomifiTheme) => css`
     border-radius: 4px;
     /* Status variant styles */
     &--neutral {
-      border-top: 4px solid #4698c3; /* Later add theme.colors.example styling */
+      border-top: 4px solid ${theme.colors.accentSecondary};
       & .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-        fill: #4698c3; /* Later add theme.colors.example styling */
+        fill: ${theme.colors.accentSecondary};
       }
     }
     &--error {
-      border-top: 4px solid #b54439; /* Later add theme.colors.example styling */
+      border-top: 4px solid ${theme.colors.alertBase};
       & .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-        fill: #b54439; /* Later add theme.colors.example styling */
+        fill: ${theme.colors.alertBase};
       }
     }
     &--success {

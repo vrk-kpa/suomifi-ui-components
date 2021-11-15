@@ -174,19 +174,19 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification--neutral {
-  border-top: 4px solid #4698c3;
+  border-top: 4px solid hsl(196,77%,44%);
 }
 
 .c1.fi-notification--neutral .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-  fill: #4698c3;
+  fill: hsl(196,77%,44%);
 }
 
 .c1.fi-notification--error {
-  border-top: 4px solid #b54439;
+  border-top: 4px solid hsl(3,59%,48%);
 }
 
 .c1.fi-notification--error .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-  fill: #b54439;
+  fill: hsl(3,59%,48%);
 }
 
 .c1.fi-notification--success {
