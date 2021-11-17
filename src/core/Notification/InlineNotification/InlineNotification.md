@@ -20,7 +20,9 @@ import { InlineNotification } from 'suomifi-ui-components';
   <InlineNotification status="success" labelText="All good">
     Password Uptated.
   </InlineNotification>
-
+  <InlineNotification status="success">
+    Password Uptated.
+  </InlineNotification>
   <InlineNotification labelText="Long label Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi est nulla, rhoncus ac odio at">
     The service will be temporarily unavailable on 5.6.2021 at 21.00 –
     23.59 due to maintenance.
