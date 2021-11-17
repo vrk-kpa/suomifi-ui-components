@@ -78,7 +78,7 @@ import { Notification, Button } from 'suomifi-ui-components';
     closeText="Long close text"
     labelText="Lorem ipsum dolor sit"
   >
-    Something went wrong. Please try again in a moment.
+    <p>Something went wrong. Please try again in a moment.</p>
   </Notification>
 
   <Notification
@@ -86,12 +86,14 @@ import { Notification, Button } from 'suomifi-ui-components';
     closeText="Close"
     labelText="Lorem ipsum dolor sit"
   >
-    This is a long notification text. Lorem ipsum dolor sit amet,
-    consectetur adipiscing elit. Morbi est nulla, rhoncus ac odio at,
-    blandit ornare mi. Suspendisse potenti. Vestibulum ante ipsum
-    primis in faucibus orci luctus et ultrices posuere cubilia curae;
-    Suspendisse efficitur et turpis eget tempor. Nam sed lacus ut
-    lorem feugiat tincidunt.
+    <p>
+      This is a long notification text. Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit. Morbi est nulla, rhoncus ac odio
+      at, blandit ornare mi. Suspendisse potenti. Vestibulum ante
+      ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+      curae; Suspendisse efficitur et turpis eget tempor. Nam sed
+      lacus ut lorem feugiat tincidunt.
+    </p>
   </Notification>
 </>;
 ```
