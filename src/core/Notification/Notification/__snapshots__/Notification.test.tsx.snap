@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`props children should match snapshot 1`] = `
-.c4 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,30 +27,30 @@ exports[`props children should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c4:-moz-focusring {
+.c6:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c4::-moz-focus-inner {
+.c6::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c4::-webkit-file-upload-button {
+.c6::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c4::-webkit-inner-spin-button {
+.c6::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c4::-webkit-outer-spin-button {
+.c6::-webkit-outer-spin-button {
   height: auto;
 }
 
-.c4::before,
-.c4::after {
+.c6::before,
+.c6::after {
   box-sizing: border-box;
 }
 
@@ -133,7 +133,37 @@ exports[`props children should match snapshot 1`] = `
   cursor: inherit;
 }
 
-.c1 .fi-notification_label {
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
+.c5 {
+  color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -146,8 +176,72 @@ exports[`props children should match snapshot 1`] = `
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
-  font-weight: 600;
+  font-weight: 400;
+  margin: 0;
+}
+
+.c5.fi-paragraph--margin-xxs {
   margin-bottom: 5px;
+}
+
+.c5.fi-paragraph--margin-xs {
+  margin-bottom: 10px;
+}
+
+.c5.fi-paragraph--margin-s {
+  margin-bottom: 15px;
+}
+
+.c5.fi-paragraph--margin-m {
+  margin-bottom: 20px;
+}
+
+.c5.fi-paragraph--margin-l {
+  margin-bottom: 25px;
+}
+
+.c5.fi-paragraph--margin-xl {
+  margin-bottom: 30px;
+}
+
+.c5.fi-paragraph--margin-xxl {
+  margin-bottom: 40px;
+}
+
+.c5.fi-paragraph--margin-xxxl {
+  margin-bottom: 60px;
+}
+
+.c5.fi-paragraph--margin-xxxxl {
+  margin-bottom: 80px;
+}
+
+.c5.fi-paragraph--margin-insetXxs {
+  margin-bottom: 2px;
+}
+
+.c5.fi-paragraph--margin-insetXs {
+  margin-bottom: 4px;
+}
+
+.c5.fi-paragraph--margin-insetS {
+  margin-bottom: 6px;
+}
+
+.c5.fi-paragraph--margin-insetM {
+  margin-bottom: 8px;
+}
+
+.c5.fi-paragraph--margin-insetL {
+  margin-bottom: 10px;
+}
+
+.c5.fi-paragraph--margin-insetXl {
+  margin-bottom: 16px;
+}
+
+.c5.fi-paragraph--margin-insetXxl {
+  margin-bottom: 20px;
 }
 
 .c1.fi-notification {
@@ -165,10 +259,32 @@ exports[`props children should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  padding-bottom: 25px;
+  padding-bottom: 17px;
   width: 100%;
   box-shadow: 0px 4px 8px 0px rgba(41,41,41,0.2);
   border-radius: 4px;
+}
+
+.c1.fi-notification p {
+  font-size: 16px;
+}
+
+.c1.fi-notification .fi-notification_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+  margin-top: -4px;
+  margin-bottom: 5px;
 }
 
 .c1.fi-notification .fi-notification_style-wrapper {
@@ -183,10 +299,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_icon-wrapper {
-  margin-top: 20px;
-  -webkit-flex: 0;
-  -ms-flex: 0;
-  flex: 0;
+  margin-top: 17px;
 }
 
 .c1.fi-notification .fi-notification_icon-wrapper .fi-notification_icon {
@@ -205,7 +318,7 @@ exports[`props children should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding: 0 20px;
+  padding: 9px 20px 0 20px;
   margin-top: 15px;
   margin-bottom: 0;
 }
@@ -251,15 +364,35 @@ exports[`props children should match snapshot 1`] = `
   fill: hsl(166,90%,34%);
 }
 
-.c1 .fi-notification_content-button-wrapper {
-  margin: 0 20px 0 85px;
+.c1.fi-notification--small-screen.fi-notification .fi-notification_text-content-wrapper {
+  padding-top: 3px;
 }
 
-.c1 .fi-notification_content-button-wrapper .fi-button {
+.c1.fi-notification {
+  padding-bottom: 25px;
+}
+
+.c1.fi-notification .fi-notification_content-button-wrapper {
+  margin: 10px 20px 5px 93px;
+}
+
+.c1.fi-notification .fi-notification_content-button-wrapper .fi-button {
   margin-right: 15px;
 }
 
-.c1 .fi-notification_close-button-wrapper {
+.c1.fi-notification .fi-notification_icon-wrapper {
+  margin-top: 20px;
+  -webkit-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
+}
+
+.c1.fi-notification .fi-notification_icon-wrapper .fi-notification_icon {
+  height: 30px;
+  width: 30px;
+}
+
+.c1.fi-notification .fi-notification_close-button-wrapper {
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
@@ -271,16 +404,16 @@ exports[`props children should match snapshot 1`] = `
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   box-sizing: border-box;
-  margin-top: 7px;
+  margin-top: 15px;
   margin-right: -5px;
   margin-bottom: 8px;
 }
 
-.c1 .fi-notification_style-wrapper {
+.c1.fi-notification .fi-notification_style-wrapper {
   padding: 0 43px 10px 43px;
 }
 
-.c1 .fi-notification_close-button {
+.c1.fi-notification .fi-notification_close-button {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -301,12 +434,12 @@ exports[`props children should match snapshot 1`] = `
   border-radius: 2px;
 }
 
-.c1 .fi-notification_close-button:focus-visible {
+.c1.fi-notification .fi-notification_close-button:focus-visible {
   outline: 0;
   position: relative;
 }
 
-.c1 .fi-notification_close-button:focus-visible:after {
+.c1.fi-notification .fi-notification_close-button:focus-visible:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -322,15 +455,15 @@ exports[`props children should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c1 .fi-notification_close-button:active {
+.c1.fi-notification .fi-notification_close-button:active {
   background: linear-gradient(-180deg,hsl(202,7%,80%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c1 .fi-notification_close-button:hover {
+.c1.fi-notification .fi-notification_close-button:hover {
   border-color: hsl(0,0%,16%);
 }
 
-.c1 .fi-notification_close-button .fi-icon {
+.c1.fi-notification .fi-notification_close-button .fi-icon {
   width: 14px;
   height: 14px;
   margin-left: 5px;
@@ -340,7 +473,16 @@ exports[`props children should match snapshot 1`] = `
   transform: translateY(1px);
 }
 
-.c1.fi-notification--small-screen .fi-notification_close-button-wrapper {
+.c1.fi-notification.fi-notification--small-screen {
+  padding-bottom: 20px;
+}
+
+.c1.fi-notification.fi-notification--small-screen .fi-notification_text-content-wrapper {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.c1.fi-notification.fi-notification--small-screen .fi-notification_close-button-wrapper {
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
@@ -348,25 +490,31 @@ exports[`props children should match snapshot 1`] = `
   margin: 0;
 }
 
-.c1.fi-notification--small-screen .fi-notification_close-button-wrapper .fi-icon {
+.c1.fi-notification.fi-notification--small-screen .fi-notification_close-button-wrapper .fi-icon {
   margin-right: 5px;
 }
 
-.c1.fi-notification--small-screen .fi-notification_style-wrapper {
+.c1.fi-notification.fi-notification--small-screen .fi-notification_style-wrapper {
   padding: 0;
 }
 
-.c1.fi-notification--small-screen .fi-notification_icon-wrapper {
-  margin-left: 20px;
+.c1.fi-notification.fi-notification--small-screen .fi-notification_icon-wrapper {
+  margin-top: 17px;
+  margin-left: 17px;
 }
 
-.c1.fi-notification--small-screen .fi-notification_content-button-wrapper {
-  margin: 0 20px 0 25px;
+.c1.fi-notification.fi-notification--small-screen .fi-notification_icon-wrapper .fi-notification_icon {
+  height: 24px;
+  width: 24px;
 }
 
-.c1.fi-notification--small-screen .fi-notification_content-button-wrapper .fi-button {
+.c1.fi-notification.fi-notification--small-screen .fi-notification_content-button-wrapper {
+  margin: 0 15px;
+}
+
+.c1.fi-notification.fi-notification--small-screen .fi-notification_content-button-wrapper .fi-button {
   width: 100%;
-  margin-bottom: 15px;
+  margin-top: 15px;
   margin-right: 0;
 }
 
@@ -405,11 +553,11 @@ exports[`props children should match snapshot 1`] = `
         <div
           class="c2 fi-notification_content"
         >
-          <div
-            class="c2 fi-notification_label"
+          <p
+            class="c4 fi-paragraph c5 fi-notification_label"
           >
             Lorem ipsum dolor sit
-          </div>
+          </p>
           <div>
             Test notification
           </div>
@@ -421,7 +569,7 @@ exports[`props children should match snapshot 1`] = `
         <button
           aria-describedby="5"
           aria-label="Close"
-          class="c4 fi-notification_close-button"
+          class="c6 fi-notification_close-button"
           type="button"
         >
           CLOSE
