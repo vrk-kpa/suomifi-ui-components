@@ -7,13 +7,18 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   /** Inline variant styles  */
   &.fi-notification--inline {
-    padding: 5px 0px 4px 0px;
     .fi-notification_icon-wrapper {
-      margin-left: ${theme.spacing.m};
+      margin-left: 17px;
       flex: 0;
     }
     & .fi-button {
       margin: 0 0 25px 25px;
+    }
+    & .fi-notification_text-content-wrapper {
+      padding: 1px 20px 0 12px;
+      .fi-notification_label {
+        padding-top: 3px;
+      }
     }
   }
 `;

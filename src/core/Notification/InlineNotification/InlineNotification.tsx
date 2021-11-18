@@ -3,6 +3,8 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlDivWithRef } from '../../../reset';
 import { Icon } from '../../Icon/Icon';
+import { Paragraph } from '../../Paragraph/Paragraph';
+
 import {
   BaseNotificationProps,
   notificationClassNames,
@@ -65,9 +67,9 @@ class BaseInlineNotification extends Component<
             aria-live={ariaLiveMode}
           >
             {labelText && (
-              <HtmlDiv className={notificationClassNames.label}>
+              <Paragraph className={notificationClassNames.label}>
                 {labelText}
-              </HtmlDiv>
+              </Paragraph>
             )}
             <HtmlDiv className={notificationClassNames.content}>
               {children}

@@ -1,17 +1,27 @@
 ```js
-import { Notification, Button } from 'suomifi-ui-components';
+import {
+  Notification,
+  Button,
+  Paragraph
+} from 'suomifi-ui-components';
 
 <>
+  <Notification closeText="Close" smallScreen>
+    <Paragraph>
+      The service will be temporarily unavailable on 5.6.2021 at 21.00
+      – 23.59 due to maintenance.
+    </Paragraph>
+  </Notification>
   <Notification
     closeText="Close"
     smallScreen
     labelText="Lorem ipsum dolor sit"
     buttonContent={<Button variant="secondary">Button</Button>}
   >
-    <p>
+    <Paragraph>
       The service will be temporarily unavailable on 5.6.2021 at 21.00
       – 23.59 due to maintenance.
-    </p>
+    </Paragraph>
   </Notification>
   <Notification
     closeText="Close"
@@ -24,17 +34,34 @@ import { Notification, Button } from 'suomifi-ui-components';
       </>
     }
   >
-    <p>
+    <Paragraph>
       The service will be temporarily unavailable on 5.6.2021 at 21.00
       – 23.59 due to maintenance.
-    </p>
+    </Paragraph>
+  </Notification>
+  <Notification closeText="Close">
+    <Paragraph>
+      This is a long notification text. Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit. Morbi est nulla, rhoncus ac odio
+      at, blandit ornare mi. Suspendisse potenti. Vestibulum ante
+      ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+      curae; Suspendisse efficitur.
+    </Paragraph>
+    <Paragraph>
+      Et turpis eget tempor. Nam sed lacus ut lorem feugiat tincidunt.
+      Mauris quis nisi placerat, convallis turpis nec, auctor massa.
+      Nam ornare tortor id tortor tristique, in semper augue
+      fermentum. Nulla at pharetra leo, a ullamcorper metus. Donec
+      molestie velit tristique feugiat interdum. Donec ultrices
+      efficitur pellentesque. Sed luctus ac metus sed rhoncus.
+    </Paragraph>
   </Notification>
   <Notification
     closeText="Close"
     labelText="Maintenance notification"
     buttonContent={<Button variant="secondary">Button</Button>}
   >
-    <p>
+    <Paragraph>
       This is a long notification text. Lorem ipsum dolor sit amet,
       consectetur adipiscing elit. Morbi est nulla, rhoncus ac odio
       at, blandit ornare mi. Suspendisse potenti. Vestibulum ante
@@ -46,7 +73,7 @@ import { Notification, Button } from 'suomifi-ui-components';
       ullamcorper metus. Donec molestie velit tristique feugiat
       interdum. Donec ultrices efficitur pellentesque. Sed luctus ac
       metus sed rhoncus.
-    </p>
+    </Paragraph>
   </Notification>
   <Notification
     closeText="Close"
@@ -58,19 +85,14 @@ import { Notification, Button } from 'suomifi-ui-components';
       </>
     }
   >
-    <p>
+    <Paragraph>
       This is a long notification text. Lorem ipsum dolor sit amet,
       consectetur adipiscing elit. Morbi est nulla, rhoncus ac odio
       at, blandit ornare mi. Suspendisse potenti. Vestibulum ante
       ipsum primis in faucibus orci luctus et ultrices posuere cubilia
       curae; Suspendisse efficitur et turpis eget tempor. Nam sed
-      lacus ut lorem feugiat tincidunt. Mauris quis nisi placerat,
-      convallis turpis nec, auctor massa. Nam ornare tortor id tortor
-      tristique, in semper augue fermentum. Nulla at pharetra leo, a
-      ullamcorper metus. Donec molestie velit tristique feugiat
-      interdum. Donec ultrices efficitur pellentesque. Sed luctus ac
-      metus sed rhoncus.
-    </p>
+      lacus ut.
+    </Paragraph>
   </Notification>
 
   <Notification
@@ -78,7 +100,9 @@ import { Notification, Button } from 'suomifi-ui-components';
     closeText="Long close text"
     labelText="Lorem ipsum dolor sit"
   >
-    <p>Something went wrong. Please try again in a moment.</p>
+    <Paragraph>
+      Something went wrong. Please try again in a moment.
+    </Paragraph>
   </Notification>
 
   <Notification
@@ -86,14 +110,14 @@ import { Notification, Button } from 'suomifi-ui-components';
     closeText="Close"
     labelText="Lorem ipsum dolor sit"
   >
-    <p>
+    <Paragraph>
       This is a long notification text. Lorem ipsum dolor sit amet,
       consectetur adipiscing elit. Morbi est nulla, rhoncus ac odio
       at, blandit ornare mi. Suspendisse potenti. Vestibulum ante
       ipsum primis in faucibus orci luctus et ultrices posuere cubilia
       curae; Suspendisse efficitur et turpis eget tempor. Nam sed
       lacus ut lorem feugiat tincidunt.
-    </p>
+    </Paragraph>
   </Notification>
 </>;
 ```

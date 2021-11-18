@@ -8,6 +8,8 @@ import {
   HtmlButtonProps,
 } from '../../../reset';
 import { Icon } from '../../Icon/Icon';
+import { Paragraph } from '../../Paragraph/Paragraph';
+
 import {
   BaseNotificationProps,
   notificationClassNames,
@@ -84,9 +86,9 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
           >
             <HtmlDiv className={notificationClassNames.content}>
               {labelText && (
-                <HtmlDiv className={notificationClassNames.label}>
+                <Paragraph className={notificationClassNames.label}>
                   {labelText}
-                </HtmlDiv>
+                </Paragraph>
               )}
               {children}
             </HtmlDiv>
