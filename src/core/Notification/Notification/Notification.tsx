@@ -46,7 +46,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
       labelText,
       children,
       id,
-      buttonContent,
+      actionElements,
       closeText,
       onCloseButtonClick,
       smallScreen,
@@ -112,9 +112,9 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
             </HtmlButton>
           </HtmlDiv>
         </HtmlDiv>
-        {buttonContent && (
-          <HtmlDiv className={notificationClassNames.buttonContentWrapper}>
-            {buttonContent}
+        {actionElements && (
+          <HtmlDiv className={notificationClassNames.actionElementsWrapper}>
+            {actionElements}
           </HtmlDiv>
         )}
       </HtmlDivWithRef>

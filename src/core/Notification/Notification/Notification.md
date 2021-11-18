@@ -16,7 +16,7 @@ import {
     closeText="Close"
     smallScreen
     labelText="Lorem ipsum dolor sit"
-    buttonContent={<Button variant="secondary">Button</Button>}
+    actionElements={<Button variant="secondary">Button</Button>}
   >
     <Paragraph>
       The service will be temporarily unavailable on 5.6.2021 at 21.00
@@ -27,7 +27,7 @@ import {
     closeText="Close"
     smallScreen
     labelText="Lorem ipsum dolor sit"
-    buttonContent={
+    actionElements={
       <>
         <Button>Button</Button>
         <Button variant="secondary">Button</Button>
@@ -59,7 +59,7 @@ import {
   <Notification
     closeText="Close"
     labelText="Maintenance notification"
-    buttonContent={<Button variant="secondary">Button</Button>}
+    actionElements={<Button variant="secondary">Button</Button>}
   >
     <Paragraph>
       This is a long notification text. Lorem ipsum dolor sit amet,
@@ -78,7 +78,7 @@ import {
   <Notification
     closeText="Close"
     labelText="Maintenance notification"
-    buttonContent={
+    actionElements={
       <>
         <Button>Button</Button>
         <Button variant="secondary">Button</Button>
