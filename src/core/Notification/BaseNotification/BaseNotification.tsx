@@ -14,7 +14,7 @@ export const notificationClassNames = {
   closeButtonWrapper: `${baseClassName}_close-button-wrapper`,
   smallScreen: `${baseClassName}--small-screen`,
   inline: `${baseClassName}--inline`,
-  actionElementsWrapper: `${baseClassName}_content-button-wrapper`,
+  actionElementsWrapper: `${baseClassName}_actions-elements-wrapper`,
 };
 
 export interface BaseNotificationProps extends HtmlDivWithRefProps {
