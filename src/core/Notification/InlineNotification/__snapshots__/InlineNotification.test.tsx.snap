@@ -59,27 +59,6 @@ exports[`props children should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c3 {
-  display: inline-block;
-  vertical-align: baseline;
-}
-
-.c3 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c3 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c3.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c3.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -109,6 +88,27 @@ exports[`props children should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c3 {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.c3 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c3 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c3.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c3.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c5 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -124,71 +124,247 @@ exports[`props children should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  margin: 0;
+  color: hsl(0,0%,16%);
 }
 
-.c5.fi-paragraph--margin-xxs {
-  margin-bottom: 5px;
+.c5.fi-heading--h1hero {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 600;
 }
 
-.c5.fi-paragraph--margin-xs {
-  margin-bottom: 10px;
+.c5.fi-heading--h1 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 300;
 }
 
-.c5.fi-paragraph--margin-s {
-  margin-bottom: 15px;
+.c5.fi-heading--h2 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 600;
 }
 
-.c5.fi-paragraph--margin-m {
-  margin-bottom: 20px;
+.c5.fi-heading--h3 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
 }
 
-.c5.fi-paragraph--margin-l {
-  margin-bottom: 25px;
+.c5.fi-heading--h4 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
 }
 
-.c5.fi-paragraph--margin-xl {
-  margin-bottom: 30px;
+.c5.fi-heading--h5 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
 }
 
-.c5.fi-paragraph--margin-xxl {
-  margin-bottom: 40px;
+.c5.fi-heading--h6 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
 }
 
-.c5.fi-paragraph--margin-xxxl {
-  margin-bottom: 60px;
+.c5.fi-heading--small-screen {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 300;
 }
 
-.c5.fi-paragraph--margin-xxxxl {
-  margin-bottom: 80px;
+.c5.fi-heading--small-screen.fi-heading--h1hero {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 600;
 }
 
-.c5.fi-paragraph--margin-insetXxs {
-  margin-bottom: 2px;
+.c5.fi-heading--small-screen.fi-heading--h1 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 300;
 }
 
-.c5.fi-paragraph--margin-insetXs {
-  margin-bottom: 4px;
+.c5.fi-heading--small-screen.fi-heading--h2 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 600;
 }
 
-.c5.fi-paragraph--margin-insetS {
-  margin-bottom: 6px;
+.c5.fi-heading--small-screen.fi-heading--h3 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
 }
 
-.c5.fi-paragraph--margin-insetM {
-  margin-bottom: 8px;
+.c5.fi-heading--small-screen.fi-heading--h4 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
 }
 
-.c5.fi-paragraph--margin-insetL {
-  margin-bottom: 10px;
+.c5.fi-heading--small-screen.fi-heading--h5 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
 }
 
-.c5.fi-paragraph--margin-insetXl {
-  margin-bottom: 16px;
-}
-
-.c5.fi-paragraph--margin-insetXxl {
-  margin-bottom: 20px;
+.c5.fi-heading--small-screen.fi-heading--h6 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
 }
 
 .c1.fi-notification {
@@ -366,11 +542,11 @@ exports[`props children should match snapshot 1`] = `
         class="c2 fi-notification_text-content-wrapper"
         id="3"
       >
-        <p
-          class="c4 fi-paragraph c5 fi-notification_label"
+        <h2
+          class="c4 fi-heading c5 fi-notification_label fi-heading--h2"
         >
           Lorem ipsum dolor sit
-        </p>
+        </h2>
         <div
           class="c2 fi-notification_content"
         >
