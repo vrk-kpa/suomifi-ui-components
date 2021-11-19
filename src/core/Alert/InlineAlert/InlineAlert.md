@@ -2,9 +2,9 @@
 import { InlineAlert } from 'suomifi-ui-components';
 
 <>
-  <InlineAlert labelText="Notification">
-    The service will be temporarily unavailable on 5.6.2021 at 21.00 –
-    23.59 due to maintenance.
+  <InlineAlert labelText="Info">
+    Make sure that your name is typed exactly as it appears in your
+    identification.
   </InlineAlert>
 
   <InlineAlert status="error" labelText="Error">
