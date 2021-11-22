@@ -210,7 +210,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-alert--neutral .fi-alert_icon-wrapper .fi-icon .fi-icon-base-fill {
-  fill: #4698c3;
+  fill: hsl(196,77%,44%);
 }
 
 .c1.fi-alert--error {
@@ -226,7 +226,21 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-alert--warning .fi-alert_icon-wrapper .fi-icon .fi-icon-base-fill {
-  fill: #b54439;
+  fill: hsl(23,82%,53%);
+}
+
+.c1 .fi-alert_icon-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .c1 .fi-alert_close-button-wrapper {
@@ -300,13 +314,12 @@ exports[`props children should match snapshot 1`] = `
   width: 14px;
   height: 14px;
   margin-left: 5px;
-  margin-top: 5px;
-  -webkit-transform: translateY(1px);
-  -ms-transform: translateY(1px);
-  transform: translateY(1px);
+  -webkit-transform: translateY(0.1em);
+  -ms-transform: translateY(0.1em);
+  transform: translateY(0.1em);
 }
 
-.c1--small-screen .fi-alert-close-button-wrapper {
+.c1.fi-alert--small-screen .fi-alert_close-button-wrapper {
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
@@ -314,7 +327,7 @@ exports[`props children should match snapshot 1`] = `
   margin: 0;
 }
 
-.c1--small-screen .fi-alert-close-button-wrapper .fi-icon {
+.c1.fi-alert--small-screen .fi-alert_close-button-wrapper .fi-icon {
   margin-right: 5px;
 }
 
@@ -346,9 +359,9 @@ exports[`props children should match snapshot 1`] = `
         </svg>
       </div>
       <div
-        aria-live="assertive"
         class="c2 fi-alert_text-content-wrapper"
         id="7"
+        role="alert"
       >
         <div
           class="c2 fi-alert_content"

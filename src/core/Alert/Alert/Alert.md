@@ -1,5 +1,5 @@
 ```js
-import { Alert, InlineAlert } from 'suomifi-ui-components';
+import { Alert } from 'suomifi-ui-components';
 
 <>
   <Alert closeText="Close" smallScreen>
@@ -20,10 +20,6 @@ import { Alert, InlineAlert } from 'suomifi-ui-components';
     ultrices efficitur pellentesque. Sed luctus ac metus sed rhoncus.
   </Alert>
 
-  <InlineAlert status="error">
-    Something went wrong. Please try again in a moment.
-  </InlineAlert>
-
   <Alert status="error" closeText="Long close text">
     Something went wrong. Please try again in a moment.
   </Alert>
@@ -32,15 +28,5 @@ import { Alert, InlineAlert } from 'suomifi-ui-components';
     The service will be temporarily unavailable on 5.6.2021 at 21.00 –
     23.59 due to maintenance.
   </Alert>
-
-  <InlineAlert status="warning" labelText="Warning">
-    The service will be temporarily unavailable on 5.6.2021 at 21.00 –
-    23.59 due to maintenance.
-  </InlineAlert>
-
-  <InlineAlert labelText="Long label Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi est nulla, rhoncus ac odio at">
-    The service will be temporarily unavailable on 5.6.2021 at 21.00 –
-    23.59 due to maintenance.
-  </InlineAlert>
 </>;
 ```

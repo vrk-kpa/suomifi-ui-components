@@ -41,7 +41,7 @@ export const baseAlertBaseStyles = (theme: SuomifiTheme) => css`
     &--neutral {
       background-color: ${theme.colors.accentSecondaryLight1};
       & .fi-alert_icon-wrapper .fi-icon .fi-icon-base-fill {
-        fill: #4698c3; /* Later add to theme styling these colors */
+        fill: ${theme.colors.accentSecondary};
       }
     }
 
@@ -55,7 +55,7 @@ export const baseAlertBaseStyles = (theme: SuomifiTheme) => css`
     &--warning {
       background-color: #fff6e0; /** needs to be warningLight1 but the token is yet to be added */
       & .fi-alert_icon-wrapper .fi-icon .fi-icon-base-fill {
-        fill: #b54439; /* Later add to theme styling these colors */
+        fill: ${theme.colors.accentBase};
       }
     }
   }

@@ -5,6 +5,13 @@ import { baseAlertBaseStyles } from '../BaseAlert/BaseAlert.baseStyles';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${baseAlertBaseStyles(theme)}
+
+  & .fi-alert_icon-wrapper {
+    display: flex;
+    flex: 1 0 auto;
+    justify-content: flex-end;
+  }
+
   & .fi-alert_close-button-wrapper {
     flex: 1 0 auto;
     display: flex;
@@ -42,14 +49,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       width: 14px;
       height: 14px;
       margin-left: ${theme.spacing.xxs};
-      margin-top: ${theme.spacing.xxs};
-      transform: translateY(1px);
+      transform: translateY(0.1em);
     }
   }
 
   /** Small screen variant styles */
-  &--small-screen {
-    & .fi-alert-close-button-wrapper {
+  &.fi-alert--small-screen {
+    & .fi-alert_close-button-wrapper {
       justify-content: flex-end;
       margin: 0;
       & .fi-icon {

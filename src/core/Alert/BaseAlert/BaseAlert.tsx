@@ -21,10 +21,6 @@ export interface BaseAlertProps extends HtmlDivWithRefProps {
    * @default 'neutral'
    */
   status?: 'neutral' | 'warning' | 'error';
-  /** Set aria-live mode for the alert text content and label.
-   * @default 'assertive'
-   */
-  ariaLiveMode?: 'polite' | 'assertive' | 'off';
   /** Main content of the alert */
   children?: ReactNode;
 }

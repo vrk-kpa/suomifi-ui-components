@@ -15,6 +15,10 @@ import { baseStyles } from './InlineAlert.baseStyles';
 export interface InlineAlertProps extends BaseAlertProps {
   /** Label for the alert */
   labelText?: string;
+  /** Set aria-live mode for the alert text content and label.
+   * @default 'assertive'
+   */
+  ariaLiveMode?: 'polite' | 'assertive' | 'off';
 }
 
 interface InnerRef {

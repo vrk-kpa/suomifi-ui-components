@@ -38,7 +38,6 @@ class BaseAlert extends Component<AlertProps & InnerRef> {
     const {
       className,
       status = 'neutral',
-      ariaLiveMode = 'assertive',
       children,
       id,
       closeText,
@@ -72,7 +71,7 @@ class BaseAlert extends Component<AlertProps & InnerRef> {
           <HtmlDiv
             className={alertClassNames.textContentWrapper}
             id={id}
-            aria-live={ariaLiveMode}
+            role="alert"
           >
             <HtmlDiv className={alertClassNames.content}>{children}</HtmlDiv>
           </HtmlDiv>
@@ -90,7 +89,7 @@ class BaseAlert extends Component<AlertProps & InnerRef> {
               {...getConditionalAriaProp('aria-label', [closeText])}
               {...closeButtonPassProps}
             >
-              {!smallScreen ? closeText?.toUpperCase() : ''}
+              {!smallScreen ? closeText.toUpperCase() : ''}
               <Icon icon="close" />
             </HtmlButton>
           </HtmlDiv>

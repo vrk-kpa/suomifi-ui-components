@@ -82,32 +82,21 @@ describe('props', () => {
     expect(closeButton).toHaveAttribute('disabled');
     expect(closeButton).toHaveClass('testClass');
   });
-  describe('Aria-live mode and className check', () => {
-    const AlertWithDefaultAriaLiveMode = (
+  describe('Alert role and className check', () => {
+    const DefaultAlert = (
       <Alert id="testIdDefault" closeText="Close">
         Testcontent
       </Alert>
     );
-    const AlertWithAriaLiveModeOff = (
-      <Alert id="testIdOff" closeText="Close" ariaLiveMode="off">
-        Testcontent
-      </Alert>
-    );
-    it('should have default aria-live mode', () => {
-      const { container } = render(AlertWithDefaultAriaLiveMode);
+
+    it('should have alert role by default', () => {
+      const { container } = render(DefaultAlert);
       expect(container.querySelector('#testIdDefault')).toHaveClass(
         'fi-alert_text-content-wrapper',
       );
       expect(container.querySelector('#testIdDefault')).toHaveAttribute(
-        'aria-live',
-        'assertive',
-      );
-    });
-    it('should have specified aria-live mode', () => {
-      const { container } = render(AlertWithAriaLiveModeOff);
-      expect(container.querySelector('#testIdOff')).toHaveAttribute(
-        'aria-live',
-        'off',
+        'role',
+        'alert',
       );
     });
   });
