@@ -348,7 +348,7 @@ describe('statusText', () => {
     );
     expect(getByRole('textbox')).toHaveAttribute(
       'aria-describedby',
-      '123-statusText 123-aria-status',
+      '123-statusText',
     );
   });
 });
