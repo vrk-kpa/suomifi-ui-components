@@ -138,8 +138,8 @@ describe('Controlled', () => {
         fireEvent.click(input);
       });
       const item = await waitFor(() => getByText('Powersaw'));
-      expect(item.parentNode).toHaveAttribute('aria-disabled');
-      expect(item.parentNode).toHaveClass('fi-select-item--disabled');
+      expect(item).toHaveAttribute('aria-disabled');
+      expect(item).toHaveClass('fi-select-item--disabled');
     });
   });
 
