@@ -41,7 +41,7 @@ class BaseInlineNotification extends Component<
         ? 'info'
         : status === 'success'
         ? 'checkCircle'
-        : status;
+        : 'error';
 
     return (
       <HtmlDivWithRef
