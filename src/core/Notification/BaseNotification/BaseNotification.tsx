@@ -30,6 +30,8 @@ export interface BaseNotificationProps extends HtmlDivWithRefProps {
   labelText?: string;
   /** Main content of the Notification */
   children?: ReactNode;
+  /** Developer can add for example buttons to botton of notification */
   actionElements?: ReactNode;
+  /** Header variant for Notification */
   headingVariant?: 'h2' | 'h3' | 'h4' | 'h5';
 }
