@@ -40,7 +40,7 @@ export const baseNotificationBaseStyles = (theme: SuomifiTheme) => css`
         ${font(theme)('bodyTextSmall')}
       }
     }
-    box-shadow: 0px 4px 8px 0px rgba(41, 41, 41, 0.2);
+    box-shadow: ${theme.shadows.invertTextShadow};
     border-radius: 4px;
     /* Status variant styles */
     &--neutral {
