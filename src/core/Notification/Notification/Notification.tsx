@@ -51,6 +51,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
       onCloseButtonClick,
       smallScreen,
       closeButtonProps = {},
+      headingVariant,
       ...passProps
     } = this.props;
 
@@ -86,7 +87,10 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
           >
             <HtmlDiv className={notificationClassNames.content}>
               {labelText && (
-                <Heading variant="h2" className={notificationClassNames.label}>
+                <Heading
+                  variant={headingVariant || 'h2'}
+                  className={notificationClassNames.label}
+                >
                   {labelText}
                 </Heading>
               )}

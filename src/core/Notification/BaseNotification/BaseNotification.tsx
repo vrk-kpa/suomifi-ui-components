@@ -31,4 +31,5 @@ export interface BaseNotificationProps extends HtmlDivWithRefProps {
   /** Main content of the Notification */
   children?: ReactNode;
   actionElements?: ReactNode;
+  headingVariant?: 'h2' | 'h3' | 'h4' | 'h5';
 }

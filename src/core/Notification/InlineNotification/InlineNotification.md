@@ -5,6 +5,7 @@ import { InlineNotification, Paragraph } from 'suomifi-ui-components';
   <InlineNotification
     closeText="Close"
     labelText="Lorem ipsum dolor sit"
+    headingVariant="h3"
   >
     <Paragraph>
       The service will be temporarily unavailable on 5.6.2021 at 21.00

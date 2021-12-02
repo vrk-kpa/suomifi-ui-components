@@ -34,6 +34,7 @@ class BaseInlineNotification extends Component<
       labelText,
       children,
       id,
+      headingVariant,
       ...passProps
     } = this.props;
     const variantIcon =
@@ -67,7 +68,10 @@ class BaseInlineNotification extends Component<
             aria-live={ariaLiveMode}
           >
             {labelText && (
-              <Heading variant="h2" className={notificationClassNames.label}>
+              <Heading
+                variant={headingVariant || 'h2'}
+                className={notificationClassNames.label}
+              >
                 {labelText}
               </Heading>
             )}

@@ -16,6 +16,7 @@ import {
     closeText="Close"
     smallScreen
     labelText="Lorem ipsum dolor sit"
+    headingVariant="h3"
     actionElements={<Button variant="secondary">Button</Button>}
   >
     <Paragraph>
