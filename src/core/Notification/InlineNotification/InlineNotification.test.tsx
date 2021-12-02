@@ -26,7 +26,7 @@ describe('props', () => {
         Testcontent
       </InlineNotification>
     );
-    it('Inline component should contain given labelText', () => {
+    it('should contain given labelText', () => {
       const { getByText } = render(InlineInlineNotificationComponent);
       const label = getByText('Inline Notification label');
       expect(label).toHaveClass('fi-notification_label');
