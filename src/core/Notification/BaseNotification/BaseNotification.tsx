@@ -22,13 +22,13 @@ export interface BaseNotificationProps extends HtmlDivWithRefProps {
    * @default 'neutral'
    */
   status?: 'neutral' | 'success' | 'error';
-  /** Set aria-live mode for the Notication text content and label.
+  /** Set aria-live mode for the Notification text content and label.
    * @default 'assertive'
    */
   ariaLiveMode?: 'polite' | 'assertive' | 'off';
-  /** Label for the Notication */
+  /** Label for the Notification */
   labelText?: string;
-  /** Main content of the Notication */
+  /** Main content of the Notification */
   children?: ReactNode;
   actionElements?: ReactNode;
 }
