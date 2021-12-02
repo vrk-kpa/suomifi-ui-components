@@ -8,7 +8,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-notification {
     padding-bottom: ${theme.spacing.l};
 
-    & .fi-notification_actions-elements-wrapper {
+    & .fi-notification_action-element-wrapper {
       margin: 10px 20px 5px 93px;
       & .fi-button {
         margin-right: ${theme.spacing.s};
@@ -90,7 +90,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           width: 24px;
         }
       }
-      & .fi-notification_actions-elements-wrapper {
+      & .fi-notification_action-element-wrapper {
         margin: 0 15px;
         & .fi-button {
           width: 100%;

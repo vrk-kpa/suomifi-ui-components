@@ -117,7 +117,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
           </HtmlDiv>
         </HtmlDiv>
         {actionElements && (
-          <HtmlDiv className={notificationClassNames.actionElementsWrapper}>
+          <HtmlDiv className={notificationClassNames.actionElementWrapper}>
             {actionElements}
           </HtmlDiv>
         )}
