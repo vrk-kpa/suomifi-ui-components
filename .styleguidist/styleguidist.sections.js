@@ -174,6 +174,13 @@ module.exports = {
               ]),
             },
             {
+              name: 'Notification',
+              components: getComponentWithVariants('Notification')([
+                'Notification/Notification',
+                'InlineNotification/InlineNotification',
+              ]),
+            },
+            {
               name: 'Expander',
               components: getComponentWithVariants('Expander')([
                 'Expander/Expander',
