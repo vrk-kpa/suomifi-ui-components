@@ -20,7 +20,7 @@ describe('props', () => {
       expect(container).toMatchSnapshot();
     });
   });
-  describe('labelText className Test', () => {
+  describe('labelText', () => {
     const InlineInlineNotificationComponent = (
       <InlineNotification labelText="Inline Notification label">
         Testcontent
