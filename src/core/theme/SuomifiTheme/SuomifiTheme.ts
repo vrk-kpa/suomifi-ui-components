@@ -11,18 +11,6 @@ import { boxShadowFocus, absoluteFocus, noMouseFocus } from './focus';
 import { zindexes } from './zindexes';
 import { transitions } from './transitions';
 import { radius } from './radius';
-export {
-  TypographyDesignTokens,
-  ColorDesignTokens,
-  SpacingDesignTokens,
-  RawDesignTokens,
-  ValueUnit,
-  RawColorDesignTokens,
-  ColorToken,
-  RawSpacingDesignTokens,
-  RawTypographyDesignTokens,
-  TypographyToken,
-} from 'suomifi-design-tokens';
 
 export type GradientDesignTokens = typeof derivedTokens.gradients;
 export type FocusDesignTokens = typeof derivedTokens.focus;

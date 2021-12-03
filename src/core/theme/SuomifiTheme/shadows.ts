@@ -1,4 +1,4 @@
-import { ColorDesignTokens } from '../';
+import { ColorDesignTokens } from 'suomifi-design-tokens';
 import { alphaHex } from '../../../utils/css';
 
 export const shadows = (colors: ColorDesignTokens) => ({

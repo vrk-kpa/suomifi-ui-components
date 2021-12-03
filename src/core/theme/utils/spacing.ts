@@ -1,7 +1,7 @@
+import { SpacingDesignTokens } from 'suomifi-design-tokens';
 import {
   SuomifiTheme,
   SpacingProp,
-  SpacingDesignTokens,
   defaultSuomifiTheme,
 } from '../SuomifiTheme/SuomifiTheme';
 
