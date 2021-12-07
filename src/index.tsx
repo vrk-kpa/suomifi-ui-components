@@ -39,7 +39,7 @@ export {
   SingleSelectProps,
   SingleSelectData,
   SingleSelectStatus,
-} from './core/Form/Form';
+} from './core/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';
 export {
