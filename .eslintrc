@@ -13,10 +13,7 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
-    "prettier",
-    "prettier/react",
-    "prettier/@typescript-eslint",
-    "prettier/standard"
+    "prettier"
   ],
   "plugins": [
     "@typescript-eslint",
@@ -58,6 +55,7 @@
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/ban-types": ["off", { "types": ["{}", "object"] }],
+    "class-methods-use-this": ["warn", { "enforceForClassFields": false }],
     "arrow-parens": ["error", "always"],
     "curly": "error",
     // "jsx-alignment": true,
@@ -85,6 +83,7 @@
     "import/no-useless-path-segments": "off",
     "import/order": "off",
     "import/prefer-default-export": "off",
+    "react/sort-comp": "off",
     "jsx-a11y/label-has-associated-control": [
       2,
       {

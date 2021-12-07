@@ -32,6 +32,7 @@ module.exports = {
   transform: {
     ...tsjPreset.transform,
     '\\.(svg)$': '<rootDir>/jest/jest.transformer.js',
+    // to enable css module snapshots, see https://github.com/keyz/identity-obj-proxy/issues/8
     '\\.(css||scss)$': '<rootDir>/jest/jest.transformer.stub.js',
   },
 
