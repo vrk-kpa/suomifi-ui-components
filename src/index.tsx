@@ -91,16 +91,6 @@ export {
 } from './core/VisuallyHidden/VisuallyHidden';
 export {
   SuomifiTheme,
-  TypographyDesignTokens,
-  ColorDesignTokens,
-  SpacingDesignTokens,
-  RawDesignTokens,
-  ValueUnit,
-  RawColorDesignTokens,
-  ColorToken,
-  RawSpacingDesignTokens,
-  RawTypographyDesignTokens,
-  TypographyToken,
   GradientDesignTokens,
   FocusDesignTokens,
   RadiusDesignTokens,
@@ -118,4 +108,17 @@ export {
   TypographyProp,
   SpacingProp,
 } from './core/theme';
-export { suomifiDesignTokens, DesignTokens } from 'suomifi-design-tokens';
+export {
+  suomifiDesignTokens,
+  DesignTokens,
+  TypographyDesignTokens,
+  ColorDesignTokens,
+  SpacingDesignTokens,
+  RawDesignTokens,
+  ValueUnit,
+  RawColorDesignTokens,
+  ColorToken,
+  RawSpacingDesignTokens,
+  RawTypographyDesignTokens,
+  TypographyToken,
+} from 'suomifi-design-tokens';
