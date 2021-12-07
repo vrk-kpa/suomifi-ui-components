@@ -1,10 +1,10 @@
 import postcss from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
 import resolve from '@rollup/plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
 import cssnano from 'cssnano';
+import commonjs from '@rollup/plugin-commonjs';
 import cssImport from 'postcss-import';
-import typescript from '@wessberg/rollup-plugin-ts';
+import typescript from '@rollup/plugin-typescript';
 
 export default [
   {
@@ -19,9 +19,7 @@ export default [
     ],
     plugins: [
       typescript({
-        transpiler: 'babel',
-        include: ['**/*.ts', '**/*.tsx'],
-        exclude: 'node_modules/**',
+        outDir: './dist',
       }),
       resolve(),
       commonjs(),
