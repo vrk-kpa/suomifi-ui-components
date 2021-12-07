@@ -3,6 +3,7 @@ const { defaults: tsjPreset } = require('ts-jest/presets');
 // https://jestjs.io/docs/en/configuration.html
 
 module.exports = {
+  testEnvironment: 'jsdom',
   // Automatically clear mock calls and instances between every test
   clearMocks: true,
 
@@ -30,15 +31,15 @@ module.exports = {
 
   transform: {
     ...tsjPreset.transform,
-    '\\.(svg)$': '<rootDir>/jest.transformer.js',
+    '\\.(svg)$': '<rootDir>/jest/jest.transformer.js',
+    '\\.(css||scss)$':
+      '<rootDir>/jest/jest.transformer.js' /** hack to dismiss css imports */,
   },
 
-  testMatch: tsjPreset.testMatch,
-  moduleFileExtensions: tsjPreset.moduleFileExtensions,
+  setupFilesAfterEnv: [require.resolve('./jest/jest.setup.js')],
 
-  setupFilesAfterEnv: [require.resolve('./jest.setup.js')],
-
-  moduleNameMapper: {
-    '\\.(css||scss)$': 'identity-obj-proxy',
-  },
+  // Not working after jest update
+  // moduleNameMapper: {
+  //   '\\.(css||scss)$': 'identity-obj-proxy',
+  // },
 };
