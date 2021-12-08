@@ -13,7 +13,14 @@ Suomi.fi-styleguide in React components. [Living styleguide](https://vrk-kpa.git
 
 Works with [React >= 16.8.0](https://github.com/facebook/react) and [Styled Components >= 5.2.1](https://github.com/styled-components/styled-components). Supports [TypeScript](https://github.com/Microsoft/TypeScript). CJS and ESM builds provided via the npm package.
 
-Supports and tested on latest versions of Chrome, Firefox, Safari and Edge. Also tested with NVDA, VoiceOver and TalkBack screen readers.
+### Supported browser and screenreader combinations
+
+| Operating system | Browsers              | Screen reader |
+| ---------------- | --------------------- | ------------- |
+| macOS            | Safari, Chrome, Edge  | VoiceOver     |
+| Windows          | Chrome, Firefox, Edge | NVDA          |
+| iOS              | Safari                | VoiceOver     |
+| Android          | Chrome                | TalkBack      |
 
 ## 📦 Install
 
