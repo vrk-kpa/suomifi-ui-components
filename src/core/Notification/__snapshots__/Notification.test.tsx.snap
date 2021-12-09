@@ -441,62 +441,9 @@ exports[`props children should match snapshot 1`] = `
   border-radius: 4px;
 }
 
-.c1.fi-notification p {
-  font-size: 16px;
-}
-
-.c1.fi-notification .fi-notification_label {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 600;
-  margin-top: -4px;
-  margin-bottom: 5px;
-}
-
-.c1.fi-notification .fi-notification_style-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-.c1.fi-notification .fi-notification_icon-wrapper {
-  margin-top: 17px;
-}
-
-.c1.fi-notification .fi-notification_icon-wrapper .fi-notification_icon {
-  height: 24px;
-  width: 24px;
-}
-
 .c1.fi-notification .fi-notification_text-content-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 3 1 auto;
-  -ms-flex: 3 1 auto;
-  flex: 3 1 auto;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  padding: 9px 20px 0 20px;
-  margin-top: 15px;
-  margin-bottom: 0;
+  margin-top: 22px;
+  padding-left: 20px;
 }
 
 .c1.fi-notification .fi-notification_text-content-wrapper .fi-notification_content {
@@ -516,36 +463,22 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c1.fi-notification--neutral {
-  border-top: 4px solid hsl(196,77%,44%);
-}
-
-.c1.fi-notification--neutral .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-  fill: hsl(196,77%,44%);
-}
-
-.c1.fi-notification--error {
-  border-top: 4px solid hsl(3,59%,48%);
-}
-
-.c1.fi-notification--error .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-  fill: hsl(3,59%,48%);
-}
-
-.c1.fi-notification--success {
-  border-top: 4px solid hsl(166,90%,34%);
-}
-
-.c1.fi-notification--success .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
-  fill: hsl(166,90%,34%);
-}
-
-.c1.fi-notification--small-screen.fi-notification .fi-notification_text-content-wrapper {
-  padding-top: 3px;
-}
-
-.c1.fi-notification {
-  padding-bottom: 25px;
+.c1.fi-notification .fi-notification_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+  margin-top: -1px;
+  margin-bottom: 5px;
 }
 
 .c1.fi-notification .fi-notification_action-element-wrapper {
@@ -580,13 +513,21 @@ exports[`props children should match snapshot 1`] = `
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   box-sizing: border-box;
-  margin-top: 15px;
+  margin-top: 14px;
   margin-right: -5px;
   margin-bottom: 8px;
 }
 
 .c1.fi-notification .fi-notification_style-wrapper {
   padding: 0 43px 10px 43px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
 }
 
 .c1.fi-notification .fi-notification_close-button {
@@ -608,6 +549,7 @@ exports[`props children should match snapshot 1`] = `
   padding: 7px 8px;
   border: 1px solid transparent;
   border-radius: 2px;
+  text-transform: uppercase;
 }
 
 .c1.fi-notification .fi-notification_close-button:focus-visible {
@@ -649,13 +591,45 @@ exports[`props children should match snapshot 1`] = `
   transform: translateY(1px);
 }
 
+.c1.fi-notification--neutral {
+  border-top: 4px solid hsl(196,77%,44%);
+}
+
+.c1.fi-notification--neutral .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
+  fill: hsl(196,77%,44%);
+}
+
+.c1.fi-notification--error {
+  border-top: 4px solid hsl(3,59%,48%);
+}
+
+.c1.fi-notification--error .fi-notification_icon-wrapper .fi-icon .fi-icon-base-fill {
+  fill: hsl(3,59%,48%);
+}
+
 .c1.fi-notification.fi-notification--small-screen {
   padding-bottom: 20px;
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_text-content-wrapper {
+  margin-top: 16px;
+  padding-top: 1px;
   padding-left: 12px;
   padding-right: 12px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 3 1 auto;
+  -ms-flex: 3 1 auto;
+  flex: 3 1 auto;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1.fi-notification.fi-notification--small-screen .fi-notification_label {
+  margin-top: -2px;
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_close-button-wrapper {
@@ -696,7 +670,7 @@ exports[`props children should match snapshot 1`] = `
 
 <div>
   <section
-    class="c0 fi-notification c1 fi-notification--neutral"
+    class="c0 fi-notification fi-notification--neutral c1"
   >
     <div
       class="c2 fi-notification_style-wrapper"
@@ -722,7 +696,7 @@ exports[`props children should match snapshot 1`] = `
         </svg>
       </div>
       <div
-        aria-live="assertive"
+        aria-live="polite"
         class="c2 fi-notification_text-content-wrapper"
         id="5"
       >
@@ -744,11 +718,10 @@ exports[`props children should match snapshot 1`] = `
       >
         <button
           aria-describedby="5"
-          aria-label="Close"
           class="c6 fi-notification_close-button"
           type="button"
         >
-          CLOSE
+          Close
           <svg
             aria-hidden="true"
             class="fi-icon c3"

@@ -90,7 +90,7 @@ describe('props', () => {
       'test-element',
     );
     expect(getByRole('button')).toHaveAttribute('disabled');
-    expect(getByRole('button')).toHaveTextContent('CLOSE');
+    expect(getByRole('button')).toHaveTextContent('Close');
   });
 
   const NotificationWithDefaultAriaLiveMode = (
