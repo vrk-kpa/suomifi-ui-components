@@ -176,8 +176,7 @@ module.exports = {
             {
               name: 'Notification',
               components: getComponentWithVariants('Notification')([
-                'Notification/Notification',
-                'InlineNotification/InlineNotification',
+                'Notification/',
               ]),
             },
             {

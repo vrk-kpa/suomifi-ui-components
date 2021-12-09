@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { Notification } from './Notification';
-import { axeTest } from '../../../utils/test';
+import { axeTest } from '../../utils/test';
 
 describe('Error view tests', () => {
   const ErrorNotification = (

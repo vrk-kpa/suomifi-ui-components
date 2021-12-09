@@ -1,4 +1,5 @@
-import React, { Component, forwardRef } from 'react';
+import React, { Component, forwardRef, ReactNode } from 'react';
+
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import {
@@ -6,21 +7,48 @@ import {
   HtmlDivWithRef,
   HtmlButton,
   HtmlButtonProps,
-} from '../../../reset';
-import { Icon } from '../../Icon/Icon';
-import { Heading } from '../../Heading/Heading';
+  HtmlDivWithRefProps,
+} from '../../reset';
+import { Icon } from '../Icon/Icon';
+import { Heading } from '../Heading/Heading';
 
-import {
-  BaseNotificationProps,
-  notificationClassNames,
-  baseClassName,
-} from '../BaseNotification/BaseNotification';
-import { AutoId } from '../../utils/AutoId/AutoId';
-import { getConditionalAriaProp } from '../../../utils/aria';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import { AutoId } from '../utils/AutoId/AutoId';
+import { getConditionalAriaProp } from '../../utils/aria';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { baseStyles } from './Notification.baseStyles';
 
-export interface NotificationProps extends BaseNotificationProps {
+export const baseClassName = 'fi-notification';
+
+export const notificationClassNames = {
+  styleWrapper: `${baseClassName}_style-wrapper`,
+  content: `${baseClassName}_content`,
+  label: `${baseClassName}_label`,
+  textContentWrapper: `${baseClassName}_text-content-wrapper`,
+  icon: `${baseClassName}_icon`,
+  iconWrapper: `${baseClassName}_icon-wrapper`,
+  closeButton: `${baseClassName}_close-button`,
+  closeButtonWrapper: `${baseClassName}_close-button-wrapper`,
+  smallScreen: `${baseClassName}--small-screen`,
+  actionElementWrapper: `${baseClassName}_action-element-wrapper`,
+};
+
+export interface NotificationProps extends HtmlDivWithRefProps {
+  /** Style variant. Affects color and icon used.
+   * @default 'neutral'
+   */
+  status?: 'neutral' | 'success' | 'error';
+  /** Set aria-live mode for the Notification text content and label.
+   * @default 'polite'
+   */
+  ariaLiveMode?: 'polite' | 'assertive' | 'off';
+  /** Label for the Notification */
+  labelText?: string;
+  /** Main content of the Notification */
+  children?: ReactNode;
+  /** Elements to be rendered under the notification text. Can be e.g. buttons, links etc. */
+  actionElements?: ReactNode;
+  /** Header variant for Notification */
+  headingVariant?: 'h2' | 'h3' | 'h4' | 'h5';
   /** Text to label the close button. Visible + `aria-label` in regular size and only used as `aria-label` in small screen variant */
   closeText: string;
   /** Click handler for the close button */
@@ -30,9 +58,7 @@ export interface NotificationProps extends BaseNotificationProps {
   /** Use small screen styling */
   smallScreen?: boolean;
   /** LabelText is header of component */
-  labelText: string;
 }
-
 interface InnerRef {
   forwardedRef: React.RefObject<HTMLDivElement>;
 }
@@ -41,7 +67,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
   render() {
     const {
       className,
-      ariaLiveMode = 'assertive',
+      ariaLiveMode = 'polite',
       status = 'neutral',
       labelText,
       children,
@@ -60,20 +86,23 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
       'aria-describedby': closeButtonPropsAriaDescribedBy,
       ...closeButtonPassProps
     } = closeButtonProps;
-    const variantIcon =
-      status === 'neutral'
-        ? 'info'
-        : status === 'success'
-        ? 'checkCircle'
-        : 'error';
+    const variantIcon = status === 'neutral' ? 'info' : 'error';
+    const buttonAriaLabelSmallScreen = smallScreen
+      ? getConditionalAriaProp('aria-label', [closeText])
+      : false;
+
     return (
       <HtmlDivWithRef
         as="section"
         {...passProps}
-        className={classnames(baseClassName, className, {
-          [`${baseClassName}--${status}`]: !!status,
-          [notificationClassNames.smallScreen]: !!smallScreen,
-        })}
+        className={classnames(
+          baseClassName,
+          `${baseClassName}--${status}`,
+          className,
+          {
+            [notificationClassNames.smallScreen]: !!smallScreen,
+          },
+        )}
       >
         <HtmlDiv className={notificationClassNames.styleWrapper}>
           <HtmlDiv className={notificationClassNames.iconWrapper}>
@@ -103,15 +132,15 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
                 notificationClassNames.closeButton,
                 customCloseButtonClassName,
               )}
+              {...buttonAriaLabelSmallScreen}
               {...getConditionalAriaProp('aria-describedby', [
                 id,
                 closeButtonPropsAriaDescribedBy,
               ])}
               onClick={onCloseButtonClick}
-              {...getConditionalAriaProp('aria-label', [closeText])}
               {...closeButtonPassProps}
             >
-              {!smallScreen ? closeText?.toUpperCase() : ''}
+              {!smallScreen ? closeText : ''}
               <Icon icon="close" />
             </HtmlButton>
           </HtmlDiv>
