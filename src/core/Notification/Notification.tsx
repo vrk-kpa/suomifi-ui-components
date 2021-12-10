@@ -9,6 +9,7 @@ import {
   HtmlButtonProps,
   HtmlDivWithRefProps,
 } from '../../reset';
+import { hLevels } from '../../reset/HtmlH/HtmlH';
 import { Icon } from '../Icon/Icon';
 import { Heading } from '../Heading/Heading';
 
@@ -48,7 +49,7 @@ export interface NotificationProps extends HtmlDivWithRefProps {
   /** Elements to be rendered under the notification text. Can be e.g. buttons, links etc. */
   actionElements?: ReactNode;
   /** Header variant for Notification */
-  headingVariant?: 'h2' | 'h3' | 'h4' | 'h5';
+  headingVariant?: hLevels;
   /** Text to label the close button. Visible + `aria-label` in regular size and only used as `aria-label` in small screen variant */
   closeText: string;
   /** Click handler for the close button */
