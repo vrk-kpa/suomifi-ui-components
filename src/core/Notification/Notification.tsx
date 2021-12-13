@@ -84,9 +84,6 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
       ...closeButtonPassProps
     } = closeButtonProps;
     const variantIcon = status === 'neutral' ? 'info' : 'error';
-    const buttonAriaLabelSmallScreen = smallScreen
-      ? getConditionalAriaProp('aria-label', [closeText])
-      : {};
 
     return (
       <HtmlDivWithRef
@@ -129,7 +126,9 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
                 notificationClassNames.closeButton,
                 customCloseButtonClassName,
               )}
-              {...buttonAriaLabelSmallScreen}
+              {...getConditionalAriaProp('aria-label', [
+                smallScreen ? closeText : undefined,
+              ])}
               {...getConditionalAriaProp('aria-describedby', [
                 id,
                 closeButtonPropsAriaDescribedBy,
