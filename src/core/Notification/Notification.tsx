@@ -34,7 +34,7 @@ export interface NotificationProps extends HtmlDivWithRefProps {
   /** Style variant. Affects color and icon used.
    * @default 'neutral'
    */
-  status?: 'neutral' | 'success' | 'error';
+  status?: 'neutral' | 'error';
   /** Set aria-live mode for the Notification text content and label.
    * @default 'polite'
    */
