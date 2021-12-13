@@ -67,7 +67,7 @@ describe('props', () => {
     });
   });
 
-  describe('classname', () => {
+  describe('className', () => {
     const customClassNotification = (
       <Notification
         closeText="Close"
