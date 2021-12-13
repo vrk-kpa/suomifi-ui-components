@@ -55,7 +55,6 @@ export interface NotificationProps extends HtmlDivWithRefProps {
   closeButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'aria-label'>;
   /** Use small screen styling */
   smallScreen?: boolean;
-  /** LabelText is header of component */
 }
 interface InnerRef {
   forwardedRef: React.RefObject<HTMLDivElement>;
