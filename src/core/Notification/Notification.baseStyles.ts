@@ -8,7 +8,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     ${font(theme)('bodyTextSmall')}
     padding-bottom: 17px;
     width: 100%;
-    box-shadow: ${theme.shadows.notificationBoxShadow};
+    box-shadow: ${theme.shadows.wideBoxShadow};
     border-radius: 4px;
 
     & .fi-notification_text-content-wrapper {
