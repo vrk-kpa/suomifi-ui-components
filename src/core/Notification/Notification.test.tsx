@@ -160,9 +160,7 @@ describe('props', () => {
 
 describe('accessibility', () => {
   const TestNotification = (
-    <Notification closeText="Close" labelText="Lorem ipsum dolor sit">
-      Testcontent
-    </Notification>
+    <Notification closeText="Close">Testcontent</Notification>
   );
   test('should not have basic accessibility issues', axeTest(TestNotification));
 });
