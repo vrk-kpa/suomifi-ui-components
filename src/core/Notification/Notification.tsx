@@ -45,8 +45,10 @@ export interface NotificationProps extends HtmlDivWithRefProps {
   children?: ReactNode;
   /** Elements to be rendered under the notification text. Can be e.g. buttons, links etc. */
   actionElements?: ReactNode;
-  /** Header variant for Notification */
-  headingVariant?: hLevels;
+  /** Heading variant for Notification
+   * @default 'h2'
+   */
+  headingVariant?: Exclude<hLevels, 'h1'>;
   /** Text to label the close button. Visible + `aria-label` in regular size and only used as `aria-label` in small screen variant */
   closeText: string;
   /** Click handler for the close button */

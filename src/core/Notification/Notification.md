@@ -43,11 +43,11 @@ import {
     23.59 due to maintenance.
   </Notification>
   <Notification closeText="Close">
-    <Paragraph>
+    <Paragraph style={{ fontSize: '16px' }}>
       This is a long notification text. Lorem ipsum dolor sit amet,
       consectetur adipiscing elit.
     </Paragraph>
-    <Paragraph>
+    <Paragraph style={{ fontSize: '16px' }}>
       Et turpis eget tempor. Nam sed lacus ut lorem feugiat tincidunt.
       Mauris quis nisi placerat, convallis turpis nec, auctor massa.
       Nam ornare tortor id tortor tristique.
