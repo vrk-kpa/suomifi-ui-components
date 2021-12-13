@@ -66,33 +66,34 @@ describe('props', () => {
       expect(container.firstChild).toHaveClass('custom-class');
     });
   });
-  const NotificationWithButtonProps = (
-    <Notification
-      labelText="Lorem ipsum dolor sit"
-      closeText="Close"
-      closeButtonProps={{
-        'aria-labelledby': 'test-element',
-        disabled: true,
-        className: 'testClass',
-      }}
-    >
-      Testcontent
-    </Notification>
-  );
-  it('Button should contains custom classname', () => {
-    const { getByRole } = render(NotificationWithButtonProps);
-    expect(getByRole('button')).toHaveClass('testClass');
-  });
-  it('Button should have given props', () => {
-    const { getByRole } = render(NotificationWithButtonProps);
-    expect(getByRole('button')).toHaveAttribute(
-      'aria-labelledby',
-      'test-element',
+  describe('closeButtonProps', () => {
+    const NotificationWithButtonProps = (
+      <Notification
+        labelText="Lorem ipsum dolor sit"
+        closeText="Close"
+        closeButtonProps={{
+          'aria-labelledby': 'test-element',
+          disabled: true,
+          className: 'testClass',
+        }}
+      >
+        Testcontent
+      </Notification>
     );
-    expect(getByRole('button')).toHaveAttribute('disabled');
-    expect(getByRole('button')).toHaveTextContent('Close');
+    it('Button should contains custom classname', () => {
+      const { getByRole } = render(NotificationWithButtonProps);
+      expect(getByRole('button')).toHaveClass('testClass');
+    });
+    it('Button should have given props', () => {
+      const { getByRole } = render(NotificationWithButtonProps);
+      expect(getByRole('button')).toHaveAttribute(
+        'aria-labelledby',
+        'test-element',
+      );
+      expect(getByRole('button')).toHaveAttribute('disabled');
+      expect(getByRole('button')).toHaveTextContent('Close');
+    });
   });
-
   const NotificationWithDefaultAriaLiveMode = (
     <Notification
       id="testId"
