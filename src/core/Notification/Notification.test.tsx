@@ -116,26 +116,28 @@ describe('props', () => {
       expect(getByRole('button')).toHaveTextContent('Close');
     });
   });
-  const NotificationWithDefaultAriaLiveMode = (
-    <Notification
-      id="testId"
-      closeText="Close"
-      ariaLiveMode="off"
-      labelText="Lorem ipsum dolor sit"
-    >
-      Testcontent
-    </Notification>
-  );
+  describe('aria-live mode', () => {
+    const NotificationWithDefaultAriaLiveMode = (
+      <Notification
+        id="testId"
+        closeText="Close"
+        ariaLiveMode="off"
+        labelText="Lorem ipsum dolor sit"
+      >
+        Testcontent
+      </Notification>
+    );
 
-  it('should have specified aria-live mode', () => {
-    const { container } = render(NotificationWithDefaultAriaLiveMode);
-    expect(container.querySelector('#testId')).toHaveClass(
-      'fi-notification_text-content-wrapper',
-    );
-    expect(container.querySelector('#testId')).toHaveAttribute(
-      'aria-live',
-      'off',
-    );
+    it('should have specified aria-live mode', () => {
+      const { container } = render(NotificationWithDefaultAriaLiveMode);
+      expect(container.querySelector('#testId')).toHaveClass(
+        'fi-notification_text-content-wrapper',
+      );
+      expect(container.querySelector('#testId')).toHaveAttribute(
+        'aria-live',
+        'off',
+      );
+    });
   });
   test('onClick event is called when clicked', () => {
     const mockClick = jest.fn();
