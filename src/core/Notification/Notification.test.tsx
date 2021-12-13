@@ -3,27 +3,49 @@ import { render, fireEvent } from '@testing-library/react';
 import { Notification } from './Notification';
 import { axeTest } from '../../utils/test';
 
-describe('Error view tests', () => {
-  const ErrorNotification = (
-    <Notification
-      status="error"
-      className="notification-test-class"
-      closeText="Close"
-      smallScreen
-      labelText="Lorem ipsum dolor sit"
-    >
+describe('Status', () => {
+  describe('Default', () => {
+    const DefaultNotification = (
+      <Notification closeText="Close">Testcontent</Notification>
+    );
+    it('should have neutral className', () => {
+      const { container } = render(DefaultNotification);
+      expect(container.firstChild).toHaveClass('fi-notification--neutral');
+    });
+  });
+  describe('Neutral', () => {
+    const NeutralNotification = (
+      <Notification status="neutral" closeText="Close">
+        Testcontent
+      </Notification>
+    );
+    it('should have neutral className', () => {
+      const { container } = render(NeutralNotification);
+      expect(container.firstChild).toHaveClass('fi-notification--neutral');
+    });
+  });
+  describe('Error', () => {
+    const ErrorNotification = (
+      <Notification status="error" closeText="Close" smallScreen>
+        Testcontent
+      </Notification>
+    );
+    it('should have error className', () => {
+      const { container } = render(ErrorNotification);
+      expect(container.firstChild).toHaveClass('fi-notification--error');
+    });
+  });
+});
+describe('smallScreen', () => {
+  const SmallScreenNotification = (
+    <Notification closeText="Close" smallScreen>
       Testcontent
     </Notification>
   );
-
   it('should have status and smallScreen prop specific classNames', () => {
-    const { container } = render(ErrorNotification);
-    expect(container.firstChild).toHaveClass('fi-notification--error');
+    const { container, getByRole } = render(SmallScreenNotification);
     expect(container.firstChild).toHaveClass('fi-notification--small-screen');
-  });
-  it('should have given className as props', () => {
-    const { container } = render(ErrorNotification);
-    expect(container.firstChild).toHaveClass('notification-test-class');
+    expect(getByRole('button')).toHaveAttribute('aria-label', 'Close');
   });
 });
 describe('props', () => {
