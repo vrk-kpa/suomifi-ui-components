@@ -86,7 +86,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
     const variantIcon = status === 'neutral' ? 'info' : 'error';
     const buttonAriaLabelSmallScreen = smallScreen
       ? getConditionalAriaProp('aria-label', [closeText])
-      : false;
+      : {};
 
     return (
       <HtmlDivWithRef
