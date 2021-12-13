@@ -139,20 +139,22 @@ describe('props', () => {
       );
     });
   });
-  test('onClick event is called when clicked', () => {
-    const mockClick = jest.fn();
-    const { getByRole } = render(
-      <Notification
-        closeText="Close"
-        onClick={mockClick}
-        labelText="Lorem ipsum dolor sit"
-      >
-        Test content
-      </Notification>,
-    );
-    const button = getByRole('button');
-    fireEvent.click(button);
-    expect(mockClick).toHaveBeenCalledTimes(1);
+  describe('aonClick', () => {
+    test('onClick event is called when clicked', () => {
+      const mockClick = jest.fn();
+      const { getByRole } = render(
+        <Notification
+          closeText="Close"
+          onClick={mockClick}
+          labelText="Lorem ipsum dolor sit"
+        >
+          Test content
+        </Notification>,
+      );
+      const button = getByRole('button');
+      fireEvent.click(button);
+      expect(mockClick).toHaveBeenCalledTimes(1);
+    });
   });
 });
 
