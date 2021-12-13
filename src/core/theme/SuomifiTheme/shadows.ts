@@ -10,5 +10,5 @@ export const shadows = (colors: ColorDesignTokens) => ({
   actionElementBoxShadow: `0 1px 2px 0 ${alphaHex(0.1)(
     colors.brandBase,
   )} inset`,
-  notificationBoxShadow: `0px 4px 8px 0px ${alphaHex(0.14)(colors.blackBase)}`,
+  wideBoxShadow: `0px 4px 8px 0px ${alphaHex(0.14)(colors.blackBase)}`,
 });
