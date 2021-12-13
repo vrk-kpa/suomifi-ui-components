@@ -200,6 +200,7 @@ class BaseMultiSelect<T> extends Component<
               }
               return {
                 selectedItems: newSelectedItems,
+                focusedDescendantId: null,
               };
             }
             const newSelectedItems = prevState.selectedItems.concat([item]);
@@ -208,6 +209,7 @@ class BaseMultiSelect<T> extends Component<
             }
             return {
               selectedItems: newSelectedItems,
+              focusedDescendantId: null,
             };
           }
         }
@@ -280,6 +282,7 @@ class BaseMultiSelect<T> extends Component<
             filteredItems: prevProps.items,
             showPopover: false,
             showOptionsAvailableText: false,
+            focusedDescendantId: null,
           }),
         );
       }
@@ -339,7 +342,7 @@ class BaseMultiSelect<T> extends Component<
             filteredItems: prevProps.items,
           }),
         );
-        this.setState({ showPopover: false });
+        this.setState({ showPopover: false, focusedDescendantId: null });
         break;
       }
 
