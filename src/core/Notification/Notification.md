@@ -45,39 +45,26 @@ import {
   <Notification closeText="Close">
     <Paragraph>
       This is a long notification text. Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit. Morbi est nulla, rhoncus ac odio
-      at, blandit ornare mi. Suspendisse potenti. Vestibulum ante
-      ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-      curae; Suspendisse efficitur.
+      consectetur adipiscing elit.
     </Paragraph>
     <Paragraph>
       Et turpis eget tempor. Nam sed lacus ut lorem feugiat tincidunt.
       Mauris quis nisi placerat, convallis turpis nec, auctor massa.
-      Nam ornare tortor id tortor tristique, in semper augue
-      fermentum. Nulla at pharetra leo, a ullamcorper metus. Donec
-      molestie velit tristique feugiat interdum. Donec ultrices
-      efficitur pellentesque. Sed luctus ac metus sed rhoncus.
+      Nam ornare tortor id tortor tristique.
     </Paragraph>
   </Notification>
   <Notification
     closeText="Close"
-    labelText="Maintenance notification"
+    labelText="Notification"
     actionElements={<Button variant="secondary">Button</Button>}
   >
     This is a long notification text. Lorem ipsum dolor sit amet,
     consectetur adipiscing elit. Morbi est nulla, rhoncus ac odio at,
-    blandit ornare mi. Suspendisse potenti. Vestibulum ante ipsum
-    primis in faucibus orci luctus et ultrices posuere cubilia curae;
-    Suspendisse efficitur et turpis eget tempor. Nam sed lacus ut
-    lorem feugiat tincidunt. Mauris quis nisi placerat, convallis
-    turpis nec, auctor massa. Nam ornare tortor id tortor tristique,
-    in semper augue fermentum. Nulla at pharetra leo, a ullamcorper
-    metus. Donec molestie velit tristique feugiat interdum. Donec
-    ultrices efficitur pellentesque. Sed luctus ac metus sed rhoncus.
+    blandit ornare mi. Suspendisse potenti.
   </Notification>
   <Notification
     closeText="Close"
-    labelText="Maintenance notification"
+    labelText="Notification"
     actionElements={
       <>
         <Button>Button</Button>
@@ -87,9 +74,7 @@ import {
   >
     This is a long notification text. Lorem ipsum dolor sit amet,
     consectetur adipiscing elit. Morbi est nulla, rhoncus ac odio at,
-    blandit ornare mi. Suspendisse potenti. Vestibulum ante ipsum
-    primis in faucibus orci luctus et ultrices posuere cubilia curae;
-    Suspendisse efficitur et turpis eget tempor. Nam sed lacus ut.
+    blandit ornare mi. Suspendisse potenti.
   </Notification>
 
   <Notification
