@@ -7,15 +7,16 @@ import {
 
 <>
   <Notification closeText="Close" smallScreen>
-    The service will be temporarily unavailable on 5.6.2021 at 21.00 –
-    23.59 due to maintenance.
+    Et turpis eget tempor. Nam sed lacus ut lorem feugiat tincidunt.
+    Mauris quis nisi placerat
   </Notification>
   <Notification
     status="error"
     labelText="Lorem ipsum dolor sit"
     smallScreen
   >
-    Something went wrong. Please try again in a moment.
+    Et turpis eget tempor. Nam sed lacus ut lorem feugiat tincidunt.
+    Mauris quis nisi placerat
   </Notification>
   <Notification
     closeText="Close"
@@ -24,8 +25,8 @@ import {
     headingVariant="h3"
     actionElements={<Button variant="secondary">Button</Button>}
   >
-    The service will be temporarily unavailable on 5.6.2021 at 21.00 –
-    23.59 due to maintenance.
+    Et turpis eget tempor. Nam sed lacus ut lorem feugiat tincidunt.
+    Mauris quis nisi placerat
   </Notification>
   <Notification
     closeText="Close"
@@ -39,8 +40,8 @@ import {
       </>
     }
   >
-    The service will be temporarily unavailable on 5.6.2021 at 21.00 –
-    23.59 due to maintenance.
+    Et turpis eget tempor. Nam sed lacus ut lorem feugiat tincidunt.
+    Mauris quis nisi placerat
   </Notification>
   <Notification closeText="Close">
     <Paragraph style={{ fontSize: '16px' }}>
@@ -82,7 +83,8 @@ import {
     closeText="Long close text"
     labelText="Lorem ipsum dolor sit"
   >
-    Something went wrong. Please try again in a moment.
+    Et turpis eget tempor. Nam sed lacus ut lorem feugiat tincidunt.
+    Mauris quis nisi placerat
   </Notification>
 </>;
 ```
