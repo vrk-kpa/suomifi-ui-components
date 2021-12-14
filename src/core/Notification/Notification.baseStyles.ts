@@ -12,7 +12,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     border-radius: 4px;
 
     & .fi-notification_text-content-wrapper {
-      margin-top: 22px;
+      margin-top: 20px;
       padding-left: 20px;
       & .fi-notification_content {
         vertical-align: middle;
@@ -34,8 +34,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       margin-top: ${theme.spacing.m};
       flex: 0;
       & .fi-notification_icon {
-        height: 30px;
-        width: 30px;
+        height: 24px;
+        width: 24px;
       }
     }
     & .fi-notification_close-button-wrapper {
@@ -101,16 +101,15 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &.fi-notification--small-screen {
       padding-bottom: 20px;
       & .fi-notification_text-content-wrapper {
-        margin-top: 16px;
-        padding-top: 1px;
+        margin-top: 18px;
         padding-left: 12px;
         padding-right: 12px;
         display: flex;
         flex: 3 1 auto;
         flex-direction: column;
-      }
-      & .fi-notification_label {
-        margin-top: -2px;
+        & .fi-notification_label {
+          margin-top: -2px;
+        }
       }
       & .fi-notification_close-button-wrapper {
         justify-content: flex-end;
@@ -125,10 +124,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       & .fi-notification_icon-wrapper {
         margin-top: 17px;
         margin-left: 17px;
-        & .fi-notification_icon {
-          height: 24px;
-          width: 24px;
-        }
       }
       & .fi-notification_action-element-wrapper {
         margin: 0 15px;
