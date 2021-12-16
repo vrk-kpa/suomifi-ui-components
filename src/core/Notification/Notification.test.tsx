@@ -116,7 +116,7 @@ describe('props', () => {
       expect(getByRole('button')).toHaveTextContent('Close');
     });
   });
-  describe('aria-live mode', () => {
+  describe('ariaLiveMode', () => {
     const NotificationWithDefaultAriaLiveMode = (
       <Notification
         id="testId"
