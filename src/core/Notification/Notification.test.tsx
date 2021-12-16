@@ -139,7 +139,7 @@ describe('props', () => {
       );
     });
   });
-  describe('aonClick', () => {
+  describe('onClick', () => {
     test('onClick event is called when clicked', () => {
       const mockClick = jest.fn();
       const { getByRole } = render(
