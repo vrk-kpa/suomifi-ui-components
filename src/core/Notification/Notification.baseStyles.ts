@@ -25,7 +25,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       margin-bottom: ${theme.spacing.xxs};
     }
     & .fi-notification_action-element-wrapper {
-      margin: 10px 20px 5px 93px;
+      margin: 10px 20px 5px 89px;
       & .fi-button {
         margin-right: ${theme.spacing.s};
       }
