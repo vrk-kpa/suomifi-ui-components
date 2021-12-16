@@ -45,7 +45,7 @@ export interface NotificationProps extends HtmlDivWithRefProps {
   children?: ReactNode;
   /** Elements to be rendered under the notification text. Can be e.g. buttons, links etc. */
   actionElements?: ReactNode;
-  /** Heading variant for Notification
+  /** Heading variant for Notification. Prop for heading text is labelText.
    * @default 'h2'
    */
   headingVariant?: Exclude<hLevels, 'h1'>;
