@@ -36,19 +36,20 @@ describe('Status', () => {
     });
   });
 });
-describe('smallScreen', () => {
-  const SmallScreenNotification = (
-    <Notification closeText="Close" smallScreen>
-      Testcontent
-    </Notification>
-  );
-  it('should have status and smallScreen prop specific classNames', () => {
-    const { container, getByRole } = render(SmallScreenNotification);
-    expect(container.firstChild).toHaveClass('fi-notification--small-screen');
-    expect(getByRole('button')).toHaveAttribute('aria-label', 'Close');
-  });
-});
+
 describe('props', () => {
+  describe('smallScreen', () => {
+    const SmallScreenNotification = (
+      <Notification closeText="Close" smallScreen>
+        Testcontent
+      </Notification>
+    );
+    it('should have status and smallScreen prop specific classNames', () => {
+      const { container, getByRole } = render(SmallScreenNotification);
+      expect(container.firstChild).toHaveClass('fi-notification--small-screen');
+      expect(getByRole('button')).toHaveAttribute('aria-label', 'Close');
+    });
+  });
   describe('children', () => {
     const notificationWithElementChild = (
       <Notification closeText="Close" labelText="Lorem ipsum dolor sit">
