@@ -482,7 +482,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_action-element-wrapper {
-  margin: 10px 20px 5px 93px;
+  margin: 10px 20px 5px 89px;
 }
 
 .c1.fi-notification .fi-notification_action-element-wrapper .fi-button {
