@@ -17,6 +17,7 @@ type ariaProp = { [key in ariaPropName]: string } | {};
 
 /**
  * Returns object with 'aria-' property which can be spread to props.
+ * Using with different 'aria-' properties require different kind of use, see examples below.
  * E.g:
  * @example
  * <Component
@@ -25,18 +26,23 @@ type ariaProp = { [key in ariaPropName]: string } | {};
  *      otherDescribingElement ? "id-of-other-describing-element" : undefined,
  *   ])}
  * />
+ * <Component
+ *   {...getConditionalAriaProp('aria-label', [
+ *      "Very describing label text value",
+ *   ])}
+ * />
  * @param propName String of Aria property name
- * @param describedByIds Array of id-strings
+ * @param idsOrValues Array of id-strings or an array with the actual value.
  * @returns Object with 'aria-' property if there is atleast one string value that is not undefined. Otherwise returns empty Object.
  */
 export const getConditionalAriaProp = (
   propName: ariaPropName,
-  describedByIds: (string | undefined)[],
+  idsOrValues: (string | undefined)[],
 ): ariaProp => {
-  const existing = describedByIds.filter((id) => !!id);
+  const existing = idsOrValues.filter((id) => !!id);
   if (existing.length > 0) {
-    const ariaIds = existing.join(' ').trim();
-    return { [propName]: ariaIds };
+    const ariaIdsOrValues = existing.join(' ').trim();
+    return { [propName]: ariaIdsOrValues };
   }
   return {};
 };
