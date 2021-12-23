@@ -9,10 +9,10 @@ import {
   HtmlDivWithRefProps,
 } from '../../reset';
 import { hLevels } from '../../reset/HtmlH/HtmlH';
+import { getConditionalAriaProp } from '../../utils/aria';
 import { Icon } from '../Icon/Icon';
 import { Heading } from '../Heading/Heading';
 import { AutoId } from '../utils/AutoId/AutoId';
-import { getConditionalAriaProp } from '../../utils/aria';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { baseStyles } from './Notification.baseStyles';
 
