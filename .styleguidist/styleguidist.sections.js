@@ -100,6 +100,7 @@ module.exports = {
                 'InlineAlert/InlineAlert',
               ]),
             },
+
             {
               name: 'RadioButton',
               components: getComponentWithVariants('Form/RadioButton')([
@@ -166,6 +167,10 @@ module.exports = {
                 'LanguageMenuItem/LanguageMenuItem',
                 'LanguageMenuLink/LanguageMenuLink',
               ]),
+            },
+            {
+              name: 'Notification',
+              components: getComponents(['Notification']),
             },
             {
               name: 'Expander',
