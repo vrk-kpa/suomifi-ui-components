@@ -17,7 +17,8 @@ type ariaProp = { [key in ariaPropName]: string } | {};
 
 /**
  * Returns object with 'aria-' property which can be spread to props.
- * Using with different 'aria-' properties require different kind of use, see examples below.
+ * Using the util prevents generation of empty 'aria-' properties when no valid values are given.
+ * Using with different 'aria-' properties requires different kinds of use - see examples below.
  * E.g:
  * @example
  * <Component
