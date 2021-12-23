@@ -12,7 +12,7 @@ import {
   </Notification>
   <Notification
     status="error"
-    labelText="Lorem ipsum dolor sit"
+    headingText="Lorem ipsum dolor sit"
     smallScreen
   >
     Et turpis eget tempor. Nam sed lacus ut lorem feugiat tincidunt.
@@ -20,7 +20,7 @@ import {
   </Notification>
   <Notification
     closeText="Close"
-    labelText="Lorem ipsum dolor sit"
+    headingText="Lorem ipsum dolor sit"
     headingVariant="h3"
     actionElements={
       <>

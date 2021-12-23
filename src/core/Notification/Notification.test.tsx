@@ -51,7 +51,7 @@ describe('props', () => {
   });
   describe('children', () => {
     const notificationWithElementChild = (
-      <Notification closeText="Close" labelText="Lorem ipsum dolor sit">
+      <Notification closeText="Close" headingText="Lorem ipsum dolor sit">
         <div>Test notification</div>
       </Notification>
     );
@@ -72,7 +72,7 @@ describe('props', () => {
       <Notification
         closeText="Close"
         className="custom-class"
-        labelText="Lorem ipsum dolor sit"
+        headingText="Lorem ipsum dolor sit"
       >
         Test content
       </Notification>
@@ -91,7 +91,7 @@ describe('props', () => {
   describe('closeButtonProps', () => {
     const NotificationWithButtonProps = (
       <Notification
-        labelText="Lorem ipsum dolor sit"
+        headingText="Lorem ipsum dolor sit"
         closeText="Close"
         closeButtonProps={{
           'aria-labelledby': 'test-element',
@@ -122,7 +122,7 @@ describe('props', () => {
         id="testId"
         closeText="Close"
         ariaLiveMode="off"
-        labelText="Lorem ipsum dolor sit"
+        headingText="Lorem ipsum dolor sit"
       >
         Testcontent
       </Notification>
@@ -146,7 +146,7 @@ describe('props', () => {
         <Notification
           closeText="Close"
           onClick={mockClick}
-          labelText="Lorem ipsum dolor sit"
+          headingText="Lorem ipsum dolor sit"
         >
           Test content
         </Notification>,

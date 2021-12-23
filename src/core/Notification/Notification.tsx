@@ -39,13 +39,13 @@ export interface NotificationProps extends HtmlDivWithRefProps {
    * @default 'polite'
    */
   ariaLiveMode?: 'polite' | 'assertive' | 'off';
-  /** Label for the Notification */
-  labelText?: string;
+  /** headingText for the Notification */
+  headingText?: string;
   /** Main content of the Notification */
   children?: ReactNode;
   /** Elements to be rendered under the notification text. Can be e.g. buttons, links etc. */
   actionElements?: ReactNode;
-  /** Heading variant for Notification. Prop for heading text is labelText.
+  /** Heading variant for Notification.
    * @default 'h2'
    */
   headingVariant?: Exclude<hLevels, 'h1'>;
@@ -68,7 +68,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
       className,
       ariaLiveMode = 'polite',
       status = 'neutral',
-      labelText,
+      headingText,
       children,
       id,
       actionElements,
@@ -111,12 +111,12 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
             aria-live={ariaLiveMode}
           >
             <HtmlDiv className={notificationClassNames.content}>
-              {labelText && (
+              {headingText && (
                 <Heading
                   variant={headingVariant}
                   className={notificationClassNames.label}
                 >
-                  {labelText}
+                  {headingText}
                 </Heading>
               )}
               {children}
