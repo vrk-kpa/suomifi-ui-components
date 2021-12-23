@@ -170,9 +170,7 @@ module.exports = {
             },
             {
               name: 'Notification',
-              components: getComponentWithVariants('Notification')([
-                'Notification/',
-              ]),
+              components: getComponents(['Notification']),
             },
             {
               name: 'Expander',
