@@ -39,7 +39,7 @@ export interface NotificationProps extends HtmlDivWithRefProps {
    * @default 'polite'
    */
   ariaLiveMode?: 'polite' | 'assertive' | 'off';
-  /** headingText for the Notification */
+  /** Heading for the Notification */
   headingText?: string;
   /** Main content of the Notification */
   children?: ReactNode;
