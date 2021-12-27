@@ -1,14 +1,10 @@
 import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-
-import {
-  HtmlDiv,
-  HtmlDivWithRef,
-  HtmlButton,
-  HtmlButtonProps,
-  HtmlDivWithRefProps,
-} from '../../reset';
+import { baseStyles } from './Toast.baseStyles';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import { AutoId } from '../utils/AutoId/AutoId';
+import { HtmlDiv, HtmlDivWithRef } from '../../reset';
 import { hLevels } from '../../reset/HtmlH/HtmlH';
 
 export interface ToastProps {
@@ -26,6 +22,8 @@ export interface ToastProps {
   headingVariant?: Exclude<hLevels, 'h1'>;
   /** Use small screen styling */
   smallScreen?: boolean;
+  /** Id for focus */
+  id?: string;
 }
 interface InnerRef {
   forwardedRef: React.RefObject<HTMLDivElement>;
@@ -42,6 +40,7 @@ class BaseToast extends Component<ToastProps & InnerRef> {
       className,
       forwardedRef,
       headingVariant,
+      id,
       ...passProps
     } = this.props;
     return (
@@ -50,8 +49,39 @@ class BaseToast extends Component<ToastProps & InnerRef> {
         as="section"
         {...passProps}
       >
-        <HtmlDiv className={toastClassNames.styleWrapper}>test</HtmlDiv>
+        <HtmlDiv id={id} className={toastClassNames.styleWrapper}>
+          test
+        </HtmlDiv>
       </HtmlDivWithRef>
     );
   }
 }
+const StyledToast = styled(
+  (props: ToastProps & InnerRef & SuomifiThemeProp) => {
+    const { theme, ...passProps } = props;
+    return <BaseToast {...passProps} />;
+  },
+)`
+  ${({ theme }) => baseStyles(theme)};
+`;
+export const Alert = forwardRef(
+  (props: ToastProps, ref: React.RefObject<HTMLDivElement>) => {
+    const { id: propId, ...passProps } = props;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <StyledToast
+                forwardedRef={ref}
+                theme={suomifiTheme}
+                id={id}
+                {...passProps}
+              />
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
+    );
+  },
+);
