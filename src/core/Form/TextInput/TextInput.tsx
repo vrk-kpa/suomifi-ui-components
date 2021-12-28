@@ -137,7 +137,6 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
           <LabelText
             htmlFor={id}
             labelMode={labelMode}
-            asProp="label"
             optionalText={optionalText}
           >
             {labelText}

@@ -129,7 +129,6 @@ class BaseTextarea extends Component<TextareaProps & InnerRef> {
         <LabelText
           htmlFor={id}
           labelMode={labelMode}
-          asProp="label"
           optionalText={optionalText}
         >
           {labelText}

@@ -255,7 +255,6 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
           <LabelText
             id={labelId}
             labelMode={labelMode}
-            asProp="label"
             optionalText={optionalText}
           >
             {labelText}

@@ -22,9 +22,12 @@ export interface LabelTextProps extends Omit<HtmlDivProps, 'as'> {
   labelMode?: LabelMode;
   /** Label span props */
   labelSpanProps?: HtmlSpanProps;
-  /** Render the wrapping element as another element */
+  /** Render the wrapping element as another element
+   *
+   * @default 'label'
+   */
   asProp?: asPropType;
-  /** Optional text that is shown after labelText. Will be wrapped in parentheses. */
+  /** Text to mark the field as optional. Shown after labelText and wrapped in parentheses. */
   optionalText?: string;
 }
 
@@ -41,7 +44,7 @@ const StyledLabelText = styled(
     labelMode = 'visible',
     labelSpanProps = { className: undefined },
     children,
-    asProp,
+    asProp = 'label',
     optionalText,
     ...passProps
   }: LabelTextProps & SuomifiThemeProp) => (

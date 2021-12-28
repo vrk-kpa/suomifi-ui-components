@@ -212,7 +212,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
         })}
       >
         <HtmlSpan className={searchInputClassNames.styleWrapper}>
-          <LabelText htmlFor={id} labelMode={labelMode} asProp="label">
+          <LabelText htmlFor={id} labelMode={labelMode}>
             {labelText}
           </LabelText>
           <Debounce waitFor={debounce}>

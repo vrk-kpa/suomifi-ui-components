@@ -164,7 +164,6 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
         <HtmlDiv className={classnames(filterInputClassNames.wrapper, {})}>
           <LabelText
             id={labelId}
-            asProp="label"
             labelMode={labelMode}
             optionalText={optionalText}
           >
