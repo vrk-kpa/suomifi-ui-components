@@ -57,9 +57,9 @@ describe('props', () => {
   });
 
   describe('asProp', () => {
-    it('has default of div as wrapping element', () => {
+    it('has default of label as wrapping element', () => {
       const { container } = render(<LabelText>Test text</LabelText>);
-      expect(container.firstChild).toBeInstanceOf(HTMLDivElement);
+      expect(container.firstChild).toBeInstanceOf(HTMLLabelElement);
     });
 
     it('has the given wrapper element', () => {
