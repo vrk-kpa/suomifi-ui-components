@@ -193,6 +193,10 @@ module.exports = {
                 'ModalFooter/ModalFooter',
               ]),
             },
+            {
+              name: 'Toast',
+              components: getComponents(['Toast']),
+            },
           ],
           expand: true,
         },
