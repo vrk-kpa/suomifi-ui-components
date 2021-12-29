@@ -3,7 +3,8 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Toast.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
-import { AutoId } from '../utils/AutoId/AutoId';
+import { Icon } from '../Icon/Icon';
+import { Heading } from '../Heading/Heading';
 import { HtmlDiv, HtmlDivWithRef } from '../../reset';
 import { hLevels } from '../../reset/HtmlH/HtmlH';
 
@@ -13,15 +14,13 @@ export interface ToastProps {
    */
   ariaLiveMode?: 'polite' | 'assertive' | 'off';
   /** Label heading for the Toast */
-  labelText?: string;
+  headingText?: string;
   /** Main content of the Toast */
   children?: ReactNode;
   /** Custom classname to extend or customize */
   className?: string;
   /** Elements to be rendered under the Toast text. Can be e.g. buttons, links etc. */
   headingVariant?: Exclude<hLevels, 'h1'>;
-  /** Use small screen styling */
-  smallScreen?: boolean;
   /** Id for focus */
   id?: string;
 }
@@ -30,7 +29,11 @@ interface InnerRef {
 }
 const baseClassName = 'fi-toast';
 export const toastClassNames = {
-  styleWrapper: `${baseClassName}_style-wrapper`,
+  styleWrapper: `${baseClassName}-wrapper`,
+  heading: `${baseClassName}-heading`,
+  contentWrapper: `${baseClassName}-content-wrapper`,
+  icon: `${baseClassName}_icon`,
+  iconWrapper: `${baseClassName}_icon-wrapper`,
 };
 class BaseToast extends Component<ToastProps & InnerRef> {
   render() {
@@ -39,7 +42,8 @@ class BaseToast extends Component<ToastProps & InnerRef> {
       children,
       className,
       forwardedRef,
-      headingVariant,
+      headingText,
+      headingVariant = 'h2',
       id,
       ...passProps
     } = this.props;
@@ -49,8 +53,26 @@ class BaseToast extends Component<ToastProps & InnerRef> {
         as="section"
         {...passProps}
       >
-        <HtmlDiv id={id} className={toastClassNames.styleWrapper}>
-          test
+        <HtmlDiv className={toastClassNames.styleWrapper}>
+          <HtmlDiv className={toastClassNames.iconWrapper}>
+            <Icon icon="checkCircle" className={toastClassNames.icon} />
+          </HtmlDiv>
+
+          <HtmlDiv
+            className={toastClassNames.contentWrapper}
+            id={id}
+            aria-live={ariaLiveMode}
+          >
+            {headingText && (
+              <Heading
+                variant={headingVariant}
+                className={toastClassNames.heading}
+              >
+                {headingText}
+              </Heading>
+            )}
+            {children}
+          </HtmlDiv>
         </HtmlDiv>
       </HtmlDivWithRef>
     );
@@ -64,22 +86,13 @@ const StyledToast = styled(
 )`
   ${({ theme }) => baseStyles(theme)};
 `;
-export const Alert = forwardRef(
+export const Toast = forwardRef(
   (props: ToastProps, ref: React.RefObject<HTMLDivElement>) => {
-    const { id: propId, ...passProps } = props;
+    const { ...passProps } = props;
     return (
       <SuomifiThemeConsumer>
         {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledToast
-                forwardedRef={ref}
-                theme={suomifiTheme}
-                id={id}
-                {...passProps}
-              />
-            )}
-          </AutoId>
+          <StyledToast forwardedRef={ref} theme={suomifiTheme} {...passProps} />
         )}
       </SuomifiThemeConsumer>
     );
