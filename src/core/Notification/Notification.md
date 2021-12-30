@@ -6,17 +6,13 @@ import {
 } from 'suomifi-ui-components';
 
 <>
-  <Notification closeText="Close">
-    Et turpis eget tempor. Nam sed lacus ut lorem feugiat tincidunt.
-    Mauris quis nisi placerat
-  </Notification>
+  <Notification closeText="Close">Et turpis.</Notification>
   <Notification
     status="error"
     headingText="Lorem ipsum dolor sit"
     smallScreen
   >
-    Et turpis eget tempor. Nam sed lacus ut lorem feugiat tincidunt.
-    Mauris quis nisi placerat
+    Et turpis eget tempor.
   </Notification>
   <Notification
     closeText="Close"

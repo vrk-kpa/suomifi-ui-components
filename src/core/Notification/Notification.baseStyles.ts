@@ -41,9 +41,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-notification_close-button-wrapper {
       flex: 1 0 auto;
       display: flex;
+      flex-direction: row-reverse;
       flex-wrap: nowrap;
       box-sizing: border-box;
-      margin-top: 14px;
+      margin-top: 12px;
       margin-right: -5px;
       margin-bottom: ${theme.spacing.insetM};
     }
@@ -114,6 +115,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       & .fi-notification_close-button-wrapper {
         justify-content: flex-end;
         margin: 0;
+        flex-direction: row;
         & .fi-icon {
           margin-right: ${theme.spacing.xxs};
         }
