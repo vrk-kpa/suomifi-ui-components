@@ -23,3 +23,16 @@ const Span = (props: HtmlSpanProps) => <span {...props} />;
 export const HtmlSpan = styled(Span)`
   ${spanResets}
 `;
+
+export interface HtmlSpanWithRefProps extends HtmlSpanProps {
+  /** Ref object for the span element */
+  forwardedRef?: React.RefObject<HTMLSpanElement>;
+}
+
+const SpanWithRef = ({ forwardedRef, ...passProps }: HtmlSpanWithRefProps) => (
+  <span ref={forwardedRef} {...passProps} />
+);
+
+export const HtmlSpanWithRef = styled(SpanWithRef)`
+  ${spanResets}
+`;
