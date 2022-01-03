@@ -6,7 +6,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-notification {
     ${element(theme)}
     ${font(theme)('bodyTextSmall')}
-    padding-bottom: 17px;
     width: 100%;
     box-shadow: ${theme.shadows.wideBoxShadow};
     border-radius: 4px;
@@ -25,7 +24,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       margin-bottom: ${theme.spacing.xxs};
     }
     & .fi-notification_action-element-wrapper {
-      margin: 10px 20px 5px 89px;
+      margin: 10px 20px 22px 89px;
       & .fi-button {
         margin-right: ${theme.spacing.s};
       }
@@ -106,7 +105,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         padding-left: 12px;
         padding-right: 12px;
         display: flex;
-        flex: 3 1 auto;
         flex-direction: column;
         & .fi-notification_label {
           margin-top: -2px;

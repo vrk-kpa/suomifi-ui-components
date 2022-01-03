@@ -6,7 +6,9 @@ import {
 } from 'suomifi-ui-components';
 
 <>
-  <Notification closeText="Close">Et turpis.</Notification>
+  <Notification closeText="Close">
+    Lorem ipsum dolor sit.
+  </Notification>
   <Notification
     status="error"
     headingText="Lorem ipsum dolor sit"
