@@ -40,7 +40,7 @@ interface InnerRef {
 class BaseSelectItemList extends Component<
   SelectItemListProps & InnerRef & SuomifiThemeProp
 > {
-  private wrapperRef: RefObject<HTMLDivElement>;
+  private wrapperRef: RefObject<HTMLSpanElement>;
 
   constructor(props: SelectItemListProps & InnerRef & SuomifiThemeProp) {
     super(props);
