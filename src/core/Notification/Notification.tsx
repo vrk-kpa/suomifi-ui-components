@@ -20,7 +20,8 @@ export const baseClassName = 'fi-notification';
 export const notificationClassNames = {
   styleWrapper: `${baseClassName}_style-wrapper`,
   content: `${baseClassName}_content`,
-  label: `${baseClassName}_label`,
+  innerContent: `${baseClassName}_innerContent`,
+  heading: `${baseClassName}_heading`,
   textContentWrapper: `${baseClassName}_text-content-wrapper`,
   icon: `${baseClassName}_icon`,
   iconWrapper: `${baseClassName}_icon-wrapper`,
@@ -35,7 +36,7 @@ export interface NotificationProps extends HtmlDivWithRefProps {
    * @default 'neutral'
    */
   status?: 'neutral' | 'error';
-  /** Set aria-live mode for the Notification text content and label.
+  /** Set aria-live mode for the Notification text content and heading.
    * @default 'polite'
    */
   ariaLiveMode?: 'polite' | 'assertive' | 'off';
@@ -114,12 +115,14 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
               {headingText && (
                 <Heading
                   variant={headingVariant}
-                  className={notificationClassNames.label}
+                  className={notificationClassNames.heading}
                 >
                   {headingText}
                 </Heading>
               )}
-              {children}
+              <HtmlDiv className={notificationClassNames.innerContent}>
+                {children}
+              </HtmlDiv>
             </HtmlDiv>
           </HtmlDiv>
           <HtmlDiv className={notificationClassNames.closeButtonWrapper}>

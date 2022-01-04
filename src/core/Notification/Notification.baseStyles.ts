@@ -11,17 +11,19 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     border-radius: 4px;
 
     & .fi-notification_text-content-wrapper {
-      margin-top: 20px;
+      margin-top: 18px;
       padding-left: 20px;
       & .fi-notification_content {
         vertical-align: middle;
         ${font(theme)('bodyTextSmall')}
+        & .fi-notification_innerContent {
+          padding-top: 6px;
+        }
       }
     }
-    & .fi-notification_label {
+    & .fi-notification_heading {
       ${font(theme)('bodySemiBold')}
-      margin-top: -1px;
-      margin-bottom: ${theme.spacing.xxs};
+      margin-bottom: 0;
     }
     & .fi-notification_action-element-wrapper {
       margin: 10px 20px 22px 89px;
@@ -101,14 +103,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &.fi-notification--small-screen {
       padding-bottom: 20px;
       & .fi-notification_text-content-wrapper {
-        margin-top: 18px;
+        margin-top: 15px;
         padding-left: 12px;
         padding-right: 12px;
         display: flex;
         flex-direction: column;
-        & .fi-notification_label {
-          margin-top: -2px;
-        }
       }
       & .fi-notification_close-button-wrapper {
         justify-content: flex-end;
