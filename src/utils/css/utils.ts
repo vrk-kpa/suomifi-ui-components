@@ -1,14 +1,6 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components';
 import { cssValueToString } from './cssvalue';
 
-export const clearfix = css`
-  &:after {
-    display: block;
-    content: '';
-    clear: both;
-  }
-`;
-
 const camelToSnake = (string: string) =>
   string.replace(/[\w]([A-Z])/g, (m) => `${m[0]}-${m[1]}`).toLowerCase();
 /**
