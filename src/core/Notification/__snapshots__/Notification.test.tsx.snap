@@ -441,7 +441,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_text-content-wrapper {
-  margin-top: 20px;
+  margin-top: 18px;
   padding-left: 20px;
 }
 
@@ -462,7 +462,11 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c1.fi-notification .fi-notification_label {
+.c1.fi-notification .fi-notification_text-content-wrapper .fi-notification_content .fi-notification_innerContent {
+  padding-top: 6px;
+}
+
+.c1.fi-notification .fi-notification_heading {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -476,8 +480,7 @@ exports[`props children should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 600;
-  margin-top: -1px;
-  margin-bottom: 5px;
+  margin-bottom: 0;
 }
 
 .c1.fi-notification .fi-notification_action-element-wrapper {
@@ -614,7 +617,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_text-content-wrapper {
-  margin-top: 18px;
+  margin-top: 15px;
   padding-left: 12px;
   padding-right: 12px;
   display: -webkit-box;
@@ -624,10 +627,6 @@ exports[`props children should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-}
-
-.c1.fi-notification.fi-notification--small-screen .fi-notification_text-content-wrapper .fi-notification_label {
-  margin-top: -2px;
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_close-button-wrapper {
@@ -700,12 +699,16 @@ exports[`props children should match snapshot 1`] = `
           class="c2 fi-notification_content"
         >
           <h2
-            class="c4 fi-heading c5 fi-notification_label fi-heading--h2"
+            class="c4 fi-heading c5 fi-notification_heading fi-heading--h2"
           >
             Lorem ipsum dolor sit
           </h2>
-          <div>
-            Test notification
+          <div
+            class="c2 fi-notification_innerContent"
+          >
+            <div>
+              Test notification
+            </div>
           </div>
         </div>
       </div>
