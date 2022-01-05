@@ -99,7 +99,7 @@ interface SingleSelectState<T extends SingleSelectData> {
 class BaseSingleSelect<T> extends Component<
   SingleSelectProps<T & SingleSelectData> & SuomifiThemeProp
 > {
-  private popoverListRef: React.RefObject<HTMLUListElement>;
+  private popoverListRef: React.RefObject<HTMLDivElement>;
 
   private filterInputRef: React.RefObject<HTMLInputElement>;
 

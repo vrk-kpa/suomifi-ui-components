@@ -35,12 +35,12 @@ export interface SelectItemListProps {
 }
 
 interface InnerRef {
-  forwardedRef: RefObject<HTMLUListElement>;
+  forwardedRef: RefObject<HTMLDivElement>;
 }
 class BaseSelectItemList extends Component<
   SelectItemListProps & InnerRef & SuomifiThemeProp
 > {
-  private wrapperRef: RefObject<HTMLDivElement>;
+  private wrapperRef: RefObject<HTMLUListElement>;
 
   constructor(props: SelectItemListProps & InnerRef & SuomifiThemeProp) {
     super(props);
@@ -95,22 +95,22 @@ class BaseSelectItemList extends Component<
       ...passProps
     } = this.props;
     return (
-      <HtmlUlWithRef
-        id={id}
-        tabIndex={0}
-        forwardRef={forwardedRef}
+      <HtmlDivWithRef
+        forwardedRef={forwardedRef}
         className={classnames(baseClassName, className, {})}
-        {...passProps}
-        role="listbox"
-        onBlur={onBlur}
       >
-        <HtmlDivWithRef
-          forwardedRef={this.wrapperRef}
+        <HtmlUlWithRef
+          id={id}
+          tabIndex={0}
+          {...passProps}
+          role="listbox"
+          onBlur={onBlur}
+          forwardRef={this.wrapperRef}
           className={selectItemListClassNames.content_wrapper}
         >
           {children}
-        </HtmlDivWithRef>
-      </HtmlUlWithRef>
+        </HtmlUlWithRef>
+      </HtmlDivWithRef>
     );
   }
 }
@@ -120,7 +120,7 @@ const StyledSelectItemList = styled(BaseSelectItemList)`
 `;
 
 export const SelectItemList = forwardRef(
-  (props: SelectItemListProps, ref: RefObject<HTMLUListElement>) => (
+  (props: SelectItemListProps, ref: RefObject<HTMLDivElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <StyledSelectItemList

@@ -119,7 +119,7 @@ interface MultiSelectState<T extends MultiSelectData> {
 class BaseMultiSelect<T> extends Component<
   MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp
 > {
-  private popoverListRef: React.RefObject<HTMLUListElement>;
+  private popoverListRef: React.RefObject<HTMLDivElement>;
 
   private filterInputRef: React.RefObject<HTMLInputElement>;
 
@@ -200,7 +200,6 @@ class BaseMultiSelect<T> extends Component<
               }
               return {
                 selectedItems: newSelectedItems,
-                focusedDescendantId: null,
               };
             }
             const newSelectedItems = prevState.selectedItems.concat([item]);
@@ -209,7 +208,6 @@ class BaseMultiSelect<T> extends Component<
             }
             return {
               selectedItems: newSelectedItems,
-              focusedDescendantId: null,
             };
           }
         }
