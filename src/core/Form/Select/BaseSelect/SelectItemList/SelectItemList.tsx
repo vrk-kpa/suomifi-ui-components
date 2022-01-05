@@ -9,7 +9,7 @@ import React, {
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
-import { HtmlSpanWithRef, HtmlUlWithRef } from '../../../../../reset';
+import { HtmlDivWithRef, HtmlUlWithRef } from '../../../../../reset';
 import { SelectItemProps } from '../SelectItem/SelectItem';
 import { baseStyles } from './SelectItemList.baseStyles';
 
@@ -40,7 +40,7 @@ interface InnerRef {
 class BaseSelectItemList extends Component<
   SelectItemListProps & InnerRef & SuomifiThemeProp
 > {
-  private wrapperRef: RefObject<HTMLSpanElement>;
+  private wrapperRef: RefObject<HTMLDivElement>;
 
   constructor(props: SelectItemListProps & InnerRef & SuomifiThemeProp) {
     super(props);
@@ -104,12 +104,12 @@ class BaseSelectItemList extends Component<
         role="listbox"
         onBlur={onBlur}
       >
-        <HtmlSpanWithRef
-          className={selectItemListClassNames.content_wrapper}
+        <HtmlDivWithRef
           forwardedRef={this.wrapperRef}
+          className={selectItemListClassNames.content_wrapper}
         >
           {children}
-        </HtmlSpanWithRef>
+        </HtmlDivWithRef>
       </HtmlUlWithRef>
     );
   }
