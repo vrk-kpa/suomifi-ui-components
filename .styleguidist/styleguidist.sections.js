@@ -10,7 +10,7 @@ const primitiveComponents = [
   ['Form', 'SearchInput'],
   ['Form', 'Checkbox'],
   ['Form', 'Textarea'],
-  ['Form', 'LabelText'],
+  ['Form', 'Label'],
   ['Form', 'HintText'],
   ['Form', 'StatusText'],
 ];

@@ -11,7 +11,7 @@ import {
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { LabelText, LabelMode } from '../LabelText/LabelText';
+import { Label, LabelMode } from '../Label/Label';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
 import { baseStyles } from './FilterInput.baseStyles';
@@ -162,13 +162,9 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
         })}
       >
         <HtmlDiv className={classnames(filterInputClassNames.wrapper, {})}>
-          <LabelText
-            id={labelId}
-            labelMode={labelMode}
-            optionalText={optionalText}
-          >
+          <Label id={labelId} labelMode={labelMode} optionalText={optionalText}>
             {labelText}
-          </LabelText>
+          </Label>
           <HintText id={hintTextId}>{hintText}</HintText>
           <HtmlDiv className={filterInputClassNames.functionalityContainer}>
             <HtmlDiv

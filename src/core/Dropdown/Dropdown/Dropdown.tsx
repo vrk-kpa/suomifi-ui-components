@@ -23,7 +23,7 @@ import { useEnhancedEffect } from '../../../utils/common';
 import { logger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { HtmlSpan, HtmlDiv } from '../../../reset';
-import { LabelText, LabelMode } from '../../Form/LabelText/LabelText';
+import { Label, LabelMode } from '../../Form/Label/Label';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
@@ -252,13 +252,9 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
         {...passProps}
       >
         <HtmlDiv>
-          <LabelText
-            id={labelId}
-            labelMode={labelMode}
-            optionalText={optionalText}
-          >
+          <Label id={labelId} labelMode={labelMode} optionalText={optionalText}>
             {labelText}
-          </LabelText>
+          </Label>
           <ListboxInput
             {...getConditionalAriaProp('aria-labelledby', [
               ariaLabelledBy,

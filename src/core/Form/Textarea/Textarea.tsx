@@ -10,7 +10,7 @@ import {
   HtmlDiv,
   HtmlDivProps,
 } from '../../../reset';
-import { LabelText } from '../LabelText/LabelText';
+import { Label } from '../Label/Label';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
 import { InputStatus, StatusTextCommonProps } from '../types';
@@ -126,13 +126,9 @@ class BaseTextarea extends Component<TextareaProps & InnerRef> {
           [textareaClassNames.fullWidth]: fullWidth,
         })}
       >
-        <LabelText
-          htmlFor={id}
-          labelMode={labelMode}
-          optionalText={optionalText}
-        >
+        <Label htmlFor={id} labelMode={labelMode} optionalText={optionalText}>
           {labelText}
-        </LabelText>
+        </Label>
         <HintText id={hintTextId}>{hintText}</HintText>
         <HtmlDiv className={textareaClassNames.textareaContainer}>
           <HtmlTextarea

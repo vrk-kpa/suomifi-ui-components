@@ -41,8 +41,8 @@ export {
   SingleSelectStatus,
   StatusText,
   StatusTextProps,
-  LabelText,
-  LabelTextProps,
+  Label,
+  LabelProps,
   HintText,
   HintTextProps,
 } from './core/Form';
