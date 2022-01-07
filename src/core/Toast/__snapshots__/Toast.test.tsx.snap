@@ -480,7 +480,7 @@ exports[`props children should match snapshot 1`] = `
         </svg>
       </div>
       <div
-        aria-live="assertive"
+        aria-live="polite"
         class="c2 fi-toast-content-wrapper"
       >
         <h2
