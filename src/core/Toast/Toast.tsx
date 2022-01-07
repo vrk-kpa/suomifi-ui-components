@@ -38,7 +38,7 @@ export const toastClassNames = {
 class BaseToast extends Component<ToastProps & InnerRef> {
   render() {
     const {
-      ariaLiveMode = 'assertive',
+      ariaLiveMode = 'polite',
       children,
       className,
       forwardedRef,
