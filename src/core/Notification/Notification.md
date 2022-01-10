@@ -12,6 +12,7 @@ import {
   <Notification
     status="error"
     headingText="Lorem ipsum dolor sit"
+    closeText="Close"
     smallScreen
   >
     Et turpis eget tempor.
