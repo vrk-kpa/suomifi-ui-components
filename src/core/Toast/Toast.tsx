@@ -15,11 +15,11 @@ export interface ToastProps {
   ariaLiveMode?: 'polite' | 'assertive' | 'off';
   /** Label heading for the Toast */
   headingText?: string;
-  /** Main content of the Toast */
+  /** Main content of the Toast. This should be just short text string */
   children?: ReactNode;
   /** Custom classname to extend or customize */
   className?: string;
-  /** Elements to be rendered under the Toast text. Can be e.g. buttons, links etc. */
+  /** Different h-tag can be selected for header */
   headingVariant?: Exclude<hLevels, 'h1'>;
   /** Id for focus */
   id?: string;
