@@ -119,7 +119,7 @@ interface MultiSelectState<T extends MultiSelectData> {
 class BaseMultiSelect<T> extends Component<
   MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp
 > {
-  private popoverListRef: React.RefObject<HTMLDivElement>;
+  private popoverListRef: React.RefObject<HTMLUListElement>;
 
   private filterInputRef: React.RefObject<HTMLInputElement>;
 

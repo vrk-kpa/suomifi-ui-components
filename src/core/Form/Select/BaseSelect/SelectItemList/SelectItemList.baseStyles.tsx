@@ -5,19 +5,10 @@ import { font } from '../../../../theme/reset';
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-select-item-list {
     ${font(theme)('bodyText')}
-    box-sizing: content-box;
-    background-color: ${theme.colors.whiteBase};
-    margin: 0;
-    max-height: inherit;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  & .fi-select-item-list_content_wrapper {
-    display: block;
     list-style-type: none;
+    box-sizing: content-box;
+    max-height: 265px;
+    background-color: ${theme.colors.whiteBase};
     border-width: 0 1px 1px 1px;
     border-style: solid;
     border-color: ${theme.colors.depthDark3};
@@ -26,8 +17,15 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     margin: 0;
     padding: 4px 0 0 0;
 
+    &:focus {
+      outline: none;
+    }
+  }
+
+  & .fi-select-item-list_content_wrapper {
+    display: block;
     width: 100%;
-    max-height: 265px;
+    max-height: inherit;
     overflow-y: auto;
     overflow-x: hidden;
   }
