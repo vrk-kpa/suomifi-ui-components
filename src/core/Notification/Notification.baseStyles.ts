@@ -16,7 +16,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       & .fi-notification_content {
         vertical-align: middle;
         ${font(theme)('bodyTextSmall')}
-        & .fi-notification_innerContent {
+        & .fi-notification_contentWrapper {
           padding-top: 6px;
         }
       }

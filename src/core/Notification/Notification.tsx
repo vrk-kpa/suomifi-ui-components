@@ -20,7 +20,7 @@ export const baseClassName = 'fi-notification';
 export const notificationClassNames = {
   styleWrapper: `${baseClassName}_style-wrapper`,
   content: `${baseClassName}_content`,
-  innerContent: `${baseClassName}_innerContent`,
+  contentWrapper: `${baseClassName}_contentWrapper`,
   heading: `${baseClassName}_heading`,
   textContentWrapper: `${baseClassName}_text-content-wrapper`,
   icon: `${baseClassName}_icon`,
@@ -120,7 +120,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
                   {headingText}
                 </Heading>
               )}
-              <HtmlDiv className={notificationClassNames.innerContent}>
+              <HtmlDiv className={notificationClassNames.contentWrapper}>
                 {children}
               </HtmlDiv>
             </HtmlDiv>
