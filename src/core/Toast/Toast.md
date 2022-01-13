@@ -2,9 +2,7 @@
 import { Toast } from 'suomifi-ui-components';
 
 <>
-  <Toast smallScreen>
-    Donec molestie velit tristique feugiat interdum.
-  </Toast>
+  <Toast>Donec molestie velit tristique feugiat interdum.</Toast>
 
   <Toast headingVariant="h2" headingText="Mauris quis nisi">
     Long text. Suspendisse efficitur et turpis eget tempor. Nam sed
