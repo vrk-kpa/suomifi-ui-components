@@ -4,9 +4,33 @@ import { Toast } from './Toast';
 import { axeTest } from '../../utils/test';
 
 describe('props', () => {
+  describe('headingText', () => {
+    const ToastWithElementChild = (
+      <Toast headingText="Test heading">Test Toast</Toast>
+    );
+    const { container } = render(ToastWithElementChild);
+    expect(container.firstChild).toHaveTextContent('Test heading');
+  });
+  describe('headingVariant', () => {
+    const { getByRole } = render(
+      <Toast headingText="Test heading" headingVariant="h3">
+        Test Toast
+      </Toast>,
+    );
+    const heading = getByRole('heading', { level: 3 });
+    expect(heading).toHaveClass('fi-heading--h3');
+  });
+  describe('id', () => {
+    const ToastWithElementId = <Toast id="TestId">Test Toast</Toast>;
+    const { container } = render(ToastWithElementId);
+    expect(container.querySelector('#TestId')).toHaveClass(
+      'fi-toast-content-wrapper',
+    );
+  });
+
   describe('children', () => {
     const ToastWithElementChild = (
-      <Toast headingText="Lorem ipsum dolor sit">
+      <Toast>
         <div>Test Toast</div>
       </Toast>
     );
@@ -24,9 +48,7 @@ describe('props', () => {
 
   describe('className', () => {
     const customClassToast = (
-      <Toast className="custom-class" headingText="Lorem ipsum dolor sit">
-        Test content
-      </Toast>
+      <Toast className="custom-class">Test content</Toast>
     );
 
     it('contains base classname', () => {
@@ -40,17 +62,21 @@ describe('props', () => {
     });
   });
   describe('ariaLiveMode', () => {
-    const ToastWithDefaultAriaLiveMode = (
-      <Toast id="testId" ariaLiveMode="off" headingText="Lorem ipsum dolor sit">
+    const ToastWithDefaultAriaLiveMode = <Toast id="testId">Testcontent</Toast>;
+    const ToastWithAriaLiveModeOff = (
+      <Toast id="testId" ariaLiveMode="off">
         Testcontent
       </Toast>
     );
-
-    it('should have specified aria-live mode', () => {
+    it('should have default aria-live mode', () => {
       const { container } = render(ToastWithDefaultAriaLiveMode);
-      expect(container.querySelector('#testId')).toHaveClass(
-        'fi-toast-content-wrapper',
+      expect(container.querySelector('#testId')).toHaveAttribute(
+        'aria-live',
+        'polite',
       );
+    });
+    it('should have specified aria-live mode', () => {
+      const { container } = render(ToastWithAriaLiveModeOff);
       expect(container.querySelector('#testId')).toHaveAttribute(
         'aria-live',
         'off',
