@@ -462,7 +462,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c1.fi-notification .fi-notification_text-content-wrapper .fi-notification_content .fi-notification_innerContent {
+.c1.fi-notification .fi-notification_text-content-wrapper .fi-notification_content .fi-notification_contentWrapper {
   padding-top: 6px;
 }
 
@@ -704,7 +704,7 @@ exports[`props children should match snapshot 1`] = `
             Lorem ipsum dolor sit
           </h2>
           <div
-            class="c2 fi-notification_innerContent"
+            class="c2 fi-notification_contentWrapper"
           >
             <div>
               Test notification
