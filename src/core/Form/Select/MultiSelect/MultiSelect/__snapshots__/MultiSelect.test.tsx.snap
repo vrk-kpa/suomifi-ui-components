@@ -868,7 +868,6 @@ exports[`has matching snapshot 1`] = `
               aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="3-popover"
-              aria-describedby="3-selectedItems-length"
               aria-invalid="false"
               aria-labelledby="1-label"
               aria-multiline="false"

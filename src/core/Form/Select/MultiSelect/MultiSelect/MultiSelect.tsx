@@ -280,6 +280,7 @@ class BaseMultiSelect<T> extends Component<
             filteredItems: prevProps.items,
             showPopover: false,
             showOptionsAvailableText: false,
+            focusedDescendantId: null,
           }),
         );
       }
@@ -339,7 +340,7 @@ class BaseMultiSelect<T> extends Component<
             filteredItems: prevProps.items,
           }),
         );
-        this.setState({ showPopover: false });
+        this.setState({ showPopover: false, focusedDescendantId: null });
         break;
       }
 
@@ -455,7 +456,6 @@ class BaseMultiSelect<T> extends Component<
                   status={status}
                   statusText={statusText}
                   aria-controls={popoverItemListId}
-                  aria-describedby={`${id}-selectedItems-length`}
                 />
               )}
             </Debounce>
@@ -534,11 +534,7 @@ class BaseMultiSelect<T> extends Component<
         </HtmlDiv>
         {this.state.showOptionsAvailableText && (
           <>
-            <VisuallyHidden
-              aria-live="polite"
-              aria-atomic="true"
-              id={`${id}-selectedItems-length`}
-            >
+            <VisuallyHidden aria-live="polite" aria-atomic="true">
               {selectedItems.length}
               {ariaSelectedAmountText}
             </VisuallyHidden>
