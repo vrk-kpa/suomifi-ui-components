@@ -168,10 +168,10 @@ module.exports = {
                 'LanguageMenuLink/LanguageMenuLink',
               ]),
             },
-            {
-              name: 'Notification',
-              components: getComponents(['Notification']),
-            },
+            // {
+            //   name: 'Notification',
+            //   components: getComponents(['Notification']),
+            // },
             {
               name: 'Expander',
               components: getComponentWithVariants('Expander')([
