@@ -78,7 +78,7 @@ const StyledInlineAlert = styled(
     return <BaseInlineAlert {...passProps} />;
   },
 )`
-  ${({ theme }) => baseStyles(theme)};
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export const InlineAlert = forwardRef(

@@ -65,7 +65,7 @@ class BaseExpanderContent extends Component<InternalExpanderContentProps> {
 }
 
 const StyledExpanderContent = styled(BaseExpanderContent)`
-  ${({ theme }) => baseStyles(theme)};
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**

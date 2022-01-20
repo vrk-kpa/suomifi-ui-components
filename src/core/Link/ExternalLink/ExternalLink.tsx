@@ -62,7 +62,7 @@ const StyledExternalLink = styled(
     return <BaseExternalLink {...passProps} />;
   },
 )`
-  ${({ theme }) => ExternalLinkStyles(theme)};
+  ${({ theme }) => ExternalLinkStyles(theme)}
 `;
 
 /**

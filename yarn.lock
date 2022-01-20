@@ -59,7 +59,7 @@
   resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.16.8.tgz#31560f9f29fdf1868de8cb55049538a1b9732a60"
   integrity sha512-m7OkX0IdKLKPpBlJtF561YJal5y/jyI5fNfWbPxh2D/nbzzGI4qRyrD8xO2jB24u7l+5I2a43scCG2IrfjC50Q==
 
-"@babel/core@7.16.10", "@babel/core@^7.12.3", "@babel/core@^7.16.0", "@babel/core@^7.8.0":
+"@babel/core@7.16.10", "@babel/core@>=7.9.0", "@babel/core@^7.12.3", "@babel/core@^7.16.0", "@babel/core@^7.8.0":
   version "7.16.10"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.16.10.tgz#ebd034f8e7ac2b6bfcdaa83a161141a646f74b50"
   integrity sha512-pbiIdZbCiMx/MM6toR+OfXarYix3uz0oVsnNtfdAGTcCTu3w/JGF8JhirevXLBJUu0WguSZI12qpKnx7EeMyLA==
@@ -2331,6 +2331,13 @@
   integrity sha512-AU7kwFxreVd6OAXcAFlKSmZquiRUU0FvYm44k1Y1QbK7Co4m0aqfGMhjykIeQp/H6rcl+nFmj0zfdUcGVs9Dew==
   dependencies:
     "@sinonjs/commons" "^1.7.0"
+
+"@stylelint/postcss-css-in-js@0.37.2":
+  version "0.37.2"
+  resolved "https://registry.yarnpkg.com/@stylelint/postcss-css-in-js/-/postcss-css-in-js-0.37.2.tgz#7e5a84ad181f4234a2480803422a47b8749af3d2"
+  integrity sha512-nEhsFoJurt8oUmieT8qy4nk81WRHmJynmVwn/Vts08PL9fhgIsMhk1GId5yAN643OzqEEb5S/6At2TZW7pqPDA==
+  dependencies:
+    "@babel/core" ">=7.9.0"
 
 "@tanem/svg-injector@^10.1.14":
   version "10.1.15"
@@ -11136,6 +11143,11 @@ postcss-svgo@^5.0.3:
   dependencies:
     postcss-value-parser "^4.1.0"
     svgo "^2.7.0"
+
+postcss-syntax@0.36.2:
+  version "0.36.2"
+  resolved "https://registry.yarnpkg.com/postcss-syntax/-/postcss-syntax-0.36.2.tgz#f08578c7d95834574e5593a82dfbfa8afae3b51c"
+  integrity sha512-nBRg/i7E3SOHWxF3PpF5WnJM/jQ1YpY9000OaVXlAQj6Zp/kIqJxEDWIZ67tAd7NLuk7zqN4yqe9nc0oNAOs1w==
 
 postcss-unique-selectors@^5.0.1:
   version "5.0.1"

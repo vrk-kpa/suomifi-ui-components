@@ -172,17 +172,6 @@ class BaseCheckbox extends Component<CheckboxProps & InnerRef> {
     const statusTextId = !!statusText ? `${id}-statusText` : undefined;
     const hintTextId = !!hintText ? `${id}-hintText` : undefined;
 
-    const CheckedIcon = () => (
-      <Icon
-        icon="check"
-        className={classnames(iconBaseClassName, {
-          [iconClassnames.checked]: checkedState && !disabled,
-          [iconClassnames.error]: status === 'error' && !disabled,
-          [iconClassnames.disabled]: !!disabled,
-        })}
-      />
-    );
-
     return (
       <HtmlDiv
         className={classnames(
@@ -221,7 +210,16 @@ class BaseCheckbox extends Component<CheckboxProps & InnerRef> {
           className={checkboxClassNames.label}
           {...passProps}
         >
-          {!!checkedState && <CheckedIcon />}
+          {!!checkedState && (
+            <Icon
+              icon="check"
+              className={classnames(iconBaseClassName, {
+                [iconClassnames.checked]: checkedState && !disabled,
+                [iconClassnames.error]: status === 'error' && !disabled,
+                [iconClassnames.disabled]: !!disabled,
+              })}
+            />
+          )}
           {children}
         </HtmlLabel>
         <HintText id={hintTextId}>{hintText}</HintText>

@@ -85,8 +85,8 @@ const largeVariantStyles = (theme: SuomifiTheme) => css`
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
-
-    & .fi-checkbox_label {
+  
+  & .fi-checkbox_label {
     position: relative;
     display: block;
     padding-left: ${theme.spacing.l};

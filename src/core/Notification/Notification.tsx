@@ -159,7 +159,7 @@ const StyledNotification = styled(
     return <BaseNotification {...passProps} />;
   },
 )`
-  ${({ theme }) => baseStyles(theme)};
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export const Notification = forwardRef(
