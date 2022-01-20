@@ -6,16 +6,6 @@ export {
 } from './SuomifiThemeProvider/SuomifiThemeProvider';
 export {
   SuomifiTheme,
-  TypographyDesignTokens,
-  ColorDesignTokens,
-  SpacingDesignTokens,
-  RawDesignTokens,
-  ValueUnit,
-  RawColorDesignTokens,
-  ColorToken,
-  RawSpacingDesignTokens,
-  RawTypographyDesignTokens,
-  TypographyToken,
   GradientDesignTokens,
   FocusDesignTokens,
   RadiusDesignTokens,

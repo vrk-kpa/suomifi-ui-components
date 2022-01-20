@@ -138,8 +138,8 @@ describe('Controlled', () => {
         fireEvent.click(input);
       });
       const item = await waitFor(() => getByText('Powersaw'));
-      expect(item.parentNode).toHaveAttribute('aria-disabled');
-      expect(item.parentNode).toHaveClass('fi-select-item--disabled');
+      expect(item).toHaveAttribute('aria-disabled');
+      expect(item).toHaveClass('fi-select-item--disabled');
     });
   });
 
@@ -348,7 +348,7 @@ describe('statusText', () => {
     );
     expect(getByRole('textbox')).toHaveAttribute(
       'aria-describedby',
-      '123-statusText 123-aria-status',
+      '123-statusText',
     );
   });
 });

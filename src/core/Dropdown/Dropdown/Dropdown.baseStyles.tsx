@@ -71,7 +71,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     border-style: solid;
     border-width: 0 1px 1px 1px;
     border-radius: 0px 0px ${theme.radius.basic} ${theme.radius.basic};
-    overflow: hidden;
+    max-height: 265px;
+    overflow-y: auto;
+    overflow-x: hidden;
     &:focus-within {
       outline: 0;
       box-shadow: none;

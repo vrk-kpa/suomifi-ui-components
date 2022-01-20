@@ -91,7 +91,6 @@ interface SingleSelectState<T extends SingleSelectData> {
   filteredItems: T[];
   filterMode: boolean;
   showPopover: boolean;
-  showOptionsAvailableText: boolean;
   focusedDescendantId: string | null;
   selectedItem: (T & SingleSelectData) | null;
   initialItems: T[];
@@ -125,9 +124,8 @@ class BaseSingleSelect<T> extends Component<
       ? this.props.selectedItem.labelText
       : this.props.defaultSelectedItem?.labelText || '',
     filteredItems: this.props.items,
-    filterMode: !!this.props.selectedItem || !!this.props.defaultSelectedItem,
+    filterMode: false,
     showPopover: false,
-    showOptionsAvailableText: false,
     focusedDescendantId: null,
     selectedItem: this.props.selectedItem
       ? this.props.selectedItem
@@ -150,7 +148,7 @@ class BaseSingleSelect<T> extends Component<
         selectedItem: resolvedSelectedItem,
         filteredItems: propItems,
         filterInputValue: resolvedSelectedItem?.labelText || '',
-        filterMode: selectedItemChanged ? !selectedItem : prevState.filterMode,
+        filterMode: prevState.filterMode,
         initialItems: propItems,
       };
     }
@@ -183,8 +181,8 @@ class BaseSingleSelect<T> extends Component<
         this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
           filterInputValue: prevState.selectedItem?.labelText || '',
           filterMode: false,
-          showOptionsAvailableText: false,
           showPopover: focusInSingleSelect,
+          focusedDescendantId: null,
         }));
       }
     });
@@ -216,7 +214,11 @@ class BaseSingleSelect<T> extends Component<
 
   private focusToInputAndCloseMenu = () => {
     this.focusToInputAndSelectText();
-    this.setState({ showPopover: false, filterMode: false });
+    this.setState({
+      showPopover: false,
+      filterMode: false,
+      focusedDescendantId: null,
+    });
   };
 
   private handleItemSelection = (item: (T & SingleSelectData) | null) => {
@@ -226,7 +228,12 @@ class BaseSingleSelect<T> extends Component<
       this.setState({
         selectedItem: item || null,
         filterInputValue: item?.labelText || '',
+        focusedDescendantId: null,
       });
+    } else {
+      this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
+        filterInputValue: prevState.selectedItem?.labelText || '',
+      }));
     }
     if (!!onItemSelect) {
       onItemSelect(item?.uniqueItemId || null);
@@ -345,8 +352,6 @@ class BaseSingleSelect<T> extends Component<
       ? `${id}-${focusedDescendantId}`
       : '';
     const popoverItemListId = `${id}-popover`;
-    const ariaOptionsAvailableTextId = `${id}-aria-status`;
-
     const popoverItems = filterMode ? filteredItems : propItems;
 
     return (
@@ -371,35 +376,24 @@ class BaseSingleSelect<T> extends Component<
                 aria-activedescendant={ariaActiveDescendant}
                 id={id}
                 aria-controls={popoverItemListId}
-                aria-describedby={ariaOptionsAvailableTextId}
                 labelText={labelText}
                 optionalText={optionalText}
                 hintText={hintText}
                 items={propItems}
-                onFilter={(filtered) =>
-                  this.setState({ filteredItems: filtered })
-                }
+                onFilter={(filtered) => {
+                  if (this.state.filterMode) {
+                    this.setState({ filteredItems: filtered });
+                  }
+                }}
                 filterFunc={this.filter}
                 forwardedRef={this.filterInputRef}
                 onFocus={() => {
                   if (!this.preventShowPopoverOnInputFocus) {
                     this.setState({ showPopover: true });
                   }
-                  this.setState({ showOptionsAvailableText: true });
                   this.preventShowPopoverOnInputFocus = false;
                 }}
-                onClick={(event) => {
-                  if (!this.isOutsideClick(event as any as MouseEvent)) {
-                    this.setState(
-                      (prevState: SingleSelectState<T & SingleSelectData>) => ({
-                        showPopover: true,
-                        filterInputValue: prevState.filterMode
-                          ? prevState.filterInputValue
-                          : '',
-                        filterMode: true,
-                      }),
-                    );
-                  }
+                onClick={() => {
                   this.focusToInputAndSelectText();
                 }}
                 onKeyDown={this.handleKeyDown}
@@ -495,12 +489,8 @@ class BaseSingleSelect<T> extends Component<
               </SelectItemList>
             </Popover>
           )}
-          {this.state.showOptionsAvailableText && (
-            <VisuallyHidden
-              aria-live="polite"
-              aria-atomic="true"
-              id={ariaOptionsAvailableTextId}
-            >
+          {this.state.filterMode && (
+            <VisuallyHidden aria-live="polite" aria-atomic="true">
               {`${popoverItems.length} ${ariaOptionsAvailableText}`}
             </VisuallyHidden>
           )}

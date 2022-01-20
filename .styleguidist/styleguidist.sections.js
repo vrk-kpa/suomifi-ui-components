@@ -94,6 +94,14 @@ module.exports = {
               components: getComponents(['Text', 'Paragraph']),
             },
             {
+              name: 'Alert',
+              components: getComponentWithVariants('Alert')([
+                'Alert/Alert',
+                'InlineAlert/InlineAlert',
+              ]),
+            },
+
+            {
               name: 'RadioButton',
               components: getComponentWithVariants('Form/RadioButton')([
                 'RadioButton',
@@ -125,12 +133,12 @@ module.exports = {
                 'MultiSelect/MultiSelect/MultiSelect',
               ]),
             },
-            // {
-            //   name: 'SingleSelect',
-            //   components: getComponentWithVariants('Form/Select')([
-            //     'SingleSelect/SingleSelect',
-            //   ]),
-            // },
+            {
+              name: 'SingleSelect',
+              components: getComponentWithVariants('Form/Select')([
+                'SingleSelect/SingleSelect',
+              ]),
+            },
           ],
           expand: true,
         },
@@ -160,6 +168,10 @@ module.exports = {
                 'LanguageMenuLink/LanguageMenuLink',
               ]),
             },
+            // {
+            //   name: 'Notification',
+            //   components: getComponents(['Notification']),
+            // },
             {
               name: 'Expander',
               components: getComponentWithVariants('Expander')([

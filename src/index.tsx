@@ -5,16 +5,17 @@ export {
   BreadcrumbLink,
   BreadcrumbLinkProps,
 } from './core/Breadcrumb';
+export { Alert, AlertProps, InlineAlert, InlineAlertProps } from './core/Alert';
+// export {
+//   Notification,
+//   NotificationProps,
+// } from './core/Notification/Notification';
 export { Block, BlockProps } from './core/Block/Block';
 export { Button, ButtonProps } from './core/Button/Button';
 export { Dropdown, DropdownProps } from './core/Dropdown/';
 export { DropdownItem, DropdownItemProps } from './core/Dropdown/';
 export { Chip, ChipProps } from './core/Chip/';
 export { StaticChip, StaticChipProps } from './core/Chip/';
-// SingleSelect,
-// SingleSelectProps,
-// SingleSelectData,
-// SingleSelectStatus,
 export {
   Checkbox,
   CheckboxProps,
@@ -34,6 +35,10 @@ export {
   MultiSelectProps,
   MultiSelectData,
   MultiSelectStatus,
+  SingleSelect,
+  SingleSelectProps,
+  SingleSelectData,
+  SingleSelectStatus,
 } from './core/Form/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';
@@ -90,16 +95,6 @@ export {
 } from './core/VisuallyHidden/VisuallyHidden';
 export {
   SuomifiTheme,
-  TypographyDesignTokens,
-  ColorDesignTokens,
-  SpacingDesignTokens,
-  RawDesignTokens,
-  ValueUnit,
-  RawColorDesignTokens,
-  ColorToken,
-  RawSpacingDesignTokens,
-  RawTypographyDesignTokens,
-  TypographyToken,
   GradientDesignTokens,
   FocusDesignTokens,
   RadiusDesignTokens,
@@ -117,4 +112,17 @@ export {
   TypographyProp,
   SpacingProp,
 } from './core/theme';
-export { suomifiDesignTokens, DesignTokens } from 'suomifi-design-tokens';
+export {
+  suomifiDesignTokens,
+  DesignTokens,
+  TypographyDesignTokens,
+  ColorDesignTokens,
+  SpacingDesignTokens,
+  RawDesignTokens,
+  ValueUnit,
+  RawColorDesignTokens,
+  ColorToken,
+  RawSpacingDesignTokens,
+  RawTypographyDesignTokens,
+  TypographyToken,
+} from 'suomifi-design-tokens';

@@ -20,11 +20,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &:focus {
       outline: none;
     }
-
-    & .fi-item-list_top-spacer {
-      height: 4px;
-      width: 100%;
-    }
   }
 
   & .fi-select-item-list_content_wrapper {

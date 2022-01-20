@@ -436,7 +436,7 @@ describe('statusText', () => {
     );
     expect(getByRole('textbox')).toHaveAttribute(
       'aria-describedby',
-      '123-statusText 123-selectedItems-length',
+      '123-statusText',
     );
   });
 });
