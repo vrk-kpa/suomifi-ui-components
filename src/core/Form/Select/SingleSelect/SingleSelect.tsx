@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv } from '../../../../reset';
-import { getOwnerDocument } from '../../../../utils/common';
+import { getOwnerDocument, escapeStringRegexp } from '../../../../utils/common';
 import { AutoId } from '../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Popover } from '../../../Popover/Popover';
@@ -194,7 +194,11 @@ class BaseSingleSelect<T> extends Component<
         prevState.filterMode || !prevState.selectedItem
           ? value
           : value.replace(
-              new RegExp(`^${prevState.selectedItem?.labelText}`),
+              new RegExp(
+                `^${escapeStringRegexp(
+                  prevState.selectedItem?.labelText || '',
+                )}`,
+              ),
               '',
             );
       return {

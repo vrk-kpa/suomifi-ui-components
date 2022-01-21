@@ -1,6 +1,7 @@
 import React, { Component, ReactNode, MouseEvent } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import { escapeStringRegexp } from '../../../../../utils/common';
 import { HtmlLi } from '../../../../../reset';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
 import { Icon } from '../../../../Icon/Icon';
@@ -16,10 +17,6 @@ const selectItemClassNames = {
   disabled: `${baseClassName}--disabled`,
   icon: `${baseClassName}_icon`,
 };
-
-const escapeStringQueryRegex = (string: String) =>
-  string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/-/g, '\\x2d');
-
 export interface SelectItemProps {
   /** Unique id for the item */
   id: string;
@@ -43,7 +40,7 @@ class BaseSelectItem extends Component<SelectItemProps & SuomifiThemeProp> {
   private highlightQuery = (text: string, query: string = '') => {
     if (query.length > 0) {
       const substrings = text.split(
-        new RegExp(`(${escapeStringQueryRegex(query)})`, 'gi'),
+        new RegExp(`(${escapeStringRegexp(query)})`, 'gi'),
       );
       return substrings.map((substring, i) => {
         const isMatch = substring.toLowerCase() === query.toLowerCase();

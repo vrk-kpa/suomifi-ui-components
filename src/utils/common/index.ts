@@ -1,1 +1,6 @@
-export { windowAvailable, useEnhancedEffect, getOwnerDocument } from './common';
+export {
+  windowAvailable,
+  useEnhancedEffect,
+  getOwnerDocument,
+  escapeStringRegexp,
+} from './common';
