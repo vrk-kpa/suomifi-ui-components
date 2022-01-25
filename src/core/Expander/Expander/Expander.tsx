@@ -181,7 +181,7 @@ class BaseExpander extends Component<BaseExpanderProps & SuomifiThemeProp> {
 }
 
 const StyledExpander = styled(BaseExpander)`
-  ${({ theme }) => baseStyles(theme)};
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 interface ExpanderState {

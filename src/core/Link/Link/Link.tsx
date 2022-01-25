@@ -22,7 +22,7 @@ const StyledLink = styled(
     />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)};
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**

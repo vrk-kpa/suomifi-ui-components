@@ -359,147 +359,141 @@ class BaseSingleSelect<T> extends Component<
     const popoverItems = filterMode ? filteredItems : propItems;
 
     return (
-      <>
-        <HtmlDiv
-          {...passProps}
-          className={classnames(baseClassName, className, {
-            [singleSelectClassNames.valueSelected]: !!selectedItem,
-            [singleSelectClassNames.open]: showPopover,
-            [singleSelectClassNames.error]: status === 'error',
-          })}
-        >
-          <Debounce waitFor={debounce}>
-            {(debouncer: Function) => (
-              <FilterInput
-                inputElementContainerProps={{
-                  role: 'combobox',
-                  'aria-haspopup': 'listbox',
-                  'aria-owns': popoverItemListId,
-                  'aria-expanded': showPopover,
-                }}
-                aria-activedescendant={ariaActiveDescendant}
-                id={id}
-                aria-controls={popoverItemListId}
-                labelText={labelText}
-                optionalText={optionalText}
-                hintText={hintText}
-                items={propItems}
-                onFilter={(filtered) => {
-                  if (this.state.filterMode) {
-                    this.setState({ filteredItems: filtered });
-                  }
-                }}
-                filterFunc={this.filter}
-                forwardedRef={this.filterInputRef}
-                onFocus={() => {
-                  if (!this.preventShowPopoverOnInputFocus) {
-                    this.setState({ showPopover: true });
-                  }
-                  this.preventShowPopoverOnInputFocus = false;
-                }}
-                onClick={() => {
-                  this.focusToInputAndSelectText();
-                }}
-                onKeyDown={this.handleKeyDown}
-                onBlur={this.handleBlur}
-                value={filterInputValue}
-                onChange={(value: string) => {
-                  if (propOnChange) {
-                    debouncer(propOnChange, value);
-                  }
-                  this.handleOnChange(value);
-                }}
-                visualPlaceholder={!selectedItem ? visualPlaceholder : ''}
-                status={status}
-                statusText={statusText}
-              >
-                {!!selectedItem && (
-                  <HtmlDiv
-                    className={singleSelectClassNames.clearButtonWrapper}
-                  >
-                    <InputClearButton
-                      forwardedRef={this.clearButtonRef}
-                      onClick={() => this.handleItemSelection(null)}
-                      onBlur={this.handleBlur}
-                      label={clearButtonLabel}
-                    />
-                  </HtmlDiv>
-                )}
-                <InputToggleButton
-                  open={showPopover}
-                  ref={this.toggleButtonRef}
-                  onClick={(event) => {
-                    event.preventDefault();
-                    this.setState(
-                      (prevState: SingleSelectState<T & SingleSelectData>) => ({
-                        showPopover: !prevState.showPopover,
-                      }),
-                    );
-                    this.preventShowPopoverOnInputFocus = true;
-                    this.focusToInputAndSelectText();
-                  }}
-                  aria-hidden={true}
-                  tabIndex={-1}
-                />
-              </FilterInput>
-            )}
-          </Debounce>
-          {showPopover && (
-            <Popover
-              sourceRef={this.filterInputRef}
-              matchWidth={true}
-              onKeyDown={this.handleKeyDown}
-              onClickOutside={(event) => {
-                if (!this.isOutsideClick(event)) {
-                  this.setState({ showPopover: false });
+      <HtmlDiv
+        {...passProps}
+        className={classnames(baseClassName, className, {
+          [singleSelectClassNames.valueSelected]: !!selectedItem,
+          [singleSelectClassNames.open]: showPopover,
+          [singleSelectClassNames.error]: status === 'error',
+        })}
+      >
+        <Debounce waitFor={debounce}>
+          {(debouncer: Function) => (
+            <FilterInput
+              inputElementContainerProps={{
+                role: 'combobox',
+                'aria-haspopup': 'listbox',
+                'aria-owns': popoverItemListId,
+                'aria-expanded': showPopover,
+              }}
+              aria-activedescendant={ariaActiveDescendant}
+              id={id}
+              aria-controls={popoverItemListId}
+              labelText={labelText}
+              optionalText={optionalText}
+              hintText={hintText}
+              items={propItems}
+              onFilter={(filtered) => {
+                if (this.state.filterMode) {
+                  this.setState({ filteredItems: filtered });
                 }
               }}
+              filterFunc={this.filter}
+              forwardedRef={this.filterInputRef}
+              onFocus={() => {
+                if (!this.preventShowPopoverOnInputFocus) {
+                  this.setState({ showPopover: true });
+                }
+                this.preventShowPopoverOnInputFocus = false;
+              }}
+              onClick={() => {
+                this.focusToInputAndSelectText();
+              }}
+              onKeyDown={this.handleKeyDown}
+              onBlur={this.handleBlur}
+              value={filterInputValue}
+              onChange={(value: string) => {
+                if (propOnChange) {
+                  debouncer(propOnChange, value);
+                }
+                this.handleOnChange(value);
+              }}
+              visualPlaceholder={!selectedItem ? visualPlaceholder : ''}
+              status={status}
+              statusText={statusText}
             >
-              <SelectItemList
-                id={popoverItemListId}
-                ref={this.popoverListRef}
-                focusedDescendantId={ariaActiveDescendant}
-              >
-                {popoverItems.length > 0 ? (
-                  popoverItems.map((item) => {
-                    const isCurrentlySelected =
-                      item.uniqueItemId === focusedDescendantId;
+              {!!selectedItem && (
+                <HtmlDiv className={singleSelectClassNames.clearButtonWrapper}>
+                  <InputClearButton
+                    forwardedRef={this.clearButtonRef}
+                    onClick={() => this.handleItemSelection(null)}
+                    onBlur={this.handleBlur}
+                    label={clearButtonLabel}
+                  />
+                </HtmlDiv>
+              )}
+              <InputToggleButton
+                open={showPopover}
+                ref={this.toggleButtonRef}
+                onClick={(event) => {
+                  event.preventDefault();
+                  this.setState(
+                    (prevState: SingleSelectState<T & SingleSelectData>) => ({
+                      showPopover: !prevState.showPopover,
+                    }),
+                  );
+                  this.preventShowPopoverOnInputFocus = true;
+                  this.focusToInputAndSelectText();
+                }}
+                aria-hidden={true}
+                tabIndex={-1}
+              />
+            </FilterInput>
+          )}
+        </Debounce>
+        {showPopover && (
+          <Popover
+            sourceRef={this.filterInputRef}
+            matchWidth={true}
+            onKeyDown={this.handleKeyDown}
+            onClickOutside={(event) => {
+              if (!this.isOutsideClick(event)) {
+                this.setState({ showPopover: false });
+              }
+            }}
+          >
+            <SelectItemList
+              id={popoverItemListId}
+              ref={this.popoverListRef}
+              focusedDescendantId={ariaActiveDescendant}
+            >
+              {popoverItems.length > 0 ? (
+                popoverItems.map((item) => {
+                  const isCurrentlySelected =
+                    item.uniqueItemId === focusedDescendantId;
 
-                    return (
-                      <SelectItem
-                        hasKeyboardFocus={isCurrentlySelected}
-                        key={`${item.uniqueItemId}_${
-                          item.uniqueItemId === selectedItem?.uniqueItemId
-                        }`}
-                        id={`${id}-${item.uniqueItemId}`}
-                        checked={
-                          item.uniqueItemId === selectedItem?.uniqueItemId
-                        }
-                        disabled={item.disabled}
-                        onClick={() => {
-                          this.handleItemSelection(item);
-                        }}
-                        hightlightQuery={
-                          filterMode ? this.filterInputRef.current?.value : ''
-                        }
-                      >
-                        {item.labelText}
-                      </SelectItem>
-                    );
-                  })
-                ) : (
-                  <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
-                )}
-              </SelectItemList>
-            </Popover>
-          )}
-          {this.state.filterMode && (
-            <VisuallyHidden aria-live="polite" aria-atomic="true">
-              {`${popoverItems.length} ${ariaOptionsAvailableText}`}
-            </VisuallyHidden>
-          )}
-        </HtmlDiv>
-      </>
+                  return (
+                    <SelectItem
+                      hasKeyboardFocus={isCurrentlySelected}
+                      key={`${item.uniqueItemId}_${
+                        item.uniqueItemId === selectedItem?.uniqueItemId
+                      }`}
+                      id={`${id}-${item.uniqueItemId}`}
+                      checked={item.uniqueItemId === selectedItem?.uniqueItemId}
+                      disabled={item.disabled}
+                      onClick={() => {
+                        this.handleItemSelection(item);
+                      }}
+                      hightlightQuery={
+                        filterMode ? this.filterInputRef.current?.value : ''
+                      }
+                    >
+                      {item.labelText}
+                    </SelectItem>
+                  );
+                })
+              ) : (
+                <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
+              )}
+            </SelectItemList>
+          </Popover>
+        )}
+        {this.state.filterMode && (
+          <VisuallyHidden aria-live="polite" aria-atomic="true">
+            {`${popoverItems.length} ${ariaOptionsAvailableText}`}
+          </VisuallyHidden>
+        )}
+      </HtmlDiv>
     );
   }
 }

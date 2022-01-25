@@ -109,7 +109,7 @@ const onEnterPressed =
   };
 
 const StyledFigure = styled.figure`
-  ${(props: ColorProps & SuomifiThemeProp) => baseStyles(props)};
+  ${(props: ColorProps & SuomifiThemeProp) => baseStyles(props)}
 `;
 
 const ColorFigure = (props: ColorProps & SuomifiThemeProp) => {
@@ -140,7 +140,7 @@ const ColorFigure = (props: ColorProps & SuomifiThemeProp) => {
 };
 
 const ColorsContainer = styled.div`
-  ${containerStyles};
+  ${containerStyles}
 `;
 
 export class Colors extends Component<ColorsProps> {

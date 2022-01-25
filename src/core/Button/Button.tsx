@@ -92,49 +92,47 @@ class BaseButton extends Component<ButtonProps & InnerRef> {
     const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
 
     return (
-      <>
-        <HtmlButton
-          {...passProps}
-          {...onClickProp}
-          {...(!!disabled ? {} : { tabIndex: 0 })}
-          aria-disabled={!!ariaDisabled || !!disabled}
-          forwardedRef={forwardedRef}
-          disabled={!!disabled}
-          className={classnames(baseClassName, className, {
-            [disabledClassName]: !!disabled || !!ariaDisabled,
-            [`${baseClassName}--inverted`]: variant === 'inverted',
-            [`${baseClassName}--secondary`]: variant === 'secondary',
-            [`${baseClassName}--secondary-noborder`]:
-              variant === 'secondaryNoBorder',
-            [`${baseClassName}--link`]: variant === 'link',
-            [fullWidthClassName]: fullWidth,
-          })}
-        >
-          {!!icon && (
-            <Icon
-              {...passIconProps}
-              mousePointer={true}
-              icon={icon}
-              color="currentColor"
-              className={classnames(iconClassName, iconPropsClassName)}
-            />
-          )}
-          {children}
-          {!!iconRight && (
-            <Icon
-              {...passIconProps}
-              mousePointer={true}
-              icon={iconRight}
-              color="currentColor"
-              className={classnames(
-                iconClassName,
-                iconRightClassName,
-                iconPropsClassName,
-              )}
-            />
-          )}
-        </HtmlButton>
-      </>
+      <HtmlButton
+        {...passProps}
+        {...onClickProp}
+        {...(!!disabled ? {} : { tabIndex: 0 })}
+        aria-disabled={!!ariaDisabled || !!disabled}
+        forwardedRef={forwardedRef}
+        disabled={!!disabled}
+        className={classnames(baseClassName, className, {
+          [disabledClassName]: !!disabled || !!ariaDisabled,
+          [`${baseClassName}--inverted`]: variant === 'inverted',
+          [`${baseClassName}--secondary`]: variant === 'secondary',
+          [`${baseClassName}--secondary-noborder`]:
+            variant === 'secondaryNoBorder',
+          [`${baseClassName}--link`]: variant === 'link',
+          [fullWidthClassName]: fullWidth,
+        })}
+      >
+        {!!icon && (
+          <Icon
+            {...passIconProps}
+            mousePointer={true}
+            icon={icon}
+            color="currentColor"
+            className={classnames(iconClassName, iconPropsClassName)}
+          />
+        )}
+        {children}
+        {!!iconRight && (
+          <Icon
+            {...passIconProps}
+            mousePointer={true}
+            icon={iconRight}
+            color="currentColor"
+            className={classnames(
+              iconClassName,
+              iconRightClassName,
+              iconPropsClassName,
+            )}
+          />
+        )}
+      </HtmlButton>
     );
   }
 }
