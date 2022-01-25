@@ -24,3 +24,6 @@ export const getOwnerDocument = (elementRef: React.RefObject<any>) => {
   }
   return null;
 };
+
+export const escapeStringRegexp = (string: String) =>
+  string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/-/g, '\\x2d');
