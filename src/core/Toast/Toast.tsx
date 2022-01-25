@@ -41,7 +41,6 @@ class BaseToast extends Component<ToastProps & InnerRef> {
       ariaLiveMode = 'polite',
       children,
       className,
-      forwardedRef,
       headingText,
       headingVariant = 'h2',
       id,
