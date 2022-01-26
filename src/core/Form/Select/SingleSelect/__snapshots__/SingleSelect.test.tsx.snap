@@ -186,7 +186,6 @@ exports[`has matching snapshot 1`] = `
 .c5.fi-hint-text {
   display: block;
   color: hsl(0,0%,16%);
-  margin-bottom: 10px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -248,6 +247,10 @@ exports[`has matching snapshot 1`] = `
 .c2 .fi-filter-input_wrapper {
   display: inline-block;
   width: 100%;
+}
+
+.c2 .fi-filter-input_wrapper .fi-hint-text {
+  margin-bottom: 10px;
 }
 
 .c2 .fi-filter-input_functionalityContainer {

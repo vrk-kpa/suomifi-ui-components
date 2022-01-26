@@ -10,6 +10,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   & .fi-filter-input_wrapper {
     display: inline-block;
     width: 100%;
+
+    & .fi-hint-text {
+      margin-bottom: ${theme.spacing.xs};
+    }
   }
 
   & .fi-filter-input_functionalityContainer {

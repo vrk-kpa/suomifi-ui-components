@@ -231,6 +231,10 @@ exports[`has matching snapshot 1`] = `
   width: 100%;
 }
 
+.c2 .fi-filter-input_wrapper .fi-hint-text {
+  margin-bottom: 10px;
+}
+
 .c2 .fi-filter-input_functionalityContainer {
   line-height: 1.5;
   position: relative;

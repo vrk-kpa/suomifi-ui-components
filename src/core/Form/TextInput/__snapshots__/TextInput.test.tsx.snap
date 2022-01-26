@@ -167,6 +167,10 @@ exports[`snapshots match error status with statustext 1`] = `
   display: inline-block;
 }
 
+.c1 .fi-text-input_wrapper .fi-hint-text {
+  margin-bottom: 10px;
+}
+
 .c1 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(196,77%,44%);
   outline-width: 2px;
@@ -526,6 +530,10 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   display: inline-block;
 }
 
+.c1 .fi-text-input_wrapper .fi-hint-text {
+  margin-bottom: 10px;
+}
+
 .c1 .fi-text-input_input-element-container > input:focus {
   outline-color: hsl(196,77%,44%);
   outline-width: 2px;
@@ -868,6 +876,10 @@ exports[`snapshots match minimal implementation 1`] = `
 .c1 .fi-text-input_wrapper {
   width: 100%;
   display: inline-block;
+}
+
+.c1 .fi-text-input_wrapper .fi-hint-text {
+  margin-bottom: 10px;
 }
 
 .c1 .fi-text-input_input-element-container > input:focus {

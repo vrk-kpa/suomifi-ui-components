@@ -207,7 +207,6 @@ exports[`props children has matching snapshot 1`] = `
 .c1 .fi-hint-text {
   padding-left: 25px;
   color: hsl(202,7%,40%);
-  margin-bottom: 0;
 }
 
 .c1 .fi-status-text {

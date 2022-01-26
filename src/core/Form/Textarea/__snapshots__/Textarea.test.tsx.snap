@@ -178,10 +178,6 @@ exports[`snapshot default structure should match snapshot 1`] = `
   margin-bottom: 0;
 }
 
-.c1.fi-textarea .fi-hint-text {
-  margin-bottom: 0;
-}
-
 .c1.fi-textarea .fi-textarea_textarea-element-container {
   margin-top: 10px;
 }
