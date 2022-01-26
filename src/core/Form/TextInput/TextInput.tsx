@@ -30,6 +30,7 @@ export const textInputClassNames = {
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
   styleWrapper: `${baseClassName}_wrapper`,
+  statusTextHasContent: `${baseClassName}_statusText--has-content`,
 };
 
 type TextInputValue = string | number | undefined;
@@ -166,6 +167,9 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
           </HtmlDiv>
           <StatusText
             id={statusTextId}
+            className={classnames({
+              [textInputClassNames.statusTextHasContent]: !!statusText,
+            })}
             status={status}
             ariaLiveMode={statusTextAriaLiveMode}
             disabled={passProps.disabled}

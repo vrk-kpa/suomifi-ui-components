@@ -44,6 +44,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         height: 20px;
       }
     }
+
+    & .fi-filter-input_statusText--has-content {
+      margin-top: ${theme.spacing.xxs};
+    }
   }
 
   & .fi-filter-input_input-element-container {

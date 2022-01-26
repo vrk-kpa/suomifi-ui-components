@@ -199,14 +199,11 @@ exports[`has matching snapshot 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+  display: block;
 }
 
 .c6.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
-}
-
-.c6.fi-status-text.fi-status-text--hasContent {
-  margin-top: 5px;
 }
 
 .c2 .fi-filter-input {
@@ -277,6 +274,10 @@ exports[`has matching snapshot 1`] = `
   border-right: 1px solid hsl(202,7%,67%);
   padding-right: 8px;
   height: 20px;
+}
+
+.c2 .fi-filter-input_functionalityContainer .fi-filter-input_statusText--has-content {
+  margin-top: 5px;
 }
 
 .c2 .fi-filter-input_input-element-container > input:focus {

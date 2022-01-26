@@ -134,14 +134,11 @@ exports[`props children has matching snapshot 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+  display: block;
 }
 
 .c5.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
-}
-
-.c5.fi-status-text.fi-status-text--hasContent {
-  margin-top: 5px;
 }
 
 .c1 {
@@ -210,8 +207,11 @@ exports[`props children has matching snapshot 1`] = `
 }
 
 .c1 .fi-status-text {
-  display: block;
   line-height: 18px;
+}
+
+.c1 .fi-status-text.fi-checkbox_statusText--has-content {
+  margin-top: 5px;
 }
 
 .c1.fi-checkbox--large .fi-checkbox_label {

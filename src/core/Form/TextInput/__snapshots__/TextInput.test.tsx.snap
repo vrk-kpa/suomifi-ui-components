@@ -134,14 +134,11 @@ exports[`snapshots match error status with statustext 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+  display: block;
 }
 
 .c5.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
-}
-
-.c5.fi-status-text.fi-status-text--hasContent {
-  margin-top: 5px;
 }
 
 .c1.fi-text-input {
@@ -172,6 +169,10 @@ exports[`snapshots match error status with statustext 1`] = `
 
 .c1 .fi-text-input_wrapper .fi-hint-text {
   margin-bottom: 10px;
+}
+
+.c1 .fi-text-input_wrapper .fi-text-input_statusText--has-content {
+  margin-top: 5px;
 }
 
 .c1 .fi-text-input_input-element-container > input:focus {
@@ -345,7 +346,7 @@ exports[`snapshots match error status with statustext 1`] = `
     <span
       aria-atomic="true"
       aria-live="assertive"
-      class="c2 c5 fi-status-text fi-status-text--hasContent fi-status-text--error"
+      class="c2 c5 fi-text-input_statusText--has-content fi-status-text fi-status-text--error"
       id="test-id2-statusText"
     >
       This is a status text
@@ -500,14 +501,11 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+  display: block;
 }
 
 .c6.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
-}
-
-.c6.fi-status-text.fi-status-text--hasContent {
-  margin-top: 5px;
 }
 
 .c1.fi-text-input {
@@ -538,6 +536,10 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 
 .c1 .fi-text-input_wrapper .fi-hint-text {
   margin-bottom: 10px;
+}
+
+.c1 .fi-text-input_wrapper .fi-text-input_statusText--has-content {
+  margin-top: 5px;
 }
 
 .c1 .fi-text-input_input-element-container > input:focus {
@@ -851,14 +853,11 @@ exports[`snapshots match minimal implementation 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+  display: block;
 }
 
 .c5.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
-}
-
-.c5.fi-status-text.fi-status-text--hasContent {
-  margin-top: 5px;
 }
 
 .c1.fi-text-input {
@@ -889,6 +888,10 @@ exports[`snapshots match minimal implementation 1`] = `
 
 .c1 .fi-text-input_wrapper .fi-hint-text {
   margin-bottom: 10px;
+}
+
+.c1 .fi-text-input_wrapper .fi-text-input_statusText--has-content {
+  margin-top: 5px;
 }
 
 .c1 .fi-text-input_input-element-container > input:focus {

@@ -136,8 +136,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   & .fi-status-text {
-    display: block;
     line-height: 18px;
+    &.fi-checkbox_statusText--has-content {
+      margin-top: ${theme.spacing.xxs};
+    }
   }
 
   ${largeVariantStyles(theme)};

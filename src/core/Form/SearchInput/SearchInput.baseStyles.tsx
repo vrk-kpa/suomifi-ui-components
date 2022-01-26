@@ -17,6 +17,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       & .fi-label-text {
         margin-bottom: ${theme.spacing.xs};
       }
+
+      & .fi-search-input_statusText--has-content {
+        margin-top: ${theme.spacing.xxs};
+      }
     }
 
     &_functionality-container {

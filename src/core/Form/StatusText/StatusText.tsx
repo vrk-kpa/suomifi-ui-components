@@ -9,7 +9,6 @@ import { baseStyles } from './StatusText.baseStyles';
 const baseClassName = 'fi-status-text';
 const statusTextClassNames = {
   error: `${baseClassName}--error`,
-  hasContent: `${baseClassName}--hasContent`,
 };
 
 export interface StatusTextProps extends HtmlSpanProps {
@@ -46,7 +45,6 @@ const StyledStatusText = styled(
         {...passProps}
         {...ariaLiveProp}
         className={classnames(className, baseClassName, {
-          [statusTextClassNames.hasContent]: children,
           [statusTextClassNames.error]: status === 'error',
         })}
         aria-atomic="true"

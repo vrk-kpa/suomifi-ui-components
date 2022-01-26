@@ -26,6 +26,7 @@ const filterInputClassNames = {
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
   actionElementsContainer: `${baseClassName}_action-elements-container`,
+  statusTextHasContent: `${baseClassName}_statusText--has-content`,
 };
 
 export type FilterInputStatus = Exclude<InputStatus, 'success'>;
@@ -206,6 +207,9 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
             )}
             <StatusText
               id={statusTextId}
+              className={classnames({
+                [filterInputClassNames.statusTextHasContent]: !!statusText,
+              })}
               status={status}
               disabled={passProps.disabled}
               ariaLiveMode={statusTextAriaLiveMode}

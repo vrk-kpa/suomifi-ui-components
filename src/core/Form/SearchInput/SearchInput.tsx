@@ -88,6 +88,7 @@ const searchInputClassNames = {
   inputElement: `${baseClassName}_input`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   functionalityContainer: `${baseClassName}_functionality-container`,
+  statusTextHasContent: `${baseClassName}_statusText--has-content`,
   button: `${baseClassName}_button`,
   searchButton: `${baseClassName}_button-search`,
   searchIcon: `${baseClassName}_button-search-icon`,
@@ -267,6 +268,9 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           </Debounce>
           <StatusText
             id={statusTextId}
+            className={classnames({
+              [searchInputClassNames.statusTextHasContent]: !!statusText,
+            })}
             status={status}
             ariaLiveMode={statusTextAriaLiveMode}
           >

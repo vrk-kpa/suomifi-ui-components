@@ -12,6 +12,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     color: ${theme.colors.blackBase};
     width: 290px;
 
+    & .fi-textarea_statusText--has-content {
+      margin-top: ${theme.spacing.xxs};
+    }
+
     & .fi-textarea_textarea-element-container {
       margin-top: ${theme.spacing.insetL};
       &:focus-within {
