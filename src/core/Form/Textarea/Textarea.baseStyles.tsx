@@ -12,10 +12,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     color: ${theme.colors.blackBase};
     width: 290px;
 
-    & .fi-label-text_label-span {
-      margin-bottom: 0;
-    }
-
     & .fi-textarea_textarea-element-container {
       margin-top: ${theme.spacing.insetL};
       &:focus-within {

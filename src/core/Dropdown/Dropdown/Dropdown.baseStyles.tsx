@@ -5,6 +5,10 @@ import { element, inputButton } from '../../theme/reset';
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-dropdown {
     display: inline-block;
+
+    & .fi-label-text {
+      margin-bottom: ${theme.spacing.xs};
+    }
   }
 
   & [data-reach-listbox-button].fi-dropdown_button {

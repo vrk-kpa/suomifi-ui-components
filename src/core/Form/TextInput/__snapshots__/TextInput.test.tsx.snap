@@ -107,7 +107,6 @@ exports[`snapshots match error status with statustext 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: block;
-  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
@@ -165,6 +164,10 @@ exports[`snapshots match error status with statustext 1`] = `
 .c1 .fi-text-input_wrapper {
   width: 100%;
   display: inline-block;
+}
+
+.c1 .fi-text-input_wrapper .fi-label-text {
+  margin-bottom: 10px;
 }
 
 .c1 .fi-text-input_wrapper .fi-hint-text {
@@ -470,7 +473,6 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: block;
-  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
@@ -528,6 +530,10 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 .c1 .fi-text-input_wrapper {
   width: 100%;
   display: inline-block;
+}
+
+.c1 .fi-text-input_wrapper .fi-label-text {
+  margin-bottom: 10px;
 }
 
 .c1 .fi-text-input_wrapper .fi-hint-text {
@@ -818,7 +824,6 @@ exports[`snapshots match minimal implementation 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: block;
-  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
@@ -876,6 +881,10 @@ exports[`snapshots match minimal implementation 1`] = `
 .c1 .fi-text-input_wrapper {
   width: 100%;
   display: inline-block;
+}
+
+.c1 .fi-text-input_wrapper .fi-label-text {
+  margin-bottom: 10px;
 }
 
 .c1 .fi-text-input_wrapper .fi-hint-text {

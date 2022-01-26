@@ -107,7 +107,6 @@ exports[`snapshot default structure should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: block;
-  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
@@ -172,10 +171,6 @@ exports[`snapshot default structure should match snapshot 1`] = `
   flex-direction: column;
   color: hsl(0,0%,16%);
   width: 290px;
-}
-
-.c1.fi-textarea .fi-label-text_label-span {
-  margin-bottom: 0;
 }
 
 .c1.fi-textarea .fi-textarea_textarea-element-container {

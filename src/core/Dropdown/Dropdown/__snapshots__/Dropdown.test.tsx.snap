@@ -74,7 +74,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: block;
-  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
@@ -87,6 +86,10 @@ exports[`Basic dropdown should match snapshot 1`] = `
 
 .c1.fi-dropdown {
   display: inline-block;
+}
+
+.c1.fi-dropdown .fi-label-text {
+  margin-bottom: 10px;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button {
@@ -346,7 +349,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: block;
-  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
@@ -359,6 +361,10 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 
 .c1.fi-dropdown {
   display: inline-block;
+}
+
+.c1.fi-dropdown .fi-label-text {
+  margin-bottom: 10px;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button {
@@ -619,7 +625,6 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: block;
-  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
@@ -632,6 +637,10 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
 
 .c1.fi-dropdown {
   display: inline-block;
+}
+
+.c1.fi-dropdown .fi-label-text {
+  margin-bottom: 10px;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button {
@@ -891,7 +900,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: block;
-  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
@@ -904,6 +912,10 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 
 .c1.fi-dropdown {
   display: inline-block;
+}
+
+.c1.fi-dropdown .fi-label-text {
+  margin-bottom: 10px;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button {
@@ -1175,7 +1187,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: block;
-  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
@@ -1188,6 +1199,10 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 
 .c1.fi-dropdown {
   display: inline-block;
+}
+
+.c1.fi-dropdown .fi-label-text {
+  margin-bottom: 10px;
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button {

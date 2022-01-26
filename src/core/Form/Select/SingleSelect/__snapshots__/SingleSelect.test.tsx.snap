@@ -172,7 +172,6 @@ exports[`has matching snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: block;
-  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
@@ -247,6 +246,10 @@ exports[`has matching snapshot 1`] = `
 .c2 .fi-filter-input_wrapper {
   display: inline-block;
   width: 100%;
+}
+
+.c2 .fi-filter-input_wrapper .fi-label-text {
+  margin-bottom: 10px;
 }
 
 .c2 .fi-filter-input_wrapper .fi-hint-text {

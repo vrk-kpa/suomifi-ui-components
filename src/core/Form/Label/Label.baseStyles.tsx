@@ -7,7 +7,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-label-text_label-span {
       ${font(theme)('actionElementInnerTextBold')};
       display: block;
-      margin-bottom: ${theme.spacing.xs};
       color: ${theme.colors.blackBase};
 
       & .fi-label-text_optionalText {

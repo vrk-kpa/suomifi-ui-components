@@ -199,7 +199,6 @@ exports[`snapshot should have matching default structure 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: block;
-  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
@@ -301,6 +300,10 @@ exports[`snapshot should have matching default structure 1`] = `
   width: 100%;
   min-width: 105px;
   display: inline-block;
+}
+
+.c1 .fi-search-input_wrapper .fi-label-text {
+  margin-bottom: 10px;
 }
 
 .c1 .fi-search-input_functionality-container {

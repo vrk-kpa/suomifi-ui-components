@@ -13,6 +13,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       width: 100%;
       min-width: 105px;
       display: inline-block;
+
+      & .fi-label-text {
+        margin-bottom: ${theme.spacing.xs};
+      }
     }
 
     &_functionality-container {
