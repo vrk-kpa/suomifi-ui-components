@@ -22,3 +22,6 @@ export {
   SingleSelectData,
   SingleSelectStatus,
 } from './Select';
+export { Label, LabelProps } from './Label/Label';
+export { StatusText, StatusTextProps } from './StatusText/StatusText';
+export { HintText, HintTextProps } from './HintText/HintText';

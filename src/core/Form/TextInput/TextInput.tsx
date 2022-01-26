@@ -13,7 +13,7 @@ import {
   HtmlInput,
 } from '../../../reset';
 import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
-import { LabelText, LabelMode } from '../LabelText/LabelText';
+import { Label, LabelMode } from '../Label/Label';
 import { StatusText } from '../StatusText/StatusText';
 import { HintText } from '../HintText/HintText';
 import { InputStatus, StatusTextCommonProps } from '../types';
@@ -134,14 +134,9 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
         })}
       >
         <HtmlSpan className={textInputClassNames.styleWrapper}>
-          <LabelText
-            htmlFor={id}
-            labelMode={labelMode}
-            asProp="label"
-            optionalText={optionalText}
-          >
+          <Label htmlFor={id} labelMode={labelMode} optionalText={optionalText}>
             {labelText}
-          </LabelText>
+          </Label>
           <HintText id={hintTextId}>{hintText}</HintText>
           <HtmlDiv className={textInputClassNames.inputElementContainer}>
             <Debounce waitFor={debounce}>

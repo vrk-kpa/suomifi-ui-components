@@ -39,6 +39,12 @@ export {
   SingleSelectProps,
   SingleSelectData,
   SingleSelectStatus,
+  StatusText,
+  StatusTextProps,
+  Label,
+  LabelProps,
+  HintText,
+  HintTextProps,
 } from './core/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';

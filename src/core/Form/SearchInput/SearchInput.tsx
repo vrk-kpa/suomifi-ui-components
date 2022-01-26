@@ -16,7 +16,7 @@ import {
 } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { StatusText } from '../StatusText/StatusText';
-import { LabelText, LabelMode } from '../LabelText/LabelText';
+import { Label, LabelMode } from '../Label/Label';
 import { Icon } from '../../Icon/Icon';
 import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './SearchInput.baseStyles';
@@ -212,9 +212,9 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
         })}
       >
         <HtmlSpan className={searchInputClassNames.styleWrapper}>
-          <LabelText htmlFor={id} labelMode={labelMode} asProp="label">
+          <Label htmlFor={id} labelMode={labelMode}>
             {labelText}
-          </LabelText>
+          </Label>
           <Debounce waitFor={debounce}>
             {(debouncer: Function, cancelDebounce: Function) => (
               <HtmlDiv className={searchInputClassNames.functionalityContainer}>
