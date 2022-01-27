@@ -6,7 +6,7 @@ import {
 } from 'suomifi-ui-components';
 
 <>
-  <Notification closeText="Close">
+  <Notification closeText="Close Et turpis eget tempor. Et turpis eget tempor. Et turpis eget tempor.">
     Lorem ipsum dolor sit.
   </Notification>
   <Notification
@@ -23,7 +23,9 @@ import {
     headingVariant="h3"
     actionElements={
       <>
-        <Button>Button</Button>
+        <Button>
+          Button Button Button Button Button Button Button
+        </Button>
         <Button variant="secondary">Button</Button>
       </>
     }
