@@ -26,7 +26,6 @@ export const notificationClassNames = {
   icon: `${baseClassName}_icon`,
   iconWrapper: `${baseClassName}_icon-wrapper`,
   closeButton: `${baseClassName}_close-button`,
-  closeButtonWrapper: `${baseClassName}_close-button-wrapper`,
   smallScreen: `${baseClassName}--small-screen`,
   actionElementWrapper: `${baseClassName}_action-element-wrapper`,
 };
@@ -125,26 +124,24 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
               </HtmlDiv>
             </HtmlDiv>
           </HtmlDiv>
-          <HtmlDiv className={notificationClassNames.closeButtonWrapper}>
-            <HtmlButton
-              className={classnames(
-                notificationClassNames.closeButton,
-                customCloseButtonClassName,
-              )}
-              {...getConditionalAriaProp('aria-label', [
-                smallScreen ? closeText : undefined,
-              ])}
-              {...getConditionalAriaProp('aria-describedby', [
-                id,
-                closeButtonPropsAriaDescribedBy,
-              ])}
-              onClick={onCloseButtonClick}
-              {...closeButtonPassProps}
-            >
-              {!smallScreen ? closeText : ''}
-              <Icon icon="close" />
-            </HtmlButton>
-          </HtmlDiv>
+          <HtmlButton
+            className={classnames(
+              notificationClassNames.closeButton,
+              customCloseButtonClassName,
+            )}
+            {...getConditionalAriaProp('aria-label', [
+              smallScreen ? closeText : undefined,
+            ])}
+            {...getConditionalAriaProp('aria-describedby', [
+              id,
+              closeButtonPropsAriaDescribedBy,
+            ])}
+            onClick={onCloseButtonClick}
+            {...closeButtonPassProps}
+          >
+            {!smallScreen ? closeText : ''}
+            <Icon icon="close" />
+          </HtmlButton>
         </HtmlDiv>
         {actionElements && (
           <HtmlDiv className={notificationClassNames.actionElementWrapper}>

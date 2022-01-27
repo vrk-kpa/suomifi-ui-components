@@ -7,7 +7,8 @@ import {
 
 <>
   <Notification closeText="Close Et turpis eget tempor. Et turpis eget tempor. Et turpis eget tempor.">
-    Lorem ipsum dolor sit.
+    Et turpis eget tempor. Nam sed lacus ut lorem feugiat tincidunt.
+    Mauris quis nisi placerat.
   </Notification>
   <Notification
     status="error"
@@ -24,7 +25,8 @@ import {
     actionElements={
       <>
         <Button>
-          Button Button Button Button Button Button Button
+          Et turpis eget tempor. Nam sed lacus ut lorem feugiat
+          tincidunt. Mauris quis nisi placerat.{' '}
         </Button>
         <Button variant="secondary">Button</Button>
       </>

@@ -9,15 +9,18 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   box-shadow: ${theme.shadows.wideBoxShadow};
   border-radius: 4px;
   justify-content: space-between;
+  padding-bottom: 19px;
+  overflow-y: auto;
   &.fi-notification {
     & .fi-notification_text-content-wrapper {
       margin-top: 18px;
       padding-left: 20px;
+      flex-grow: 1;
       & .fi-notification_content {
         vertical-align: middle;
-        ${font(theme)('bodyTextSmall')}
         & .fi-notification_contentWrapper {
-          padding-top: 6px;
+          padding-top: 3px;
+          ${font(theme)('bodyTextSmall')}
         }
       }
     }
@@ -26,9 +29,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       margin-bottom: 0;
     }
     & .fi-notification_action-element-wrapper {
-      margin: 10px 20px 22px 89px;
+      margin: 10px 26px 3px 89px;
       & .fi-button {
+        margin-top: ${theme.spacing.xs};
         margin-right: ${theme.spacing.s};
+      }
+      & .fi-button:first-child {
+        margin-top: 0;
       }
     }
     .fi-notification_icon-wrapper {
@@ -39,50 +46,53 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         width: 24px;
       }
     }
-    & .fi-notification_close-button-wrapper {
+    & .fi-notification_close-button {
+      ${font(theme)('bodyTextSmall')}
       flex: 1 0 auto;
-      flex-direction: row-reverse;
       flex-wrap: nowrap;
+      display: flex;
       box-sizing: border-box;
       margin-top: 12px;
       margin-right: -5px;
       margin-bottom: ${theme.spacing.insetM};
-      max-width: 40%;
-      & .fi-notification_close-button {
-        ${font(theme)('bodyTextSmall')}
-        min-width: 40px;
-        text-align: right;
-        padding: 7px 8px;
-        border: 1px solid transparent;
-        border-radius: ${theme.radius.basic};
-        text-transform: uppercase;
-
-        &:focus-visible {
-          outline: 0;
-          position: relative;
-
-          &:after {
-            ${theme.focus.absoluteFocus}
-          }
-        }
-        &:active {
-          background: ${theme.gradients.whiteBaseToDepthLight1};
-        }
-        &:hover {
-          border-color: ${theme.colors.blackBase};
-        }
-
+      max-width: 50%;
+      min-width: 40px;
+      text-align: right;
+      padding: 7px 0 7px 8px;
+      border: 1px solid transparent;
+      border-radius: ${theme.radius.basic};
+      text-transform: uppercase;
+      & svg {
+        flex-grow: 1;
+        flex-shrink: 0;
+        padding-top: 4px;
+        padding-left: 7px;
         & .fi-icon {
-          width: 14px;
-          height: 14px;
           margin-left: ${theme.spacing.xxs};
           margin-top: ${theme.spacing.xxs};
-          transform: translateY(1px);
+          display: block;
+          height: 14px;
+          width: 14px;
         }
+      }
+
+      &:focus-visible {
+        outline: 0;
+        position: relative;
+
+        &:after {
+          ${theme.focus.absoluteFocus}
+        }
+      }
+      &:active {
+        background: ${theme.gradients.whiteBaseToDepthLight1};
+      }
+      &:hover {
+        border-color: ${theme.colors.blackBase};
       }
     }
     & .fi-notification_style-wrapper {
-      padding: 0 43px 10px 43px;
+      padding: 0 41px 10px 41px;
       display: flex;
       align-items: flex-start;
     }
@@ -110,12 +120,15 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         display: flex;
         flex-direction: column;
       }
-      & .fi-notification_close-button-wrapper {
+      & .fi-notification_close-button {
         justify-content: flex-end;
         margin: 0;
         flex-direction: row;
-        & .fi-icon {
-          margin-right: ${theme.spacing.xxs};
+        padding: 16px;
+        flex-grow: 0;
+        svg {
+          padding: 0;
+          margin: 0;
         }
       }
       & .fi-notification_style-wrapper {
