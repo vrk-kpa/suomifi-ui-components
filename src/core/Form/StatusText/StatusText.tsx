@@ -18,11 +18,14 @@ export interface StatusTextProps extends HtmlSpanProps {
   children?: ReactNode;
   /** Custom class name for styling and customizing  */
   className?: string;
-  /** Disable StatusText */
+  /** Disable StatusText aria live. */
   disabled?: boolean;
   /** Status */
   status?: InputStatus;
-  /** aria-live mode for the element */
+  /**
+   * aria-live mode for the element
+   * @default polite
+   */
   ariaLiveMode?: AriaLiveMode;
 }
 
@@ -33,7 +36,7 @@ const StyledStatusText = styled(
     disabled,
     status,
     theme,
-    ariaLiveMode,
+    ariaLiveMode = 'polite',
     ...passProps
   }: StatusTextProps & SuomifiThemeProp) => {
     const ariaLiveProp = !disabled
