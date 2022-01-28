@@ -10,10 +10,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   border-radius: 4px;
   justify-content: space-between;
   padding-bottom: 19px;
-  overflow-y: auto;
+  overflow: hidden;
   &.fi-notification {
     & .fi-notification_text-content-wrapper {
-      margin-top: 18px;
+      padding-top: 18px;
       padding-left: 20px;
       flex-grow: 1;
       & .fi-notification_content {
@@ -29,7 +29,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       margin-bottom: 0;
     }
     & .fi-notification_action-element-wrapper {
-      margin: 10px 26px 3px 89px;
+      padding: 10px 26px 3px 87px;
       & .fi-button {
         margin-top: ${theme.spacing.xs};
         margin-right: ${theme.spacing.s};
@@ -39,7 +39,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
     .fi-notification_icon-wrapper {
-      margin-top: ${theme.spacing.m};
+      padding-top: ${theme.spacing.m};
       flex: 0;
       & .fi-notification_icon {
         height: 24px;
@@ -62,6 +62,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       border: 1px solid transparent;
       border-radius: ${theme.radius.basic};
       text-transform: uppercase;
+      flex-grow: 0;
       & svg {
         flex-grow: 1;
         flex-shrink: 0;
@@ -114,7 +115,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &.fi-notification--small-screen {
       padding-bottom: 20px;
       & .fi-notification_text-content-wrapper {
-        margin-top: 15px;
+        padding-top: 15px;
         padding-left: 12px;
         padding-right: 12px;
         display: flex;
@@ -125,7 +126,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         margin: 0;
         flex-direction: row;
         padding: 16px;
-        flex-grow: 0;
         svg {
           padding: 0;
           margin: 0;
@@ -135,11 +135,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         padding: 0;
       }
       & .fi-notification_icon-wrapper {
-        margin-top: 17px;
-        margin-left: 17px;
+        padding-top: 17px;
+        padding-left: 17px;
       }
       & .fi-notification_action-element-wrapper {
-        margin: 0 15px;
+        padding: 0 15px;
         & .fi-button {
           width: 100%;
           margin-top: ${theme.spacing.s};

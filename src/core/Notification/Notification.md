@@ -6,40 +6,42 @@ import {
 } from 'suomifi-ui-components';
 
 <>
-  <Notification closeText="Close Et turpis eget tempor. Et turpis eget tempor. Et turpis eget tempor.">
-    Et turpis eget tempor. Nam sed lacus ut lorem feugiat tincidunt.
-    Mauris quis nisi placerat.
+  <Notification closeText="This is very long close button text.">
+    This is a short notification text.
   </Notification>
   <Notification
     status="error"
-    headingText="Lorem ipsum dolor sit"
+    headingText="Error notification"
     closeText="Close"
     smallScreen
   >
-    Et turpis eget tempor.
+    This is a short notification text.
   </Notification>
   <Notification
     closeText="Close"
-    headingText="Lorem ipsum dolor sit"
+    headingText="Notification heading"
     headingVariant="h3"
     actionElements={
       <>
         <Button>
-          Et turpis eget tempor. Nam sed lacus ut lorem feugiat
-          tincidunt. Mauris quis nisi placerat.{' '}
+          Button with long description that might/may span multiple
+          lines
         </Button>
-        <Button variant="secondary">Button</Button>
+        <Button variant="secondary">
+          Secondary button with long description that might/may span
+          multiple lines
+        </Button>
       </>
     }
   >
     <Paragraph style={{ fontSize: '16px' }}>
-      This is a long notification text. Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit.
+      This is a short notification text.
     </Paragraph>
     <Paragraph style={{ fontSize: '16px' }}>
-      Et turpis eget tempor. Nam sed lacus ut lorem feugiat tincidunt.
-      Mauris quis nisi placerat, convallis turpis nec, auctor massa.
-      Nam ornare tortor id tortor tristique.
+      This is a long notification text. Et turpis eget tempor. Nam sed
+      lacus ut lorem feugiat tincidunt. Mauris quis nisi placerat,
+      convallis turpis nec, auctor massa. Nam ornare tortor id tortor
+      tristique.
     </Paragraph>
   </Notification>
 </>;
