@@ -443,11 +443,11 @@ exports[`props children should match snapshot 1`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding-bottom: 19px;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .c1.fi-notification .fi-notification_text-content-wrapper {
-  margin-top: 18px;
+  padding-top: 18px;
   padding-left: 20px;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -494,7 +494,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_action-element-wrapper {
-  margin: 10px 26px 3px 89px;
+  padding: 10px 26px 3px 87px;
 }
 
 .c1.fi-notification .fi-notification_action-element-wrapper .fi-button {
@@ -507,7 +507,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_icon-wrapper {
-  margin-top: 20px;
+  padding-top: 20px;
   -webkit-flex: 0;
   -ms-flex: 0;
   flex: 0;
@@ -553,6 +553,10 @@ exports[`props children should match snapshot 1`] = `
   border: 1px solid transparent;
   border-radius: 2px;
   text-transform: uppercase;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
 }
 
 .c1.fi-notification .fi-notification_close-button svg {
@@ -637,7 +641,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_text-content-wrapper {
-  margin-top: 15px;
+  padding-top: 15px;
   padding-left: 12px;
   padding-right: 12px;
   display: -webkit-box;
@@ -659,10 +663,6 @@ exports[`props children should match snapshot 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   padding: 16px;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_close-button svg {
@@ -675,12 +675,12 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_icon-wrapper {
-  margin-top: 17px;
-  margin-left: 17px;
+  padding-top: 17px;
+  padding-left: 17px;
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_action-element-wrapper {
-  margin: 0 15px;
+  padding: 0 15px;
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_action-element-wrapper .fi-button {
