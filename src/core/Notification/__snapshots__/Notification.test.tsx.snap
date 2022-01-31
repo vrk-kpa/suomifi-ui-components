@@ -442,7 +442,10 @@ exports[`props children should match snapshot 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding-bottom: 19px;
+  padding-bottom: 16px;
+}
+
+.c1.fi-notification .fi-notification_element-wrapper {
   overflow: hidden;
 }
 
@@ -494,7 +497,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_action-element-wrapper {
-  padding: 10px 26px 3px 87px;
+  padding: 20px 26px 19px 87px;
 }
 
 .c1.fi-notification .fi-notification_action-element-wrapper .fi-button {
@@ -545,7 +548,7 @@ exports[`props children should match snapshot 1`] = `
   box-sizing: border-box;
   margin-top: 12px;
   margin-right: -5px;
-  margin-bottom: 8px;
+  margin-bottom: 0;
   max-width: 50%;
   min-width: 40px;
   text-align: right;
@@ -609,7 +612,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_style-wrapper {
-  padding: 0 41px 10px 41px;
+  padding: 0 41px 0 41px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -618,6 +621,7 @@ exports[`props children should match snapshot 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  overflow: hidden;
 }
 
 .c1.fi-notification--neutral {
@@ -694,73 +698,77 @@ exports[`props children should match snapshot 1`] = `
     class="c0 fi-notification fi-notification--neutral c1"
   >
     <div
-      class="c2 fi-notification_style-wrapper"
+      class="c2 fi-notification_element-wrapper"
     >
       <div
-        class="c2 fi-notification_icon-wrapper"
-      >
-        <svg
-          aria-hidden="true"
-          class="fi-icon c3 fi-notification_icon"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            class="fi-icon-base-fill"
-            d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0zm0 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm.003 8a1 1 0 011 1v6h1a1 1 0 010 2H10a1 1 0 010-2h1v-5h-1a1 1 0 010-2h2.003zm-.501-5a1.5 1.5 0 01.145 2.994L11.502 8H11.5a1.5 1.5 0 110-3h.002z"
-            fill="#222"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </div>
-      <div
-        aria-live="polite"
-        class="c2 fi-notification_text-content-wrapper"
-        id="7"
+        class="c2 fi-notification_style-wrapper"
       >
         <div
-          class="c2 fi-notification_content"
+          class="c2 fi-notification_icon-wrapper"
         >
-          <h2
-            class="c4 fi-heading c5 fi-notification_heading fi-heading--h2"
+          <svg
+            aria-hidden="true"
+            class="fi-icon c3 fi-notification_icon"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            Lorem ipsum dolor sit
-          </h2>
+            <path
+              class="fi-icon-base-fill"
+              d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0zm0 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm.003 8a1 1 0 011 1v6h1a1 1 0 010 2H10a1 1 0 010-2h1v-5h-1a1 1 0 010-2h2.003zm-.501-5a1.5 1.5 0 01.145 2.994L11.502 8H11.5a1.5 1.5 0 110-3h.002z"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+        <div
+          aria-live="polite"
+          class="c2 fi-notification_text-content-wrapper"
+          id="7"
+        >
           <div
-            class="c2 fi-notification_contentWrapper"
+            class="c2 fi-notification_content"
           >
-            <div>
-              Test notification
+            <h2
+              class="c4 fi-heading c5 fi-notification_heading fi-heading--h2"
+            >
+              Lorem ipsum dolor sit
+            </h2>
+            <div
+              class="c2 fi-notification_contentWrapper"
+            >
+              <div>
+                Test notification
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <button
-        aria-describedby="7"
-        class="c6 fi-notification_close-button"
-        type="button"
-      >
-        Close
-        <svg
-          aria-hidden="true"
-          class="fi-icon c3"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        <button
+          aria-describedby="7"
+          class="c6 fi-notification_close-button"
+          type="button"
         >
-          <path
-            class="fi-icon-base-fill"
-            d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
-            fill="#222"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </button>
+          Close
+          <svg
+            aria-hidden="true"
+            class="fi-icon c3"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="fi-icon-base-fill"
+              d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </section>
 </div>

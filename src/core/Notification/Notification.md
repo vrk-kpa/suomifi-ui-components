@@ -6,8 +6,8 @@ import {
 } from 'suomifi-ui-components';
 
 <>
-  <Notification closeText="This is very long close button text.">
-    This is a short notification text.
+  <Notification closeText="Close">
+    This is a notification text.
   </Notification>
   <Notification
     status="error"
@@ -15,30 +15,26 @@ import {
     closeText="Close"
     smallScreen
   >
-    This is a short notification text.
+    This is a small screen error notification text.
   </Notification>
   <Notification
+    id="notification-1"
     closeText="Close"
     headingText="Notification heading"
     headingVariant="h3"
     actionElements={
       <>
-        <Button>
-          Button with long description that might/may span multiple
-          lines
-        </Button>
-        <Button variant="secondary">
-          Secondary button with long description that might/may span
-          multiple lines
+        <Button variant="secondary" aria-describedby="notification-1">
+          Action button
         </Button>
       </>
     }
   >
-    <Paragraph style={{ fontSize: '16px' }}>
-      This is a short notification text.
+    <Paragraph style={{ fontSize: '16px', marginBottom: '7px' }}>
+      This is a short paragraph text.
     </Paragraph>
     <Paragraph style={{ fontSize: '16px' }}>
-      This is a long notification text. Et turpis eget tempor. Nam sed
+      This is a long paragraph text. Et turpis eget tempor. Nam sed
       lacus ut lorem feugiat tincidunt. Mauris quis nisi placerat,
       convallis turpis nec, auctor massa. Nam ornare tortor id tortor
       tristique.
