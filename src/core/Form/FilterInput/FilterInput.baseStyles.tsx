@@ -11,7 +11,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     display: inline-block;
     width: 100%;
 
-    & .fi-label-text {
+    & .fi-filter-input_label--visible {
       margin-bottom: ${theme.spacing.xs};
     }
 

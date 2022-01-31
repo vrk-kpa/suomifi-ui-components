@@ -227,7 +227,7 @@ exports[`has matching snapshot 1`] = `
   width: 100%;
 }
 
-.c2 .fi-filter-input_wrapper .fi-label-text {
+.c2 .fi-filter-input_wrapper .fi-filter-input_label--visible {
   margin-bottom: 10px;
 }
 
@@ -853,7 +853,7 @@ exports[`has matching snapshot 1`] = `
         class="c0 fi-filter-input_wrapper"
       >
         <label
-          class="c0 c3 fi-label-text"
+          class="c0 c3 fi-filter-input_label--visible fi-label-text"
           id="1-label"
         >
           <span

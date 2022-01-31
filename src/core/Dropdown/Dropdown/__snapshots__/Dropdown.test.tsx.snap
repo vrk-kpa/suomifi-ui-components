@@ -88,7 +88,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   display: inline-block;
 }
 
-.c1.fi-dropdown .fi-label-text {
+.c1.fi-dropdown .fi-dropdown_label--visible {
   margin-bottom: 10px;
 }
 
@@ -235,7 +235,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
       class="c2"
     >
       <label
-        class="c2 c3 fi-label-text"
+        class="c2 c3 fi-dropdown_label--visible fi-label-text"
         id="test-id-label"
       >
         <span
@@ -363,7 +363,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   display: inline-block;
 }
 
-.c1.fi-dropdown .fi-label-text {
+.c1.fi-dropdown .fi-dropdown_label--visible {
   margin-bottom: 10px;
 }
 
@@ -511,7 +511,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
       class="c2"
     >
       <label
-        class="c2 c3 fi-label-text"
+        class="c2 c3 fi-dropdown_label--visible fi-label-text"
         id="test-id-label"
       >
         <span
@@ -639,7 +639,7 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   display: inline-block;
 }
 
-.c1.fi-dropdown .fi-label-text {
+.c1.fi-dropdown .fi-dropdown_label--visible {
   margin-bottom: 10px;
 }
 
@@ -786,7 +786,7 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
       class="c2"
     >
       <label
-        class="c2 c3 fi-label-text"
+        class="c2 c3 fi-dropdown_label--visible fi-label-text"
         id="test-id-label"
       >
         <span
@@ -914,7 +914,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   display: inline-block;
 }
 
-.c1.fi-dropdown .fi-label-text {
+.c1.fi-dropdown .fi-dropdown_label--visible {
   margin-bottom: 10px;
 }
 
@@ -1061,7 +1061,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
       class="c2"
     >
       <label
-        class="c2 c3 fi-label-text"
+        class="c2 c3 fi-dropdown_label--visible fi-label-text"
         id="test-id-label"
       >
         <span
@@ -1201,7 +1201,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   display: inline-block;
 }
 
-.c1.fi-dropdown .fi-label-text {
+.c1.fi-dropdown .fi-dropdown_label--visible {
   margin-bottom: 10px;
 }
 

@@ -14,7 +14,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       min-width: 105px;
       display: inline-block;
 
-      & .fi-label-text {
+      & .fi-search-input_label--visible {
         margin-bottom: ${theme.spacing.xs};
       }
 

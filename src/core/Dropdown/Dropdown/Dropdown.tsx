@@ -32,7 +32,7 @@ const baseClassName = 'fi-dropdown';
 
 export const dropdownClassNames = {
   baseClassName,
-  label: `${baseClassName}_label`,
+  labelIsVisible: `${baseClassName}_label--visible`,
   button: `${baseClassName}_button`,
   popover: `${baseClassName}_popover`,
   item: `${baseClassName}_item`,
@@ -252,7 +252,14 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
         {...passProps}
       >
         <HtmlDiv>
-          <Label id={labelId} labelMode={labelMode} optionalText={optionalText}>
+          <Label
+            id={labelId}
+            labelMode={labelMode}
+            optionalText={optionalText}
+            className={classnames({
+              [dropdownClassNames.labelIsVisible]: labelMode !== 'hidden',
+            })}
+          >
             {labelText}
           </Label>
           <ListboxInput

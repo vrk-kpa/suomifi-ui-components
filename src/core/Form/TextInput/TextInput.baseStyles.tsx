@@ -13,7 +13,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     width: 100%;
     display: inline-block;
 
-    & .fi-label-text {
+    & .fi-text-input_label--visible {
       margin-bottom: ${theme.spacing.xs};
     }
 

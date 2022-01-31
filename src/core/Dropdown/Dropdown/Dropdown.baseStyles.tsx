@@ -6,7 +6,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-dropdown {
     display: inline-block;
 
-    & .fi-label-text {
+    & .fi-dropdown_label--visible {
       margin-bottom: ${theme.spacing.xs};
     }
   }

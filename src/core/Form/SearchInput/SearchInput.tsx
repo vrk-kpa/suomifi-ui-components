@@ -84,6 +84,7 @@ const searchInputClassNames = {
   fullWidth: `${baseClassName}--full-width`,
   error: `${baseClassName}--error`,
   notEmpty: `${baseClassName}--not-empty`,
+  labelIsVisible: `${baseClassName}_label--visible`,
   styleWrapper: `${baseClassName}_wrapper`,
   inputElement: `${baseClassName}_input`,
   inputElementContainer: `${baseClassName}_input-element-container`,
@@ -213,7 +214,13 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
         })}
       >
         <HtmlSpan className={searchInputClassNames.styleWrapper}>
-          <Label htmlFor={id} labelMode={labelMode}>
+          <Label
+            htmlFor={id}
+            labelMode={labelMode}
+            className={classnames({
+              [searchInputClassNames.labelIsVisible]: labelMode !== 'hidden',
+            })}
+          >
             {labelText}
           </Label>
           <Debounce waitFor={debounce}>
