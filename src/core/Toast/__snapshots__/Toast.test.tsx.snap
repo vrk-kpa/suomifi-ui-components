@@ -99,11 +99,11 @@ exports[`props children should match snapshot 1`] = `
   width: 100%;
   box-shadow: 0px 4px 8px 0px rgba(41,41,41,0.14);
   border-radius: 4px;
+  overflow: hidden;
 }
 
 .c1 .fi-toast-wrapper {
-  margin: 20px 0;
-  padding: 0 15px 0 15px;
+  padding: 20px 15px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -150,14 +150,14 @@ exports[`props children should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   margin-top: -1px;
-  margin-bottom: 5px;
+  padding-bottom: 5px;
 }
 
 .c1 .fi-toast-wrapper .fi-toast_icon-wrapper {
   -webkit-flex: 0;
   -ms-flex: 0;
   flex: 0;
-  margin-right: 10px;
+  padding-right: 10px;
 }
 
 .c1 .fi-toast-wrapper .fi-toast_icon-wrapper .fi-toast_icon {

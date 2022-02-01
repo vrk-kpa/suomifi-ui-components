@@ -9,10 +9,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   width: 100%;
   box-shadow: ${theme.shadows.wideBoxShadow};
   border-radius: 4px;
+  overflow: hidden;
 
   & .fi-toast-wrapper {
-    margin: 20px 0;
-    padding: 0 15px 0 15px;
+    padding: 20px 15px;
 
     display: flex;
     align-items: flex-start;
@@ -26,11 +26,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-toast-heading {
       ${font(theme)('bodySemiBold')}
       margin-top: -1px;
-      margin-bottom: ${theme.spacing.xxs};
+      padding-bottom: ${theme.spacing.xxs};
     }
     & .fi-toast_icon-wrapper {
       flex: 0;
-      margin-right: ${theme.spacing.xs};
+      padding-right: ${theme.spacing.xs};
       & .fi-toast_icon {
         height: 24px;
         width: 24px;
