@@ -357,15 +357,6 @@ exports[`props children should match snapshot 1`] = `
   border-color: hsl(0,0%,16%);
 }
 
-.c1 .fi-icon {
-  width: 14px;
-  height: 14px;
-  margin-left: 5px;
-  -webkit-transform: translateY(0.1em);
-  -ms-transform: translateY(0.1em);
-  transform: translateY(0.1em);
-}
-
 .c1.fi-alert--small-screen .fi-alert_style-wrapper {
   padding: 0;
   margin: 0;
