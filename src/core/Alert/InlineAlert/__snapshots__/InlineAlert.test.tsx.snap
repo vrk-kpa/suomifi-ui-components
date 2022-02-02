@@ -107,11 +107,11 @@ exports[`children should match snapshot 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  padding: 0 20px 0 20px;
 }
 
 .c1.fi-alert .fi-alert_icon-wrapper {
-  margin-left: 20px;
-  margin-top: 16px;
+  padding-top: 16px;
 }
 
 .c1.fi-alert .fi-alert_icon-wrapper .fi-alert_icon {

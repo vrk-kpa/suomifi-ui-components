@@ -11,11 +11,11 @@ export const baseAlertBaseStyles = (theme: SuomifiTheme) => css`
     & .fi-alert_style-wrapper {
       display: flex;
       align-items: flex-start;
+      padding: 0 20px 0 20px;
     }
 
     & .fi-alert_icon-wrapper {
-      margin-left: ${theme.spacing.m};
-      margin-top: ${theme.spacing.insetXl};
+      padding-top: ${theme.spacing.insetXl};
 
       & .fi-alert_icon {
         height: 24px;

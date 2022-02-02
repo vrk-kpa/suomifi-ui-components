@@ -11,7 +11,6 @@ export const alertClassNames = {
   icon: `${baseClassName}_icon`,
   iconWrapper: `${baseClassName}_icon-wrapper`,
   closeButton: `${baseClassName}_close-button`,
-  closeButtonWrapper: `${baseClassName}_close-button-wrapper`,
   smallScreen: `${baseClassName}--small-screen`,
   inline: `${baseClassName}--inline`,
 };

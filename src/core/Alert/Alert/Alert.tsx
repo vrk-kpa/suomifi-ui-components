@@ -75,24 +75,22 @@ class BaseAlert extends Component<AlertProps & InnerRef> {
           >
             <HtmlDiv className={alertClassNames.content}>{children}</HtmlDiv>
           </HtmlDiv>
-          <HtmlDiv className={alertClassNames.closeButtonWrapper}>
-            <HtmlButton
-              className={classnames(
-                alertClassNames.closeButton,
-                customCloseButtonClassName,
-              )}
-              {...getConditionalAriaProp('aria-describedby', [
-                id,
-                closeButtonPropsAriaDescribedBy,
-              ])}
-              onClick={onCloseButtonClick}
-              {...getConditionalAriaProp('aria-label', [closeText])}
-              {...closeButtonPassProps}
-            >
-              {!smallScreen ? closeText.toUpperCase() : ''}
-              <Icon icon="close" />
-            </HtmlButton>
-          </HtmlDiv>
+          <HtmlButton
+            className={classnames(
+              alertClassNames.closeButton,
+              customCloseButtonClassName,
+            )}
+            {...getConditionalAriaProp('aria-describedby', [
+              id,
+              closeButtonPropsAriaDescribedBy,
+            ])}
+            onClick={onCloseButtonClick}
+            {...getConditionalAriaProp('aria-label', [closeText])}
+            {...closeButtonPassProps}
+          >
+            {!smallScreen ? closeText.toUpperCase() : ''}
+            <Icon icon="close" />
+          </HtmlButton>
         </HtmlDiv>
       </HtmlDivWithRef>
     );

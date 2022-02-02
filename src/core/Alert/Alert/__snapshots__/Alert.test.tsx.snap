@@ -133,6 +133,10 @@ exports[`props children should match snapshot 1`] = `
   cursor: inherit;
 }
 
+.c1 {
+  overflow: hidden;
+}
+
 .c1.fi-alert {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -160,11 +164,11 @@ exports[`props children should match snapshot 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  padding: 0 20px 0 20px;
 }
 
 .c1.fi-alert .fi-alert_icon-wrapper {
-  margin-left: 20px;
-  margin-top: 16px;
+  padding-top: 16px;
 }
 
 .c1.fi-alert .fi-alert_icon-wrapper .fi-alert_icon {
@@ -230,34 +234,9 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1 .fi-alert_icon-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-}
-
-.c1 .fi-alert_close-button-wrapper {
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  box-sizing: border-box;
-  margin-top: 7px;
-  margin-right: 10px;
-  margin-bottom: 8px;
+  -webkit-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
 }
 
 .c1 .fi-alert_close-button {
@@ -274,11 +253,30 @@ exports[`props children should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  height: 40px;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  margin-top: 9px;
+  margin-bottom: 0;
+  max-width: 50%;
   min-width: 40px;
-  padding: 7px 8px;
+  text-align: right;
+  padding: 7px 0 7px 8px;
   border: 1px solid transparent;
   border-radius: 2px;
+  text-transform: uppercase;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
 }
 
 .c1 .fi-alert_close-button:focus-visible {
@@ -310,7 +308,56 @@ exports[`props children should match snapshot 1`] = `
   border-color: hsl(0,0%,16%);
 }
 
-.c1 .fi-alert_close-button .fi-icon {
+.c1 .fi-alert_close-button svg {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  padding-top: 4px;
+  padding-left: 7px;
+}
+
+.c1 .fi-alert_close-button svg .fi-icon {
+  margin-left: 5px;
+  margin-top: 5px;
+  display: block;
+  height: 14px;
+  width: 14px;
+}
+
+.c1:focus-visible {
+  outline: 0;
+  position: relative;
+}
+
+.c1:focus-visible:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c1:active {
+  background: linear-gradient(-180deg,hsl(202,7%,80%) 0%,rgba(255,255,255,0) 100%);
+}
+
+.c1:hover {
+  border-color: hsl(0,0%,16%);
+}
+
+.c1 .fi-icon {
   width: 14px;
   height: 14px;
   margin-left: 5px;
@@ -319,16 +366,26 @@ exports[`props children should match snapshot 1`] = `
   transform: translateY(0.1em);
 }
 
-.c1.fi-alert--small-screen .fi-alert_close-button-wrapper {
+.c1.fi-alert--small-screen .fi-alert_style-wrapper {
+  padding: 0;
+  margin: 0;
+}
+
+.c1.fi-alert--small-screen .fi-alert_icon-wrapper {
+  padding-left: 15px;
+}
+
+.c1.fi-alert--small-screen .fi-alert_close-button {
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
   justify-content: flex-end;
   margin: 0;
+  padding: 6px 10px 10px 4px;
 }
 
-.c1.fi-alert--small-screen .fi-alert_close-button-wrapper .fi-icon {
-  margin-right: 5px;
+.c1.fi-alert--small-screen .fi-alert_close-button .fi-icon {
+  margin: 0;
 }
 
 <div>
@@ -371,34 +428,30 @@ exports[`props children should match snapshot 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="c2 fi-alert_close-button-wrapper"
+      <button
+        aria-describedby="7"
+        aria-label="Close"
+        class="c4 fi-alert_close-button"
+        type="button"
       >
-        <button
-          aria-describedby="7"
-          aria-label="Close"
-          class="c4 fi-alert_close-button"
-          type="button"
+        CLOSE
+        <svg
+          aria-hidden="true"
+          class="fi-icon c3"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          CLOSE
-          <svg
-            aria-hidden="true"
-            class="fi-icon c3"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              class="fi-icon-base-fill"
-              d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
-              fill="#222"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </button>
-      </div>
+          <path
+            class="fi-icon-base-fill"
+            d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
+            fill="#222"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
     </div>
   </section>
 </div>
