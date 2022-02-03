@@ -562,24 +562,11 @@ exports[`props children should match snapshot 1`] = `
   flex-grow: 0;
 }
 
-.c1.fi-notification .fi-notification_close-button svg {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  padding-top: 4px;
-  padding-left: 7px;
-}
-
-.c1.fi-notification .fi-notification_close-button svg .fi-icon {
-  margin-left: 5px;
-  margin-top: 5px;
-  display: block;
-  height: 14px;
+.c1.fi-notification .fi-notification_close-button .fi-icon {
   width: 14px;
+  height: 14px;
+  margin-top: 6px;
+  padding-left: 7px;
 }
 
 .c1.fi-notification .fi-notification_close-button:focus-visible {
