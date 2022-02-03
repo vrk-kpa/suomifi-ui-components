@@ -5,7 +5,6 @@ import { baseAlertBaseStyles } from '../BaseAlert/BaseAlert.baseStyles';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${baseAlertBaseStyles(theme)}
-  overflow: hidden;
   padding-bottom: 7px;
   & .fi-alert_icon-wrapper {
     flex: 0;
@@ -13,20 +12,21 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   & .fi-alert_close-button {
     ${font(theme)('bodyTextSmall')}
-    flex: 1 0 auto;
-    flex-wrap: nowrap;
     display: flex;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    flex-grow: 0;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
-    margin-top: 9px;
+    margin-top: 7px;
     margin-bottom: 0;
     max-width: 50%;
     min-width: 40px;
-    text-align: right;
-    padding: 7px 0 7px 8px;
+    padding: 7px 8px;
     border: 1px solid transparent;
     border-radius: ${theme.radius.basic};
     text-transform: uppercase;
-    flex-grow: 0;
     &:focus-visible {
       outline: 0;
       position: relative;
@@ -40,11 +40,14 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &:hover {
       border-color: ${theme.colors.blackBase};
     }
+
     & .fi-icon {
+      flex-grow: 0;
+      flex-shrink: 0;
+      padding-top: 0px;
+      padding-left: 7px;
       height: 14px;
       width: 14px;
-      padding-top: 4px;
-      padding-left: 7px;
     }
   }
   &:focus-visible {
@@ -72,11 +75,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       padding-left: 15px;
     }
     & .fi-alert_close-button {
-      justify-content: flex-end;
-      margin: 4px;
-      padding: 3px 5px 7px 0;
+      margin: 0;
+      padding: 12px 9px 12px 10px;
       & .fi-icon {
         margin: 0;
+        padding: 0;
       }
     }
   }

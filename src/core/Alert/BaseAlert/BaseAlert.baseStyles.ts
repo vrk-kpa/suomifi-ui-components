@@ -11,7 +11,7 @@ export const baseAlertBaseStyles = (theme: SuomifiTheme) => css`
     & .fi-alert_style-wrapper {
       display: flex;
       align-items: flex-start;
-      padding: 0 20px 0 20px;
+      padding: 0 10px 0 20px;
     }
 
     & .fi-alert_icon-wrapper {
