@@ -135,6 +135,7 @@ exports[`props children should match snapshot 1`] = `
 
 .c1 {
   overflow: hidden;
+  padding-bottom: 7px;
 }
 
 .c1.fi-alert {
@@ -371,8 +372,8 @@ exports[`props children should match snapshot 1`] = `
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
   justify-content: flex-end;
-  margin: 0;
-  padding: 6px 10px 10px 4px;
+  margin: 4px;
+  padding: 3px 5px 7px 0;
 }
 
 .c1.fi-alert--small-screen .fi-alert_close-button .fi-icon {

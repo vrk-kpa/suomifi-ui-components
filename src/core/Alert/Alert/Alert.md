@@ -6,7 +6,7 @@ import { Alert } from 'suomifi-ui-components';
     The service will be temporarily unavailable on 5.6.2021 at 21.00 –
     23.59 due to maintenance.
   </Alert>
-  <Alert closeText="Close Lorem ipsum dolor sit amet consectetur consectetur adipiscing elit">
+  <Alert closeText="Long close text, Lorem ipsum dolor sit amet consectetur consectetur adipiscing elit">
     This is a short alert text
   </Alert>
   <Alert closeText="Close">
