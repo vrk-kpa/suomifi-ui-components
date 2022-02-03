@@ -309,24 +309,11 @@ exports[`props children should match snapshot 1`] = `
   border-color: hsl(0,0%,16%);
 }
 
-.c1 .fi-alert_close-button svg {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  padding-top: 4px;
-  padding-left: 7px;
-}
-
-.c1 .fi-alert_close-button svg .fi-icon {
-  margin-left: 5px;
-  margin-top: 5px;
-  display: block;
+.c1 .fi-alert_close-button .fi-icon {
   height: 14px;
   width: 14px;
+  padding-top: 4px;
+  padding-left: 7px;
 }
 
 .c1:focus-visible {

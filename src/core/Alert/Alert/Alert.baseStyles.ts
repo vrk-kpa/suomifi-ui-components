@@ -40,19 +40,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &:hover {
       border-color: ${theme.colors.blackBase};
     }
-
-    & svg {
-      flex-grow: 1;
-      flex-shrink: 0;
+    & .fi-icon {
+      height: 14px;
+      width: 14px;
       padding-top: 4px;
       padding-left: 7px;
-      & .fi-icon {
-        margin-left: ${theme.spacing.xxs};
-        margin-top: ${theme.spacing.xxs};
-        display: block;
-        height: 14px;
-        width: 14px;
-      }
     }
   }
   &:focus-visible {
