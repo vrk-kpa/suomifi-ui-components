@@ -6,6 +6,7 @@ import { baseAlertBaseStyles } from '../BaseAlert/BaseAlert.baseStyles';
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${baseAlertBaseStyles(theme)}
   overflow: hidden;
+  padding-bottom: 7px;
   & .fi-alert_icon-wrapper {
     flex: 0;
   }
@@ -80,8 +81,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
     & .fi-alert_close-button {
       justify-content: flex-end;
-      margin: 0;
-      padding: 6px 10px 10px 4px;
+      margin: 4px;
+      padding: 3px 5px 7px 0;
       & .fi-icon {
         margin: 0;
       }
