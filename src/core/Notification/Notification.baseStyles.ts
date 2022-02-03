@@ -66,18 +66,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       border-radius: ${theme.radius.basic};
       text-transform: uppercase;
       flex-grow: 0;
-      & svg {
-        flex-grow: 1;
-        flex-shrink: 0;
-        padding-top: 4px;
+      & .fi-icon {
+        width: 14px;
+        height: 14px;
+        margin-top: 6px;
         padding-left: 7px;
-        & .fi-icon {
-          margin-left: ${theme.spacing.xxs};
-          margin-top: ${theme.spacing.xxs};
-          display: block;
-          height: 14px;
-          width: 14px;
-        }
       }
 
       &:focus-visible {
