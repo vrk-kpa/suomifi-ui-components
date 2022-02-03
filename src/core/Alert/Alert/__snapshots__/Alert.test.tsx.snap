@@ -134,7 +134,6 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1 {
-  overflow: hidden;
   padding-bottom: 7px;
 }
 
@@ -254,20 +253,20 @@ exports[`props children should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -281,15 +280,10 @@ exports[`props children should match snapshot 1`] = `
   margin-bottom: 0;
   max-width: 50%;
   min-width: 40px;
-  text-align: right;
   padding: 7px 8px;
   border: 1px solid transparent;
   border-radius: 2px;
   text-transform: uppercase;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
 }
 
 .c1 .fi-alert_close-button:focus-visible {
@@ -374,8 +368,8 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-alert--small-screen .fi-alert_close-button {
-  margin: 4px;
-  padding: 12px 8px 12px 9px;
+  margin: 0;
+  padding: 12px 9px 12px 10px;
 }
 
 .c1.fi-alert--small-screen .fi-alert_close-button .fi-icon {
