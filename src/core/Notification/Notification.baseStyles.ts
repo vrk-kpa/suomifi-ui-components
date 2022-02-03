@@ -9,7 +9,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   box-shadow: ${theme.shadows.wideBoxShadow};
   border-radius: 4px;
   justify-content: space-between;
-  padding-bottom: 16px;
+  padding-bottom: 10px;
   &.fi-notification {
     & .fi-notification_element-wrapper {
       overflow: hidden;
@@ -96,7 +96,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
     & .fi-notification_style-wrapper {
-      padding: 0 41px 0 41px;
+      padding: 0 41px 10px 41px;
       display: flex;
       align-items: flex-start;
       overflow: hidden;
@@ -127,9 +127,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
       & .fi-notification_close-button {
         justify-content: flex-end;
-        margin: 0;
         flex-direction: row;
-        padding: 16px;
+        padding: 13px;
+        margin: 3px;
         svg {
           padding: 0;
           margin: 0;

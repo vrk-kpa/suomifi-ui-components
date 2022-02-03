@@ -442,7 +442,7 @@ exports[`props children should match snapshot 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding-bottom: 16px;
+  padding-bottom: 10px;
 }
 
 .c1.fi-notification .fi-notification_element-wrapper {
@@ -612,7 +612,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_style-wrapper {
-  padding: 0 41px 0 41px;
+  padding: 0 41px 10px 41px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -662,11 +662,11 @@ exports[`props children should match snapshot 1`] = `
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
   justify-content: flex-end;
-  margin: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 16px;
+  padding: 13px;
+  margin: 3px;
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_close-button svg {
