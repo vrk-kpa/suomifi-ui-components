@@ -29,7 +29,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
     & .fi-notification_heading {
       ${font(theme)('bodySemiBold')}
-      margin-bottom: 0;
+      margin: 1px 0 0 0;
     }
     & .fi-notification_action-element-wrapper {
       padding: 20px 26px 19px 87px;
@@ -42,7 +42,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
     .fi-notification_icon-wrapper {
-      padding-top: ${theme.spacing.m};
+      padding-top: 21px;
       flex: 0;
       & .fi-notification_icon {
         height: 24px;
@@ -55,13 +55,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       flex-wrap: nowrap;
       display: flex;
       box-sizing: border-box;
-      margin-top: 12px;
+      margin-top: 11px;
       margin-right: -5px;
       margin-bottom: 0;
       max-width: 50%;
       min-width: 40px;
       text-align: right;
-      padding: 7px 0 7px 8px;
+      padding: 7px 8px;
       border: 1px solid transparent;
       border-radius: ${theme.radius.basic};
       text-transform: uppercase;
@@ -89,7 +89,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
     & .fi-notification_style-wrapper {
-      padding: 0 41px 10px 41px;
+      padding: 0 33px 10px 41px;
       display: flex;
       align-items: flex-start;
       overflow: hidden;
