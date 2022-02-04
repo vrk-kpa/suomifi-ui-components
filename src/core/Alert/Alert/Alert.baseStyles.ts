@@ -50,20 +50,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       width: 14px;
     }
   }
-  &:focus-visible {
-    outline: 0;
-    position: relative;
-
-    &:after {
-      ${theme.focus.absoluteFocus}
-    }
-  }
-  &:active {
-    background: ${theme.gradients.whiteBaseToDepthLight1};
-  }
-  &:hover {
-    border-color: ${theme.colors.blackBase};
-  }
 
   /** Small screen variant styles */
   &.fi-alert--small-screen {

@@ -329,35 +329,6 @@ exports[`props children should match snapshot 1`] = `
   width: 14px;
 }
 
-.c1:focus-visible {
-  outline: 0;
-  position: relative;
-}
-
-.c1:focus-visible:after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  z-index: 9999;
-}
-
-.c1:active {
-  background: linear-gradient(-180deg,hsl(202,7%,80%) 0%,rgba(255,255,255,0) 100%);
-}
-
-.c1:hover {
-  border-color: hsl(0,0%,16%);
-}
-
 .c1.fi-alert--small-screen .fi-alert_style-wrapper {
   padding: 0;
   margin: 0;
