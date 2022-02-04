@@ -5,7 +5,6 @@ import { baseAlertBaseStyles } from '../BaseAlert/BaseAlert.baseStyles';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${baseAlertBaseStyles(theme)}
-  padding-bottom: 7px;
   & .fi-alert_icon-wrapper {
     flex: 0;
   }
