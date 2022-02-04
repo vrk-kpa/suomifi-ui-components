@@ -133,10 +133,6 @@ exports[`props children should match snapshot 1`] = `
   cursor: inherit;
 }
 
-.c1 {
-  padding-bottom: 7px;
-}
-
 .c1.fi-alert {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
