@@ -39,6 +39,8 @@ const {
   warningBase,
   alertBase,
   alertLight1,
+  successDark1,
+  warningLight1,
 } = defaultSuomifiTheme.colors;
 
 export const colorTokens = {
@@ -84,6 +86,8 @@ export const colorTokens = {
     warningBase,
     alertBase,
     alertLight1,
+    successDark1,
+    warningLight1,
   },
 };
 
