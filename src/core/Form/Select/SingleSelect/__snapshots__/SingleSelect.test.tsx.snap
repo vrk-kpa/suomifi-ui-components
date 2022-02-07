@@ -172,7 +172,6 @@ exports[`has matching snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: block;
-  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
@@ -186,7 +185,6 @@ exports[`has matching snapshot 1`] = `
 .c5.fi-hint-text {
   display: block;
   color: hsl(0,0%,16%);
-  margin-bottom: 10px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -219,14 +217,11 @@ exports[`has matching snapshot 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+  display: block;
 }
 
 .c12.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
-}
-
-.c12.fi-status-text.fi-status-text--hasContent {
-  margin-top: 5px;
 }
 
 .c2 .fi-filter-input {
@@ -248,6 +243,14 @@ exports[`has matching snapshot 1`] = `
 .c2 .fi-filter-input_wrapper {
   display: inline-block;
   width: 100%;
+}
+
+.c2 .fi-filter-input_wrapper .fi-filter-input_label--visible {
+  margin-bottom: 10px;
+}
+
+.c2 .fi-filter-input_wrapper .fi-hint-text {
+  margin-bottom: 10px;
 }
 
 .c2 .fi-filter-input_functionalityContainer {
@@ -289,6 +292,10 @@ exports[`has matching snapshot 1`] = `
   border-right: 1px solid hsl(202,7%,67%);
   padding-right: 8px;
   height: 20px;
+}
+
+.c2 .fi-filter-input_functionalityContainer .fi-filter-input_statusText--has-content {
+  margin-top: 5px;
 }
 
 .c2 .fi-filter-input_input-element-container > input:focus {
@@ -552,7 +559,7 @@ exports[`has matching snapshot 1`] = `
       class="c0 fi-filter-input_wrapper"
     >
       <label
-        class="c0 c3 fi-label-text"
+        class="c0 c3 fi-filter-input_label--visible fi-label-text"
         id="1-label"
       >
         <span

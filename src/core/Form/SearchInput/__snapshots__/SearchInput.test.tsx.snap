@@ -174,14 +174,11 @@ exports[`snapshot should have matching default structure 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+  display: block;
 }
 
 .c9.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
-}
-
-.c9.fi-status-text.fi-status-text--hasContent {
-  margin-top: 5px;
 }
 
 .c3.fi-label-text .fi-label-text_label-span {
@@ -199,7 +196,6 @@ exports[`snapshot should have matching default structure 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: block;
-  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
@@ -301,6 +297,14 @@ exports[`snapshot should have matching default structure 1`] = `
   width: 100%;
   min-width: 105px;
   display: inline-block;
+}
+
+.c1 .fi-search-input_wrapper .fi-search-input_label--visible {
+  margin-bottom: 10px;
+}
+
+.c1 .fi-search-input_wrapper .fi-search-input_statusText--has-content {
+  margin-top: 5px;
 }
 
 .c1 .fi-search-input_functionality-container {
@@ -567,7 +571,7 @@ exports[`snapshot should have matching default structure 1`] = `
     class="c2 fi-search-input_wrapper"
   >
     <label
-      class="c0 c3 fi-label-text"
+      class="c0 c3 fi-search-input_label--visible fi-label-text"
       for="1"
     >
       <span

@@ -21,11 +21,13 @@ const filterInputClassNames = {
   error: `${baseClassName}--error`,
   disabled: `${baseClassName}--disabled`,
   labelAlignLeft: `${baseClassName}--label-align-left`,
+  labelIsVisible: `${baseClassName}_label--visible`,
   wrapper: `${baseClassName}_wrapper`,
   functionalityContainer: `${baseClassName}_functionalityContainer`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
   actionElementsContainer: `${baseClassName}_action-elements-container`,
+  statusTextHasContent: `${baseClassName}_statusText--has-content`,
 };
 
 export type FilterInputStatus = Exclude<InputStatus, 'success'>;
@@ -162,7 +164,14 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
         })}
       >
         <HtmlDiv className={classnames(filterInputClassNames.wrapper, {})}>
-          <Label id={labelId} labelMode={labelMode} optionalText={optionalText}>
+          <Label
+            id={labelId}
+            labelMode={labelMode}
+            optionalText={optionalText}
+            className={classnames({
+              [filterInputClassNames.labelIsVisible]: labelMode !== 'hidden',
+            })}
+          >
             {labelText}
           </Label>
           <HintText id={hintTextId}>{hintText}</HintText>
@@ -206,6 +215,9 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
             )}
             <StatusText
               id={statusTextId}
+              className={classnames({
+                [filterInputClassNames.statusTextHasContent]: !!statusText,
+              })}
               status={status}
               disabled={passProps.disabled}
               ariaLiveMode={statusTextAriaLiveMode}

@@ -107,6 +107,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       background-color: ${theme.colors.whiteBase};
     }
   }
+
   & .fi-checkbox_icon {
     position: absolute;
     height: 10px;
@@ -132,12 +133,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   & .fi-hint-text {
     padding-left: ${theme.spacing.l};
     color: ${theme.colors.depthDark1};
-    margin-bottom: 0;
   }
 
   & .fi-status-text {
-    display: block;
     line-height: 18px;
+    &.fi-checkbox_statusText--has-content {
+      margin-top: ${theme.spacing.xxs};
+    }
   }
 
   ${largeVariantStyles(theme)};

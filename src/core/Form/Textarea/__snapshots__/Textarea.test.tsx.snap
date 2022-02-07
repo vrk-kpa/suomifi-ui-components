@@ -107,7 +107,6 @@ exports[`snapshot default structure should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: block;
-  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
@@ -135,14 +134,11 @@ exports[`snapshot default structure should match snapshot 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+  display: block;
 }
 
 .c5.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
-}
-
-.c5.fi-status-text.fi-status-text--hasContent {
-  margin-top: 5px;
 }
 
 .c1 {
@@ -174,12 +170,8 @@ exports[`snapshot default structure should match snapshot 1`] = `
   width: 290px;
 }
 
-.c1.fi-textarea .fi-label-text_label-span {
-  margin-bottom: 0;
-}
-
-.c1.fi-textarea .fi-hint-text {
-  margin-bottom: 0;
+.c1.fi-textarea .fi-textarea_statusText--has-content {
+  margin-top: 5px;
 }
 
 .c1.fi-textarea .fi-textarea_textarea-element-container {

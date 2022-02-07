@@ -26,6 +26,7 @@ const textareaClassNames = {
   resizeNone: `${baseClassName}_textarea-resize--none`,
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
+  statusTextHasContent: `${baseClassName}_statusText--has-content`,
 };
 
 type TextareaStatus = Exclude<InputStatus, 'success'>;
@@ -154,6 +155,9 @@ class BaseTextarea extends Component<TextareaProps & InnerRef> {
         </HtmlDiv>
         <StatusText
           id={statusTextId}
+          className={classnames({
+            [textareaClassNames.statusTextHasContent]: !!statusText,
+          })}
           status={status}
           disabled={disabled}
           ariaLiveMode={statusTextAriaLiveMode}

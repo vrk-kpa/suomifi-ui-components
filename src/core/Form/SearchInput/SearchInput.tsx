@@ -84,10 +84,12 @@ const searchInputClassNames = {
   fullWidth: `${baseClassName}--full-width`,
   error: `${baseClassName}--error`,
   notEmpty: `${baseClassName}--not-empty`,
+  labelIsVisible: `${baseClassName}_label--visible`,
   styleWrapper: `${baseClassName}_wrapper`,
   inputElement: `${baseClassName}_input`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   functionalityContainer: `${baseClassName}_functionality-container`,
+  statusTextHasContent: `${baseClassName}_statusText--has-content`,
   button: `${baseClassName}_button`,
   searchButton: `${baseClassName}_button-search`,
   searchIcon: `${baseClassName}_button-search-icon`,
@@ -212,7 +214,13 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
         })}
       >
         <HtmlSpan className={searchInputClassNames.styleWrapper}>
-          <Label htmlFor={id} labelMode={labelMode}>
+          <Label
+            htmlFor={id}
+            labelMode={labelMode}
+            className={classnames({
+              [searchInputClassNames.labelIsVisible]: labelMode !== 'hidden',
+            })}
+          >
             {labelText}
           </Label>
           <Debounce waitFor={debounce}>
@@ -267,6 +275,9 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           </Debounce>
           <StatusText
             id={statusTextId}
+            className={classnames({
+              [searchInputClassNames.statusTextHasContent]: !!statusText,
+            })}
             status={status}
             ariaLiveMode={statusTextAriaLiveMode}
           >

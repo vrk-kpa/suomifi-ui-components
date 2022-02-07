@@ -12,12 +12,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     color: ${theme.colors.blackBase};
     width: 290px;
 
-    & .fi-label-text_label-span {
-      margin-bottom: 0;
-    }
-
-    & .fi-hint-text {
-      margin-bottom: 0;
+    & .fi-textarea_statusText--has-content {
+      margin-top: ${theme.spacing.xxs};
     }
 
     & .fi-textarea_textarea-element-container {

@@ -26,10 +26,12 @@ export const textInputClassNames = {
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
   success: `${baseClassName}--success`,
+  labelIsVisible: `${baseClassName}_label--visible`,
   icon: `${baseClassName}_with-icon`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
   styleWrapper: `${baseClassName}_wrapper`,
+  statusTextHasContent: `${baseClassName}_statusText--has-content`,
 };
 
 type TextInputValue = string | number | undefined;
@@ -134,7 +136,14 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
         })}
       >
         <HtmlSpan className={textInputClassNames.styleWrapper}>
-          <Label htmlFor={id} labelMode={labelMode} optionalText={optionalText}>
+          <Label
+            htmlFor={id}
+            labelMode={labelMode}
+            optionalText={optionalText}
+            className={classnames({
+              [textInputClassNames.labelIsVisible]: labelMode !== 'hidden',
+            })}
+          >
             {labelText}
           </Label>
           <HintText id={hintTextId}>{hintText}</HintText>
@@ -166,6 +175,9 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
           </HtmlDiv>
           <StatusText
             id={statusTextId}
+            className={classnames({
+              [textInputClassNames.statusTextHasContent]: !!statusText,
+            })}
             status={status}
             ariaLiveMode={statusTextAriaLiveMode}
             disabled={passProps.disabled}

@@ -18,7 +18,7 @@ const checkboxClassNames = {
   container: `${baseClassName}_container`,
   input: `${baseClassName}_input`,
   label: `${baseClassName}_label`,
-  statusText: `${baseClassName}_status`,
+  statusTextHasContent: `${baseClassName}_statusText--has-content`,
   hintText: `${baseClassName}_hintText`,
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
@@ -224,6 +224,9 @@ class BaseCheckbox extends Component<CheckboxProps & InnerRef> {
         </HtmlLabel>
         <HintText id={hintTextId}>{hintText}</HintText>
         <StatusText
+          className={classnames({
+            [checkboxClassNames.statusTextHasContent]: !!statusText,
+          })}
           id={statusTextId}
           status={status}
           disabled={disabled}
