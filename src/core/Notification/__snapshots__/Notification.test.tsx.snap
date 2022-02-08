@@ -420,7 +420,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c1.fi-notification {
+.c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -435,19 +435,35 @@ exports[`props children should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  padding-bottom: 17px;
   width: 100%;
   box-shadow: 0px 4px 8px 0px rgba(41,41,41,0.14);
   border-radius: 4px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.c1.fi-notification .fi-notification_element-wrapper {
+  overflow: hidden;
 }
 
 .c1.fi-notification .fi-notification_text-content-wrapper {
-  margin-top: 20px;
+  padding-top: 18px;
   padding-left: 20px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 .c1.fi-notification .fi-notification_text-content-wrapper .fi-notification_content {
   vertical-align: middle;
+}
+
+.c1.fi-notification .fi-notification_text-content-wrapper .fi-notification_content .fi-notification_contentWrapper {
+  padding-top: 3px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -463,7 +479,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c1.fi-notification .fi-notification_label {
+.c1.fi-notification .fi-notification_heading {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -477,20 +493,24 @@ exports[`props children should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 600;
-  margin-top: -1px;
-  margin-bottom: 5px;
+  margin: 1px 0 0 0;
 }
 
 .c1.fi-notification .fi-notification_action-element-wrapper {
-  margin: 10px 20px 5px 89px;
+  padding: 20px 26px 19px 87px;
 }
 
 .c1.fi-notification .fi-notification_action-element-wrapper .fi-button {
+  margin-top: 10px;
   margin-right: 15px;
 }
 
+.c1.fi-notification .fi-notification_action-element-wrapper .fi-button:first-child {
+  margin-top: 0;
+}
+
 .c1.fi-notification .fi-notification_icon-wrapper {
-  margin-top: 20px;
+  padding-top: 21px;
   -webkit-flex: 0;
   -ms-flex: 0;
   flex: 0;
@@ -499,35 +519,6 @@ exports[`props children should match snapshot 1`] = `
 .c1.fi-notification .fi-notification_icon-wrapper .fi-notification_icon {
   height: 24px;
   width: 24px;
-}
-
-.c1.fi-notification .fi-notification_close-button-wrapper {
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  box-sizing: border-box;
-  margin-top: 14px;
-  margin-right: -5px;
-  margin-bottom: 8px;
-}
-
-.c1.fi-notification .fi-notification_style-wrapper {
-  padding: 0 43px 10px 43px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
 }
 
 .c1.fi-notification .fi-notification_close-button {
@@ -544,12 +535,38 @@ exports[`props children should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  height: 40px;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  margin-top: 11px;
+  margin-right: -5px;
+  margin-bottom: 0;
+  max-width: 50%;
   min-width: 40px;
+  text-align: right;
   padding: 7px 8px;
   border: 1px solid transparent;
   border-radius: 2px;
   text-transform: uppercase;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+}
+
+.c1.fi-notification .fi-notification_close-button .fi-icon {
+  width: 14px;
+  height: 14px;
+  margin-top: 6px;
+  padding-left: 7px;
 }
 
 .c1.fi-notification .fi-notification_close-button:focus-visible {
@@ -581,14 +598,17 @@ exports[`props children should match snapshot 1`] = `
   border-color: hsl(0,0%,16%);
 }
 
-.c1.fi-notification .fi-notification_close-button .fi-icon {
-  width: 14px;
-  height: 14px;
-  margin-left: 5px;
-  margin-top: 5px;
-  -webkit-transform: translateY(1px);
-  -ms-transform: translateY(1px);
-  transform: translateY(1px);
+.c1.fi-notification .fi-notification_style-wrapper {
+  padding: 0 33px 10px 41px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
 }
 
 .c1.fi-notification--neutral {
@@ -612,35 +632,33 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_text-content-wrapper {
-  margin-top: 18px;
+  padding-top: 15px;
   padding-left: 12px;
   padding-right: 12px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex: 3 1 auto;
-  -ms-flex: 3 1 auto;
-  flex: 3 1 auto;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
 }
 
-.c1.fi-notification.fi-notification--small-screen .fi-notification_text-content-wrapper .fi-notification_label {
-  margin-top: -2px;
-}
-
-.c1.fi-notification.fi-notification--small-screen .fi-notification_close-button-wrapper {
+.c1.fi-notification.fi-notification--small-screen .fi-notification_close-button {
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
   justify-content: flex-end;
-  margin: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 13px;
+  margin: 3px;
 }
 
-.c1.fi-notification.fi-notification--small-screen .fi-notification_close-button-wrapper .fi-icon {
-  margin-right: 5px;
+.c1.fi-notification.fi-notification--small-screen .fi-notification_close-button svg {
+  padding: 0;
+  margin: 0;
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_style-wrapper {
@@ -648,12 +666,12 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_icon-wrapper {
-  margin-top: 17px;
-  margin-left: 17px;
+  padding-top: 17px;
+  padding-left: 17px;
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_action-element-wrapper {
-  margin: 0 15px;
+  padding: 0 15px;
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_action-element-wrapper .fi-button {
@@ -667,49 +685,53 @@ exports[`props children should match snapshot 1`] = `
     class="c0 fi-notification fi-notification--neutral c1"
   >
     <div
-      class="c2 fi-notification_style-wrapper"
+      class="c2 fi-notification_element-wrapper"
     >
       <div
-        class="c2 fi-notification_icon-wrapper"
-      >
-        <svg
-          aria-hidden="true"
-          class="fi-icon c3 fi-notification_icon"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            class="fi-icon-base-fill"
-            d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0zm0 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm.003 8a1 1 0 011 1v6h1a1 1 0 010 2H10a1 1 0 010-2h1v-5h-1a1 1 0 010-2h2.003zm-.501-5a1.5 1.5 0 01.145 2.994L11.502 8H11.5a1.5 1.5 0 110-3h.002z"
-            fill="#222"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </div>
-      <div
-        aria-live="polite"
-        class="c2 fi-notification_text-content-wrapper"
-        id="7"
+        class="c2 fi-notification_style-wrapper"
       >
         <div
-          class="c2 fi-notification_content"
+          class="c2 fi-notification_icon-wrapper"
         >
-          <h2
-            class="c4 fi-heading c5 fi-notification_label fi-heading--h2"
+          <svg
+            aria-hidden="true"
+            class="fi-icon c3 fi-notification_icon"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            Lorem ipsum dolor sit
-          </h2>
-          <div>
-            Test notification
+            <path
+              class="fi-icon-base-fill"
+              d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0zm0 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm.003 8a1 1 0 011 1v6h1a1 1 0 010 2H10a1 1 0 010-2h1v-5h-1a1 1 0 010-2h2.003zm-.501-5a1.5 1.5 0 01.145 2.994L11.502 8H11.5a1.5 1.5 0 110-3h.002z"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+        <div
+          aria-live="polite"
+          class="c2 fi-notification_text-content-wrapper"
+          id="7"
+        >
+          <div
+            class="c2 fi-notification_content"
+          >
+            <h2
+              class="c4 fi-heading c5 fi-notification_heading fi-heading--h2"
+            >
+              Lorem ipsum dolor sit
+            </h2>
+            <div
+              class="c2 fi-notification_contentWrapper"
+            >
+              <div>
+                Test notification
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="c2 fi-notification_close-button-wrapper"
-      >
         <button
           aria-describedby="7"
           class="c6 fi-notification_close-button"

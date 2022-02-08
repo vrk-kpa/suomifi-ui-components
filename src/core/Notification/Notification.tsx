@@ -18,14 +18,15 @@ import { baseStyles } from './Notification.baseStyles';
 
 export const baseClassName = 'fi-notification';
 export const notificationClassNames = {
+  elementWrapper: `${baseClassName}_element-wrapper`,
   styleWrapper: `${baseClassName}_style-wrapper`,
   content: `${baseClassName}_content`,
-  label: `${baseClassName}_label`,
+  contentWrapper: `${baseClassName}_contentWrapper`,
+  heading: `${baseClassName}_heading`,
   textContentWrapper: `${baseClassName}_text-content-wrapper`,
   icon: `${baseClassName}_icon`,
   iconWrapper: `${baseClassName}_icon-wrapper`,
   closeButton: `${baseClassName}_close-button`,
-  closeButtonWrapper: `${baseClassName}_close-button-wrapper`,
   smallScreen: `${baseClassName}--small-screen`,
   actionElementWrapper: `${baseClassName}_action-element-wrapper`,
 };
@@ -35,7 +36,7 @@ export interface NotificationProps extends HtmlDivWithRefProps {
    * @default 'neutral'
    */
   status?: 'neutral' | 'error';
-  /** Set aria-live mode for the Notification text content and label.
+  /** Set aria-live mode for the Notification text content and heading.
    * @default 'polite'
    */
   ariaLiveMode?: 'polite' | 'assertive' | 'off';
@@ -77,6 +78,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
       smallScreen,
       closeButtonProps = {},
       headingVariant = 'h2',
+      style,
       ...passProps
     } = this.props;
 
@@ -100,29 +102,40 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
           },
         )}
       >
-        <HtmlDiv className={notificationClassNames.styleWrapper}>
-          <HtmlDiv className={notificationClassNames.iconWrapper}>
-            <Icon icon={variantIcon} className={notificationClassNames.icon} />
-          </HtmlDiv>
-
+        <HtmlDiv
+          className={notificationClassNames.elementWrapper}
+          style={style}
+        >
           <HtmlDiv
-            className={notificationClassNames.textContentWrapper}
-            id={id}
-            aria-live={ariaLiveMode}
+            className={notificationClassNames.styleWrapper}
+            style={style}
           >
-            <HtmlDiv className={notificationClassNames.content}>
-              {headingText && (
-                <Heading
-                  variant={headingVariant}
-                  className={notificationClassNames.label}
-                >
-                  {headingText}
-                </Heading>
-              )}
-              {children}
+            <HtmlDiv className={notificationClassNames.iconWrapper}>
+              <Icon
+                icon={variantIcon}
+                className={notificationClassNames.icon}
+              />
             </HtmlDiv>
-          </HtmlDiv>
-          <HtmlDiv className={notificationClassNames.closeButtonWrapper}>
+
+            <HtmlDiv
+              className={notificationClassNames.textContentWrapper}
+              id={id}
+              aria-live={ariaLiveMode}
+            >
+              <HtmlDiv className={notificationClassNames.content}>
+                {headingText && (
+                  <Heading
+                    variant={headingVariant}
+                    className={notificationClassNames.heading}
+                  >
+                    {headingText}
+                  </Heading>
+                )}
+                <HtmlDiv className={notificationClassNames.contentWrapper}>
+                  {children}
+                </HtmlDiv>
+              </HtmlDiv>
+            </HtmlDiv>
             <HtmlButton
               className={classnames(
                 notificationClassNames.closeButton,
@@ -142,12 +155,12 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
               <Icon icon="close" />
             </HtmlButton>
           </HtmlDiv>
+          {actionElements && (
+            <HtmlDiv className={notificationClassNames.actionElementWrapper}>
+              {actionElements}
+            </HtmlDiv>
+          )}
         </HtmlDiv>
-        {actionElements && (
-          <HtmlDiv className={notificationClassNames.actionElementWrapper}>
-            {actionElements}
-          </HtmlDiv>
-        )}
       </HtmlDivWithRef>
     );
   }
