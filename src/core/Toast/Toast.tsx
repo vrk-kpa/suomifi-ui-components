@@ -15,7 +15,7 @@ export interface ToastProps {
   ariaLiveMode?: 'polite' | 'assertive' | 'off';
   /** Heading for the Toast */
   headingText?: string;
-  /** Text content of the Toast. */
+  /** Main content of the Toast. */
   children?: ReactNode;
   /** Custom class name for styling and customizing */
   className?: string;
