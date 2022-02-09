@@ -13,15 +13,17 @@ export interface ToastProps {
    * @default 'polite'
    */
   ariaLiveMode?: 'polite' | 'assertive' | 'off';
-  /** Label heading for the Toast */
+  /** Heading for the Toast */
   headingText?: string;
   /** Text content of the Toast. */
   children?: ReactNode;
-  /** Custom classname to extend or customize */
+  /** Custom class name for styling and customizing */
   className?: string;
-  /** Different h-tag can be selected for header */
+  /** Heading variant for Toast.
+   * @default 'h2'
+   */
   headingVariant?: Exclude<hLevels, 'h1'>;
-  /** Id for focus */
+  /** Unique id */
   id?: string;
 }
 interface InnerRef {
