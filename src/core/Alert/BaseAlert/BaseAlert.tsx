@@ -23,4 +23,6 @@ export interface BaseAlertProps extends HtmlDivWithRefProps {
   status?: 'neutral' | 'warning' | 'error';
   /** Main content of the alert */
   children?: ReactNode;
+  /** Use small screen styling */
+  smallScreen?: boolean;
 }
