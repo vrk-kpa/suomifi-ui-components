@@ -10,12 +10,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     margin-bottom: ${theme.spacing.xxs};
   }
 
-  /** Inline variant styles  */
   &.fi-alert--inline {
     padding: 5px 0px 4px 0px;
-    & .fi-alert_icon-wrapper {
-      flex: 0;
-    }
+
     &.fi-alert--neutral {
       border-left: 4px solid ${theme.colors.accentSecondary};
     }
@@ -26,6 +23,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &.fi-alert--warning {
       border-left: 4px solid ${theme.colors.accentBase};
+    }
+
+    /** Small screen variant styles */
+    &.fi-alert--small-screen {
+      & .fi-alert_text-content-wrapper {
+        padding: 0 15px 0 10px;
+      }
     }
   }
 `;
