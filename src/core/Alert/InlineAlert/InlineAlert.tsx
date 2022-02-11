@@ -33,11 +33,11 @@ class BaseInlineAlert extends Component<InlineAlertProps & InnerRef> {
       ariaLiveMode = 'assertive',
       labelText,
       children,
+      smallScreen,
       id,
       ...passProps
     } = this.props;
 
-    const variantIcon = status === 'neutral' ? 'info' : status;
     return (
       <HtmlDivWithRef
         as="section"
@@ -48,13 +48,14 @@ class BaseInlineAlert extends Component<InlineAlertProps & InnerRef> {
           className,
           {
             [`${baseClassName}--${status}`]: !!status,
+            [alertClassNames.smallScreen]: !!smallScreen,
           },
         )}
       >
         <HtmlDiv className={alertClassNames.styleWrapper}>
-          <HtmlDiv className={alertClassNames.iconWrapper}>
-            <Icon icon={variantIcon} className={alertClassNames.icon} />
-          </HtmlDiv>
+          {status !== 'neutral' && (
+            <Icon icon={status} className={alertClassNames.icon} />
+          )}
 
           <HtmlDiv
             className={alertClassNames.textContentWrapper}
