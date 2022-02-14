@@ -179,8 +179,8 @@ exports[`props children should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding: 0 20px 0 15px;
-  margin: 15px auto 15px 0;
+  padding: 0 20px;
+  margin: 15px 0;
 }
 
 .c1.fi-alert .fi-alert_text-content-wrapper .fi-alert_content {
@@ -224,17 +224,22 @@ exports[`props children should match snapshot 1`] = `
   fill: hsl(23,82%,53%);
 }
 
-.c1 .fi-alert_icon-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 .c1 .fi-alert_style-wrapper {
   display: block;
   max-width: 1110px;
   margin: auto;
+}
+
+.c1 .fi-alert_text-content-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 0 20px;
+  margin: 15px auto 15px 0;
 }
 
 .c1 .fi-alert_close-button {
