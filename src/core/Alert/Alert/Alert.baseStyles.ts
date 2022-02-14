@@ -6,14 +6,17 @@ import { baseAlertBaseStyles } from '../BaseAlert/BaseAlert.baseStyles';
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${baseAlertBaseStyles(theme)}
 
-  & .fi-alert_icon-wrapper {
-    display: flex;
-  }
-
   & .fi-alert_style-wrapper {
     display: block;
     max-width: 1110px; /** Based on Suomi.fi front page header content width on large screens */
     margin: auto;
+  }
+
+  & .fi-alert_text-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0 ${theme.spacing.m};
+    margin: ${theme.spacing.s} auto ${theme.spacing.s} 0;
   }
 
   & .fi-alert_close-button {
@@ -62,7 +65,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     & .fi-alert_text-content-wrapper {
-      padding: 0 0 0 10px;
+      padding: 0 0 0 ${theme.spacing.xs};
     }
 
     & .fi-alert_close-button {

@@ -25,8 +25,8 @@ export const baseAlertBaseStyles = (theme: SuomifiTheme) => css`
     & .fi-alert_text-content-wrapper {
       display: flex;
       flex-direction: column;
-      padding: 0 20px 0 15px;
-      margin: ${theme.spacing.s} auto ${theme.spacing.s} 0;
+      padding: 0 ${theme.spacing.m};
+      margin: ${theme.spacing.s} 0;
 
       & .fi-alert_content {
         vertical-align: middle;
