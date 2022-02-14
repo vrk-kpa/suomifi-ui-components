@@ -11,7 +11,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   & .fi-alert_style-wrapper {
-    max-width: 1110px;
+    display: block;
+    max-width: 1110px; /** Based on Suomi.fi front page header content width on large screens */
     margin: auto;
   }
 
@@ -57,7 +58,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   /** Small screen variant styles */
   &.fi-alert--small-screen {
     & .fi-alert_style-wrapper {
-      max-width: 100%;
+      width: 100%;
     }
 
     & .fi-alert_text-content-wrapper {
