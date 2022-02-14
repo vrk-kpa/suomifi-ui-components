@@ -169,7 +169,7 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-alert--warning {
-  background-color: #fff6e0;
+  background-color: hsl(42,100%,94%);
 }
 
 .c1.fi-alert--warning .fi-alert_icon-wrapper .fi-icon .fi-icon-base-fill {
