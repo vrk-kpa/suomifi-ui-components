@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { logger } from '../../../utils/log';
+import { getLogger } from '../../../utils/log';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { Icon } from '../../Icon/Icon';
@@ -73,7 +73,7 @@ export class ExternalLink extends Component<ExternalLinkProps> {
   render() {
     const { labelNewWindow, ...passProps } = this.props;
     if (!labelNewWindow) {
-      logger.warn(
+      getLogger().warn(
         'External link needs a translated description of link opening to a new window',
       );
     }

@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { asPropType } from '../../utils/typescript';
-import { logger } from '../../utils/log';
+import { getLogger } from '../../utils/log';
 import { ColorProp, SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { baseStyles } from './Heading.baseStyles';
 import { HtmlH, HtmlHProps, hLevels } from '../../reset';
@@ -72,7 +72,7 @@ export const Heading = forwardRef(
   (props: HeadingProps, ref: React.RefObject<HTMLHeadingElement>) => {
     const { as, variant, ...passProps } = props;
     if (!variant) {
-      logger.warn(
+      getLogger().warn(
         `Does not contain heading level (variant): ${passProps.children}`,
       );
       return null;

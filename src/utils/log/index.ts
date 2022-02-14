@@ -1,1 +1,1 @@
-export { logger } from './logger';
+export { getLogger, setLogger } from './logger';
