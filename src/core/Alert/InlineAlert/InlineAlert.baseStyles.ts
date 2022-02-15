@@ -13,6 +13,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     & .fi-alert_text-content-wrapper {
       padding: 0 ${theme.spacing.s};
+      margin: ${theme.spacing.s} 0;
     }
 
     &.fi-alert--inline {
