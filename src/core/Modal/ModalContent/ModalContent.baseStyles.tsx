@@ -1,7 +1,10 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
+import { element, font } from '../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
+  ${element(theme)}
+  ${font(theme)('bodyText')}
   &.fi-modal_content {
     flex: 1 1 auto;
     max-height: 100%;
