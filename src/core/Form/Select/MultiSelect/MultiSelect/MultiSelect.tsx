@@ -112,7 +112,6 @@ interface MultiSelectState<T extends MultiSelectData> {
   showOptionsAvailableText: boolean;
   focusedDescendantId: string | null;
   selectedItems: T[];
-  initialItems: T[];
   chipRemovalAnnounceText: string;
 }
 
@@ -141,7 +140,6 @@ class BaseMultiSelect<T> extends Component<
     selectedItems: this.props.selectedItems
       ? this.props.selectedItems || []
       : this.props.defaultSelectedItems || [],
-    initialItems: this.props.items,
     chipRemovalAnnounceText: '',
   };
 
@@ -149,16 +147,13 @@ class BaseMultiSelect<T> extends Component<
     nextProps: MultiSelectProps<U & MultiSelectData>,
     prevState: MultiSelectState<U & MultiSelectData>,
   ) {
-    const { items: propItems, selectedItems } = nextProps;
+    const { selectedItems } = nextProps;
     if (
-      ('selectedItems' in nextProps &&
-        selectedItems !== prevState.selectedItems) ||
-      propItems !== prevState.initialItems
+      'selectedItems' in nextProps &&
+      selectedItems !== prevState.selectedItems
     ) {
       return {
         selectedItems: selectedItems || prevState.selectedItems || [],
-        filteredItems: propItems,
-        initialItems: propItems,
       };
     }
     return null;
@@ -206,9 +201,6 @@ class BaseMultiSelect<T> extends Component<
             if (onItemSelectionsChange) {
               onItemSelectionsChange(newSelectedItems);
             }
-            return {
-              selectedItems: newSelectedItems,
-            };
           }
         }
       },
