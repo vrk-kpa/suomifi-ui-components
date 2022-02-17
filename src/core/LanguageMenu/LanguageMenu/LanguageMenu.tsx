@@ -82,7 +82,7 @@ class BaseLanguageMenu extends Component<LanguageMenuProps & SuomifiThemeProp> {
                 {name}
               </MenuButton>
               <StyledMenuPopover theme={theme} position={positionDefault}>
-                <MenuItems>{children}</MenuItems>
+                {children}
               </StyledMenuPopover>
             </Fragment>
           )}
