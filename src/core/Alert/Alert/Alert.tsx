@@ -105,7 +105,7 @@ const StyledAlert = styled(
     return <BaseAlert {...passProps} />;
   },
 )`
-  ${({ theme }) => baseStyles(theme)};
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 export const Alert = forwardRef(

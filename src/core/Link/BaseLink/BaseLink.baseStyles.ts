@@ -6,7 +6,7 @@ import { allStates } from '../../../utils/css';
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
-  ${allStates(`color: ${theme.colors.highlightBase};`)};
+  ${allStates(`color: ${theme.colors.highlightBase};`)}
   color: ${theme.colors.highlightBase};
   text-decoration: none;
 

@@ -42,7 +42,7 @@ const StyledBlock = styled((props: BlockProps & SuomifiThemeProp) => {
   const { theme, ...passProps } = props;
   return <SemanticBlock {...passProps} />;
 })`
-  ${({ theme }) => baseStyles(theme)};
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**

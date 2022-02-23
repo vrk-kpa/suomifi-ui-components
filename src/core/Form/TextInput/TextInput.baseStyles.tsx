@@ -12,6 +12,18 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   & .fi-text-input_wrapper {
     width: 100%;
     display: inline-block;
+
+    & .fi-text-input_label--visible {
+      margin-bottom: ${theme.spacing.xs};
+    }
+
+    & .fi-hint-text {
+      margin-bottom: ${theme.spacing.xs};
+    }
+
+    & .fi-text-input_statusText--has-content {
+      margin-top: ${theme.spacing.xxs};
+    }
   }
 
   & .fi-text-input_input-element-container {

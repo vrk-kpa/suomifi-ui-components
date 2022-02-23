@@ -2,14 +2,14 @@ import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { baseStyles } from './LabelText.baseStyles';
+import { baseStyles } from './Label.baseStyles';
 import { asPropType } from '../../../utils/typescript';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { HtmlSpan, HtmlSpanProps, HtmlDiv, HtmlDivProps } from '../../../reset';
 
 export type LabelMode = 'hidden' | 'visible';
 
-export interface LabelTextProps extends Omit<HtmlDivProps, 'as'> {
+export interface LabelProps extends Omit<HtmlDivProps, 'as'> {
   /** id */
   id?: string;
   /** Label element content */
@@ -22,9 +22,12 @@ export interface LabelTextProps extends Omit<HtmlDivProps, 'as'> {
   labelMode?: LabelMode;
   /** Label span props */
   labelSpanProps?: HtmlSpanProps;
-  /** Render the wrapping element as another element */
+  /** Render the wrapping element as another element
+   *
+   * @default 'label'
+   */
   asProp?: asPropType;
-  /** Optional text that is shown after labelText. Will be wrapped in parentheses. */
+  /** Text to mark the field as optional. Shown after labelText and wrapped in parentheses. */
   optionalText?: string;
 }
 
@@ -34,17 +37,17 @@ const labelTextClassNames = {
   optionalText: `${baseClassName}_optionalText`,
 };
 
-const StyledLabelText = styled(
+const StyledLabel = styled(
   ({
     className,
     theme,
     labelMode = 'visible',
     labelSpanProps = { className: undefined },
     children,
-    asProp,
+    asProp = 'label',
     optionalText,
     ...passProps
-  }: LabelTextProps & SuomifiThemeProp) => (
+  }: LabelProps & SuomifiThemeProp) => (
     <HtmlDiv
       {...(asProp ? { as: asProp } : {})}
       className={classnames(className, baseClassName)}
@@ -77,12 +80,12 @@ const StyledLabelText = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export class LabelText extends Component<LabelTextProps> {
+export class Label extends Component<LabelProps> {
   render() {
     return (
       <SuomifiThemeConsumer>
         {({ suomifiTheme }) => (
-          <StyledLabelText theme={suomifiTheme} {...this.props} />
+          <StyledLabel theme={suomifiTheme} {...this.props} />
         )}
       </SuomifiThemeConsumer>
     );

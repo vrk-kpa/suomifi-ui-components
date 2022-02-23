@@ -38,7 +38,7 @@ class BaseBreadcrumb extends Component<BreadcrumbProps & SuomifiThemeProp> {
 }
 
 const StyledBreadcrumb = styled(BaseBreadcrumb)`
-  ${({ theme }) => baseStyles(theme)};
+  ${({ theme }) => baseStyles(theme)}
 `;
 
 /**

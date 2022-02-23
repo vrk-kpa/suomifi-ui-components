@@ -6,10 +6,11 @@ export {
   BreadcrumbLinkProps,
 } from './core/Breadcrumb';
 export { Alert, AlertProps, InlineAlert, InlineAlertProps } from './core/Alert';
-// export {
-//   Notification,
-//   NotificationProps,
-// } from './core/Notification/Notification';
+export {
+  Notification,
+  NotificationProps,
+} from './core/Notification/Notification';
+export { Toast, ToastProps } from './core/Toast/Toast';
 export { Block, BlockProps } from './core/Block/Block';
 export { Button, ButtonProps } from './core/Button/Button';
 export { Dropdown, DropdownProps } from './core/Dropdown/';
@@ -39,7 +40,13 @@ export {
   SingleSelectProps,
   SingleSelectData,
   SingleSelectStatus,
-} from './core/Form/Form';
+  StatusText,
+  StatusTextProps,
+  Label,
+  LabelProps,
+  HintText,
+  HintTextProps,
+} from './core/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';
 export {

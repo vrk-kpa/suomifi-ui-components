@@ -11,7 +11,7 @@ import {
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { LabelText, LabelMode } from '../LabelText/LabelText';
+import { Label, LabelMode } from '../Label/Label';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
 import { baseStyles } from './FilterInput.baseStyles';
@@ -21,11 +21,13 @@ const filterInputClassNames = {
   error: `${baseClassName}--error`,
   disabled: `${baseClassName}--disabled`,
   labelAlignLeft: `${baseClassName}--label-align-left`,
+  labelIsVisible: `${baseClassName}_label--visible`,
   wrapper: `${baseClassName}_wrapper`,
   functionalityContainer: `${baseClassName}_functionalityContainer`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
   actionElementsContainer: `${baseClassName}_action-elements-container`,
+  statusTextHasContent: `${baseClassName}_statusText--has-content`,
 };
 
 export type FilterInputStatus = Exclude<InputStatus, 'success'>;
@@ -162,14 +164,16 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
         })}
       >
         <HtmlDiv className={classnames(filterInputClassNames.wrapper, {})}>
-          <LabelText
+          <Label
             id={labelId}
-            asProp="label"
             labelMode={labelMode}
             optionalText={optionalText}
+            className={classnames({
+              [filterInputClassNames.labelIsVisible]: labelMode !== 'hidden',
+            })}
           >
             {labelText}
-          </LabelText>
+          </Label>
           <HintText id={hintTextId}>{hintText}</HintText>
           <HtmlDiv className={filterInputClassNames.functionalityContainer}>
             <HtmlDiv
@@ -211,6 +215,9 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
             )}
             <StatusText
               id={statusTextId}
+              className={classnames({
+                [filterInputClassNames.statusTextHasContent]: !!statusText,
+              })}
               status={status}
               disabled={passProps.disabled}
               ariaLiveMode={statusTextAriaLiveMode}

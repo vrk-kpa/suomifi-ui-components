@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
 import { axeTest } from '../../../../../utils/test';
-import { MultiSelect } from './MultiSelect';
+import { MultiSelect, MultiSelectData } from './MultiSelect';
 
 const tools = [
   {
@@ -227,6 +227,41 @@ describe('Chips', () => {
   });
 });
 
+test('correct amount of items are shown on filtering and after selection', async () => {
+  await act(async () => {
+    const { getByRole, findAllByRole, getByText } = render(
+      <MultiSelect
+        labelText="MultiSelect"
+        items={tools}
+        chipListVisible={false}
+        ariaChipActionLabel="Remove"
+        removeAllButtonLabel="Remove all selections"
+        visualPlaceholder="Choose your tool(s)"
+        noItemsText="No items"
+        ariaSelectedAmountText="tools selected"
+        ariaOptionsAvailableText="tools left"
+        ariaOptionChipRemovedText="removed"
+      />,
+    );
+    const textfield = getByRole('textbox') as HTMLInputElement;
+    await act(async () => {
+      fireEvent.change(textfield, { target: { value: 'hammer' } });
+    });
+    const hammerItem = getByText('Hammer');
+    expect(hammerItem).toHaveTextContent('Hammer');
+
+    const opts = await findAllByRole('option');
+    expect(opts).toHaveLength(3);
+
+    await act(async () => {
+      fireEvent.click(hammerItem);
+    });
+
+    const allOptions = await findAllByRole('option');
+    expect(allOptions).toHaveLength(3);
+  });
+});
+
 describe('Controlled', () => {
   it('has the controlled items as selected + disabled', async () => {
     const controlledItems = [
@@ -327,6 +362,99 @@ describe('Controlled', () => {
     expect(mockItemSelectionsChange).toBeCalledWith('turtle-987');
     // Popover is open, so therefore two
     expect(getAllByText('Turtle').length).toBe(2);
+  });
+
+  it('shows correct amount of items after filtering and selecting', async () => {
+    let selectedAnimals: Array<MultiSelectData> = [];
+
+    const animals: Array<MultiSelectData> = [
+      {
+        labelText: 'Rabbit',
+        uniqueItemId: 'rabbit-123',
+      },
+      {
+        labelText: 'Snail',
+        uniqueItemId: 'snail-321',
+      },
+      {
+        labelText: 'Turtle',
+        uniqueItemId: 'turtle-987',
+      },
+    ];
+
+    const onItemSelect = (animalId: string) => {
+      const prevSelectedAnimals = [...selectedAnimals];
+
+      const selectedAnimalIds = prevSelectedAnimals.map(
+        (animal) => animal.uniqueItemId,
+      );
+
+      if (selectedAnimalIds.includes(animalId)) {
+        selectedAnimals = prevSelectedAnimals.filter(
+          (animal) => animal.uniqueItemId !== animalId,
+        );
+      }
+      const animal = animals.find((a) => a.uniqueItemId === animalId);
+      if (animal === undefined) {
+        selectedAnimals = prevSelectedAnimals;
+      } else {
+        selectedAnimals = prevSelectedAnimals.concat([animal]);
+      }
+    };
+
+    const multiMutti = (
+      <MultiSelect
+        items={animals}
+        selectedItems={selectedAnimals}
+        onItemSelect={onItemSelect}
+        labelText="Animals"
+        hintText="You can filter options by typing in the field"
+        noItemsText="No animals"
+        chipListVisible={true}
+        visualPlaceholder="Try to choose animals"
+        ariaChipActionLabel="Remove"
+        ariaSelectedAmountText="animals selected"
+        ariaOptionsAvailableText="options available"
+        ariaOptionChipRemovedText="removed"
+        id="mutti"
+      />
+    );
+
+    await act(async () => {
+      const { getByRole, rerender, findAllByRole } = render(multiMutti);
+      const textfield = getByRole('textbox') as HTMLInputElement;
+      await act(async () => {
+        fireEvent.change(textfield, { target: { value: 'sn' } });
+      });
+      const snailItem = getByRole('option');
+      expect(snailItem).toHaveTextContent('Snail');
+
+      await act(async () => {
+        fireEvent.click(snailItem);
+      });
+
+      await act(async () => {
+        rerender(
+          <MultiSelect
+            items={animals}
+            selectedItems={selectedAnimals}
+            onItemSelect={onItemSelect}
+            labelText="Animals"
+            hintText="You can filter options by typing in the field"
+            noItemsText="No animals"
+            chipListVisible={true}
+            visualPlaceholder="Try to choose animals"
+            ariaChipActionLabel="Remove"
+            ariaSelectedAmountText="animals selected"
+            ariaOptionsAvailableText="options available"
+            ariaOptionChipRemovedText="removed"
+            id="mutti"
+          />,
+        );
+      });
+      const allOptions = await findAllByRole('option');
+      expect(allOptions).toHaveLength(1);
+    });
   });
 });
 

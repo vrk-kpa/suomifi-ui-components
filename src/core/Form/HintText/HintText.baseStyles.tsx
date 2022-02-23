@@ -6,7 +6,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-hint-text {
     display: block;
     color: ${theme.colors.blackBase};
-    margin-bottom: ${theme.spacing.xs};
     ${font(theme)('bodyTextSmall')};
   }
 `;

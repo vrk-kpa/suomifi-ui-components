@@ -10,6 +10,9 @@ const primitiveComponents = [
   ['Form', 'SearchInput'],
   ['Form', 'Checkbox'],
   ['Form', 'Textarea'],
+  ['Form', 'Label'],
+  ['Form', 'HintText'],
+  ['Form', 'StatusText'],
 ];
 
 const getComponent = ({ name, underName }) =>
@@ -168,10 +171,10 @@ module.exports = {
                 'LanguageMenuLink/LanguageMenuLink',
               ]),
             },
-            // {
-            //   name: 'Notification',
-            //   components: getComponents(['Notification']),
-            // },
+            {
+              name: 'Notification',
+              components: getComponents(['Notification']),
+            },
             {
               name: 'Expander',
               components: getComponentWithVariants('Expander')([
@@ -189,6 +192,10 @@ module.exports = {
                 'ModalContent/ModalContent',
                 'ModalFooter/ModalFooter',
               ]),
+            },
+            {
+              name: 'Toast',
+              components: getComponents(['Toast']),
             },
           ],
           expand: true,

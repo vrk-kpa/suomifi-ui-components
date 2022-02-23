@@ -23,7 +23,7 @@ import { useEnhancedEffect } from '../../../utils/common';
 import { logger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { HtmlSpan, HtmlDiv } from '../../../reset';
-import { LabelText, LabelMode } from '../../Form/LabelText/LabelText';
+import { Label, LabelMode } from '../../Form/Label/Label';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
@@ -32,7 +32,7 @@ const baseClassName = 'fi-dropdown';
 
 export const dropdownClassNames = {
   baseClassName,
-  label: `${baseClassName}_label`,
+  labelIsVisible: `${baseClassName}_label--visible`,
   button: `${baseClassName}_button`,
   popover: `${baseClassName}_popover`,
   item: `${baseClassName}_item`,
@@ -252,14 +252,16 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
         {...passProps}
       >
         <HtmlDiv>
-          <LabelText
+          <Label
             id={labelId}
             labelMode={labelMode}
-            asProp="label"
             optionalText={optionalText}
+            className={classnames({
+              [dropdownClassNames.labelIsVisible]: labelMode !== 'hidden',
+            })}
           >
             {labelText}
-          </LabelText>
+          </Label>
           <ListboxInput
             {...getConditionalAriaProp('aria-labelledby', [
               ariaLabelledBy,

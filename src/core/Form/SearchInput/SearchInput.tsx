@@ -16,7 +16,7 @@ import {
 } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { StatusText } from '../StatusText/StatusText';
-import { LabelText, LabelMode } from '../LabelText/LabelText';
+import { Label, LabelMode } from '../Label/Label';
 import { Icon } from '../../Icon/Icon';
 import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './SearchInput.baseStyles';
@@ -84,10 +84,12 @@ const searchInputClassNames = {
   fullWidth: `${baseClassName}--full-width`,
   error: `${baseClassName}--error`,
   notEmpty: `${baseClassName}--not-empty`,
+  labelIsVisible: `${baseClassName}_label--visible`,
   styleWrapper: `${baseClassName}_wrapper`,
   inputElement: `${baseClassName}_input`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   functionalityContainer: `${baseClassName}_functionality-container`,
+  statusTextHasContent: `${baseClassName}_statusText--has-content`,
   button: `${baseClassName}_button`,
   searchButton: `${baseClassName}_button-search`,
   searchIcon: `${baseClassName}_button-search-icon`,
@@ -212,9 +214,15 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
         })}
       >
         <HtmlSpan className={searchInputClassNames.styleWrapper}>
-          <LabelText htmlFor={id} labelMode={labelMode} asProp="label">
+          <Label
+            htmlFor={id}
+            labelMode={labelMode}
+            className={classnames({
+              [searchInputClassNames.labelIsVisible]: labelMode !== 'hidden',
+            })}
+          >
             {labelText}
-          </LabelText>
+          </Label>
           <Debounce waitFor={debounce}>
             {(debouncer: Function, cancelDebounce: Function) => (
               <HtmlDiv className={searchInputClassNames.functionalityContainer}>
@@ -267,6 +275,9 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           </Debounce>
           <StatusText
             id={statusTextId}
+            className={classnames({
+              [searchInputClassNames.statusTextHasContent]: !!statusText,
+            })}
             status={status}
             ariaLiveMode={statusTextAriaLiveMode}
           >

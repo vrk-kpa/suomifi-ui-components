@@ -13,7 +13,7 @@ import {
   HtmlInput,
 } from '../../../reset';
 import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
-import { LabelText, LabelMode } from '../LabelText/LabelText';
+import { Label, LabelMode } from '../Label/Label';
 import { StatusText } from '../StatusText/StatusText';
 import { HintText } from '../HintText/HintText';
 import { InputStatus, StatusTextCommonProps } from '../types';
@@ -26,10 +26,12 @@ export const textInputClassNames = {
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
   success: `${baseClassName}--success`,
+  labelIsVisible: `${baseClassName}_label--visible`,
   icon: `${baseClassName}_with-icon`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
   styleWrapper: `${baseClassName}_wrapper`,
+  statusTextHasContent: `${baseClassName}_statusText--has-content`,
 };
 
 type TextInputValue = string | number | undefined;
@@ -134,14 +136,16 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
         })}
       >
         <HtmlSpan className={textInputClassNames.styleWrapper}>
-          <LabelText
+          <Label
             htmlFor={id}
             labelMode={labelMode}
-            asProp="label"
             optionalText={optionalText}
+            className={classnames({
+              [textInputClassNames.labelIsVisible]: labelMode !== 'hidden',
+            })}
           >
             {labelText}
-          </LabelText>
+          </Label>
           <HintText id={hintTextId}>{hintText}</HintText>
           <HtmlDiv className={textInputClassNames.inputElementContainer}>
             <Debounce waitFor={debounce}>
@@ -171,6 +175,9 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
           </HtmlDiv>
           <StatusText
             id={statusTextId}
+            className={classnames({
+              [textInputClassNames.statusTextHasContent]: !!statusText,
+            })}
             status={status}
             ariaLiveMode={statusTextAriaLiveMode}
             disabled={passProps.disabled}

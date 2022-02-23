@@ -172,7 +172,6 @@ exports[`has matching snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: block;
-  margin-bottom: 10px;
   color: hsl(0,0%,16%);
 }
 
@@ -200,14 +199,11 @@ exports[`has matching snapshot 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+  display: block;
 }
 
 .c6.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
-}
-
-.c6.fi-status-text.fi-status-text--hasContent {
-  margin-top: 5px;
 }
 
 .c2 .fi-filter-input {
@@ -229,6 +225,14 @@ exports[`has matching snapshot 1`] = `
 .c2 .fi-filter-input_wrapper {
   display: inline-block;
   width: 100%;
+}
+
+.c2 .fi-filter-input_wrapper .fi-filter-input_label--visible {
+  margin-bottom: 10px;
+}
+
+.c2 .fi-filter-input_wrapper .fi-hint-text {
+  margin-bottom: 10px;
 }
 
 .c2 .fi-filter-input_functionalityContainer {
@@ -270,6 +274,10 @@ exports[`has matching snapshot 1`] = `
   border-right: 1px solid hsl(202,7%,67%);
   padding-right: 8px;
   height: 20px;
+}
+
+.c2 .fi-filter-input_functionalityContainer .fi-filter-input_statusText--has-content {
+  margin-top: 5px;
 }
 
 .c2 .fi-filter-input_input-element-container > input:focus {
@@ -845,7 +853,7 @@ exports[`has matching snapshot 1`] = `
         class="c0 fi-filter-input_wrapper"
       >
         <label
-          class="c0 c3 fi-label-text"
+          class="c0 c3 fi-filter-input_label--visible fi-label-text"
           id="1-label"
         >
           <span
@@ -918,7 +926,7 @@ exports[`has matching snapshot 1`] = `
             <path
               class="fi-icon-base-fill"
               d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
-              fill="#292929"
+              fill="#222"
               fill-rule="evenodd"
             />
           </svg>
@@ -950,7 +958,7 @@ exports[`has matching snapshot 1`] = `
             <path
               class="fi-icon-base-fill"
               d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
-              fill="#292929"
+              fill="#222"
               fill-rule="evenodd"
             />
           </svg>
@@ -982,7 +990,7 @@ exports[`has matching snapshot 1`] = `
             <path
               class="fi-icon-base-fill"
               d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
-              fill="#292929"
+              fill="#222"
               fill-rule="evenodd"
             />
           </svg>
@@ -1012,7 +1020,7 @@ exports[`has matching snapshot 1`] = `
         <path
           class="fi-icon-base-fill"
           d="M13 0c1.654 0 3 1.346 3 3v1h5a1 1 0 010 2h-1.091l-1.804 16.117A2.143 2.143 0 0116 24H8a2.141 2.141 0 01-2.104-1.885L4.119 6H3a1 1 0 010-2h5V3c0-1.654 1.346-3 3-3h2zm4.898 6H6.132l1.753 15.896c.004.04.075.104.115.104h8c.041 0 .113-.065.118-.105L17.898 6zM13 2h-2c-.551 0-1 .448-1 1v1h4V3c0-.552-.449-1-1-1z"
-          fill="#292929"
+          fill="#222"
           fill-rule="evenodd"
         />
       </svg>

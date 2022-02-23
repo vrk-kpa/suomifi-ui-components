@@ -18,7 +18,7 @@ const checkboxClassNames = {
   container: `${baseClassName}_container`,
   input: `${baseClassName}_input`,
   label: `${baseClassName}_label`,
-  statusText: `${baseClassName}_status`,
+  statusTextHasContent: `${baseClassName}_statusText--has-content`,
   hintText: `${baseClassName}_hintText`,
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
@@ -172,17 +172,6 @@ class BaseCheckbox extends Component<CheckboxProps & InnerRef> {
     const statusTextId = !!statusText ? `${id}-statusText` : undefined;
     const hintTextId = !!hintText ? `${id}-hintText` : undefined;
 
-    const CheckedIcon = () => (
-      <Icon
-        icon="check"
-        className={classnames(iconBaseClassName, {
-          [iconClassnames.checked]: checkedState && !disabled,
-          [iconClassnames.error]: status === 'error' && !disabled,
-          [iconClassnames.disabled]: !!disabled,
-        })}
-      />
-    );
-
     return (
       <HtmlDiv
         className={classnames(
@@ -221,11 +210,23 @@ class BaseCheckbox extends Component<CheckboxProps & InnerRef> {
           className={checkboxClassNames.label}
           {...passProps}
         >
-          {!!checkedState && <CheckedIcon />}
+          {!!checkedState && (
+            <Icon
+              icon="check"
+              className={classnames(iconBaseClassName, {
+                [iconClassnames.checked]: checkedState && !disabled,
+                [iconClassnames.error]: status === 'error' && !disabled,
+                [iconClassnames.disabled]: !!disabled,
+              })}
+            />
+          )}
           {children}
         </HtmlLabel>
         <HintText id={hintTextId}>{hintText}</HintText>
         <StatusText
+          className={classnames({
+            [checkboxClassNames.statusTextHasContent]: !!statusText,
+          })}
           id={statusTextId}
           status={status}
           disabled={disabled}

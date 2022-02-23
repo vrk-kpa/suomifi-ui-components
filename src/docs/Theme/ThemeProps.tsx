@@ -6,7 +6,7 @@ import { baseStyles } from './ThemeProps.baseStyles';
 const ThemePropsContainer = styled(({ children, theme, ...passProps }) => (
   <div {...passProps}>{children}</div>
 ))`
-  ${({ theme }) => baseStyles(theme)};
+  ${({ theme }) => baseStyles(theme)}
 `;
 type ValueType = { [key: string]: any };
 
@@ -51,11 +51,9 @@ export class ThemeProps extends Component<ThemePropsProps> {
     return (
       <SuomifiThemeConsumer>
         {({ suomifiTheme }) => (
-          <>
-            <ThemePropsContainer theme={suomifiTheme}>
-              <ThemeValues values={values} />
-            </ThemePropsContainer>
-          </>
+          <ThemePropsContainer theme={suomifiTheme}>
+            <ThemeValues values={values} />
+          </ThemePropsContainer>
         )}
       </SuomifiThemeConsumer>
     );

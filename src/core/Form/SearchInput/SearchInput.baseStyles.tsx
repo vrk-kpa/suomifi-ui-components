@@ -13,6 +13,14 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       width: 100%;
       min-width: 105px;
       display: inline-block;
+
+      & .fi-search-input_label--visible {
+        margin-bottom: ${theme.spacing.xs};
+      }
+
+      & .fi-search-input_statusText--has-content {
+        margin-top: ${theme.spacing.xxs};
+      }
     }
 
     &_functionality-container {
