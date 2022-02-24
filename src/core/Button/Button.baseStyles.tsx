@@ -71,12 +71,11 @@ const secondaryNoBorderStyles = (theme: SuomifiTheme) => css`
 `;
 
 const linkStyles = (theme: SuomifiTheme) => css`
+  color: ${theme.colors.highlightBase};
+  ${secondary(theme)}
+  background: ${theme.gradients.depthSecondaryToDepthSecondaryDark1};
+  border: none;
   &.fi-button--link {
-    color: ${theme.colors.highlightBase};
-    ${secondary(theme)}
-    background: ${theme.gradients.depthSecondaryToDepthSecondaryDark1};
-    border: none;
-
     &:hover {
       background: ${theme.gradients.highlightLight4ToDepthSecondary};
     }
