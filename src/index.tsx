@@ -50,6 +50,11 @@ export {
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';
 export {
+  LogoIcon,
+  LogoIconProps,
+  LogoIconKeys,
+} from './core/LogoIcon/LogoIcon';
+export {
   StaticIcon,
   StaticIconProps,
   IllustrativeIconKeys,
