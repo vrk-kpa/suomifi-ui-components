@@ -4,11 +4,11 @@ import { font } from '../../theme/reset';
 import { cssValueToString } from '../../../utils/css';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
+  font-size: ${cssValueToString(
+    theme.values.typography.bodyTextSmall.fontSize,
+  )};
+  display: inline-block;
   &.fi-breadcrumb-link {
-    font-size: ${cssValueToString(
-      theme.values.typography.bodyTextSmall.fontSize,
-    )};
-    display: inline-block;
     & .fi-breadcrumb-link_link {
       ${font(theme)('bodyTextSmall')}
       &--current {
