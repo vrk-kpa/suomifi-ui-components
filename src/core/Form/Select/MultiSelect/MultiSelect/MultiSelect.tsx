@@ -201,6 +201,9 @@ class BaseMultiSelect<T> extends Component<
             if (onItemSelectionsChange) {
               onItemSelectionsChange(newSelectedItems);
             }
+            return {
+              selectedItems: newSelectedItems,
+            };
           }
         }
       },
