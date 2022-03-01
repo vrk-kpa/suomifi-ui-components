@@ -227,38 +227,91 @@ describe('Chips', () => {
   });
 });
 
-test('correct amount of items are shown on filtering and after selection', async () => {
-  await act(async () => {
-    const { getByRole, findAllByRole, getByText } = render(
-      <MultiSelect
-        labelText="MultiSelect"
-        items={tools}
-        chipListVisible={false}
-        ariaChipActionLabel="Remove"
-        removeAllButtonLabel="Remove all selections"
-        visualPlaceholder="Choose your tool(s)"
-        noItemsText="No items"
-        ariaSelectedAmountText="tools selected"
-        ariaOptionsAvailableText="tools left"
-        ariaOptionChipRemovedText="removed"
-      />,
-    );
-    const textfield = getByRole('textbox') as HTMLInputElement;
+describe('Non-controlled', () => {
+  it('has correct amount of items are shown on filtering and after selection', async () => {
     await act(async () => {
-      fireEvent.change(textfield, { target: { value: 'hammer' } });
+      const { getByRole, findAllByRole, getByText } = render(
+        <MultiSelect
+          labelText="MultiSelect"
+          items={tools}
+          chipListVisible={false}
+          ariaChipActionLabel="Remove"
+          removeAllButtonLabel="Remove all selections"
+          visualPlaceholder="Choose your tool(s)"
+          noItemsText="No items"
+          ariaSelectedAmountText="tools selected"
+          ariaOptionsAvailableText="tools left"
+          ariaOptionChipRemovedText="removed"
+        />,
+      );
+      const textfield = getByRole('textbox') as HTMLInputElement;
+      await act(async () => {
+        fireEvent.change(textfield, { target: { value: 'hammer' } });
+      });
+
+      const hammerItem = getByText('Hammer');
+      expect(hammerItem).toHaveTextContent('Hammer');
+
+      const opts = await findAllByRole('option');
+      expect(opts).toHaveLength(3);
+
+      await act(async () => {
+        fireEvent.click(hammerItem);
+      });
+
+      const allOptions = await findAllByRole('option');
+      expect(allOptions).toHaveLength(3);
     });
-    const hammerItem = getByText('Hammer');
-    expect(hammerItem).toHaveTextContent('Hammer');
+  });
 
-    const opts = await findAllByRole('option');
-    expect(opts).toHaveLength(3);
-
+  it('has possibility to select item', async () => {
     await act(async () => {
-      fireEvent.click(hammerItem);
-    });
+      const { getByRole, container, getByText, rerender } = render(
+        <MultiSelect
+          labelText="MultiSelect"
+          items={tools}
+          chipListVisible={true}
+          ariaChipActionLabel="Remove"
+          removeAllButtonLabel="Remove all selections"
+          visualPlaceholder="Choose your tool(s)"
+          noItemsText="No items"
+          ariaSelectedAmountText="tools selected"
+          ariaOptionsAvailableText="tools left"
+          ariaOptionChipRemovedText="removed"
+        />,
+      );
+      let chips = container.querySelectorAll('.fi-chip');
+      expect(chips).toHaveLength(0);
 
-    const allOptions = await findAllByRole('option');
-    expect(allOptions).toHaveLength(3);
+      const textfield = getByRole('textbox') as HTMLInputElement;
+      await act(async () => {
+        fireEvent.focus(textfield);
+      });
+      await act(async () => {
+        rerender(
+          <MultiSelect
+            labelText="MultiSelect"
+            items={tools}
+            chipListVisible={true}
+            ariaChipActionLabel="Remove"
+            removeAllButtonLabel="Remove all selections"
+            visualPlaceholder="Choose your tool(s)"
+            noItemsText="No items"
+            ariaSelectedAmountText="tools selected"
+            ariaOptionsAvailableText="tools left"
+            ariaOptionChipRemovedText="removed"
+          />,
+        );
+      });
+      const hammerItem = getByText('Hammer');
+
+      await act(async () => {
+        fireEvent.click(hammerItem);
+      });
+
+      chips = container.querySelectorAll('.fi-chip');
+      expect(chips).toHaveLength(1);
+    });
   });
 });
 
