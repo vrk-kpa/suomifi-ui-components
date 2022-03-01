@@ -9,16 +9,13 @@ const invertedStyles = (theme: SuomifiTheme) => css`
     background-color: ${theme.colors.highlightBase};
     border: 1px solid ${theme.colors.whiteBase};
     text-shadow: none;
-
     &:hover {
       background: ${theme.gradients.whiteBaseNegative};
     }
-
     &:active {
       background: none;
       background-color: ${theme.colors.highlightBase};
     }
-
     &.fi-button--disabled,
     &[disabled],
     &:disabled {
@@ -35,16 +32,13 @@ const secondary = (theme: SuomifiTheme) => css`
   background-color: ${theme.colors.whiteBase};
   border: 1px solid ${theme.colors.highlightBase};
   text-shadow: none;
-
   &:hover {
     background: ${theme.gradients.whiteBaseToDepthLight2};
   }
-
   &:active {
     background: none;
     background-color: ${theme.colors.depthLight2};
   }
-
   &.fi-button--disabled,
   &[disabled],
   &:disabled {
@@ -71,19 +65,17 @@ const secondaryNoBorderStyles = (theme: SuomifiTheme) => css`
 `;
 
 const linkStyles = (theme: SuomifiTheme) => css`
-  color: ${theme.colors.highlightBase};
-  ${secondary(theme)}
-  background: ${theme.gradients.depthSecondaryToDepthSecondaryDark1};
-  border: none;
   &.fi-button--link {
+    color: ${theme.colors.highlightBase};
+    ${secondary(theme)}
+    background: ${theme.gradients.depthSecondaryToDepthSecondaryDark1};
+    border: none;
     &:hover {
       background: ${theme.gradients.highlightLight4ToDepthSecondary};
     }
-
     &:active {
       background: ${theme.gradients.depthLight3ToDepthLight2};
     }
-
     &.fi-button--disabled,
     &[disabled],
     &:disabled {
@@ -104,24 +96,19 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   text-align: center;
   text-shadow: ${theme.shadows.invertTextShadow};
   cursor: pointer;
-
   &:focus {
     outline: none;
     position: relative;
-
     &::after {
       ${theme.focus.absoluteFocus}
     }
   }
-
   &:hover {
     background: ${theme.gradients.highlightLight1ToHighlightBase};
   }
-
   &:active {
     background: ${theme.colors.highlightDark1};
   }
-
   &.fi-button--disabled,
   &[disabled],
   &:disabled {
@@ -130,22 +117,18 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     user-select: none;
     cursor: not-allowed;
   }
-
   &.fi-button--disabled::after {
     border: none;
     box-shadow: none;
   }
-
   &.fi-button--fullwidth {
     display: block;
     width: 100%;
   }
-
   ${invertedStyles(theme)}
   ${secondaryStyles(theme)}
   ${secondaryNoBorderStyles(theme)}
   ${linkStyles(theme)}
-
   & > .fi-button_icon {
     width: 16px;
     height: 16px;
