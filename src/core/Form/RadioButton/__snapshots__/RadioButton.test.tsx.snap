@@ -145,9 +145,6 @@ exports[`children should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c1.fi-radio-button {
   position: relative;
 }
 
@@ -460,9 +457,6 @@ exports[`className should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c1.fi-radio-button {
   position: relative;
 }
 
@@ -775,9 +769,6 @@ exports[`disabled should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c1.fi-radio-button {
   position: relative;
 }
 
@@ -1091,9 +1082,6 @@ exports[`hintText should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c1.fi-radio-button {
   position: relative;
 }
 
@@ -1413,9 +1401,6 @@ exports[`id should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c1.fi-radio-button {
   position: relative;
 }
 
@@ -1728,9 +1713,6 @@ exports[`name should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c1.fi-radio-button {
   position: relative;
 }
 
@@ -2044,9 +2026,6 @@ exports[`value should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c1.fi-radio-button {
   position: relative;
 }
 
@@ -2359,9 +2338,6 @@ exports[`variant should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c1.fi-radio-button {
   position: relative;
 }
 

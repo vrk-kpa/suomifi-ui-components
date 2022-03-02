@@ -252,7 +252,7 @@ exports[`calling render with the same component on the same container does not r
   cursor: inherit;
 }
 
-.c5.fi-breadcrumb-link {
+.c5 {
   font-size: 16px;
   display: inline-block;
 }

@@ -117,7 +117,7 @@ exports[`props children has matching snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5.fi-status-text {
+.c5 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;

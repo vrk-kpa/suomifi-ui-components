@@ -182,7 +182,7 @@ exports[`has matching snapshot 1`] = `
   font-weight: 400;
 }
 
-.c5.fi-hint-text {
+.c5 {
   display: block;
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -200,7 +200,7 @@ exports[`has matching snapshot 1`] = `
   font-weight: 400;
 }
 
-.c12.fi-status-text {
+.c12 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -224,7 +224,7 @@ exports[`has matching snapshot 1`] = `
   color: hsl(3,59%,48%);
 }
 
-.c2 .fi-filter-input {
+.c2 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -440,7 +440,7 @@ exports[`has matching snapshot 1`] = `
   cursor: inherit;
 }
 
-.c8.fi-input-clear-button {
+.c8 {
   position: relative;
   cursor: pointer;
   pointer-events: all;
@@ -460,11 +460,11 @@ exports[`has matching snapshot 1`] = `
   align-items: center;
 }
 
-.c8.fi-input-clear-button:focus {
+.c8:focus {
   outline: none;
 }
 
-.c8.fi-input-clear-button:focus:after {
+.c8:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -489,7 +489,7 @@ exports[`has matching snapshot 1`] = `
   fill: hsl(212,63%,37%);
 }
 
-.c11.fi-input-toggle-button {
+.c11 {
   width: 20px;
   height: 20px;
   cursor: pointer;
@@ -518,7 +518,7 @@ exports[`has matching snapshot 1`] = `
   fill: hsl(0,0%,16%);
 }
 
-.c1.fi-single-select {
+.c1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;

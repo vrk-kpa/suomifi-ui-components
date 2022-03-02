@@ -117,7 +117,7 @@ exports[`snapshots match error status with statustext 1`] = `
   font-weight: 400;
 }
 
-.c5.fi-status-text {
+.c5 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -141,7 +141,7 @@ exports[`snapshots match error status with statustext 1`] = `
   color: hsl(3,59%,48%);
 }
 
-.c1.fi-text-input {
+.c1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -484,7 +484,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   font-weight: 400;
 }
 
-.c6.fi-status-text {
+.c6 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -508,7 +508,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   color: hsl(3,59%,48%);
 }
 
-.c1.fi-text-input {
+.c1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -836,7 +836,7 @@ exports[`snapshots match minimal implementation 1`] = `
   font-weight: 400;
 }
 
-.c5.fi-status-text {
+.c5 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -860,7 +860,7 @@ exports[`snapshots match minimal implementation 1`] = `
   color: hsl(3,59%,48%);
 }
 
-.c1.fi-text-input {
+.c1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;

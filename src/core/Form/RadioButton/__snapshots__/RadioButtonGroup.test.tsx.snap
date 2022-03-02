@@ -236,9 +236,6 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c5.fi-radio-button {
   position: relative;
 }
 
@@ -761,9 +758,6 @@ exports[`props className should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c5.fi-radio-button {
   position: relative;
 }
 
@@ -1286,9 +1280,6 @@ exports[`props defaultValue should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c5.fi-radio-button {
   position: relative;
 }
 
@@ -1812,9 +1803,6 @@ exports[`props hintText should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c5.fi-radio-button {
   position: relative;
 }
 
@@ -2342,9 +2330,6 @@ exports[`props id should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c5.fi-radio-button {
   position: relative;
 }
 
@@ -2867,9 +2852,6 @@ exports[`props label should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c5.fi-radio-button {
   position: relative;
 }
 
@@ -3404,9 +3386,6 @@ exports[`props labelMode should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c6.fi-radio-button {
   position: relative;
 }
 
@@ -3929,9 +3908,6 @@ exports[`props name should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c5.fi-radio-button {
   position: relative;
 }
 
@@ -4454,9 +4430,6 @@ exports[`props value should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c5.fi-radio-button {
   position: relative;
 }
 
