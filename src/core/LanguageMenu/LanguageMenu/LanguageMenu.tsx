@@ -12,7 +12,7 @@ import { positionDefault } from '@reach/popover';
 import { PRect } from '@reach/rect';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { classnamesValue } from '../../../utils/typescript';
-import { logger } from '../../../utils/log';
+import { getLogger } from '../../../utils/log';
 import { HtmlSpan } from '../../../reset/HtmlSpan/HtmlSpan';
 import { Icon } from '../../Icon/Icon';
 import {
@@ -64,7 +64,7 @@ class BaseLanguageMenu extends Component<LanguageMenuProps & SuomifiThemeProp> {
     } = this.props;
 
     if (React.Children.count(children) < 1) {
-      logger.warn(`Menu '${name}' does not contain items`);
+      getLogger().warn(`Menu '${name}' does not contain items`);
       return null;
     }
     return (

@@ -72,6 +72,10 @@ module.exports = {
             },
           ],
         },
+        {
+          name: 'Logger',
+          content: './.styleguidist/logger.md',
+        },
       ],
       sectionDepth: 2,
       expand: true,
@@ -206,3 +210,4 @@ module.exports = {
     },
   ],
 };
+

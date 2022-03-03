@@ -119,6 +119,7 @@ export {
   TypographyProp,
   SpacingProp,
 } from './core/theme';
+export { getLogger, setLogger, Logger } from './utils/log/logger';
 export {
   suomifiDesignTokens,
   DesignTokens,

@@ -1,6 +1,6 @@
 import React, { Component, ReactNode, createRef } from 'react';
 import { default as styled } from 'styled-components';
-import { logger } from '../../../utils/log';
+import { getLogger } from '../../../utils/log';
 import { default as ReactModal } from 'react-modal';
 import classnames from 'classnames';
 import { ModalContent, ModalFooter } from '../';
@@ -139,7 +139,7 @@ class BaseModal extends Component<InternalModalProps> {
     } = this.props;
 
     if (!appElementId) {
-      logger.error(`Invalid or missing appElementId.`);
+      getLogger().error(`Invalid or missing appElementId.`);
     }
 
     return (
