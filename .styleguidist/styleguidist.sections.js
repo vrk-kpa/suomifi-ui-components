@@ -132,7 +132,7 @@ module.exports = {
             },
             {
               name: 'Icon',
-              components: getComponents(['Icon', 'StaticIcon']),
+              components: getComponents(['Icon', 'StaticIcon', 'LogoIcon']),
             },
             {
               name: 'MultiSelect',
