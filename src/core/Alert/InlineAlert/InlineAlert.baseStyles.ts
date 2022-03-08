@@ -5,27 +5,44 @@ import { baseAlertBaseStyles } from '../BaseAlert/BaseAlert.baseStyles';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${baseAlertBaseStyles(theme)}
-  & .fi-alert_label {
-    ${font(theme)('bodySemiBold')}
-    margin-bottom: ${theme.spacing.xxs};
-  }
-
-  /** Inline variant styles  */
-  &.fi-alert--inline {
-    padding: 5px 0px 4px 0px;
-    & .fi-alert_icon-wrapper {
-      flex: 0;
-    }
-    &.fi-alert--neutral {
-      border-left: 4px solid ${theme.colors.accentSecondary};
+  &.fi-alert {
+    & .fi-alert_label {
+      ${font(theme)('bodySemiBold')}
+      margin-bottom: ${theme.spacing.xxs};
     }
 
-    &.fi-alert--error {
-      border-left: 4px solid ${theme.colors.alertBase};
+    & .fi-alert_text-content-wrapper {
+      padding: 0 ${theme.spacing.s};
+      margin: ${theme.spacing.s} 0;
     }
 
-    &.fi-alert--warning {
-      border-left: 4px solid ${theme.colors.accentBase};
+    &.fi-alert--inline {
+      padding: 5px 0px 4px 0px;
+
+      &.fi-alert--neutral {
+        border-left: 4px solid ${theme.colors.accentSecondary};
+        & .fi-alert_text-content-wrapper {
+          padding-left: ${theme.spacing.m};
+        }
+      }
+
+      &.fi-alert--error {
+        border-left: 4px solid ${theme.colors.alertBase};
+      }
+
+      &.fi-alert--warning {
+        border-left: 4px solid ${theme.colors.accentBase};
+      }
+
+      /** Small screen variant styles */
+      &.fi-alert--small-screen {
+        & .fi-alert_icon {
+          margin-left: ${theme.spacing.s};
+        }
+        & .fi-alert_text-content-wrapper {
+          padding: 0 ${theme.spacing.xs} 0 ${theme.spacing.xs};
+        }
+      }
     }
   }
 `;

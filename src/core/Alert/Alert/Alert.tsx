@@ -25,8 +25,6 @@ export interface AlertProps extends BaseAlertProps {
   onCloseButtonClick?: () => void;
   /** Custom props passed to the close button */
   closeButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'aria-label'>;
-  /** Use small screen styling */
-  smallScreen?: boolean;
 }
 
 interface InnerRef {
@@ -64,9 +62,7 @@ class BaseAlert extends Component<AlertProps & InnerRef> {
         })}
       >
         <HtmlDiv className={alertClassNames.styleWrapper}>
-          <HtmlDiv className={alertClassNames.iconWrapper}>
-            <Icon icon={variantIcon} className={alertClassNames.icon} />
-          </HtmlDiv>
+          <Icon icon={variantIcon} className={alertClassNames.icon} />
 
           <HtmlDiv
             className={alertClassNames.textContentWrapper}
@@ -75,24 +71,22 @@ class BaseAlert extends Component<AlertProps & InnerRef> {
           >
             <HtmlDiv className={alertClassNames.content}>{children}</HtmlDiv>
           </HtmlDiv>
-          <HtmlDiv className={alertClassNames.closeButtonWrapper}>
-            <HtmlButton
-              className={classnames(
-                alertClassNames.closeButton,
-                customCloseButtonClassName,
-              )}
-              {...getConditionalAriaProp('aria-describedby', [
-                id,
-                closeButtonPropsAriaDescribedBy,
-              ])}
-              onClick={onCloseButtonClick}
-              {...getConditionalAriaProp('aria-label', [closeText])}
-              {...closeButtonPassProps}
-            >
-              {!smallScreen ? closeText.toUpperCase() : ''}
-              <Icon icon="close" />
-            </HtmlButton>
-          </HtmlDiv>
+          <HtmlButton
+            className={classnames(
+              alertClassNames.closeButton,
+              customCloseButtonClassName,
+            )}
+            {...getConditionalAriaProp('aria-describedby', [
+              id,
+              closeButtonPropsAriaDescribedBy,
+            ])}
+            onClick={onCloseButtonClick}
+            {...getConditionalAriaProp('aria-label', [closeText])}
+            {...closeButtonPassProps}
+          >
+            {!smallScreen ? closeText.toUpperCase() : ''}
+            <Icon icon="close" />
+          </HtmlButton>
         </HtmlDiv>
       </HtmlDivWithRef>
     );
