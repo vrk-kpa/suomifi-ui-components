@@ -60,7 +60,7 @@ export interface MultiSelectProps<T extends MultiSelectData> {
   optionalText?: string;
   /** Hint text to be shown below the label */
   hintText?: string;
-  /** Event that is fired when item selections change */
+  /** Event that is fired when item selections change. Not fired when in controlled state. */
   onItemSelectionsChange?: (selectedItems: Array<T>) => void;
   /** Show chip list */
   chipListVisible?: boolean;
