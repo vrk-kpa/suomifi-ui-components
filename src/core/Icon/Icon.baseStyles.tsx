@@ -8,11 +8,11 @@ export const iconBaseStyles = ({
   fill: string;
 }) => {
   const resolvedColor = fill ?? color ?? 'currentColor';
-
   return css`
-    display: inline-block;
     vertical-align: baseline;
-
+    &.fi-icon {
+      display: inline-block;
+    }
     .fi-icon-base-fill {
       fill: ${resolvedColor};
     }

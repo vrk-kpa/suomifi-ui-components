@@ -6,10 +6,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   height: 20px;
   cursor: pointer;
   pointer-events: all;
-  display: flex;
   justify-content: center;
   align-items: center;
   &.fi-input-toggle-button {
+    display: flex;
     & .fi-input-toggle-button_icon {
       pointer-events: none;
       width: 10px;

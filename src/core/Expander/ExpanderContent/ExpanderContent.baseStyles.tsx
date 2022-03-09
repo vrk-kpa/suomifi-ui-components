@@ -10,7 +10,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   border-radius: inherit;
   position: relative;
   visibility: hidden;
-  display: block;
   height: 0;
   overflow: hidden;
   word-break: break-word;
@@ -20,7 +19,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   transition: all ${`${theme.transitions.basicTime}
         ${theme.transitions.basicTimingFunction}`};
   will-change: transition, height;
-
+  &.fi-expander {
+    display: block;
+  }
   &:not(.fi-expander_content--no-padding) {
     padding: 0 ${theme.spacing.insetXl};
   }

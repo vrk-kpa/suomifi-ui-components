@@ -3,8 +3,8 @@ import { SuomifiTheme } from '../../theme';
 import { element, inputButton } from '../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  display: inline-block;
   &.fi-dropdown {
+    display: inline-block;
     & .fi-dropdown_label--visible {
       margin-bottom: ${theme.spacing.xs};
     }

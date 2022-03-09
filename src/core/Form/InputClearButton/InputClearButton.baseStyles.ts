@@ -7,7 +7,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   pointer-events: all;
   height: 20px;
   width: 20px;
-  display: flex;
   justify-content: center;
   align-items: center;
   &:focus {
@@ -17,6 +16,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
   }
   &.fi-input-clear-button {
+    display: flex;
     & .fi-input-clear-button_icon {
       width: 16px;
       height: 16px;

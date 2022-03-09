@@ -10,10 +10,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   padding: 0;
   border-radius: ${theme.radius.basic};
   box-shadow: ${theme.shadows.panelShadow};
-  display: block;
+
   width: 100%;
   max-width: 100%;
-
+  &.fi-expander {
+    display: block;
+  }
   &:before {
     background-color: ${theme.colors.highlightLight4};
     opacity: 0;

@@ -5,11 +5,11 @@ import { element, font } from '../../theme/reset';
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
-  display: flex;
-  flex-direction: column;
   color: ${theme.colors.blackBase};
   width: 290px;
   &.fi-textarea {
+    display: flex;
+    flex-direction: column;
     & .fi-textarea_statusText--has-content {
       margin-top: ${theme.spacing.xxs};
     }

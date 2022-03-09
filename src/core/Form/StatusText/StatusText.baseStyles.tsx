@@ -7,8 +7,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   color: ${theme.colors.blackBase};
   font-size: 14px;
   line-height: 20px;
-  display: block;
   &.fi-status-text {
+    display: block;
     &.fi-status-text--error {
       color: ${theme.colors.alertBase};
     }
