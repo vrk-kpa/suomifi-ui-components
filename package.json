@@ -1,6 +1,6 @@
 {
   "name": "suomifi-ui-components",
-  "version": "6.2.1",
+  "version": "6.2.1-deps",
   "description": "Suomi.fi UI component library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -127,7 +127,7 @@
     "react-docgen": "5.4.0",
     "react-docgen-typescript": "2.2.2",
     "react-dom": "17.0.2",
-    "react-styleguidist": "11.1.8",
+    "react-styleguidist": "11.2.0",
     "rimraf": "3.0.2",
     "rollup": "2.64.0",
     "rollup-plugin-postcss": "4.0.2",
