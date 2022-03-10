@@ -43,7 +43,7 @@ class BaseExternalLink extends Component<ExternalLinkProps> {
         as={asProp}
       >
         {children}
-        <VisuallyHidden>{labelNewWindow}</VisuallyHidden>
+        {toNewWindow && <VisuallyHidden>{labelNewWindow}</VisuallyHidden>}
         {!hideIcon && (
           <Icon
             icon="linkExternal"

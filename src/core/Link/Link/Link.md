@@ -45,12 +45,22 @@ import { SkipLink } from 'suomifi-ui-components';
 ```js
 import { ExternalLink } from 'suomifi-ui-components';
 
-<ExternalLink
-  href="https://www.sweden.se/"
-  labelNewWindow="Opens to a new window"
->
-  External link
-</ExternalLink>;
+<>
+  <ExternalLink
+    href="https://designsystem.suomi.fi/fi/"
+    toNewWindow
+    labelNewWindow="Opens to a new window"
+  >
+    External link
+  </ExternalLink>
+  <ExternalLink
+    href="https://designsystem.suomi.fi/fi/"
+    toNewWindow={false}
+    labelNewWindow="Opens to same window"
+  >
+    External link
+  </ExternalLink>
+</>;
 ```
 
 ### Change component for the link
