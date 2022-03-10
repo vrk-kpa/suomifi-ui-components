@@ -211,6 +211,9 @@ class BaseSingleSelect<T> extends Component<
 
   private focusToInputAndSelectText = () => {
     if (!!this.filterInputRef && this.filterInputRef.current) {
+      this.setState({
+        showPopover: true,
+      });
       this.filterInputRef.current.focus();
       setTimeout(() => this.filterInputRef.current?.select(), 100);
     }
