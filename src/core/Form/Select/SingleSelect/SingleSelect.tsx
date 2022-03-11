@@ -209,18 +209,20 @@ class BaseSingleSelect<T> extends Component<
     });
   };
 
-  private focusToInputAndSelectText = () => {
+  private focusToInputAndSelectText = (openMenu: any) => {
     if (!!this.filterInputRef && this.filterInputRef.current) {
-      this.setState({
-        showPopover: true,
-      });
+      if (openMenu) {
+        this.setState({
+          showPopover: true,
+        });
+      }
       this.filterInputRef.current.focus();
       setTimeout(() => this.filterInputRef.current?.select(), 100);
     }
   };
 
   private focusToInputAndCloseMenu = () => {
-    this.focusToInputAndSelectText();
+    this.focusToInputAndSelectText(false);
     this.setState({
       showPopover: false,
       filterMode: false,
@@ -400,7 +402,7 @@ class BaseSingleSelect<T> extends Component<
                 this.preventShowPopoverOnInputFocus = false;
               }}
               onClick={() => {
-                this.focusToInputAndSelectText();
+                this.focusToInputAndSelectText(true);
               }}
               onKeyDown={this.handleKeyDown}
               onBlur={this.handleBlur}
@@ -436,7 +438,7 @@ class BaseSingleSelect<T> extends Component<
                     }),
                   );
                   this.preventShowPopoverOnInputFocus = true;
-                  this.focusToInputAndSelectText();
+                  this.focusToInputAndSelectText(false);
                 }}
                 aria-hidden={true}
                 tabIndex={-1}
