@@ -209,7 +209,7 @@ class BaseSingleSelect<T> extends Component<
     });
   };
 
-  private focusToInputAndSelectText = (openMenu: any) => {
+  private focusToInputAndSelectText = (openMenu: boolean) => {
     if (!!this.filterInputRef && this.filterInputRef.current) {
       if (openMenu) {
         this.setState({
