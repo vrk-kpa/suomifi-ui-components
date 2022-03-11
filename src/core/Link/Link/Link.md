@@ -75,7 +75,7 @@ const Component = ({ children, ...passProps }) => (
 <Link
   className="test-classname"
   href="https://www.com/"
-  as={Component}
+  asProp={Component}
 >
   Testing
 </Link>;
