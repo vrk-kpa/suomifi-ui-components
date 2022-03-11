@@ -128,15 +128,20 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-chip {
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
+  max-height: 100%;
   display: inline-block;
 }
 
 .c1.fi-chip .fi-chip--content {
-  display: inline-block;
-  max-width: 270px;
-  white-space: nowrap;
+  display: block;
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
   overflow: hidden;
-  text-overflow: ellipsis;
   line-height: 1.5em;
 }
 
@@ -179,7 +184,6 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-chip--removable .fi-chip--content {
-  max-width: 248px;
   margin-right: 10px;
 }
 
@@ -334,15 +338,20 @@ exports[`classnames should match snapshot 1`] = `
 }
 
 .c1.fi-chip {
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
+  max-height: 100%;
   display: inline-block;
 }
 
 .c1.fi-chip .fi-chip--content {
-  display: inline-block;
-  max-width: 270px;
-  white-space: nowrap;
+  display: block;
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
   overflow: hidden;
-  text-overflow: ellipsis;
   line-height: 1.5em;
 }
 
@@ -385,7 +394,6 @@ exports[`classnames should match snapshot 1`] = `
 }
 
 .c1.fi-chip--removable .fi-chip--content {
-  max-width: 248px;
   margin-right: 10px;
 }
 
@@ -536,15 +544,20 @@ exports[`disabled should match snapshot 1`] = `
 }
 
 .c1.fi-chip {
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
+  max-height: 100%;
   display: inline-block;
 }
 
 .c1.fi-chip .fi-chip--content {
-  display: inline-block;
-  max-width: 270px;
-  white-space: nowrap;
+  display: block;
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
   overflow: hidden;
-  text-overflow: ellipsis;
   line-height: 1.5em;
 }
 
@@ -587,7 +600,6 @@ exports[`disabled should match snapshot 1`] = `
 }
 
 .c1.fi-chip--removable .fi-chip--content {
-  max-width: 248px;
   margin-right: 10px;
 }
 

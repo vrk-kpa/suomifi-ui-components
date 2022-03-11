@@ -22,14 +22,19 @@ export const baseChipBaseStyles = (theme: SuomifiTheme) => css`
   }
 
   &.fi-chip {
+    border-radius: 14px;
+    padding: ${theme.spacing.insetXxs} ${theme.spacing.insetL};
+    color: ${theme.colors.whiteBase};
+    background: ${theme.colors.highlightBase};
+    max-height: 100%;
     display: inline-block;
 
     & .fi-chip--content {
-      display: inline-block;
-      max-width: 270px;
-      white-space: nowrap;
+      display: block;
+      max-width: 100%;
+      white-space: normal;
+      word-break: break-word;
       overflow: hidden;
-      text-overflow: ellipsis;
       line-height: 1.5em;
     }
   }

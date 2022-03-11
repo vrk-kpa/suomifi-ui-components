@@ -42,8 +42,9 @@ const chipStyle = {
   </div>
 
   <Chip>
-    Chip with a long content that doesn't fit into the component's
-    maximum width of 290px
+    Chip with a
+    reallyReallyLongWeirdWordThatNeedsToBeBrokenToFitInToTheChip and
+    content that doesn't fit in one line and spans multiple lines.
   </Chip>
 
   <Chip disabled>Disabled chip</Chip>
