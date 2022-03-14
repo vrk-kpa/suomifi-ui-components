@@ -4,7 +4,8 @@
     "stylelint-config-styled-components"
   ],
   "rules": {
-    "no-extra-semicolons": null
+    "no-extra-semicolons": null,
+    "no-descending-specificity": null
   },
   "overrides": [
     {

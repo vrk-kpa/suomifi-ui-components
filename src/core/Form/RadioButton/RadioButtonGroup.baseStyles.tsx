@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
 import { element, font } from '../../theme/reset';
-/* stylelint-disable no-descending-specificity */
+
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
