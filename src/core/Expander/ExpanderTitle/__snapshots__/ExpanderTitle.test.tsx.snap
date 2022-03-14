@@ -125,8 +125,11 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
 }
 
 .c5 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c5.fi-icon {
+  display: inline-block;
 }
 
 .c5 .fi-icon-base-fill {
@@ -161,7 +164,6 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   position: relative;
-  display: block;
   width: 100%;
   max-width: 100%;
   min-height: 60px;
@@ -170,6 +172,10 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   padding: 17px 60px 16px 20px;
   white-space: break-word;
   word-wrap: break-word;
+}
+
+.c1.fi-expander_title {
+  display: block;
 }
 
 .c1.fi-expander_title--open {

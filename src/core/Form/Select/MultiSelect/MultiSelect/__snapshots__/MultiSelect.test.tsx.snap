@@ -199,6 +199,9 @@ exports[`has matching snapshot 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+}
+
+.c6.fi-status-text {
   display: block;
 }
 
@@ -402,8 +405,11 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c10 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c10.fi-icon {
+  display: inline-block;
 }
 
 .c10 .fi-icon-base-fill {
@@ -442,7 +448,6 @@ exports[`has matching snapshot 1`] = `
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
   max-height: 28px;
-  display: inline-block;
 }
 
 .c9:focus {
@@ -465,6 +470,10 @@ exports[`has matching snapshot 1`] = `
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
   border-radius: 16px;
+}
+
+.c9.fi-chip {
+  display: inline-block;
 }
 
 .c9.fi-chip .fi-chip--content {

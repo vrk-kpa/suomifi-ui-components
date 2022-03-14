@@ -232,8 +232,11 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c8 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c8.fi-icon {
+  display: inline-block;
 }
 
 .c8 .fi-icon-base-fill {
@@ -254,6 +257,9 @@ exports[`calling render with the same component on the same container does not r
 
 .c5 {
   font-size: 16px;
+}
+
+.c5.fi-breadcrumb-link {
   display: inline-block;
 }
 

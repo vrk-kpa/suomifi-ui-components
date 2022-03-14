@@ -183,7 +183,6 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c5 {
-  display: block;
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -198,6 +197,10 @@ exports[`has matching snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c5.fi-hint-text {
+  display: block;
 }
 
 .c12 {
@@ -217,6 +220,9 @@ exports[`has matching snapshot 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+}
+
+.c12.fi-status-text {
   display: block;
 }
 
@@ -420,8 +426,11 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c10 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c10.fi-icon {
+  display: inline-block;
 }
 
 .c10 .fi-icon-base-fill {
@@ -446,10 +455,6 @@ exports[`has matching snapshot 1`] = `
   pointer-events: all;
   height: 20px;
   width: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -480,6 +485,13 @@ exports[`has matching snapshot 1`] = `
   z-index: 9999;
 }
 
+.c8.fi-input-clear-button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .c8.fi-input-clear-button .fi-input-clear-button_icon {
   width: 16px;
   height: 16px;
@@ -494,10 +506,6 @@ exports[`has matching snapshot 1`] = `
   height: 20px;
   cursor: pointer;
   pointer-events: all;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -506,6 +514,13 @@ exports[`has matching snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c11.fi-input-toggle-button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .c11.fi-input-toggle-button .fi-input-toggle-button_icon {

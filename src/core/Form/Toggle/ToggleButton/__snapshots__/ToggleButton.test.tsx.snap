@@ -182,8 +182,11 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
 }
 
 .c3 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c3.fi-static-icon {
+  display: inline-block;
 }
 
 .c3.fi-icon--cursor-pointer {
@@ -267,8 +270,11 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   background-color: hsl(0,0%,100%);
   padding-left: 50px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
+}
+
+.c1.fi-toggle {
+  display: inline-block;
 }
 
 .c1.fi-toggle--disabled {

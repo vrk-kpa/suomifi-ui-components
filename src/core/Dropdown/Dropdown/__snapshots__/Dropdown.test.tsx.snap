@@ -84,7 +84,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c1 {
+.c1.fi-dropdown {
   display: inline-block;
 }
 
@@ -359,7 +359,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c1 {
+.c1.fi-dropdown {
   display: inline-block;
 }
 
@@ -635,7 +635,7 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c1 {
+.c1.fi-dropdown {
   display: inline-block;
 }
 
@@ -910,7 +910,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c1 {
+.c1.fi-dropdown {
   display: inline-block;
 }
 
@@ -1197,7 +1197,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c1 {
+.c1.fi-dropdown {
   display: inline-block;
 }
 

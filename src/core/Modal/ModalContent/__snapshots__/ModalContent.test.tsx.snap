@@ -482,10 +482,10 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 
 .c4 {
   max-width: 100%;
-  display: block;
 }
 
 .c4.fi-modal_title {
+  display: block;
   margin-bottom: 20px;
 }
 

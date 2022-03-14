@@ -168,8 +168,11 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c7 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c7.fi-static-icon {
+  display: inline-block;
 }
 
 .c7.fi-icon--cursor-pointer {
@@ -690,8 +693,11 @@ exports[`props className should match snapshot 1`] = `
 }
 
 .c7 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c7.fi-static-icon {
+  display: inline-block;
 }
 
 .c7.fi-icon--cursor-pointer {
@@ -1212,8 +1218,11 @@ exports[`props defaultValue should match snapshot 1`] = `
 }
 
 .c7 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c7.fi-static-icon {
+  display: inline-block;
 }
 
 .c7.fi-icon--cursor-pointer {
@@ -1735,8 +1744,11 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c7 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c7.fi-static-icon {
+  display: inline-block;
 }
 
 .c7.fi-icon--cursor-pointer {
@@ -2262,8 +2274,11 @@ exports[`props id should match snapshot 1`] = `
 }
 
 .c7 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c7.fi-static-icon {
+  display: inline-block;
 }
 
 .c7.fi-icon--cursor-pointer {
@@ -2784,8 +2799,11 @@ exports[`props label should match snapshot 1`] = `
 }
 
 .c7 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c7.fi-static-icon {
+  display: inline-block;
 }
 
 .c7.fi-icon--cursor-pointer {
@@ -3306,8 +3324,11 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c8 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c8.fi-static-icon {
+  display: inline-block;
 }
 
 .c8.fi-icon--cursor-pointer {
@@ -3840,8 +3861,11 @@ exports[`props name should match snapshot 1`] = `
 }
 
 .c7 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c7.fi-static-icon {
+  display: inline-block;
 }
 
 .c7.fi-icon--cursor-pointer {
@@ -4362,8 +4386,11 @@ exports[`props value should match snapshot 1`] = `
 }
 
 .c7 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c7.fi-static-icon {
+  display: inline-block;
 }
 
 .c7.fi-icon--cursor-pointer {

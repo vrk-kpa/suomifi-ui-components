@@ -134,6 +134,9 @@ exports[`snapshots match error status with statustext 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+}
+
+.c5.fi-status-text {
   display: block;
 }
 
@@ -501,6 +504,9 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+}
+
+.c6.fi-status-text {
   display: block;
 }
 
@@ -853,6 +859,9 @@ exports[`snapshots match minimal implementation 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+}
+
+.c5.fi-status-text {
   display: block;
 }
 

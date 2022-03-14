@@ -118,8 +118,11 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c4 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c4.fi-static-icon {
+  display: inline-block;
 }
 
 .c4.fi-icon--cursor-pointer {
@@ -430,8 +433,11 @@ exports[`className should match snapshot 1`] = `
 }
 
 .c4 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c4.fi-static-icon {
+  display: inline-block;
 }
 
 .c4.fi-icon--cursor-pointer {
@@ -742,8 +748,11 @@ exports[`disabled should match snapshot 1`] = `
 }
 
 .c4 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c4.fi-static-icon {
+  display: inline-block;
 }
 
 .c4.fi-icon--cursor-pointer {
@@ -1055,8 +1064,11 @@ exports[`hintText should match snapshot 1`] = `
 }
 
 .c4 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c4.fi-static-icon {
+  display: inline-block;
 }
 
 .c4.fi-icon--cursor-pointer {
@@ -1374,8 +1386,11 @@ exports[`id should match snapshot 1`] = `
 }
 
 .c4 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c4.fi-static-icon {
+  display: inline-block;
 }
 
 .c4.fi-icon--cursor-pointer {
@@ -1686,8 +1701,11 @@ exports[`name should match snapshot 1`] = `
 }
 
 .c4 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c4.fi-static-icon {
+  display: inline-block;
 }
 
 .c4.fi-icon--cursor-pointer {
@@ -1999,8 +2017,11 @@ exports[`value should match snapshot 1`] = `
 }
 
 .c4 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c4.fi-static-icon {
+  display: inline-block;
 }
 
 .c4.fi-icon--cursor-pointer {
@@ -2311,8 +2332,11 @@ exports[`variant should match snapshot 1`] = `
 }
 
 .c4 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c4.fi-static-icon {
+  display: inline-block;
 }
 
 .c4.fi-icon--cursor-pointer {
