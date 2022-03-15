@@ -18,6 +18,7 @@ export const toggleBaseStyles = (theme: SuomifiTheme) => css`
   padding-left: 50px;
   position: relative;
   cursor: pointer;
+
   &.fi-toggle {
     display: inline-block;
   }

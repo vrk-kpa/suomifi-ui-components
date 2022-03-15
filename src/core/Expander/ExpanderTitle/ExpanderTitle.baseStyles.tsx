@@ -15,6 +15,7 @@ export const expanderTitleBaseStyles = (theme: SuomifiTheme) => css`
   padding: 17px ${theme.spacing.xxxl} 16px ${theme.spacing.m};
   white-space: break-word;
   word-wrap: break-word;
+
   &.fi-expander_title {
     display: block;
   }

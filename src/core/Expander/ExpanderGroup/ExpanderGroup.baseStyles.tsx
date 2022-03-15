@@ -6,6 +6,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   width: 100%;
   max-width: 100%;
+
   &.fi-expander-group {
     display: flex;
     flex-direction: column;

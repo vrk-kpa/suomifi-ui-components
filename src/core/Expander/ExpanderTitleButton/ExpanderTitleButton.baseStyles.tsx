@@ -11,6 +11,7 @@ export const expanderTitleButtonBaseStyles = (theme: SuomifiTheme) => css`
   min-height: 60px;
   background-color: ${theme.colors.highlightLight4};
   border-radius: inherit;
+
   &.fi-expander_title-button {
     display: block;
   }

@@ -7,6 +7,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
   position: relative;
+
   &.fi-radio-button {
     & .fi-radio-button_hintText {
       display: block;

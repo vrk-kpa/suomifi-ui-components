@@ -6,6 +6,7 @@ import { math } from 'polished';
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')}
   width: 290px;
+
   & .fi-text-input_wrapper {
     width: 100%;
     display: inline-block;

@@ -5,6 +5,7 @@ import { font } from '../../../theme/reset';
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')}
   width: 290px;
+
   &.fi-single-select {
     & .fi-filter-input_input {
       padding-right: 36px;

@@ -3,8 +3,10 @@ import { SuomifiTheme } from '../../theme';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   max-width: 100%;
+
   &.fi-modal_title {
     display: block;
+
     & .fi-modal_title_focus-wrapper {
       position: relative;
       display: inline-block;

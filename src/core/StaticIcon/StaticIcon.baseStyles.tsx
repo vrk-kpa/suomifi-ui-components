@@ -8,6 +8,7 @@ export const staticIconBaseStyles = ({
   baseColor?: string;
 }) => css`
   vertical-align: baseline;
+
   &.fi-static-icon {
     display: inline-block;
   }

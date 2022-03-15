@@ -7,9 +7,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')}
   color: ${theme.colors.blackBase};
   width: 290px;
+
   &.fi-textarea {
     display: flex;
     flex-direction: column;
+
     & .fi-textarea_statusText--has-content {
       margin-top: ${theme.spacing.xxs};
     }

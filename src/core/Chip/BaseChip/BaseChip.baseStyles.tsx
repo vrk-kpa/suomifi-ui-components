@@ -10,6 +10,7 @@ export const baseChipBaseStyles = (theme: SuomifiTheme) => css`
   color: ${theme.colors.whiteBase};
   background: ${theme.colors.highlightBase};
   max-height: 28px;
+
   &:focus {
     outline: 0;
     position: relative;
@@ -22,6 +23,7 @@ export const baseChipBaseStyles = (theme: SuomifiTheme) => css`
 
   &.fi-chip {
     display: inline-block;
+
     & .fi-chip--content {
       display: inline-block;
       max-width: 270px;
