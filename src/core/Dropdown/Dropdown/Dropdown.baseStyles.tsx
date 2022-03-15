@@ -5,6 +5,7 @@ import { element, inputButton } from '../../theme/reset';
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-dropdown {
     display: inline-block;
+
     & .fi-dropdown_label--visible {
       margin-bottom: ${theme.spacing.xs};
     }

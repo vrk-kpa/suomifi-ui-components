@@ -104,15 +104,17 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   border-radius: ${theme.radius.basic};
   text-align: center;
   text-shadow: ${theme.shadows.invertTextShadow};
-
   cursor: pointer;
+
   &:focus {
     outline: none;
     position: relative;
+
     &::after {
       ${theme.focus.absoluteFocus}
     }
   }
+
   &:hover {
     background: ${theme.gradients.highlightLight1ToHighlightBase};
   }
@@ -144,6 +146,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${secondaryStyles(theme)}
   ${secondaryNoBorderStyles(theme)}
   ${linkStyles(theme)}
+  
   & > .fi-button_icon {
     width: 16px;
     height: 16px;
