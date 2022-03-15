@@ -3,10 +3,10 @@ import { SuomifiTheme } from '../../../theme';
 import { font } from '../../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  &.fi-single-select {
-    ${font(theme)('bodyText')}
-    width: 290px;
+  ${font(theme)('bodyText')}
+  width: 290px;
 
+  &.fi-single-select {
     & .fi-filter-input_input {
       padding-right: 36px;
     }

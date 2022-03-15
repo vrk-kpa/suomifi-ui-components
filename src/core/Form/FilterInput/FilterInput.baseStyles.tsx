@@ -3,9 +3,7 @@ import { SuomifiTheme } from '../../theme';
 import { input, containerIEFocus, font } from '../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  & .fi-filter-input {
-    ${font(theme)('bodyText')}
-  }
+  ${font(theme)('bodyText')}
 
   & .fi-filter-input_wrapper {
     display: inline-block;

@@ -45,6 +45,11 @@ exports[`children should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
+  max-height: 28px;
 }
 
 .c1:focus {
@@ -70,11 +75,6 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-chip {
-  border-radius: 14px;
-  padding: 2px 10px;
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
-  max-height: 28px;
   display: inline-block;
 }
 
@@ -159,6 +159,11 @@ exports[`classnames should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
+  max-height: 28px;
 }
 
 .c1:focus {
@@ -184,11 +189,6 @@ exports[`classnames should match snapshot 1`] = `
 }
 
 .c1.fi-chip {
-  border-radius: 14px;
-  padding: 2px 10px;
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
-  max-height: 28px;
   display: inline-block;
 }
 
@@ -269,6 +269,11 @@ exports[`disabled should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
+  max-height: 28px;
 }
 
 .c1:focus {
@@ -294,11 +299,6 @@ exports[`disabled should match snapshot 1`] = `
 }
 
 .c1.fi-chip {
-  border-radius: 14px;
-  padding: 2px 10px;
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
-  max-height: 28px;
   display: inline-block;
 }
 

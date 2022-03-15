@@ -157,7 +157,7 @@ exports[`snapshot should have matching default structure 1`] = `
   overflow: hidden;
 }
 
-.c9.fi-status-text {
+.c9 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -174,6 +174,9 @@ exports[`snapshot should have matching default structure 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+}
+
+.c9.fi-status-text {
   display: block;
 }
 
@@ -207,8 +210,11 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c8 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c8.fi-icon {
+  display: inline-block;
 }
 
 .c8 .fi-icon-base-fill {
@@ -227,16 +233,12 @@ exports[`snapshot should have matching default structure 1`] = `
   cursor: inherit;
 }
 
-.c6.fi-input-clear-button {
+.c6 {
   position: relative;
   cursor: pointer;
   pointer-events: all;
   height: 20px;
   width: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -247,11 +249,11 @@ exports[`snapshot should have matching default structure 1`] = `
   align-items: center;
 }
 
-.c6.fi-input-clear-button:focus {
+.c6:focus {
   outline: none;
 }
 
-.c6.fi-input-clear-button:focus:after {
+.c6:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -267,6 +269,13 @@ exports[`snapshot should have matching default structure 1`] = `
   z-index: 9999;
 }
 
+.c6.fi-input-clear-button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .c6.fi-input-clear-button .fi-input-clear-button_icon {
   width: 16px;
   height: 16px;
@@ -276,7 +285,7 @@ exports[`snapshot should have matching default structure 1`] = `
   fill: hsl(212,63%,37%);
 }
 
-.c1.fi-search-input {
+.c1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;

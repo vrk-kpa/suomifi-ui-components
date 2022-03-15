@@ -31,8 +31,11 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c2 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c2.fi-icon {
+  display: inline-block;
 }
 
 .c2 .fi-icon-base-fill {

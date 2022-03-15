@@ -3,10 +3,10 @@ import { SuomifiTheme } from '../../../../theme';
 import { font } from '../../../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  &.fi-multiselect {
-    ${font(theme)('bodyText')}
-    width: 290px;
+  ${font(theme)('bodyText')}
+  width: 290px;
 
+  &.fi-multiselect {
     & .fi-filter-input_input-element-container {
       position: relative;
 

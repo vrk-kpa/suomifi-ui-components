@@ -78,6 +78,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     max-height: 265px;
     overflow-y: auto;
     overflow-x: hidden;
+
     &:focus-within {
       outline: 0;
       box-shadow: none;
@@ -89,6 +90,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       background-color: ${theme.colors.whiteBase};
       ${theme.typography.actionElementInnerText};
     }
+
     & [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
       color: ${theme.colors.blackBase};
       background-image: none;

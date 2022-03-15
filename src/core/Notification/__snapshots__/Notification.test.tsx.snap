@@ -142,8 +142,11 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c3 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c3.fi-icon {
+  display: inline-block;
 }
 
 .c3 .fi-icon-base-fill {

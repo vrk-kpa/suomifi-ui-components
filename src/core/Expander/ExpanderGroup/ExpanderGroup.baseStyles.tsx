@@ -4,11 +4,13 @@ import { element, font } from '../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
-  display: flex;
-  flex-direction: column;
   width: 100%;
   max-width: 100%;
 
+  &.fi-expander-group {
+    display: flex;
+    flex-direction: column;
+  }
   & > .fi-expander-group_expanders {
     flex: none;
 
