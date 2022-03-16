@@ -398,6 +398,9 @@ class BaseSingleSelect<T> extends Component<
               }}
               onClick={() => {
                 this.focusToInputAndSelectText();
+                this.setState({
+                  showPopover: true,
+                });
               }}
               onKeyDown={this.handleKeyDown}
               onBlur={this.handleBlur}
