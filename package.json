@@ -68,9 +68,9 @@
     "deploy-dev": "gh-pages -d styleguide -e dev -m \"[skip ci] Updates\""
   },
   "devDependencies": {
-    "@babel/core": "7.16.10",
-    "@babel/plugin-transform-runtime": "7.16.10",
-    "@babel/preset-env": "7.16.10",
+    "@babel/core": "7.17.7",
+    "@babel/plugin-transform-runtime": "7.17.0",
+    "@babel/preset-env": "7.16.11",
     "@babel/preset-react": "7.16.7",
     "@reach/rect": "0.16.0",
     "@rollup/plugin-babel": "5.3.0",
@@ -150,7 +150,7 @@
     "webpack": "4.46.0"
   },
   "dependencies": {
-    "@babel/runtime": "7.16.7",
+    "@babel/runtime": "7.17.7",
     "@popperjs/core": "2.11.2",
     "@reach/listbox": "0.16.2",
     "@reach/menu-button": "0.16.2",
