@@ -151,7 +151,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.17.7",
-    "@popperjs/core": "2.11.2",
+    "@popperjs/core": "2.11.4",
     "@reach/listbox": "0.16.2",
     "@reach/menu-button": "0.16.2",
     "@reach/popover": "0.16.2",
