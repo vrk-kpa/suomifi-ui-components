@@ -133,7 +133,7 @@
     "rollup-plugin-postcss": "4.0.2",
     "rollup-plugin-progress": "1.1.2",
     "rollup-plugin-ts": "2.0.5",
-    "sass": "1.49.0",
+    "sass": "1.49.9",
     "sass-loader": "10.2.0",
     "size-limit": "5.0.5",
     "style-loader": "2.0.0",
