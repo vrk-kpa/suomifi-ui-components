@@ -51,14 +51,14 @@ import { ExternalLink } from 'suomifi-ui-components';
     toNewWindow
     labelNewWindow="Opens to a new window"
   >
-    External link
+    External link opens to new window
   </ExternalLink>
   <ExternalLink
     href="https://designsystem.suomi.fi/fi/"
     toNewWindow={false}
     labelNewWindow="Opens to same window"
   >
-    External link
+    External link in same window
   </ExternalLink>
 </>;
 ```
