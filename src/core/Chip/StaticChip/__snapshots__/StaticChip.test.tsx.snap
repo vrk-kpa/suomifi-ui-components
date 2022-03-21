@@ -49,7 +49,6 @@ exports[`children should match snapshot 1`] = `
   padding: 2px 10px;
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
-  max-height: 28px;
 }
 
 .c1:focus {
@@ -85,8 +84,6 @@ exports[`children should match snapshot 1`] = `
 
 .c1.fi-chip .fi-chip--content {
   display: block;
-  max-width: 100%;
-  white-space: normal;
   word-break: break-word;
   overflow: hidden;
   line-height: 1.5em;
@@ -168,7 +165,6 @@ exports[`classnames should match snapshot 1`] = `
   padding: 2px 10px;
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
-  max-height: 28px;
 }
 
 .c1:focus {
@@ -204,8 +200,6 @@ exports[`classnames should match snapshot 1`] = `
 
 .c1.fi-chip .fi-chip--content {
   display: block;
-  max-width: 100%;
-  white-space: normal;
   word-break: break-word;
   overflow: hidden;
   line-height: 1.5em;
@@ -283,7 +277,6 @@ exports[`disabled should match snapshot 1`] = `
   padding: 2px 10px;
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
-  max-height: 28px;
 }
 
 .c1:focus {
@@ -319,8 +312,6 @@ exports[`disabled should match snapshot 1`] = `
 
 .c1.fi-chip .fi-chip--content {
   display: block;
-  max-width: 100%;
-  white-space: normal;
   word-break: break-word;
   overflow: hidden;
   line-height: 1.5em;
