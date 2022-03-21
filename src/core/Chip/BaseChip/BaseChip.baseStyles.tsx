@@ -9,7 +9,6 @@ export const baseChipBaseStyles = (theme: SuomifiTheme) => css`
   padding: ${theme.spacing.insetXxs} ${theme.spacing.insetL};
   color: ${theme.colors.whiteBase};
   background: ${theme.colors.highlightBase};
-  max-height: 28px;
 
   &:focus {
     outline: 0;
@@ -31,8 +30,6 @@ export const baseChipBaseStyles = (theme: SuomifiTheme) => css`
 
     & .fi-chip--content {
       display: block;
-      max-width: 100%;
-      white-space: normal;
       word-break: break-word;
       overflow: hidden;
       line-height: 1.5em;
