@@ -16,20 +16,18 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     & .fi-notification_text-content-wrapper {
-      padding-top: 18px;
+      padding-top: 20px;
       padding-left: 20px;
       flex-grow: 1;
       & .fi-notification_content {
         vertical-align: middle;
         & .fi-notification_contentWrapper {
-          padding-top: 3px;
           ${font(theme)('bodyTextSmall')}
         }
       }
     }
     & .fi-notification_heading {
       ${font(theme)('bodySemiBold')}
-      margin: 1px 0 0 0;
     }
     & .fi-notification_action-element-wrapper {
       padding: 20px 26px 19px 87px;
@@ -42,7 +40,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
     .fi-notification_icon-wrapper {
-      padding-top: 21px;
+      padding-top: 20px;
       flex: 0;
       & .fi-notification_icon {
         height: 24px;
@@ -51,26 +49,21 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
     & .fi-notification_close-button {
       ${font(theme)('bodyTextSmall')}
-      flex: 1 0 auto;
-      flex-wrap: nowrap;
-      display: flex;
-      box-sizing: border-box;
+      height: 40px;
+      display: inline-block;
+      padding: 7px;
       margin-top: 11px;
-      margin-right: -5px;
-      margin-bottom: 0;
-      max-width: 50%;
-      min-width: 40px;
-      text-align: right;
-      padding: 7px 8px;
+      margin-right: ${theme.spacing.xs};
       border: 1px solid transparent;
       border-radius: ${theme.radius.basic};
+      white-space: nowrap;
       text-transform: uppercase;
-      flex-grow: 0;
+
       & .fi-icon {
         width: 14px;
         height: 14px;
-        margin-top: 6px;
-        padding-left: 7px;
+        margin-left: ${theme.spacing.xxs};
+        transform: translateY(0.1em);
       }
 
       &:focus-visible {
@@ -119,13 +112,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         flex-direction: column;
       }
       & .fi-notification_close-button {
-        justify-content: flex-end;
-        flex-direction: row;
-        padding: 13px;
         margin: 3px;
-        svg {
-          padding: 0;
-          margin: 0;
+        & .fi-icon {
+          margin-right: ${theme.spacing.xxs};
         }
       }
       & .fi-notification_style-wrapper {
