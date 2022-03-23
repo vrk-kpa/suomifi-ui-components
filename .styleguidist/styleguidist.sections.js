@@ -146,6 +146,12 @@ module.exports = {
                 'SingleSelect/SingleSelect',
               ]),
             },
+            {
+              name: 'LoadingSpinner',
+              components: getComponentWithVariants('LoadingSpinner')([
+                'LoadingSpinner',
+              ]),
+            },
           ],
           expand: true,
         },
@@ -210,4 +216,3 @@ module.exports = {
     },
   ],
 };
-
