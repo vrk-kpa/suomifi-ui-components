@@ -453,7 +453,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_text-content-wrapper {
-  padding-top: 18px;
+  padding-top: 20px;
   padding-left: 20px;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -466,7 +466,6 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_text-content-wrapper .fi-notification_content .fi-notification_contentWrapper {
-  padding-top: 3px;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -496,7 +495,6 @@ exports[`props children should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 600;
-  margin: 1px 0 0 0;
 }
 
 .c1.fi-notification .fi-notification_action-element-wrapper {
@@ -513,7 +511,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_icon-wrapper {
-  padding-top: 21px;
+  padding-top: 20px;
   -webkit-flex: 0;
   -ms-flex: 0;
   flex: 0;
@@ -538,38 +536,24 @@ exports[`props children should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
+  height: 40px;
+  display: inline-block;
+  padding: 7px;
   margin-top: 11px;
-  margin-right: -5px;
-  margin-bottom: 0;
-  max-width: 50%;
-  min-width: 40px;
-  text-align: right;
-  padding: 7px 8px;
+  margin-right: 10px;
   border: 1px solid transparent;
   border-radius: 2px;
+  white-space: nowrap;
   text-transform: uppercase;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
 }
 
 .c1.fi-notification .fi-notification_close-button .fi-icon {
   width: 14px;
   height: 14px;
-  margin-top: 6px;
-  padding-left: 7px;
+  margin-left: 5px;
+  -webkit-transform: translateY(0.1em);
+  -ms-transform: translateY(0.1em);
+  transform: translateY(0.1em);
 }
 
 .c1.fi-notification .fi-notification_close-button:focus-visible {
@@ -648,20 +632,11 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_close-button {
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  padding: 13px;
   margin: 3px;
 }
 
-.c1.fi-notification.fi-notification--small-screen .fi-notification_close-button svg {
-  padding: 0;
-  margin: 0;
+.c1.fi-notification.fi-notification--small-screen .fi-notification_close-button .fi-icon {
+  margin-right: 5px;
 }
 
 .c1.fi-notification.fi-notification--small-screen .fi-notification_style-wrapper {
