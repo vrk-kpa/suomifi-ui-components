@@ -20,6 +20,8 @@ export { StaticChip, StaticChipProps } from './core/Chip/';
 export {
   Checkbox,
   CheckboxProps,
+  CheckboxGroup,
+  CheckboxGroupProps,
   TextInput,
   TextInputProps,
   ToggleInput,
