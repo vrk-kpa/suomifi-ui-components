@@ -8,10 +8,14 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   width: 100%;
   box-shadow: ${theme.shadows.wideBoxShadow};
   border-radius: 4px;
+  display: block;
   justify-content: space-between;
   padding-bottom: 10px;
   &.fi-notification {
-    & .fi-notification_element-wrapper {
+    & .fi-notification_style-wrapper {
+      padding: 0 33px 10px 41px;
+      display: flex;
+      align-items: flex-start;
       overflow: hidden;
     }
 
@@ -28,6 +32,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
     & .fi-notification_heading {
       ${font(theme)('bodySemiBold')}
+      margin-bottom: ${theme.spacing.xxs};
     }
     & .fi-notification_action-element-wrapper {
       padding: 20px 26px 19px 87px;
@@ -41,7 +46,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
     .fi-notification_icon-wrapper {
       padding-top: 20px;
-      flex: 0;
+      flex: none;
       & .fi-notification_icon {
         height: 24px;
         width: 24px;
@@ -80,12 +85,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       &:hover {
         border-color: ${theme.colors.blackBase};
       }
-    }
-    & .fi-notification_style-wrapper {
-      padding: 0 33px 10px 41px;
-      display: flex;
-      align-items: flex-start;
-      overflow: hidden;
     }
 
     /* Status variant styles */
