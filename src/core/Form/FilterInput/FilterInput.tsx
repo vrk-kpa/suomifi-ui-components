@@ -89,7 +89,10 @@ export interface FilterInputProps extends InternalFilterInputProps<any> {
 
 class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
   componentDidUpdate(prevProps: FilterInputProps) {
-    if (!!this.props.onFilter && prevProps.value !== this.props.value) {
+    if (
+      (!!this.props.onFilter && prevProps.value !== this.props.value) ||
+      prevProps.items !== this.props.items
+    ) {
       const value = !!this.props.value ? this.props.value.toString() : '';
       this.props.onFilter(
         this.filterItems(this.props.items, this.props.filterFunc, value),
