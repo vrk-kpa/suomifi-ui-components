@@ -31,7 +31,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     & .fi-chip--content {
-      max-width: 248px;
       margin-right: ${theme.spacing.xs};
     }
 
