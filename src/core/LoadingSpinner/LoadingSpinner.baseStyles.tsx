@@ -22,7 +22,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       text-align: center;
       margin-top: 6px;
     }
-    &.fi-loadingSpinner.right {
+    &.fi-loadingSpinner-labelAlign-right {
       display: flex;
       align-items: center;
 
