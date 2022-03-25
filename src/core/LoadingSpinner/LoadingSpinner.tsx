@@ -28,6 +28,7 @@ interface InnerRef {
 const baseClassName = 'fi-loadingSpinner';
 export const loadingSpinnerClassNames = {
   label: `${baseClassName}-label`,
+  labelAlign: '',
 };
 class BaseLoadingSpinner extends Component<LoadingSpinnerProps & InnerRef> {
   render() {
@@ -39,10 +40,19 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps & InnerRef> {
       labelMode = 'visible',
       ...passProps
     } = this.props;
+    loadingSpinnerClassNames.labelAlign =
+      labelAlign === 'bottom'
+        ? `${baseClassName}-labelAlign-bottom`
+        : `${baseClassName}-labelAlign-right`;
     return (
       <HtmlDivWithRef
-        className={classnames(baseClassName, className, labelAlign)}
+        className={classnames(
+          baseClassName,
+          className,
+          loadingSpinnerClassNames.labelAlign,
+        )}
         as="section"
+        id={id}
         {...passProps}
       >
         <svg aria-hidden="true" viewBox="0 0 40 40" version="1.1">
