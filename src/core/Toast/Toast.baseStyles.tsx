@@ -10,6 +10,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   box-shadow: ${theme.shadows.wideBoxShadow};
   border-radius: 4px;
   overflow: hidden;
+  background-color: ${theme.colors.whiteBase};
 
   & .fi-toast-wrapper {
     padding: 20px 15px;
