@@ -80,7 +80,7 @@ Components have variant-property for different versions of the current component
 
 ```jsx
 import { Button } from 'suomifi-ui-components';
-<Button variant="secondary">This is a seconday button</Button>;
+<Button variant="secondary">This is a secondary button</Button>;
 ```
 
 ### ⛱ Extending styles
