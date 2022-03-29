@@ -10,7 +10,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     display: block;
     text-align: center;
 
-    svg {
+    & svg {
       animation: rotation 1.5s infinite linear;
       display: inline-block;
       width: 40px;
