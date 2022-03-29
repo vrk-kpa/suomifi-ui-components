@@ -51,7 +51,13 @@ describe('props', () => {
     expect(label).toHaveClass('fi-loadingSpinner-label');
   });
 });
-
+describe('snapshot', () => {
+  const TestLoadingSpinner = <LoadingSpinner labelText="Loading data" />;
+  it('should match snapshot', () => {
+    const { container } = render(TestLoadingSpinner);
+    expect(container).toMatchSnapshot();
+  });
+});
 describe('accessibility', () => {
   const TestLoadingSpinner = <LoadingSpinner labelText="Loading data" />;
   test(
