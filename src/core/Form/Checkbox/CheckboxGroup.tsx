@@ -88,9 +88,7 @@ const StyledCheckboxGroup = styled(BaseCheckboxGroup)`
 `;
 
 /**
- * Use for grouping Checkboxs.<br />
- * Always overrides nested Checkboxs' name, checked and defaultChecked props.
- * Use CheckboxGroup's name, value and defaultValue instead.
+ * Use for grouping Checkboxes.
  */
 export class CheckboxGroup extends Component<CheckboxGroupProps> {
   render() {
