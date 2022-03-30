@@ -13,7 +13,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   padding-bottom: 10px;
   &.fi-notification {
     & .fi-notification_style-wrapper {
-      padding: 0 33px 10px 41px;
+      padding: 0 32px 10px 40px;
       display: flex;
       align-items: flex-start;
       overflow: hidden;
@@ -35,7 +35,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       margin-bottom: ${theme.spacing.xxs};
     }
     & .fi-notification_action-element-wrapper {
-      padding: 20px 26px 19px 87px;
+      padding: 20px 26px 19px 84px;
       & .fi-button {
         margin-top: ${theme.spacing.xs};
         margin-right: ${theme.spacing.s};
@@ -58,7 +58,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       display: inline-block;
       padding: 7px;
       margin-top: 11px;
-      margin-right: ${theme.spacing.xs};
       border: 1px solid transparent;
       border-radius: ${theme.radius.basic};
       white-space: nowrap;
