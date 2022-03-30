@@ -64,16 +64,16 @@ import React from 'react';
     labelText="Checkboxes in group"
     groupHintText="Example hint text"
   >
-    <Checkbox defaultChecked hintText="This is an example hint text">
+    <Checkbox defaultChecked hintText="Example hint text">
       Regular checkbox that is checked and has a hint text
     </Checkbox>
 
     <Checkbox hintText="Example hint text">
-      Regular checkbox with a hint text and an error message
+      Regular checkbox with a hint text
     </Checkbox>
 
-    <Checkbox defaultChecked hintText="This is an example hint text">
-      Regular checkbox that is checked and has a hint text
+    <Checkbox hintText="Example hint text">
+      Regular checkbox that has a hint text
     </Checkbox>
   </CheckboxGroup>
 </>;
