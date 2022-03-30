@@ -450,7 +450,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_style-wrapper {
-  padding: 0 33px 10px 41px;
+  padding: 0 32px 10px 40px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -509,7 +509,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_action-element-wrapper {
-  padding: 20px 26px 19px 87px;
+  padding: 20px 26px 19px 84px;
 }
 
 .c1.fi-notification .fi-notification_action-element-wrapper .fi-button {
@@ -551,7 +551,6 @@ exports[`props children should match snapshot 1`] = `
   display: inline-block;
   padding: 7px;
   margin-top: 11px;
-  margin-right: 10px;
   border: 1px solid transparent;
   border-radius: 2px;
   white-space: nowrap;
