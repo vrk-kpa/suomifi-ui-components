@@ -447,6 +447,7 @@ exports[`props children should match snapshot 1`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding-bottom: 10px;
+  background-color: hsl(0,0%,100%);
 }
 
 .c1.fi-notification .fi-notification_style-wrapper {
