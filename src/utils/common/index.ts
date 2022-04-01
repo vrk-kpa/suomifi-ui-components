@@ -3,4 +3,5 @@ export {
   useEnhancedEffect,
   getOwnerDocument,
   escapeStringRegexp,
+  forkRefs,
 } from './common';

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { MutableRefObject, Ref } from 'react';
+import { getLogger } from '../..';
 
 export function windowAvailable() {
   return !!(
@@ -27,3 +28,21 @@ export const getOwnerDocument = (elementRef: React.RefObject<any>) => {
 
 export const escapeStringRegexp = (string: String) =>
   string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/-/g, '\\x2d');
+
+/** Idea for implementation more or less from react-fork-ref and @reach compose refs */
+export const forkRefs =
+  <T>(...refs: Ref<T>[]) =>
+  (element: T | null) => {
+    refs.forEach((ref) => {
+      if (typeof ref === 'function') {
+        ref(element);
+      } else if (!!ref) {
+        try {
+          /* eslint-disable no-param-reassign */
+          (ref as MutableRefObject<T | null>).current = element;
+        } catch {
+          getLogger().error(`Cannot assign element ${element} to ref ${ref}`);
+        }
+      }
+    });
+  };
