@@ -5,6 +5,7 @@ const primitiveComponents = [
   'Block',
   'Button',
   'Heading',
+  'Tooltip',
   'VisuallyHidden',
   ['Form', 'TextInput'],
   ['Form', 'SearchInput'],
@@ -202,6 +203,3 @@ module.exports = {
     },
   ],
 };
-
-
-
