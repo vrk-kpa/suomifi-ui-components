@@ -72,9 +72,7 @@ import React from 'react';
       Regular checkbox with a hint text
     </Checkbox>
 
-    <Checkbox hintText="Example hint text">
-      Regular checkbox that has a hint text
-    </Checkbox>
+    <Checkbox>Regular checkbox</Checkbox>
   </CheckboxGroup>
 </>;
 ```
