@@ -7,7 +7,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-label-text_label-span {
       ${font(theme)('actionElementInnerTextBold')};
       display: inline-block;
-      vertical-align: center;
+      vertical-align: middle;
       color: ${theme.colors.blackBase};
 
       & .fi-label-text_optionalText {

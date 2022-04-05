@@ -29,8 +29,9 @@ export interface TooltipProps {
   contentClassName?: string | undefined;
   /**
    * Anchor element for listening to resize events.
-   * Used for triggerin tooltip content arrow indicator position.
+   * Used for triggering tooltip content arrow indicator reposition.
    * Should preferably be the first resizable parent container, unless there is none before document body.
+   * NOTE: Does not work with inline elements as those do not support resize events.
    */
   anchorElement?: HTMLElement | null;
   /** Event handler for toggle button click */
@@ -167,7 +168,8 @@ class BaseTooltip extends Component<
         <TooltipButton
           className={classnames(baseClassName, toggleButtonClassName)}
           ref={forkRefs(this.toggleButtonRef, forwardedRef)}
-          ariaToggleButtonLabelText={ariaToggleButtonLabelText}
+          aria-label={ariaToggleButtonLabelText}
+          aria-expanded={open}
           onClick={this.handleToggleClick}
         />
         {!!open && (

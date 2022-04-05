@@ -6,6 +6,7 @@ import React, {
   useState,
   isValidElement,
   cloneElement,
+  CSSProperties,
 } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
@@ -22,19 +23,23 @@ import {
 
 export type LabelMode = 'hidden' | 'visible';
 
-export interface LabelProps extends Omit<HtmlDivProps, 'as'> {
-  /** id */
+export interface LabelProps extends Omit<HtmlSpanProps, 'as'> {
+  /** id for label content */
   id?: string;
+  /** Wrapper class name for styling and customizing */
+  className?: string;
   /** Label element content */
   children: ReactNode;
-  /** Custom class name for styling and customizing  */
-  className?: string;
+  /** Content class name for styling and customizing */
+  contentClassName?: string;
+  /** Content style for styling and customizing */
+  style?: CSSProperties;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
    */
   labelMode?: LabelMode;
-  /** Label span props */
-  labelSpanProps?: HtmlSpanProps;
+  /** Props for label wrapper element */
+  wrapperProps?: Omit<HtmlDivProps, 'as' | 'className'>;
   /** Render the wrapping element as another element
    *
    * @default 'label'
@@ -55,23 +60,26 @@ const labelTextClassNames = {
 const StyledLabel = styled(
   ({
     className,
+    style,
+    contentClassName,
     theme,
     labelMode = 'visible',
-    labelSpanProps = { className: undefined },
+    wrapperProps,
     children,
+    id,
     asProp = 'label',
     optionalText,
     tooltipComponent: tooltipComponentProp,
     ...passProps
   }: LabelProps & SuomifiThemeProp) => {
-    const [wrapperlRef, setWrapperlRef] = useState<HTMLDivElement | null>(null);
+    const [wrapperRef, setWrapperRef] = useState<HTMLDivElement | null>(null);
 
     function getTooltipComponent(
       tooltipComponent: ReactElement | undefined,
     ): ReactNode {
       if (isValidElement(tooltipComponent)) {
         return cloneElement(tooltipComponent, {
-          anchorElement: wrapperlRef,
+          anchorElement: wrapperRef,
           // trick to force tooltip to rerender every time when label changes.
           key: Date.now(),
         });
@@ -81,12 +89,11 @@ const StyledLabel = styled(
 
     return (
       <HtmlDivWithRef
-        {...(asProp ? { as: asProp } : {})}
         className={classnames(className, baseClassName)}
-        ref={(ref: SetStateAction<HTMLDivElement | null>) =>
-          setWrapperlRef(ref)
+        {...wrapperProps}
+        forwardedRef={(ref: SetStateAction<HTMLDivElement | null>) =>
+          setWrapperRef(ref)
         }
-        {...passProps}
       >
         {labelMode === 'hidden' ? (
           <VisuallyHidden>
@@ -96,10 +103,12 @@ const StyledLabel = styled(
         ) : (
           <>
             <HtmlSpan
-              {...labelSpanProps}
+              as={asProp}
+              {...(style ? { style } : {})}
+              {...passProps}
               className={classnames(
                 labelTextClassNames.labelSpan,
-                labelSpanProps.className,
+                contentClassName,
               )}
             >
               {children}

@@ -67,7 +67,7 @@ describe('props', () => {
   describe('labelSpanProps', () => {
     it('has the given props', () => {
       const { getByText } = render(
-        <Label labelSpanProps={{ style: { fontSize: 12 } }}>Test text</Label>,
+        <Label style={{ fontSize: 12 }}>Test text</Label>,
       );
       const textSpan = getByText('Test text');
       expect(textSpan).toHaveAttribute('style', 'font-size: 12px;');

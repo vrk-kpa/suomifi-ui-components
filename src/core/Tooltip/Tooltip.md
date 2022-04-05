@@ -12,6 +12,11 @@ function TooltipWithContainer(props) {
   const [anchorElement, setAnchorElement] = React.useState(null);
   const [open, setOpen] = React.useState(false);
 
+  const getLabelText = (long) =>
+    long
+      ? 'Some longer text that requires a tooltip'
+      : 'Some text that requires a tooltip';
+
   return (
     <>
       <Button onClick={() => setLongText(!longText)}>
@@ -19,14 +24,16 @@ function TooltipWithContainer(props) {
       </Button>
       <div ref={(ref) => setAnchorElement(ref)}>
         <Text style={{ verticalAlign: 'middle' }}>
-          {longText
-            ? 'Some longer text that requires a tooltip'
-            : 'Some text that requires a tooltip'}
+          {getLabelText(longText)}
         </Text>
         <Tooltip
           anchorElement={anchorElement}
-          ariaToggleButtonLabelText="Toggle"
-          ariaCloseButtonLabelText="close"
+          ariaToggleButtonLabelText={`${getLabelText(
+            longText
+          )}, additional information`}
+          ariaCloseButtonLabelText={`${getLabelText(
+            longText
+          )}, close additional information`}
           open={open}
           onToggleButtonClick={() => setOpen(!open)}
           onCloseButtonClick={() => setOpen(false)}
