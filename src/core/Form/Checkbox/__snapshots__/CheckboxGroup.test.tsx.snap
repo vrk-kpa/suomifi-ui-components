@@ -358,27 +358,27 @@ exports[`default, with only required props should match snapshot 1`] = `
 
 .c1 {
   color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
 }
 
-.c1 .fi-checkbox_container {
-  margin-top: 10px;
+.c1 .fi-checkbox-group_label--visible {
+  margin-bottom: 10px;
 }
 
-.c1 .fi-checkbox_container.fi-checkbox--large {
-  margin-top: 15px;
+.c1 .fi-checkbox-group_legend .fi-hint-text {
+  margin-bottom: 10px;
+}
+
+.c1 .fi-checkbox-group_container > .fi-checkbox {
+  margin-bottom: 10px;
+}
+
+.c1 .fi-checkbox-group_container > .fi-checkbox:last-child {
+  margin-bottom: 0;
+}
+
+.c1 .fi-checkbox-group_container .fi-checkbox--large {
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 <div>
@@ -390,7 +390,7 @@ exports[`default, with only required props should match snapshot 1`] = `
       class="c2"
     >
       <legend
-        class="c3"
+        class="c3 fi-checkbox-group_legend"
       >
         <label
           class="c0 c4 fi-checkbox-group_label--visible fi-label-text"

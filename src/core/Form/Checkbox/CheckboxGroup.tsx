@@ -11,8 +11,9 @@ import classnames from 'classnames';
 
 const baseClassName = 'fi-checkbox-group';
 const checkboxGroupClassNames = {
-  container: `${baseClassName}_container`,
+  legend: `${baseClassName}_legend`,
   labelIsVisible: `${baseClassName}_label--visible`,
+  container: `${baseClassName}_container`,
 };
 
 export interface CheckboxGroupProps {
@@ -60,7 +61,7 @@ class BaseCheckboxGroup extends Component<
         {...passProps}
       >
         <HtmlFieldSet>
-          <HtmlLegend>
+          <HtmlLegend className={checkboxGroupClassNames.legend}>
             <Label
               htmlFor={id}
               labelMode={labelMode}
