@@ -5,13 +5,10 @@ import { font, element } from '../theme/reset';
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodyTextSmall')}
-  padding: 20px;
   &.fi-loadingSpinner {
     display: block;
     text-align: center;
-
     & svg {
-      animation: rotation 1.5s infinite linear;
       display: inline-block;
       width: 40px;
       height: 40px;
@@ -32,6 +29,32 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         line-height: 1.3em;
       }
     }
+    &.fi-loadingSpinner-size-small {
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+      & .fi-loadingSpinner-label {
+        font-size: 16px;
+        font-weight: normal;
+        margin-top: 0;
+      }
+    }
+    &.fi-loadingSpinner-status-loading {
+      & svg {
+        animation: rotation 1.5s infinite linear;
+      }
+    }
+    &.fi-loadingSpinner-status-success {
+      & svg path {
+        fill: ${theme.colors.successBase};
+      }
+    }
+    &.fi-loadingSpinner-status-fail {
+      & svg path {
+        fill: ${theme.colors.alertBase};
+      }
+    }
   }
   @keyframes rotation {
     from {
@@ -42,8 +65,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
   }
   @media (prefers-reduced-motion) {
-    &.fi-loadingSpinner svg {
-      animation: rotation 10s infinite linear;
+    &.fi-loadingSpinner.fi-loadingSpinner-status-loading {
+      svg {
+        animation: rotation 10s infinite linear;
+      }
     }
   }
 `;
