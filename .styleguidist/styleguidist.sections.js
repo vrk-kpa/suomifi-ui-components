@@ -8,7 +8,6 @@ const primitiveComponents = [
   'VisuallyHidden',
   ['Form', 'TextInput'],
   ['Form', 'SearchInput'],
-  ['Form', 'Checkbox'],
   ['Form', 'Textarea'],
   ['Form', 'Label'],
   ['Form', 'HintText'],
@@ -108,6 +107,13 @@ module.exports = {
               ]),
             },
 
+            {
+              name: 'Checkbox',
+              components: getComponentWithVariants('Form/Checkbox')([
+                'Checkbox',
+                'CheckboxGroup',
+              ]),
+            },
             {
               name: 'RadioButton',
               components: getComponentWithVariants('Form/RadioButton')([
@@ -210,4 +216,6 @@ module.exports = {
     },
   ],
 };
+
+
 

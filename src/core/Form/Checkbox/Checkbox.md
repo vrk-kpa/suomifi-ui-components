@@ -52,3 +52,27 @@ const [checked, setChecked] = React.useState(false);
   </Checkbox>
 </>;
 ```
+
+### Checkboxes in group
+
+```js
+import { Checkbox, CheckboxGroup } from 'suomifi-ui-components';
+import React from 'react';
+
+<>
+  <CheckboxGroup
+    labelText="Checkboxes in group"
+    groupHintText="Example hint text"
+  >
+    <Checkbox defaultChecked hintText="Example hint text">
+      Regular checkbox that is checked and has a hint text
+    </Checkbox>
+
+    <Checkbox hintText="Example hint text">
+      Regular checkbox with a hint text
+    </Checkbox>
+
+    <Checkbox>Regular checkbox</Checkbox>
+  </CheckboxGroup>
+</>;
+```
