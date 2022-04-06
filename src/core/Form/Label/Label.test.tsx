@@ -25,7 +25,7 @@ describe('props', () => {
   describe('id', () => {
     it('has the given id', () => {
       const { container } = render(<Label id="test-id">Test text</Label>);
-      expect(container.firstChild).toHaveAttribute('id', 'test-id');
+      expect(container.firstChild?.firstChild).toHaveAttribute('id', 'test-id');
     });
   });
 
@@ -55,7 +55,7 @@ describe('props', () => {
   describe('asProp', () => {
     it('has default of label as wrapping element', () => {
       const { container } = render(<Label>Test text</Label>);
-      expect(container.firstChild).toBeInstanceOf(HTMLLabelElement);
+      expect(container.firstChild?.firstChild).toBeInstanceOf(HTMLLabelElement);
     });
 
     it('has the given wrapper element', () => {

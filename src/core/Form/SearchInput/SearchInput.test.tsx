@@ -43,7 +43,7 @@ describe('props', () => {
     it('should have label text with correct class and for id', () => {
       const { getByText } = render(TestSearchInput({ id: 'test-id' }));
       const label = getByText('Test search input').closest('label');
-      expect(label).toHaveClass('fi-label-text');
+      expect(label?.parentElement).toHaveClass('fi-label-text');
       expect(label).toHaveAttribute('for', 'test-id');
     });
 

@@ -66,7 +66,6 @@ const StyledLabel = styled(
     labelMode = 'visible',
     wrapperProps,
     children,
-    id,
     asProp = 'label',
     optionalText,
     tooltipComponent: tooltipComponentProp,

@@ -103,7 +103,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: inline-block;
-  vertical-align: center;
+  vertical-align: middle;
   color: hsl(0,0%,16%);
 }
 
@@ -268,16 +268,16 @@ exports[`Basic dropdown should match snapshot 1`] = `
     <div
       class="c2"
     >
-      <label
+      <div
         class="c3 c4 fi-dropdown_label--visible fi-label-text"
-        id="test-id-label"
       >
-        <span
+        <label
           class="c0 fi-label-text_label-span"
+          id="test-id-label"
         >
           Dropdown test
-        </span>
-      </label>
+        </label>
+      </div>
       <div
         data-reach-listbox-input=""
         data-state="closed"
@@ -412,7 +412,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: inline-block;
-  vertical-align: center;
+  vertical-align: middle;
   color: hsl(0,0%,16%);
 }
 
@@ -578,16 +578,16 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
     <div
       class="c2"
     >
-      <label
+      <div
         class="c3 c4 fi-dropdown_label--visible fi-label-text"
-        id="test-id-label"
       >
-        <span
+        <label
           class="c0 fi-label-text_label-span"
+          id="test-id-label"
         >
           Dropdown test
-        </span>
-      </label>
+        </label>
+      </div>
       <div
         data-reach-listbox-input=""
         data-state="closed"
@@ -722,7 +722,7 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: inline-block;
-  vertical-align: center;
+  vertical-align: middle;
   color: hsl(0,0%,16%);
 }
 
@@ -887,16 +887,16 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
     <div
       class="c2"
     >
-      <label
+      <div
         class="c3 c4 fi-dropdown_label--visible fi-label-text"
-        id="test-id-label"
       >
-        <span
+        <label
           class="c0 fi-label-text_label-span"
+          id="test-id-label"
         >
           Dropdown test
-        </span>
-      </label>
+        </label>
+      </div>
       <div
         data-reach-listbox-input=""
         data-state="closed"
@@ -1031,7 +1031,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: inline-block;
-  vertical-align: center;
+  vertical-align: middle;
   color: hsl(0,0%,16%);
 }
 
@@ -1196,16 +1196,16 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
     <div
       class="c2"
     >
-      <label
+      <div
         class="c3 c4 fi-dropdown_label--visible fi-label-text"
-        id="test-id-label"
       >
-        <span
+        <label
           class="c0 fi-label-text_label-span"
+          id="test-id-label"
         >
           Dropdown test
-        </span>
-      </label>
+        </label>
+      </div>
       <div
         data-reach-listbox-input=""
         data-state="closed"
@@ -1352,7 +1352,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: inline-block;
-  vertical-align: center;
+  vertical-align: middle;
   color: hsl(0,0%,16%);
 }
 
@@ -1517,16 +1517,15 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
     <div
       class="c2"
     >
-      <label
+      <div
         class="c3 c4 fi-label-text"
-        id="test-id-label"
       >
         <span
           class="c0 c5 fi-visually-hidden"
         >
           Dropdown test
         </span>
-      </label>
+      </div>
       <div
         data-reach-listbox-input=""
         data-state="closed"

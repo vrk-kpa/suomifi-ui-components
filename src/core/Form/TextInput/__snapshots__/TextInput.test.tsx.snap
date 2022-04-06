@@ -136,7 +136,7 @@ exports[`snapshots match error status with statustext 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: inline-block;
-  vertical-align: center;
+  vertical-align: middle;
   color: hsl(0,0%,16%);
 }
 
@@ -357,16 +357,16 @@ exports[`snapshots match error status with statustext 1`] = `
   <span
     class="c2 fi-text-input_wrapper"
   >
-    <label
+    <div
       class="c3 c4 fi-text-input_label--visible fi-label-text"
-      for="test-id2"
     >
-      <span
+      <label
         class="c2 fi-label-text_label-span"
+        for="test-id2"
       >
         Test input
-      </span>
-    </label>
+      </label>
+    </div>
     <div
       class="c0 fi-text-input_input-element-container"
     >
@@ -540,7 +540,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: inline-block;
-  vertical-align: center;
+  vertical-align: middle;
   color: hsl(0,0%,16%);
 }
 
@@ -761,16 +761,15 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   <span
     class="c2 fi-text-input_wrapper"
   >
-    <label
+    <div
       class="c3 c4 fi-label-text"
-      for="test-id1"
     >
       <span
         class="c2 c5 fi-visually-hidden"
       >
         Test input
       </span>
-    </label>
+    </div>
     <div
       class="c0 fi-text-input_input-element-container"
     >
@@ -929,7 +928,7 @@ exports[`snapshots match minimal implementation 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: inline-block;
-  vertical-align: center;
+  vertical-align: middle;
   color: hsl(0,0%,16%);
 }
 
@@ -1150,16 +1149,16 @@ exports[`snapshots match minimal implementation 1`] = `
   <span
     class="c2 fi-text-input_wrapper"
   >
-    <label
+    <div
       class="c3 c4 fi-text-input_label--visible fi-label-text"
-      for="test-id"
     >
-      <span
+      <label
         class="c2 fi-label-text_label-span"
+        for="test-id"
       >
         Test input
-      </span>
-    </label>
+      </label>
+    </div>
     <div
       class="c0 fi-text-input_input-element-container"
     >

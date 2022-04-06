@@ -225,7 +225,7 @@ exports[`has matching snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: inline-block;
-  vertical-align: center;
+  vertical-align: middle;
   color: hsl(0,0%,16%);
 }
 
@@ -629,16 +629,16 @@ exports[`has matching snapshot 1`] = `
     <div
       class="c0 fi-filter-input_wrapper"
     >
-      <label
+      <div
         class="c3 c4 fi-filter-input_label--visible fi-label-text"
-        id="1-label"
       >
-        <span
+        <label
           class="c5 fi-label-text_label-span"
+          id="1-label"
         >
           SingleSelect
-        </span>
-      </label>
+        </label>
+      </div>
       <span
         class="c5 c6 fi-hint-text"
         id="1-hintText"

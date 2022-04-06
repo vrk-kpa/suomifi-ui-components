@@ -136,7 +136,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: inline-block;
-  vertical-align: center;
+  vertical-align: middle;
   color: hsl(0,0%,16%);
 }
 
@@ -316,16 +316,16 @@ exports[`snapshot default structure should match snapshot 1`] = `
 <div
   class="c0 fi-textarea c1"
 >
-  <label
+  <div
     class="c2 c3 fi-label-text"
-    for="just-for-snapshot-to-be-same"
   >
-    <span
+    <label
       class="c4 fi-label-text_label-span"
+      for="just-for-snapshot-to-be-same"
     >
       Label text
-    </span>
-  </label>
+    </label>
+  </div>
   <div
     class="c0 fi-textarea_textarea-element-container"
   >
