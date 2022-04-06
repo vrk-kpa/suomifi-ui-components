@@ -214,6 +214,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 400;
   width: 100%;
+  background-color: hsl(0,0%,100%);
 }
 
 .c1.fi-textarea .fi-textarea_textarea:focus {

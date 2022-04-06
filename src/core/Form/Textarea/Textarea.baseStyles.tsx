@@ -37,6 +37,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       padding: 8px 14px 13px 10px;
       ${theme.typography.bodyTextSmall};
       width: 100%;
+      background-color: ${theme.colors.whiteBase};
 
       &:focus {
         outline: none;

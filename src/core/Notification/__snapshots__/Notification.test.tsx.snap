@@ -449,6 +449,10 @@ exports[`props children should match snapshot 1`] = `
   padding-bottom: 10px;
 }
 
+.c1.fi-notification {
+  background-color: hsl(0,0%,100%);
+}
+
 .c1.fi-notification .fi-notification_style-wrapper {
   padding: 0 32px 10px 40px;
   display: -webkit-box;
