@@ -11,8 +11,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   display: block;
   justify-content: space-between;
   padding-bottom: 10px;
-  background-color: ${theme.colors.whiteBase};
+
   &.fi-notification {
+    background-color: ${theme.colors.whiteBase};
     & .fi-notification_style-wrapper {
       padding: 0 32px 10px 40px;
       display: flex;
