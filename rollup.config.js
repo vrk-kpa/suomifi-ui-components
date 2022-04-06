@@ -44,7 +44,10 @@ const plugins = (tsConfig, extractCSS) => [
       presets: ['@babel/preset-env', '@babel/preset-react'],
       plugins: [
         '@babel/plugin-transform-runtime',
-        ['styled-components', { ssr: true, displayName: false }],
+        [
+          'styled-components',
+          { ssr: true, displayName: false, minify: false }
+        ],
       ],
     },
     include: ['**/*.ts', '**/*.tsx'],
