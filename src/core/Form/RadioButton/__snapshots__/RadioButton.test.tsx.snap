@@ -162,6 +162,19 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -478,6 +491,19 @@ exports[`className should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -794,6 +820,19 @@ exports[`disabled should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -1066,6 +1105,27 @@ exports[`hintText should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c6 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c6.fi-hint-text {
+  display: block;
+}
+
 .c4 {
   vertical-align: baseline;
 }
@@ -1111,6 +1171,19 @@ exports[`hintText should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -1263,7 +1336,7 @@ exports[`hintText should match snapshot 1`] = `
       Label text here
     </label>
     <span
-      class="c3 fi-radio-button_hintText"
+      class="c3 c6 fi-hint-text"
       id="test-id-hintText"
     >
       Example hint text
@@ -1434,6 +1507,19 @@ exports[`id should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -1750,6 +1836,19 @@ exports[`name should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -2067,6 +2166,19 @@ exports[`value should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -2383,6 +2495,19 @@ exports[`variant should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;

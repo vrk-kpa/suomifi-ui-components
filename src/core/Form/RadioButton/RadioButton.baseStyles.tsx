@@ -71,6 +71,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       ${theme.typography.bodyTextSmall};
     }
     & .fi-radio-button_label {
+      ${font(theme)('bodyTextSmall')}
       position: relative;
       display: inline-block;
       cursor: pointer;

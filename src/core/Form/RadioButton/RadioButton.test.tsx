@@ -82,7 +82,7 @@ describe('hintText', () => {
   it('has element for hintText when prop is given', () => {
     const { getByText } = render(HintTextRadioButton);
     const hintText = getByText('Example hint text');
-    expect(hintText).toHaveClass('fi-radio-button_hintText');
+    expect(hintText).toHaveClass('fi-hint-text');
   });
 
   it('should match snapshot', () => {

@@ -253,6 +253,19 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -779,6 +792,19 @@ exports[`props className should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -1305,6 +1331,19 @@ exports[`props defaultValue should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -1832,6 +1871,19 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -2363,6 +2415,19 @@ exports[`props id should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -2889,6 +2954,19 @@ exports[`props label should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -3427,6 +3505,19 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c6.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -3953,6 +4044,19 @@ exports[`props name should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -4479,6 +4583,19 @@ exports[`props value should match snapshot 1`] = `
 }
 
 .c5.fi-radio-button .fi-radio-button_label {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   position: relative;
   display: inline-block;
   cursor: pointer;

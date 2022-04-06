@@ -6,6 +6,7 @@ import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { getConditionalAriaProp } from '../../../utils/aria';
+import { HintText } from '../HintText/HintText';
 import { ComponentIcon } from '../../StaticIcon/StaticIcon';
 import { RadioButtonGroupConsumer } from './RadioButtonGroup';
 import { baseStyles } from './RadioButton.baseStyles';
@@ -154,11 +155,7 @@ class BaseRadioButton extends Component<RadioButtonProps & InnerRef> {
         <HtmlLabel htmlFor={id} className={radioButtonClassNames.label}>
           {children}
         </HtmlLabel>
-        {hintText && (
-          <HtmlSpan className={radioButtonClassNames.hintText} id={hintTextId}>
-            {hintText}
-          </HtmlSpan>
-        )}
+        <HintText id={hintTextId}>{hintText}</HintText>
       </HtmlDiv>
     );
   }
