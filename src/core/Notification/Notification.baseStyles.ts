@@ -8,13 +8,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   width: 100%;
   box-shadow: ${theme.shadows.wideBoxShadow};
   border-radius: 4px;
-  justify-content: space-between;
   padding-bottom: 10px;
 
   &.fi-notification {
     background-color: ${theme.colors.whiteBase};
     display: flex;
     flex-direction: column-reverse;
+    justify-content: space-between;
     & .fi-notification_style-wrapper {
       padding: 0 32px 10px 40px;
       display: flex;

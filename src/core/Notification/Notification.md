@@ -6,7 +6,7 @@ import {
 } from 'suomifi-ui-components';
 
 <>
-  <Notification closeText="Close">
+  <Notification closeText="Close" accessibilityLabel="Ilmoitus">
     This is a notification text.
   </Notification>
   <Notification
