@@ -8,17 +8,27 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   width: 100%;
   box-shadow: ${theme.shadows.wideBoxShadow};
   border-radius: 4px;
-  display: block;
   justify-content: space-between;
   padding-bottom: 10px;
 
   &.fi-notification {
     background-color: ${theme.colors.whiteBase};
+    display: flex;
+    flex-direction: column-reverse;
     & .fi-notification_style-wrapper {
       padding: 0 32px 10px 40px;
       display: flex;
       align-items: flex-start;
       overflow: hidden;
+    }
+
+    & .fi-notification_icon-wrapper {
+      padding-top: 20px;
+      flex: none;
+      & .fi-notification_icon {
+        height: 24px;
+        width: 24px;
+      }
     }
 
     & .fi-notification_text-content-wrapper {
@@ -46,14 +56,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         margin-top: 0;
       }
     }
-    .fi-notification_icon-wrapper {
-      padding-top: 20px;
-      flex: none;
-      & .fi-notification_icon {
-        height: 24px;
-        width: 24px;
-      }
-    }
+
     & .fi-notification_close-button {
       ${font(theme)('bodyTextSmall')}
       height: 40px;
