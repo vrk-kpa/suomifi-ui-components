@@ -1,62 +1,62 @@
 ```js
-import { LoadingSpinner } from 'suomifi-ui-components';
+import { useState } from 'react';
+
+import {
+  LoadingSpinner,
+  VisuallyHidden
+} from 'suomifi-ui-components';
+
+const [visible, setVisible] = useState(false);
+const [loaded, setLoaded] = useState(0);
+const [status, setStatus] = useState('loading');
+
+const timeout = () => {
+  setTimeout(() => {
+    setLoaded(20);
+    setTimeout(() => {
+      setLoaded(40);
+      setTimeout(() => {
+        setLoaded(60);
+        setTimeout(() => {
+          setLoaded(80);
+          setTimeout(() => {
+            setLoaded(100);
+            setStatus('success');
+          }, 500);
+        }, 500);
+      }, 500);
+    }, 500);
+  }, 500);
+};
 <>
-  <div aria-live="polite">
-    <LoadingSpinner labelText="Loading data" />
+  <button
+    onClick={() => {
+      setStatus('loading');
+
+      setVisible(!visible);
+      timeout();
+    }}
+  >
+    show spinner
+  </button>
+  <div aria-live="assertive">
+    {visible && (
+      <LoadingSpinner
+        status={status}
+        labelText={
+          status !== 'success' ? (
+            <span>
+              <span aria-hidden="true">
+                {'Loading ' + loaded + ' %'}
+              </span>
+              <VisuallyHidden>Loading data</VisuallyHidden>
+            </span>
+          ) : (
+            <span>Loading finished</span>
+          )
+        }
+      />
+    )}
   </div>
-  {/*
-  <LoadingSpinner labelText="Loading data" labelAlign="right" />
-  <LoadingSpinner labelText="Loading data" labelMode="hidden" />
-  <LoadingSpinner labelText="Loading data" size="small" />
-  <LoadingSpinner
-    labelText="Loading data"
-    labelAlign="right"
-    size="small"
-  />
-  <LoadingSpinner labelText="Loading successful" status="success" />
-  <LoadingSpinner
-    labelText="Loading successful"
-    labelAlign="right"
-    status="success"
-  />
-  <LoadingSpinner
-    labelText="Loading successful"
-    labelMode="hidden"
-    status="success"
-  />
-  <LoadingSpinner
-    labelText="Loading successful"
-    size="small"
-    status="success"
-  />
-  <LoadingSpinner
-    labelText="Loading successful"
-    labelAlign="right"
-    size="small"
-    status="success"
-  />
-  <LoadingSpinner labelText="Loading failed" status="fail" />
-  <LoadingSpinner
-    labelText="Loading failed"
-    labelAlign="right"
-    status="fail"
-  />
-  <LoadingSpinner
-    labelText="Loading failed"
-    labelMode="hidden"
-    status="fail"
-  />
-  <LoadingSpinner
-    labelText="Loading failed"
-    size="small"
-    status="fail"
-  />
-  <LoadingSpinner
-    labelText="Loading failed"
-    labelAlign="right"
-    size="small"
-    status="fail"
-  />
-  */}
 </>;
 ```
