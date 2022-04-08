@@ -74,7 +74,6 @@ exports[`snapshot should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  padding: 20px;
 }
 
 .c1.fi-loadingSpinner {
@@ -83,8 +82,6 @@ exports[`snapshot should match snapshot 1`] = `
 }
 
 .c1.fi-loadingSpinner svg {
-  -webkit-animation: rotation 1.5s infinite linear;
-  animation: rotation 1.5s infinite linear;
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -114,8 +111,32 @@ exports[`snapshot should match snapshot 1`] = `
   line-height: 1.3em;
 }
 
+.c1.fi-loadingSpinner.fi-loadingSpinner-size-small svg {
+  width: 24px;
+  height: 24px;
+}
+
+.c1.fi-loadingSpinner.fi-loadingSpinner-size-small .fi-loadingSpinner-label {
+  font-size: 16px;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+.c1.fi-loadingSpinner.fi-loadingSpinner-status-loading svg {
+  -webkit-animation: rotation 1.5s infinite linear;
+  animation: rotation 1.5s infinite linear;
+}
+
+.c1.fi-loadingSpinner.fi-loadingSpinner-status-success svg path {
+  fill: hsl(166,90%,34%);
+}
+
+.c1.fi-loadingSpinner.fi-loadingSpinner-status-fail svg path {
+  fill: hsl(3,59%,48%);
+}
+
 @media (prefers-reduced-motion) {
-  .c1.fi-loadingSpinner svg {
+  .c1.fi-loadingSpinner.fi-loadingSpinner-status-loading svg {
     -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
@@ -123,7 +144,7 @@ exports[`snapshot should match snapshot 1`] = `
 
 <div>
   <section
-    class="c0 fi-loadingSpinner c1 fi-loadingSpinner-labelAlign-bottom"
+    class="c0 fi-loadingSpinner c1 fi-loadingSpinner-labelAlign-bottom fi-loadingSpinner-size-normal fi-loadingSpinner-status-loading"
   >
     <svg
       aria-hidden="true"
