@@ -15,6 +15,7 @@ import { Heading } from '../Heading/Heading';
 import { AutoId } from '../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { baseStyles } from './Notification.baseStyles';
+import { VisuallyHidden } from '../..';
 
 export const baseClassName = 'fi-notification';
 export const notificationClassNames = {
@@ -57,6 +58,9 @@ export interface NotificationProps extends HtmlDivWithRefProps {
   closeButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'aria-label'>;
   /** Use small screen styling */
   smallScreen?: boolean;
+  /** A label to help screen reader users distinguish notification from the rest of the page content.
+   * Should simply be the localized word "notification". Will be followed by string ": " */
+  accessibilityLabel?: string;
 }
 interface InnerRef {
   forwardedRef: React.RefObject<HTMLDivElement>;
@@ -66,6 +70,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
   render() {
     const {
       className,
+      accessibilityLabel,
       ariaLiveMode = 'polite',
       status = 'neutral',
       headingText,
@@ -101,6 +106,11 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
           },
         )}
       >
+        {actionElements && (
+          <HtmlDiv className={notificationClassNames.actionElementWrapper}>
+            {actionElements}
+          </HtmlDiv>
+        )}
         <HtmlDiv className={notificationClassNames.styleWrapper} style={style}>
           <HtmlDiv className={notificationClassNames.iconWrapper}>
             <Icon icon={variantIcon} className={notificationClassNames.icon} />
@@ -111,6 +121,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
             id={id}
             aria-live={ariaLiveMode}
           >
+            <VisuallyHidden>{`${accessibilityLabel}: `}</VisuallyHidden>
             <HtmlDiv className={notificationClassNames.content}>
               {headingText && (
                 <Heading
@@ -144,11 +155,6 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
             <Icon icon="close" />
           </HtmlButton>
         </HtmlDiv>
-        {actionElements && (
-          <HtmlDiv className={notificationClassNames.actionElementWrapper}>
-            {actionElements}
-          </HtmlDiv>
-        )}
       </HtmlDivWithRef>
     );
   }
