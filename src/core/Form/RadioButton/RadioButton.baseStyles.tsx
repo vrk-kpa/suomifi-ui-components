@@ -71,13 +71,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       ${theme.typography.bodyTextSmall};
     }
     & .fi-radio-button_label {
-      ${font(theme)('bodyTextSmall')}
+      font-size: 16px;
       position: relative;
       display: inline-block;
       cursor: pointer;
       min-height: 27px;
-      line-height: 1.5em;
       padding-left: 26px;
+      padding-top: 6px;
     }
     & .fi-radio-button_input {
       opacity: 0;

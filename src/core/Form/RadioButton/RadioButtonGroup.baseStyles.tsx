@@ -6,10 +6,18 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
 
-    &.fi-radio-button-group {
+  &.fi-radio-button-group {
     & .fi-radio-button-group_label {
       display: block;
       ${theme.typography.bodySemiBoldSmall};
+    }
+
+    & .fi-radio-button-group_label--visible {
+      margin-bottom: 10px;
+    }
+
+    & .fi-radio-button-group_legend .fi-hint-text {
+      margin-bottom: 10px;
     }
 
     & .fi-radio-button-group_hintText {
@@ -18,11 +26,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
   }
 
-  & .fi-radio-button_container {
-    margin-top: ${theme.spacing.xs};
-  }
+  & .fi-radio-button-group_container {
+    & > .fi-radio-button {
+      margin-bottom: ${theme.spacing.xs};
 
-  & .fi-radio-button_container.fi-radio-button--large {
-    margin-top: ${theme.spacing.s};
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 `;

@@ -155,7 +155,9 @@ class BaseRadioButton extends Component<RadioButtonProps & InnerRef> {
         <HtmlLabel htmlFor={id} className={radioButtonClassNames.label}>
           {children}
         </HtmlLabel>
-        <HintText id={hintTextId}>{hintText}</HintText>
+        <HintText className={radioButtonClassNames.hintText} id={hintTextId}>
+          {hintText}
+        </HintText>
       </HtmlDiv>
     );
   }

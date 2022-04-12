@@ -8,7 +8,7 @@ const exampleRef = React.createRef();
 
 <RadioButtonGroup
   labelText="RadioButtons in group"
-  hintText="Example hint text"
+  groupHintText="Example hint text"
   name="test-group"
   onChange={() => {
     console.log(exampleRef.current);
@@ -29,7 +29,7 @@ import { RadioButton, RadioButtonGroup } from 'suomifi-ui-components';
 
 <RadioButtonGroup
   labelText="Large RadioButtons in group"
-  hintText="Example hint text"
+  groupHintText="Example hint text"
   name="test-group-large"
 >
   <RadioButton variant="large" value="value-test-1">
@@ -69,7 +69,7 @@ const [selectedValue, setSelectedValue] =
 
 <RadioButtonGroup
   labelText="RadioButtons in group"
-  hintText="Example hint text"
+  groupHintText="Example hint text"
   name="test-group-controlled"
   value={selectedValue}
   onChange={(value) => setSelectedValue(value)}

@@ -1,8 +1,9 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { HtmlDiv, HtmlSpan, HtmlFieldSet, HtmlLegend } from '../../../reset';
-import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
+import { HtmlDiv, HtmlFieldSet, HtmlLegend } from '../../../reset';
+import { Label } from '../Label/Label';
+import { HintText } from '../HintText/HintText';
 import { RadioButtonProps } from './RadioButton';
 import { baseStyles } from './RadioButtonGroup.baseStyles';
 import { AutoId } from '../../utils/AutoId/AutoId';
@@ -10,9 +11,9 @@ import classnames from 'classnames';
 
 const baseClassName = 'fi-radio-button-group';
 const radioButtonGroupClassNames = {
+  legend: `${baseClassName}_legend`,
+  labelIsVisible: `${baseClassName}_label--visible`,
   container: `${baseClassName}_container`,
-  label: `${baseClassName}_label`,
-  hintText: `${baseClassName}_hintText`,
 };
 
 export interface RadioButtonGroupProps {
@@ -20,13 +21,15 @@ export interface RadioButtonGroupProps {
   /** RadioButton or ReactNode */
   children: Array<React.ReactElement<RadioButtonProps> | ReactNode>;
   /** Hint text to be displayed under the label. */
-  hintText?: string;
+  groupHintText?: string;
   /** Label for the group */
   labelText: string;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
    */
   labelMode?: 'hidden' | 'visible';
+  /** Text to mark a selection in group as optional. Will be wrapped in parentheses and shown after labelText. */
+  optionalText?: string;
   /**
    * Unique id
    * If no id is specified, one will be generated
@@ -91,14 +94,14 @@ class BaseRadioButtonGroup extends Component<
       theme,
       labelText,
       labelMode,
-      hintText,
+      optionalText,
+      groupHintText,
       id,
       name,
       defaultValue,
       onChange,
       ...passProps
     } = this.props;
-    const hideLabel = labelMode === 'hidden';
 
     return (
       <HtmlDiv
@@ -107,20 +110,20 @@ class BaseRadioButtonGroup extends Component<
         {...passProps}
       >
         <HtmlFieldSet>
-          <HtmlLegend>
-            {hideLabel ? (
-              <VisuallyHidden>{labelText}</VisuallyHidden>
-            ) : (
-              <HtmlSpan className={radioButtonGroupClassNames.label}>
-                {labelText}
-              </HtmlSpan>
-            )}
+          <HtmlLegend className={radioButtonGroupClassNames.legend}>
+            <Label
+              htmlFor={id}
+              labelMode={labelMode}
+              optionalText={optionalText}
+              className={classnames({
+                [radioButtonGroupClassNames.labelIsVisible]:
+                  labelMode !== 'hidden',
+              })}
+            >
+              {labelText}
+            </Label>
 
-            {hintText && (
-              <HtmlSpan className={radioButtonGroupClassNames.hintText}>
-                {hintText}
-              </HtmlSpan>
-            )}
+            {groupHintText && <HintText>{groupHintText}</HintText>}
           </HtmlLegend>
           <HtmlDiv className={radioButtonGroupClassNames.container}>
             <Provider
