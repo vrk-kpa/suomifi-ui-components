@@ -1,6 +1,6 @@
 {
   "name": "suomifi-ui-components",
-  "version": "7.0.0-beta.1",
+  "version": "7.0.0-beta.1-babel",
   "description": "Suomi.fi UI component library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -181,5 +181,8 @@
     {
       "path": "dist/suomifi-ui-components.esm.js"
     }
-  ]
+  ],
+  "resolutions": {
+    "babel-plugin-styled-components": "2.0.7"
+  }
 }
