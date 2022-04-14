@@ -249,7 +249,9 @@ describe('filter', () => {
     await act(async () => {
       fireEvent.blur(input);
     });
-    expect(input).toHaveValue('Hammer');
+    await waitFor(() => {
+      expect(input).toHaveValue('Hammer');
+    });
     fireEvent.focus(input);
     const options = await waitFor(() => getAllByRole('option'));
     expect(options).toHaveLength(9);
