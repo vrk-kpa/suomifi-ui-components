@@ -521,6 +521,7 @@ exports[`has matching snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  height: 100%;
 }
 
 .c11.fi-input-toggle-button .fi-input-toggle-button_icon {
