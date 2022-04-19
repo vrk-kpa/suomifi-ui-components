@@ -11,6 +11,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   &.fi-input-toggle-button {
     display: flex;
+    height: 100%;
     & .fi-input-toggle-button_icon {
       pointer-events: none;
       width: 10px;
