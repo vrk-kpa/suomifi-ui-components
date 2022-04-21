@@ -123,7 +123,7 @@ class BaseRadioButtonGroup extends Component<
               {labelText}
             </Label>
 
-            {groupHintText && <HintText>{groupHintText}</HintText>}
+            <HintText>{groupHintText}</HintText>
           </HtmlLegend>
           <HtmlDiv className={radioButtonGroupClassNames.container}>
             <Provider
