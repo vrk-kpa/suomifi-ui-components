@@ -33,6 +33,14 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       &:last-child {
         margin-bottom: 0;
       }
+
+      &--large {
+        margin-bottom: ${theme.spacing.s};
+
+        &:first-child {
+          margin-top: ${theme.spacing.xxs};
+        }
+      }
     }
   }
 `;

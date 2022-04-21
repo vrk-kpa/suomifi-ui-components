@@ -162,13 +162,22 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   font-size: 16px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
   min-height: 27px;
   padding-left: 26px;
-  padding-top: 6px;
 }
 
 .c1.fi-radio-button .fi-radio-button_input {
@@ -262,7 +271,6 @@ exports[`children should match snapshot 1`] = `
 
 .c1.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  padding-top: 2px;
   min-height: 34px;
 }
 
@@ -479,13 +487,22 @@ exports[`className should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   font-size: 16px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
   min-height: 27px;
   padding-left: 26px;
-  padding-top: 6px;
 }
 
 .c1.fi-radio-button .fi-radio-button_input {
@@ -579,7 +596,6 @@ exports[`className should match snapshot 1`] = `
 
 .c1.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  padding-top: 2px;
   min-height: 34px;
 }
 
@@ -796,13 +812,22 @@ exports[`disabled should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   font-size: 16px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
   min-height: 27px;
   padding-left: 26px;
-  padding-top: 6px;
 }
 
 .c1.fi-radio-button .fi-radio-button_input {
@@ -896,7 +921,6 @@ exports[`disabled should match snapshot 1`] = `
 
 .c1.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  padding-top: 2px;
   min-height: 34px;
 }
 
@@ -1135,13 +1159,22 @@ exports[`hintText should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   font-size: 16px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
   min-height: 27px;
   padding-left: 26px;
-  padding-top: 6px;
 }
 
 .c1.fi-radio-button .fi-radio-button_input {
@@ -1235,7 +1268,6 @@ exports[`hintText should match snapshot 1`] = `
 
 .c1.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  padding-top: 2px;
   min-height: 34px;
 }
 
@@ -1459,13 +1491,22 @@ exports[`id should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   font-size: 16px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
   min-height: 27px;
   padding-left: 26px;
-  padding-top: 6px;
 }
 
 .c1.fi-radio-button .fi-radio-button_input {
@@ -1559,7 +1600,6 @@ exports[`id should match snapshot 1`] = `
 
 .c1.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  padding-top: 2px;
   min-height: 34px;
 }
 
@@ -1776,13 +1816,22 @@ exports[`name should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   font-size: 16px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
   min-height: 27px;
   padding-left: 26px;
-  padding-top: 6px;
 }
 
 .c1.fi-radio-button .fi-radio-button_input {
@@ -1876,7 +1925,6 @@ exports[`name should match snapshot 1`] = `
 
 .c1.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  padding-top: 2px;
   min-height: 34px;
 }
 
@@ -2094,13 +2142,22 @@ exports[`value should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   font-size: 16px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
   min-height: 27px;
   padding-left: 26px;
-  padding-top: 6px;
 }
 
 .c1.fi-radio-button .fi-radio-button_input {
@@ -2194,7 +2251,6 @@ exports[`value should match snapshot 1`] = `
 
 .c1.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  padding-top: 2px;
   min-height: 34px;
 }
 
@@ -2411,13 +2467,22 @@ exports[`variant should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   font-size: 16px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
   min-height: 27px;
   padding-left: 26px;
-  padding-top: 6px;
 }
 
 .c1.fi-radio-button .fi-radio-button_input {
@@ -2511,7 +2576,6 @@ exports[`variant should match snapshot 1`] = `
 
 .c1.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  padding-top: 2px;
   min-height: 34px;
 }
 
