@@ -84,6 +84,8 @@ export interface SingleSelectProps<T extends SingleSelectData> {
   selectedItem?: T & SingleSelectData;
   /** Selecting the item will send event with the id */
   onItemSelect?: (uniqueItemId: string | null) => void;
+  /** Disable the input */
+  disabled?: boolean;
 }
 
 interface SingleSelectState<T extends SingleSelectData> {
@@ -354,6 +356,7 @@ class BaseSingleSelect<T> extends Component<
       clearButtonLabel,
       ariaOptionsAvailableText,
       onItemSelect,
+      disabled,
       ...passProps
     } = this.props;
 
@@ -419,6 +422,7 @@ class BaseSingleSelect<T> extends Component<
               visualPlaceholder={!selectedItem ? visualPlaceholder : ''}
               status={status}
               statusText={statusText}
+              disabled={disabled}
             >
               {!!selectedItem && (
                 <HtmlDiv className={singleSelectClassNames.clearButtonWrapper}>
@@ -427,6 +431,7 @@ class BaseSingleSelect<T> extends Component<
                     onClick={() => this.handleItemSelection(null)}
                     onBlur={this.handleBlur}
                     label={clearButtonLabel}
+                    disabled={disabled}
                   />
                 </HtmlDiv>
               )}
@@ -445,6 +450,7 @@ class BaseSingleSelect<T> extends Component<
                 }}
                 aria-hidden={true}
                 tabIndex={-1}
+                disabled={disabled}
               />
             </FilterInput>
           )}

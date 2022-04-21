@@ -269,6 +269,16 @@ exports[`snapshot should have matching default structure 1`] = `
   z-index: 9999;
 }
 
+.c6[disabled],
+.c6:disabled {
+  cursor: not-allowed;
+}
+
+.c6[disabled].fi-input-clear-button .fi-input-clear-button_icon .fi-icon-base-fill,
+.c6:disabled.fi-input-clear-button .fi-input-clear-button_icon .fi-icon-base-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c6.fi-input-clear-button {
   display: -webkit-box;
   display: -webkit-flex;

@@ -21,4 +21,16 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
   }
+
+  &[disabled],
+  &:disabled {
+    cursor: not-allowed;
+    &.fi-input-toggle-button {
+      & .fi-input-toggle-button_icon {
+        & .fi-icon-base-fill {
+          fill: ${theme.colors.depthBase};
+        }
+      }
+    }
+  }
 `;

@@ -397,6 +397,7 @@ exports[`has matching snapshot 1`] = `
   color: hsl(202,7%,67%);
   background-color: hsl(202,7%,97%);
   border-color: hsl(202,7%,80%);
+  cursor: not-allowed;
 }
 
 .c2.fi-filter-input--label-align-left .fi-filter-input_wrapper {
@@ -485,6 +486,16 @@ exports[`has matching snapshot 1`] = `
   z-index: 9999;
 }
 
+.c8[disabled],
+.c8:disabled {
+  cursor: not-allowed;
+}
+
+.c8[disabled].fi-input-clear-button .fi-input-clear-button_icon .fi-icon-base-fill,
+.c8:disabled.fi-input-clear-button .fi-input-clear-button_icon .fi-icon-base-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c8.fi-input-clear-button {
   display: -webkit-box;
   display: -webkit-flex;
@@ -514,6 +525,16 @@ exports[`has matching snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c11[disabled],
+.c11:disabled {
+  cursor: not-allowed;
+}
+
+.c11[disabled].fi-input-toggle-button .fi-input-toggle-button_icon .fi-icon-base-fill,
+.c11:disabled.fi-input-toggle-button .fi-input-toggle-button_icon .fi-icon-base-fill {
+  fill: hsl(202,7%,67%);
 }
 
 .c11.fi-input-toggle-button {

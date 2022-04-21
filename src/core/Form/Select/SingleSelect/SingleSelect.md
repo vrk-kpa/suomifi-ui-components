@@ -176,3 +176,35 @@ const animals = [
   </button>
 </>;
 ```
+
+### Disabled with a preselected value
+
+```js
+import { SingleSelect } from 'suomifi-ui-components';
+const foods = [
+  {
+    labelText: 'Pizza',
+    uniqueItemId: 'pizza-123'
+  },
+  {
+    labelText: 'Burger',
+    uniqueItemId: 'burger-123'
+  }
+];
+const defaultSelectedFood = {
+  labelText: 'Pizza',
+  uniqueItemId: 'pizza-123'
+};
+
+<>
+  <SingleSelect
+    disabled={true}
+    labelText="Food"
+    clearButtonLabel="Clear selection"
+    items={foods}
+    selectedItem={defaultSelectedFood}
+    noItemsText="No matching options"
+    ariaOptionsAvailableText="Options available"
+  />
+</>;
+```

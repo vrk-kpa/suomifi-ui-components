@@ -265,6 +265,7 @@ test('option: should be selected when clicked', async () => {
     await act(async () => {
       fireEvent.click(input);
     });
+
     const option = await waitFor(() => getByText('Rake'));
     await act(async () => {
       fireEvent.click(option);
@@ -370,5 +371,26 @@ describe('status', () => {
       />,
     );
     expect(container.firstChild).toHaveClass('fi-single-select--error');
+  });
+});
+
+describe('disabled', () => {
+  it('should not be interactive while disabled', async () => {
+    const { getByRole, queryAllByRole } = render(
+      <SingleSelect
+        disabled={true}
+        labelText="Tools"
+        clearButtonLabel="Clear selection"
+        items={tools}
+        noItemsText="No matching options"
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+    const input = getByRole('textbox');
+    await act(async () => {
+      fireEvent.click(input);
+    });
+    const options = queryAllByRole('option');
+    expect(options).toEqual([]);
   });
 });

@@ -88,6 +88,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       color: ${theme.colors.depthBase};
       background-color: ${theme.colors.depthLight3};
       border-color: ${theme.colors.depthLight1};
+      cursor: not-allowed;
     }
   }
 
