@@ -104,6 +104,8 @@ export interface MultiSelectProps<T extends MultiSelectData> {
    * E.g 'removed' as prop value would result in '{option} removed' being read by screen reader upon removal.
    */
   ariaOptionChipRemovedText: string;
+  /** Disable the input */
+  disabled?: boolean;
 }
 
 interface MultiSelectState<T extends MultiSelectData> {
@@ -378,6 +380,13 @@ class BaseMultiSelect<T> extends Component<
     }
   }
 
+  private disableItems(items: MultiSelectData[]): MultiSelectData[] {
+    return items.map((item) => ({
+      ...item,
+      disabled: true,
+    }));
+  }
+
   render() {
     const {
       filteredItems,
@@ -414,6 +423,7 @@ class BaseMultiSelect<T> extends Component<
       ariaSelectedAmountText,
       ariaOptionsAvailableText,
       ariaOptionChipRemovedText,
+      disabled,
       ...passProps
     } = this.props;
 
@@ -484,6 +494,7 @@ class BaseMultiSelect<T> extends Component<
                   status={status}
                   statusText={statusText}
                   aria-controls={popoverItemListId}
+                  disabled={disabled}
                 >
                   <InputToggleButton
                     open={showPopover}
@@ -491,6 +502,7 @@ class BaseMultiSelect<T> extends Component<
                     onClick={(event) => this.handleToggleButtonClick(event)}
                     aria-hidden={true}
                     tabIndex={-1}
+                    disabled={disabled}
                   />
                 </FilterInput>
               )}
@@ -541,7 +553,9 @@ class BaseMultiSelect<T> extends Component<
             {chipListVisible && (
               <MultiSelectChipList
                 sourceRef={this.filterInputRef}
-                selectedItems={selectedItems}
+                selectedItems={
+                  disabled ? this.disableItems(selectedItems) : selectedItems
+                }
                 ariaChipActionLabel={ariaChipActionLabel}
                 onClick={(item: MultiSelectData & T) => {
                   if (!!this.chipRemovalAnnounceTimeOut) {
@@ -561,7 +575,9 @@ class BaseMultiSelect<T> extends Component<
             )}
             <MultiSelectRemoveAllButton
               className={multiSelectClassNames.removeAllButton}
-              selectedItems={selectedItems}
+              selectedItems={
+                disabled ? this.disableItems(selectedItems) : selectedItems
+              }
               onClick={this.handleRemoveAllSelections}
             >
               {removeAllButtonLabel}
