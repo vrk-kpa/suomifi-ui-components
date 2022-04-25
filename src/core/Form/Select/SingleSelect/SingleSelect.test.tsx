@@ -376,7 +376,7 @@ describe('status', () => {
 
 describe('disabled', () => {
   it('should not be interactive while disabled', async () => {
-    const { getByRole, queryAllByRole } = render(
+    const { getByRole, getAllByRole } = render(
       <SingleSelect
         disabled={true}
         labelText="Tools"
@@ -390,7 +390,6 @@ describe('disabled', () => {
     await act(async () => {
       fireEvent.click(input);
     });
-    const options = queryAllByRole('option');
-    expect(options).toEqual([]);
+    expect(() => getAllByRole('option')).toThrowError();
   });
 });
