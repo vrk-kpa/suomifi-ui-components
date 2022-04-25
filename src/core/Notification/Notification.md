@@ -2,11 +2,12 @@
 import {
   Notification,
   Button,
-  Paragraph
+  Paragraph,
+  Link
 } from 'suomifi-ui-components';
 
 <>
-  <Notification closeText="Close" accessibilityLabel="Ilmoitus">
+  <Notification closeText="Close">
     This is a notification text.
   </Notification>
   <Notification
@@ -16,17 +17,16 @@ import {
     smallScreen
   >
     This is a small screen error notification text.
+    <Link href="#">Link to somewhere</Link>
   </Notification>
   <Notification
-    id="notification-1"
+    id="notification-id"
     closeText="Close"
     headingText="Notification heading"
     headingVariant="h3"
     actionElements={
       <>
-        <Button variant="secondary" aria-describedby="notification-1">
-          Action button
-        </Button>
+        <Button variant="secondary">Action button</Button>
       </>
     }
   >

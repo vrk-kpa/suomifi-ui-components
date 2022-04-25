@@ -13,7 +13,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-notification {
     background-color: ${theme.colors.whiteBase};
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: space-between;
     & .fi-notification_style-wrapper {
       padding: 0 32px 10px 40px;
