@@ -329,7 +329,7 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="c3 fi-toggle_icon c4"
+        class="c3 fi-icon fi-toggle_icon c4"
         focusable="false"
         height="1em"
         viewBox="0 0 37 20"

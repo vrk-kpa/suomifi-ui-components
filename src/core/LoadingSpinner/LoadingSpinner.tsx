@@ -45,6 +45,7 @@ export const loadingSpinnerClassNames = {
   failed: `${baseClassName}--failed`,
   loading: `${baseClassName}--loading`,
   success: `${baseClassName}--success`,
+  icon: `${baseClassName}_icon`,
 };
 
 class BaseLoadingSpinner extends Component<LoadingSpinnerProps & InnerRef> {
@@ -73,7 +74,12 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps & InnerRef> {
         id={id}
         {...passProps}
       >
-        {status === 'loading' && <ComponentIcon icon="preloader" />}
+        {status === 'loading' && (
+          <ComponentIcon
+            icon="preloader"
+            className={loadingSpinnerClassNames.icon}
+          />
+        )}
         {status === 'success' && <Icon icon="checkCircleFilled" />}
         {status === 'failed' && <Icon icon="errorFilled" />}
 
