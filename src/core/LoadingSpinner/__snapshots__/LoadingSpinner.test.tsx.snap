@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot should match snapshot 1`] = `
-.c2 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -25,8 +25,8 @@ exports[`snapshot should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c3::before,
+.c3::after {
   box-sizing: border-box;
 }
 
@@ -59,6 +59,22 @@ exports[`snapshot should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c2 {
+  vertical-align: baseline;
+}
+
+.c2.fi-static-icon {
+  display: inline-block;
+}
+
+.c2.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c2.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c1 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -81,20 +97,20 @@ exports[`snapshot should match snapshot 1`] = `
   text-align: center;
 }
 
-.c1.fi-loadingSpinner svg {
+.c1.fi-loadingSpinner .fi-icon {
   display: inline-block;
   width: 40px;
   height: 40px;
 }
 
-.c1.fi-loadingSpinner .fi-loadingSpinner-label {
+.c1.fi-loadingSpinner .fi-loadingSpinner_label {
   font-size: 18px;
   font-weight: 600;
   text-align: center;
   margin-top: 6px;
 }
 
-.c1.fi-loadingSpinner.fi-loadingSpinner-labelAlign-right {
+.c1.fi-loadingSpinner.fi-loadingSpinner-labelAlign--right {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -105,38 +121,38 @@ exports[`snapshot should match snapshot 1`] = `
   align-items: center;
 }
 
-.c1.fi-loadingSpinner.fi-loadingSpinner-labelAlign-right .fi-loadingSpinner-label {
+.c1.fi-loadingSpinner.fi-loadingSpinner-labelAlign--right .fi-loadingSpinner_label {
   margin-left: 10px;
   margin-top: 0;
-  line-height: 1.3em;
+  line-height: 1.5em;
 }
 
-.c1.fi-loadingSpinner.fi-loadingSpinner-size-small svg {
+.c1.fi-loadingSpinner.fi-loadingSpinner--small .fi-icon {
   width: 24px;
   height: 24px;
 }
 
-.c1.fi-loadingSpinner.fi-loadingSpinner-size-small .fi-loadingSpinner-label {
+.c1.fi-loadingSpinner.fi-loadingSpinner--small .fi-loadingSpinner_label {
   font-size: 16px;
   font-weight: normal;
   margin-top: 0;
 }
 
-.c1.fi-loadingSpinner.fi-loadingSpinner-status-loading svg {
+.c1.fi-loadingSpinner.fi-loadingSpinner--loading .fi-icon {
   -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
 
-.c1.fi-loadingSpinner.fi-loadingSpinner-status-success svg path {
+.c1.fi-loadingSpinner.fi-loadingSpinner--success .fi-icon-base-fill {
   fill: hsl(166,90%,34%);
 }
 
-.c1.fi-loadingSpinner.fi-loadingSpinner-status-fail svg path {
+.c1.fi-loadingSpinner.fi-loadingSpinner--failed .fi-icon-base-fill {
   fill: hsl(3,59%,48%);
 }
 
 @media (prefers-reduced-motion) {
-  .c1.fi-loadingSpinner.fi-loadingSpinner-status-loading svg {
+  .c1.fi-loadingSpinner.fi-loadingSpinner--loading .fi-icon {
     -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
@@ -144,32 +160,24 @@ exports[`snapshot should match snapshot 1`] = `
 
 <div>
   <section
-    class="c0 fi-loadingSpinner c1 fi-loadingSpinner-labelAlign-bottom fi-loadingSpinner-size-normal fi-loadingSpinner-status-loading"
+    class="c0 fi-loadingSpinner c1 fi-loadingSpinner--loading"
   >
     <svg
       aria-hidden="true"
-      version="1.1"
+      class="c2 fi-icon"
+      focusable="false"
+      height="1em"
       viewBox="0 0 40 40"
+      width="1em"
     >
-      <g
-        fill="none"
-        fill-rule="evenodd"
-        stroke="none"
-        stroke-width="1"
-      >
-        <path
-          d="M20,0 L20,3 C10.6111593,3 3,10.6111593 3,20 C3,29.3888407 10.6111593,37 20,37 
-              C29.280923,37 36.824796,29.5628044 36.9969921,20.3230397 L37,20 L40,20 C40,31.045695 
-              31.045695,40 20,40 C8.954305,40 0,31.045695 0,20 C0,9.06936433 8.76872859,0.186774951 
-              19.6555106,0.00290705581 L20,0 Z"
-          fill="#00347A"
-          fill-rule="nonzero"
-          id="Path"
-        />
-      </g>
+      <path
+        class="fi-icon-component-brand-fill"
+        d="M20 0v3C10.611 3 3 10.611 3 20s7.611 17 17 17c9.28 0 16.825-7.437 16.997-16.677L37 20h3c0 11.046-8.954 20-20 20S0 31.046 0 20C0 9.07 8.769.187 19.656.003L20 0z"
+        fill="#00347A"
+      />
     </svg>
     <div
-      class="c2 fi-loadingSpinner-label"
+      class="c3 fi-loadingSpinner_label"
     >
       Loading data
     </div>

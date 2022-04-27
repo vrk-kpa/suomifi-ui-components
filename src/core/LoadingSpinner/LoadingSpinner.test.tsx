@@ -24,7 +24,7 @@ describe('props', () => {
     );
     const { container } = render(labelAlignLoadingSpinner);
     expect(container.firstChild).toHaveClass(
-      'fi-loadingSpinner-labelAlign-right',
+      'fi-loadingSpinner-labelAlign--right',
     );
   });
   describe('className', () => {
@@ -48,7 +48,7 @@ describe('props', () => {
     );
     const { getByText } = render(LabelTextLoadingSpinner);
     const label = getByText('Loading data');
-    expect(label).toHaveClass('fi-loadingSpinner-label');
+    expect(label).toHaveClass('fi-loadingSpinner_label');
   });
 });
 describe('snapshot', () => {
