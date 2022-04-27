@@ -1,4 +1,50 @@
 ```js
+import { LoadingSpinner } from 'suomifi-ui-components';
+
+<>
+  <div aria-live="assertive">
+    <LoadingSpinner
+      status="loading"
+      variant="normal"
+      labelAlign="right"
+      labelText={<span>Loading</span>}
+    />
+    <br />
+    <LoadingSpinner
+      status="success"
+      labelText={<span>Loading finished</span>}
+    />
+    <br />
+    <LoadingSpinner
+      status="failed"
+      labelText={<span>Loading failed</span>}
+    />
+    <br />
+    <LoadingSpinner
+      status="loading"
+      variant="small"
+      labelAlign="right"
+      labelText={<span>Loading</span>}
+    />
+    <br />
+    <LoadingSpinner
+      status="success"
+      variant="small"
+      labelText={<span>Loading finished</span>}
+    />
+    <br />
+    <LoadingSpinner
+      status="failed"
+      variant="small"
+      labelText={<span>Loading failed</span>}
+    />
+  </div>
+</>;
+```
+
+### LoadingSpinner in action
+
+```js
 import { useState } from 'react';
 
 import {
@@ -11,49 +57,41 @@ const [loaded, setLoaded] = useState(0);
 const [status, setStatus] = useState('loading');
 
 const timeout = () => {
-  setTimeout(() => {
-    setLoaded(20);
-    setTimeout(() => {
-      setLoaded(40);
-      setTimeout(() => {
-        setLoaded(60);
-        setTimeout(() => {
-          setLoaded(80);
-          setTimeout(() => {
-            setLoaded(100);
-            setStatus('success');
-          }, 500);
-        }, 500);
-      }, 500);
-    }, 500);
-  }, 500);
+  let progress = 0;
+  const id = setInterval(frame, 300);
+  function frame() {
+    if (progress >= 100) {
+      clearInterval(id);
+      setStatus('success');
+      progress = 0;
+    } else {
+      progress = progress + 10;
+      setLoaded(progress);
+    }
+  }
 };
+
 <>
   <button
     onClick={() => {
       setStatus('loading');
 
+      if (!visible) {
+        timeout();
+      }
       setVisible(!visible);
-      timeout();
     }}
   >
-    show spinner
+    {visible ? 'hide spinner' : 'show spinner'}
   </button>
-  <div aria-live="assertive">
+  <div aria-live="assertive" aria-busy={status}>
     {visible && (
       <LoadingSpinner
         status={status}
         labelText={
-          status !== 'success' ? (
-            <span>
-              <span aria-hidden="true">
-                {'Loading ' + loaded + ' %'}
-              </span>
-              <VisuallyHidden>Loading data</VisuallyHidden>
-            </span>
-          ) : (
-            <span>Loading finished</span>
-          )
+          status !== 'success'
+            ? 'Loading ' + loaded + ' %'
+            : 'Loading finished'
         }
       />
     )}

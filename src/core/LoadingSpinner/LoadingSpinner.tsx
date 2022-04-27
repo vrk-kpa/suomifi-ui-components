@@ -5,6 +5,7 @@ import { baseStyles } from './LoadingSpinner.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { HtmlDiv, HtmlDivWithRef } from '../../reset';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
+import { ComponentIcon } from '../StaticIcon/StaticIcon';
 import { Icon } from '../../core/Icon/Icon';
 
 export interface LoadingSpinnerProps {
@@ -12,44 +13,41 @@ export interface LoadingSpinnerProps {
   className?: string;
   /** Unique id */
   id?: string;
-  /** Label text or html for LoadingSpinner */
+  /** Label text or html */
   labelText: ReactNode;
   /** Align label on bottom or on the right side of animation svg
    * @default 'bottom'
    */
   labelAlign?: 'bottom' | 'right';
-  /** Is LoadingSpinners's Label visible or not
+  /** Is the label visible or hidden
    * @default 'visible'
    */
   labelMode?: 'visible' | 'hidden';
-  /** Is LoadingSpinners's status. What it indicates
+  /** Status that the component indicates. Affects the icon used.
    * @default 'loading'
    */
-  status?: 'loading' | 'success' | 'fail';
-  /** Is LoadingSpinners's size. Its it normal or small
-   * @default 'loading'
+  status?: 'loading' | 'success' | 'failed';
+  /** Affects the size of the icon and label text
+   * @default 'normal'
    */
-  size?: 'normal' | 'small';
-}
-export interface LoadingSpinnerState {
-  loaded?: number;
+  variant?: 'normal' | 'small';
 }
 interface InnerRef {
   forwardedRef: React.RefObject<HTMLDivElement>;
 }
 const baseClassName = 'fi-loadingSpinner';
+
 export const loadingSpinnerClassNames = {
-  label: `${baseClassName}-label`,
-  labelAlign: '',
-  size: '',
-  status: '',
+  label: `${baseClassName}_label`,
+  labelAlignBottom: `${baseClassName}-labelAlign--bottom`,
+  labelAlignRight: `${baseClassName}-labelAlign--right`,
+  small: `${baseClassName}--small`,
+  failed: `${baseClassName}--failed`,
+  loading: `${baseClassName}--loading`,
+  success: `${baseClassName}--success`,
 };
-export const loadingSpinnerState = {
-  loaded: 0,
-};
-class BaseLoadingSpinner extends Component<
-  LoadingSpinnerProps & InnerRef & LoadingSpinnerState
-> {
+
+class BaseLoadingSpinner extends Component<LoadingSpinnerProps & InnerRef> {
   render() {
     const {
       className,
@@ -57,44 +55,27 @@ class BaseLoadingSpinner extends Component<
       labelText,
       labelAlign = 'bottom',
       labelMode = 'visible',
-      size = 'normal',
+      variant = 'normal',
       status = 'loading',
       ...passProps
     } = this.props;
-    loadingSpinnerClassNames.labelAlign = `${baseClassName}-labelAlign-${labelAlign}`;
-    loadingSpinnerClassNames.size = `${baseClassName}-size-${size}`;
-    loadingSpinnerClassNames.status = `${baseClassName}-status-${status}`;
 
     return (
       <HtmlDivWithRef
-        className={classnames(
-          baseClassName,
-          className,
-          loadingSpinnerClassNames.labelAlign,
-          loadingSpinnerClassNames.size,
-          loadingSpinnerClassNames.status,
-        )}
+        className={classnames(baseClassName, className, {
+          [loadingSpinnerClassNames.loading]: status === 'loading',
+          [loadingSpinnerClassNames.failed]: status === 'failed',
+          [loadingSpinnerClassNames.success]: status === 'success',
+          [loadingSpinnerClassNames.small]: variant === 'small',
+          [loadingSpinnerClassNames.labelAlignRight]: labelAlign === 'right',
+        })}
         as="section"
         id={id}
         {...passProps}
       >
-        {status === 'loading' && (
-          <svg aria-hidden="true" viewBox="0 0 40 40" version="1.1">
-            <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-              <path
-                d="M20,0 L20,3 C10.6111593,3 3,10.6111593 3,20 C3,29.3888407 10.6111593,37 20,37 
-              C29.280923,37 36.824796,29.5628044 36.9969921,20.3230397 L37,20 L40,20 C40,31.045695 
-              31.045695,40 20,40 C8.954305,40 0,31.045695 0,20 C0,9.06936433 8.76872859,0.186774951 
-              19.6555106,0.00290705581 L20,0 Z"
-                id="Path"
-                fill="#00347A"
-                fillRule="nonzero"
-              />
-            </g>
-          </svg>
-        )}
+        {status === 'loading' && <ComponentIcon icon="preloader" />}
         {status === 'success' && <Icon icon="checkCircleFilled" />}
-        {status === 'fail' && <Icon icon="errorFilled" />}
+        {status === 'failed' && <Icon icon="errorFilled" />}
 
         {labelMode === 'visible' ? (
           <HtmlDiv className={loadingSpinnerClassNames.label}>
