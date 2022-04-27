@@ -7,36 +7,31 @@ import { LoadingSpinner } from 'suomifi-ui-components';
       status="loading"
       variant="normal"
       labelAlign="right"
-      labelText={<span>Loading</span>}
+      labelText="Loading"
     />
     <br />
-    <LoadingSpinner
-      status="success"
-      labelText={<span>Loading finished</span>}
-    />
+    <LoadingSpinner status="success" labelText="Loading finished" />
     <br />
-    <LoadingSpinner
-      status="failed"
-      labelText={<span>Loading failed</span>}
-    />
+    <LoadingSpinner status="failed" labelText="Loading failed" />
     <br />
     <LoadingSpinner
       status="loading"
       variant="small"
-      labelAlign="right"
-      labelText={<span>Loading</span>}
+      labelMode="hidden"
+      labelText="Loading"
     />
     <br />
     <LoadingSpinner
       status="success"
       variant="small"
-      labelText={<span>Loading finished</span>}
+      labelText="Loading finished"
     />
     <br />
     <LoadingSpinner
       status="failed"
       variant="small"
-      labelText={<span>Loading failed</span>}
+      labelAlign="right"
+      labelText="Loading failed"
     />
   </div>
 </>;

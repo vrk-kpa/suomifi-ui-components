@@ -97,7 +97,7 @@ exports[`snapshot should match snapshot 1`] = `
   text-align: center;
 }
 
-.c1.fi-loadingSpinner .fi-icon {
+.c1.fi-loadingSpinner .fi-loadingSpinner_icon {
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -127,7 +127,7 @@ exports[`snapshot should match snapshot 1`] = `
   line-height: 1.5em;
 }
 
-.c1.fi-loadingSpinner.fi-loadingSpinner--small .fi-icon {
+.c1.fi-loadingSpinner.fi-loadingSpinner--small .fi-loadingSpinner_icon {
   width: 24px;
   height: 24px;
 }
@@ -138,7 +138,7 @@ exports[`snapshot should match snapshot 1`] = `
   margin-top: 0;
 }
 
-.c1.fi-loadingSpinner.fi-loadingSpinner--loading .fi-icon {
+.c1.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
   -webkit-animation: rotation 1.5s infinite linear;
   animation: rotation 1.5s infinite linear;
 }
@@ -152,7 +152,7 @@ exports[`snapshot should match snapshot 1`] = `
 }
 
 @media (prefers-reduced-motion) {
-  .c1.fi-loadingSpinner.fi-loadingSpinner--loading .fi-icon {
+  .c1.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
     -webkit-animation: rotation 10s infinite linear;
     animation: rotation 10s infinite linear;
   }
@@ -164,7 +164,7 @@ exports[`snapshot should match snapshot 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="c2 fi-icon fi-loadingSpinner_icon"
+      class="c2 fi-loadingSpinner_icon"
       focusable="false"
       height="1em"
       viewBox="0 0 40 40"

@@ -1,4 +1,4 @@
-import React, { Component, forwardRef, ReactNode } from 'react';
+import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './LoadingSpinner.baseStyles';
@@ -13,8 +13,8 @@ export interface LoadingSpinnerProps {
   className?: string;
   /** Unique id */
   id?: string;
-  /** Label text or html */
-  labelText: ReactNode;
+  /** Label text */
+  labelText: string;
   /** Align label on bottom or on the right side of animation svg
    * @default 'bottom'
    */
@@ -80,8 +80,15 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps & InnerRef> {
             className={loadingSpinnerClassNames.icon}
           />
         )}
-        {status === 'success' && <Icon icon="checkCircleFilled" />}
-        {status === 'failed' && <Icon icon="errorFilled" />}
+        {status === 'success' && (
+          <Icon
+            icon="checkCircleFilled"
+            className={loadingSpinnerClassNames.icon}
+          />
+        )}
+        {status === 'failed' && (
+          <Icon icon="errorFilled" className={loadingSpinnerClassNames.icon} />
+        )}
 
         {labelMode === 'visible' ? (
           <HtmlDiv className={loadingSpinnerClassNames.label}>

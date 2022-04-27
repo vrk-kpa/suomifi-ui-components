@@ -8,7 +8,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-loadingSpinner {
     display: block;
     text-align: center;
-    & .fi-icon {
+    & .fi-loadingSpinner_icon {
       display: inline-block;
       width: 40px;
       height: 40px;
@@ -30,7 +30,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
     &.fi-loadingSpinner--small {
-      .fi-icon {
+      .fi-loadingSpinner_icon {
         width: 24px;
         height: 24px;
       }
@@ -41,7 +41,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
     &.fi-loadingSpinner--loading {
-      & .fi-icon {
+      & .fi-loadingSpinner_icon {
         animation: rotation 1.5s infinite linear;
       }
     }
@@ -66,7 +66,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
   @media (prefers-reduced-motion) {
     &.fi-loadingSpinner.fi-loadingSpinner--loading {
-      .fi-icon {
+      .fi-loadingSpinner_icon {
         animation: rotation 10s infinite linear;
       }
     }

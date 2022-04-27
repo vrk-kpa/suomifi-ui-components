@@ -108,7 +108,7 @@ export class ComponentIcon extends Component<ComponentIconProps> {
         <StyledSuomifiComponentIcon
           {...passProps}
           ariaLabel={ariaLabel}
-          className={classnames(baseClassName, className)}
+          className={className}
           icon={icon}
         />
       );
