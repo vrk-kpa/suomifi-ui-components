@@ -169,9 +169,9 @@ const foods = [
       items={foods}
       labelText="Food"
       visualPlaceholder="Selection disabled"
-      ariaSelectedAmountText=""
-      ariaOptionsAvailableText=""
-      ariaOptionChipRemovedText=""
+      ariaSelectedAmountText="foods selected"
+      ariaOptionsAvailableText="options available"
+      ariaOptionChipRemovedText="removed"
     />
 </>
 ```
