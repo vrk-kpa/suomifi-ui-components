@@ -533,8 +533,11 @@ exports[`Basic modal should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c4.fi-modal_title {
+.c4 {
   max-width: 100%;
+}
+
+.c4.fi-modal_title {
   display: block;
   margin-bottom: 20px;
 }

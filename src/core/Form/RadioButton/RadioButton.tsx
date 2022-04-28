@@ -2,7 +2,7 @@ import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlLabel, HtmlSpan, HtmlDiv, HtmlInput } from '../../../reset';
-import { logger } from '../../../utils/log';
+import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { getConditionalAriaProp } from '../../../utils/aria';
@@ -105,12 +105,12 @@ class BaseRadioButton extends Component<RadioButtonProps & InnerRef> {
     } = this.props;
 
     if (!children) {
-      logger.error(
+      getLogger().error(
         'RadioButton component should have a label or a child element that acts as one. Add label content or a child element.',
       );
     }
     if ('value' in this.props && value.trim().length === 0) {
-      logger.error('RadioButton value can not be empty.');
+      getLogger().error('RadioButton value can not be empty.');
     }
 
     const { checkedState } = this.state;

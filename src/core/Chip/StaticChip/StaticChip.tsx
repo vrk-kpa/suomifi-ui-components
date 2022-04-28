@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
-import { HtmlSpan } from '../../../reset';
+import { HtmlSpan, HtmlSpanProps } from '../../../reset';
 import {
   BaseChipProps,
   baseClassName,
@@ -10,7 +10,9 @@ import {
 import { staticChipBaseStyles } from './StaticChip.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 
-export interface StaticChipProps extends BaseChipProps {}
+export interface StaticChipProps
+  extends BaseChipProps,
+    Omit<HtmlSpanProps, 'children'> {}
 
 class BaseChip extends Component<StaticChipProps> {
   render() {

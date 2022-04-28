@@ -17,9 +17,11 @@ export const toggleBaseStyles = (theme: SuomifiTheme) => css`
   background-color: ${theme.colors.whiteBase};
   padding-left: 50px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
 
+  &.fi-toggle {
+    display: inline-block;
+  }
   &.fi-toggle--disabled {
     cursor: not-allowed;
   }

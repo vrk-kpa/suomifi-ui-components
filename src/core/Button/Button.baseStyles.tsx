@@ -146,7 +146,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${secondaryStyles(theme)}
   ${secondaryNoBorderStyles(theme)}
   ${linkStyles(theme)}
-
+  
   & > .fi-button_icon {
     width: 16px;
     height: 16px;
@@ -158,6 +158,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       margin-left: ${theme.spacing.insetM};
     }
   }
+
   &.fi-button--disabled > .fi-button_icon {
     cursor: not-allowed;
   }

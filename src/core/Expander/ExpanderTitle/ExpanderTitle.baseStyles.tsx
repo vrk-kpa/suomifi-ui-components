@@ -7,7 +7,6 @@ export const expanderTitleBaseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodySemiBold')}
   position: relative;
-  display: block;
   width: 100%;
   max-width: 100%;
   min-height: 60px;
@@ -17,6 +16,9 @@ export const expanderTitleBaseStyles = (theme: SuomifiTheme) => css`
   white-space: break-word;
   word-wrap: break-word;
 
+  &.fi-expander_title {
+    display: block;
+  }
   &.fi-expander_title--open {
     background-color: ${theme.colors.whiteBase};
     border-bottom-left-radius: 0;

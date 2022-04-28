@@ -182,8 +182,7 @@ exports[`has matching snapshot 1`] = `
   font-weight: 400;
 }
 
-.c5.fi-hint-text {
-  display: block;
+.c5 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -200,7 +199,11 @@ exports[`has matching snapshot 1`] = `
   font-weight: 400;
 }
 
-.c12.fi-status-text {
+.c5.fi-hint-text {
+  display: block;
+}
+
+.c12 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -217,6 +220,9 @@ exports[`has matching snapshot 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+}
+
+.c12.fi-status-text {
   display: block;
 }
 
@@ -224,7 +230,7 @@ exports[`has matching snapshot 1`] = `
   color: hsl(3,59%,48%);
 }
 
-.c2 .fi-filter-input {
+.c2 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -420,8 +426,11 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c10 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c10.fi-icon {
+  display: inline-block;
 }
 
 .c10 .fi-icon-base-fill {
@@ -440,16 +449,12 @@ exports[`has matching snapshot 1`] = `
   cursor: inherit;
 }
 
-.c8.fi-input-clear-button {
+.c8 {
   position: relative;
   cursor: pointer;
   pointer-events: all;
   height: 20px;
   width: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -460,11 +465,11 @@ exports[`has matching snapshot 1`] = `
   align-items: center;
 }
 
-.c8.fi-input-clear-button:focus {
+.c8:focus {
   outline: none;
 }
 
-.c8.fi-input-clear-button:focus:after {
+.c8:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -480,6 +485,13 @@ exports[`has matching snapshot 1`] = `
   z-index: 9999;
 }
 
+.c8.fi-input-clear-button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .c8.fi-input-clear-button .fi-input-clear-button_icon {
   width: 16px;
   height: 16px;
@@ -489,15 +501,11 @@ exports[`has matching snapshot 1`] = `
   fill: hsl(212,63%,37%);
 }
 
-.c11.fi-input-toggle-button {
+.c11 {
   width: 20px;
   height: 20px;
   cursor: pointer;
   pointer-events: all;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -506,6 +514,13 @@ exports[`has matching snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c11.fi-input-toggle-button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .c11.fi-input-toggle-button .fi-input-toggle-button_icon {
@@ -518,7 +533,7 @@ exports[`has matching snapshot 1`] = `
   fill: hsl(0,0%,16%);
 }
 
-.c1.fi-single-select {
+.c1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;

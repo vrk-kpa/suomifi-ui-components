@@ -7,9 +7,11 @@ export const staticIconBaseStyles = ({
   highlightColor?: string;
   baseColor?: string;
 }) => css`
-  display: inline-block;
   vertical-align: baseline;
 
+  &.fi-static-icon {
+    display: inline-block;
+  }
   &.fi-icon--cursor-pointer {
     cursor: pointer;
     & * {

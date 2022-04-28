@@ -8,7 +8,6 @@ const primitiveComponents = [
   'VisuallyHidden',
   ['Form', 'TextInput'],
   ['Form', 'SearchInput'],
-  ['Form', 'Checkbox'],
   ['Form', 'Textarea'],
   ['Form', 'Label'],
   ['Form', 'HintText'],
@@ -72,6 +71,10 @@ module.exports = {
             },
           ],
         },
+        {
+          name: 'Logger',
+          content: './.styleguidist/logger.md',
+        },
       ],
       sectionDepth: 2,
       expand: true,
@@ -105,6 +108,13 @@ module.exports = {
             },
 
             {
+              name: 'Checkbox',
+              components: getComponentWithVariants('Form/Checkbox')([
+                'Checkbox',
+                'CheckboxGroup',
+              ]),
+            },
+            {
               name: 'RadioButton',
               components: getComponentWithVariants('Form/RadioButton')([
                 'RadioButton',
@@ -128,7 +138,7 @@ module.exports = {
             },
             {
               name: 'Icon',
-              components: getComponents(['Icon', 'StaticIcon']),
+              components: getComponents(['Icon', 'StaticIcon', 'LogoIcon']),
             },
             {
               name: 'MultiSelect',
@@ -206,3 +216,6 @@ module.exports = {
     },
   ],
 };
+
+
+

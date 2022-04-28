@@ -3,10 +3,8 @@ import { SuomifiTheme } from '../../theme';
 import { font } from '../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  &.fi-chip-list {
-    ${font(theme)('bodyText')}
-    padding-top: 5px;
-  }
+  ${font(theme)('bodyText')}
+  padding-top: 5px;
 
   & .fi-chip-list_content_wrapper > * {
     margin-right: 10px;

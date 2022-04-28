@@ -2,8 +2,9 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
+  max-width: 100%;
+
   &.fi-modal_title {
-    max-width: 100%;
     display: block;
 
     & .fi-modal_title_focus-wrapper {

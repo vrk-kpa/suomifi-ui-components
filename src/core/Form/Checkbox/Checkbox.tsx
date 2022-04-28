@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { InputStatus, StatusTextCommonProps } from '../types';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { logger } from '../../../utils/log';
+import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlLabel, HtmlDiv, HtmlInput } from '../../../reset';
@@ -155,7 +155,7 @@ class BaseCheckbox extends Component<CheckboxProps & InnerRef> {
     const { checkedState } = this.state;
 
     if (!children) {
-      logger.error(
+      getLogger().error(
         'Checkbox component should have a label or a child element that acts as one. Add label content or a child element.',
       );
     }
@@ -164,7 +164,7 @@ class BaseCheckbox extends Component<CheckboxProps & InnerRef> {
       ('name' in this.props && (typeof name !== 'string' || name === '')) ||
       ('value' in this.props && (typeof value !== 'string' || value === ''))
     ) {
-      logger.warn(
+      getLogger().warn(
         'Name and value props should have non-empty values if provided.',
       );
     }

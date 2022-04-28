@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiIcon, SuomifiIconInterface } from 'suomifi-icons';
-import { logger } from '../../utils/log';
+import { getLogger } from '../../utils/log';
 import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
 import { iconBaseStyles } from './Icon.baseStyles';
 
@@ -31,7 +31,7 @@ export const iconLogger = (
   ariaLabel: string | undefined,
   className: string | undefined,
 ) => {
-  logger.warn(
+  getLogger().warn(
     `Icon ERROR${
       !!ariaLabel
         ? ` with aria-label: ${ariaLabel}`

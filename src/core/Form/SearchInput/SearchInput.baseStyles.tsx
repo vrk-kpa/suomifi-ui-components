@@ -3,10 +3,8 @@ import { SuomifiTheme } from '../../theme';
 import { input, containerIEFocus, font } from '../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  &.fi-search-input {
-    ${font(theme)('bodyText')}
-    width: 290px;
-  }
+  ${font(theme)('bodyText')}
+  width: 290px;
 
   & .fi-search-input {
     &_wrapper {

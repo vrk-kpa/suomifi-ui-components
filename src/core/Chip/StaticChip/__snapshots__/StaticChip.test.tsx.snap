@@ -45,6 +45,10 @@ exports[`children should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
 }
 
 .c1:focus {
@@ -74,16 +78,14 @@ exports[`children should match snapshot 1`] = `
   padding: 2px 10px;
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
-  max-height: 28px;
+  max-height: 100%;
   display: inline-block;
 }
 
 .c1.fi-chip .fi-chip--content {
-  display: inline-block;
-  max-width: 270px;
-  white-space: nowrap;
+  display: block;
+  word-break: break-word;
   overflow: hidden;
-  text-overflow: ellipsis;
   line-height: 1.5em;
 }
 
@@ -159,6 +161,10 @@ exports[`classnames should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
 }
 
 .c1:focus {
@@ -188,16 +194,14 @@ exports[`classnames should match snapshot 1`] = `
   padding: 2px 10px;
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
-  max-height: 28px;
+  max-height: 100%;
   display: inline-block;
 }
 
 .c1.fi-chip .fi-chip--content {
-  display: inline-block;
-  max-width: 270px;
-  white-space: nowrap;
+  display: block;
+  word-break: break-word;
   overflow: hidden;
-  text-overflow: ellipsis;
   line-height: 1.5em;
 }
 
@@ -269,6 +273,10 @@ exports[`disabled should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
 }
 
 .c1:focus {
@@ -298,16 +306,14 @@ exports[`disabled should match snapshot 1`] = `
   padding: 2px 10px;
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
-  max-height: 28px;
+  max-height: 100%;
   display: inline-block;
 }
 
 .c1.fi-chip .fi-chip--content {
-  display: inline-block;
-  max-width: 270px;
-  white-space: nowrap;
+  display: block;
+  word-break: break-word;
   overflow: hidden;
-  text-overflow: ellipsis;
   line-height: 1.5em;
 }
 

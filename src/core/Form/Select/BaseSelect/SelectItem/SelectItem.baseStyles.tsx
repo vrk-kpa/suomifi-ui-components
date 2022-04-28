@@ -3,15 +3,14 @@ import { SuomifiTheme } from '../../../../theme';
 import { font } from '../../../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
+  position: relative;
+  padding: 8px 32px 8px 10px;
+  ${font(theme)('actionElementInnerText')}
+
+  &:focus {
+    outline: none;
+  }
   &.fi-select-item {
-    position: relative;
-    padding: 8px 32px 8px 10px;
-    ${font(theme)('actionElementInnerText')}
-
-    &:focus {
-      outline: none;
-    }
-
     & .fi-select-item--query_highlight {
       background-color: transparent;
       font-weight: bold;

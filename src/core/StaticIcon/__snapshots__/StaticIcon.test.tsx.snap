@@ -2,8 +2,11 @@
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
 .c0 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c0.fi-static-icon {
+  display: inline-block;
 }
 
 .c0.fi-icon--cursor-pointer {

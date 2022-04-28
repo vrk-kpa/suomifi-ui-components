@@ -1,5 +1,5 @@
 import { parseToRgb, toColorString, hslToColorString } from 'polished';
-import { logger } from '../log';
+import { getLogger } from '../log';
 
 /**
  * Set alpha value to hex-color
@@ -28,7 +28,7 @@ export const hslaToHex = (hsla: string) => {
     !Number.isInteger(saturationPercentage) ||
     !Number.isInteger(lightnessPercentage)
   ) {
-    logger.error('Not a CSS compatible HSLA or HSL color:', hsla);
+    getLogger().error('Not a CSS compatible HSLA or HSL color:', hsla);
     return false;
   }
   return hslToColorString({

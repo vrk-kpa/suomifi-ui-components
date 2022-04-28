@@ -4,10 +4,8 @@ import { input, containerIEFocus, font } from '../../theme/reset';
 import { math } from 'polished';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  &.fi-text-input {
-    ${font(theme)('bodyText')}
-    width: 290px;
-  }
+  ${font(theme)('bodyText')}
+  width: 290px;
 
   & .fi-text-input_wrapper {
     width: 100%;

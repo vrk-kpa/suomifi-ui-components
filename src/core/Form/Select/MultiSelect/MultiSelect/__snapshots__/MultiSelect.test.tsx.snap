@@ -182,7 +182,7 @@ exports[`has matching snapshot 1`] = `
   font-weight: 400;
 }
 
-.c6.fi-status-text {
+.c6 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -199,6 +199,9 @@ exports[`has matching snapshot 1`] = `
   color: hsl(0,0%,16%);
   font-size: 14px;
   line-height: 20px;
+}
+
+.c6.fi-status-text {
   display: block;
 }
 
@@ -206,7 +209,7 @@ exports[`has matching snapshot 1`] = `
   color: hsl(3,59%,48%);
 }
 
-.c2 .fi-filter-input {
+.c2 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -402,8 +405,11 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c10 {
-  display: inline-block;
   vertical-align: baseline;
+}
+
+.c10.fi-icon {
+  display: inline-block;
 }
 
 .c10 .fi-icon-base-fill {
@@ -437,6 +443,10 @@ exports[`has matching snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
 }
 
 .c9:focus {
@@ -466,16 +476,14 @@ exports[`has matching snapshot 1`] = `
   padding: 2px 10px;
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
-  max-height: 28px;
+  max-height: 100%;
   display: inline-block;
 }
 
 .c9.fi-chip .fi-chip--content {
-  display: inline-block;
-  max-width: 270px;
-  white-space: nowrap;
+  display: block;
+  word-break: break-word;
   overflow: hidden;
-  text-overflow: ellipsis;
   line-height: 1.5em;
 }
 
@@ -518,7 +526,6 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c9.fi-chip--removable .fi-chip--content {
-  max-width: 248px;
   margin-right: 10px;
 }
 
@@ -526,7 +533,7 @@ exports[`has matching snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c7.fi-chip-list {
+.c7 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -783,7 +790,7 @@ exports[`has matching snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c1.fi-multiselect {
+.c1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;

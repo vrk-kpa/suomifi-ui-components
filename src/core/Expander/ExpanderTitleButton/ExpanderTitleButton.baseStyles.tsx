@@ -6,13 +6,15 @@ import { allStates } from '../../../utils/css';
 export const expanderTitleButtonBaseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   position: relative;
-  display: block;
   width: 100%;
   max-width: 100%;
   min-height: 60px;
   background-color: ${theme.colors.highlightLight4};
   border-radius: inherit;
 
+  &.fi-expander_title-button {
+    display: block;
+  }
   &.fi-expander_title-button--open {
     background-color: ${theme.colors.whiteBase};
     border-bottom-left-radius: 0;

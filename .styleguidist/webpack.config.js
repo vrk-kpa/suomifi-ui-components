@@ -3,11 +3,11 @@ const path = require('path');
 module.exports = (env) => ({
   mode: env.production ? 'production' : 'development',
   devtool: env.production ? 'inline-source-map' : 'eval',
-  node: {
-    fs: 'empty',
-  },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    fallback: {
+      fs: false,
+    },
   },
   module: {
     rules: [
@@ -28,3 +28,4 @@ module.exports = (env) => ({
     ],
   },
 });
+

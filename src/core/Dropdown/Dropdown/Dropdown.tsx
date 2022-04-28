@@ -20,7 +20,7 @@ import {
 import { positionMatchWidth } from '@reach/popover';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { useEnhancedEffect } from '../../../utils/common';
-import { logger } from '../../../utils/log';
+import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { HtmlSpan, HtmlDiv } from '../../../reset';
 import { Label, LabelMode } from '../../Form/Label/Label';
@@ -212,7 +212,7 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
     } = this.props;
 
     if (React.Children.count(children) < 1) {
-      logger.warn(`Dropdown '${labelText}' does not contain items`);
+      getLogger().warn(`Dropdown '${labelText}' does not contain items`);
       return null;
     }
 

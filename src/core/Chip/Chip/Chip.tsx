@@ -1,7 +1,7 @@
 import React, { Component, forwardRef } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
-import { logger } from '../../../utils/log';
+import { getLogger } from '../../../utils/log';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { Icon } from '../../Icon/Icon';
@@ -66,7 +66,7 @@ class DefaultChip extends Component<ChipProps & InnerRef> {
     const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
 
     if (removable && !actionLabel) {
-      logger.error(
+      getLogger().error(
         'Provide actionLabel to communicate removability to screen readers',
       );
     }

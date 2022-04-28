@@ -20,6 +20,8 @@ export { StaticChip, StaticChipProps } from './core/Chip/';
 export {
   Checkbox,
   CheckboxProps,
+  CheckboxGroup,
+  CheckboxGroupProps,
   TextInput,
   TextInputProps,
   ToggleInput,
@@ -49,6 +51,11 @@ export {
 } from './core/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';
+export {
+  LogoIcon,
+  LogoIconProps,
+  LogoIconKeys,
+} from './core/LogoIcon/LogoIcon';
 export {
   StaticIcon,
   StaticIconProps,
@@ -119,6 +126,7 @@ export {
   TypographyProp,
   SpacingProp,
 } from './core/theme';
+export { getLogger, setLogger, Logger } from './utils/log/logger';
 export {
   suomifiDesignTokens,
   DesignTokens,
