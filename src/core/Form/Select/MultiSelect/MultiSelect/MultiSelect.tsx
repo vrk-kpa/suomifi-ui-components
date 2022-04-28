@@ -380,12 +380,11 @@ class BaseMultiSelect<T> extends Component<
     }
   }
 
-  private disableItems(items: MultiSelectData[]): MultiSelectData[] {
-    return items.map((item) => ({
+  private disableItems = (items: MultiSelectData[]): MultiSelectData[] =>
+    items.map((item) => ({
       ...item,
       disabled: true,
     }));
-  }
 
   render() {
     const {
