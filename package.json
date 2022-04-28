@@ -167,7 +167,7 @@
   "peerDependencies": {
     "@types/styled-components": ">=5.1.9",
     "@types/warning": ">=3.0.0",
-    "react": ">=16.8.0",
+    "react": ">=16.8.0 < 18",
     "styled-components": ">=5.2.1"
   },
   "lint-staged": {
