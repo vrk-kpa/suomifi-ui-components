@@ -502,13 +502,13 @@ exports[`has matching snapshot 1`] = `
   fill: hsl(212,63%,37%);
 }
 
-.c8[disabled],
-.c8:disabled {
+.c8.fi-input-clear-button[disabled],
+.c8.fi-input-clear-button:disabled {
   cursor: not-allowed;
 }
 
-.c8[disabled].fi-input-clear-button .fi-input-clear-button_icon .fi-icon-base-fill,
-.c8:disabled.fi-input-clear-button .fi-input-clear-button_icon .fi-icon-base-fill {
+.c8.fi-input-clear-button[disabled] .fi-input-clear-button_icon .fi-icon-base-fill,
+.c8.fi-input-clear-button:disabled .fi-input-clear-button_icon .fi-icon-base-fill {
   fill: hsl(202,7%,67%);
 }
 
@@ -545,13 +545,13 @@ exports[`has matching snapshot 1`] = `
   fill: hsl(0,0%,16%);
 }
 
-.c11[disabled],
-.c11:disabled {
+.c11.fi-input-toggle-button[disabled],
+.c11.fi-input-toggle-button:disabled {
   cursor: not-allowed;
 }
 
-.c11[disabled].fi-input-toggle-button .fi-input-toggle-button_icon .fi-icon-base-fill,
-.c11:disabled.fi-input-toggle-button .fi-input-toggle-button_icon .fi-icon-base-fill {
+.c11.fi-input-toggle-button[disabled] .fi-input-toggle-button_icon .fi-icon-base-fill,
+.c11.fi-input-toggle-button:disabled .fi-input-toggle-button_icon .fi-icon-base-fill {
   fill: hsl(202,7%,67%);
 }
 

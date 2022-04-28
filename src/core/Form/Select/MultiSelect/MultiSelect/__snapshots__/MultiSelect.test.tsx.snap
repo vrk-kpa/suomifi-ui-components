@@ -824,13 +824,13 @@ exports[`has matching snapshot 1`] = `
   fill: hsl(0,0%,16%);
 }
 
-.c7[disabled],
-.c7:disabled {
+.c7.fi-input-toggle-button[disabled],
+.c7.fi-input-toggle-button:disabled {
   cursor: not-allowed;
 }
 
-.c7[disabled].fi-input-toggle-button .fi-input-toggle-button_icon .fi-icon-base-fill,
-.c7:disabled.fi-input-toggle-button .fi-input-toggle-button_icon .fi-icon-base-fill {
+.c7.fi-input-toggle-button[disabled] .fi-input-toggle-button_icon .fi-icon-base-fill,
+.c7.fi-input-toggle-button:disabled .fi-input-toggle-button_icon .fi-icon-base-fill {
   fill: hsl(202,7%,67%);
 }
 
