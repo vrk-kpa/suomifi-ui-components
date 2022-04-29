@@ -272,7 +272,6 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  background-color: hsl(0,0%,100%);
   padding-left: 50px;
   position: relative;
   cursor: pointer;
