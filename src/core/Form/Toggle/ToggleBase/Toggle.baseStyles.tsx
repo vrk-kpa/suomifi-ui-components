@@ -14,7 +14,6 @@ export const focusOverrides = css`
 export const toggleBaseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
-  background-color: ${theme.colors.whiteBase};
   padding-left: 50px;
   position: relative;
   cursor: pointer;
