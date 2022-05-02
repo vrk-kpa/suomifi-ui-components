@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
-import { element, font } from '../../theme/reset';
+import { font } from '../../theme/reset';
 import { allStates } from '../../../utils/css';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
