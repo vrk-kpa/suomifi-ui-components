@@ -155,10 +155,6 @@ exports[`Basic expander group should match snapshot 1`] = `
   transition: margin 50ms cubic-bezier(0.28,0.84,0.42,1);
 }
 
-.c1 > .fi-expander-group_expanders .fi-expander .fi-icon {
-  color: hsl(212,63%,45%);
-}
-
 .c1 > .fi-expander-group_expanders .fi-expander > {
   border-radius: 0;
 }
