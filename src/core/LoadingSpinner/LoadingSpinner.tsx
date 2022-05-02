@@ -8,6 +8,7 @@ import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import { ComponentIcon } from '../StaticIcon/StaticIcon';
 import { Icon } from '../../core/Icon/Icon';
 
+export type LoadingSpinnerStatus = 'loading' | 'success' | 'failed';
 export interface LoadingSpinnerProps {
   /** Custom class name for styling and customizing */
   className?: string;
@@ -26,7 +27,7 @@ export interface LoadingSpinnerProps {
   /** Status that the component indicates. Affects the icon used.
    * @default 'loading'
    */
-  status?: 'loading' | 'success' | 'failed';
+  status?: LoadingSpinnerStatus;
   /** Affects the size of the icon and label text
    * @default 'normal'
    */

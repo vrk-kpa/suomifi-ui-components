@@ -20,6 +20,7 @@ export { StaticChip, StaticChipProps } from './core/Chip/';
 export {
   LoadingSpinner,
   LoadingSpinnerProps,
+  LoadingSpinnerStatus,
 } from './core/LoadingSpinner/LoadingSpinner';
 export {
   Checkbox,
