@@ -11021,10 +11021,10 @@ suomifi-design-tokens@3.2.0:
   resolved "https://registry.yarnpkg.com/suomifi-design-tokens/-/suomifi-design-tokens-3.2.0.tgz#62e8dcef327a1dca080cef0ceadd39196bdf5d66"
   integrity sha512-M/bFDY1DpogqwDQ80SL6RnCp+k2gd8wcti06eoW4ql3G1zVPxCX2YFBcDvG8p84agXNzxJWASkM0Qy1pi+/SWQ==
 
-suomifi-icons@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-6.1.0.tgz#9232473a7896818a67d1fbac3e68775d260c4cb3"
-  integrity sha512-plJc4nG8DR8Rv7dnZFvIgbX0GrnG3GWBMXCbd/yd54o76cmgAJfRZARziqCXqKwx13i8YmejdCJEgrFgHBW/CA==
+suomifi-icons@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-6.2.0.tgz#661fc2327a42dfa5e0cfc6d560d22c5caff1b122"
+  integrity sha512-KrZTTm8+PqUaKOgGD5+SiWcE1XbSBw5EqKRitbPBxbDUT/a+1eywUM/6CBnPH4wjbkdlq75b2Z1ML19yuBGjMA==
 
 supports-color@^2.0.0:
   version "2.0.0"
