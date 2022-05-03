@@ -191,6 +191,7 @@ exports[`children should match snapshot 1`] = `
 
 .c1.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -506,6 +507,7 @@ exports[`className should match snapshot 1`] = `
 
 .c1.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -821,6 +823,7 @@ exports[`disabled should match snapshot 1`] = `
 
 .c1.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -1137,6 +1140,7 @@ exports[`hintText should match snapshot 1`] = `
 
 .c1.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -1459,6 +1463,7 @@ exports[`id should match snapshot 1`] = `
 
 .c1.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -1774,6 +1779,7 @@ exports[`name should match snapshot 1`] = `
 
 .c1.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -2090,6 +2096,7 @@ exports[`value should match snapshot 1`] = `
 
 .c1.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -2405,6 +2412,7 @@ exports[`variant should match snapshot 1`] = `
 
 .c1.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
