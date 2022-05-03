@@ -95,6 +95,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         position: absolute;
         & .fi-icon-radio-base {
           stroke: ${theme.colors.depthDark3};
+          fill: ${theme.colors.whiteBase};
         }
       }
       &:checked {
