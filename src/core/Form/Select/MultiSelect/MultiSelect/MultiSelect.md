@@ -169,7 +169,7 @@ const foods = [
       items={foods}
       labelText="Food"
       visualPlaceholder="Selection disabled"
-      ariaSelectedAmountText="foods selected"
+      ariaSelectedAmountText="items selected"
       ariaOptionsAvailableText="options available"
       ariaOptionChipRemovedText="removed"
     />
