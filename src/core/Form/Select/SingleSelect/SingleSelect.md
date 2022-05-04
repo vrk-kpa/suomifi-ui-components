@@ -174,6 +174,9 @@ const animals = [
   >
     Snail
   </button>
+  <button onClick={() => setSelectedAnimal(null)}>
+    Clear selection
+  </button>
 </>;
 ```
 
