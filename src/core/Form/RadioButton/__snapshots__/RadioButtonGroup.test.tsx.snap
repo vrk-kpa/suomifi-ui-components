@@ -282,6 +282,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 
 .c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -807,6 +808,7 @@ exports[`props className should match snapshot 1`] = `
 
 .c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -1332,6 +1334,7 @@ exports[`props defaultValue should match snapshot 1`] = `
 
 .c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -1858,6 +1861,7 @@ exports[`props hintText should match snapshot 1`] = `
 
 .c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -2388,6 +2392,7 @@ exports[`props id should match snapshot 1`] = `
 
 .c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -2913,6 +2918,7 @@ exports[`props label should match snapshot 1`] = `
 
 .c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -3450,6 +3456,7 @@ exports[`props labelMode should match snapshot 1`] = `
 
 .c6.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c6.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -3975,6 +3982,7 @@ exports[`props name should match snapshot 1`] = `
 
 .c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -4500,6 +4508,7 @@ exports[`props value should match snapshot 1`] = `
 
 .c5.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c5.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
