@@ -1,20 +1,56 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Tooltip } from './Tooltip';
 import { axeTest } from '../../utils/test';
 
+describe('Basic tooltip', () => {
+  const BasicTooltip = (
+    <Tooltip
+      ariaCloseButtonLabelText="Close tooltip"
+      ariaToggleButtonLabelText="Toggle tooltip"
+    >
+      Test Tooltip
+    </Tooltip>
+  );
+  const { container } = render(BasicTooltip);
+  expect(container).toMatchSnapshot();
+});
+
 describe('props', () => {
-  describe('Basic tooltip', () => {
-    const BasicTooltip = (
-      <Tooltip
-        ariaCloseButtonLabelText="Close tooltip"
-        ariaToggleButtonLabelText="Toggle tooltip"
-      >
-        Test Tooltip
-      </Tooltip>
-    );
-    const { container } = render(BasicTooltip);
-    expect(container).toMatchSnapshot();
+  describe('ariaCloseButtonLabelText', () => {
+    it('should have the given value', () => {
+      render(
+        <Tooltip
+          ariaCloseButtonLabelText="Close tooltip"
+          ariaToggleButtonLabelText="Toggle tooltip"
+        >
+          Test Tooltip
+        </Tooltip>,
+      );
+
+      // FIXME: For some reason, two identical buttons are returned.
+      const toggleButton = screen.getAllByRole('button')[0];
+      expect(toggleButton).toHaveAttribute('aria-label', 'Toggle tooltip');
+    });
+  });
+
+  describe('ariaToggleButtonLabelText', () => {
+    it('should have the given value', () => {
+      render(
+        <Tooltip
+          ariaCloseButtonLabelText="Close tooltip"
+          ariaToggleButtonLabelText="Toggle tooltip"
+        >
+          Test Tooltip
+        </Tooltip>,
+      );
+
+      // FIXME: For some reason, two identical buttons are returned.
+      const toggleButton = screen.getAllByRole('button')[0];
+      toggleButton.click();
+      const closeButton = screen.getAllByRole('button')[1];
+      expect(closeButton).toHaveAttribute('aria-label', 'Close tooltip');
+    });
   });
 });
 
