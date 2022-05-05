@@ -46,18 +46,15 @@ const StyledTooltipButton = styled(
 `;
 
 export const TooltipButton = forwardRef(
-  (props: HtmlButtonProps, ref: React.RefObject<HTMLButtonElement>) => {
-    const { ...passProps } = props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledTooltipButton
-            theme={suomifiTheme}
-            forwardedRef={ref}
-            {...passProps}
-          />
-        )}
-      </SuomifiThemeConsumer>
-    );
-  },
+  (props: HtmlButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledTooltipButton
+          theme={suomifiTheme}
+          forwardedRef={ref}
+          {...props}
+        />
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
