@@ -100,12 +100,21 @@ exports[`children should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c1:focus {
+.c1.fi-chip {
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
+  max-height: 100%;
+  display: inline-block;
+}
+
+.c1.fi-chip:focus {
   outline: 0;
   position: relative;
 }
 
-.c1:focus::after {
+.c1.fi-chip:focus::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -120,15 +129,6 @@ exports[`children should match snapshot 1`] = `
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
   border-radius: 16px;
-}
-
-.c1.fi-chip {
-  border-radius: 14px;
-  padding: 2px 10px;
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
-  max-height: 100%;
-  display: inline-block;
 }
 
 .c1.fi-chip .fi-chip--content {
@@ -303,12 +303,21 @@ exports[`classnames should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c1:focus {
+.c1.fi-chip {
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
+  max-height: 100%;
+  display: inline-block;
+}
+
+.c1.fi-chip:focus {
   outline: 0;
   position: relative;
 }
 
-.c1:focus::after {
+.c1.fi-chip:focus::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -323,15 +332,6 @@ exports[`classnames should match snapshot 1`] = `
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
   border-radius: 16px;
-}
-
-.c1.fi-chip {
-  border-radius: 14px;
-  padding: 2px 10px;
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
-  max-height: 100%;
-  display: inline-block;
 }
 
 .c1.fi-chip .fi-chip--content {
@@ -502,12 +502,21 @@ exports[`disabled should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c1:focus {
+.c1.fi-chip {
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
+  max-height: 100%;
+  display: inline-block;
+}
+
+.c1.fi-chip:focus {
   outline: 0;
   position: relative;
 }
 
-.c1:focus::after {
+.c1.fi-chip:focus::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -522,15 +531,6 @@ exports[`disabled should match snapshot 1`] = `
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
   border-radius: 16px;
-}
-
-.c1.fi-chip {
-  border-radius: 14px;
-  padding: 2px 10px;
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
-  max-height: 100%;
-  display: inline-block;
 }
 
 .c1.fi-chip .fi-chip--content {
