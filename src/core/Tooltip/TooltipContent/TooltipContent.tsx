@@ -42,10 +42,10 @@ class BaseTooltipContent extends Component<TooltipContentProps & InnerRef> {
       onCloseButtonClick,
       forwardedRef,
       ariaCloseButtonLabelText,
-      ...rest
+      ...passProps
     } = this.props;
     return (
-      <div {...rest} ref={forwardedRef}>
+      <div {...passProps} ref={forwardedRef}>
         {children}
         <HtmlButton
           aria-label={ariaCloseButtonLabelText}
