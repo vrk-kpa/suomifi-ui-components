@@ -148,7 +148,7 @@ class BaseSingleSelect<T> extends Component<
       const resolvedSelectedItem =
         'selectedItem' in nextProps ? selectedItem : prevState.selectedItem;
       const resolvedInputValue = selectedItemChanged
-        ? selectedItem?.labelText || ''
+        ? resolvedSelectedItem?.labelText || ''
         : prevState.filterInputValue;
 
       return {
