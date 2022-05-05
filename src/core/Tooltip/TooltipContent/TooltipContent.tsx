@@ -81,18 +81,15 @@ const StyledTooltipContent = styled(
 `;
 
 export const TooltipContent = forwardRef(
-  (props: TooltipContentProps, ref: RefObject<HTMLDivElement>) => {
-    const { ...passProps } = props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledTooltipContent
-            theme={suomifiTheme}
-            forwardedRef={ref}
-            {...passProps}
-          />
-        )}
-      </SuomifiThemeConsumer>
-    );
-  },
+  (props: TooltipContentProps, ref: RefObject<HTMLDivElement>) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledTooltipContent
+          theme={suomifiTheme}
+          forwardedRef={ref}
+          {...props}
+        />
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
