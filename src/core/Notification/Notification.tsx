@@ -57,6 +57,10 @@ export interface NotificationProps extends HtmlDivWithRefProps {
   closeButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'aria-label'>;
   /** Use small screen styling */
   smallScreen?: boolean;
+  /** Label for the notification region for screen reader users.
+   * If one is not provided, `headingText` or finally notification content will be used as the label.
+   */
+  regionAriaLabel?: string;
 }
 
 interface InnerRef {
@@ -79,6 +83,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
       closeButtonProps = {},
       headingVariant = 'h2',
       style,
+      regionAriaLabel,
       ...passProps
     } = this.props;
 
@@ -93,7 +98,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
       <HtmlDivWithRef
         as="section"
         role="region"
-        aria-label={headingText || children}
+        aria-label={regionAriaLabel || headingText || children}
         {...passProps}
         className={classnames(
           baseClassName,
