@@ -52,6 +52,23 @@ describe('props', () => {
       expect(closeButton).toHaveAttribute('aria-label', 'Close tooltip');
     });
   });
+
+  describe('toggleButtonClassName', () => {
+    test('toggleButton should have the given className', () => {
+      render(
+        <Tooltip
+          ariaCloseButtonLabelText="Close tooltip"
+          ariaToggleButtonLabelText="Toggle tooltip"
+          toggleButtonClassName="custom-class"
+        >
+          Test Tooltip
+        </Tooltip>,
+      );
+      // FIXME: For some reason, two identical buttons are returned.
+      const toggleButton = screen.getAllByRole('button')[0];
+      expect(toggleButton).toHaveClass('custom-class');
+    });
+  });
 });
 
 describe('accessibility', () => {
