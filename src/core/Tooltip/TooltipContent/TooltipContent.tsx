@@ -7,6 +7,7 @@ import React, {
   KeyboardEvent,
 } from 'react';
 import { default as styled } from 'styled-components';
+import classNames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlButton } from '../../../reset/HtmlButton/HtmlButton';
 import { Icon } from '../../Icon/Icon';
@@ -15,6 +16,7 @@ import { baseStyles } from './TooltipContent.baseStyles';
 const baseClassName = 'fi-tooltip';
 
 const tooltipContentClassNames = {
+  content: `${baseClassName}_content`,
   closeButton: `${baseClassName}_close-button`,
   closeButtonIcon: `${baseClassName}_close-button_icon`,
 };
@@ -42,10 +44,15 @@ class BaseTooltipContent extends Component<TooltipContentProps & InnerRef> {
       onCloseButtonClick,
       forwardedRef,
       ariaCloseButtonLabelText,
+      className,
       ...passProps
     } = this.props;
     return (
-      <div {...passProps} ref={forwardedRef}>
+      <div
+        {...passProps}
+        ref={forwardedRef}
+        className={classNames(tooltipContentClassNames.content, className)}
+      >
         {children}
         <HtmlButton
           aria-label={ariaCloseButtonLabelText}
