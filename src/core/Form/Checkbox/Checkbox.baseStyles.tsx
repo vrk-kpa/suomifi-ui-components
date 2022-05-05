@@ -93,7 +93,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     cursor: pointer;
     min-height: 27px;
     line-height: 1.5em;
-    padding-top: 1px;
+    padding-top: 2px;
     &::before {
       content: '';
       position: absolute;
