@@ -54,7 +54,7 @@ export interface NotificationProps extends HtmlDivWithRefProps {
   /** Click handler for the close button */
   onCloseButtonClick?: () => void;
   /** Custom props passed to the close button */
-  closeButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'aria-label'>;
+  closeButtonProps?: Omit<HtmlButtonProps, 'onClick'>;
   /** Use small screen styling */
   smallScreen?: boolean;
   /** Label for the notification region for screen reader users.
@@ -90,6 +90,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
     const {
       className: customCloseButtonClassName,
       'aria-describedby': closeButtonPropsAriaDescribedBy,
+      'aria-label': closeButtonPropsAriaLabel,
       ...closeButtonPassProps
     } = closeButtonProps;
     const variantIcon = status === 'neutral' ? 'info' : 'error';
@@ -139,7 +140,8 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
               customCloseButtonClassName,
             )}
             {...getConditionalAriaProp('aria-label', [
-              smallScreen ? closeText : undefined,
+              closeButtonPropsAriaLabel ||
+                (smallScreen ? closeText : undefined),
             ])}
             {...getConditionalAriaProp('aria-describedby', [
               closeButtonPropsAriaDescribedBy,

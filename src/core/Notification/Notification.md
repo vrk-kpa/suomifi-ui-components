@@ -15,6 +15,7 @@ import {
     headingText="Error notification"
     closeText="Close"
     smallScreen
+    closeButtonProps={{ 'aria-label': 'Custom close button label' }}
   >
     This is a small screen error notification text.
     <Link href="#">Link to somewhere</Link>
