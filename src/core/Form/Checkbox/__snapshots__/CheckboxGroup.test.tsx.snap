@@ -211,7 +211,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   display: inline-block;
-  vertical-align: center;
+  vertical-align: middle;
   color: hsl(0,0%,16%);
 }
 
@@ -424,16 +424,16 @@ exports[`default, with only required props should match snapshot 1`] = `
       <legend
         class="c3 fi-checkbox-group_legend"
       >
-        <label
+        <div
           class="c4 c5 fi-checkbox-group_label--visible fi-label-text"
-          for="1"
         >
-          <span
+          <label
             class="c6 fi-label-text_label-span"
+            for="1"
           >
             Label
-          </span>
-        </label>
+          </label>
+        </div>
       </legend>
       <div
         class="c0 fi-checkbox-group_container"
