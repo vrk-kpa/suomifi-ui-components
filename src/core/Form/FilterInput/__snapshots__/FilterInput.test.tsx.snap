@@ -311,6 +311,7 @@ exports[`snapshot matches 1`] = `
   color: hsl(202,7%,67%);
   background-color: hsl(202,7%,97%);
   border-color: hsl(202,7%,80%);
+  cursor: not-allowed;
 }
 
 .c1.fi-filter-input--label-align-left .fi-filter-input_wrapper {

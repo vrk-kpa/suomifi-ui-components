@@ -20,5 +20,15 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         fill: ${theme.colors.blackBase};
       }
     }
+
+    &[disabled],
+    &:disabled {
+      cursor: not-allowed;
+      & .fi-input-toggle-button_icon {
+        & .fi-icon-base-fill {
+          fill: ${theme.colors.depthBase};
+        }
+      }
+    }
   }
 `;

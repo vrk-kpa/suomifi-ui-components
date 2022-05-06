@@ -148,3 +148,30 @@ const animals = [
     <button onClick={() => setSelectedAnimals([{ labelText: 'Snail', uniqueItemId: 'snail-321' }])}>Snail</button>
 </>
 ```
+
+### Disabled
+
+```
+const foods = [
+  {
+    labelText: 'Pizza',
+    uniqueItemId: 'pizza-123'
+  },
+  {
+    labelText: 'Burger',
+    uniqueItemId: 'burger-321'
+  }
+];
+
+<>
+    <MultiSelect
+      disabled={true}
+      items={foods}
+      labelText="Food"
+      visualPlaceholder="Selection disabled"
+      ariaSelectedAmountText="items selected"
+      ariaOptionsAvailableText="options available"
+      ariaOptionChipRemovedText="removed"
+    />
+</>
+```
