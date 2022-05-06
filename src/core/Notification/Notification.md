@@ -2,8 +2,7 @@
 import {
   Notification,
   Button,
-  Paragraph,
-  Link
+  Paragraph
 } from 'suomifi-ui-components';
 
 <>
@@ -15,16 +14,15 @@ import {
     headingText="Error notification"
     closeText="Close"
     smallScreen
-    closeButtonProps={{ 'aria-label': 'Custom close button label' }}
   >
     This is a small screen error notification text.
-    <Link href="#">Link to somewhere</Link>
   </Notification>
   <Notification
     id="notification-id"
     closeText="Close"
     headingText="Notification heading"
     headingVariant="h3"
+    closeButtonProps={{ 'aria-label': 'Custom close button label' }}
     actionElements={
       <>
         <Button variant="secondary">Action button</Button>
