@@ -95,6 +95,7 @@ describe('props', () => {
         closeText="Close"
         closeButtonProps={{
           'aria-labelledby': 'test-element',
+          'aria-label': 'test-label',
           disabled: true,
           className: 'testClass',
         }}
@@ -112,6 +113,7 @@ describe('props', () => {
         'aria-labelledby',
         'test-element',
       );
+      expect(getByRole('button')).toHaveAttribute('aria-label', 'test-label');
       expect(getByRole('button')).toHaveAttribute('disabled');
       expect(getByRole('button')).toHaveTextContent('Close');
     });
@@ -136,6 +138,37 @@ describe('props', () => {
       expect(container.querySelector('#testId')).toHaveAttribute(
         'aria-live',
         'off',
+      );
+    });
+  });
+
+  describe('regionAriaLabel', () => {
+    const NotificationWithRegionAriaLabel = (
+      <Notification
+        closeText="Close"
+        regionAriaLabel="test-label"
+        headingText="Lorem ipsum dolor sit"
+      >
+        Testcontent
+      </Notification>
+    );
+
+    const NotificationWithoutRegionAriaLabel = (
+      <Notification closeText="Close" headingText="Lorem ipsum dolor sit">
+        Testcontent
+      </Notification>
+    );
+
+    it('should have specified aria-label', () => {
+      const { getByRole } = render(NotificationWithRegionAriaLabel);
+      expect(getByRole('region')).toHaveAttribute('aria-label', 'test-label');
+    });
+
+    it('should use headingText as fallback aria-label', () => {
+      const { getByRole } = render(NotificationWithoutRegionAriaLabel);
+      expect(getByRole('region')).toHaveAttribute(
+        'aria-label',
+        'Lorem ipsum dolor sit',
       );
     });
   });
