@@ -57,6 +57,7 @@ const largeVariantStyles = (theme: SuomifiTheme) => css`
     & .fi-checkbox_label {
       padding-left: ${theme.spacing.xxl};
       min-height: 30px;
+      line-height: 30px;
 
       &::before {
         content: '';
@@ -92,8 +93,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     padding-left: ${theme.spacing.l};
     cursor: pointer;
     min-height: 27px;
-    line-height: 1.5em;
-    padding-top: 2px;
+    line-height: 27px;
+
     &::before {
       content: '';
       position: absolute;
