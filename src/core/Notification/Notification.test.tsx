@@ -118,29 +118,6 @@ describe('props', () => {
       expect(getByRole('button')).toHaveTextContent('Close');
     });
   });
-  describe('ariaLiveMode', () => {
-    const NotificationWithDefaultAriaLiveMode = (
-      <Notification
-        id="testId"
-        closeText="Close"
-        ariaLiveMode="off"
-        headingText="Lorem ipsum dolor sit"
-      >
-        Testcontent
-      </Notification>
-    );
-
-    it('should have specified aria-live mode', () => {
-      const { container } = render(NotificationWithDefaultAriaLiveMode);
-      expect(container.querySelector('#testId')).toHaveClass(
-        'fi-notification_text-content-wrapper',
-      );
-      expect(container.querySelector('#testId')).toHaveAttribute(
-        'aria-live',
-        'off',
-      );
-    });
-  });
 
   describe('regionAriaLabel', () => {
     const NotificationWithRegionAriaLabel = (

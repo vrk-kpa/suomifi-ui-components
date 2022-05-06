@@ -35,10 +35,6 @@ export interface NotificationProps extends HtmlDivWithRefProps {
    * @default 'neutral'
    */
   status?: 'neutral' | 'error';
-  /** Set aria-live mode for the Notification text content and heading.
-   * @default 'polite'
-   */
-  ariaLiveMode?: 'polite' | 'assertive' | 'off';
   /** Heading for the Notification */
   headingText?: string;
   /** Main content of the Notification */
@@ -71,7 +67,6 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
   render() {
     const {
       className,
-      ariaLiveMode = 'polite',
       status = 'neutral',
       headingText,
       children,
@@ -118,7 +113,6 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
           <HtmlDiv
             className={notificationClassNames.textContentWrapper}
             id={id}
-            aria-live={ariaLiveMode}
           >
             <HtmlDiv className={notificationClassNames.content}>
               {headingText && (
