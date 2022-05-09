@@ -444,18 +444,23 @@ exports[`has matching snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
+}
+
+.c12.fi-chip {
   border-radius: 14px;
   padding: 2px 10px;
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
+  max-height: 100%;
+  display: inline-block;
 }
 
-.c12:focus {
+.c12.fi-chip:focus {
   outline: 0;
   position: relative;
 }
 
-.c12:focus::after {
+.c12.fi-chip:focus::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -470,15 +475,6 @@ exports[`has matching snapshot 1`] = `
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
   border-radius: 16px;
-}
-
-.c12.fi-chip {
-  border-radius: 14px;
-  padding: 2px 10px;
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
-  max-height: 100%;
-  display: inline-block;
 }
 
 .c12.fi-chip .fi-chip--content {
