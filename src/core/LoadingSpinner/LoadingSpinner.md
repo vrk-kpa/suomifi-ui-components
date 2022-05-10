@@ -79,7 +79,7 @@ const timeout = () => {
   >
     {visible ? 'hide spinner' : 'show spinner'}
   </button>
-  <div aria-live="assertive" aria-busy={status}>
+  <div aria-live="assertive" aria-busy={status === 'loading'}>
     {visible && (
       <LoadingSpinner
         status={status}
