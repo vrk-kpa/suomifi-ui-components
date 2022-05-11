@@ -88,6 +88,44 @@ describe('props', () => {
       expect(contentDiv).toHaveClass('custom-class');
     });
   });
+
+  describe('onToggleButtonClick', () => {
+    it('is clicked; given method called', () => {
+      const mockClickHandler = jest.fn();
+      render(
+        <Tooltip
+          ariaCloseButtonLabelText="Close tooltip"
+          ariaToggleButtonLabelText="Toggle tooltip"
+          onToggleButtonClick={mockClickHandler}
+        >
+          Test Tooltip
+        </Tooltip>,
+      );
+      const toggleButton = screen.getAllByRole('button')[0];
+      toggleButton.click();
+      expect(mockClickHandler).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('onCloseButtonClick', () => {
+    it('is clicked; given method called', () => {
+      const mockClickHandler = jest.fn();
+      render(
+        <Tooltip
+          ariaCloseButtonLabelText="Close tooltip"
+          ariaToggleButtonLabelText="Toggle tooltip"
+          onCloseButtonClick={mockClickHandler}
+        >
+          Test Tooltip
+        </Tooltip>,
+      );
+      const toggleButton = screen.getAllByRole('button')[0];
+      toggleButton.click();
+      const closeButton = screen.getAllByRole('button')[1];
+      closeButton.click();
+      expect(mockClickHandler).toHaveBeenCalledTimes(1);
+    });
+  });
 });
 
 describe('accessibility', () => {
