@@ -30,7 +30,36 @@ exports[`snapshots match error status with statustext 1`] = `
   box-sizing: border-box;
 }
 
-.c4 {
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -53,13 +82,13 @@ exports[`snapshots match error status with statustext 1`] = `
   max-width: 100%;
 }
 
-.c4::-webkit-input-placeholder {
+.c5::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c4::before,
-.c4::after {
+.c5::before,
+.c5::after {
   box-sizing: border-box;
 }
 
@@ -92,7 +121,7 @@ exports[`snapshots match error status with statustext 1`] = `
   box-sizing: border-box;
 }
 
-.c3.fi-label-text .fi-label-text_label-span {
+.c4.fi-label-text .fi-label-text_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -106,18 +135,23 @@ exports[`snapshots match error status with statustext 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  display: block;
+  display: inline-block;
+  vertical-align: center;
   color: hsl(0,0%,16%);
 }
 
-.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c4.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c5 {
+.c4.fi-label-text .fi-label-text_label-span .fi-tooltip {
+  margin-left: 6px;
+}
+
+.c6 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -136,11 +170,11 @@ exports[`snapshots match error status with statustext 1`] = `
   line-height: 20px;
 }
 
-.c5.fi-status-text {
+.c6.fi-status-text {
   display: block;
 }
 
-.c5.fi-status-text.fi-status-text--error {
+.c6.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
 }
 
@@ -324,7 +358,7 @@ exports[`snapshots match error status with statustext 1`] = `
     class="c2 fi-text-input_wrapper"
   >
     <label
-      class="c0 c3 fi-text-input_label--visible fi-label-text"
+      class="c3 c4 fi-text-input_label--visible fi-label-text"
       for="test-id2"
     >
       <span
@@ -339,7 +373,7 @@ exports[`snapshots match error status with statustext 1`] = `
       <input
         aria-describedby="test-id2-statusText"
         aria-invalid="true"
-        class="c4 fi-text-input_input"
+        class="c5 fi-text-input_input"
         data-testid="textinput2"
         id="test-id2"
         placeholder="Test TextInput"
@@ -349,7 +383,7 @@ exports[`snapshots match error status with statustext 1`] = `
     <span
       aria-atomic="true"
       aria-live="assertive"
-      class="c2 c5 fi-text-input_statusText--has-content fi-status-text fi-status-text--error"
+      class="c2 c6 fi-text-input_statusText--has-content fi-status-text fi-status-text--error"
       id="test-id2-statusText"
     >
       This is a status text
@@ -385,6 +419,436 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 
 .c0::before,
 .c0::after {
+  box-sizing: border-box;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
+.c6 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.c6::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+.c6::before,
+.c6::after {
+  box-sizing: border-box;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c5 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.c4.fi-label-text .fi-label-text_label-span {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  display: inline-block;
+  vertical-align: center;
+  color: hsl(0,0%,16%);
+}
+
+.c4.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c4.fi-label-text .fi-label-text_label-span .fi-tooltip {
+  margin-left: 6px;
+}
+
+.c7 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c7.fi-status-text {
+  display: block;
+}
+
+.c7.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,48%);
+}
+
+.c1 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  width: 290px;
+}
+
+.c1 .fi-text-input_wrapper {
+  width: 100%;
+  display: inline-block;
+}
+
+.c1 .fi-text-input_wrapper .fi-text-input_label--visible {
+  margin-bottom: 10px;
+}
+
+.c1 .fi-text-input_wrapper .fi-hint-text {
+  margin-bottom: 10px;
+}
+
+.c1 .fi-text-input_wrapper .fi-text-input_statusText--has-content {
+  margin-top: 5px;
+}
+
+.c1 .fi-text-input_input-element-container > input:focus {
+  outline-color: hsl(196,77%,44%);
+  outline-width: 2px;
+  outline-offset: 2px;
+  outline-style: solid;
+}
+
+.c1 .fi-text-input_input-element-container:focus-within > input:focus {
+  outline: none;
+}
+
+.c1 .fi-text-input_input-element-container:focus-within {
+  position: relative;
+}
+
+.c1 .fi-text-input_input-element-container:focus-within::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c1.fi-text-input--full-width {
+  width: 100%;
+}
+
+.c1 .fi-text-input_input {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+  line-height: 1;
+  background-color: hsl(0,0%,100%);
+  min-width: 40px;
+  width: 100%;
+  min-height: 40px;
+  padding-left: 10px;
+  border-color: hsl(201,7%,58%);
+}
+
+.c1 .fi-text-input_input::-webkit-input-placeholder {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
+.c1 .fi-text-input_input::-moz-placeholder {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
+.c1 .fi-text-input_input:-ms-input-placeholder {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
+.c1 .fi-text-input_input::placeholder {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
+.c1 .fi-text-input_input::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.c1 .fi-text-input_input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.c1.fi-text-input_with-icon .fi-text-input_input-element-container {
+  position: relative;
+}
+
+.c1.fi-text-input_with-icon .fi-text-input_input {
+  padding-right: 40px;
+}
+
+.c1.fi-text-input_with-icon .fi-icon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 10px;
+  right: 10px;
+}
+
+.c1.fi-text-input--error .fi-text-input_input {
+  border: 2px solid hsl(3,59%,48%);
+  padding-left: 9px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.c1.fi-text-input--success .fi-text-input_input {
+  border: 2px solid hsl(166,90%,34%);
+  padding-left: 9px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.c1.fi-text-input--disabled .fi-text-input_input {
+  color: hsl(202,7%,67%);
+  background-color: hsl(202,7%,97%);
+}
+
+.c1.fi-text-input--disabled .fi-icon-base-fill {
+  fill: hsl(202,7%,67%);
+}
+
+<div
+  class="c0 fi-text-input c1"
+>
+  <span
+    class="c2 fi-text-input_wrapper"
+  >
+    <label
+      class="c3 c4 fi-label-text"
+      for="test-id1"
+    >
+      <span
+        class="c2 c5 fi-visually-hidden"
+      >
+        Test input
+      </span>
+    </label>
+    <div
+      class="c0 fi-text-input_input-element-container"
+    >
+      <input
+        aria-invalid="false"
+        class="c6 fi-text-input_input"
+        data-testid="textinput1"
+        id="test-id1"
+        placeholder="Test TextInput"
+        type="text"
+      />
+    </div>
+    <span
+      aria-atomic="true"
+      aria-live="assertive"
+      class="c2 c7 fi-status-text"
+      id="test-id1-statusText"
+    />
+  </span>
+</div>
+`;
+
+exports[`snapshots match minimal implementation 1`] = `
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3::before,
+.c3::after {
   box-sizing: border-box;
 }
 
@@ -450,19 +914,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   box-sizing: border-box;
 }
 
-.c4 {
-  position: absolute;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-}
-
-.c3.fi-label-text .fi-label-text_label-span {
+.c4.fi-label-text .fi-label-text_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -476,15 +928,20 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  display: block;
+  display: inline-block;
+  vertical-align: center;
   color: hsl(0,0%,16%);
 }
 
-.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c4.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c4.fi-label-text .fi-label-text_label-span .fi-tooltip {
+  margin-left: 6px;
 }
 
 .c6 {
@@ -694,362 +1151,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
     class="c2 fi-text-input_wrapper"
   >
     <label
-      class="c0 c3 fi-label-text"
-      for="test-id1"
-    >
-      <span
-        class="c2 c4 fi-visually-hidden"
-      >
-        Test input
-      </span>
-    </label>
-    <div
-      class="c0 fi-text-input_input-element-container"
-    >
-      <input
-        aria-invalid="false"
-        class="c5 fi-text-input_input"
-        data-testid="textinput1"
-        id="test-id1"
-        placeholder="Test TextInput"
-        type="text"
-      />
-    </div>
-    <span
-      aria-atomic="true"
-      aria-live="assertive"
-      class="c2 c6 fi-status-text"
-      id="test-id1-statusText"
-    />
-  </span>
-</div>
-`;
-
-exports[`snapshots match minimal implementation 1`] = `
-.c0 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c0::before,
-.c0::after {
-  box-sizing: border-box;
-}
-
-.c4 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  overflow: visible;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline-block;
-  max-width: 100%;
-}
-
-.c4::-webkit-input-placeholder {
-  color: inherit;
-  opacity: 0.54;
-}
-
-.c4::before,
-.c4::after {
-  box-sizing: border-box;
-}
-
-.c2 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c2::before,
-.c2::after {
-  box-sizing: border-box;
-}
-
-.c3.fi-label-text .fi-label-text_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  display: block;
-  color: hsl(0,0%,16%);
-}
-
-.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c5 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.c5.fi-status-text {
-  display: block;
-}
-
-.c5.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
-}
-
-.c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  width: 290px;
-}
-
-.c1 .fi-text-input_wrapper {
-  width: 100%;
-  display: inline-block;
-}
-
-.c1 .fi-text-input_wrapper .fi-text-input_label--visible {
-  margin-bottom: 10px;
-}
-
-.c1 .fi-text-input_wrapper .fi-hint-text {
-  margin-bottom: 10px;
-}
-
-.c1 .fi-text-input_wrapper .fi-text-input_statusText--has-content {
-  margin-top: 5px;
-}
-
-.c1 .fi-text-input_input-element-container > input:focus {
-  outline-color: hsl(196,77%,44%);
-  outline-width: 2px;
-  outline-offset: 2px;
-  outline-style: solid;
-}
-
-.c1 .fi-text-input_input-element-container:focus-within > input:focus {
-  outline: none;
-}
-
-.c1 .fi-text-input_input-element-container:focus-within {
-  position: relative;
-}
-
-.c1 .fi-text-input_input-element-container:focus-within::after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  z-index: 9999;
-}
-
-.c1.fi-text-input--full-width {
-  width: 100%;
-}
-
-.c1 .fi-text-input_input {
-  color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-  min-width: 245px;
-  max-width: 100%;
-  padding: 8px 16px;
-  border: 1px solid hsl(202,7%,80%);
-  border-radius: 2px;
-  line-height: 1;
-  background-color: hsl(0,0%,100%);
-  min-width: 40px;
-  width: 100%;
-  min-height: 40px;
-  padding-left: 10px;
-  border-color: hsl(201,7%,58%);
-}
-
-.c1 .fi-text-input_input::-webkit-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-text-input_input::-moz-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-text-input_input:-ms-input-placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-text-input_input::placeholder {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
-.c1 .fi-text-input_input::-ms-clear {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-.c1 .fi-text-input_input::-ms-reveal {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-.c1.fi-text-input_with-icon .fi-text-input_input-element-container {
-  position: relative;
-}
-
-.c1.fi-text-input_with-icon .fi-text-input_input {
-  padding-right: 40px;
-}
-
-.c1.fi-text-input_with-icon .fi-icon {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  top: 10px;
-  right: 10px;
-}
-
-.c1.fi-text-input--error .fi-text-input_input {
-  border: 2px solid hsl(3,59%,48%);
-  padding-left: 9px;
-  padding-top: 7px;
-  padding-bottom: 7px;
-}
-
-.c1.fi-text-input--success .fi-text-input_input {
-  border: 2px solid hsl(166,90%,34%);
-  padding-left: 9px;
-  padding-top: 7px;
-  padding-bottom: 7px;
-}
-
-.c1.fi-text-input--disabled .fi-text-input_input {
-  color: hsl(202,7%,67%);
-  background-color: hsl(202,7%,97%);
-}
-
-.c1.fi-text-input--disabled .fi-icon-base-fill {
-  fill: hsl(202,7%,67%);
-}
-
-<div
-  class="c0 fi-text-input c1"
->
-  <span
-    class="c2 fi-text-input_wrapper"
-  >
-    <label
-      class="c0 c3 fi-text-input_label--visible fi-label-text"
+      class="c3 c4 fi-text-input_label--visible fi-label-text"
       for="test-id"
     >
       <span
@@ -1063,7 +1165,7 @@ exports[`snapshots match minimal implementation 1`] = `
     >
       <input
         aria-invalid="false"
-        class="c4 fi-text-input_input"
+        class="c5 fi-text-input_input"
         data-testid="textinput"
         id="test-id"
         type="text"
@@ -1072,7 +1174,7 @@ exports[`snapshots match minimal implementation 1`] = `
     <span
       aria-atomic="true"
       aria-live="assertive"
-      class="c2 c5 fi-status-text"
+      class="c2 c6 fi-status-text"
       id="test-id-statusText"
     />
   </span>

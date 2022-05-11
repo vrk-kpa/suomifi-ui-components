@@ -19,7 +19,7 @@ export const baseStyles = (arrowOffsetPx: number, theme: SuomifiTheme) => css`
     height: 0;
     width: 0;
     bottom: 100%;
-    left: ${arrowOffsetPx} + 'px';
+    left: ${arrowOffsetPx}px;
     border: solid transparent;
     pointer-events: none;
   }

@@ -27,3 +27,32 @@ import { Label } from 'suomifi-ui-components';
   </div>
 </>;
 ```
+
+```js
+import React from 'react';
+import { Label, Tooltip, Heading, Text } from 'suomifi-ui-components';
+
+<>
+  <div>
+    <Label
+      htmlFor="custom-input-with-tooltip"
+      optionalText="optional"
+      style={{ marginBottom: '10px' }}
+      tooltipComponent={
+        <Tooltip
+          ariaToggleButtonLabelText="Toggle"
+          ariaCloseButtonLabelText="close"
+        >
+          <Heading variant="h5" as="h2">
+            Tooltip
+          </Heading>
+          <Text>Tooltip text for a text that requires a tooltip</Text>
+        </Tooltip>
+      }
+    >
+      Label With a tooltip
+    </Label>
+    <input id="custom-input-with-tooltip" type="text" />
+  </div>
+</>;
+```

@@ -30,6 +30,35 @@ exports[`Basic dropdown should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -59,7 +88,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c3.fi-label-text .fi-label-text_label-span {
+.c4.fi-label-text .fi-label-text_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -73,15 +102,20 @@ exports[`Basic dropdown should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  display: block;
+  display: inline-block;
+  vertical-align: center;
   color: hsl(0,0%,16%);
 }
 
-.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c4.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c4.fi-label-text .fi-label-text_label-span .fi-tooltip {
+  margin-left: 6px;
 }
 
 .c1.fi-dropdown {
@@ -235,7 +269,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
       class="c2"
     >
       <label
-        class="c2 c3 fi-dropdown_label--visible fi-label-text"
+        class="c3 c4 fi-dropdown_label--visible fi-label-text"
         id="test-id-label"
       >
         <span
@@ -305,6 +339,35 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -334,7 +397,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c3.fi-label-text .fi-label-text_label-span {
+.c4.fi-label-text .fi-label-text_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -348,15 +411,20 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  display: block;
+  display: inline-block;
+  vertical-align: center;
   color: hsl(0,0%,16%);
 }
 
-.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c4.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c4.fi-label-text .fi-label-text_label-span .fi-tooltip {
+  margin-left: 6px;
 }
 
 .c1.fi-dropdown {
@@ -511,7 +579,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
       class="c2"
     >
       <label
-        class="c2 c3 fi-dropdown_label--visible fi-label-text"
+        class="c3 c4 fi-dropdown_label--visible fi-label-text"
         id="test-id-label"
       >
         <span
@@ -581,6 +649,35 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -610,7 +707,7 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c3.fi-label-text .fi-label-text_label-span {
+.c4.fi-label-text .fi-label-text_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -624,15 +721,20 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  display: block;
+  display: inline-block;
+  vertical-align: center;
   color: hsl(0,0%,16%);
 }
 
-.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c4.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c4.fi-label-text .fi-label-text_label-span .fi-tooltip {
+  margin-left: 6px;
 }
 
 .c1.fi-dropdown {
@@ -786,7 +888,7 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
       class="c2"
     >
       <label
-        class="c2 c3 fi-dropdown_label--visible fi-label-text"
+        class="c3 c4 fi-dropdown_label--visible fi-label-text"
         id="test-id-label"
       >
         <span
@@ -856,6 +958,35 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -885,7 +1016,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c3.fi-label-text .fi-label-text_label-span {
+.c4.fi-label-text .fi-label-text_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -899,15 +1030,20 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  display: block;
+  display: inline-block;
+  vertical-align: center;
   color: hsl(0,0%,16%);
 }
 
-.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c4.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c4.fi-label-text .fi-label-text_label-span .fi-tooltip {
+  margin-left: 6px;
 }
 
 .c1.fi-dropdown {
@@ -1061,7 +1197,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
       class="c2"
     >
       <label
-        class="c2 c3 fi-dropdown_label--visible fi-label-text"
+        class="c3 c4 fi-dropdown_label--visible fi-label-text"
         id="test-id-label"
       >
         <span
@@ -1131,6 +1267,35 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -1160,7 +1325,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c4 {
+.c5 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -1172,7 +1337,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   overflow: hidden;
 }
 
-.c3.fi-label-text .fi-label-text_label-span {
+.c4.fi-label-text .fi-label-text_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1186,15 +1351,20 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  display: block;
+  display: inline-block;
+  vertical-align: center;
   color: hsl(0,0%,16%);
 }
 
-.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c4.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c4.fi-label-text .fi-label-text_label-span .fi-tooltip {
+  margin-left: 6px;
 }
 
 .c1.fi-dropdown {
@@ -1348,11 +1518,11 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
       class="c2"
     >
       <label
-        class="c2 c3 fi-label-text"
+        class="c3 c4 fi-label-text"
         id="test-id-label"
       >
         <span
-          class="c0 c4 fi-visually-hidden"
+          class="c0 c5 fi-visually-hidden"
         >
           Dropdown test
         </span>

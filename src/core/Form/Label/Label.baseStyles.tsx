@@ -6,11 +6,15 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-label-text {
     & .fi-label-text_label-span {
       ${font(theme)('actionElementInnerTextBold')};
-      display: block;
+      display: inline-block;
+      vertical-align: center;
       color: ${theme.colors.blackBase};
 
       & .fi-label-text_optionalText {
         ${theme.typography.bodyTextSmall};
+      }
+      & .fi-tooltip {
+        margin-left: ${theme.spacing.insetS};
       }
     }
   }
