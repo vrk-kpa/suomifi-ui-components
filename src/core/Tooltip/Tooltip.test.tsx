@@ -3,19 +3,6 @@ import { render, screen } from '@testing-library/react';
 import { Tooltip } from './Tooltip';
 import { axeTest } from '../../utils/test';
 
-describe('Basic tooltip', () => {
-  const BasicTooltip = (
-    <Tooltip
-      ariaCloseButtonLabelText="Close tooltip"
-      ariaToggleButtonLabelText="Toggle tooltip"
-    >
-      Test Tooltip
-    </Tooltip>
-  );
-  const { container } = render(BasicTooltip);
-  expect(container).toMatchSnapshot();
-});
-
 describe('props', () => {
   /**
  * Note for the following tests:
@@ -23,6 +10,21 @@ describe('props', () => {
       Therefore need to use getAllByRole to get the toggle button.
       `const toggleButton = screen.getAllByRole('button')[0];`
  */
+  describe('children', () => {
+    it('should have the given text', () => {
+      render(
+        <Tooltip
+          ariaCloseButtonLabelText="Close tooltip"
+          ariaToggleButtonLabelText="Toggle tooltip"
+        >
+          Children of the component
+        </Tooltip>,
+      );
+      const toggleButton = screen.getAllByRole('button')[0];
+      toggleButton.click();
+      expect(screen.getByText('Children of the component')).toBeInTheDocument();
+    });
+  });
 
   describe('ariaToggleButtonLabelText', () => {
     it('should have the given value', () => {
@@ -139,4 +141,19 @@ describe('accessibility', () => {
     </Tooltip>
   );
   test('should not have basic accessibility issues', axeTest(TestTooltip));
+});
+
+describe('Basic tooltip', () => {
+  it('should match snapshot', () => {
+    const BasicTooltip = (
+      <Tooltip
+        ariaCloseButtonLabelText="Close tooltip"
+        ariaToggleButtonLabelText="Toggle tooltip"
+      >
+        Test Tooltip
+      </Tooltip>
+    );
+    const { container } = render(BasicTooltip);
+    expect(container).toMatchSnapshot();
+  });
 });
