@@ -166,7 +166,6 @@ exports[`props children has matching snapshot 1`] = `
   display: block;
   padding-left: 25px;
   cursor: pointer;
-  min-height: 27px;
   line-height: 27px;
 }
 
@@ -218,7 +217,6 @@ exports[`props children has matching snapshot 1`] = `
 
 .c1.fi-checkbox--large .fi-checkbox_label {
   padding-left: 40px;
-  min-height: 30px;
   line-height: 30px;
 }
 
