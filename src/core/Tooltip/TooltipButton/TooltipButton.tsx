@@ -12,12 +12,15 @@ const tooltipClassNames = {
   toggleButton: `${baseClassName}_toggle-button`,
   toggleButtonIcon: `${baseClassName}_toggle-button_icon`,
 };
+
+interface TooltipButtonProps extends HtmlButtonProps {}
+
 interface InnerRef {
   forwardedRef: React.RefObject<HTMLButtonElement>;
 }
 
 class BaseTooltipButton extends Component<
-  HtmlButtonProps & InnerRef & { className?: string }
+  TooltipButtonProps & InnerRef & { className?: string }
 > {
   render() {
     const { className, 'aria-label': ariaLabel, ...passProps } = this.props;
@@ -38,7 +41,10 @@ class BaseTooltipButton extends Component<
 }
 
 const StyledTooltipButton = styled(
-  ({ theme, ...passProps }: HtmlButtonProps & InnerRef & SuomifiThemeProp) => (
+  ({
+    theme,
+    ...passProps
+  }: TooltipButtonProps & InnerRef & SuomifiThemeProp) => (
     <BaseTooltipButton {...passProps} />
   ),
 )`
@@ -46,7 +52,7 @@ const StyledTooltipButton = styled(
 `;
 
 export const TooltipButton = forwardRef(
-  (props: HtmlButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
+  (props: TooltipButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <StyledTooltipButton
