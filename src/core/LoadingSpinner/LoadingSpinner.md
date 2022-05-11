@@ -6,32 +6,32 @@ import { LoadingSpinner } from 'suomifi-ui-components';
     <LoadingSpinner
       status="loading"
       variant="normal"
-      labelAlign="right"
-      labelText="Loading"
+      textAlign="right"
+      text="Loading"
     />
     <br />
-    <LoadingSpinner status="success" labelText="Loading finished" />
+    <LoadingSpinner status="success" text="Loading finished" />
     <br />
-    <LoadingSpinner status="failed" labelText="Loading failed" />
+    <LoadingSpinner status="failed" text="Loading failed" />
     <br />
     <LoadingSpinner
       status="loading"
       variant="small"
-      labelMode="hidden"
-      labelText="Loading"
+      textVisibility="hidden"
+      text="Loading"
     />
     <br />
     <LoadingSpinner
       status="success"
       variant="small"
-      labelText="Loading finished"
+      text="Loading finished"
     />
     <br />
     <LoadingSpinner
       status="failed"
       variant="small"
-      labelAlign="right"
-      labelText="Loading failed"
+      textAlign="right"
+      text="Loading failed"
     />
   </div>
 </>;
@@ -83,7 +83,7 @@ const timeout = () => {
     {visible && (
       <LoadingSpinner
         status={status}
-        labelText={
+        text={
           status !== 'success'
             ? 'Loading ' + loaded + ' %'
             : 'Loading finished'

@@ -14,21 +14,21 @@ export interface LoadingSpinnerProps {
   className?: string;
   /** Unique id */
   id?: string;
-  /** Label text */
-  labelText: string;
-  /** Align label on bottom or on the right side of animation svg
+  /** Status text */
+  text: string;
+  /** Align text on bottom or on the right side of animation svg
    * @default 'bottom'
    */
-  labelAlign?: 'bottom' | 'right';
-  /** Is the label visible or hidden
+  textAlign?: 'bottom' | 'right';
+  /** Is the text visible or hidden
    * @default 'visible'
    */
-  labelMode?: 'visible' | 'hidden';
+  textVisibility?: 'visible' | 'hidden';
   /** Status that the component indicates. Affects the icon used.
    * @default 'loading'
    */
   status?: LoadingSpinnerStatus;
-  /** Affects the size of the icon and label text
+  /** Affects the size of the icon and the text
    * @default 'normal'
    */
   variant?: 'normal' | 'small';
@@ -39,9 +39,9 @@ interface InnerRef {
 const baseClassName = 'fi-loadingSpinner';
 
 export const loadingSpinnerClassNames = {
-  label: `${baseClassName}_label`,
-  labelAlignBottom: `${baseClassName}-labelAlign--bottom`,
-  labelAlignRight: `${baseClassName}-labelAlign--right`,
+  text: `${baseClassName}_text`,
+  textAlignBottom: `${baseClassName}-textAlign--bottom`,
+  textAlignRight: `${baseClassName}-textAlign--right`,
   small: `${baseClassName}--small`,
   failed: `${baseClassName}--failed`,
   loading: `${baseClassName}--loading`,
@@ -54,9 +54,9 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps & InnerRef> {
     const {
       className,
       id,
-      labelText,
-      labelAlign = 'bottom',
-      labelMode = 'visible',
+      text,
+      textAlign = 'bottom',
+      textVisibility = 'visible',
       variant = 'normal',
       status = 'loading',
       ...passProps
@@ -69,7 +69,7 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps & InnerRef> {
           [loadingSpinnerClassNames.failed]: status === 'failed',
           [loadingSpinnerClassNames.success]: status === 'success',
           [loadingSpinnerClassNames.small]: variant === 'small',
-          [loadingSpinnerClassNames.labelAlignRight]: labelAlign === 'right',
+          [loadingSpinnerClassNames.textAlignRight]: textAlign === 'right',
         })}
         as="section"
         id={id}
@@ -91,12 +91,10 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps & InnerRef> {
           <Icon icon="errorFilled" className={loadingSpinnerClassNames.icon} />
         )}
 
-        {labelMode === 'visible' ? (
-          <HtmlDiv className={loadingSpinnerClassNames.label}>
-            {labelText}
-          </HtmlDiv>
+        {textVisibility === 'visible' ? (
+          <HtmlDiv className={loadingSpinnerClassNames.text}>{text}</HtmlDiv>
         ) : (
-          <VisuallyHidden>{labelText}</VisuallyHidden>
+          <VisuallyHidden>{text}</VisuallyHidden>
         )}
       </HtmlDivWithRef>
     );

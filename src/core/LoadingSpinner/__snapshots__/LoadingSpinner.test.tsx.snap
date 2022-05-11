@@ -103,14 +103,14 @@ exports[`snapshot should match snapshot 1`] = `
   height: 40px;
 }
 
-.c1.fi-loadingSpinner .fi-loadingSpinner_label {
+.c1.fi-loadingSpinner .fi-loadingSpinner_text {
   font-size: 18px;
   font-weight: 600;
   text-align: center;
   margin-top: 6px;
 }
 
-.c1.fi-loadingSpinner.fi-loadingSpinner-labelAlign--right {
+.c1.fi-loadingSpinner.fi-loadingSpinner-textAlign--right {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -121,7 +121,7 @@ exports[`snapshot should match snapshot 1`] = `
   align-items: center;
 }
 
-.c1.fi-loadingSpinner.fi-loadingSpinner-labelAlign--right .fi-loadingSpinner_label {
+.c1.fi-loadingSpinner.fi-loadingSpinner-textAlign--right .fi-loadingSpinner_text {
   margin-left: 10px;
   margin-top: 0;
   line-height: 1.5em;
@@ -132,7 +132,7 @@ exports[`snapshot should match snapshot 1`] = `
   height: 24px;
 }
 
-.c1.fi-loadingSpinner.fi-loadingSpinner--small .fi-loadingSpinner_label {
+.c1.fi-loadingSpinner.fi-loadingSpinner--small .fi-loadingSpinner_text {
   font-size: 16px;
   font-weight: normal;
   margin-top: 0;
@@ -177,7 +177,7 @@ exports[`snapshot should match snapshot 1`] = `
       />
     </svg>
     <div
-      class="c3 fi-loadingSpinner_label"
+      class="c3 fi-loadingSpinner_text"
     >
       Loading data
     </div>
