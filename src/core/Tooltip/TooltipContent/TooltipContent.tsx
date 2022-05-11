@@ -9,7 +9,11 @@ import React, {
 import { default as styled } from 'styled-components';
 import classNames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { HtmlButton } from '../../../reset/HtmlButton/HtmlButton';
+import {
+  HtmlButton,
+  HtmlDivWithRef,
+  HtmlDivWithRefProps,
+} from '../../../reset';
 import { Icon } from '../../Icon/Icon';
 import { baseStyles } from './TooltipContent.baseStyles';
 
@@ -21,7 +25,7 @@ const tooltipContentClassNames = {
   closeButtonIcon: `${baseClassName}_close-button_icon`,
 };
 
-interface TooltipContentProps {
+interface TooltipContentProps extends HtmlDivWithRefProps {
   arrowOffsetPx: number;
   ariaCloseButtonLabelText: string;
   children: ReactNode;
@@ -48,9 +52,9 @@ class BaseTooltipContent extends Component<TooltipContentProps & InnerRef> {
       ...passProps
     } = this.props;
     return (
-      <div
+      <HtmlDivWithRef
         {...passProps}
-        ref={forwardedRef}
+        forwardedRef={forwardedRef}
         className={classNames(tooltipContentClassNames.content, className)}
       >
         {children}
@@ -64,7 +68,7 @@ class BaseTooltipContent extends Component<TooltipContentProps & InnerRef> {
             icon="close"
           />
         </HtmlButton>
-      </div>
+      </HtmlDivWithRef>
     );
   }
 }
