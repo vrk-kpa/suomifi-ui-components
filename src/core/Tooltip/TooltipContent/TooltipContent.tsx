@@ -28,7 +28,7 @@ const tooltipContentClassNames = {
 interface TooltipContentProps extends HtmlDivWithRefProps {
   /** Offset for positioning the arrow */
   arrowOffsetPx: number;
-  /** aria-label for the close button */
+  /** Close button label for the screen readers */
   ariaCloseButtonLabelText: string;
   /** Content to be displayed in the tooltip */
   children: ReactNode;
