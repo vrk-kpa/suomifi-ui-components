@@ -17,7 +17,7 @@ describe('Basic tooltip', () => {
 });
 
 describe('props', () => {
-  describe('ariaCloseButtonLabelText', () => {
+  describe('ariaToggleButtonLabelText', () => {
     it('should have the given value', () => {
       render(
         <Tooltip
@@ -34,7 +34,7 @@ describe('props', () => {
     });
   });
 
-  describe('ariaToggleButtonLabelText', () => {
+  describe('ariaCloseButtonLabelText', () => {
     it('should have the given value', () => {
       render(
         <Tooltip
