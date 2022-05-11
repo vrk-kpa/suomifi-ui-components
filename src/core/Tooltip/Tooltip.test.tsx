@@ -69,6 +69,25 @@ describe('props', () => {
       expect(toggleButton).toHaveClass('custom-class');
     });
   });
+
+  describe('contentClassName', () => {
+    test('content should have the given className', () => {
+      render(
+        <Tooltip
+          ariaCloseButtonLabelText="Close tooltip"
+          ariaToggleButtonLabelText="Toggle tooltip"
+          contentClassName="custom-class"
+        >
+          Test Tooltip
+        </Tooltip>,
+      );
+      // FIXME: For some reason, two identical buttons are returned.
+      const toggleButton = screen.getAllByRole('button')[0];
+      toggleButton.click();
+      const contentDiv = screen.getAllByRole('button')[1].parentElement;
+      expect(contentDiv).toHaveClass('custom-class');
+    });
+  });
 });
 
 describe('accessibility', () => {
