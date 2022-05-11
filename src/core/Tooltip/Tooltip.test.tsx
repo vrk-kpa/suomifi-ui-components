@@ -17,6 +17,13 @@ describe('Basic tooltip', () => {
 });
 
 describe('props', () => {
+  /**
+ * Note for the following tests:
+      For some reason, two identical buttons are returned in the start when there should be only one toggle button.
+      Therefore need to use getAllByRole to get the toggle button.
+      `const toggleButton = screen.getAllByRole('button')[0];`
+ */
+
   describe('ariaToggleButtonLabelText', () => {
     it('should have the given value', () => {
       render(
@@ -27,8 +34,6 @@ describe('props', () => {
           Test Tooltip
         </Tooltip>,
       );
-
-      // FIXME: For some reason, two identical buttons are returned.
       const toggleButton = screen.getAllByRole('button')[0];
       expect(toggleButton).toHaveAttribute('aria-label', 'Toggle tooltip');
     });
@@ -44,8 +49,6 @@ describe('props', () => {
           Test Tooltip
         </Tooltip>,
       );
-
-      // FIXME: For some reason, two identical buttons are returned.
       const toggleButton = screen.getAllByRole('button')[0];
       toggleButton.click();
       const closeButton = screen.getAllByRole('button')[1];
@@ -64,7 +67,6 @@ describe('props', () => {
           Test Tooltip
         </Tooltip>,
       );
-      // FIXME: For some reason, two identical buttons are returned.
       const toggleButton = screen.getAllByRole('button')[0];
       expect(toggleButton).toHaveClass('custom-class');
     });
@@ -81,7 +83,6 @@ describe('props', () => {
           Test Tooltip
         </Tooltip>,
       );
-      // FIXME: For some reason, two identical buttons are returned.
       const toggleButton = screen.getAllByRole('button')[0];
       toggleButton.click();
       const contentDiv = screen.getAllByRole('button')[1].parentElement;
