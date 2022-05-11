@@ -26,11 +26,16 @@ const tooltipContentClassNames = {
 };
 
 interface TooltipContentProps extends HtmlDivWithRefProps {
+  /** Offset for positioning the arrow */
   arrowOffsetPx: number;
+  /** aria-label for the close button */
   ariaCloseButtonLabelText: string;
+  /** Content to be displayed in the tooltip */
   children: ReactNode;
+  /** Classname for custom styling */
   // eslint-disable-next-line react/require-default-props
   className?: string;
+  /** Event to be called when close button is clicked. */
   onCloseButtonClick: (
     event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>,
   ) => void;
