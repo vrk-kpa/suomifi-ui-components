@@ -216,9 +216,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   display: block;
   padding-left: 25px;
   cursor: pointer;
-  min-height: 27px;
-  line-height: 1.5em;
-  padding-top: 1px;
+  line-height: 27px;
 }
 
 .c6 .fi-checkbox_label::before {
@@ -269,7 +267,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 
 .c6.fi-checkbox--large .fi-checkbox_label {
   padding-left: 40px;
-  min-height: 30px;
+  line-height: 30px;
 }
 
 .c6.fi-checkbox--large .fi-checkbox_label::before {
