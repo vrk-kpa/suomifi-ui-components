@@ -86,6 +86,8 @@ export interface SingleSelectProps<T extends SingleSelectData> {
   onItemSelect?: (uniqueItemId: string | null) => void;
   /** Disable the input */
   disabled?: boolean;
+  /** Event sent when the button which clears the input is clicked */
+  onClearSelection?: () => void;
 }
 
 interface SingleSelectState<T extends SingleSelectData> {
@@ -357,6 +359,7 @@ class BaseSingleSelect<T> extends Component<
       ariaOptionsAvailableText,
       onItemSelect,
       disabled,
+      onClearSelection,
       ...passProps
     } = this.props;
 
@@ -428,7 +431,12 @@ class BaseSingleSelect<T> extends Component<
                 <HtmlDiv className={singleSelectClassNames.clearButtonWrapper}>
                   <InputClearButton
                     forwardedRef={this.clearButtonRef}
-                    onClick={() => this.handleItemSelection(null)}
+                    onClick={() => {
+                      if (!!onClearSelection) {
+                        onClearSelection();
+                      }
+                      this.handleItemSelection(null);
+                    }}
                     onBlur={this.handleBlur}
                     label={clearButtonLabel}
                     disabled={disabled}
