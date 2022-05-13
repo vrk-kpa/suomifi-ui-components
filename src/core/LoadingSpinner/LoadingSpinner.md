@@ -2,7 +2,7 @@
 import { LoadingSpinner } from 'suomifi-ui-components';
 
 <>
-  <div aria-live="assertive">
+  <div>
     <LoadingSpinner
       status="loading"
       variant="normal"
@@ -51,7 +51,7 @@ const [visible, setVisible] = useState(false);
 const [loaded, setLoaded] = useState(0);
 const [status, setStatus] = useState('loading');
 
-const timeout = () => {
+const runLoader = () => {
   let progress = 0;
   const id = setInterval(frame, 300);
   function frame() {
@@ -72,7 +72,7 @@ const timeout = () => {
       setStatus('loading');
 
       if (!visible) {
-        timeout();
+        runLoader();
       }
       setVisible(!visible);
     }}

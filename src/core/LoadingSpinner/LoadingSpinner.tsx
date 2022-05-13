@@ -14,13 +14,13 @@ export interface LoadingSpinnerProps {
   className?: string;
   /** Unique id */
   id?: string;
-  /** Status text */
+  /** Status text shown next to the icon */
   text: string;
-  /** Align text on bottom or on the right side of animation svg
+  /** Align the text on the bottom or on the right side of the animation svg
    * @default 'bottom'
    */
   textAlign?: 'bottom' | 'right';
-  /** Is the text visible or hidden
+  /** Show or hide the status text
    * @default 'visible'
    */
   textVisibility?: 'visible' | 'hidden';
