@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import classnames from 'classnames';
 import { TooltipContent } from './TooltipContent/TooltipContent';
-import { TooltipButton } from './TooltipButton/TooltipButton';
+import { TooltipToggleButton } from './TooltipToggleButton/TooltipToggleButton';
 import { forkRefs } from '../../utils/common';
 
 const baseClassName = 'fi-tooltip';
@@ -165,7 +165,7 @@ class BaseTooltip extends Component<
 
     return (
       <>
-        <TooltipButton
+        <TooltipToggleButton
           className={classnames(baseClassName, toggleButtonClassName)}
           ref={forkRefs(this.toggleButtonRef, forwardedRef)}
           aria-label={ariaToggleButtonLabelText}
