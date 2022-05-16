@@ -81,12 +81,12 @@ export interface SingleSelectProps<T extends SingleSelectData> {
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
   /** Controlled items; if item is in array, it is selected. If item has disabled: true, it will be disabled. */
-  selectedItem?: T & SingleSelectData;
+  selectedItem?: (T & SingleSelectData) | null;
   /** Selecting the item will send event with the id */
   onItemSelect?: (uniqueItemId: string | null) => void;
   /** Disable the input */
   disabled?: boolean;
-  /** Event sent when the button which clears the input is clicked */
+  /** This function is called when the button which clears the input is clicked */
   onClearSelection?: () => void;
 }
 
