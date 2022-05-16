@@ -294,21 +294,10 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c6.fi-radio-button .fi-radio-button_label {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   font-size: 16px;
   position: relative;
   cursor: pointer;
-  min-height: 27px;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -403,7 +392,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 
 .c6.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>
@@ -875,21 +864,10 @@ exports[`props className should match snapshot 1`] = `
 }
 
 .c6.fi-radio-button .fi-radio-button_label {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   font-size: 16px;
   position: relative;
   cursor: pointer;
-  min-height: 27px;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -984,7 +962,7 @@ exports[`props className should match snapshot 1`] = `
 
 .c6.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>
@@ -1456,21 +1434,10 @@ exports[`props defaultValue should match snapshot 1`] = `
 }
 
 .c6.fi-radio-button .fi-radio-button_label {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   font-size: 16px;
   position: relative;
   cursor: pointer;
-  min-height: 27px;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -1565,7 +1532,7 @@ exports[`props defaultValue should match snapshot 1`] = `
 
 .c6.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>
@@ -2059,21 +2026,10 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_label {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   font-size: 16px;
   position: relative;
   cursor: pointer;
-  min-height: 27px;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -2168,7 +2124,7 @@ exports[`props hintText should match snapshot 1`] = `
 
 .c7.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>
@@ -2645,21 +2601,10 @@ exports[`props id should match snapshot 1`] = `
 }
 
 .c6.fi-radio-button .fi-radio-button_label {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   font-size: 16px;
   position: relative;
   cursor: pointer;
-  min-height: 27px;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -2754,7 +2699,7 @@ exports[`props id should match snapshot 1`] = `
 
 .c6.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>
@@ -3226,21 +3171,10 @@ exports[`props label should match snapshot 1`] = `
 }
 
 .c6.fi-radio-button .fi-radio-button_label {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   font-size: 16px;
   position: relative;
   cursor: pointer;
-  min-height: 27px;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -3335,7 +3269,7 @@ exports[`props label should match snapshot 1`] = `
 
 .c6.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>
@@ -3819,21 +3753,10 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_label {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   font-size: 16px;
   position: relative;
   cursor: pointer;
-  min-height: 27px;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -3928,7 +3851,7 @@ exports[`props labelMode should match snapshot 1`] = `
 
 .c7.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>
@@ -4400,21 +4323,10 @@ exports[`props name should match snapshot 1`] = `
 }
 
 .c6.fi-radio-button .fi-radio-button_label {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   font-size: 16px;
   position: relative;
   cursor: pointer;
-  min-height: 27px;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -4509,7 +4421,7 @@ exports[`props name should match snapshot 1`] = `
 
 .c6.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>
@@ -4981,21 +4893,10 @@ exports[`props value should match snapshot 1`] = `
 }
 
 .c6.fi-radio-button .fi-radio-button_label {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   font-size: 16px;
   position: relative;
   cursor: pointer;
-  min-height: 27px;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -5090,7 +4991,7 @@ exports[`props value should match snapshot 1`] = `
 
 .c6.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>
