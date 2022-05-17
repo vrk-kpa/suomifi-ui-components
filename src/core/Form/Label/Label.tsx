@@ -103,7 +103,7 @@ const StyledLabel = styled(
           <>
             <HtmlSpan
               as={asProp}
-              {...(contentStyle ? { contentStyle } : {})}
+              style={contentStyle ? { ...contentStyle } : {}}
               {...passProps}
               className={classnames(
                 labelTextClassNames.labelSpan,
