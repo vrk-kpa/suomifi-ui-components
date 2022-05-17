@@ -131,7 +131,7 @@ describe('Controlled', () => {
     );
 
     await act(async () => {
-      const { getByRole, getByText } = render(singleSelect);
+      const { getByRole, getByText, rerender } = render(singleSelect);
       expect(getByRole('textbox')).toHaveValue('Powersaw');
       const input = getByRole('textbox');
       await act(async () => {
@@ -140,6 +140,21 @@ describe('Controlled', () => {
       const item = await waitFor(() => getByText('Powersaw'));
       expect(item).toHaveAttribute('aria-disabled');
       expect(item).toHaveClass('fi-select-item--disabled');
+
+      rerender(
+        <SingleSelect
+          selectedItem={null}
+          labelText="SingleSelect"
+          clearButtonLabel="Clear selection"
+          items={tools}
+          visualPlaceholder="Choose your tool"
+          noItemsText="No items"
+          defaultSelectedItem={defaultSelectedTool}
+          ariaOptionsAvailableText="Options available"
+        />,
+      );
+      const rerenderedInput = getByRole('textbox');
+      expect(rerenderedInput).toHaveValue('');
     });
   });
 

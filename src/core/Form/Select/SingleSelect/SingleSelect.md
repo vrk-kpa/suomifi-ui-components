@@ -138,6 +138,7 @@ const animals = [
     clearButtonLabel="Clear selection"
     items={animals}
     selectedItem={selectedAnimal}
+    onClearSelection={() => setSelectedAnimal(null)}
     noItemsText="No matching options"
     visualPlaceholder="Try to choose animal"
     ariaOptionsAvailableText="Options available"
