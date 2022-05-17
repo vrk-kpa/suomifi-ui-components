@@ -33,7 +33,7 @@ export interface LabelProps extends Omit<HtmlSpanProps, 'as'> {
   /** Content class name for styling and customizing */
   contentClassName?: string;
   /** Content style for styling and customizing */
-  style?: CSSProperties;
+  contentStyle?: CSSProperties;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
    */
@@ -60,7 +60,7 @@ const labelTextClassNames = {
 const StyledLabel = styled(
   ({
     className,
-    style,
+    contentStyle,
     contentClassName,
     theme,
     labelMode = 'visible',
@@ -103,7 +103,7 @@ const StyledLabel = styled(
           <>
             <HtmlSpan
               as={asProp}
-              {...(style ? { style } : {})}
+              {...(contentStyle ? { contentStyle } : {})}
               {...passProps}
               className={classnames(
                 labelTextClassNames.labelSpan,
