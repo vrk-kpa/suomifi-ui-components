@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
-import { getLogger } from '../../../utils/log';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { Icon } from '../../Icon/Icon';
@@ -12,16 +11,26 @@ import { BaseLinkProps, baseClassName } from '../BaseLink/BaseLink';
 const iconClassName = 'fi-link_icon';
 const externalClassName = 'fi-link--external';
 
-export interface ExternalLinkProps extends BaseLinkProps {
-  /** Translated explanation of 'opens to a new window' */
-  labelNewWindow: string;
+type newWindowProps =
+  | {
+      toNewWindow: true;
+      labelNewWindow: string;
+    }
+  | {
+      toNewWindow: false;
+      labelNewWindow?: never;
+    };
+
+interface InternalExternalLinkProps extends BaseLinkProps {
   /** Hide the icon */
   hideIcon?: boolean;
-  /** Open to a new window
-   * @default true
-   */
-  toNewWindow?: boolean;
+  /** Open to a new window */
+  toNewWindow: boolean;
+  /** Translated explanation of 'opens to a new window' */
+  labelNewWindow?: string;
 }
+
+export type ExternalLinkProps = newWindowProps & InternalExternalLinkProps;
 
 class BaseExternalLink extends Component<ExternalLinkProps> {
   render() {
@@ -29,7 +38,7 @@ class BaseExternalLink extends Component<ExternalLinkProps> {
       asProp,
       children,
       className,
-      toNewWindow = true,
+      toNewWindow,
       labelNewWindow,
       hideIcon,
       ...passProps
@@ -71,20 +80,10 @@ const StyledExternalLink = styled(
  */
 export class ExternalLink extends Component<ExternalLinkProps> {
   render() {
-    const { labelNewWindow, ...passProps } = this.props;
-    if (!labelNewWindow) {
-      getLogger().warn(
-        'External link needs a translated description of link opening to a new window',
-      );
-    }
     return (
       <SuomifiThemeConsumer>
         {({ suomifiTheme }) => (
-          <StyledExternalLink
-            theme={suomifiTheme}
-            labelNewWindow={labelNewWindow}
-            {...passProps}
-          />
+          <StyledExternalLink theme={suomifiTheme} {...this.props} />
         )}
       </SuomifiThemeConsumer>
     );
