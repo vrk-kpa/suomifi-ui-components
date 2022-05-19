@@ -253,19 +253,19 @@ const StyledCheckbox = styled(
 
 export const Checkbox = forwardRef(
   (props: CheckboxProps, ref: React.RefObject<HTMLInputElement>) => {
-    const { id: propId, ...passProps } = props;
+    const { id: propId, status: propStatus, ...passProps } = props;
     return (
       <SuomifiThemeConsumer>
         {({ suomifiTheme }) => (
           <AutoId id={propId}>
             {(id) => (
               <CheckboxGroupConsumer>
-                {({ status }) => (
+                {({ status: groupStatus }) => (
                   <StyledCheckbox
                     theme={suomifiTheme}
                     id={id}
                     forwardedRef={ref}
-                    status={status}
+                    status={!!propStatus ? propStatus : groupStatus}
                     {...passProps}
                   />
                 )}

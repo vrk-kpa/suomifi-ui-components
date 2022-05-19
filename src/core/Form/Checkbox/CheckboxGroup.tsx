@@ -42,6 +42,7 @@ export interface CheckboxGroupProps {
    */
   id?: string;
   /**
+   * Status for the group. Will be passed to children.
    * 'default' | 'error'
    * @default default
    */
