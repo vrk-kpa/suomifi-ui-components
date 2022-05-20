@@ -108,6 +108,96 @@ const [status, setStatus] = React.useState('default');
 </>;
 ```
 
+### Allowing user to add their own item to the list
+
+```js
+import { SingleSelect } from 'suomifi-ui-components';
+
+const tools = [
+  {
+    name: 'Jackhammer',
+    price: 230,
+    tax: false,
+    labelText: 'Jackhammer',
+    uniqueItemId: 'jh2435626'
+  },
+  {
+    name: 'Hammer',
+    price: 15,
+    tax: true,
+    labelText: 'Hammer',
+    uniqueItemId: 'h9823523'
+  },
+  {
+    name: 'Sledgehammer',
+    price: 36,
+    tax: false,
+    labelText: 'Sledgehammer',
+    uniqueItemId: 'sh908293482'
+  },
+  {
+    name: 'Spade',
+    price: 50,
+    tax: true,
+    labelText: 'Spade',
+    uniqueItemId: 's82502335'
+  },
+  {
+    name: 'Powersaw',
+    price: 150,
+    tax: false,
+    labelText: 'Powersaw',
+    disabled: true,
+    uniqueItemId: 'ps9081231'
+  },
+  {
+    name: 'Shovel',
+    price: 115,
+    tax: true,
+    labelText: 'Shovel',
+    uniqueItemId: 's05111511'
+  },
+  {
+    name: 'Iron stick',
+    price: 85,
+    tax: false,
+    labelText: 'Iron stick',
+    uniqueItemId: 'is3451261'
+  },
+  {
+    name: 'Rake',
+    price: 50,
+    tax: true,
+    labelText: 'Rake',
+    uniqueItemId: 'r09282626'
+  },
+  {
+    name: 'Motorsaw',
+    price: 450,
+    tax: false,
+    labelText: 'Motorsaw',
+    disabled: true,
+    uniqueItemId: 'ms6126266'
+  }
+];
+
+const [selectedValue, setSelectedValue] = React.useState(null);
+const [status, setStatus] = React.useState('default');
+
+<>
+  <SingleSelect
+    labelText="Tool"
+    hintText="You can filter options by typing in the field. You can also add a custom option if no suitable match is found in the list."
+    clearButtonLabel="Clear selection"
+    items={tools}
+    visualPlaceholder="Choose a tool"
+    ariaOptionsAvailableText="Options available"
+    allowItemAddition={true}
+    itemAdditionHelpText="Add custom item"
+  />
+</>;
+```
+
 ### Controlled
 
 ```js
@@ -138,7 +228,6 @@ const animals = [
     clearButtonLabel="Clear selection"
     items={animals}
     selectedItem={selectedAnimal}
-    onClearSelection={() => setSelectedAnimal(null)}
     noItemsText="No matching options"
     visualPlaceholder="Try to choose animal"
     ariaOptionsAvailableText="Options available"
@@ -176,6 +265,64 @@ const animals = [
     Snail
   </button>
 </>;
+```
+
+### Controlled + allowing custom option to be added
+
+```js
+import { SingleSelect } from 'suomifi-ui-components';
+
+const animals = [
+  {
+    age: 2,
+    labelText: 'Rabbit',
+    uniqueItemId: 'rabbit-123'
+  },
+  {
+    age: 1,
+    labelText: 'Snail',
+    uniqueItemId: 'snail-321'
+  },
+  {
+    price: 5,
+    labelText: 'Turtle',
+    uniqueItemId: 'turtle-987'
+  }
+];
+const [appendedAnimals, setAppendedAnimals] = React.useState(animals);
+const [selectedAnimal, setSelectedAnimal] = React.useState(null);
+
+const handleSelection = (newSelectedItem) => {
+  if (newSelectedItem !== null) {
+    const animalIsNew = !animals.some(
+      (animal) => animal.uniqueItemId === newSelectedItem.uniqueItemId
+    );
+    if (animalIsNew) {
+      setAppendedAnimals(animals.concat([newSelectedItem]));
+    } else {
+      setAppendedAnimals(animals);
+    }
+  } else {
+    setAppendedAnimals(animals);
+  }
+  setSelectedAnimal(newSelectedItem);
+};
+
+<SingleSelect
+  allowItemAddition={true}
+  itemAdditionHelpText="Add custom item"
+  labelText="Animal"
+  hintText="You can filter options by typing in the field. You can also add a custom option if no suitable match is found in the list."
+  clearButtonLabel="Clear selection"
+  items={appendedAnimals}
+  selectedItem={selectedAnimal}
+  noItemsText="No matching options"
+  visualPlaceholder="Choose animal"
+  ariaOptionsAvailableText="Options available"
+  onItemSelectionChange={(item) => {
+    handleSelection(item);
+  }}
+/>;
 ```
 
 ### Disabled with a preselected value

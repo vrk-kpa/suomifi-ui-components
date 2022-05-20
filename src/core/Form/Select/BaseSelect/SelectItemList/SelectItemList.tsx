@@ -10,8 +10,10 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
 import { HtmlDivWithRef, HtmlUlWithRef } from '../../../../../reset';
-import { SelectItemProps } from '../SelectItem/SelectItem';
+// import { SelectItemProps } from '../SelectItem/SelectItem';
 import { baseStyles } from './SelectItemList.baseStyles';
+// import { SelectEmptyItemProps } from '../SelectEmptyItem/SelectEmptyItem';
+// import { SelectItemAdditionProps } from '../SelectItemAddition/SelectItemAddition';
 
 const baseClassName = 'fi-select-item-list';
 
@@ -23,9 +25,7 @@ export interface SelectItemListProps {
   /** SelectItemList container div class name for custom styling. */
   className?: string;
   /** List items */
-  children:
-    | Array<ReactElement<SelectItemProps>>
-    | ReactElement<SelectItemProps>;
+  children: ReactElement | Array<ReactElement>;
   /** Id for the currently focused list item for styles and scrolling */
   focusedDescendantId: string;
   /** onBlur event handler */
