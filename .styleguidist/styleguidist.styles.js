@@ -71,7 +71,7 @@ module.exports = {
     type: {
       display: 'block',
       overflowY: 'auto',
-      maxHeight: '6em',
+      maxHeight: '144px',
       minWidth: '20vw',
     },
   },
