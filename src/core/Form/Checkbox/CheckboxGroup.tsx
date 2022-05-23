@@ -47,7 +47,7 @@ export interface CheckboxGroupProps {
    * @default default
    */
   groupStatus?: CheckboxGroupStatus;
-  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
+  /** Status text to be shown below the component. Use e.g. for validation error */
   groupStatusText?: string;
 }
 
