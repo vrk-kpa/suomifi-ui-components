@@ -1,4 +1,4 @@
-import React, { forwardRef, Component } from 'react';
+import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { ColorProp, SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
