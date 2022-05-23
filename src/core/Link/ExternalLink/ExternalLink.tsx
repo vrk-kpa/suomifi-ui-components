@@ -38,7 +38,7 @@ class BaseExternalLink extends Component<ExternalLinkProps> {
       asProp,
       children,
       className,
-      toNewWindow,
+      toNewWindow = true,
       labelNewWindow,
       hideIcon,
       ...passProps
