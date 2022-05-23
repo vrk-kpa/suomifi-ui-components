@@ -13,19 +13,19 @@ const externalClassName = 'fi-link--external';
 
 type newWindowProps =
   | {
-      toNewWindow: true;
-      labelNewWindow: string;
-    }
-  | {
       toNewWindow: false;
       labelNewWindow?: never;
+    }
+  | {
+      toNewWindow?: true;
+      labelNewWindow: string;
     };
 
 interface InternalExternalLinkProps extends BaseLinkProps {
   /** Hide the icon */
   hideIcon?: boolean;
   /** Open to a new window */
-  toNewWindow: boolean;
+  toNewWindow?: boolean;
   /** Translated explanation of 'opens to a new window' */
   labelNewWindow?: string;
 }

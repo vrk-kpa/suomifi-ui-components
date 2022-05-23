@@ -6,7 +6,6 @@ import { ExternalLink } from './ExternalLink';
 
 const TestExternalLink = (
   <ExternalLink
-    toNewWindow
     href="/"
     data-testid="test-link"
     labelNewWindow="Opens in a new window"
