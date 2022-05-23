@@ -63,6 +63,8 @@ import React from 'react';
   <CheckboxGroup
     labelText="Checkboxes in group"
     groupHintText="Example hint text"
+    groupStatus="error"
+    groupStatusText="Example status text"
   >
     <Checkbox defaultChecked hintText="Example hint text">
       Regular checkbox that is checked and has a hint text
