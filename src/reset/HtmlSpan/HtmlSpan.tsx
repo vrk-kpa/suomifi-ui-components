@@ -7,6 +7,10 @@ export interface HtmlSpanProps
   extends Omit<HTMLProps<HTMLSpanElement>, 'ref' | 'as'> {
   as?: asPropType;
 }
+export interface HtmlSpanWithRefProps extends HtmlSpanProps {
+  /** Ref object for the span element */
+  forwardedRef?: React.RefObject<HTMLSpanElement>;
+}
 
 const spanResets = css`
   ${resets.normalize.html}
@@ -18,7 +22,9 @@ const spanResets = css`
   white-space: normal;
 `;
 
-const Span = (props: HtmlSpanProps) => <span {...props} />;
+const Span = ({ forwardedRef, ...passProps }: HtmlSpanWithRefProps) => (
+  <span ref={forwardedRef} {...passProps} />
+);
 
 export const HtmlSpan = styled(Span)`
   ${spanResets}
