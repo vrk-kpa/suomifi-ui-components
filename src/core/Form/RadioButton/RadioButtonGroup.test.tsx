@@ -52,7 +52,7 @@ describe('props', () => {
         id="test-id"
         labelText="Label"
         name="name"
-        hintText="Example hint text"
+        groupHintText="Example hint text"
       >
         {RadioChildren}
       </RadioButtonGroup>
@@ -61,7 +61,7 @@ describe('props', () => {
     it('has hintText element', () => {
       const { getByText } = render(HintTextGroup);
       const hintText = getByText('Example hint text');
-      expect(hintText).toHaveClass('fi-radio-button-group_hintText');
+      expect(hintText).toHaveClass('fi-hint-text');
     });
 
     it('should match snapshot', () => {
@@ -80,7 +80,7 @@ describe('props', () => {
     it('has label element', () => {
       const { getByText } = render(LabelGroup);
       const label = getByText('Label here');
-      expect(label).toHaveClass('fi-radio-button-group_label');
+      expect(label).not.toEqual(null);
     });
 
     it('should match snapshot', () => {

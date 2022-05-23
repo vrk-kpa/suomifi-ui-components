@@ -52,8 +52,7 @@ const largeStyles = () => css`
     }
     & .fi-radio-button_label {
       padding-left: 40px;
-      padding-top: 2px;
-      min-height: 34px;
+      line-height: 34px;
     }
   }
 `;
@@ -71,11 +70,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       ${theme.typography.bodyTextSmall};
     }
     & .fi-radio-button_label {
+      font-size: 16px;
       position: relative;
-      display: inline-block;
       cursor: pointer;
-      min-height: 27px;
-      line-height: 1.5em;
+      line-height: 27px;
       padding-left: 26px;
     }
     & .fi-radio-button_input {
