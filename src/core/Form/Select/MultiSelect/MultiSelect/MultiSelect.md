@@ -325,6 +325,7 @@ const handleSelection = (newSelectedItems) => {
   hintText="You can filter options by typing in the field. You can also add a custom options if no suitable match is found in the list."
   chipListVisible={true}
   visualPlaceholder="Choose animals"
+  removeAllButtonLabel="Remove all selections"
   ariaChipActionLabel="Remove"
   ariaSelectedAmountText="animals selected"
   ariaOptionsAvailableText="options available"

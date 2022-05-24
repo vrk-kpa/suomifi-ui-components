@@ -72,8 +72,6 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   removeAllButtonLabel?: string;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
-  /** Text to show when no items to show, e.g filtered all out */
-  noItemsText: string;
   /** Default selected items */
   defaultSelectedItems?: Array<T & MultiSelectData>;
   /** Event sent when filter changes */
@@ -113,16 +111,19 @@ type AllowItemAdditionProps =
   | {
       allowItemAddition?: false | never;
       itemAdditionHelpText?: never;
+      noItemsText: string;
     }
   | {
-      /** Whether the user is allowed to enter their own text as one the selected values
+      /** Whether the user is allowed to enter their own text as the selected value
        * @default false
        */
       allowItemAddition?: true;
-      /** Text to display above the user addable item.
-       * Also spoken by screen reader when focusing on the item addition element.
+      /** Text to show above the item addition element.
+       * Also read by screen reader when focusing on the item addition element.
        * Required if `allowItemAddition` is true */
       itemAdditionHelpText: string;
+      /** Text to show when no items to show, e.g filtered all out. Required when `allowItemAddition` is false */
+      noItemsText?: never;
     };
 
 export type MultiSelectProps<T> = InternalMultiSelectProps<

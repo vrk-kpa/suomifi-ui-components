@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent, act, waitFor } from '@testing-library/react';
 import { axeTest } from '../../../../../utils/test';
 import { MultiSelect, MultiSelectData } from './MultiSelect';
 
@@ -662,6 +662,76 @@ describe('disabled', () => {
         fireEvent.click(toggleBtn);
       });
       expect(() => getAllByRole('option')).toThrowError();
+    }
+  });
+});
+
+describe('custom item addition mode', () => {
+  it('should allow user to add & remove their own options as selected values', async () => {
+    const { container, getByRole, getAllByRole } = render(
+      <MultiSelect
+        allowItemAddition={true}
+        itemAdditionHelpText="Add custom item"
+        labelText="Tools"
+        items={tools}
+        removeAllButtonLabel="Remove all selections"
+        ariaSelectedAmountText="tools selected"
+        ariaOptionsAvailableText="options available"
+        ariaOptionChipRemovedText="removed"
+      />,
+    );
+    const input = getByRole('textbox');
+    await act(async () => {
+      fireEvent.change(input, { target: { value: 'hamm' } });
+    });
+
+    const items = await waitFor(() => getAllByRole('option'));
+    expect(items).toHaveLength(4);
+    const hammItem = items.find((item) => item.textContent === 'hamm');
+
+    if (hammItem) {
+      await act(async () => {
+        fireEvent.click(hammItem);
+      });
+
+      await act(async () => {
+        fireEvent.change(input, { target: { value: 'ha' } });
+      });
+      const modifiedItems = await waitFor(() => getAllByRole('option'));
+      expect(modifiedItems).toHaveLength(5);
+      const haItem = modifiedItems.find((item) => item.textContent === 'ha');
+
+      if (haItem) {
+        await act(async () => {
+          fireEvent.click(haItem);
+        });
+        await act(async () => {
+          fireEvent.change(input, { target: { value: '' } });
+        });
+
+        const appendedItems = await waitFor(() => getAllByRole('option'));
+        expect(appendedItems).toHaveLength(11);
+        const secondToLastItem = appendedItems[9];
+        const lastItem = appendedItems[10];
+        expect(secondToLastItem).toHaveTextContent('hamm');
+        expect(secondToLastItem).toHaveClass('fi-select-item--selected');
+        expect(lastItem).toHaveTextContent('ha');
+        expect(lastItem).toHaveClass('fi-select-item--selected');
+
+        const removeAllButton = container.querySelectorAll(
+          '.fi-multiselect_removeAllButton',
+        )[0];
+        await act(async () => {
+          fireEvent.click(removeAllButton);
+        });
+
+        const resetItems = await waitFor(() => getAllByRole('option'));
+        expect(resetItems).toHaveLength(9);
+      } else {
+        throw new Error('No custom item "ha" found');
+      }
+    } else {
+      throw new Error('No custom item "hamm" found');
     }
   });
 });

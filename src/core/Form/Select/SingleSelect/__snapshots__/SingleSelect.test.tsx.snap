@@ -622,6 +622,7 @@ exports[`has matching snapshot 1`] = `
 
 <div
   class="c0 fi-single-select c1 fi-single-select--value-selected"
+  items="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
 >
   <div
     class="c0 fi-filter-input c2"

@@ -408,3 +408,57 @@ describe('disabled', () => {
     expect(() => getAllByRole('option')).toThrowError();
   });
 });
+
+describe('custom item addition mode', () => {
+  it('should allow user to add & remove their own option as the selected value', async () => {
+    const { getByRole, getAllByRole, getByText } = render(
+      <SingleSelect
+        allowItemAddition={true}
+        itemAdditionHelpText="Add custom item"
+        labelText="Tools"
+        clearButtonLabel="Clear selection"
+        items={tools}
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+    const input = getByRole('textbox');
+    await act(async () => {
+      fireEvent.change(input, { target: { value: 'hamm' } });
+    });
+
+    const items = await waitFor(() => getAllByRole('option'));
+    expect(items).toHaveLength(4);
+    const extraItem = items.find((item) => item.textContent === 'hamm');
+
+    if (extraItem) {
+      await act(async () => {
+        fireEvent.click(extraItem);
+      });
+      await act(async () => {
+        fireEvent.blur(input);
+      });
+      await act(async () => {
+        fireEvent.focus(input);
+      });
+      const appendedItems = await waitFor(() => getAllByRole('option'));
+      expect(appendedItems).toHaveLength(10);
+      const lastItem = appendedItems[9];
+      expect(lastItem).toHaveTextContent('hamm');
+      expect(lastItem).toHaveClass('fi-select-item--selected');
+
+      const clearButton = getByText('Clear selection');
+      await act(async () => {
+        fireEvent.click(clearButton);
+      });
+      expect(input).toHaveValue('');
+
+      await act(async () => {
+        fireEvent.click(input);
+      });
+      const resetItems = await waitFor(() => getAllByRole('option'));
+      expect(resetItems).toHaveLength(9);
+    } else {
+      throw new Error('No custom item found');
+    }
+  });
+});

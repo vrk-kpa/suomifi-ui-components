@@ -98,9 +98,11 @@ type AllowItemAdditionProps =
        * @default false
        */
       allowItemAddition?: true;
-      /** Text for screen reader to read when focusing on the item addition element. Required if `allowItemAddition` is true */
+      /** Text to show above the item addition element.
+       * Also read by screen reader when focusing on the item addition element.
+       * Required if `allowItemAddition` is true */
       itemAdditionHelpText: string;
-      /** Text to show when no items to show, e.g filtered all out. Required when allowItemAddition === false */
+      /** Text to show when no items to show, e.g filtered all out. Required when `allowItemAddition` is false */
       noItemsText?: never;
     };
 
