@@ -322,16 +322,10 @@ class BaseSingleSelect<T> extends Component<
 
     const getNextIndex = () =>
       index !== null ? (index + 1) % popoverItems.length : 0;
-    const getPreviousIndex = () => {
-      switch (index) {
-        case null:
-          return 0;
-        case -1:
-          return popoverItems.length - 1;
-        default:
-          return (index - 1 + popoverItems.length) % popoverItems.length;
-      }
-    };
+    const getPreviousIndex = () =>
+      index !== null && index !== -1
+        ? (index - 1 + popoverItems.length) % popoverItems.length
+        : popoverItems.length - 1;
 
     const getNextItem = () => popoverItems[getNextIndex()];
     const getPreviousItem = () => popoverItems[getPreviousIndex()];
@@ -495,7 +489,23 @@ class BaseSingleSelect<T> extends Component<
               items={computedItems}
               onFilter={(filtered) => {
                 if (this.state.filterMode) {
-                  this.setState({ filteredItems: filtered });
+                  this.setState(
+                    (prevState: SingleSelectState<T & SingleSelectData>) => {
+                      let newFocusedDescendandId =
+                        prevState.focusedDescendantId;
+                      if (
+                        !filtered.some(
+                          (f) => f.uniqueItemId === newFocusedDescendandId,
+                        )
+                      ) {
+                        newFocusedDescendandId = null;
+                      }
+                      return {
+                        filteredItems: filtered,
+                        focusedDescendantId: newFocusedDescendandId,
+                      };
+                    },
+                  );
                 }
               }}
               filterFunc={this.filter}

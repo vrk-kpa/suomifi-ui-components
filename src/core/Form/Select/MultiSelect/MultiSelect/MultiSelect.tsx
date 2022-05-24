@@ -382,16 +382,10 @@ class BaseMultiSelect<T> extends Component<
 
     const getNextIndex = () =>
       index !== null ? (index + 1) % items.length : 0;
-    const getPreviousIndex = () => {
-      switch (index) {
-        case null:
-          return 0;
-        case -1:
-          return items.length - 1;
-        default:
-          return (index - 1 + items.length) % items.length;
-      }
-    };
+    const getPreviousIndex = () =>
+      index !== null && index !== -1
+        ? (index - 1 + items.length) % items.length
+        : items.length - 1;
 
     const getNextItem = () => items[getNextIndex()];
     const getPreviousItem = () => items[getPreviousIndex()];
@@ -590,9 +584,25 @@ class BaseMultiSelect<T> extends Component<
                   optionalText={optionalText}
                   hintText={hintText}
                   items={computedItems}
-                  onFilter={(filtered) =>
-                    this.setState({ filteredItems: filtered })
-                  }
+                  onFilter={(filtered) => {
+                    this.setState(
+                      (prevState: MultiSelectState<T & MultiSelectData>) => {
+                        let newFocusedDescendandId =
+                          prevState.focusedDescendantId;
+                        if (
+                          !filtered.some(
+                            (f) => f.uniqueItemId === newFocusedDescendandId,
+                          )
+                        ) {
+                          newFocusedDescendandId = null;
+                        }
+                        return {
+                          filteredItems: filtered,
+                          focusedDescendantId: newFocusedDescendandId,
+                        };
+                      },
+                    );
+                  }}
                   filterFunc={this.filter}
                   forwardedRef={this.filterInputRef}
                   onFocus={() =>
