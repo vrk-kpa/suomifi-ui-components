@@ -71,24 +71,15 @@ module.exports = {
     type: {
       display: 'block',
       overflowY: 'auto',
-      maxHeight: '6em',
+      maxHeight: '144px',
       minWidth: '20vw',
     },
   },
   Table: {
     cell: {
       position: 'relative',
-      '&:after': {
-        display: 'block',
-        content: '""',
-        position: 'absolute',
-        top: '0',
-        height: '100%',
-        width: '100%',
-        background:
-          'linear-gradient(180deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 4.5em, rgba(255, 255, 255, 1) 6em)',
-        pointerEvents: 'none',
-      },
+      borderBottom: '1px solid #e8e8e8',
+      lineHeight: '24px',
     },
   },
   Playground: {
