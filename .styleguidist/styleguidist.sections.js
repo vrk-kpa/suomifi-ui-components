@@ -152,13 +152,6 @@ module.exports = {
                 'SingleSelect/SingleSelect',
               ]),
             },
-          ],
-          expand: true,
-        },
-        {
-          name: 'Modules',
-          content: './.styleguidist/modules.md',
-          sections: [
             {
               name: 'Breadcrumb',
               components: getComponentWithVariants('Breadcrumb')([
