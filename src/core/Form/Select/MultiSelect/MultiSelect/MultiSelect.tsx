@@ -395,7 +395,7 @@ class BaseMultiSelect<T> extends Component<
         this.setState({ showPopover: true });
         const nextItem =
           this.props.allowItemAddition &&
-          index === items.length - 1 &&
+          (index === items.length - 1 || items.length === 0) &&
           filterInputValue !== '' &&
           !this.inputValueInItems()
             ? {
