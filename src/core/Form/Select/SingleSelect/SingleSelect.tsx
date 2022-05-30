@@ -453,6 +453,7 @@ class BaseSingleSelect<T> extends Component<
       disabled,
       allowItemAddition,
       itemAdditionHelpText,
+      items, // Only destructured away so they don't end up in the DOM
       ...passProps
     } = this.props;
 

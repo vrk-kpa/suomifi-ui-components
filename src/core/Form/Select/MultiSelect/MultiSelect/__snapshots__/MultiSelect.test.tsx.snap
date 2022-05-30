@@ -906,7 +906,6 @@ exports[`has matching snapshot 1`] = `
 
 <div
   class="c0 fi-multiselect c1"
-  items="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
 >
   <div
     class="c0 fi-multiselect_content_wrapper"
