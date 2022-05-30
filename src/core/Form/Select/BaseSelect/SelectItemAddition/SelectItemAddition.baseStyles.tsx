@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../../../../theme';
 
 export const selectItemAdditionStyles = (theme: SuomifiTheme) => css`
-  & .fi-select-item-addition_hint_text {
+  & .fi-select-item-addition_hint-text {
     padding: 8px 32px 8px 10px;
     ${font(theme)('bodyTextSmall')}
     background: ${theme.colors.depthLight3};

@@ -8,7 +8,7 @@ import classnames from 'classnames';
 const baseClassName = 'fi-select-item-addition';
 
 const classNames = {
-  hint_text: `${baseClassName}_hint_text`,
+  hint_text: `${baseClassName}_hint-text`,
   item: `${baseClassName}_item`,
   hasKeyboardFocus: `${baseClassName}_item--hasKeyboardFocus`,
 };
