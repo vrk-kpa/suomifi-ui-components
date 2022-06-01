@@ -240,7 +240,7 @@ exports[`snapshot should have matching default structure 1`] = `
   margin-left: 6px;
 }
 
-.c10 {
+.c3.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -261,6 +261,31 @@ exports[`snapshot should have matching default structure 1`] = `
 
 .c10.fi-status-text {
   display: block;
+.c3.fi-label .fi-label_label-span .fi-label_optional-text {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c8 {
+  vertical-align: baseline;
+}
+
+.c8.fi-icon {
+  display: inline-block;
+}
+
+.c8 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c8 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c8.fi-icon--cursor-pointer {
+  cursor: pointer;
 }
 
 .c10.fi-status-text.fi-status-text--error {
@@ -623,12 +648,12 @@ exports[`snapshot should have matching default structure 1`] = `
   <span
     class="c2 fi-search-input_wrapper"
   >
-    <div
-      class="c3 c4 fi-search-input_label--visible fi-label-text"
+    <label
+      class="c0 c3 fi-search-input_label--visible fi-label"
+      for="1"
     >
-      <label
-        class="c2 fi-label-text_label-span"
-        for="1"
+      <span
+        class="c2 fi-label_label-span"
       >
         Test search input
       </label>

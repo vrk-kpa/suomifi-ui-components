@@ -30,36 +30,7 @@ exports[`snapshot matches 1`] = `
   box-sizing: border-box;
 }
 
-.c2 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c2::before,
-.c2::after {
-  box-sizing: border-box;
-}
-
-.c5 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -82,17 +53,17 @@ exports[`snapshot matches 1`] = `
   max-width: 100%;
 }
 
-.c5::-webkit-input-placeholder {
+.c4::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c5::before,
-.c5::after {
+.c4::before,
+.c4::after {
   box-sizing: border-box;
 }
 
-.c4 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -116,12 +87,12 @@ exports[`snapshot matches 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c3::before,
+.c3::after {
   box-sizing: border-box;
 }
 
-.c3.fi-label-text .fi-label-text_label-span {
+.c2.fi-labe .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -135,23 +106,18 @@ exports[`snapshot matches 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  display: inline-block;
-  vertical-align: middle;
+  display: block;
   color: hsl(0,0%,16%);
 }
 
-.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c2.fi-labe .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c3.fi-label-text .fi-label-text_label-span .fi-tooltip {
-  margin-left: 6px;
-}
-
-.c6 {
+.c5 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -170,11 +136,11 @@ exports[`snapshot matches 1`] = `
   line-height: 20px;
 }
 
-.c6.fi-status-text {
+.c5.fi-status-text {
   display: block;
 }
 
-.c6.fi-status-text.fi-status-text--error {
+.c5.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
 }
 
@@ -362,7 +328,7 @@ exports[`snapshot matches 1`] = `
   align-items: flex-start;
 }
 
-.c1.fi-filter-input--label-align-left .fi-filter-input_wrapper .fi-label-text {
+.c1.fi-filter-input--label-align-left .fi-filter-input_wrapper .fi-label {
   padding-right: 10px;
   padding-top: 8px;
   -webkit-align-self: flex-start;
@@ -370,7 +336,7 @@ exports[`snapshot matches 1`] = `
   align-self: flex-start;
 }
 
-.c1.fi-filter-input--label-align-left .fi-filter-input_wrapper .fi-label-text .fi-label-text_label-span {
+.c1.fi-filter-input--label-align-left .fi-filter-input_wrapper .fi-label .fi-label_label-span {
   margin-bottom: 0;
 }
 
@@ -380,16 +346,16 @@ exports[`snapshot matches 1`] = `
   <div
     class="c0 fi-filter-input_wrapper"
   >
-    <div
-      class="c2 c3 fi-filter-input_label--visible fi-label-text"
+    <label
+      class="c0 c2 fi-filter-input_label--visible fi-label"
+      id="1-label"
     >
-      <label
-        class="c4 fi-label-text_label-span"
-        id="1-label"
+      <span
+        class="c3 fi-label_label-span"
       >
         Label
-      </label>
-    </div>
+      </span>
+    </label>
     <div
       class="c0 fi-filter-input_functionalityContainer"
     >
@@ -403,7 +369,7 @@ exports[`snapshot matches 1`] = `
           aria-multiline="false"
           autocapitalize="none"
           autocomplete="off"
-          class="c5 fi-filter-input_input"
+          class="c4 fi-filter-input_input"
           id="1"
           spellcheck="false"
           type="text"
@@ -412,7 +378,7 @@ exports[`snapshot matches 1`] = `
       <span
         aria-atomic="true"
         aria-live="assertive"
-        class="c4 c6 fi-status-text"
+        class="c3 c5 fi-status-text"
       />
     </div>
   </div>
