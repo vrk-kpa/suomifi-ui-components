@@ -56,7 +56,7 @@ export interface InternalSingleSelectProps<T extends SingleSelectData> {
   /** Clear button label for screen readers */
   clearButtonLabel: string;
   /** Event that is fired when item selection changes */
-  onItemSelectionChange?: (selectedItem: T | null) => void;
+  onItemSelectionChange?: (selectedItem: (T & SingleSelectData) | null) => void;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
   /**

@@ -63,7 +63,7 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   /** Hint text to be shown below the label */
   hintText?: string;
   /** Event that is fired when item selections change */
-  onItemSelectionsChange?: (selectedItems: Array<T>) => void;
+  onItemSelectionsChange?: (selectedItems: Array<T & MultiSelectData>) => void;
   /** Show chip list */
   chipListVisible?: boolean;
   /** Chip action label */
