@@ -66,9 +66,11 @@ import React from 'react';
     groupStatus="error"
     groupStatusText="Please choose at least one"
   >
-    <Checkbox defaultChecked>By email</Checkbox>
+    <Checkbox defaultChecked hintText="24/7">
+      By email
+    </Checkbox>
 
-    <Checkbox hintText="We will call at office hours (08:00 - 16:00)">
+    <Checkbox hintText="We will call at office hours">
       By phone
     </Checkbox>
 
