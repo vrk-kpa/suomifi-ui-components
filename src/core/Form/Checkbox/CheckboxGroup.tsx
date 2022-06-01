@@ -1,6 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import { getConditionalAriaProp } from '../../../utils/aria';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlDiv, HtmlFieldSet, HtmlLegend } from '../../../reset';
 import { InputStatus } from '../types';
@@ -10,6 +11,7 @@ import { StatusText } from '../StatusText/StatusText';
 import { CheckboxProps } from './Checkbox';
 import { baseStyles } from './CheckboxGroup.baseStyles';
 import { AutoId } from '../../utils/AutoId/AutoId';
+import { VisuallyHidden } from '../../..';
 
 const baseClassName = 'fi-checkbox-group';
 const checkboxGroupClassNames = {
@@ -100,6 +102,11 @@ class BaseCheckboxGroup extends Component<
               {labelText}
             </Label>
             {groupHintText && <HintText>{groupHintText}</HintText>}
+            {groupStatusText && (
+              <VisuallyHidden
+                {...getConditionalAriaProp('aria-labelledby', [statusTextId])}
+              />
+            )}
           </HtmlLegend>
           <HtmlDiv className={checkboxGroupClassNames.container}>
             <Provider
