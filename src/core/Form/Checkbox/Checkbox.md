@@ -61,20 +61,20 @@ import React from 'react';
 
 <>
   <CheckboxGroup
-    labelText="Checkboxes in group"
-    groupHintText="Example hint text"
+    labelText="How You want to be contacted"
+    groupHintText="You can choose more than one"
     groupStatus="error"
-    groupStatusText="Example status text"
+    groupStatusText="Please choose at least one"
   >
-    <Checkbox defaultChecked hintText="Example hint text">
-      Regular checkbox that is checked and has a hint text
+    <Checkbox defaultChecked>By email</Checkbox>
+
+    <Checkbox hintText="We will call at office hours (08:00 - 16:00)">
+      By phone
     </Checkbox>
 
-    <Checkbox hintText="Example hint text">
-      Regular checkbox with a hint text
+    <Checkbox hintText="We will knock twice">
+      By personal visit
     </Checkbox>
-
-    <Checkbox>Regular checkbox</Checkbox>
   </CheckboxGroup>
 </>;
 ```
