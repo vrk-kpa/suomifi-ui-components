@@ -183,7 +183,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   cursor: inherit;
 }
 
-.c4.fi-labe .fi-label_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -201,7 +201,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-labe .fi-label_label-span .fi-label_optional-text {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -753,7 +753,7 @@ exports[`props className should match snapshot 1`] = `
   cursor: inherit;
 }
 
-.c4.fi-labe .fi-label_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -771,7 +771,7 @@ exports[`props className should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-labe .fi-label_label-span .fi-label_optional-text {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -1323,7 +1323,7 @@ exports[`props defaultValue should match snapshot 1`] = `
   cursor: inherit;
 }
 
-.c4.fi-labe .fi-label_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1341,7 +1341,7 @@ exports[`props defaultValue should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-labe .fi-label_label-span .fi-label_optional-text {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -1915,7 +1915,7 @@ exports[`props hintText should match snapshot 1`] = `
   cursor: inherit;
 }
 
-.c4.fi-labe .fi-label_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1933,7 +1933,7 @@ exports[`props hintText should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-labe .fi-label_label-span .fi-label_optional-text {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -2490,7 +2490,7 @@ exports[`props id should match snapshot 1`] = `
   cursor: inherit;
 }
 
-.c4.fi-labe .fi-label_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2508,7 +2508,7 @@ exports[`props id should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-labe .fi-label_label-span .fi-label_optional-text {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -3060,7 +3060,7 @@ exports[`props label should match snapshot 1`] = `
   cursor: inherit;
 }
 
-.c4.fi-labe .fi-label_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -3078,7 +3078,7 @@ exports[`props label should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-labe .fi-label_label-span .fi-label_optional-text {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -3642,7 +3642,7 @@ exports[`props labelMode should match snapshot 1`] = `
   overflow: hidden;
 }
 
-.c4.fi-labe .fi-label_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -3660,7 +3660,7 @@ exports[`props labelMode should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-labe .fi-label_label-span .fi-label_optional-text {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -4212,7 +4212,7 @@ exports[`props name should match snapshot 1`] = `
   cursor: inherit;
 }
 
-.c4.fi-labe .fi-label_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -4230,7 +4230,7 @@ exports[`props name should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-labe .fi-label_label-span .fi-label_optional-text {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -4782,7 +4782,7 @@ exports[`props value should match snapshot 1`] = `
   cursor: inherit;
 }
 
-.c4.fi-labe .fi-label_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -4800,7 +4800,7 @@ exports[`props value should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-labe .fi-label_label-span .fi-label_optional-text {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;

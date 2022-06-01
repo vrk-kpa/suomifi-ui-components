@@ -261,6 +261,30 @@ exports[`snapshot should have matching default structure 1`] = `
 
 .c10.fi-status-text {
   display: block;
+}
+
+.c9.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,48%);
+}
+
+.c3.fi-label .fi-label_label-span {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  display: block;
+  color: hsl(0,0%,16%);
+}
+
 .c3.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
