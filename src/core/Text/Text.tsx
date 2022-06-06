@@ -8,7 +8,7 @@ import { HtmlSpan, HtmlSpanProps } from '../../reset';
 const baseClassName = 'fi-text';
 const smallScreenClassName = `${baseClassName}--small-screen`;
 
-interface InternalTextProps extends HtmlSpanProps {
+export interface TextProps extends HtmlSpanProps {
   /** Change font to smaller screen size and style */
   smallScreen?: boolean;
   /** Change color for text from theme colors */
@@ -18,13 +18,6 @@ interface InternalTextProps extends HtmlSpanProps {
    * @default body
    */
   variant?: 'body' | 'lead' | 'bold';
-}
-
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLSpanElement>;
-}
-
-export interface TextProps extends InternalTextProps {
   /** Ref object to be passed to the element */
   ref?: React.RefObject<HTMLSpanElement>;
 }
@@ -37,7 +30,7 @@ const StyledText = styled(
     theme,
     color,
     ...passProps
-  }: InternalTextProps & InnerRef & SuomifiThemeProp) => (
+  }: TextProps & SuomifiThemeProp) => (
     <HtmlSpan
       {...passProps}
       className={classnames(
@@ -59,7 +52,7 @@ const StyledText = styled(
  */
 const Text = forwardRef<HTMLSpanElement, TextProps>(
   (props: TextProps, ref: React.Ref<HTMLSpanElement>) => {
-    const { id: propId, ...passProps } = props;
+    const { ...passProps } = props;
     return (
       <SuomifiThemeConsumer>
         {({ suomifiTheme }) => (
