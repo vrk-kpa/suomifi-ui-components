@@ -503,6 +503,11 @@ exports[`default, with only required props should match snapshot 1`] = `
         </div>
       </div>
     </fieldset>
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c6 c10 fi-status-text"
+    />
   </div>
 </div>
 `;

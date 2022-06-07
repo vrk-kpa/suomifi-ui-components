@@ -50,6 +50,15 @@ export interface CheckboxGroupProps {
   groupStatusText?: string;
 }
 
+export interface CheckboxGroupProviderState {
+  status?: CheckboxGroupStatus;
+}
+
+const defaultProviderValue: CheckboxGroupProviderState = {};
+
+const { Provider, Consumer: CheckboxGroupConsumer } =
+  React.createContext(defaultProviderValue);
+
 class BaseCheckboxGroup extends Component<
   CheckboxGroupProps & SuomifiThemeProp
 > {
@@ -92,7 +101,13 @@ class BaseCheckboxGroup extends Component<
             {groupHintText && <HintText>{groupHintText}</HintText>}
           </HtmlLegend>
           <HtmlDiv className={checkboxGroupClassNames.container}>
-            {children}
+            <Provider
+              value={{
+                status: groupStatus,
+              }}
+            >
+              {children}
+            </Provider>
           </HtmlDiv>
         </HtmlFieldSet>
         <StatusText
@@ -136,3 +151,5 @@ export class CheckboxGroup extends Component<CheckboxGroupProps> {
     );
   }
 }
+
+export { CheckboxGroupConsumer };
