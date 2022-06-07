@@ -10,6 +10,7 @@ import { HtmlLabel, HtmlDiv, HtmlInput } from '../../../reset';
 import { Icon } from '../../Icon/Icon';
 import { StatusText } from '../StatusText/StatusText';
 import { HintText } from '../HintText/HintText';
+import { CheckboxGroupConsumer } from './CheckboxGroup';
 import { baseStyles } from './Checkbox.baseStyles';
 
 const baseClassName = 'fi-checkbox';
@@ -252,18 +253,23 @@ const StyledCheckbox = styled(
 
 export const Checkbox = forwardRef(
   (props: CheckboxProps, ref: React.RefObject<HTMLInputElement>) => {
-    const { id: propId, ...passProps } = props;
+    const { id: propId, status: propStatus, ...passProps } = props;
     return (
       <SuomifiThemeConsumer>
         {({ suomifiTheme }) => (
           <AutoId id={propId}>
             {(id) => (
-              <StyledCheckbox
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
+              <CheckboxGroupConsumer>
+                {({ status: groupStatus }) => (
+                  <StyledCheckbox
+                    theme={suomifiTheme}
+                    id={id}
+                    forwardedRef={ref}
+                    status={!!propStatus ? propStatus : groupStatus}
+                    {...passProps}
+                  />
+                )}
+              </CheckboxGroupConsumer>
             )}
           </AutoId>
         )}

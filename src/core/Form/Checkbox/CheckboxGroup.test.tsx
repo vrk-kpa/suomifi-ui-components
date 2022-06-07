@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Checkbox } from './Checkbox';
 import { CheckboxGroup } from './CheckboxGroup';
 
@@ -101,6 +101,57 @@ describe('props', () => {
       const { getByText } = render(OptionalTextGroup);
       const optionalText = getByText('(optional)');
       expect(optionalText).not.toEqual(null);
+    });
+  });
+
+  describe('groupStatusText', () => {
+    const StatusGroup = (
+      <CheckboxGroup labelText="Label" groupStatusText="All good!">
+        {CheckboxChilds}
+      </CheckboxGroup>
+    );
+
+    it('has the given text', () => {
+      render(StatusGroup);
+      expect(screen.getByText('All good!')).not.toBeNull();
+    });
+  });
+
+  describe('groupStatus', () => {
+    const StatusGroup = (
+      <CheckboxGroup labelText="Label" groupStatus="error">
+        {CheckboxChilds}
+      </CheckboxGroup>
+    );
+
+    const StatusGroupOneDifferent = (
+      <CheckboxGroup labelText="Label" groupStatus="error">
+        <Checkbox key={1} id={`test-id-${1}`}>
+          {`Label text ${1}`}
+        </Checkbox>
+        <Checkbox key={2} id={`test-id-${2}`} status="default">
+          {`Label text ${2}`}
+        </Checkbox>
+        <Checkbox key={3} id={`test-id-${3}`}>
+          {`Label text ${3}`}
+        </Checkbox>
+      </CheckboxGroup>
+    );
+
+    it('has Checkboxes with the error statuses', () => {
+      render(StatusGroup);
+      const fieldset = screen.getByRole('group');
+      expect(fieldset.querySelectorAll('.fi-status-text--error')).toHaveLength(
+        3,
+      );
+    });
+
+    it('has two in error state; not overriding individual Checkbox prop', () => {
+      render(StatusGroupOneDifferent);
+      const fieldset = screen.getByRole('group');
+      expect(fieldset.querySelectorAll('.fi-status-text--error')).toHaveLength(
+        2,
+      );
     });
   });
 });
