@@ -112,37 +112,28 @@ exports[`Basic expander shoud match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c1 {
-  color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  background-color: hsl(0,0%,100%);
-  position: relative;
-  padding: 0;
-  border-radius: 2px;
-  box-shadow: 0 1px 2px 0 rgba(41,41,41,0.14),0 1px 5px 0 rgba(41,41,41,0.12);
-  width: 100%;
-  max-width: 100%;
+.c5 {
+  vertical-align: baseline;
 }
 
-.c1.fi-expander {
-  display: block;
+.c5.fi-icon {
+  display: inline-block;
 }
 
-.c1:before {
-  background-color: hsl(212,63%,98%);
-  opacity: 0;
+.c5 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c5 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c5.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c5.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c6 {
@@ -200,30 +191,6 @@ exports[`Basic expander shoud match snapshot 1`] = `
   padding-right: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
-}
-
-.c5 {
-  vertical-align: baseline;
-}
-
-.c5.fi-icon {
-  display: inline-block;
-}
-
-.c5 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c5 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c5.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c5.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c2 {
@@ -341,6 +308,39 @@ exports[`Basic expander shoud match snapshot 1`] = `
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   transform: rotate(-180deg);
+}
+
+.c1 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: hsl(0,0%,100%);
+  position: relative;
+  padding: 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px 0 rgba(41,41,41,0.14),0 1px 5px 0 rgba(41,41,41,0.12);
+  width: 100%;
+  max-width: 100%;
+}
+
+.c1.fi-expander {
+  display: block;
+}
+
+.c1:before {
+  background-color: hsl(212,63%,98%);
+  opacity: 0;
 }
 
 <div
