@@ -26,7 +26,7 @@ export const HtmlDiv = styled(Div)`
 
 export interface HtmlDivWithRefProps extends HtmlDivProps {
   /** Ref object for the input element */
-  forwardedRef?: React.RefObject<HTMLDivElement>;
+  forwardedRef?: React.Ref<HTMLDivElement>;
 }
 
 const DivWithRef = ({ forwardedRef, ...passProps }: HtmlDivWithRefProps) => (

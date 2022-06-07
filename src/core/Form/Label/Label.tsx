@@ -1,27 +1,45 @@
-import React, { Component, ReactNode } from 'react';
+import React, {
+  ReactElement,
+  SetStateAction,
+  Component,
+  ReactNode,
+  useState,
+  isValidElement,
+  cloneElement,
+  CSSProperties,
+} from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './Label.baseStyles';
 import { asPropType } from '../../../utils/typescript';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
-import { HtmlSpan, HtmlSpanProps, HtmlDiv, HtmlDivProps } from '../../../reset';
+import {
+  HtmlSpan,
+  HtmlSpanProps,
+  HtmlDivProps,
+  HtmlDivWithRef,
+} from '../../../reset';
 
 export type LabelMode = 'hidden' | 'visible';
 
-export interface LabelProps extends Omit<HtmlDivProps, 'as'> {
-  /** id */
+export interface LabelProps extends Omit<HtmlSpanProps, 'as'> {
+  /** id for label content */
   id?: string;
+  /** Wrapper class name for styling and customizing */
+  className?: string;
   /** Label element content */
   children: ReactNode;
-  /** Custom class name for styling and customizing  */
-  className?: string;
+  /** Content class name for styling and customizing */
+  contentClassName?: string;
+  /** Content style for styling and customizing */
+  contentStyle?: CSSProperties;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
    */
   labelMode?: LabelMode;
-  /** Label span props */
-  labelSpanProps?: HtmlSpanProps;
+  /** Props for label wrapper element */
+  wrapperProps?: Omit<HtmlDivProps, 'as' | 'className'>;
   /** Render the wrapping element as another element
    *
    * @default 'label'
@@ -29,6 +47,8 @@ export interface LabelProps extends Omit<HtmlDivProps, 'as'> {
   asProp?: asPropType;
   /** Text to mark the field as optional. Shown after labelText and wrapped in parentheses. */
   optionalText?: string;
+  /** Tooltip component for label */
+  tooltipComponent?: ReactElement;
 }
 
 const baseClassName = 'fi-label-text';
@@ -40,42 +60,70 @@ const labelTextClassNames = {
 const StyledLabel = styled(
   ({
     className,
+    contentStyle,
+    contentClassName,
     theme,
     labelMode = 'visible',
-    labelSpanProps = { className: undefined },
+    wrapperProps,
     children,
     asProp = 'label',
     optionalText,
+    tooltipComponent: tooltipComponentProp,
     ...passProps
-  }: LabelProps & SuomifiThemeProp) => (
-    <HtmlDiv
-      {...(asProp ? { as: asProp } : {})}
-      className={classnames(className, baseClassName)}
-      {...passProps}
-    >
-      {labelMode === 'hidden' ? (
-        <VisuallyHidden>
-          {children}
-          {optionalText && `(${optionalText})`}
-        </VisuallyHidden>
-      ) : (
-        <HtmlSpan
-          {...labelSpanProps}
-          className={classnames(
-            labelTextClassNames.labelSpan,
-            labelSpanProps.className,
-          )}
-        >
-          {children}
-          {optionalText && (
-            <HtmlSpan className={labelTextClassNames.optionalText}>
-              {` (${optionalText})`}
+  }: LabelProps & SuomifiThemeProp) => {
+    const [wrapperRef, setWrapperRef] = useState<HTMLDivElement | null>(null);
+
+    function getTooltipComponent(
+      tooltipComponent: ReactElement | undefined,
+    ): ReactNode {
+      if (isValidElement(tooltipComponent)) {
+        return cloneElement(tooltipComponent, {
+          anchorElement: wrapperRef,
+          // trick to force tooltip to rerender every time when label changes.
+          key: Date.now(),
+        });
+      }
+      return null;
+    }
+
+    return (
+      <HtmlDivWithRef
+        className={classnames(className, baseClassName)}
+        {...wrapperProps}
+        forwardedRef={(ref: SetStateAction<HTMLDivElement | null>) =>
+          setWrapperRef(ref)
+        }
+      >
+        {labelMode === 'hidden' ? (
+          <VisuallyHidden>
+            {children}
+            {optionalText && `(${optionalText})`}
+          </VisuallyHidden>
+        ) : (
+          <>
+            <HtmlSpan
+              as={asProp}
+              style={contentStyle ? { ...contentStyle } : {}}
+              {...passProps}
+              className={classnames(
+                labelTextClassNames.labelSpan,
+                contentClassName,
+              )}
+            >
+              {children}
+              {optionalText && (
+                <HtmlSpan className={labelTextClassNames.optionalText}>
+                  {` (${optionalText})`}
+                </HtmlSpan>
+              )}
             </HtmlSpan>
-          )}
-        </HtmlSpan>
-      )}
-    </HtmlDiv>
-  ),
+            {!!tooltipComponentProp &&
+              getTooltipComponent(tooltipComponentProp)}
+          </>
+        )}
+      </HtmlDivWithRef>
+    );
+  },
 )`
   ${({ theme }) => baseStyles(theme)}
 `;

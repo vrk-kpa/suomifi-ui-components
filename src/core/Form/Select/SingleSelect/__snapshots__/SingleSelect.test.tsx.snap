@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`has matching snapshot 1`] = `
-.c7 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,30 +27,30 @@ exports[`has matching snapshot 1`] = `
   cursor: pointer;
 }
 
-.c7:-moz-focusring {
+.c8:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c7::-moz-focus-inner {
+.c8::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c7::-webkit-file-upload-button {
+.c8::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c7::-webkit-inner-spin-button {
+.c8::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c7::-webkit-outer-spin-button {
+.c8::-webkit-outer-spin-button {
   height: auto;
 }
 
-.c7::before,
-.c7::after {
+.c8::before,
+.c8::after {
   box-sizing: border-box;
 }
 
@@ -83,7 +83,36 @@ exports[`has matching snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c6 {
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
+.c7 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -106,17 +135,17 @@ exports[`has matching snapshot 1`] = `
   max-width: 100%;
 }
 
-.c6::-webkit-input-placeholder {
+.c7::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c6::before,
-.c6::after {
+.c7::before,
+.c7::after {
   box-sizing: border-box;
 }
 
-.c4 {
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -140,12 +169,36 @@ exports[`has matching snapshot 1`] = `
   white-space: normal;
 }
 
-.c4::before,
-.c4::after {
+.c5::before,
+.c5::after {
   box-sizing: border-box;
 }
 
-.c9 {
+.c11 {
+  vertical-align: baseline;
+}
+
+.c11.fi-icon {
+  display: inline-block;
+}
+
+.c11 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c11 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c11.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c11.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c10 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -157,7 +210,7 @@ exports[`has matching snapshot 1`] = `
   overflow: hidden;
 }
 
-.c3.fi-label-text .fi-label-text_label-span {
+.c4.fi-label-text .fi-label-text_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -171,39 +224,23 @@ exports[`has matching snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  display: block;
+  display: inline-block;
+  vertical-align: middle;
   color: hsl(0,0%,16%);
 }
 
-.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c4.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c5 {
-  color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
+.c4.fi-label-text .fi-label-text_label-span .fi-tooltip {
+  margin-left: 6px;
 }
 
-.c5.fi-hint-text {
-  display: block;
-}
-
-.c12 {
+.c13 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -222,12 +259,95 @@ exports[`has matching snapshot 1`] = `
   line-height: 20px;
 }
 
-.c12.fi-status-text {
+.c13.fi-status-text {
   display: block;
 }
 
-.c12.fi-status-text.fi-status-text--error {
+.c13.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
+}
+
+.c6 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c6.fi-hint-text {
+  display: block;
+}
+
+.c9 {
+  position: relative;
+  cursor: pointer;
+  pointer-events: all;
+  height: 20px;
+  width: 20px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c9:focus {
+  outline: none;
+}
+
+.c9:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c9.fi-input-clear-button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c9.fi-input-clear-button .fi-input-clear-button_icon {
+  width: 16px;
+  height: 16px;
+}
+
+.c9.fi-input-clear-button .fi-input-clear-button_icon .fi-icon-base-fill {
+  fill: hsl(212,63%,37%);
+}
+
+.c9.fi-input-clear-button[disabled],
+.c9.fi-input-clear-button:disabled {
+  cursor: not-allowed;
+}
+
+.c9.fi-input-clear-button[disabled] .fi-input-clear-button_icon .fi-icon-base-fill,
+.c9.fi-input-clear-button:disabled .fi-input-clear-button_icon .fi-icon-base-fill {
+  fill: hsl(202,7%,67%);
 }
 
 .c2 {
@@ -426,93 +546,7 @@ exports[`has matching snapshot 1`] = `
   margin-bottom: 0;
 }
 
-.c10 {
-  vertical-align: baseline;
-}
-
-.c10.fi-icon {
-  display: inline-block;
-}
-
-.c10 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c10 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c10.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c10.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
-.c8 {
-  position: relative;
-  cursor: pointer;
-  pointer-events: all;
-  height: 20px;
-  width: 20px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c8:focus {
-  outline: none;
-}
-
-.c8:focus:after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  z-index: 9999;
-}
-
-.c8.fi-input-clear-button {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.c8.fi-input-clear-button .fi-input-clear-button_icon {
-  width: 16px;
-  height: 16px;
-}
-
-.c8.fi-input-clear-button .fi-input-clear-button_icon .fi-icon-base-fill {
-  fill: hsl(212,63%,37%);
-}
-
-.c8.fi-input-clear-button[disabled],
-.c8.fi-input-clear-button:disabled {
-  cursor: not-allowed;
-}
-
-.c8.fi-input-clear-button[disabled] .fi-input-clear-button_icon .fi-icon-base-fill,
-.c8.fi-input-clear-button:disabled .fi-input-clear-button_icon .fi-icon-base-fill {
-  fill: hsl(202,7%,67%);
-}
-
-.c11 {
+.c12 {
   width: 20px;
   height: 20px;
   cursor: pointer;
@@ -527,7 +561,7 @@ exports[`has matching snapshot 1`] = `
   align-items: center;
 }
 
-.c11.fi-input-toggle-button {
+.c12.fi-input-toggle-button {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -535,23 +569,23 @@ exports[`has matching snapshot 1`] = `
   height: 100%;
 }
 
-.c11.fi-input-toggle-button .fi-input-toggle-button_icon {
+.c12.fi-input-toggle-button .fi-input-toggle-button_icon {
   pointer-events: none;
   width: 10px;
   height: 10px;
 }
 
-.c11.fi-input-toggle-button .fi-input-toggle-button_icon .fi-icon-base-fill {
+.c12.fi-input-toggle-button .fi-input-toggle-button_icon .fi-icon-base-fill {
   fill: hsl(0,0%,16%);
 }
 
-.c11.fi-input-toggle-button[disabled],
-.c11.fi-input-toggle-button:disabled {
+.c12.fi-input-toggle-button[disabled],
+.c12.fi-input-toggle-button:disabled {
   cursor: not-allowed;
 }
 
-.c11.fi-input-toggle-button[disabled] .fi-input-toggle-button_icon .fi-icon-base-fill,
-.c11.fi-input-toggle-button:disabled .fi-input-toggle-button_icon .fi-icon-base-fill {
+.c12.fi-input-toggle-button[disabled] .fi-input-toggle-button_icon .fi-icon-base-fill,
+.c12.fi-input-toggle-button:disabled .fi-input-toggle-button_icon .fi-icon-base-fill {
   fill: hsl(202,7%,67%);
 }
 
@@ -595,18 +629,18 @@ exports[`has matching snapshot 1`] = `
     <div
       class="c0 fi-filter-input_wrapper"
     >
-      <label
-        class="c0 c3 fi-filter-input_label--visible fi-label-text"
-        id="1-label"
+      <div
+        class="c3 c4 fi-filter-input_label--visible fi-label-text"
       >
-        <span
-          class="c4 fi-label-text_label-span"
+        <label
+          class="c5 fi-label-text_label-span"
+          id="1-label"
         >
           SingleSelect
-        </span>
-      </label>
+        </label>
+      </div>
       <span
-        class="c4 c5 fi-hint-text"
+        class="c5 c6 fi-hint-text"
         id="1-hintText"
       >
         You can filter options by typing in the field
@@ -631,7 +665,7 @@ exports[`has matching snapshot 1`] = `
             aria-multiline="false"
             autocapitalize="none"
             autocomplete="off"
-            class="c6 fi-filter-input_input"
+            class="c7 fi-filter-input_input"
             id="1"
             placeholder=""
             spellcheck="false"
@@ -646,17 +680,17 @@ exports[`has matching snapshot 1`] = `
             class="c0 fi-single-select_clear-button_wrapper"
           >
             <button
-              class="c7 fi-input-clear-button c8"
+              class="c8 fi-input-clear-button c9"
               type="button"
             >
               <span
-                class="c4 c9 fi-visually-hidden"
+                class="c5 c10 fi-visually-hidden"
               >
                 Clear selection
               </span>
               <svg
                 aria-hidden="true"
-                class="fi-icon c10 fi-input-clear-button_icon"
+                class="fi-icon c11 fi-input-clear-button_icon"
                 focusable="false"
                 height="1em"
                 viewBox="0 0 24 24"
@@ -674,16 +708,16 @@ exports[`has matching snapshot 1`] = `
           </div>
           <button
             aria-hidden="true"
-            class="c7 fi-input-toggle-button c11"
+            class="c8 fi-input-toggle-button c12"
             tabindex="-1"
             type="button"
           >
             <span
-              class="c4 c9 fi-visually-hidden"
+              class="c5 c10 fi-visually-hidden"
             />
             <svg
               aria-hidden="true"
-              class="fi-icon c10 fi-input-toggle-button_icon"
+              class="fi-icon c11 fi-input-toggle-button_icon"
               focusable="false"
               height="1em"
               viewBox="0 0 10 10"
@@ -702,7 +736,7 @@ exports[`has matching snapshot 1`] = `
         <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c4 c12 fi-status-text"
+          class="c5 c13 fi-status-text"
         />
       </div>
     </div>
