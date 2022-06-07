@@ -11,6 +11,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     outline: none;
   }
   &.fi-select-item {
+    cursor: pointer;
     & .fi-select-item--query_highlight {
       background-color: transparent;
       font-weight: bold;

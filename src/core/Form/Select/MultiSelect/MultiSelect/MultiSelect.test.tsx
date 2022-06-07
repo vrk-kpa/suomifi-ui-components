@@ -640,3 +640,28 @@ describe('status', () => {
     expect(container.firstChild).toHaveClass('fi-multiselect--error');
   });
 });
+
+describe('disabled', () => {
+  it('should not be interactive while disabled', async () => {
+    const { getAllByRole, container } = render(
+      <MultiSelect
+        disabled={true}
+        labelText="Tools"
+        items={tools}
+        noItemsText="No items"
+        ariaSelectedAmountText=""
+        ariaOptionsAvailableText=""
+        ariaOptionChipRemovedText=""
+      />,
+    );
+
+    const toggleBtn = container.querySelector('.fi-input-toggle-button');
+    expect(toggleBtn).not.toBe(null);
+    if (toggleBtn) {
+      await act(async () => {
+        fireEvent.click(toggleBtn);
+      });
+      expect(() => getAllByRole('option')).toThrowError();
+    }
+  });
+});

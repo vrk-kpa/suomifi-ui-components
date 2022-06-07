@@ -9,19 +9,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-multiselect {
     & .fi-filter-input_input-element-container {
       position: relative;
-
-      &:before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        right: 14px;
-        margin-top: -3px;
-        border-style: solid;
-        border-color: ${theme.colors.blackBase} transparent transparent
-          transparent;
-        border-width: 6px 4px 0 4px;
-        pointer-events: none;
-      }
     }
     & .fi-filter-input_input {
       padding-right: 36px;
@@ -34,13 +21,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   &.fi-multiselect--open {
-    & .fi-filter-input_input-element-container {
-      &:before {
-        border-color: transparent transparent ${theme.colors.blackBase}
-          transparent;
-        border-width: 0 4px 6px 4px;
-      }
-    }
     & .fi-filter-input_input {
       border-bottom: 0;
       border-bottom-left-radius: 0;

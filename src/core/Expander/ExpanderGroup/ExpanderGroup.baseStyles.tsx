@@ -22,9 +22,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       transition: margin ${`${theme.transitions.basicTime}
         ${theme.transitions.basicTimingFunction}`};
 
-      & .fi-icon {
-        color: ${theme.colors.highlightBase};
-      }
       & > {
         border-radius: 0;
       }

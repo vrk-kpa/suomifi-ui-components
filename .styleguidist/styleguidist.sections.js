@@ -82,136 +82,122 @@ module.exports = {
     {
       name: 'Components',
       content: './.styleguidist/components.md',
+      components: getComponents(primitiveComponents),
       sections: [
         {
-          name: 'Primitive',
-          content: './.styleguidist/primitive.md',
-          components: getComponents(primitiveComponents),
-          sections: [
-            {
-              name: 'Toggle',
-              components: getComponentWithVariants('Form/Toggle')([
-                'ToggleButton/ToggleButton',
-                'ToggleInput/ToggleInput',
-              ]),
-            },
-            {
-              name: 'Text',
-              components: getComponents(['Text', 'Paragraph']),
-            },
-            {
-              name: 'Alert',
-              components: getComponentWithVariants('Alert')([
-                'Alert/Alert',
-                'InlineAlert/InlineAlert',
-              ]),
-            },
-
-            {
-              name: 'Checkbox',
-              components: getComponentWithVariants('Form/Checkbox')([
-                'Checkbox',
-                'CheckboxGroup',
-              ]),
-            },
-            {
-              name: 'RadioButton',
-              components: getComponentWithVariants('Form/RadioButton')([
-                'RadioButton',
-                'RadioButtonGroup',
-              ]),
-            },
-            {
-              name: 'Link',
-              components: getComponentWithVariants('Link')([
-                'Link/Link',
-                'SkipLink/SkipLink',
-                'ExternalLink/ExternalLink',
-              ]),
-            },
-            {
-              name: 'Chip',
-              components: getComponentWithVariants('Chip')([
-                'Chip/Chip',
-                'StaticChip/StaticChip',
-              ]),
-            },
-            {
-              name: 'Icon',
-              components: getComponents(['Icon', 'StaticIcon', 'LogoIcon']),
-            },
-            {
-              name: 'MultiSelect',
-              components: getComponentWithVariants('Form/Select')([
-                'MultiSelect/MultiSelect/MultiSelect',
-              ]),
-            },
-            {
-              name: 'SingleSelect',
-              components: getComponentWithVariants('Form/Select')([
-                'SingleSelect/SingleSelect',
-              ]),
-            },
-          ],
-          expand: true,
+          name: 'Toggle',
+          components: getComponentWithVariants('Form/Toggle')([
+            'ToggleButton/ToggleButton',
+            'ToggleInput/ToggleInput',
+          ]),
         },
         {
-          name: 'Modules',
-          content: './.styleguidist/modules.md',
-          sections: [
-            {
-              name: 'Breadcrumb',
-              components: getComponentWithVariants('Breadcrumb')([
-                'Breadcrumb/Breadcrumb',
-                'BreadcrumbLink/BreadcrumbLink',
-              ]),
-            },
-            {
-              name: 'Dropdown',
-              components: getComponentWithVariants('Dropdown')([
-                'Dropdown/Dropdown',
-                'DropdownItem/DropdownItem',
-              ]),
-            },
-            {
-              name: 'LanguageMenu',
-              components: getComponentWithVariants('LanguageMenu')([
-                'LanguageMenu/LanguageMenu',
-                'LanguageMenuItem/LanguageMenuItem',
-                'LanguageMenuLink/LanguageMenuLink',
-              ]),
-            },
-            {
-              name: 'Notification',
-              components: getComponents(['Notification']),
-            },
-            {
-              name: 'Expander',
-              components: getComponentWithVariants('Expander')([
-                'Expander/Expander',
-                'ExpanderGroup/ExpanderGroup',
-                'ExpanderTitle/ExpanderTitle',
-                'ExpanderTitleButton/ExpanderTitleButton',
-                'ExpanderContent/ExpanderContent',
-              ]),
-            },
-            {
-              name: 'Modal',
-              components: getComponentWithVariants('Modal')([
-                'Modal/Modal',
-                'ModalContent/ModalContent',
-                'ModalFooter/ModalFooter',
-              ]),
-            },
-            {
-              name: 'Toast',
-              components: getComponents(['Toast']),
-            },
-          ],
-          expand: true,
+          name: 'Text',
+          components: getComponents(['Text', 'Paragraph']),
+        },
+        {
+          name: 'Alert',
+          components: getComponentWithVariants('Alert')([
+            'Alert/Alert',
+            'InlineAlert/InlineAlert',
+          ]),
+        },
+
+        {
+          name: 'Checkbox',
+          components: getComponentWithVariants('Form/Checkbox')([
+            'Checkbox',
+            'CheckboxGroup',
+          ]),
+        },
+        {
+          name: 'RadioButton',
+          components: getComponentWithVariants('Form/RadioButton')([
+            'RadioButton',
+            'RadioButtonGroup',
+          ]),
+        },
+        {
+          name: 'Link',
+          components: getComponentWithVariants('Link')([
+            'Link/Link',
+            'SkipLink/SkipLink',
+            'ExternalLink/ExternalLink',
+          ]),
+        },
+        {
+          name: 'Chip',
+          components: getComponentWithVariants('Chip')([
+            'Chip/Chip',
+            'StaticChip/StaticChip',
+          ]),
+        },
+        {
+          name: 'Icon',
+          components: getComponents(['Icon', 'StaticIcon', 'LogoIcon']),
+        },
+        {
+          name: 'MultiSelect',
+          components: getComponentWithVariants('Form/Select')([
+            'MultiSelect/MultiSelect/MultiSelect',
+          ]),
+        },
+        {
+          name: 'SingleSelect',
+          components: getComponentWithVariants('Form/Select')([
+            'SingleSelect/SingleSelect',
+          ]),
+        },
+        {
+          name: 'Breadcrumb',
+          components: getComponentWithVariants('Breadcrumb')([
+            'Breadcrumb/Breadcrumb',
+            'BreadcrumbLink/BreadcrumbLink',
+          ]),
+        },
+        {
+          name: 'Dropdown',
+          components: getComponentWithVariants('Dropdown')([
+            'Dropdown/Dropdown',
+            'DropdownItem/DropdownItem',
+          ]),
+        },
+        {
+          name: 'LanguageMenu',
+          components: getComponentWithVariants('LanguageMenu')([
+            'LanguageMenu/LanguageMenu',
+            'LanguageMenuItem/LanguageMenuItem',
+            'LanguageMenuLink/LanguageMenuLink',
+          ]),
+        },
+        {
+          name: 'Notification',
+          components: getComponents(['Notification']),
+        },
+        {
+          name: 'Expander',
+          components: getComponentWithVariants('Expander')([
+            'Expander/Expander',
+            'ExpanderGroup/ExpanderGroup',
+            'ExpanderTitle/ExpanderTitle',
+            'ExpanderTitleButton/ExpanderTitleButton',
+            'ExpanderContent/ExpanderContent',
+          ]),
+        },
+        {
+          name: 'Modal',
+          components: getComponentWithVariants('Modal')([
+            'Modal/Modal',
+            'ModalContent/ModalContent',
+            'ModalFooter/ModalFooter',
+          ]),
+        },
+        {
+          name: 'Toast',
+          components: getComponents(['Toast']),
         },
       ],
-      sectionDepth: 2,
+      sectionDepth: 1,
       expand: true,
     },
   ],

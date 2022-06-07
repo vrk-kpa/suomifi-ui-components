@@ -18,6 +18,7 @@ import { VisuallyHidden } from '../../../../VisuallyHidden/VisuallyHidden';
 import { MultiSelectChipList } from '../MultiSelectChipList/MultiSelectChipList';
 import { MultiSelectRemoveAllButton } from '../MultiSelectRemoveAllButton/MultiSelectRemoveAllButton';
 import { baseStyles } from './MultiSelect.baseStyles';
+import { InputToggleButton } from '../../../InputToggleButton/InputToggleButton';
 
 const baseClassName = 'fi-multiselect';
 const multiSelectClassNames = {
@@ -103,6 +104,8 @@ export interface MultiSelectProps<T extends MultiSelectData> {
    * E.g 'removed' as prop value would result in '{option} removed' being read by screen reader upon removal.
    */
   ariaOptionChipRemovedText: string;
+  /** Disable the input */
+  disabled?: boolean;
 }
 
 interface MultiSelectState<T extends MultiSelectData> {
@@ -122,6 +125,8 @@ class BaseMultiSelect<T> extends Component<
 
   private filterInputRef: React.RefObject<HTMLInputElement>;
 
+  private toggleButtonRef: React.RefObject<HTMLButtonElement>;
+
   private chipRemovalAnnounceTimeOut: ReturnType<typeof setTimeout> | null =
     null;
 
@@ -129,6 +134,7 @@ class BaseMultiSelect<T> extends Component<
     super(props);
     this.popoverListRef = React.createRef();
     this.filterInputRef = React.createRef();
+    this.toggleButtonRef = React.createRef();
   }
 
   state: MultiSelectState<T & MultiSelectData> = {
@@ -252,6 +258,11 @@ class BaseMultiSelect<T> extends Component<
       ? this.popoverListRef.current?.contains(ownerDocument.activeElement)
       : false;
 
+  private focusInToggleButton = (ownerDocument: Document | null) =>
+    ownerDocument
+      ? this.toggleButtonRef.current?.contains(ownerDocument.activeElement)
+      : false;
+
   private handleBlur = () => {
     if (!!this.props.onBlur) {
       this.props.onBlur();
@@ -263,7 +274,10 @@ class BaseMultiSelect<T> extends Component<
     requestAnimationFrame(() => {
       const focusInPopover = this.focusInPopover(ownerDocument);
       const focusInInput = this.focusInInput(ownerDocument);
-      const focusInMultiSelect = focusInPopover || focusInInput;
+      const focusInToggleButton = this.focusInToggleButton(ownerDocument);
+
+      const focusInMultiSelect =
+        focusInPopover || focusInInput || focusInToggleButton;
 
       if (!focusInMultiSelect) {
         this.setState(
@@ -345,6 +359,33 @@ class BaseMultiSelect<T> extends Component<
     }
   };
 
+  private clickWasInToggleButton(event: MouseEvent | KeyboardEvent) {
+    return (
+      !!this.toggleButtonRef &&
+      (this.toggleButtonRef.current as Node).contains(event.target as Node)
+    );
+  }
+
+  private handleToggleButtonClick(event: React.MouseEvent<HTMLElement>) {
+    event.preventDefault();
+    if (!!this.filterInputRef && this.filterInputRef.current) {
+      if (document.activeElement !== this.filterInputRef.current) {
+        this.filterInputRef.current.focus();
+      } else {
+        this.setState((prevState: MultiSelectState<T & MultiSelectData>) => ({
+          showPopover: !prevState.showPopover,
+          showOptionsAvailableText: !prevState.showOptionsAvailableText,
+        }));
+      }
+    }
+  }
+
+  private disableItems = (items: MultiSelectData[]): MultiSelectData[] =>
+    items.map((item) => ({
+      ...item,
+      disabled: true,
+    }));
+
   render() {
     const {
       filteredItems,
@@ -381,6 +422,7 @@ class BaseMultiSelect<T> extends Component<
       ariaSelectedAmountText,
       ariaOptionsAvailableText,
       ariaOptionChipRemovedText,
+      disabled,
       ...passProps
     } = this.props;
 
@@ -451,7 +493,17 @@ class BaseMultiSelect<T> extends Component<
                   status={status}
                   statusText={statusText}
                   aria-controls={popoverItemListId}
-                />
+                  disabled={disabled}
+                >
+                  <InputToggleButton
+                    open={showPopover}
+                    ref={this.toggleButtonRef}
+                    onClick={(event) => this.handleToggleButtonClick(event)}
+                    aria-hidden={true}
+                    tabIndex={-1}
+                    disabled={disabled}
+                  />
+                </FilterInput>
               )}
             </Debounce>
             {showPopover && (
@@ -459,8 +511,8 @@ class BaseMultiSelect<T> extends Component<
                 sourceRef={this.filterInputRef}
                 matchWidth={true}
                 onKeyDown={this.handleKeyDown}
-                onClickOutside={() => {
-                  if (this.state.showPopover) {
+                onClickOutside={(event) => {
+                  if (!this.clickWasInToggleButton(event)) {
                     this.setState({ showPopover: false });
                   }
                 }}
@@ -500,7 +552,9 @@ class BaseMultiSelect<T> extends Component<
             {chipListVisible && (
               <MultiSelectChipList
                 sourceRef={this.filterInputRef}
-                selectedItems={selectedItems}
+                selectedItems={
+                  disabled ? this.disableItems(selectedItems) : selectedItems
+                }
                 ariaChipActionLabel={ariaChipActionLabel}
                 onClick={(item: MultiSelectData & T) => {
                   if (!!this.chipRemovalAnnounceTimeOut) {
@@ -520,7 +574,9 @@ class BaseMultiSelect<T> extends Component<
             )}
             <MultiSelectRemoveAllButton
               className={multiSelectClassNames.removeAllButton}
-              selectedItems={selectedItems}
+              selectedItems={
+                disabled ? this.disableItems(selectedItems) : selectedItems
+              }
               onClick={this.handleRemoveAllSelections}
             >
               {removeAllButtonLabel}

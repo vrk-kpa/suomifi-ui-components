@@ -21,10 +21,13 @@ export default class ComponentsList extends Component<ComponentsListProps> {
 
     if (hide) return null;
 
+    const shouldSortAlphabetically =
+      items.length > 0 && items[0].sections?.length === 0;
+
     return (
       <DefaultComponentsList
         {...passProps}
-        items={hashPath.length === 2 ? sortItems(items) : items}
+        items={shouldSortAlphabetically ? sortItems(items) : items}
       />
     );
   }

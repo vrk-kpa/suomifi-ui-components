@@ -5,20 +5,6 @@ import { element, font } from '../../theme/reset';
 export const baseChipBaseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
   ${font(theme)('actionElementInnerTextBold')}
-  border-radius: 14px;
-  padding: ${theme.spacing.insetXxs} ${theme.spacing.insetL};
-  color: ${theme.colors.whiteBase};
-  background: ${theme.colors.highlightBase};
-
-  &:focus {
-    outline: 0;
-    position: relative;
-
-    &::after {
-      ${theme.focus.absoluteFocus}
-      border-radius: 16px;
-    }
-  }
 
   &.fi-chip {
     border-radius: 14px;
@@ -27,6 +13,16 @@ export const baseChipBaseStyles = (theme: SuomifiTheme) => css`
     background: ${theme.colors.highlightBase};
     max-height: 100%;
     display: inline-block;
+
+    &:focus {
+      outline: 0;
+      position: relative;
+
+      &::after {
+        ${theme.focus.absoluteFocus}
+        border-radius: 16px;
+      }
+    }
 
     & .fi-chip--content {
       display: block;

@@ -81,9 +81,13 @@ export interface SingleSelectProps<T extends SingleSelectData> {
   /** Status text to be shown below the component and hint text. Use e.g. for validation error */
   statusText?: string;
   /** Controlled items; if item is in array, it is selected. If item has disabled: true, it will be disabled. */
-  selectedItem?: T & SingleSelectData;
+  selectedItem?: (T & SingleSelectData) | null;
   /** Selecting the item will send event with the id */
   onItemSelect?: (uniqueItemId: string | null) => void;
+  /** Disable the input */
+  disabled?: boolean;
+  /** This function is called when the button which clears the input is clicked */
+  onClearSelection?: () => void;
 }
 
 interface SingleSelectState<T extends SingleSelectData> {
@@ -146,7 +150,7 @@ class BaseSingleSelect<T> extends Component<
       const resolvedSelectedItem =
         'selectedItem' in nextProps ? selectedItem : prevState.selectedItem;
       const resolvedInputValue = selectedItemChanged
-        ? resolvedSelectedItem?.labelText
+        ? resolvedSelectedItem?.labelText || ''
         : prevState.filterInputValue;
 
       return {
@@ -354,6 +358,8 @@ class BaseSingleSelect<T> extends Component<
       clearButtonLabel,
       ariaOptionsAvailableText,
       onItemSelect,
+      disabled,
+      onClearSelection,
       ...passProps
     } = this.props;
 
@@ -419,14 +425,21 @@ class BaseSingleSelect<T> extends Component<
               visualPlaceholder={!selectedItem ? visualPlaceholder : ''}
               status={status}
               statusText={statusText}
+              disabled={disabled}
             >
               {!!selectedItem && (
                 <HtmlDiv className={singleSelectClassNames.clearButtonWrapper}>
                   <InputClearButton
                     forwardedRef={this.clearButtonRef}
-                    onClick={() => this.handleItemSelection(null)}
+                    onClick={() => {
+                      if (!!onClearSelection) {
+                        onClearSelection();
+                      }
+                      this.handleItemSelection(null);
+                    }}
                     onBlur={this.handleBlur}
                     label={clearButtonLabel}
+                    disabled={disabled}
                   />
                 </HtmlDiv>
               )}
@@ -445,6 +458,7 @@ class BaseSingleSelect<T> extends Component<
                 }}
                 aria-hidden={true}
                 tabIndex={-1}
+                disabled={disabled}
               />
             </FilterInput>
           )}

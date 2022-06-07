@@ -285,6 +285,16 @@ exports[`snapshot should have matching default structure 1`] = `
   fill: hsl(212,63%,37%);
 }
 
+.c6.fi-input-clear-button[disabled],
+.c6.fi-input-clear-button:disabled {
+  cursor: not-allowed;
+}
+
+.c6.fi-input-clear-button[disabled] .fi-input-clear-button_icon .fi-icon-base-fill,
+.c6.fi-input-clear-button:disabled .fi-input-clear-button_icon .fi-icon-base-fill {
+  fill: hsl(202,7%,67%);
+}
+
 .c1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;

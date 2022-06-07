@@ -183,7 +183,6 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c7 {
-  color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -197,37 +196,40 @@ exports[`calling render with the same component on the same container does not r
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
+}
+
+.c7.fi-link {
   color: hsl(212,63%,45%);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c7:hover,
-.c7:active,
-.c7:focus,
-.c7:focus-within {
+.c7.fi-link:hover,
+.c7.fi-link:active,
+.c7.fi-link:focus,
+.c7.fi-link:focus-within {
   color: hsl(212,63%,45%);
 }
 
-.c7:focus,
-.c7:focus-within {
+.c7.fi-link:focus,
+.c7.fi-link:focus-within {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c7:focus {
+.c7.fi-link:focus {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
 }
 
-.c7:hover,
-.c7:active {
+.c7.fi-link:hover,
+.c7.fi-link:active {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c7:visited {
+.c7.fi-link:visited {
   color: hsl(284,36%,45%);
 }
 

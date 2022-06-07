@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`has matching snapshot 1`] = `
-.c8 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,30 +27,30 @@ exports[`has matching snapshot 1`] = `
   cursor: pointer;
 }
 
-.c8:-moz-focusring {
+.c6:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c8::-moz-focus-inner {
+.c6::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c8::-webkit-file-upload-button {
+.c6::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c8::-webkit-inner-spin-button {
+.c6::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c8::-webkit-outer-spin-button {
+.c6::-webkit-outer-spin-button {
   height: auto;
 }
 
-.c8::before,
-.c8::after {
+.c6::before,
+.c6::after {
   box-sizing: border-box;
 }
 
@@ -145,7 +145,7 @@ exports[`has matching snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c11 {
+.c8 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -182,7 +182,7 @@ exports[`has matching snapshot 1`] = `
   font-weight: 400;
 }
 
-.c6 {
+.c10 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -201,11 +201,11 @@ exports[`has matching snapshot 1`] = `
   line-height: 20px;
 }
 
-.c6.fi-status-text {
+.c10.fi-status-text {
   display: block;
 }
 
-.c6.fi-status-text.fi-status-text--error {
+.c10.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
 }
 
@@ -376,6 +376,7 @@ exports[`has matching snapshot 1`] = `
   color: hsl(202,7%,67%);
   background-color: hsl(202,7%,97%);
   border-color: hsl(202,7%,80%);
+  cursor: not-allowed;
 }
 
 .c2.fi-filter-input--label-align-left .fi-filter-input_wrapper {
@@ -404,31 +405,31 @@ exports[`has matching snapshot 1`] = `
   margin-bottom: 0;
 }
 
-.c10 {
+.c9 {
   vertical-align: baseline;
 }
 
-.c10.fi-icon {
+.c9.fi-icon {
   display: inline-block;
 }
 
-.c10 .fi-icon-base-fill {
+.c9 .fi-icon-base-fill {
   fill: currentColor;
 }
 
-.c10 .fi-icon-base-stroke {
+.c9 .fi-icon-base-stroke {
   stroke: currentColor;
 }
 
-.c10.fi-icon--cursor-pointer {
+.c9.fi-icon--cursor-pointer {
   cursor: pointer;
 }
 
-.c10.fi-icon--cursor-pointer * {
+.c9.fi-icon--cursor-pointer * {
   cursor: inherit;
 }
 
-.c9 {
+.c12 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -443,18 +444,23 @@ exports[`has matching snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
+}
+
+.c12.fi-chip {
   border-radius: 14px;
   padding: 2px 10px;
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
+  max-height: 100%;
+  display: inline-block;
 }
 
-.c9:focus {
+.c12.fi-chip:focus {
   outline: 0;
   position: relative;
 }
 
-.c9:focus::after {
+.c12.fi-chip:focus::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -471,45 +477,36 @@ exports[`has matching snapshot 1`] = `
   border-radius: 16px;
 }
 
-.c9.fi-chip {
-  border-radius: 14px;
-  padding: 2px 10px;
-  color: hsl(0,0%,100%);
-  background: hsl(212,63%,45%);
-  max-height: 100%;
-  display: inline-block;
-}
-
-.c9.fi-chip .fi-chip--content {
+.c12.fi-chip .fi-chip--content {
   display: block;
   word-break: break-word;
   overflow: hidden;
   line-height: 1.5em;
 }
 
-.c9.fi-chip--disabled.fi-chip {
+.c12.fi-chip--disabled.fi-chip {
   cursor: not-allowed;
   background: hsl(202,7%,67%);
 }
 
-.c9.fi-chip--disabled.fi-chip:hover,
-.c9.fi-chip--disabled.fi-chip:active {
+.c12.fi-chip--disabled.fi-chip:hover,
+.c12.fi-chip--disabled.fi-chip:active {
   background: hsl(202,7%,67%);
 }
 
-.c9.fi-chip--button {
+.c12.fi-chip--button {
   cursor: pointer;
 }
 
-.c9.fi-chip--button:hover {
+.c12.fi-chip--button:hover {
   background: hsl(212,63%,49%);
 }
 
-.c9.fi-chip--button:active {
+.c12.fi-chip--button:active {
   background: hsl(212,63%,37%);
 }
 
-.c9.fi-chip--removable {
+.c12.fi-chip--removable {
   padding-top: 2px;
   padding-right: 22px;
   padding-bottom: 2px;
@@ -517,7 +514,7 @@ exports[`has matching snapshot 1`] = `
   position: relative;
 }
 
-.c9.fi-chip--removable .fi-chip--icon {
+.c12.fi-chip--removable .fi-chip--icon {
   position: absolute;
   top: 8px;
   right: 10px;
@@ -525,15 +522,15 @@ exports[`has matching snapshot 1`] = `
   width: 12px;
 }
 
-.c9.fi-chip--removable .fi-chip--content {
+.c12.fi-chip--removable .fi-chip--content {
   margin-right: 10px;
 }
 
-.c9.fi-chip--removable.fi-chip--disabled .fi-chip--icon {
+.c12.fi-chip--removable.fi-chip--disabled .fi-chip--icon {
   cursor: not-allowed;
 }
 
-.c7 {
+.c11 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -550,13 +547,13 @@ exports[`has matching snapshot 1`] = `
   padding-top: 5px;
 }
 
-.c7 .fi-chip-list_content_wrapper > * {
+.c11 .fi-chip-list_content_wrapper > * {
   margin-right: 10px;
   margin-top: 10px;
   padding-right: -10px;
 }
 
-.c7 .fi-chip-list_content_wrapper {
+.c11 .fi-chip-list_content_wrapper {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -567,7 +564,7 @@ exports[`has matching snapshot 1`] = `
   width: 100%;
 }
 
-.c12 {
+.c13 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -594,12 +591,12 @@ exports[`has matching snapshot 1`] = `
   cursor: pointer;
 }
 
-.c12:focus {
+.c13:focus {
   outline: none;
   position: relative;
 }
 
-.c12:focus::after {
+.c13:focus::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -615,17 +612,17 @@ exports[`has matching snapshot 1`] = `
   z-index: 9999;
 }
 
-.c12:hover {
+.c13:hover {
   background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
 }
 
-.c12:active {
+.c13:active {
   background: hsl(212,63%,37%);
 }
 
-.c12.fi-button--disabled,
-.c12[disabled],
-.c12:disabled {
+.c13.fi-button--disabled,
+.c13[disabled],
+.c13:disabled {
   text-shadow: 0 1px 1px rgba(41,41,41,0.5);
   background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
   -webkit-user-select: none;
@@ -635,41 +632,41 @@ exports[`has matching snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c12.fi-button--disabled::after {
+.c13.fi-button--disabled::after {
   border: none;
   box-shadow: none;
 }
 
-.c12.fi-button--fullwidth {
+.c13.fi-button--fullwidth {
   display: block;
   width: 100%;
 }
 
-.c12.fi-button--inverted {
+.c13.fi-button--inverted {
   background: none;
   background-color: hsl(212,63%,45%);
   border: 1px solid hsl(0,0%,100%);
   text-shadow: none;
 }
 
-.c12.fi-button--inverted:hover {
+.c13.fi-button--inverted:hover {
   background: linear-gradient(-180deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c12.fi-button--inverted:active {
+.c13.fi-button--inverted:active {
   background: none;
   background-color: hsl(212,63%,45%);
 }
 
-.c12.fi-button--inverted.fi-button--disabled,
-.c12.fi-button--inverted[disabled],
-.c12.fi-button--inverted:disabled {
+.c13.fi-button--inverted.fi-button--disabled,
+.c13.fi-button--inverted[disabled],
+.c13.fi-button--inverted:disabled {
   opacity: 0.41;
   background: none;
   background-color: none;
 }
 
-.c12.fi-button--secondary {
+.c13.fi-button--secondary {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -677,18 +674,18 @@ exports[`has matching snapshot 1`] = `
   text-shadow: none;
 }
 
-.c12.fi-button--secondary:hover {
+.c13.fi-button--secondary:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c12.fi-button--secondary:active {
+.c13.fi-button--secondary:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c12.fi-button--secondary.fi-button--disabled,
-.c12.fi-button--secondary[disabled],
-.c12.fi-button--secondary:disabled {
+.c13.fi-button--secondary.fi-button--disabled,
+.c13.fi-button--secondary[disabled],
+.c13.fi-button--secondary:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -696,7 +693,7 @@ exports[`has matching snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c12.fi-button--secondary-noborder {
+.c13.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -706,18 +703,18 @@ exports[`has matching snapshot 1`] = `
   background-color: transparent;
 }
 
-.c12.fi-button--secondary-noborder:hover {
+.c13.fi-button--secondary-noborder:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c12.fi-button--secondary-noborder:active {
+.c13.fi-button--secondary-noborder:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c12.fi-button--secondary-noborder.fi-button--disabled,
-.c12.fi-button--secondary-noborder[disabled],
-.c12.fi-button--secondary-noborder:disabled {
+.c13.fi-button--secondary-noborder.fi-button--disabled,
+.c13.fi-button--secondary-noborder[disabled],
+.c13.fi-button--secondary-noborder:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -725,7 +722,7 @@ exports[`has matching snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c12.fi-button--link {
+.c13.fi-button--link {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
   background: none;
@@ -736,18 +733,18 @@ exports[`has matching snapshot 1`] = `
   border: none;
 }
 
-.c12.fi-button--link:hover {
+.c13.fi-button--link:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c12.fi-button--link:active {
+.c13.fi-button--link:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c12.fi-button--link.fi-button--disabled,
-.c12.fi-button--link[disabled],
-.c12.fi-button--link:disabled {
+.c13.fi-button--link.fi-button--disabled,
+.c13.fi-button--link[disabled],
+.c13.fi-button--link:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -755,23 +752,23 @@ exports[`has matching snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c12.fi-button--link:hover {
+.c13.fi-button--link:hover {
   background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
 
-.c12.fi-button--link:active {
+.c13.fi-button--link:active {
   background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
 }
 
-.c12.fi-button--link.fi-button--disabled,
-.c12.fi-button--link[disabled],
-.c12.fi-button--link:disabled {
+.c13.fi-button--link.fi-button--disabled,
+.c13.fi-button--link[disabled],
+.c13.fi-button--link:disabled {
   color: hsl(202,7%,67%);
   background: none;
   background-color: hsl(202,7%,97%);
 }
 
-.c12 > .fi-button_icon {
+.c13 > .fi-button_icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
@@ -781,13 +778,56 @@ exports[`has matching snapshot 1`] = `
   transform: translateY(-0.1em);
 }
 
-.c12 > .fi-button_icon.fi-button_icon--right {
+.c13 > .fi-button_icon.fi-button_icon--right {
   margin-right: 0;
   margin-left: 8px;
 }
 
-.c12.fi-button--disabled > .fi-button_icon {
+.c13.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
+}
+
+.c7 {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  pointer-events: all;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c7.fi-input-toggle-button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+.c7.fi-input-toggle-button .fi-input-toggle-button_icon {
+  pointer-events: none;
+  width: 10px;
+  height: 10px;
+}
+
+.c7.fi-input-toggle-button .fi-input-toggle-button_icon .fi-icon-base-fill {
+  fill: hsl(0,0%,16%);
+}
+
+.c7.fi-input-toggle-button[disabled],
+.c7.fi-input-toggle-button:disabled {
+  cursor: not-allowed;
+}
+
+.c7.fi-input-toggle-button[disabled] .fi-input-toggle-button_icon .fi-icon-base-fill,
+.c7.fi-input-toggle-button:disabled .fi-input-toggle-button_icon .fi-icon-base-fill {
+  fill: hsl(202,7%,67%);
 }
 
 .c1 {
@@ -811,18 +851,6 @@ exports[`has matching snapshot 1`] = `
   position: relative;
 }
 
-.c1.fi-multiselect .fi-filter-input_input-element-container:before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 14px;
-  margin-top: -3px;
-  border-style: solid;
-  border-color: hsl(0,0%,16%) transparent transparent transparent;
-  border-width: 6px 4px 0 4px;
-  pointer-events: none;
-}
-
 .c1.fi-multiselect .fi-filter-input_input {
   padding-right: 36px;
 }
@@ -830,11 +858,6 @@ exports[`has matching snapshot 1`] = `
 .c1 .fi-multiselect_content_wrapper {
   display: inline-block;
   width: 100%;
-}
-
-.c1.fi-multiselect--open .fi-filter-input_input-element-container:before {
-  border-color: transparent transparent hsl(0,0%,16%) transparent;
-  border-width: 0 4px 6px 4px;
 }
 
 .c1.fi-multiselect--open .fi-filter-input_input {
@@ -896,16 +919,46 @@ exports[`has matching snapshot 1`] = `
               value=""
             />
           </div>
+          <div
+            class="c0 fi-filter-input_action-elements-container"
+          >
+            <button
+              aria-hidden="true"
+              class="c6 fi-input-toggle-button c7"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="c4 c8 fi-visually-hidden"
+              />
+              <svg
+                aria-hidden="true"
+                class="fi-icon c9 fi-input-toggle-button_icon"
+                focusable="false"
+                height="1em"
+                viewBox="0 0 10 10"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="fi-icon-base-fill"
+                  d="M5 8l4-6H1z"
+                  fill="#222"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
           <span
             aria-atomic="true"
             aria-live="assertive"
-            class="c4 c6 fi-status-text"
+            class="c4 c10 fi-status-text"
           />
         </div>
       </div>
     </div>
     <div
-      class="c0 fi-chip-list c7"
+      class="c0 fi-chip-list c11"
       id="2"
     >
       <div
@@ -913,7 +966,7 @@ exports[`has matching snapshot 1`] = `
       >
         <button
           aria-disabled="true"
-          class="c8 fi-chip fi-chip--button c9 fi-chip--disabled fi-chip--removable"
+          class="c6 fi-chip fi-chip--button c12 fi-chip--disabled fi-chip--removable"
           type="button"
         >
           <span
@@ -923,7 +976,7 @@ exports[`has matching snapshot 1`] = `
           </span>
           <svg
             aria-hidden="true"
-            class="fi-icon c10 fi-chip--icon fi-icon--cursor-pointer"
+            class="fi-icon c9 fi-chip--icon fi-icon--cursor-pointer"
             focusable="false"
             height="1em"
             viewBox="0 0 24 24"
@@ -938,14 +991,14 @@ exports[`has matching snapshot 1`] = `
             />
           </svg>
           <span
-            class="c4 c11 fi-visually-hidden"
+            class="c4 c8 fi-visually-hidden"
           >
             Remove
           </span>
         </button>
         <button
           aria-disabled="false"
-          class="c8 fi-chip fi-chip--button c9 fi-chip--removable"
+          class="c6 fi-chip fi-chip--button c12 fi-chip--removable"
           type="button"
         >
           <span
@@ -955,7 +1008,7 @@ exports[`has matching snapshot 1`] = `
           </span>
           <svg
             aria-hidden="true"
-            class="fi-icon c10 fi-chip--icon fi-icon--cursor-pointer"
+            class="fi-icon c9 fi-chip--icon fi-icon--cursor-pointer"
             focusable="false"
             height="1em"
             viewBox="0 0 24 24"
@@ -970,14 +1023,14 @@ exports[`has matching snapshot 1`] = `
             />
           </svg>
           <span
-            class="c4 c11 fi-visually-hidden"
+            class="c4 c8 fi-visually-hidden"
           >
             Remove
           </span>
         </button>
         <button
           aria-disabled="false"
-          class="c8 fi-chip fi-chip--button c9 fi-chip--removable"
+          class="c6 fi-chip fi-chip--button c12 fi-chip--removable"
           type="button"
         >
           <span
@@ -987,7 +1040,7 @@ exports[`has matching snapshot 1`] = `
           </span>
           <svg
             aria-hidden="true"
-            class="fi-icon c10 fi-chip--icon fi-icon--cursor-pointer"
+            class="fi-icon c9 fi-chip--icon fi-icon--cursor-pointer"
             focusable="false"
             height="1em"
             viewBox="0 0 24 24"
@@ -1002,7 +1055,7 @@ exports[`has matching snapshot 1`] = `
             />
           </svg>
           <span
-            class="c4 c11 fi-visually-hidden"
+            class="c4 c8 fi-visually-hidden"
           >
             Remove
           </span>
@@ -1011,13 +1064,13 @@ exports[`has matching snapshot 1`] = `
     </div>
     <button
       aria-disabled="false"
-      class="c8 fi-button c12 fi-multiselect_removeAllButton fi-button--link"
+      class="c6 fi-button c13 fi-multiselect_removeAllButton fi-button--link"
       tabindex="0"
       type="button"
     >
       <svg
         aria-hidden="true"
-        class="fi-icon c10 fi-button_icon fi-icon--cursor-pointer"
+        class="fi-icon c9 fi-button_icon fi-icon--cursor-pointer"
         focusable="false"
         height="1em"
         viewBox="0 0 24 24"

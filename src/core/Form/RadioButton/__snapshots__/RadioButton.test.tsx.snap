@@ -162,11 +162,10 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  font-size: 16px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
-  min-height: 27px;
-  line-height: 1.5em;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -191,6 +190,7 @@ exports[`children should match snapshot 1`] = `
 
 .c1.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -260,8 +260,7 @@ exports[`children should match snapshot 1`] = `
 
 .c1.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  padding-top: 2px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>
@@ -477,11 +476,10 @@ exports[`className should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  font-size: 16px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
-  min-height: 27px;
-  line-height: 1.5em;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -506,6 +504,7 @@ exports[`className should match snapshot 1`] = `
 
 .c1.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -575,8 +574,7 @@ exports[`className should match snapshot 1`] = `
 
 .c1.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  padding-top: 2px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>
@@ -792,11 +790,10 @@ exports[`disabled should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  font-size: 16px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
-  min-height: 27px;
-  line-height: 1.5em;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -821,6 +818,7 @@ exports[`disabled should match snapshot 1`] = `
 
 .c1.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -890,8 +888,7 @@ exports[`disabled should match snapshot 1`] = `
 
 .c1.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  padding-top: 2px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>
@@ -1063,6 +1060,27 @@ exports[`hintText should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c6 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c6.fi-hint-text {
+  display: block;
+}
+
 .c4 {
   vertical-align: baseline;
 }
@@ -1108,11 +1126,10 @@ exports[`hintText should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  font-size: 16px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
-  min-height: 27px;
-  line-height: 1.5em;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -1137,6 +1154,7 @@ exports[`hintText should match snapshot 1`] = `
 
 .c1.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -1206,8 +1224,7 @@ exports[`hintText should match snapshot 1`] = `
 
 .c1.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  padding-top: 2px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>
@@ -1259,7 +1276,7 @@ exports[`hintText should match snapshot 1`] = `
       Label text here
     </label>
     <span
-      class="c3 fi-radio-button_hintText"
+      class="c3 c6 fi-radio-button_hintText fi-hint-text"
       id="test-id-hintText"
     >
       Example hint text
@@ -1430,11 +1447,10 @@ exports[`id should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  font-size: 16px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
-  min-height: 27px;
-  line-height: 1.5em;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -1459,6 +1475,7 @@ exports[`id should match snapshot 1`] = `
 
 .c1.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -1528,8 +1545,7 @@ exports[`id should match snapshot 1`] = `
 
 .c1.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  padding-top: 2px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>
@@ -1745,11 +1761,10 @@ exports[`name should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  font-size: 16px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
-  min-height: 27px;
-  line-height: 1.5em;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -1774,6 +1789,7 @@ exports[`name should match snapshot 1`] = `
 
 .c1.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -1843,8 +1859,7 @@ exports[`name should match snapshot 1`] = `
 
 .c1.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  padding-top: 2px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>
@@ -2061,11 +2076,10 @@ exports[`value should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  font-size: 16px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
-  min-height: 27px;
-  line-height: 1.5em;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -2090,6 +2104,7 @@ exports[`value should match snapshot 1`] = `
 
 .c1.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -2159,8 +2174,7 @@ exports[`value should match snapshot 1`] = `
 
 .c1.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  padding-top: 2px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>
@@ -2376,11 +2390,10 @@ exports[`variant should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_label {
+  font-size: 16px;
   position: relative;
-  display: inline-block;
   cursor: pointer;
-  min-height: 27px;
-  line-height: 1.5em;
+  line-height: 27px;
   padding-left: 26px;
 }
 
@@ -2405,6 +2418,7 @@ exports[`variant should match snapshot 1`] = `
 
 .c1.fi-radio-button .fi-radio-button_input + .fi-radio-button_icon_wrapper .fi-icon-radio-base {
   stroke: hsl(201,7%,58%);
+  fill: hsl(0,0%,100%);
 }
 
 .c1.fi-radio-button .fi-radio-button_input:checked + .fi-radio-button_icon_wrapper .fi-icon-radio-checked {
@@ -2474,8 +2488,7 @@ exports[`variant should match snapshot 1`] = `
 
 .c1.fi-radio-button--large .fi-radio-button_label {
   padding-left: 40px;
-  padding-top: 2px;
-  min-height: 34px;
+  line-height: 34px;
 }
 
 <div>

@@ -131,7 +131,7 @@ describe('Controlled', () => {
     );
 
     await act(async () => {
-      const { getByRole, getByText } = render(singleSelect);
+      const { getByRole, getByText, rerender } = render(singleSelect);
       expect(getByRole('textbox')).toHaveValue('Powersaw');
       const input = getByRole('textbox');
       await act(async () => {
@@ -140,6 +140,21 @@ describe('Controlled', () => {
       const item = await waitFor(() => getByText('Powersaw'));
       expect(item).toHaveAttribute('aria-disabled');
       expect(item).toHaveClass('fi-select-item--disabled');
+
+      rerender(
+        <SingleSelect
+          selectedItem={null}
+          labelText="SingleSelect"
+          clearButtonLabel="Clear selection"
+          items={tools}
+          visualPlaceholder="Choose your tool"
+          noItemsText="No items"
+          defaultSelectedItem={defaultSelectedTool}
+          ariaOptionsAvailableText="Options available"
+        />,
+      );
+      const rerenderedInput = getByRole('textbox');
+      expect(rerenderedInput).toHaveValue('');
     });
   });
 
@@ -249,7 +264,9 @@ describe('filter', () => {
     await act(async () => {
       fireEvent.blur(input);
     });
-    expect(input).toHaveValue('Hammer');
+    await waitFor(() => {
+      expect(input).toHaveValue('Hammer');
+    });
     fireEvent.focus(input);
     const options = await waitFor(() => getAllByRole('option'));
     expect(options).toHaveLength(9);
@@ -263,6 +280,7 @@ test('option: should be selected when clicked', async () => {
     await act(async () => {
       fireEvent.click(input);
     });
+
     const option = await waitFor(() => getByText('Rake'));
     await act(async () => {
       fireEvent.click(option);
@@ -368,5 +386,25 @@ describe('status', () => {
       />,
     );
     expect(container.firstChild).toHaveClass('fi-single-select--error');
+  });
+});
+
+describe('disabled', () => {
+  it('should not be interactive while disabled', async () => {
+    const { getByRole, getAllByRole } = render(
+      <SingleSelect
+        disabled={true}
+        labelText="Tools"
+        clearButtonLabel="Clear selection"
+        items={tools}
+        noItemsText="No matching options"
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+    const input = getByRole('textbox');
+    await act(async () => {
+      fireEvent.click(input);
+    });
+    expect(() => getAllByRole('option')).toThrowError();
   });
 });
