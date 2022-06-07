@@ -11,7 +11,7 @@ import { StatusText } from '../StatusText/StatusText';
 import { CheckboxProps } from './Checkbox';
 import { baseStyles } from './CheckboxGroup.baseStyles';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { VisuallyHidden } from '../../..';
+import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 
 const baseClassName = 'fi-checkbox-group';
 const checkboxGroupClassNames = {
