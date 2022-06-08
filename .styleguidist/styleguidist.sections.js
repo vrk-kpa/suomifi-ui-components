@@ -105,9 +105,7 @@ module.exports = {
         },
         {
           name: 'LoadingSpinner',
-          components: getComponentWithVariants('LoadingSpinner')([
-            'LoadingSpinner',
-          ]),
+          components: getComponents(['LoadingSpinner']),
         },
         {
           name: 'Checkbox',
