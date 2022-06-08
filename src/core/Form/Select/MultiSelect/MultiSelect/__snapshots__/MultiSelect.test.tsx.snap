@@ -433,7 +433,7 @@ exports[`has matching snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c4.fi-label-text .fi-label-text_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -452,14 +452,14 @@ exports[`has matching snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c4.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c4.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -809,7 +809,7 @@ exports[`has matching snapshot 1`] = `
   align-items: flex-start;
 }
 
-.c2.fi-filter-input--label-align-left .fi-filter-input_wrapper .fi-label-text {
+.c2.fi-filter-input--label-align-left .fi-filter-input_wrapper .fi-label {
   padding-right: 10px;
   padding-top: 8px;
   -webkit-align-self: flex-start;
@@ -817,7 +817,7 @@ exports[`has matching snapshot 1`] = `
   align-self: flex-start;
 }
 
-.c2.fi-filter-input--label-align-left .fi-filter-input_wrapper .fi-label-text .fi-label-text_label-span {
+.c2.fi-filter-input--label-align-left .fi-filter-input_wrapper .fi-label .fi-label_label-span {
   margin-bottom: 0;
 }
 
@@ -917,10 +917,10 @@ exports[`has matching snapshot 1`] = `
         class="c0 fi-filter-input_wrapper"
       >
         <div
-          class="c3 c4 fi-filter-input_label--visible fi-label-text"
+          class="c3 c4 fi-filter-input_label--visible fi-label"
         >
           <label
-            class="c5 fi-label-text_label-span"
+            class="c5 fi-label_label-span"
             id="1-label"
           >
             MultiSelect

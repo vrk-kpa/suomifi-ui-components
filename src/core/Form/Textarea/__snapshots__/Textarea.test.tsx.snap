@@ -121,7 +121,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c3.fi-label-text .fi-label-text_label-span {
+.c3.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -140,14 +140,14 @@ exports[`snapshot default structure should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c3.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c3.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c3.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c3.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -317,10 +317,10 @@ exports[`snapshot default structure should match snapshot 1`] = `
   class="c0 fi-textarea c1"
 >
   <div
-    class="c2 c3 fi-label-text"
+    class="c2 c3 fi-label"
   >
     <label
-      class="c4 fi-label-text_label-span"
+      class="c4 fi-label_label-span"
       for="just-for-snapshot-to-be-same"
     >
       Label text

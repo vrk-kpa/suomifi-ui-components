@@ -98,12 +98,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       flex-direction: row;
       align-items: flex-start;
 
-      & .fi-label-text {
+      & .fi-label {
         padding-right: ${theme.spacing.insetL};
         padding-top: ${theme.spacing.insetM};
         align-self: flex-start;
 
-        & .fi-label-text_label-span {
+        & .fi-label_label-span {
           margin-bottom: 0;
         }
       }

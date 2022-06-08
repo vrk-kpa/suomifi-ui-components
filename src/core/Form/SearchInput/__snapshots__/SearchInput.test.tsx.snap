@@ -210,7 +210,7 @@ exports[`snapshot should have matching default structure 1`] = `
   overflow: hidden;
 }
 
-.c4.fi-label-text .fi-label-text_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -229,14 +229,14 @@ exports[`snapshot should have matching default structure 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c4.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c4.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -624,10 +624,10 @@ exports[`snapshot should have matching default structure 1`] = `
     class="c2 fi-search-input_wrapper"
   >
     <div
-      class="c3 c4 fi-search-input_label--visible fi-label-text"
+      class="c3 c4 fi-search-input_label--visible fi-label"
     >
       <label
-        class="c2 fi-label-text_label-span"
+        class="c2 fi-label_label-span"
         for="1"
       >
         Test search input

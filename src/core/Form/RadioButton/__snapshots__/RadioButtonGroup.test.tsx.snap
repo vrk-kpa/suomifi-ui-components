@@ -196,7 +196,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5.fi-label-text .fi-label-text_label-span {
+.c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -215,14 +215,14 @@ exports[`default, with only required props should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c5.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -441,10 +441,10 @@ exports[`default, with only required props should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c4 c5 fi-radio-button-group_label--visible fi-label-text"
+          class="c4 c5 fi-radio-button-group_label--visible fi-label"
         >
           <label
-            class="c6 fi-label-text_label-span"
+            class="c6 fi-label_label-span"
             for="test-id"
           >
             Label
@@ -800,7 +800,7 @@ exports[`props className should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5.fi-label-text .fi-label-text_label-span {
+.c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -819,14 +819,14 @@ exports[`props className should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c5.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -1045,10 +1045,10 @@ exports[`props className should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c4 c5 fi-radio-button-group_label--visible fi-label-text"
+          class="c4 c5 fi-radio-button-group_label--visible fi-label"
         >
           <label
-            class="c6 fi-label-text_label-span"
+            class="c6 fi-label_label-span"
             for="test-id"
           >
             Label
@@ -1404,7 +1404,7 @@ exports[`props defaultValue should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5.fi-label-text .fi-label-text_label-span {
+.c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1423,14 +1423,14 @@ exports[`props defaultValue should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c5.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -1649,10 +1649,10 @@ exports[`props defaultValue should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c4 c5 fi-radio-button-group_label--visible fi-label-text"
+          class="c4 c5 fi-radio-button-group_label--visible fi-label"
         >
           <label
-            class="c6 fi-label-text_label-span"
+            class="c6 fi-label_label-span"
             for="test-id"
           >
             Label
@@ -2009,7 +2009,7 @@ exports[`props hintText should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5.fi-label-text .fi-label-text_label-span {
+.c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2028,14 +2028,14 @@ exports[`props hintText should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c5.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -2275,10 +2275,10 @@ exports[`props hintText should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c4 c5 fi-radio-button-group_label--visible fi-label-text"
+          class="c4 c5 fi-radio-button-group_label--visible fi-label"
         >
           <label
-            class="c6 fi-label-text_label-span"
+            class="c6 fi-label_label-span"
             for="test-id"
           >
             Label
@@ -2639,7 +2639,7 @@ exports[`props id should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5.fi-label-text .fi-label-text_label-span {
+.c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2658,14 +2658,14 @@ exports[`props id should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c5.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -2884,10 +2884,10 @@ exports[`props id should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c4 c5 fi-radio-button-group_label--visible fi-label-text"
+          class="c4 c5 fi-radio-button-group_label--visible fi-label"
         >
           <label
-            class="c6 fi-label-text_label-span"
+            class="c6 fi-label_label-span"
             for="good-id"
           >
             Label
@@ -3243,7 +3243,7 @@ exports[`props label should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5.fi-label-text .fi-label-text_label-span {
+.c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -3262,14 +3262,14 @@ exports[`props label should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c5.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -3488,10 +3488,10 @@ exports[`props label should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c4 c5 fi-radio-button-group_label--visible fi-label-text"
+          class="c4 c5 fi-radio-button-group_label--visible fi-label"
         >
           <label
-            class="c6 fi-label-text_label-span"
+            class="c6 fi-label_label-span"
             for="test-id"
           >
             Label here
@@ -3859,7 +3859,7 @@ exports[`props labelMode should match snapshot 1`] = `
   overflow: hidden;
 }
 
-.c5.fi-label-text .fi-label-text_label-span {
+.c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -3878,14 +3878,14 @@ exports[`props labelMode should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c5.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -4104,7 +4104,7 @@ exports[`props labelMode should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c4 c5 fi-label-text"
+          class="c4 c5 fi-label"
         >
           <span
             class="c6 c7 fi-visually-hidden"
@@ -4462,7 +4462,7 @@ exports[`props name should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5.fi-label-text .fi-label-text_label-span {
+.c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -4481,14 +4481,14 @@ exports[`props name should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c5.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -4707,10 +4707,10 @@ exports[`props name should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c4 c5 fi-radio-button-group_label--visible fi-label-text"
+          class="c4 c5 fi-radio-button-group_label--visible fi-label"
         >
           <label
-            class="c6 fi-label-text_label-span"
+            class="c6 fi-label_label-span"
             for="test-id"
           >
             Label
@@ -5066,7 +5066,7 @@ exports[`props value should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5.fi-label-text .fi-label-text_label-span {
+.c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -5085,14 +5085,14 @@ exports[`props value should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c5.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c5.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -5312,10 +5312,10 @@ exports[`props value should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c4 c5 fi-radio-button-group_label--visible fi-label-text"
+          class="c4 c5 fi-radio-button-group_label--visible fi-label"
         >
           <label
-            class="c6 fi-label-text_label-span"
+            class="c6 fi-label_label-span"
             for="test-id"
           >
             Label

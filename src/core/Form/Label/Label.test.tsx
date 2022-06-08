@@ -18,7 +18,7 @@ describe('props', () => {
         <Label optionalText="optional">Test text</Label>,
       );
       const optionalText = getByText('(optional)');
-      expect(optionalText).toHaveClass('fi-label-text_optionalText');
+      expect(optionalText).toHaveClass('fi-label_optional-text');
     });
   });
 
@@ -42,7 +42,7 @@ describe('props', () => {
     it('should be visible by default', () => {
       const { getByText } = render(<Label>Test text</Label>);
       const label = getByText('Test text');
-      expect(label).toHaveClass('fi-label-text_label-span');
+      expect(label).toHaveClass('fi-label_label-span');
     });
 
     it('should be hidden', () => {

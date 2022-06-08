@@ -88,7 +88,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c4.fi-label-text .fi-label-text_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -107,14 +107,14 @@ exports[`Basic dropdown should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c4.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c4.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -269,10 +269,10 @@ exports[`Basic dropdown should match snapshot 1`] = `
       class="c2"
     >
       <div
-        class="c3 c4 fi-dropdown_label--visible fi-label-text"
+        class="c3 c4 fi-dropdown_label--visible fi-label"
       >
         <label
-          class="c0 fi-label-text_label-span"
+          class="c0 fi-label_label-span"
           id="test-id-label"
         >
           Dropdown test
@@ -397,7 +397,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c4.fi-label-text .fi-label-text_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -416,14 +416,14 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c4.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c4.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -579,10 +579,10 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
       class="c2"
     >
       <div
-        class="c3 c4 fi-dropdown_label--visible fi-label-text"
+        class="c3 c4 fi-dropdown_label--visible fi-label"
       >
         <label
-          class="c0 fi-label-text_label-span"
+          class="c0 fi-label_label-span"
           id="test-id-label"
         >
           Dropdown test
@@ -707,7 +707,7 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c4.fi-label-text .fi-label-text_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -726,14 +726,14 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c4.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c4.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -888,10 +888,10 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
       class="c2"
     >
       <div
-        class="c3 c4 fi-dropdown_label--visible fi-label-text"
+        class="c3 c4 fi-dropdown_label--visible fi-label"
       >
         <label
-          class="c0 fi-label-text_label-span"
+          class="c0 fi-label_label-span"
           id="test-id-label"
         >
           Dropdown test
@@ -1016,7 +1016,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c4.fi-label-text .fi-label-text_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1035,14 +1035,14 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c4.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c4.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -1197,10 +1197,10 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
       class="c2"
     >
       <div
-        class="c3 c4 fi-dropdown_label--visible fi-label-text"
+        class="c3 c4 fi-dropdown_label--visible fi-label"
       >
         <label
-          class="c0 fi-label-text_label-span"
+          class="c0 fi-label_label-span"
           id="test-id-label"
         >
           Dropdown test
@@ -1337,7 +1337,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   overflow: hidden;
 }
 
-.c4.fi-label-text .fi-label-text_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1356,14 +1356,14 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c4.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c4.fi-label-text .fi-label-text_label-span .fi-tooltip {
+.c4.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -1518,7 +1518,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
       class="c2"
     >
       <div
-        class="c3 c4 fi-label-text"
+        class="c3 c4 fi-label"
       >
         <span
           class="c0 c5 fi-visually-hidden"

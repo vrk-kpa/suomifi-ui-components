@@ -31,7 +31,7 @@ describe('props', () => {
     it('should have label text with correct class', () => {
       const { getByText } = render(DefaultTextareaComponent);
       const label = getByText('Label here');
-      expect(label).toHaveClass('fi-label-text_label-span');
+      expect(label).toHaveClass('fi-label_label-span');
     });
 
     it('has user given aria-describedby on textarea', () => {
@@ -213,7 +213,7 @@ describe('props', () => {
         <Textarea labelText="label" optionalText="Optional" />,
       );
       const optionalText = getByText('(Optional)');
-      expect(optionalText).toHaveClass('fi-label-text_optionalText');
+      expect(optionalText).toHaveClass('fi-label_optional-text');
     });
   });
 

@@ -140,7 +140,7 @@ describe('props', () => {
         />,
       );
       const label = getByText('Label');
-      expect(label).toHaveClass('fi-label-text_label-span');
+      expect(label).toHaveClass('fi-label_label-span');
     });
   });
 
@@ -156,7 +156,7 @@ describe('props', () => {
         />,
       );
       const optionalText = getByText('(Optional)');
-      expect(optionalText).toHaveClass('fi-label-text_optionalText');
+      expect(optionalText).toHaveClass('fi-label_optional-text');
     });
   });
 
@@ -172,7 +172,7 @@ describe('props', () => {
         />,
       );
       const label = getByText('Label');
-      expect(label).toHaveClass('fi-label-text_label-span');
+      expect(label).toHaveClass('fi-label_label-span');
     });
 
     it('should be hidden', () => {

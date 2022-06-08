@@ -51,10 +51,10 @@ export interface LabelProps extends Omit<HtmlSpanProps, 'as'> {
   tooltipComponent?: ReactElement;
 }
 
-const baseClassName = 'fi-label-text';
+const baseClassName = 'fi-label';
 const labelTextClassNames = {
   labelSpan: `${baseClassName}_label-span`,
-  optionalText: `${baseClassName}_optionalText`,
+  optionalText: `${baseClassName}_optional-text`,
 };
 
 const StyledLabel = styled(
