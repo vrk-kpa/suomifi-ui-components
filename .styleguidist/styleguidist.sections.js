@@ -103,7 +103,12 @@ module.exports = {
             'InlineAlert/InlineAlert',
           ]),
         },
-
+        {
+          name: 'LoadingSpinner',
+          components: getComponentWithVariants('LoadingSpinner')([
+            'LoadingSpinner',
+          ]),
+        },
         {
           name: 'Checkbox',
           components: getComponentWithVariants('Form/Checkbox')([

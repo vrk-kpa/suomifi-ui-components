@@ -88,6 +88,22 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c4 {
+  vertical-align: baseline;
+}
+
+.c4.fi-static-icon {
+  display: inline-block;
+}
+
+.c4.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c4.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c6 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -184,22 +200,6 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
   font-size: 20px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c4 {
-  vertical-align: baseline;
-}
-
-.c4.fi-static-icon {
-  display: inline-block;
-}
-
-.c4.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c4.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c5 {

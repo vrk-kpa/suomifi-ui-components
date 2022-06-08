@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot should match snapshot 1`] = `
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c2 {
+  vertical-align: baseline;
+}
+
+.c2.fi-static-icon {
+  display: inline-block;
+}
+
+.c2.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c2.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c1 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-loadingSpinner {
+  display: block;
+  text-align: center;
+}
+
+.c1.fi-loadingSpinner .fi-loadingSpinner_icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+
+.c1.fi-loadingSpinner .fi-loadingSpinner_text {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.c1.fi-loadingSpinner.fi-loadingSpinner-textAlign--right {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1.fi-loadingSpinner.fi-loadingSpinner-textAlign--right .fi-loadingSpinner_text {
+  margin-left: 10px;
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.c1.fi-loadingSpinner.fi-loadingSpinner--small .fi-loadingSpinner_icon {
+  width: 24px;
+  height: 24px;
+}
+
+.c1.fi-loadingSpinner.fi-loadingSpinner--small .fi-loadingSpinner_text {
+  font-size: 16px;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+.c1.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
+  -webkit-animation: rotation 1.5s infinite linear;
+  animation: rotation 1.5s infinite linear;
+}
+
+.c1.fi-loadingSpinner.fi-loadingSpinner--success .fi-icon-base-fill {
+  fill: hsl(166,90%,34%);
+}
+
+.c1.fi-loadingSpinner.fi-loadingSpinner--failed .fi-icon-base-fill {
+  fill: hsl(3,59%,48%);
+}
+
+@media (prefers-reduced-motion) {
+  .c1.fi-loadingSpinner.fi-loadingSpinner--loading .fi-loadingSpinner_icon {
+    -webkit-animation: rotation 10s infinite linear;
+    animation: rotation 10s infinite linear;
+  }
+}
+
+<div>
+  <section
+    class="c0 fi-loadingSpinner c1 fi-loadingSpinner--loading"
+  >
+    <svg
+      aria-hidden="true"
+      class="c2 fi-loadingSpinner_icon"
+      focusable="false"
+      height="1em"
+      viewBox="0 0 40 40"
+      width="1em"
+    >
+      <path
+        class="fi-icon-component-brand-fill"
+        d="M20 0v3C10.611 3 3 10.611 3 20s7.611 17 17 17c9.28 0 16.825-7.437 16.997-16.677L37 20h3c0 11.046-8.954 20-20 20S0 31.046 0 20C0 9.07 8.769.187 19.656.003L20 0z"
+        fill="#00347A"
+      />
+    </svg>
+    <div
+      class="c3 fi-loadingSpinner_text"
+    >
+      Loading data
+    </div>
+  </section>
+</div>
+`;
