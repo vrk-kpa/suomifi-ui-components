@@ -30,6 +30,35 @@ exports[`default, with only required props should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
 .c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -55,7 +84,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c7 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -78,17 +107,17 @@ exports[`default, with only required props should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c7::-webkit-input-placeholder {
+.c8::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c7::before,
-.c7::after {
+.c8::before,
+.c8::after {
   box-sizing: border-box;
 }
 
-.c8 {
+.c9 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -108,8 +137,8 @@ exports[`default, with only required props should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c8::before,
-.c8::after {
+.c9::before,
+.c9::after {
   box-sizing: border-box;
 }
 
@@ -138,7 +167,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -162,12 +191,42 @@ exports[`default, with only required props should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c6::before,
+.c6::after {
   box-sizing: border-box;
 }
 
-.c9 {
+.c5.fi-label .fi-label_label-span {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  display: inline-block;
+  vertical-align: middle;
+  color: hsl(0,0%,16%);
+}
+
+.c5.fi-label .fi-label_label-span .fi-label_optional-text {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c5.fi-label .fi-label_label-span .fi-tooltip {
+  margin-left: 6px;
+}
+
+.c10 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -186,172 +245,12 @@ exports[`default, with only required props should match snapshot 1`] = `
   line-height: 20px;
 }
 
-.c9.fi-status-text {
+.c10.fi-status-text {
   display: block;
 }
 
-.c9.fi-status-text.fi-status-text--error {
+.c10.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
-}
-
-.c6 {
-  color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c6 .fi-checkbox_label {
-  position: relative;
-  display: block;
-  padding-left: 25px;
-  cursor: pointer;
-  line-height: 27px;
-}
-
-.c6 .fi-checkbox_label::before {
-  content: '';
-  position: absolute;
-  left: 0px;
-  top: 5px;
-  box-sizing: border-box;
-  height: 18px;
-  width: 18px;
-  border: 1px solid hsl(201,7%,58%);
-  border-radius: 2px;
-  background-color: hsl(0,0%,100%);
-}
-
-.c6 .fi-checkbox_icon {
-  position: absolute;
-  height: 10px;
-  width: 10px;
-  left: 4px;
-  top: 9px;
-}
-
-.c6:focus-within .fi-checkbox_label::before {
-  outline: 0;
-  border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-}
-
-.c6 .fi-checkbox_input {
-  position: absolute;
-  opacity: 0;
-  z-index: -9999;
-}
-
-.c6 .fi-hint-text {
-  padding-left: 25px;
-  color: hsl(202,7%,40%);
-}
-
-.c6 .fi-status-text {
-  line-height: 18px;
-}
-
-.c6 .fi-status-text.fi-checkbox_statusText--has-content {
-  margin-top: 5px;
-}
-
-.c6.fi-checkbox--large .fi-checkbox_label {
-  padding-left: 40px;
-  line-height: 30px;
-}
-
-.c6.fi-checkbox--large .fi-checkbox_label::before {
-  content: '';
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  box-sizing: border-box;
-  height: 30px;
-  width: 30px;
-  color: hsl(201,7%,58%);
-  border: 2px solid;
-}
-
-.c6.fi-checkbox--large .fi-checkbox_label .fi-checkbox_icon {
-  height: 20px;
-  width: 20px;
-  left: 5px;
-  top: 4px;
-}
-
-.c6.fi-checkbox--large .fi-hint-text {
-  padding-left: 40px;
-}
-
-.c6.fi-checkbox--checked .fi-checkbox_label::before {
-  border-color: hsl(212,63%,45%);
-}
-
-.c6.fi-checkbox--checked .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
-  fill: hsl(212,63%,45%);
-}
-
-.c6.fi-checkbox--error .fi-checkbox_label::before {
-  border-color: hsl(3,59%,48%);
-  border-width: 2px;
-}
-
-.c6.fi-checkbox--error .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
-  fill: hsl(3,59%,48%);
-}
-
-.c6.fi-checkbox--disabled .fi-checkbox_label {
-  cursor: not-allowed;
-  color: hsl(202,7%,67%);
-}
-
-.c6.fi-checkbox--disabled .fi-checkbox_label::before {
-  background-color: hsl(202,7%,97%);
-  border-color: hsl(202,7%,80%);
-  border-width: 1px;
-}
-
-.c6.fi-checkbox--disabled .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
-  fill: hsl(202,7%,80%);
-}
-
-.c6.fi-checkbox--disabled.fi-checkbox--large .fi-checkbox_label::before {
-  border-width: 2px;
-}
-
-.c4.fi-label .fi-label_label-span {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  display: block;
-  color: hsl(0,0%,16%);
-}
-
-.c4.fi-label .fi-label_label-span .fi-label_optional-text {
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
 }
 
 .c1 {
@@ -379,6 +278,141 @@ exports[`default, with only required props should match snapshot 1`] = `
   margin-bottom: 15px;
 }
 
+.c7 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c7 .fi-checkbox_label {
+  position: relative;
+  display: block;
+  padding-left: 25px;
+  cursor: pointer;
+  line-height: 27px;
+}
+
+.c7 .fi-checkbox_label::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 5px;
+  box-sizing: border-box;
+  height: 18px;
+  width: 18px;
+  border: 1px solid hsl(201,7%,58%);
+  border-radius: 2px;
+  background-color: hsl(0,0%,100%);
+}
+
+.c7 .fi-checkbox_icon {
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  left: 4px;
+  top: 9px;
+}
+
+.c7:focus-within .fi-checkbox_label::before {
+  outline: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+}
+
+.c7 .fi-checkbox_input {
+  position: absolute;
+  opacity: 0;
+  z-index: -9999;
+}
+
+.c7 .fi-hint-text {
+  padding-left: 25px;
+  color: hsl(202,7%,40%);
+}
+
+.c7 .fi-status-text {
+  line-height: 18px;
+}
+
+.c7 .fi-status-text.fi-checkbox_statusText--has-content {
+  margin-top: 5px;
+}
+
+.c7.fi-checkbox--large .fi-checkbox_label {
+  padding-left: 40px;
+  line-height: 30px;
+}
+
+.c7.fi-checkbox--large .fi-checkbox_label::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  box-sizing: border-box;
+  height: 30px;
+  width: 30px;
+  color: hsl(201,7%,58%);
+  border: 2px solid;
+}
+
+.c7.fi-checkbox--large .fi-checkbox_label .fi-checkbox_icon {
+  height: 20px;
+  width: 20px;
+  left: 5px;
+  top: 4px;
+}
+
+.c7.fi-checkbox--large .fi-hint-text {
+  padding-left: 40px;
+}
+
+.c7.fi-checkbox--checked .fi-checkbox_label::before {
+  border-color: hsl(212,63%,45%);
+}
+
+.c7.fi-checkbox--checked .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
+  fill: hsl(212,63%,45%);
+}
+
+.c7.fi-checkbox--error .fi-checkbox_label::before {
+  border-color: hsl(3,59%,48%);
+  border-width: 2px;
+}
+
+.c7.fi-checkbox--error .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
+  fill: hsl(3,59%,48%);
+}
+
+.c7.fi-checkbox--disabled .fi-checkbox_label {
+  cursor: not-allowed;
+  color: hsl(202,7%,67%);
+}
+
+.c7.fi-checkbox--disabled .fi-checkbox_label::before {
+  background-color: hsl(202,7%,97%);
+  border-color: hsl(202,7%,80%);
+  border-width: 1px;
+}
+
+.c7.fi-checkbox--disabled .fi-checkbox_label > .fi-checkbox_icon .fi-icon-base-fill {
+  fill: hsl(202,7%,80%);
+}
+
+.c7.fi-checkbox--disabled.fi-checkbox--large .fi-checkbox_label::before {
+  border-width: 2px;
+}
+
 <div>
   <div
     class="c0 fi-checkbox-group c1"
@@ -390,31 +424,31 @@ exports[`default, with only required props should match snapshot 1`] = `
       <legend
         class="c3 fi-checkbox-group_legend"
       >
-        <label
-          class="c0 c4 fi-checkbox-group_label--visible fi-label"
-          for="1"
+        <div
+          class="c4 c5 fi-checkbox-group_label--visible fi-label"
         >
-          <span
-            class="c5 fi-label_label-span"
+          <label
+            class="c6 fi-label_label-span"
+            for="1"
           >
             Label
-          </span>
-        </label>
+          </label>
+        </div>
       </legend>
       <div
         class="c0 fi-checkbox-group_container"
       >
         <div
-          class="c0 fi-checkbox_container c6 fi-checkbox"
+          class="c0 fi-checkbox_container c7 fi-checkbox"
         >
           <input
             aria-invalid="false"
-            class="c7 fi-checkbox_input"
+            class="c8 fi-checkbox_input"
             id="test-id-1"
             type="checkbox"
           />
           <label
-            class="c8 fi-checkbox_label"
+            class="c9 fi-checkbox_label"
             for="test-id-1"
           >
             Label text 1
@@ -422,20 +456,20 @@ exports[`default, with only required props should match snapshot 1`] = `
           <span
             aria-atomic="true"
             aria-live="assertive"
-            class="c5 c9 fi-status-text"
+            class="c6 c10 fi-status-text"
           />
         </div>
         <div
-          class="c0 fi-checkbox_container c6 fi-checkbox"
+          class="c0 fi-checkbox_container c7 fi-checkbox"
         >
           <input
             aria-invalid="false"
-            class="c7 fi-checkbox_input"
+            class="c8 fi-checkbox_input"
             id="test-id-2"
             type="checkbox"
           />
           <label
-            class="c8 fi-checkbox_label"
+            class="c9 fi-checkbox_label"
             for="test-id-2"
           >
             Label text 2
@@ -443,20 +477,20 @@ exports[`default, with only required props should match snapshot 1`] = `
           <span
             aria-atomic="true"
             aria-live="assertive"
-            class="c5 c9 fi-status-text"
+            class="c6 c10 fi-status-text"
           />
         </div>
         <div
-          class="c0 fi-checkbox_container c6 fi-checkbox"
+          class="c0 fi-checkbox_container c7 fi-checkbox"
         >
           <input
             aria-invalid="false"
-            class="c7 fi-checkbox_input"
+            class="c8 fi-checkbox_input"
             id="test-id-3"
             type="checkbox"
           />
           <label
-            class="c8 fi-checkbox_label"
+            class="c9 fi-checkbox_label"
             for="test-id-3"
           >
             Label text 3
@@ -464,11 +498,16 @@ exports[`default, with only required props should match snapshot 1`] = `
           <span
             aria-atomic="true"
             aria-live="assertive"
-            class="c5 c9 fi-status-text"
+            class="c6 c10 fi-status-text"
           />
         </div>
       </div>
     </fieldset>
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c6 c10 fi-status-text"
+    />
   </div>
 </div>
 `;
