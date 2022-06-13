@@ -404,7 +404,7 @@ class BaseSingleSelect<T> extends Component<
     }
   };
 
-  private isOutsideClick(event: MouseEvent | KeyboardEvent) {
+  private isOutsideClick(event: MouseEvent) {
     return (
       !!this.toggleButtonRef &&
       (this.toggleButtonRef.current as Node).contains(event.target as Node)

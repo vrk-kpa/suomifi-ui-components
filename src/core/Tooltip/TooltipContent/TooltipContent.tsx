@@ -29,11 +29,7 @@ interface TooltipContentProps extends HtmlDivWithRefProps {
   // eslint-disable-next-line react/require-default-props
   className?: string;
   /** Event to be called when close button is clicked. */
-  onCloseButtonClick: (
-    event:
-      | React.MouseEvent<HTMLButtonElement>
-      | React.KeyboardEvent<HTMLButtonElement>,
-  ) => void;
+  onCloseButtonClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 interface InnerRef {

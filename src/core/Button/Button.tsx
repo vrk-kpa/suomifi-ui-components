@@ -54,7 +54,7 @@ interface InternalButtonProps
   /** Event handler to execute when clicked
    *  @default void
    */
-  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
+  onClick?: (event: React.MouseEvent) => void;
 }
 
 interface InnerRef {
