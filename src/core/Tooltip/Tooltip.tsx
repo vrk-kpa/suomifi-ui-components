@@ -84,7 +84,8 @@ class BaseTooltip extends Component<
        */
       const pos =
         this.toggleButtonRef.current.getBoundingClientRect().left -
-        this.contentRef.current.getBoundingClientRect().left;
+        this.contentRef.current.getBoundingClientRect().left -
+        2;
       const max = this.contentRef.current.getBoundingClientRect().width - 17;
       return Math.min(pos, max);
     }

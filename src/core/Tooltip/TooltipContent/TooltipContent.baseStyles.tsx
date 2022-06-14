@@ -25,7 +25,7 @@ export const baseStyles = (arrowOffsetPx: number, theme: SuomifiTheme) => css`
       pointer-events: none;
     }
     &:before {
-      border-bottom-color: ${theme.colors.depthDark2};
+      border-bottom-color: ${theme.colors.blackBase};
       border-width: 9px;
       margin-right: -9px;
       bottom: 100%;
