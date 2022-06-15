@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SpacingWithoutInsetProp } from '../theme/utils/spacing';
 import { baseStyles } from './Block.baseStyles';
-import { HtmlDiv, HtmlDivProps } from '../../reset';
+import { HtmlDivWithRef, HtmlDivProps } from '../../reset';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 
 const baseClassName = 'fi-block';
@@ -44,7 +44,11 @@ export interface BlockProps extends HtmlDivProps {
   variant?: 'default' | 'section' | 'header' | 'nav' | 'main' | 'footer';
 }
 
-class SemanticBlock extends Component<BlockProps> {
+interface InternalBlockProps extends BlockProps {
+  forwardedRef: React.RefObject<HTMLDivElement>;
+}
+
+class SemanticBlock extends Component<InternalBlockProps> {
   render() {
     const {
       className,
@@ -66,7 +70,8 @@ class SemanticBlock extends Component<BlockProps> {
       ...passProps
     } = this.props;
     const ComponentVariant =
-      !variant || variant === 'default' ? HtmlDiv : variant;
+      !variant || variant === 'default' ? HtmlDivWithRef : variant;
+
     return (
       <ComponentVariant
         {...passProps}
@@ -96,7 +101,7 @@ class SemanticBlock extends Component<BlockProps> {
   }
 }
 
-const StyledBlock = styled((props: BlockProps & SuomifiThemeProp) => {
+const StyledBlock = styled((props: InternalBlockProps & SuomifiThemeProp) => {
   const { theme, ...passProps } = props;
   return <SemanticBlock {...passProps} />;
 })`
@@ -106,10 +111,14 @@ const StyledBlock = styled((props: BlockProps & SuomifiThemeProp) => {
 /**
  * Used in displaying a generic piece of HTML e.g. a div
  */
-const Block = (props: BlockProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => <StyledBlock theme={suomifiTheme} {...props} />}
-  </SuomifiThemeConsumer>
+const Block = forwardRef(
+  (props: BlockProps, ref: React.RefObject<HTMLDivElement>) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledBlock theme={suomifiTheme} forwardedRef={ref} {...props} />
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
 
 Block.displayName = 'Block';
