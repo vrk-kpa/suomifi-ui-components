@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SpacingWithoutInsetProp } from '../theme/utils/spacing';
@@ -15,13 +15,17 @@ export interface ParagraphProps extends HtmlPProps {
   marginBottomSpacing?: SpacingWithoutInsetProp;
 }
 
+interface InnerRef {
+  forwardedRef?: React.RefObject<HTMLParagraphElement>;
+}
+
 const StyledParagraph = styled(
   ({
     marginBottomSpacing,
     className,
     theme,
     ...passProps
-  }: ParagraphProps & SuomifiThemeProp) => (
+  }: ParagraphProps & SuomifiThemeProp & InnerRef) => (
     <HtmlP
       className={classnames(baseClassName, className, {
         [`${baseClassName}--margin-${marginBottomSpacing}`]:
@@ -37,10 +41,14 @@ const StyledParagraph = styled(
 /**
  * Used for displaying a <p> element with correct styles
  */
-const Paragraph = (props: ParagraphProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => <StyledParagraph theme={suomifiTheme} {...props} />}
-  </SuomifiThemeConsumer>
+const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
+  (props, ref) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledParagraph theme={suomifiTheme} forwardedRef={ref} {...props} />
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
 
 Paragraph.displayName = 'Paragraph';

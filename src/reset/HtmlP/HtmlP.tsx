@@ -8,6 +8,11 @@ export interface HtmlPProps
   as?: asPropType;
 }
 
+interface InnerRef {
+  /** Forwarded ref object for the paragraph element */
+  forwardedRef: React.RefObject<HTMLParagraphElement>;
+}
+
 const spanResets = css`
   ${resets.normalize.html}
   ${resets.common}
@@ -18,7 +23,9 @@ const spanResets = css`
   white-space: normal;
 `;
 
-const Span = (props: HtmlPProps) => <p {...props} />;
+const Span = ({ forwardedRef, ...passProps }: HtmlPProps & InnerRef) => (
+  <p ref={forwardedRef} {...passProps} />
+);
 
 export const HtmlP = styled(Span)`
   ${spanResets}
