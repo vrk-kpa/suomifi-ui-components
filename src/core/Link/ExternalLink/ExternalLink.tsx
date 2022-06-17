@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
@@ -31,6 +31,10 @@ interface InternalExternalLinkProps extends BaseLinkProps {
 }
 
 export type ExternalLinkProps = newWindowProps & InternalExternalLinkProps;
+
+interface InnerRef {
+  forwardedRef?: React.RefObject<HTMLParagraphElement>;
+}
 
 class BaseExternalLink extends Component<ExternalLinkProps> {
   render() {
@@ -66,7 +70,7 @@ class BaseExternalLink extends Component<ExternalLinkProps> {
 }
 
 const StyledExternalLink = styled(
-  (props: ExternalLinkProps & SuomifiThemeProp) => {
+  (props: ExternalLinkProps & SuomifiThemeProp & InnerRef) => {
     const { theme, ...passProps } = props;
     return <BaseExternalLink {...passProps} />;
   },
@@ -78,13 +82,18 @@ const StyledExternalLink = styled(
  * <i class="semantics" />
  * Used for adding a external site link
  */
-
-const ExternalLink = (props: ExternalLinkProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => (
-      <StyledExternalLink theme={suomifiTheme} {...props} />
-    )}
-  </SuomifiThemeConsumer>
+const ExternalLink = forwardRef(
+  (props: ExternalLinkProps, ref: React.RefObject<HTMLAnchorElement>) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledExternalLink
+          theme={suomifiTheme}
+          forwardedRef={ref}
+          {...props}
+        />
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
 
 ExternalLink.displayName = 'ExternalLink';

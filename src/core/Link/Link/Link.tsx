@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { LinkStyles } from '../Link/Link.baseStyles';
@@ -8,13 +8,12 @@ import { BaseLinkProps, baseClassName } from '../BaseLink/BaseLink';
 
 export interface LinkProps extends BaseLinkProps {}
 
+interface InternalLinkProps extends LinkProps, SuomifiThemeProp {
+  forwardedRef?: React.RefObject<HTMLAnchorElement>;
+}
+
 const StyledLink = styled(
-  ({
-    asProp,
-    className,
-    theme,
-    ...passProps
-  }: LinkProps & SuomifiThemeProp) => (
+  ({ asProp, className, theme, ...passProps }: InternalLinkProps) => (
     <HtmlA
       {...passProps}
       className={classnames(baseClassName, className)}
@@ -29,10 +28,14 @@ const StyledLink = styled(
  * <i class="semantics" />
  * Used for adding a link
  */
-const Link = (props: LinkProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => <StyledLink theme={suomifiTheme} {...props} />}
-  </SuomifiThemeConsumer>
+const Link = forwardRef(
+  (props: LinkProps, ref: React.RefObject<HTMLAnchorElement>) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledLink theme={suomifiTheme} forwardedRef={ref} {...props} />
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
 
 Link.displayName = 'Link';

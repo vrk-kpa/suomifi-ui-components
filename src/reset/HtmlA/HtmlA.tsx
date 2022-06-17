@@ -10,6 +10,11 @@ export interface HtmlAProps
   as?: asPropType;
 }
 
+export interface HtmlAWithRefProps extends HtmlAProps {
+  /** Ref object for the heading element */
+  forwardedRef?: React.RefObject<HTMLAnchorElement>;
+}
+
 const aResets = css`
   ${resets.normalize.html}
   ${resets.normalize.a}
@@ -19,8 +24,10 @@ const aResets = css`
   text-decoration: underline;
 `;
 
-const Ahref = styled.a`
+const Ahref = styled.a<HtmlAWithRefProps>`
   ${aResets}
 `;
 
-export const HtmlA = (props: HtmlAProps) => <Ahref {...props} />;
+export const HtmlA = ({ forwardedRef, ...passProps }: HtmlAWithRefProps) => (
+  <Ahref ref={forwardedRef} {...passProps} />
+);
