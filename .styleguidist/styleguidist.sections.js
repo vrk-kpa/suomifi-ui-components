@@ -127,6 +127,7 @@ module.exports = {
             'Link/Link',
             'SkipLink/SkipLink',
             'ExternalLink/ExternalLink',
+            'RouterLink/RouterLink',
           ]),
         },
         {
