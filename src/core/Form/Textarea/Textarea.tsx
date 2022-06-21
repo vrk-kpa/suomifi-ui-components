@@ -1,4 +1,10 @@
-import React, { Component, ChangeEvent, FocusEvent, forwardRef } from 'react';
+import React, {
+  Component,
+  ChangeEvent,
+  FocusEvent,
+  forwardRef,
+  ReactElement,
+} from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
@@ -79,6 +85,8 @@ interface InternalTextareaProps
   fullWidth?: boolean;
   /** Textarea container div props */
   containerProps?: Omit<HtmlDivProps, 'className'>;
+  /** Tooltip component for label */
+  tooltipComponent?: ReactElement;
 }
 
 interface InnerRef {
@@ -111,6 +119,7 @@ class BaseTextarea extends Component<TextareaProps & InnerRef> {
       containerProps,
       forwardedRef,
       statusTextAriaLiveMode = 'assertive',
+      tooltipComponent,
       ...passProps
     } = this.props;
 
@@ -127,7 +136,12 @@ class BaseTextarea extends Component<TextareaProps & InnerRef> {
           [textareaClassNames.fullWidth]: fullWidth,
         })}
       >
-        <Label htmlFor={id} labelMode={labelMode} optionalText={optionalText}>
+        <Label
+          htmlFor={id}
+          labelMode={labelMode}
+          optionalText={optionalText}
+          tooltipComponent={tooltipComponent}
+        >
           {labelText}
         </Label>
         <HintText id={hintTextId}>{hintText}</HintText>

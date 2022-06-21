@@ -80,3 +80,31 @@ import { Textarea } from 'suomifi-ui-components';
   </Textarea>
 </>;
 ```
+
+### With Tooltip
+
+```js
+import { Textarea, Tooltip } from 'suomifi-ui-components';
+
+const labelText = 'Feedback';
+
+<Textarea
+  fullWidth
+  hintText="Be constructive with your feedback"
+  labelText={labelText}
+  optionalText="optional"
+  tooltipComponent={
+    <Tooltip
+      ariaToggleButtonLabelText={`${labelText}, show additional information`}
+      ariaCloseButtonLabelText={`${labelText}, close additional information`}
+    >
+      You can write your feedback to textarea below. Do not write any
+      sensitive or personal information, e.g phone number or credit
+      card number.
+    </Tooltip>
+  }
+>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+  vestibulum iaculis augue, sit amet tincidunt ipsum.
+</Textarea>;
+```
