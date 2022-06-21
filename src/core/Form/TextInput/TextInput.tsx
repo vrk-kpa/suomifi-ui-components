@@ -1,4 +1,10 @@
-import React, { forwardRef, Component, ChangeEvent, FocusEvent } from 'react';
+import React, {
+  forwardRef,
+  Component,
+  ChangeEvent,
+  FocusEvent,
+  ReactElement,
+} from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
@@ -84,6 +90,8 @@ interface InternalTextInputProps
   icon?: BaseIconKeys;
   /** Properties for the icon */
   iconProps?: Omit<IconProps, 'icon'>;
+  /** Tooltip component for label */
+  tooltipComponent?: ReactElement;
 }
 
 interface InnerRef {
@@ -117,6 +125,7 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
       debounce,
       statusTextAriaLiveMode = 'assertive',
       'aria-describedby': ariaDescribedBy,
+      tooltipComponent,
       ...passProps
     } = this.props;
 
@@ -143,6 +152,7 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
             className={classnames({
               [textInputClassNames.labelIsVisible]: labelMode !== 'hidden',
             })}
+            tooltipComponent={tooltipComponent}
           >
             {labelText}
           </Label>

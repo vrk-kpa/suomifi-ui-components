@@ -115,3 +115,25 @@ import { TextInput } from 'suomifi-ui-components';
   />
 </>;
 ```
+
+### With Tooltip
+
+```js
+import { TextInput, Tooltip } from 'suomifi-ui-components';
+
+const labelText = 'Birthdate';
+
+<TextInput
+  fullWidth
+  labelText={labelText}
+  tooltipComponent={
+    <Tooltip
+      ariaToggleButtonLabelText={`${labelText}, show additional information`}
+      ariaCloseButtonLabelText={`${labelText}, close additional information`}
+    >
+      You can check your birthdate e.g from your sickness insurance
+      card.
+    </Tooltip>
+  }
+/>;
+```
