@@ -2,8 +2,6 @@ import React, {
   Component,
   ReactNode,
   forwardRef,
-  MouseEvent,
-  KeyboardEvent,
   RefObject,
   createRef,
 } from 'react';
@@ -35,9 +33,9 @@ export interface TooltipProps {
    */
   anchorElement?: HTMLElement | null;
   /** Event handler for toggle button click */
-  onToggleButtonClick?: (event: MouseEvent | KeyboardEvent) => void;
+  onToggleButtonClick?: (event: React.MouseEvent) => void;
   /** Event handler for close button click */
-  onCloseButtonClick?: (event: MouseEvent | KeyboardEvent) => void;
+  onCloseButtonClick?: (event: React.MouseEvent) => void;
 }
 
 interface InnerRef {
@@ -126,9 +124,7 @@ class BaseTooltip extends Component<
     }
   }
 
-  private handleToggleClick = (
-    event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>,
-  ) => {
+  private handleToggleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (!!this.props.onToggleButtonClick) {
       this.props.onToggleButtonClick(event);
     }
@@ -137,9 +133,7 @@ class BaseTooltip extends Component<
     }
   };
 
-  private handleCloseClick = (
-    event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>,
-  ) => {
+  private handleCloseClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (!!this.props.onCloseButtonClick) {
       this.props.onCloseButtonClick(event);
     }

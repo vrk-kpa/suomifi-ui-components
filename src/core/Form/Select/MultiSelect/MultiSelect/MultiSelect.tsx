@@ -467,7 +467,7 @@ class BaseMultiSelect<T> extends Component<
     }
   };
 
-  private clickWasInToggleButton(event: MouseEvent | KeyboardEvent) {
+  private clickWasInToggleButton(event: MouseEvent) {
     return (
       !!this.toggleButtonRef &&
       (this.toggleButtonRef.current as Node).contains(event.target as Node)

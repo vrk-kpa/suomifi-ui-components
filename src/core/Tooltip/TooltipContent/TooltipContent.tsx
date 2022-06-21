@@ -1,11 +1,4 @@
-import React, {
-  Component,
-  forwardRef,
-  RefObject,
-  ReactNode,
-  MouseEvent,
-  KeyboardEvent,
-} from 'react';
+import React, { Component, forwardRef, RefObject, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classNames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
@@ -36,9 +29,7 @@ interface TooltipContentProps extends HtmlDivWithRefProps {
   // eslint-disable-next-line react/require-default-props
   className?: string;
   /** Event to be called when close button is clicked. */
-  onCloseButtonClick: (
-    event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>,
-  ) => void;
+  onCloseButtonClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 interface InnerRef {
