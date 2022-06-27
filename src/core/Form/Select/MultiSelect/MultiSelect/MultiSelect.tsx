@@ -297,6 +297,7 @@ class BaseMultiSelect<T> extends Component<
   };
 
   private handleKeyDown = (event: React.KeyboardEvent) => {
+    event.stopPropagation();
     const { filteredItems: items, focusedDescendantId } = this.state;
     const index = items.findIndex(
       ({ uniqueItemId }) => uniqueItemId === focusedDescendantId,

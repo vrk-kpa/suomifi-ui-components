@@ -144,7 +144,15 @@ const LanguageMenuPopoverPosition = (
 
 const StyledMenuPopover = styled(
   ({ theme, children, ...passProps }: MenuPopoverProps & SuomifiThemeProp) => (
-    <MenuPopover {...passProps} position={LanguageMenuPopoverPosition}>
+    <MenuPopover
+      {...passProps}
+      position={LanguageMenuPopoverPosition}
+      onKeyDown={(event) => {
+        if (event.key === 'Escape') {
+          event.stopPropagation();
+        }
+      }}
+    >
       <MenuItems>{children}</MenuItems>
     </MenuPopover>
   ),

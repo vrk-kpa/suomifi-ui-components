@@ -258,6 +258,7 @@ class BaseSingleSelect<T> extends Component<
   };
 
   private handleKeyDown = (event: React.KeyboardEvent) => {
+    event.stopPropagation();
     const { filteredItems, focusedDescendantId, filterMode } = this.state;
     const popoverItems = !!filterMode ? filteredItems : this.props.items;
     const index = popoverItems.findIndex(
