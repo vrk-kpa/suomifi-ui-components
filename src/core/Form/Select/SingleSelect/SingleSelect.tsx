@@ -296,6 +296,7 @@ class BaseSingleSelect<T> extends Component<
       }
 
       case 'Enter': {
+        event.preventDefault();
         if (focusedDescendantId) {
           const focusedItem = popoverItems.find(
             ({ uniqueItemId }) => uniqueItemId === focusedDescendantId,

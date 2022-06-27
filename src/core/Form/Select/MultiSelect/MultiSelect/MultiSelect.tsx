@@ -329,6 +329,7 @@ class BaseMultiSelect<T> extends Component<
       }
 
       case 'Enter': {
+        event.preventDefault();
         if (focusedDescendantId) {
           const focusedItem = items.find(
             ({ uniqueItemId }) => uniqueItemId === focusedDescendantId,

@@ -172,14 +172,12 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
     };
 
     const onKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-      event.stopPropagation();
       if (!!this.state.value && event?.key === 'Enter') {
         onSearch();
       }
     };
 
     const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-      event.stopPropagation();
       if (event?.key === 'Escape') {
         event.preventDefault();
       }
