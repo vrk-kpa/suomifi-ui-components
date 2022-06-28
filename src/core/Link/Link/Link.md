@@ -61,24 +61,6 @@ import { ExternalLink } from 'suomifi-ui-components';
 </>;
 ```
 
-### Change component for the link
-
-```js
-import { Link } from 'suomifi-ui-components';
-
-const Component = ({ children, ...passProps }) => (
-  <a {...passProps}>foo {children} bar</a>
-);
-
-<Link
-  className="test-classname"
-  href="https://www.com/"
-  asProp={Component}
->
-  Testing
-</Link>;
-```
-
 ### Router link
 
 This component is mainly intended to be used with external libraries/frameworks.
@@ -97,7 +79,7 @@ const Component = ({ children, ...passProps }) => (
 <>
   <RouterLink
     asComponent={Component}
-    href="https://ironmaiden.com"
+    href="https://suomi.fi"
     target="_blank"
   >
     Testing
