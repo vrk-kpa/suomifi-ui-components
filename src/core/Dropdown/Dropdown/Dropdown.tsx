@@ -296,6 +296,11 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
                   this.buttonRef.current.focus();
                 }
               }}
+              onKeyDown={(event) => {
+                if (event.key === 'Escape') {
+                  event.stopPropagation();
+                }
+              }}
             >
               <ListBoxContextWrapper scrollContainerRef={this.popoverRef}>
                 {children}
