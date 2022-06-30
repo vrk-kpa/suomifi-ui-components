@@ -54,7 +54,12 @@ class BaseInlineAlert extends Component<InlineAlertProps & InnerRef> {
       >
         <HtmlDiv className={alertClassNames.styleWrapper}>
           {status !== 'neutral' && (
-            <Icon icon={status} className={alertClassNames.icon} />
+            <Icon
+              icon={status}
+              className={classnames(alertClassNames.icon, {
+                [`${alertClassNames.icon}--${status}`]: !!status,
+              })}
+            />
           )}
 
           <HtmlDiv

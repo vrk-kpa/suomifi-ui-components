@@ -36,22 +36,28 @@ export const baseAlertBaseStyles = (theme: SuomifiTheme) => css`
     /** Status variant styles */
     &--neutral {
       background-color: ${theme.colors.accentSecondaryLight1};
-      & .fi-icon .fi-icon-base-fill {
-        fill: ${theme.colors.accentSecondary};
+      & .fi-alert_icon--neutral {
+        & .fi-icon-base-fill {
+          fill: ${theme.colors.accentSecondary};
+        }
       }
     }
 
     &--error {
       background-color: ${theme.colors.alertLight1};
-      & .fi-icon .fi-icon-base-fill {
-        fill: ${theme.colors.alertBase};
+      & .fi-alert_icon--error {
+        & .fi-icon-base-fill {
+          fill: ${theme.colors.alertBase};
+        }
       }
     }
 
     &--warning {
       background-color: ${theme.colors.warningLight1};
-      & .fi-icon .fi-icon-base-fill {
-        fill: ${theme.colors.accentBase};
+      & .fi-alert_icon--warning {
+        & .fi-icon-base-fill {
+          fill: ${theme.colors.accentBase};
+        }
       }
     }
   }

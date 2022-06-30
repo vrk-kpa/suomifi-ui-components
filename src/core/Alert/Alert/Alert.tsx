@@ -62,7 +62,12 @@ class BaseAlert extends Component<AlertProps & InnerRef> {
         })}
       >
         <HtmlDiv className={alertClassNames.styleWrapper}>
-          <Icon icon={variantIcon} className={alertClassNames.icon} />
+          <Icon
+            icon={variantIcon}
+            className={classnames(alertClassNames.icon, {
+              [`${alertClassNames.icon}--${status}`]: !!status,
+            })}
+          />
 
           <HtmlDiv
             className={alertClassNames.textContentWrapper}
