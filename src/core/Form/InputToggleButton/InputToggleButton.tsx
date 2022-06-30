@@ -57,7 +57,7 @@ const StyledInputToggleButton = styled(BaseInputToggleButton)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export const InputToggleButton = forwardRef(
+const InputToggleButton = forwardRef(
   (props: InputToggleButtonProps, ref: RefObject<HTMLButtonElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
@@ -70,3 +70,6 @@ export const InputToggleButton = forwardRef(
     </SuomifiThemeConsumer>
   ),
 );
+
+InputToggleButton.displayName = 'InputToggleButton';
+export { InputToggleButton };

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SpacingWithoutInsetProp } from '../theme/utils/spacing';
@@ -35,16 +35,13 @@ const StyledParagraph = styled(
 `;
 
 /**
- * Used displaying Paragraph with correct styles
+ * Used for displaying a <p> element with correct styles
  */
-export class Paragraph extends Component<ParagraphProps> {
-  render() {
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledParagraph theme={suomifiTheme} {...this.props} />
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const Paragraph = (props: ParagraphProps) => (
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => <StyledParagraph theme={suomifiTheme} {...props} />}
+  </SuomifiThemeConsumer>
+);
+
+Paragraph.displayName = 'Paragraph';
+export { Paragraph };

@@ -125,7 +125,7 @@ const StyledToggleButton = styled(
  * Use for toggling application state.
  * Additional props are passed to the button element.
  */
-export const ToggleButton = forwardRef(
+const ToggleButton = forwardRef(
   (props: ToggleButtonProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { id: propId, ...passProps } = props;
     return (
@@ -146,3 +146,6 @@ export const ToggleButton = forwardRef(
     );
   },
 );
+
+ToggleButton.displayName = 'ToggleButton';
+export { ToggleButton };

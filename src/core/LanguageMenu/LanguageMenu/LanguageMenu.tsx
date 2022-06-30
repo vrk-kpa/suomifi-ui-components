@@ -164,32 +164,33 @@ const StyledMenuPopover = styled(
  * <i class="semantics" />
  * Use for dropdown menu.
  */
-export class LanguageMenu extends Component<LanguageMenuProps> {
-  render() {
-    const { children, name, className, ...passProps } = this.props;
-    const languageMenuButtonClassName = classnames(
-      languageMenuClassNames.button,
-      languageMenuClassNames.buttonLang,
-      className,
-    );
+const LanguageMenu = (props: LanguageMenuProps) => {
+  const { children, name, className, ...passProps } = props;
+  const languageMenuButtonClassName = classnames(
+    languageMenuClassNames.button,
+    languageMenuClassNames.buttonLang,
+    className,
+  );
 
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledLanguageMenu
-            theme={suomifiTheme}
-            {...passProps}
-            name={languageName(name)}
-            languageMenuButtonClassName={languageMenuButtonClassName}
-            languageMenuOpenButtonClassName={languageMenuClassNames.buttonOpen}
-          >
-            {LanguageMenuPopoverWithProps(
-              children,
-              languageMenuClassNames.itemLang,
-            )}
-          </StyledLanguageMenu>
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledLanguageMenu
+          theme={suomifiTheme}
+          {...passProps}
+          name={languageName(name)}
+          languageMenuButtonClassName={languageMenuButtonClassName}
+          languageMenuOpenButtonClassName={languageMenuClassNames.buttonOpen}
+        >
+          {LanguageMenuPopoverWithProps(
+            children,
+            languageMenuClassNames.itemLang,
+          )}
+        </StyledLanguageMenu>
+      )}
+    </SuomifiThemeConsumer>
+  );
+};
+
+LanguageMenu.displayName = 'LanguageMenu';
+export { LanguageMenu };

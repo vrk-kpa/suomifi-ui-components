@@ -108,7 +108,7 @@ const StyledLoadingSpinner = styled(
 )`
   ${({ theme }) => baseStyles(theme)};
 `;
-export const LoadingSpinner = forwardRef(
+const LoadingSpinner = forwardRef(
   (props: LoadingSpinnerProps, ref: React.RefObject<HTMLDivElement>) => {
     const { ...passProps } = props;
     return (
@@ -124,3 +124,6 @@ export const LoadingSpinner = forwardRef(
     );
   },
 );
+
+LoadingSpinner.displayName = 'LoadingSpinner';
+export { LoadingSpinner };

@@ -1,11 +1,12 @@
-import React, { Component, ReactNode, createRef } from 'react';
+import React, { Component, ReactNode, createRef, ReactElement } from 'react';
 import { default as styled } from 'styled-components';
 import { getLogger } from '../../../utils/log';
 import { default as ReactModal } from 'react-modal';
 import classnames from 'classnames';
-import { ModalContent, ModalFooter } from '../';
 import { baseStyles } from './Modal.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import { ModalFooterProps } from '../ModalFooter/ModalFooter';
+import { ModalContentProps } from '../ModalContent/ModalContent';
 
 export type ModalVariant = 'smallScreen' | 'default';
 
@@ -19,7 +20,7 @@ export interface ModalProps {
   /** Modal content wrapper styles */
   style?: React.CSSProperties;
   /** Children */
-  children: ModalContent | ModalFooter | ReactNode;
+  children: ReactElement<ModalContentProps | ModalFooterProps> | ReactNode;
   /**
    * Variant. Use smallScreen for mobile and small displays
    * @default 'default'
@@ -200,21 +201,21 @@ const StyledModal = styled(BaseModal)`
  * Use for showing modal content.
  * NOTE: Modal hides the application root node from screen readers using the provided appElementId.
  */
-export class Modal extends Component<ModalProps> {
-  render() {
-    const { className: propClassName, ...passProps } = this.props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledModal
-            theme={suomifiTheme}
-            propClassName={propClassName}
-            {...passProps}
-          />
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const Modal = (props: ModalProps) => {
+  const { className: propClassName, ...passProps } = props;
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledModal
+          theme={suomifiTheme}
+          propClassName={propClassName}
+          {...passProps}
+        />
+      )}
+    </SuomifiThemeConsumer>
+  );
+};
 
-export { ModalProvider, ModalConsumer };
+Modal.displayName = 'Modal';
+
+export { Modal, ModalProvider, ModalConsumer };

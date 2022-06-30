@@ -183,9 +183,12 @@ class BaseTooltip extends Component<
   }
 }
 
-export const Tooltip = forwardRef(
+const Tooltip = forwardRef(
   (props: TooltipProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { ...passProps } = props;
     return <BaseTooltip forwardedRef={ref} {...passProps} />;
   },
 );
+
+Tooltip.displayName = 'Tooltip';
+export { Tooltip };

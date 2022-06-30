@@ -659,21 +659,20 @@ const StyledSingleSelect = styled(BaseSingleSelect)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export class SingleSelect<T> extends Component<
-  SingleSelectProps<T & SingleSelectData>
-> {
-  render() {
-    const { id: propId, ...passProps } = this.props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledSingleSelect theme={suomifiTheme} id={id} {...passProps} />
-            )}
-          </AutoId>
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const SingleSelect = <T,>(props: SingleSelectProps<T & SingleSelectData>) => {
+  const { id: propId, ...passProps } = props;
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <AutoId id={propId}>
+          {(id) => (
+            <StyledSingleSelect theme={suomifiTheme} id={id} {...passProps} />
+          )}
+        </AutoId>
+      )}
+    </SuomifiThemeConsumer>
+  );
+};
+
+SingleSelect.displayName = 'SingleSelect';
+export { SingleSelect };

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
@@ -10,7 +10,6 @@ import {
 } from 'suomifi-icons';
 import {
   IconBaseProps,
-  iconLogger,
   cursorPointerClassName,
   baseClassName,
 } from '../Icon/Icon';
@@ -56,33 +55,20 @@ const StyledSuomifiStaticIcon = styled(
 /**
  * Static icon-component
  */
-export class StaticIcon extends Component<StaticIconProps> {
-  render() {
-    const { icon, className, mousePointer, ...passProps } = this.props;
-    const { ariaLabel } = this.props;
+const StaticIcon = (props: StaticIconProps) => {
+  const { className, mousePointer, ...passProps } = props;
 
-    if (icon !== undefined) {
-      return (
-        <StyledSuomifiStaticIcon
-          {...passProps}
-          icon={icon}
-          className={classnames(
-            baseClassName,
-            staticIconBaseClassName,
-            className,
-            {
-              [cursorPointerClassName]: !!mousePointer,
-            },
-          )}
-        />
-      );
-    }
+  return (
+    <StyledSuomifiStaticIcon
+      {...passProps}
+      className={classnames(baseClassName, staticIconBaseClassName, className, {
+        [cursorPointerClassName]: !!mousePointer,
+      })}
+    />
+  );
+};
 
-    iconLogger(ariaLabel, className);
-
-    return;
-  }
-}
+StaticIcon.displayName = 'StaticIcon';
 
 export interface ComponentIconProps
   extends IconBaseProps,
@@ -100,22 +86,17 @@ const StyledSuomifiComponentIcon = styled(
   ${staticIconBaseStyles}
 `;
 
-export class ComponentIcon extends Component<ComponentIconProps> {
-  render() {
-    const { icon, className, ariaLabel, ...passProps } = this.props;
-    if (icon !== undefined) {
-      return (
-        <StyledSuomifiComponentIcon
-          {...passProps}
-          ariaLabel={ariaLabel}
-          className={className}
-          icon={icon}
-        />
-      );
-    }
+const ComponentIcon = (props: ComponentIconProps) => {
+  const { className, ariaLabel, ...passProps } = props;
 
-    iconLogger(ariaLabel, className);
+  return (
+    <StyledSuomifiComponentIcon
+      {...passProps}
+      ariaLabel={ariaLabel}
+      className={className}
+    />
+  );
+};
 
-    return;
-  }
-}
+ComponentIcon.displayName = 'ComponentIcon';
+export { ComponentIcon, StaticIcon };

@@ -1,7 +1,6 @@
 import React, {
   ReactElement,
   SetStateAction,
-  Component,
   ReactNode,
   useState,
   isValidElement,
@@ -128,14 +127,11 @@ const StyledLabel = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export class Label extends Component<LabelProps> {
-  render() {
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledLabel theme={suomifiTheme} {...this.props} />
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const Label = (props: LabelProps) => (
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => <StyledLabel theme={suomifiTheme} {...props} />}
+  </SuomifiThemeConsumer>
+);
+
+Label.displayName = 'Label';
+export { Label };

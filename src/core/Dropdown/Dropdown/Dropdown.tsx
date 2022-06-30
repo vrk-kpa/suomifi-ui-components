@@ -328,7 +328,7 @@ const StyledDropdown = styled(
  * <i class="semantics" />
  * Use for selectable dropdown with items.
  */
-export const Dropdown = forwardRef(
+const Dropdown = forwardRef(
   (props: DropdownProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
@@ -349,3 +349,6 @@ export const Dropdown = forwardRef(
     );
   },
 );
+
+Dropdown.displayName = 'Dropdown';
+export { Dropdown };

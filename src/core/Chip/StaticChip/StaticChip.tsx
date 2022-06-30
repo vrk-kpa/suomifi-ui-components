@@ -39,15 +39,11 @@ const StyledChip = styled(
   ${({ theme }) => staticChipBaseStyles(theme)}
 `;
 
-export class StaticChip extends Component<StaticChipProps> {
-  render() {
-    const { ...passProps } = this.props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledChip theme={suomifiTheme} {...passProps} />
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const StaticChip = (props: StaticChipProps) => (
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => <StyledChip theme={suomifiTheme} {...props} />}
+  </SuomifiThemeConsumer>
+);
+
+StaticChip.displayName = 'StaticChip';
+export { StaticChip };

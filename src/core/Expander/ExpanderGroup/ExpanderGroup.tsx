@@ -190,16 +190,14 @@ const StyledExpanderGroup = styled(BaseExpanderGroup)`
  * <i class="semantics" />
  * Wrapper for multiple expanders with Open/Close All button
  */
-export class ExpanderGroup extends Component<ExpanderGroupProps> {
-  render() {
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledExpanderGroup theme={suomifiTheme} {...this.props} />
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const ExpanderGroup = (props: ExpanderGroupProps) => (
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => (
+      <StyledExpanderGroup theme={suomifiTheme} {...props} />
+    )}
+  </SuomifiThemeConsumer>
+);
 
-export { ExpanderGroupConsumer };
+ExpanderGroup.displayName = 'ExpanderGroup';
+
+export { ExpanderGroup, ExpanderGroupConsumer };

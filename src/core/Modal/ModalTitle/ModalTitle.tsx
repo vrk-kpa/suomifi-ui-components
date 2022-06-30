@@ -85,25 +85,24 @@ const StyledModalTitle = styled(BaseModalTitle)`
  * Id and smallScreen variant are provided by Modal context and cannot be given as props.
  * Children are wrapped in h2 heading and styled as h3 by default.
  */
-export class ModalTitle extends Component<ModalTitleProps> {
-  render() {
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <ModalConsumer>
-            {({ focusTitleOnOpen, titleRef, variant, scrollable }) => (
-              <StyledModalTitle
-                focusTitleOnOpen={focusTitleOnOpen}
-                {...(titleRef ? { titleRef } : {})}
-                modalVariant={variant}
-                scrollable={scrollable}
-                theme={suomifiTheme}
-                {...this.props}
-              />
-            )}
-          </ModalConsumer>
+const ModalTitle = (props: ModalTitleProps) => (
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => (
+      <ModalConsumer>
+        {({ focusTitleOnOpen, titleRef, variant, scrollable }) => (
+          <StyledModalTitle
+            focusTitleOnOpen={focusTitleOnOpen}
+            {...(titleRef ? { titleRef } : {})}
+            modalVariant={variant}
+            scrollable={scrollable}
+            theme={suomifiTheme}
+            {...props}
+          />
         )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+      </ModalConsumer>
+    )}
+  </SuomifiThemeConsumer>
+);
+
+ModalTitle.displayName = 'ModalTitle';
+export { ModalTitle };

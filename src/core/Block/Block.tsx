@@ -46,16 +46,13 @@ const StyledBlock = styled((props: BlockProps & SuomifiThemeProp) => {
 `;
 
 /**
- * Used displaying Block with correct styles
+ * Used in displaying a generic piece of HTML e.g. a <div>
  */
-export class Block extends Component<BlockProps> {
-  render() {
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledBlock theme={suomifiTheme} {...this.props} />
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const Block = (props: BlockProps) => (
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => <StyledBlock theme={suomifiTheme} {...props} />}
+  </SuomifiThemeConsumer>
+);
+
+Block.displayName = 'Block';
+export { Block };

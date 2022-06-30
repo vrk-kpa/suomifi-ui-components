@@ -166,7 +166,7 @@ const StyledNotification = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export const Notification = forwardRef(
+const Notification = forwardRef(
   (props: NotificationProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
@@ -187,3 +187,6 @@ export const Notification = forwardRef(
     );
   },
 );
+
+Notification.displayName = 'Notification';
+export { Notification };

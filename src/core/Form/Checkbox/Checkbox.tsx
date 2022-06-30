@@ -251,7 +251,7 @@ const StyledCheckbox = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export const Checkbox = forwardRef(
+const Checkbox = forwardRef(
   (props: CheckboxProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, status: propStatus, ...passProps } = props;
     return (
@@ -277,3 +277,6 @@ export const Checkbox = forwardRef(
     );
   },
 );
+
+Checkbox.displayName = 'Checkbox';
+export { Checkbox };

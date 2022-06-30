@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { ColorProp, SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
@@ -46,16 +46,13 @@ const StyledText = styled(
 `;
 
 /**
- * Used displaying text with correct fonts
+ * Used for displaying text with correct fonts
  */
-export class Text extends Component<TextProps> {
-  render() {
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledText theme={suomifiTheme} {...this.props} />
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const Text = (props: TextProps) => (
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => <StyledText theme={suomifiTheme} {...props} />}
+  </SuomifiThemeConsumer>
+);
+
+Text.displayName = 'Text';
+export { Text };
