@@ -164,7 +164,7 @@
     "react-popper": "2.2.5",
     "react-svg": "14.1.14",
     "suomifi-design-tokens": "3.2.0",
-    "suomifi-icons": "^6.2.0"
+    "suomifi-icons": "6.3.0"
   },
   "peerDependencies": {
     "@types/styled-components": ">=5.1.9",
