@@ -8,15 +8,21 @@ import {
   HtmlButtonProps,
 } from '../../../reset';
 import { Icon } from '../../../core/Icon/Icon';
-import {
-  BaseAlertProps,
-  alertClassNames,
-  baseClassName,
-} from '../BaseAlert/BaseAlert';
+import { BaseAlertProps } from '../BaseAlert/BaseAlert';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './Alert.baseStyles';
+
+const baseClassName = 'fi-alert';
+const alertClassNames = {
+  styleWrapper: `${baseClassName}_style-wrapper`,
+  textContentWrapper: `${baseClassName}_text-content-wrapper`,
+  content: `${baseClassName}_content`,
+  icon: `${baseClassName}_icon`,
+  closeButton: `${baseClassName}_close-button`,
+  smallScreen: `${baseClassName}--small-screen`,
+};
 
 export interface AlertProps extends BaseAlertProps {
   /** Text to label the close button. Visible + `aria-label` in regular size and only used as `aria-label` in small screen variant */
