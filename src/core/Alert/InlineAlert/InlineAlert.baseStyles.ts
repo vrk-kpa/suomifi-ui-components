@@ -1,47 +1,84 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
-import { font } from '../../theme/reset';
-import { baseAlertBaseStyles } from '../BaseAlert/BaseAlert.baseStyles';
+import { element, font } from '../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  ${baseAlertBaseStyles(theme)}
-  &.fi-alert {
-    & .fi-alert_label {
-      ${font(theme)('bodySemiBold')}
-      margin-bottom: ${theme.spacing.xxs};
+  &.fi-inline-alert {
+    ${element(theme)}
+    ${font(theme)('bodyTextSmall')}
+    width: 100%;
+    padding: 5px 0px 4px 0px;
+    border-left-width: 4px;
+    border-left-style: solid;
+
+    & .fi-inline-alert_style-wrapper {
+      display: flex;
+      align-items: flex-start;
     }
 
-    & .fi-alert_text-content-wrapper {
+    & .fi-inline-alert_icon {
+      margin-left: ${theme.spacing.m};
+      margin-top: ${theme.spacing.insetXl};
+      min-height: 24px;
+      min-width: 24px;
+      height: 24px;
+      width: 24px;
+    }
+
+    & .fi-inline-alert_text-content-wrapper {
+      display: flex;
+      flex-direction: column;
       padding: 0 ${theme.spacing.s};
       margin: ${theme.spacing.s} 0;
+
+      & .fi-inline-alert_label {
+        ${font(theme)('bodySemiBold')}
+        margin-bottom: ${theme.spacing.xxs};
+      }
+
+      & .fi-inline-alert_content {
+        ${font(theme)('bodyTextSmall')}
+        vertical-align: middle;
+      }
     }
 
-    &.fi-alert--inline {
-      padding: 5px 0px 4px 0px;
+    &--neutral {
+      background-color: ${theme.colors.accentSecondaryLight1};
+      border-left-color: ${theme.colors.accentSecondary};
 
-      &.fi-alert--neutral {
-        border-left: 4px solid ${theme.colors.accentSecondary};
-        & .fi-alert_text-content-wrapper {
-          padding-left: ${theme.spacing.m};
+      & .fi-inline-alert_text-content-wrapper {
+        padding-left: ${theme.spacing.m};
+      }
+    }
+
+    &--error {
+      background-color: ${theme.colors.alertLight1};
+      border-left-color: ${theme.colors.alertBase};
+
+      & .fi-inline-alert_icon--error {
+        & .fi-icon-base-fill {
+          fill: ${theme.colors.alertBase};
         }
       }
+    }
 
-      &.fi-alert--error {
-        border-left: 4px solid ${theme.colors.alertBase};
-      }
+    &--warning {
+      background-color: ${theme.colors.warningLight1};
+      border-left-color: ${theme.colors.accentBase};
 
-      &.fi-alert--warning {
-        border-left: 4px solid ${theme.colors.accentBase};
-      }
-
-      /** Small screen variant styles */
-      &.fi-alert--small-screen {
-        & .fi-alert_icon {
-          margin-left: ${theme.spacing.s};
+      & .fi-inline-alert_icon--warning {
+        & .fi-icon-base-fill {
+          fill: ${theme.colors.accentBase};
         }
-        & .fi-alert_text-content-wrapper {
-          padding: 0 ${theme.spacing.xs} 0 ${theme.spacing.xs};
-        }
+      }
+    }
+
+    &--small-screen {
+      & .fi-inline-alert_icon {
+        margin-left: ${theme.spacing.s};
+      }
+      & .fi-inline-alert_text-content-wrapper {
+        padding: 0 ${theme.spacing.xs} 0 ${theme.spacing.xs};
       }
     }
   }

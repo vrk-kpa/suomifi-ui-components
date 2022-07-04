@@ -3,14 +3,20 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlDivWithRef } from '../../../reset';
 import { Icon } from '../../../core/Icon/Icon';
-import {
-  BaseAlertProps,
-  alertClassNames,
-  baseClassName,
-} from '../BaseAlert/BaseAlert';
+import { BaseAlertProps } from '../BaseAlert/BaseAlert';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './InlineAlert.baseStyles';
+
+const baseClassName = 'fi-inline-alert';
+const inlineAlertClassNames = {
+  styleWrapper: `${baseClassName}_style-wrapper`,
+  content: `${baseClassName}_content`,
+  label: `${baseClassName}_label`,
+  textContentWrapper: `${baseClassName}_text-content-wrapper`,
+  icon: `${baseClassName}_icon`,
+  smallScreen: `${baseClassName}--small-screen`,
+};
 
 export interface InlineAlertProps extends BaseAlertProps {
   /** Label for the alert */
@@ -42,35 +48,34 @@ class BaseInlineAlert extends Component<InlineAlertProps & InnerRef> {
       <HtmlDivWithRef
         as="section"
         {...passProps}
-        className={classnames(
-          baseClassName,
-          alertClassNames.inline,
-          className,
-          {
-            [`${baseClassName}--${status}`]: !!status,
-            [alertClassNames.smallScreen]: !!smallScreen,
-          },
-        )}
+        className={classnames(baseClassName, className, {
+          [`${baseClassName}--${status}`]: !!status,
+          [inlineAlertClassNames.smallScreen]: !!smallScreen,
+        })}
       >
-        <HtmlDiv className={alertClassNames.styleWrapper}>
+        <HtmlDiv className={inlineAlertClassNames.styleWrapper}>
           {status !== 'neutral' && (
             <Icon
               icon={status}
-              className={classnames(alertClassNames.icon, {
-                [`${alertClassNames.icon}--${status}`]: !!status,
+              className={classnames(inlineAlertClassNames.icon, {
+                [`${inlineAlertClassNames.icon}--${status}`]: !!status,
               })}
             />
           )}
 
           <HtmlDiv
-            className={alertClassNames.textContentWrapper}
+            className={inlineAlertClassNames.textContentWrapper}
             id={id}
             aria-live={ariaLiveMode}
           >
             {labelText && (
-              <HtmlDiv className={alertClassNames.label}>{labelText}</HtmlDiv>
+              <HtmlDiv className={inlineAlertClassNames.label}>
+                {labelText}
+              </HtmlDiv>
             )}
-            <HtmlDiv className={alertClassNames.content}>{children}</HtmlDiv>
+            <HtmlDiv className={inlineAlertClassNames.content}>
+              {children}
+            </HtmlDiv>
           </HtmlDiv>
         </HtmlDiv>
       </HtmlDivWithRef>

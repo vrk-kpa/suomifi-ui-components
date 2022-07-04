@@ -13,7 +13,6 @@ export const alertClassNames = {
   closeButton: `${baseClassName}_close-button`,
   closeButtonWrapper: `${baseClassName}_close-button-wrapper`,
   smallScreen: `${baseClassName}--small-screen`,
-  inline: `${baseClassName}--inline`,
 };
 
 export interface BaseAlertProps extends HtmlDivWithRefProps {
