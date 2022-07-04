@@ -8,58 +8,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     ${font(theme)('bodyTextSmall')}
     width: 100%;
 
-    /** Status variant styles */
-    &--neutral {
-      background-color: ${theme.colors.accentSecondaryLight1};
-      & .fi-alert_style-wrapper {
-        & .fi-alert_icon--neutral {
-          & .fi-icon-base-fill {
-            fill: ${theme.colors.accentSecondary};
-          }
-        }
-      }
-    }
-
-    &--error {
-      background-color: ${theme.colors.alertLight1};
-      & .fi-alert_style-wrapper {
-        & .fi-alert_icon--error {
-          & .fi-icon-base-fill {
-            fill: ${theme.colors.alertBase};
-          }
-        }
-      }
-    }
-
-    &--warning {
-      background-color: ${theme.colors.warningLight1};
-      & .fi-alert_style-wrapper {
-        & .fi-alert_icon--warning {
-          & .fi-icon-base-fill {
-            fill: ${theme.colors.accentBase};
-          }
-        }
-      }
-    }
-
-    /** Small screen variant styles */
-    &--small-screen {
-      & .fi-alert_style-wrapper {
-        width: 100%;
-
-        & .fi-alert_text-content-wrapper {
-          padding: 0 0 0 ${theme.spacing.xs};
-        }
-
-        & .fi-alert_close-button {
-          margin: 0;
-          & .fi-icon {
-            margin-right: ${theme.spacing.xxs};
-          }
-        }
-      }
-    }
-
     & .fi-alert_style-wrapper {
       display: flex;
       align-items: flex-start;
@@ -123,6 +71,57 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         & .fi-alert_content {
           vertical-align: middle;
           ${font(theme)('bodyTextSmall')}
+        }
+      }
+    }
+    /** Status variant styles */
+    &.fi-alert--neutral {
+      background-color: ${theme.colors.accentSecondaryLight1};
+      & .fi-alert_style-wrapper {
+        & .fi-alert_icon--neutral {
+          & .fi-icon-base-fill {
+            fill: ${theme.colors.accentSecondary};
+          }
+        }
+      }
+    }
+
+    &.fi-alert--error {
+      background-color: ${theme.colors.alertLight1};
+      & .fi-alert_style-wrapper {
+        & .fi-alert_icon--error {
+          & .fi-icon-base-fill {
+            fill: ${theme.colors.alertBase};
+          }
+        }
+      }
+    }
+
+    &.fi-alert--warning {
+      background-color: ${theme.colors.warningLight1};
+      & .fi-alert_style-wrapper {
+        & .fi-alert_icon--warning {
+          & .fi-icon-base-fill {
+            fill: ${theme.colors.accentBase};
+          }
+        }
+      }
+    }
+
+    /** Small screen variant styles */
+    &.fi-alert--small-screen {
+      & .fi-alert_style-wrapper {
+        width: 100%;
+
+        & .fi-alert_text-content-wrapper {
+          padding: 0 0 0 ${theme.spacing.xs};
+        }
+
+        & .fi-alert_close-button {
+          margin: 0;
+          & .fi-icon {
+            margin-right: ${theme.spacing.xxs};
+          }
         }
       }
     }
