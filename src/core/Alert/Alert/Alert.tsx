@@ -1,4 +1,4 @@
-import React, { Component, forwardRef } from 'react';
+import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import {
@@ -6,9 +6,9 @@ import {
   HtmlDivWithRef,
   HtmlButton,
   HtmlButtonProps,
+  HtmlDivWithRefProps,
 } from '../../../reset';
 import { Icon } from '../../../core/Icon/Icon';
-import { BaseAlertProps } from '../BaseAlert/BaseAlert';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
@@ -24,7 +24,15 @@ const alertClassNames = {
   smallScreen: `${baseClassName}--small-screen`,
 };
 
-export interface AlertProps extends BaseAlertProps {
+export interface AlertProps extends HtmlDivWithRefProps {
+  /** Style variant. Affects color and icon used.
+   * @default 'neutral'
+   */
+  status?: 'neutral' | 'warning' | 'error';
+  /** Main content of the alert */
+  children?: ReactNode;
+  /** Use small screen styling */
+  smallScreen?: boolean;
   /** Text to label the close button. Visible + `aria-label` in regular size and only used as `aria-label` in small screen variant */
   closeText: string;
   /** Click handler for the close button */

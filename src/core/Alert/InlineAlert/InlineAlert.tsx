@@ -1,9 +1,8 @@
-import React, { Component, forwardRef } from 'react';
+import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlDivWithRef } from '../../../reset';
+import { HtmlDiv, HtmlDivWithRef, HtmlDivWithRefProps } from '../../../reset';
 import { Icon } from '../../../core/Icon/Icon';
-import { BaseAlertProps } from '../BaseAlert/BaseAlert';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './InlineAlert.baseStyles';
@@ -18,7 +17,15 @@ const inlineAlertClassNames = {
   smallScreen: `${baseClassName}--small-screen`,
 };
 
-export interface InlineAlertProps extends BaseAlertProps {
+export interface InlineAlertProps extends HtmlDivWithRefProps {
+  /** Style variant. Affects color and icon used.
+   * @default 'neutral'
+   */
+  status?: 'neutral' | 'warning' | 'error';
+  /** Main content of the alert */
+  children?: ReactNode;
+  /** Use small screen styling */
+  smallScreen?: boolean;
   /** Label for the alert */
   labelText?: string;
   /** Set aria-live mode for the alert text content and label.
