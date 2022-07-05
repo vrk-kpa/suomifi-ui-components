@@ -216,4 +216,5 @@ const Expander = (props: ExpanderProps) => {
   );
 };
 
+Expander.displayName = 'Expander';
 export { Expander, ExpanderConsumer, ExpanderProvider };
