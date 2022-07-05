@@ -42,7 +42,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
-    &--neutral {
+    &.fi-inline-alert--neutral {
       background-color: ${theme.colors.accentSecondaryLight1};
       border-left-color: ${theme.colors.accentSecondary};
 
@@ -51,7 +51,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
-    &--error {
+    &.fi-inline-alert--error {
       background-color: ${theme.colors.alertLight1};
       border-left-color: ${theme.colors.alertBase};
 
@@ -62,7 +62,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
-    &--warning {
+    &.fi-inline-alert--warning {
       background-color: ${theme.colors.warningLight1};
       border-left-color: ${theme.colors.accentBase};
 
@@ -73,7 +73,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
-    &--small-screen {
+    &.fi-inline-alert--small-screen {
       & .fi-inline-alert_icon {
         margin-left: ${theme.spacing.s};
       }
