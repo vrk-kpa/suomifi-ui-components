@@ -68,7 +68,7 @@ const StyledHeading = styled(
  * <i class="semantics" />
  * Used displaying headings with correct fonts
  */
-export const Heading = forwardRef(
+const Heading = forwardRef(
   (props: HeadingProps, ref: React.RefObject<HTMLHeadingElement>) => {
     const { as, variant, ...passProps } = props;
     if (!variant) {
@@ -92,3 +92,6 @@ export const Heading = forwardRef(
     );
   },
 );
+
+Heading.displayName = 'Heading';
+export { Heading };

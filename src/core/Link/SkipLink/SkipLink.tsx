@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { Link } from '../Link/Link';
@@ -21,19 +21,20 @@ const StyledSkipLink = styled((props: SkipLinkProps & SuomifiThemeProp) => {
  * <i class="semantics" />
  * Used for adding skip link for keyboard and screenreader users
  */
-export class SkipLink extends Component<SkipLinkProps> {
-  render() {
-    const { className, ...passProps } = this.props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledSkipLink
-            theme={suomifiTheme}
-            {...passProps}
-            className={classnames(className, skipClassName)}
-          />
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const SkipLink = (props: SkipLinkProps) => {
+  const { className, ...passProps } = props;
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledSkipLink
+          theme={suomifiTheme}
+          {...passProps}
+          className={classnames(className, skipClassName)}
+        />
+      )}
+    </SuomifiThemeConsumer>
+  );
+};
+
+SkipLink.displayName = 'SkipLink';
+export { SkipLink };

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlSpan, HtmlSpanProps } from '../../reset/HtmlSpan/HtmlSpan';
@@ -22,14 +22,15 @@ const StyledVisuallyHidden = styled((props: VisuallyHiddenProps) => (
   overflow: hidden;
 `;
 
-export class VisuallyHidden extends Component<VisuallyHiddenProps> {
-  render() {
-    const { className, ...passProps } = this.props;
-    return (
-      <StyledVisuallyHidden
-        {...passProps}
-        className={classnames(baseClassName, className)}
-      />
-    );
-  }
-}
+const VisuallyHidden = (props: VisuallyHiddenProps) => {
+  const { className, ...passProps } = props;
+  return (
+    <StyledVisuallyHidden
+      {...passProps}
+      className={classnames(baseClassName, className)}
+    />
+  );
+};
+
+VisuallyHidden.displayName = 'VisuallyHidden';
+export { VisuallyHidden };

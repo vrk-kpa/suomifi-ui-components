@@ -82,7 +82,7 @@ const StyledInlineAlert = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export const InlineAlert = forwardRef(
+const InlineAlert = forwardRef(
   (props: InlineAlertProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
@@ -103,3 +103,6 @@ export const InlineAlert = forwardRef(
     );
   },
 );
+
+InlineAlert.displayName = 'InlineAlert';
+export { InlineAlert };

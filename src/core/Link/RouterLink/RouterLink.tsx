@@ -92,10 +92,13 @@ const StyledRouterLink = styled(PolymorphicLink)`
   ${({ theme }) => RouterLinkStyles(theme)}
 `;
 
-export const RouterLink = <C extends React.ElementType = 'a'>(
+const RouterLink = <C extends React.ElementType = 'a'>(
   props: RouterLinkProps<C>,
 ) => (
   <SuomifiThemeConsumer>
     {({ suomifiTheme }) => <StyledRouterLink theme={suomifiTheme} {...props} />}
   </SuomifiThemeConsumer>
 );
+
+RouterLink.displayName = 'RouterLink';
+export { RouterLink };

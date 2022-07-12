@@ -139,25 +139,21 @@ const StyledCheckboxGroup = styled(BaseCheckboxGroup)`
 /**
  * Use for grouping Checkboxes.
  */
-export class CheckboxGroup extends Component<CheckboxGroupProps> {
-  render() {
-    const { id: propId, ...passProps } = this.props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledCheckboxGroup
-                theme={suomifiTheme}
-                id={id}
-                {...passProps}
-              />
-            )}
-          </AutoId>
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const CheckboxGroup = (props: CheckboxGroupProps) => {
+  const { id: propId, ...passProps } = props;
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <AutoId id={propId}>
+          {(id) => (
+            <StyledCheckboxGroup theme={suomifiTheme} id={id} {...passProps} />
+          )}
+        </AutoId>
+      )}
+    </SuomifiThemeConsumer>
+  );
+};
 
-export { CheckboxGroupConsumer };
+CheckboxGroup.displayName = 'CheckboxGroup';
+
+export { CheckboxGroup, CheckboxGroupConsumer };

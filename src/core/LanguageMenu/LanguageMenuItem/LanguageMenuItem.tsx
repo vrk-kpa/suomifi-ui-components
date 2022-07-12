@@ -11,7 +11,7 @@ export interface LanguageMenuItemProps {
   className?: string;
 }
 
-export const LanguageMenuItem = ({
+const LanguageMenuItem = ({
   selected,
   className,
   ...passProps
@@ -23,3 +23,6 @@ export const LanguageMenuItem = ({
     })}
   />
 );
+
+LanguageMenuItem.displayName = 'LanguageMenuItem';
+export { LanguageMenuItem };

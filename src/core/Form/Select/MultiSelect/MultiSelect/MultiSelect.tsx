@@ -788,21 +788,20 @@ const StyledMultiSelect = styled(BaseMultiSelect)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export class MultiSelect<T> extends Component<
-  MultiSelectProps<T & MultiSelectData>
-> {
-  render() {
-    const { id: propId, ...passProps } = this.props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledMultiSelect theme={suomifiTheme} id={id} {...passProps} />
-            )}
-          </AutoId>
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const MultiSelect = <T,>(props: MultiSelectProps<T & MultiSelectData>) => {
+  const { id: propId, ...passProps } = props;
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <AutoId id={propId}>
+          {(id) => (
+            <StyledMultiSelect theme={suomifiTheme} id={id} {...passProps} />
+          )}
+        </AutoId>
+      )}
+    </SuomifiThemeConsumer>
+  );
+};
+
+MultiSelect.displayName = 'MultiSelect';
+export { MultiSelect };

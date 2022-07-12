@@ -78,14 +78,14 @@ const StyledExternalLink = styled(
  * <i class="semantics" />
  * Used for adding a external site link
  */
-export class ExternalLink extends Component<ExternalLinkProps> {
-  render() {
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledExternalLink theme={suomifiTheme} {...this.props} />
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+
+const ExternalLink = (props: ExternalLinkProps) => (
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => (
+      <StyledExternalLink theme={suomifiTheme} {...props} />
+    )}
+  </SuomifiThemeConsumer>
+);
+
+ExternalLink.displayName = 'ExternalLink';
+export { ExternalLink };

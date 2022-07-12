@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
 import { SuomifiLogoIcon, SuomifiLogoIconInterface } from 'suomifi-icons';
-import {
-  iconLogger,
-  cursorPointerClassName,
-  baseClassName,
-} from '../Icon/Icon';
+import { cursorPointerClassName, baseClassName } from '../Icon/Icon';
 import { logoIconBaseStyles } from './LogoIcon.baseStyles';
 
 export { LogoIconKeys } from 'suomifi-icons';
@@ -38,30 +34,18 @@ const StyledSuomifiLogoIcon = styled(
 /**
  * Logo icon-component
  */
-export class LogoIcon extends Component<LogoIconProps> {
-  render() {
-    const { icon, className, mousePointer, ...passProps } = this.props;
-    const { ariaLabel } = this.props;
+const LogoIcon = (props: LogoIconProps) => {
+  const { className, mousePointer, ...passProps } = props;
 
-    if (icon !== undefined) {
-      return (
-        <StyledSuomifiLogoIcon
-          {...passProps}
-          icon={icon}
-          className={classnames(
-            baseClassName,
-            logoIconBaseClassName,
-            className,
-            {
-              [cursorPointerClassName]: !!mousePointer,
-            },
-          )}
-        />
-      );
-    }
+  return (
+    <StyledSuomifiLogoIcon
+      {...passProps}
+      className={classnames(baseClassName, logoIconBaseClassName, className, {
+        [cursorPointerClassName]: !!mousePointer,
+      })}
+    />
+  );
+};
 
-    iconLogger(ariaLabel, className);
-
-    return;
-  }
-}
+LogoIcon.displayName = 'LogoIcon';
+export { LogoIcon };

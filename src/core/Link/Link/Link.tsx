@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { LinkStyles } from '../Link/Link.baseStyles';
@@ -29,14 +29,11 @@ const StyledLink = styled(
  * <i class="semantics" />
  * Used for adding a link
  */
-export class Link extends Component<LinkProps> {
-  render() {
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledLink theme={suomifiTheme} {...this.props} />
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const Link = (props: LinkProps) => (
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => <StyledLink theme={suomifiTheme} {...props} />}
+  </SuomifiThemeConsumer>
+);
+
+Link.displayName = 'Link';
+export { Link };

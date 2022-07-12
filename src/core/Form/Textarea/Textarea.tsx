@@ -180,7 +180,7 @@ const StyledTextarea = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export const Textarea = forwardRef(
+const Textarea = forwardRef(
   (props: TextareaProps, ref: React.Ref<HTMLTextAreaElement>) => {
     const { id: propId, ...passProps } = props;
     return (
@@ -201,3 +201,6 @@ export const Textarea = forwardRef(
     );
   },
 );
+
+Textarea.displayName = 'Textarea';
+export { Textarea };

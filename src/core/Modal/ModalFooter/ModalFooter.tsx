@@ -67,25 +67,26 @@ const StyledModalFooter = styled(BaseModalFooter)`
  * Applies variant specific spacings to immediate children.
  * Props other than specified explicitly are passed on to the content wrapping div.
  */
-export class ModalFooter extends Component<ModalFooterProps> {
-  render() {
-    const { className, ...passProps } = this.props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <ModalConsumer>
-            {({ variant, scrollable }) => (
-              <StyledModalFooter
-                modalVariant={variant}
-                scrollable={scrollable}
-                propClassName={className}
-                theme={suomifiTheme}
-                {...passProps}
-              />
-            )}
-          </ModalConsumer>
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const ModalFooter = (props: ModalFooterProps) => {
+  const { className, ...passProps } = props;
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <ModalConsumer>
+          {({ variant, scrollable }) => (
+            <StyledModalFooter
+              modalVariant={variant}
+              scrollable={scrollable}
+              propClassName={className}
+              theme={suomifiTheme}
+              {...passProps}
+            />
+          )}
+        </ModalConsumer>
+      )}
+    </SuomifiThemeConsumer>
+  );
+};
+
+ModalFooter.displayName = 'ModalFooter';
+export { ModalFooter };

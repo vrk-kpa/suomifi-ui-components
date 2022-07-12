@@ -192,30 +192,29 @@ interface ExpanderState {
  * <i class="semantics" />
  * Hide or show content with always visible title
  */
-export class Expander extends Component<ExpanderProps> {
-  render() {
-    const { id: propId, ...passProps } = this.props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <ExpanderGroupConsumer>
-                {(consumer) => (
-                  <StyledExpander
-                    theme={suomifiTheme}
-                    id={id}
-                    {...passProps}
-                    consumer={consumer}
-                  />
-                )}
-              </ExpanderGroupConsumer>
-            )}
-          </AutoId>
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const Expander = (props: ExpanderProps) => {
+  const { id: propId, ...passProps } = props;
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <AutoId id={propId}>
+          {(id) => (
+            <ExpanderGroupConsumer>
+              {(consumer) => (
+                <StyledExpander
+                  theme={suomifiTheme}
+                  id={id}
+                  {...passProps}
+                  consumer={consumer}
+                />
+              )}
+            </ExpanderGroupConsumer>
+          )}
+        </AutoId>
+      )}
+    </SuomifiThemeConsumer>
+  );
+};
 
-export { ExpanderConsumer, ExpanderProvider };
+Expander.displayName = 'Expander';
+export { Expander, ExpanderConsumer, ExpanderProvider };

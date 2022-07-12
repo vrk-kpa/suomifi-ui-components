@@ -45,14 +45,13 @@ const StyledInputClearButton = styled(BaseInputClearButton)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export class InputClearButton extends Component<InputClearButtonProps> {
-  render() {
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledInputClearButton theme={suomifiTheme} {...this.props} />
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const InputClearButton = (props: InputClearButtonProps) => (
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => (
+      <StyledInputClearButton theme={suomifiTheme} {...props} />
+    )}
+  </SuomifiThemeConsumer>
+);
+
+InputClearButton.displayName = 'InputClearButton';
+export { InputClearButton };

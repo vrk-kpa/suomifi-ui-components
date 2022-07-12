@@ -102,7 +102,7 @@ const StyledAlert = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export const Alert = forwardRef(
+const Alert = forwardRef(
   (props: AlertProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
@@ -123,3 +123,6 @@ export const Alert = forwardRef(
     );
   },
 );
+
+Alert.displayName = 'Alert';
+export { Alert };

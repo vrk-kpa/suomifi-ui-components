@@ -86,22 +86,21 @@ const StyledExpanderTitle = styled(BaseExpanderTitleButton)`
  * <i class="semantics" />
  * Expander title button for static title content and toggle for content visiblity
  */
-export class ExpanderTitleButton extends Component<ExpanderTitleButtonProps> {
-  render() {
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <ExpanderConsumer>
-            {(consumer) => (
-              <StyledExpanderTitle
-                theme={suomifiTheme}
-                consumer={consumer}
-                {...this.props}
-              />
-            )}
-          </ExpanderConsumer>
+const ExpanderTitleButton = (props: ExpanderTitleButtonProps) => (
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => (
+      <ExpanderConsumer>
+        {(consumer) => (
+          <StyledExpanderTitle
+            theme={suomifiTheme}
+            consumer={consumer}
+            {...props}
+          />
         )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+      </ExpanderConsumer>
+    )}
+  </SuomifiThemeConsumer>
+);
+
+ExpanderTitleButton.displayName = 'ExpanderTitleButton';
+export { ExpanderTitleButton };

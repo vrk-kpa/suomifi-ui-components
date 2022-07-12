@@ -207,7 +207,7 @@ const StyledTextInput = styled(
  * Props other than specified explicitly are passed on to underlying input element.
  * @component
  */
-export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
@@ -228,3 +228,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     );
   },
 );
+
+TextInput.displayName = 'TextInput';
+export { TextInput };

@@ -45,19 +45,20 @@ const StyledBreadcrumb = styled(BaseBreadcrumb)`
  * <i class="semantics" />
  * Used for navigation path
  */
-export class Breadcrumb extends Component<BreadcrumbProps> {
-  render() {
-    const { 'aria-label': ariaLabel, ...passProps } = this.props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledBreadcrumb
-            theme={suomifiTheme}
-            {...passProps}
-            {...getConditionalAriaProp('aria-label', [ariaLabel])}
-          />
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const Breadcrumb = (props: BreadcrumbProps) => {
+  const { 'aria-label': ariaLabel, ...passProps } = props;
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledBreadcrumb
+          theme={suomifiTheme}
+          {...passProps}
+          {...getConditionalAriaProp('aria-label', [ariaLabel])}
+        />
+      )}
+    </SuomifiThemeConsumer>
+  );
+};
+
+Breadcrumb.displayName = 'Breadcrumb';
+export { Breadcrumb };

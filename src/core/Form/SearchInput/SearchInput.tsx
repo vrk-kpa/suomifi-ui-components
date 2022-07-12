@@ -298,20 +298,20 @@ const StyledSearchInput = styled(BaseSearchInput)`
  * Use for user inputting search text.
  * Props other than specified explicitly are passed on to underlying input element.
  */
-export class SearchInput extends Component<SearchInputProps> {
-  render() {
-    const { id: propId, ...passProps } = this.props;
+const SearchInput = (props: SearchInputProps) => {
+  const { id: propId, ...passProps } = props;
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <AutoId id={propId}>
+          {(id) => (
+            <StyledSearchInput theme={suomifiTheme} id={id} {...passProps} />
+          )}
+        </AutoId>
+      )}
+    </SuomifiThemeConsumer>
+  );
+};
 
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledSearchInput theme={suomifiTheme} id={id} {...passProps} />
-            )}
-          </AutoId>
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+SearchInput.displayName = 'SearchInput';
+export { SearchInput };

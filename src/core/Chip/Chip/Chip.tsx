@@ -116,7 +116,7 @@ const StyledChip = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export const Chip = forwardRef(
+const Chip = forwardRef(
   (props: ChipProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { ...passProps } = props;
     return (
@@ -128,3 +128,6 @@ export const Chip = forwardRef(
     );
   },
 );
+
+Chip.displayName = 'Chip';
+export { Chip };

@@ -72,22 +72,21 @@ const StyledExpanderContent = styled(BaseExpanderContent)`
  * <i class="semantics" />
  * Expander content wrapper, controlled by expander
  */
-export class ExpanderContent extends Component<ExpanderContentProps> {
-  render() {
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <ExpanderConsumer>
-            {(consumer) => (
-              <StyledExpanderContent
-                theme={suomifiTheme}
-                consumer={consumer}
-                {...this.props}
-              />
-            )}
-          </ExpanderConsumer>
+const ExpanderContent = (props: ExpanderContentProps) => (
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => (
+      <ExpanderConsumer>
+        {(consumer) => (
+          <StyledExpanderContent
+            theme={suomifiTheme}
+            consumer={consumer}
+            {...props}
+          />
         )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+      </ExpanderConsumer>
+    )}
+  </SuomifiThemeConsumer>
+);
+
+ExpanderContent.displayName = 'ExpanderContent';
+export { ExpanderContent };
