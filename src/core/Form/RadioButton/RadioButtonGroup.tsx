@@ -1,7 +1,12 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { HtmlDiv, HtmlFieldSet, HtmlLegend } from '../../../reset';
+import {
+  HtmlDiv,
+  HtmlDivWithRef,
+  HtmlFieldSet,
+  HtmlLegend,
+} from '../../../reset';
 import { Label } from '../Label/Label';
 import { HintText } from '../HintText/HintText';
 import { RadioButtonProps } from './RadioButton';
@@ -60,8 +65,12 @@ export interface RadioButtonGroupState {
   selectedValue?: string;
 }
 
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLDivElement>;
+}
+
 class BaseRadioButtonGroup extends Component<
-  RadioButtonGroupProps & SuomifiThemeProp
+  RadioButtonGroupProps & SuomifiThemeProp & InnerRef
 > {
   state: RadioButtonGroupState = {
     selectedValue: this.props.value || this.props.defaultValue,
@@ -104,7 +113,7 @@ class BaseRadioButtonGroup extends Component<
     } = this.props;
 
     return (
-      <HtmlDiv
+      <HtmlDivWithRef
         className={classnames(baseClassName, className)}
         id={id}
         {...passProps}
@@ -137,7 +146,7 @@ class BaseRadioButtonGroup extends Component<
             </Provider>
           </HtmlDiv>
         </HtmlFieldSet>
-      </HtmlDiv>
+      </HtmlDivWithRef>
     );
   }
 }
@@ -151,24 +160,27 @@ const StyledRadioButtonGroup = styled(BaseRadioButtonGroup)`
  * Always overrides nested RadioButtons' name, checked and defaultChecked props.
  * Use RadioButtonGroup's name, value and defaultValue instead.
  */
-const RadioButtonGroup = (props: RadioButtonGroupProps) => {
-  const { id: propId, ...passProps } = props;
-  return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <AutoId id={propId}>
-          {(id) => (
-            <StyledRadioButtonGroup
-              theme={suomifiTheme}
-              id={id}
-              {...passProps}
-            />
-          )}
-        </AutoId>
-      )}
-    </SuomifiThemeConsumer>
-  );
-};
+const RadioButtonGroup = forwardRef(
+  (props: RadioButtonGroupProps, ref: React.RefObject<HTMLDivElement>) => {
+    const { id: propId, ...passProps } = props;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <StyledRadioButtonGroup
+                theme={suomifiTheme}
+                id={id}
+                forwardedRef={ref}
+                {...passProps}
+              />
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
+    );
+  },
+);
 
 RadioButtonGroup.displayName = 'RadioButtonGroup';
 

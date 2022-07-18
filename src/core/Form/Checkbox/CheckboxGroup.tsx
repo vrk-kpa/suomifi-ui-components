@@ -1,9 +1,14 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { HtmlDiv, HtmlFieldSet, HtmlLegend } from '../../../reset';
+import {
+  HtmlDiv,
+  HtmlDivWithRef,
+  HtmlFieldSet,
+  HtmlLegend,
+} from '../../../reset';
 import { InputStatus } from '../types';
 import { Label } from '../Label/Label';
 import { HintText } from '../HintText/HintText';
@@ -57,13 +62,17 @@ export interface CheckboxGroupProviderState {
   status?: CheckboxGroupStatus;
 }
 
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLDivElement>;
+}
+
 const defaultProviderValue: CheckboxGroupProviderState = {};
 
 const { Provider, Consumer: CheckboxGroupConsumer } =
   React.createContext(defaultProviderValue);
 
 class BaseCheckboxGroup extends Component<
-  CheckboxGroupProps & SuomifiThemeProp
+  CheckboxGroupProps & SuomifiThemeProp & InnerRef
 > {
   render() {
     const {
@@ -83,7 +92,7 @@ class BaseCheckboxGroup extends Component<
     const statusTextId = !!groupStatusText ? `${id}-statusText` : undefined;
 
     return (
-      <HtmlDiv
+      <HtmlDivWithRef
         className={classnames(baseClassName, className)}
         id={id}
         {...passProps}
@@ -127,7 +136,7 @@ class BaseCheckboxGroup extends Component<
         >
           {groupStatusText}
         </StatusText>
-      </HtmlDiv>
+      </HtmlDivWithRef>
     );
   }
 }
@@ -139,20 +148,27 @@ const StyledCheckboxGroup = styled(BaseCheckboxGroup)`
 /**
  * Use for grouping Checkboxes.
  */
-const CheckboxGroup = (props: CheckboxGroupProps) => {
-  const { id: propId, ...passProps } = props;
-  return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <AutoId id={propId}>
-          {(id) => (
-            <StyledCheckboxGroup theme={suomifiTheme} id={id} {...passProps} />
-          )}
-        </AutoId>
-      )}
-    </SuomifiThemeConsumer>
-  );
-};
+const CheckboxGroup = forwardRef(
+  (props: CheckboxGroupProps, ref: React.RefObject<HTMLDivElement>) => {
+    const { id: propId, ...passProps } = props;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <StyledCheckboxGroup
+                theme={suomifiTheme}
+                id={id}
+                forwardedRef={ref}
+                {...passProps}
+              />
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
+    );
+  },
+);
 
 CheckboxGroup.displayName = 'CheckboxGroup';
 
