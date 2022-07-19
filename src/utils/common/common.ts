@@ -1,5 +1,5 @@
 import React, { MutableRefObject, Ref } from 'react';
-import { getLogger } from '../..';
+import { getLogger } from '../../utils/log';
 
 export function windowAvailable() {
   return !!(
