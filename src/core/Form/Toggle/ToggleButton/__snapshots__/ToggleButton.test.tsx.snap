@@ -83,6 +83,22 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c3 {
+  vertical-align: baseline;
+}
+
+.c3.fi-static-icon {
+  display: inline-block;
+}
+
+.c3.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c3.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c5 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
@@ -179,22 +195,6 @@ exports[`Basic ToggleButton should match snapshot 1`] = `
   font-size: 20px;
   line-height: 1.5;
   font-weight: 400;
-}
-
-.c3 {
-  vertical-align: baseline;
-}
-
-.c3.fi-static-icon {
-  display: inline-block;
-}
-
-.c3.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c3.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c4 {
