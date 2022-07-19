@@ -196,6 +196,22 @@ exports[`default, with only required props should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c9 {
+  vertical-align: baseline;
+}
+
+.c9.fi-static-icon {
+  display: inline-block;
+}
+
+.c9.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c9.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -224,22 +240,6 @@ exports[`default, with only required props should match snapshot 1`] = `
 
 .c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
-}
-
-.c9 {
-  vertical-align: baseline;
-}
-
-.c9.fi-static-icon {
-  display: inline-block;
-}
-
-.c9.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c9.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c1 {
@@ -800,6 +800,22 @@ exports[`props className should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c9 {
+  vertical-align: baseline;
+}
+
+.c9.fi-static-icon {
+  display: inline-block;
+}
+
+.c9.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c9.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -828,22 +844,6 @@ exports[`props className should match snapshot 1`] = `
 
 .c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
-}
-
-.c9 {
-  vertical-align: baseline;
-}
-
-.c9.fi-static-icon {
-  display: inline-block;
-}
-
-.c9.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c9.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c1 {
@@ -1404,6 +1404,22 @@ exports[`props defaultValue should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c9 {
+  vertical-align: baseline;
+}
+
+.c9.fi-static-icon {
+  display: inline-block;
+}
+
+.c9.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c9.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1432,22 +1448,6 @@ exports[`props defaultValue should match snapshot 1`] = `
 
 .c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
-}
-
-.c9 {
-  vertical-align: baseline;
-}
-
-.c9.fi-static-icon {
-  display: inline-block;
-}
-
-.c9.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c9.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c1 {
@@ -2009,6 +2009,43 @@ exports[`props hintText should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c7 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c7.fi-hint-text {
+  display: block;
+}
+
+.c10 {
+  vertical-align: baseline;
+}
+
+.c10.fi-static-icon {
+  display: inline-block;
+}
+
+.c10.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c10.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -2037,43 +2074,6 @@ exports[`props hintText should match snapshot 1`] = `
 
 .c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
-}
-
-.c10 {
-  vertical-align: baseline;
-}
-
-.c10.fi-static-icon {
-  display: inline-block;
-}
-
-.c10.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c10.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
-.c7 {
-  color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c7.fi-hint-text {
-  display: block;
 }
 
 .c1 {
@@ -2639,6 +2639,22 @@ exports[`props id should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c9 {
+  vertical-align: baseline;
+}
+
+.c9.fi-static-icon {
+  display: inline-block;
+}
+
+.c9.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c9.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -2667,22 +2683,6 @@ exports[`props id should match snapshot 1`] = `
 
 .c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
-}
-
-.c9 {
-  vertical-align: baseline;
-}
-
-.c9.fi-static-icon {
-  display: inline-block;
-}
-
-.c9.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c9.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c1 {
@@ -3243,6 +3243,22 @@ exports[`props label should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c9 {
+  vertical-align: baseline;
+}
+
+.c9.fi-static-icon {
+  display: inline-block;
+}
+
+.c9.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c9.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -3271,22 +3287,6 @@ exports[`props label should match snapshot 1`] = `
 
 .c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
-}
-
-.c9 {
-  vertical-align: baseline;
-}
-
-.c9.fi-static-icon {
-  display: inline-block;
-}
-
-.c9.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c9.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c1 {
@@ -3847,6 +3847,22 @@ exports[`props labelMode should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c10 {
+  vertical-align: baseline;
+}
+
+.c10.fi-static-icon {
+  display: inline-block;
+}
+
+.c10.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c10.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c7 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
@@ -3887,22 +3903,6 @@ exports[`props labelMode should match snapshot 1`] = `
 
 .c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
-}
-
-.c10 {
-  vertical-align: baseline;
-}
-
-.c10.fi-static-icon {
-  display: inline-block;
-}
-
-.c10.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c10.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c1 {
@@ -4462,6 +4462,22 @@ exports[`props name should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c9 {
+  vertical-align: baseline;
+}
+
+.c9.fi-static-icon {
+  display: inline-block;
+}
+
+.c9.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c9.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -4490,22 +4506,6 @@ exports[`props name should match snapshot 1`] = `
 
 .c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
-}
-
-.c9 {
-  vertical-align: baseline;
-}
-
-.c9.fi-static-icon {
-  display: inline-block;
-}
-
-.c9.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c9.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c1 {
@@ -5066,6 +5066,22 @@ exports[`props value should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c9 {
+  vertical-align: baseline;
+}
+
+.c9.fi-static-icon {
+  display: inline-block;
+}
+
+.c9.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c9.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -5094,22 +5110,6 @@ exports[`props value should match snapshot 1`] = `
 
 .c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
-}
-
-.c9 {
-  vertical-align: baseline;
-}
-
-.c9.fi-static-icon {
-  display: inline-block;
-}
-
-.c9.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c9.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c1 {
