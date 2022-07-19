@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlSpan, HtmlSpanProps } from '../../reset/HtmlSpan/HtmlSpan';
@@ -22,15 +22,18 @@ const StyledVisuallyHidden = styled((props: VisuallyHiddenProps) => (
   overflow: hidden;
 `;
 
-const VisuallyHidden = (props: VisuallyHiddenProps) => {
-  const { className, ...passProps } = props;
-  return (
-    <StyledVisuallyHidden
-      {...passProps}
-      className={classnames(baseClassName, className)}
-    />
-  );
-};
+const VisuallyHidden = forwardRef(
+  (props: VisuallyHiddenProps, ref: React.RefObject<HTMLSpanElement>) => {
+    const { className, ...passProps } = props;
+    return (
+      <StyledVisuallyHidden
+        forwardedRef={ref}
+        {...passProps}
+        className={classnames(baseClassName, className)}
+      />
+    );
+  },
+);
 
 VisuallyHidden.displayName = 'VisuallyHidden';
 export { VisuallyHidden };

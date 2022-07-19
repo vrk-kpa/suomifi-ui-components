@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
@@ -39,10 +39,14 @@ const StyledChip = styled(
   ${({ theme }) => staticChipBaseStyles(theme)}
 `;
 
-const StaticChip = (props: StaticChipProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => <StyledChip theme={suomifiTheme} {...props} />}
-  </SuomifiThemeConsumer>
+const StaticChip = forwardRef(
+  (props: StaticChipProps, ref: React.RefObject<HTMLSpanElement>) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledChip theme={suomifiTheme} forwardedRef={ref} {...props} />
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
 
 StaticChip.displayName = 'StaticChip';
