@@ -174,6 +174,30 @@ exports[`snapshot should have matching default structure 1`] = `
   box-sizing: border-box;
 }
 
+.c9 {
+  vertical-align: baseline;
+}
+
+.c9.fi-icon {
+  display: inline-block;
+}
+
+.c9 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c9 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c9.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c9.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c8 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
@@ -184,33 +208,6 @@ exports[`snapshot should have matching default structure 1`] = `
   padding: 0;
   border: 0;
   overflow: hidden;
-}
-
-.c10 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.c10.fi-status-text {
-  display: block;
-}
-
-.c10.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
 }
 
 .c4.fi-label .fi-label_label-span {
@@ -243,28 +240,31 @@ exports[`snapshot should have matching default structure 1`] = `
   margin-left: 6px;
 }
 
-.c9 {
-  vertical-align: baseline;
+.c10 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
+  font-size: 14px;
+  line-height: 20px;
 }
 
-.c9.fi-icon {
-  display: inline-block;
+.c10.fi-status-text {
+  display: block;
 }
 
-.c9 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c9 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c9.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c9.fi-icon--cursor-pointer * {
-  cursor: inherit;
+.c10.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,48%);
 }
 
 .c7 {
