@@ -12214,10 +12214,10 @@ stylelint@14.9.1:
     v8-compile-cache "^2.3.0"
     write-file-atomic "^4.0.1"
 
-suomifi-design-tokens@3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/suomifi-design-tokens/-/suomifi-design-tokens-3.2.0.tgz#62e8dcef327a1dca080cef0ceadd39196bdf5d66"
-  integrity sha512-M/bFDY1DpogqwDQ80SL6RnCp+k2gd8wcti06eoW4ql3G1zVPxCX2YFBcDvG8p84agXNzxJWASkM0Qy1pi+/SWQ==
+suomifi-design-tokens@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/suomifi-design-tokens/-/suomifi-design-tokens-4.0.0.tgz#c8a95c3fa3c7f09a8aeee7006c749c3b2d115938"
+  integrity sha512-4wAOIs2VpsgSy3BQ1yeP1GM+T48U6ZhePDY1woOsKdCVULZML8BJ6ww8jbpl8tkssaTZRT+O+wYT8CxLZaZTkA==
 
 suomifi-icons@6.3.0:
   version "6.3.0"
