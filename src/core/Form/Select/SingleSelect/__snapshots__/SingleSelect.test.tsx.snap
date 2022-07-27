@@ -174,30 +174,6 @@ exports[`has matching snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c11 {
-  vertical-align: baseline;
-}
-
-.c11.fi-icon {
-  display: inline-block;
-}
-
-.c11 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c11 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c11.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c11.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
 .c10 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
@@ -240,6 +216,27 @@ exports[`has matching snapshot 1`] = `
   margin-left: 6px;
 }
 
+.c6 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c6.fi-hint-text {
+  display: block;
+}
+
 .c13 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -265,89 +262,6 @@ exports[`has matching snapshot 1`] = `
 
 .c13.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
-}
-
-.c6 {
-  color: hsl(0,0%,16%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c6.fi-hint-text {
-  display: block;
-}
-
-.c9 {
-  position: relative;
-  cursor: pointer;
-  pointer-events: all;
-  height: 20px;
-  width: 20px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c9:focus {
-  outline: none;
-}
-
-.c9:focus:after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  z-index: 9999;
-}
-
-.c9.fi-input-clear-button {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.c9.fi-input-clear-button .fi-input-clear-button_icon {
-  width: 16px;
-  height: 16px;
-}
-
-.c9.fi-input-clear-button .fi-input-clear-button_icon .fi-icon-base-fill {
-  fill: hsl(212,63%,37%);
-}
-
-.c9.fi-input-clear-button[disabled],
-.c9.fi-input-clear-button:disabled {
-  cursor: not-allowed;
-}
-
-.c9.fi-input-clear-button[disabled] .fi-input-clear-button_icon .fi-icon-base-fill,
-.c9.fi-input-clear-button:disabled .fi-input-clear-button_icon .fi-icon-base-fill {
-  fill: hsl(202,7%,67%);
 }
 
 .c2 {
@@ -544,6 +458,92 @@ exports[`has matching snapshot 1`] = `
 
 .c2.fi-filter-input--label-align-left .fi-filter-input_wrapper .fi-label .fi-label_label-span {
   margin-bottom: 0;
+}
+
+.c11 {
+  vertical-align: baseline;
+}
+
+.c11.fi-icon {
+  display: inline-block;
+}
+
+.c11 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c11 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c11.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c11.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c9 {
+  position: relative;
+  cursor: pointer;
+  pointer-events: all;
+  height: 20px;
+  width: 20px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c9:focus {
+  outline: none;
+}
+
+.c9:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c9.fi-input-clear-button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c9.fi-input-clear-button .fi-input-clear-button_icon {
+  width: 16px;
+  height: 16px;
+}
+
+.c9.fi-input-clear-button .fi-input-clear-button_icon .fi-icon-base-fill {
+  fill: hsl(212,63%,37%);
+}
+
+.c9.fi-input-clear-button[disabled],
+.c9.fi-input-clear-button:disabled {
+  cursor: not-allowed;
+}
+
+.c9.fi-input-clear-button[disabled] .fi-input-clear-button_icon .fi-icon-base-fill,
+.c9.fi-input-clear-button:disabled .fi-input-clear-button_icon .fi-icon-base-fill {
+  fill: hsl(202,7%,67%);
 }
 
 .c12 {
