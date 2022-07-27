@@ -112,30 +112,6 @@ exports[`Basic expander group should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c7 {
-  vertical-align: baseline;
-}
-
-.c7.fi-icon {
-  display: inline-block;
-}
-
-.c7 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c7 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c7.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c7.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
 .c4 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
@@ -355,6 +331,30 @@ exports[`Basic expander group should match snapshot 1`] = `
   padding-right: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
+}
+
+.c7 {
+  vertical-align: baseline;
+}
+
+.c7.fi-icon {
+  display: inline-block;
+}
+
+.c7 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c7 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c7.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c7.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c6 {

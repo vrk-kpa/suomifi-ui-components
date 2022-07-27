@@ -196,6 +196,33 @@ exports[`default, with only required props should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c10 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,16%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c10.fi-status-text {
+  display: block;
+}
+
+.c10.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,48%);
+}
+
 .c5.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -224,33 +251,6 @@ exports[`default, with only required props should match snapshot 1`] = `
 
 .c5.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
-}
-
-.c10 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,16%);
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.c10.fi-status-text {
-  display: block;
-}
-
-.c10.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
 }
 
 .c1 {
