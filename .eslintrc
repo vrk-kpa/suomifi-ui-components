@@ -127,6 +127,7 @@
     "react/jsx-wrap-multilines": "off",
     "react/jsx-one-expression-per-line": "warn",
     "react/jsx-boolean-value": "off",
+    "react/require-default-props": "off",
     "semi": ["error", "always", { "omitLastInOneLineBlock": true }]
   }
 }
