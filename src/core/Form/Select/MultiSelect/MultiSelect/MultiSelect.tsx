@@ -98,11 +98,25 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   /** Text for screen reader indicating the amount of available options after filtering by typing. Will be read after the amount.
    * E.g 'options available' as prop value would result in '{amount} options available' being read by screen reader upon removal.
    */
-  ariaOptionsAvailableText: string;
+  ariaOptionsAvailableText?: string;
+
+  /** Function to provide text for screen reader indicating the amount of available options after filtering by typing. Overrides
+   * `ariaOptionsAvailableText` if both are provided.
+   *
+   *
+   */
+  ariaOptionsAvailableTextFunction?: (length: number) => string;
+
   /** Text for screen reader to read, after labelText/chipText, when selected option is removed from chip list.
    * E.g 'removed' as prop value would result in '{option} removed' being read by screen reader upon removal.
    */
-  ariaOptionChipRemovedText: string;
+  ariaOptionChipRemovedText?: string;
+
+  /** Text for screen reader to read, after labelText/chipText, when selected option is removed from chip list. Overrides
+   * `ariaOptionChipRemovedText` if both are provided.
+   */
+  ariaOptionChipRemovedTextFunction?: (option: string) => string;
+
   /** Disable the input */
   disabled?: boolean;
 }
@@ -541,7 +555,9 @@ class BaseMultiSelect<T> extends Component<
       onBlur,
       ariaSelectedAmountText,
       ariaOptionsAvailableText,
+      ariaOptionsAvailableTextFunction,
       ariaOptionChipRemovedText,
+      ariaOptionChipRemovedTextFunction,
       disabled,
       allowItemAddition,
       itemAdditionHelpText,
@@ -732,11 +748,22 @@ class BaseMultiSelect<T> extends Component<
                   this.chipRemovalAnnounceTimeOut = setTimeout(() => {
                     this.setState({ chipRemovalAnnounceText: '' });
                   }, 1000);
-                  this.setState({
-                    chipRemovalAnnounceText: `${
-                      item.chipText ? item.chipText : item.labelText
-                    } ${ariaOptionChipRemovedText}`,
-                  });
+
+                  if (ariaOptionChipRemovedTextFunction) {
+                    this.setState({
+                      chipRemovalAnnounceText:
+                        ariaOptionChipRemovedTextFunction(
+                          item.chipText ? item.chipText : item.labelText,
+                        ),
+                    });
+                  } else {
+                    this.setState({
+                      chipRemovalAnnounceText: `${
+                        item.chipText ? item.chipText : item.labelText
+                      } ${ariaOptionChipRemovedText}`,
+                    });
+                  }
+
                   this.handleItemSelection(item);
                 }}
               />
@@ -764,10 +791,14 @@ class BaseMultiSelect<T> extends Component<
               id={`${id}-filteredItems-length`}
             >
               {this.focusInInput(getOwnerDocument(this.popoverListRef)) ? (
-                <>
-                  {filteredItems.length}
-                  {ariaOptionsAvailableText}
-                </>
+                ariaOptionsAvailableTextFunction ? (
+                  <>{ariaOptionsAvailableTextFunction(filteredItems.length)}</>
+                ) : (
+                  <>
+                    {filteredItems.length}
+                    {ariaOptionsAvailableText}
+                  </>
+                )
               ) : null}
             </VisuallyHidden>
           </>
