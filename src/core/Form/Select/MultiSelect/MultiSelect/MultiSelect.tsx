@@ -46,6 +46,39 @@ interface CheckedProp {
 
 export type MultiSelectStatus = FilterInputStatus & {};
 
+type AriaOptionsAvailableProps =
+  | {
+      ariaOptionsAvailableText?: never;
+      ariaOptionsAvailableTextFunction: (length: number) => string;
+    }
+  | {
+      /** Text for screen reader to read, after labelText/chipText, when selected option is removed from chip list.
+       * E.g 'removed' as prop value would result in '{option} removed' being read by screen reader upon removal.
+       */
+      ariaOptionsAvailableText: string;
+
+      /** Function to provide text for screen reader indicating the amount of available options after filtering by typing. Overrides
+       * `ariaOptionsAvailableText` if both are provided.
+       */
+      ariaOptionsAvailableTextFunction?: never;
+    };
+
+type AriaOptionChipRemovedProps =
+  | {
+      ariaOptionChipRemovedText: string;
+      ariaOptionChipRemovedTextFunction?: never;
+    }
+  | {
+      /** Text for screen reader to read, after labelText/chipText, when selected option is removed from chip list.
+       * E.g 'removed' as prop value would result in '{option} removed' being read by screen reader upon removal.
+       */
+      ariaOptionChipRemovedText?: never;
+      /** Text for screen reader to read, after labelText/chipText, when selected option is removed from chip list. Overrides
+       * `ariaOptionChipRemovedText` if both are provided.
+       */
+      ariaOptionChipRemovedTextFunction: (option: string) => string;
+    };
+
 interface InternalMultiSelectProps<T extends MultiSelectData> {
   /** MultiSelect container div class name for custom styling. */
   className?: string;
@@ -95,28 +128,6 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   onRemoveAll?: () => void;
   /** Text for screen reader to indicate how many items are selected */
   ariaSelectedAmountText: string;
-  /** Text for screen reader indicating the amount of available options after filtering by typing. Will be read after the amount.
-   * E.g 'options available' as prop value would result in '{amount} options available' being read by screen reader upon removal.
-   */
-  ariaOptionsAvailableText?: string;
-
-  /** Function to provide text for screen reader indicating the amount of available options after filtering by typing. Overrides
-   * `ariaOptionsAvailableText` if both are provided.
-   *
-   *
-   */
-  ariaOptionsAvailableTextFunction?: (length: number) => string;
-
-  /** Text for screen reader to read, after labelText/chipText, when selected option is removed from chip list.
-   * E.g 'removed' as prop value would result in '{option} removed' being read by screen reader upon removal.
-   */
-  ariaOptionChipRemovedText?: string;
-
-  /** Text for screen reader to read, after labelText/chipText, when selected option is removed from chip list. Overrides
-   * `ariaOptionChipRemovedText` if both are provided.
-   */
-  ariaOptionChipRemovedTextFunction?: (option: string) => string;
-
   /** Disable the input */
   disabled?: boolean;
 }
@@ -143,7 +154,9 @@ type AllowItemAdditionProps =
 export type MultiSelectProps<T> = InternalMultiSelectProps<
   T & MultiSelectData
 > &
-  AllowItemAdditionProps;
+  AllowItemAdditionProps &
+  AriaOptionsAvailableProps &
+  AriaOptionChipRemovedProps;
 
 interface MultiSelectState<T extends MultiSelectData> {
   filterInputValue: string;
