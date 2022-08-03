@@ -99,12 +99,8 @@ const defaultSelectedTools = [
     noItemsText="No items"
     defaultSelectedItems={defaultSelectedTools}
     ariaSelectedAmountText="tools selected"
-    ariaOptionsAvailableTextFunction={(lenght) =>
-      `beginning ${lenght} end`
-    }
-    ariaOptionChipRemovedTextFunction={(option) =>
-      `removid opntion named ${option} end`
-    }
+    ariaOptionsAvailableText="options available"
+    ariaOptionChipRemovedText="removed"
   />
 </>;
 ```
