@@ -15,7 +15,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       outline: 0;
       & .fi-toggle_icon-container {
         &:after {
-          ${theme.focus.absoluteFocus}
+          ${theme.focuses.absoluteFocus}
           ${focusOverrides}
         }
       }

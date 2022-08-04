@@ -6,11 +6,6 @@ export {
 } from './SuomifiThemeProvider/SuomifiThemeProvider';
 export {
   SuomifiTheme,
-  GradientDesignTokens,
-  FocusDesignTokens,
-  RadiusDesignTokens,
-  ShadowDesignTokens,
-  TransitionDesignTokens,
   ZIndexDesignTokens,
   SuomifiDesignTokens,
   getSuomifiTheme,
@@ -21,4 +16,5 @@ export {
   ColorProp,
   TypographyProp,
   SpacingProp,
+  GradientProp,
 } from './SuomifiTheme/SuomifiTheme';

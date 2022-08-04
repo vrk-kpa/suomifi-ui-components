@@ -31,7 +31,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       position: relative;
 
       &:after {
-        ${theme.focus.absoluteFocus}
+        ${theme.focuses.absoluteFocus}
       }
     }
 
@@ -74,7 +74,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     border-color: ${theme.colors.depthDark3};
     border-style: solid;
     border-width: 0 1px 1px 1px;
-    border-radius: 0px 0px ${theme.radius.basic} ${theme.radius.basic};
+    border-radius: 0px 0px ${theme.radiuses.basic} ${theme.radiuses.basic};
     max-height: 265px;
     overflow-y: auto;
     overflow-x: hidden;

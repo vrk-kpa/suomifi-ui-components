@@ -38,10 +38,10 @@ export const expanderTitleButtonBaseStyles = (theme: SuomifiTheme) => css`
     &:focus-within {
       outline: 0;
       &:after {
-        ${theme.focus.absoluteFocus}
+        ${theme.focuses.absoluteFocus}
       }
     }
-    ${theme.focus.noMouseFocus}
+    ${theme.focuses.noMouseFocus}
     & * {
       cursor: pointer;
     }

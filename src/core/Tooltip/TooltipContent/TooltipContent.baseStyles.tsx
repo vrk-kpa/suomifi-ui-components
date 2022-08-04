@@ -9,7 +9,7 @@ export const baseStyles = (arrowOffsetPx: number, theme: SuomifiTheme) => css`
     margin-bottom: 10px;
     position: relative;
     border: 1px solid ${theme.colors.depthDark2};
-    border-radius: ${theme.radius.basic};
+    border-radius: ${theme.radiuses.basic};
     background-color: ${theme.colors.highlightLight4};
     padding: 20px 43px 20px 20px;
     box-shadow: ${theme.shadows.menuShadow};
@@ -63,7 +63,7 @@ export const baseStyles = (arrowOffsetPx: number, theme: SuomifiTheme) => css`
       &:focus-visible {
         outline: 0;
         &:after {
-          ${theme.focus.absoluteFocus}
+          ${theme.focuses.absoluteFocus}
         }
       }
       &:hover {

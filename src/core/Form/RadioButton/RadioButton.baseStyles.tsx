@@ -109,7 +109,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       &:focus {
         outline: 0;
         + .fi-radio-button_icon_wrapper {
-          ${theme.focus.boxShadowFocus}
+          ${theme.focuses.boxShadowFocus}
           border-radius: 50%;
         }
       }

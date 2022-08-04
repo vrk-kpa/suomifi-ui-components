@@ -19,7 +19,7 @@ export const baseChipBaseStyles = (theme: SuomifiTheme) => css`
       position: relative;
 
       &::after {
-        ${theme.focus.absoluteFocus}
+        ${theme.focuses.absoluteFocus}
         border-radius: 16px;
       }
     }

@@ -18,7 +18,7 @@ export interface SelectItemAdditionProps {
   hintText: string;
   /** onClick event handler */
   onClick: (event: React.MouseEvent<HTMLLIElement>) => void;
-  /** Indicates if the current item has keyboard focus. */
+  /** Indicates if the current item has keyboard focuses. */
   hasKeyboardFocus: boolean;
   /** Unique id for the item */
   id: string;

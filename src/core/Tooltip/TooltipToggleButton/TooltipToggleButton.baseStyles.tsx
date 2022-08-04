@@ -12,7 +12,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     outline: 0;
     position: relative;
     &:after {
-      ${theme.focus.absoluteFocus}
+      ${theme.focuses.absoluteFocus}
     }
   }
 

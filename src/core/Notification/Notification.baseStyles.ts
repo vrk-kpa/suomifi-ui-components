@@ -64,7 +64,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       padding: 7px;
       margin-top: 11px;
       border: 1px solid transparent;
-      border-radius: ${theme.radius.basic};
+      border-radius: ${theme.radiuses.basic};
       white-space: nowrap;
       text-transform: uppercase;
 
@@ -80,7 +80,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         position: relative;
 
         &:after {
-          ${theme.focus.absoluteFocus}
+          ${theme.focuses.absoluteFocus}
         }
       }
       &:active {
