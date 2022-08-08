@@ -1,0 +1,569 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calling render with the same component on the same container does not remount 1`] = `
+.c8 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c8::before,
+.c8::after {
+  box-sizing: border-box;
+}
+
+.c8:hover,
+.c8:active,
+.c8:focus,
+.c8:focus-within {
+  color: inherit;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: list-item;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c6 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c6::before,
+.c6::after {
+  box-sizing: border-box;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  list-style-type: decimal;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 40px;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c1 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c1.fi-service-navigation .fi-service-navigation_list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.c4 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c4.fi-service-navigation-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c4.fi-service-navigation-item:hover,
+.c4.fi-service-navigation-item:active {
+  background: hsl(215,100%,97%);
+  cursor: pointer;
+}
+
+.c4.fi-service-navigation-item .fi-link--router {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: hsl(0,0%,16%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 25px;
+  text-transform: uppercase;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c4.fi-service-navigation-item .fi-link--router:hover,
+.c4.fi-service-navigation-item .fi-link--router:active,
+.c4.fi-service-navigation-item .fi-link--router:visited {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: hsl(0,0%,16%);
+}
+
+.c4.fi-service-navigation-item--disabled .fi-link--router {
+  color: hsl(202,7%,67%);
+  cursor: not-allowed;
+}
+
+.c4.fi-service-navigation-item--disabled .fi-link--router:hover,
+.c4.fi-service-navigation-item--disabled .fi-link--router:active,
+.c4.fi-service-navigation-item--disabled .fi-link--router:visited {
+  color: hsl(202,7%,67%);
+}
+
+.c4.fi-service-navigation-item--selected {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: hsl(215,100%,97%);
+  border-left: 4px solid hsl(212,63%,45%);
+}
+
+.c4.fi-service-navigation-item--selected .fi-link--router {
+  font-weight: bold;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: hsl(0,0%,16%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 25px;
+  padding-left: calc(25px - 4px);
+  text-transform: uppercase;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c4.fi-service-navigation-item--selected .fi-link--router:hover,
+.c4.fi-service-navigation-item--selected .fi-link--router:active,
+.c4.fi-service-navigation-item--selected .fi-link--router:visited {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: hsl(0,0%,16%);
+}
+
+.c10 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.c9 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c9.fi-link {
+  color: hsl(212,63%,45%);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c9.fi-link:hover,
+.c9.fi-link:active,
+.c9.fi-link:focus,
+.c9.fi-link:focus-within {
+  color: hsl(212,63%,45%);
+}
+
+.c9.fi-link:focus,
+.c9.fi-link:focus-within {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c9.fi-link:focus {
+  outline: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+}
+
+.c9.fi-link:hover,
+.c9.fi-link:active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c9.fi-link:visited {
+  color: hsl(284,36%,45%);
+}
+
+.c9 .fi-link_icon {
+  padding-left: 4px;
+  font-size: 16px;
+  box-sizing: content-box;
+}
+
+.c5 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c5.fi-link--router {
+  color: hsl(212,63%,45%);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c5.fi-link--router:hover,
+.c5.fi-link--router:active,
+.c5.fi-link--router:focus,
+.c5.fi-link--router:focus-within {
+  color: hsl(212,63%,45%);
+}
+
+.c5.fi-link--router:focus,
+.c5.fi-link--router:focus-within {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c5.fi-link--router:focus {
+  outline: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+}
+
+.c5.fi-link--router:hover,
+.c5.fi-link--router:active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c5.fi-link--router:visited {
+  color: hsl(284,36%,45%);
+}
+
+.c7 {
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.c7.fi-chip {
+  border-radius: 14px;
+  padding: 2px 10px;
+  color: hsl(0,0%,100%);
+  background: hsl(212,63%,45%);
+  max-height: 100%;
+  display: inline-block;
+}
+
+.c7.fi-chip:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c7.fi-chip:focus::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+  border-radius: 16px;
+}
+
+.c7.fi-chip .fi-chip--content {
+  display: block;
+  word-break: break-word;
+  overflow: hidden;
+  line-height: 1.5em;
+}
+
+.c7.fi-chip--disabled.fi-chip {
+  cursor: not-allowed;
+  background: hsl(202,7%,67%);
+}
+
+.c7.fi-chip--disabled.fi-chip:hover,
+.c7.fi-chip--disabled.fi-chip:active {
+  background: hsl(202,7%,67%);
+}
+
+<div
+  data-testid="test-paragraph"
+>
+  <nav
+    class="c0 fi-service-navigation c1"
+  >
+    <ul
+      class="c2 fi-service-navigation_list"
+    >
+      <li
+        aria-label="16 unread messages"
+        class="c3 c4 fi-service-navigation-item"
+      >
+        <div
+          class="fi-link--router c5"
+          role="button"
+          tabindex="0"
+        >
+          Inbox
+          <span
+            class="c6 fi-chip c7"
+            style="margin-left: 15px;"
+          >
+            <span
+              class="c6 fi-chip--content"
+            >
+              16
+            </span>
+          </span>
+        </div>
+      </li>
+      <li
+        class="c3 c4 fi-service-navigation-item"
+      >
+        <a
+          class="c8 fi-link c9 fi-link--router c5 fi-link--external"
+          href="https://suomi.fi"
+          rel="noopener"
+          target="_blank"
+        >
+          Sent
+          <span
+            class="c6 c10 fi-visually-hidden"
+          />
+        </a>
+      </li>
+      <li
+        aria-current="page"
+        class="c3 c4 fi-service-navigation-item--selected"
+      >
+        <a
+          class="c8 fi-link c9 fi-link--router c5 fi-link--external"
+          href="https://www.suomi.fi"
+          rel="noopener"
+          target="_blank"
+        >
+          New Message
+          <span
+            class="c6 c10 fi-visually-hidden"
+          />
+        </a>
+      </li>
+      <li
+        class="c3 c4 fi-service-navigation-item"
+      >
+        <a
+          class="c8 fi-link c9 fi-link--router c5 fi-link--external"
+          href="https://www.suomi.fi"
+          rel="noopener"
+          target="_blank"
+        >
+          Drafts
+          <span
+            class="c6 c10 fi-visually-hidden"
+          />
+        </a>
+      </li>
+      <li
+        class="c3 c4 fi-service-navigation-item"
+      >
+        <a
+          class="c8 fi-link c9 fi-link--router c5 fi-link--external"
+          href="https://www.suomi.fi"
+          rel="noopener"
+          target="_blank"
+        >
+          Settings
+          <span
+            class="c6 c10 fi-visually-hidden"
+          />
+        </a>
+      </li>
+      <li
+        class="c3 c4 fi-service-navigation-item"
+      >
+        <a
+          class="c8 fi-link--router c5"
+        >
+          Devices
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;

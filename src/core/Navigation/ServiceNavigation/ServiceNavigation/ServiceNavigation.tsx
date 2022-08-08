@@ -11,7 +11,7 @@ export interface ServiceNavigationProps {
    * Normal or small screen variant
    * @default normal
    */
-  variant: 'normal' | 'smallScreen';
+  variant?: 'normal' | 'smallScreen';
   /** Custom classname to extend or customize */
   className?: string;
 }
