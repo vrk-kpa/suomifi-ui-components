@@ -1,0 +1,640 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calling render with the same component on the same container does not remount 1`] = `
+.c7 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c7::before,
+.c7::after {
+  box-sizing: border-box;
+}
+
+.c7:hover,
+.c7:active,
+.c7:focus,
+.c7:focus-within {
+  color: inherit;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: list-item;
+}
+
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c6 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c6::before,
+.c6::after {
+  box-sizing: border-box;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  list-style-type: decimal;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 40px;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
+.c1.fi-wizard-navigation {
+  padding: 15px;
+}
+
+.c1.fi-wizard-navigation .fi-wizard-navigation_heading {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.c1.fi-wizard-navigation .fi-wizard-navigation_heading--small-screen {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.c1.fi-wizard-navigation .fi-wizard-navigation_heading--small-screen .fi-icon {
+  color: hsl(212,63%,45%);
+  width: 20px;
+  height: 20px;
+}
+
+.c1.fi-wizard-navigation .fi-wizard-navigation_list {
+  border-top: 1px solid hsl(202,7%,67%);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+
+.c5.fi-wizard-navigation-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.c5.fi-wizard-navigation-item:not(:last-child) {
+  margin-bottom: 22px;
+}
+
+.c5.fi-wizard-navigation-item:not(:last-child):after {
+  content: '';
+  height: 10px;
+  width: 2px;
+  background: hsl(202,7%,67%);
+  position: absolute;
+  bottom: -16px;
+  left: 12px;
+}
+
+.c5.fi-wizard-navigation-item .fi-wizard-navigation-item_inner-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c5.fi-wizard-navigation-item .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_step-number {
+  border: 1px solid hsl(202,7%,40%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  font-weight: 600;
+  line-height: 27px;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.c5.fi-wizard-navigation-item .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
+  margin-bottom: 1px;
+}
+
+.c5.fi-wizard-navigation-item--visited .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_step-number {
+  background: hsl(165,90%,27%);
+  color: hsl(0,0%,100%);
+}
+
+.c5.fi-wizard-navigation-item--visited .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.c5.fi-wizard-navigation-item--visited .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c5.fi-wizard-navigation-item--visited .fi-wizard-navigation-item_inner-wrapper .fi-link--router:visited {
+  color: hsl(212,63%,45%);
+}
+
+.c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_step-number {
+  background: hsl(165,90%,27%);
+  color: hsl(0,0%,100%);
+}
+
+.c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
+  pointer-events: none;
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  margin-bottom: 1px;
+}
+
+.c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover,
+.c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-link--router:focus {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: hsl(0,0%,16%);
+}
+
+.c5.fi-wizard-navigation-item--proceed .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_step-number {
+  background: hsl(0,0%,100%);
+  color: hsl(202,7%,40%);
+  border: 1px solid hsl(166,90%,34%);
+}
+
+.c5.fi-wizard-navigation-item--proceed .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.c5.fi-wizard-navigation-item--proceed .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c5.fi-wizard-navigation-item--proceed .fi-wizard-navigation-item_inner-wrapper .fi-link--router:visited {
+  color: hsl(212,63%,45%);
+}
+
+.c5.fi-wizard-navigation-item--not-visited .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_step-number {
+  background: hsl(0,0%,100%);
+  color: hsl(0,0%,16%);
+  border: 1px solid hsl(0,0%,16%);
+}
+
+.c5.fi-wizard-navigation-item--not-visited .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
+  pointer-events: none;
+  color: hsl(0,0%,16%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c5.fi-wizard-navigation-item--not-visited .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c5.fi-wizard-navigation-item--not-visited .fi-wizard-navigation-item_inner-wrapper .fi-link--router:visited {
+  color: hsl(0,0%,16%);
+}
+
+.c5.fi-wizard-navigation-item--disabled .fi-wizard-navigation-item_inner-wrapper .fi-wizard-navigation-item_step-number {
+  background: hsl(0,0%,100%);
+  color: hsl(202,7%,40%);
+  border: 1px solid hsl(202,7%,80%);
+}
+
+.c5.fi-wizard-navigation-item--disabled .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
+  pointer-events: none;
+  color: hsl(202,7%,67%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c5.fi-wizard-navigation-item--disabled .fi-wizard-navigation-item_inner-wrapper .fi-link--router:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c5.fi-wizard-navigation-item--disabled .fi-wizard-navigation-item_inner-wrapper .fi-link--router:visited {
+  color: hsl(202,7%,67%);
+}
+
+.c8 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c8.fi-link--router {
+  color: hsl(212,63%,45%);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c8.fi-link--router:hover,
+.c8.fi-link--router:active,
+.c8.fi-link--router:focus,
+.c8.fi-link--router:focus-within {
+  color: hsl(212,63%,45%);
+}
+
+.c8.fi-link--router:focus,
+.c8.fi-link--router:focus-within {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c8.fi-link--router:focus {
+  outline: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+}
+
+.c8.fi-link--router:hover,
+.c8.fi-link--router:active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c8.fi-link--router:visited {
+  color: hsl(284,36%,45%);
+}
+
+<div
+  class="c0 fi-wizard-navigation c1"
+>
+  <div
+    class="c0 fi-wizard-navigation_heading"
+  >
+    Steps
+  </div>
+  <nav
+    class="c2"
+  >
+    <ul
+      class="c3 fi-wizard-navigation_list"
+    >
+      <li
+        class="c4 c5 fi-wizard-navigation-item fi-wizard-navigation-item--visited"
+      >
+        <div
+          class="c0 fi-wizard-navigation-item_inner-wrapper"
+        >
+          <span
+            class="c6 fi-wizard-navigation-item_step-number"
+          >
+            1
+          </span>
+          <a
+            class="c7 fi-link--router c8"
+            href="https://suomi.fi"
+          >
+            Step 1 (visited)
+          </a>
+        </div>
+      </li>
+      <li
+        class="c4 c5 fi-wizard-navigation-item fi-wizard-navigation-item--current"
+      >
+        <div
+          class="c0 fi-wizard-navigation-item_inner-wrapper"
+        >
+          <span
+            class="c6 fi-wizard-navigation-item_step-number"
+          >
+            2
+          </span>
+          <a
+            aria-current="step"
+            aria-disabled="true"
+            class="c7 fi-link--router c8"
+            href="#"
+          >
+            Step 2 (current)
+          </a>
+        </div>
+      </li>
+      <li
+        class="c4 c5 fi-wizard-navigation-item fi-wizard-navigation-item--proceed"
+      >
+        <div
+          class="c0 fi-wizard-navigation-item_inner-wrapper"
+        >
+          <span
+            class="c6 fi-wizard-navigation-item_step-number"
+          >
+            3
+          </span>
+          <button
+            class="fi-link--router c8"
+          >
+            Step 3 (proceed)
+          </button>
+        </div>
+      </li>
+      <li
+        class="c4 c5 fi-wizard-navigation-item fi-wizard-navigation-item--not-visited"
+      >
+        <div
+          class="c0 fi-wizard-navigation-item_inner-wrapper"
+        >
+          <span
+            class="c6 fi-wizard-navigation-item_step-number"
+          >
+            4
+          </span>
+          <a
+            aria-disabled="true"
+            class="c7 fi-link--router c8"
+            href="#"
+            tabindex="-1"
+          >
+            Step 4 (not visited)
+          </a>
+        </div>
+      </li>
+      <li
+        aria-disabled="true"
+        class="c4 c5 fi-wizard-navigation-item fi-wizard-navigation-item--disabled"
+      >
+        <div
+          class="c0 fi-wizard-navigation-item_inner-wrapper"
+        >
+          <span
+            class="c6 fi-wizard-navigation-item_step-number"
+          >
+            5
+          </span>
+          <a
+            aria-disabled="true"
+            class="c7 fi-link--router c8"
+            href="#"
+            tabindex="-1"
+          >
+            Step 5 (disabled)
+          </a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
