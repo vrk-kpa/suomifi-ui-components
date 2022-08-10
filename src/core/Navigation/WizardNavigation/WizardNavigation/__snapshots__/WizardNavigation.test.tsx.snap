@@ -183,23 +183,11 @@ exports[`calling render with the same component on the same container does not r
   padding: 15px;
 }
 
-.c1.fi-wizard-navigation .fi-wizard-navigation_heading {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
+.c1.fi-wizard-navigation--small-screen {
+  background: hsl(212,63%,95%);
 }
 
-.c1.fi-wizard-navigation .fi-wizard-navigation_heading--small-screen {
+.c1.fi-wizard-navigation--small-screen .fi-wizard-navigation_heading {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -228,10 +216,26 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 600;
 }
 
-.c1.fi-wizard-navigation .fi-wizard-navigation_heading--small-screen .fi-icon {
+.c1.fi-wizard-navigation--small-screen .fi-wizard-navigation_heading .fi-icon {
   color: hsl(212,63%,45%);
   width: 20px;
   height: 20px;
+}
+
+.c1.fi-wizard-navigation .fi-wizard-navigation_heading {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
 }
 
 .c1.fi-wizard-navigation .fi-wizard-navigation_list {

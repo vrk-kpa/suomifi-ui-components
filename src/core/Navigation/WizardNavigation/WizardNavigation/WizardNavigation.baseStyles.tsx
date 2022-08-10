@@ -5,10 +5,10 @@ import { SuomifiTheme } from '../../../theme';
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-wizard-navigation {
     padding: ${theme.spacing.s};
-    .fi-wizard-navigation_heading {
-      ${font(theme)('heading4')}
 
-      &--small-screen {
+    &--small-screen {
+      background: ${theme.colors.highlightLight3};
+      .fi-wizard-navigation_heading {
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -21,6 +21,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           height: 20px;
         }
       }
+    }
+
+    .fi-wizard-navigation_heading {
+      ${font(theme)('heading4')}
     }
     .fi-wizard-navigation_list {
       border-top: 1px solid ${theme.colors.depthBase};

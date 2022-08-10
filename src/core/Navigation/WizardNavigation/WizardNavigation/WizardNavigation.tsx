@@ -25,9 +25,9 @@ export interface WizardNavigationProps {
 }
 
 const baseClassName = 'fi-wizard-navigation';
+const smallScreenClassName = `${baseClassName}--small-screen`;
 const listClassName = `${baseClassName}_list`;
 const headingClassName = `${baseClassName}_heading`;
-const headingSmallScreenClassName = `${baseClassName}_heading--small-screen`;
 
 const BaseWizardNavigation = ({
   children,
@@ -42,10 +42,14 @@ const BaseWizardNavigation = ({
     initiallyExpandedValue,
   );
   return (
-    <HtmlDiv className={classnames(baseClassName, className)}>
+    <HtmlDiv
+      className={classnames(baseClassName, className, {
+        [smallScreenClassName]: variant === 'smallScreen',
+      })}
+    >
       {variant === 'smallScreen' ? (
         <HtmlButton
-          className={headingSmallScreenClassName}
+          className={headingClassName}
           onClick={() => setSmallScreenNavOpen(!smallScreenNavOpen)}
           aria-expanded={smallScreenNavOpen}
         >
