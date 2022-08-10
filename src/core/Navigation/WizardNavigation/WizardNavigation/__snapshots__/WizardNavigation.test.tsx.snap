@@ -297,7 +297,6 @@ exports[`calling render with the same component on the same container does not r
   border-radius: 50%;
   width: 25px;
   height: 25px;
-  margin-right: 10px;
   font-weight: 600;
   line-height: 27px;
   font-size: 18px;
