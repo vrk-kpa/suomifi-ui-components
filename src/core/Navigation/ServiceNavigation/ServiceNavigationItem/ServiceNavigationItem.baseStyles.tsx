@@ -21,9 +21,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       text-decoration: none;
       color: ${theme.colors.blackBase};
       display: flex;
-      padding: ${theme.spacing.xs} ${theme.spacing.l};
+      padding: ${theme.spacing.xs} ${theme.spacing.m};
       text-transform: uppercase;
       flex: 1;
+      cursor: pointer;
+      background: inherit;
+      border: none;
 
       &:hover,
       &:active,
@@ -58,7 +61,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         color: ${theme.colors.blackBase};
         display: flex;
         padding: ${theme.spacing.xs} ${theme.spacing.l};
-        padding-left: calc(${theme.spacing.l} - 4px);
+        padding-left: calc(${theme.spacing.m} - 4px);
         text-transform: uppercase;
         flex: 1;
 
