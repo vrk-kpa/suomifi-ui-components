@@ -41,6 +41,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
 
       .fi-link--router {
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
         margin-bottom: 1px; /* Compensate font size difference */
       }
     }

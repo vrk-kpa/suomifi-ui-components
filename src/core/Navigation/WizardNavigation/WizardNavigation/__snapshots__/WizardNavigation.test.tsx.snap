@@ -308,6 +308,10 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-wizard-navigation-item .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
   margin-bottom: 1px;
 }
 
