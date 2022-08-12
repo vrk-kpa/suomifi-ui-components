@@ -11,8 +11,32 @@ const baseClassName = 'fi-block';
 export interface BlockProps extends HtmlDivProps {
   /** Padding from theme */
   padding?: SpacingWithoutInsetProp;
+  /** Padding-top from theme */
+  pt?: SpacingWithoutInsetProp;
+  /** Padding-right from theme */
+  pr?: SpacingWithoutInsetProp;
+  /** Padding-bottom from theme */
+  pb?: SpacingWithoutInsetProp;
+  /** Padding-left from theme */
+  pl?: SpacingWithoutInsetProp;
+  /** Padding on the x-axis (left & right) from theme */
+  px?: SpacingWithoutInsetProp;
+  /** Padding on the y-axis (top & bottom) from theme */
+  py?: SpacingWithoutInsetProp;
   /** Margin from theme */
   margin?: SpacingWithoutInsetProp;
+  /** Margin-top from theme */
+  mt?: SpacingWithoutInsetProp;
+  /** Margin-right from theme */
+  mr?: SpacingWithoutInsetProp;
+  /** Margin-bottom from theme */
+  mb?: SpacingWithoutInsetProp;
+  /** Margin-left from theme */
+  ml?: SpacingWithoutInsetProp;
+  /** Margin on the x-axis (left & right) from theme */
+  mx?: SpacingWithoutInsetProp;
+  /** Margin on the y-axis (top & bottom) from theme */
+  my?: SpacingWithoutInsetProp;
   /**
    * Change block semantics
    * @default default
@@ -22,7 +46,25 @@ export interface BlockProps extends HtmlDivProps {
 
 class SemanticBlock extends Component<BlockProps> {
   render() {
-    const { className, variant, padding, margin, ...passProps } = this.props;
+    const {
+      className,
+      variant,
+      padding,
+      margin,
+      mt,
+      mr,
+      mb,
+      ml,
+      mx,
+      my,
+      pt,
+      pr,
+      pb,
+      pl,
+      px,
+      py,
+      ...passProps
+    } = this.props;
     const ComponentVariant =
       !variant || variant === 'default' ? HtmlDiv : variant;
     return (
@@ -32,6 +74,22 @@ class SemanticBlock extends Component<BlockProps> {
           [`${baseClassName}--padding-${padding}`]: !!padding,
           [`${baseClassName}--margin-${margin}`]: !!margin,
           [`${baseClassName}--${variant}`]: !!variant,
+          [`${baseClassName}--margin-top-${mt}`]: !!mt,
+          [`${baseClassName}--margin-right-${mr}`]: !!mr,
+          [`${baseClassName}--margin-bottom-${mb}`]: !!mb,
+          [`${baseClassName}--margin-left-${ml}`]: !!ml,
+          [`${baseClassName}--margin-left-${mx}`]: !!mx,
+          [`${baseClassName}--margin-right-${mx}`]: !!mx,
+          [`${baseClassName}--margin-top-${my}`]: !!my,
+          [`${baseClassName}--margin-bottom-${my}`]: !!my,
+          [`${baseClassName}--padding-top-${pt}`]: !!pt,
+          [`${baseClassName}--padding-right-${pr}`]: !!pr,
+          [`${baseClassName}--padding-bottop-${pb}`]: !!pb,
+          [`${baseClassName}--padding-left-${pl}`]: !!pl,
+          [`${baseClassName}--padding-left-${px}`]: !!px,
+          [`${baseClassName}--padding-right-${px}`]: !!px,
+          [`${baseClassName}--padding-top-${py}`]: !!py,
+          [`${baseClassName}--padding-bottom-${py}`]: !!py,
         })}
       />
     );

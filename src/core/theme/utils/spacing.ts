@@ -76,7 +76,19 @@ export const padding = (theme: SuomifiTheme) => space(theme)('padding');
  */
 export const spacingModifiers =
   (theme: SuomifiTheme) =>
-  (spacing: 'padding' | 'margin' | 'margin-bottom') =>
+  (
+    spacing:
+      | 'padding'
+      | 'padding-top'
+      | 'padding-right'
+      | 'padding-bottom'
+      | 'padding-left'
+      | 'margin'
+      | 'margin-top'
+      | 'margin-right'
+      | 'margin-bottom'
+      | 'margin-left',
+  ) =>
   (selector: string) =>
     spacingTokensKeys.reduce(
       (ret, k) =>
