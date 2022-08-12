@@ -84,7 +84,7 @@ class SemanticBlock extends Component<BlockProps> {
           [`${baseClassName}--margin-bottom-${my}`]: !!my,
           [`${baseClassName}--padding-top-${pt}`]: !!pt,
           [`${baseClassName}--padding-right-${pr}`]: !!pr,
-          [`${baseClassName}--padding-bottop-${pb}`]: !!pb,
+          [`${baseClassName}--padding-bottom-${pb}`]: !!pb,
           [`${baseClassName}--padding-left-${pl}`]: !!pl,
           [`${baseClassName}--padding-left-${px}`]: !!px,
           [`${baseClassName}--padding-right-${px}`]: !!px,

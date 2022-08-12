@@ -13,5 +13,13 @@ import { Block } from 'suomifi-ui-components';
 ```js
 import { Block } from 'suomifi-ui-components';
 
+<Block pt="m" pr="l" pb="xl" pl="xxl">
+  Block with indepedent paddings on each side
+</Block>;
+```
+
+```js
+import { Block } from 'suomifi-ui-components';
+
 <Block variant="section">I'm semantically a section</Block>;
 ```
