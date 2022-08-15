@@ -400,8 +400,8 @@ const defaultSelectedTools = [
     noItemsText="No items"
     defaultSelectedItems={defaultSelectedTools}
     ariaSelectedAmountText="foods selected"
-    ariaOptionsAvailableTextFunction={(lenght) =>
-      `there are ${lenght} options`
+    ariaOptionsAvailableTextFunction={(length) =>
+      `there are ${length} options`
     }
     ariaOptionChipRemovedTextFunction={(option) =>
       `removed option ${option} from selected`
