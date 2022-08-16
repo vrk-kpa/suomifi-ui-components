@@ -104,7 +104,7 @@ const StyledBlock = styled((props: BlockProps & SuomifiThemeProp) => {
 `;
 
 /**
- * Used in displaying a generic piece of HTML e.g. a <div>
+ * Used in displaying a generic piece of HTML e.g. a div
  */
 const Block = (props: BlockProps) => (
   <SuomifiThemeConsumer>
