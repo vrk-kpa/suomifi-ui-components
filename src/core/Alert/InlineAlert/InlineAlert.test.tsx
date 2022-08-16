@@ -27,7 +27,7 @@ describe('props', () => {
   it('Inline component should contain given labelText', () => {
     const { getByText } = render(InlineAlertComponent);
     const label = getByText('Inline Alert label');
-    expect(label).toHaveClass('fi-alert_label');
+    expect(label).toHaveClass('fi-inline-alert_label');
   });
 });
 
