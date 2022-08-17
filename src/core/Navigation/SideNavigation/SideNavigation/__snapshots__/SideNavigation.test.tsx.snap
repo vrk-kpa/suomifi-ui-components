@@ -236,7 +236,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c1.fi-side-navigation--small-screen {
-  border: 1px solid hsl(202,7%,80%);
+  background: hsl(212,63%,95%);
 }
 
 .c1.fi-side-navigation--small-screen .fi-side-navigation_heading {
@@ -255,36 +255,12 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 600;
   width: 100%;
   padding: 20px;
-}
-
-.c1.fi-side-navigation--small-screen .fi-side-navigation_heading:focus {
-  position: relative;
-  outline: 0;
-}
-
-.c1.fi-side-navigation--small-screen .fi-side-navigation_heading:focus:after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  z-index: 9999;
+  border: 1px solid hsl(212,63%,90%);
 }
 
 .c1.fi-side-navigation--small-screen .fi-side-navigation_heading .fi-icon {
   height: 25px;
   width: 25px;
-}
-
-.c1.fi-side-navigation--small-screen .fi-side-navigation-item:last-child:after {
-  display: none;
 }
 
 .c1.fi-side-navigation .fi-side-navigation_heading {
@@ -313,7 +289,7 @@ exports[`calling render with the same component on the same container does not r
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 10px 15px;
+  padding: 15px;
 }
 
 .c1.fi-side-navigation .fi-side-navigation_heading .fi-side-navigation_heading_inner {
@@ -328,8 +304,8 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c1.fi-side-navigation .fi-side-navigation_heading .fi-static-icon {
-  height: 45px;
-  width: 45px;
+  height: 50px;
+  width: 50px;
   margin-right: 15px;
 }
 
@@ -373,7 +349,7 @@ exports[`calling render with the same component on the same container does not r
 .c7.fi-side-navigation-item:after {
   content: '';
   position: absolute;
-  bottom: -1px;
+  bottom: 0;
   left: 2.5%;
   width: 95%;
   height: 1px;
@@ -383,13 +359,6 @@ exports[`calling render with the same component on the same container does not r
 .c7.fi-side-navigation-item:hover:after,
 .c7.fi-side-navigation-item:active:after {
   background: transparent;
-}
-
-.c7.fi-side-navigation-item:focus,
-.c7.fi-side-navigation-item:focus-within {
-  outline: 0;
-  box-shadow: none;
-  border: none;
 }
 
 .c7.fi-side-navigation-item .fi-link--router {
@@ -419,29 +388,6 @@ exports[`calling render with the same component on the same container does not r
   -webkit-text-decoration: none;
   text-decoration: none;
   color: hsl(0,0%,100%);
-}
-
-.c7.fi-side-navigation-item .fi-link--router:focus {
-  position: relative;
-  outline: 0;
-  box-shadow: none;
-  border: none;
-}
-
-.c7.fi-side-navigation-item .fi-link--router:focus:before {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  z-index: 9999;
 }
 
 .c7.fi-side-navigation-item.fi-side-navigation-item--child-selected > span > .fi-link--router {
@@ -477,7 +423,11 @@ exports[`calling render with the same component on the same container does not r
   position: absolute;
   top: 11px;
   right: 15px;
-  color: hsl(212,63%,45%);
+  color: hsl(202,7%,40%);
+}
+
+.c7.fi-side-navigation-item.fi-side-navigation-item--selected:after {
+  background: hsl(212,63%,45%);
 }
 
 .c7.fi-side-navigation-item--level-1.fi-side-navigation-item--selected {
@@ -573,9 +523,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c7.fi-side-navigation-item--disabled .fi-link--router:hover,
-.c7.fi-side-navigation-item--disabled .fi-link--router:active,
-.c7.fi-side-navigation-item--disabled .fi-link--router:visited {
-  background: transparent;
+.c7.fi-side-navigation-item--disabled .fi-link--router:active {
   color: hsl(202,7%,67%);
 }
 
@@ -642,23 +590,6 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(284,36%,45%);
 }
 
-.c11.fi-link--initial-underline {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c11.fi-link--initial-underline:focus,
-.c11.fi-link--initial-underline:focus-within {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c11.fi-link--initial-underline:hover,
-.c11.fi-link--initial-underline:active {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 .c11 .fi-link_icon {
   padding-left: 4px;
   font-size: 16px;
@@ -714,23 +645,6 @@ exports[`calling render with the same component on the same container does not r
 
 .c9.fi-link--router:visited {
   color: hsl(284,36%,45%);
-}
-
-.c9.fi-link--initial-underline {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c9.fi-link--initial-underline:focus,
-.c9.fi-link--initial-underline:focus-within {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c9.fi-link--initial-underline:hover,
-.c9.fi-link--initial-underline:active {
-  -webkit-text-decoration: none;
-  text-decoration: none;
 }
 
 <div
@@ -799,7 +713,6 @@ exports[`calling render with the same component on the same container does not r
     </span>
   </div>
   <nav
-    aria-label="Test"
     class="c4"
   >
     <ul
@@ -812,7 +725,6 @@ exports[`calling render with the same component on the same container does not r
           class="c2 fi-side-navigation-item_content-wrapper"
         >
           <a
-            aria-current="location"
             class="c8 fi-link--router c9"
             href="/"
           >
@@ -829,7 +741,6 @@ exports[`calling render with the same component on the same container does not r
               class="c2 fi-side-navigation-item_content-wrapper"
             >
               <a
-                aria-current="location"
                 class="c8 fi-link--router c9"
                 href="/"
               >
@@ -870,13 +781,13 @@ exports[`calling render with the same component on the same container does not r
                 </span>
               </li>
               <li
+                aria-current="page"
                 class="c6 c7 fi-side-navigation-item fi-side-navigation-item--level-3 fi-side-navigation-item--selected"
               >
                 <span
                   class="c2 fi-side-navigation-item_content-wrapper"
                 >
                   <a
-                    aria-current="page"
                     class="c8 fi-link--router c9"
                     href="/"
                   >
