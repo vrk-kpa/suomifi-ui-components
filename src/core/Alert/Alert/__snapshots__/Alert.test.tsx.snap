@@ -293,7 +293,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-alert.fi-alert--warning .fi-alert_style-wrapper .fi-alert_icon--warning .fi-icon-base-fill {
-  fill: hsl(23,82%,53%);
+  fill: hsl(23,82%,51%);
 }
 
 .c1.fi-alert.fi-alert--small-screen .fi-alert_style-wrapper {
