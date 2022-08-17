@@ -96,6 +96,10 @@ export {
   ModalFooterProps,
 } from './core/Modal/';
 export {
+  SideNavigation,
+  SideNavigationItem,
+} from './core/Navigation/SideNavigation';
+export {
   Expander,
   ExpanderProps,
   ExpanderGroup,

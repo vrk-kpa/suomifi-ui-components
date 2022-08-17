@@ -201,6 +201,13 @@ module.exports = {
           name: 'Toast',
           components: getComponents(['Toast']),
         },
+        {
+          name: 'SideNavigation',
+          components: getComponentWithVariants('Navigation/SideNavigation')([
+            'SideNavigation/SideNavigation',
+            'SideNavigationItem/SideNavigationItem',
+          ]),
+        }
       ],
       sectionDepth: 1,
       expand: true,
