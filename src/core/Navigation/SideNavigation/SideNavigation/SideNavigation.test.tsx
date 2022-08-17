@@ -1,11 +1,10 @@
-/* import React from 'react';
+import React from 'react';
 import { render } from '@testing-library/react';
 import { axeTest } from '../../../../utils/test';
 
 import { SideNavigation } from './SideNavigation';
 import { SideNavigationItem } from '../SideNavigationItem/SideNavigationItem';
 import { ExternalLink, RouterLink } from '../../../Link';
-import { StaticChip } from '../../../Chip'; 
 
 interface TestProps {
   children: string;
@@ -14,67 +13,80 @@ interface TestProps {
   tabIndex?: number;
 }
 
-const Comp = ({ children, ...passProps }: TestProps) => (
-  <div {...passProps}>{children}</div>
-);
+const CustomButton = (props: TestProps) => {
+  const { children, ...passProps } = props;
+  return <button {...passProps}>{props.children}</button>;
+};
 
 const TestSideNavigation = (
-  <div data-testid="test-paragraph">
-    <SideNavigation>
-      <SideNavigationItem aria-label="16 unread messages">
-        <RouterLink
-          asComponent={Comp}
-          onClick={() => console.log('Nav item clicked')}
-          role="button"
-          tabIndex={0}
-        >
-          Inbox
-          <StaticChip style={{ marginLeft: '15px' }}>16</StaticChip>
-        </RouterLink>
+  <SideNavigation heading="Economy" icon="piggyBank">
+    <SideNavigationItem
+      subLevel={1}
+      content={<RouterLink href="/">Personal economy</RouterLink>}
+    >
+      <SideNavigationItem
+        subLevel={2}
+        content={
+          <RouterLink href="/">
+            Crisis situations in personal finances
+          </RouterLink>
+        }
+      >
+        <SideNavigationItem
+          subLevel={3}
+          content={
+            <RouterLink href="/">
+              If you are unable to pay your debts
+            </RouterLink>
+          }
+        />
+        <SideNavigationItem
+          subLevel={3}
+          content={
+            <RouterLink href="/">
+              Advice on banking and insurance matters
+            </RouterLink>
+          }
+          selected
+          ariaCurrent="page"
+        />
       </SideNavigationItem>
-      <SideNavigationItem>
+      <SideNavigationItem
+        subLevel={2}
+        content={<RouterLink href="/">Last will and testament</RouterLink>}
+      />
+    </SideNavigationItem>
+    <SideNavigationItem
+      subLevel={1}
+      content={
         <RouterLink asComponent={ExternalLink} href="https://suomi.fi" hideIcon>
-          Sent
+          Taxation and public economy
         </RouterLink>
-      </SideNavigationItem>
-      <SideNavigationItem selected ariaCurrent="page">
+      }
+    />
+    <SideNavigationItem
+      content={
         <RouterLink
-          asComponent={ExternalLink}
-          href="https://www.suomi.fi"
-          hideIcon
+          asComponent={CustomButton}
+          onClick={() => console.log('Nav item clicked')}
         >
-          New Message
+          Consumer protection
         </RouterLink>
-      </SideNavigationItem>
-      <SideNavigationItem>
-        <RouterLink
-          asComponent={ExternalLink}
-          href="https://www.suomi.fi"
-          hideIcon
-        >
-          Drafts
-        </RouterLink>
-      </SideNavigationItem>
-      <SideNavigationItem>
-        <RouterLink
-          asComponent={ExternalLink}
-          href="https://www.suomi.fi"
-          hideIcon
-        >
-          Settings
-        </RouterLink>
-      </SideNavigationItem>
-      <SideNavigationItem>
-        <RouterLink>Devices</RouterLink>
-      </SideNavigationItem>
-    </SideNavigation>
-  </div>
+      }
+      subLevel={1}
+    />
+    <SideNavigationItem
+      disabled
+      content={<RouterLink>Finance</RouterLink>}
+      subLevel={1}
+    />
+  </SideNavigation>
 );
 
 test('calling render with the same component on the same container does not remount', () => {
-  const ParagraphRendered = render(TestSideNavigation);
-  const { container } = ParagraphRendered;
+  const NavRendered = render(TestSideNavigation);
+  const { container } = NavRendered;
   expect(container.firstChild).toMatchSnapshot();
 });
 
-test('should not have basic accessibility issues', axeTest(TestSideNavigation)); */
+test('should not have basic accessibility issues', axeTest(TestSideNavigation));
