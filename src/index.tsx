@@ -108,6 +108,12 @@ export {
   ServiceNavigationItemProps,
 } from './core/Navigation/ServiceNavigation';
 export {
+  SideNavigation,
+  SideNavigationProps,
+  SideNavigationItem,
+  SideNavigationItemProps,
+} from './core/Navigation/SideNavigation';
+export {
   Expander,
   ExpanderProps,
   ExpanderGroup,
