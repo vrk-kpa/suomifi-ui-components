@@ -398,13 +398,17 @@ const defaultSelectedFoods = [
     removeAllButtonLabel="Remove all selections"
     visualPlaceholder="Choose your foods"
     noItemsText="No items"
-    ariaSelectedAmountText="foods selected"
     defaultSelectedItems={defaultSelectedFoods}
     ariaOptionsAvailableTextFunction={(length) =>
       `there are ${length} options`
     }
     ariaOptionChipRemovedTextFunction={(option) =>
       `removed option ${option} from selected`
+    }
+    ariaSelectedAmountTextFunction={(amount) =>
+      amount === 1
+        ? `${amount} food selected`
+        : `${amount} foods selected`
     }
   />
 </>;

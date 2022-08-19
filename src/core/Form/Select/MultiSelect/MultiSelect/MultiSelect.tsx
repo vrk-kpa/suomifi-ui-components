@@ -79,6 +79,22 @@ type AriaOptionChipRemovedProps =
       ariaOptionChipRemovedTextFunction: (option: string) => string;
     };
 
+type AriaSelectedAmountProps =
+  | {
+      ariaSelectedAmountText: string;
+      ariaSelectedAmountTextFunction?: never;
+    }
+  | {
+      /** Text for screen reader to indicate how many items are selected
+       * E.g 'items selected' as prop value would result in '{amount} items selected' being read by screen reader.
+       */
+      ariaSelectedAmountText?: never;
+      /** Text for screen reader to indicate how many items are selected. Overrides
+       * `ariaSelectedAmountText` if both are provided.
+       */
+      ariaSelectedAmountTextFunction: (amount: number) => string;
+    };
+
 interface InternalMultiSelectProps<T extends MultiSelectData> {
   /** MultiSelect container div class name for custom styling. */
   className?: string;
@@ -126,8 +142,6 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   onItemSelect?: (uniqueItemId: string | null) => void;
   /** Event to be sent when pressing remove all button */
   onRemoveAll?: () => void;
-  /** Text for screen reader to indicate how many items are selected */
-  ariaSelectedAmountText: string;
   /** Disable the input */
   disabled?: boolean;
 }
@@ -156,7 +170,8 @@ export type MultiSelectProps<T> = InternalMultiSelectProps<
 > &
   AllowItemAdditionProps &
   AriaOptionsAvailableProps &
-  AriaOptionChipRemovedProps;
+  AriaOptionChipRemovedProps &
+  AriaSelectedAmountProps;
 
 interface MultiSelectState<T extends MultiSelectData> {
   filterInputValue: string;
@@ -567,6 +582,7 @@ class BaseMultiSelect<T> extends Component<
       onRemoveAll,
       onBlur,
       ariaSelectedAmountText,
+      ariaSelectedAmountTextFunction,
       ariaOptionsAvailableText,
       ariaOptionsAvailableTextFunction,
       ariaOptionChipRemovedText,
@@ -795,8 +811,14 @@ class BaseMultiSelect<T> extends Component<
         {this.state.showOptionsAvailableText && (
           <>
             <VisuallyHidden aria-live="polite" aria-atomic="true">
-              {selectedItems.length}
-              {ariaSelectedAmountText}
+              {ariaSelectedAmountTextFunction ? (
+                <>{ariaSelectedAmountTextFunction(selectedItems.length)}</>
+              ) : (
+                <>
+                  {selectedItems.length}
+                  {ariaSelectedAmountText}
+                </>
+              )}
             </VisuallyHidden>
             <VisuallyHidden
               aria-live="polite"
