@@ -379,7 +379,7 @@ const foods = [
   }
 ];
 
-const defaultSelectedTools = [
+const defaultSelectedFoods = [
   {
     labelText: 'Pizza',
     uniqueItemId: 'pizza-123'
@@ -398,8 +398,8 @@ const defaultSelectedTools = [
     removeAllButtonLabel="Remove all selections"
     visualPlaceholder="Choose your foods"
     noItemsText="No items"
-    defaultSelectedItems={defaultSelectedTools}
     ariaSelectedAmountText="foods selected"
+    defaultSelectedItems={defaultSelectedFoods}
     ariaOptionsAvailableTextFunction={(length) =>
       `there are ${length} options`
     }
