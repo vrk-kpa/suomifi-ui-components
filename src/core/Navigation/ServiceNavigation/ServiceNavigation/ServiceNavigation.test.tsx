@@ -70,8 +70,8 @@ const TestServiceNavigation = (
 );
 
 test('calling render with the same component on the same container does not remount', () => {
-  const ParagraphRendered = render(TestServiceNavigation);
-  const { container } = ParagraphRendered;
+  const NavRendered = render(TestServiceNavigation);
+  const { container } = NavRendered;
   expect(container.firstChild).toMatchSnapshot();
 });
 

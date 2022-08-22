@@ -535,111 +535,107 @@ exports[`calling render with the same component on the same container does not r
 }
 
 <div
-  data-testid="test-paragraph"
+  class="c0 fi-service-navigation c1"
 >
-  <div
-    class="c0 fi-service-navigation c1"
+  <nav
+    class="c2"
   >
-    <nav
-      class="c2"
+    <ul
+      class="c3 fi-service-navigation_list"
     >
-      <ul
-        class="c3 fi-service-navigation_list"
+      <li
+        aria-label="16 unread messages"
+        class="c4 c5 fi-service-navigation-item"
       >
-        <li
-          aria-label="16 unread messages"
-          class="c4 c5 fi-service-navigation-item"
+        <div
+          class="fi-link--router c6"
+          role="button"
+          tabindex="0"
         >
-          <div
-            class="fi-link--router c6"
-            role="button"
-            tabindex="0"
+          Inbox
+          <span
+            class="c7 fi-chip c8"
+            style="margin-left: 15px;"
           >
-            Inbox
             <span
-              class="c7 fi-chip c8"
-              style="margin-left: 15px;"
+              class="c7 fi-chip--content"
             >
-              <span
-                class="c7 fi-chip--content"
-              >
-                16
-              </span>
+              16
             </span>
-          </div>
-        </li>
-        <li
-          class="c4 c5 fi-service-navigation-item"
+          </span>
+        </div>
+      </li>
+      <li
+        class="c4 c5 fi-service-navigation-item"
+      >
+        <a
+          class="c9 fi-link c10 fi-link--router c6 fi-link--external"
+          href="https://suomi.fi"
+          rel="noopener"
+          target="_blank"
         >
-          <a
-            class="c9 fi-link c10 fi-link--router c6 fi-link--external"
-            href="https://suomi.fi"
-            rel="noopener"
-            target="_blank"
-          >
-            Sent
-            <span
-              class="c7 c11 fi-visually-hidden"
-            />
-          </a>
-        </li>
-        <li
-          aria-current="page"
-          class="c4 c5 fi-service-navigation-item--selected"
+          Sent
+          <span
+            class="c7 c11 fi-visually-hidden"
+          />
+        </a>
+      </li>
+      <li
+        aria-current="page"
+        class="c4 c5 fi-service-navigation-item--selected"
+      >
+        <a
+          class="c9 fi-link c10 fi-link--router c6 fi-link--external"
+          href="https://www.suomi.fi"
+          rel="noopener"
+          target="_blank"
         >
-          <a
-            class="c9 fi-link c10 fi-link--router c6 fi-link--external"
-            href="https://www.suomi.fi"
-            rel="noopener"
-            target="_blank"
-          >
-            New Message
-            <span
-              class="c7 c11 fi-visually-hidden"
-            />
-          </a>
-        </li>
-        <li
-          class="c4 c5 fi-service-navigation-item"
+          New Message
+          <span
+            class="c7 c11 fi-visually-hidden"
+          />
+        </a>
+      </li>
+      <li
+        class="c4 c5 fi-service-navigation-item"
+      >
+        <a
+          class="c9 fi-link c10 fi-link--router c6 fi-link--external"
+          href="https://www.suomi.fi"
+          rel="noopener"
+          target="_blank"
         >
-          <a
-            class="c9 fi-link c10 fi-link--router c6 fi-link--external"
-            href="https://www.suomi.fi"
-            rel="noopener"
-            target="_blank"
-          >
-            Drafts
-            <span
-              class="c7 c11 fi-visually-hidden"
-            />
-          </a>
-        </li>
-        <li
-          class="c4 c5 fi-service-navigation-item"
+          Drafts
+          <span
+            class="c7 c11 fi-visually-hidden"
+          />
+        </a>
+      </li>
+      <li
+        class="c4 c5 fi-service-navigation-item"
+      >
+        <a
+          class="c9 fi-link c10 fi-link--router c6 fi-link--external"
+          href="https://www.suomi.fi"
+          rel="noopener"
+          target="_blank"
         >
-          <a
-            class="c9 fi-link c10 fi-link--router c6 fi-link--external"
-            href="https://www.suomi.fi"
-            rel="noopener"
-            target="_blank"
-          >
-            Settings
-            <span
-              class="c7 c11 fi-visually-hidden"
-            />
-          </a>
-        </li>
-        <li
-          class="c4 c5 fi-service-navigation-item"
+          Settings
+          <span
+            class="c7 c11 fi-visually-hidden"
+          />
+        </a>
+      </li>
+      <li
+        class="c4 c5 fi-service-navigation-item"
+      >
+        <a
+          class="c9 fi-link--router c6"
         >
-          <a
-            class="c9 fi-link--router c6"
-          >
-            Devices
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+          Devices
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
 `;
