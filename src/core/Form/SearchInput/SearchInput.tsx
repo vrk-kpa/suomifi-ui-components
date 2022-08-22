@@ -1,4 +1,10 @@
-import React, { ChangeEvent, Component, createRef, FocusEvent } from 'react';
+import React, {
+  ChangeEvent,
+  Component,
+  createRef,
+  FocusEvent,
+  ReactNode,
+} from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
@@ -43,7 +49,7 @@ export interface SearchInputProps
   /** SearchInput wrapping div element props */
   wrapperProps?: Omit<HtmlDivProps, 'className'>;
   /** Label text */
-  labelText: string;
+  labelText: ReactNode;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
    */

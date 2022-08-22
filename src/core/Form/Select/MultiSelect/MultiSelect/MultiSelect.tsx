@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
@@ -106,7 +106,7 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
    */
   id?: string;
   /** Label */
-  labelText: string;
+  labelText: ReactNode;
   /** Text to mark a field optional. Wrapped in parentheses and shown after labelText. */
   optionalText?: string;
   /** Hint text to be shown below the label */

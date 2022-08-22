@@ -56,7 +56,7 @@ interface InternalDropdownProps {
   /** Controlled selected value, overrides defaultValue if provided. */
   value?: string;
   /** Label for the Dropdown component. */
-  labelText: string;
+  labelText: ReactNode;
   /** Visual hint to show if nothing is selected and no value or defaultValue is provided */
   visualPlaceholder?: ReactNode;
   /** Show the visual placeholder instead of selected value and act as an action menu */

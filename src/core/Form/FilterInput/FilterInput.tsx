@@ -46,7 +46,7 @@ interface InternalFilterInputProps<T>
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
   /** Label */
-  labelText: string;
+  labelText: ReactNode;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
    */

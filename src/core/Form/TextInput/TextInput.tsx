@@ -1,4 +1,10 @@
-import React, { forwardRef, Component, ChangeEvent, FocusEvent } from 'react';
+import React, {
+  forwardRef,
+  Component,
+  ChangeEvent,
+  FocusEvent,
+  ReactNode,
+} from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
@@ -52,7 +58,7 @@ interface InternalTextInputProps
   /** To execute on input text onBlur */
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Label */
-  labelText: string;
+  labelText: ReactNode;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
    */

@@ -1,4 +1,10 @@
-import React, { Component, ChangeEvent, FocusEvent, forwardRef } from 'react';
+import React, {
+  Component,
+  ChangeEvent,
+  FocusEvent,
+  forwardRef,
+  ReactNode,
+} from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
@@ -45,7 +51,7 @@ interface InternalTextareaProps
   /** To execute on textarea text onBlur */
   onBlur?: (event: FocusEvent<HTMLTextAreaElement>) => void;
   /** Label */
-  labelText: string;
+  labelText: ReactNode;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
    */
