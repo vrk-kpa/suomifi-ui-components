@@ -52,8 +52,8 @@ type AriaOptionsAvailableProps =
       ariaOptionsAvailableTextFunction: (length: number) => string;
     }
   | {
-      /** Text for screen reader to read, after labelText/chipText, when selected option is removed from chip list.
-       * E.g 'removed' as prop value would result in '{option} removed' being read by screen reader upon removal.
+      /** Text for screen reader indicating the amount of available options after filtering by typing. Will be read after the amount.
+       * E.g 'options available' as prop value would result in '{amount} options available' being read by screen reader upon removal.
        */
       ariaOptionsAvailableText: string;
 
@@ -73,8 +73,8 @@ type AriaOptionChipRemovedProps =
        * E.g 'removed' as prop value would result in '{option} removed' being read by screen reader upon removal.
        */
       ariaOptionChipRemovedText?: never;
-      /** Text for screen reader to read, after labelText/chipText, when selected option is removed from chip list. Overrides
-       * `ariaOptionChipRemovedText` if both are provided.
+      /** Function to provide text for screen reader to read, after labelText/chipText, when selected option is removed from chip list.
+       *  Overrides `ariaOptionChipRemovedText` if both are provided.
        */
       ariaOptionChipRemovedTextFunction: (option: string) => string;
     };
@@ -85,11 +85,11 @@ type AriaSelectedAmountProps =
       ariaSelectedAmountTextFunction?: never;
     }
   | {
-      /** Text for screen reader to indicate how many items are selected
+      /** Text for screen reader to indicate how many items are selected.
        * E.g 'items selected' as prop value would result in '{amount} items selected' being read by screen reader.
        */
       ariaSelectedAmountText?: never;
-      /** Text for screen reader to indicate how many items are selected. Overrides
+      /** Function to provide text for screen reader to indicate how many items are selected. Overrides
        * `ariaSelectedAmountText` if both are provided.
        */
       ariaSelectedAmountTextFunction: (amount: number) => string;
