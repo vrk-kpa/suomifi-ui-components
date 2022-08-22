@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
@@ -184,8 +184,12 @@ interface MultiSelectState<T extends MultiSelectData> {
   chipRemovalAnnounceText: string;
 }
 
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLInputElement>;
+}
+
 class BaseMultiSelect<T> extends Component<
-  MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp
+  MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp & InnerRef
 > {
   private popoverListRef: React.RefObject<HTMLUListElement>;
 
@@ -196,10 +200,16 @@ class BaseMultiSelect<T> extends Component<
   private chipRemovalAnnounceTimeOut: ReturnType<typeof setTimeout> | null =
     null;
 
-  constructor(props: MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp) {
+  constructor(
+    props: MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp & InnerRef,
+  ) {
     super(props);
     this.popoverListRef = React.createRef();
-    this.filterInputRef = React.createRef();
+
+    this.filterInputRef = this.props.forwardedRef
+      ? this.props.forwardedRef
+      : React.createRef();
+
     this.toggleButtonRef = React.createRef();
   }
 
@@ -854,20 +864,29 @@ const StyledMultiSelect = styled(BaseMultiSelect)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const MultiSelect = <T,>(props: MultiSelectProps<T & MultiSelectData>) => {
-  const { id: propId, ...passProps } = props;
-  return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <AutoId id={propId}>
-          {(id) => (
-            <StyledMultiSelect theme={suomifiTheme} id={id} {...passProps} />
-          )}
-        </AutoId>
-      )}
-    </SuomifiThemeConsumer>
-  );
-};
-
+const MultiSelect = forwardRef(
+  <T,>(
+    props: MultiSelectProps<T & MultiSelectData>,
+    ref: React.RefObject<HTMLInputElement>,
+  ) => {
+    const { id: propId, ...passProps } = props;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <StyledMultiSelect
+                theme={suomifiTheme}
+                id={id}
+                forwardedRef={ref}
+                {...passProps}
+              />
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
+    );
+  },
+);
 MultiSelect.displayName = 'MultiSelect';
 export { MultiSelect };

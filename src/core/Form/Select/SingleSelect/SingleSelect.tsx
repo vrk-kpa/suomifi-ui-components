@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv } from '../../../../reset';
@@ -122,8 +122,12 @@ interface SingleSelectState<T extends SingleSelectData> {
   initialItems: T[];
 }
 
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLInputElement>;
+}
+
 class BaseSingleSelect<T> extends Component<
-  SingleSelectProps<T & SingleSelectData> & SuomifiThemeProp
+  SingleSelectProps<T & SingleSelectData> & SuomifiThemeProp & InnerRef
 > {
   private popoverListRef: React.RefObject<HTMLUListElement>;
 
@@ -136,11 +140,18 @@ class BaseSingleSelect<T> extends Component<
   private preventShowPopoverOnInputFocus = false;
 
   constructor(
-    props: SingleSelectProps<T & SingleSelectData> & SuomifiThemeProp,
+    props: SingleSelectProps<T & SingleSelectData> &
+      SuomifiThemeProp &
+      InnerRef,
   ) {
     super(props);
     this.popoverListRef = React.createRef();
-    this.filterInputRef = React.createRef();
+
+    if (this.props.forwardedRef) {
+      this.filterInputRef = this.props.forwardedRef;
+    } else {
+      this.filterInputRef = React.createRef();
+    }
     this.toggleButtonRef = React.createRef();
     this.clearButtonRef = React.createRef();
   }
@@ -659,20 +670,30 @@ const StyledSingleSelect = styled(BaseSingleSelect)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const SingleSelect = <T,>(props: SingleSelectProps<T & SingleSelectData>) => {
-  const { id: propId, ...passProps } = props;
-  return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <AutoId id={propId}>
-          {(id) => (
-            <StyledSingleSelect theme={suomifiTheme} id={id} {...passProps} />
-          )}
-        </AutoId>
-      )}
-    </SuomifiThemeConsumer>
-  );
-};
+const SingleSelect = forwardRef(
+  <T,>(
+    props: SingleSelectProps<T & SingleSelectData>,
+    ref: React.RefObject<HTMLInputElement>,
+  ) => {
+    const { id: propId, ...passProps } = props;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <StyledSingleSelect
+                theme={suomifiTheme}
+                id={id}
+                forwardedRef={ref}
+                {...passProps}
+              />
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
+    );
+  },
+);
 
 SingleSelect.displayName = 'SingleSelect';
 export { SingleSelect };
