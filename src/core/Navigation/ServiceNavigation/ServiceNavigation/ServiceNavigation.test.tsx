@@ -19,56 +19,54 @@ const Comp = ({ children, ...passProps }: TestProps) => (
 );
 
 const TestServiceNavigation = (
-  <div data-testid="test-paragraph">
-    <ServiceNavigation>
-      <ServiceNavigationItem aria-label="16 unread messages">
-        <RouterLink
-          asComponent={Comp}
-          onClick={() => console.log('Nav item clicked')}
-          role="button"
-          tabIndex={0}
-        >
-          Inbox
-          <StaticChip style={{ marginLeft: '15px' }}>16</StaticChip>
-        </RouterLink>
-      </ServiceNavigationItem>
-      <ServiceNavigationItem>
-        <RouterLink asComponent={ExternalLink} href="https://suomi.fi" hideIcon>
-          Sent
-        </RouterLink>
-      </ServiceNavigationItem>
-      <ServiceNavigationItem selected ariaCurrent="page">
-        <RouterLink
-          asComponent={ExternalLink}
-          href="https://www.suomi.fi"
-          hideIcon
-        >
-          New Message
-        </RouterLink>
-      </ServiceNavigationItem>
-      <ServiceNavigationItem>
-        <RouterLink
-          asComponent={ExternalLink}
-          href="https://www.suomi.fi"
-          hideIcon
-        >
-          Drafts
-        </RouterLink>
-      </ServiceNavigationItem>
-      <ServiceNavigationItem>
-        <RouterLink
-          asComponent={ExternalLink}
-          href="https://www.suomi.fi"
-          hideIcon
-        >
-          Settings
-        </RouterLink>
-      </ServiceNavigationItem>
-      <ServiceNavigationItem>
-        <RouterLink>Devices</RouterLink>
-      </ServiceNavigationItem>
-    </ServiceNavigation>
-  </div>
+  <ServiceNavigation>
+    <ServiceNavigationItem aria-label="16 unread messages">
+      <RouterLink
+        asComponent={Comp}
+        onClick={() => console.log('Nav item clicked')}
+        role="button"
+        tabIndex={0}
+      >
+        Inbox
+        <StaticChip style={{ marginLeft: '15px' }}>16</StaticChip>
+      </RouterLink>
+    </ServiceNavigationItem>
+    <ServiceNavigationItem>
+      <RouterLink asComponent={ExternalLink} href="https://suomi.fi" hideIcon>
+        Sent
+      </RouterLink>
+    </ServiceNavigationItem>
+    <ServiceNavigationItem selected ariaCurrent="page">
+      <RouterLink
+        asComponent={ExternalLink}
+        href="https://www.suomi.fi"
+        hideIcon
+      >
+        New Message
+      </RouterLink>
+    </ServiceNavigationItem>
+    <ServiceNavigationItem>
+      <RouterLink
+        asComponent={ExternalLink}
+        href="https://www.suomi.fi"
+        hideIcon
+      >
+        Drafts
+      </RouterLink>
+    </ServiceNavigationItem>
+    <ServiceNavigationItem>
+      <RouterLink
+        asComponent={ExternalLink}
+        href="https://www.suomi.fi"
+        hideIcon
+      >
+        Settings
+      </RouterLink>
+    </ServiceNavigationItem>
+    <ServiceNavigationItem>
+      <RouterLink>Devices</RouterLink>
+    </ServiceNavigationItem>
+  </ServiceNavigation>
 );
 
 test('calling render with the same component on the same container does not remount', () => {

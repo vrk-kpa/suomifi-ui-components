@@ -8,13 +8,13 @@ import styled from 'styled-components';
 interface BasicServiceNavigationItemProps {
   /** Custom class */
   className?: string;
-  /** Use the polymorphic RouterLink component as child to get intended CSS styling */
+  /** Use the polymorphic `<RouterLink>` component as child to get intended CSS styling */
   children: ReactNode;
   /** Disable the item */
   disabled?: boolean;
 }
 
-type SeletedProps =
+type SelectedProps =
   | {
       /** Show item as the selected one */
       selected: boolean;
@@ -27,7 +27,7 @@ type SeletedProps =
     };
 
 export type ServiceNavigationItemProps = BasicServiceNavigationItemProps &
-  SeletedProps;
+  SelectedProps;
 
 const baseClassName = 'fi-service-navigation-item';
 const selectedClassName = `${baseClassName}--selected`;

@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { forwardRef, ReactNode, useState } from 'react';
 import {
   HtmlButton,
   HtmlDiv,
@@ -7,12 +7,13 @@ import {
   HtmlUl,
 } from '../../../../reset';
 import styled from 'styled-components';
-import { SuomifiThemeConsumer } from '../../../theme';
+import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { baseStyles } from './ServiceNavigation.baseStyles';
 import classnames from 'classnames';
 import { Icon } from '../../../Icon/Icon';
 
 export interface ServiceNavigationProps {
+  /** Use the `<ServiceNavigationItem>` components as children */
   children: ReactNode | ReactNode[];
   /**
    * Normal or small screen variant
@@ -31,6 +32,10 @@ export interface ServiceNavigationProps {
   className?: string;
 }
 
+interface InnerRef {
+  forwardedRef: React.RefObject<HTMLDivElement>;
+}
+
 const baseClassName = 'fi-service-navigation';
 const smallScreenClassName = `${baseClassName}--small-screen`;
 const listClassName = `${baseClassName}_list`;
@@ -42,12 +47,14 @@ const BaseServiceNavigation = ({
   initiallyExpanded,
   smallScreenExpandButtonText,
   className,
-}: ServiceNavigationProps) => {
+  forwardedRef,
+}: ServiceNavigationProps & InnerRef) => {
   const initiallyExpandedValue =
     initiallyExpanded !== undefined ? initiallyExpanded : true;
   const [smallScreenNavOpen, setSmallScreenNavOpen] = useState(
     initiallyExpandedValue,
   );
+
   return (
     <HtmlDiv
       className={classnames(baseClassName, className, {
@@ -74,7 +81,7 @@ const BaseServiceNavigation = ({
       )}
       {((variant === 'smallScreen' && smallScreenNavOpen) ||
         variant !== 'smallScreen') && (
-        <HtmlNav>
+        <HtmlNav forwardedRef={forwardedRef}>
           <HtmlUl className={listClassName}>{children}</HtmlUl>
         </HtmlNav>
       )}
@@ -82,16 +89,27 @@ const BaseServiceNavigation = ({
   );
 };
 
-const StyledServiceNavigation = styled(BaseServiceNavigation)`
+const StyledServiceNavigation = styled(
+  (props: ServiceNavigationProps & InnerRef & SuomifiThemeProp) => {
+    const { theme, ...passProps } = props;
+    return <BaseServiceNavigation {...passProps} />;
+  },
+)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const ServiceNavigation = (props: ServiceNavigationProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => (
-      <StyledServiceNavigation theme={suomifiTheme} {...props} />
-    )}
-  </SuomifiThemeConsumer>
+const ServiceNavigation = forwardRef(
+  (props: ServiceNavigationProps, ref: React.RefObject<HTMLDivElement>) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledServiceNavigation
+          theme={suomifiTheme}
+          forwardedRef={ref}
+          {...props}
+        />
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
 
 ServiceNavigation.displayName = 'ServiceNavigation';
