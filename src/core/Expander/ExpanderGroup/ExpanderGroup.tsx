@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
@@ -55,6 +55,10 @@ interface ExpanderGroupState {
   expanderGroupOpenState: ExpanderGroupTargetOpenState;
 }
 
+interface InnerRef {
+  forwardedRef: React.Ref<HTMLButtonElement>;
+}
+
 export interface ExpanderGroupProviderState {
   onExpanderOpenChange: (id: string, newState: boolean | undefined) => void;
   expanderGroupOpenState: ExpanderGroupTargetOpenState;
@@ -71,7 +75,7 @@ const { Provider, Consumer: ExpanderGroupConsumer } =
   React.createContext(defaultProviderValue);
 
 class BaseExpanderGroup extends Component<
-  ExpanderGroupProps & SuomifiThemeProp
+  ExpanderGroupProps & SuomifiThemeProp & InnerRef
 > {
   state: ExpanderGroupState = {
     allOpen: undefined,
@@ -145,6 +149,7 @@ class BaseExpanderGroup extends Component<
       ariaCloseAllText,
       showToggleAllButton = true,
       toggleAllButtonProps,
+      forwardedRef,
       ...passProps
     } = this.props;
     const { expanderGroupOpenState, allOpen } = this.state;
@@ -164,6 +169,7 @@ class BaseExpanderGroup extends Component<
               openAllButtonClassName,
             )}
             aria-expanded={allOpen}
+            forwardedRef={forwardedRef}
           >
             <HtmlSpan aria-hidden={true}>
               {allOpen ? closeAllText : openAllText}
@@ -198,12 +204,19 @@ const StyledExpanderGroup = styled(BaseExpanderGroup)`
  * <i class="semantics" />
  * Wrapper for multiple expanders with Open/Close All button
  */
-const ExpanderGroup = (props: ExpanderGroupProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => (
-      <StyledExpanderGroup theme={suomifiTheme} {...props} />
-    )}
-  </SuomifiThemeConsumer>
+
+const ExpanderGroup = forwardRef(
+  (props: ExpanderGroupProps, ref: React.Ref<HTMLButtonElement>) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledExpanderGroup
+          theme={suomifiTheme}
+          forwardedRef={ref}
+          {...props}
+        />
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
 
 ExpanderGroup.displayName = 'ExpanderGroup';
