@@ -6,7 +6,7 @@ import { baseStyles } from './SideNavigationItem.baseStyles';
 import styled from 'styled-components';
 import { Icon } from '../../../Icon/Icon';
 
-interface BasicSideNavigationItemProps {
+interface SideNavigationItemProps {
   /** Custom class */
   className?: string;
   /** Use the polymorphic RouterLink component to get intended CSS styling */
@@ -17,26 +17,13 @@ interface BasicSideNavigationItemProps {
   subLevel: 1 | 2 | 3;
   /** If this item's child is selected, this prop must be applied to get correct CSS styles */
   childSelected?: boolean;
+  /** Show item as the selected one */
+  selected?: boolean;
   /** Disable the item */
   disabled?: boolean;
   /** Force the item to show its children */
   expanded?: boolean;
 }
-
-type SelectedProps =
-  | {
-      /** Show item as the selected one */
-      selected: boolean;
-      /** Selected item information for screen reader. Required when `selected` is true */
-      ariaCurrent: 'step' | 'page' | 'location';
-    }
-  | {
-      selected?: never;
-      ariaCurrent?: never;
-    };
-
-export type SideNavigationItemProps = BasicSideNavigationItemProps &
-  SelectedProps;
 
 const baseClassName = 'fi-side-navigation-item';
 const selectedClassName = `${baseClassName}--selected`;
@@ -48,7 +35,6 @@ const contentWrapperClassName = `${baseClassName}_content-wrapper`;
 const BaseSideNavigationItem = ({
   subLevel,
   selected,
-  ariaCurrent,
   className,
   children,
   content,
@@ -88,7 +74,6 @@ const BaseSideNavigationItem = ({
           [disabledClassName]: disabled,
         },
       )}
-      aria-current={!!ariaCurrent ? ariaCurrent : undefined}
       aria-disabled={disabled}
       {...passProps}
     >
