@@ -6,7 +6,7 @@ import { baseStyles } from './SideNavigationItem.baseStyles';
 import styled from 'styled-components';
 import { Icon } from '../../../Icon/Icon';
 
-interface SideNavigationItemProps {
+export interface SideNavigationItemProps {
   /** Custom class */
   className?: string;
   /** Use the polymorphic RouterLink component to get intended CSS styling */
