@@ -19,12 +19,16 @@ const CustomButton = (props) => {
   <SideNavigation heading="Economy" icon="piggyBank">
     <SideNavigationItem
       subLevel={1}
-      content={<RouterLink href="/">Personal economy</RouterLink>}
+      content={
+        <RouterLink href="/" aria-current="location">
+          Personal economy
+        </RouterLink>
+      }
     >
       <SideNavigationItem
         subLevel={2}
         content={
-          <RouterLink href="/">
+          <RouterLink href="/" aria-current="location">
             Crisis situations in personal finances
           </RouterLink>
         }
@@ -39,13 +43,12 @@ const CustomButton = (props) => {
         />
         <SideNavigationItem
           subLevel={3}
+          selected
           content={
-            <RouterLink href="/">
+            <RouterLink href="/" aria-current="page">
               Advice on banking and insurance matters
             </RouterLink>
           }
-          selected
-          ariaCurrent="page"
         />
       </SideNavigationItem>
       <SideNavigationItem
