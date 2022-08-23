@@ -16,7 +16,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &:after {
       content: '';
       position: absolute;
-      bottom: 0;
+      bottom: -1px;
       left: 2.5%;
       width: 95%;
       height: 1px;
