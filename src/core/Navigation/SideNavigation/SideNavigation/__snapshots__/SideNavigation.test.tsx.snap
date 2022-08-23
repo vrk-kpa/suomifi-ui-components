@@ -349,7 +349,7 @@ exports[`calling render with the same component on the same container does not r
 .c7.fi-side-navigation-item:after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 2.5%;
   width: 95%;
   height: 1px;
@@ -725,6 +725,7 @@ exports[`calling render with the same component on the same container does not r
           class="c2 fi-side-navigation-item_content-wrapper"
         >
           <a
+            aria-current="location"
             class="c8 fi-link--router c9"
             href="/"
           >
@@ -741,6 +742,7 @@ exports[`calling render with the same component on the same container does not r
               class="c2 fi-side-navigation-item_content-wrapper"
             >
               <a
+                aria-current="location"
                 class="c8 fi-link--router c9"
                 href="/"
               >
@@ -781,13 +783,13 @@ exports[`calling render with the same component on the same container does not r
                 </span>
               </li>
               <li
-                aria-current="page"
                 class="c6 c7 fi-side-navigation-item fi-side-navigation-item--level-3 fi-side-navigation-item--selected"
               >
                 <span
                   class="c2 fi-side-navigation-item_content-wrapper"
                 >
                   <a
+                    aria-current="page"
                     class="c8 fi-link--router c9"
                     href="/"
                   >
