@@ -46,6 +46,55 @@ interface CheckedProp {
 
 export type MultiSelectStatus = FilterInputStatus & {};
 
+type AriaOptionsAvailableProps =
+  | {
+      ariaOptionsAvailableText?: never;
+      ariaOptionsAvailableTextFunction: (length: number) => string;
+    }
+  | {
+      /** Text for screen reader indicating the amount of available options after filtering by typing. Will be read after the amount.
+       * E.g 'options available' as prop value would result in '{amount} options available' being read by screen reader upon removal.
+       */
+      ariaOptionsAvailableText: string;
+
+      /** Function to provide text for screen reader indicating the amount of available options after filtering by typing. Overrides
+       * `ariaOptionsAvailableText` if both are provided.
+       */
+      ariaOptionsAvailableTextFunction?: never;
+    };
+
+type AriaOptionChipRemovedProps =
+  | {
+      ariaOptionChipRemovedText: string;
+      ariaOptionChipRemovedTextFunction?: never;
+    }
+  | {
+      /** Text for screen reader to read, after labelText/chipText, when selected option is removed from chip list.
+       * E.g 'removed' as prop value would result in '{option} removed' being read by screen reader upon removal.
+       */
+      ariaOptionChipRemovedText?: never;
+      /** Function to provide text for screen reader to read, after labelText/chipText, when selected option is removed from chip list.
+       *  Overrides `ariaOptionChipRemovedText` if both are provided.
+       */
+      ariaOptionChipRemovedTextFunction: (option: string) => string;
+    };
+
+type AriaSelectedAmountProps =
+  | {
+      ariaSelectedAmountText: string;
+      ariaSelectedAmountTextFunction?: never;
+    }
+  | {
+      /** Text for screen reader to indicate how many items are selected.
+       * E.g 'items selected' as prop value would result in '{amount} items selected' being read by screen reader.
+       */
+      ariaSelectedAmountText?: never;
+      /** Function to provide text for screen reader to indicate how many items are selected. Overrides
+       * `ariaSelectedAmountText` if both are provided.
+       */
+      ariaSelectedAmountTextFunction: (amount: number) => string;
+    };
+
 interface InternalMultiSelectProps<T extends MultiSelectData> {
   /** MultiSelect container div class name for custom styling. */
   className?: string;
@@ -93,16 +142,6 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   onItemSelect?: (uniqueItemId: string | null) => void;
   /** Event to be sent when pressing remove all button */
   onRemoveAll?: () => void;
-  /** Text for screen reader to indicate how many items are selected */
-  ariaSelectedAmountText: string;
-  /** Text for screen reader indicating the amount of available options after filtering by typing. Will be read after the amount.
-   * E.g 'options available' as prop value would result in '{amount} options available' being read by screen reader upon removal.
-   */
-  ariaOptionsAvailableText: string;
-  /** Text for screen reader to read, after labelText/chipText, when selected option is removed from chip list.
-   * E.g 'removed' as prop value would result in '{option} removed' being read by screen reader upon removal.
-   */
-  ariaOptionChipRemovedText: string;
   /** Disable the input */
   disabled?: boolean;
 }
@@ -129,7 +168,10 @@ type AllowItemAdditionProps =
 export type MultiSelectProps<T> = InternalMultiSelectProps<
   T & MultiSelectData
 > &
-  AllowItemAdditionProps;
+  AllowItemAdditionProps &
+  AriaOptionsAvailableProps &
+  AriaOptionChipRemovedProps &
+  AriaSelectedAmountProps;
 
 interface MultiSelectState<T extends MultiSelectData> {
   filterInputValue: string;
@@ -540,8 +582,11 @@ class BaseMultiSelect<T> extends Component<
       onRemoveAll,
       onBlur,
       ariaSelectedAmountText,
+      ariaSelectedAmountTextFunction,
       ariaOptionsAvailableText,
+      ariaOptionsAvailableTextFunction,
       ariaOptionChipRemovedText,
+      ariaOptionChipRemovedTextFunction,
       disabled,
       allowItemAddition,
       itemAdditionHelpText,
@@ -732,11 +777,22 @@ class BaseMultiSelect<T> extends Component<
                   this.chipRemovalAnnounceTimeOut = setTimeout(() => {
                     this.setState({ chipRemovalAnnounceText: '' });
                   }, 1000);
-                  this.setState({
-                    chipRemovalAnnounceText: `${
-                      item.chipText ? item.chipText : item.labelText
-                    } ${ariaOptionChipRemovedText}`,
-                  });
+
+                  if (ariaOptionChipRemovedTextFunction) {
+                    this.setState({
+                      chipRemovalAnnounceText:
+                        ariaOptionChipRemovedTextFunction(
+                          item.chipText ? item.chipText : item.labelText,
+                        ),
+                    });
+                  } else {
+                    this.setState({
+                      chipRemovalAnnounceText: `${
+                        item.chipText ? item.chipText : item.labelText
+                      } ${ariaOptionChipRemovedText}`,
+                    });
+                  }
+
                   this.handleItemSelection(item);
                 }}
               />
@@ -755,8 +811,14 @@ class BaseMultiSelect<T> extends Component<
         {this.state.showOptionsAvailableText && (
           <>
             <VisuallyHidden aria-live="polite" aria-atomic="true">
-              {selectedItems.length}
-              {ariaSelectedAmountText}
+              {ariaSelectedAmountTextFunction ? (
+                <>{ariaSelectedAmountTextFunction(selectedItems.length)}</>
+              ) : (
+                <>
+                  {selectedItems.length}
+                  {ariaSelectedAmountText}
+                </>
+              )}
             </VisuallyHidden>
             <VisuallyHidden
               aria-live="polite"
@@ -764,10 +826,14 @@ class BaseMultiSelect<T> extends Component<
               id={`${id}-filteredItems-length`}
             >
               {this.focusInInput(getOwnerDocument(this.popoverListRef)) ? (
-                <>
-                  {filteredItems.length}
-                  {ariaOptionsAvailableText}
-                </>
+                ariaOptionsAvailableTextFunction ? (
+                  <>{ariaOptionsAvailableTextFunction(filteredItems.length)}</>
+                ) : (
+                  <>
+                    {filteredItems.length}
+                    {ariaOptionsAvailableText}
+                  </>
+                )
               ) : null}
             </VisuallyHidden>
           </>

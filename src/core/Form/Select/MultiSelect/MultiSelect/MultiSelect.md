@@ -362,3 +362,54 @@ const foods = [
   ariaOptionChipRemovedText="removed"
 />;
 ```
+
+### Using functions for template literals
+
+```js
+import { MultiSelect } from 'suomifi-ui-components';
+
+const foods = [
+  {
+    labelText: 'Pizza',
+    uniqueItemId: 'pizza-123'
+  },
+  {
+    labelText: 'Burger',
+    uniqueItemId: 'burger-321'
+  }
+];
+
+const defaultSelectedFoods = [
+  {
+    labelText: 'Pizza',
+    uniqueItemId: 'pizza-123'
+  },
+  {
+    labelText: 'Burger',
+    uniqueItemId: 'burger-321'
+  }
+];
+
+<>
+  <MultiSelect
+    items={foods}
+    chipListVisible={true}
+    ariaChipActionLabel="Remove"
+    removeAllButtonLabel="Remove all selections"
+    visualPlaceholder="Choose your foods"
+    noItemsText="No items"
+    defaultSelectedItems={defaultSelectedFoods}
+    ariaOptionsAvailableTextFunction={(length) =>
+      `there are ${length} options`
+    }
+    ariaOptionChipRemovedTextFunction={(option) =>
+      `removed option ${option} from selected`
+    }
+    ariaSelectedAmountTextFunction={(amount) =>
+      amount === 1
+        ? `${amount} food selected`
+        : `${amount} foods selected`
+    }
+  />
+</>;
+```
