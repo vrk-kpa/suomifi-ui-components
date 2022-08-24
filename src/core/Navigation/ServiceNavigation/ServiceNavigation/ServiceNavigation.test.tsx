@@ -21,14 +21,11 @@ const Comp = ({ children, ...passProps }: TestProps) => (
 const TestServiceNavigation = (
   <ServiceNavigation>
     <ServiceNavigationItem aria-label="16 unread messages">
-      <RouterLink
-        asComponent={Comp}
-        onClick={() => console.log('Nav item clicked')}
-        role="button"
-        tabIndex={0}
-      >
+      <RouterLink href="/">
         Inbox
-        <StaticChip style={{ marginLeft: '15px' }}>16</StaticChip>
+        <StaticChip style={{ marginLeft: '15px' }} aria-hidden>
+          16
+        </StaticChip>
       </RouterLink>
     </ServiceNavigationItem>
     <ServiceNavigationItem>
@@ -36,11 +33,12 @@ const TestServiceNavigation = (
         Sent
       </RouterLink>
     </ServiceNavigationItem>
-    <ServiceNavigationItem selected ariaCurrent="page">
+    <ServiceNavigationItem selected>
       <RouterLink
         asComponent={ExternalLink}
         href="https://www.suomi.fi"
         hideIcon
+        aria-current="page"
       >
         New Message
       </RouterLink>
@@ -56,20 +54,19 @@ const TestServiceNavigation = (
     </ServiceNavigationItem>
     <ServiceNavigationItem>
       <RouterLink
-        asComponent={ExternalLink}
-        href="https://www.suomi.fi"
-        hideIcon
+        asComponent={Comp}
+        onClick={() => console.log('Nav item clicked')}
       >
         Settings
       </RouterLink>
     </ServiceNavigationItem>
-    <ServiceNavigationItem>
+    <ServiceNavigationItem disabled>
       <RouterLink>Devices</RouterLink>
     </ServiceNavigationItem>
   </ServiceNavigation>
 );
 
-test('calling render with the same component on the same container does not remount', () => {
+it('should match snapshot', () => {
   const NavRendered = render(TestServiceNavigation);
   const { container } = NavRendered;
   expect(container.firstChild).toMatchSnapshot();

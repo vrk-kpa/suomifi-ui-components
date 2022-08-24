@@ -5,29 +5,16 @@ import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { baseStyles } from './ServiceNavigationItem.baseStyles';
 import styled from 'styled-components';
 
-interface BasicServiceNavigationItemProps {
+export interface ServiceNavigationItemProps {
   /** Custom class */
   className?: string;
   /** Use the polymorphic `<RouterLink>` component as child to get intended CSS styling */
   children: ReactNode;
+  /** Show item as the selected one */
+  selected?: boolean;
   /** Disable the item */
   disabled?: boolean;
 }
-
-type SelectedProps =
-  | {
-      /** Show item as the selected one */
-      selected: boolean;
-      /** Selected item information for screen reader. Required when `selected` is true */
-      ariaCurrent: 'step' | 'page' | 'location';
-    }
-  | {
-      selected?: never;
-      ariaCurrent?: never;
-    };
-
-export type ServiceNavigationItemProps = BasicServiceNavigationItemProps &
-  SelectedProps;
 
 const baseClassName = 'fi-service-navigation-item';
 const selectedClassName = `${baseClassName}--selected`;
@@ -35,7 +22,6 @@ const disabledClassName = `${baseClassName}--disabled`;
 
 const BaseServiceNavigationItem = ({
   selected,
-  ariaCurrent,
   className,
   children,
   disabled,
@@ -47,7 +33,6 @@ const BaseServiceNavigationItem = ({
       [selectedClassName]: selected,
       [disabledClassName]: disabled,
     })}
-    aria-current={!!ariaCurrent ? ariaCurrent : undefined}
     aria-disabled={disabled}
     {...passProps}
   >

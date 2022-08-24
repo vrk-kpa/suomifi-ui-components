@@ -35,11 +35,12 @@ const CustomButton = (props) => {
         Sent
       </RouterLink>
     </ServiceNavigationItem>
-    <ServiceNavigationItem selected ariaCurrent="page">
+    <ServiceNavigationItem selected>
       <RouterLink
         asComponent={ExternalLink}
         href="https://www.suomi.fi"
         hideIcon
+        aria-current="page"
       >
         New Message
       </RouterLink>
@@ -130,15 +131,12 @@ const expandButtonContent = (
         New Message
       </RouterLink>
     </ServiceNavigationItem>
-    <ServiceNavigationItem
-      selected
-      ariaCurrent="page"
-      aria-label="3 draft messages"
-    >
+    <ServiceNavigationItem selected aria-label="3 draft messages">
       <RouterLink
         asComponent={ExternalLink}
         href="https://www.suomi.fi"
         hideIcon
+        aria-current="page"
       >
         Drafts
         <StaticChip style={{ marginLeft: '15px' }} aria-hidden>

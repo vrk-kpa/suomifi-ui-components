@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`calling render with the same component on the same container does not remount 1`] = `
-.c9 {
+exports[`should match snapshot 1`] = `
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -24,15 +24,15 @@ exports[`calling render with the same component on the same container does not r
   text-decoration: underline;
 }
 
-.c9::before,
-.c9::after {
+.c6::before,
+.c6::after {
   box-sizing: border-box;
 }
 
-.c9:hover,
-.c9:active,
-.c9:focus,
-.c9:focus-within {
+.c6:hover,
+.c6:active,
+.c6:focus,
+.c6:focus-within {
   color: inherit;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -119,7 +119,7 @@ exports[`calling render with the same component on the same container does not r
   box-sizing: border-box;
 }
 
-.c7 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -143,8 +143,8 @@ exports[`calling render with the same component on the same container does not r
   white-space: normal;
 }
 
-.c7::before,
-.c7::after {
+.c8::before,
+.c8::after {
   box-sizing: border-box;
 }
 
@@ -213,6 +213,7 @@ exports[`calling render with the same component on the same container does not r
   font-size: 18px;
   line-height: 24px;
   font-weight: 600;
+  position: relative;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -228,6 +229,26 @@ exports[`calling render with the same component on the same container does not r
   align-items: center;
   padding: 20px;
   border: 1px solid hsl(212,63%,90%);
+}
+
+.c1.fi-service-navigation--small-screen .fi-service-navigation_expand-button:focus {
+  outline: 0;
+}
+
+.c1.fi-service-navigation--small-screen .fi-service-navigation_expand-button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
 }
 
 .c1.fi-service-navigation--small-screen .fi-service-navigation_expand-button .fi-icon {
@@ -418,7 +439,7 @@ exports[`calling render with the same component on the same container does not r
   box-sizing: content-box;
 }
 
-.c6 {
+.c7 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -434,42 +455,42 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 400;
 }
 
-.c6.fi-link--router {
+.c7.fi-link--router {
   color: hsl(212,63%,45%);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c6.fi-link--router:hover,
-.c6.fi-link--router:active,
-.c6.fi-link--router:focus,
-.c6.fi-link--router:focus-within {
+.c7.fi-link--router:hover,
+.c7.fi-link--router:active,
+.c7.fi-link--router:focus,
+.c7.fi-link--router:focus-within {
   color: hsl(212,63%,45%);
 }
 
-.c6.fi-link--router:focus,
-.c6.fi-link--router:focus-within {
+.c7.fi-link--router:focus,
+.c7.fi-link--router:focus-within {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c6.fi-link--router:focus {
+.c7.fi-link--router:focus {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
 }
 
-.c6.fi-link--router:hover,
-.c6.fi-link--router:active {
+.c7.fi-link--router:hover,
+.c7.fi-link--router:active {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c6.fi-link--router:visited {
+.c7.fi-link--router:visited {
   color: hsl(284,36%,45%);
 }
 
-.c8 {
+.c9 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -486,7 +507,7 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 600;
 }
 
-.c8.fi-chip {
+.c9.fi-chip {
   border-radius: 14px;
   padding: 2px 10px;
   color: hsl(0,0%,100%);
@@ -495,12 +516,12 @@ exports[`calling render with the same component on the same container does not r
   display: inline-block;
 }
 
-.c8.fi-chip:focus {
+.c9.fi-chip:focus {
   outline: 0;
   position: relative;
 }
 
-.c8.fi-chip:focus::after {
+.c9.fi-chip:focus::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -517,20 +538,20 @@ exports[`calling render with the same component on the same container does not r
   border-radius: 16px;
 }
 
-.c8.fi-chip .fi-chip--content {
+.c9.fi-chip .fi-chip--content {
   display: block;
   word-break: break-word;
   overflow: hidden;
   line-height: 1.5em;
 }
 
-.c8.fi-chip--disabled.fi-chip {
+.c9.fi-chip--disabled.fi-chip {
   cursor: not-allowed;
   background: hsl(202,7%,67%);
 }
 
-.c8.fi-chip--disabled.fi-chip:hover,
-.c8.fi-chip--disabled.fi-chip:active {
+.c9.fi-chip--disabled.fi-chip:hover,
+.c9.fi-chip--disabled.fi-chip:active {
   background: hsl(202,7%,67%);
 }
 
@@ -547,52 +568,52 @@ exports[`calling render with the same component on the same container does not r
         aria-label="16 unread messages"
         class="c4 c5 fi-service-navigation-item"
       >
-        <div
-          class="fi-link--router c6"
-          role="button"
-          tabindex="0"
+        <a
+          class="c6 fi-link--router c7"
+          href="/"
         >
           Inbox
           <span
-            class="c7 fi-chip c8"
+            aria-hidden="true"
+            class="c8 fi-chip c9"
             style="margin-left: 15px;"
           >
             <span
-              class="c7 fi-chip--content"
+              class="c8 fi-chip--content"
             >
               16
             </span>
           </span>
-        </div>
+        </a>
       </li>
       <li
         class="c4 c5 fi-service-navigation-item"
       >
         <a
-          class="c9 fi-link c10 fi-link--router c6 fi-link--external"
+          class="c6 fi-link c10 fi-link--router c7 fi-link--external"
           href="https://suomi.fi"
           rel="noopener"
           target="_blank"
         >
           Sent
           <span
-            class="c7 c11 fi-visually-hidden"
+            class="c8 c11 fi-visually-hidden"
           />
         </a>
       </li>
       <li
-        aria-current="page"
         class="c4 c5 fi-service-navigation-item--selected"
       >
         <a
-          class="c9 fi-link c10 fi-link--router c6 fi-link--external"
+          aria-current="page"
+          class="c6 fi-link c10 fi-link--router c7 fi-link--external"
           href="https://www.suomi.fi"
           rel="noopener"
           target="_blank"
         >
           New Message
           <span
-            class="c7 c11 fi-visually-hidden"
+            class="c8 c11 fi-visually-hidden"
           />
         </a>
       </li>
@@ -600,37 +621,32 @@ exports[`calling render with the same component on the same container does not r
         class="c4 c5 fi-service-navigation-item"
       >
         <a
-          class="c9 fi-link c10 fi-link--router c6 fi-link--external"
+          class="c6 fi-link c10 fi-link--router c7 fi-link--external"
           href="https://www.suomi.fi"
           rel="noopener"
           target="_blank"
         >
           Drafts
           <span
-            class="c7 c11 fi-visually-hidden"
+            class="c8 c11 fi-visually-hidden"
           />
         </a>
       </li>
       <li
         class="c4 c5 fi-service-navigation-item"
       >
-        <a
-          class="c9 fi-link c10 fi-link--router c6 fi-link--external"
-          href="https://www.suomi.fi"
-          rel="noopener"
-          target="_blank"
+        <div
+          class="fi-link--router c7"
         >
           Settings
-          <span
-            class="c7 c11 fi-visually-hidden"
-          />
-        </a>
+        </div>
       </li>
       <li
-        class="c4 c5 fi-service-navigation-item"
+        aria-disabled="true"
+        class="c4 c5 fi-service-navigation-item fi-service-navigation-item--disabled"
       >
         <a
-          class="c9 fi-link--router c6"
+          class="c6 fi-link--router c7"
         >
           Devices
         </a>
