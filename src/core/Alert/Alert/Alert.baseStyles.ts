@@ -32,7 +32,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         margin-right: ${theme.spacing.xs};
         margin-bottom: ${theme.spacing.insetM};
         border: 1px solid transparent;
-        border-radius: ${theme.radius.basic};
+        border-radius: ${theme.radiuses.basic};
         white-space: nowrap;
 
         &:focus-visible {
@@ -40,7 +40,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           position: relative;
 
           &:after {
-            ${theme.focus.absoluteFocus}
+            ${theme.focuses.absoluteFocus}
           }
         }
         &:active {
