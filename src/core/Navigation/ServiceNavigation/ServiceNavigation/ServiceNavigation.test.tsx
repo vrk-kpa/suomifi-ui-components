@@ -20,8 +20,8 @@ const Comp = ({ children, ...passProps }: TestProps) => (
 
 const TestServiceNavigation = (
   <ServiceNavigation>
-    <ServiceNavigationItem aria-label="16 unread messages">
-      <RouterLink href="/">
+    <ServiceNavigationItem>
+      <RouterLink href="/" aria-label="Inbox. 16 unread messages.">
         Inbox
         <StaticChip style={{ marginLeft: '15px' }} aria-hidden>
           16

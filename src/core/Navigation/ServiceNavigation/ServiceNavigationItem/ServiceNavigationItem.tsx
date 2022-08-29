@@ -34,7 +34,6 @@ const BaseServiceNavigationItem = ({
       [disabledClassName]: disabled,
     })}
     aria-disabled={disabled}
-    role="option"
     {...passProps}
   >
     {children}

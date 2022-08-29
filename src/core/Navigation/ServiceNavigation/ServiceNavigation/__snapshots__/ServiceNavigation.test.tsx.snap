@@ -565,10 +565,10 @@ exports[`should match snapshot 1`] = `
       class="c3 fi-service-navigation_list"
     >
       <li
-        aria-label="16 unread messages"
         class="c4 c5 fi-service-navigation-item"
       >
         <a
+          aria-label="Inbox. 16 unread messages."
           class="c6 fi-link--router c7"
           href="/"
         >
