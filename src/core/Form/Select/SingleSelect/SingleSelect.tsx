@@ -469,6 +469,7 @@ class BaseSingleSelect<T> extends Component<
       allowItemAddition,
       itemAdditionHelpText,
       items, // Only destructured away so they don't end up in the DOM
+      forwardedRef, // Only destructured away so it doesn't end up in the DOM
       ...passProps
     } = this.props;
 
@@ -670,30 +671,35 @@ const StyledSingleSelect = styled(BaseSingleSelect)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const SingleSelect = forwardRef(
-  <T,>(
-    props: SingleSelectProps<T & SingleSelectData>,
-    ref: React.RefObject<HTMLInputElement>,
-  ) => {
-    const { id: propId, ...passProps } = props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledSingleSelect
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
-            )}
-          </AutoId>
-        )}
-      </SuomifiThemeConsumer>
-    );
-  },
-);
+function SingleSelectInner<T>(
+  props: SingleSelectProps<T & SingleSelectData>,
+  ref: React.RefObject<HTMLInputElement>,
+) {
+  const { id: propId, ...passProps } = props;
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <AutoId id={propId}>
+          {(id) => (
+            <StyledSingleSelect
+              theme={suomifiTheme}
+              id={id}
+              forwardedRef={ref}
+              {...passProps}
+            />
+          )}
+        </AutoId>
+      )}
+    </SuomifiThemeConsumer>
+  );
+}
 
-SingleSelect.displayName = 'SingleSelect';
-export { SingleSelect };
+// Type assertion is needed to set the function signature with generic T type.
+export const SingleSelect = forwardRef(SingleSelectInner) as <T>(
+  props: SingleSelectProps<T & SingleSelectData> & {
+    ref?: React.ForwardedRef<HTMLInputElement>;
+  },
+) => ReturnType<typeof SingleSelectInner>;
+
+// Because of type assertion the displayName has to be set like this
+(SingleSelect as React.FC).displayName = 'SingleSelect';

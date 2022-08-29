@@ -601,6 +601,7 @@ class BaseMultiSelect<T> extends Component<
       allowItemAddition,
       itemAdditionHelpText,
       items, // Only destructured away so they don't end up in the DOM
+      forwardedRef, // Only destructured away so it doesn't end up in the DOM
       ...passProps
     } = this.props;
 
@@ -864,29 +865,35 @@ const StyledMultiSelect = styled(BaseMultiSelect)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const MultiSelect = forwardRef(
-  <T,>(
-    props: MultiSelectProps<T & MultiSelectData>,
-    ref: React.RefObject<HTMLInputElement>,
-  ) => {
-    const { id: propId, ...passProps } = props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledMultiSelect
-                theme={suomifiTheme}
-                id={id}
-                forwardedRef={ref}
-                {...passProps}
-              />
-            )}
-          </AutoId>
-        )}
-      </SuomifiThemeConsumer>
-    );
+function MultiSelectInner<T>(
+  props: MultiSelectProps<T & MultiSelectData>,
+  ref: React.RefObject<HTMLInputElement>,
+) {
+  const { id: propId, ...passProps } = props;
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <AutoId id={propId}>
+          {(id) => (
+            <StyledMultiSelect
+              theme={suomifiTheme}
+              id={id}
+              forwardedRef={ref}
+              {...passProps}
+            />
+          )}
+        </AutoId>
+      )}
+    </SuomifiThemeConsumer>
+  );
+}
+
+// Type assertion is needed to set the function signature with generic T type.
+export const MultiSelect = forwardRef(MultiSelectInner) as <T>(
+  props: MultiSelectProps<T & MultiSelectData> & {
+    ref?: React.ForwardedRef<HTMLInputElement>;
   },
-);
-MultiSelect.displayName = 'MultiSelect';
-export { MultiSelect };
+) => ReturnType<typeof MultiSelectInner>;
+
+// Because of type assertion the displayName has to be set like this
+(MultiSelect as React.FC).displayName = 'MultiSelect';
