@@ -27,7 +27,7 @@ export interface InlineAlertProps extends HtmlDivWithRefProps {
   /** Use small screen styling */
   smallScreen?: boolean;
   /** Label for the alert */
-  labelText?: string;
+  labelText?: ReactNode;
   /** Set aria-live mode for the alert text content and label.
    * @default 'assertive'
    */
