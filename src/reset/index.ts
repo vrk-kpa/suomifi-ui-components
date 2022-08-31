@@ -5,6 +5,7 @@ export {
   HtmlDivProps,
   HtmlDivWithRef,
   HtmlDivWithRefProps,
+  HtmlDivWithNativeRef,
 } from './HtmlDiv/HtmlDiv';
 export { HtmlFieldSet, HtmlFieldSetProps } from './HtmlFieldSet/HtmlFieldSet';
 export { HtmlH, HtmlHProps, HtmlHWithRefProps, hLevels } from './HtmlH/HtmlH';
