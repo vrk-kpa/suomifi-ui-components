@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SpacingWithoutInsetProp } from '../theme/utils/spacing';
 import { baseStyles } from './Block.baseStyles';
-import { HtmlDivWithRef, HtmlDivProps } from '../../reset';
+import { HtmlDivWithNativeRef, HtmlDivProps } from '../../reset';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 
 const baseClassName = 'fi-block';
@@ -44,11 +44,11 @@ export interface BlockProps extends HtmlDivProps {
   variant?: 'default' | 'section' | 'header' | 'nav' | 'main' | 'footer';
 }
 
-interface InternalBlockProps extends BlockProps {
-  forwardedRef: React.RefObject<HTMLDivElement>;
+interface InnerRef {
+  forwardedRef?: React.Ref<HTMLDivElement>;
 }
 
-class SemanticBlock extends Component<InternalBlockProps> {
+class SemanticBlock extends Component<BlockProps & InnerRef> {
   render() {
     const {
       className,
@@ -67,13 +67,16 @@ class SemanticBlock extends Component<InternalBlockProps> {
       pl,
       px,
       py,
+      forwardedRef,
       ...passProps
     } = this.props;
+
     const ComponentVariant =
-      !variant || variant === 'default' ? HtmlDivWithRef : variant;
+      !variant || variant === 'default' ? HtmlDivWithNativeRef : variant;
 
     return (
       <ComponentVariant
+        ref={forwardedRef}
         {...passProps}
         className={classnames(baseClassName, className, {
           [`${baseClassName}--padding-${padding}`]: !!padding,
@@ -101,7 +104,7 @@ class SemanticBlock extends Component<InternalBlockProps> {
   }
 }
 
-const StyledBlock = styled((props: InternalBlockProps & SuomifiThemeProp) => {
+const StyledBlock = styled((props: SuomifiThemeProp & InnerRef) => {
   const { theme, ...passProps } = props;
   return <SemanticBlock {...passProps} />;
 })`
@@ -112,7 +115,7 @@ const StyledBlock = styled((props: InternalBlockProps & SuomifiThemeProp) => {
  * Used in displaying a generic piece of HTML e.g. a div
  */
 const Block = forwardRef(
-  (props: BlockProps, ref: React.RefObject<HTMLDivElement>) => (
+  (props: BlockProps, ref: React.Ref<HTMLDivElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <StyledBlock theme={suomifiTheme} forwardedRef={ref} {...props} />
