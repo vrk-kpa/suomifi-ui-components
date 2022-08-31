@@ -199,6 +199,11 @@ exports[`should match snapshot 1`] = `
   background: hsl(212,63%,95%);
 }
 
+.c1.fi-service-navigation--small-screen .fi-service-navigation-item,
+.c1.fi-service-navigation--small-screen .fi-service-navigation-item--selected {
+  border-bottom: 1px solid hsl(0,0%,100%);
+}
+
 .c1.fi-service-navigation--small-screen .fi-service-navigation_expand-button {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -287,12 +292,35 @@ exports[`should match snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  position: relative;
 }
 
 .c5.fi-service-navigation-item:hover,
 .c5.fi-service-navigation-item:active {
-  background: hsl(215,100%,97%);
+  background: hsl(212,63%,95%);
   cursor: pointer;
+  border-left: 4px solid hsl(212,63%,45%);
+}
+
+.c5.fi-service-navigation-item:hover .fi-link--router,
+.c5.fi-service-navigation-item:active .fi-link--router {
+  padding-left: calc(20px - 4px);
+}
+
+.c5.fi-service-navigation-item:focus {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
 }
 
 .c5.fi-service-navigation-item .fi-link--router {
@@ -341,8 +369,25 @@ exports[`should match snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: hsl(215,100%,97%);
+  background: hsl(212,63%,95%);
   border-left: 4px solid hsl(212,63%,45%);
+  position: relative;
+}
+
+.c5.fi-service-navigation-item--selected:focus {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
 }
 
 .c5.fi-service-navigation-item--selected .fi-link--router {

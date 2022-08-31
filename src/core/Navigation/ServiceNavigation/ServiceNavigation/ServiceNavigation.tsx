@@ -25,8 +25,7 @@ export interface ServiceNavigationProps {
    * @default true
    */
   initiallyExpanded?: boolean;
-  /** When using smallScreen variant, this is the text showed in the expander button.
-   * Intended to be the same text as the currently selected nav item.  */
+  /** When using smallScreen variant, this is the text showed in the expander button */
   smallScreenExpandButtonText?: string | ReactNode;
   /** Custom classname to extend or customize */
   className?: string;

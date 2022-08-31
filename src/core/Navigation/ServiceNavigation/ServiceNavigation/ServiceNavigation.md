@@ -63,7 +63,7 @@ const CustomButton = (props) => {
       </RouterLink>
     </ServiceNavigationItem>
     <ServiceNavigationItem disabled>
-      <RouterLink>Devices</RouterLink>
+      <RouterLink href="https://www.suomi.fi">Devices</RouterLink>
     </ServiceNavigationItem>
   </ServiceNavigation>
 </div>;
@@ -95,19 +95,10 @@ const Comp = (props) => {
   return <div {...passProps}>{props.children}</div>;
 };
 
-const expandButtonContent = (
-  <>
-    <span>DRAFTS</span>
-    <StaticChip style={{ marginLeft: '15px' }} aria-hidden>
-      3
-    </StaticChip>
-  </>
-);
-
 <div style={{ width: '300px' }}>
   <ServiceNavigation
     variant="smallScreen"
-    smallScreenExpandButtonText={expandButtonContent}
+    smallScreenExpandButtonText="Menu"
     initiallyExpanded={false}
   >
     <ServiceNavigationItem>
@@ -156,7 +147,7 @@ const expandButtonContent = (
       </RouterLink>
     </ServiceNavigationItem>
     <ServiceNavigationItem disabled>
-      <RouterLink>Devices</RouterLink>
+      <RouterLink href="https://www.suomi.fi">Devices</RouterLink>
     </ServiceNavigationItem>
   </ServiceNavigation>
 </div>;

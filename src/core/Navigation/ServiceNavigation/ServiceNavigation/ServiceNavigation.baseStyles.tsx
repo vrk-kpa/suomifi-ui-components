@@ -7,6 +7,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-service-navigation {
     &--small-screen {
       background: ${theme.colors.highlightLight3};
+      .fi-service-navigation-item,
+      .fi-service-navigation-item--selected {
+        border-bottom: 1px solid ${theme.colors.whiteBase};
+      }
       .fi-service-navigation_expand-button {
         ${font(theme)('heading4')}
         position: relative;

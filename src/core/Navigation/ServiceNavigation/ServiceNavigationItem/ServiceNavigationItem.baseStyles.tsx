@@ -10,11 +10,20 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-service-navigation-item {
     display: flex;
     align-items: center;
+    position: relative;
 
     &:hover,
     &:active {
-      background: ${theme.colors.depthSecondary};
+      background: ${theme.colors.highlightLight3};
       cursor: pointer;
+      border-left: 4px solid ${theme.colors.highlightBase};
+      .fi-link--router {
+        padding-left: calc(${theme.spacing.m} - 4px);
+      }
+    }
+
+    &:focus {
+      ${theme.focus.absoluteFocus};
     }
 
     .fi-link--router {
@@ -52,8 +61,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &--selected {
       display: flex;
       align-items: center;
-      background: ${theme.colors.depthSecondary};
+      background: ${theme.colors.highlightLight3};
       border-left: 4px solid ${theme.colors.highlightBase};
+      position: relative;
+
+      &:focus {
+        ${theme.focus.absoluteFocus};
+      }
 
       .fi-link--router {
         font-weight: bold;
