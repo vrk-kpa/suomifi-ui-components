@@ -23,7 +23,7 @@ export interface RadioButtonGroupProps {
   /** Hint text to be displayed under the label. */
   groupHintText?: string;
   /** Label for the group */
-  labelText: string;
+  labelText: ReactNode;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
    */
