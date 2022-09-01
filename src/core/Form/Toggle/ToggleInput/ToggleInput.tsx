@@ -34,8 +34,6 @@ export interface ToggleInputProps
   name?: string;
   /** Event handler to execute when clicked */
   onChange?: (checked: boolean) => void;
-  /** Ref object to be passed to the input element */
-  ref?: React.RefObject<HTMLInputElement>;
 }
 
 interface InnerRef {
