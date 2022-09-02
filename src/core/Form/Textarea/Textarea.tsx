@@ -37,7 +37,7 @@ const textareaClassNames = {
 
 type TextareaStatus = Exclude<InputStatus, 'success'>;
 
-interface InternalTextareaProps
+export interface TextareaProps
   extends StatusTextCommonProps,
     Omit<HtmlTextareaProps, 'placeholder'> {
   /** Custom classname to extend or customize */
@@ -88,12 +88,8 @@ interface InternalTextareaProps
 }
 
 interface InnerRef {
-  forwardedRef: React.RefObject<HTMLTextAreaElement>;
-}
-
-export interface TextareaProps extends InternalTextareaProps {
   /** Ref object to be passed to the textarea element */
-  ref?: React.RefObject<HTMLTextAreaElement>;
+  forwardedRef: React.Ref<HTMLTextAreaElement>;
 }
 
 class BaseTextarea extends Component<TextareaProps & InnerRef> {
@@ -176,10 +172,7 @@ class BaseTextarea extends Component<TextareaProps & InnerRef> {
 }
 
 const StyledTextarea = styled(
-  ({
-    theme,
-    ...passProps
-  }: InternalTextareaProps & InnerRef & SuomifiThemeProp) => (
+  ({ theme, ...passProps }: TextareaProps & InnerRef & SuomifiThemeProp) => (
     <BaseTextarea {...passProps} />
   ),
 )`
