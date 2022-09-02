@@ -63,7 +63,7 @@ export interface CheckboxGroupProviderState {
 }
 
 interface InnerRef {
-  forwardedRef: React.RefObject<HTMLDivElement>;
+  forwardedRef: React.Ref<HTMLDivElement>;
 }
 
 const defaultProviderValue: CheckboxGroupProviderState = {};
@@ -149,7 +149,7 @@ const StyledCheckboxGroup = styled(BaseCheckboxGroup)`
  * Use for grouping Checkboxes.
  */
 const CheckboxGroup = forwardRef(
-  (props: CheckboxGroupProps, ref: React.RefObject<HTMLDivElement>) => {
+  (props: CheckboxGroupProps, ref: React.Ref<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
       <SuomifiThemeConsumer>
