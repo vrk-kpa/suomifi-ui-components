@@ -11,7 +11,7 @@ const skipClassName = 'fi-link--skip';
 export interface SkipLinkProps extends BaseLinkProps {}
 
 interface InnerRef {
-  forwardedRef?: React.RefObject<HTMLParagraphElement>;
+  forwardedRef?: React.Ref<HTMLAnchorElement>;
 }
 
 const StyledSkipLink = styled(
@@ -28,7 +28,7 @@ const StyledSkipLink = styled(
  * Used for adding skip link for keyboard and screenreader users
  */
 const SkipLink = forwardRef(
-  (props: SkipLinkProps, ref: React.RefObject<HTMLAnchorElement>) => {
+  (props: SkipLinkProps, ref: React.Ref<HTMLAnchorElement>) => {
     const { className, ...passProps } = props;
     return (
       <SuomifiThemeConsumer>

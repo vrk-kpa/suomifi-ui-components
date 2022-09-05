@@ -33,7 +33,7 @@ interface InternalExternalLinkProps extends BaseLinkProps {
 export type ExternalLinkProps = newWindowProps & InternalExternalLinkProps;
 
 interface InnerRef {
-  forwardedRef?: React.RefObject<HTMLParagraphElement>;
+  forwardedRef?: React.Ref<HTMLAnchorElement>;
 }
 
 class BaseExternalLink extends Component<ExternalLinkProps> {
@@ -83,7 +83,7 @@ const StyledExternalLink = styled(
  * Used for adding a external site link
  */
 const ExternalLink = forwardRef(
-  (props: ExternalLinkProps, ref: React.RefObject<HTMLAnchorElement>) => (
+  (props: ExternalLinkProps, ref: React.Ref<HTMLAnchorElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <StyledExternalLink

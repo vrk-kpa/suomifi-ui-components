@@ -11,8 +11,8 @@ export interface HtmlAProps
 }
 
 export interface HtmlAWithRefProps extends HtmlAProps {
-  /** Ref object for the heading element */
-  forwardedRef?: React.RefObject<HTMLAnchorElement>;
+  /** Ref for the heading element */
+  forwardedRef?: React.Ref<HTMLAnchorElement>;
 }
 
 const aResets = css`

@@ -40,7 +40,7 @@ const StyledChip = styled(
 `;
 
 const StaticChip = forwardRef(
-  (props: StaticChipProps, ref: React.RefObject<HTMLSpanElement>) => (
+  (props: StaticChipProps, ref: React.Ref<HTMLSpanElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <StyledChip theme={suomifiTheme} forwardedRef={ref} {...props} />

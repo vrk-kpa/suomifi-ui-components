@@ -23,7 +23,7 @@ const StyledVisuallyHidden = styled((props: VisuallyHiddenProps) => (
 `;
 
 const VisuallyHidden = forwardRef(
-  (props: VisuallyHiddenProps, ref: React.RefObject<HTMLSpanElement>) => {
+  (props: VisuallyHiddenProps, ref: React.Ref<HTMLSpanElement>) => {
     const { className, ...passProps } = props;
     return (
       <StyledVisuallyHidden

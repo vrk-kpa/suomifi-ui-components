@@ -9,7 +9,7 @@ import { BaseLinkProps, baseClassName } from '../BaseLink/BaseLink';
 export interface LinkProps extends BaseLinkProps {}
 
 interface InternalLinkProps extends LinkProps, SuomifiThemeProp {
-  forwardedRef?: React.RefObject<HTMLAnchorElement>;
+  forwardedRef?: React.Ref<HTMLAnchorElement>;
 }
 
 const StyledLink = styled(
@@ -29,7 +29,7 @@ const StyledLink = styled(
  * Used for adding a link
  */
 const Link = forwardRef(
-  (props: LinkProps, ref: React.RefObject<HTMLAnchorElement>) => (
+  (props: LinkProps, ref: React.Ref<HTMLAnchorElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <StyledLink theme={suomifiTheme} forwardedRef={ref} {...props} />

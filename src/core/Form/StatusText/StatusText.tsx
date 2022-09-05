@@ -30,7 +30,7 @@ export interface StatusTextProps extends HtmlSpanProps {
 }
 
 interface InnerRef {
-  forwardedRef: React.RefObject<HTMLSpanElement>;
+  forwardedRef: React.Ref<HTMLSpanElement>;
 }
 
 const StyledStatusText = styled(
@@ -65,7 +65,7 @@ const StyledStatusText = styled(
 `;
 
 const StatusText = forwardRef<HTMLSpanElement, StatusTextProps>(
-  (props: StatusTextProps, ref: React.RefObject<HTMLSpanElement>) => {
+  (props: StatusTextProps, ref: React.Ref<HTMLSpanElement>) => {
     const { children, ...passProps } = props;
     return (
       <SuomifiThemeConsumer>

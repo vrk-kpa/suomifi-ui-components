@@ -16,7 +16,7 @@ export interface ParagraphProps extends HtmlPProps {
 }
 
 interface InnerRef {
-  forwardedRef?: React.RefObject<HTMLParagraphElement>;
+  forwardedRef?: React.Ref<HTMLParagraphElement>;
 }
 
 const StyledParagraph = styled(
