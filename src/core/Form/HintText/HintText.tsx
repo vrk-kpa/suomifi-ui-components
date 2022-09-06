@@ -14,6 +14,9 @@ export interface HintTextProps extends HtmlSpanProps {
   children?: ReactNode;
   /** Custom class name for styling and customizing  */
   className?: string;
+
+  /** Ref is forwarded to the span element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLSpanElement>;
 }
 
 const StyledHintText = styled(
@@ -35,7 +38,7 @@ const StyledHintText = styled(
 `;
 
 const HintText = forwardRef(
-  (props: HintTextProps, ref: React.RefObject<HTMLSpanElement>) => {
+  (props: HintTextProps, ref: React.Ref<HTMLSpanElement>) => {
     const { children, ...passProps } = props;
     if (!children) {
       return null;

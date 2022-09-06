@@ -34,13 +34,11 @@ export interface ToggleInputProps
   name?: string;
   /** Event handler to execute when clicked */
   onChange?: (checked: boolean) => void;
+  /** Ref object is passed to the input element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLInputElement>;
-}
-
-class BaseToggleInput extends Component<ToggleInputProps & InnerRef> {
+class BaseToggleInput extends Component<ToggleInputProps> {
   state: ToggleState = {
     toggleState: !!this.props.checked || !!this.props.defaultChecked,
   };
@@ -121,7 +119,7 @@ class BaseToggleInput extends Component<ToggleInputProps & InnerRef> {
 }
 
 const StyledToggleInput = styled(
-  (props: ToggleBaseProps & InnerRef & SuomifiThemeProp) => {
+  (props: ToggleBaseProps & SuomifiThemeProp) => {
     const { theme, ...passProps } = props;
     return <BaseToggleInput {...passProps} />;
   },

@@ -144,6 +144,8 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   onRemoveAll?: () => void;
   /** Disable the input */
   disabled?: boolean;
+  /** Ref object to be passed to the input element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 
 type AllowItemAdditionProps =
@@ -184,12 +186,8 @@ interface MultiSelectState<T extends MultiSelectData> {
   chipRemovalAnnounceText: string;
 }
 
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLInputElement>;
-}
-
 class BaseMultiSelect<T> extends Component<
-  MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp & InnerRef
+  MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp
 > {
   private popoverListRef: React.RefObject<HTMLUListElement>;
 
@@ -200,9 +198,7 @@ class BaseMultiSelect<T> extends Component<
   private chipRemovalAnnounceTimeOut: ReturnType<typeof setTimeout> | null =
     null;
 
-  constructor(
-    props: MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp & InnerRef,
-  ) {
+  constructor(props: MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp) {
     super(props);
     this.popoverListRef = React.createRef();
 

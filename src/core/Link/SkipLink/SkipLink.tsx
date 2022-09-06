@@ -8,18 +8,15 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 
 const skipClassName = 'fi-link--skip';
 
-export interface SkipLinkProps extends BaseLinkProps {}
-
-interface InnerRef {
+export interface SkipLinkProps extends BaseLinkProps {
+  /** Ref  is passed to the anchor element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLAnchorElement>;
 }
 
-const StyledSkipLink = styled(
-  (props: SkipLinkProps & SuomifiThemeProp & InnerRef) => {
-    const { theme, ...passProps } = props;
-    return <Link {...passProps} />;
-  },
-)`
+const StyledSkipLink = styled((props: SkipLinkProps & SuomifiThemeProp) => {
+  const { theme, ...passProps } = props;
+  return <Link {...passProps} />;
+})`
   ${({ theme }) => SkipLinkStyles(theme)}
 `;
 

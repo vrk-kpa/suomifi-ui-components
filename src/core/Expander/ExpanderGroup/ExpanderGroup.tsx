@@ -38,6 +38,8 @@ export interface ExpanderGroupProps {
     | 'onKeyUp'
     | 'onKeyDown'
   >;
+  /** Ref is forwarded to button element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLButtonElement>;
 }
 
 interface ExpanderOpenStates {
@@ -53,10 +55,6 @@ interface ExpanderGroupState {
   allOpen: boolean | undefined;
   /** State change transition request */
   expanderGroupOpenState: ExpanderGroupTargetOpenState;
-}
-
-interface InnerRef {
-  forwardedRef: React.Ref<HTMLButtonElement>;
 }
 
 export interface ExpanderGroupProviderState {
@@ -75,7 +73,7 @@ const { Provider, Consumer: ExpanderGroupConsumer } =
   React.createContext(defaultProviderValue);
 
 class BaseExpanderGroup extends Component<
-  ExpanderGroupProps & SuomifiThemeProp & InnerRef
+  ExpanderGroupProps & SuomifiThemeProp
 > {
   state: ExpanderGroupState = {
     allOpen: undefined,

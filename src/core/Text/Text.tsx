@@ -18,6 +18,8 @@ export interface TextProps extends HtmlSpanProps {
    * @default body
    */
   variant?: 'body' | 'lead' | 'bold';
+  /** Ref is passed to the span element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLSpanElement>;
 }
 
 const StyledText = styled(

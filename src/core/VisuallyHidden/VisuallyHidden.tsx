@@ -5,6 +5,8 @@ import { HtmlSpan, HtmlSpanProps } from '../../reset/HtmlSpan/HtmlSpan';
 
 export interface VisuallyHiddenProps extends HtmlSpanProps {
   className?: string;
+  /** Ref is passed to the span element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLSpanElement>;
 }
 
 const baseClassName = 'fi-visually-hidden';

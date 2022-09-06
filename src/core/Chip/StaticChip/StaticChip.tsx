@@ -12,7 +12,10 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 
 export interface StaticChipProps
   extends BaseChipProps,
-    Omit<HtmlSpanProps, 'children'> {}
+    Omit<HtmlSpanProps, 'children'> {
+  /** Ref is forwarded to the span element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLSpanElement>;
+}
 
 class BaseChip extends Component<StaticChipProps> {
   render() {

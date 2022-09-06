@@ -27,10 +27,8 @@ export interface StatusTextProps extends HtmlSpanProps {
    * @default polite
    */
   ariaLiveMode?: AriaLiveMode;
-}
-
-interface InnerRef {
-  forwardedRef: React.Ref<HTMLSpanElement>;
+  /** Ref is forwarded to the span element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLSpanElement>;
 }
 
 const StyledStatusText = styled(
@@ -42,7 +40,7 @@ const StyledStatusText = styled(
     theme,
     ariaLiveMode = 'polite',
     ...passProps
-  }: StatusTextProps & InnerRef & SuomifiThemeProp) => {
+  }: StatusTextProps & SuomifiThemeProp) => {
     const ariaLiveProp = !disabled
       ? { 'aria-live': ariaLiveMode }
       : { 'aria-live': 'off' };

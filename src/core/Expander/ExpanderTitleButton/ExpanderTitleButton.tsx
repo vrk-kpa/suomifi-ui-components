@@ -30,9 +30,7 @@ export interface ExpanderTitleButtonProps {
     | 'onKeyUp'
     | 'onKeyDown'
   >;
-}
-
-interface InnerRef {
+  /** Ref is forwarded to the button element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
 
@@ -41,9 +39,7 @@ interface InternalExpanderTitleButtonProps
     ExpanderTitleBaseProps,
     SuomifiThemeProp {}
 
-class BaseExpanderTitleButton extends Component<
-  InternalExpanderTitleButtonProps & InnerRef
-> {
+class BaseExpanderTitleButton extends Component<InternalExpanderTitleButtonProps> {
   render() {
     const {
       asHeading,

@@ -85,6 +85,8 @@ export interface InternalSingleSelectProps<T extends SingleSelectData> {
   onItemSelect?: (uniqueItemId: string | null) => void;
   /** Disable the input */
   disabled?: boolean;
+  /** Ref is forwarded to the input element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 
 type AllowItemAdditionProps =
@@ -122,12 +124,8 @@ interface SingleSelectState<T extends SingleSelectData> {
   initialItems: T[];
 }
 
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLInputElement>;
-}
-
 class BaseSingleSelect<T> extends Component<
-  SingleSelectProps<T & SingleSelectData> & SuomifiThemeProp & InnerRef
+  SingleSelectProps<T & SingleSelectData> & SuomifiThemeProp
 > {
   private popoverListRef: React.RefObject<HTMLUListElement>;
 
@@ -140,9 +138,7 @@ class BaseSingleSelect<T> extends Component<
   private preventShowPopoverOnInputFocus = false;
 
   constructor(
-    props: SingleSelectProps<T & SingleSelectData> &
-      SuomifiThemeProp &
-      InnerRef,
+    props: SingleSelectProps<T & SingleSelectData> & SuomifiThemeProp,
   ) {
     super(props);
     this.popoverListRef = React.createRef();

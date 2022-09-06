@@ -56,14 +56,12 @@ export interface CheckboxGroupProps {
   groupStatus?: CheckboxGroupStatus;
   /** Status text to be shown below the component. Use e.g. for validation error */
   groupStatusText?: string;
+  /** Ref is forwarded to the wrapping div element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLDivElement>;
 }
 
 export interface CheckboxGroupProviderState {
   status?: CheckboxGroupStatus;
-}
-
-interface InnerRef {
-  forwardedRef: React.Ref<HTMLDivElement>;
 }
 
 const defaultProviderValue: CheckboxGroupProviderState = {};
@@ -72,7 +70,7 @@ const { Provider, Consumer: CheckboxGroupConsumer } =
   React.createContext(defaultProviderValue);
 
 class BaseCheckboxGroup extends Component<
-  CheckboxGroupProps & SuomifiThemeProp & InnerRef
+  CheckboxGroupProps & SuomifiThemeProp
 > {
   render() {
     const {

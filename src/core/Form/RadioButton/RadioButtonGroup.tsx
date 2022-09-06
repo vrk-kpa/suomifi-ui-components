@@ -48,6 +48,8 @@ export interface RadioButtonGroupProps {
   defaultValue?: string;
   /** Callback for RadioButtonGroup selected changes. */
   onChange?: (value: string) => void;
+  /** Ref is forwarded to the wrapping div element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLDivElement>;
 }
 
 export interface RadioButtonGroupProviderState {
@@ -65,12 +67,8 @@ export interface RadioButtonGroupState {
   selectedValue?: string;
 }
 
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLDivElement>;
-}
-
 class BaseRadioButtonGroup extends Component<
-  RadioButtonGroupProps & SuomifiThemeProp & InnerRef
+  RadioButtonGroupProps & SuomifiThemeProp
 > {
   state: RadioButtonGroupState = {
     selectedValue: this.props.value || this.props.defaultValue,

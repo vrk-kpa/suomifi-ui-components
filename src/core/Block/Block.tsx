@@ -42,13 +42,11 @@ export interface BlockProps extends HtmlDivProps {
    * @default default
    */
   variant?: 'default' | 'section' | 'header' | 'nav' | 'main' | 'footer';
-}
-
-interface InnerRef {
+  /** Ref is forwarded to the inner element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLDivElement>;
 }
 
-class SemanticBlock extends Component<BlockProps & InnerRef> {
+class SemanticBlock extends Component<BlockProps> {
   render() {
     const {
       className,
@@ -104,7 +102,7 @@ class SemanticBlock extends Component<BlockProps & InnerRef> {
   }
 }
 
-const StyledBlock = styled((props: SuomifiThemeProp & InnerRef) => {
+const StyledBlock = styled((props: SuomifiThemeProp) => {
   const { theme, ...passProps } = props;
   return <SemanticBlock {...passProps} />;
 })`

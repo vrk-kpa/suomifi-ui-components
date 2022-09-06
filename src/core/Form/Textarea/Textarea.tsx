@@ -85,14 +85,11 @@ export interface TextareaProps
   fullWidth?: boolean;
   /** Textarea container div props */
   containerProps?: Omit<HtmlDivProps, 'className'>;
+  /** Ref is passed to the textarea element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLTextAreaElement>;
 }
 
-interface InnerRef {
-  /** Ref object to be passed to the textarea element */
-  forwardedRef: React.Ref<HTMLTextAreaElement>;
-}
-
-class BaseTextarea extends Component<TextareaProps & InnerRef> {
+class BaseTextarea extends Component<TextareaProps> {
   render() {
     const {
       id,
@@ -172,7 +169,7 @@ class BaseTextarea extends Component<TextareaProps & InnerRef> {
 }
 
 const StyledTextarea = styled(
-  ({ theme, ...passProps }: TextareaProps & InnerRef & SuomifiThemeProp) => (
+  ({ theme, ...passProps }: TextareaProps & SuomifiThemeProp) => (
     <BaseTextarea {...passProps} />
   ),
 )`

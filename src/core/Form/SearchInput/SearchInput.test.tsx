@@ -214,6 +214,23 @@ describe('props', () => {
       expect(inputElement.value).toBe('new value');
     });
   });
+
+  describe('ref', () => {
+    it('ref is forwarded to input', () => {
+      const ref = React.createRef<HTMLInputElement>();
+
+      render(
+        <SearchInput
+          labelText="Debounced search"
+          clearButtonLabel="clear"
+          searchButtonLabel="search"
+          ref={ref}
+        />,
+      );
+
+      expect(ref.current?.tagName).toBe('INPUT');
+    });
+  });
 });
 
 describe('states', () => {

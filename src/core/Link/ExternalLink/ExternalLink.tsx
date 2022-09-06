@@ -28,13 +28,11 @@ interface InternalExternalLinkProps extends BaseLinkProps {
   toNewWindow?: boolean;
   /** Translated explanation of 'opens to a new window' */
   labelNewWindow?: string;
+  /** Ref is passed to the anchor element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLAnchorElement>;
 }
 
 export type ExternalLinkProps = newWindowProps & InternalExternalLinkProps;
-
-interface InnerRef {
-  forwardedRef?: React.Ref<HTMLAnchorElement>;
-}
 
 class BaseExternalLink extends Component<ExternalLinkProps> {
   render() {
@@ -70,7 +68,7 @@ class BaseExternalLink extends Component<ExternalLinkProps> {
 }
 
 const StyledExternalLink = styled(
-  (props: ExternalLinkProps & SuomifiThemeProp & InnerRef) => {
+  (props: ExternalLinkProps & SuomifiThemeProp) => {
     const { theme, ...passProps } = props;
     return <BaseExternalLink {...passProps} />;
   },

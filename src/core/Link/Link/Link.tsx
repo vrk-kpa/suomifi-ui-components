@@ -6,14 +6,18 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlA } from '../../../reset';
 import { BaseLinkProps, baseClassName } from '../BaseLink/BaseLink';
 
-export interface LinkProps extends BaseLinkProps {}
-
-interface InternalLinkProps extends LinkProps, SuomifiThemeProp {
+export interface LinkProps extends BaseLinkProps {
+  /** Ref  is passed to the anchor element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLAnchorElement>;
 }
 
 const StyledLink = styled(
-  ({ asProp, className, theme, ...passProps }: InternalLinkProps) => (
+  ({
+    asProp,
+    className,
+    theme,
+    ...passProps
+  }: LinkProps & SuomifiThemeProp) => (
     <HtmlA
       {...passProps}
       className={classnames(baseClassName, className)}

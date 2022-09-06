@@ -55,6 +55,8 @@ export interface ExpanderProps {
   open?: boolean;
   /** Event handler to execute when clicked */
   onOpenChange?: (open: boolean) => void;
+  /** Ref is forwarded to wrapping div element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLDivElement>;
 }
 
 export interface ExpanderTitleBaseProps {
@@ -76,18 +78,12 @@ interface BaseExpanderProps extends ExpanderProps {
   consumer: ExpanderGroupProviderState;
 }
 
-interface InnerRef {
-  forwardedRef: React.Ref<HTMLDivElement>;
-}
-
-class BaseExpander extends Component<
-  BaseExpanderProps & SuomifiThemeProp & InnerRef
-> {
+class BaseExpander extends Component<BaseExpanderProps & SuomifiThemeProp> {
   state: ExpanderState = {
     openState: this.props.defaultOpen || false,
   };
 
-  constructor(props: BaseExpanderProps & SuomifiThemeProp & InnerRef) {
+  constructor(props: BaseExpanderProps & SuomifiThemeProp) {
     super(props);
     if (!!props.id) {
       const defaultOpen =

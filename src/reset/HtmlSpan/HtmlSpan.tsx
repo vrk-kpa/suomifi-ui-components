@@ -7,9 +7,9 @@ export interface HtmlSpanProps
   extends Omit<HTMLProps<HTMLSpanElement>, 'ref' | 'as'> {
   as?: asPropType;
 }
-export interface HtmlSpanWithRefProps extends HtmlSpanProps {
+interface HtmlSpanWithRefProps extends HtmlSpanProps {
   /** Ref object for the span element */
-  forwardedRef?: React.RefObject<HTMLSpanElement>;
+  forwardedRef?: React.Ref<HTMLSpanElement>;
 }
 
 const spanResets = css`

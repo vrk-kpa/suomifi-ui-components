@@ -84,6 +84,8 @@ export interface SearchInputProps
   onSearch?: (value: SearchInputValue) => void;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
   debounce?: number;
+  /** Ref is forwarded to input element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 
 const baseClassName = 'fi-search-input';

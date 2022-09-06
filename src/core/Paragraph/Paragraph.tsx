@@ -13,9 +13,7 @@ export interface ParagraphProps extends HtmlPProps {
   color?: ColorProp;
   /** Spacing token for bottom margin */
   marginBottomSpacing?: SpacingWithoutInsetProp;
-}
-
-interface InnerRef {
+  /** Ref object is passed to the paragraph element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLParagraphElement>;
 }
 
@@ -25,7 +23,7 @@ const StyledParagraph = styled(
     className,
     theme,
     ...passProps
-  }: ParagraphProps & SuomifiThemeProp & InnerRef) => (
+  }: ParagraphProps & SuomifiThemeProp) => (
     <HtmlP
       className={classnames(baseClassName, className, {
         [`${baseClassName}--margin-${marginBottomSpacing}`]:

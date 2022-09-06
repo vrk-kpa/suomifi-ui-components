@@ -49,15 +49,11 @@ export interface LanguageMenuProps {
     | Array<React.ReactElement<LanguageMenuPopoverItemsProps>>
     | null
     | undefined;
+  /** Ref is passed to the button element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLButtonElement>;
 }
 
-interface InnerRef {
-  forwardedRef: React.Ref<HTMLButtonElement>;
-}
-
-class BaseLanguageMenu extends Component<
-  LanguageMenuProps & SuomifiThemeProp & InnerRef
-> {
+class BaseLanguageMenu extends Component<LanguageMenuProps & SuomifiThemeProp> {
   render() {
     const {
       children,
@@ -100,7 +96,7 @@ class BaseLanguageMenu extends Component<
   }
 }
 const StyledLanguageMenu = styled(
-  (props: LanguageMenuProps & SuomifiThemeProp & InnerRef) => (
+  (props: LanguageMenuProps & SuomifiThemeProp) => (
     <BaseLanguageMenu {...props} />
   ),
 )`
