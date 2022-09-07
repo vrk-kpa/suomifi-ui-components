@@ -39,7 +39,7 @@ export const HtmlDivWithRef = styled(DivWithRef)`
 
 /** Passing the ref with name 'ref' needs the forwardRef function */
 export const HtmlDivWithNativeRef = forwardRef(
-  (props: HtmlDivProps, ref: React.Ref<HTMLDivElement>) => (
+  (props: HtmlDivProps, ref: React.Ref<HTMLElement>) => (
     <HtmlDivWithRef forwardedRef={ref} {...props} />
   ),
 );
