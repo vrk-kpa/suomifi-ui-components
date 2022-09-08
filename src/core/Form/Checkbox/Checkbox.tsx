@@ -91,10 +91,8 @@ interface InternalCheckboxProps extends StatusTextCommonProps {
   name?: string;
   /** Value */
   value?: string;
-}
-
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLInputElement>;
+  /** Ref object to be passed to the input element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 
 export interface CheckboxProps extends InternalCheckboxProps {
@@ -102,7 +100,7 @@ export interface CheckboxProps extends InternalCheckboxProps {
   ref?: React.RefObject<HTMLInputElement>;
 }
 
-class BaseCheckbox extends Component<CheckboxProps & InnerRef> {
+class BaseCheckbox extends Component<CheckboxProps> {
   state = {
     checkedState: !!this.props.checked || !!this.props.defaultChecked,
   };
@@ -241,10 +239,7 @@ class BaseCheckbox extends Component<CheckboxProps & InnerRef> {
 }
 
 const StyledCheckbox = styled(
-  ({
-    theme,
-    ...passProps
-  }: InternalCheckboxProps & InnerRef & SuomifiThemeProp) => (
+  ({ theme, ...passProps }: InternalCheckboxProps & SuomifiThemeProp) => (
     <BaseCheckbox {...passProps} />
   ),
 )`

@@ -25,10 +25,10 @@ export interface ToastProps {
   headingVariant?: Exclude<hLevels, 'h1'>;
   /** Unique id */
   id?: string;
+  /** Ref to be passed to the wrapping div element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLDivElement>;
 }
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLDivElement>;
-}
+
 const baseClassName = 'fi-toast';
 export const toastClassNames = {
   styleWrapper: `${baseClassName}-wrapper`,
@@ -37,7 +37,7 @@ export const toastClassNames = {
   icon: `${baseClassName}_icon`,
   iconWrapper: `${baseClassName}_icon-wrapper`,
 };
-class BaseToast extends Component<ToastProps & InnerRef> {
+class BaseToast extends Component<ToastProps> {
   render() {
     const {
       ariaLiveMode = 'polite',
@@ -79,17 +79,15 @@ class BaseToast extends Component<ToastProps & InnerRef> {
     );
   }
 }
-const StyledToast = styled(
-  (props: ToastProps & InnerRef & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
-    return <BaseToast {...passProps} />;
-  },
-)`
+const StyledToast = styled((props: ToastProps & SuomifiThemeProp) => {
+  const { theme, ...passProps } = props;
+  return <BaseToast {...passProps} />;
+})`
   ${({ theme }) => baseStyles(theme)};
 `;
 
 const Toast = forwardRef(
-  (props: ToastProps, ref: React.RefObject<HTMLDivElement>) => {
+  (props: ToastProps, ref: React.Ref<HTMLDivElement>) => {
     const { ...passProps } = props;
     return (
       <SuomifiThemeConsumer>

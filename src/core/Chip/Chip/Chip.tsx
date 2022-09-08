@@ -19,7 +19,7 @@ const chipButtonClassNames = {
   icon: `${baseClassName}--icon`,
 };
 
-interface InternalChipProps
+export interface ChipProps
   extends BaseChipProps,
     Omit<
       HtmlButtonProps,
@@ -38,18 +38,10 @@ interface InternalChipProps
   actionLabel?: string;
   /** Soft disable the chip to allow tab-focus, but disable onClick functionality */
   'aria-disabled'?: boolean;
+  /** Ref is passed to the button element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
-
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLButtonElement>;
-}
-
-export interface ChipProps extends InternalChipProps {
-  /** Ref object to be passed to the button element */
-  ref?: React.RefObject<HTMLButtonElement>;
-}
-
-class DefaultChip extends Component<ChipProps & InnerRef> {
+class DefaultChip extends Component<ChipProps> {
   render() {
     const {
       className,
@@ -106,10 +98,7 @@ class DefaultChip extends Component<ChipProps & InnerRef> {
 }
 
 const StyledChip = styled(
-  ({
-    theme,
-    ...passProps
-  }: InternalChipProps & InnerRef & SuomifiThemeProp) => (
+  ({ theme, ...passProps }: ChipProps & SuomifiThemeProp) => (
     <DefaultChip {...passProps} />
   ),
 )`
