@@ -1,8 +1,11 @@
 ```js
 import { InlineAlert } from 'suomifi-ui-components';
+import { createRef } from 'react';
+
+const exampleRef = createRef();
 
 <>
-  <InlineAlert labelText="Info">
+  <InlineAlert labelText="Info" ref={exampleRef}>
     Make sure that your name is typed exactly as it appears in your
     identification.
   </InlineAlert>
