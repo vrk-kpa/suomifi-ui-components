@@ -25,7 +25,7 @@ export interface ToastProps {
   headingVariant?: Exclude<hLevels, 'h1'>;
   /** Unique id */
   id?: string;
-  /** Ref to be passed to the wrapping div element. Alternative to React `ref` attribute. */
+  /** Ref to be passed to the root div element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLDivElement>;
 }
 

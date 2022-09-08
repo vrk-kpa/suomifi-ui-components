@@ -48,7 +48,7 @@ export interface RadioButtonGroupProps {
   defaultValue?: string;
   /** Callback for RadioButtonGroup selected changes. */
   onChange?: (value: string) => void;
-  /** Ref is forwarded to the wrapping div element. Alternative for React `ref` attribute. */
+  /** Ref is forwarded to the root div element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLDivElement>;
 }
 

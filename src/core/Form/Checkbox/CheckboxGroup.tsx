@@ -56,7 +56,7 @@ export interface CheckboxGroupProps {
   groupStatus?: CheckboxGroupStatus;
   /** Status text to be shown below the component. Use e.g. for validation error */
   groupStatusText?: string;
-  /** Ref is forwarded to the wrapping div element. Alternative for React `ref` attribute. */
+  /** Ref is forwarded to the root div element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLDivElement>;
 }
 

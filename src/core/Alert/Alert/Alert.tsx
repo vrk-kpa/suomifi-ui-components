@@ -39,7 +39,7 @@ export interface AlertProps extends HtmlDivWithRefProps {
   onCloseButtonClick?: () => void;
   /** Custom props passed to the close button */
   closeButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'aria-label'>;
-  /** Ref is passed to the outer div element. Alternative for React `ref` attribute. */
+  /** Ref is passed to the root div element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLDivElement>;
 }
 

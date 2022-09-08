@@ -32,7 +32,7 @@ export interface LoadingSpinnerProps {
    * @default 'normal'
    */
   variant?: 'normal' | 'small';
-  /** Ref to be passed to the wrapping div element. Alternative to React `ref` attribute. */
+  /** Ref to be passed to the root div element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLDivElement>;
 }
 
