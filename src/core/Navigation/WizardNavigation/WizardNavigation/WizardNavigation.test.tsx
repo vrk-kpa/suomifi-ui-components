@@ -8,30 +8,37 @@ import { RouterLink } from '../../../Link';
 
 const TestWizardNavigation = (
   <WizardNavigation heading="Steps">
-    <WizardNavigationItem stepNumber={1} status="visited">
-      <RouterLink href="https://suomi.fi">Step 1 (visited)</RouterLink>
+    <WizardNavigationItem status="default">
+      <RouterLink href="https://suomi.fi">1. Step</RouterLink>
     </WizardNavigationItem>
-    <WizardNavigationItem stepNumber={2} status="current">
-      <RouterLink aria-current="step" aria-disabled href="#">
-        Step 2 (current)
+    <WizardNavigationItem status="completed">
+      <RouterLink href="#" aria-label="Step 2. This step is completed">
+        2. Step
       </RouterLink>
     </WizardNavigationItem>
-    <WizardNavigationItem stepNumber={3} status="proceed">
-      <RouterLink
-        asComponent="button"
-        onClick={() => console.log('Step 3 clicked!')}
-      >
-        Step 3 (proceed)
+    <WizardNavigationItem status="current">
+      <RouterLink aria-current="step" href="#">
+        3. Step
       </RouterLink>
     </WizardNavigationItem>
-    <WizardNavigationItem stepNumber={4} status="not-visited">
+    <WizardNavigationItem status="coming">
       <RouterLink aria-disabled tabIndex={-1} href="#">
-        Step 4 (not visited)
+        4. Step
       </RouterLink>
     </WizardNavigationItem>
-    <WizardNavigationItem stepNumber={5} status="disabled">
+    <WizardNavigationItem status="coming">
       <RouterLink aria-disabled tabIndex={-1} href="#">
-        Step 5 (disabled)
+        5. Step
+      </RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="disabled">
+      <RouterLink aria-disabled tabIndex={-1} href="#">
+        6. Step
+      </RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="coming">
+      <RouterLink asComponent="button" aria-disabled tabIndex={-1}>
+        7. Step
       </RouterLink>
     </WizardNavigationItem>
   </WizardNavigation>

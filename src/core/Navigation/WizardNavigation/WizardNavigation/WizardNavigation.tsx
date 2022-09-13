@@ -26,6 +26,7 @@ export interface WizardNavigationProps {
 
 const baseClassName = 'fi-wizard-navigation';
 const smallScreenClassName = `${baseClassName}--small-screen`;
+const dividerClassName = `${baseClassName}_divider`;
 const listClassName = `${baseClassName}_list`;
 const headingClassName = `${baseClassName}_heading`;
 
@@ -62,6 +63,7 @@ const BaseWizardNavigation = ({
       {((variant === 'smallScreen' && smallScreenNavOpen) ||
         variant !== 'smallScreen') && (
         <HtmlNav>
+          <HtmlDiv className={dividerClassName} />
           <HtmlUl className={listClassName}>{children}</HtmlUl>
         </HtmlNav>
       )}

@@ -4,48 +4,58 @@ import { HtmlDiv, HtmlLi, HtmlSpan } from '../../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { baseStyles } from './WizardNavigationItem.baseStyles';
 import styled from 'styled-components';
+import { Icon } from '../../../Icon/Icon';
 
 export interface WizardNavigationItemProps {
   /** Custom class */
   className?: string;
   /** Use the polymorphic RouterLink component as child to get intended CSS styling */
   children: ReactNode;
-  /** Indicates the step's number */
-  stepNumber: Number;
   /** Status of the item. Changes styling and availability */
-  status: 'visited' | 'current' | 'proceed' | 'not-visited' | 'disabled';
+  status:
+    | 'default'
+    | 'current'
+    | 'current-completed'
+    | 'completed'
+    | 'coming'
+    | 'disabled';
 }
 
 const baseClassName = 'fi-wizard-navigation-item';
-const visitedClassName = `${baseClassName}--visited`;
+const defaultClassName = `${baseClassName}--default`;
 const currentClassName = `${baseClassName}--current`;
-const proceedClassName = `${baseClassName}--proceed`;
-const notVisitedClassName = `${baseClassName}--not-visited`;
+const currentCompletedClassName = `${baseClassName}--current-completed`;
+const completedClassName = `${baseClassName}--completed`;
+const comingClassName = `${baseClassName}--coming`;
 const disabledClassName = `${baseClassName}--disabled`;
 
 const innerWrapperClassName = `${baseClassName}_inner-wrapper`;
-const stepNumberClassName = `${baseClassName}_step-number`;
+const leftIconClassName = `${baseClassName}_left-icon`;
 
 const BaseWizardNavigationItem = ({
   className,
   children,
   status,
-  stepNumber,
   ...passProps
 }: WizardNavigationItemProps) => (
   <HtmlLi
     className={classnames(className, baseClassName, {
-      [visitedClassName]: status === 'visited',
+      [defaultClassName]: status === 'default',
       [currentClassName]: status === 'current',
-      [proceedClassName]: status === 'proceed',
-      [notVisitedClassName]: status === 'not-visited',
+      [currentCompletedClassName]: status === 'current-completed',
+      [completedClassName]: status === 'completed',
+      [comingClassName]: status === 'coming',
       [disabledClassName]: status === 'disabled',
     })}
     aria-disabled={status === 'disabled' ? true : undefined}
     {...passProps}
   >
     <HtmlDiv className={innerWrapperClassName}>
-      <HtmlSpan className={stepNumberClassName}>{stepNumber}</HtmlSpan>
+      <HtmlSpan className={leftIconClassName}>
+        {(status === 'completed' || status === 'current-completed') && (
+          <Icon icon="check" />
+        )}
+      </HtmlSpan>
       {children}
     </HtmlDiv>
   </HtmlLi>

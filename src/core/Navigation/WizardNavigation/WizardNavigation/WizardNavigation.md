@@ -2,11 +2,12 @@
 
 A `<WizardNavigationItem>` can have one of these 5 statuses:
 
-- visited: the user has already visited this step and can go back to it
+- default: reachable & incomplete step
 - current: currently active step
-- proceed: the step directly following the current step. Is reachable
-- not-visited: a step which follows the current step but is not directly after it, not reachable
-- disabled: disabled step, not reachable
+- completed: a step where the user has filled all necessary information
+- current-completed: a combination of current and completed statuses
+- coming: a step which is unreachable at the moment (but will become available when e.g. the previous steps have been completed)
+- disabled: disabled step, not reachable. We do not recommend the use of this status unless absolutely necessary
 
 Please use `<RouterLink>` as the child of `<WizardNavigationItem>` to get inteded CSS styles. `<RouterLink>` is polymorphic, and can be rendered as any component of your choice, for example React Router Link.
 
@@ -22,36 +23,48 @@ const Comp = (props) => {
   return <div {...passProps}>{props.children}</div>;
 };
 
-<div style={{ width: '300px' }}>
+<div style={{ width: '350px' }}>
   <WizardNavigation heading="Steps">
-    <WizardNavigationItem stepNumber={1} status="visited">
-      <RouterLink href="https://suomi.fi">
-        Step 1 (visited)
+    <WizardNavigationItem status="completed">
+      <RouterLink href="https://suomi.fi">Step 1</RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="default">
+      <RouterLink
+        href="#"
+        aria-label="Step 2. This step is completed"
+      >
+        Step 2
       </RouterLink>
     </WizardNavigationItem>
-    <WizardNavigationItem stepNumber={2} status="current">
-      <RouterLink aria-current="step" aria-disabled href="#">
-        Step 2 (current)
+    <WizardNavigationItem status="current">
+      <RouterLink aria-current="step" href="#">
+        Step 3
       </RouterLink>
     </WizardNavigationItem>
-    <WizardNavigationItem stepNumber={3} status="proceed">
+    <WizardNavigationItem status="coming">
+      <RouterLink aria-disabled tabIndex={-1} href="#">
+        Step 4 with a long text that wraps to the second line like
+        this
+      </RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="coming">
+      <RouterLink aria-disabled tabIndex={-1} href="#">
+        Step 5
+      </RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="disabled">
+      <RouterLink aria-disabled tabIndex={-1} href="#">
+        Step 6
+      </RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="coming">
       <RouterLink
         asComponent={Comp}
-        onClick={() => console.log('Step 3 clicked!')}
         role="button"
-        tabIndex={0}
+        aria-disabled
+        tabIndex={-1}
       >
-        Step 3 (proceed)
-      </RouterLink>
-    </WizardNavigationItem>
-    <WizardNavigationItem stepNumber={4} status="not-visited">
-      <RouterLink aria-disabled tabIndex={-1} href="#">
-        Step 4 (not visited)
-      </RouterLink>
-    </WizardNavigationItem>
-    <WizardNavigationItem stepNumber={5} status="disabled">
-      <RouterLink aria-disabled tabIndex={-1} href="#">
-        Step 5 (disabled)
+        Step 7
       </RouterLink>
     </WizardNavigationItem>
   </WizardNavigation>
@@ -61,7 +74,7 @@ const Comp = (props) => {
 For frameworks where its internal link component is used as a wrapper for the actual link, for example NextJS, the following approach can be used:
 
 ```jsx static
-<WizardNavigationItem stepNumber={1} status="current">
+<WizardNavigationItem status="default">
   <NextJSLink href="/some-route" passHref>
     <RouterLink>Step 1</RouterLink>
   </NextJSLink>
@@ -84,38 +97,49 @@ const Comp = (props) => {
 
 <div style={{ width: '300px' }}>
   <WizardNavigation
-    heading="Steps"
     variant="smallScreen"
+    heading="Steps"
     initiallyExpanded={false}
   >
-    <WizardNavigationItem stepNumber={1} status="visited">
-      <RouterLink href="https://suomi.fi">
-        Step 1 (visited)
+    <WizardNavigationItem status="default">
+      <RouterLink href="https://suomi.fi">Step 1</RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="completed">
+      <RouterLink
+        href="#"
+        aria-label="Step 2. This step is completed"
+      >
+        Step 2
       </RouterLink>
     </WizardNavigationItem>
-    <WizardNavigationItem stepNumber={2} status="current">
-      <RouterLink aria-current="step" aria-disabled href="#">
-        Step 2 (current)
+    <WizardNavigationItem status="current">
+      <RouterLink aria-current="step" href="#">
+        Step 3
       </RouterLink>
     </WizardNavigationItem>
-    <WizardNavigationItem stepNumber={3} status="proceed">
+    <WizardNavigationItem status="coming">
+      <RouterLink aria-disabled tabIndex={-1} href="#">
+        Step 4
+      </RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="coming">
+      <RouterLink aria-disabled tabIndex={-1} href="#">
+        Step 5
+      </RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="disabled">
+      <RouterLink aria-disabled tabIndex={-1} href="#">
+        Step 6
+      </RouterLink>
+    </WizardNavigationItem>
+    <WizardNavigationItem status="coming">
       <RouterLink
         asComponent={Comp}
-        onClick={() => console.log('Step 3 clicked!')}
         role="button"
-        tabIndex={0}
+        aria-disabled
+        tabIndex={-1}
       >
-        Step 3 (proceed)
-      </RouterLink>
-    </WizardNavigationItem>
-    <WizardNavigationItem stepNumber={4} status="not-visited">
-      <RouterLink aria-disabled tabIndex={-1} href="#">
-        Step 4 (not visited)
-      </RouterLink>
-    </WizardNavigationItem>
-    <WizardNavigationItem stepNumber={5} status="disabled">
-      <RouterLink aria-disabled tabIndex={-1} href="#">
-        Step 5 (disabled)
+        Step 7
       </RouterLink>
     </WizardNavigationItem>
   </WizardNavigation>
