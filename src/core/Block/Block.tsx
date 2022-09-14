@@ -38,12 +38,18 @@ export interface BlockProps extends HtmlDivProps {
   /** Margin on the y-axis (top & bottom) from theme */
   my?: SpacingWithoutInsetProp;
   /**
-   * Change block semantics
+   * Change block semantics. "Default" renders a div with SuomifiTheme reset styles applied,
+   * whereas "div" renders a plain HTML div
    * @default default
    */
-  variant?: 'default' | 'section' | 'header' | 'nav' | 'main' | 'footer';
-  /** Ref is forwarded to the block element. All variants are supported. Alternative for React `ref` attribute. */
-  forwardedRef?: React.Ref<HTMLElement>;
+  variant?:
+    | 'default'
+    | 'div'
+    | 'section'
+    | 'header'
+    | 'nav'
+    | 'main'
+    | 'footer';
 }
 
 class SemanticBlock extends Component<BlockProps> {
