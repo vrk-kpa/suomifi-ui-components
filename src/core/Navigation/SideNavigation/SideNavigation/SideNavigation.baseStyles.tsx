@@ -6,16 +6,32 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')}
   &.fi-side-navigation {
     &--small-screen {
-      background: ${theme.colors.highlightLight3};
+      border: 1px solid ${theme.colors.depthLight1};
       .fi-side-navigation_heading {
         ${font(theme)('heading4')}
         width: 100%;
         padding: ${theme.spacing.m};
-        border: 1px solid ${theme.colors.highlightLight2};
+
+        &:focus {
+          position: relative;
+          outline: 0;
+
+          &:after {
+            ${theme.focus.absoluteFocus}
+          }
+        }
 
         .fi-icon {
           height: 25px;
           width: 25px;
+        }
+      }
+
+      .fi-side-navigation-item {
+        &:last-child {
+          &:after {
+            display: none;
+          }
         }
       }
     }
@@ -25,7 +41,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: ${theme.spacing.s};
+      padding: ${theme.spacing.xs} ${theme.spacing.s};
 
       .fi-side-navigation_heading_inner {
         display: flex;
@@ -33,8 +49,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
 
       .fi-static-icon {
-        height: 50px;
-        width: 50px;
+        height: 45px;
+        width: 45px;
         margin-right: ${theme.spacing.s};
       }
     }

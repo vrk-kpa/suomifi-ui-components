@@ -68,7 +68,7 @@ const BaseSideNavigation = ({
           onClick={() => setSmallScreenNavOpen(!smallScreenNavOpen)}
           aria-expanded={smallScreenNavOpen}
         >
-          <HtmlSpan>
+          <HtmlSpan className={headingInnerWrapperClassName}>
             {!!icon && <StaticIcon icon={icon} />}
             {heading}
           </HtmlSpan>
