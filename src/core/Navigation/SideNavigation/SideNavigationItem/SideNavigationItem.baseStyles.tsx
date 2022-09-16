@@ -30,6 +30,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
+    &:focus,
+    &:focus-within {
+      outline: 0;
+      box-shadow: none;
+      border: none;
+    }
+
     .fi-link--router {
       text-decoration: none;
       display: flex;
@@ -49,6 +56,17 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         background: ${theme.colors.highlightBase};
         text-decoration: none;
         color: ${theme.colors.whiteBase};
+      }
+
+      &:focus {
+        position: relative;
+        outline: 0;
+        box-shadow: none;
+        border: none;
+
+        &:before {
+          ${theme.focus.absoluteFocus}
+        }
       }
     }
 
@@ -77,7 +95,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         position: absolute;
         top: 11px;
         right: 15px;
-        color: ${theme.colors.depthDark1};
+        color: ${theme.colors.highlightBase};
       }
     }
 
@@ -181,7 +199,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         cursor: not-allowed;
 
         &:hover,
-        &:active {
+        &:active,
+        &:visited {
           color: ${theme.colors.depthBase};
         }
       }

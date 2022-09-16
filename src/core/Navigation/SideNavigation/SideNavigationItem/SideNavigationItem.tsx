@@ -15,13 +15,11 @@ export interface SideNavigationItemProps {
   children?: ReactNode | ReactNode[];
   /** Sub-level of this item. 1-3 */
   subLevel: 1 | 2 | 3;
-  /** If this item's child is selected, this prop must be applied to get correct CSS styles */
-  childSelected?: boolean;
   /** Show item as the selected one */
   selected?: boolean;
   /** Disable the item */
   disabled?: boolean;
-  /** Force the item to show its children */
+  /** Force the item to show its children even when not selected */
   expanded?: boolean;
 }
 
