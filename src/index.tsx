@@ -18,6 +18,11 @@ export { DropdownItem, DropdownItemProps } from './core/Dropdown/';
 export { Chip, ChipProps } from './core/Chip/';
 export { StaticChip, StaticChipProps } from './core/Chip/';
 export {
+  LoadingSpinner,
+  LoadingSpinnerProps,
+  LoadingSpinnerStatus,
+} from './core/LoadingSpinner/LoadingSpinner';
+export {
   Checkbox,
   CheckboxProps,
   CheckboxGroup,
@@ -69,6 +74,8 @@ export {
   ExternalLinkProps,
   SkipLink,
   SkipLinkProps,
+  RouterLink,
+  RouterLinkProps,
 } from './core/Link/';
 export {
   LanguageMenu,
@@ -103,6 +110,7 @@ export {
 export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';
 export { Text, TextProps } from './core/Text/Text';
 export { Textarea, TextareaProps } from './core/Form/Textarea/Textarea';
+export { Tooltip, TooltipProps } from './core/Tooltip/Tooltip';
 export {
   VisuallyHidden,
   VisuallyHiddenProps,

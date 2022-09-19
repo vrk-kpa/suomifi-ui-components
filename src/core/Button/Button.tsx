@@ -54,7 +54,7 @@ interface InternalButtonProps
   /** Event handler to execute when clicked
    *  @default void
    */
-  onClick?: (event: MouseEvent | KeyboardEvent) => void;
+  onClick?: (event: React.MouseEvent) => void;
 }
 
 interface InnerRef {
@@ -152,7 +152,7 @@ const StyledButton = styled(
  * <i class="semantics" />
  * Use for inside Application onClick events.<br />
  */
-export const Button = forwardRef(
+const Button = forwardRef(
   (props: ButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
@@ -161,3 +161,6 @@ export const Button = forwardRef(
     </SuomifiThemeConsumer>
   ),
 );
+
+Button.displayName = 'Button';
+export { Button };

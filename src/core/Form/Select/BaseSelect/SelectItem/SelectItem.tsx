@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, MouseEvent } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { escapeStringRegexp } from '../../../../../utils/common';
@@ -27,7 +27,7 @@ export interface SelectItemProps {
   /** Checked state for the item */
   checked: boolean;
   /** onClick event handler */
-  onClick: (event: MouseEvent<HTMLLIElement>) => void;
+  onClick: (event: React.MouseEvent<HTMLLIElement>) => void;
   /** Item children, dislayed as item content */
   children: ReactNode;
   /** SelectItem container div class name for custom styling. */

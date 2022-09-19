@@ -5,6 +5,7 @@ const primitiveComponents = [
   'Block',
   'Button',
   'Heading',
+  'Tooltip',
   'VisuallyHidden',
   ['Form', 'TextInput'],
   ['Form', 'SearchInput'],
@@ -102,7 +103,10 @@ module.exports = {
             'InlineAlert/InlineAlert',
           ]),
         },
-
+        {
+          name: 'LoadingSpinner',
+          components: getComponents(['LoadingSpinner']),
+        },
         {
           name: 'Checkbox',
           components: getComponentWithVariants('Form/Checkbox')([
@@ -123,6 +127,7 @@ module.exports = {
             'Link/Link',
             'SkipLink/SkipLink',
             'ExternalLink/ExternalLink',
+            'RouterLink/RouterLink',
           ]),
         },
         {
@@ -202,6 +207,3 @@ module.exports = {
     },
   ],
 };
-
-
-

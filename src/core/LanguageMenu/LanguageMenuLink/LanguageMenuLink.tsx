@@ -12,7 +12,7 @@ export interface LanguageMenuLinkProps {
   className?: string;
 }
 
-export const LanguageMenuLink = ({
+const LanguageMenuLink = ({
   selected,
   className,
   ...passProps
@@ -24,3 +24,6 @@ export const LanguageMenuLink = ({
     })}
   />
 );
+
+LanguageMenuLink.displayName = 'LanguageMenuLink';
+export { LanguageMenuLink };

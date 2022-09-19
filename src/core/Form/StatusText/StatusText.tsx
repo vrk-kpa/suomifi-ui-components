@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
@@ -60,17 +60,18 @@ const StyledStatusText = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export class StatusText extends Component<StatusTextProps> {
-  render() {
-    const { children, ...passProps } = this.props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <StyledStatusText theme={suomifiTheme} {...passProps}>
-            {children}
-          </StyledStatusText>
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const StatusText = (props: StatusTextProps) => {
+  const { children, ...passProps } = props;
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledStatusText theme={suomifiTheme} {...passProps}>
+          {children}
+        </StyledStatusText>
+      )}
+    </SuomifiThemeConsumer>
+  );
+};
+
+StatusText.displayName = 'StatusText';
+export { StatusText };

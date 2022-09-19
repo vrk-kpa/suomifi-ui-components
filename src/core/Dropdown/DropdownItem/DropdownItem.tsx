@@ -29,10 +29,13 @@ const StyledDropdownItem = styled(BaseDropdownItem)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export const DropdownItem = (props: DropdownItemProps) => (
+const DropdownItem = (props: DropdownItemProps) => (
   <SuomifiThemeConsumer>
     {({ suomifiTheme }) => (
       <StyledDropdownItem theme={suomifiTheme} {...props} />
     )}
   </SuomifiThemeConsumer>
 );
+
+DropdownItem.displayName = 'DropdownItem';
+export { DropdownItem };

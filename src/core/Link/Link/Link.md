@@ -61,20 +61,28 @@ import { ExternalLink } from 'suomifi-ui-components';
 </>;
 ```
 
-### Change component for the link
+### Router link
+
+This component is mainly intended to be used with external libraries/frameworks.
+
+- Renders as the component of your choice, for example <a href="https://reactrouter.com/docs/en/v6/components/link" target="_blank">React Router Link</a>, but with proper Suomi.fi link styles
+- Full Typescript support for props based on the component passed to `asComponent`
+- Full theme customisation support through `SuomifiThemeProvider`
 
 ```js
-import { Link } from 'suomifi-ui-components';
+import { RouterLink } from 'suomifi-ui-components';
 
 const Component = ({ children, ...passProps }) => (
-  <a {...passProps}>foo {children} bar</a>
+  <a {...passProps}>Some component - {children}</a>
 );
 
-<Link
-  className="test-classname"
-  href="https://www.com/"
-  asProp={Component}
->
-  Testing
-</Link>;
+<>
+  <RouterLink
+    asComponent={Component}
+    href="https://suomi.fi"
+    target="_blank"
+  >
+    Testing
+  </RouterLink>
+</>;
 ```

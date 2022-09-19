@@ -441,16 +441,22 @@ exports[`props children should match snapshot 1`] = `
   width: 100%;
   box-shadow: 0px 4px 8px 0px rgba(41,41,41,0.14);
   border-radius: 4px;
-  display: block;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
   padding-bottom: 10px;
 }
 
 .c1.fi-notification {
   background-color: hsl(0,0%,100%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .c1.fi-notification .fi-notification_style-wrapper {
@@ -464,6 +470,18 @@ exports[`props children should match snapshot 1`] = `
   -ms-flex-align: flex-start;
   align-items: flex-start;
   overflow: hidden;
+}
+
+.c1.fi-notification .fi-notification_icon-wrapper {
+  padding-top: 20px;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+}
+
+.c1.fi-notification .fi-notification_icon-wrapper .fi-notification_icon {
+  height: 24px;
+  width: 24px;
 }
 
 .c1.fi-notification .fi-notification_text-content-wrapper {
@@ -523,18 +541,6 @@ exports[`props children should match snapshot 1`] = `
 
 .c1.fi-notification .fi-notification_action-element-wrapper .fi-button:first-child {
   margin-top: 0;
-}
-
-.c1.fi-notification .fi-notification_icon-wrapper {
-  padding-top: 20px;
-  -webkit-flex: none;
-  -ms-flex: none;
-  flex: none;
-}
-
-.c1.fi-notification .fi-notification_icon-wrapper .fi-notification_icon {
-  height: 24px;
-  width: 24px;
 }
 
 .c1.fi-notification .fi-notification_close-button {
@@ -661,7 +667,9 @@ exports[`props children should match snapshot 1`] = `
 
 <div>
   <section
+    aria-label="Lorem ipsum dolor sit"
     class="c0 fi-notification fi-notification--neutral c1"
+    role="region"
   >
     <div
       class="c2 fi-notification_style-wrapper"
@@ -687,7 +695,6 @@ exports[`props children should match snapshot 1`] = `
         </svg>
       </div>
       <div
-        aria-live="polite"
         class="c2 fi-notification_text-content-wrapper"
         id="7"
       >
@@ -709,7 +716,6 @@ exports[`props children should match snapshot 1`] = `
         </div>
       </div>
       <button
-        aria-describedby="7"
         class="c6 fi-notification_close-button"
         type="button"
       >

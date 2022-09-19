@@ -64,23 +64,22 @@ const StyledModalContent = styled(BaseModalContent)`
  * Use for showing modal content.
  * Props other than specified explicitly are passed on to outermost content div.
  */
-export class ModalContent extends Component<ModalContentProps> {
-  render() {
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <ModalConsumer>
-            {({ variant, scrollable }) => (
-              <StyledModalContent
-                theme={suomifiTheme}
-                modalVariant={variant}
-                scrollable={scrollable}
-                {...this.props}
-              />
-            )}
-          </ModalConsumer>
+const ModalContent = (props: ModalContentProps) => (
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => (
+      <ModalConsumer>
+        {({ variant, scrollable }) => (
+          <StyledModalContent
+            theme={suomifiTheme}
+            modalVariant={variant}
+            scrollable={scrollable}
+            {...props}
+          />
         )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+      </ModalConsumer>
+    )}
+  </SuomifiThemeConsumer>
+);
+
+ModalContent.displayName = 'ModalContent';
+export { ModalContent };

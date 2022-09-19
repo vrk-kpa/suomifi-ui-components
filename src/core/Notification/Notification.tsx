@@ -35,10 +35,6 @@ export interface NotificationProps extends HtmlDivWithRefProps {
    * @default 'neutral'
    */
   status?: 'neutral' | 'error';
-  /** Set aria-live mode for the Notification text content and heading.
-   * @default 'polite'
-   */
-  ariaLiveMode?: 'polite' | 'assertive' | 'off';
   /** Heading for the Notification */
   headingText?: string;
   /** Main content of the Notification */
@@ -54,10 +50,15 @@ export interface NotificationProps extends HtmlDivWithRefProps {
   /** Click handler for the close button */
   onCloseButtonClick?: () => void;
   /** Custom props passed to the close button */
-  closeButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'aria-label'>;
+  closeButtonProps?: Omit<HtmlButtonProps, 'onClick'>;
   /** Use small screen styling */
   smallScreen?: boolean;
+  /** Label for the notification region for screen reader users.
+   * If one is not provided, `headingText` or finally notification content will be used as the label.
+   */
+  regionAriaLabel?: string;
 }
+
 interface InnerRef {
   forwardedRef: React.RefObject<HTMLDivElement>;
 }
@@ -66,7 +67,6 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
   render() {
     const {
       className,
-      ariaLiveMode = 'polite',
       status = 'neutral',
       headingText,
       children,
@@ -78,12 +78,14 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
       closeButtonProps = {},
       headingVariant = 'h2',
       style,
+      regionAriaLabel,
       ...passProps
     } = this.props;
 
     const {
       className: customCloseButtonClassName,
       'aria-describedby': closeButtonPropsAriaDescribedBy,
+      'aria-label': closeButtonPropsAriaLabel,
       ...closeButtonPassProps
     } = closeButtonProps;
     const variantIcon = status === 'neutral' ? 'info' : 'error';
@@ -91,6 +93,8 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
     return (
       <HtmlDivWithRef
         as="section"
+        role="region"
+        aria-label={regionAriaLabel || headingText || children}
         {...passProps}
         className={classnames(
           baseClassName,
@@ -109,7 +113,6 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
           <HtmlDiv
             className={notificationClassNames.textContentWrapper}
             id={id}
-            aria-live={ariaLiveMode}
           >
             <HtmlDiv className={notificationClassNames.content}>
               {headingText && (
@@ -131,10 +134,10 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
               customCloseButtonClassName,
             )}
             {...getConditionalAriaProp('aria-label', [
-              smallScreen ? closeText : undefined,
+              closeButtonPropsAriaLabel ||
+                (smallScreen ? closeText : undefined),
             ])}
             {...getConditionalAriaProp('aria-describedby', [
-              id,
               closeButtonPropsAriaDescribedBy,
             ])}
             onClick={onCloseButtonClick}
@@ -163,7 +166,7 @@ const StyledNotification = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export const Notification = forwardRef(
+const Notification = forwardRef(
   (props: NotificationProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
@@ -184,3 +187,6 @@ export const Notification = forwardRef(
     );
   },
 );
+
+Notification.displayName = 'Notification';
+export { Notification };

@@ -46,7 +46,7 @@ interface InternalFilterInputProps<T>
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
   /** Label */
-  labelText: string;
+  labelText: ReactNode;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
    */
@@ -251,7 +251,7 @@ const StyledFilterInput = styled(BaseFilterInputWrapper)`
  * Use for filtering.
  * Props other than specified explicitly are passed on to underlying input element.
  */
-export const FilterInput = forwardRef(
+const FilterInput = forwardRef(
   (props: FilterInputProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
@@ -272,3 +272,6 @@ export const FilterInput = forwardRef(
     );
   },
 );
+
+FilterInput.displayName = 'FilterInput';
+export { FilterInput };

@@ -18,15 +18,14 @@ import {
     This is a small screen error notification text.
   </Notification>
   <Notification
-    id="notification-1"
+    id="notification-id"
     closeText="Close"
     headingText="Notification heading"
     headingVariant="h3"
+    closeButtonProps={{ 'aria-label': 'Custom close button label' }}
     actionElements={
       <>
-        <Button variant="secondary" aria-describedby="notification-1">
-          Action button
-        </Button>
+        <Button variant="secondary">Action button</Button>
       </>
     }
   >

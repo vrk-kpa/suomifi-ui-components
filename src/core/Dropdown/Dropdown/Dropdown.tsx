@@ -3,7 +3,6 @@ import React, {
   ReactNode,
   ReactElement,
   forwardRef,
-  KeyboardEvent,
   useRef,
 } from 'react';
 import { default as styled } from 'styled-components';
@@ -57,7 +56,7 @@ interface InternalDropdownProps {
   /** Controlled selected value, overrides defaultValue if provided. */
   value?: string;
   /** Label for the Dropdown component. */
-  labelText: string;
+  labelText: ReactNode;
   /** Visual hint to show if nothing is selected and no value or defaultValue is provided */
   visualPlaceholder?: ReactNode;
   /** Show the visual placeholder instead of selected value and act as an action menu */
@@ -291,7 +290,7 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
               ref={this.popoverRef}
               position={positionMatchWidth}
               {...passDropdownPopoverProps}
-              onKeyDownCapture={(event: KeyboardEvent) => {
+              onKeyDownCapture={(event: React.KeyboardEvent) => {
                 if (event.code === 'Tab' && !!this.buttonRef.current) {
                   event.preventDefault();
                   this.buttonRef.current.focus();
@@ -329,7 +328,7 @@ const StyledDropdown = styled(
  * <i class="semantics" />
  * Use for selectable dropdown with items.
  */
-export const Dropdown = forwardRef(
+const Dropdown = forwardRef(
   (props: DropdownProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
@@ -350,3 +349,6 @@ export const Dropdown = forwardRef(
     );
   },
 );
+
+Dropdown.displayName = 'Dropdown';
+export { Dropdown };

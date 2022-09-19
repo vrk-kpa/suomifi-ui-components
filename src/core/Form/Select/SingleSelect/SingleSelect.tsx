@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv } from '../../../../reset';
@@ -15,6 +15,7 @@ import { SelectItem } from '../BaseSelect/SelectItem/SelectItem';
 import { SelectEmptyItem } from '../BaseSelect/SelectEmptyItem/SelectEmptyItem';
 import { InputToggleButton } from '../../InputToggleButton/InputToggleButton';
 import { baseStyles } from './SingleSelect.baseStyles';
+import { SelectItemAddition } from '../BaseSelect/SelectItemAddition/SelectItemAddition';
 
 const baseClassName = 'fi-single-select';
 const singleSelectClassNames = {
@@ -36,7 +37,7 @@ export interface SingleSelectData {
 
 export type SingleSelectStatus = FilterInputStatus & {};
 
-export interface SingleSelectProps<T extends SingleSelectData> {
+export interface InternalSingleSelectProps<T extends SingleSelectData> {
   /** SingleSelect container div class name for custom styling. */
   className?: string;
   /** Items for the SingleSelect */
@@ -47,19 +48,17 @@ export interface SingleSelectProps<T extends SingleSelectData> {
    */
   id?: string;
   /** Label */
-  labelText: string;
+  labelText: ReactNode;
   /** Text to mark a field optional. Wrapped in parentheses and shown after labelText. */
   optionalText?: string;
   /** Hint text to be shown below the label */
   hintText?: string;
   /** Clear button label for screen readers */
   clearButtonLabel: string;
-  /** Event that is fired when item selections change */
-  onItemSelectionChange?: (selectedItem: T | null) => void;
+  /** Event that is fired when item selection changes */
+  onItemSelectionChange?: (selectedItem: (T & SingleSelectData) | null) => void;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
-  /** Text to show when no items to show, e.g filtered all out */
-  noItemsText: string;
   /**
    * Text for screen reader indicating the amount of available options after filtering by typing. Will be read after the amount.
    * E.g 'options available' as prop value would result in '{amount} options available' being read by screen reader upon removal.
@@ -86,13 +85,36 @@ export interface SingleSelectProps<T extends SingleSelectData> {
   onItemSelect?: (uniqueItemId: string | null) => void;
   /** Disable the input */
   disabled?: boolean;
-  /** This function is called when the button which clears the input is clicked */
-  onClearSelection?: () => void;
 }
+
+type AllowItemAdditionProps =
+  | {
+      allowItemAddition?: false | never;
+      itemAdditionHelpText?: never;
+      noItemsText: string;
+    }
+  | {
+      /** Whether the user is allowed to enter their own text as the selected value
+       * @default false
+       */
+      allowItemAddition?: true;
+      /** Text to show above the item addition element.
+       * Also read by screen reader when focusing on the item addition element.
+       * Required if `allowItemAddition` is true */
+      itemAdditionHelpText: string;
+      /** Text to show when no items to show, e.g filtered all out. Required when `allowItemAddition` is false */
+      noItemsText?: never;
+    };
+
+export type SingleSelectProps<T> = InternalSingleSelectProps<
+  T & SingleSelectData
+> &
+  AllowItemAdditionProps;
 
 interface SingleSelectState<T extends SingleSelectData> {
   filterInputValue: string;
   filteredItems: T[];
+  computedItems: Array<T & SingleSelectData>;
   filterMode: boolean;
   showPopover: boolean;
   focusedDescendantId: string | null;
@@ -135,6 +157,7 @@ class BaseSingleSelect<T> extends Component<
       ? this.props.selectedItem
       : this.props.defaultSelectedItem || null,
     initialItems: this.props.items,
+    computedItems: this.props.items,
   };
 
   static getDerivedStateFromProps<U>(
@@ -150,7 +173,7 @@ class BaseSingleSelect<T> extends Component<
       const resolvedSelectedItem =
         'selectedItem' in nextProps ? selectedItem : prevState.selectedItem;
       const resolvedInputValue = selectedItemChanged
-        ? resolvedSelectedItem?.labelText || ''
+        ? selectedItem?.labelText || ''
         : prevState.filterInputValue;
 
       return {
@@ -162,6 +185,14 @@ class BaseSingleSelect<T> extends Component<
       };
     }
     return null;
+  }
+
+  componentDidUpdate(prevProps: SingleSelectProps<T & SingleSelectData>): void {
+    if (JSON.stringify(this.props.items) !== JSON.stringify(prevProps.items)) {
+      this.setState({
+        computedItems: this.props.items,
+      });
+    }
   }
 
   private filter = (data: SingleSelectData, query: string) =>
@@ -236,12 +267,26 @@ class BaseSingleSelect<T> extends Component<
 
   private handleItemSelection = (item: (T & SingleSelectData) | null) => {
     if (item !== null && item.disabled) return;
-    const { onItemSelect, onItemSelectionChange, selectedItem } = this.props;
-    if (!selectedItem) {
+    const {
+      onItemSelect,
+      onItemSelectionChange,
+      selectedItem: controlledItem,
+    } = this.props;
+    if (!controlledItem) {
+      const userAddedSelectedItem: Array<T & SingleSelectData> = [];
+      if (item !== null) {
+        const itemIsFromPropItems = this.props.items.some(
+          (propItem) => propItem.uniqueItemId === item.uniqueItemId,
+        );
+        if (!itemIsFromPropItems) {
+          userAddedSelectedItem.push(item);
+        }
+      }
       this.setState({
         selectedItem: item || null,
         filterInputValue: item?.labelText || '',
         focusedDescendantId: null,
+        computedItems: this.props.items.concat(userAddedSelectedItem),
       });
     } else {
       this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
@@ -258,15 +303,29 @@ class BaseSingleSelect<T> extends Component<
   };
 
   private handleKeyDown = (event: React.KeyboardEvent) => {
-    const { filteredItems, focusedDescendantId, filterMode } = this.state;
-    const popoverItems = !!filterMode ? filteredItems : this.props.items;
-    const index = popoverItems.findIndex(
-      ({ uniqueItemId }) => uniqueItemId === focusedDescendantId,
-    );
+    const { filteredItems, focusedDescendantId, filterMode, filterInputValue } =
+      this.state;
+    const popoverItems = !!filterMode
+      ? filteredItems
+      : this.state.computedItems;
+    /**
+     * Index is determined as thus:
+     * null: No activeDescendantId
+     * -1: Focus is in the selectItemAddition element
+     * > -1: Focus is somewhere in (actual) items
+     */
+    const index = !!focusedDescendantId
+      ? popoverItems.findIndex(
+          ({ uniqueItemId }) => uniqueItemId === focusedDescendantId,
+        )
+      : null;
 
-    const getNextIndex = () => (index + 1) % popoverItems.length;
+    const getNextIndex = () =>
+      index !== null ? (index + 1) % popoverItems.length : 0;
     const getPreviousIndex = () =>
-      (index - 1 + popoverItems.length) % popoverItems.length;
+      index !== null && index !== -1
+        ? (index - 1 + popoverItems.length) % popoverItems.length
+        : popoverItems.length - 1;
 
     const getNextItem = () => popoverItems[getNextIndex()];
     const getPreviousItem = () => popoverItems[getPreviousIndex()];
@@ -276,7 +335,16 @@ class BaseSingleSelect<T> extends Component<
         if (!this.state.showPopover) {
           this.setState({ showPopover: true });
         }
-        const nextItem = getNextItem();
+        const nextItem =
+          this.props.allowItemAddition &&
+          (index === popoverItems.length - 1 || popoverItems.length === 0) &&
+          filterInputValue !== '' &&
+          !this.inputValueInItems()
+            ? {
+                uniqueItemId: filterInputValue.toLowerCase(),
+                labelText: filterInputValue,
+              }
+            : getNextItem();
         if (nextItem) {
           this.setState({ focusedDescendantId: nextItem.uniqueItemId });
         }
@@ -287,7 +355,16 @@ class BaseSingleSelect<T> extends Component<
         if (!this.state.showPopover) {
           this.setState({ showPopover: true });
         }
-        const previousItem = getPreviousItem();
+        const previousItem =
+          this.props.allowItemAddition &&
+          (index === null || index === 0) &&
+          filterInputValue !== '' &&
+          !this.inputValueInItems()
+            ? {
+                uniqueItemId: filterInputValue.toLowerCase(),
+                labelText: filterInputValue,
+              }
+            : getPreviousItem();
         if (previousItem) {
           this.setState({ focusedDescendantId: previousItem.uniqueItemId });
         }
@@ -302,6 +379,13 @@ class BaseSingleSelect<T> extends Component<
           );
           if (focusedItem) {
             this.handleItemSelection(focusedItem);
+          } else {
+            // @ts-expect-error: Cannot create an object which implements unknown generic type T
+            const userAddedItem: T & MultiSelectData = {
+              uniqueItemId: filterInputValue.toLowerCase(),
+              labelText: filterInputValue,
+            };
+            this.handleItemSelection(userAddedItem);
           }
         }
         break;
@@ -324,12 +408,20 @@ class BaseSingleSelect<T> extends Component<
     }
   };
 
-  private isOutsideClick(event: MouseEvent | KeyboardEvent) {
+  private isOutsideClick(event: MouseEvent) {
     return (
       !!this.toggleButtonRef &&
       (this.toggleButtonRef.current as Node).contains(event.target as Node)
     );
   }
+
+  private inputValueInItems = () =>
+    !!this.state.computedItems.find(
+      (ci) =>
+        ci.uniqueItemId === this.state.filterInputValue.toLowerCase() ||
+        ci.labelText.toLowerCase() ===
+          this.state.filterInputValue.toLowerCase(),
+    );
 
   render() {
     const {
@@ -339,13 +431,13 @@ class BaseSingleSelect<T> extends Component<
       focusedDescendantId,
       filterInputValue,
       selectedItem,
+      computedItems,
     } = this.state;
 
     const {
       id,
       className,
       theme,
-      items: propItems,
       labelText,
       optionalText,
       hintText,
@@ -363,7 +455,9 @@ class BaseSingleSelect<T> extends Component<
       ariaOptionsAvailableText,
       onItemSelect,
       disabled,
-      onClearSelection,
+      allowItemAddition,
+      itemAdditionHelpText,
+      items, // Only destructured away so they don't end up in the DOM
       ...passProps
     } = this.props;
 
@@ -371,7 +465,7 @@ class BaseSingleSelect<T> extends Component<
       ? `${id}-${focusedDescendantId}`
       : '';
     const popoverItemListId = `${id}-popover`;
-    const popoverItems = filterMode ? filteredItems : propItems;
+    const popoverItems = filterMode ? filteredItems : computedItems;
 
     return (
       <HtmlDiv
@@ -397,10 +491,26 @@ class BaseSingleSelect<T> extends Component<
               labelText={labelText}
               optionalText={optionalText}
               hintText={hintText}
-              items={propItems}
+              items={computedItems}
               onFilter={(filtered) => {
                 if (this.state.filterMode) {
-                  this.setState({ filteredItems: filtered });
+                  this.setState(
+                    (prevState: SingleSelectState<T & SingleSelectData>) => {
+                      let newFocusedDescendandId =
+                        prevState.focusedDescendantId;
+                      if (
+                        !filtered.some(
+                          (f) => f.uniqueItemId === newFocusedDescendandId,
+                        )
+                      ) {
+                        newFocusedDescendandId = null;
+                      }
+                      return {
+                        filteredItems: filtered,
+                        focusedDescendantId: newFocusedDescendandId,
+                      };
+                    },
+                  );
                 }
               }}
               filterFunc={this.filter}
@@ -435,12 +545,7 @@ class BaseSingleSelect<T> extends Component<
                 <HtmlDiv className={singleSelectClassNames.clearButtonWrapper}>
                   <InputClearButton
                     forwardedRef={this.clearButtonRef}
-                    onClick={() => {
-                      if (!!onClearSelection) {
-                        onClearSelection();
-                      }
-                      this.handleItemSelection(null);
-                    }}
+                    onClick={() => this.handleItemSelection(null)}
                     onBlur={this.handleBlur}
                     label={clearButtonLabel}
                     disabled={disabled}
@@ -483,34 +588,60 @@ class BaseSingleSelect<T> extends Component<
               ref={this.popoverListRef}
               focusedDescendantId={ariaActiveDescendant}
             >
-              {popoverItems.length > 0 ? (
-                popoverItems.map((item) => {
-                  const isCurrentlySelected =
-                    item.uniqueItemId === focusedDescendantId;
+              <HtmlDiv>
+                {popoverItems.length > 0 &&
+                  popoverItems.map((item) => {
+                    const isCurrentlySelected =
+                      item.uniqueItemId === focusedDescendantId;
+                    return (
+                      <SelectItem
+                        hasKeyboardFocus={isCurrentlySelected}
+                        key={`${item.uniqueItemId}_${
+                          item.uniqueItemId === selectedItem?.uniqueItemId
+                        }`}
+                        id={`${id}-${item.uniqueItemId}`}
+                        checked={
+                          item.uniqueItemId === selectedItem?.uniqueItemId
+                        }
+                        disabled={item.disabled}
+                        onClick={() => {
+                          this.handleItemSelection(item);
+                        }}
+                        hightlightQuery={
+                          filterMode ? this.filterInputRef.current?.value : ''
+                        }
+                      >
+                        {item.labelText}
+                      </SelectItem>
+                    );
+                  })}
 
-                  return (
-                    <SelectItem
-                      hasKeyboardFocus={isCurrentlySelected}
-                      key={`${item.uniqueItemId}_${
-                        item.uniqueItemId === selectedItem?.uniqueItemId
-                      }`}
-                      id={`${id}-${item.uniqueItemId}`}
-                      checked={item.uniqueItemId === selectedItem?.uniqueItemId}
-                      disabled={item.disabled}
+                {popoverItems.length === 0 && !allowItemAddition && (
+                  <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
+                )}
+
+                {filterInputValue !== '' &&
+                  !this.inputValueInItems() &&
+                  allowItemAddition && (
+                    <SelectItemAddition
+                      hintText={itemAdditionHelpText}
+                      hasKeyboardFocus={
+                        filterInputValue === focusedDescendantId
+                      }
+                      id={`${id}-${filterInputValue.toLowerCase()}`}
                       onClick={() => {
+                        // @ts-expect-error: Cannot create an object which implements unknown generic type T
+                        const item: T & MultiSelectData = {
+                          labelText: filterInputValue,
+                          uniqueItemId: filterInputValue.toLowerCase(),
+                        };
                         this.handleItemSelection(item);
                       }}
-                      hightlightQuery={
-                        filterMode ? this.filterInputRef.current?.value : ''
-                      }
                     >
-                      {item.labelText}
-                    </SelectItem>
-                  );
-                })
-              ) : (
-                <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
-              )}
+                      {filterInputValue}
+                    </SelectItemAddition>
+                  )}
+              </HtmlDiv>
             </SelectItemList>
           </Popover>
         )}
@@ -528,21 +659,20 @@ const StyledSingleSelect = styled(BaseSingleSelect)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export class SingleSelect<T> extends Component<
-  SingleSelectProps<T & SingleSelectData>
-> {
-  render() {
-    const { id: propId, ...passProps } = this.props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledSingleSelect theme={suomifiTheme} id={id} {...passProps} />
-            )}
-          </AutoId>
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const SingleSelect = <T,>(props: SingleSelectProps<T & SingleSelectData>) => {
+  const { id: propId, ...passProps } = props;
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <AutoId id={propId}>
+          {(id) => (
+            <StyledSingleSelect theme={suomifiTheme} id={id} {...passProps} />
+          )}
+        </AutoId>
+      )}
+    </SuomifiThemeConsumer>
+  );
+};
+
+SingleSelect.displayName = 'SingleSelect';
+export { SingleSelect };

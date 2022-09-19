@@ -182,7 +182,7 @@ describe('props', () => {
     it('should be found ', () => {
       const { getByText } = render(<TextInput labelText="Test input" />);
       const label = getByText('Test input');
-      expect(label).toHaveClass('fi-label-text_label-span');
+      expect(label).toHaveClass('fi-label_label-span');
     });
   });
 
@@ -192,7 +192,7 @@ describe('props', () => {
         <TextInput labelText="label" optionalText="Optional" />,
       );
       const optionalText = getByText('(Optional)');
-      expect(optionalText).toHaveClass('fi-label-text_optionalText');
+      expect(optionalText).toHaveClass('fi-label_optional-text');
     });
   });
 
@@ -200,7 +200,7 @@ describe('props', () => {
     it('should be visible by default', () => {
       const { getByText } = render(<TextInput labelText="Test input" />);
       const label = getByText('Test input');
-      expect(label).toHaveClass('fi-label-text_label-span');
+      expect(label).toHaveClass('fi-label_label-span');
     });
 
     it('should be hidden', () => {

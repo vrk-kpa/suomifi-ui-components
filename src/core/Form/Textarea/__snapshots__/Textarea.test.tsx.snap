@@ -30,7 +30,36 @@ exports[`snapshot default structure should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c3 {
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -54,12 +83,12 @@ exports[`snapshot default structure should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c4::before,
+.c4::after {
   box-sizing: border-box;
 }
 
-.c4 {
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -82,17 +111,17 @@ exports[`snapshot default structure should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c4::-webkit-input-placeholder {
+.c5::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c4::before,
-.c4::after {
+.c5::before,
+.c5::after {
   box-sizing: border-box;
 }
 
-.c2.fi-label-text .fi-label-text_label-span {
+.c3.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -106,18 +135,23 @@ exports[`snapshot default structure should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  display: block;
+  display: inline-block;
+  vertical-align: middle;
   color: hsl(0,0%,16%);
 }
 
-.c2.fi-label-text .fi-label-text_label-span .fi-label-text_optionalText {
+.c3.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c5 {
+.c3.fi-label .fi-label_label-span .fi-tooltip {
+  margin-left: 6px;
+}
+
+.c6 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -136,11 +170,11 @@ exports[`snapshot default structure should match snapshot 1`] = `
   line-height: 20px;
 }
 
-.c5.fi-status-text {
+.c6.fi-status-text {
   display: block;
 }
 
-.c5.fi-status-text.fi-status-text--error {
+.c6.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
 }
 
@@ -282,29 +316,29 @@ exports[`snapshot default structure should match snapshot 1`] = `
 <div
   class="c0 fi-textarea c1"
 >
-  <label
-    class="c0 c2 fi-label-text"
-    for="just-for-snapshot-to-be-same"
+  <div
+    class="c2 c3 fi-label"
   >
-    <span
-      class="c3 fi-label-text_label-span"
+    <label
+      class="c4 fi-label_label-span"
+      for="just-for-snapshot-to-be-same"
     >
       Label text
-    </span>
-  </label>
+    </label>
+  </div>
   <div
     class="c0 fi-textarea_textarea-element-container"
   >
     <textarea
       aria-invalid="false"
-      class="c4 fi-textarea_textarea"
+      class="c5 fi-textarea_textarea"
       id="just-for-snapshot-to-be-same"
     />
   </div>
   <span
     aria-atomic="true"
     aria-live="assertive"
-    class="c3 c5 fi-status-text"
+    class="c4 c6 fi-status-text"
   />
 </div>
 `;

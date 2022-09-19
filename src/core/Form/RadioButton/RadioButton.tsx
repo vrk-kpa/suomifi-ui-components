@@ -174,7 +174,7 @@ const StyledRadioButton = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export const RadioButton = forwardRef(
+const RadioButton = forwardRef(
   (props: RadioButtonProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, onChange, ...passProps } = props;
     return (
@@ -213,3 +213,6 @@ export const RadioButton = forwardRef(
     );
   },
 );
+
+RadioButton.displayName = 'RadioButton';
+export { RadioButton };

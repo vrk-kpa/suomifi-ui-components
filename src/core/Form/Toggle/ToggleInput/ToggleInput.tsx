@@ -136,7 +136,7 @@ const StyledToggleInput = styled(
  * Use for toggling form selection
  * Additional props are passed to the checkbox input element.
  */
-export const ToggleInput = forwardRef(
+const ToggleInput = forwardRef(
   (props: ToggleInputProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
@@ -157,3 +157,6 @@ export const ToggleInput = forwardRef(
     );
   },
 );
+
+ToggleInput.displayName = 'ToggleInput';
+export { ToggleInput };

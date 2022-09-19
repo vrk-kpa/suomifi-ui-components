@@ -23,7 +23,7 @@ export interface RadioButtonGroupProps {
   /** Hint text to be displayed under the label. */
   groupHintText?: string;
   /** Label for the group */
-  labelText: string;
+  labelText: ReactNode;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
    */
@@ -151,25 +151,25 @@ const StyledRadioButtonGroup = styled(BaseRadioButtonGroup)`
  * Always overrides nested RadioButtons' name, checked and defaultChecked props.
  * Use RadioButtonGroup's name, value and defaultValue instead.
  */
-export class RadioButtonGroup extends Component<RadioButtonGroupProps> {
-  render() {
-    const { id: propId, ...passProps } = this.props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledRadioButtonGroup
-                theme={suomifiTheme}
-                id={id}
-                {...passProps}
-              />
-            )}
-          </AutoId>
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const RadioButtonGroup = (props: RadioButtonGroupProps) => {
+  const { id: propId, ...passProps } = props;
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <AutoId id={propId}>
+          {(id) => (
+            <StyledRadioButtonGroup
+              theme={suomifiTheme}
+              id={id}
+              {...passProps}
+            />
+          )}
+        </AutoId>
+      )}
+    </SuomifiThemeConsumer>
+  );
+};
 
-export { RadioButtonGroupConsumer };
+RadioButtonGroup.displayName = 'RadioButtonGroup';
+
+export { RadioButtonGroup, RadioButtonGroupConsumer };

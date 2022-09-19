@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiIcon, SuomifiIconInterface } from 'suomifi-icons';
-import { getLogger } from '../../utils/log';
 import { ariaLabelOrHidden, ariaFocusableNoLabel } from '../../utils/aria';
 import { iconBaseStyles } from './Icon.baseStyles';
 
@@ -27,21 +26,6 @@ export interface IconBaseProps {
 
 export interface IconProps extends IconBaseProps, SuomifiIconInterface {}
 
-export const iconLogger = (
-  ariaLabel: string | undefined,
-  className: string | undefined,
-) => {
-  getLogger().warn(
-    `Icon ERROR${
-      !!ariaLabel
-        ? ` with aria-label: ${ariaLabel}`
-        : !!className
-        ? ` with className: ${className}`
-        : ''
-    }`,
-  );
-};
-
 /**
  * Apply Suomifi styles to Icon
  */
@@ -60,20 +44,7 @@ const StyledSuomifiIcon = styled(
   ${iconBaseStyles}
 `;
 
-/**
- * General icon-component
- */
-export class Icon extends Component<IconProps> {
-  render() {
-    const { icon, ...passProps } = this.props;
-    const { className, ariaLabel } = this.props;
+const Icon = (props: IconProps) => <StyledSuomifiIcon {...props} />;
 
-    if (icon !== undefined) {
-      return <StyledSuomifiIcon {...passProps} icon={icon} />;
-    }
-
-    iconLogger(ariaLabel, className);
-
-    return;
-  }
-}
+Icon.displayName = 'Icon';
+export { Icon };

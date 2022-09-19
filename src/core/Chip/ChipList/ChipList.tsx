@@ -39,19 +39,20 @@ const StyledChipList = styled(BaseChipList)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export class ChipList extends Component<ChipListProps> {
-  render() {
-    const { id: propId, ...passProps } = this.props;
-    return (
-      <SuomifiThemeConsumer>
-        {({ suomifiTheme }) => (
-          <AutoId id={propId}>
-            {(id) => (
-              <StyledChipList theme={suomifiTheme} id={id} {...passProps} />
-            )}
-          </AutoId>
-        )}
-      </SuomifiThemeConsumer>
-    );
-  }
-}
+const ChipList = (props: ChipListProps) => {
+  const { id: propId, ...passProps } = props;
+  return (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <AutoId id={propId}>
+          {(id) => (
+            <StyledChipList theme={suomifiTheme} id={id} {...passProps} />
+          )}
+        </AutoId>
+      )}
+    </SuomifiThemeConsumer>
+  );
+};
+
+ChipList.displayName = 'ChipList';
+export { ChipList };

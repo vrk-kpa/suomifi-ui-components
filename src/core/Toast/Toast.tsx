@@ -87,7 +87,8 @@ const StyledToast = styled(
 )`
   ${({ theme }) => baseStyles(theme)};
 `;
-export const Toast = forwardRef(
+
+const Toast = forwardRef(
   (props: ToastProps, ref: React.RefObject<HTMLDivElement>) => {
     const { ...passProps } = props;
     return (
@@ -99,3 +100,6 @@ export const Toast = forwardRef(
     );
   },
 );
+
+Toast.displayName = 'Toast';
+export { Toast };

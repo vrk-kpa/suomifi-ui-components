@@ -1,20 +1,33 @@
-import React, { Component, forwardRef } from 'react';
+import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlDivWithRef } from '../../../reset';
+import { HtmlDiv, HtmlDivWithRef, HtmlDivWithRefProps } from '../../../reset';
 import { Icon } from '../../../core/Icon/Icon';
-import {
-  BaseAlertProps,
-  alertClassNames,
-  baseClassName,
-} from '../BaseAlert/BaseAlert';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './InlineAlert.baseStyles';
 
-export interface InlineAlertProps extends BaseAlertProps {
+const baseClassName = 'fi-inline-alert';
+const inlineAlertClassNames = {
+  styleWrapper: `${baseClassName}_style-wrapper`,
+  content: `${baseClassName}_content`,
+  label: `${baseClassName}_label`,
+  textContentWrapper: `${baseClassName}_text-content-wrapper`,
+  icon: `${baseClassName}_icon`,
+  smallScreen: `${baseClassName}--small-screen`,
+};
+
+export interface InlineAlertProps extends HtmlDivWithRefProps {
+  /** Style variant. Affects color and icon used.
+   * @default 'neutral'
+   */
+  status?: 'neutral' | 'warning' | 'error';
+  /** Main content of the alert */
+  children?: ReactNode;
+  /** Use small screen styling */
+  smallScreen?: boolean;
   /** Label for the alert */
-  labelText?: string;
+  labelText?: ReactNode;
   /** Set aria-live mode for the alert text content and label.
    * @default 'assertive'
    */
@@ -42,30 +55,34 @@ class BaseInlineAlert extends Component<InlineAlertProps & InnerRef> {
       <HtmlDivWithRef
         as="section"
         {...passProps}
-        className={classnames(
-          baseClassName,
-          alertClassNames.inline,
-          className,
-          {
-            [`${baseClassName}--${status}`]: !!status,
-            [alertClassNames.smallScreen]: !!smallScreen,
-          },
-        )}
+        className={classnames(baseClassName, className, {
+          [`${baseClassName}--${status}`]: !!status,
+          [inlineAlertClassNames.smallScreen]: !!smallScreen,
+        })}
       >
-        <HtmlDiv className={alertClassNames.styleWrapper}>
+        <HtmlDiv className={inlineAlertClassNames.styleWrapper}>
           {status !== 'neutral' && (
-            <Icon icon={status} className={alertClassNames.icon} />
+            <Icon
+              icon={status}
+              className={classnames(inlineAlertClassNames.icon, {
+                [`${inlineAlertClassNames.icon}--${status}`]: !!status,
+              })}
+            />
           )}
 
           <HtmlDiv
-            className={alertClassNames.textContentWrapper}
+            className={inlineAlertClassNames.textContentWrapper}
             id={id}
             aria-live={ariaLiveMode}
           >
             {labelText && (
-              <HtmlDiv className={alertClassNames.label}>{labelText}</HtmlDiv>
+              <HtmlDiv className={inlineAlertClassNames.label}>
+                {labelText}
+              </HtmlDiv>
             )}
-            <HtmlDiv className={alertClassNames.content}>{children}</HtmlDiv>
+            <HtmlDiv className={inlineAlertClassNames.content}>
+              {children}
+            </HtmlDiv>
           </HtmlDiv>
         </HtmlDiv>
       </HtmlDivWithRef>
@@ -82,7 +99,7 @@ const StyledInlineAlert = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-export const InlineAlert = forwardRef(
+const InlineAlert = forwardRef(
   (props: InlineAlertProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (
@@ -103,3 +120,6 @@ export const InlineAlert = forwardRef(
     );
   },
 );
+
+InlineAlert.displayName = 'InlineAlert';
+export { InlineAlert };
