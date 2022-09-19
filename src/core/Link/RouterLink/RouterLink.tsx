@@ -1,5 +1,5 @@
 // import React, { Component, ReactNode } from 'react';
-import React, { ReactNode } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import { RouterLinkStyles } from './RouterLink.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
@@ -75,12 +75,20 @@ export type RouterLinkProps<C extends React.ElementType> =
 const PolymorphicLink = <C extends React.ElementType>(
   props: RouterLinkProps<C> & SuomifiThemeProp,
 ) => {
-  const { asComponent, children, className, theme, ...passProps } = props;
-  const Component = asComponent || HtmlA;
+  const {
+    asComponent,
+    children,
+    className,
+    theme,
+    forwardedRef,
+    ...passProps
+  } = props;
+  const Component = asComponent || 'a';
 
   return (
     <Component
       className={classnames(routerLinkClassName, className)}
+      ref={forwardedRef}
       {...passProps}
     >
       {children}
@@ -92,13 +100,25 @@ const StyledRouterLink = styled(PolymorphicLink)`
   ${({ theme }) => RouterLinkStyles(theme)}
 `;
 
-const RouterLink = <C extends React.ElementType = 'a'>(
+const RouterLinkInner = <C extends React.ElementType = 'a'>(
   props: RouterLinkProps<C>,
+  ref: React.RefObject<any>,
 ) => (
   <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => <StyledRouterLink theme={suomifiTheme} {...props} />}
+    {({ suomifiTheme }) => (
+      <StyledRouterLink theme={suomifiTheme} forwardedRef={ref} {...props} />
+    )}
   </SuomifiThemeConsumer>
 );
 
-RouterLink.displayName = 'RouterLink';
-export { RouterLink };
+// Type assertion is needed to set the function signature with generic T type.
+export const RouterLink = forwardRef(RouterLinkInner) as <
+  C extends React.ElementType = 'a',
+>(
+  props: RouterLinkProps<C> & {
+    ref?: React.ForwardedRef<any>;
+  },
+) => ReturnType<typeof RouterLinkInner>;
+
+// Because of type assertion the displayName has to be set like this
+(RouterLink as React.FC).displayName = 'RouterLink';
