@@ -349,9 +349,22 @@ exports[`should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
+.c5.fi-service-navigation-item--disabled:hover,
+.c5.fi-service-navigation-item--disabled:active {
+  background: transparent;
+  cursor: not-allowed;
+  border-left: none;
+}
+
+.c5.fi-service-navigation-item--disabled:hover .fi-link--router,
+.c5.fi-service-navigation-item--disabled:active .fi-link--router {
+  padding-left: 20px;
+}
+
 .c5.fi-service-navigation-item--disabled .fi-link--router {
   color: hsl(202,7%,67%);
   cursor: not-allowed;
+  pointer-events: none;
 }
 
 .c5.fi-service-navigation-item--disabled .fi-link--router:hover,

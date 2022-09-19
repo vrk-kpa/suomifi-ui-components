@@ -46,9 +46,19 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     &--disabled {
+      &:hover,
+      &:active {
+        background: transparent;
+        cursor: not-allowed;
+        border-left: none;
+        .fi-link--router {
+          padding-left: ${theme.spacing.m};
+        }
+      }
       .fi-link--router {
         color: ${theme.colors.depthBase};
         cursor: not-allowed;
+        pointer-events: none;
 
         &:hover,
         &:active,
