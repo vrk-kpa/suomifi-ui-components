@@ -15,7 +15,7 @@ import { getConditionalAriaProp } from '../../../../utils/aria';
 
 export interface ServiceNavigationProps {
   /** Use the `<ServiceNavigationItem>` components as children */
-  children: ReactNode | ReactNode[];
+  children: ReactNode;
   /**
    * Normal or small screen variant
    * @default normal
