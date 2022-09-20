@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv } from '../../../../reset';
@@ -85,6 +85,8 @@ export interface InternalSingleSelectProps<T extends SingleSelectData> {
   onItemSelect?: (uniqueItemId: string | null) => void;
   /** Disable the input */
   disabled?: boolean;
+  /** Ref is forwarded to the input element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 
 type AllowItemAdditionProps =
@@ -140,7 +142,12 @@ class BaseSingleSelect<T> extends Component<
   ) {
     super(props);
     this.popoverListRef = React.createRef();
-    this.filterInputRef = React.createRef();
+
+    if (this.props.forwardedRef) {
+      this.filterInputRef = this.props.forwardedRef;
+    } else {
+      this.filterInputRef = React.createRef();
+    }
     this.toggleButtonRef = React.createRef();
     this.clearButtonRef = React.createRef();
   }
@@ -458,6 +465,7 @@ class BaseSingleSelect<T> extends Component<
       allowItemAddition,
       itemAdditionHelpText,
       items, // Only destructured away so they don't end up in the DOM
+      forwardedRef, // Only destructured away so it doesn't end up in the DOM
       ...passProps
     } = this.props;
 
@@ -659,20 +667,35 @@ const StyledSingleSelect = styled(BaseSingleSelect)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const SingleSelect = <T,>(props: SingleSelectProps<T & SingleSelectData>) => {
+function SingleSelectInner<T>(
+  props: SingleSelectProps<T & SingleSelectData>,
+  ref: React.RefObject<HTMLInputElement>,
+) {
   const { id: propId, ...passProps } = props;
   return (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <AutoId id={propId}>
           {(id) => (
-            <StyledSingleSelect theme={suomifiTheme} id={id} {...passProps} />
+            <StyledSingleSelect
+              theme={suomifiTheme}
+              id={id}
+              forwardedRef={ref}
+              {...passProps}
+            />
           )}
         </AutoId>
       )}
     </SuomifiThemeConsumer>
   );
-};
+}
 
-SingleSelect.displayName = 'SingleSelect';
-export { SingleSelect };
+// Type assertion is needed to set the function signature with generic T type.
+export const SingleSelect = forwardRef(SingleSelectInner) as <T>(
+  props: SingleSelectProps<T & SingleSelectData> & {
+    ref?: React.ForwardedRef<HTMLInputElement>;
+  },
+) => ReturnType<typeof SingleSelectInner>;
+
+// Because of type assertion the displayName has to be set like this
+(SingleSelect as React.FC).displayName = 'SingleSelect';

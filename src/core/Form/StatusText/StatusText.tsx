@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
@@ -27,6 +27,8 @@ export interface StatusTextProps extends HtmlSpanProps {
    * @default polite
    */
   ariaLiveMode?: AriaLiveMode;
+  /** Ref is forwarded to the span element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLSpanElement>;
 }
 
 const StyledStatusText = styled(
@@ -60,18 +62,24 @@ const StyledStatusText = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const StatusText = (props: StatusTextProps) => {
-  const { children, ...passProps } = props;
-  return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledStatusText theme={suomifiTheme} {...passProps}>
-          {children}
-        </StyledStatusText>
-      )}
-    </SuomifiThemeConsumer>
-  );
-};
+const StatusText = forwardRef<HTMLSpanElement, StatusTextProps>(
+  (props: StatusTextProps, ref: React.Ref<HTMLSpanElement>) => {
+    const { children, ...passProps } = props;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledStatusText
+            forwardedRef={ref}
+            theme={suomifiTheme}
+            {...passProps}
+          >
+            {children}
+          </StyledStatusText>
+        )}
+      </SuomifiThemeConsumer>
+    );
+  },
+);
 
 StatusText.displayName = 'StatusText';
 export { StatusText };

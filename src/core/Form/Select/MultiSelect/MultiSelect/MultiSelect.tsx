@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
@@ -144,6 +144,8 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   onRemoveAll?: () => void;
   /** Disable the input */
   disabled?: boolean;
+  /** Ref object to be passed to the input element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 
 type AllowItemAdditionProps =
@@ -199,7 +201,11 @@ class BaseMultiSelect<T> extends Component<
   constructor(props: MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp) {
     super(props);
     this.popoverListRef = React.createRef();
-    this.filterInputRef = React.createRef();
+
+    this.filterInputRef = this.props.forwardedRef
+      ? this.props.forwardedRef
+      : React.createRef();
+
     this.toggleButtonRef = React.createRef();
   }
 
@@ -591,6 +597,7 @@ class BaseMultiSelect<T> extends Component<
       allowItemAddition,
       itemAdditionHelpText,
       items, // Only destructured away so they don't end up in the DOM
+      forwardedRef, // Only destructured away so it doesn't end up in the DOM
       ...passProps
     } = this.props;
 
@@ -854,20 +861,35 @@ const StyledMultiSelect = styled(BaseMultiSelect)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const MultiSelect = <T,>(props: MultiSelectProps<T & MultiSelectData>) => {
+function MultiSelectInner<T>(
+  props: MultiSelectProps<T & MultiSelectData>,
+  ref: React.RefObject<HTMLInputElement>,
+) {
   const { id: propId, ...passProps } = props;
   return (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <AutoId id={propId}>
           {(id) => (
-            <StyledMultiSelect theme={suomifiTheme} id={id} {...passProps} />
+            <StyledMultiSelect
+              theme={suomifiTheme}
+              id={id}
+              forwardedRef={ref}
+              {...passProps}
+            />
           )}
         </AutoId>
       )}
     </SuomifiThemeConsumer>
   );
-};
+}
 
-MultiSelect.displayName = 'MultiSelect';
-export { MultiSelect };
+// Type assertion is needed to set the function signature with generic T type.
+export const MultiSelect = forwardRef(MultiSelectInner) as <T>(
+  props: MultiSelectProps<T & MultiSelectData> & {
+    ref?: React.ForwardedRef<HTMLInputElement>;
+  },
+) => ReturnType<typeof MultiSelectInner>;
+
+// Because of type assertion the displayName has to be set like this
+(MultiSelect as React.FC).displayName = 'MultiSelect';

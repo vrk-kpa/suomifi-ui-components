@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { LinkStyles } from '../Link/Link.baseStyles';
@@ -6,7 +6,10 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlA } from '../../../reset';
 import { BaseLinkProps, baseClassName } from '../BaseLink/BaseLink';
 
-export interface LinkProps extends BaseLinkProps {}
+export interface LinkProps extends BaseLinkProps {
+  /** Ref  is passed to the anchor element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLAnchorElement>;
+}
 
 const StyledLink = styled(
   ({
@@ -29,10 +32,14 @@ const StyledLink = styled(
  * <i class="semantics" />
  * Used for adding a link
  */
-const Link = (props: LinkProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => <StyledLink theme={suomifiTheme} {...props} />}
-  </SuomifiThemeConsumer>
+const Link = forwardRef(
+  (props: LinkProps, ref: React.Ref<HTMLAnchorElement>) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledLink theme={suomifiTheme} forwardedRef={ref} {...props} />
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
 
 Link.displayName = 'Link';

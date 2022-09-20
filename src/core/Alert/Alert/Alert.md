@@ -1,8 +1,11 @@
 ```js
 import { Alert } from 'suomifi-ui-components';
+import { createRef } from 'react';
+
+const exampleRef = createRef();
 
 <>
-  <Alert closeText="Close" smallScreen>
+  <Alert closeText="Close" smallScreen ref={exampleRef}>
     The service will be temporarily unavailable on 5.6.2021 at 21.00 –
     23.59 due to maintenance.
   </Alert>

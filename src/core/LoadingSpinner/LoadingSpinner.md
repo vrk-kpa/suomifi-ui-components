@@ -1,5 +1,8 @@
 ```js
 import { LoadingSpinner } from 'suomifi-ui-components';
+import { createRef } from 'react';
+
+const exampleRef = createRef();
 
 <>
   <div>
@@ -8,6 +11,7 @@ import { LoadingSpinner } from 'suomifi-ui-components';
       variant="normal"
       textAlign="right"
       text="Loading"
+      ref={exampleRef}
     />
     <br />
     <LoadingSpinner status="success" text="Loading finished" />

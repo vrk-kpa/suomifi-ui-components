@@ -1,6 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`default, with only required props should match snapshot 1`] = `
+.c6 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c6::before,
+.c6::after {
+  box-sizing: border-box;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -27,35 +56,6 @@ exports[`default, with only required props should match snapshot 1`] = `
 
 .c0::before,
 .c0::after {
-  box-sizing: border-box;
-}
-
-.c4 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c4::before,
-.c4::after {
   box-sizing: border-box;
 }
 
@@ -167,7 +167,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c6 {
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -191,8 +191,8 @@ exports[`default, with only required props should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c5::before,
+.c5::after {
   box-sizing: border-box;
 }
 
@@ -223,7 +223,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   color: hsl(3,59%,48%);
 }
 
-.c5.fi-label .fi-label_label-span {
+.c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -242,14 +242,14 @@ exports[`default, with only required props should match snapshot 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c5.fi-label .fi-label_label-span .fi-label_optional-text {
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c5.fi-label .fi-label_label-span .fi-tooltip {
+.c4.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -425,10 +425,10 @@ exports[`default, with only required props should match snapshot 1`] = `
         class="c3 fi-checkbox-group_legend"
       >
         <div
-          class="c4 c5 fi-checkbox-group_label--visible fi-label"
+          class="c0 c4 fi-checkbox-group_label--visible fi-label"
         >
           <label
-            class="c6 fi-label_label-span"
+            class="c5 fi-label_label-span"
             for="1"
           >
             Label
@@ -436,10 +436,10 @@ exports[`default, with only required props should match snapshot 1`] = `
         </div>
       </legend>
       <div
-        class="c0 fi-checkbox-group_container"
+        class="c6 fi-checkbox-group_container"
       >
         <div
-          class="c0 fi-checkbox_container c7 fi-checkbox"
+          class="c6 fi-checkbox_container c7 fi-checkbox"
         >
           <input
             aria-invalid="false"
@@ -456,11 +456,11 @@ exports[`default, with only required props should match snapshot 1`] = `
           <span
             aria-atomic="true"
             aria-live="assertive"
-            class="c6 c10 fi-status-text"
+            class="c5 c10 fi-status-text"
           />
         </div>
         <div
-          class="c0 fi-checkbox_container c7 fi-checkbox"
+          class="c6 fi-checkbox_container c7 fi-checkbox"
         >
           <input
             aria-invalid="false"
@@ -477,11 +477,11 @@ exports[`default, with only required props should match snapshot 1`] = `
           <span
             aria-atomic="true"
             aria-live="assertive"
-            class="c6 c10 fi-status-text"
+            class="c5 c10 fi-status-text"
           />
         </div>
         <div
-          class="c0 fi-checkbox_container c7 fi-checkbox"
+          class="c6 fi-checkbox_container c7 fi-checkbox"
         >
           <input
             aria-invalid="false"
@@ -498,7 +498,7 @@ exports[`default, with only required props should match snapshot 1`] = `
           <span
             aria-atomic="true"
             aria-live="assertive"
-            class="c6 c10 fi-status-text"
+            class="c5 c10 fi-status-text"
           />
         </div>
       </div>
@@ -506,7 +506,7 @@ exports[`default, with only required props should match snapshot 1`] = `
     <span
       aria-atomic="true"
       aria-live="polite"
-      class="c6 c10 fi-status-text"
+      class="c5 c10 fi-status-text"
     />
   </div>
 </div>

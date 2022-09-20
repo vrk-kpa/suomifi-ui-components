@@ -462,3 +462,25 @@ describe('custom item addition mode', () => {
     }
   });
 });
+
+describe('forward ref', () => {
+  it('ref is forwarded to input', () => {
+    const ref = React.createRef<HTMLInputElement>();
+
+    render(
+      <SingleSelect
+        labelText="SingleSelect"
+        clearButtonLabel="Clear selection"
+        items={tools}
+        defaultSelectedItem={defaultSelectedTool}
+        noItemsText="No items"
+        visualPlaceholder="Select item"
+        ariaOptionsAvailableText="Options available"
+        ref={ref}
+      />,
+    );
+
+    expect(ref.current?.tagName).toBe('INPUT');
+    expect(ref.current?.value).toBe('Hammer');
+  });
+});

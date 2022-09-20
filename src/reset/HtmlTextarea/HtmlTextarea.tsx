@@ -7,7 +7,7 @@ export interface HtmlTextareaProps
   extends Omit<HTMLProps<HTMLTextAreaElement>, 'ref' | 'as'> {
   as?: asPropType;
   /** Ref object passed to the element */
-  forwardedRef?: React.RefObject<HTMLTextAreaElement>;
+  forwardedRef?: React.Ref<HTMLTextAreaElement>;
 }
 
 const textareaResets = css`

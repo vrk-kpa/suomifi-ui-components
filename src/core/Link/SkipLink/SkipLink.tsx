@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { Link } from '../Link/Link';
@@ -8,7 +8,10 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 
 const skipClassName = 'fi-link--skip';
 
-export interface SkipLinkProps extends BaseLinkProps {}
+export interface SkipLinkProps extends BaseLinkProps {
+  /** Ref  is passed to the anchor element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLAnchorElement>;
+}
 
 const StyledSkipLink = styled((props: SkipLinkProps & SuomifiThemeProp) => {
   const { theme, ...passProps } = props;
@@ -21,20 +24,23 @@ const StyledSkipLink = styled((props: SkipLinkProps & SuomifiThemeProp) => {
  * <i class="semantics" />
  * Used for adding skip link for keyboard and screenreader users
  */
-const SkipLink = (props: SkipLinkProps) => {
-  const { className, ...passProps } = props;
-  return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledSkipLink
-          theme={suomifiTheme}
-          {...passProps}
-          className={classnames(className, skipClassName)}
-        />
-      )}
-    </SuomifiThemeConsumer>
-  );
-};
+const SkipLink = forwardRef(
+  (props: SkipLinkProps, ref: React.Ref<HTMLAnchorElement>) => {
+    const { className, ...passProps } = props;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledSkipLink
+            theme={suomifiTheme}
+            forwardedRef={ref}
+            {...passProps}
+            className={classnames(className, skipClassName)}
+          />
+        )}
+      </SuomifiThemeConsumer>
+    );
+  },
+);
 
 SkipLink.displayName = 'SkipLink';
 export { SkipLink };

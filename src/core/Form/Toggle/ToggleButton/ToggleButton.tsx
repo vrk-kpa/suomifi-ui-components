@@ -22,19 +22,14 @@ export interface ToggleButtonProps
     Omit<HtmlButtonProps, 'onClick' | 'type'> {
   /** Event handler to execute when clicked */
   onClick?: (checked: boolean) => void;
-  /** Ref object to be passed to the button element */
-  ref?: React.RefObject<HTMLButtonElement>;
+  /** Ref object to be passed to the button element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
-
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLButtonElement>;
-}
-
 interface ToggleState {
   toggleState: boolean;
 }
 
-class BaseToggleButton extends Component<ToggleButtonProps & InnerRef> {
+class BaseToggleButton extends Component<ToggleButtonProps> {
   state: ToggleState = {
     toggleState: !!this.props.checked || !!this.props.defaultChecked,
   };
@@ -112,7 +107,7 @@ class BaseToggleButton extends Component<ToggleButtonProps & InnerRef> {
 }
 
 const StyledToggleButton = styled(
-  (props: ToggleBaseProps & InnerRef & SuomifiThemeProp) => {
+  (props: ToggleBaseProps & SuomifiThemeProp) => {
     const { theme, ...passProps } = props;
     return <BaseToggleButton {...passProps} />;
   },

@@ -24,7 +24,7 @@ const radioButtonClassNames = {
   checked: `${baseClassName}--checked`,
 };
 
-interface InternalRadioButtonProps {
+export interface RadioButtonProps {
   /** Custom classname to extend or customize */
   className?: string;
   /** Label for element content */
@@ -57,22 +57,16 @@ interface InternalRadioButtonProps {
    * Screen readers will ignore children as label if id is provided.
    */
   'aria-labelledby'?: string;
+
+  /** Ref object to be passed to the input element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 
 interface RadioButtonState {
   checkedState: boolean;
 }
 
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLInputElement>;
-}
-
-export interface RadioButtonProps extends InternalRadioButtonProps {
-  /** Ref object to be passed to the input element */
-  ref?: React.RefObject<HTMLInputElement>;
-}
-
-class BaseRadioButton extends Component<RadioButtonProps & InnerRef> {
+class BaseRadioButton extends Component<RadioButtonProps> {
   state = {
     checkedState: !!this.props.checked,
   };
@@ -164,10 +158,7 @@ class BaseRadioButton extends Component<RadioButtonProps & InnerRef> {
 }
 
 const StyledRadioButton = styled(
-  ({
-    theme,
-    ...passProps
-  }: InternalRadioButtonProps & InnerRef & SuomifiThemeProp) => (
+  ({ theme, ...passProps }: RadioButtonProps & SuomifiThemeProp) => (
     <BaseRadioButton {...passProps} />
   ),
 )`

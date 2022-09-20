@@ -39,13 +39,11 @@ export interface AlertProps extends HtmlDivWithRefProps {
   onCloseButtonClick?: () => void;
   /** Custom props passed to the close button */
   closeButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'aria-label'>;
+  /** Ref is passed to the root div element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLDivElement>;
 }
 
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLDivElement>;
-}
-
-class BaseAlert extends Component<AlertProps & InnerRef> {
+class BaseAlert extends Component<AlertProps> {
   render() {
     const {
       className,
@@ -112,12 +110,10 @@ class BaseAlert extends Component<AlertProps & InnerRef> {
   }
 }
 
-const StyledAlert = styled(
-  (props: AlertProps & InnerRef & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
-    return <BaseAlert {...passProps} />;
-  },
-)`
+const StyledAlert = styled((props: AlertProps & SuomifiThemeProp) => {
+  const { theme, ...passProps } = props;
+  return <BaseAlert {...passProps} />;
+})`
   ${({ theme }) => baseStyles(theme)}
 `;
 

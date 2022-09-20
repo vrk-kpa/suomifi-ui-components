@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { ColorProp, SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
@@ -18,6 +18,8 @@ export interface TextProps extends HtmlSpanProps {
    * @default body
    */
   variant?: 'body' | 'lead' | 'bold';
+  /** Ref is passed to the span element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLSpanElement>;
 }
 
 const StyledText = styled(
@@ -48,10 +50,17 @@ const StyledText = styled(
 /**
  * Used for displaying text with correct fonts
  */
-const Text = (props: TextProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => <StyledText theme={suomifiTheme} {...props} />}
-  </SuomifiThemeConsumer>
+const Text = forwardRef<HTMLSpanElement, TextProps>(
+  (props: TextProps, ref: React.Ref<HTMLSpanElement>) => {
+    const { ...passProps } = props;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledText theme={suomifiTheme} forwardedRef={ref} {...passProps} />
+        )}
+      </SuomifiThemeConsumer>
+    );
+  },
 );
 
 Text.displayName = 'Text';
