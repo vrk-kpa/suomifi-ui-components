@@ -63,7 +63,7 @@ const CustomButton = (props) => {
       </RouterLink>
     </ServiceNavigationItem>
     <ServiceNavigationItem disabled>
-      <RouterLink role="link" aria-disabled tabIndex={-1}>
+      <RouterLink role="link" aria-disabled>
         Devices
       </RouterLink>
     </ServiceNavigationItem>
@@ -150,7 +150,9 @@ const Comp = (props) => {
       </RouterLink>
     </ServiceNavigationItem>
     <ServiceNavigationItem disabled>
-      <RouterLink href="https://www.suomi.fi">Devices</RouterLink>
+      <RouterLink role="link" aria-disabled>
+        Devices
+      </RouterLink>
     </ServiceNavigationItem>
   </ServiceNavigation>
 </div>;
