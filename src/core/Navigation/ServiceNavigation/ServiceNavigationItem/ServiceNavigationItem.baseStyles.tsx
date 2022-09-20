@@ -99,5 +99,3 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
   }
 `;
-
-/* stylelint-enable no-descending-specificity */
