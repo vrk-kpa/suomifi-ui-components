@@ -1,13 +1,19 @@
-import React, { ReactNode, useState } from 'react';
+import React, { forwardRef, ReactNode, useState } from 'react';
 import { HtmlButton, HtmlDiv, HtmlNav, HtmlUl } from '../../../../reset';
 import styled from 'styled-components';
-import { SuomifiThemeConsumer } from '../../../theme';
+import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { baseStyles } from './WizardNavigation.baseStyles';
 import classnames from 'classnames';
 import { Icon } from '../../../Icon/Icon';
+import { getConditionalAriaProp } from '../../../../utils/aria';
 
 export interface WizardNavigationProps {
-  children: ReactNode | ReactNode[];
+  /** Use the `<WizardNavigationItem>` components as children */
+  children: ReactNode;
+  /** Name for the navigation element. Don't use the word "navigation" since it will be read by screen reader regardless. */
+  'aria-label': string;
+  /** HTML nav element will receive this id */
+  id?: string;
   /**
    * Normal or small screen variant
    * @default normal
@@ -22,6 +28,8 @@ export interface WizardNavigationProps {
   heading: string;
   /** Custom classname to extend or customize */
   className?: string;
+  /** Ref is forwarded to nav element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLDivElement>;
 }
 
 const baseClassName = 'fi-wizard-navigation';
@@ -32,16 +40,20 @@ const headingClassName = `${baseClassName}_heading`;
 
 const BaseWizardNavigation = ({
   children,
+  'aria-label': ariaLabel,
+  id,
   variant,
   initiallyExpanded,
   heading,
   className,
+  forwardedRef,
 }: WizardNavigationProps) => {
   const initiallyExpandedValue =
     initiallyExpanded !== undefined ? initiallyExpanded : true;
   const [smallScreenNavOpen, setSmallScreenNavOpen] = useState(
     initiallyExpandedValue,
   );
+
   return (
     <HtmlDiv
       className={classnames(baseClassName, className, {
@@ -62,7 +74,11 @@ const BaseWizardNavigation = ({
       )}
       {((variant === 'smallScreen' && smallScreenNavOpen) ||
         variant !== 'smallScreen') && (
-        <HtmlNav>
+        <HtmlNav
+          forwardedRef={forwardedRef}
+          id={id}
+          {...getConditionalAriaProp('aria-label', [ariaLabel])}
+        >
           <HtmlDiv className={dividerClassName} />
           <HtmlUl className={listClassName}>{children}</HtmlUl>
         </HtmlNav>
@@ -71,16 +87,27 @@ const BaseWizardNavigation = ({
   );
 };
 
-const StyledWizardNavigation = styled(BaseWizardNavigation)`
+const StyledWizardNavigation = styled(
+  (props: WizardNavigationProps & SuomifiThemeProp) => {
+    const { theme, ...passProps } = props;
+    return <BaseWizardNavigation {...passProps} />;
+  },
+)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const WizardNavigation = (props: WizardNavigationProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => (
-      <StyledWizardNavigation theme={suomifiTheme} {...props} />
-    )}
-  </SuomifiThemeConsumer>
+const WizardNavigation = forwardRef(
+  (props: WizardNavigationProps, ref: React.RefObject<HTMLDivElement>) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledWizardNavigation
+          theme={suomifiTheme}
+          forwardedRef={ref}
+          {...props}
+        />
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
 
 WizardNavigation.displayName = 'WizardNavigation';

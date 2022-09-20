@@ -7,7 +7,7 @@ import { WizardNavigationItem } from '../WizardNavigationItem/WizardNavigationIt
 import { RouterLink } from '../../../Link';
 
 const TestWizardNavigation = (
-  <WizardNavigation heading="Steps">
+  <WizardNavigation heading="Steps" aria-label="Test">
     <WizardNavigationItem status="default">
       <RouterLink href="https://suomi.fi">1. Step</RouterLink>
     </WizardNavigationItem>

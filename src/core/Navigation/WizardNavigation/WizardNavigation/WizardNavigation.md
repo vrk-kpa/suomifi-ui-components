@@ -24,17 +24,17 @@ const Comp = (props) => {
 };
 
 <div style={{ width: '350px' }}>
-  <WizardNavigation heading="Steps">
+  <WizardNavigation heading="Steps" aria-label="Main">
     <WizardNavigationItem status="completed">
-      <RouterLink href="https://suomi.fi">Step 1</RouterLink>
+      <RouterLink
+        href="https://suomi.fi"
+        aria-label="Step 1. This step is completed"
+      >
+        Step 1
+      </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="default">
-      <RouterLink
-        href="#"
-        aria-label="Step 2. This step is completed"
-      >
-        Step 2
-      </RouterLink>
+      <RouterLink href="#">Step 2</RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="current">
       <RouterLink aria-current="step" href="#">
@@ -42,28 +42,23 @@ const Comp = (props) => {
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled tabIndex={-1} href="#">
+      <RouterLink aria-disabled role="link">
         Step 4 with a long text that wraps to the second line like
         this
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled tabIndex={-1} href="#">
+      <RouterLink aria-disabled role="link">
         Step 5
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="disabled">
-      <RouterLink aria-disabled tabIndex={-1} href="#">
+      <RouterLink aria-disabled role="link">
         Step 6
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink
-        asComponent={Comp}
-        role="button"
-        aria-disabled
-        tabIndex={-1}
-      >
+      <RouterLink asComponent={Comp} role="button" aria-disabled>
         Step 7
       </RouterLink>
     </WizardNavigationItem>
@@ -100,6 +95,7 @@ const Comp = (props) => {
     variant="smallScreen"
     heading="Steps"
     initiallyExpanded={false}
+    aria-label="Main"
   >
     <WizardNavigationItem status="default">
       <RouterLink href="https://suomi.fi">Step 1</RouterLink>
@@ -118,27 +114,22 @@ const Comp = (props) => {
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled tabIndex={-1} href="#">
+      <RouterLink aria-disabled role="link">
         Step 4
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled tabIndex={-1} href="#">
+      <RouterLink aria-disabled role="link">
         Step 5
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="disabled">
-      <RouterLink aria-disabled tabIndex={-1} href="#">
+      <RouterLink aria-disabled role="link">
         Step 6
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink
-        asComponent={Comp}
-        role="button"
-        aria-disabled
-        tabIndex={-1}
-      >
+      <RouterLink asComponent={Comp} role="button" aria-disabled>
         Step 7
       </RouterLink>
     </WizardNavigationItem>
