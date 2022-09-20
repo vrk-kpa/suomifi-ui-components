@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { forwardRef, ReactNode, useState } from 'react';
 import {
   HtmlButton,
   HtmlDiv,
@@ -7,7 +7,7 @@ import {
   HtmlUl,
 } from '../../../../reset';
 import styled from 'styled-components';
-import { SuomifiThemeConsumer } from '../../../theme';
+import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { baseStyles } from './SideNavigation.baseStyles';
 import classnames from 'classnames';
 import { Icon } from '../../../Icon/Icon';
@@ -16,9 +16,15 @@ import {
   IllustrativeIconKeys,
   DoctypeIconKeys,
 } from '../../../StaticIcon/StaticIcon';
+import { getConditionalAriaProp } from '../../../../utils/aria';
 
 export interface SideNavigationProps {
-  children: ReactNode | ReactNode[];
+  /** Use the `<SideNavigationItem>` components as children */
+  children: ReactNode;
+  /** Name for the navigation element. Don't use the word "navigation" since it will be read by screen reader regardless. */
+  'aria-label': string;
+  /** HTML nav element will receive this id */
+  id?: string;
   /**
    * Normal or small screen variant
    * @default normal
@@ -31,10 +37,12 @@ export interface SideNavigationProps {
   initiallyExpanded?: boolean;
   /** Navigation component heading text */
   heading: string;
-  /** Icon in the nav heading. Options include suomifi static icons. */
+  /** Icon in the nav heading. Options include suomi.fi static icons. */
   icon?: IllustrativeIconKeys | DoctypeIconKeys;
   /* Custom class to extend or customise */
   className?: string;
+  /** Ref is forwarded to nav element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLDivElement>;
 }
 
 const baseClassName = 'fi-side-navigation';
@@ -45,11 +53,14 @@ const headingInnerWrapperClassName = `${baseClassName}_heading_inner`;
 
 const BaseSideNavigation = ({
   children,
+  'aria-label': ariaLabel,
+  id,
   variant,
   initiallyExpanded,
   heading,
   icon,
   className,
+  forwardedRef,
 }: SideNavigationProps) => {
   const initiallyExpandedValue =
     initiallyExpanded !== undefined ? initiallyExpanded : true;
@@ -84,7 +95,11 @@ const BaseSideNavigation = ({
       )}
       {((variant === 'smallScreen' && smallScreenNavOpen) ||
         variant !== 'smallScreen') && (
-        <HtmlNav>
+        <HtmlNav
+          forwardedRef={forwardedRef}
+          id={id}
+          {...getConditionalAriaProp('aria-label', [ariaLabel])}
+        >
           <HtmlUl className={listClassName}>{children}</HtmlUl>
         </HtmlNav>
       )}
@@ -92,16 +107,27 @@ const BaseSideNavigation = ({
   );
 };
 
-const StyledSideNavigation = styled(BaseSideNavigation)`
+const StyledSideNavigation = styled(
+  (props: SideNavigationProps & SuomifiThemeProp) => {
+    const { theme, ...passProps } = props;
+    return <BaseSideNavigation {...passProps} />;
+  },
+)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const SideNavigation = (props: SideNavigationProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => (
-      <StyledSideNavigation theme={suomifiTheme} {...props} />
-    )}
-  </SuomifiThemeConsumer>
+const SideNavigation = forwardRef(
+  (props: SideNavigationProps, ref: React.RefObject<HTMLDivElement>) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledSideNavigation
+          theme={suomifiTheme}
+          forwardedRef={ref}
+          {...props}
+        />
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
 
 SideNavigation.displayName = 'SideNavigation';
