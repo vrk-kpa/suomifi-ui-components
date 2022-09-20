@@ -23,6 +23,11 @@ export interface ExpanderGroupProps {
   ariaCloseAllText?: string;
   /** Custom classname to extend or customize */
   className?: string;
+  /**
+   * Show Open/Close all button
+   * @default true
+   */
+  showToggleAllButton?: boolean;
   /** Open/Close all button props */
   toggleAllButtonProps?: Omit<
     HtmlButtonProps,
@@ -138,6 +143,7 @@ class BaseExpanderGroup extends Component<
       ariaOpenAllText,
       closeAllText,
       ariaCloseAllText,
+      showToggleAllButton = true,
       toggleAllButtonProps,
       ...passProps
     } = this.props;
@@ -149,24 +155,26 @@ class BaseExpanderGroup extends Component<
           [openClassName]: this.openExpanderCount > 0,
         })}
       >
-        <HtmlButton
-          {...toggleAllButtonProps}
-          onClick={this.handleAllToggleClick}
-          className={classnames(
-            toggleAllButtonProps?.className,
-            openAllButtonClassName,
-          )}
-          aria-expanded={allOpen}
-        >
-          <HtmlSpan aria-hidden={true}>
-            {allOpen ? closeAllText : openAllText}
-          </HtmlSpan>
-          <VisuallyHidden>
-            {allOpen
-              ? ariaCloseAllText || closeAllText
-              : ariaOpenAllText || openAllText}
-          </VisuallyHidden>
-        </HtmlButton>
+        {!!showToggleAllButton && (
+          <HtmlButton
+            {...toggleAllButtonProps}
+            onClick={this.handleAllToggleClick}
+            className={classnames(
+              toggleAllButtonProps?.className,
+              openAllButtonClassName,
+            )}
+            aria-expanded={allOpen}
+          >
+            <HtmlSpan aria-hidden={true}>
+              {allOpen ? closeAllText : openAllText}
+            </HtmlSpan>
+            <VisuallyHidden>
+              {allOpen
+                ? ariaCloseAllText || closeAllText
+                : ariaOpenAllText || openAllText}
+            </VisuallyHidden>
+          </HtmlButton>
+        )}
         <HtmlDiv className={expandersContainerClassName}>
           <Provider
             value={{
