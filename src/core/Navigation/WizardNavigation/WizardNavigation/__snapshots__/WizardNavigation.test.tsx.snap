@@ -818,6 +818,7 @@ exports[`calling render with the same component on the same container does not r
     Steps
   </div>
   <nav
+    aria-label="Test"
     class="c2"
   >
     <div
