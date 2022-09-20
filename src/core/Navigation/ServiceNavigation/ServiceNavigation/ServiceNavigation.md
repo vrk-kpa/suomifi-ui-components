@@ -17,7 +17,7 @@ const CustomButton = (props) => {
 };
 
 <div style={{ width: '300px' }}>
-  <ServiceNavigation>
+  <ServiceNavigation aria-label="Main">
     <ServiceNavigationItem>
       <RouterLink href="/" aria-label="Inbox. 16 unread messages.">
         Inbox
@@ -102,6 +102,7 @@ const Comp = (props) => {
     variant="smallScreen"
     smallScreenExpandButtonText="Menu"
     initiallyExpanded={false}
+    aria-label="Main"
   >
     <ServiceNavigationItem>
       <RouterLink href="/">Inbox</RouterLink>

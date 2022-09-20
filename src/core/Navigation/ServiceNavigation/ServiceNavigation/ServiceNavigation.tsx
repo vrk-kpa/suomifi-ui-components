@@ -11,6 +11,7 @@ import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { baseStyles } from './ServiceNavigation.baseStyles';
 import classnames from 'classnames';
 import { Icon } from '../../../Icon/Icon';
+import { getConditionalAriaProp } from '../../../../utils/aria';
 
 export interface ServiceNavigationProps {
   /** Use the `<ServiceNavigationItem>` components as children */
@@ -19,6 +20,10 @@ export interface ServiceNavigationProps {
    * Normal or small screen variant
    * @default normal
    */
+  /** Name for the navigation element. Don't use the word "navigation" since it will be read by screen reader regardless. */
+  'aria-label': string;
+  /** HTML nav element will receive this id */
+  id?: string;
   variant?: 'default' | 'smallScreen';
   /**
    * Whether the menu is initially expanded. Only applies to smallScreen variant.
@@ -29,10 +34,8 @@ export interface ServiceNavigationProps {
   smallScreenExpandButtonText?: string | ReactNode;
   /** Custom classname to extend or customize */
   className?: string;
-}
-
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLDivElement>;
+  /** Ref is forwarded to nav element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLDivElement>;
 }
 
 const baseClassName = 'fi-service-navigation';
@@ -42,12 +45,14 @@ const smallScreenExpandButtonClassName = `${baseClassName}_expand-button`;
 
 const BaseServiceNavigation = ({
   children,
+  'aria-label': ariaLabel,
+  id,
   variant,
   initiallyExpanded,
   smallScreenExpandButtonText,
   className,
   forwardedRef,
-}: ServiceNavigationProps & InnerRef) => {
+}: ServiceNavigationProps) => {
   const initiallyExpandedValue =
     initiallyExpanded !== undefined ? initiallyExpanded : true;
   const [smallScreenNavOpen, setSmallScreenNavOpen] = useState(
@@ -80,7 +85,11 @@ const BaseServiceNavigation = ({
       )}
       {((variant === 'smallScreen' && smallScreenNavOpen) ||
         variant !== 'smallScreen') && (
-        <HtmlNav forwardedRef={forwardedRef}>
+        <HtmlNav
+          forwardedRef={forwardedRef}
+          id={id}
+          {...getConditionalAriaProp('aria-label', [ariaLabel])}
+        >
           <HtmlUl className={listClassName}>{children}</HtmlUl>
         </HtmlNav>
       )}
@@ -89,7 +98,7 @@ const BaseServiceNavigation = ({
 };
 
 const StyledServiceNavigation = styled(
-  (props: ServiceNavigationProps & InnerRef & SuomifiThemeProp) => {
+  (props: ServiceNavigationProps & SuomifiThemeProp) => {
     const { theme, ...passProps } = props;
     return <BaseServiceNavigation {...passProps} />;
   },

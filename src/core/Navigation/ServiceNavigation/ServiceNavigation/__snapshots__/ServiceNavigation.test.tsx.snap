@@ -617,7 +617,9 @@ exports[`should match snapshot 1`] = `
   class="c0 fi-service-navigation c1"
 >
   <nav
+    aria-label="Test"
     class="c2"
+    id="Heppis"
   >
     <ul
       class="c3 fi-service-navigation_list"
