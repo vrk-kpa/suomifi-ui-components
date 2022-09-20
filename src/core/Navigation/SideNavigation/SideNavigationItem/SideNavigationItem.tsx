@@ -9,11 +9,11 @@ import { Icon } from '../../../Icon/Icon';
 export interface SideNavigationItemProps {
   /** Custom class */
   className?: string;
-  /** Use the polymorphic RouterLink component to get intended CSS styling */
+  /** Use the polymorphic RouterLink component as content to get intended CSS styling */
   content: ReactNode;
-  /** Use the polymorphic RouterLink component or as child to get intended CSS styling */
-  children?: ReactNode | ReactNode[];
-  /** Sub-level of this item. 1-3 */
+  /** Nested SideNavigationItems */
+  children?: ReactNode;
+  /** Sub-level of the item. 1-3 */
   subLevel: 1 | 2 | 3;
   /** Show item as the selected one */
   selected?: boolean;
@@ -40,6 +40,7 @@ const BaseSideNavigationItem = ({
   expanded,
   ...passProps
 }: SideNavigationItemProps) => {
+  // Loop through all children to check if a child of this item is selected
   let childIsSelected = false;
   React.Children.forEach(children, (element) => {
     if (!React.isValidElement(element)) return;
