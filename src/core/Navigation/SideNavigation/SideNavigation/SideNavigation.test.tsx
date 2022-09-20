@@ -19,7 +19,7 @@ const CustomButton = (props: TestProps) => {
 };
 
 const TestSideNavigation = (
-  <SideNavigation heading="Economy" icon="piggyBank">
+  <SideNavigation heading="Economy" icon="piggyBank" aria-label="Test">
     <SideNavigationItem
       subLevel={1}
       content={

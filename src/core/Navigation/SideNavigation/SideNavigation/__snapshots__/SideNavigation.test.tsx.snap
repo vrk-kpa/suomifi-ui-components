@@ -480,10 +480,6 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(212,63%,45%);
 }
 
-.c7.fi-side-navigation-item.fi-side-navigation-item--selected:after {
-  background: hsl(212,63%,45%);
-}
-
 .c7.fi-side-navigation-item--level-1.fi-side-navigation-item--selected {
   background: hsl(212,63%,45%);
   border-left: 4px solid hsl(212,63%,45%);
@@ -579,6 +575,7 @@ exports[`calling render with the same component on the same container does not r
 .c7.fi-side-navigation-item--disabled .fi-link--router:hover,
 .c7.fi-side-navigation-item--disabled .fi-link--router:active,
 .c7.fi-side-navigation-item--disabled .fi-link--router:visited {
+  background: transparent;
   color: hsl(202,7%,67%);
 }
 
@@ -768,6 +765,7 @@ exports[`calling render with the same component on the same container does not r
     </span>
   </div>
   <nav
+    aria-label="Test"
     class="c4"
   >
     <ul

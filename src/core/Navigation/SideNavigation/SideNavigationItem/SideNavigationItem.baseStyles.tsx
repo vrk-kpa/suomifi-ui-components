@@ -99,12 +99,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
-    &.fi-side-navigation-item--selected {
-      &:after {
-        background: ${theme.colors.highlightBase};
-      }
-    }
-
     &--level-1 {
       &.fi-side-navigation-item--selected {
         background: ${theme.colors.highlightBase};
@@ -201,6 +195,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         &:hover,
         &:active,
         &:visited {
+          background: transparent;
           color: ${theme.colors.depthBase};
         }
       }
