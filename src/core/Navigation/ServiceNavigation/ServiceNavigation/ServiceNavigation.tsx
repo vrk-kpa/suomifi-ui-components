@@ -16,14 +16,14 @@ import { getConditionalAriaProp } from '../../../../utils/aria';
 export interface ServiceNavigationProps {
   /** Use the `<ServiceNavigationItem>` components as children */
   children: ReactNode;
-  /**
-   * Normal or small screen variant
-   * @default normal
-   */
   /** Name for the navigation element. Don't use the word "navigation" since it will be read by screen reader regardless. */
   'aria-label': string;
   /** HTML nav element will receive this id */
   id?: string;
+  /**
+   * Normal or small screen variant
+   * @default normal
+   */
   variant?: 'default' | 'smallScreen';
   /**
    * Whether the menu is initially expanded. Only applies to smallScreen variant.
