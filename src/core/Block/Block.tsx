@@ -8,6 +8,16 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 
 const baseClassName = 'fi-block';
 
+export type BlockVariant =
+  | 'default'
+  | 'div'
+  | 'span'
+  | 'section'
+  | 'header'
+  | 'nav'
+  | 'main'
+  | 'footer';
+
 export interface BlockProps extends HtmlDivProps {
   /** Padding from theme */
   padding?: SpacingWithoutInsetProp;
@@ -39,17 +49,10 @@ export interface BlockProps extends HtmlDivProps {
   my?: SpacingWithoutInsetProp;
   /**
    * Change block semantics. "Default" renders a div with SuomifiTheme reset styles applied,
-   * whereas "div" renders a plain HTML div
+   * whereas "div" renders a plain HTML div. "Span" gets rendered with display: inline-block style
    * @default default
    */
-  variant?:
-    | 'default'
-    | 'div'
-    | 'section'
-    | 'header'
-    | 'nav'
-    | 'main'
-    | 'footer';
+  variant?: BlockVariant;
 }
 
 class SemanticBlock extends Component<BlockProps> {
@@ -108,11 +111,11 @@ class SemanticBlock extends Component<BlockProps> {
   }
 }
 
-const StyledBlock = styled((props: SuomifiThemeProp) => {
-  const { theme, ...passProps } = props;
-  return <SemanticBlock {...passProps} />;
+const StyledBlock = styled((props: BlockProps & SuomifiThemeProp) => {
+  const { theme, variant, ...passProps } = props;
+  return <SemanticBlock variant={variant} {...passProps} />;
 })`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, variant }) => baseStyles(theme, variant)}
 `;
 
 /**

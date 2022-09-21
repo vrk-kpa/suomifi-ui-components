@@ -2,8 +2,9 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../theme';
 import { element, font } from '../theme/reset';
 import { spacingModifiers } from '../theme/utils';
+import { BlockVariant } from './Block';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (theme: SuomifiTheme, variant?: BlockVariant) => css`
   ${element(theme)}
   ${font(theme)('bodyText')}
   ${spacingModifiers(theme)('margin')('&.fi-block--margin')}
@@ -16,4 +17,5 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${spacingModifiers(theme)('padding-right')('&.fi-block--padding-right')}
   ${spacingModifiers(theme)('padding-bottom')('&.fi-block--padding-bottom')}
   ${spacingModifiers(theme)('padding-left')('&.fi-block--padding-left')}
+  ${!!variant && variant === 'span' ? 'display: inline-block' : ''}
 `;
