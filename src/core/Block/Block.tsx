@@ -53,6 +53,8 @@ export interface BlockProps extends HtmlDivProps {
    * @default default
    */
   variant?: BlockVariant;
+  /** Ref is forwarded to the block element. All variants are supported. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<any>;
 }
 
 class SemanticBlock extends Component<BlockProps> {
@@ -121,7 +123,7 @@ const StyledBlock = styled((props: BlockProps & SuomifiThemeProp) => {
 /**
  * Used in displaying a generic piece of HTML e.g. a div
  */
-const Block = forwardRef((props: BlockProps, ref: React.Ref<HTMLElement>) => (
+const Block = forwardRef((props: BlockProps, ref: React.RefObject<any>) => (
   <SuomifiThemeConsumer>
     {({ suomifiTheme }) => (
       <StyledBlock theme={suomifiTheme} forwardedRef={ref} {...props} />
