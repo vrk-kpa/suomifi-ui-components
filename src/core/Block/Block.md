@@ -38,5 +38,10 @@ import { Block } from 'suomifi-ui-components';
 ```js
 import { Block } from 'suomifi-ui-components';
 
-<Block variant="section">I'm semantically a section</Block>;
+<>
+  <Block variant="section">I'm semantically a section</Block>
+  <Block variant="span">
+    Block component rendered as an inline-block span
+  </Block>
+</>;
 ```

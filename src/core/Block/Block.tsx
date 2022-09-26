@@ -8,6 +8,16 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 
 const baseClassName = 'fi-block';
 
+export type BlockVariant =
+  | 'default'
+  | 'div'
+  | 'span'
+  | 'section'
+  | 'header'
+  | 'nav'
+  | 'main'
+  | 'footer';
+
 export interface BlockProps extends HtmlDivProps {
   /** Padding from theme */
   padding?: SpacingWithoutInsetProp;
@@ -38,12 +48,13 @@ export interface BlockProps extends HtmlDivProps {
   /** Margin on the y-axis (top & bottom) from theme */
   my?: SpacingWithoutInsetProp;
   /**
-   * Change block semantics
+   * Change block semantics. "Default" renders a div with SuomifiTheme reset styles applied,
+   * whereas "div" renders a plain HTML div. "Span" gets rendered with display: inline-block style
    * @default default
    */
-  variant?: 'default' | 'section' | 'header' | 'nav' | 'main' | 'footer';
+  variant?: BlockVariant;
   /** Ref is forwarded to the block element. All variants are supported. Alternative for React `ref` attribute. */
-  forwardedRef?: React.Ref<HTMLElement>;
+  forwardedRef?: React.Ref<any>;
 }
 
 class SemanticBlock extends Component<BlockProps> {
@@ -102,17 +113,17 @@ class SemanticBlock extends Component<BlockProps> {
   }
 }
 
-const StyledBlock = styled((props: SuomifiThemeProp) => {
-  const { theme, ...passProps } = props;
-  return <SemanticBlock {...passProps} />;
+const StyledBlock = styled((props: BlockProps & SuomifiThemeProp) => {
+  const { theme, variant, ...passProps } = props;
+  return <SemanticBlock variant={variant} {...passProps} />;
 })`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, variant }) => baseStyles(theme, variant)}
 `;
 
 /**
  * Used in displaying a generic piece of HTML e.g. a div
  */
-const Block = forwardRef((props: BlockProps, ref: React.Ref<HTMLElement>) => (
+const Block = forwardRef((props: BlockProps, ref: React.Ref<any>) => (
   <SuomifiThemeConsumer>
     {({ suomifiTheme }) => (
       <StyledBlock theme={suomifiTheme} forwardedRef={ref} {...props} />
