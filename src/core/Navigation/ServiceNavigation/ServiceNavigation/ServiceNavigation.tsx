@@ -35,7 +35,7 @@ export interface ServiceNavigationProps {
   /** Custom classname to extend or customize */
   className?: string;
   /** Ref is forwarded to nav element. Alternative for React `ref` attribute. */
-  forwardedRef?: React.RefObject<HTMLDivElement>;
+  forwardedRef?: React.Ref<HTMLElement>;
 }
 
 const baseClassName = 'fi-service-navigation';
@@ -107,7 +107,7 @@ const StyledServiceNavigation = styled(
 `;
 
 const ServiceNavigation = forwardRef(
-  (props: ServiceNavigationProps, ref: React.RefObject<HTMLDivElement>) => (
+  (props: ServiceNavigationProps, ref: React.Ref<HTMLElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <StyledServiceNavigation
