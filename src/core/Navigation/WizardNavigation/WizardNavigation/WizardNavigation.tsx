@@ -29,7 +29,7 @@ export interface WizardNavigationProps {
   /** Custom classname to extend or customize */
   className?: string;
   /** Ref is forwarded to nav element. Alternative for React `ref` attribute. */
-  forwardedRef?: React.RefObject<HTMLDivElement>;
+  forwardedRef?: React.Ref<HTMLElement>;
 }
 
 const baseClassName = 'fi-wizard-navigation';
@@ -97,7 +97,7 @@ const StyledWizardNavigation = styled(
 `;
 
 const WizardNavigation = forwardRef(
-  (props: WizardNavigationProps, ref: React.RefObject<HTMLDivElement>) => (
+  (props: WizardNavigationProps, ref: React.Ref<HTMLElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <StyledWizardNavigation
