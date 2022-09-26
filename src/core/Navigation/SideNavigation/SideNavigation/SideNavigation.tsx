@@ -42,7 +42,7 @@ export interface SideNavigationProps {
   /* Custom class to extend or customise */
   className?: string;
   /** Ref is forwarded to nav element. Alternative for React `ref` attribute. */
-  forwardedRef?: React.RefObject<HTMLDivElement>;
+  forwardedRef?: React.Ref<HTMLElement>;
 }
 
 const baseClassName = 'fi-side-navigation';
@@ -117,7 +117,7 @@ const StyledSideNavigation = styled(
 `;
 
 const SideNavigation = forwardRef(
-  (props: SideNavigationProps, ref: React.RefObject<HTMLDivElement>) => (
+  (props: SideNavigationProps, ref: React.Ref<HTMLElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <StyledSideNavigation
