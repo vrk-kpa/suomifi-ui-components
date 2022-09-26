@@ -6,7 +6,7 @@ import { asPropType } from '../../utils/typescript';
 export interface HtmlNavProps
   extends Omit<HTMLProps<HTMLElement>, 'ref' | 'as'> {
   as?: asPropType;
-  forwardedRef?: React.RefObject<HTMLDivElement>;
+  forwardedRef?: React.Ref<HTMLElement>;
 }
 
 const aResets = css`
