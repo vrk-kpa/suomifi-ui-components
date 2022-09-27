@@ -46,13 +46,31 @@ export type InheritableElementProps<
 > = ExtendableProps<PropsOf<C>, Props>;
 
 /**
+ * Allows the component's ref type to comply with "asComponent" prop
+ * E.g. asComponent = 'button', ref type must be React.Ref<HTMLButtonElement>
+ */
+type PolymorphicRef<C extends React.ElementType> =
+  React.ComponentPropsWithRef<C>['ref'];
+
+/**
+ * This type definition exists solely to provide the component with a `forwardedRef` prop which
+ * is visible in the Styleguidist API documentation ("ref" is not visible in Styleguidist)
+ */
+type ForwardedRef<C extends React.ElementType> = {
+  /** Alternative for React `ref` attribute. Ref type is derived from the `asComponent` prop value.
+   * Example: asComponent = 'button', ref type must be HTMLButtonElement
+   */
+  forwardedRef?: PolymorphicRef<C>;
+};
+
+/**
  * A more sophisticated version of `InheritableElementProps` where
  * the passed in `as` prop will determine which props can be included
  */
 export type PolymorphicComponentProps<
   C extends React.ElementType,
   Props = {},
-> = InheritableElementProps<C, Props & AsProp<C>>;
+> = InheritableElementProps<C, Props & AsProp<C> & ForwardedRef<C>>;
 
 //
 //
@@ -83,7 +101,7 @@ const PolymorphicLink = <C extends React.ElementType>(
     forwardedRef,
     ...passProps
   } = props;
-  const Component = asComponent || 'a';
+  const Component = asComponent || HtmlA;
 
   return (
     <Component
@@ -102,12 +120,9 @@ const StyledRouterLink = styled(PolymorphicLink)`
 
 const RouterLinkInner = <C extends React.ElementType = 'a'>(
   props: RouterLinkProps<C>,
-  ref: React.RefObject<any>,
 ) => (
   <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => (
-      <StyledRouterLink theme={suomifiTheme} forwardedRef={ref} {...props} />
-    )}
+    {({ suomifiTheme }) => <StyledRouterLink theme={suomifiTheme} {...props} />}
   </SuomifiThemeConsumer>
 );
 
@@ -116,7 +131,7 @@ export const RouterLink = forwardRef(RouterLinkInner) as <
   C extends React.ElementType = 'a',
 >(
   props: RouterLinkProps<C> & {
-    ref?: React.ForwardedRef<any>;
+    ref?: PolymorphicRef<C>;
   },
 ) => ReturnType<typeof RouterLinkInner>;
 
