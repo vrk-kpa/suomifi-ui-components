@@ -43,22 +43,21 @@ const BaseSideNavigationItem = ({
   // Loop through all children to check if a child of this item is selected
   let childIsSelected = false;
   React.Children.forEach(children, (element) => {
-    if (!React.isValidElement(element)) return;
+    if (!React.isValidElement(element) || !element.props) return;
 
-    if (element.props) {
-      if (element.props.selected) {
-        childIsSelected = true;
-      } else if (element.props.children) {
-        element.props.children.forEach((c: ReactElement) => {
-          if (c.props) {
-            if (c.props.selected) {
-              childIsSelected = true;
-              return;
-            }
-          }
-        });
-      }
+    if (element.props.selected) {
+      childIsSelected = true;
+      return;
     }
+
+    if (!element.props.children) return;
+
+    element.props.children.forEach((child: ReactElement) => {
+      if (child.props?.selected) {
+        childIsSelected = true;
+        return;
+      }
+    });
   });
 
   return (
