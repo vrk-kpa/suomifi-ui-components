@@ -129,7 +129,7 @@ const RouterLinkInner = <C extends React.ElementType = 'a'>(
   </SuomifiThemeConsumer>
 );
 
-// Type assertion is needed to set the function signature with generic T type.
+// Type assertion is needed to set the function signature with generic type C.
 export const RouterLink = forwardRef(RouterLinkInner) as <
   C extends React.ElementType = 'a',
 >(
