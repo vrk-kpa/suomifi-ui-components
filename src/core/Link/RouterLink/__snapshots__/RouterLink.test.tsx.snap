@@ -2,6 +2,44 @@
 
 exports[`calling render with the same component on the same container does not remount 1`] = `
 .c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c0:hover,
+.c0:active,
+.c0:focus,
+.c0:focus-within {
+  color: inherit;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.c1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -17,43 +55,43 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 400;
 }
 
-.c0.fi-link--router {
+.c1.fi-link--router {
   color: hsl(212,63%,45%);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c0.fi-link--router:hover,
-.c0.fi-link--router:active,
-.c0.fi-link--router:focus,
-.c0.fi-link--router:focus-within {
+.c1.fi-link--router:hover,
+.c1.fi-link--router:active,
+.c1.fi-link--router:focus,
+.c1.fi-link--router:focus-within {
   color: hsl(212,63%,45%);
 }
 
-.c0.fi-link--router:focus,
-.c0.fi-link--router:focus-within {
+.c1.fi-link--router:focus,
+.c1.fi-link--router:focus-within {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c0.fi-link--router:focus {
+.c1.fi-link--router:focus {
   outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
 }
 
-.c0.fi-link--router:hover,
-.c0.fi-link--router:active {
+.c1.fi-link--router:hover,
+.c1.fi-link--router:active {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c0.fi-link--router:visited {
+.c1.fi-link--router:visited {
   color: hsl(284,36%,45%);
 }
 
 <a
-  class="fi-link--router c0"
+  class="c0 fi-link--router c1"
   data-testid="test-link"
   href="/"
 >

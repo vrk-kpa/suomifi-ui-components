@@ -120,9 +120,12 @@ const StyledRouterLink = styled(PolymorphicLink)`
 
 const RouterLinkInner = <C extends React.ElementType = 'a'>(
   props: RouterLinkProps<C>,
+  ref?: PolymorphicRef<C>,
 ) => (
   <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => <StyledRouterLink theme={suomifiTheme} {...props} />}
+    {({ suomifiTheme }) => (
+      <StyledRouterLink theme={suomifiTheme} forwardedRef={ref} {...props} />
+    )}
   </SuomifiThemeConsumer>
 );
 
