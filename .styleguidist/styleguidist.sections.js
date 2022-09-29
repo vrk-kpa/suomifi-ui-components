@@ -7,6 +7,7 @@ const primitiveComponents = [
   'Heading',
   'Tooltip',
   'VisuallyHidden',
+  'Pagination',
   ['Form', 'TextInput'],
   ['Form', 'SearchInput'],
   ['Form', 'Textarea'],
