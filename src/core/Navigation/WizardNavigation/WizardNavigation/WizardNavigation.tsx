@@ -12,7 +12,7 @@ export interface WizardNavigationProps {
   children: ReactNode;
   /** Name for the navigation element. Don't use the word "navigation" since it will be read by screen reader regardless. */
   'aria-label': string;
-  /** HTML nav element will receive this id */
+  /** ID for the HTML nav element */
   id?: string;
   /**
    * Normal or small screen variant
@@ -20,7 +20,7 @@ export interface WizardNavigationProps {
    */
   variant?: 'default' | 'smallScreen';
   /**
-   * Whether the menu is initially expanded. Only applies to smallScreen variant.
+   * Initial expand status for the menu. Only applies to smallScreen variant
    * @default true
    */
   initiallyExpanded?: boolean;

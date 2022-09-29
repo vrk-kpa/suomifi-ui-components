@@ -11,7 +11,7 @@ export interface WizardNavigationItemProps {
   className?: string;
   /** Use the polymorphic RouterLink component as child to get intended CSS styling */
   children: ReactNode;
-  /** Status of the item. Changes styling and availability */
+  /** Status of the item. Affects styling and element reachability */
   status:
     | 'default'
     | 'current'
