@@ -10,9 +10,9 @@ export interface ServiceNavigationItemProps {
   className?: string;
   /** Use the polymorphic `<RouterLink>` component as child to get intended CSS styling */
   children: ReactNode;
-  /** Show item as the selected one */
+  /** Toggle to show item as the selected one */
   selected?: boolean;
-  /** Disable the item */
+  /** Disables the item */
   disabled?: boolean;
 }
 
