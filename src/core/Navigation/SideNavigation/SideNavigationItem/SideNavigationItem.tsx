@@ -9,15 +9,15 @@ import { Icon } from '../../../Icon/Icon';
 export interface SideNavigationItemProps {
   /** Custom class */
   className?: string;
-  /** Use the polymorphic RouterLink component as content to get intended CSS styling */
+  /** Content for the link element. Use the polymorphic RouterLink component to get intended CSS styling */
   content: ReactNode;
   /** Nested SideNavigationItems */
   children?: ReactNode;
   /** Sub-level of the item. 1-3 */
   subLevel: 1 | 2 | 3;
-  /** Show item as the selected one */
+  /** Toggle to show item as the selected one */
   selected?: boolean;
-  /** Disable the item */
+  /** Disables the item */
   disabled?: boolean;
   /** Force the item to show its children even when not selected */
   expanded?: boolean;
