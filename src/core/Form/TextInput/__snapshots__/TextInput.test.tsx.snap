@@ -764,11 +764,11 @@ exports[`snapshots match hidden label with placeholder 1`] = `
     <div
       class="c3 c4 fi-label"
     >
-      <span
-        class="c2 c5 fi-visually-hidden"
+      <label
+        class="c5 fi-visually-hidden"
       >
         Test input
-      </span>
+      </label>
     </div>
     <div
       class="c0 fi-text-input_input-element-container"
