@@ -335,20 +335,10 @@ exports[`calling render with the same component on the same container does not r
   display: none;
 }
 
-.c5.fi-wizard-navigation-item:focus-within:before {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
+.c5.fi-wizard-navigation-item:focus-within {
+  outline: 0;
   border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  z-index: 9999;
 }
 
 .c5.fi-wizard-navigation-item .fi-wizard-navigation-item_inner-wrapper {

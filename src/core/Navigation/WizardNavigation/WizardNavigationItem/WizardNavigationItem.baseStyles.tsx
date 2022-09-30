@@ -30,9 +30,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     &:focus-within {
-      &:before {
-        ${theme.focus.absoluteFocus}
-      }
+      ${theme.focus.boxShadowFocus}
     }
 
     .fi-wizard-navigation-item_inner-wrapper {
