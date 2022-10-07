@@ -3,6 +3,9 @@ const path = require('path');
 module.exports = (env) => ({
   mode: env.production ? 'production' : 'development',
   devtool: env.production ? 'inline-source-map' : 'eval',
+  devServer: {
+    injectClient: true,
+  },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     fallback: {
