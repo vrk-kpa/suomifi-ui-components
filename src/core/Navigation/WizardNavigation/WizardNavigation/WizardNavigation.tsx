@@ -80,7 +80,9 @@ const BaseWizardNavigation = ({
           {...getConditionalAriaProp('aria-label', [ariaLabel])}
         >
           <HtmlDiv className={dividerClassName} />
-          <HtmlUl className={listClassName}>{children}</HtmlUl>
+          <HtmlUl className={listClassName} role="list">
+            {children}
+          </HtmlUl>
         </HtmlNav>
       )}
     </HtmlDiv>

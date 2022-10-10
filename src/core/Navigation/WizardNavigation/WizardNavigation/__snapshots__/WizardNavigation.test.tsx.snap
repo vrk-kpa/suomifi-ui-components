@@ -816,6 +816,7 @@ exports[`calling render with the same component on the same container does not r
     />
     <ul
       class="c3 fi-wizard-navigation_list"
+      role="list"
     >
       <li
         class="c4 c5 fi-wizard-navigation-item fi-wizard-navigation-item--default"
