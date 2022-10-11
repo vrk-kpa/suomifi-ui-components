@@ -307,18 +307,9 @@ exports[`should match snapshot 1`] = `
   padding-left: calc(20px - 4px);
 }
 
-.c5.fi-service-navigation-item:focus {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
+.c5.fi-service-navigation-item:focus-within {
+  outline: 0;
   border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
 }
@@ -339,6 +330,12 @@ exports[`should match snapshot 1`] = `
   cursor: pointer;
   background: inherit;
   border: none;
+}
+
+.c5.fi-service-navigation-item .fi-link--router:focus {
+  outline: 0;
+  border: none;
+  box-shadow: none;
 }
 
 .c5.fi-service-navigation-item .fi-link--router:hover,

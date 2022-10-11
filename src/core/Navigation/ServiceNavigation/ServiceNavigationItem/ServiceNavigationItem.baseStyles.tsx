@@ -22,8 +22,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
-    &:focus {
-      ${theme.focus.absoluteFocus};
+    &:focus-within {
+      ${theme.focus.boxShadowFocus};
+      z-index: ${theme.zindexes.focus};
     }
 
     .fi-link--router {
@@ -36,6 +37,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       cursor: pointer;
       background: inherit;
       border: none;
+
+      &:focus {
+        outline: 0;
+        border: none;
+        box-shadow: none;
+      }
 
       &:hover,
       &:active,
