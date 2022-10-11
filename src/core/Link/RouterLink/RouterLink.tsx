@@ -103,10 +103,24 @@ const PolymorphicLink = <C extends React.ElementType>(
   } = props;
   const Component = asComponent || HtmlA;
 
+  // If asComponent is included, we assume it can take a normal ref-prop
+  if (!!asComponent) {
+    return (
+      <Component
+        className={classnames(routerLinkClassName, className)}
+        ref={forwardedRef}
+        {...passProps}
+      >
+        {children}
+      </Component>
+    );
+  }
+
+  // HtmlA (which is rendered by default) exposes a prop called forwardedRef instead
   return (
     <Component
       className={classnames(routerLinkClassName, className)}
-      ref={forwardedRef}
+      forwardedRef={forwardedRef}
       {...passProps}
     >
       {children}
