@@ -96,6 +96,12 @@ export {
   ModalFooterProps,
 } from './core/Modal/';
 export {
+  WizardNavigation,
+  WizardNavigationProps,
+  WizardNavigationItem,
+  WizardNavigationItemProps,
+} from './core/Navigation/WizardNavigation';
+export {
   Expander,
   ExpanderProps,
   ExpanderGroup,
