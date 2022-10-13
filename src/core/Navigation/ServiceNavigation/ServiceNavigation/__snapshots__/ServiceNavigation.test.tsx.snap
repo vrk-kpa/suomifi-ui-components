@@ -619,6 +619,7 @@ exports[`should match snapshot 1`] = `
   >
     <ul
       class="c3 fi-service-navigation_list"
+      role="list"
     >
       <li
         class="c4 c5 fi-service-navigation-item"

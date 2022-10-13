@@ -90,7 +90,9 @@ const BaseServiceNavigation = ({
           id={id}
           {...getConditionalAriaProp('aria-label', [ariaLabel])}
         >
-          <HtmlUl className={listClassName}>{children}</HtmlUl>
+          <HtmlUl className={listClassName} role="list">
+            {children}
+          </HtmlUl>
         </HtmlNav>
       )}
     </HtmlDiv>
