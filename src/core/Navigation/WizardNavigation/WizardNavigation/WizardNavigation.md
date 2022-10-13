@@ -1,6 +1,6 @@
 ### Basic usage
 
-A `<WizardNavigationItem>` can have one of these 5 statuses:
+A `<WizardNavigationItem>` can have one of these 6 statuses:
 
 - default: reachable & incomplete step
 - current: currently active step
