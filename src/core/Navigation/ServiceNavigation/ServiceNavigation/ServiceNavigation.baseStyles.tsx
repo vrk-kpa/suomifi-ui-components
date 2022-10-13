@@ -21,6 +21,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         padding: ${theme.spacing.m};
         border: 1px solid ${theme.colors.highlightLight2};
 
+        .fi-service-navigation_expand-button_text-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
         &:focus {
           outline: 0;
           &:after {

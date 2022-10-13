@@ -42,6 +42,7 @@ const baseClassName = 'fi-service-navigation';
 const smallScreenClassName = `${baseClassName}--small-screen`;
 const listClassName = `${baseClassName}_list`;
 const smallScreenExpandButtonClassName = `${baseClassName}_expand-button`;
+const buttonTextClassName = `${baseClassName}_expand-button_text-wrapper`;
 
 const BaseServiceNavigation = ({
   children,
@@ -71,13 +72,7 @@ const BaseServiceNavigation = ({
           onClick={() => setSmallScreenNavOpen(!smallScreenNavOpen)}
           aria-expanded={smallScreenNavOpen}
         >
-          <HtmlSpan
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
+          <HtmlSpan className={buttonTextClassName}>
             {smallScreenExpandButtonText}
           </HtmlSpan>
           <Icon icon={smallScreenNavOpen ? 'chevronDown' : 'chevronRight'} />

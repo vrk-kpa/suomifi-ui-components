@@ -236,6 +236,21 @@ exports[`should match snapshot 1`] = `
   border: 1px solid hsl(212,63%,90%);
 }
 
+.c1.fi-service-navigation--small-screen .fi-service-navigation_expand-button .fi-service-navigation_expand-button_text-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
 .c1.fi-service-navigation--small-screen .fi-service-navigation_expand-button:focus {
   outline: 0;
 }
