@@ -1,5 +1,10 @@
 ```js
-import { Textarea } from 'suomifi-ui-components';
+import {
+  Textarea,
+  Tooltip,
+  Heading,
+  Text
+} from 'suomifi-ui-components';
 import React from 'react';
 
 const exampleRef = React.createRef();
@@ -27,6 +32,24 @@ const exampleRef = React.createRef();
   </Textarea>
 
   <Textarea labelText="Textarea disabled" disabled>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+    vestibulum iaculis augue, sit amet tincidunt ipsum.
+  </Textarea>
+
+  <Textarea
+    labelText="Textarea with a tooltip"
+    tooltipComponent={
+      <Tooltip
+        ariaToggleButtonLabelText="Textarea with a tooltip, additional information"
+        ariaCloseButtonLabelText="Textarea with a tooltip, close additional information"
+      >
+        <Heading variant="h5" as="h2">
+          Tooltip
+        </Heading>
+        <Text>Text content for the tooltip</Text>
+      </Tooltip>
+    }
+  >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
     vestibulum iaculis augue, sit amet tincidunt ipsum.
   </Textarea>

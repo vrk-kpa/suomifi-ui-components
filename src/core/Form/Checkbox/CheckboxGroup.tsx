@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, forwardRef } from 'react';
+import React, { Component, ReactNode, forwardRef, ReactElement } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
@@ -56,6 +56,8 @@ export interface CheckboxGroupProps {
   groupStatus?: CheckboxGroupStatus;
   /** Status text to be shown below the component. Use e.g. for validation error */
   groupStatusText?: string;
+  /** Tooltip component for the group's label */
+  tooltipComponent?: ReactElement;
   /** Ref is forwarded to the root div element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLDivElement>;
 }
@@ -84,6 +86,7 @@ class BaseCheckboxGroup extends Component<
       id,
       groupStatus = 'default',
       groupStatusText,
+      tooltipComponent,
       ...passProps
     } = this.props;
 
@@ -105,6 +108,7 @@ class BaseCheckboxGroup extends Component<
                 [checkboxGroupClassNames.labelIsVisible]:
                   labelMode !== 'hidden',
               })}
+              tooltipComponent={tooltipComponent}
             >
               {labelText}
             </Label>

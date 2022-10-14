@@ -356,3 +356,50 @@ const defaultSelectedFood = {
   />
 </>;
 ```
+
+### SingleSelect with a tooltip
+
+```js
+import {
+  SingleSelect,
+  Tooltip,
+  Heading,
+  Text
+} from 'suomifi-ui-components';
+const foods = [
+  {
+    labelText: 'Pizza',
+    uniqueItemId: 'pizza-123'
+  },
+  {
+    labelText: 'Burger',
+    uniqueItemId: 'burger-123'
+  }
+];
+const defaultSelectedFood = {
+  labelText: 'Pizza',
+  uniqueItemId: 'pizza-123'
+};
+
+<>
+  <SingleSelect
+    labelText="Food"
+    clearButtonLabel="Clear selection"
+    items={foods}
+    selectedItem={defaultSelectedFood}
+    noItemsText="No matching options"
+    ariaOptionsAvailableText="Options available"
+    tooltipComponent={
+      <Tooltip
+        ariaToggleButtonLabelText="TextInput with a tooltip, additional information"
+        ariaCloseButtonLabelText="TextInput with a tooltip, close additional information"
+      >
+        <Heading variant="h5" as="h2">
+          Food
+        </Heading>
+        <Text>Choose your favorite food with great care</Text>
+      </Tooltip>
+    }
+  />
+</>;
+```

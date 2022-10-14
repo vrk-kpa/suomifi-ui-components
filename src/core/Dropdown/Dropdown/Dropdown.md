@@ -176,3 +176,33 @@ const dropdownProps = {
   </Block>
 </div>;
 ```
+
+### Dropdown with a tooltip
+
+```js
+import {
+  Dropdown,
+  DropdownItem,
+  Tooltip,
+  Heading,
+  Text
+} from 'suomifi-ui-components';
+
+<Dropdown
+  labelText="Dropdown with a tooltip"
+  tooltipComponent={
+    <Tooltip
+      ariaToggleButtonLabelText="Dropdown with a tooltip, additional information"
+      ariaCloseButtonLabelText="Dropdown with a tooltip, close additional information"
+    >
+      <Heading variant="h5" as="h2">
+        Tooltip
+      </Heading>
+      <Text>Text content for the tooltip</Text>
+    </Tooltip>
+  }
+>
+  <DropdownItem value={'item-1'}>Item 1</DropdownItem>
+  <DropdownItem value={'item-2'}>Item 2</DropdownItem>
+</Dropdown>;
+```

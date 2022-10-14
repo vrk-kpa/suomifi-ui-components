@@ -80,3 +80,34 @@ import React from 'react';
   </CheckboxGroup>
 </>;
 ```
+
+### Group with a tooltip
+
+```js
+import {
+  Checkbox,
+  CheckboxGroup,
+  Tooltip,
+  Heading,
+  Text
+} from 'suomifi-ui-components';
+
+<CheckboxGroup
+  labelText="Checkboxes in group"
+  tooltipComponent={
+    <Tooltip
+      ariaToggleButtonLabelText="Checkboxes in group, additional information"
+      ariaCloseButtonLabelText="Checkboxes in group, close additional information"
+    >
+      <Heading variant="h5" as="h2">
+        Tooltip
+      </Heading>
+      <Text>Text content for the tooltip</Text>
+    </Tooltip>
+  }
+>
+  <Checkbox>Choice 1</Checkbox>
+  <Checkbox>Choice 2</Checkbox>
+  <Checkbox>Choice 3</Checkbox>
+</CheckboxGroup>;
+```

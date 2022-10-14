@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, forwardRef } from 'react';
+import React, { Component, ReactNode, forwardRef, ReactElement } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
@@ -144,6 +144,8 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   onRemoveAll?: () => void;
   /** Disable the input */
   disabled?: boolean;
+  /** Tooltip component for the input's label */
+  tooltipComponent?: ReactElement;
   /** Ref object to be passed to the input element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLInputElement>;
 }
@@ -596,6 +598,7 @@ class BaseMultiSelect<T> extends Component<
       disabled,
       allowItemAddition,
       itemAdditionHelpText,
+      tooltipComponent,
       items, // Only destructured away so they don't end up in the DOM
       forwardedRef, // Only destructured away so it doesn't end up in the DOM
       ...passProps
@@ -685,6 +688,7 @@ class BaseMultiSelect<T> extends Component<
                   statusText={statusText}
                   aria-controls={popoverItemListId}
                   disabled={disabled}
+                  tooltipComponent={tooltipComponent}
                 >
                   <InputToggleButton
                     open={showPopover}

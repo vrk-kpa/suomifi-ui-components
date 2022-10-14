@@ -4,6 +4,7 @@ import React, {
   ChangeEvent,
   FocusEvent,
   ReactNode,
+  ReactElement,
 } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
@@ -42,7 +43,7 @@ export const textInputClassNames = {
 
 type TextInputValue = string | number | undefined;
 
-interface InternalTextInputProps
+export interface TextInputProps
   extends StatusTextCommonProps,
     Omit<HtmlInputProps, 'type' | 'onChange'> {
   /** TextInput container div class name for custom styling. */
@@ -90,18 +91,11 @@ interface InternalTextInputProps
   icon?: BaseIconKeys;
   /** Properties for the icon */
   iconProps?: Omit<IconProps, 'icon'>;
+  /** Tooltip component for the input's label */
+  tooltipComponent?: ReactElement;
 }
 
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLInputElement>;
-}
-
-export interface TextInputProps extends InternalTextInputProps {
-  /** Ref object to be passed to the input element */
-  ref?: React.RefObject<HTMLInputElement>;
-}
-
-class BaseTextInput extends Component<TextInputProps & InnerRef> {
+class BaseTextInput extends Component<TextInputProps> {
   render() {
     const {
       className,
@@ -123,6 +117,7 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
       debounce,
       statusTextAriaLiveMode = 'assertive',
       'aria-describedby': ariaDescribedBy,
+      tooltipComponent,
       ...passProps
     } = this.props;
 
@@ -149,6 +144,7 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
             className={classnames({
               [textInputClassNames.labelIsVisible]: labelMode !== 'hidden',
             })}
+            tooltipComponent={tooltipComponent}
           >
             {labelText}
           </Label>
@@ -197,10 +193,7 @@ class BaseTextInput extends Component<TextInputProps & InnerRef> {
 }
 
 const StyledTextInput = styled(
-  ({
-    theme,
-    ...passProps
-  }: InternalTextInputProps & InnerRef & SuomifiThemeProp) => (
+  ({ theme, ...passProps }: TextInputProps & SuomifiThemeProp) => (
     <BaseTextInput {...passProps} />
   ),
 )`

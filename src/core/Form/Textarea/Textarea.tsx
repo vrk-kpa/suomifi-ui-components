@@ -4,6 +4,7 @@ import React, {
   FocusEvent,
   forwardRef,
   ReactNode,
+  ReactElement,
 } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
@@ -39,7 +40,7 @@ type TextareaStatus = Exclude<InputStatus, 'success'>;
 
 export interface TextareaProps
   extends StatusTextCommonProps,
-    Omit<HtmlTextareaProps, 'placeholder'> {
+    Omit<HtmlTextareaProps, 'placeholder' | 'forwardedRef'> {
   /** Custom classname to extend or customize */
   className?: string;
   /** Disable usage */
@@ -85,6 +86,8 @@ export interface TextareaProps
   fullWidth?: boolean;
   /** Textarea container div props */
   containerProps?: Omit<HtmlDivProps, 'className'>;
+  /** Tooltip component for the input's label */
+  tooltipComponent?: ReactElement;
   /** Ref is passed to the textarea element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLTextAreaElement>;
 }
@@ -110,6 +113,7 @@ class BaseTextarea extends Component<TextareaProps> {
       containerProps,
       forwardedRef,
       statusTextAriaLiveMode = 'assertive',
+      tooltipComponent,
       ...passProps
     } = this.props;
 
@@ -126,7 +130,12 @@ class BaseTextarea extends Component<TextareaProps> {
           [textareaClassNames.fullWidth]: fullWidth,
         })}
       >
-        <Label htmlFor={id} labelMode={labelMode} optionalText={optionalText}>
+        <Label
+          htmlFor={id}
+          labelMode={labelMode}
+          optionalText={optionalText}
+          tooltipComponent={tooltipComponent}
+        >
           {labelText}
         </Label>
         <HintText id={hintTextId}>{hintText}</HintText>

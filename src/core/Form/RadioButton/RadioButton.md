@@ -165,3 +165,35 @@ const handleChange = (event) => {
   </RadioButton>
 </fieldset>;
 ```
+
+### Group with a tooltip
+
+```js
+import {
+  RadioButton,
+  RadioButtonGroup,
+  Tooltip,
+  Heading,
+  Text
+} from 'suomifi-ui-components';
+
+<RadioButtonGroup
+  labelText="RadioButtons in group"
+  name="test-group"
+  tooltipComponent={
+    <Tooltip
+      ariaToggleButtonLabelText="RadioButtons in group, additional information"
+      ariaCloseButtonLabelText="RadioButtons in group, close additional information"
+    >
+      <Heading variant="h5" as="h2">
+        Tooltip
+      </Heading>
+      <Text>Text content for the tooltip</Text>
+    </Tooltip>
+  }
+>
+  <RadioButton value="value-test-1">Choice 1</RadioButton>
+  <RadioButton value="value-test-2">Choice 2</RadioButton>
+  <RadioButton value="value-test-3">Choice 3</RadioButton>
+</RadioButtonGroup>;
+```

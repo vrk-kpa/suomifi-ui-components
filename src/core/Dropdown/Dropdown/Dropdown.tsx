@@ -86,6 +86,8 @@ export interface DropdownProps {
     | ReactElement<DropdownItemProps>;
   /** Callback that fires when the dropdown value changes. */
   onChange?(newValue: string): void;
+  /** Tooltip component for the dropdown's label */
+  tooltipComponent?: ReactElement;
   /** Ref object to be passed to the input element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLDivElement>;
 }
@@ -200,6 +202,7 @@ class BaseDropdown extends Component<DropdownProps> {
       dropdownButtonProps = {},
       dropdownPopoverProps = {},
       onChange: propOnChange,
+      tooltipComponent,
       ...passProps
     } = this.props;
 
@@ -251,6 +254,7 @@ class BaseDropdown extends Component<DropdownProps> {
             className={classnames({
               [dropdownClassNames.labelIsVisible]: labelMode !== 'hidden',
             })}
+            tooltipComponent={tooltipComponent}
           >
             {labelText}
           </Label>

@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, forwardRef } from 'react';
+import React, { Component, ReactNode, forwardRef, ReactElement } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv } from '../../../../reset';
@@ -97,6 +97,8 @@ export interface InternalSingleSelectProps<T extends SingleSelectData> {
   onItemSelect?: (uniqueItemId: string | null) => void;
   /** Disable the input */
   disabled?: boolean;
+  /** Tooltip component for the input's label */
+  tooltipComponent?: ReactElement;
   /** Ref is forwarded to the input element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLInputElement>;
 }
@@ -478,6 +480,7 @@ class BaseSingleSelect<T> extends Component<
       disabled,
       allowItemAddition,
       itemAdditionHelpText,
+      tooltipComponent,
       items, // Only destructured away so they don't end up in the DOM
       forwardedRef, // Only destructured away so it doesn't end up in the DOM
       ...passProps
@@ -562,6 +565,7 @@ class BaseSingleSelect<T> extends Component<
               status={status}
               statusText={statusText}
               disabled={disabled}
+              tooltipComponent={tooltipComponent}
             >
               {!!selectedItem && (
                 <HtmlDiv className={singleSelectClassNames.clearButtonWrapper}>
