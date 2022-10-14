@@ -207,7 +207,14 @@ module.exports = {
             'WizardNavigation/WizardNavigation',
             'WizardNavigationItem/WizardNavigationItem',
           ]),
-        }
+        },
+        {
+          name: 'ServiceNavigation',
+          components: getComponentWithVariants('Navigation/ServiceNavigation')([
+            'ServiceNavigation/ServiceNavigation',
+            'ServiceNavigationItem/ServiceNavigationItem',
+          ]),
+        },
       ],
       sectionDepth: 1,
       expand: true,

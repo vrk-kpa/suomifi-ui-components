@@ -102,6 +102,12 @@ export {
   WizardNavigationItemProps,
 } from './core/Navigation/WizardNavigation';
 export {
+  ServiceNavigation,
+  ServiceNavigationProps,
+  ServiceNavigationItem,
+  ServiceNavigationItemProps,
+} from './core/Navigation/ServiceNavigation';
+export {
   Expander,
   ExpanderProps,
   ExpanderGroup,
