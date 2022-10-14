@@ -1,5 +1,5 @@
 // import React, { Component, ReactNode } from 'react';
-import React, { ReactNode } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import { RouterLinkStyles } from './RouterLink.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
@@ -46,13 +46,31 @@ export type InheritableElementProps<
 > = ExtendableProps<PropsOf<C>, Props>;
 
 /**
+ * Allows the component's ref type to comply with "asComponent" prop
+ * E.g. asComponent = 'button', ref type must be React.Ref<HTMLButtonElement>
+ */
+type PolymorphicRef<C extends React.ElementType> =
+  React.ComponentPropsWithRef<C>['ref'];
+
+/**
+ * This type definition exists solely to provide the component with a `forwardedRef` prop which
+ * is visible in the Styleguidist API documentation ("ref" is not visible in Styleguidist)
+ */
+type ForwardedRef<C extends React.ElementType> = {
+  /** Alternative for React `ref` attribute. Ref type is derived from the `asComponent` prop value.
+   * Example: asComponent = 'button', ref type must be HTMLButtonElement
+   */
+  forwardedRef?: PolymorphicRef<C>;
+};
+
+/**
  * A more sophisticated version of `InheritableElementProps` where
  * the passed in `as` prop will determine which props can be included
  */
 export type PolymorphicComponentProps<
   C extends React.ElementType,
   Props = {},
-> = InheritableElementProps<C, Props & AsProp<C>>;
+> = InheritableElementProps<C, Props & AsProp<C> & ForwardedRef<C>>;
 
 //
 //
@@ -75,12 +93,34 @@ export type RouterLinkProps<C extends React.ElementType> =
 const PolymorphicLink = <C extends React.ElementType>(
   props: RouterLinkProps<C> & SuomifiThemeProp,
 ) => {
-  const { asComponent, children, className, theme, ...passProps } = props;
+  const {
+    asComponent,
+    children,
+    className,
+    theme,
+    forwardedRef,
+    ...passProps
+  } = props;
   const Component = asComponent || HtmlA;
 
+  // If asComponent is included, we assume it can take a normal ref-prop
+  if (!!asComponent) {
+    return (
+      <Component
+        className={classnames(routerLinkClassName, className)}
+        ref={forwardedRef}
+        {...passProps}
+      >
+        {children}
+      </Component>
+    );
+  }
+
+  // HtmlA (which is rendered by default) exposes a prop called forwardedRef instead
   return (
     <Component
       className={classnames(routerLinkClassName, className)}
+      forwardedRef={forwardedRef}
       {...passProps}
     >
       {children}
@@ -92,13 +132,25 @@ const StyledRouterLink = styled(PolymorphicLink)`
   ${({ theme }) => RouterLinkStyles(theme)}
 `;
 
-const RouterLink = <C extends React.ElementType = 'a'>(
+const RouterLinkInner = <C extends React.ElementType = 'a'>(
   props: RouterLinkProps<C>,
+  ref?: PolymorphicRef<C>,
 ) => (
   <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => <StyledRouterLink theme={suomifiTheme} {...props} />}
+    {({ suomifiTheme }) => (
+      <StyledRouterLink theme={suomifiTheme} forwardedRef={ref} {...props} />
+    )}
   </SuomifiThemeConsumer>
 );
 
-RouterLink.displayName = 'RouterLink';
-export { RouterLink };
+// Type assertion is needed to set the function signature with generic type C.
+export const RouterLink = forwardRef(RouterLinkInner) as <
+  C extends React.ElementType = 'a',
+>(
+  props: RouterLinkProps<C> & {
+    ref?: PolymorphicRef<C>;
+  },
+) => ReturnType<typeof RouterLinkInner>;
+
+// Because of type assertion the displayName has to be set like this
+(RouterLink as React.FC).displayName = 'RouterLink';

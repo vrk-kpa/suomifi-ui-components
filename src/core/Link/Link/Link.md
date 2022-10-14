@@ -71,16 +71,28 @@ This component is mainly intended to be used with external libraries/frameworks.
 
 ```js
 import { RouterLink } from 'suomifi-ui-components';
+import { forwardRef, useRef } from 'react';
 
-const Component = ({ children, ...passProps }) => (
-  <a {...passProps}>Some component - {children}</a>
-);
+const Component = forwardRef((props, ref) => {
+  const { children, ...passProps } = props;
+  return (
+    <a {...passProps} ref={ref}>
+      Some component - {children}
+    </a>
+  );
+});
+
+const r = useRef();
 
 <>
+  <button onClick={() => console.log(r.current)}>
+    Log ref to console
+  </button>
   <RouterLink
-    asComponent={Component}
     href="https://suomi.fi"
     target="_blank"
+    asComponent={Component}
+    ref={r}
   >
     Testing
   </RouterLink>
