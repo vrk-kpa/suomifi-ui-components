@@ -2,15 +2,10 @@ import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
-import { Icon } from '../Icon/Icon';
-
 import { baseStyles } from './Pagination.baseStyles';
-import { HtmlSpan, HtmlNav } from '../../reset';
-
+import { HtmlSpan, HtmlNav, HtmlDiv } from '../../reset';
 import { asPropType } from '../../utils/typescript';
-
 import { SearchInput } from './PageInput/SearchInput';
-
 import { Button } from '../Button/Button';
 
 const externalClassName = 'fi-link--external';
@@ -23,6 +18,8 @@ export interface PaginationProps {
   onLeftButtonClick?: () => void; */
   /** click right 
   onRightButtonClick?: () => void; */
+
+  'aria-label': string;
 
   /** click right */
   textFunction?: () => string;
@@ -39,6 +36,11 @@ export interface PaginationProps {
   /** Error text shown with invalid page number input */
   invalidValueErrorText: string;
 
+  pageInput?: boolean;
+
+  ariaNextButtonLabel: string;
+  ariaPreviousButtonLabel: string;
+
   /*
 - invalidValueText (5 ei ole sallittu arvo)
 
@@ -46,6 +48,23 @@ export interface PaginationProps {
 }
 
 const baseClassName = 'fi-pagination';
+
+export const paginationClassNames = {
+  styleWrapper: `${baseClassName}_style-wrapper`,
+  content: `${baseClassName}_content`,
+  contentWrapper: `${baseClassName}_contentWrapper`,
+  heading: `${baseClassName}_heading`,
+  textContentWrapper: `${baseClassName}_text-content-wrapper`,
+  icon: `${baseClassName}_icon`,
+  iconWrapper: `${baseClassName}_icon-wrapper`,
+  pageButton: `${baseClassName}_page-button`,
+  stockButton: `${baseClassName}_stock-button`,
+  smallScreen: `${baseClassName}--small-screen`,
+  pageInputWrapper: `${baseClassName}_page-input-wrapper`,
+  buttonsWrapper: `${baseClassName}_buttons-wrapper`,
+  actionElementWrapper: `${baseClassName}_action-element-wrapper`,
+  pageNumbers: `${baseClassName}_page-numbers`,
+};
 
 class BasePagination extends Component<PaginationProps> {
   private onLeftButtonClick = () => {
@@ -70,46 +89,65 @@ class BasePagination extends Component<PaginationProps> {
       currentPage,
       lastPage,
       invalidValueErrorText,
+      pageInput,
+      smallScreen,
+      ariaNextButtonLabel,
+      ariaPreviousButtonLabel,
       ...passProps
     } = this.props;
     return (
       <HtmlNav
         {...passProps}
-        className={classnames(baseClassName, className, externalClassName)}
+        className={classnames(baseClassName, className, externalClassName, {
+          [paginationClassNames.smallScreen]: !!smallScreen,
+        })}
       >
-        <Button
-          variant="secondary"
-          onClick={this.onLeftButtonClick}
-          icon="arrowLeft"
-          disabled={currentPage <= 1}
-          aria-label="Previous"
-        />
+        <HtmlDiv className={paginationClassNames.styleWrapper}>
+          <HtmlDiv className={paginationClassNames.buttonsWrapper}>
+            <Button
+              className={paginationClassNames.stockButton}
+              variant="secondary"
+              onClick={this.onLeftButtonClick}
+              icon="arrowLeft"
+              disabled={currentPage <= 1}
+              aria-label={ariaPreviousButtonLabel}
+            />
 
-        <HtmlSpan aria-live="polite" aria-atomic="true">
-          {textFunction ? textFunction() : 'empty'}
-        </HtmlSpan>
+            <HtmlSpan
+              aria-live="polite"
+              aria-atomic="true"
+              className={paginationClassNames.pageNumbers}
+            >
+              {textFunction ? textFunction() : 'empty'}
+            </HtmlSpan>
 
-        <Button
-          variant="secondary"
-          onClick={this.onRightButtonClick}
-          disabled={currentPage >= lastPage}
-          aria-label="Next"
-        >
-          <Icon icon="arrowRight" />
-        </Button>
+            <Button
+              className={paginationClassNames.stockButton}
+              variant="secondary"
+              onClick={this.onRightButtonClick}
+              disabled={currentPage >= lastPage}
+              aria-label={ariaNextButtonLabel}
+              icon="arrowRight"
+            />
+          </HtmlDiv>
 
-        <SearchInput
-          labelText=""
-          labelMode="hidden"
-          searchButtonLabel="Siirry"
-          visualPlaceholder="Siirry sivulle"
-          maxValue={lastPage}
-          // onSearch={(value) => console.log(value)}
-          onSearch={(page) => {
-            this.onNumberInputChange(Number(page));
-          }}
-          statusText={invalidValueErrorText}
-        />
+          {pageInput === true && (
+            <HtmlDiv className={paginationClassNames.pageInputWrapper}>
+              <SearchInput
+                labelText=""
+                labelMode="hidden"
+                searchButtonLabel="Siirry"
+                visualPlaceholder="Siirry sivulle"
+                maxValue={lastPage}
+                // onSearch={(value) => console.log(value)}
+                onSearch={(page) => {
+                  this.onNumberInputChange(Number(page));
+                }}
+                statusText={invalidValueErrorText}
+              />
+            </HtmlDiv>
+          )}
+        </HtmlDiv>
       </HtmlNav>
     );
   }

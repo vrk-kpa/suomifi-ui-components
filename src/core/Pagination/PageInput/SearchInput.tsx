@@ -20,10 +20,10 @@ import {
   HtmlButtonProps,
 } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
-import { StatusText } from '../../form/StatusText/StatusText';
-import { Label, LabelMode } from '../../form/Label/Label';
+import { StatusText } from '../../Form/StatusText/StatusText';
+import { Label, LabelMode } from '../../Form/Label/Label';
 import { Icon } from '../../Icon/Icon';
-import { InputStatus, StatusTextCommonProps } from '../../form/types';
+import { InputStatus, StatusTextCommonProps } from '../../Form/types';
 import { baseStyles } from './SearchInput.baseStyles';
 
 type SearchInputValue = number | string | null;
@@ -162,15 +162,16 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       if (!!propOnSearch) {
         propOnSearch(this.state.value);
       }
-      console.log('jeue');
+      console.log('on search');
       conditionalSetState('');
-      // this.forceUpdate();
-      // this.setState({ value: undefined });
-      // this.setState({ status: 'default' });
     };
 
     const onKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-      if (!!this.state.value && event?.key === 'Enter') {
+      if (
+        !!this.state.value &&
+        this.state.status !== 'error' &&
+        event?.key === 'Enter'
+      ) {
         onSearch();
       }
     };
@@ -188,7 +189,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
         searchInputClassNames.button,
         searchInputClassNames.searchButton,
       ),
-      ...(!!this.state.value
+      ...(!!this.state.value && this.state.status !== 'error'
         ? { onClick: onSearch }
         : { tabIndex: -1, 'aria-hidden': true }),
     };
@@ -198,7 +199,8 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
         {...wrapperProps}
         className={classnames(className, baseClassName, {
           [searchInputClassNames.error]: this.state.status === 'error',
-          [searchInputClassNames.notEmpty]: !!this.state.value,
+          [searchInputClassNames.notEmpty]:
+            !!this.state.value && this.state.status !== 'error',
           [searchInputClassNames.fullWidth]: fullWidth,
         })}
       >
@@ -227,11 +229,13 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                 value={this.state.value}
                 placeholder={visualPlaceholder}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                  // Clear status if the input is empty
                   if (event.target.value === '' || !event.target.value) {
                     this.setState({ status: 'default' });
                   }
-
+                  // Set input value for status text
                   this.setState({ inputValue: event.target.value });
+                  conditionalSetState(event.target.value);
 
                   console.log(event.target.value);
                   const parsedValue = parseInt(event.target.value, 10) || null;
@@ -249,17 +253,18 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                     this.setState({ status: 'default' });
                   }
 
+                  /*
                   if (verifiedValue) {
                     conditionalSetState(verifiedValue);
                   } else {
                     conditionalSetState('');
-                  }
+                  } */
                 }}
                 onKeyPress={onKeyPress}
                 onKeyDown={onKeyDown}
                 // pattern="/[^\d+]/"
-                type="number"
-                // inputMode="numeric"
+                type="text"
+                inputMode="numeric"
                 pattern="[0-9]*"
               />
             </HtmlDiv>
