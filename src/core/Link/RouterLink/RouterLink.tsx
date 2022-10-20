@@ -3,7 +3,11 @@ import React, { forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import { RouterLinkStyles } from './RouterLink.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { baseClassName } from '../BaseLink/BaseLink';
+import {
+  baseClassName,
+  linkClassNames,
+  UnderlineVariant,
+} from '../BaseLink/BaseLink';
 import classnames from 'classnames';
 import { HtmlA } from '../../../reset';
 
@@ -85,6 +89,17 @@ interface Props {
    * Link element displayed content
    */
   children: ReactNode;
+  /**
+   * 'initial' | 'hover'
+   *
+   * Option 'initial' shows underline in link's normal state, and no underline on hover.
+   * Option 'hover' shows underline on hover, and no underline in link's normal state.
+   *
+   * Note: default will be changed from 'hover' to 'initial', so set 'hover' explicitly when necessary.
+   *
+   * @default hover
+   */
+  underline?: UnderlineVariant;
 }
 
 export type RouterLinkProps<C extends React.ElementType> =
@@ -98,19 +113,20 @@ const PolymorphicLink = <C extends React.ElementType>(
     children,
     className,
     theme,
+    underline = 'hover',
     forwardedRef,
     ...passProps
   } = props;
   const Component = asComponent || HtmlA;
 
+  const classNames = classnames(routerLinkClassName, className, {
+    [linkClassNames.linkUnderline]: underline === 'initial',
+  });
+
   // If asComponent is included, we assume it can take a normal ref-prop
   if (!!asComponent) {
     return (
-      <Component
-        className={classnames(routerLinkClassName, className)}
-        ref={forwardedRef}
-        {...passProps}
-      >
+      <Component className={classNames} ref={forwardedRef} {...passProps}>
         {children}
       </Component>
     );
@@ -119,7 +135,7 @@ const PolymorphicLink = <C extends React.ElementType>(
   // HtmlA (which is rendered by default) exposes a prop called forwardedRef instead
   return (
     <Component
-      className={classnames(routerLinkClassName, className)}
+      className={classNames}
       forwardedRef={forwardedRef}
       {...passProps}
     >

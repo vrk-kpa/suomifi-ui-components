@@ -90,6 +90,23 @@ exports[`should match snapshot 1`] = `
   color: hsl(284,36%,45%);
 }
 
+.c1.fi-link--initial-underline {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c1.fi-link--initial-underline:focus,
+.c1.fi-link--initial-underline:focus-within {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c1.fi-link--initial-underline:hover,
+.c1.fi-link--initial-underline:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .c2 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -141,6 +158,23 @@ exports[`should match snapshot 1`] = `
   color: hsl(284,36%,45%);
 }
 
+.c2.fi-link--initial-underline {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c2.fi-link--initial-underline:focus,
+.c2.fi-link--initial-underline:focus-within {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c2.fi-link--initial-underline:hover,
+.c2.fi-link--initial-underline:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .c2.fi-link--skip {
   position: absolute;
   z-index: 10000;
@@ -150,8 +184,6 @@ exports[`should match snapshot 1`] = `
   background: hsl(212,63%,95%);
   border: 1px solid hsl(202,7%,80%);
   color: hsl(0,0%,16%);
-  -webkit-text-decoration: none;
-  text-decoration: none;
 }
 
 .c2.fi-link--skip:focus {
