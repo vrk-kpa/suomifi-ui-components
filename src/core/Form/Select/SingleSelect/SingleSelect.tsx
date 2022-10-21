@@ -37,6 +37,23 @@ export interface SingleSelectData {
 
 export type SingleSelectStatus = FilterInputStatus & {};
 
+type AriaOptionsAvailableProps =
+  | {
+      ariaOptionsAvailableText?: never;
+      ariaOptionsAvailableTextFunction: (length: number) => string;
+    }
+  | {
+      /** Text for screen reader indicating the amount of available options after filtering by typing. Will be read after the amount.
+       * E.g 'options available' as prop value would result in '{amount} options available' being read by screen reader upon removal.
+       */
+      ariaOptionsAvailableText: string;
+
+      /** Function to provide text for screen reader indicating the amount of available options after filtering by typing. Overrides
+       * `ariaOptionsAvailableText` if both are provided.
+       */
+      ariaOptionsAvailableTextFunction?: never;
+    };
+
 export interface InternalSingleSelectProps<T extends SingleSelectData> {
   /** SingleSelect container div class name for custom styling. */
   className?: string;
@@ -59,11 +76,6 @@ export interface InternalSingleSelectProps<T extends SingleSelectData> {
   onItemSelectionChange?: (selectedItem: (T & SingleSelectData) | null) => void;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
-  /**
-   * Text for screen reader indicating the amount of available options after filtering by typing. Will be read after the amount.
-   * E.g 'options available' as prop value would result in '{amount} options available' being read by screen reader upon removal.
-   */
-  ariaOptionsAvailableText: string;
   /** Default selected items */
   defaultSelectedItem?: T & SingleSelectData;
   /** Event sent when filter changes */
@@ -111,7 +123,8 @@ type AllowItemAdditionProps =
 export type SingleSelectProps<T> = InternalSingleSelectProps<
   T & SingleSelectData
 > &
-  AllowItemAdditionProps;
+  AllowItemAdditionProps &
+  AriaOptionsAvailableProps;
 
 interface SingleSelectState<T extends SingleSelectData> {
   filterInputValue: string;
@@ -460,6 +473,7 @@ class BaseSingleSelect<T> extends Component<
       selectedItem: controlledItem,
       clearButtonLabel,
       ariaOptionsAvailableText,
+      ariaOptionsAvailableTextFunction,
       onItemSelect,
       disabled,
       allowItemAddition,
@@ -655,7 +669,9 @@ class BaseSingleSelect<T> extends Component<
         )}
         {this.state.filterMode && (
           <VisuallyHidden aria-live="polite" aria-atomic="true">
-            {`${popoverItems.length} ${ariaOptionsAvailableText}`}
+            {ariaOptionsAvailableTextFunction
+              ? ariaOptionsAvailableTextFunction(popoverItems.length)
+              : `${popoverItems.length} ${ariaOptionsAvailableText}`}
           </VisuallyHidden>
         )}
       </HtmlDiv>
