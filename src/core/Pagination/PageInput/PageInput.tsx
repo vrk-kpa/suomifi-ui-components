@@ -24,7 +24,7 @@ import { StatusText } from '../../Form/StatusText/StatusText';
 import { Label, LabelMode } from '../../Form/Label/Label';
 import { Icon } from '../../Icon/Icon';
 import { InputStatus, StatusTextCommonProps } from '../../Form/types';
-import { baseStyles } from './SearchInput.baseStyles';
+import { baseStyles } from './PageInput.baseStyles';
 
 type SearchInputValue = number | string | null;
 

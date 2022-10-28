@@ -5,7 +5,7 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { baseStyles } from './Pagination.baseStyles';
 import { HtmlSpan, HtmlNav, HtmlDiv } from '../../reset';
 import { asPropType } from '../../utils/typescript';
-import { SearchInput } from './PageInput/SearchInput';
+import { SearchInput } from './PageInput/PageInput';
 import { Button } from '../Button/Button';
 
 const externalClassName = 'fi-link--external';
