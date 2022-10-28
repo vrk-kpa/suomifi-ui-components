@@ -223,6 +223,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                   ariaDescribedBy,
                 ])}
                 forwardedRef={this.inputRef}
+                size={6}
                 aria-invalid={this.state.status === 'error'}
                 id={id}
                 className={searchInputClassNames.inputElement}

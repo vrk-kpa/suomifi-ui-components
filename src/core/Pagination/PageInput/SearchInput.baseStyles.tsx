@@ -4,7 +4,6 @@ import { input, containerIEFocus, font } from '../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')}
-  width: 290px;
 
   & .fi-search-input {
     &_wrapper {

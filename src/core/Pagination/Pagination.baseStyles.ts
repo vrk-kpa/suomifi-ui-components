@@ -8,6 +8,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-pagination {
     & .fi-pagination_style-wrapper {
       display: inline-flex;
+      align-items: flex-start;
     }
 
     & .fi-pagination_buttons-wrapper {
@@ -55,7 +56,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
       & .fi-pagination_page-input-wrapper {
         margin-top: ${theme.spacing.s};
-
+        width: 0; /* Allows input to take 100% but still grow and shrink with buttons wrap */
+        min-width: 100%; /* Allows input to take 100% but still grow and shrink with buttons wrap */
         margin-left: 0;
         margin-right: 0;
       }
