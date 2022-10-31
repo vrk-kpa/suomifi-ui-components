@@ -18,6 +18,7 @@ const lastPage = 8;
       invalidValueErrorText="ei ole sallittu arvo"
       ariaNextButtonLabel="Seuraaava"
       ariaPreviousButtonLabel="Edellinen"
+      pageInputButtonText="Siirry"
       onLeftButtonClick={() => {
         console.log('left');
       }}
@@ -60,6 +61,7 @@ const lastPage = 8;
       invalidValueErrorText="ei ole sallittu arvo"
       ariaNextButtonLabel="Seuraaava"
       ariaPreviousButtonLabel="Edellinen"
+      pageInputButtonText="Siirry"
       onLeftButtonClick={() => {
         console.log('left');
       }}

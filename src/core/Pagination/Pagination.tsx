@@ -5,7 +5,7 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { baseStyles } from './Pagination.baseStyles';
 import { HtmlSpan, HtmlNav, HtmlDiv } from '../../reset';
 import { asPropType } from '../../utils/typescript';
-import { SearchInput } from './PageInput/PageInput';
+import { PageInput } from './PageInput/PageInput';
 import { Button } from '../Button/Button';
 
 const externalClassName = 'fi-link--external';
@@ -14,10 +14,6 @@ export interface PaginationProps {
   /** Custom classname to extend or customize */
   className?: string;
   asProp?: asPropType;
-  /** clickety left 
-  onLeftButtonClick?: () => void; */
-  /** click right 
-  onRightButtonClick?: () => void; */
 
   'aria-label': string;
 
@@ -37,14 +33,10 @@ export interface PaginationProps {
   invalidValueErrorText: string;
 
   pageInput?: boolean;
+  pageInputButtonText: string;
 
   ariaNextButtonLabel: string;
   ariaPreviousButtonLabel: string;
-
-  /*
-- invalidValueText (5 ei ole sallittu arvo)
-
-*/
 }
 
 const baseClassName = 'fi-pagination';
@@ -93,6 +85,7 @@ class BasePagination extends Component<PaginationProps> {
       smallScreen,
       ariaNextButtonLabel,
       ariaPreviousButtonLabel,
+      pageInputButtonText,
       ...passProps
     } = this.props;
     return (
@@ -133,13 +126,12 @@ class BasePagination extends Component<PaginationProps> {
 
           {pageInput === true && (
             <HtmlDiv className={paginationClassNames.pageInputWrapper}>
-              <SearchInput
+              <PageInput
                 labelText=""
                 labelMode="hidden"
-                searchButtonLabel="Siirry"
+                pageInputButtonLabel={pageInputButtonText}
                 visualPlaceholder="Siirry sivulle"
                 maxValue={lastPage}
-                // onSearch={(value) => console.log(value)}
                 onSearch={(page) => {
                   this.onNumberInputChange(Number(page));
                 }}

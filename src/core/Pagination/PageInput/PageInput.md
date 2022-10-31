@@ -5,14 +5,14 @@ import { SearchInput } from 'suomifi-ui-components';
 const [value, setValue] = useState('About');
 
 const sharedProps = {
-  labelText: 'Search the site',
+  labelText: '',
   searchButtonLabel: 'Search',
   clearButtonLabel: 'Clear',
-  visualPlaceholder: 'Write search terms here...'
+  visualPlaceholder: 'Write page number here...'
 };
 
 <>
-  <SearchInput
+  <PageInput
     {...sharedProps}
     fullWidth
     onSearch={(value) => console.log(value)}
@@ -21,13 +21,13 @@ const sharedProps = {
     debounce={500}
   />
 
-  <SearchInput
+  <PageInput
     {...sharedProps}
     wrapperProps={{ style: { width: '250px' } }}
     labelMode="hidden"
   />
 
-  <SearchInput
+  <PageInput
     {...sharedProps}
     onChange={(value) => setValue(value)}
     value={value}
@@ -36,7 +36,7 @@ const sharedProps = {
   />
 
   <form action="https://www.suomi.fi/haku?">
-    <SearchInput
+    <PageInput
       {...sharedProps}
       labelText="Search Suomi.fi site"
       name="q"

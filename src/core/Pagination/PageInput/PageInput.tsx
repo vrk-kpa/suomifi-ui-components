@@ -26,11 +26,11 @@ import { Icon } from '../../Icon/Icon';
 import { InputStatus, StatusTextCommonProps } from '../../Form/types';
 import { baseStyles } from './PageInput.baseStyles';
 
-type SearchInputValue = number | string | null;
+type PageInputValue = number | string | null;
 
-type SearchInputStatus = Exclude<InputStatus, 'success'>;
+type PageInputStatus = Exclude<InputStatus, 'success'>;
 
-export interface SearchInputProps
+export interface PageInputProps
   extends StatusTextCommonProps,
     Omit<
       HtmlInputProps,
@@ -42,9 +42,9 @@ export interface SearchInputProps
       | 'value'
       | 'defaultValue'
     > {
-  /** SearchInput container div class name for custom styling. */
+  /** PageInput container div class name for custom styling. */
   className?: string;
-  /** SearchInput wrapping div element props */
+  /** PageInput wrapping div element props */
   wrapperProps?: Omit<HtmlDivProps, 'className'>;
   /** Label text */
   labelText: ReactNode;
@@ -54,27 +54,27 @@ export interface SearchInputProps
   labelMode?: LabelMode;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
-  /** Search button label for screen readers */
-  searchButtonLabel: string;
-  /** SearchButtonProps */
-  searchButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'tabIndex'>;
+  /** Page button label for screen readers */
+  pageInputButtonLabel: string;
+  /** PageButtonProps */
+  pageInputButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'tabIndex'>;
   /**
    * 'default' | 'error'
    * @default default
    */
-  status?: SearchInputStatus;
+  status?: PageInputStatus;
   /** Input name */
   name?: string;
   /** Set components width to 100% */
   fullWidth?: boolean;
   /** Controlled value */
-  value?: SearchInputValue;
+  value?: PageInputValue;
   /** Default value */
-  defaultValue?: SearchInputValue;
+  defaultValue?: PageInputValue;
   /** Callback for onBlur event */
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback for search button click */
-  onSearch?: (value: SearchInputValue) => void;
+  onSearch?: (value: PageInputValue) => void;
   /** Maximum value */
   maxValue: number;
 }
@@ -97,14 +97,14 @@ const searchInputClassNames = {
   clearIcon: `${baseClassName}_button-clear-icon`,
 };
 
-interface SearchInputState {
-  value: SearchInputValue;
-  status: SearchInputStatus;
+interface PageInputState {
+  value: PageInputValue;
+  status: PageInputStatus;
   inputValue: string | number | undefined;
 }
 
-class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
-  state: SearchInputState = {
+class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
+  state: PageInputState = {
     value: this.props.value || this.props.defaultValue || '',
     status: this.props.status || 'default',
     inputValue: undefined,
@@ -113,8 +113,8 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
   private inputRef = createRef<HTMLInputElement>();
 
   static getDerivedStateFromProps(
-    nextProps: SearchInputProps,
-    prevState: SearchInputState,
+    nextProps: PageInputProps,
+    prevState: PageInputState,
   ) {
     const { value } = nextProps;
     if ('value' in nextProps && value !== prevState.value) {
@@ -133,8 +133,8 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       className,
       labelText,
       labelMode,
-      searchButtonLabel,
-      searchButtonProps,
+      pageInputButtonLabel,
+      pageInputButtonProps,
       wrapperProps,
       onSearch: propOnSearch,
       children,
@@ -152,7 +152,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
 
     const statusTextId = `${id}-statusText`;
 
-    const conditionalSetState = (newValue: SearchInputValue) => {
+    const conditionalSetState = (newValue: PageInputValue) => {
       if (!('value' in this.props)) {
         this.setState({ value: newValue });
       }
@@ -162,7 +162,6 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       if (!!propOnSearch) {
         propOnSearch(this.state.value);
       }
-      console.log('on search');
       conditionalSetState('');
     };
 
@@ -182,12 +181,12 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       }
     };
 
-    const searchButtonDerivedProps = {
-      ...searchButtonProps,
+    const pageInputButtonDerivedProps = {
+      ...pageInputButtonProps,
       className: classnames(
-        searchButtonProps?.className,
         searchInputClassNames.button,
         searchInputClassNames.searchButton,
+        pageInputButtonProps?.className,
       ),
       ...(!!this.state.value && this.state.status !== 'error'
         ? { onClick: onSearch }
@@ -269,8 +268,8 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                 pattern="[0-9]*"
               />
             </HtmlDiv>
-            <HtmlButton {...searchButtonDerivedProps}>
-              <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
+            <HtmlButton {...pageInputButtonDerivedProps}>
+              <VisuallyHidden>{pageInputButtonLabel}</VisuallyHidden>
               <Icon
                 aria-hidden={true}
                 icon="search"
@@ -294,23 +293,23 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
   }
 }
 
-const StyledSearchInput = styled(BaseSearchInput)`
+const StyledPageInput = styled(BasePageInput)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
 /**
  * <i class="semantics" />
- * Use for user inputting search text.
+ * Use for user inputting page number.
  * Props other than specified explicitly are passed on to underlying input element.
  */
-const SearchInput = (props: SearchInputProps) => {
+const PageInput = (props: PageInputProps) => {
   const { id: propId, ...passProps } = props;
   return (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <AutoId id={propId}>
           {(id) => (
-            <StyledSearchInput theme={suomifiTheme} id={id} {...passProps} />
+            <StyledPageInput theme={suomifiTheme} id={id} {...passProps} />
           )}
         </AutoId>
       )}
@@ -318,5 +317,5 @@ const SearchInput = (props: SearchInputProps) => {
   );
 };
 
-SearchInput.displayName = 'SearchInput';
-export { SearchInput };
+PageInput.displayName = 'PageInput';
+export { PageInput };
