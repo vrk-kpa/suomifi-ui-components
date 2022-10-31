@@ -233,6 +233,23 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(284,36%,45%);
 }
 
+.c7.fi-link--initial-underline {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c7.fi-link--initial-underline:focus,
+.c7.fi-link--initial-underline:focus-within {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c7.fi-link--initial-underline:hover,
+.c7.fi-link--initial-underline:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .c8 {
   vertical-align: baseline;
 }

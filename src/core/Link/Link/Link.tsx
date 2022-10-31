@@ -4,7 +4,11 @@ import classnames from 'classnames';
 import { LinkStyles } from '../Link/Link.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlA } from '../../../reset';
-import { BaseLinkProps, baseClassName } from '../BaseLink/BaseLink';
+import {
+  BaseLinkProps,
+  baseClassName,
+  linkClassNames,
+} from '../BaseLink/BaseLink';
 
 export interface LinkProps extends BaseLinkProps {
   /** Ref  is passed to the anchor element. Alternative to React `ref` attribute. */
@@ -16,11 +20,14 @@ const StyledLink = styled(
     asProp,
     className,
     theme,
+    underline = 'hover',
     ...passProps
   }: LinkProps & SuomifiThemeProp) => (
     <HtmlA
       {...passProps}
-      className={classnames(baseClassName, className)}
+      className={classnames(baseClassName, className, {
+        [linkClassNames.linkUnderline]: underline === 'initial',
+      })}
       as={asProp}
     />
   ),

@@ -503,6 +503,23 @@ exports[`should match snapshot 1`] = `
   color: hsl(284,36%,45%);
 }
 
+.c10.fi-link--initial-underline {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c10.fi-link--initial-underline:focus,
+.c10.fi-link--initial-underline:focus-within {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c10.fi-link--initial-underline:hover,
+.c10.fi-link--initial-underline:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .c10 .fi-link_icon {
   padding-left: 4px;
   font-size: 16px;
@@ -558,6 +575,23 @@ exports[`should match snapshot 1`] = `
 
 .c7.fi-link--router:visited {
   color: hsl(284,36%,45%);
+}
+
+.c7.fi-link--initial-underline {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c7.fi-link--initial-underline:focus,
+.c7.fi-link--initial-underline:focus-within {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c7.fi-link--initial-underline:hover,
+.c7.fi-link--initial-underline:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .c9 {

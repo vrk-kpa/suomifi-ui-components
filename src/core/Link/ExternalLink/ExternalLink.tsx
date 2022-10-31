@@ -6,7 +6,11 @@ import { Icon } from '../../Icon/Icon';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { ExternalLinkStyles } from './ExternalLink.baseStyles';
 import { HtmlA } from '../../../reset';
-import { BaseLinkProps, baseClassName } from '../BaseLink/BaseLink';
+import {
+  BaseLinkProps,
+  baseClassName,
+  linkClassNames,
+} from '../BaseLink/BaseLink';
 
 const iconClassName = 'fi-link_icon';
 const externalClassName = 'fi-link--external';
@@ -43,12 +47,15 @@ class BaseExternalLink extends Component<ExternalLinkProps> {
       toNewWindow = true,
       labelNewWindow,
       hideIcon,
+      underline = 'hover',
       ...passProps
     } = this.props;
     return (
       <HtmlA
         {...passProps}
-        className={classnames(baseClassName, className, externalClassName)}
+        className={classnames(baseClassName, className, externalClassName, {
+          [linkClassNames.linkUnderline]: underline === 'initial',
+        })}
         target={!!toNewWindow ? '_blank' : undefined}
         rel={!!toNewWindow ? 'noopener' : undefined}
         as={asProp}

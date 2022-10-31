@@ -90,6 +90,23 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(284,36%,45%);
 }
 
+.c1.fi-link--initial-underline {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c1.fi-link--initial-underline:focus,
+.c1.fi-link--initial-underline:focus-within {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c1.fi-link--initial-underline:hover,
+.c1.fi-link--initial-underline:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 <a
   class="c0 fi-link c1"
   data-testid="test-link"

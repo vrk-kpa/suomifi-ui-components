@@ -5,11 +5,19 @@ import { Link, Paragraph } from 'suomifi-ui-components';
   <Link
     className="test-classname"
     href="https://www.notvisitedlink.com/"
+    underline="initial"
   >
     Not visited link
   </Link>{' '}
-  <Link className="test-classname" href="#">
+  <Link className="test-classname" href="#" underline="initial">
     Visited link
+  </Link>{' '}
+  <Link
+    className="test-classname"
+    href="https://www.notvisitedlink.com/"
+    underline="hover"
+  >
+    Link without underline
   </Link>
 </Paragraph>;
 ```

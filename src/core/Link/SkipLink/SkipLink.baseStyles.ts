@@ -13,7 +13,6 @@ export const SkipLinkStyles = (theme: SuomifiTheme) => css`
     background: ${theme.colors.highlightLight3};
     border: 1px solid ${theme.colors.depthLight1};
     color: ${theme.colors.blackBase};
-    text-decoration: none;
   }
 
   &.fi-link--skip:focus {

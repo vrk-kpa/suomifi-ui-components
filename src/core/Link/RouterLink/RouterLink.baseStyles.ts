@@ -28,4 +28,18 @@ export const RouterLinkStyles = (theme: SuomifiTheme) => css`
       color: ${theme.colors.accentTertiaryDark1};
     }
   }
+
+  &.fi-link--initial-underline {
+    text-decoration: underline;
+
+    &:focus,
+    &:focus-within {
+      text-decoration: underline;
+    }
+
+    &:hover,
+    &:active {
+      text-decoration: none;
+    }
+  }
 `;
