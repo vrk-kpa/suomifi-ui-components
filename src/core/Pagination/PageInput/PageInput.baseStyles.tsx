@@ -5,17 +5,17 @@ import { input, containerIEFocus, font } from '../../theme/reset';
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')}
 
-  & .fi-search-input {
+  & .fi-page-input {
     &_wrapper {
       width: 100%;
       min-width: 105px;
       display: inline-block;
 
-      & .fi-search-input_label--visible {
+      & .fi-page-input_label--visible {
         margin-bottom: ${theme.spacing.xs};
       }
 
-      & .fi-search-input_statusText--has-content {
+      & .fi-page-input_statusText--has-content {
         margin-top: ${theme.spacing.xxs};
       }
     }
@@ -95,25 +95,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       box-shadow: none;
       cursor: default;
       pointer-events: none;
-      &-clear {
-        right: 40px;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        width: 1px;
-        margin: -1px;
-        padding: 0;
-        border: 0;
-        overflow: hidden;
-        &-icon {
-          width: 12px;
-          height: 12px;
-          & .fi-icon-base-fill {
-            fill: ${theme.colors.highlightDark1};
-          }
-        }
-      }
 
-      &-search {
+      &-page-input {
         right: 0px;
         height: 40px;
         width: 40px;
@@ -130,34 +113,34 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
   }
 
-  &.fi-search-input--full-width {
+  &.fi-page-input--full-width {
     width: 100%;
   }
 
-  &.fi-search-input--error {
-    & .fi-search-input_input-element-container {
+  &.fi-page-input--error {
+    & .fi-page-input_input-element-container {
       border: 1px solid ${theme.colors.alertBase};
       border-right: 0;
     }
-    & .fi-search-input_button-search {
+    & .fi-page-input_button-page-input {
       border: 1px solid ${theme.colors.alertBase};
       border-left: 0;
     }
   }
 
-  &.fi-search-input--not-empty {
-    & .fi-search-input_input-element-container {
+  &.fi-page-input--not-empty {
+    & .fi-page-input_input-element-container {
       width: calc(100% - 40px);
       border-radius: ${theme.radius.basic} 0 0 ${theme.radius.basic};
       border-right: 0;
     }
 
-    & .fi-search-input_button {
+    & .fi-page-input_button {
       cursor: pointer;
       pointer-events: all;
     }
 
-    & .fi-search-input_button-search {
+    & .fi-page-input_button-page-input {
       background: ${theme.gradients.highlightBaseToHighlightDark1};
       &:focus {
         &:after {
@@ -170,16 +153,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       &:active {
         background-color: ${theme.colors.highlightDark1};
       }
-      & .fi-search-input_button-search-icon .fi-icon-base-fill {
+      & .fi-page-input_button-page-input-icon .fi-icon-base-fill {
         fill: ${theme.colors.whiteBase};
       }
-    }
-    & .fi-search-input_button-clear {
-      clip: auto;
-      overflow: visible;
-      height: 20px;
-      width: 20px;
-      margin: 10px;
     }
   }
 `;

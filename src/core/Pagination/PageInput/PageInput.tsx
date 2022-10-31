@@ -79,8 +79,8 @@ export interface PageInputProps
   maxValue: number;
 }
 
-const baseClassName = 'fi-search-input';
-const searchInputClassNames = {
+const baseClassName = 'fi-page-input';
+const pageInputClassNames = {
   fullWidth: `${baseClassName}--full-width`,
   error: `${baseClassName}--error`,
   notEmpty: `${baseClassName}--not-empty`,
@@ -91,10 +91,8 @@ const searchInputClassNames = {
   functionalityContainer: `${baseClassName}_functionality-container`,
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
   button: `${baseClassName}_button`,
-  searchButton: `${baseClassName}_button-search`,
-  searchIcon: `${baseClassName}_button-search-icon`,
-  clearButton: `${baseClassName}_button-clear`,
-  clearIcon: `${baseClassName}_button-clear-icon`,
+  pageInputButton: `${baseClassName}_button-page-input`,
+  pageInputIcon: `${baseClassName}_button-page-input-icon`,
 };
 
 interface PageInputState {
@@ -184,9 +182,9 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
     const pageInputButtonDerivedProps = {
       ...pageInputButtonProps,
       className: classnames(
-        searchInputClassNames.button,
-        searchInputClassNames.searchButton,
         pageInputButtonProps?.className,
+        pageInputClassNames.button,
+        pageInputClassNames.pageInputButton,
       ),
       ...(!!this.state.value && this.state.status !== 'error'
         ? { onClick: onSearch }
@@ -197,24 +195,24 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
       <HtmlDiv
         {...wrapperProps}
         className={classnames(className, baseClassName, {
-          [searchInputClassNames.error]: this.state.status === 'error',
-          [searchInputClassNames.notEmpty]:
+          [pageInputClassNames.error]: this.state.status === 'error',
+          [pageInputClassNames.notEmpty]:
             !!this.state.value && this.state.status !== 'error',
-          [searchInputClassNames.fullWidth]: fullWidth,
+          [pageInputClassNames.fullWidth]: fullWidth,
         })}
       >
-        <HtmlSpan className={searchInputClassNames.styleWrapper}>
+        <HtmlSpan className={pageInputClassNames.styleWrapper}>
           <Label
             htmlFor={id}
             labelMode={labelMode}
             className={classnames({
-              [searchInputClassNames.labelIsVisible]: labelMode !== 'hidden',
+              [pageInputClassNames.labelIsVisible]: labelMode !== 'hidden',
             })}
           >
             {labelText}
           </Label>
-          <HtmlDiv className={searchInputClassNames.functionalityContainer}>
-            <HtmlDiv className={searchInputClassNames.inputElementContainer}>
+          <HtmlDiv className={pageInputClassNames.functionalityContainer}>
+            <HtmlDiv className={pageInputClassNames.inputElementContainer}>
               <HtmlInput
                 {...passProps}
                 {...getConditionalAriaProp('aria-describedby', [
@@ -225,7 +223,7 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
                 size={6}
                 aria-invalid={this.state.status === 'error'}
                 id={id}
-                className={searchInputClassNames.inputElement}
+                className={pageInputClassNames.inputElement}
                 value={this.state.value}
                 placeholder={visualPlaceholder}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
@@ -273,14 +271,14 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
               <Icon
                 aria-hidden={true}
                 icon="search"
-                className={searchInputClassNames.searchIcon}
+                className={pageInputClassNames.pageInputIcon}
               />
             </HtmlButton>
           </HtmlDiv>
           <StatusText
             id={statusTextId}
             className={classnames({
-              [searchInputClassNames.statusTextHasContent]: !!this.state.status,
+              [pageInputClassNames.statusTextHasContent]: !!this.state.status,
             })}
             status={this.state.status}
             ariaLiveMode={statusTextAriaLiveMode}
