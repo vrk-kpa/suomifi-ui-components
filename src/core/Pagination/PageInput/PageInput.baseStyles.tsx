@@ -95,19 +95,16 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       box-shadow: none;
       cursor: default;
       pointer-events: none;
-
-      &-page-input {
-        right: 0px;
-        height: 40px;
-        width: 40px;
-        border-radius: 0 ${theme.radius.basic} ${theme.radius.basic} 0;
-        border: 0;
-        &-icon {
-          width: 18px;
-          height: 18px;
-          & .fi-icon-base-fill {
-            fill: ${theme.colors.depthDark1};
-          }
+      right: 0px;
+      height: 40px;
+      width: 40px;
+      border-radius: 0 ${theme.radius.basic} ${theme.radius.basic} 0;
+      border: 0;
+      &-icon {
+        width: 18px;
+        height: 18px;
+        & .fi-icon-base-fill {
+          fill: ${theme.colors.depthDark1};
         }
       }
     }
@@ -122,7 +119,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       border: 1px solid ${theme.colors.alertBase};
       border-right: 0;
     }
-    & .fi-page-input_button-page-input {
+    & .fi-page-input_button {
       border: 1px solid ${theme.colors.alertBase};
       border-left: 0;
     }
@@ -138,9 +135,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-page-input_button {
       cursor: pointer;
       pointer-events: all;
-    }
-
-    & .fi-page-input_button-page-input {
       background: ${theme.gradients.highlightBaseToHighlightDark1};
       &:focus {
         &:after {
@@ -153,7 +147,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       &:active {
         background-color: ${theme.colors.highlightDark1};
       }
-      & .fi-page-input_button-page-input-icon .fi-icon-base-fill {
+      & .fi-page-input_button-icon .fi-icon-base-fill {
         fill: ${theme.colors.whiteBase};
       }
     }

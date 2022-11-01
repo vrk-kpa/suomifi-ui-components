@@ -16,26 +16,25 @@ export interface PaginationProps {
   asProp?: asPropType;
 
   'aria-label': string;
-
-  /** click right */
-  textFunction?: () => string;
-  /** Show shortcut input */
-  shortcut?: boolean;
+  /** Function for page number indicator text */
+  textFunction?: (currentPage: number, lastPage: number) => string;
   /** Use small screen styling */
   smallScreen?: boolean;
-
+  /** Number of the current page */
   currentPage: number;
+  /** Number of the last page */
   lastPage: number;
-
+  /** Returns the selected page number */
   onChange: (page: number) => void;
-
   /** Error text shown with invalid page number input */
   invalidValueErrorText: string;
-
+  /** Show input field for page number */
   pageInput?: boolean;
+  /** Page input action button label for screen readers  */
   pageInputButtonText: string;
-
+  /** Next page button label for screen readers  */
   ariaNextButtonLabel: string;
+  /** Previous page button label for screen readers */
   ariaPreviousButtonLabel: string;
 }
 
@@ -111,7 +110,7 @@ class BasePagination extends Component<PaginationProps> {
               aria-atomic="true"
               className={paginationClassNames.pageNumbers}
             >
-              {textFunction ? textFunction() : 'empty'}
+              {textFunction ? textFunction(currentPage, lastPage) : ''}
             </HtmlSpan>
 
             <Button

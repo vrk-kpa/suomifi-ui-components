@@ -6,8 +6,6 @@ const lastPage = 8;
 
 <>
   <div style={{ width: '600px' }}>
-    <button>test</button>
-    <br />
     <br />
     <br />
     <Pagination
@@ -29,14 +27,12 @@ const lastPage = 8;
         setCurrent(page);
         console.log('on change: ', page);
       }}
-      textFunction={() => {
-        return 'Sivu ' + current + ' / ' + lastPage;
+      textFunction={(currentPage, lastPage) => {
+        return 'Sivu ' + currentPage + ' / ' + lastPage;
       }}
       aria-label="my component here"
     />
     <br />
-    <br />
-    <button>test</button>
     <br />
   </div>
 </>;
@@ -50,8 +46,6 @@ const lastPage = 8;
 
 <>
   <div style={{ width: '600px' }}>
-    <button>test</button>
-    <br />
     <br />
     <Pagination
       currentPage={current}
@@ -72,14 +66,12 @@ const lastPage = 8;
         setCurrent(page);
         console.log('on change: ', page);
       }}
-      textFunction={() => {
-        return 'Sivu ' + current + ' / ' + lastPage;
+      textFunction={(currentPage, lastPage) => {
+        return 'Sivu ' + currentPage + ' / ' + lastPage;
       }}
       aria-label="my component here"
     />
     <br />
-    <br />
-    <button>test</button>
     <br />
   </div>
 </>;

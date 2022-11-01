@@ -91,8 +91,7 @@ const pageInputClassNames = {
   functionalityContainer: `${baseClassName}_functionality-container`,
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
   button: `${baseClassName}_button`,
-  pageInputButton: `${baseClassName}_button-page-input`,
-  pageInputIcon: `${baseClassName}_button-page-input-icon`,
+  pageInputIcon: `${baseClassName}_button-icon`,
 };
 
 interface PageInputState {
@@ -184,7 +183,6 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
       className: classnames(
         pageInputButtonProps?.className,
         pageInputClassNames.button,
-        pageInputClassNames.pageInputButton,
       ),
       ...(!!this.state.value && this.state.status !== 'error'
         ? { onClick: onSearch }
@@ -235,10 +233,7 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
                   this.setState({ inputValue: event.target.value });
                   conditionalSetState(event.target.value);
 
-                  console.log(event.target.value);
                   const parsedValue = parseInt(event.target.value, 10) || null;
-
-                  console.log(parsedValue);
 
                   const verifiedValue =
                     parsedValue && parsedValue > 0 && parsedValue <= maxValue
@@ -250,17 +245,9 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
                   } else {
                     this.setState({ status: 'default' });
                   }
-
-                  /*
-                  if (verifiedValue) {
-                    conditionalSetState(verifiedValue);
-                  } else {
-                    conditionalSetState('');
-                  } */
                 }}
                 onKeyPress={onKeyPress}
                 onKeyDown={onKeyDown}
-                // pattern="/[^\d+]/"
                 type="text"
                 inputMode="numeric"
                 pattern="[0-9]*"
