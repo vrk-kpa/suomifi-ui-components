@@ -72,7 +72,7 @@ export interface PageInputProps
   /** Callback for onBlur event */
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback for search button click */
-  onSearch?: (value: PageInputValue) => void;
+  onPageChange?: (value: PageInputValue) => void;
   /** Maximum value */
   maxValue: number;
 }
@@ -130,7 +130,7 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
       pageInputButtonLabel,
       pageInputButtonProps,
       wrapperProps,
-      onSearch: propOnSearch,
+      onPageChange: propOnPageChange,
       children,
       status,
       statusText,
@@ -152,9 +152,9 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
       }
     };
 
-    const onSearch = () => {
-      if (!!propOnSearch) {
-        propOnSearch(this.state.value);
+    const onPageChange = () => {
+      if (!!propOnPageChange) {
+        propOnPageChange(this.state.value);
       }
       conditionalSetState('');
     };
@@ -165,7 +165,7 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
         this.state.status !== 'error' &&
         event?.key === 'Enter'
       ) {
-        onSearch();
+        onPageChange();
       }
     };
 
@@ -182,7 +182,7 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
         pageInputClassNames.button,
       ),
       ...(!!this.state.value && this.state.status !== 'error'
-        ? { onClick: onSearch }
+        ? { onClick: onPageChange }
         : { tabIndex: -1, 'aria-hidden': true }),
     };
 
@@ -226,12 +226,12 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
                   if (event.target.value === '' || !event.target.value) {
                     this.setState({ status: 'default' });
                   }
-                  // Set input value for status text
+                  // Set input value for <StatusText>
                   this.setState({ inputValue: event.target.value });
+                  // Set value to state
                   conditionalSetState(event.target.value);
 
                   const parsedValue = parseInt(event.target.value, 10) || null;
-
                   const verifiedValue =
                     parsedValue && parsedValue > 0 && parsedValue <= maxValue
                       ? parsedValue
@@ -239,8 +239,6 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
 
                   if (verifiedValue === null && event.target.value !== '') {
                     this.setState({ status: 'error' });
-                  } else {
-                    this.setState({ status: 'default' });
                   }
                 }}
                 onKeyPress={onKeyPress}

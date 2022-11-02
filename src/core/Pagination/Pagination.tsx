@@ -13,8 +13,9 @@ const externalClassName = 'fi-link--external';
 export interface PaginationProps {
   /** Custom classname to extend or customize */
   className?: string;
+  /** Is there any need to have as prop */
   asProp?: asPropType;
-
+  /** aria-label for pagination  */
   'aria-label': string;
   /** Function for page number indicator text */
   textFunction?: (currentPage: number, lastPage: number) => string;
@@ -131,7 +132,7 @@ class BasePagination extends Component<PaginationProps> {
                 pageInputButtonLabel={pageInputButtonText}
                 visualPlaceholder="Siirry sivulle"
                 maxValue={lastPage}
-                onSearch={(page) => {
+                onPageChange={(page) => {
                   this.onNumberInputChange(Number(page));
                 }}
                 statusText={invalidValueErrorText}
