@@ -69,8 +69,6 @@ export interface PageInputProps
   fullWidth?: boolean;
   /** Controlled value */
   value?: PageInputValue;
-  /** Default value */
-  defaultValue?: PageInputValue;
   /** Callback for onBlur event */
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback for search button click */
@@ -102,7 +100,7 @@ interface PageInputState {
 
 class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
   state: PageInputState = {
-    value: this.props.value || this.props.defaultValue || '',
+    value: this.props.value || '',
     status: this.props.status || 'default',
     inputValue: undefined,
   };
@@ -126,7 +124,6 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
   render() {
     const {
       value,
-      defaultValue,
       className,
       labelText,
       labelMode,

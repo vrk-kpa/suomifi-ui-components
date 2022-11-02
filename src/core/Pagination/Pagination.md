@@ -17,12 +17,6 @@ const lastPage = 8;
       ariaNextButtonLabel="Seuraaava"
       ariaPreviousButtonLabel="Edellinen"
       pageInputButtonText="Siirry"
-      onLeftButtonClick={() => {
-        console.log('left');
-      }}
-      onRightButtonClick={() => {
-        console.log('right');
-      }}
       onChange={(page) => {
         setCurrent(page);
         console.log('on change: ', page);
@@ -56,12 +50,6 @@ const lastPage = 8;
       ariaNextButtonLabel="Seuraaava"
       ariaPreviousButtonLabel="Edellinen"
       pageInputButtonText="Siirry"
-      onLeftButtonClick={() => {
-        console.log('left');
-      }}
-      onRightButtonClick={() => {
-        console.log('right');
-      }}
       onChange={(page) => {
         setCurrent(page);
         console.log('on change: ', page);
