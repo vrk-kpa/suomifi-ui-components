@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
@@ -37,6 +37,10 @@ export interface PaginationProps {
   ariaNextButtonLabel: string;
   /** Previous page button label for screen readers */
   ariaPreviousButtonLabel: string;
+  /** Ref is forwarded to root element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLElement>;
+  /** Input placeholder text */
+  inputPlaceholderText: string;
 }
 
 const baseClassName = 'fi-pagination';
@@ -86,6 +90,7 @@ class BasePagination extends Component<PaginationProps> {
       ariaNextButtonLabel,
       ariaPreviousButtonLabel,
       pageInputButtonText,
+      inputPlaceholderText,
       ...passProps
     } = this.props;
     return (
@@ -130,7 +135,7 @@ class BasePagination extends Component<PaginationProps> {
                 labelText=""
                 labelMode="hidden"
                 pageInputButtonLabel={pageInputButtonText}
-                visualPlaceholder="Siirry sivulle"
+                visualPlaceholder={inputPlaceholderText}
                 maxValue={lastPage}
                 onPageChange={(page) => {
                   this.onNumberInputChange(Number(page));
@@ -156,10 +161,15 @@ const StyledPagination = styled((props: PaginationProps & SuomifiThemeProp) => {
  * <i class="semantics" />
  * Used for pagination
  */
-const Pagination = (props: PaginationProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => <StyledPagination theme={suomifiTheme} {...props} />}
-  </SuomifiThemeConsumer>
+
+const Pagination = forwardRef(
+  (props: PaginationProps, ref: React.RefObject<HTMLElement>) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledPagination theme={suomifiTheme} forwardedRef={ref} {...props} />
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
 
 Pagination.displayName = 'Pagination';
