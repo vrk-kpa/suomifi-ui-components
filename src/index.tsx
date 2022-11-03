@@ -53,6 +53,8 @@ export {
   LabelProps,
   HintText,
   HintTextProps,
+  DateInput,
+  DateInputProps,
 } from './core/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';
