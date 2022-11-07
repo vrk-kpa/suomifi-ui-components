@@ -642,6 +642,23 @@ exports[`calling render with the same component on the same container does not r
   color: hsl(284,36%,45%);
 }
 
+.c11.fi-link--initial-underline {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c11.fi-link--initial-underline:focus,
+.c11.fi-link--initial-underline:focus-within {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c11.fi-link--initial-underline:hover,
+.c11.fi-link--initial-underline:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .c11 .fi-link_icon {
   padding-left: 4px;
   font-size: 16px;
@@ -697,6 +714,23 @@ exports[`calling render with the same component on the same container does not r
 
 .c9.fi-link--router:visited {
   color: hsl(284,36%,45%);
+}
+
+.c9.fi-link--initial-underline {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c9.fi-link--initial-underline:focus,
+.c9.fi-link--initial-underline:focus-within {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c9.fi-link--initial-underline:hover,
+.c9.fi-link--initial-underline:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 <div
