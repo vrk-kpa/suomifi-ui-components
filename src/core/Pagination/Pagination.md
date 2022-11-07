@@ -20,16 +20,20 @@ const lastPage = 8;
       lastPage={lastPage}
       pageInput={true}
       smallScreen={false}
-      invalidValueErrorText="ei ole sallittu arvo"
-      ariaNextButtonLabel="Seuraaava"
-      ariaPreviousButtonLabel="Edellinen"
-      pageInputButtonText="Siirry"
+      ariaNextButtonLabel="Next"
+      ariaPreviousButtonLabel="Previous"
+      paginationInputProps={{
+        invalidValueErrorText: ' is not allowed',
+        inputPlaceholderText: 'Go to',
+        pageInputButtonText: 'Jump to page',
+        labelText: 'Page number'
+      }}
       onChange={(page) => {
         setCurrent(page);
         console.log('on change: ', page);
       }}
       textFunction={(currentPage, lastPage) => {
-        return 'Sivu ' + currentPage + ' / ' + lastPage;
+        return 'Page ' + currentPage + ' / ' + lastPage;
       }}
       aria-label="my component here"
     />
@@ -53,16 +57,20 @@ const lastPage = 8;
       lastPage={lastPage}
       pageInput={true}
       smallScreen={true}
-      invalidValueErrorText="ei ole sallittu arvo"
-      ariaNextButtonLabel="Seuraaava"
-      ariaPreviousButtonLabel="Edellinen"
-      pageInputButtonText="Siirry"
+      ariaNextButtonLabel="Next"
+      ariaPreviousButtonLabel="Previous"
+      paginationInputProps={{
+        invalidValueErrorText: ' is not allowed',
+        inputPlaceholderText: 'Go to',
+        pageInputButtonText: 'Jump to page',
+        labelText: 'Page number'
+      }}
       onChange={(page) => {
         setCurrent(page);
         console.log('on change: ', page);
       }}
       textFunction={(currentPage, lastPage) => {
-        return 'Sivu ' + currentPage + ' / ' + lastPage;
+        return 'Page ' + currentPage + ' / ' + lastPage;
       }}
       aria-label="my component here"
     />

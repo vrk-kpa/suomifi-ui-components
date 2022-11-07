@@ -21,7 +21,7 @@ import {
 } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { StatusText } from '../../Form/StatusText/StatusText';
-import { Label, LabelMode } from '../../Form/Label/Label';
+import { Label } from '../../Form/Label/Label';
 import { Icon } from '../../Icon/Icon';
 import { InputStatus, StatusTextCommonProps } from '../../Form/types';
 import { baseStyles } from './PageInput.baseStyles';
@@ -48,11 +48,7 @@ export interface PageInputProps
   wrapperProps?: Omit<HtmlDivProps, 'className'>;
   /** Label text */
   labelText: ReactNode;
-  /** Hide or show label. Label element is always present, but can be visually hidden.
-   * @default visible
-   */
-  labelMode?: LabelMode;
-  /** Placeholder text for input. Use only as visual aid, not for instructions. */
+  /** Placeholder text for input. */
   visualPlaceholder?: string;
   /** Page button label for screen readers */
   pageInputButtonLabel: string;
@@ -126,7 +122,6 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
       value,
       className,
       labelText,
-      labelMode,
       pageInputButtonLabel,
       pageInputButtonProps,
       wrapperProps,
@@ -197,13 +192,7 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
         })}
       >
         <HtmlSpan className={pageInputClassNames.styleWrapper}>
-          <Label
-            htmlFor={id}
-            labelMode={labelMode}
-            className={classnames({
-              [pageInputClassNames.labelIsVisible]: labelMode !== 'hidden',
-            })}
-          >
+          <Label htmlFor={id} labelMode="hidden">
             {labelText}
           </Label>
           <HtmlDiv className={pageInputClassNames.functionalityContainer}>

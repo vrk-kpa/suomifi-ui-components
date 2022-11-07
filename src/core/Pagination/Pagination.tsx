@@ -10,7 +10,18 @@ import { Button } from '../Button/Button';
 
 const externalClassName = 'fi-link--external';
 
-export interface PaginationProps {
+export interface PaginationInputProps {
+  /** Page input action button label for screen readers  */
+  pageInputButtonText: string;
+  /** Input placeholder text */
+  inputPlaceholderText: string;
+  /** Error text shown with invalid page number input */
+  invalidValueErrorText: string;
+  /** Visually hidden label for input field */
+  labelText: string;
+}
+
+interface InternalPaginationProps {
   /** Custom classname to extend or customize */
   className?: string;
   /** Is there any need to have as prop */
@@ -27,21 +38,21 @@ export interface PaginationProps {
   lastPage: number;
   /** Returns the selected page number */
   onChange: (page: number) => void;
-  /** Error text shown with invalid page number input */
-  invalidValueErrorText: string;
-  /** Show input field for page number */
-  pageInput?: boolean;
-  /** Page input action button label for screen readers  */
-  pageInputButtonText: string;
+
+  /** Ref is forwarded to root element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLElement>;
   /** Next page button label for screen readers  */
   ariaNextButtonLabel: string;
   /** Previous page button label for screen readers */
   ariaPreviousButtonLabel: string;
-  /** Ref is forwarded to root element. Alternative for React `ref` attribute. */
-  forwardedRef?: React.RefObject<HTMLElement>;
-  /** Input placeholder text */
-  inputPlaceholderText: string;
+
+  pageInput?: boolean;
+
+  paginationInputProps?: PaginationInputProps;
 }
+
+// export type PaginationProps = inputProps & InternalPaginationProps;
+export type PaginationProps = InternalPaginationProps;
 
 const baseClassName = 'fi-pagination';
 
@@ -84,13 +95,11 @@ class BasePagination extends Component<PaginationProps> {
       onChange,
       currentPage,
       lastPage,
-      invalidValueErrorText,
-      pageInput,
-      smallScreen,
-      ariaNextButtonLabel,
       ariaPreviousButtonLabel,
-      pageInputButtonText,
-      inputPlaceholderText,
+      ariaNextButtonLabel,
+      pageInput,
+      paginationInputProps,
+      smallScreen,
       ...passProps
     } = this.props;
     return (
@@ -129,18 +138,17 @@ class BasePagination extends Component<PaginationProps> {
             />
           </HtmlDiv>
 
-          {pageInput === true && (
+          {pageInput === true && paginationInputProps && (
             <HtmlDiv className={paginationClassNames.pageInputWrapper}>
               <PageInput
-                labelText="this is needed?"
-                labelMode="hidden"
-                pageInputButtonLabel={pageInputButtonText}
-                visualPlaceholder={inputPlaceholderText}
+                pageInputButtonLabel={paginationInputProps.pageInputButtonText}
+                visualPlaceholder={paginationInputProps.inputPlaceholderText}
                 maxValue={lastPage}
+                labelText={paginationInputProps.labelText}
                 onPageChange={(page) => {
                   this.onNumberInputChange(Number(page));
                 }}
-                statusText={invalidValueErrorText}
+                statusText={paginationInputProps.invalidValueErrorText}
               />
             </HtmlDiv>
           )}
