@@ -132,7 +132,7 @@ class BasePagination extends Component<PaginationProps> {
           {pageInput === true && (
             <HtmlDiv className={paginationClassNames.pageInputWrapper}>
               <PageInput
-                labelText=""
+                labelText="this is needed?"
                 labelMode="hidden"
                 pageInputButtonLabel={pageInputButtonText}
                 visualPlaceholder={inputPlaceholderText}
