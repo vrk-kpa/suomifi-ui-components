@@ -766,6 +766,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
     >
       <label
         class="c5 fi-visually-hidden"
+        for="test-id1"
       >
         Test input
       </label>

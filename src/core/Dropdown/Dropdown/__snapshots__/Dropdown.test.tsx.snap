@@ -1522,6 +1522,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
       >
         <label
           class="c5 fi-visually-hidden"
+          id="test-id-label"
         >
           Dropdown test
         </label>
