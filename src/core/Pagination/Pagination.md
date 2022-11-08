@@ -43,6 +43,8 @@ const lastPage = 8;
 </>;
 ```
 
+### Small screen variant
+
 ```js
 import { Pagination } from 'suomifi-ui-components';
 
