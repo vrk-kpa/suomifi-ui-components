@@ -63,8 +63,6 @@ export interface PageInputProps
   name?: string;
   /** Set components width to 100% */
   fullWidth?: boolean;
-  /** Controlled value */
-  value?: PageInputValue;
   /** Callback for onBlur event */
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback for search button click */
@@ -96,30 +94,18 @@ interface PageInputState {
 
 class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
   state: PageInputState = {
-    value: this.props.value || '',
+    value: '',
     status: this.props.status || 'default',
     inputValue: undefined,
   };
 
   private inputRef = createRef<HTMLInputElement>();
 
-  static getDerivedStateFromProps(
-    nextProps: PageInputProps,
-    prevState: PageInputState,
-  ) {
-    const { value } = nextProps;
-    if ('value' in nextProps && value !== prevState.value) {
-      return { value };
-    }
-    return null;
-  }
-
   private getStatusText = () =>
     `"${this.state.inputValue}" ${this.props.statusText}`;
 
   render() {
     const {
-      value,
       className,
       labelText,
       pageInputButtonLabel,
