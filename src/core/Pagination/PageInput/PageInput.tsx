@@ -214,6 +214,8 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
 
                   if (verifiedValue === null && event.target.value !== '') {
                     this.setState({ status: 'error' });
+                  } else {
+                    this.setState({ status: 'default' });
                   }
                 }}
                 onKeyPress={onKeyPress}
