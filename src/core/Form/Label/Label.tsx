@@ -94,7 +94,7 @@ const StyledLabel = styled(
         }
       >
         {labelMode === 'hidden' ? (
-          <VisuallyHidden as={asProp}>
+          <VisuallyHidden as={asProp} {...passProps}>
             {children}
             {optionalText && `(${optionalText})`}
           </VisuallyHidden>
