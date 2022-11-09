@@ -20,21 +20,22 @@ export const baseStyles = (arrowOffsetPx: number, theme: SuomifiTheme) => css`
       position: absolute;
       height: 0;
       width: 0;
-      left: ${arrowOffsetPx}px;
       border: solid transparent;
       pointer-events: none;
     }
     &:before {
       border-bottom-color: ${theme.colors.blackBase};
       border-width: 9px;
+      left: ${arrowOffsetPx}px;
       margin-right: -9px;
       bottom: 100%;
     }
     &:after {
       border-bottom-color: ${theme.colors.highlightLight4};
-      border-width: 9px;
+      border-width: 8px;
       margin-right: -9px;
-      bottom: calc(100% - 1px);
+      bottom: 100%;
+      left: calc(${arrowOffsetPx}px + 1px);
     }
 
     &.fi-tooltip_content--arrow-hidden {

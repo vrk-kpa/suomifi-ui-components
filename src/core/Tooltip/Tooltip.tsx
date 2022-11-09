@@ -75,7 +75,7 @@ class BaseTooltip extends Component<TooltipProps & { className?: string }> {
         this.contentRef.current.getBoundingClientRect().left -
         2;
       const max = this.contentRef.current.getBoundingClientRect().width - 17;
-      return Math.min(pos, max);
+      return Math.round(Math.min(pos, max));
     }
     return 0;
   };
