@@ -45,9 +45,9 @@ interface InternalPaginationProps {
   nextButtonAriaLabel: string;
   /** Previous page button label for screen readers */
   previousButtonAriaLabel: string;
-
+  /** Show input field for page number */
   pageInput?: boolean;
-
+  /** Props for page input field */
   pageInputProps?: PageInputProps;
 }
 
