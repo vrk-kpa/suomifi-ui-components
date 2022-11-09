@@ -802,7 +802,7 @@ exports[`snapshot should have matching default structure 1`] = `
   display: inline-flex;
 }
 
-.c1.fi-pagination .fi-pagination_buttons-wrapper .fi-pagination_stock-button {
+.c1.fi-pagination .fi-pagination_buttons-wrapper .fi-pagination_arrow-button {
   min-width: 40px;
   height: 40px;
   width: 40px;
@@ -810,7 +810,7 @@ exports[`snapshot should have matching default structure 1`] = `
   padding-right: 0;
 }
 
-.c1.fi-pagination .fi-pagination_buttons-wrapper .fi-pagination_stock-button > .fi-button_icon {
+.c1.fi-pagination .fi-pagination_buttons-wrapper .fi-pagination_arrow-button > .fi-button_icon {
   margin-right: auto;
   margin-left: auto;
 }
@@ -885,7 +885,7 @@ exports[`snapshot should have matching default structure 1`] = `
       <button
         aria-disabled="true"
         aria-label="Previous page"
-        class="c3 fi-button c4 fi-pagination_stock-button fi-button--disabled fi-button--secondary"
+        class="c3 fi-button c4 fi-pagination_arrow-button fi-button--disabled fi-button--secondary"
         disabled=""
         type="button"
       >
@@ -916,7 +916,7 @@ exports[`snapshot should have matching default structure 1`] = `
       <button
         aria-disabled="false"
         aria-label="Next page"
-        class="c3 fi-button c4 fi-pagination_stock-button fi-button--secondary"
+        class="c3 fi-button c4 fi-pagination_arrow-button fi-button--secondary"
         tabindex="0"
         type="button"
       >

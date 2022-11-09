@@ -6,8 +6,6 @@ const lastPage = 8;
 
 <>
   <div style={{ width: '600px' }}>
-    <br />
-
     <Block
       padding="xl"
       style={{ border: '1px solid rgb(200, 205, 208)' }}
@@ -20,9 +18,9 @@ const lastPage = 8;
       lastPage={lastPage}
       pageInput={true}
       smallScreen={false}
-      nextButtonAriaLabel="Next"
-      previousButtonAriaLabel="Previous"
-      paginationInputProps={{
+      nextButtonAriaLabel="Next page"
+      previousButtonAriaLabel="Previous page"
+      pageInputProps={{
         invalidValueErrorText: ' is not allowed',
         inputPlaceholderText: 'Go to',
         buttonText: 'Jump to page',
@@ -30,15 +28,11 @@ const lastPage = 8;
       }}
       onChange={(page) => {
         setCurrent(page);
-        console.log('on change: ', page);
       }}
       textFunction={(currentPage, lastPage) => {
         return 'Page ' + currentPage + ' / ' + lastPage;
       }}
-      aria-label="Pagination component"
     />
-    <br />
-    <br />
   </div>
 </>;
 ```
@@ -59,9 +53,9 @@ const lastPage = 8;
       lastPage={lastPage}
       pageInput={true}
       smallScreen={true}
-      nextButtonAriaLabel="Next"
-      previousButtonAriaLabel="Previous"
-      paginationInputProps={{
+      nextButtonAriaLabel="Next page"
+      previousButtonAriaLabel="Previous page"
+      pageInputProps={{
         invalidValueErrorText: ' is not allowed',
         inputPlaceholderText: 'Go to',
         buttonText: 'Jump to page',
@@ -69,15 +63,11 @@ const lastPage = 8;
       }}
       onChange={(page) => {
         setCurrent(page);
-        console.log('on change: ', page);
       }}
       textFunction={(currentPage, lastPage) => {
         return 'Page ' + currentPage + ' / ' + lastPage;
       }}
-      aria-label="Pagination component"
     />
-    <br />
-    <br />
   </div>
 </>;
 ```

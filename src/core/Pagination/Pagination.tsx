@@ -10,7 +10,7 @@ import { Button } from '../Button/Button';
 
 const externalClassName = 'fi-link--external';
 
-export interface PaginationInputProps {
+export interface PageInputProps {
   /** Page input action button label for screen readers  */
   buttonText: string;
   /** Input placeholder text */
@@ -48,7 +48,7 @@ interface InternalPaginationProps {
 
   pageInput?: boolean;
 
-  paginationInputProps?: PaginationInputProps;
+  pageInputProps?: PageInputProps;
 }
 
 // export type PaginationProps = inputProps & InternalPaginationProps;
@@ -98,7 +98,7 @@ class BasePagination extends Component<PaginationProps> {
       previousButtonAriaLabel,
       nextButtonAriaLabel,
       pageInput,
-      paginationInputProps,
+      pageInputProps,
       smallScreen,
       ...passProps
     } = this.props;
@@ -138,17 +138,17 @@ class BasePagination extends Component<PaginationProps> {
             />
           </HtmlDiv>
 
-          {pageInput === true && paginationInputProps && (
+          {pageInput === true && pageInputProps && (
             <HtmlDiv className={paginationClassNames.pageInputWrapper}>
               <PageInput
-                pageInputButtonLabel={paginationInputProps.buttonText}
-                visualPlaceholder={paginationInputProps.inputPlaceholderText}
+                pageInputButtonLabel={pageInputProps.buttonText}
+                visualPlaceholder={pageInputProps.inputPlaceholderText}
                 maxValue={lastPage}
-                labelText={paginationInputProps.labelText}
+                labelText={pageInputProps.labelText}
                 onPageChange={(page) => {
                   this.onNumberInputChange(Number(page));
                 }}
-                statusText={paginationInputProps.invalidValueErrorText}
+                statusText={pageInputProps.invalidValueErrorText}
               />
             </HtmlDiv>
           )}

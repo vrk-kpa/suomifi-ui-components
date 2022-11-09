@@ -13,7 +13,7 @@ const TestPagination = (props: Partial<PaginationProps> = {}) => {
       lastPage={lastPage || 6}
       pageInput
       smallScreen={false}
-      paginationInputProps={{
+      pageInputProps={{
         invalidValueErrorText: 'is not allowed',
         inputPlaceholderText: 'placeholder text',
         buttonText: 'Jump',
@@ -115,7 +115,7 @@ describe('props', () => {
           smallScreen={false}
           nextButtonAriaLabel="Next"
           previousButtonAriaLabel="Previous"
-          paginationInputProps={{
+          pageInputProps={{
             invalidValueErrorText: 'is not allowed',
             inputPlaceholderText: 'placeholder text',
             buttonText: 'Jump',
