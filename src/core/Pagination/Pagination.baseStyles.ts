@@ -14,7 +14,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-pagination_buttons-wrapper {
       display: inline-flex;
 
-      & .fi-pagination_stock-button {
+      & .fi-pagination_arrow-button {
         min-width: 40px;
         height: 40px;
         width: 40px;

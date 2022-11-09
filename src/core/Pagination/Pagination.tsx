@@ -12,7 +12,7 @@ const externalClassName = 'fi-link--external';
 
 export interface PaginationInputProps {
   /** Page input action button label for screen readers  */
-  pageInputButtonText: string;
+  buttonText: string;
   /** Input placeholder text */
   inputPlaceholderText: string;
   /** Error text shown with invalid page number input */
@@ -42,9 +42,9 @@ interface InternalPaginationProps {
   /** Ref is forwarded to root element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLElement>;
   /** Next page button label for screen readers  */
-  ariaNextButtonLabel: string;
+  nextButtonAriaLabel: string;
   /** Previous page button label for screen readers */
-  ariaPreviousButtonLabel: string;
+  previousButtonAriaLabel: string;
 
   pageInput?: boolean;
 
@@ -65,7 +65,7 @@ export const paginationClassNames = {
   icon: `${baseClassName}_icon`,
   iconWrapper: `${baseClassName}_icon-wrapper`,
   pageButton: `${baseClassName}_page-button`,
-  stockButton: `${baseClassName}_stock-button`,
+  arrowButton: `${baseClassName}_arrow-button`,
   smallScreen: `${baseClassName}--small-screen`,
   pageInputWrapper: `${baseClassName}_page-input-wrapper`,
   buttonsWrapper: `${baseClassName}_buttons-wrapper`,
@@ -95,8 +95,8 @@ class BasePagination extends Component<PaginationProps> {
       onChange,
       currentPage,
       lastPage,
-      ariaPreviousButtonLabel,
-      ariaNextButtonLabel,
+      previousButtonAriaLabel,
+      nextButtonAriaLabel,
       pageInput,
       paginationInputProps,
       smallScreen,
@@ -112,12 +112,12 @@ class BasePagination extends Component<PaginationProps> {
         <HtmlDiv className={paginationClassNames.styleWrapper}>
           <HtmlDiv className={paginationClassNames.buttonsWrapper}>
             <Button
-              className={paginationClassNames.stockButton}
+              className={paginationClassNames.arrowButton}
               variant="secondary"
               onClick={this.onLeftButtonClick}
               icon="arrowLeft"
               disabled={currentPage <= 1}
-              aria-label={ariaPreviousButtonLabel}
+              aria-label={previousButtonAriaLabel}
             />
 
             <HtmlSpan
@@ -129,11 +129,11 @@ class BasePagination extends Component<PaginationProps> {
             </HtmlSpan>
 
             <Button
-              className={paginationClassNames.stockButton}
+              className={paginationClassNames.arrowButton}
               variant="secondary"
               onClick={this.onRightButtonClick}
               disabled={currentPage >= lastPage}
-              aria-label={ariaNextButtonLabel}
+              aria-label={nextButtonAriaLabel}
               icon="arrowRight"
             />
           </HtmlDiv>
@@ -141,7 +141,7 @@ class BasePagination extends Component<PaginationProps> {
           {pageInput === true && paginationInputProps && (
             <HtmlDiv className={paginationClassNames.pageInputWrapper}>
               <PageInput
-                pageInputButtonLabel={paginationInputProps.pageInputButtonText}
+                pageInputButtonLabel={paginationInputProps.buttonText}
                 visualPlaceholder={paginationInputProps.inputPlaceholderText}
                 maxValue={lastPage}
                 labelText={paginationInputProps.labelText}

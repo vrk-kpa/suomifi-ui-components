@@ -20,12 +20,12 @@ const lastPage = 8;
       lastPage={lastPage}
       pageInput={true}
       smallScreen={false}
-      ariaNextButtonLabel="Next"
-      ariaPreviousButtonLabel="Previous"
+      nextButtonAriaLabel="Next"
+      previousButtonAriaLabel="Previous"
       paginationInputProps={{
         invalidValueErrorText: ' is not allowed',
         inputPlaceholderText: 'Go to',
-        pageInputButtonText: 'Jump to page',
+        buttonText: 'Jump to page',
         labelText: 'Page number'
       }}
       onChange={(page) => {
@@ -35,7 +35,7 @@ const lastPage = 8;
       textFunction={(currentPage, lastPage) => {
         return 'Page ' + currentPage + ' / ' + lastPage;
       }}
-      aria-label="my component here"
+      aria-label="Pagination component"
     />
     <br />
     <br />
@@ -59,12 +59,12 @@ const lastPage = 8;
       lastPage={lastPage}
       pageInput={true}
       smallScreen={true}
-      ariaNextButtonLabel="Next"
-      ariaPreviousButtonLabel="Previous"
+      nextButtonAriaLabel="Next"
+      previousButtonAriaLabel="Previous"
       paginationInputProps={{
         invalidValueErrorText: ' is not allowed',
         inputPlaceholderText: 'Go to',
-        pageInputButtonText: 'Jump to page',
+        buttonText: 'Jump to page',
         labelText: 'Page number'
       }}
       onChange={(page) => {
@@ -74,7 +74,7 @@ const lastPage = 8;
       textFunction={(currentPage, lastPage) => {
         return 'Page ' + currentPage + ' / ' + lastPage;
       }}
-      aria-label="my component here"
+      aria-label="Pagination component"
     />
     <br />
     <br />
