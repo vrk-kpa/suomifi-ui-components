@@ -21,7 +21,7 @@ const lastPage = 8;
       previousButtonAriaLabel="Previous page"
       pageInput={true}
       pageInputProps={{
-        invalidValueErrorText: ' is not allowed',
+        invalidValueErrorText: (value) => `"${value}" is not allowed`,
         inputPlaceholderText: 'Go to',
         buttonText: 'Jump to page',
         labelText: 'Page number'
@@ -47,7 +47,6 @@ const lastPage = 8;
 
 <>
   <div style={{ width: '600px' }}>
-    <br />
     <Pagination
       currentPage={current}
       lastPage={lastPage}
@@ -75,7 +74,6 @@ const lastPage = 8;
 
 <>
   <div style={{ width: '600px' }}>
-    <br />
     <Pagination
       currentPage={current}
       lastPage={lastPage}
@@ -84,7 +82,7 @@ const lastPage = 8;
       previousButtonAriaLabel="Previous page"
       pageInput={true}
       pageInputProps={{
-        invalidValueErrorText: ' is not allowed',
+        invalidValueErrorText: (value) => `"${value}" is not allowed`,
         inputPlaceholderText: 'Go to',
         buttonText: 'Jump to page',
         labelText: 'Page number'

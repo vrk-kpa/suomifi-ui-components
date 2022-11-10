@@ -26,7 +26,7 @@ import { Icon } from '../../Icon/Icon';
 import { InputStatus, StatusTextCommonProps } from '../../Form/types';
 import { baseStyles } from './PageInput.baseStyles';
 
-type PageInputValue = number | string | null;
+export type PageInputValue = number | string | undefined;
 
 type PageInputStatus = Exclude<InputStatus, 'success'>;
 
@@ -69,6 +69,8 @@ export interface PageInputProps
   onPageChange?: (value: PageInputValue) => void;
   /** Maximum value */
   maxValue: number;
+  /** Callback for search button click */
+  invalidValueErrorText: (value: PageInputValue) => string;
 }
 
 const baseClassName = 'fi-page-input';
@@ -89,7 +91,7 @@ const pageInputClassNames = {
 interface PageInputState {
   value: PageInputValue;
   status: PageInputStatus;
-  inputValue: string | number | undefined;
+  inputValue: PageInputValue;
 }
 
 class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
@@ -100,9 +102,6 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
   };
 
   private inputRef = createRef<HTMLInputElement>();
-
-  private getStatusText = () =>
-    `"${this.state.inputValue}" ${this.props.statusText}`;
 
   render() {
     const {
@@ -120,6 +119,7 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
       fullWidth,
       theme,
       maxValue,
+      invalidValueErrorText,
       'aria-describedby': ariaDescribedBy,
       statusTextAriaLiveMode = 'assertive',
       ...passProps
@@ -242,7 +242,9 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
             status={this.state.status}
             ariaLiveMode={statusTextAriaLiveMode}
           >
-            {this.state.status === 'error' ? this.getStatusText() : ''}
+            {this.state.status === 'error'
+              ? invalidValueErrorText(this.state.inputValue)
+              : ''}
           </StatusText>
         </HtmlSpan>
       </HtmlDiv>

@@ -964,7 +964,6 @@ exports[`snapshot should have matching default structure 1`] = `
               class="c2 fi-page-input_input-element-container"
             >
               <input
-                aria-describedby="1-statusText"
                 aria-invalid="false"
                 class="c11 fi-page-input_input"
                 id="1"

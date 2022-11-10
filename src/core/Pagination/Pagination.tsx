@@ -5,7 +5,7 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { baseStyles } from './Pagination.baseStyles';
 import { HtmlSpan, HtmlNav, HtmlDiv } from '../../reset';
 import { asPropType } from '../../utils/typescript';
-import { PageInput } from './PageInput/PageInput';
+import { PageInput, PageInputValue } from './PageInput/PageInput';
 import { Button } from '../Button/Button';
 
 const externalClassName = 'fi-link--external';
@@ -16,7 +16,7 @@ export interface PageInputProps {
   /** Input placeholder text */
   inputPlaceholderText: string;
   /** Error text shown with invalid page number input */
-  invalidValueErrorText: string;
+  invalidValueErrorText: (value: PageInputValue) => string;
   /** Visually hidden label for input field */
   labelText: string;
 }
@@ -155,7 +155,7 @@ class BasePagination extends Component<PaginationProps> {
                 onPageChange={(page) => {
                   this.onNumberInputChange(Number(page));
                 }}
-                statusText={pageInputProps.invalidValueErrorText}
+                invalidValueErrorText={pageInputProps.invalidValueErrorText}
               />
             </HtmlDiv>
           )}
