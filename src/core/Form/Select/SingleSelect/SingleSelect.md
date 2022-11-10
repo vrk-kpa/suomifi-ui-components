@@ -381,9 +381,11 @@ const defaultSelectedFood = {
   uniqueItemId: 'pizza-123'
 };
 
+const labelText = 'Food';
+
 <>
   <SingleSelect
-    labelText="Food"
+    labelText={labelText}
     clearButtonLabel="Clear selection"
     items={foods}
     selectedItem={defaultSelectedFood}
@@ -391,8 +393,8 @@ const defaultSelectedFood = {
     ariaOptionsAvailableText="Options available"
     tooltipComponent={
       <Tooltip
-        ariaToggleButtonLabelText="TextInput with a tooltip, additional information"
-        ariaCloseButtonLabelText="TextInput with a tooltip, close additional information"
+        ariaToggleButtonLabelText={`${labelText}, additional information`}
+        ariaToggleButtonLabelText={`${labelText}, close additional information`}
       >
         <Heading variant="h5" as="h2">
           Food

@@ -9,6 +9,8 @@ import React from 'react';
 
 const exampleRef = React.createRef();
 
+const labelTextForTooltipExample = 'TextInput with a tooltip';
+
 <>
   <TextInput
     onBlur={(event) => console.log(event.target.value)}
@@ -34,11 +36,11 @@ const exampleRef = React.createRef();
     }}
   />
   <TextInput
-    labelText="TextInput with a tooltip"
+    labelText={labelTextForTooltipExample}
     tooltipComponent={
       <Tooltip
-        ariaToggleButtonLabelText="TextInput with a tooltip, additional information"
-        ariaCloseButtonLabelText="TextInput with a tooltip, close additional information"
+        ariaToggleButtonLabelText={`${labelTextForTooltipExample}, additional information`}
+        ariaToggleButtonLabelText={`${labelTextForTooltipExample}, close additional information`}
       >
         <Heading variant="h5" as="h2">
           Tooltip

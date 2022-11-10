@@ -8,6 +8,9 @@ import {
 import React from 'react';
 
 const exampleRef = React.createRef();
+
+const labelTextForTooltipExample = 'Textarea with a tooltip';
+
 <>
   <Textarea
     hintText="Example hint text"
@@ -37,11 +40,11 @@ const exampleRef = React.createRef();
   </Textarea>
 
   <Textarea
-    labelText="Textarea with a tooltip"
+    labelText={labelTextForTooltipExample}
     tooltipComponent={
       <Tooltip
-        ariaToggleButtonLabelText="Textarea with a tooltip, additional information"
-        ariaCloseButtonLabelText="Textarea with a tooltip, close additional information"
+        ariaToggleButtonLabelText={`${labelTextForTooltipExample}, additional information`}
+        ariaToggleButtonLabelText={`${labelTextForTooltipExample}, close additional information`}
       >
         <Heading variant="h5" as="h2">
           Tooltip

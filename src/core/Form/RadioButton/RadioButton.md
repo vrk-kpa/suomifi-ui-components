@@ -177,13 +177,15 @@ import {
   Text
 } from 'suomifi-ui-components';
 
+const labelText = 'RadioButtons with a tooltip';
+
 <RadioButtonGroup
-  labelText="RadioButtons in group"
+  labelText={labelText}
   name="test-group"
   tooltipComponent={
     <Tooltip
-      ariaToggleButtonLabelText="RadioButtons in group, additional information"
-      ariaCloseButtonLabelText="RadioButtons in group, close additional information"
+      ariaToggleButtonLabelText={`${labelText}, additional information`}
+      ariaToggleButtonLabelText={`${labelText}, close additional information`}
     >
       <Heading variant="h5" as="h2">
         Tooltip

@@ -92,12 +92,14 @@ import {
   Text
 } from 'suomifi-ui-components';
 
+const labelText = 'Checkboxes with a tooltip';
+
 <CheckboxGroup
-  labelText="Checkboxes in group"
+  labelText={labelText}
   tooltipComponent={
     <Tooltip
-      ariaToggleButtonLabelText="Checkboxes in group, additional information"
-      ariaCloseButtonLabelText="Checkboxes in group, close additional information"
+      ariaToggleButtonLabelText={`${labelText}, additional information`}
+      ariaToggleButtonLabelText={`${labelText}, close additional information`}
     >
       <Heading variant="h5" as="h2">
         Tooltip

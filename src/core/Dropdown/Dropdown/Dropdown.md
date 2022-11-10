@@ -188,12 +188,14 @@ import {
   Text
 } from 'suomifi-ui-components';
 
+const labelText = 'Dropdown with a tooltip';
+
 <Dropdown
-  labelText="Dropdown with a tooltip"
+  labelText={labelText}
   tooltipComponent={
     <Tooltip
-      ariaToggleButtonLabelText="Dropdown with a tooltip, additional information"
-      ariaCloseButtonLabelText="Dropdown with a tooltip, close additional information"
+      ariaToggleButtonLabelText={`${labelText}, additional information`}
+      ariaToggleButtonLabelText={`${labelText}, close additional information`}
     >
       <Heading variant="h5" as="h2">
         Tooltip
