@@ -14,7 +14,6 @@ import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { HTMLAttributesIncludingDataAttributes } from '../../../utils/common/common';
 import { HtmlInputProps, HtmlDiv, HtmlSpan, HtmlInput } from '../../../reset';
-import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
 import { Label, LabelMode } from '../Label/Label';
 import { StatusText } from '../StatusText/StatusText';
 import { HintText } from '../HintText/HintText';
@@ -86,11 +85,9 @@ export interface TextInputProps
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
   debounce?: number;
   /** Suomi.fi icon to be shown inside the input field */
-  icon?: BaseIconKeys;
-  /** Properties for the icon */
-  iconProps?: Omit<IconProps, 'icon'>;
-  /** Tooltip component for the input's label */
-  tooltipComponent?: ReactElement;
+  icon?: ReactElement;
+  // /** Properties for the icon */
+  // iconProps?: Omit<IconProps, 'icon'>;
 }
 
 class BaseTextInput extends Component<TextInputProps> {
@@ -110,7 +107,6 @@ class BaseTextInput extends Component<TextInputProps> {
       type = 'text',
       fullWidth,
       icon,
-      iconProps,
       forwardedRef,
       debounce,
       statusTextAriaLiveMode = 'assertive',
@@ -119,8 +115,6 @@ class BaseTextInput extends Component<TextInputProps> {
       ...passProps
     } = this.props;
 
-    const resolvedIcon: BaseIconKeys = icon || iconProps?.icon;
-
     const hintTextId = `${id}-hintText`;
     const statusTextId = `${id}-statusText`;
     return (
@@ -128,7 +122,7 @@ class BaseTextInput extends Component<TextInputProps> {
         {...wrapperProps}
         className={classnames(baseClassName, className, {
           [textInputClassNames.disabled]: !!passProps.disabled,
-          [textInputClassNames.icon]: resolvedIcon !== undefined,
+          // [textInputClassNames.icon]: resolvedIcon !== undefined,
           [textInputClassNames.error]: status === 'error',
           [textInputClassNames.success]: status === 'success',
           [textInputClassNames.fullWidth]: fullWidth,
@@ -171,7 +165,7 @@ class BaseTextInput extends Component<TextInputProps> {
                 />
               )}
             </Debounce>
-            {resolvedIcon && <Icon {...{ ...iconProps, icon: resolvedIcon }} />}
+            {icon}
           </HtmlDiv>
           <StatusText
             id={statusTextId}

@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Toast.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
-import { Icon } from '../Icon/Icon';
+import { IconCheckCircle } from 'suomifi-icons/baseIcons';
 import { Heading } from '../Heading/Heading';
 import { HtmlDiv, HtmlDivWithRef } from '../../reset';
 import { hLevels } from '../../reset/HtmlH/HtmlH';
@@ -56,7 +56,7 @@ class BaseToast extends Component<ToastProps> {
       >
         <HtmlDiv className={toastClassNames.styleWrapper}>
           <HtmlDiv className={toastClassNames.iconWrapper}>
-            <Icon icon="checkCircle" className={toastClassNames.icon} />
+            <IconCheckCircle className={toastClassNames.icon} />
           </HtmlDiv>
 
           <HtmlDiv

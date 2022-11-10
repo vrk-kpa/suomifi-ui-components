@@ -2,10 +2,10 @@ import React, { Component, ReactNode, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
-import { Icon } from '../../Icon/Icon';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 import { expanderTitleButtonBaseStyles } from './ExpanderTitleButton.baseStyles';
+import { IconChevronDown } from 'suomifi-icons/baseIcons';
 
 const baseClassName = 'fi-expander_title-button';
 const titleOpenClassName = `${baseClassName}--open`;
@@ -69,8 +69,7 @@ class BaseExpanderTitleButton extends Component<InternalExpanderTitleButtonProps
             aria-controls={consumer.contentId}
           >
             <HtmlSpan id={consumer.titleId}>{children}</HtmlSpan>
-            <Icon
-              icon="chevronDown"
+            <IconChevronDown
               className={classnames(iconClassName, {
                 [iconOpenClassName]: consumer.open,
               })}

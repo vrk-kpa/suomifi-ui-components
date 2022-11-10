@@ -3,8 +3,8 @@ import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlButton, HtmlButtonProps } from '../../../reset';
-import { Icon } from '../../Icon/Icon';
 import { baseStyles } from './TooltipToggleButton.baseStyles';
+import { IconInfoFilled } from 'suomifi-icons/baseIcons';
 
 const baseClassName = 'fi-tooltip';
 
@@ -31,10 +31,7 @@ class BaseTooltipToggleButton extends Component<
         aria-label={ariaLabel}
         {...passProps}
       >
-        <Icon
-          icon="infoFilled"
-          className={tooltipClassNames.toggleButtonIcon}
-        />
+        <IconInfoFilled className={tooltipClassNames.toggleButtonIcon} />
       </HtmlButton>
     );
   }

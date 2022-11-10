@@ -1,12 +1,15 @@
 import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import { IconPreloader } from 'suomifi-icons/componentIcons';
 import { baseStyles } from './LoadingSpinner.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { HtmlDiv, HtmlDivWithRef } from '../../reset';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
-import { ComponentIcon } from '../StaticIcon/StaticIcon';
-import { Icon } from '../../core/Icon/Icon';
+import {
+  IconCheckCircleFilled,
+  IconErrorFilled,
+} from 'suomifi-icons/baseIcons';
 
 export type LoadingSpinnerStatus = 'loading' | 'success' | 'failed';
 export interface LoadingSpinnerProps {
@@ -76,19 +79,13 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps> {
         {...passProps}
       >
         {status === 'loading' && (
-          <ComponentIcon
-            icon="preloader"
-            className={loadingSpinnerClassNames.icon}
-          />
+          <IconPreloader className={loadingSpinnerClassNames.icon} />
         )}
         {status === 'success' && (
-          <Icon
-            icon="checkCircleFilled"
-            className={loadingSpinnerClassNames.icon}
-          />
+          <IconCheckCircleFilled className={loadingSpinnerClassNames.icon} />
         )}
         {status === 'failed' && (
-          <Icon icon="errorFilled" className={loadingSpinnerClassNames.icon} />
+          <IconErrorFilled className={loadingSpinnerClassNames.icon} />
         )}
 
         {textVisibility === 'visible' ? (

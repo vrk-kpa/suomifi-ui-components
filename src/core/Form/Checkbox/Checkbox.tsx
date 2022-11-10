@@ -7,11 +7,11 @@ import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlLabel, HtmlDiv, HtmlInput } from '../../../reset';
-import { Icon } from '../../Icon/Icon';
 import { StatusText } from '../StatusText/StatusText';
 import { HintText } from '../HintText/HintText';
 import { CheckboxGroupConsumer } from './CheckboxGroup';
 import { baseStyles } from './Checkbox.baseStyles';
+import { IconCheck } from 'suomifi-icons/baseIcons';
 
 const baseClassName = 'fi-checkbox';
 
@@ -210,8 +210,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
           {...passProps}
         >
           {!!checkedState && (
-            <Icon
-              icon="check"
+            <IconCheck
               className={classnames(iconBaseClassName, {
                 [iconClassnames.checked]: checkedState && !disabled,
                 [iconClassnames.error]: status === 'error' && !disabled,

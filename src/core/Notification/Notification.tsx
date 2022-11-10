@@ -1,6 +1,7 @@
 import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import { IconClose, IconError, IconInfo } from 'suomifi-icons/baseIcons';
 import {
   HtmlDiv,
   HtmlDivWithRef,
@@ -10,7 +11,6 @@ import {
 } from '../../reset';
 import { hLevels } from '../../reset/HtmlH/HtmlH';
 import { getConditionalAriaProp } from '../../utils/aria';
-import { Icon } from '../Icon/Icon';
 import { Heading } from '../Heading/Heading';
 import { AutoId } from '../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
@@ -88,7 +88,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
       'aria-label': closeButtonPropsAriaLabel,
       ...closeButtonPassProps
     } = closeButtonProps;
-    const variantIcon = status === 'neutral' ? 'info' : 'error';
+    // const variantIcon = status === 'neutral' ? 'info' : 'error';
 
     return (
       <HtmlDivWithRef
@@ -107,7 +107,20 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
       >
         <HtmlDiv className={notificationClassNames.styleWrapper} style={style}>
           <HtmlDiv className={notificationClassNames.iconWrapper}>
-            <Icon icon={variantIcon} className={notificationClassNames.icon} />
+            {status === 'error' && (
+              <IconError
+                className={classnames(notificationClassNames.icon, {
+                  [`${notificationClassNames.icon}--${status}`]: !!status,
+                })}
+              />
+            )}
+            {status === 'neutral' && (
+              <IconInfo
+                className={classnames(notificationClassNames.icon, {
+                  [`${notificationClassNames.icon}--${status}`]: !!status,
+                })}
+              />
+            )}
           </HtmlDiv>
 
           <HtmlDiv
@@ -144,7 +157,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
             {...closeButtonPassProps}
           >
             {!smallScreen ? closeText : ''}
-            <Icon icon="close" />
+            <IconClose />
           </HtmlButton>
         </HtmlDiv>
         {actionElements && (

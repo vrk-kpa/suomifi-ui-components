@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Button.baseStyles';
 import { HtmlButton, HtmlButtonProps } from '../../reset';
-import { Icon, IconProps, BaseIconKeys } from '../Icon/Icon';
+// import { Icon, IconProps, BaseIconKeys } from '../Icon/Icon';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
 
 type ButtonVariant =
@@ -42,15 +42,15 @@ export interface ButtonProps
   /**
    * Icon from suomifi-theme
    */
-  icon?: BaseIconKeys;
+  icon?: ReactNode;
   /**
    * Icon from suomifi-theme to be placed on right side
    */
-  iconRight?: BaseIconKeys;
-  /**
-   * Properties given to Icon-component
-   */
-  iconProps?: IconProps;
+  iconRight?: ReactNode;
+  // /**
+  //  * Properties given to Icon-component(s)
+  //  */
+  // iconProps?: IconProps;
   /** Event handler to execute when clicked
    *  @default void
    */
@@ -61,8 +61,8 @@ export interface ButtonProps
 
 const baseClassName = 'fi-button';
 const disabledClassName = `${baseClassName}--disabled`;
-const iconClassName = `${baseClassName}_icon`;
-const iconRightClassName = `${baseClassName}_icon--right`;
+// const iconClassName = `${baseClassName}_icon`;
+// const iconRightClassName = `${baseClassName}_icon--right`;
 const fullWidthClassName = `${baseClassName}--fullwidth`;
 
 class BaseButton extends Component<ButtonProps> {
@@ -76,12 +76,10 @@ class BaseButton extends Component<ButtonProps> {
       'aria-disabled': ariaDisabled = false,
       icon,
       iconRight,
-      iconProps = { className: undefined },
       forwardedRef,
       children,
       ...passProps
     } = this.props;
-    const { className: iconPropsClassName, ...passIconProps } = iconProps;
     const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
 
     return (
@@ -102,29 +100,9 @@ class BaseButton extends Component<ButtonProps> {
           [fullWidthClassName]: fullWidth,
         })}
       >
-        {!!icon && (
-          <Icon
-            {...passIconProps}
-            mousePointer={true}
-            icon={icon}
-            color="currentColor"
-            className={classnames(iconClassName, iconPropsClassName)}
-          />
-        )}
+        {!!icon && { icon }}
         {children}
-        {!!iconRight && (
-          <Icon
-            {...passIconProps}
-            mousePointer={true}
-            icon={iconRight}
-            color="currentColor"
-            className={classnames(
-              iconClassName,
-              iconRightClassName,
-              iconPropsClassName,
-            )}
-          />
-        )}
+        {!!iconRight && { iconRight }}
       </HtmlButton>
     );
   }

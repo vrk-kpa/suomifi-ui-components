@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import { IconClose } from 'suomifi-icons/baseIcons';
 import { baseStyles } from './InputClearButton.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlButton, HtmlButtonProps } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
-import { Icon } from '../../Icon/Icon';
 
 const baseClassName = 'fi-input-clear-button';
 
@@ -31,9 +31,8 @@ class BaseInputClearButton extends Component<
         onClick={onClick}
       >
         <VisuallyHidden>{label}</VisuallyHidden>
-        <Icon
+        <IconClose
           aria-hidden={true}
-          icon="close"
           className={InputClearButtonClassNames.icon}
         />
       </HtmlButton>

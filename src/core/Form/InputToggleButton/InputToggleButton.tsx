@@ -4,8 +4,8 @@ import classnames from 'classnames';
 import { HtmlButtonProps, HtmlButton } from '../../../reset';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
-import { Icon } from '../../Icon/Icon';
 import { baseStyles } from './InputToggleButton.baseStyles';
+import { IconArrowheadDown, IconArrowheadUp } from 'suomifi-icons/baseIcons';
 
 const baseClassName = 'fi-input-toggle-button';
 
@@ -20,6 +20,11 @@ export interface InputToggleButtonProps extends HtmlButtonProps {
 interface InnerRef {
   forwardedRef: React.RefObject<HTMLButtonElement>;
 }
+
+const iconProps = {
+  'aria-hidden': true,
+  className: InputToggleButtonClassNames.icon,
+};
 
 class BaseInputToggleButton extends Component<
   InputToggleButtonProps & InnerRef & SuomifiThemeProp
@@ -43,11 +48,11 @@ class BaseInputToggleButton extends Component<
         onClick={onClick}
       >
         <VisuallyHidden>{label}</VisuallyHidden>
-        <Icon
-          aria-hidden={true}
-          icon={open ? 'arrowheadUp' : 'arrowheadDown'}
-          className={InputToggleButtonClassNames.icon}
-        />
+        {open ? (
+          <IconArrowheadUp {...iconProps} />
+        ) : (
+          <IconArrowheadDown {...iconProps} />
+        )}
       </HtmlButton>
     );
   }
