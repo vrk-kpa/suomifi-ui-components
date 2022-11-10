@@ -14,6 +14,7 @@ const baseClassName = 'fi-tooltip';
 
 const tooltipContentClassNames = {
   content: `${baseClassName}_content`,
+  arrowHidden: `${baseClassName}_content--arrow-hidden`,
   closeButton: `${baseClassName}_close-button`,
   closeButtonIcon: `${baseClassName}_close-button_icon`,
 };
@@ -51,7 +52,9 @@ class BaseTooltipContent extends Component<TooltipContentProps & InnerRef> {
       <HtmlDivWithRef
         {...passProps}
         forwardedRef={forwardedRef}
-        className={classNames(tooltipContentClassNames.content, className)}
+        className={classNames(tooltipContentClassNames.content, className, {
+          [tooltipContentClassNames.arrowHidden]: arrowOffsetPx < 1,
+        })}
       >
         {children}
         <HtmlButton

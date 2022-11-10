@@ -37,6 +37,13 @@ export const baseStyles = (arrowOffsetPx: number, theme: SuomifiTheme) => css`
       bottom: calc(100% - 1px);
     }
 
+    &.fi-tooltip_content--arrow-hidden {
+      &:before,
+      &:after {
+        display: none;
+      }
+    }
+
     & .fi-tooltip_close-button {
       position: absolute;
       top: 20px;
