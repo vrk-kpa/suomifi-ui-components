@@ -58,18 +58,6 @@ export {
   DatePickerTextProps,
 } from './core/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
-export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';
-export {
-  LogoIcon,
-  LogoIconProps,
-  LogoIconKeys,
-} from './core/LogoIcon/LogoIcon';
-export {
-  StaticIcon,
-  StaticIconProps,
-  IllustrativeIconKeys,
-  DoctypeIconKeys,
-} from './core/StaticIcon/StaticIcon';
 export {
   Link,
   LinkProps,
