@@ -1,10 +1,4 @@
-import React, {
-  ChangeEvent,
-  Component,
-  createRef,
-  FocusEvent,
-  ReactNode,
-} from 'react';
+import React, { ChangeEvent, Component, FocusEvent, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
@@ -101,8 +95,6 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
     inputValue: undefined,
   };
 
-  private inputRef = createRef<HTMLInputElement>();
-
   render() {
     const {
       className,
@@ -189,7 +181,6 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
                   !!statusText ? statusTextId : undefined,
                   ariaDescribedBy,
                 ])}
-                forwardedRef={this.inputRef}
                 size={6}
                 aria-invalid={this.state.status === 'error'}
                 id={id}
