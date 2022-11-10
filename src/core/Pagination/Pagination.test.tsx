@@ -26,6 +26,7 @@ const TestPagination = (props: Partial<PaginationProps> = {}) => (
     }
     textFunction={(current, last) => `Page ${current} / ${last}`}
     aria-label="my component here"
+    className={props.className}
   />
 );
 
