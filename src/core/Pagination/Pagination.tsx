@@ -45,7 +45,7 @@ interface InternalPaginationProps {
   /** Use small screen styling */
   smallScreen?: boolean;
   /** Number of the current page */
-  currentPage: number;
+  currentPage?: number;
   /** Number of the last page */
   lastPage: number;
   /** Returns the selected page number */
@@ -80,18 +80,41 @@ export const paginationClassNames = {
   pageNumbers: `${baseClassName}_page-numbers`,
 };
 
+interface PaginationState {
+  currentPage: number;
+}
+
 class BasePagination extends Component<PaginationProps> {
   private onLeftButtonClick = () => {
-    this.props.onChange(this.props.currentPage - 1);
+    if (this.props.currentPage) {
+      this.props.onChange(this.props.currentPage - 1);
+    } else {
+      this.state.currentPage -= 1;
+      this.props.onChange(this.state.currentPage);
+    }
   };
 
   private onRightButtonClick = () => {
-    this.props.onChange(this.props.currentPage + 1);
+    if (this.props.currentPage) {
+      this.props.onChange(this.props.currentPage + 1);
+    } else {
+      this.state.currentPage += 1;
+      this.props.onChange(this.state.currentPage);
+    }
   };
 
   private onNumberInputChange = (page: number) => {
     this.props.onChange(page);
+    this.state.currentPage = page;
   };
+
+  state: PaginationState = {
+    currentPage: 1,
+  };
+
+  getCurrentPage() {
+    return this.props.currentPage || this.state.currentPage;
+  }
 
   render() {
     const {
@@ -123,7 +146,7 @@ class BasePagination extends Component<PaginationProps> {
               variant="secondary"
               onClick={this.onLeftButtonClick}
               icon="arrowLeft"
-              disabled={currentPage <= 1}
+              disabled={this.getCurrentPage() <= 1}
               aria-label={previousButtonAriaLabel}
             />
 
@@ -132,14 +155,16 @@ class BasePagination extends Component<PaginationProps> {
               aria-atomic="true"
               className={paginationClassNames.pageNumbers}
             >
-              {textFunction ? textFunction(currentPage, lastPage) : ''}
+              {textFunction
+                ? textFunction(this.getCurrentPage(), lastPage)
+                : ''}
             </HtmlSpan>
 
             <Button
               className={paginationClassNames.arrowButton}
               variant="secondary"
               onClick={this.onRightButtonClick}
-              disabled={currentPage >= lastPage}
+              disabled={this.getCurrentPage() >= lastPage}
               aria-label={nextButtonAriaLabel}
               icon="arrowRight"
             />
