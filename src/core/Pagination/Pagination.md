@@ -16,16 +16,44 @@ const lastPage = 8;
     <Pagination
       currentPage={current}
       lastPage={lastPage}
-      pageInput={true}
       smallScreen={false}
       nextButtonAriaLabel="Next page"
       previousButtonAriaLabel="Previous page"
+      pageInput={true}
       pageInputProps={{
         invalidValueErrorText: ' is not allowed',
         inputPlaceholderText: 'Go to',
         buttonText: 'Jump to page',
         labelText: 'Page number'
       }}
+      onChange={(page) => {
+        setCurrent(page);
+      }}
+      textFunction={(currentPage, lastPage) => {
+        return 'Page ' + currentPage + ' / ' + lastPage;
+      }}
+    />
+  </div>
+</>;
+```
+
+### Without page input
+
+```js
+import { Pagination } from 'suomifi-ui-components';
+
+const [current, setCurrent] = React.useState(2);
+const lastPage = 8;
+
+<>
+  <div style={{ width: '600px' }}>
+    <br />
+    <Pagination
+      currentPage={current}
+      lastPage={lastPage}
+      nextButtonAriaLabel="Next page"
+      previousButtonAriaLabel="Previous page"
+      pageInput={false}
       onChange={(page) => {
         setCurrent(page);
       }}
@@ -51,10 +79,10 @@ const lastPage = 8;
     <Pagination
       currentPage={current}
       lastPage={lastPage}
-      pageInput={true}
       smallScreen={true}
       nextButtonAriaLabel="Next page"
       previousButtonAriaLabel="Previous page"
+      pageInput={true}
       pageInputProps={{
         invalidValueErrorText: ' is not allowed',
         inputPlaceholderText: 'Go to',

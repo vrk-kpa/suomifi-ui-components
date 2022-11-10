@@ -3,36 +3,31 @@ import { render, fireEvent } from '@testing-library/react';
 import { axeTest } from '../../utils/test';
 import { Pagination, PaginationProps } from './Pagination';
 
-const TestPagination = (props: Partial<PaginationProps> = {}) => {
-  const { currentPage, lastPage, onChange, ...passProps } = props;
-
-  return (
-    <Pagination
-      data-testid="pagination"
-      currentPage={currentPage || 1}
-      lastPage={lastPage || 6}
-      pageInput
-      smallScreen={false}
-      pageInputProps={{
-        invalidValueErrorText: 'is not allowed',
-        inputPlaceholderText: 'placeholder text',
-        buttonText: 'Jump',
-        labelText: 'Page number input',
-      }}
-      nextButtonAriaLabel="Next page"
-      previousButtonAriaLabel="Previous page"
-      onChange={
-        onChange ||
-        ((page) => {
-          console.log('on change: ', page);
-        })
-      }
-      textFunction={(current, last) => `Page ${current} / ${last}`}
-      aria-label="my component here"
-      {...passProps}
-    />
-  );
-};
+const TestPagination = (props: Partial<PaginationProps> = {}) => (
+  <Pagination
+    data-testid="pagination"
+    currentPage={props.currentPage || 1}
+    lastPage={props.lastPage || 6}
+    smallScreen={false}
+    pageInput
+    pageInputProps={{
+      invalidValueErrorText: 'is not allowed',
+      inputPlaceholderText: 'placeholder text',
+      buttonText: 'Jump',
+      labelText: 'Page number input',
+    }}
+    nextButtonAriaLabel="Next page"
+    previousButtonAriaLabel="Previous page"
+    onChange={
+      props.onChange ||
+      ((page) => {
+        console.log('on change: ', page);
+      })
+    }
+    textFunction={(current, last) => `Page ${current} / ${last}`}
+    aria-label="my component here"
+  />
+);
 
 describe('snapshot', () => {
   it('should have matching default structure', () => {
@@ -111,10 +106,10 @@ describe('props', () => {
           data-testid="pagination"
           currentPage={1}
           lastPage={6}
-          pageInput={true}
           smallScreen={false}
           nextButtonAriaLabel="Next"
           previousButtonAriaLabel="Previous"
+          pageInput
           pageInputProps={{
             invalidValueErrorText: 'is not allowed',
             inputPlaceholderText: 'placeholder text',

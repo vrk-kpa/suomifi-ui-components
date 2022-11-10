@@ -21,6 +21,18 @@ export interface PageInputProps {
   labelText: string;
 }
 
+type ShowInputProps =
+  | {
+      pageInput: false;
+      pageInputProps?: never;
+    }
+  | {
+      /** Show input field for page number */
+      pageInput?: true;
+      /** Props for page input field */
+      pageInputProps: PageInputProps;
+    };
+
 interface InternalPaginationProps {
   /** Custom classname to extend or customize */
   className?: string;
@@ -38,21 +50,16 @@ interface InternalPaginationProps {
   lastPage: number;
   /** Returns the selected page number */
   onChange: (page: number) => void;
-
   /** Ref is forwarded to root element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLElement>;
   /** Next page button label for screen readers  */
   nextButtonAriaLabel: string;
   /** Previous page button label for screen readers */
   previousButtonAriaLabel: string;
-  /** Show input field for page number */
-  pageInput?: boolean;
-  /** Props for page input field */
-  pageInputProps?: PageInputProps;
 }
 
 // export type PaginationProps = inputProps & InternalPaginationProps;
-export type PaginationProps = InternalPaginationProps;
+export type PaginationProps = ShowInputProps & InternalPaginationProps;
 
 const baseClassName = 'fi-pagination';
 
