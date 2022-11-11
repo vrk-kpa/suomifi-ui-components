@@ -41,7 +41,7 @@ interface InternalPaginationProps {
   /** aria-label for pagination  */
   'aria-label': string;
   /** Function for page number indicator text */
-  textFunction?: (currentPage: number, lastPage: number) => string;
+  pageIndicatorText?: (currentPage: number, lastPage: number) => string;
   /** Use small screen styling */
   smallScreen?: boolean;
   /** Number of the current page */
@@ -121,7 +121,7 @@ class BasePagination extends Component<PaginationProps> {
       children,
       className,
       asProp,
-      textFunction,
+      pageIndicatorText,
       onChange,
       currentPage,
       lastPage,
@@ -155,8 +155,8 @@ class BasePagination extends Component<PaginationProps> {
               aria-atomic="true"
               className={paginationClassNames.pageNumbers}
             >
-              {textFunction
-                ? textFunction(this.getCurrentPage(), lastPage)
+              {pageIndicatorText
+                ? pageIndicatorText(this.getCurrentPage(), lastPage)
                 : ''}
             </HtmlSpan>
 

@@ -29,7 +29,7 @@ const lastPage = 8;
       onChange={(page) => {
         setCurrent(page);
       }}
-      textFunction={(currentPage, lastPage) => {
+      pageIndicatorText={(currentPage, lastPage) => {
         return 'Page ' + currentPage + ' / ' + lastPage;
       }}
     />
@@ -56,7 +56,7 @@ const lastPage = 8;
       onChange={(page) => {
         setCurrent(page);
       }}
-      textFunction={(currentPage, lastPage) => {
+      pageIndicatorText={(currentPage, lastPage) => {
         return 'Page ' + currentPage + ' / ' + lastPage;
       }}
     />
@@ -90,7 +90,7 @@ const lastPage = 8;
       onChange={(page) => {
         setCurrent(page);
       }}
-      textFunction={(currentPage, lastPage) => {
+      pageIndicatorText={(currentPage, lastPage) => {
         return 'Page ' + currentPage + ' / ' + lastPage;
       }}
     />

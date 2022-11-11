@@ -24,7 +24,7 @@ const TestPagination = (props: Partial<PaginationProps> = {}) => (
         console.log('on change: ', page);
       })
     }
-    textFunction={(current, last) => `Page ${current} / ${last}`}
+    pageIndicatorText={(current, last) => `Page ${current} / ${last}`}
     aria-label="my component here"
     className={props.className}
   />
@@ -120,7 +120,7 @@ describe('props', () => {
           onChange={(page) => {
             console.log('on change: ', page);
           }}
-          textFunction={(current, last) => `Page ${current} / ${last}`}
+          pageIndicatorText={(current, last) => `Page ${current} / ${last}`}
           aria-label="my label"
           ref={ref}
         />,
