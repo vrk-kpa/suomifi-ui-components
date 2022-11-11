@@ -101,11 +101,13 @@ const CustomButton = (props) => {
 For frameworks where its internal link component is used as a wrapper for the actual link, for example NextJS, the following approach can be used:
 
 ```jsx static
-<SideNavigationItem>
-  <NextJSLink href="/some-route" passHref>
-    <RouterLink>Economy</RouterLink>
-  </NextJSLink>
-</SideNavigationItem>
+<SideNavigationItem
+  content={
+    <NextJSLink href="/some-route" passHref>
+      <RouterLink>Economy</RouterLink>
+    </NextJSLink>
+  }
+/>
 ```
 
 ### Small screen variant
