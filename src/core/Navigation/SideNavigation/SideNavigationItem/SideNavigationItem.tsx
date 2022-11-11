@@ -76,17 +76,8 @@ const BaseSideNavigationItem = ({
       {...passProps}
     >
       <HtmlSpan className={contentWrapperClassName}>
+        {subLevel === 2 && <Icon icon="subDirectory" />}
         {content}
-        {subLevel === 2 &&
-          !!children &&
-          (selected || childIsSelected || expanded) && (
-            <Icon icon="chevronUp" />
-          )}
-        {subLevel === 2 &&
-          !!children &&
-          !selected &&
-          !childIsSelected &&
-          !expanded && <Icon icon="chevronDown" />}
       </HtmlSpan>
       {!!children && (selected || childIsSelected || expanded) && (
         <HtmlUl className={subListClassName}>{children}</HtmlUl>

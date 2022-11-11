@@ -12,23 +12,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     justify-content: center;
     flex-direction: column;
     position: relative;
-
-    &:after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 2.5%;
-      width: 95%;
-      height: 1px;
-      background: ${theme.colors.depthSecondary};
-    }
-
-    &:hover,
-    &:active {
-      &:after {
-        background: transparent;
-      }
-    }
+    margin: ${theme.spacing.xxs} 0;
 
     &:focus,
     &:focus-within {
@@ -40,7 +24,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     .fi-link--router {
       text-decoration: none;
       display: flex;
-      padding: ${theme.spacing.xs} ${theme.spacing.m};
+      padding: ${theme.spacing.xs} ${theme.spacing.xs};
       flex: 1;
       cursor: pointer;
       border: none;
@@ -56,6 +40,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         background: ${theme.colors.highlightBase};
         text-decoration: none;
         color: ${theme.colors.whiteBase};
+        border-radius: ${theme.radius.modal};
       }
 
       &:focus {
@@ -64,9 +49,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         box-shadow: none;
         border: none;
 
-        &:before {
-          ${theme.focus.absoluteFocus}
-        }
+        ${theme.focus.boxShadowFocus}
+        z-index: ${theme.zindexes.focus};
       }
     }
 
@@ -78,46 +62,34 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     .fi-side-navigation-item_sub-list {
       list-style-type: none;
-      margin: 0;
       padding: 0;
+      margin: 0;
     }
 
     .fi-side-navigation-item_content-wrapper {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
       position: relative;
 
       .fi-icon {
-        width: 25px;
-        height: 25px;
+        width: 10px;
+        height: 10px;
         pointer-events: none;
-        position: absolute;
-        top: 11px;
-        right: 15px;
         color: ${theme.colors.highlightBase};
+        padding: 0 ${theme.spacing.xs};
       }
     }
 
     &--level-1 {
       &.fi-side-navigation-item--selected {
-        background: ${theme.colors.highlightBase};
-        border-left: 4px solid ${theme.colors.highlightBase};
-
         > span > .fi-link--router {
           text-transform: uppercase;
           color: ${theme.colors.whiteBase};
           font-weight: 600;
-
-          &:hover,
-          &:active {
-            color: ${theme.colors.whiteBase};
-          }
+          background: ${theme.colors.highlightBase};
+          border-radius: ${theme.radius.modal};
         }
-      }
-
-      &.fi-side-navigation-item--child-selected {
-        border-left: 4px solid ${theme.colors.highlightBase};
       }
 
       > span > .fi-link--router {
@@ -131,6 +103,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           font-weight: 600;
           background: ${theme.colors.highlightBase};
           color: ${theme.colors.whiteBase};
+          border-top-left-radius: ${theme.radius.modal};
+          border-top-right-radius: ${theme.radius.modal};
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
 
           + .fi-icon {
             color: ${theme.colors.whiteBase};
@@ -140,27 +116,20 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
       > span > .fi-link--router {
         text-transform: none;
-        padding-left: ${theme.spacing.xl};
         padding-right: ${theme.spacing.xxxl};
         color: ${theme.colors.highlightBase};
         background: ${theme.colors.whiteBase};
-
-        &:hover,
-        &:active {
-          + .fi-icon {
-            color: ${theme.colors.whiteBase};
-          }
-        }
       }
 
-      > .fi-side-navigation-item_content-wrapper {
-        &:hover {
-          color: ${theme.colors.whiteBase};
-        }
+      .fi-side-navigation-item_sub-list {
+        margin: ${theme.spacing.xxs} 0 ${theme.spacing.xxs} 30px;
+        background: ${theme.colors.highlightLight3};
+        border-radius: ${theme.radius.modal};
       }
     }
 
     &--level-3 {
+      margin: 0;
       &.fi-side-navigation-item--selected {
         > span > .fi-link--router {
           font-weight: 600;
@@ -169,28 +138,51 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         }
       }
 
-      &:hover,
-      &:active {
-        color: ${theme.colors.whiteBase};
-      }
-
       > span > .fi-link--router {
         text-transform: none;
-        padding-left: 50px; /** No token for this value :( */
+        padding-left: ${theme.spacing.s};
         color: ${theme.colors.highlightBase};
-        background: ${theme.colors.highlightLight4};
         ${font(theme)('bodyTextSmall')};
+
+        &:hover {
+          border-radius: 0;
+        }
+      }
+
+      &:first-child {
+        > span > .fi-link--router {
+          border-top-left-radius: ${theme.radius.modal};
+          border-top-right-radius: ${theme.radius.modal};
+
+          &:hover {
+            border-top-left-radius: ${theme.radius.modal};
+            border-top-right-radius: ${theme.radius.modal};
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+        }
+      }
+
+      &:last-child {
+        > span > .fi-link--router {
+          border-bottom-left-radius: ${theme.radius.modal};
+          border-bottom-right-radius: ${theme.radius.modal};
+
+          &:hover {
+            border-bottom-left-radius: ${theme.radius.modal};
+            border-bottom-right-radius: ${theme.radius.modal};
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
       }
     }
 
     &--disabled {
-      &:hover,
-      &:active {
-        background: ${theme.colors.whiteBase};
-      }
-      .fi-link--router {
+      > span > .fi-link--router {
         color: ${theme.colors.depthBase};
         cursor: not-allowed;
+        background: transparent;
 
         &:hover,
         &:active,

@@ -50,6 +50,7 @@ const smallScreenClassName = `${baseClassName}--small-screen`;
 const listClassName = `${baseClassName}_list`;
 const headingClassName = `${baseClassName}_heading`;
 const headingInnerWrapperClassName = `${baseClassName}_heading_inner`;
+const dividerClassName = `${baseClassName}_divider`;
 
 const BaseSideNavigation = ({
   children,
@@ -100,6 +101,7 @@ const BaseSideNavigation = ({
           id={id}
           {...getConditionalAriaProp('aria-label', [ariaLabel])}
         >
+          <HtmlDiv className={dividerClassName} />
           <HtmlUl className={listClassName}>{children}</HtmlUl>
         </HtmlNav>
       )}
