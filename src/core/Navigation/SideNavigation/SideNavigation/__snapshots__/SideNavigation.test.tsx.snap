@@ -467,7 +467,6 @@ exports[`calling render with the same component on the same container does not r
   text-transform: uppercase;
   color: hsl(0,0%,100%);
   font-weight: 600;
-  color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
   border-radius: 4px;
 }
