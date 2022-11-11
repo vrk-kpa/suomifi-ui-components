@@ -229,8 +229,10 @@ import {
   Paragraph,
   Text,
   ToggleInput,
-  suomifiDesignTokens
+  suomifiDesignTokens,
+  InlineAlert
 } from 'suomifi-ui-components';
+import { IconError } from 'suomifi-icons/baseIcons';
 
 const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Phasellus scelerisque elit a consectetur tempor. Morbi sit
@@ -286,36 +288,9 @@ const [smallScreen, setSmallScreen] = useState(false);
       </ExpanderGroup>
     </ModalContent>
     <ModalFooter>
-      <Paragraph
-        style={{
-          display: 'block',
-          borderLeft: `4px solid ${suomifiDesignTokens.colors.alertBase}`,
-          padding: `${suomifiDesignTokens.spacing.s} ${suomifiDesignTokens.spacing.m}`,
-          backgroundColor: suomifiDesignTokens.colors.alertLight1,
-          marginRight: suomifiDesignTokens.spacing.s,
-          marginTop: smallScreen
-            ? suomifiDesignTokens.spacing.s
-            : suomifiDesignTokens.spacing.m
-        }}
-      >
-        <Text
-          style={{
-            display: 'inline-block'
-          }}
-        >
-          <Icon
-            color={suomifiDesignTokens.colors.alertBase}
-            icon="error"
-            style={{
-              display: 'inline-block',
-              verticalAlign: 'middle',
-              transform: 'translateY(-0.1em)',
-              marginRight: '10px'
-            }}
-          />
-          We are experiencing connectivity issues
-        </Text>
-      </Paragraph>
+      <InlineAlert status="warning">
+        We are experiencing connectivity issues
+      </InlineAlert>
       <Button aria-disabled={true} onClick={() => setVisible(false)}>
         Save
       </Button>

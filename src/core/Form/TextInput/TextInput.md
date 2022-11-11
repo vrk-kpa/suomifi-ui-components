@@ -111,6 +111,7 @@ import { TextInput, Button } from 'suomifi-ui-components';
 
 ```js
 import { TextInput } from 'suomifi-ui-components';
+import { IconMapLocation } from 'suomifi-icons/baseIcons';
 
 <>
   <TextInput
@@ -126,7 +127,7 @@ import { TextInput } from 'suomifi-ui-components';
   <TextInput
     onBlur={(event) => console.log(event.target.value)}
     labelText="TextInput with an icon"
-    icon="mapLocation"
+    icon={IconMapLocation}
     iconProps={{ fill: 'red' }}
   />
   <TextInput

@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { IconRemove } from 'suomifi-icons/baseIcons';
 import { Button } from '../../../../Button/Button';
 import { MultiSelectData } from '../MultiSelect/MultiSelect';
 
@@ -35,7 +36,7 @@ export const MultiSelectRemoveAllButton = <T extends MultiSelectData>(
     <Button
       className={className}
       variant="link"
-      icon="remove"
+      icon={<IconRemove />}
       onClick={onClick}
       {...passProps}
     >
