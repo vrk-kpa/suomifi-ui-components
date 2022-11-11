@@ -279,7 +279,6 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
                   <VisuallyHidden>{searchButtonLabel}</VisuallyHidden>
                   <IconSearch
                     aria-hidden={true}
-                    icon="search"
                     className={searchInputClassNames.searchIcon}
                   />
                 </HtmlButton>
