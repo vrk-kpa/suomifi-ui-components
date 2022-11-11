@@ -2,7 +2,7 @@ import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Button.baseStyles';
-import { HtmlButton, HtmlButtonProps } from '../../reset';
+import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../reset';
 // import { Icon, IconProps, BaseIconKeys } from '../Icon/Icon';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
 
@@ -61,8 +61,8 @@ export interface ButtonProps
 
 const baseClassName = 'fi-button';
 const disabledClassName = `${baseClassName}--disabled`;
-// const iconClassName = `${baseClassName}_icon`;
-// const iconRightClassName = `${baseClassName}_icon--right`;
+const iconClassName = `${baseClassName}_icon`;
+const iconRightClassName = `${baseClassName}_icon--right`;
 const fullWidthClassName = `${baseClassName}--fullwidth`;
 
 class BaseButton extends Component<ButtonProps> {
@@ -100,9 +100,11 @@ class BaseButton extends Component<ButtonProps> {
           [fullWidthClassName]: fullWidth,
         })}
       >
-        {!!icon && { icon }}
+        <HtmlSpan className={iconClassName}>{!!icon && icon}</HtmlSpan>
         {children}
-        {!!iconRight && { iconRight }}
+        <HtmlSpan className={classnames(iconClassName, iconRightClassName)}>
+          {!!iconRight && iconRight}
+        </HtmlSpan>
       </HtmlButton>
     );
   }

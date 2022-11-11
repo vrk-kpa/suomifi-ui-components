@@ -147,16 +147,16 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${secondaryNoBorderStyles(theme)}
   ${linkStyles(theme)}
   
-  & > .fi-button_icon {
+  & > .fi-button_icon > .fi-icon {
     width: 16px;
     height: 16px;
     margin-right: ${theme.spacing.insetM};
     vertical-align: middle;
     transform: translateY(-0.1em);
-    &.fi-button_icon--right {
-      margin-right: 0;
-      margin-left: ${theme.spacing.insetM};
-    }
+  }
+  & > .fi-button_icon--right > .fi-icon {
+    margin-right: 0;
+    margin-left: ${theme.spacing.insetM};
   }
 
   &.fi-button--disabled > .fi-button_icon {
