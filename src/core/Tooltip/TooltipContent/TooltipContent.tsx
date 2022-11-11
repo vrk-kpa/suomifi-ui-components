@@ -53,7 +53,7 @@ class BaseTooltipContent extends Component<TooltipContentProps & InnerRef> {
         {...passProps}
         forwardedRef={forwardedRef}
         className={classNames(tooltipContentClassNames.content, className, {
-          [tooltipContentClassNames.arrowHidden]: arrowOffsetPx < 1,
+          [tooltipContentClassNames.arrowHidden]: arrowOffsetPx <= 0,
         })}
       >
         {children}
