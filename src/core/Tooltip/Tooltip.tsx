@@ -92,7 +92,7 @@ class BaseTooltip extends Component<TooltipProps & { className?: string }> {
     this.setState({ anchorRefObserver });
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps: TooltipProps) {
     if (this.props.anchorElement !== this.state.anchorElement) {
       if (!!this.state.anchorRefObserver) {
         if (!!this.state.anchorElement) {
@@ -103,6 +103,8 @@ class BaseTooltip extends Component<TooltipProps & { className?: string }> {
         }
       }
       this.setState({ anchorElement: this.props.anchorElement });
+      this.setContentArrowOffset();
+    } else if (prevProps.open !== this.props.open && this.props.open) {
       this.setContentArrowOffset();
     }
   }
