@@ -89,11 +89,10 @@ class BasePagination extends Component<PaginationProps> {
     if (this.props.currentPage) {
       this.props.onChange(this.props.currentPage - 1);
     } else {
+      this.props.onChange(this.state.currentPage - 1);
       this.setState((prevState: PaginationState) => ({
         currentPage: prevState.currentPage - 1,
       }));
-
-      this.props.onChange(this.state.currentPage);
     }
   };
 
@@ -101,11 +100,10 @@ class BasePagination extends Component<PaginationProps> {
     if (this.props.currentPage) {
       this.props.onChange(this.props.currentPage + 1);
     } else {
+      this.props.onChange(this.state.currentPage + 1);
       this.setState((prevState: PaginationState) => ({
         currentPage: prevState.currentPage + 1,
       }));
-
-      this.props.onChange(this.state.currentPage);
     }
   };
 
