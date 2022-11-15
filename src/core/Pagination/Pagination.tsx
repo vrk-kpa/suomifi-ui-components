@@ -44,7 +44,7 @@ interface InternalPaginationProps {
   pageIndicatorText?: (currentPage: number, lastPage: number) => string;
   /** Use small screen styling */
   smallScreen?: boolean;
-  /** Number of the current page */
+  /** Controlled number of the current page. Will be used instead of component's own internal state if provided. */
   currentPage?: number;
   /** Number of the last page */
   lastPage: number;
