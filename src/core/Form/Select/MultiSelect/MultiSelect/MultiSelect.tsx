@@ -154,7 +154,7 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   /** Controlled items; if item is in array, it is selected. If item has disabled: true, it will be disabled. */
   selectedItems?: Array<T & MultiSelectData>;
   /** Selecting the item will send event with the id */
-  onItemSelect?: (uniqueItemId: string | null) => void;
+  onItemSelect?: (uniqueItemId: string) => void;
   /** Event to be sent when pressing remove all button */
   onRemoveAll?: () => void;
   /** Disable the input */
@@ -332,7 +332,7 @@ class BaseMultiSelect<T> extends Component<
     }
 
     if (!!onItemSelect) {
-      onItemSelect(item?.uniqueItemId || null);
+      onItemSelect(item?.uniqueItemId);
     }
     if (!!onItemSelectionsChange) {
       onItemSelectionsChange(newSelectedItems);
