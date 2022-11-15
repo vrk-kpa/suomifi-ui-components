@@ -332,7 +332,7 @@ class BaseMultiSelect<T> extends Component<
     }
 
     if (!!onItemSelect) {
-      onItemSelect(item?.uniqueItemId);
+      onItemSelect(item.uniqueItemId);
     }
     if (!!onItemSelectionsChange) {
       onItemSelectionsChange(newSelectedItems);
