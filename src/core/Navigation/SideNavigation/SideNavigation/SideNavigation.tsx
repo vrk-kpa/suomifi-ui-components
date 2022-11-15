@@ -84,7 +84,7 @@ const BaseSideNavigation = ({
             {!!icon && <StaticIcon icon={icon} />}
             {heading}
           </HtmlSpan>
-          <Icon icon={smallScreenNavOpen ? 'chevronDown' : 'chevronRight'} />
+          <Icon icon={smallScreenNavOpen ? 'chevronUp' : 'chevronDown'} />
         </HtmlButton>
       ) : (
         <HtmlDiv className={headingClassName}>

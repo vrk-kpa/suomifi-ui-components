@@ -124,7 +124,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       .fi-side-navigation-item_sub-list {
         margin: ${theme.spacing.xxs} 0 ${theme.spacing.xxs} 30px;
         background: ${theme.colors.highlightLight3};
-        border-radius: ${theme.radius.modal};
       }
     }
 
@@ -146,34 +145,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
         &:hover {
           border-radius: 0;
-        }
-      }
-
-      &:first-child {
-        > span > .fi-link--router {
-          border-top-left-radius: ${theme.radius.modal};
-          border-top-right-radius: ${theme.radius.modal};
-
-          &:hover {
-            border-top-left-radius: ${theme.radius.modal};
-            border-top-right-radius: ${theme.radius.modal};
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-          }
-        }
-      }
-
-      &:last-child {
-        > span > .fi-link--router {
-          border-bottom-left-radius: ${theme.radius.modal};
-          border-bottom-right-radius: ${theme.radius.modal};
-
-          &:hover {
-            border-bottom-left-radius: ${theme.radius.modal};
-            border-bottom-right-radius: ${theme.radius.modal};
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-          }
         }
       }
     }

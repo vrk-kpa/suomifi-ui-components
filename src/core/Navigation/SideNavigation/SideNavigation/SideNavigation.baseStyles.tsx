@@ -7,8 +7,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-side-navigation {
     .fi-side-navigation_divider {
       height: 1px;
-      background: ${theme.colors.highlightLight2};
-      margin: ${theme.spacing.s} ${theme.spacing.m} ${theme.spacing.s} 0;
+      background: ${theme.colors.depthSecondary};
+      margin: ${theme.spacing.s};
     }
 
     .fi-side-navigation_heading {
@@ -16,7 +16,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: ${theme.spacing.xs} ${theme.spacing.s} 0 0;
+      padding: ${theme.spacing.xs} ${theme.spacing.s} 0 ${theme.spacing.s};
 
       .fi-side-navigation_heading_inner {
         display: flex;
@@ -62,6 +62,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         .fi-icon {
           height: 25px;
           width: 25px;
+          color: ${theme.colors.highlightBase};
         }
       }
     }
