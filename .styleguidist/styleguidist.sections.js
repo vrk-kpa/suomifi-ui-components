@@ -215,6 +215,13 @@ module.exports = {
             'ServiceNavigationItem/ServiceNavigationItem',
           ]),
         },
+        {
+          name: 'SideNavigation',
+          components: getComponentWithVariants('Navigation/SideNavigation')([
+            'SideNavigation/SideNavigation',
+            'SideNavigationItem/SideNavigationItem',
+          ]),
+        },
       ],
       sectionDepth: 1,
       expand: true,
