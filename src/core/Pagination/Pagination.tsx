@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { baseStyles } from './Pagination.baseStyles';
 import { HtmlSpan, HtmlNav, HtmlDiv } from '../../reset';
-import { asPropType } from '../../utils/typescript';
 import { PageInput, PageInputValue } from './PageInput/PageInput';
 import { Button } from '../Button/Button';
 
@@ -36,8 +35,6 @@ type ShowInputProps =
 interface InternalPaginationProps {
   /** Custom classname to extend or customize */
   className?: string;
-  /** Is there any need to have as prop */
-  asProp?: asPropType;
   /** aria-label for pagination  */
   'aria-label': string;
   /** Function for page number indicator text */
@@ -124,7 +121,6 @@ class BasePagination extends Component<PaginationProps> {
     const {
       children,
       className,
-      asProp,
       pageIndicatorText,
       onChange,
       currentPage,
