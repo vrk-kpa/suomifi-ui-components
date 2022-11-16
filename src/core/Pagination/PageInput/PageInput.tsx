@@ -95,6 +95,8 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
     inputValue: undefined,
   };
 
+  private inputRef = React.createRef<HTMLInputElement>();
+
   render() {
     const {
       className,
@@ -130,6 +132,11 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
         propOnPageChange(this.state.value);
       }
       conditionalSetState('');
+      setTimeout(() => {
+        if (this.inputRef.current) {
+          this.inputRef.current.focus();
+        }
+      }, 100);
     };
 
     const onKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -184,6 +191,7 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
                 size={6}
                 aria-invalid={this.state.status === 'error'}
                 id={id}
+                forwardedRef={this.inputRef}
                 className={pageInputClassNames.inputElement}
                 value={this.state.value}
                 placeholder={visualPlaceholder}
