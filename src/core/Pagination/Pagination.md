@@ -20,6 +20,7 @@ const lastPage = 8;
       nextButtonAriaLabel="Next page"
       previousButtonAriaLabel="Previous page"
       pageInput={true}
+      aria-label="Example A"
       pageInputProps={{
         invalidValueErrorText: (value) => `"${value}" is not allowed`,
         inputPlaceholderText: 'Go to',
@@ -71,6 +72,7 @@ const currentItems = posts.slice(
       nextButtonAriaLabel="Next page"
       previousButtonAriaLabel="Previous page"
       pageInput={true}
+      aria-label="Example B"
       pageInputProps={{
         invalidValueErrorText: (value) => `"${value}" is not allowed`,
         inputPlaceholderText: 'Go to',
@@ -104,6 +106,7 @@ const lastPage = 8;
       nextButtonAriaLabel="Next page"
       previousButtonAriaLabel="Previous page"
       pageInput={false}
+      aria-label="Example C"
       onChange={(page) => {
         setCurrent(page);
       }}
@@ -132,6 +135,7 @@ const lastPage = 8;
       nextButtonAriaLabel="Next page"
       previousButtonAriaLabel="Previous page"
       pageInput={true}
+      aria-label="Example D"
       pageInputProps={{
         invalidValueErrorText: (value) => `"${value}" is not allowed`,
         inputPlaceholderText: 'Go to',
