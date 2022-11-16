@@ -1,8 +1,15 @@
 ```js
-import { TextInput } from 'suomifi-ui-components';
+import {
+  TextInput,
+  Tooltip,
+  Heading,
+  Text
+} from 'suomifi-ui-components';
 import React from 'react';
 
 const exampleRef = React.createRef();
+
+const labelTextForTooltipExample = 'TextInput with a tooltip';
 
 <>
   <TextInput
@@ -27,6 +34,20 @@ const exampleRef = React.createRef();
     onChange={() => {
       console.log(exampleRef.current);
     }}
+  />
+  <TextInput
+    labelText={labelTextForTooltipExample}
+    tooltipComponent={
+      <Tooltip
+        ariaToggleButtonLabelText={`${labelTextForTooltipExample}, additional information`}
+        ariaToggleButtonLabelText={`${labelTextForTooltipExample}, close additional information`}
+      >
+        <Heading variant="h5" as="h2">
+          Tooltip
+        </Heading>
+        <Text>Text content for the tooltip</Text>
+      </Tooltip>
+    }
   />
 </>;
 ```

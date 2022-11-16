@@ -1,4 +1,4 @@
-import React, { Component, forwardRef, ReactNode } from 'react';
+import React, { Component, forwardRef, ReactElement, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
@@ -48,6 +48,8 @@ export interface RadioButtonGroupProps {
   defaultValue?: string;
   /** Callback for RadioButtonGroup selected changes. */
   onChange?: (value: string) => void;
+  /** Tooltip component for the group's label */
+  tooltipComponent?: ReactElement;
   /** Ref is forwarded to the root div element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLDivElement>;
 }
@@ -107,6 +109,7 @@ class BaseRadioButtonGroup extends Component<
       name,
       defaultValue,
       onChange,
+      tooltipComponent,
       ...passProps
     } = this.props;
 
@@ -126,6 +129,7 @@ class BaseRadioButtonGroup extends Component<
                 [radioButtonGroupClassNames.labelIsVisible]:
                   labelMode !== 'hidden',
               })}
+              tooltipComponent={tooltipComponent}
             >
               {labelText}
             </Label>
