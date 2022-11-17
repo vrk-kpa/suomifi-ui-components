@@ -128,15 +128,21 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
     };
 
     const onPageChange = () => {
-      if (!!propOnPageChange) {
-        propOnPageChange(this.state.value);
-      }
-      conditionalSetState('');
+      /**
+       * When the action comes from button it still has the focus. Button will be hidden when input (and state)
+       * are cleared so the focus must be moved back to the input. Otherwise screen readers will have focus issues.
+       * Timeout is copied from SearchInput clear action.
+       */
       setTimeout(() => {
         if (this.inputRef.current) {
           this.inputRef.current.focus();
         }
       }, 100);
+
+      if (!!propOnPageChange) {
+        propOnPageChange(this.state.value);
+      }
+      conditionalSetState('');
     };
 
     const onKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -163,7 +169,7 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
       ),
       ...(!!this.state.value && this.state.status !== 'error'
         ? { onClick: onPageChange }
-        : { tabIndex: -1, 'aria-hidden': true }),
+        : { hidden: true }),
     };
 
     return (

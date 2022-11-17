@@ -55,7 +55,6 @@ interface InternalPaginationProps {
   previousButtonAriaLabel: string;
 }
 
-// export type PaginationProps = inputProps & InternalPaginationProps;
 export type PaginationProps = ShowInputProps & InternalPaginationProps;
 
 const baseClassName = 'fi-pagination';
