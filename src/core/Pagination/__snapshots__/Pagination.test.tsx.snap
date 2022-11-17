@@ -957,9 +957,8 @@ exports[`snapshot should have matching default structure 1`] = `
               />
             </div>
             <button
-              aria-hidden="true"
               class="c3 fi-page-input_button"
-              tabindex="-1"
+              hidden=""
               type="button"
             >
               <span
