@@ -435,25 +435,6 @@ exports[`snapshot should have matching default structure 1`] = `
   opacity: 1;
 }
 
-.c7 .fi-page-input_input::-ms-clear {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-.c7 .fi-page-input_input::-ms-reveal {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-.c7 .fi-page-input_input::-webkit-search-decoration,
-.c7 .fi-page-input_input::-webkit-search-cancel-button,
-.c7 .fi-page-input_input::-webkit-search-results-button,
-.c7 .fi-page-input_input::-webkit-search-results-decoration {
-  display: none;
-}
-
 .c7 .fi-page-input_button {
   position: absolute;
   top: 0;
