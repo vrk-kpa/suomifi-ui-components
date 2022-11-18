@@ -124,6 +124,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       .fi-side-navigation-item_sub-list {
         margin: ${theme.spacing.xxs} 0 ${theme.spacing.xxs} 30px;
         background: ${theme.colors.highlightLight3};
+        padding: ${theme.spacing.xxs} 0;
       }
     }
 
