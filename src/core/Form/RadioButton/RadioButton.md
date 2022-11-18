@@ -185,7 +185,7 @@ const labelText = 'RadioButtons with a tooltip';
   tooltipComponent={
     <Tooltip
       ariaToggleButtonLabelText={`${labelText}, additional information`}
-      ariaToggleButtonLabelText={`${labelText}, close additional information`}
+      ariaCloseButtonLabelText={`${labelText}, close additional information`}
     >
       <Heading variant="h5" as="h2">
         Tooltip

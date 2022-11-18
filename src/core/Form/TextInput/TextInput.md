@@ -40,7 +40,7 @@ const labelTextForTooltipExample = 'TextInput with a tooltip';
     tooltipComponent={
       <Tooltip
         ariaToggleButtonLabelText={`${labelTextForTooltipExample}, additional information`}
-        ariaToggleButtonLabelText={`${labelTextForTooltipExample}, close additional information`}
+        ariaCloseButtonLabelText={`${labelTextForTooltipExample}, close additional information`}
       >
         <Heading variant="h5" as="h2">
           Tooltip
