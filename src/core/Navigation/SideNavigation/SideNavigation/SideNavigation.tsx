@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode, useState } from 'react';
+import React, { forwardRef, ReactNode, useState, ReactElement } from 'react';
 import {
   HtmlButton,
   HtmlDiv,
@@ -10,13 +10,8 @@ import styled from 'styled-components';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { baseStyles } from './SideNavigation.baseStyles';
 import classnames from 'classnames';
-import { Icon } from '../../../Icon/Icon';
-import {
-  StaticIcon,
-  IllustrativeIconKeys,
-  DoctypeIconKeys,
-} from '../../../StaticIcon/StaticIcon';
 import { getConditionalAriaProp } from '../../../../utils/aria';
+import { IconChevronDown, IconChevronUp } from 'suomifi-icons/baseIcons';
 
 export interface SideNavigationProps {
   /** Use the `<SideNavigationItem>` components as children */
@@ -37,8 +32,8 @@ export interface SideNavigationProps {
   initiallyExpanded?: boolean;
   /** Navigation component heading text */
   heading: string;
-  /** Icon in the nav heading. Options include suomi.fi static icons. */
-  icon?: IllustrativeIconKeys | DoctypeIconKeys;
+  /** Icon in the nav heading */
+  icon?: ReactElement;
   /* Custom class to extend or customise */
   className?: string;
   /** Ref is forwarded to nav element. Alternative for React `ref` attribute. */
@@ -81,15 +76,15 @@ const BaseSideNavigation = ({
           aria-expanded={smallScreenNavOpen}
         >
           <HtmlSpan className={headingInnerWrapperClassName}>
-            {!!icon && <StaticIcon icon={icon} />}
+            {icon}
             {heading}
           </HtmlSpan>
-          <Icon icon={smallScreenNavOpen ? 'chevronUp' : 'chevronDown'} />
+          {smallScreenNavOpen ? <IconChevronUp /> : <IconChevronDown />}
         </HtmlButton>
       ) : (
         <HtmlDiv className={headingClassName}>
           <HtmlSpan className={headingInnerWrapperClassName}>
-            {!!icon && <StaticIcon icon={icon} />}
+            {icon}
             {heading}
           </HtmlSpan>
         </HtmlDiv>
