@@ -43,14 +43,14 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         border-radius: ${theme.radius.modal};
       }
 
-      &:focus {
-        position: relative;
+      &:focus-visible {
         outline: 0;
+        position: relative;
         box-shadow: none;
-        border: none;
 
-        ${theme.focus.boxShadowFocus}
-        z-index: ${theme.zindexes.focus};
+        &:after {
+          ${theme.focus.absoluteFocus}
+        }
       }
     }
 
