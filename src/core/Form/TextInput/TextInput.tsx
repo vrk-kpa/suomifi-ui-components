@@ -86,8 +86,8 @@ export interface TextInputProps
   debounce?: number;
   /** Suomi.fi icon to be shown inside the input field */
   icon?: ReactElement;
-  // /** Properties for the icon */
-  // iconProps?: Omit<IconProps, 'icon'>;
+  /** Tooltip component for the input's label */
+  tooltipComponent?: ReactElement;
 }
 
 class BaseTextInput extends Component<TextInputProps> {
