@@ -42,6 +42,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         outline: 0;
         border: none;
         box-shadow: none;
+        color: ${theme.colors.blackBase};
       }
 
       &:hover,
