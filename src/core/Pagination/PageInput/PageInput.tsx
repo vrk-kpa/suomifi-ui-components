@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Component, FocusEvent, ReactNode } from 'react';
+import React, { ChangeEvent, Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
@@ -9,9 +9,7 @@ import {
   HtmlInputProps,
   HtmlSpan,
   HtmlDiv,
-  HtmlDivProps,
   HtmlButton,
-  HtmlButtonProps,
 } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { StatusText } from '../../Form/StatusText/StatusText';
@@ -36,29 +34,12 @@ export interface PageInputProps
       | 'value'
       | 'defaultValue'
     > {
-  /** PageInput container div class name for custom styling. */
-  className?: string;
-  /** PageInput wrapping div element props */
-  wrapperProps?: Omit<HtmlDivProps, 'className'>;
   /** Label text */
   labelText: ReactNode;
   /** Placeholder text for input. */
   visualPlaceholder?: string;
   /** Page button label for screen readers */
   pageInputButtonLabel: string;
-  /** PageButtonProps */
-  pageInputButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'tabIndex'>;
-  /**
-   * 'default' | 'error'
-   * @default default
-   */
-  status?: PageInputStatus;
-  /** Input name */
-  name?: string;
-  /** Set components width to 100% */
-  fullWidth?: boolean;
-  /** Callback for onBlur event */
-  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Callback for search button click */
   onPageChange?: (value: PageInputValue) => void;
   /** Maximum value */
@@ -91,7 +72,7 @@ interface PageInputState {
 class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
   state: PageInputState = {
     value: '',
-    status: this.props.status || 'default',
+    status: 'default',
     inputValue: undefined,
   };
 
@@ -102,15 +83,11 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
       className,
       labelText,
       pageInputButtonLabel,
-      pageInputButtonProps,
-      wrapperProps,
       onPageChange: propOnPageChange,
       children,
-      status,
       statusText,
       visualPlaceholder,
       id,
-      fullWidth,
       theme,
       maxValue,
       invalidValueErrorText,
@@ -162,19 +139,14 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
     };
 
     const pageInputButtonDerivedProps = {
-      ...pageInputButtonProps,
-      className: classnames(
-        pageInputButtonProps?.className,
-        pageInputClassNames.button,
-      ),
+      className: pageInputClassNames.button,
       ...(!!this.state.value && this.state.status !== 'error'
         ? { onClick: onPageChange }
-        : { hidden: true }),
+        : { tabIndex: -1, hidden: true }),
     };
 
     return (
       <HtmlDiv
-        {...wrapperProps}
         className={classnames(className, baseClassName, {
           [pageInputClassNames.error]: this.state.status === 'error',
           [pageInputClassNames.notEmpty]:
