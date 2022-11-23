@@ -471,10 +471,6 @@ exports[`snapshot should have matching default structure 1`] = `
   fill: hsl(202,7%,40%);
 }
 
-.c7.fi-page-input--full-width {
-  width: 100%;
-}
-
 .c7.fi-page-input--error .fi-page-input_input-element-container {
   border: 1px solid hsl(3,59%,48%);
   border-right: 0;
@@ -854,7 +850,7 @@ exports[`snapshot should have matching default structure 1`] = `
 
 <nav
   aria-label="my component here"
-  class="c0 fi-pagination c1 fi-link--external"
+  class="c0 fi-pagination c1"
   data-testid="pagination"
 >
   <div
@@ -868,6 +864,7 @@ exports[`snapshot should have matching default structure 1`] = `
         aria-label="Previous page"
         class="c3 fi-button c4 fi-pagination_arrow-button fi-button--disabled fi-button--secondary"
         disabled=""
+        id="2-previous-button"
         type="button"
       >
         <svg
@@ -898,6 +895,7 @@ exports[`snapshot should have matching default structure 1`] = `
         aria-disabled="false"
         aria-label="Next page"
         class="c3 fi-button c4 fi-pagination_arrow-button fi-button--secondary"
+        id="2-next-button"
         tabindex="0"
         type="button"
       >
@@ -959,6 +957,7 @@ exports[`snapshot should have matching default structure 1`] = `
             <button
               class="c3 fi-page-input_button"
               hidden=""
+              tabindex="-1"
               type="button"
             >
               <span

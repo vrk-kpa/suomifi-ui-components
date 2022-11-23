@@ -180,7 +180,6 @@ class BasePagination extends Component<PaginationProps> {
           {pageInput === true && pageInputProps && (
             <HtmlDiv className={paginationClassNames.pageInputWrapper}>
               <PageInput
-                id={`${id}-page-input`}
                 pageInputButtonLabel={pageInputProps.buttonText}
                 visualPlaceholder={pageInputProps.inputPlaceholderText}
                 maxValue={lastPage}

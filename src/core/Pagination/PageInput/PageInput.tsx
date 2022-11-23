@@ -50,10 +50,8 @@ export interface PageInputProps
 
 const baseClassName = 'fi-page-input';
 const pageInputClassNames = {
-  fullWidth: `${baseClassName}--full-width`,
   error: `${baseClassName}--error`,
   notEmpty: `${baseClassName}--not-empty`,
-  labelIsVisible: `${baseClassName}_label--visible`,
   styleWrapper: `${baseClassName}_wrapper`,
   inputElement: `${baseClassName}_input`,
   inputElementContainer: `${baseClassName}_input-element-container`,
