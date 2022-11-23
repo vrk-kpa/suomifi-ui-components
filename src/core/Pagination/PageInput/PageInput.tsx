@@ -151,7 +151,6 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
           [pageInputClassNames.error]: this.state.status === 'error',
           [pageInputClassNames.notEmpty]:
             !!this.state.value && this.state.status !== 'error',
-          [pageInputClassNames.fullWidth]: fullWidth,
         })}
       >
         <HtmlSpan className={pageInputClassNames.styleWrapper}>

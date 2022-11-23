@@ -94,10 +94,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
   }
 
-  &.fi-page-input--full-width {
-    width: 100%;
-  }
-
   &.fi-page-input--error {
     & .fi-page-input_input-element-container {
       border: 1px solid ${theme.colors.alertBase};
