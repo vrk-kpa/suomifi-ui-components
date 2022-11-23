@@ -7,7 +7,7 @@ import { HtmlSpan, HtmlNav, HtmlDiv } from '../../reset';
 import { PageInput, PageInputValue } from './PageInput/PageInput';
 import { Button } from '../Button/Button';
 
-const externalClassName = 'fi-link--external';
+import { AutoId } from '../utils/AutoId/AutoId';
 
 export interface PageInputProps {
   /** Page input action button label for screen readers  */
@@ -37,6 +37,11 @@ interface InternalPaginationProps {
   className?: string;
   /** aria-label for pagination  */
   'aria-label': string;
+  /**
+   * Unique id
+   * If no id is specified, one will be generated automatically
+   */
+  id?: string;
   /** Function for page number indicator text */
   pageIndicatorText?: (currentPage: number, lastPage: number) => string;
   /** Use small screen styling */
@@ -129,18 +134,20 @@ class BasePagination extends Component<PaginationProps> {
       pageInput,
       pageInputProps,
       smallScreen,
+      id,
       ...passProps
     } = this.props;
     return (
       <HtmlNav
         {...passProps}
-        className={classnames(baseClassName, className, externalClassName, {
+        className={classnames(baseClassName, className, {
           [paginationClassNames.smallScreen]: !!smallScreen,
         })}
       >
         <HtmlDiv className={paginationClassNames.styleWrapper}>
           <HtmlDiv className={paginationClassNames.buttonsWrapper}>
             <Button
+              id={`${id}-previous-button`}
               className={paginationClassNames.arrowButton}
               variant="secondary"
               onClick={this.onLeftButtonClick}
@@ -160,6 +167,7 @@ class BasePagination extends Component<PaginationProps> {
             </HtmlSpan>
 
             <Button
+              id={`${id}-next-button`}
               className={paginationClassNames.arrowButton}
               variant="secondary"
               onClick={this.onRightButtonClick}
@@ -172,6 +180,7 @@ class BasePagination extends Component<PaginationProps> {
           {pageInput === true && pageInputProps && (
             <HtmlDiv className={paginationClassNames.pageInputWrapper}>
               <PageInput
+                id={`${id}-page-input`}
                 pageInputButtonLabel={pageInputProps.buttonText}
                 visualPlaceholder={pageInputProps.inputPlaceholderText}
                 maxValue={lastPage}
@@ -202,13 +211,25 @@ const StyledPagination = styled((props: PaginationProps & SuomifiThemeProp) => {
  */
 
 const Pagination = forwardRef(
-  (props: PaginationProps, ref: React.RefObject<HTMLElement>) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledPagination theme={suomifiTheme} forwardedRef={ref} {...props} />
-      )}
-    </SuomifiThemeConsumer>
-  ),
+  (props: PaginationProps, ref: React.RefObject<HTMLElement>) => {
+    const { id: propId, ...passProps } = props;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <StyledPagination
+                id={id}
+                theme={suomifiTheme}
+                forwardedRef={ref}
+                {...passProps}
+              />
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
+    );
+  },
 );
 
 Pagination.displayName = 'Pagination';
