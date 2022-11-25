@@ -1,7 +1,6 @@
 import React, { ChangeEvent, Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import {
@@ -235,20 +234,11 @@ const StyledPageInput = styled(BasePageInput)`
  * Use for user inputting page number.
  * Props other than specified explicitly are passed on to underlying input element.
  */
-const PageInput = (props: PageInputProps) => {
-  const { id: propId, ...passProps } = props;
-  return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <AutoId id={propId}>
-          {(id) => (
-            <StyledPageInput theme={suomifiTheme} id={id} {...passProps} />
-          )}
-        </AutoId>
-      )}
-    </SuomifiThemeConsumer>
-  );
-};
+const PageInput = (props: PageInputProps) => (
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => <StyledPageInput theme={suomifiTheme} {...props} />}
+  </SuomifiThemeConsumer>
+);
 
 PageInput.displayName = 'PageInput';
 export { PageInput };
