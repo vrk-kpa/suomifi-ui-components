@@ -137,6 +137,9 @@ class BasePagination extends Component<PaginationProps> {
       id,
       ...passProps
     } = this.props;
+
+    const pageInputId = `${id}-pageInput`;
+
     return (
       <HtmlNav
         {...passProps}
@@ -180,6 +183,7 @@ class BasePagination extends Component<PaginationProps> {
           {pageInput === true && pageInputProps && (
             <HtmlDiv className={paginationClassNames.pageInputWrapper}>
               <PageInput
+                id={pageInputId}
                 pageInputButtonLabel={pageInputProps.buttonText}
                 visualPlaceholder={pageInputProps.inputPlaceholderText}
                 maxValue={lastPage}
