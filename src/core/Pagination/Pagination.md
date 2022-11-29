@@ -49,11 +49,9 @@ const step = 5;
 const lastPage = arrLength / step;
 const [posts] = React.useState(Array.from(Array(arrLength).keys()));
 const [current, setCurrent] = React.useState(1);
-
-const currentItems = posts.slice(
-  (current - 1) * step,
-  (current - 1) * step + step
-);
+const firstShown = (current - 1) * step;
+const lastShown = (current - 1) * step + step;
+const currentItems = posts.slice(firstShown, lastShown);
 
 <>
   <div style={{ width: '600px' }}>
@@ -84,6 +82,18 @@ const currentItems = posts.slice(
       }}
       pageIndicatorText={(currentPage, lastPage) => {
         return 'Page ' + currentPage + ' / ' + lastPage;
+      }}
+      ariaPageIndicatorText={(currentPage, lastPage) => {
+        return (
+          'Page ' +
+          currentPage +
+          ' out of ' +
+          lastPage +
+          '. Showing items ' +
+          firstShown +
+          ' to ' +
+          lastShown
+        );
       }}
     />
   </div>

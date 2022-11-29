@@ -6,7 +6,7 @@ import { baseStyles } from './Pagination.baseStyles';
 import { HtmlSpan, HtmlNav, HtmlDiv } from '../../reset';
 import { PageInput, PageInputValue } from './PageInput/PageInput';
 import { Button } from '../Button/Button';
-
+import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import { AutoId } from '../utils/AutoId/AutoId';
 
 export interface PageInputProps {
@@ -44,6 +44,8 @@ interface InternalPaginationProps {
   id?: string;
   /** Function for page number indicator text */
   pageIndicatorText?: (currentPage: number, lastPage: number) => string;
+  /** Page indication text for screen readers */
+  ariaPageIndicatorText?: (currentPage: number, lastPage: number) => string;
   /** Use small screen styling */
   smallScreen?: boolean;
   /** Controlled number of the current page. Will be used instead of component's own internal state if provided. */
@@ -126,6 +128,7 @@ class BasePagination extends Component<PaginationProps> {
       children,
       className,
       pageIndicatorText,
+      ariaPageIndicatorText,
       onChange,
       currentPage,
       lastPage,
@@ -149,6 +152,16 @@ class BasePagination extends Component<PaginationProps> {
       >
         <HtmlDiv className={paginationClassNames.styleWrapper}>
           <HtmlDiv className={paginationClassNames.buttonsWrapper}>
+            {ariaPageIndicatorText && (
+              <VisuallyHidden
+                aria-live="polite"
+                aria-atomic="true"
+                id={`${id}-page-change-announce`}
+              >
+                {ariaPageIndicatorText(this.getCurrentPage(), lastPage)}
+              </VisuallyHidden>
+            )}
+
             <Button
               id={`${id}-previous-button`}
               className={paginationClassNames.arrowButton}
@@ -159,16 +172,11 @@ class BasePagination extends Component<PaginationProps> {
               aria-label={previousButtonAriaLabel}
             />
 
-            <HtmlSpan
-              aria-live="polite"
-              aria-atomic="true"
-              className={paginationClassNames.pageNumbers}
-            >
+            <HtmlSpan className={paginationClassNames.pageNumbers}>
               {pageIndicatorText
                 ? pageIndicatorText(this.getCurrentPage(), lastPage)
                 : ''}
             </HtmlSpan>
-
             <Button
               id={`${id}-next-button`}
               className={paginationClassNames.arrowButton}
