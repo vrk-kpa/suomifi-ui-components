@@ -33,9 +33,29 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         ${theme.focus.absoluteFocus}
       }
     }
+
+    width: 100%;
   }
 
-  &.fi-date-input--full-width {
+  & .fi-date-input_picker-element-container {
+    ${containerIEFocus(theme)}
+
+    &:focus-within {
+      position: relative;
+
+      &::after {
+        ${theme.focus.absoluteFocus}
+      }
+    }
+
+    flex: 1;
+  }
+
+  & .fi-date-input_input-and-picker-wrapper {
+    display: flex;
+  }
+
+  & &.fi-date-input--full-width {
     width: 100%;
   }
 
@@ -47,38 +67,46 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     min-height: 40px;
     padding-left: ${theme.spacing.insetL};
     border-color: ${theme.colors.depthDark3};
+    border-radius: ${theme.radius.basic};
 
     &::placeholder {
       font-style: italic;
       color: ${theme.colors.depthDark2};
       opacity: 1;
     }
-    &::-ms-clear {
-      display: none;
-      width: 0;
-      height: 0;
-    }
-    &::-ms-reveal {
-      display: none;
-      width: 0;
-      height: 0;
+  }
+
+  & .fi-date-input_picker-button {
+    height: 100%;
+    padding: ${theme.spacing.xs};
+    border: 1px solid ${theme.colors.highlightBase};
+    border-radius: ${theme.radius.basic};
+    &:focus {
+      outline: 3px solid transparent;
     }
   }
 
   &.fi-date-input--error {
     & .fi-date-input_input {
       border: 2px solid ${theme.colors.alertBase};
-      padding-left: 9px;
-      padding-top: 7px;
-      padding-bottom: 7px;
+    }
+
+    & .fi-date-input_picker-button {
+      border: 2px solid ${theme.colors.alertBase};
+      border-left: 1px solid ${theme.colors.highlightBase};
+      border-radius: 0 ${theme.radius.basic} ${theme.radius.basic} 0;
     }
   }
+
   &.fi-date-input--success {
     & .fi-date-input_input {
       border: 2px solid ${theme.colors.successBase};
-      padding-left: 9px;
-      padding-top: 7px;
-      padding-bottom: 7px;
+    }
+
+    & .fi-date-input_picker-button {
+      border: 2px solid ${theme.colors.successBase};
+      border-left: 1px solid ${theme.colors.highlightBase};
+      border-radius: 0 ${theme.radius.basic} ${theme.radius.basic} 0;
     }
   }
   &.fi-date-input--disabled {
@@ -86,5 +114,16 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       color: ${theme.colors.depthBase};
       background-color: ${theme.colors.depthLight3};
     }
+  }
+
+  &.fi-date-input--has-picker {
+    & .fi-date-input_input {
+      border-right: none;
+      border-radius: ${theme.radius.basic} 0 0 ${theme.radius.basic};
+    }
+  }
+
+  & .fi-date-input_picker-icon {
+    color: ${theme.colors.highlightBase};
   }
 `;
