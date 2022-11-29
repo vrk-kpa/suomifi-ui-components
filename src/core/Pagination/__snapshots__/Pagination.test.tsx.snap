@@ -864,7 +864,7 @@ exports[`snapshot should have matching default structure 1`] = `
         aria-label="Previous page"
         class="c3 fi-button c4 fi-pagination_arrow-button fi-button--disabled fi-button--secondary"
         disabled=""
-        id="2-previous-button"
+        id="1-previous-button"
         type="button"
       >
         <svg
@@ -885,8 +885,6 @@ exports[`snapshot should have matching default structure 1`] = `
         </svg>
       </button>
       <span
-        aria-atomic="true"
-        aria-live="polite"
         class="c6 fi-pagination_page-numbers"
       >
         Page 1 / 6
@@ -895,7 +893,7 @@ exports[`snapshot should have matching default structure 1`] = `
         aria-disabled="false"
         aria-label="Next page"
         class="c3 fi-button c4 fi-pagination_arrow-button fi-button--secondary"
-        id="2-next-button"
+        id="1-next-button"
         tabindex="0"
         type="button"
       >
@@ -931,7 +929,7 @@ exports[`snapshot should have matching default structure 1`] = `
           >
             <label
               class="c10 fi-visually-hidden"
-              for="1"
+              for="1-pageInput"
             >
               Page number input
             </label>
@@ -945,7 +943,7 @@ exports[`snapshot should have matching default structure 1`] = `
               <input
                 aria-invalid="false"
                 class="c11 fi-page-input_input"
-                id="1"
+                id="1-pageInput"
                 inputmode="numeric"
                 pattern="[0-9]*"
                 placeholder="placeholder text"
@@ -987,7 +985,7 @@ exports[`snapshot should have matching default structure 1`] = `
             aria-atomic="true"
             aria-live="assertive"
             class="c6 c12 fi-page-input_statusText--has-content fi-status-text"
-            id="1-statusText"
+            id="1-pageInput-statusText"
           />
         </span>
       </div>
