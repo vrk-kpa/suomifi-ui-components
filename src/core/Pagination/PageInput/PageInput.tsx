@@ -95,28 +95,15 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
 
     const statusTextId = `${id}-statusText`;
 
-    const conditionalSetState = (newValue: PageInputValue) => {
-      if (!('value' in this.props)) {
-        this.setState({ value: newValue });
-      }
+    const setValue = (newValue: PageInputValue) => {
+      this.setState({ value: newValue });
     };
 
     const onPageChange = () => {
-      /**
-       * When the action comes from button it still has the focus. Button will be hidden when input (and state)
-       * are cleared so the focus must be moved back to the input. Otherwise screen readers will have focus issues.
-       * Timeout is copied from SearchInput clear action.
-       */
-      setTimeout(() => {
-        if (this.inputRef.current) {
-          this.inputRef.current.focus();
-        }
-      }, 100);
-
       if (!!propOnPageChange) {
         propOnPageChange(this.state.value);
       }
-      conditionalSetState('');
+      setValue('');
     };
 
     const onKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -135,17 +122,27 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
       }
     };
 
-    const test1 = () => {
+    const buttonClick = () => {
+      /* Get the current input value */
       const tempValue = this.state.value;
+      /* Clear the input field so screenreader wont read the "old" number again */
+      setValue('');
 
-      conditionalSetState('');
-
+      /**
+       * When the action comes from button it still has the focus. Button will be hidden when input (and state)
+       * are cleared so the focus must be moved back to the input. Otherwise screen readers (NVDA) will have focus issues.
+       * Timeout is needed so the input field has enough time to clear.
+       * Without this the screenreader is too fast and reads the old number.
+       */
       setTimeout(() => {
         if (this.inputRef.current) {
           this.inputRef.current.focus();
         }
       }, 100);
 
+      /* Call prop with the new value after a timeout. Now the "page change text" is the last one to be read.
+      Without the timeout NVDA skips it.
+      */
       setTimeout(() => {
         if (!!propOnPageChange) {
           propOnPageChange(tempValue);
@@ -156,7 +153,7 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
     const pageInputButtonDerivedProps = {
       className: pageInputClassNames.button,
       ...(!!this.state.value && this.state.status !== 'error'
-        ? { onClick: test1 }
+        ? { onClick: buttonClick }
         : { tabIndex: -1, hidden: true }),
     };
 
@@ -195,7 +192,7 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
                   // Set input value for <StatusText>
                   this.setState({ inputValue: event.target.value });
                   // Set value to state
-                  conditionalSetState(event.target.value);
+                  setValue(event.target.value);
 
                   const parsedValue = parseInt(event.target.value, 10) || null;
                   const verifiedValue =

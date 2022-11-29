@@ -92,7 +92,7 @@ const currentItems = posts.slice(firstShown, lastShown);
           currentPage +
           ' out of ' +
           lastPage +
-          '. Showing items ' +
+          '. Showing items from ' +
           firstShown +
           ' to ' +
           lastShown
