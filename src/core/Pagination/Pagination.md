@@ -126,6 +126,9 @@ const lastPage = 8;
       pageIndicatorText={(currentPage, lastPage) => {
         return 'Page ' + currentPage + ' / ' + lastPage;
       }}
+      ariaPageIndicatorText={(currentPage, lastPage) => {
+        return 'Showing page ' + currentPage + ' out of ' + lastPage;
+      }}
     />
   </div>
 </>;
@@ -160,6 +163,9 @@ const lastPage = 8;
       }}
       pageIndicatorText={(currentPage, lastPage) => {
         return 'Page ' + currentPage + ' / ' + lastPage;
+      }}
+      ariaPageIndicatorText={(currentPage, lastPage) => {
+        return 'Showing page ' + currentPage + ' out of ' + lastPage;
       }}
     />
   </div>
