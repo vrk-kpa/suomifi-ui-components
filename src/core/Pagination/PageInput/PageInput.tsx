@@ -135,10 +135,28 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
       }
     };
 
+    const test1 = () => {
+      const tempValue = this.state.value;
+
+      conditionalSetState('');
+
+      setTimeout(() => {
+        if (this.inputRef.current) {
+          this.inputRef.current.focus();
+        }
+      }, 100);
+
+      setTimeout(() => {
+        if (!!propOnPageChange) {
+          propOnPageChange(tempValue);
+        }
+      }, 200);
+    };
+
     const pageInputButtonDerivedProps = {
       className: pageInputClassNames.button,
       ...(!!this.state.value && this.state.status !== 'error'
-        ? { onClick: onPageChange }
+        ? { onClick: test1 }
         : { tabIndex: -1, hidden: true }),
     };
 
