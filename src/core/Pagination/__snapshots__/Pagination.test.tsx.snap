@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot should have matching default structure 1`] = `
-.c3 {
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,30 +27,30 @@ exports[`snapshot should have matching default structure 1`] = `
   cursor: pointer;
 }
 
-.c3:-moz-focusring {
+.c5:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
-.c3::-moz-focus-inner {
+.c5::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
-.c3::-webkit-file-upload-button {
+.c5::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
 }
 
-.c3::-webkit-inner-spin-button {
+.c5::-webkit-inner-spin-button {
   height: auto;
 }
 
-.c3::-webkit-outer-spin-button {
+.c5::-webkit-outer-spin-button {
   height: auto;
 }
 
-.c3::before,
-.c3::after {
+.c5::before,
+.c5::after {
   box-sizing: border-box;
 }
 
@@ -83,7 +83,7 @@ exports[`snapshot should have matching default structure 1`] = `
   box-sizing: border-box;
 }
 
-.c8 {
+.c9 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -107,8 +107,8 @@ exports[`snapshot should have matching default structure 1`] = `
   white-space: normal;
 }
 
-.c8::before,
-.c8::after {
+.c9::before,
+.c9::after {
   box-sizing: border-box;
 }
 
@@ -171,7 +171,7 @@ exports[`snapshot should have matching default structure 1`] = `
   box-sizing: border-box;
 }
 
-.c6 {
+.c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -195,12 +195,12 @@ exports[`snapshot should have matching default structure 1`] = `
   white-space: normal;
 }
 
-.c6::before,
-.c6::after {
+.c3::before,
+.c3::after {
   box-sizing: border-box;
 }
 
-.c10 {
+.c4 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -239,7 +239,7 @@ exports[`snapshot should have matching default structure 1`] = `
   color: hsl(3,59%,48%);
 }
 
-.c9.fi-label .fi-label_label-span {
+.c10.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -258,42 +258,42 @@ exports[`snapshot should have matching default structure 1`] = `
   color: hsl(0,0%,16%);
 }
 
-.c9.fi-label .fi-label_label-span .fi-label_optional-text {
+.c10.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c9.fi-label .fi-label_label-span .fi-tooltip {
+.c10.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
-.c5 {
+.c7 {
   vertical-align: baseline;
 }
 
-.c5.fi-icon {
+.c7.fi-icon {
   display: inline-block;
 }
 
-.c5 .fi-icon-base-fill {
+.c7 .fi-icon-base-fill {
   fill: currentColor;
 }
 
-.c5 .fi-icon-base-stroke {
+.c7 .fi-icon-base-stroke {
   stroke: currentColor;
 }
 
-.c5.fi-icon--cursor-pointer {
+.c7.fi-icon--cursor-pointer {
   cursor: pointer;
 }
 
-.c5.fi-icon--cursor-pointer * {
+.c7.fi-icon--cursor-pointer * {
   cursor: inherit;
 }
 
-.c7 {
+.c8 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -309,25 +309,25 @@ exports[`snapshot should have matching default structure 1`] = `
   font-weight: 400;
 }
 
-.c7 .fi-page-input_wrapper {
+.c8 .fi-page-input_wrapper {
   width: 100%;
   min-width: 105px;
   display: inline-block;
 }
 
-.c7 .fi-page-input_wrapper .fi-page-input_label--visible {
+.c8 .fi-page-input_wrapper .fi-page-input_label--visible {
   margin-bottom: 10px;
 }
 
-.c7 .fi-page-input_wrapper .fi-page-input_statusText--has-content {
+.c8 .fi-page-input_wrapper .fi-page-input_statusText--has-content {
   margin-top: 5px;
 }
 
-.c7 .fi-page-input_functionality-container {
+.c8 .fi-page-input_functionality-container {
   position: relative;
 }
 
-.c7 .fi-page-input_input-element-container {
+.c8 .fi-page-input_input-element-container {
   background-color: hsl(0,0%,100%);
   color: hsl(0,0%,16%);
   width: 100%;
@@ -337,23 +337,23 @@ exports[`snapshot should have matching default structure 1`] = `
   border-radius: 2px;
 }
 
-.c7 .fi-page-input_input-element-container > input:focus {
+.c8 .fi-page-input_input-element-container > input:focus {
   outline-color: hsl(196,77%,44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c7 .fi-page-input_input-element-container:focus-within > input:focus {
+.c8 .fi-page-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
-.c7 .fi-page-input_input-element-container:focus-within {
+.c8 .fi-page-input_input-element-container:focus-within {
   position: relative;
   box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
 }
 
-.c7 .fi-page-input_input-element-container:focus-within:after {
+.c8 .fi-page-input_input-element-container:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -373,11 +373,11 @@ exports[`snapshot should have matching default structure 1`] = `
   left: -3px;
 }
 
-.c7 .fi-page-input_input-element-container:focus-within > input:focus {
+.c8 .fi-page-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
-.c7 .fi-page-input_input {
+.c8 .fi-page-input_input {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -411,31 +411,31 @@ exports[`snapshot should have matching default structure 1`] = `
   appearance: none;
 }
 
-.c7 .fi-page-input_input::-webkit-input-placeholder {
+.c8 .fi-page-input_input::-webkit-input-placeholder {
   font-style: italic;
   color: hsl(201,7%,46%);
   opacity: 1;
 }
 
-.c7 .fi-page-input_input::-moz-placeholder {
+.c8 .fi-page-input_input::-moz-placeholder {
   font-style: italic;
   color: hsl(201,7%,46%);
   opacity: 1;
 }
 
-.c7 .fi-page-input_input:-ms-input-placeholder {
+.c8 .fi-page-input_input:-ms-input-placeholder {
   font-style: italic;
   color: hsl(201,7%,46%);
   opacity: 1;
 }
 
-.c7 .fi-page-input_input::placeholder {
+.c8 .fi-page-input_input::placeholder {
   font-style: italic;
   color: hsl(201,7%,46%);
   opacity: 1;
 }
 
-.c7 .fi-page-input_button {
+.c8 .fi-page-input_button {
   position: absolute;
   top: 0;
   display: -webkit-box;
@@ -462,38 +462,38 @@ exports[`snapshot should have matching default structure 1`] = `
   border: 0;
 }
 
-.c7 .fi-page-input_button-icon {
+.c8 .fi-page-input_button-icon {
   width: 18px;
   height: 18px;
 }
 
-.c7 .fi-page-input_button-icon .fi-icon-base-fill {
+.c8 .fi-page-input_button-icon .fi-icon-base-fill {
   fill: hsl(202,7%,40%);
 }
 
-.c7.fi-page-input--error .fi-page-input_input-element-container {
+.c8.fi-page-input--error .fi-page-input_input-element-container {
   border: 1px solid hsl(3,59%,48%);
   border-right: 0;
 }
 
-.c7.fi-page-input--error .fi-page-input_button {
+.c8.fi-page-input--error .fi-page-input_button {
   border: 1px solid hsl(3,59%,48%);
   border-left: 0;
 }
 
-.c7.fi-page-input--not-empty .fi-page-input_input-element-container {
+.c8.fi-page-input--not-empty .fi-page-input_input-element-container {
   width: calc(100% - 40px);
   border-radius: 2px 0 0 2px;
   border-right: 0;
 }
 
-.c7.fi-page-input--not-empty .fi-page-input_button {
+.c8.fi-page-input--not-empty .fi-page-input_button {
   cursor: pointer;
   pointer-events: all;
   background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
 }
 
-.c7.fi-page-input--not-empty .fi-page-input_button:focus:after {
+.c8.fi-page-input--not-empty .fi-page-input_button:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -509,19 +509,19 @@ exports[`snapshot should have matching default structure 1`] = `
   z-index: 9999;
 }
 
-.c7.fi-page-input--not-empty .fi-page-input_button:hover {
+.c8.fi-page-input--not-empty .fi-page-input_button:hover {
   background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
 }
 
-.c7.fi-page-input--not-empty .fi-page-input_button:active {
+.c8.fi-page-input--not-empty .fi-page-input_button:active {
   background-color: hsl(212,63%,37%);
 }
 
-.c7.fi-page-input--not-empty .fi-page-input_button .fi-page-input_button-icon .fi-icon-base-fill {
+.c8.fi-page-input--not-empty .fi-page-input_button .fi-page-input_button-icon .fi-icon-base-fill {
   fill: hsl(0,0%,100%);
 }
 
-.c4 {
+.c6 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -548,12 +548,12 @@ exports[`snapshot should have matching default structure 1`] = `
   cursor: pointer;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
   position: relative;
 }
 
-.c4:focus::after {
+.c6:focus::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -569,17 +569,17 @@ exports[`snapshot should have matching default structure 1`] = `
   z-index: 9999;
 }
 
-.c4:hover {
+.c6:hover {
   background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
 }
 
-.c4:active {
+.c6:active {
   background: hsl(212,63%,37%);
 }
 
-.c4.fi-button--disabled,
-.c4[disabled],
-.c4:disabled {
+.c6.fi-button--disabled,
+.c6[disabled],
+.c6:disabled {
   text-shadow: 0 1px 1px rgba(41,41,41,0.5);
   background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
   -webkit-user-select: none;
@@ -589,41 +589,41 @@ exports[`snapshot should have matching default structure 1`] = `
   cursor: not-allowed;
 }
 
-.c4.fi-button--disabled::after {
+.c6.fi-button--disabled::after {
   border: none;
   box-shadow: none;
 }
 
-.c4.fi-button--fullwidth {
+.c6.fi-button--fullwidth {
   display: block;
   width: 100%;
 }
 
-.c4.fi-button--inverted {
+.c6.fi-button--inverted {
   background: none;
   background-color: hsl(212,63%,45%);
   border: 1px solid hsl(0,0%,100%);
   text-shadow: none;
 }
 
-.c4.fi-button--inverted:hover {
+.c6.fi-button--inverted:hover {
   background: linear-gradient(-180deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c4.fi-button--inverted:active {
+.c6.fi-button--inverted:active {
   background: none;
   background-color: hsl(212,63%,45%);
 }
 
-.c4.fi-button--inverted.fi-button--disabled,
-.c4.fi-button--inverted[disabled],
-.c4.fi-button--inverted:disabled {
+.c6.fi-button--inverted.fi-button--disabled,
+.c6.fi-button--inverted[disabled],
+.c6.fi-button--inverted:disabled {
   opacity: 0.41;
   background: none;
   background-color: none;
 }
 
-.c4.fi-button--secondary {
+.c6.fi-button--secondary {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -631,18 +631,18 @@ exports[`snapshot should have matching default structure 1`] = `
   text-shadow: none;
 }
 
-.c4.fi-button--secondary:hover {
+.c6.fi-button--secondary:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c4.fi-button--secondary:active {
+.c6.fi-button--secondary:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c4.fi-button--secondary.fi-button--disabled,
-.c4.fi-button--secondary[disabled],
-.c4.fi-button--secondary:disabled {
+.c6.fi-button--secondary.fi-button--disabled,
+.c6.fi-button--secondary[disabled],
+.c6.fi-button--secondary:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -650,7 +650,7 @@ exports[`snapshot should have matching default structure 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c4.fi-button--secondary-noborder {
+.c6.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -660,18 +660,18 @@ exports[`snapshot should have matching default structure 1`] = `
   background-color: transparent;
 }
 
-.c4.fi-button--secondary-noborder:hover {
+.c6.fi-button--secondary-noborder:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c4.fi-button--secondary-noborder:active {
+.c6.fi-button--secondary-noborder:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c4.fi-button--secondary-noborder.fi-button--disabled,
-.c4.fi-button--secondary-noborder[disabled],
-.c4.fi-button--secondary-noborder:disabled {
+.c6.fi-button--secondary-noborder.fi-button--disabled,
+.c6.fi-button--secondary-noborder[disabled],
+.c6.fi-button--secondary-noborder:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -679,7 +679,7 @@ exports[`snapshot should have matching default structure 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c4.fi-button--link {
+.c6.fi-button--link {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
   background: none;
@@ -690,18 +690,18 @@ exports[`snapshot should have matching default structure 1`] = `
   border: none;
 }
 
-.c4.fi-button--link:hover {
+.c6.fi-button--link:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
 }
 
-.c4.fi-button--link:active {
+.c6.fi-button--link:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c4.fi-button--link.fi-button--disabled,
-.c4.fi-button--link[disabled],
-.c4.fi-button--link:disabled {
+.c6.fi-button--link.fi-button--disabled,
+.c6.fi-button--link[disabled],
+.c6.fi-button--link:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -709,23 +709,23 @@ exports[`snapshot should have matching default structure 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c4.fi-button--link:hover {
+.c6.fi-button--link:hover {
   background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
 
-.c4.fi-button--link:active {
+.c6.fi-button--link:active {
   background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
 }
 
-.c4.fi-button--link.fi-button--disabled,
-.c4.fi-button--link[disabled],
-.c4.fi-button--link:disabled {
+.c6.fi-button--link.fi-button--disabled,
+.c6.fi-button--link[disabled],
+.c6.fi-button--link:disabled {
   color: hsl(202,7%,67%);
   background: none;
   background-color: hsl(202,7%,97%);
 }
 
-.c4 > .fi-button_icon {
+.c6 > .fi-button_icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
@@ -735,12 +735,12 @@ exports[`snapshot should have matching default structure 1`] = `
   transform: translateY(-0.1em);
 }
 
-.c4 > .fi-button_icon.fi-button_icon--right {
+.c6 > .fi-button_icon.fi-button_icon--right {
   margin-right: 0;
   margin-left: 8px;
 }
 
-.c4.fi-button--disabled > .fi-button_icon {
+.c6.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
 
@@ -859,17 +859,25 @@ exports[`snapshot should have matching default structure 1`] = `
     <div
       class="c2 fi-pagination_buttons-wrapper"
     >
+      <span
+        aria-atomic="true"
+        aria-live="polite"
+        class="c3 c4 fi-visually-hidden"
+        id="1-page-change-announce"
+      >
+        Page 1 of 6
+      </span>
       <button
         aria-disabled="true"
         aria-label="Previous page"
-        class="c3 fi-button c4 fi-pagination_arrow-button fi-button--disabled fi-button--secondary"
+        class="c5 fi-button c6 fi-pagination_arrow-button fi-button--disabled fi-button--secondary"
         disabled=""
         id="1-previous-button"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="fi-icon c5 fi-button_icon fi-icon--cursor-pointer"
+          class="fi-icon c7 fi-button_icon fi-icon--cursor-pointer"
           focusable="false"
           height="1em"
           viewBox="0 0 24 24"
@@ -885,21 +893,21 @@ exports[`snapshot should have matching default structure 1`] = `
         </svg>
       </button>
       <span
-        class="c6 fi-pagination_page-numbers"
+        class="c3 fi-pagination_page-numbers"
       >
         Page 1 / 6
       </span>
       <button
         aria-disabled="false"
         aria-label="Next page"
-        class="c3 fi-button c4 fi-pagination_arrow-button fi-button--secondary"
+        class="c5 fi-button c6 fi-pagination_arrow-button fi-button--secondary"
         id="1-next-button"
         tabindex="0"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="fi-icon c5 fi-button_icon fi-icon--cursor-pointer"
+          class="fi-icon c7 fi-button_icon fi-icon--cursor-pointer"
           focusable="false"
           height="1em"
           viewBox="0 0 24 24"
@@ -919,16 +927,16 @@ exports[`snapshot should have matching default structure 1`] = `
       class="c2 fi-pagination_page-input-wrapper"
     >
       <div
-        class="c2 c7 fi-page-input"
+        class="c2 c8 fi-page-input"
       >
         <span
-          class="c6 fi-page-input_wrapper"
+          class="c3 fi-page-input_wrapper"
         >
           <div
-            class="c8 c9 fi-label"
+            class="c9 c10 fi-label"
           >
             <label
-              class="c10 fi-visually-hidden"
+              class="c4 fi-visually-hidden"
               for="1-pageInput"
             >
               Page number input
@@ -953,19 +961,19 @@ exports[`snapshot should have matching default structure 1`] = `
               />
             </div>
             <button
-              class="c3 fi-page-input_button"
+              class="c5 fi-page-input_button"
               hidden=""
               tabindex="-1"
               type="button"
             >
               <span
-                class="c6 c10 fi-visually-hidden"
+                class="c3 c4 fi-visually-hidden"
               >
                 Jump
               </span>
               <svg
                 aria-hidden="true"
-                class="fi-icon c5 fi-page-input_button-icon"
+                class="fi-icon c7 fi-page-input_button-icon"
                 focusable="false"
                 height="1em"
                 viewBox="0 0 24 24"
@@ -984,7 +992,7 @@ exports[`snapshot should have matching default structure 1`] = `
           <span
             aria-atomic="true"
             aria-live="assertive"
-            class="c6 c12 fi-page-input_statusText--has-content fi-status-text"
+            class="c3 c12 fi-page-input_statusText--has-content fi-status-text"
             id="1-pageInput-statusText"
           />
         </span>
