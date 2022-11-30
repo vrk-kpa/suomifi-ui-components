@@ -43,9 +43,9 @@ interface InternalPaginationProps {
    */
   id?: string;
   /** Function for page number indicator text */
-  pageIndicatorText?: (currentPage: number, lastPage: number) => string;
+  pageIndicatorText: (currentPage: number, lastPage: number) => string;
   /** Page indication text for screen readers */
-  ariaPageIndicatorText?: (currentPage: number, lastPage: number) => string;
+  ariaPageIndicatorText: (currentPage: number, lastPage: number) => string;
   /** Use small screen styling */
   smallScreen?: boolean;
   /** Controlled number of the current page. Will be used instead of component's own internal state if provided. */
@@ -152,15 +152,13 @@ class BasePagination extends Component<PaginationProps> {
       >
         <HtmlDiv className={paginationClassNames.styleWrapper}>
           <HtmlDiv className={paginationClassNames.buttonsWrapper}>
-            {ariaPageIndicatorText && (
-              <VisuallyHidden
-                aria-live="polite"
-                aria-atomic="true"
-                id={`${id}-page-change-announce`}
-              >
-                {ariaPageIndicatorText(this.getCurrentPage(), lastPage)}
-              </VisuallyHidden>
-            )}
+            <VisuallyHidden
+              aria-live="polite"
+              aria-atomic="true"
+              id={`${id}-page-change-announce`}
+            >
+              {ariaPageIndicatorText(this.getCurrentPage(), lastPage)}
+            </VisuallyHidden>
 
             <Button
               id={`${id}-previous-button`}
@@ -173,9 +171,7 @@ class BasePagination extends Component<PaginationProps> {
             />
 
             <HtmlSpan className={paginationClassNames.pageNumbers}>
-              {pageIndicatorText
-                ? pageIndicatorText(this.getCurrentPage(), lastPage)
-                : ''}
+              {pageIndicatorText(this.getCurrentPage(), lastPage)}
             </HtmlSpan>
             <Button
               id={`${id}-next-button`}

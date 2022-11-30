@@ -125,6 +125,9 @@ describe('props', () => {
             console.log('on change: ', page);
           }}
           pageIndicatorText={(current, last) => `Page ${current} / ${last}`}
+          ariaPageIndicatorText={(current, last) =>
+            `Page ${current} of ${last}`
+          }
           aria-label="my label"
           ref={ref}
         />,
