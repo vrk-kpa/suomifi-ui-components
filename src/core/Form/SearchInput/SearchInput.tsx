@@ -202,7 +202,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       ),
       ...(!!this.state.value
         ? { onClick: onSearch }
-        : { tabIndex: -1, 'aria-hidden': true }),
+        : { tabIndex: -1, hidden: true }),
     };
     const clearButtonProps = {
       className: classnames(
@@ -211,7 +211,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       ),
       ...(!!this.state.value
         ? { onClick: onClear }
-        : { tabIndex: -1, 'aria-hidden': true }),
+        : { tabIndex: -1, hidden: true }),
     };
 
     return (
