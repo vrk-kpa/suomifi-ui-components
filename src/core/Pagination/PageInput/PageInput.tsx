@@ -39,11 +39,11 @@ export interface PageInputProps
   visualPlaceholder?: string;
   /** Page button label for screen readers */
   pageInputButtonLabel: string;
-  /** Callback for search button click */
+  /** Callback for page input button click */
   onPageChange?: (value: PageInputValue) => void;
   /** Maximum value */
   maxValue: number;
-  /** Callback for search button click */
+  /** Error text shown when the input is invalid */
   invalidValueErrorText: (value: PageInputValue) => string;
 }
 
@@ -104,6 +104,29 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
         propOnPageChange(this.state.value);
       }
       setValue('');
+    };
+
+    const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+      // Clear status if the input is empty
+      if (event.target.value === '' || !event.target.value) {
+        this.setState({ status: 'default' });
+      }
+      // Set input value for <StatusText>
+      this.setState({ inputValue: event.target.value });
+      // Set value to state
+      setValue(event.target.value);
+
+      const parsedValue = parseInt(event.target.value, 10) || null;
+      const verifiedValue =
+        parsedValue && parsedValue > 0 && parsedValue <= maxValue
+          ? parsedValue
+          : null;
+
+      if (verifiedValue === null && event.target.value !== '') {
+        this.setState({ status: 'error' });
+      } else {
+        this.setState({ status: 'default' });
+      }
     };
 
     const onKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -184,28 +207,7 @@ class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
                 className={pageInputClassNames.inputElement}
                 value={this.state.value}
                 placeholder={visualPlaceholder}
-                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                  // Clear status if the input is empty
-                  if (event.target.value === '' || !event.target.value) {
-                    this.setState({ status: 'default' });
-                  }
-                  // Set input value for <StatusText>
-                  this.setState({ inputValue: event.target.value });
-                  // Set value to state
-                  setValue(event.target.value);
-
-                  const parsedValue = parseInt(event.target.value, 10) || null;
-                  const verifiedValue =
-                    parsedValue && parsedValue > 0 && parsedValue <= maxValue
-                      ? parsedValue
-                      : null;
-
-                  if (verifiedValue === null && event.target.value !== '') {
-                    this.setState({ status: 'error' });
-                  } else {
-                    this.setState({ status: 'default' });
-                  }
-                }}
+                onChange={onChange}
                 onKeyPress={onKeyPress}
                 onKeyDown={onKeyDown}
                 type="text"

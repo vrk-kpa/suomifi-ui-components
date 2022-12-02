@@ -44,7 +44,11 @@ interface InternalPaginationProps {
   id?: string;
   /** Function for page number indicator text */
   pageIndicatorText: (currentPage: number, lastPage: number) => string;
-  /** Page indication text for screen readers */
+  /** Page indication text for screen readers
+   * @param {number} currentPage Current page
+   * @param {number} lastPage Last page
+   * @returns Text for the screen reader
+   */
   ariaPageIndicatorText: (currentPage: number, lastPage: number) => string;
   /** Use small screen styling */
   smallScreen?: boolean;
