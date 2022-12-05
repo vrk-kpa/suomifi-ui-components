@@ -21,7 +21,7 @@ export type PageInputValue = number | string | undefined;
 
 type PageInputStatus = Exclude<InputStatus, 'success'>;
 
-export interface PageInputProps
+export interface InternalPageInputProps
   extends StatusTextCommonProps,
     Omit<
       HtmlInputProps,
@@ -66,7 +66,9 @@ interface PageInputState {
   inputValue: PageInputValue;
 }
 
-class BasePageInput extends Component<PageInputProps & SuomifiThemeProp> {
+class BasePageInput extends Component<
+  InternalPageInputProps & SuomifiThemeProp
+> {
   state: PageInputState = {
     value: '',
     status: 'default',
@@ -251,7 +253,7 @@ const StyledPageInput = styled(BasePageInput)`
  * Use for user inputting page number.
  * Props other than specified explicitly are passed on to underlying input element.
  */
-const PageInput = (props: PageInputProps) => (
+const PageInput = (props: InternalPageInputProps) => (
   <SuomifiThemeConsumer>
     {({ suomifiTheme }) => <StyledPageInput theme={suomifiTheme} {...props} />}
   </SuomifiThemeConsumer>

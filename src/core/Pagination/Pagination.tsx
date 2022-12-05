@@ -28,7 +28,17 @@ type ShowInputProps =
   | {
       /** Show input field for page number */
       pageInput?: true;
-      /** Props for page input field */
+      /** Props for page input field
+       * <pre>
+       * // Page input action button label for screen readers
+       * buttonText: string;
+       * // Input placeholder text
+       * inputPlaceholderText: string;
+       * // Error text shown with invalid page number input
+       * invalidValueErrorText: (value: PageInputValue) => string;
+       * // Visually hidden label for input field
+       * labelText: string;
+       * </pre> */
       pageInputProps: PageInputProps;
     };
 

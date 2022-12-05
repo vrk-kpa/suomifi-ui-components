@@ -126,7 +126,11 @@ export {
   ExpanderTitleProps,
 } from './core/Expander/';
 export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';
-export { Pagination, PaginationProps } from './core/Pagination/Pagination';
+export {
+  Pagination,
+  PaginationProps,
+  PageInputProps,
+} from './core/Pagination/Pagination';
 export { Text, TextProps } from './core/Text/Text';
 export { Textarea, TextareaProps } from './core/Form/Textarea/Textarea';
 export { Tooltip, TooltipProps } from './core/Tooltip/Tooltip';
