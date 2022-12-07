@@ -184,6 +184,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
               [filterInputClassNames.labelIsVisible]: labelMode !== 'hidden',
             })}
             tooltipComponent={tooltipComponent}
+            htmlFor={id}
           >
             {labelText}
           </Label>
