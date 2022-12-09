@@ -385,6 +385,7 @@ exports[`snapshot matches 1`] = `
     >
       <label
         class="c4 fi-label_label-span"
+        for="1"
         id="1-label"
       >
         Label

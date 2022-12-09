@@ -634,6 +634,7 @@ exports[`has matching snapshot 1`] = `
       >
         <label
           class="c5 fi-label_label-span"
+          for="1"
           id="1-label"
         >
           SingleSelect
