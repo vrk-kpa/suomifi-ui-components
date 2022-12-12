@@ -1,10 +1,12 @@
 import React, {
   forwardRef,
-  Component,
   ChangeEvent,
   FocusEvent,
   ReactNode,
   ReactElement,
+  useEffect,
+  useState,
+  createRef,
 } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
@@ -20,6 +22,7 @@ import {
   HtmlInput,
   HtmlButton,
 } from '../../../reset';
+import { DatePicker } from './DatePicker/DatePicker';
 import { Label, LabelMode } from '../Label/Label';
 import { StatusText } from '../StatusText/StatusText';
 import { HintText } from '../HintText/HintText';
@@ -27,6 +30,17 @@ import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { Icon } from '../../Icon/Icon';
 import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './DateInput.baseStyles';
+import {
+  datePickerDefaultTexts,
+  DatePickerTextProps,
+  InternalDatePickerTextProps,
+} from './datePickerTexts';
+import {
+  defaultDateAdapter,
+  yearsForward,
+  yearsBack,
+  DateAdapter,
+} from './dateUtils';
 
 const baseClassName = 'fi-date-input';
 export const dateInputClassNames = {
@@ -46,102 +60,84 @@ export const dateInputClassNames = {
   styleWrapper: `${baseClassName}_wrapper`,
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
 };
-export interface DatePickerTextProps {
-  /** Aria-label for calendar button that opens the date picker. */
-  openButtonLabel?: string;
-  /** Text for close button. */
-  closeButtonText?: string;
-  /** Text for date selection button. */
-  selectButtonText?: string;
-  /** Aria-label for year select. */
-  yearSelectLabel?: string;
-  /** Aria-label for month select. */
-  monthSelectLabel?: string;
-  /** Aria-label for moving to next month. */
-  nextMonthButtonLabel?: string;
-  /** Aria-label for moving to previous month. */
-  prevMonthButtonLabel?: string;
+
+export interface DatePickerProps {
+  /** Enables date picker for date input.
+   * @default false
+   */
+  datePickerEnabled?: boolean;
+  /**
+   * Custom texts for date picker to use instead of language based texts.
+   * <pre>
+   * DatePickerTextProps {
+   *  openButtonLabel?: string;
+   *  closeButtonText?: string;
+   *  selectButtonText?: string;
+   *  yearSelectLabel?: string;
+   *  monthSelectLabel?: string;,
+   *  nextMonthButtonLabel?: string;
+   *  prevMonthButtonLabel?: string;
+   *  monthNames?: [
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *  ];
+   *  weekDays?: [
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *  ];
+   *  weekDayAbbreviations?: [
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *    string,
+   *  ];
+   * }
+   * </pre>
+   */
+  datePickerTexts?: DatePickerTextProps;
+  /** Language for date picker default texts. Language supports Finnish, English, and Swedish.
+   * @default 'fi'
+   */
+  language?: 'fi' | 'en' | 'sv';
+  /** Minimum date user can select from date picker. By default ten years before current date. */
+  minDate?: Date;
+  /** Maximum date user can select from date picker. By default ten years after current date. */
+  maxDate?: Date;
+  /** Initial date to focus when date picker is opened. By default the current date. */
+  initialDate?: Date;
+  /**
+   * Enables custom formatting and parsing for date picker. By default date format is like '1.1.2022'.
+   * If value can't be parsed to date, Invalid Date is returned. Invalid Date is a Date, whose time value is NaN.
+   * <pre>
+   * DateAdapter {
+   *   format: (date: Date) => string;
+   *   parse: (value: string) => Date;
+   * }
+   * </pre>
+   */
+  dateAdapter?: DateAdapter;
 }
-
-const texts: {
-  en: DatePickerTextProps;
-  fi: DatePickerTextProps;
-  sv: DatePickerTextProps;
-} = {
-  en: {
-    openButtonLabel: 'Choose date',
-    closeButtonText: 'Close',
-    selectButtonText: 'Select',
-    yearSelectLabel: 'Select year',
-    monthSelectLabel: 'Select month',
-    nextMonthButtonLabel: 'Next month',
-    prevMonthButtonLabel: 'Previous month',
-  },
-  fi: {
-    openButtonLabel: 'Valitse päivämäärä',
-    closeButtonText: 'Sulje',
-    selectButtonText: 'Valitse',
-    yearSelectLabel: 'Valitse vuosi',
-    monthSelectLabel: 'Valitse kuukausi',
-    nextMonthButtonLabel: 'Seuraava kuukausi',
-    prevMonthButtonLabel: 'Edellinen kuukausi',
-  },
-  sv: {
-    openButtonLabel: 'Väjl datumn',
-    closeButtonText: 'Stäng',
-    selectButtonText: 'Välj',
-    yearSelectLabel: 'Välj år',
-    monthSelectLabel: 'Välj månad',
-    nextMonthButtonLabel: 'Nästa månad',
-    prevMonthButtonLabel: 'Föregående månad',
-  },
-};
-
-export type DatePickerProps =
-  | {
-      datePickerEnabled?: false;
-      datePickerTexts?: never;
-      language?: never;
-    }
-  | {
-      /** Hides date picker from date input.
-       * @default false
-       */
-      datePickerEnabled: true;
-      /**
-       * Custom texts for date picker to use instead of language (fi, en, sv) texts.
-       * <pre>
-       * DatePickerTextProps {
-       *   openButtonLabel?: string;
-       *   closeButtonText?: string;
-       *   selectButtonText?: string;
-       *   yearSelectLabel?: string;
-       *   monthSelectLabel?: string;,
-       *   nextMonthButtonLabel?: string;
-       *   prevMonthButtonLabel?: string;
-       * }
-       * </pre>
-       */
-      datePickerTexts?: DatePickerTextProps;
-      /** Language for date picker default texts. For example 'fi'.
-       * @default 'fi'
-       */
-      language?: 'fi' | 'en' | 'sv';
-      /** Date format for the date selected with date picker, for example 'd.M.yyyy'.
-       * @see date-fns format
-       */
-      dateFormat?: string;
-      /** Minimum date user can select from date picker. Required if date picker is enabled. */
-      minDate?: Date;
-      /** Maximum date user can select from date picker. */
-      maxDate?: Date;
-      /** Initial month to show when date picker is opened. By default current month. */
-      initialMonth?: Date;
-    };
-
 export interface DateInputProps
   extends StatusTextCommonProps,
-    Omit<HtmlInputProps, 'onChange'> {
+    Omit<HtmlInputProps, 'type' | 'onChange'> {
   /** TextInput container div class name for custom styling. */
   className?: string;
   /** TextInput wrapping div element props */
@@ -150,8 +146,9 @@ export interface DateInputProps
   disabled?: boolean;
   /** Event handler to execute when clicked */
   onClick?: () => void;
-  /** To execute on input text change */
-  onChange?: (value: string) => void;
+  /** To execute on input value change. If value can't be parsed to date, Invalid Date is returned.
+   * Invalid Date is a Date, whose time value is NaN. */
+  onChange?: (change: { value: string; date: Date }) => void;
   /** To execute on input text onBlur */
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Label for the input */
@@ -181,115 +178,194 @@ export interface DateInputProps
   tooltipComponent?: ReactElement;
 }
 
-class BaseDateInput extends Component<DateInputProps & DatePickerProps> {
-  render() {
-    const {
-      className,
-      labelText,
-      labelMode,
-      onChange: propOnChange,
-      wrapperProps,
-      optionalText,
-      status,
-      statusText,
-      hintText,
-      visualPlaceholder,
-      id,
-      fullWidth,
-      forwardedRef,
-      debounce,
-      statusTextAriaLiveMode = 'assertive',
-      'aria-describedby': ariaDescribedBy,
-      datePickerEnabled = false,
-      datePickerTexts,
-      language = 'fi',
-      tooltipComponent,
-      ...passProps
-    } = this.props;
+const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
+  const {
+    className,
+    labelText,
+    labelMode,
+    onChange: propOnChange,
+    wrapperProps,
+    optionalText,
+    status,
+    statusText,
+    hintText,
+    visualPlaceholder,
+    id,
+    fullWidth,
+    forwardedRef,
+    debounce,
+    statusTextAriaLiveMode = 'assertive',
+    'aria-describedby': ariaDescribedBy,
+    defaultValue,
+    value,
+    datePickerEnabled = false,
+    datePickerTexts = undefined,
+    language = 'fi',
+    dateAdapter = defaultDateAdapter(),
+    minDate = yearsBack(10),
+    maxDate = yearsForward(10),
+    initialDate,
+    tooltipComponent,
+    ...passProps
+  } = props;
 
-    const hintTextId = `${id}-hintText`;
-    const statusTextId = `${id}-statusText`;
-    return (
-      <HtmlDiv
-        {...wrapperProps}
-        className={classnames(baseClassName, className, {
-          [dateInputClassNames.disabled]: !!passProps.disabled,
-          [dateInputClassNames.error]: status === 'error',
-          [dateInputClassNames.success]: status === 'success',
-          [dateInputClassNames.fullWidth]: fullWidth,
-          [dateInputClassNames.hasPicker]: datePickerEnabled,
-        })}
-      >
-        <HtmlSpan className={dateInputClassNames.styleWrapper}>
-          <Label
-            htmlFor={id}
-            labelMode={labelMode}
-            optionalText={optionalText}
-            className={classnames({
-              [dateInputClassNames.labelIsVisible]: labelMode !== 'hidden',
-            })}
-            tooltipComponent={tooltipComponent}
-          >
-            {labelText}
-          </Label>
-          <HintText id={hintTextId}>{hintText}</HintText>
-          <HtmlDiv className={dateInputClassNames.inputAndPickerWrapper}>
-            <HtmlDiv className={dateInputClassNames.inputElementContainer}>
-              <Debounce waitFor={debounce}>
-                {(debouncer: Function) => (
-                  <HtmlInput
-                    {...passProps}
-                    id={id}
-                    className={dateInputClassNames.inputElement}
-                    forwardedRef={forwardedRef}
-                    placeholder={visualPlaceholder}
-                    {...{ 'aria-invalid': status === 'error' }}
-                    {...getConditionalAriaProp('aria-describedby', [
-                      statusText ? statusTextId : undefined,
-                      hintText ? hintTextId : undefined,
-                      ariaDescribedBy,
-                    ])}
-                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                      if (propOnChange) {
-                        debouncer(propOnChange, event.currentTarget.value);
-                      }
-                    }}
-                  />
-                )}
-              </Debounce>
-            </HtmlDiv>
-            <HtmlDiv className={dateInputClassNames.pickerElementContainer}>
-              {datePickerEnabled && (
-                <HtmlButton className={dateInputClassNames.pickerButton}>
-                  <VisuallyHidden>
-                    {datePickerTexts?.openButtonLabel ||
-                      texts[language].openButtonLabel}
-                  </VisuallyHidden>
+  const hintTextId = `${id}-hintText`;
+
+  const statusTextId = `${id}-statusText`;
+
+  const inputRef: React.RefObject<HTMLInputElement> = createRef();
+
+  const [inputValue, setInputValue] = useState<string>('');
+  const [inputDate, setInputDate] = useState<Date | null>(null);
+  const [calendarVisible, setCalendarVisible] = useState<boolean>(false);
+  const [texts, setTexts] = useState<InternalDatePickerTextProps>(
+    datePickerDefaultTexts.fi,
+  );
+
+  useEffect(() => {
+    if (defaultValue) {
+      setInputValue(String(defaultValue));
+    }
+  }, []);
+
+  useEffect(() => {
+    setTexts({ ...datePickerDefaultTexts[language], ...datePickerTexts });
+  }, [language, datePickerTexts]);
+
+  const onCalendarOpen = (isCalendarOpen: boolean) => {
+    setCalendarVisible(isCalendarOpen);
+
+    if (isCalendarOpen && inputRef.current?.value) {
+      updateInputValue(inputRef.current?.value);
+    }
+
+    if (!isCalendarOpen) {
+      inputRef.current?.focus();
+    }
+  };
+
+  const conditionalSetInputValue = (newValue: string) => {
+    if (!('value' in props)) {
+      setInputValue(newValue);
+    }
+  };
+
+  const updateInputValue = (newValue: string) => {
+    const date = dateAdapter.parse(newValue);
+    if (Number.isNaN(date.valueOf())) {
+      setInputDate(null);
+    } else {
+      setInputDate(date);
+    }
+  };
+
+  const onDatePickerChange = (date: Date) => {
+    const newValue = dateAdapter.format(date);
+    conditionalSetInputValue(newValue);
+    if (propOnChange) {
+      propOnChange({ value: newValue, date });
+    }
+  };
+
+  return (
+    <HtmlDiv
+      {...wrapperProps}
+      className={classnames(baseClassName, className, {
+        [dateInputClassNames.disabled]: !!passProps.disabled,
+        [dateInputClassNames.error]: status === 'error',
+        [dateInputClassNames.success]: status === 'success',
+        [dateInputClassNames.fullWidth]: fullWidth,
+        [dateInputClassNames.hasPicker]: datePickerEnabled,
+      })}
+    >
+      <HtmlSpan className={dateInputClassNames.styleWrapper}>
+        <Label
+          htmlFor={id}
+          labelMode={labelMode}
+          optionalText={optionalText}
+          className={classnames({
+            [dateInputClassNames.labelIsVisible]: labelMode !== 'hidden',
+          })}
+          tooltipComponent={tooltipComponent}
+        >
+          {labelText}
+        </Label>
+        <HintText id={hintTextId}>{hintText}</HintText>
+        <HtmlDiv className={dateInputClassNames.inputAndPickerWrapper}>
+          <HtmlDiv className={dateInputClassNames.inputElementContainer}>
+            <Debounce waitFor={debounce}>
+              {(debouncer: Function) => (
+                <HtmlInput
+                  autoComplete="off"
+                  {...passProps}
+                  value={'value' in props ? value : inputValue}
+                  id={id}
+                  className={dateInputClassNames.inputElement}
+                  forwardedRef={inputRef}
+                  placeholder={visualPlaceholder}
+                  {...{ 'aria-invalid': status === 'error' }}
+                  {...getConditionalAriaProp('aria-describedby', [
+                    statusText ? statusTextId : undefined,
+                    hintText ? hintTextId : undefined,
+                    ariaDescribedBy,
+                  ])}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                    const eventValue = event.currentTarget.value;
+                    conditionalSetInputValue(eventValue);
+                    if (propOnChange) {
+                      debouncer(propOnChange, {
+                        value: eventValue,
+                        date: dateAdapter.parse(eventValue),
+                      });
+                    }
+                  }}
+                />
+              )}
+            </Debounce>
+          </HtmlDiv>
+          <HtmlDiv className={dateInputClassNames.pickerElementContainer}>
+            {datePickerEnabled && (
+              <>
+                <HtmlButton
+                  className={dateInputClassNames.pickerButton}
+                  onClick={() => onCalendarOpen(!calendarVisible)}
+                >
+                  <VisuallyHidden>{texts.openButtonLabel}</VisuallyHidden>
                   <Icon
                     className={dateInputClassNames.pickerIcon}
                     aria-hidden={true}
                     icon="calendar"
                   />
                 </HtmlButton>
-              )}
-            </HtmlDiv>
+                <DatePicker
+                  sourceRef={inputRef}
+                  isCalendarOpen={calendarVisible}
+                  onClose={() => onCalendarOpen(false)}
+                  onChange={(eventValue) => onDatePickerChange(eventValue)}
+                  initialDate={inputDate || initialDate}
+                  texts={texts}
+                  minDate={minDate}
+                  maxDate={maxDate}
+                />
+              </>
+            )}
           </HtmlDiv>
-          <StatusText
-            id={statusTextId}
-            className={classnames({
-              [dateInputClassNames.statusTextHasContent]: !!statusText,
-            })}
-            status={status}
-            ariaLiveMode={statusTextAriaLiveMode}
-            disabled={passProps.disabled}
-          >
-            {statusText}
-          </StatusText>
-        </HtmlSpan>
-      </HtmlDiv>
-    );
-  }
-}
+        </HtmlDiv>
+        <StatusText
+          id={statusTextId}
+          className={classnames({
+            [dateInputClassNames.statusTextHasContent]: !!statusText,
+          })}
+          status={status}
+          ariaLiveMode={statusTextAriaLiveMode}
+          disabled={passProps.disabled}
+        >
+          {statusText}
+        </StatusText>
+      </HtmlSpan>
+    </HtmlDiv>
+  );
+};
 
 const StyledDateInput = styled(
   ({

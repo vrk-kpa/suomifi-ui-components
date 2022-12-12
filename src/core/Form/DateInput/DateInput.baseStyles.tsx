@@ -4,7 +4,11 @@ import { input, containerIEFocus, font } from '../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')}
-  width: 290px;
+  width: 150px;
+
+  &.fi-date-input--full-width {
+    width: 100%;
+  }
 
   & .fi-date-input_wrapper {
     width: 100%;
@@ -38,25 +42,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   & .fi-date-input_picker-element-container {
-    ${containerIEFocus(theme)}
-
-    &:focus-within {
-      position: relative;
-
-      &::after {
-        ${theme.focus.absoluteFocus}
-      }
-    }
-
     flex: 1;
   }
 
   & .fi-date-input_input-and-picker-wrapper {
     display: flex;
-  }
-
-  & &.fi-date-input--full-width {
-    width: 100%;
   }
 
   & .fi-date-input_input {
@@ -77,6 +67,16 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   & .fi-date-input_picker-button {
+    ${containerIEFocus(theme)}
+
+    &:focus-within {
+      position: relative;
+
+      &::after {
+        ${theme.focus.absoluteFocus}
+      }
+    }
+
     height: 100%;
     padding: ${theme.spacing.xs};
     border: 1px solid ${theme.colors.highlightBase};

@@ -159,6 +159,7 @@
     "@reach/popover": "0.16.2",
     "@types/react-modal": "3.13.1",
     "classnames": "2.3.1",
+    "date-fns": "2.29.3",
     "polished": "4.2.2",
     "react-modal": "3.15.1",
     "react-popper": "2.3.0",
