@@ -293,7 +293,7 @@ exports[`has matching snapshot 1`] = `
   display: block;
 }
 
-.c13 {
+.c14 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -312,11 +312,11 @@ exports[`has matching snapshot 1`] = `
   line-height: 20px;
 }
 
-.c13.fi-status-text {
+.c14.fi-status-text {
   display: block;
 }
 
-.c13.fi-status-text.fi-status-text--error {
+.c14.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
 }
 
@@ -514,6 +514,30 @@ exports[`has matching snapshot 1`] = `
 
 .c2.fi-filter-input--label-align-left .fi-filter-input_wrapper .fi-label .fi-label_label-span {
   margin-bottom: 0;
+}
+
+.c13 {
+  vertical-align: baseline;
+}
+
+.c13.fi-icon {
+  display: inline-block;
+}
+
+.c13 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c13 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c13.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c13.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c11 {
@@ -993,7 +1017,7 @@ exports[`has matching snapshot 1`] = `
               >
                 <path
                   class="fi-icon-base-fill"
-                  d="M19.447 5.384L8 17.42a1.82 1.82 0 01-2.667 0L.552 12.394a2.059 2.059 0 010-2.805 1.822 1.822 0 012.666 0l3.449 3.625L16.78 2.581a1.82 1.82 0 012.666 0 2.053 2.053 0 010 2.803"
+                  d="M4.75 3.3 12 10.55l7.25-7.25a1.026 1.026 0 0 1 1.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 0 1-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 0 1-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 0 1 4.75 3.3Z"
                   fill="#222"
                   fill-rule="evenodd"
                 />
