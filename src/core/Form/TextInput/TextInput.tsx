@@ -122,7 +122,7 @@ class BaseTextInput extends Component<TextInputProps> {
         {...wrapperProps}
         className={classnames(baseClassName, className, {
           [textInputClassNames.disabled]: !!passProps.disabled,
-          // [textInputClassNames.icon]: resolvedIcon !== undefined,
+          [textInputClassNames.icon]: !!icon,
           [textInputClassNames.error]: status === 'error',
           [textInputClassNames.success]: status === 'success',
           [textInputClassNames.fullWidth]: fullWidth,
