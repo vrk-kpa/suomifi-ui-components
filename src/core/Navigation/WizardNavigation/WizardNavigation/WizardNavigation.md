@@ -42,23 +42,28 @@ const Comp = (props) => {
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled role="link">
+      <RouterLink aria-disabled role="link" tabIndex={0}>
         Step 4 with a long text that wraps to the second line like
         this
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled role="link">
+      <RouterLink aria-disabled role="link" tabIndex={0}>
         Step 5
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="disabled">
-      <RouterLink aria-disabled role="link">
+      <RouterLink aria-disabled role="link" tabIndex={0}>
         Step 6
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink asComponent={Comp} role="button" aria-disabled>
+      <RouterLink
+        asComponent={Comp}
+        role="button"
+        aria-disabled
+        tabIndex={0}
+      >
         Step 7
       </RouterLink>
     </WizardNavigationItem>
@@ -114,22 +119,27 @@ const Comp = (props) => {
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled role="link">
+      <RouterLink aria-disabled role="link" tabIndex={0}>
         Step 4
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink aria-disabled role="link">
+      <RouterLink aria-disabled role="link" tabIndex={0}>
         Step 5
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="disabled">
-      <RouterLink aria-disabled role="link">
+      <RouterLink aria-disabled role="link" tabIndex={0}>
         Step 6
       </RouterLink>
     </WizardNavigationItem>
     <WizardNavigationItem status="coming">
-      <RouterLink asComponent={Comp} role="button" aria-disabled>
+      <RouterLink
+        asComponent={Comp}
+        role="button"
+        aria-disabled
+        tabIndex={0}
+      >
         Step 7
       </RouterLink>
     </WizardNavigationItem>
