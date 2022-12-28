@@ -23,16 +23,12 @@ const CustomButton = (props) => {
   >
     <SideNavigationItem
       subLevel={1}
-      content={
-        <RouterLink href="/" aria-current="location">
-          Personal economy
-        </RouterLink>
-      }
+      content={<RouterLink href="/">Personal economy</RouterLink>}
     >
       <SideNavigationItem
         subLevel={2}
         content={
-          <RouterLink href="/" aria-current="location">
+          <RouterLink href="/">
             Crisis situations in personal finances
           </RouterLink>
         }
@@ -135,16 +131,12 @@ const CustomButton = (props) => {
   >
     <SideNavigationItem
       subLevel={1}
-      content={
-        <RouterLink href="/" aria-current="location">
-          Personal economy
-        </RouterLink>
-      }
+      content={<RouterLink href="/">Personal economy</RouterLink>}
     >
       <SideNavigationItem
         subLevel={2}
         content={
-          <RouterLink href="/" aria-current="location">
+          <RouterLink href="/">
             Crisis situations in personal finances
           </RouterLink>
         }
