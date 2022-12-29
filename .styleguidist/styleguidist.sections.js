@@ -50,6 +50,10 @@ module.exports = {
           content: './.styleguidist/colors.md',
         },
         {
+          name: 'Icons',
+          content: './.styleguidist/icons.md',
+        },
+        {
           name: 'Typography',
           content: './.styleguidist/typography.md',
         },
