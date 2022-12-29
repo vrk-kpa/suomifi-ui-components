@@ -37,7 +37,7 @@ const iconProps = (icon: string) => ({
   height: '45px',
   width: 'auto',
   onClick: () => console.log(clipboardCopy(icon)),
-  mousepointer: true,
+  mousePointer: true,
 });
 
 const iconStyles = {

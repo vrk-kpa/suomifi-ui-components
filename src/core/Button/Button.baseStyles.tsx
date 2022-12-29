@@ -151,7 +151,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     width: 16px;
     height: 16px;
     margin-right: ${theme.spacing.insetM};
-    vertical-align: middle;
+    vertical-align: text-bottom;
     transform: translateY(-0.1em);
   }
   & > .fi-button_icon--right > .fi-icon {
