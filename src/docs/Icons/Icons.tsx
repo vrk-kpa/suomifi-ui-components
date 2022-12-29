@@ -55,7 +55,7 @@ const BaseIcons = () => (
       return (
         <IconWrapper key={icon}>
           <StyledIcon />
-          <figcaption>{icon}</figcaption>
+          <figcaption>{icon.slice(4)}</figcaption>
         </IconWrapper>
       );
     })}
@@ -72,7 +72,7 @@ const IllustrativeIcons = () => (
       return (
         <IconWrapper key={icon}>
           <StyledIcon />
-          <figcaption>{icon}</figcaption>
+          <figcaption>{icon.slice(4)}</figcaption>
         </IconWrapper>
       );
     })}
@@ -88,7 +88,7 @@ const DoctypeIcons = () => (
       return (
         <IconWrapper key={icon}>
           <StyledIcon />
-          <figcaption>{icon}</figcaption>
+          <figcaption>{icon.slice(4)}</figcaption>
         </IconWrapper>
       );
     })}
@@ -104,7 +104,7 @@ const LogoIcons = () => (
       return (
         <IconWrapper key={icon}>
           <StyledIcon />
-          <figcaption>{icon}</figcaption>
+          <figcaption>{icon.slice(4)}</figcaption>
         </IconWrapper>
       );
     })}
