@@ -462,7 +462,7 @@ const labelText = 'Food';
 />;
 ```
 
-### MultiSelect loading
+### Loading state
 
 ```js
 import {

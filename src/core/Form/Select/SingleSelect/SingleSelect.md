@@ -406,7 +406,7 @@ const labelText = 'Food';
 </>;
 ```
 
-### SingleSelect in loading state
+### Loading state
 
 ```js
 import {
