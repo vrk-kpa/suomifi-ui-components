@@ -666,7 +666,7 @@ class BaseSingleSelect<T> extends Component<
                   !loading && <SelectEmptyItem>{noItemsText}</SelectEmptyItem>}
 
                 {loading && (
-                  <SelectEmptyItem>
+                  <SelectEmptyItem className="loading">
                     <LoadingSpinner
                       status="loading"
                       variant="small"
