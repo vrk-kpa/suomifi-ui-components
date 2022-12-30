@@ -291,7 +291,7 @@ exports[`Button variant default should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
@@ -613,7 +613,7 @@ exports[`Button variant inverted should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
@@ -935,7 +935,7 @@ exports[`Button variant link match snapshot 1`] = `
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
@@ -1257,7 +1257,7 @@ exports[`Button variant secondary should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
@@ -1579,7 +1579,7 @@ exports[`Button variant secondaryNoBorder should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
