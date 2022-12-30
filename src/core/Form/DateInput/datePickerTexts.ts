@@ -42,39 +42,7 @@ export interface DatePickerTextProps {
   ];
 }
 
-export interface InternalDatePickerTextProps {
-  openButtonLabel: string;
-  closeButtonText: string;
-  selectButtonText: string;
-  yearSelectLabel: string;
-  monthSelectLabel: string;
-  nextMonthButtonLabel: string;
-  prevMonthButtonLabel: string;
-  monthNames: [
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-  ];
-  weekDays: [string, string, string, string, string, string, string];
-  weekDayAbbreviations: [
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-    string,
-  ];
-}
+export type InternalDatePickerTextProps = Required<DatePickerTextProps>;
 
 export const datePickerDefaultTexts: {
   en: InternalDatePickerTextProps;
