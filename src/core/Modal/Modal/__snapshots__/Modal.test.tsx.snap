@@ -825,7 +825,7 @@ exports[`Basic modal should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);

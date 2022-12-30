@@ -265,7 +265,7 @@ exports[`calling render with the same component on the same container does not r
   align-items: center;
 }
 
-.c1.fi-side-navigation .fi-side-navigation_heading .fi-static-icon {
+.c1.fi-side-navigation .fi-side-navigation_heading .fi-icon {
   height: 45px;
   width: 45px;
   margin-right: 15px;

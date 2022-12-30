@@ -1,6 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot should have matching default structure 1`] = `
+.c8 {
+  vertical-align: baseline;
+}
+
+.c8.fi-icon {
+  display: inline-block;
+}
+
+.c8 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c8 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c8.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c8.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c7 {
+  vertical-align: baseline;
+}
+
+.c7.fi-icon {
+  display: inline-block;
+}
+
+.c7 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c7 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c7.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c7.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c13 {
+  vertical-align: baseline;
+}
+
+.c13.fi-icon {
+  display: inline-block;
+}
+
+.c13 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c13 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c13.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c13.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -83,7 +155,7 @@ exports[`snapshot should have matching default structure 1`] = `
   box-sizing: border-box;
 }
 
-.c9 {
+.c10 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -107,12 +179,12 @@ exports[`snapshot should have matching default structure 1`] = `
   white-space: normal;
 }
 
-.c9::before,
-.c9::after {
+.c10::before,
+.c10::after {
   box-sizing: border-box;
 }
 
-.c11 {
+.c12 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -135,13 +207,13 @@ exports[`snapshot should have matching default structure 1`] = `
   max-width: 100%;
 }
 
-.c11::-webkit-input-placeholder {
+.c12::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c11::before,
-.c11::after {
+.c12::before,
+.c12::after {
   box-sizing: border-box;
 }
 
@@ -212,7 +284,7 @@ exports[`snapshot should have matching default structure 1`] = `
   overflow: hidden;
 }
 
-.c12 {
+.c14 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -231,15 +303,15 @@ exports[`snapshot should have matching default structure 1`] = `
   line-height: 20px;
 }
 
-.c12.fi-status-text {
+.c14.fi-status-text {
   display: block;
 }
 
-.c12.fi-status-text.fi-status-text--error {
+.c14.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
 }
 
-.c10.fi-label .fi-label_label-span {
+.c11.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -258,42 +330,18 @@ exports[`snapshot should have matching default structure 1`] = `
   color: hsl(0,0%,13%);
 }
 
-.c10.fi-label .fi-label_label-span .fi-label_optional-text {
+.c11.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c10.fi-label .fi-label_label-span .fi-tooltip {
+.c11.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
-.c7 {
-  vertical-align: baseline;
-}
-
-.c7.fi-icon {
-  display: inline-block;
-}
-
-.c7 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c7 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c7.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c7.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
-.c8 {
+.c9 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -309,25 +357,25 @@ exports[`snapshot should have matching default structure 1`] = `
   font-weight: 400;
 }
 
-.c8 .fi-page-input_wrapper {
+.c9 .fi-page-input_wrapper {
   width: 100%;
   min-width: 105px;
   display: inline-block;
 }
 
-.c8 .fi-page-input_wrapper .fi-page-input_label--visible {
+.c9 .fi-page-input_wrapper .fi-page-input_label--visible {
   margin-bottom: 10px;
 }
 
-.c8 .fi-page-input_wrapper .fi-page-input_statusText--has-content {
+.c9 .fi-page-input_wrapper .fi-page-input_statusText--has-content {
   margin-top: 5px;
 }
 
-.c8 .fi-page-input_functionality-container {
+.c9 .fi-page-input_functionality-container {
   position: relative;
 }
 
-.c8 .fi-page-input_input-element-container {
+.c9 .fi-page-input_input-element-container {
   background-color: hsl(0,0%,100%);
   color: hsl(0,0%,13%);
   width: 100%;
@@ -337,23 +385,23 @@ exports[`snapshot should have matching default structure 1`] = `
   border-radius: 2px;
 }
 
-.c8 .fi-page-input_input-element-container > input:focus {
+.c9 .fi-page-input_input-element-container > input:focus {
   outline-color: hsl(196,77%,44%);
   outline-width: 2px;
   outline-offset: 2px;
   outline-style: solid;
 }
 
-.c8 .fi-page-input_input-element-container:focus-within > input:focus {
+.c9 .fi-page-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
-.c8 .fi-page-input_input-element-container:focus-within {
+.c9 .fi-page-input_input-element-container:focus-within {
   position: relative;
   box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
 }
 
-.c8 .fi-page-input_input-element-container:focus-within:after {
+.c9 .fi-page-input_input-element-container:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -373,12 +421,12 @@ exports[`snapshot should have matching default structure 1`] = `
   left: -3px;
 }
 
-.c8 .fi-page-input_input-element-container:focus-within > input:focus {
+.c9 .fi-page-input_input-element-container:focus-within > input:focus {
   outline: none;
 }
 
-.c8 .fi-page-input_input {
-  color: hsl(0,0%,13%);
+.c9 .fi-page-input_input {
+  color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -411,31 +459,31 @@ exports[`snapshot should have matching default structure 1`] = `
   appearance: none;
 }
 
-.c8 .fi-page-input_input::-webkit-input-placeholder {
+.c9 .fi-page-input_input::-webkit-input-placeholder {
   font-style: italic;
   color: hsl(201,7%,46%);
   opacity: 1;
 }
 
-.c8 .fi-page-input_input::-moz-placeholder {
+.c9 .fi-page-input_input::-moz-placeholder {
   font-style: italic;
   color: hsl(201,7%,46%);
   opacity: 1;
 }
 
-.c8 .fi-page-input_input:-ms-input-placeholder {
+.c9 .fi-page-input_input:-ms-input-placeholder {
   font-style: italic;
   color: hsl(201,7%,46%);
   opacity: 1;
 }
 
-.c8 .fi-page-input_input::placeholder {
+.c9 .fi-page-input_input::placeholder {
   font-style: italic;
   color: hsl(201,7%,46%);
   opacity: 1;
 }
 
-.c8 .fi-page-input_button {
+.c9 .fi-page-input_button {
   position: absolute;
   top: 0;
   display: -webkit-box;
@@ -462,38 +510,38 @@ exports[`snapshot should have matching default structure 1`] = `
   border: 0;
 }
 
-.c8 .fi-page-input_button-icon {
+.c9 .fi-page-input_button-icon {
   width: 18px;
   height: 18px;
 }
 
-.c8 .fi-page-input_button-icon .fi-icon-base-fill {
+.c9 .fi-page-input_button-icon .fi-icon-base-fill {
   fill: hsl(202,7%,40%);
 }
 
-.c8.fi-page-input--error .fi-page-input_input-element-container {
+.c9.fi-page-input--error .fi-page-input_input-element-container {
   border: 1px solid hsl(3,59%,48%);
   border-right: 0;
 }
 
-.c8.fi-page-input--error .fi-page-input_button {
+.c9.fi-page-input--error .fi-page-input_button {
   border: 1px solid hsl(3,59%,48%);
   border-left: 0;
 }
 
-.c8.fi-page-input--not-empty .fi-page-input_input-element-container {
+.c9.fi-page-input--not-empty .fi-page-input_input-element-container {
   width: calc(100% - 40px);
   border-radius: 2px 0 0 2px;
   border-right: 0;
 }
 
-.c8.fi-page-input--not-empty .fi-page-input_button {
+.c9.fi-page-input--not-empty .fi-page-input_button {
   cursor: pointer;
   pointer-events: all;
   background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
 }
 
-.c8.fi-page-input--not-empty .fi-page-input_button:focus:after {
+.c9.fi-page-input--not-empty .fi-page-input_button:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -509,15 +557,15 @@ exports[`snapshot should have matching default structure 1`] = `
   z-index: 9999;
 }
 
-.c8.fi-page-input--not-empty .fi-page-input_button:hover {
+.c9.fi-page-input--not-empty .fi-page-input_button:hover {
   background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
 }
 
-.c8.fi-page-input--not-empty .fi-page-input_button:active {
+.c9.fi-page-input--not-empty .fi-page-input_button:active {
   background-color: hsl(212,63%,37%);
 }
 
-.c8.fi-page-input--not-empty .fi-page-input_button .fi-page-input_button-icon .fi-icon-base-fill {
+.c9.fi-page-input--not-empty .fi-page-input_button .fi-page-input_button-icon .fi-icon-base-fill {
   fill: hsl(0,0%,100%);
 }
 
@@ -725,17 +773,17 @@ exports[`snapshot should have matching default structure 1`] = `
   background-color: hsl(202,7%,97%);
 }
 
-.c6 > .fi-button_icon {
+.c6 > .fi-button_icon > .fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c6 > .fi-button_icon.fi-button_icon--right {
+.c6 > .fi-button_icon--right > .fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
@@ -787,7 +835,7 @@ exports[`snapshot should have matching default structure 1`] = `
   padding-right: 0;
 }
 
-.c1.fi-pagination .fi-pagination_buttons-wrapper .fi-pagination_arrow-button > .fi-button_icon {
+.c1.fi-pagination .fi-pagination_buttons-wrapper .fi-pagination_arrow-button > .fi-button_icon > .fi-icon {
   margin-right: auto;
   margin-left: auto;
 }
@@ -875,22 +923,29 @@ exports[`snapshot should have matching default structure 1`] = `
         id="1-previous-button"
         type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="fi-icon c7 fi-button_icon fi-icon--cursor-pointer"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        <span
+          class="c3 fi-button_icon"
         >
-          <path
-            class="fi-icon-base-fill"
-            d="M22.999 11H3.413l4.293-4.293a.999.999 0 10-1.414-1.414l-6 6a1.001 1.001 0 000 1.416l6 5.998a.997.997 0 001.414 0 .999.999 0 000-1.414L3.413 13h19.586a1 1 0 000-2"
-            fill="#222"
-            fill-rule="evenodd"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            class="fi-icon c7"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="fi-icon-base-fill"
+              d="M22.999 11H3.413l4.293-4.293a.999.999 0 1 0-1.414-1.414l-6 6a1.001 1.001 0 0 0 0 1.416l6 5.998a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414L3.413 13h19.586a1 1 0 0 0 0-2"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="c3 fi-button_icon fi-button_icon--right"
+        />
       </button>
       <span
         class="c3 fi-pagination_page-numbers"
@@ -905,35 +960,42 @@ exports[`snapshot should have matching default structure 1`] = `
         tabindex="0"
         type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="fi-icon c7 fi-button_icon fi-icon--cursor-pointer"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        <span
+          class="c3 fi-button_icon"
         >
-          <path
-            class="fi-icon-base-fill"
-            d="M23.923 11.617a.999.999 0 00-.216-.325l-6-6a1 1 0 00-1.414 1.415l4.293 4.292H1a1 1 0 000 2h19.586l-4.293 4.293a.999.999 0 101.414 1.414l6-5.998a1.004 1.004 0 00.216-1.09"
-            fill="#222"
-            fill-rule="evenodd"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            class="fi-icon c8"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="fi-icon-base-fill"
+              d="M23.923 11.617a.999.999 0 0 0-.216-.325l-6-6a1 1 0 0 0-1.414 1.415l4.293 4.292H1a1 1 0 0 0 0 2h19.586l-4.293 4.293a.999.999 0 1 0 1.414 1.414l6-5.998a1.004 1.004 0 0 0 .216-1.09"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="c3 fi-button_icon fi-button_icon--right"
+        />
       </button>
     </div>
     <div
       class="c2 fi-pagination_page-input-wrapper"
     >
       <div
-        class="c2 c8 fi-page-input"
+        class="c2 c9 fi-page-input"
       >
         <span
           class="c3 fi-page-input_wrapper"
         >
           <div
-            class="c9 c10 fi-label"
+            class="c10 c11 fi-label"
           >
             <label
               class="c4 fi-visually-hidden"
@@ -950,7 +1012,7 @@ exports[`snapshot should have matching default structure 1`] = `
             >
               <input
                 aria-invalid="false"
-                class="c11 fi-page-input_input"
+                class="c12 fi-page-input_input"
                 id="1-pageInput"
                 inputmode="numeric"
                 pattern="[0-9]*"
@@ -973,7 +1035,7 @@ exports[`snapshot should have matching default structure 1`] = `
               </span>
               <svg
                 aria-hidden="true"
-                class="fi-icon c7 fi-page-input_button-icon"
+                class="fi-icon c13 fi-page-input_button-icon"
                 focusable="false"
                 height="1em"
                 viewBox="0 0 24 24"
@@ -982,7 +1044,7 @@ exports[`snapshot should have matching default structure 1`] = `
               >
                 <path
                   class="fi-icon-base-fill"
-                  d="M9 0c4.962 0 9 4.038 9 9.001a8.955 8.955 0 01-1.971 5.614l7.678 7.678a.999.999 0 11-1.414 1.414l-7.678-7.678A8.957 8.957 0 019 18c-4.962 0-9-4.037-9-8.999C0 4.038 4.038 0 9 0zm0 2C5.14 2 2 5.141 2 9.001 2 12.86 5.14 16 9 16s7-3.14 7-6.999C16 5.141 12.86 2 9 2z"
+                  d="M9 0c4.962 0 9 4.038 9 9.001a8.955 8.955 0 0 1-1.971 5.614l7.678 7.678a.999.999 0 1 1-1.414 1.414l-7.678-7.678A8.957 8.957 0 0 1 9 18c-4.962 0-9-4.037-9-8.999C0 4.038 4.038 0 9 0Zm0 2C5.14 2 2 5.141 2 9.001 2 12.86 5.14 16 9 16s7-3.14 7-6.999C16 5.141 12.86 2 9 2Z"
                   fill="#222"
                   fill-rule="evenodd"
                 />
@@ -992,7 +1054,7 @@ exports[`snapshot should have matching default structure 1`] = `
           <span
             aria-atomic="true"
             aria-live="assertive"
-            class="c3 c12 fi-page-input_statusText--has-content fi-status-text"
+            class="c3 c14 fi-page-input_statusText--has-content fi-status-text"
             id="1-pageInput-statusText"
           />
         </span>
