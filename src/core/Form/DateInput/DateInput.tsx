@@ -56,6 +56,7 @@ export const dateInputClassNames = {
   inputElement: `${baseClassName}_input`,
   pickerElementContainer: `${baseClassName}_picker-element-container`,
   pickerButton: `${baseClassName}_picker-button`,
+  pickerButtonDisabled: `${baseClassName}_picker-button--disabled`,
   pickerIcon: `${baseClassName}_picker-icon`,
   styleWrapper: `${baseClassName}_wrapper`,
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
@@ -327,8 +328,12 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
             {datePickerEnabled && (
               <>
                 <HtmlButton
-                  className={dateInputClassNames.pickerButton}
+                  className={classnames(dateInputClassNames.pickerButton, {
+                    [dateInputClassNames.pickerButtonDisabled]:
+                      passProps.disabled,
+                  })}
                   onClick={() => onCalendarOpen(!calendarVisible)}
+                  disabled={passProps.disabled}
                 >
                   <VisuallyHidden>{texts.openButtonLabel}</VisuallyHidden>
                   <Icon

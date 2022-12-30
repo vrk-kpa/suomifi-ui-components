@@ -86,6 +86,19 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
   }
 
+  & .fi-date-input_picker-icon {
+    color: ${theme.colors.highlightBase};
+  }
+
+  & .fi-date-input_picker-button--disabled {
+    cursor: default;
+    border-color: ${theme.colors.depthBase};
+
+    .fi-date-input_picker-icon {
+      color: ${theme.colors.depthBase};
+    }
+  }
+
   &.fi-date-input--error {
     & .fi-date-input_input {
       border: 2px solid ${theme.colors.alertBase};
@@ -121,9 +134,5 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       border-right: none;
       border-radius: ${theme.radius.basic} 0 0 ${theme.radius.basic};
     }
-  }
-
-  & .fi-date-input_picker-icon {
-    color: ${theme.colors.highlightBase};
   }
 `;
