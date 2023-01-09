@@ -11,7 +11,10 @@ import { InternalDatePickerTextProps } from '../datePickerTexts';
 import { baseStyles } from './DatePicker.baseStyles';
 import { Button } from '../../../Button/Button';
 import { MonthTable } from './MonthTable/MonthTable';
-import { DateSelectors } from './DateSelectors/DateSelectors';
+import {
+  DateSelectors,
+  selectorsClassNames,
+} from './DateSelectors/DateSelectors';
 
 const baseClassName = 'fi-date-picker';
 
@@ -26,6 +29,8 @@ export interface InternalDatePickerProps
   extends Omit<DatePickerProps, 'datePickerEnabled'> {
   /** Source ref for positioning the popover next to calendar button */
   sourceRef: React.RefObject<any>;
+  /** Button ref for closing dialog on button click when dialog is open */
+  buttonRef: React.RefObject<any>;
   /** Boolean to open or close calendar dialog */
   isCalendarOpen: boolean;
   /** Callback for changing calendar visibility */
@@ -43,6 +48,7 @@ export interface InternalDatePickerProps
 export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const {
     sourceRef,
+    buttonRef,
     isCalendarOpen,
     onClose,
     onChange,
@@ -75,9 +81,29 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   useEffect(() => {
     if (isCalendarOpen) {
       setHasPopperEventListeners(true);
-    } else {
-      setHasPopperEventListeners(false);
+      const globalClickHandler = (nativeEvent: MouseEvent) => {
+        const element = nativeEvent.target as Element;
+        if (
+          !dialogElement?.contains(nativeEvent.target as Node) &&
+          !buttonRef?.current?.contains(nativeEvent.target as Node) &&
+          /* Dropdown list is rendered outside of dialog
+          to a <reach-portal> that is not accessible with ref */
+          !element.classList.contains(selectorsClassNames.dropdownItem) &&
+          !element.classList.contains(selectorsClassNames.dropdown)
+        ) {
+          onClose();
+        }
+      };
+      document.addEventListener('click', globalClickHandler, {
+        capture: true,
+      });
+      return () => {
+        document.removeEventListener('click', globalClickHandler, {
+          capture: true,
+        });
+      };
     }
+    setHasPopperEventListeners(false);
   }, [isCalendarOpen]);
 
   const { styles } = usePopper(sourceRef.current, dialogElement, {

@@ -17,6 +17,8 @@ export const selectorsClassNames = {
   yearSelect: `${baseClassName}_year-select`,
   monthSelect: `${baseClassName}_month-select`,
   monthButton: `${baseClassName}_month-button`,
+  dropdown: `${baseClassName}_dropdown`,
+  dropdownItem: `${baseClassName}_dropdown-item`,
 };
 
 interface DateSelectorsProps {
@@ -80,10 +82,17 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
         labelMode="hidden"
         value={String(focusedDate.getFullYear())}
         onChange={handleYearSelect}
-        className={selectorsClassNames.yearSelect}
+        className={classnames(
+          selectorsClassNames.yearSelect,
+          selectorsClassNames.dropdown,
+        )}
       >
         {yearOptions(minDate, maxDate).map((year: number) => (
-          <DropdownItem value={String(year)} key={year}>
+          <DropdownItem
+            className={selectorsClassNames.dropdownItem}
+            value={String(year)}
+            key={year}
+          >
             {year}
           </DropdownItem>
         ))}
@@ -93,10 +102,17 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
         labelMode="hidden"
         value={String(focusedDate.getMonth())}
         onChange={handleMonthSelect}
-        className={selectorsClassNames.monthSelect}
+        className={classnames(
+          selectorsClassNames.monthSelect,
+          selectorsClassNames.dropdown,
+        )}
       >
         {texts.monthNames.map((monthName: string, index: number) => (
-          <DropdownItem value={String(index)} key={monthName}>
+          <DropdownItem
+            className={selectorsClassNames.dropdownItem}
+            value={String(index)}
+            key={monthName}
+          >
             {monthName}
           </DropdownItem>
         ))}

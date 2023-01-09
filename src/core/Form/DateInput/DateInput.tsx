@@ -6,7 +6,7 @@ import React, {
   ReactElement,
   useEffect,
   useState,
-  createRef,
+  useRef,
 } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
@@ -214,7 +214,8 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
 
   const statusTextId = `${id}-statusText`;
 
-  const inputRef: React.RefObject<HTMLInputElement> = createRef();
+  const inputRef = useRef<HTMLInputElement>();
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const [inputValue, setInputValue] = useState<string>('');
   const [inputDate, setInputDate] = useState<Date | null>(null);
@@ -241,7 +242,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
     }
 
     if (!isCalendarOpen) {
-      inputRef.current?.focus();
+      buttonRef.current?.focus();
     }
   };
 
@@ -328,6 +329,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
             {datePickerEnabled && (
               <>
                 <HtmlButton
+                  forwardedRef={buttonRef}
                   className={classnames(dateInputClassNames.pickerButton, {
                     [dateInputClassNames.pickerButtonDisabled]:
                       passProps.disabled,
@@ -344,6 +346,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
                 </HtmlButton>
                 <DatePicker
                   sourceRef={inputRef}
+                  buttonRef={buttonRef}
                   isCalendarOpen={calendarVisible}
                   onClose={() => onCalendarOpen(false)}
                   onChange={(eventValue) => onDatePickerChange(eventValue)}
