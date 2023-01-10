@@ -47,7 +47,7 @@ import { Button, Paragraph, Text } from 'suomifi-ui-components';
 
 ```js
 import { Button } from 'suomifi-ui-components';
-import { IconLogin } from 'suomifi-icons/baseIcons';
+import { IconLogin } from 'suomifi-icons';
 
 <>
   <Button icon={<IconLogin />} aria-label="Login">
@@ -63,7 +63,7 @@ import { IconLogin } from 'suomifi-icons/baseIcons';
 
 ```js
 import { Button } from 'suomifi-ui-components';
-import { IconLogin } from 'suomifi-icons/baseIcons';
+import { IconLogin } from 'suomifi-icons';
 
 <>
   <div example="inverted">
@@ -83,7 +83,7 @@ import { IconLogin } from 'suomifi-icons/baseIcons';
 
 ```js
 import { Button } from 'suomifi-ui-components';
-import { IconLogin } from 'suomifi-icons/baseIcons';
+import { IconLogin } from 'suomifi-icons';
 
 <>
   <Button variant="secondary">Button</Button>
@@ -112,7 +112,7 @@ import { IconLogin } from 'suomifi-icons/baseIcons';
 
 ```js
 import { Button } from 'suomifi-ui-components';
-import { IconLogin } from 'suomifi-icons/baseIcons';
+import { IconLogin } from 'suomifi-icons';
 
 <>
   <Button variant="link">Link Button</Button>

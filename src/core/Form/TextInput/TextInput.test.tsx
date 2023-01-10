@@ -3,7 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 import { axeTest } from '../../../utils/test';
 
 import { TextInput } from './TextInput';
-import { IconClose } from 'suomifi-icons/baseIcons';
+import { IconClose } from 'suomifi-icons';
 
 describe('snapshots match', () => {
   test('minimal implementation', () => {

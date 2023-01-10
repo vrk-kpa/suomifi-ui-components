@@ -11,7 +11,7 @@ import { StatusText } from '../StatusText/StatusText';
 import { HintText } from '../HintText/HintText';
 import { CheckboxGroupConsumer } from './CheckboxGroup';
 import { baseStyles } from './Checkbox.baseStyles';
-import { IconCheck } from 'suomifi-icons/baseIcons';
+import { IconCheck } from 'suomifi-icons';
 
 const baseClassName = 'fi-checkbox';
 

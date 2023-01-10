@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Toast.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
-import { IconCheckCircle } from 'suomifi-icons/baseIcons';
+import { IconCheckCircle } from 'suomifi-icons';
 import { Heading } from '../Heading/Heading';
 import { HtmlDiv, HtmlDivWithRef } from '../../reset';
 import { hLevels } from '../../reset/HtmlH/HtmlH';

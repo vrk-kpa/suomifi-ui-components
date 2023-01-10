@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { IconCheck } from 'suomifi-icons/baseIcons';
+import { IconCheck } from 'suomifi-icons';
 import { escapeStringRegexp } from '../../../../../utils/common';
 import { HtmlLi } from '../../../../../reset';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';

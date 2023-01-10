@@ -19,7 +19,7 @@ import {
   languageMenuPopoverStyles,
 } from './LanguageMenu.baseStyles';
 import { LanguageMenuItemProps, LanguageMenuLinkProps } from '../index';
-import { IconChevronDown } from 'suomifi-icons/baseIcons';
+import { IconChevronDown } from 'suomifi-icons';
 
 const baseClassName = 'fi-language-menu';
 const languageMenuClassNames = {

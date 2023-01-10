@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { IconClose } from 'suomifi-icons/baseIcons';
+import { IconClose } from 'suomifi-icons';
 import { baseStyles } from './InputClearButton.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlButton, HtmlButtonProps } from '../../../reset';

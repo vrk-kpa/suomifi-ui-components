@@ -12,12 +12,7 @@ import { AutoId } from '../../utils/AutoId/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './Alert.baseStyles';
-import {
-  IconClose,
-  IconError,
-  IconInfo,
-  IconWarning,
-} from 'suomifi-icons/baseIcons';
+import { IconClose, IconError, IconInfo, IconWarning } from 'suomifi-icons';
 
 const baseClassName = 'fi-alert';
 const alertClassNames = {
@@ -68,7 +63,6 @@ class BaseAlert extends Component<AlertProps> {
       ...closeButtonPassProps
     } = closeButtonProps;
 
-    // const variantIcon = status === 'neutral' ? 'info' : status;
     return (
       <HtmlDivWithRef
         as="section"
@@ -81,23 +75,26 @@ class BaseAlert extends Component<AlertProps> {
         <HtmlDiv className={alertClassNames.styleWrapper}>
           {status === 'warning' && (
             <IconWarning
-              className={classnames(alertClassNames.icon, {
-                [`${alertClassNames.icon}--${status}`]: !!status,
-              })}
+              className={classnames(
+                alertClassNames.icon,
+                `${alertClassNames.icon}--${status}`,
+              )}
             />
           )}
           {status === 'error' && (
             <IconError
-              className={classnames(alertClassNames.icon, {
-                [`${alertClassNames.icon}--${status}`]: !!status,
-              })}
+              className={classnames(
+                alertClassNames.icon,
+                `${alertClassNames.icon}--${status}`,
+              )}
             />
           )}
           {status === 'neutral' && (
             <IconInfo
-              className={classnames(alertClassNames.icon, {
-                [`${alertClassNames.icon}--${status}`]: !!status,
-              })}
+              className={classnames(
+                alertClassNames.icon,
+                `${alertClassNames.icon}--${status}`,
+              )}
             />
           )}
 

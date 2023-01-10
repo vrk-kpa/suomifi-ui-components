@@ -5,7 +5,7 @@ import { axeTest } from '../../../../utils/test';
 import { SideNavigation } from './SideNavigation';
 import { SideNavigationItem } from '../SideNavigationItem/SideNavigationItem';
 import { ExternalLink, RouterLink } from '../../../Link';
-import { IconPiggyBank } from 'suomifi-icons/illustrativeIcons';
+import { IconPiggyBank } from 'suomifi-icons';
 
 interface TestProps {
   children: string;

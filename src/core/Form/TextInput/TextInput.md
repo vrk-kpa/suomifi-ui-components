@@ -111,7 +111,7 @@ import { TextInput, Button } from 'suomifi-ui-components';
 
 ```js
 import { TextInput } from 'suomifi-ui-components';
-import { IconMapLocation } from 'suomifi-icons/baseIcons';
+import { IconMapLocation } from 'suomifi-icons';
 
 <>
   <TextInput

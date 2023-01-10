@@ -232,7 +232,7 @@ import {
   suomifiDesignTokens,
   InlineAlert
 } from 'suomifi-ui-components';
-import { IconError } from 'suomifi-icons/baseIcons';
+import { IconError } from 'suomifi-icons';
 
 const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Phasellus scelerisque elit a consectetur tempor. Morbi sit

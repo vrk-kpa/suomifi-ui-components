@@ -4,7 +4,7 @@ import { HtmlLi, HtmlSpan, HtmlUl } from '../../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { baseStyles } from './SideNavigationItem.baseStyles';
 import styled from 'styled-components';
-import { IconSubDirectory } from 'suomifi-icons/baseIcons';
+import { IconSubDirectory } from 'suomifi-icons';
 
 export interface SideNavigationItemProps {
   /** Custom class */

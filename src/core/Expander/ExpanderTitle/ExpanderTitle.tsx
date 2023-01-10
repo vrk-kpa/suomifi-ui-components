@@ -12,7 +12,7 @@ import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 import { expanderTitleBaseStyles } from './ExpanderTitle.baseStyles';
-import { IconChevronDown } from 'suomifi-icons/baseIcons';
+import { IconChevronDown } from 'suomifi-icons';
 
 const baseClassName = 'fi-expander_title';
 const titleOpenClassName = `${baseClassName}--open`;

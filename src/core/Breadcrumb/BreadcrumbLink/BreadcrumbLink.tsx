@@ -5,7 +5,7 @@ import { HtmlSpan } from '../../../reset';
 import classnames from 'classnames';
 import { baseStyles } from './BreadcrumbLink.baseStyles';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
-import { IconLinkBreadcrumb } from 'suomifi-icons/baseIcons';
+import { IconLinkBreadcrumb } from 'suomifi-icons';
 
 const baseClassName = 'fi-breadcrumb-link';
 const breadcrumbClassNames = {

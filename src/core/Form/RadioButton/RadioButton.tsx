@@ -9,10 +9,7 @@ import { getConditionalAriaProp } from '../../../utils/aria';
 import { HintText } from '../HintText/HintText';
 import { RadioButtonGroupConsumer } from './RadioButtonGroup';
 import { baseStyles } from './RadioButton.baseStyles';
-import {
-  IconRadioButton,
-  IconRadioButtonLarge,
-} from 'suomifi-icons/componentIcons';
+import { IconRadioButton, IconRadioButtonLarge } from 'suomifi-icons';
 
 const baseClassName = 'fi-radio-button';
 const radioButtonClassNames = {

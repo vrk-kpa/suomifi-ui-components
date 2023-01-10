@@ -1,7 +1,6 @@
 import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { IconPreloader } from 'suomifi-icons/componentIcons';
 import { baseStyles } from './LoadingSpinner.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { HtmlDiv, HtmlDivWithRef } from '../../reset';
@@ -9,7 +8,8 @@ import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import {
   IconCheckCircleFilled,
   IconErrorFilled,
-} from 'suomifi-icons/baseIcons';
+  IconPreloader,
+} from 'suomifi-icons';
 
 export type LoadingSpinnerStatus = 'loading' | 'success' | 'failed';
 export interface LoadingSpinnerProps {

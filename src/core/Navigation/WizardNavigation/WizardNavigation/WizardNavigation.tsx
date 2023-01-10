@@ -1,7 +1,7 @@
 import React, { forwardRef, ReactNode, useState } from 'react';
 import styled from 'styled-components';
 import classnames from 'classnames';
-import { IconChevronDown, IconChevronRight } from 'suomifi-icons/baseIcons';
+import { IconChevronDown, IconChevronRight } from 'suomifi-icons';
 import { HtmlButton, HtmlDiv, HtmlNav, HtmlUl } from '../../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { getConditionalAriaProp } from '../../../../utils/aria';

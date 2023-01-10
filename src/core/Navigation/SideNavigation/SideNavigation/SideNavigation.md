@@ -9,7 +9,7 @@ import {
   RouterLink,
   ExternalLink
 } from 'suomifi-ui-components';
-import { IconPiggyBank } from 'suomifi-icons/illustrativeIcons';
+import { IconPiggyBank } from 'suomifi-icons';
 
 const CustomButton = (props) => {
   const { children, ...passProps } = props;
@@ -116,7 +116,7 @@ import {
   RouterLink,
   ExternalLink
 } from 'suomifi-ui-components';
-import { IconPiggyBank } from 'suomifi-icons/illustrativeIcons';
+import { IconPiggyBank } from 'suomifi-icons';
 
 const CustomButton = (props) => {
   const { children, ...passProps } = props;

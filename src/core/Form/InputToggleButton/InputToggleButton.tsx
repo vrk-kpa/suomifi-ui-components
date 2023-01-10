@@ -5,7 +5,7 @@ import { HtmlButtonProps, HtmlButton } from '../../../reset';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { baseStyles } from './InputToggleButton.baseStyles';
-import { IconArrowheadDown, IconArrowheadUp } from 'suomifi-icons/baseIcons';
+import { IconArrowheadDown, IconArrowheadUp } from 'suomifi-icons';
 
 const baseClassName = 'fi-input-toggle-button';
 

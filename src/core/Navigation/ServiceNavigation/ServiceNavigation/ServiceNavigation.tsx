@@ -7,7 +7,7 @@ import {
   HtmlUl,
 } from '../../../../reset';
 import styled from 'styled-components';
-import { IconChevronDown, IconChevronRight } from 'suomifi-icons/baseIcons';
+import { IconChevronDown, IconChevronRight } from 'suomifi-icons';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { baseStyles } from './ServiceNavigation.baseStyles';

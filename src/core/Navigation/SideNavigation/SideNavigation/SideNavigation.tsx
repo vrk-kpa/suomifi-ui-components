@@ -11,7 +11,7 @@ import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { baseStyles } from './SideNavigation.baseStyles';
 import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../../utils/aria';
-import { IconChevronDown, IconChevronUp } from 'suomifi-icons/baseIcons';
+import { IconChevronDown, IconChevronUp } from 'suomifi-icons';
 
 export interface SideNavigationProps {
   /** Use the `<SideNavigationItem>` components as children */

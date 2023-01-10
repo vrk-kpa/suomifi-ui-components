@@ -1,7 +1,7 @@
 import React from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { IconToggle } from 'suomifi-icons/componentIcons';
+import { IconToggle } from 'suomifi-icons';
 import { baseStyles } from './ToggleIcon.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
 

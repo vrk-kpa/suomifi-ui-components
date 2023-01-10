@@ -24,7 +24,7 @@ import {
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { StatusText } from '../StatusText/StatusText';
 import { Label, LabelMode } from '../Label/Label';
-import { IconSearch } from 'suomifi-icons/baseIcons';
+import { IconSearch } from 'suomifi-icons';
 import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './SearchInput.baseStyles';
 import { InputClearButton } from '../InputClearButton/InputClearButton';

@@ -4,7 +4,7 @@ import { default as styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlButton, HtmlButtonProps } from '../../../reset';
 import { baseStyles } from './TooltipToggleButton.baseStyles';
-import { IconInfoFilled } from 'suomifi-icons/baseIcons';
+import { IconInfoFilled } from 'suomifi-icons';
 
 const baseClassName = 'fi-tooltip';
 

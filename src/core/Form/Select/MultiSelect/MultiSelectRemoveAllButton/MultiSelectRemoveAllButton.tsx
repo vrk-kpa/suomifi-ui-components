@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { IconRemove } from 'suomifi-icons/baseIcons';
+import { IconRemove } from 'suomifi-icons';
 import { Button } from '../../../../Button/Button';
 import { MultiSelectData } from '../MultiSelect/MultiSelect';
 
