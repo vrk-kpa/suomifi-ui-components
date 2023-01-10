@@ -239,14 +239,14 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
     setTexts({ ...datePickerDefaultTexts[language], ...datePickerTexts });
   }, [language, datePickerTexts]);
 
-  const onCalendarOpen = (isCalendarOpen: boolean) => {
-    setCalendarVisible(isCalendarOpen);
+  const toggleCalendar = (open: boolean, focus: boolean = false) => {
+    setCalendarVisible(open);
 
-    if (isCalendarOpen && inputRef.current?.value) {
+    if (open && inputRef.current?.value) {
       updateInputValue(inputRef.current?.value);
     }
 
-    if (!isCalendarOpen) {
+    if (!open && focus) {
       buttonRef.current?.focus();
     }
   };
@@ -339,7 +339,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
                     [dateInputClassNames.pickerButtonDisabled]:
                       passProps.disabled,
                   })}
-                  onClick={() => onCalendarOpen(!calendarVisible)}
+                  onClick={() => toggleCalendar(!calendarVisible)}
                   disabled={passProps.disabled}
                 >
                   <VisuallyHidden>{texts.openButtonLabel}</VisuallyHidden>
@@ -352,8 +352,8 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
                 <DatePicker
                   sourceRef={inputRef}
                   buttonRef={buttonRef}
-                  isCalendarOpen={calendarVisible}
-                  onClose={() => onCalendarOpen(false)}
+                  isOpen={calendarVisible}
+                  onClose={(focus) => toggleCalendar(false, focus)}
                   onChange={(eventValue) => onDatePickerChange(eventValue)}
                   initialDate={inputDate || initialDate}
                   texts={texts}

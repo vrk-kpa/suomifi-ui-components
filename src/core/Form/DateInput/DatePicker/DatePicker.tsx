@@ -32,10 +32,10 @@ export interface InternalDatePickerProps
   /** Button ref for closing dialog on button click when dialog is open */
   buttonRef: React.RefObject<any>;
   /** Boolean to open or close calendar dialog */
-  isCalendarOpen: boolean;
-  /** Callback for changing calendar visibility */
-  onClose: () => void;
-  /** Callback for date select  */
+  isOpen: boolean;
+  /** Callback fired when closing calender */
+  onClose: (focus?: boolean) => void;
+  /** Callback fired when date is selected  */
   onChange: (date: Date) => void;
   /** Texts for date picker  */
   texts: InternalDatePickerTextProps;
@@ -49,7 +49,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const {
     sourceRef,
     buttonRef,
-    isCalendarOpen,
+    isOpen,
     onClose,
     onChange,
     className,
@@ -79,7 +79,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   }, [initialDate]);
 
   useEffect(() => {
-    if (isCalendarOpen) {
+    if (isOpen) {
       setHasPopperEventListeners(true);
       const globalClickHandler = (nativeEvent: MouseEvent) => {
         const element = nativeEvent.target as Element;
@@ -104,7 +104,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       };
     }
     setHasPopperEventListeners(false);
-  }, [isCalendarOpen]);
+  }, [isOpen]);
 
   const { styles } = usePopper(sourceRef.current, dialogElement, {
     strategy: 'fixed',
@@ -121,7 +121,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   });
 
   const handleConfirm = (): void => {
-    onClose();
+    onClose(true);
     onChange(focusedDate);
   };
 
@@ -143,7 +143,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
         <HtmlDivWithRef
           role="dialog"
           className={classnames(className, baseClassName, {
-            [datePickerClassNames.hidden]: !isCalendarOpen,
+            [datePickerClassNames.hidden]: !isOpen,
           })}
           style={styles.popper}
           forwardedRef={setDialogElement}
@@ -171,7 +171,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
             </Button>
             <Button
               variant="secondary"
-              onClick={onClose}
+              onClick={() => onClose(true)}
               className={datePickerClassNames.bottomButton}
             >
               {texts.closeButtonText}
