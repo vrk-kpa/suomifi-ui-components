@@ -154,7 +154,7 @@ export interface DateInputProps
 
   onChange?: (change: { value: string; date: Date }) => void;
   /** Callback fired on input text onBlur
-   * @param {FocusEvent<HTMLInputElement>} event FocusEvent<HTMLInputElement>
+   * @param {FocusEvent<HTMLInputElement>} event FocusEvent
    */
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Label for the input */

@@ -12,6 +12,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 1px solid ${theme.colors.blackLight1};
   }
 
   &.fi-date-picker--hidden {
