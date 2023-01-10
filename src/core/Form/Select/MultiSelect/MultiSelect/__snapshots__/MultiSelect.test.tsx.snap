@@ -1307,7 +1307,6 @@ exports[`has matching snapshot 1`] = `
           <svg
             aria-hidden="true"
             class="fi-icon c14 fi-chip--icon fi-icon--cursor-pointer"
-            color="currentColor"
             focusable="false"
             height="1em"
             viewBox="0 0 24 24"
@@ -1340,8 +1339,11 @@ exports[`has matching snapshot 1`] = `
             class="fi-icon c10 fi-button_icon fi-icon--cursor-pointer"
 =======
             class="fi-icon c14 fi-chip--icon fi-icon--cursor-pointer"
+<<<<<<< HEAD
             color="currentColor"
 >>>>>>> 1aaf239e (update snapshots)
+=======
+>>>>>>> 37e1cfe5 (update snapshots)
             focusable="false"
             height="1em"
             viewBox="0 0 24 24"
@@ -1410,7 +1412,6 @@ exports[`has matching snapshot 1`] = `
           <svg
             aria-hidden="true"
             class="fi-icon c14 fi-chip--icon fi-icon--cursor-pointer"
-            color="currentColor"
             focusable="false"
             height="1em"
             viewBox="0 0 24 24"

@@ -1,22 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot should match snapshot 1`] = `
-.c2 {
-  vertical-align: baseline;
-}
-
-.c2.fi-static-icon {
-  display: inline-block;
-}
-
-.c2.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c2.fi-icon--cursor-pointer * {
-  cursor: inherit;
-}
-
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -73,6 +57,22 @@ exports[`snapshot should match snapshot 1`] = `
 .c0::before,
 .c0::after {
   box-sizing: border-box;
+}
+
+.c2 {
+  vertical-align: baseline;
+}
+
+.c2.fi-static-icon {
+  display: inline-block;
+}
+
+.c2.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c2.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c1 {

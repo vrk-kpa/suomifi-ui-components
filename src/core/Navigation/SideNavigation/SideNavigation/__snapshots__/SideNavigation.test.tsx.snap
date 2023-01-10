@@ -203,6 +203,22 @@ exports[`calling render with the same component on the same container does not r
   cursor: inherit;
 }
 
+.c3 {
+  vertical-align: baseline;
+}
+
+.c3.fi-static-icon {
+  display: inline-block;
+}
+
+.c3.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c3.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c1 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -696,22 +712,6 @@ exports[`calling render with the same component on the same container does not r
 .c9.fi-link--initial-underline:active {
   -webkit-text-decoration: none;
   text-decoration: none;
-}
-
-.c3 {
-  vertical-align: baseline;
-}
-
-.c3.fi-static-icon {
-  display: inline-block;
-}
-
-.c3.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c3.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 <div
