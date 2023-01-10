@@ -7,6 +7,7 @@ import { Dropdown, DropdownItem } from '../../../../Dropdown';
 import { InternalDatePickerTextProps } from '../../datePickerTexts';
 import { baseStyles } from './DateSelectors.baseStyles';
 import { Button } from '../../../../Button/Button';
+import { Icon } from '../../../../Icon/Icon';
 import { yearOptions, monthBack, monthForward } from '../../dateUtils';
 
 const baseClassName = 'fi-date-selectors';
@@ -17,6 +18,7 @@ export const selectorsClassNames = {
   yearSelect: `${baseClassName}_year-select`,
   monthSelect: `${baseClassName}_month-select`,
   monthButton: `${baseClassName}_month-button`,
+  monthButtonIcon: `${baseClassName}_month-button_icon`,
   dropdown: `${baseClassName}_dropdown`,
   dropdownItem: `${baseClassName}_dropdown-item`,
 };
@@ -119,18 +121,26 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
       </Dropdown>
       <Button
         onClick={() => handlePrevMonthButton()}
-        icon="chevronLeft"
         variant="secondaryNoBorder"
         aria-label={getPrevMonthButtonLabel()}
         className={selectorsClassNames.monthButton}
-      />
+      >
+        <Icon
+          icon="chevronLeft"
+          className={selectorsClassNames.monthButtonIcon}
+        />
+      </Button>
       <Button
         onClick={() => handleNextMonthButton()}
-        icon="chevronRight"
         variant="secondaryNoBorder"
         aria-label={getNextMonthButtonLabel()}
         className={selectorsClassNames.monthButton}
-      />
+      >
+        <Icon
+          icon="chevronRight"
+          className={selectorsClassNames.monthButtonIcon}
+        />
+      </Button>
     </HtmlDiv>
   );
 };

@@ -11,9 +11,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     padding: 0;
     text-align: center;
     min-width: 36px;
-  }
-
-  & .fi-month-table_body-cell {
     height: 38px;
   }
 
@@ -25,14 +22,22 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     text-align: center;
 
     &:focus {
-      ${theme.focus.boxShadowFocus}
       outline: 3px solid transparent;
+      ${theme.focus.boxShadowFocus}
+    }
+
+    &:hover {
+      background: ${theme.gradients.whiteBaseToDepthLight2};
     }
   }
 
   & .fi-month-table_date-button--disabled {
     cursor: default;
     color: ${theme.colors.depthBase};
+
+    &:hover {
+      background: inherit;
+    }
   }
 
   & .fi-month-table_date-button--current {
@@ -54,5 +59,18 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     background-color: ${theme.colors.highlightBase};
     color: ${theme.colors.whiteBase};
     text-decoration: none;
+
+    &:focus {
+      box-shadow: none;
+      position: relative;
+
+      &::after {
+        ${theme.focus.absoluteFocus}
+      }
+    }
+
+    &:hover {
+      background: ${theme.gradients.highlightLight1ToHighlightBase};
+    }
   }
 `;

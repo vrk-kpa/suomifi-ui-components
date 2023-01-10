@@ -11,7 +11,6 @@ const baseClassName = 'fi-month-table';
 
 export const monthClassNames = {
   baseClassName,
-  bodyCell: `${baseClassName}_body-cell`,
   cell: `${baseClassName}_cell`,
   date: `${baseClassName}_date-button`,
   dateDisabled: `${baseClassName}_date-button--disabled`,
@@ -46,7 +45,7 @@ export const BaseMonthTable = (props: MonthTableProps) => {
             <td
               // eslint-disable-next-line react/no-array-index-key
               key={`${day}${index}`}
-              className={classnames(monthClassNames.cell)}
+              className={monthClassNames.cell}
             >
               {day}
             </td>
@@ -57,13 +56,7 @@ export const BaseMonthTable = (props: MonthTableProps) => {
         {weekRows(focusedDate).map((weekRow: WeekRowDate[]) => (
           <tr key={weekRow[0].date.toString()}>
             {weekRow.map((date: WeekRowDate) => (
-              <td
-                key={date.date.toString()}
-                className={classnames(
-                  monthClassNames.bodyCell,
-                  monthClassNames.cell,
-                )}
-              >
+              <td key={date.date.toString()} className={monthClassNames.cell}>
                 {/* TBD: Buttons or <td> elements? 
                   Would announcing aria-selected work for <td> when table's role is presentation?
                   Own component for day for ref management. 

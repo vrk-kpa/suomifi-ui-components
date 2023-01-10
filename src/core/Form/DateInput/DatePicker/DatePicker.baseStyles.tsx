@@ -7,7 +7,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   &.fi-date-picker {
     background-color: ${theme.colors.whiteBase};
-    padding: ${theme.spacing.s};
+    padding: ${theme.spacing.m} ${theme.spacing.s};
     box-shadow: ${theme.shadows.wideBoxShadow};
     display: flex;
     flex-direction: column;

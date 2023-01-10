@@ -10,7 +10,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     margin-right: ${theme.spacing.xs};
     /* TODO: Better way for width of dropdown & responsive for mobile? */
     .fi-dropdown_button {
-      min-width: 40px;
+      min-width: 33px;
     }
   }
 
@@ -18,11 +18,18 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     margin-right: ${theme.spacing.xxs};
     /* TODO: Better way for width of dropdown & responsive for mobile? */
     .fi-dropdown_button {
-      min-width: 85px;
+      min-width: 73px;
     }
   }
 
   & .fi-date-selectors_month-button {
-    padding: 0 0 0 ${theme.spacing.xxs};
+    padding: 0;
+    width: 40px;
+  }
+
+  & .fi-date-selectors_month-button_icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
   }
 `;
