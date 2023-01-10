@@ -145,12 +145,17 @@ export interface DateInputProps
   wrapperProps?: Omit<HtmlDivProps, 'className'>;
   /** Disable input usage */
   disabled?: boolean;
-  /** Event handler to execute when clicked */
+  /** Callback fired when input is clicked. */
   onClick?: () => void;
-  /** To execute on input value change. If value can't be parsed to date, Invalid Date is returned.
-   * Invalid Date is a Date, whose time value is NaN. */
+  /** Callback fired when input value changes. If value can't be parsed to date, Invalid Date is returned.
+   * Invalid Date is a Date, whose time value is NaN.´
+   * @param {string} change.value Input value
+   * @param {Date} change.date Input value parsed to Date */
+
   onChange?: (change: { value: string; date: Date }) => void;
-  /** To execute on input text onBlur */
+  /** Callback fired on input text onBlur
+   * @param {FocusEvent<HTMLInputElement>} event FocusEvent<HTMLInputElement>
+   */
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Label for the input */
   labelText: ReactNode;
