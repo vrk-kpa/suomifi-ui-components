@@ -29,6 +29,8 @@ interface DateSelectorsProps {
   className?: string;
   /** Callback for date select  */
   onChange: (date: Date) => void;
+  /** Year select element reference for focusing select */
+  yearSelect: React.RefObject<HTMLDivElement>;
   /** Date that is focused in calendar */
   focusedDate: Date;
   minDate: Date;
@@ -36,7 +38,15 @@ interface DateSelectorsProps {
 }
 
 export const BaseDateSelectors = (props: DateSelectorsProps) => {
-  const { className, onChange, texts, focusedDate, minDate, maxDate } = props;
+  const {
+    className,
+    onChange,
+    yearSelect,
+    texts,
+    focusedDate,
+    minDate,
+    maxDate,
+  } = props;
 
   const handleYearSelect = (value: string): void => {
     const date = new Date(focusedDate);
@@ -80,6 +90,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
   return (
     <HtmlDiv className={classnames(className, selectorsClassNames.container)}>
       <Dropdown
+        forwardedRef={yearSelect}
         labelText={texts.yearSelectLabel}
         labelMode="hidden"
         value={String(focusedDate.getFullYear())}

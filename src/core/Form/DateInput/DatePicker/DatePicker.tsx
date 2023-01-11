@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { default as styled } from 'styled-components';
 import { usePopper } from 'react-popper';
@@ -66,6 +66,8 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const [focusedDate, setFocusedDate] = useState<Date>(new Date());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
+  const yearSelectRef = useRef<HTMLDivElement>(null);
+
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
   }, []);
@@ -97,6 +99,11 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       document.addEventListener('click', globalClickHandler, {
         capture: true,
       });
+      if (yearSelectRef.current) {
+        const focusable = yearSelectRef.current
+          .childNodes[0] as HTMLSpanElement;
+        focusable?.focus();
+      }
       return () => {
         document.removeEventListener('click', globalClickHandler, {
           capture: true,
@@ -150,6 +157,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
         >
           <DateSelectors
             focusedDate={focusedDate}
+            yearSelect={yearSelectRef}
             texts={texts}
             onChange={handleDateFocus}
             minDate={minDate}
