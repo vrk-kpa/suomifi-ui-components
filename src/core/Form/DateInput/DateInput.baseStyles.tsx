@@ -78,6 +78,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     height: 100%;
+    width: 40px;
+    text-align: center;
     padding: ${theme.spacing.xs};
     border: 1px solid ${theme.colors.highlightBase};
     border-radius: ${theme.radius.basic};
