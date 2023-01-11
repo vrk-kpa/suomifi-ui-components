@@ -23,6 +23,7 @@ export const datePickerClassNames = {
   hidden: `${baseClassName}--hidden`,
   bottomContainer: `${baseClassName}_bottom-container`,
   bottomButton: `${baseClassName}_bottom-button`,
+  popperArrow: `${baseClassName}_popper-arrow`,
 };
 
 export interface InternalDatePickerProps
@@ -66,6 +67,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const [focusedDate, setFocusedDate] = useState<Date>(new Date());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
+  const arrowRef = useRef<HTMLDivElement>(null);
   const yearSelectRef = useRef<HTMLDivElement>(null);
 
   useEnhancedEffect(() => {
@@ -113,7 +115,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     setHasPopperEventListeners(false);
   }, [isOpen]);
 
-  const { styles } = usePopper(sourceRef.current, dialogElement, {
+  const { styles, attributes } = usePopper(sourceRef.current, dialogElement, {
     strategy: 'fixed',
     modifiers: [
       { name: 'eventListeners', enabled: hasPopperEventListeners },
@@ -121,6 +123,12 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
         name: 'offset',
         options: {
           offset: [0, 10],
+        },
+      },
+      {
+        name: 'arrow',
+        options: {
+          element: arrowRef.current,
         },
       },
     ],
@@ -155,6 +163,12 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
           style={styles.popper}
           forwardedRef={setDialogElement}
         >
+          <HtmlDivWithRef
+            className={datePickerClassNames.popperArrow}
+            forwardedRef={arrowRef}
+            data-popper-arrow
+            data-popper-placement={attributes.popper?.['data-popper-placement']}
+          />
           <DateSelectors
             focusedDate={focusedDate}
             yearSelect={yearSelectRef}
