@@ -107,7 +107,7 @@ export interface InternalSingleSelectProps<T extends SingleSelectData> {
 type LoadingProps =
   | {
       loading?: false | never;
-      loadingText?: never;
+      loadingText?: string;
     }
   | {
       /** Show the animated icon indcating that component is loading data
