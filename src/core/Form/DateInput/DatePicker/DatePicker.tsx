@@ -21,6 +21,7 @@ const baseClassName = 'fi-date-picker';
 export const datePickerClassNames = {
   baseClassName,
   hidden: `${baseClassName}--hidden`,
+  application: `${baseClassName}_application`,
   bottomContainer: `${baseClassName}_bottom-container`,
   bottomButton: `${baseClassName}_bottom-button`,
   popperArrow: `${baseClassName}_popper-arrow`,
@@ -163,41 +164,48 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
           style={styles.popper}
           forwardedRef={setDialogElement}
         >
-          <HtmlDivWithRef
-            className={datePickerClassNames.popperArrow}
-            forwardedRef={arrowRef}
-            data-popper-arrow
-            data-popper-placement={attributes.popper?.['data-popper-placement']}
-          />
-          <DateSelectors
-            focusedDate={focusedDate}
-            yearSelect={yearSelectRef}
-            texts={texts}
-            onChange={handleDateFocus}
-            minDate={minDate}
-            maxDate={maxDate}
-          />
-          <MonthTable
-            texts={texts}
-            focusedDate={focusedDate}
-            selectedDate={selectedDate}
-            onSelect={handleDateSelect}
-          />
-          <HtmlDiv className={datePickerClassNames.bottomContainer}>
-            <Button
-              disabled={selectedDate === null}
-              onClick={() => handleConfirm()}
-              className={datePickerClassNames.bottomButton}
-            >
-              {texts.selectButtonText}
-            </Button>
-            <Button
-              variant="secondary"
-              onClick={() => onClose(true)}
-              className={datePickerClassNames.bottomButton}
-            >
-              {texts.closeButtonText}
-            </Button>
+          <HtmlDiv
+            role="application"
+            className={datePickerClassNames.application}
+          >
+            <HtmlDivWithRef
+              className={datePickerClassNames.popperArrow}
+              forwardedRef={arrowRef}
+              data-popper-arrow
+              data-popper-placement={
+                attributes.popper?.['data-popper-placement']
+              }
+            />
+            <DateSelectors
+              focusedDate={focusedDate}
+              yearSelect={yearSelectRef}
+              texts={texts}
+              onChange={handleDateFocus}
+              minDate={minDate}
+              maxDate={maxDate}
+            />
+            <MonthTable
+              texts={texts}
+              focusedDate={focusedDate}
+              selectedDate={selectedDate}
+              onSelect={handleDateSelect}
+            />
+            <HtmlDiv className={datePickerClassNames.bottomContainer}>
+              <Button
+                disabled={selectedDate === null}
+                onClick={() => handleConfirm()}
+                className={datePickerClassNames.bottomButton}
+              >
+                {texts.selectButtonText}
+              </Button>
+              <Button
+                variant="secondary"
+                onClick={() => onClose(true)}
+                className={datePickerClassNames.bottomButton}
+              >
+                {texts.closeButtonText}
+              </Button>
+            </HtmlDiv>
           </HtmlDiv>
         </HtmlDivWithRef>,
         mountNode,

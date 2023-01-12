@@ -7,16 +7,19 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   &.fi-date-picker {
     background-color: ${theme.colors.whiteBase};
-    padding: ${theme.spacing.m} ${theme.spacing.s};
     box-shadow: ${theme.shadows.wideBoxShadow};
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     border: 1px solid ${theme.colors.blackLight1};
   }
 
   &.fi-date-picker--hidden {
     display: none;
+  }
+
+  & .fi-date-picker_application {
+    padding: ${theme.spacing.m} ${theme.spacing.s};
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   & .fi-date-picker_popper-arrow {
