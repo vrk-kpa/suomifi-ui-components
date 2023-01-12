@@ -5,6 +5,7 @@ import {
   eachWeekOfInterval,
   endOfWeek,
   format,
+  getDay,
   isSameDay,
   isSameMonth,
   isToday,
@@ -14,6 +15,7 @@ import {
   subMonths,
   subYears,
 } from 'date-fns';
+import { InternalDatePickerTextProps } from './datePickerTexts';
 
 export interface DateAdapter {
   format: (date: Date) => string;
@@ -75,4 +77,12 @@ export const weekRows = (month: Date): WeekRowDate[][] => {
     }));
   });
   return rows;
+};
+export const cellDateAriaLabel = (
+  date: Date,
+  texts: InternalDatePickerTextProps,
+) => {
+  const month = texts.monthNames[date.getMonth()];
+  const weekDay = texts.weekDays[getDay(date)];
+  return ` ${date.getDate()} ${weekDay} ${month} ${date.getFullYear()}`;
 };

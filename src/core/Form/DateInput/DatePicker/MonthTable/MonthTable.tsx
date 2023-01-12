@@ -5,7 +5,12 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
 import { HtmlButton } from '../../../../../reset';
 import { InternalDatePickerTextProps } from '../../datePickerTexts';
 import { baseStyles } from './MonthTable.baseStyles';
-import { daysMatch, weekRows, WeekRowDate } from '../../dateUtils';
+import {
+  daysMatch,
+  weekRows,
+  WeekRowDate,
+  cellDateAriaLabel,
+} from '../../dateUtils';
 
 const baseClassName = 'fi-month-table';
 
@@ -77,6 +82,8 @@ export const BaseMonthTable = (props: MonthTableProps) => {
                     className={classnames(monthClassNames.date, {
                       [monthClassNames.dateSelected]: isSelectedDate(date),
                     })}
+                    aria-label={cellDateAriaLabel(date.date, texts)}
+                    aria-current={date.current ? 'date' : undefined}
                   >
                     <span
                       className={classnames({
