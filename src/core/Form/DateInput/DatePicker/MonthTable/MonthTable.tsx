@@ -17,8 +17,8 @@ const baseClassName = 'fi-month-table';
 export const monthClassNames = {
   baseClassName,
   cell: `${baseClassName}_cell`,
+  cellDisabled: `${baseClassName}_cell--disabled`,
   date: `${baseClassName}_date-button`,
-  dateDisabled: `${baseClassName}_date-button--disabled`,
   dateCurrent: `${baseClassName}_date-button--current`,
   dateSelected: `${baseClassName}_date-button--selected`,
 };
@@ -61,28 +61,23 @@ export const BaseMonthTable = (props: MonthTableProps) => {
         {weekRows(focusedDate).map((weekRow: WeekRowDate[]) => (
           <tr key={weekRow[0].date.toString()}>
             {weekRow.map((date: WeekRowDate) => (
-              <td key={date.date.toString()} className={monthClassNames.cell}>
-                {/* TBD: Buttons or <td> elements? 
-                  Would announcing aria-selected work for <td> when table's role is presentation?
-                  Own component for day for ref management. 
-                 */}
+              <td
+                key={date.date.toString()}
+                className={classnames(monthClassNames.cell, {
+                  [monthClassNames.cellDisabled]: date.disabled,
+                })}
+              >
                 {date.disabled ? (
-                  <HtmlButton
-                    disabled
-                    className={classnames(
-                      monthClassNames.date,
-                      monthClassNames.dateDisabled,
-                    )}
-                  >
-                    {date.number}
-                  </HtmlButton>
+                  date.number
                 ) : (
                   <HtmlButton
                     onClick={() => onSelect(date.date)}
                     className={classnames(monthClassNames.date, {
                       [monthClassNames.dateSelected]: isSelectedDate(date),
                     })}
-                    aria-label={cellDateAriaLabel(date.date, texts)}
+                    aria-label={`${
+                      isSelectedDate(date) ? `${texts.selectedDateLabel} ` : ''
+                    }${cellDateAriaLabel(date.date, texts)}`}
                     aria-current={date.current ? 'date' : undefined}
                   >
                     <span

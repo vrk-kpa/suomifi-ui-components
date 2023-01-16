@@ -40,7 +40,10 @@ import {
   yearsForward,
   yearsBack,
   DateAdapter,
+  dayInRange,
+  cellDateAriaLabel,
 } from './dateUtils';
+import { getLogger } from '../../../utils/log';
 
 const baseClassName = 'fi-date-input';
 export const dateInputClassNames = {
@@ -72,6 +75,7 @@ export interface DatePickerProps {
    * <pre>
    * DatePickerTextProps {
    *  openButtonLabel?: string;
+   *  selectedDateLabel?: string;
    *  closeButtonText?: string;
    *  selectButtonText?: string;
    *  yearSelectLabel?: string;
@@ -123,7 +127,7 @@ export interface DatePickerProps {
   /** Maximum date user can select from date picker. By default ten years after current date. */
   maxDate?: Date;
   /** Initial date to focus when date picker is opened. By default the current date. */
-  initialDate?: Date;
+  initialMonth?: Date;
   /**
    * Enables custom formatting and parsing for date picker. By default date format is like '1.1.2022'.
    * If value can't be parsed to date, Invalid Date is returned. Invalid Date is a Date, whose time value is NaN.
@@ -210,7 +214,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
     dateAdapter = defaultDateAdapter(),
     minDate = yearsBack(10),
     maxDate = yearsForward(10),
-    initialDate,
+    initialMonth,
     tooltipComponent,
     ...passProps
   } = props;
@@ -223,7 +227,8 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const [inputValue, setInputValue] = useState<string>('');
-  const [inputDate, setInputDate] = useState<Date | null>(null);
+  const [buttonDateLabel, setButtonDateLabel] = useState<string>('');
+  const [datePickerDate, setDatePickerDate] = useState<Date | null>(null);
   const [calendarVisible, setCalendarVisible] = useState<boolean>(false);
   const [texts, setTexts] = useState<InternalDatePickerTextProps>(
     datePickerDefaultTexts.fi,
@@ -236,6 +241,19 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
   }, []);
 
   useEffect(() => {
+    // Update open button's aria label if input has a valid date
+    const useValue = 'value' in props && value ? value : inputValue;
+    if (useValue) {
+      const date = validateDatePickerValue(useValue);
+      if (date) {
+        setButtonDateLabel(
+          `${texts.selectedDateLabel} ${cellDateAriaLabel(date, texts)}`,
+        );
+      }
+    }
+  }, [value, inputValue]);
+
+  useEffect(() => {
     setTexts({ ...datePickerDefaultTexts[language], ...datePickerTexts });
   }, [language, datePickerTexts]);
 
@@ -243,7 +261,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
     setCalendarVisible(open);
 
     if (open && inputRef.current?.value) {
-      updateInputValue(inputRef.current?.value);
+      updateDatePickerDate(inputRef.current?.value);
     }
 
     if (!open && focus) {
@@ -257,13 +275,26 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
     }
   };
 
-  const updateInputValue = (newValue: string) => {
+  const validateDatePickerValue = (newValue: string): Date | null => {
     const date = dateAdapter.parse(newValue);
     if (Number.isNaN(date.valueOf())) {
-      setInputDate(null);
-    } else {
-      setInputDate(date);
+      getLogger().warn(
+        `Date input value "${newValue}" could not be parsed to Date`,
+      );
+      return null;
     }
+    if (!dayInRange(date, minDate, maxDate)) {
+      getLogger().warn(
+        `Date input value "${newValue}" is not within interval [minDate, maxDate]`,
+      );
+      return null;
+    }
+    return date;
+  };
+
+  const updateDatePickerDate = (newValue: string) => {
+    const date = validateDatePickerValue(newValue);
+    setDatePickerDate(date);
   };
 
   const onDatePickerChange = (date: Date) => {
@@ -342,7 +373,10 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
                   onClick={() => toggleCalendar(!calendarVisible)}
                   disabled={passProps.disabled}
                 >
-                  <VisuallyHidden>{texts.openButtonLabel}</VisuallyHidden>
+                  <VisuallyHidden>
+                    {texts.openButtonLabel}
+                    {buttonDateLabel}
+                  </VisuallyHidden>
                   <Icon
                     className={dateInputClassNames.pickerIcon}
                     aria-hidden={true}
@@ -355,7 +389,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
                   isOpen={calendarVisible}
                   onClose={(focus) => toggleCalendar(false, focus)}
                   onChange={(eventValue) => onDatePickerChange(eventValue)}
-                  initialDate={inputDate || initialDate}
+                  initialMonth={datePickerDate || initialMonth}
                   texts={texts}
                   minDate={minDate}
                   maxDate={maxDate}

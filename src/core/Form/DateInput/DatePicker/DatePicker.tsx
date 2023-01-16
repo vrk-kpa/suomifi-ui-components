@@ -15,6 +15,8 @@ import {
   DateSelectors,
   selectorsClassNames,
 } from './DateSelectors/DateSelectors';
+import { dayIsAfter, dayIsBefore, dayInRange } from '../dateUtils';
+import { getLogger } from '../../../../utils/log';
 
 const baseClassName = 'fi-date-picker';
 
@@ -56,7 +58,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     onChange,
     className,
     texts,
-    initialDate,
+    initialMonth,
     minDate,
     maxDate,
   } = props;
@@ -73,15 +75,24 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
+    if (dayIsBefore(focusedDate, minDate)) {
+      setFocusedDate(minDate);
+    } else if (dayIsAfter(focusedDate, maxDate)) {
+      setFocusedDate(maxDate);
+    }
   }, []);
 
   useEffect(() => {
-    if (initialDate) {
-      // TODO: Check that min <= initialDate => max
-      // TODO: Focus to initial date element
-      setFocusedDate(initialDate);
+    if (initialMonth) {
+      if (dayInRange(initialMonth, minDate, maxDate)) {
+        setFocusedDate(initialMonth);
+      } else {
+        getLogger().warn(
+          `Initial month "${initialMonth}" is not within interval [minDate, maxDate]`,
+        );
+      }
     }
-  }, [initialDate]);
+  }, [initialMonth]);
 
   useEffect(() => {
     if (isOpen) {

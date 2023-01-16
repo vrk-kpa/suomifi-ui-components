@@ -6,9 +6,12 @@ import {
   endOfWeek,
   format,
   getDay,
+  isAfter,
+  isBefore,
   isSameDay,
   isSameMonth,
   isToday,
+  isWithinInterval,
   lastDayOfMonth,
   parse,
   startOfMonth,
@@ -48,6 +51,15 @@ export const monthForward = (date: Date): Date => addMonths(date, 1);
 export const daysMatch = (first: Date, second: Date): boolean =>
   isSameDay(first, second);
 
+export const dayInRange = (date: Date, start: Date, end: Date): boolean =>
+  isWithinInterval(date, { start, end });
+
+export const dayIsAfter = (date: Date, dateToCompare: Date): boolean =>
+  isAfter(date, dateToCompare);
+
+export const dayIsBefore = (date: Date, dateToCompare: Date): boolean =>
+  isBefore(date, dateToCompare);
+
 export interface WeekRowDate {
   date: Date;
   number: number;
@@ -78,11 +90,12 @@ export const weekRows = (month: Date): WeekRowDate[][] => {
   });
   return rows;
 };
+
 export const cellDateAriaLabel = (
   date: Date,
   texts: InternalDatePickerTextProps,
 ) => {
   const month = texts.monthNames[date.getMonth()];
   const weekDay = texts.weekDays[getDay(date)];
-  return ` ${date.getDate()} ${weekDay} ${month} ${date.getFullYear()}`;
+  return `${date.getDate()} ${weekDay} ${month} ${date.getFullYear()}`;
 };

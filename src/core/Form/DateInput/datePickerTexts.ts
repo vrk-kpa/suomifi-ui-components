@@ -1,6 +1,8 @@
 export interface DatePickerTextProps {
   /** Aria-label for calendar button that opens the date picker. */
   openButtonLabel?: string;
+  /** Aria label for indicating date selection in selected cell and calendar open button. */
+  selectedDateLabel?: string;
   /** Text for close button. */
   closeButtonText?: string;
   /** Text for date selection button. */
@@ -51,6 +53,7 @@ export const datePickerDefaultTexts: {
 } = {
   en: {
     openButtonLabel: 'Choose date',
+    selectedDateLabel: 'Selected date',
     closeButtonText: 'Close',
     selectButtonText: 'Select',
     yearSelectLabel: 'Select year',
@@ -92,6 +95,7 @@ export const datePickerDefaultTexts: {
   },
   fi: {
     openButtonLabel: 'Valitse päivämäärä',
+    selectedDateLabel: 'Valittu päivä',
     closeButtonText: 'Sulje',
     selectButtonText: 'Valitse',
     yearSelectLabel: 'Valitse vuosi',
@@ -125,6 +129,7 @@ export const datePickerDefaultTexts: {
   },
   sv: {
     openButtonLabel: 'Väjl datumn',
+    selectedDateLabel: 'Valt datumn',
     closeButtonText: 'Stäng',
     selectButtonText: 'Välj',
     yearSelectLabel: 'Välj år',

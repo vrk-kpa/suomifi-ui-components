@@ -14,6 +14,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     height: 38px;
   }
 
+  & .fi-month-table_cell--disabled {
+    color: ${theme.colors.depthBase};
+  }
+
   & .fi-month-table_date-button {
     ${font(theme)('bodyTextSmall')};
     border-radius: ${theme.radius.basic};
@@ -28,15 +32,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &:hover {
       background: ${theme.gradients.whiteBaseToDepthLight2};
-    }
-  }
-
-  & .fi-month-table_date-button--disabled {
-    cursor: default;
-    color: ${theme.colors.depthBase};
-
-    &:hover {
-      background: inherit;
     }
   }
 
