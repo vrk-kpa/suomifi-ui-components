@@ -8,7 +8,15 @@ import { InternalDatePickerTextProps } from '../../datePickerTexts';
 import { baseStyles } from './DateSelectors.baseStyles';
 import { Button } from '../../../../Button/Button';
 import { Icon } from '../../../../Icon/Icon';
-import { yearOptions, monthBack, monthForward } from '../../dateUtils';
+import {
+  yearOptions,
+  monthBack,
+  monthForward,
+  monthOptions,
+  dayIsAfter,
+  dayIsBefore,
+  MonthOption,
+} from '../../dateUtils';
 
 const baseClassName = 'fi-date-selectors';
 
@@ -49,8 +57,13 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
   } = props;
 
   const handleYearSelect = (value: string): void => {
-    const date = new Date(focusedDate);
+    let date = new Date(focusedDate);
     date.setFullYear(Number(value));
+    if (dayIsAfter(date, maxDate)) {
+      date = maxDate;
+    } else if (dayIsBefore(date, minDate)) {
+      date = minDate;
+    }
     onChange(date);
   };
 
@@ -120,15 +133,17 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
           selectorsClassNames.dropdown,
         )}
       >
-        {texts.monthNames.map((monthName: string, index: number) => (
-          <DropdownItem
-            className={selectorsClassNames.dropdownItem}
-            value={String(index)}
-            key={monthName}
-          >
-            {monthName}
-          </DropdownItem>
-        ))}
+        {monthOptions(focusedDate, minDate, maxDate, texts).map(
+          (month: MonthOption) => (
+            <DropdownItem
+              className={selectorsClassNames.dropdownItem}
+              value={String(month.value)}
+              key={month.name}
+            >
+              {month.name}
+            </DropdownItem>
+          ),
+        )}
       </Dropdown>
       <Button
         onClick={() => handlePrevMonthButton()}

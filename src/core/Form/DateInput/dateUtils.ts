@@ -2,7 +2,9 @@ import {
   addMonths,
   addYears,
   eachDayOfInterval,
+  eachMonthOfInterval,
   eachWeekOfInterval,
+  endOfMonth,
   endOfWeek,
   format,
   getDay,
@@ -36,6 +38,35 @@ export const yearOptions = (minDate: Date, maxDate: Date): number[] => {
   const min = minDate.getFullYear();
   const max = maxDate.getFullYear();
   return Array.from({ length: max - min + 1 }, (_, i) => min + i);
+};
+
+export interface MonthOption {
+  name: string;
+  value: number;
+}
+
+export const monthOptions = (
+  selectedDate: Date,
+  minDate: Date,
+  maxDate: Date,
+  texts: InternalDatePickerTextProps,
+): any[] => {
+  const year = selectedDate.getFullYear();
+  const months = eachMonthOfInterval({
+    start: new Date(year, 0, 1),
+    end: new Date(year, 11, 31),
+  });
+  return months.reduce((array: MonthOption[], month, index) => {
+    if (startOfMonth(minDate) > month || endOfMonth(maxDate) < month) {
+      // Month is disabled
+    } else {
+      array.push({
+        name: texts.monthNames[index],
+        value: index,
+      });
+    }
+    return array;
+  }, []);
 };
 
 export const yearsBack = (difference: number = 10): Date =>
