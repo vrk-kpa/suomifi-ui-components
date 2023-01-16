@@ -15,7 +15,7 @@ import {
   DateSelectors,
   selectorsClassNames,
 } from './DateSelectors/DateSelectors';
-import { dayIsAfter, dayIsBefore, dayInRange } from '../dateUtils';
+import { monthIsAfter, monthIsBefore, dayInRange } from '../dateUtils';
 import { getLogger } from '../../../../utils/log';
 
 const baseClassName = 'fi-date-picker';
@@ -45,8 +45,8 @@ export interface InternalDatePickerProps
   texts: InternalDatePickerTextProps;
   /** Styled component className */
   className?: string;
-  minDate: Date;
-  maxDate: Date;
+  minMonth: Date;
+  maxMonth: Date;
 }
 
 export const BaseDatePicker = (props: InternalDatePickerProps) => {
@@ -59,8 +59,8 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     className,
     texts,
     initialMonth,
-    minDate,
-    maxDate,
+    minMonth,
+    maxMonth,
   } = props;
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
@@ -75,20 +75,20 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
-    if (dayIsBefore(focusedDate, minDate)) {
-      setFocusedDate(minDate);
-    } else if (dayIsAfter(focusedDate, maxDate)) {
-      setFocusedDate(maxDate);
+    if (monthIsBefore(focusedDate, minMonth)) {
+      setFocusedDate(minMonth);
+    } else if (monthIsAfter(focusedDate, maxMonth)) {
+      setFocusedDate(maxMonth);
     }
   }, []);
 
   useEffect(() => {
     if (initialMonth) {
-      if (dayInRange(initialMonth, minDate, maxDate)) {
+      if (dayInRange(initialMonth, minMonth, maxMonth)) {
         setFocusedDate(initialMonth);
       } else {
         getLogger().warn(
-          `Initial month "${initialMonth}" is not within interval [minDate, maxDate]`,
+          `Initial month "${initialMonth}" is not within interval [minMonth, maxMonth]`,
         );
       }
     }
@@ -192,8 +192,8 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
               yearSelect={yearSelectRef}
               texts={texts}
               onChange={handleDateFocus}
-              minDate={minDate}
-              maxDate={maxDate}
+              minMonth={minMonth}
+              maxMonth={maxMonth}
             />
             <MonthTable
               texts={texts}

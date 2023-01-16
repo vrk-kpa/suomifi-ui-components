@@ -122,11 +122,11 @@ export interface DatePickerProps {
    * @default 'fi'
    */
   language?: 'fi' | 'en' | 'sv';
-  /** Minimum date user can select from date picker. By default ten years before current date. */
-  minDate?: Date;
-  /** Maximum date user can select from date picker. By default ten years after current date. */
-  maxDate?: Date;
-  /** Initial date to focus when date picker is opened. By default the current date. */
+  /** Minimum month user can select from date picker. By default ten years before current date. */
+  minMonth?: Date;
+  /** Maximum month user can select from date picker. By default ten years after current date. */
+  maxMonth?: Date;
+  /** Initial date to focus when date picker is opened. By default the current month. */
   initialMonth?: Date;
   /**
    * Enables custom formatting and parsing for date picker. By default date format is like '1.1.2022'.
@@ -212,8 +212,8 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
     datePickerTexts = undefined,
     language = 'fi',
     dateAdapter = defaultDateAdapter(),
-    minDate = yearsBack(10),
-    maxDate = yearsForward(10),
+    minMonth = yearsBack(10),
+    maxMonth = yearsForward(10),
     initialMonth,
     tooltipComponent,
     ...passProps
@@ -283,9 +283,9 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
       );
       return null;
     }
-    if (!dayInRange(date, minDate, maxDate)) {
+    if (!dayInRange(date, minMonth, maxMonth)) {
       getLogger().warn(
-        `Date input value "${newValue}" is not within interval [minDate, maxDate]`,
+        `Date input value "${newValue}" is not within interval [minMonth, maxMonth]`,
       );
       return null;
     }
@@ -391,8 +391,8 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
                   onChange={(eventValue) => onDatePickerChange(eventValue)}
                   initialMonth={datePickerDate || initialMonth}
                   texts={texts}
-                  minDate={minDate}
-                  maxDate={maxDate}
+                  minMonth={minMonth}
+                  maxMonth={maxMonth}
                 />
               </>
             )}

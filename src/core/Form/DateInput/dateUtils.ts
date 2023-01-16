@@ -34,9 +34,9 @@ export const defaultDateAdapter = (
   parse: (value: string): Date => parse(value, formatString, new Date()),
 });
 
-export const yearOptions = (minDate: Date, maxDate: Date): number[] => {
-  const min = minDate.getFullYear();
-  const max = maxDate.getFullYear();
+export const yearOptions = (minMonth: Date, maxMonth: Date): number[] => {
+  const min = minMonth.getFullYear();
+  const max = maxMonth.getFullYear();
   return Array.from({ length: max - min + 1 }, (_, i) => min + i);
 };
 
@@ -47,8 +47,8 @@ export interface MonthOption {
 
 export const monthOptions = (
   selectedDate: Date,
-  minDate: Date,
-  maxDate: Date,
+  minMonth: Date,
+  maxMonth: Date,
   texts: InternalDatePickerTextProps,
 ): any[] => {
   const year = selectedDate.getFullYear();
@@ -57,7 +57,7 @@ export const monthOptions = (
     end: new Date(year, 11, 31),
   });
   return months.reduce((array: MonthOption[], month, index) => {
-    if (startOfMonth(minDate) > month || endOfMonth(maxDate) < month) {
+    if (startOfMonth(minMonth) > month || endOfMonth(maxMonth) < month) {
       // Month is disabled
     } else {
       array.push({
@@ -83,13 +83,13 @@ export const daysMatch = (first: Date, second: Date): boolean =>
   isSameDay(first, second);
 
 export const dayInRange = (date: Date, start: Date, end: Date): boolean =>
-  isWithinInterval(date, { start, end });
+  isWithinInterval(date, { start: startOfMonth(start), end: endOfMonth(end) });
 
-export const dayIsAfter = (date: Date, dateToCompare: Date): boolean =>
-  isAfter(date, dateToCompare);
+export const monthIsAfter = (date: Date, dateToCompare: Date): boolean =>
+  isAfter(date, endOfMonth(dateToCompare));
 
-export const dayIsBefore = (date: Date, dateToCompare: Date): boolean =>
-  isBefore(date, dateToCompare);
+export const monthIsBefore = (date: Date, dateToCompare: Date): boolean =>
+  isBefore(date, startOfMonth(dateToCompare));
 
 export interface WeekRowDate {
   date: Date;

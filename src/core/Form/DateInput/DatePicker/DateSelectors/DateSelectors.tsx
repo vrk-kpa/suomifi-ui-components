@@ -13,8 +13,8 @@ import {
   monthBack,
   monthForward,
   monthOptions,
-  dayIsAfter,
-  dayIsBefore,
+  monthIsAfter,
+  monthIsBefore,
   MonthOption,
 } from '../../dateUtils';
 
@@ -41,8 +41,8 @@ interface DateSelectorsProps {
   yearSelect: React.RefObject<HTMLDivElement>;
   /** Date that is focused in calendar */
   focusedDate: Date;
-  minDate: Date;
-  maxDate: Date;
+  minMonth: Date;
+  maxMonth: Date;
 }
 
 export const BaseDateSelectors = (props: DateSelectorsProps) => {
@@ -52,17 +52,17 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
     yearSelect,
     texts,
     focusedDate,
-    minDate,
-    maxDate,
+    minMonth,
+    maxMonth,
   } = props;
 
   const handleYearSelect = (value: string): void => {
     let date = new Date(focusedDate);
     date.setFullYear(Number(value));
-    if (dayIsAfter(date, maxDate)) {
-      date = maxDate;
-    } else if (dayIsBefore(date, minDate)) {
-      date = minDate;
+    if (monthIsAfter(date, maxMonth)) {
+      date = maxMonth;
+    } else if (monthIsBefore(date, minMonth)) {
+      date = minMonth;
     }
     onChange(date);
   };
@@ -113,7 +113,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
           selectorsClassNames.dropdown,
         )}
       >
-        {yearOptions(minDate, maxDate).map((year: number) => (
+        {yearOptions(minMonth, maxMonth).map((year: number) => (
           <DropdownItem
             className={selectorsClassNames.dropdownItem}
             value={String(year)}
@@ -133,7 +133,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
           selectorsClassNames.dropdown,
         )}
       >
-        {monthOptions(focusedDate, minDate, maxDate, texts).map(
+        {monthOptions(focusedDate, minMonth, maxMonth, texts).map(
           (month: MonthOption) => (
             <DropdownItem
               className={selectorsClassNames.dropdownItem}
