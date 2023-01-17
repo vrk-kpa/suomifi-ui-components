@@ -18,6 +18,7 @@ export const monthClassNames = {
   baseClassName,
   cell: `${baseClassName}_cell`,
   cellDisabled: `${baseClassName}_cell--disabled`,
+  cellCurrent: `${baseClassName}_cell--current`,
   date: `${baseClassName}_date-button`,
   dateCurrent: `${baseClassName}_date-button--current`,
   dateSelected: `${baseClassName}_date-button--selected`,
@@ -68,7 +69,13 @@ export const BaseMonthTable = (props: MonthTableProps) => {
                 })}
               >
                 {date.disabled ? (
-                  date.number
+                  <span
+                    className={classnames({
+                      [monthClassNames.cellCurrent]: date.current,
+                    })}
+                  >
+                    {date.number}
+                  </span>
                 ) : (
                   <HtmlButton
                     onClick={() => onSelect(date.date)}
@@ -82,8 +89,7 @@ export const BaseMonthTable = (props: MonthTableProps) => {
                   >
                     <span
                       className={classnames({
-                        [monthClassNames.dateCurrent]:
-                          date.current && !isSelectedDate(date),
+                        [monthClassNames.dateCurrent]: date.current,
                       })}
                     >
                       {date.number}

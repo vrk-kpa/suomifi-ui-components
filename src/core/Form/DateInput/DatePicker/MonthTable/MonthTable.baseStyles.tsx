@@ -2,13 +2,26 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../../../../theme';
 import { font } from '../../../../theme/reset';
 
+const dateUnderline = (color: string) => css`
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    width: calc(100% + 10px);
+    height: 1px;
+    bottom: -2px;
+    left: -5px;
+    background-color: ${color};
+  }
+`;
+
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyTextSmall')};
   margin-top: ${theme.spacing.s};
   margin-bottom: ${theme.spacing.xs};
 
   & .fi-month-table_cell {
-    padding: 0;
+    padding: 1px;
     text-align: center;
     min-width: 36px;
     height: 38px;
@@ -18,54 +31,59 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     color: ${theme.colors.depthBase};
   }
 
+  & .fi-month-table_cell--current {
+    ${dateUnderline(theme.colors.depthBase)};
+  }
+
+  & .fi-month-table_date-button--current {
+    ${dateUnderline(theme.colors.blackBase)};
+  }
+
   & .fi-month-table_date-button {
     ${font(theme)('bodyTextSmall')};
+    border: 1px solid transparent;
     border-radius: ${theme.radius.basic};
     width: 100%;
     height: 100%;
     text-align: center;
 
     &:focus {
-      outline: 3px solid transparent;
-      ${theme.focus.boxShadowFocus}
-    }
-
-    &:hover {
-      background: ${theme.gradients.whiteBaseToDepthLight2};
-    }
-  }
-
-  & .fi-month-table_date-button--current {
-    color: ${theme.colors.highlightBase};
-    position: relative;
-
-    &:after {
-      content: '';
-      position: absolute;
-      width: calc(100% + 4px);
-      height: 2px;
-      bottom: -2px;
-      left: -2px;
-      background-color: ${theme.colors.highlightBase};
-    }
-  }
-
-  & .fi-month-table_date-button--selected {
-    background-color: ${theme.colors.highlightBase};
-    color: ${theme.colors.whiteBase};
-    text-decoration: none;
-
-    &:focus {
       box-shadow: none;
       position: relative;
+      outline: 3px solid transparent;
 
-      &::after {
+      &:after {
         ${theme.focus.absoluteFocus}
       }
     }
 
     &:hover {
-      background: ${theme.gradients.highlightLight1ToHighlightBase};
+      background-color: ${theme.colors.highlightBase};
+      color: ${theme.colors.whiteBase};
+
+      & .fi-month-table_date-button--current:after {
+        background-color: ${theme.colors.whiteBase};
+      }
+    }
+  }
+
+  & .fi-month-table_date-button--selected {
+    border: 1px solid ${theme.colors.highlightBase};
+    background-color: ${theme.colors.highlightLight3};
+    text-decoration: none;
+    font-weight: 600;
+
+    &:focus {
+      box-shadow: none;
+      position: relative;
+
+      &:after {
+        ${theme.focus.absoluteFocus}
+      }
+    }
+
+    &:hover {
+      font-weight: 400;
     }
   }
 `;
