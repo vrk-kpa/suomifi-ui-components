@@ -1520,11 +1520,12 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
       <div
         class="c3 c4 fi-label"
       >
-        <span
-          class="c0 c5 fi-visually-hidden"
+        <label
+          class="c5 fi-visually-hidden"
+          id="test-id-label"
         >
           Dropdown test
-        </span>
+        </label>
       </div>
       <div
         data-reach-listbox-input=""

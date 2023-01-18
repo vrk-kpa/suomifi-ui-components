@@ -735,3 +735,25 @@ describe('custom item addition mode', () => {
     }
   });
 });
+
+describe('forward ref', () => {
+  it('ref is forwarded to input', () => {
+    const ref = React.createRef<HTMLInputElement>();
+    render(
+      <MultiSelect
+        id="123"
+        labelText="MultiSelect"
+        items={[]}
+        noItemsText="No items"
+        visualPlaceholder="Select item(s)"
+        status="error"
+        ariaSelectedAmountText=""
+        ariaOptionsAvailableText=""
+        ariaOptionChipRemovedText=""
+        ref={ref}
+      />,
+    );
+
+    expect(ref.current?.tagName).toBe('INPUT');
+  });
+});

@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
@@ -23,6 +23,11 @@ export interface ExpanderGroupProps {
   ariaCloseAllText?: string;
   /** Custom classname to extend or customize */
   className?: string;
+  /**
+   * Show Open/Close all button
+   * @default true
+   */
+  showToggleAllButton?: boolean;
   /** Open/Close all button props */
   toggleAllButtonProps?: Omit<
     HtmlButtonProps,
@@ -33,6 +38,8 @@ export interface ExpanderGroupProps {
     | 'onKeyUp'
     | 'onKeyDown'
   >;
+  /** Ref is forwarded to button element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLButtonElement>;
 }
 
 interface ExpanderOpenStates {
@@ -138,7 +145,9 @@ class BaseExpanderGroup extends Component<
       ariaOpenAllText,
       closeAllText,
       ariaCloseAllText,
+      showToggleAllButton = true,
       toggleAllButtonProps,
+      forwardedRef,
       ...passProps
     } = this.props;
     const { expanderGroupOpenState, allOpen } = this.state;
@@ -149,24 +158,27 @@ class BaseExpanderGroup extends Component<
           [openClassName]: this.openExpanderCount > 0,
         })}
       >
-        <HtmlButton
-          {...toggleAllButtonProps}
-          onClick={this.handleAllToggleClick}
-          className={classnames(
-            toggleAllButtonProps?.className,
-            openAllButtonClassName,
-          )}
-          aria-expanded={allOpen}
-        >
-          <HtmlSpan aria-hidden={true}>
-            {allOpen ? closeAllText : openAllText}
-          </HtmlSpan>
-          <VisuallyHidden>
-            {allOpen
-              ? ariaCloseAllText || closeAllText
-              : ariaOpenAllText || openAllText}
-          </VisuallyHidden>
-        </HtmlButton>
+        {!!showToggleAllButton && (
+          <HtmlButton
+            {...toggleAllButtonProps}
+            onClick={this.handleAllToggleClick}
+            className={classnames(
+              toggleAllButtonProps?.className,
+              openAllButtonClassName,
+            )}
+            aria-expanded={allOpen}
+            forwardedRef={forwardedRef}
+          >
+            <HtmlSpan aria-hidden={true}>
+              {allOpen ? closeAllText : openAllText}
+            </HtmlSpan>
+            <VisuallyHidden>
+              {allOpen
+                ? ariaCloseAllText || closeAllText
+                : ariaOpenAllText || openAllText}
+            </VisuallyHidden>
+          </HtmlButton>
+        )}
         <HtmlDiv className={expandersContainerClassName}>
           <Provider
             value={{
@@ -190,12 +202,19 @@ const StyledExpanderGroup = styled(BaseExpanderGroup)`
  * <i class="semantics" />
  * Wrapper for multiple expanders with Open/Close All button
  */
-const ExpanderGroup = (props: ExpanderGroupProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => (
-      <StyledExpanderGroup theme={suomifiTheme} {...props} />
-    )}
-  </SuomifiThemeConsumer>
+
+const ExpanderGroup = forwardRef(
+  (props: ExpanderGroupProps, ref: React.Ref<HTMLButtonElement>) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledExpanderGroup
+          theme={suomifiTheme}
+          forwardedRef={ref}
+          {...props}
+        />
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
 
 ExpanderGroup.displayName = 'ExpanderGroup';

@@ -27,5 +27,19 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &:visited {
       color: ${theme.colors.accentTertiaryDark1};
     }
+
+    &--initial-underline {
+      text-decoration: underline;
+
+      &:focus,
+      &:focus-within {
+        text-decoration: underline;
+      }
+
+      &:hover,
+      &:active {
+        text-decoration: none;
+      }
+    }
   }
 `;

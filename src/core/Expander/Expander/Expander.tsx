@@ -1,8 +1,8 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { HtmlDiv } from '../../../reset';
+import { HtmlDivWithRef } from '../../../reset';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
   ExpanderGroupConsumer,
@@ -55,6 +55,8 @@ export interface ExpanderProps {
   open?: boolean;
   /** Event handler to execute when clicked */
   onOpenChange?: (open: boolean) => void;
+  /** Ref is forwarded to wrapping div element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLDivElement>;
 }
 
 export interface ExpanderTitleBaseProps {
@@ -158,7 +160,7 @@ class BaseExpander extends Component<BaseExpanderProps & SuomifiThemeProp> {
     const openState = open !== undefined ? !!open : this.state.openState;
 
     return (
-      <HtmlDiv
+      <HtmlDivWithRef
         id={id}
         {...passProps}
         className={classnames(className, baseClassName, {
@@ -175,7 +177,7 @@ class BaseExpander extends Component<BaseExpanderProps & SuomifiThemeProp> {
         >
           {children}
         </ExpanderProvider>
-      </HtmlDiv>
+      </HtmlDivWithRef>
     );
   }
 }
@@ -192,29 +194,32 @@ interface ExpanderState {
  * <i class="semantics" />
  * Hide or show content with always visible title
  */
-const Expander = (props: ExpanderProps) => {
-  const { id: propId, ...passProps } = props;
-  return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <AutoId id={propId}>
-          {(id) => (
-            <ExpanderGroupConsumer>
-              {(consumer) => (
-                <StyledExpander
-                  theme={suomifiTheme}
-                  id={id}
-                  {...passProps}
-                  consumer={consumer}
-                />
-              )}
-            </ExpanderGroupConsumer>
-          )}
-        </AutoId>
-      )}
-    </SuomifiThemeConsumer>
-  );
-};
+const Expander = forwardRef(
+  (props: ExpanderProps, ref: React.Ref<HTMLDivElement>) => {
+    const { id: propId, ...passProps } = props;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <ExpanderGroupConsumer>
+                {(consumer) => (
+                  <StyledExpander
+                    theme={suomifiTheme}
+                    id={id}
+                    forwardedRef={ref}
+                    {...passProps}
+                    consumer={consumer}
+                  />
+                )}
+              </ExpanderGroupConsumer>
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
+    );
+  },
+);
 
 Expander.displayName = 'Expander';
 export { Expander, ExpanderConsumer, ExpanderProvider };

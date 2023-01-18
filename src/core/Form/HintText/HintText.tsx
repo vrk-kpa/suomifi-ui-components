@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
@@ -14,6 +14,9 @@ export interface HintTextProps extends HtmlSpanProps {
   children?: ReactNode;
   /** Custom class name for styling and customizing  */
   className?: string;
+
+  /** Ref is forwarded to the span element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLSpanElement>;
 }
 
 const StyledHintText = styled(
@@ -34,21 +37,27 @@ const StyledHintText = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const HintText = (props: HintTextProps) => {
-  const { children, ...passProps } = props;
-  if (!children) {
-    return null;
-  }
-  return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledHintText theme={suomifiTheme} {...passProps}>
-          {children}
-        </StyledHintText>
-      )}
-    </SuomifiThemeConsumer>
-  );
-};
+const HintText = forwardRef(
+  (props: HintTextProps, ref: React.Ref<HTMLSpanElement>) => {
+    const { children, ...passProps } = props;
+    if (!children) {
+      return null;
+    }
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledHintText
+            forwardedRef={ref}
+            theme={suomifiTheme}
+            {...passProps}
+          >
+            {children}
+          </StyledHintText>
+        )}
+      </SuomifiThemeConsumer>
+    );
+  },
+);
 
 HintText.displayName = 'HintText';
 export { HintText };

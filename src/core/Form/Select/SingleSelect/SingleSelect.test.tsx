@@ -462,3 +462,80 @@ describe('custom item addition mode', () => {
     }
   });
 });
+
+describe('ariaOptionsAvailable', () => {
+  const planets: SingleSelectData[] = [
+    { labelText: 'Mercury', uniqueItemId: 'Me' },
+    { labelText: 'Venus', uniqueItemId: 'Ve' },
+    { labelText: 'Earth', uniqueItemId: 'Ea' },
+    { labelText: 'Mars', uniqueItemId: 'Ma' },
+  ];
+
+  it('should include ariaOptionsAvailableText', async () => {
+    const { getByRole, getByText } = render(
+      <SingleSelect
+        labelText="SingleSelect"
+        clearButtonLabel="Clear"
+        items={planets}
+        visualPlaceholder="Choose your planet"
+        noItemsText="No items"
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+    const input = getByRole('textbox');
+    await act(async () => {
+      fireEvent.change(input, { target: { value: 'M' } });
+    });
+    const ariaText = getByText(`2 Options available`);
+    expect(ariaText).toBeInTheDocument();
+  });
+
+  it('should include text from ariaOptionsAvailableTextFunction', async () => {
+    const { getByRole, getByText } = render(
+      <SingleSelect
+        labelText="SingleSelect"
+        clearButtonLabel="Clear"
+        items={planets}
+        visualPlaceholder="Choose your planet"
+        noItemsText="No items"
+        ariaOptionsAvailableTextFunction={(length) =>
+          length === 1
+            ? `There is ${length} option available`
+            : `There are ${length} options available`
+        }
+      />,
+    );
+    const input = getByRole('textbox');
+    await act(async () => {
+      fireEvent.change(input, { target: { value: 'V' } });
+    });
+    const ariaText = getByText(`There is 1 option available`);
+    expect(ariaText).toBeInTheDocument();
+    await act(async () => {
+      fireEvent.change(input, { target: { value: 'M' } });
+    });
+    expect(ariaText).toHaveTextContent('There are 2 options available');
+  });
+});
+
+describe('forward ref', () => {
+  it('ref is forwarded to input', () => {
+    const ref = React.createRef<HTMLInputElement>();
+
+    render(
+      <SingleSelect
+        labelText="SingleSelect"
+        clearButtonLabel="Clear selection"
+        items={tools}
+        defaultSelectedItem={defaultSelectedTool}
+        noItemsText="No items"
+        visualPlaceholder="Select item"
+        ariaOptionsAvailableText="Options available"
+        ref={ref}
+      />,
+    );
+
+    expect(ref.current?.tagName).toBe('INPUT');
+    expect(ref.current?.value).toBe('Hammer');
+  });
+});

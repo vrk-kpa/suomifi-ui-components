@@ -4,6 +4,7 @@ import React, {
   createRef,
   FocusEvent,
   ReactNode,
+  forwardRef,
 } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
@@ -83,6 +84,8 @@ export interface SearchInputProps
   onSearch?: (value: SearchInputValue) => void;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
   debounce?: number;
+  /** Ref is forwarded to input element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 
 const baseClassName = 'fi-search-input';
@@ -112,7 +115,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
     value: this.props.value || this.props.defaultValue || '',
   };
 
-  private inputRef = createRef<HTMLInputElement>();
+  private inputRef = this.props.forwardedRef || createRef<HTMLInputElement>();
 
   static getDerivedStateFromProps(
     nextProps: SearchInputProps,
@@ -146,6 +149,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       fullWidth,
       debounce,
       theme,
+      forwardedRef, // Taking this out so it's not passed "twice" to HtmlInput
       'aria-describedby': ariaDescribedBy,
       statusTextAriaLiveMode = 'assertive',
       ...passProps
@@ -198,7 +202,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       ),
       ...(!!this.state.value
         ? { onClick: onSearch }
-        : { tabIndex: -1, 'aria-hidden': true }),
+        : { tabIndex: -1, hidden: true }),
     };
     const clearButtonProps = {
       className: classnames(
@@ -207,7 +211,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       ),
       ...(!!this.state.value
         ? { onClick: onClear }
-        : { tabIndex: -1, 'aria-hidden': true }),
+        : { tabIndex: -1, hidden: true }),
     };
 
     return (
@@ -304,20 +308,27 @@ const StyledSearchInput = styled(BaseSearchInput)`
  * Use for user inputting search text.
  * Props other than specified explicitly are passed on to underlying input element.
  */
-const SearchInput = (props: SearchInputProps) => {
-  const { id: propId, ...passProps } = props;
-  return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <AutoId id={propId}>
-          {(id) => (
-            <StyledSearchInput theme={suomifiTheme} id={id} {...passProps} />
-          )}
-        </AutoId>
-      )}
-    </SuomifiThemeConsumer>
-  );
-};
+const SearchInput = forwardRef(
+  (props: SearchInputProps, ref: React.RefObject<HTMLInputElement>) => {
+    const { id: propId, ...passProps } = props;
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <AutoId id={propId}>
+            {(id) => (
+              <StyledSearchInput
+                theme={suomifiTheme}
+                id={id}
+                forwardedRef={ref}
+                {...passProps}
+              />
+            )}
+          </AutoId>
+        )}
+      </SuomifiThemeConsumer>
+    );
+  },
+);
 
 SearchInput.displayName = 'SearchInput';
 export { SearchInput };

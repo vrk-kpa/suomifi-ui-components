@@ -19,6 +19,7 @@ import {
   HtmlDivProps,
   HtmlDivWithRef,
 } from '../../../reset';
+import { TooltipProps } from '../../Tooltip/Tooltip';
 
 export type LabelMode = 'hidden' | 'visible';
 
@@ -48,6 +49,13 @@ export interface LabelProps extends Omit<HtmlSpanProps, 'as'> {
   optionalText?: string;
   /** Tooltip component for label */
   tooltipComponent?: ReactElement;
+  /**
+   * Forces the label's tooltip to rerender every time the label changes.
+   * This prop can be used when you are using a tooltip with the label and there is dynamic content in the label
+   * to make sure the tooltip's arrow points to the correct position after the label changes.
+   * @default false
+   */
+  forceTooltipRerender?: boolean;
 }
 
 const baseClassName = 'fi-label';
@@ -68,18 +76,19 @@ const StyledLabel = styled(
     asProp = 'label',
     optionalText,
     tooltipComponent: tooltipComponentProp,
+    forceTooltipRerender = false,
     ...passProps
   }: LabelProps & SuomifiThemeProp) => {
     const [wrapperRef, setWrapperRef] = useState<HTMLDivElement | null>(null);
 
     function getTooltipComponent(
-      tooltipComponent: ReactElement | undefined,
+      tooltipComponent: ReactElement<TooltipProps> | undefined,
     ): ReactNode {
       if (isValidElement(tooltipComponent)) {
         return cloneElement(tooltipComponent, {
           anchorElement: wrapperRef,
           // trick to force tooltip to rerender every time when label changes.
-          key: Date.now(),
+          key: forceTooltipRerender ? Date.now() : null,
         });
       }
       return null;
@@ -94,7 +103,7 @@ const StyledLabel = styled(
         }
       >
         {labelMode === 'hidden' ? (
-          <VisuallyHidden>
+          <VisuallyHidden as={asProp} {...passProps}>
             {children}
             {optionalText && `(${optionalText})`}
           </VisuallyHidden>

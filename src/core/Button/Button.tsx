@@ -13,7 +13,7 @@ type ButtonVariant =
   | 'secondaryNoBorder'
   | 'link';
 
-interface InternalButtonProps
+export interface ButtonProps
   extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'> {
   /**
    * 'default' | 'inverted' | 'secondary' | 'secondaryNoBorder' | 'link'
@@ -55,15 +55,8 @@ interface InternalButtonProps
    *  @default void
    */
   onClick?: (event: React.MouseEvent) => void;
-}
-
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLButtonElement>;
-}
-
-export interface ButtonProps extends InternalButtonProps {
-  /** Ref object to be passed to the input element */
-  ref?: React.RefObject<HTMLButtonElement>;
+  /** Ref object is passed to the button element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
 
 const baseClassName = 'fi-button';
@@ -72,7 +65,7 @@ const iconClassName = `${baseClassName}_icon`;
 const iconRightClassName = `${baseClassName}_icon--right`;
 const fullWidthClassName = `${baseClassName}--fullwidth`;
 
-class BaseButton extends Component<ButtonProps & InnerRef> {
+class BaseButton extends Component<ButtonProps> {
   render() {
     const {
       fullWidth,
@@ -138,10 +131,7 @@ class BaseButton extends Component<ButtonProps & InnerRef> {
 }
 
 const StyledButton = styled(
-  ({
-    theme,
-    ...passProps
-  }: InternalButtonProps & InnerRef & SuomifiThemeProp) => (
+  ({ theme, ...passProps }: ButtonProps & SuomifiThemeProp) => (
     <BaseButton {...passProps} />
   ),
 )`

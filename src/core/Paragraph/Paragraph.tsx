@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SpacingWithoutInsetProp } from '../theme/utils/spacing';
@@ -13,6 +13,8 @@ export interface ParagraphProps extends HtmlPProps {
   color?: ColorProp;
   /** Spacing token for bottom margin */
   marginBottomSpacing?: SpacingWithoutInsetProp;
+  /** Ref object is passed to the paragraph element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLParagraphElement>;
 }
 
 const StyledParagraph = styled(
@@ -37,10 +39,14 @@ const StyledParagraph = styled(
 /**
  * Used for displaying a <p> element with correct styles
  */
-const Paragraph = (props: ParagraphProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => <StyledParagraph theme={suomifiTheme} {...props} />}
-  </SuomifiThemeConsumer>
+const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
+  (props, ref) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledParagraph theme={suomifiTheme} forwardedRef={ref} {...props} />
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
 
 Paragraph.displayName = 'Paragraph';

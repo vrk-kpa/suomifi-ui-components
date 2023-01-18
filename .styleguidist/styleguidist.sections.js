@@ -7,6 +7,7 @@ const primitiveComponents = [
   'Heading',
   'Tooltip',
   'VisuallyHidden',
+  'Pagination',
   ['Form', 'TextInput'],
   ['Form', 'SearchInput'],
   ['Form', 'Textarea'],
@@ -200,6 +201,27 @@ module.exports = {
         {
           name: 'Toast',
           components: getComponents(['Toast']),
+        },
+        {
+          name: 'WizardNavigation',
+          components: getComponentWithVariants('Navigation/WizardNavigation')([
+            'WizardNavigation/WizardNavigation',
+            'WizardNavigationItem/WizardNavigationItem',
+          ]),
+        },
+        {
+          name: 'ServiceNavigation',
+          components: getComponentWithVariants('Navigation/ServiceNavigation')([
+            'ServiceNavigation/ServiceNavigation',
+            'ServiceNavigationItem/ServiceNavigationItem',
+          ]),
+        },
+        {
+          name: 'SideNavigation',
+          components: getComponentWithVariants('Navigation/SideNavigation')([
+            'SideNavigation/SideNavigation',
+            'SideNavigationItem/SideNavigationItem',
+          ]),
         },
       ],
       sectionDepth: 1,

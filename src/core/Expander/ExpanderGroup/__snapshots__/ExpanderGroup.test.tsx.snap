@@ -83,6 +83,35 @@ exports[`Basic expander group should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c5 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c5::before,
+.c5::after {
+  box-sizing: border-box;
+}
+
 .c3 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -243,7 +272,7 @@ exports[`Basic expander group should match snapshot 1`] = `
   content: none;
 }
 
-.c5 {
+.c6 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -267,16 +296,16 @@ exports[`Basic expander group should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c5.fi-expander {
+.c6.fi-expander {
   display: block;
 }
 
-.c5:before {
+.c6:before {
   background-color: hsl(212,63%,98%);
   opacity: 0;
 }
 
-.c8 {
+.c9 {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -309,15 +338,15 @@ exports[`Basic expander group should match snapshot 1`] = `
   will-change: transition,height;
 }
 
-.c8.fi-expander {
+.c9.fi-expander {
   display: block;
 }
 
-.c8:not(.fi-expander_content--no-padding) {
+.c9:not(.fi-expander_content--no-padding) {
   padding: 0 16px;
 }
 
-.c8.fi-expander_content--open {
+.c9.fi-expander_content--open {
   visibility: visible;
   height: auto;
   border-top-left-radius: 0;
@@ -326,38 +355,38 @@ exports[`Basic expander group should match snapshot 1`] = `
   animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
 }
 
-.c8.fi-expander_content--open:not(.fi-expander_content--no-padding) {
+.c9.fi-expander_content--open:not(.fi-expander_content--no-padding) {
   padding-top: 0;
   padding-right: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
 }
 
-.c7 {
+.c8 {
   vertical-align: baseline;
 }
 
-.c7.fi-icon {
+.c8.fi-icon {
   display: inline-block;
 }
 
-.c7 .fi-icon-base-fill {
+.c8 .fi-icon-base-fill {
   fill: currentColor;
 }
 
-.c7 .fi-icon-base-stroke {
+.c8 .fi-icon-base-stroke {
   stroke: currentColor;
 }
 
-.c7.fi-icon--cursor-pointer {
+.c8.fi-icon--cursor-pointer {
   cursor: pointer;
 }
 
-.c7.fi-icon--cursor-pointer * {
+.c8.fi-icon--cursor-pointer * {
   cursor: inherit;
 }
 
-.c6 {
+.c7 {
   color: hsl(0,0%,16%);
   position: relative;
   width: 100%;
@@ -367,17 +396,17 @@ exports[`Basic expander group should match snapshot 1`] = `
   border-radius: inherit;
 }
 
-.c6.fi-expander_title-button {
+.c7.fi-expander_title-button {
   display: block;
 }
 
-.c6.fi-expander_title-button--open {
+.c7.fi-expander_title-button--open {
   background-color: hsl(0,0%,100%);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.c6 .fi-expander_title-button_button {
+.c7 .fi-expander_title-button_button {
   color: hsl(0,0%,16%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -415,15 +444,15 @@ exports[`Basic expander group should match snapshot 1`] = `
   padding: 17px 60px 16px 20px;
 }
 
-.c6 .fi-expander_title-button_button:focus {
+.c7 .fi-expander_title-button_button:focus {
   outline: 0;
 }
 
-.c6 .fi-expander_title-button_button:focus-within {
+.c7 .fi-expander_title-button_button:focus-within {
   outline: 0;
 }
 
-.c6 .fi-expander_title-button_button:focus-within:after {
+.c7 .fi-expander_title-button_button:focus-within:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -439,26 +468,26 @@ exports[`Basic expander group should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c6 .fi-expander_title-button_button:not(:focus-visible) {
+.c7 .fi-expander_title-button_button:not(:focus-visible) {
   outline: 0;
 }
 
-.c6 .fi-expander_title-button_button:not(:focus-visible):after {
+.c7 .fi-expander_title-button_button:not(:focus-visible):after {
   content: none;
 }
 
-.c6 .fi-expander_title-button_button * {
+.c7 .fi-expander_title-button_button * {
   cursor: pointer;
 }
 
-.c6 .fi-expander_title-button_button:hover,
-.c6 .fi-expander_title-button_button:active,
-.c6 .fi-expander_title-button_button:focus,
-.c6 .fi-expander_title-button_button:focus-within {
+.c7 .fi-expander_title-button_button:hover,
+.c7 .fi-expander_title-button_button:active,
+.c7 .fi-expander_title-button_button:focus,
+.c7 .fi-expander_title-button_button:focus-within {
   cursor: pointer;
 }
 
-.c6 .fi-expander_title-button-icon {
+.c7 .fi-expander_title-button-icon {
   position: absolute;
   top: 0;
   right: 0;
@@ -467,8 +496,8 @@ exports[`Basic expander group should match snapshot 1`] = `
   margin: 20px;
 }
 
-.c6 .fi-expander_title-button--open .fi-expander_title-button-icon,
-.c6 .fi-expander_title-button-icon--open {
+.c7 .fi-expander_title-button--open .fi-expander_title-button-icon,
+.c7 .fi-expander_title-button-icon--open {
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   transform: rotate(-180deg);
@@ -498,11 +527,11 @@ exports[`Basic expander group should match snapshot 1`] = `
     class="c0 fi-expander-group_expanders"
   >
     <div
-      class="c0 c5 fi-expander"
+      class="c5 c6 fi-expander"
       id="id-first"
     >
       <div
-        class="c0 c6 fi-expander_title-button"
+        class="c0 c7 fi-expander_title-button"
         data-testid="expander-title-1"
       >
         <span
@@ -522,7 +551,7 @@ exports[`Basic expander group should match snapshot 1`] = `
             </span>
             <svg
               aria-hidden="true"
-              class="fi-icon c7 fi-expander_title-button-icon"
+              class="fi-icon c8 fi-expander_title-button-icon"
               focusable="false"
               height="1em"
               viewBox="0 0 24 24"
@@ -542,7 +571,7 @@ exports[`Basic expander group should match snapshot 1`] = `
       <div
         aria-hidden="true"
         aria-labelledby="id-first_title"
-        class="c0 c8 fi-expander_content"
+        class="c0 c9 fi-expander_content"
         id="id-first_content"
         role="region"
       >
@@ -550,11 +579,11 @@ exports[`Basic expander group should match snapshot 1`] = `
       </div>
     </div>
     <div
-      class="c0 c5 fi-expander"
+      class="c5 c6 fi-expander"
       id="id-second"
     >
       <div
-        class="c0 c6 fi-expander_title-button"
+        class="c0 c7 fi-expander_title-button"
         data-testid="expander-title-2"
       >
         <span
@@ -574,7 +603,7 @@ exports[`Basic expander group should match snapshot 1`] = `
             </span>
             <svg
               aria-hidden="true"
-              class="fi-icon c7 fi-expander_title-button-icon"
+              class="fi-icon c8 fi-expander_title-button-icon"
               focusable="false"
               height="1em"
               viewBox="0 0 24 24"
@@ -594,7 +623,7 @@ exports[`Basic expander group should match snapshot 1`] = `
       <div
         aria-hidden="true"
         aria-labelledby="id-second_title"
-        class="c0 c8 fi-expander_content"
+        class="c0 c9 fi-expander_content"
         id="id-second_content"
         role="region"
       >

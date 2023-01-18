@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, forwardRef, ReactElement } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv } from '../../../../reset';
@@ -37,6 +37,23 @@ export interface SingleSelectData {
 
 export type SingleSelectStatus = FilterInputStatus & {};
 
+type AriaOptionsAvailableProps =
+  | {
+      ariaOptionsAvailableText?: never;
+      ariaOptionsAvailableTextFunction: (length: number) => string;
+    }
+  | {
+      /** Text for screen reader indicating the amount of available options after filtering by typing. Will be read after the amount.
+       * E.g 'options available' as prop value would result in '{amount} options available' being read by screen reader upon removal.
+       */
+      ariaOptionsAvailableText: string;
+
+      /** Function to provide text for screen reader indicating the amount of available options after filtering by typing. Overrides
+       * `ariaOptionsAvailableText` if both are provided.
+       */
+      ariaOptionsAvailableTextFunction?: never;
+    };
+
 export interface InternalSingleSelectProps<T extends SingleSelectData> {
   /** SingleSelect container div class name for custom styling. */
   className?: string;
@@ -59,11 +76,6 @@ export interface InternalSingleSelectProps<T extends SingleSelectData> {
   onItemSelectionChange?: (selectedItem: (T & SingleSelectData) | null) => void;
   /** Placeholder text for input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
-  /**
-   * Text for screen reader indicating the amount of available options after filtering by typing. Will be read after the amount.
-   * E.g 'options available' as prop value would result in '{amount} options available' being read by screen reader upon removal.
-   */
-  ariaOptionsAvailableText: string;
   /** Default selected items */
   defaultSelectedItem?: T & SingleSelectData;
   /** Event sent when filter changes */
@@ -85,6 +97,10 @@ export interface InternalSingleSelectProps<T extends SingleSelectData> {
   onItemSelect?: (uniqueItemId: string | null) => void;
   /** Disable the input */
   disabled?: boolean;
+  /** Tooltip component for the input's label */
+  tooltipComponent?: ReactElement;
+  /** Ref is forwarded to the input element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 
 type AllowItemAdditionProps =
@@ -109,7 +125,8 @@ type AllowItemAdditionProps =
 export type SingleSelectProps<T> = InternalSingleSelectProps<
   T & SingleSelectData
 > &
-  AllowItemAdditionProps;
+  AllowItemAdditionProps &
+  AriaOptionsAvailableProps;
 
 interface SingleSelectState<T extends SingleSelectData> {
   filterInputValue: string;
@@ -140,7 +157,12 @@ class BaseSingleSelect<T> extends Component<
   ) {
     super(props);
     this.popoverListRef = React.createRef();
-    this.filterInputRef = React.createRef();
+
+    if (this.props.forwardedRef) {
+      this.filterInputRef = this.props.forwardedRef;
+    } else {
+      this.filterInputRef = React.createRef();
+    }
     this.toggleButtonRef = React.createRef();
     this.clearButtonRef = React.createRef();
   }
@@ -453,11 +475,14 @@ class BaseSingleSelect<T> extends Component<
       selectedItem: controlledItem,
       clearButtonLabel,
       ariaOptionsAvailableText,
+      ariaOptionsAvailableTextFunction,
       onItemSelect,
       disabled,
       allowItemAddition,
       itemAdditionHelpText,
+      tooltipComponent,
       items, // Only destructured away so they don't end up in the DOM
+      forwardedRef, // Only destructured away so it doesn't end up in the DOM
       ...passProps
     } = this.props;
 
@@ -540,6 +565,7 @@ class BaseSingleSelect<T> extends Component<
               status={status}
               statusText={statusText}
               disabled={disabled}
+              tooltipComponent={tooltipComponent}
             >
               {!!selectedItem && (
                 <HtmlDiv className={singleSelectClassNames.clearButtonWrapper}>
@@ -647,7 +673,9 @@ class BaseSingleSelect<T> extends Component<
         )}
         {this.state.filterMode && (
           <VisuallyHidden aria-live="polite" aria-atomic="true">
-            {`${popoverItems.length} ${ariaOptionsAvailableText}`}
+            {ariaOptionsAvailableTextFunction
+              ? ariaOptionsAvailableTextFunction(popoverItems.length)
+              : `${popoverItems.length} ${ariaOptionsAvailableText}`}
           </VisuallyHidden>
         )}
       </HtmlDiv>
@@ -659,20 +687,35 @@ const StyledSingleSelect = styled(BaseSingleSelect)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const SingleSelect = <T,>(props: SingleSelectProps<T & SingleSelectData>) => {
+function SingleSelectInner<T>(
+  props: SingleSelectProps<T & SingleSelectData>,
+  ref: React.RefObject<HTMLInputElement>,
+) {
   const { id: propId, ...passProps } = props;
   return (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <AutoId id={propId}>
           {(id) => (
-            <StyledSingleSelect theme={suomifiTheme} id={id} {...passProps} />
+            <StyledSingleSelect
+              theme={suomifiTheme}
+              id={id}
+              forwardedRef={ref}
+              {...passProps}
+            />
           )}
         </AutoId>
       )}
     </SuomifiThemeConsumer>
   );
-};
+}
 
-SingleSelect.displayName = 'SingleSelect';
-export { SingleSelect };
+// Type assertion is needed to set the function signature with generic T type.
+export const SingleSelect = forwardRef(SingleSelectInner) as <T>(
+  props: SingleSelectProps<T & SingleSelectData> & {
+    ref?: React.ForwardedRef<HTMLInputElement>;
+  },
+) => ReturnType<typeof SingleSelectInner>;
+
+// Because of type assertion the displayName has to be set like this
+(SingleSelect as React.FC).displayName = 'SingleSelect';

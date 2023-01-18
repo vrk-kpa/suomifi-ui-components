@@ -413,3 +413,51 @@ const defaultSelectedFoods = [
   />
 </>;
 ```
+
+### MultiSelect with a tooltip
+
+```js
+import {
+  MultiSelect,
+  Tooltip,
+  Heading,
+  Text
+} from 'suomifi-ui-components';
+
+const foods = [
+  {
+    labelText: 'Pizza',
+    uniqueItemId: 'pizza-123'
+  },
+  {
+    labelText: 'Burger',
+    uniqueItemId: 'burger-321'
+  }
+];
+
+const labelText = 'Food';
+
+<MultiSelect
+  items={foods}
+  labelText={labelText}
+  chipListVisible={true}
+  ariaChipActionLabel="Remove"
+  removeAllButtonLabel="Remove all selections"
+  visualPlaceholder="Choose your foods"
+  noItemsText="No items"
+  tooltipComponent={
+    <Tooltip
+      ariaToggleButtonLabelText={`${labelText}, additional information`}
+      ariaCloseButtonLabelText={`${labelText}, close additional information`}
+    >
+      <Heading variant="h5" as="h2">
+        Food
+      </Heading>
+      <Text>Choose your favorite food with great care</Text>
+    </Tooltip>
+  }
+  ariaSelectedAmountText="items selected"
+  ariaOptionsAvailableText="options available"
+  ariaOptionChipRemovedText="removed"
+/>;
+```

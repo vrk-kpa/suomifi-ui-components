@@ -1,4 +1,10 @@
-import React, { Component, ChangeEvent, forwardRef, ReactNode } from 'react';
+import React, {
+  Component,
+  ChangeEvent,
+  forwardRef,
+  ReactNode,
+  ReactElement,
+} from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { InputStatus, StatusTextCommonProps } from '../types';
@@ -76,6 +82,8 @@ interface InternalFilterInputProps<T>
   onChange?: (value: string) => void;
   /** Children for the input container element. Renders inside and on top of the input. Aligns to right. */
   children?: ReactNode;
+  /** Tooltip component for the input's label */
+  tooltipComponent?: ReactElement;
 }
 
 interface InnerRef {
@@ -134,6 +142,7 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
       forwardedRef,
       onChange: propOnChange,
       children,
+      tooltipComponent,
       ...passProps
     } = this.props;
 
@@ -174,6 +183,8 @@ class BaseFilterInput<T> extends Component<FilterInputProps & InnerRef> {
             className={classnames({
               [filterInputClassNames.labelIsVisible]: labelMode !== 'hidden',
             })}
+            tooltipComponent={tooltipComponent}
+            htmlFor={id}
           >
             {labelText}
           </Label>

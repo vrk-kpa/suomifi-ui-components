@@ -64,6 +64,36 @@ import {
 </ExpanderGroup>;
 ```
 
+```jsx
+import {
+  Expander,
+  ExpanderGroup,
+  ExpanderTitleButton,
+  ExpanderContent
+} from 'suomifi-ui-components';
+
+<ExpanderGroup
+  openAllText="Open all"
+  ariaOpenAllText="Open all expanders"
+  closeAllText="Close all"
+  ariaCloseAllText="Close all expanders"
+  showToggleAllButton={false}
+>
+  <Expander>
+    <ExpanderTitleButton>Test expander 1</ExpanderTitleButton>
+    <ExpanderContent>Test expander content 1</ExpanderContent>
+  </Expander>
+  <Expander>
+    <ExpanderTitleButton>Test expander 2</ExpanderTitleButton>
+    <ExpanderContent>Test expander content 2</ExpanderContent>
+  </Expander>
+  <Expander>
+    <ExpanderTitleButton>Test expander 3</ExpanderTitleButton>
+    <ExpanderContent>Test expander content 3</ExpanderContent>
+  </Expander>
+</ExpanderGroup>;
+```
+
 ## Controlled
 
 - State for the individual Expanders are stored outside of the component and user has full control.

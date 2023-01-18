@@ -12,7 +12,7 @@ After cloning suomifi-ui-components, run `yarn` to fetch its dependencies. Then,
 
 2. `yarn test` runs written tests.
 
-3. `yarn test:lint` checks TypeScript code for readability, maintainability, and functionality errors.
+3. `yarn lint` checks TypeScript code for readability, maintainability, and functionality errors.
 
 4. `yarn prettier:check` checks the code style.
 

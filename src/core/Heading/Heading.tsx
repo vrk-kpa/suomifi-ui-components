@@ -25,10 +25,11 @@ export interface HeadingProps extends HtmlHProps {
   className?: string;
   /** Render the heading as another element e.g. h3 as h2. Will override semantics derived from variant prop but keep the variant styles. */
   as?: asPropType;
+  /** Ref object is passed to the heading element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLHeadingElement>;
 }
 
 interface InternalHeadingProps extends HeadingProps, SuomifiThemeProp {
-  forwardedRef?: React.RefObject<HTMLHeadingElement>;
   asProp?: asPropType;
 }
 

@@ -96,6 +96,24 @@ export {
   ModalFooterProps,
 } from './core/Modal/';
 export {
+  WizardNavigation,
+  WizardNavigationProps,
+  WizardNavigationItem,
+  WizardNavigationItemProps,
+} from './core/Navigation/WizardNavigation';
+export {
+  ServiceNavigation,
+  ServiceNavigationProps,
+  ServiceNavigationItem,
+  ServiceNavigationItemProps,
+} from './core/Navigation/ServiceNavigation';
+export {
+  SideNavigation,
+  SideNavigationProps,
+  SideNavigationItem,
+  SideNavigationItemProps,
+} from './core/Navigation/SideNavigation';
+export {
   Expander,
   ExpanderProps,
   ExpanderGroup,
@@ -108,6 +126,11 @@ export {
   ExpanderTitleProps,
 } from './core/Expander/';
 export { Paragraph, ParagraphProps } from './core/Paragraph/Paragraph';
+export {
+  Pagination,
+  PaginationProps,
+  PageInputProps,
+} from './core/Pagination/Pagination';
 export { Text, TextProps } from './core/Text/Text';
 export { Textarea, TextareaProps } from './core/Form/Textarea/Textarea';
 export { Tooltip, TooltipProps } from './core/Tooltip/Tooltip';

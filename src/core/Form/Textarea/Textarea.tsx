@@ -4,6 +4,7 @@ import React, {
   FocusEvent,
   forwardRef,
   ReactNode,
+  ReactElement,
 } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
@@ -37,9 +38,9 @@ const textareaClassNames = {
 
 type TextareaStatus = Exclude<InputStatus, 'success'>;
 
-interface InternalTextareaProps
+export interface TextareaProps
   extends StatusTextCommonProps,
-    Omit<HtmlTextareaProps, 'placeholder'> {
+    Omit<HtmlTextareaProps, 'placeholder' | 'forwardedRef'> {
   /** Custom classname to extend or customize */
   className?: string;
   /** Disable usage */
@@ -85,18 +86,13 @@ interface InternalTextareaProps
   fullWidth?: boolean;
   /** Textarea container div props */
   containerProps?: Omit<HtmlDivProps, 'className'>;
+  /** Tooltip component for the input's label */
+  tooltipComponent?: ReactElement;
+  /** Ref is passed to the textarea element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLTextAreaElement>;
 }
 
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLTextAreaElement>;
-}
-
-export interface TextareaProps extends InternalTextareaProps {
-  /** Ref object to be passed to the textarea element */
-  ref?: React.RefObject<HTMLTextAreaElement>;
-}
-
-class BaseTextarea extends Component<TextareaProps & InnerRef> {
+class BaseTextarea extends Component<TextareaProps> {
   render() {
     const {
       id,
@@ -117,6 +113,7 @@ class BaseTextarea extends Component<TextareaProps & InnerRef> {
       containerProps,
       forwardedRef,
       statusTextAriaLiveMode = 'assertive',
+      tooltipComponent,
       ...passProps
     } = this.props;
 
@@ -133,7 +130,12 @@ class BaseTextarea extends Component<TextareaProps & InnerRef> {
           [textareaClassNames.fullWidth]: fullWidth,
         })}
       >
-        <Label htmlFor={id} labelMode={labelMode} optionalText={optionalText}>
+        <Label
+          htmlFor={id}
+          labelMode={labelMode}
+          optionalText={optionalText}
+          tooltipComponent={tooltipComponent}
+        >
           {labelText}
         </Label>
         <HintText id={hintTextId}>{hintText}</HintText>
@@ -176,10 +178,7 @@ class BaseTextarea extends Component<TextareaProps & InnerRef> {
 }
 
 const StyledTextarea = styled(
-  ({
-    theme,
-    ...passProps
-  }: InternalTextareaProps & InnerRef & SuomifiThemeProp) => (
+  ({ theme, ...passProps }: TextareaProps & SuomifiThemeProp) => (
     <BaseTextarea {...passProps} />
   ),
 )`

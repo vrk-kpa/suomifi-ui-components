@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
@@ -6,7 +6,11 @@ import { Icon } from '../../Icon/Icon';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { ExternalLinkStyles } from './ExternalLink.baseStyles';
 import { HtmlA } from '../../../reset';
-import { BaseLinkProps, baseClassName } from '../BaseLink/BaseLink';
+import {
+  BaseLinkProps,
+  baseClassName,
+  linkClassNames,
+} from '../BaseLink/BaseLink';
 
 const iconClassName = 'fi-link_icon';
 const externalClassName = 'fi-link--external';
@@ -28,6 +32,8 @@ interface InternalExternalLinkProps extends BaseLinkProps {
   toNewWindow?: boolean;
   /** Translated explanation of 'opens to a new window' */
   labelNewWindow?: string;
+  /** Ref is passed to the anchor element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLAnchorElement>;
 }
 
 export type ExternalLinkProps = newWindowProps & InternalExternalLinkProps;
@@ -41,12 +47,15 @@ class BaseExternalLink extends Component<ExternalLinkProps> {
       toNewWindow = true,
       labelNewWindow,
       hideIcon,
+      underline = 'hover',
       ...passProps
     } = this.props;
     return (
       <HtmlA
         {...passProps}
-        className={classnames(baseClassName, className, externalClassName)}
+        className={classnames(baseClassName, className, externalClassName, {
+          [linkClassNames.linkUnderline]: underline === 'initial',
+        })}
         target={!!toNewWindow ? '_blank' : undefined}
         rel={!!toNewWindow ? 'noopener' : undefined}
         as={asProp}
@@ -78,13 +87,18 @@ const StyledExternalLink = styled(
  * <i class="semantics" />
  * Used for adding a external site link
  */
-
-const ExternalLink = (props: ExternalLinkProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => (
-      <StyledExternalLink theme={suomifiTheme} {...props} />
-    )}
-  </SuomifiThemeConsumer>
+const ExternalLink = forwardRef(
+  (props: ExternalLinkProps, ref: React.Ref<HTMLAnchorElement>) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledExternalLink
+          theme={suomifiTheme}
+          forwardedRef={ref}
+          {...props}
+        />
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
 
 ExternalLink.displayName = 'ExternalLink';

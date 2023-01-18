@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, Fragment } from 'react';
+import React, { Component, ReactNode, Fragment, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import {
@@ -49,6 +49,8 @@ export interface LanguageMenuProps {
     | Array<React.ReactElement<LanguageMenuPopoverItemsProps>>
     | null
     | undefined;
+  /** Ref is passed to the button element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLButtonElement>;
 }
 
 class BaseLanguageMenu extends Component<LanguageMenuProps & SuomifiThemeProp> {
@@ -58,6 +60,7 @@ class BaseLanguageMenu extends Component<LanguageMenuProps & SuomifiThemeProp> {
       name,
       className,
       theme,
+      forwardedRef,
       languageMenuButtonClassName: menuButtonClassName,
       languageMenuOpenButtonClassName: menuButtonOpenClassName,
       ...passProps
@@ -73,6 +76,7 @@ class BaseLanguageMenu extends Component<LanguageMenuProps & SuomifiThemeProp> {
           {({ isOpen }: { isOpen: boolean }) => (
             <Fragment>
               <MenuButton
+                ref={forwardedRef}
                 {...passProps}
                 className={classnames(
                   menuButtonClassName,
@@ -164,33 +168,37 @@ const StyledMenuPopover = styled(
  * <i class="semantics" />
  * Use for dropdown menu.
  */
-const LanguageMenu = (props: LanguageMenuProps) => {
-  const { children, name, className, ...passProps } = props;
-  const languageMenuButtonClassName = classnames(
-    languageMenuClassNames.button,
-    languageMenuClassNames.buttonLang,
-    className,
-  );
 
-  return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledLanguageMenu
-          theme={suomifiTheme}
-          {...passProps}
-          name={languageName(name)}
-          languageMenuButtonClassName={languageMenuButtonClassName}
-          languageMenuOpenButtonClassName={languageMenuClassNames.buttonOpen}
-        >
-          {LanguageMenuPopoverWithProps(
-            children,
-            languageMenuClassNames.itemLang,
-          )}
-        </StyledLanguageMenu>
-      )}
-    </SuomifiThemeConsumer>
-  );
-};
+const LanguageMenu = forwardRef(
+  (props: LanguageMenuProps, ref: React.Ref<HTMLButtonElement>) => {
+    const { children, name, className, ...passProps } = props;
+    const languageMenuButtonClassName = classnames(
+      languageMenuClassNames.button,
+      languageMenuClassNames.buttonLang,
+      className,
+    );
+
+    return (
+      <SuomifiThemeConsumer>
+        {({ suomifiTheme }) => (
+          <StyledLanguageMenu
+            theme={suomifiTheme}
+            forwardedRef={ref}
+            {...passProps}
+            name={languageName(name)}
+            languageMenuButtonClassName={languageMenuButtonClassName}
+            languageMenuOpenButtonClassName={languageMenuClassNames.buttonOpen}
+          >
+            {LanguageMenuPopoverWithProps(
+              children,
+              languageMenuClassNames.itemLang,
+            )}
+          </StyledLanguageMenu>
+        )}
+      </SuomifiThemeConsumer>
+    );
+  },
+);
 
 LanguageMenu.displayName = 'LanguageMenu';
 export { LanguageMenu };

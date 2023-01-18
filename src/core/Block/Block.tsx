@@ -1,12 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SpacingWithoutInsetProp } from '../theme/utils/spacing';
 import { baseStyles } from './Block.baseStyles';
-import { HtmlDiv, HtmlDivProps } from '../../reset';
+import { HtmlDivWithNativeRef, HtmlDivProps } from '../../reset';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 
 const baseClassName = 'fi-block';
+
+export type BlockVariant =
+  | 'default'
+  | 'div'
+  | 'span'
+  | 'section'
+  | 'header'
+  | 'nav'
+  | 'main'
+  | 'footer';
 
 export interface BlockProps extends HtmlDivProps {
   /** Padding from theme */
@@ -38,10 +48,13 @@ export interface BlockProps extends HtmlDivProps {
   /** Margin on the y-axis (top & bottom) from theme */
   my?: SpacingWithoutInsetProp;
   /**
-   * Change block semantics
+   * Change block semantics. "Default" renders a div with SuomifiTheme reset styles applied,
+   * whereas "div" renders a plain HTML div. "Span" gets rendered with display: inline-block style
    * @default default
    */
-  variant?: 'default' | 'section' | 'header' | 'nav' | 'main' | 'footer';
+  variant?: BlockVariant;
+  /** Ref is forwarded to the block element. All variants are supported. Alternative for React `ref` attribute. */
+  forwardedRef?: React.Ref<any>;
 }
 
 class SemanticBlock extends Component<BlockProps> {
@@ -63,12 +76,16 @@ class SemanticBlock extends Component<BlockProps> {
       pl,
       px,
       py,
+      forwardedRef,
       ...passProps
     } = this.props;
+
     const ComponentVariant =
-      !variant || variant === 'default' ? HtmlDiv : variant;
+      !variant || variant === 'default' ? HtmlDivWithNativeRef : variant;
+
     return (
       <ComponentVariant
+        ref={forwardedRef}
         {...passProps}
         className={classnames(baseClassName, className, {
           [`${baseClassName}--padding-${padding}`]: !!padding,
@@ -97,20 +114,22 @@ class SemanticBlock extends Component<BlockProps> {
 }
 
 const StyledBlock = styled((props: BlockProps & SuomifiThemeProp) => {
-  const { theme, ...passProps } = props;
-  return <SemanticBlock {...passProps} />;
+  const { theme, variant, ...passProps } = props;
+  return <SemanticBlock variant={variant} {...passProps} />;
 })`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, variant }) => baseStyles(theme, variant)}
 `;
 
 /**
  * Used in displaying a generic piece of HTML e.g. a div
  */
-const Block = (props: BlockProps) => (
+const Block = forwardRef((props: BlockProps, ref: React.Ref<any>) => (
   <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => <StyledBlock theme={suomifiTheme} {...props} />}
+    {({ suomifiTheme }) => (
+      <StyledBlock theme={suomifiTheme} forwardedRef={ref} {...props} />
+    )}
   </SuomifiThemeConsumer>
-);
+));
 
 Block.displayName = 'Block';
 export { Block };

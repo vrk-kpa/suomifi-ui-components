@@ -650,8 +650,8 @@ exports[`snapshot should have matching default structure 1`] = `
         />
       </div>
       <button
-        aria-hidden="true"
         class="c6 fi-input-clear-button c7 fi-search-input_button fi-search-input_button-clear"
+        hidden=""
         tabindex="-1"
         type="button"
       >
@@ -678,8 +678,8 @@ exports[`snapshot should have matching default structure 1`] = `
         </svg>
       </button>
       <button
-        aria-hidden="true"
         class="c6 fi-search-input_button fi-search-input_button-search"
+        hidden=""
         tabindex="-1"
         type="button"
       >

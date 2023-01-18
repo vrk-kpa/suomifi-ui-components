@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
@@ -30,6 +30,8 @@ export interface ExpanderTitleButtonProps {
     | 'onKeyUp'
     | 'onKeyDown'
   >;
+  /** Ref is forwarded to the button element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
 
 interface InternalExpanderTitleButtonProps
@@ -46,6 +48,7 @@ class BaseExpanderTitleButton extends Component<InternalExpanderTitleButtonProps
       theme,
       toggleButtonProps,
       consumer,
+      forwardedRef,
       ...passProps
     } = this.props;
 
@@ -58,6 +61,7 @@ class BaseExpanderTitleButton extends Component<InternalExpanderTitleButtonProps
       >
         <HtmlSpan {...(!!asHeading ? { as: asHeading } : {})}>
           <HtmlButton
+            forwardedRef={forwardedRef}
             {...toggleButtonProps}
             onClick={consumer.onToggleExpander}
             aria-expanded={!!consumer.open}
@@ -86,20 +90,26 @@ const StyledExpanderTitle = styled(BaseExpanderTitleButton)`
  * <i class="semantics" />
  * Expander title button for static title content and toggle for content visiblity
  */
-const ExpanderTitleButton = (props: ExpanderTitleButtonProps) => (
-  <SuomifiThemeConsumer>
-    {({ suomifiTheme }) => (
-      <ExpanderConsumer>
-        {(consumer) => (
-          <StyledExpanderTitle
-            theme={suomifiTheme}
-            consumer={consumer}
-            {...props}
-          />
-        )}
-      </ExpanderConsumer>
-    )}
-  </SuomifiThemeConsumer>
+const ExpanderTitleButton = forwardRef(
+  (
+    props: ExpanderTitleButtonProps,
+    ref: React.RefObject<HTMLButtonElement>,
+  ) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <ExpanderConsumer>
+          {(consumer) => (
+            <StyledExpanderTitle
+              theme={suomifiTheme}
+              consumer={consumer}
+              forwardedRef={ref}
+              {...props}
+            />
+          )}
+        </ExpanderConsumer>
+      )}
+    </SuomifiThemeConsumer>
+  ),
 );
 
 ExpanderTitleButton.displayName = 'ExpanderTitleButton';

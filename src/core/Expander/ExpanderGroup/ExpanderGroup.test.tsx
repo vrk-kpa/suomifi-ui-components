@@ -159,6 +159,47 @@ describe('default behaviour', () => {
   });
 });
 
+describe('Toggle all button', () => {
+  it('should be hidden when showToggleAllButton is false', () => {
+    const { queryByTestId } = render(
+      TestExpanderGroup(
+        [
+          {
+            expanderProps: {
+              id: 'id-first',
+            },
+            titleProps: {
+              'data-testid': 'expander-title-1',
+              children: 'First',
+            },
+            content: 'First content',
+          },
+          {
+            expanderProps: {
+              id: 'id-second',
+
+              defaultOpen: true,
+            },
+            titleProps: {
+              'data-testid': 'expander-title-2',
+              children: 'Second',
+            },
+            content: 'Second content',
+          },
+        ],
+        {
+          toggleAllButtonProps: {
+            'data-testid': 'toggle-all-button',
+          },
+          showToggleAllButton: false,
+        },
+      ),
+    );
+    const toggleAllButton = queryByTestId('toggle-all-button');
+    expect(toggleAllButton).toBeNull();
+  });
+});
+
 describe('defaultOpen', () => {
   it('gives the classname to expander title and icon', () => {
     const { getByTestId } = render(

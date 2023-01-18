@@ -43,7 +43,7 @@ interface DropdownState {
   selectedValue: string | undefined;
 }
 
-interface InternalDropdownProps {
+export interface DropdownProps {
   /**
    * Unique id
    * If no id is specified, one will be generated automatically
@@ -86,15 +86,10 @@ interface InternalDropdownProps {
     | ReactElement<DropdownItemProps>;
   /** Callback that fires when the dropdown value changes. */
   onChange?(newValue: string): void;
-}
-
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLDivElement>;
-}
-
-export interface DropdownProps extends InternalDropdownProps {
-  /** Ref object to be passed to the input element */
-  ref?: React.RefObject<HTMLDivElement>;
+  /** Tooltip component for the dropdown's label */
+  tooltipComponent?: ReactElement;
+  /** Ref object to be passed to the input element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLDivElement>;
 }
 
 const ListBoxContextWrapper = (props: {
@@ -159,7 +154,7 @@ const ListBoxContextWrapper = (props: {
   );
 };
 
-class BaseDropdown extends Component<DropdownProps & InnerRef> {
+class BaseDropdown extends Component<DropdownProps> {
   state: DropdownState = {
     selectedValue:
       'value' in this.props
@@ -173,7 +168,7 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
 
   popoverRef: React.RefObject<HTMLDivElement>;
 
-  constructor(props: DropdownProps & InnerRef) {
+  constructor(props: DropdownProps) {
     super(props);
     this.buttonRef = React.createRef();
     this.popoverRef = React.createRef();
@@ -207,6 +202,7 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
       dropdownButtonProps = {},
       dropdownPopoverProps = {},
       onChange: propOnChange,
+      tooltipComponent,
       ...passProps
     } = this.props;
 
@@ -258,6 +254,7 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
             className={classnames({
               [dropdownClassNames.labelIsVisible]: labelMode !== 'hidden',
             })}
+            tooltipComponent={tooltipComponent}
           >
             {labelText}
           </Label>
@@ -314,10 +311,7 @@ class BaseDropdown extends Component<DropdownProps & InnerRef> {
 }
 
 const StyledDropdown = styled(
-  ({
-    theme,
-    ...passProps
-  }: InternalDropdownProps & InnerRef & SuomifiThemeProp) => (
+  ({ theme, ...passProps }: DropdownProps & SuomifiThemeProp) => (
     <BaseDropdown {...passProps} />
   ),
 )`

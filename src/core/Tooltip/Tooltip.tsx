@@ -1,10 +1,4 @@
-import React, {
-  Component,
-  ReactNode,
-  forwardRef,
-  RefObject,
-  createRef,
-} from 'react';
+import React, { Component, ReactNode, forwardRef, createRef } from 'react';
 import classnames from 'classnames';
 import { TooltipContent } from './TooltipContent/TooltipContent';
 import { TooltipToggleButton } from './TooltipToggleButton/TooltipToggleButton';
@@ -36,10 +30,8 @@ export interface TooltipProps {
   onToggleButtonClick?: (event: React.MouseEvent) => void;
   /** Event handler for close button click */
   onCloseButtonClick?: (event: React.MouseEvent) => void;
-}
-
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLButtonElement>;
+  /** Ref object to be passed to the button element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
 
 type TooltipState = {
@@ -49,9 +41,7 @@ type TooltipState = {
   anchorRefObserver: ResizeObserver | null;
 };
 
-class BaseTooltip extends Component<
-  TooltipProps & InnerRef & { className?: string }
-> {
+class BaseTooltip extends Component<TooltipProps & { className?: string }> {
   state: TooltipState = {
     open: false,
     contentArrowOffsetPx: 0,
@@ -59,11 +49,11 @@ class BaseTooltip extends Component<
     anchorRefObserver: null,
   };
 
-  private toggleButtonRef: RefObject<HTMLButtonElement>;
+  private toggleButtonRef: React.RefObject<HTMLButtonElement>;
 
-  private contentRef: RefObject<HTMLDivElement>;
+  private contentRef: React.RefObject<HTMLDivElement>;
 
-  constructor(props: TooltipProps & InnerRef) {
+  constructor(props: TooltipProps) {
     super(props);
     this.toggleButtonRef = createRef();
     this.contentRef = createRef();
@@ -85,7 +75,7 @@ class BaseTooltip extends Component<
         this.contentRef.current.getBoundingClientRect().left -
         2;
       const max = this.contentRef.current.getBoundingClientRect().width - 17;
-      return Math.min(pos, max);
+      return Math.round(Math.min(pos, max));
     }
     return 0;
   };
@@ -102,7 +92,7 @@ class BaseTooltip extends Component<
     this.setState({ anchorRefObserver });
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps: TooltipProps) {
     if (this.props.anchorElement !== this.state.anchorElement) {
       if (!!this.state.anchorRefObserver) {
         if (!!this.state.anchorElement) {
@@ -113,6 +103,8 @@ class BaseTooltip extends Component<
         }
       }
       this.setState({ anchorElement: this.props.anchorElement });
+      this.setContentArrowOffset();
+    } else if (prevProps.open !== this.props.open && this.props.open) {
       this.setContentArrowOffset();
     }
   }
@@ -157,12 +149,14 @@ class BaseTooltip extends Component<
     } = this.props;
 
     const open = 'open' in this.props ? propsOpen : this.state.open;
+    // Remove the possibility to have undefined forwardedRef as a parameter for forkRefs
+    const definedRef = forwardedRef || null;
 
     return (
       <>
         <TooltipToggleButton
           className={classnames(baseClassName, toggleButtonClassName)}
-          ref={forkRefs(this.toggleButtonRef, forwardedRef)}
+          ref={forkRefs(this.toggleButtonRef, definedRef)}
           aria-label={ariaToggleButtonLabelText}
           aria-expanded={open}
           onClick={this.handleToggleClick}

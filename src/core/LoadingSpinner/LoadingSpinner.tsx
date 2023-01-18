@@ -32,10 +32,10 @@ export interface LoadingSpinnerProps {
    * @default 'normal'
    */
   variant?: 'normal' | 'small';
+  /** Ref to be passed to the root div element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLDivElement>;
 }
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLDivElement>;
-}
+
 const baseClassName = 'fi-loadingSpinner';
 
 export const loadingSpinnerClassNames = {
@@ -49,7 +49,7 @@ export const loadingSpinnerClassNames = {
   icon: `${baseClassName}_icon`,
 };
 
-class BaseLoadingSpinner extends Component<LoadingSpinnerProps & InnerRef> {
+class BaseLoadingSpinner extends Component<LoadingSpinnerProps> {
   render() {
     const {
       className,
@@ -101,7 +101,7 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps & InnerRef> {
   }
 }
 const StyledLoadingSpinner = styled(
-  (props: LoadingSpinnerProps & InnerRef & SuomifiThemeProp) => {
+  (props: LoadingSpinnerProps & SuomifiThemeProp) => {
     const { theme, ...passProps } = props;
     return <BaseLoadingSpinner {...passProps} />;
   },
@@ -109,7 +109,7 @@ const StyledLoadingSpinner = styled(
   ${({ theme }) => baseStyles(theme)};
 `;
 const LoadingSpinner = forwardRef(
-  (props: LoadingSpinnerProps, ref: React.RefObject<HTMLDivElement>) => {
+  (props: LoadingSpinnerProps, ref: React.Ref<HTMLDivElement>) => {
     const { ...passProps } = props;
     return (
       <SuomifiThemeConsumer>
