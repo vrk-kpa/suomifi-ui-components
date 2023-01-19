@@ -1,4 +1,4 @@
-### Default DateInput
+### Default DateInputn
 
 ```js
 import { DateInput } from 'suomifi-ui-components';
@@ -24,7 +24,7 @@ import React from 'react';
 </>;
 ```
 
-### DateInput with minDate, maxDate, and initialDate
+### DateInput with minMonth, maxMonth, and initialMonth
 
 ```js
 import { DateInput } from 'suomifi-ui-components';
@@ -35,9 +35,9 @@ import React from 'react';
     labelText="Date"
     hintText="Use format D.M.YYYY"
     datePickerEnabled
-    minDate={new Date(2010, 1, 1)}
-    maxDate={new Date(2020, 12, 31)}
-    initialDate={new Date(2015, 6, 1)}
+    minMonth={new Date(2010, 1, 1)}
+    maxMonth={new Date(2020, 12, 31)}
+    initialMonth={new Date(2015, 6, 1)}
   />
 </>;
 ```

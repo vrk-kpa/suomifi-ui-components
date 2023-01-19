@@ -15,7 +15,14 @@ import {
   DateSelectors,
   selectorsClassNames,
 } from './DateSelectors/DateSelectors';
-import { monthIsAfter, monthIsBefore, dayInRange } from '../dateUtils';
+import {
+  monthIsAfter,
+  monthIsBefore,
+  moveDays,
+  dayIsInMonthRange,
+  firstDayOfWeek,
+  lastDayOfWeek,
+} from '../dateUtils';
 import { getLogger } from '../../../../utils/log';
 
 const baseClassName = 'fi-date-picker';
@@ -34,7 +41,7 @@ export interface InternalDatePickerProps
   /** Source ref for positioning the popover next to calendar button */
   sourceRef: React.RefObject<any>;
   /** Button ref for closing dialog on button click when dialog is open */
-  buttonRef: React.RefObject<any>;
+  openButtonRef: React.RefObject<any>;
   /** Boolean to open or close calendar dialog */
   isOpen: boolean;
   /** Callback fired when closing calender */
@@ -52,7 +59,7 @@ export interface InternalDatePickerProps
 export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const {
     sourceRef,
-    buttonRef,
+    openButtonRef,
     isOpen,
     onClose,
     onChange,
@@ -67,25 +74,28 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const [dialogElement, setDialogElement] = useState<HTMLElement | null>(null);
   const [hasPopperEventListeners, setHasPopperEventListeners] =
     useState<boolean>(false);
-  const [focusedDate, setFocusedDate] = useState<Date>(new Date());
+  const [focusableDate, setFocusableDate] = useState<Date>(new Date());
+  const [focusedDate, setFocusedDate] = useState<Date | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
   const arrowRef = useRef<HTMLDivElement>(null);
   const yearSelectRef = useRef<HTMLDivElement>(null);
+  const confirmButtonRef = useRef<HTMLButtonElement>(null);
+  const dayButtonRef = useRef<HTMLButtonElement>(null);
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
-    if (monthIsBefore(focusedDate, minMonth)) {
-      setFocusedDate(minMonth);
-    } else if (monthIsAfter(focusedDate, maxMonth)) {
-      setFocusedDate(maxMonth);
+    if (monthIsBefore(focusableDate, minMonth)) {
+      setFocusableDate(minMonth);
+    } else if (monthIsAfter(focusableDate, maxMonth)) {
+      setFocusableDate(maxMonth);
     }
   }, []);
 
   useEffect(() => {
     if (initialMonth) {
-      if (dayInRange(initialMonth, minMonth, maxMonth)) {
-        setFocusedDate(initialMonth);
+      if (dayIsInMonthRange(initialMonth, minMonth, maxMonth)) {
+        setFocusableDate(initialMonth);
       } else {
         getLogger().warn(
           `Initial month "${initialMonth}" is not within interval [minMonth, maxMonth]`,
@@ -97,35 +107,116 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   useEffect(() => {
     if (isOpen) {
       setHasPopperEventListeners(true);
-      const globalClickHandler = (nativeEvent: MouseEvent) => {
-        const element = nativeEvent.target as Element;
-        if (
-          !dialogElement?.contains(nativeEvent.target as Node) &&
-          !buttonRef?.current?.contains(nativeEvent.target as Node) &&
-          /* Dropdown list is rendered outside of dialog
-          to a <reach-portal> that is not accessible with ref */
-          !element.classList.contains(selectorsClassNames.dropdownItem) &&
-          !element.classList.contains(selectorsClassNames.dropdown)
-        ) {
-          onClose();
-        }
-      };
       document.addEventListener('click', globalClickHandler, {
         capture: true,
       });
+      document.addEventListener('keydown', globalKeydownHandler, {
+        capture: true,
+      });
       if (yearSelectRef.current) {
-        const focusable = yearSelectRef.current
+        const focusableYearSelect = yearSelectRef.current
           .childNodes[0] as HTMLSpanElement;
-        focusable?.focus();
+        focusableYearSelect?.focus();
       }
       return () => {
         document.removeEventListener('click', globalClickHandler, {
+          capture: true,
+        });
+        document.removeEventListener('keydown', globalKeydownHandler, {
           capture: true,
         });
       };
     }
     setHasPopperEventListeners(false);
   }, [isOpen]);
+
+  const globalClickHandler = (nativeEvent: MouseEvent) => {
+    const element = nativeEvent.target as Element;
+
+    if (
+      !dialogElement?.contains(nativeEvent.target as Node) &&
+      !openButtonRef?.current?.contains(nativeEvent.target as Node) &&
+      /* Dropdown list is rendered outside of dialog
+      to a <reach-portal> that is not accessible with ref */
+      !element.classList.contains(selectorsClassNames.dropdownItem) &&
+      !element.classList.contains(selectorsClassNames.dropdown)
+    ) {
+      // For debugging random click to <body>? in dialog
+      console.log('element: ', element);
+      onClose();
+    }
+  };
+
+  const globalKeydownHandler = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      onClose();
+    }
+
+    if (event.key === 'Tab') {
+      // Trap focus to dialog
+      const firstElement = yearSelectRef?.current
+        ?.childNodes[0] as HTMLSpanElement;
+      const lastElement = confirmButtonRef?.current;
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement?.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement?.focus();
+      }
+    }
+  };
+
+  const dateInRange = (
+    date: Date,
+    start: Date = minMonth,
+    end: Date = maxMonth,
+  ): Date | null => {
+    if (dayIsInMonthRange(date, start, end)) {
+      return date;
+    }
+    return null;
+  };
+
+  const handleButtonKeydown = (
+    event: React.KeyboardEvent<HTMLButtonElement>,
+  ) => {
+    let date;
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      date = dateInRange(moveDays(focusableDate, 1));
+    }
+
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      date = dateInRange(moveDays(focusableDate, -1));
+    }
+
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      date = dateInRange(moveDays(focusableDate, 7));
+    }
+
+    if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      date = dateInRange(moveDays(focusableDate, -7));
+    }
+
+    if (event.key === 'Home') {
+      event.preventDefault();
+      date = dateInRange(firstDayOfWeek(focusableDate));
+    }
+
+    if (event.key === 'End') {
+      event.preventDefault();
+      date = dateInRange(lastDayOfWeek(focusableDate));
+    }
+
+    if (date) {
+      setFocusableDate(date);
+      setFocusedDate(date);
+    }
+  };
 
   const { styles, attributes } = usePopper(sourceRef.current, dialogElement, {
     strategy: 'fixed',
@@ -149,16 +240,16 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
 
   const handleConfirm = (): void => {
     onClose(true);
-    onChange(focusedDate);
+    onChange(focusableDate);
   };
 
-  const handleDateFocus = (date: Date): void => {
-    setFocusedDate(date);
+  const handleDateChange = (date: Date): void => {
+    setFocusableDate(date);
   };
 
   const handleDateSelect = (date: Date): void => {
     setSelectedDate(date);
-    setFocusedDate(date);
+    setFocusableDate(date);
   };
 
   if (!mountNode) {
@@ -188,18 +279,21 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
               }
             />
             <DateSelectors
-              focusedDate={focusedDate}
+              focusableDate={focusableDate}
               yearSelect={yearSelectRef}
               texts={texts}
-              onChange={handleDateFocus}
+              onChange={handleDateChange}
               minMonth={minMonth}
               maxMonth={maxMonth}
             />
             <MonthTable
               texts={texts}
+              focusableDate={focusableDate}
               focusedDate={focusedDate}
               selectedDate={selectedDate}
               onSelect={handleDateSelect}
+              onKeyDown={handleButtonKeydown}
+              dayButtonRef={dayButtonRef}
             />
             <HtmlDiv className={datePickerClassNames.bottomContainer}>
               <Button
@@ -212,6 +306,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
               <Button
                 variant="secondary"
                 onClick={() => onClose(true)}
+                forwardedRef={confirmButtonRef}
                 className={datePickerClassNames.bottomButton}
               >
                 {texts.closeButtonText}

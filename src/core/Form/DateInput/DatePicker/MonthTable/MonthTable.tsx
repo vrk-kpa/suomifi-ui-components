@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
@@ -29,19 +29,44 @@ export interface MonthTableProps {
   className?: string;
   /** Callback for date select  */
   onSelect: (date: Date) => void;
+  /** Callback for keydown events */
+  onKeyDown: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
+  /** Button ref for focusing date */
+  dayButtonRef: React.RefObject<any>;
   /** Texts for date picker  */
   texts: InternalDatePickerTextProps;
+  /** Day that will have focus in calendar */
+  focusableDate: Date;
   /** Day that is focused in calendar */
-  focusedDate: Date;
+  focusedDate: Date | null;
   /** Day that is set as selected */
   selectedDate: Date | null;
 }
 
 export const BaseMonthTable = (props: MonthTableProps) => {
-  const { className, onSelect, focusedDate, selectedDate, texts } = props;
+  const {
+    className,
+    onSelect,
+    onKeyDown,
+    dayButtonRef,
+    focusableDate,
+    focusedDate,
+    selectedDate,
+    texts,
+  } = props;
 
   const isSelectedDate = (date: WeekRowDate): boolean =>
     !!selectedDate && daysMatch(selectedDate, date.date);
+
+  const isFocusedDate = (date: WeekRowDate): boolean =>
+    !!focusedDate && daysMatch(focusedDate, date.date);
+
+  const isFocusableDate = (date: WeekRowDate): boolean =>
+    daysMatch(focusableDate, date.date);
+
+  useEffect(() => {
+    dayButtonRef?.current?.focus();
+  }, [focusedDate]);
 
   return (
     <table className={classnames(className, baseClassName)} role="presentation">
@@ -59,7 +84,7 @@ export const BaseMonthTable = (props: MonthTableProps) => {
         </tr>
       </thead>
       <tbody>
-        {weekRows(focusedDate).map((weekRow: WeekRowDate[]) => (
+        {weekRows(focusableDate).map((weekRow: WeekRowDate[]) => (
           <tr key={weekRow[0].date.toString()}>
             {weekRow.map((date: WeekRowDate) => (
               <td
@@ -79,9 +104,14 @@ export const BaseMonthTable = (props: MonthTableProps) => {
                 ) : (
                   <HtmlButton
                     onClick={() => onSelect(date.date)}
+                    onKeyDown={onKeyDown}
                     className={classnames(monthClassNames.date, {
                       [monthClassNames.dateSelected]: isSelectedDate(date),
                     })}
+                    tabIndex={isFocusableDate(date) ? undefined : -1}
+                    forwardedRef={
+                      isFocusedDate(date) ? dayButtonRef : undefined
+                    }
                     aria-label={`${
                       isSelectedDate(date) ? `${texts.selectedDateLabel} ` : ''
                     }${cellDateAriaLabel(date.date, texts)}`}

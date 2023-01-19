@@ -1,4 +1,5 @@
 import {
+  addDays,
   addMonths,
   addYears,
   eachDayOfInterval,
@@ -17,11 +18,13 @@ import {
   lastDayOfMonth,
   parse,
   startOfMonth,
+  startOfWeek,
   subMonths,
   subYears,
 } from 'date-fns';
 import { InternalDatePickerTextProps } from './datePickerTexts';
 
+const weekStartsOn = 1;
 export interface DateAdapter {
   format: (date: Date) => string;
   parse: (value: string) => Date;
@@ -69,6 +72,13 @@ export const monthOptions = (
   }, []);
 };
 
+export const moveDays = (date: Date, days: number) => addDays(date, days);
+
+export const firstDayOfWeek = (date: Date) =>
+  startOfWeek(date, { weekStartsOn });
+
+export const lastDayOfWeek = (date: Date) => endOfWeek(date, { weekStartsOn });
+
 export const yearsBack = (difference: number = 10): Date =>
   subYears(new Date(), difference);
 
@@ -82,7 +92,11 @@ export const monthForward = (date: Date): Date => addMonths(date, 1);
 export const daysMatch = (first: Date, second: Date): boolean =>
   isSameDay(first, second);
 
-export const dayInRange = (date: Date, start: Date, end: Date): boolean =>
+export const dayIsInMonthRange = (
+  date: Date,
+  start: Date,
+  end: Date,
+): boolean =>
   isWithinInterval(date, { start: startOfMonth(start), end: endOfMonth(end) });
 
 export const monthIsAfter = (date: Date, dateToCompare: Date): boolean =>
@@ -99,7 +113,6 @@ export interface WeekRowDate {
 }
 
 export const weekRows = (month: Date): WeekRowDate[][] => {
-  const weekStartsOn = 1;
   const start = startOfMonth(month);
   const end = lastDayOfMonth(month);
   const firstDaysOfWeek = eachWeekOfInterval(

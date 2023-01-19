@@ -40,7 +40,7 @@ import {
   yearsForward,
   yearsBack,
   DateAdapter,
-  dayInRange,
+  dayIsInMonthRange,
   cellDateAriaLabel,
 } from './dateUtils';
 import { getLogger } from '../../../utils/log';
@@ -224,7 +224,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
   const statusTextId = `${id}-statusText`;
 
   const inputRef = useRef<HTMLInputElement>();
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const openButtonRef = useRef<HTMLButtonElement>(null);
 
   const [inputValue, setInputValue] = useState<string>('');
   const [buttonDateLabel, setButtonDateLabel] = useState<string>('');
@@ -265,7 +265,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
     }
 
     if (!open && focus) {
-      buttonRef.current?.focus();
+      openButtonRef.current?.focus();
     }
   };
 
@@ -283,7 +283,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
       );
       return null;
     }
-    if (!dayInRange(date, minMonth, maxMonth)) {
+    if (!dayIsInMonthRange(date, minMonth, maxMonth)) {
       getLogger().warn(
         `Date input value "${newValue}" is not within interval [minMonth, maxMonth]`,
       );
@@ -365,7 +365,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
             {datePickerEnabled && (
               <>
                 <HtmlButton
-                  forwardedRef={buttonRef}
+                  forwardedRef={openButtonRef}
                   className={classnames(dateInputClassNames.pickerButton, {
                     [dateInputClassNames.pickerButtonDisabled]:
                       passProps.disabled,
@@ -385,7 +385,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
                 </HtmlButton>
                 <DatePicker
                   sourceRef={inputRef}
-                  buttonRef={buttonRef}
+                  openButtonRef={openButtonRef}
                   isOpen={calendarVisible}
                   onClose={(focus) => toggleCalendar(false, focus)}
                   onChange={(eventValue) => onDatePickerChange(eventValue)}

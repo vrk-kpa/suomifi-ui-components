@@ -40,7 +40,7 @@ interface DateSelectorsProps {
   /** Year select element reference for focusing select */
   yearSelect: React.RefObject<HTMLDivElement>;
   /** Date that is focused in calendar */
-  focusedDate: Date;
+  focusableDate: Date;
   minMonth: Date;
   maxMonth: Date;
 }
@@ -51,13 +51,13 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
     onChange,
     yearSelect,
     texts,
-    focusedDate,
+    focusableDate,
     minMonth,
     maxMonth,
   } = props;
 
   const handleYearSelect = (value: string): void => {
-    let date = new Date(focusedDate);
+    let date = new Date(focusableDate);
     date.setFullYear(Number(value));
     if (monthIsAfter(date, maxMonth)) {
       date = maxMonth;
@@ -68,18 +68,18 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
   };
 
   const handleMonthSelect = (value: string): void => {
-    const date = new Date(focusedDate);
+    const date = new Date(focusableDate);
     date.setMonth(Number(value));
     onChange(date);
   };
 
   const handlePrevMonthButton = (): void => {
-    const date = monthBack(focusedDate);
+    const date = monthBack(focusableDate);
     onChange(date);
   };
 
   const handleNextMonthButton = (): void => {
-    const date = monthForward(focusedDate);
+    const date = monthForward(focusableDate);
     onChange(date);
   };
 
@@ -92,12 +92,12 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
 
   const getPrevMonthButtonLabel = () =>
     `${texts.prevMonthButtonLabel} ${getMonthNameByIndex(
-      monthBack(focusedDate).getMonth(),
+      monthBack(focusableDate).getMonth(),
     )}`;
 
   const getNextMonthButtonLabel = () =>
     `${texts.nextMonthButtonLabel} ${getMonthNameByIndex(
-      monthForward(focusedDate).getMonth(),
+      monthForward(focusableDate).getMonth(),
     )}`;
 
   return (
@@ -106,7 +106,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
         forwardedRef={yearSelect}
         labelText={texts.yearSelectLabel}
         labelMode="hidden"
-        value={String(focusedDate.getFullYear())}
+        value={String(focusableDate.getFullYear())}
         onChange={handleYearSelect}
         className={classnames(
           selectorsClassNames.yearSelect,
@@ -126,14 +126,14 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
       <Dropdown
         labelText={texts.monthSelectLabel}
         labelMode="hidden"
-        value={String(focusedDate.getMonth())}
+        value={String(focusableDate.getMonth())}
         onChange={handleMonthSelect}
         className={classnames(
           selectorsClassNames.monthSelect,
           selectorsClassNames.dropdown,
         )}
       >
-        {monthOptions(focusedDate, minMonth, maxMonth, texts).map(
+        {monthOptions(focusableDate, minMonth, maxMonth, texts).map(
           (month: MonthOption) => (
             <DropdownItem
               className={selectorsClassNames.dropdownItem}
