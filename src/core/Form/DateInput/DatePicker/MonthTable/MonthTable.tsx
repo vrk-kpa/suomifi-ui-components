@@ -94,13 +94,13 @@ export const BaseMonthTable = (props: MonthTableProps) => {
                 })}
               >
                 {date.disabled ? (
-                  <span
+                  <div
                     className={classnames({
                       [monthClassNames.cellCurrent]: date.current,
                     })}
                   >
                     {date.number}
-                  </span>
+                  </div>
                 ) : (
                   <HtmlButton
                     onClick={() => onSelect(date.date)}
@@ -117,13 +117,13 @@ export const BaseMonthTable = (props: MonthTableProps) => {
                     }${cellDateAriaLabel(date.date, texts)}`}
                     aria-current={date.current ? 'date' : undefined}
                   >
-                    <span
+                    <div
                       className={classnames({
                         [monthClassNames.dateCurrent]: date.current,
                       })}
                     >
                       {date.number}
-                    </span>
+                    </div>
                   </HtmlButton>
                 )}
               </td>

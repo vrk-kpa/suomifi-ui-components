@@ -2,19 +2,6 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../../../../theme';
 import { font } from '../../../../theme/reset';
 
-const dateUnderline = (color: string) => css`
-  position: relative;
-  &:after {
-    content: '';
-    position: absolute;
-    width: calc(100% + 10px);
-    height: 1px;
-    bottom: -2px;
-    left: -5px;
-    background-color: ${color};
-  }
-`;
-
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyTextSmall')};
   margin-top: ${theme.spacing.s};
@@ -32,11 +19,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   & .fi-month-table_cell--current {
-    ${dateUnderline(theme.colors.depthBase)};
+    margin: 0 6px;
+    border-bottom: 1px solid ${theme.colors.depthBase};
   }
 
   & .fi-month-table_date-button--current {
-    ${dateUnderline(theme.colors.blackBase)};
+    margin: 0 6px;
+    border-bottom: 1px solid ${theme.colors.blackBase};
   }
 
   & .fi-month-table_date-button {
@@ -61,8 +50,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       background-color: ${theme.colors.highlightBase};
       color: ${theme.colors.whiteBase};
 
-      & .fi-month-table_date-button--current:after {
-        background-color: ${theme.colors.whiteBase};
+      & .fi-month-table_date-button--current {
+        border-bottom: 1px solid ${theme.colors.whiteBase};
       }
     }
   }

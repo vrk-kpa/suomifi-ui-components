@@ -27,8 +27,6 @@ export const selectorsClassNames = {
   monthSelect: `${baseClassName}_month-select`,
   monthButton: `${baseClassName}_month-button`,
   monthButtonIcon: `${baseClassName}_month-button_icon`,
-  dropdown: `${baseClassName}_dropdown`,
-  dropdownItem: `${baseClassName}_dropdown-item`,
 };
 
 interface DateSelectorsProps {
@@ -37,12 +35,22 @@ interface DateSelectorsProps {
   className?: string;
   /** Callback for date select  */
   onChange: (date: Date) => void;
-  /** Year select element reference for focusing select */
+  /** Year select element reference for focusing select and calculating dropdown width */
   yearSelect: React.RefObject<HTMLDivElement>;
+  /** Month select element reference for calculating dropdown width */
+  monthSelect: React.RefObject<HTMLDivElement>;
   /** Date that is focused in calendar */
+
   focusableDate: Date;
   minMonth: Date;
   maxMonth: Date;
+}
+
+interface DropdownWidthProps {
+  /** Width of year select element */
+  yearSelectWidth: number;
+  /** Width of month select element */
+  monthSelectWidth: number;
 }
 
 export const BaseDateSelectors = (props: DateSelectorsProps) => {
@@ -50,6 +58,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
     className,
     onChange,
     yearSelect,
+    monthSelect,
     texts,
     focusableDate,
     minMonth,
@@ -103,43 +112,32 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
   return (
     <HtmlDiv className={classnames(className, selectorsClassNames.container)}>
       <Dropdown
+        dropdownPopoverProps={{ portal: false, children: [] }}
         forwardedRef={yearSelect}
         labelText={texts.yearSelectLabel}
         labelMode="hidden"
         value={String(focusableDate.getFullYear())}
         onChange={handleYearSelect}
-        className={classnames(
-          selectorsClassNames.yearSelect,
-          selectorsClassNames.dropdown,
-        )}
+        className={selectorsClassNames.yearSelect}
       >
         {yearOptions(minMonth, maxMonth).map((year: number) => (
-          <DropdownItem
-            className={selectorsClassNames.dropdownItem}
-            value={String(year)}
-            key={year}
-          >
+          <DropdownItem value={String(year)} key={year}>
             {year}
           </DropdownItem>
         ))}
       </Dropdown>
       <Dropdown
+        dropdownPopoverProps={{ portal: false, children: [] }}
+        forwardedRef={monthSelect}
         labelText={texts.monthSelectLabel}
         labelMode="hidden"
         value={String(focusableDate.getMonth())}
         onChange={handleMonthSelect}
-        className={classnames(
-          selectorsClassNames.monthSelect,
-          selectorsClassNames.dropdown,
-        )}
+        className={selectorsClassNames.monthSelect}
       >
         {monthOptions(focusableDate, minMonth, maxMonth, texts).map(
           (month: MonthOption) => (
-            <DropdownItem
-              className={selectorsClassNames.dropdownItem}
-              value={String(month.value)}
-              key={month.name}
-            >
+            <DropdownItem value={String(month.value)} key={month.name}>
               {month.name}
             </DropdownItem>
           ),
@@ -172,14 +170,18 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
 };
 
 const StyledDateSelectors = styled(
-  ({ theme, ...passProps }: DateSelectorsProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    ...passProps
+  }: DateSelectorsProps & SuomifiThemeProp & DropdownWidthProps) => (
     <BaseDateSelectors {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, yearSelectWidth, monthSelectWidth }) =>
+    baseStyles(theme, yearSelectWidth, monthSelectWidth)}
 `;
 
-const DateSelectors = (props: DateSelectorsProps) => (
+const DateSelectors = (props: DateSelectorsProps & DropdownWidthProps) => (
   <SuomifiThemeConsumer>
     {({ suomifiTheme }) => (
       <StyledDateSelectors theme={suomifiTheme} {...props} />
