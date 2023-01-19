@@ -99,6 +99,9 @@ export const dayIsInMonthRange = (
 ): boolean =>
   isWithinInterval(date, { start: startOfMonth(start), end: endOfMonth(end) });
 
+export const monthIsSame = (date: Date, dateToCompare: Date): boolean =>
+  isSameMonth(date, dateToCompare);
+
 export const monthIsAfter = (date: Date, dateToCompare: Date): boolean =>
   isAfter(date, endOfMonth(dateToCompare));
 

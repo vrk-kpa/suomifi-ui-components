@@ -16,6 +16,7 @@ import {
   monthIsAfter,
   monthIsBefore,
   MonthOption,
+  monthIsSame,
 } from '../../dateUtils';
 
 const baseClassName = 'fi-date-selectors';
@@ -148,6 +149,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
         variant="secondaryNoBorder"
         aria-label={getPrevMonthButtonLabel()}
         className={selectorsClassNames.monthButton}
+        disabled={monthIsSame(focusableDate, minMonth)}
       >
         <Icon
           icon="chevronLeft"
@@ -159,6 +161,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
         variant="secondaryNoBorder"
         aria-label={getNextMonthButtonLabel()}
         className={selectorsClassNames.monthButton}
+        disabled={monthIsSame(focusableDate, maxMonth)}
       >
         <Icon
           icon="chevronRight"
