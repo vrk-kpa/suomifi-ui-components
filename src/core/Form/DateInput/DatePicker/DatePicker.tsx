@@ -41,6 +41,8 @@ export interface InternalDatePickerProps
   openButtonRef: React.RefObject<any>;
   /** Boolean to open or close calendar dialog */
   isOpen: boolean;
+  /** Date to set focusable and selected */
+  initialDate?: Date | null;
   /** Callback fired when closing calender */
   onClose: (focus?: boolean) => void;
   /** Callback fired when date is selected  */
@@ -62,6 +64,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     onChange,
     className,
     texts,
+    initialDate,
     initialMonth,
     minMonth,
     maxMonth,
@@ -103,6 +106,19 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       }
     }
   }, [initialMonth]);
+
+  useEffect(() => {
+    if (initialDate) {
+      if (dayIsInMonthRange(initialDate, minMonth, maxMonth)) {
+        setSelectedDate(initialDate);
+        setFocusableDate(initialDate);
+      } else {
+        getLogger().warn(
+          `Initial date "${initialDate}" is not within interval [minMonth, maxMonth]`,
+        );
+      }
+    }
+  }, [initialDate]);
 
   useEffect(() => {
     if (isOpen) {

@@ -389,6 +389,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
                   isOpen={calendarVisible}
                   onClose={(focus) => toggleCalendar(false, focus)}
                   onChange={(eventValue) => onDatePickerChange(eventValue)}
+                  initialDate={datePickerDate}
                   initialMonth={datePickerDate || initialMonth}
                   texts={texts}
                   minMonth={minMonth}
