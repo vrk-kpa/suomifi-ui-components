@@ -2,26 +2,16 @@ import React, { useEffect } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
-import { HtmlButton } from '../../../../../reset';
 import { InternalDatePickerTextProps } from '../../datePickerTexts';
+import { weekRows, WeekRowDate } from '../../dateUtils';
+import { MonthDay } from '../MonthDay/MonthDay';
 import { baseStyles } from './MonthTable.baseStyles';
-import {
-  daysMatch,
-  weekRows,
-  WeekRowDate,
-  cellDateAriaLabel,
-} from '../../dateUtils';
 
 const baseClassName = 'fi-month-table';
 
-export const monthClassNames = {
+export const monthTableClassNames = {
   baseClassName,
-  cell: `${baseClassName}_cell`,
-  cellDisabled: `${baseClassName}_cell--disabled`,
-  cellCurrent: `${baseClassName}_cell--current`,
-  date: `${baseClassName}_date-button`,
-  dateCurrent: `${baseClassName}_date-button--current`,
-  dateSelected: `${baseClassName}_date-button--selected`,
+  cell: `${baseClassName}_thead-cell`,
 };
 
 export interface MonthTableProps {
@@ -55,15 +45,6 @@ export const BaseMonthTable = (props: MonthTableProps) => {
     texts,
   } = props;
 
-  const isSelectedDate = (date: WeekRowDate): boolean =>
-    !!selectedDate && daysMatch(selectedDate, date.date);
-
-  const isFocusedDate = (date: WeekRowDate): boolean =>
-    !!focusedDate && daysMatch(focusedDate, date.date);
-
-  const isFocusableDate = (date: WeekRowDate): boolean =>
-    daysMatch(focusableDate, date.date);
-
   useEffect(() => {
     dayButtonRef?.current?.focus();
   }, [focusedDate]);
@@ -76,7 +57,7 @@ export const BaseMonthTable = (props: MonthTableProps) => {
             <td
               // eslint-disable-next-line react/no-array-index-key
               key={`${day}${index}`}
-              className={monthClassNames.cell}
+              className={monthTableClassNames.cell}
             >
               {day}
             </td>
@@ -87,46 +68,16 @@ export const BaseMonthTable = (props: MonthTableProps) => {
         {weekRows(focusableDate).map((weekRow: WeekRowDate[]) => (
           <tr key={weekRow[0].date.toString()}>
             {weekRow.map((date: WeekRowDate) => (
-              <td
-                key={date.date.toString()}
-                className={classnames(monthClassNames.cell, {
-                  [monthClassNames.cellDisabled]: date.disabled,
-                })}
-              >
-                {date.disabled ? (
-                  <div
-                    className={classnames({
-                      [monthClassNames.cellCurrent]: date.current,
-                    })}
-                  >
-                    {date.number}
-                  </div>
-                ) : (
-                  <HtmlButton
-                    onClick={() => onSelect(date.date)}
-                    onKeyDown={onKeyDown}
-                    className={classnames(monthClassNames.date, {
-                      [monthClassNames.dateSelected]: isSelectedDate(date),
-                    })}
-                    tabIndex={isFocusableDate(date) ? undefined : -1}
-                    forwardedRef={
-                      isFocusedDate(date) ? dayButtonRef : undefined
-                    }
-                    aria-label={`${
-                      isSelectedDate(date) ? `${texts.selectedDateLabel} ` : ''
-                    }${cellDateAriaLabel(date.date, texts)}`}
-                    aria-current={date.current ? 'date' : undefined}
-                  >
-                    <div
-                      className={classnames({
-                        [monthClassNames.dateCurrent]: date.current,
-                      })}
-                    >
-                      {date.number}
-                    </div>
-                  </HtmlButton>
-                )}
-              </td>
+              <MonthDay
+                date={date}
+                focusableDate={focusableDate}
+                focusedDate={focusedDate}
+                selectedDate={selectedDate}
+                dayButtonRef={dayButtonRef}
+                onSelect={onSelect}
+                onKeyDown={onKeyDown}
+                texts={texts}
+              />
             ))}
           </tr>
         ))}

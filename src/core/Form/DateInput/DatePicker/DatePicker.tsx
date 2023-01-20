@@ -53,7 +53,9 @@ export interface InternalDatePickerProps
   texts: InternalDatePickerTextProps;
   /** Styled component className */
   className?: string;
+  /** Minimum month user can select from date picker. */
   minMonth: Date;
+  /** Maximum month user can select from date picker. */
   maxMonth: Date;
 }
 
@@ -329,19 +331,19 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
               yearSelectWidth={yearSelectWidth}
               monthSelect={monthSelectRef}
               monthSelectWidth={monthSelectWidth}
-              texts={texts}
               onChange={handleDateChange}
               minMonth={minMonth}
               maxMonth={maxMonth}
+              texts={texts}
             />
             <MonthTable
-              texts={texts}
               focusableDate={focusableDate}
               focusedDate={focusedDate}
               selectedDate={selectedDate}
               onSelect={handleDateSelect}
               onKeyDown={handleButtonKeydown}
               dayButtonRef={dayButtonRef}
+              texts={texts}
             />
             <HtmlDiv className={datePickerClassNames.bottomContainer}>
               <Button
