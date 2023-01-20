@@ -110,7 +110,7 @@ type LoadingProps =
       loadingText?: string;
     }
   | {
-      /** Show the animated icon indcating that component is loading data
+      /** Show the animated icon indicating that component is loading data
        * @default false
        */
       loading?: true;
