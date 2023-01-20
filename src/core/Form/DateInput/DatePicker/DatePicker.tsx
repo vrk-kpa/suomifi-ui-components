@@ -19,6 +19,8 @@ import {
   dayIsInMonthRange,
   firstDayOfWeek,
   lastDayOfWeek,
+  moveYears,
+  moveMonths,
 } from '../dateUtils';
 import { getLogger } from '../../../../utils/log';
 
@@ -126,19 +128,18 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       document.addEventListener('click', globalClickHandler, {
         capture: true,
       });
-      document.addEventListener('keydown', globalKeydownHandler, {
+      document.addEventListener('keydown', globalKeyDownHandler, {
         capture: true,
       });
       if (yearSelectRef.current) {
         focusableYearSelect().focus();
         calculateDropdownWidths();
       }
-
       return () => {
         document.removeEventListener('click', globalClickHandler, {
           capture: true,
         });
-        document.removeEventListener('keydown', globalKeydownHandler, {
+        document.removeEventListener('keydown', globalKeyDownHandler, {
           capture: true,
         });
       };
@@ -159,21 +160,17 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   };
 
   const globalClickHandler = (nativeEvent: MouseEvent) => {
-    const element = nativeEvent.target as Element;
-
     if (
       !dialogElement?.contains(nativeEvent.target as Node) &&
       !openButtonRef.current?.contains(nativeEvent.target as Node)
     ) {
-      // For debugging random click to <body>? in dialog
-      console.log('element: ', element);
-      onClose();
+      handleClose();
     }
   };
 
-  const globalKeydownHandler = (event: KeyboardEvent) => {
+  const globalKeyDownHandler = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
-      onClose();
+      handleClose();
     }
 
     if (event.key === 'Tab') {
@@ -188,11 +185,6 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
         firstElement?.focus();
       }
     }
-
-    // TBD: PageDown
-    // TBD: PageUp
-    // TBD: Shift + PageDown
-    // TBD: Shift + PageUp
   };
 
   const handleButtonKeydown = (
@@ -227,6 +219,26 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     if (event.key === 'End') {
       event.preventDefault();
       date = dateInRange(lastDayOfWeek(focusableDate));
+    }
+
+    if (event.key === 'PageUp' && event.shiftKey) {
+      event.preventDefault();
+      date = dateInRange(moveYears(focusableDate, -1));
+    }
+
+    if (event.key === 'PageDown' && event.shiftKey) {
+      event.preventDefault();
+      date = dateInRange(moveYears(focusableDate, 1));
+    }
+
+    if (event.key === 'PageUp' && !event.shiftKey) {
+      event.preventDefault();
+      date = dateInRange(moveMonths(focusableDate, -1));
+    }
+
+    if (event.key === 'PageDown' && !event.shiftKey) {
+      event.preventDefault();
+      date = dateInRange(moveMonths(focusableDate, 1));
     }
 
     if (date) {
@@ -267,8 +279,13 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   });
 
   const handleConfirm = (): void => {
-    onClose(true);
+    handleClose(true);
     onChange(focusableDate);
+  };
+
+  const handleClose = (focus: boolean = false): void => {
+    setSelectedDate(null);
+    onClose(focus);
   };
 
   const handleDateChange = (date: Date): void => {
@@ -336,7 +353,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
               </Button>
               <Button
                 variant="secondary"
-                onClick={() => onClose(true)}
+                onClick={() => handleClose(true)}
                 forwardedRef={confirmButtonRef}
                 className={datePickerClassNames.bottomButton}
               >

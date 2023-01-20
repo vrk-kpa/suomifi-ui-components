@@ -10,13 +10,12 @@ import { Button } from '../../../../Button/Button';
 import { Icon } from '../../../../Icon/Icon';
 import {
   yearOptions,
-  monthBack,
-  monthForward,
   monthOptions,
   monthIsAfter,
   monthIsBefore,
   MonthOption,
   monthIsSame,
+  moveMonths,
 } from '../../dateUtils';
 
 const baseClassName = 'fi-date-selectors';
@@ -84,12 +83,12 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
   };
 
   const handlePrevMonthButton = (): void => {
-    const date = monthBack(focusableDate);
+    const date = moveMonths(focusableDate, -1);
     onChange(date);
   };
 
   const handleNextMonthButton = (): void => {
-    const date = monthForward(focusableDate);
+    const date = moveMonths(focusableDate, 1);
     onChange(date);
   };
 
@@ -102,12 +101,12 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
 
   const getPrevMonthButtonLabel = () =>
     `${texts.prevMonthButtonLabel} ${getMonthNameByIndex(
-      monthBack(focusableDate).getMonth(),
+      moveMonths(focusableDate, -1).getMonth(),
     )}`;
 
   const getNextMonthButtonLabel = () =>
     `${texts.nextMonthButtonLabel} ${getMonthNameByIndex(
-      monthForward(focusableDate).getMonth(),
+      moveMonths(focusableDate, 1).getMonth(),
     )}`;
 
   return (

@@ -19,8 +19,6 @@ import {
   parse,
   startOfMonth,
   startOfWeek,
-  subMonths,
-  subYears,
 } from 'date-fns';
 import { InternalDatePickerTextProps } from './datePickerTexts';
 
@@ -74,20 +72,15 @@ export const monthOptions = (
 
 export const moveDays = (date: Date, days: number) => addDays(date, days);
 
+export const moveMonths = (date: Date, months: number) =>
+  addMonths(date, months);
+
+export const moveYears = (date: Date, years: number) => addYears(date, years);
+
 export const firstDayOfWeek = (date: Date) =>
   startOfWeek(date, { weekStartsOn });
 
 export const lastDayOfWeek = (date: Date) => endOfWeek(date, { weekStartsOn });
-
-export const yearsBack = (difference: number = 10): Date =>
-  subYears(new Date(), difference);
-
-export const yearsForward = (difference: number = 10): Date =>
-  addYears(new Date(), difference);
-
-export const monthBack = (date: Date): Date => subMonths(date, 1);
-
-export const monthForward = (date: Date): Date => addMonths(date, 1);
 
 export const daysMatch = (first: Date, second: Date): boolean =>
   isSameDay(first, second);

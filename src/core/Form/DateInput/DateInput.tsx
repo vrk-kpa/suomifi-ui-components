@@ -37,8 +37,7 @@ import {
 } from './datePickerTexts';
 import {
   defaultDateAdapter,
-  yearsForward,
-  yearsBack,
+  moveYears,
   DateAdapter,
   dayIsInMonthRange,
   cellDateAriaLabel,
@@ -212,8 +211,8 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
     datePickerTexts = undefined,
     language = 'fi',
     dateAdapter = defaultDateAdapter(),
-    minMonth = yearsBack(10),
-    maxMonth = yearsForward(10),
+    minMonth = moveYears(new Date(), -10),
+    maxMonth = moveYears(new Date(), 10),
     initialMonth,
     tooltipComponent,
     ...passProps
@@ -260,8 +259,8 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
   const toggleCalendar = (open: boolean, focus: boolean = false) => {
     setCalendarVisible(open);
 
-    if (open && inputRef.current?.value) {
-      updateDatePickerDate(inputRef.current?.value);
+    if (open) {
+      updateDatePickerDate(inputRef.current?.value || null);
     }
 
     if (!open && focus) {
@@ -292,9 +291,13 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
     return date;
   };
 
-  const updateDatePickerDate = (newValue: string) => {
-    const date = validateDatePickerValue(newValue);
-    setDatePickerDate(date);
+  const updateDatePickerDate = (newValue: string | null) => {
+    if (newValue === null) {
+      setDatePickerDate(newValue);
+    } else {
+      const date = validateDatePickerValue(newValue);
+      setDatePickerDate(date);
+    }
   };
 
   const onDatePickerChange = (date: Date) => {
