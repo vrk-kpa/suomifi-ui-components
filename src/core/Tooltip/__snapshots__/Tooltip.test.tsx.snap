@@ -54,6 +54,35 @@ exports[`Basic tooltip should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
 .c2 {
   vertical-align: baseline;
 }
@@ -76,6 +105,110 @@ exports[`Basic tooltip should match snapshot 1`] = `
 
 .c2.fi-icon--cursor-pointer * {
   cursor: inherit;
+}
+
+.c4 {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c4.fi-tooltip_content {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  border: 1px solid hsl(201,7%,46%);
+  border-radius: 2px;
+  background-color: hsl(212,63%,98%);
+  padding: 20px 43px 20px 20px;
+  box-shadow: 0 2px 3px 0 rgba(41,41,41,0.2);
+}
+
+.c4.fi-tooltip_content:before,
+.c4.fi-tooltip_content:after {
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 0;
+  border: solid transparent;
+  pointer-events: none;
+}
+
+.c4.fi-tooltip_content:before {
+  border-bottom-color: hsl(0,0%,16%);
+  border-width: 9px;
+  left: 0px;
+  margin-right: -9px;
+  bottom: 100%;
+}
+
+.c4.fi-tooltip_content:after {
+  border-bottom-color: hsl(212,63%,98%);
+  border-width: 8px;
+  margin-right: -9px;
+  bottom: 100%;
+  left: calc(0px + 1px);
+}
+
+.c4.fi-tooltip_content.fi-tooltip_content--arrow-hidden:before,
+.c4.fi-tooltip_content.fi-tooltip_content--arrow-hidden:after {
+  display: none;
+}
+
+.c4.fi-tooltip_content .fi-tooltip_close-button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
+  border-radius: 2px;
+}
+
+.c4.fi-tooltip_content .fi-tooltip_close-button .fi-tooltip_close-button_icon {
+  width: 16px;
+  height: 16px;
+}
+
+.c4.fi-tooltip_content .fi-tooltip_close-button:active {
+  background: linear-gradient(-180deg,hsl(202,7%,80%) 0%,rgba(255,255,255,0) 100%);
+}
+
+.c4.fi-tooltip_content .fi-tooltip_close-button:focus-visible {
+  outline: 0;
+}
+
+.c4.fi-tooltip_content .fi-tooltip_close-button:focus-visible:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c4.fi-tooltip_content .fi-tooltip_close-button:hover {
+  outline: 1px solid hsl(0,0%,16%);
+}
+
+.c4.fi-tooltip_content .fi-heading {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.c4.fi-tooltip_content .fi-text {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
 .c1 {
@@ -115,7 +248,7 @@ exports[`Basic tooltip should match snapshot 1`] = `
 
 <div>
   <button
-    aria-expanded="false"
+    aria-expanded="true"
     aria-label="Toggle tooltip"
     class="c0 c1 fi-tooltip fi-tooltip_toggle-button"
     type="button"
@@ -137,5 +270,32 @@ exports[`Basic tooltip should match snapshot 1`] = `
       />
     </svg>
   </button>
+  <div
+    class="c3 fi-tooltip_content c4 fi-tooltip_content--arrow-hidden"
+  >
+    Test Tooltip
+    <button
+      aria-label="Close tooltip"
+      class="c0 fi-tooltip_close-button"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="fi-icon c2 fi-tooltip_close-button_icon"
+        focusable="false"
+        height="1em"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="fi-icon-base-fill"
+          d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
+          fill="#222"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </button>
+  </div>
 </div>
 `;

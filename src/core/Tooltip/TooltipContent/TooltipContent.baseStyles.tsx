@@ -47,20 +47,27 @@ export const baseStyles = (arrowOffsetPx: number, theme: SuomifiTheme) => css`
 
     & .fi-tooltip_close-button {
       position: absolute;
-      top: 20px;
-      right: 15px;
-      height: 18px;
-      width: 18px;
+      top: 0px;
+      right: 0px;
+      height: 40px;
+      width: 40px;
+      padding: 12px;
+      border-radius: ${theme.radius.basic};
       & .fi-tooltip_close-button_icon {
-        width: 100%;
-        height: 100%;
-        color: ${theme.colors.depthDark2};
+        width: 16px;
+        height: 16px;
+      }
+      &:active {
+        background: ${theme.gradients.whiteBaseToDepthLight1};
       }
       &:focus-visible {
         outline: 0;
         &:after {
           ${theme.focus.absoluteFocus}
         }
+      }
+      &:hover {
+        outline: 1px solid ${theme.colors.blackBase};
       }
     }
     & .fi-heading {
