@@ -69,6 +69,7 @@ export const BaseMonthTable = (props: MonthTableProps) => {
           <tr key={weekRow[0].date.toString()}>
             {weekRow.map((date: WeekRowDate) => (
               <MonthDay
+                key={date.date.toString()}
                 date={date}
                 focusableDate={focusableDate}
                 focusedDate={focusedDate}

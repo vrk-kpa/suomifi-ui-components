@@ -125,8 +125,8 @@ export interface DatePickerProps {
   minMonth?: Date;
   /** Maximum month user can select from date picker. By default ten years after current date. */
   maxMonth?: Date;
-  /** Initial date to focus when date picker is opened. By default the current month. */
-  initialMonth?: Date;
+  /** Initial date to focus when date picker is opened. By default the current date. */
+  initialDate?: Date;
   /**
    * Enables custom formatting and parsing for date picker. By default date format is like '1.1.2022'.
    * If value can't be parsed to date, Invalid Date is returned. Invalid Date is a Date, whose time value is NaN.
@@ -213,7 +213,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
     dateAdapter = defaultDateAdapter(),
     minMonth = moveYears(new Date(), -10),
     maxMonth = moveYears(new Date(), 10),
-    initialMonth,
+    initialDate,
     tooltipComponent,
     ...passProps
   } = props;
@@ -227,7 +227,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
 
   const [inputValue, setInputValue] = useState<string>('');
   const [buttonDateLabel, setButtonDateLabel] = useState<string>('');
-  const [datePickerDate, setDatePickerDate] = useState<Date | null>(null);
+  const [inputValueAsDate, setInputValueAsDate] = useState<Date | null>(null);
   const [calendarVisible, setCalendarVisible] = useState<boolean>(false);
   const [texts, setTexts] = useState<InternalDatePickerTextProps>(
     datePickerDefaultTexts.fi,
@@ -260,7 +260,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
     setCalendarVisible(open);
 
     if (open) {
-      updateDatePickerDate(inputRef.current?.value || null);
+      updateInputValueAsDate(inputRef.current?.value || null);
     }
 
     if (!open && focus) {
@@ -291,12 +291,12 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
     return date;
   };
 
-  const updateDatePickerDate = (newValue: string | null) => {
+  const updateInputValueAsDate = (newValue: string | null) => {
     if (newValue === null) {
-      setDatePickerDate(newValue);
+      setInputValueAsDate(newValue);
     } else {
       const date = validateDatePickerValue(newValue);
-      setDatePickerDate(date);
+      setInputValueAsDate(date);
     }
   };
 
@@ -392,8 +392,8 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
                   isOpen={calendarVisible}
                   onClose={(focus) => toggleCalendar(false, focus)}
                   onChange={(eventValue) => onDatePickerChange(eventValue)}
-                  initialDate={datePickerDate}
-                  initialMonth={datePickerDate || initialMonth}
+                  initialDate={initialDate}
+                  inputValue={inputValueAsDate}
                   texts={texts}
                   minMonth={minMonth}
                   maxMonth={maxMonth}

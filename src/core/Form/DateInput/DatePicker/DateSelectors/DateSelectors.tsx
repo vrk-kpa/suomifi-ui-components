@@ -35,7 +35,7 @@ interface DateSelectorsProps {
   className?: string;
   /** Callback for date select  */
   onChange: (date: Date) => void;
-  /** Year select element reference for focusing select and calculating dropdown width */
+  /** Year select element reference for focus trap and calculating dropdown width */
   yearSelect: React.RefObject<HTMLDivElement>;
   /** Month select element reference for calculating dropdown width */
   monthSelect: React.RefObject<HTMLDivElement>;

@@ -43,8 +43,6 @@ export interface InternalDatePickerProps
   openButtonRef: React.RefObject<any>;
   /** Boolean to open or close calendar dialog */
   isOpen: boolean;
-  /** Date to set focusable and selected */
-  initialDate?: Date | null;
   /** Callback fired when closing calender */
   onClose: (focus?: boolean) => void;
   /** Callback fired when date is selected  */
@@ -53,6 +51,8 @@ export interface InternalDatePickerProps
   texts: InternalDatePickerTextProps;
   /** Styled component className */
   className?: string;
+  /** Value from date input field parsed to date. */
+  inputValue: Date | null;
   /** Minimum month user can select from date picker. */
   minMonth: Date;
   /** Maximum month user can select from date picker. */
@@ -69,7 +69,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     className,
     texts,
     initialDate,
-    initialMonth,
+    inputValue,
     minMonth,
     maxMonth,
   } = props;
@@ -100,21 +100,8 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   }, []);
 
   useEffect(() => {
-    if (initialMonth) {
-      if (dayIsInMonthRange(initialMonth, minMonth, maxMonth)) {
-        setFocusableDate(initialMonth);
-      } else {
-        getLogger().warn(
-          `Initial month "${initialMonth}" is not within interval [minMonth, maxMonth]`,
-        );
-      }
-    }
-  }, [initialMonth]);
-
-  useEffect(() => {
     if (initialDate) {
       if (dayIsInMonthRange(initialDate, minMonth, maxMonth)) {
-        setSelectedDate(initialDate);
         setFocusableDate(initialDate);
       } else {
         getLogger().warn(
@@ -133,10 +120,8 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       document.addEventListener('keydown', globalKeyDownHandler, {
         capture: true,
       });
-      if (yearSelectRef.current) {
-        focusableYearSelect().focus();
-        calculateDropdownWidths();
-      }
+      focusDate();
+      calculateDropdownWidths();
       return () => {
         document.removeEventListener('click', globalClickHandler, {
           capture: true,
@@ -149,8 +134,21 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     setHasPopperEventListeners(false);
   }, [isOpen]);
 
-  const focusableYearSelect = (): HTMLSpanElement =>
-    yearSelectRef.current?.childNodes[0] as HTMLSpanElement;
+  const focusDate = () => {
+    if (inputValue && dayIsInMonthRange(inputValue, minMonth, maxMonth)) {
+      // InputValue is updated for performance reasons only when dialog is opened
+      setSelectedDate(inputValue);
+      setFocusableDate(inputValue);
+      setFocusedDate(inputValue);
+    } else {
+      if (inputValue && !dayIsInMonthRange(inputValue, minMonth, maxMonth)) {
+        getLogger().warn(
+          `Input value "${inputValue}" is not within interval [minMonth, maxMonth]`,
+        );
+      }
+      setFocusedDate(focusableDate);
+    }
+  };
 
   const calculateDropdownWidths = () => {
     setYearSelectWidth(
@@ -172,12 +170,13 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
 
   const globalKeyDownHandler = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
-      handleClose();
+      handleClose(true);
     }
 
     if (event.key === 'Tab') {
       // Trap focus to dialog
-      const firstElement = focusableYearSelect();
+      const firstElement = yearSelectRef.current
+        ?.childNodes[0] as HTMLSpanElement;
       const lastElement = confirmButtonRef?.current;
       if (event.shiftKey && document.activeElement === firstElement) {
         event.preventDefault();
@@ -287,6 +286,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
 
   const handleClose = (focus: boolean = false): void => {
     setSelectedDate(null);
+    setFocusedDate(null);
     onClose(focus);
   };
 
