@@ -108,6 +108,7 @@ exports[`children should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  width: 100%;
   padding: 0 15px;
   margin: 15px 0;
 }
