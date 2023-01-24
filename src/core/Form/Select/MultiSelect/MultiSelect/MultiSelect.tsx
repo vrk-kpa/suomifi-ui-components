@@ -20,6 +20,7 @@ import { MultiSelectRemoveAllButton } from '../MultiSelectRemoveAllButton/MultiS
 import { baseStyles } from './MultiSelect.baseStyles';
 import { InputToggleButton } from '../../../InputToggleButton/InputToggleButton';
 import { SelectItemAddition } from '../../BaseSelect/SelectItemAddition/SelectItemAddition';
+import { LoadingSpinner } from '../../../../LoadingSpinner/LoadingSpinner';
 
 const baseClassName = 'fi-multiselect';
 const multiSelectClassNames = {
@@ -93,6 +94,20 @@ type AriaSelectedAmountProps =
        * `ariaSelectedAmountText` if both are provided.
        */
       ariaSelectedAmountTextFunction: (amount: number) => string;
+    };
+
+type LoadingProps =
+  | {
+      loading?: false | never;
+      loadingText?: string;
+    }
+  | {
+      /** Show the animated icon indicating that component is loading data
+       * @default false
+       */
+      loading?: true;
+      /** Text to show with the loading animation. Required if `loading` is true */
+      loadingText: string;
     };
 
 interface InternalMultiSelectProps<T extends MultiSelectData> {
@@ -175,7 +190,8 @@ export type MultiSelectProps<T> = InternalMultiSelectProps<
   AllowItemAdditionProps &
   AriaOptionsAvailableProps &
   AriaOptionChipRemovedProps &
-  AriaSelectedAmountProps;
+  AriaSelectedAmountProps &
+  LoadingProps;
 
 interface MultiSelectState<T extends MultiSelectData> {
   filterInputValue: string;
@@ -579,6 +595,8 @@ class BaseMultiSelect<T> extends Component<
       ariaChipActionLabel,
       removeAllButtonLabel,
       visualPlaceholder,
+      loading,
+      loadingText,
       noItemsText,
       defaultSelectedItems,
       onChange: propOnChange,
@@ -719,7 +737,8 @@ class BaseMultiSelect<T> extends Component<
                   aria-multiselectable="true"
                 >
                   <HtmlDiv>
-                    {filteredItemsWithChecked.length > 0 &&
+                    {!loading &&
+                      filteredItemsWithChecked.length > 0 &&
                       filteredItemsWithChecked.map((item) => {
                         const isCurrentlySelected =
                           item.uniqueItemId === focusedDescendantId;
@@ -740,12 +759,14 @@ class BaseMultiSelect<T> extends Component<
                         );
                       })}
 
-                    {filteredItemsWithChecked.length === 0 &&
+                    {!loading &&
+                      filteredItemsWithChecked.length === 0 &&
                       !allowItemAddition && (
                         <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
                       )}
 
-                    {filterInputValue !== '' &&
+                    {!loading &&
+                      filterInputValue !== '' &&
                       !this.inputValueInItems() &&
                       allowItemAddition && (
                         <SelectItemAddition
@@ -770,6 +791,17 @@ class BaseMultiSelect<T> extends Component<
                           {filterInputValue}
                         </SelectItemAddition>
                       )}
+
+                    {loading && (
+                      <SelectEmptyItem className="loading">
+                        <LoadingSpinner
+                          status="loading"
+                          variant="small"
+                          textAlign="right"
+                          text={loadingText}
+                        />
+                      </SelectEmptyItem>
+                    )}
                   </HtmlDiv>
                 </SelectItemList>
               </Popover>

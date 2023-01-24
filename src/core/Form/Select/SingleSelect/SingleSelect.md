@@ -405,3 +405,30 @@ const labelText = 'Food';
   />
 </>;
 ```
+
+### Loading state
+
+```js
+import {
+  SingleSelect,
+  Tooltip,
+  Heading,
+  Text
+} from 'suomifi-ui-components';
+const foods = [];
+const defaultSelectedFood = {};
+
+const labelText = 'Food';
+
+<>
+  <SingleSelect
+    labelText={labelText}
+    clearButtonLabel="Clear selection"
+    items={foods}
+    noItemsText="No matching options"
+    ariaOptionsAvailableText="Options available"
+    loading={true}
+    loadingText="Loading data"
+  />
+</>;
+```

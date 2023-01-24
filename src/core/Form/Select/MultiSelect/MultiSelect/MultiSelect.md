@@ -461,3 +461,30 @@ const labelText = 'Food';
   ariaOptionChipRemovedText="removed"
 />;
 ```
+
+### Loading state
+
+```js
+import {
+  MultiSelect,
+  Tooltip,
+  Heading,
+  Text
+} from 'suomifi-ui-components';
+
+const foods = [];
+
+const labelText = 'Food';
+
+<MultiSelect
+  items={foods}
+  labelText={labelText}
+  visualPlaceholder="Choose your foods"
+  noItemsText="No items"
+  loading={true}
+  loadingText="Loading data"
+  ariaSelectedAmountText="items selected"
+  ariaOptionsAvailableText="options available"
+  ariaOptionChipRemovedText="removed"
+/>;
+```
