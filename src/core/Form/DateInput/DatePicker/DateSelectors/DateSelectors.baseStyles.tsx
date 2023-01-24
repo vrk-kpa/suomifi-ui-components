@@ -20,11 +20,11 @@ export const baseStyles = (
   }
 
   & .fi-date-selectors_month-select {
-    margin-right: ${theme.spacing.xxs};
+    margin-right: ${theme.spacing.xs};
     min-width: ${monthSelectWidth}px;
     /* TODO: Better way for width of dropdown & responsive for mobile? */
     .fi-dropdown_button {
-      min-width: 73px;
+      min-width: 78px;
     }
   }
 

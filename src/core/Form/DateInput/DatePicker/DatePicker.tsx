@@ -13,10 +13,10 @@ import { Button } from '../../../Button/Button';
 import { MonthTable } from './MonthTable/MonthTable';
 import { DateSelectors } from './DateSelectors/DateSelectors';
 import {
-  monthIsAfter,
-  monthIsBefore,
+  dayIsAfter,
+  dayIsBefore,
   moveDays,
-  dayIsInMonthRange,
+  dayIsInRange,
   firstDayOfWeek,
   lastDayOfWeek,
   moveYears,
@@ -53,10 +53,10 @@ export interface InternalDatePickerProps
   className?: string;
   /** Value from date input field parsed to date. */
   inputValue: Date | null;
-  /** Minimum month user can select from date picker. */
-  minMonth: Date;
-  /** Maximum month user can select from date picker. */
-  maxMonth: Date;
+  /** Minimum date user can select from date picker. */
+  minDate: Date;
+  /** Maximum date user can select from date picker. */
+  maxDate: Date;
 }
 
 export const BaseDatePicker = (props: InternalDatePickerProps) => {
@@ -70,8 +70,8 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     texts,
     initialDate,
     inputValue,
-    minMonth,
-    maxMonth,
+    minDate,
+    maxDate,
   } = props;
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
@@ -92,20 +92,20 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
-    if (monthIsBefore(focusableDate, minMonth)) {
-      setFocusableDate(minMonth);
-    } else if (monthIsAfter(focusableDate, maxMonth)) {
-      setFocusableDate(maxMonth);
+    if (dayIsBefore(focusableDate, minDate)) {
+      setFocusableDate(minDate);
+    } else if (dayIsAfter(focusableDate, maxDate)) {
+      setFocusableDate(maxDate);
     }
   }, []);
 
   useEffect(() => {
     if (initialDate) {
-      if (dayIsInMonthRange(initialDate, minMonth, maxMonth)) {
+      if (dayIsInRange(initialDate, minDate, maxDate)) {
         setFocusableDate(initialDate);
       } else {
         getLogger().warn(
-          `Initial date "${initialDate}" is not within interval [minMonth, maxMonth]`,
+          `Initial date "${initialDate}" is not within interval [minDate, maxDate]`,
         );
       }
     }
@@ -135,15 +135,15 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   }, [isOpen]);
 
   const focusDate = () => {
-    if (inputValue && dayIsInMonthRange(inputValue, minMonth, maxMonth)) {
+    if (inputValue && dayIsInRange(inputValue, minDate, maxDate)) {
       // InputValue is updated for performance reasons only when dialog is opened
       setSelectedDate(inputValue);
       setFocusableDate(inputValue);
       setFocusedDate(inputValue);
     } else {
-      if (inputValue && !dayIsInMonthRange(inputValue, minMonth, maxMonth)) {
+      if (inputValue && !dayIsInRange(inputValue, minDate, maxDate)) {
         getLogger().warn(
-          `Input value "${inputValue}" is not within interval [minMonth, maxMonth]`,
+          `Input value "${inputValue}" is not within interval [minDate, maxDate]`,
         );
       }
       setFocusedDate(focusableDate);
@@ -250,10 +250,10 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
 
   const dateInRange = (
     date: Date,
-    start: Date = minMonth,
-    end: Date = maxMonth,
+    start: Date = minDate,
+    end: Date = maxDate,
   ): Date | null => {
-    if (dayIsInMonthRange(date, start, end)) {
+    if (dayIsInRange(date, start, end)) {
       return date;
     }
     return null;
@@ -295,8 +295,8 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   };
 
   const handleDateSelect = (date: Date): void => {
-    setSelectedDate(date);
     setFocusableDate(date);
+    setSelectedDate(date);
   };
 
   if (!mountNode) {
@@ -332,8 +332,8 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
               monthSelect={monthSelectRef}
               monthSelectWidth={monthSelectWidth}
               onChange={handleDateChange}
-              minMonth={minMonth}
-              maxMonth={maxMonth}
+              minDate={minDate}
+              maxDate={maxDate}
               texts={texts}
             />
             <MonthTable
@@ -343,6 +343,8 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
               onSelect={handleDateSelect}
               onKeyDown={handleButtonKeydown}
               dayButtonRef={dayButtonRef}
+              minDate={minDate}
+              maxDate={maxDate}
               texts={texts}
             />
             <HtmlDiv className={datePickerClassNames.bottomContainer}>

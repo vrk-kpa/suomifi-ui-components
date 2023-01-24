@@ -40,10 +40,11 @@ interface DateSelectorsProps {
   /** Month select element reference for calculating dropdown width */
   monthSelect: React.RefObject<HTMLDivElement>;
   /** Date that is focused in calendar */
-
   focusableDate: Date;
-  minMonth: Date;
-  maxMonth: Date;
+  /** Minimum date user can select from date picker. */
+  minDate: Date;
+  /** Maximum date user can select from date picker. */
+  maxDate: Date;
 }
 
 interface DropdownWidthProps {
@@ -61,17 +62,17 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
     monthSelect,
     texts,
     focusableDate,
-    minMonth,
-    maxMonth,
+    minDate,
+    maxDate,
   } = props;
 
   const handleYearSelect = (value: string): void => {
     let date = new Date(focusableDate);
     date.setFullYear(Number(value));
-    if (monthIsAfter(date, maxMonth)) {
-      date = maxMonth;
-    } else if (monthIsBefore(date, minMonth)) {
-      date = minMonth;
+    if (monthIsAfter(date, maxDate)) {
+      date = maxDate;
+    } else if (monthIsBefore(date, minDate)) {
+      date = minDate;
     }
     onChange(date);
   };
@@ -120,7 +121,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
         onChange={handleYearSelect}
         className={selectorsClassNames.yearSelect}
       >
-        {yearOptions(minMonth, maxMonth).map((year: number) => (
+        {yearOptions(minDate, maxDate).map((year: number) => (
           <DropdownItem value={String(year)} key={year}>
             {year}
           </DropdownItem>
@@ -135,7 +136,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
         onChange={handleMonthSelect}
         className={selectorsClassNames.monthSelect}
       >
-        {monthOptions(focusableDate, minMonth, maxMonth, texts).map(
+        {monthOptions(focusableDate, minDate, maxDate, texts).map(
           (month: MonthOption) => (
             <DropdownItem value={String(month.value)} key={month.name}>
               {month.name}
@@ -148,7 +149,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
         variant="secondaryNoBorder"
         aria-label={getPrevMonthButtonLabel()}
         className={selectorsClassNames.monthButton}
-        disabled={monthIsSame(focusableDate, minMonth)}
+        disabled={monthIsSame(focusableDate, minDate)}
       >
         <Icon
           icon="chevronLeft"
@@ -160,7 +161,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
         variant="secondaryNoBorder"
         aria-label={getNextMonthButtonLabel()}
         className={selectorsClassNames.monthButton}
-        disabled={monthIsSame(focusableDate, maxMonth)}
+        disabled={monthIsSame(focusableDate, maxDate)}
       >
         <Icon
           icon="chevronRight"

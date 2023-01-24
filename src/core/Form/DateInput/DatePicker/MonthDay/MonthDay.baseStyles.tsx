@@ -16,12 +16,14 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   & .fi-month-day--current {
     margin: 0 6px;
+    padding: 3px 0;
     border-bottom: 1px solid ${theme.colors.depthBase};
     text-align: center;
   }
 
   & .fi-month-day_button--current {
     margin: 0 6px;
+    padding: 3px 0;
     border-bottom: 1px solid ${theme.colors.blackBase};
     text-align: center;
   }

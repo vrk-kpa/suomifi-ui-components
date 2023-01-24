@@ -15,7 +15,6 @@ import {
   isSameMonth,
   isToday,
   isWithinInterval,
-  lastDayOfMonth,
   parse,
   startOfMonth,
   startOfWeek,
@@ -35,9 +34,9 @@ export const defaultDateAdapter = (
   parse: (value: string): Date => parse(value, formatString, new Date()),
 });
 
-export const yearOptions = (minMonth: Date, maxMonth: Date): number[] => {
-  const min = minMonth.getFullYear();
-  const max = maxMonth.getFullYear();
+export const yearOptions = (minDate: Date, maxDate: Date): number[] => {
+  const min = minDate.getFullYear();
+  const max = maxDate.getFullYear();
   return Array.from({ length: max - min + 1 }, (_, i) => min + i);
 };
 
@@ -48,8 +47,8 @@ export interface MonthOption {
 
 export const monthOptions = (
   selectedDate: Date,
-  minMonth: Date,
-  maxMonth: Date,
+  minDate: Date,
+  maxDate: Date,
   texts: InternalDatePickerTextProps,
 ): any[] => {
   const year = selectedDate.getFullYear();
@@ -58,7 +57,7 @@ export const monthOptions = (
     end: new Date(year, 11, 31),
   });
   return months.reduce((array: MonthOption[], month, index) => {
-    if (startOfMonth(minMonth) > month || endOfMonth(maxMonth) < month) {
+    if (startOfMonth(minDate) > month || endOfMonth(maxDate) < month) {
       // Month is disabled
     } else {
       array.push({
@@ -77,6 +76,10 @@ export const moveMonths = (date: Date, months: number) =>
 
 export const moveYears = (date: Date, years: number) => addYears(date, years);
 
+export const firstDayOfMonth = (date: Date) => startOfMonth(date);
+
+export const lastDayOfMonth = (date: Date) => endOfMonth(date);
+
 export const firstDayOfWeek = (date: Date) =>
   startOfWeek(date, { weekStartsOn });
 
@@ -85,12 +88,21 @@ export const lastDayOfWeek = (date: Date) => endOfWeek(date, { weekStartsOn });
 export const daysMatch = (first: Date, second: Date): boolean =>
   isSameDay(first, second);
 
+export const dayIsInRange = (date: Date, start: Date, end: Date): boolean =>
+  isWithinInterval(date, { start, end });
+
 export const dayIsInMonthRange = (
   date: Date,
   start: Date,
   end: Date,
 ): boolean =>
   isWithinInterval(date, { start: startOfMonth(start), end: endOfMonth(end) });
+
+export const dayIsBefore = (date: Date, dateToCompare: Date): boolean =>
+  isBefore(date, dateToCompare);
+
+export const dayIsAfter = (date: Date, dateToCompare: Date): boolean =>
+  isAfter(date, dateToCompare);
 
 export const monthIsSame = (date: Date, dateToCompare: Date): boolean =>
   isSameMonth(date, dateToCompare);
@@ -108,9 +120,13 @@ export interface WeekRowDate {
   current: boolean;
 }
 
-export const weekRows = (month: Date): WeekRowDate[][] => {
+export const weekRows = (
+  month: Date,
+  minDate: Date,
+  maxDate: Date,
+): WeekRowDate[][] => {
   const start = startOfMonth(month);
-  const end = lastDayOfMonth(month);
+  const end = endOfMonth(month);
   const firstDaysOfWeek = eachWeekOfInterval(
     {
       start,
@@ -125,7 +141,8 @@ export const weekRows = (month: Date): WeekRowDate[][] => {
       date,
       number: date.getDate(),
       current: isToday(date),
-      disabled: !isSameMonth(date, month),
+      disabled:
+        !isSameMonth(date, month) || !dayIsInRange(date, minDate, maxDate),
     }));
   });
   return rows;

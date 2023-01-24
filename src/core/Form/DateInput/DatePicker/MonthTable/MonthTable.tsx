@@ -31,6 +31,10 @@ export interface MonthTableProps {
   focusedDate: Date | null;
   /** Day that is set as selected */
   selectedDate: Date | null;
+  /** Minimum date user can select from date picker. */
+  minDate: Date;
+  /** Maximum date user can select from date picker. */
+  maxDate: Date;
 }
 
 export const BaseMonthTable = (props: MonthTableProps) => {
@@ -42,6 +46,8 @@ export const BaseMonthTable = (props: MonthTableProps) => {
     focusableDate,
     focusedDate,
     selectedDate,
+    minDate,
+    maxDate,
     texts,
   } = props;
 
@@ -65,23 +71,25 @@ export const BaseMonthTable = (props: MonthTableProps) => {
         </tr>
       </thead>
       <tbody>
-        {weekRows(focusableDate).map((weekRow: WeekRowDate[]) => (
-          <tr key={weekRow[0].date.toString()}>
-            {weekRow.map((date: WeekRowDate) => (
-              <MonthDay
-                key={date.date.toString()}
-                date={date}
-                focusableDate={focusableDate}
-                focusedDate={focusedDate}
-                selectedDate={selectedDate}
-                dayButtonRef={dayButtonRef}
-                onSelect={onSelect}
-                onKeyDown={onKeyDown}
-                texts={texts}
-              />
-            ))}
-          </tr>
-        ))}
+        {weekRows(focusableDate, minDate, maxDate).map(
+          (weekRow: WeekRowDate[]) => (
+            <tr key={weekRow[0].date.toString()}>
+              {weekRow.map((date: WeekRowDate) => (
+                <MonthDay
+                  key={date.date.toString()}
+                  date={date}
+                  focusableDate={focusableDate}
+                  focusedDate={focusedDate}
+                  selectedDate={selectedDate}
+                  dayButtonRef={dayButtonRef}
+                  onSelect={onSelect}
+                  onKeyDown={onKeyDown}
+                  texts={texts}
+                />
+              ))}
+            </tr>
+          ),
+        )}
       </tbody>
     </table>
   );

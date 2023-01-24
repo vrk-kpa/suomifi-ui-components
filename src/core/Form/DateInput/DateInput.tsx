@@ -39,7 +39,9 @@ import {
   defaultDateAdapter,
   moveYears,
   DateAdapter,
-  dayIsInMonthRange,
+  dayIsInRange,
+  firstDayOfMonth,
+  lastDayOfMonth,
   cellDateAriaLabel,
 } from './dateUtils';
 import { getLogger } from '../../../utils/log';
@@ -121,10 +123,10 @@ export interface DatePickerProps {
    * @default 'fi'
    */
   language?: 'fi' | 'en' | 'sv';
-  /** Minimum month user can select from date picker. By default ten years before current date. */
-  minMonth?: Date;
-  /** Maximum month user can select from date picker. By default ten years after current date. */
-  maxMonth?: Date;
+  /** Minimum date user can select from date picker. By default first day of month ten years before current date. */
+  minDate?: Date;
+  /** Maximum date user can select from date picker. By default last day of month ten years after current date. */
+  maxDate?: Date;
   /** Initial date to focus when date picker is opened. By default the current date. */
   initialDate?: Date;
   /**
@@ -211,8 +213,8 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
     datePickerTexts = undefined,
     language = 'fi',
     dateAdapter = defaultDateAdapter(),
-    minMonth = moveYears(new Date(), -10),
-    maxMonth = moveYears(new Date(), 10),
+    minDate = moveYears(firstDayOfMonth(new Date()), -10),
+    maxDate = moveYears(lastDayOfMonth(new Date()), 10),
     initialDate,
     tooltipComponent,
     ...passProps
@@ -282,9 +284,9 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
       );
       return null;
     }
-    if (!dayIsInMonthRange(date, minMonth, maxMonth)) {
+    if (!dayIsInRange(date, minDate, maxDate)) {
       getLogger().warn(
-        `Date input value "${newValue}" is not within interval [minMonth, maxMonth]`,
+        `Date input value "${newValue}" is not within interval [minDate, maxDate]`,
       );
       return null;
     }
@@ -395,8 +397,8 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
                   initialDate={initialDate}
                   inputValue={inputValueAsDate}
                   texts={texts}
-                  minMonth={minMonth}
-                  maxMonth={maxMonth}
+                  minDate={minDate}
+                  maxDate={maxDate}
                 />
               </>
             )}
