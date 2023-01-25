@@ -66,6 +66,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     isOpen,
     onClose,
     onChange,
+    shouldDisableDate,
     className,
     texts,
     initialDate,
@@ -342,6 +343,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
               selectedDate={selectedDate}
               onSelect={handleDateSelect}
               onKeyDown={handleButtonKeydown}
+              shouldDisableDate={shouldDisableDate}
               dayButtonRef={dayButtonRef}
               minDate={minDate}
               maxDate={maxDate}

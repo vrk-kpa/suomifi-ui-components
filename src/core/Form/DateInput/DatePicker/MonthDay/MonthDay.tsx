@@ -16,6 +16,7 @@ export const monthDayClassNames = {
   cellCurrent: `${baseClassName}--current`,
   button: `${baseClassName}_button`,
   buttonCurrent: `${baseClassName}_button--current`,
+  buttonDisabled: `${baseClassName}_button--disabled`,
   buttonSelected: `${baseClassName}_button--selected`,
 };
 
@@ -27,6 +28,8 @@ export interface MonthDayProps {
   onSelect: (date: Date) => void;
   /** Callback for keydown events */
   onKeyDown: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
+  /** Disable date inside date range */
+  shouldDisableDate?: (date: Date) => boolean;
   /** Button ref for focusing date */
   dayButtonRef: React.RefObject<any>;
   /** Texts for date picker  */
@@ -45,6 +48,7 @@ export const BaseMonthDay = (props: MonthDayProps) => {
     className,
     onSelect,
     onKeyDown,
+    shouldDisableDate,
     dayButtonRef,
     focusableDate,
     focusedDate,
@@ -59,6 +63,9 @@ export const BaseMonthDay = (props: MonthDayProps) => {
     !!focusedDate && daysMatch(focusedDate, date.date);
 
   const isFocusableDate = (): boolean => daysMatch(focusableDate, date.date);
+
+  const isDisabledDate = (): boolean =>
+    shouldDisableDate ? shouldDisableDate(date.date) : false;
 
   const buttonText = (): string => {
     const text = cellDateAriaLabel(date.date, texts);
@@ -92,13 +99,15 @@ export const BaseMonthDay = (props: MonthDayProps) => {
         )
       ) : (
         <HtmlButton
-          onClick={() => onSelect(date.date)}
+          onClick={() => (isDisabledDate() ? undefined : onSelect(date.date))}
           onKeyDown={onKeyDown}
           tabIndex={isFocusableDate() ? undefined : -1}
           forwardedRef={isFocusedDate() ? dayButtonRef : undefined}
           aria-current={date.current ? 'date' : undefined}
+          aria-disabled={isDisabledDate()}
           className={classnames(monthDayClassNames.button, {
             [monthDayClassNames.buttonSelected]: isSelectedDate(),
+            [monthDayClassNames.buttonDisabled]: isDisabledDate(),
           })}
         >
           {date.current ? (

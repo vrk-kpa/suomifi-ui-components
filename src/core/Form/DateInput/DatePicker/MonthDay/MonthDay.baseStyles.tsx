@@ -28,6 +28,23 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     text-align: center;
   }
 
+  & .fi-month-day_button--disabled {
+    color: ${theme.colors.depthBase};
+
+    & .fi-month-day_button--current {
+      border-bottom: 1px solid ${theme.colors.depthBase};
+    }
+
+    &:hover {
+      color: ${theme.colors.depthBase};
+      background-color: ${theme.colors.whiteBase};
+
+      & .fi-month-day_button--current {
+        border-bottom: 1px solid ${theme.colors.depthBase};
+      }
+    }
+  }
+
   & .fi-month-day_button {
     ${font(theme)('bodyTextSmall')};
     border: 1px solid transparent;

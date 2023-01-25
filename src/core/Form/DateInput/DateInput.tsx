@@ -129,6 +129,8 @@ export interface DatePickerProps {
   maxDate?: Date;
   /** Initial date to focus when date picker is opened. By default the current date. */
   initialDate?: Date;
+  /** Callback fired to disable dates inside the [minDate, maxDate] range. */
+  shouldDisableDate?: (date: Date) => boolean;
   /**
    * Enables custom formatting and parsing for date picker. By default date format is like '1.1.2022'.
    * If value can't be parsed to date, Invalid Date is returned. Invalid Date is a Date, whose time value is NaN.
@@ -213,6 +215,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
     datePickerTexts = undefined,
     language = 'fi',
     dateAdapter = defaultDateAdapter(),
+    shouldDisableDate,
     minDate = moveYears(firstDayOfMonth(new Date()), -10),
     maxDate = moveYears(lastDayOfMonth(new Date()), 10),
     initialDate,
@@ -394,6 +397,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
                   isOpen={calendarVisible}
                   onClose={(focus) => toggleCalendar(false, focus)}
                   onChange={(eventValue) => onDatePickerChange(eventValue)}
+                  shouldDisableDate={shouldDisableDate}
                   initialDate={initialDate}
                   inputValue={inputValueAsDate}
                   texts={texts}

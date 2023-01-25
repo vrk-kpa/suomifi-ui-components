@@ -21,6 +21,8 @@ export interface MonthTableProps {
   onSelect: (date: Date) => void;
   /** Callback for keydown events */
   onKeyDown: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
+  /** Disable date inside date range */
+  shouldDisableDate?: (date: Date) => boolean;
   /** Button ref for focusing date */
   dayButtonRef: React.RefObject<any>;
   /** Texts for date picker  */
@@ -42,6 +44,7 @@ export const BaseMonthTable = (props: MonthTableProps) => {
     className,
     onSelect,
     onKeyDown,
+    shouldDisableDate,
     dayButtonRef,
     focusableDate,
     focusedDate,
@@ -84,6 +87,7 @@ export const BaseMonthTable = (props: MonthTableProps) => {
                   dayButtonRef={dayButtonRef}
                   onSelect={onSelect}
                   onKeyDown={onKeyDown}
+                  shouldDisableDate={shouldDisableDate}
                   texts={texts}
                 />
               ))}

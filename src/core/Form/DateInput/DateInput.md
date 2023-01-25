@@ -24,7 +24,7 @@ import React from 'react';
 </>;
 ```
 
-### DateInput with minMonth, maxMonth, and initialMonth
+### DateInput with minDate, maxDate, and initialDate
 
 ```js
 import { DateInput } from 'suomifi-ui-components';
@@ -35,9 +35,28 @@ import React from 'react';
     labelText="Date"
     hintText="Use format D.M.YYYY"
     datePickerEnabled
-    minMonth={new Date(2010, 1, 1)}
-    maxMonth={new Date(2020, 12, 31)}
-    initialMonth={new Date(2015, 6, 1)}
+    minDate={new Date(2010, 1, 1)}
+    maxDate={new Date(2020, 11, 15)}
+    initialDate={new Date(2020, 11, 1)}
+  />
+</>;
+```
+
+### DateInput with dates disabled
+
+```js
+import { DateInput } from 'suomifi-ui-components';
+import React from 'react';
+
+const isWeekend = (date) =>
+  date.getDay() === 6 || date.getDay() === 0;
+
+<>
+  <DateInput
+    labelText="Date"
+    hintText="Use format D.M.YYYY"
+    datePickerEnabled
+    shouldDisableDate={(date) => isWeekend(date)}
   />
 </>;
 ```
