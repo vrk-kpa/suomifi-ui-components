@@ -153,6 +153,8 @@ export const cellDateAriaLabel = (
   texts: InternalDatePickerTextProps,
 ) => {
   const month = texts.monthNames[date.getMonth()];
-  const weekDay = texts.weekDays[getDay(date)];
+  const dayIndex = getDay(date);
+  const index = dayIndex === 0 ? 6 : dayIndex - 1;
+  const weekDay = texts.weekDays[index];
   return `${date.getDate()} ${weekDay} ${month} ${date.getFullYear()}`;
 };
