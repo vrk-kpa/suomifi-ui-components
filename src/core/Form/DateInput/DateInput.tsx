@@ -369,44 +369,42 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
               )}
             </Debounce>
           </HtmlDiv>
-          <HtmlDiv className={dateInputClassNames.pickerElementContainer}>
-            {datePickerEnabled && (
-              <>
-                <HtmlButton
-                  forwardedRef={openButtonRef}
-                  className={classnames(dateInputClassNames.pickerButton, {
-                    [dateInputClassNames.pickerButtonDisabled]:
-                      passProps.disabled,
-                  })}
-                  onClick={() => toggleCalendar(!calendarVisible)}
-                  disabled={passProps.disabled}
-                >
-                  <VisuallyHidden>
-                    {texts.openButtonLabel}
-                    {buttonDateLabel}
-                  </VisuallyHidden>
-                  <Icon
-                    className={dateInputClassNames.pickerIcon}
-                    aria-hidden={true}
-                    icon="calendar"
-                  />
-                </HtmlButton>
-                <DatePicker
-                  sourceRef={inputRef}
-                  openButtonRef={openButtonRef}
-                  isOpen={calendarVisible}
-                  onClose={(focus) => toggleCalendar(false, focus)}
-                  onChange={(eventValue) => onDatePickerChange(eventValue)}
-                  shouldDisableDate={shouldDisableDate}
-                  initialDate={initialDate}
-                  inputValue={inputValueAsDate}
-                  texts={texts}
-                  minDate={minDate}
-                  maxDate={maxDate}
+          {datePickerEnabled && (
+            <HtmlDiv className={dateInputClassNames.pickerElementContainer}>
+              <HtmlButton
+                forwardedRef={openButtonRef}
+                className={classnames(dateInputClassNames.pickerButton, {
+                  [dateInputClassNames.pickerButtonDisabled]:
+                    passProps.disabled,
+                })}
+                onClick={() => toggleCalendar(!calendarVisible)}
+                disabled={passProps.disabled}
+              >
+                <VisuallyHidden>
+                  {texts.openButtonLabel}
+                  {buttonDateLabel}
+                </VisuallyHidden>
+                <Icon
+                  className={dateInputClassNames.pickerIcon}
+                  aria-hidden={true}
+                  icon="calendar"
                 />
-              </>
-            )}
-          </HtmlDiv>
+              </HtmlButton>
+              <DatePicker
+                sourceRef={inputRef}
+                openButtonRef={openButtonRef}
+                isOpen={calendarVisible}
+                onClose={(focus) => toggleCalendar(false, focus)}
+                onChange={(eventValue) => onDatePickerChange(eventValue)}
+                shouldDisableDate={shouldDisableDate}
+                initialDate={initialDate}
+                inputValue={inputValueAsDate}
+                texts={texts}
+                minDate={minDate}
+                maxDate={maxDate}
+              />
+            </HtmlDiv>
+          )}
         </HtmlDiv>
         <StatusText
           id={statusTextId}
