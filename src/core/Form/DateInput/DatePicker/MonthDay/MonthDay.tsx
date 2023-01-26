@@ -13,11 +13,11 @@ const baseClassName = 'fi-month-day';
 export const monthDayClassNames = {
   baseClassName,
   cellDisabled: `${baseClassName}--disabled`,
-  cellCurrent: `${baseClassName}--current`,
+  cellCurrent: `${baseClassName}_current`,
   button: `${baseClassName}_button`,
-  buttonCurrent: `${baseClassName}_button--current`,
   buttonDisabled: `${baseClassName}_button--disabled`,
   buttonSelected: `${baseClassName}_button--selected`,
+  buttonCurrent: `${baseClassName}_button_current`,
 };
 
 export interface MonthDayProps {

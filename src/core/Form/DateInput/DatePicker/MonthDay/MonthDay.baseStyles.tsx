@@ -14,14 +14,14 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     color: ${theme.colors.depthBase};
   }
 
-  & .fi-month-day--current {
+  & .fi-month-day_current {
     margin: 0 6px;
     padding: 3px 0;
     border-bottom: 1px solid ${theme.colors.depthBase};
     text-align: center;
   }
 
-  & .fi-month-day_button--current {
+  & .fi-month-day_button_current {
     margin: 0 6px;
     padding: 3px 0;
     border-bottom: 1px solid ${theme.colors.blackBase};
@@ -31,17 +31,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   & .fi-month-day_button--disabled {
     color: ${theme.colors.depthBase};
 
-    & .fi-month-day_button--current {
+    & .fi-month-day_button_current {
       border-bottom: 1px solid ${theme.colors.depthBase};
-    }
-
-    &:hover {
-      color: ${theme.colors.depthBase};
-      background-color: ${theme.colors.whiteBase};
-
-      & .fi-month-day_button--current {
-        border-bottom: 1px solid ${theme.colors.depthBase};
-      }
     }
   }
 
@@ -63,11 +54,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
-    &:hover {
+    &:not(.fi-month-day_button--disabled):hover {
       background-color: ${theme.colors.highlightBase};
       color: ${theme.colors.whiteBase};
 
-      & .fi-month-day_button--current {
+      & .fi-month-day_button_current {
         border-bottom: 1px solid ${theme.colors.whiteBase};
       }
     }
