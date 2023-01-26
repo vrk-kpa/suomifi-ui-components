@@ -28,6 +28,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-inline-alert_text-content-wrapper {
       display: flex;
       flex-direction: column;
+      width: 100%;
       padding: 0 ${theme.spacing.s};
       margin: ${theme.spacing.s} 0;
 
