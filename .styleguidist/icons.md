@@ -4,7 +4,26 @@ Suomi.fi icons are available through the [suomifi-icons](https://github.com/vrk-
 
 The API varies by component type. Any props not mentioned in the respective APIs are passed to the `svg` element.
 
-Click an icon to copy its component name to clipboard for easy importing.
+Click on an icon to copy its component name to clipboard for easy importing.
+
+## Usage
+
+To use individual icons they must be imported from `suomifi-icons`, which is a dependency for `suomifi-ui-components`. Afterwards they can be used via the APIs described below.
+
+```js
+import { IconArchive } from 'suomifi-icons';
+
+<IconArchive color="green" mousePointer />;
+```
+
+To use icons as a property for other components, simply give an icon element with the desired properties as a value for the component property.
+
+```js
+import { Button } from 'suomifi-ui-components';
+import { IconLogin } from 'suomifi-icons';
+
+<Button iconRight={<IconLogin />}>Log in</Button>;
+```
 
 ## Base icons
 

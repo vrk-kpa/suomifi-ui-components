@@ -7,6 +7,7 @@ import { suomifiDesignTokens } from 'suomifi-design-tokens';
 const baseIconKeys = [
   'Alert',
   'AlertOff',
+  'AlignLeft',
   'Archive',
   'ArrowUp',
   'ArrowRight',
@@ -51,6 +52,8 @@ const baseIconKeys = [
   'ExpandableMinus',
   'ExpandablePlus',
   'FileGeneric',
+  'Fullscreen',
+  'Grid',
   'HeartFilled',
   'Heart',
   'HelpFilled',
@@ -79,6 +82,7 @@ const baseIconKeys = [
   'Menu',
   'Message',
   'Minus',
+  'OptionsVertical',
   'Peek',
   'Pin',
   'Phone',
@@ -105,6 +109,7 @@ const baseIconKeys = [
   'TransportWalk',
   'Upload',
   'Warning',
+  'Window',
 ];
 
 const illustrativeIconKeys = [
