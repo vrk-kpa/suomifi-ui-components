@@ -13,7 +13,6 @@ export const baseStyles = (
   & .fi-date-selectors_year-select {
     margin-right: ${theme.spacing.xs};
     min-width: ${yearSelectWidth}px;
-    /* TODO: Better way for width of dropdown & responsive for mobile? */
     .fi-dropdown_button {
       min-width: 33px;
     }
@@ -22,7 +21,6 @@ export const baseStyles = (
   & .fi-date-selectors_month-select {
     margin-right: ${theme.spacing.xs};
     min-width: ${monthSelectWidth}px;
-    /* TODO: Better way for width of dropdown & responsive for mobile? */
     .fi-dropdown_button {
       min-width: 78px;
     }
