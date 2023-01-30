@@ -153,7 +153,7 @@ export interface DateInputProps
   /** Disable input usage */
   disabled?: boolean;
   /** Callback fired when input is clicked. */
-  onClick?: () => void;
+  onClick?: (event?: React.MouseEvent<HTMLInputElement>) => void;
   /** Callback fired when input value changes. If value can't be parsed to date, Invalid Date is returned.
    * Invalid Date is a Date, whose time value is NaN.´
    * @param {string} change.value Input value
@@ -306,6 +306,9 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
   };
 
   const onDatePickerChange = (date: Date) => {
+    if (passProps.disabled) {
+      return;
+    }
     const newValue = dateAdapter.format(date);
     conditionalSetInputValue(newValue);
     if (propOnChange) {
@@ -438,7 +441,7 @@ const StyledDateInput = styled(
  * Use for user inputting date.
  * Can be used as an input field or with an additional DatePicker.
  *
- * Props other than specified explicitly are passed on to underlying input element.
+ * Props other than specified explicitly are passed on to underlying input element. For example defaultValue and onClick.
  * @component
  */
 const DateInput = forwardRef<

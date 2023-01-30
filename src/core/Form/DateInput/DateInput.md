@@ -24,7 +24,7 @@ import React from 'react';
 </>;
 ```
 
-### DateInput with minDate, maxDate, and initialDate
+### DateInput with minDate and maxDate
 
 ```js
 import { DateInput } from 'suomifi-ui-components';
@@ -35,9 +35,24 @@ import React from 'react';
     labelText="Date"
     hintText="Use format D.M.YYYY"
     datePickerEnabled
-    minDate={new Date(2010, 1, 1)}
+    minDate={new Date(2010, 11, 16)}
     maxDate={new Date(2020, 11, 15)}
-    initialDate={new Date(2020, 11, 1)}
+  />
+</>;
+```
+
+### DateInput with initialDate
+
+```js
+import { DateInput } from 'suomifi-ui-components';
+import React from 'react';
+
+<>
+  <DateInput
+    labelText="Date"
+    hintText="Use format D.M.YYYY"
+    datePickerEnabled
+    initialDate={new Date(2023, 0, 1)}
   />
 </>;
 ```
@@ -252,6 +267,34 @@ import { DateInput } from 'suomifi-ui-components';
     labelText="Date"
     onChange={(change) => console.log(change)}
     debounce={800}
+  />
+</>;
+```
+
+### DateInput with tooltip
+
+```js
+import {
+  DateInput,
+  Tooltip,
+  Heading,
+  Text
+} from 'suomifi-ui-components';
+
+<>
+  <DateInput
+    labelText="Date"
+    tooltipComponent={
+      <Tooltip
+        ariaToggleButtonLabelText="Date, additional information"
+        ariaCloseButtonLabelText="'Date, close additional information"
+      >
+        <Heading variant="h5" as="h2">
+          Date
+        </Heading>
+        <Text>Example text</Text>
+      </Tooltip>
+    }
   />
 </>;
 ```
