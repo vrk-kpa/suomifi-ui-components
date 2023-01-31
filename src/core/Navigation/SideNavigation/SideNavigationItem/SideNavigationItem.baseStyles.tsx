@@ -40,7 +40,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         background: ${theme.colors.highlightBase};
         text-decoration: none;
         color: ${theme.colors.whiteBase};
-        border-radius: ${theme.radius.modal};
+        border-radius: ${theme.radiuses.modal};
       }
 
       &:focus-visible {
@@ -49,7 +49,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         box-shadow: none;
 
         &:after {
-          ${theme.focus.absoluteFocus}
+          ${theme.focuses.absoluteFocus}
         }
       }
     }
@@ -88,7 +88,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           color: ${theme.colors.whiteBase};
           font-weight: 600;
           background: ${theme.colors.highlightBase};
-          border-radius: ${theme.radius.modal};
+          border-radius: ${theme.radiuses.modal};
         }
       }
 
@@ -103,8 +103,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           font-weight: 600;
           background: ${theme.colors.highlightBase};
           color: ${theme.colors.whiteBase};
-          border-top-left-radius: ${theme.radius.modal};
-          border-top-right-radius: ${theme.radius.modal};
+          border-top-left-radius: ${theme.radiuses.modal};
+          border-top-right-radius: ${theme.radiuses.modal};
           border-bottom-left-radius: 0;
           border-bottom-right-radius: 0;
 

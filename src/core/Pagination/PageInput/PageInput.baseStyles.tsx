@@ -33,7 +33,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         position: relative;
         box-shadow: ${theme.shadows.actionElementBoxShadow};
         &:after {
-          ${theme.focus.absoluteFocus}
+          ${theme.focuses.absoluteFocus}
           top: -3px;
           bottom: -3px;
           right: -3px;
@@ -47,7 +47,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       height: 40px;
       box-sizing: border-box;
       border: 1px solid ${theme.colors.depthDark3};
-      border-radius: ${theme.radius.basic};
+      border-radius: ${theme.radiuses.basic};
     }
 
     &_input {
@@ -82,7 +82,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       right: 0px;
       height: 40px;
       width: 40px;
-      border-radius: 0 ${theme.radius.basic} ${theme.radius.basic} 0;
+      border-radius: 0 ${theme.radiuses.basic} ${theme.radiuses.basic} 0;
       border: 0;
       &-icon {
         width: 18px;
@@ -108,7 +108,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-page-input--not-empty {
     & .fi-page-input_input-element-container {
       width: calc(100% - 40px);
-      border-radius: ${theme.radius.basic} 0 0 ${theme.radius.basic};
+      border-radius: ${theme.radiuses.basic} 0 0 ${theme.radiuses.basic};
       border-right: 0;
     }
 
@@ -118,7 +118,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       background: ${theme.gradients.highlightBaseToHighlightDark1};
       &:focus {
         &:after {
-          ${theme.focus.absoluteFocus}
+          ${theme.focuses.absoluteFocus}
         }
       }
       &:hover {

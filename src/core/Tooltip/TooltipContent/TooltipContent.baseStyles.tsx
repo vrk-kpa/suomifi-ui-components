@@ -52,7 +52,7 @@ export const baseStyles = (arrowOffsetPx: number, theme: SuomifiTheme) => css`
       height: 40px;
       width: 40px;
       padding: 12px;
-      border-radius: ${theme.radius.basic};
+      border-radius: ${theme.radiuses.basic};
       & .fi-tooltip_close-button_icon {
         width: 16px;
         height: 16px;
