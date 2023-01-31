@@ -323,9 +323,9 @@ exports[`should match snapshot 1`] = `
 }
 
 .c5.fi-service-navigation-item:focus-within {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   z-index: 9999;
 }
 
@@ -489,9 +489,9 @@ exports[`should match snapshot 1`] = `
 }
 
 .c10.fi-link:focus {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
 }
 
 .c10.fi-link:hover,
@@ -563,9 +563,9 @@ exports[`should match snapshot 1`] = `
 }
 
 .c7.fi-link--router:focus {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
 }
 
 .c7.fi-link--router:hover,

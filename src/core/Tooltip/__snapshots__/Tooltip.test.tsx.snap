@@ -122,7 +122,7 @@ exports[`Basic tooltip should match snapshot 1`] = `
   border-radius: 2px;
   background-color: hsl(212,63%,98%);
   padding: 20px 43px 20px 20px;
-  box-shadow: 0 2px 3px 0 rgba(41,41,41,0.2);
+  box-shadow: 0 2px 3px 0 hsla(0,0%,16%,0.2);
 }
 
 .c4.fi-tooltip_content:before,
@@ -172,7 +172,7 @@ exports[`Basic tooltip should match snapshot 1`] = `
 }
 
 .c4.fi-tooltip_content .fi-tooltip_close-button:active {
-  background: linear-gradient(-180deg,hsl(202,7%,80%) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsl(202,7%,80%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
 .c4.fi-tooltip_content .fi-tooltip_close-button:focus-visible {

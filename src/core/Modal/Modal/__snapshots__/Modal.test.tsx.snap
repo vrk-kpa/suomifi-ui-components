@@ -72,9 +72,9 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c0 .fi-modal:focus-visible {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
 }
 
 .c0 .fi-modal--no-scroll {
@@ -644,7 +644,7 @@ exports[`Basic modal should match snapshot 1`] = `
   background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
   border-radius: 2px;
   text-align: center;
-  text-shadow: 0 1px 1px rgba(0,53,122,0.5);
+  text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
   cursor: pointer;
 }
 
@@ -707,7 +707,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c9.fi-button--inverted:hover {
-  background: linear-gradient(-180deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
 }
 
 .c9.fi-button--inverted:active {
@@ -732,7 +732,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c9.fi-button--secondary:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
 .c9.fi-button--secondary:active {
@@ -761,7 +761,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c9.fi-button--secondary-noborder:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
 .c9.fi-button--secondary-noborder:active {
@@ -791,7 +791,7 @@ exports[`Basic modal should match snapshot 1`] = `
 }
 
 .c9.fi-button--link:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
 .c9.fi-button--link:active {

@@ -621,7 +621,7 @@ exports[`has matching snapshot 1`] = `
   background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
   border-radius: 2px;
   text-align: center;
-  text-shadow: 0 1px 1px rgba(0,53,122,0.5);
+  text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
   cursor: pointer;
 }
 
@@ -684,7 +684,7 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c14.fi-button--inverted:hover {
-  background: linear-gradient(-180deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
 }
 
 .c14.fi-button--inverted:active {
@@ -709,7 +709,7 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c14.fi-button--secondary:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
 .c14.fi-button--secondary:active {
@@ -738,7 +738,7 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c14.fi-button--secondary-noborder:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
 .c14.fi-button--secondary-noborder:active {
@@ -768,7 +768,7 @@ exports[`has matching snapshot 1`] = `
 }
 
 .c14.fi-button--link:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
 .c14.fi-button--link:active {

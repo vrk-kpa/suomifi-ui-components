@@ -206,9 +206,9 @@ exports[`children should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 
@@ -520,9 +520,9 @@ exports[`className should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 
@@ -834,9 +834,9 @@ exports[`disabled should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 
@@ -1170,9 +1170,9 @@ exports[`hintText should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 
@@ -1491,9 +1491,9 @@ exports[`id should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 
@@ -1805,9 +1805,9 @@ exports[`name should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 
@@ -2120,9 +2120,9 @@ exports[`value should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 
@@ -2434,9 +2434,9 @@ exports[`variant should match snapshot 1`] = `
 }
 
 .c1.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 

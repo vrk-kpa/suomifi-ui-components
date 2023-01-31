@@ -325,9 +325,9 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c7:focus-within .fi-checkbox_label::before {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
 }
 
 .c7 .fi-checkbox_input {

@@ -191,9 +191,9 @@ exports[`props children has matching snapshot 1`] = `
 }
 
 .c1:focus-within .fi-checkbox_label::before {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
 }
 
 .c1 .fi-checkbox_input {
