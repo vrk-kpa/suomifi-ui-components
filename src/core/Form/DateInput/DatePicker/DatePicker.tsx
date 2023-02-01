@@ -37,9 +37,7 @@ export const datePickerClassNames = {
 
 export interface InternalDatePickerProps
   extends Omit<DatePickerProps, 'datePickerEnabled'> {
-  /** Source ref for positioning the popover next to calendar button */
-  sourceRef: React.RefObject<any>;
-  /** Button ref for closing dialog on button click when dialog is open */
+  /** Button ref for positioning dialog and closing dialog on button click */
   openButtonRef: React.RefObject<any>;
   /** Boolean to open or close calendar dialog */
   isOpen: boolean;
@@ -61,7 +59,6 @@ export interface InternalDatePickerProps
 
 export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const {
-    sourceRef,
     openButtonRef,
     isOpen,
     onClose,
@@ -85,7 +82,6 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const [yearSelectWidth, setYearSelectWidth] = useState<number>(0);
   const [monthSelectWidth, setMonthSelectWidth] = useState<number>(0);
 
-  const arrowRef = useRef<HTMLDivElement>(null);
   const yearSelectRef = useRef<HTMLDivElement>(null);
   const monthSelectRef = useRef<HTMLDivElement>(null);
   const confirmButtonRef = useRef<HTMLButtonElement>(null);
@@ -260,25 +256,29 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     return null;
   };
 
-  const { styles, attributes } = usePopper(sourceRef.current, dialogElement, {
-    strategy: 'fixed',
-    modifiers: [
-      { name: 'eventListeners', enabled: hasPopperEventListeners },
-      {
-        name: 'offset',
-        options: {
-          offset: [0, 10],
+  const { styles, attributes } = usePopper(
+    openButtonRef.current,
+    dialogElement,
+    {
+      strategy: 'fixed',
+      modifiers: [
+        { name: 'eventListeners', enabled: hasPopperEventListeners },
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 10],
+          },
         },
-      },
-      {
-        name: 'arrow',
-        options: {
-          element: arrowRef.current,
+        {
+          name: 'flip',
+          options: {
+            fallbackPlacements: ['top-end'],
+          },
         },
-      },
-    ],
-    placement: 'bottom-start',
-  });
+      ],
+      placement: 'bottom-end',
+    },
+  );
 
   const handleConfirm = (): void => {
     handleClose(true);
@@ -318,14 +318,6 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
             role="application"
             className={datePickerClassNames.application}
           >
-            <HtmlDivWithRef
-              className={datePickerClassNames.popperArrow}
-              forwardedRef={arrowRef}
-              data-popper-arrow
-              data-popper-placement={
-                attributes.popper?.['data-popper-placement']
-              }
-            />
             <DateSelectors
               focusableDate={focusableDate}
               yearSelect={yearSelectRef}
@@ -367,6 +359,12 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
               </Button>
             </HtmlDiv>
           </HtmlDiv>
+          <div
+            className={datePickerClassNames.popperArrow}
+            style={styles.arrow}
+            data-popper-arrow
+            data-popper-placement={attributes.popper?.['data-popper-placement']}
+          />
         </HtmlDivWithRef>,
         mountNode,
       )}

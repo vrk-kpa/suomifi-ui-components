@@ -394,7 +394,6 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
                 />
               </HtmlButton>
               <DatePicker
-                sourceRef={inputRef}
                 openButtonRef={openButtonRef}
                 isOpen={calendarVisible}
                 onClose={(focus) => toggleCalendar(false, focus)}

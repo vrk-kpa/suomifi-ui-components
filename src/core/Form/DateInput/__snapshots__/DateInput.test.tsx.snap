@@ -3615,26 +3615,37 @@ exports[`snapshots match date input with datepicker with controlled input value 
   justify-content: space-between;
 }
 
-.c10 .fi-date-picker_popper-arrow {
-  background-color: hsl(0,0%,100%);
+.c10 .fi-date-picker_popper-arrow,
+.c10 .fi-date-picker_popper-arrow::before {
+  position: absolute;
   width: 11px;
   height: 11px;
-  position: absolute;
+}
+
+.c10 .fi-date-picker_popper-arrow::before {
+  content: '';
+  background-color: hsl(0,0%,100%);
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
-.c10 .fi-date-picker_popper-arrow[data-popper-placement^='bottom-start'] {
-  border-top: 1px solid hsl(0,0%,58%);
-  border-left: 1px solid hsl(0,0%,58%);
+.c10 .fi-date-picker_popper-arrow[data-popper-placement^='bottom-end'] {
   top: -7px;
 }
 
-.c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-start'] {
+.c10 .fi-date-picker_popper-arrow[data-popper-placement^='bottom-end']::before {
+  border-top: 1px solid hsl(0,0%,58%);
+  border-left: 1px solid hsl(0,0%,58%);
+}
+
+.c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end'] {
+  bottom: -6px;
+}
+
+.c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end']::before {
   border-bottom: 1px solid hsl(0,0%,58%);
   border-right: 1px solid hsl(0,0%,58%);
-  bottom: -6px;
 }
 
 .c10 .fi-date-picker_bottom-container {
@@ -3989,10 +4000,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
       class="c0 fi-date-picker_application"
       role="application"
     >
-      <div
-        class="c3 fi-date-picker_popper-arrow"
-        data-popper-arrow="true"
-      />
       <div
         class="c0 c11 fi-date-selectors_container"
       >
@@ -5239,6 +5246,11 @@ exports[`snapshots match date input with datepicker with controlled input value 
         </button>
       </div>
     </div>
+    <div
+      class="fi-date-picker_popper-arrow"
+      data-popper-arrow="true"
+      style="position: absolute;"
+    />
   </div>
 </body>
 `;
