@@ -55,7 +55,7 @@ exports[`Button variant default should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -113,7 +113,7 @@ exports[`Button variant default should match snapshot 1`] = `
 .c1.fi-button--disabled,
 .c1[disabled],
 .c1:disabled {
-  text-shadow: 0 1px 1px rgba(41,41,41,0.5);
+  text-shadow: 0 1px 1px rgba(33,33,33,0.5);
   background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -342,7 +342,7 @@ exports[`Button variant inverted should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -400,7 +400,7 @@ exports[`Button variant inverted should match snapshot 1`] = `
 .c1.fi-button--disabled,
 .c1[disabled],
 .c1:disabled {
-  text-shadow: 0 1px 1px rgba(41,41,41,0.5);
+  text-shadow: 0 1px 1px rgba(33,33,33,0.5);
   background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -629,7 +629,7 @@ exports[`Button variant link match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -687,7 +687,7 @@ exports[`Button variant link match snapshot 1`] = `
 .c1.fi-button--disabled,
 .c1[disabled],
 .c1:disabled {
-  text-shadow: 0 1px 1px rgba(41,41,41,0.5);
+  text-shadow: 0 1px 1px rgba(33,33,33,0.5);
   background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -916,7 +916,7 @@ exports[`Button variant secondary should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -974,7 +974,7 @@ exports[`Button variant secondary should match snapshot 1`] = `
 .c1.fi-button--disabled,
 .c1[disabled],
 .c1:disabled {
-  text-shadow: 0 1px 1px rgba(41,41,41,0.5);
+  text-shadow: 0 1px 1px rgba(33,33,33,0.5);
   background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1203,7 +1203,7 @@ exports[`Button variant secondaryNoBorder should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1261,7 +1261,7 @@ exports[`Button variant secondaryNoBorder should match snapshot 1`] = `
 .c1.fi-button--disabled,
 .c1[disabled],
 .c1:disabled {
-  text-shadow: 0 1px 1px rgba(41,41,41,0.5);
+  text-shadow: 0 1px 1px rgba(33,33,33,0.5);
   background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
   -webkit-user-select: none;
   -moz-user-select: none;

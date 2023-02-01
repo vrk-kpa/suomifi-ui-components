@@ -200,7 +200,7 @@ exports[`snapshot should have matching default structure 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -229,7 +229,7 @@ exports[`snapshot should have matching default structure 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -366,7 +366,7 @@ exports[`snapshot should have matching default structure 1`] = `
 
 .c1 .fi-search-input_input-element-container {
   background-color: hsl(0,0%,100%);
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   width: 100%;
   height: 40px;
   box-sizing: border-box;
@@ -415,7 +415,7 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c1 .fi-search-input_input {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;

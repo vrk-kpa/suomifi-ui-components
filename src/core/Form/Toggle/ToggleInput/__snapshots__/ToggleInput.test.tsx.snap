@@ -89,7 +89,7 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
 }
 
 .c6 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -103,7 +103,7 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c6.fi-text--bold {
@@ -258,7 +258,7 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -316,7 +316,7 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
 }
 
 .c1 .fi-toggle_input-element {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;

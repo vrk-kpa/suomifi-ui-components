@@ -151,7 +151,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   display: block;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -170,14 +170,14 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c1 .fi-breadcrumb_list {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .c1 .fi-breadcrumb_item {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   list-style: none;
   float: left;
 }

@@ -154,7 +154,7 @@ exports[`Basic expander group should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   width: 100%;
   max-width: 100%;
 }
@@ -214,7 +214,7 @@ exports[`Basic expander group should match snapshot 1`] = `
 }
 
 .c1 > .fi-expander-group_all-button {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -273,7 +273,7 @@ exports[`Basic expander group should match snapshot 1`] = `
 }
 
 .c6 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -291,7 +291,7 @@ exports[`Basic expander group should match snapshot 1`] = `
   position: relative;
   padding: 0;
   border-radius: 2px;
-  box-shadow: 0 1px 2px 0 hsla(0,0%,16%,0.14),0 1px 5px 0 hsla(0,0%,16%,0.12);
+  box-shadow: 0 1px 2px 0 hsla(0,0%,13%,0.14),0 1px 5px 0 hsla(0,0%,13%,0.12);
   width: 100%;
   max-width: 100%;
 }
@@ -306,7 +306,7 @@ exports[`Basic expander group should match snapshot 1`] = `
 }
 
 .c9 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -387,7 +387,7 @@ exports[`Basic expander group should match snapshot 1`] = `
 }
 
 .c7 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   position: relative;
   width: 100%;
   max-width: 100%;
@@ -407,7 +407,7 @@ exports[`Basic expander group should match snapshot 1`] = `
 }
 
 .c7 .fi-expander_title-button_button {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;

@@ -55,7 +55,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c1 > [data-reach-menu-button].fi-language-menu_button {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
@@ -64,7 +64,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c1 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;

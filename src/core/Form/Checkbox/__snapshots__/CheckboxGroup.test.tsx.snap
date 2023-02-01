@@ -210,7 +210,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -239,7 +239,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -254,7 +254,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c1 .fi-checkbox-group_label--visible {
@@ -279,7 +279,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c7 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
