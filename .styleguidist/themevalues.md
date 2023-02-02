@@ -2,7 +2,7 @@
 
 ### Colors
 
-Theme colors is of type _`ColorDesignTokens`_ and defines all the colors and gradients used in the components.
+Theme category colors is of type _`ColorDesignTokens`_ and defines all the colors and gradients used in the components.
 
 ```js noeditor
 import { SuomifiThemeConsumer } from '../src/core/theme';
@@ -17,7 +17,7 @@ import { ThemeProps } from '../src/docs/Theme/ThemeProps';
 
 ### Spacing
 
-Theme spacing is of type _`SpacingDesignTokens`_ and defines external spacing used between more complex elements as well as some parts of internal spacing.
+Theme category spacing is of type _`SpacingDesignTokens`_ and defines external spacing used between more complex elements as well as some parts of internal spacing.
 
 ```js noeditor
 import { SuomifiThemeConsumer } from '../src/core/theme';
@@ -32,7 +32,7 @@ import { ThemeProps } from '../src/docs/Theme/ThemeProps';
 
 ### Typography
 
-Theme typography is of type _`TypographyDesignTokens`_ and defines most typography styles used in the components.
+Theme category typography is of type _`TypographyDesignTokens`_ and defines most typography styles used in the components.
 
 ```js noeditor
 import { SuomifiThemeConsumer } from '../src/core/theme';
@@ -50,7 +50,7 @@ import { ThemeProps } from '../src/docs/Theme/ThemeProps';
 
 ### Gradients
 
-Theme gradients is of type _`GradientDesignTokens`_ and defines all gradient colors used in the components. By default, gradients are based on color design tokens.
+Theme category gradients is of type _`GradientDesignTokens`_ and defines all gradient colors used in the components. By default, gradients are based on color design tokens.
 
 ```js noeditor
 import { SuomifiThemeConsumer } from '../src/core/theme';
@@ -65,7 +65,7 @@ import { ThemeProps } from '../src/docs/Theme/ThemeProps';
 
 ### Focus
 
-Theme focus is of type _`FocusDesignTokens`_ and defines all focus styles used in the library. By default, focus styles are based on color, spacing and radius design tokens.
+Theme category focuses is of type _`FocusDesignTokens`_ and defines all focus styles used in the library. By default, focus styles are based on color, spacing and radius design tokens.
 
 ```js noeditor
 import { SuomifiThemeConsumer } from '../src/core/theme';
@@ -73,14 +73,14 @@ import { ThemeProps } from '../src/docs/Theme/ThemeProps';
 
 <SuomifiThemeConsumer>
   {({ suomifiTheme }) => (
-    <ThemeProps title="focus:" values={suomifiTheme.focus} />
+    <ThemeProps title="focus:" values={suomifiTheme.focuses} />
   )}
 </SuomifiThemeConsumer>;
 ```
 
 ### Radius
 
-Theme focus is of type _`RadiusDesignTokens`_ and defines all focus styles used in the library.
+Theme category radiuses is of type _`RadiusDesignTokens`_ and defines all radius styles used in the library.
 
 ```js noeditor
 import { SuomifiThemeConsumer } from '../src/core/theme';
@@ -88,14 +88,14 @@ import { ThemeProps } from '../src/docs/Theme/ThemeProps';
 
 <SuomifiThemeConsumer>
   {({ suomifiTheme }) => (
-    <ThemeProps title="radius:" values={suomifiTheme.radius} />
+    <ThemeProps title="radius:" values={suomifiTheme.radiuses} />
   )}
 </SuomifiThemeConsumer>;
 ```
 
 ### Shadows
 
-Theme focus is of type _`ShadowDesignTokens`_ and defines all shadow styles used in the library. By default, shadow styles are based on color design tokens.
+Theme category shadows is of type _`ShadowDesignTokens`_ and defines all shadow styles used in the library. By default, shadow styles are based on color design tokens.
 
 ```js noeditor
 import { SuomifiThemeConsumer } from '../src/core/theme';
@@ -110,7 +110,7 @@ import { ThemeProps } from '../src/docs/Theme/ThemeProps';
 
 ### Transitions
 
-Theme focus is of type _`TransitionDesignTokens`_ and defines all shadow styles used in the library. By default, shadow styles are based on color design tokens.
+Theme category transitions is of type _`TransitionDesignTokens`_ and defines the most commonly used transition styles used in the library.
 
 ```js noeditor
 import { SuomifiThemeConsumer } from '../src/core/theme';
