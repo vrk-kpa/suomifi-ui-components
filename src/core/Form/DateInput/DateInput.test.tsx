@@ -73,19 +73,6 @@ describe('snapshots match', () => {
   });
 });
 
-// TBD:
-// Keyboard event tests
-// datePickerTexts
-// labelText
-// hintText
-// labelMode
-// optionalText
-// onBlur
-// minDate
-// maxDate
-// initialDate
-// language
-
 describe('callbacks', () => {
   beforeAll(() => {
     jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
@@ -160,9 +147,59 @@ describe('callbacks', () => {
       expect(mockOnClick).toBeCalledTimes(1);
     });
   });
+
+  describe('onBlur', () => {
+    it('calls onBlur when input is blurred', () => {
+      const mockOnBlur = jest.fn();
+      const { getByRole } = render(
+        <DateInput labelText="Date" onBlur={mockOnBlur} />,
+      );
+      fireEvent.click(getByRole('textbox'));
+      fireEvent.blur(getByRole('textbox'));
+      expect(mockOnBlur).toBeCalledTimes(1);
+    });
+  });
 });
 
 describe('props', () => {
+  describe('labelText', () => {
+    it('has text in label', () => {
+      const { getByText } = render(<DateInput labelText="Start date" />);
+      const label = getByText('Start date');
+      expect(label.tagName).toBe('LABEL');
+    });
+  });
+
+  describe('labelMode', () => {
+    it('has label visually hidden', () => {
+      const { getByText } = render(
+        <DateInput labelText="Start date" labelMode="hidden" />,
+      );
+      const label = getByText('Start date');
+      expect(label).toHaveClass('fi-visually-hidden');
+    });
+  });
+
+  describe('hintText', () => {
+    it('has hint text', () => {
+      const { getByText } = render(
+        <DateInput labelText="Date" hintText="Use format D.M.YYYY" />,
+      );
+      const span = getByText('Use format D.M.YYYY');
+      expect(span).toBeDefined();
+    });
+  });
+
+  describe('optionlText', () => {
+    it('has optional text', () => {
+      const { getByText } = render(
+        <DateInput labelText="Date" optionalText="optional" />,
+      );
+      const span = getByText('(optional)');
+      expect(span).toBeDefined();
+    });
+  });
+
   describe('className', () => {
     it('has user given className', () => {
       const { baseElement } = render(
@@ -170,6 +207,186 @@ describe('props', () => {
       );
       const div = baseElement.querySelector('.fi-date-input');
       expect(div).toHaveClass('custom-class');
+    });
+  });
+
+  describe('maxDate', () => {
+    beforeAll(() => {
+      jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
+    });
+
+    afterAll(() => {
+      jest.useRealTimers();
+    });
+
+    it('has next date as table cell (instead of button)', () => {
+      const { getByRole, getByText } = render(
+        <DateInput
+          labelText="Date"
+          datePickerEnabled
+          maxDate={new Date(2020, 0, 15)}
+        />,
+      );
+      fireEvent.click(getByRole('button'));
+      const dateCell = getByText('16');
+      expect(dateCell.tagName).toBe('TD');
+    });
+
+    it('has next years removed from dropdown', () => {
+      const { baseElement, getByRole } = render(
+        <DateInput
+          labelText="Date"
+          datePickerEnabled
+          maxDate={new Date(2020, 0, 15)}
+        />,
+      );
+      fireEvent.click(getByRole('button'));
+      const dropdown = baseElement.querySelector(
+        '.fi-date-selectors_year-select',
+      );
+      const lis = dropdown?.querySelectorAll('li');
+      expect(lis?.length).toBe(11);
+      expect(lis?.[10]).toHaveTextContent('2020');
+    });
+
+    it('has next months removed from dropdown', () => {
+      const { baseElement, getByRole } = render(
+        <DateInput
+          labelText="Date"
+          datePickerEnabled
+          maxDate={new Date(2020, 0, 15)}
+        />,
+      );
+      fireEvent.click(getByRole('button'));
+      const dropdown = baseElement.querySelector(
+        '.fi-date-selectors_month-select',
+      );
+      const lis = dropdown?.querySelectorAll('li');
+      expect(lis?.[0]).toHaveTextContent('Tammikuu');
+      expect(lis?.length).toBe(1);
+    });
+
+    it('has next month button disabled', () => {
+      const { baseElement, getByRole } = render(
+        <DateInput
+          labelText="Date"
+          datePickerEnabled
+          maxDate={new Date(2020, 0, 15)}
+        />,
+      );
+      fireEvent.click(getByRole('button'));
+      const button = baseElement.querySelectorAll(
+        '.fi-date-selectors_month-button',
+      )[1];
+      expect(button).toBeDisabled();
+    });
+  });
+
+  describe('minDate', () => {
+    beforeAll(() => {
+      jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
+    });
+
+    afterAll(() => {
+      jest.useRealTimers();
+    });
+
+    it('has previous date as table cell (instead of button)', () => {
+      const { getByRole, getByText } = render(
+        <DateInput
+          labelText="Date"
+          datePickerEnabled
+          minDate={new Date(2020, 6, 15)}
+        />,
+      );
+      fireEvent.click(getByRole('button'));
+      const dateCell = getByText('14');
+      expect(dateCell.tagName).toBe('TD');
+    });
+
+    it('has previous years removed from dropdown', () => {
+      const { baseElement, getByRole } = render(
+        <DateInput
+          labelText="Date"
+          datePickerEnabled
+          minDate={new Date(2020, 6, 15)}
+        />,
+      );
+      fireEvent.click(getByRole('button'));
+      const dropdown = baseElement.querySelector(
+        '.fi-date-selectors_year-select',
+      );
+      const lis = dropdown?.querySelectorAll('li');
+      expect(lis?.[0]).toHaveTextContent('2020');
+      expect(lis?.length).toBe(11);
+    });
+
+    it('has previous months removed from dropdown', () => {
+      const { baseElement, getByRole } = render(
+        <DateInput
+          labelText="Date"
+          datePickerEnabled
+          minDate={new Date(2020, 6, 15)}
+        />,
+      );
+      fireEvent.click(getByRole('button'));
+      const dropdown = baseElement.querySelector(
+        '.fi-date-selectors_month-select',
+      );
+      const lis = dropdown?.querySelectorAll('li');
+      expect(lis?.[0]).toHaveTextContent('Heinäkuu');
+      expect(lis?.length).toBe(6);
+    });
+
+    it('has previous month button disabled', () => {
+      const { baseElement, getByRole } = render(
+        <DateInput
+          labelText="Date"
+          datePickerEnabled
+          minDate={new Date(2020, 6, 15)}
+        />,
+      );
+      fireEvent.click(getByRole('button'));
+      const button = baseElement.querySelectorAll(
+        '.fi-date-selectors_month-button',
+      )[0];
+      expect(button).toBeDisabled();
+    });
+  });
+
+  describe('initialDate', () => {
+    beforeAll(() => {
+      jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
+    });
+
+    afterAll(() => {
+      jest.useRealTimers();
+    });
+
+    it('has correct date', () => {
+      const { getByRole, getByText } = render(
+        <DateInput
+          labelText="Date"
+          datePickerEnabled
+          initialDate={new Date(2015, 5, 15)}
+        />,
+      );
+      fireEvent.click(getByRole('button'));
+      const dateButton = getByText('15').closest('button');
+      expect(dateButton).toHaveTextContent('15 maanantai Kesäkuu 2015');
+    });
+
+    it('has focus', () => {
+      const { getByRole, getByText } = render(
+        <DateInput
+          labelText="Date"
+          datePickerEnabled
+          initialDate={new Date(2015, 5, 15)}
+        />,
+      );
+      fireEvent.click(getByRole('button'));
+      const dateButton = getByText('15').closest('button');
+      expect(dateButton).toHaveFocus();
     });
   });
 
@@ -249,6 +466,65 @@ describe('props', () => {
         '.fi-date-input_picker-element-container',
       );
       expect(div).not.toBeNull();
+    });
+  });
+
+  describe('language', () => {
+    it('has Finnish language option', () => {
+      const { getByRole } = render(
+        <DateInput labelText="Date" datePickerEnabled language="fi" />,
+      );
+      expect(getByRole('button')).toHaveTextContent('Valitse päivämäärä');
+    });
+
+    it('has English language option', () => {
+      const { getByRole } = render(
+        <DateInput labelText="Date" datePickerEnabled language="en" />,
+      );
+      expect(getByRole('button')).toHaveTextContent('Choose date');
+    });
+
+    it('has Swedish language option', () => {
+      const { getByRole } = render(
+        <DateInput labelText="Date" datePickerEnabled language="sv" />,
+      );
+      expect(getByRole('button')).toHaveTextContent('Välj datum');
+    });
+  });
+
+  describe('datePickerTexts', () => {
+    beforeAll(() => {
+      jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
+    });
+
+    afterAll(() => {
+      jest.useRealTimers();
+    });
+
+    it('overwrites text in open button', () => {
+      const { getByRole } = render(
+        <DateInput
+          labelText="Date"
+          datePickerEnabled
+          datePickerTexts={{ openButtonLabel: 'Avaa kalenteri ' }}
+        />,
+      );
+      expect(getByRole('button')).toHaveTextContent('Avaa kalenteri');
+    });
+
+    it('overwrites texts in previous month button', () => {
+      const { baseElement, getByRole } = render(
+        <DateInput
+          labelText="Date"
+          datePickerEnabled
+          datePickerTexts={{ prevMonthButtonLabel: 'vorheriger Monat' }}
+        />,
+      );
+      fireEvent.click(getByRole('button'));
+      const button = baseElement.querySelectorAll(
+        '.fi-date-selectors_month-button',
+      )[0];
+      expect(button).toHaveAttribute('aria-label', 'vorheriger Monat Joulukuu');
     });
   });
 
