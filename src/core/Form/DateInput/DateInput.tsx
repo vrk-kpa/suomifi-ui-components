@@ -258,7 +258,14 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
   }, [value, inputValue]);
 
   useEffect(() => {
-    setTexts({ ...datePickerDefaultTexts[language], ...datePickerTexts });
+    let lang: 'fi' | 'en' | 'sv';
+    if (['fi', 'en', 'sv'].includes(language)) {
+      lang = language;
+    } else {
+      lang = 'fi';
+      getLogger().warn(`Language "${language}" is not supported`);
+    }
+    setTexts({ ...datePickerDefaultTexts[lang], ...datePickerTexts });
   }, [language, datePickerTexts]);
 
   const toggleCalendar = (open: boolean, focus: boolean = false) => {

@@ -128,8 +128,8 @@ export const datePickerDefaultTexts: {
     weekDayAbbreviations: ['Ma', 'Ti', 'Ke', 'To', 'Pe', 'La', 'Su'],
   },
   sv: {
-    openButtonLabel: 'Väjl datumn',
-    selectedDateLabel: 'Valt datumn',
+    openButtonLabel: 'Välj datum',
+    selectedDateLabel: 'Valt datum',
     closeButtonText: 'Stäng',
     selectButtonText: 'Välj',
     yearSelectLabel: 'Välj år',
