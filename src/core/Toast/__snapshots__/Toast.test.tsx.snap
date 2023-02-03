@@ -84,7 +84,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -100,7 +100,7 @@ exports[`props children should match snapshot 1`] = `
   font-weight: 400;
   border-top: 4px solid hsl(166,90%,34%);
   width: 100%;
-  box-shadow: 0px 4px 8px 0px rgba(41,41,41,0.14);
+  box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
   border-radius: 4px;
   overflow: hidden;
 }

@@ -102,7 +102,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       height: 18px;
       width: 18px;
       border: 1px solid ${theme.colors.depthDark3};
-      border-radius: ${theme.radius.basic};
+      border-radius: ${theme.radiuses.basic};
       background-color: ${theme.colors.whiteBase};
     }
   }
@@ -118,7 +118,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &:focus-within {
     & .fi-checkbox_label {
       &::before {
-        ${theme.focus.boxShadowFocus}
+        ${theme.focuses.boxShadowFocus}
       }
     }
   }

@@ -140,11 +140,6 @@ export {
 } from './core/VisuallyHidden/VisuallyHidden';
 export {
   SuomifiTheme,
-  GradientDesignTokens,
-  FocusDesignTokens,
-  RadiusDesignTokens,
-  ShadowDesignTokens,
-  TransitionDesignTokens,
   ZIndexDesignTokens,
   SuomifiDesignTokens,
   defaultSuomifiTheme,

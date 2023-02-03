@@ -23,7 +23,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     &:focus-within {
-      ${theme.focus.boxShadowFocus};
+      ${theme.focuses.boxShadowFocus};
       z-index: ${theme.zindexes.focus};
     }
 
@@ -84,7 +84,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       position: relative;
 
       &:focus {
-        ${theme.focus.absoluteFocus};
+        ${theme.focuses.absoluteFocus};
       }
 
       .fi-link--router {

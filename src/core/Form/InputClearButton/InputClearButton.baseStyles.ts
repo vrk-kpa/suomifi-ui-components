@@ -12,7 +12,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &:focus {
     outline: none;
     &:after {
-      ${theme.focus.absoluteFocus}
+      ${theme.focuses.absoluteFocus}
     }
   }
   &.fi-input-clear-button {

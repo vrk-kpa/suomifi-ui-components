@@ -75,9 +75,9 @@ exports[`should match snapshot 1`] = `
 }
 
 .c1.fi-link:focus {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
 }
 
 .c1.fi-link:hover,
@@ -143,9 +143,9 @@ exports[`should match snapshot 1`] = `
 }
 
 .c2.fi-link:focus {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
 }
 
 .c2.fi-link:hover,
@@ -183,7 +183,7 @@ exports[`should match snapshot 1`] = `
   padding: 8px;
   background: hsl(212,63%,95%);
   border: 1px solid hsl(202,7%,80%);
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c2.fi-link--skip:focus {

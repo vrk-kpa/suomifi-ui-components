@@ -101,7 +101,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   min-height: 40px;
   color: ${theme.colors.whiteBase};
   background: ${theme.gradients.highlightBaseToHighlightDark1};
-  border-radius: ${theme.radius.basic};
+  border-radius: ${theme.radiuses.basic};
   text-align: center;
   text-shadow: ${theme.shadows.invertTextShadow};
   cursor: pointer;
@@ -111,7 +111,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     position: relative;
 
     &::after {
-      ${theme.focus.absoluteFocus}
+      ${theme.focuses.absoluteFocus}
     }
   }
 

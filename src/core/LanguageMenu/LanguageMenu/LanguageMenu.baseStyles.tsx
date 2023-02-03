@@ -15,7 +15,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       line-height: 24px;
       background-color: ${theme.colors.whiteBase};
       border: 1px solid transparent;
-      border-radius: ${theme.radius.basic};
+      border-radius: ${theme.radiuses.basic};
       word-break: break-word;
       & > .fi-language-menu-language_icon {
         height: 1em;
@@ -33,7 +33,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         position: relative;
 
         &::after {
-          ${theme.focus.absoluteFocus}
+          ${theme.focuses.absoluteFocus}
         }
       }
 
@@ -61,7 +61,7 @@ export const languageMenuPopoverStyles = (theme: SuomifiTheme) => css`
     box-sizing: content-box;
     margin-top: 12px;
     border: 1px solid ${theme.colors.depthLight1};
-    border-radius: ${theme.radius.basic};
+    border-radius: ${theme.radiuses.basic};
     &:before,
     &:after {
       content: '';

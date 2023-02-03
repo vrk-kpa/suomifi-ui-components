@@ -104,7 +104,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -127,7 +127,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -157,7 +157,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   text-align: left;
   line-height: 1.5;
   background-color: hsl(0,0%,100%);
-  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+  box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
   cursor: pointer;
 }
 
@@ -210,7 +210,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
 }
 
 .c1[data-reach-listbox-popover].fi-dropdown_popover {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -244,7 +244,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   background-image: none;
   background-color: hsl(212,63%,95%);
   border: 0;
@@ -413,7 +413,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -436,7 +436,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -466,7 +466,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   text-align: left;
   line-height: 1.5;
   background-color: hsl(0,0%,100%);
-  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+  box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
   cursor: pointer;
 }
 
@@ -519,7 +519,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 }
 
 .c1[data-reach-listbox-popover].fi-dropdown_popover {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -553,7 +553,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   background-image: none;
   background-color: hsl(212,63%,95%);
   border: 0;
@@ -723,7 +723,7 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -746,7 +746,7 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -776,7 +776,7 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
   text-align: left;
   line-height: 1.5;
   background-color: hsl(0,0%,100%);
-  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+  box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
   cursor: pointer;
 }
 
@@ -829,7 +829,7 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
 }
 
 .c1[data-reach-listbox-popover].fi-dropdown_popover {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -863,7 +863,7 @@ exports[`Dropdown as action menu should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   background-image: none;
   background-color: hsl(212,63%,95%);
   border: 0;
@@ -1032,7 +1032,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -1055,7 +1055,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1085,7 +1085,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   text-align: left;
   line-height: 1.5;
   background-color: hsl(0,0%,100%);
-  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+  box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
   cursor: pointer;
 }
 
@@ -1138,7 +1138,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 }
 
 .c1[data-reach-listbox-popover].fi-dropdown_popover {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -1172,7 +1172,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   background-image: none;
   background-color: hsl(212,63%,95%);
   border: 0;
@@ -1353,7 +1353,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -1376,7 +1376,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 }
 
 .c1 [data-reach-listbox-button].fi-dropdown_button {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1406,7 +1406,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   text-align: left;
   line-height: 1.5;
   background-color: hsl(0,0%,100%);
-  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+  box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
   cursor: pointer;
 }
 
@@ -1459,7 +1459,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 }
 
 .c1[data-reach-listbox-popover].fi-dropdown_popover {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -1493,7 +1493,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   background-image: none;
   background-color: hsl(212,63%,95%);
   border: 0;

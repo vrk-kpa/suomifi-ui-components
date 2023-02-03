@@ -137,7 +137,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-alert {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -223,11 +223,11 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-alert .fi-alert_style-wrapper .fi-alert_close-button:active {
-  background: linear-gradient(-180deg,hsl(202,7%,80%) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsl(202,7%,80%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
 .c1.fi-alert .fi-alert_style-wrapper .fi-alert_close-button:hover {
-  border-color: hsl(0,0%,16%);
+  border-color: hsl(0,0%,13%);
 }
 
 .c1.fi-alert .fi-alert_style-wrapper .fi-alert_close-button .fi-icon {

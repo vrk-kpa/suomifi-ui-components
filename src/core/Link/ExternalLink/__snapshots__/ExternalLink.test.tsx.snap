@@ -140,9 +140,9 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c1.fi-link:focus {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
 }
 
 .c1.fi-link:hover,

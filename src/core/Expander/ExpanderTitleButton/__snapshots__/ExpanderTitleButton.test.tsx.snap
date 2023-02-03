@@ -137,7 +137,7 @@ exports[`Basic ExpanderTitleButton shoud match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   position: relative;
   width: 100%;
   max-width: 100%;
@@ -157,7 +157,7 @@ exports[`Basic ExpanderTitleButton shoud match snapshot 1`] = `
 }
 
 .c1 .fi-expander_title-button_button {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;

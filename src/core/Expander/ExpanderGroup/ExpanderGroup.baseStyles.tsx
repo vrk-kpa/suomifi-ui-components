@@ -27,12 +27,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
       &:first-child {
         border-top: none;
-        border-radius: ${theme.radius.basic} ${theme.radius.basic} 0 0;
+        border-radius: ${theme.radiuses.basic} ${theme.radiuses.basic} 0 0;
       }
       &:last-child {
         /* stylelint-disable */
         /* prettier-ignore */
-        border-radius: 0 0 ${theme.radius.basic} ${theme.radius.basic};
+        border-radius: 0 0 ${theme.radiuses.basic} ${theme.radiuses.basic};
       }
       &.fi-expander--open {
         border-top: none;
@@ -58,7 +58,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     margin-bottom: ${theme.spacing.insetM};
     padding: ${theme.spacing.insetXs} 0;
     color: ${theme.colors.highlightBase};
-    border-radius: ${theme.radius.basic};
+    border-radius: ${theme.radiuses.basic};
     border: none;
     cursor: pointer;
 
@@ -67,9 +67,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       position: relative;
 
       &:after {
-        ${theme.focus.absoluteFocus}
+        ${theme.focuses.absoluteFocus}
       }
     }
-    ${theme.focus.noMouseFocus}
+    ${theme.focuses.noMouseFocus}
   }
 `;

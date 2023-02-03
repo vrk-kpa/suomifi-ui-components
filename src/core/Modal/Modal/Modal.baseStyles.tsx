@@ -22,7 +22,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
   }
   & .fi-modal {
-    border-radius: ${theme.radius.modal};
+    border-radius: ${theme.radiuses.modal};
     background-color: ${theme.colors.whiteBase};
     border-top: ${theme.spacing.insetXs} solid ${theme.colors.highlightBase};
     overflow: hidden;
@@ -40,7 +40,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     &:focus-visible {
-      ${theme.focus.boxShadowFocus}
+      ${theme.focuses.boxShadowFocus}
     }
 
     &--no-scroll {
