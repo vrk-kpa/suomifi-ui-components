@@ -3954,8 +3954,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               <span
                 class="c2 c7 fi-visually-hidden"
               >
-                Valitse päivämäärä
-                Valittu päivä 15 keskiviikko Tammikuu 2020
+                Valitse päivämäärä, Valittu päivä 15 keskiviikko Tammikuu 2020
               </span>
               <svg
                 aria-hidden="true"
@@ -4862,7 +4861,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 <span
                   class="c2 c7 fi-visually-hidden"
                 >
-                  Valittu päivä 15 keskiviikko Tammikuu 2020
+                  Valittu päivä, 15 keskiviikko Tammikuu 2020
                 </span>
               </button>
             </td>

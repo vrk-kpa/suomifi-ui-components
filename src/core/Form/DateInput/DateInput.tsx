@@ -146,9 +146,9 @@ export interface DatePickerProps {
 export interface DateInputProps
   extends StatusTextCommonProps,
     Omit<HtmlInputProps, 'type' | 'onChange'> {
-  /** TextInput container div class name for custom styling. */
+  /** DateInput container div class name for custom styling. */
   className?: string;
-  /** TextInput wrapping div element props */
+  /** DateInput wrapping div element props */
   wrapperProps?: Omit<HtmlDivProps, 'className'>;
   /** Disable input usage */
   disabled?: boolean;
@@ -251,7 +251,9 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
       const date = validateDatePickerValue(useValue);
       if (date) {
         setButtonDateLabel(
-          `${texts.selectedDateLabel} ${cellDateAriaLabel(date, texts)}`,
+          `${texts.openButtonLabel}, ${
+            texts.selectedDateLabel
+          } ${cellDateAriaLabel(date, texts)}`,
         );
       }
     }
@@ -391,8 +393,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
                 disabled={passProps.disabled}
               >
                 <VisuallyHidden>
-                  {texts.openButtonLabel}
-                  {buttonDateLabel}
+                  {buttonDateLabel || texts.openButtonLabel}
                 </VisuallyHidden>
                 <Icon
                   className={dateInputClassNames.pickerIcon}

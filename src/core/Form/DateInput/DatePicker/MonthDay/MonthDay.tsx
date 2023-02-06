@@ -70,7 +70,7 @@ export const BaseMonthDay = (props: MonthDayProps) => {
   const buttonText = (): string => {
     const text = cellDateAriaLabel(date.date, texts);
     if (isSelectedDate()) {
-      return `${texts.selectedDateLabel} ${text}`;
+      return `${texts.selectedDateLabel}, ${text}`;
     }
     return text;
   };
