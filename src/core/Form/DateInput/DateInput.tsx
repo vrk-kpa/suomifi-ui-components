@@ -359,7 +359,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
                   className={dateInputClassNames.inputElement}
                   forwardedRef={inputRef}
                   placeholder={visualPlaceholder}
-                  {...{ 'aria-invalid': status === 'error' }}
+                  aria-invalid={status === 'error' ? true : undefined}
                   {...getConditionalAriaProp('aria-describedby', [
                     statusText ? statusTextId : undefined,
                     hintText ? hintTextId : undefined,

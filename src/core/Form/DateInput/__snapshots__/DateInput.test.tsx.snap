@@ -896,7 +896,6 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
             class="c0 fi-date-input_input-element-container"
           >
             <input
-              aria-invalid="false"
               autocomplete="off"
               class="c6 fi-date-input_input"
               id="3"
@@ -1376,7 +1375,6 @@ exports[`snapshots match date input hint text 1`] = `
           >
             <input
               aria-describedby="4-hintText"
-              aria-invalid="false"
               autocomplete="off"
               class="c6 fi-date-input_input"
               id="4"
@@ -1827,7 +1825,6 @@ exports[`snapshots match date input minimal implementation 1`] = `
             class="c0 fi-date-input_input-element-container"
           >
             <input
-              aria-invalid="false"
               autocomplete="off"
               class="c5 fi-date-input_input"
               id="1"
@@ -2283,7 +2280,6 @@ exports[`snapshots match date input optional text 1`] = `
             class="c0 fi-date-input_input-element-container"
           >
             <input
-              aria-invalid="false"
               autocomplete="off"
               class="c5 fi-date-input_input"
               id="5"
@@ -2735,7 +2731,6 @@ exports[`snapshots match date input success status with statustext 1`] = `
           >
             <input
               aria-describedby="6-statusText"
-              aria-invalid="false"
               autocomplete="off"
               class="c5 fi-date-input_input"
               id="6"
@@ -3941,7 +3936,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
             class="c0 fi-date-input_input-element-container"
           >
             <input
-              aria-invalid="false"
               autocomplete="off"
               class="c5 fi-date-input_input"
               id="8"
