@@ -83,15 +83,7 @@ export const datePickerDefaultTexts: {
       'Saturday',
       'Sunday',
     ],
-    weekDayAbbreviations: [
-      'Mon.',
-      'Tue.',
-      'Wed.',
-      'Thu.',
-      'Fri.',
-      'Sat.',
-      'Sun.',
-    ],
+    weekDayAbbreviations: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
   },
   fi: {
     openButtonLabel: 'Valitse päivämäärä',
