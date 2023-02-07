@@ -275,6 +275,12 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
             fallbackPlacements: ['top-end'],
           },
         },
+        {
+          name: 'preventOverflow',
+          options: {
+            padding: 5,
+          },
+        },
       ],
       placement: 'bottom-end',
     },
