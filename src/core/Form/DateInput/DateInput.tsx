@@ -34,6 +34,9 @@ import {
   datePickerDefaultTexts,
   DatePickerTextProps,
   InternalDatePickerTextProps,
+  Language,
+  defaultLanguage,
+  languages,
 } from './datePickerTexts';
 import {
   defaultDateAdapter,
@@ -119,10 +122,10 @@ export interface DatePickerProps {
    * </pre>
    */
   datePickerTexts?: DatePickerTextProps;
-  /** Language for date picker default texts. Language supports Finnish, English, and Swedish.
+  /** Language for date picker default texts. Language support is for Finnish, English, and Swedish.
    * @default 'fi'
    */
-  language?: 'fi' | 'en' | 'sv';
+  language?: Language;
   /** Minimum date user can select from date picker. By default first day of month ten years before current date. */
   minDate?: Date;
   /** Maximum date user can select from date picker. By default last day of month ten years after current date. */
@@ -213,7 +216,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
     value,
     datePickerEnabled = false,
     datePickerTexts = undefined,
-    language = 'fi',
+    language = defaultLanguage,
     dateAdapter = defaultDateAdapter(),
     shouldDisableDate,
     minDate = moveYears(firstDayOfMonth(new Date()), -10),
@@ -260,11 +263,11 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
   }, [value, inputValue]);
 
   useEffect(() => {
-    let lang: 'fi' | 'en' | 'sv';
-    if (['fi', 'en', 'sv'].includes(language)) {
+    let lang: Language;
+    if (languages.includes(language)) {
       lang = language;
     } else {
-      lang = 'fi';
+      lang = defaultLanguage;
       getLogger().warn(`Language "${language}" is not supported`);
     }
     setTexts({ ...datePickerDefaultTexts[lang], ...datePickerTexts });

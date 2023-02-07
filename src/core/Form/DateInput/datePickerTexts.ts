@@ -1,3 +1,9 @@
+export const languages = ['fi', 'en', 'sv'] as const;
+
+export type Language = typeof languages[number];
+
+export const defaultLanguage: Language = 'fi';
+
 export interface DatePickerTextProps {
   /** Aria-label for calendar button that opens the date picker. */
   openButtonLabel?: string;
