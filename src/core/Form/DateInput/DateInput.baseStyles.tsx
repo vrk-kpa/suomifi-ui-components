@@ -34,7 +34,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       position: relative;
 
       &::after {
-        ${theme.focus.absoluteFocus}
+        ${theme.focuses.absoluteFocus}
       }
     }
 
@@ -57,7 +57,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     min-height: 40px;
     padding-left: ${theme.spacing.insetL};
     border-color: ${theme.colors.depthDark3};
-    border-radius: ${theme.radius.basic};
+    border-radius: ${theme.radiuses.basic};
 
     &::placeholder {
       font-style: italic;
@@ -73,7 +73,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       position: relative;
 
       &::after {
-        ${theme.focus.absoluteFocus}
+        ${theme.focuses.absoluteFocus}
       }
     }
 
@@ -82,7 +82,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     text-align: center;
     padding: ${theme.spacing.xs};
     border: 1px solid ${theme.colors.highlightBase};
-    border-radius: ${theme.radius.basic};
+    border-radius: ${theme.radiuses.basic};
     &:focus {
       outline: 3px solid transparent;
     }
@@ -109,7 +109,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-date-input_picker-button {
       border: 2px solid ${theme.colors.alertBase};
       border-left: 1px solid ${theme.colors.highlightBase};
-      border-radius: 0 ${theme.radius.basic} ${theme.radius.basic} 0;
+      border-radius: 0 ${theme.radiuses.basic} ${theme.radiuses.basic} 0;
     }
   }
 
@@ -121,7 +121,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-date-input_picker-button {
       border: 2px solid ${theme.colors.successBase};
       border-left: 1px solid ${theme.colors.highlightBase};
-      border-radius: 0 ${theme.radius.basic} ${theme.radius.basic} 0;
+      border-radius: 0 ${theme.radiuses.basic} ${theme.radiuses.basic} 0;
     }
   }
   &.fi-date-input--disabled {
@@ -134,7 +134,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-date-input--has-picker {
     & .fi-date-input_input {
       border-right: none;
-      border-radius: ${theme.radius.basic} 0 0 ${theme.radius.basic};
+      border-radius: ${theme.radiuses.basic} 0 0 ${theme.radiuses.basic};
     }
   }
 `;

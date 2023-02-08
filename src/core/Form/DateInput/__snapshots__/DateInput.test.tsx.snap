@@ -137,7 +137,7 @@ exports[`snapshots match date input error status with statustext 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -165,7 +165,7 @@ exports[`snapshots match date input error status with statustext 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -265,7 +265,7 @@ exports[`snapshots match date input error status with statustext 1`] = `
 }
 
 .c1 .fi-date-input_input {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -603,7 +603,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -631,7 +631,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -731,7 +731,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
 }
 
 .c1 .fi-date-input_input {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1054,7 +1054,7 @@ exports[`snapshots match date input hint text 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -1082,7 +1082,7 @@ exports[`snapshots match date input hint text 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -1096,7 +1096,7 @@ exports[`snapshots match date input hint text 1`] = `
 }
 
 .c5 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1203,7 +1203,7 @@ exports[`snapshots match date input hint text 1`] = `
 }
 
 .c1 .fi-date-input_input {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1532,7 +1532,7 @@ exports[`snapshots match date input minimal implementation 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -1560,7 +1560,7 @@ exports[`snapshots match date input minimal implementation 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -1660,7 +1660,7 @@ exports[`snapshots match date input minimal implementation 1`] = `
 }
 
 .c1 .fi-date-input_input {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1982,7 +1982,7 @@ exports[`snapshots match date input optional text 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -2010,7 +2010,7 @@ exports[`snapshots match date input optional text 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -2110,7 +2110,7 @@ exports[`snapshots match date input optional text 1`] = `
 }
 
 .c1 .fi-date-input_input {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2437,7 +2437,7 @@ exports[`snapshots match date input success status with statustext 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -2465,7 +2465,7 @@ exports[`snapshots match date input success status with statustext 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -2565,7 +2565,7 @@ exports[`snapshots match date input success status with statustext 1`] = `
 }
 
 .c1 .fi-date-input_input {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2952,7 +2952,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c14 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2974,7 +2974,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
   border-radius: 2px;
   text-align: center;
-  text-shadow: 0 1px 1px rgba(0,53,122,0.5);
+  text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
   cursor: pointer;
 }
 
@@ -3010,7 +3010,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 .c14.fi-button--disabled,
 .c14[disabled],
 .c14:disabled {
-  text-shadow: 0 1px 1px rgba(41,41,41,0.5);
+  text-shadow: 0 1px 1px rgba(33,33,33,0.5);
   background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -3037,7 +3037,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c14.fi-button--inverted:hover {
-  background: linear-gradient(-180deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
 }
 
 .c14.fi-button--inverted:active {
@@ -3062,7 +3062,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c14.fi-button--secondary:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
 .c14.fi-button--secondary:active {
@@ -3091,7 +3091,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c14.fi-button--secondary-noborder:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
 .c14.fi-button--secondary-noborder:active {
@@ -3121,7 +3121,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c14.fi-button--link:hover {
-  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
 .c14.fi-button--link:active {
@@ -3207,7 +3207,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 .c16 .fi-month-day_button_current {
   margin: 0 6px;
   padding: 3px 0;
-  border-bottom: 1px solid hsl(0,0%,16%);
+  border-bottom: 1px solid hsl(0,0%,13%);
   text-align: center;
 }
 
@@ -3345,7 +3345,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -3368,7 +3368,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c12 [data-reach-listbox-button].fi-dropdown_button {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -3398,7 +3398,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   text-align: left;
   line-height: 1.5;
   background-color: hsl(0,0%,100%);
-  box-shadow: 0 1px 2px 0 rgba(0,53,122,0.1) inset;
+  box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
   cursor: pointer;
 }
 
@@ -3451,7 +3451,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c12[data-reach-listbox-popover].fi-dropdown_popover {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -3485,7 +3485,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c12.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   background-image: none;
   background-color: hsl(212,63%,95%);
   border: 0;
@@ -3501,7 +3501,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c13[data-reach-listbox-option].fi-dropdown_item {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -3527,7 +3527,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c13[data-reach-listbox-option][data-current-nav].fi-dropdown_item {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   background-image: none;
   background-color: hsl(212,63%,95%);
   border: 0;
@@ -3587,7 +3587,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 
 .c10.fi-date-picker {
   background-color: hsl(0,0%,100%);
-  box-shadow: 0px 4px 8px 0px rgba(41,41,41,0.14);
+  box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
   border: 1px solid hsl(0,0%,58%);
 }
 
@@ -3671,7 +3671,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -3771,7 +3771,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c1 .fi-date-input_input {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;

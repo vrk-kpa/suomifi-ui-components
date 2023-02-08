@@ -39,7 +39,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   & .fi-month-day_button {
     ${font(theme)('bodyTextSmall')};
     border: 1px solid transparent;
-    border-radius: ${theme.radius.basic};
+    border-radius: ${theme.radiuses.basic};
     width: 100%;
     height: 100%;
     text-align: center;
@@ -50,7 +50,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       outline: 3px solid transparent;
 
       &:after {
-        ${theme.focus.absoluteFocus}
+        ${theme.focuses.absoluteFocus}
       }
     }
 
@@ -75,7 +75,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       position: relative;
 
       &:after {
-        ${theme.focus.absoluteFocus}
+        ${theme.focuses.absoluteFocus}
       }
     }
 
