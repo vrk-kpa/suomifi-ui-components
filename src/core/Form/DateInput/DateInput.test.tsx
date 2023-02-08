@@ -73,6 +73,28 @@ describe('snapshots match', () => {
   });
 });
 
+describe('keyboard events', () => {
+  beforeAll(() => {
+    jest.useFakeTimers().setSystemTime(new Date('2010-01-01'));
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
+  it('closes dialog with Escape', () => {
+    const { baseElement, getByRole } = render(
+      <DateInput labelText="Date" datePickerEnabled />,
+    );
+    fireEvent.click(getByRole('button'));
+    expect(baseElement.querySelector('[role="dialog"]')).toBeVisible();
+    fireEvent.keyDown(baseElement, {
+      key: 'Escape',
+    });
+    expect(baseElement.querySelector('[role="dialog"]')).not.toBeVisible();
+  });
+});
+
 describe('callbacks', () => {
   beforeAll(() => {
     jest.useFakeTimers().setSystemTime(new Date('2020-01-01'));
