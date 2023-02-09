@@ -11,6 +11,7 @@ const primitiveComponents = [
   ['Form', 'TextInput'],
   ['Form', 'SearchInput'],
   ['Form', 'Textarea'],
+  ['Form', 'DateInput'],
   ['Form', 'Label'],
   ['Form', 'HintText'],
   ['Form', 'StatusText'],
