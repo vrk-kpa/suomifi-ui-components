@@ -224,6 +224,14 @@ module.exports = {
             'SideNavigationItem/SideNavigationItem',
           ]),
         },
+        {
+          name: 'ActionMenu',
+          components: getComponentWithVariants('ActionMenu')([
+            'ActionMenu/ActionMenu',
+            'ActionMenuItem/ActionMenuItem',
+            'ActionMenuLink/ActionMenuLink',
+          ]),
+        },
       ],
       sectionDepth: 1,
       expand: true,

@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import { useEnhancedEffect } from '../../../utils/common';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlDiv, HtmlDivWithRef } from '../../../reset';
-import { getLogger } from '../../../utils/log';
+// import { getLogger } from '../../../utils/log';
 import { baseStyles } from './ActionMenuPopover.baseStyles';
 
 const baseClassName = 'fi-action-menu-popover';
@@ -111,6 +111,7 @@ export const BaseActionMenuPopover = (
     }
   };
 
+  /*
   const handleButtonKeydown = (
     event: React.KeyboardEvent<HTMLButtonElement>,
   ) => {
@@ -158,6 +159,8 @@ export const BaseActionMenuPopover = (
       event.preventDefault();
     }
   };
+
+  */
 
   const { styles, attributes } = usePopper(sourceRef.current, dialogElement, {
     strategy: 'fixed',
