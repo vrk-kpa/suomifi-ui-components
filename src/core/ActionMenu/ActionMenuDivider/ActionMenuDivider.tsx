@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import classnames from 'classnames';
+import React from 'react';
+
 import { HtmlDiv } from '../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { baseStyles } from './ActionMenuDivider.baseStyles';

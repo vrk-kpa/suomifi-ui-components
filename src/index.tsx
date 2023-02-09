@@ -1,5 +1,13 @@
 import './styles.scss';
 export {
+  ActionMenu,
+  ActionMenuProps,
+  ActionMenuItem,
+  ActionMenuItemProps,
+  ActionMenuDivider,
+} from './core/ActionMenu';
+
+export {
   Breadcrumb,
   BreadcrumbProps,
   BreadcrumbLink,
