@@ -465,6 +465,7 @@ const labelText = 'Food';
 ### Loading state
 
 ```js
+import { useState } from 'react';
 import {
   MultiSelect,
   Tooltip,
@@ -472,19 +473,66 @@ import {
   Text
 } from 'suomifi-ui-components';
 
-const foods = [];
+const [loading, setLoading] = useState(false);
+const [foods, setFoods] = useState([]);
+const updatedFoods = [
+  {
+    labelText: 'Pizza',
+    uniqueItemId: 'pizza-123'
+  },
+  {
+    labelText: 'Burger',
+    uniqueItemId: 'burger-123'
+  }
+];
 
-const labelText = 'Food';
+const runLoader = () => {
+  let progress = 0;
+  setLoading(true);
+  setFoods([]);
+  const id = setInterval(frame, 300);
+  function frame() {
+    if (progress >= 10) {
+      clearInterval(id);
+      setFoods(updatedFoods);
+      setLoading(false);
+      progress = 0;
+    } else {
+      progress = progress + 1;
+    }
+  }
+};
 
-<MultiSelect
-  items={foods}
-  labelText={labelText}
-  visualPlaceholder="Choose your foods"
-  noItemsText="No items"
-  loading={true}
-  loadingText="Loading data"
-  ariaSelectedAmountText="items selected"
-  ariaOptionsAvailableText="options available"
-  ariaOptionChipRemovedText="removed"
-/>;
+const startup = (event) => {
+  if (!loading) {
+    runLoader();
+  }
+};
+
+<>
+  <MultiSelect
+    items={foods}
+    labelText="Always on"
+    visualPlaceholder="Choose your foods"
+    noItemsText="No items"
+    loading={true}
+    loadingText="Loading data"
+    ariaSelectedAmountText="items selected"
+    ariaOptionsAvailableText="options available"
+    ariaOptionChipRemovedText="removed"
+  />
+
+  <MultiSelect
+    items={updatedFoods}
+    labelText="Load on change"
+    visualPlaceholder="Choose your foods"
+    noItemsText="No items"
+    loading={loading}
+    onChange={startup}
+    loadingText="Loading data"
+    ariaSelectedAmountText="items selected"
+    ariaOptionsAvailableText="options available"
+    ariaOptionChipRemovedText="removed"
+  />
+</>;
 ```

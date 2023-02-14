@@ -702,11 +702,20 @@ class BaseSingleSelect<T> extends Component<
             </SelectItemList>
           </Popover>
         )}
-        {this.state.filterMode && (
+        {this.state.filterMode && !loading && (
           <VisuallyHidden aria-live="polite" aria-atomic="true">
             {ariaOptionsAvailableTextFunction
               ? ariaOptionsAvailableTextFunction(popoverItems.length)
               : `${popoverItems.length} ${ariaOptionsAvailableText}`}
+          </VisuallyHidden>
+        )}
+        {loading && (
+          <VisuallyHidden
+            aria-live="polite"
+            aria-atomic="true"
+            id={`${id}-loading-announce`}
+          >
+            {loadingText}
           </VisuallyHidden>
         )}
       </HtmlDiv>
