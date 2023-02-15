@@ -523,7 +523,7 @@ const startup = (event) => {
   />
 
   <MultiSelect
-    items={updatedFoods}
+    items={foods}
     labelText="Load on change"
     visualPlaceholder="Choose your foods"
     noItemsText="No items"

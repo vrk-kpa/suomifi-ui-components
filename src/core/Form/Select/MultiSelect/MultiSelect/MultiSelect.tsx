@@ -851,50 +851,52 @@ class BaseMultiSelect<T> extends Component<
             </MultiSelectRemoveAllButton>
           </HtmlDiv>
         </HtmlDiv>
-        {this.state.showOptionsAvailableText && (
-          <>
-            <VisuallyHidden aria-live="polite" aria-atomic="true">
-              {ariaSelectedAmountTextFunction ? (
-                <>{ariaSelectedAmountTextFunction(selectedItems.length)}</>
+
+        <VisuallyHidden aria-live="polite" aria-atomic="true">
+          {this.state.showOptionsAvailableText ? (
+            ariaSelectedAmountTextFunction ? (
+              <>{ariaSelectedAmountTextFunction(selectedItems.length)}</>
+            ) : (
+              <>
+                {selectedItems.length}
+                {ariaSelectedAmountText}
+              </>
+            )
+          ) : (
+            ''
+          )}
+        </VisuallyHidden>
+
+        <VisuallyHidden
+          aria-live="polite"
+          aria-atomic="true"
+          id={`${id}-filteredItems-length`}
+        >
+          {!loading && this.state.showOptionsAvailableText ? (
+            this.focusInInput(getOwnerDocument(this.popoverListRef)) ? (
+              ariaOptionsAvailableTextFunction ? (
+                <>{ariaOptionsAvailableTextFunction(filteredItems.length)}</>
               ) : (
                 <>
-                  {selectedItems.length}
-                  {ariaSelectedAmountText}
+                  {filteredItems.length}
+                  {ariaOptionsAvailableText}
                 </>
-              )}
-            </VisuallyHidden>
+              )
+            ) : (
+              ''
+            )
+          ) : (
+            ''
+          )}
+        </VisuallyHidden>
 
-            {!loading && (
-              <VisuallyHidden
-                aria-live="polite"
-                aria-atomic="true"
-                id={`${id}-filteredItems-length`}
-              >
-                {this.focusInInput(getOwnerDocument(this.popoverListRef)) ? (
-                  ariaOptionsAvailableTextFunction ? (
-                    <>
-                      {ariaOptionsAvailableTextFunction(filteredItems.length)}
-                    </>
-                  ) : (
-                    <>
-                      {filteredItems.length}
-                      {ariaOptionsAvailableText}
-                    </>
-                  )
-                ) : null}
-              </VisuallyHidden>
-            )}
-          </>
-        )}
-        {loading && (
-          <VisuallyHidden
-            aria-live="polite"
-            aria-atomic="true"
-            id={`${id}-loading-announce`}
-          >
-            {loadingText}
-          </VisuallyHidden>
-        )}
+        <VisuallyHidden
+          aria-live="polite"
+          aria-atomic="true"
+          id={`${id}-loading-announce`}
+        >
+          {loading ? loadingText : ''}
+        </VisuallyHidden>
         <VisuallyHidden
           aria-live="assertive"
           aria-atomic="true"
