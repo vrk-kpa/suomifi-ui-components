@@ -742,5 +742,16 @@ exports[`has matching snapshot 1`] = `
       </div>
     </div>
   </div>
+  <span
+    aria-atomic="true"
+    aria-live="polite"
+    class="c5 c10 fi-visually-hidden"
+  />
+  <span
+    aria-atomic="true"
+    aria-live="polite"
+    class="c5 c10 fi-visually-hidden"
+    id="2-loading-announce"
+  />
 </div>
 `;
