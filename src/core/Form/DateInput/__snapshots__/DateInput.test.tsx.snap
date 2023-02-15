@@ -3657,8 +3657,50 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border: 1px solid hsl(0,0%,58%);
 }
 
+.c10.fi-date-picker--small-screen {
+  border: none;
+  background: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  -webkit-transform: translateZ(0) translateY(0);
+  -ms-transform: translateZ(0) translateY(0);
+  transform: translateZ(0) translateY(0);
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.28,0.84,0.42,1);
+  -webkit-transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1);
+  transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1);
+}
+
 .c10.fi-date-picker--hidden {
-  display: none;
+  visibility: hidden;
+}
+
+.c10.fi-date-picker--small-screen-hidden {
+  -webkit-transform: translateZ(0) translateY(100%);
+  -ms-transform: translateZ(0) translateY(100%);
+  transform: translateZ(0) translateY(100%);
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.28,0.84,0.42,1), visibility 200ms cubic-bezier(0.28,0.84,0.42,1);
+  -webkit-transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1), visibility 200ms cubic-bezier(0.28,0.84,0.42,1);
+  transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1), visibility 200ms cubic-bezier(0.28,0.84,0.42,1);
+}
+
+.c10 .fi-date-picker_slide-indicator {
+  margin: 20px auto 0 auto;
+  width: 60px;
+  height: 3px;
+  background-color: hsl(202,7%,80%);
+}
+
+.c10 .fi-date-picker_small-screen-container {
+  background-color: hsl(0,0%,100%);
+  border-top: 1px solid hsl(0,0%,58%);
+  border-radius: 10px 10px 0 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .c10 .fi-date-picker_application {
@@ -3674,6 +3716,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
 }
 
 .c10 .fi-date-picker_popper-arrow,
@@ -4001,7 +4047,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
         >
           <label
             class="c2 fi-label_label-span"
-            for="8"
+            for="15"
           >
             Date
           </label>
@@ -4015,7 +4061,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
             <input
               autocomplete="off"
               class="c5 fi-date-input_input"
-              id="8"
+              id="15"
               placeholder="DateInput"
               type="text"
               value="15.1.2020"
@@ -4056,12 +4102,13 @@ exports[`snapshots match date input with datepicker with controlled input value 
           aria-atomic="true"
           aria-live="assertive"
           class="c2 c9 fi-status-text"
-          id="8-statusText"
+          id="15-statusText"
         />
       </span>
     </div>
   </div>
   <div
+    aria-hidden="false"
     class="c3 c10 fi-date-picker"
     role="dialog"
     style="position: fixed; left: 0px; top: 0px;"
@@ -4075,7 +4122,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
       >
         <span
           class="c2 c12 fi-date-selectors_year-select fi-dropdown"
-          id="9"
+          id="16"
           value="2020"
         >
           <div
@@ -4086,7 +4133,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
             >
               <label
                 class="c7 fi-visually-hidden"
-                id="9-label"
+                id="16-label"
               >
                 Valitse vuosi
               </label>
@@ -4095,14 +4142,14 @@ exports[`snapshots match date input with datepicker with controlled input value 
               data-reach-listbox-input=""
               data-state="closed"
               data-value="2020"
-              id="listbox-input--1"
+              id="listbox-input--15"
             >
               <span
                 aria-haspopup="listbox"
-                aria-labelledby="9-label button--listbox-input--1"
+                aria-labelledby="16-label button--listbox-input--15"
                 class="fi-dropdown_button"
                 data-reach-listbox-button=""
-                id="button--listbox-input--1"
+                id="button--listbox-input--15"
                 role="button"
                 tabindex="0"
               >
@@ -4115,10 +4162,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 tabindex="-1"
               >
                 <ul
-                  aria-activedescendant="option-2020--listbox-input--1"
-                  aria-labelledby="9-label"
+                  aria-activedescendant="option-2020--listbox-input--15"
+                  aria-labelledby="16-label"
                   data-reach-listbox-list=""
-                  id="listbox--listbox-input--1"
+                  id="listbox--listbox-input--15"
                   role="listbox"
                   tabindex="-1"
                 >
@@ -4127,7 +4174,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2010"
                     data-reach-listbox-option=""
                     data-value="2010"
-                    id="option-2010--listbox-input--1"
+                    id="option-2010--listbox-input--15"
                     role="option"
                   >
                     2010
@@ -4137,7 +4184,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2011"
                     data-reach-listbox-option=""
                     data-value="2011"
-                    id="option-2011--listbox-input--1"
+                    id="option-2011--listbox-input--15"
                     role="option"
                   >
                     2011
@@ -4147,7 +4194,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2012"
                     data-reach-listbox-option=""
                     data-value="2012"
-                    id="option-2012--listbox-input--1"
+                    id="option-2012--listbox-input--15"
                     role="option"
                   >
                     2012
@@ -4157,7 +4204,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2013"
                     data-reach-listbox-option=""
                     data-value="2013"
-                    id="option-2013--listbox-input--1"
+                    id="option-2013--listbox-input--15"
                     role="option"
                   >
                     2013
@@ -4167,7 +4214,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2014"
                     data-reach-listbox-option=""
                     data-value="2014"
-                    id="option-2014--listbox-input--1"
+                    id="option-2014--listbox-input--15"
                     role="option"
                   >
                     2014
@@ -4177,7 +4224,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2015"
                     data-reach-listbox-option=""
                     data-value="2015"
-                    id="option-2015--listbox-input--1"
+                    id="option-2015--listbox-input--15"
                     role="option"
                   >
                     2015
@@ -4187,7 +4234,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2016"
                     data-reach-listbox-option=""
                     data-value="2016"
-                    id="option-2016--listbox-input--1"
+                    id="option-2016--listbox-input--15"
                     role="option"
                   >
                     2016
@@ -4197,7 +4244,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2017"
                     data-reach-listbox-option=""
                     data-value="2017"
-                    id="option-2017--listbox-input--1"
+                    id="option-2017--listbox-input--15"
                     role="option"
                   >
                     2017
@@ -4207,7 +4254,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2018"
                     data-reach-listbox-option=""
                     data-value="2018"
-                    id="option-2018--listbox-input--1"
+                    id="option-2018--listbox-input--15"
                     role="option"
                   >
                     2018
@@ -4217,7 +4264,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2019"
                     data-reach-listbox-option=""
                     data-value="2019"
-                    id="option-2019--listbox-input--1"
+                    id="option-2019--listbox-input--15"
                     role="option"
                   >
                     2019
@@ -4229,7 +4276,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2020"
                     data-reach-listbox-option=""
                     data-value="2020"
-                    id="option-2020--listbox-input--1"
+                    id="option-2020--listbox-input--15"
                     role="option"
                   >
                     2020
@@ -4239,7 +4286,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2021"
                     data-reach-listbox-option=""
                     data-value="2021"
-                    id="option-2021--listbox-input--1"
+                    id="option-2021--listbox-input--15"
                     role="option"
                   >
                     2021
@@ -4249,7 +4296,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2022"
                     data-reach-listbox-option=""
                     data-value="2022"
-                    id="option-2022--listbox-input--1"
+                    id="option-2022--listbox-input--15"
                     role="option"
                   >
                     2022
@@ -4259,7 +4306,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2023"
                     data-reach-listbox-option=""
                     data-value="2023"
-                    id="option-2023--listbox-input--1"
+                    id="option-2023--listbox-input--15"
                     role="option"
                   >
                     2023
@@ -4269,7 +4316,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2024"
                     data-reach-listbox-option=""
                     data-value="2024"
-                    id="option-2024--listbox-input--1"
+                    id="option-2024--listbox-input--15"
                     role="option"
                   >
                     2024
@@ -4279,7 +4326,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2025"
                     data-reach-listbox-option=""
                     data-value="2025"
-                    id="option-2025--listbox-input--1"
+                    id="option-2025--listbox-input--15"
                     role="option"
                   >
                     2025
@@ -4289,7 +4336,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2026"
                     data-reach-listbox-option=""
                     data-value="2026"
-                    id="option-2026--listbox-input--1"
+                    id="option-2026--listbox-input--15"
                     role="option"
                   >
                     2026
@@ -4299,7 +4346,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2027"
                     data-reach-listbox-option=""
                     data-value="2027"
-                    id="option-2027--listbox-input--1"
+                    id="option-2027--listbox-input--15"
                     role="option"
                   >
                     2027
@@ -4309,7 +4356,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2028"
                     data-reach-listbox-option=""
                     data-value="2028"
-                    id="option-2028--listbox-input--1"
+                    id="option-2028--listbox-input--15"
                     role="option"
                   >
                     2028
@@ -4319,7 +4366,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2029"
                     data-reach-listbox-option=""
                     data-value="2029"
-                    id="option-2029--listbox-input--1"
+                    id="option-2029--listbox-input--15"
                     role="option"
                   >
                     2029
@@ -4329,7 +4376,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="2030"
                     data-reach-listbox-option=""
                     data-value="2030"
-                    id="option-2030--listbox-input--1"
+                    id="option-2030--listbox-input--15"
                     role="option"
                   >
                     2030
@@ -4341,7 +4388,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
         </span>
         <span
           class="c2 c12 fi-date-selectors_month-select fi-dropdown"
-          id="10"
+          id="17"
           value="0"
         >
           <div
@@ -4352,7 +4399,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
             >
               <label
                 class="c7 fi-visually-hidden"
-                id="10-label"
+                id="17-label"
               >
                 Valitse kuukausi
               </label>
@@ -4361,14 +4408,14 @@ exports[`snapshots match date input with datepicker with controlled input value 
               data-reach-listbox-input=""
               data-state="closed"
               data-value="0"
-              id="listbox-input--2"
+              id="listbox-input--16"
             >
               <span
                 aria-haspopup="listbox"
-                aria-labelledby="10-label button--listbox-input--2"
+                aria-labelledby="17-label button--listbox-input--16"
                 class="fi-dropdown_button"
                 data-reach-listbox-button=""
-                id="button--listbox-input--2"
+                id="button--listbox-input--16"
                 role="button"
                 tabindex="0"
               >
@@ -4381,10 +4428,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 tabindex="-1"
               >
                 <ul
-                  aria-activedescendant="option-0--listbox-input--2"
-                  aria-labelledby="10-label"
+                  aria-activedescendant="option-0--listbox-input--16"
+                  aria-labelledby="17-label"
                   data-reach-listbox-list=""
-                  id="listbox--listbox-input--2"
+                  id="listbox--listbox-input--16"
                   role="listbox"
                   tabindex="-1"
                 >
@@ -4395,7 +4442,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="Tammikuu"
                     data-reach-listbox-option=""
                     data-value="0"
-                    id="option-0--listbox-input--2"
+                    id="option-0--listbox-input--16"
                     role="option"
                   >
                     Tammikuu
@@ -4405,7 +4452,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="Helmikuu"
                     data-reach-listbox-option=""
                     data-value="1"
-                    id="option-1--listbox-input--2"
+                    id="option-1--listbox-input--16"
                     role="option"
                   >
                     Helmikuu
@@ -4415,7 +4462,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="Maaliskuu"
                     data-reach-listbox-option=""
                     data-value="2"
-                    id="option-2--listbox-input--2"
+                    id="option-2--listbox-input--16"
                     role="option"
                   >
                     Maaliskuu
@@ -4425,7 +4472,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="Huhtikuu"
                     data-reach-listbox-option=""
                     data-value="3"
-                    id="option-3--listbox-input--2"
+                    id="option-3--listbox-input--16"
                     role="option"
                   >
                     Huhtikuu
@@ -4435,7 +4482,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="Toukokuu"
                     data-reach-listbox-option=""
                     data-value="4"
-                    id="option-4--listbox-input--2"
+                    id="option-4--listbox-input--16"
                     role="option"
                   >
                     Toukokuu
@@ -4445,7 +4492,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="Kesäkuu"
                     data-reach-listbox-option=""
                     data-value="5"
-                    id="option-5--listbox-input--2"
+                    id="option-5--listbox-input--16"
                     role="option"
                   >
                     Kesäkuu
@@ -4455,7 +4502,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="Heinäkuu"
                     data-reach-listbox-option=""
                     data-value="6"
-                    id="option-6--listbox-input--2"
+                    id="option-6--listbox-input--16"
                     role="option"
                   >
                     Heinäkuu
@@ -4465,7 +4512,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="Elokuu"
                     data-reach-listbox-option=""
                     data-value="7"
-                    id="option-7--listbox-input--2"
+                    id="option-7--listbox-input--16"
                     role="option"
                   >
                     Elokuu
@@ -4475,7 +4522,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="Syyskuu"
                     data-reach-listbox-option=""
                     data-value="8"
-                    id="option-8--listbox-input--2"
+                    id="option-8--listbox-input--16"
                     role="option"
                   >
                     Syyskuu
@@ -4485,7 +4532,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="Lokakuu"
                     data-reach-listbox-option=""
                     data-value="9"
-                    id="option-9--listbox-input--2"
+                    id="option-9--listbox-input--16"
                     role="option"
                   >
                     Lokakuu
@@ -4495,7 +4542,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="Marraskuu"
                     data-reach-listbox-option=""
                     data-value="10"
-                    id="option-10--listbox-input--2"
+                    id="option-10--listbox-input--16"
                     role="option"
                   >
                     Marraskuu
@@ -4505,7 +4552,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     data-label="Joulukuu"
                     data-reach-listbox-option=""
                     data-value="11"
-                    id="option-11--listbox-input--2"
+                    id="option-11--listbox-input--16"
                     role="option"
                   >
                     Joulukuu
@@ -5321,6 +5368,2560 @@ exports[`snapshots match date input with datepicker with controlled input value 
       data-popper-arrow="true"
       style="position: absolute;"
     />
+  </div>
+</body>
+`;
+
+exports[`snapshots match date input with datepicker with smallScreen 1`] = `
+.c6 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.c6:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.c6::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.c6::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.c6::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.c6::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.c6::before,
+.c6::after {
+  box-sizing: border-box;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c3 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c3::before,
+.c3::after {
+  box-sizing: border-box;
+}
+
+.c5 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.c5::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+.c5::before,
+.c5::after {
+  box-sizing: border-box;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c8 {
+  vertical-align: baseline;
+}
+
+.c8.fi-icon {
+  display: inline-block;
+}
+
+.c8 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c8 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c8.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c8.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c14 {
+  color: hsl(0,0%,13%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 10px 20px;
+  min-height: 40px;
+  color: hsl(0,0%,100%);
+  background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
+  border-radius: 2px;
+  text-align: center;
+  text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
+  cursor: pointer;
+}
+
+.c14:focus {
+  outline: none;
+  position: relative;
+}
+
+.c14:focus::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c14:hover {
+  background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+}
+
+.c14:active {
+  background: hsl(212,63%,37%);
+}
+
+.c14.fi-button--disabled,
+.c14[disabled],
+.c14:disabled {
+  text-shadow: 0 1px 1px rgba(33,33,33,0.5);
+  background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: not-allowed;
+}
+
+.c14.fi-button--disabled::after {
+  border: none;
+  box-shadow: none;
+}
+
+.c14.fi-button--fullwidth {
+  display: block;
+  width: 100%;
+}
+
+.c14.fi-button--inverted {
+  background: none;
+  background-color: hsl(212,63%,45%);
+  border: 1px solid hsl(0,0%,100%);
+  text-shadow: none;
+}
+
+.c14.fi-button--inverted:hover {
+  background: linear-gradient(-180deg,hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
+}
+
+.c14.fi-button--inverted:active {
+  background: none;
+  background-color: hsl(212,63%,45%);
+}
+
+.c14.fi-button--inverted.fi-button--disabled,
+.c14.fi-button--inverted[disabled],
+.c14.fi-button--inverted:disabled {
+  opacity: 0.41;
+  background: none;
+  background-color: none;
+}
+
+.c14.fi-button--secondary {
+  color: hsl(212,63%,45%);
+  background: none;
+  background-color: hsl(0,0%,100%);
+  border: 1px solid hsl(212,63%,45%);
+  text-shadow: none;
+}
+
+.c14.fi-button--secondary:hover {
+  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+}
+
+.c14.fi-button--secondary:active {
+  background: none;
+  background-color: hsl(202,7%,93%);
+}
+
+.c14.fi-button--secondary.fi-button--disabled,
+.c14.fi-button--secondary[disabled],
+.c14.fi-button--secondary:disabled {
+  color: hsl(202,7%,67%);
+  text-shadow: none;
+  background: none;
+  background-color: hsl(212,63%,98%);
+  border-color: hsl(202,7%,67%);
+}
+
+.c14.fi-button--secondary-noborder {
+  color: hsl(212,63%,45%);
+  background: none;
+  background-color: hsl(0,0%,100%);
+  border: 1px solid hsl(212,63%,45%);
+  text-shadow: none;
+  border: none;
+  background-color: transparent;
+}
+
+.c14.fi-button--secondary-noborder:hover {
+  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+}
+
+.c14.fi-button--secondary-noborder:active {
+  background: none;
+  background-color: hsl(202,7%,93%);
+}
+
+.c14.fi-button--secondary-noborder.fi-button--disabled,
+.c14.fi-button--secondary-noborder[disabled],
+.c14.fi-button--secondary-noborder:disabled {
+  color: hsl(202,7%,67%);
+  text-shadow: none;
+  background: none;
+  background-color: hsl(212,63%,98%);
+  border-color: hsl(202,7%,67%);
+}
+
+.c14.fi-button--link {
+  color: hsl(212,63%,45%);
+  color: hsl(212,63%,45%);
+  background: none;
+  background-color: hsl(0,0%,100%);
+  border: 1px solid hsl(212,63%,45%);
+  text-shadow: none;
+  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+  border: none;
+}
+
+.c14.fi-button--link:hover {
+  background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
+}
+
+.c14.fi-button--link:active {
+  background: none;
+  background-color: hsl(202,7%,93%);
+}
+
+.c14.fi-button--link.fi-button--disabled,
+.c14.fi-button--link[disabled],
+.c14.fi-button--link:disabled {
+  color: hsl(202,7%,67%);
+  text-shadow: none;
+  background: none;
+  background-color: hsl(212,63%,98%);
+  border-color: hsl(202,7%,67%);
+}
+
+.c14.fi-button--link:hover {
+  background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
+}
+
+.c14.fi-button--link:active {
+  background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
+}
+
+.c14.fi-button--link.fi-button--disabled,
+.c14.fi-button--link[disabled],
+.c14.fi-button--link:disabled {
+  color: hsl(202,7%,67%);
+  background: none;
+  background-color: hsl(202,7%,97%);
+}
+
+.c14 > .fi-button_icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  vertical-align: middle;
+  -webkit-transform: translateY(-0.1em);
+  -ms-transform: translateY(-0.1em);
+  transform: translateY(-0.1em);
+}
+
+.c14 > .fi-button_icon.fi-button_icon--right {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+.c14.fi-button--disabled > .fi-button_icon {
+  cursor: not-allowed;
+}
+
+.c7 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.c16.fi-month-day {
+  padding: 1px;
+  text-align: center;
+  min-width: 36px;
+  height: 38px;
+}
+
+.c16.fi-month-day--disabled {
+  color: hsl(202,7%,67%);
+}
+
+.c16 .fi-month-day_current {
+  margin: 0 6px;
+  padding: 3px 0;
+  border-bottom: 1px solid hsl(202,7%,67%);
+  text-align: center;
+}
+
+.c16 .fi-month-day_button_current {
+  margin: 0 6px;
+  padding: 3px 0;
+  border-bottom: 1px solid hsl(0,0%,13%);
+  text-align: center;
+}
+
+.c16 .fi-month-day_button--disabled {
+  color: hsl(202,7%,67%);
+}
+
+.c16 .fi-month-day_button--disabled .fi-month-day_button_current {
+  border-bottom: 1px solid hsl(202,7%,67%);
+}
+
+.c16 .fi-month-day_button {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.c16 .fi-month-day_button:focus {
+  box-shadow: none;
+  position: relative;
+  outline: 3px solid transparent;
+}
+
+.c16 .fi-month-day_button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c16 .fi-month-day_button:not(.fi-month-day_button--disabled):hover {
+  background-color: hsl(212,63%,45%);
+  color: hsl(0,0%,100%);
+}
+
+.c16 .fi-month-day_button:not(.fi-month-day_button--disabled):hover .fi-month-day_button_current {
+  border-bottom: 1px solid hsl(0,0%,100%);
+}
+
+.c16 .fi-month-day_button--selected {
+  border: 1px solid hsl(212,63%,45%);
+  background-color: hsl(212,63%,95%);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.c16 .fi-month-day_button--selected:focus {
+  box-shadow: none;
+  position: relative;
+}
+
+.c16 .fi-month-day_button--selected:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c16 .fi-month-day_button--selected:hover {
+  font-weight: 400;
+}
+
+.c15.fi-month-table {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.c15 .fi-month-table_thead-cell {
+  padding: 1px;
+  text-align: center;
+  min-width: 36px;
+  height: 38px;
+}
+
+.c4.fi-label .fi-label_label-span {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  display: inline-block;
+  vertical-align: middle;
+  color: hsl(0,0%,13%);
+}
+
+.c4.fi-label .fi-label_label-span .fi-label_optional-text {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c4.fi-label .fi-label_label-span .fi-tooltip {
+  margin-left: 6px;
+}
+
+.c12.fi-dropdown {
+  display: inline-block;
+}
+
+.c12.fi-dropdown .fi-dropdown_label--visible {
+  margin-bottom: 10px;
+}
+
+.c12 [data-reach-listbox-button].fi-dropdown_button {
+  color: hsl(0,0%,13%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-height: 22px;
+  padding: 7px 38px 7px 7px;
+  border-color: hsl(201,7%,58%);
+  text-align: left;
+  line-height: 1.5;
+  background-color: hsl(0,0%,100%);
+  box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
+  cursor: pointer;
+}
+
+.c12 [data-reach-listbox-button].fi-dropdown_button:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c12 [data-reach-listbox-button].fi-dropdown_button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c12 [data-reach-listbox-button].fi-dropdown_button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  margin-top: -3px;
+  border-style: solid;
+  border-color: hsl(201,7%,58%) transparent transparent transparent;
+  border-width: 6px 4px 0 4px;
+}
+
+.c12 [data-reach-listbox-button].fi-dropdown_button[aria-expanded='true']:before {
+  border-color: transparent transparent hsl(201,7%,58%) transparent;
+  border-width: 0 4px 6px 4px;
+}
+
+.c12 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled {
+  background-color: hsl(202,7%,97%);
+  color: hsl(202,7%,67%);
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.c12 [data-reach-listbox-button].fi-dropdown_button.fi-dropdown--disabled:before {
+  border-color: hsl(202,7%,67%) transparent transparent transparent;
+}
+
+.c12[data-reach-listbox-popover].fi-dropdown_popover {
+  color: hsl(0,0%,13%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: -1px;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  border: 0;
+  background-color: hsl(0,0%,100%);
+  border-color: hsl(201,7%,58%);
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0px 0px 2px 2px;
+  max-height: 265px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.c12[data-reach-listbox-popover].fi-dropdown_popover:focus-within {
+  outline: 0;
+  box-shadow: none;
+}
+
+.c12.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-selected].fi-dropdown_item {
+  background-color: hsl(0,0%,100%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c12.fi-dropdown--noSelectedStyles [data-reach-listbox-option][data-current-nav].fi-dropdown_item {
+  color: hsl(0,0%,13%);
+  background-image: none;
+  background-color: hsl(212,63%,95%);
+  border: 0;
+}
+
+.c12 [data-reach-listbox-list] {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.c13[data-reach-listbox-option].fi-dropdown_item {
+  color: hsl(0,0%,13%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  cursor: pointer;
+  line-height: 1.5;
+  padding: 8px;
+  border: 0;
+}
+
+.c13[data-reach-listbox-option].fi-dropdown_item:focus {
+  outline: 0;
+}
+
+.c13[data-reach-listbox-option][data-current-selected].fi-dropdown_item {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  background-image: none;
+  background-color: hsl(212,63%,95%);
+  border: 0;
+}
+
+.c13[data-reach-listbox-option][data-current-nav].fi-dropdown_item {
+  color: hsl(0,0%,13%);
+  background-image: none;
+  background-color: hsl(212,63%,95%);
+  border: 0;
+}
+
+.c11 .fi-date-selectors_container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c11 .fi-date-selectors_year-select {
+  margin-right: 10px;
+  min-width: 0px;
+}
+
+.c11 .fi-date-selectors_year-select .fi-dropdown_button {
+  min-width: 33px;
+}
+
+.c11 .fi-date-selectors_month-select {
+  margin-right: 10px;
+  min-width: 0px;
+}
+
+.c11 .fi-date-selectors_month-select .fi-dropdown_button {
+  min-width: 78px;
+}
+
+.c11 .fi-date-selectors_month-button {
+  padding: 0;
+  width: 40px;
+}
+
+.c11 .fi-date-selectors_month-button_icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+.c10 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c10.fi-date-picker {
+  background-color: hsl(0,0%,100%);
+  box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
+  border: 1px solid hsl(0,0%,58%);
+}
+
+.c10.fi-date-picker--small-screen {
+  border: none;
+  background: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  -webkit-transform: translateZ(0) translateY(0);
+  -ms-transform: translateZ(0) translateY(0);
+  transform: translateZ(0) translateY(0);
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.28,0.84,0.42,1);
+  -webkit-transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1);
+  transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1);
+}
+
+.c10.fi-date-picker--hidden {
+  visibility: hidden;
+}
+
+.c10.fi-date-picker--small-screen-hidden {
+  -webkit-transform: translateZ(0) translateY(100%);
+  -ms-transform: translateZ(0) translateY(100%);
+  transform: translateZ(0) translateY(100%);
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.28,0.84,0.42,1), visibility 200ms cubic-bezier(0.28,0.84,0.42,1);
+  -webkit-transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1), visibility 200ms cubic-bezier(0.28,0.84,0.42,1);
+  transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1), visibility 200ms cubic-bezier(0.28,0.84,0.42,1);
+}
+
+.c10 .fi-date-picker_slide-indicator {
+  margin: 20px auto 0 auto;
+  width: 60px;
+  height: 3px;
+  background-color: hsl(202,7%,80%);
+}
+
+.c10 .fi-date-picker_small-screen-container {
+  background-color: hsl(0,0%,100%);
+  border-top: 1px solid hsl(0,0%,58%);
+  border-radius: 10px 10px 0 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.c10 .fi-date-picker_application {
+  padding: 20px 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+}
+
+.c10 .fi-date-picker_popper-arrow,
+.c10 .fi-date-picker_popper-arrow::before {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+}
+
+.c10 .fi-date-picker_popper-arrow::before {
+  content: '';
+  background-color: hsl(0,0%,100%);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.c10 .fi-date-picker_popper-arrow[data-popper-placement^='bottom-end'] {
+  top: -7px;
+}
+
+.c10 .fi-date-picker_popper-arrow[data-popper-placement^='bottom-end']::before {
+  border-top: 1px solid hsl(0,0%,58%);
+  border-left: 1px solid hsl(0,0%,58%);
+}
+
+.c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end'] {
+  bottom: -6px;
+}
+
+.c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end']::before {
+  border-bottom: 1px solid hsl(0,0%,58%);
+  border-right: 1px solid hsl(0,0%,58%);
+}
+
+.c10 .fi-date-picker_bottom-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+
+.c10 .fi-date-picker_bottom-button {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c9 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,13%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c9.fi-status-text {
+  display: block;
+}
+
+.c9.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,48%);
+}
+
+.c1 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  width: 150px;
+}
+
+.c1.fi-date-input--full-width {
+  width: 100%;
+}
+
+.c1 .fi-date-input_wrapper {
+  width: 100%;
+  display: inline-block;
+}
+
+.c1 .fi-date-input_wrapper .fi-date-input_label--visible {
+  margin-bottom: 10px;
+}
+
+.c1 .fi-date-input_wrapper .fi-hint-text {
+  margin-bottom: 10px;
+}
+
+.c1 .fi-date-input_wrapper .fi-date-input_statusText--has-content {
+  margin-top: 5px;
+}
+
+.c1 .fi-date-input_input-element-container {
+  width: 100%;
+}
+
+.c1 .fi-date-input_input-element-container > input:focus {
+  outline-color: hsl(196,77%,44%);
+  outline-width: 2px;
+  outline-offset: 2px;
+  outline-style: solid;
+}
+
+.c1 .fi-date-input_input-element-container:focus-within > input:focus {
+  outline: none;
+}
+
+.c1 .fi-date-input_input-element-container:focus-within {
+  position: relative;
+}
+
+.c1 .fi-date-input_input-element-container:focus-within::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c1 .fi-date-input_picker-element-container {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c1 .fi-date-input_input-and-picker-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 .fi-date-input_input {
+  color: hsl(0,0%,13%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-width: 245px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+  line-height: 1;
+  background-color: hsl(0,0%,100%);
+  min-width: 40px;
+  width: 100%;
+  min-height: 40px;
+  padding-left: 10px;
+  border-color: hsl(201,7%,58%);
+  border-radius: 2px;
+}
+
+.c1 .fi-date-input_input::-webkit-input-placeholder {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
+.c1 .fi-date-input_input::-moz-placeholder {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
+.c1 .fi-date-input_input:-ms-input-placeholder {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
+.c1 .fi-date-input_input::placeholder {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
+.c1 .fi-date-input_picker-button {
+  height: 100%;
+  width: 40px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid hsl(212,63%,45%);
+  border-radius: 2px;
+}
+
+.c1 .fi-date-input_picker-button > input:focus {
+  outline-color: hsl(196,77%,44%);
+  outline-width: 2px;
+  outline-offset: 2px;
+  outline-style: solid;
+}
+
+.c1 .fi-date-input_picker-button:focus-within > input:focus {
+  outline: none;
+}
+
+.c1 .fi-date-input_picker-button:focus-within {
+  position: relative;
+}
+
+.c1 .fi-date-input_picker-button:focus-within::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c1 .fi-date-input_picker-button:focus {
+  outline: 3px solid transparent;
+}
+
+.c1 .fi-date-input_picker-icon {
+  color: hsl(212,63%,45%);
+}
+
+.c1 .fi-date-input_picker-button--disabled {
+  cursor: default;
+  border-color: hsl(202,7%,67%);
+}
+
+.c1 .fi-date-input_picker-button--disabled .fi-date-input_picker-icon {
+  color: hsl(202,7%,67%);
+}
+
+.c1.fi-date-input--error .fi-date-input_input {
+  border: 2px solid hsl(3,59%,48%);
+}
+
+.c1.fi-date-input--error .fi-date-input_picker-button {
+  border: 2px solid hsl(3,59%,48%);
+  border-left: 1px solid hsl(212,63%,45%);
+  border-radius: 0 2px 2px 0;
+}
+
+.c1.fi-date-input--success .fi-date-input_input {
+  border: 2px solid hsl(166,90%,34%);
+}
+
+.c1.fi-date-input--success .fi-date-input_picker-button {
+  border: 2px solid hsl(166,90%,34%);
+  border-left: 1px solid hsl(212,63%,45%);
+  border-radius: 0 2px 2px 0;
+}
+
+.c1.fi-date-input--disabled .fi-date-input_input {
+  color: hsl(202,7%,67%);
+  background-color: hsl(202,7%,97%);
+}
+
+.c1.fi-date-input--has-picker .fi-date-input_input {
+  border-right: none;
+  border-radius: 2px 0 0 2px;
+}
+
+<body>
+  <div>
+    <div
+      class="c0 fi-date-input c1 fi-date-input--has-picker"
+    >
+      <span
+        class="c2 fi-date-input_wrapper"
+      >
+        <div
+          class="c3 c4 fi-date-input_label--visible fi-label"
+        >
+          <label
+            class="c2 fi-label_label-span"
+            for="8"
+          >
+            Date
+          </label>
+        </div>
+        <div
+          class="c0 fi-date-input_input-and-picker-wrapper"
+        >
+          <div
+            class="c0 fi-date-input_input-element-container"
+          >
+            <input
+              autocomplete="off"
+              class="c5 fi-date-input_input"
+              id="8"
+              placeholder="DateInput"
+              type="text"
+              value="15.1.2020"
+            />
+          </div>
+          <div
+            class="c0 fi-date-input_picker-element-container"
+          >
+            <button
+              class="c6 fi-date-input_picker-button"
+              type="button"
+            >
+              <span
+                class="c2 c7 fi-visually-hidden"
+              >
+                Valitse päivämäärä, Valittu päivä 15 keskiviikko Tammikuu 2020
+              </span>
+              <svg
+                aria-hidden="true"
+                class="fi-icon c8 fi-date-input_picker-icon"
+                focusable="false"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="fi-icon-base-fill"
+                  d="M16 0a1 1 0 01.993.883L17 1v1h5c1.052 0 1.918.817 1.995 1.85L24 4v18a2.003 2.003 0 01-1.851 1.995L22 24H2a2.002 2.002 0 01-1.994-1.85L0 22V4c0-1.053.817-1.918 1.851-1.995L2.001 2h5V1A1 1 0 018.992.883L9 1v1h6V1a1 1 0 011-1zM7 4H2v18h19.997L22 4h-5v1a1 1 0 01-1.993.117L15 5V4H9v1a1 1 0 01-1.993.117L7 5V4zm12 10a1 1 0 01.993.883L20 15v2a1 1 0 01-.883.993L19 18h-2a1 1 0 01-.993-.883L16 17v-2a1 1 0 01.883-.993L17 14h2zM7 14a1 1 0 01.993.883L8 15v2a1 1 0 01-.883.993L7 18H5a1 1 0 01-.993-.883L4 17v-2a1 1 0 01.883-.993L5 14h2zm6 0a1 1 0 01.993.883L14 15v2a1 1 0 01-.883.993L13 18h-2a1 1 0 01-.993-.883L10 17v-2a1 1 0 01.883-.993L11 14h2zm6-6a1 1 0 01.993.883L20 9v2a1 1 0 01-.883.993L19 12h-2a1 1 0 01-.993-.883L16 11V9a1 1 0 01.883-.993L17 8h2zM7 8a1 1 0 01.993.883L8 9v2a1 1 0 01-.883.993L7 12H5a1 1 0 01-.993-.883L4 11V9a1 1 0 01.883-.993L5 8h2zm6 0a1 1 0 01.993.883L14 9v2a1 1 0 01-.883.993L13 12h-2a1 1 0 01-.993-.883L10 11V9a1 1 0 01.883-.993L11 8h2z"
+                  fill="#222"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <span
+          aria-atomic="true"
+          aria-live="assertive"
+          class="c2 c9 fi-status-text"
+          id="8-statusText"
+        />
+      </span>
+    </div>
+  </div>
+  <div
+    aria-hidden="false"
+    class="c0 c10 fi-date-picker fi-date-picker--small-screen"
+  >
+    <div
+      class="c3 fi-date-picker_small-screen-container"
+      role="dialog"
+    >
+      <div
+        class="fi-date-picker_slide-indicator"
+      />
+      <div
+        class="c0 fi-date-picker_application"
+        role="application"
+      >
+        <div
+          class="c0 c11 fi-date-selectors_container"
+        >
+          <span
+            class="c2 c12 fi-date-selectors_year-select fi-dropdown"
+            id="9"
+            value="2020"
+          >
+            <div
+              class="c0"
+            >
+              <div
+                class="c3 c4 fi-label"
+              >
+                <label
+                  class="c7 fi-visually-hidden"
+                  id="9-label"
+                >
+                  Valitse vuosi
+                </label>
+              </div>
+              <div
+                data-reach-listbox-input=""
+                data-state="closed"
+                data-value="2020"
+                id="listbox-input--1"
+              >
+                <span
+                  aria-haspopup="listbox"
+                  aria-labelledby="9-label button--listbox-input--1"
+                  class="fi-dropdown_button"
+                  data-reach-listbox-button=""
+                  id="button--listbox-input--1"
+                  role="button"
+                  tabindex="0"
+                >
+                  2020
+                </span>
+                <div
+                  class="c12 fi-date-selectors_year-select fi-dropdown_popover"
+                  data-reach-listbox-popover=""
+                  hidden=""
+                  tabindex="-1"
+                >
+                  <ul
+                    aria-activedescendant="option-2020--listbox-input--1"
+                    aria-labelledby="9-label"
+                    data-reach-listbox-list=""
+                    id="listbox--listbox-input--1"
+                    role="listbox"
+                    tabindex="-1"
+                  >
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2010"
+                      data-reach-listbox-option=""
+                      data-value="2010"
+                      id="option-2010--listbox-input--1"
+                      role="option"
+                    >
+                      2010
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2011"
+                      data-reach-listbox-option=""
+                      data-value="2011"
+                      id="option-2011--listbox-input--1"
+                      role="option"
+                    >
+                      2011
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2012"
+                      data-reach-listbox-option=""
+                      data-value="2012"
+                      id="option-2012--listbox-input--1"
+                      role="option"
+                    >
+                      2012
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2013"
+                      data-reach-listbox-option=""
+                      data-value="2013"
+                      id="option-2013--listbox-input--1"
+                      role="option"
+                    >
+                      2013
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2014"
+                      data-reach-listbox-option=""
+                      data-value="2014"
+                      id="option-2014--listbox-input--1"
+                      role="option"
+                    >
+                      2014
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2015"
+                      data-reach-listbox-option=""
+                      data-value="2015"
+                      id="option-2015--listbox-input--1"
+                      role="option"
+                    >
+                      2015
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2016"
+                      data-reach-listbox-option=""
+                      data-value="2016"
+                      id="option-2016--listbox-input--1"
+                      role="option"
+                    >
+                      2016
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2017"
+                      data-reach-listbox-option=""
+                      data-value="2017"
+                      id="option-2017--listbox-input--1"
+                      role="option"
+                    >
+                      2017
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2018"
+                      data-reach-listbox-option=""
+                      data-value="2018"
+                      id="option-2018--listbox-input--1"
+                      role="option"
+                    >
+                      2018
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2019"
+                      data-reach-listbox-option=""
+                      data-value="2019"
+                      id="option-2019--listbox-input--1"
+                      role="option"
+                    >
+                      2019
+                    </li>
+                    <li
+                      aria-selected="true"
+                      class="c13 fi-dropdown_item"
+                      data-current-selected=""
+                      data-label="2020"
+                      data-reach-listbox-option=""
+                      data-value="2020"
+                      id="option-2020--listbox-input--1"
+                      role="option"
+                    >
+                      2020
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2021"
+                      data-reach-listbox-option=""
+                      data-value="2021"
+                      id="option-2021--listbox-input--1"
+                      role="option"
+                    >
+                      2021
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2022"
+                      data-reach-listbox-option=""
+                      data-value="2022"
+                      id="option-2022--listbox-input--1"
+                      role="option"
+                    >
+                      2022
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2023"
+                      data-reach-listbox-option=""
+                      data-value="2023"
+                      id="option-2023--listbox-input--1"
+                      role="option"
+                    >
+                      2023
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2024"
+                      data-reach-listbox-option=""
+                      data-value="2024"
+                      id="option-2024--listbox-input--1"
+                      role="option"
+                    >
+                      2024
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2025"
+                      data-reach-listbox-option=""
+                      data-value="2025"
+                      id="option-2025--listbox-input--1"
+                      role="option"
+                    >
+                      2025
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2026"
+                      data-reach-listbox-option=""
+                      data-value="2026"
+                      id="option-2026--listbox-input--1"
+                      role="option"
+                    >
+                      2026
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2027"
+                      data-reach-listbox-option=""
+                      data-value="2027"
+                      id="option-2027--listbox-input--1"
+                      role="option"
+                    >
+                      2027
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2028"
+                      data-reach-listbox-option=""
+                      data-value="2028"
+                      id="option-2028--listbox-input--1"
+                      role="option"
+                    >
+                      2028
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2029"
+                      data-reach-listbox-option=""
+                      data-value="2029"
+                      id="option-2029--listbox-input--1"
+                      role="option"
+                    >
+                      2029
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="2030"
+                      data-reach-listbox-option=""
+                      data-value="2030"
+                      id="option-2030--listbox-input--1"
+                      role="option"
+                    >
+                      2030
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </span>
+          <span
+            class="c2 c12 fi-date-selectors_month-select fi-dropdown"
+            id="10"
+            value="0"
+          >
+            <div
+              class="c0"
+            >
+              <div
+                class="c3 c4 fi-label"
+              >
+                <label
+                  class="c7 fi-visually-hidden"
+                  id="10-label"
+                >
+                  Valitse kuukausi
+                </label>
+              </div>
+              <div
+                data-reach-listbox-input=""
+                data-state="closed"
+                data-value="0"
+                id="listbox-input--2"
+              >
+                <span
+                  aria-haspopup="listbox"
+                  aria-labelledby="10-label button--listbox-input--2"
+                  class="fi-dropdown_button"
+                  data-reach-listbox-button=""
+                  id="button--listbox-input--2"
+                  role="button"
+                  tabindex="0"
+                >
+                  Tammikuu
+                </span>
+                <div
+                  class="c12 fi-date-selectors_month-select fi-dropdown_popover"
+                  data-reach-listbox-popover=""
+                  hidden=""
+                  tabindex="-1"
+                >
+                  <ul
+                    aria-activedescendant="option-0--listbox-input--2"
+                    aria-labelledby="10-label"
+                    data-reach-listbox-list=""
+                    id="listbox--listbox-input--2"
+                    role="listbox"
+                    tabindex="-1"
+                  >
+                    <li
+                      aria-selected="true"
+                      class="c13 fi-dropdown_item"
+                      data-current-selected=""
+                      data-label="Tammikuu"
+                      data-reach-listbox-option=""
+                      data-value="0"
+                      id="option-0--listbox-input--2"
+                      role="option"
+                    >
+                      Tammikuu
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="Helmikuu"
+                      data-reach-listbox-option=""
+                      data-value="1"
+                      id="option-1--listbox-input--2"
+                      role="option"
+                    >
+                      Helmikuu
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="Maaliskuu"
+                      data-reach-listbox-option=""
+                      data-value="2"
+                      id="option-2--listbox-input--2"
+                      role="option"
+                    >
+                      Maaliskuu
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="Huhtikuu"
+                      data-reach-listbox-option=""
+                      data-value="3"
+                      id="option-3--listbox-input--2"
+                      role="option"
+                    >
+                      Huhtikuu
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="Toukokuu"
+                      data-reach-listbox-option=""
+                      data-value="4"
+                      id="option-4--listbox-input--2"
+                      role="option"
+                    >
+                      Toukokuu
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="Kesäkuu"
+                      data-reach-listbox-option=""
+                      data-value="5"
+                      id="option-5--listbox-input--2"
+                      role="option"
+                    >
+                      Kesäkuu
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="Heinäkuu"
+                      data-reach-listbox-option=""
+                      data-value="6"
+                      id="option-6--listbox-input--2"
+                      role="option"
+                    >
+                      Heinäkuu
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="Elokuu"
+                      data-reach-listbox-option=""
+                      data-value="7"
+                      id="option-7--listbox-input--2"
+                      role="option"
+                    >
+                      Elokuu
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="Syyskuu"
+                      data-reach-listbox-option=""
+                      data-value="8"
+                      id="option-8--listbox-input--2"
+                      role="option"
+                    >
+                      Syyskuu
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="Lokakuu"
+                      data-reach-listbox-option=""
+                      data-value="9"
+                      id="option-9--listbox-input--2"
+                      role="option"
+                    >
+                      Lokakuu
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="Marraskuu"
+                      data-reach-listbox-option=""
+                      data-value="10"
+                      id="option-10--listbox-input--2"
+                      role="option"
+                    >
+                      Marraskuu
+                    </li>
+                    <li
+                      class="c13 fi-dropdown_item"
+                      data-label="Joulukuu"
+                      data-reach-listbox-option=""
+                      data-value="11"
+                      id="option-11--listbox-input--2"
+                      role="option"
+                    >
+                      Joulukuu
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </span>
+          <button
+            aria-disabled="false"
+            aria-label="Edellinen kuukausi Joulukuu"
+            class="c6 fi-button c14 fi-date-selectors_month-button fi-button--secondary-noborder"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="fi-icon c8 fi-date-selectors_month-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="fi-icon-base-fill"
+                d="M8.41 12.61a1.298 1.298 0 01-.41-.943c0-.342.137-.683.41-.943l5.6-5.333a1.448 1.448 0 011.98 0 1.287 1.287 0 010 1.885l-4.61 4.39 4.61 4.391a1.287 1.287 0 010 1.885 1.448 1.448 0 01-1.98 0l-5.6-5.333z"
+                fill="#222"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </button>
+          <button
+            aria-disabled="false"
+            aria-label="Seuraava kuukausi Helmikuu"
+            class="c6 fi-button c14 fi-date-selectors_month-button fi-button--secondary-noborder"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="fi-icon c8 fi-date-selectors_month-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="fi-icon-base-fill"
+                d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 01-1.885 0 1.448 1.448 0 010-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 010-1.98 1.287 1.287 0 011.885 0l5.333 5.6z"
+                fill="#222"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+        <table
+          class="c15 fi-month-table"
+          role="presentation"
+        >
+          <thead>
+            <tr>
+              <td
+                class="fi-month-table_thead-cell"
+              >
+                Ma
+              </td>
+              <td
+                class="fi-month-table_thead-cell"
+              >
+                Ti
+              </td>
+              <td
+                class="fi-month-table_thead-cell"
+              >
+                Ke
+              </td>
+              <td
+                class="fi-month-table_thead-cell"
+              >
+                To
+              </td>
+              <td
+                class="fi-month-table_thead-cell"
+              >
+                Pe
+              </td>
+              <td
+                class="fi-month-table_thead-cell"
+              >
+                La
+              </td>
+              <td
+                class="fi-month-table_thead-cell"
+              >
+                Su
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                class="c16 fi-month-day fi-month-day--disabled"
+              >
+                30
+              </td>
+              <td
+                class="c16 fi-month-day fi-month-day--disabled"
+              >
+                31
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-current="date"
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <div
+                    class="c0 fi-month-day_button_current"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      1
+                    </span>
+                    <span
+                      class="c2 c7 fi-visually-hidden"
+                    >
+                      1 keskiviikko Tammikuu 2020
+                    </span>
+                  </div>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    2
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    2 torstai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    3
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    3 perjantai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    4
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    4 lauantai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    5
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    5 sunnuntai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    6
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    6 maanantai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    7
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    7 tiistai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    8
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    8 keskiviikko Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    9
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    9 torstai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    10
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    10 perjantai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    11
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    11 lauantai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    12
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    12 sunnuntai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    13
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    13 maanantai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    14
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    14 tiistai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button fi-month-day_button--selected"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    15
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    Valittu päivä, 15 keskiviikko Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    16
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    16 torstai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    17
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    17 perjantai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    18
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    18 lauantai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    19
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    19 sunnuntai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    20
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    20 maanantai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    21
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    21 tiistai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    22
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    22 keskiviikko Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    23
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    23 torstai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    24
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    24 perjantai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    25
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    25 lauantai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    26
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    26 sunnuntai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    27
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    27 maanantai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    28
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    28 tiistai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    29
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    29 keskiviikko Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    30
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    30 torstai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day"
+              >
+                <button
+                  aria-disabled="false"
+                  class="c6 fi-month-day_button"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    31
+                  </span>
+                  <span
+                    class="c2 c7 fi-visually-hidden"
+                  >
+                    31 perjantai Tammikuu 2020
+                  </span>
+                </button>
+              </td>
+              <td
+                class="c16 fi-month-day fi-month-day--disabled"
+              >
+                1
+              </td>
+              <td
+                class="c16 fi-month-day fi-month-day--disabled"
+              >
+                2
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div
+          class="c0 fi-date-picker_bottom-container"
+        >
+          <button
+            aria-disabled="false"
+            class="c6 fi-button c14 fi-date-picker_bottom-button"
+            tabindex="0"
+            type="button"
+          >
+            Valitse
+          </button>
+          <button
+            aria-disabled="false"
+            class="c6 fi-button c14 fi-date-picker_bottom-button fi-button--secondary"
+            tabindex="0"
+            type="button"
+          >
+            Sulje
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 `;

@@ -25,6 +25,23 @@ import React from 'react';
 </>;
 ```
 
+### DateInput with DatePicker, smallScreen
+
+```js
+import { DateInput } from 'suomifi-ui-components';
+import React, { useState } from 'react';
+
+<>
+  <DateInput
+    labelText="Date"
+    hintText="Use format D.M.YYYY"
+    language="en"
+    datePickerEnabled
+    variant="smallScreen"
+  />
+</>;
+```
+
 ### DateInput with minDate, maxDate, and change validation
 
 ```js
@@ -41,7 +58,7 @@ const validate = ({ value, date }) => {
     setStatusText('');
     setStatus('default');
   } else {
-    setStatusText('Invalid date');
+    setStatusText('Format D.M.YYYY');
     setStatus('error');
   }
 };

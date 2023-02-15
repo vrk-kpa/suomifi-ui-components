@@ -1,4 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  TouchEvent as TEvent,
+} from 'react';
 import ReactDOM from 'react-dom';
 import { default as styled } from 'styled-components';
 import { usePopper } from 'react-popper';
@@ -29,6 +34,10 @@ const baseClassName = 'fi-date-picker';
 export const datePickerClassNames = {
   baseClassName,
   hidden: `${baseClassName}--hidden`,
+  smallScreen: `${baseClassName}--small-screen`,
+  smallScreenHidden: `${baseClassName}--small-screen-hidden`,
+  smallScreenContainer: `${baseClassName}_small-screen-container`,
+  slideIndicator: `${baseClassName}_slide-indicator`,
   application: `${baseClassName}_application`,
   bottomContainer: `${baseClassName}_bottom-container`,
   bottomButton: `${baseClassName}_bottom-button`,
@@ -70,6 +79,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     inputValue,
     minDate,
     maxDate,
+    variant,
   } = props;
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
@@ -81,7 +91,10 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [yearSelectWidth, setYearSelectWidth] = useState<number>(0);
   const [monthSelectWidth, setMonthSelectWidth] = useState<number>(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchStartY, setTouchStartY] = useState<number | null>(null);
 
+  const smallScreenAppRef = useRef<HTMLDivElement>(null);
   const yearSelectRef = useRef<HTMLDivElement>(null);
   const monthSelectRef = useRef<HTMLDivElement>(null);
   const confirmButtonRef = useRef<HTMLButtonElement>(null);
@@ -110,7 +123,6 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
 
   useEffect(() => {
     if (isOpen) {
-      setHasPopperEventListeners(true);
       document.addEventListener('click', globalClickHandler, {
         capture: true,
       });
@@ -128,8 +140,24 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
         });
       };
     }
-    setHasPopperEventListeners(false);
   }, [isOpen]);
+
+  useEffect(() => {
+    if (variant === 'default' && isOpen) {
+      setHasPopperEventListeners(true);
+      return () => {
+        setHasPopperEventListeners(false);
+      };
+    }
+    if (variant === 'smallScreen' && isOpen) {
+      document.addEventListener('touchmove', handleTouchMove, {
+        passive: false,
+      });
+      return () => {
+        document.removeEventListener('touchmove', handleTouchMove);
+      };
+    }
+  }, [variant, isOpen]);
 
   const focusDate = () => {
     if (inputValue && dayIsInRange(inputValue, minDate, maxDate)) {
@@ -158,6 +186,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
 
   const globalClickHandler = (nativeEvent: MouseEvent) => {
     if (
+      !smallScreenAppRef?.current?.contains(nativeEvent.target as Node) &&
       !dialogElement?.contains(nativeEvent.target as Node) &&
       !openButtonRef.current?.contains(nativeEvent.target as Node)
     ) {
@@ -262,7 +291,10 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     {
       strategy: 'fixed',
       modifiers: [
-        { name: 'eventListeners', enabled: hasPopperEventListeners },
+        {
+          name: 'eventListeners',
+          enabled: hasPopperEventListeners && variant === 'default',
+        },
         {
           name: 'offset',
           options: {
@@ -306,72 +338,146 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     setSelectedDate(date);
   };
 
+  const handleTouchStart = (event: TEvent<HTMLDivElement>) => {
+    setTouchStartX(event.changedTouches[0].clientX);
+    setTouchStartY(event.changedTouches[0].clientY);
+  };
+
+  const handleTouchMove = (event: TouchEvent) => {
+    event.preventDefault();
+  };
+
+  const handleTouchEnd = (event: TEvent<HTMLDivElement>) => {
+    if (touchStartX === null || touchStartY === null) return;
+
+    const distanceX = event.changedTouches[0].clientX - touchStartX;
+    const distanceY = event.changedTouches[0].clientY - touchStartY;
+    const minDistance = 50;
+    const horizontal =
+      Math.abs(distanceX) > minDistance && distanceY < minDistance;
+    const vertical =
+      Math.abs(distanceY) > minDistance && distanceX < minDistance;
+
+    if (vertical && distanceY > 0) {
+      // Swipe down
+      handleClose(true);
+      return;
+    }
+
+    let date;
+    if (horizontal && distanceX > 0) {
+      // Swipe left
+      date = dateInRange(moveMonths(focusableDate, -1));
+    } else if (horizontal) {
+      // Swipe right
+      date = dateInRange(moveMonths(focusableDate, 1));
+    }
+    if (date) {
+      setFocusableDate(date);
+      setFocusedDate(date);
+    }
+  };
+
+  const application = (
+    <HtmlDiv role="application" className={datePickerClassNames.application}>
+      <DateSelectors
+        focusableDate={focusableDate}
+        yearSelect={yearSelectRef}
+        yearSelectWidth={yearSelectWidth}
+        monthSelect={monthSelectRef}
+        monthSelectWidth={monthSelectWidth}
+        onChange={handleDateChange}
+        minDate={minDate}
+        maxDate={maxDate}
+        texts={texts}
+      />
+      <MonthTable
+        focusableDate={focusableDate}
+        focusedDate={focusedDate}
+        selectedDate={selectedDate}
+        onSelect={handleDateSelect}
+        onKeyDown={handleButtonKeydown}
+        shouldDisableDate={shouldDisableDate}
+        dayButtonRef={dayButtonRef}
+        minDate={minDate}
+        maxDate={maxDate}
+        texts={texts}
+      />
+      <HtmlDiv className={datePickerClassNames.bottomContainer}>
+        <Button
+          disabled={selectedDate === null}
+          onClick={() => handleConfirm()}
+          className={datePickerClassNames.bottomButton}
+        >
+          {texts.selectButtonText}
+        </Button>
+        <Button
+          variant="secondary"
+          onClick={() => handleClose(true)}
+          forwardedRef={confirmButtonRef}
+          className={datePickerClassNames.bottomButton}
+        >
+          {texts.closeButtonText}
+        </Button>
+      </HtmlDiv>
+    </HtmlDiv>
+  );
+
+  const dialogClasses = [
+    className,
+    baseClassName,
+    {
+      [datePickerClassNames.hidden]: !isOpen,
+    },
+  ];
+
+  const defaultDialog = (
+    <HtmlDivWithRef
+      role="dialog"
+      aria-hidden={!isOpen}
+      className={classnames(...dialogClasses)}
+      style={styles.popper}
+      forwardedRef={setDialogElement}
+    >
+      {application}
+      <div
+        className={datePickerClassNames.popperArrow}
+        style={styles.arrow}
+        data-popper-arrow
+        data-popper-placement={attributes.popper?.['data-popper-placement']}
+      />
+    </HtmlDivWithRef>
+  );
+
+  const smallScreenDialog = (
+    <HtmlDiv
+      aria-hidden={!isOpen}
+      className={classnames(
+        ...dialogClasses,
+        datePickerClassNames.smallScreen,
+        { [datePickerClassNames.smallScreenHidden]: !isOpen },
+      )}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
+      <HtmlDivWithRef
+        role="dialog"
+        forwardedRef={smallScreenAppRef}
+        className={datePickerClassNames.smallScreenContainer}
+      >
+        <div className={datePickerClassNames.slideIndicator} />
+        {application}
+      </HtmlDivWithRef>
+    </HtmlDiv>
+  );
+
   if (!mountNode) {
     return null;
   }
   return (
     <>
       {ReactDOM.createPortal(
-        <HtmlDivWithRef
-          role="dialog"
-          className={classnames(className, baseClassName, {
-            [datePickerClassNames.hidden]: !isOpen,
-          })}
-          style={styles.popper}
-          forwardedRef={setDialogElement}
-        >
-          <HtmlDiv
-            role="application"
-            className={datePickerClassNames.application}
-          >
-            <DateSelectors
-              focusableDate={focusableDate}
-              yearSelect={yearSelectRef}
-              yearSelectWidth={yearSelectWidth}
-              monthSelect={monthSelectRef}
-              monthSelectWidth={monthSelectWidth}
-              onChange={handleDateChange}
-              minDate={minDate}
-              maxDate={maxDate}
-              texts={texts}
-            />
-            <MonthTable
-              focusableDate={focusableDate}
-              focusedDate={focusedDate}
-              selectedDate={selectedDate}
-              onSelect={handleDateSelect}
-              onKeyDown={handleButtonKeydown}
-              shouldDisableDate={shouldDisableDate}
-              dayButtonRef={dayButtonRef}
-              minDate={minDate}
-              maxDate={maxDate}
-              texts={texts}
-            />
-            <HtmlDiv className={datePickerClassNames.bottomContainer}>
-              <Button
-                disabled={selectedDate === null}
-                onClick={() => handleConfirm()}
-                className={datePickerClassNames.bottomButton}
-              >
-                {texts.selectButtonText}
-              </Button>
-              <Button
-                variant="secondary"
-                onClick={() => handleClose(true)}
-                forwardedRef={confirmButtonRef}
-                className={datePickerClassNames.bottomButton}
-              >
-                {texts.closeButtonText}
-              </Button>
-            </HtmlDiv>
-          </HtmlDiv>
-          <div
-            className={datePickerClassNames.popperArrow}
-            style={styles.arrow}
-            data-popper-arrow
-            data-popper-placement={attributes.popper?.['data-popper-placement']}
-          />
-        </HtmlDivWithRef>,
+        variant === 'smallScreen' ? smallScreenDialog : defaultDialog,
         mountNode,
       )}
     </>

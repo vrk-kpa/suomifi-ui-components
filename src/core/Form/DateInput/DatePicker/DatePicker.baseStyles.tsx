@@ -11,8 +11,43 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     border: 1px solid ${theme.colors.blackLight1};
   }
 
+  &.fi-date-picker--small-screen {
+    border: none;
+    background: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    transform: translateZ(0) translateY(0);
+    transition: transform 200ms ${theme.transitions.basicTimingFunction};
+  }
+
   &.fi-date-picker--hidden {
-    display: none;
+    visibility: hidden;
+  }
+
+  &.fi-date-picker--small-screen-hidden {
+    transform: translateZ(0) translateY(100%);
+    transition: transform 200ms ${theme.transitions.basicTimingFunction},
+      visibility 200ms ${theme.transitions.basicTimingFunction};
+  }
+
+  .fi-date-picker_slide-indicator {
+    margin: ${theme.spacing.m} auto 0 auto;
+    width: 60px;
+    height: 3px;
+    background-color: ${theme.colors.depthLight1};
+  }
+
+  .fi-date-picker_small-screen-container {
+    background-color: ${theme.colors.whiteBase};
+    border-top: 1px solid ${theme.colors.blackLight1};
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
   & .fi-date-picker_application {
@@ -20,6 +55,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: fit-content;
+    margin: auto;
   }
 
   & .fi-date-picker_popper-arrow,
