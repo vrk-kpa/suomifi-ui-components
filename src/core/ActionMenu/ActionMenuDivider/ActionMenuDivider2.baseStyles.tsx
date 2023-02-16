@@ -2,16 +2,20 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  height: 41px;
-  color: pink;
-  border: solid 3px red;
-  &.fi-action-menu_divider {
-    height: 41px;
-    color: pink;
+  &.fi-action-menu-divider {
+    height: 17px;
+
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    .fi-action-menu-divider_line {
+      height: 1px;
+      background-color: ${theme.colors.depthLight1};
+    }
   }
   &.fi-date-picker_application {
     .fi-action-menu_divider {
-      height: 41px;
       background: ${theme.colors.depthLight1};
       margin-top: ${theme.spacing.m};
       margin-left: ${theme.spacing.m};
