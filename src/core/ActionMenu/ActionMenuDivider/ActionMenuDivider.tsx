@@ -1,6 +1,6 @@
-import React from 'react';
-
-import { HtmlDiv } from '../../../reset';
+import React, { ReactNode } from 'react';
+import classnames from 'classnames';
+import { HtmlDiv, HtmlLi } from '../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { baseStyles } from './ActionMenuDivider.baseStyles';
 import styled from 'styled-components';
@@ -8,23 +8,17 @@ import styled from 'styled-components';
 export interface ActionMenuDividerProps {
   /** Custom class */
   className?: string;
-
-  /** Toggle to show item as the selected one */
-  selected?: boolean;
-  /** Disables the item */
-  disabled?: boolean;
 }
 
-const baseClassName = 'fi-action-menu_divider';
+const baseClassName = 'fi-action-menu-divider';
+const dividerClassName = `${baseClassName}_line`;
 
 const BaseActionMenuDivider = ({
-  selected,
   className,
-  disabled,
   ...passProps
 }: ActionMenuDividerProps) => (
-  <HtmlDiv className={baseClassName} {...passProps}>
-    sdfsdfsdf
+  <HtmlDiv className={classnames(className, baseClassName)} {...passProps}>
+    <HtmlDiv className={classnames(dividerClassName)} />
   </HtmlDiv>
 );
 
