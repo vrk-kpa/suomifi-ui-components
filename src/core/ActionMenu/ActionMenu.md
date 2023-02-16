@@ -18,30 +18,37 @@ const CustomButton = (props) => {
   <ActionMenuDivider />
   <div style={{ marginLeft: '200px' }}>
     <ActionMenu buttonText="my menu">
-      <ActionMenuItem>sdfsdf </ActionMenuItem>
-
-      <RouterLink
-        asComponent={CustomButton}
-        onClick={() => console.log('Nav item 1 clicked')}
-      >
-        Do action 1
-      </RouterLink>
+      <ActionMenuItem>
+        <RouterLink
+          asComponent={CustomButton}
+          onClick={() => console.log('Item xx clicked')}
+        >
+          Do action xx
+        </RouterLink>
+      </ActionMenuItem>
+      <ActionMenuItem>
+        <RouterLink onClick={() => console.log('Item 1 clicked')}>
+          Do action 1
+        </RouterLink>
+      </ActionMenuItem>
       <ActionMenuDivider />
+      <ActionMenuItem>
+        <RouterLink
+          asComponent={CustomButton}
+          onClick={() => console.log('Item 2 clicked')}
+        >
+          Action number 4
+        </RouterLink>
+      </ActionMenuItem>
       <RouterLink
         asComponent={CustomButton}
-        onClick={() => console.log('Nav item 2 clicked')}
-      >
-        Action number 4
-      </RouterLink>
-      <RouterLink
-        asComponent={CustomButton}
-        onClick={() => console.log('Nav item 3 clicked')}
+        onClick={() => console.log('Item 3 clicked')}
       >
         ya ya
       </RouterLink>
       <RouterLink
         asComponent={CustomButton}
-        onClick={() => console.log('Nav item 4 clicked')}
+        onClick={() => console.log('Item 4 clicked')}
       >
         Settings
       </RouterLink>
