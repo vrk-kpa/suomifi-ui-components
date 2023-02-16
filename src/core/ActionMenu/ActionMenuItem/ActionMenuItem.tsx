@@ -1,29 +1,60 @@
 import React, { ReactNode } from 'react';
 import classnames from 'classnames';
+import { HtmlLi } from '../../../reset';
+import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
+import { baseStyles } from './ActionMenuItem.baseStyles';
+import styled from 'styled-components';
 
 export interface ActionMenuItemProps {
-  /** Operation to run on select */
-  onSelect: () => void;
-  /** Item content */
-  children: ReactNode;
-  /** Show item as selected one */
-  selected?: boolean;
+  /** Custom class */
   className?: string;
+  /** Use the polymorphic `<RouterLink>` component as child to get intended CSS styling */
+  children: ReactNode;
+  /** Toggle to show item as the selected one */
+  selected?: boolean;
+  /** Disables the item */
+  disabled?: boolean;
 }
 
-const ActionMenuItem = ({
+const baseClassName = 'fi-service-navigation-item';
+const selectedClassName = `${baseClassName}--selected`;
+const disabledClassName = `${baseClassName}--disabled`;
+
+const BaseActionMenuItem = ({
   selected,
   className,
+  children,
+  disabled,
   ...passProps
 }: ActionMenuItemProps) => (
-  <div
-    {...passProps}
+  <HtmlLi
     className={classnames(className, {
-      'fi-action-menu-lang-item-selected': selected,
+      [baseClassName]: !selected,
+      [selectedClassName]: selected,
+      [disabledClassName]: disabled,
     })}
+    aria-disabled={disabled}
+    {...passProps}
   >
-    sdfsd
-  </div>
+    {children}
+  </HtmlLi>
+);
+
+const StyledActionMenuItem = styled(
+  (props: ActionMenuItemProps & SuomifiThemeProp) => {
+    const { theme, ...passProps } = props;
+    return <BaseActionMenuItem {...passProps} />;
+  },
+)`
+  ${({ theme }) => baseStyles(theme)}
+`;
+
+const ActionMenuItem = (props: ActionMenuItemProps) => (
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => (
+      <StyledActionMenuItem theme={suomifiTheme} {...props} />
+    )}
+  </SuomifiThemeConsumer>
 );
 
 ActionMenuItem.displayName = 'ActionMenuItem';
