@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { HtmlDiv } from '../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
-import { baseStyles } from './ActionMenuDivider.baseStyles';
+import { baseStyles } from './ActionMenuDivider2.baseStyles';
 import styled from 'styled-components';
 
 export interface ActionMenuDividerProps {
