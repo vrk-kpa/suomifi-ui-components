@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlLi } from '../../../reset';
+import { HtmlDiv } from '../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { baseStyles } from './ActionMenuDivider.baseStyles';
 import styled from 'styled-components';
