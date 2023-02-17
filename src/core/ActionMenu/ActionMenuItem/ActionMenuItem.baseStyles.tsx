@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  ${font(theme)('bodySemiBold')};
+  ${font(theme)('bodyTextSmall')};
 
   /* stylelint-disable no-descending-specificity */
   /* Nested :hover etc selectors do not work well with this rule. */
@@ -25,6 +25,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     .fi-link--router {
+      ${font(theme)('bodyTextSmall')};
       text-decoration: none;
       color: ${theme.colors.blackBase};
       display: flex;
