@@ -140,7 +140,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
                 />
               </HtmlButton>
               <ActionMenuPopover
-                sourceRef={openButtonRef}
+                //  sourceRef={openButtonRef}
                 openButtonRef={openButtonRef}
                 isOpen={calendarVisible}
                 onClose={(focus) => toggleCalendar(false, focus)}

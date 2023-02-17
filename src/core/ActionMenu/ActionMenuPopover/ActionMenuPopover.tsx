@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, ReactNode } from 'react';
+import React, { useState, useEffect, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { default as styled } from 'styled-components';
 import { usePopper } from 'react-popper';
@@ -22,8 +22,8 @@ export const actionMenuClassNames = {
 
 export interface InternalActionMenuPopoverProps {
   /** Source ref for positioning the popover next to calendar button */
-  sourceRef: React.RefObject<any>;
-  /** Button ref for closing dialog on button click when dialog is open */
+  // sourceRef: React.RefObject<any>;
+  /** Button ref for positioning dialog and closing dialog on button click */
   openButtonRef: React.RefObject<any>;
   /** Boolean to open or close calendar dialog */
   isOpen: boolean;
@@ -46,15 +46,12 @@ export interface InternalActionMenuPopoverProps {
 export const BaseActionMenuPopover = (
   props: InternalActionMenuPopoverProps,
 ) => {
-  const { sourceRef, openButtonRef, isOpen, onClose, className, children } =
-    props;
+  const { openButtonRef, isOpen, onClose, className, children } = props;
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
   const [dialogElement, setDialogElement] = useState<HTMLElement | null>(null);
   const [hasPopperEventListeners, setHasPopperEventListeners] =
     useState<boolean>(false);
-
-  const arrowRef = useRef<HTMLDivElement>(null);
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
@@ -103,7 +100,7 @@ export const BaseActionMenuPopover = (
 
   const globalKeyDownHandler = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
-      handleClose();
+      handleClose(true);
     }
 
     if (event.key === 'Tab') {
@@ -162,25 +159,35 @@ export const BaseActionMenuPopover = (
 
   */
 
-  const { styles, attributes } = usePopper(sourceRef.current, dialogElement, {
-    strategy: 'fixed',
-    modifiers: [
-      { name: 'eventListeners', enabled: hasPopperEventListeners },
-      {
-        name: 'offset',
-        options: {
-          offset: [0, 10],
+  const { styles, attributes } = usePopper(
+    openButtonRef.current,
+    dialogElement,
+    {
+      strategy: 'fixed',
+      modifiers: [
+        { name: 'eventListeners', enabled: hasPopperEventListeners },
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 10],
+          },
         },
-      },
-      {
-        name: 'arrow',
-        options: {
-          element: arrowRef.current,
+        {
+          name: 'flip',
+          options: {
+            fallbackPlacements: ['top-end'],
+          },
         },
-      },
-    ],
-    placement: 'bottom-start',
-  });
+        {
+          name: 'preventOverflow',
+          options: {
+            padding: 5,
+          },
+        },
+      ],
+      placement: 'bottom-end',
+    },
+  );
 
   const handleClose = (focus: boolean = false): void => {
     onClose(focus);
@@ -209,17 +216,14 @@ export const BaseActionMenuPopover = (
             role="application"
             className={actionMenuClassNames.application}
           >
-            <HtmlDivWithRef
-              className={actionMenuClassNames.popperArrow}
-              forwardedRef={arrowRef}
-              data-popper-arrow
-              data-popper-placement={
-                attributes.popper?.['data-popper-placement']
-              }
-            />
-
             {children}
           </HtmlDiv>
+          <div
+            className={actionMenuClassNames.popperArrow}
+            style={styles.arrow}
+            data-popper-arrow
+            data-popper-placement={attributes.popper?.['data-popper-placement']}
+          />
         </HtmlDivWithRef>,
         mountNode,
       )}

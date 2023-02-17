@@ -40,18 +40,22 @@ const CustomButton = (props) => {
           Action number 4
         </RouterLink>
       </ActionMenuItem>
-      <RouterLink
-        asComponent={CustomButton}
-        onClick={() => console.log('Item 3 clicked')}
-      >
-        ya ya
-      </RouterLink>
-      <RouterLink
-        asComponent={CustomButton}
-        onClick={() => console.log('Item 4 clicked')}
-      >
-        Settings
-      </RouterLink>
+      <ActionMenuItem>
+        <RouterLink
+          asComponent={CustomButton}
+          onClick={() => console.log('Item 3 clicked')}
+        >
+          ya ya
+        </RouterLink>
+      </ActionMenuItem>
+      <ActionMenuItem>
+        <RouterLink
+          asComponent={CustomButton}
+          onClick={() => console.log('Item 4 clicked')}
+        >
+          Settings
+        </RouterLink>
+      </ActionMenuItem>
     </ActionMenu>
   </div>
 </>;
