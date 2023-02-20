@@ -23,7 +23,6 @@ export const actionMenuClassNames = {
   baseClassName,
   fullWidth: `${baseClassName}--full-width`,
   disabled: `${baseClassName}--disabled`,
-  labelIsVisible: `${baseClassName}_label--visible`,
   inputAndPickerWrapper: `${baseClassName}_input-and-picker-wrapper`,
   pickerElementContainer: `${baseClassName}_picker-element-container`,
   pickerButton: `${baseClassName}_picker-button`,
