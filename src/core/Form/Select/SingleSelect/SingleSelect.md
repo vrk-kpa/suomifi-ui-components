@@ -409,26 +409,71 @@ const labelText = 'Food';
 ### Loading state
 
 ```js
+import { useState } from 'react';
 import {
   SingleSelect,
   Tooltip,
   Heading,
   Text
 } from 'suomifi-ui-components';
-const foods = [];
-const defaultSelectedFood = {};
 
-const labelText = 'Food';
+const [loading, setLoading] = useState(false);
+const [foods, setFoods] = useState([]);
+
+const updatedFoods = [
+  {
+    labelText: 'Pizza',
+    uniqueItemId: 'pizza-123'
+  },
+  {
+    labelText: 'Burger',
+    uniqueItemId: 'burger-123'
+  }
+];
+
+const runLoader = () => {
+  let progress = 0;
+  setLoading(true);
+  setFoods([]);
+  const id = setInterval(frame, 300);
+  function frame() {
+    if (progress >= 10) {
+      clearInterval(id);
+      setFoods(updatedFoods);
+      setLoading(false);
+      progress = 0;
+    } else {
+      progress = progress + 1;
+    }
+  }
+};
+
+const startup = (event) => {
+  if (!loading) {
+    runLoader();
+  }
+};
 
 <>
   <SingleSelect
-    labelText={labelText}
+    labelText="Always on"
+    clearButtonLabel="Clear selection"
+    items={[]}
+    loading={true}
+    loadingText="Loading data"
+    noItemsText="No matching options"
+    ariaOptionsAvailableText="Options available"
+  />
+
+  <SingleSelect
+    labelText="Load on change"
     clearButtonLabel="Clear selection"
     items={foods}
     noItemsText="No matching options"
     ariaOptionsAvailableText="Options available"
-    loading={true}
+    loading={loading}
     loadingText="Loading data"
+    onChange={startup}
   />
 </>;
 ```
