@@ -24,18 +24,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     justify-content: space-between;
   }
 
-  /* Tooltip end */
-
-  /* Datepicker version */
-
-  & .fi-action-menu-popover_popper-arrow,
-  & .fi-action-menu-popover_popper-arrow::before,
-  & .fi-action-menu-popover_popper-arrow::after {
-    position: absolute;
-    width: 11px;
-    height: 11px;
-  }
-
+  /* Arrow base */
   & .fi-action-menu-popover_popper-arrow::before,
   & .fi-action-menu-popover_popper-arrow::after {
     content: '';
@@ -48,18 +37,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   /* Arrow on top side */
   & .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
-    content: '';
-    top: -3px;
-    position: absolute;
-    border: solid transparent;
-    pointer-events: none;
     bottom: 100%;
   }
 
   &
     .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
-    content: '';
-    position: absolute;
     border-bottom-color: ${theme.colors.blackLight1};
     border-width: 9px;
     margin-right: -9px;
@@ -68,8 +50,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   &
     .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
-    content: '';
-    position: absolute;
     border-bottom-color: ${theme.colors.whiteBase};
     border-width: 8px;
     margin-right: -9px;
@@ -79,7 +59,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   /* Arrow on bottom side */
   & .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
-    bottom: 0px;
     top: 100%;
   }
 
@@ -96,14 +75,5 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     border-width: 8px;
     margin-right: -9px;
     left: 1px;
-  }
-
-  & .fi-action-menu-popover_bottom-container {
-    display: flex;
-    gap: ${theme.spacing.xs};
-  }
-
-  & .fi-action-menu-popover_bottom-button {
-    flex: 1;
   }
 `;

@@ -30,7 +30,6 @@ export const actionMenuClassNames = {
   pickerButtonDisabled: `${baseClassName}_picker-button--disabled`,
   pickerIcon: `${baseClassName}_picker-icon`,
   styleWrapper: `${baseClassName}_wrapper`,
-  statusTextHasContent: `${baseClassName}_statusText--has-content`,
 };
 
 export interface ActionMenuProps
