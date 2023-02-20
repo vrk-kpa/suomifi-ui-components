@@ -15,8 +15,6 @@ export const actionMenuClassNames = {
   baseClassName,
   hidden: `${baseClassName}--hidden`,
   application: `${baseClassName}_application`,
-  bottomContainer: `${baseClassName}_bottom-container`,
-  bottomButton: `${baseClassName}_bottom-button`,
   popperArrow: `${baseClassName}_popper-arrow`,
 };
 
