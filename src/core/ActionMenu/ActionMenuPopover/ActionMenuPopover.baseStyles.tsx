@@ -24,37 +24,78 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     justify-content: space-between;
   }
 
+  /* Tooltip end */
+
+  /* Datepicker version */
+
   & .fi-action-menu-popover_popper-arrow,
-  & .fi-action-menu-popover_popper-arrow::before {
+  & .fi-action-menu-popover_popper-arrow::before,
+  & .fi-action-menu-popover_popper-arrow::after {
     position: absolute;
     width: 11px;
     height: 11px;
   }
 
-  & .fi-action-menu-popover_popper-arrow::before {
+  & .fi-action-menu-popover_popper-arrow::before,
+  & .fi-action-menu-popover_popper-arrow::after {
     content: '';
-    background-color: ${theme.colors.whiteBase};
-    transform: rotate(45deg);
+    position: absolute;
+    height: 0;
+    width: 0;
+    border: solid transparent;
+    pointer-events: none;
   }
 
+  /* Arrow on top side */
   & .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
-    top: -7px;
+    content: '';
+    top: -3px;
+    position: absolute;
+    border: solid transparent;
+    pointer-events: none;
+    bottom: 100%;
   }
 
   &
     .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
-    border-top: 1px solid ${theme.colors.blackLight1};
-    border-left: 1px solid ${theme.colors.blackLight1};
+    content: '';
+    position: absolute;
+    border-bottom-color: ${theme.colors.blackLight1};
+    border-width: 9px;
+    margin-right: -9px;
+    bottom: 100%;
   }
 
+  &
+    .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
+    content: '';
+    position: absolute;
+    border-bottom-color: ${theme.colors.whiteBase};
+    border-width: 8px;
+    margin-right: -9px;
+    left: 1px;
+    bottom: 100%;
+  }
+
+  /* Arrow on bottom side */
   & .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
-    bottom: -6px;
+    bottom: 0px;
+    top: 100%;
   }
 
   &
     .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
-    border-bottom: 1px solid ${theme.colors.blackLight1};
-    border-right: 1px solid ${theme.colors.blackLight1};
+    border-top-color: ${theme.colors.blackLight1};
+    border-width: 9px;
+    margin-right: -9px;
+  }
+
+  &
+    .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
+    border-top-color: ${theme.colors.whiteBase};
+    border-width: 8px;
+    margin-right: -9px;
+    left: 1px;
   }
 
   & .fi-action-menu-popover_bottom-container {
