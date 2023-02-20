@@ -6,15 +6,15 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')}
   width: 150px;
 
-  &.fi-date-input--full-width {
+  &.fi-action-menu--full-width {
     width: 100%;
   }
 
-  & .fi-date-input_wrapper {
+  & .fi-action-menu_wrapper {
     width: 100%;
     display: inline-block;
 
-    & .fi-date-input_label--visible {
+    & .fi-action-menu_label--visible {
       margin-bottom: ${theme.spacing.xs};
     }
 
@@ -22,12 +22,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       margin-bottom: ${theme.spacing.xs};
     }
 
-    & .fi-date-input_statusText--has-content {
+    & .fi-action-menu_statusText--has-content {
       margin-top: ${theme.spacing.xxs};
     }
   }
 
-  & .fi-date-input_input-element-container {
+  & .fi-action-menu_input-element-container {
     ${containerIEFocus(theme)}
 
     &:focus-within {
@@ -41,15 +41,15 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     width: 100%;
   }
 
-  & .fi-date-input_picker-element-container {
+  & .fi-action-menu_picker-element-container {
     flex: 1;
   }
 
-  & .fi-date-input_input-and-picker-wrapper {
+  & .fi-action-menu_input-and-picker-wrapper {
     display: flex;
   }
 
-  & .fi-date-input_input {
+  & .fi-action-menu_input {
     ${input(theme)}
     background-color: ${theme.colors.whiteBase};
     min-width: 40px;
@@ -66,7 +66,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
   }
 
-  & .fi-date-input_picker-button {
+  & .fi-action-menu_picker-button {
     ${containerIEFocus(theme)}
 
     &:focus-within {
@@ -88,51 +88,51 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
   }
 
-  & .fi-date-input_picker-icon {
+  & .fi-action-menu_picker-icon {
     color: ${theme.colors.highlightBase};
   }
 
-  & .fi-date-input_picker-button--disabled {
+  & .fi-action-menu_picker-button--disabled {
     cursor: default;
     border-color: ${theme.colors.depthBase};
 
-    .fi-date-input_picker-icon {
+    .fi-action-menu_picker-icon {
       color: ${theme.colors.depthBase};
     }
   }
 
-  &.fi-date-input--error {
-    & .fi-date-input_input {
+  &.fi-action-menu--error {
+    & .fi-action-menu_input {
       border: 2px solid ${theme.colors.alertBase};
     }
 
-    & .fi-date-input_picker-button {
+    & .fi-action-menu_picker-button {
       border: 2px solid ${theme.colors.alertBase};
       border-left: 1px solid ${theme.colors.highlightBase};
       border-radius: 0 ${theme.radiuses.basic} ${theme.radiuses.basic} 0;
     }
   }
 
-  &.fi-date-input--success {
-    & .fi-date-input_input {
+  &.fi-action-menu--success {
+    & .fi-action-menu_input {
       border: 2px solid ${theme.colors.successBase};
     }
 
-    & .fi-date-input_picker-button {
+    & .fi-action-menu_picker-button {
       border: 2px solid ${theme.colors.successBase};
       border-left: 1px solid ${theme.colors.highlightBase};
       border-radius: 0 ${theme.radiuses.basic} ${theme.radiuses.basic} 0;
     }
   }
-  &.fi-date-input--disabled {
-    & .fi-date-input_input {
+  &.fi-action-menu--disabled {
+    & .fi-action-menu_input {
       color: ${theme.colors.depthBase};
       background-color: ${theme.colors.depthLight3};
     }
   }
 
-  &.fi-date-input--has-picker {
-    & .fi-date-input_input {
+  &.fi-action-menu--has-picker {
+    & .fi-action-menu_input {
       border-right: none;
       border-radius: ${theme.radiuses.basic} 0 0 ${theme.radiuses.basic};
     }

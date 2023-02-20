@@ -18,18 +18,13 @@ import { Icon } from '../Icon/Icon';
 
 import { baseStyles } from './ActionMenu.baseStyles';
 
-const baseClassName = 'fi-date-input';
+const baseClassName = 'fi-action-menu';
 export const actionMenuClassNames = {
   baseClassName,
   fullWidth: `${baseClassName}--full-width`,
-  hasPicker: `${baseClassName}--has-picker`,
   disabled: `${baseClassName}--disabled`,
-  error: `${baseClassName}--error`,
-  success: `${baseClassName}--success`,
   labelIsVisible: `${baseClassName}_label--visible`,
   inputAndPickerWrapper: `${baseClassName}_input-and-picker-wrapper`,
-  inputElementContainer: `${baseClassName}_input-element-container`,
-  inputElement: `${baseClassName}_input`,
   pickerElementContainer: `${baseClassName}_picker-element-container`,
   pickerButton: `${baseClassName}_picker-button`,
   pickerButtonDisabled: `${baseClassName}_picker-button--disabled`,
