@@ -21,10 +21,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-hint-text {
       margin-bottom: ${theme.spacing.xs};
     }
-
-    & .fi-action-menu_statusText--has-content {
-      margin-top: ${theme.spacing.xxs};
-    }
   }
 
   & .fi-action-menu_input-element-container {
