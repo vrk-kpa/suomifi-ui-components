@@ -318,6 +318,13 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     },
   );
 
+  const isSelectOpen = (event: TEvent<HTMLDivElement> | TouchEvent): boolean =>
+    (yearSelectRef.current?.contains(event.target as Node) &&
+      yearSelectRef.current.getAttribute('data-state') === 'expanded') ||
+    (monthSelectRef.current?.contains(event.target as Node) &&
+      monthSelectRef.current.getAttribute('data-state') === 'expanded') ||
+    false;
+
   const handleConfirm = (): void => {
     handleClose(true);
     onChange(focusableDate);
@@ -339,16 +346,26 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   };
 
   const handleTouchStart = (event: TEvent<HTMLDivElement>) => {
-    setTouchStartX(event.changedTouches[0].clientX);
-    setTouchStartY(event.changedTouches[0].clientY);
+    if (isSelectOpen(event)) {
+      setTouchStartX(null);
+      setTouchStartY(null);
+    } else {
+      setTouchStartX(event.changedTouches[0].clientX);
+      setTouchStartY(event.changedTouches[0].clientY);
+    }
   };
 
   const handleTouchMove = (event: TouchEvent) => {
+    if (isSelectOpen(event)) {
+      return;
+    }
     event.preventDefault();
   };
 
   const handleTouchEnd = (event: TEvent<HTMLDivElement>) => {
-    if (touchStartX === null || touchStartY === null) return;
+    if (touchStartX === null || touchStartY === null) {
+      return;
+    }
 
     const distanceX = event.changedTouches[0].clientX - touchStartX;
     const distanceY = event.changedTouches[0].clientY - touchStartY;

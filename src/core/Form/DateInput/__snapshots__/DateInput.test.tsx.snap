@@ -3657,6 +3657,33 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border: 1px solid hsl(0,0%,58%);
 }
 
+.c10 .fi-date-picker_bottom-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+
+.c10 .fi-date-picker_application {
+  padding: 20px 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+}
+
 .c10.fi-date-picker--small-screen {
   border: none;
   background: none;
@@ -3671,6 +3698,16 @@ exports[`snapshots match date input with datepicker with controlled input value 
   -webkit-transition: -webkit-transform 200ms cubic-bezier(0.28,0.84,0.42,1);
   -webkit-transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1);
   transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1);
+}
+
+.c10.fi-date-picker--small-screen .fi-date-picker_application {
+  padding-bottom: 30px;
+}
+
+.c10.fi-date-picker--small-screen .fi-date-picker_bottom-container {
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c10.fi-date-picker--hidden {
@@ -3701,25 +3738,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
   bottom: 0;
   left: 0;
   right: 0;
-}
-
-.c10 .fi-date-picker_application {
-  padding: 20px 15px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: auto;
 }
 
 .c10 .fi-date-picker_popper-arrow,
@@ -3753,14 +3771,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
 .c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end']::before {
   border-bottom: 1px solid hsl(0,0%,58%);
   border-right: 1px solid hsl(0,0%,58%);
-}
-
-.c10 .fi-date-picker_bottom-container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 10px;
 }
 
 .c10 .fi-date-picker_bottom-button {
@@ -6210,6 +6220,33 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   border: 1px solid hsl(0,0%,58%);
 }
 
+.c10 .fi-date-picker_bottom-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+
+.c10 .fi-date-picker_application {
+  padding: 20px 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+}
+
 .c10.fi-date-picker--small-screen {
   border: none;
   background: none;
@@ -6224,6 +6261,16 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   -webkit-transition: -webkit-transform 200ms cubic-bezier(0.28,0.84,0.42,1);
   -webkit-transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1);
   transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1);
+}
+
+.c10.fi-date-picker--small-screen .fi-date-picker_application {
+  padding-bottom: 30px;
+}
+
+.c10.fi-date-picker--small-screen .fi-date-picker_bottom-container {
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c10.fi-date-picker--hidden {
@@ -6254,25 +6301,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   bottom: 0;
   left: 0;
   right: 0;
-}
-
-.c10 .fi-date-picker_application {
-  padding: 20px 15px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: auto;
 }
 
 .c10 .fi-date-picker_popper-arrow,
@@ -6306,14 +6334,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 .c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end']::before {
   border-bottom: 1px solid hsl(0,0%,58%);
   border-right: 1px solid hsl(0,0%,58%);
-}
-
-.c10 .fi-date-picker_bottom-container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 10px;
 }
 
 .c10 .fi-date-picker_bottom-button {
@@ -7905,7 +7925,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
         >
           <button
             aria-disabled="false"
-            class="c6 fi-button c14 fi-date-picker_bottom-button"
+            class="c6 fi-button c14 fi-date-picker_bottom-button fi-button--fullwidth"
             tabindex="0"
             type="button"
           >
@@ -7913,7 +7933,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
           </button>
           <button
             aria-disabled="false"
-            class="c6 fi-button c14 fi-date-picker_bottom-button fi-button--secondary"
+            class="c6 fi-button c14 fi-date-picker_bottom-button fi-button--secondary fi-button--fullwidth"
             tabindex="0"
             type="button"
           >
