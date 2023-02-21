@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../theme';
-import { containerIEFocus, font } from '../theme/reset';
+import { input, containerIEFocus, font } from '../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')}
@@ -15,6 +15,20 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     display: inline-block;
   }
 
+  & .fi-action-menu_input-element-container {
+    ${containerIEFocus(theme)}
+
+    &:focus-within {
+      position: relative;
+
+      &::after {
+        ${theme.focuses.absoluteFocus}
+      }
+    }
+
+    width: 100%;
+  }
+
   & .fi-action-menu_picker-element-container {
     flex: 1;
   }
@@ -25,6 +39,14 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   & .fi-action-menu_picker-button {
     ${containerIEFocus(theme)}
+
+    &:focus-within {
+      position: relative;
+
+      &::after {
+        ${theme.focuses.absoluteFocus}
+      }
+    }
 
     height: 100%;
     min-width: 40px;
@@ -39,5 +61,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   & .fi-action-menu_picker-icon {
     color: ${theme.colors.highlightBase};
+  }
+
+  &.fi-action-menu--disabled {
+    & .fi-action-menu_input {
+      color: ${theme.colors.depthBase};
+      background-color: ${theme.colors.depthLight3};
+    }
   }
 `;
