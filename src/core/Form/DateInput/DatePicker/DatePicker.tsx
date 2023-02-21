@@ -408,6 +408,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
           disabled={selectedDate === null}
           onClick={() => handleConfirm()}
           className={datePickerClassNames.bottomButton}
+          fullWidth={variant === 'smallScreen'}
         >
           {texts.selectButtonText}
         </Button>
@@ -416,6 +417,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
           onClick={() => handleClose(true)}
           forwardedRef={confirmButtonRef}
           className={datePickerClassNames.bottomButton}
+          fullWidth={variant === 'smallScreen'}
         >
           {texts.closeButtonText}
         </Button>

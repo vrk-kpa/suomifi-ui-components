@@ -73,12 +73,12 @@ export interface DatePickerProps {
   /** Enables date picker for date input.
    * @default false
    */
+  datePickerEnabled?: boolean;
   /**
    * Normal or small screen variant.
    * @default default
    */
   variant?: 'default' | 'smallScreen';
-  datePickerEnabled?: boolean;
   /**
    * Custom texts for date picker to use instead of language based texts.
    * <pre>
