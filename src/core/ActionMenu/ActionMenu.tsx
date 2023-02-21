@@ -85,10 +85,10 @@ const BaseActionMenu = (props: ActionMenuProps) => {
   } = props;
 
   const openButtonRef = useRef<HTMLButtonElement>(null);
-  const [calendarVisible, setCalendarVisible] = useState<boolean>(false);
+  const [menuVisible, setMenuVisible] = useState<boolean>(false);
 
-  const toggleCalendar = (open: boolean, focus: boolean = false) => {
-    setCalendarVisible(open);
+  const toggleMenu = (open: boolean, focus: boolean = false) => {
+    setMenuVisible(open);
 
     if (open && onOpen) {
       onOpen();
@@ -121,7 +121,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
                   [actionMenuClassNames.pickerButtonDisabled]:
                     passProps.disabled,
                 })}
-                onClick={() => toggleCalendar(!calendarVisible)}
+                onClick={() => toggleMenu(!menuVisible)}
                 disabled={passProps.disabled}
               >
                 {buttonText}
@@ -133,10 +133,9 @@ const BaseActionMenu = (props: ActionMenuProps) => {
                 />
               </HtmlButton>
               <ActionMenuPopover
-                //  sourceRef={openButtonRef}
                 openButtonRef={openButtonRef}
-                isOpen={calendarVisible}
-                onClose={(focus) => toggleCalendar(false, focus)}
+                isOpen={menuVisible}
+                onClose={(focus) => toggleMenu(false, focus)}
                 children={children}
               />
             </>
@@ -157,10 +156,9 @@ const StyledActionMenu = styled(
 
 /**
  * <i class="semantics" />
- * Use for user inputting date.
- * Can be used as an input field or with an additional DatePicker.
+ * Use for user selecting action.
  *
- * Props other than specified explicitly are passed on to underlying input element.
+ * Props other than specified explicitly are passed on to underlying ?? TODO element.
  * @component
  */
 const ActionMenu = forwardRef<HTMLInputElement, ActionMenuProps>(
