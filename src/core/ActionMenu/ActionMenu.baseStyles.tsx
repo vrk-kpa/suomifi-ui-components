@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../theme';
-import { input, containerIEFocus, font } from '../theme/reset';
+import { containerIEFocus, font } from '../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')}
