@@ -3,6 +3,7 @@ import React, {
   useEffect,
   useRef,
   TouchEvent as TEvent,
+  PointerEvent,
 } from 'react';
 import ReactDOM from 'react-dom';
 import { default as styled } from 'styled-components';
@@ -38,6 +39,7 @@ export const datePickerClassNames = {
   smallScreenHidden: `${baseClassName}--small-screen-hidden`,
   smallScreenContainer: `${baseClassName}_small-screen-container`,
   slideIndicator: `${baseClassName}_slide-indicator`,
+  slideIndicatorWrapper: `${baseClassName}_slide-indicator-wrapper`,
   application: `${baseClassName}_application`,
   bottomContainer: `${baseClassName}_bottom-container`,
   bottomButton: `${baseClassName}_bottom-button`,
@@ -93,7 +95,10 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const [monthSelectWidth, setMonthSelectWidth] = useState<number>(0);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchStartY, setTouchStartY] = useState<number | null>(null);
+  const [dragOffsetY, setDragOffsetY] = useState<number>(0);
+  const [dragging, setDragging] = useState<boolean>(false);
 
+  const sliderWrapperRef = useRef<HTMLDivElement>(null);
   const smallScreenAppRef = useRef<HTMLDivElement>(null);
   const yearSelectRef = useRef<HTMLDivElement>(null);
   const monthSelectRef = useRef<HTMLDivElement>(null);
@@ -150,6 +155,9 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       };
     }
     if (variant === 'smallScreen' && isOpen) {
+      if (smallScreenAppRef.current) {
+        smallScreenAppRef.current.style.top = '';
+      }
       document.addEventListener('touchmove', handleTouchMove, {
         passive: false,
       });
@@ -345,6 +353,41 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     setSelectedDate(date);
   };
 
+  const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    if (sliderWrapperRef.current?.contains(event.target as Node)) {
+      setDragging(true);
+      setTouchStartY(event.clientY);
+      setDragOffsetY(smallScreenAppRef.current?.offsetTop || 0);
+      sliderWrapperRef.current.style.cursor = 'grabbing';
+    }
+  };
+
+  const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    if (!dragging) return;
+    if (smallScreenAppRef.current) {
+      const diff = event.clientY - (touchStartY || 0);
+      if (diff > 0) {
+        smallScreenAppRef.current.style.top = `${dragOffsetY + diff}px`;
+      }
+    }
+  };
+
+  const handlePointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    if (!dragging) return;
+    const diff = event.clientY - (touchStartY || 0);
+    if (diff > 50) {
+      handleClose(true);
+    } else if (smallScreenAppRef.current) {
+      smallScreenAppRef.current.style.top = '';
+    }
+    if (sliderWrapperRef.current) {
+      sliderWrapperRef.current.style.cursor = 'grab';
+    }
+    setDragging(false);
+    setTouchStartY(null);
+    setDragOffsetY(0);
+  };
+
   const handleTouchStart = (event: TEvent<HTMLDivElement>) => {
     if (isSelectOpen(event)) {
       setTouchStartX(null);
@@ -372,14 +415,6 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     const minDistance = 50;
     const horizontal =
       Math.abs(distanceX) > minDistance && distanceY < minDistance;
-    const vertical =
-      Math.abs(distanceY) > minDistance && distanceX < minDistance;
-
-    if (vertical && distanceY > 0) {
-      // Swipe down
-      handleClose(true);
-      return;
-    }
 
     let date;
     if (horizontal && distanceX > 0) {
@@ -476,15 +511,24 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
         datePickerClassNames.smallScreen,
         { [datePickerClassNames.smallScreenHidden]: !isOpen },
       )}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
     >
       <HtmlDivWithRef
         role="dialog"
         forwardedRef={smallScreenAppRef}
         className={datePickerClassNames.smallScreenContainer}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerLeave={handlePointerUp}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
-        <div className={datePickerClassNames.slideIndicator} />
+        <HtmlDivWithRef
+          className={datePickerClassNames.slideIndicatorWrapper}
+          forwardedRef={sliderWrapperRef}
+        >
+          <div className={datePickerClassNames.slideIndicator} />
+        </HtmlDivWithRef>
         {application}
       </HtmlDivWithRef>
     </HtmlDiv>

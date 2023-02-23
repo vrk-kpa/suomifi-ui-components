@@ -37,6 +37,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     transition: transform 200ms ${theme.transitions.basicTimingFunction};
 
     .fi-date-picker_application {
+      padding-top: ${theme.spacing.xs};
       padding-bottom: ${theme.spacing.xl};
     }
 
@@ -55,8 +56,14 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       visibility 200ms ${theme.transitions.basicTimingFunction};
   }
 
+  & .fi-date-picker_slide-indicator-wrapper {
+    padding-top: ${theme.spacing.m};
+    padding-bottom: ${theme.spacing.xs};
+    cursor: grab;
+  }
+
   & .fi-date-picker_slide-indicator {
-    margin: ${theme.spacing.m} auto 0 auto;
+    margin: 0 auto;
     width: 60px;
     height: 3px;
     background-color: ${theme.colors.depthLight1};

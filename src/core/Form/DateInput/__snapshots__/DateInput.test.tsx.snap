@@ -3701,6 +3701,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c10.fi-date-picker--small-screen .fi-date-picker_application {
+  padding-top: 10px;
   padding-bottom: 30px;
 }
 
@@ -3723,8 +3724,16 @@ exports[`snapshots match date input with datepicker with controlled input value 
   transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1), visibility 200ms cubic-bezier(0.28,0.84,0.42,1);
 }
 
+.c10 .fi-date-picker_slide-indicator-wrapper {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
 .c10 .fi-date-picker_slide-indicator {
-  margin: 20px auto 0 auto;
+  margin: 0 auto;
   width: 60px;
   height: 3px;
   background-color: hsl(202,7%,80%);
@@ -6264,6 +6273,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c10.fi-date-picker--small-screen .fi-date-picker_application {
+  padding-top: 10px;
   padding-bottom: 30px;
 }
 
@@ -6286,8 +6296,16 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   transition: transform 200ms cubic-bezier(0.28,0.84,0.42,1), visibility 200ms cubic-bezier(0.28,0.84,0.42,1);
 }
 
+.c10 .fi-date-picker_slide-indicator-wrapper {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
 .c10 .fi-date-picker_slide-indicator {
-  margin: 20px auto 0 auto;
+  margin: 0 auto;
   width: 60px;
   height: 3px;
   background-color: hsl(202,7%,80%);
@@ -6689,8 +6707,12 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
       role="dialog"
     >
       <div
-        class="fi-date-picker_slide-indicator"
-      />
+        class="c3 fi-date-picker_slide-indicator-wrapper"
+      >
+        <div
+          class="fi-date-picker_slide-indicator"
+        />
+      </div>
       <div
         class="c0 fi-date-picker_application"
         role="application"
