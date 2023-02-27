@@ -132,7 +132,7 @@ const illustrativeIconKeys = [
   'Court',
   'CreditCards',
   'Database',
-  'Device',
+  'Mobile',
   'Display',
   'Doctor',
   'Environment',
@@ -169,7 +169,7 @@ const illustrativeIconKeys = [
   'Money',
   'MoneyBag',
   'Organisation',
-  'PhoneText',
+  'MobileText',
   'PiggyBank',
   'Pillar',
   'PlaneFlying',
@@ -204,10 +204,10 @@ const illustrativeIconKeys = [
 const doctypeIconKeys = ['Doc', 'GenericFile', 'Pdf', 'Ppt', 'Xls', 'Xml'];
 
 const logoIconKeys = [
-  'Horizontal',
-  'HorizontalInvert',
-  'Vertical',
-  'VerticalInvert',
+  'LogoHorizontal',
+  'LogoHorizontalInvert',
+  'LogoVertical',
+  'LogoVerticalInvert',
 ];
 
 const IconWrapper = styled.figure`
