@@ -1,46 +1,63 @@
-import React, {
-  Component,
-  ReactNode,
-  ReactElement,
-  forwardRef,
-  useRef,
-} from 'react';
+import React, { Component, ReactNode, ReactElement, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import {
-  ListboxInput,
-  ListboxButton,
-  ListboxButtonProps,
-  ListboxPopoverProps,
-  ListboxList,
-  ListboxPopover,
-  useListboxContext,
-} from '@reach/listbox';
-import { positionMatchWidth } from '@reach/popover';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { useEnhancedEffect } from '../../../utils/common';
 import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { HtmlSpan, HtmlDiv } from '../../../reset';
+import { HtmlSpan, HtmlDiv, HtmlInput } from '../../../reset';
 import { Label, LabelMode } from '../../Form/Label/Label';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  getOwnerDocument,
+  getRecursiveChildText,
+} from '../../../utils/common/common';
+import { Popover } from '../../../core/Popover/Popover';
+import { SelectItemList } from '../../Form/Select/BaseSelect/SelectItemList/SelectItemList';
 
 const baseClassName = 'fi-dropdown';
 
 export const dropdownClassNames = {
   baseClassName,
   labelIsVisible: `${baseClassName}_label--visible`,
+  inputWrapper: `${baseClassName}_input-wrapper`,
   button: `${baseClassName}_button`,
   popover: `${baseClassName}_popover`,
+  itemList: `${baseClassName}_item-list`,
   item: `${baseClassName}_item`,
-  noSelectedStyles: `${baseClassName}--noSelectedStyles`,
+  open: `${baseClassName}--open`,
   disabled: `${baseClassName}--disabled`,
 };
 
+export interface DropdownProviderState {
+  /** Callback for communicating DropdownItem click to parent  */
+  onItemClick: (itemValue: string) => void;
+  /** Currently selected DropdownItem */
+  selectedDropdownValue: string | undefined | null;
+  /** Currently focused DropdownItem */
+  focusedItemID: string | null | undefined;
+  /** ID of the Dropdown component.
+   * Used in DropdownItem to create a derived ID for each item
+   */
+  id: string | undefined;
+}
+
+const defaultProviderValue: DropdownProviderState = {
+  onItemClick: () => null,
+  selectedDropdownValue: null,
+  id: '',
+  focusedItemID: null,
+};
+
+const { Provider: DropdownProvider, Consumer: DropdownConsumer } =
+  React.createContext(defaultProviderValue);
+
 interface DropdownState {
-  selectedValue: string | undefined;
+  selectedValue: string | undefined | null;
+  selectedValueText: string | undefined | null;
+  showPopover: boolean;
+  focusedDescendantId: string | null | undefined;
 }
 
 export interface DropdownProps {
@@ -59,8 +76,6 @@ export interface DropdownProps {
   labelText: ReactNode;
   /** Visual hint to show if nothing is selected and no value or defaultValue is provided */
   visualPlaceholder?: ReactNode;
-  /** Show the visual placeholder instead of selected value and act as an action menu */
-  alwaysShowVisualPlaceholder?: boolean;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
    */
@@ -76,83 +91,22 @@ export interface DropdownProps {
   className?: string;
   /** Disable component */
   disabled?: boolean;
-  /** Properties given to dropdown's Button-component, className etc. */
-  dropdownButtonProps?: ListboxButtonProps;
-  /** Properties given to dropdown's popover-component, className etc. */
-  dropdownPopoverProps?: ListboxPopoverProps;
   /** DropdownItems */
   children?:
     | Array<ReactElement<DropdownItemProps>>
     | ReactElement<DropdownItemProps>;
   /** Callback that fires when the dropdown value changes. */
-  onChange?(newValue: string): void;
+  onChange?(value: string): void;
   /** Tooltip component for the dropdown's label */
   tooltipComponent?: ReactElement;
+  /**
+   * Whether the Dropdown's popover is rendered in a portal
+   * @default true
+   */
+  portal?: boolean;
   /** Ref object to be passed to the input element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLDivElement>;
 }
-
-const ListBoxContextWrapper = (props: {
-  scrollContainerRef: React.RefObject<HTMLDivElement>;
-  // eslint-disable-next-line react/require-default-props
-  children?:
-    | Array<ReactElement<DropdownItemProps>>
-    | ReactElement<DropdownItemProps>;
-}) => {
-  const { highlightedOptionRef, selectedOptionRef, isExpanded } =
-    useListboxContext();
-  const scrollToHighlightedOptionRef = useRef(false);
-  useEnhancedEffect(() => {
-    if (scrollToHighlightedOptionRef.current) {
-      scrollItemList();
-      scrollToHighlightedOptionRef.current = false;
-    }
-  });
-
-  useEnhancedEffect(() => {
-    if (isExpanded) {
-      scrollItemList(selectedOptionRef);
-    }
-  }, [isExpanded]);
-
-  const scrollItemList = (
-    scrollToRef?: React.RefObject<HTMLElement | null>,
-  ) => {
-    const scrollToItem = !!scrollToRef?.current
-      ? scrollToRef.current
-      : highlightedOptionRef.current;
-    if (!!scrollToItem && !!props.scrollContainerRef.current) {
-      const elementOffsetTop = scrollToItem.offsetTop || 0;
-      const elementOffsetHeight = scrollToItem.offsetHeight || 0;
-      if (elementOffsetTop < props.scrollContainerRef.current.scrollTop) {
-        // eslint-disable-next-line no-param-reassign
-        props.scrollContainerRef.current.scrollTop = elementOffsetTop;
-      } else {
-        const offsetBottom = elementOffsetTop + elementOffsetHeight;
-        const scrollBottom =
-          props.scrollContainerRef.current.scrollTop +
-          props.scrollContainerRef.current.offsetHeight;
-        if (offsetBottom > scrollBottom) {
-          // eslint-disable-next-line no-param-reassign
-          props.scrollContainerRef.current.scrollTop =
-            offsetBottom - props.scrollContainerRef.current.offsetHeight;
-        }
-      }
-    }
-  };
-
-  return (
-    <ListboxList
-      onKeyDown={(event) => {
-        if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-          scrollToHighlightedOptionRef.current = true;
-        }
-      }}
-    >
-      {props.children}
-    </ListboxList>
-  );
-};
 
 class BaseDropdown extends Component<DropdownProps> {
   state: DropdownState = {
@@ -162,11 +116,26 @@ class BaseDropdown extends Component<DropdownProps> {
         : 'defaultValue' in this.props
         ? this.props.defaultValue
         : undefined,
+    selectedValueText: BaseDropdown.parseSelectedValueText(
+      'value' in this.props
+        ? this.props.value
+        : 'defaultValue' in this.props
+        ? this.props.defaultValue
+        : undefined,
+      this.props.children,
+    ),
+    showPopover: false,
+    focusedDescendantId:
+      'value' in this.props
+        ? this.props.value
+        : 'defaultValue' in this.props
+        ? this.props.defaultValue
+        : null,
   };
 
   buttonRef: React.RefObject<HTMLButtonElement>;
 
-  popoverRef: React.RefObject<HTMLDivElement>;
+  popoverRef: React.RefObject<HTMLUListElement>;
 
   constructor(props: DropdownProps) {
     super(props);
@@ -180,10 +149,158 @@ class BaseDropdown extends Component<DropdownProps> {
   ) {
     const { value } = nextProps;
     if ('value' in nextProps && value !== prevState.selectedValue) {
-      return { selectedValue: value };
+      return {
+        selectedValue: value,
+        selectedValueText: BaseDropdown.parseSelectedValueText(
+          value,
+          nextProps.children,
+        ),
+      };
     }
     return null;
   }
+
+  static parseSelectedValueText(
+    selectedValue: string | undefined,
+    children:
+      | Array<ReactElement<DropdownItemProps>>
+      | ReactElement<DropdownItemProps>
+      | undefined,
+  ): string | undefined {
+    if (selectedValue === undefined || children === undefined) return undefined;
+
+    if (Array.isArray(children)) {
+      children.forEach((element) => {
+        if (element.props.value === selectedValue) {
+          return getRecursiveChildText(element);
+        }
+      });
+    } else {
+      return getRecursiveChildText(children);
+    }
+  }
+
+  private isOutsideClick(event: MouseEvent) {
+    return (
+      !!this.buttonRef &&
+      (this.buttonRef.current as Node).contains(event.target as Node)
+    );
+  }
+
+  private handleItemSelection(itemValue: string) {
+    this.setState({
+      selectedValue: itemValue,
+      selectedValueText: BaseDropdown.parseSelectedValueText(
+        itemValue,
+        this.props.children,
+      ),
+      showPopover: false,
+      focusedDescendantId: itemValue,
+    });
+    if (!!this.props.onChange) {
+      this.props.onChange(itemValue);
+    }
+    this.buttonRef.current?.focus();
+  }
+
+  private handleKeyDown = (event: React.KeyboardEvent) => {
+    const { focusedDescendantId, showPopover } = this.state;
+    const popoverItems = Array.isArray(this.props.children)
+      ? this.props.children
+      : [this.props.children];
+    if (!popoverItems) return;
+    const index = !!focusedDescendantId
+      ? popoverItems.findIndex(
+          (item) => item?.props.value === focusedDescendantId,
+        )
+      : null;
+
+    const getNextIndex = () =>
+      index !== null ? (index + 1) % popoverItems.length : 0;
+    const getPreviousIndex = () =>
+      index !== null && index !== -1
+        ? (index - 1 + popoverItems.length) % popoverItems.length
+        : popoverItems.length - 1;
+
+    const getNextItem = () => popoverItems[getNextIndex()];
+    const getPreviousItem = () => popoverItems[getPreviousIndex()];
+
+    switch (event.key) {
+      case 'ArrowDown': {
+        event.preventDefault();
+        if (!showPopover) {
+          this.setState({ showPopover: true });
+        }
+        const nextItem = getNextItem();
+        if (nextItem) {
+          this.setState({ focusedDescendantId: nextItem.props.value });
+        }
+        break;
+      }
+
+      case 'ArrowUp': {
+        event.preventDefault();
+        if (!showPopover) {
+          this.setState({ showPopover: true });
+        }
+        const previousItem = getPreviousItem();
+        if (previousItem) {
+          this.setState({ focusedDescendantId: previousItem.props.value });
+        }
+        break;
+      }
+
+      case ' ': {
+        event.preventDefault();
+        this.setState({ showPopover: !showPopover });
+        break;
+      }
+
+      case 'Enter': {
+        if (focusedDescendantId && showPopover) {
+          event.preventDefault();
+          const focusedItem = popoverItems.find(
+            (item) => item?.props.value === focusedDescendantId,
+          );
+          if (focusedItem) {
+            this.handleItemSelection(focusedItem.props.value);
+          }
+        }
+        break;
+      }
+
+      case 'Escape': {
+        if (showPopover) {
+          event.stopPropagation();
+          this.setState({ showPopover: false });
+        }
+        break;
+      }
+
+      default: {
+        break;
+      }
+    }
+  };
+
+  private handleOnBlur = () => {
+    const ownerDocument = getOwnerDocument(this.popoverRef);
+    if (!ownerDocument) {
+      return;
+    }
+    requestAnimationFrame(() => {
+      const focusInPopover = this.popoverRef.current?.contains(
+        ownerDocument.activeElement,
+      );
+      const focusInToggleButton = this.buttonRef.current?.contains(
+        ownerDocument.activeElement,
+      );
+      const focusInDropdown = focusInPopover || focusInToggleButton;
+      if (!focusInDropdown) {
+        this.setState({ showPopover: focusInDropdown });
+      }
+    });
+  };
 
   render() {
     const {
@@ -197,12 +314,10 @@ class BaseDropdown extends Component<DropdownProps> {
       optionalText,
       'aria-labelledby': ariaLabelledBy,
       visualPlaceholder,
-      alwaysShowVisualPlaceholder,
       className,
-      dropdownButtonProps = {},
-      dropdownPopoverProps = {},
       onChange: propOnChange,
       tooltipComponent,
+      portal = true,
       ...passProps
     } = this.props;
 
@@ -213,36 +328,27 @@ class BaseDropdown extends Component<DropdownProps> {
 
     const labelId = `${id}-label`;
     const buttonId = `${id}_button`;
+    const popoverItemListId = `${id}-popover`;
 
-    const { selectedValue } = this.state;
+    const {
+      selectedValue,
+      selectedValueText,
+      showPopover,
+      focusedDescendantId,
+    } = this.state;
 
-    const passDropdownPopoverProps = {
-      ...dropdownPopoverProps,
-      className: classnames(className, dropdownClassNames.popover, {
-        [dropdownClassNames.noSelectedStyles]: !!alwaysShowVisualPlaceholder,
-      }),
-    };
+    const ariaActiveDescendant = focusedDescendantId
+      ? `${id}-${focusedDescendantId}`
+      : '';
 
-    const onChange = (newValue: string) => {
-      if (!!propOnChange) {
-        propOnChange(newValue);
-      }
-      if (!('value' in this.props)) {
-        this.setState({ selectedValue: newValue });
-      }
-    };
-
-    // If alwaysShowVisualPlaceholder is true or there is no selected value, use visualPlaceHolder.
-    // With seleceted value use null and let Reach fetch the seleceted item node from internal context.
-    const listboxDisplayValue = alwaysShowVisualPlaceholder
-      ? visualPlaceholder
-      : !!selectedValue
-      ? null
-      : visualPlaceholder;
+    const dropdownDisplayValue = selectedValueText ?? visualPlaceholder ?? '';
 
     return (
       <HtmlSpan
-        className={classnames(className, baseClassName)}
+        className={classnames(className, baseClassName, {
+          [dropdownClassNames.disabled]: !!disabled,
+          [dropdownClassNames.open]: !!showPopover,
+        })}
         id={id}
         {...passProps}
       >
@@ -258,52 +364,71 @@ class BaseDropdown extends Component<DropdownProps> {
           >
             {labelText}
           </Label>
-          <ListboxInput
-            {...getConditionalAriaProp('aria-labelledby', [
-              ariaLabelledBy,
-              labelId,
-            ])}
-            disabled={disabled}
-            onChange={onChange}
-            ref={forwardedRef}
-            name={name}
-            value={selectedValue || ''}
-          >
-            <ListboxButton
-              ref={this.buttonRef}
-              {...dropdownButtonProps}
+          <HtmlDiv className={classnames(dropdownClassNames.inputWrapper)}>
+            <HtmlSpan
+              aria-haspopup="listbox"
+              role="button"
+              tabIndex={!disabled ? 0 : -1}
+              forwardedRef={this.buttonRef}
               id={buttonId}
-              className={classnames(dropdownClassNames.button, {
-                [dropdownClassNames.disabled]: !!disabled,
-              })}
+              className={dropdownClassNames.button}
               {...getConditionalAriaProp(
                 'aria-labelledby',
                 selectedValue === undefined ? [ariaLabelledBy, labelId] : [],
               )}
-            >
-              {listboxDisplayValue}
-            </ListboxButton>
-            <ListboxPopover
-              ref={this.popoverRef}
-              position={positionMatchWidth}
-              {...passDropdownPopoverProps}
-              onKeyDownCapture={(event: React.KeyboardEvent) => {
-                if (event.code === 'Tab' && !!this.buttonRef.current) {
-                  event.preventDefault();
-                  this.buttonRef.current.focus();
+              aria-owns={popoverItemListId}
+              aria-expanded={showPopover}
+              onMouseDown={() => {
+                if (!disabled) {
+                  this.setState({ showPopover: !showPopover });
                 }
               }}
-              onKeyDown={(event) => {
-                if (event.key === 'Escape') {
-                  event.stopPropagation();
-                }
-              }}
+              onKeyDown={this.handleKeyDown}
+              onBlur={() => this.handleOnBlur()}
             >
-              <ListBoxContextWrapper scrollContainerRef={this.popoverRef}>
-                {children}
-              </ListBoxContextWrapper>
-            </ListboxPopover>
-          </ListboxInput>
+              {dropdownDisplayValue}
+            </HtmlSpan>
+            <HtmlInput
+              tabIndex={-1}
+              type="hidden"
+              name={name}
+              value={selectedValue || ''}
+            />
+            {showPopover && !!children && (
+              <Popover
+                sourceRef={this.buttonRef}
+                onClickOutside={(event) => {
+                  if (!this.isOutsideClick(event)) {
+                    this.setState({
+                      showPopover: false,
+                    });
+                  }
+                }}
+                matchWidth={true}
+                onKeyDown={this.handleKeyDown}
+                portal={portal}
+              >
+                <DropdownProvider
+                  value={{
+                    onItemClick: (itemValue) =>
+                      this.handleItemSelection(itemValue),
+                    selectedDropdownValue: selectedValue,
+                    id,
+                    focusedItemID: focusedDescendantId,
+                  }}
+                >
+                  <SelectItemList
+                    id={popoverItemListId}
+                    ref={this.popoverRef}
+                    focusedDescendantId={ariaActiveDescendant}
+                    className={dropdownClassNames.itemList}
+                  >
+                    {children}
+                  </SelectItemList>
+                </DropdownProvider>
+              </Popover>
+            )}
+          </HtmlDiv>
         </HtmlDiv>
       </HtmlSpan>
     );
@@ -345,4 +470,4 @@ const Dropdown = forwardRef(
 );
 
 Dropdown.displayName = 'Dropdown';
-export { Dropdown };
+export { Dropdown, DropdownProvider, DropdownConsumer };

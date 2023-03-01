@@ -3,7 +3,7 @@ import { SuomifiTheme } from '../../theme';
 import { element } from '../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  &[data-reach-listbox-option].fi-dropdown_item {
+  &.fi-dropdown_item {
     ${element(theme)}
     ${theme.typography.actionElementInnerText}
     cursor: pointer;
@@ -13,19 +13,18 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &:focus {
       outline: 0;
     }
-  }
+    &:hover {
+      background-color: ${theme.colors.highlightLight3};
+    }
 
-  &[data-reach-listbox-option][data-current-selected].fi-dropdown_item {
-    ${theme.typography.actionElementInnerTextBold}
-    background-image: none;
-    background-color: ${theme.colors.highlightLight3};
-    border: 0;
-  }
+    &--selected {
+      ${theme.typography.actionElementInnerTextBold}
+      background-color: ${theme.colors.highlightLight3};
+      border: 0;
+    }
 
-  &[data-reach-listbox-option][data-current-nav].fi-dropdown_item {
-    color: ${theme.colors.blackBase};
-    background-image: none;
-    background-color: ${theme.colors.highlightLight3};
-    border: 0;
+    &--hasKeyboardFocus {
+      background-color: ${theme.colors.highlightLight3};
+    }
   }
 `;

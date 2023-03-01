@@ -1,17 +1,17 @@
 ```js
-import { Dropdown, DropdownItem } from 'suomifi-ui-components';
+import { Dropdown, DropdownItem, Icon } from 'suomifi-ui-components';
 
 <Dropdown
-  name="Dropdown"
+  name="dropdown_example_1"
   labelText="Dropdown label"
-  defaultValue={'dropdown-item-2'}
+  defaultValue={'dropdown-item-13'}
   onChange={(value) => console.log(value)}
 >
   <DropdownItem value={'dropdown-item-1'}>
-    Dropdown Item 1
+    Dropdown Item 1 <Icon icon="login" />
   </DropdownItem>
   <DropdownItem value={'dropdown-item-2'}>
-    Dropdown Item 2
+    <Icon icon="login" /> Dropdown Item 2
   </DropdownItem>
   <DropdownItem value={'dropdown-item-3'}>
     Dropdown Item 3
@@ -62,7 +62,7 @@ import { createRef } from 'react';
 const exampleRef = createRef();
 <>
   <Dropdown
-    name="Dropdown"
+    name="dropdown_example_2"
     visualPlaceholder="Dropdown with visually hidden label and ref"
     labelText="Dropdown label"
     labelMode="hidden"
@@ -78,6 +78,7 @@ const exampleRef = createRef();
   </Dropdown>
 
   <Dropdown
+    name="dropdown_example_3"
     labelText="Disabled dropdown"
     defaultValue={'dropdown-item-2'}
     disabled
@@ -93,20 +94,6 @@ const exampleRef = createRef();
 ```
 
 ```js
-import { Dropdown, DropdownItem } from 'suomifi-ui-components';
-
-<Dropdown
-  visualPlaceholder="Action menu"
-  labelText="Dropdown as action menu label"
-  alwaysShowVisualPlaceholder={true}
-  onChange={(action) => console.log(action, 'selected')}
->
-  <DropdownItem value={'action-item-1'}>Action Item 1</DropdownItem>
-  <DropdownItem value={'action-item-2'}>Action Item 2</DropdownItem>
-</Dropdown>;
-```
-
-```js
 import { useState } from 'react';
 import { Dropdown, DropdownItem } from 'suomifi-ui-components';
 
@@ -114,7 +101,7 @@ const [value, setValue] = useState('');
 
 <Dropdown
   value={value}
-  name="Dropdown"
+  name="dropdown_example_4"
   visualPlaceholder="Dropdown"
   labelText="Dropdown with controlled state"
   onChange={(newValue) => {
@@ -146,6 +133,7 @@ const dropdownProps = {
   </label>
   <Block padding="xs">
     <Dropdown
+      name="dropdown_example_5"
       defaultValue={'dropdown-1-item-1'}
       visualPlaceholder="Dropdown 1"
       labelText="Dropdown 1 label"
@@ -161,6 +149,7 @@ const dropdownProps = {
   </Block>
   <Block padding="xs">
     <Dropdown
+      name="dropdown_example_6"
       defaultValue={'dropdown-2-item-2'}
       visualPlaceholder="Dropdown 2"
       labelText="Dropdown 2 label"
@@ -191,6 +180,7 @@ import {
 const labelText = 'Dropdown with a tooltip';
 
 <Dropdown
+  name="dropdown_example_6"
   labelText={labelText}
   tooltipComponent={
     <Tooltip

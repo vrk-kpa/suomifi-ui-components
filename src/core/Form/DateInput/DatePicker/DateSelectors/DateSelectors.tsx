@@ -113,13 +113,13 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
   return (
     <HtmlDiv className={classnames(className, selectorsClassNames.container)}>
       <Dropdown
-        dropdownPopoverProps={{ portal: false, children: [] }}
         forwardedRef={yearSelect}
         labelText={texts.yearSelectLabel}
         labelMode="hidden"
         value={String(focusableDate.getFullYear())}
         onChange={handleYearSelect}
         className={selectorsClassNames.yearSelect}
+        portal={false}
       >
         {yearOptions(minDate, maxDate).map((year: number) => (
           <DropdownItem value={String(year)} key={year}>
@@ -128,13 +128,13 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
         ))}
       </Dropdown>
       <Dropdown
-        dropdownPopoverProps={{ portal: false, children: [] }}
         forwardedRef={monthSelect}
         labelText={texts.monthSelectLabel}
         labelMode="hidden"
         value={String(focusableDate.getMonth())}
         onChange={handleMonthSelect}
         className={selectorsClassNames.monthSelect}
+        portal={false}
       >
         {monthOptions(focusableDate, minDate, maxDate, texts).map(
           (month: MonthOption) => (

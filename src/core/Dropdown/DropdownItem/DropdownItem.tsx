@@ -1,10 +1,14 @@
 import React, { ReactNode } from 'react';
-import { ListboxOption } from '@reach/listbox';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './DropdownItem.basestyles';
-import { dropdownClassNames } from '../Dropdown/Dropdown';
+import {
+  dropdownClassNames,
+  DropdownConsumer,
+  DropdownProviderState,
+} from '../Dropdown/Dropdown';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import { HtmlLi } from '../../../reset';
 
 export interface DropdownItemProps {
   /** Item value */
@@ -15,11 +19,33 @@ export interface DropdownItemProps {
   className?: string;
 }
 
-const BaseDropdownItem = (props: DropdownItemProps & SuomifiThemeProp) => {
-  const { className, theme, ...passProps } = props;
+interface BaseDropdownItemProps extends DropdownItemProps {
+  consumer: DropdownProviderState;
+}
+
+const dropdownItemClassNames = {
+  hasKeyboardFocus: `${dropdownClassNames.item}--hasKeyboardFocus`,
+  selected: `${dropdownClassNames.item}--selected`,
+};
+
+const BaseDropdownItem = (props: BaseDropdownItemProps & SuomifiThemeProp) => {
+  const { className, theme, consumer, value, ...passProps } = props;
+  const selected = consumer.selectedDropdownValue === value;
+  const hasKeyboardFocus = consumer.focusedItemID === value;
   return (
-    <ListboxOption
-      className={classnames(className, dropdownClassNames.item)}
+    <HtmlLi
+      className={classnames(className, dropdownClassNames.item, {
+        [dropdownItemClassNames.hasKeyboardFocus]: hasKeyboardFocus,
+        [dropdownItemClassNames.selected]: selected,
+      })}
+      tabIndex={-1}
+      role="option"
+      aria-selected={selected}
+      id={`${consumer.id}-${value}`}
+      onClick={(event) => {
+        console.log(event);
+        consumer.onItemClick(value);
+      }}
       {...passProps}
     />
   );
@@ -32,7 +58,15 @@ const StyledDropdownItem = styled(BaseDropdownItem)`
 const DropdownItem = (props: DropdownItemProps) => (
   <SuomifiThemeConsumer>
     {({ suomifiTheme }) => (
-      <StyledDropdownItem theme={suomifiTheme} {...props} />
+      <DropdownConsumer>
+        {(consumer) => (
+          <StyledDropdownItem
+            theme={suomifiTheme}
+            consumer={consumer}
+            {...props}
+          />
+        )}
+      </DropdownConsumer>
     )}
   </SuomifiThemeConsumer>
 );

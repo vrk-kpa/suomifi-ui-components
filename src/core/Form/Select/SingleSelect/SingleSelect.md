@@ -70,11 +70,11 @@ const tools = [
 ];
 
 const defaultSelectedTool = {
-  name: 'Hammer',
-  price: 15,
+  name: 'Rake',
+  price: 50,
   tax: true,
-  labelText: 'Hammer',
-  uniqueItemId: 'h9823523'
+  labelText: 'Rake',
+  uniqueItemId: 'r09282626'
 };
 
 const [selectedValue, setSelectedValue] = React.useState(

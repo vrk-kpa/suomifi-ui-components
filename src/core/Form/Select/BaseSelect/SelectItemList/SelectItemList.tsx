@@ -55,6 +55,12 @@ class BaseSelectItemList extends Component<
     }
   }
 
+  componentDidMount() {
+    if (!!this.props.focusedDescendantId) {
+      this.scrollItemList(this.props.focusedDescendantId);
+    }
+  }
+
   private scrollItemList = (elementId: string) => {
     // 4px reduction to scroll position is required due to container padding.
     const wrapperOffsetPx = 4;

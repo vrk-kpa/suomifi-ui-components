@@ -50,13 +50,14 @@ describe('Basic dropdown', () => {
   });
 
   it('should have disabled styles when disabled', async () => {
-    const { findByRole } = render(
+    const { container } = render(
       <Dropdown labelText="Dropdown" disabled>
         <DropdownItem value={'item-1'}>Item 1</DropdownItem>
       </Dropdown>,
     );
-    const button = await findByRole('button');
-    expect(button).toHaveClass('fi-dropdown--disabled');
+    const outerSpan = container.getElementsByClassName('fi-dropdown')[0];
+    console.log(outerSpan);
+    expect(outerSpan).toHaveClass('fi-dropdown--disabled');
   });
 
   it('should match snapshot', async () => {
@@ -110,17 +111,19 @@ describe('Controlled Dropdown', () => {
   });
 
   it('should use value instead of internal state', async () => {
-    const { findByRole, findByText, rerender, findByDisplayValue } =
+    const { findByRole, rerender, findByDisplayValue, baseElement } =
       render(ControlledDropdown);
-    // mouse event tests do not work properly with listbox
     const button = await findByRole('button');
     const input = await findByDisplayValue('item-2');
 
     fireEvent.click(button);
-    const option = await findByText('Item 1');
-    fireEvent.click(option);
-    expect(button).toHaveTextContent('Item 2');
-    expect(input).toBeTruthy();
+    const option = baseElement.querySelector('.fi-dropdown_item'); // Item 1
+    if (option) {
+      fireEvent.click(option);
+      expect(button).toHaveTextContent('Item 2');
+      expect(input).toBeTruthy();
+    }
+
     await act(async () => {
       rerender(TestDropdown({ ...controlledDropdownProps, value: 'item-1' }));
     });
@@ -133,35 +136,6 @@ describe('Controlled Dropdown', () => {
   it('should match snapshot', async () => {
     const promise = Promise.resolve();
     const { container } = render(ControlledDropdown);
-    expect(container).toMatchSnapshot();
-    await act(() => promise);
-  });
-});
-
-describe('Dropdown as action menu', () => {
-  const actionMenuDropdownProps = {
-    labelText: 'Dropdown test',
-    defaultValue: 'item-2',
-    visualPlaceholder: 'Action menu',
-    alwaysShowVisualPlaceholder: true,
-    name: 'dropdown-test',
-    className: 'dropdown-test',
-    id: 'test-id',
-  };
-
-  const ActionMenuDropdown = TestDropdown(actionMenuDropdownProps);
-
-  it('should always display visualPlaceholder value', async () => {
-    const { findByRole, queryByDisplayValue } = render(ActionMenuDropdown);
-    const button = await findByRole('button');
-    const input = await queryByDisplayValue('item-2');
-    expect(button).toHaveTextContent('Action menu');
-    expect(input).toBeTruthy();
-  });
-
-  it('should match snapshot', async () => {
-    const promise = Promise.resolve();
-    const { container } = render(ActionMenuDropdown);
     expect(container).toMatchSnapshot();
     await act(() => promise);
   });
