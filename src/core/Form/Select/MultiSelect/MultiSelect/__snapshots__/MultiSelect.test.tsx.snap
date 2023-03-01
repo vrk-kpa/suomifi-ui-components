@@ -145,6 +145,31 @@ exports[`has matching snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c17 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: list-item;
+}
+
+.c17::before,
+.c17::after {
+  box-sizing: border-box;
+}
+
 .c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -171,6 +196,37 @@ exports[`has matching snapshot 1`] = `
 
 .c5::before,
 .c5::after {
+  box-sizing: border-box;
+}
+
+.c15 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  list-style-type: decimal;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 40px;
+}
+
+.c15::before,
+.c15::after {
   box-sizing: border-box;
 }
 
@@ -439,6 +495,45 @@ exports[`has matching snapshot 1`] = `
   margin-bottom: 0;
 }
 
+.c16 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  list-style-type: none;
+  box-sizing: content-box;
+  max-height: 265px;
+  background-color: hsl(0,0%,100%);
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
+  border-color: hsl(201,7%,58%);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  margin: 0;
+  padding: 4px 0 0 0;
+}
+
+.c16:focus {
+  outline: none;
+}
+
+.c16 .fi-select-item-list_content_wrapper {
+  display: block;
+  width: 100%;
+  max-height: inherit;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .c10 {
   vertical-align: baseline;
 }
@@ -461,6 +556,95 @@ exports[`has matching snapshot 1`] = `
 
 .c10.fi-icon--cursor-pointer * {
   cursor: inherit;
+}
+
+.c18 {
+  position: relative;
+  padding: 8px 32px 8px 10px;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c18:focus {
+  outline: none;
+}
+
+.c18.fi-select-item {
+  cursor: pointer;
+}
+
+.c18.fi-select-item .fi-select-item--query_highlight {
+  background-color: transparent;
+  font-weight: bold;
+}
+
+.c18.fi-select-item .fi-select-item_icon {
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  height: 12px;
+  width: 12px;
+}
+
+.c18.fi-select-item--selected {
+  background-color: hsl(215,100%,95%);
+  color: hsl(0,0%,13%);
+}
+
+.c18.fi-select-item--selected .fi-select-item--query_highlight {
+  color: hsl(0,0%,13%);
+}
+
+.c18.fi-select-item--hasKeyboardFocus {
+  background-color: hsl(212,63%,45%);
+  color: hsl(0,0%,100%);
+}
+
+.c18.fi-select-item--hasKeyboardFocus .fi-select-item--query_highlight {
+  color: hsl(0,0%,100%);
+  background-color: hsl(212,63%,45%);
+}
+
+.c18.fi-select-item--disabled {
+  color: hsl(202,7%,67%);
+  cursor: not-allowed;
+}
+
+.c18.fi-select-item--disabled .fi-select-item--query_highlight {
+  color: hsl(202,7%,67%);
+}
+
+.c18.fi-select-item--disabled.fi-select-item:hover {
+  color: hsl(202,7%,67%);
+}
+
+.c18.fi-select-item--disabled.fi-select-item:hover .fi-select-item--query_highlight {
+  color: hsl(202,7%,67%);
+}
+
+.c18.fi-select-item:hover {
+  background-color: hsl(212,63%,45%);
+  color: hsl(0,0%,100%);
+}
+
+.c18.fi-select-item:hover .fi-select-item--query_highlight {
+  color: hsl(0,0%,100%);
+}
+
+.c18 .fi-select-item_wrapper {
+  display: inline-block;
+  width: 100%;
 }
 
 .c13 {
@@ -904,146 +1088,210 @@ exports[`has matching snapshot 1`] = `
   margin-top: 10px;
 }
 
-<div
-  class="c0 fi-multiselect c1"
->
-  <div
-    class="c0 fi-multiselect_content_wrapper"
-  >
+<body>
+  <div>
     <div
-      class="c0 fi-filter-input c2"
+      class="c0 fi-multiselect c1 fi-multiselect--open"
     >
       <div
-        class="c0 fi-filter-input_wrapper"
+        class="c0 fi-multiselect_content_wrapper"
       >
         <div
-          class="c3 c4 fi-filter-input_label--visible fi-label"
+          class="c0 fi-filter-input c2"
         >
-          <label
-            class="c5 fi-label_label-span"
-            for="1"
-            id="1-label"
+          <div
+            class="c0 fi-filter-input_wrapper"
           >
-            MultiSelect
-          </label>
+            <div
+              class="c3 c4 fi-filter-input_label--visible fi-label"
+            >
+              <label
+                class="c5 fi-label_label-span"
+                for="1"
+                id="1-label"
+              >
+                MultiSelect
+              </label>
+            </div>
+            <div
+              class="c0 fi-filter-input_functionalityContainer"
+            >
+              <div
+                aria-expanded="true"
+                aria-haspopup="listbox"
+                aria-owns="3-popover"
+                class="c0 fi-filter-input_input-element-container"
+                role="combobox"
+              >
+                <input
+                  aria-activedescendant=""
+                  aria-autocomplete="list"
+                  aria-controls="3-popover"
+                  aria-invalid="false"
+                  aria-labelledby="1-label"
+                  aria-multiline="false"
+                  autocapitalize="none"
+                  autocomplete="off"
+                  class="c6 fi-filter-input_input"
+                  id="1"
+                  placeholder="Choose your tool(s)"
+                  spellcheck="false"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                class="c0 fi-filter-input_action-elements-container"
+              >
+                <button
+                  aria-hidden="true"
+                  class="c7 fi-input-toggle-button c8"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="c5 c9 fi-visually-hidden"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="fi-icon c10 fi-input-toggle-button_icon"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 10 10"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      class="fi-icon-base-fill"
+                      d="M5 2L1 8h8z"
+                      fill="#222"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <span
+                aria-atomic="true"
+                aria-live="assertive"
+                class="c5 c11 fi-status-text"
+              />
+            </div>
+          </div>
         </div>
         <div
-          class="c0 fi-filter-input_functionalityContainer"
+          class="c0 fi-chip-list c12"
+          id="2"
         >
           <div
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="3-popover"
-            class="c0 fi-filter-input_input-element-container"
-            role="combobox"
-          >
-            <input
-              aria-activedescendant=""
-              aria-autocomplete="list"
-              aria-controls="3-popover"
-              aria-invalid="false"
-              aria-labelledby="1-label"
-              aria-multiline="false"
-              autocapitalize="none"
-              autocomplete="off"
-              class="c6 fi-filter-input_input"
-              id="1"
-              placeholder="Choose your tool(s)"
-              spellcheck="false"
-              type="text"
-              value=""
-            />
-          </div>
-          <div
-            class="c0 fi-filter-input_action-elements-container"
+            class="c0 fi-chip-list_content_wrapper"
           >
             <button
-              aria-hidden="true"
-              class="c7 fi-input-toggle-button c8"
-              tabindex="-1"
+              aria-disabled="true"
+              class="c7 fi-chip fi-chip--button c13 fi-chip--disabled fi-chip--removable"
               type="button"
             >
               <span
-                class="c5 c9 fi-visually-hidden"
-              />
+                class="c5 fi-chip--content"
+              >
+                Powersaw
+              </span>
               <svg
                 aria-hidden="true"
-                class="fi-icon c10 fi-input-toggle-button_icon"
+                class="fi-icon c10 fi-chip--icon fi-icon--cursor-pointer"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 10 10"
+                viewBox="0 0 24 24"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   class="fi-icon-base-fill"
-                  d="M5 8l4-6H1z"
+                  d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
                   fill="#222"
                   fill-rule="evenodd"
                 />
               </svg>
+              <span
+                class="c5 c9 fi-visually-hidden"
+              >
+                Remove
+              </span>
+            </button>
+            <button
+              aria-disabled="false"
+              class="c7 fi-chip fi-chip--button c13 fi-chip--removable"
+              type="button"
+            >
+              <span
+                class="c5 fi-chip--content"
+              >
+                Hammer
+              </span>
+              <svg
+                aria-hidden="true"
+                class="fi-icon c10 fi-chip--icon fi-icon--cursor-pointer"
+                focusable="false"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="fi-icon-base-fill"
+                  d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
+                  fill="#222"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <span
+                class="c5 c9 fi-visually-hidden"
+              >
+                Remove
+              </span>
+            </button>
+            <button
+              aria-disabled="false"
+              class="c7 fi-chip fi-chip--button c13 fi-chip--removable"
+              type="button"
+            >
+              <span
+                class="c5 fi-chip--content"
+              >
+                Rake
+              </span>
+              <svg
+                aria-hidden="true"
+                class="fi-icon c10 fi-chip--icon fi-icon--cursor-pointer"
+                focusable="false"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="fi-icon-base-fill"
+                  d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
+                  fill="#222"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <span
+                class="c5 c9 fi-visually-hidden"
+              >
+                Remove
+              </span>
             </button>
           </div>
-          <span
-            aria-atomic="true"
-            aria-live="assertive"
-            class="c5 c11 fi-status-text"
-          />
         </div>
-      </div>
-    </div>
-    <div
-      class="c0 fi-chip-list c12"
-      id="2"
-    >
-      <div
-        class="c0 fi-chip-list_content_wrapper"
-      >
-        <button
-          aria-disabled="true"
-          class="c7 fi-chip fi-chip--button c13 fi-chip--disabled fi-chip--removable"
-          type="button"
-        >
-          <span
-            class="c5 fi-chip--content"
-          >
-            Powersaw
-          </span>
-          <svg
-            aria-hidden="true"
-            class="fi-icon c10 fi-chip--icon fi-icon--cursor-pointer"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              class="fi-icon-base-fill"
-              d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
-              fill="#222"
-              fill-rule="evenodd"
-            />
-          </svg>
-          <span
-            class="c5 c9 fi-visually-hidden"
-          >
-            Remove
-          </span>
-        </button>
         <button
           aria-disabled="false"
-          class="c7 fi-chip fi-chip--button c13 fi-chip--removable"
+          class="c7 fi-button c14 fi-multiselect_removeAllButton fi-button--link"
+          tabindex="0"
           type="button"
         >
-          <span
-            class="c5 fi-chip--content"
-          >
-            Hammer
-          </span>
           <svg
             aria-hidden="true"
-            class="fi-icon c10 fi-chip--icon fi-icon--cursor-pointer"
+            class="fi-icon c10 fi-button_icon fi-icon--cursor-pointer"
             focusable="false"
             height="1em"
             viewBox="0 0 24 24"
@@ -1052,75 +1300,206 @@ exports[`has matching snapshot 1`] = `
           >
             <path
               class="fi-icon-base-fill"
-              d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
+              d="M13 0c1.654 0 3 1.346 3 3v1h5a1 1 0 010 2h-1.091l-1.804 16.117A2.143 2.143 0 0116 24H8a2.141 2.141 0 01-2.104-1.885L4.119 6H3a1 1 0 010-2h5V3c0-1.654 1.346-3 3-3h2zm4.898 6H6.132l1.753 15.896c.004.04.075.104.115.104h8c.041 0 .113-.065.118-.105L17.898 6zM13 2h-2c-.551 0-1 .448-1 1v1h4V3c0-.552-.449-1-1-1z"
               fill="#222"
               fill-rule="evenodd"
             />
           </svg>
-          <span
-            class="c5 c9 fi-visually-hidden"
-          >
-            Remove
-          </span>
-        </button>
-        <button
-          aria-disabled="false"
-          class="c7 fi-chip fi-chip--button c13 fi-chip--removable"
-          type="button"
-        >
-          <span
-            class="c5 fi-chip--content"
-          >
-            Rake
-          </span>
-          <svg
-            aria-hidden="true"
-            class="fi-icon c10 fi-chip--icon fi-icon--cursor-pointer"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              class="fi-icon-base-fill"
-              d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
-              fill="#222"
-              fill-rule="evenodd"
-            />
-          </svg>
-          <span
-            class="c5 c9 fi-visually-hidden"
-          >
-            Remove
-          </span>
+          Remove all selections
         </button>
       </div>
     </div>
-    <button
-      aria-disabled="false"
-      class="c7 fi-button c14 fi-multiselect_removeAllButton fi-button--link"
-      tabindex="0"
-      type="button"
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c5 c9 fi-visually-hidden"
     >
-      <svg
-        aria-hidden="true"
-        class="fi-icon c10 fi-button_icon fi-icon--cursor-pointer"
-        focusable="false"
-        height="1em"
-        viewBox="0 0 24 24"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          class="fi-icon-base-fill"
-          d="M13 0c1.654 0 3 1.346 3 3v1h5a1 1 0 010 2h-1.091l-1.804 16.117A2.143 2.143 0 0116 24H8a2.141 2.141 0 01-2.104-1.885L4.119 6H3a1 1 0 010-2h5V3c0-1.654 1.346-3 3-3h2zm4.898 6H6.132l1.753 15.896c.004.04.075.104.115.104h8c.041 0 .113-.065.118-.105L17.898 6zM13 2h-2c-.551 0-1 .448-1 1v1h4V3c0-.552-.449-1-1-1z"
-          fill="#222"
-          fill-rule="evenodd"
-        />
-      </svg>
-      Remove all selections
-    </button>
+      3
+      tools selected
+    </span>
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c5 c9 fi-visually-hidden"
+      id="3-filteredItems-length"
+    />
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c5 c9 fi-visually-hidden"
+      id="3-loading-announce"
+    />
+    <span
+      aria-atomic="true"
+      aria-live="assertive"
+      class="c5 c9 fi-visually-hidden"
+      id="3-chip-removal-announce"
+    />
   </div>
-</div>
+  <div
+    class="fi-portal"
+    role="presentation"
+    style="position: absolute; left: 0px; top: 0px;"
+    tabindex="-1"
+  >
+    <div
+      class="c3"
+    >
+      <ul
+        aria-multiselectable="true"
+        class="c15 fi-select-item-list c16"
+        id="3-popover"
+        role="listbox"
+        tabindex="0"
+      >
+        <div
+          class="c3 fi-select-item-list_content_wrapper"
+        >
+          <div
+            class="c0"
+          >
+            <li
+              aria-disabled="false"
+              aria-selected="false"
+              class="c17 fi-select-item c18"
+              id="3-jh2435626"
+              role="option"
+              tabindex="-1"
+            >
+              Jackhammer
+            </li>
+            <li
+              aria-disabled="false"
+              aria-selected="true"
+              class="c17 fi-select-item c18 fi-select-item--selected"
+              id="3-h9823523"
+              role="option"
+              tabindex="-1"
+            >
+              Hammer
+              <svg
+                aria-hidden="true"
+                class="fi-icon c10 fi-select-item_icon"
+                focusable="false"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="fi-icon-base-fill"
+                  d="M19.447 5.384L8 17.42a1.82 1.82 0 01-2.667 0L.552 12.394a2.059 2.059 0 010-2.805 1.822 1.822 0 012.666 0l3.449 3.625L16.78 2.581a1.82 1.82 0 012.666 0 2.053 2.053 0 010 2.803"
+                  fill="#222"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </li>
+            <li
+              aria-disabled="false"
+              aria-selected="false"
+              class="c17 fi-select-item c18"
+              id="3-sh908293482"
+              role="option"
+              tabindex="-1"
+            >
+              Sledgehammer
+            </li>
+            <li
+              aria-disabled="false"
+              aria-selected="false"
+              class="c17 fi-select-item c18"
+              id="3-s82502335"
+              role="option"
+              tabindex="-1"
+            >
+              Spade
+            </li>
+            <li
+              aria-disabled="true"
+              aria-selected="true"
+              class="c17 fi-select-item c18 fi-select-item--selected fi-select-item--disabled"
+              id="3-ps9081231"
+              role="option"
+              tabindex="-1"
+            >
+              Powersaw
+              <svg
+                aria-hidden="true"
+                class="fi-icon c10 fi-select-item_icon"
+                focusable="false"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="fi-icon-base-fill"
+                  d="M19.447 5.384L8 17.42a1.82 1.82 0 01-2.667 0L.552 12.394a2.059 2.059 0 010-2.805 1.822 1.822 0 012.666 0l3.449 3.625L16.78 2.581a1.82 1.82 0 012.666 0 2.053 2.053 0 010 2.803"
+                  fill="#222"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </li>
+            <li
+              aria-disabled="false"
+              aria-selected="false"
+              class="c17 fi-select-item c18"
+              id="3-s05111511"
+              role="option"
+              tabindex="-1"
+            >
+              Shovel
+            </li>
+            <li
+              aria-disabled="false"
+              aria-selected="false"
+              class="c17 fi-select-item c18"
+              id="3-is3451261"
+              role="option"
+              tabindex="-1"
+            >
+              Iron stick
+            </li>
+            <li
+              aria-disabled="false"
+              aria-selected="true"
+              class="c17 fi-select-item c18 fi-select-item--selected"
+              id="3-r09282626"
+              role="option"
+              tabindex="-1"
+            >
+              Rake
+              <svg
+                aria-hidden="true"
+                class="fi-icon c10 fi-select-item_icon"
+                focusable="false"
+                height="1em"
+                viewBox="0 0 20 20"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="fi-icon-base-fill"
+                  d="M19.447 5.384L8 17.42a1.82 1.82 0 01-2.667 0L.552 12.394a2.059 2.059 0 010-2.805 1.822 1.822 0 012.666 0l3.449 3.625L16.78 2.581a1.82 1.82 0 012.666 0 2.053 2.053 0 010 2.803"
+                  fill="#222"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </li>
+            <li
+              aria-disabled="true"
+              aria-selected="false"
+              class="c17 fi-select-item c18 fi-select-item--disabled"
+              id="3-ms6126266"
+              role="option"
+              tabindex="-1"
+            >
+              Motorsaw
+            </li>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</body>
 `;

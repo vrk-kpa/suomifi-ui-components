@@ -118,9 +118,15 @@ it('should not have basic accessibility issues', async () => {
   });
 });
 
-it('has matching snapshot', () => {
-  const { container } = render(BasicMultiSelect);
-  expect(container.firstChild).toMatchSnapshot();
+it('has matching snapshot', async () => {
+  await act(async () => {
+    const { baseElement, getByRole } = render(BasicMultiSelect);
+    const textfield = getByRole('textbox') as HTMLInputElement;
+    await act(async () => {
+      fireEvent.focus(textfield);
+    });
+    expect(baseElement).toMatchSnapshot();
+  });
 });
 
 describe('Chips', () => {
