@@ -98,9 +98,13 @@ it('should not have basic accessibility issues', async () => {
   });
 });
 
-it('has matching snapshot', () => {
-  const { container } = render(BasicSingleSelect);
-  expect(container.firstChild).toMatchSnapshot();
+it('has matching snapshot', async () => {
+  const { baseElement, getByRole } = render(BasicSingleSelect);
+  const textfield = getByRole('textbox') as HTMLInputElement;
+  await act(async () => {
+    fireEvent.focus(textfield);
+  });
+  expect(baseElement).toMatchSnapshot();
 });
 
 describe('Controlled', () => {
