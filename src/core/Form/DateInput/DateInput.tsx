@@ -10,6 +10,7 @@ import React, {
 } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import { IconCalendar } from 'suomifi-icons';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { Debounce } from '../../utils/Debounce/Debounce';
@@ -22,7 +23,6 @@ import { Label, LabelMode } from '../Label/Label';
 import { StatusText } from '../StatusText/StatusText';
 import { HintText } from '../HintText/HintText';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
-import { Icon } from '../../Icon/Icon';
 import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './DateInput.baseStyles';
 import {
@@ -402,10 +402,9 @@ const BaseDateInput = (props: DateInputProps) => {
                 <VisuallyHidden>
                   {buttonDateLabel || texts.openButtonLabel}
                 </VisuallyHidden>
-                <Icon
+                <IconCalendar
                   className={dateInputClassNames.pickerIcon}
                   aria-hidden={true}
-                  icon="calendar"
                 />
               </HtmlButton>
               <DatePicker

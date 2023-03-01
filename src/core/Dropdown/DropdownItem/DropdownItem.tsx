@@ -1,5 +1,6 @@
 import React, { ReactNode, useLayoutEffect, useRef } from 'react';
 import { default as styled } from 'styled-components';
+import { IconCheck } from 'suomifi-icons';
 import { baseStyles } from './DropdownItem.basestyles';
 import {
   dropdownClassNames,
@@ -9,7 +10,6 @@ import {
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlLi } from '../../../reset';
-import { Icon } from '../../Icon/Icon';
 import { getOwnerDocument } from '../../../utils/common';
 
 export interface DropdownItemProps {
@@ -95,11 +95,7 @@ const BaseDropdownItem = (props: BaseDropdownItemProps & SuomifiThemeProp) => {
     >
       {children}
       {selected && !consumer.noSelectedStyles && (
-        <Icon
-          icon="check"
-          className={dropdownItemClassNames.icon}
-          aria-hidden={true}
-        />
+        <IconCheck className={dropdownItemClassNames.icon} aria-hidden={true} />
       )}
     </HtmlLi>
   );

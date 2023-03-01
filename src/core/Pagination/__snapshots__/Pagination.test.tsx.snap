@@ -426,7 +426,7 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c9 .fi-page-input_input {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
