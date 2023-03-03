@@ -5,7 +5,9 @@ import {
   ActionMenu,
   RouterLink,
   ActionMenuDivider,
-  ActionMenuItem
+  ActionMenuItem,
+  Button,
+  Link
 } from 'suomifi-ui-components';
 import React from 'react';
 
@@ -27,7 +29,7 @@ const CustomButton = (props) => {
         </RouterLink>
       </ActionMenuItem>
       <ActionMenuItem>
-        <RouterLink onClick={() => console.log('Item 1 clicked')}>
+        <RouterLink onClick={() => console.log('Item 1')}>
           Do action 1
         </RouterLink>
       </ActionMenuItem>
@@ -35,25 +37,25 @@ const CustomButton = (props) => {
       <ActionMenuItem>
         <RouterLink
           asComponent={CustomButton}
-          onClick={() => console.log('Item 2 clicked')}
+          onClick={() => console.log('Pidempi')}
         >
-          Action number 4
+          Pidempi nimi toiminnolle
         </RouterLink>
       </ActionMenuItem>
       <ActionMenuItem>
         <RouterLink
           asComponent={CustomButton}
-          onClick={() => console.log('Item 3 clicked')}
+          onClick={() => console.log('Muokkaa')}
         >
-          ya ya
+          Muokkaa
         </RouterLink>
       </ActionMenuItem>
       <ActionMenuItem>
         <RouterLink
           asComponent={CustomButton}
-          onClick={() => console.log('Item 4 clicked')}
+          onClick={() => console.log('Poista')}
         >
-          Settings
+          Poista
         </RouterLink>
       </ActionMenuItem>
     </ActionMenu>
