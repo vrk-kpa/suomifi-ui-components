@@ -29,6 +29,7 @@ export const actionMenuClassNames = {
   pickerButtonDisabled: `${baseClassName}_picker-button--disabled`,
   pickerIcon: `${baseClassName}_picker-icon`,
   styleWrapper: `${baseClassName}_wrapper`,
+  menuClosed: `${baseClassName}_picker-button--menu--closed`,
 };
 
 export interface ActionMenuProps
@@ -87,6 +88,9 @@ const BaseActionMenu = (props: ActionMenuProps) => {
   const openButtonRef = useRef<HTMLButtonElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
 
+  const menuId = `${id}-menu`;
+  const buttonId = `${id}-button`;
+
   const toggleMenu = (open: boolean, focus: boolean = false) => {
     setMenuVisible(open);
 
@@ -103,6 +107,16 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     }
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (
+      (event.key === 'ArrowDown' || event.key === 'ArrowUp') &&
+      !menuVisible
+    ) {
+      event.preventDefault();
+      toggleMenu(!menuVisible);
+    }
+  };
+
   return (
     <HtmlDiv
       {...wrapperProps}
@@ -116,12 +130,24 @@ const BaseActionMenu = (props: ActionMenuProps) => {
           <HtmlDiv className={actionMenuClassNames.pickerElementContainer}>
             <>
               <HtmlButton
+                id={buttonId}
+                aria-haspopup="true"
+                aria-controls={menuId}
                 forwardedRef={openButtonRef}
-                className={classnames(actionMenuClassNames.pickerButton, {
-                  [actionMenuClassNames.pickerButtonDisabled]:
-                    passProps.disabled,
-                })}
-                onClick={() => toggleMenu(!menuVisible)}
+                className={classnames(
+                  actionMenuClassNames.pickerButton,
+                  {
+                    [actionMenuClassNames.pickerButtonDisabled]:
+                      passProps.disabled,
+                  },
+                  {
+                    [actionMenuClassNames.menuClosed]: !menuVisible,
+                  },
+                )}
+                onClick={() => {
+                  toggleMenu(!menuVisible);
+                }}
+                onKeyDown={handleKeyDown}
                 disabled={passProps.disabled}
               >
                 {buttonText}
@@ -133,6 +159,8 @@ const BaseActionMenu = (props: ActionMenuProps) => {
                 />
               </HtmlButton>
               <ActionMenuPopover
+                menuId={menuId}
+                buttonId={buttonId}
                 openButtonRef={openButtonRef}
                 isOpen={menuVisible}
                 onClose={(focus) => toggleMenu(false, focus)}
