@@ -19,6 +19,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   & .fi-action-menu-popover_application {
     padding-top: 8px;
     padding-bottom: 8px;
+    margin: 0;
+    padding-left: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
