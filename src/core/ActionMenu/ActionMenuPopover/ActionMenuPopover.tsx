@@ -5,9 +5,11 @@ import { usePopper } from 'react-popper';
 import classnames from 'classnames';
 import { useEnhancedEffect } from '../../../utils/common';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { HtmlDiv, HtmlDivWithRef } from '../../../reset';
-// import { getLogger } from '../../../utils/log';
+import { HtmlDiv, HtmlDivWithRef, HtmlUl } from '../../../reset';
+import { getLogger } from '../../../utils/log';
 import { baseStyles } from './ActionMenuPopover.baseStyles';
+
+import { ActionMenuItem, ActionMenuItemProps } from '../ActionMenuItem';
 
 const baseClassName = 'fi-action-menu-popover';
 
@@ -37,14 +39,26 @@ export interface InternalActionMenuPopoverProps {
     | undefined;
 */
 
-  /** Use the `<WizardNavigationItem>` components as children */
+  /** Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
   children: ReactNode;
+
+  menuId: string;
+
+  buttonId: string;
 }
 
 export const BaseActionMenuPopover = (
   props: InternalActionMenuPopoverProps,
 ) => {
-  const { openButtonRef, isOpen, onClose, className, children } = props;
+  const {
+    openButtonRef,
+    isOpen,
+    onClose,
+    className,
+    children,
+    menuId,
+    buttonId,
+  } = props;
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
   const [dialogElement, setDialogElement] = useState<HTMLElement | null>(null);
@@ -75,7 +89,7 @@ export const BaseActionMenuPopover = (
       };
     }
     setHasPopperEventListeners(false);
-  }, [isOpen]);
+  }, [isOpen, focusedChild]);
 
   const globalClickHandler = (nativeEvent: MouseEvent) => {
     console.log((nativeEvent.target as Node).nodeName);
@@ -92,6 +106,7 @@ export const BaseActionMenuPopover = (
       !dialogElement?.contains(nativeEvent.target as Node) &&
       !openButtonRef.current?.contains(nativeEvent.target as Node)
     ) {
+      // Click is outside of button and dialog element
       handleClose();
     }
   };
@@ -196,6 +211,23 @@ export const BaseActionMenuPopover = (
     return null;
   } */
 
+  const breadcrumbItems = (childs: ReactNode) =>
+    React.Children.map(
+      childs,
+      (child: React.ReactElement<ActionMenuItemProps>, index) => {
+        // Add onClick prop to clickable items
+        if (React.isValidElement(child) && child.type === ActionMenuItem) {
+          // console.log(child);
+          return React.cloneElement(child, {
+            // onClick: onClose(true),
+            // selected: focusables[focusedChild] === index,
+            selected: focusedChild === index,
+          });
+        }
+        return child;
+      },
+    );
+
   if (!mountNode) {
     return null;
   }
@@ -210,12 +242,15 @@ export const BaseActionMenuPopover = (
           style={styles.popper}
           forwardedRef={setDialogElement}
         >
-          <HtmlDiv
-            role="application"
+          <HtmlUl
+            // role="application"
+            role="menu"
+            id={menuId}
+            aria-labelledby={buttonId}
             className={actionMenuClassNames.application}
           >
-            {children}
-          </HtmlDiv>
+            {breadcrumbItems(children)}
+          </HtmlUl>
           <div
             className={actionMenuClassNames.popperArrow}
             style={styles.arrow}
