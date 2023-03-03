@@ -15,20 +15,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     display: inline-block;
   }
 
-  & .fi-action-menu_input-element-container {
-    ${containerIEFocus(theme)}
-
-    &:focus-within {
-      position: relative;
-
-      &::after {
-        ${theme.focuses.absoluteFocus}
-      }
-    }
-
-    width: 100%;
-  }
-
   & .fi-action-menu_picker-element-container {
     flex: 1;
   }
@@ -40,11 +26,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   & .fi-action-menu_picker-button {
     ${containerIEFocus(theme)}
 
-    &:focus-within {
-      position: relative;
+    &--menu--closed {
+      &:focus-within {
+        position: relative;
 
-      &::after {
-        ${theme.focuses.absoluteFocus}
+        &::after {
+          ${theme.focuses.absoluteFocus}
+        }
       }
     }
 
