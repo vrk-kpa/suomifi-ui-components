@@ -67,10 +67,10 @@ export const getRecursiveChildText = (reactNode: ReactElement): any => {
   }
   if (typeof children === 'object') {
     // Found direct child
-    return getRecursiveChildText(reactNode.props.children);
+    return getRecursiveChildText(children);
   }
   if (typeof children === 'string' || typeof children === 'number') {
     // Found searchable string
-    return reactNode.props.children;
+    return children;
   }
 };

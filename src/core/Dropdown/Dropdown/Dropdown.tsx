@@ -10,11 +10,18 @@ import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
+  forkRefs,
   getOwnerDocument,
   getRecursiveChildText,
 } from '../../../utils/common/common';
 import { Popover } from '../../../core/Popover/Popover';
 import { SelectItemList } from '../../Form/Select/BaseSelect/SelectItemList/SelectItemList';
+import { HintText } from '../../Form/HintText/HintText';
+import { StatusText } from '../../Form/StatusText/StatusText';
+import { StatusTextCommonProps } from '../../Form/types';
+
+// Dropdown is a button but it also has a listbox popup
+/* eslint-disable jsx-a11y/role-supports-aria-props */
 
 const baseClassName = 'fi-dropdown';
 
@@ -26,8 +33,11 @@ export const dropdownClassNames = {
   popover: `${baseClassName}_popover`,
   itemList: `${baseClassName}_item-list`,
   item: `${baseClassName}_item`,
+  statusTextHasContent: `${baseClassName}_statusText--has-content`,
   open: `${baseClassName}--open`,
   disabled: `${baseClassName}--disabled`,
+  error: `${baseClassName}--error`,
+  italicize: `${baseClassName}--italicize`,
 };
 
 export interface DropdownProviderState {
@@ -41,6 +51,8 @@ export interface DropdownProviderState {
    * Used in DropdownItem to create a derived ID for each item
    */
   id: string | undefined;
+  /** Disable selected styling when used as an action menu */
+  noSelectedStyles: boolean | undefined;
 }
 
 const defaultProviderValue: DropdownProviderState = {
@@ -48,6 +60,7 @@ const defaultProviderValue: DropdownProviderState = {
   selectedDropdownValue: null,
   id: '',
   focusedItemID: null,
+  noSelectedStyles: false,
 };
 
 const { Provider: DropdownProvider, Consumer: DropdownConsumer } =
@@ -60,7 +73,7 @@ interface DropdownState {
   focusedDescendantId: string | null | undefined;
 }
 
-export interface DropdownProps {
+export interface DropdownProps extends StatusTextCommonProps {
   /**
    * Unique id
    * If no id is specified, one will be generated automatically
@@ -74,8 +87,12 @@ export interface DropdownProps {
   value?: string;
   /** Label for the Dropdown component. */
   labelText: ReactNode;
+  /** Hint text to be shown below the label */
+  hintText?: string;
   /** Visual hint to show if nothing is selected and no value or defaultValue is provided */
   visualPlaceholder?: ReactNode;
+  /** Show the visual placeholder instead of selected value and act as an action menu */
+  alwaysShowVisualPlaceholder?: boolean;
   /** Hide or show label. Label element is always present, but can be visually hidden.
    * @default visible
    */
@@ -87,6 +104,13 @@ export interface DropdownProps {
    * Used in addition to labelText for screen readers.
    */
   'aria-labelledby'?: string;
+  /**
+   * 'default' | 'error'
+   * @default default
+   */
+  status?: 'default' | 'error';
+  /** Status text to be shown below the component. Use e.g. for validation error */
+  statusText?: string;
   /** Custom classname to extend or customize */
   className?: string;
   /** Disable component */
@@ -97,6 +121,8 @@ export interface DropdownProps {
     | ReactElement<DropdownItemProps>;
   /** Callback that fires when the dropdown value changes. */
   onChange?(value: string): void;
+  /** Callback that fires on blur */
+  onBlur?: () => void;
   /** Tooltip component for the dropdown's label */
   tooltipComponent?: ReactElement;
   /**
@@ -104,8 +130,8 @@ export interface DropdownProps {
    * @default true
    */
   portal?: boolean;
-  /** Ref object to be passed to the input element. Alternative to React `ref` attribute. */
-  forwardedRef?: React.RefObject<HTMLDivElement>;
+  /** Ref object to be passed to the button element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
 
 class BaseDropdown extends Component<DropdownProps> {
@@ -170,11 +196,12 @@ class BaseDropdown extends Component<DropdownProps> {
     if (selectedValue === undefined || children === undefined) return undefined;
 
     if (Array.isArray(children)) {
-      children.forEach((element) => {
+      for (let index = 0; index < children.length; index += 1) {
+        const element = children[index];
         if (element.props.value === selectedValue) {
           return getRecursiveChildText(element);
         }
-      });
+      }
     } else {
       return getRecursiveChildText(children);
     }
@@ -188,6 +215,9 @@ class BaseDropdown extends Component<DropdownProps> {
   }
 
   private handleItemSelection(itemValue: string) {
+    if (!!this.props.onChange) {
+      this.props.onChange(itemValue);
+    }
     this.setState({
       selectedValue: itemValue,
       selectedValueText: BaseDropdown.parseSelectedValueText(
@@ -197,9 +227,6 @@ class BaseDropdown extends Component<DropdownProps> {
       showPopover: false,
       focusedDescendantId: itemValue,
     });
-    if (!!this.props.onChange) {
-      this.props.onChange(itemValue);
-    }
     this.buttonRef.current?.focus();
   }
 
@@ -284,6 +311,9 @@ class BaseDropdown extends Component<DropdownProps> {
   };
 
   private handleOnBlur = () => {
+    if (!!this.props.onBlur) {
+      this.props.onBlur();
+    }
     const ownerDocument = getOwnerDocument(this.popoverRef);
     if (!ownerDocument) {
       return;
@@ -302,6 +332,13 @@ class BaseDropdown extends Component<DropdownProps> {
     });
   };
 
+  private getDisplayValue() {
+    if (this.props.alwaysShowVisualPlaceholder) {
+      return this.props.visualPlaceholder;
+    }
+    return this.state.selectedValueText ?? this.props.visualPlaceholder;
+  }
+
   render() {
     const {
       id,
@@ -313,11 +350,17 @@ class BaseDropdown extends Component<DropdownProps> {
       forwardedRef,
       optionalText,
       'aria-labelledby': ariaLabelledBy,
+      hintText,
+      status,
+      statusText,
       visualPlaceholder,
+      alwaysShowVisualPlaceholder,
       className,
       onChange: propOnChange,
+      onBlur,
       tooltipComponent,
       portal = true,
+      statusTextAriaLiveMode = 'assertive',
       ...passProps
     } = this.props;
 
@@ -329,25 +372,29 @@ class BaseDropdown extends Component<DropdownProps> {
     const labelId = `${id}-label`;
     const buttonId = `${id}_button`;
     const popoverItemListId = `${id}-popover`;
+    const hintTextId = hintText ? `${id}-hintText` : undefined;
+    const statusTextId = statusText ? `${id}-statusText` : undefined;
 
-    const {
-      selectedValue,
-      selectedValueText,
-      showPopover,
-      focusedDescendantId,
-    } = this.state;
+    const { selectedValue, showPopover, focusedDescendantId } = this.state;
 
     const ariaActiveDescendant = focusedDescendantId
       ? `${id}-${focusedDescendantId}`
       : '';
 
-    const dropdownDisplayValue = selectedValueText ?? visualPlaceholder ?? '';
+    const dropdownDisplayValue = this.getDisplayValue();
+    const italicize =
+      visualPlaceholder && !alwaysShowVisualPlaceholder && !selectedValue;
+
+    // Remove the possibility to have undefined forwardedRef as a parameter for forkRefs
+    const definedRef = forwardedRef || null;
 
     return (
       <HtmlSpan
         className={classnames(className, baseClassName, {
           [dropdownClassNames.disabled]: !!disabled,
           [dropdownClassNames.open]: !!showPopover,
+          [dropdownClassNames.error]: status === 'error',
+          [dropdownClassNames.italicize]: italicize,
         })}
         id={id}
         {...passProps}
@@ -364,36 +411,53 @@ class BaseDropdown extends Component<DropdownProps> {
           >
             {labelText}
           </Label>
+          <HintText id={hintTextId}>{hintText}</HintText>
           <HtmlDiv className={classnames(dropdownClassNames.inputWrapper)}>
             <HtmlSpan
               aria-haspopup="listbox"
               role="button"
               tabIndex={!disabled ? 0 : -1}
-              forwardedRef={this.buttonRef}
+              forwardedRef={forkRefs(this.buttonRef, definedRef)}
               id={buttonId}
               className={dropdownClassNames.button}
               {...getConditionalAriaProp(
                 'aria-labelledby',
                 selectedValue === undefined ? [ariaLabelledBy, labelId] : [],
               )}
+              {...getConditionalAriaProp('aria-describedby', [
+                statusTextId,
+                hintTextId,
+              ])}
               aria-owns={popoverItemListId}
               aria-expanded={showPopover}
+              aria-activedescendant={ariaActiveDescendant}
               onMouseDown={() => {
                 if (!disabled) {
                   this.setState({ showPopover: !showPopover });
                 }
               }}
               onKeyDown={this.handleKeyDown}
-              onBlur={() => this.handleOnBlur()}
+              onBlur={this.handleOnBlur}
             >
               {dropdownDisplayValue}
+              <HtmlInput
+                tabIndex={-1}
+                type="hidden"
+                name={name}
+                value={selectedValue || ''}
+              />
             </HtmlSpan>
-            <HtmlInput
-              tabIndex={-1}
-              type="hidden"
-              name={name}
-              value={selectedValue || ''}
-            />
+            <StatusText
+              id={statusTextId}
+              className={classnames({
+                [dropdownClassNames.statusTextHasContent]: !!statusText,
+              })}
+              status={status}
+              disabled={disabled}
+              ariaLiveMode={statusTextAriaLiveMode}
+            >
+              {statusText}
+            </StatusText>
             {showPopover && !!children && (
               <Popover
                 sourceRef={this.buttonRef}
@@ -415,6 +479,7 @@ class BaseDropdown extends Component<DropdownProps> {
                     selectedDropdownValue: selectedValue,
                     id,
                     focusedItemID: focusedDescendantId,
+                    noSelectedStyles: alwaysShowVisualPlaceholder,
                   }}
                 >
                   <SelectItemList
@@ -448,7 +513,7 @@ const StyledDropdown = styled(
  * Use for selectable dropdown with items.
  */
 const Dropdown = forwardRef(
-  (props: DropdownProps, ref: React.RefObject<HTMLDivElement>) => {
+  (props: DropdownProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { id: propId, ...passProps } = props;
     return (
       <SuomifiThemeConsumer>

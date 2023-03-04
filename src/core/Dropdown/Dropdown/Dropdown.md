@@ -1,17 +1,34 @@
 ```js
-import { Dropdown, DropdownItem, Icon } from 'suomifi-ui-components';
+import React from 'react';
+import { Dropdown, DropdownItem } from 'suomifi-ui-components';
+
+const [selectedValue, setSelectedValue] = React.useState(null);
+const [status, setStatus] = React.useState('default');
 
 <Dropdown
   name="dropdown_example_1"
   labelText="Dropdown label"
-  defaultValue={'dropdown-item-13'}
-  onChange={(value) => console.log(value)}
+  hintText="Some informative text"
+  onChange={(value) => {
+    setStatus('default');
+    setSelectedValue(value);
+  }}
+  onBlur={() => {
+    if (!selectedValue) {
+      setStatus('error');
+    } else {
+      setStatus('default');
+    }
+  }}
+  status={status}
+  statusText={status === 'error' ? 'You must select a value.' : ''}
+  visualPlaceholder="Select a value"
 >
   <DropdownItem value={'dropdown-item-1'}>
-    Dropdown Item 1 <Icon icon="login" />
+    Dropdown Item 1
   </DropdownItem>
   <DropdownItem value={'dropdown-item-2'}>
-    <Icon icon="login" /> Dropdown Item 2
+    Dropdown Item 2
   </DropdownItem>
   <DropdownItem value={'dropdown-item-3'}>
     Dropdown Item 3
@@ -68,6 +85,7 @@ const exampleRef = createRef();
     labelMode="hidden"
     ref={exampleRef}
     onChange={() => console.log(exampleRef.current)}
+    style={{ width: '350px' }}
   >
     <DropdownItem value={'dropdown-item-1'}>
       Dropdown Item 1
@@ -102,7 +120,7 @@ const [value, setValue] = useState('');
 <Dropdown
   value={value}
   name="dropdown_example_4"
-  visualPlaceholder="Dropdown"
+  visualPlaceholder="Select a value"
   labelText="Dropdown with controlled state"
   onChange={(newValue) => {
     if (window.confirm('Change dropdown value?')) {
@@ -164,6 +182,22 @@ const dropdownProps = {
     </Dropdown>
   </Block>
 </div>;
+```
+
+### Drodown as action menu
+
+```js
+import { Dropdown, DropdownItem } from 'suomifi-ui-components';
+
+<Dropdown
+  visualPlaceholder="Action menu"
+  labelText="Dropdown as action menu"
+  alwaysShowVisualPlaceholder={true}
+  onChange={(action) => console.log(action, 'selected')}
+>
+  <DropdownItem value={'action-item-1'}>Action Item 1</DropdownItem>
+  <DropdownItem value={'action-item-2'}>Action Item 2</DropdownItem>
+</Dropdown>;
 ```
 
 ### Dropdown with a tooltip

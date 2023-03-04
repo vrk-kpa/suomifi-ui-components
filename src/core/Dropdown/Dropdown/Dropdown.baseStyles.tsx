@@ -1,8 +1,9 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
-import { element, inputButton } from '../../theme/reset';
+import { element, input } from '../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
+  width: 290px;
   /* stylelint-disable no-descending-specificity */
   .fi-dropdown_item-list {
     padding-top: 0;
@@ -14,15 +15,36 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       margin-bottom: ${theme.spacing.xs};
     }
 
-    .fi-dropdown_input-wrapper {
-      height: 40px;
+    .fi-hint-text {
+      margin-bottom: ${theme.spacing.xs};
+    }
+
+    .fi-status-text {
+      line-height: 18px;
+      &.fi-dropdown_statusText--has-content {
+        margin-top: ${theme.spacing.xxs};
+      }
+    }
+
+    &:not(.fi-dropdown--open) {
+      .fi-dropdown_button {
+        &:focus {
+          outline: 0;
+          position: relative;
+
+          &:after {
+            ${theme.focuses.absoluteFocus}
+          }
+        }
+      }
     }
 
     .fi-dropdown_button {
-      ${inputButton(theme)}
+      ${input(theme)}
       position: relative;
       display: inline-block;
       word-break: break-word;
+      width: 100%;
       overflow-wrap: break-word;
       height: 40px;
       padding: 7px 38px 7px 7px;
@@ -33,6 +55,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       box-shadow: ${theme.shadows.actionElementBoxShadow};
       cursor: pointer;
       user-select: none;
+      white-space: nowrap;
 
       &:focus-visible {
         outline: none;
@@ -53,19 +76,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         border-color: transparent transparent ${theme.colors.blackBase}
           transparent;
         border-width: 0 4px 6px 4px;
-      }
-    }
-
-    &:not(.fi-dropdown--open) {
-      .fi-dropdown_button {
-        &:focus {
-          outline: 0;
-          position: relative;
-
-          &:after {
-            ${theme.focuses.absoluteFocus}
-          }
-        }
       }
     }
 
@@ -114,6 +124,21 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         padding-bottom: 8px;
+      }
+    }
+
+    &--error {
+      .fi-dropdown_button {
+        border-color: ${theme.colors.alertBase};
+        border-width: 2px;
+      }
+    }
+
+    &--italicize {
+      .fi-dropdown_button {
+        font-style: italic;
+        color: ${theme.colors.depthDark2};
+        opacity: 1;
       }
     }
   }

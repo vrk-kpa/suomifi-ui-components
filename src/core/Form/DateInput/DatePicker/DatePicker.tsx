@@ -96,8 +96,8 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
 
   const sliderWrapperRef = useRef<HTMLDivElement>(null);
   const smallScreenAppRef = useRef<HTMLDivElement>(null);
-  const yearSelectRef = useRef<HTMLDivElement>(null);
-  const monthSelectRef = useRef<HTMLDivElement>(null);
+  const yearSelectRef = useRef<HTMLButtonElement>(null);
+  const monthSelectRef = useRef<HTMLButtonElement>(null);
   const confirmButtonRef = useRef<HTMLButtonElement>(null);
   const dayButtonRef = useRef<HTMLButtonElement>(null);
 

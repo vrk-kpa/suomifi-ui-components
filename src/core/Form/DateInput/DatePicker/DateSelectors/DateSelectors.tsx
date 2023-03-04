@@ -36,9 +36,9 @@ interface DateSelectorsProps {
   /** Callback for date select  */
   onChange: (date: Date) => void;
   /** Year select element reference for focus trap and calculating dropdown width */
-  yearSelect: React.RefObject<HTMLDivElement>;
+  yearSelect: React.RefObject<HTMLButtonElement>;
   /** Month select element reference for calculating dropdown width */
-  monthSelect: React.RefObject<HTMLDivElement>;
+  monthSelect: React.RefObject<HTMLButtonElement>;
   /** Date that is focused in calendar */
   focusableDate: Date;
   /** Minimum date user can select from date picker. */

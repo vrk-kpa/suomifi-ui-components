@@ -56,7 +56,6 @@ describe('Basic dropdown', () => {
       </Dropdown>,
     );
     const outerSpan = container.getElementsByClassName('fi-dropdown')[0];
-    console.log(outerSpan);
     expect(outerSpan).toHaveClass('fi-dropdown--disabled');
   });
 
@@ -161,6 +160,54 @@ describe('Dropdown with additional aria-label', () => {
     const { container } = render(DropdownWithExtraLabel);
     expect(container).toMatchSnapshot();
     await act(() => promise);
+  });
+});
+
+describe('statusText', () => {
+  it('has status text defined by prop', () => {
+    const statusTextProps: DropdownProps = {
+      ...dropdownProps,
+      statusText: 'Test status',
+    };
+    const DropdownWithStatusText = TestDropdown(statusTextProps);
+    const { getByText } = render(DropdownWithStatusText);
+    expect(getByText('Test status')).toBeDefined();
+  });
+});
+
+describe('statusTextAriaLiveMode', () => {
+  it('has assertive aria-live by default', () => {
+    const statusTextProps: DropdownProps = {
+      ...dropdownProps,
+      statusText: 'Test status',
+    };
+    const DropdownWithStatusText = TestDropdown(statusTextProps);
+    const { getByText } = render(DropdownWithStatusText);
+    expect(getByText('Test status')).toHaveAttribute('aria-live', 'assertive');
+  });
+  it('has aria-live defined by prop', () => {
+    const statusTextProps: DropdownProps = {
+      ...dropdownProps,
+      statusText: 'Test status',
+      statusTextAriaLiveMode: 'off',
+    };
+    const DropdownWithStatusTextAriaLiveDisabled =
+      TestDropdown(statusTextProps);
+    const { getByText } = render(DropdownWithStatusTextAriaLiveDisabled);
+    expect(getByText('Test status')).toHaveAttribute('aria-live', 'off');
+  });
+});
+
+describe('hintText', () => {
+  it('has hint text', () => {
+    const hintTextProps: DropdownProps = {
+      ...dropdownProps,
+      hintText: 'Test hint text',
+    };
+    const DropdownWithHintText = TestDropdown(hintTextProps);
+    const { getByText } = render(DropdownWithHintText);
+    const span = getByText('Test hint text');
+    expect(span).toBeDefined();
   });
 });
 

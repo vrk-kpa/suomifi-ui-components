@@ -1090,6 +1090,27 @@ exports[`snapshots match date input hint text 1`] = `
   margin-left: 6px;
 }
 
+.c5 {
+  color: hsl(0,0%,13%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c5.fi-hint-text {
+  display: block;
+}
+
 .c7 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1115,27 +1136,6 @@ exports[`snapshots match date input hint text 1`] = `
 
 .c7.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
-}
-
-.c5 {
-  color: hsl(0,0%,13%);
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c5.fi-hint-text {
-  display: block;
 }
 
 .c1 {
@@ -3425,6 +3425,37 @@ exports[`snapshots match date input with datepicker with controlled input value 
   margin-left: 6px;
 }
 
+.c9 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: hsl(0,0%,13%);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c9.fi-status-text {
+  display: block;
+}
+
+.c9.fi-status-text.fi-status-text--error {
+  color: hsl(3,59%,48%);
+}
+
+.c12 {
+  width: 290px;
+}
+
 .c12 .fi-dropdown_item-list {
   padding-top: 0;
 }
@@ -3437,8 +3468,37 @@ exports[`snapshots match date input with datepicker with controlled input value 
   margin-bottom: 10px;
 }
 
-.c12.fi-dropdown .fi-dropdown_input-wrapper {
-  height: 40px;
+.c12.fi-dropdown .fi-hint-text {
+  margin-bottom: 10px;
+}
+
+.c12.fi-dropdown .fi-status-text {
+  line-height: 18px;
+}
+
+.c12.fi-dropdown .fi-status-text.fi-dropdown_statusText--has-content {
+  margin-top: 5px;
+}
+
+.c12.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c12.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
 }
 
 .c12.fi-dropdown .fi-dropdown_button {
@@ -3465,6 +3525,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   position: relative;
   display: inline-block;
   word-break: break-word;
+  width: 100%;
   overflow-wrap: break-word;
   height: 40px;
   padding: 7px 38px 7px 7px;
@@ -3478,6 +3539,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  white-space: nowrap;
 }
 
 .c12.fi-dropdown .fi-dropdown_button:focus-visible {
@@ -3498,27 +3560,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
 .c12.fi-dropdown .fi-dropdown_button[aria-expanded='true']:before {
   border-color: transparent transparent hsl(0,0%,13%) transparent;
   border-width: 0 4px 6px 4px;
-}
-
-.c12.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus {
-  outline: 0;
-  position: relative;
-}
-
-.c12.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus:after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  z-index: 9999;
 }
 
 .c12.fi-dropdown .fi-dropdown_popover {
@@ -3567,6 +3608,17 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   padding-bottom: 8px;
+}
+
+.c12.fi-dropdown--error .fi-dropdown_button {
+  border-color: hsl(3,59%,48%);
+  border-width: 2px;
+}
+
+.c12.fi-dropdown--italicize .fi-dropdown_button {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c11 .fi-date-selectors_container {
@@ -3765,33 +3817,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-}
-
-.c9 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: hsl(0,0%,13%);
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.c9.fi-status-text {
-  display: block;
-}
-
-.c9.fi-status-text.fi-status-text--error {
-  color: hsl(3,59%,48%);
 }
 
 .c1 {
@@ -4147,12 +4172,19 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 id="16_button"
                 role="button"
                 tabindex="0"
-              />
-              <input
-                class="c5"
-                tabindex="-1"
-                type="hidden"
-                value="2020"
+              >
+                2020
+                <input
+                  class="c5"
+                  tabindex="-1"
+                  type="hidden"
+                  value="2020"
+                />
+              </span>
+              <span
+                aria-atomic="true"
+                aria-live="assertive"
+                class="c2 c9 fi-status-text"
               />
             </div>
           </div>
@@ -4186,12 +4218,19 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 id="17_button"
                 role="button"
                 tabindex="0"
-              />
-              <input
-                class="c5"
-                tabindex="-1"
-                type="hidden"
-                value="0"
+              >
+                Tammikuu
+                <input
+                  class="c5"
+                  tabindex="-1"
+                  type="hidden"
+                  value="0"
+                />
+              </span>
+              <span
+                aria-atomic="true"
+                aria-live="assertive"
+                class="c2 c9 fi-status-text"
               />
             </div>
           </div>

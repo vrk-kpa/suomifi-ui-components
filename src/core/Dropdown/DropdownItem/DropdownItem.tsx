@@ -9,6 +9,7 @@ import {
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlLi } from '../../../reset';
+import { Icon } from '../../Icon/Icon';
 
 export interface DropdownItemProps {
   /** Item value */
@@ -26,10 +27,12 @@ interface BaseDropdownItemProps extends DropdownItemProps {
 const dropdownItemClassNames = {
   hasKeyboardFocus: `${dropdownClassNames.item}--hasKeyboardFocus`,
   selected: `${dropdownClassNames.item}--selected`,
+  noSelectedStyles: `${dropdownClassNames.item}--noSelectedStyles`,
+  icon: `${dropdownClassNames.item}_icon`,
 };
 
 const BaseDropdownItem = (props: BaseDropdownItemProps & SuomifiThemeProp) => {
-  const { className, theme, consumer, value, ...passProps } = props;
+  const { children, className, theme, consumer, value, ...passProps } = props;
   const selected = consumer.selectedDropdownValue === value;
   const hasKeyboardFocus = consumer.focusedItemID === value;
   return (
@@ -37,17 +40,30 @@ const BaseDropdownItem = (props: BaseDropdownItemProps & SuomifiThemeProp) => {
       className={classnames(className, dropdownClassNames.item, {
         [dropdownItemClassNames.hasKeyboardFocus]: hasKeyboardFocus,
         [dropdownItemClassNames.selected]: selected,
+        [dropdownItemClassNames.noSelectedStyles]: consumer.noSelectedStyles,
       })}
       tabIndex={-1}
       role="option"
       aria-selected={selected}
       id={`${consumer.id}-${value}`}
-      onClick={(event) => {
-        console.log(event);
+      onMouseDown={(event) => {
+        // prevent blur on Dropdown button element
+        event.preventDefault();
+      }}
+      onClick={() => {
         consumer.onItemClick(value);
       }}
       {...passProps}
-    />
+    >
+      {children}
+      {selected && !consumer.noSelectedStyles && (
+        <Icon
+          icon="check"
+          className={dropdownItemClassNames.icon}
+          aria-hidden={true}
+        />
+      )}
+    </HtmlLi>
   );
 };
 
