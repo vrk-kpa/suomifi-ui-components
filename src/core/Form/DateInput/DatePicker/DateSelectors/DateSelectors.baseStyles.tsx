@@ -12,17 +12,17 @@ export const baseStyles = (
 
   & .fi-date-selectors_year-select {
     margin-right: ${theme.spacing.xs};
-    min-width: ${yearSelectWidth}px;
+    width: ${yearSelectWidth}px;
     .fi-dropdown_button {
-      min-width: 60px;
+      min-width: 90px;
     }
   }
 
   & .fi-date-selectors_month-select {
     margin-right: ${theme.spacing.xs};
-    min-width: ${monthSelectWidth}px;
+    width: ${monthSelectWidth}px;
     .fi-dropdown_button {
-      min-width: 125px;
+      min-width: 145px;
     }
   }
 

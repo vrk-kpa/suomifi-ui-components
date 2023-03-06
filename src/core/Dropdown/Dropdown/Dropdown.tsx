@@ -100,7 +100,7 @@ export interface DropdownProps extends StatusTextCommonProps {
   /** Text to mark a field optional. Will be wrapped in parentheses and shown after labelText. */
   optionalText?: string;
   /**
-   * Additional label id. E.g. form group label.
+   * ID on an additional label id. E.g. form group label.
    * Used in addition to labelText for screen readers.
    */
   'aria-labelledby'?: string;
@@ -280,6 +280,17 @@ class BaseDropdown extends Component<DropdownProps> {
       case ' ': {
         event.preventDefault();
         this.setState({ showPopover: !showPopover });
+        if (!showPopover) {
+          this.setState({ showPopover: true });
+        } else if (showPopover && focusedDescendantId) {
+          event.preventDefault();
+          const focusedItem = popoverItems.find(
+            (item) => item?.props.value === focusedDescendantId,
+          );
+          if (focusedItem) {
+            this.handleItemSelection(focusedItem.props.value);
+          }
+        }
         break;
       }
 
@@ -369,13 +380,19 @@ class BaseDropdown extends Component<DropdownProps> {
       return null;
     }
 
+    const {
+      selectedValue,
+      selectedValueText,
+      showPopover,
+      focusedDescendantId,
+    } = this.state;
+
     const labelId = `${id}-label`;
     const buttonId = `${id}_button`;
     const popoverItemListId = `${id}-popover`;
     const hintTextId = hintText ? `${id}-hintText` : undefined;
     const statusTextId = statusText ? `${id}-statusText` : undefined;
-
-    const { selectedValue, showPopover, focusedDescendantId } = this.state;
+    const displayValueId = selectedValueText ? `${id}-displayValue` : undefined;
 
     const ariaActiveDescendant = focusedDescendantId
       ? `${id}-${focusedDescendantId}`
@@ -402,6 +419,7 @@ class BaseDropdown extends Component<DropdownProps> {
         <HtmlDiv>
           <Label
             id={labelId}
+            htmlFor={buttonId}
             labelMode={labelMode}
             optionalText={optionalText}
             className={classnames({
@@ -420,10 +438,11 @@ class BaseDropdown extends Component<DropdownProps> {
               forwardedRef={forkRefs(this.buttonRef, definedRef)}
               id={buttonId}
               className={dropdownClassNames.button}
-              {...getConditionalAriaProp(
-                'aria-labelledby',
-                selectedValue === undefined ? [ariaLabelledBy, labelId] : [],
-              )}
+              {...getConditionalAriaProp('aria-labelledby', [
+                displayValueId,
+                ariaLabelledBy,
+                labelId,
+              ])}
               {...getConditionalAriaProp('aria-describedby', [
                 statusTextId,
                 hintTextId,
@@ -439,7 +458,7 @@ class BaseDropdown extends Component<DropdownProps> {
               onKeyDown={this.handleKeyDown}
               onBlur={this.handleOnBlur}
             >
-              {dropdownDisplayValue}
+              <HtmlSpan id={displayValueId}>{dropdownDisplayValue}</HtmlSpan>
               <HtmlInput
                 tabIndex={-1}
                 type="hidden"
