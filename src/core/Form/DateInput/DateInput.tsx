@@ -75,10 +75,10 @@ export interface DatePickerProps {
    */
   datePickerEnabled?: boolean;
   /**
-   * Normal or small screen variant.
-   * @default default
+   * Enables small screen version of calendar
+   * @default false
    */
-  variant?: 'default' | 'smallScreen';
+  smallScreen?: boolean;
   /**
    * Custom texts for date picker to use instead of language based texts.
    * <pre>
@@ -220,7 +220,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
     defaultValue,
     value,
     datePickerEnabled = false,
-    variant = 'default',
+    smallScreen = false,
     datePickerTexts = undefined,
     language = defaultLanguage,
     dateAdapter = defaultDateAdapter(),
@@ -421,7 +421,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
                 texts={texts}
                 minDate={minDate}
                 maxDate={maxDate}
-                variant={variant}
+                smallScreen={smallScreen}
               />
             </HtmlDiv>
           )}

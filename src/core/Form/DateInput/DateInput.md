@@ -29,7 +29,7 @@ import React from 'react';
 
 ```js
 import { DateInput } from 'suomifi-ui-components';
-import React, { useState } from 'react';
+import React from 'react';
 
 <>
   <DateInput
@@ -37,7 +37,7 @@ import React, { useState } from 'react';
     hintText="Use format D.M.YYYY"
     language="en"
     datePickerEnabled
-    variant="smallScreen"
+    smallScreen
   />
 </>;
 ```
@@ -49,17 +49,27 @@ import { DateInput } from 'suomifi-ui-components';
 import { isWithinInterval } from 'date-fns';
 import React from 'react';
 
-const minDate = new Date(2010, 11, 16); // 16.12.2010
-const maxDate = new Date(2020, 11, 15); // 15.12.2020
+const minDate = new Date(2023, 1, 2);
+const maxDate = new Date(2024, 11, 31);
 const [statusText, setStatusText] = React.useState('');
 const [status, setStatus] = React.useState('default');
 const validate = ({ value, date }) => {
-  if (isWithinInterval(date, { start: minDate, end: maxDate })) {
+  if (value === '') {
     setStatusText('');
     setStatus('default');
-  } else {
-    setStatusText('Format D.M.YYYY');
+  } else if (Number.isNaN(date.valueOf())) {
+    setStatusText('Format like D.M.YYYY');
     setStatus('error');
+  } else if (
+    !isWithinInterval(date, { start: minDate, end: maxDate })
+  ) {
+    setStatusText('Not in date range');
+    setStatus('error');
+  } else if (
+    isWithinInterval(date, { start: minDate, end: maxDate })
+  ) {
+    setStatusText('');
+    setStatus('default');
   }
 };
 

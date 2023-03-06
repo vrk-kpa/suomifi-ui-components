@@ -81,7 +81,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     inputValue,
     minDate,
     maxDate,
-    variant,
+    smallScreen,
   } = props;
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
@@ -148,13 +148,13 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   }, [isOpen]);
 
   useEffect(() => {
-    if (variant === 'default' && isOpen) {
+    if (!smallScreen && isOpen) {
       setHasPopperEventListeners(true);
       return () => {
         setHasPopperEventListeners(false);
       };
     }
-    if (variant === 'smallScreen' && isOpen) {
+    if (smallScreen && isOpen) {
       if (smallScreenAppRef.current) {
         smallScreenAppRef.current.style.top = '';
       }
@@ -165,7 +165,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
         document.removeEventListener('touchmove', handleTouchMove);
       };
     }
-  }, [variant, isOpen]);
+  }, [smallScreen, isOpen]);
 
   const focusDate = () => {
     if (inputValue && dayIsInRange(inputValue, minDate, maxDate)) {
@@ -301,7 +301,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       modifiers: [
         {
           name: 'eventListeners',
-          enabled: hasPopperEventListeners && variant === 'default',
+          enabled: hasPopperEventListeners && !smallScreen,
         },
         {
           name: 'offset',
@@ -460,7 +460,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
           disabled={selectedDate === null}
           onClick={() => handleConfirm()}
           className={datePickerClassNames.bottomButton}
-          fullWidth={variant === 'smallScreen'}
+          fullWidth={smallScreen}
         >
           {texts.selectButtonText}
         </Button>
@@ -469,7 +469,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
           onClick={() => handleClose(true)}
           forwardedRef={confirmButtonRef}
           className={datePickerClassNames.bottomButton}
-          fullWidth={variant === 'smallScreen'}
+          fullWidth={smallScreen}
         >
           {texts.closeButtonText}
         </Button>
@@ -540,7 +540,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   return (
     <>
       {ReactDOM.createPortal(
-        variant === 'smallScreen' ? smallScreenDialog : defaultDialog,
+        smallScreen ? smallScreenDialog : defaultDialog,
         mountNode,
       )}
     </>

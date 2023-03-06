@@ -63,7 +63,7 @@ describe('snapshots match', () => {
         <DateInput
           labelText="Date"
           visualPlaceholder="DateInput"
-          variant="smallScreen"
+          smallScreen
           datePickerEnabled
           value="15.1.2020"
         />,
@@ -657,11 +657,7 @@ describe('props', () => {
     describe('smallScreen', () => {
       it('does not have position fixed', () => {
         const { baseElement } = render(
-          <DateInput
-            labelText="Date"
-            variant="smallScreen"
-            datePickerEnabled
-          />,
+          <DateInput labelText="Date" smallScreen datePickerEnabled />,
         );
         const dialog = baseElement.querySelector('.fi-date-picker');
         expect(dialog).toHaveClass('fi-date-picker--small-screen');
@@ -670,11 +666,7 @@ describe('props', () => {
 
       it('has current date focused in smallScreen variant', () => {
         const { getByRole, getByText } = render(
-          <DateInput
-            labelText="Date"
-            variant="smallScreen"
-            datePickerEnabled
-          />,
+          <DateInput labelText="Date" smallScreen datePickerEnabled />,
         );
         fireEvent.click(getByRole('button'));
         const dateButton = getByText('15').closest(
