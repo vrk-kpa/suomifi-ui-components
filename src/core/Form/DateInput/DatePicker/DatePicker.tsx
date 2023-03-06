@@ -375,7 +375,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const handlePointerUp = (event: PointerEvent<HTMLDivElement>) => {
     if (!dragging) return;
     const diff = event.clientY - (touchStartY || 0);
-    if (diff > 50) {
+    if (diff > 150) {
       handleClose(true);
     } else if (smallScreenAppRef.current) {
       smallScreenAppRef.current.style.top = '';
