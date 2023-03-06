@@ -634,7 +634,7 @@ describe('props', () => {
     });
   });
 
-  describe('variant', () => {
+  describe('smallScreen', () => {
     beforeAll(() => {
       jest.useFakeTimers().setSystemTime(new Date('2020-01-15'));
     });
@@ -643,7 +643,7 @@ describe('props', () => {
       jest.useRealTimers();
     });
 
-    describe('default', () => {
+    describe('not enabled', () => {
       it('has position fixed', () => {
         const { baseElement } = render(
           <DateInput labelText="Date" datePickerEnabled />,
@@ -654,7 +654,7 @@ describe('props', () => {
       });
     });
 
-    describe('smallScreen', () => {
+    describe('enabled', () => {
       it('does not have position fixed', () => {
         const { baseElement } = render(
           <DateInput labelText="Date" smallScreen datePickerEnabled />,
