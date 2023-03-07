@@ -10,20 +10,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     width: 100%;
   }
 
-  & .fi-action-menu_wrapper {
-    width: 100%;
-    display: inline-block;
-  }
-
-  & .fi-action-menu_picker-element-container {
-    flex: 1;
-  }
-
-  & .fi-action-menu_input-and-picker-wrapper {
-    display: flex;
-  }
-
-  & .fi-action-menu_picker-button {
+  & .fi-action-menu_button {
     ${containerIEFocus(theme)}
 
     &--menu--closed {
@@ -47,7 +34,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
   }
 
-  & .fi-action-menu_picker-icon {
+  & .fi-action-menu_icon {
     color: ${theme.colors.highlightBase};
   }
 
