@@ -4,18 +4,12 @@ import classnames from 'classnames';
 import { AutoId } from '../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 
-import {
-  HtmlInputProps,
-  HtmlDiv,
-  HtmlDivProps,
-  HtmlSpan,
-  HtmlButton,
-} from '../../reset';
+import { HtmlInputProps, HtmlDiv, HtmlDivProps, HtmlButton } from '../../reset';
 import { ActionMenuPopover } from './ActionMenuPopover';
 
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import { Icon } from '../Icon/Icon';
-
+import { Button } from '../Button/Button';
 import { baseStyles } from './ActionMenu.baseStyles';
 
 const baseClassName = 'fi-action-menu';
@@ -23,13 +17,13 @@ export const actionMenuClassNames = {
   baseClassName,
   fullWidth: `${baseClassName}--full-width`,
   disabled: `${baseClassName}--disabled`,
-  inputAndPickerWrapper: `${baseClassName}_input-and-picker-wrapper`,
-  pickerElementContainer: `${baseClassName}_picker-element-container`,
-  pickerButton: `${baseClassName}_picker-button`,
-  pickerButtonDisabled: `${baseClassName}_picker-button--disabled`,
-  pickerIcon: `${baseClassName}_picker-icon`,
-  styleWrapper: `${baseClassName}_wrapper`,
-  menuClosed: `${baseClassName}_picker-button--menu--closed`,
+  // inputAndPickerWrapper: `${baseClassName}_input-and-picker-wrapper`,
+  // pickerElementContainer: `${baseClassName}_picker-element-container`,
+  button: `${baseClassName}_button`,
+  buttonDisabled: `${baseClassName}_button--disabled`,
+  icon: `${baseClassName}_icon`,
+  // styleWrapper: `${baseClassName}_wrapper`,
+  menuClosed: `${baseClassName}_button--menu--closed`,
 };
 
 export interface ActionMenuProps
@@ -86,6 +80,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
   } = props;
 
   const openButtonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLButtonElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
 
   const menuId = `${id}-menu`;
@@ -125,51 +120,44 @@ const BaseActionMenu = (props: ActionMenuProps) => {
         [actionMenuClassNames.fullWidth]: fullWidth,
       })}
     >
-      <HtmlSpan className={actionMenuClassNames.styleWrapper}>
-        <HtmlDiv className={actionMenuClassNames.inputAndPickerWrapper}>
-          <HtmlDiv className={actionMenuClassNames.pickerElementContainer}>
-            <>
-              <HtmlButton
-                id={buttonId}
-                aria-haspopup="true"
-                aria-controls={menuId}
-                forwardedRef={openButtonRef}
-                className={classnames(
-                  actionMenuClassNames.pickerButton,
-                  {
-                    [actionMenuClassNames.pickerButtonDisabled]:
-                      passProps.disabled,
-                  },
-                  {
-                    [actionMenuClassNames.menuClosed]: !menuVisible,
-                  },
-                )}
-                onClick={() => {
-                  toggleMenu(!menuVisible);
-                }}
-                onKeyDown={handleKeyDown}
-                disabled={passProps.disabled}
-              >
-                {buttonText}
-                <VisuallyHidden>{openButtonLabel}</VisuallyHidden>
-                <Icon
-                  className={actionMenuClassNames.pickerIcon}
-                  aria-hidden={true}
-                  icon="menu"
-                />
-              </HtmlButton>
-              <ActionMenuPopover
-                menuId={menuId}
-                buttonId={buttonId}
-                openButtonRef={openButtonRef}
-                isOpen={menuVisible}
-                onClose={(focus) => toggleMenu(false, focus)}
-                children={children}
-              />
-            </>
-          </HtmlDiv>
-        </HtmlDiv>
-      </HtmlSpan>
+      <>
+        <Button
+          id={buttonId}
+          variant="secondary"
+          iconRight="optionsVertical"
+          aria-haspopup="true"
+          aria-controls={menuId}
+          forwardedRef={openButtonRef}
+          className={classnames(
+            actionMenuClassNames.button,
+            {
+              [actionMenuClassNames.buttonDisabled]: passProps.disabled,
+            },
+            {
+              [actionMenuClassNames.menuClosed]: !menuVisible,
+            },
+          )}
+          onClick={() => {
+            toggleMenu(!menuVisible);
+          }}
+          onKeyDown={handleKeyDown}
+          disabled={passProps.disabled}
+        >
+          {buttonText}
+          <VisuallyHidden>{openButtonLabel}</VisuallyHidden>
+        </Button>
+
+        {menuVisible && (
+          <ActionMenuPopover
+            menuId={menuId}
+            buttonId={buttonId}
+            openButtonRef={openButtonRef}
+            isOpen={menuVisible}
+            onClose={(focus) => toggleMenu(false, focus)}
+            children={children}
+          />
+        )}
+      </>
     </HtmlDiv>
   );
 };
