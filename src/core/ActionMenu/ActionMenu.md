@@ -17,7 +17,6 @@ const CustomButton = (props) => {
 };
 
 <>
-  <ActionMenuDivider />
   <div style={{ marginLeft: '200px' }}>
     <ActionMenu buttonText="my menu">
       <ActionMenuItem>
