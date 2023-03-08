@@ -19,7 +19,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
 
     .fi-status-text {
-      line-height: 18px;
+      line-height: 1.1rem;
       &.fi-dropdown_statusText--has-content {
         margin-top: ${theme.spacing.xxs};
       }
