@@ -203,7 +203,11 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   };
 
   const globalKeyDownHandler = (event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
+    if (
+      event.key === 'Escape' &&
+      !(yearSelectRef.current?.getAttribute('data-state') === 'expanded') &&
+      !(monthSelectRef.current?.getAttribute('data-state') === 'expanded')
+    ) {
       handleClose(true);
     }
 
