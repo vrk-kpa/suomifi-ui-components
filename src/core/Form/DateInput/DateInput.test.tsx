@@ -282,7 +282,7 @@ describe('props', () => {
       );
       const dropdownButton = dropdown?.querySelector('.fi-dropdown_button');
       if (dropdownButton) {
-        fireEvent.mouseDown(dropdownButton);
+        fireEvent.click(dropdownButton);
         const lis = dropdown?.querySelectorAll('li');
         expect(lis?.length).toBe(11);
         expect(lis?.[10]).toHaveTextContent('2020');
@@ -303,7 +303,7 @@ describe('props', () => {
       );
       const dropdownButton = dropdown?.querySelector('.fi-dropdown_button');
       if (dropdownButton) {
-        fireEvent.mouseDown(dropdownButton);
+        fireEvent.click(dropdownButton);
         const lis = dropdown?.querySelectorAll('li');
         expect(lis?.[0]).toHaveTextContent('Tammikuu');
         expect(lis?.length).toBe(1);
@@ -362,7 +362,7 @@ describe('props', () => {
       );
       const dropdownButton = dropdown?.querySelector('.fi-dropdown_button');
       if (dropdownButton) {
-        fireEvent.mouseDown(dropdownButton);
+        fireEvent.click(dropdownButton);
         const lis = dropdown?.querySelectorAll('li');
         expect(lis?.[0]).toHaveTextContent('2020');
         expect(lis?.length).toBe(11);
@@ -383,7 +383,7 @@ describe('props', () => {
       );
       const dropdownButton = dropdown?.querySelector('.fi-dropdown_button');
       if (dropdownButton) {
-        fireEvent.mouseDown(dropdownButton);
+        fireEvent.click(dropdownButton);
         const lis = dropdown?.querySelectorAll('li');
         expect(lis?.[0]).toHaveTextContent('Heinäkuu');
         expect(lis?.length).toBe(6);
