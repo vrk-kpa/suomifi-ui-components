@@ -4,12 +4,35 @@ import { element, input } from '../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
   width: 290px;
-  /* stylelint-disable no-descending-specificity */
   .fi-dropdown_item-list {
     padding-top: 0;
   }
   &.fi-dropdown {
     display: inline-block;
+
+    &--open {
+      .fi-dropdown_button {
+        border-bottom: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        padding-bottom: 8px;
+      }
+    }
+
+    &--error {
+      .fi-dropdown_button {
+        border-color: ${theme.colors.alertBase};
+        border-width: 2px;
+      }
+    }
+
+    &--italicize {
+      .fi-dropdown_button {
+        font-style: italic;
+        color: ${theme.colors.depthDark2};
+        opacity: 1;
+      }
+    }
 
     .fi-dropdown_label--visible {
       margin-bottom: ${theme.spacing.xs};
@@ -23,19 +46,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       line-height: 18px;
       &.fi-dropdown_statusText--has-content {
         margin-top: ${theme.spacing.xxs};
-      }
-    }
-
-    &:not(.fi-dropdown--open) {
-      .fi-dropdown_button {
-        &:focus {
-          outline: 0;
-          position: relative;
-
-          &:after {
-            ${theme.focuses.absoluteFocus}
-          }
-        }
       }
     }
 
@@ -118,27 +128,16 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
-    &--open {
+    &:not(.fi-dropdown--open) {
       .fi-dropdown_button {
-        border-bottom: 0;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        padding-bottom: 8px;
-      }
-    }
+        &:focus {
+          outline: 0;
+          position: relative;
 
-    &--error {
-      .fi-dropdown_button {
-        border-color: ${theme.colors.alertBase};
-        border-width: 2px;
-      }
-    }
-
-    &--italicize {
-      .fi-dropdown_button {
-        font-style: italic;
-        color: ${theme.colors.depthDark2};
-        opacity: 1;
+          &:after {
+            ${theme.focuses.absoluteFocus}
+          }
+        }
       }
     }
   }
