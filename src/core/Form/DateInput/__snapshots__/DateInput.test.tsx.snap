@@ -3473,7 +3473,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c12.fi-dropdown .fi-status-text {
-  line-height: 18px;
+  line-height: 1.1rem;
 }
 
 .c12.fi-dropdown .fi-status-text.fi-dropdown_statusText--has-content {

@@ -252,7 +252,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown .fi-status-text {
-  line-height: 18px;
+  line-height: 1.1rem;
 }
 
 .c1.fi-dropdown .fi-status-text.fi-dropdown_statusText--has-content {
@@ -710,7 +710,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown .fi-status-text {
-  line-height: 18px;
+  line-height: 1.1rem;
 }
 
 .c1.fi-dropdown .fi-status-text.fi-dropdown_statusText--has-content {
@@ -1170,7 +1170,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown .fi-status-text {
-  line-height: 18px;
+  line-height: 1.1rem;
 }
 
 .c1.fi-dropdown .fi-status-text.fi-dropdown_statusText--has-content {
@@ -1640,7 +1640,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 }
 
 .c1.fi-dropdown .fi-status-text {
-  line-height: 18px;
+  line-height: 1.1rem;
 }
 
 .c1.fi-dropdown .fi-status-text.fi-dropdown_statusText--has-content {
