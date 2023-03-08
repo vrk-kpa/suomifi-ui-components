@@ -3464,6 +3464,24 @@ exports[`snapshots match date input with datepicker with controlled input value 
   display: inline-block;
 }
 
+.c12.fi-dropdown--open .fi-dropdown_button {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-bottom: 8px;
+}
+
+.c12.fi-dropdown--error .fi-dropdown_button {
+  border-color: hsl(3,59%,48%);
+  border-width: 2px;
+}
+
+.c12.fi-dropdown--italicize .fi-dropdown_button {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
 .c12.fi-dropdown .fi-dropdown_label--visible {
   margin-bottom: 10px;
 }
@@ -3478,27 +3496,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
 
 .c12.fi-dropdown .fi-status-text.fi-dropdown_statusText--has-content {
   margin-top: 5px;
-}
-
-.c12.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus {
-  outline: 0;
-  position: relative;
-}
-
-.c12.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus:after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  z-index: 9999;
 }
 
 .c12.fi-dropdown .fi-dropdown_button {
@@ -3603,22 +3600,25 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border-color: hsl(202,7%,67%) transparent transparent transparent;
 }
 
-.c12.fi-dropdown--open .fi-dropdown_button {
-  border-bottom: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  padding-bottom: 8px;
+.c12.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus {
+  outline: 0;
+  position: relative;
 }
 
-.c12.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,48%);
-  border-width: 2px;
-}
-
-.c12.fi-dropdown--italicize .fi-dropdown_button {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
+.c12.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
 }
 
 .c11 .fi-date-selectors_container {
@@ -4165,16 +4165,17 @@ exports[`snapshots match date input with datepicker with controlled input value 
             <div
               class="c0 fi-dropdown_input-wrapper"
             >
-              <span
+              <button
                 aria-activedescendant="16-2020"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="16-displayValue 16-label"
                 aria-owns="16-popover"
-                class="c2 fi-dropdown_button"
+                class="c6 fi-dropdown_button"
                 id="16_button"
                 role="button"
                 tabindex="0"
+                type="button"
               >
                 <span
                   class="c2"
@@ -4188,7 +4189,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   type="hidden"
                   value="2020"
                 />
-              </span>
+              </button>
               <span
                 aria-atomic="true"
                 aria-live="assertive"
@@ -4219,16 +4220,17 @@ exports[`snapshots match date input with datepicker with controlled input value 
             <div
               class="c0 fi-dropdown_input-wrapper"
             >
-              <span
+              <button
                 aria-activedescendant="17-0"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="17-displayValue 17-label"
                 aria-owns="17-popover"
-                class="c2 fi-dropdown_button"
+                class="c6 fi-dropdown_button"
                 id="17_button"
                 role="button"
                 tabindex="0"
+                type="button"
               >
                 <span
                   class="c2"
@@ -4242,7 +4244,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   type="hidden"
                   value="0"
                 />
-              </span>
+              </button>
               <span
                 aria-atomic="true"
                 aria-live="assertive"
@@ -5706,6 +5708,24 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   display: inline-block;
 }
 
+.c12.fi-dropdown--open .fi-dropdown_button {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-bottom: 8px;
+}
+
+.c12.fi-dropdown--error .fi-dropdown_button {
+  border-color: hsl(3,59%,48%);
+  border-width: 2px;
+}
+
+.c12.fi-dropdown--italicize .fi-dropdown_button {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
 .c12.fi-dropdown .fi-dropdown_label--visible {
   margin-bottom: 10px;
 }
@@ -5720,27 +5740,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 
 .c12.fi-dropdown .fi-status-text.fi-dropdown_statusText--has-content {
   margin-top: 5px;
-}
-
-.c12.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus {
-  outline: 0;
-  position: relative;
-}
-
-.c12.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus:after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  z-index: 9999;
 }
 
 .c12.fi-dropdown .fi-dropdown_button {
@@ -5845,22 +5844,25 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   border-color: hsl(202,7%,67%) transparent transparent transparent;
 }
 
-.c12.fi-dropdown--open .fi-dropdown_button {
-  border-bottom: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  padding-bottom: 8px;
+.c12.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus {
+  outline: 0;
+  position: relative;
 }
 
-.c12.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,48%);
-  border-width: 2px;
-}
-
-.c12.fi-dropdown--italicize .fi-dropdown_button {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
+.c12.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
 }
 
 .c11 .fi-date-selectors_container {
@@ -6416,16 +6418,17 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               <div
                 class="c0 fi-dropdown_input-wrapper"
               >
-                <span
+                <button
                   aria-activedescendant="9-2020"
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-labelledby="9-displayValue 9-label"
                   aria-owns="9-popover"
-                  class="c2 fi-dropdown_button"
+                  class="c6 fi-dropdown_button"
                   id="9_button"
                   role="button"
                   tabindex="0"
+                  type="button"
                 >
                   <span
                     class="c2"
@@ -6439,7 +6442,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     type="hidden"
                     value="2020"
                   />
-                </span>
+                </button>
                 <span
                   aria-atomic="true"
                   aria-live="assertive"
@@ -6470,16 +6473,17 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               <div
                 class="c0 fi-dropdown_input-wrapper"
               >
-                <span
+                <button
                   aria-activedescendant="10-0"
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-labelledby="10-displayValue 10-label"
                   aria-owns="10-popover"
-                  class="c2 fi-dropdown_button"
+                  class="c6 fi-dropdown_button"
                   id="10_button"
                   role="button"
                   tabindex="0"
+                  type="button"
                 >
                   <span
                     class="c2"
@@ -6493,7 +6497,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     type="hidden"
                     value="0"
                   />
-                </span>
+                </button>
                 <span
                   aria-atomic="true"
                   aria-live="assertive"
