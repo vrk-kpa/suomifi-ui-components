@@ -79,7 +79,6 @@ const BaseActionMenu = (props: ActionMenuProps) => {
   } = props;
 
   const openButtonRef = useRef<HTMLButtonElement>(null);
-  const menuRef = useRef<HTMLButtonElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
 
   const menuId = `${id}-menu`;
