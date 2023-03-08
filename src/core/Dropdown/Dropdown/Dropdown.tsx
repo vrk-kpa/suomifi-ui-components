@@ -455,7 +455,7 @@ class BaseDropdown extends Component<DropdownProps> {
               aria-owns={popoverItemListId}
               aria-expanded={showPopover}
               aria-activedescendant={ariaActiveDescendant}
-              onMouseDown={() => {
+              onClick={() => {
                 if (!disabled) {
                   this.setState({ showPopover: !showPopover });
                 }
