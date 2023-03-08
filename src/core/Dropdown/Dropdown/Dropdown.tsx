@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { HtmlSpan, HtmlDiv, HtmlInput } from '../../../reset';
+import { HtmlSpan, HtmlDiv, HtmlInput, HtmlButton } from '../../../reset';
 import { Label, LabelMode } from '../../Form/Label/Label';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
@@ -46,7 +46,7 @@ export interface DropdownProviderState {
   /** Currently selected DropdownItem */
   selectedDropdownValue: string | undefined | null;
   /** Currently focused DropdownItem */
-  focusedItemID: string | null | undefined;
+  focusedItemId: string | null | undefined;
   /** ID of the Dropdown component.
    * Used in DropdownItem to create a derived ID for each item
    */
@@ -59,7 +59,7 @@ const defaultProviderValue: DropdownProviderState = {
   onItemClick: () => null,
   selectedDropdownValue: null,
   id: '',
-  focusedItemID: null,
+  focusedItemId: null,
   noSelectedStyles: false,
 };
 
@@ -431,7 +431,7 @@ class BaseDropdown extends Component<DropdownProps> {
           </Label>
           <HintText id={hintTextId}>{hintText}</HintText>
           <HtmlDiv className={classnames(dropdownClassNames.inputWrapper)}>
-            <HtmlSpan
+            <HtmlButton
               aria-haspopup="listbox"
               role="button"
               tabIndex={!disabled ? 0 : -1}
@@ -465,7 +465,7 @@ class BaseDropdown extends Component<DropdownProps> {
                 name={name}
                 value={selectedValue || ''}
               />
-            </HtmlSpan>
+            </HtmlButton>
             <StatusText
               id={statusTextId}
               className={classnames({
@@ -497,7 +497,7 @@ class BaseDropdown extends Component<DropdownProps> {
                       this.handleItemSelection(itemValue),
                     selectedDropdownValue: selectedValue,
                     id,
-                    focusedItemID: focusedDescendantId,
+                    focusedItemId: focusedDescendantId,
                     noSelectedStyles: alwaysShowVisualPlaceholder,
                   }}
                 >

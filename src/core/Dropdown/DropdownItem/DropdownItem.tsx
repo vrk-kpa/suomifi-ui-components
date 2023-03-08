@@ -34,7 +34,7 @@ const dropdownItemClassNames = {
 const BaseDropdownItem = (props: BaseDropdownItemProps & SuomifiThemeProp) => {
   const { children, className, theme, consumer, value, ...passProps } = props;
   const selected = consumer.selectedDropdownValue === value;
-  const hasKeyboardFocus = consumer.focusedItemID === value;
+  const hasKeyboardFocus = consumer.focusedItemId === value;
   return (
     <HtmlLi
       className={classnames(className, dropdownClassNames.item, {
