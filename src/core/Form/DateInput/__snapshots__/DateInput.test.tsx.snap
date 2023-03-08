@@ -3464,24 +3464,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
   display: inline-block;
 }
 
-.c12.fi-dropdown--open .fi-dropdown_button {
-  border-bottom: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  padding-bottom: 8px;
-}
-
-.c12.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,48%);
-  border-width: 2px;
-}
-
-.c12.fi-dropdown--italicize .fi-dropdown_button {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
 .c12.fi-dropdown .fi-dropdown_label--visible {
   margin-bottom: 10px;
 }
@@ -3583,6 +3565,24 @@ exports[`snapshots match date input with datepicker with controlled input value 
 .c12.fi-dropdown .fi-dropdown_popover:focus-within {
   outline: 0;
   box-shadow: none;
+}
+
+.c12.fi-dropdown--open .fi-dropdown_button {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-bottom: 8px;
+}
+
+.c12.fi-dropdown--error .fi-dropdown_button {
+  border-color: hsl(3,59%,48%);
+  border-width: 2px;
+}
+
+.c12.fi-dropdown--italicize .fi-dropdown_button {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c12.fi-dropdown--disabled .fi-dropdown_input-wrapper {
@@ -4173,7 +4173,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 aria-owns="16-popover"
                 class="c6 fi-dropdown_button"
                 id="16_button"
-                role="button"
                 tabindex="0"
                 type="button"
               >
@@ -4228,7 +4227,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 aria-owns="17-popover"
                 class="c6 fi-dropdown_button"
                 id="17_button"
-                role="button"
                 tabindex="0"
                 type="button"
               >
@@ -5708,24 +5706,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   display: inline-block;
 }
 
-.c12.fi-dropdown--open .fi-dropdown_button {
-  border-bottom: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  padding-bottom: 8px;
-}
-
-.c12.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,48%);
-  border-width: 2px;
-}
-
-.c12.fi-dropdown--italicize .fi-dropdown_button {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
 .c12.fi-dropdown .fi-dropdown_label--visible {
   margin-bottom: 10px;
 }
@@ -5827,6 +5807,24 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 .c12.fi-dropdown .fi-dropdown_popover:focus-within {
   outline: 0;
   box-shadow: none;
+}
+
+.c12.fi-dropdown--open .fi-dropdown_button {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-bottom: 8px;
+}
+
+.c12.fi-dropdown--error .fi-dropdown_button {
+  border-color: hsl(3,59%,48%);
+  border-width: 2px;
+}
+
+.c12.fi-dropdown--italicize .fi-dropdown_button {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
 }
 
 .c12.fi-dropdown--disabled .fi-dropdown_input-wrapper {
@@ -6426,7 +6424,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                   aria-owns="9-popover"
                   class="c6 fi-dropdown_button"
                   id="9_button"
-                  role="button"
                   tabindex="0"
                   type="button"
                 >
@@ -6481,7 +6478,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                   aria-owns="10-popover"
                   class="c6 fi-dropdown_button"
                   id="10_button"
-                  role="button"
                   tabindex="0"
                   type="button"
                 >

@@ -243,24 +243,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
   display: inline-block;
 }
 
-.c1.fi-dropdown--open .fi-dropdown_button {
-  border-bottom: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  padding-bottom: 8px;
-}
-
-.c1.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,48%);
-  border-width: 2px;
-}
-
-.c1.fi-dropdown--italicize .fi-dropdown_button {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
 .c1.fi-dropdown .fi-dropdown_label--visible {
   margin-bottom: 10px;
 }
@@ -364,6 +346,24 @@ exports[`Basic dropdown should match snapshot 1`] = `
   box-shadow: none;
 }
 
+.c1.fi-dropdown--open .fi-dropdown_button {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-bottom: 8px;
+}
+
+.c1.fi-dropdown--error .fi-dropdown_button {
+  border-color: hsl(3,59%,48%);
+  border-width: 2px;
+}
+
+.c1.fi-dropdown--italicize .fi-dropdown_button {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
 .c1.fi-dropdown--disabled .fi-dropdown_input-wrapper {
   cursor: not-allowed;
 }
@@ -431,7 +431,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
           aria-owns="test-id-popover"
           class="c5 fi-dropdown_button"
           id="test-id_button"
-          role="button"
           tabindex="0"
           type="button"
         >
@@ -702,24 +701,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   display: inline-block;
 }
 
-.c1.fi-dropdown--open .fi-dropdown_button {
-  border-bottom: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  padding-bottom: 8px;
-}
-
-.c1.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,48%);
-  border-width: 2px;
-}
-
-.c1.fi-dropdown--italicize .fi-dropdown_button {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
 .c1.fi-dropdown .fi-dropdown_label--visible {
   margin-bottom: 10px;
 }
@@ -823,6 +804,24 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   box-shadow: none;
 }
 
+.c1.fi-dropdown--open .fi-dropdown_button {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-bottom: 8px;
+}
+
+.c1.fi-dropdown--error .fi-dropdown_button {
+  border-color: hsl(3,59%,48%);
+  border-width: 2px;
+}
+
+.c1.fi-dropdown--italicize .fi-dropdown_button {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
 .c1.fi-dropdown--disabled .fi-dropdown_input-wrapper {
   cursor: not-allowed;
 }
@@ -891,7 +890,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
           aria-owns="test-id-popover"
           class="c5 fi-dropdown_button"
           id="test-id_button"
-          role="button"
           tabindex="0"
           type="button"
         >
@@ -1163,24 +1161,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   display: inline-block;
 }
 
-.c1.fi-dropdown--open .fi-dropdown_button {
-  border-bottom: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  padding-bottom: 8px;
-}
-
-.c1.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,48%);
-  border-width: 2px;
-}
-
-.c1.fi-dropdown--italicize .fi-dropdown_button {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
 .c1.fi-dropdown .fi-dropdown_label--visible {
   margin-bottom: 10px;
 }
@@ -1284,6 +1264,24 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   box-shadow: none;
 }
 
+.c1.fi-dropdown--open .fi-dropdown_button {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-bottom: 8px;
+}
+
+.c1.fi-dropdown--error .fi-dropdown_button {
+  border-color: hsl(3,59%,48%);
+  border-width: 2px;
+}
+
+.c1.fi-dropdown--italicize .fi-dropdown_button {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
 .c1.fi-dropdown--disabled .fi-dropdown_input-wrapper {
   cursor: not-allowed;
 }
@@ -1351,7 +1349,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
           aria-owns="test-id-popover"
           class="c5 fi-dropdown_button"
           id="test-id_button"
-          role="button"
           tabindex="0"
           type="button"
         >
@@ -1634,24 +1631,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   display: inline-block;
 }
 
-.c1.fi-dropdown--open .fi-dropdown_button {
-  border-bottom: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  padding-bottom: 8px;
-}
-
-.c1.fi-dropdown--error .fi-dropdown_button {
-  border-color: hsl(3,59%,48%);
-  border-width: 2px;
-}
-
-.c1.fi-dropdown--italicize .fi-dropdown_button {
-  font-style: italic;
-  color: hsl(201,7%,46%);
-  opacity: 1;
-}
-
 .c1.fi-dropdown .fi-dropdown_label--visible {
   margin-bottom: 10px;
 }
@@ -1755,6 +1734,24 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   box-shadow: none;
 }
 
+.c1.fi-dropdown--open .fi-dropdown_button {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-bottom: 8px;
+}
+
+.c1.fi-dropdown--error .fi-dropdown_button {
+  border-color: hsl(3,59%,48%);
+  border-width: 2px;
+}
+
+.c1.fi-dropdown--italicize .fi-dropdown_button {
+  font-style: italic;
+  color: hsl(201,7%,46%);
+  opacity: 1;
+}
+
 .c1.fi-dropdown--disabled .fi-dropdown_input-wrapper {
   cursor: not-allowed;
 }
@@ -1822,7 +1819,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
           aria-owns="test-id-popover"
           class="c6 fi-dropdown_button"
           id="test-id_button"
-          role="button"
           tabindex="0"
           type="button"
         >
