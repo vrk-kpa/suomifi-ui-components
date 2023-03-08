@@ -4156,7 +4156,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
             >
               <label
                 class="c7 fi-visually-hidden"
-                for="16_button"
                 id="16-label"
               >
                 Valitse vuosi
@@ -4210,7 +4209,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
             >
               <label
                 class="c7 fi-visually-hidden"
-                for="17_button"
                 id="17-label"
               >
                 Valitse kuukausi
@@ -5715,7 +5713,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c12.fi-dropdown .fi-status-text {
-  line-height: 18px;
+  line-height: 1.1rem;
 }
 
 .c12.fi-dropdown .fi-status-text.fi-dropdown_statusText--has-content {
@@ -6407,7 +6405,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               >
                 <label
                   class="c7 fi-visually-hidden"
-                  for="9_button"
                   id="9-label"
                 >
                   Valitse vuosi
@@ -6461,7 +6458,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               >
                 <label
                   class="c7 fi-visually-hidden"
-                  for="10_button"
                   id="10-label"
                 >
                   Valitse kuukausi

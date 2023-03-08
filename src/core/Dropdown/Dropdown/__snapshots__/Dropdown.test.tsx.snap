@@ -414,7 +414,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
       >
         <label
           class="c0 fi-label_label-span"
-          for="test-id_button"
           id="test-id-label"
         >
           Dropdown test
@@ -873,7 +872,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
       >
         <label
           class="c0 fi-label_label-span"
-          for="test-id_button"
           id="test-id-label"
         >
           Dropdown test
@@ -1332,7 +1330,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
       >
         <label
           class="c0 fi-label_label-span"
-          for="test-id_button"
           id="test-id-label"
         >
           Dropdown test
@@ -1802,7 +1799,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
       >
         <label
           class="c5 fi-visually-hidden"
-          for="test-id_button"
           id="test-id-label"
         >
           Dropdown test
