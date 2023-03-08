@@ -21,7 +21,6 @@ import { StatusText } from '../../Form/StatusText/StatusText';
 import { StatusTextCommonProps } from '../../Form/types';
 
 // Dropdown is a button but it also has a listbox popup
-/* eslint-disable jsx-a11y/role-supports-aria-props */
 
 const baseClassName = 'fi-dropdown';
 
@@ -433,7 +432,6 @@ class BaseDropdown extends Component<DropdownProps> {
           <HtmlDiv className={classnames(dropdownClassNames.inputWrapper)}>
             <HtmlButton
               aria-haspopup="listbox"
-              role="button"
               tabIndex={!disabled ? 0 : -1}
               forwardedRef={forkRefs(this.buttonRef, definedRef)}
               id={buttonId}

@@ -10,30 +10,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-dropdown {
     display: inline-block;
 
-    &--open {
-      .fi-dropdown_button {
-        border-bottom: 0;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        padding-bottom: 8px;
-      }
-    }
-
-    &--error {
-      .fi-dropdown_button {
-        border-color: ${theme.colors.alertBase};
-        border-width: 2px;
-      }
-    }
-
-    &--italicize {
-      .fi-dropdown_button {
-        font-style: italic;
-        color: ${theme.colors.depthDark2};
-        opacity: 1;
-      }
-    }
-
     .fi-dropdown_label--visible {
       margin-bottom: ${theme.spacing.xs};
     }
@@ -67,6 +43,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       user-select: none;
       white-space: nowrap;
 
+      /* stylelint-disable no-descending-specificity */
       &:focus-visible {
         outline: none;
       }
@@ -109,6 +86,30 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       &:focus-within {
         outline: 0;
         box-shadow: none;
+      }
+    }
+
+    &--open {
+      .fi-dropdown_button {
+        border-bottom: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        padding-bottom: 8px;
+      }
+    }
+
+    &--error {
+      .fi-dropdown_button {
+        border-color: ${theme.colors.alertBase};
+        border-width: 2px;
+      }
+    }
+
+    &--italicize {
+      .fi-dropdown_button {
+        font-style: italic;
+        color: ${theme.colors.depthDark2};
+        opacity: 1;
       }
     }
 
