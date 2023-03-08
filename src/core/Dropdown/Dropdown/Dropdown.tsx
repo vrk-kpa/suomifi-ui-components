@@ -20,8 +20,6 @@ import { HintText } from '../../Form/HintText/HintText';
 import { StatusText } from '../../Form/StatusText/StatusText';
 import { StatusTextCommonProps } from '../../Form/types';
 
-// Dropdown is a button but it also has a listbox popup
-
 const baseClassName = 'fi-dropdown';
 
 export const dropdownClassNames = {
