@@ -431,7 +431,11 @@ class BaseDropdown extends Component<DropdownProps> {
               [dropdownClassNames.labelIsVisible]: labelMode !== 'hidden',
             })}
             tooltipComponent={tooltipComponent}
-            onClick={() => this.buttonRef.current?.focus()}
+            onClick={() => {
+              if (!disabled) {
+                this.buttonRef.current?.focus();
+              }
+            }}
           >
             {labelText}
           </Label>
