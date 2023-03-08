@@ -4,11 +4,10 @@ import classnames from 'classnames';
 import { AutoId } from '../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 
-import { HtmlInputProps, HtmlDiv, HtmlDivProps, HtmlButton } from '../../reset';
+import { HtmlInputProps, HtmlDiv, HtmlDivProps } from '../../reset';
 import { ActionMenuPopover } from './ActionMenuPopover';
 
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
-import { Icon } from '../Icon/Icon';
 import { Button } from '../Button/Button';
 import { baseStyles } from './ActionMenu.baseStyles';
 
