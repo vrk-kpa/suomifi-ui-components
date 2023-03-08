@@ -281,8 +281,11 @@ class BaseDropdown extends Component<DropdownProps> {
         this.setState({ showPopover: !showPopover });
         if (!showPopover) {
           this.setState({ showPopover: true });
+          const nextItem = getNextItem();
+          if (nextItem) {
+            this.setState({ focusedDescendantId: nextItem.props.value });
+          }
         } else if (showPopover && focusedDescendantId) {
-          event.preventDefault();
           const focusedItem = popoverItems.find(
             (item) => item?.props.value === focusedDescendantId,
           );
@@ -294,8 +297,14 @@ class BaseDropdown extends Component<DropdownProps> {
       }
 
       case 'Enter': {
-        if (focusedDescendantId && showPopover) {
-          event.preventDefault();
+        event.preventDefault();
+        if (!showPopover) {
+          this.setState({ showPopover: true });
+          const nextItem = getNextItem();
+          if (nextItem) {
+            this.setState({ focusedDescendantId: nextItem.props.value });
+          }
+        } else if (focusedDescendantId && showPopover) {
           const focusedItem = popoverItems.find(
             (item) => item?.props.value === focusedDescendantId,
           );
