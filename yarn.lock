@@ -6414,15 +6414,6 @@ fresh@0.5.2:
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
   integrity sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac=
 
-fs-extra@11.1.1:
-  version "11.1.1"
-  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-11.1.1.tgz#da69f7c39f3b002378b0954bb6ae7efdc0876e2d"
-  integrity sha512-MGIE4HOvQCeUCzmlHs0vXpih4ysz4wg9qiSAu6cd42lVwPbTM1TjV7RusoyQqMmk/95gdQZX72u+YW+c3eEpFQ==
-  dependencies:
-    graceful-fs "^4.2.0"
-    jsonfile "^6.0.1"
-    universalify "^2.0.0"
-
 fs-extra@^8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-8.1.0.tgz#49d43c45a88cd9677668cb7be1b46efdb8d2e1c0"
@@ -9001,10 +8992,15 @@ minimist-options@4.1.0:
     is-plain-obj "^1.1.0"
     kind-of "^6.0.3"
 
-minimist@^1.2.0, minimist@^1.2.5, minimist@^1.2.6:
-  version "1.2.8"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.8.tgz#c1a464e7693302e082a075cee0c057741ac4772c"
-  integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
+minimist@^1.2.0, minimist@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
+  integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
+
+minimist@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.6.tgz#8637a5b759ea0d6e98702cfb3a9283323c93af44"
+  integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
 
 minipass-collect@^1.0.2:
   version "1.0.2"
@@ -12223,10 +12219,10 @@ suomifi-design-tokens@5.0.0:
   resolved "https://registry.yarnpkg.com/suomifi-design-tokens/-/suomifi-design-tokens-5.0.0.tgz#773de7faeb3136387587bbc3151e65b6201a77ad"
   integrity sha512-hdDFKkiXNV0n1WvozR3ELTmMUoRaG8Wn6Jsg2SM5HzhwDx5MyBbDuuYGujuepCCsI6bp1P9c6TIb22H6w1/szA==
 
-suomifi-icons@6.5.0:
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-6.5.0.tgz#ab0c66be180154e953b12c6dfc36f424e2845934"
-  integrity sha512-k8E2OfF7ZUvOgGnqeEg5PpBhpEwx3lkXv9SE6gZY5x9rP5KTXY2eVLjJLuWRx35/+q2orVjmkwuyC34zWe9XvA==
+suomifi-icons@6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-6.4.0.tgz#73e9b3614e58ad272ed6a529c6896a15384a0262"
+  integrity sha512-WNhFYJ21TGu2gAVK7gXZ7ods+h9obm4S7pGNM2A9TIvvc2TjIyqXB7PnYC/4Mn3fDT+dP5RiDWL1+CJ0gd1o6w==
 
 supports-color@^2.0.0:
   version "2.0.0"
