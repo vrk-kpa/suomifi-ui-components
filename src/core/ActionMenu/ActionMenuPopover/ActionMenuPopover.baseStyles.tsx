@@ -31,6 +31,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   & .fi-action-menu-popover_popper-arrow::after {
     content: '';
     position: absolute;
+    left: -9px;
     height: 0;
     width: 0;
     border: solid transparent;
@@ -55,7 +56,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     border-bottom-color: ${theme.colors.whiteBase};
     border-width: 8px;
     margin-right: -9px;
-    left: 1px;
+    left: -8px;
     bottom: 100%;
   }
 
