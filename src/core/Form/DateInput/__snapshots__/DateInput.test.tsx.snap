@@ -3740,6 +3740,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c10 .fi-date-picker_small-screen-container {
+  max-height: 100%;
+  overscroll-behavior: contain;
   background-color: hsl(0,0%,100%);
   border-top: 1px solid hsl(0,0%,58%);
   border-radius: 10px 10px 0 0;
@@ -3747,6 +3749,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.c10 .fi-date-picker_small-screen-container--scroll {
+  overflow: auto;
 }
 
 .c10 .fi-date-picker_popper-arrow,
@@ -6312,6 +6318,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c10 .fi-date-picker_small-screen-container {
+  max-height: 100%;
+  overscroll-behavior: contain;
   background-color: hsl(0,0%,100%);
   border-top: 1px solid hsl(0,0%,58%);
   border-radius: 10px 10px 0 0;
@@ -6319,6 +6327,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.c10 .fi-date-picker_small-screen-container--scroll {
+  overflow: auto;
 }
 
 .c10 .fi-date-picker_popper-arrow,
@@ -6703,7 +6715,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
     class="c0 c10 fi-date-picker fi-date-picker--small-screen"
   >
     <div
-      class="c3 fi-date-picker_small-screen-container"
+      class="c3 fi-date-picker_small-screen-container fi-date-picker_small-screen-container--scroll"
       role="dialog"
     >
       <div

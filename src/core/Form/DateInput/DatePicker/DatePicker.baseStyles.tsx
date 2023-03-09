@@ -70,6 +70,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   & .fi-date-picker_small-screen-container {
+    max-height: 100%;
+    overscroll-behavior: contain;
     background-color: ${theme.colors.whiteBase};
     border-top: 1px solid ${theme.colors.blackLight1};
     border-radius: 10px 10px 0 0;
@@ -77,6 +79,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     bottom: 0;
     left: 0;
     right: 0;
+  }
+
+  & .fi-date-picker_small-screen-container--scroll {
+    overflow: auto;
   }
 
   & .fi-date-picker_popper-arrow,
