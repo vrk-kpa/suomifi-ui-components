@@ -92,6 +92,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const [touchStartY, setTouchStartY] = useState<number | null>(null);
   const [dragOffsetY, setDragOffsetY] = useState<number>(0);
   const [dragging, setDragging] = useState<boolean>(false);
+  const [smallScreenScroll, setSmallScreenScroll] = useState<boolean>(false);
 
   const sliderWrapperRef = useRef<HTMLDivElement>(null);
   const smallScreenAppRef = useRef<HTMLDivElement>(null);
@@ -151,21 +152,23 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     }
     if (smallScreen && isOpen && smallScreenAppRef.current) {
       smallScreenAppRef.current.style.top = '';
+      conditionalSmallScreenScroll();
+      window.addEventListener('resize', conditionalSmallScreenScroll);
+      return () =>
+        window.removeEventListener('resize', conditionalSmallScreenScroll);
     }
   }, [smallScreen, isOpen]);
 
-  useEffect(() => {
-    // Event listener needs to be non-passive for the preventDefault call
-    // that enables dragging dialog close from the slider
-    if (dragging) {
-      document.addEventListener('touchmove', handleTouchMove, {
-        passive: false,
-      });
-      return () => {
-        document.removeEventListener('touchmove', handleTouchMove);
-      };
+  const conditionalSmallScreenScroll = (): void => {
+    if (smallScreenAppRef.current) {
+      const { clientHeight, scrollHeight } = smallScreenAppRef.current;
+      if (scrollHeight > clientHeight) {
+        setSmallScreenScroll(true);
+      } else {
+        setSmallScreenScroll(false);
+      }
     }
-  }, [dragging]);
+  };
 
   const focusDate = () => {
     if (inputValue && dayIsInRange(inputValue, minDate, maxDate)) {
@@ -381,7 +384,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const handlePointerUp = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!dragging) return;
     const diff = event.clientY - (touchStartY || 0);
-    if (diff > 150) {
+    if (diff > 100) {
       handleClose(true);
     } else if (smallScreenAppRef.current) {
       smallScreenAppRef.current.style.top = '';
@@ -402,10 +405,6 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       setTouchStartX(event.changedTouches[0].clientX);
       setTouchStartY(event.changedTouches[0].clientY);
     }
-  };
-
-  const handleTouchMove = (event: TouchEvent) => {
-    event.preventDefault();
   };
 
   const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
@@ -519,7 +518,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
         role="dialog"
         forwardedRef={smallScreenAppRef}
         className={classnames(datePickerClassNames.smallScreenContainer, {
-          [datePickerClassNames.smallScreenScroll]: !dragging && isOpen,
+          [datePickerClassNames.smallScreenScroll]: smallScreenScroll,
         })}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}

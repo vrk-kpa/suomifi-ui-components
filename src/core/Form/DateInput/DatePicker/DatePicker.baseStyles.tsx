@@ -57,6 +57,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   & .fi-date-picker_slide-indicator-wrapper {
+    touch-action: none;
     padding-top: ${theme.spacing.m};
     padding-bottom: ${theme.spacing.xs};
     cursor: grab;
@@ -70,6 +71,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   & .fi-date-picker_small-screen-container {
+    touch-action: pan-x pinch-zoom;
     max-height: 100%;
     overscroll-behavior: contain;
     background-color: ${theme.colors.whiteBase};
@@ -83,6 +85,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   & .fi-date-picker_small-screen-container--scroll {
     overflow: auto;
+    touch-action: auto;
   }
 
   & .fi-date-picker_popper-arrow,
