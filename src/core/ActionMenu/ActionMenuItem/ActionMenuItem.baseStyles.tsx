@@ -19,11 +19,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       color: ${theme.colors.whiteBase};
     }
 
-    &:focus-within {
-      ${theme.focuses.boxShadowFocus};
-      z-index: ${theme.zindexes.focus};
-    }
-
     .fi-link--router {
       ${font(theme)('bodyTextSmall')};
       text-decoration: none;
@@ -75,27 +70,29 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &--selected {
       display: flex;
       align-items: center;
-      background: ${theme.colors.highlightLight3};
+      background: ${theme.colors.highlightBase};
+      color: ${theme.colors.whiteBase};
       position: relative;
-
-      &:focus {
-        ${theme.focuses.absoluteFocus};
-      }
+      ${font(theme)('bodyTextSmall')};
 
       .fi-link--router {
         font-weight: bold;
         text-decoration: none;
-        color: ${theme.colors.blackBase};
+        color: ${theme.colors.whiteBase};
         display: flex;
-        padding: ${theme.spacing.xs} ${theme.spacing.l};
+        padding: ${theme.spacing.xs} ${theme.spacing.m};
         padding-left: ${theme.spacing.m};
-        flex: 1;
+
+        background: ${theme.colors.highlightBase};
+        border: none;
+        ${font(theme)('bodyTextSmall')};
 
         &:hover,
         &:active,
         &:visited {
           text-decoration: none;
-          color: ${theme.colors.blackBase};
+          color: ${theme.colors.whiteBase};
+          cursor: pointer;
         }
       }
     }
