@@ -82,7 +82,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         display: flex;
         padding: ${theme.spacing.xs} ${theme.spacing.m};
         padding-left: ${theme.spacing.m};
-
+        width: 100%;
         background: ${theme.colors.highlightBase};
         border: none;
         ${font(theme)('bodyTextSmall')};
