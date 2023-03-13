@@ -279,9 +279,11 @@ class BaseDropdown extends Component<DropdownProps> {
         this.setState({ showPopover: !showPopover });
         if (!showPopover) {
           this.setState({ showPopover: true });
-          const nextItem = getNextItem();
-          if (nextItem) {
-            this.setState({ focusedDescendantId: nextItem.props.value });
+          if (!focusedDescendantId) {
+            const nextItem = getNextItem();
+            if (nextItem) {
+              this.setState({ focusedDescendantId: nextItem.props.value });
+            }
           }
         } else if (showPopover && focusedDescendantId) {
           const focusedItem = popoverItems.find(
@@ -298,9 +300,11 @@ class BaseDropdown extends Component<DropdownProps> {
         event.preventDefault();
         if (!showPopover) {
           this.setState({ showPopover: true });
-          const nextItem = getNextItem();
-          if (nextItem) {
-            this.setState({ focusedDescendantId: nextItem.props.value });
+          if (!focusedDescendantId) {
+            const nextItem = getNextItem();
+            if (nextItem) {
+              this.setState({ focusedDescendantId: nextItem.props.value });
+            }
           }
         } else if (focusedDescendantId && showPopover) {
           const focusedItem = popoverItems.find(
