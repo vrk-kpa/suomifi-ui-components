@@ -43,21 +43,26 @@ export interface DropdownProviderState {
   /** Currently selected DropdownItem */
   selectedDropdownValue: string | undefined | null;
   /** Currently focused DropdownItem */
-  focusedItemId: string | null | undefined;
+  focusedItemValue: string | null | undefined;
   /** ID of the Dropdown component.
    * Used in DropdownItem to create a derived ID for each item
    */
   id: string | undefined;
   /** Disable selected styling when used as an action menu */
   noSelectedStyles: boolean | undefined;
+  /**
+   * Callback for communicating DropdownItem Tab key press to the parent
+   */
+  onItemTabPress: () => void;
 }
 
 const defaultProviderValue: DropdownProviderState = {
   onItemClick: () => null,
   selectedDropdownValue: null,
   id: '',
-  focusedItemId: null,
+  focusedItemValue: null,
   noSelectedStyles: false,
+  onItemTabPress: () => null,
 };
 
 const { Provider: DropdownProvider, Consumer: DropdownConsumer } =
@@ -332,10 +337,7 @@ class BaseDropdown extends Component<DropdownProps> {
   };
 
   private handleOnBlur = () => {
-    if (!!this.props.onBlur) {
-      this.props.onBlur();
-    }
-    const ownerDocument = getOwnerDocument(this.popoverRef);
+    const ownerDocument = getOwnerDocument(this.buttonRef);
     if (!ownerDocument) {
       return;
     }
@@ -343,6 +345,15 @@ class BaseDropdown extends Component<DropdownProps> {
       const focusInPopover = this.popoverRef.current?.contains(
         ownerDocument.activeElement,
       );
+      // If focus was moved to an element inside the popover, it's not really a blur event
+      if (focusInPopover) {
+        return;
+      }
+
+      if (!!this.props.onBlur) {
+        this.props.onBlur();
+      }
+
       const focusInToggleButton = this.buttonRef.current?.contains(
         ownerDocument.activeElement,
       );
@@ -358,6 +369,11 @@ class BaseDropdown extends Component<DropdownProps> {
       return this.props.visualPlaceholder;
     }
     return this.state.selectedValueText ?? this.props.visualPlaceholder;
+  }
+
+  private focusToButtonAndClosePopover() {
+    this.buttonRef.current?.focus();
+    this.setState({ showPopover: false });
   }
 
   render() {
@@ -503,6 +519,9 @@ class BaseDropdown extends Component<DropdownProps> {
                 matchWidth={true}
                 onKeyDown={this.handleKeyDown}
                 portal={portal}
+                portalStyleProps={{
+                  display: showPopover && !!children ? 'block' : 'none',
+                }}
               >
                 <DropdownProvider
                   value={{
@@ -510,8 +529,9 @@ class BaseDropdown extends Component<DropdownProps> {
                       this.handleItemSelection(itemValue),
                     selectedDropdownValue: selectedValue,
                     id,
-                    focusedItemId: focusedDescendantId,
+                    focusedItemValue: focusedDescendantId,
                     noSelectedStyles: alwaysShowVisualPlaceholder,
+                    onItemTabPress: () => this.focusToButtonAndClosePopover(),
                   }}
                 >
                   <SelectItemList

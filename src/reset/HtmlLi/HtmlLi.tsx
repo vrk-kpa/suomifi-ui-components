@@ -5,6 +5,8 @@ import { asPropType } from '../../utils/typescript';
 
 export interface HtmlLiProps extends Omit<HTMLProps<HTMLLIElement>, 'as'> {
   as?: asPropType;
+  /** Ref for the input element */
+  forwardedRef?: React.Ref<HTMLLIElement>;
 }
 
 const liResets = css`
@@ -13,7 +15,9 @@ const liResets = css`
   display: list-item;
 `;
 
-const Li = (props: HtmlLiProps) => <li {...props} />;
+const Li = ({ forwardedRef, ...passProps }: HtmlLiProps) => (
+  <li ref={forwardedRef} {...passProps} />
+);
 
 export const HtmlLi = styled(Li)`
   ${liResets}
