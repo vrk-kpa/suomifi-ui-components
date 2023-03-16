@@ -152,7 +152,8 @@ export interface DatePickerProps {
   dateAdapter?: DateAdapter;
 }
 export interface DateInputProps
-  extends StatusTextCommonProps,
+  extends DatePickerProps,
+    StatusTextCommonProps,
     Omit<HtmlInputProps, 'type' | 'onChange'> {
   /** DateInput container div class name for custom styling. */
   className?: string;
@@ -199,7 +200,7 @@ export interface DateInputProps
   tooltipComponent?: ReactElement;
 }
 
-const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
+const BaseDateInput = (props: DateInputProps) => {
   const {
     className,
     labelText,
@@ -443,10 +444,7 @@ const BaseDateInput = (props: DateInputProps & DatePickerProps) => {
 };
 
 const StyledDateInput = styled(
-  ({
-    theme,
-    ...passProps
-  }: DateInputProps & DatePickerProps & SuomifiThemeProp) => (
+  ({ theme, ...passProps }: DateInputProps & SuomifiThemeProp) => (
     <BaseDateInput {...passProps} />
   ),
 )`
@@ -461,14 +459,8 @@ const StyledDateInput = styled(
  * Props other than specified explicitly are passed on to underlying input element. For example defaultValue and onClick.
  * @component
  */
-const DateInput = forwardRef<
-  HTMLInputElement,
-  DateInputProps & DatePickerProps
->(
-  (
-    props: DateInputProps & DatePickerProps,
-    ref: React.Ref<HTMLInputElement>,
-  ) => {
+const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
+  (props: DateInputProps, ref: React.Ref<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
       <SuomifiThemeConsumer>
