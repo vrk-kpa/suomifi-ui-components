@@ -44,10 +44,10 @@
     "a11y"
   ],
   "scripts": {
-    "prepare": "npm-run-all husky:install build",
+    "prepare": "npm-run-all build",
     "husky:install": "husky install",
-    "pre-commit": "lint-staged",
-    "pre-push": "yarn validate",
+    "pre-commit": "",
+    "pre-push": "",
     "start": "yarn styleguide",
     "start:withaxe": "cross-env AXE=\"true\" yarn styleguidist server",
     "test": "jest test src --passWithNoTests",

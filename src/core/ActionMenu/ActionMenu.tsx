@@ -1,14 +1,32 @@
-import React, { forwardRef, FocusEvent, useState, useRef } from 'react';
+import React, {
+  forwardRef,
+  FocusEvent,
+  useState,
+  useRef,
+  useEffect,
+} from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 
-import { HtmlInputProps, HtmlDiv, HtmlDivProps } from '../../reset';
-import { ActionMenuPopover } from './ActionMenuPopover';
+import { ActionMenuPopover, InitialFocus } from './ActionMenuPopover';
+
+import { AriaDesc } from './AriaDesc';
 
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import { Button } from '../Button/Button';
+
+import {
+  HtmlDiv,
+  HtmlDivProps,
+  HtmlDivWithRef,
+  HtmlButton,
+  HtmlButtonProps,
+  HtmlInput,
+  HtmlDivWithRefProps,
+} from '../../reset';
+
 import { baseStyles } from './ActionMenu.baseStyles';
 
 const baseClassName = 'fi-action-menu';
@@ -16,12 +34,10 @@ export const actionMenuClassNames = {
   baseClassName,
   fullWidth: `${baseClassName}--full-width`,
   disabled: `${baseClassName}--disabled`,
-  // inputAndPickerWrapper: `${baseClassName}_input-and-picker-wrapper`,
-  // pickerElementContainer: `${baseClassName}_picker-element-container`,
   button: `${baseClassName}_button`,
   buttonDisabled: `${baseClassName}_button--disabled`,
   icon: `${baseClassName}_icon`,
-  // styleWrapper: `${baseClassName}_wrapper`,
+  iconOnly: `${baseClassName}_button--icon-only`,
   menuClosed: `${baseClassName}_button--menu--closed`,
 };
 
@@ -57,6 +73,9 @@ export interface ActionMenuProps
   onClose?: () => void;
 
   onOpen?: () => void;
+
+  /** Custom props passed to the menu button */
+  closeButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'aria-label'>;
 }
 
 const BaseActionMenu = (props: ActionMenuProps) => {
@@ -79,34 +98,79 @@ const BaseActionMenu = (props: ActionMenuProps) => {
   } = props;
 
   const openButtonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLUListElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
+  const [selectFirstItem, setSelectFirstItem] = useState<InitialFocus>('none');
 
   const menuId = `${id}-menu`;
   const buttonId = `${id}-button`;
 
-  const toggleMenu = (open: boolean, focus: boolean = false) => {
-    setMenuVisible(open);
+  useEffect(() => {
+    if (menuVisible) {
+      console.log('menu was changed to visible');
+      console.log('nyt? menuu', menuRef.current);
+    }
+  }, [menuVisible]);
 
+  const toggleMenu = (open: boolean) => {
     if (open && onOpen) {
       onOpen();
+      /* if (openButtonRef.current) {
+        openButtonRef.current.focus();
+      } */
     }
 
     if (!open && onClose) {
       onClose();
     }
 
-    if (!open && focus) {
+    if (!open) {
       openButtonRef.current?.focus();
+    }
+
+    setMenuVisible(open);
+
+    /*
+    if (open) {
+      setTimeout(() => {
+        console.log('avataan menuu', menuRef.current);
+        if (menuRef.current) {
+          menuRef.current.focus();
+        }
+      }, 100);
+    } */
+  };
+
+  const handleClick = (event: React.MouseEvent) => {
+    setSelectFirstItem('none');
+
+    toggleMenu(!menuVisible);
+
+    if (event.clientX === 0 && event.clientY === 0) {
+      console.log('KEY ??');
+      // setSelectFirstItem('first');
     }
   };
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (
-      (event.key === 'ArrowDown' || event.key === 'ArrowUp') &&
-      !menuVisible
-    ) {
+    console.log('handleKeyDown');
+    if (event.key === 'ArrowDown' && !menuVisible) {
       event.preventDefault();
       toggleMenu(!menuVisible);
+      setSelectFirstItem('first');
+    }
+
+    if (event.key === 'ArrowUp' && !menuVisible) {
+      event.preventDefault();
+      toggleMenu(!menuVisible);
+      setSelectFirstItem('last');
+    }
+
+    if ((event.key === 'Enter' || event.key === ' ') && !menuVisible) {
+      console.log('Enter or space');
+      event.preventDefault();
+      toggleMenu(!menuVisible);
+      setSelectFirstItem('first');
     }
   };
 
@@ -123,7 +187,8 @@ const BaseActionMenu = (props: ActionMenuProps) => {
           id={buttonId}
           variant="secondary"
           iconRight="optionsVertical"
-          aria-haspopup="true"
+          // aria-haspopup="true"
+          aria-expanded={menuVisible}
           aria-controls={menuId}
           forwardedRef={openButtonRef}
           className={classnames(
@@ -134,9 +199,14 @@ const BaseActionMenu = (props: ActionMenuProps) => {
             {
               [actionMenuClassNames.menuClosed]: !menuVisible,
             },
+            {
+              [actionMenuClassNames.iconOnly]:
+                !buttonText || buttonText.length < 1,
+            },
           )}
-          onClick={() => {
-            toggleMenu(!menuVisible);
+          onClick={handleClick}
+          onKeyPress={(event) => {
+            console.log('key press');
           }}
           onKeyDown={handleKeyDown}
           disabled={passProps.disabled}
@@ -145,17 +215,19 @@ const BaseActionMenu = (props: ActionMenuProps) => {
           <VisuallyHidden>{openButtonLabel}</VisuallyHidden>
         </Button>
 
-        {menuVisible && (
-          <ActionMenuPopover
-            menuId={menuId}
-            buttonId={buttonId}
-            openButtonRef={openButtonRef}
-            isOpen={menuVisible}
-            onClose={(focus) => toggleMenu(false, focus)}
-            children={children}
-          />
-        )}
+        <ActionMenuPopover
+          menuId={menuId}
+          buttonId={buttonId}
+          openButtonRef={openButtonRef}
+          onClose={() => toggleMenu(false)}
+          children={children}
+          initialFocus={selectFirstItem}
+          forwardedRef={menuRef}
+          isOpen={menuVisible}
+        />
       </>
+
+      <AriaDesc />
     </HtmlDiv>
   );
 };

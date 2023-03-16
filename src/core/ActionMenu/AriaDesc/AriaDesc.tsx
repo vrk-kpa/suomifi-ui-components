@@ -138,7 +138,8 @@ const BaseAriaDesc = ({ selected, className, ...passProps }: AriaDescProps) => {
     setIsOpen(true);
 
     console.log(ulRef.current);
-    ulRef.current?.focus();
+    // ulRef.current?.focus();
+    // setFocusToFirstMenuitem();
 
     setTimeout(() => {
       console.log('avataan menuu', ulRef.current);
@@ -277,10 +278,6 @@ const BaseAriaDesc = ({ selected, className, ...passProps }: AriaDescProps) => {
   return (
     <>
       <HtmlDiv className={classnames(className, baseClassName)}>
-        <br />
-        activeDescendant: {activeDescendant}
-        <br />
-        activeIndex: {focusedIndex} <br />
         <button
           type="button"
           id="menubutton1"
@@ -302,55 +299,57 @@ const BaseAriaDesc = ({ selected, className, ...passProps }: AriaDescProps) => {
             <polygon points="1 0, 11 0, 6 8" />
           </svg>
         </button>
-        <ul
-          id="menu1"
-          role="menu"
-          ref={ulRef}
-          tabIndex={-1}
-          aria-labelledby="menubutton1"
-          aria-activedescendant={activeDescendant}
-          className={classnames(className, menuClassNames.menu, {
-            [menuClassNames.menuHidden]: !isOpen,
-          })}
-          onKeyDown={onMenuKeydown}
-        >
-          <li
-            id="mi1"
-            role="menuitem"
-            className={classnames(className, menuClassNames.item, {
-              [menuClassNames.itemFocused]: activeDescendant === 'mi1',
+        {isOpen && (
+          <ul
+            id="menu1"
+            role="menu"
+            ref={ulRef}
+            tabIndex={-1}
+            aria-labelledby="menubutton1"
+            aria-activedescendant={activeDescendant}
+            className={classnames(className, menuClassNames.menu, {
+              [menuClassNames.menuHidden]: !isOpen,
             })}
+            onKeyDown={onMenuKeydown}
           >
-            Action 1
-          </li>
-          <li
-            id="mi2"
-            role="menuitem"
-            className={classnames(className, menuClassNames.item, {
-              [menuClassNames.itemFocused]: activeDescendant === 'mi2',
-            })}
-          >
-            Action 2
-          </li>
-          <li
-            id="mi3"
-            role="menuitem"
-            className={classnames(className, menuClassNames.item, {
-              [menuClassNames.itemFocused]: activeDescendant === 'mi3',
-            })}
-          >
-            Action 3
-          </li>
-          <li
-            id="mi4"
-            role="menuitem"
-            className={classnames(className, menuClassNames.item, {
-              [menuClassNames.itemFocused]: activeDescendant === 'mi4',
-            })}
-          >
-            Action 4
-          </li>
-        </ul>
+            <li
+              id="mi1"
+              role="menuitem"
+              className={classnames(className, menuClassNames.item, {
+                [menuClassNames.itemFocused]: activeDescendant === 'mi1',
+              })}
+            >
+              Action 1
+            </li>
+            <li
+              id="mi2"
+              role="menuitem"
+              className={classnames(className, menuClassNames.item, {
+                [menuClassNames.itemFocused]: activeDescendant === 'mi2',
+              })}
+            >
+              Action 2
+            </li>
+            <li
+              id="mi3"
+              role="menuitem"
+              className={classnames(className, menuClassNames.item, {
+                [menuClassNames.itemFocused]: activeDescendant === 'mi3',
+              })}
+            >
+              Action 3
+            </li>
+            <li
+              id="mi4"
+              role="menuitem"
+              className={classnames(className, menuClassNames.item, {
+                [menuClassNames.itemFocused]: activeDescendant === 'mi4',
+              })}
+            >
+              Action 4
+            </li>
+          </ul>
+        )}
       </HtmlDiv>
       <p>
         <label>

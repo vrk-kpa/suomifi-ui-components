@@ -26,6 +26,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     }
   }
 
+  &.fi-action-menu-popover--hidden {
+    display: none;
+  }
+
   /* Arrow base */
   & .fi-action-menu-popover_popper-arrow::before,
   & .fi-action-menu-popover_popper-arrow::after {

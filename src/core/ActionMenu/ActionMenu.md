@@ -17,45 +17,42 @@ const CustomButton = (props) => {
 };
 
 <>
+  <button>dsd</button>
   <div style={{ marginLeft: '200px' }}>
     <ActionMenu buttonText="my menu">
-      <ActionMenuItem>
-        <RouterLink
-          asComponent={CustomButton}
-          onClick={() => console.log('Item xx clicked')}
-        >
-          Do action xx
-        </RouterLink>
+      <ActionMenuItem asComponent={Link} href="www.suomi.fi">
+        Go to link
       </ActionMenuItem>
-      <ActionMenuItem>
-        <RouterLink onClick={() => console.log('Item 1')}>
-          Do action 1
-        </RouterLink>
+      <ActionMenuItem onClick={() => console.log('Item 1')}>
+        Do action 1
       </ActionMenuItem>
       <ActionMenuDivider />
-      <ActionMenuItem>
-        <RouterLink
-          asComponent={CustomButton}
-          onClick={() => console.log('Pidempi')}
-        >
-          Pidempi nimi toiminnolle
-        </RouterLink>
+      <ActionMenuItem
+        asComponent={CustomButton}
+        onClick={() => console.log('Pidempi')}
+      >
+        Pidempi nimi toiminnolle
       </ActionMenuItem>
-      <ActionMenuItem>
-        <RouterLink
-          asComponent={CustomButton}
-          onClick={() => console.log('Muokkaa')}
-        >
-          Muokkaa
-        </RouterLink>
+      <ActionMenuItem
+        asComponent={CustomButton}
+        onClick={() => console.log('Muokkaa')}
+      >
+        Muokkaa
       </ActionMenuItem>
-      <ActionMenuItem>
-        <RouterLink
-          asComponent={CustomButton}
-          onClick={() => console.log('Poista')}
-        >
-          Poista
-        </RouterLink>
+      <ActionMenuItem
+        asComponent={CustomButton}
+        onClick={() => console.log('Poista')}
+        icon="Search"
+      >
+        Poista
+      </ActionMenuItem>
+      <ActionMenuItem
+        asComponent={CustomButton}
+        onClick={() => console.log('Disabled')}
+        icon="Search"
+        disabled
+      >
+        Disabled
       </ActionMenuItem>
     </ActionMenu>
   </div>
