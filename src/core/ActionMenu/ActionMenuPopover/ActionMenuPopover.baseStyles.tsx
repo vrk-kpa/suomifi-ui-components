@@ -12,10 +12,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     border-radius: ${theme.radiuses.basic};
   }
 
-  &.fi-action-menu-popover--hidden {
-    display: none;
-  }
-
   & .fi-action-menu-popover_application {
     padding-top: 8px;
     padding-bottom: 8px;
@@ -24,6 +20,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    &:focus {
+      outline: 3px solid transparent;
+    }
   }
 
   /* Arrow base */
