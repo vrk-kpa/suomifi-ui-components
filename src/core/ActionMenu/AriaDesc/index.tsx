@@ -1,0 +1,1 @@
+export { AriaDesc } from './AriaDesc';
