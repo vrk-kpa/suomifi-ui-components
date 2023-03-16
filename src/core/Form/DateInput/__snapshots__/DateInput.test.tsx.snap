@@ -2964,31 +2964,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
   box-sizing: border-box;
 }
 
-.c15 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: list-item;
-}
-
-.c15::before,
-.c15::after {
-  box-sizing: border-box;
-}
-
 .c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -3018,37 +2993,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
   box-sizing: border-box;
 }
 
-.c13 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  list-style-type: decimal;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 40px;
-}
-
-.c13::before,
-.c13::after {
-  box-sizing: border-box;
-}
-
 .c8 {
   vertical-align: baseline;
 }
@@ -3073,7 +3017,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   cursor: inherit;
 }
 
-.c17 {
+.c13 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -3100,12 +3044,12 @@ exports[`snapshots match date input with datepicker with controlled input value 
   cursor: pointer;
 }
 
-.c17:focus {
+.c13:focus {
   outline: none;
   position: relative;
 }
 
-.c17:focus::after {
+.c13:focus::after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -3121,17 +3065,17 @@ exports[`snapshots match date input with datepicker with controlled input value 
   z-index: 9999;
 }
 
-.c17:hover {
+.c13:hover {
   background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
 }
 
-.c17:active {
+.c13:active {
   background: hsl(212,63%,37%);
 }
 
-.c17.fi-button--disabled,
-.c17[disabled],
-.c17:disabled {
+.c13.fi-button--disabled,
+.c13[disabled],
+.c13:disabled {
   text-shadow: 0 1px 1px rgba(33,33,33,0.5);
   background: linear-gradient(0deg,hsl(202,7%,67%) 0%,hsl(202,7%,80%) 100%);
   -webkit-user-select: none;
@@ -3141,41 +3085,41 @@ exports[`snapshots match date input with datepicker with controlled input value 
   cursor: not-allowed;
 }
 
-.c17.fi-button--disabled::after {
+.c13.fi-button--disabled::after {
   border: none;
   box-shadow: none;
 }
 
-.c17.fi-button--fullwidth {
+.c13.fi-button--fullwidth {
   display: block;
   width: 100%;
 }
 
-.c17.fi-button--inverted {
+.c13.fi-button--inverted {
   background: none;
   background-color: hsl(212,63%,45%);
   border: 1px solid hsl(0,0%,100%);
   text-shadow: none;
 }
 
-.c17.fi-button--inverted:hover {
+.c13.fi-button--inverted:hover {
   background: linear-gradient(-180deg,hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
 }
 
-.c17.fi-button--inverted:active {
+.c13.fi-button--inverted:active {
   background: none;
   background-color: hsl(212,63%,45%);
 }
 
-.c17.fi-button--inverted.fi-button--disabled,
-.c17.fi-button--inverted[disabled],
-.c17.fi-button--inverted:disabled {
+.c13.fi-button--inverted.fi-button--disabled,
+.c13.fi-button--inverted[disabled],
+.c13.fi-button--inverted:disabled {
   opacity: 0.41;
   background: none;
   background-color: none;
 }
 
-.c17.fi-button--secondary {
+.c13.fi-button--secondary {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -3183,18 +3127,18 @@ exports[`snapshots match date input with datepicker with controlled input value 
   text-shadow: none;
 }
 
-.c17.fi-button--secondary:hover {
+.c13.fi-button--secondary:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
-.c17.fi-button--secondary:active {
+.c13.fi-button--secondary:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c17.fi-button--secondary.fi-button--disabled,
-.c17.fi-button--secondary[disabled],
-.c17.fi-button--secondary:disabled {
+.c13.fi-button--secondary.fi-button--disabled,
+.c13.fi-button--secondary[disabled],
+.c13.fi-button--secondary:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -3202,7 +3146,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border-color: hsl(202,7%,67%);
 }
 
-.c17.fi-button--secondary-noborder {
+.c13.fi-button--secondary-noborder {
   color: hsl(212,63%,45%);
   background: none;
   background-color: hsl(0,0%,100%);
@@ -3212,18 +3156,18 @@ exports[`snapshots match date input with datepicker with controlled input value 
   background-color: transparent;
 }
 
-.c17.fi-button--secondary-noborder:hover {
+.c13.fi-button--secondary-noborder:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
-.c17.fi-button--secondary-noborder:active {
+.c13.fi-button--secondary-noborder:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c17.fi-button--secondary-noborder.fi-button--disabled,
-.c17.fi-button--secondary-noborder[disabled],
-.c17.fi-button--secondary-noborder:disabled {
+.c13.fi-button--secondary-noborder.fi-button--disabled,
+.c13.fi-button--secondary-noborder[disabled],
+.c13.fi-button--secondary-noborder:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -3231,7 +3175,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border-color: hsl(202,7%,67%);
 }
 
-.c17.fi-button--link {
+.c13.fi-button--link {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
   background: none;
@@ -3242,18 +3186,18 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border: none;
 }
 
-.c17.fi-button--link:hover {
+.c13.fi-button--link:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
-.c17.fi-button--link:active {
+.c13.fi-button--link:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c17.fi-button--link.fi-button--disabled,
-.c17.fi-button--link[disabled],
-.c17.fi-button--link:disabled {
+.c13.fi-button--link.fi-button--disabled,
+.c13.fi-button--link[disabled],
+.c13.fi-button--link:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -3261,23 +3205,23 @@ exports[`snapshots match date input with datepicker with controlled input value 
   border-color: hsl(202,7%,67%);
 }
 
-.c17.fi-button--link:hover {
+.c13.fi-button--link:hover {
   background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
 
-.c17.fi-button--link:active {
+.c13.fi-button--link:active {
   background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
 }
 
-.c17.fi-button--link.fi-button--disabled,
-.c17.fi-button--link[disabled],
-.c17.fi-button--link:disabled {
+.c13.fi-button--link.fi-button--disabled,
+.c13.fi-button--link[disabled],
+.c13.fi-button--link:disabled {
   color: hsl(202,7%,67%);
   background: none;
   background-color: hsl(202,7%,97%);
 }
 
-.c17 > .fi-button_icon {
+.c13 > .fi-button_icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
@@ -3287,12 +3231,12 @@ exports[`snapshots match date input with datepicker with controlled input value 
   transform: translateY(-0.1em);
 }
 
-.c17 > .fi-button_icon.fi-button_icon--right {
+.c13 > .fi-button_icon.fi-button_icon--right {
   margin-right: 0;
   margin-left: 8px;
 }
 
-.c17.fi-button--disabled > .fi-button_icon {
+.c13.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
 }
 
@@ -3308,40 +3252,40 @@ exports[`snapshots match date input with datepicker with controlled input value 
   overflow: hidden;
 }
 
-.c19.fi-month-day {
+.c15.fi-month-day {
   padding: 1px;
   text-align: center;
   min-width: 36px;
   height: 38px;
 }
 
-.c19.fi-month-day--disabled {
+.c15.fi-month-day--disabled {
   color: hsl(202,7%,67%);
 }
 
-.c19 .fi-month-day_current {
+.c15 .fi-month-day_current {
   margin: 0 6px;
   padding: 3px 0;
   border-bottom: 1px solid hsl(202,7%,67%);
   text-align: center;
 }
 
-.c19 .fi-month-day_button_current {
+.c15 .fi-month-day_button_current {
   margin: 0 6px;
   padding: 3px 0;
   border-bottom: 1px solid hsl(0,0%,13%);
   text-align: center;
 }
 
-.c19 .fi-month-day_button--disabled {
+.c15 .fi-month-day_button--disabled {
   color: hsl(202,7%,67%);
 }
 
-.c19 .fi-month-day_button--disabled .fi-month-day_button_current {
+.c15 .fi-month-day_button--disabled .fi-month-day_button_current {
   border-bottom: 1px solid hsl(202,7%,67%);
 }
 
-.c19 .fi-month-day_button {
+.c15 .fi-month-day_button {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -3362,13 +3306,13 @@ exports[`snapshots match date input with datepicker with controlled input value 
   text-align: center;
 }
 
-.c19 .fi-month-day_button:focus {
+.c15 .fi-month-day_button:focus {
   box-shadow: none;
   position: relative;
   outline: 3px solid transparent;
 }
 
-.c19 .fi-month-day_button:focus:after {
+.c15 .fi-month-day_button:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -3384,16 +3328,16 @@ exports[`snapshots match date input with datepicker with controlled input value 
   z-index: 9999;
 }
 
-.c19 .fi-month-day_button:not(.fi-month-day_button--disabled):hover {
+.c15 .fi-month-day_button:not(.fi-month-day_button--disabled):hover {
   background-color: hsl(212,63%,45%);
   color: hsl(0,0%,100%);
 }
 
-.c19 .fi-month-day_button:not(.fi-month-day_button--disabled):hover .fi-month-day_button_current {
+.c15 .fi-month-day_button:not(.fi-month-day_button--disabled):hover .fi-month-day_button_current {
   border-bottom: 1px solid hsl(0,0%,100%);
 }
 
-.c19 .fi-month-day_button--selected {
+.c15 .fi-month-day_button--selected {
   border: 1px solid hsl(212,63%,45%);
   background-color: hsl(212,63%,95%);
   -webkit-text-decoration: none;
@@ -3401,12 +3345,12 @@ exports[`snapshots match date input with datepicker with controlled input value 
   font-weight: 600;
 }
 
-.c19 .fi-month-day_button--selected:focus {
+.c15 .fi-month-day_button--selected:focus {
   box-shadow: none;
   position: relative;
 }
 
-.c19 .fi-month-day_button--selected:focus:after {
+.c15 .fi-month-day_button--selected:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -3422,11 +3366,11 @@ exports[`snapshots match date input with datepicker with controlled input value 
   z-index: 9999;
 }
 
-.c19 .fi-month-day_button--selected:hover {
+.c15 .fi-month-day_button--selected:hover {
   font-weight: 400;
 }
 
-.c18.fi-month-table {
+.c14.fi-month-table {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -3444,7 +3388,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   margin-bottom: 10px;
 }
 
-.c18 .fi-month-table_thead-cell {
+.c14 .fi-month-table_thead-cell {
   padding: 1px;
   text-align: center;
   min-width: 36px;
@@ -3479,45 +3423,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
 
 .c4.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
-}
-
-.c14 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  list-style-type: none;
-  box-sizing: content-box;
-  max-height: 265px;
-  background-color: hsl(0,0%,100%);
-  border-width: 0 1px 1px 1px;
-  border-style: solid;
-  border-color: hsl(201,7%,58%);
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
-  margin: 0;
-  padding: 4px 0 0 0;
-}
-
-.c14:focus {
-  outline: none;
-}
-
-.c14 .fi-select-item-list_content_wrapper {
-  display: block;
-  width: 100%;
-  max-height: inherit;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .c9 {
@@ -3714,56 +3619,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
-}
-
-.c16.fi-dropdown_item {
-  color: hsl(0,0%,13%);
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-  cursor: pointer;
-  line-height: 1.5;
-  padding: 8px;
-  border: 0;
-  position: relative;
-}
-
-.c16.fi-dropdown_item:focus {
-  outline: 0;
-}
-
-.c16.fi-dropdown_item:hover {
-  background-color: hsl(212,63%,45%);
-  color: hsl(0,0%,100%);
-}
-
-.c16.fi-dropdown_item .fi-dropdown_item_icon {
-  position: absolute;
-  top: 14px;
-  right: 10px;
-  height: 12px;
-  width: 12px;
-}
-
-.c16.fi-dropdown_item--selected {
-  background-color: hsl(215,100%,95%);
-  color: hsl(0,0%,13%);
-}
-
-.c16.fi-dropdown_item--hasKeyboardFocus {
-  background-color: hsl(212,63%,45%);
-  color: hsl(0,0%,100%);
-}
-
-.c16.fi-dropdown_item--noSelectedStyles.fi-dropdown_item--selected {
-  background-color: hsl(0,0%,100%);
-  color: hsl(0,0%,13%);
-}
-
-.c16.fi-dropdown_item--noSelectedStyles.fi-dropdown_item--selected.fi-dropdown_item--hasKeyboardFocus {
-  background-color: hsl(212,63%,45%);
-  color: hsl(0,0%,100%);
 }
 
 .c11 .fi-date-selectors_container {
@@ -4310,7 +4165,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c0 fi-dropdown_input-wrapper"
             >
               <button
-                aria-activedescendant="16-2020"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="16-displayValue 16-label"
@@ -4338,232 +4192,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 aria-live="assertive"
                 class="c2 c9 fi-status-text"
               />
-              <div
-                role="presentation"
-                style="position: absolute; left: 0px; top: 0px; visibility: hidden; width: 0px;"
-                tabindex="-1"
-              >
-                <div
-                  class="c3"
-                >
-                  <ul
-                    class="c13 fi-select-item-list c14 fi-dropdown_item-list"
-                    id="9-popover"
-                    role="listbox"
-                    tabindex="0"
-                  >
-                    <div
-                      class="c3 fi-select-item-list_content_wrapper"
-                    >
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2010"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2010
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2011"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2011
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2012"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2012
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2013"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2013
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2014"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2014
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2015"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2015
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2016"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2016
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2017"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2017
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2018"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2018
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2019"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2019
-                      </li>
-                      <li
-                        aria-selected="true"
-                        class="c15 c16 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus fi-dropdown_item--selected"
-                        id="9-2020"
-                        role="option"
-                        tabindex="0"
-                      >
-                        2020
-                        <svg
-                          aria-hidden="true"
-                          class="fi-icon c8 fi-dropdown_item_icon"
-                          focusable="false"
-                          height="1em"
-                          viewBox="0 0 20 20"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            class="fi-icon-base-fill"
-                            d="M19.447 5.384L8 17.42a1.82 1.82 0 01-2.667 0L.552 12.394a2.059 2.059 0 010-2.805 1.822 1.822 0 012.666 0l3.449 3.625L16.78 2.581a1.82 1.82 0 012.666 0 2.053 2.053 0 010 2.803"
-                            fill="#222"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2021"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2021
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2022"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2022
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2023"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2023
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2024"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2024
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2025"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2025
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2026"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2026
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2027"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2027
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2028"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2028
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2029"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2029
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="9-2030"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        2030
-                      </li>
-                    </div>
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
         </span>
@@ -4589,7 +4217,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               class="c0 fi-dropdown_input-wrapper"
             >
               <button
-                aria-activedescendant="17-0"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="17-displayValue 17-label"
@@ -4617,158 +4244,13 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 aria-live="assertive"
                 class="c2 c9 fi-status-text"
               />
-              <div
-                role="presentation"
-                style="position: absolute; left: 0px; top: 0px; visibility: hidden; width: 0px;"
-                tabindex="-1"
-              >
-                <div
-                  class="c3"
-                >
-                  <ul
-                    class="c13 fi-select-item-list c14 fi-dropdown_item-list"
-                    id="10-popover"
-                    role="listbox"
-                    tabindex="0"
-                  >
-                    <div
-                      class="c3 fi-select-item-list_content_wrapper"
-                    >
-                      <li
-                        aria-selected="true"
-                        class="c15 c16 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus fi-dropdown_item--selected"
-                        id="10-0"
-                        role="option"
-                        tabindex="0"
-                      >
-                        Tammikuu
-                        <svg
-                          aria-hidden="true"
-                          class="fi-icon c8 fi-dropdown_item_icon"
-                          focusable="false"
-                          height="1em"
-                          viewBox="0 0 20 20"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            class="fi-icon-base-fill"
-                            d="M19.447 5.384L8 17.42a1.82 1.82 0 01-2.667 0L.552 12.394a2.059 2.059 0 010-2.805 1.822 1.822 0 012.666 0l3.449 3.625L16.78 2.581a1.82 1.82 0 012.666 0 2.053 2.053 0 010 2.803"
-                            fill="#222"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="10-1"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Helmikuu
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="10-2"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Maaliskuu
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="10-3"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Huhtikuu
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="10-4"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Toukokuu
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="10-5"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Kesäkuu
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="10-6"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Heinäkuu
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="10-7"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Elokuu
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="10-8"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Syyskuu
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="10-9"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Lokakuu
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="10-10"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Marraskuu
-                      </li>
-                      <li
-                        aria-selected="false"
-                        class="c15 c16 fi-dropdown_item"
-                        id="10-11"
-                        role="option"
-                        tabindex="-1"
-                      >
-                        Joulukuu
-                      </li>
-                    </div>
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
         </span>
         <button
           aria-disabled="false"
           aria-label="Edellinen kuukausi Joulukuu"
-          class="c6 fi-button c17 fi-date-selectors_month-button fi-button--secondary-noborder"
+          class="c6 fi-button c13 fi-date-selectors_month-button fi-button--secondary-noborder"
           tabindex="0"
           type="button"
         >
@@ -4792,7 +4274,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
         <button
           aria-disabled="false"
           aria-label="Seuraava kuukausi Helmikuu"
-          class="c6 fi-button c17 fi-date-selectors_month-button fi-button--secondary-noborder"
+          class="c6 fi-button c13 fi-date-selectors_month-button fi-button--secondary-noborder"
           tabindex="0"
           type="button"
         >
@@ -4815,7 +4297,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
         </button>
       </div>
       <table
-        class="c18 fi-month-table"
+        class="c14 fi-month-table"
         role="presentation"
       >
         <thead>
@@ -4860,17 +4342,17 @@ exports[`snapshots match date input with datepicker with controlled input value 
         <tbody>
           <tr>
             <td
-              class="c19 fi-month-day fi-month-day--disabled"
+              class="c15 fi-month-day fi-month-day--disabled"
             >
               30
             </td>
             <td
-              class="c19 fi-month-day fi-month-day--disabled"
+              class="c15 fi-month-day fi-month-day--disabled"
             >
               31
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-current="date"
@@ -4896,7 +4378,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4917,7 +4399,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4938,7 +4420,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4959,7 +4441,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4982,7 +4464,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
           </tr>
           <tr>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5003,7 +4485,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5024,7 +4506,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5045,7 +4527,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5066,7 +4548,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5087,7 +4569,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5108,7 +4590,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5131,7 +4613,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
           </tr>
           <tr>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5152,7 +4634,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5173,7 +4655,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5193,7 +4675,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5214,7 +4696,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5235,7 +4717,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5256,7 +4738,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5279,7 +4761,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
           </tr>
           <tr>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5300,7 +4782,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5321,7 +4803,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5342,7 +4824,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5363,7 +4845,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5384,7 +4866,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5405,7 +4887,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5428,7 +4910,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
           </tr>
           <tr>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5449,7 +4931,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5470,7 +4952,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5491,7 +4973,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5512,7 +4994,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day"
+              class="c15 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -5533,12 +5015,12 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c19 fi-month-day fi-month-day--disabled"
+              class="c15 fi-month-day fi-month-day--disabled"
             >
               1
             </td>
             <td
-              class="c19 fi-month-day fi-month-day--disabled"
+              class="c15 fi-month-day fi-month-day--disabled"
             >
               2
             </td>
@@ -5550,7 +5032,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
       >
         <button
           aria-disabled="false"
-          class="c6 fi-button c17 fi-date-picker_bottom-button"
+          class="c6 fi-button c13 fi-date-picker_bottom-button"
           tabindex="0"
           type="button"
         >
@@ -5558,7 +5040,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
         </button>
         <button
           aria-disabled="false"
-          class="c6 fi-button c17 fi-date-picker_bottom-button fi-button--secondary"
+          class="c6 fi-button c13 fi-date-picker_bottom-button fi-button--secondary"
           tabindex="0"
           type="button"
         >
@@ -6930,7 +6412,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c0 fi-dropdown_input-wrapper"
               >
                 <button
-                  aria-activedescendant="9-2020"
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-labelledby="9-displayValue 9-label"
@@ -6983,7 +6464,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 class="c0 fi-dropdown_input-wrapper"
               >
                 <button
-                  aria-activedescendant="10-0"
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-labelledby="10-displayValue 10-label"

@@ -951,6 +951,7 @@ exports[`has matching snapshot 1`] = `
       class="c3"
     >
       <ul
+        aria-activedescendant=""
         class="c14 fi-select-item-list c15"
         id="2-popover"
         role="listbox"

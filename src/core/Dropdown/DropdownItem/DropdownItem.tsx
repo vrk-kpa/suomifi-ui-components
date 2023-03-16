@@ -1,4 +1,4 @@
-import React, { ReactNode, useLayoutEffect, useRef } from 'react';
+import React, { ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './DropdownItem.basestyles';
 import {
@@ -10,7 +10,6 @@ import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlLi } from '../../../reset';
 import { Icon } from '../../Icon/Icon';
-import { getOwnerDocument } from '../../../utils/common/common';
 
 export interface DropdownItemProps {
   /** Item value */
@@ -37,16 +36,7 @@ const BaseDropdownItem = (props: BaseDropdownItemProps & SuomifiThemeProp) => {
   const selected = consumer.selectedDropdownValue === value;
   const hasKeyboardFocus = consumer.focusedItemValue === value;
 
-  const listElementRef = useRef<HTMLLIElement>(null);
-
   const listElementId = `${consumer.id}-${value}`;
-
-  useLayoutEffect(() => {
-    const ownerDocument = getOwnerDocument(listElementRef);
-    if (ownerDocument.activeElement?.id !== listElementId && hasKeyboardFocus) {
-      listElementRef.current?.focus({ preventScroll: true });
-    }
-  }, [consumer.focusedItemValue]);
 
   return (
     <HtmlLi
@@ -55,20 +45,13 @@ const BaseDropdownItem = (props: BaseDropdownItemProps & SuomifiThemeProp) => {
         [dropdownItemClassNames.selected]: selected,
         [dropdownItemClassNames.noSelectedStyles]: consumer.noSelectedStyles,
       })}
-      tabIndex={hasKeyboardFocus ? 0 : -1}
+      tabIndex={-1}
       role="option"
       aria-selected={selected}
       id={listElementId}
-      onKeyDown={(event: React.KeyboardEvent) => {
-        if (event.key === 'Tab') {
-          event.preventDefault();
-          consumer.onItemTabPress();
-        }
-      }}
       onClick={() => {
         consumer.onItemClick(value);
       }}
-      forwardedRef={listElementRef}
       {...passProps}
     >
       {children}

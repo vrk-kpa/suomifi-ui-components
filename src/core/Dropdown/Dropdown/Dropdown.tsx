@@ -258,7 +258,7 @@ class BaseDropdown extends Component<DropdownProps> {
       case 'ArrowDown': {
         event.preventDefault();
         if (!showPopover) {
-          this.setState({ showPopover: true });
+          this.openPopover();
         }
         const nextItem = getNextItem();
         if (nextItem) {
@@ -270,7 +270,7 @@ class BaseDropdown extends Component<DropdownProps> {
       case 'ArrowUp': {
         event.preventDefault();
         if (!showPopover) {
-          this.setState({ showPopover: true });
+          this.openPopover();
         }
         const previousItem = getPreviousItem();
         if (previousItem) {
@@ -283,7 +283,7 @@ class BaseDropdown extends Component<DropdownProps> {
         event.preventDefault();
         this.setState({ showPopover: !showPopover });
         if (!showPopover) {
-          this.setState({ showPopover: true });
+          this.openPopover();
           if (!focusedDescendantId) {
             const nextItem = getNextItem();
             if (nextItem) {
@@ -304,7 +304,7 @@ class BaseDropdown extends Component<DropdownProps> {
       case 'Enter': {
         event.preventDefault();
         if (!showPopover) {
-          this.setState({ showPopover: true });
+          this.openPopover();
           if (!focusedDescendantId) {
             const nextItem = getNextItem();
             if (nextItem) {
@@ -325,7 +325,7 @@ class BaseDropdown extends Component<DropdownProps> {
       case 'Escape': {
         if (showPopover) {
           event.stopPropagation();
-          this.setState({ showPopover: false });
+          this.focusToButtonAndClosePopover();
         }
         break;
       }
@@ -374,6 +374,13 @@ class BaseDropdown extends Component<DropdownProps> {
   private focusToButtonAndClosePopover() {
     this.buttonRef.current?.focus();
     this.setState({ showPopover: false });
+  }
+
+  private openPopover() {
+    this.setState({ showPopover: true });
+    setTimeout(() => {
+      this.popoverRef.current?.focus();
+    }, 200);
   }
 
   render() {
@@ -478,10 +485,11 @@ class BaseDropdown extends Component<DropdownProps> {
               ])}
               aria-owns={popoverItemListId}
               aria-expanded={showPopover}
-              aria-activedescendant={ariaActiveDescendant}
               onClick={() => {
-                if (!disabled) {
-                  this.setState({ showPopover: !showPopover });
+                if (!showPopover) {
+                  this.openPopover();
+                } else {
+                  this.focusToButtonAndClosePopover();
                 }
               }}
               onKeyDown={this.handleKeyDown}
@@ -506,43 +514,48 @@ class BaseDropdown extends Component<DropdownProps> {
             >
               {statusText}
             </StatusText>
-            <Popover
-              sourceRef={this.buttonRef}
-              onClickOutside={(event) => {
-                if (!this.isOutsideClick(event)) {
-                  this.setState({
-                    showPopover: false,
-                  });
-                }
-              }}
-              matchWidth={true}
-              onKeyDown={this.handleKeyDown}
-              portal={portal}
-              portalStyleProps={{
-                visibility: showPopover && !!children ? 'visible' : 'hidden',
-              }}
-            >
-              <DropdownProvider
-                value={{
-                  onItemClick: (itemValue) =>
-                    this.handleItemSelection(itemValue),
-                  selectedDropdownValue: selectedValue,
-                  id,
-                  focusedItemValue: focusedDescendantId,
-                  noSelectedStyles: alwaysShowVisualPlaceholder,
-                  onItemTabPress: () => this.focusToButtonAndClosePopover(),
+            {showPopover && (
+              <Popover
+                sourceRef={this.buttonRef}
+                onClickOutside={(event) => {
+                  if (!this.isOutsideClick(event)) {
+                    this.setState({
+                      showPopover: false,
+                    });
+                  }
                 }}
+                matchWidth={true}
+                onKeyDown={this.handleKeyDown}
+                portal={portal}
               >
-                <SelectItemList
-                  id={popoverItemListId}
-                  ref={this.popoverRef}
-                  focusedDescendantId={ariaActiveDescendant}
-                  className={dropdownClassNames.itemList}
+                <DropdownProvider
+                  value={{
+                    onItemClick: (itemValue) =>
+                      this.handleItemSelection(itemValue),
+                    selectedDropdownValue: selectedValue,
+                    id,
+                    focusedItemValue: focusedDescendantId,
+                    noSelectedStyles: alwaysShowVisualPlaceholder,
+                    onItemTabPress: () => this.focusToButtonAndClosePopover(),
+                  }}
                 >
-                  {children || []}
-                </SelectItemList>
-              </DropdownProvider>
-            </Popover>
+                  <SelectItemList
+                    id={popoverItemListId}
+                    ref={this.popoverRef}
+                    focusedDescendantId={ariaActiveDescendant}
+                    className={dropdownClassNames.itemList}
+                    onKeyDown={(event) => {
+                      if (event.key === 'Tab') {
+                        event.preventDefault();
+                        this.focusToButtonAndClosePopover();
+                      }
+                    }}
+                  >
+                    {children || []}
+                  </SelectItemList>
+                </DropdownProvider>
+              </Popover>
+            )}
           </HtmlDiv>
         </HtmlDiv>
       </HtmlSpan>

@@ -423,7 +423,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
         class="c2 fi-dropdown_input-wrapper"
       >
         <button
-          aria-activedescendant=""
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-labelledby="test-id-label"
@@ -881,7 +880,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
         class="c2 fi-dropdown_input-wrapper"
       >
         <button
-          aria-activedescendant="test-id-item-2"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-labelledby="test-id-displayValue test-id-label"
@@ -1339,7 +1337,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
         class="c2 fi-dropdown_input-wrapper"
       >
         <button
-          aria-activedescendant=""
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-labelledby="additional-label-id test-id-label"
@@ -1808,7 +1805,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
         class="c2 fi-dropdown_input-wrapper"
       >
         <button
-          aria-activedescendant=""
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-labelledby="test-id-label"

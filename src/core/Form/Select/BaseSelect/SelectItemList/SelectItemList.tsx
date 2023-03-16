@@ -27,6 +27,8 @@ export interface SelectItemListProps {
   focusedDescendantId: string;
   /** onBlur event handler */
   onBlur?: (event: FocusEvent<Element>) => void;
+  /** onKeyDown event handler */
+  onKeyDown?: (event: React.KeyboardEvent<HTMLUListElement>) => void;
   /** Id needed for aria-owns and aria-controls */
   id: string;
 }
@@ -93,6 +95,7 @@ class BaseSelectItemList extends Component<
       forwardedRef,
       children,
       onBlur,
+      onKeyDown,
       id,
       focusedDescendantId,
       ...passProps
@@ -106,6 +109,8 @@ class BaseSelectItemList extends Component<
         {...passProps}
         role="listbox"
         onBlur={onBlur}
+        aria-activedescendant={focusedDescendantId}
+        onKeyDown={onKeyDown}
       >
         <HtmlDivWithRef
           forwardedRef={this.wrapperRef}
