@@ -506,45 +506,43 @@ class BaseDropdown extends Component<DropdownProps> {
             >
               {statusText}
             </StatusText>
-            {showPopover && !!children && (
-              <Popover
-                sourceRef={this.buttonRef}
-                onClickOutside={(event) => {
-                  if (!this.isOutsideClick(event)) {
-                    this.setState({
-                      showPopover: false,
-                    });
-                  }
-                }}
-                matchWidth={true}
-                onKeyDown={this.handleKeyDown}
-                portal={portal}
-                portalStyleProps={{
-                  display: showPopover && !!children ? 'block' : 'none',
+            <Popover
+              sourceRef={this.buttonRef}
+              onClickOutside={(event) => {
+                if (!this.isOutsideClick(event)) {
+                  this.setState({
+                    showPopover: false,
+                  });
+                }
+              }}
+              matchWidth={true}
+              onKeyDown={this.handleKeyDown}
+              portal={portal}
+              portalStyleProps={{
+                visibility: showPopover && !!children ? 'visible' : 'hidden',
+              }}
+            >
+              <DropdownProvider
+                value={{
+                  onItemClick: (itemValue) =>
+                    this.handleItemSelection(itemValue),
+                  selectedDropdownValue: selectedValue,
+                  id,
+                  focusedItemValue: focusedDescendantId,
+                  noSelectedStyles: alwaysShowVisualPlaceholder,
+                  onItemTabPress: () => this.focusToButtonAndClosePopover(),
                 }}
               >
-                <DropdownProvider
-                  value={{
-                    onItemClick: (itemValue) =>
-                      this.handleItemSelection(itemValue),
-                    selectedDropdownValue: selectedValue,
-                    id,
-                    focusedItemValue: focusedDescendantId,
-                    noSelectedStyles: alwaysShowVisualPlaceholder,
-                    onItemTabPress: () => this.focusToButtonAndClosePopover(),
-                  }}
+                <SelectItemList
+                  id={popoverItemListId}
+                  ref={this.popoverRef}
+                  focusedDescendantId={ariaActiveDescendant}
+                  className={dropdownClassNames.itemList}
                 >
-                  <SelectItemList
-                    id={popoverItemListId}
-                    ref={this.popoverRef}
-                    focusedDescendantId={ariaActiveDescendant}
-                    className={dropdownClassNames.itemList}
-                  >
-                    {children}
-                  </SelectItemList>
-                </DropdownProvider>
-              </Popover>
-            )}
+                  {children || []}
+                </SelectItemList>
+              </DropdownProvider>
+            </Popover>
           </HtmlDiv>
         </HtmlDiv>
       </HtmlSpan>
