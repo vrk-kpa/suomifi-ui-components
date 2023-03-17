@@ -23,6 +23,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
+    &--icon-only {
+      & .fi-button_icon {
+        margin: 0;
+      }
+    }
+
     height: 100%;
     min-width: 40px;
     text-align: center;
