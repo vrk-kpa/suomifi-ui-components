@@ -7,7 +7,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   /* stylelint-disable no-descending-specificity */
   /* Nested :hover etc selectors do not work well with this rule. */
-  &.fi-service-navigation-item {
+  &.fi-action-menu-item {
     display: flex;
     align-items: center;
     position: relative;
@@ -29,6 +29,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       cursor: pointer;
       background: inherit;
       border: none;
+      align-items: center;
 
       &:focus {
         outline: 0;
@@ -42,6 +43,20 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       &:visited {
         text-decoration: none;
         color: ${theme.colors.whiteBase};
+        align-items: center;
+      }
+
+      & > .fi-action-menu-item_icon {
+        width: 16px;
+        height: 16px;
+        margin-right: ${theme.spacing.insetM};
+        vertical-align: middle;
+        transform: translateY(-0.1em);
+
+        &.fi-action-menu-item_icon--right {
+          margin-right: 0;
+          margin-left: ${theme.spacing.insetM};
+        }
       }
     }
 
@@ -58,11 +73,17 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         color: ${theme.colors.depthBase};
         cursor: not-allowed;
         pointer-events: none;
+        align-items: center;
 
         &:hover,
         &:active,
         &:visited {
           color: ${theme.colors.depthBase};
+        }
+
+        .fi-action-menu-item_icon {
+          cursor: not-allowed;
+          margin-right: ${theme.spacing.insetM};
         }
       }
     }
@@ -85,6 +106,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         width: 100%;
         background: ${theme.colors.highlightBase};
         border: none;
+        align-items: center;
+
         ${font(theme)('bodyTextSmall')};
 
         &:hover,
@@ -93,6 +116,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           text-decoration: none;
           color: ${theme.colors.whiteBase};
           cursor: pointer;
+        }
+
+        .fi-action-menu-item_icon {
+          margin-right: ${theme.spacing.insetM};
         }
       }
     }

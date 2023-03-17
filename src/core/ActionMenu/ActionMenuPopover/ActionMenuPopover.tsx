@@ -1,11 +1,11 @@
-import React, { useState, useEffect, ReactNode } from 'react';
+import React, { useState, useEffect, useRef, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { default as styled } from 'styled-components';
 import { usePopper } from 'react-popper';
 import classnames from 'classnames';
 import { useEnhancedEffect } from '../../../utils/common';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { HtmlDiv, HtmlDivWithRef, HtmlUl } from '../../../reset';
+import { HtmlDivWithRef, HtmlUlWithRef } from '../../../reset';
 import { getLogger } from '../../../utils/log';
 import { baseStyles } from './ActionMenuPopover.baseStyles';
 
@@ -20,13 +20,11 @@ export const actionMenuClassNames = {
   popperArrow: `${baseClassName}_popper-arrow`,
 };
 
+export type InitialFocus = 'first' | 'last' | 'none';
 export interface InternalActionMenuPopoverProps {
-  /** Source ref for positioning the popover next to calendar button */
-  // sourceRef: React.RefObject<any>;
   /** Button ref for positioning dialog and closing dialog on button click */
   openButtonRef: React.RefObject<any>;
-  /** Boolean to open or close calendar dialog */
-  isOpen: boolean;
+
   /** Callback fired when closing popover */
   onClose: (focus?: boolean) => void;
   /** Styled component className */
@@ -39,76 +37,207 @@ export interface InternalActionMenuPopoverProps {
     | undefined;
 */
 
-  /** Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
+  /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
   children: ReactNode;
 
   menuId: string;
 
   buttonId: string;
+
+  initialFocus: InitialFocus;
 }
+
+export interface SingleSelectData {
+  /** Unique label that will be shown on SingleSelect item and used on filter */
+  labelText: string;
+  /** Item selection disabled for the user */
+  disabled?: boolean;
+  /** Unique id to identify the item */
+  uniqueItemId: string;
+}
+
+export interface ActionMenuProviderState {
+  /** Callback for communicating DropdownItem click to parent  */
+  onItemClick: (itemValue: string) => void;
+
+  onItemMouseOver: (itemValue: number) => void;
+  /** Currently selected DropdownItem */
+  selectedDropdownValue: string | undefined | null;
+  /** Currently focused DropdownItem */
+  focusedItemId: string | null | undefined;
+  /** ID of the Dropdown component.
+   * Used in DropdownItem to create a derived ID for each item
+   */
+  id: string | undefined;
+
+  focusedIndex: number;
+}
+
+const defaultProviderValue: ActionMenuProviderState = {
+  onItemClick: () => null,
+  onItemMouseOver: () => null,
+  selectedDropdownValue: null,
+  id: '',
+  focusedItemId: null,
+  focusedIndex: -1,
+};
+
+const { Provider: ActionMenuProvider, Consumer: ActionMenuConsumer } =
+  React.createContext(defaultProviderValue);
 
 export const BaseActionMenuPopover = (
   props: InternalActionMenuPopoverProps,
 ) => {
   const {
     openButtonRef,
-    isOpen,
     onClose,
     className,
     children,
     menuId,
     buttonId,
+    initialFocus,
   } = props;
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
   const [dialogElement, setDialogElement] = useState<HTMLElement | null>(null);
-  const [hasPopperEventListeners, setHasPopperEventListeners] =
-    useState<boolean>(false);
+
+  const [selectedValue, setSelectedValue] = useState<string | undefined | null>(
+    undefined,
+  );
+
+  const [focusedDescendantId, setFocusedDescendantId] = useState<string | null>(
+    null,
+  );
+
+  const portalRef = useRef<HTMLDivElement>(null);
+
+  const ulRef = useRef<HTMLUListElement>(null);
+
+  const [focusedChild, setFocusedChild] = useState<number>(-1);
+
+  /*
+  const firstChildRef = useRef(null);
+
+  useEffect(() => {
+    if (firstChildRef.current) {
+      firstChildRef.current.focus();
+    }
+  }, [firstChildRef]); */
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
-      setHasPopperEventListeners(true);
-      document.addEventListener('click', globalClickHandler, {
-        capture: true,
-      });
-      document.addEventListener('keydown', globalKeyDownHandler, {
-        capture: true,
-      });
+    // setHasPopperEventListeners(true);
+    document.addEventListener('click', globalClickHandler, {
+      capture: true,
+    });
+    document.addEventListener('keydown', globalKeyDownHandler, {
+      capture: true,
+    });
 
-      return () => {
-        document.removeEventListener('click', globalClickHandler, {
-          capture: true,
-        });
-        document.removeEventListener('keydown', globalKeyDownHandler, {
-          capture: true,
-        });
-      };
+    return () => {
+      document.removeEventListener('click', globalClickHandler, {
+        capture: true,
+      });
+      document.removeEventListener('keydown', globalKeyDownHandler, {
+        capture: true,
+      });
+    };
+
+    // setHasPopperEventListeners(false);
+  }, [focusedChild]);
+
+  useEffect(() => {
+    console.log('Popover ref hook hits!');
+
+    if (!ulRef.current) {
+      console.log('ref hook undefined!');
     }
-    setHasPopperEventListeners(false);
-  }, [isOpen, focusedChild]);
+
+    ulRef.current?.focus();
+  });
+
+  useEffect(() => {
+    console.log('initial: ', initialFocus);
+    // setFocusedChild(-1);
+
+    setTimeout(() => {
+      if (initialFocus === 'first') {
+        setFocusedChild(0);
+      }
+      if (initialFocus === 'last') {
+        setFocusedChild(React.Children.count(children) - 1);
+      }
+    }, 100);
+  }, [initialFocus]);
 
   const globalClickHandler = (nativeEvent: MouseEvent) => {
-    console.log((nativeEvent.target as Node).nodeName);
-
-    if (!dialogElement?.contains(nativeEvent.target as Node)) {
-      console.log('heps 1');
-    }
-
-    if (!openButtonRef.current?.contains(nativeEvent.target as Node)) {
-      console.log('heps 2');
-    }
-
     if (
-      !dialogElement?.contains(nativeEvent.target as Node) &&
+      !portalRef.current?.contains(nativeEvent.target as Node) &&
       !openButtonRef.current?.contains(nativeEvent.target as Node)
     ) {
-      // Click is outside of button and dialog element
-      handleClose();
+      // Click is outside of button and menu elements
+      handleClose(true);
     }
+  };
+
+  // Decide if the node is focusable or not
+  const isFocusable = (child: React.ReactElement<ActionMenuItemProps>) =>
+    child?.type === ActionMenuItem;
+
+  // Find nect child that can be focused
+  const nextFocusable = (current: number | undefined) => {
+    let nextFocusableIndex: number | undefined;
+    let firstFocusableIndex: number | undefined;
+    let startFrom = 0;
+
+    if (current) {
+      startFrom = current;
+    }
+
+    React.Children.forEach(children, (child, index) => {
+      if (isFocusable(child) && firstFocusableIndex === undefined) {
+        firstFocusableIndex = index;
+      }
+
+      if (
+        index > startFrom &&
+        isFocusable(child) &&
+        nextFocusableIndex === undefined
+      ) {
+        nextFocusableIndex = index;
+      }
+    });
+
+    // Is there focusable later in the list
+    if (nextFocusableIndex !== undefined) {
+      return nextFocusableIndex;
+    }
+    // Return the first focusable of the list
+    return firstFocusableIndex;
+  };
+
+  const previousFocusable = (current: number) => {
+    let result: number | undefined;
+    let lastFocusable: number | undefined;
+
+    React.Children.forEach(children, (child, index) => {
+      if (isFocusable(child)) {
+        lastFocusable = index;
+      }
+
+      if (index < current && isFocusable(child)) {
+        result = index;
+      }
+    });
+
+    if (result !== undefined) {
+      return result;
+    }
+
+    return lastFocusable;
   };
 
   const globalKeyDownHandler = (event: KeyboardEvent) => {
@@ -117,60 +246,36 @@ export const BaseActionMenuPopover = (
     }
 
     if (event.key === 'Tab') {
-      // What should tab do ?
-    }
-  };
-
-  /*
-  const handleButtonKeydown = (
-    event: React.KeyboardEvent<HTMLButtonElement>,
-  ) => {
-    let date;
-    if (event.key === 'ArrowRight') {
-      event.preventDefault();
-      // date = dateInRange(moveDays(focusableDate, 1));
+      // Close the menu
+      handleClose(true);
     }
 
-    if (event.key === 'ArrowLeft') {
+    if (event.key === 'Enter' || event.key === ' ') {
+      // Call action of the child item
+      console.log('Enter ja indeksi: ', focusedChild);
       event.preventDefault();
-      // date = dateInRange(moveDays(focusableDate, -1));
+
+      const childProps = React.Children.toArray(children)[focusedChild]?.props;
+
+      if (childProps.onClick) {
+        childProps.onClick();
+      } else if (childProps.href) {
+        window.open(childProps.href, '_self');
+      }
+
+      handleClose(true);
     }
 
     if (event.key === 'ArrowDown') {
       event.preventDefault();
+      setFocusedChild((previous) => nextFocusable(previous));
     }
 
     if (event.key === 'ArrowUp') {
       event.preventDefault();
-    }
-
-    if (event.key === 'Home') {
-      event.preventDefault();
-    }
-
-    if (event.key === 'End') {
-      event.preventDefault();
-      // date = dateInRange(lastDayOfWeek(focusableDate));
-    }
-
-    if (event.key === 'PageUp' && event.shiftKey) {
-      event.preventDefault();
-    }
-
-    if (event.key === 'PageDown' && event.shiftKey) {
-      event.preventDefault();
-    }
-
-    if (event.key === 'PageUp' && !event.shiftKey) {
-      event.preventDefault();
-    }
-
-    if (event.key === 'PageDown' && !event.shiftKey) {
-      event.preventDefault();
+      setFocusedChild((previous) => previousFocusable(previous));
     }
   };
-
-  */
 
   const { styles, attributes } = usePopper(
     openButtonRef.current,
@@ -178,7 +283,7 @@ export const BaseActionMenuPopover = (
     {
       strategy: 'fixed',
       modifiers: [
-        { name: 'eventListeners', enabled: hasPopperEventListeners },
+        { name: 'eventListeners', enabled: true },
         {
           name: 'offset',
           options: {
@@ -205,13 +310,13 @@ export const BaseActionMenuPopover = (
   const handleClose = (focus: boolean = false): void => {
     onClose(focus);
   };
-  /*
-  if (React.Children.count(children) < 1) {
-    getLogger().warn(`Menu '${name}' does not contain items`);
-    return null;
-  } */
 
-  const breadcrumbItems = (childs: ReactNode) =>
+  if (React.Children.count(children) < 1) {
+    getLogger().warn(`Action Menu does not contain items`);
+    return null;
+  }
+
+  const menuItems = (childs: ReactNode) =>
     React.Children.map(
       childs,
       (child: React.ReactElement<ActionMenuItemProps>, index) => {
@@ -219,14 +324,22 @@ export const BaseActionMenuPopover = (
         if (React.isValidElement(child) && child.type === ActionMenuItem) {
           // console.log(child);
           return React.cloneElement(child, {
-            // onClick: onClose(true),
-            // selected: focusables[focusedChild] === index,
             selected: focusedChild === index,
+            itemIndex: index,
           });
         }
         return child;
       },
     );
+
+  const handleItemSelection = (value: ReactNode) => {
+    console.log('handle item selection');
+    handleClose(true);
+  };
+
+  const itemMouseOver = (value: number) => {
+    setFocusedChild(value);
+  };
 
   if (!mountNode) {
     return null;
@@ -236,27 +349,45 @@ export const BaseActionMenuPopover = (
       {ReactDOM.createPortal(
         <HtmlDivWithRef
           role="dialog"
-          className={classnames(className, baseClassName, {
-            [actionMenuClassNames.hidden]: !isOpen,
-          })}
+          className={classnames(className, baseClassName)}
           style={styles.popper}
           forwardedRef={setDialogElement}
         >
-          <HtmlUl
-            // role="application"
-            role="menu"
-            id={menuId}
-            aria-labelledby={buttonId}
-            className={actionMenuClassNames.application}
-          >
-            {breadcrumbItems(children)}
-          </HtmlUl>
-          <div
-            className={actionMenuClassNames.popperArrow}
-            style={styles.arrow}
-            data-popper-arrow
-            data-popper-placement={attributes.popper?.['data-popper-placement']}
-          />
+          <div ref={portalRef}>
+            <ActionMenuProvider
+              value={{
+                onItemClick: (itemValue) => handleItemSelection(itemValue),
+                onItemMouseOver(itemValue) {
+                  itemMouseOver(itemValue);
+                },
+                selectedDropdownValue: selectedValue,
+                id: menuId,
+                focusedItemId: focusedDescendantId,
+                focusedIndex: focusedChild,
+              }}
+            >
+              <HtmlUlWithRef
+                role="menu"
+                id={menuId}
+                aria-activedescendant={`${focusedChild}-menu-item`}
+                aria-labelledby={buttonId}
+                tabIndex={-1}
+                className={actionMenuClassNames.application}
+                onMouseLeave={() => console.log('Menu ul leave')}
+                forwardRef={ulRef}
+              >
+                {menuItems(children)}
+              </HtmlUlWithRef>
+            </ActionMenuProvider>
+            <div
+              className={actionMenuClassNames.popperArrow}
+              style={styles.arrow}
+              data-popper-arrow
+              data-popper-placement={
+                attributes.popper?.['data-popper-placement']
+              }
+            />
+          </div>
         </HtmlDivWithRef>,
         mountNode,
       )}
@@ -284,4 +415,4 @@ const ActionMenuPopover = (props: InternalActionMenuPopoverProps) => (
 );
 
 ActionMenuPopover.displayName = 'ActionMenuPopover';
-export { ActionMenuPopover };
+export { ActionMenuPopover, ActionMenuProvider, ActionMenuConsumer };
