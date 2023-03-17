@@ -158,7 +158,7 @@ class BaseDropdown extends Component<DropdownProps> {
         ? this.props.value
         : 'defaultValue' in this.props
         ? this.props.defaultValue
-        : null,
+        : this.getFirstItemValue(),
   };
 
   buttonRef: React.RefObject<HTMLButtonElement>;
@@ -259,10 +259,11 @@ class BaseDropdown extends Component<DropdownProps> {
         event.preventDefault();
         if (!showPopover) {
           this.openPopover();
-        }
-        const nextItem = getNextItem();
-        if (nextItem) {
-          this.setState({ focusedDescendantId: nextItem.props.value });
+        } else {
+          const nextItem = getNextItem();
+          if (nextItem) {
+            this.setState({ focusedDescendantId: nextItem.props.value });
+          }
         }
         break;
       }
@@ -271,10 +272,11 @@ class BaseDropdown extends Component<DropdownProps> {
         event.preventDefault();
         if (!showPopover) {
           this.openPopover();
-        }
-        const previousItem = getPreviousItem();
-        if (previousItem) {
-          this.setState({ focusedDescendantId: previousItem.props.value });
+        } else {
+          const previousItem = getPreviousItem();
+          if (previousItem) {
+            this.setState({ focusedDescendantId: previousItem.props.value });
+          }
         }
         break;
       }
@@ -363,6 +365,17 @@ class BaseDropdown extends Component<DropdownProps> {
       }
     });
   };
+
+  private getFirstItemValue() {
+    if (Array.isArray(this.props.children)) {
+      const element = this.props.children[0];
+      return element.props.value;
+    }
+    if (!!this.props.children) {
+      return this.props.children.props.value;
+    }
+    return null;
+  }
 
   private getDisplayValue() {
     if (this.props.alwaysShowVisualPlaceholder) {
