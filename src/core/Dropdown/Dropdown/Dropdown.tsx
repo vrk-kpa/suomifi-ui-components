@@ -229,7 +229,9 @@ class BaseDropdown extends Component<DropdownProps> {
       showPopover: false,
       focusedDescendantId: itemValue,
     });
-    this.buttonRef.current?.focus();
+    setTimeout(() => {
+      this.buttonRef.current?.focus();
+    }, 200);
   }
 
   private handleKeyDown = (event: React.KeyboardEvent) => {
@@ -385,8 +387,10 @@ class BaseDropdown extends Component<DropdownProps> {
   }
 
   private focusToButtonAndClosePopover() {
-    this.buttonRef.current?.focus();
     this.setState({ showPopover: false });
+    setTimeout(() => {
+      this.buttonRef.current?.focus();
+    }, 200);
   }
 
   private openPopover() {
