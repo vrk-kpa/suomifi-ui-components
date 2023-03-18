@@ -152,6 +152,7 @@ exports[`props children should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 400;
   width: 100%;
+  border: 1px solid;
 }
 
 .c1.fi-alert .fi-alert_style-wrapper {
@@ -274,6 +275,7 @@ exports[`props children should match snapshot 1`] = `
 
 .c1.fi-alert.fi-alert--neutral {
   background-color: hsl(196,77%,97%);
+  border-color: hsl(196,77%,44%);
 }
 
 .c1.fi-alert.fi-alert--neutral .fi-alert_style-wrapper .fi-alert_icon--neutral .fi-icon-base-fill {
@@ -282,6 +284,7 @@ exports[`props children should match snapshot 1`] = `
 
 .c1.fi-alert.fi-alert--error {
   background-color: hsl(0,59%,96%);
+  border-color: hsl(3,59%,48%);
 }
 
 .c1.fi-alert.fi-alert--error .fi-alert_style-wrapper .fi-alert_icon--error .fi-icon-base-fill {
@@ -290,6 +293,7 @@ exports[`props children should match snapshot 1`] = `
 
 .c1.fi-alert.fi-alert--warning {
   background-color: hsl(42,100%,94%);
+  border-color: hsl(23,82%,51%);
 }
 
 .c1.fi-alert.fi-alert--warning .fi-alert_style-wrapper .fi-alert_icon--warning .fi-icon-base-fill {
