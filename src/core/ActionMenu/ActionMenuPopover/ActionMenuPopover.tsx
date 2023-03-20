@@ -58,7 +58,7 @@ export interface SingleSelectData {
 
 export interface ActionMenuProviderState {
   /** Callback for communicating DropdownItem click to parent  */
-  onItemClick: (itemValue: string) => void;
+  onItemClick: (itemValue: number) => void;
 
   onItemMouseOver: (itemValue: number) => void;
   /** Currently selected DropdownItem */
@@ -100,36 +100,24 @@ export const BaseActionMenuPopover = (
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
   const [dialogElement, setDialogElement] = useState<HTMLElement | null>(null);
-
   const [selectedValue, setSelectedValue] = useState<string | undefined | null>(
     undefined,
   );
-
   const [focusedDescendantId, setFocusedDescendantId] = useState<string | null>(
     null,
   );
-
-  const portalRef = useRef<HTMLDivElement>(null);
-
-  const ulRef = useRef<HTMLUListElement>(null);
-
   const [focusedChild, setFocusedChild] = useState<number>(-1);
 
-  /*
-  const firstChildRef = useRef(null);
-
-  useEffect(() => {
-    if (firstChildRef.current) {
-      firstChildRef.current.focus();
-    }
-  }, [firstChildRef]); */
+  const portalRef = useRef<HTMLDivElement>(null);
+  const ulRef = useRef<HTMLUListElement>(null);
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
   }, []);
 
   useEffect(() => {
-    // setHasPopperEventListeners(true);
+    console.log('HOOK: Popover listeners');
+
     document.addEventListener('click', globalClickHandler, {
       capture: true,
     });
@@ -145,12 +133,10 @@ export const BaseActionMenuPopover = (
         capture: true,
       });
     };
-
-    // setHasPopperEventListeners(false);
   }, [focusedChild]);
 
   useEffect(() => {
-    console.log('Popover ref hook hits!');
+    console.log('HOOK: Popover ref');
 
     if (!ulRef.current) {
       console.log('ref hook undefined!');
@@ -160,9 +146,7 @@ export const BaseActionMenuPopover = (
   });
 
   useEffect(() => {
-    console.log('initial: ', initialFocus);
-    // setFocusedChild(-1);
-
+    console.log('HOOK: Popover Initial focus ');
     setTimeout(() => {
       if (initialFocus === 'first') {
         setFocusedChild(0);
