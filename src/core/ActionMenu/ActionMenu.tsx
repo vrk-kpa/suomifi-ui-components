@@ -1,10 +1,4 @@
-import React, {
-  forwardRef,
-  FocusEvent,
-  useState,
-  useRef,
-  useEffect,
-} from 'react';
+import React, { forwardRef, FocusEvent, useState, useRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../utils/AutoId/AutoId';
@@ -76,7 +70,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     ...passProps
   } = props;
 
-  const openButtonRef = useRef<HTMLButtonElement>(null);
+  const openButtonRef = forwardedRef || useRef<HTMLButtonElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
   const [selectFirstItem, setSelectFirstItem] = useState<InitialFocus>('none');
 
@@ -95,6 +89,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     setMenuVisible(open);
 
     if (!open) {
+      // Move focus back to the button when menu is closed
       openButtonRef.current?.focus();
     }
   };
