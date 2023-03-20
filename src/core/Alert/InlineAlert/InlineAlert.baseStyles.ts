@@ -8,8 +8,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     ${font(theme)('bodyTextSmall')}
     width: 100%;
     padding: 5px 0px 4px 0px;
+    border: 1px solid;
     border-left-width: 4px;
-    border-left-style: solid;
 
     & .fi-inline-alert_style-wrapper {
       display: flex;
@@ -45,7 +45,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &.fi-inline-alert--neutral {
       background-color: ${theme.colors.accentSecondaryLight1};
-      border-left-color: ${theme.colors.accentSecondary};
+      border-color: ${theme.colors.accentSecondary};
 
       & .fi-inline-alert_text-content-wrapper {
         padding-left: ${theme.spacing.m};
@@ -54,7 +54,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &.fi-inline-alert--error {
       background-color: ${theme.colors.alertLight1};
-      border-left-color: ${theme.colors.alertBase};
+      border-color: ${theme.colors.alertBase};
 
       & .fi-inline-alert_icon--error {
         & .fi-icon-base-fill {
@@ -65,7 +65,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &.fi-inline-alert--warning {
       background-color: ${theme.colors.warningLight1};
-      border-left-color: ${theme.colors.accentBase};
+      border-color: ${theme.colors.accentBase};
 
       & .fi-inline-alert_icon--warning {
         & .fi-icon-base-fill {

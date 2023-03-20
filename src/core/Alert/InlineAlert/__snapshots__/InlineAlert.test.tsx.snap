@@ -76,8 +76,8 @@ exports[`children should match snapshot 1`] = `
   font-weight: 400;
   width: 100%;
   padding: 5px 0px 4px 0px;
+  border: 1px solid;
   border-left-width: 4px;
-  border-left-style: solid;
 }
 
 .c1.fi-inline-alert .fi-inline-alert_style-wrapper {
@@ -149,7 +149,7 @@ exports[`children should match snapshot 1`] = `
 
 .c1.fi-inline-alert.fi-inline-alert--neutral {
   background-color: hsl(196,77%,97%);
-  border-left-color: hsl(196,77%,44%);
+  border-color: hsl(196,77%,44%);
 }
 
 .c1.fi-inline-alert.fi-inline-alert--neutral .fi-inline-alert_text-content-wrapper {
@@ -158,7 +158,7 @@ exports[`children should match snapshot 1`] = `
 
 .c1.fi-inline-alert.fi-inline-alert--error {
   background-color: hsl(0,59%,96%);
-  border-left-color: hsl(3,59%,48%);
+  border-color: hsl(3,59%,48%);
 }
 
 .c1.fi-inline-alert.fi-inline-alert--error .fi-inline-alert_icon--error .fi-icon-base-fill {
@@ -167,7 +167,7 @@ exports[`children should match snapshot 1`] = `
 
 .c1.fi-inline-alert.fi-inline-alert--warning {
   background-color: hsl(42,100%,94%);
-  border-left-color: hsl(23,82%,51%);
+  border-color: hsl(23,82%,51%);
 }
 
 .c1.fi-inline-alert.fi-inline-alert--warning .fi-inline-alert_icon--warning .fi-icon-base-fill {
