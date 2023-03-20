@@ -27,46 +27,38 @@ export const actionMenuClassNames = {
 };
 
 export interface ActionMenuProps
-  extends Omit<HtmlInputProps, 'type' | 'onChange'> {
-  /** TextInput container div class name for custom styling. */
+  extends Omit<HtmlButtonProps, 'type' | 'onChange'> {
+  /** Button container div class name for custom styling */
   className?: string;
-  /** TextInput wrapping div element props */
+  /** Button wrapping div element props */
   wrapperProps?: Omit<HtmlDivProps, 'className'>;
-  /** Disable input usage */
+  /** Disable button usage */
   disabled?: boolean;
-  /** Callback fired when input is clicked. */
+  /** Callback fired when button is clicked */
   onClick?: () => void;
-  /** Callback fired when input value changes. If value can't be parsed to date, Invalid Date is returned.
-   * Invalid Date is a Date, whose time value is NaN.´
-   * @param {string} change.value Input value
-   * @param {Date} change.date Input value parsed to Date */
-
-  onChange?: (change: { date: Date }) => void;
-  /** Callback fired on input text onBlur
-   * @param {FocusEvent<HTMLInputElement>} event FocusEvent
+  /** Callback fired on button onBlur
+   * @param {FocusEvent<HTMLButtonElement>} event FocusEvent
    */
-  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLButtonElement>) => void;
   /** Controlled value */
   value?: string;
   /** Set components width to 100% */
   fullWidth?: boolean;
-  /** Label text for the button. */
+  /** Label text for the button */
   openButtonLabel: string;
-  /** Label text for the button. */
+  /** Label text for the button */
   buttonText?: string;
-
+  /** Callback fired when menu opens */
   onClose?: () => void;
-
+  /** Callback fired when menu closes */
   onOpen?: () => void;
-
-  /** Custom props passed to the menu button */
-  closeButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'aria-label'>;
+  /** Ref is forwarded to the button element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
 
 const BaseActionMenu = (props: ActionMenuProps) => {
   const {
     className,
-    onChange: propOnChange,
     wrapperProps,
     id,
     fullWidth,
@@ -79,23 +71,17 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     children,
     onOpen,
     onClose,
+    onClick,
+    onBlur,
     ...passProps
   } = props;
 
   const openButtonRef = useRef<HTMLButtonElement>(null);
-  const menuRef = useRef<HTMLUListElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
   const [selectFirstItem, setSelectFirstItem] = useState<InitialFocus>('none');
 
   const menuId = `${id}-menu`;
   const buttonId = `${id}-button`;
-
-  useEffect(() => {
-    if (menuVisible) {
-      console.log('menu was changed to visible');
-      console.log('nyt? menuu', menuRef.current);
-    }
-  }, [menuVisible]);
 
   const toggleMenu = (open: boolean) => {
     if (open && onOpen) {
@@ -106,14 +92,18 @@ const BaseActionMenu = (props: ActionMenuProps) => {
       onClose();
     }
 
+    setMenuVisible(open);
+
     if (!open) {
       openButtonRef.current?.focus();
     }
-
-    setMenuVisible(open);
   };
 
-  const handleClick = (event: React.MouseEvent) => {
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    }
+
     // Highlighting the first item is a compomise to keep NVDA smooth
     setSelectFirstItem('first');
     toggleMenu(!menuVisible);
@@ -133,7 +123,6 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     }
 
     if ((event.key === 'Enter' || event.key === ' ') && !menuVisible) {
-      console.log('Enter or space');
       event.preventDefault();
       toggleMenu(!menuVisible);
       setSelectFirstItem('first');
@@ -153,7 +142,6 @@ const BaseActionMenu = (props: ActionMenuProps) => {
           id={buttonId}
           variant="secondary"
           iconRight="optionsVertical"
-          // aria-haspopup="true"
           aria-expanded={menuVisible}
           aria-controls={menuId}
           forwardedRef={openButtonRef}
@@ -173,6 +161,11 @@ const BaseActionMenu = (props: ActionMenuProps) => {
           onClick={handleClick}
           onKeyDown={handleKeyDown}
           disabled={passProps.disabled}
+          onBlur={(event) => {
+            if (onBlur) {
+              onBlur(event);
+            }
+          }}
         >
           {buttonText}
           <VisuallyHidden>{openButtonLabel}</VisuallyHidden>
@@ -207,8 +200,8 @@ const StyledActionMenu = styled(
  * Props other than specified explicitly are passed on to underlying ?? TODO element.
  * @component
  */
-const ActionMenu = forwardRef<HTMLInputElement, ActionMenuProps>(
-  (props: ActionMenuProps, ref: React.Ref<HTMLInputElement>) => {
+const ActionMenu = forwardRef<HTMLButtonElement, ActionMenuProps>(
+  (props: ActionMenuProps, ref: React.Ref<HTMLButtonElement>) => {
     const { id: propId, ...passProps } = props;
     return (
       <SuomifiThemeConsumer>
