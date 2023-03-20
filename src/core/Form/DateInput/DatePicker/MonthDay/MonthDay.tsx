@@ -75,7 +75,7 @@ export const BaseMonthDay = (props: MonthDayProps) => {
     return text;
   };
 
-  const cellDateElements = () => (
+  const cellDateElements = (
     <>
       <span aria-hidden>{date.number}</span>
       <VisuallyHidden>{buttonText()}</VisuallyHidden>
@@ -116,10 +116,10 @@ export const BaseMonthDay = (props: MonthDayProps) => {
                 [monthDayClassNames.buttonCurrent]: date.current,
               })}
             >
-              {cellDateElements()}
+              {cellDateElements}
             </HtmlDiv>
           ) : (
-            cellDateElements()
+            cellDateElements
           )}
         </HtmlButton>
       )}

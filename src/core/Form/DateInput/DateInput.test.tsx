@@ -58,6 +58,20 @@ describe('snapshots match', () => {
       jest.useRealTimers();
     });
 
+    test('with smallScreen', async () => {
+      const { baseElement, getByRole } = render(
+        <DateInput
+          labelText="Date"
+          visualPlaceholder="DateInput"
+          smallScreen
+          datePickerEnabled
+          value="15.1.2020"
+        />,
+      );
+      fireEvent.click(getByRole('button'));
+      expect(baseElement).toMatchSnapshot();
+    });
+
     test('with controlled input value', async () => {
       const { baseElement, getByRole } = render(
         <DateInput
@@ -617,6 +631,50 @@ describe('props', () => {
         />,
       );
       expect(getByText('Test status')).toHaveAttribute('aria-live', 'off');
+    });
+  });
+
+  describe('smallScreen', () => {
+    beforeAll(() => {
+      jest.useFakeTimers().setSystemTime(new Date('2020-01-15'));
+    });
+
+    afterAll(() => {
+      jest.useRealTimers();
+    });
+
+    describe('not enabled', () => {
+      it('has position fixed', () => {
+        const { baseElement } = render(
+          <DateInput labelText="Date" datePickerEnabled />,
+        );
+        const dialog = baseElement.querySelector('[role="dialog"]');
+        expect(dialog).toHaveClass('fi-date-picker');
+        expect(dialog).toHaveStyle('position: fixed');
+      });
+    });
+
+    describe('enabled', () => {
+      it('does not have position fixed', () => {
+        const { baseElement } = render(
+          <DateInput labelText="Date" smallScreen datePickerEnabled />,
+        );
+        const dialog = baseElement.querySelector('.fi-date-picker');
+        expect(dialog).toHaveClass('fi-date-picker--small-screen');
+        expect(dialog).not.toHaveAttribute('style');
+      });
+
+      it('has current date focused in smallScreen variant', () => {
+        const { getByRole, getByText } = render(
+          <DateInput labelText="Date" smallScreen datePickerEnabled />,
+        );
+        fireEvent.click(getByRole('button'));
+        const dateButton = getByText('15').closest(
+          'button',
+        ) as HTMLButtonElement;
+        expect(dateButton).toHaveTextContent('15 keskiviikko Tammikuu 2020');
+        expect(dateButton).toHaveFocus();
+      });
     });
   });
 
