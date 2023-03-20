@@ -229,6 +229,10 @@ class BaseDropdown extends Component<DropdownProps> {
       showPopover: false,
       focusedDescendantId: itemValue,
     });
+    /**
+     * Timeout is used here to ensure screen reader reads the
+     * currently selected option when focusing back to the button
+     */
     setTimeout(() => {
       this.buttonRef.current?.focus();
     }, 200);
@@ -388,6 +392,10 @@ class BaseDropdown extends Component<DropdownProps> {
 
   private focusToButtonAndClosePopover() {
     this.setState({ showPopover: false });
+    /**
+     * Timeout is used here to ensure screen reader reads the
+     * currently selected option when focusing back to the button
+     */
     setTimeout(() => {
       this.buttonRef.current?.focus();
     }, 200);
@@ -395,6 +403,10 @@ class BaseDropdown extends Component<DropdownProps> {
 
   private openPopover() {
     this.setState({ showPopover: true });
+    /**
+     * Timeout is used here to ensure the popover
+     * exists when setting focus
+     */
     setTimeout(() => {
       this.popoverRef.current?.focus();
     }, 200);
