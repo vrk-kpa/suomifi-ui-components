@@ -18,18 +18,21 @@ const CustomButton = (props) => {
 
 const [lastAction, setLastAction] = useState('');
 
+const exampleRef = React.createRef();
+
 <>
-  <button>dsd</button>
+  <button onClick={() => exampleRef.current.focus()}>test ref</button>
+  <button onClick={() => console.log(exampleRef.current)}>
+    print ref
+  </button>
   <div style={{ marginLeft: '200px' }}>
     <ActionMenu
       buttonText="Actions"
       onOpen={() => console.log('open')}
       onClose={() => console.log('close')}
       disabled={false}
+      ref={exampleRef}
     >
-      <ActionMenuItem asComponent={Link} href="www.suomi.fi">
-        Super action
-      </ActionMenuItem>
       <ActionMenuItem onClick={() => setLastAction('Action 1')}>
         Do action 1
       </ActionMenuItem>
@@ -37,6 +40,7 @@ const [lastAction, setLastAction] = useState('');
       <ActionMenuItem
         asComponent={CustomButton}
         onClick={() => setLastAction('Pidempi')}
+        onAction={() => setLastAction('Pidempi 2')}
       >
         Pidempi nimi toiminnolle
       </ActionMenuItem>
@@ -45,6 +49,9 @@ const [lastAction, setLastAction] = useState('');
         onClick={() => setLastAction('Muokkaa')}
       >
         Muokkaa
+      </ActionMenuItem>
+      <ActionMenuItem asComponent={Link} href="www.suomi.fi">
+        This is a link
       </ActionMenuItem>
       <ActionMenuItem
         asComponent={CustomButton}
