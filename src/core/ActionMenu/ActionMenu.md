@@ -9,46 +9,53 @@ import {
   Button,
   Link
 } from 'suomifi-ui-components';
-import React from 'react';
+import { useState } from 'react';
 
 const CustomButton = (props) => {
   const { children, ...passProps } = props;
   return <button {...passProps}>{props.children}</button>;
 };
 
+const [lastAction, setLastAction] = useState('');
+
 <>
   <button>dsd</button>
   <div style={{ marginLeft: '200px' }}>
-    <ActionMenu buttonText="my menu">
+    <ActionMenu
+      buttonText="Actions"
+      onOpen={() => console.log('open')}
+      onClose={() => console.log('close')}
+      disabled={false}
+    >
       <ActionMenuItem asComponent={Link} href="www.suomi.fi">
         Super action
       </ActionMenuItem>
-      <ActionMenuItem onClick={() => console.log('Item 1')}>
+      <ActionMenuItem onClick={() => setLastAction('Action 1')}>
         Do action 1
       </ActionMenuItem>
       <ActionMenuDivider />
       <ActionMenuItem
         asComponent={CustomButton}
-        onClick={() => console.log('Pidempi')}
+        onClick={() => setLastAction('Pidempi')}
       >
         Pidempi nimi toiminnolle
       </ActionMenuItem>
       <ActionMenuItem
         asComponent={CustomButton}
-        onClick={() => console.log('Muokkaa')}
+        onClick={() => setLastAction('Muokkaa')}
       >
         Muokkaa
       </ActionMenuItem>
       <ActionMenuItem
         asComponent={CustomButton}
-        onClick={() => console.log('Poista')}
+        onClick={() => setLastAction('Poista')}
         icon="Search"
       >
         Poista
       </ActionMenuItem>
       <ActionMenuItem
         asComponent={CustomButton}
-        onClick={() => console.log('Disabled')}
+        onClick={() => setLastAction('Disabled')}
         icon="Search"
         disabled
       >
@@ -56,5 +63,6 @@ const CustomButton = (props) => {
       </ActionMenuItem>
     </ActionMenu>
   </div>
+  <div>Last action: {lastAction}</div>
 </>;
 ```
