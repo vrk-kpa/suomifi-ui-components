@@ -87,6 +87,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
   };
 
   const closeMenu = () => {
+    setMenuVisible(false);
     if (onClose) {
       onClose();
     }
@@ -94,7 +95,6 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     console.log(openButtonRef.current);
     // Move focus back to the button when menu is closed
     openButtonRef.current?.focus();
-    setMenuVisible(false);
   };
 
   const handleButtonClick = () => {
