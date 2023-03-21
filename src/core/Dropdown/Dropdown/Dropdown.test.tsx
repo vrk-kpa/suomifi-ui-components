@@ -14,7 +14,7 @@ const dropdownProps = {
 };
 
 const TestDropdown = (props: DropdownProps, testId?: string) => (
-  <Dropdown {...props} data-testid={!!testId ? testId : ''}>
+  <Dropdown {...props} wrapperProps={{ 'data-testid': testId || '' }}>
     <DropdownItem value={'item-1'}>Item 1</DropdownItem>
     <DropdownItem value={'item-2'}>Item 2</DropdownItem>
   </Dropdown>

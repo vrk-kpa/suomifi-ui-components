@@ -4,13 +4,7 @@ import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import {
-  HtmlSpan,
-  HtmlDiv,
-  HtmlDivProps,
-  HtmlInput,
-  HtmlButton,
-} from '../../../reset';
+import { HtmlSpan, HtmlDiv, HtmlInput, HtmlButton } from '../../../reset';
 import { Label, LabelMode } from '../../Form/Label/Label';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
@@ -19,6 +13,7 @@ import {
   forkRefs,
   getOwnerDocument,
   getRecursiveChildText,
+  HTMLAttributesIncludingDataAttributes,
 } from '../../../utils/common/common';
 import { Popover } from '../../../core/Popover/Popover';
 import { SelectItemList } from '../../Form/Select/BaseSelect/SelectItemList/SelectItemList';
@@ -147,7 +142,7 @@ export interface DropdownProps extends StatusTextCommonProps {
    * Props which are placed at the outermost div of the component.
    * Can be used, for example, for style
    */
-  wrapperProps?: Omit<HtmlDivProps, 'className'>;
+  wrapperProps?: Omit<HTMLAttributesIncludingDataAttributes, 'className'>;
 }
 
 class BaseDropdown extends Component<DropdownProps> {

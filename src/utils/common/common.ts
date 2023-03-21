@@ -74,3 +74,15 @@ export const getRecursiveChildText = (reactNode: ReactElement): any => {
     return children;
   }
 };
+
+/**
+ * The following interface allows data-* attributes.
+ * The basic React.HTMLAttributes interface throws errors when trying to do something like
+ * <Component wrapperProps={{ 'data-testid': 'something' }}
+ * Solution copied from: https://github.com/microsoft/TypeScript/issues/28960
+ */
+type DataAttributeKey = `data-${string}`;
+export interface HTMLAttributesIncludingDataAttributes
+  extends React.HTMLAttributes<any> {
+  [dataAttribute: DataAttributeKey]: any;
+}
