@@ -89,6 +89,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
+    &--full-width {
+      width: 100%;
+    }
+
     &--open {
       .fi-dropdown_button {
         border-bottom: 0;

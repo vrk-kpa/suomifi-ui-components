@@ -3567,6 +3567,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
   box-shadow: none;
 }
 
+.c12.fi-dropdown--full-width {
+  width: 100%;
+}
+
 .c12.fi-dropdown--open .fi-dropdown_button {
   border-bottom: 0;
   border-bottom-left-radius: 0;
@@ -5803,6 +5807,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 .c12.fi-dropdown .fi-dropdown_popover:focus-within {
   outline: 0;
   box-shadow: none;
+}
+
+.c12.fi-dropdown--full-width {
+  width: 100%;
 }
 
 .c12.fi-dropdown--open .fi-dropdown_button {

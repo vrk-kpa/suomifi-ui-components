@@ -35,6 +35,7 @@ export const dropdownClassNames = {
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
   italicize: `${baseClassName}--italicize`,
+  fullWidth: `${baseClassName}--full-width`,
 };
 
 export interface DropdownProviderState {
@@ -132,6 +133,8 @@ export interface DropdownProps extends StatusTextCommonProps {
    * @default true
    */
   portal?: boolean;
+  /** Set component's width to 100% */
+  fullWidth?: boolean;
   /** Ref object to be passed to the button element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
@@ -434,6 +437,7 @@ class BaseDropdown extends Component<DropdownProps> {
       tooltipComponent,
       portal = true,
       statusTextAriaLiveMode = 'assertive',
+      fullWidth,
       ...passProps
     } = this.props;
 
@@ -474,6 +478,7 @@ class BaseDropdown extends Component<DropdownProps> {
           [dropdownClassNames.open]: !!showPopover,
           [dropdownClassNames.error]: status === 'error',
           [dropdownClassNames.italicize]: italicize,
+          [dropdownClassNames.fullWidth]: fullWidth,
         })}
         id={id}
         {...passProps}

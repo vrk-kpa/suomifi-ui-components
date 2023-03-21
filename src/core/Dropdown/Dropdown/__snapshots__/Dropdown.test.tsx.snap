@@ -346,6 +346,10 @@ exports[`Basic dropdown should match snapshot 1`] = `
   box-shadow: none;
 }
 
+.c1.fi-dropdown--full-width {
+  width: 100%;
+}
+
 .c1.fi-dropdown--open .fi-dropdown_button {
   border-bottom: 0;
   border-bottom-left-radius: 0;
@@ -800,6 +804,10 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 .c1.fi-dropdown .fi-dropdown_popover:focus-within {
   outline: 0;
   box-shadow: none;
+}
+
+.c1.fi-dropdown--full-width {
+  width: 100%;
 }
 
 .c1.fi-dropdown--open .fi-dropdown_button {
@@ -1258,6 +1266,10 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 .c1.fi-dropdown .fi-dropdown_popover:focus-within {
   outline: 0;
   box-shadow: none;
+}
+
+.c1.fi-dropdown--full-width {
+  width: 100%;
 }
 
 .c1.fi-dropdown--open .fi-dropdown_button {
@@ -1726,6 +1738,10 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 .c1.fi-dropdown .fi-dropdown_popover:focus-within {
   outline: 0;
   box-shadow: none;
+}
+
+.c1.fi-dropdown--full-width {
+  width: 100%;
 }
 
 .c1.fi-dropdown--open .fi-dropdown_button {
