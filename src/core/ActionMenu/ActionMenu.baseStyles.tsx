@@ -39,15 +39,4 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       outline: 3px solid transparent;
     }
   }
-
-  & .fi-action-menu_icon {
-    color: ${theme.colors.highlightBase};
-  }
-
-  &.fi-action-menu--disabled {
-    & .fi-action-menu_input {
-      color: ${theme.colors.depthBase};
-      background-color: ${theme.colors.depthLight3};
-    }
-  }
 `;

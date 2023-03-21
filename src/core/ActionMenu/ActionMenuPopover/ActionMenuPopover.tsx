@@ -26,7 +26,7 @@ export interface InternalActionMenuPopoverProps {
   openButtonRef: React.RefObject<any>;
 
   /** Callback fired when closing popover */
-  onClose: (focus?: boolean) => void;
+  onClose: () => void;
   /** Styled component className */
   className?: string;
   /** Menu items: MenuItem or MenuLink */
@@ -163,7 +163,7 @@ export const BaseActionMenuPopover = (
       !openButtonRef.current?.contains(nativeEvent.target as Node)
     ) {
       // Click is outside of button and menu elements
-      handleClose(true);
+      handleClose();
     }
   };
 
@@ -226,18 +226,18 @@ export const BaseActionMenuPopover = (
 
   const globalKeyDownHandler = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
-      handleClose(true);
+      handleClose();
+      event.preventDefault();
     }
 
     if (event.key === 'Tab') {
       // Close the menu
-      handleClose(true);
+      handleClose();
     }
 
     if (event.key === 'Enter' || event.key === ' ') {
       // Call action of the child item
       console.log('Enter ja indeksi: ', focusedChild);
-      event.preventDefault();
 
       const childProps = React.Children.toArray(children)[focusedChild]?.props;
 
@@ -247,7 +247,8 @@ export const BaseActionMenuPopover = (
         window.open(childProps.href, '_self');
       }
 
-      handleClose(true);
+      handleClose();
+      event.preventDefault();
     }
 
     if (event.key === 'ArrowDown') {
@@ -291,8 +292,8 @@ export const BaseActionMenuPopover = (
     },
   );
 
-  const handleClose = (focus: boolean = false): void => {
-    onClose(focus);
+  const handleClose = (): void => {
+    onClose();
   };
 
   if (React.Children.count(children) < 1) {
@@ -318,7 +319,7 @@ export const BaseActionMenuPopover = (
 
   const handleItemSelection = (value: ReactNode) => {
     console.log('handle item selection');
-    handleClose(true);
+    handleClose();
   };
 
   const itemMouseOver = (value: number) => {
