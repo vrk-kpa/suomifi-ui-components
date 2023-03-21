@@ -4150,7 +4150,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
         <span
           class="c2 c12 fi-date-selectors_year-select fi-dropdown"
           id="16"
-          value="2020"
         >
           <div
             class="c0"
@@ -4177,6 +4176,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 id="16_button"
                 tabindex="0"
                 type="button"
+                value="2020"
               >
                 <span
                   class="c2"
@@ -4202,7 +4202,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
         <span
           class="c2 c12 fi-date-selectors_month-select fi-dropdown"
           id="17"
-          value="0"
         >
           <div
             class="c0"
@@ -4229,6 +4228,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 id="17_button"
                 tabindex="0"
                 type="button"
+                value="0"
               >
                 <span
                   class="c2"
@@ -6401,7 +6401,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
           <span
             class="c2 c12 fi-date-selectors_year-select fi-dropdown"
             id="9"
-            value="2020"
           >
             <div
               class="c0"
@@ -6428,6 +6427,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                   id="9_button"
                   tabindex="0"
                   type="button"
+                  value="2020"
                 >
                   <span
                     class="c2"
@@ -6453,7 +6453,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
           <span
             class="c2 c12 fi-date-selectors_month-select fi-dropdown"
             id="10"
-            value="0"
           >
             <div
               class="c0"
@@ -6480,6 +6479,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                   id="10_button"
                   tabindex="0"
                   type="button"
+                  value="0"
                 >
                   <span
                     class="c2"

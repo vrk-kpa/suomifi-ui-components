@@ -80,12 +80,12 @@ const exampleRef = createRef();
 <>
   <Dropdown
     name="dropdown_example_2"
-    visualPlaceholder="Dropdown with visually hidden label and ref"
+    visualPlaceholder="Wide dropdown with a visually hidden label and ref"
     labelText="Dropdown label"
     labelMode="hidden"
     ref={exampleRef}
     onChange={() => console.log(exampleRef.current)}
-    style={{ width: '350px' }}
+    fullWidth
   >
     <DropdownItem value={'dropdown-item-1'}>
       Dropdown Item 1

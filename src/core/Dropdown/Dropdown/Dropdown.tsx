@@ -4,7 +4,13 @@ import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
-import { HtmlSpan, HtmlDiv, HtmlInput, HtmlButton } from '../../../reset';
+import {
+  HtmlSpan,
+  HtmlDiv,
+  HtmlDivProps,
+  HtmlInput,
+  HtmlButton,
+} from '../../../reset';
 import { Label, LabelMode } from '../../Form/Label/Label';
 import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
@@ -137,6 +143,11 @@ export interface DropdownProps extends StatusTextCommonProps {
   fullWidth?: boolean;
   /** Ref object to be passed to the button element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
+  /**
+   * Props which are placed at the outermost div of the component.
+   * Can be used, for example, for style
+   */
+  wrapperProps?: Omit<HtmlDivProps, 'className'>;
 }
 
 class BaseDropdown extends Component<DropdownProps> {
@@ -438,6 +449,7 @@ class BaseDropdown extends Component<DropdownProps> {
       portal = true,
       statusTextAriaLiveMode = 'assertive',
       fullWidth,
+      wrapperProps,
       ...passProps
     } = this.props;
 
@@ -481,7 +493,7 @@ class BaseDropdown extends Component<DropdownProps> {
           [dropdownClassNames.fullWidth]: fullWidth,
         })}
         id={id}
-        {...passProps}
+        {...wrapperProps}
       >
         <HtmlDiv>
           <Label
@@ -528,6 +540,7 @@ class BaseDropdown extends Component<DropdownProps> {
               }}
               onKeyDown={this.handleKeyDown}
               onBlur={this.handleOnBlur}
+              {...passProps}
             >
               <HtmlSpan id={displayValueId}>{dropdownDisplayValue}</HtmlSpan>
               <HtmlInput

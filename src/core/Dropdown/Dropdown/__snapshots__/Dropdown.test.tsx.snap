@@ -407,7 +407,6 @@ exports[`Basic dropdown should match snapshot 1`] = `
 <div>
   <span
     class="c0 c1 dropdown-test fi-dropdown fi-dropdown--italicize"
-    data-testid="dropdown-test-id"
     id="test-id"
   >
     <div
@@ -432,6 +431,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
           aria-labelledby="test-id-label"
           aria-owns="test-id-popover"
           class="c5 fi-dropdown_button"
+          data-testid="dropdown-test-id"
           id="test-id_button"
           tabindex="0"
           type="button"
@@ -867,9 +867,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
 <div>
   <span
     class="c0 c1 dropdown-test fi-dropdown"
-    data-testid=""
     id="test-id"
-    value="item-2"
   >
     <div
       class="c2"
@@ -893,9 +891,11 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
           aria-labelledby="test-id-displayValue test-id-label"
           aria-owns="test-id-popover"
           class="c5 fi-dropdown_button"
+          data-testid=""
           id="test-id_button"
           tabindex="0"
           type="button"
+          value="item-2"
         >
           <span
             class="c0"
@@ -1329,7 +1329,6 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
 <div>
   <span
     class="c0 c1 dropdown-test fi-dropdown fi-dropdown--italicize"
-    data-testid=""
     id="test-id"
   >
     <div
@@ -1354,6 +1353,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
           aria-labelledby="additional-label-id test-id-label"
           aria-owns="test-id-popover"
           class="c5 fi-dropdown_button"
+          data-testid=""
           id="test-id_button"
           tabindex="0"
           type="button"
@@ -1801,7 +1801,6 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
 <div>
   <span
     class="c0 c1 dropdown-test fi-dropdown fi-dropdown--italicize"
-    data-testid="dropdown-hidden-label-test-id"
     id="test-id"
   >
     <div
@@ -1826,6 +1825,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
           aria-labelledby="test-id-label"
           aria-owns="test-id-popover"
           class="c6 fi-dropdown_button"
+          data-testid="dropdown-hidden-label-test-id"
           id="test-id_button"
           tabindex="0"
           type="button"
