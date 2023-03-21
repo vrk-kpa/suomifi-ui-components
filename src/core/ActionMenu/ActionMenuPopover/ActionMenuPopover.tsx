@@ -57,12 +57,10 @@ export interface SingleSelectData {
 }
 
 export interface ActionMenuProviderState {
-  /** Callback for communicating DropdownItem click to parent  */
+  /** Callback for communicating ActionMenuItem click to parent  */
   onItemClick: (itemValue: number) => void;
-
+  /** Callback for communicating ActionMenuItem mouse over to parent  */
   onItemMouseOver: (itemValue: number) => void;
-  /** Currently selected DropdownItem */
-  selectedDropdownValue: string | undefined | null;
   /** Currently focused DropdownItem */
   focusedItemId: string | null | undefined;
   /** ID of the Dropdown component.
@@ -76,7 +74,6 @@ export interface ActionMenuProviderState {
 const defaultProviderValue: ActionMenuProviderState = {
   onItemClick: () => null,
   onItemMouseOver: () => null,
-  selectedDropdownValue: null,
   id: '',
   focusedItemId: null,
   focusedIndex: -1,
@@ -345,7 +342,6 @@ export const BaseActionMenuPopover = (
                 onItemMouseOver(itemValue) {
                   itemMouseOver(itemValue);
                 },
-                selectedDropdownValue: selectedValue,
                 id: menuId,
                 focusedItemId: focusedDescendantId,
                 focusedIndex: focusedChild,
