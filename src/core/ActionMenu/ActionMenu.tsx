@@ -8,6 +8,7 @@ import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import { Button } from '../Button/Button';
 import { HtmlDiv, HtmlDivProps, HtmlButtonProps } from '../../reset';
 import { baseStyles } from './ActionMenu.baseStyles';
+import { getConditionalAriaProp } from '../../utils/aria';
 
 const baseClassName = 'fi-action-menu';
 export const actionMenuClassNames = {
@@ -57,7 +58,6 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     id,
     fullWidth,
     forwardedRef,
-    'aria-describedby': ariaDescribedBy,
     defaultValue,
     value,
     buttonText,
@@ -77,49 +77,53 @@ const BaseActionMenu = (props: ActionMenuProps) => {
   const menuId = `${id}-menu`;
   const buttonId = `${id}-button`;
 
-  const toggleMenu = (open: boolean) => {
-    if (open && onOpen) {
+  const openMenu = () => {
+    if (onOpen) {
       onOpen();
     }
+    // Highlighting the first item is a compomise to keep NVDA smooth
+    setSelectFirstItem('first');
+    setMenuVisible(true);
+  };
 
-    if (!open && onClose) {
+  const closeMenu = () => {
+    if (onClose) {
       onClose();
     }
 
-    setMenuVisible(open);
-
-    if (!open) {
-      // Move focus back to the button when menu is closed
-      openButtonRef.current?.focus();
-    }
+    console.log(openButtonRef.current);
+    // Move focus back to the button when menu is closed
+    openButtonRef.current?.focus();
+    setMenuVisible(false);
   };
 
-  const handleClick = () => {
+  const handleButtonClick = () => {
     if (onClick) {
       onClick();
     }
 
-    // Highlighting the first item is a compomise to keep NVDA smooth
-    setSelectFirstItem('first');
-    toggleMenu(!menuVisible);
+    if (menuVisible) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   };
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'ArrowDown' && !menuVisible) {
-      event.preventDefault();
-      toggleMenu(!menuVisible);
-      setSelectFirstItem('first');
-    }
-
     if (event.key === 'ArrowUp' && !menuVisible) {
       event.preventDefault();
-      toggleMenu(!menuVisible);
+      openMenu();
       setSelectFirstItem('last');
     }
 
-    if ((event.key === 'Enter' || event.key === ' ') && !menuVisible) {
+    if (
+      (event.key === 'ArrowDown' ||
+        event.key === 'Enter' ||
+        event.key === ' ') &&
+      !menuVisible
+    ) {
       event.preventDefault();
-      toggleMenu(!menuVisible);
+      openMenu();
       setSelectFirstItem('first');
     }
   };
@@ -134,6 +138,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     >
       <>
         <Button
+          {...passProps}
           id={buttonId}
           variant="secondary"
           iconRight="optionsVertical"
@@ -153,9 +158,8 @@ const BaseActionMenu = (props: ActionMenuProps) => {
                 !buttonText || buttonText.length < 1,
             },
           )}
-          onClick={handleClick}
+          onClick={handleButtonClick}
           onKeyDown={handleKeyDown}
-          disabled={passProps.disabled}
           onBlur={(event) => {
             if (onBlur) {
               onBlur(event);
@@ -170,7 +174,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
             menuId={menuId}
             buttonId={buttonId}
             openButtonRef={openButtonRef}
-            onClose={() => toggleMenu(false)}
+            onClose={() => closeMenu()}
             children={children}
             initialFocus={selectFirstItem}
           />
@@ -192,7 +196,7 @@ const StyledActionMenu = styled(
  * <i class="semantics" />
  * Use for user selecting action.
  *
- * Props other than specified explicitly are passed on to underlying ?? TODO element.
+ * Props other than specified explicitly are passed on to underlying button element.
  * @component
  */
 const ActionMenu = forwardRef<HTMLButtonElement, ActionMenuProps>(

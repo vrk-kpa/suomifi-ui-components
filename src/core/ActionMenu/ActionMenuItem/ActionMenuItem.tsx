@@ -5,22 +5,27 @@ import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { baseStyles } from './ActionMenuItem.baseStyles';
 import styled from 'styled-components';
 import { Icon, BaseIconKeys, IconProps } from '../../Icon/Icon';
-import {
-  RouterLink,
-  PolymorphicComponentProps,
-} from '../../Link/RouterLink/RouterLink';
+import { RouterLink, RouterLinkProps } from '../../Link';
 import {
   ActionMenuProviderState,
   ActionMenuConsumer,
 } from './../ActionMenuPopover/ActionMenuPopover';
 
-export interface ActionMenuItemProps {
+type ItemAction =
+  | {
+      href: string;
+      onClick: never;
+    }
+  | {
+      href: never;
+      onClick: (event: React.MouseEvent) => void;
+    };
+
+export interface InternalActionMenuItemProps {
   /** Custom class */
   className?: string;
   /** Use the polymorphic `<RouterLink>` component as child to get intended CSS styling */
   children: ReactNode;
-  /** Toggle to show item as the selected one */
-  selected?: boolean;
   /** Disables the item */
   disabled?: boolean;
 
@@ -47,9 +52,9 @@ export interface ActionMenuItemProps {
   iconProps?: IconProps;
 }
 
-interface BaseActionMenuItemProps
-  extends ActionMenuItemProps,
-    PolymorphicComponentProps {
+// export type ActionMenuItemProps extends InternalActionMenuItemProps , ItemAction
+
+interface ActionMenuItemProps extends InternalActionMenuItemProps {
   consumer: ActionMenuProviderState;
 }
 
@@ -63,18 +68,8 @@ const CustomButton = (props) => {
   return <button {...passProps}>{props.children}</button>;
 };
 
-const ComponentX = forwardRef((props, ref) => {
-  const { children, ...passProps } = props;
-  return (
-    <a {...passProps} ref={ref}>
-      Some component - {children}
-    </a>
-  );
-});
-
-const BaseActionMenuItem = (props: BaseActionMenuItemProps) => {
+const BaseActionMenuItem = (props: ActionMenuItemProps) => {
   const {
-    selected,
     className,
     children,
     disabled,
@@ -84,49 +79,28 @@ const BaseActionMenuItem = (props: BaseActionMenuItemProps) => {
     itemIndex,
     icon,
     iconProps = { className: undefined },
-    asComponent = ComponentX,
-    // asComponent = CustomButton,
+    asComponent = CustomButton,
     ...passProps
   } = props;
 
   const { className: iconPropsClassName, ...passIconProps } = iconProps;
 
-  const itemRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (consumer.focusedIndex === itemIndex) {
-      console.log('hook hit in: ', itemIndex);
-      console.log('has current: ', itemRef.current);
-      //  itemRef.current?.focus();
-    }
-  }, [consumer.focusedIndex]);
-
   return (
     <HtmlLi
       className={classnames(className, {
-        [baseClassName]: !selected,
-        [selectedClassName]: selected,
+        [baseClassName]: itemIndex !== consumer.focusedIndex,
+        [selectedClassName]: itemIndex === consumer.focusedIndex,
         [disabledClassName]: disabled,
       })}
-      //   forwardedRef={forwardedRef}
-      onClick={(event) => {
-        console.log('clikety item');
+      onClick={() => {
         consumer.onItemClick(itemIndex);
       }}
-      onMouseEnter={() => {
-        console.log('item mouse enter');
-      }}
       onMouseOver={() => {
-        console.log('item mouse over');
         consumer.onItemMouseOver(itemIndex);
-      }}
-      onMouseLeave={(event) => {
-        console.log('item mouse leave');
       }}
       tabIndex={-1}
     >
       <RouterLink
-        // ref={itemRef}
         asComponent={asComponent}
         id={`${itemIndex}-menu-item`}
         role="menuitem"
@@ -149,7 +123,7 @@ const BaseActionMenuItem = (props: BaseActionMenuItemProps) => {
 };
 
 const StyledActionMenuItem = styled(
-  (props: BaseActionMenuItemProps & SuomifiThemeProp) => {
+  (props: ActionMenuItemProps & SuomifiThemeProp) => {
     const { theme, ...passProps } = props;
     return <BaseActionMenuItem {...passProps} />;
   },
@@ -159,7 +133,6 @@ const StyledActionMenuItem = styled(
 
 const ActionMenuItem = forwardRef<HTMLDivElement, ActionMenuItemProps>(
   (props: ActionMenuItemProps, ref: React.Ref<HTMLDivElement>) => (
-    // const { id: propId, ...passProps } = props;
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <ActionMenuConsumer>

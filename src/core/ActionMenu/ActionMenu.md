@@ -21,8 +21,13 @@ const [lastAction, setLastAction] = useState('');
 const exampleRef = React.createRef();
 
 <>
-  <button onClick={() => exampleRef.current.focus()}>test ref</button>
-  <button onClick={() => console.log(exampleRef.current)}>
+  <button onClick={() => exampleRef.current.focus()}>
+    focus ref
+  </button>
+  <button
+    onClick={() => console.log(exampleRef.current)}
+    onMouseOver={() => console.log(exampleRef.current)}
+  >
     print ref
   </button>
   <div style={{ marginLeft: '200px' }}>
