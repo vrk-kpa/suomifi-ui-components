@@ -1,22 +1,22 @@
 import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
+import classnames from 'classnames';
 import { LinkListStyles } from './LinkList.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { HtmlLi, HtmlUlWithRef } from '../../../reset';
+import { hLevels, HtmlDiv, HtmlUlWithRef } from '../../../reset';
 import { BaseLinkProps } from '../BaseLink/BaseLink';
-import { Icon } from '../../Icon/Icon';
+import { Heading } from '../../Heading/Heading';
+
+const LinkListClassName = 'fi-link-list';
 
 export interface LinkListProps extends BaseLinkProps {
   /** Ref  is passed to the anchor element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLAnchorElement>;
+  /** Heading element content */
+  headingText: string;
+  /** Semantic heading level. Look will always match h5 styles */
+  headingLevel?: hLevels;
 }
-
-export const ListLink = (children: any, ...passProps: any) => {
-  <HtmlLi {...passProps}>
-    <Icon icon="chevronRight" color="green" />
-    {children}
-  </HtmlLi>;
-};
 
 const StyledLinkList = styled(
   ({
@@ -24,21 +24,31 @@ const StyledLinkList = styled(
     className,
     theme,
     children,
+    headingText,
+    headingLevel,
     ...passProps
   }: LinkListProps & SuomifiThemeProp) => (
-    <HtmlUlWithRef {...passProps} forwardRef={}>
-      {children}
-    </HtmlUlWithRef>
+    <HtmlDiv>
+      <Heading variant="h5" as={headingLevel}>
+        {headingText}
+      </Heading>
+      <HtmlUlWithRef
+        {...passProps}
+        className={classnames(className, LinkListClassName)}
+      >
+        {children}
+      </HtmlUlWithRef>
+    </HtmlDiv>
   ),
 )`
-  ${({ theme }) => LinkListStyles(theme)}
+  ${() => LinkListStyles()}
 `;
 
 /**
  * <i class="semantics" />
  * Used for adding a link
  */
-const Link = forwardRef(
+const LinkList = forwardRef(
   (props: LinkListProps, ref: React.Ref<HTMLAnchorElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
@@ -48,5 +58,5 @@ const Link = forwardRef(
   ),
 );
 
-Link.displayName = 'Link';
-export { Link };
+LinkList.displayName = 'LinkList';
+export { LinkList };
