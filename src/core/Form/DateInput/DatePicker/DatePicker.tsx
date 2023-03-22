@@ -208,16 +208,15 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const globalKeyDownHandler = (event: KeyboardEvent) => {
     if (
       event.key === 'Escape' &&
-      !(yearSelectRef.current?.getAttribute('data-state') === 'expanded') &&
-      !(monthSelectRef.current?.getAttribute('data-state') === 'expanded')
+      !(yearSelectRef.current?.getAttribute('aria-expanded') === 'true') &&
+      !(monthSelectRef.current?.getAttribute('aria-expanded') === 'true')
     ) {
       handleClose(true);
     }
 
     if (event.key === 'Tab') {
       // Trap focus to dialog
-      const firstElement = yearSelectRef.current
-        ?.childNodes[0] as HTMLSpanElement;
+      const firstElement = yearSelectRef.current;
       const lastElement = confirmButtonRef?.current;
       if (event.shiftKey && document.activeElement === firstElement) {
         event.preventDefault();

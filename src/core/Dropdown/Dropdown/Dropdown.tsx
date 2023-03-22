@@ -20,6 +20,7 @@ import { SelectItemList } from '../../Form/Select/BaseSelect/SelectItemList/Sele
 import { HintText } from '../../Form/HintText/HintText';
 import { StatusText } from '../../Form/StatusText/StatusText';
 import { StatusTextCommonProps } from '../../Form/types';
+import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 
 const baseClassName = 'fi-dropdown';
 
@@ -235,16 +236,10 @@ class BaseDropdown extends Component<DropdownProps> {
         itemValue,
         this.props.children,
       ),
-      showPopover: false,
       focusedDescendantId: itemValue,
     });
-    /**
-     * Timeout is used here to ensure screen reader reads the
-     * currently selected option when focusing back to the button
-     */
-    setTimeout(() => {
-      this.buttonRef.current?.focus();
-    }, 200);
+    this.buttonRef.current?.focus();
+    this.setState({ showPopover: false });
   }
 
   private handleKeyDown = (event: React.KeyboardEvent) => {
@@ -400,14 +395,8 @@ class BaseDropdown extends Component<DropdownProps> {
   }
 
   private focusToButtonAndClosePopover() {
+    this.buttonRef.current?.focus();
     this.setState({ showPopover: false });
-    /**
-     * Timeout is used here to ensure screen reader reads the
-     * currently selected option when focusing back to the button
-     */
-    setTimeout(() => {
-      this.buttonRef.current?.focus();
-    }, 200);
   }
 
   private openPopover() {
@@ -537,7 +526,7 @@ class BaseDropdown extends Component<DropdownProps> {
               onBlur={this.handleOnBlur}
               {...passProps}
             >
-              <HtmlSpan id={displayValueId}>{dropdownDisplayValue}</HtmlSpan>
+              <HtmlSpan>{dropdownDisplayValue}</HtmlSpan>
               <HtmlInput
                 tabIndex={-1}
                 type="hidden"
@@ -545,6 +534,9 @@ class BaseDropdown extends Component<DropdownProps> {
                 value={selectedValue || ''}
               />
             </HtmlButton>
+            <VisuallyHidden id={displayValueId}>
+              {dropdownDisplayValue}
+            </VisuallyHidden>
             <StatusText
               id={statusTextId}
               className={classnames({

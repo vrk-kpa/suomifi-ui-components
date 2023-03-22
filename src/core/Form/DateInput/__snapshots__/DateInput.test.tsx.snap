@@ -4180,7 +4180,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               >
                 <span
                   class="c2"
-                  id="16-displayValue"
                 >
                   2020
                 </span>
@@ -4191,6 +4190,12 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   value="2020"
                 />
               </button>
+              <span
+                class="c2 c7 fi-visually-hidden"
+                id="16-displayValue"
+              >
+                2020
+              </span>
               <span
                 aria-atomic="true"
                 aria-live="assertive"
@@ -4232,7 +4237,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
               >
                 <span
                   class="c2"
-                  id="17-displayValue"
                 >
                   Tammikuu
                 </span>
@@ -4243,6 +4247,12 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   value="0"
                 />
               </button>
+              <span
+                class="c2 c7 fi-visually-hidden"
+                id="17-displayValue"
+              >
+                Tammikuu
+              </span>
               <span
                 aria-atomic="true"
                 aria-live="assertive"
@@ -6431,7 +6441,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 >
                   <span
                     class="c2"
-                    id="9-displayValue"
                   >
                     2020
                   </span>
@@ -6442,6 +6451,12 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     value="2020"
                   />
                 </button>
+                <span
+                  class="c2 c7 fi-visually-hidden"
+                  id="9-displayValue"
+                >
+                  2020
+                </span>
                 <span
                   aria-atomic="true"
                   aria-live="assertive"
@@ -6483,7 +6498,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 >
                   <span
                     class="c2"
-                    id="10-displayValue"
                   >
                     Tammikuu
                   </span>
@@ -6494,6 +6508,12 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     value="0"
                   />
                 </button>
+                <span
+                  class="c2 c7 fi-visually-hidden"
+                  id="10-displayValue"
+                >
+                  Tammikuu
+                </span>
                 <span
                   aria-atomic="true"
                   aria-live="assertive"

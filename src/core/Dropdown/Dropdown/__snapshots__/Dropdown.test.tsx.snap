@@ -174,6 +174,18 @@ exports[`Basic dropdown should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c7 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
 .c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -204,7 +216,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
   margin-left: 6px;
 }
 
-.c7 {
+.c8 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -223,11 +235,11 @@ exports[`Basic dropdown should match snapshot 1`] = `
   line-height: 20px;
 }
 
-.c7.fi-status-text {
+.c8.fi-status-text {
   display: block;
 }
 
-.c7.fi-status-text.fi-status-text--error {
+.c8.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
 }
 
@@ -450,9 +462,14 @@ exports[`Basic dropdown should match snapshot 1`] = `
           />
         </button>
         <span
+          class="c0 c7 fi-visually-hidden"
+        >
+          Dropdown
+        </span>
+        <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c0 c7 fi-status-text"
+          class="c0 c8 fi-status-text"
         />
       </div>
     </div>
@@ -634,6 +651,18 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c7 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
 .c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -664,7 +693,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   margin-left: 6px;
 }
 
-.c7 {
+.c8 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -683,11 +712,11 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   line-height: 20px;
 }
 
-.c7.fi-status-text {
+.c8.fi-status-text {
   display: block;
 }
 
-.c7.fi-status-text.fi-status-text--error {
+.c8.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
 }
 
@@ -899,7 +928,6 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
         >
           <span
             class="c0"
-            id="test-id-displayValue"
           >
             Item 2
           </span>
@@ -912,9 +940,15 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
           />
         </button>
         <span
+          class="c0 c7 fi-visually-hidden"
+          id="test-id-displayValue"
+        >
+          Item 2
+        </span>
+        <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c0 c7 fi-status-text"
+          class="c0 c8 fi-status-text"
         />
       </div>
     </div>
@@ -1096,6 +1130,18 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c7 {
+  position: absolute;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
 .c4.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1126,7 +1172,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   margin-left: 6px;
 }
 
-.c7 {
+.c8 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1145,11 +1191,11 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   line-height: 20px;
 }
 
-.c7.fi-status-text {
+.c8.fi-status-text {
   display: block;
 }
 
-.c7.fi-status-text.fi-status-text--error {
+.c8.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
 }
 
@@ -1372,9 +1418,14 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
           />
         </button>
         <span
+          class="c0 c7 fi-visually-hidden"
+        >
+          Dropdown
+        </span>
+        <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c0 c7 fi-status-text"
+          class="c0 c8 fi-status-text"
         />
       </div>
     </div>
@@ -1843,6 +1894,11 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
             value=""
           />
         </button>
+        <span
+          class="c0 c5 fi-visually-hidden"
+        >
+          Dropdown
+        </span>
         <span
           aria-atomic="true"
           aria-live="assertive"
