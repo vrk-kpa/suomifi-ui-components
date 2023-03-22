@@ -38,7 +38,7 @@ export interface InternalActionMenuPopoverProps {
 */
 
   /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
-  children: ReactNode;
+  children: Array<React.ReactElement<ActionMenuItemProps>>;
 
   menuId: string;
 
@@ -61,13 +61,11 @@ export interface ActionMenuProviderState {
   onItemClick: (itemValue: number) => void;
   /** Callback for communicating ActionMenuItem mouse over to parent  */
   onItemMouseOver: (itemValue: number) => void;
-  /** Currently focused DropdownItem */
-  focusedItemId: string | null | undefined;
   /** ID of the Dropdown component.
    * Used in DropdownItem to create a derived ID for each item
    */
   id: string | undefined;
-
+  /** Index of the child that has aria active descendant status */
   focusedIndex: number;
 }
 
@@ -75,7 +73,6 @@ const defaultProviderValue: ActionMenuProviderState = {
   onItemClick: () => null,
   onItemMouseOver: () => null,
   id: '',
-  focusedItemId: null,
   focusedIndex: -1,
 };
 
@@ -97,12 +94,6 @@ export const BaseActionMenuPopover = (
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
   const [dialogElement, setDialogElement] = useState<HTMLElement | null>(null);
-  const [selectedValue, setSelectedValue] = useState<string | undefined | null>(
-    undefined,
-  );
-  const [focusedDescendantId, setFocusedDescendantId] = useState<string | null>(
-    null,
-  );
   const [focusedChild, setFocusedChild] = useState<number>(-1);
 
   const portalRef = useRef<HTMLDivElement>(null);
@@ -165,13 +156,12 @@ export const BaseActionMenuPopover = (
   };
 
   // Decide if the node is focusable or not
-  const isFocusable = (child: React.ReactElement<ActionMenuItemProps>) =>
-    child?.type === ActionMenuItem;
+  const isFocusable = (child: any) => child?.type === ActionMenuItem;
 
   // Find nect child that can be focused
-  const nextFocusable = (current: number | undefined) => {
-    let nextFocusableIndex: number | undefined;
-    let firstFocusableIndex: number | undefined;
+  const nextFocusable = (current: number) => {
+    let nextFocusableIndex = -1;
+    let firstFocusableIndex = -1;
     let startFrom = 0;
 
     if (current) {
@@ -179,21 +169,21 @@ export const BaseActionMenuPopover = (
     }
 
     React.Children.forEach(children, (child, index) => {
-      if (isFocusable(child) && firstFocusableIndex === undefined) {
+      if (isFocusable(child) && firstFocusableIndex === -1) {
         firstFocusableIndex = index;
       }
 
       if (
         index > startFrom &&
         isFocusable(child) &&
-        nextFocusableIndex === undefined
+        nextFocusableIndex === -1
       ) {
         nextFocusableIndex = index;
       }
     });
 
     // Is there focusable later in the list
-    if (nextFocusableIndex !== undefined) {
+    if (nextFocusableIndex !== -1) {
       return nextFocusableIndex;
     }
     // Return the first focusable of the list
@@ -201,8 +191,8 @@ export const BaseActionMenuPopover = (
   };
 
   const previousFocusable = (current: number) => {
-    let result: number | undefined;
-    let lastFocusable: number | undefined;
+    let result = -1;
+    let lastFocusable = -1;
 
     React.Children.forEach(children, (child, index) => {
       if (isFocusable(child)) {
@@ -214,7 +204,7 @@ export const BaseActionMenuPopover = (
       }
     });
 
-    if (result !== undefined) {
+    if (result !== -1) {
       return result;
     }
 
@@ -236,12 +226,16 @@ export const BaseActionMenuPopover = (
       // Call action of the child item
       console.log('Enter ja indeksi: ', focusedChild);
 
-      const childProps = React.Children.toArray(children)[focusedChild]?.props;
+      const currentChild = React.Children.toArray(children)[focusedChild];
 
-      if (childProps.onClick) {
-        childProps.onClick();
-      } else if (childProps.href) {
-        window.open(childProps.href, '_self');
+      if (React.isValidElement(currentChild)) {
+        const childProps = currentChild.props;
+
+        if (childProps.onClick) {
+          childProps.onClick();
+        } else if (childProps.href) {
+          window.open(childProps.href, '_self');
+        }
       }
 
       handleClose();
@@ -302,13 +296,14 @@ export const BaseActionMenuPopover = (
     React.Children.map(
       childs,
       (child: React.ReactElement<ActionMenuItemProps>, index) => {
-        // Add onClick prop to clickable items
+        // Add itemIndex prop to clickable items
         if (React.isValidElement(child) && child.type === ActionMenuItem) {
-          // console.log(child);
-          return React.cloneElement(child, {
-            selected: focusedChild === index,
-            itemIndex: index,
-          });
+          return React.cloneElement(
+            child as React.ReactElement<ActionMenuItemProps>,
+            {
+              itemIndex: index,
+            },
+          );
         }
         return child;
       },
@@ -343,7 +338,6 @@ export const BaseActionMenuPopover = (
                   itemMouseOver(itemValue);
                 },
                 id: menuId,
-                focusedItemId: focusedDescendantId,
                 focusedIndex: focusedChild,
               }}
             >

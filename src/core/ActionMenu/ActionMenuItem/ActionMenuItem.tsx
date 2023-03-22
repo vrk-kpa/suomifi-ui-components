@@ -32,10 +32,6 @@ export interface InternalActionMenuItemProps {
   /** Ref is forwarded to wrapping div element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLDivElement>;
 
-  onAction: (event: React.MouseEvent) => void;
-
-  onSelected: (event: React.MouseEvent) => void;
-
   itemIndex: number;
 
   /**
@@ -74,7 +70,6 @@ const BaseActionMenuItem = (props: ActionMenuItemProps) => {
     children,
     disabled,
     forwardedRef,
-    onAction,
     consumer,
     itemIndex,
     icon,

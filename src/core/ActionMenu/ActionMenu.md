@@ -45,7 +45,6 @@ const exampleRef = React.createRef();
       <ActionMenuItem
         asComponent={CustomButton}
         onClick={() => setLastAction('Pidempi')}
-        onAction={() => setLastAction('Pidempi 2')}
       >
         Pidempi nimi toiminnolle
       </ActionMenuItem>
