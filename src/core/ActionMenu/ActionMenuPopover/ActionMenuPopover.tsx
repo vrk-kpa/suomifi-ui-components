@@ -29,16 +29,8 @@ export interface InternalActionMenuPopoverProps {
   onClose: () => void;
   /** Styled component className */
   className?: string;
-  /** Menu items: MenuItem or MenuLink */
-  /*
-  children?:
-    | Array<React.ReactElement<ActionMenuPopoverItemsProps>>
-    | null
-    | undefined;
-*/
-
   /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
-  children: Array<React.ReactElement<ActionMenuItemProps>>;
+  children: Array<React.ReactElement<ActionMenuItemProps>> | ReactNode;
 
   menuId: string;
 

@@ -24,7 +24,7 @@ type ItemAction =
 export interface InternalActionMenuItemProps {
   /** Custom class */
   className?: string;
-  /** Use the polymorphic `<RouterLink>` component as child to get intended CSS styling */
+  /** Text of the action */
   children: ReactNode;
   /** Disables the item */
   disabled?: boolean;
@@ -46,6 +46,8 @@ export interface InternalActionMenuItemProps {
    * Properties given to Icon-component
    */
   iconProps?: IconProps;
+
+  asComponent: any;
 }
 
 // export type ActionMenuItemProps extends InternalActionMenuItemProps , ItemAction

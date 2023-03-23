@@ -8,7 +8,6 @@ import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import { Button } from '../Button/Button';
 import { HtmlDiv, HtmlDivProps, HtmlButtonProps } from '../../reset';
 import { baseStyles } from './ActionMenu.baseStyles';
-import { getConditionalAriaProp } from '../../utils/aria';
 
 const baseClassName = 'fi-action-menu';
 export const actionMenuClassNames = {
@@ -35,11 +34,9 @@ export interface ActionMenuProps
    * @param {FocusEvent<HTMLButtonElement>} event FocusEvent
    */
   onBlur?: (event: FocusEvent<HTMLButtonElement>) => void;
-  /** Controlled value */
-  value?: string;
   /** Set components width to 100% */
   fullWidth?: boolean;
-  /** Label text for the button */
+  /** Visually hidden label text for the button */
   openButtonLabel: string;
   /** Label text for the button */
   buttonText?: string;
@@ -49,6 +46,8 @@ export interface ActionMenuProps
   onOpen?: () => void;
   /** Ref is forwarded to the button element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
+  /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
+  children: Array<React.ReactElement<ActionMenuItemProps>> | ReactNode;
 }
 
 const BaseActionMenu = (props: ActionMenuProps) => {
@@ -58,8 +57,6 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     id,
     fullWidth,
     forwardedRef,
-    defaultValue,
-    value,
     buttonText,
     openButtonLabel,
     children,
