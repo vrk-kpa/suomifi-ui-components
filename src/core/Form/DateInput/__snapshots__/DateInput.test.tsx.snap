@@ -4147,8 +4147,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
       <div
         class="c0 c11 fi-date-selectors_container"
       >
-        <span
-          class="c2 c12 fi-date-selectors_year-select fi-dropdown"
+        <div
+          class="c0 c12 fi-date-selectors_year-select fi-dropdown"
           id="16"
         >
           <div
@@ -4203,9 +4203,9 @@ exports[`snapshots match date input with datepicker with controlled input value 
               />
             </div>
           </div>
-        </span>
-        <span
-          class="c2 c12 fi-date-selectors_month-select fi-dropdown"
+        </div>
+        <div
+          class="c0 c12 fi-date-selectors_month-select fi-dropdown"
           id="17"
         >
           <div
@@ -4260,7 +4260,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               />
             </div>
           </div>
-        </span>
+        </div>
         <button
           aria-disabled="false"
           aria-label="Edellinen kuukausi Joulukuu"
@@ -6408,8 +6408,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
         <div
           class="c0 c11 fi-date-selectors_container"
         >
-          <span
-            class="c2 c12 fi-date-selectors_year-select fi-dropdown"
+          <div
+            class="c0 c12 fi-date-selectors_year-select fi-dropdown"
             id="9"
           >
             <div
@@ -6464,9 +6464,9 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 />
               </div>
             </div>
-          </span>
-          <span
-            class="c2 c12 fi-date-selectors_month-select fi-dropdown"
+          </div>
+          <div
+            class="c0 c12 fi-date-selectors_month-select fi-dropdown"
             id="10"
           >
             <div
@@ -6521,7 +6521,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 />
               </div>
             </div>
-          </span>
+          </div>
           <button
             aria-disabled="false"
             aria-label="Edellinen kuukausi Joulukuu"

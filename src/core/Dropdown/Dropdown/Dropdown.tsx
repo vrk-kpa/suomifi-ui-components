@@ -144,7 +144,7 @@ export interface DropdownProps extends StatusTextCommonProps {
    * Can be used, for example, for style
    */
   wrapperProps?: Omit<
-    HTMLAttributesIncludingDataAttributes<HTMLSpanElement>,
+    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
     'className'
   >;
 }
@@ -471,7 +471,7 @@ class BaseDropdown extends Component<DropdownProps> {
     const definedRef = forwardedRef || null;
 
     return (
-      <HtmlSpan
+      <HtmlDiv
         className={classnames(className, baseClassName, {
           [dropdownClassNames.disabled]: !!disabled,
           [dropdownClassNames.open]: !!showPopover,
@@ -595,7 +595,7 @@ class BaseDropdown extends Component<DropdownProps> {
             )}
           </HtmlDiv>
         </HtmlDiv>
-      </HtmlSpan>
+      </HtmlDiv>
     );
   }
 }
