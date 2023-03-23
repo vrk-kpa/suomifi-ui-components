@@ -143,7 +143,10 @@ export interface DropdownProps extends StatusTextCommonProps {
    * Props which are placed at the outermost div of the component.
    * Can be used, for example, for style
    */
-  wrapperProps?: Omit<HTMLAttributesIncludingDataAttributes, 'className'>;
+  wrapperProps?: Omit<
+    HTMLAttributesIncludingDataAttributes<HTMLSpanElement>,
+    'className'
+  >;
 }
 
 class BaseDropdown extends Component<DropdownProps> {
