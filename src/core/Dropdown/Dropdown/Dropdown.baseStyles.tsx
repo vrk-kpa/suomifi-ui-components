@@ -66,6 +66,14 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
+    .fi-dropdown_display-value {
+      width: 100%;
+      height: 100%;
+      display: block;
+      line-height: 1.5;
+      overflow: hidden;
+    }
+
     .fi-dropdown_popover {
       ${element(theme)}
       ${theme.typography.actionElementInnerText}

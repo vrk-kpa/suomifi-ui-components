@@ -33,6 +33,7 @@ export const dropdownClassNames = {
   itemList: `${baseClassName}_item-list`,
   item: `${baseClassName}_item`,
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
+  displayValue: `${baseClassName}_display-value`,
   open: `${baseClassName}--open`,
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
@@ -500,7 +501,7 @@ class BaseDropdown extends Component<DropdownProps> {
             {labelText}
           </Label>
           <HintText id={hintTextId}>{hintText}</HintText>
-          <HtmlDiv className={classnames(dropdownClassNames.inputWrapper)}>
+          <HtmlDiv className={dropdownClassNames.inputWrapper}>
             <HtmlButton
               aria-haspopup="listbox"
               tabIndex={!disabled ? 0 : -1}
@@ -529,7 +530,9 @@ class BaseDropdown extends Component<DropdownProps> {
               onBlur={this.handleOnBlur}
               {...passProps}
             >
-              <HtmlSpan>{dropdownDisplayValue}</HtmlSpan>
+              <HtmlSpan className={dropdownClassNames.displayValue}>
+                {dropdownDisplayValue}
+              </HtmlSpan>
               <HtmlInput
                 tabIndex={-1}
                 type="hidden"

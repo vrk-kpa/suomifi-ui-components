@@ -332,6 +332,14 @@ exports[`Basic dropdown should match snapshot 1`] = `
   border-width: 0 4px 6px 4px;
 }
 
+.c1.fi-dropdown .fi-dropdown_display-value {
+  width: 100%;
+  height: 100%;
+  display: block;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
 .c1.fi-dropdown .fi-dropdown_popover {
   color: hsl(0,0%,13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -449,7 +457,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
           type="button"
         >
           <span
-            class="c4"
+            class="c4 fi-dropdown_display-value"
           >
             Dropdown
           </span>
@@ -809,6 +817,14 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   border-width: 0 4px 6px 4px;
 }
 
+.c1.fi-dropdown .fi-dropdown_display-value {
+  width: 100%;
+  height: 100%;
+  display: block;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
 .c1.fi-dropdown .fi-dropdown_popover {
   color: hsl(0,0%,13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -927,7 +943,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
           value="item-2"
         >
           <span
-            class="c4"
+            class="c4 fi-dropdown_display-value"
           >
             Item 2
           </span>
@@ -1288,6 +1304,14 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   border-width: 0 4px 6px 4px;
 }
 
+.c1.fi-dropdown .fi-dropdown_display-value {
+  width: 100%;
+  height: 100%;
+  display: block;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
 .c1.fi-dropdown .fi-dropdown_popover {
   color: hsl(0,0%,13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -1405,7 +1429,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
           type="button"
         >
           <span
-            class="c4"
+            class="c4 fi-dropdown_display-value"
           >
             Dropdown
           </span>
@@ -1765,6 +1789,14 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
   border-width: 0 4px 6px 4px;
 }
 
+.c1.fi-dropdown .fi-dropdown_display-value {
+  width: 100%;
+  height: 100%;
+  display: block;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
 .c1.fi-dropdown .fi-dropdown_popover {
   color: hsl(0,0%,13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -1882,7 +1914,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
           type="button"
         >
           <span
-            class="c6"
+            class="c6 fi-dropdown_display-value"
           >
             Dropdown
           </span>
