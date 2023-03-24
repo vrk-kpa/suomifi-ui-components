@@ -48,5 +48,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         }
       }
     }
+
+    @media (forced-colors: active) {
+      &--hasKeyboardFocus,
+      &:hover {
+        background-color: Highlight;
+      }
+    }
   }
 `;

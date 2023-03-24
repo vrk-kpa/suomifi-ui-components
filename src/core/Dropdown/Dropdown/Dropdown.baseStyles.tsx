@@ -69,7 +69,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     .fi-dropdown_display-value {
       width: 100%;
       height: 100%;
-      display: block;
+      display: inline-block;
       line-height: 1.5;
       overflow: hidden;
     }
@@ -144,7 +144,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &:not(.fi-dropdown--open) {
       .fi-dropdown_button {
         &:focus {
-          outline: 0;
+          outline: 3px solid transparent;
           position: relative;
 
           &:after {

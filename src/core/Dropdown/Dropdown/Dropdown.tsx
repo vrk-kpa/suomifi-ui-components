@@ -483,120 +483,118 @@ class BaseDropdown extends Component<DropdownProps> {
         id={id}
         {...wrapperProps}
       >
-        <HtmlDiv>
-          <Label
-            id={labelId}
-            labelMode={labelMode}
-            optionalText={optionalText}
-            className={classnames({
-              [dropdownClassNames.labelIsVisible]: labelMode !== 'hidden',
-            })}
-            tooltipComponent={tooltipComponent}
+        <Label
+          id={labelId}
+          labelMode={labelMode}
+          optionalText={optionalText}
+          className={classnames({
+            [dropdownClassNames.labelIsVisible]: labelMode !== 'hidden',
+          })}
+          tooltipComponent={tooltipComponent}
+          onClick={() => {
+            if (!disabled) {
+              this.buttonRef.current?.focus();
+            }
+          }}
+        >
+          {labelText}
+        </Label>
+        <HintText id={hintTextId}>{hintText}</HintText>
+        <HtmlDiv className={dropdownClassNames.inputWrapper}>
+          <HtmlButton
+            aria-haspopup="listbox"
+            tabIndex={!disabled ? 0 : -1}
+            forwardedRef={forkRefs(this.buttonRef, definedRef)}
+            id={buttonId}
+            className={dropdownClassNames.button}
+            {...getConditionalAriaProp('aria-labelledby', [
+              displayValueId,
+              ariaLabelledBy,
+              labelId,
+            ])}
+            {...getConditionalAriaProp('aria-describedby', [
+              statusTextId,
+              hintTextId,
+            ])}
+            aria-owns={popoverItemListId}
+            aria-expanded={showPopover}
             onClick={() => {
-              if (!disabled) {
-                this.buttonRef.current?.focus();
+              if (!showPopover) {
+                this.openPopover();
+              } else {
+                this.focusToButtonAndClosePopover();
               }
             }}
+            onKeyDown={this.handleKeyDown}
+            onBlur={this.handleOnBlur}
+            {...passProps}
           >
-            {labelText}
-          </Label>
-          <HintText id={hintTextId}>{hintText}</HintText>
-          <HtmlDiv className={dropdownClassNames.inputWrapper}>
-            <HtmlButton
-              aria-haspopup="listbox"
-              tabIndex={!disabled ? 0 : -1}
-              forwardedRef={forkRefs(this.buttonRef, definedRef)}
-              id={buttonId}
-              className={dropdownClassNames.button}
-              {...getConditionalAriaProp('aria-labelledby', [
-                displayValueId,
-                ariaLabelledBy,
-                labelId,
-              ])}
-              {...getConditionalAriaProp('aria-describedby', [
-                statusTextId,
-                hintTextId,
-              ])}
-              aria-owns={popoverItemListId}
-              aria-expanded={showPopover}
-              onClick={() => {
-                if (!showPopover) {
-                  this.openPopover();
-                } else {
-                  this.focusToButtonAndClosePopover();
+            <HtmlSpan className={dropdownClassNames.displayValue}>
+              {dropdownDisplayValue}
+            </HtmlSpan>
+            <HtmlInput
+              tabIndex={-1}
+              type="hidden"
+              name={name}
+              value={selectedValue || ''}
+            />
+          </HtmlButton>
+          <VisuallyHidden id={displayValueId}>
+            {dropdownDisplayValue}
+          </VisuallyHidden>
+          <StatusText
+            id={statusTextId}
+            className={classnames({
+              [dropdownClassNames.statusTextHasContent]: !!statusText,
+            })}
+            status={status}
+            disabled={disabled}
+            ariaLiveMode={statusTextAriaLiveMode}
+          >
+            {statusText}
+          </StatusText>
+          {showPopover && (
+            <Popover
+              sourceRef={this.buttonRef}
+              onClickOutside={(event) => {
+                if (!this.isOutsideClick(event)) {
+                  this.setState({
+                    showPopover: false,
+                  });
                 }
               }}
+              matchWidth={true}
               onKeyDown={this.handleKeyDown}
-              onBlur={this.handleOnBlur}
-              {...passProps}
+              portal={portal}
             >
-              <HtmlSpan className={dropdownClassNames.displayValue}>
-                {dropdownDisplayValue}
-              </HtmlSpan>
-              <HtmlInput
-                tabIndex={-1}
-                type="hidden"
-                name={name}
-                value={selectedValue || ''}
-              />
-            </HtmlButton>
-            <VisuallyHidden id={displayValueId}>
-              {dropdownDisplayValue}
-            </VisuallyHidden>
-            <StatusText
-              id={statusTextId}
-              className={classnames({
-                [dropdownClassNames.statusTextHasContent]: !!statusText,
-              })}
-              status={status}
-              disabled={disabled}
-              ariaLiveMode={statusTextAriaLiveMode}
-            >
-              {statusText}
-            </StatusText>
-            {showPopover && (
-              <Popover
-                sourceRef={this.buttonRef}
-                onClickOutside={(event) => {
-                  if (!this.isOutsideClick(event)) {
-                    this.setState({
-                      showPopover: false,
-                    });
-                  }
+              <DropdownProvider
+                value={{
+                  onItemClick: (itemValue) =>
+                    this.handleItemSelection(itemValue),
+                  selectedDropdownValue: selectedValue,
+                  id,
+                  focusedItemValue: focusedDescendantId,
+                  noSelectedStyles: alwaysShowVisualPlaceholder,
+                  onItemTabPress: () => this.focusToButtonAndClosePopover(),
                 }}
-                matchWidth={true}
-                onKeyDown={this.handleKeyDown}
-                portal={portal}
               >
-                <DropdownProvider
-                  value={{
-                    onItemClick: (itemValue) =>
-                      this.handleItemSelection(itemValue),
-                    selectedDropdownValue: selectedValue,
-                    id,
-                    focusedItemValue: focusedDescendantId,
-                    noSelectedStyles: alwaysShowVisualPlaceholder,
-                    onItemTabPress: () => this.focusToButtonAndClosePopover(),
+                <SelectItemList
+                  id={popoverItemListId}
+                  ref={this.popoverRef}
+                  focusedDescendantId={ariaActiveDescendant}
+                  className={dropdownClassNames.itemList}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Tab') {
+                      event.preventDefault();
+                      this.focusToButtonAndClosePopover();
+                    }
                   }}
                 >
-                  <SelectItemList
-                    id={popoverItemListId}
-                    ref={this.popoverRef}
-                    focusedDescendantId={ariaActiveDescendant}
-                    className={dropdownClassNames.itemList}
-                    onKeyDown={(event) => {
-                      if (event.key === 'Tab') {
-                        event.preventDefault();
-                        this.focusToButtonAndClosePopover();
-                      }
-                    }}
-                  >
-                    {children || []}
-                  </SelectItemList>
-                </DropdownProvider>
-              </Popover>
-            )}
-          </HtmlDiv>
+                  {children || []}
+                </SelectItemList>
+              </DropdownProvider>
+            </Popover>
+          )}
         </HtmlDiv>
       </HtmlDiv>
     );

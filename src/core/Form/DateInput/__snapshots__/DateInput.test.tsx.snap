@@ -3544,7 +3544,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 .c12.fi-dropdown .fi-dropdown_display-value {
   width: 100%;
   height: 100%;
-  display: block;
+  display: inline-block;
   line-height: 1.5;
   overflow: hidden;
 }
@@ -3613,7 +3613,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c12.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus {
-  outline: 0;
+  outline: 3px solid transparent;
   position: relative;
 }
 
@@ -4160,56 +4160,52 @@ exports[`snapshots match date input with datepicker with controlled input value 
           id="16"
         >
           <div
-            class="c0"
+            class="c3 c4 fi-label"
           >
-            <div
-              class="c3 c4 fi-label"
+            <label
+              class="c7 fi-visually-hidden"
+              id="16-label"
             >
-              <label
-                class="c7 fi-visually-hidden"
-                id="16-label"
-              >
-                Valitse vuosi
-              </label>
-            </div>
-            <div
-              class="c0 fi-dropdown_input-wrapper"
+              Valitse vuosi
+            </label>
+          </div>
+          <div
+            class="c0 fi-dropdown_input-wrapper"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="16-displayValue 16-label"
+              aria-owns="16-popover"
+              class="c6 fi-dropdown_button"
+              id="16_button"
+              tabindex="0"
+              type="button"
+              value="2020"
             >
-              <button
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-labelledby="16-displayValue 16-label"
-                aria-owns="16-popover"
-                class="c6 fi-dropdown_button"
-                id="16_button"
-                tabindex="0"
-                type="button"
-                value="2020"
-              >
-                <span
-                  class="c2 fi-dropdown_display-value"
-                >
-                  2020
-                </span>
-                <input
-                  class="c5"
-                  tabindex="-1"
-                  type="hidden"
-                  value="2020"
-                />
-              </button>
               <span
-                class="c2 c7 fi-visually-hidden"
-                id="16-displayValue"
+                class="c2 fi-dropdown_display-value"
               >
                 2020
               </span>
-              <span
-                aria-atomic="true"
-                aria-live="assertive"
-                class="c2 c9 fi-status-text"
+              <input
+                class="c5"
+                tabindex="-1"
+                type="hidden"
+                value="2020"
               />
-            </div>
+            </button>
+            <span
+              class="c2 c7 fi-visually-hidden"
+              id="16-displayValue"
+            >
+              2020
+            </span>
+            <span
+              aria-atomic="true"
+              aria-live="assertive"
+              class="c2 c9 fi-status-text"
+            />
           </div>
         </div>
         <div
@@ -4217,56 +4213,52 @@ exports[`snapshots match date input with datepicker with controlled input value 
           id="17"
         >
           <div
-            class="c0"
+            class="c3 c4 fi-label"
           >
-            <div
-              class="c3 c4 fi-label"
+            <label
+              class="c7 fi-visually-hidden"
+              id="17-label"
             >
-              <label
-                class="c7 fi-visually-hidden"
-                id="17-label"
-              >
-                Valitse kuukausi
-              </label>
-            </div>
-            <div
-              class="c0 fi-dropdown_input-wrapper"
+              Valitse kuukausi
+            </label>
+          </div>
+          <div
+            class="c0 fi-dropdown_input-wrapper"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="17-displayValue 17-label"
+              aria-owns="17-popover"
+              class="c6 fi-dropdown_button"
+              id="17_button"
+              tabindex="0"
+              type="button"
+              value="0"
             >
-              <button
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-labelledby="17-displayValue 17-label"
-                aria-owns="17-popover"
-                class="c6 fi-dropdown_button"
-                id="17_button"
-                tabindex="0"
-                type="button"
-                value="0"
-              >
-                <span
-                  class="c2 fi-dropdown_display-value"
-                >
-                  Tammikuu
-                </span>
-                <input
-                  class="c5"
-                  tabindex="-1"
-                  type="hidden"
-                  value="0"
-                />
-              </button>
               <span
-                class="c2 c7 fi-visually-hidden"
-                id="17-displayValue"
+                class="c2 fi-dropdown_display-value"
               >
                 Tammikuu
               </span>
-              <span
-                aria-atomic="true"
-                aria-live="assertive"
-                class="c2 c9 fi-status-text"
+              <input
+                class="c5"
+                tabindex="-1"
+                type="hidden"
+                value="0"
               />
-            </div>
+            </button>
+            <span
+              class="c2 c7 fi-visually-hidden"
+              id="17-displayValue"
+            >
+              Tammikuu
+            </span>
+            <span
+              aria-atomic="true"
+              aria-live="assertive"
+              class="c2 c9 fi-status-text"
+            />
           </div>
         </div>
         <button
@@ -5804,7 +5796,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 .c12.fi-dropdown .fi-dropdown_display-value {
   width: 100%;
   height: 100%;
-  display: block;
+  display: inline-block;
   line-height: 1.5;
   overflow: hidden;
 }
@@ -5873,7 +5865,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c12.fi-dropdown:not(.fi-dropdown--open) .fi-dropdown_button:focus {
-  outline: 0;
+  outline: 3px solid transparent;
   position: relative;
 }
 
@@ -6429,56 +6421,52 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
             id="9"
           >
             <div
-              class="c0"
+              class="c3 c4 fi-label"
             >
-              <div
-                class="c3 c4 fi-label"
+              <label
+                class="c7 fi-visually-hidden"
+                id="9-label"
               >
-                <label
-                  class="c7 fi-visually-hidden"
-                  id="9-label"
-                >
-                  Valitse vuosi
-                </label>
-              </div>
-              <div
-                class="c0 fi-dropdown_input-wrapper"
+                Valitse vuosi
+              </label>
+            </div>
+            <div
+              class="c0 fi-dropdown_input-wrapper"
+            >
+              <button
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-labelledby="9-displayValue 9-label"
+                aria-owns="9-popover"
+                class="c6 fi-dropdown_button"
+                id="9_button"
+                tabindex="0"
+                type="button"
+                value="2020"
               >
-                <button
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-labelledby="9-displayValue 9-label"
-                  aria-owns="9-popover"
-                  class="c6 fi-dropdown_button"
-                  id="9_button"
-                  tabindex="0"
-                  type="button"
-                  value="2020"
-                >
-                  <span
-                    class="c2 fi-dropdown_display-value"
-                  >
-                    2020
-                  </span>
-                  <input
-                    class="c5"
-                    tabindex="-1"
-                    type="hidden"
-                    value="2020"
-                  />
-                </button>
                 <span
-                  class="c2 c7 fi-visually-hidden"
-                  id="9-displayValue"
+                  class="c2 fi-dropdown_display-value"
                 >
                   2020
                 </span>
-                <span
-                  aria-atomic="true"
-                  aria-live="assertive"
-                  class="c2 c9 fi-status-text"
+                <input
+                  class="c5"
+                  tabindex="-1"
+                  type="hidden"
+                  value="2020"
                 />
-              </div>
+              </button>
+              <span
+                class="c2 c7 fi-visually-hidden"
+                id="9-displayValue"
+              >
+                2020
+              </span>
+              <span
+                aria-atomic="true"
+                aria-live="assertive"
+                class="c2 c9 fi-status-text"
+              />
             </div>
           </div>
           <div
@@ -6486,56 +6474,52 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
             id="10"
           >
             <div
-              class="c0"
+              class="c3 c4 fi-label"
             >
-              <div
-                class="c3 c4 fi-label"
+              <label
+                class="c7 fi-visually-hidden"
+                id="10-label"
               >
-                <label
-                  class="c7 fi-visually-hidden"
-                  id="10-label"
-                >
-                  Valitse kuukausi
-                </label>
-              </div>
-              <div
-                class="c0 fi-dropdown_input-wrapper"
+                Valitse kuukausi
+              </label>
+            </div>
+            <div
+              class="c0 fi-dropdown_input-wrapper"
+            >
+              <button
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-labelledby="10-displayValue 10-label"
+                aria-owns="10-popover"
+                class="c6 fi-dropdown_button"
+                id="10_button"
+                tabindex="0"
+                type="button"
+                value="0"
               >
-                <button
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-labelledby="10-displayValue 10-label"
-                  aria-owns="10-popover"
-                  class="c6 fi-dropdown_button"
-                  id="10_button"
-                  tabindex="0"
-                  type="button"
-                  value="0"
-                >
-                  <span
-                    class="c2 fi-dropdown_display-value"
-                  >
-                    Tammikuu
-                  </span>
-                  <input
-                    class="c5"
-                    tabindex="-1"
-                    type="hidden"
-                    value="0"
-                  />
-                </button>
                 <span
-                  class="c2 c7 fi-visually-hidden"
-                  id="10-displayValue"
+                  class="c2 fi-dropdown_display-value"
                 >
                   Tammikuu
                 </span>
-                <span
-                  aria-atomic="true"
-                  aria-live="assertive"
-                  class="c2 c9 fi-status-text"
+                <input
+                  class="c5"
+                  tabindex="-1"
+                  type="hidden"
+                  value="0"
                 />
-              </div>
+              </button>
+              <span
+                class="c2 c7 fi-visually-hidden"
+                id="10-displayValue"
+              >
+                Tammikuu
+              </span>
+              <span
+                aria-atomic="true"
+                aria-live="assertive"
+                class="c2 c9 fi-status-text"
+              />
             </div>
           </div>
           <button
