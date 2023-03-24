@@ -17,7 +17,7 @@ import classnames from 'classnames';
 const baseClassName = 'fi-radio-button-group';
 const radioButtonGroupClassNames = {
   legend: `${baseClassName}_legend`,
-  labelIsVisible: `${baseClassName}_label--visible`,
+  labelWithMargin: `${baseClassName}_label--with-margin`,
   container: `${baseClassName}_container`,
 };
 
@@ -126,8 +126,7 @@ class BaseRadioButtonGroup extends Component<
               labelMode={labelMode}
               optionalText={optionalText}
               className={classnames({
-                [radioButtonGroupClassNames.labelIsVisible]:
-                  labelMode !== 'hidden',
+                [radioButtonGroupClassNames.labelWithMargin]: groupHintText,
               })}
               tooltipComponent={tooltipComponent}
             >
