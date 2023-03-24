@@ -26,7 +26,9 @@ export interface ListLinkProps {
   /**
    * The link element of the list item
    */
-  children: ReactElement<LinkProps | ExternalLinkProps | RouterLinkProps<any>>;
+  children: ReactElement<
+    LinkProps | ExternalLinkProps | RouterLinkProps<React.ElementType>
+  >;
   className?: string;
 }
 
