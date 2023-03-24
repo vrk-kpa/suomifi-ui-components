@@ -50,9 +50,9 @@ export interface SingleSelectData {
 
 export interface ActionMenuProviderState {
   /** Callback for communicating ActionMenuItem click to parent  */
-  onItemClick: (itemValue: number) => void;
+  onItemClick: (itemIndex: number) => void;
   /** Callback for communicating ActionMenuItem mouse over to parent  */
-  onItemMouseOver: (itemValue: number) => void;
+  onItemMouseOver: (itemIndex: number) => void;
   /** ID of the Dropdown component.
    * Used in DropdownItem to create a derived ID for each item
    */
@@ -301,11 +301,6 @@ export const BaseActionMenuPopover = (
       },
     );
 
-  const handleItemSelection = (value: ReactNode) => {
-    console.log('handle item selection');
-    handleClose();
-  };
-
   const itemMouseOver = (value: number) => {
     setFocusedChild(value);
   };
@@ -325,9 +320,9 @@ export const BaseActionMenuPopover = (
           <div ref={portalRef}>
             <ActionMenuProvider
               value={{
-                onItemClick: (itemValue) => handleItemSelection(itemValue),
-                onItemMouseOver(itemValue) {
-                  itemMouseOver(itemValue);
+                onItemClick: () => handleClose(),
+                onItemMouseOver(itemIndex) {
+                  itemMouseOver(itemIndex);
                 },
                 id: menuId,
                 focusedIndex: focusedChild,
@@ -340,7 +335,6 @@ export const BaseActionMenuPopover = (
                 aria-labelledby={buttonId}
                 tabIndex={-1}
                 className={actionMenuClassNames.application}
-                onMouseLeave={() => console.log('Menu ul leave')}
                 forwardRef={ulRef}
               >
                 {menuItems(children)}
