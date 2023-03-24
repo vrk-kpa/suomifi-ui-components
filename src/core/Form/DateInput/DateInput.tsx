@@ -14,10 +14,11 @@ import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
+import { getLogger } from '../../../utils/log';
+import { HTMLAttributesIncludingDataAttributes } from '../../../utils/common/common';
 import {
   HtmlInputProps,
   HtmlDiv,
-  HtmlDivProps,
   HtmlSpan,
   HtmlInput,
   HtmlButton,
@@ -47,7 +48,6 @@ import {
   lastDayOfMonth,
   cellDateAriaLabel,
 } from './dateUtils';
-import { getLogger } from '../../../utils/log';
 
 const baseClassName = 'fi-date-input';
 export const dateInputClassNames = {
@@ -158,7 +158,10 @@ export interface DateInputProps
   /** DateInput container div class name for custom styling. */
   className?: string;
   /** DateInput wrapping div element props */
-  wrapperProps?: Omit<HtmlDivProps, 'className'>;
+  wrapperProps?: Omit<
+    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
+    'className'
+  >;
   /** Disable input usage */
   disabled?: boolean;
   /** Callback fired when input is clicked. */
