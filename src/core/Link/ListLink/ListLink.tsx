@@ -3,7 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { ListLinkStyles } from './ListLink.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { HtmlLi, HtmlSpan } from '../../../reset';
+import { HtmlDiv, HtmlLi, HtmlSpan } from '../../../reset';
 import { LinkProps } from '../Link/Link';
 import { ExternalLinkProps } from 'core/Link/ExternalLink/ExternalLink';
 import { RouterLinkProps } from 'core/Link/RouterLink/RouterLink';
@@ -30,6 +30,8 @@ export interface ListLinkProps {
     LinkProps | ExternalLinkProps | RouterLinkProps<React.ElementType>
   >;
   className?: string;
+  /** Use for list style links outside of a list element. Changes outermost element from `li` to `div` */
+  standalone?: boolean;
 }
 
 const StyledListLink = styled(
@@ -37,20 +39,33 @@ const StyledListLink = styled(
     children,
     theme,
     className,
-    icon = 'chevronRight',
+    standalone = false,
+    icon,
     ...passProps
-  }: ListLinkProps & SuomifiThemeProp) => (
-    <HtmlLi {...passProps} className={classnames(baseClassName, className)}>
-      <HtmlSpan className={listLinkClassNames.icon}>
-        {!!icon ? (
-          <Icon icon={icon} />
-        ) : (
-          <Icon icon={'login'} color={theme.colors.highlightBase} />
-        )}
-      </HtmlSpan>
-      {children}
-    </HtmlLi>
-  ),
+  }: ListLinkProps & SuomifiThemeProp) =>
+    standalone ? (
+      <HtmlDiv {...passProps} className={classnames(baseClassName, className)}>
+        <HtmlSpan className={listLinkClassNames.icon}>
+          {!!icon ? (
+            <Icon icon={icon} />
+          ) : (
+            <Icon icon={'chevronRight'} color={theme.colors.highlightBase} />
+          )}
+        </HtmlSpan>
+        {children}
+      </HtmlDiv>
+    ) : (
+      <HtmlLi {...passProps} className={classnames(baseClassName, className)}>
+        <HtmlSpan className={listLinkClassNames.icon}>
+          {!!icon ? (
+            <Icon icon={icon} />
+          ) : (
+            <Icon icon={'chevronRight'} color={theme.colors.highlightBase} />
+          )}
+        </HtmlSpan>
+        {children}
+      </HtmlLi>
+    ),
 )`
   ${({ theme }) => ListLinkStyles(theme)}
 `;
