@@ -3,19 +3,17 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { LinkListStyles } from './LinkList.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { HtmlUlWithRef } from '../../../reset';
-import { BaseLinkProps } from '../BaseLink/BaseLink';
+import { HtmlUlProps, HtmlUlWithRef } from '../../../reset';
 
 const LinkListClassName = 'fi-link-list';
 
-export interface LinkListProps extends BaseLinkProps {
+export interface LinkListProps extends HtmlUlProps {
   /** Ref  is passed to the anchor element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLAnchorElement>;
 }
 
 const StyledLinkList = styled(
   ({
-    asProp,
     className,
     theme,
     children,

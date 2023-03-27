@@ -1,0 +1,279 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calling render with the same component on the same container does not remount 1`] = `
+.c6 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c6::before,
+.c6::after {
+  box-sizing: border-box;
+}
+
+.c6:hover,
+.c6:active,
+.c6:focus,
+.c6:focus-within {
+  color: inherit;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: list-item;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  list-style-type: decimal;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 40px;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c5 {
+  vertical-align: baseline;
+}
+
+.c5.fi-icon {
+  display: inline-block;
+}
+
+.c5 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c5 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c5.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c5.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c3.fi-list-link {
+  list-style: none;
+}
+
+.c3.fi-list-link .fi-list-link_icon {
+  margin-right: 2px;
+}
+
+.c3.fi-list-link .fi-list-link_icon .fi-icon {
+  margin-left: -3px;
+  -webkit-transform: translateY(0.1em);
+  -ms-transform: translateY(0.1em);
+  transform: translateY(0.1em);
+}
+
+.c3.fi-list-link .fi-list-link_icon .fi-icon .fi-icon-base-fill {
+  fill: hsl(23,82%,51%);
+}
+
+.c1.fi-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 0 0;
+}
+
+.c7 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c7.fi-link {
+  color: hsl(212,63%,45%);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c7.fi-link:hover,
+.c7.fi-link:active,
+.c7.fi-link:focus,
+.c7.fi-link:focus-within {
+  color: hsl(212,63%,45%);
+}
+
+.c7.fi-link:focus,
+.c7.fi-link:focus-within {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c7.fi-link:focus {
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
+}
+
+.c7.fi-link:hover,
+.c7.fi-link:active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c7.fi-link:visited {
+  color: hsl(284,36%,45%);
+}
+
+.c7.fi-link--initial-underline {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c7.fi-link--initial-underline:focus,
+.c7.fi-link--initial-underline:focus-within {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c7.fi-link--initial-underline:hover,
+.c7.fi-link--initial-underline:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<ul
+  class="c0 c1 fi-link-list"
+>
+  <li
+    class="c2 fi-list-link c3"
+    data-testid="test-link"
+  >
+    <span
+      class="c4 fi-list-link_icon"
+    >
+      <svg
+        aria-hidden="true"
+        class="fi-icon c5"
+        focusable="false"
+        height="1em"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="fi-icon-base-fill"
+          d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 01-1.885 0 1.448 1.448 0 010-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 010-1.98 1.287 1.287 0 011.885 0l5.333 5.6z"
+          fill="#222"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    <a
+      class="c6 fi-link c7"
+      href="/"
+    >
+      Linkki
+    </a>
+  </li>
+</ul>
+`;
