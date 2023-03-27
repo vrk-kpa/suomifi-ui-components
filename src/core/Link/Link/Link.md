@@ -131,8 +131,14 @@ const Component = forwardRef((props, ref) => {
 
 const r = useRef();
 
-<>
-  <LinkList headingText="Linkkilista">
+<div>
+  <ListLink standalone>
+    <Link href="/">Erillinen listalinkki</Link>
+  </ListLink>
+  <Heading variant="h5" as="h3">
+    Hyödyllisiä linkkejä
+  </Heading>
+  <LinkList>
     <ListLink>
       <Link href="/">Linkki listassa</Link>
     </ListLink>
@@ -155,5 +161,5 @@ const r = useRef();
       </RouterLink>
     </ListLink>
   </LinkList>
-</>;
+</div>;
 ```
