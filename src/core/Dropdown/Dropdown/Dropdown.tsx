@@ -168,7 +168,7 @@ class BaseDropdown extends Component<DropdownProps> {
     ),
     showPopover: false,
     focusedDescendantId:
-      'value' in this.props
+      'value' in this.props && !!this.props.value
         ? this.props.value
         : 'defaultValue' in this.props
         ? this.props.defaultValue
