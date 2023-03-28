@@ -60,10 +60,12 @@ describe('Basic dropdown', () => {
   });
 
   it('should match snapshot', async () => {
-    const promise = Promise.resolve();
-    const { container } = render(BasicDropdown);
-    expect(container).toMatchSnapshot();
-    await act(() => promise);
+    const { baseElement, getByRole } = render(BasicDropdown);
+    const menuButton = getByRole('button') as HTMLButtonElement;
+    await act(async () => {
+      fireEvent.click(menuButton);
+    });
+    expect(baseElement).toMatchSnapshot();
   });
 });
 
@@ -84,10 +86,8 @@ describe('Dropdown with hidden label', () => {
   });
 
   it('should match snapshot', async () => {
-    const promise = Promise.resolve();
-    const { container } = render(DropdownWithHiddenLabel);
-    expect(container).toMatchSnapshot();
-    await act(() => promise);
+    const { baseElement } = render(DropdownWithHiddenLabel);
+    expect(baseElement).toMatchSnapshot();
   });
 });
 
@@ -133,10 +133,12 @@ describe('Controlled Dropdown', () => {
   });
 
   it('should match snapshot', async () => {
-    const promise = Promise.resolve();
-    const { container } = render(ControlledDropdown);
-    expect(container).toMatchSnapshot();
-    await act(() => promise);
+    const { baseElement, getByRole } = render(ControlledDropdown);
+    const button = getByRole('button') as HTMLButtonElement;
+    await act(async () => {
+      fireEvent.click(button);
+    });
+    expect(baseElement).toMatchSnapshot();
   });
 });
 
@@ -156,10 +158,12 @@ describe('Dropdown with additional aria-label', () => {
   });
 
   it('should match snapshot', async () => {
-    const promise = Promise.resolve();
-    const { container } = render(DropdownWithExtraLabel);
-    expect(container).toMatchSnapshot();
-    await act(() => promise);
+    const { baseElement, getByRole } = render(DropdownWithExtraLabel);
+    const menuButton = getByRole('button') as HTMLButtonElement;
+    await act(async () => {
+      fireEvent.click(menuButton);
+    });
+    expect(baseElement).toMatchSnapshot();
   });
 });
 
