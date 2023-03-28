@@ -146,7 +146,11 @@ exports[`Basic ExpanderTitleButton shoud match snapshot 1`] = `
   border-radius: inherit;
 }
 
-.c1.fi-expander_title-button {
+.c1:hover {
+  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+}
+
+.c1 .fi-expander_title-button {
   display: block;
 }
 

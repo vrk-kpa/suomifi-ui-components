@@ -159,8 +159,8 @@ exports[`Basic expander shoud match snapshot 1`] = `
   background-color: hsl(0,0%,100%);
   position: relative;
   padding: 0;
+  border: 1px solid hsl(212,63%,45%);
   border-radius: 2px;
-  box-shadow: 0 1px 2px 0 hsla(0,0%,13%,0.14),0 1px 5px 0 hsla(0,0%,13%,0.12);
   width: 100%;
   max-width: 100%;
 }
@@ -225,7 +225,7 @@ exports[`Basic expander shoud match snapshot 1`] = `
 }
 
 .c7.fi-expander_content--open:not(.fi-expander_content--no-padding) {
-  padding-top: 0;
+  padding-top: 10px;
   padding-right: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
@@ -265,7 +265,11 @@ exports[`Basic expander shoud match snapshot 1`] = `
   border-radius: inherit;
 }
 
-.c3.fi-expander_title-button {
+.c3:hover {
+  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+}
+
+.c3 .fi-expander_title-button {
   display: block;
 }
 

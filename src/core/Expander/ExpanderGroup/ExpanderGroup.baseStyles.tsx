@@ -17,11 +17,27 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-expander {
       margin-top: 0;
       margin-bottom: 0;
-      &:not(:first-of-type) {
+      border-radius: 0;
+      transition: margin ${`${theme.transitions.basicTime}
+        ${theme.transitions.basicTimingFunction}`};
+
+      & > {
+        border-radius: 0;
+      }
+      &:first-child {
+        border-radius: ${theme.radiuses.basic} ${theme.radiuses.basic} 0 0;
+      }
+      &:last-child {
+        border-bottom-left-radius: ${theme.radiuses.basic};
+        border-bottom-right-radius: ${theme.radiuses.basic};
+      }
+      &:not(:first-child) {
         border-top: none;
       }
+
       &.fi-expander--open {
         border-top: 1px solid ${theme.colors.highlightBase};
+        border-radius: ${theme.radiuses.basic};
         & + .fi-expander {
           border-top: 1px solid ${theme.colors.highlightBase};
         }

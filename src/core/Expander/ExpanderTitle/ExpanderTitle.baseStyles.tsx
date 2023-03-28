@@ -27,7 +27,7 @@ export const expanderTitleBaseStyles = (theme: SuomifiTheme) => css`
 
   & .fi-expander_title-content {
     display: inline-block;
-    padding: 17px ${theme.spacing.xxxl} 16px ${theme.spacing.m};
+    padding: 17px ${theme.spacing.m} 16px ${theme.spacing.m};
   }
 
   & .fi-expander_title-button {
@@ -37,8 +37,9 @@ export const expanderTitleBaseStyles = (theme: SuomifiTheme) => css`
     display: flex;
     justify-content: center;
     position: relative;
-    align-items: center;
-    width: 60px;
+    align-items: flex-start;
+    flex: 0 0 60px;
+    padding-top: ${theme.spacing.m};
 
     &:focus {
       outline: 0;
