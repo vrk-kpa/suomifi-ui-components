@@ -21,6 +21,11 @@ export interface PopoverProps extends HtmlDivProps {
   allowFlip?: boolean;
   /** Event hanlder for clicks outside the popover element */
   onClickOutside?: (event: MouseEvent) => void;
+  /**
+   * Whether the popper element is rendered in a portal or not
+   * @default true
+   */
+  portal?: boolean;
 }
 
 const sameWidth: any = {
@@ -46,6 +51,7 @@ export const Popover = (props: PopoverProps) => {
     children,
     sourceRef,
     onClickOutside,
+    portal = true,
     ...passProps
   } = props;
 
@@ -91,25 +97,39 @@ export const Popover = (props: PopoverProps) => {
     setMountNode(window.document.body);
   });
 
-  if (!mountNode) {
+  if (portal && !mountNode) {
     return null;
   }
+  if (portal && mountNode) {
+    return (
+      <>
+        {ReactDOM.createPortal(
+          <div
+            className={'fi-portal'}
+            ref={setPopperElement}
+            style={{ ...styles.popper, ...portalStyleProps }}
+            tabIndex={-1}
+            role="presentation"
+          >
+            <HtmlDivWithRef forwardedRef={portalRef} {...passProps}>
+              {children}
+            </HtmlDivWithRef>
+          </div>,
+          mountNode,
+        )}
+      </>
+    );
+  }
   return (
-    <>
-      {ReactDOM.createPortal(
-        <div
-          className={'fi-portal'}
-          ref={setPopperElement}
-          style={{ ...styles.popper, ...portalStyleProps }}
-          tabIndex={-1}
-          role="presentation"
-        >
-          <HtmlDivWithRef forwardedRef={portalRef} {...passProps}>
-            {children}
-          </HtmlDivWithRef>
-        </div>,
-        mountNode,
-      )}
-    </>
+    <div
+      ref={setPopperElement}
+      style={{ ...styles.popper, ...portalStyleProps }}
+      tabIndex={-1}
+      role="presentation"
+    >
+      <HtmlDivWithRef forwardedRef={portalRef} {...passProps}>
+        {children}
+      </HtmlDivWithRef>
+    </div>
   );
 };

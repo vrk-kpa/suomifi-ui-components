@@ -1,4 +1,4 @@
-import React, { MutableRefObject, Ref } from 'react';
+import React, { MutableRefObject, ReactElement, Ref } from 'react';
 import { getLogger } from '../../utils/log';
 
 export function windowAvailable() {
@@ -46,3 +46,43 @@ export const forkRefs =
       }
     });
   };
+
+export const getRecursiveChildText = (reactNode: ReactElement): any => {
+  const children = reactNode.props?.children || undefined;
+  if (Array.isArray(reactNode)) {
+    // Multiple children
+    const joinedNodes: Array<ReactElement | string> = [];
+    reactNode.forEach((node) => {
+      if (typeof node === 'object') {
+        joinedNodes.push(getRecursiveChildText(node));
+      } else if (typeof node === 'string') {
+        joinedNodes.push(node);
+      }
+    });
+    return joinedNodes.join(' ');
+  }
+  if (children === undefined) {
+    if (typeof reactNode === 'string') return reactNode;
+    return '';
+  }
+  if (typeof children === 'object') {
+    // Found direct child
+    return getRecursiveChildText(children);
+  }
+  if (typeof children === 'string' || typeof children === 'number') {
+    // Found searchable string
+    return children;
+  }
+};
+
+/**
+ * The following interface allows data-* attributes.
+ * The basic React.HTMLAttributes interface throws errors when trying to do something like
+ * <Component wrapperProps={{ 'data-testid': 'something' }}
+ * Solution inspired by: https://github.com/microsoft/TypeScript/issues/28960
+ */
+type DataAttributeKey = `data-${string}`;
+export interface HTMLAttributesIncludingDataAttributes<T>
+  extends React.HTMLAttributes<T> {
+  [dataAttribute: DataAttributeKey]: any;
+}

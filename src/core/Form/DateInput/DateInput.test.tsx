@@ -280,9 +280,13 @@ describe('props', () => {
       const dropdown = baseElement.querySelector(
         '.fi-date-selectors_year-select',
       );
-      const lis = dropdown?.querySelectorAll('li');
-      expect(lis?.length).toBe(11);
-      expect(lis?.[10]).toHaveTextContent('2020');
+      const dropdownButton = dropdown?.querySelector('.fi-dropdown_button');
+      if (dropdownButton) {
+        fireEvent.click(dropdownButton);
+        const lis = dropdown?.querySelectorAll('li');
+        expect(lis?.length).toBe(11);
+        expect(lis?.[10]).toHaveTextContent('2020');
+      }
     });
 
     it('has next months removed from dropdown', () => {
@@ -297,9 +301,13 @@ describe('props', () => {
       const dropdown = baseElement.querySelector(
         '.fi-date-selectors_month-select',
       );
-      const lis = dropdown?.querySelectorAll('li');
-      expect(lis?.[0]).toHaveTextContent('Tammikuu');
-      expect(lis?.length).toBe(1);
+      const dropdownButton = dropdown?.querySelector('.fi-dropdown_button');
+      if (dropdownButton) {
+        fireEvent.click(dropdownButton);
+        const lis = dropdown?.querySelectorAll('li');
+        expect(lis?.[0]).toHaveTextContent('Tammikuu');
+        expect(lis?.length).toBe(1);
+      }
     });
 
     it('has next month button disabled', () => {
@@ -352,9 +360,13 @@ describe('props', () => {
       const dropdown = baseElement.querySelector(
         '.fi-date-selectors_year-select',
       );
-      const lis = dropdown?.querySelectorAll('li');
-      expect(lis?.[0]).toHaveTextContent('2020');
-      expect(lis?.length).toBe(11);
+      const dropdownButton = dropdown?.querySelector('.fi-dropdown_button');
+      if (dropdownButton) {
+        fireEvent.click(dropdownButton);
+        const lis = dropdown?.querySelectorAll('li');
+        expect(lis?.[0]).toHaveTextContent('2020');
+        expect(lis?.length).toBe(11);
+      }
     });
 
     it('has previous months removed from dropdown', () => {
@@ -369,9 +381,13 @@ describe('props', () => {
       const dropdown = baseElement.querySelector(
         '.fi-date-selectors_month-select',
       );
-      const lis = dropdown?.querySelectorAll('li');
-      expect(lis?.[0]).toHaveTextContent('Heinäkuu');
-      expect(lis?.length).toBe(6);
+      const dropdownButton = dropdown?.querySelector('.fi-dropdown_button');
+      if (dropdownButton) {
+        fireEvent.click(dropdownButton);
+        const lis = dropdown?.querySelectorAll('li');
+        expect(lis?.[0]).toHaveTextContent('Heinäkuu');
+        expect(lis?.length).toBe(6);
+      }
     });
 
     it('has previous month button disabled', () => {

@@ -3,29 +3,57 @@ import { SuomifiTheme } from '../../theme';
 import { element } from '../../theme/reset';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  &[data-reach-listbox-option].fi-dropdown_item {
+  &.fi-dropdown_item {
     ${element(theme)}
     ${theme.typography.actionElementInnerText}
     cursor: pointer;
     line-height: 1.5;
     padding: ${theme.spacing.insetM};
     border: 0;
+    position: relative;
     &:focus {
       outline: 0;
     }
-  }
+    &:hover {
+      background-color: ${theme.colors.highlightBase};
+      color: ${theme.colors.whiteBase};
+    }
 
-  &[data-reach-listbox-option][data-current-selected].fi-dropdown_item {
-    ${theme.typography.actionElementInnerTextBold}
-    background-image: none;
-    background-color: ${theme.colors.highlightLight3};
-    border: 0;
-  }
+    .fi-dropdown_item_icon {
+      position: absolute;
+      top: 14px;
+      right: 10px;
+      height: 12px;
+      width: 12px;
+    }
 
-  &[data-reach-listbox-option][data-current-nav].fi-dropdown_item {
-    color: ${theme.colors.blackBase};
-    background-image: none;
-    background-color: ${theme.colors.highlightLight3};
-    border: 0;
+    &--selected {
+      background-color: ${theme.colors.depthSecondaryDark1};
+      color: ${theme.colors.blackBase};
+    }
+
+    &--hasKeyboardFocus {
+      background-color: ${theme.colors.highlightBase};
+      color: ${theme.colors.whiteBase};
+    }
+
+    &--noSelectedStyles {
+      &.fi-dropdown_item--selected {
+        background-color: ${theme.colors.whiteBase};
+        color: ${theme.colors.blackBase};
+
+        &.fi-dropdown_item--hasKeyboardFocus {
+          background-color: ${theme.colors.highlightBase};
+          color: ${theme.colors.whiteBase};
+        }
+      }
+    }
+
+    @media (forced-colors: active) {
+      &--hasKeyboardFocus,
+      &:hover {
+        background-color: Highlight;
+      }
+    }
   }
 `;

@@ -1346,6 +1346,7 @@ exports[`has matching snapshot 1`] = `
       class="c3"
     >
       <ul
+        aria-activedescendant=""
         aria-multiselectable="true"
         class="c15 fi-select-item-list c16"
         id="3-popover"
