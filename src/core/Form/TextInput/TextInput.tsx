@@ -12,13 +12,8 @@ import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import {
-  HtmlInputProps,
-  HtmlDiv,
-  HtmlDivProps,
-  HtmlSpan,
-  HtmlInput,
-} from '../../../reset';
+import { HTMLAttributesIncludingDataAttributes } from '../../../utils/common/common';
+import { HtmlInputProps, HtmlDiv, HtmlSpan, HtmlInput } from '../../../reset';
 import { Icon, IconProps, BaseIconKeys } from '../../Icon/Icon';
 import { Label, LabelMode } from '../Label/Label';
 import { StatusText } from '../StatusText/StatusText';
@@ -49,7 +44,10 @@ export interface TextInputProps
   /** TextInput container div class name for custom styling. */
   className?: string;
   /** TextInput wrapping div element props */
-  wrapperProps?: Omit<HtmlDivProps, 'className'>;
+  wrapperProps?: Omit<
+    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
+    'className'
+  >;
   /** Disable input usage */
   disabled?: boolean;
   /** Event handler to execute when clicked */

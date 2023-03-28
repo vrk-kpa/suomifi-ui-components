@@ -11,13 +11,13 @@ import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { getConditionalAriaProp } from '../../../utils/aria';
+import { HTMLAttributesIncludingDataAttributes } from '../../../utils/common/common';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import {
   HtmlInput,
   HtmlInputProps,
   HtmlSpan,
   HtmlDiv,
-  HtmlDivProps,
   HtmlButton,
   HtmlButtonProps,
 } from '../../../reset';
@@ -48,7 +48,10 @@ export interface SearchInputProps
   /** SearchInput container div class name for custom styling. */
   className?: string;
   /** SearchInput wrapping div element props */
-  wrapperProps?: Omit<HtmlDivProps, 'className'>;
+  wrapperProps?: Omit<
+    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
+    'className'
+  >;
   /** Label text */
   labelText: ReactNode;
   /** Hide or show label. Label element is always present, but can be visually hidden.
