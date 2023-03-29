@@ -21,7 +21,7 @@ import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 const baseClassName = 'fi-checkbox-group';
 const checkboxGroupClassNames = {
   legend: `${baseClassName}_legend`,
-  labelIsVisible: `${baseClassName}_label--visible`,
+  labelWithMargin: `${baseClassName}_label--with-margin`,
   container: `${baseClassName}_container`,
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
 };
@@ -105,8 +105,7 @@ class BaseCheckboxGroup extends Component<
               labelMode={labelMode}
               optionalText={optionalText}
               className={classnames({
-                [checkboxGroupClassNames.labelIsVisible]:
-                  labelMode !== 'hidden',
+                [checkboxGroupClassNames.labelWithMargin]: groupHintText,
               })}
               tooltipComponent={tooltipComponent}
             >
