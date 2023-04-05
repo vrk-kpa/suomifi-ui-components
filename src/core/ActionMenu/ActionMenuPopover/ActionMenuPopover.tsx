@@ -9,7 +9,11 @@ import { HtmlDivWithRef, HtmlUlWithRef } from '../../../reset';
 import { getLogger } from '../../../utils/log';
 import { baseStyles } from './ActionMenuPopover.baseStyles';
 
-import { ActionMenuItem, ActionMenuItemProps } from '../ActionMenuItem';
+import {
+  ActionMenuItem,
+  ActionMenuItemProps,
+  InternalActionMenuItemProps,
+} from '../ActionMenuItem/ActionMenuItem';
 
 const baseClassName = 'fi-action-menu-popover';
 
@@ -216,8 +220,6 @@ export const BaseActionMenuPopover = (
 
     if (event.key === 'Enter' || event.key === ' ') {
       // Call action of the child item
-      console.log('Enter ja indeksi: ', focusedChild);
-
       const currentChild = React.Children.toArray(children)[focusedChild];
 
       if (React.isValidElement(currentChild)) {
@@ -287,11 +289,11 @@ export const BaseActionMenuPopover = (
   const menuItems = (childs: ReactNode) =>
     React.Children.map(
       childs,
-      (child: React.ReactElement<ActionMenuItemProps>, index) => {
+      (child: React.ReactElement<InternalActionMenuItemProps>, index) => {
         // Add itemIndex prop to clickable items
         if (React.isValidElement(child) && child.type === ActionMenuItem) {
           return React.cloneElement(
-            child as React.ReactElement<ActionMenuItemProps>,
+            child as React.ReactElement<InternalActionMenuItemProps>,
             {
               itemIndex: index,
             },
