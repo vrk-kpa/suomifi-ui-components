@@ -13,7 +13,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   height: 0;
   overflow: hidden;
   word-break: break-word;
-  transform: scaleY(0);
   transform-origin: top;
   transition: all ${`${theme.transitions.basicTime}
         ${theme.transitions.basicTimingFunction}`};
@@ -35,7 +34,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     animation: fi-expander_content-anim ${theme.transitions.basicTime}
       ${theme.transitions.basicTimingFunction} 1 forwards;
     &:not(.fi-expander_content--no-padding) {
-      ${padding(theme)('0', 'm', 'm', 'm')}
+      ${padding(theme)('xs', 'm', 'm', 'm')}
     }
   }
   @keyframes fi-expander_content-anim {

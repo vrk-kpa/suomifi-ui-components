@@ -12,7 +12,11 @@ export const expanderTitleButtonBaseStyles = (theme: SuomifiTheme) => css`
   background-color: ${theme.colors.highlightLight4};
   border-radius: inherit;
 
-  &.fi-expander_title-button {
+  &:hover {
+    background: ${theme.gradients.depthSecondaryToDepthSecondaryDark1};
+  }
+
+  & .fi-expander_title-button {
     display: block;
   }
   &.fi-expander_title-button--open {
@@ -41,6 +45,7 @@ export const expanderTitleButtonBaseStyles = (theme: SuomifiTheme) => css`
         ${theme.focuses.absoluteFocus}
       }
     }
+
     ${theme.focuses.noMouseFocus}
     & * {
       cursor: pointer;

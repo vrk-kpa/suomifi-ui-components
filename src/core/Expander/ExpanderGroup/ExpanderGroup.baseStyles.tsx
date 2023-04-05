@@ -18,7 +18,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       margin-top: 0;
       margin-bottom: 0;
       border-radius: 0;
-      border-top: 1px solid ${theme.colors.depthLight1};
       transition: margin ${`${theme.transitions.basicTime}
         ${theme.transitions.basicTimingFunction}`};
 
@@ -26,24 +25,27 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         border-radius: 0;
       }
       &:first-child {
-        border-top: none;
         border-radius: ${theme.radiuses.basic} ${theme.radiuses.basic} 0 0;
       }
       &:last-child {
-        /* stylelint-disable */
-        /* prettier-ignore */
-        border-radius: 0 0 ${theme.radiuses.basic} ${theme.radiuses.basic};
+        border-bottom-left-radius: ${theme.radiuses.basic};
+        border-bottom-right-radius: ${theme.radiuses.basic};
       }
-      &.fi-expander--open {
+      &:not(:first-child) {
         border-top: none;
+      }
+
+      &.fi-expander--open {
+        border-top: 1px solid ${theme.colors.highlightBase};
+        border-radius: ${theme.radiuses.basic};
+        & + .fi-expander {
+          border-top: 1px solid ${theme.colors.highlightBase};
+        }
         &:not(:first-of-type) {
           margin-top: ${theme.spacing.insetXl};
         }
         &:not(:last-of-type) {
           margin-bottom: ${theme.spacing.insetXl};
-        }
-        & + .fi-expander {
-          border-top: none;
         }
       }
     }

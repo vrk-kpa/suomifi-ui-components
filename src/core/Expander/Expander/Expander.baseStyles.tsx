@@ -8,8 +8,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   background-color: ${theme.colors.whiteBase};
   position: relative;
   padding: 0;
+  border: 1px solid ${theme.colors.highlightBase};
   border-radius: ${theme.radiuses.basic};
-  box-shadow: ${theme.shadows.panelShadow};
   width: 100%;
   max-width: 100%;
 

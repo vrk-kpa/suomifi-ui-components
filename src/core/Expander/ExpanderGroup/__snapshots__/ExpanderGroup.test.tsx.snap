@@ -179,7 +179,6 @@ exports[`Basic expander group should match snapshot 1`] = `
   margin-top: 0;
   margin-bottom: 0;
   border-radius: 0;
-  border-top: 1px solid hsl(202,7%,80%);
   -webkit-transition: margin 50ms cubic-bezier(0.28,0.84,0.42,1);
   transition: margin 50ms cubic-bezier(0.28,0.84,0.42,1);
 }
@@ -189,16 +188,25 @@ exports[`Basic expander group should match snapshot 1`] = `
 }
 
 .c1 > .fi-expander-group_expanders .fi-expander:first-child {
-  border-top: none;
   border-radius: 2px 2px 0 0;
 }
 
 .c1 > .fi-expander-group_expanders .fi-expander:last-child {
-  border-radius: 0 0 2px 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.c1 > .fi-expander-group_expanders .fi-expander:not(:first-child) {
+  border-top: none;
 }
 
 .c1 > .fi-expander-group_expanders .fi-expander.fi-expander--open {
-  border-top: none;
+  border-top: 1px solid hsl(212,63%,45%);
+  border-radius: 2px;
+}
+
+.c1 > .fi-expander-group_expanders .fi-expander.fi-expander--open + .fi-expander {
+  border-top: 1px solid hsl(212,63%,45%);
 }
 
 .c1 > .fi-expander-group_expanders .fi-expander.fi-expander--open:not(:first-of-type) {
@@ -207,10 +215,6 @@ exports[`Basic expander group should match snapshot 1`] = `
 
 .c1 > .fi-expander-group_expanders .fi-expander.fi-expander--open:not(:last-of-type) {
   margin-bottom: 16px;
-}
-
-.c1 > .fi-expander-group_expanders .fi-expander.fi-expander--open + .fi-expander {
-  border-top: none;
 }
 
 .c1 > .fi-expander-group_all-button {
@@ -290,8 +294,8 @@ exports[`Basic expander group should match snapshot 1`] = `
   background-color: hsl(0,0%,100%);
   position: relative;
   padding: 0;
+  border: 1px solid hsl(212,63%,45%);
   border-radius: 2px;
-  box-shadow: 0 1px 2px 0 hsla(0,0%,13%,0.14),0 1px 5px 0 hsla(0,0%,13%,0.12);
   width: 100%;
   max-width: 100%;
 }
@@ -327,9 +331,6 @@ exports[`Basic expander group should match snapshot 1`] = `
   height: 0;
   overflow: hidden;
   word-break: break-word;
-  -webkit-transform: scaleY(0);
-  -ms-transform: scaleY(0);
-  transform: scaleY(0);
   -webkit-transform-origin: top;
   -ms-transform-origin: top;
   transform-origin: top;
@@ -356,7 +357,7 @@ exports[`Basic expander group should match snapshot 1`] = `
 }
 
 .c9.fi-expander_content--open:not(.fi-expander_content--no-padding) {
-  padding-top: 0;
+  padding-top: 10px;
   padding-right: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
@@ -396,7 +397,11 @@ exports[`Basic expander group should match snapshot 1`] = `
   border-radius: inherit;
 }
 
-.c7.fi-expander_title-button {
+.c7:hover {
+  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
+}
+
+.c7 .fi-expander_title-button {
   display: block;
 }
 

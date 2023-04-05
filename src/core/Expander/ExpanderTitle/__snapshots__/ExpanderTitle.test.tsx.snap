@@ -169,13 +169,19 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   min-height: 60px;
   background-color: hsl(212,63%,98%);
   border-radius: inherit;
-  padding: 17px 60px 16px 20px;
   white-space: break-word;
   word-wrap: break-word;
 }
 
 .c1.fi-expander_title {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .c1.fi-expander_title--open {
@@ -186,6 +192,7 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
 
 .c1 .fi-expander_title-content {
   display: inline-block;
+  padding: 17px 20px 16px 20px;
 }
 
 .c1 .fi-expander_title-button {
@@ -219,14 +226,23 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 600;
   color: hsl(212,63%,45%);
-  display: inline-block;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 44px;
-  height: 44px;
-  padding: 12px;
-  margin: 13px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-flex: 0 0 60px;
+  -ms-flex: 0 0 60px;
+  flex: 0 0 60px;
+  padding-top: 20px;
 }
 
 .c1 .fi-expander_title-button:focus {
@@ -251,6 +267,10 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
+}
+
+.c1 .fi-expander_title-button:hover {
+  background: linear-gradient(0deg,hsl(215,100%,95%),hsl(215,100%,97%));
 }
 
 .c1 .fi-expander_title-button:not(:focus-visible) {
