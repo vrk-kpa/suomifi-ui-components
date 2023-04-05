@@ -3633,11 +3633,15 @@ exports[`snapshots match date input with datepicker with controlled input value 
   z-index: 9999;
 }
 
-.c11 .fi-date-selectors_container {
+.c11.fi-date-selectors_container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  row-gap: 10px;
 }
 
 .c11 .fi-date-selectors_year-select {
@@ -3650,12 +3654,22 @@ exports[`snapshots match date input with datepicker with controlled input value 
 }
 
 .c11 .fi-date-selectors_month-select {
-  margin-right: 10px;
+  margin-right: 5px;
   width: 0px;
 }
 
 .c11 .fi-date-selectors_month-select .fi-dropdown_button {
   min-width: 145px;
+}
+
+.c11 .fi-date-selectors_buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
 }
 
 .c11 .fi-date-selectors_month-button {
@@ -4261,54 +4275,58 @@ exports[`snapshots match date input with datepicker with controlled input value 
             />
           </div>
         </div>
-        <button
-          aria-disabled="false"
-          aria-label="Edellinen kuukausi Joulukuu"
-          class="c6 fi-button c13 fi-date-selectors_month-button fi-button--secondary-noborder"
-          tabindex="0"
-          type="button"
+        <div
+          class="c0 fi-date-selectors_buttons"
         >
-          <svg
-            aria-hidden="true"
-            class="fi-icon c8 fi-date-selectors_month-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
+          <button
+            aria-disabled="false"
+            aria-label="Edellinen kuukausi Joulukuu"
+            class="c6 fi-button c13 fi-date-selectors_month-button fi-button--secondary-noborder"
+            tabindex="0"
+            type="button"
           >
-            <path
-              class="fi-icon-base-fill"
-              d="M8.41 12.61a1.298 1.298 0 01-.41-.943c0-.342.137-.683.41-.943l5.6-5.333a1.448 1.448 0 011.98 0 1.287 1.287 0 010 1.885l-4.61 4.39 4.61 4.391a1.287 1.287 0 010 1.885 1.448 1.448 0 01-1.98 0l-5.6-5.333z"
-              fill="#222"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </button>
-        <button
-          aria-disabled="false"
-          aria-label="Seuraava kuukausi Helmikuu"
-          class="c6 fi-button c13 fi-date-selectors_month-button fi-button--secondary-noborder"
-          tabindex="0"
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="fi-icon c8 fi-date-selectors_month-button_icon"
-            focusable="false"
-            height="1em"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
+            <svg
+              aria-hidden="true"
+              class="fi-icon c8 fi-date-selectors_month-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="fi-icon-base-fill"
+                d="M8.41 12.61a1.298 1.298 0 01-.41-.943c0-.342.137-.683.41-.943l5.6-5.333a1.448 1.448 0 011.98 0 1.287 1.287 0 010 1.885l-4.61 4.39 4.61 4.391a1.287 1.287 0 010 1.885 1.448 1.448 0 01-1.98 0l-5.6-5.333z"
+                fill="#222"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </button>
+          <button
+            aria-disabled="false"
+            aria-label="Seuraava kuukausi Helmikuu"
+            class="c6 fi-button c13 fi-date-selectors_month-button fi-button--secondary-noborder"
+            tabindex="0"
+            type="button"
           >
-            <path
-              class="fi-icon-base-fill"
-              d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 01-1.885 0 1.448 1.448 0 010-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 010-1.98 1.287 1.287 0 011.885 0l5.333 5.6z"
-              fill="#222"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </button>
+            <svg
+              aria-hidden="true"
+              class="fi-icon c8 fi-date-selectors_month-button_icon"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="fi-icon-base-fill"
+                d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 01-1.885 0 1.448 1.448 0 010-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 010-1.98 1.287 1.287 0 011.885 0l5.333 5.6z"
+                fill="#222"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
       <table
         class="c14 fi-month-table"
@@ -5885,11 +5903,15 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   z-index: 9999;
 }
 
-.c11 .fi-date-selectors_container {
+.c11.fi-date-selectors_container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  row-gap: 10px;
 }
 
 .c11 .fi-date-selectors_year-select {
@@ -5902,12 +5924,22 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 }
 
 .c11 .fi-date-selectors_month-select {
-  margin-right: 10px;
+  margin-right: 5px;
   width: 0px;
 }
 
 .c11 .fi-date-selectors_month-select .fi-dropdown_button {
   min-width: 145px;
+}
+
+.c11 .fi-date-selectors_buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
 }
 
 .c11 .fi-date-selectors_month-button {
@@ -6522,54 +6554,58 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               />
             </div>
           </div>
-          <button
-            aria-disabled="false"
-            aria-label="Edellinen kuukausi Joulukuu"
-            class="c6 fi-button c13 fi-date-selectors_month-button fi-button--secondary-noborder"
-            tabindex="0"
-            type="button"
+          <div
+            class="c0 fi-date-selectors_buttons"
           >
-            <svg
-              aria-hidden="true"
-              class="fi-icon c8 fi-date-selectors_month-button_icon"
-              focusable="false"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
+            <button
+              aria-disabled="false"
+              aria-label="Edellinen kuukausi Joulukuu"
+              class="c6 fi-button c13 fi-date-selectors_month-button fi-button--secondary-noborder"
+              tabindex="0"
+              type="button"
             >
-              <path
-                class="fi-icon-base-fill"
-                d="M8.41 12.61a1.298 1.298 0 01-.41-.943c0-.342.137-.683.41-.943l5.6-5.333a1.448 1.448 0 011.98 0 1.287 1.287 0 010 1.885l-4.61 4.39 4.61 4.391a1.287 1.287 0 010 1.885 1.448 1.448 0 01-1.98 0l-5.6-5.333z"
-                fill="#222"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </button>
-          <button
-            aria-disabled="false"
-            aria-label="Seuraava kuukausi Helmikuu"
-            class="c6 fi-button c13 fi-date-selectors_month-button fi-button--secondary-noborder"
-            tabindex="0"
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              class="fi-icon c8 fi-date-selectors_month-button_icon"
-              focusable="false"
-              height="1em"
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
+              <svg
+                aria-hidden="true"
+                class="fi-icon c8 fi-date-selectors_month-button_icon"
+                focusable="false"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="fi-icon-base-fill"
+                  d="M8.41 12.61a1.298 1.298 0 01-.41-.943c0-.342.137-.683.41-.943l5.6-5.333a1.448 1.448 0 011.98 0 1.287 1.287 0 010 1.885l-4.61 4.39 4.61 4.391a1.287 1.287 0 010 1.885 1.448 1.448 0 01-1.98 0l-5.6-5.333z"
+                  fill="#222"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </button>
+            <button
+              aria-disabled="false"
+              aria-label="Seuraava kuukausi Helmikuu"
+              class="c6 fi-button c13 fi-date-selectors_month-button fi-button--secondary-noborder"
+              tabindex="0"
+              type="button"
             >
-              <path
-                class="fi-icon-base-fill"
-                d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 01-1.885 0 1.448 1.448 0 010-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 010-1.98 1.287 1.287 0 011.885 0l5.333 5.6z"
-                fill="#222"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </button>
+              <svg
+                aria-hidden="true"
+                class="fi-icon c8 fi-date-selectors_month-button_icon"
+                focusable="false"
+                height="1em"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="fi-icon-base-fill"
+                  d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 01-1.885 0 1.448 1.448 0 010-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 010-1.98 1.287 1.287 0 011.885 0l5.333 5.6z"
+                  fill="#222"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
         <table
           class="c14 fi-month-table"
