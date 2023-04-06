@@ -9,6 +9,9 @@ import { Button } from '../Button/Button';
 import { HtmlDiv, HtmlDivProps, HtmlButtonProps } from '../../reset';
 import { baseStyles } from './ActionMenu.baseStyles';
 
+import { ActionMenuItemProps } from './ActionMenuItem/ActionMenuItem';
+import { ActionMenuDividerProps } from './ActionMenuDivider/ActionMenuDivider';
+
 const baseClassName = 'fi-action-menu';
 export const actionMenuClassNames = {
   baseClassName,
@@ -20,34 +23,41 @@ export const actionMenuClassNames = {
   menuClosed: `${baseClassName}_button--menu--closed`,
 };
 
-export interface ActionMenuProps
-  extends Omit<HtmlButtonProps, 'type' | 'onChange'> {
+export interface ActionMenuProps {
+  /** Label text for the button */
+  buttonText?: string;
+  /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
+  children: Array<
+    | React.ReactElement<ActionMenuItemProps>
+    | React.ReactElement<ActionMenuDividerProps>
+  >;
   /** Button container div class name for custom styling */
   className?: string;
-  /** Button wrapping div element props */
-  wrapperProps?: Omit<HtmlDivProps, 'className'>;
   /** Disable button usage */
   disabled?: boolean;
+  /** Ref is forwarded to the button element. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLButtonElement>;
+  /** Set components width to 100% */
+  fullWidth?: boolean;
+  /**
+   * Unique id
+   * If no id is specified, one will be generated
+   */
+  id?: string;
   /** Callback fired when button is clicked */
   onClick?: () => void;
   /** Callback fired on button onBlur
    * @param {FocusEvent<HTMLButtonElement>} event FocusEvent
    */
   onBlur?: (event: FocusEvent<HTMLButtonElement>) => void;
-  /** Set components width to 100% */
-  fullWidth?: boolean;
   /** Visually hidden label text for the button */
   openButtonLabel: string;
-  /** Label text for the button */
-  buttonText?: string;
   /** Callback fired when menu opens */
   onClose?: () => void;
   /** Callback fired when menu closes */
   onOpen?: () => void;
-  /** Ref is forwarded to the button element. Alternative for React `ref` attribute. */
-  forwardedRef?: React.RefObject<HTMLButtonElement>;
-  /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
-  children: Array<React.ReactElement<ActionMenuItemProps>> | ReactNode;
+  /** Button wrapping div element props */
+  wrapperProps?: Omit<HtmlDivProps, 'className'>;
 }
 
 const BaseActionMenu = (props: ActionMenuProps) => {
@@ -135,7 +145,6 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     >
       <>
         <Button
-          {...passProps}
           id={buttonId}
           variant="secondary"
           iconRight="optionsVertical"
@@ -162,6 +171,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
               onBlur(event);
             }
           }}
+          {...passProps}
         >
           {buttonText}
           <VisuallyHidden>{openButtonLabel}</VisuallyHidden>
@@ -197,7 +207,7 @@ const StyledActionMenu = styled(
  * @component
  */
 const ActionMenu = forwardRef<HTMLButtonElement, ActionMenuProps>(
-  (props: ActionMenuProps, ref: React.Ref<HTMLButtonElement>) => {
+  (props: ActionMenuProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { id: propId, ...passProps } = props;
     return (
       <SuomifiThemeConsumer>
