@@ -1,39 +1,25 @@
-import React, { ReactNode, forwardRef, useEffect, useRef } from 'react';
+import React, { ReactNode, forwardRef, AriaRole } from 'react';
 import classnames from 'classnames';
 import { HtmlLi } from '../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { baseStyles } from './ActionMenuItem.baseStyles';
 import styled from 'styled-components';
 import { Icon, BaseIconKeys, IconProps } from '../../Icon/Icon';
-import { RouterLink, RouterLinkProps } from '../../Link';
+import { RouterLink } from '../../Link';
 import {
   ActionMenuProviderState,
   ActionMenuConsumer,
 } from './../ActionMenuPopover/ActionMenuPopover';
 
-type ItemAction =
-  | {
-      href: string;
-      onClick: never;
-    }
-  | {
-      href: never;
-      onClick: (event: React.MouseEvent) => void;
-    };
-
-export interface InternalActionMenuItemProps {
+export interface ActionMenuItemProps {
   /** Custom class */
   className?: string;
   /** Text of the action */
   children: ReactNode;
   /** Disables the item */
   disabled?: boolean;
-
   /** Ref is forwarded to wrapping div element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLDivElement>;
-
-  itemIndex: number;
-
   /**
    * Icon from suomifi-theme
    */
@@ -46,13 +32,15 @@ export interface InternalActionMenuItemProps {
    * Properties given to Icon-component
    */
   iconProps?: IconProps;
-
-  asComponent: any;
+  /** Link url. If provided the cmponent is rendered as link <a> instead of <button> */
+  href?: string;
 }
 
-// export type ActionMenuItemProps extends InternalActionMenuItemProps , ItemAction
+export interface InternalActionMenuItemProps extends ActionMenuItemProps {
+  itemIndex: number;
+}
 
-interface ActionMenuItemProps extends InternalActionMenuItemProps {
+interface BaseActionMenuItemProps extends InternalActionMenuItemProps {
   consumer: ActionMenuProviderState;
 }
 
@@ -61,23 +49,35 @@ const disabledClassName = `${baseClassName}--disabled`;
 const iconClassName = `${baseClassName}_icon`;
 const selectedClassName = `${baseClassName}--selected`;
 
-const CustomButton = (props) => {
+interface RenderComponentProps {
+  /** Text of the action */
+  children: ReactNode;
+  /** id for the component */
+  id: string;
+  /**  WAI-ARIA */
+  role?: AriaRole | undefined;
+}
+
+const ButtonComponent = (props: RenderComponentProps) => {
   const { children, ...passProps } = props;
   return <button {...passProps}>{props.children}</button>;
 };
 
-const BaseActionMenuItem = (props: ActionMenuItemProps) => {
+const LinkComponent = (props: RenderComponentProps) => {
+  const { children, ...passProps } = props;
+  return <a {...passProps}>{children}</a>;
+};
+
+const BaseActionMenuItem = (props: BaseActionMenuItemProps) => {
   const {
     className,
     children,
     disabled,
-    forwardedRef,
     consumer,
     itemIndex,
     icon,
     iconProps = { className: undefined },
-    asComponent = CustomButton,
-    ...passProps
+    href,
   } = props;
 
   const { className: iconPropsClassName, ...passIconProps } = iconProps;
@@ -98,11 +98,10 @@ const BaseActionMenuItem = (props: ActionMenuItemProps) => {
       tabIndex={-1}
     >
       <RouterLink
-        asComponent={asComponent}
+        asComponent={href ? LinkComponent : ButtonComponent}
         id={`${itemIndex}-menu-item`}
         role="menuitem"
         aria-disabled={disabled}
-        {...passProps}
       >
         {!!icon && (
           <Icon
@@ -120,7 +119,7 @@ const BaseActionMenuItem = (props: ActionMenuItemProps) => {
 };
 
 const StyledActionMenuItem = styled(
-  (props: ActionMenuItemProps & SuomifiThemeProp) => {
+  (props: BaseActionMenuItemProps & SuomifiThemeProp) => {
     const { theme, ...passProps } = props;
     return <BaseActionMenuItem {...passProps} />;
   },
@@ -128,8 +127,8 @@ const StyledActionMenuItem = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const ActionMenuItem = forwardRef<HTMLDivElement, ActionMenuItemProps>(
-  (props: ActionMenuItemProps, ref: React.Ref<HTMLDivElement>) => (
+const ActionMenuItem = forwardRef<HTMLDivElement, InternalActionMenuItemProps>(
+  (props: InternalActionMenuItemProps, ref: React.Ref<HTMLDivElement>) => (
     <SuomifiThemeConsumer>
       {({ suomifiTheme }) => (
         <ActionMenuConsumer>

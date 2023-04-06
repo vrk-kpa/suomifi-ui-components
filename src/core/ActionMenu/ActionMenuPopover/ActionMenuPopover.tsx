@@ -8,12 +8,12 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlDivWithRef, HtmlUlWithRef } from '../../../reset';
 import { getLogger } from '../../../utils/log';
 import { baseStyles } from './ActionMenuPopover.baseStyles';
-
 import {
   ActionMenuItem,
   ActionMenuItemProps,
   InternalActionMenuItemProps,
 } from '../ActionMenuItem/ActionMenuItem';
+import { ActionMenuDividerProps } from '../ActionMenuDivider/ActionMenuDivider';
 
 const baseClassName = 'fi-action-menu-popover';
 
@@ -34,7 +34,10 @@ export interface InternalActionMenuPopoverProps {
   /** Styled component className */
   className?: string;
   /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
-  children: Array<React.ReactElement<ActionMenuItemProps>> | ReactNode;
+  children: Array<
+    | React.ReactElement<ActionMenuItemProps>
+    | React.ReactElement<ActionMenuDividerProps>
+  >;
 
   menuId: string;
 
@@ -227,7 +230,8 @@ export const BaseActionMenuPopover = (
 
         if (childProps.onClick) {
           childProps.onClick();
-        } else if (childProps.href) {
+        }
+        if (childProps.href) {
           window.open(childProps.href, '_self');
         }
       }
