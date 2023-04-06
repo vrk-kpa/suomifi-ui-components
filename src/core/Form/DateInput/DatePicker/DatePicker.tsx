@@ -13,6 +13,7 @@ import { Button } from '../../../Button/Button';
 import { MonthTable } from './MonthTable/MonthTable';
 import { DateSelectors } from './DateSelectors/DateSelectors';
 import {
+  cellDateAriaLabel,
   dayIsAfter,
   dayIsBefore,
   moveDays,
@@ -98,6 +99,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const smallScreenAppRef = useRef<HTMLDivElement>(null);
   const yearSelectRef = useRef<HTMLButtonElement>(null);
   const monthSelectRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
   const confirmButtonRef = useRef<HTMLButtonElement>(null);
   const dayButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -217,7 +219,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     if (event.key === 'Tab') {
       // Trap focus to dialog
       const firstElement = yearSelectRef.current;
-      const lastElement = confirmButtonRef?.current;
+      const lastElement = closeButtonRef?.current;
       if (event.shiftKey && document.activeElement === firstElement) {
         event.preventDefault();
         lastElement?.focus();
@@ -359,6 +361,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const handleDateSelect = (date: Date): void => {
     setFocusableDate(date);
     setSelectedDate(date);
+    confirmButtonRef.current?.focus();
   };
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -458,17 +461,26 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       />
       <HtmlDiv className={datePickerClassNames.bottomContainer}>
         <Button
-          disabled={selectedDate === null}
+          aria-disabled={selectedDate === null}
           onClick={() => handleConfirm()}
+          forwardedRef={confirmButtonRef}
           className={datePickerClassNames.bottomButton}
           fullWidth={smallScreen}
+          aria-label={
+            selectedDate
+              ? `${texts.selectButtonText} ${cellDateAriaLabel(
+                  selectedDate,
+                  texts,
+                )}`
+              : ''
+          }
         >
           {texts.selectButtonText}
         </Button>
         <Button
           variant="secondary"
           onClick={() => handleClose(true)}
-          forwardedRef={confirmButtonRef}
+          forwardedRef={closeButtonRef}
           className={datePickerClassNames.bottomButton}
           fullWidth={smallScreen}
         >
