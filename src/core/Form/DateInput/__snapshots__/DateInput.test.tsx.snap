@@ -4702,7 +4702,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                 <span
                   class="c2 c7 fi-visually-hidden"
                 >
-                  Valittu päivä, 15 keskiviikko Tammikuu 2020
+                  15 keskiviikko Tammikuu 2020
                 </span>
               </button>
             </td>
@@ -5064,6 +5064,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
       >
         <button
           aria-disabled="false"
+          aria-label="Valitse 15 keskiviikko Tammikuu 2020"
           class="c6 fi-button c13 fi-date-picker_bottom-button"
           tabindex="0"
           type="button"
@@ -6981,7 +6982,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                   <span
                     class="c2 c7 fi-visually-hidden"
                   >
-                    Valittu päivä, 15 keskiviikko Tammikuu 2020
+                    15 keskiviikko Tammikuu 2020
                   </span>
                 </button>
               </td>
@@ -7343,6 +7344,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
         >
           <button
             aria-disabled="false"
+            aria-label="Valitse 15 keskiviikko Tammikuu 2020"
             class="c6 fi-button c13 fi-date-picker_bottom-button fi-button--fullwidth"
             tabindex="0"
             type="button"

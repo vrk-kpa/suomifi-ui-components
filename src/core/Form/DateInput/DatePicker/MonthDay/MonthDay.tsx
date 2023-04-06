@@ -67,18 +67,10 @@ export const BaseMonthDay = (props: MonthDayProps) => {
   const isDisabledDate = (): boolean =>
     shouldDisableDate ? shouldDisableDate(date.date) : false;
 
-  const buttonText = (): string => {
-    const text = cellDateAriaLabel(date.date, texts);
-    if (isSelectedDate()) {
-      return `${texts.selectedDateLabel}, ${text}`;
-    }
-    return text;
-  };
-
   const cellDateElements = (
     <>
       <span aria-hidden>{date.number}</span>
-      <VisuallyHidden>{buttonText()}</VisuallyHidden>
+      <VisuallyHidden>{cellDateAriaLabel(date.date, texts)}</VisuallyHidden>
     </>
   );
 
