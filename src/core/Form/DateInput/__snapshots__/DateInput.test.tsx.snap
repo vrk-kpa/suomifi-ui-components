@@ -30,7 +30,7 @@ exports[`snapshots match date input error status with statustext 1`] = `
   box-sizing: border-box;
 }
 
-.c3 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -54,8 +54,8 @@ exports[`snapshots match date input error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c2::before,
+.c2::after {
   box-sizing: border-box;
 }
 
@@ -92,7 +92,7 @@ exports[`snapshots match date input error status with statustext 1`] = `
   box-sizing: border-box;
 }
 
-.c2 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -116,12 +116,12 @@ exports[`snapshots match date input error status with statustext 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c4::before,
+.c4::after {
   box-sizing: border-box;
 }
 
-.c4.fi-label .fi-label_label-span {
+.c3.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -140,14 +140,14 @@ exports[`snapshots match date input error status with statustext 1`] = `
   color: hsl(0,0%,13%);
 }
 
-.c4.fi-label .fi-label_label-span .fi-label_optional-text {
+.c3.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c4.fi-label .fi-label_label-span .fi-tooltip {
+.c3.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -421,14 +421,14 @@ exports[`snapshots match date input error status with statustext 1`] = `
     <div
       class="c0 fi-date-input c1 fi-date-input--error"
     >
-      <span
-        class="c2 fi-date-input_wrapper"
+      <div
+        class="c0 fi-date-input_wrapper"
       >
         <div
-          class="c3 c4 fi-date-input_label--visible fi-label"
+          class="c2 c3 fi-date-input_label--visible fi-label"
         >
           <label
-            class="c2 fi-label_label-span"
+            class="c4 fi-label_label-span"
             for="7"
           >
             Date
@@ -454,12 +454,12 @@ exports[`snapshots match date input error status with statustext 1`] = `
         <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c2 c6 fi-date-input_statusText--has-content fi-status-text fi-status-text--error"
+          class="c4 c6 fi-date-input_statusText--has-content fi-status-text fi-status-text--error"
           id="7-statusText"
         >
           Error
         </span>
-      </span>
+      </div>
     </div>
   </div>
 </body>
@@ -495,7 +495,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   box-sizing: border-box;
 }
 
-.c3 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -519,12 +519,12 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c2::before,
+.c2::after {
   box-sizing: border-box;
 }
 
-.c6 {
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -547,17 +547,17 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   max-width: 100%;
 }
 
-.c6::-webkit-input-placeholder {
+.c5::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
 }
 
-.c6::before,
-.c6::after {
+.c5::before,
+.c5::after {
   box-sizing: border-box;
 }
 
-.c2 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -581,12 +581,12 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c6::before,
+.c6::after {
   box-sizing: border-box;
 }
 
-.c5 {
+.c4 {
   position: absolute;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -598,7 +598,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   overflow: hidden;
 }
 
-.c4.fi-label .fi-label_label-span {
+.c3.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -617,14 +617,14 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
   color: hsl(0,0%,13%);
 }
 
-.c4.fi-label .fi-label_label-span .fi-label_optional-text {
+.c3.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c4.fi-label .fi-label_label-span .fi-tooltip {
+.c3.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -898,14 +898,14 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
     <div
       class="c0 fi-date-input c1"
     >
-      <span
-        class="c2 fi-date-input_wrapper"
+      <div
+        class="c0 fi-date-input_wrapper"
       >
         <div
-          class="c3 c4 fi-label"
+          class="c2 c3 fi-label"
         >
           <label
-            class="c5 fi-visually-hidden"
+            class="c4 fi-visually-hidden"
             for="3"
           >
             Date
@@ -919,7 +919,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
           >
             <input
               autocomplete="off"
-              class="c6 fi-date-input_input"
+              class="c5 fi-date-input_input"
               id="3"
               placeholder="DateInput"
               type="text"
@@ -930,10 +930,10 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
         <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c2 c7 fi-status-text"
+          class="c6 c7 fi-status-text"
           id="3-statusText"
         />
-      </span>
+      </div>
     </div>
   </div>
 </body>
@@ -969,7 +969,7 @@ exports[`snapshots match date input hint text 1`] = `
   box-sizing: border-box;
 }
 
-.c3 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -993,8 +993,8 @@ exports[`snapshots match date input hint text 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c2::before,
+.c2::after {
   box-sizing: border-box;
 }
 
@@ -1031,7 +1031,7 @@ exports[`snapshots match date input hint text 1`] = `
   box-sizing: border-box;
 }
 
-.c2 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -1055,12 +1055,12 @@ exports[`snapshots match date input hint text 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c4::before,
+.c4::after {
   box-sizing: border-box;
 }
 
-.c4.fi-label .fi-label_label-span {
+.c3.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1079,14 +1079,14 @@ exports[`snapshots match date input hint text 1`] = `
   color: hsl(0,0%,13%);
 }
 
-.c4.fi-label .fi-label_label-span .fi-label_optional-text {
+.c3.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c4.fi-label .fi-label_label-span .fi-tooltip {
+.c3.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -1381,21 +1381,21 @@ exports[`snapshots match date input hint text 1`] = `
     <div
       class="c0 fi-date-input c1"
     >
-      <span
-        class="c2 fi-date-input_wrapper"
+      <div
+        class="c0 fi-date-input_wrapper"
       >
         <div
-          class="c3 c4 fi-date-input_label--visible fi-label"
+          class="c2 c3 fi-date-input_label--visible fi-label"
         >
           <label
-            class="c2 fi-label_label-span"
+            class="c4 fi-label_label-span"
             for="4"
           >
             Date
           </label>
         </div>
         <span
-          class="c2 c5 fi-hint-text"
+          class="c4 c5 fi-hint-text"
           id="4-hintText"
         >
           User format D.M.YYYY
@@ -1419,10 +1419,10 @@ exports[`snapshots match date input hint text 1`] = `
         <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c2 c7 fi-status-text"
+          class="c4 c7 fi-status-text"
           id="4-statusText"
         />
-      </span>
+      </div>
     </div>
   </div>
 </body>
@@ -1458,7 +1458,7 @@ exports[`snapshots match date input minimal implementation 1`] = `
   box-sizing: border-box;
 }
 
-.c3 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -1482,8 +1482,8 @@ exports[`snapshots match date input minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c2::before,
+.c2::after {
   box-sizing: border-box;
 }
 
@@ -1520,7 +1520,7 @@ exports[`snapshots match date input minimal implementation 1`] = `
   box-sizing: border-box;
 }
 
-.c2 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -1544,12 +1544,12 @@ exports[`snapshots match date input minimal implementation 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c4::before,
+.c4::after {
   box-sizing: border-box;
 }
 
-.c4.fi-label .fi-label_label-span {
+.c3.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1568,14 +1568,14 @@ exports[`snapshots match date input minimal implementation 1`] = `
   color: hsl(0,0%,13%);
 }
 
-.c4.fi-label .fi-label_label-span .fi-label_optional-text {
+.c3.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c4.fi-label .fi-label_label-span .fi-tooltip {
+.c3.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -1849,14 +1849,14 @@ exports[`snapshots match date input minimal implementation 1`] = `
     <div
       class="c0 fi-date-input c1"
     >
-      <span
-        class="c2 fi-date-input_wrapper"
+      <div
+        class="c0 fi-date-input_wrapper"
       >
         <div
-          class="c3 c4 fi-date-input_label--visible fi-label"
+          class="c2 c3 fi-date-input_label--visible fi-label"
         >
           <label
-            class="c2 fi-label_label-span"
+            class="c4 fi-label_label-span"
             for="1"
           >
             Date
@@ -1880,10 +1880,10 @@ exports[`snapshots match date input minimal implementation 1`] = `
         <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c2 c6 fi-status-text"
+          class="c4 c6 fi-status-text"
           id="1-statusText"
         />
-      </span>
+      </div>
     </div>
   </div>
 </body>
@@ -1919,7 +1919,7 @@ exports[`snapshots match date input optional text 1`] = `
   box-sizing: border-box;
 }
 
-.c3 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -1943,8 +1943,8 @@ exports[`snapshots match date input optional text 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c2::before,
+.c2::after {
   box-sizing: border-box;
 }
 
@@ -1981,7 +1981,7 @@ exports[`snapshots match date input optional text 1`] = `
   box-sizing: border-box;
 }
 
-.c2 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2005,12 +2005,12 @@ exports[`snapshots match date input optional text 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c4::before,
+.c4::after {
   box-sizing: border-box;
 }
 
-.c4.fi-label .fi-label_label-span {
+.c3.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2029,14 +2029,14 @@ exports[`snapshots match date input optional text 1`] = `
   color: hsl(0,0%,13%);
 }
 
-.c4.fi-label .fi-label_label-span .fi-label_optional-text {
+.c3.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c4.fi-label .fi-label_label-span .fi-tooltip {
+.c3.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -2310,19 +2310,19 @@ exports[`snapshots match date input optional text 1`] = `
     <div
       class="c0 fi-date-input c1"
     >
-      <span
-        class="c2 fi-date-input_wrapper"
+      <div
+        class="c0 fi-date-input_wrapper"
       >
         <div
-          class="c3 c4 fi-date-input_label--visible fi-label"
+          class="c2 c3 fi-date-input_label--visible fi-label"
         >
           <label
-            class="c2 fi-label_label-span"
+            class="c4 fi-label_label-span"
             for="5"
           >
             Date
             <span
-              class="c2 fi-label_optional-text"
+              class="c4 fi-label_optional-text"
             >
                (optional)
             </span>
@@ -2346,10 +2346,10 @@ exports[`snapshots match date input optional text 1`] = `
         <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c2 c6 fi-status-text"
+          class="c4 c6 fi-status-text"
           id="5-statusText"
         />
-      </span>
+      </div>
     </div>
   </div>
 </body>
@@ -2385,7 +2385,7 @@ exports[`snapshots match date input success status with statustext 1`] = `
   box-sizing: border-box;
 }
 
-.c3 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2409,8 +2409,8 @@ exports[`snapshots match date input success status with statustext 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c2::before,
+.c2::after {
   box-sizing: border-box;
 }
 
@@ -2447,7 +2447,7 @@ exports[`snapshots match date input success status with statustext 1`] = `
   box-sizing: border-box;
 }
 
-.c2 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2471,12 +2471,12 @@ exports[`snapshots match date input success status with statustext 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c4::before,
+.c4::after {
   box-sizing: border-box;
 }
 
-.c4.fi-label .fi-label_label-span {
+.c3.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2495,14 +2495,14 @@ exports[`snapshots match date input success status with statustext 1`] = `
   color: hsl(0,0%,13%);
 }
 
-.c4.fi-label .fi-label_label-span .fi-label_optional-text {
+.c3.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c4.fi-label .fi-label_label-span .fi-tooltip {
+.c3.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -2776,14 +2776,14 @@ exports[`snapshots match date input success status with statustext 1`] = `
     <div
       class="c0 fi-date-input c1 fi-date-input--success"
     >
-      <span
-        class="c2 fi-date-input_wrapper"
+      <div
+        class="c0 fi-date-input_wrapper"
       >
         <div
-          class="c3 c4 fi-date-input_label--visible fi-label"
+          class="c2 c3 fi-date-input_label--visible fi-label"
         >
           <label
-            class="c2 fi-label_label-span"
+            class="c4 fi-label_label-span"
             for="6"
           >
             Date
@@ -2808,12 +2808,12 @@ exports[`snapshots match date input success status with statustext 1`] = `
         <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c2 c6 fi-date-input_statusText--has-content fi-status-text"
+          class="c4 c6 fi-date-input_statusText--has-content fi-status-text"
           id="6-statusText"
         >
           Success
         </span>
-      </span>
+      </div>
     </div>
   </div>
 </body>
@@ -2902,7 +2902,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   box-sizing: border-box;
 }
 
-.c3 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2926,8 +2926,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c2::before,
+.c2::after {
   box-sizing: border-box;
 }
 
@@ -2964,7 +2964,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   box-sizing: border-box;
 }
 
-.c2 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2988,8 +2988,8 @@ exports[`snapshots match date input with datepicker with controlled input value 
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c4::before,
+.c4::after {
   box-sizing: border-box;
 }
 
@@ -3395,7 +3395,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   height: 38px;
 }
 
-.c4.fi-label .fi-label_label-span {
+.c3.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -3414,14 +3414,14 @@ exports[`snapshots match date input with datepicker with controlled input value 
   color: hsl(0,0%,13%);
 }
 
-.c4.fi-label .fi-label_label-span .fi-label_optional-text {
+.c3.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c4.fi-label .fi-label_label-span .fi-tooltip {
+.c3.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -4088,14 +4088,14 @@ exports[`snapshots match date input with datepicker with controlled input value 
     <div
       class="c0 fi-date-input c1 fi-date-input--has-picker"
     >
-      <span
-        class="c2 fi-date-input_wrapper"
+      <div
+        class="c0 fi-date-input_wrapper"
       >
         <div
-          class="c3 c4 fi-date-input_label--visible fi-label"
+          class="c2 c3 fi-date-input_label--visible fi-label"
         >
           <label
-            class="c2 fi-label_label-span"
+            class="c4 fi-label_label-span"
             for="15"
           >
             Date
@@ -4124,7 +4124,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               type="button"
             >
               <span
-                class="c2 c7 fi-visually-hidden"
+                class="c4 c7 fi-visually-hidden"
               >
                 Valitse päivämäärä, Valittu päivä 15 keskiviikko Tammikuu 2020
               </span>
@@ -4150,15 +4150,15 @@ exports[`snapshots match date input with datepicker with controlled input value 
         <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c2 c9 fi-status-text"
+          class="c4 c9 fi-status-text"
           id="15-statusText"
         />
-      </span>
+      </div>
     </div>
   </div>
   <div
     aria-hidden="false"
-    class="c3 c10 fi-date-picker"
+    class="c2 c10 fi-date-picker"
     role="dialog"
     style="position: fixed; left: 0px; top: 0px;"
   >
@@ -4174,7 +4174,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
           id="16"
         >
           <div
-            class="c3 c4 fi-label"
+            class="c2 c3 fi-label"
           >
             <label
               class="c7 fi-visually-hidden"
@@ -4198,7 +4198,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               value="2020"
             >
               <span
-                class="c2 fi-dropdown_display-value"
+                class="c4 fi-dropdown_display-value"
               >
                 2020
               </span>
@@ -4210,7 +4210,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               />
             </button>
             <span
-              class="c2 c7 fi-visually-hidden"
+              class="c4 c7 fi-visually-hidden"
               id="16-displayValue"
             >
               2020
@@ -4218,7 +4218,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
             <span
               aria-atomic="true"
               aria-live="assertive"
-              class="c2 c9 fi-status-text"
+              class="c4 c9 fi-status-text"
             />
           </div>
         </div>
@@ -4227,7 +4227,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
           id="17"
         >
           <div
-            class="c3 c4 fi-label"
+            class="c2 c3 fi-label"
           >
             <label
               class="c7 fi-visually-hidden"
@@ -4251,7 +4251,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               value="0"
             >
               <span
-                class="c2 fi-dropdown_display-value"
+                class="c4 fi-dropdown_display-value"
               >
                 Tammikuu
               </span>
@@ -4263,7 +4263,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               />
             </button>
             <span
-              class="c2 c7 fi-visually-hidden"
+              class="c4 c7 fi-visually-hidden"
               id="17-displayValue"
             >
               Tammikuu
@@ -4271,7 +4271,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
             <span
               aria-atomic="true"
               aria-live="assertive"
-              class="c2 c9 fi-status-text"
+              class="c4 c9 fi-status-text"
             />
           </div>
         </div>
@@ -4402,7 +4402,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                     1
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     1 keskiviikko Tammikuu 2020
                   </span>
@@ -4424,7 +4424,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   2
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   2 torstai Tammikuu 2020
                 </span>
@@ -4445,7 +4445,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   3
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   3 perjantai Tammikuu 2020
                 </span>
@@ -4466,7 +4466,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   4
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   4 lauantai Tammikuu 2020
                 </span>
@@ -4487,7 +4487,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   5
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   5 sunnuntai Tammikuu 2020
                 </span>
@@ -4510,7 +4510,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   6
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   6 maanantai Tammikuu 2020
                 </span>
@@ -4531,7 +4531,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   7
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   7 tiistai Tammikuu 2020
                 </span>
@@ -4552,7 +4552,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   8
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   8 keskiviikko Tammikuu 2020
                 </span>
@@ -4573,7 +4573,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   9
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   9 torstai Tammikuu 2020
                 </span>
@@ -4594,7 +4594,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   10
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   10 perjantai Tammikuu 2020
                 </span>
@@ -4615,7 +4615,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   11
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   11 lauantai Tammikuu 2020
                 </span>
@@ -4636,7 +4636,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   12
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   12 sunnuntai Tammikuu 2020
                 </span>
@@ -4659,7 +4659,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   13
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   13 maanantai Tammikuu 2020
                 </span>
@@ -4680,7 +4680,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   14
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   14 tiistai Tammikuu 2020
                 </span>
@@ -4700,7 +4700,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   15
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   15 keskiviikko Tammikuu 2020
                 </span>
@@ -4721,7 +4721,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   16
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   16 torstai Tammikuu 2020
                 </span>
@@ -4742,7 +4742,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   17
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   17 perjantai Tammikuu 2020
                 </span>
@@ -4763,7 +4763,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   18
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   18 lauantai Tammikuu 2020
                 </span>
@@ -4784,7 +4784,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   19
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   19 sunnuntai Tammikuu 2020
                 </span>
@@ -4807,7 +4807,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   20
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   20 maanantai Tammikuu 2020
                 </span>
@@ -4828,7 +4828,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   21
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   21 tiistai Tammikuu 2020
                 </span>
@@ -4849,7 +4849,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   22
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   22 keskiviikko Tammikuu 2020
                 </span>
@@ -4870,7 +4870,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   23
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   23 torstai Tammikuu 2020
                 </span>
@@ -4891,7 +4891,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   24
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   24 perjantai Tammikuu 2020
                 </span>
@@ -4912,7 +4912,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   25
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   25 lauantai Tammikuu 2020
                 </span>
@@ -4933,7 +4933,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   26
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   26 sunnuntai Tammikuu 2020
                 </span>
@@ -4956,7 +4956,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   27
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   27 maanantai Tammikuu 2020
                 </span>
@@ -4977,7 +4977,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   28
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   28 tiistai Tammikuu 2020
                 </span>
@@ -4998,7 +4998,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   29
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   29 keskiviikko Tammikuu 2020
                 </span>
@@ -5019,7 +5019,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   30
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   30 torstai Tammikuu 2020
                 </span>
@@ -5040,7 +5040,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
                   31
                 </span>
                 <span
-                  class="c2 c7 fi-visually-hidden"
+                  class="c4 c7 fi-visually-hidden"
                 >
                   31 perjantai Tammikuu 2020
                 </span>
@@ -5173,7 +5173,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   box-sizing: border-box;
 }
 
-.c3 {
+.c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -5197,8 +5197,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   white-space: normal;
 }
 
-.c3::before,
-.c3::after {
+.c2::before,
+.c2::after {
   box-sizing: border-box;
 }
 
@@ -5235,7 +5235,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   box-sizing: border-box;
 }
 
-.c2 {
+.c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -5259,8 +5259,8 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   white-space: normal;
 }
 
-.c2::before,
-.c2::after {
+.c4::before,
+.c4::after {
   box-sizing: border-box;
 }
 
@@ -5666,7 +5666,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   height: 38px;
 }
 
-.c4.fi-label .fi-label_label-span {
+.c3.fi-label .fi-label_label-span {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -5685,14 +5685,14 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   color: hsl(0,0%,13%);
 }
 
-.c4.fi-label .fi-label_label-span .fi-label_optional-text {
+.c3.fi-label .fi-label_label-span .fi-label_optional-text {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
 
-.c4.fi-label .fi-label_label-span .fi-tooltip {
+.c3.fi-label .fi-label_label-span .fi-tooltip {
   margin-left: 6px;
 }
 
@@ -6359,14 +6359,14 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
     <div
       class="c0 fi-date-input c1 fi-date-input--has-picker"
     >
-      <span
-        class="c2 fi-date-input_wrapper"
+      <div
+        class="c0 fi-date-input_wrapper"
       >
         <div
-          class="c3 c4 fi-date-input_label--visible fi-label"
+          class="c2 c3 fi-date-input_label--visible fi-label"
         >
           <label
-            class="c2 fi-label_label-span"
+            class="c4 fi-label_label-span"
             for="8"
           >
             Date
@@ -6395,7 +6395,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               type="button"
             >
               <span
-                class="c2 c7 fi-visually-hidden"
+                class="c4 c7 fi-visually-hidden"
               >
                 Valitse päivämäärä, Valittu päivä 15 keskiviikko Tammikuu 2020
               </span>
@@ -6421,10 +6421,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
         <span
           aria-atomic="true"
           aria-live="assertive"
-          class="c2 c9 fi-status-text"
+          class="c4 c9 fi-status-text"
           id="8-statusText"
         />
-      </span>
+      </div>
     </div>
   </div>
   <div
@@ -6432,11 +6432,11 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
     class="c0 c10 fi-date-picker fi-date-picker--small-screen"
   >
     <div
-      class="c3 fi-date-picker_small-screen-container"
+      class="c2 fi-date-picker_small-screen-container"
       role="dialog"
     >
       <div
-        class="c3 fi-date-picker_slide-indicator-wrapper"
+        class="c2 fi-date-picker_slide-indicator-wrapper"
       >
         <div
           class="fi-date-picker_slide-indicator"
@@ -6454,7 +6454,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
             id="9"
           >
             <div
-              class="c3 c4 fi-label"
+              class="c2 c3 fi-label"
             >
               <label
                 class="c7 fi-visually-hidden"
@@ -6478,7 +6478,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 value="2020"
               >
                 <span
-                  class="c2 fi-dropdown_display-value"
+                  class="c4 fi-dropdown_display-value"
                 >
                   2020
                 </span>
@@ -6490,7 +6490,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 />
               </button>
               <span
-                class="c2 c7 fi-visually-hidden"
+                class="c4 c7 fi-visually-hidden"
                 id="9-displayValue"
               >
                 2020
@@ -6498,7 +6498,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               <span
                 aria-atomic="true"
                 aria-live="assertive"
-                class="c2 c9 fi-status-text"
+                class="c4 c9 fi-status-text"
               />
             </div>
           </div>
@@ -6507,7 +6507,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
             id="10"
           >
             <div
-              class="c3 c4 fi-label"
+              class="c2 c3 fi-label"
             >
               <label
                 class="c7 fi-visually-hidden"
@@ -6531,7 +6531,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 value="0"
               >
                 <span
-                  class="c2 fi-dropdown_display-value"
+                  class="c4 fi-dropdown_display-value"
                 >
                   Tammikuu
                 </span>
@@ -6543,7 +6543,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 />
               </button>
               <span
-                class="c2 c7 fi-visually-hidden"
+                class="c4 c7 fi-visually-hidden"
                 id="10-displayValue"
               >
                 Tammikuu
@@ -6551,7 +6551,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               <span
                 aria-atomic="true"
                 aria-live="assertive"
-                class="c2 c9 fi-status-text"
+                class="c4 c9 fi-status-text"
               />
             </div>
           </div>
@@ -6682,7 +6682,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                       1
                     </span>
                     <span
-                      class="c2 c7 fi-visually-hidden"
+                      class="c4 c7 fi-visually-hidden"
                     >
                       1 keskiviikko Tammikuu 2020
                     </span>
@@ -6704,7 +6704,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     2
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     2 torstai Tammikuu 2020
                   </span>
@@ -6725,7 +6725,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     3
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     3 perjantai Tammikuu 2020
                   </span>
@@ -6746,7 +6746,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     4
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     4 lauantai Tammikuu 2020
                   </span>
@@ -6767,7 +6767,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     5
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     5 sunnuntai Tammikuu 2020
                   </span>
@@ -6790,7 +6790,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     6
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     6 maanantai Tammikuu 2020
                   </span>
@@ -6811,7 +6811,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     7
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     7 tiistai Tammikuu 2020
                   </span>
@@ -6832,7 +6832,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     8
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     8 keskiviikko Tammikuu 2020
                   </span>
@@ -6853,7 +6853,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     9
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     9 torstai Tammikuu 2020
                   </span>
@@ -6874,7 +6874,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     10
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     10 perjantai Tammikuu 2020
                   </span>
@@ -6895,7 +6895,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     11
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     11 lauantai Tammikuu 2020
                   </span>
@@ -6916,7 +6916,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     12
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     12 sunnuntai Tammikuu 2020
                   </span>
@@ -6939,7 +6939,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     13
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     13 maanantai Tammikuu 2020
                   </span>
@@ -6960,7 +6960,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     14
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     14 tiistai Tammikuu 2020
                   </span>
@@ -6980,7 +6980,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     15
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     15 keskiviikko Tammikuu 2020
                   </span>
@@ -7001,7 +7001,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     16
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     16 torstai Tammikuu 2020
                   </span>
@@ -7022,7 +7022,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     17
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     17 perjantai Tammikuu 2020
                   </span>
@@ -7043,7 +7043,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     18
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     18 lauantai Tammikuu 2020
                   </span>
@@ -7064,7 +7064,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     19
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     19 sunnuntai Tammikuu 2020
                   </span>
@@ -7087,7 +7087,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     20
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     20 maanantai Tammikuu 2020
                   </span>
@@ -7108,7 +7108,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     21
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     21 tiistai Tammikuu 2020
                   </span>
@@ -7129,7 +7129,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     22
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     22 keskiviikko Tammikuu 2020
                   </span>
@@ -7150,7 +7150,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     23
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     23 torstai Tammikuu 2020
                   </span>
@@ -7171,7 +7171,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     24
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     24 perjantai Tammikuu 2020
                   </span>
@@ -7192,7 +7192,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     25
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     25 lauantai Tammikuu 2020
                   </span>
@@ -7213,7 +7213,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     26
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     26 sunnuntai Tammikuu 2020
                   </span>
@@ -7236,7 +7236,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     27
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     27 maanantai Tammikuu 2020
                   </span>
@@ -7257,7 +7257,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     28
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     28 tiistai Tammikuu 2020
                   </span>
@@ -7278,7 +7278,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     29
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     29 keskiviikko Tammikuu 2020
                   </span>
@@ -7299,7 +7299,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     30
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     30 torstai Tammikuu 2020
                   </span>
@@ -7320,7 +7320,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                     31
                   </span>
                   <span
-                    class="c2 c7 fi-visually-hidden"
+                    class="c4 c7 fi-visually-hidden"
                   >
                     31 perjantai Tammikuu 2020
                   </span>
