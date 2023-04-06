@@ -309,6 +309,10 @@ exports[`Basic expander group should match snapshot 1`] = `
   opacity: 0;
 }
 
+.c6.fi-expander--open {
+  border-bottom: none;
+}
+
 .c9 {
   color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
@@ -350,6 +354,7 @@ exports[`Basic expander group should match snapshot 1`] = `
 .c9.fi-expander_content--open {
   visibility: visible;
   height: auto;
+  border-bottom: 1px solid hsl(212,63%,45%);
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   -webkit-animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
