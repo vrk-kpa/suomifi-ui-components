@@ -16,13 +16,7 @@ import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { getLogger } from '../../../utils/log';
 import { HTMLAttributesIncludingDataAttributes } from '../../../utils/common/common';
-import {
-  HtmlInputProps,
-  HtmlDiv,
-  HtmlSpan,
-  HtmlInput,
-  HtmlButton,
-} from '../../../reset';
+import { HtmlInputProps, HtmlDiv, HtmlInput, HtmlButton } from '../../../reset';
 import { DatePicker } from './DatePicker/DatePicker';
 import { Label, LabelMode } from '../Label/Label';
 import { StatusText } from '../StatusText/StatusText';
@@ -349,7 +343,7 @@ const BaseDateInput = (props: DateInputProps) => {
         [dateInputClassNames.hasPicker]: datePickerEnabled,
       })}
     >
-      <HtmlSpan className={dateInputClassNames.styleWrapper}>
+      <HtmlDiv className={dateInputClassNames.styleWrapper}>
         <Label
           htmlFor={id}
           labelMode={labelMode}
@@ -441,7 +435,7 @@ const BaseDateInput = (props: DateInputProps) => {
         >
           {statusText}
         </StatusText>
-      </HtmlSpan>
+      </HtmlDiv>
     </HtmlDiv>
   );
 };
