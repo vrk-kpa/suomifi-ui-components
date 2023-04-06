@@ -6,9 +6,8 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { ActionMenuPopover, InitialFocus } from './ActionMenuPopover';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import { Button } from '../Button/Button';
-import { HtmlDiv, HtmlDivProps, HtmlButtonProps } from '../../reset';
+import { HtmlDiv, HtmlDivProps } from '../../reset';
 import { baseStyles } from './ActionMenu.baseStyles';
-
 import { ActionMenuItemProps } from './ActionMenuItem/ActionMenuItem';
 import { ActionMenuDividerProps } from './ActionMenuDivider/ActionMenuDivider';
 
