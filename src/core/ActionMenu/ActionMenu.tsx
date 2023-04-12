@@ -98,7 +98,6 @@ const BaseActionMenu = (props: ActionMenuProps) => {
       onClose();
     }
 
-    console.log(openButtonRef.current);
     // Move focus back to the button when menu is closed
     openButtonRef.current?.focus();
   };
