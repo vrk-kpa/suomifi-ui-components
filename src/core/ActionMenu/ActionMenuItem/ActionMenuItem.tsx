@@ -85,8 +85,8 @@ const BaseActionMenuItem = (
   return (
     <HtmlLi
       className={classnames(className, {
-        [baseClassName]: itemIndex !== consumer.focusedIndex,
-        [selectedClassName]: itemIndex === consumer.focusedIndex,
+        [baseClassName]: itemIndex !== consumer.activeDescendantIndex,
+        [selectedClassName]: itemIndex === consumer.activeDescendantIndex,
         [disabledClassName]: disabled,
       })}
       onClick={() => {

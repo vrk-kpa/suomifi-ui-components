@@ -42,7 +42,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       &:active,
       &:visited {
         text-decoration: none;
-        color: ${theme.colors.whiteBase};
+        color: ${theme.colors.blackBase};
         align-items: center;
       }
 
