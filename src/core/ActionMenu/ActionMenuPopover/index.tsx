@@ -1,5 +1,5 @@
 export {
   ActionMenuPopover,
   InternalActionMenuPopoverProps,
-  InitialFocus,
+  InitialActiveDescendant,
 } from './ActionMenuPopover';

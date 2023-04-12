@@ -11,61 +11,36 @@ import {
 } from 'suomifi-ui-components';
 import { useState } from 'react';
 
-const CustomButton = (props) => {
-  const { children, ...passProps } = props;
-  return <button {...passProps}>{props.children}</button>;
-};
-
 const [lastAction, setLastAction] = useState('');
 
-const exampleRef = React.createRef();
-
 <>
-  <button onClick={() => exampleRef.current.focus()}>
-    focus ref
-  </button>
-  <button
-    onClick={() => console.log(exampleRef.current)}
-    onMouseOver={() => console.log(exampleRef.current)}
-  >
-    print ref
-  </button>
   <div style={{ marginLeft: '200px' }}>
     <ActionMenu
       buttonText="Actions"
       onOpen={() => console.log('open')}
       onClose={() => console.log('close')}
       disabled={false}
-      ref={exampleRef}
     >
-      <ActionMenuItem onClick={() => setLastAction('Action 1')}>
-        Do action 1
+      <ActionMenuItem onClick={() => setLastAction('Copy')}>
+        Copy
       </ActionMenuItem>
       <ActionMenuDivider />
-      <ActionMenuItem
-        asComponent={CustomButton}
-        onClick={() => setLastAction('Pidempi')}
-      >
-        Pidempi nimi toiminnolle
+      <ActionMenuItem onClick={() => setLastAction('Long')}>
+        Longer name for an action
       </ActionMenuItem>
-      <ActionMenuItem
-        asComponent={CustomButton}
-        onClick={() => setLastAction('Muokkaa')}
-      >
-        Muokkaa
+      <ActionMenuItem onClick={() => setLastAction('Edit')}>
+        Edit
       </ActionMenuItem>
-      <ActionMenuItem asComponent={Link} href="www.suomi.fi">
+      <ActionMenuItem href="https://www.suomi.fi">
         This is a link
       </ActionMenuItem>
       <ActionMenuItem
-        asComponent={CustomButton}
-        onClick={() => setLastAction('Poista')}
+        onClick={() => setLastAction('Remove')}
         icon="Search"
       >
-        Poista
+        Remove
       </ActionMenuItem>
       <ActionMenuItem
-        asComponent={CustomButton}
         onClick={() => setLastAction('Disabled')}
         icon="Search"
         disabled
