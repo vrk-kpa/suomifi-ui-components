@@ -3710,7 +3710,10 @@ exports[`snapshots match date input with datepicker with controlled input value 
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  gap: 10px;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .c10 .fi-date-picker_application {
@@ -3751,12 +3754,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
 .c10.fi-date-picker--small-screen .fi-date-picker_application {
   padding-top: 10px;
   padding-bottom: 30px;
-}
-
-.c10.fi-date-picker--small-screen .fi-date-picker_bottom-container {
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
 }
 
 .c10.fi-date-picker--hidden {
@@ -3837,12 +3834,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
 .c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end']::before {
   border-bottom: 1px solid hsl(0,0%,58%);
   border-right: 1px solid hsl(0,0%,58%);
-}
-
-.c10 .fi-date-picker_bottom-button {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
 }
 
 .c1 {
@@ -5064,16 +5055,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
       >
         <button
           aria-disabled="false"
-          aria-label="Valitse 15 keskiviikko Tammikuu 2020"
-          class="c6 fi-button c13 fi-date-picker_bottom-button"
-          tabindex="0"
-          type="button"
-        >
-          Valitse
-        </button>
-        <button
-          aria-disabled="false"
-          class="c6 fi-button c13 fi-date-picker_bottom-button fi-button--secondary"
+          class="c6 fi-button c13 fi-button--secondary-noborder"
           tabindex="0"
           type="button"
         >
@@ -5981,7 +5963,10 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  gap: 10px;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .c10 .fi-date-picker_application {
@@ -6022,12 +6007,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 .c10.fi-date-picker--small-screen .fi-date-picker_application {
   padding-top: 10px;
   padding-bottom: 30px;
-}
-
-.c10.fi-date-picker--small-screen .fi-date-picker_bottom-container {
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
 }
 
 .c10.fi-date-picker--hidden {
@@ -6108,12 +6087,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 .c10 .fi-date-picker_popper-arrow[data-popper-placement^='top-end']::before {
   border-bottom: 1px solid hsl(0,0%,58%);
   border-right: 1px solid hsl(0,0%,58%);
-}
-
-.c10 .fi-date-picker_bottom-button {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
 }
 
 .c1 {
@@ -7344,16 +7317,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
         >
           <button
             aria-disabled="false"
-            aria-label="Valitse 15 keskiviikko Tammikuu 2020"
-            class="c6 fi-button c13 fi-date-picker_bottom-button fi-button--fullwidth"
-            tabindex="0"
-            type="button"
-          >
-            Valitse
-          </button>
-          <button
-            aria-disabled="false"
-            class="c6 fi-button c13 fi-date-picker_bottom-button fi-button--secondary fi-button--fullwidth"
+            class="c6 fi-button c13 fi-button--secondary-noborder"
             tabindex="0"
             type="button"
           >

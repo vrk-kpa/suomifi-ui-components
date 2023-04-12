@@ -150,7 +150,7 @@ describe('callbacks', () => {
 
     it('calls onChange when date is selected', () => {
       const mockOnChange = jest.fn();
-      const { getByRole, getByText, getAllByText } = render(
+      const { getByRole, getAllByText } = render(
         <DateInput
           labelText="Date"
           datePickerEnabled
@@ -162,10 +162,6 @@ describe('callbacks', () => {
         'button',
       ) as HTMLButtonElement;
       fireEvent.click(dateButton);
-      const confirmButton = getByText('Valitse').closest(
-        'button',
-      ) as HTMLButtonElement;
-      fireEvent.click(confirmButton);
       expect(mockOnChange).toBeCalledWith({
         value: '1.1.2020',
         date: new Date(2020, 0, 1),
@@ -493,10 +489,6 @@ describe('props', () => {
       fireEvent.click(getByRole('button'));
       const dateButton = getByText('16').closest('button') as HTMLButtonElement;
       fireEvent.click(dateButton);
-      const confirmButton = getByText('Valitse').closest(
-        'button',
-      ) as HTMLButtonElement;
-      fireEvent.click(confirmButton);
       expect(getByRole('textbox')).toHaveValue('2020-1-16');
     });
   });

@@ -147,7 +147,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
       </Dropdown>
       <HtmlDiv className={selectorsClassNames.buttons}>
         <Button
-          onClick={() => handlePrevMonthButton()}
+          onClick={handlePrevMonthButton}
           variant="secondaryNoBorder"
           aria-label={getPrevMonthButtonLabel()}
           className={selectorsClassNames.monthButton}
@@ -159,7 +159,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
           />
         </Button>
         <Button
-          onClick={() => handleNextMonthButton()}
+          onClick={handleNextMonthButton}
           variant="secondaryNoBorder"
           aria-label={getNextMonthButtonLabel()}
           className={selectorsClassNames.monthButton}

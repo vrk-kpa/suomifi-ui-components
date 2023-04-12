@@ -13,7 +13,6 @@ import { Button } from '../../../Button/Button';
 import { MonthTable } from './MonthTable/MonthTable';
 import { DateSelectors } from './DateSelectors/DateSelectors';
 import {
-  cellDateAriaLabel,
   dayIsAfter,
   dayIsBefore,
   moveDays,
@@ -38,7 +37,6 @@ export const datePickerClassNames = {
   slideIndicatorWrapper: `${baseClassName}_slide-indicator-wrapper`,
   application: `${baseClassName}_application`,
   bottomContainer: `${baseClassName}_bottom-container`,
-  bottomButton: `${baseClassName}_bottom-button`,
   popperArrow: `${baseClassName}_popper-arrow`,
 };
 
@@ -100,7 +98,6 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const yearSelectRef = useRef<HTMLButtonElement>(null);
   const monthSelectRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const confirmButtonRef = useRef<HTMLButtonElement>(null);
   const dayButtonRef = useRef<HTMLButtonElement>(null);
 
   useEnhancedEffect(() => {
@@ -343,11 +340,6 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       monthSelectRef.current.getAttribute('data-state') === 'expanded') ||
     false;
 
-  const handleConfirm = (): void => {
-    handleClose(true);
-    onChange(focusableDate);
-  };
-
   const handleClose = (focus: boolean = false): void => {
     setSelectedDate(null);
     setFocusedDate(null);
@@ -359,9 +351,9 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   };
 
   const handleDateSelect = (date: Date): void => {
+    handleClose(true);
+    onChange(date);
     setFocusableDate(date);
-    setSelectedDate(date);
-    confirmButtonRef.current?.focus();
   };
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -461,28 +453,9 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       />
       <HtmlDiv className={datePickerClassNames.bottomContainer}>
         <Button
-          aria-disabled={selectedDate === null}
-          onClick={() => handleConfirm()}
-          forwardedRef={confirmButtonRef}
-          className={datePickerClassNames.bottomButton}
-          fullWidth={smallScreen}
-          aria-label={
-            selectedDate
-              ? `${texts.selectButtonText} ${cellDateAriaLabel(
-                  selectedDate,
-                  texts,
-                )}`
-              : ''
-          }
-        >
-          {texts.selectButtonText}
-        </Button>
-        <Button
-          variant="secondary"
+          variant="secondaryNoBorder"
           onClick={() => handleClose(true)}
           forwardedRef={closeButtonRef}
-          className={datePickerClassNames.bottomButton}
-          fullWidth={smallScreen}
         >
           {texts.closeButtonText}
         </Button>

@@ -13,7 +13,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   & .fi-date-picker_bottom-container {
     display: flex;
-    gap: ${theme.spacing.xs};
+    justify-content: flex-end;
   }
 
   & .fi-date-picker_application {
@@ -39,10 +39,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     .fi-date-picker_application {
       padding-top: ${theme.spacing.xs};
       padding-bottom: ${theme.spacing.xl};
-    }
-
-    .fi-date-picker_bottom-container {
-      flex-direction: column;
     }
   }
 
@@ -117,9 +113,5 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   & .fi-date-picker_popper-arrow[data-popper-placement^='top-end']::before {
     border-bottom: 1px solid ${theme.colors.blackLight1};
     border-right: 1px solid ${theme.colors.blackLight1};
-  }
-
-  & .fi-date-picker_bottom-button {
-    flex: 1;
   }
 `;
