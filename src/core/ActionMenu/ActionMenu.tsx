@@ -3,10 +3,14 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
-import { ActionMenuPopover, InitialFocus } from './ActionMenuPopover';
+import {
+  ActionMenuPopover,
+  InitialActiveDescendant,
+} from './ActionMenuPopover';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import { Button } from '../Button/Button';
-import { HtmlDiv, HtmlDivProps } from '../../reset';
+import { HtmlDiv } from '../../reset';
+import { HTMLAttributesIncludingDataAttributes } from '../../utils/common/common';
 import { baseStyles } from './ActionMenu.baseStyles';
 import { ActionMenuItemProps } from './ActionMenuItem/ActionMenuItem';
 import { ActionMenuDividerProps } from './ActionMenuDivider/ActionMenuDivider';
@@ -26,10 +30,13 @@ export interface ActionMenuProps {
   /** Label text for the button */
   buttonText?: string;
   /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
-  children: Array<
+  children?:
+    | Array<
+        | React.ReactElement<ActionMenuItemProps>
+        | React.ReactElement<ActionMenuDividerProps>
+      >
     | React.ReactElement<ActionMenuItemProps>
-    | React.ReactElement<ActionMenuDividerProps>
-  >;
+    | React.ReactElement<ActionMenuDividerProps>;
   /** Button container div class name for custom styling */
   className?: string;
   /** Disable button usage */
@@ -55,8 +62,14 @@ export interface ActionMenuProps {
   onClose?: () => void;
   /** Callback fired when menu closes */
   onOpen?: () => void;
-  /** Button wrapping div element props */
-  wrapperProps?: Omit<HtmlDivProps, 'className'>;
+  /**
+   * Props which are placed at the outermost div of the component.
+   * Can be used, for example, for style
+   */
+  wrapperProps?: Omit<
+    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
+    'className'
+  >;
 }
 
 const BaseActionMenu = (props: ActionMenuProps) => {
@@ -78,7 +91,8 @@ const BaseActionMenu = (props: ActionMenuProps) => {
 
   const openButtonRef = forwardedRef || useRef<HTMLButtonElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
-  const [selectFirstItem, setSelectFirstItem] = useState<InitialFocus>('none');
+  const [selectFirstItem, setSelectFirstItem] =
+    useState<InitialActiveDescendant>('none');
 
   const menuId = `${id}-menu`;
   const buttonId = `${id}-button`;
@@ -181,7 +195,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
             openButtonRef={openButtonRef}
             onClose={() => closeMenu()}
             children={children}
-            initialFocus={selectFirstItem}
+            initialActiveDescendant={selectFirstItem}
           />
         )}
       </>

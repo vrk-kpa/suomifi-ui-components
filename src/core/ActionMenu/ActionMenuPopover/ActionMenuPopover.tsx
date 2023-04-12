@@ -23,7 +23,7 @@ export const actionMenuClassNames = {
   popperArrow: `${baseClassName}_popper-arrow`,
 };
 
-export type InitialFocus = 'first' | 'last' | 'none';
+export type InitialActiveDescendant = 'first' | 'last' | 'none';
 export interface InternalActionMenuPopoverProps {
   /** Button ref for positioning dialog and closing dialog on button click */
   openButtonRef: React.RefObject<any>;
@@ -32,16 +32,19 @@ export interface InternalActionMenuPopoverProps {
   /** Styled component className */
   className?: string;
   /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
-  children: Array<
+  children?:
+    | Array<
+        | React.ReactElement<ActionMenuItemProps>
+        | React.ReactElement<ActionMenuDividerProps>
+      >
     | React.ReactElement<ActionMenuItemProps>
-    | React.ReactElement<ActionMenuDividerProps>
-  >;
+    | React.ReactElement<ActionMenuDividerProps>;
 
   menuId: string;
 
   buttonId: string;
 
-  initialFocus: InitialFocus;
+  initialActiveDescendant: InitialActiveDescendant;
 }
 
 export interface SingleSelectData {
@@ -63,14 +66,14 @@ export interface ActionMenuProviderState {
    */
   id: string | undefined;
   /** Index of the child that has aria active descendant status */
-  focusedIndex: number;
+  activeDescendantIndex: number;
 }
 
 const defaultProviderValue: ActionMenuProviderState = {
   onItemClick: () => null,
   onItemMouseOver: () => null,
   id: '',
-  focusedIndex: -1,
+  activeDescendantIndex: -1,
 };
 
 const { Provider: ActionMenuProvider, Consumer: ActionMenuConsumer } =
@@ -86,12 +89,12 @@ export const BaseActionMenuPopover = (
     children,
     menuId,
     buttonId,
-    initialFocus,
+    initialActiveDescendant,
   } = props;
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
   const [dialogElement, setDialogElement] = useState<HTMLElement | null>(null);
-  const [focusedChild, setFocusedChild] = useState<number>(-1);
+  const [activeChild, setActiveChild] = useState<number>(-1);
 
   const portalRef = useRef<HTMLDivElement>(null);
   const ulRef = useRef<HTMLUListElement>(null);
@@ -113,7 +116,7 @@ export const BaseActionMenuPopover = (
         });
       };
     }, // Event listener has to be updated on every active child change or it's always -1 inside the globalKeyDownHandler
-    [focusedChild],
+    [activeChild],
   );
 
   useEffect(() => {
@@ -136,14 +139,14 @@ export const BaseActionMenuPopover = (
 
   useEffect(() => {
     setTimeout(() => {
-      if (initialFocus === 'first') {
-        setFocusedChild(0);
+      if (initialActiveDescendant === 'first') {
+        setActiveChild(0);
       }
-      if (initialFocus === 'last') {
-        setFocusedChild(React.Children.count(children) - 1);
+      if (initialActiveDescendant === 'last') {
+        setActiveChild(React.Children.count(children) - 1);
       }
     }, 100);
-  }, [initialFocus]);
+  }, [initialActiveDescendant]);
 
   const globalClickHandler = (nativeEvent: MouseEvent) => {
     if (
@@ -155,13 +158,13 @@ export const BaseActionMenuPopover = (
     }
   };
 
-  // Decide if the node is focusable or not
-  const isFocusable = (child: any) => child?.type === ActionMenuItem;
+  // Decide if the node can be active descendant or not (is it a menu item or divider)
+  const isActivable = (child: any) => child?.type === ActionMenuItem;
 
-  // Find nect child that can be focused
-  const nextFocusable = (current: number) => {
-    let nextFocusableIndex = -1;
-    let firstFocusableIndex = -1;
+  // Find next child that can be active descendant
+  const nextActivable = (current: number) => {
+    let nextActivableIndex = -1;
+    let firstActivableIndex = -1;
     let startFrom = 0;
 
     if (current) {
@@ -169,37 +172,37 @@ export const BaseActionMenuPopover = (
     }
 
     React.Children.forEach(children, (child, index) => {
-      if (isFocusable(child) && firstFocusableIndex === -1) {
-        firstFocusableIndex = index;
+      if (isActivable(child) && firstActivableIndex === -1) {
+        firstActivableIndex = index;
       }
 
       if (
         index > startFrom &&
-        isFocusable(child) &&
-        nextFocusableIndex === -1
+        isActivable(child) &&
+        nextActivableIndex === -1
       ) {
-        nextFocusableIndex = index;
+        nextActivableIndex = index;
       }
     });
 
-    // Is there focusable later in the list
-    if (nextFocusableIndex !== -1) {
-      return nextFocusableIndex;
+    // Is there "activable" later in the list
+    if (nextActivableIndex !== -1) {
+      return nextActivableIndex;
     }
-    // Return the first focusable of the list
-    return firstFocusableIndex;
+    // Return the first "activable" of the list
+    return firstActivableIndex;
   };
 
-  const previousFocusable = (current: number) => {
+  const previousActivable = (current: number) => {
     let result = -1;
-    let lastFocusable = -1;
+    let lastActivable = -1;
 
     React.Children.forEach(children, (child, index) => {
-      if (isFocusable(child)) {
-        lastFocusable = index;
+      if (isActivable(child)) {
+        lastActivable = index;
       }
 
-      if (index < current && isFocusable(child)) {
+      if (index < current && isActivable(child)) {
         result = index;
       }
     });
@@ -208,7 +211,7 @@ export const BaseActionMenuPopover = (
       return result;
     }
 
-    return lastFocusable;
+    return lastActivable;
   };
 
   const globalKeyDownHandler = (event: KeyboardEvent) => {
@@ -224,7 +227,7 @@ export const BaseActionMenuPopover = (
 
     if (event.key === 'Enter' || event.key === ' ') {
       // Call action of the child item
-      const currentChild = React.Children.toArray(children)[focusedChild];
+      const currentChild = React.Children.toArray(children)[activeChild];
 
       if (React.isValidElement(currentChild)) {
         const childProps = currentChild.props;
@@ -243,12 +246,12 @@ export const BaseActionMenuPopover = (
 
     if (event.key === 'ArrowDown') {
       event.preventDefault();
-      setFocusedChild((previous) => nextFocusable(previous));
+      setActiveChild((previous) => nextActivable(previous));
     }
 
     if (event.key === 'ArrowUp') {
       event.preventDefault();
-      setFocusedChild((previous) => previousFocusable(previous));
+      setActiveChild((previous) => previousActivable(previous));
     }
   };
 
@@ -309,7 +312,7 @@ export const BaseActionMenuPopover = (
     );
 
   const itemMouseOver = (value: number) => {
-    setFocusedChild(value);
+    setActiveChild(value);
   };
 
   if (!mountNode) {
@@ -332,13 +335,13 @@ export const BaseActionMenuPopover = (
                   itemMouseOver(itemIndex);
                 },
                 id: menuId,
-                focusedIndex: focusedChild,
+                activeDescendantIndex: activeChild,
               }}
             >
               <HtmlUlWithRef
                 role="menu"
                 id={menuId}
-                aria-activedescendant={`${focusedChild}-menu-item`}
+                aria-activedescendant={`${activeChild}-menu-item`}
                 aria-labelledby={buttonId}
                 tabIndex={-1}
                 className={actionMenuClassNames.application}
