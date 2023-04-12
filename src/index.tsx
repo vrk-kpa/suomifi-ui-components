@@ -67,8 +67,8 @@ export {
   SkipLinkProps,
   RouterLink,
   RouterLinkProps,
-  ListLink,
-  ListLinkProps,
+  LinkListItem,
+  LinkListItemProps,
   LinkList,
   LinkListProps,
 } from './core/Link/';
