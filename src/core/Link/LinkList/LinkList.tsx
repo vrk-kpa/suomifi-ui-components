@@ -8,8 +8,10 @@ import { HtmlUlProps, HtmlUlWithRef } from '../../../reset';
 const LinkListClassName = 'fi-link-list';
 
 export interface LinkListProps extends HtmlUlProps {
-  /** Ref  is passed to the anchor element. Alternative to React `ref` attribute. */
-  forwardedRef?: React.Ref<HTMLAnchorElement>;
+  /** Ref  is passed to the list element. Alternative to React `ref` attribute. */
+  forwardedRef?: React.Ref<HTMLUListElement>;
+  /** Id of the heading or label of the list */
+  ariaDescribedBy: string;
 }
 
 const StyledLinkList = styled(

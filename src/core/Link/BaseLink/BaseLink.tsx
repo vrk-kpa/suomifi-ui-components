@@ -6,6 +6,9 @@ export const baseClassName = 'fi-link';
 
 export const linkClassNames = {
   linkUnderline: `${baseClassName}--initial-underline`,
+  accent: `${baseClassName}--accent`,
+  accentIcon: `${baseClassName}--accent_icon`,
+  small: `${baseClassName}--small`,
 };
 
 export type UnderlineVariant = 'initial' | 'hover';
@@ -29,5 +32,8 @@ export interface BaseLinkProps extends HtmlAProps {
    * @default hover
    */
   underline?: UnderlineVariant;
+  /** Style variant for the link */
+  variant?: 'default' | 'accent';
   asProp?: asPropType;
+  smallScreen?: boolean;
 }

@@ -38,14 +38,17 @@ interface InternalExternalLinkProps extends BaseLinkProps {
 
 export type ExternalLinkProps = newWindowProps & InternalExternalLinkProps;
 
-class BaseExternalLink extends Component<ExternalLinkProps> {
+class BaseExternalLink extends Component<ExternalLinkProps & SuomifiThemeProp> {
   render() {
     const {
       asProp,
       children,
       className,
+      variant = 'default',
       toNewWindow = true,
       labelNewWindow,
+      smallScreen,
+      theme,
       hideIcon,
       underline = 'hover',
       ...passProps
@@ -55,11 +58,20 @@ class BaseExternalLink extends Component<ExternalLinkProps> {
         {...passProps}
         className={classnames(baseClassName, className, externalClassName, {
           [linkClassNames.linkUnderline]: underline === 'initial',
+          [linkClassNames.accent]: variant === 'accent',
+          [linkClassNames.small]: smallScreen,
         })}
         target={!!toNewWindow ? '_blank' : undefined}
         rel={!!toNewWindow ? 'noopener' : undefined}
         as={asProp}
       >
+        {variant === 'accent' && (
+          <Icon
+            icon={'chevronRight'}
+            color={theme.colors.accentBase}
+            className={linkClassNames.accentIcon}
+          />
+        )}
         {children}
         {toNewWindow && <VisuallyHidden>{labelNewWindow}</VisuallyHidden>}
         {!hideIcon && <IconLinkExternal className={iconClassName} />}
@@ -71,7 +83,7 @@ class BaseExternalLink extends Component<ExternalLinkProps> {
 const StyledExternalLink = styled(
   (props: ExternalLinkProps & SuomifiThemeProp) => {
     const { theme, ...passProps } = props;
-    return <BaseExternalLink {...passProps} />;
+    return <BaseExternalLink theme={theme} {...passProps} />;
   },
 )`
   ${({ theme }) => ExternalLinkStyles(theme)}

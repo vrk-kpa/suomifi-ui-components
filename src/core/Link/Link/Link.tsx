@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { LinkStyles } from '../Link/Link.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlA } from '../../../reset';
+import { Icon } from '../../Icon/Icon';
 import {
   BaseLinkProps,
   baseClassName,
@@ -19,7 +20,10 @@ const StyledLink = styled(
   ({
     asProp,
     className,
+    smallScreen,
     theme,
+    variant = 'default',
+    children,
     underline = 'hover',
     ...passProps
   }: LinkProps & SuomifiThemeProp) => (
@@ -27,9 +31,20 @@ const StyledLink = styled(
       {...passProps}
       className={classnames(baseClassName, className, {
         [linkClassNames.linkUnderline]: underline === 'initial',
+        [linkClassNames.accent]: variant === 'accent',
+        [linkClassNames.small]: smallScreen,
       })}
       as={asProp}
-    />
+    >
+      {variant === 'accent' && (
+        <Icon
+          icon={'chevronRight'}
+          color={theme.colors.accentBase}
+          className={linkClassNames.accentIcon}
+        />
+      )}
+      {children}
+    </HtmlA>
   ),
 )`
   ${({ theme }) => LinkStyles(theme)}

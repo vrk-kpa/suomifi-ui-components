@@ -1,25 +1,36 @@
 ```js
 import { Link, Paragraph } from 'suomifi-ui-components';
-
-<Paragraph>
-  <Link
-    className="test-classname"
-    href="https://www.notvisitedlink.com/"
-    underline="initial"
-  >
-    Not visited link
-  </Link>{' '}
-  <Link className="test-classname" href="#" underline="initial">
-    Visited link
-  </Link>{' '}
-  <Link
-    className="test-classname"
-    href="https://www.notvisitedlink.com/"
-    underline="hover"
-  >
-    Link without underline
-  </Link>
-</Paragraph>;
+<>
+  <Paragraph>
+    <Link
+      className="test-classname"
+      href="https://www.notvisitedlink.com/"
+      underline="initial"
+    >
+      Not visited link
+    </Link>{' '}
+    <Link className="test-classname" href="#" underline="initial">
+      Visited link
+    </Link>{' '}
+    <Link
+      className="test-classname"
+      href="https://www.notvisitedlink.com/"
+      underline="hover"
+    >
+      Link without underline
+    </Link>
+  </Paragraph>
+  <Paragraph>
+    <Link
+      variant="accent"
+      className="test-classname"
+      href="https://www.notvisitedlink.com/"
+      underline="initial"
+    >
+      Not visited link
+    </Link>
+  </Paragraph>
+</>;
 ```
 
 ### Skip link
@@ -113,7 +124,7 @@ const r = useRef();
 import {
   Link,
   ExternalLink,
-  ListLink,
+  LinkListItem,
   RouterLink,
   LinkList,
   Heading
@@ -132,25 +143,22 @@ const Component = forwardRef((props, ref) => {
 const r = useRef();
 
 <div>
-  <ListLink standalone>
-    <Link href="/">Erillinen listalinkki</Link>
-  </ListLink>
-  <Heading variant="h5" as="h3">
+  <Heading variant="h5" as="h3" id="otsikko">
     Hyödyllisiä linkkejä
   </Heading>
-  <LinkList>
-    <ListLink>
+  <LinkList aria-describedby="otsikko">
+    <LinkListItem>
       <Link href="/">Linkki listassa</Link>
-    </ListLink>
-    <ListLink>
+    </LinkListItem>
+    <LinkListItem>
       <ExternalLink
         href="https://designsystem.suomi.fi/fi/"
         labelNewWindow="Opens to a new window"
       >
         External link opens to new window
       </ExternalLink>
-    </ListLink>
-    <ListLink>
+    </LinkListItem>
+    <LinkListItem>
       <RouterLink
         href="https://suomi.fi"
         target="_blank"
@@ -159,7 +167,7 @@ const r = useRef();
       >
         Testing
       </RouterLink>
-    </ListLink>
+    </LinkListItem>
   </LinkList>
 </div>;
 ```

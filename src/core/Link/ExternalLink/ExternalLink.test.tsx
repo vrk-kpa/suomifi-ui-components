@@ -14,7 +14,7 @@ const TestExternalLink = (
   </ExternalLink>
 );
 
-test('calling render with the same component on the same container does not remount', () => {
+test('matches snapshot', () => {
   const LinkRendered = render(TestExternalLink);
   const { getByTestId, container } = LinkRendered;
   expect(container.firstChild).toMatchSnapshot();

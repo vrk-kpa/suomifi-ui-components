@@ -42,5 +42,17 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         text-decoration: none;
       }
     }
+    &.fi-link--accent {
+      text-decoration: none;
+      & .fi-link--accent_icon {
+        font-size: 16px;
+        margin-left: -3px;
+        margin-right: 2px;
+        transform: translateY(0.1em);
+      }
+    }
+    &.fi-link--small {
+      ${font(theme)('bodyTextSmall')}
+    }
   }
 `;
