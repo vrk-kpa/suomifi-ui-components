@@ -1,4 +1,4 @@
-import React, { ReactNode, forwardRef, AriaRole } from 'react';
+import React, { ReactNode, AriaRole } from 'react';
 import classnames from 'classnames';
 import { HtmlLi } from '../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
@@ -18,8 +18,6 @@ export interface ActionMenuItemProps {
   children: ReactNode;
   /** Disables the item */
   disabled?: boolean;
-  /** Ref is forwarded to wrapping div element. Alternative for React `ref` attribute. */
-  forwardedRef?: React.Ref<HTMLDivElement>;
   /**
    * Icon from suomifi-theme
    */
@@ -34,13 +32,13 @@ export interface ActionMenuItemProps {
   iconProps?: IconProps;
   /** Link url. If provided the cmponent is rendered as link <a> instead of <button> */
   href?: string;
-}
-
-export interface InternalActionMenuItemProps extends ActionMenuItemProps {
+  /** Called when menu item is clicked */
+  onClick?: () => void;
+  /** Index number of the child. Internal use only */
   itemIndex: number;
 }
 
-interface BaseActionMenuItemProps extends InternalActionMenuItemProps {
+interface BaseActionMenuItemProps extends ActionMenuItemProps {
   consumer: ActionMenuProviderState;
 }
 
@@ -68,7 +66,9 @@ const LinkComponent = (props: RenderComponentProps) => {
   return <a {...passProps}>{children}</a>;
 };
 
-const BaseActionMenuItem = (props: BaseActionMenuItemProps) => {
+const BaseActionMenuItem = (
+  props: BaseActionMenuItemProps & SuomifiThemeProp,
+) => {
   const {
     className,
     children,
@@ -77,7 +77,7 @@ const BaseActionMenuItem = (props: BaseActionMenuItemProps) => {
     itemIndex,
     icon,
     iconProps = { className: undefined },
-    href,
+    ...passProps
   } = props;
 
   const { className: iconPropsClassName, ...passIconProps } = iconProps;
@@ -98,10 +98,11 @@ const BaseActionMenuItem = (props: BaseActionMenuItemProps) => {
       tabIndex={-1}
     >
       <RouterLink
-        asComponent={href ? LinkComponent : ButtonComponent}
+        asComponent={props.href ? LinkComponent : ButtonComponent}
         id={`${itemIndex}-menu-item`}
         role="menuitem"
         aria-disabled={disabled}
+        {...passProps}
       >
         {!!icon && (
           <Icon
@@ -118,32 +119,24 @@ const BaseActionMenuItem = (props: BaseActionMenuItemProps) => {
   );
 };
 
-const StyledActionMenuItem = styled(
-  (props: BaseActionMenuItemProps & SuomifiThemeProp) => {
-    const { theme, ...passProps } = props;
-    return <BaseActionMenuItem {...passProps} />;
-  },
-)`
+const StyledActionMenuItem = styled(BaseActionMenuItem)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const ActionMenuItem = forwardRef<HTMLDivElement, InternalActionMenuItemProps>(
-  (props: InternalActionMenuItemProps, ref: React.Ref<HTMLDivElement>) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <ActionMenuConsumer>
-          {(consumer) => (
-            <StyledActionMenuItem
-              theme={suomifiTheme}
-              consumer={consumer}
-              forwardedRef={ref}
-              {...props}
-            />
-          )}
-        </ActionMenuConsumer>
-      )}
-    </SuomifiThemeConsumer>
-  ),
+const ActionMenuItem = (props: ActionMenuItemProps) => (
+  <SuomifiThemeConsumer>
+    {({ suomifiTheme }) => (
+      <ActionMenuConsumer>
+        {(consumer) => (
+          <StyledActionMenuItem
+            theme={suomifiTheme}
+            consumer={consumer}
+            {...props}
+          />
+        )}
+      </ActionMenuConsumer>
+    )}
+  </SuomifiThemeConsumer>
 );
 
 ActionMenuItem.displayName = 'ActionMenuItem';

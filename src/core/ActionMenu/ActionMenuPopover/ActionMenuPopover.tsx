@@ -11,7 +11,6 @@ import { baseStyles } from './ActionMenuPopover.baseStyles';
 import {
   ActionMenuItem,
   ActionMenuItemProps,
-  InternalActionMenuItemProps,
 } from '../ActionMenuItem/ActionMenuItem';
 import { ActionMenuDividerProps } from '../ActionMenuDivider/ActionMenuDivider';
 
@@ -28,7 +27,6 @@ export type InitialFocus = 'first' | 'last' | 'none';
 export interface InternalActionMenuPopoverProps {
   /** Button ref for positioning dialog and closing dialog on button click */
   openButtonRef: React.RefObject<any>;
-
   /** Callback fired when closing popover */
   onClose: () => void;
   /** Styled component className */
@@ -102,13 +100,25 @@ export const BaseActionMenuPopover = (
     setMountNode(window.document.body);
   }, []);
 
-  useEffect(() => {
-    console.log('HOOK: Popover listeners');
+  useEffect(
+    () => {
+      // Add listener for keyboard events
+      document.addEventListener('keydown', globalKeyDownHandler, {
+        capture: true,
+      });
 
+      return () => {
+        document.removeEventListener('keydown', globalKeyDownHandler, {
+          capture: true,
+        });
+      };
+    }, // Event listener has to be updated on every active child change or it's always -1 inside the globalKeyDownHandler
+    [focusedChild],
+  );
+
+  useEffect(() => {
+    // Add listener for click events
     document.addEventListener('click', globalClickHandler, {
-      capture: true,
-    });
-    document.addEventListener('keydown', globalKeyDownHandler, {
       capture: true,
     });
 
@@ -116,24 +126,15 @@ export const BaseActionMenuPopover = (
       document.removeEventListener('click', globalClickHandler, {
         capture: true,
       });
-      document.removeEventListener('keydown', globalKeyDownHandler, {
-        capture: true,
-      });
     };
-  }, [focusedChild]);
+  }, [openButtonRef]);
 
   useEffect(() => {
-    console.log('HOOK: Popover ref');
-
-    if (!ulRef.current) {
-      console.log('ref hook undefined!');
-    }
-
+    // Set focus to ul element when menu opens
     ulRef.current?.focus();
-  });
+  }, [ulRef.current]);
 
   useEffect(() => {
-    console.log('HOOK: Popover Initial focus ');
     setTimeout(() => {
       if (initialFocus === 'first') {
         setFocusedChild(0);
@@ -149,7 +150,7 @@ export const BaseActionMenuPopover = (
       !portalRef.current?.contains(nativeEvent.target as Node) &&
       !openButtonRef.current?.contains(nativeEvent.target as Node)
     ) {
-      // Click is outside of button and menu elements
+      // Click is outside of "open menu button" and menu elements
       handleClose();
     }
   };
@@ -293,11 +294,11 @@ export const BaseActionMenuPopover = (
   const menuItems = (childs: ReactNode) =>
     React.Children.map(
       childs,
-      (child: React.ReactElement<InternalActionMenuItemProps>, index) => {
+      (child: React.ReactElement<ActionMenuItemProps>, index) => {
         // Add itemIndex prop to clickable items
         if (React.isValidElement(child) && child.type === ActionMenuItem) {
           return React.cloneElement(
-            child as React.ReactElement<InternalActionMenuItemProps>,
+            child as React.ReactElement<ActionMenuItemProps>,
             {
               itemIndex: index,
             },
