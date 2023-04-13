@@ -568,10 +568,6 @@ exports[`Basic modal should match snapshot 1`] = `
   z-index: 9999;
 }
 
-.c4.fi-modal_title--no-scroll {
-  margin-bottom: 10px;
-}
-
 .c4.fi-modal_title--small-screen {
   margin-bottom: 20px;
 }
