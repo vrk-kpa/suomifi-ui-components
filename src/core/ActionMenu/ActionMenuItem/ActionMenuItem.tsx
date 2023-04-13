@@ -30,7 +30,7 @@ export interface ActionMenuItemProps {
    * Properties given to Icon-component
    */
   iconProps?: IconProps;
-  /** Link url. If provided the cmponent is rendered as link <a> instead of <button> */
+  /** Link url. If provided the component is rendered as link `<a>` instead of `<button>` */
   href?: string;
   /** Called when menu item is clicked */
   onClick?: () => void;
