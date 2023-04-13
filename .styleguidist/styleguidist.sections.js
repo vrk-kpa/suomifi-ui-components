@@ -261,7 +261,7 @@ module.exports = {
           components: getComponentWithVariants('ActionMenu')([
             'ActionMenu/ActionMenu',
             'ActionMenuItem/ActionMenuItem',
-            'ActionMenuLink/ActionMenuLink',
+            'ActionMenuDivider/ActionMenuDivider',
           ]),
         },
       ],

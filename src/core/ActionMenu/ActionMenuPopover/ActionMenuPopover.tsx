@@ -61,10 +61,6 @@ export interface ActionMenuProviderState {
   onItemClick: (itemIndex: number) => void;
   /** Callback for communicating ActionMenuItem mouse over to parent  */
   onItemMouseOver: (itemIndex: number) => void;
-  /** ID of the Dropdown component.
-   * Used in DropdownItem to create a derived ID for each item
-   */
-  id: string | undefined;
   /** Index of the child that has aria active descendant status */
   activeDescendantIndex: number;
 }
@@ -72,7 +68,6 @@ export interface ActionMenuProviderState {
 const defaultProviderValue: ActionMenuProviderState = {
   onItemClick: () => null,
   onItemMouseOver: () => null,
-  id: '',
   activeDescendantIndex: -1,
 };
 
@@ -334,7 +329,6 @@ export const BaseActionMenuPopover = (
                 onItemMouseOver(itemIndex) {
                   itemMouseOver(itemIndex);
                 },
-                id: menuId,
                 activeDescendantIndex: activeChild,
               }}
             >
