@@ -20,4 +20,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     background-color: ${theme.colors.highlightLight4};
     opacity: 0;
   }
+
+  &.fi-expander--open {
+    border-bottom: none;
+  }
 `;

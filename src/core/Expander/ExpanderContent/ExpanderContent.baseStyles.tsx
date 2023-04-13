@@ -28,6 +28,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-expander_content--open {
     visibility: visible;
     height: auto;
+    /* Add border-bottom to this class and remove it from parent element to prevent
+    a scaling bug, where border-bottom sometimes disappears with Firefox */
+    border-bottom: 1px solid ${theme.colors.highlightBase};
+    /* Add border-top to prevent Safari/iOS browsers rendering subpixel top border */
+    border-top: 1px solid transparent;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     /* This is very robust - cannot animate dynamic height with height-definition */
