@@ -1,35 +1,38 @@
 ```js
 import { Link, Paragraph } from 'suomifi-ui-components';
 <>
-  <Paragraph>
-    <Link
-      className="test-classname"
-      href="https://www.notvisitedlink.com/"
-      underline="initial"
-    >
-      Not visited link
-    </Link>{' '}
-    <Link className="test-classname" href="#" underline="initial">
-      Visited link
-    </Link>{' '}
-    <Link
-      className="test-classname"
-      href="https://www.notvisitedlink.com/"
-      underline="hover"
-    >
-      Link without underline
-    </Link>
-  </Paragraph>
-  <Paragraph>
-    <Link
-      variant="accent"
-      className="test-classname"
-      href="https://www.notvisitedlink.com/"
-      underline="initial"
-    >
-      Not visited link
-    </Link>
-  </Paragraph>
+  <Link
+    className="test-classname"
+    href="https://www.notvisitedlink.com/"
+    underline="initial"
+  >
+    Not visited link
+  </Link>
+
+  <Link className="test-classname" href="#" underline="initial">
+    Visited link
+  </Link>
+
+  <Link href="https://www.notvisitedlink.com/" underline="hover">
+    Link without underline
+  </Link>
+
+  <Link
+    variant="accent"
+    href="https://www.notvisitedlink.com/"
+    underline="initial"
+  >
+    Arrow link
+  </Link>
+
+  <Link
+    variant="accent"
+    href="https://www.notvisitedlink.com/"
+    underline="initial"
+    smallScreen
+  >
+    Small text arrow link
+  </Link>
 </>;
 ```
 
@@ -49,9 +52,7 @@ import { SkipLink } from 'suomifi-ui-components';
     style={{
       height: '80px',
       width: '210px',
-      borderStyle: 'dashed',
-      borderColor: '#000',
-      borderWidth: '1px'
+      border: '1px dashed #000'
     }}
   >
     <SkipLink href="#">Skip to main content</SkipLink>
@@ -76,6 +77,13 @@ import { ExternalLink } from 'suomifi-ui-components';
     toNewWindow={false}
   >
     External link in same window
+  </ExternalLink>
+  <ExternalLink
+    href="https://designsystem.suomi.fi/fi/"
+    labelNewWindow="Opens to a new window"
+    variant="accent"
+  >
+    Accented external link
   </ExternalLink>
 </>;
 ```
@@ -120,6 +128,10 @@ const r = useRef();
 
 ### Link List
 
+A styled list for providing a list of links.
+
+Make sure you use a descriptive heading or a label with the list and link it to the list via the `ariaDescribedBy` prop. Make sure you use the right heading level semantically and use the `as` prop for changing the styling if needed.
+
 ```js
 import {
   Link,
@@ -129,41 +141,28 @@ import {
   LinkList,
   Heading
 } from 'suomifi-ui-components';
-import { forwardRef, useRef } from 'react';
-
-const Component = forwardRef((props, ref) => {
-  const { children, ...passProps } = props;
-  return (
-    <a {...passProps} ref={ref}>
-      Some component - {children}
-    </a>
-  );
-});
-
-const r = useRef();
 
 <div>
   <Heading variant="h5" as="h3" id="otsikko">
-    Hyödyllisiä linkkejä
+    Useful resources
   </Heading>
   <LinkList aria-describedby="otsikko">
     <LinkListItem>
-      <Link href="/">Linkki listassa</Link>
+      <Link href="/">A useful link</Link>
     </LinkListItem>
     <LinkListItem>
       <ExternalLink
         href="https://designsystem.suomi.fi/fi/"
         labelNewWindow="Opens to a new window"
       >
-        External link opens to new window
+        A useful resource on a third party site
       </ExternalLink>
     </LinkListItem>
     <LinkListItem>
       <RouterLink
         href="https://suomi.fi"
         target="_blank"
-        asComponent={Component}
-        ref={r}
+        asComponent="a"
       >
         Testing
       </RouterLink>
