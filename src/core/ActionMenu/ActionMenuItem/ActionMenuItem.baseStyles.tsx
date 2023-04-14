@@ -125,4 +125,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
   }
+
+  &.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+    .fi-link--router {
+      color: ${theme.colors.depthBase};
+    }
+  }
 `;
