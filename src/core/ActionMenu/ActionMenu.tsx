@@ -155,50 +155,40 @@ const BaseActionMenu = (props: ActionMenuProps) => {
         [actionMenuClassNames.fullWidth]: fullWidth,
       })}
     >
-      <>
-        <Button
-          id={buttonId}
-          variant="secondary"
-          iconRight="optionsVertical"
-          aria-expanded={menuVisible}
-          aria-controls={menuId}
-          forwardedRef={openButtonRef}
-          className={classnames(
-            actionMenuClassNames.button,
-            {
-              [actionMenuClassNames.buttonDisabled]: passProps.disabled,
-            },
-            {
-              [actionMenuClassNames.menuClosed]: !menuVisible,
-            },
-            {
-              [actionMenuClassNames.iconOnly]:
-                !buttonText || buttonText.length < 1,
-            },
-          )}
-          onClick={handleButtonClick}
-          onKeyDown={handleKeyDown}
-          onBlur={(event) => {
-            if (onBlur) {
-              onBlur(event);
-            }
-          }}
-          {...passProps}
-        >
-          {buttonText}
-          <VisuallyHidden>{openButtonLabel}</VisuallyHidden>
-        </Button>
-        {menuVisible && (
-          <ActionMenuPopover
-            menuId={menuId}
-            buttonId={buttonId}
-            openButtonRef={openButtonRef}
-            onClose={() => closeMenu()}
-            children={children}
-            initialActiveDescendant={selectFirstItem}
-          />
-        )}
-      </>
+      <Button
+        id={buttonId}
+        variant="secondary"
+        iconRight="optionsVertical"
+        aria-expanded={menuVisible}
+        aria-controls={menuId}
+        forwardedRef={openButtonRef}
+        className={classnames(actionMenuClassNames.button, {
+          [actionMenuClassNames.buttonDisabled]: passProps.disabled,
+          [actionMenuClassNames.menuClosed]: !menuVisible,
+          [actionMenuClassNames.iconOnly]: !buttonText || buttonText.length < 1,
+        })}
+        onClick={handleButtonClick}
+        onKeyDown={handleKeyDown}
+        onBlur={(event) => {
+          if (onBlur) {
+            onBlur(event);
+          }
+        }}
+        {...passProps}
+      >
+        {buttonText}
+        <VisuallyHidden>{openButtonLabel}</VisuallyHidden>
+      </Button>
+      {menuVisible && (
+        <ActionMenuPopover
+          menuId={menuId}
+          buttonId={buttonId}
+          openButtonRef={openButtonRef}
+          onClose={() => closeMenu()}
+          children={children}
+          initialActiveDescendant={selectFirstItem}
+        />
+      )}
     </HtmlDiv>
   );
 };
