@@ -53,41 +53,54 @@ exports[`calling render with the same component on the same container does not r
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
-.c1.fi-link--router {
+.c1.fi-link {
   color: hsl(212,63%,45%);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c1.fi-link--router:hover,
-.c1.fi-link--router:active,
-.c1.fi-link--router:focus,
-.c1.fi-link--router:focus-within {
+.c1.fi-link:hover,
+.c1.fi-link:active,
+.c1.fi-link:focus,
+.c1.fi-link:focus-within {
   color: hsl(212,63%,45%);
 }
 
-.c1.fi-link--router:focus,
-.c1.fi-link--router:focus-within {
+.c1.fi-link:focus,
+.c1.fi-link:focus-within {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c1.fi-link--router:focus {
+.c1.fi-link:focus {
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
   outline: 3px solid transparent;
 }
 
-.c1.fi-link--router:hover,
-.c1.fi-link--router:active {
+.c1.fi-link:hover,
+.c1.fi-link:active {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c1.fi-link--router:visited {
+.c1.fi-link:visited {
   color: hsl(284,36%,45%);
 }
 
@@ -108,8 +121,37 @@ exports[`calling render with the same component on the same container does not r
   text-decoration: none;
 }
 
+.c1.fi-link.fi-link--accent {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c1.fi-link.fi-link--accent .fi-link--accent_icon {
+  font-size: 16px;
+  margin-left: -3px;
+  margin-right: 2px;
+  -webkit-transform: translateY(0.1em);
+  -ms-transform: translateY(0.1em);
+  transform: translateY(0.1em);
+}
+
+.c1.fi-link.fi-link--small {
+  font-size: 16px;
+}
+
+.c1.fi-link.fi-link--small.fi-link--accent {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c1.fi-link.fi-link--small.fi-link--accent .fi-link--accent_icon {
+  -webkit-transform: translateY(0.15em);
+  -ms-transform: translateY(0.15em);
+  transform: translateY(0.15em);
+}
+
 <a
-  class="c0 fi-link--router c1"
+  class="c0 fi-link fi-link--router c1"
   data-testid="test-link"
   href="/"
 >

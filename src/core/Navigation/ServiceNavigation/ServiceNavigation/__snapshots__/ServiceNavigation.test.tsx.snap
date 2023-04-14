@@ -522,7 +522,37 @@ exports[`should match snapshot 1`] = `
   text-decoration: none;
 }
 
+.c10.fi-link.fi-link--accent {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c10.fi-link.fi-link--accent .fi-link--accent_icon {
+  font-size: 16px;
+  margin-left: -3px;
+  margin-right: 2px;
+  -webkit-transform: translateY(0.1em);
+  -ms-transform: translateY(0.1em);
+  transform: translateY(0.1em);
+}
+
+.c10.fi-link.fi-link--small {
+  font-size: 16px;
+}
+
+.c10.fi-link.fi-link--small.fi-link--accent {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c10.fi-link.fi-link--small.fi-link--accent .fi-link--accent_icon {
+  -webkit-transform: translateY(0.15em);
+  -ms-transform: translateY(0.15em);
+  transform: translateY(0.15em);
+}
+
 .c10 .fi-link_icon {
+  margin: 0;
   padding-left: 4px;
   font-size: 16px;
   box-sizing: content-box;
@@ -542,41 +572,54 @@ exports[`should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
-.c7.fi-link--router {
+.c7.fi-link {
   color: hsl(212,63%,45%);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c7.fi-link--router:hover,
-.c7.fi-link--router:active,
-.c7.fi-link--router:focus,
-.c7.fi-link--router:focus-within {
+.c7.fi-link:hover,
+.c7.fi-link:active,
+.c7.fi-link:focus,
+.c7.fi-link:focus-within {
   color: hsl(212,63%,45%);
 }
 
-.c7.fi-link--router:focus,
-.c7.fi-link--router:focus-within {
+.c7.fi-link:focus,
+.c7.fi-link:focus-within {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c7.fi-link--router:focus {
+.c7.fi-link:focus {
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
   outline: 3px solid transparent;
 }
 
-.c7.fi-link--router:hover,
-.c7.fi-link--router:active {
+.c7.fi-link:hover,
+.c7.fi-link:active {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c7.fi-link--router:visited {
+.c7.fi-link:visited {
   color: hsl(284,36%,45%);
 }
 
@@ -595,6 +638,35 @@ exports[`should match snapshot 1`] = `
 .c7.fi-link--initial-underline:active {
   -webkit-text-decoration: none;
   text-decoration: none;
+}
+
+.c7.fi-link.fi-link--accent {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c7.fi-link.fi-link--accent .fi-link--accent_icon {
+  font-size: 16px;
+  margin-left: -3px;
+  margin-right: 2px;
+  -webkit-transform: translateY(0.1em);
+  -ms-transform: translateY(0.1em);
+  transform: translateY(0.1em);
+}
+
+.c7.fi-link.fi-link--small {
+  font-size: 16px;
+}
+
+.c7.fi-link.fi-link--small.fi-link--accent {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c7.fi-link.fi-link--small.fi-link--accent .fi-link--accent_icon {
+  -webkit-transform: translateY(0.15em);
+  -ms-transform: translateY(0.15em);
+  transform: translateY(0.15em);
 }
 
 .c9 {
@@ -678,7 +750,7 @@ exports[`should match snapshot 1`] = `
       >
         <a
           aria-label="Inbox. 16 unread messages."
-          class="c6 fi-link--router c7"
+          class="c6 fi-link fi-link--router c7"
           href="/"
         >
           Inbox
@@ -699,7 +771,7 @@ exports[`should match snapshot 1`] = `
         class="c4 c5 fi-service-navigation-item"
       >
         <a
-          class="c6 fi-link c10 fi-link--router c7 fi-link--external"
+          class="c6 fi-link c10 fi-link fi-link--router c7 fi-link--external"
           href="https://suomi.fi"
           rel="noopener"
           target="_blank"
@@ -715,7 +787,7 @@ exports[`should match snapshot 1`] = `
       >
         <a
           aria-current="page"
-          class="c6 fi-link c10 fi-link--router c7 fi-link--external"
+          class="c6 fi-link c10 fi-link fi-link--router c7 fi-link--external"
           href="https://www.suomi.fi"
           rel="noopener"
           target="_blank"
@@ -730,7 +802,7 @@ exports[`should match snapshot 1`] = `
         class="c4 c5 fi-service-navigation-item"
       >
         <a
-          class="c6 fi-link c10 fi-link--router c7 fi-link--external"
+          class="c6 fi-link c10 fi-link fi-link--router c7 fi-link--external"
           href="https://www.suomi.fi"
           rel="noopener"
           target="_blank"
@@ -745,7 +817,7 @@ exports[`should match snapshot 1`] = `
         class="c4 c5 fi-service-navigation-item"
       >
         <div
-          class="fi-link--router c7"
+          class="fi-link fi-link--router c7"
         >
           Settings
         </div>
@@ -755,7 +827,7 @@ exports[`should match snapshot 1`] = `
         class="c4 c5 fi-service-navigation-item fi-service-navigation-item--disabled"
       >
         <a
-          class="c6 fi-link--router c7"
+          class="c6 fi-link fi-link--router c7"
         >
           Devices
         </a>

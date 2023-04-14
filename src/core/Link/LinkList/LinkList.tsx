@@ -25,9 +25,11 @@ const StyledLinkList = styled(
     theme,
     children,
     smallScreen,
+    forwardedRef,
     ...passProps
   }: LinkListProps & SuomifiThemeProp) => (
     <HtmlUlWithRef
+      ref={forwardedRef}
       {...passProps}
       className={classnames(className, LinkListClassName, {
         [SmallScreenClassName]: smallScreen,
