@@ -67,6 +67,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         cursor: not-allowed;
         .fi-link--router {
           padding-left: ${theme.spacing.m};
+          color: ${theme.colors.depthBase};
         }
       }
       .fi-link--router {
