@@ -90,7 +90,9 @@ const BaseActionMenuItem = (
         [disabledClassName]: disabled,
       })}
       onClick={() => {
-        consumer.onItemClick(itemIndex);
+        if (!disabled) {
+          consumer.onItemClick(itemIndex);
+        }
       }}
       onMouseOver={() => {
         consumer.onItemMouseOver(itemIndex);

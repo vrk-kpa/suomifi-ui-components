@@ -47,6 +47,9 @@ const [lastAction, setLastAction] = useState('');
       >
         Disabled
       </ActionMenuItem>
+      <ActionMenuItem href="#" icon="Search" disabled>
+        Disabled link
+      </ActionMenuItem>
     </ActionMenu>
   </div>
   <div>Last action: {lastAction}</div>
