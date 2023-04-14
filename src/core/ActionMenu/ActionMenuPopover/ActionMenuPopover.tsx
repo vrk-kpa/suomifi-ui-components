@@ -133,11 +133,11 @@ export const BaseActionMenuPopover = (
   }, [ulRef.current]);
 
   useEffect(() => {
+    // Timeout is needed for Safari + VoiceOver to read the active menu item when menu opens
     setTimeout(() => {
       if (initialActiveDescendant === 'first') {
         setActiveChild(0);
-      }
-      if (initialActiveDescendant === 'last') {
+      } else if (initialActiveDescendant === 'last') {
         setActiveChild(React.Children.count(children) - 1);
       }
     }, 100);
