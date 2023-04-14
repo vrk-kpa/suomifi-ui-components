@@ -18,6 +18,10 @@ export interface DropdownItemProps {
   children: ReactNode;
   /** Classname for item */
   className?: string;
+  /** Disables dropdown option
+   * @default false
+   */
+  disabled?: boolean;
 }
 
 interface BaseDropdownItemProps extends DropdownItemProps {
@@ -27,31 +31,46 @@ interface BaseDropdownItemProps extends DropdownItemProps {
 const dropdownItemClassNames = {
   hasKeyboardFocus: `${dropdownClassNames.item}--hasKeyboardFocus`,
   selected: `${dropdownClassNames.item}--selected`,
+  disabled: `${dropdownClassNames.item}--disabled`,
   noSelectedStyles: `${dropdownClassNames.item}--noSelectedStyles`,
   icon: `${dropdownClassNames.item}_icon`,
 };
 
 const BaseDropdownItem = (props: BaseDropdownItemProps & SuomifiThemeProp) => {
-  const { children, className, theme, consumer, value, ...passProps } = props;
+  const {
+    children,
+    className,
+    theme,
+    consumer,
+    value,
+    disabled = false,
+    ...passProps
+  } = props;
   const selected = consumer.selectedDropdownValue === value;
   const hasKeyboardFocus = consumer.focusedItemValue === value;
 
   const listElementId = `${consumer.id}-${value}`;
+
+  const handleClick = () => {
+    if (!disabled) {
+      consumer.onItemClick(value);
+    }
+  };
 
   return (
     <HtmlLi
       className={classnames(className, dropdownClassNames.item, {
         [dropdownItemClassNames.hasKeyboardFocus]: hasKeyboardFocus,
         [dropdownItemClassNames.selected]: selected,
+        [dropdownItemClassNames.disabled]: disabled,
         [dropdownItemClassNames.noSelectedStyles]: consumer.noSelectedStyles,
       })}
       tabIndex={-1}
       role="option"
+      aria-disabled={disabled}
       aria-selected={selected}
       id={listElementId}
-      onClick={() => {
-        consumer.onItemClick(value);
-      }}
+      onClick={handleClick}
       {...passProps}
     >
       {children}
