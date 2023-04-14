@@ -224,7 +224,7 @@ export const BaseActionMenuPopover = (
       // Call action of the child item
       const currentChild = React.Children.toArray(children)[activeChild];
 
-      if (React.isValidElement(currentChild)) {
+      if (React.isValidElement(currentChild) && !currentChild.props.disabled) {
         const childProps = currentChild.props;
 
         if (childProps.onClick) {
@@ -233,9 +233,11 @@ export const BaseActionMenuPopover = (
         if (childProps.href) {
           window.open(childProps.href, '_self');
         }
+
+        // Close the menu only if the child item is not disabled
+        handleClose();
       }
 
-      handleClose();
       event.preventDefault();
     }
 
