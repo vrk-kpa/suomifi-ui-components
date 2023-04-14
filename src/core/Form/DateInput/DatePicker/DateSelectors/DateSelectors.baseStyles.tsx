@@ -6,8 +6,10 @@ export const baseStyles = (
   yearSelectWidth: number,
   monthSelectWidth: number,
 ) => css`
-  & .fi-date-selectors_container {
+  &.fi-date-selectors_container {
     display: flex;
+    flex-wrap: wrap;
+    row-gap: ${theme.spacing.xs};
   }
 
   & .fi-date-selectors_year-select {
@@ -19,11 +21,16 @@ export const baseStyles = (
   }
 
   & .fi-date-selectors_month-select {
-    margin-right: ${theme.spacing.xs};
+    margin-right: ${theme.spacing.xxs};
     width: ${monthSelectWidth}px;
     .fi-dropdown_button {
       min-width: 145px;
     }
+  }
+
+  & .fi-date-selectors_buttons {
+    display: flex;
+    flex-wrap: nowrap;
   }
 
   & .fi-date-selectors_month-button {

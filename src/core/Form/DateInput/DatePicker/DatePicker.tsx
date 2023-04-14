@@ -37,7 +37,6 @@ export const datePickerClassNames = {
   slideIndicatorWrapper: `${baseClassName}_slide-indicator-wrapper`,
   application: `${baseClassName}_application`,
   bottomContainer: `${baseClassName}_bottom-container`,
-  bottomButton: `${baseClassName}_bottom-button`,
   popperArrow: `${baseClassName}_popper-arrow`,
 };
 
@@ -98,7 +97,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   const smallScreenAppRef = useRef<HTMLDivElement>(null);
   const yearSelectRef = useRef<HTMLButtonElement>(null);
   const monthSelectRef = useRef<HTMLButtonElement>(null);
-  const confirmButtonRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
   const dayButtonRef = useRef<HTMLButtonElement>(null);
 
   useEnhancedEffect(() => {
@@ -217,7 +216,7 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
     if (event.key === 'Tab') {
       // Trap focus to dialog
       const firstElement = yearSelectRef.current;
-      const lastElement = confirmButtonRef?.current;
+      const lastElement = closeButtonRef?.current;
       if (event.shiftKey && document.activeElement === firstElement) {
         event.preventDefault();
         lastElement?.focus();
@@ -341,11 +340,6 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       monthSelectRef.current.getAttribute('data-state') === 'expanded') ||
     false;
 
-  const handleConfirm = (): void => {
-    handleClose(true);
-    onChange(focusableDate);
-  };
-
   const handleClose = (focus: boolean = false): void => {
     setSelectedDate(null);
     setFocusedDate(null);
@@ -357,8 +351,9 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
   };
 
   const handleDateSelect = (date: Date): void => {
+    handleClose(true);
+    onChange(date);
     setFocusableDate(date);
-    setSelectedDate(date);
   };
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -458,19 +453,9 @@ export const BaseDatePicker = (props: InternalDatePickerProps) => {
       />
       <HtmlDiv className={datePickerClassNames.bottomContainer}>
         <Button
-          disabled={selectedDate === null}
-          onClick={() => handleConfirm()}
-          className={datePickerClassNames.bottomButton}
-          fullWidth={smallScreen}
-        >
-          {texts.selectButtonText}
-        </Button>
-        <Button
-          variant="secondary"
+          variant="secondaryNoBorder"
           onClick={() => handleClose(true)}
-          forwardedRef={confirmButtonRef}
-          className={datePickerClassNames.bottomButton}
-          fullWidth={smallScreen}
+          forwardedRef={closeButtonRef}
         >
           {texts.closeButtonText}
         </Button>

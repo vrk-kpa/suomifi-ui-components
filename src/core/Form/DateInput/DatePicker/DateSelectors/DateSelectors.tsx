@@ -25,6 +25,7 @@ export const selectorsClassNames = {
   container: `${baseClassName}_container`,
   yearSelect: `${baseClassName}_year-select`,
   monthSelect: `${baseClassName}_month-select`,
+  buttons: `${baseClassName}_buttons`,
   monthButton: `${baseClassName}_month-button`,
   monthButtonIcon: `${baseClassName}_month-button_icon`,
 };
@@ -144,30 +145,32 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
           ),
         )}
       </Dropdown>
-      <Button
-        onClick={() => handlePrevMonthButton()}
-        variant="secondaryNoBorder"
-        aria-label={getPrevMonthButtonLabel()}
-        className={selectorsClassNames.monthButton}
-        disabled={monthIsSame(focusableDate, minDate)}
-      >
-        <Icon
-          icon="chevronLeft"
-          className={selectorsClassNames.monthButtonIcon}
-        />
-      </Button>
-      <Button
-        onClick={() => handleNextMonthButton()}
-        variant="secondaryNoBorder"
-        aria-label={getNextMonthButtonLabel()}
-        className={selectorsClassNames.monthButton}
-        disabled={monthIsSame(focusableDate, maxDate)}
-      >
-        <Icon
-          icon="chevronRight"
-          className={selectorsClassNames.monthButtonIcon}
-        />
-      </Button>
+      <HtmlDiv className={selectorsClassNames.buttons}>
+        <Button
+          onClick={handlePrevMonthButton}
+          variant="secondaryNoBorder"
+          aria-label={getPrevMonthButtonLabel()}
+          className={selectorsClassNames.monthButton}
+          disabled={monthIsSame(focusableDate, minDate)}
+        >
+          <Icon
+            icon="chevronLeft"
+            className={selectorsClassNames.monthButtonIcon}
+          />
+        </Button>
+        <Button
+          onClick={handleNextMonthButton}
+          variant="secondaryNoBorder"
+          aria-label={getNextMonthButtonLabel()}
+          className={selectorsClassNames.monthButton}
+          disabled={monthIsSame(focusableDate, maxDate)}
+        >
+          <Icon
+            icon="chevronRight"
+            className={selectorsClassNames.monthButtonIcon}
+          />
+        </Button>
+      </HtmlDiv>
     </HtmlDiv>
   );
 };
