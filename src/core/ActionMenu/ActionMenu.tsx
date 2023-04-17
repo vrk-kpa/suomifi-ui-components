@@ -95,7 +95,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     useState<InitialActiveDescendant>('none');
 
   const menuId = `${id}-menu`;
-  const buttonId = `${id}-button`;
+  const buttonId = `${id}`;
 
   const openMenu = () => {
     if (onOpen) {
