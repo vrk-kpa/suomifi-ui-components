@@ -14,6 +14,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       height: 1px;
       width: 100%;
       background-color: ${theme.colors.depthLight1};
+
+      /* Support for high contrast mode */
+      @media (forced-colors: active) {
+        background-color: Highlight;
+      }
     }
   }
 `;
