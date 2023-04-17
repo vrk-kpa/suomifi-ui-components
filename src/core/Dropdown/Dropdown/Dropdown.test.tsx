@@ -167,6 +167,43 @@ describe('Dropdown with additional aria-label', () => {
   });
 });
 
+describe('DropdownOption', () => {
+  it('should be selected when item is clicked', async () => {
+    const BasicDropdown = TestDropdown({ labelText: 'Dropdown' });
+    const { getByRole, getAllByRole } = render(BasicDropdown);
+    const menuButton = getByRole('button') as HTMLButtonElement;
+    await act(async () => {
+      fireEvent.click(menuButton);
+    });
+    const option = getAllByRole('option')[0];
+    await act(async () => {
+      fireEvent.click(option);
+    });
+    expect(menuButton).toHaveTextContent('Item 1');
+  });
+
+  it('should not be selected when disabled', async () => {
+    const BasicDropdown = (
+      <Dropdown labelText="Dropdown" visualPlaceholder="Select value">
+        <DropdownItem value={'item-1'} disabled>
+          Item 1
+        </DropdownItem>
+        <DropdownItem value={'item-2'}>Item 2</DropdownItem>
+      </Dropdown>
+    );
+    const { getByRole, getAllByRole } = render(BasicDropdown);
+    const menuButton = getByRole('button') as HTMLButtonElement;
+    await act(async () => {
+      fireEvent.click(menuButton);
+    });
+    const option = getAllByRole('option')[0];
+    await act(async () => {
+      fireEvent.click(option);
+    });
+    expect(menuButton).toHaveTextContent('Select value');
+  });
+});
+
 describe('statusText', () => {
   it('has status text defined by prop', () => {
     const statusTextProps: DropdownProps = {

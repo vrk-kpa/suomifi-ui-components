@@ -112,6 +112,38 @@ const exampleRef = createRef();
 ```
 
 ```js
+import React from 'react';
+import { Dropdown, DropdownItem } from 'suomifi-ui-components';
+
+const [selectedValue, setSelectedValue] = React.useState(null);
+const [status, setStatus] = React.useState('default');
+
+<Dropdown
+  name="dropdown_example_1"
+  labelText="Dropdown with disabled option"
+  hintText="Some informative text"
+  status={status}
+  visualPlaceholder="Select a value"
+>
+  <DropdownItem value={'dropdown-item-1'}>
+    Dropdown Item 1
+  </DropdownItem>
+  <DropdownItem value={'dropdown-item-2'}>
+    Dropdown Item 2
+  </DropdownItem>
+  <DropdownItem value={'dropdown-item-3'} disabled>
+    Dropdown Item 3
+  </DropdownItem>
+  <DropdownItem value={'dropdown-item-4'}>
+    Dropdown Item 4
+  </DropdownItem>
+  <DropdownItem value={'dropdown-item-5'}>
+    Dropdown Item 5
+  </DropdownItem>
+</Dropdown>;
+```
+
+```js
 import { useState } from 'react';
 import { Dropdown, DropdownItem } from 'suomifi-ui-components';
 

@@ -246,11 +246,36 @@ class BaseDropdown extends Component<DropdownProps> {
     this.setState({ showPopover: false });
   }
 
+  private handleSpaceAndEnter = (
+    popoverItems: Array<ReactElement<DropdownItemProps>>,
+    getNextItem: () => ReactElement<DropdownItemProps>,
+  ) => {
+    const { focusedDescendantId, showPopover } = this.state;
+    if (!showPopover) {
+      this.openPopover();
+      if (!focusedDescendantId) {
+        const nextItem = getNextItem();
+        if (nextItem) {
+          this.setState({ focusedDescendantId: nextItem.props.value });
+        }
+      }
+    } else if (showPopover && focusedDescendantId) {
+      const focusedItem = popoverItems.find(
+        (item) => item?.props.value === focusedDescendantId,
+      );
+      if (focusedItem && !focusedItem.props.disabled) {
+        this.handleItemSelection(focusedItem.props.value);
+      }
+    }
+  };
+
   private handleKeyDown = (event: React.KeyboardEvent) => {
     const { focusedDescendantId, showPopover } = this.state;
     const popoverItems = Array.isArray(this.props.children)
       ? this.props.children
-      : [this.props.children];
+      : this.props.children !== undefined
+      ? [this.props.children]
+      : undefined;
     if (!popoverItems) return;
     const index = !!focusedDescendantId
       ? popoverItems.findIndex(
@@ -298,43 +323,13 @@ class BaseDropdown extends Component<DropdownProps> {
       case ' ': {
         event.preventDefault();
         this.setState({ showPopover: !showPopover });
-        if (!showPopover) {
-          this.openPopover();
-          if (!focusedDescendantId) {
-            const nextItem = getNextItem();
-            if (nextItem) {
-              this.setState({ focusedDescendantId: nextItem.props.value });
-            }
-          }
-        } else if (showPopover && focusedDescendantId) {
-          const focusedItem = popoverItems.find(
-            (item) => item?.props.value === focusedDescendantId,
-          );
-          if (focusedItem) {
-            this.handleItemSelection(focusedItem.props.value);
-          }
-        }
+        this.handleSpaceAndEnter(popoverItems, getNextItem);
         break;
       }
 
       case 'Enter': {
         event.preventDefault();
-        if (!showPopover) {
-          this.openPopover();
-          if (!focusedDescendantId) {
-            const nextItem = getNextItem();
-            if (nextItem) {
-              this.setState({ focusedDescendantId: nextItem.props.value });
-            }
-          }
-        } else if (focusedDescendantId && showPopover) {
-          const focusedItem = popoverItems.find(
-            (item) => item?.props.value === focusedDescendantId,
-          );
-          if (focusedItem) {
-            this.handleItemSelection(focusedItem.props.value);
-          }
-        }
+        this.handleSpaceAndEnter(popoverItems, getNextItem);
         break;
       }
 

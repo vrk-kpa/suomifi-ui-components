@@ -49,6 +49,15 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
 
+    &--disabled {
+      color: ${theme.colors.depthBase};
+      cursor: not-allowed;
+
+      &:hover {
+        color: ${theme.colors.depthBase};
+      }
+    }
+
     @media (forced-colors: active) {
       &--hasKeyboardFocus,
       &:hover {

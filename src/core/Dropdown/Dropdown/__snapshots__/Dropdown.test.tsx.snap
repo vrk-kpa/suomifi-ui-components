@@ -569,6 +569,15 @@ exports[`Basic dropdown should match snapshot 1`] = `
   color: hsl(0,0%,100%);
 }
 
+.c12.fi-dropdown_item--disabled {
+  color: hsl(202,7%,67%);
+  cursor: not-allowed;
+}
+
+.c12.fi-dropdown_item--disabled:hover {
+  color: hsl(202,7%,67%);
+}
+
 @media (forced-colors:active) {
   .c12.fi-dropdown_item--hasKeyboardFocus,
   .c12.fi-dropdown_item:hover {
@@ -652,6 +661,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
           class="c2 fi-select-item-list_content_wrapper"
         >
           <li
+            aria-disabled="false"
             aria-selected="false"
             class="c11 c12 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus"
             id="test-id-item-1"
@@ -661,6 +671,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
             Item 1
           </li>
           <li
+            aria-disabled="false"
             aria-selected="false"
             class="c11 c12 fi-dropdown_item"
             id="test-id-item-2"
@@ -1269,6 +1280,15 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
   color: hsl(0,0%,100%);
 }
 
+.c12.fi-dropdown_item--disabled {
+  color: hsl(202,7%,67%);
+  cursor: not-allowed;
+}
+
+.c12.fi-dropdown_item--disabled:hover {
+  color: hsl(202,7%,67%);
+}
+
 @media (forced-colors:active) {
   .c12.fi-dropdown_item--hasKeyboardFocus,
   .c12.fi-dropdown_item:hover {
@@ -1354,6 +1374,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
           class="c2 fi-select-item-list_content_wrapper"
         >
           <li
+            aria-disabled="false"
             aria-selected="false"
             class="c11 c12 fi-dropdown_item"
             id="test-id-item-1"
@@ -1363,6 +1384,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
             Item 1
           </li>
           <li
+            aria-disabled="false"
             aria-selected="true"
             class="c11 c12 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus fi-dropdown_item--selected"
             id="test-id-item-2"
@@ -1963,6 +1985,15 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
   color: hsl(0,0%,100%);
 }
 
+.c12.fi-dropdown_item--disabled {
+  color: hsl(202,7%,67%);
+  cursor: not-allowed;
+}
+
+.c12.fi-dropdown_item--disabled:hover {
+  color: hsl(202,7%,67%);
+}
+
 @media (forced-colors:active) {
   .c12.fi-dropdown_item--hasKeyboardFocus,
   .c12.fi-dropdown_item:hover {
@@ -2046,6 +2077,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
           class="c2 fi-select-item-list_content_wrapper"
         >
           <li
+            aria-disabled="false"
             aria-selected="false"
             class="c11 c12 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus"
             id="test-id-item-1"
@@ -2055,6 +2087,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
             Item 1
           </li>
           <li
+            aria-disabled="false"
             aria-selected="false"
             class="c11 c12 fi-dropdown_item"
             id="test-id-item-2"
