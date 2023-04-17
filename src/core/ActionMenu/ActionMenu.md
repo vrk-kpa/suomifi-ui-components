@@ -20,6 +20,7 @@ const [lastAction, setLastAction] = useState('');
       onOpen={() => console.log('open')}
       onClose={() => console.log('close')}
       disabled={false}
+      id="my-id"
     >
       <ActionMenuItem onClick={() => setLastAction('Copy')}>
         Copy
