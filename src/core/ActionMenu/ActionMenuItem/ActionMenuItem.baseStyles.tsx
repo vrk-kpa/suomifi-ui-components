@@ -31,19 +31,14 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       border: none;
       align-items: center;
 
-      &:focus {
-        outline: 0;
-        border: none;
-        box-shadow: none;
-        color: ${theme.colors.blackBase};
+      &:hover,
+      &:active {
+        color: ${theme.colors.whiteBase};
       }
 
-      &:hover,
-      &:active,
+      &:focus,
       &:visited {
-        text-decoration: none;
         color: ${theme.colors.blackBase};
-        align-items: center;
       }
 
       & > .fi-action-menu-item_icon {
