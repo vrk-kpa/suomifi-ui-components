@@ -50,8 +50,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         width: 16px;
         height: 16px;
         margin-right: ${theme.spacing.insetM};
-        vertical-align: middle;
-        transform: translateY(-0.1em);
 
         &.fi-action-menu-item_icon--right {
           margin-right: 0;
@@ -121,6 +119,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
         .fi-action-menu-item_icon {
           margin-right: ${theme.spacing.insetM};
+        }
+
+        @media (forced-colors: active) {
+          /*  background-color: Highlight; */
         }
       }
     }
