@@ -21,10 +21,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     margin-bottom: ${theme.spacing.m};
 
-    &--no-scroll {
-      margin-bottom: ${theme.spacing.xs};
-    }
-
     &--small-screen {
       margin-bottom: ${theme.spacing.m};
     }
