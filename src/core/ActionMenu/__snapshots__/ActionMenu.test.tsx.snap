@@ -1915,7 +1915,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 </body>
 `;
 
-exports[`Movement in ActionMenu should match snapshot 1`] = `
+exports[`movement in ActionMenu should match snapshot 1`] = `
 .c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
