@@ -453,7 +453,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
         aria-expanded="false"
         class="c2 fi-button c3 fi-action-menu_button fi-action-menu_button--menu--closed fi-button--secondary"
         id="test-id"
-        name="am-test"
+        name="am-test-name"
         tabindex="0"
         type="button"
       >
@@ -1331,7 +1331,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
         aria-expanded="true"
         class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
         id="test-id"
-        name="am-test"
+        name="am-test-name"
         tabindex="0"
         type="button"
       >
@@ -1884,7 +1884,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
         class="c2 fi-button c3 fi-action-menu_button fi-action-menu_button--disabled fi-action-menu_button--menu--closed fi-button--disabled fi-button--secondary"
         disabled=""
         id="test-id"
-        name="am-test"
+        name="am-test-name"
         type="button"
       >
         Actions
@@ -2761,7 +2761,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         aria-expanded="true"
         class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
         id="test-id"
-        name="am-test"
+        name="am-test-name"
         tabindex="0"
         type="button"
       >
