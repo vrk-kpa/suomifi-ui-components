@@ -5,10 +5,10 @@ import { ActionMenuItem } from '../ActionMenu/ActionMenuItem';
 import { ActionMenuDivider } from '../ActionMenu/ActionMenuDivider/ActionMenuDivider';
 import { axeTest } from '../../utils/test';
 
-const actionMenuProps = {
+const actionMenuProps: ActionMenuProps = {
   buttonText: 'Actions',
   openButtonLabel: 'ActionMenuTest',
-  name: 'am-test',
+  name: 'am-test-name',
   className: 'am-test',
   id: 'test-id',
   wrapperProps: {
@@ -19,12 +19,10 @@ const actionMenuProps = {
 
 const TestActionMenu = (props: ActionMenuProps) => (
   <ActionMenu {...props}>
-    <ActionMenuItem itemIndex={4}>Item 1</ActionMenuItem>
-    <ActionMenuItem itemIndex={4}>Item 2</ActionMenuItem>
+    <ActionMenuItem>Item 1</ActionMenuItem>
+    <ActionMenuItem>Item 2</ActionMenuItem>
     <ActionMenuDivider />
-    <ActionMenuItem itemIndex={4} href="/testpath">
-      Item 3
-    </ActionMenuItem>
+    <ActionMenuItem href="/testpath">Item 3</ActionMenuItem>
   </ActionMenu>
 );
 
@@ -38,6 +36,7 @@ describe('Basic ActionMenu', () => {
     expect(wrapperDiv).toHaveAttribute('id', 'wrapper-id');
     const button = await findByRole('button');
     expect(button).toHaveAttribute('id', 'test-id');
+    expect(button).toHaveAttribute('name', 'am-test-name');
   });
 
   it('should have button text', async () => {
@@ -92,13 +91,22 @@ describe('movement in ActionMenu', () => {
 
     await act(async () => {
       fireEvent.click(menuButton);
+
+      await new Promise((resolve) => {
+        setTimeout(resolve, 100);
+      });
     });
 
     await act(async () => {
       fireEvent.keyPress(baseElement, {
         key: 'ArrowDown',
       });
+
+      await new Promise((resolve) => {
+        setTimeout(resolve, 10);
+      });
     });
+
     expect(baseElement).toMatchSnapshot();
   });
 });
