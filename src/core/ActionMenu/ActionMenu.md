@@ -21,6 +21,7 @@ const [lastAction, setLastAction] = useState('');
       onClose={() => console.log('close')}
       disabled={false}
       id="my-id"
+      openButtonLabel="Open menu"
     >
       <ActionMenuItem onClick={() => setLastAction('Copy')}>
         Copy
@@ -37,18 +38,18 @@ const [lastAction, setLastAction] = useState('');
       </ActionMenuItem>
       <ActionMenuItem
         onClick={() => setLastAction('Remove')}
-        icon="Search"
+        icon="remove"
       >
         Remove
       </ActionMenuItem>
       <ActionMenuItem
         onClick={() => setLastAction('Disabled')}
-        icon="Search"
+        icon="reply"
         disabled
       >
         Disabled
       </ActionMenuItem>
-      <ActionMenuItem href="#" icon="Search" disabled>
+      <ActionMenuItem href="#" icon="chat" disabled>
         Disabled link
       </ActionMenuItem>
     </ActionMenu>
