@@ -28,8 +28,8 @@ export interface ActionMenuItemProps {
   href?: string;
   /** Called when menu item is clicked */
   onClick?: () => void;
-  /** Index number of the child. Internal use only */
-  itemIndex: number;
+
+  itemIndex?: number; // Index number of the child. For internal use only. Added by ActionMenuPopover.
 }
 
 interface BaseActionMenuItemProps extends ActionMenuItemProps {
@@ -84,11 +84,11 @@ const BaseActionMenuItem = (
       })}
       onClick={() => {
         if (!disabled) {
-          consumer.onItemClick(itemIndex);
+          consumer.onItemClick(itemIndex || -1);
         }
       }}
       onMouseOver={() => {
-        consumer.onItemMouseOver(itemIndex);
+        consumer.onItemMouseOver(itemIndex || -1);
       }}
       tabIndex={-1}
     >
