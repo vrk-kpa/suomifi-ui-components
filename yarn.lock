@@ -12224,10 +12224,10 @@ suomifi-design-tokens@5.0.0:
   resolved "https://registry.yarnpkg.com/suomifi-design-tokens/-/suomifi-design-tokens-5.0.0.tgz#773de7faeb3136387587bbc3151e65b6201a77ad"
   integrity sha512-hdDFKkiXNV0n1WvozR3ELTmMUoRaG8Wn6Jsg2SM5HzhwDx5MyBbDuuYGujuepCCsI6bp1P9c6TIb22H6w1/szA==
 
-suomifi-icons@7.0.0-beta.0:
-  version "7.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-7.0.0-beta.0.tgz#38cbdbf0bc5495759678e54711cb4df194a97893"
-  integrity sha512-R8uiktAlEkf02oDcvBd3bCG/BlbI50jbwKdkc3vrpein0zyLWi8wY3e4khZ3Y3pkMJ12Yqj1ioJ1JpR/ajmA4g==
+suomifi-icons@7.0.0-beta.2:
+  version "7.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/suomifi-icons/-/suomifi-icons-7.0.0-beta.2.tgz#22ad4da7c08340ab2ca2fb61844314dedcb0820a"
+  integrity sha512-p/Wq2bJTm+wbhsI8IWgER32UdysM6wXCYJb4+1D3nJ6g+emvmZWYA9KDPX7fVctIjs330SZgxdxRuk58T1b9Eg==
   dependencies:
     classnames "^2.3.1"
 
