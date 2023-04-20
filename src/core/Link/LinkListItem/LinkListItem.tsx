@@ -19,19 +19,13 @@ const listLinkClassNames = {
 export interface LinkListItemProps extends Omit<HtmlLiProps, 'className'> {
   /** Ref  is passed to the anchor element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLLIElement>;
-  /**
-   * Custom icon to use for the list item
-   */
+  /** Custom icon to use for the list item */
   icon?: BaseIconKeys;
-  /**
-   * The link element of the list item
-   */
+  /** The link element of the list item */
   children: ReactElement<
     LinkProps | ExternalLinkProps | RouterLinkProps<React.ElementType>
   >;
-  /**
-   * Custom className for list item
-   */
+  /** Custom className for list item */
   className?: string;
 }
 

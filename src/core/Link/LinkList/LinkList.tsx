@@ -13,9 +13,7 @@ export interface LinkListProps extends HtmlUlProps {
   forwardedRef?: React.Ref<HTMLUListElement>;
   /** Id of the heading or label of the list */
   ariaDescribedBy: string;
-  /**
-   * Set 16px font size for the list elements
-   */
+  /** Set 16px font size for the list elements */
   smallScreen?: boolean;
 }
 
