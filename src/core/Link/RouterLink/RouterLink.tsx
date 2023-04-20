@@ -133,7 +133,7 @@ const PolymorphicLink = <C extends React.ElementType>(
     return (
       <Component className={classNames} ref={forwardedRef} {...passProps}>
         {variant === 'accent' && (
-          <Icon icon={'chevronRight'} color={theme.colors.accentBase} />
+          <Icon icon="chevronRight" color={theme.colors.accentBase} />
         )}
         {children}
       </Component>

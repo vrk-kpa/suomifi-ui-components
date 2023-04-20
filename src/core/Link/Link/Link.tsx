@@ -38,7 +38,7 @@ const StyledLink = styled(
     >
       {variant === 'accent' && (
         <Icon
-          icon={'chevronRight'}
+          icon="chevronRight"
           color={theme.colors.accentBase}
           className={linkClassNames.accentIcon}
         />

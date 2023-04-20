@@ -48,7 +48,7 @@ const StyledLinkListItem = styled(
         {!!icon ? (
           <Icon icon={icon} />
         ) : (
-          <Icon icon={'chevronRight'} color={theme.colors.highlightBase} />
+          <Icon icon="chevronRight" color={theme.colors.highlightBase} />
         )}
       </HtmlSpan>
       {children}

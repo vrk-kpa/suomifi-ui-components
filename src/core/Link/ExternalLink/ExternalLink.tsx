@@ -67,7 +67,7 @@ class BaseExternalLink extends Component<ExternalLinkProps & SuomifiThemeProp> {
       >
         {variant === 'accent' && (
           <Icon
-            icon={'chevronRight'}
+            icon="chevronRight"
             color={theme.colors.accentBase}
             className={linkClassNames.accentIcon}
           />
