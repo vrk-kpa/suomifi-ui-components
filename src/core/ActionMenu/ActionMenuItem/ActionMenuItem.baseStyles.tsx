@@ -35,13 +35,14 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         margin-right: ${theme.spacing.insetM};
         width: 16px;
         height: 16px;
+        pointer-events: none;
       }
     }
 
     &--disabled {
+      cursor: not-allowed;
       .fi-link--router {
         color: ${theme.colors.depthBase};
-        cursor: not-allowed;
         pointer-events: none;
 
         &:active,
@@ -49,10 +50,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         &:hover,
         &:visited {
           color: ${theme.colors.depthBase};
-        }
-
-        .fi-action-menu-item_icon {
-          cursor: not-allowed;
         }
       }
     }
@@ -79,6 +76,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   &.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+    cursor: not-allowed;
     .fi-link--router {
       color: ${theme.colors.depthBase};
     }

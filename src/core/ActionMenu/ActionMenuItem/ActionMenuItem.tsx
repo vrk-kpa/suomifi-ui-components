@@ -1,6 +1,7 @@
 import React, { ReactNode, AriaRole } from 'react';
 import classnames from 'classnames';
-import { HtmlLi } from '../../../reset';
+import { HtmlLi, HtmlButton, HtmlA } from '../../../reset';
+
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { baseStyles } from './ActionMenuItem.baseStyles';
 import styled from 'styled-components';
@@ -52,12 +53,12 @@ interface RenderComponentProps {
 
 const ButtonComponent = (props: RenderComponentProps) => {
   const { children, ...passProps } = props;
-  return <button {...passProps}>{props.children}</button>;
+  return <HtmlButton {...passProps}>{props.children}</HtmlButton>;
 };
 
 const LinkComponent = (props: RenderComponentProps) => {
   const { children, ...passProps } = props;
-  return <a {...passProps}>{children}</a>;
+  return <HtmlA {...passProps}>{children}</HtmlA>;
 };
 
 const BaseActionMenuItem = (
