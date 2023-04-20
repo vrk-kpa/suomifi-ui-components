@@ -68,7 +68,7 @@ const BaseActionMenuItem = (
     children,
     disabled,
     consumer,
-    itemIndex,
+    itemIndex = -1,
     icon,
     iconProps = { className: undefined },
     ...passProps
@@ -84,11 +84,11 @@ const BaseActionMenuItem = (
       })}
       onClick={() => {
         if (!disabled) {
-          consumer.onItemClick(itemIndex || -1);
+          consumer.onItemClick(itemIndex);
         }
       }}
       onMouseOver={() => {
-        consumer.onItemMouseOver(itemIndex || -1);
+        consumer.onItemMouseOver(itemIndex);
       }}
       tabIndex={-1}
     >
