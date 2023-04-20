@@ -486,6 +486,44 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 `;
 
 exports[`Basic ActionMenu should match snapshot 2`] = `
+.c14 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c14::before,
+.c14::after {
+  box-sizing: border-box;
+}
+
+.c14:hover,
+.c14:active,
+.c14:focus,
+.c14:focus-within {
+  color: inherit;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -859,11 +897,15 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   margin-right: 8px;
   width: 16px;
   height: 16px;
+  pointer-events: none;
+}
+
+.c11.fi-action-menu-item--disabled {
+  cursor: not-allowed;
 }
 
 .c11.fi-action-menu-item--disabled .fi-link--router {
   color: hsl(202,7%,67%);
-  cursor: not-allowed;
   pointer-events: none;
 }
 
@@ -872,10 +914,6 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
 .c11.fi-action-menu-item--disabled .fi-link--router:hover,
 .c11.fi-action-menu-item--disabled .fi-link--router:visited {
   color: hsl(202,7%,67%);
-}
-
-.c11.fi-action-menu-item--disabled .fi-link--router .fi-action-menu-item_icon {
-  cursor: not-allowed;
 }
 
 .c11.fi-action-menu-item--selected .fi-link--router {
@@ -891,6 +929,10 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   text-decoration: none;
   color: hsl(0,0%,100%);
   cursor: pointer;
+}
+
+.c11.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+  cursor: not-allowed;
 }
 
 .c11.fi-action-menu-item--selected.fi-action-menu-item--disabled .fi-link--router {
@@ -1379,9 +1421,10 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
           tabindex="-1"
         >
           <button
-            class="fi-link--router c12"
+            class="c2 fi-link--router c12"
             id="0-menu-item"
             role="menuitem"
+            type="button"
           >
             Item 1
           </button>
@@ -1391,9 +1434,10 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
           tabindex="-1"
         >
           <button
-            class="fi-link--router c12"
+            class="c2 fi-link--router c12"
             id="1-menu-item"
             role="menuitem"
+            type="button"
           >
             Item 2
           </button>
@@ -1410,7 +1454,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
           tabindex="-1"
         >
           <a
-            class="fi-link--router c12"
+            class="c14 fi-link--router c12"
             href="/testpath"
             id="3-menu-item"
             role="menuitem"
@@ -1916,6 +1960,44 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 `;
 
 exports[`movement in ActionMenu should match snapshot 1`] = `
+.c14 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c14::before,
+.c14::after {
+  box-sizing: border-box;
+}
+
+.c14:hover,
+.c14:active,
+.c14:focus,
+.c14:focus-within {
+  color: inherit;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -2289,11 +2371,15 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   margin-right: 8px;
   width: 16px;
   height: 16px;
+  pointer-events: none;
+}
+
+.c11.fi-action-menu-item--disabled {
+  cursor: not-allowed;
 }
 
 .c11.fi-action-menu-item--disabled .fi-link--router {
   color: hsl(202,7%,67%);
-  cursor: not-allowed;
   pointer-events: none;
 }
 
@@ -2302,10 +2388,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 .c11.fi-action-menu-item--disabled .fi-link--router:hover,
 .c11.fi-action-menu-item--disabled .fi-link--router:visited {
   color: hsl(202,7%,67%);
-}
-
-.c11.fi-action-menu-item--disabled .fi-link--router .fi-action-menu-item_icon {
-  cursor: not-allowed;
 }
 
 .c11.fi-action-menu-item--selected .fi-link--router {
@@ -2321,6 +2403,10 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   text-decoration: none;
   color: hsl(0,0%,100%);
   cursor: pointer;
+}
+
+.c11.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+  cursor: not-allowed;
 }
 
 .c11.fi-action-menu-item--selected.fi-action-menu-item--disabled .fi-link--router {
@@ -2809,9 +2895,10 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
           tabindex="-1"
         >
           <button
-            class="fi-link--router c12"
+            class="c2 fi-link--router c12"
             id="0-menu-item"
             role="menuitem"
+            type="button"
           >
             Item 1
           </button>
@@ -2821,9 +2908,10 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
           tabindex="-1"
         >
           <button
-            class="fi-link--router c12"
+            class="c2 fi-link--router c12"
             id="1-menu-item"
             role="menuitem"
+            type="button"
           >
             Item 2
           </button>
@@ -2840,7 +2928,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
           tabindex="-1"
         >
           <a
-            class="fi-link--router c12"
+            class="c14 fi-link--router c12"
             href="/testpath"
             id="3-menu-item"
             role="menuitem"
