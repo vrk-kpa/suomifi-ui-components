@@ -666,7 +666,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
             class="c11 c12 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus"
             id="test-id-item-1"
             role="option"
-            tabindex="-1"
+            tabindex="0"
           >
             Item 1
           </li>
@@ -1389,7 +1389,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
             class="c11 c12 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus fi-dropdown_item--selected"
             id="test-id-item-2"
             role="option"
-            tabindex="-1"
+            tabindex="0"
           >
             Item 2
             <svg
@@ -2082,7 +2082,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
             class="c11 c12 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus"
             id="test-id-item-1"
             role="option"
-            tabindex="-1"
+            tabindex="0"
           >
             Item 1
           </li>
