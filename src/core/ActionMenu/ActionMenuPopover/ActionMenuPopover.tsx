@@ -8,11 +8,6 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlDivWithRef, HtmlUlWithRef } from '../../../reset';
 import { getLogger } from '../../../utils/log';
 import { baseStyles } from './ActionMenuPopover.baseStyles';
-import {
-  ActionMenuItem,
-  ActionMenuItemProps,
-} from '../ActionMenuItem/ActionMenuItem';
-import { ActionMenuDividerProps } from '../ActionMenuDivider/ActionMenuDivider';
 
 const baseClassName = 'fi-action-menu-popover';
 
@@ -32,18 +27,12 @@ export interface InternalActionMenuPopoverProps {
   /** Styled component className */
   className?: string;
   /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
-  children?:
-    | Array<
-        | React.ReactElement<ActionMenuItemProps>
-        | React.ReactElement<ActionMenuDividerProps>
-      >
-    | React.ReactElement<ActionMenuItemProps>
-    | React.ReactElement<ActionMenuDividerProps>;
-
+  children?: ReactNode;
+  /** Id given to menu `<ul>` element */
   menuId: string;
-
+  /** Id of the menu opne button */
   buttonId: string;
-
+  /** Initial active menu item */
   initialActiveDescendant: InitialActiveDescendant;
 }
 
@@ -163,7 +152,8 @@ export const BaseActionMenuPopover = (
   };
 
   // Decide if the node can be active descendant or not (is it a menu item or divider)
-  const isActivable = (child: any) => child?.type === ActionMenuItem;
+  const isActivable = (child: any) =>
+    child?.type?.displayName === 'ActionMenuItem';
 
   // Find next child that can be active descendant
   const nextActivable = (current: number) => {
@@ -301,21 +291,15 @@ export const BaseActionMenuPopover = (
   }
 
   const menuItems = (childs: ReactNode) =>
-    React.Children.map(
-      childs,
-      (child: React.ReactElement<ActionMenuItemProps>, index) => {
-        // Add itemIndex prop to clickable items
-        if (React.isValidElement(child) && child.type === ActionMenuItem) {
-          return React.cloneElement(
-            child as React.ReactElement<ActionMenuItemProps>,
-            {
-              itemIndex: index,
-            },
-          );
-        }
-        return child;
-      },
-    );
+    React.Children.map(childs, (child, index) => {
+      // Add itemIndex prop to clickable items
+      if (React.isValidElement(child) && isActivable(child)) {
+        return React.cloneElement(child as React.ReactElement<any>, {
+          itemIndex: index,
+        });
+      }
+      return child;
+    });
 
   const itemMouseOver = (value: number) => {
     setActiveChild(value);
