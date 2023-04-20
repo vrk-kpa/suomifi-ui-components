@@ -36,15 +36,6 @@ export interface InternalActionMenuPopoverProps {
   initialActiveDescendant: InitialActiveDescendant;
 }
 
-export interface SingleSelectData {
-  /** Unique label that will be shown on SingleSelect item and used on filter */
-  labelText: string;
-  /** Item selection disabled for the user */
-  disabled?: boolean;
-  /** Unique id to identify the item */
-  uniqueItemId: string;
-}
-
 export interface ActionMenuProviderState {
   /** Callback for communicating ActionMenuItem click to parent  */
   onItemClick: (itemIndex: number) => void;
