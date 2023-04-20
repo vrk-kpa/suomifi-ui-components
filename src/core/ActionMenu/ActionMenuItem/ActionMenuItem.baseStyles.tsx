@@ -22,6 +22,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       cursor: pointer;
       background: inherit;
       border: none;
+      border-radius: 0;
       align-items: center;
 
       &:active,
