@@ -1,7 +1,6 @@
 import React, { ReactNode, AriaRole } from 'react';
 import classnames from 'classnames';
 import { HtmlLi, HtmlButton, HtmlA } from '../../../reset';
-
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { baseStyles } from './ActionMenuItem.baseStyles';
 import styled from 'styled-components';
@@ -29,12 +28,11 @@ export interface ActionMenuItemProps {
   href?: string;
   /** Called when menu item is clicked */
   onClick?: () => void;
-
-  itemIndex?: number; // Index number of the child. For internal use only. Added by ActionMenuPopover.
 }
 
 interface BaseActionMenuItemProps extends ActionMenuItemProps {
   consumer: ActionMenuProviderState;
+  itemIndex?: number; // Index number of the child. For internal use only. Added by ActionMenuPopover.
 }
 
 const baseClassName = 'fi-action-menu-item';
