@@ -78,6 +78,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     border-top-color: ${theme.colors.whiteBase};
     border-width: 8px;
     margin-right: -9px;
-    left: 1px;
+    left: -8px;
   }
 `;
