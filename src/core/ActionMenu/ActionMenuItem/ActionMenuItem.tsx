@@ -86,6 +86,10 @@ const BaseActionMenuItem = (
           consumer.onItemClick(itemIndex);
         }
       }}
+      onMouseDown={(event) => {
+        // Prevents li from "stealing" focus from ul
+        event.preventDefault();
+      }}
       onMouseOver={() => {
         consumer.onItemMouseOver(itemIndex);
       }}

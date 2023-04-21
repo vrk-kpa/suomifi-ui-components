@@ -69,8 +69,17 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           cursor: pointer;
         }
 
-        @media (forced-colors: active) {
-          background-color: Highlight;
+        &:after {
+          content: '';
+
+          @media (forced-colors: active) {
+            position: absolute;
+            left: 1px;
+            right: 1px;
+            top: 1px;
+            bottom: 1px;
+            border: solid 3px Highlight;
+          }
         }
       }
     }
