@@ -21,10 +21,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     flex-direction: column;
     justify-content: space-between;
     list-style-type: none;
-
-    &:focus {
-      outline: 3px solid transparent;
-    }
   }
 
   /* Arrow base */
