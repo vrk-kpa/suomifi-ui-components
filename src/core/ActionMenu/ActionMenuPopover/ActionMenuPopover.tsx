@@ -13,8 +13,7 @@ const baseClassName = 'fi-action-menu-popover';
 
 export const actionMenuClassNames = {
   baseClassName,
-  hidden: `${baseClassName}--hidden`,
-  application: `${baseClassName}_application`,
+  list: `${baseClassName}_list`,
   popperArrow: `${baseClassName}_popper-arrow`,
 };
 
@@ -324,7 +323,7 @@ export const BaseActionMenuPopover = (
                 aria-activedescendant={`${activeChild}-menu-item`}
                 aria-labelledby={buttonId}
                 tabIndex={-1}
-                className={actionMenuClassNames.application}
+                className={actionMenuClassNames.list}
                 forwardRef={ulRef}
               >
                 {menuItems(children)}
