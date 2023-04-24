@@ -163,6 +163,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
         iconRight="optionsVertical"
         aria-expanded={menuVisible}
         aria-controls={menuId}
+        aria-haspopup="menu"
         forwardedRef={openButtonRef}
         className={classnames(actionMenuClassNames.button, {
           [actionMenuClassNames.buttonDisabled]: passProps.disabled,
