@@ -451,6 +451,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
         aria-controls="test-id-menu"
         aria-disabled="false"
         aria-expanded="false"
+        aria-haspopup="menu"
         class="c2 fi-button c3 fi-action-menu_button fi-action-menu_button--menu--closed fi-button--secondary"
         id="test-id"
         name="am-test-name"
@@ -743,7 +744,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   border-radius: 2px;
 }
 
-.c8 .fi-action-menu-popover_application {
+.c8 .fi-action-menu-popover_list {
   padding-top: 8px;
   padding-bottom: 8px;
   margin: 0;
@@ -760,6 +761,10 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   list-style-type: none;
+}
+
+.c8 .fi-action-menu-popover_list:focus {
+  outline: none;
 }
 
 .c8 .fi-action-menu-popover_popper-arrow::before,
@@ -1377,6 +1382,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
         aria-controls="test-id-menu"
         aria-disabled="false"
         aria-expanded="true"
+        aria-haspopup="menu"
         class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
         id="test-id"
         name="am-test-name"
@@ -1410,14 +1416,14 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   </div>
   <div
     class="c7 c8 fi-action-menu-popover"
-    role="dialog"
+    role="menu"
     style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 10px);"
   >
     <div>
       <ul
         aria-activedescendant="0-menu-item"
         aria-labelledby="test-id"
-        class="c9 fi-action-menu-popover_application"
+        class="c9 fi-action-menu-popover_list"
         id="test-id-menu"
         role="menu"
         tabindex="-1"
@@ -1931,6 +1937,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
         aria-controls="test-id-menu"
         aria-disabled="true"
         aria-expanded="false"
+        aria-haspopup="menu"
         class="c2 fi-button c3 fi-action-menu_button fi-action-menu_button--disabled fi-action-menu_button--menu--closed fi-button--disabled fi-button--secondary"
         disabled=""
         id="test-id"
@@ -2223,7 +2230,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   border-radius: 2px;
 }
 
-.c8 .fi-action-menu-popover_application {
+.c8 .fi-action-menu-popover_list {
   padding-top: 8px;
   padding-bottom: 8px;
   margin: 0;
@@ -2240,6 +2247,10 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   list-style-type: none;
+}
+
+.c8 .fi-action-menu-popover_list:focus {
+  outline: none;
 }
 
 .c8 .fi-action-menu-popover_popper-arrow::before,
@@ -2857,6 +2868,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         aria-controls="test-id-menu"
         aria-disabled="false"
         aria-expanded="true"
+        aria-haspopup="menu"
         class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
         id="test-id"
         name="am-test-name"
@@ -2890,14 +2902,14 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   </div>
   <div
     class="c7 c8 fi-action-menu-popover"
-    role="dialog"
+    role="menu"
     style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 10px);"
   >
     <div>
       <ul
         aria-activedescendant="0-menu-item"
         aria-labelledby="test-id"
-        class="c9 fi-action-menu-popover_application"
+        class="c9 fi-action-menu-popover_list"
         id="test-id-menu"
         role="menu"
         tabindex="-1"
