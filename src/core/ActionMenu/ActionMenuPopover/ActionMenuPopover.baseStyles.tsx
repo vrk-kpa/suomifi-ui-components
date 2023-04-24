@@ -12,7 +12,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     border-radius: ${theme.radiuses.basic};
   }
 
-  & .fi-action-menu-popover_application {
+  & .fi-action-menu-popover_list {
     padding-top: 8px;
     padding-bottom: 8px;
     margin: 0;
