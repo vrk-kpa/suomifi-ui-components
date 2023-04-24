@@ -21,6 +21,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     flex-direction: column;
     justify-content: space-between;
     list-style-type: none;
+
+    &:focus {
+      /* Hide focus outline from <ul> */
+      outline: none;
+    }
   }
 
   /* Arrow base */
