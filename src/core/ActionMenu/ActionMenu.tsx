@@ -165,6 +165,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
         aria-controls={menuId}
         aria-haspopup="menu"
         forwardedRef={openButtonRef}
+        fullWidth={fullWidth}
         className={classnames(actionMenuClassNames.button, {
           [actionMenuClassNames.buttonDisabled]: passProps.disabled,
           [actionMenuClassNames.menuClosed]: !menuVisible,

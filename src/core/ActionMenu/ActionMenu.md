@@ -57,3 +57,91 @@ const [lastAction, setLastAction] = useState('');
   <div>Last action: {lastAction}</div>
 </>;
 ```
+
+### ActionMenu with icon only
+
+```js
+import {
+  ActionMenu,
+  RouterLink,
+  ActionMenuDivider,
+  ActionMenuItem,
+  Button,
+  Link
+} from 'suomifi-ui-components';
+import { useState } from 'react';
+
+const [lastAction, setLastAction] = useState('');
+
+<>
+  <div style={{ marginLeft: '200px' }}>
+    <ActionMenu
+      disabled={false}
+      id="icon-only-id"
+      openButtonLabel="Actions"
+    >
+      <ActionMenuItem onClick={() => setLastAction('Copy')}>
+        Copy
+      </ActionMenuItem>
+      <ActionMenuItem
+        onClick={() => setLastAction('Edit')}
+        icon="edit"
+      >
+        Edit
+      </ActionMenuItem>
+      <ActionMenuItem
+        onClick={() => setLastAction('Remove')}
+        icon="remove"
+      >
+        Remove
+      </ActionMenuItem>
+    </ActionMenu>
+  </div>
+  <div>Last action: {lastAction}</div>
+</>;
+```
+
+### Full width
+
+```js
+import {
+  ActionMenu,
+  RouterLink,
+  ActionMenuDivider,
+  ActionMenuItem,
+  Button,
+  Link
+} from 'suomifi-ui-components';
+import { useState } from 'react';
+
+const [lastAction, setLastAction] = useState('');
+
+<>
+  <div style={{ marginLeft: '200px' }}>
+    <ActionMenu
+      buttonText="Actions"
+      disabled={false}
+      id="full-id"
+      openButtonLabel="Actions"
+      fullWidth
+    >
+      <ActionMenuItem onClick={() => setLastAction('Copy')}>
+        Copy
+      </ActionMenuItem>
+      <ActionMenuItem
+        onClick={() => setLastAction('Edit')}
+        icon="edit"
+      >
+        Edit
+      </ActionMenuItem>
+      <ActionMenuItem
+        onClick={() => setLastAction('Remove')}
+        icon="remove"
+      >
+        Remove
+      </ActionMenuItem>
+    </ActionMenu>
+  </div>
+  <div>Last action: {lastAction}</div>
+</>;
+```
