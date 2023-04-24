@@ -302,7 +302,7 @@ export const BaseActionMenuPopover = (
     <>
       {ReactDOM.createPortal(
         <HtmlDivWithRef
-          role="dialog"
+          role="menu"
           className={classnames(className, baseClassName)}
           style={styles.popper}
           forwardedRef={setDialogElement}
