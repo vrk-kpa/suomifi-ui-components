@@ -191,6 +191,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
           onClose={() => closeMenu()}
           children={children}
           initialActiveDescendant={selectFirstItem}
+          fullWidth={fullWidth}
         />
       )}
     </HtmlDiv>
