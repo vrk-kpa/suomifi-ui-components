@@ -421,7 +421,10 @@ describe('props', () => {
       );
       fireEvent.click(getByRole('button'));
       const dateButton = getByText('15').closest('button');
-      expect(dateButton).toHaveTextContent('15 maanantai Kesäkuu 2015');
+      expect(dateButton).toHaveAttribute(
+        'aria-label',
+        '15 maanantai Kesäkuu 2015',
+      );
     });
 
     it('has focus', () => {
@@ -475,7 +478,10 @@ describe('props', () => {
       const dateButton = baseElement.querySelector(
         '.fi-month-day_button--selected',
       );
-      expect(dateButton).toHaveTextContent('15 lauantai Elokuu 2020');
+      expect(dateButton).toHaveAttribute(
+        'aria-label',
+        '15 lauantai Elokuu 2020',
+      );
     });
 
     it('formats selected date to input field', () => {
@@ -680,7 +686,10 @@ describe('props', () => {
         const dateButton = getByText('15').closest(
           'button',
         ) as HTMLButtonElement;
-        expect(dateButton).toHaveTextContent('15 keskiviikko Tammikuu 2020');
+        expect(dateButton).toHaveAttribute(
+          'aria-label',
+          '15 keskiviikko Tammikuu 2020',
+        );
         expect(dateButton).toHaveFocus();
       });
     });
@@ -710,7 +719,10 @@ describe('props', () => {
       const dateButton = baseElement.querySelector(
         '.fi-month-day_button--selected',
       );
-      expect(dateButton).toHaveTextContent('1 perjantai Toukokuu 2020');
+      expect(dateButton).toHaveAttribute(
+        'aria-label',
+        '1 perjantai Toukokuu 2020',
+      );
     });
 
     it('has user given value focused in calendar', () => {
@@ -721,7 +733,10 @@ describe('props', () => {
       const dateButton = baseElement.querySelector(
         '.fi-month-day_button--selected',
       );
-      expect(dateButton).toHaveTextContent('1 perjantai Toukokuu 2020');
+      expect(dateButton).toHaveAttribute(
+        'aria-label',
+        '1 perjantai Toukokuu 2020',
+      );
       expect(dateButton).toHaveFocus();
     });
   });
@@ -769,7 +784,10 @@ describe('props', () => {
         const dateButton = baseElement.querySelector(
           '.fi-month-day_button--selected',
         );
-        expect(dateButton).toHaveTextContent('31 perjantai Tammikuu 2020');
+        expect(dateButton).toHaveAttribute(
+          'aria-label',
+          '31 perjantai Tammikuu 2020',
+        );
       });
 
       it('has user given defaultValue focused in calendar', () => {
@@ -784,7 +802,10 @@ describe('props', () => {
         const dateButton = baseElement.querySelector(
           '.fi-month-day_button--selected',
         );
-        expect(dateButton).toHaveTextContent('31 perjantai Tammikuu 2020');
+        expect(dateButton).toHaveAttribute(
+          'aria-label',
+          '31 perjantai Tammikuu 2020',
+        );
         expect(dateButton).toHaveFocus();
       });
     });

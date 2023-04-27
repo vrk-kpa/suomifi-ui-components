@@ -1,7 +1,6 @@
 import React from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { VisuallyHidden } from '../../../../VisuallyHidden/VisuallyHidden';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
 import { HtmlButton, HtmlDiv } from '../../../../../reset';
 import { InternalDatePickerTextProps } from '../../datePickerTexts';
@@ -64,15 +63,8 @@ export const BaseMonthDay = (props: MonthDayProps) => {
 
   const isFocusableDate = (): boolean => daysMatch(focusableDate, date.date);
 
-  const isDisabledDate = (): boolean =>
+  const isDisabledByFn = (): boolean =>
     shouldDisableDate ? shouldDisableDate(date.date) : false;
-
-  const cellDateElements = (
-    <>
-      <span aria-hidden>{date.number}</span>
-      <VisuallyHidden>{cellDateAriaLabel(date.date, texts)}</VisuallyHidden>
-    </>
-  );
 
   return (
     <td
@@ -91,15 +83,16 @@ export const BaseMonthDay = (props: MonthDayProps) => {
         )
       ) : (
         <HtmlButton
-          onClick={() => (isDisabledDate() ? undefined : onSelect(date.date))}
+          onClick={() => (isDisabledByFn() ? undefined : onSelect(date.date))}
           onKeyDown={onKeyDown}
           tabIndex={isFocusableDate() ? undefined : -1}
           forwardedRef={isFocusedDate() ? dayButtonRef : undefined}
           aria-current={date.current ? 'date' : undefined}
-          aria-disabled={isDisabledDate()}
+          aria-disabled={isDisabledByFn()}
+          aria-label={cellDateAriaLabel(date.date, texts)}
           className={classnames(monthDayClassNames.button, {
             [monthDayClassNames.buttonSelected]: isSelectedDate(),
-            [monthDayClassNames.buttonDisabled]: isDisabledDate(),
+            [monthDayClassNames.buttonDisabled]: isDisabledByFn(),
           })}
         >
           {date.current ? (
@@ -108,10 +101,10 @@ export const BaseMonthDay = (props: MonthDayProps) => {
                 [monthDayClassNames.buttonCurrent]: date.current,
               })}
             >
-              {cellDateElements}
+              <span aria-hidden>{date.number}</span>
             </HtmlDiv>
           ) : (
-            cellDateElements
+            <span aria-hidden>{date.number}</span>
           )}
         </HtmlButton>
       )}
