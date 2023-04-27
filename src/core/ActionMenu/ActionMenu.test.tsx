@@ -82,6 +82,20 @@ describe('Disabled ActionMenu', () => {
   });
 });
 
+describe('No borders variant', () => {
+  const modProps: ActionMenuProps = {
+    ...actionMenuProps,
+    buttonVariant: 'secondaryNoBorder',
+  };
+
+  const BorderlessActionMenu = TestActionMenu(modProps);
+
+  it('should match snapshot', async () => {
+    const { baseElement } = render(BorderlessActionMenu);
+    expect(baseElement).toMatchSnapshot();
+  });
+});
+
 describe('movement in ActionMenu', () => {
   const BasicActionMenu = TestActionMenu(actionMenuProps);
 
