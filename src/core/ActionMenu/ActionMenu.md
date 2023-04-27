@@ -21,7 +21,6 @@ const [lastAction, setLastAction] = useState('');
       onClose={() => console.log('close')}
       disabled={false}
       id="my-id"
-      openButtonLabel="Open menu"
     >
       <ActionMenuItem onClick={() => setLastAction('Copy')}>
         Copy
@@ -78,7 +77,8 @@ const [lastAction, setLastAction] = useState('');
     <ActionMenu
       disabled={false}
       id="icon-only-id"
-      openButtonLabel="Actions"
+      bttonLabel="Actions"
+      buttonVariant="secondaryNoBorder"
     >
       <ActionMenuItem onClick={() => setLastAction('Copy')}>
         Copy
@@ -117,31 +117,27 @@ import { useState } from 'react';
 const [lastAction, setLastAction] = useState('');
 
 <>
-  <div style={{ marginLeft: '200px' }}>
-    <ActionMenu
-      buttonText="Actions"
-      disabled={false}
-      id="full-id"
-      openButtonLabel="Actions"
-      fullWidth
+  <ActionMenu
+    buttonText="Actions"
+    disabled={false}
+    id="full-id"
+    openButtonLabel="Actions"
+    fullWidth
+  >
+    <ActionMenuItem onClick={() => setLastAction('Copy')}>
+      Copy
+    </ActionMenuItem>
+    <ActionMenuItem onClick={() => setLastAction('Edit')} icon="edit">
+      Edit
+    </ActionMenuItem>
+    <ActionMenuItem
+      onClick={() => setLastAction('Remove')}
+      icon="remove"
     >
-      <ActionMenuItem onClick={() => setLastAction('Copy')}>
-        Copy
-      </ActionMenuItem>
-      <ActionMenuItem
-        onClick={() => setLastAction('Edit')}
-        icon="edit"
-      >
-        Edit
-      </ActionMenuItem>
-      <ActionMenuItem
-        onClick={() => setLastAction('Remove')}
-        icon="remove"
-      >
-        Remove
-      </ActionMenuItem>
-    </ActionMenu>
-  </div>
+      Remove
+    </ActionMenuItem>
+  </ActionMenu>
+
   <div>Last action: {lastAction}</div>
 </>;
 ```
