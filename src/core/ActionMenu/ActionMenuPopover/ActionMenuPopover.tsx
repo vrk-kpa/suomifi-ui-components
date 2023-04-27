@@ -260,33 +260,37 @@ export const BaseActionMenuPopover = (
     }
   };
 
+  // Popper options modifiers
+  const defaultModifiers = [
+    { name: 'eventListeners', enabled: true },
+    {
+      name: 'offset',
+      options: {
+        offset: [0, 10],
+      },
+    },
+    {
+      name: 'flip',
+      options: {
+        fallbackPlacements: ['top-end'],
+      },
+    },
+    {
+      name: 'preventOverflow',
+      options: {
+        padding: 5,
+      },
+    },
+  ];
+
   const { styles, attributes } = usePopper(
     openButtonRef.current,
     dialogElement,
     {
       strategy: 'fixed',
-      modifiers: [
-        { name: 'eventListeners', enabled: true },
-        {
-          name: 'offset',
-          options: {
-            offset: [0, 10],
-          },
-        },
-        {
-          name: 'flip',
-          options: {
-            fallbackPlacements: ['top-end'],
-          },
-        },
-        {
-          name: 'preventOverflow',
-          options: {
-            padding: 5,
-          },
-        },
-        fullWidth ? sameWidth : {},
-      ],
+      modifiers: fullWidth
+        ? [...defaultModifiers, sameWidth]
+        : defaultModifiers,
       placement: 'bottom-end',
     },
   );
