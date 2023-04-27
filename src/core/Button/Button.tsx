@@ -6,7 +6,7 @@ import { HtmlButton, HtmlButtonProps } from '../../reset';
 import { Icon, IconProps, BaseIconKeys } from '../Icon/Icon';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
 
-type ButtonVariant =
+export type ButtonVariant =
   | 'default'
   | 'inverted'
   | 'secondary'

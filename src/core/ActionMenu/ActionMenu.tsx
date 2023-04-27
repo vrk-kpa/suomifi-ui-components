@@ -8,7 +8,7 @@ import {
   InitialActiveDescendant,
 } from './ActionMenuPopover';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
-import { Button } from '../Button/Button';
+import { Button, ButtonVariant } from '../Button/Button';
 import { HtmlDiv } from '../../reset';
 import { HTMLAttributesIncludingDataAttributes } from '../../utils/common/common';
 import { baseStyles } from './ActionMenu.baseStyles';
@@ -29,6 +29,11 @@ export const actionMenuClassNames = {
 export interface ActionMenuProps {
   /** Label text for the button */
   buttonText?: string;
+  /**
+   * 'default' | 'inverted' | 'secondary' | 'secondaryNoBorder' | 'link'
+   * @default secondary
+   */
+  buttonVariant?: ButtonVariant;
   /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
   children?:
     | Array<
@@ -59,7 +64,7 @@ export interface ActionMenuProps {
    */
   onBlur?: (event: FocusEvent<HTMLButtonElement>) => void;
   /** Visually hidden label text for the button */
-  openButtonLabel: string;
+  buttonLabel?: string;
   /** Callback fired when menu opens */
   onClose?: () => void;
   /** Callback fired when menu closes */
@@ -82,7 +87,8 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     fullWidth,
     forwardedRef,
     buttonText,
-    openButtonLabel,
+    buttonLabel,
+    buttonVariant = 'secondary',
     children,
     onOpen,
     onClose,
@@ -159,7 +165,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     >
       <Button
         id={buttonId}
-        variant="secondary"
+        variant={buttonVariant}
         iconRight="optionsVertical"
         aria-expanded={menuVisible}
         aria-controls={menuId}
@@ -181,7 +187,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
         {...passProps}
       >
         {buttonText}
-        <VisuallyHidden>{openButtonLabel}</VisuallyHidden>
+        <VisuallyHidden>{buttonLabel}</VisuallyHidden>
       </Button>
       {menuVisible && (
         <ActionMenuPopover

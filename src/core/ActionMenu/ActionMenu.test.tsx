@@ -7,7 +7,7 @@ import { axeTest } from '../../utils/test';
 
 const actionMenuProps: ActionMenuProps = {
   buttonText: 'Actions',
-  openButtonLabel: 'ActionMenuTest',
+  buttonLabel: 'ActionMenuTest',
   name: 'am-test-name',
   className: 'am-test',
   id: 'test-id',

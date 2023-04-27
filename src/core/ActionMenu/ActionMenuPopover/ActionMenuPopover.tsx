@@ -33,7 +33,6 @@ export interface InternalActionMenuPopoverProps {
   buttonId: string;
   /** Initial active menu item */
   initialActiveDescendant: InitialActiveDescendant;
-
   /** If true, popover will be full width */
   fullWidth?: boolean;
 }
