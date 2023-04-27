@@ -371,73 +371,17 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  width: 150px;
-}
-
 .c1.fi-action-menu--full-width {
   width: 100%;
 }
 
-.c1 .fi-action-menu_button {
-  height: 100%;
+.c1 .fi-action-menu_button--icon-only {
   min-width: 40px;
-  text-align: center;
   padding: 10px;
-  border: 1px solid hsl(212,63%,45%);
-  border-radius: 2px;
-}
-
-.c1 .fi-action-menu_button > input:focus {
-  outline-color: hsl(196,77%,44%);
-  outline-width: 2px;
-  outline-offset: 2px;
-  outline-style: solid;
-}
-
-.c1 .fi-action-menu_button:focus-within > input:focus {
-  outline: none;
-}
-
-.c1 .fi-action-menu_button--menu--closed:focus-within {
-  position: relative;
-}
-
-.c1 .fi-action-menu_button--menu--closed:focus-within::after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  z-index: 9999;
 }
 
 .c1 .fi-action-menu_button--icon-only .fi-button_icon {
   margin: 0;
-}
-
-.c1 .fi-action-menu_button:focus {
-  outline: 3px solid transparent;
 }
 
 <body>
@@ -1073,73 +1017,17 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   cursor: not-allowed;
 }
 
-.c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  width: 150px;
-}
-
 .c1.fi-action-menu--full-width {
   width: 100%;
 }
 
-.c1 .fi-action-menu_button {
-  height: 100%;
+.c1 .fi-action-menu_button--icon-only {
   min-width: 40px;
-  text-align: center;
   padding: 10px;
-  border: 1px solid hsl(212,63%,45%);
-  border-radius: 2px;
-}
-
-.c1 .fi-action-menu_button > input:focus {
-  outline-color: hsl(196,77%,44%);
-  outline-width: 2px;
-  outline-offset: 2px;
-  outline-style: solid;
-}
-
-.c1 .fi-action-menu_button:focus-within > input:focus {
-  outline: none;
-}
-
-.c1 .fi-action-menu_button--menu--closed:focus-within {
-  position: relative;
-}
-
-.c1 .fi-action-menu_button--menu--closed:focus-within::after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  z-index: 9999;
 }
 
 .c1 .fi-action-menu_button--icon-only .fi-button_icon {
   margin: 0;
-}
-
-.c1 .fi-action-menu_button:focus {
-  outline: 3px solid transparent;
 }
 
 .c12 {
@@ -1857,73 +1745,17 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  width: 150px;
-}
-
 .c1.fi-action-menu--full-width {
   width: 100%;
 }
 
-.c1 .fi-action-menu_button {
-  height: 100%;
+.c1 .fi-action-menu_button--icon-only {
   min-width: 40px;
-  text-align: center;
   padding: 10px;
-  border: 1px solid hsl(212,63%,45%);
-  border-radius: 2px;
-}
-
-.c1 .fi-action-menu_button > input:focus {
-  outline-color: hsl(196,77%,44%);
-  outline-width: 2px;
-  outline-offset: 2px;
-  outline-style: solid;
-}
-
-.c1 .fi-action-menu_button:focus-within > input:focus {
-  outline: none;
-}
-
-.c1 .fi-action-menu_button--menu--closed:focus-within {
-  position: relative;
-}
-
-.c1 .fi-action-menu_button--menu--closed:focus-within::after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  z-index: 9999;
 }
 
 .c1 .fi-action-menu_button--icon-only .fi-button_icon {
   margin: 0;
-}
-
-.c1 .fi-action-menu_button:focus {
-  outline: 3px solid transparent;
 }
 
 <body>
@@ -2559,73 +2391,17 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   cursor: not-allowed;
 }
 
-.c1 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-  width: 150px;
-}
-
 .c1.fi-action-menu--full-width {
   width: 100%;
 }
 
-.c1 .fi-action-menu_button {
-  height: 100%;
+.c1 .fi-action-menu_button--icon-only {
   min-width: 40px;
-  text-align: center;
   padding: 10px;
-  border: 1px solid hsl(212,63%,45%);
-  border-radius: 2px;
-}
-
-.c1 .fi-action-menu_button > input:focus {
-  outline-color: hsl(196,77%,44%);
-  outline-width: 2px;
-  outline-offset: 2px;
-  outline-style: solid;
-}
-
-.c1 .fi-action-menu_button:focus-within > input:focus {
-  outline: none;
-}
-
-.c1 .fi-action-menu_button--menu--closed:focus-within {
-  position: relative;
-}
-
-.c1 .fi-action-menu_button--menu--closed:focus-within::after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  border-radius: 2px;
-  background-color: transparent;
-  border: 0px solid hsl(0,0%,100%);
-  box-sizing: border-box;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  z-index: 9999;
 }
 
 .c1 .fi-action-menu_button--icon-only .fi-button_icon {
   margin: 0;
-}
-
-.c1 .fi-action-menu_button:focus {
-  outline: 3px solid transparent;
 }
 
 .c12 {
