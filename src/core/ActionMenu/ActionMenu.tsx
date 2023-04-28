@@ -7,7 +7,6 @@ import {
   ActionMenuPopover,
   InitialActiveDescendant,
 } from './ActionMenuPopover';
-import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import { Button, ButtonVariant } from '../Button/Button';
 import { HtmlDiv } from '../../reset';
 import { HTMLAttributesIncludingDataAttributes } from '../../utils/common/common';
@@ -34,6 +33,11 @@ export interface ActionMenuProps {
    * @default secondary
    */
   buttonVariant?: ButtonVariant;
+  /**
+   * Define a label if `buttonText` does not indicate the button purpose,
+   * alternatively you can define aria-labelledby with label-element id
+   */
+  'aria-label'?: string;
   /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
   children?:
     | Array<
@@ -63,8 +67,6 @@ export interface ActionMenuProps {
    * @param {FocusEvent<HTMLButtonElement>} event FocusEvent
    */
   onBlur?: (event: FocusEvent<HTMLButtonElement>) => void;
-  /** Visually hidden label text for the button */
-  buttonLabel?: string;
   /** Callback fired when menu opens */
   onClose?: () => void;
   /** Callback fired when menu closes */
@@ -87,7 +89,6 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     fullWidth,
     forwardedRef,
     buttonText,
-    buttonLabel,
     buttonVariant = 'secondary',
     children,
     onOpen,
@@ -187,7 +188,6 @@ const BaseActionMenu = (props: ActionMenuProps) => {
         {...passProps}
       >
         {buttonText}
-        <VisuallyHidden>{buttonLabel}</VisuallyHidden>
       </Button>
       {menuVisible && (
         <ActionMenuPopover

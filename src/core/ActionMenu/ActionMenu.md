@@ -77,7 +77,7 @@ const [lastAction, setLastAction] = useState('');
     <ActionMenu
       disabled={false}
       id="icon-only-id"
-      bttonLabel="Actions"
+      aria-label="Actions"
       buttonVariant="secondaryNoBorder"
     >
       <ActionMenuItem onClick={() => setLastAction('Copy')}>
@@ -117,13 +117,7 @@ import { useState } from 'react';
 const [lastAction, setLastAction] = useState('');
 
 <>
-  <ActionMenu
-    buttonText="Actions"
-    disabled={false}
-    id="full-id"
-    openButtonLabel="Actions"
-    fullWidth
-  >
+  <ActionMenu buttonText="Actions" id="full-id" fullWidth>
     <ActionMenuItem onClick={() => setLastAction('Copy')}>
       Copy
     </ActionMenuItem>
