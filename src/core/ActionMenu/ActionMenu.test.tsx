@@ -7,7 +7,6 @@ import { axeTest } from '../../utils/test';
 
 const actionMenuProps: ActionMenuProps = {
   buttonText: 'Actions',
-  buttonLabel: 'ActionMenuTest',
   name: 'am-test-name',
   className: 'am-test',
   id: 'test-id',
@@ -70,7 +69,7 @@ describe('Disabled ActionMenu', () => {
     expect(button).toHaveClass('fi-action-menu_button--disabled');
   });
 
-  it('should have aria-disabled  when disabled', async () => {
+  it('should have aria-disabled when disabled', async () => {
     const { findByRole } = render(BasicActionMenu);
     const button = await findByRole('button');
     expect(button).toHaveAttribute('aria-disabled', 'true');
@@ -86,6 +85,7 @@ describe('No borders variant', () => {
   const modProps: ActionMenuProps = {
     ...actionMenuProps,
     buttonVariant: 'secondaryNoBorder',
+    'aria-label': 'ActionMenuTest',
   };
 
   const BorderlessActionMenu = TestActionMenu(modProps);
