@@ -84,67 +84,26 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c4 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c4::before,
-.c4::after {
-  box-sizing: border-box;
-}
-
-.c5 {
-  position: absolute;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-}
-
-.c6 {
   vertical-align: baseline;
 }
 
-.c6.fi-icon {
+.c4.fi-icon {
   display: inline-block;
 }
 
-.c6 .fi-icon-base-fill {
+.c4 .fi-icon-base-fill {
   fill: currentColor;
 }
 
-.c6 .fi-icon-base-stroke {
+.c4 .fi-icon-base-stroke {
   stroke: currentColor;
 }
 
-.c6.fi-icon--cursor-pointer {
+.c4.fi-icon--cursor-pointer {
   cursor: pointer;
 }
 
-.c6.fi-icon--cursor-pointer * {
+.c4.fi-icon--cursor-pointer * {
   cursor: inherit;
 }
 
@@ -403,14 +362,9 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
         type="button"
       >
         Actions
-        <span
-          class="c4 c5 fi-visually-hidden"
-        >
-          ActionMenuTest
-        </span>
         <svg
           aria-hidden="true"
-          class="fi-icon c6 fi-button_icon fi-button_icon--right fi-icon--cursor-pointer"
+          class="fi-icon c4 fi-button_icon fi-button_icon--right fi-icon--cursor-pointer"
           focusable="false"
           height="1em"
           viewBox="0 0 24 24"
@@ -431,7 +385,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 `;
 
 exports[`Basic ActionMenu should match snapshot 2`] = `
-.c14 {
+.c12 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -454,15 +408,15 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   text-decoration: underline;
 }
 
-.c14::before,
-.c14::after {
+.c12::before,
+.c12::after {
   box-sizing: border-box;
 }
 
-.c14:hover,
-.c14:active,
-.c14:focus,
-.c14:focus-within {
+.c12:hover,
+.c12:active,
+.c12:focus,
+.c12:focus-within {
   color: inherit;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -551,7 +505,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   box-sizing: border-box;
 }
 
-.c7 {
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -575,12 +529,12 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   white-space: normal;
 }
 
-.c7::before,
-.c7::after {
+.c5::before,
+.c5::after {
   box-sizing: border-box;
 }
 
-.c10 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -600,41 +554,12 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   display: list-item;
 }
 
-.c10::before,
-.c10::after {
+.c8::before,
+.c8::after {
   box-sizing: border-box;
 }
 
-.c4 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c4::before,
-.c4::after {
-  box-sizing: border-box;
-}
-
-.c9 {
+.c7 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -660,12 +585,12 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   padding-left: 40px;
 }
 
-.c9::before,
-.c9::after {
+.c7::before,
+.c7::after {
   box-sizing: border-box;
 }
 
-.c8 {
+.c6 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -681,14 +606,14 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   font-weight: 400;
 }
 
-.c8.fi-action-menu-popover {
+.c6.fi-action-menu-popover {
   background-color: hsl(0,0%,100%);
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
   border: 1px solid hsl(0,0%,58%);
   border-radius: 2px;
 }
 
-.c8 .fi-action-menu-popover_list {
+.c6 .fi-action-menu-popover_list {
   padding-top: 8px;
   padding-bottom: 8px;
   margin: 0;
@@ -707,12 +632,12 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   list-style-type: none;
 }
 
-.c8 .fi-action-menu-popover_list:focus {
+.c6 .fi-action-menu-popover_list:focus {
   outline: none;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow::before,
-.c8 .fi-action-menu-popover_popper-arrow::after {
+.c6 .fi-action-menu-popover_popper-arrow::before,
+.c6 .fi-action-menu-popover_popper-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -722,18 +647,18 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   pointer-events: none;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
+.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
+.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
   border-bottom-color: hsl(0,0%,58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
+.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
   border-bottom-color: hsl(0,0%,100%);
   border-width: 8px;
   margin-right: -9px;
@@ -741,56 +666,44 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
+.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
   top: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
+.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
   border-top-color: hsl(0,0%,58%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
+.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
   border-top-color: hsl(0,0%,100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
 }
 
-.c5 {
-  position: absolute;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-}
-
-.c6 {
+.c4 {
   vertical-align: baseline;
 }
 
-.c6.fi-icon {
+.c4.fi-icon {
   display: inline-block;
 }
 
-.c6 .fi-icon-base-fill {
+.c4 .fi-icon-base-fill {
   fill: currentColor;
 }
 
-.c6 .fi-icon-base-stroke {
+.c4 .fi-icon-base-stroke {
   stroke: currentColor;
 }
 
-.c6.fi-icon--cursor-pointer {
+.c4.fi-icon--cursor-pointer {
   cursor: pointer;
 }
 
-.c6.fi-icon--cursor-pointer * {
+.c4.fi-icon--cursor-pointer * {
   cursor: inherit;
 }
 
@@ -1030,7 +943,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   margin: 0;
 }
 
-.c12 {
+.c10 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1046,59 +959,59 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   font-weight: 400;
 }
 
-.c12.fi-link--router {
+.c10.fi-link--router {
   color: hsl(212,63%,45%);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c12.fi-link--router:hover,
-.c12.fi-link--router:active,
-.c12.fi-link--router:focus,
-.c12.fi-link--router:focus-within {
+.c10.fi-link--router:hover,
+.c10.fi-link--router:active,
+.c10.fi-link--router:focus,
+.c10.fi-link--router:focus-within {
   color: hsl(212,63%,45%);
 }
 
-.c12.fi-link--router:focus,
-.c12.fi-link--router:focus-within {
+.c10.fi-link--router:focus,
+.c10.fi-link--router:focus-within {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c12.fi-link--router:focus {
+.c10.fi-link--router:focus {
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
 }
 
-.c12.fi-link--router:hover,
-.c12.fi-link--router:active {
+.c10.fi-link--router:hover,
+.c10.fi-link--router:active {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c12.fi-link--router:visited {
+.c10.fi-link--router:visited {
   color: hsl(284,36%,45%);
 }
 
-.c12.fi-link--initial-underline {
+.c10.fi-link--initial-underline {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c12.fi-link--initial-underline:focus,
-.c12.fi-link--initial-underline:focus-within {
+.c10.fi-link--initial-underline:focus,
+.c10.fi-link--initial-underline:focus-within {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c12.fi-link--initial-underline:hover,
-.c12.fi-link--initial-underline:active {
+.c10.fi-link--initial-underline:hover,
+.c10.fi-link--initial-underline:active {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c11 {
+.c9 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1114,7 +1027,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   font-weight: 400;
 }
 
-.c11.fi-action-menu-item {
+.c9.fi-action-menu-item {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1126,7 +1039,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   position: relative;
 }
 
-.c11.fi-action-menu-item .fi-link--router {
+.c9.fi-action-menu-item .fi-link--router {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1161,64 +1074,64 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   align-items: center;
 }
 
-.c11.fi-action-menu-item .fi-link--router:active,
-.c11.fi-action-menu-item .fi-link--router:focus,
-.c11.fi-action-menu-item .fi-link--router:hover,
-.c11.fi-action-menu-item .fi-link--router:visited {
+.c9.fi-action-menu-item .fi-link--router:active,
+.c9.fi-action-menu-item .fi-link--router:focus,
+.c9.fi-action-menu-item .fi-link--router:hover,
+.c9.fi-action-menu-item .fi-link--router:visited {
   color: hsl(0,0%,13%);
 }
 
-.c11.fi-action-menu-item .fi-link--router .fi-action-menu-item_icon {
+.c9.fi-action-menu-item .fi-link--router .fi-action-menu-item_icon {
   margin-right: 8px;
   width: 16px;
   height: 16px;
   pointer-events: none;
 }
 
-.c11.fi-action-menu-item--disabled {
+.c9.fi-action-menu-item--disabled {
   cursor: not-allowed;
 }
 
-.c11.fi-action-menu-item--disabled .fi-link--router {
+.c9.fi-action-menu-item--disabled .fi-link--router {
   color: hsl(202,7%,67%);
   pointer-events: none;
 }
 
-.c11.fi-action-menu-item--disabled .fi-link--router:active,
-.c11.fi-action-menu-item--disabled .fi-link--router:focus,
-.c11.fi-action-menu-item--disabled .fi-link--router:hover,
-.c11.fi-action-menu-item--disabled .fi-link--router:visited {
+.c9.fi-action-menu-item--disabled .fi-link--router:active,
+.c9.fi-action-menu-item--disabled .fi-link--router:focus,
+.c9.fi-action-menu-item--disabled .fi-link--router:hover,
+.c9.fi-action-menu-item--disabled .fi-link--router:visited {
   color: hsl(202,7%,67%);
 }
 
-.c11.fi-action-menu-item--selected .fi-link--router {
+.c9.fi-action-menu-item--selected .fi-link--router {
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
 }
 
-.c11.fi-action-menu-item--selected .fi-link--router:active,
-.c11.fi-action-menu-item--selected .fi-link--router:focus,
-.c11.fi-action-menu-item--selected .fi-link--router:hover,
-.c11.fi-action-menu-item--selected .fi-link--router:visited {
+.c9.fi-action-menu-item--selected .fi-link--router:active,
+.c9.fi-action-menu-item--selected .fi-link--router:focus,
+.c9.fi-action-menu-item--selected .fi-link--router:hover,
+.c9.fi-action-menu-item--selected .fi-link--router:visited {
   -webkit-text-decoration: none;
   text-decoration: none;
   color: hsl(0,0%,100%);
   cursor: pointer;
 }
 
-.c11.fi-action-menu-item--selected .fi-link--router:after {
+.c9.fi-action-menu-item--selected .fi-link--router:after {
   content: '';
 }
 
-.c11.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+.c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
 }
 
-.c11.fi-action-menu-item--selected.fi-action-menu-item--disabled .fi-link--router {
+.c9.fi-action-menu-item--selected.fi-action-menu-item--disabled .fi-link--router {
   color: hsl(202,7%,67%);
 }
 
-.c13.fi-action-menu-divider {
+.c11.fi-action-menu-divider {
   height: 17px;
   padding-left: 15px;
   padding-right: 15px;
@@ -1236,14 +1149,14 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   justify-content: center;
 }
 
-.c13.fi-action-menu-divider .fi-action-menu-divider_line {
+.c11.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202,7%,80%);
 }
 
 @media (forced-colors:active) {
-  .c11.fi-action-menu-item--selected .fi-link--router:after {
+  .c9.fi-action-menu-item--selected .fi-link--router:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -1254,7 +1167,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
 }
 
 @media (forced-colors:active) {
-  .c13.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c11.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -1278,14 +1191,9 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
         type="button"
       >
         Actions
-        <span
-          class="c4 c5 fi-visually-hidden"
-        >
-          ActionMenuTest
-        </span>
         <svg
           aria-hidden="true"
-          class="fi-icon c6 fi-button_icon fi-button_icon--right fi-icon--cursor-pointer"
+          class="fi-icon c4 fi-button_icon fi-button_icon--right fi-icon--cursor-pointer"
           focusable="false"
           height="1em"
           viewBox="0 0 24 24"
@@ -1303,7 +1211,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
     </div>
   </div>
   <div
-    class="c7 c8 fi-action-menu-popover"
+    class="c5 c6 fi-action-menu-popover"
     role="menu"
     style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 10px);"
   >
@@ -1311,17 +1219,17 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
       <ul
         aria-activedescendant="0-menu-item"
         aria-labelledby="test-id"
-        class="c9 fi-action-menu-popover_list"
+        class="c7 fi-action-menu-popover_list"
         id="test-id-menu"
         role="menu"
         tabindex="-1"
       >
         <li
-          class="c10 fi-action-menu-item c11 fi-action-menu-item--selected"
+          class="c8 fi-action-menu-item c9 fi-action-menu-item--selected"
           tabindex="-1"
         >
           <button
-            class="c2 fi-link--router c12"
+            class="c2 fi-link--router c10"
             id="0-menu-item"
             role="menuitem"
             type="button"
@@ -1330,11 +1238,11 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
           </button>
         </li>
         <li
-          class="c10 fi-action-menu-item c11"
+          class="c8 fi-action-menu-item c9"
           tabindex="-1"
         >
           <button
-            class="c2 fi-link--router c12"
+            class="c2 fi-link--router c10"
             id="1-menu-item"
             role="menuitem"
             type="button"
@@ -1343,18 +1251,18 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
           </button>
         </li>
         <li
-          class="c10 c13 fi-action-menu-divider"
+          class="c8 c11 fi-action-menu-divider"
         >
           <div
             class="c0 fi-action-menu-divider_line"
           />
         </li>
         <li
-          class="c10 fi-action-menu-item c11"
+          class="c8 fi-action-menu-item c9"
           tabindex="-1"
         >
           <a
-            class="c14 fi-link--router c12"
+            class="c12 fi-link--router c10"
             href="/testpath"
             id="3-menu-item"
             role="menuitem"
@@ -1458,67 +1366,26 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c4 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c4::before,
-.c4::after {
-  box-sizing: border-box;
-}
-
-.c5 {
-  position: absolute;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-}
-
-.c6 {
   vertical-align: baseline;
 }
 
-.c6.fi-icon {
+.c4.fi-icon {
   display: inline-block;
 }
 
-.c6 .fi-icon-base-fill {
+.c4 .fi-icon-base-fill {
   fill: currentColor;
 }
 
-.c6 .fi-icon-base-stroke {
+.c4 .fi-icon-base-stroke {
   stroke: currentColor;
 }
 
-.c6.fi-icon--cursor-pointer {
+.c4.fi-icon--cursor-pointer {
   cursor: pointer;
 }
 
-.c6.fi-icon--cursor-pointer * {
+.c4.fi-icon--cursor-pointer * {
   cursor: inherit;
 }
 
@@ -1777,14 +1644,9 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
         type="button"
       >
         Actions
-        <span
-          class="c4 c5 fi-visually-hidden"
-        >
-          ActionMenuTest
-        </span>
         <svg
           aria-hidden="true"
-          class="fi-icon c6 fi-button_icon fi-button_icon--right fi-icon--cursor-pointer"
+          class="fi-icon c4 fi-button_icon fi-button_icon--right fi-icon--cursor-pointer"
           focusable="false"
           height="1em"
           viewBox="0 0 24 24"
@@ -1888,67 +1750,26 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c4 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c4::before,
-.c4::after {
-  box-sizing: border-box;
-}
-
-.c5 {
-  position: absolute;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-}
-
-.c6 {
   vertical-align: baseline;
 }
 
-.c6.fi-icon {
+.c4.fi-icon {
   display: inline-block;
 }
 
-.c6 .fi-icon-base-fill {
+.c4 .fi-icon-base-fill {
   fill: currentColor;
 }
 
-.c6 .fi-icon-base-stroke {
+.c4 .fi-icon-base-stroke {
   stroke: currentColor;
 }
 
-.c6.fi-icon--cursor-pointer {
+.c4.fi-icon--cursor-pointer {
   cursor: pointer;
 }
 
-.c6.fi-icon--cursor-pointer * {
+.c4.fi-icon--cursor-pointer * {
   cursor: inherit;
 }
 
@@ -2200,6 +2021,7 @@ exports[`No borders variant should match snapshot 1`] = `
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="menu"
+        aria-label="ActionMenuTest"
         class="c2 fi-button c3 fi-action-menu_button fi-action-menu_button--menu--closed fi-button--secondary-noborder"
         id="test-id"
         name="am-test-name"
@@ -2207,14 +2029,9 @@ exports[`No borders variant should match snapshot 1`] = `
         type="button"
       >
         Actions
-        <span
-          class="c4 c5 fi-visually-hidden"
-        >
-          ActionMenuTest
-        </span>
         <svg
           aria-hidden="true"
-          class="fi-icon c6 fi-button_icon fi-button_icon--right fi-icon--cursor-pointer"
+          class="fi-icon c4 fi-button_icon fi-button_icon--right fi-icon--cursor-pointer"
           focusable="false"
           height="1em"
           viewBox="0 0 24 24"
@@ -2235,7 +2052,7 @@ exports[`No borders variant should match snapshot 1`] = `
 `;
 
 exports[`movement in ActionMenu should match snapshot 1`] = `
-.c14 {
+.c12 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2258,15 +2075,15 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   text-decoration: underline;
 }
 
-.c14::before,
-.c14::after {
+.c12::before,
+.c12::after {
   box-sizing: border-box;
 }
 
-.c14:hover,
-.c14:active,
-.c14:focus,
-.c14:focus-within {
+.c12:hover,
+.c12:active,
+.c12:focus,
+.c12:focus-within {
   color: inherit;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -2355,7 +2172,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c7 {
+.c5 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2379,12 +2196,12 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c7::before,
-.c7::after {
+.c5::before,
+.c5::after {
   box-sizing: border-box;
 }
 
-.c10 {
+.c8 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2404,41 +2221,12 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   display: list-item;
 }
 
-.c10::before,
-.c10::after {
+.c8::before,
+.c8::after {
   box-sizing: border-box;
 }
 
-.c4 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  max-width: 100%;
-  word-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-}
-
-.c4::before,
-.c4::after {
-  box-sizing: border-box;
-}
-
-.c9 {
+.c7 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2464,12 +2252,12 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   padding-left: 40px;
 }
 
-.c9::before,
-.c9::after {
+.c7::before,
+.c7::after {
   box-sizing: border-box;
 }
 
-.c8 {
+.c6 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2485,14 +2273,14 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c8.fi-action-menu-popover {
+.c6.fi-action-menu-popover {
   background-color: hsl(0,0%,100%);
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
   border: 1px solid hsl(0,0%,58%);
   border-radius: 2px;
 }
 
-.c8 .fi-action-menu-popover_list {
+.c6 .fi-action-menu-popover_list {
   padding-top: 8px;
   padding-bottom: 8px;
   margin: 0;
@@ -2511,12 +2299,12 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   list-style-type: none;
 }
 
-.c8 .fi-action-menu-popover_list:focus {
+.c6 .fi-action-menu-popover_list:focus {
   outline: none;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow::before,
-.c8 .fi-action-menu-popover_popper-arrow::after {
+.c6 .fi-action-menu-popover_popper-arrow::before,
+.c6 .fi-action-menu-popover_popper-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -2526,18 +2314,18 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
+.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
+.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
   border-bottom-color: hsl(0,0%,58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
+.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
   border-bottom-color: hsl(0,0%,100%);
   border-width: 8px;
   margin-right: -9px;
@@ -2545,56 +2333,44 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
+.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
   top: 100%;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
+.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
   border-top-color: hsl(0,0%,58%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c8 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
+.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
   border-top-color: hsl(0,0%,100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
 }
 
-.c5 {
-  position: absolute;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-}
-
-.c6 {
+.c4 {
   vertical-align: baseline;
 }
 
-.c6.fi-icon {
+.c4.fi-icon {
   display: inline-block;
 }
 
-.c6 .fi-icon-base-fill {
+.c4 .fi-icon-base-fill {
   fill: currentColor;
 }
 
-.c6 .fi-icon-base-stroke {
+.c4 .fi-icon-base-stroke {
   stroke: currentColor;
 }
 
-.c6.fi-icon--cursor-pointer {
+.c4.fi-icon--cursor-pointer {
   cursor: pointer;
 }
 
-.c6.fi-icon--cursor-pointer * {
+.c4.fi-icon--cursor-pointer * {
   cursor: inherit;
 }
 
@@ -2834,7 +2610,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   margin: 0;
 }
 
-.c12 {
+.c10 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2850,59 +2626,59 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c12.fi-link--router {
+.c10.fi-link--router {
   color: hsl(212,63%,45%);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c12.fi-link--router:hover,
-.c12.fi-link--router:active,
-.c12.fi-link--router:focus,
-.c12.fi-link--router:focus-within {
+.c10.fi-link--router:hover,
+.c10.fi-link--router:active,
+.c10.fi-link--router:focus,
+.c10.fi-link--router:focus-within {
   color: hsl(212,63%,45%);
 }
 
-.c12.fi-link--router:focus,
-.c12.fi-link--router:focus-within {
+.c10.fi-link--router:focus,
+.c10.fi-link--router:focus-within {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c12.fi-link--router:focus {
+.c10.fi-link--router:focus {
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
 }
 
-.c12.fi-link--router:hover,
-.c12.fi-link--router:active {
+.c10.fi-link--router:hover,
+.c10.fi-link--router:active {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c12.fi-link--router:visited {
+.c10.fi-link--router:visited {
   color: hsl(284,36%,45%);
 }
 
-.c12.fi-link--initial-underline {
+.c10.fi-link--initial-underline {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c12.fi-link--initial-underline:focus,
-.c12.fi-link--initial-underline:focus-within {
+.c10.fi-link--initial-underline:focus,
+.c10.fi-link--initial-underline:focus-within {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c12.fi-link--initial-underline:hover,
-.c12.fi-link--initial-underline:active {
+.c10.fi-link--initial-underline:hover,
+.c10.fi-link--initial-underline:active {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c11 {
+.c9 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2918,7 +2694,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c11.fi-action-menu-item {
+.c9.fi-action-menu-item {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2930,7 +2706,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   position: relative;
 }
 
-.c11.fi-action-menu-item .fi-link--router {
+.c9.fi-action-menu-item .fi-link--router {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2965,64 +2741,64 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   align-items: center;
 }
 
-.c11.fi-action-menu-item .fi-link--router:active,
-.c11.fi-action-menu-item .fi-link--router:focus,
-.c11.fi-action-menu-item .fi-link--router:hover,
-.c11.fi-action-menu-item .fi-link--router:visited {
+.c9.fi-action-menu-item .fi-link--router:active,
+.c9.fi-action-menu-item .fi-link--router:focus,
+.c9.fi-action-menu-item .fi-link--router:hover,
+.c9.fi-action-menu-item .fi-link--router:visited {
   color: hsl(0,0%,13%);
 }
 
-.c11.fi-action-menu-item .fi-link--router .fi-action-menu-item_icon {
+.c9.fi-action-menu-item .fi-link--router .fi-action-menu-item_icon {
   margin-right: 8px;
   width: 16px;
   height: 16px;
   pointer-events: none;
 }
 
-.c11.fi-action-menu-item--disabled {
+.c9.fi-action-menu-item--disabled {
   cursor: not-allowed;
 }
 
-.c11.fi-action-menu-item--disabled .fi-link--router {
+.c9.fi-action-menu-item--disabled .fi-link--router {
   color: hsl(202,7%,67%);
   pointer-events: none;
 }
 
-.c11.fi-action-menu-item--disabled .fi-link--router:active,
-.c11.fi-action-menu-item--disabled .fi-link--router:focus,
-.c11.fi-action-menu-item--disabled .fi-link--router:hover,
-.c11.fi-action-menu-item--disabled .fi-link--router:visited {
+.c9.fi-action-menu-item--disabled .fi-link--router:active,
+.c9.fi-action-menu-item--disabled .fi-link--router:focus,
+.c9.fi-action-menu-item--disabled .fi-link--router:hover,
+.c9.fi-action-menu-item--disabled .fi-link--router:visited {
   color: hsl(202,7%,67%);
 }
 
-.c11.fi-action-menu-item--selected .fi-link--router {
+.c9.fi-action-menu-item--selected .fi-link--router {
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
 }
 
-.c11.fi-action-menu-item--selected .fi-link--router:active,
-.c11.fi-action-menu-item--selected .fi-link--router:focus,
-.c11.fi-action-menu-item--selected .fi-link--router:hover,
-.c11.fi-action-menu-item--selected .fi-link--router:visited {
+.c9.fi-action-menu-item--selected .fi-link--router:active,
+.c9.fi-action-menu-item--selected .fi-link--router:focus,
+.c9.fi-action-menu-item--selected .fi-link--router:hover,
+.c9.fi-action-menu-item--selected .fi-link--router:visited {
   -webkit-text-decoration: none;
   text-decoration: none;
   color: hsl(0,0%,100%);
   cursor: pointer;
 }
 
-.c11.fi-action-menu-item--selected .fi-link--router:after {
+.c9.fi-action-menu-item--selected .fi-link--router:after {
   content: '';
 }
 
-.c11.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+.c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
 }
 
-.c11.fi-action-menu-item--selected.fi-action-menu-item--disabled .fi-link--router {
+.c9.fi-action-menu-item--selected.fi-action-menu-item--disabled .fi-link--router {
   color: hsl(202,7%,67%);
 }
 
-.c13.fi-action-menu-divider {
+.c11.fi-action-menu-divider {
   height: 17px;
   padding-left: 15px;
   padding-right: 15px;
@@ -3040,14 +2816,14 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c13.fi-action-menu-divider .fi-action-menu-divider_line {
+.c11.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202,7%,80%);
 }
 
 @media (forced-colors:active) {
-  .c11.fi-action-menu-item--selected .fi-link--router:after {
+  .c9.fi-action-menu-item--selected .fi-link--router:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -3058,7 +2834,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
-  .c13.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c11.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -3082,14 +2858,9 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         type="button"
       >
         Actions
-        <span
-          class="c4 c5 fi-visually-hidden"
-        >
-          ActionMenuTest
-        </span>
         <svg
           aria-hidden="true"
-          class="fi-icon c6 fi-button_icon fi-button_icon--right fi-icon--cursor-pointer"
+          class="fi-icon c4 fi-button_icon fi-button_icon--right fi-icon--cursor-pointer"
           focusable="false"
           height="1em"
           viewBox="0 0 24 24"
@@ -3107,7 +2878,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
     </div>
   </div>
   <div
-    class="c7 c8 fi-action-menu-popover"
+    class="c5 c6 fi-action-menu-popover"
     role="menu"
     style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 10px);"
   >
@@ -3115,17 +2886,17 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
       <ul
         aria-activedescendant="0-menu-item"
         aria-labelledby="test-id"
-        class="c9 fi-action-menu-popover_list"
+        class="c7 fi-action-menu-popover_list"
         id="test-id-menu"
         role="menu"
         tabindex="-1"
       >
         <li
-          class="c10 fi-action-menu-item c11 fi-action-menu-item--selected"
+          class="c8 fi-action-menu-item c9 fi-action-menu-item--selected"
           tabindex="-1"
         >
           <button
-            class="c2 fi-link--router c12"
+            class="c2 fi-link--router c10"
             id="0-menu-item"
             role="menuitem"
             type="button"
@@ -3134,11 +2905,11 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
           </button>
         </li>
         <li
-          class="c10 fi-action-menu-item c11"
+          class="c8 fi-action-menu-item c9"
           tabindex="-1"
         >
           <button
-            class="c2 fi-link--router c12"
+            class="c2 fi-link--router c10"
             id="1-menu-item"
             role="menuitem"
             type="button"
@@ -3147,18 +2918,18 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
           </button>
         </li>
         <li
-          class="c10 c13 fi-action-menu-divider"
+          class="c8 c11 fi-action-menu-divider"
         >
           <div
             class="c0 fi-action-menu-divider_line"
           />
         </li>
         <li
-          class="c10 fi-action-menu-item c11"
+          class="c8 fi-action-menu-item c9"
           tabindex="-1"
         >
           <a
-            class="c14 fi-link--router c12"
+            class="c12 fi-link--router c10"
             href="/testpath"
             id="3-menu-item"
             role="menuitem"
