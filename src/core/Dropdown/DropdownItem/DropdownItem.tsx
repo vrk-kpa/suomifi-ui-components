@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useLayoutEffect, useRef } from 'react';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './DropdownItem.basestyles';
 import {
@@ -10,6 +10,7 @@ import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlLi } from '../../../reset';
 import { Icon } from '../../Icon/Icon';
+import { getOwnerDocument } from '../../../utils/common';
 
 export interface DropdownItemProps {
   /** Item value */
@@ -51,6 +52,15 @@ const BaseDropdownItem = (props: BaseDropdownItemProps & SuomifiThemeProp) => {
 
   const listElementId = `${consumer.id}-${value}`;
 
+  const listElementRef = useRef<HTMLLIElement>(null);
+
+  useLayoutEffect(() => {
+    const ownerDocument = getOwnerDocument(listElementRef);
+    if (ownerDocument.activeElement?.id !== listElementId && hasKeyboardFocus) {
+      listElementRef.current?.focus({ preventScroll: true });
+    }
+  }, [consumer.focusedItemValue]);
+
   const handleClick = () => {
     if (!disabled) {
       consumer.onItemClick(value);
@@ -65,12 +75,19 @@ const BaseDropdownItem = (props: BaseDropdownItemProps & SuomifiThemeProp) => {
         [dropdownItemClassNames.disabled]: disabled,
         [dropdownItemClassNames.noSelectedStyles]: consumer.noSelectedStyles,
       })}
-      tabIndex={-1}
+      tabIndex={hasKeyboardFocus ? 0 : -1}
       role="option"
       aria-disabled={disabled}
       aria-selected={selected}
       id={listElementId}
       onClick={handleClick}
+      forwardedRef={listElementRef}
+      onKeyDown={(event: React.KeyboardEvent) => {
+        if (event.key === 'Tab') {
+          event.preventDefault();
+          consumer.onItemTabPress();
+        }
+      }}
       {...passProps}
     >
       {children}

@@ -75,6 +75,7 @@ const { Provider: DropdownProvider, Consumer: DropdownConsumer } =
 interface DropdownState {
   selectedValue: string | undefined | null;
   selectedValueText: string | undefined | null;
+  ariaExpanded: boolean;
   showPopover: boolean;
   focusedDescendantId: string | null | undefined;
 }
@@ -166,6 +167,7 @@ class BaseDropdown extends Component<DropdownProps> {
         : undefined,
       this.props.children,
     ),
+    ariaExpanded: false,
     showPopover: false,
     focusedDescendantId:
       'value' in this.props && !!this.props.value
@@ -241,9 +243,14 @@ class BaseDropdown extends Component<DropdownProps> {
         this.props.children,
       ),
       focusedDescendantId: itemValue,
+      ariaExpanded: false,
     });
-    this.buttonRef.current?.focus();
-    this.setState({ showPopover: false });
+    setTimeout(() => {
+      // NVDA with Firefox requires small timeout before focus to read updated value
+      this.buttonRef.current?.focus();
+      // Set showPopover separately to prevent NVDA focus from going to body
+      this.setState({ showPopover: false });
+    }, 10);
   }
 
   private handleSpaceAndEnter = (
@@ -270,7 +277,7 @@ class BaseDropdown extends Component<DropdownProps> {
   };
 
   private handleKeyDown = (event: React.KeyboardEvent) => {
-    const { focusedDescendantId, showPopover } = this.state;
+    const { focusedDescendantId, ariaExpanded, showPopover } = this.state;
     const popoverItems = Array.isArray(this.props.children)
       ? this.props.children
       : this.props.children !== undefined
@@ -322,7 +329,10 @@ class BaseDropdown extends Component<DropdownProps> {
 
       case ' ': {
         event.preventDefault();
-        this.setState({ showPopover: !showPopover });
+        this.setState({
+          showPopover: !showPopover,
+          ariaExpanded: !ariaExpanded,
+        });
         this.handleSpaceAndEnter(popoverItems, getNextItem);
         break;
       }
@@ -370,7 +380,10 @@ class BaseDropdown extends Component<DropdownProps> {
       );
       const focusInDropdown = focusInPopover || focusInToggleButton;
       if (!focusInDropdown) {
-        this.setState({ showPopover: focusInDropdown });
+        this.setState({
+          showPopover: focusInDropdown,
+          ariaExpanded: focusInDropdown,
+        });
       }
     });
   };
@@ -394,12 +407,13 @@ class BaseDropdown extends Component<DropdownProps> {
   }
 
   private focusToButtonAndClosePopover() {
+    this.setState({ ariaExpanded: false });
     this.buttonRef.current?.focus();
     this.setState({ showPopover: false });
   }
 
   private openPopover() {
-    this.setState({ showPopover: true });
+    this.setState({ showPopover: true, ariaExpanded: true });
     /**
      * Timeout is used here to ensure the popover
      * exists when setting focus
@@ -441,19 +455,15 @@ class BaseDropdown extends Component<DropdownProps> {
       return null;
     }
 
-    const {
-      selectedValue,
-      selectedValueText,
-      showPopover,
-      focusedDescendantId,
-    } = this.state;
+    const { selectedValue, ariaExpanded, showPopover, focusedDescendantId } =
+      this.state;
 
     const labelId = `${id}-label`;
     const buttonId = `${id}_button`;
     const popoverItemListId = `${id}-popover`;
     const hintTextId = hintText ? `${id}-hintText` : undefined;
     const statusTextId = statusText ? `${id}-statusText` : undefined;
-    const displayValueId = selectedValueText ? `${id}-displayValue` : undefined;
+    const displayValueId = `${id}-displayValue`;
 
     const ariaActiveDescendant = focusedDescendantId
       ? `${id}-${focusedDescendantId}`
@@ -512,7 +522,7 @@ class BaseDropdown extends Component<DropdownProps> {
               hintTextId,
             ])}
             aria-owns={popoverItemListId}
-            aria-expanded={showPopover}
+            aria-expanded={ariaExpanded}
             onClick={() => {
               if (!showPopover) {
                 this.openPopover();
@@ -534,6 +544,7 @@ class BaseDropdown extends Component<DropdownProps> {
               value={selectedValue || ''}
             />
           </HtmlButton>
+          {/* NVDA, Chrome does not read displayValue, if within HtmlButton */}
           <VisuallyHidden id={displayValueId}>
             {dropdownDisplayValue}
           </VisuallyHidden>
@@ -555,6 +566,7 @@ class BaseDropdown extends Component<DropdownProps> {
                 if (!this.isOutsideClick(event)) {
                   this.setState({
                     showPopover: false,
+                    ariaExpanded: false,
                   });
                 }
               }}

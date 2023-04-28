@@ -608,7 +608,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
         <button
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-labelledby="test-id-label"
+          aria-labelledby="test-id-displayValue test-id-label"
           aria-owns="test-id-popover"
           class="c5 fi-dropdown_button"
           id="test-id_button"
@@ -630,6 +630,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
         </button>
         <span
           class="c4 c7 fi-visually-hidden"
+          id="test-id-displayValue"
         >
           Dropdown
         </span>
@@ -666,7 +667,7 @@ exports[`Basic dropdown should match snapshot 1`] = `
             class="c11 c12 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus"
             id="test-id-item-1"
             role="option"
-            tabindex="-1"
+            tabindex="0"
           >
             Item 1
           </li>
@@ -1389,7 +1390,7 @@ exports[`Controlled Dropdown should match snapshot 1`] = `
             class="c11 c12 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus fi-dropdown_item--selected"
             id="test-id-item-2"
             role="option"
-            tabindex="-1"
+            tabindex="0"
           >
             Item 2
             <svg
@@ -2024,7 +2025,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
         <button
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-labelledby="additional-label-id test-id-label"
+          aria-labelledby="test-id-displayValue additional-label-id test-id-label"
           aria-owns="test-id-popover"
           class="c5 fi-dropdown_button"
           id="test-id_button"
@@ -2046,6 +2047,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
         </button>
         <span
           class="c4 c7 fi-visually-hidden"
+          id="test-id-displayValue"
         >
           Dropdown
         </span>
@@ -2082,7 +2084,7 @@ exports[`Dropdown with additional aria-label should match snapshot 1`] = `
             class="c11 c12 fi-dropdown_item fi-dropdown_item--hasKeyboardFocus"
             id="test-id-item-1"
             role="option"
-            tabindex="-1"
+            tabindex="0"
           >
             Item 1
           </li>
@@ -2550,7 +2552,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
         <button
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-labelledby="test-id-label"
+          aria-labelledby="test-id-displayValue test-id-label"
           aria-owns="test-id-popover"
           class="c5 fi-dropdown_button"
           id="test-id_button"
@@ -2572,6 +2574,7 @@ exports[`Dropdown with hidden label should match snapshot 1`] = `
         </button>
         <span
           class="c6 c4 fi-visually-hidden"
+          id="test-id-displayValue"
         >
           Dropdown
         </span>
