@@ -1,20 +1,22 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { axeTest } from '../../../utils/test';
+import { axeTest } from '../../utils/test';
 import { LanguageMenu } from './LanguageMenu';
-import { LanguageMenuItem } from '../LanguageMenuItem';
-import { LanguageMenuLink } from '../LanguageMenuLink';
+import { LanguageMenuItem } from './LanguageMenuItem/LanguageMenuItem';
 
 const doNothing = () => ({});
 
 const TestLanguageMenu = (
-  <LanguageMenu className="language-menu-language-test" name="Suomeksi (FI)">
-    <LanguageMenuItem onSelect={() => doNothing()} selected>
+  <LanguageMenu
+    className="language-menu-language-test"
+    buttonText="Suomeksi (FI)"
+  >
+    <LanguageMenuItem onClick={() => doNothing()} selected>
       Suomeksi (FI)
     </LanguageMenuItem>
-    <LanguageMenuLink href="/sv">På svenska (SV)</LanguageMenuLink>
-    <LanguageMenuLink href="/en">In English (EN)</LanguageMenuLink>
+    <LanguageMenuItem href="/sv">På svenska (SV)</LanguageMenuItem>
+    <LanguageMenuItem href="/en">In English (EN)</LanguageMenuItem>
   </LanguageMenu>
 );
 

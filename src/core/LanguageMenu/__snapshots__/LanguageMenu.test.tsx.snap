@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+.c2 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline-block;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.c2:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.c2::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.c2::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.c2::-webkit-inner-spin-button {
+  height: auto;
+}
+
+.c2::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.c2::before,
+.c2::after {
+  box-sizing: border-box;
+}
+
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: block;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c3 {
+  vertical-align: baseline;
+}
+
+.c3.fi-icon {
+  display: inline-block;
+}
+
+.c3 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c3 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c3.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c3.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c1.fi-language-menu {
+  color: hsl(0,0%,13%);
+}
+
+.c1.fi-language-menu .fi-language-menu_button {
+  color: hsl(0,0%,13%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  padding: 9px 10px;
+  line-height: 24px;
+  background-color: hsl(0,0%,100%);
+  border: 1px solid transparent;
+  border-radius: 2px;
+  word-break: break-word;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1.fi-language-menu .fi-language-menu_button .fi-language-menu_button_text_wrapper {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  word-break: break-word;
+  line-height: 24px;
+}
+
+.c1.fi-language-menu .fi-language-menu_button .fi-language-menu_button_icon {
+  width: 18px;
+  height: 18px;
+  margin-left: 10px;
+}
+
+.c1.fi-language-menu .fi-language-menu_button .fi-language-menu_button_icon .fi-icon-base-fill {
+  fill: hsl(212,63%,45%);
+}
+
+.c1.fi-language-menu .fi-language-menu_button:focus {
+  outline: 0;
+  position: relative;
+}
+
+.c1.fi-language-menu .fi-language-menu_button:focus:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 2px;
+  background-color: transparent;
+  border: 0px solid hsl(0,0%,100%);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  z-index: 9999;
+}
+
+.c1.fi-language-menu .fi-language-menu_button:hover {
+  border-color: hsl(202,7%,80%);
+}
+
+.c1.fi-language-menu .fi-language-menu_button--open {
+  border-color: hsl(202,7%,80%);
+}
+
+<body>
+  <div>
+    <div
+      class="c0 fi-language-menu c1 language-menu-language-test"
+    >
+      <button
+        aria-controls="1-menu"
+        aria-expanded="false"
+        aria-haspopup="menu"
+        class="c2 fi-language-menu_button"
+        id="1"
+        type="button"
+      >
+        Suomeksi (FI)
+        <svg
+          aria-hidden="true"
+          class="fi-icon c3 fi-language-menu_button_icon"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="fi-icon-base-fill"
+            d="M12.99 15.61c-.273.26-.632.39-.99.39s-.717-.13-.99-.39l-5.6-5.334a1.287 1.287 0 010-1.885 1.448 1.448 0 011.98 0l4.61 4.39 4.61-4.39a1.448 1.448 0 011.98 0c.547.52.547 1.365 0 1.885l-5.6 5.333z"
+            fill="#222"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</body>
+`;
