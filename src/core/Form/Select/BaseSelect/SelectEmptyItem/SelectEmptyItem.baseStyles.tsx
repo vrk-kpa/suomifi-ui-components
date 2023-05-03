@@ -13,4 +13,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     display: inline-block;
     width: 100%;
   }
+
+  &.loading {
+    & .fi-select-empty-item_content_wrapper {
+      display: block; /* Fixes "extra padding" issue with loading spinner */
+    }
+  }
 `;

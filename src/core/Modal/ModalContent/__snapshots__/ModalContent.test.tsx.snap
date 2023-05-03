@@ -89,7 +89,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c0.fi-modal_base {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -106,7 +106,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c0.fi-modal_base .fi-modal_overlay {
-  background-color: rgba(41,41,41,0.5);
+  background-color: rgba(33,33,33,0.5);
   position: fixed;
   top: 0;
   left: 0;
@@ -159,9 +159,9 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c0 .fi-modal:focus-visible {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
 }
 
 .c0 .fi-modal--no-scroll {
@@ -177,7 +177,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c2 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -223,7 +223,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
 }
 
 .c6 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -237,7 +237,7 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c6.fi-heading--h1hero {
@@ -513,10 +513,6 @@ exports[`Basic ModalContent should match snapshot 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
-}
-
-.c4.fi-modal_title--no-scroll {
-  margin-bottom: 10px;
 }
 
 .c4.fi-modal_title--small-screen {

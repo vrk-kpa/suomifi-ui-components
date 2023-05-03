@@ -20,6 +20,7 @@ import { MultiSelectRemoveAllButton } from '../MultiSelectRemoveAllButton/MultiS
 import { baseStyles } from './MultiSelect.baseStyles';
 import { InputToggleButton } from '../../../InputToggleButton/InputToggleButton';
 import { SelectItemAddition } from '../../BaseSelect/SelectItemAddition/SelectItemAddition';
+import { LoadingSpinner } from '../../../../LoadingSpinner/LoadingSpinner';
 
 const baseClassName = 'fi-multiselect';
 const multiSelectClassNames = {
@@ -95,6 +96,20 @@ type AriaSelectedAmountProps =
       ariaSelectedAmountTextFunction: (amount: number) => string;
     };
 
+type LoadingProps =
+  | {
+      loading?: false | never;
+      loadingText?: string;
+    }
+  | {
+      /** Show the animated icon indicating that component is loading data
+       * @default false
+       */
+      loading?: true;
+      /** Text to show with the loading animation. Required if `loading` is true */
+      loadingText: string;
+    };
+
 interface InternalMultiSelectProps<T extends MultiSelectData> {
   /** MultiSelect container div class name for custom styling. */
   className?: string;
@@ -139,7 +154,7 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   /** Controlled items; if item is in array, it is selected. If item has disabled: true, it will be disabled. */
   selectedItems?: Array<T & MultiSelectData>;
   /** Selecting the item will send event with the id */
-  onItemSelect?: (uniqueItemId: string | null) => void;
+  onItemSelect?: (uniqueItemId: string) => void;
   /** Event to be sent when pressing remove all button */
   onRemoveAll?: () => void;
   /** Disable the input */
@@ -175,7 +190,8 @@ export type MultiSelectProps<T> = InternalMultiSelectProps<
   AllowItemAdditionProps &
   AriaOptionsAvailableProps &
   AriaOptionChipRemovedProps &
-  AriaSelectedAmountProps;
+  AriaSelectedAmountProps &
+  LoadingProps;
 
 interface MultiSelectState<T extends MultiSelectData> {
   filterInputValue: string;
@@ -316,7 +332,7 @@ class BaseMultiSelect<T> extends Component<
     }
 
     if (!!onItemSelect) {
-      onItemSelect(item?.uniqueItemId || null);
+      onItemSelect(item.uniqueItemId);
     }
     if (!!onItemSelectionsChange) {
       onItemSelectionsChange(newSelectedItems);
@@ -579,6 +595,8 @@ class BaseMultiSelect<T> extends Component<
       ariaChipActionLabel,
       removeAllButtonLabel,
       visualPlaceholder,
+      loading,
+      loadingText,
       noItemsText,
       defaultSelectedItems,
       onChange: propOnChange,
@@ -719,7 +737,8 @@ class BaseMultiSelect<T> extends Component<
                   aria-multiselectable="true"
                 >
                   <HtmlDiv>
-                    {filteredItemsWithChecked.length > 0 &&
+                    {!loading &&
+                      filteredItemsWithChecked.length > 0 &&
                       filteredItemsWithChecked.map((item) => {
                         const isCurrentlySelected =
                           item.uniqueItemId === focusedDescendantId;
@@ -740,12 +759,14 @@ class BaseMultiSelect<T> extends Component<
                         );
                       })}
 
-                    {filteredItemsWithChecked.length === 0 &&
+                    {!loading &&
+                      filteredItemsWithChecked.length === 0 &&
                       !allowItemAddition && (
                         <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
                       )}
 
-                    {filterInputValue !== '' &&
+                    {!loading &&
+                      filterInputValue !== '' &&
                       !this.inputValueInItems() &&
                       allowItemAddition && (
                         <SelectItemAddition
@@ -770,6 +791,17 @@ class BaseMultiSelect<T> extends Component<
                           {filterInputValue}
                         </SelectItemAddition>
                       )}
+
+                    {loading && (
+                      <SelectEmptyItem className="loading">
+                        <LoadingSpinner
+                          status="loading"
+                          variant="small"
+                          textAlign="right"
+                          text={loadingText}
+                        />
+                      </SelectEmptyItem>
+                    )}
                   </HtmlDiv>
                 </SelectItemList>
               </Popover>
@@ -819,36 +851,52 @@ class BaseMultiSelect<T> extends Component<
             </MultiSelectRemoveAllButton>
           </HtmlDiv>
         </HtmlDiv>
-        {this.state.showOptionsAvailableText && (
-          <>
-            <VisuallyHidden aria-live="polite" aria-atomic="true">
-              {ariaSelectedAmountTextFunction ? (
-                <>{ariaSelectedAmountTextFunction(selectedItems.length)}</>
+
+        <VisuallyHidden aria-live="polite" aria-atomic="true">
+          {this.state.showOptionsAvailableText ? (
+            ariaSelectedAmountTextFunction ? (
+              <>{ariaSelectedAmountTextFunction(selectedItems.length)}</>
+            ) : (
+              <>
+                {selectedItems.length}
+                {ariaSelectedAmountText}
+              </>
+            )
+          ) : (
+            ''
+          )}
+        </VisuallyHidden>
+
+        <VisuallyHidden
+          aria-live="polite"
+          aria-atomic="true"
+          id={`${id}-filteredItems-length`}
+        >
+          {!loading && this.state.showOptionsAvailableText ? (
+            this.focusInInput(getOwnerDocument(this.popoverListRef)) ? (
+              ariaOptionsAvailableTextFunction ? (
+                <>{ariaOptionsAvailableTextFunction(filteredItems.length)}</>
               ) : (
                 <>
-                  {selectedItems.length}
-                  {ariaSelectedAmountText}
+                  {filteredItems.length}
+                  {ariaOptionsAvailableText}
                 </>
-              )}
-            </VisuallyHidden>
-            <VisuallyHidden
-              aria-live="polite"
-              aria-atomic="true"
-              id={`${id}-filteredItems-length`}
-            >
-              {this.focusInInput(getOwnerDocument(this.popoverListRef)) ? (
-                ariaOptionsAvailableTextFunction ? (
-                  <>{ariaOptionsAvailableTextFunction(filteredItems.length)}</>
-                ) : (
-                  <>
-                    {filteredItems.length}
-                    {ariaOptionsAvailableText}
-                  </>
-                )
-              ) : null}
-            </VisuallyHidden>
-          </>
-        )}
+              )
+            ) : (
+              ''
+            )
+          ) : (
+            ''
+          )}
+        </VisuallyHidden>
+
+        <VisuallyHidden
+          aria-live="polite"
+          aria-atomic="true"
+          id={`${id}-loading-announce`}
+        >
+          {loading ? loadingText : ''}
+        </VisuallyHidden>
         <VisuallyHidden
           aria-live="assertive"
           aria-atomic="true"

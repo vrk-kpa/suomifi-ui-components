@@ -27,7 +27,6 @@ interface InternalModalTitleProps extends ModalTitleProps, SuomifiThemeProp {
 const titleClassName = `${baseClassName}_title`;
 const titleClassNames = {
   smallScreen: `${titleClassName}--smallScreen`,
-  noScroll: `${titleClassName}--no-scroll`,
   focusWrapper: `${titleClassName}_focus-wrapper`,
 };
 
@@ -54,7 +53,6 @@ class BaseModalTitle extends Component<InternalModalTitleProps> {
       <HtmlSpan
         className={classnames(className, titleClassName, {
           [titleClassNames.smallScreen]: modalVariant === 'smallScreen',
-          [titleClassNames.noScroll]: scrollable === false,
         })}
       >
         <Heading

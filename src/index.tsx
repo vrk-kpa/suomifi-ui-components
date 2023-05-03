@@ -53,6 +53,9 @@ export {
   LabelProps,
   HintText,
   HintTextProps,
+  DateInput,
+  DateInputProps,
+  DatePickerTextProps,
 } from './core/Form';
 export { Heading, HeadingProps } from './core/Heading/Heading';
 export { Icon, IconProps, BaseIconKeys } from './core/Icon/Icon';
@@ -140,11 +143,6 @@ export {
 } from './core/VisuallyHidden/VisuallyHidden';
 export {
   SuomifiTheme,
-  GradientDesignTokens,
-  FocusDesignTokens,
-  RadiusDesignTokens,
-  ShadowDesignTokens,
-  TransitionDesignTokens,
   ZIndexDesignTokens,
   SuomifiDesignTokens,
   defaultSuomifiTheme,

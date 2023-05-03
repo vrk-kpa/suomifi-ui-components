@@ -17,7 +17,7 @@ export const RouterLinkStyles = (theme: SuomifiTheme) => css`
     }
 
     &:focus {
-      ${theme.focus.boxShadowFocus}
+      ${theme.focuses.boxShadowFocus}
     }
 
     &:hover,

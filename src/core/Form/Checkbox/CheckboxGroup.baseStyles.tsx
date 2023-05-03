@@ -5,11 +5,15 @@ import { element } from '../../theme/reset';
 export const baseStyles = (theme: SuomifiTheme) => css`
   ${element(theme)}
 
-  & .fi-checkbox-group_label--visible {
+  & .fi-checkbox-group_legend {
     margin-bottom: 10px;
+
+    .fi-hint-text {
+      margin-bottom: 0;
+    }
   }
 
-  & .fi-checkbox-group_legend .fi-hint-text {
+  & .fi-checkbox-group_label--with-margin {
     margin-bottom: 10px;
   }
 

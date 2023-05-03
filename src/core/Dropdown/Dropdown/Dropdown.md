@@ -1,11 +1,28 @@
 ```js
+import React from 'react';
 import { Dropdown, DropdownItem } from 'suomifi-ui-components';
 
+const [selectedValue, setSelectedValue] = React.useState(null);
+const [status, setStatus] = React.useState('default');
+
 <Dropdown
-  name="Dropdown"
+  name="dropdown_example_1"
   labelText="Dropdown label"
-  defaultValue={'dropdown-item-2'}
-  onChange={(value) => console.log(value)}
+  hintText="Some informative text"
+  onChange={(value) => {
+    setStatus('default');
+    setSelectedValue(value);
+  }}
+  onBlur={() => {
+    if (!selectedValue) {
+      setStatus('error');
+    } else {
+      setStatus('default');
+    }
+  }}
+  status={status}
+  statusText={status === 'error' ? 'You must select a value.' : ''}
+  visualPlaceholder="Select a value"
 >
   <DropdownItem value={'dropdown-item-1'}>
     Dropdown Item 1
@@ -62,12 +79,13 @@ import { createRef } from 'react';
 const exampleRef = createRef();
 <>
   <Dropdown
-    name="Dropdown"
-    visualPlaceholder="Dropdown with visually hidden label and ref"
+    name="dropdown_example_2"
+    visualPlaceholder="Wide dropdown with a visually hidden label and ref"
     labelText="Dropdown label"
     labelMode="hidden"
     ref={exampleRef}
     onChange={() => console.log(exampleRef.current)}
+    fullWidth
   >
     <DropdownItem value={'dropdown-item-1'}>
       Dropdown Item 1
@@ -78,6 +96,7 @@ const exampleRef = createRef();
   </Dropdown>
 
   <Dropdown
+    name="dropdown_example_3"
     labelText="Disabled dropdown"
     defaultValue={'dropdown-item-2'}
     disabled
@@ -93,16 +112,34 @@ const exampleRef = createRef();
 ```
 
 ```js
+import React from 'react';
 import { Dropdown, DropdownItem } from 'suomifi-ui-components';
 
+const [selectedValue, setSelectedValue] = React.useState(null);
+const [status, setStatus] = React.useState('default');
+
 <Dropdown
-  visualPlaceholder="Action menu"
-  labelText="Dropdown as action menu label"
-  alwaysShowVisualPlaceholder={true}
-  onChange={(action) => console.log(action, 'selected')}
+  name="dropdown_example_1"
+  labelText="Dropdown with disabled option"
+  hintText="Some informative text"
+  status={status}
+  visualPlaceholder="Select a value"
 >
-  <DropdownItem value={'action-item-1'}>Action Item 1</DropdownItem>
-  <DropdownItem value={'action-item-2'}>Action Item 2</DropdownItem>
+  <DropdownItem value={'dropdown-item-1'}>
+    Dropdown Item 1
+  </DropdownItem>
+  <DropdownItem value={'dropdown-item-2'}>
+    Dropdown Item 2
+  </DropdownItem>
+  <DropdownItem value={'dropdown-item-3'} disabled>
+    Dropdown Item 3
+  </DropdownItem>
+  <DropdownItem value={'dropdown-item-4'}>
+    Dropdown Item 4
+  </DropdownItem>
+  <DropdownItem value={'dropdown-item-5'}>
+    Dropdown Item 5
+  </DropdownItem>
 </Dropdown>;
 ```
 
@@ -114,8 +151,8 @@ const [value, setValue] = useState('');
 
 <Dropdown
   value={value}
-  name="Dropdown"
-  visualPlaceholder="Dropdown"
+  name="dropdown_example_4"
+  visualPlaceholder="Select a value"
   labelText="Dropdown with controlled state"
   onChange={(newValue) => {
     if (window.confirm('Change dropdown value?')) {
@@ -146,6 +183,7 @@ const dropdownProps = {
   </label>
   <Block padding="xs">
     <Dropdown
+      name="dropdown_example_5"
       defaultValue={'dropdown-1-item-1'}
       visualPlaceholder="Dropdown 1"
       labelText="Dropdown 1 label"
@@ -161,6 +199,7 @@ const dropdownProps = {
   </Block>
   <Block padding="xs">
     <Dropdown
+      name="dropdown_example_6"
       defaultValue={'dropdown-2-item-2'}
       visualPlaceholder="Dropdown 2"
       labelText="Dropdown 2 label"
@@ -177,6 +216,22 @@ const dropdownProps = {
 </div>;
 ```
 
+### Drodown as action menu
+
+```js
+import { Dropdown, DropdownItem } from 'suomifi-ui-components';
+
+<Dropdown
+  visualPlaceholder="Action menu"
+  labelText="Dropdown as action menu"
+  alwaysShowVisualPlaceholder={true}
+  onChange={(action) => console.log(action, 'selected')}
+>
+  <DropdownItem value={'action-item-1'}>Action Item 1</DropdownItem>
+  <DropdownItem value={'action-item-2'}>Action Item 2</DropdownItem>
+</Dropdown>;
+```
+
 ### Dropdown with a tooltip
 
 ```js
@@ -191,6 +246,7 @@ import {
 const labelText = 'Dropdown with a tooltip';
 
 <Dropdown
+  name="dropdown_example_6"
   labelText={labelText}
   tooltipComponent={
     <Tooltip

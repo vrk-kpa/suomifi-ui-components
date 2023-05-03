@@ -9,7 +9,7 @@ export const baseStyles = (arrowOffsetPx: number, theme: SuomifiTheme) => css`
     margin-bottom: 10px;
     position: relative;
     border: 1px solid ${theme.colors.depthDark2};
-    border-radius: ${theme.radius.basic};
+    border-radius: ${theme.radiuses.basic};
     background-color: ${theme.colors.highlightLight4};
     padding: 20px 43px 20px 20px;
     box-shadow: ${theme.shadows.menuShadow};
@@ -47,20 +47,27 @@ export const baseStyles = (arrowOffsetPx: number, theme: SuomifiTheme) => css`
 
     & .fi-tooltip_close-button {
       position: absolute;
-      top: 20px;
-      right: 15px;
-      height: 18px;
-      width: 18px;
+      top: 0px;
+      right: 0px;
+      height: 40px;
+      width: 40px;
+      padding: 12px;
+      border-radius: ${theme.radiuses.basic};
       & .fi-tooltip_close-button_icon {
-        width: 100%;
-        height: 100%;
-        color: ${theme.colors.depthDark2};
+        width: 16px;
+        height: 16px;
+      }
+      &:active {
+        background: ${theme.gradients.whiteBaseToDepthLight1};
       }
       &:focus-visible {
         outline: 0;
         &:after {
-          ${theme.focus.absoluteFocus}
+          ${theme.focuses.absoluteFocus}
         }
+      }
+      &:hover {
+        outline: 1px solid ${theme.colors.blackBase};
       }
     }
     & .fi-heading {

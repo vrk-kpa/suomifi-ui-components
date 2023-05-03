@@ -14,16 +14,12 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       &:focus {
         outline: 0;
         &:after {
-          ${theme.focus.absoluteFocus}
+          ${theme.focuses.absoluteFocus}
         }
       }
     }
 
     margin-bottom: ${theme.spacing.m};
-
-    &--no-scroll {
-      margin-bottom: ${theme.spacing.xs};
-    }
 
     &--small-screen {
       margin-bottom: ${theme.spacing.m};

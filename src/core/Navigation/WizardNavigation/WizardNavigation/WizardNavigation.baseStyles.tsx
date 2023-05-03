@@ -37,7 +37,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         &:focus {
           outline: 0;
           &:before {
-            ${theme.focus.absoluteFocus}
+            ${theme.focuses.absoluteFocus}
           }
         }
 

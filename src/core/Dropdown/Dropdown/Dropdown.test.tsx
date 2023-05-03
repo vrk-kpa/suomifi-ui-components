@@ -14,7 +14,7 @@ const dropdownProps = {
 };
 
 const TestDropdown = (props: DropdownProps, testId?: string) => (
-  <Dropdown {...props} data-testid={!!testId ? testId : ''}>
+  <Dropdown {...props} wrapperProps={{ 'data-testid': testId || '' }}>
     <DropdownItem value={'item-1'}>Item 1</DropdownItem>
     <DropdownItem value={'item-2'}>Item 2</DropdownItem>
   </Dropdown>
@@ -50,20 +50,22 @@ describe('Basic dropdown', () => {
   });
 
   it('should have disabled styles when disabled', async () => {
-    const { findByRole } = render(
+    const { container } = render(
       <Dropdown labelText="Dropdown" disabled>
         <DropdownItem value={'item-1'}>Item 1</DropdownItem>
       </Dropdown>,
     );
-    const button = await findByRole('button');
-    expect(button).toHaveClass('fi-dropdown--disabled');
+    const outerSpan = container.getElementsByClassName('fi-dropdown')[0];
+    expect(outerSpan).toHaveClass('fi-dropdown--disabled');
   });
 
   it('should match snapshot', async () => {
-    const promise = Promise.resolve();
-    const { container } = render(BasicDropdown);
-    expect(container).toMatchSnapshot();
-    await act(() => promise);
+    const { baseElement, getByRole } = render(BasicDropdown);
+    const menuButton = getByRole('button') as HTMLButtonElement;
+    await act(async () => {
+      fireEvent.click(menuButton);
+    });
+    expect(baseElement).toMatchSnapshot();
   });
 });
 
@@ -84,10 +86,8 @@ describe('Dropdown with hidden label', () => {
   });
 
   it('should match snapshot', async () => {
-    const promise = Promise.resolve();
-    const { container } = render(DropdownWithHiddenLabel);
-    expect(container).toMatchSnapshot();
-    await act(() => promise);
+    const { baseElement } = render(DropdownWithHiddenLabel);
+    expect(baseElement).toMatchSnapshot();
   });
 });
 
@@ -110,17 +110,19 @@ describe('Controlled Dropdown', () => {
   });
 
   it('should use value instead of internal state', async () => {
-    const { findByRole, findByText, rerender, findByDisplayValue } =
+    const { findByRole, rerender, findByDisplayValue, baseElement } =
       render(ControlledDropdown);
-    // mouse event tests do not work properly with listbox
     const button = await findByRole('button');
     const input = await findByDisplayValue('item-2');
 
     fireEvent.click(button);
-    const option = await findByText('Item 1');
-    fireEvent.click(option);
-    expect(button).toHaveTextContent('Item 2');
-    expect(input).toBeTruthy();
+    const option = baseElement.querySelector('.fi-dropdown_item'); // Item 1
+    if (option) {
+      fireEvent.click(option);
+      expect(button).toHaveTextContent('Item 2');
+      expect(input).toBeTruthy();
+    }
+
     await act(async () => {
       rerender(TestDropdown({ ...controlledDropdownProps, value: 'item-1' }));
     });
@@ -131,39 +133,12 @@ describe('Controlled Dropdown', () => {
   });
 
   it('should match snapshot', async () => {
-    const promise = Promise.resolve();
-    const { container } = render(ControlledDropdown);
-    expect(container).toMatchSnapshot();
-    await act(() => promise);
-  });
-});
-
-describe('Dropdown as action menu', () => {
-  const actionMenuDropdownProps = {
-    labelText: 'Dropdown test',
-    defaultValue: 'item-2',
-    visualPlaceholder: 'Action menu',
-    alwaysShowVisualPlaceholder: true,
-    name: 'dropdown-test',
-    className: 'dropdown-test',
-    id: 'test-id',
-  };
-
-  const ActionMenuDropdown = TestDropdown(actionMenuDropdownProps);
-
-  it('should always display visualPlaceholder value', async () => {
-    const { findByRole, queryByDisplayValue } = render(ActionMenuDropdown);
-    const button = await findByRole('button');
-    const input = await queryByDisplayValue('item-2');
-    expect(button).toHaveTextContent('Action menu');
-    expect(input).toBeTruthy();
-  });
-
-  it('should match snapshot', async () => {
-    const promise = Promise.resolve();
-    const { container } = render(ActionMenuDropdown);
-    expect(container).toMatchSnapshot();
-    await act(() => promise);
+    const { baseElement, getByRole } = render(ControlledDropdown);
+    const button = getByRole('button') as HTMLButtonElement;
+    await act(async () => {
+      fireEvent.click(button);
+    });
+    expect(baseElement).toMatchSnapshot();
   });
 });
 
@@ -183,10 +158,97 @@ describe('Dropdown with additional aria-label', () => {
   });
 
   it('should match snapshot', async () => {
-    const promise = Promise.resolve();
-    const { container } = render(DropdownWithExtraLabel);
-    expect(container).toMatchSnapshot();
-    await act(() => promise);
+    const { baseElement, getByRole } = render(DropdownWithExtraLabel);
+    const menuButton = getByRole('button') as HTMLButtonElement;
+    await act(async () => {
+      fireEvent.click(menuButton);
+    });
+    expect(baseElement).toMatchSnapshot();
+  });
+});
+
+describe('DropdownOption', () => {
+  it('should be selected when item is clicked', async () => {
+    const BasicDropdown = TestDropdown({ labelText: 'Dropdown' });
+    const { getByRole, getAllByRole } = render(BasicDropdown);
+    const menuButton = getByRole('button') as HTMLButtonElement;
+    await act(async () => {
+      fireEvent.click(menuButton);
+    });
+    const option = getAllByRole('option')[0];
+    await act(async () => {
+      fireEvent.click(option);
+    });
+    expect(menuButton).toHaveTextContent('Item 1');
+  });
+
+  it('should not be selected when disabled', async () => {
+    const BasicDropdown = (
+      <Dropdown labelText="Dropdown" visualPlaceholder="Select value">
+        <DropdownItem value={'item-1'} disabled>
+          Item 1
+        </DropdownItem>
+        <DropdownItem value={'item-2'}>Item 2</DropdownItem>
+      </Dropdown>
+    );
+    const { getByRole, getAllByRole } = render(BasicDropdown);
+    const menuButton = getByRole('button') as HTMLButtonElement;
+    await act(async () => {
+      fireEvent.click(menuButton);
+    });
+    const option = getAllByRole('option')[0];
+    await act(async () => {
+      fireEvent.click(option);
+    });
+    expect(menuButton).toHaveTextContent('Select value');
+  });
+});
+
+describe('statusText', () => {
+  it('has status text defined by prop', () => {
+    const statusTextProps: DropdownProps = {
+      ...dropdownProps,
+      statusText: 'Test status',
+    };
+    const DropdownWithStatusText = TestDropdown(statusTextProps);
+    const { getByText } = render(DropdownWithStatusText);
+    expect(getByText('Test status')).toBeDefined();
+  });
+});
+
+describe('statusTextAriaLiveMode', () => {
+  it('has assertive aria-live by default', () => {
+    const statusTextProps: DropdownProps = {
+      ...dropdownProps,
+      statusText: 'Test status',
+    };
+    const DropdownWithStatusText = TestDropdown(statusTextProps);
+    const { getByText } = render(DropdownWithStatusText);
+    expect(getByText('Test status')).toHaveAttribute('aria-live', 'assertive');
+  });
+  it('has aria-live defined by prop', () => {
+    const statusTextProps: DropdownProps = {
+      ...dropdownProps,
+      statusText: 'Test status',
+      statusTextAriaLiveMode: 'off',
+    };
+    const DropdownWithStatusTextAriaLiveDisabled =
+      TestDropdown(statusTextProps);
+    const { getByText } = render(DropdownWithStatusTextAriaLiveDisabled);
+    expect(getByText('Test status')).toHaveAttribute('aria-live', 'off');
+  });
+});
+
+describe('hintText', () => {
+  it('has hint text', () => {
+    const hintTextProps: DropdownProps = {
+      ...dropdownProps,
+      hintText: 'Test hint text',
+    };
+    const DropdownWithHintText = TestDropdown(hintTextProps);
+    const { getByText } = render(DropdownWithHintText);
+    const span = getByText('Test hint text');
+    expect(span).toBeDefined();
   });
 });
 

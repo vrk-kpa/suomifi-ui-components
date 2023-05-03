@@ -31,7 +31,7 @@ exports[`Basic ExpanderContent shoud match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -52,9 +52,6 @@ exports[`Basic ExpanderContent shoud match snapshot 1`] = `
   height: 0;
   overflow: hidden;
   word-break: break-word;
-  -webkit-transform: scaleY(0);
-  -ms-transform: scaleY(0);
-  transform: scaleY(0);
   -webkit-transform-origin: top;
   -ms-transform-origin: top;
   transform-origin: top;
@@ -74,6 +71,8 @@ exports[`Basic ExpanderContent shoud match snapshot 1`] = `
 .c1.fi-expander_content--open {
   visibility: visible;
   height: auto;
+  border-bottom: 1px solid hsl(212,63%,45%);
+  border-top: 1px solid transparent;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   -webkit-animation: fi-expander_content-anim 50ms cubic-bezier(0.28,0.84,0.42,1) 1 forwards;
@@ -81,7 +80,7 @@ exports[`Basic ExpanderContent shoud match snapshot 1`] = `
 }
 
 .c1.fi-expander_content--open:not(.fi-expander_content--no-padding) {
-  padding-top: 0;
+  padding-top: 10px;
   padding-right: 20px;
   padding-bottom: 20px;
   padding-left: 20px;

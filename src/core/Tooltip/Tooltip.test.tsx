@@ -154,6 +154,8 @@ describe('Basic tooltip', () => {
       </Tooltip>
     );
     const { container } = render(BasicTooltip);
+    const toggleButton = screen.getAllByRole('button')[0];
+    toggleButton.click();
     expect(container).toMatchSnapshot();
   });
 });

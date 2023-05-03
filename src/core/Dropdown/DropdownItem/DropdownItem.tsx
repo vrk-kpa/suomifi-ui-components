@@ -1,10 +1,16 @@
-import React, { ReactNode } from 'react';
-import { ListboxOption } from '@reach/listbox';
+import React, { ReactNode, useLayoutEffect, useRef } from 'react';
 import { default as styled } from 'styled-components';
 import { baseStyles } from './DropdownItem.basestyles';
-import { dropdownClassNames } from '../Dropdown/Dropdown';
+import {
+  dropdownClassNames,
+  DropdownConsumer,
+  DropdownProviderState,
+} from '../Dropdown/Dropdown';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import { HtmlLi } from '../../../reset';
+import { Icon } from '../../Icon/Icon';
+import { getOwnerDocument } from '../../../utils/common';
 
 export interface DropdownItemProps {
   /** Item value */
@@ -13,15 +19,86 @@ export interface DropdownItemProps {
   children: ReactNode;
   /** Classname for item */
   className?: string;
+  /** Disables dropdown option
+   * @default false
+   */
+  disabled?: boolean;
 }
 
-const BaseDropdownItem = (props: DropdownItemProps & SuomifiThemeProp) => {
-  const { className, theme, ...passProps } = props;
+interface BaseDropdownItemProps extends DropdownItemProps {
+  consumer: DropdownProviderState;
+}
+
+const dropdownItemClassNames = {
+  hasKeyboardFocus: `${dropdownClassNames.item}--hasKeyboardFocus`,
+  selected: `${dropdownClassNames.item}--selected`,
+  disabled: `${dropdownClassNames.item}--disabled`,
+  noSelectedStyles: `${dropdownClassNames.item}--noSelectedStyles`,
+  icon: `${dropdownClassNames.item}_icon`,
+};
+
+const BaseDropdownItem = (props: BaseDropdownItemProps & SuomifiThemeProp) => {
+  const {
+    children,
+    className,
+    theme,
+    consumer,
+    value,
+    disabled = false,
+    ...passProps
+  } = props;
+  const selected = consumer.selectedDropdownValue === value;
+  const hasKeyboardFocus = consumer.focusedItemValue === value;
+
+  const listElementId = `${consumer.id}-${value}`;
+
+  const listElementRef = useRef<HTMLLIElement>(null);
+
+  useLayoutEffect(() => {
+    const ownerDocument = getOwnerDocument(listElementRef);
+    if (ownerDocument.activeElement?.id !== listElementId && hasKeyboardFocus) {
+      listElementRef.current?.focus({ preventScroll: true });
+    }
+  }, [consumer.focusedItemValue]);
+
+  const handleClick = () => {
+    if (!disabled) {
+      consumer.onItemClick(value);
+    }
+  };
+
   return (
-    <ListboxOption
-      className={classnames(className, dropdownClassNames.item)}
+    <HtmlLi
+      className={classnames(className, dropdownClassNames.item, {
+        [dropdownItemClassNames.hasKeyboardFocus]: hasKeyboardFocus,
+        [dropdownItemClassNames.selected]: selected,
+        [dropdownItemClassNames.disabled]: disabled,
+        [dropdownItemClassNames.noSelectedStyles]: consumer.noSelectedStyles,
+      })}
+      tabIndex={hasKeyboardFocus ? 0 : -1}
+      role="option"
+      aria-disabled={disabled}
+      aria-selected={selected}
+      id={listElementId}
+      onClick={handleClick}
+      forwardedRef={listElementRef}
+      onKeyDown={(event: React.KeyboardEvent) => {
+        if (event.key === 'Tab') {
+          event.preventDefault();
+          consumer.onItemTabPress();
+        }
+      }}
       {...passProps}
-    />
+    >
+      {children}
+      {selected && !consumer.noSelectedStyles && (
+        <Icon
+          icon="check"
+          className={dropdownItemClassNames.icon}
+          aria-hidden={true}
+        />
+      )}
+    </HtmlLi>
   );
 };
 
@@ -32,7 +109,15 @@ const StyledDropdownItem = styled(BaseDropdownItem)`
 const DropdownItem = (props: DropdownItemProps) => (
   <SuomifiThemeConsumer>
     {({ suomifiTheme }) => (
-      <StyledDropdownItem theme={suomifiTheme} {...props} />
+      <DropdownConsumer>
+        {(consumer) => (
+          <StyledDropdownItem
+            theme={suomifiTheme}
+            consumer={consumer}
+            {...props}
+          />
+        )}
+      </DropdownConsumer>
     )}
   </SuomifiThemeConsumer>
 );

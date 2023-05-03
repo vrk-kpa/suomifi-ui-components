@@ -12,13 +12,9 @@ import { default as styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './Label.baseStyles';
 import { asPropType } from '../../../utils/typescript';
+import { HTMLAttributesIncludingDataAttributes } from '../../../utils/common/common';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
-import {
-  HtmlSpan,
-  HtmlSpanProps,
-  HtmlDivProps,
-  HtmlDivWithRef,
-} from '../../../reset';
+import { HtmlSpan, HtmlSpanProps, HtmlDivWithRef } from '../../../reset';
 import { TooltipProps } from '../../Tooltip/Tooltip';
 
 export type LabelMode = 'hidden' | 'visible';
@@ -39,7 +35,10 @@ export interface LabelProps extends Omit<HtmlSpanProps, 'as'> {
    */
   labelMode?: LabelMode;
   /** Props for label wrapper element */
-  wrapperProps?: Omit<HtmlDivProps, 'as' | 'className'>;
+  wrapperProps?: Omit<
+    HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
+    'as' | 'className'
+  >;
   /** Render the wrapping element as another element
    *
    * @default 'label'

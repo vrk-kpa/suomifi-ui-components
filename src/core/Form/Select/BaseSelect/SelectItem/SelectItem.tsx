@@ -20,7 +20,7 @@ const selectItemClassNames = {
 export interface SelectItemProps {
   /** Unique id for the item */
   id: string;
-  /** Indicates if the current item has keyboard focus. */
+  /** Indicates if the current item has keyboard focuses. */
   hasKeyboardFocus: boolean;
   /** Query for matching string type item children for highlighting text. */
   hightlightQuery: string | undefined;

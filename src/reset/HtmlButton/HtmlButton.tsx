@@ -12,7 +12,7 @@ export interface HtmlButtonProps
    */
   type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
   'data-testid'?: string;
-  forwardedRef?: React.RefObject<HTMLButtonElement>;
+  forwardedRef?: React.Ref<HTMLButtonElement>;
 }
 
 const buttonResets = css`

@@ -7,16 +7,20 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')}
 
   &.fi-radio-button-group {
+    & .fi-radio-button-group_legend {
+      margin-bottom: 10px;
+
+      .fi-hint-text {
+        margin-bottom: 0;
+      }
+    }
+
     & .fi-radio-button-group_label {
       display: block;
       ${theme.typography.bodySemiBoldSmall};
     }
 
-    & .fi-radio-button-group_label--visible {
-      margin-bottom: 10px;
-    }
-
-    & .fi-radio-button-group_legend .fi-hint-text {
+    & .fi-radio-button-group_label--with-margin {
       margin-bottom: 10px;
     }
 

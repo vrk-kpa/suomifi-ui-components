@@ -8,8 +8,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   background-color: ${theme.colors.whiteBase};
   position: relative;
   padding: 0;
-  border-radius: ${theme.radius.basic};
-  box-shadow: ${theme.shadows.panelShadow};
+  border: 1px solid ${theme.colors.highlightBase};
+  border-radius: ${theme.radiuses.basic};
   width: 100%;
   max-width: 100%;
 
@@ -19,5 +19,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &:before {
     background-color: ${theme.colors.highlightLight4};
     opacity: 0;
+  }
+
+  &.fi-expander--open {
+    border-bottom: none;
   }
 `;

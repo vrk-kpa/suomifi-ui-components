@@ -8,24 +8,25 @@ import { LanguageMenuLink } from '../LanguageMenuLink';
 
 const doNothing = () => ({});
 
-const TestMenuLanguage = (
-  <LanguageMenu className="menu-language-test" name="FI">
-    <LanguageMenuItem onSelect={doNothing} selected={true}>
+const TestLanguageMenu = (
+  <LanguageMenu className="language-menu-language-test" name="Suomeksi (FI)">
+    <LanguageMenuItem onSelect={() => doNothing()} selected>
       Suomeksi (FI)
     </LanguageMenuItem>
     <LanguageMenuLink href="/sv">På svenska (SV)</LanguageMenuLink>
+    <LanguageMenuLink href="/en">In English (EN)</LanguageMenuLink>
   </LanguageMenu>
 );
 
-test('calling render with the same component on the same container does not remount', () => {
-  const { container } = render(TestMenuLanguage);
-  expect(container).toMatchSnapshot();
+test('should match snapshot', () => {
+  const { baseElement } = render(TestLanguageMenu);
+  expect(baseElement).toMatchSnapshot();
 });
 
 // Don't validate aria-attributes since Portal is not rendered and there is no pair for aria-controls
 test(
   'should not have basic accessibility issues',
-  axeTest(TestMenuLanguage, {
+  axeTest(TestLanguageMenu, {
     rules: {
       'aria-valid-attr-value': {
         enabled: false,

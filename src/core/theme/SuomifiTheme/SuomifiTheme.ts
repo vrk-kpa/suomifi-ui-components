@@ -4,25 +4,24 @@ import {
   SpacingDesignTokens,
   suomifiDesignTokens,
   TypographyDesignTokens,
+  GradientDesignTokens,
+  RadiusDesignTokens,
+  ShadowDesignTokens,
+  FocusDesignTokens,
+  TransitionDesignTokens,
 } from 'suomifi-design-tokens';
-import { shadows } from './shadows';
-import { gradients } from './gradients';
-import { boxShadowFocus, absoluteFocus, noMouseFocus } from './focus';
 import { zindexes } from './zindexes';
-import { transitions } from './transitions';
-import { radius } from './radius';
-
-export type GradientDesignTokens = typeof derivedTokens.gradients;
-export type FocusDesignTokens = typeof derivedTokens.focus;
-export type RadiusDesignTokens = typeof radius;
-export type ShadowDesignTokens = typeof derivedTokens.shadows;
-export type TransitionDesignTokens = typeof transitions;
 export type ZIndexDesignTokens = typeof zindexes;
 export type SuomifiDesignTokens = typeof designTokens;
 
 export type ColorProp = keyof ColorDesignTokens;
 export type TypographyProp = keyof TypographyDesignTokens;
 export type SpacingProp = keyof SpacingDesignTokens | '0';
+export type GradientProp = keyof GradientDesignTokens;
+export type RadiusProp = keyof RadiusDesignTokens;
+export type ShadowProp = keyof ShadowDesignTokens;
+export type FocusProp = keyof FocusDesignTokens;
+export type TransitionProp = keyof TransitionDesignTokens;
 
 /**
  * SuomifiTheme
@@ -34,9 +33,9 @@ export interface SuomifiTheme {
   /** Gradient design tokens as [key:string]: CSS string format with key derived from gradient name colors */
   gradients: GradientDesignTokens;
   /** Focus design tokens as [key:string]: CSS string format for pseudo and regular styles and disabling mouse focus  */
-  focus: FocusDesignTokens;
+  focuses: FocusDesignTokens;
   /** Radius design tokens as [key:string]: CSS string format with radius use case name as key */
-  radius: RadiusDesignTokens;
+  radiuses: RadiusDesignTokens;
   /** Shadow design tokens as [key:string]: CSS string format with shadow type name as key */
   shadows: ShadowDesignTokens;
   /** Spacing design tokens as [key:string]: CSS string format with spacing size name as key */
@@ -62,37 +61,28 @@ export interface SuomifiThemeProp {
 
 const designTokens = {
   zindexes,
-  transitions,
-  radius,
+  shadows: suomifiDesignTokens.shadows,
+  focuses: suomifiDesignTokens.focuses,
+  transitions: suomifiDesignTokens.transitions,
+  radiuses: suomifiDesignTokens.radiuses,
   colors: suomifiDesignTokens.colors,
   spacing: suomifiDesignTokens.spacing,
   typography: suomifiDesignTokens.typography,
+  gradients: suomifiDesignTokens.gradients,
   values: suomifiDesignTokens.values,
-};
-
-const derivedTokens = {
-  focus: {
-    absoluteFocus: absoluteFocus(designTokens),
-    boxShadowFocus: boxShadowFocus(designTokens),
-    noMouseFocus,
-  },
-  shadows: shadows(designTokens.colors),
-  gradients: gradients(designTokens.colors),
 };
 
 /** SuomifiTheme with default values */
 export const defaultSuomifiTheme: SuomifiTheme = {
   // Get all design tokens
   ...designTokens,
-  // Get all derived tokens
-  ...derivedTokens,
 };
 
 export interface PartialSuomifiTheme {
   colors?: Partial<ColorDesignTokens>;
   gradients?: Partial<GradientDesignTokens>;
-  focus?: Partial<FocusDesignTokens>;
-  radius?: Partial<RadiusDesignTokens>;
+  focuses?: Partial<FocusDesignTokens>;
+  radiuses?: Partial<RadiusDesignTokens>;
   shadows?: Partial<ShadowDesignTokens>;
   spacing?: Partial<SpacingDesignTokens>;
   transitions?: Partial<TransitionDesignTokens>;
@@ -123,9 +113,9 @@ export const getSuomifiTheme = (
       defaultTokens: defaultTheme.transitions,
       customTokens: customTheme?.transitions,
     }),
-    radius: mergeTokens({
-      defaultTokens: defaultTheme.radius,
-      customTokens: customTheme?.radius,
+    radiuses: mergeTokens({
+      defaultTokens: defaultTheme.radiuses,
+      customTokens: customTheme?.radiuses,
     }),
     colors: mergeTokens({
       defaultTokens: defaultTheme.colors,
@@ -139,35 +129,22 @@ export const getSuomifiTheme = (
       defaultTokens: defaultTheme.typography,
       customTokens: customTheme?.typography,
     }),
+    gradients: mergeTokens({
+      defaultTokens: defaultTheme.gradients,
+      customTokens: customTheme?.gradients,
+    }),
+    focuses: mergeTokens({
+      defaultTokens: defaultTheme.focuses,
+      customTokens: customTheme?.focuses,
+    }),
+    shadows: mergeTokens({
+      defaultTokens: defaultTheme.shadows,
+      customTokens: customTheme?.shadows,
+    }),
     values: defaultTheme.values,
-  };
-  const derivedCustomTokens = {
-    focus: !!customTheme?.focus
-      ? mergeTokens({
-          defaultTokens: defaultTheme.focus,
-          customTokens: customTheme?.focus,
-        })
-      : {
-          absoluteFocus: absoluteFocus(customTokens),
-          boxShadowFocus: boxShadowFocus(customTokens),
-          noMouseFocus,
-        },
-    shadows: !!customTheme?.shadows
-      ? mergeTokens({
-          defaultTokens: defaultTheme.shadows,
-          customTokens: customTheme?.shadows,
-        })
-      : shadows(customTokens.colors),
-    gradients: !!customTheme?.gradients
-      ? mergeTokens({
-          defaultTokens: defaultTheme.gradients,
-          customTokens: customTheme?.gradients,
-        })
-      : gradients(customTokens.colors),
   };
   const theme = {
     ...customTokens,
-    ...derivedCustomTokens,
   };
   return theme;
 };

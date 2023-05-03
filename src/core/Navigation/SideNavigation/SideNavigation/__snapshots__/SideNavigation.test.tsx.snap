@@ -608,9 +608,9 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c11.fi-link:focus {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
 }
 
 .c11.fi-link:hover,
@@ -682,9 +682,9 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c9.fi-link--router:focus {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
 }
 
 .c9.fi-link--router:hover,

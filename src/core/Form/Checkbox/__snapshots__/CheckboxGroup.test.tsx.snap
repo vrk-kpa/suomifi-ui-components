@@ -210,7 +210,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -239,7 +239,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -254,14 +254,18 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
-.c1 .fi-checkbox-group_label--visible {
+.c1 .fi-checkbox-group_legend {
   margin-bottom: 10px;
 }
 
 .c1 .fi-checkbox-group_legend .fi-hint-text {
+  margin-bottom: 0;
+}
+
+.c1 .fi-checkbox-group_label--with-margin {
   margin-bottom: 10px;
 }
 
@@ -279,7 +283,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c7 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -325,9 +329,9 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c7:focus-within .fi-checkbox_label::before {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
 }
 
 .c7 .fi-checkbox_input {
@@ -425,7 +429,7 @@ exports[`default, with only required props should match snapshot 1`] = `
         class="c3 fi-checkbox-group_legend"
       >
         <div
-          class="c0 c4 fi-checkbox-group_label--visible fi-label"
+          class="c0 c4 fi-label"
         >
           <label
             class="c5 fi-label_label-span"

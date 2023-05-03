@@ -336,9 +336,9 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c5.fi-wizard-navigation-item:focus-within {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
 }
 
 .c5.fi-wizard-navigation-item .fi-wizard-navigation-item_inner-wrapper {
@@ -471,7 +471,7 @@ exports[`calling render with the same component on the same container does not r
 
 .c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
   pointer-events: none;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -492,7 +492,7 @@ exports[`calling render with the same component on the same container does not r
 .c5.fi-wizard-navigation-item--current .fi-wizard-navigation-item_inner-wrapper .fi-link--router:focus {
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c5.fi-wizard-navigation-item--current-completed {
@@ -542,7 +542,7 @@ exports[`calling render with the same component on the same container does not r
 
 .c5.fi-wizard-navigation-item--current-completed .fi-wizard-navigation-item_inner-wrapper .fi-link--router {
   pointer-events: none;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -563,7 +563,7 @@ exports[`calling render with the same component on the same container does not r
 .c5.fi-wizard-navigation-item--current-completed .fi-wizard-navigation-item_inner-wrapper .fi-link--router:focus {
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c5.fi-wizard-navigation-item--completed:hover {
@@ -784,9 +784,9 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c8.fi-link--router:focus {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
 }
 
 .c8.fi-link--router:hover,

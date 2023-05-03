@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`calling render with the same component on the same container does not remount 1`] = `
+exports[`should match snapshot 1`] = `
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -55,7 +55,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c1 > [data-reach-menu-button].fi-language-menu_button {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 18px;
   line-height: 1.5;
@@ -64,7 +64,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c1 > [data-reach-menu-button].fi-language-menu_button.fi-language-menu-language_button {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -125,36 +125,186 @@ exports[`calling render with the same component on the same container does not r
   transform: translateY(0.2em) rotate(180deg);
 }
 
-<div>
-  <span
-    class="c0 c1 fi-language-menu"
-  >
-    <button
-      aria-controls="menu--1"
-      aria-haspopup="true"
-      class="fi-language-menu_button fi-language-menu-language_button menu-language-test"
-      data-reach-menu-button=""
-      id="menu-button--menu"
-      type="button"
+.c3[data-reach-menu-popover] {
+  color: hsl(0,0%,13%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: hsl(0,0%,100%);
+  box-shadow: 0 2px 3px 0 hsla(0,0%,13%,0.2);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  position: absolute;
+  box-sizing: content-box;
+  margin-top: 12px;
+  border: 1px solid hsl(202,7%,80%);
+  border-radius: 2px;
+}
+
+.c3[data-reach-menu-popover]:before,
+.c3[data-reach-menu-popover]:after {
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 0;
+  bottom: 100%;
+  right: 25px;
+  border: solid transparent;
+  pointer-events: none;
+}
+
+.c3[data-reach-menu-popover]:before {
+  border-bottom-color: hsl(202,7%,80%);
+  border-width: 8px;
+  margin-right: -8px;
+}
+
+.c3[data-reach-menu-popover]:after {
+  border-bottom-color: hsl(0,0%,100%);
+  border-width: 6.5px;
+  margin-right: -6.5px;
+}
+
+.c3 [data-reach-menu-items] {
+  border: 0;
+  padding: 0;
+  white-space: normal;
+}
+
+.c3 [data-reach-menu-item].fi-language-menu_item {
+  color: hsl(0,0%,13%);
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  word-break: break-word;
+}
+
+.c3 [data-reach-menu-item].fi-language-menu_item[data-selected] {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: hsl(0,0%,13%);
+  background-color: hsl(212,63%,95%);
+}
+
+.c3 [data-reach-menu-item].fi-language-menu_item.fi-language-menu-language_item,
+.c3 [data-reach-menu-item].fi-language-menu_item[data-selected].fi-language-menu-language_item {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 10px 0;
+  padding: 0 20px 0 5px;
+  border-left: 4px solid transparent;
+  background-color: transparent;
+}
+
+.c3 [data-reach-menu-item].fi-language-menu_item.fi-language-menu-language_item.fi-language-menu-lang-item-selected,
+.c3 [data-reach-menu-item].fi-language-menu_item[data-selected].fi-language-menu-language_item.fi-language-menu-lang-item-selected {
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  border-left-color: hsl(212,63%,45%);
+}
+
+.c3 [data-reach-menu-item].fi-language-menu_item[data-selected].fi-language-menu-language_item {
+  border-left-color: hsl(212,63%,45%);
+}
+
+.c3 [data-reach-menu-item].fi-language-menu_item:focus {
+  outline: 0;
+}
+
+<body>
+  <div>
+    <span
+      class="c0 c1 fi-language-menu"
     >
-      FI
-      <svg
-        aria-hidden="true"
-        class="fi-icon c2 fi-language-menu-language_icon"
-        focusable="false"
-        height="1em"
-        viewBox="0 0 24 24"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
+      <button
+        aria-controls="menu--1"
+        aria-haspopup="true"
+        class="fi-language-menu_button fi-language-menu-language_button language-menu-language-test"
+        data-reach-menu-button=""
+        id="menu-button--menu"
+        type="button"
       >
-        <path
-          class="fi-icon-base-fill"
-          d="M12.99 15.61c-.273.26-.632.39-.99.39s-.717-.13-.99-.39l-5.6-5.334a1.287 1.287 0 010-1.885 1.448 1.448 0 011.98 0l4.61 4.39 4.61-4.39a1.448 1.448 0 011.98 0c.547.52.547 1.365 0 1.885l-5.6 5.333z"
-          fill="#222"
-          fill-rule="evenodd"
-        />
-      </svg>
-    </button>
-  </span>
-</div>
+        Suomeksi (FI)
+        <svg
+          aria-hidden="true"
+          class="fi-icon c2 fi-language-menu-language_icon"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="fi-icon-base-fill"
+            d="M12.99 15.61c-.273.26-.632.39-.99.39s-.717-.13-.99-.39l-5.6-5.334a1.287 1.287 0 010-1.885 1.448 1.448 0 011.98 0l4.61 4.39 4.61-4.39a1.448 1.448 0 011.98 0c.547.52.547 1.365 0 1.885l-5.6 5.333z"
+            fill="#222"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </span>
+  </div>
+  <reach-portal>
+    <div
+      class="c3"
+      data-reach-menu-popover=""
+      data-reach-popover=""
+      hidden=""
+      style="position: absolute; left: 0px; top: 0px; max-width: 0px; min-width: -2px;"
+    >
+      <div
+        aria-labelledby="menu-button--menu"
+        data-reach-menu-items=""
+        id="menu--1"
+        role="menu"
+        tabindex="-1"
+      >
+        <div
+          class="fi-language-menu_item fi-language-menu-language_item fi-language-menu-lang-item-selected"
+          data-reach-menu-item=""
+          data-valuetext="Suomeksi (FI)"
+          id="option-0--menu--1"
+          role="menuitem"
+          tabindex="-1"
+        >
+          Suomeksi (FI)
+        </div>
+        <a
+          class="fi-language-menu_item fi-language-menu-language_item"
+          data-reach-menu-item=""
+          data-reach-menu-link=""
+          data-valuetext="På svenska (SV)"
+          href="/sv"
+          id="option-1--menu--1"
+          role="menuitem"
+          tabindex="-1"
+        >
+          På svenska (SV)
+        </a>
+        <a
+          class="fi-language-menu_item fi-language-menu-language_item"
+          data-reach-menu-item=""
+          data-reach-menu-link=""
+          data-valuetext="In English (EN)"
+          href="/en"
+          id="option-2--menu--1"
+          role="menuitem"
+          tabindex="-1"
+        >
+          In English (EN)
+        </a>
+      </div>
+    </div>
+  </reach-portal>
+</body>
 `;

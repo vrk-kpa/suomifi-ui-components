@@ -8,6 +8,7 @@ import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Popover } from '../../../Popover/Popover';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
+import { LoadingSpinner } from '../../../LoadingSpinner/LoadingSpinner';
 import { VisuallyHidden } from '../../../VisuallyHidden/VisuallyHidden';
 import { InputClearButton } from '../../InputClearButton/InputClearButton';
 import { SelectItemList } from '../BaseSelect/SelectItemList/SelectItemList';
@@ -103,6 +104,20 @@ export interface InternalSingleSelectProps<T extends SingleSelectData> {
   forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 
+type LoadingProps =
+  | {
+      loading?: false | never;
+      loadingText?: string;
+    }
+  | {
+      /** Show the animated icon indicating that component is loading data
+       * @default false
+       */
+      loading?: true;
+      /** Text to show with the loading animation. Required if `loading` is true */
+      loadingText: string;
+    };
+
 type AllowItemAdditionProps =
   | {
       allowItemAddition?: false | never;
@@ -126,7 +141,8 @@ export type SingleSelectProps<T> = InternalSingleSelectProps<
   T & SingleSelectData
 > &
   AllowItemAdditionProps &
-  AriaOptionsAvailableProps;
+  AriaOptionsAvailableProps &
+  LoadingProps;
 
 interface SingleSelectState<T extends SingleSelectData> {
   filterInputValue: string;
@@ -470,6 +486,8 @@ class BaseSingleSelect<T> extends Component<
       onChange: propOnChange,
       onBlur,
       debounce,
+      loading,
+      loadingText,
       status,
       statusText,
       selectedItem: controlledItem,
@@ -616,6 +634,7 @@ class BaseSingleSelect<T> extends Component<
             >
               <HtmlDiv>
                 {popoverItems.length > 0 &&
+                  !loading &&
                   popoverItems.map((item) => {
                     const isCurrentlySelected =
                       item.uniqueItemId === focusedDescendantId;
@@ -642,13 +661,25 @@ class BaseSingleSelect<T> extends Component<
                     );
                   })}
 
-                {popoverItems.length === 0 && !allowItemAddition && (
-                  <SelectEmptyItem>{noItemsText}</SelectEmptyItem>
+                {popoverItems.length === 0 &&
+                  !allowItemAddition &&
+                  !loading && <SelectEmptyItem>{noItemsText}</SelectEmptyItem>}
+
+                {loading && (
+                  <SelectEmptyItem className="loading">
+                    <LoadingSpinner
+                      status="loading"
+                      variant="small"
+                      textAlign="right"
+                      text={loadingText}
+                    />
+                  </SelectEmptyItem>
                 )}
 
                 {filterInputValue !== '' &&
                   !this.inputValueInItems() &&
-                  allowItemAddition && (
+                  allowItemAddition &&
+                  !loading && (
                     <SelectItemAddition
                       hintText={itemAdditionHelpText}
                       hasKeyboardFocus={
@@ -671,13 +702,22 @@ class BaseSingleSelect<T> extends Component<
             </SelectItemList>
           </Popover>
         )}
-        {this.state.filterMode && (
-          <VisuallyHidden aria-live="polite" aria-atomic="true">
-            {ariaOptionsAvailableTextFunction
+
+        <VisuallyHidden aria-live="polite" aria-atomic="true">
+          {this.state.filterMode && !loading
+            ? ariaOptionsAvailableTextFunction
               ? ariaOptionsAvailableTextFunction(popoverItems.length)
-              : `${popoverItems.length} ${ariaOptionsAvailableText}`}
-          </VisuallyHidden>
-        )}
+              : `${popoverItems.length} ${ariaOptionsAvailableText}`
+            : ''}
+        </VisuallyHidden>
+
+        <VisuallyHidden
+          aria-live="polite"
+          aria-atomic="true"
+          id={`${id}-loading-announce`}
+        >
+          {loading ? loadingText : ''}
+        </VisuallyHidden>
       </HtmlDiv>
     );
   }

@@ -31,7 +31,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       position: relative;
 
       &::after {
-        ${theme.focus.absoluteFocus}
+        ${theme.focuses.absoluteFocus}
       }
     }
   }

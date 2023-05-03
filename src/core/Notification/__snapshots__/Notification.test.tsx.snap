@@ -166,7 +166,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c5 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -180,7 +180,7 @@ exports[`props children should match snapshot 1`] = `
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c5.fi-heading--h1hero {
@@ -424,7 +424,7 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -439,7 +439,7 @@ exports[`props children should match snapshot 1`] = `
   line-height: 1.5;
   font-weight: 400;
   width: 100%;
-  box-shadow: 0px 4px 8px 0px rgba(41,41,41,0.14);
+  box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
   border-radius: 4px;
   padding-bottom: 10px;
 }
@@ -598,11 +598,11 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-notification .fi-notification_close-button:active {
-  background: linear-gradient(-180deg,hsl(202,7%,80%) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(-180deg,hsl(202,7%,80%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
 .c1.fi-notification .fi-notification_close-button:hover {
-  border-color: hsl(0,0%,16%);
+  border-color: hsl(0,0%,13%);
 }
 
 .c1.fi-notification--neutral {

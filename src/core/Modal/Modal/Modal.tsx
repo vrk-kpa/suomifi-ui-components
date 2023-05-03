@@ -33,7 +33,7 @@ export interface ModalProps {
   scrollable?: boolean;
   /** Focusable element ref when modal is opened. If not provided, modal title is focused. */
   focusOnOpenRef?: React.RefObject<any>;
-  /** Focusable element ref when modal is closed. If not provided, previously focused element will regain focus. */
+  /** Focusable element ref when modal is closed. If not provided, previously focused element will regain focuses. */
   focusOnCloseRef?: React.RefObject<any>;
   /** Callback for handling esc key press, e.g. close modal */
   onEscKeyDown?: () => void;

@@ -7,6 +7,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     ${element(theme)}
     ${font(theme)('bodyTextSmall')}
     width: 100%;
+    border: 1px solid;
 
     & .fi-alert_style-wrapper {
       display: flex;
@@ -32,7 +33,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         margin-right: ${theme.spacing.xs};
         margin-bottom: ${theme.spacing.insetM};
         border: 1px solid transparent;
-        border-radius: ${theme.radius.basic};
+        border-radius: ${theme.radiuses.basic};
         white-space: nowrap;
 
         &:focus-visible {
@@ -40,7 +41,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           position: relative;
 
           &:after {
-            ${theme.focus.absoluteFocus}
+            ${theme.focuses.absoluteFocus}
           }
         }
         &:active {
@@ -77,6 +78,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     /** Status variant styles */
     &.fi-alert--neutral {
       background-color: ${theme.colors.accentSecondaryLight1};
+      border-color: ${theme.colors.accentSecondary};
       & .fi-alert_style-wrapper {
         & .fi-alert_icon--neutral {
           & .fi-icon-base-fill {
@@ -88,6 +90,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &.fi-alert--error {
       background-color: ${theme.colors.alertLight1};
+      border-color: ${theme.colors.alertBase};
       & .fi-alert_style-wrapper {
         & .fi-alert_icon--error {
           & .fi-icon-base-fill {
@@ -99,6 +102,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &.fi-alert--warning {
       background-color: ${theme.colors.warningLight1};
+      border-color: ${theme.colors.accentBase};
       & .fi-alert_style-wrapper {
         & .fi-alert_icon--warning {
           & .fi-icon-base-fill {

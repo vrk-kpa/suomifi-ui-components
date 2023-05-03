@@ -12,12 +12,12 @@ export const expanderTitleBaseStyles = (theme: SuomifiTheme) => css`
   min-height: 60px;
   background-color: ${theme.colors.highlightLight4};
   border-radius: inherit;
-  padding: 17px ${theme.spacing.xxxl} 16px ${theme.spacing.m};
   white-space: break-word;
   word-wrap: break-word;
 
   &.fi-expander_title {
-    display: block;
+    display: flex;
+    justify-content: space-between;
   }
   &.fi-expander_title--open {
     background-color: ${theme.colors.whiteBase};
@@ -27,20 +27,19 @@ export const expanderTitleBaseStyles = (theme: SuomifiTheme) => css`
 
   & .fi-expander_title-content {
     display: inline-block;
+    padding: 17px ${theme.spacing.m} 16px ${theme.spacing.m};
   }
 
   & .fi-expander_title-button {
     ${button(theme)}
     ${font(theme)('bodySemiBold')}
     color: ${theme.colors.highlightBase};
-    display: inline-block;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 44px;
-    height: 44px;
-    padding: 12px;
-    margin: 13px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: flex-start;
+    flex: 0 0 60px;
+    padding-top: ${theme.spacing.m};
 
     &:focus {
       outline: 0;
@@ -49,10 +48,15 @@ export const expanderTitleBaseStyles = (theme: SuomifiTheme) => css`
     &:focus-within {
       outline: 0;
       &:after {
-        ${theme.focus.absoluteFocus}
+        ${theme.focuses.absoluteFocus}
       }
     }
-    ${theme.focus.noMouseFocus}
+
+    &:hover {
+      background: ${theme.gradients.depthSecondaryToDepthSecondaryDark1};
+    }
+
+    ${theme.focuses.noMouseFocus}
     & * {
       cursor: pointer;
     }

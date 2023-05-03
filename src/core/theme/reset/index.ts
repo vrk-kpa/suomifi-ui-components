@@ -27,7 +27,7 @@ export const input = (theme: SuomifiTheme) => css`
   max-width: 100%;
   padding: ${theme.spacing.insetM} ${theme.spacing.insetXl};
   border: 1px solid ${theme.colors.depthLight1};
-  border-radius: ${theme.radius.basic};
+  border-radius: ${theme.radiuses.basic};
   line-height: 1;
 `;
 

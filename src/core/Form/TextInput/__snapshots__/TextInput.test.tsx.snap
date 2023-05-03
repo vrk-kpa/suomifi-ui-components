@@ -137,7 +137,7 @@ exports[`snapshots match error status with statustext 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -165,7 +165,7 @@ exports[`snapshots match error status with statustext 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -248,7 +248,7 @@ exports[`snapshots match error status with statustext 1`] = `
 }
 
 .c1 .fi-text-input_input {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -541,7 +541,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -569,7 +569,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -652,7 +652,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 }
 
 .c1 .fi-text-input_input {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -930,7 +930,7 @@ exports[`snapshots match minimal implementation 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -958,7 +958,7 @@ exports[`snapshots match minimal implementation 1`] = `
   font-size: 16px;
   line-height: 1.5;
   font-weight: 600;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   font-size: 14px;
   line-height: 20px;
 }
@@ -1041,7 +1041,7 @@ exports[`snapshots match minimal implementation 1`] = `
 }
 
 .c1 .fi-text-input_input {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;

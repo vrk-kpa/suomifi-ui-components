@@ -228,7 +228,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -243,7 +243,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -259,6 +259,14 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-radio-button-group_legend {
+  margin-bottom: 10px;
+}
+
+.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+  margin-bottom: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_label {
   display: block;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -267,11 +275,7 @@ exports[`default, with only required props should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_label--visible {
-  margin-bottom: 10px;
-}
-
-.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+.c1.fi-radio-button-group .fi-radio-button-group_label--with-margin {
   margin-bottom: 10px;
 }
 
@@ -300,7 +304,7 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c7 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -372,9 +376,9 @@ exports[`default, with only required props should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 
@@ -441,7 +445,7 @@ exports[`default, with only required props should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c0 c4 fi-radio-button-group_label--visible fi-label"
+          class="c0 c4 fi-label"
         >
           <label
             class="c5 fi-label_label-span"
@@ -832,7 +836,7 @@ exports[`props className should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -847,7 +851,7 @@ exports[`props className should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -863,6 +867,14 @@ exports[`props className should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-radio-button-group_legend {
+  margin-bottom: 10px;
+}
+
+.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+  margin-bottom: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_label {
   display: block;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -871,11 +883,7 @@ exports[`props className should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_label--visible {
-  margin-bottom: 10px;
-}
-
-.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+.c1.fi-radio-button-group .fi-radio-button-group_label--with-margin {
   margin-bottom: 10px;
 }
 
@@ -904,7 +912,7 @@ exports[`props className should match snapshot 1`] = `
 }
 
 .c7 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -976,9 +984,9 @@ exports[`props className should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 
@@ -1045,7 +1053,7 @@ exports[`props className should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c0 c4 fi-radio-button-group_label--visible fi-label"
+          class="c0 c4 fi-label"
         >
           <label
             class="c5 fi-label_label-span"
@@ -1436,7 +1444,7 @@ exports[`props defaultValue should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -1451,7 +1459,7 @@ exports[`props defaultValue should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1467,6 +1475,14 @@ exports[`props defaultValue should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-radio-button-group_legend {
+  margin-bottom: 10px;
+}
+
+.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+  margin-bottom: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_label {
   display: block;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -1475,11 +1491,7 @@ exports[`props defaultValue should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_label--visible {
-  margin-bottom: 10px;
-}
-
-.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+.c1.fi-radio-button-group .fi-radio-button-group_label--with-margin {
   margin-bottom: 10px;
 }
 
@@ -1508,7 +1520,7 @@ exports[`props defaultValue should match snapshot 1`] = `
 }
 
 .c7 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1580,9 +1592,9 @@ exports[`props defaultValue should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 
@@ -1649,7 +1661,7 @@ exports[`props defaultValue should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c0 c4 fi-radio-button-group_label--visible fi-label"
+          class="c0 c4 fi-label"
         >
           <label
             class="c5 fi-label_label-span"
@@ -2010,7 +2022,7 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c6 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2062,7 +2074,7 @@ exports[`props hintText should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -2077,7 +2089,7 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2093,6 +2105,14 @@ exports[`props hintText should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-radio-button-group_legend {
+  margin-bottom: 10px;
+}
+
+.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+  margin-bottom: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_label {
   display: block;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -2101,11 +2121,7 @@ exports[`props hintText should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_label--visible {
-  margin-bottom: 10px;
-}
-
-.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+.c1.fi-radio-button-group .fi-radio-button-group_label--with-margin {
   margin-bottom: 10px;
 }
 
@@ -2134,7 +2150,7 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c8 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2206,9 +2222,9 @@ exports[`props hintText should match snapshot 1`] = `
 }
 
 .c8.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 
@@ -2275,7 +2291,7 @@ exports[`props hintText should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c0 c4 fi-radio-button-group_label--visible fi-label"
+          class="c0 c4 fi-radio-button-group_label--with-margin fi-label"
         >
           <label
             class="c5 fi-label_label-span"
@@ -2671,7 +2687,7 @@ exports[`props id should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -2686,7 +2702,7 @@ exports[`props id should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2702,6 +2718,14 @@ exports[`props id should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-radio-button-group_legend {
+  margin-bottom: 10px;
+}
+
+.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+  margin-bottom: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_label {
   display: block;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -2710,11 +2734,7 @@ exports[`props id should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_label--visible {
-  margin-bottom: 10px;
-}
-
-.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+.c1.fi-radio-button-group .fi-radio-button-group_label--with-margin {
   margin-bottom: 10px;
 }
 
@@ -2743,7 +2763,7 @@ exports[`props id should match snapshot 1`] = `
 }
 
 .c7 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2815,9 +2835,9 @@ exports[`props id should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 
@@ -2884,7 +2904,7 @@ exports[`props id should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c0 c4 fi-radio-button-group_label--visible fi-label"
+          class="c0 c4 fi-label"
         >
           <label
             class="c5 fi-label_label-span"
@@ -3275,7 +3295,7 @@ exports[`props label should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -3290,7 +3310,7 @@ exports[`props label should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -3306,6 +3326,14 @@ exports[`props label should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-radio-button-group_legend {
+  margin-bottom: 10px;
+}
+
+.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+  margin-bottom: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_label {
   display: block;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -3314,11 +3342,7 @@ exports[`props label should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_label--visible {
-  margin-bottom: 10px;
-}
-
-.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+.c1.fi-radio-button-group .fi-radio-button-group_label--with-margin {
   margin-bottom: 10px;
 }
 
@@ -3347,7 +3371,7 @@ exports[`props label should match snapshot 1`] = `
 }
 
 .c7 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -3419,9 +3443,9 @@ exports[`props label should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 
@@ -3488,7 +3512,7 @@ exports[`props label should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c0 c4 fi-radio-button-group_label--visible fi-label"
+          class="c0 c4 fi-label"
         >
           <label
             class="c5 fi-label_label-span"
@@ -3891,7 +3915,7 @@ exports[`props labelMode should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -3906,7 +3930,7 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -3922,6 +3946,14 @@ exports[`props labelMode should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-radio-button-group_legend {
+  margin-bottom: 10px;
+}
+
+.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+  margin-bottom: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_label {
   display: block;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -3930,11 +3962,7 @@ exports[`props labelMode should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_label--visible {
-  margin-bottom: 10px;
-}
-
-.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+.c1.fi-radio-button-group .fi-radio-button-group_label--with-margin {
   margin-bottom: 10px;
 }
 
@@ -3963,7 +3991,7 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c7 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -4035,9 +4063,9 @@ exports[`props labelMode should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 
@@ -4495,7 +4523,7 @@ exports[`props name should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -4510,7 +4538,7 @@ exports[`props name should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -4526,6 +4554,14 @@ exports[`props name should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-radio-button-group_legend {
+  margin-bottom: 10px;
+}
+
+.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+  margin-bottom: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_label {
   display: block;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -4534,11 +4570,7 @@ exports[`props name should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_label--visible {
-  margin-bottom: 10px;
-}
-
-.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+.c1.fi-radio-button-group .fi-radio-button-group_label--with-margin {
   margin-bottom: 10px;
 }
 
@@ -4567,7 +4599,7 @@ exports[`props name should match snapshot 1`] = `
 }
 
 .c7 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -4639,9 +4671,9 @@ exports[`props name should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 
@@ -4708,7 +4740,7 @@ exports[`props name should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c0 c4 fi-radio-button-group_label--visible fi-label"
+          class="c0 c4 fi-label"
         >
           <label
             class="c5 fi-label_label-span"
@@ -5099,7 +5131,7 @@ exports[`props value should match snapshot 1`] = `
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
 }
 
 .c4.fi-label .fi-label_label-span .fi-label_optional-text {
@@ -5114,7 +5146,7 @@ exports[`props value should match snapshot 1`] = `
 }
 
 .c1 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -5130,6 +5162,14 @@ exports[`props value should match snapshot 1`] = `
   font-weight: 400;
 }
 
+.c1.fi-radio-button-group .fi-radio-button-group_legend {
+  margin-bottom: 10px;
+}
+
+.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+  margin-bottom: 0;
+}
+
 .c1.fi-radio-button-group .fi-radio-button-group_label {
   display: block;
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
@@ -5138,11 +5178,7 @@ exports[`props value should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c1.fi-radio-button-group .fi-radio-button-group_label--visible {
-  margin-bottom: 10px;
-}
-
-.c1.fi-radio-button-group .fi-radio-button-group_legend .fi-hint-text {
+.c1.fi-radio-button-group .fi-radio-button-group_label--with-margin {
   margin-bottom: 10px;
 }
 
@@ -5171,7 +5207,7 @@ exports[`props value should match snapshot 1`] = `
 }
 
 .c7 {
-  color: hsl(0,0%,16%);
+  color: hsl(0,0%,13%);
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -5243,9 +5279,9 @@ exports[`props value should match snapshot 1`] = `
 }
 
 .c7.fi-radio-button .fi-radio-button_input:focus + .fi-radio-button_icon_wrapper {
-  outline: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
+  outline: 0;
   border-radius: 50%;
 }
 
@@ -5313,7 +5349,7 @@ exports[`props value should match snapshot 1`] = `
         class="c3 fi-radio-button-group_legend"
       >
         <div
-          class="c0 c4 fi-radio-button-group_label--visible fi-label"
+          class="c0 c4 fi-label"
         >
           <label
             class="c5 fi-label_label-span"
