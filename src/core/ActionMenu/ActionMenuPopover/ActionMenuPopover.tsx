@@ -223,7 +223,6 @@ export const BaseActionMenuPopover = (
     }
 
     if (event.key === 'Tab') {
-      // Close the menu
       handleClose();
     }
 
