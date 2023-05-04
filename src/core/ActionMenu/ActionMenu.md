@@ -3,18 +3,15 @@
 ```js
 import {
   ActionMenu,
-  RouterLink,
   ActionMenuDivider,
-  ActionMenuItem,
-  Button,
-  Link
+  ActionMenuItem
 } from 'suomifi-ui-components';
 import { useState } from 'react';
 
 const [lastAction, setLastAction] = useState('');
 
 <>
-  <div style={{ marginLeft: '200px' }}>
+  <div>
     <ActionMenu
       buttonText="Actions"
       onOpen={() => console.log('open')}
@@ -62,18 +59,15 @@ const [lastAction, setLastAction] = useState('');
 ```js
 import {
   ActionMenu,
-  RouterLink,
   ActionMenuDivider,
-  ActionMenuItem,
-  Button,
-  Link
+  ActionMenuItem
 } from 'suomifi-ui-components';
 import { useState } from 'react';
 
 const [lastAction, setLastAction] = useState('');
 
 <>
-  <div style={{ marginLeft: '200px' }}>
+  <div>
     <ActionMenu
       disabled={false}
       id="icon-only-id"
@@ -106,11 +100,8 @@ const [lastAction, setLastAction] = useState('');
 ```js
 import {
   ActionMenu,
-  RouterLink,
   ActionMenuDivider,
-  ActionMenuItem,
-  Button,
-  Link
+  ActionMenuItem
 } from 'suomifi-ui-components';
 import { useState } from 'react';
 
