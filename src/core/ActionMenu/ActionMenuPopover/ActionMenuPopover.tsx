@@ -224,6 +224,7 @@ export const BaseActionMenuPopover = (
 
     if (event.key === 'Tab') {
       handleClose();
+      // No preventDefault, so that tabbing works normally
     }
 
     if (event.key === 'Enter' || event.key === ' ') {
