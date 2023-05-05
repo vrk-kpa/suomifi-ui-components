@@ -31,6 +31,8 @@ export interface SelectItemListProps {
   onKeyDown?: (event: React.KeyboardEvent<HTMLUListElement>) => void;
   /** Id needed for aria-owns and aria-controls */
   id: string;
+  /** Prevents scrollItemList() function from running */
+  preventScrolling?: boolean;
 }
 
 interface InnerRef {
@@ -51,14 +53,15 @@ class BaseSelectItemList extends Component<
   ) {
     if (
       this.props.focusedDescendantId !== prevProps.focusedDescendantId &&
-      !!this.props.focusedDescendantId
+      !!this.props.focusedDescendantId &&
+      !this.props.preventScrolling
     ) {
       this.scrollItemList(this.props.focusedDescendantId);
     }
   }
 
   componentDidMount() {
-    if (!!this.props.focusedDescendantId) {
+    if (!!this.props.focusedDescendantId && !this.props.preventScrolling) {
       this.scrollItemList(this.props.focusedDescendantId);
     }
   }
@@ -98,6 +101,7 @@ class BaseSelectItemList extends Component<
       onKeyDown,
       id,
       focusedDescendantId,
+      preventScrolling,
       ...passProps
     } = this.props;
     return (

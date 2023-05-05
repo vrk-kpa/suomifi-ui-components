@@ -5,6 +5,18 @@ import { Dropdown, DropdownItem } from 'suomifi-ui-components';
 const [selectedValue, setSelectedValue] = React.useState(null);
 const [status, setStatus] = React.useState('default');
 
+const createItems = () => {
+  const items = [];
+  for (let i = 1; i < 251; i++) {
+    items.push(
+      <DropdownItem value={`item-value-${i}`} key={`key-${i}`}>
+        {`Dropdown item ${i}`}
+      </DropdownItem>
+    );
+  }
+  return items;
+};
+
 <Dropdown
   name="dropdown_example_1"
   labelText="Dropdown label"
@@ -24,51 +36,7 @@ const [status, setStatus] = React.useState('default');
   statusText={status === 'error' ? 'You must select a value.' : ''}
   visualPlaceholder="Select a value"
 >
-  <DropdownItem value={'dropdown-item-1'}>
-    Dropdown Item 1
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-2'}>
-    Dropdown Item 2
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-3'}>
-    Dropdown Item 3
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-4'}>
-    Dropdown Item 4
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-5'}>
-    Dropdown Item 5
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-6'}>
-    Dropdown Item 6
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-7'}>
-    Dropdown Item 7
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-8'}>
-    Dropdown Item 8
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-9'}>
-    Dropdown Item 9
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-10'}>
-    Dropdown Item 10
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-11'}>
-    Dropdown Item 11
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-12'}>
-    Dropdown Item 12
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-13'}>
-    Dropdown Item 13
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-14'}>
-    Dropdown Item 14
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-15'}>
-    Dropdown Item 15
-  </DropdownItem>
+  {createItems()}
 </Dropdown>;
 ```
 

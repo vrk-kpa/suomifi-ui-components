@@ -58,6 +58,8 @@ export interface DropdownProviderState {
    * Callback for communicating DropdownItem Tab key press to the parent
    */
   onItemTabPress: () => void;
+  /** Callback for communicating DropdownItem mouse over to parent  */
+  onItemMouseOver: (itemIndex: string) => void;
 }
 
 const defaultProviderValue: DropdownProviderState = {
@@ -67,6 +69,7 @@ const defaultProviderValue: DropdownProviderState = {
   focusedItemValue: null,
   noSelectedStyles: false,
   onItemTabPress: () => null,
+  onItemMouseOver: () => null,
 };
 
 const { Provider: DropdownProvider, Consumer: DropdownConsumer } =
@@ -78,6 +81,12 @@ interface DropdownState {
   ariaExpanded: boolean;
   showPopover: boolean;
   focusedDescendantId: string | null | undefined;
+  /**
+   * Controls whether SelectItemList should scroll when focusedDescendantId changes.
+   * Is set to true when focusedDescendantId changes via onMouseOver.
+   * This prevents scrolling bugs
+   */
+  preventListScrolling: boolean;
 }
 
 export interface DropdownProps extends StatusTextCommonProps {
@@ -175,6 +184,7 @@ class BaseDropdown extends Component<DropdownProps> {
         : 'defaultValue' in this.props
         ? this.props.defaultValue
         : this.getFirstItemValue(),
+    preventListScrolling: false,
   };
 
   buttonRef: React.RefObject<HTMLButtonElement>;
@@ -277,6 +287,9 @@ class BaseDropdown extends Component<DropdownProps> {
   };
 
   private handleKeyDown = (event: React.KeyboardEvent) => {
+    // First let's make sure item list scroll is enabled when controlling via keyboard
+    this.setState({ preventListScrolling: false });
+
     const { focusedDescendantId, ariaExpanded, showPopover } = this.state;
     const popoverItems = Array.isArray(this.props.children)
       ? this.props.children
@@ -455,8 +468,13 @@ class BaseDropdown extends Component<DropdownProps> {
       return null;
     }
 
-    const { selectedValue, ariaExpanded, showPopover, focusedDescendantId } =
-      this.state;
+    const {
+      selectedValue,
+      ariaExpanded,
+      showPopover,
+      focusedDescendantId,
+      preventListScrolling,
+    } = this.state;
 
     const labelId = `${id}-label`;
     const buttonId = `${id}_button`;
@@ -583,6 +601,11 @@ class BaseDropdown extends Component<DropdownProps> {
                   focusedItemValue: focusedDescendantId,
                   noSelectedStyles: alwaysShowVisualPlaceholder,
                   onItemTabPress: () => this.focusToButtonAndClosePopover(),
+                  onItemMouseOver: (itemValue) =>
+                    this.setState({
+                      preventListScrolling: true,
+                      focusedDescendantId: itemValue,
+                    }),
                 }}
               >
                 <SelectItemList
@@ -596,6 +619,7 @@ class BaseDropdown extends Component<DropdownProps> {
                       this.focusToButtonAndClosePopover();
                     }
                   }}
+                  preventScrolling={preventListScrolling}
                 >
                   {children || []}
                 </SelectItemList>

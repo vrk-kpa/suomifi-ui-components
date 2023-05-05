@@ -88,6 +88,9 @@ const BaseDropdownItem = (props: BaseDropdownItemProps & SuomifiThemeProp) => {
           consumer.onItemTabPress();
         }
       }}
+      onMouseOver={() => {
+        consumer.onItemMouseOver(value);
+      }}
       {...passProps}
     >
       {children}
