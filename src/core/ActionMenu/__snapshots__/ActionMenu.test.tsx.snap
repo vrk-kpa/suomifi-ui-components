@@ -135,8 +135,8 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c3:focus {
+  outline: none;
   position: relative;
-  outline: 3px solid transparent;
 }
 
 .c3:focus::after {
@@ -737,8 +737,8 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
 }
 
 .c3:focus {
+  outline: none;
   position: relative;
-  outline: 3px solid transparent;
 }
 
 .c3:focus::after {
@@ -984,7 +984,6 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
-  outline: 3px solid transparent;
 }
 
 .c10.fi-link--router:hover,
@@ -1424,8 +1423,8 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c3:focus {
+  outline: none;
   position: relative;
-  outline: 3px solid transparent;
 }
 
 .c3:focus::after {
@@ -1808,8 +1807,8 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c3:focus {
+  outline: none;
   position: relative;
-  outline: 3px solid transparent;
 }
 
 .c3:focus::after {
@@ -2411,8 +2410,8 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c3:focus {
+  outline: none;
   position: relative;
-  outline: 3px solid transparent;
 }
 
 .c3:focus::after {
@@ -2658,7 +2657,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
-  outline: 3px solid transparent;
 }
 
 .c10.fi-link--router:hover,
@@ -2895,7 +2893,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   >
     <div>
       <ul
-        aria-activedescendant="-1-menu-item"
+        aria-activedescendant="0-menu-item"
         aria-labelledby="test-id"
         class="c7 fi-action-menu-popover_list"
         id="test-id-menu"
@@ -2903,7 +2901,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         tabindex="-1"
       >
         <li
-          class="c8 fi-action-menu-item c9"
+          class="c8 fi-action-menu-item c9 fi-action-menu-item--selected"
           id="0-menu-list-item"
           tabindex="-1"
         >
