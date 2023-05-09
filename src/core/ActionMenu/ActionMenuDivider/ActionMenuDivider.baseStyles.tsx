@@ -4,6 +4,7 @@ import { SuomifiTheme } from '../../theme';
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-action-menu-divider {
     height: 17px;
+    min-height: 17px;
     padding-left: ${theme.spacing.s};
     padding-right: ${theme.spacing.s};
     display: flex;

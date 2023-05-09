@@ -10,17 +10,19 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     box-shadow: ${theme.shadows.wideBoxShadow};
     border: 1px solid ${theme.colors.blackLight1};
     border-radius: ${theme.radiuses.basic};
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 
   & .fi-action-menu-popover_list {
-    padding-top: 8px;
-    padding-bottom: 8px;
     margin: 0;
     padding-left: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     list-style-type: none;
+    overflow-y: auto;
+    max-height: 265px;
 
     &:focus {
       /* Hide focus outline from <ul> */

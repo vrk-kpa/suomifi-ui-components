@@ -70,6 +70,32 @@ const sameWidth: any = {
   },
 };
 
+const scrollItemList = (
+  elementId: string,
+  wrapperRef: React.RefObject<HTMLUListElement>,
+) => {
+  // 8px reduction to scroll position is required due to container padding.
+  const wrapperOffsetPx = 8;
+  if (wrapperRef !== null && wrapperRef.current !== null) {
+    const elementOffsetTop = document.getElementById(elementId)?.offsetTop || 0;
+    const elementOffsetHeight =
+      document.getElementById(elementId)?.offsetHeight || 0;
+
+    if (elementOffsetTop < wrapperRef.current.scrollTop) {
+      wrapperRef.current.scrollTop = elementOffsetTop - wrapperOffsetPx;
+    } else {
+      const offsetBottom = elementOffsetTop + elementOffsetHeight;
+      const scrollBottom =
+        wrapperRef.current.scrollTop + wrapperRef.current.offsetHeight;
+
+      if (offsetBottom > scrollBottom) {
+        wrapperRef.current.scrollTop =
+          offsetBottom - wrapperRef.current.offsetHeight - wrapperOffsetPx;
+      }
+    }
+  }
+};
+
 export const BaseActionMenuPopover = (
   props: InternalActionMenuPopoverProps,
 ) => {
@@ -101,6 +127,8 @@ export const BaseActionMenuPopover = (
       document.addEventListener('keydown', globalKeyDownHandler, {
         capture: true,
       });
+
+      scrollItemList(`${activeChild}-menu-list-item`, ulRef);
 
       return () => {
         document.removeEventListener('keydown', globalKeyDownHandler, {

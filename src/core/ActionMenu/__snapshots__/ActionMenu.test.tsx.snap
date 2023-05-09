@@ -135,8 +135,8 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 .c3:focus {
-  outline: none;
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c3:focus::after {
@@ -611,11 +611,11 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
   border: 1px solid hsl(0,0%,58%);
   border-radius: 2px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .c6 .fi-action-menu-popover_list {
-  padding-top: 8px;
-  padding-bottom: 8px;
   margin: 0;
   padding-left: 0;
   display: -webkit-box;
@@ -630,6 +630,8 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   list-style-type: none;
+  overflow-y: auto;
+  max-height: 265px;
 }
 
 .c6 .fi-action-menu-popover_list:focus {
@@ -735,8 +737,8 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
 }
 
 .c3:focus {
-  outline: none;
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c3:focus::after {
@@ -982,6 +984,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
+  outline: 3px solid transparent;
 }
 
 .c10.fi-link--router:hover,
@@ -1133,6 +1136,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
 
 .c11.fi-action-menu-divider {
   height: 17px;
+  min-height: 17px;
   padding-left: 15px;
   padding-right: 15px;
   display: -webkit-box;
@@ -1226,6 +1230,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
       >
         <li
           class="c8 fi-action-menu-item c9 fi-action-menu-item--selected"
+          id="0-menu-list-item"
           tabindex="-1"
         >
           <button
@@ -1239,6 +1244,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
         </li>
         <li
           class="c8 fi-action-menu-item c9"
+          id="1-menu-list-item"
           tabindex="-1"
         >
           <button
@@ -1259,6 +1265,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
         </li>
         <li
           class="c8 fi-action-menu-item c9"
+          id="3-menu-list-item"
           tabindex="-1"
         >
           <a
@@ -1417,8 +1424,8 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 .c3:focus {
-  outline: none;
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c3:focus::after {
@@ -1801,8 +1808,8 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 .c3:focus {
-  outline: none;
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c3:focus::after {
@@ -2278,11 +2285,11 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
   border: 1px solid hsl(0,0%,58%);
   border-radius: 2px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .c6 .fi-action-menu-popover_list {
-  padding-top: 8px;
-  padding-bottom: 8px;
   margin: 0;
   padding-left: 0;
   display: -webkit-box;
@@ -2297,6 +2304,8 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   list-style-type: none;
+  overflow-y: auto;
+  max-height: 265px;
 }
 
 .c6 .fi-action-menu-popover_list:focus {
@@ -2402,8 +2411,8 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c3:focus {
-  outline: none;
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c3:focus::after {
@@ -2649,6 +2658,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
+  outline: 3px solid transparent;
 }
 
 .c10.fi-link--router:hover,
@@ -2800,6 +2810,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 
 .c11.fi-action-menu-divider {
   height: 17px;
+  min-height: 17px;
   padding-left: 15px;
   padding-right: 15px;
   display: -webkit-box;
@@ -2884,7 +2895,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   >
     <div>
       <ul
-        aria-activedescendant="0-menu-item"
+        aria-activedescendant="-1-menu-item"
         aria-labelledby="test-id"
         class="c7 fi-action-menu-popover_list"
         id="test-id-menu"
@@ -2892,7 +2903,8 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         tabindex="-1"
       >
         <li
-          class="c8 fi-action-menu-item c9 fi-action-menu-item--selected"
+          class="c8 fi-action-menu-item c9"
+          id="0-menu-list-item"
           tabindex="-1"
         >
           <button
@@ -2906,6 +2918,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         </li>
         <li
           class="c8 fi-action-menu-item c9"
+          id="1-menu-list-item"
           tabindex="-1"
         >
           <button
@@ -2926,6 +2939,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         </li>
         <li
           class="c8 fi-action-menu-item c9"
+          id="3-menu-list-item"
           tabindex="-1"
         >
           <a
