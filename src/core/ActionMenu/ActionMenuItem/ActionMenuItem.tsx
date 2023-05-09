@@ -94,6 +94,7 @@ const BaseActionMenuItem = (
         consumer.onItemMouseOver(itemIndex);
       }}
       tabIndex={-1}
+      id={`${itemIndex}-menu-list-item`}
     >
       <RouterLink
         asComponent={props.href ? LinkComponent : ButtonComponent}
