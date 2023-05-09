@@ -59,7 +59,7 @@ export interface DropdownProviderState {
    */
   onItemTabPress: () => void;
   /** Callback for communicating DropdownItem mouse over to parent  */
-  onItemMouseOver: (itemIndex: string) => void;
+  onItemMouseOver: (itemValue: string) => void;
 }
 
 const defaultProviderValue: DropdownProviderState = {
