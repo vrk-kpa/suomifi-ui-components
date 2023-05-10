@@ -94,11 +94,11 @@ const BaseActionMenuItem = (
         consumer.onItemMouseOver(itemIndex);
       }}
       tabIndex={-1}
-      id={`${itemIndex}-menu-list-item`}
+      id={`${consumer.parentId}-list-item-${itemIndex}`}
     >
       <RouterLink
         asComponent={props.href ? LinkComponent : ButtonComponent}
-        id={`${itemIndex}-menu-item`}
+        id={`${consumer.parentId}-item-${itemIndex}`}
         role="menuitem"
         aria-disabled={disabled}
         {...passProps}

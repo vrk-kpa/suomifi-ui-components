@@ -44,12 +44,15 @@ export interface ActionMenuProviderState {
   onItemMouseOver: (itemIndex: number) => void;
   /** Index of the child that has aria active descendant status */
   activeDescendantIndex: number;
+  /* Id of the parent (popover component) */
+  parentId: string;
 }
 
 const defaultProviderValue: ActionMenuProviderState = {
   onItemClick: () => null,
   onItemMouseOver: () => null,
   activeDescendantIndex: -1,
+  parentId: '',
 };
 
 const { Provider: ActionMenuProvider, Consumer: ActionMenuConsumer } =
@@ -128,7 +131,7 @@ export const BaseActionMenuPopover = (
         capture: true,
       });
 
-      scrollItemList(`${activeChild}-menu-list-item`, ulRef);
+      scrollItemList(`${menuId}-list-item-${activeChild}`, ulRef);
 
       return () => {
         document.removeEventListener('keydown', globalKeyDownHandler, {
@@ -366,12 +369,13 @@ export const BaseActionMenuPopover = (
                   itemMouseOver(itemIndex);
                 },
                 activeDescendantIndex: activeChild,
+                parentId: menuId,
               }}
             >
               <HtmlUlWithRef
                 role="menu"
                 id={menuId}
-                aria-activedescendant={`${activeChild}-menu-item`}
+                aria-activedescendant={`${menuId}-item-${activeChild}`}
                 aria-labelledby={buttonId}
                 tabIndex={-1}
                 className={actionMenuClassNames.list}
