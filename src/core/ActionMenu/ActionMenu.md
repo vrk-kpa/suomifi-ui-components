@@ -26,9 +26,6 @@ const [lastAction, setLastAction] = useState('');
       <ActionMenuItem onClick={() => setLastAction('Long')}>
         Longer name for an action
       </ActionMenuItem>
-      <ActionMenuItem onClick={() => setLastAction('Edit')}>
-        Edit
-      </ActionMenuItem>
       <ActionMenuItem href="https://www.suomi.fi">
         This is a link
       </ActionMenuItem>
@@ -44,9 +41,6 @@ const [lastAction, setLastAction] = useState('');
         disabled
       >
         Disabled
-      </ActionMenuItem>
-      <ActionMenuItem href="#" icon="chat" disabled>
-        Disabled link
       </ActionMenuItem>
     </ActionMenu>
   </div>
@@ -115,11 +109,24 @@ const [lastAction, setLastAction] = useState('');
     <ActionMenuItem onClick={() => setLastAction('Edit')} icon="edit">
       Edit
     </ActionMenuItem>
+    <ActionMenuItem onClick={() => setLastAction('Move')}>
+      Move
+    </ActionMenuItem>
+    <ActionMenuDivider />
+    <ActionMenuItem onClick={() => setLastAction('Long')}>
+      Longer name for an action
+    </ActionMenuItem>
+    <ActionMenuItem onClick={() => setLastAction('Long')}>
+      Another long name for an action
+    </ActionMenuItem>
     <ActionMenuItem
       onClick={() => setLastAction('Remove')}
       icon="remove"
     >
       Remove
+    </ActionMenuItem>
+    <ActionMenuItem onClick={() => setLastAction('Disabled')}>
+      Disabled
     </ActionMenuItem>
   </ActionMenu>
 
