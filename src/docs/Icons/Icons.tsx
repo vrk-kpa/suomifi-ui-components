@@ -44,84 +44,58 @@ const iconStyles = {
   color: `${suomifiDesignTokens.colors.depthDark1}`,
 };
 
-const BaseIcons = () => (
-  <div>
-    {baseIconKeys.map((icon) => {
-      const iconName = `Icon${icon}`;
-      const Icon = allIcons[iconName as keyof typeof allIcons];
-      const StyledIcon = styled(() => <Icon {...iconProps(iconName)} />)({
-        ...iconStyles,
-      });
-      return (
-        <IconWrapper>
-          <StyledIcon />
-          <figcaption>{iconName.slice(4)}</figcaption>
-        </IconWrapper>
-      );
-    })}
-  </div>
-);
+const getStyledIcon = (icon: string) => {
+  const iconName = `Icon${icon}`;
+  const Icon = allIcons[iconName as keyof typeof allIcons];
+  return styled(() => <Icon {...iconProps(iconName)} />)({
+    ...iconStyles,
+  });
+};
 
-const IllustrativeIcons = () => (
-  <div>
-    {illustrativeIconKeys.map((icon) => {
-      const iconName = `Icon${icon}`;
-      const Icon = allIcons[iconName as keyof typeof allIcons];
-      const StyledIcon = styled(() => <Icon {...iconProps(iconName)} />)({
-        ...iconStyles,
-      });
-      return (
-        <IconWrapper key={iconName}>
-          <StyledIcon />
-          <figcaption>{iconName.slice(4)}</figcaption>
-        </IconWrapper>
-      );
-    })}
-  </div>
-);
+const getIconsArray = (keys: string[]) =>
+  keys.map((icon) => {
+    const StyledIcon = getStyledIcon(icon);
+    const iconName = `Icon${icon}`;
+    return (
+      <IconWrapper key={iconName}>
+        <StyledIcon />
+        <figcaption>{iconName.slice(4)}</figcaption>
+      </IconWrapper>
+    );
+  });
 
-const DoctypeIcons = () => (
-  <div>
-    {doctypeIconKeys.map((icon) => {
-      const iconName = `Icon${icon}`;
-      const Icon = allIcons[iconName as keyof typeof allIcons];
-      const StyledIcon = styled(() => <Icon {...iconProps(iconName)} />)({
-        ...iconStyles,
-      });
-      return (
-        <IconWrapper key={iconName}>
-          <StyledIcon />
-          <figcaption>{iconName.slice(4)}</figcaption>
-        </IconWrapper>
-      );
-    })}
-  </div>
-);
+const baseIconsArray = getIconsArray(baseIconKeys);
 
-const LogoIcons = () => (
-  <div>
-    {logoIconKeys.map((icon) => {
-      const iconName = `Icon${icon}`;
-      const Icon = allIcons[iconName as keyof typeof allIcons];
-      const isInverted = icon.includes('Invert');
-      const invertStyle = isInverted
-        ? {
-            background: `${suomifiDesignTokens.colors.brandBase}`,
-            color: `${suomifiDesignTokens.colors.whiteBase}`,
-            padding: '10px',
-          }
-        : {};
-      const StyledIcon = styled(() => <Icon {...iconProps(icon)} />)({
-        ...iconStyles,
-      });
-      return (
-        <IconWrapper key={iconName} style={invertStyle}>
-          <StyledIcon />
-          <figcaption>{iconName.slice(4)}</figcaption>
-        </IconWrapper>
-      );
-    })}
-  </div>
-);
+const illustrativeIconsArray = getIconsArray(illustrativeIconKeys);
+
+const doctypeIconsArray = getIconsArray(doctypeIconKeys);
+
+const logoIconKeysArray = logoIconKeys.map((icon) => {
+  const StyledIcon = getStyledIcon(icon);
+  const iconName = `Icon${icon}`;
+  const isInverted = icon.includes('Invert');
+  const invertStyle = isInverted
+    ? {
+        background: `${suomifiDesignTokens.colors.brandBase}`,
+        color: `${suomifiDesignTokens.colors.whiteBase}`,
+        padding: '10px',
+      }
+    : {};
+
+  return (
+    <IconWrapper key={iconName} style={invertStyle}>
+      <StyledIcon />
+      <figcaption>{iconName.slice(4)}</figcaption>
+    </IconWrapper>
+  );
+});
+
+const BaseIcons = () => <div>{baseIconsArray}</div>;
+
+const IllustrativeIcons = () => <div>{illustrativeIconsArray}</div>;
+
+const DoctypeIcons = () => <div>{doctypeIconsArray}</div>;
+
+const LogoIcons = () => <div>{logoIconKeysArray}</div>;
 
 export { BaseIcons, IllustrativeIcons, DoctypeIcons, LogoIcons };
