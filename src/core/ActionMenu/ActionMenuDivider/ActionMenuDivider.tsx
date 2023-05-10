@@ -17,7 +17,11 @@ const BaseActionMenuDivider = ({
   className,
   ...passProps
 }: ActionMenuDividerProps) => (
-  <HtmlLi className={classnames(className, baseClassName)} {...passProps}>
+  <HtmlLi
+    aria-hidden="true"
+    className={classnames(className, baseClassName)}
+    {...passProps}
+  >
     <HtmlDiv className={classnames(dividerClassName)} />
   </HtmlLi>
 );
