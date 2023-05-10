@@ -127,8 +127,7 @@ import { IconMapLocation } from 'suomifi-icons';
   <TextInput
     onBlur={(event) => console.log(event.target.value)}
     labelText="TextInput with an icon"
-    icon={<IconMapLocation />}
-    iconProps={{ fill: 'red' }}
+    icon={<IconMapLocation fill="red" />}
   />
   <TextInput
     labelText="TextInput with debounced onChange event"
