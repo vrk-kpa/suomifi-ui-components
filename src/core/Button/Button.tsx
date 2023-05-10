@@ -3,7 +3,6 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Button.baseStyles';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../reset';
-// import { Icon, IconProps, BaseIconKeys } from '../Icon/Icon';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
 
 type ButtonVariant =
@@ -47,10 +46,6 @@ export interface ButtonProps
    * Icon from suomifi-theme to be placed on right side
    */
   iconRight?: ReactNode;
-  // /**
-  //  * Properties given to Icon-component(s)
-  //  */
-  // iconProps?: IconProps;
   /** Event handler to execute when clicked
    *  @default void
    */
