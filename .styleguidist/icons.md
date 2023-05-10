@@ -1,5 +1,3 @@
-Suomi.fi icons
-
 Suomi.fi icons are available through the [suomifi-icons](https://github.com/vrk-kpa/suomifi-icons) library.
 
 The API varies by component type. Any props not mentioned in the respective APIs are passed to the `svg` element.
