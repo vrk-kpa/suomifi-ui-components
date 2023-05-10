@@ -1220,7 +1220,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   >
     <div>
       <ul
-        aria-activedescendant="0-menu-item"
+        aria-activedescendant="test-id-menu-item-0"
         aria-labelledby="test-id"
         class="c7 fi-action-menu-popover_list"
         id="test-id-menu"
@@ -1229,12 +1229,12 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
       >
         <li
           class="c8 fi-action-menu-item c9 fi-action-menu-item--selected"
-          id="0-menu-list-item"
+          id="test-id-menu-list-item-0"
           tabindex="-1"
         >
           <button
             class="c2 fi-link--router c10"
-            id="0-menu-item"
+            id="test-id-menu-item-0"
             role="menuitem"
             type="button"
           >
@@ -1243,12 +1243,12 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
         </li>
         <li
           class="c8 fi-action-menu-item c9"
-          id="1-menu-list-item"
+          id="test-id-menu-list-item-1"
           tabindex="-1"
         >
           <button
             class="c2 fi-link--router c10"
-            id="1-menu-item"
+            id="test-id-menu-item-1"
             role="menuitem"
             type="button"
           >
@@ -1264,13 +1264,13 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
         </li>
         <li
           class="c8 fi-action-menu-item c9"
-          id="3-menu-list-item"
+          id="test-id-menu-list-item-3"
           tabindex="-1"
         >
           <a
             class="c12 fi-link--router c10"
             href="/testpath"
-            id="3-menu-item"
+            id="test-id-menu-item-3"
             role="menuitem"
           >
             Item 3
@@ -2893,7 +2893,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   >
     <div>
       <ul
-        aria-activedescendant="0-menu-item"
+        aria-activedescendant="test-id-menu-item-0"
         aria-labelledby="test-id"
         class="c7 fi-action-menu-popover_list"
         id="test-id-menu"
@@ -2902,12 +2902,12 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
       >
         <li
           class="c8 fi-action-menu-item c9 fi-action-menu-item--selected"
-          id="0-menu-list-item"
+          id="test-id-menu-list-item-0"
           tabindex="-1"
         >
           <button
             class="c2 fi-link--router c10"
-            id="0-menu-item"
+            id="test-id-menu-item-0"
             role="menuitem"
             type="button"
           >
@@ -2916,12 +2916,12 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         </li>
         <li
           class="c8 fi-action-menu-item c9"
-          id="1-menu-list-item"
+          id="test-id-menu-list-item-1"
           tabindex="-1"
         >
           <button
             class="c2 fi-link--router c10"
-            id="1-menu-item"
+            id="test-id-menu-item-1"
             role="menuitem"
             type="button"
           >
@@ -2937,13 +2937,13 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         </li>
         <li
           class="c8 fi-action-menu-item c9"
-          id="3-menu-list-item"
+          id="test-id-menu-list-item-3"
           tabindex="-1"
         >
           <a
             class="c12 fi-link--router c10"
             href="/testpath"
-            id="3-menu-item"
+            id="test-id-menu-item-3"
             role="menuitem"
           >
             Item 3
