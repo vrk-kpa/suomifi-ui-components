@@ -1,4 +1,3 @@
-import './styles.scss';
 export {
   ActionMenu,
   ActionMenuProps,
