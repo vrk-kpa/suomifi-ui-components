@@ -924,14 +924,6 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
 }
 
 .c9.fi-action-menu-item {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   position: relative;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -2467,14 +2459,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 .c9.fi-action-menu-item {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   position: relative;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
