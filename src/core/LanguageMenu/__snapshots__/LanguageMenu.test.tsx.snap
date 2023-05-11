@@ -689,7 +689,6 @@ exports[`Basic LanguageMenu should match snapshot 2`] = `
 .c8.fi-language-menu-item {
   color: hsl(0,0%,13%);
   margin: 5px 0;
-  background-color: transparent;
 }
 
 .c8.fi-language-menu-item .fi-link--router {
@@ -710,13 +709,29 @@ exports[`Basic LanguageMenu should match snapshot 2`] = `
   text-decoration: none;
 }
 
-.c8.fi-language-menu-item--hasKeyboardFocus .fi-link--router {
+.c8.fi-language-menu-item--isHighlighted .fi-link--router {
   border-left-color: hsl(212,63%,45%);
+  position: relative;
+}
+
+.c8.fi-language-menu-item--isHighlighted .fi-link--router:after {
+  content: '';
 }
 
 .c8.fi-language-menu-item--selected .fi-link--router {
   font-weight: bold;
   border-left-color: hsl(212,63%,45%);
+}
+
+@media (forced-colors:active) {
+  .c8.fi-language-menu-item--isHighlighted .fi-link--router:after {
+    position: absolute;
+    left: 1px;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+    border: solid 3px Highlight;
+  }
 }
 
 <body>
@@ -1295,7 +1310,6 @@ exports[`movement in LanguageMenu should match snapshot 1`] = `
 .c8.fi-language-menu-item {
   color: hsl(0,0%,13%);
   margin: 5px 0;
-  background-color: transparent;
 }
 
 .c8.fi-language-menu-item .fi-link--router {
@@ -1316,13 +1330,29 @@ exports[`movement in LanguageMenu should match snapshot 1`] = `
   text-decoration: none;
 }
 
-.c8.fi-language-menu-item--hasKeyboardFocus .fi-link--router {
+.c8.fi-language-menu-item--isHighlighted .fi-link--router {
   border-left-color: hsl(212,63%,45%);
+  position: relative;
+}
+
+.c8.fi-language-menu-item--isHighlighted .fi-link--router:after {
+  content: '';
 }
 
 .c8.fi-language-menu-item--selected .fi-link--router {
   font-weight: bold;
   border-left-color: hsl(212,63%,45%);
+}
+
+@media (forced-colors:active) {
+  .c8.fi-language-menu-item--isHighlighted .fi-link--router:after {
+    position: absolute;
+    left: 1px;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+    border: solid 3px Highlight;
+  }
 }
 
 <body>
