@@ -73,32 +73,6 @@ const sameWidth: any = {
   },
 };
 
-const scrollItemList = (
-  elementId: string,
-  wrapperRef: React.RefObject<HTMLUListElement>,
-) => {
-  // 8px reduction to scroll position is required due to container padding.
-  const wrapperOffsetPx = 8;
-  if (wrapperRef !== null && wrapperRef.current !== null) {
-    const elementOffsetTop = document.getElementById(elementId)?.offsetTop || 0;
-    const elementOffsetHeight =
-      document.getElementById(elementId)?.offsetHeight || 0;
-
-    if (elementOffsetTop < wrapperRef.current.scrollTop) {
-      wrapperRef.current.scrollTop = elementOffsetTop - wrapperOffsetPx;
-    } else {
-      const offsetBottom = elementOffsetTop + elementOffsetHeight;
-      const scrollBottom =
-        wrapperRef.current.scrollTop + wrapperRef.current.offsetHeight;
-
-      if (offsetBottom > scrollBottom) {
-        wrapperRef.current.scrollTop =
-          offsetBottom - wrapperRef.current.offsetHeight - wrapperOffsetPx;
-      }
-    }
-  }
-};
-
 export const BaseActionMenuPopover = (
   props: InternalActionMenuPopoverProps,
 ) => {
@@ -131,7 +105,7 @@ export const BaseActionMenuPopover = (
         capture: true,
       });
 
-      scrollItemList(`${menuId}-list-item-${activeChild}`, ulRef);
+      //  scrollItemList(`${menuId}-list-item-${activeChild}`, ulRef);
 
       return () => {
         document.removeEventListener('keydown', globalKeyDownHandler, {
@@ -155,24 +129,26 @@ export const BaseActionMenuPopover = (
     };
   }, [openButtonRef]);
 
+  /*
   useEffect(() => {
     // Set focus to ul element when menu opens
     ulRef.current?.focus();
   }, [ulRef.current]);
+  */
 
   useEffect(() => {
     // For cleanup to prevent setting state on unmounted component
     let isSubscribed = true;
     // Timeout is needed for Safari + VoiceOver to read the active menu item when menu opens
-    setTimeout(() => {
-      if (isSubscribed) {
-        if (initialActiveDescendant === 'first') {
-          setActiveChild(0);
-        } else if (initialActiveDescendant === 'last') {
-          setActiveChild(React.Children.count(children) - 1);
-        }
+    // setTimeout(() => {
+    if (isSubscribed) {
+      if (initialActiveDescendant === 'first') {
+        setActiveChild(0);
+      } else if (initialActiveDescendant === 'last') {
+        setActiveChild(React.Children.count(children) - 1);
       }
-    }, 100);
+    }
+    // }, 100);
 
     // Cancel subscription to useEffect on unmount
     return () => {
@@ -375,7 +351,6 @@ export const BaseActionMenuPopover = (
               <HtmlUlWithRef
                 role="menu"
                 id={menuId}
-                aria-activedescendant={`${menuId}-item-${activeChild}`}
                 aria-labelledby={buttonId}
                 tabIndex={-1}
                 className={actionMenuClassNames.list}

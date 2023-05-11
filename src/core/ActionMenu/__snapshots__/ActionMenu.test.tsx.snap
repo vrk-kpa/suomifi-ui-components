@@ -385,44 +385,6 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 `;
 
 exports[`Basic ActionMenu should match snapshot 2`] = `
-.c12 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c12::before,
-.c12::after {
-  box-sizing: border-box;
-}
-
-.c12:hover,
-.c12:active,
-.c12:focus,
-.c12:focus-within {
-  color: inherit;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -945,74 +907,6 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   margin: 0;
 }
 
-.c10 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c10.fi-link--router {
-  color: hsl(212,63%,45%);
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c10.fi-link--router:hover,
-.c10.fi-link--router:active,
-.c10.fi-link--router:focus,
-.c10.fi-link--router:focus-within {
-  color: hsl(212,63%,45%);
-}
-
-.c10.fi-link--router:focus,
-.c10.fi-link--router:focus-within {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c10.fi-link--router:focus {
-  border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  outline: 0;
-}
-
-.c10.fi-link--router:hover,
-.c10.fi-link--router:active {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c10.fi-link--router:visited {
-  color: hsl(284,36%,45%);
-}
-
-.c10.fi-link--initial-underline {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c10.fi-link--initial-underline:focus,
-.c10.fi-link--initial-underline:focus-within {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c10.fi-link--initial-underline:hover,
-.c10.fi-link--initial-underline:active {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 .c9 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1039,9 +933,6 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   -ms-flex-align: center;
   align-items: center;
   position: relative;
-}
-
-.c9.fi-action-menu-item .fi-link--router {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1076,14 +967,14 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   align-items: center;
 }
 
-.c9.fi-action-menu-item .fi-link--router:active,
-.c9.fi-action-menu-item .fi-link--router:focus,
-.c9.fi-action-menu-item .fi-link--router:hover,
-.c9.fi-action-menu-item .fi-link--router:visited {
+.c9.fi-action-menu-item:active,
+.c9.fi-action-menu-item:focus,
+.c9.fi-action-menu-item:hover,
+.c9.fi-action-menu-item:visited {
   color: hsl(0,0%,13%);
 }
 
-.c9.fi-action-menu-item .fi-link--router .fi-action-menu-item_icon {
+.c9.fi-action-menu-item .fi-action-menu-item_icon {
   margin-right: 8px;
   width: 16px;
   height: 16px;
@@ -1092,48 +983,42 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
 
 .c9.fi-action-menu-item--disabled {
   cursor: not-allowed;
-}
-
-.c9.fi-action-menu-item--disabled .fi-link--router {
   color: hsl(202,7%,67%);
   pointer-events: none;
 }
 
-.c9.fi-action-menu-item--disabled .fi-link--router:active,
-.c9.fi-action-menu-item--disabled .fi-link--router:focus,
-.c9.fi-action-menu-item--disabled .fi-link--router:hover,
-.c9.fi-action-menu-item--disabled .fi-link--router:visited {
+.c9.fi-action-menu-item--disabled:active,
+.c9.fi-action-menu-item--disabled:focus,
+.c9.fi-action-menu-item--disabled:hover,
+.c9.fi-action-menu-item--disabled:visited {
   color: hsl(202,7%,67%);
 }
 
-.c9.fi-action-menu-item--selected .fi-link--router {
+.c9.fi-action-menu-item--selected {
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
 }
 
-.c9.fi-action-menu-item--selected .fi-link--router:active,
-.c9.fi-action-menu-item--selected .fi-link--router:focus,
-.c9.fi-action-menu-item--selected .fi-link--router:hover,
-.c9.fi-action-menu-item--selected .fi-link--router:visited {
+.c9.fi-action-menu-item--selected:active,
+.c9.fi-action-menu-item--selected:focus,
+.c9.fi-action-menu-item--selected:hover,
+.c9.fi-action-menu-item--selected:visited {
   -webkit-text-decoration: none;
   text-decoration: none;
   color: hsl(0,0%,100%);
   cursor: pointer;
 }
 
-.c9.fi-action-menu-item--selected .fi-link--router:after {
+.c9.fi-action-menu-item--selected:after {
   content: '';
 }
 
 .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
-}
-
-.c9.fi-action-menu-item--selected.fi-action-menu-item--disabled .fi-link--router {
   color: hsl(202,7%,67%);
 }
 
-.c11.fi-action-menu-divider {
+.c10.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -1152,14 +1037,14 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   justify-content: center;
 }
 
-.c11.fi-action-menu-divider .fi-action-menu-divider_line {
+.c10.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202,7%,80%);
 }
 
 @media (forced-colors:active) {
-  .c9.fi-action-menu-item--selected .fi-link--router:after {
+  .c9.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -1170,7 +1055,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
 }
 
 @media (forced-colors:active) {
-  .c11.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c10.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -1220,7 +1105,6 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   >
     <div>
       <ul
-        aria-activedescendant="test-id-menu-item-0"
         aria-labelledby="test-id"
         class="c7 fi-action-menu-popover_list"
         id="test-id-menu"
@@ -1230,34 +1114,24 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
         <li
           class="c8 fi-action-menu-item c9 fi-action-menu-item--selected"
           id="test-id-menu-list-item-0"
-          tabindex="-1"
+          role="menuitem"
+          tabindex="0"
+          theme="[object Object]"
         >
-          <button
-            class="c2 fi-link--router c10"
-            id="test-id-menu-item-0"
-            role="menuitem"
-            type="button"
-          >
-            Item 1
-          </button>
+          Item 1
         </li>
         <li
           class="c8 fi-action-menu-item c9"
           id="test-id-menu-list-item-1"
+          role="menuitem"
           tabindex="-1"
+          theme="[object Object]"
         >
-          <button
-            class="c2 fi-link--router c10"
-            id="test-id-menu-item-1"
-            role="menuitem"
-            type="button"
-          >
-            Item 2
-          </button>
+          Item 2
         </li>
         <li
           aria-hidden="true"
-          class="c8 c11 fi-action-menu-divider"
+          class="c8 c10 fi-action-menu-divider"
         >
           <div
             class="c0 fi-action-menu-divider_line"
@@ -1266,16 +1140,11 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
         <li
           class="c8 fi-action-menu-item c9"
           id="test-id-menu-list-item-3"
+          role="menuitem"
           tabindex="-1"
+          theme="[object Object]"
         >
-          <a
-            class="c12 fi-link--router c10"
-            href="/testpath"
-            id="test-id-menu-item-3"
-            role="menuitem"
-          >
-            Item 3
-          </a>
+          Item 3
         </li>
       </ul>
       <div
@@ -2059,44 +1928,6 @@ exports[`No borders variant should match snapshot 1`] = `
 `;
 
 exports[`movement in ActionMenu should match snapshot 1`] = `
-.c12 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c12::before,
-.c12::after {
-  box-sizing: border-box;
-}
-
-.c12:hover,
-.c12:active,
-.c12:focus,
-.c12:focus-within {
-  color: inherit;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -2619,74 +2450,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   margin: 0;
 }
 
-.c10 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c10.fi-link--router {
-  color: hsl(212,63%,45%);
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c10.fi-link--router:hover,
-.c10.fi-link--router:active,
-.c10.fi-link--router:focus,
-.c10.fi-link--router:focus-within {
-  color: hsl(212,63%,45%);
-}
-
-.c10.fi-link--router:focus,
-.c10.fi-link--router:focus-within {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c10.fi-link--router:focus {
-  border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  outline: 0;
-}
-
-.c10.fi-link--router:hover,
-.c10.fi-link--router:active {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c10.fi-link--router:visited {
-  color: hsl(284,36%,45%);
-}
-
-.c10.fi-link--initial-underline {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c10.fi-link--initial-underline:focus,
-.c10.fi-link--initial-underline:focus-within {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c10.fi-link--initial-underline:hover,
-.c10.fi-link--initial-underline:active {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 .c9 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -2713,9 +2476,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   position: relative;
-}
-
-.c9.fi-action-menu-item .fi-link--router {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2750,14 +2510,14 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   align-items: center;
 }
 
-.c9.fi-action-menu-item .fi-link--router:active,
-.c9.fi-action-menu-item .fi-link--router:focus,
-.c9.fi-action-menu-item .fi-link--router:hover,
-.c9.fi-action-menu-item .fi-link--router:visited {
+.c9.fi-action-menu-item:active,
+.c9.fi-action-menu-item:focus,
+.c9.fi-action-menu-item:hover,
+.c9.fi-action-menu-item:visited {
   color: hsl(0,0%,13%);
 }
 
-.c9.fi-action-menu-item .fi-link--router .fi-action-menu-item_icon {
+.c9.fi-action-menu-item .fi-action-menu-item_icon {
   margin-right: 8px;
   width: 16px;
   height: 16px;
@@ -2766,48 +2526,42 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 
 .c9.fi-action-menu-item--disabled {
   cursor: not-allowed;
-}
-
-.c9.fi-action-menu-item--disabled .fi-link--router {
   color: hsl(202,7%,67%);
   pointer-events: none;
 }
 
-.c9.fi-action-menu-item--disabled .fi-link--router:active,
-.c9.fi-action-menu-item--disabled .fi-link--router:focus,
-.c9.fi-action-menu-item--disabled .fi-link--router:hover,
-.c9.fi-action-menu-item--disabled .fi-link--router:visited {
+.c9.fi-action-menu-item--disabled:active,
+.c9.fi-action-menu-item--disabled:focus,
+.c9.fi-action-menu-item--disabled:hover,
+.c9.fi-action-menu-item--disabled:visited {
   color: hsl(202,7%,67%);
 }
 
-.c9.fi-action-menu-item--selected .fi-link--router {
+.c9.fi-action-menu-item--selected {
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
 }
 
-.c9.fi-action-menu-item--selected .fi-link--router:active,
-.c9.fi-action-menu-item--selected .fi-link--router:focus,
-.c9.fi-action-menu-item--selected .fi-link--router:hover,
-.c9.fi-action-menu-item--selected .fi-link--router:visited {
+.c9.fi-action-menu-item--selected:active,
+.c9.fi-action-menu-item--selected:focus,
+.c9.fi-action-menu-item--selected:hover,
+.c9.fi-action-menu-item--selected:visited {
   -webkit-text-decoration: none;
   text-decoration: none;
   color: hsl(0,0%,100%);
   cursor: pointer;
 }
 
-.c9.fi-action-menu-item--selected .fi-link--router:after {
+.c9.fi-action-menu-item--selected:after {
   content: '';
 }
 
 .c9.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
-}
-
-.c9.fi-action-menu-item--selected.fi-action-menu-item--disabled .fi-link--router {
   color: hsl(202,7%,67%);
 }
 
-.c11.fi-action-menu-divider {
+.c10.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -2826,14 +2580,14 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c11.fi-action-menu-divider .fi-action-menu-divider_line {
+.c10.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202,7%,80%);
 }
 
 @media (forced-colors:active) {
-  .c9.fi-action-menu-item--selected .fi-link--router:after {
+  .c9.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -2844,7 +2598,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
-  .c11.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c10.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -2894,7 +2648,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   >
     <div>
       <ul
-        aria-activedescendant="test-id-menu-item-0"
         aria-labelledby="test-id"
         class="c7 fi-action-menu-popover_list"
         id="test-id-menu"
@@ -2904,34 +2657,24 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         <li
           class="c8 fi-action-menu-item c9 fi-action-menu-item--selected"
           id="test-id-menu-list-item-0"
-          tabindex="-1"
+          role="menuitem"
+          tabindex="0"
+          theme="[object Object]"
         >
-          <button
-            class="c2 fi-link--router c10"
-            id="test-id-menu-item-0"
-            role="menuitem"
-            type="button"
-          >
-            Item 1
-          </button>
+          Item 1
         </li>
         <li
           class="c8 fi-action-menu-item c9"
           id="test-id-menu-list-item-1"
+          role="menuitem"
           tabindex="-1"
+          theme="[object Object]"
         >
-          <button
-            class="c2 fi-link--router c10"
-            id="test-id-menu-item-1"
-            role="menuitem"
-            type="button"
-          >
-            Item 2
-          </button>
+          Item 2
         </li>
         <li
           aria-hidden="true"
-          class="c8 c11 fi-action-menu-divider"
+          class="c8 c10 fi-action-menu-divider"
         >
           <div
             class="c0 fi-action-menu-divider_line"
@@ -2940,16 +2683,11 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         <li
           class="c8 fi-action-menu-item c9"
           id="test-id-menu-list-item-3"
+          role="menuitem"
           tabindex="-1"
+          theme="[object Object]"
         >
-          <a
-            class="c12 fi-link--router c10"
-            href="/testpath"
-            id="test-id-menu-item-3"
-            role="menuitem"
-          >
-            Item 3
-          </a>
+          Item 3
         </li>
       </ul>
       <div
