@@ -84,8 +84,6 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
     if (onOpen) {
       onOpen();
     }
-    // Highlighting the first item is a compomise to keep NVDA smooth
-    setSelectFirstItem('first');
     setMenuVisible(true);
   };
 
@@ -157,6 +155,7 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
         <LanguageMenuPopover
           menuId={menuId}
           buttonId={buttonId}
+          parentId={id}
           openButtonRef={openButtonRef}
           onClose={() => closeMenu()}
           children={children}

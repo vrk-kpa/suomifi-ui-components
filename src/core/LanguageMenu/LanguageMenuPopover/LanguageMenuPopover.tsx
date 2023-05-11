@@ -29,8 +29,10 @@ export interface InternalLanguageMenuPopoverProps {
   children?: ReactNode;
   /** Id given to menu `<ul>` element */
   menuId: string;
-  /** Id of the menu opne button */
+  /** Id of the menu open button */
   buttonId: string;
+  /** Id of the parent component. Passed further to items to generate their own ids */
+  parentId?: string;
   /** Initial active menu item */
   initialActiveDescendant: InitialActiveDescendant;
 }
@@ -42,12 +44,15 @@ export interface LanguageMenuProviderState {
   onItemMouseOver: (itemIndex: number) => void;
   /** Index of the child that has aria active descendant status */
   activeDescendantIndex: number;
+  /** Id of the parent menu component. Used to generate child ids */
+  id: string;
 }
 
 const defaultProviderValue: LanguageMenuProviderState = {
   onItemClick: () => null,
   onItemMouseOver: () => null,
   activeDescendantIndex: -1,
+  id: '',
 };
 
 const { Provider: LanguageMenuProvider, Consumer: LanguageMenuConsumer } =
@@ -68,6 +73,32 @@ const sameWidth: any = {
   },
 };
 
+const scrollItemList = (
+  elementId: string,
+  wrapperRef: React.RefObject<HTMLUListElement>,
+) => {
+  // 10px reduction to scroll position is required due to container padding.
+  const wrapperOffsetPx = 10;
+  if (wrapperRef !== null && wrapperRef.current !== null) {
+    const elementOffsetTop = document.getElementById(elementId)?.offsetTop || 0;
+    const elementOffsetHeight =
+      document.getElementById(elementId)?.offsetHeight || 0;
+
+    if (elementOffsetTop < wrapperRef.current.scrollTop) {
+      wrapperRef.current.scrollTop = elementOffsetTop - wrapperOffsetPx;
+    } else {
+      const offsetBottom = elementOffsetTop + elementOffsetHeight;
+      const scrollBottom =
+        wrapperRef.current.scrollTop + wrapperRef.current.offsetHeight;
+
+      if (offsetBottom > scrollBottom) {
+        wrapperRef.current.scrollTop =
+          offsetBottom - wrapperRef.current.offsetHeight + wrapperOffsetPx;
+      }
+    }
+  }
+};
+
 export const BaseLanguageMenuPopover = (
   props: InternalLanguageMenuPopoverProps,
 ) => {
@@ -78,6 +109,7 @@ export const BaseLanguageMenuPopover = (
     children,
     menuId,
     buttonId,
+    parentId,
     initialActiveDescendant,
   } = props;
 
@@ -98,6 +130,8 @@ export const BaseLanguageMenuPopover = (
       document.addEventListener('keydown', globalKeyDownHandler, {
         capture: true,
       });
+
+      scrollItemList(`${parentId}-${activeChild}-menu-list-item`, ulRef);
 
       return () => {
         document.removeEventListener('keydown', globalKeyDownHandler, {
@@ -180,7 +214,7 @@ export const BaseLanguageMenuPopover = (
       // Call action of the child item
       const currentChild = popoverItems[activeChild];
 
-      if (React.isValidElement(currentChild) && !currentChild.props.disabled) {
+      if (React.isValidElement(currentChild)) {
         const childProps = currentChild.props;
 
         if (childProps.onClick) {
@@ -287,6 +321,7 @@ export const BaseLanguageMenuPopover = (
                   itemMouseOver(itemIndex);
                 },
                 activeDescendantIndex: activeChild,
+                id: parentId || '',
               }}
             >
               <HtmlUlWithRef

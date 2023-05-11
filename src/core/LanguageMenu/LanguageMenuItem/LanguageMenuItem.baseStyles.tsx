@@ -7,8 +7,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-language-menu-item {
     ${element(theme)}
     margin: ${theme.spacing.xxs} 0;
-    border-left: 4px solid transparent;
-    background-color: transparent;
 
     .fi-link--router {
       ${theme.typography.actionElementInnerText}
@@ -17,25 +15,38 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       display: inline-block;
       width: 100%;
       padding: 0 ${theme.spacing.m} 0 ${theme.spacing.xxs};
+      border-left: 4px solid transparent;
 
       &:hover {
         text-decoration: none;
       }
     }
 
-    &--hasKeyboardFocus {
-      border-left-color: ${theme.colors.highlightBase};
+    &--isHighlighted {
+      .fi-link--router {
+        border-left-color: ${theme.colors.highlightBase};
+        position: relative;
+
+        &:after {
+          content: '';
+
+          @media (forced-colors: active) {
+            position: absolute;
+            left: 1px;
+            right: 1px;
+            top: 1px;
+            bottom: 1px;
+            border: solid 3px Highlight;
+          }
+        }
+      }
     }
 
     &--selected {
       .fi-link--router {
         font-weight: bold;
+        border-left-color: ${theme.colors.highlightBase};
       }
-      border-left-color: ${theme.colors.highlightBase};
-    }
-
-    &:hover {
-      border-left-color: ${theme.colors.highlightBase};
     }
   }
 `;

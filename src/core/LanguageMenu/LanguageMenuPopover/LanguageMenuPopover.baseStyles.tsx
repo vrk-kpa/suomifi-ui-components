@@ -21,6 +21,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     flex-direction: column;
     justify-content: space-between;
     list-style-type: none;
+    overflow-y: auto;
+    max-height: 260px;
 
     &:focus {
       /* Hide focus outline from <ul> */

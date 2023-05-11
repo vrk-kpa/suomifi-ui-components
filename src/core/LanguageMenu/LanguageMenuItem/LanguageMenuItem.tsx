@@ -11,12 +11,12 @@ import {
 } from './../LanguageMenuPopover/LanguageMenuPopover';
 
 export interface LanguageMenuItemProps {
+  /** Language of the item. Must be provided for assistive technology. */
+  lang: string;
   /** Custom class */
   className?: string;
   /** Text of the action */
   children: ReactNode;
-  /** Disables the item */
-  disabled?: boolean;
   /** Link url. If provided the component is rendered as link `<a>` instead of `<button>` */
   href?: string;
   /** Called when menu item is clicked */
@@ -31,11 +31,11 @@ interface BaseLanguageMenuItemProps extends LanguageMenuItemProps {
 }
 
 const baseClassName = 'fi-language-menu-item';
-const hasKeyboardFocusClassName = `${baseClassName}--hasKeyboardFocus`;
+const hasKeyboardFocusClassName = `${baseClassName}--isHighlighted`;
 const selectedClassName = `${baseClassName}--selected`;
 
 interface RenderComponentProps {
-  /** Text of the action */
+  /** Text of the menu item */
   children: ReactNode;
   /** id for the component */
   id: string;
@@ -83,10 +83,11 @@ const BaseLanguageMenuItem = (
         consumer.onItemMouseOver(itemIndex);
       }}
       tabIndex={-1}
+      id={`${consumer.id}-${itemIndex}-menu-list-item`}
     >
       <RouterLink
         asComponent={props.href ? LinkComponent : ButtonComponent}
-        id={`${itemIndex}-menu-item`}
+        id={`${consumer.id}-${itemIndex}-menu-item`}
         role="menuitem"
         {...passProps}
       >
