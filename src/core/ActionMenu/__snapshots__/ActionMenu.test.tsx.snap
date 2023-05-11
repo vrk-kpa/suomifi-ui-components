@@ -1256,6 +1256,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
           </button>
         </li>
         <li
+          aria-hidden="true"
           class="c8 c11 fi-action-menu-divider"
         >
           <div
@@ -2929,6 +2930,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
           </button>
         </li>
         <li
+          aria-hidden="true"
           class="c8 c11 fi-action-menu-divider"
         >
           <div
