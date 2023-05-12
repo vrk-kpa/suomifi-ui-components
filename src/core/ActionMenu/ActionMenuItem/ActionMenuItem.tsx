@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import classnames from 'classnames';
-import { HtmlLi } from '../../../reset';
+import { HtmlButton } from '../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { baseStyles } from './ActionMenuItem.baseStyles';
 import styled from 'styled-components';
@@ -27,7 +27,7 @@ export interface ActionMenuItemProps {
   /** Link url. If provided the component is rendered as link `<a>` instead of `<button>` */
   href?: string;
   /** Called when menu item is clicked */
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent) => void;
 }
 
 interface BaseActionMenuItemProps extends ActionMenuItemProps {
@@ -58,7 +58,7 @@ const BaseActionMenuItem = (
 
   const { className: iconPropsClassName, ...passIconProps } = iconProps;
   const hasKeyboardFocus = consumer.activeDescendantIndex === itemIndex;
-  const listElementRef = React.useRef<HTMLLIElement>(null);
+  const listElementRef = React.useRef<HTMLButtonElement>(null);
 
   React.useLayoutEffect(() => {
     if (hasKeyboardFocus) {
@@ -67,28 +67,16 @@ const BaseActionMenuItem = (
   }, [consumer.activeDescendantIndex]);
 
   return (
-    <HtmlLi
+    <HtmlButton
       forwardedRef={listElementRef}
       className={classnames(baseClassName, className, {
         [selectedClassName]: itemIndex === consumer.activeDescendantIndex,
         [disabledClassName]: disabled,
       })}
-      onClick={() => {
-        if (!disabled) {
-          consumer.onItemClick(itemIndex);
-
-          if (onClick) {
-            onClick();
-          }
-
-          if (href) {
-            window.open(href, '_self');
-          }
+      onClick={(event) => {
+        if (!disabled && onClick) {
+          onClick(event);
         }
-      }}
-      onMouseDown={(event) => {
-        // Prevents li from "stealing" focus from ul
-        event.preventDefault();
       }}
       onMouseOver={() => {
         consumer.onItemMouseOver(itemIndex);
@@ -109,7 +97,7 @@ const BaseActionMenuItem = (
         />
       )}
       {children}
-    </HtmlLi>
+    </HtmlButton>
   );
 };
 
