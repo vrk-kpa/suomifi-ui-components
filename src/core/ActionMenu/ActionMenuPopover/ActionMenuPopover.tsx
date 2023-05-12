@@ -5,7 +5,7 @@ import { usePopper } from 'react-popper';
 import classnames from 'classnames';
 import { useEnhancedEffect } from '../../../utils/common';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { HtmlDivWithRef, HtmlUlWithRef } from '../../../reset';
+import { HtmlDivWithRef } from '../../../reset';
 import { getLogger } from '../../../utils/log';
 import { baseStyles } from './ActionMenuPopover.baseStyles';
 
@@ -90,9 +90,7 @@ export const BaseActionMenuPopover = (
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
   const [dialogElement, setDialogElement] = useState<HTMLElement | null>(null);
   const [activeChild, setActiveChild] = useState<number>(-1);
-
   const portalRef = useRef<HTMLDivElement>(null);
-  const ulRef = useRef<HTMLUListElement>(null);
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
@@ -104,8 +102,6 @@ export const BaseActionMenuPopover = (
       document.addEventListener('keydown', globalKeyDownHandler, {
         capture: true,
       });
-
-      //  scrollItemList(`${menuId}-list-item-${activeChild}`, ulRef);
 
       return () => {
         document.removeEventListener('keydown', globalKeyDownHandler, {
@@ -128,13 +124,6 @@ export const BaseActionMenuPopover = (
       });
     };
   }, [openButtonRef]);
-
-  /*
-  useEffect(() => {
-    // Set focus to ul element when menu opens
-    ulRef.current?.focus();
-  }, [ulRef.current]);
-  */
 
   useEffect(() => {
     // For cleanup to prevent setting state on unmounted component
@@ -234,27 +223,6 @@ export const BaseActionMenuPopover = (
       // No preventDefault, so that tabbing works normally
     }
 
-    if (event.key === 'Enter' || event.key === ' ') {
-      // Call action of the child item
-      const currentChild = React.Children.toArray(children)[activeChild];
-
-      if (React.isValidElement(currentChild) && !currentChild.props.disabled) {
-        const childProps = currentChild.props;
-
-        if (childProps.onClick) {
-          childProps.onClick();
-        }
-        if (childProps.href) {
-          window.open(childProps.href, '_self');
-        }
-
-        // Close the menu only if the child item is not disabled
-        handleClose();
-      }
-
-      event.preventDefault();
-    }
-
     if (event.key === 'ArrowDown') {
       event.preventDefault();
       setActiveChild((previous) => nextActivable(previous));
@@ -264,6 +232,8 @@ export const BaseActionMenuPopover = (
       event.preventDefault();
       setActiveChild((previous) => previousActivable(previous));
     }
+
+    // Enter and space are handled by menu item component
   };
 
   // Popper options modifiers
@@ -332,7 +302,6 @@ export const BaseActionMenuPopover = (
     <>
       {ReactDOM.createPortal(
         <HtmlDivWithRef
-          role="menu"
           className={classnames(className, baseClassName)}
           style={styles.popper}
           forwardedRef={setDialogElement}
@@ -348,16 +317,15 @@ export const BaseActionMenuPopover = (
                 parentId: menuId,
               }}
             >
-              <HtmlUlWithRef
+              <HtmlDivWithRef
                 role="menu"
                 id={menuId}
                 aria-labelledby={buttonId}
                 tabIndex={-1}
                 className={actionMenuClassNames.list}
-                forwardRef={ulRef}
               >
                 {menuItems(children)}
-              </HtmlUlWithRef>
+              </HtmlDivWithRef>
             </ActionMenuProvider>
             <div
               className={actionMenuClassNames.popperArrow}
