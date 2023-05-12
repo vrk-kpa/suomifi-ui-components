@@ -75,11 +75,19 @@ const BaseActionMenuItem = (
       })}
       onClick={(event) => {
         if (!disabled && onClick) {
+          event.preventDefault();
           onClick(event);
+          consumer.onItemClick(itemIndex);
         }
       }}
       onMouseOver={() => {
         consumer.onItemMouseOver(itemIndex);
+      }}
+      onKeyDown={(event) => {
+        if (!disabled && (event.key === 'Enter' || event.key === ' ')) {
+          event.preventDefault();
+          listElementRef.current?.click();
+        }
       }}
       tabIndex={hasKeyboardFocus ? 0 : -1}
       id={`${consumer.parentId}-list-item-${itemIndex}`}
