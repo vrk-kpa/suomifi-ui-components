@@ -5,7 +5,6 @@ import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { baseStyles } from './ActionMenuItem.baseStyles';
 import styled from 'styled-components';
 import { Icon, BaseIconKeys, IconProps } from '../../Icon/Icon';
-
 import {
   ActionMenuProviderState,
   ActionMenuConsumer,
@@ -20,12 +19,8 @@ export interface ActionMenuItemProps {
   disabled?: boolean;
   /** Icon from suomifi-theme */
   icon?: BaseIconKeys;
-  /** Icon from suomifi-theme to be placed on right side */
-  iconRight?: BaseIconKeys;
   /** Properties given to Icon-component */
   iconProps?: IconProps;
-  /** Link url. If provided the component is rendered as link `<a>` instead of `<button>` */
-  href?: string;
   /** Called when menu item is clicked */
   onClick?: (event: React.MouseEvent) => void;
 }
@@ -52,7 +47,6 @@ const BaseActionMenuItem = (
     icon,
     iconProps = { className: undefined },
     onClick,
-    href,
     ...passProps
   } = props;
 
