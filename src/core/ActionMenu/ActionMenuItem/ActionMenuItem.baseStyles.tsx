@@ -26,6 +26,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &:focus,
     &:hover,
     &:visited {
+      border: none;
+      outline: none;
       color: ${theme.colors.blackBase};
     }
 

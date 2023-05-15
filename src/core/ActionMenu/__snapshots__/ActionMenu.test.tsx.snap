@@ -496,31 +496,6 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   box-sizing: border-box;
 }
 
-.c8 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: list-item;
-}
-
-.c8::before,
-.c8::after {
-  box-sizing: border-box;
-}
-
 .c6 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -932,6 +907,8 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
 .c7.fi-action-menu-item:focus,
 .c7.fi-action-menu-item:hover,
 .c7.fi-action-menu-item:visited {
+  border: none;
+  outline: none;
   color: hsl(0,0%,13%);
 }
 
@@ -979,7 +956,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   color: hsl(202,7%,67%);
 }
 
-.c9.fi-action-menu-divider {
+.c8.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -998,7 +975,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   justify-content: center;
 }
 
-.c9.fi-action-menu-divider .fi-action-menu-divider_line {
+.c8.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202,7%,80%);
@@ -1016,7 +993,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
 }
 
 @media (forced-colors:active) {
-  .c9.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c8.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -1031,7 +1008,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
       <button
         aria-controls="test-id-menu"
         aria-disabled="false"
-        aria-expanded="true"
+        aria-expanded="false"
         aria-haspopup="menu"
         class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
         id="test-id"
@@ -1091,14 +1068,14 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
         >
           Item 2
         </button>
-        <li
+        <div
           aria-hidden="true"
-          class="c8 c9 fi-action-menu-divider"
+          class="c0 c8 fi-action-menu-divider"
         >
           <div
             class="c0 fi-action-menu-divider_line"
           />
-        </li>
+        </div>
         <button
           class="c2 fi-action-menu-item c7"
           id="test-id-menu-list-item-3"
@@ -2002,31 +1979,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c8 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: list-item;
-}
-
-.c8::before,
-.c8::after {
-  box-sizing: border-box;
-}
-
 .c6 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -2438,6 +2390,8 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 .c7.fi-action-menu-item:focus,
 .c7.fi-action-menu-item:hover,
 .c7.fi-action-menu-item:visited {
+  border: none;
+  outline: none;
   color: hsl(0,0%,13%);
 }
 
@@ -2485,7 +2439,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c9.fi-action-menu-divider {
+.c8.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -2504,7 +2458,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c9.fi-action-menu-divider .fi-action-menu-divider_line {
+.c8.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202,7%,80%);
@@ -2522,7 +2476,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
-  .c9.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c8.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -2537,7 +2491,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
       <button
         aria-controls="test-id-menu"
         aria-disabled="false"
-        aria-expanded="true"
+        aria-expanded="false"
         aria-haspopup="menu"
         class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
         id="test-id"
@@ -2597,14 +2551,14 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         >
           Item 2
         </button>
-        <li
+        <div
           aria-hidden="true"
-          class="c8 c9 fi-action-menu-divider"
+          class="c0 c8 fi-action-menu-divider"
         >
           <div
             class="c0 fi-action-menu-divider_line"
           />
-        </li>
+        </div>
         <button
           class="c2 fi-action-menu-item c7"
           id="test-id-menu-list-item-3"

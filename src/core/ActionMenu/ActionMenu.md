@@ -26,9 +26,6 @@ const [lastAction, setLastAction] = useState('');
       <ActionMenuItem onClick={() => setLastAction('Long')}>
         Longer name for an action
       </ActionMenuItem>
-      <ActionMenuItem href="https://www.suomi.fi">
-        This is a link
-      </ActionMenuItem>
       <ActionMenuItem
         onClick={() => setLastAction('Remove')}
         icon="remove"
@@ -125,7 +122,10 @@ const [lastAction, setLastAction] = useState('');
     >
       Remove
     </ActionMenuItem>
-    <ActionMenuItem onClick={() => setLastAction('Disabled')}>
+    <ActionMenuItem
+      disabled
+      onClick={() => setLastAction('Disabled')}
+    >
       Disabled
     </ActionMenuItem>
   </ActionMenu>

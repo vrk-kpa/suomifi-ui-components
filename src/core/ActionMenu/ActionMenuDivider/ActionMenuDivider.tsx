@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlLi } from '../../../reset';
+import { HtmlDiv } from '../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { baseStyles } from './ActionMenuDivider.baseStyles';
 import styled from 'styled-components';
@@ -17,13 +17,13 @@ const BaseActionMenuDivider = ({
   className,
   ...passProps
 }: ActionMenuDividerProps) => (
-  <HtmlLi
+  <HtmlDiv
     aria-hidden="true"
     className={classnames(className, baseClassName)}
     {...passProps}
   >
     <HtmlDiv className={classnames(dividerClassName)} />
-  </HtmlLi>
+  </HtmlDiv>
 );
 
 const StyledActionMenuDivider = styled(
