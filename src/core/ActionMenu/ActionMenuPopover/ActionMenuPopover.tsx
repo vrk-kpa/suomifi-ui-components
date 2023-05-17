@@ -128,16 +128,17 @@ export const BaseActionMenuPopover = (
   useEffect(() => {
     // For cleanup to prevent setting state on unmounted component
     let isSubscribed = true;
-    // Timeout is needed for Safari + VoiceOver to read the active menu item when menu opens
-    // setTimeout(() => {
-    if (isSubscribed) {
-      if (initialActiveDescendant === 'first') {
-        setActiveChild(0);
-      } else if (initialActiveDescendant === 'last') {
-        setActiveChild(React.Children.count(children) - 1);
+    console.log('PARENT EFFECTD');
+    // Timeout is needed for iOS Safari + VoiceOver to move focus into menu item on open
+    setTimeout(() => {
+      if (isSubscribed) {
+        if (initialActiveDescendant === 'first') {
+          setActiveChild(0);
+        } else if (initialActiveDescendant === 'last') {
+          setActiveChild(React.Children.count(children) - 1);
+        }
       }
-    }
-    // }, 100);
+    }, 100);
 
     // Cancel subscription to useEffect on unmount
     return () => {
