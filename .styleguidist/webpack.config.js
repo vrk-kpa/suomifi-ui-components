@@ -16,6 +16,7 @@ module.exports = (env) => ({
   plugins: [
     new webpack.DefinePlugin({
       'process.env.BUILD_TYPE': JSON.stringify(process.env.BUILD_TYPE),
+      'process.env.BASE_PATH': JSON.stringify(process.env.BASE_PATH),
     }),
   ],
   module: {

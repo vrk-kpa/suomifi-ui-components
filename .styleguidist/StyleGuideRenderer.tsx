@@ -95,7 +95,7 @@ export const StyleGuideRenderer: React.FunctionComponent<
         {process.env.BUILD_TYPE === 'ASSETS' && (
           <InlineAlert style={{ marginBottom: '20px' }}>
             You are browsing old documentation version. See{' '}
-            <a href="/">latest documentation</a>.
+            <a href={process.env.BASE_PATH}>latest documentation</a>.
           </InlineAlert>
         )}
         {children}
