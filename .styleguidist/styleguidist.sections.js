@@ -94,14 +94,14 @@ module.exports = {
           name: 'Logger',
           content: './.styleguidist/logger.md',
         },
-        {
-          name: 'Versions',
-          content: './.styleguidist/versions.md',
-          sections: getVersions(),
-        },
       ],
       sectionDepth: 2,
       expand: true,
+    },
+    {
+      name: 'Versions',
+      content: './.styleguidist/versions.md',
+      sections: getVersions(),
     },
     {
       name: 'Components',

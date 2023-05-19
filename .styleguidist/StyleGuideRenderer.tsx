@@ -4,7 +4,7 @@
  * https://github.com/styleguidist/react-styleguidist/blob/master/src/client/rsg-components/StyleGuide/StyleGuideRenderer.tsx
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Logo from 'react-styleguidist/lib/client/rsg-components/Logo';
 import Styled from 'react-styleguidist/lib/client/rsg-components/Styled';
@@ -13,7 +13,7 @@ import { Classes } from 'jss';
 import Ribbon from 'react-styleguidist/lib/client/rsg-components/Ribbon';
 import Version from 'react-styleguidist/lib/client/rsg-components/Version';
 import * as Rsg from 'react-styleguidist/lib/typings';
-import { InlineAlert } from '../src/core/Alert/InlineAlert/InlineAlert';
+import { Alert } from '../src/core/Alert/';
 
 const styles = ({
   color,
@@ -89,14 +89,20 @@ interface StyleGuideRendererProps extends JssInjectedProps {
 export const StyleGuideRenderer: React.FunctionComponent<
   StyleGuideRendererProps
 > = ({ classes, title, version, children, toc, hasSidebar }) => {
+  const [showAlert, setShowAlert] = useState(true);
+
   return (
     <div className={cx(classes.root, hasSidebar && classes.hasSidebar)}>
       <main className={classes.content}>
-        {process.env.BUILD_TYPE === 'ASSETS' && (
-          <InlineAlert style={{ marginBottom: '20px' }}>
-            You are browsing old documentation version. See{' '}
+        {process.env.BUILD_TYPE === 'ASSETS' && showAlert && (
+          <Alert
+            style={{ marginBottom: '20px' }}
+            closeText="Close"
+            onCloseButtonClick={() => setShowAlert(false)}
+          >
+            You are browsing documentation for an old library version. See{' '}
             <a href={process.env.BASE_PATH}>latest documentation</a>.
-          </InlineAlert>
+          </Alert>
         )}
         {children}
         <footer className={classes.footer}></footer>
