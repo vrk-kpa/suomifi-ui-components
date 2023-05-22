@@ -100,6 +100,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
 
   const openButtonRef = forwardedRef || useRef<HTMLButtonElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
+  const [ariaExpanded, setAriaExpanded] = useState<boolean>(false);
   const [selectFirstItem, setSelectFirstItem] =
     useState<InitialActiveDescendant>('none');
 
@@ -113,16 +114,20 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     // Highlighting the first item is a compomise to keep NVDA smooth
     setSelectFirstItem('first');
     setMenuVisible(true);
+    setAriaExpanded(false);
   };
 
   const closeMenu = () => {
-    setMenuVisible(false);
+    // For NVDA to work properly aria expanded, focus and setMenuVisible must be in this order
+    setAriaExpanded(false);
+    // Move focus back to the button when menu is being closed
+    openButtonRef.current?.focus();
+
     if (onClose) {
       onClose();
     }
 
-    // Move focus back to the button when menu is closed
-    openButtonRef.current?.focus();
+    setMenuVisible(false);
   };
 
   const handleButtonClick = () => {
@@ -168,7 +173,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
         id={buttonId}
         variant={buttonVariant}
         iconRight="optionsVertical"
-        aria-expanded={menuVisible}
+        aria-expanded={ariaExpanded}
         aria-controls={menuId}
         aria-haspopup="menu"
         forwardedRef={openButtonRef}
