@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, ReactNode } from 'react';
-import ReactDOM from 'react-dom';
 import { default as styled } from 'styled-components';
 import { usePopper } from 'react-popper';
 import classnames from 'classnames';
@@ -129,6 +128,7 @@ export const BaseActionMenuPopover = (
     // For cleanup to prevent setting state on unmounted component
     let isSubscribed = true;
     console.log('PARENT EFFECTD');
+
     // Timeout is needed for iOS Safari + VoiceOver to move focus into menu item on open
     setTimeout(() => {
       if (isSubscribed) {
@@ -138,7 +138,7 @@ export const BaseActionMenuPopover = (
           setActiveChild(React.Children.count(children) - 1);
         }
       }
-    }, 100);
+    }, 200);
 
     // Cancel subscription to useEffect on unmount
     return () => {
@@ -300,47 +300,43 @@ export const BaseActionMenuPopover = (
     return null;
   }
   return (
-    <>
-      {ReactDOM.createPortal(
+    <HtmlDivWithRef
+      className={classnames(className, baseClassName)}
+      style={styles.popper}
+      forwardedRef={setDialogElement}
+      tabIndex={-1}
+      role="none"
+    >
+      <ActionMenuProvider
+        value={{
+          onItemClick: () => handleClose(),
+          onItemMouseOver(itemIndex) {
+            itemMouseOver(itemIndex);
+          },
+          activeDescendantIndex: activeChild,
+          parentId: menuId,
+        }}
+      >
         <HtmlDivWithRef
-          className={classnames(className, baseClassName)}
-          style={styles.popper}
-          forwardedRef={setDialogElement}
+          role="menu"
+          forwardedRef={portalRef}
+          id={menuId}
+          aria-labelledby={buttonId}
+          tabIndex={-1}
+          className={actionMenuClassNames.list}
         >
-          <div ref={portalRef}>
-            <ActionMenuProvider
-              value={{
-                onItemClick: () => handleClose(),
-                onItemMouseOver(itemIndex) {
-                  itemMouseOver(itemIndex);
-                },
-                activeDescendantIndex: activeChild,
-                parentId: menuId,
-              }}
-            >
-              <HtmlDivWithRef
-                role="menu"
-                id={menuId}
-                aria-labelledby={buttonId}
-                tabIndex={-1}
-                className={actionMenuClassNames.list}
-              >
-                {menuItems(children)}
-              </HtmlDivWithRef>
-            </ActionMenuProvider>
-            <div
-              className={actionMenuClassNames.popperArrow}
-              style={styles.arrow}
-              data-popper-arrow
-              data-popper-placement={
-                attributes.popper?.['data-popper-placement']
-              }
-            />
-          </div>
-        </HtmlDivWithRef>,
-        mountNode,
-      )}
-    </>
+          {menuItems(children)}
+        </HtmlDivWithRef>
+      </ActionMenuProvider>
+      <div
+        className={actionMenuClassNames.popperArrow}
+        style={styles.arrow}
+        aria-hidden={true}
+        tabIndex={-1}
+        data-popper-arrow
+        data-popper-placement={attributes.popper?.['data-popper-placement']}
+      />
+    </HtmlDivWithRef>
   );
 };
 

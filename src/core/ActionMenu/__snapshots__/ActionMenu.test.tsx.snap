@@ -519,6 +519,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
+  z-index: 888;
 }
 
 .c6 .fi-action-menu-popover_list {
@@ -1034,65 +1035,67 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
           />
         </svg>
       </button>
-    </div>
-  </div>
-  <div
-    class="c5 c6 fi-action-menu-popover"
-    style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 10px);"
-  >
-    <div>
       <div
-        aria-labelledby="test-id"
-        class="c5 fi-action-menu-popover_list"
-        id="test-id-menu"
-        role="menu"
+        class="c5 c6 fi-action-menu-popover"
+        role="none"
+        style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 10px);"
         tabindex="-1"
       >
-        <button
-          class="c2 fi-action-menu-item c7 fi-action-menu-item--selected"
-          id="test-id-menu-list-item-0"
-          role="menuitem"
-          tabindex="0"
-          theme="[object Object]"
-          type="button"
-        >
-          Item 1
-        </button>
-        <button
-          class="c2 fi-action-menu-item c7"
-          id="test-id-menu-list-item-1"
-          role="menuitem"
+        <div
+          aria-labelledby="test-id"
+          class="c5 fi-action-menu-popover_list"
+          id="test-id-menu"
+          role="menu"
           tabindex="-1"
-          theme="[object Object]"
-          type="button"
         >
-          Item 2
-        </button>
+          <button
+            class="c2 fi-action-menu-item c7"
+            id="test-id-menu-list-item-0"
+            role="menuitem"
+            tabindex="-1"
+            theme="[object Object]"
+            type="button"
+          >
+            Item 1
+          </button>
+          <button
+            class="c2 fi-action-menu-item c7"
+            id="test-id-menu-list-item-1"
+            role="menuitem"
+            tabindex="-1"
+            theme="[object Object]"
+            type="button"
+          >
+            Item 2
+          </button>
+          <div
+            aria-hidden="true"
+            class="c0 c8 fi-action-menu-divider"
+          >
+            <div
+              class="c0 fi-action-menu-divider_line"
+            />
+          </div>
+          <button
+            class="c2 fi-action-menu-item c7"
+            id="test-id-menu-list-item-3"
+            role="menuitem"
+            tabindex="-1"
+            theme="[object Object]"
+            type="button"
+          >
+            Item 3
+          </button>
+        </div>
         <div
           aria-hidden="true"
-          class="c0 c8 fi-action-menu-divider"
-        >
-          <div
-            class="c0 fi-action-menu-divider_line"
-          />
-        </div>
-        <button
-          class="c2 fi-action-menu-item c7"
-          id="test-id-menu-list-item-3"
-          role="menuitem"
+          class="fi-action-menu-popover_popper-arrow"
+          data-popper-arrow="true"
+          data-popper-placement="bottom-end"
+          style="position: absolute; left: 0px; transform: translate(0px, 0px);"
           tabindex="-1"
-          theme="[object Object]"
-          type="button"
-        >
-          Item 3
-        </button>
+        />
       </div>
-      <div
-        class="fi-action-menu-popover_popper-arrow"
-        data-popper-arrow="true"
-        data-popper-placement="bottom-end"
-        style="position: absolute; left: 0px; transform: translate(0px, 0px);"
-      />
     </div>
   </div>
 </body>
@@ -2002,6 +2005,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
+  z-index: 888;
 }
 
 .c6 .fi-action-menu-popover_list {
@@ -2517,65 +2521,67 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
           />
         </svg>
       </button>
-    </div>
-  </div>
-  <div
-    class="c5 c6 fi-action-menu-popover"
-    style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 10px);"
-  >
-    <div>
       <div
-        aria-labelledby="test-id"
-        class="c5 fi-action-menu-popover_list"
-        id="test-id-menu"
-        role="menu"
+        class="c5 c6 fi-action-menu-popover"
+        role="none"
+        style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 10px);"
         tabindex="-1"
       >
-        <button
-          class="c2 fi-action-menu-item c7 fi-action-menu-item--selected"
-          id="test-id-menu-list-item-0"
-          role="menuitem"
-          tabindex="0"
-          theme="[object Object]"
-          type="button"
-        >
-          Item 1
-        </button>
-        <button
-          class="c2 fi-action-menu-item c7"
-          id="test-id-menu-list-item-1"
-          role="menuitem"
+        <div
+          aria-labelledby="test-id"
+          class="c5 fi-action-menu-popover_list"
+          id="test-id-menu"
+          role="menu"
           tabindex="-1"
-          theme="[object Object]"
-          type="button"
         >
-          Item 2
-        </button>
+          <button
+            class="c2 fi-action-menu-item c7"
+            id="test-id-menu-list-item-0"
+            role="menuitem"
+            tabindex="-1"
+            theme="[object Object]"
+            type="button"
+          >
+            Item 1
+          </button>
+          <button
+            class="c2 fi-action-menu-item c7"
+            id="test-id-menu-list-item-1"
+            role="menuitem"
+            tabindex="-1"
+            theme="[object Object]"
+            type="button"
+          >
+            Item 2
+          </button>
+          <div
+            aria-hidden="true"
+            class="c0 c8 fi-action-menu-divider"
+          >
+            <div
+              class="c0 fi-action-menu-divider_line"
+            />
+          </div>
+          <button
+            class="c2 fi-action-menu-item c7"
+            id="test-id-menu-list-item-3"
+            role="menuitem"
+            tabindex="-1"
+            theme="[object Object]"
+            type="button"
+          >
+            Item 3
+          </button>
+        </div>
         <div
           aria-hidden="true"
-          class="c0 c8 fi-action-menu-divider"
-        >
-          <div
-            class="c0 fi-action-menu-divider_line"
-          />
-        </div>
-        <button
-          class="c2 fi-action-menu-item c7"
-          id="test-id-menu-list-item-3"
-          role="menuitem"
+          class="fi-action-menu-popover_popper-arrow"
+          data-popper-arrow="true"
+          data-popper-placement="bottom-end"
+          style="position: absolute; left: 0px; transform: translate(0px, 0px);"
           tabindex="-1"
-          theme="[object Object]"
-          type="button"
-        >
-          Item 3
-        </button>
+        />
       </div>
-      <div
-        class="fi-action-menu-popover_popper-arrow"
-        data-popper-arrow="true"
-        data-popper-placement="bottom-end"
-        style="position: absolute; left: 0px; transform: translate(0px, 0px);"
-      />
     </div>
   </div>
 </body>

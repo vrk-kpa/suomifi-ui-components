@@ -48,6 +48,8 @@ export interface ActionMenuProps {
     | React.ReactElement<ActionMenuDividerProps>;
   /** Button container div class name for custom styling */
   className?: string;
+  /** Menu container div class name for custom styling */
+  menuClassName?: string;
   /** Disable button usage */
   disabled?: boolean;
   /** Ref is forwarded to the button element. Alternative for React `ref` attribute. */
@@ -95,6 +97,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     onClose,
     onClick,
     onBlur,
+    menuClassName,
     ...passProps
   } = props;
 
@@ -203,6 +206,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
           children={children}
           initialActiveDescendant={selectFirstItem}
           fullWidth={fullWidth}
+          className={menuClassName}
         />
       )}
     </HtmlDiv>
