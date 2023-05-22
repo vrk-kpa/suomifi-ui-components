@@ -21,7 +21,7 @@ const TestActionMenu = (props: ActionMenuProps) => (
     <ActionMenuItem>Item 1</ActionMenuItem>
     <ActionMenuItem>Item 2</ActionMenuItem>
     <ActionMenuDivider />
-    <ActionMenuItem href="/testpath">Item 3</ActionMenuItem>
+    <ActionMenuItem>Item 3</ActionMenuItem>
   </ActionMenu>
 );
 

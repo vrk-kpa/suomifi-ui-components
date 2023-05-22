@@ -24,8 +24,6 @@ export interface ActionMenuItemProps {
   iconRight?: BaseIconKeys;
   /** Properties given to Icon-component */
   iconProps?: IconProps;
-  /** Link url. If provided the component is rendered as link `<a>` instead of `<button>` */
-  href?: string;
   /** Called when menu item is clicked */
   onClick?: () => void;
 }
@@ -52,13 +50,20 @@ const BaseActionMenuItem = (
     icon,
     iconProps = { className: undefined },
     onClick,
-    href,
     ...passProps
   } = props;
 
   const { className: iconPropsClassName, ...passIconProps } = iconProps;
   const hasKeyboardFocus = consumer.activeDescendantIndex === itemIndex;
   const listElementRef = React.useRef<HTMLLIElement>(null);
+
+  const handleAction = () => {
+    consumer.onItemClick(itemIndex);
+
+    if (onClick) {
+      onClick();
+    }
+  };
 
   React.useLayoutEffect(() => {
     if (hasKeyboardFocus) {
@@ -75,20 +80,14 @@ const BaseActionMenuItem = (
       })}
       onClick={() => {
         if (!disabled) {
-          consumer.onItemClick(itemIndex);
-
-          if (onClick) {
-            onClick();
-          }
-
-          if (href) {
-            window.open(href, '_self');
-          }
+          handleAction();
         }
       }}
-      onMouseDown={(event) => {
-        // Prevents li from "stealing" focus from ul
-        event.preventDefault();
+      onKeyDown={(event) => {
+        if (!disabled && (event.key === 'Enter' || event.key === ' ')) {
+          event.preventDefault();
+          handleAction();
+        }
       }}
       onMouseOver={() => {
         consumer.onItemMouseOver(itemIndex);

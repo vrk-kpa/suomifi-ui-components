@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, ReactNode } from 'react';
-import ReactDOM from 'react-dom';
 import { default as styled } from 'styled-components';
 import { usePopper } from 'react-popper';
 import classnames from 'classnames';
@@ -91,7 +90,6 @@ export const BaseActionMenuPopover = (
   const [dialogElement, setDialogElement] = useState<HTMLElement | null>(null);
   const [activeChild, setActiveChild] = useState<number>(-1);
 
-  const portalRef = useRef<HTMLDivElement>(null);
   const ulRef = useRef<HTMLUListElement>(null);
 
   useEnhancedEffect(() => {
@@ -129,13 +127,6 @@ export const BaseActionMenuPopover = (
     };
   }, [openButtonRef]);
 
-  /*
-  useEffect(() => {
-    // Set focus to ul element when menu opens
-    ulRef.current?.focus();
-  }, [ulRef.current]);
-  */
-
   useEffect(() => {
     // For cleanup to prevent setting state on unmounted component
     let isSubscribed = true;
@@ -158,7 +149,7 @@ export const BaseActionMenuPopover = (
 
   const globalClickHandler = (nativeEvent: MouseEvent) => {
     if (
-      !portalRef.current?.contains(nativeEvent.target as Node) &&
+      !ulRef.current?.contains(nativeEvent.target as Node) &&
       !openButtonRef.current?.contains(nativeEvent.target as Node)
     ) {
       // Click is outside of "open menu button" and menu elements
@@ -232,27 +223,6 @@ export const BaseActionMenuPopover = (
     if (event.key === 'Tab') {
       handleClose();
       // No preventDefault, so that tabbing works normally
-    }
-
-    if (event.key === 'Enter' || event.key === ' ') {
-      // Call action of the child item
-      const currentChild = React.Children.toArray(children)[activeChild];
-
-      if (React.isValidElement(currentChild) && !currentChild.props.disabled) {
-        const childProps = currentChild.props;
-
-        if (childProps.onClick) {
-          childProps.onClick();
-        }
-        if (childProps.href) {
-          window.open(childProps.href, '_self');
-        }
-
-        // Close the menu only if the child item is not disabled
-        handleClose();
-      }
-
-      event.preventDefault();
     }
 
     if (event.key === 'ArrowDown') {
@@ -329,49 +299,39 @@ export const BaseActionMenuPopover = (
     return null;
   }
   return (
-    <>
-      {ReactDOM.createPortal(
-        <HtmlDivWithRef
+    <HtmlDivWithRef
+      className={classnames(className, baseClassName)}
+      style={styles.popper}
+      forwardedRef={setDialogElement}
+    >
+      <ActionMenuProvider
+        value={{
+          onItemClick: () => handleClose(),
+          onItemMouseOver(itemIndex) {
+            itemMouseOver(itemIndex);
+          },
+          activeDescendantIndex: activeChild,
+          parentId: menuId,
+        }}
+      >
+        <HtmlUlWithRef
           role="menu"
-          className={classnames(className, baseClassName)}
-          style={styles.popper}
-          forwardedRef={setDialogElement}
+          id={menuId}
+          aria-labelledby={buttonId}
+          tabIndex={-1}
+          className={actionMenuClassNames.list}
+          forwardRef={ulRef}
         >
-          <div ref={portalRef}>
-            <ActionMenuProvider
-              value={{
-                onItemClick: () => handleClose(),
-                onItemMouseOver(itemIndex) {
-                  itemMouseOver(itemIndex);
-                },
-                activeDescendantIndex: activeChild,
-                parentId: menuId,
-              }}
-            >
-              <HtmlUlWithRef
-                role="menu"
-                id={menuId}
-                aria-labelledby={buttonId}
-                tabIndex={-1}
-                className={actionMenuClassNames.list}
-                forwardRef={ulRef}
-              >
-                {menuItems(children)}
-              </HtmlUlWithRef>
-            </ActionMenuProvider>
-            <div
-              className={actionMenuClassNames.popperArrow}
-              style={styles.arrow}
-              data-popper-arrow
-              data-popper-placement={
-                attributes.popper?.['data-popper-placement']
-              }
-            />
-          </div>
-        </HtmlDivWithRef>,
-        mountNode,
-      )}
-    </>
+          {menuItems(children)}
+        </HtmlUlWithRef>
+      </ActionMenuProvider>
+      <div
+        className={actionMenuClassNames.popperArrow}
+        style={styles.arrow}
+        data-popper-arrow
+        data-popper-placement={attributes.popper?.['data-popper-placement']}
+      />
+    </HtmlDivWithRef>
   );
 };
 

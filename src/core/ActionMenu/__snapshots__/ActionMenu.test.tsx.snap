@@ -575,6 +575,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
+  z-index: 888;
 }
 
 .c6 .fi-action-menu-popover_list {
@@ -1088,63 +1089,60 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
           />
         </svg>
       </button>
-    </div>
-  </div>
-  <div
-    class="c5 c6 fi-action-menu-popover"
-    role="menu"
-    style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 10px);"
-  >
-    <div>
-      <ul
-        aria-labelledby="test-id"
-        class="c7 fi-action-menu-popover_list"
-        id="test-id-menu"
-        role="menu"
-        tabindex="-1"
-      >
-        <li
-          class="c8 fi-action-menu-item c9 fi-action-menu-item--selected"
-          id="test-id-menu-list-item-0"
-          role="menuitem"
-          tabindex="0"
-          theme="[object Object]"
-        >
-          Item 1
-        </li>
-        <li
-          class="c8 fi-action-menu-item c9"
-          id="test-id-menu-list-item-1"
-          role="menuitem"
-          tabindex="-1"
-          theme="[object Object]"
-        >
-          Item 2
-        </li>
-        <li
-          aria-hidden="true"
-          class="c8 c10 fi-action-menu-divider"
-        >
-          <div
-            class="c0 fi-action-menu-divider_line"
-          />
-        </li>
-        <li
-          class="c8 fi-action-menu-item c9"
-          id="test-id-menu-list-item-3"
-          role="menuitem"
-          tabindex="-1"
-          theme="[object Object]"
-        >
-          Item 3
-        </li>
-      </ul>
       <div
-        class="fi-action-menu-popover_popper-arrow"
-        data-popper-arrow="true"
-        data-popper-placement="bottom-end"
-        style="position: absolute; left: 0px; transform: translate(0px, 0px);"
-      />
+        class="c5 c6 fi-action-menu-popover"
+        style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 10px);"
+      >
+        <ul
+          aria-labelledby="test-id"
+          class="c7 fi-action-menu-popover_list"
+          id="test-id-menu"
+          role="menu"
+          tabindex="-1"
+        >
+          <li
+            class="c8 fi-action-menu-item c9 fi-action-menu-item--selected"
+            id="test-id-menu-list-item-0"
+            role="menuitem"
+            tabindex="0"
+            theme="[object Object]"
+          >
+            Item 1
+          </li>
+          <li
+            class="c8 fi-action-menu-item c9"
+            id="test-id-menu-list-item-1"
+            role="menuitem"
+            tabindex="-1"
+            theme="[object Object]"
+          >
+            Item 2
+          </li>
+          <li
+            aria-hidden="true"
+            class="c8 c10 fi-action-menu-divider"
+          >
+            <div
+              class="c0 fi-action-menu-divider_line"
+            />
+          </li>
+          <li
+            class="c8 fi-action-menu-item c9"
+            id="test-id-menu-list-item-3"
+            role="menuitem"
+            tabindex="-1"
+            theme="[object Object]"
+          >
+            Item 3
+          </li>
+        </ul>
+        <div
+          class="fi-action-menu-popover_popper-arrow"
+          data-popper-arrow="true"
+          data-popper-placement="bottom-end"
+          style="position: absolute; left: 0px; transform: translate(0px, 0px);"
+        />
+      </div>
     </div>
   </div>
 </body>
@@ -2110,6 +2108,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   border-radius: 2px;
   padding-top: 8px;
   padding-bottom: 8px;
+  z-index: 888;
 }
 
 .c6 .fi-action-menu-popover_list {
@@ -2623,63 +2622,60 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
           />
         </svg>
       </button>
-    </div>
-  </div>
-  <div
-    class="c5 c6 fi-action-menu-popover"
-    role="menu"
-    style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 10px);"
-  >
-    <div>
-      <ul
-        aria-labelledby="test-id"
-        class="c7 fi-action-menu-popover_list"
-        id="test-id-menu"
-        role="menu"
-        tabindex="-1"
-      >
-        <li
-          class="c8 fi-action-menu-item c9 fi-action-menu-item--selected"
-          id="test-id-menu-list-item-0"
-          role="menuitem"
-          tabindex="0"
-          theme="[object Object]"
-        >
-          Item 1
-        </li>
-        <li
-          class="c8 fi-action-menu-item c9"
-          id="test-id-menu-list-item-1"
-          role="menuitem"
-          tabindex="-1"
-          theme="[object Object]"
-        >
-          Item 2
-        </li>
-        <li
-          aria-hidden="true"
-          class="c8 c10 fi-action-menu-divider"
-        >
-          <div
-            class="c0 fi-action-menu-divider_line"
-          />
-        </li>
-        <li
-          class="c8 fi-action-menu-item c9"
-          id="test-id-menu-list-item-3"
-          role="menuitem"
-          tabindex="-1"
-          theme="[object Object]"
-        >
-          Item 3
-        </li>
-      </ul>
       <div
-        class="fi-action-menu-popover_popper-arrow"
-        data-popper-arrow="true"
-        data-popper-placement="bottom-end"
-        style="position: absolute; left: 0px; transform: translate(0px, 0px);"
-      />
+        class="c5 c6 fi-action-menu-popover"
+        style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 10px);"
+      >
+        <ul
+          aria-labelledby="test-id"
+          class="c7 fi-action-menu-popover_list"
+          id="test-id-menu"
+          role="menu"
+          tabindex="-1"
+        >
+          <li
+            class="c8 fi-action-menu-item c9 fi-action-menu-item--selected"
+            id="test-id-menu-list-item-0"
+            role="menuitem"
+            tabindex="0"
+            theme="[object Object]"
+          >
+            Item 1
+          </li>
+          <li
+            class="c8 fi-action-menu-item c9"
+            id="test-id-menu-list-item-1"
+            role="menuitem"
+            tabindex="-1"
+            theme="[object Object]"
+          >
+            Item 2
+          </li>
+          <li
+            aria-hidden="true"
+            class="c8 c10 fi-action-menu-divider"
+          >
+            <div
+              class="c0 fi-action-menu-divider_line"
+            />
+          </li>
+          <li
+            class="c8 fi-action-menu-item c9"
+            id="test-id-menu-list-item-3"
+            role="menuitem"
+            tabindex="-1"
+            theme="[object Object]"
+          >
+            Item 3
+          </li>
+        </ul>
+        <div
+          class="fi-action-menu-popover_popper-arrow"
+          data-popper-arrow="true"
+          data-popper-placement="bottom-end"
+          style="position: absolute; left: 0px; transform: translate(0px, 0px);"
+        />
+      </div>
     </div>
   </div>
 </body>
