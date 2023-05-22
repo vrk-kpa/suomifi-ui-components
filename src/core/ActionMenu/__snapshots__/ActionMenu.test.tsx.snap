@@ -1063,7 +1063,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
       <button
         aria-controls="test-id-menu"
         aria-disabled="false"
-        aria-expanded="true"
+        aria-expanded="false"
         aria-haspopup="menu"
         class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
         id="test-id"
@@ -2596,7 +2596,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
       <button
         aria-controls="test-id-menu"
         aria-disabled="false"
-        aria-expanded="true"
+        aria-expanded="false"
         aria-haspopup="menu"
         class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
         id="test-id"
