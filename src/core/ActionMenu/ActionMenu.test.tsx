@@ -103,7 +103,7 @@ describe('movement in ActionMenu', () => {
       fireEvent.click(menuButton);
 
       await new Promise((resolve) => {
-        setTimeout(resolve, 200);
+        setTimeout(resolve, 100);
       });
     });
 
