@@ -2535,10 +2535,10 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
           tabindex="-1"
         >
           <button
-            class="c2 fi-action-menu-item c7"
+            class="c2 fi-action-menu-item c7 fi-action-menu-item--selected"
             id="test-id-menu-list-item-0"
             role="menuitem"
-            tabindex="-1"
+            tabindex="0"
             theme="[object Object]"
             type="button"
           >
