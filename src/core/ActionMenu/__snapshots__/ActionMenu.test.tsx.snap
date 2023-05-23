@@ -355,7 +355,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="menu"
-        class="c2 fi-button c3 fi-action-menu_button fi-action-menu_button--menu--closed fi-button--secondary"
+        class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
         id="test-id"
         name="am-test-name"
         tabindex="0"
@@ -1009,7 +1009,7 @@ exports[`Basic ActionMenu should match snapshot 2`] = `
       <button
         aria-controls="test-id-menu"
         aria-disabled="false"
-        aria-expanded="false"
+        aria-expanded="true"
         aria-haspopup="menu"
         class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
         id="test-id"
@@ -1447,7 +1447,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="c0 fi-action-menu c1 am-test fi-action-menu--disabled"
+      class="c0 fi-action-menu c1 am-test"
       data-testid="action-menu-test-id"
       id="wrapper-id"
     >
@@ -1456,7 +1456,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
         aria-disabled="true"
         aria-expanded="false"
         aria-haspopup="menu"
-        class="c2 fi-button c3 fi-action-menu_button fi-action-menu_button--disabled fi-action-menu_button--menu--closed fi-button--disabled fi-button--secondary"
+        class="c2 fi-button c3 fi-action-menu_button fi-button--disabled fi-button--secondary"
         disabled=""
         id="test-id"
         name="am-test-name"
@@ -1841,7 +1841,7 @@ exports[`No borders variant should match snapshot 1`] = `
         aria-expanded="false"
         aria-haspopup="menu"
         aria-label="ActionMenuTest"
-        class="c2 fi-button c3 fi-action-menu_button fi-action-menu_button--menu--closed fi-button--secondary-noborder"
+        class="c2 fi-button c3 fi-action-menu_button fi-button--secondary-noborder"
         id="test-id"
         name="am-test-name"
         tabindex="0"
@@ -2495,7 +2495,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
       <button
         aria-controls="test-id-menu"
         aria-disabled="false"
-        aria-expanded="false"
+        aria-expanded="true"
         aria-haspopup="menu"
         class="c2 fi-button c3 fi-action-menu_button fi-button--secondary"
         id="test-id"
