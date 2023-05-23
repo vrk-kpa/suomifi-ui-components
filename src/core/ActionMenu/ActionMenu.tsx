@@ -18,11 +18,8 @@ const baseClassName = 'fi-action-menu';
 export const actionMenuClassNames = {
   baseClassName,
   fullWidth: `${baseClassName}--full-width`,
-  disabled: `${baseClassName}--disabled`,
   button: `${baseClassName}_button`,
-  buttonDisabled: `${baseClassName}_button--disabled`,
   iconOnly: `${baseClassName}_button--icon-only`,
-  menuClosed: `${baseClassName}_button--menu--closed`,
 };
 
 export interface ActionMenuProps {
@@ -117,7 +114,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     // Highlighting the first item is a compomise to keep NVDA smooth
     setSelectFirstItem('first');
     setMenuVisible(true);
-    setAriaExpanded(false);
+    setAriaExpanded(true);
   };
 
   const closeMenu = () => {
@@ -168,7 +165,6 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     <HtmlDiv
       {...wrapperProps}
       className={classnames(baseClassName, className, {
-        [actionMenuClassNames.disabled]: !!passProps.disabled,
         [actionMenuClassNames.fullWidth]: fullWidth,
       })}
     >
@@ -182,8 +178,6 @@ const BaseActionMenu = (props: ActionMenuProps) => {
         forwardedRef={openButtonRef}
         fullWidth={fullWidth}
         className={classnames(actionMenuClassNames.button, {
-          [actionMenuClassNames.buttonDisabled]: passProps.disabled,
-          [actionMenuClassNames.menuClosed]: !menuVisible,
           [actionMenuClassNames.iconOnly]: !buttonText || buttonText.length < 1,
         })}
         onClick={handleButtonClick}
