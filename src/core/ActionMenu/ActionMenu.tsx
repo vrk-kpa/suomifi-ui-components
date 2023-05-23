@@ -114,7 +114,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     // Highlighting the first item is a compomise to keep NVDA smooth
     setSelectFirstItem('first');
     setMenuVisible(true);
-    setAriaExpanded(false);
+    setAriaExpanded(true);
   };
 
   const closeMenu = () => {
