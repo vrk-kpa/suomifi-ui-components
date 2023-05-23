@@ -63,15 +63,11 @@ describe('Disabled ActionMenu', () => {
 
   const BasicActionMenu = TestActionMenu(modProps);
 
-  it('should have disabled styles when disabled', async () => {
+  it('should have disabled attributes when disabled', async () => {
     const { findByRole } = render(BasicActionMenu);
     const button = await findByRole('button');
-    expect(button).toHaveClass('fi-action-menu_button--disabled');
-  });
-
-  it('should have aria-disabled when disabled', async () => {
-    const { findByRole } = render(BasicActionMenu);
-    const button = await findByRole('button');
+    expect(button).toHaveClass('fi-button--disabled');
+    expect(button).toHaveAttribute('disabled');
     expect(button).toHaveAttribute('aria-disabled', 'true');
   });
 
@@ -107,7 +103,7 @@ describe('movement in ActionMenu', () => {
       fireEvent.click(menuButton);
 
       await new Promise((resolve) => {
-        setTimeout(resolve, 100);
+        setTimeout(resolve, 200);
       });
     });
 
