@@ -1,6 +1,6 @@
 {
   "name": "suomifi-ui-components",
-  "version": "10.0.1",
+  "version": "10.0.2",
   "description": "Suomi.fi UI component library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -66,7 +66,8 @@
     "build:cleantmp": "rimraf ./dist/tmp",
     "bundle-analyzer": "size-limit --why",
     "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build",
+    "styleguide:build": "cross-env BASE_PATH=/suomifi-ui-components styleguidist build",
+    "styleguide:assets": "node styleguide.add.version.js && cross-env BUILD_TYPE=ASSETS BASE_PATH=/suomifi-ui-components styleguidist build && node styleguide.move.build.js",
     "deploy": "gh-pages -d styleguide -m \"[skip ci] Updates\"",
     "deploy-dev": "gh-pages -d styleguide -e dev -m \"[skip ci] Updates\""
   },
@@ -110,6 +111,7 @@
     "eslint-plugin-react": "7.30.1",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-tree-shaking": "1.10.0",
+    "fs-extra": "11.1.1",
     "gh-pages": "4.0.0",
     "husky": "8.0.1",
     "jest": "28.1.3",

@@ -4,7 +4,7 @@
 
 # build output
 dist
-build
+./build
 tmp
 .cache
 .awcache

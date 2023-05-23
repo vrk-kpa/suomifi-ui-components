@@ -191,6 +191,8 @@ class BaseDropdown extends Component<DropdownProps> {
 
   popoverRef: React.RefObject<HTMLUListElement>;
 
+  componentIsMounted: boolean;
+
   constructor(props: DropdownProps) {
     super(props);
     this.buttonRef = React.createRef();
@@ -235,6 +237,14 @@ class BaseDropdown extends Component<DropdownProps> {
     }
   }
 
+  componentDidMount(): void {
+    this.componentIsMounted = true;
+  }
+
+  componentWillUnmount(): void {
+    this.componentIsMounted = false;
+  }
+
   private isOutsideClick(event: MouseEvent) {
     return (
       !!this.buttonRef &&
@@ -256,10 +266,13 @@ class BaseDropdown extends Component<DropdownProps> {
       ariaExpanded: false,
     });
     setTimeout(() => {
-      // NVDA with Firefox requires small timeout before focus to read updated value
-      this.buttonRef.current?.focus();
-      // Set showPopover separately to prevent NVDA focus from going to body
-      this.setState({ showPopover: false });
+      // Check mounted status to prevent setting state on an unmounted component
+      if (this.componentIsMounted) {
+        // NVDA with Firefox requires small timeout before focus to read updated value
+        this.buttonRef.current?.focus();
+        // Set showPopover separately to prevent NVDA focus from going to body
+        this.setState({ showPopover: false });
+      }
     }, 10);
   }
 

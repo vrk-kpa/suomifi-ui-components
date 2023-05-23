@@ -19,6 +19,9 @@ const requireFiles = (axe) => [
   path.join(__dirname, '.styleguidist/styleguidist.require.js'),
 ];
 
+const buildDirectory = (buildType) =>
+  buildType === 'ASSETS' ? 'tmp' : 'styleguide';
+
 module.exports = {
   title: `Suomifi-ui-components ${packagejson.version}`,
   components: 'src/core/**/[A-Z]*.tsx',
@@ -41,7 +44,7 @@ module.exports = {
   usageMode: 'expand',
   pagePerSection: true,
   tocMode: 'collapse',
-  skipComponentsWithoutExample: true,
+  skipComponentsWithoutExample: false,
   getExampleFilename: (componentPath) =>
     componentPath.replace(/\.tsx?$/, '.md'),
   template: {
@@ -49,8 +52,7 @@ module.exports = {
       links: [
         {
           rel: 'stylesheet',
-          href:
-            'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap',
+          href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap',
         },
       ],
     },
@@ -60,9 +62,14 @@ module.exports = {
       base: '"Source Sans Pro", sans-serif',
     },
   },
+  styleguideDir: buildDirectory(process.env.BUILD_TYPE),
   styles: require('./.styleguidist/styleguidist.styles.js'),
   sections: require('./.styleguidist/styleguidist.sections.js').sections,
   styleguideComponents: {
+    StyleGuideRenderer: path.join(
+      __dirname,
+      '.styleguidist/StyleGuideRenderer',
+    ),
     ComponentsList: path.join(__dirname, '.styleguidist/ComponentsList'),
   },
 };
