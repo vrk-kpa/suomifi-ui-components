@@ -166,7 +166,7 @@ module.exports = {
         },
         {
           name: 'Icon',
-          components: getComponents(['Icon', 'StaticIcon', 'LogoIcon']),
+          content: './.styleguidist/icon.md',
         },
         {
           name: 'MultiSelect',
