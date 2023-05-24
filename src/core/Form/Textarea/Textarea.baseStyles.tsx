@@ -12,6 +12,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     display: flex;
     flex-direction: column;
 
+    & .fi-textarea_characterCounter--non-error {
+      font-weight: 400;
+    }
+
     & .fi-textarea_statusText--has-content {
       margin-top: ${theme.spacing.xxs};
     }
