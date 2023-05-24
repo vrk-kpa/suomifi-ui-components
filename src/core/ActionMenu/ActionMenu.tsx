@@ -111,7 +111,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     if (onOpen) {
       onOpen();
     }
-    // Highlighting the first item is a compomise to keep NVDA smooth
+    // Highlighting the first item is a compromise to keep NVDA smooth
     setSelectFirstItem('first');
     setMenuVisible(true);
     setAriaExpanded(true);
@@ -120,14 +120,17 @@ const BaseActionMenu = (props: ActionMenuProps) => {
   const closeMenu = () => {
     // For NVDA to work properly aria expanded, focus and setMenuVisible must be in this order
     setAriaExpanded(false);
+    // Move focus back to the button when menu is being closed
+    openButtonRef.current?.focus();
 
     if (onClose) {
       onClose();
     }
 
-    // Move focus back to the button when menu is closed
-    openButtonRef.current?.focus();
-    setMenuVisible(false);
+    // Timeout is preventing iPhone + VoiceOver moving the focus to random places
+    setTimeout(() => {
+      setMenuVisible(false);
+    }, 200);
   };
 
   const handleButtonClick = () => {
