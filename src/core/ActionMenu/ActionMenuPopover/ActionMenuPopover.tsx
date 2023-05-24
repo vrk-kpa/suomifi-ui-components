@@ -89,7 +89,7 @@ export const BaseActionMenuPopover = (
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
   const [dialogElement, setDialogElement] = useState<HTMLElement | null>(null);
   const [activeChild, setActiveChild] = useState<number>(-1);
-  const portalRef = useRef<HTMLDivElement>(null);
+  const divRef = useRef<HTMLDivElement>(null);
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
@@ -127,7 +127,6 @@ export const BaseActionMenuPopover = (
   useEffect(() => {
     // For cleanup to prevent setting state on unmounted component
     let isSubscribed = true;
-    console.log('PARENT EFFECTD');
 
     // Timeout is needed for iOS Safari + VoiceOver to move focus into menu item on open
     setTimeout(() => {
@@ -148,7 +147,7 @@ export const BaseActionMenuPopover = (
 
   const globalClickHandler = (nativeEvent: MouseEvent) => {
     if (
-      !portalRef.current?.contains(nativeEvent.target as Node) &&
+      !divRef.current?.contains(nativeEvent.target as Node) &&
       !openButtonRef.current?.contains(nativeEvent.target as Node)
     ) {
       // Click is outside of "open menu button" and menu elements
@@ -319,7 +318,7 @@ export const BaseActionMenuPopover = (
       >
         <HtmlDivWithRef
           role="menu"
-          forwardedRef={portalRef}
+          forwardedRef={divRef}
           id={menuId}
           aria-labelledby={buttonId}
           tabIndex={-1}
