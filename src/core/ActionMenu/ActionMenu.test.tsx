@@ -45,12 +45,7 @@ describe('Basic ActionMenu', () => {
   });
 
   it('should match snapshot', async () => {
-    const { baseElement, getByRole } = render(BasicActionMenu);
-    const menuButton = getByRole('button') as HTMLButtonElement;
-    expect(baseElement).toMatchSnapshot();
-    await act(async () => {
-      fireEvent.click(menuButton);
-    });
+    const { baseElement } = render(BasicActionMenu);
     expect(baseElement).toMatchSnapshot();
   });
 });
@@ -106,6 +101,8 @@ describe('movement in ActionMenu', () => {
         setTimeout(resolve, 250);
       });
     });
+
+    expect(baseElement).toMatchSnapshot();
 
     await act(async () => {
       fireEvent.keyPress(baseElement, {
