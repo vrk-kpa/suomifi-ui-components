@@ -129,10 +129,9 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     setTimeout(() => {
       // Move focus back to the button when menu is being closed
       openButtonRef.current?.focus();
-    }, 200);
 
-    // Timeout is preventing iPhone + VoiceOver moving the focus to random places
-    setTimeout(() => {
+      // Timeout is preventing iPhone + VoiceOver moving the focus to random places
+
       // Remove menu from dom
       setMenuVisible(false);
     }, 200);
