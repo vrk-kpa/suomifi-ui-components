@@ -137,7 +137,7 @@ export const BaseActionMenuPopover = (
           setActiveChild(React.Children.count(children) - 1);
         }
       }
-    }, 200);
+    }, 0); // iPadille riittää 0, ilman ei toimi
 
     // Cancel subscription to useEffect on unmount
     return () => {
@@ -318,6 +318,7 @@ export const BaseActionMenuPopover = (
       >
         <HtmlDivWithRef
           role="menu"
+          aria-activedescendant={`${menuId}-item-${activeChild}`}
           forwardedRef={divRef}
           id={menuId}
           aria-labelledby={buttonId}

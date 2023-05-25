@@ -120,15 +120,20 @@ const BaseActionMenu = (props: ActionMenuProps) => {
   const closeMenu = () => {
     // For NVDA to work properly aria expanded, focus and setMenuVisible must be in this order
     setAriaExpanded(false);
-    // Move focus back to the button when menu is being closed
-    openButtonRef.current?.focus();
 
     if (onClose) {
       onClose();
     }
 
+    // Timeout is for NVDA so it reads "button collapsed" instead of "button expanded"
+    setTimeout(() => {
+      // Move focus back to the button when menu is being closed
+      openButtonRef.current?.focus();
+    }, 200);
+
     // Timeout is preventing iPhone + VoiceOver moving the focus to random places
     setTimeout(() => {
+      // Remove menu from dom
       setMenuVisible(false);
     }, 200);
   };
