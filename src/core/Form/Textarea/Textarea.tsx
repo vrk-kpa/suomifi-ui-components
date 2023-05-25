@@ -129,6 +129,7 @@ const BaseTextarea = (props: TextareaProps) => {
   } = props;
 
   const [charCount, setCharCount] = useState(0);
+  const [characterLimitExceeded, setCharacterLimitExceeded] = useState(false);
 
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -147,18 +148,17 @@ const BaseTextarea = (props: TextareaProps) => {
 
   const handleOnChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     if (maxLength !== undefined) {
-      setCharCount(event.target.value.length);
+      const charCountInInput = event.target.value.length;
+      setCharCount(charCountInInput);
+      if (charCountInInput > maxLength) {
+        setCharacterLimitExceeded(true);
+      } else if (characterLimitExceeded) {
+        setCharacterLimitExceeded(false);
+      }
     }
     if (!!onChangeProp) {
       onChangeProp(event);
     }
-  };
-
-  const characterCounterText = (): string => {
-    if (maxLength !== undefined) {
-      return `${charCount}/${maxLength}`;
-    }
-    return '';
   };
 
   // Remove the possibility to have undefined forwardedRef as a parameter for forkRefs
@@ -169,7 +169,8 @@ const BaseTextarea = (props: TextareaProps) => {
       {...containerProps}
       className={classnames(baseClassName, className, {
         [textareaClassNames.disabled]: !!disabled,
-        [textareaClassNames.error]: status === 'error' && !disabled,
+        [textareaClassNames.error]:
+          (characterLimitExceeded || status === 'error') && !disabled,
         [textareaClassNames.fullWidth]: fullWidth,
       })}
     >
@@ -194,7 +195,7 @@ const BaseTextarea = (props: TextareaProps) => {
           defaultValue={children}
           forwardedRef={forkRefs(inputRef, definedRef)}
           placeholder={visualPlaceholder}
-          aria-invalid={status === 'error'}
+          aria-invalid={characterLimitExceeded || status === 'error'}
           {...getConditionalAriaProp('aria-describedby', [
             statusTextId,
             hintTextId,
@@ -212,11 +213,13 @@ const BaseTextarea = (props: TextareaProps) => {
           className={classnames({
             [textareaClassNames.statusTextHasContent]: !!statusText,
           })}
-          status={status}
+          status={characterLimitExceeded ? 'error' : status}
           disabled={disabled}
           ariaLiveMode={statusTextAriaLiveMode}
         >
-          {statusText}
+          {characterLimitExceeded
+            ? 'Description must be 30 characters or less'
+            : statusText}
         </StatusText>
         {maxLength &&
           ariaCharactersRemainingText &&
@@ -225,20 +228,20 @@ const BaseTextarea = (props: TextareaProps) => {
               <StatusText
                 className={classnames({
                   [textareaClassNames.characterCounterNonError]:
-                    charCount < maxLength,
+                    charCount <= maxLength,
                   [textareaClassNames.statusTextHasContent]: !!maxLength,
                 })}
-                status={charCount < maxLength ? 'default' : 'error'}
+                status={charCount <= maxLength ? 'default' : 'error'}
                 ariaLiveMode="off"
               >
-                {characterCounterText()}
+                {`${charCount}/${maxLength}`}
               </StatusText>
               <VisuallyHidden
                 aria-live="polite"
                 aria-atomic="true"
                 id={characterCounterScreenReaderTextId}
               >
-                {charCount < maxLength
+                {charCount <= maxLength
                   ? ariaCharactersRemainingText(maxLength - charCount)
                   : ariaCharactersExceededText(charCount - maxLength)}
               </VisuallyHidden>
