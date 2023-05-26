@@ -76,7 +76,7 @@ const { Provider: DropdownProvider, Consumer: DropdownConsumer } =
 
 interface DropdownState {
   selectedValue: string | undefined | null;
-  selectedValueText: ReactNode | undefined | null;
+  selectedValueNode: ReactNode | undefined | null;
   ariaExpanded: boolean;
   showPopover: boolean;
   focusedDescendantId: string | null | undefined;
@@ -167,7 +167,7 @@ class BaseDropdown extends Component<DropdownProps> {
         : 'defaultValue' in this.props
         ? this.props.defaultValue
         : undefined,
-    selectedValueText: BaseDropdown.parseSelectedValueText(
+    selectedValueNode: BaseDropdown.getSelectedValueNode(
       'value' in this.props
         ? this.props.value
         : 'defaultValue' in this.props
@@ -206,7 +206,7 @@ class BaseDropdown extends Component<DropdownProps> {
     if ('value' in nextProps && value !== prevState.selectedValue) {
       return {
         selectedValue: value,
-        selectedValueText: BaseDropdown.parseSelectedValueText(
+        selectedValueNode: BaseDropdown.getSelectedValueNode(
           value,
           nextProps.children,
         ),
@@ -215,7 +215,7 @@ class BaseDropdown extends Component<DropdownProps> {
     return null;
   }
 
-  static parseSelectedValueText(
+  static getSelectedValueNode(
     selectedValue: string | undefined,
     children:
       | Array<ReactElement<DropdownItemProps>>
@@ -257,7 +257,7 @@ class BaseDropdown extends Component<DropdownProps> {
     }
     this.setState({
       selectedValue: itemValue,
-      selectedValueText: BaseDropdown.parseSelectedValueText(
+      selectedValueNode: BaseDropdown.getSelectedValueNode(
         itemValue,
         this.props.children,
       ),
@@ -428,7 +428,7 @@ class BaseDropdown extends Component<DropdownProps> {
     if (this.props.alwaysShowVisualPlaceholder) {
       return this.props.visualPlaceholder;
     }
-    return this.state.selectedValueText ?? this.props.visualPlaceholder;
+    return this.state.selectedValueNode ?? this.props.visualPlaceholder;
   }
 
   private focusToButtonAndClosePopover() {
