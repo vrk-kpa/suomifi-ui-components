@@ -12,7 +12,6 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
   forkRefs,
   getOwnerDocument,
-  getRecursiveChildText,
   HTMLAttributesIncludingDataAttributes,
 } from '../../../utils/common/common';
 import { Popover } from '../../../core/Popover/Popover';
@@ -77,7 +76,7 @@ const { Provider: DropdownProvider, Consumer: DropdownConsumer } =
 
 interface DropdownState {
   selectedValue: string | undefined | null;
-  selectedValueText: string | undefined | null;
+  selectedValueText: ReactNode | undefined | null;
   ariaExpanded: boolean;
   showPopover: boolean;
   focusedDescendantId: string | null | undefined;
@@ -222,18 +221,18 @@ class BaseDropdown extends Component<DropdownProps> {
       | Array<ReactElement<DropdownItemProps>>
       | ReactElement<DropdownItemProps>
       | undefined,
-  ): string | undefined {
+  ): ReactNode | undefined {
     if (selectedValue === undefined || children === undefined) return undefined;
 
     if (Array.isArray(children)) {
       for (let index = 0; index < children.length; index += 1) {
         const element = children[index];
         if (element.props.value === selectedValue) {
-          return getRecursiveChildText(element);
+          return element.props.children;
         }
       }
     } else {
-      return getRecursiveChildText(children);
+      return children.props.children;
     }
   }
 
