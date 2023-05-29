@@ -12,7 +12,6 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
   forkRefs,
   getOwnerDocument,
-  getRecursiveChildText,
   HTMLAttributesIncludingDataAttributes,
 } from '../../../utils/common/common';
 import { Popover } from '../../../core/Popover/Popover';
@@ -77,7 +76,7 @@ const { Provider: DropdownProvider, Consumer: DropdownConsumer } =
 
 interface DropdownState {
   selectedValue: string | undefined | null;
-  selectedValueText: string | undefined | null;
+  selectedValueNode: ReactNode | undefined | null;
   ariaExpanded: boolean;
   showPopover: boolean;
   focusedDescendantId: string | null | undefined;
@@ -168,7 +167,7 @@ class BaseDropdown extends Component<DropdownProps> {
         : 'defaultValue' in this.props
         ? this.props.defaultValue
         : undefined,
-    selectedValueText: BaseDropdown.parseSelectedValueText(
+    selectedValueNode: BaseDropdown.getSelectedValueNode(
       'value' in this.props
         ? this.props.value
         : 'defaultValue' in this.props
@@ -207,7 +206,7 @@ class BaseDropdown extends Component<DropdownProps> {
     if ('value' in nextProps && value !== prevState.selectedValue) {
       return {
         selectedValue: value,
-        selectedValueText: BaseDropdown.parseSelectedValueText(
+        selectedValueNode: BaseDropdown.getSelectedValueNode(
           value,
           nextProps.children,
         ),
@@ -216,24 +215,24 @@ class BaseDropdown extends Component<DropdownProps> {
     return null;
   }
 
-  static parseSelectedValueText(
+  static getSelectedValueNode(
     selectedValue: string | undefined,
     children:
       | Array<ReactElement<DropdownItemProps>>
       | ReactElement<DropdownItemProps>
       | undefined,
-  ): string | undefined {
+  ): ReactNode | undefined {
     if (selectedValue === undefined || children === undefined) return undefined;
 
     if (Array.isArray(children)) {
       for (let index = 0; index < children.length; index += 1) {
         const element = children[index];
         if (element.props.value === selectedValue) {
-          return getRecursiveChildText(element);
+          return element.props.children;
         }
       }
     } else {
-      return getRecursiveChildText(children);
+      return children.props.children;
     }
   }
 
@@ -258,7 +257,7 @@ class BaseDropdown extends Component<DropdownProps> {
     }
     this.setState({
       selectedValue: itemValue,
-      selectedValueText: BaseDropdown.parseSelectedValueText(
+      selectedValueNode: BaseDropdown.getSelectedValueNode(
         itemValue,
         this.props.children,
       ),
@@ -429,7 +428,7 @@ class BaseDropdown extends Component<DropdownProps> {
     if (this.props.alwaysShowVisualPlaceholder) {
       return this.props.visualPlaceholder;
     }
-    return this.state.selectedValueText ?? this.props.visualPlaceholder;
+    return this.state.selectedValueNode ?? this.props.visualPlaceholder;
   }
 
   private focusToButtonAndClosePopover() {

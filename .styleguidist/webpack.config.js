@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = (env) => ({
   mode: env.production ? 'production' : 'development',
@@ -12,6 +13,12 @@ module.exports = (env) => ({
       fs: false,
     },
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.BUILD_TYPE': JSON.stringify(process.env.BUILD_TYPE),
+      'process.env.BASE_PATH': JSON.stringify(process.env.BASE_PATH),
+    }),
+  ],
   module: {
     rules: [
       // Run the typescript compilier on .ts files before webpack
@@ -31,4 +38,3 @@ module.exports = (env) => ({
     ],
   },
 });
-

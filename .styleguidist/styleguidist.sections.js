@@ -1,5 +1,6 @@
 const path = require('path');
 const glob = require('glob');
+const versions = require('../styleguide.versions');
 
 const primitiveComponents = [
   'Block',
@@ -38,6 +39,21 @@ const getComponentWithVariants = (component) => (variants) =>
       getComponent({ underName: component, name: variant }),
     ),
   ];
+
+const getVersions = () => {
+  const href = process.env.BASE_PATH || './';
+  const basePath = process.env.BASE_PATH || '';
+  return [
+    {
+      name: 'Latest',
+      href,
+    },
+    ...versions.map((version) => ({
+      ...version,
+      href: basePath + version.href,
+    })),
+  ];
+};
 
 module.exports = {
   sections: [
@@ -81,6 +97,11 @@ module.exports = {
       ],
       sectionDepth: 2,
       expand: true,
+    },
+    {
+      name: 'Versions',
+      content: './.styleguidist/versions.md',
+      sections: getVersions(),
     },
     {
       name: 'Components',
