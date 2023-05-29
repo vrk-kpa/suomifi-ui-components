@@ -124,7 +124,11 @@ class BasePageInput extends Component<
           ? parsedValue
           : null;
 
-      if (verifiedValue === null && event.target.value !== '') {
+      if (
+        event.target.value !== '' &&
+        (verifiedValue === null ||
+          verifiedValue.toString().length !== event.target.value.length)
+      ) {
         this.setState({ status: 'error' });
       } else {
         this.setState({ status: 'default' });
