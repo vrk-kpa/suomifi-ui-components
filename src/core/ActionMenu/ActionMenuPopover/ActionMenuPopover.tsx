@@ -12,6 +12,7 @@ const baseClassName = 'fi-action-menu-popover';
 
 export const actionMenuClassNames = {
   baseClassName,
+  hidden: `${baseClassName}--hidden`,
   list: `${baseClassName}_list`,
   popperArrow: `${baseClassName}_popper-arrow`,
 };
@@ -34,6 +35,8 @@ export interface InternalActionMenuPopoverProps {
   initialActiveDescendant: InitialActiveDescendant;
   /** If true, popover will be full width */
   fullWidth?: boolean;
+  /** Boolean to open or close menu */
+  isOpen: boolean;
 }
 
 export interface ActionMenuProviderState {
@@ -84,6 +87,7 @@ export const BaseActionMenuPopover = (
     buttonId,
     initialActiveDescendant,
     fullWidth,
+    isOpen,
   } = props;
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
@@ -97,32 +101,36 @@ export const BaseActionMenuPopover = (
 
   useEffect(
     () => {
-      // Add listener for keyboard events
-      document.addEventListener('keydown', globalKeyDownHandler, {
+      if (isOpen) {
+        // Add listener for keyboard events
+        document.addEventListener('keydown', globalKeyDownHandler, {
+          capture: true,
+        });
+
+        return () => {
+          document.removeEventListener('keydown', globalKeyDownHandler, {
+            capture: true,
+          });
+        };
+      }
+    }, // Event listener has to be updated on every active child change or it's always -1 inside the globalKeyDownHandler
+    [isOpen],
+  );
+
+  useEffect(() => {
+    if (isOpen) {
+      // Add listener for click events
+      document.addEventListener('click', globalClickHandler, {
         capture: true,
       });
 
       return () => {
-        document.removeEventListener('keydown', globalKeyDownHandler, {
+        document.removeEventListener('click', globalClickHandler, {
           capture: true,
         });
       };
-    }, // Event listener has to be updated on every active child change or it's always -1 inside the globalKeyDownHandler
-    [activeChild],
-  );
-
-  useEffect(() => {
-    // Add listener for click events
-    document.addEventListener('click', globalClickHandler, {
-      capture: true,
-    });
-
-    return () => {
-      document.removeEventListener('click', globalClickHandler, {
-        capture: true,
-      });
-    };
-  }, [openButtonRef]);
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     // For cleanup to prevent setting state on unmounted component
@@ -137,13 +145,14 @@ export const BaseActionMenuPopover = (
           setActiveChild(React.Children.count(children) - 1);
         }
       }
-    }, 0); // iPadille riittää 0, ilman ei toimi
+    }, 0);
 
     // Cancel subscription to useEffect on unmount
     return () => {
+      setActiveChild(-1);
       isSubscribed = false;
     };
-  }, [initialActiveDescendant]);
+  }, [isOpen]);
 
   const globalClickHandler = (nativeEvent: MouseEvent) => {
     if (
@@ -300,7 +309,9 @@ export const BaseActionMenuPopover = (
   }
   return (
     <HtmlDivWithRef
-      className={classnames(className, baseClassName)}
+      className={classnames(className, baseClassName, {
+        [actionMenuClassNames.hidden]: !isOpen,
+      })}
       style={styles.popper}
       forwardedRef={setDialogElement}
       tabIndex={-1}

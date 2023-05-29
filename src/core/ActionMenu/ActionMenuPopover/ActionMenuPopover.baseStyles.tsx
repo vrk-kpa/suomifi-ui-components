@@ -15,6 +15,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     z-index: ${theme.zindexes.menu};
   }
 
+  &.fi-action-menu-popover--hidden {
+    visibility: hidden;
+  }
+
   & .fi-action-menu-popover_list {
     margin: 0;
     padding-left: 0;
