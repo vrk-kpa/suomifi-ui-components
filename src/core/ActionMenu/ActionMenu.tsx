@@ -45,7 +45,7 @@ export interface ActionMenuProps {
     | React.ReactElement<ActionMenuDividerProps>;
   /** Button container div class name for custom styling */
   className?: string;
-  /** Menu container div class name for custom styling */
+  /** Menu container div class name for custom styling. Can be used to modify menu "popover" z-index. */
   menuClassName?: string;
   /** Disable button usage */
   disabled?: boolean;
