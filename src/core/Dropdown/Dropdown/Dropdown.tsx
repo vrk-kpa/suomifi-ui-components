@@ -19,7 +19,6 @@ import { SelectItemList } from '../../Form/Select/BaseSelect/SelectItemList/Sele
 import { HintText } from '../../Form/HintText/HintText';
 import { StatusText } from '../../Form/StatusText/StatusText';
 import { StatusTextCommonProps } from '../../Form/types';
-import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 
 const baseClassName = 'fi-dropdown';
 
@@ -577,7 +576,10 @@ class BaseDropdown extends Component<DropdownProps> {
             onBlur={this.handleOnBlur}
             {...passProps}
           >
-            <HtmlSpan className={dropdownClassNames.displayValue}>
+            <HtmlSpan
+              className={dropdownClassNames.displayValue}
+              id={displayValueId}
+            >
               {dropdownDisplayValue}
             </HtmlSpan>
             <HtmlInput
@@ -587,10 +589,6 @@ class BaseDropdown extends Component<DropdownProps> {
               value={selectedValue || ''}
             />
           </HtmlButton>
-          {/* NVDA, Chrome does not read displayValue, if within HtmlButton */}
-          <VisuallyHidden id={displayValueId}>
-            {dropdownDisplayValue}
-          </VisuallyHidden>
           <StatusText
             id={statusTextId}
             className={classnames({
