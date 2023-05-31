@@ -20,6 +20,21 @@ const TestDropdown = (props: DropdownProps, testId?: string) => (
   </Dropdown>
 );
 
+const TestNestedDropdown = (props: DropdownProps, testId?: string) => (
+  <Dropdown {...props} wrapperProps={{ 'data-testid': testId || '' }}>
+    {[1, 2, 3].map((item) => (
+      <DropdownItem
+        value={`dropdown-item-${item}`}
+        disabled={item === 3}
+        key={item}
+      >
+        {`Dropdown Item ${item}`}
+      </DropdownItem>
+    ))}
+    <DropdownItem value="All">All</DropdownItem>
+  </Dropdown>
+);
+
 describe('Basic dropdown', () => {
   const BasicDropdown = TestDropdown(dropdownProps, 'dropdown-test-id');
 
@@ -167,7 +182,56 @@ describe('Dropdown with additional aria-label', () => {
   });
 });
 
-describe('DropdownOption', () => {
+describe('Children', () => {
+  it('should select nested item when item is clicked', async () => {
+    const NestedDropdown = TestNestedDropdown({
+      labelText: 'Dropdown',
+    });
+    const { getByRole, getAllByRole } = render(NestedDropdown);
+    const menuButton = getByRole('button') as HTMLButtonElement;
+    await act(async () => {
+      fireEvent.click(menuButton);
+    });
+    const option = getAllByRole('option')[0];
+    await act(async () => {
+      fireEvent.click(option);
+    });
+    expect(menuButton).toHaveTextContent('Dropdown Item 1');
+  });
+
+  it('should not select disabled nested item when item is clicked', async () => {
+    const NestedDropdown = TestNestedDropdown({
+      labelText: 'Dropdown',
+      visualPlaceholder: 'Select',
+    });
+    const { getByRole, getAllByRole } = render(NestedDropdown);
+    const menuButton = getByRole('button') as HTMLButtonElement;
+    await act(async () => {
+      fireEvent.click(menuButton);
+    });
+    const option = getAllByRole('option')[2];
+    await act(async () => {
+      fireEvent.click(option);
+    });
+    expect(menuButton).toHaveTextContent('Select');
+  });
+
+  it('should select item when item is clicked', async () => {
+    const NestedDropdown = TestNestedDropdown({ labelText: 'Dropdown' });
+    const { getByRole, getAllByRole } = render(NestedDropdown);
+    const menuButton = getByRole('button') as HTMLButtonElement;
+    await act(async () => {
+      fireEvent.click(menuButton);
+    });
+    const option = getAllByRole('option')[3];
+    await act(async () => {
+      fireEvent.click(option);
+    });
+    expect(menuButton).toHaveTextContent('All');
+  });
+});
+
+describe('DropdownItem', () => {
   it('should be selected when item is clicked', async () => {
     const BasicDropdown = TestDropdown({ labelText: 'Dropdown' });
     const { getByRole, getAllByRole } = render(BasicDropdown);
