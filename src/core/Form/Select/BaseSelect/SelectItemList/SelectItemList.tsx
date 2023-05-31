@@ -22,7 +22,7 @@ export interface SelectItemListProps {
   /** SelectItemList container div class name for custom styling. */
   className?: string;
   /** List items */
-  children: ReactElement | Array<ReactElement>;
+  children: ReactElement | Array<ReactElement | Array<ReactElement>>;
   /** Id for the currently focused list item for styles and scrolling */
   focusedDescendantId: string;
   /** onBlur event handler */

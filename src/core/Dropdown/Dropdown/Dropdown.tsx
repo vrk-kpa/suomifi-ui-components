@@ -19,7 +19,6 @@ import { SelectItemList } from '../../Form/Select/BaseSelect/SelectItemList/Sele
 import { HintText } from '../../Form/HintText/HintText';
 import { StatusText } from '../../Form/StatusText/StatusText';
 import { StatusTextCommonProps } from '../../Form/types';
-import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 
 const baseClassName = 'fi-dropdown';
 
@@ -132,7 +131,9 @@ export interface DropdownProps extends StatusTextCommonProps {
   disabled?: boolean;
   /** DropdownItems */
   children?:
-    | Array<ReactElement<DropdownItemProps>>
+    | Array<
+        ReactElement<DropdownItemProps> | Array<ReactElement<DropdownItemProps>>
+      >
     | ReactElement<DropdownItemProps>;
   /** Callback that fires when the dropdown value changes. */
   onChange?(value: string): void;
@@ -218,15 +219,20 @@ class BaseDropdown extends Component<DropdownProps> {
   static getSelectedValueNode(
     selectedValue: string | undefined,
     children:
-      | Array<ReactElement<DropdownItemProps>>
+      | Array<
+          | ReactElement<DropdownItemProps>
+          | Array<ReactElement<DropdownItemProps>>
+        >
       | ReactElement<DropdownItemProps>
       | undefined,
   ): ReactNode | undefined {
     if (selectedValue === undefined || children === undefined) return undefined;
 
     if (Array.isArray(children)) {
-      for (let index = 0; index < children.length; index += 1) {
-        const element = children[index];
+      const flatChildren = children.flat();
+      for (let index = 0; index < flatChildren.length; index += 1) {
+        const element = flatChildren[index];
+
         if (element.props.value === selectedValue) {
           return element.props.children;
         }
@@ -303,12 +309,13 @@ class BaseDropdown extends Component<DropdownProps> {
     this.setState({ preventListScrolling: false });
 
     const { focusedDescendantId, ariaExpanded, showPopover } = this.state;
-    const popoverItems = Array.isArray(this.props.children)
+    const items = Array.isArray(this.props.children)
       ? this.props.children
       : this.props.children !== undefined
       ? [this.props.children]
       : undefined;
-    if (!popoverItems) return;
+    if (!items) return;
+    const popoverItems: Array<ReactElement<DropdownItemProps>> = items.flat();
     const index = !!focusedDescendantId
       ? popoverItems.findIndex(
           (item) => item?.props.value === focusedDescendantId,
@@ -416,6 +423,11 @@ class BaseDropdown extends Component<DropdownProps> {
   private getFirstItemValue() {
     if (Array.isArray(this.props.children)) {
       const element = this.props.children[0];
+
+      if (Array.isArray(element)) {
+        return element[0].props.value;
+      }
+
       return element.props.value;
     }
     if (!!this.props.children) {
@@ -564,7 +576,10 @@ class BaseDropdown extends Component<DropdownProps> {
             onBlur={this.handleOnBlur}
             {...passProps}
           >
-            <HtmlSpan className={dropdownClassNames.displayValue}>
+            <HtmlSpan
+              className={dropdownClassNames.displayValue}
+              id={displayValueId}
+            >
               {dropdownDisplayValue}
             </HtmlSpan>
             <HtmlInput
@@ -574,10 +589,6 @@ class BaseDropdown extends Component<DropdownProps> {
               value={selectedValue || ''}
             />
           </HtmlButton>
-          {/* NVDA, Chrome does not read displayValue, if within HtmlButton */}
-          <VisuallyHidden id={displayValueId}>
-            {dropdownDisplayValue}
-          </VisuallyHidden>
           <StatusText
             id={statusTextId}
             className={classnames({
