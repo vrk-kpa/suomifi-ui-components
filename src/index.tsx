@@ -158,3 +158,4 @@ export {
   RawTypographyDesignTokens,
   TypographyToken,
 } from 'suomifi-design-tokens';
+export * from 'suomifi-icons';
