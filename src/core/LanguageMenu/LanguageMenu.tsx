@@ -74,6 +74,7 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
 
   const openButtonRef = forwardedRef || useRef<HTMLButtonElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
+  const [ariaExpanded, setAriaExpanded] = useState<boolean>(false);
   const [selectFirstItem, setSelectFirstItem] =
     useState<InitialActiveDescendant>('none');
 
@@ -84,11 +85,18 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
     if (onOpen) {
       onOpen();
     }
+    // Highlighting the first item is a compromise to keep NVDA smooth
+    setSelectFirstItem('first');
     setMenuVisible(true);
+    setAriaExpanded(true);
   };
 
   const closeMenu = () => {
+    // For NVDA to work properly aria expanded, focus and setMenuVisible must be in this order
+    setAriaExpanded(false);
     setMenuVisible(false);
+    openButtonRef.current?.focus();
+
     if (onClose) {
       onClose();
     }
@@ -129,7 +137,7 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
     <HtmlDiv {...wrapperProps} className={classnames(baseClassName, className)}>
       <HtmlButton
         id={buttonId}
-        aria-expanded={menuVisible}
+        aria-expanded={ariaExpanded}
         aria-controls={menuId}
         aria-haspopup="menu"
         forwardedRef={openButtonRef}
@@ -153,6 +161,7 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
       </HtmlButton>
       {menuVisible && (
         <LanguageMenuPopover
+          isOpen={menuVisible}
           menuId={menuId}
           buttonId={buttonId}
           parentId={id}
@@ -175,7 +184,6 @@ const StyledLanguageMenu = styled(
 `;
 
 /**
- * <i class="semantics" />
  * Use for selecting a language for a website
  *
  * Props other than specified explicitly are passed on to underlying button element.

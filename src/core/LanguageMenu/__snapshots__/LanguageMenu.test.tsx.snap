@@ -220,44 +220,6 @@ exports[`Basic LanguageMenu should match snapshot 1`] = `
 `;
 
 exports[`Basic LanguageMenu should match snapshot 2`] = `
-.c10 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c10::before,
-.c10::after {
-  box-sizing: border-box;
-}
-
-.c10:hover,
-.c10:active,
-.c10:focus,
-.c10:focus-within {
-  color: inherit;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -369,62 +331,6 @@ exports[`Basic LanguageMenu should match snapshot 2`] = `
   box-sizing: border-box;
 }
 
-.c7 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: list-item;
-}
-
-.c7::before,
-.c7::after {
-  box-sizing: border-box;
-}
-
-.c6 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  list-style-type: decimal;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 40px;
-}
-
-.c6::before,
-.c6::after {
-  box-sizing: border-box;
-}
-
 .c5 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -446,6 +352,11 @@ exports[`Basic LanguageMenu should match snapshot 2`] = `
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
   border: 1px solid hsl(0,0%,58%);
   border-radius: 2px;
+  z-index: 888;
+}
+
+.c5.fi-action-menu-popover--hidden {
+  visibility: hidden;
 }
 
 .c5 .fi-language-menu-popover_list {
@@ -618,80 +529,9 @@ exports[`Basic LanguageMenu should match snapshot 2`] = `
   border-color: hsl(202,7%,80%);
 }
 
-.c9 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c9.fi-link--router {
-  color: hsl(212,63%,45%);
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c9.fi-link--router:hover,
-.c9.fi-link--router:active,
-.c9.fi-link--router:focus,
-.c9.fi-link--router:focus-within {
-  color: hsl(212,63%,45%);
-}
-
-.c9.fi-link--router:focus,
-.c9.fi-link--router:focus-within {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c9.fi-link--router:focus {
-  border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  outline: 0;
-}
-
-.c9.fi-link--router:hover,
-.c9.fi-link--router:active {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c9.fi-link--router:visited {
-  color: hsl(284,36%,45%);
-}
-
-.c9.fi-link--initial-underline {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c9.fi-link--initial-underline:focus,
-.c9.fi-link--initial-underline:focus-within {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c9.fi-link--initial-underline:hover,
-.c9.fi-link--initial-underline:active {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c8.fi-language-menu-item {
+.c6.fi-language-menu-item {
   color: hsl(0,0%,13%);
   margin: 5px 0;
-}
-
-.c8.fi-language-menu-item .fi-link--router {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -704,27 +544,29 @@ exports[`Basic LanguageMenu should match snapshot 2`] = `
   border-left: 4px solid transparent;
 }
 
-.c8.fi-language-menu-item .fi-link--router:hover {
-  -webkit-text-decoration: none;
-  text-decoration: none;
+.c6.fi-language-menu-item:active,
+.c6.fi-language-menu-item:focus,
+.c6.fi-language-menu-item:visited {
+  outline: none;
+  color: hsl(0,0%,13%);
 }
 
-.c8.fi-language-menu-item--isHighlighted .fi-link--router {
+.c6.fi-language-menu-item--isHighlighted {
   border-left-color: hsl(212,63%,45%);
   position: relative;
 }
 
-.c8.fi-language-menu-item--isHighlighted .fi-link--router:after {
+.c6.fi-language-menu-item--isHighlighted:after {
   content: '';
 }
 
-.c8.fi-language-menu-item--selected .fi-link--router {
+.c6.fi-language-menu-item--selected {
   font-weight: bold;
   border-left-color: hsl(212,63%,45%);
 }
 
 @media (forced-colors:active) {
-  .c8.fi-language-menu-item--isHighlighted .fi-link--router:after {
+  .c6.fi-language-menu-item--isHighlighted:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -767,118 +609,65 @@ exports[`Basic LanguageMenu should match snapshot 2`] = `
           />
         </svg>
       </button>
-    </div>
-  </div>
-  <div
-    class="c4 c5 fi-language-menu-popover"
-    role="menu"
-    style="position: fixed; left: 0px; top: 0px; width: 0px; right: 0px; transform: translate(0px, 12px);"
-  >
-    <div>
-      <ul
-        aria-activedescendant="-1-menu-item"
-        aria-labelledby="test-id"
-        class="c6 fi-language-menu-popover_list"
-        id="test-id-menu"
+      <div
+        class="c4 c5 fi-language-menu-popover"
         role="menu"
-        tabindex="-1"
+        style="position: fixed; left: 0px; top: 0px; width: 0px; right: 0px; transform: translate(0px, 15px);"
       >
-        <li
-          class="c7 fi-language-menu-item c8"
-          id="test-id-0-menu-list-item"
+        <div
+          aria-labelledby="test-id"
+          class="c4 fi-language-menu-popover_list"
+          id="test-id-menu"
+          role="menu"
           tabindex="-1"
         >
           <button
-            class="c2 fi-link--router c9"
-            id="test-id-0-menu-item"
+            class="c2 fi-language-menu-item c6 fi-language-menu-item--isHighlighted"
+            id="test-id-list-item-0"
             lang="fi"
             role="menuitem"
+            tabindex="0"
+            theme="[object Object]"
             type="button"
           >
             Suomeksi (FI)
           </button>
-        </li>
-        <li
-          class="c7 fi-language-menu-item c8"
-          id="test-id-1-menu-list-item"
-          tabindex="-1"
-        >
-          <a
-            class="c10 fi-link--router c9"
-            href="/sv"
-            id="test-id-1-menu-item"
+          <button
+            class="c2 fi-language-menu-item c6"
+            id="test-id-list-item-1"
             lang="sv"
             role="menuitem"
+            tabindex="-1"
+            theme="[object Object]"
+            type="button"
           >
             På svenska (SV)
-          </a>
-        </li>
-        <li
-          class="c7 fi-language-menu-item c8 fi-language-menu-item--selected"
-          id="test-id-2-menu-list-item"
-          tabindex="-1"
-        >
-          <a
-            class="c10 fi-link--router c9"
-            href="/en"
-            id="test-id-2-menu-item"
+          </button>
+          <button
+            class="c2 fi-language-menu-item c6 fi-language-menu-item--selected"
+            id="test-id-list-item-2"
             lang="en"
             role="menuitem"
+            tabindex="-1"
+            theme="[object Object]"
+            type="button"
           >
             In English (EN)
-          </a>
-        </li>
-      </ul>
-      <div
-        class="fi-language-menu-popover_popper-arrow"
-        data-popper-arrow="true"
-        data-popper-placement="bottom-end"
-        style="position: absolute; left: 0px; transform: translate(0px, 0px);"
-      />
+          </button>
+        </div>
+        <div
+          class="c0 fi-language-menu-popover_popper-arrow"
+          data-popper-arrow="true"
+          data-popper-placement="bottom-end"
+          style="position: absolute; left: 0px; transform: translate(0px, 0px);"
+        />
+      </div>
     </div>
   </div>
 </body>
 `;
 
 exports[`movement in LanguageMenu should match snapshot 1`] = `
-.c10 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: inline;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c10::before,
-.c10::after {
-  box-sizing: border-box;
-}
-
-.c10:hover,
-.c10:active,
-.c10:focus,
-.c10:focus-within {
-  color: inherit;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -990,62 +779,6 @@ exports[`movement in LanguageMenu should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c7 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: list-item;
-}
-
-.c7::before,
-.c7::after {
-  box-sizing: border-box;
-}
-
-.c6 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  list-style-type: decimal;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 40px;
-}
-
-.c6::before,
-.c6::after {
-  box-sizing: border-box;
-}
-
 .c5 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1067,6 +800,11 @@ exports[`movement in LanguageMenu should match snapshot 1`] = `
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
   border: 1px solid hsl(0,0%,58%);
   border-radius: 2px;
+  z-index: 888;
+}
+
+.c5.fi-action-menu-popover--hidden {
+  visibility: hidden;
 }
 
 .c5 .fi-language-menu-popover_list {
@@ -1239,80 +977,9 @@ exports[`movement in LanguageMenu should match snapshot 1`] = `
   border-color: hsl(202,7%,80%);
 }
 
-.c9 {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c9.fi-link--router {
-  color: hsl(212,63%,45%);
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c9.fi-link--router:hover,
-.c9.fi-link--router:active,
-.c9.fi-link--router:focus,
-.c9.fi-link--router:focus-within {
-  color: hsl(212,63%,45%);
-}
-
-.c9.fi-link--router:focus,
-.c9.fi-link--router:focus-within {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c9.fi-link--router:focus {
-  border-radius: 2px;
-  box-shadow: 0 0 0 2px hsl(196,77%,44%);
-  outline: 0;
-}
-
-.c9.fi-link--router:hover,
-.c9.fi-link--router:active {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c9.fi-link--router:visited {
-  color: hsl(284,36%,45%);
-}
-
-.c9.fi-link--initial-underline {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c9.fi-link--initial-underline:focus,
-.c9.fi-link--initial-underline:focus-within {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c9.fi-link--initial-underline:hover,
-.c9.fi-link--initial-underline:active {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c8.fi-language-menu-item {
+.c6.fi-language-menu-item {
   color: hsl(0,0%,13%);
   margin: 5px 0;
-}
-
-.c8.fi-language-menu-item .fi-link--router {
   font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -1325,27 +992,29 @@ exports[`movement in LanguageMenu should match snapshot 1`] = `
   border-left: 4px solid transparent;
 }
 
-.c8.fi-language-menu-item .fi-link--router:hover {
-  -webkit-text-decoration: none;
-  text-decoration: none;
+.c6.fi-language-menu-item:active,
+.c6.fi-language-menu-item:focus,
+.c6.fi-language-menu-item:visited {
+  outline: none;
+  color: hsl(0,0%,13%);
 }
 
-.c8.fi-language-menu-item--isHighlighted .fi-link--router {
+.c6.fi-language-menu-item--isHighlighted {
   border-left-color: hsl(212,63%,45%);
   position: relative;
 }
 
-.c8.fi-language-menu-item--isHighlighted .fi-link--router:after {
+.c6.fi-language-menu-item--isHighlighted:after {
   content: '';
 }
 
-.c8.fi-language-menu-item--selected .fi-link--router {
+.c6.fi-language-menu-item--selected {
   font-weight: bold;
   border-left-color: hsl(212,63%,45%);
 }
 
 @media (forced-colors:active) {
-  .c8.fi-language-menu-item--isHighlighted .fi-link--router:after {
+  .c6.fi-language-menu-item--isHighlighted:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -1388,74 +1057,59 @@ exports[`movement in LanguageMenu should match snapshot 1`] = `
           />
         </svg>
       </button>
-    </div>
-  </div>
-  <div
-    class="c4 c5 fi-language-menu-popover"
-    role="menu"
-    style="position: fixed; left: 0px; top: 0px; width: 0px; right: 0px; transform: translate(0px, 12px);"
-  >
-    <div>
-      <ul
-        aria-activedescendant="-1-menu-item"
-        aria-labelledby="test-id"
-        class="c6 fi-language-menu-popover_list"
-        id="test-id-menu"
+      <div
+        class="c4 c5 fi-language-menu-popover"
         role="menu"
-        tabindex="-1"
+        style="position: fixed; left: 0px; top: 0px; width: 0px; right: 0px; transform: translate(0px, 15px);"
       >
-        <li
-          class="c7 fi-language-menu-item c8"
-          id="test-id-0-menu-list-item"
+        <div
+          aria-labelledby="test-id"
+          class="c4 fi-language-menu-popover_list"
+          id="test-id-menu"
+          role="menu"
           tabindex="-1"
         >
           <button
-            class="c2 fi-link--router c9"
-            id="test-id-0-menu-item"
+            class="c2 fi-language-menu-item c6 fi-language-menu-item--isHighlighted"
+            id="test-id-list-item-0"
             lang="fi"
             role="menuitem"
+            tabindex="0"
+            theme="[object Object]"
             type="button"
           >
             Suomeksi (FI)
           </button>
-        </li>
-        <li
-          class="c7 fi-language-menu-item c8"
-          id="test-id-1-menu-list-item"
-          tabindex="-1"
-        >
-          <a
-            class="c10 fi-link--router c9"
-            href="/sv"
-            id="test-id-1-menu-item"
+          <button
+            class="c2 fi-language-menu-item c6"
+            id="test-id-list-item-1"
             lang="sv"
             role="menuitem"
+            tabindex="-1"
+            theme="[object Object]"
+            type="button"
           >
             På svenska (SV)
-          </a>
-        </li>
-        <li
-          class="c7 fi-language-menu-item c8 fi-language-menu-item--selected"
-          id="test-id-2-menu-list-item"
-          tabindex="-1"
-        >
-          <a
-            class="c10 fi-link--router c9"
-            href="/en"
-            id="test-id-2-menu-item"
+          </button>
+          <button
+            class="c2 fi-language-menu-item c6 fi-language-menu-item--selected"
+            id="test-id-list-item-2"
             lang="en"
             role="menuitem"
+            tabindex="-1"
+            theme="[object Object]"
+            type="button"
           >
             In English (EN)
-          </a>
-        </li>
-      </ul>
-      <div
-        class="fi-language-menu-popover_popper-arrow"
-        data-popper-arrow="true"
-        data-popper-placement="bottom-end"
-        style="position: absolute; left: 0px; transform: translate(0px, 0px);"
-      />
+          </button>
+        </div>
+        <div
+          class="c0 fi-language-menu-popover_popper-arrow"
+          data-popper-arrow="true"
+          data-popper-placement="bottom-end"
+          style="position: absolute; left: 0px; transform: translate(0px, 0px);"
+        />
+      </div>
     </div>
   </div>
 </body>

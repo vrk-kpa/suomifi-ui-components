@@ -8,13 +8,23 @@ import {
   buttonText="In English (EN)"
   aria-label="Change language. Current language is English"
 >
-  <LanguageMenuItem onClick={() => console.log('FI')} lang="fi">
+  <LanguageMenuItem
+    onClick={() => console.log('Changing lang to FI')}
+    lang="fi"
+  >
     Suomeksi (FI)
   </LanguageMenuItem>
-  <LanguageMenuItem href="/sv" lang="sv">
+  <LanguageMenuItem
+    onClick={() => console.log('Changing lang to SV')}
+    lang="sv"
+  >
     På svenska (SV)
   </LanguageMenuItem>
-  <LanguageMenuItem href="/en" lang="en" selected>
+  <LanguageMenuItem
+    onClick={() => console.log('Changing lang to EN')}
+    lang="en"
+    selected
+  >
     In English (EN)
   </LanguageMenuItem>
 </LanguageMenu>;

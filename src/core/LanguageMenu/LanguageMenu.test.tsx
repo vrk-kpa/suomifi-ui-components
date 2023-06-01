@@ -21,10 +21,10 @@ const TestLanguageMenu = (props: LanguageMenuProps) => (
     <LanguageMenuItem onClick={() => doNothing()} lang="fi">
       Suomeksi (FI)
     </LanguageMenuItem>
-    <LanguageMenuItem href="/sv" lang="sv">
+    <LanguageMenuItem onClick={() => doNothing()} lang="sv">
       På svenska (SV)
     </LanguageMenuItem>
-    <LanguageMenuItem href="/en" lang="en" selected>
+    <LanguageMenuItem onClick={() => doNothing()} lang="en" selected>
       In English (EN)
     </LanguageMenuItem>
   </LanguageMenu>

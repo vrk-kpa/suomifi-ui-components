@@ -1,10 +1,9 @@
-import React, { ReactNode, AriaRole } from 'react';
+import React, { ReactNode } from 'react';
 import classnames from 'classnames';
-import { HtmlLi, HtmlButton, HtmlA } from '../../../reset';
+import { HtmlButton } from '../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { baseStyles } from './LanguageMenuItem.baseStyles';
 import styled from 'styled-components';
-import { RouterLink } from '../../Link';
 import {
   LanguageMenuProviderState,
   LanguageMenuConsumer,
@@ -17,8 +16,6 @@ export interface LanguageMenuItemProps {
   className?: string;
   /** Text of the action */
   children: ReactNode;
-  /** Link url. If provided the component is rendered as link `<a>` instead of `<button>` */
-  href?: string;
   /** Called when menu item is clicked */
   onClick?: () => void;
   /** Show item as selected one */
@@ -34,25 +31,6 @@ const baseClassName = 'fi-language-menu-item';
 const hasKeyboardFocusClassName = `${baseClassName}--isHighlighted`;
 const selectedClassName = `${baseClassName}--selected`;
 
-interface RenderComponentProps {
-  /** Text of the menu item */
-  children: ReactNode;
-  /** id for the component */
-  id: string;
-  /**  WAI-ARIA */
-  role?: AriaRole | undefined;
-}
-
-const ButtonComponent = (props: RenderComponentProps) => {
-  const { children, ...passProps } = props;
-  return <HtmlButton {...passProps}>{props.children}</HtmlButton>;
-};
-
-const LinkComponent = (props: RenderComponentProps) => {
-  const { children, ...passProps } = props;
-  return <HtmlA {...passProps}>{children}</HtmlA>;
-};
-
 const BaseLanguageMenuItem = (
   props: BaseLanguageMenuItemProps & SuomifiThemeProp,
 ) => {
@@ -65,35 +43,41 @@ const BaseLanguageMenuItem = (
     ...passProps
   } = props;
 
+  const hasKeyboardFocus = consumer.activeDescendantIndex === itemIndex;
+  const listElementRef = React.useRef<HTMLButtonElement>(null);
+
+  React.useLayoutEffect(() => {
+    if (hasKeyboardFocus) {
+      listElementRef.current?.focus({ preventScroll: false });
+    }
+  }, [consumer.activeDescendantIndex]);
+
   return (
-    <HtmlLi
+    <HtmlButton
+      forwardedRef={listElementRef}
       className={classnames(baseClassName, className, {
-        [hasKeyboardFocusClassName]:
-          itemIndex === consumer.activeDescendantIndex,
+        [hasKeyboardFocusClassName]: hasKeyboardFocus,
         [selectedClassName]: selected,
       })}
       onClick={() => {
         consumer.onItemClick(itemIndex);
       }}
-      onMouseDown={(event) => {
-        // Prevents li from "stealing" focus from ul
-        event.preventDefault();
-      }}
       onMouseOver={() => {
         consumer.onItemMouseOver(itemIndex);
       }}
-      tabIndex={-1}
-      id={`${consumer.id}-${itemIndex}-menu-list-item`}
+      onKeyDown={(event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          listElementRef.current?.click();
+        }
+      }}
+      tabIndex={hasKeyboardFocus ? 0 : -1}
+      id={`${consumer.parentId}-list-item-${itemIndex}`}
+      role="menuitem"
+      {...passProps}
     >
-      <RouterLink
-        asComponent={props.href ? LinkComponent : ButtonComponent}
-        id={`${consumer.id}-${itemIndex}-menu-item`}
-        role="menuitem"
-        {...passProps}
-      >
-        {children}
-      </RouterLink>
-    </HtmlLi>
+      {children}
+    </HtmlButton>
   );
 };
 

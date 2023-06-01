@@ -10,6 +10,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     box-shadow: ${theme.shadows.wideBoxShadow};
     border: 1px solid ${theme.colors.blackLight1};
     border-radius: ${theme.radiuses.basic};
+    z-index: ${theme.zindexes.menu};
+  }
+
+  &.fi-action-menu-popover--hidden {
+    visibility: hidden;
   }
 
   & .fi-language-menu-popover_list {
@@ -25,7 +30,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     max-height: 260px;
 
     &:focus {
-      /* Hide focus outline from <ul> */
+      /* Hide focus outline from menu */
       outline: none;
     }
   }

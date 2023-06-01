@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef, ReactNode } from 'react';
-import ReactDOM from 'react-dom';
 import { default as styled } from 'styled-components';
 import { usePopper } from 'react-popper';
 import classnames from 'classnames';
 import { useEnhancedEffect } from '../../../utils/common';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { HtmlDivWithRef, HtmlUlWithRef } from '../../../reset';
+import { HtmlDiv, HtmlDivWithRef } from '../../../reset';
 import { getLogger } from '../../../utils/log';
 import { baseStyles } from './LanguageMenuPopover.baseStyles';
 
@@ -27,7 +26,7 @@ export interface InternalLanguageMenuPopoverProps {
   className?: string;
   /** Menu items. Use the `<LanguageMenuItem>` or  `<LanguageMenuDivider>` components as children */
   children?: ReactNode;
-  /** Id given to menu `<ul>` element */
+  /** Id given to menu element */
   menuId: string;
   /** Id of the menu open button */
   buttonId: string;
@@ -35,6 +34,8 @@ export interface InternalLanguageMenuPopoverProps {
   parentId?: string;
   /** Initial active menu item */
   initialActiveDescendant: InitialActiveDescendant;
+  /** Boolean to open or close menu */
+  isOpen: boolean;
 }
 
 export interface LanguageMenuProviderState {
@@ -45,14 +46,14 @@ export interface LanguageMenuProviderState {
   /** Index of the child that has aria active descendant status */
   activeDescendantIndex: number;
   /** Id of the parent menu component. Used to generate child ids */
-  id: string;
+  parentId: string;
 }
 
 const defaultProviderValue: LanguageMenuProviderState = {
   onItemClick: () => null,
   onItemMouseOver: () => null,
   activeDescendantIndex: -1,
-  id: '',
+  parentId: '',
 };
 
 const { Provider: LanguageMenuProvider, Consumer: LanguageMenuConsumer } =
@@ -73,32 +74,6 @@ const sameWidth: any = {
   },
 };
 
-const scrollItemList = (
-  elementId: string,
-  wrapperRef: React.RefObject<HTMLUListElement>,
-) => {
-  // 10px reduction to scroll position is required due to container padding.
-  const wrapperOffsetPx = 10;
-  if (wrapperRef !== null && wrapperRef.current !== null) {
-    const elementOffsetTop = document.getElementById(elementId)?.offsetTop || 0;
-    const elementOffsetHeight =
-      document.getElementById(elementId)?.offsetHeight || 0;
-
-    if (elementOffsetTop < wrapperRef.current.scrollTop) {
-      wrapperRef.current.scrollTop = elementOffsetTop - wrapperOffsetPx;
-    } else {
-      const offsetBottom = elementOffsetTop + elementOffsetHeight;
-      const scrollBottom =
-        wrapperRef.current.scrollTop + wrapperRef.current.offsetHeight;
-
-      if (offsetBottom > scrollBottom) {
-        wrapperRef.current.scrollTop =
-          offsetBottom - wrapperRef.current.offsetHeight + wrapperOffsetPx;
-      }
-    }
-  }
-};
-
 export const BaseLanguageMenuPopover = (
   props: InternalLanguageMenuPopoverProps,
 ) => {
@@ -111,14 +86,14 @@ export const BaseLanguageMenuPopover = (
     buttonId,
     parentId,
     initialActiveDescendant,
+    isOpen,
   } = props;
 
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
   const [dialogElement, setDialogElement] = useState<HTMLElement | null>(null);
   const [activeChild, setActiveChild] = useState<number>(-1);
 
-  const portalRef = useRef<HTMLDivElement>(null);
-  const ulRef = useRef<HTMLUListElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEnhancedEffect(() => {
     setMountNode(window.document.body);
@@ -126,63 +101,63 @@ export const BaseLanguageMenuPopover = (
 
   useEffect(
     () => {
-      // Add listener for keyboard events
-      document.addEventListener('keydown', globalKeyDownHandler, {
-        capture: true,
-      });
-
-      scrollItemList(`${parentId}-${activeChild}-menu-list-item`, ulRef);
-
-      return () => {
-        document.removeEventListener('keydown', globalKeyDownHandler, {
+      if (isOpen) {
+        // Add listener for keyboard events
+        document.addEventListener('keydown', globalKeyDownHandler, {
           capture: true,
         });
-      };
+
+        return () => {
+          document.removeEventListener('keydown', globalKeyDownHandler, {
+            capture: true,
+          });
+        };
+      }
     }, // Event listener has to be updated on every active child change or it's always -1 inside the globalKeyDownHandler
     [activeChild],
   );
 
   useEffect(() => {
-    // Add listener for click events
-    document.addEventListener('click', globalClickHandler, {
-      capture: true,
-    });
-
-    return () => {
-      document.removeEventListener('click', globalClickHandler, {
+    if (isOpen) {
+      // Add listener for click events
+      document.addEventListener('click', globalClickHandler, {
         capture: true,
       });
-    };
-  }, [openButtonRef]);
 
-  useEffect(() => {
-    // Set focus to ul element when menu opens
-    ulRef.current?.focus();
-  }, [ulRef.current]);
+      return () => {
+        document.removeEventListener('click', globalClickHandler, {
+          capture: true,
+        });
+      };
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     // For cleanup to prevent setting state on unmounted component
-    let isSubscribed = true;
-    // Timeout is needed for Safari + VoiceOver to read the active menu item when menu opens
+    let isMounted = true;
+
+    // Timeout is needed for iOS Safari + VoiceOver to move focus into menu item on open
     setTimeout(() => {
-      if (isSubscribed) {
+      if (isMounted) {
         if (initialActiveDescendant === 'first') {
+          console.log('asdasd');
           setActiveChild(0);
         } else if (initialActiveDescendant === 'last') {
           setActiveChild(React.Children.count(children) - 1);
         }
       }
-    }, 100);
+    }, 0);
 
     // Cancel subscription to useEffect on unmount
     return () => {
-      isSubscribed = false;
+      setActiveChild(-1);
+      isMounted = false;
     };
-  }, [initialActiveDescendant]);
+  }, [isOpen]);
 
   const globalClickHandler = (nativeEvent: MouseEvent) => {
     if (
-      !portalRef.current?.contains(nativeEvent.target as Node) &&
+      !menuRef.current?.contains(nativeEvent.target as Node) &&
       !openButtonRef.current?.contains(nativeEvent.target as Node)
     ) {
       // Click is outside of "open menu button" and menu elements
@@ -191,6 +166,7 @@ export const BaseLanguageMenuPopover = (
   };
 
   const globalKeyDownHandler = (event: KeyboardEvent) => {
+    console.log(event.key);
     if (event.key === 'Escape') {
       handleClose();
       event.preventDefault();
@@ -201,44 +177,25 @@ export const BaseLanguageMenuPopover = (
       handleClose();
     }
 
-    const popoverItems = React.Children.toArray(children);
+    const popoverItemsLength = React.Children.count(children);
 
     const getNextIndex = () =>
-      activeChild !== null ? (activeChild + 1) % popoverItems.length : 0;
+      activeChild < popoverItemsLength - 1 ? activeChild + 1 : 0;
     const getPreviousIndex = () =>
-      activeChild !== null && activeChild !== -1
-        ? (activeChild - 1 + popoverItems.length) % popoverItems.length
-        : popoverItems.length - 1;
-
-    if (event.key === 'Enter' || event.key === ' ') {
-      // Call action of the child item
-      const currentChild = popoverItems[activeChild];
-
-      if (React.isValidElement(currentChild)) {
-        const childProps = currentChild.props;
-
-        if (childProps.onClick) {
-          childProps.onClick();
-        }
-        if (childProps.href) {
-          window.open(childProps.href, '_self');
-        }
-
-        // Close the menu only if the child item is not disabled
-        handleClose();
-      }
-
-      event.preventDefault();
-    }
+      activeChild !== 0 ? activeChild - 1 : popoverItemsLength - 1;
 
     if (event.key === 'ArrowDown') {
       event.preventDefault();
-      setActiveChild(() => getNextIndex());
+      console.log(activeChild);
+      console.log(getNextIndex());
+      setActiveChild(getNextIndex());
     }
 
     if (event.key === 'ArrowUp') {
       event.preventDefault();
-      setActiveChild(() => getPreviousIndex());
+      console.log(activeChild);
+      console.log(getPreviousIndex());
+      setActiveChild(getPreviousIndex());
     }
   };
 
@@ -248,7 +205,7 @@ export const BaseLanguageMenuPopover = (
     {
       name: 'offset',
       options: {
-        offset: [0, 12],
+        offset: [0, 15],
       },
     },
     {
@@ -281,7 +238,7 @@ export const BaseLanguageMenuPopover = (
   };
 
   if (React.Children.count(children) < 1) {
-    getLogger().warn(`Action Menu does not contain items`);
+    getLogger().warn(`LanguageMenu ${menuId} does not contain items`);
     return null;
   }
 
@@ -305,50 +262,40 @@ export const BaseLanguageMenuPopover = (
     });
 
   return (
-    <>
-      {ReactDOM.createPortal(
+    <HtmlDivWithRef
+      role="menu"
+      className={classnames(className, baseClassName)}
+      style={styles.popper}
+      forwardedRef={setDialogElement}
+    >
+      <LanguageMenuProvider
+        value={{
+          onItemClick: () => handleClose(),
+          onItemMouseOver(itemIndex) {
+            itemMouseOver(itemIndex);
+          },
+          activeDescendantIndex: activeChild,
+          parentId: parentId || '',
+        }}
+      >
         <HtmlDivWithRef
           role="menu"
-          className={classnames(className, baseClassName)}
-          style={styles.popper}
-          forwardedRef={setDialogElement}
+          id={menuId}
+          aria-labelledby={buttonId}
+          tabIndex={-1}
+          className={LanguageMenuClassNames.list}
+          forwardedRef={menuRef}
         >
-          <div ref={portalRef}>
-            <LanguageMenuProvider
-              value={{
-                onItemClick: () => handleClose(),
-                onItemMouseOver(itemIndex) {
-                  itemMouseOver(itemIndex);
-                },
-                activeDescendantIndex: activeChild,
-                id: parentId || '',
-              }}
-            >
-              <HtmlUlWithRef
-                role="menu"
-                id={menuId}
-                aria-activedescendant={`${activeChild}-menu-item`}
-                aria-labelledby={buttonId}
-                tabIndex={-1}
-                className={LanguageMenuClassNames.list}
-                forwardRef={ulRef}
-              >
-                {menuItems(children)}
-              </HtmlUlWithRef>
-            </LanguageMenuProvider>
-            <div
-              className={LanguageMenuClassNames.popperArrow}
-              style={styles.arrow}
-              data-popper-arrow
-              data-popper-placement={
-                attributes.popper?.['data-popper-placement']
-              }
-            />
-          </div>
-        </HtmlDivWithRef>,
-        mountNode,
-      )}
-    </>
+          {menuItems(children)}
+        </HtmlDivWithRef>
+      </LanguageMenuProvider>
+      <HtmlDiv
+        className={LanguageMenuClassNames.popperArrow}
+        style={styles.arrow}
+        data-popper-arrow
+        data-popper-placement={attributes.popper?.['data-popper-placement']}
+      />
+    </HtmlDivWithRef>
   );
 };
 
