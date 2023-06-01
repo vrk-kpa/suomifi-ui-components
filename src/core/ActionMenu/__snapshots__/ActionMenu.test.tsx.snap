@@ -662,7 +662,6 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
         tabindex="-1"
       >
         <div
-          aria-activedescendant="test-id-menu-item--1"
           aria-labelledby="test-id"
           class="c5 fi-action-menu-popover_list"
           id="test-id-menu"
@@ -1383,7 +1382,6 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
         tabindex="-1"
       >
         <div
-          aria-activedescendant="test-id-menu-item--1"
           aria-labelledby="test-id"
           class="c5 fi-action-menu-popover_list"
           id="test-id-menu"
@@ -2105,7 +2103,6 @@ exports[`No borders variant should match snapshot 1`] = `
         tabindex="-1"
       >
         <div
-          aria-activedescendant="test-id-menu-item--1"
           aria-labelledby="test-id"
           class="c5 fi-action-menu-popover_list"
           id="test-id-menu"
@@ -2826,7 +2823,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         tabindex="-1"
       >
         <div
-          aria-activedescendant="test-id-menu-item-0"
           aria-labelledby="test-id"
           class="c5 fi-action-menu-popover_list"
           id="test-id-menu"
@@ -3548,7 +3544,6 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
         tabindex="-1"
       >
         <div
-          aria-activedescendant="test-id-menu-item-0"
           aria-labelledby="test-id"
           class="c5 fi-action-menu-popover_list"
           id="test-id-menu"
