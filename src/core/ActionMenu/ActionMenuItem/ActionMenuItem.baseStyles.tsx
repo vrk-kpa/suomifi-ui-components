@@ -40,9 +40,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &--disabled {
       cursor: not-allowed;
-
       color: ${theme.colors.depthBase};
-      pointer-events: none;
 
       &:active,
       &:focus,
