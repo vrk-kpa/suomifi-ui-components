@@ -329,7 +329,6 @@ export const BaseActionMenuPopover = (
       >
         <HtmlDivWithRef
           role="menu"
-          aria-activedescendant={`${menuId}-item-${activeChild}`}
           forwardedRef={divRef}
           id={menuId}
           aria-labelledby={buttonId}
