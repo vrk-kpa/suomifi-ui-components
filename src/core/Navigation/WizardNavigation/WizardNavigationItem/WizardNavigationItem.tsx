@@ -4,7 +4,7 @@ import { HtmlDiv, HtmlLi, HtmlSpan } from '../../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { baseStyles } from './WizardNavigationItem.baseStyles';
 import styled from 'styled-components';
-import { Icon } from '../../../Icon/Icon';
+import { IconCheck } from 'suomifi-icons';
 
 export interface WizardNavigationItemProps {
   /** Custom class */
@@ -53,7 +53,7 @@ const BaseWizardNavigationItem = ({
     <HtmlDiv className={innerWrapperClassName}>
       <HtmlSpan className={leftIconClassName}>
         {(status === 'completed' || status === 'current-completed') && (
-          <Icon icon="check" />
+          <IconCheck />
         )}
       </HtmlSpan>
       {children}

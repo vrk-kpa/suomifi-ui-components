@@ -14,12 +14,12 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { classnamesValue } from '../../../utils/typescript';
 import { getLogger } from '../../../utils/log';
 import { HtmlSpan } from '../../../reset/HtmlSpan/HtmlSpan';
-import { Icon } from '../../Icon/Icon';
 import {
   baseStyles,
   languageMenuPopoverStyles,
 } from './LanguageMenu.baseStyles';
 import { LanguageMenuItemProps, LanguageMenuLinkProps } from '../index';
+import { IconChevronDown } from 'suomifi-icons';
 
 const baseClassName = 'fi-language-menu';
 const languageMenuClassNames = {
@@ -123,7 +123,7 @@ const LanguageMenuPopoverWithProps = (
 const languageName = (name: ReactNode) => (
   <Fragment>
     {name}
-    <Icon icon="chevronDown" className={languageMenuClassNames.iconLang} />
+    <IconChevronDown className={languageMenuClassNames.iconLang} />
   </Fragment>
 );
 

@@ -4,7 +4,7 @@ import { HtmlLi, HtmlSpan, HtmlUl } from '../../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { baseStyles } from './SideNavigationItem.baseStyles';
 import styled from 'styled-components';
-import { Icon } from '../../../Icon/Icon';
+import { IconSubDirectory } from 'suomifi-icons';
 
 export interface SideNavigationItemProps {
   /** Custom class */
@@ -76,7 +76,7 @@ const BaseSideNavigationItem = ({
       {...passProps}
     >
       <HtmlSpan className={contentWrapperClassName}>
-        {subLevel === 2 && <Icon icon="subDirectory" />}
+        {subLevel === 2 && <IconSubDirectory />}
         {content}
       </HtmlSpan>
       {!!children && (selected || childIsSelected || expanded) && (

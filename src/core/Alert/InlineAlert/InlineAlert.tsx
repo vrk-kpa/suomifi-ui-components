@@ -2,7 +2,7 @@ import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlDivWithRef, HtmlDivWithRefProps } from '../../../reset';
-import { Icon } from '../../../core/Icon/Icon';
+import { IconError, IconWarning } from 'suomifi-icons';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './InlineAlert.baseStyles';
@@ -61,9 +61,15 @@ class BaseInlineAlert extends Component<InlineAlertProps & InnerRef> {
         })}
       >
         <HtmlDiv className={inlineAlertClassNames.styleWrapper}>
-          {status !== 'neutral' && (
-            <Icon
-              icon={status}
+          {status === 'warning' && (
+            <IconWarning
+              className={classnames(inlineAlertClassNames.icon, {
+                [`${inlineAlertClassNames.icon}--${status}`]: !!status,
+              })}
+            />
+          )}
+          {status === 'error' && (
+            <IconError
               className={classnames(inlineAlertClassNames.icon, {
                 [`${inlineAlertClassNames.icon}--${status}`]: !!status,
               })}

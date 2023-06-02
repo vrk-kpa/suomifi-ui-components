@@ -23,7 +23,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         align-items: center;
       }
 
-      .fi-static-icon {
+      .fi-icon {
         height: 45px;
         width: 45px;
         margin-right: ${theme.spacing.s};

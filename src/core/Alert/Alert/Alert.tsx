@@ -8,11 +8,11 @@ import {
   HtmlButtonProps,
   HtmlDivWithRefProps,
 } from '../../../reset';
-import { Icon } from '../../../core/Icon/Icon';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { baseStyles } from './Alert.baseStyles';
+import { IconClose, IconError, IconInfo, IconWarning } from 'suomifi-icons';
 
 const baseClassName = 'fi-alert';
 const alertClassNames = {
@@ -63,7 +63,6 @@ class BaseAlert extends Component<AlertProps> {
       ...closeButtonPassProps
     } = closeButtonProps;
 
-    const variantIcon = status === 'neutral' ? 'info' : status;
     return (
       <HtmlDivWithRef
         as="section"
@@ -74,12 +73,30 @@ class BaseAlert extends Component<AlertProps> {
         })}
       >
         <HtmlDiv className={alertClassNames.styleWrapper}>
-          <Icon
-            icon={variantIcon}
-            className={classnames(alertClassNames.icon, {
-              [`${alertClassNames.icon}--${status}`]: !!status,
-            })}
-          />
+          {status === 'warning' && (
+            <IconWarning
+              className={classnames(
+                alertClassNames.icon,
+                `${alertClassNames.icon}--${status}`,
+              )}
+            />
+          )}
+          {status === 'error' && (
+            <IconError
+              className={classnames(
+                alertClassNames.icon,
+                `${alertClassNames.icon}--${status}`,
+              )}
+            />
+          )}
+          {status === 'neutral' && (
+            <IconInfo
+              className={classnames(
+                alertClassNames.icon,
+                `${alertClassNames.icon}--${status}`,
+              )}
+            />
+          )}
 
           <HtmlDiv
             className={alertClassNames.textContentWrapper}
@@ -102,7 +119,7 @@ class BaseAlert extends Component<AlertProps> {
             {...closeButtonPassProps}
           >
             {!smallScreen ? closeText.toUpperCase() : ''}
-            <Icon icon="close" />
+            <IconClose />
           </HtmlButton>
         </HtmlDiv>
       </HtmlDivWithRef>

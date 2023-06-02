@@ -2820,6 +2820,78 @@ exports[`snapshots match date input success status with statustext 1`] = `
 `;
 
 exports[`snapshots match date input with datepicker with controlled input value 1`] = `
+.c8 {
+  vertical-align: baseline;
+}
+
+.c8.fi-icon {
+  display: inline-block;
+}
+
+.c8 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c8 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c8.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c8.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c15 {
+  vertical-align: baseline;
+}
+
+.c15.fi-icon {
+  display: inline-block;
+}
+
+.c15 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c15 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c15.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c15.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c14 {
+  vertical-align: baseline;
+}
+
+.c14.fi-icon {
+  display: inline-block;
+}
+
+.c14 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c14 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c14.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c14.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -2991,30 +3063,6 @@ exports[`snapshots match date input with datepicker with controlled input value 
 .c4::before,
 .c4::after {
   box-sizing: border-box;
-}
-
-.c8 {
-  vertical-align: baseline;
-}
-
-.c8.fi-icon {
-  display: inline-block;
-}
-
-.c8 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c8 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c8.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c8.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c13 {
@@ -3221,17 +3269,17 @@ exports[`snapshots match date input with datepicker with controlled input value 
   background-color: hsl(202,7%,97%);
 }
 
-.c13 > .fi-button_icon {
+.c13 > .fi-button_icon > .fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c13 > .fi-button_icon.fi-button_icon--right {
+.c13 > .fi-button_icon--right > .fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
@@ -3240,40 +3288,40 @@ exports[`snapshots match date input with datepicker with controlled input value 
   cursor: not-allowed;
 }
 
-.c15.fi-month-day {
+.c17.fi-month-day {
   padding: 1px;
   text-align: center;
   min-width: 36px;
   height: 38px;
 }
 
-.c15.fi-month-day--disabled {
+.c17.fi-month-day--disabled {
   color: hsl(202,7%,67%);
 }
 
-.c15 .fi-month-day_current {
+.c17 .fi-month-day_current {
   margin: 0 6px;
   padding: 3px 0;
   border-bottom: 1px solid hsl(202,7%,67%);
   text-align: center;
 }
 
-.c15 .fi-month-day_button_current {
+.c17 .fi-month-day_button_current {
   margin: 0 6px;
   padding: 3px 0;
   border-bottom: 1px solid hsl(0,0%,13%);
   text-align: center;
 }
 
-.c15 .fi-month-day_button--disabled {
+.c17 .fi-month-day_button--disabled {
   color: hsl(202,7%,67%);
 }
 
-.c15 .fi-month-day_button--disabled .fi-month-day_button_current {
+.c17 .fi-month-day_button--disabled .fi-month-day_button_current {
   border-bottom: 1px solid hsl(202,7%,67%);
 }
 
-.c15 .fi-month-day_button {
+.c17 .fi-month-day_button {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -3294,13 +3342,13 @@ exports[`snapshots match date input with datepicker with controlled input value 
   text-align: center;
 }
 
-.c15 .fi-month-day_button:focus {
+.c17 .fi-month-day_button:focus {
   box-shadow: none;
   position: relative;
   outline: 3px solid transparent;
 }
 
-.c15 .fi-month-day_button:focus:after {
+.c17 .fi-month-day_button:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -3316,16 +3364,16 @@ exports[`snapshots match date input with datepicker with controlled input value 
   z-index: 9999;
 }
 
-.c15 .fi-month-day_button:not(.fi-month-day_button--disabled):hover {
+.c17 .fi-month-day_button:not(.fi-month-day_button--disabled):hover {
   background-color: hsl(212,63%,45%);
   color: hsl(0,0%,100%);
 }
 
-.c15 .fi-month-day_button:not(.fi-month-day_button--disabled):hover .fi-month-day_button_current {
+.c17 .fi-month-day_button:not(.fi-month-day_button--disabled):hover .fi-month-day_button_current {
   border-bottom: 1px solid hsl(0,0%,100%);
 }
 
-.c15 .fi-month-day_button--selected {
+.c17 .fi-month-day_button--selected {
   border: 1px solid hsl(212,63%,45%);
   background-color: hsl(212,63%,95%);
   -webkit-text-decoration: none;
@@ -3333,12 +3381,12 @@ exports[`snapshots match date input with datepicker with controlled input value 
   font-weight: 600;
 }
 
-.c15 .fi-month-day_button--selected:focus {
+.c17 .fi-month-day_button--selected:focus {
   box-shadow: none;
   position: relative;
 }
 
-.c15 .fi-month-day_button--selected:focus:after {
+.c17 .fi-month-day_button--selected:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -3354,11 +3402,11 @@ exports[`snapshots match date input with datepicker with controlled input value 
   z-index: 9999;
 }
 
-.c15 .fi-month-day_button--selected:hover {
+.c17 .fi-month-day_button--selected:hover {
   font-weight: 400;
 }
 
-.c14.fi-month-table {
+.c16.fi-month-table {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -3376,7 +3424,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   margin-bottom: 10px;
 }
 
-.c14 .fi-month-table_thead-cell {
+.c16 .fi-month-table_thead-cell {
   padding: 1px;
   text-align: center;
   min-width: 36px;
@@ -4130,7 +4178,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               >
                 <path
                   class="fi-icon-base-fill"
-                  d="M16 0a1 1 0 01.993.883L17 1v1h5c1.052 0 1.918.817 1.995 1.85L24 4v18a2.003 2.003 0 01-1.851 1.995L22 24H2a2.002 2.002 0 01-1.994-1.85L0 22V4c0-1.053.817-1.918 1.851-1.995L2.001 2h5V1A1 1 0 018.992.883L9 1v1h6V1a1 1 0 011-1zM7 4H2v18h19.997L22 4h-5v1a1 1 0 01-1.993.117L15 5V4H9v1a1 1 0 01-1.993.117L7 5V4zm12 10a1 1 0 01.993.883L20 15v2a1 1 0 01-.883.993L19 18h-2a1 1 0 01-.993-.883L16 17v-2a1 1 0 01.883-.993L17 14h2zM7 14a1 1 0 01.993.883L8 15v2a1 1 0 01-.883.993L7 18H5a1 1 0 01-.993-.883L4 17v-2a1 1 0 01.883-.993L5 14h2zm6 0a1 1 0 01.993.883L14 15v2a1 1 0 01-.883.993L13 18h-2a1 1 0 01-.993-.883L10 17v-2a1 1 0 01.883-.993L11 14h2zm6-6a1 1 0 01.993.883L20 9v2a1 1 0 01-.883.993L19 12h-2a1 1 0 01-.993-.883L16 11V9a1 1 0 01.883-.993L17 8h2zM7 8a1 1 0 01.993.883L8 9v2a1 1 0 01-.883.993L7 12H5a1 1 0 01-.993-.883L4 11V9a1 1 0 01.883-.993L5 8h2zm6 0a1 1 0 01.993.883L14 9v2a1 1 0 01-.883.993L13 12h-2a1 1 0 01-.993-.883L10 11V9a1 1 0 01.883-.993L11 8h2z"
+                  d="M16 0a1 1 0 0 1 .993.883L17 1v1h5c1.052 0 1.918.817 1.995 1.85L24 4v18a2.003 2.003 0 0 1-1.851 1.995L22 24H2a2.002 2.002 0 0 1-1.994-1.85L0 22V4c0-1.053.817-1.918 1.851-1.995L2.001 2h5V1A1 1 0 0 1 8.992.883L9 1v1h6V1a1 1 0 0 1 1-1ZM7 4H2v18h19.997L22 4h-5v1a1 1 0 0 1-1.993.117L15 5V4H9v1a1 1 0 0 1-1.993.117L7 5V4Zm12 10a1 1 0 0 1 .993.883L20 15v2a1 1 0 0 1-.883.993L19 18h-2a1 1 0 0 1-.993-.883L16 17v-2a1 1 0 0 1 .883-.993L17 14h2ZM7 14a1 1 0 0 1 .993.883L8 15v2a1 1 0 0 1-.883.993L7 18H5a1 1 0 0 1-.993-.883L4 17v-2a1 1 0 0 1 .883-.993L5 14h2Zm6 0a1 1 0 0 1 .993.883L14 15v2a1 1 0 0 1-.883.993L13 18h-2a1 1 0 0 1-.993-.883L10 17v-2a1 1 0 0 1 .883-.993L11 14h2Zm6-6a1 1 0 0 1 .993.883L20 9v2a1 1 0 0 1-.883.993L19 12h-2a1 1 0 0 1-.993-.883L16 11V9a1 1 0 0 1 .883-.993L17 8h2ZM7 8a1 1 0 0 1 .993.883L8 9v2a1 1 0 0 1-.883.993L7 12H5a1 1 0 0 1-.993-.883L4 11V9a1 1 0 0 1 .883-.993L5 8h2Zm6 0a1 1 0 0 1 .993.883L14 9v2a1 1 0 0 1-.883.993L13 12h-2a1 1 0 0 1-.993-.883L10 11V9a1 1 0 0 1 .883-.993L11 8h2Z"
                   fill="#222"
                   fill-rule="evenodd"
                 />
@@ -4266,9 +4314,12 @@ exports[`snapshots match date input with datepicker with controlled input value 
             tabindex="0"
             type="button"
           >
+            <span
+              class="c4 fi-button_icon"
+            />
             <svg
               aria-hidden="true"
-              class="fi-icon c8 fi-date-selectors_month-button_icon"
+              class="fi-icon c14 fi-date-selectors_month-button_icon"
               focusable="false"
               height="1em"
               viewBox="0 0 24 24"
@@ -4277,11 +4328,14 @@ exports[`snapshots match date input with datepicker with controlled input value 
             >
               <path
                 class="fi-icon-base-fill"
-                d="M8.41 12.61a1.298 1.298 0 01-.41-.943c0-.342.137-.683.41-.943l5.6-5.333a1.448 1.448 0 011.98 0 1.287 1.287 0 010 1.885l-4.61 4.39 4.61 4.391a1.287 1.287 0 010 1.885 1.448 1.448 0 01-1.98 0l-5.6-5.333z"
+                d="M8.41 12.61a1.298 1.298 0 0 1-.41-.943c0-.342.137-.683.41-.943l5.6-5.333a1.448 1.448 0 0 1 1.98 0 1.287 1.287 0 0 1 0 1.885l-4.61 4.39 4.61 4.391a1.287 1.287 0 0 1 0 1.885 1.448 1.448 0 0 1-1.98 0l-5.6-5.333Z"
                 fill="#222"
                 fill-rule="evenodd"
               />
             </svg>
+            <span
+              class="c4 fi-button_icon fi-button_icon--right"
+            />
           </button>
           <button
             aria-disabled="false"
@@ -4290,9 +4344,12 @@ exports[`snapshots match date input with datepicker with controlled input value 
             tabindex="0"
             type="button"
           >
+            <span
+              class="c4 fi-button_icon"
+            />
             <svg
               aria-hidden="true"
-              class="fi-icon c8 fi-date-selectors_month-button_icon"
+              class="fi-icon c15 fi-date-selectors_month-button_icon"
               focusable="false"
               height="1em"
               viewBox="0 0 24 24"
@@ -4301,16 +4358,19 @@ exports[`snapshots match date input with datepicker with controlled input value 
             >
               <path
                 class="fi-icon-base-fill"
-                d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 01-1.885 0 1.448 1.448 0 010-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 010-1.98 1.287 1.287 0 011.885 0l5.333 5.6z"
+                d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 0 1-1.885 0 1.448 1.448 0 0 1 0-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 0 1 0-1.98 1.287 1.287 0 0 1 1.885 0l5.333 5.6Z"
                 fill="#222"
                 fill-rule="evenodd"
               />
             </svg>
+            <span
+              class="c4 fi-button_icon fi-button_icon--right"
+            />
           </button>
         </div>
       </div>
       <table
-        class="c14 fi-month-table"
+        class="c16 fi-month-table"
         role="presentation"
       >
         <thead>
@@ -4355,17 +4415,17 @@ exports[`snapshots match date input with datepicker with controlled input value 
         <tbody>
           <tr>
             <td
-              class="c15 fi-month-day fi-month-day--disabled"
+              class="c17 fi-month-day fi-month-day--disabled"
             >
               30
             </td>
             <td
-              class="c15 fi-month-day fi-month-day--disabled"
+              class="c17 fi-month-day fi-month-day--disabled"
             >
               31
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-current="date"
@@ -4387,7 +4447,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4404,7 +4464,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4421,7 +4481,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4438,7 +4498,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4457,7 +4517,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
           </tr>
           <tr>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4474,7 +4534,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4491,7 +4551,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4508,7 +4568,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4525,7 +4585,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4542,7 +4602,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4559,7 +4619,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4578,7 +4638,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
           </tr>
           <tr>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4595,7 +4655,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4612,7 +4672,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4628,7 +4688,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4645,7 +4705,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4662,7 +4722,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4679,7 +4739,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4698,7 +4758,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
           </tr>
           <tr>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4715,7 +4775,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4732,7 +4792,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4749,7 +4809,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4766,7 +4826,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4783,7 +4843,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4800,7 +4860,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4819,7 +4879,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
           </tr>
           <tr>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4836,7 +4896,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4853,7 +4913,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4870,7 +4930,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4887,7 +4947,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day"
+              class="c17 fi-month-day"
             >
               <button
                 aria-disabled="false"
@@ -4904,12 +4964,12 @@ exports[`snapshots match date input with datepicker with controlled input value 
               </button>
             </td>
             <td
-              class="c15 fi-month-day fi-month-day--disabled"
+              class="c17 fi-month-day fi-month-day--disabled"
             >
               1
             </td>
             <td
-              class="c15 fi-month-day fi-month-day--disabled"
+              class="c17 fi-month-day fi-month-day--disabled"
             >
               2
             </td>
@@ -4925,7 +4985,13 @@ exports[`snapshots match date input with datepicker with controlled input value 
           tabindex="0"
           type="button"
         >
+          <span
+            class="c4 fi-button_icon"
+          />
           Sulje
+          <span
+            class="c4 fi-button_icon fi-button_icon--right"
+          />
         </button>
       </div>
     </div>
@@ -4939,6 +5005,78 @@ exports[`snapshots match date input with datepicker with controlled input value 
 `;
 
 exports[`snapshots match date input with datepicker with smallScreen 1`] = `
+.c8 {
+  vertical-align: baseline;
+}
+
+.c8.fi-icon {
+  display: inline-block;
+}
+
+.c8 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c8 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c8.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c8.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c15 {
+  vertical-align: baseline;
+}
+
+.c15.fi-icon {
+  display: inline-block;
+}
+
+.c15 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c15 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c15.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c15.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c14 {
+  vertical-align: baseline;
+}
+
+.c14.fi-icon {
+  display: inline-block;
+}
+
+.c14 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c14 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c14.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c14.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -5110,30 +5248,6 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 .c4::before,
 .c4::after {
   box-sizing: border-box;
-}
-
-.c8 {
-  vertical-align: baseline;
-}
-
-.c8.fi-icon {
-  display: inline-block;
-}
-
-.c8 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c8 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c8.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c8.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c13 {
@@ -5340,17 +5454,17 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   background-color: hsl(202,7%,97%);
 }
 
-.c13 > .fi-button_icon {
+.c13 > .fi-button_icon > .fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c13 > .fi-button_icon.fi-button_icon--right {
+.c13 > .fi-button_icon--right > .fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
@@ -5359,40 +5473,40 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   cursor: not-allowed;
 }
 
-.c15.fi-month-day {
+.c17.fi-month-day {
   padding: 1px;
   text-align: center;
   min-width: 36px;
   height: 38px;
 }
 
-.c15.fi-month-day--disabled {
+.c17.fi-month-day--disabled {
   color: hsl(202,7%,67%);
 }
 
-.c15 .fi-month-day_current {
+.c17 .fi-month-day_current {
   margin: 0 6px;
   padding: 3px 0;
   border-bottom: 1px solid hsl(202,7%,67%);
   text-align: center;
 }
 
-.c15 .fi-month-day_button_current {
+.c17 .fi-month-day_button_current {
   margin: 0 6px;
   padding: 3px 0;
   border-bottom: 1px solid hsl(0,0%,13%);
   text-align: center;
 }
 
-.c15 .fi-month-day_button--disabled {
+.c17 .fi-month-day_button--disabled {
   color: hsl(202,7%,67%);
 }
 
-.c15 .fi-month-day_button--disabled .fi-month-day_button_current {
+.c17 .fi-month-day_button--disabled .fi-month-day_button_current {
   border-bottom: 1px solid hsl(202,7%,67%);
 }
 
-.c15 .fi-month-day_button {
+.c17 .fi-month-day_button {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -5413,13 +5527,13 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   text-align: center;
 }
 
-.c15 .fi-month-day_button:focus {
+.c17 .fi-month-day_button:focus {
   box-shadow: none;
   position: relative;
   outline: 3px solid transparent;
 }
 
-.c15 .fi-month-day_button:focus:after {
+.c17 .fi-month-day_button:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -5435,16 +5549,16 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   z-index: 9999;
 }
 
-.c15 .fi-month-day_button:not(.fi-month-day_button--disabled):hover {
+.c17 .fi-month-day_button:not(.fi-month-day_button--disabled):hover {
   background-color: hsl(212,63%,45%);
   color: hsl(0,0%,100%);
 }
 
-.c15 .fi-month-day_button:not(.fi-month-day_button--disabled):hover .fi-month-day_button_current {
+.c17 .fi-month-day_button:not(.fi-month-day_button--disabled):hover .fi-month-day_button_current {
   border-bottom: 1px solid hsl(0,0%,100%);
 }
 
-.c15 .fi-month-day_button--selected {
+.c17 .fi-month-day_button--selected {
   border: 1px solid hsl(212,63%,45%);
   background-color: hsl(212,63%,95%);
   -webkit-text-decoration: none;
@@ -5452,12 +5566,12 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   font-weight: 600;
 }
 
-.c15 .fi-month-day_button--selected:focus {
+.c17 .fi-month-day_button--selected:focus {
   box-shadow: none;
   position: relative;
 }
 
-.c15 .fi-month-day_button--selected:focus:after {
+.c17 .fi-month-day_button--selected:focus:after {
   content: '';
   position: absolute;
   pointer-events: none;
@@ -5473,11 +5587,11 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   z-index: 9999;
 }
 
-.c15 .fi-month-day_button--selected:hover {
+.c17 .fi-month-day_button--selected:hover {
   font-weight: 400;
 }
 
-.c14.fi-month-table {
+.c16.fi-month-table {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -5495,7 +5609,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   margin-bottom: 10px;
 }
 
-.c14 .fi-month-table_thead-cell {
+.c16 .fi-month-table_thead-cell {
   padding: 1px;
   text-align: center;
   min-width: 36px;
@@ -6249,7 +6363,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               >
                 <path
                   class="fi-icon-base-fill"
-                  d="M16 0a1 1 0 01.993.883L17 1v1h5c1.052 0 1.918.817 1.995 1.85L24 4v18a2.003 2.003 0 01-1.851 1.995L22 24H2a2.002 2.002 0 01-1.994-1.85L0 22V4c0-1.053.817-1.918 1.851-1.995L2.001 2h5V1A1 1 0 018.992.883L9 1v1h6V1a1 1 0 011-1zM7 4H2v18h19.997L22 4h-5v1a1 1 0 01-1.993.117L15 5V4H9v1a1 1 0 01-1.993.117L7 5V4zm12 10a1 1 0 01.993.883L20 15v2a1 1 0 01-.883.993L19 18h-2a1 1 0 01-.993-.883L16 17v-2a1 1 0 01.883-.993L17 14h2zM7 14a1 1 0 01.993.883L8 15v2a1 1 0 01-.883.993L7 18H5a1 1 0 01-.993-.883L4 17v-2a1 1 0 01.883-.993L5 14h2zm6 0a1 1 0 01.993.883L14 15v2a1 1 0 01-.883.993L13 18h-2a1 1 0 01-.993-.883L10 17v-2a1 1 0 01.883-.993L11 14h2zm6-6a1 1 0 01.993.883L20 9v2a1 1 0 01-.883.993L19 12h-2a1 1 0 01-.993-.883L16 11V9a1 1 0 01.883-.993L17 8h2zM7 8a1 1 0 01.993.883L8 9v2a1 1 0 01-.883.993L7 12H5a1 1 0 01-.993-.883L4 11V9a1 1 0 01.883-.993L5 8h2zm6 0a1 1 0 01.993.883L14 9v2a1 1 0 01-.883.993L13 12h-2a1 1 0 01-.993-.883L10 11V9a1 1 0 01.883-.993L11 8h2z"
+                  d="M16 0a1 1 0 0 1 .993.883L17 1v1h5c1.052 0 1.918.817 1.995 1.85L24 4v18a2.003 2.003 0 0 1-1.851 1.995L22 24H2a2.002 2.002 0 0 1-1.994-1.85L0 22V4c0-1.053.817-1.918 1.851-1.995L2.001 2h5V1A1 1 0 0 1 8.992.883L9 1v1h6V1a1 1 0 0 1 1-1ZM7 4H2v18h19.997L22 4h-5v1a1 1 0 0 1-1.993.117L15 5V4H9v1a1 1 0 0 1-1.993.117L7 5V4Zm12 10a1 1 0 0 1 .993.883L20 15v2a1 1 0 0 1-.883.993L19 18h-2a1 1 0 0 1-.993-.883L16 17v-2a1 1 0 0 1 .883-.993L17 14h2ZM7 14a1 1 0 0 1 .993.883L8 15v2a1 1 0 0 1-.883.993L7 18H5a1 1 0 0 1-.993-.883L4 17v-2a1 1 0 0 1 .883-.993L5 14h2Zm6 0a1 1 0 0 1 .993.883L14 15v2a1 1 0 0 1-.883.993L13 18h-2a1 1 0 0 1-.993-.883L10 17v-2a1 1 0 0 1 .883-.993L11 14h2Zm6-6a1 1 0 0 1 .993.883L20 9v2a1 1 0 0 1-.883.993L19 12h-2a1 1 0 0 1-.993-.883L16 11V9a1 1 0 0 1 .883-.993L17 8h2ZM7 8a1 1 0 0 1 .993.883L8 9v2a1 1 0 0 1-.883.993L7 12H5a1 1 0 0 1-.993-.883L4 11V9a1 1 0 0 1 .883-.993L5 8h2Zm6 0a1 1 0 0 1 .993.883L14 9v2a1 1 0 0 1-.883.993L13 12h-2a1 1 0 0 1-.993-.883L10 11V9a1 1 0 0 1 .883-.993L11 8h2Z"
                   fill="#222"
                   fill-rule="evenodd"
                 />
@@ -6394,9 +6508,12 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               tabindex="0"
               type="button"
             >
+              <span
+                class="c4 fi-button_icon"
+              />
               <svg
                 aria-hidden="true"
-                class="fi-icon c8 fi-date-selectors_month-button_icon"
+                class="fi-icon c14 fi-date-selectors_month-button_icon"
                 focusable="false"
                 height="1em"
                 viewBox="0 0 24 24"
@@ -6405,11 +6522,14 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               >
                 <path
                   class="fi-icon-base-fill"
-                  d="M8.41 12.61a1.298 1.298 0 01-.41-.943c0-.342.137-.683.41-.943l5.6-5.333a1.448 1.448 0 011.98 0 1.287 1.287 0 010 1.885l-4.61 4.39 4.61 4.391a1.287 1.287 0 010 1.885 1.448 1.448 0 01-1.98 0l-5.6-5.333z"
+                  d="M8.41 12.61a1.298 1.298 0 0 1-.41-.943c0-.342.137-.683.41-.943l5.6-5.333a1.448 1.448 0 0 1 1.98 0 1.287 1.287 0 0 1 0 1.885l-4.61 4.39 4.61 4.391a1.287 1.287 0 0 1 0 1.885 1.448 1.448 0 0 1-1.98 0l-5.6-5.333Z"
                   fill="#222"
                   fill-rule="evenodd"
                 />
               </svg>
+              <span
+                class="c4 fi-button_icon fi-button_icon--right"
+              />
             </button>
             <button
               aria-disabled="false"
@@ -6418,9 +6538,12 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               tabindex="0"
               type="button"
             >
+              <span
+                class="c4 fi-button_icon"
+              />
               <svg
                 aria-hidden="true"
-                class="fi-icon c8 fi-date-selectors_month-button_icon"
+                class="fi-icon c15 fi-date-selectors_month-button_icon"
                 focusable="false"
                 height="1em"
                 viewBox="0 0 24 24"
@@ -6429,16 +6552,19 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
               >
                 <path
                   class="fi-icon-base-fill"
-                  d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 01-1.885 0 1.448 1.448 0 010-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 010-1.98 1.287 1.287 0 011.885 0l5.333 5.6z"
+                  d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 0 1-1.885 0 1.448 1.448 0 0 1 0-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 0 1 0-1.98 1.287 1.287 0 0 1 1.885 0l5.333 5.6Z"
                   fill="#222"
                   fill-rule="evenodd"
                 />
               </svg>
+              <span
+                class="c4 fi-button_icon fi-button_icon--right"
+              />
             </button>
           </div>
         </div>
         <table
-          class="c14 fi-month-table"
+          class="c16 fi-month-table"
           role="presentation"
         >
           <thead>
@@ -6483,17 +6609,17 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
           <tbody>
             <tr>
               <td
-                class="c15 fi-month-day fi-month-day--disabled"
+                class="c17 fi-month-day fi-month-day--disabled"
               >
                 30
               </td>
               <td
-                class="c15 fi-month-day fi-month-day--disabled"
+                class="c17 fi-month-day fi-month-day--disabled"
               >
                 31
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-current="date"
@@ -6515,7 +6641,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6532,7 +6658,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6549,7 +6675,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6566,7 +6692,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6585,7 +6711,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
             </tr>
             <tr>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6602,7 +6728,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6619,7 +6745,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6636,7 +6762,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6653,7 +6779,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6670,7 +6796,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6687,7 +6813,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6706,7 +6832,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
             </tr>
             <tr>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6723,7 +6849,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6740,7 +6866,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6756,7 +6882,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6773,7 +6899,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6790,7 +6916,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6807,7 +6933,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6826,7 +6952,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
             </tr>
             <tr>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6843,7 +6969,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6860,7 +6986,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6877,7 +7003,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6894,7 +7020,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6911,7 +7037,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6928,7 +7054,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6947,7 +7073,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
             </tr>
             <tr>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6964,7 +7090,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6981,7 +7107,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -6998,7 +7124,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -7015,7 +7141,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day"
+                class="c17 fi-month-day"
               >
                 <button
                   aria-disabled="false"
@@ -7032,12 +7158,12 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
                 </button>
               </td>
               <td
-                class="c15 fi-month-day fi-month-day--disabled"
+                class="c17 fi-month-day fi-month-day--disabled"
               >
                 1
               </td>
               <td
-                class="c15 fi-month-day fi-month-day--disabled"
+                class="c17 fi-month-day fi-month-day--disabled"
               >
                 2
               </td>
@@ -7053,7 +7179,13 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
             tabindex="0"
             type="button"
           >
+            <span
+              class="c4 fi-button_icon"
+            />
             Sulje
+            <span
+              class="c4 fi-button_icon fi-button_icon--right"
+            />
           </button>
         </div>
       </div>

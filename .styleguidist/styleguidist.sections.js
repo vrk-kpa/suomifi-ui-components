@@ -66,6 +66,10 @@ module.exports = {
           content: './.styleguidist/colors.md',
         },
         {
+          name: 'Icons',
+          content: './.styleguidist/icons.md',
+        },
+        {
           name: 'Typography',
           content: './.styleguidist/typography.md',
         },
@@ -162,7 +166,7 @@ module.exports = {
         },
         {
           name: 'Icon',
-          components: getComponents(['Icon', 'StaticIcon', 'LogoIcon']),
+          content: './.styleguidist/icon.md',
         },
         {
           name: 'MultiSelect',

@@ -1,11 +1,11 @@
 import React, { forwardRef, ReactNode, useState } from 'react';
-import { HtmlButton, HtmlDiv, HtmlNav, HtmlUl } from '../../../../reset';
 import styled from 'styled-components';
-import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
-import { baseStyles } from './WizardNavigation.baseStyles';
 import classnames from 'classnames';
-import { Icon } from '../../../Icon/Icon';
+import { IconChevronDown, IconChevronRight } from 'suomifi-icons';
+import { HtmlButton, HtmlDiv, HtmlNav, HtmlUl } from '../../../../reset';
+import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
 import { getConditionalAriaProp } from '../../../../utils/aria';
+import { baseStyles } from './WizardNavigation.baseStyles';
 
 export interface WizardNavigationProps {
   /** Use the `<WizardNavigationItem>` components as children */
@@ -67,7 +67,7 @@ const BaseWizardNavigation = ({
           aria-expanded={smallScreenNavOpen}
         >
           {heading}
-          <Icon icon={smallScreenNavOpen ? 'chevronDown' : 'chevronRight'} />
+          {smallScreenNavOpen ? <IconChevronDown /> : <IconChevronRight />}
         </HtmlButton>
       ) : (
         <HtmlDiv className={headingClassName}>{heading}</HtmlDiv>

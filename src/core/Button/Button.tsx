@@ -2,8 +2,7 @@ import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './Button.baseStyles';
-import { HtmlButton, HtmlButtonProps } from '../../reset';
-import { Icon, IconProps, BaseIconKeys } from '../Icon/Icon';
+import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
 
 type ButtonVariant =
@@ -42,15 +41,11 @@ export interface ButtonProps
   /**
    * Icon from suomifi-theme
    */
-  icon?: BaseIconKeys;
+  icon?: ReactNode;
   /**
    * Icon from suomifi-theme to be placed on right side
    */
-  iconRight?: BaseIconKeys;
-  /**
-   * Properties given to Icon-component
-   */
-  iconProps?: IconProps;
+  iconRight?: ReactNode;
   /** Event handler to execute when clicked
    *  @default void
    */
@@ -76,12 +71,10 @@ class BaseButton extends Component<ButtonProps> {
       'aria-disabled': ariaDisabled = false,
       icon,
       iconRight,
-      iconProps = { className: undefined },
       forwardedRef,
       children,
       ...passProps
     } = this.props;
-    const { className: iconPropsClassName, ...passIconProps } = iconProps;
     const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
 
     return (
@@ -102,29 +95,11 @@ class BaseButton extends Component<ButtonProps> {
           [fullWidthClassName]: fullWidth,
         })}
       >
-        {!!icon && (
-          <Icon
-            {...passIconProps}
-            mousePointer={true}
-            icon={icon}
-            color="currentColor"
-            className={classnames(iconClassName, iconPropsClassName)}
-          />
-        )}
+        <HtmlSpan className={iconClassName}>{!!icon && icon}</HtmlSpan>
         {children}
-        {!!iconRight && (
-          <Icon
-            {...passIconProps}
-            mousePointer={true}
-            icon={iconRight}
-            color="currentColor"
-            className={classnames(
-              iconClassName,
-              iconRightClassName,
-              iconPropsClassName,
-            )}
-          />
-        )}
+        <HtmlSpan className={classnames(iconClassName, iconRightClassName)}>
+          {!!iconRight && iconRight}
+        </HtmlSpan>
       </HtmlButton>
     );
   }

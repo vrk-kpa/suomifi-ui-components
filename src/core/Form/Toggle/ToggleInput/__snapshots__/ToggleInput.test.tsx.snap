@@ -355,7 +355,7 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="c4 fi-toggle_icon c5"
+        class="fi-icon c4 fi-toggle_icon c5"
         focusable="false"
         height="1em"
         viewBox="0 0 37 20"
@@ -382,7 +382,7 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
           />
           <path
             class="fi-icon-toggle-checkmark"
-            d="M31.724 7.692L26 13.71a.91.91 0 01-1.333 0l-2.391-2.512a1.03 1.03 0 010-1.403.911.911 0 011.333 0l1.724 1.813 5.057-5.316a.91.91 0 011.334 0 1.026 1.026 0 010 1.401"
+            d="M31.724 7.692 26 13.71a.91.91 0 0 1-1.333 0l-2.391-2.512a1.03 1.03 0 0 1 0-1.403.911.911 0 0 1 1.333 0l1.724 1.813 5.057-5.316a.91.91 0 0 1 1.334 0 1.026 1.026 0 0 1 0 1.401"
           />
         </g>
       </svg>

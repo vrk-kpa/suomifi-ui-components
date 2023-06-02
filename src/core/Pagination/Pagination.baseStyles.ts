@@ -21,7 +21,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         padding-left: 0;
         padding-right: 0;
 
-        & > .fi-button_icon {
+        & > .fi-button_icon > .fi-icon {
           margin-right: auto;
           margin-left: auto;
         }
