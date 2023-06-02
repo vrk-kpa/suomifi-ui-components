@@ -26,6 +26,7 @@ const labelTextForTooltipExample = 'Textarea with a tooltip';
     ariaCharactersExceededText={(amount) =>
       `You have ${amount} characters too many`
     }
+    characterCountExceededErrorText="Description must be 30 characters or less"
     fullWidth
   >
     Lorem ipsum dolor sit amet

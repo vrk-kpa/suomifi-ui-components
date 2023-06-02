@@ -96,6 +96,7 @@ export interface TextareaProps
   maxLength?: number;
   ariaCharactersRemainingText?: (amount: number) => string;
   ariaCharactersExceededText?: (amount: number) => string;
+  characterCountExceededErrorText?: string;
   /** Ref is passed to the textarea element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLTextAreaElement>;
 }
@@ -125,6 +126,7 @@ const BaseTextarea = (props: TextareaProps) => {
     maxLength,
     ariaCharactersRemainingText,
     ariaCharactersExceededText,
+    characterCountExceededErrorText,
     ...passProps
   } = props;
 
@@ -159,6 +161,21 @@ const BaseTextarea = (props: TextareaProps) => {
     if (!!onChangeProp) {
       onChangeProp(event);
     }
+  };
+
+  const getStatusText = () => {
+    let returnVal = '';
+    if (statusText) {
+      returnVal = statusText;
+    }
+    if (characterLimitExceeded && characterCountExceededErrorText) {
+      if (returnVal === '') {
+        returnVal = characterCountExceededErrorText;
+      } else {
+        returnVal += `. ${characterCountExceededErrorText}`;
+      }
+    }
+    return returnVal;
   };
 
   // Remove the possibility to have undefined forwardedRef as a parameter for forkRefs
@@ -217,9 +234,7 @@ const BaseTextarea = (props: TextareaProps) => {
           disabled={disabled}
           ariaLiveMode={statusTextAriaLiveMode}
         >
-          {characterLimitExceeded
-            ? 'Description must be 30 characters or less'
-            : statusText}
+          {getStatusText()}
         </StatusText>
         {maxLength &&
           ariaCharactersRemainingText &&
