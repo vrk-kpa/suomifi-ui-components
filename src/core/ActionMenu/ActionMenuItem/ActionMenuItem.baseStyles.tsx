@@ -42,6 +42,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       cursor: not-allowed;
       color: ${theme.colors.depthBase};
 
+      @media (forced-colors: active) {
+        color: GrayText;
+      }
+
       &:active,
       &:focus,
       &:hover,
@@ -81,5 +85,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-action-menu-item--selected.fi-action-menu-item--disabled {
     cursor: not-allowed;
     color: ${theme.colors.depthBase};
+
+    @media (forced-colors: active) {
+      color: GrayText;
+    }
   }
 `;
