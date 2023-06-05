@@ -602,6 +602,12 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
+  .c7.fi-action-menu-item--disabled {
+    color: GrayText;
+  }
+}
+
+@media (forced-colors:active) {
   .c7.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
@@ -609,6 +615,12 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
     top: 1px;
     bottom: 1px;
     border: solid 3px Highlight;
+  }
+}
+
+@media (forced-colors:active) {
+  .c7.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+    color: GrayText;
   }
 }
 
@@ -1321,6 +1333,12 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
+  .c7.fi-action-menu-item--disabled {
+    color: GrayText;
+  }
+}
+
+@media (forced-colors:active) {
   .c7.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
@@ -1328,6 +1346,12 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
     top: 1px;
     bottom: 1px;
     border: solid 3px Highlight;
+  }
+}
+
+@media (forced-colors:active) {
+  .c7.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+    color: GrayText;
   }
 }
 
@@ -2040,6 +2064,12 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
+  .c7.fi-action-menu-item--disabled {
+    color: GrayText;
+  }
+}
+
+@media (forced-colors:active) {
   .c7.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
@@ -2047,6 +2077,12 @@ exports[`No borders variant should match snapshot 1`] = `
     top: 1px;
     bottom: 1px;
     border: solid 3px Highlight;
+  }
+}
+
+@media (forced-colors:active) {
+  .c7.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+    color: GrayText;
   }
 }
 
@@ -2760,6 +2796,12 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
+  .c7.fi-action-menu-item--disabled {
+    color: GrayText;
+  }
+}
+
+@media (forced-colors:active) {
   .c7.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
@@ -2767,6 +2809,12 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
     top: 1px;
     bottom: 1px;
     border: solid 3px Highlight;
+  }
+}
+
+@media (forced-colors:active) {
+  .c7.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+    color: GrayText;
   }
 }
 
@@ -3480,6 +3528,12 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 @media (forced-colors:active) {
+  .c7.fi-action-menu-item--disabled {
+    color: GrayText;
+  }
+}
+
+@media (forced-colors:active) {
   .c7.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
@@ -3487,6 +3541,12 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
     top: 1px;
     bottom: 1px;
     border: solid 3px Highlight;
+  }
+}
+
+@media (forced-colors:active) {
+  .c7.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+    color: GrayText;
   }
 }
 
