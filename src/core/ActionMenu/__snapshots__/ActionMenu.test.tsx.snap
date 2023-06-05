@@ -543,7 +543,6 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 .c7.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
-  pointer-events: none;
 }
 
 .c7.fi-action-menu-item--disabled:active,
@@ -1263,7 +1262,6 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 .c7.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
-  pointer-events: none;
 }
 
 .c7.fi-action-menu-item--disabled:active,
@@ -1983,7 +1981,6 @@ exports[`No borders variant should match snapshot 1`] = `
 .c7.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
-  pointer-events: none;
 }
 
 .c7.fi-action-menu-item--disabled:active,
@@ -2704,7 +2701,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 .c7.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
-  pointer-events: none;
 }
 
 .c7.fi-action-menu-item--disabled:active,
@@ -3425,7 +3421,6 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 .c7.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
-  pointer-events: none;
 }
 
 .c7.fi-action-menu-item--disabled:active,
