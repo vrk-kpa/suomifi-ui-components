@@ -1692,7 +1692,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 .c7.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
-  pointer-events: none;
 }
 
 .c7.fi-action-menu-item--disabled:active,
@@ -1811,7 +1810,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         tabindex="-1"
       >
         <div
-          aria-activedescendant="test-id-menu-item-0"
           aria-labelledby="test-id"
           class="c5 fi-action-menu-popover_list"
           id="test-id-menu"
@@ -2410,7 +2408,6 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 .c7.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
-  pointer-events: none;
 }
 
 .c7.fi-action-menu-item--disabled:active,
@@ -2529,7 +2526,6 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
         tabindex="-1"
       >
         <div
-          aria-activedescendant="test-id-menu-item-0"
           aria-labelledby="test-id"
           class="c5 fi-action-menu-popover_list"
           id="test-id-menu"
