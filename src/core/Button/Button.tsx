@@ -10,13 +10,13 @@ export type ButtonVariant =
   | 'inverted'
   | 'secondary'
   | 'secondaryNoBorder'
-  | 'link';
+  | 'secondaryLight';
 
 export interface ButtonProps
   extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'> {
   /**
    * Variant for Button
-   * 'default' | 'inverted' | 'secondary' | 'secondaryNoBorder' | 'link'
+   * 'default' | 'inverted' | 'secondary' | 'secondaryNoBorder' | 'secondaryLight'
    * @default default
    */
   variant?: ButtonVariant;
@@ -92,7 +92,7 @@ class BaseButton extends Component<ButtonProps> {
           [`${baseClassName}--secondary`]: variant === 'secondary',
           [`${baseClassName}--secondary-noborder`]:
             variant === 'secondaryNoBorder',
-          [`${baseClassName}--link`]: variant === 'link',
+          [`${baseClassName}--secondary-light`]: variant === 'secondaryLight',
           [fullWidthClassName]: fullWidth,
         })}
       >
@@ -113,7 +113,6 @@ const StyledButton = styled(
 )`
   ${({ theme }) => baseStyles(theme)}
 `;
-
 /**
  * <i class="semantics" />
  * Use for inside Application onClick events.<br />

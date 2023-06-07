@@ -35,7 +35,7 @@ export const MultiSelectRemoveAllButton = <T extends MultiSelectData>(
   return showRemoveAllButton ? (
     <Button
       className={className}
-      variant="link"
+      variant="secondaryLight"
       icon={<IconRemove />}
       onClick={onClick}
       {...passProps}

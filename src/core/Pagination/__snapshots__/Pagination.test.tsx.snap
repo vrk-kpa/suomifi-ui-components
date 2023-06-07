@@ -731,7 +731,7 @@ exports[`snapshot should have matching default structure 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c6.fi-button--link {
+.c6.fi-button--secondary-light {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
   background: none;
@@ -742,18 +742,18 @@ exports[`snapshot should have matching default structure 1`] = `
   border: none;
 }
 
-.c6.fi-button--link:hover {
+.c6.fi-button--secondary-light:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
-.c6.fi-button--link:active {
+.c6.fi-button--secondary-light:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c6.fi-button--link.fi-button--disabled,
-.c6.fi-button--link[disabled],
-.c6.fi-button--link:disabled {
+.c6.fi-button--secondary-light.fi-button--disabled,
+.c6.fi-button--secondary-light[disabled],
+.c6.fi-button--secondary-light:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -761,17 +761,17 @@ exports[`snapshot should have matching default structure 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c6.fi-button--link:hover {
+.c6.fi-button--secondary-light:hover {
   background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
 
-.c6.fi-button--link:active {
+.c6.fi-button--secondary-light:active {
   background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
 }
 
-.c6.fi-button--link.fi-button--disabled,
-.c6.fi-button--link[disabled],
-.c6.fi-button--link:disabled {
+.c6.fi-button--secondary-light.fi-button--disabled,
+.c6.fi-button--secondary-light[disabled],
+.c6.fi-button--secondary-light:disabled {
   color: hsl(202,7%,67%);
   background: none;
   background-color: hsl(202,7%,97%);
