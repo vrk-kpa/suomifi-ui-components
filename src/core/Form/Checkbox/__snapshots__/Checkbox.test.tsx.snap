@@ -194,6 +194,7 @@ exports[`props children has matching snapshot 1`] = `
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
+  outline: 2px solid transparent;
 }
 
 .c1 .fi-checkbox_input {

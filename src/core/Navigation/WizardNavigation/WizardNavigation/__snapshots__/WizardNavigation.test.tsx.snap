@@ -339,6 +339,7 @@ exports[`calling render with the same component on the same container does not r
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
+  outline: 3px solid transparent;
 }
 
 .c5.fi-wizard-navigation-item .fi-wizard-navigation-item_inner-wrapper {
@@ -787,6 +788,7 @@ exports[`calling render with the same component on the same container does not r
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
+  outline: 3px solid transparent;
 }
 
 .c8.fi-link--router:hover,

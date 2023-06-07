@@ -619,6 +619,7 @@ exports[`props children should match snapshot 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
+  outline: 3px solid transparent;
 }
 
 .c1.fi-notification .fi-notification_close-button:active {
@@ -687,6 +688,12 @@ exports[`props children should match snapshot 1`] = `
   width: 100%;
   margin-top: 15px;
   margin-right: 0;
+}
+
+@media (forced-colors:active) {
+  .c1 {
+    border: solid 1px ButtonBorder;
+  }
 }
 
 <div>

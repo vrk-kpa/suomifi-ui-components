@@ -313,6 +313,7 @@ exports[`Basic ToggleInput should match snapshot 1`] = `
   border-radius: 14px;
   right: -4px;
   left: -4px;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-toggle_input-element {

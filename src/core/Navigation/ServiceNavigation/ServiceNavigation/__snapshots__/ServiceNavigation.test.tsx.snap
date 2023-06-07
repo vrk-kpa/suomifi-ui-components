@@ -252,7 +252,7 @@ exports[`should match snapshot 1`] = `
 }
 
 .c1.fi-service-navigation--small-screen .fi-service-navigation_expand-button:focus {
-  outline: 0;
+  outline: 3px solid transparent;
 }
 
 .c1.fi-service-navigation--small-screen .fi-service-navigation_expand-button:focus:after {
@@ -348,10 +348,10 @@ exports[`should match snapshot 1`] = `
 }
 
 .c5.fi-service-navigation-item .fi-link--router:focus {
-  outline: 0;
   border: none;
   box-shadow: none;
   color: hsl(0,0%,13%);
+  outline: 3px solid transparent;
 }
 
 .c5.fi-service-navigation-item .fi-link--router:hover,
@@ -492,6 +492,7 @@ exports[`should match snapshot 1`] = `
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
+  outline: 3px solid transparent;
 }
 
 .c10.fi-link:hover,
@@ -566,6 +567,7 @@ exports[`should match snapshot 1`] = `
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
+  outline: 3px solid transparent;
 }
 
 .c7.fi-link--router:hover,

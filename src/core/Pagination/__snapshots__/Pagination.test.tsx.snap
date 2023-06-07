@@ -399,6 +399,7 @@ exports[`snapshot should have matching default structure 1`] = `
 .c9 .fi-page-input_input-element-container:focus-within {
   position: relative;
   box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
+  outline: 3px solid transparent;
 }
 
 .c9 .fi-page-input_input-element-container:focus-within:after {
@@ -555,6 +556,7 @@ exports[`snapshot should have matching default structure 1`] = `
   box-sizing: border-box;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   z-index: 9999;
+  outline: 3px solid transparent;
 }
 
 .c9.fi-page-input--not-empty .fi-page-input_button:hover {
@@ -594,10 +596,10 @@ exports[`snapshot should have matching default structure 1`] = `
   text-align: center;
   text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .c6:focus {
-  outline: none;
   position: relative;
 }
 
@@ -619,6 +621,7 @@ exports[`snapshot should have matching default structure 1`] = `
 
 .c6:hover {
   background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  outline: 2px solid transparent;
 }
 
 .c6:active {
@@ -894,6 +897,12 @@ exports[`snapshot should have matching default structure 1`] = `
   min-width: 100%;
   margin-left: 0;
   margin-right: 0;
+}
+
+@media (forced-colors:active) {
+  .c8.fi-page-input--not-empty .fi-page-input_button {
+    background-color: Highlight;
+  }
 }
 
 <nav
