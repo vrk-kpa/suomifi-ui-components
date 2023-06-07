@@ -65,7 +65,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     cursor: pointer;
 
     &:focus {
-      outline: 0;
+      outline: 3px solid transparent; /* For high contrast mode */
       position: relative;
 
       &:after {

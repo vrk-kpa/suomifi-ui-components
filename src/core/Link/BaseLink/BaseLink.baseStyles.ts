@@ -18,6 +18,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &:focus {
       ${theme.focuses.boxShadowFocus}
+      outline: 3px solid transparent;
     }
 
     &:hover,

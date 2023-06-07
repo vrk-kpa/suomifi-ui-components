@@ -37,8 +37,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         white-space: nowrap;
 
         &:focus-visible {
-          outline: 0;
           position: relative;
+          outline: 3px solid transparent; /* For high contrast mode */
 
           &:after {
             ${theme.focuses.absoluteFocus}

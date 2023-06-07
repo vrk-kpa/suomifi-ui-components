@@ -18,6 +18,7 @@ export const RouterLinkStyles = (theme: SuomifiTheme) => css`
 
     &:focus {
       ${theme.focuses.boxShadowFocus}
+      outline: 3px solid transparent; /* For high contrast mode */
     }
 
     &:hover,

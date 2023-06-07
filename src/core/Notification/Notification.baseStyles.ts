@@ -10,6 +10,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   border-radius: 4px;
   padding-bottom: 10px;
 
+  @media (forced-colors: active) {
+    border: solid 1px ButtonBorder; /* For high contrast mode */
+  }
+
   &.fi-notification {
     background-color: ${theme.colors.whiteBase};
     display: flex;
@@ -81,6 +85,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
         &:after {
           ${theme.focuses.absoluteFocus}
+          outline: 3px solid transparent; /* For high contrast mode */
         }
       }
       &:active {

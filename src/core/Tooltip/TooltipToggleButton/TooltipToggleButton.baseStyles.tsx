@@ -9,7 +9,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   vertical-align: middle;
 
   &:focus-visible {
-    outline: 0;
+    outline: 3px solid transparent; /* For hight contrast mode */
     position: relative;
     &:after {
       ${theme.focuses.absoluteFocus}

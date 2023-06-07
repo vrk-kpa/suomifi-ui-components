@@ -105,9 +105,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   text-align: center;
   text-shadow: ${theme.shadows.invertTextShadow};
   cursor: pointer;
+  border: 1px solid transparent; /* For high contrast mode */
 
   &:focus {
-    outline: none;
     position: relative;
 
     &::after {
@@ -117,6 +117,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   &:hover {
     background: ${theme.gradients.highlightLight1ToHighlightBase};
+    outline: 2px solid transparent; /* For high contrast mode */
   }
 
   &:active {

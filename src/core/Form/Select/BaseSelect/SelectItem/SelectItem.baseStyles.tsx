@@ -37,6 +37,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       background-color: ${theme.colors.highlightBase};
       color: ${theme.colors.whiteBase};
 
+      @media (forced-colors: active) {
+        background-color: Highlight;
+      }
+
       & .fi-select-item--query_highlight {
         color: ${theme.colors.whiteBase};
         background-color: ${theme.colors.highlightBase};
@@ -47,14 +51,27 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       color: ${theme.colors.depthBase};
       cursor: not-allowed;
 
+      @media (forced-colors: active) {
+        color: GrayText; /* Support for high contrast mode */
+      }
+
       & .fi-select-item--query_highlight {
         color: ${theme.colors.depthBase};
+        @media (forced-colors: active) {
+          color: GrayText;
+        }
       }
 
       &.fi-select-item:hover {
         color: ${theme.colors.depthBase};
+        @media (forced-colors: active) {
+          color: GrayText;
+        }
         & .fi-select-item--query_highlight {
           color: ${theme.colors.depthBase};
+          @media (forced-colors: active) {
+            color: GrayText;
+          }
         }
       }
     }
@@ -65,6 +82,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       /* stylelint-disable no-descending-specificity */
       & .fi-select-item--query_highlight {
         color: ${theme.colors.whiteBase};
+      }
+
+      @media (forced-colors: active) {
+        background-color: Highlight;
       }
     }
   }
