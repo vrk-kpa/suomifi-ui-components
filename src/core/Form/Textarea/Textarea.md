@@ -5,20 +5,27 @@ import {
   Heading,
   Text
 } from 'suomifi-ui-components';
-import React from 'react';
+import React, { useState } from 'react';
 
-const exampleRef = React.createRef();
+const [isError, setIsError] = useState(false);
+const [statusText, setStatusText] = useState('');
 
-const labelTextForTooltipExample = 'Textarea with a tooltip';
+const validateText = (text) => {
+  if (text.length > 30) {
+    setIsError(true);
+    // Tässä yhteydessä voi myös laittaa muut mahdolliset päällä olevat virheilmoitukset samaan rimpsuun
+    setStatusText('Description must be 30 characters or less');
+  } else {
+    setIsError(false);
+    setStatusText('');
+  }
+};
 
 <>
   <Textarea
     hintText="Plase provide details pertaining to the case"
     labelText="Description"
-    ref={exampleRef}
-    onChange={() => {
-      console.log(exampleRef.current);
-    }}
+    onChange={() => validateText(event.target.value)}
     maxLength={30}
     ariaCharactersRemainingText={(amount) =>
       `You have ${amount} characters remaining`
@@ -26,7 +33,8 @@ const labelTextForTooltipExample = 'Textarea with a tooltip';
     ariaCharactersExceededText={(amount) =>
       `You have ${amount} characters too many`
     }
-    characterCountExceededErrorText="Description must be 30 characters or less"
+    statusText={statusText}
+    status={isError ? 'error' : 'default'}
     fullWidth
   >
     Lorem ipsum dolor sit amet
