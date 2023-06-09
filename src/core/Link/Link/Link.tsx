@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import { IconChevronRight } from 'suomifi-icons';
 import { LinkStyles } from '../Link/Link.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlA } from '../../../reset';
-import { Icon } from '../../Icon/Icon';
 import {
   BaseLinkProps,
   baseClassName,
@@ -37,8 +37,7 @@ const StyledLink = styled(
       as={asProp}
     >
       {variant === 'accent' && (
-        <Icon
-          icon="chevronRight"
+        <IconChevronRight
           color={theme.colors.accentBase}
           className={linkClassNames.accentIcon}
         />

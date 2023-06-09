@@ -2,8 +2,8 @@
 import React, { forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import { RouterLinkStyles } from './RouterLink.baseStyles';
+import { IconChevronRight } from 'suomifi-icons';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { Icon } from '../../Icon/Icon';
 import {
   baseClassName,
   linkClassNames,
@@ -133,7 +133,7 @@ const PolymorphicLink = <C extends React.ElementType>(
     return (
       <Component className={classNames} ref={forwardedRef} {...passProps}>
         {variant === 'accent' && (
-          <Icon icon="chevronRight" color={theme.colors.accentBase} />
+          <IconChevronRight color={theme.colors.accentBase} />
         )}
         {children}
       </Component>

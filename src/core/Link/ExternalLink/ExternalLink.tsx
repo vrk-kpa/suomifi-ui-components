@@ -2,7 +2,7 @@ import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { IconLinkExternal } from 'suomifi-icons';
+import { IconChevronRight, IconLinkExternal } from 'suomifi-icons';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { ExternalLinkStyles } from './ExternalLink.baseStyles';
 import { HtmlA } from '../../../reset';
@@ -66,8 +66,7 @@ class BaseExternalLink extends Component<ExternalLinkProps & SuomifiThemeProp> {
         as={asProp}
       >
         {variant === 'accent' && (
-          <Icon
-            icon="chevronRight"
+          <IconChevronRight
             color={theme.colors.accentBase}
             className={linkClassNames.accentIcon}
           />
