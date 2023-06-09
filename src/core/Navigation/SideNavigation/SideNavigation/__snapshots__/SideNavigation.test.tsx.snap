@@ -650,24 +650,13 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   margin-left: -3px;
   margin-right: 2px;
-  -webkit-transform: translateY(0.1em);
-  -ms-transform: translateY(0.1em);
-  transform: translateY(0.1em);
+  -webkit-transform: translateY(0.15em);
+  -ms-transform: translateY(0.15em);
+  transform: translateY(0.15em);
 }
 
 .c11.fi-link.fi-link--small {
   font-size: 16px;
-}
-
-.c11.fi-link.fi-link--small.fi-link--accent {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c11.fi-link.fi-link--small.fi-link--accent .fi-link--accent_icon {
-  -webkit-transform: translateY(0.15em);
-  -ms-transform: translateY(0.15em);
-  transform: translateY(0.15em);
 }
 
 .c11 .fi-link_icon {
@@ -768,24 +757,13 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   margin-left: -3px;
   margin-right: 2px;
-  -webkit-transform: translateY(0.1em);
-  -ms-transform: translateY(0.1em);
-  transform: translateY(0.1em);
+  -webkit-transform: translateY(0.15em);
+  -ms-transform: translateY(0.15em);
+  transform: translateY(0.15em);
 }
 
 .c9.fi-link.fi-link--small {
   font-size: 16px;
-}
-
-.c9.fi-link.fi-link--small.fi-link--accent {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c9.fi-link.fi-link--small.fi-link--accent .fi-link--accent_icon {
-  -webkit-transform: translateY(0.15em);
-  -ms-transform: translateY(0.15em);
-  transform: translateY(0.15em);
 }
 
 <div

@@ -1,6 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Simple link list with one item should match snapshot 1`] = `
+.c5 {
+  vertical-align: baseline;
+}
+
+.c5.fi-icon {
+  display: inline-block;
+}
+
+.c5 .fi-icon-base-fill {
+  fill: hsl(212,63%,45%);
+}
+
+.c5 .fi-icon-base-stroke {
+  stroke: hsl(212,63%,45%);
+}
+
+.c5.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c5.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -122,30 +146,6 @@ exports[`Simple link list with one item should match snapshot 1`] = `
 .c0::before,
 .c0::after {
   box-sizing: border-box;
-}
-
-.c5 {
-  vertical-align: baseline;
-}
-
-.c5.fi-icon {
-  display: inline-block;
-}
-
-.c5 .fi-icon-base-fill {
-  fill: hsl(212,63%,45%);
-}
-
-.c5 .fi-icon-base-stroke {
-  stroke: hsl(212,63%,45%);
-}
-
-.c5.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c5.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c3 {
@@ -289,24 +289,13 @@ exports[`Simple link list with one item should match snapshot 1`] = `
   font-size: 16px;
   margin-left: -3px;
   margin-right: 2px;
-  -webkit-transform: translateY(0.1em);
-  -ms-transform: translateY(0.1em);
-  transform: translateY(0.1em);
+  -webkit-transform: translateY(0.15em);
+  -ms-transform: translateY(0.15em);
+  transform: translateY(0.15em);
 }
 
 .c7.fi-link.fi-link--small {
   font-size: 16px;
-}
-
-.c7.fi-link.fi-link--small.fi-link--accent {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c7.fi-link.fi-link--small.fi-link--accent .fi-link--accent_icon {
-  -webkit-transform: translateY(0.15em);
-  -ms-transform: translateY(0.15em);
-  transform: translateY(0.15em);
 }
 
 <body>
@@ -338,7 +327,7 @@ exports[`Simple link list with one item should match snapshot 1`] = `
           >
             <path
               class="fi-icon-base-fill"
-              d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 01-1.885 0 1.448 1.448 0 010-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 010-1.98 1.287 1.287 0 011.885 0l5.333 5.6z"
+              d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 0 1-1.885 0 1.448 1.448 0 0 1 0-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 0 1 0-1.98 1.287 1.287 0 0 1 1.885 0l5.333 5.6Z"
               fill="#222"
               fill-rule="evenodd"
             />
@@ -369,7 +358,7 @@ exports[`Simple link list with one item should match snapshot 1`] = `
           >
             <path
               class="fi-icon-base-fill"
-              d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 01-1.885 0 1.448 1.448 0 010-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 010-1.98 1.287 1.287 0 011.885 0l5.333 5.6z"
+              d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 0 1-1.885 0 1.448 1.448 0 0 1 0-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 0 1 0-1.98 1.287 1.287 0 0 1 1.885 0l5.333 5.6Z"
               fill="#222"
               fill-rule="evenodd"
             />
