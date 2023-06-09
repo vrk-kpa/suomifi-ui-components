@@ -109,6 +109,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   &:focus {
     position: relative;
+    ${theme.focuses.highContrastFocus} /* For high contrast mode */
 
     &::after {
       ${theme.focuses.absoluteFocus}

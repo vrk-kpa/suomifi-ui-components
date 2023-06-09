@@ -119,9 +119,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       pointer-events: all;
       background: ${theme.gradients.highlightBaseToHighlightDark1};
 
-      /* Support for high contrast mode */
       @media (forced-colors: active) {
-        background-color: Highlight;
+        border: solid 1px ButtonBorder;
       }
 
       &:focus {
@@ -138,6 +137,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
       & .fi-page-input_button-icon .fi-icon-base-fill {
         fill: ${theme.colors.whiteBase};
+
+        @media (forced-colors: active) {
+          fill: ButtonText;
+        }
       }
     }
   }

@@ -168,7 +168,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
       /* Support for high contrast mode */
       @media (forced-colors: active) {
-        background-color: Highlight;
+        border: solid 1px ButtonBorder;
       }
 
       &:focus {
@@ -186,6 +186,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
       & .fi-search-input_button-search-icon .fi-icon-base-fill {
         fill: ${theme.colors.whiteBase};
+
+        @media (forced-colors: active) {
+          fill: ButtonText;
+        }
       }
     }
     & .fi-search-input_button-clear {
