@@ -10,8 +10,9 @@ import { baseStyles } from './LanguageMenuPopover.baseStyles';
 
 const baseClassName = 'fi-language-menu-popover';
 
-export const LanguageMenuClassNames = {
+export const languageMenuPopoverClassNames = {
   baseClassName,
+  hidden: `${baseClassName}--hidden`,
   list: `${baseClassName}_list`,
   popperArrow: `${baseClassName}_popper-arrow`,
 };
@@ -28,8 +29,6 @@ export interface InternalLanguageMenuPopoverProps {
   children?: ReactNode;
   /** Id given to menu element */
   menuId: string;
-  /** Id of the menu open button */
-  buttonId: string;
   /** Id of the parent component. Passed further to items to generate their own ids */
   parentId?: string;
   /** Initial active menu item */
@@ -74,6 +73,32 @@ const sameWidth: any = {
   },
 };
 
+const scrollItemList = (
+  elementId: string,
+  wrapperRef: React.RefObject<HTMLDivElement>,
+) => {
+  // 10px reduction to scroll position is required due to container padding.
+  const wrapperOffsetPx = 10;
+  if (wrapperRef !== null && wrapperRef.current !== null) {
+    const elementOffsetTop = document.getElementById(elementId)?.offsetTop || 0;
+    const elementOffsetHeight =
+      document.getElementById(elementId)?.offsetHeight || 0;
+
+    if (elementOffsetTop < wrapperRef.current.scrollTop) {
+      wrapperRef.current.scrollTop = elementOffsetTop - wrapperOffsetPx;
+    } else {
+      const offsetBottom = elementOffsetTop + elementOffsetHeight;
+      const scrollBottom =
+        wrapperRef.current.scrollTop + wrapperRef.current.offsetHeight;
+
+      if (offsetBottom > scrollBottom) {
+        wrapperRef.current.scrollTop =
+          offsetBottom - wrapperRef.current.offsetHeight + wrapperOffsetPx;
+      }
+    }
+  }
+};
+
 export const BaseLanguageMenuPopover = (
   props: InternalLanguageMenuPopoverProps,
 ) => {
@@ -83,7 +108,6 @@ export const BaseLanguageMenuPopover = (
     className,
     children,
     menuId,
-    buttonId,
     parentId,
     initialActiveDescendant,
     isOpen,
@@ -92,6 +116,7 @@ export const BaseLanguageMenuPopover = (
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
   const [dialogElement, setDialogElement] = useState<HTMLElement | null>(null);
   const [activeChild, setActiveChild] = useState<number>(-1);
+  const [preventScroll, setPreventScroll] = useState<boolean>(false);
 
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -106,6 +131,10 @@ export const BaseLanguageMenuPopover = (
         document.addEventListener('keydown', globalKeyDownHandler, {
           capture: true,
         });
+
+        if (!preventScroll) {
+          scrollItemList(`${parentId}-list-item-${activeChild}`, menuRef);
+        }
 
         return () => {
           document.removeEventListener('keydown', globalKeyDownHandler, {
@@ -140,7 +169,6 @@ export const BaseLanguageMenuPopover = (
     setTimeout(() => {
       if (isMounted) {
         if (initialActiveDescendant === 'first') {
-          console.log('asdasd');
           setActiveChild(0);
         } else if (initialActiveDescendant === 'last') {
           setActiveChild(React.Children.count(children) - 1);
@@ -166,7 +194,8 @@ export const BaseLanguageMenuPopover = (
   };
 
   const globalKeyDownHandler = (event: KeyboardEvent) => {
-    console.log(event.key);
+    // First let's make sure scrolling is enabled when using keyboard
+    setPreventScroll(false);
     if (event.key === 'Escape') {
       handleClose();
       event.preventDefault();
@@ -186,15 +215,11 @@ export const BaseLanguageMenuPopover = (
 
     if (event.key === 'ArrowDown') {
       event.preventDefault();
-      console.log(activeChild);
-      console.log(getNextIndex());
       setActiveChild(getNextIndex());
     }
 
     if (event.key === 'ArrowUp') {
       event.preventDefault();
-      console.log(activeChild);
-      console.log(getPreviousIndex());
       setActiveChild(getPreviousIndex());
     }
   };
@@ -263,8 +288,9 @@ export const BaseLanguageMenuPopover = (
 
   return (
     <HtmlDivWithRef
-      role="menu"
-      className={classnames(className, baseClassName)}
+      className={classnames(className, baseClassName, {
+        [languageMenuPopoverClassNames.hidden]: !isOpen,
+      })}
       style={styles.popper}
       forwardedRef={setDialogElement}
     >
@@ -272,6 +298,8 @@ export const BaseLanguageMenuPopover = (
         value={{
           onItemClick: () => handleClose(),
           onItemMouseOver(itemIndex) {
+            // Don't scroll the list when hovering with a mouse
+            setPreventScroll(true);
             itemMouseOver(itemIndex);
           },
           activeDescendantIndex: activeChild,
@@ -281,16 +309,15 @@ export const BaseLanguageMenuPopover = (
         <HtmlDivWithRef
           role="menu"
           id={menuId}
-          aria-labelledby={buttonId}
           tabIndex={-1}
-          className={LanguageMenuClassNames.list}
+          className={languageMenuPopoverClassNames.list}
           forwardedRef={menuRef}
         >
           {menuItems(children)}
         </HtmlDivWithRef>
       </LanguageMenuProvider>
       <HtmlDiv
-        className={LanguageMenuClassNames.popperArrow}
+        className={languageMenuPopoverClassNames.popperArrow}
         style={styles.arrow}
         data-popper-arrow
         data-popper-placement={attributes.popper?.['data-popper-placement']}

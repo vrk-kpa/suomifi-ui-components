@@ -30,6 +30,8 @@ export interface LanguageMenuProps {
     | React.ReactElement<LanguageMenuItemProps>;
   /** Button container div class name for custom styling */
   className?: string;
+  /** Menu container div class name for custom styling. Can be used to modify menu "popover" z-index. */
+  menuClassName?: string;
   /** Ref is forwarded to the button element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
   /**
@@ -60,6 +62,7 @@ export interface LanguageMenuProps {
 const BaseLanguageMenu = (props: LanguageMenuProps) => {
   const {
     className,
+    menuClassName,
     wrapperProps,
     id,
     forwardedRef,
@@ -159,18 +162,16 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
           className={languageMenuClassNames.icon}
         />
       </HtmlButton>
-      {menuVisible && (
-        <LanguageMenuPopover
-          isOpen={menuVisible}
-          menuId={menuId}
-          buttonId={buttonId}
-          parentId={id}
-          openButtonRef={openButtonRef}
-          onClose={() => closeMenu()}
-          children={children}
-          initialActiveDescendant={selectFirstItem}
-        />
-      )}
+      <LanguageMenuPopover
+        isOpen={menuVisible}
+        menuId={menuId}
+        parentId={id}
+        openButtonRef={openButtonRef}
+        onClose={() => closeMenu()}
+        children={children}
+        initialActiveDescendant={selectFirstItem}
+        className={menuClassName}
+      />
     </HtmlDiv>
   );
 };

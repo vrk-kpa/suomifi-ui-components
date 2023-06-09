@@ -17,7 +17,7 @@ export interface LanguageMenuItemProps {
   /** Text of the action */
   children: ReactNode;
   /** Called when menu item is clicked */
-  onClick?: () => void;
+  onClick: () => void;
   /** Show item as selected one */
   selected?: boolean;
 }
@@ -38,19 +38,15 @@ const BaseLanguageMenuItem = (
     className,
     children,
     selected,
+    onClick,
     consumer,
     itemIndex = -1,
+    theme,
     ...passProps
   } = props;
 
   const hasKeyboardFocus = consumer.activeDescendantIndex === itemIndex;
   const listElementRef = React.useRef<HTMLButtonElement>(null);
-
-  React.useLayoutEffect(() => {
-    if (hasKeyboardFocus) {
-      listElementRef.current?.focus({ preventScroll: false });
-    }
-  }, [consumer.activeDescendantIndex]);
 
   return (
     <HtmlButton
@@ -60,6 +56,7 @@ const BaseLanguageMenuItem = (
         [selectedClassName]: selected,
       })}
       onClick={() => {
+        onClick();
         consumer.onItemClick(itemIndex);
       }}
       onMouseOver={() => {
