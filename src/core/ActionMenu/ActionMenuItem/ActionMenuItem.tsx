@@ -1,10 +1,9 @@
-import React, { ReactNode } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import classnames from 'classnames';
 import { HtmlButton } from '../../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { baseStyles } from './ActionMenuItem.baseStyles';
 import styled from 'styled-components';
-import { Icon, BaseIconKeys, IconProps } from '../../Icon/Icon';
 import {
   ActionMenuProviderState,
   ActionMenuConsumer,
@@ -17,10 +16,8 @@ export interface ActionMenuItemProps {
   children: ReactNode;
   /** Disables the item */
   disabled?: boolean;
-  /** Icon from suomifi-theme */
-  icon?: BaseIconKeys;
-  /** Properties given to Icon-component */
-  iconProps?: IconProps;
+  /** Suomi.fi icon to be shown inside the input field */
+  icon?: ReactElement;
   /** Called when menu item is clicked */
   onClick?: (event: React.MouseEvent) => void;
 }
@@ -32,7 +29,6 @@ interface BaseActionMenuItemProps extends ActionMenuItemProps {
 
 const baseClassName = 'fi-action-menu-item';
 const disabledClassName = `${baseClassName}--disabled`;
-const iconClassName = `${baseClassName}_icon`;
 const selectedClassName = `${baseClassName}--selected`;
 
 const BaseActionMenuItem = (
@@ -45,12 +41,10 @@ const BaseActionMenuItem = (
     consumer,
     itemIndex = -1,
     icon,
-    iconProps = { className: undefined },
     onClick,
     ...passProps
   } = props;
 
-  const { className: iconPropsClassName, ...passIconProps } = iconProps;
   const hasKeyboardFocus = consumer.activeDescendantIndex === itemIndex;
   const listElementRef = React.useRef<HTMLButtonElement>(null);
 
@@ -89,15 +83,7 @@ const BaseActionMenuItem = (
       aria-disabled={disabled}
       {...passProps}
     >
-      {!!icon && (
-        <Icon
-          {...passIconProps}
-          mousePointer={true}
-          icon={icon}
-          color="currentColor"
-          className={classnames(iconClassName, iconPropsClassName)}
-        />
-      )}
+      {icon}
       {children}
     </HtmlButton>
   );

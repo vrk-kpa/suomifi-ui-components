@@ -8,8 +8,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   & .fi-action-menu_button {
     &--icon-only {
-      & .fi-button_icon {
-        margin: 0;
+      & .fi-button_icon--right {
+        & .fi-icon {
+          margin-left: 0; /* Fixes issue on Button margin when there is no text */
+        }
       }
 
       min-width: 40px;

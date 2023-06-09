@@ -6,6 +6,7 @@ import {
   ActionMenuDivider,
   ActionMenuItem
 } from 'suomifi-ui-components';
+import { IconRemove, IconReply } from 'suomifi-icons';
 import { useState } from 'react';
 
 const [lastAction, setLastAction] = useState('');
@@ -28,13 +29,13 @@ const [lastAction, setLastAction] = useState('');
       </ActionMenuItem>
       <ActionMenuItem
         onClick={() => setLastAction('Remove')}
-        icon="remove"
+        icon={<IconRemove />}
       >
         Remove
       </ActionMenuItem>
       <ActionMenuItem
         onClick={() => setLastAction('Disabled')}
-        icon="reply"
+        icon={<IconReply />}
         disabled
       >
         Disabled
@@ -53,6 +54,7 @@ import {
   ActionMenuDivider,
   ActionMenuItem
 } from 'suomifi-ui-components';
+import { IconEdit, IconRemove } from 'suomifi-icons';
 import { useState } from 'react';
 
 const [lastAction, setLastAction] = useState('');
@@ -71,12 +73,13 @@ const [lastAction, setLastAction] = useState('');
       <ActionMenuItem
         onClick={() => setLastAction('Edit')}
         icon="edit"
+        icon={<IconEdit />}
       >
         Edit
       </ActionMenuItem>
       <ActionMenuItem
         onClick={() => setLastAction('Remove')}
-        icon="remove"
+        icon={<IconRemove />}
       >
         Remove
       </ActionMenuItem>
@@ -94,6 +97,7 @@ import {
   ActionMenuDivider,
   ActionMenuItem
 } from 'suomifi-ui-components';
+import { IconEdit, IconRemove } from 'suomifi-icons';
 import { useState } from 'react';
 
 const [lastAction, setLastAction] = useState('');
@@ -103,7 +107,10 @@ const [lastAction, setLastAction] = useState('');
     <ActionMenuItem onClick={() => setLastAction('Copy')}>
       Copy
     </ActionMenuItem>
-    <ActionMenuItem onClick={() => setLastAction('Edit')} icon="edit">
+    <ActionMenuItem
+      onClick={() => setLastAction('Edit')}
+      icon={<IconEdit />}
+    >
       Edit
     </ActionMenuItem>
     <ActionMenuItem onClick={() => setLastAction('Move')}>
@@ -118,7 +125,7 @@ const [lastAction, setLastAction] = useState('');
     </ActionMenuItem>
     <ActionMenuItem
       onClick={() => setLastAction('Remove')}
-      icon="remove"
+      icon={<IconRemove />}
     >
       Remove
     </ActionMenuItem>

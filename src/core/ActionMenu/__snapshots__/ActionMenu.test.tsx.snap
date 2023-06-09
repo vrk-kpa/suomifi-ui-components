@@ -83,7 +83,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -107,12 +107,41 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c6::before,
+.c6::after {
   box-sizing: border-box;
 }
 
-.c6 {
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
+.c7 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -128,7 +157,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c6.fi-action-menu-popover {
+.c7.fi-action-menu-popover {
   background-color: hsl(0,0%,100%);
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
   border: 1px solid hsl(0,0%,58%);
@@ -138,11 +167,11 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   z-index: 888;
 }
 
-.c6.fi-action-menu-popover--hidden {
+.c7.fi-action-menu-popover--hidden {
   visibility: hidden;
 }
 
-.c6 .fi-action-menu-popover_list {
+.c7 .fi-action-menu-popover_list {
   margin: 0;
   padding-left: 0;
   display: -webkit-box;
@@ -161,12 +190,12 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   max-height: 265px;
 }
 
-.c6 .fi-action-menu-popover_list:focus {
+.c7 .fi-action-menu-popover_list:focus {
   outline: none;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow::before,
-.c6 .fi-action-menu-popover_popper-arrow::after {
+.c7 .fi-action-menu-popover_popper-arrow::before,
+.c7 .fi-action-menu-popover_popper-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -176,18 +205,18 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
   border-bottom-color: hsl(0,0%,58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
   border-bottom-color: hsl(0,0%,100%);
   border-width: 8px;
   margin-right: -9px;
@@ -195,45 +224,21 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
   top: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
   border-top-color: hsl(0,0%,58%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
   border-top-color: hsl(0,0%,100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
-}
-
-.c4 {
-  vertical-align: baseline;
-}
-
-.c4.fi-icon {
-  display: inline-block;
-}
-
-.c4 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c4 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c4.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c4.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c3 {
@@ -440,23 +445,47 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   background-color: hsl(202,7%,97%);
 }
 
-.c3 > .fi-button_icon {
+.c3 > .fi-button_icon > .fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c3 > .fi-button_icon.fi-button_icon--right {
+.c3 > .fi-button_icon--right > .fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
 
 .c3.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
+}
+
+.c5 {
+  vertical-align: baseline;
+}
+
+.c5.fi-icon {
+  display: inline-block;
+}
+
+.c5 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c5 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c5.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c5.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c1.fi-action-menu--full-width {
@@ -468,11 +497,11 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   padding: 10px;
 }
 
-.c1 .fi-action-menu_button--icon-only .fi-button_icon {
-  margin: 0;
+.c1 .fi-action-menu_button--icon-only .fi-button_icon--right .fi-icon {
+  margin-left: 0;
 }
 
-.c7 {
+.c8 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -488,7 +517,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c7.fi-action-menu-item {
+.c8.fi-action-menu-item {
   position: relative;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -524,59 +553,59 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   align-items: center;
 }
 
-.c7.fi-action-menu-item:active,
-.c7.fi-action-menu-item:focus,
-.c7.fi-action-menu-item:hover,
-.c7.fi-action-menu-item:visited {
+.c8.fi-action-menu-item:active,
+.c8.fi-action-menu-item:focus,
+.c8.fi-action-menu-item:hover,
+.c8.fi-action-menu-item:visited {
   border: none;
   outline: none;
   color: hsl(0,0%,13%);
 }
 
-.c7.fi-action-menu-item .fi-action-menu-item_icon {
+.c8.fi-action-menu-item .fi-icon {
   margin-right: 8px;
   width: 16px;
   height: 16px;
   pointer-events: none;
 }
 
-.c7.fi-action-menu-item--disabled {
+.c8.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c7.fi-action-menu-item--disabled:active,
-.c7.fi-action-menu-item--disabled:focus,
-.c7.fi-action-menu-item--disabled:hover,
-.c7.fi-action-menu-item--disabled:visited {
+.c8.fi-action-menu-item--disabled:active,
+.c8.fi-action-menu-item--disabled:focus,
+.c8.fi-action-menu-item--disabled:hover,
+.c8.fi-action-menu-item--disabled:visited {
   color: hsl(202,7%,67%);
 }
 
-.c7.fi-action-menu-item--selected {
+.c8.fi-action-menu-item--selected {
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
 }
 
-.c7.fi-action-menu-item--selected:active,
-.c7.fi-action-menu-item--selected:focus,
-.c7.fi-action-menu-item--selected:hover,
-.c7.fi-action-menu-item--selected:visited {
+.c8.fi-action-menu-item--selected:active,
+.c8.fi-action-menu-item--selected:focus,
+.c8.fi-action-menu-item--selected:hover,
+.c8.fi-action-menu-item--selected:visited {
   -webkit-text-decoration: none;
   text-decoration: none;
   color: hsl(0,0%,100%);
   cursor: pointer;
 }
 
-.c7.fi-action-menu-item--selected:after {
+.c8.fi-action-menu-item--selected:after {
   content: '';
 }
 
-.c7.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+.c8.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c8.fi-action-menu-divider {
+.c9.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -595,20 +624,20 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c8.fi-action-menu-divider .fi-action-menu-divider_line {
+.c9.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202,7%,80%);
 }
 
 @media (forced-colors:active) {
-  .c7.fi-action-menu-item--disabled {
+  .c8.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors:active) {
-  .c7.fi-action-menu-item--selected:after {
+  .c8.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -619,13 +648,13 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
-  .c7.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+  .c8.fi-action-menu-item--selected.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors:active) {
-  .c8.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c9.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -648,39 +677,46 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
         tabindex="0"
         type="button"
       >
+        <span
+          class="c4 fi-button_icon"
+        />
         Actions
-        <svg
-          aria-hidden="true"
-          class="fi-icon c4 fi-button_icon fi-button_icon--right fi-icon--cursor-pointer"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        <span
+          class="c4 fi-button_icon fi-button_icon--right"
         >
-          <path
-            class="fi-icon-base-fill"
-            d="M12 6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3"
-            fill="#222"
-            fill-rule="evenodd"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            class="fi-icon c5"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="fi-icon-base-fill"
+              d="M12 6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
       </button>
       <div
-        class="c5 c6 fi-action-menu-popover fi-action-menu-popover--hidden"
+        class="c6 c7 fi-action-menu-popover fi-action-menu-popover--hidden"
         role="none"
         style="position: fixed; left: 0px; top: 0px;"
         tabindex="-1"
       >
         <div
           aria-labelledby="test-id"
-          class="c5 fi-action-menu-popover_list"
+          class="c6 fi-action-menu-popover_list"
           id="test-id-menu"
           role="menu"
           tabindex="-1"
         >
           <button
-            class="c2 fi-action-menu-item c7"
+            class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-0"
             role="menuitem"
             tabindex="-1"
@@ -690,7 +726,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
             Item 1
           </button>
           <button
-            class="c2 fi-action-menu-item c7"
+            class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-1"
             role="menuitem"
             tabindex="-1"
@@ -701,14 +737,14 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
           </button>
           <div
             aria-hidden="true"
-            class="c0 c8 fi-action-menu-divider"
+            class="c0 c9 fi-action-menu-divider"
           >
             <div
               class="c0 fi-action-menu-divider_line"
             />
           </div>
           <button
-            class="c2 fi-action-menu-item c7"
+            class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-3"
             role="menuitem"
             tabindex="-1"
@@ -814,7 +850,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -838,12 +874,41 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c6::before,
+.c6::after {
   box-sizing: border-box;
 }
 
-.c6 {
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
+.c7 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -859,7 +924,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c6.fi-action-menu-popover {
+.c7.fi-action-menu-popover {
   background-color: hsl(0,0%,100%);
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
   border: 1px solid hsl(0,0%,58%);
@@ -869,11 +934,11 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   z-index: 888;
 }
 
-.c6.fi-action-menu-popover--hidden {
+.c7.fi-action-menu-popover--hidden {
   visibility: hidden;
 }
 
-.c6 .fi-action-menu-popover_list {
+.c7 .fi-action-menu-popover_list {
   margin: 0;
   padding-left: 0;
   display: -webkit-box;
@@ -892,12 +957,12 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   max-height: 265px;
 }
 
-.c6 .fi-action-menu-popover_list:focus {
+.c7 .fi-action-menu-popover_list:focus {
   outline: none;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow::before,
-.c6 .fi-action-menu-popover_popper-arrow::after {
+.c7 .fi-action-menu-popover_popper-arrow::before,
+.c7 .fi-action-menu-popover_popper-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -907,18 +972,18 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
   border-bottom-color: hsl(0,0%,58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
   border-bottom-color: hsl(0,0%,100%);
   border-width: 8px;
   margin-right: -9px;
@@ -926,45 +991,21 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
   top: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
   border-top-color: hsl(0,0%,58%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
   border-top-color: hsl(0,0%,100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
-}
-
-.c4 {
-  vertical-align: baseline;
-}
-
-.c4.fi-icon {
-  display: inline-block;
-}
-
-.c4 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c4 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c4.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c4.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c3 {
@@ -1171,23 +1212,47 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   background-color: hsl(202,7%,97%);
 }
 
-.c3 > .fi-button_icon {
+.c3 > .fi-button_icon > .fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c3 > .fi-button_icon.fi-button_icon--right {
+.c3 > .fi-button_icon--right > .fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
 
 .c3.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
+}
+
+.c5 {
+  vertical-align: baseline;
+}
+
+.c5.fi-icon {
+  display: inline-block;
+}
+
+.c5 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c5 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c5.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c5.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c1.fi-action-menu--full-width {
@@ -1199,11 +1264,11 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   padding: 10px;
 }
 
-.c1 .fi-action-menu_button--icon-only .fi-button_icon {
-  margin: 0;
+.c1 .fi-action-menu_button--icon-only .fi-button_icon--right .fi-icon {
+  margin-left: 0;
 }
 
-.c7 {
+.c8 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1219,7 +1284,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c7.fi-action-menu-item {
+.c8.fi-action-menu-item {
   position: relative;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1255,59 +1320,59 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   align-items: center;
 }
 
-.c7.fi-action-menu-item:active,
-.c7.fi-action-menu-item:focus,
-.c7.fi-action-menu-item:hover,
-.c7.fi-action-menu-item:visited {
+.c8.fi-action-menu-item:active,
+.c8.fi-action-menu-item:focus,
+.c8.fi-action-menu-item:hover,
+.c8.fi-action-menu-item:visited {
   border: none;
   outline: none;
   color: hsl(0,0%,13%);
 }
 
-.c7.fi-action-menu-item .fi-action-menu-item_icon {
+.c8.fi-action-menu-item .fi-icon {
   margin-right: 8px;
   width: 16px;
   height: 16px;
   pointer-events: none;
 }
 
-.c7.fi-action-menu-item--disabled {
+.c8.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c7.fi-action-menu-item--disabled:active,
-.c7.fi-action-menu-item--disabled:focus,
-.c7.fi-action-menu-item--disabled:hover,
-.c7.fi-action-menu-item--disabled:visited {
+.c8.fi-action-menu-item--disabled:active,
+.c8.fi-action-menu-item--disabled:focus,
+.c8.fi-action-menu-item--disabled:hover,
+.c8.fi-action-menu-item--disabled:visited {
   color: hsl(202,7%,67%);
 }
 
-.c7.fi-action-menu-item--selected {
+.c8.fi-action-menu-item--selected {
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
 }
 
-.c7.fi-action-menu-item--selected:active,
-.c7.fi-action-menu-item--selected:focus,
-.c7.fi-action-menu-item--selected:hover,
-.c7.fi-action-menu-item--selected:visited {
+.c8.fi-action-menu-item--selected:active,
+.c8.fi-action-menu-item--selected:focus,
+.c8.fi-action-menu-item--selected:hover,
+.c8.fi-action-menu-item--selected:visited {
   -webkit-text-decoration: none;
   text-decoration: none;
   color: hsl(0,0%,100%);
   cursor: pointer;
 }
 
-.c7.fi-action-menu-item--selected:after {
+.c8.fi-action-menu-item--selected:after {
   content: '';
 }
 
-.c7.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+.c8.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c8.fi-action-menu-divider {
+.c9.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -1326,20 +1391,20 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c8.fi-action-menu-divider .fi-action-menu-divider_line {
+.c9.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202,7%,80%);
 }
 
 @media (forced-colors:active) {
-  .c7.fi-action-menu-item--disabled {
+  .c8.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors:active) {
-  .c7.fi-action-menu-item--selected:after {
+  .c8.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -1350,13 +1415,13 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
-  .c7.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+  .c8.fi-action-menu-item--selected.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors:active) {
-  .c8.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c9.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -1379,39 +1444,46 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
         name="am-test-name"
         type="button"
       >
+        <span
+          class="c4 fi-button_icon"
+        />
         Actions
-        <svg
-          aria-hidden="true"
-          class="fi-icon c4 fi-button_icon fi-button_icon--right fi-icon--cursor-pointer"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        <span
+          class="c4 fi-button_icon fi-button_icon--right"
         >
-          <path
-            class="fi-icon-base-fill"
-            d="M12 6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3"
-            fill="#222"
-            fill-rule="evenodd"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            class="fi-icon c5"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="fi-icon-base-fill"
+              d="M12 6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
       </button>
       <div
-        class="c5 c6 fi-action-menu-popover fi-action-menu-popover--hidden"
+        class="c6 c7 fi-action-menu-popover fi-action-menu-popover--hidden"
         role="none"
         style="position: fixed; left: 0px; top: 0px;"
         tabindex="-1"
       >
         <div
           aria-labelledby="test-id"
-          class="c5 fi-action-menu-popover_list"
+          class="c6 fi-action-menu-popover_list"
           id="test-id-menu"
           role="menu"
           tabindex="-1"
         >
           <button
-            class="c2 fi-action-menu-item c7"
+            class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-0"
             role="menuitem"
             tabindex="-1"
@@ -1421,7 +1493,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
             Item 1
           </button>
           <button
-            class="c2 fi-action-menu-item c7"
+            class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-1"
             role="menuitem"
             tabindex="-1"
@@ -1432,14 +1504,14 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
           </button>
           <div
             aria-hidden="true"
-            class="c0 c8 fi-action-menu-divider"
+            class="c0 c9 fi-action-menu-divider"
           >
             <div
               class="c0 fi-action-menu-divider_line"
             />
           </div>
           <button
-            class="c2 fi-action-menu-item c7"
+            class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-3"
             role="menuitem"
             tabindex="-1"
@@ -1545,7 +1617,7 @@ exports[`No borders variant should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -1569,12 +1641,41 @@ exports[`No borders variant should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c6::before,
+.c6::after {
   box-sizing: border-box;
 }
 
-.c6 {
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
+.c7 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1590,7 +1691,7 @@ exports[`No borders variant should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c6.fi-action-menu-popover {
+.c7.fi-action-menu-popover {
   background-color: hsl(0,0%,100%);
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
   border: 1px solid hsl(0,0%,58%);
@@ -1600,11 +1701,11 @@ exports[`No borders variant should match snapshot 1`] = `
   z-index: 888;
 }
 
-.c6.fi-action-menu-popover--hidden {
+.c7.fi-action-menu-popover--hidden {
   visibility: hidden;
 }
 
-.c6 .fi-action-menu-popover_list {
+.c7 .fi-action-menu-popover_list {
   margin: 0;
   padding-left: 0;
   display: -webkit-box;
@@ -1623,12 +1724,12 @@ exports[`No borders variant should match snapshot 1`] = `
   max-height: 265px;
 }
 
-.c6 .fi-action-menu-popover_list:focus {
+.c7 .fi-action-menu-popover_list:focus {
   outline: none;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow::before,
-.c6 .fi-action-menu-popover_popper-arrow::after {
+.c7 .fi-action-menu-popover_popper-arrow::before,
+.c7 .fi-action-menu-popover_popper-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -1638,18 +1739,18 @@ exports[`No borders variant should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
   border-bottom-color: hsl(0,0%,58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
   border-bottom-color: hsl(0,0%,100%);
   border-width: 8px;
   margin-right: -9px;
@@ -1657,45 +1758,21 @@ exports[`No borders variant should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
   top: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
   border-top-color: hsl(0,0%,58%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
   border-top-color: hsl(0,0%,100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
-}
-
-.c4 {
-  vertical-align: baseline;
-}
-
-.c4.fi-icon {
-  display: inline-block;
-}
-
-.c4 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c4 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c4.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c4.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c3 {
@@ -1902,23 +1979,47 @@ exports[`No borders variant should match snapshot 1`] = `
   background-color: hsl(202,7%,97%);
 }
 
-.c3 > .fi-button_icon {
+.c3 > .fi-button_icon > .fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c3 > .fi-button_icon.fi-button_icon--right {
+.c3 > .fi-button_icon--right > .fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
 
 .c3.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
+}
+
+.c5 {
+  vertical-align: baseline;
+}
+
+.c5.fi-icon {
+  display: inline-block;
+}
+
+.c5 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c5 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c5.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c5.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c1.fi-action-menu--full-width {
@@ -1930,11 +2031,11 @@ exports[`No borders variant should match snapshot 1`] = `
   padding: 10px;
 }
 
-.c1 .fi-action-menu_button--icon-only .fi-button_icon {
-  margin: 0;
+.c1 .fi-action-menu_button--icon-only .fi-button_icon--right .fi-icon {
+  margin-left: 0;
 }
 
-.c7 {
+.c8 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -1950,7 +2051,7 @@ exports[`No borders variant should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c7.fi-action-menu-item {
+.c8.fi-action-menu-item {
   position: relative;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -1986,59 +2087,59 @@ exports[`No borders variant should match snapshot 1`] = `
   align-items: center;
 }
 
-.c7.fi-action-menu-item:active,
-.c7.fi-action-menu-item:focus,
-.c7.fi-action-menu-item:hover,
-.c7.fi-action-menu-item:visited {
+.c8.fi-action-menu-item:active,
+.c8.fi-action-menu-item:focus,
+.c8.fi-action-menu-item:hover,
+.c8.fi-action-menu-item:visited {
   border: none;
   outline: none;
   color: hsl(0,0%,13%);
 }
 
-.c7.fi-action-menu-item .fi-action-menu-item_icon {
+.c8.fi-action-menu-item .fi-icon {
   margin-right: 8px;
   width: 16px;
   height: 16px;
   pointer-events: none;
 }
 
-.c7.fi-action-menu-item--disabled {
+.c8.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c7.fi-action-menu-item--disabled:active,
-.c7.fi-action-menu-item--disabled:focus,
-.c7.fi-action-menu-item--disabled:hover,
-.c7.fi-action-menu-item--disabled:visited {
+.c8.fi-action-menu-item--disabled:active,
+.c8.fi-action-menu-item--disabled:focus,
+.c8.fi-action-menu-item--disabled:hover,
+.c8.fi-action-menu-item--disabled:visited {
   color: hsl(202,7%,67%);
 }
 
-.c7.fi-action-menu-item--selected {
+.c8.fi-action-menu-item--selected {
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
 }
 
-.c7.fi-action-menu-item--selected:active,
-.c7.fi-action-menu-item--selected:focus,
-.c7.fi-action-menu-item--selected:hover,
-.c7.fi-action-menu-item--selected:visited {
+.c8.fi-action-menu-item--selected:active,
+.c8.fi-action-menu-item--selected:focus,
+.c8.fi-action-menu-item--selected:hover,
+.c8.fi-action-menu-item--selected:visited {
   -webkit-text-decoration: none;
   text-decoration: none;
   color: hsl(0,0%,100%);
   cursor: pointer;
 }
 
-.c7.fi-action-menu-item--selected:after {
+.c8.fi-action-menu-item--selected:after {
   content: '';
 }
 
-.c7.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+.c8.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c8.fi-action-menu-divider {
+.c9.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -2057,20 +2158,20 @@ exports[`No borders variant should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c8.fi-action-menu-divider .fi-action-menu-divider_line {
+.c9.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202,7%,80%);
 }
 
 @media (forced-colors:active) {
-  .c7.fi-action-menu-item--disabled {
+  .c8.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors:active) {
-  .c7.fi-action-menu-item--selected:after {
+  .c8.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -2081,13 +2182,13 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
-  .c7.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+  .c8.fi-action-menu-item--selected.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors:active) {
-  .c8.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c9.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -2111,39 +2212,46 @@ exports[`No borders variant should match snapshot 1`] = `
         tabindex="0"
         type="button"
       >
+        <span
+          class="c4 fi-button_icon"
+        />
         Actions
-        <svg
-          aria-hidden="true"
-          class="fi-icon c4 fi-button_icon fi-button_icon--right fi-icon--cursor-pointer"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        <span
+          class="c4 fi-button_icon fi-button_icon--right"
         >
-          <path
-            class="fi-icon-base-fill"
-            d="M12 6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3"
-            fill="#222"
-            fill-rule="evenodd"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            class="fi-icon c5"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="fi-icon-base-fill"
+              d="M12 6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
       </button>
       <div
-        class="c5 c6 fi-action-menu-popover fi-action-menu-popover--hidden"
+        class="c6 c7 fi-action-menu-popover fi-action-menu-popover--hidden"
         role="none"
         style="position: fixed; left: 0px; top: 0px;"
         tabindex="-1"
       >
         <div
           aria-labelledby="test-id"
-          class="c5 fi-action-menu-popover_list"
+          class="c6 fi-action-menu-popover_list"
           id="test-id-menu"
           role="menu"
           tabindex="-1"
         >
           <button
-            class="c2 fi-action-menu-item c7"
+            class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-0"
             role="menuitem"
             tabindex="-1"
@@ -2153,7 +2261,7 @@ exports[`No borders variant should match snapshot 1`] = `
             Item 1
           </button>
           <button
-            class="c2 fi-action-menu-item c7"
+            class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-1"
             role="menuitem"
             tabindex="-1"
@@ -2164,14 +2272,14 @@ exports[`No borders variant should match snapshot 1`] = `
           </button>
           <div
             aria-hidden="true"
-            class="c0 c8 fi-action-menu-divider"
+            class="c0 c9 fi-action-menu-divider"
           >
             <div
               class="c0 fi-action-menu-divider_line"
             />
           </div>
           <button
-            class="c2 fi-action-menu-item c7"
+            class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-3"
             role="menuitem"
             tabindex="-1"
@@ -2277,7 +2385,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c5 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2301,12 +2409,41 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c6::before,
+.c6::after {
   box-sizing: border-box;
 }
 
-.c6 {
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
+.c7 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2322,7 +2459,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c6.fi-action-menu-popover {
+.c7.fi-action-menu-popover {
   background-color: hsl(0,0%,100%);
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
   border: 1px solid hsl(0,0%,58%);
@@ -2332,11 +2469,11 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   z-index: 888;
 }
 
-.c6.fi-action-menu-popover--hidden {
+.c7.fi-action-menu-popover--hidden {
   visibility: hidden;
 }
 
-.c6 .fi-action-menu-popover_list {
+.c7 .fi-action-menu-popover_list {
   margin: 0;
   padding-left: 0;
   display: -webkit-box;
@@ -2355,12 +2492,12 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   max-height: 265px;
 }
 
-.c6 .fi-action-menu-popover_list:focus {
+.c7 .fi-action-menu-popover_list:focus {
   outline: none;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow::before,
-.c6 .fi-action-menu-popover_popper-arrow::after {
+.c7 .fi-action-menu-popover_popper-arrow::before,
+.c7 .fi-action-menu-popover_popper-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -2370,18 +2507,18 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   pointer-events: none;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
   border-bottom-color: hsl(0,0%,58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
   border-bottom-color: hsl(0,0%,100%);
   border-width: 8px;
   margin-right: -9px;
@@ -2389,45 +2526,21 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   bottom: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
   top: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
   border-top-color: hsl(0,0%,58%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
   border-top-color: hsl(0,0%,100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
-}
-
-.c4 {
-  vertical-align: baseline;
-}
-
-.c4.fi-icon {
-  display: inline-block;
-}
-
-.c4 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c4 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c4.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c4.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c3 {
@@ -2634,23 +2747,47 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   background-color: hsl(202,7%,97%);
 }
 
-.c3 > .fi-button_icon {
+.c3 > .fi-button_icon > .fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c3 > .fi-button_icon.fi-button_icon--right {
+.c3 > .fi-button_icon--right > .fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
 
 .c3.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
+}
+
+.c5 {
+  vertical-align: baseline;
+}
+
+.c5.fi-icon {
+  display: inline-block;
+}
+
+.c5 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c5 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c5.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c5.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c1.fi-action-menu--full-width {
@@ -2662,11 +2799,11 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   padding: 10px;
 }
 
-.c1 .fi-action-menu_button--icon-only .fi-button_icon {
-  margin: 0;
+.c1 .fi-action-menu_button--icon-only .fi-button_icon--right .fi-icon {
+  margin-left: 0;
 }
 
-.c7 {
+.c8 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -2682,7 +2819,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c7.fi-action-menu-item {
+.c8.fi-action-menu-item {
   position: relative;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -2718,59 +2855,59 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   align-items: center;
 }
 
-.c7.fi-action-menu-item:active,
-.c7.fi-action-menu-item:focus,
-.c7.fi-action-menu-item:hover,
-.c7.fi-action-menu-item:visited {
+.c8.fi-action-menu-item:active,
+.c8.fi-action-menu-item:focus,
+.c8.fi-action-menu-item:hover,
+.c8.fi-action-menu-item:visited {
   border: none;
   outline: none;
   color: hsl(0,0%,13%);
 }
 
-.c7.fi-action-menu-item .fi-action-menu-item_icon {
+.c8.fi-action-menu-item .fi-icon {
   margin-right: 8px;
   width: 16px;
   height: 16px;
   pointer-events: none;
 }
 
-.c7.fi-action-menu-item--disabled {
+.c8.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c7.fi-action-menu-item--disabled:active,
-.c7.fi-action-menu-item--disabled:focus,
-.c7.fi-action-menu-item--disabled:hover,
-.c7.fi-action-menu-item--disabled:visited {
+.c8.fi-action-menu-item--disabled:active,
+.c8.fi-action-menu-item--disabled:focus,
+.c8.fi-action-menu-item--disabled:hover,
+.c8.fi-action-menu-item--disabled:visited {
   color: hsl(202,7%,67%);
 }
 
-.c7.fi-action-menu-item--selected {
+.c8.fi-action-menu-item--selected {
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
 }
 
-.c7.fi-action-menu-item--selected:active,
-.c7.fi-action-menu-item--selected:focus,
-.c7.fi-action-menu-item--selected:hover,
-.c7.fi-action-menu-item--selected:visited {
+.c8.fi-action-menu-item--selected:active,
+.c8.fi-action-menu-item--selected:focus,
+.c8.fi-action-menu-item--selected:hover,
+.c8.fi-action-menu-item--selected:visited {
   -webkit-text-decoration: none;
   text-decoration: none;
   color: hsl(0,0%,100%);
   cursor: pointer;
 }
 
-.c7.fi-action-menu-item--selected:after {
+.c8.fi-action-menu-item--selected:after {
   content: '';
 }
 
-.c7.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+.c8.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c8.fi-action-menu-divider {
+.c9.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -2789,20 +2926,20 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c8.fi-action-menu-divider .fi-action-menu-divider_line {
+.c9.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202,7%,80%);
 }
 
 @media (forced-colors:active) {
-  .c7.fi-action-menu-item--disabled {
+  .c8.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors:active) {
-  .c7.fi-action-menu-item--selected:after {
+  .c8.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -2813,13 +2950,13 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
-  .c7.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+  .c8.fi-action-menu-item--selected.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors:active) {
-  .c8.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c9.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -2842,39 +2979,46 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
         tabindex="0"
         type="button"
       >
+        <span
+          class="c4 fi-button_icon"
+        />
         Actions
-        <svg
-          aria-hidden="true"
-          class="fi-icon c4 fi-button_icon fi-button_icon--right fi-icon--cursor-pointer"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        <span
+          class="c4 fi-button_icon fi-button_icon--right"
         >
-          <path
-            class="fi-icon-base-fill"
-            d="M12 6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3"
-            fill="#222"
-            fill-rule="evenodd"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            class="fi-icon c5"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="fi-icon-base-fill"
+              d="M12 6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
       </button>
       <div
-        class="c5 c6 fi-action-menu-popover"
+        class="c6 c7 fi-action-menu-popover"
         role="none"
         style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 10px);"
         tabindex="-1"
       >
         <div
           aria-labelledby="test-id"
-          class="c5 fi-action-menu-popover_list"
+          class="c6 fi-action-menu-popover_list"
           id="test-id-menu"
           role="menu"
           tabindex="-1"
         >
           <button
-            class="c2 fi-action-menu-item c7 fi-action-menu-item--selected"
+            class="c2 fi-action-menu-item c8 fi-action-menu-item--selected"
             id="test-id-menu-list-item-0"
             role="menuitem"
             tabindex="0"
@@ -2884,7 +3028,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
             Item 1
           </button>
           <button
-            class="c2 fi-action-menu-item c7"
+            class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-1"
             role="menuitem"
             tabindex="-1"
@@ -2895,14 +3039,14 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
           </button>
           <div
             aria-hidden="true"
-            class="c0 c8 fi-action-menu-divider"
+            class="c0 c9 fi-action-menu-divider"
           >
             <div
               class="c0 fi-action-menu-divider_line"
             />
           </div>
           <button
-            class="c2 fi-action-menu-item c7"
+            class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-3"
             role="menuitem"
             tabindex="-1"
@@ -3009,7 +3153,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   box-sizing: border-box;
 }
 
-.c5 {
+.c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -3033,12 +3177,41 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   white-space: normal;
 }
 
-.c5::before,
-.c5::after {
+.c6::before,
+.c6::after {
   box-sizing: border-box;
 }
 
-.c6 {
+.c4 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c4::before,
+.c4::after {
+  box-sizing: border-box;
+}
+
+.c7 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -3054,7 +3227,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   font-weight: 400;
 }
 
-.c6.fi-action-menu-popover {
+.c7.fi-action-menu-popover {
   background-color: hsl(0,0%,100%);
   box-shadow: 0px 4px 8px 0px hsla(0,0%,13%,0.14);
   border: 1px solid hsl(0,0%,58%);
@@ -3064,11 +3237,11 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   z-index: 888;
 }
 
-.c6.fi-action-menu-popover--hidden {
+.c7.fi-action-menu-popover--hidden {
   visibility: hidden;
 }
 
-.c6 .fi-action-menu-popover_list {
+.c7 .fi-action-menu-popover_list {
   margin: 0;
   padding-left: 0;
   display: -webkit-box;
@@ -3087,12 +3260,12 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   max-height: 265px;
 }
 
-.c6 .fi-action-menu-popover_list:focus {
+.c7 .fi-action-menu-popover_list:focus {
   outline: none;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow::before,
-.c6 .fi-action-menu-popover_popper-arrow::after {
+.c7 .fi-action-menu-popover_popper-arrow::before,
+.c7 .fi-action-menu-popover_popper-arrow::after {
   content: '';
   position: absolute;
   left: -9px;
@@ -3102,18 +3275,18 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   pointer-events: none;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end'] {
   bottom: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::before {
   border-bottom-color: hsl(0,0%,58%);
   border-width: 9px;
   margin-right: -9px;
   bottom: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='bottom-end']::after {
   border-bottom-color: hsl(0,0%,100%);
   border-width: 8px;
   margin-right: -9px;
@@ -3121,45 +3294,21 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   bottom: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end'] {
   top: 100%;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::before {
   border-top-color: hsl(0,0%,58%);
   border-width: 9px;
   margin-right: -9px;
 }
 
-.c6 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
+.c7 .fi-action-menu-popover_popper-arrow[data-popper-placement^='top-end']::after {
   border-top-color: hsl(0,0%,100%);
   border-width: 8px;
   margin-right: -9px;
   left: -8px;
-}
-
-.c4 {
-  vertical-align: baseline;
-}
-
-.c4.fi-icon {
-  display: inline-block;
-}
-
-.c4 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c4 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c4.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c4.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c3 {
@@ -3366,23 +3515,47 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   background-color: hsl(202,7%,97%);
 }
 
-.c3 > .fi-button_icon {
+.c3 > .fi-button_icon > .fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c3 > .fi-button_icon.fi-button_icon--right {
+.c3 > .fi-button_icon--right > .fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
 
 .c3.fi-button--disabled > .fi-button_icon {
   cursor: not-allowed;
+}
+
+.c5 {
+  vertical-align: baseline;
+}
+
+.c5.fi-icon {
+  display: inline-block;
+}
+
+.c5 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c5 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c5.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c5.fi-icon--cursor-pointer * {
+  cursor: inherit;
 }
 
 .c1.fi-action-menu--full-width {
@@ -3394,11 +3567,11 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   padding: 10px;
 }
 
-.c1 .fi-action-menu_button--icon-only .fi-button_icon {
-  margin: 0;
+.c1 .fi-action-menu_button--icon-only .fi-button_icon--right .fi-icon {
+  margin-left: 0;
 }
 
-.c7 {
+.c8 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -3414,7 +3587,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   font-weight: 400;
 }
 
-.c7.fi-action-menu-item {
+.c8.fi-action-menu-item {
   position: relative;
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -3450,59 +3623,59 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   align-items: center;
 }
 
-.c7.fi-action-menu-item:active,
-.c7.fi-action-menu-item:focus,
-.c7.fi-action-menu-item:hover,
-.c7.fi-action-menu-item:visited {
+.c8.fi-action-menu-item:active,
+.c8.fi-action-menu-item:focus,
+.c8.fi-action-menu-item:hover,
+.c8.fi-action-menu-item:visited {
   border: none;
   outline: none;
   color: hsl(0,0%,13%);
 }
 
-.c7.fi-action-menu-item .fi-action-menu-item_icon {
+.c8.fi-action-menu-item .fi-icon {
   margin-right: 8px;
   width: 16px;
   height: 16px;
   pointer-events: none;
 }
 
-.c7.fi-action-menu-item--disabled {
+.c8.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c7.fi-action-menu-item--disabled:active,
-.c7.fi-action-menu-item--disabled:focus,
-.c7.fi-action-menu-item--disabled:hover,
-.c7.fi-action-menu-item--disabled:visited {
+.c8.fi-action-menu-item--disabled:active,
+.c8.fi-action-menu-item--disabled:focus,
+.c8.fi-action-menu-item--disabled:hover,
+.c8.fi-action-menu-item--disabled:visited {
   color: hsl(202,7%,67%);
 }
 
-.c7.fi-action-menu-item--selected {
+.c8.fi-action-menu-item--selected {
   color: hsl(0,0%,100%);
   background: hsl(212,63%,45%);
 }
 
-.c7.fi-action-menu-item--selected:active,
-.c7.fi-action-menu-item--selected:focus,
-.c7.fi-action-menu-item--selected:hover,
-.c7.fi-action-menu-item--selected:visited {
+.c8.fi-action-menu-item--selected:active,
+.c8.fi-action-menu-item--selected:focus,
+.c8.fi-action-menu-item--selected:hover,
+.c8.fi-action-menu-item--selected:visited {
   -webkit-text-decoration: none;
   text-decoration: none;
   color: hsl(0,0%,100%);
   cursor: pointer;
 }
 
-.c7.fi-action-menu-item--selected:after {
+.c8.fi-action-menu-item--selected:after {
   content: '';
 }
 
-.c7.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+.c8.fi-action-menu-item--selected.fi-action-menu-item--disabled {
   cursor: not-allowed;
   color: hsl(202,7%,67%);
 }
 
-.c8.fi-action-menu-divider {
+.c9.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -3521,20 +3694,20 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   justify-content: center;
 }
 
-.c8.fi-action-menu-divider .fi-action-menu-divider_line {
+.c9.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202,7%,80%);
 }
 
 @media (forced-colors:active) {
-  .c7.fi-action-menu-item--disabled {
+  .c8.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors:active) {
-  .c7.fi-action-menu-item--selected:after {
+  .c8.fi-action-menu-item--selected:after {
     position: absolute;
     left: 1px;
     right: 1px;
@@ -3545,13 +3718,13 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 @media (forced-colors:active) {
-  .c7.fi-action-menu-item--selected.fi-action-menu-item--disabled {
+  .c8.fi-action-menu-item--selected.fi-action-menu-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors:active) {
-  .c8.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c9.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -3574,39 +3747,46 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
         tabindex="0"
         type="button"
       >
+        <span
+          class="c4 fi-button_icon"
+        />
         Actions
-        <svg
-          aria-hidden="true"
-          class="fi-icon c4 fi-button_icon fi-button_icon--right fi-icon--cursor-pointer"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        <span
+          class="c4 fi-button_icon fi-button_icon--right"
         >
-          <path
-            class="fi-icon-base-fill"
-            d="M12 6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3"
-            fill="#222"
-            fill-rule="evenodd"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            class="fi-icon c5"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="fi-icon-base-fill"
+              d="M12 6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3m0 9c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
       </button>
       <div
-        class="c5 c6 fi-action-menu-popover"
+        class="c6 c7 fi-action-menu-popover"
         role="none"
         style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 10px);"
         tabindex="-1"
       >
         <div
           aria-labelledby="test-id"
-          class="c5 fi-action-menu-popover_list"
+          class="c6 fi-action-menu-popover_list"
           id="test-id-menu"
           role="menu"
           tabindex="-1"
         >
           <button
-            class="c2 fi-action-menu-item c7 fi-action-menu-item--selected"
+            class="c2 fi-action-menu-item c8 fi-action-menu-item--selected"
             id="test-id-menu-list-item-0"
             role="menuitem"
             tabindex="0"
@@ -3616,7 +3796,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
             Item 1
           </button>
           <button
-            class="c2 fi-action-menu-item c7"
+            class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-1"
             role="menuitem"
             tabindex="-1"
@@ -3627,14 +3807,14 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
           </button>
           <div
             aria-hidden="true"
-            class="c0 c8 fi-action-menu-divider"
+            class="c0 c9 fi-action-menu-divider"
           >
             <div
               class="c0 fi-action-menu-divider_line"
             />
           </div>
           <button
-            class="c2 fi-action-menu-item c7"
+            class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-3"
             role="menuitem"
             tabindex="-1"

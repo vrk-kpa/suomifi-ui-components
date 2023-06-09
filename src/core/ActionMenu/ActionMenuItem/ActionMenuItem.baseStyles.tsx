@@ -31,7 +31,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       color: ${theme.colors.blackBase};
     }
 
-    .fi-action-menu-item_icon {
+    .fi-icon {
       margin-right: ${theme.spacing.insetM};
       width: 16px;
       height: 16px;

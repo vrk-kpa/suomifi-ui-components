@@ -13,6 +13,7 @@ import { HTMLAttributesIncludingDataAttributes } from '../../utils/common/common
 import { baseStyles } from './ActionMenu.baseStyles';
 import { ActionMenuItemProps } from './ActionMenuItem/ActionMenuItem';
 import { ActionMenuDividerProps } from './ActionMenuDivider/ActionMenuDivider';
+import { IconOptionsVertical } from 'suomifi-icons';
 
 const baseClassName = 'fi-action-menu';
 export const actionMenuClassNames = {
@@ -169,7 +170,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
       <Button
         id={buttonId}
         variant={buttonVariant}
-        iconRight="optionsVertical"
+        iconRight={<IconOptionsVertical />}
         aria-expanded={ariaExpanded}
         aria-controls={menuId}
         aria-haspopup="menu"
