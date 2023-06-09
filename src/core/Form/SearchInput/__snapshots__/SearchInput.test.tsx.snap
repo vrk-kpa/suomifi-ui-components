@@ -652,7 +652,13 @@ exports[`snapshot should have matching default structure 1`] = `
 
 @media (forced-colors:active) {
   .c1.fi-search-input--not-empty .fi-search-input_button-search {
-    background-color: Highlight;
+    border: solid 1px ButtonBorder;
+  }
+}
+
+@media (forced-colors:active) {
+  .c1.fi-search-input--not-empty .fi-search-input_button-search .fi-search-input_button-search-icon .fi-icon-base-fill {
+    fill: ButtonText;
   }
 }
 

@@ -113,6 +113,7 @@ exports[`Button variant default should match snapshot 1`] = `
 
 .c1:focus {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1:focus::after {
@@ -436,6 +437,7 @@ exports[`Button variant inverted should match snapshot 1`] = `
 
 .c1:focus {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1:focus::after {
@@ -759,6 +761,7 @@ exports[`Button variant link match snapshot 1`] = `
 
 .c1:focus {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1:focus::after {
@@ -1082,6 +1085,7 @@ exports[`Button variant secondary should match snapshot 1`] = `
 
 .c1:focus {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1:focus::after {
@@ -1405,6 +1409,7 @@ exports[`Button variant secondaryNoBorder should match snapshot 1`] = `
 
 .c1:focus {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1:focus::after {

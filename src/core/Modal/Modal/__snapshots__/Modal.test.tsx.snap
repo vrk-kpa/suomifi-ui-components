@@ -647,6 +647,7 @@ exports[`Basic modal should match snapshot 1`] = `
 
 .c9:focus {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c9:focus::after {

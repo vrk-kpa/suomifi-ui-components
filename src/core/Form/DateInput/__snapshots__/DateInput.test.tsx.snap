@@ -3095,6 +3095,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 
 .c13:focus {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c13:focus::after {
@@ -5281,6 +5282,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 
 .c13:focus {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c13:focus::after {

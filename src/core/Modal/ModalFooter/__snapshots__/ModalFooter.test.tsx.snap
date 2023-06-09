@@ -275,6 +275,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
 
 .c4:focus {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c4:focus::after {
