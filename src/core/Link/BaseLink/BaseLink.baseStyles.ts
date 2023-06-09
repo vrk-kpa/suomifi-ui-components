@@ -48,17 +48,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         font-size: 16px;
         margin-left: -3px;
         margin-right: 2px;
-        transform: translateY(0.1em);
+        transform: translateY(0.15em);
       }
     }
     &.fi-link--small {
       font-size: 16px;
-      &.fi-link--accent {
-        text-decoration: none;
-        & .fi-link--accent_icon {
-          transform: translateY(0.15em);
-        }
-      }
     }
   }
 `;
