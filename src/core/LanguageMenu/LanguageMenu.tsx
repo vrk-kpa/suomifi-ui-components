@@ -11,7 +11,7 @@ import { HtmlButton, HtmlDiv } from '../../reset';
 import { HTMLAttributesIncludingDataAttributes } from '../../utils/common/common';
 import { baseStyles } from './LanguageMenu.baseStyles';
 import { LanguageMenuItemProps } from './LanguageMenuItem/LanguageMenuItem';
-import { Icon } from '../Icon/Icon';
+import { IconChevronUp, IconChevronDown } from 'suomifi-icons';
 
 const baseClassName = 'fi-language-menu';
 export const languageMenuClassNames = {
@@ -157,10 +157,11 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
         {...passProps}
       >
         {buttonText}
-        <Icon
-          icon={menuVisible ? 'chevronUp' : 'chevronDown'}
-          className={languageMenuClassNames.icon}
-        />
+        {menuVisible ? (
+          <IconChevronUp className={languageMenuClassNames.icon} />
+        ) : (
+          <IconChevronDown className={languageMenuClassNames.icon} />
+        )}
       </HtmlButton>
       <LanguageMenuPopover
         isOpen={menuVisible}
