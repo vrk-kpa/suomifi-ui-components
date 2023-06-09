@@ -853,37 +853,37 @@ exports[`has matching snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
-  .c17.fi-select-item--hasKeyboardFocus {
+  .c18.fi-select-item--hasKeyboardFocus {
     background-color: Highlight;
   }
 }
 
 @media (forced-colors:active) {
-  .c17.fi-select-item--disabled {
+  .c18.fi-select-item--disabled {
     color: GrayText;
   }
 }
 
 @media (forced-colors:active) {
-  .c17.fi-select-item--disabled .fi-select-item--query_highlight {
+  .c18.fi-select-item--disabled .fi-select-item--query_highlight {
     color: GrayText;
   }
 }
 
 @media (forced-colors:active) {
-  .c17.fi-select-item--disabled.fi-select-item:hover {
+  .c18.fi-select-item--disabled.fi-select-item:hover {
     color: GrayText;
   }
 }
 
 @media (forced-colors:active) {
-  .c17.fi-select-item--disabled.fi-select-item:hover .fi-select-item--query_highlight {
+  .c18.fi-select-item--disabled.fi-select-item:hover .fi-select-item--query_highlight {
     color: GrayText;
   }
 }
 
 @media (forced-colors:active) {
-  .c17.fi-select-item:hover {
+  .c18.fi-select-item:hover {
     background-color: Highlight;
   }
 }

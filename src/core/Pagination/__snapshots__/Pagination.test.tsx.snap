@@ -900,7 +900,7 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 @media (forced-colors:active) {
-  .c8.fi-page-input--not-empty .fi-page-input_button {
+  .c9.fi-page-input--not-empty .fi-page-input_button {
     background-color: Highlight;
   }
 }
