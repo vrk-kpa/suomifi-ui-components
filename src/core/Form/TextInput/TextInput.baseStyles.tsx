@@ -29,7 +29,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &:focus-within {
       position: relative;
-      outline: 3px solid transparent; /* For high contrast mode */
+      ${theme.focuses.highContrastFocus}
 
       &::after {
         ${theme.focuses.absoluteFocus}

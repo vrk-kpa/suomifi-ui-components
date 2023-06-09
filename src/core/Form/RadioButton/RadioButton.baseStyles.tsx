@@ -110,7 +110,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         + .fi-radio-button_icon_wrapper {
           ${theme.focuses.boxShadowFocus}
           border-radius: 50%;
-          outline: 3px solid transparent; /* For high contrast mode */
+          ${theme.focuses.highContrastFocus}
         }
       }
       &:focus:not(:focus-visible) {

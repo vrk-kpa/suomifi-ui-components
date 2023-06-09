@@ -32,7 +32,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       &:focus-within {
         position: relative;
         box-shadow: ${theme.shadows.actionElementBoxShadow};
-        outline: 3px solid transparent; /* For hight contrast mode */
+        ${theme.focuses.highContrastFocus} /* For hight contrast mode */
 
         &:after {
           ${theme.focuses.absoluteFocus}
@@ -127,7 +127,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       &:focus {
         &:after {
           ${theme.focuses.absoluteFocus}
-          outline: 3px solid transparent; /* For hight contrast mode */
+          ${theme.focuses.highContrastFocus} /* For hight contrast mode */
         }
       }
       &:hover {

@@ -33,7 +33,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       &:focus-within {
         position: relative;
         box-shadow: ${theme.shadows.actionElementBoxShadow};
-        outline: 3px solid transparent; /* For high contrast mode */
+        ${theme.focuses.highContrastFocus}
         &:after {
           ${theme.focuses.absoluteFocus}
           top: -3px;
@@ -108,7 +108,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         overflow: hidden;
 
         &:focus {
-          outline: 3px solid transparent; /* For high contrast mode */
+          ${theme.focuses.highContrastFocus}
         }
         &-icon {
           width: 12px;
@@ -176,7 +176,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
           ${theme.focuses.absoluteFocus}
         }
 
-        outline: 3px solid transparent; /* For high contrast mode */
+        ${theme.focuses.highContrastFocus}/* For high contrast mode */
       }
       &:hover {
         background: ${theme.gradients.highlightLight1ToHighlightBase};

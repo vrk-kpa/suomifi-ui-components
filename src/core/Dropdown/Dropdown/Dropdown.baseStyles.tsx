@@ -144,7 +144,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &:not(.fi-dropdown--open) {
       .fi-dropdown_button {
         &:focus {
-          outline: 3px solid transparent;
+          ${theme.focuses.highContrastFocus}
           position: relative;
 
           &:after {

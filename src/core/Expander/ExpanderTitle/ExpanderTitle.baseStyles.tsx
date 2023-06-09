@@ -46,7 +46,7 @@ export const expanderTitleBaseStyles = (theme: SuomifiTheme) => css`
     }
 
     &:focus-within {
-      outline: 3px solid transparent; /* For high contrast mode */
+      ${theme.focuses.highContrastFocus}
       &:after {
         ${theme.focuses.absoluteFocus}
       }

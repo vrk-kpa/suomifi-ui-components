@@ -38,7 +38,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
         &:focus-visible {
           position: relative;
-          outline: 3px solid transparent; /* For high contrast mode */
+          ${theme.focuses.highContrastFocus} /* For high contrast mode */
 
           &:after {
             ${theme.focuses.absoluteFocus}

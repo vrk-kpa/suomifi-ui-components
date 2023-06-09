@@ -14,7 +14,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       background: ${theme.colors.highlightDark1};
     }
     &:focus {
-      outline: 3px solid transparent; /* For high contrast mode */
+      ${theme.focuses.highContrastFocus}
     }
   }
 

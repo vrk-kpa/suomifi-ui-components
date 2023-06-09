@@ -61,7 +61,7 @@ export const baseStyles = (arrowOffsetPx: number, theme: SuomifiTheme) => css`
         background: ${theme.gradients.whiteBaseToDepthLight1};
       }
       &:focus-visible {
-        outline: 3px solid transparent; /* For hight contrast mode */
+        ${theme.focuses.highContrastFocus} /* For hight contrast mode */
         &:after {
           ${theme.focuses.absoluteFocus}
         }

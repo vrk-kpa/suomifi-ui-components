@@ -42,7 +42,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         border: none;
         box-shadow: none;
         color: ${theme.colors.blackBase};
-        outline: 3px solid transparent; /* For high contrast mode */
+        ${theme.focuses.highContrastFocus}/* For high contrast mode */
       }
 
       &:hover,
