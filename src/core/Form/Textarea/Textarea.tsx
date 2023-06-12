@@ -97,6 +97,7 @@ export interface TextareaProps
   ariaCharactersRemainingText?: (amount: number) => string;
   ariaCharactersExceededText?: (amount: number) => string;
   characterCountExceededErrorText?: string;
+  charCountScreenReaderDelay?: number;
   /** Ref is passed to the textarea element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLTextAreaElement>;
 }
@@ -126,6 +127,7 @@ const BaseTextarea = (props: TextareaProps) => {
     maxLength,
     ariaCharactersRemainingText,
     ariaCharactersExceededText,
+    charCountScreenReaderDelay = 3000,
     ...passProps
   } = props;
 
@@ -159,13 +161,12 @@ const BaseTextarea = (props: TextareaProps) => {
       const charCountInInput = event.target.value.length;
       setCharCount(charCountInInput);
       const newTypingTimer = setTimeout(() => {
-        console.log('tääälläää');
         setCharacterCounterAriaText(
-          charCount <= maxLength
+          charCountInInput <= maxLength
             ? ariaCharactersRemainingText(maxLength - charCountInInput)
             : ariaCharactersExceededText(charCountInInput - maxLength),
         );
-      }, 3000);
+      }, charCountScreenReaderDelay);
       setTypingTimer(newTypingTimer);
     }
 
@@ -232,9 +233,7 @@ const BaseTextarea = (props: TextareaProps) => {
           {maxLength &&
             ariaCharactersRemainingText &&
             ariaCharactersExceededText && (
-              <VisuallyHidden aria-atomic="true">
-                {characterCounterAriaText}
-              </VisuallyHidden>
+              <VisuallyHidden>{characterCounterAriaText}</VisuallyHidden>
             )}
         </StatusText>
         {maxLength &&

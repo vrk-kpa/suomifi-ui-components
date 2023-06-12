@@ -36,6 +36,7 @@ const validateText = (text) => {
     statusText={statusText}
     status={isError ? 'error' : 'default'}
     fullWidth
+    charCountScreenReaderDelay={1500}
   >
     Lorem ipsum dolor sit amet
   </Textarea>
