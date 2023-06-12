@@ -155,8 +155,13 @@ module.exports = {
             'SkipLink/SkipLink',
             'ExternalLink/ExternalLink',
             'RouterLink/RouterLink',
-            'ListLink/ListLink',
+          ]),
+        },
+        {
+          name: 'LinkList',
+          components: getComponentWithVariants('Link')([
             'LinkList/LinkList',
+            'LinkListItem/LinkListItem',
           ]),
         },
         {

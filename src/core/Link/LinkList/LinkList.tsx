@@ -42,7 +42,7 @@ const StyledLinkList = styled(
 
 /**
  * <i class="semantics" />
- * Used for adding a link
+ * Used for displaying a styled list of links
  */
 const LinkList = forwardRef(
   (props: LinkListProps, ref: React.Ref<HTMLUListElement>) => (

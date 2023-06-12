@@ -53,7 +53,7 @@ const StyledLinkListItem = styled(
 
 /**
  * <i class="semantics" />
- * Used for adding a link
+ * Used as a wrapper for links in LinkList
  */
 const LinkListItem = forwardRef(
   (props: LinkListItemProps, ref: React.Ref<HTMLElement>) => (
