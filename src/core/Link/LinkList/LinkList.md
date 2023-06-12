@@ -1,8 +1,10 @@
-### Link List
-
 A styled list for providing a list of links.
 
-Make sure you use a descriptive heading or a label with the list and link it to the list via the `ariaDescribedBy` prop. Make sure you use the right heading level semantically and use the `as` prop for changing the styling if needed.
+- Use a descriptive heading or a label with the list.
+- Link heading or label to the list via the `ariaDescribedBy` prop.
+- Use the right heading level semantically and use the `as` prop for changing the styling if needed.
+- Wrap each child in `LinkListItem` component for the correct styling.
+- `LinkListItem` supports `Link`, `ExternalLink` and `RouterLink` as its children.
 
 ```js
 import {
@@ -15,19 +17,19 @@ import {
 } from 'suomifi-ui-components';
 
 <div>
-  <Heading variant="h5" as="h3" id="otsikko">
+  <Heading variant="h5" as="h3" id="heading">
     Useful resources
   </Heading>
-  <LinkList aria-describedby="otsikko">
+  <LinkList aria-describedby="heading">
     <LinkListItem>
-      <Link href="/">A useful link</Link>
+      <Link href="/">More information on subject X</Link>
     </LinkListItem>
     <LinkListItem>
       <ExternalLink
         href="https://designsystem.suomi.fi/fi/"
         labelNewWindow="Opens to a new window"
       >
-        A useful resource on a third party site
+        About subject X on a third party site
       </ExternalLink>
     </LinkListItem>
     <LinkListItem>
@@ -36,7 +38,7 @@ import {
         target="_blank"
         asComponent="a"
       >
-        Testing
+        An additional useful link
       </RouterLink>
     </LinkListItem>
   </LinkList>
