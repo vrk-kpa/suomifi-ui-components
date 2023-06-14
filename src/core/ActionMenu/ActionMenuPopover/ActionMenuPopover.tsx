@@ -247,7 +247,7 @@ export const BaseActionMenuPopover = (
 
   // Popper options modifiers
   const defaultModifiers = [
-    { name: 'eventListeners', enabled: true },
+    { name: 'eventListeners', enabled: isOpen },
     {
       name: 'offset',
       options: {
