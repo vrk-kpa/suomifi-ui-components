@@ -62,9 +62,9 @@ const BaseActionMenuItem = (
         [disabledClassName]: disabled,
       })}
       onClick={(event) => {
-        if (!disabled && onClick) {
+        if (!disabled) {
           event.preventDefault();
-          onClick(event);
+          if (onClick) onClick(event);
           consumer.onItemClick(itemIndex);
         }
       }}
