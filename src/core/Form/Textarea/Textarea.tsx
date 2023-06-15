@@ -229,12 +229,12 @@ const BaseTextarea = (props: TextareaProps) => {
           disabled={disabled}
           ariaLiveMode={statusTextAriaLiveMode}
         >
-          {statusText}
           {maxLength &&
             ariaCharactersRemainingText &&
             ariaCharactersExceededText && (
               <VisuallyHidden>{characterCounterAriaText}</VisuallyHidden>
             )}
+          {statusText}
         </StatusText>
         {maxLength &&
           ariaCharactersRemainingText &&
