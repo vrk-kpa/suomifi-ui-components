@@ -233,6 +233,7 @@ exports[`snapshots match date input error status with statustext 1`] = `
 
 .c1 .fi-date-input_input-element-container:focus-within {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-date-input_input-element-container:focus-within::after {
@@ -710,6 +711,7 @@ exports[`snapshots match date input hidden label with placeholder 1`] = `
 
 .c1 .fi-date-input_input-element-container:focus-within {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-date-input_input-element-container:focus-within::after {
@@ -1193,6 +1195,7 @@ exports[`snapshots match date input hint text 1`] = `
 
 .c1 .fi-date-input_input-element-container:focus-within {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-date-input_input-element-container:focus-within::after {
@@ -1661,6 +1664,7 @@ exports[`snapshots match date input minimal implementation 1`] = `
 
 .c1 .fi-date-input_input-element-container:focus-within {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-date-input_input-element-container:focus-within::after {
@@ -2122,6 +2126,7 @@ exports[`snapshots match date input optional text 1`] = `
 
 .c1 .fi-date-input_input-element-container:focus-within {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-date-input_input-element-container:focus-within::after {
@@ -2588,6 +2593,7 @@ exports[`snapshots match date input success status with statustext 1`] = `
 
 .c1 .fi-date-input_input-element-container:focus-within {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-date-input_input-element-container:focus-within::after {
@@ -3941,6 +3947,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
 
 .c1 .fi-date-input_input-element-container:focus-within {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-date-input_input-element-container:focus-within::after {
@@ -6128,6 +6135,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
 
 .c1 .fi-date-input_input-element-container:focus-within {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-date-input_input-element-container:focus-within::after {
