@@ -48,6 +48,12 @@ const BaseLanguageMenuItem = (
   const hasKeyboardFocus = consumer.activeDescendantIndex === itemIndex;
   const listElementRef = React.useRef<HTMLButtonElement>(null);
 
+  React.useLayoutEffect(() => {
+    if (hasKeyboardFocus) {
+      listElementRef.current?.focus();
+    }
+  }, [consumer.activeDescendantIndex]);
+
   return (
     <HtmlButton
       forwardedRef={listElementRef}
