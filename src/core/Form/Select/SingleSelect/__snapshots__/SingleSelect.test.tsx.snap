@@ -145,7 +145,7 @@ exports[`has matching snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c16 {
+.c17 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -165,8 +165,8 @@ exports[`has matching snapshot 1`] = `
   display: list-item;
 }
 
-.c16::before,
-.c16::after {
+.c17::before,
+.c17::after {
   box-sizing: border-box;
 }
 
@@ -199,7 +199,7 @@ exports[`has matching snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c14 {
+.c15 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -225,8 +225,8 @@ exports[`has matching snapshot 1`] = `
   padding-left: 40px;
 }
 
-.c14::before,
-.c14::after {
+.c15::before,
+.c15::after {
   box-sizing: border-box;
 }
 
@@ -293,7 +293,7 @@ exports[`has matching snapshot 1`] = `
   display: block;
 }
 
-.c13 {
+.c14 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -312,11 +312,11 @@ exports[`has matching snapshot 1`] = `
   line-height: 20px;
 }
 
-.c13.fi-status-text {
+.c14.fi-status-text {
   display: block;
 }
 
-.c13.fi-status-text.fi-status-text--error {
+.c14.fi-status-text.fi-status-text--error {
   color: hsl(3,59%,48%);
 }
 
@@ -516,6 +516,54 @@ exports[`has matching snapshot 1`] = `
   margin-bottom: 0;
 }
 
+.c13 {
+  vertical-align: baseline;
+}
+
+.c13.fi-icon {
+  display: inline-block;
+}
+
+.c13 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c13 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c13.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c13.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c19 {
+  vertical-align: baseline;
+}
+
+.c19.fi-icon {
+  display: inline-block;
+}
+
+.c19 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c19 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c19.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c19.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c11 {
   vertical-align: baseline;
 }
@@ -602,7 +650,7 @@ exports[`has matching snapshot 1`] = `
   fill: hsl(202,7%,67%);
 }
 
-.c15 {
+.c16 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -629,11 +677,11 @@ exports[`has matching snapshot 1`] = `
   padding: 4px 0 0 0;
 }
 
-.c15:focus {
+.c16:focus {
   outline: none;
 }
 
-.c15 .fi-select-item-list_content_wrapper {
+.c16 .fi-select-item-list_content_wrapper {
   display: block;
   width: 100%;
   max-height: inherit;
@@ -641,7 +689,7 @@ exports[`has matching snapshot 1`] = `
   overflow-x: hidden;
 }
 
-.c17 {
+.c18 {
   position: relative;
   padding: 8px 32px 8px 10px;
   -webkit-letter-spacing: 0;
@@ -659,20 +707,20 @@ exports[`has matching snapshot 1`] = `
   font-weight: 400;
 }
 
-.c17:focus {
+.c18:focus {
   outline: none;
 }
 
-.c17.fi-select-item {
+.c18.fi-select-item {
   cursor: pointer;
 }
 
-.c17.fi-select-item .fi-select-item--query_highlight {
+.c18.fi-select-item .fi-select-item--query_highlight {
   background-color: transparent;
   font-weight: bold;
 }
 
-.c17.fi-select-item .fi-select-item_icon {
+.c18.fi-select-item .fi-select-item_icon {
   position: absolute;
   top: 14px;
   right: 10px;
@@ -680,52 +728,52 @@ exports[`has matching snapshot 1`] = `
   width: 12px;
 }
 
-.c17.fi-select-item--selected {
+.c18.fi-select-item--selected {
   background-color: hsl(215,100%,95%);
   color: hsl(0,0%,13%);
 }
 
-.c17.fi-select-item--selected .fi-select-item--query_highlight {
+.c18.fi-select-item--selected .fi-select-item--query_highlight {
   color: hsl(0,0%,13%);
 }
 
-.c17.fi-select-item--hasKeyboardFocus {
+.c18.fi-select-item--hasKeyboardFocus {
   background-color: hsl(212,63%,45%);
   color: hsl(0,0%,100%);
 }
 
-.c17.fi-select-item--hasKeyboardFocus .fi-select-item--query_highlight {
+.c18.fi-select-item--hasKeyboardFocus .fi-select-item--query_highlight {
   color: hsl(0,0%,100%);
   background-color: hsl(212,63%,45%);
 }
 
-.c17.fi-select-item--disabled {
+.c18.fi-select-item--disabled {
   color: hsl(202,7%,67%);
   cursor: not-allowed;
 }
 
-.c17.fi-select-item--disabled .fi-select-item--query_highlight {
+.c18.fi-select-item--disabled .fi-select-item--query_highlight {
   color: hsl(202,7%,67%);
 }
 
-.c17.fi-select-item--disabled.fi-select-item:hover {
+.c18.fi-select-item--disabled.fi-select-item:hover {
   color: hsl(202,7%,67%);
 }
 
-.c17.fi-select-item--disabled.fi-select-item:hover .fi-select-item--query_highlight {
+.c18.fi-select-item--disabled.fi-select-item:hover .fi-select-item--query_highlight {
   color: hsl(202,7%,67%);
 }
 
-.c17.fi-select-item:hover {
+.c18.fi-select-item:hover {
   background-color: hsl(212,63%,45%);
   color: hsl(0,0%,100%);
 }
 
-.c17.fi-select-item:hover .fi-select-item--query_highlight {
+.c18.fi-select-item:hover .fi-select-item--query_highlight {
   color: hsl(0,0%,100%);
 }
 
-.c17 .fi-select-item_wrapper {
+.c18 .fi-select-item_wrapper {
   display: inline-block;
   width: 100%;
 }
@@ -886,7 +934,7 @@ exports[`has matching snapshot 1`] = `
                   >
                     <path
                       class="fi-icon-base-fill"
-                      d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
+                      d="M4.75 3.3 12 10.55l7.25-7.25a1.026 1.026 0 0 1 1.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 0 1-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 0 1-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 0 1 4.75 3.3Z"
                       fill="#222"
                       fill-rule="evenodd"
                     />
@@ -904,7 +952,7 @@ exports[`has matching snapshot 1`] = `
                 />
                 <svg
                   aria-hidden="true"
-                  class="fi-icon c11 fi-input-toggle-button_icon"
+                  class="fi-icon c13 fi-input-toggle-button_icon"
                   focusable="false"
                   height="1em"
                   viewBox="0 0 10 10"
@@ -913,7 +961,7 @@ exports[`has matching snapshot 1`] = `
                 >
                   <path
                     class="fi-icon-base-fill"
-                    d="M5 2L1 8h8z"
+                    d="M5 2 1 8h8z"
                     fill="#222"
                     fill-rule="evenodd"
                   />
@@ -923,7 +971,7 @@ exports[`has matching snapshot 1`] = `
             <span
               aria-atomic="true"
               aria-live="assertive"
-              class="c5 c13 fi-status-text"
+              class="c5 c14 fi-status-text"
             />
           </div>
         </div>
@@ -952,7 +1000,7 @@ exports[`has matching snapshot 1`] = `
     >
       <ul
         aria-activedescendant=""
-        class="c14 fi-select-item-list c15"
+        class="c15 fi-select-item-list c16"
         id="2-popover"
         role="listbox"
         tabindex="0"
@@ -966,7 +1014,7 @@ exports[`has matching snapshot 1`] = `
             <li
               aria-disabled="false"
               aria-selected="false"
-              class="c16 fi-select-item c17"
+              class="c17 fi-select-item c18"
               id="2-jh2435626"
               role="option"
               tabindex="-1"
@@ -976,7 +1024,7 @@ exports[`has matching snapshot 1`] = `
             <li
               aria-disabled="false"
               aria-selected="true"
-              class="c16 fi-select-item c17 fi-select-item--selected"
+              class="c17 fi-select-item c18 fi-select-item--selected"
               id="2-h9823523"
               role="option"
               tabindex="-1"
@@ -984,7 +1032,7 @@ exports[`has matching snapshot 1`] = `
               Hammer
               <svg
                 aria-hidden="true"
-                class="fi-icon c11 fi-select-item_icon"
+                class="fi-icon c19 fi-select-item_icon"
                 focusable="false"
                 height="1em"
                 viewBox="0 0 20 20"
@@ -993,7 +1041,7 @@ exports[`has matching snapshot 1`] = `
               >
                 <path
                   class="fi-icon-base-fill"
-                  d="M19.447 5.384L8 17.42a1.82 1.82 0 01-2.667 0L.552 12.394a2.059 2.059 0 010-2.805 1.822 1.822 0 012.666 0l3.449 3.625L16.78 2.581a1.82 1.82 0 012.666 0 2.053 2.053 0 010 2.803"
+                  d="M19.447 5.384 8 17.42a1.82 1.82 0 0 1-2.667 0L.552 12.394a2.059 2.059 0 0 1 0-2.805 1.822 1.822 0 0 1 2.666 0l3.449 3.625L16.78 2.581a1.82 1.82 0 0 1 2.666 0 2.053 2.053 0 0 1 0 2.803"
                   fill="#222"
                   fill-rule="evenodd"
                 />
@@ -1002,7 +1050,7 @@ exports[`has matching snapshot 1`] = `
             <li
               aria-disabled="false"
               aria-selected="false"
-              class="c16 fi-select-item c17"
+              class="c17 fi-select-item c18"
               id="2-sh908293482"
               role="option"
               tabindex="-1"
@@ -1012,7 +1060,7 @@ exports[`has matching snapshot 1`] = `
             <li
               aria-disabled="false"
               aria-selected="false"
-              class="c16 fi-select-item c17"
+              class="c17 fi-select-item c18"
               id="2-s82502335"
               role="option"
               tabindex="-1"
@@ -1022,7 +1070,7 @@ exports[`has matching snapshot 1`] = `
             <li
               aria-disabled="true"
               aria-selected="false"
-              class="c16 fi-select-item c17 fi-select-item--disabled"
+              class="c17 fi-select-item c18 fi-select-item--disabled"
               id="2-ps9081231"
               role="option"
               tabindex="-1"
@@ -1032,7 +1080,7 @@ exports[`has matching snapshot 1`] = `
             <li
               aria-disabled="false"
               aria-selected="false"
-              class="c16 fi-select-item c17"
+              class="c17 fi-select-item c18"
               id="2-s05111511"
               role="option"
               tabindex="-1"
@@ -1042,7 +1090,7 @@ exports[`has matching snapshot 1`] = `
             <li
               aria-disabled="false"
               aria-selected="false"
-              class="c16 fi-select-item c17"
+              class="c17 fi-select-item c18"
               id="2-is3451261"
               role="option"
               tabindex="-1"
@@ -1052,7 +1100,7 @@ exports[`has matching snapshot 1`] = `
             <li
               aria-disabled="false"
               aria-selected="false"
-              class="c16 fi-select-item c17"
+              class="c17 fi-select-item c18"
               id="2-r09282626"
               role="option"
               tabindex="-1"
@@ -1062,7 +1110,7 @@ exports[`has matching snapshot 1`] = `
             <li
               aria-disabled="true"
               aria-selected="false"
-              class="c16 fi-select-item c17 fi-select-item--disabled"
+              class="c17 fi-select-item c18 fi-select-item--disabled"
               id="2-ms6126266"
               role="option"
               tabindex="-1"

@@ -1,10 +1,10 @@
 import React, { Component, forwardRef } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
+import { IconClose } from 'suomifi-icons';
 import { getLogger } from '../../../utils/log';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
-import { Icon } from '../../Icon/Icon';
 import {
   BaseChipProps,
   baseClassName,
@@ -82,9 +82,8 @@ class DefaultChip extends Component<ChipProps> {
         <HtmlSpan className={chipClassNames.content}>{children}</HtmlSpan>
         {!!removable && (
           <>
-            <Icon
+            <IconClose
               mousePointer={true}
-              icon="close"
               color="currentColor"
               className={chipButtonClassNames.icon}
               aria-hidden={true}

@@ -7,11 +7,11 @@ import {
   HtmlUl,
 } from '../../../../reset';
 import styled from 'styled-components';
+import { IconChevronDown, IconChevronRight } from 'suomifi-icons';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
+import { getConditionalAriaProp } from '../../../../utils/aria';
 import { baseStyles } from './ServiceNavigation.baseStyles';
 import classnames from 'classnames';
-import { Icon } from '../../../Icon/Icon';
-import { getConditionalAriaProp } from '../../../../utils/aria';
 
 export interface ServiceNavigationProps {
   /** Use the `<ServiceNavigationItem>` components as children */
@@ -75,7 +75,7 @@ const BaseServiceNavigation = ({
           <HtmlSpan className={buttonTextClassName}>
             {smallScreenExpandButtonText}
           </HtmlSpan>
-          <Icon icon={smallScreenNavOpen ? 'chevronDown' : 'chevronRight'} />
+          {smallScreenNavOpen ? <IconChevronDown /> : <IconChevronRight />}
         </HtmlButton>
       )}
       {((variant === 'smallScreen' && smallScreenNavOpen) ||

@@ -5,6 +5,7 @@ import { axeTest } from '../../../../utils/test';
 import { SideNavigation } from './SideNavigation';
 import { SideNavigationItem } from '../SideNavigationItem/SideNavigationItem';
 import { ExternalLink, RouterLink } from '../../../Link';
+import { IconPiggyBank } from 'suomifi-icons';
 
 interface TestProps {
   children: string;
@@ -19,7 +20,7 @@ const CustomButton = (props: TestProps) => {
 };
 
 const TestSideNavigation = (
-  <SideNavigation heading="Economy" icon="piggyBank" aria-label="Test">
+  <SideNavigation heading="Economy" icon={<IconPiggyBank />} aria-label="Test">
     <SideNavigationItem
       subLevel={1}
       content={

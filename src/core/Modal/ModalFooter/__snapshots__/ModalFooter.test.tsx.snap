@@ -171,6 +171,35 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c5 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: inline;
+  max-width: 100%;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
+}
+
+.c5::before,
+.c5::after {
+  box-sizing: border-box;
+}
+
 .c2.fi-modal_footer {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -420,17 +449,17 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   background-color: hsl(202,7%,97%);
 }
 
-.c4 > .fi-button_icon {
+.c4 > .fi-button_icon > .fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c4 > .fi-button_icon.fi-button_icon--right {
+.c4 > .fi-button_icon--right > .fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
@@ -482,7 +511,13 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
               tabindex="0"
               type="button"
             >
+              <span
+                class="c5 fi-button_icon"
+              />
               OK
+              <span
+                class="c5 fi-button_icon fi-button_icon--right"
+              />
             </button>
             <button
               aria-disabled="false"
@@ -490,7 +525,13 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
               tabindex="0"
               type="button"
             >
+              <span
+                class="c5 fi-button_icon"
+              />
               Cancel
+              <span
+                class="c5 fi-button_icon fi-button_icon--right"
+              />
             </button>
           </div>
           <div

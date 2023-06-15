@@ -1,13 +1,13 @@
 import React from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import { IconChevronLeft, IconChevronRight } from 'suomifi-icons';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
 import { HtmlDiv } from '../../../../../reset';
 import { Dropdown, DropdownItem } from '../../../../Dropdown';
 import { InternalDatePickerTextProps } from '../../datePickerTexts';
 import { baseStyles } from './DateSelectors.baseStyles';
 import { Button } from '../../../../Button/Button';
-import { Icon } from '../../../../Icon/Icon';
 import {
   yearOptions,
   monthOptions,
@@ -153,10 +153,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
           className={selectorsClassNames.monthButton}
           disabled={monthIsSame(focusableDate, minDate)}
         >
-          <Icon
-            icon="chevronLeft"
-            className={selectorsClassNames.monthButtonIcon}
-          />
+          <IconChevronLeft className={selectorsClassNames.monthButtonIcon} />
         </Button>
         <Button
           onClick={handleNextMonthButton}
@@ -165,10 +162,7 @@ export const BaseDateSelectors = (props: DateSelectorsProps) => {
           className={selectorsClassNames.monthButton}
           disabled={monthIsSame(focusableDate, maxDate)}
         >
-          <Icon
-            icon="chevronRight"
-            className={selectorsClassNames.monthButtonIcon}
-          />
+          <IconChevronRight className={selectorsClassNames.monthButtonIcon} />
         </Button>
       </HtmlDiv>
     </HtmlDiv>

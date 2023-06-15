@@ -1,13 +1,13 @@
 import React, { Component, forwardRef, RefObject, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classNames from 'classnames';
+import { IconClose } from 'suomifi-icons';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
   HtmlButton,
   HtmlDivWithRef,
   HtmlDivWithRefProps,
 } from '../../../reset';
-import { Icon } from '../../Icon/Icon';
 import { baseStyles } from './TooltipContent.baseStyles';
 
 const baseClassName = 'fi-tooltip';
@@ -62,10 +62,7 @@ class BaseTooltipContent extends Component<TooltipContentProps & InnerRef> {
           onClick={onCloseButtonClick}
           className={tooltipContentClassNames.closeButton}
         >
-          <Icon
-            className={tooltipContentClassNames.closeButtonIcon}
-            icon="close"
-          />
+          <IconClose className={tooltipContentClassNames.closeButtonIcon} />
         </HtmlButton>
       </HtmlDivWithRef>
     );

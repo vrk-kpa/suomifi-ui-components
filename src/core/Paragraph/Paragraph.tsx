@@ -37,7 +37,7 @@ const StyledParagraph = styled(
 `;
 
 /**
- * Used for displaying a <p> element with correct styles
+ * Used for displaying a &lt;p&gt; element with correct styles
  */
 const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
   (props, ref) => (

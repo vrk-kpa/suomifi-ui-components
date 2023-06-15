@@ -1,6 +1,7 @@
 import React, { ChangeEvent, Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import { IconSearch } from 'suomifi-icons';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import {
@@ -13,7 +14,6 @@ import {
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { StatusText } from '../../Form/StatusText/StatusText';
 import { Label } from '../../Form/Label/Label';
-import { Icon } from '../../Icon/Icon';
 import { InputStatus, StatusTextCommonProps } from '../../Form/types';
 import { baseStyles } from './PageInput.baseStyles';
 
@@ -223,9 +223,8 @@ class BasePageInput extends Component<
             </HtmlDiv>
             <HtmlButton {...pageInputButtonDerivedProps}>
               <VisuallyHidden>{pageInputButtonLabel}</VisuallyHidden>
-              <Icon
+              <IconSearch
                 aria-hidden={true}
-                icon="search"
                 className={pageInputClassNames.pageInputIcon}
               />
             </HtmlButton>

@@ -47,13 +47,14 @@ import { Button, Paragraph, Text } from 'suomifi-ui-components';
 
 ```js
 import { Button } from 'suomifi-ui-components';
+import { IconLogin } from 'suomifi-icons';
 
 <>
-  <Button icon="login" aria-label="Login">
+  <Button icon={<IconLogin />} aria-label="Login">
     Button icon="login" aria-label="Login"
   </Button>
 
-  <Button iconRight="login" aria-labelledby="button-label">
+  <Button iconRight={<IconLogin />} aria-labelledby="button-label">
     <span id="button-label">Login</span> iconRight="login"
     aria-labelledby="button-label"
   </Button>
@@ -62,12 +63,18 @@ import { Button } from 'suomifi-ui-components';
 
 ```js
 import { Button } from 'suomifi-ui-components';
+import { IconLogin } from 'suomifi-icons';
 
 <>
   <div example="inverted">
     <Button variant="inverted">Inverted Button </Button>
 
-    <Button variant="inverted" disabled fullWidth icon="login">
+    <Button
+      variant="inverted"
+      disabled
+      fullWidth
+      icon={<IconLogin />}
+    >
       Inverted Button disabled fullWidth icon="login"
     </Button>
   </div>
@@ -76,15 +83,16 @@ import { Button } from 'suomifi-ui-components';
 
 ```js
 import { Button } from 'suomifi-ui-components';
+import { IconLogin } from 'suomifi-icons';
 
 <>
   <Button variant="secondary">Button</Button>
 
-  <Button variant="secondary" icon="login">
+  <Button variant="secondary" icon={<IconLogin />}>
     Secondary Button icon="login"
   </Button>
 
-  <Button variant="secondary" disabled fullWidth icon="login">
+  <Button variant="secondary" disabled fullWidth icon={<IconLogin />}>
     Secondary Button disabled fullWidth icon="login"
   </Button>
 
@@ -92,11 +100,11 @@ import { Button } from 'suomifi-ui-components';
     Borderless secondary Button
   </Button>
 
-  <Button variant="secondaryNoBorder" icon="login">
+  <Button variant="secondaryNoBorder" icon={<IconLogin />}>
     Borderless secondary Button icon="login"
   </Button>
 
-  <Button variant="secondaryNoBorder" disabled icon="login">
+  <Button variant="secondaryNoBorder" disabled icon={<IconLogin />}>
     Borderless secondary Button disabled icon="login"
   </Button>
 </>;
@@ -104,11 +112,12 @@ import { Button } from 'suomifi-ui-components';
 
 ```js
 import { Button } from 'suomifi-ui-components';
+import { IconLogin } from 'suomifi-icons';
 
 <>
   <Button variant="link">Link Button</Button>
 
-  <Button variant="link" disabled icon="login">
+  <Button variant="link" disabled icon={<IconLogin />}>
     Link Button disabled icon="login"
   </Button>
 </>;

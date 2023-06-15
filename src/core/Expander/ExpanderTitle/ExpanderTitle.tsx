@@ -8,11 +8,11 @@ import {
   HtmlDivProps,
   HtmlSpan,
 } from '../../../reset';
-import { Icon } from '../../Icon/Icon';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { ExpanderConsumer, ExpanderTitleBaseProps } from '../Expander/Expander';
 import { expanderTitleBaseStyles } from './ExpanderTitle.baseStyles';
+import { IconChevronDown } from 'suomifi-icons';
 
 const baseClassName = 'fi-expander_title';
 const titleOpenClassName = `${baseClassName}--open`;
@@ -84,8 +84,7 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
           <VisuallyHidden>
             {!!consumer.open ? ariaCloseText : ariaOpenText}
           </VisuallyHidden>
-          <Icon
-            icon="chevronDown"
+          <IconChevronDown
             className={classnames(iconClassName, {
               [iconOpenClassName]: consumer.open,
             })}

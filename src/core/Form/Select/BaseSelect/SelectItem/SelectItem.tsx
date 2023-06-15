@@ -1,10 +1,10 @@
 import React, { Component, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import { IconCheck } from 'suomifi-icons';
 import { escapeStringRegexp } from '../../../../../utils/common';
 import { HtmlLi } from '../../../../../reset';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
-import { Icon } from '../../../../Icon/Icon';
 import { baseStyles } from './SelectItem.baseStyles';
 
 const baseClassName = 'fi-select-item';
@@ -104,11 +104,7 @@ class BaseSelectItem extends Component<SelectItemProps & SuomifiThemeProp> {
         })}
 
         {checked && (
-          <Icon
-            icon="check"
-            className={selectItemClassNames.icon}
-            aria-hidden={true}
-          />
+          <IconCheck className={selectItemClassNames.icon} aria-hidden={true} />
         )}
       </HtmlLi>
     );

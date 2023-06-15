@@ -7,9 +7,9 @@ import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { HintText } from '../HintText/HintText';
-import { ComponentIcon } from '../../StaticIcon/StaticIcon';
 import { RadioButtonGroupConsumer } from './RadioButtonGroup';
 import { baseStyles } from './RadioButton.baseStyles';
+import { IconRadioButton, IconRadioButtonLarge } from 'suomifi-icons';
 
 const baseClassName = 'fi-radio-button';
 const radioButtonClassNames = {
@@ -141,10 +141,11 @@ class BaseRadioButton extends Component<RadioButtonProps> {
           {...passProps}
         />
         <HtmlSpan className={radioButtonClassNames.iconWrapper}>
-          <ComponentIcon
-            className={radioButtonClassNames.icon}
-            icon={variant === 'large' ? 'radioButtonLarge' : 'radioButton'}
-          />
+          {variant === 'large' ? (
+            <IconRadioButtonLarge className={radioButtonClassNames.icon} />
+          ) : (
+            <IconRadioButton className={radioButtonClassNames.icon} />
+          )}
         </HtmlSpan>
         <HtmlLabel htmlFor={id} className={radioButtonClassNames.label}>
           {children}

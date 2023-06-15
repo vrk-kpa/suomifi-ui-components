@@ -2,7 +2,7 @@ import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { Icon } from '../../Icon/Icon';
+import { IconLinkExternal } from 'suomifi-icons';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { ExternalLinkStyles } from './ExternalLink.baseStyles';
 import { HtmlA } from '../../../reset';
@@ -62,13 +62,7 @@ class BaseExternalLink extends Component<ExternalLinkProps> {
       >
         {children}
         {toNewWindow && <VisuallyHidden>{labelNewWindow}</VisuallyHidden>}
-        {!hideIcon && (
-          <Icon
-            icon="linkExternal"
-            className={iconClassName}
-            color="currentColor"
-          />
-        )}
+        {!hideIcon && <IconLinkExternal className={iconClassName} />}
       </HtmlA>
     );
   }

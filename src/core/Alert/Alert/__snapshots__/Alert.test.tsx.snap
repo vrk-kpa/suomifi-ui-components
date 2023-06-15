@@ -112,6 +112,30 @@ exports[`props children should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c5 {
+  vertical-align: baseline;
+}
+
+.c5.fi-icon {
+  display: inline-block;
+}
+
+.c5 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c5 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c5.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c5.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c3 {
   vertical-align: baseline;
 }
@@ -334,7 +358,7 @@ exports[`props children should match snapshot 1`] = `
       >
         <path
           class="fi-icon-base-fill"
-          d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0zm0 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm.003 8a1 1 0 011 1v6h1a1 1 0 010 2H10a1 1 0 010-2h1v-5h-1a1 1 0 010-2h2.003zm-.501-5a1.5 1.5 0 01.145 2.994L11.502 8H11.5a1.5 1.5 0 110-3h.002z"
+          d="M12 0c6.617 0 12 5.383 12 12s-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0Zm0 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2Zm.003 8a1 1 0 0 1 1 1v6h1a1 1 0 0 1 0 2H10a1 1 0 0 1 0-2h1v-5h-1a1 1 0 0 1 0-2h2.003Zm-.501-5a1.5 1.5 0 0 1 .145 2.994L11.502 8H11.5a1.5 1.5 0 1 1 0-3h.002Z"
           fill="#222"
           fill-rule="evenodd"
         />
@@ -361,7 +385,7 @@ exports[`props children should match snapshot 1`] = `
         CLOSE
         <svg
           aria-hidden="true"
-          class="fi-icon c3"
+          class="fi-icon c5"
           focusable="false"
           height="1em"
           viewBox="0 0 24 24"
@@ -370,7 +394,7 @@ exports[`props children should match snapshot 1`] = `
         >
           <path
             class="fi-icon-base-fill"
-            d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
+            d="M4.75 3.3 12 10.55l7.25-7.25a1.026 1.026 0 0 1 1.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 0 1-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 0 1-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 0 1 4.75 3.3Z"
             fill="#222"
             fill-rule="evenodd"
           />

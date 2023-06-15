@@ -1,6 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Basic tooltip should match snapshot 1`] = `
+.c5 {
+  vertical-align: baseline;
+}
+
+.c5.fi-icon {
+  display: inline-block;
+}
+
+.c5 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c5 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c5.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c5.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
+.c2 {
+  vertical-align: baseline;
+}
+
+.c2.fi-icon {
+  display: inline-block;
+}
+
+.c2 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c2 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c2.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c2.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c0 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -81,30 +129,6 @@ exports[`Basic tooltip should match snapshot 1`] = `
 .c3::before,
 .c3::after {
   box-sizing: border-box;
-}
-
-.c2 {
-  vertical-align: baseline;
-}
-
-.c2.fi-icon {
-  display: inline-block;
-}
-
-.c2 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c2 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c2.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c2.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c4 {
@@ -264,7 +288,7 @@ exports[`Basic tooltip should match snapshot 1`] = `
     >
       <path
         class="fi-icon-base-fill"
-        d="M11.996 0c3.207 0 6.22 1.248 8.487 3.514A11.917 11.917 0 0124 12a11.92 11.92 0 01-3.517 8.486A11.927 11.927 0 0111.996 24c-3.207 0-6.221-1.249-8.487-3.514-4.679-4.68-4.679-12.292 0-16.972A11.923 11.923 0 0111.996 0zm.007 10H10a1 1 0 000 2h1v5h-1a1 1 0 000 2h4.003a1 1 0 000-2h-1v-6a1 1 0 00-1-1zm-.501-5a1.5 1.5 0 10-.002 3h.002l.145-.006A1.5 1.5 0 0011.502 5z"
+        d="M11.996 0c3.207 0 6.22 1.248 8.487 3.514A11.917 11.917 0 0 1 24 12a11.92 11.92 0 0 1-3.517 8.486A11.927 11.927 0 0 1 11.996 24c-3.207 0-6.221-1.249-8.487-3.514-4.679-4.68-4.679-12.292 0-16.972A11.923 11.923 0 0 1 11.996 0Zm.007 10H10a1 1 0 0 0 0 2h1v5h-1a1 1 0 0 0 0 2h4.003a1 1 0 0 0 0-2h-1v-6a1 1 0 0 0-1-1Zm-.501-5a1.5 1.5 0 1 0-.002 3h.002l.145-.006A1.5 1.5 0 0 0 11.502 5Z"
         fill="#222"
         fill-rule="evenodd"
       />
@@ -281,7 +305,7 @@ exports[`Basic tooltip should match snapshot 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="fi-icon c2 fi-tooltip_close-button_icon"
+        class="fi-icon c5 fi-tooltip_close-button_icon"
         focusable="false"
         height="1em"
         viewBox="0 0 24 24"
@@ -290,7 +314,7 @@ exports[`Basic tooltip should match snapshot 1`] = `
       >
         <path
           class="fi-icon-base-fill"
-          d="M4.75 3.3L12 10.55l7.25-7.25a1.026 1.026 0 011.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 01-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 01-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 014.75 3.3z"
+          d="M4.75 3.3 12 10.55l7.25-7.25a1.026 1.026 0 0 1 1.45 1.45L13.45 12l7.25 7.25a1.026 1.026 0 0 1-1.45 1.45L12 13.45 4.75 20.7a1.026 1.026 0 0 1-1.45-1.45L10.55 12 3.3 4.75A1.026 1.026 0 0 1 4.75 3.3Z"
           fill="#222"
           fill-rule="evenodd"
         />

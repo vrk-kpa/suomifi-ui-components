@@ -9,6 +9,7 @@ import {
   RouterLink,
   ExternalLink
 } from 'suomifi-ui-components';
+import { IconPiggyBank } from 'suomifi-icons';
 
 const CustomButton = (props) => {
   const { children, ...passProps } = props;
@@ -18,7 +19,7 @@ const CustomButton = (props) => {
 <div style={{ width: '350px' }}>
   <SideNavigation
     heading="Economy"
-    icon="piggyBank"
+    icon={<IconPiggyBank />}
     aria-label="Main"
   >
     <SideNavigationItem
@@ -115,6 +116,7 @@ import {
   RouterLink,
   ExternalLink
 } from 'suomifi-ui-components';
+import { IconPiggyBank } from 'suomifi-icons';
 
 const CustomButton = (props) => {
   const { children, ...passProps } = props;
@@ -125,7 +127,7 @@ const CustomButton = (props) => {
   <SideNavigation
     variant="smallScreen"
     heading="Economy"
-    icon="piggyBank"
+    icon={<IconPiggyBank />}
     initiallyExpanded={false}
     aria-label="Main"
   >

@@ -821,17 +821,17 @@ exports[`Basic modal should match snapshot 1`] = `
   background-color: hsl(202,7%,97%);
 }
 
-.c9 > .fi-button_icon {
+.c9 > .fi-button_icon > .fi-icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
 }
 
-.c9 > .fi-button_icon.fi-button_icon--right {
+.c9 > .fi-button_icon--right > .fi-icon {
   margin-right: 0;
   margin-left: 8px;
 }
@@ -899,7 +899,13 @@ exports[`Basic modal should match snapshot 1`] = `
               tabindex="0"
               type="button"
             >
+              <span
+                class="c3 fi-button_icon"
+              />
               OK
+              <span
+                class="c3 fi-button_icon fi-button_icon--right"
+              />
             </button>
           </div>
           <div

@@ -1,6 +1,7 @@
 import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
+import { IconArrowLeft, IconArrowRight } from 'suomifi-icons';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { baseStyles } from './Pagination.baseStyles';
 import { HtmlSpan, HtmlNav, HtmlDiv } from '../../reset';
@@ -179,7 +180,7 @@ class BasePagination extends Component<PaginationProps> {
               className={paginationClassNames.arrowButton}
               variant="secondary"
               onClick={this.onLeftButtonClick}
-              icon="arrowLeft"
+              icon={<IconArrowLeft />}
               disabled={this.getCurrentPage() <= 1}
               aria-label={previousButtonAriaLabel}
             />
@@ -194,7 +195,7 @@ class BasePagination extends Component<PaginationProps> {
               onClick={this.onRightButtonClick}
               disabled={this.getCurrentPage() >= lastPage}
               aria-label={nextButtonAriaLabel}
-              icon="arrowRight"
+              icon={<IconArrowRight />}
             />
           </HtmlDiv>
 

@@ -3,6 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 import { axeTest } from '../../../utils/test';
 
 import { TextInput } from './TextInput';
+import { IconClose } from 'suomifi-icons';
 
 describe('snapshots match', () => {
   test('minimal implementation', () => {
@@ -228,14 +229,14 @@ describe('props', () => {
   describe('icon', () => {
     it('should have the correct classname when icon prop is given', () => {
       const { container } = render(
-        <TextInput labelText="Test input" icon="close" />,
+        <TextInput labelText="Test input" icon={<IconClose />} />,
       );
       expect(container.firstChild).toHaveClass('fi-text-input_with-icon');
     });
 
     it('should have an icon element when one is specified', () => {
       const { container } = render(
-        <TextInput labelText="Test input" icon="close" />,
+        <TextInput labelText="Test input" icon={<IconClose />} />,
       );
       const icon = container.querySelector('.fi-icon');
       expect(container.contains(icon)).toBeTruthy();
@@ -257,14 +258,14 @@ describe('props', () => {
   describe('icon', () => {
     it('should have the correct classname when icon prop is given', () => {
       const { container } = render(
-        <TextInput labelText="Test input" icon="close" />,
+        <TextInput labelText="Test input" icon={<IconClose />} />,
       );
       expect(container.firstChild).toHaveClass('fi-text-input_with-icon');
     });
 
     it('should have an icon element when one is specified', () => {
       const { container } = render(
-        <TextInput labelText="Test input" icon="close" />,
+        <TextInput labelText="Test input" icon={<IconClose />} />,
       );
       const icon = container.querySelector('.fi-icon');
       expect(container.contains(icon)).toBeTruthy();
