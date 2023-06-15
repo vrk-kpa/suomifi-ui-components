@@ -93,7 +93,7 @@ import { IconLogin } from 'suomifi-icons';
   </Button>
 
   <Button variant="secondary" disabled fullWidth icon={<IconLogin />}>
-    Secondary Button disabled fullWidth icon={<IconLogin />}
+    Secondary Button disabled fullWidth icon="login"
   </Button>
 
   <Button variant="secondaryNoBorder">
