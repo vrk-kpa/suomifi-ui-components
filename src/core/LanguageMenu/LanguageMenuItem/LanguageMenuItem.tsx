@@ -12,12 +12,12 @@ import {
 export interface LanguageMenuItemProps {
   /** Language of the item. Must be provided for assistive technology. */
   lang: string;
-  /** Custom class */
+  /** Custom CSS class */
   className?: string;
-  /** Text of the action */
+  /** Text of the item */
   children: ReactNode;
   /** Called when menu item is clicked */
-  onClick: () => void;
+  onSelect: () => void;
   /** Show item as selected one */
   selected?: boolean;
 }
@@ -38,7 +38,7 @@ const BaseLanguageMenuItem = (
     className,
     children,
     selected,
-    onClick,
+    onSelect,
     consumer,
     itemIndex = -1,
     theme,
@@ -62,7 +62,7 @@ const BaseLanguageMenuItem = (
         [selectedClassName]: selected,
       })}
       onClick={() => {
-        onClick();
+        onSelect();
         consumer.onItemClick(itemIndex);
       }}
       onMouseOver={() => {

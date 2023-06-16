@@ -18,13 +18,13 @@ const languageMenuProps: LanguageMenuProps = {
 
 const TestLanguageMenu = (props: LanguageMenuProps) => (
   <LanguageMenu {...props}>
-    <LanguageMenuItem onClick={() => doNothing()} lang="fi">
+    <LanguageMenuItem onSelect={() => doNothing()} lang="fi">
       Suomeksi (FI)
     </LanguageMenuItem>
-    <LanguageMenuItem onClick={() => doNothing()} lang="sv">
+    <LanguageMenuItem onSelect={() => doNothing()} lang="sv">
       På svenska (SV)
     </LanguageMenuItem>
-    <LanguageMenuItem onClick={() => doNothing()} lang="en" selected>
+    <LanguageMenuItem onSelect={() => doNothing()} lang="en" selected>
       In English (EN)
     </LanguageMenuItem>
   </LanguageMenu>

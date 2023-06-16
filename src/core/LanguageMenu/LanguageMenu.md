@@ -9,19 +9,19 @@ import {
   aria-label="Change language. Current language is English"
 >
   <LanguageMenuItem
-    onClick={() => console.log('Changing lang to FI')}
+    onSelect={() => console.log('Changing lang to FI')}
     lang="fi"
   >
     Suomeksi (FI)
   </LanguageMenuItem>
   <LanguageMenuItem
-    onClick={() => console.log('Changing lang to SV')}
+    onSelect={() => console.log('Changing lang to SV')}
     lang="sv"
   >
     På svenska (SV)
   </LanguageMenuItem>
   <LanguageMenuItem
-    onClick={() => console.log('Changing lang to EN')}
+    onSelect={() => console.log('Changing lang to EN')}
     lang="en"
     selected
   >
