@@ -216,7 +216,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
 }
 
 .c1.fi-textarea .fi-textarea_textarea-element-container:focus-within {
-  outline: none;
+  outline: 3px solid transparent;
   position: relative;
 }
 

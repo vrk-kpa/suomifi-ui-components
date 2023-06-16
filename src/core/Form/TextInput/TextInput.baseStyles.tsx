@@ -29,6 +29,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &:focus-within {
       position: relative;
+      ${theme.focuses.highContrastFocus}
 
       &::after {
         ${theme.focuses.absoluteFocus}

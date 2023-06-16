@@ -32,6 +32,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &:focus-within {
       position: relative;
+      ${theme.focuses.highContrastFocus}
 
       &::after {
         ${theme.focuses.absoluteFocus}
@@ -86,7 +87,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     border: 1px solid ${theme.colors.highlightBase};
     border-radius: ${theme.radiuses.basic};
     &:focus {
-      outline: 3px solid transparent;
+      ${theme.focuses.highContrastFocus}
     }
   }
 

@@ -160,6 +160,10 @@ exports[`children should match snapshot 1`] = `
   background: hsl(212,63%,37%);
 }
 
+.c1.fi-chip--button:focus {
+  outline: 3px solid transparent;
+}
+
 .c1.fi-chip--removable {
   padding-top: 2px;
   padding-right: 22px;
@@ -363,6 +367,10 @@ exports[`classnames should match snapshot 1`] = `
   background: hsl(212,63%,37%);
 }
 
+.c1.fi-chip--button:focus {
+  outline: 3px solid transparent;
+}
+
 .c1.fi-chip--removable {
   padding-top: 2px;
   padding-right: 22px;
@@ -560,6 +568,10 @@ exports[`disabled should match snapshot 1`] = `
 
 .c1.fi-chip--button:active {
   background: hsl(212,63%,37%);
+}
+
+.c1.fi-chip--button:focus {
+  outline: 3px solid transparent;
 }
 
 .c1.fi-chip--removable {

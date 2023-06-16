@@ -19,7 +19,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-textarea_textarea-element-container {
       margin-top: ${theme.spacing.insetL};
       &:focus-within {
-        outline: none;
+        ${theme.focuses.highContrastFocus} /* For high contrast mode */
         position: relative;
 
         &::after {

@@ -384,7 +384,7 @@ exports[`calling render with the same component on the same container does not r
 
 .c7.fi-side-navigation-item:focus,
 .c7.fi-side-navigation-item:focus-within {
-  outline: 0;
+  outline: none;
   box-shadow: none;
   border: none;
 }
@@ -420,7 +420,7 @@ exports[`calling render with the same component on the same container does not r
 }
 
 .c7.fi-side-navigation-item .fi-link--router:focus-visible {
-  outline: 0;
+  outline: 3px solid transparent;
   position: relative;
   box-shadow: none;
 }
@@ -611,6 +611,7 @@ exports[`calling render with the same component on the same container does not r
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
+  outline: 3px solid transparent;
 }
 
 .c11.fi-link:hover,
@@ -685,6 +686,7 @@ exports[`calling render with the same component on the same container does not r
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
+  outline: 3px solid transparent;
 }
 
 .c9.fi-link--router:hover,

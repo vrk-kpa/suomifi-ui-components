@@ -225,6 +225,7 @@ exports[`snapshots match error status with statustext 1`] = `
 
 .c1 .fi-text-input_input-element-container:focus-within {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-text-input_input-element-container:focus-within::after {
@@ -629,6 +630,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 
 .c1 .fi-text-input_input-element-container:focus-within {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-text-input_input-element-container:focus-within::after {
@@ -1018,6 +1020,7 @@ exports[`snapshots match minimal implementation 1`] = `
 
 .c1 .fi-text-input_input-element-container:focus-within {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-text-input_input-element-container:focus-within::after {

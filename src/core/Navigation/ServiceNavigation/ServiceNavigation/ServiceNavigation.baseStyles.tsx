@@ -28,7 +28,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         }
 
         &:focus {
-          outline: 0;
+          ${theme.focuses.highContrastFocus} /* For high contrast mode */
           &:after {
             ${theme.focuses.absoluteFocus}
           }

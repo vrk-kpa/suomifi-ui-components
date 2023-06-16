@@ -47,7 +47,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &:focus {
       box-shadow: none;
       position: relative;
-      outline: 3px solid transparent;
+      ${theme.focuses.highContrastFocus}
 
       &:after {
         ${theme.focuses.absoluteFocus}

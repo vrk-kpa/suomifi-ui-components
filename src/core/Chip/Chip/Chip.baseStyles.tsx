@@ -13,6 +13,9 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     &:active {
       background: ${theme.colors.highlightDark1};
     }
+    &:focus {
+      ${theme.focuses.highContrastFocus}
+    }
   }
 
   &.fi-chip--removable {

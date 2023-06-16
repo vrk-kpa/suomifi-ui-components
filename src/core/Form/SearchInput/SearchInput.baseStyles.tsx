@@ -33,6 +33,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       &:focus-within {
         position: relative;
         box-shadow: ${theme.shadows.actionElementBoxShadow};
+        ${theme.focuses.highContrastFocus}
         &:after {
           ${theme.focuses.absoluteFocus}
           top: -3px;
@@ -105,6 +106,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         padding: 0;
         border: 0;
         overflow: hidden;
+
+        &:focus {
+          ${theme.focuses.highContrastFocus}
+        }
         &-icon {
           width: 12px;
           height: 12px;
@@ -160,10 +165,18 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     & .fi-search-input_button-search {
       background: ${theme.gradients.highlightBaseToHighlightDark1};
+
+      /* Support for high contrast mode */
+      @media (forced-colors: active) {
+        border: solid 1px ButtonBorder;
+      }
+
       &:focus {
         &:after {
           ${theme.focuses.absoluteFocus}
         }
+
+        ${theme.focuses.highContrastFocus}/* For high contrast mode */
       }
       &:hover {
         background: ${theme.gradients.highlightLight1ToHighlightBase};
@@ -173,6 +186,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
       & .fi-search-input_button-search-icon .fi-icon-base-fill {
         fill: ${theme.colors.whiteBase};
+
+        @media (forced-colors: active) {
+          fill: ButtonText;
+        }
       }
     }
     & .fi-search-input_button-clear {

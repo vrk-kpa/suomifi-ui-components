@@ -107,10 +107,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         }
       }
       &:focus {
-        outline: 0;
         + .fi-radio-button_icon_wrapper {
           ${theme.focuses.boxShadowFocus}
           border-radius: 50%;
+          ${theme.focuses.highContrastFocus}
         }
       }
       &:focus:not(:focus-visible) {

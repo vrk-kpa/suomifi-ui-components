@@ -248,7 +248,7 @@ exports[`Basic expander group should match snapshot 1`] = `
 }
 
 .c1 > .fi-expander-group_all-button:focus {
-  outline: 0;
+  outline: 3px solid transparent;
   position: relative;
 }
 
@@ -460,7 +460,7 @@ exports[`Basic expander group should match snapshot 1`] = `
 }
 
 .c7 .fi-expander_title-button_button:focus-within {
-  outline: 0;
+  outline: 3px solid transparent;
 }
 
 .c7 .fi-expander_title-button_button:focus-within:after {

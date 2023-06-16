@@ -10,7 +10,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   justify-content: center;
   align-items: center;
   &:focus {
-    outline: none;
+    ${theme.focuses.highContrastFocus}
     &:after {
       ${theme.focuses.absoluteFocus}
     }

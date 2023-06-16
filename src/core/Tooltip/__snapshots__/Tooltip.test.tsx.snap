@@ -200,7 +200,7 @@ exports[`Basic tooltip should match snapshot 1`] = `
 }
 
 .c4.fi-tooltip_content .fi-tooltip_close-button:focus-visible {
-  outline: 0;
+  outline: 3px solid transparent;
 }
 
 .c4.fi-tooltip_content .fi-tooltip_close-button:focus-visible:after {
@@ -244,7 +244,7 @@ exports[`Basic tooltip should match snapshot 1`] = `
 }
 
 .c1:focus-visible {
-  outline: 0;
+  outline: 3px solid transparent;
   position: relative;
 }
 

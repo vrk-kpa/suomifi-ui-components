@@ -227,8 +227,8 @@ exports[`props children should match snapshot 1`] = `
 }
 
 .c1.fi-alert .fi-alert_style-wrapper .fi-alert_close-button:focus-visible {
-  outline: 0;
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1.fi-alert .fi-alert_style-wrapper .fi-alert_close-button:focus-visible:after {

@@ -39,10 +39,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       border: none;
 
       &:focus {
-        outline: 0;
         border: none;
         box-shadow: none;
         color: ${theme.colors.blackBase};
+        ${theme.focuses.highContrastFocus}/* For high contrast mode */
       }
 
       &:hover,

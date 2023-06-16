@@ -16,7 +16,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &:focus,
     &:focus-within {
-      outline: 0;
+      outline: none;
       box-shadow: none;
       border: none;
     }
@@ -44,7 +44,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
 
       &:focus-visible {
-        outline: 0;
+        ${theme.focuses.highContrastFocus} /* For high contrast mode */
         position: relative;
         box-shadow: none;
 

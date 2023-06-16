@@ -31,6 +31,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &:focus-within {
       ${theme.focuses.boxShadowFocus}
+      ${theme.focuses.highContrastFocus} /* Support for high contrast mode */
     }
 
     .fi-wizard-navigation-item_inner-wrapper {
