@@ -22,7 +22,7 @@ import { Link, Paragraph } from 'suomifi-ui-components';
     href="https://www.notvisitedlink.com/"
     underline="initial"
   >
-    Arrow link
+    Accented link
   </Link>
 
   <Link
@@ -31,7 +31,7 @@ import { Link, Paragraph } from 'suomifi-ui-components';
     underline="initial"
     smallScreen
   >
-    Small text arrow link
+    Small text accented link
   </Link>
 </>;
 ```
