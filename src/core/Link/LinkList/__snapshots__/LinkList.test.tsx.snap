@@ -281,11 +281,6 @@ exports[`Simple link list with one item should match snapshot 1`] = `
   text-decoration: none;
 }
 
-.c7.fi-link.fi-link--accent {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 .c7.fi-link.fi-link--accent .fi-link--accent_icon {
   font-size: 16px;
   margin-left: -3px;

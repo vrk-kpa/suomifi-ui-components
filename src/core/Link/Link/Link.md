@@ -17,18 +17,13 @@ import { Link, Paragraph } from 'suomifi-ui-components';
     Link without underline
   </Link>
 
-  <Link
-    variant="accent"
-    href="https://www.notvisitedlink.com/"
-    underline="initial"
-  >
+  <Link variant="accent" href="https://www.notvisitedlink.com/">
     Accented link
   </Link>
 
   <Link
     variant="accent"
     href="https://www.notvisitedlink.com/"
-    underline="initial"
     smallScreen
   >
     Small text accented link

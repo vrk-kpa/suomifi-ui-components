@@ -43,7 +43,6 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
     }
     &.fi-link--accent {
-      text-decoration: none;
       & .fi-link--accent_icon {
         font-size: 16px;
         margin-left: -3px;

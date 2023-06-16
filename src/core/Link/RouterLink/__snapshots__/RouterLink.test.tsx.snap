@@ -121,11 +121,6 @@ exports[`calling render with the same component on the same container does not r
   text-decoration: none;
 }
 
-.c1.fi-link.fi-link--accent {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 .c1.fi-link.fi-link--accent .fi-link--accent_icon {
   font-size: 16px;
   margin-left: -3px;
