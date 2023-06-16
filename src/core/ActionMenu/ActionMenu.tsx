@@ -24,7 +24,7 @@ export const actionMenuClassNames = {
 };
 
 export interface ActionMenuProps {
-  /** Label text for the button */
+  /** Text content for the button */
   buttonText?: string;
   /**
    * 'default' | 'inverted' | 'secondary' | 'secondaryNoBorder' | 'link'
