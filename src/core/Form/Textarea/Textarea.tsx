@@ -38,12 +38,35 @@ const textareaClassNames = {
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
-  characterCounterNonError: `${baseClassName}_characterCounter--non-error`,
+  bottomWrapper: `${baseClassName}_bottomWrapper`,
+  characterCounter: `${baseClassName}_characterCounter`,
+  characterCounterError: `${baseClassName}_characterCounter--error`,
 };
 
 type TextareaStatus = Exclude<InputStatus, 'success'>;
 
-export interface TextareaProps
+type characterCounterProps =
+  | {
+      maxLength?: never;
+      ariaCharactersRemainingText?: never;
+      ariaCharactersExceededText?: never;
+    }
+  | {
+      /** Maximun amount of characters in textarea.
+       * Using this prop adds a visible character counter to the bottom right corner of the textarea.
+       */
+      maxLength?: number;
+      /** Returns a text which screen readers read to indicate how many characters can still be written to the textarea.
+       * Required with `maxLength`
+       */
+      ariaCharactersRemainingText: (amount: number) => string;
+      /** Returns a text which screen readers read to indicate how many characters are over the maximum allowed chracter amount.
+       * Required with `maxLength`
+       */
+      ariaCharactersExceededText: (amount: number) => string;
+    };
+
+interface BaseTextareaProps
   extends StatusTextCommonProps,
     Omit<HtmlTextareaProps, 'placeholder' | 'forwardedRef'> {
   /** Custom classname to extend or customize */
@@ -87,20 +110,19 @@ export interface TextareaProps
   id?: string;
   /** Input name */
   name?: string;
-  /** Set components width to 100% */
+  /** Set component's width to 100% of the parent */
   fullWidth?: boolean;
   /** Textarea container div props */
   containerProps?: Omit<HtmlDivProps, 'className'>;
   /** Tooltip component for the input's label */
   tooltipComponent?: ReactElement;
-  maxLength?: number;
-  ariaCharactersRemainingText?: (amount: number) => string;
-  ariaCharactersExceededText?: (amount: number) => string;
-  characterCountExceededErrorText?: string;
+  /** ONLY FOR TESTING FOR NOW  */
   charCountScreenReaderDelay?: number;
   /** Ref is passed to the textarea element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLTextAreaElement>;
 }
+
+export type TextareaProps = characterCounterProps & BaseTextareaProps;
 
 const BaseTextarea = (props: TextareaProps) => {
   const {
@@ -219,7 +241,7 @@ const BaseTextarea = (props: TextareaProps) => {
           {...onClickProps}
         />
       </HtmlDiv>
-      <HtmlDiv style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <HtmlDiv className={textareaClassNames.bottomWrapper}>
         <StatusText
           id={statusTextId}
           className={classnames({
@@ -229,28 +251,20 @@ const BaseTextarea = (props: TextareaProps) => {
           disabled={disabled}
           ariaLiveMode={statusTextAriaLiveMode}
         >
-          {maxLength &&
-            ariaCharactersRemainingText &&
-            ariaCharactersExceededText && (
-              <VisuallyHidden>{characterCounterAriaText}</VisuallyHidden>
-            )}
+          {maxLength && (
+            <VisuallyHidden>{characterCounterAriaText}</VisuallyHidden>
+          )}
           {statusText}
         </StatusText>
-        {maxLength &&
-          ariaCharactersRemainingText &&
-          ariaCharactersExceededText && (
-            <StatusText
-              className={classnames({
-                [textareaClassNames.characterCounterNonError]:
-                  charCount <= maxLength,
-                [textareaClassNames.statusTextHasContent]: !!maxLength,
-              })}
-              status={status}
-              ariaLiveMode="off"
-            >
-              {`${charCount}/${maxLength}`}
-            </StatusText>
-          )}
+        {maxLength && (
+          <HtmlDiv
+            className={classnames(textareaClassNames.characterCounter, {
+              [textareaClassNames.characterCounterError]: charCount > maxLength,
+            })}
+          >
+            {`${charCount}/${maxLength}`}
+          </HtmlDiv>
+        )}
       </HtmlDiv>
     </HtmlDiv>
   );

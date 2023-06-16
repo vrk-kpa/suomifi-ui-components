@@ -288,4 +288,38 @@ describe('props', () => {
       expect(container.firstChild).toHaveAttribute('style', 'width: 100px;');
     });
   });
+
+  describe('Character counter', () => {
+    it('should display character count', () => {
+      const { container, getByRole } = render(
+        <Textarea
+          labelText="label"
+          maxLength={20}
+          ariaCharactersRemainingText={(amount) =>
+            `You have ${amount} characters remaining`
+          }
+          ariaCharactersExceededText={(amount) =>
+            `You have ${amount} characters too many`
+          }
+        >
+          Lorem ipsum
+        </Textarea>,
+      );
+      expect(
+        container.getElementsByClassName('fi-textarea_characterCounter').length,
+      ).toBe(1);
+      expect(
+        container.getElementsByClassName('fi-textarea_characterCounter')[0],
+      ).toHaveTextContent('11/20');
+
+      const textarea = getByRole('textbox') as HTMLTextAreaElement;
+      fireEvent.change(textarea, {
+        target: { value: 'Lorem ipsum dolor sit amet' },
+      });
+
+      expect(
+        container.getElementsByClassName('fi-textarea_characterCounter')[0],
+      ).toHaveTextContent('26/20');
+    });
+  });
 });

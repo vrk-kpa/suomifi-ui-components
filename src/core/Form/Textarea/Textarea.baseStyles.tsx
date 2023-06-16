@@ -12,8 +12,18 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     display: flex;
     flex-direction: column;
 
-    & .fi-textarea_characterCounter--non-error {
-      font-weight: 400;
+    & .fi-textarea_bottomWrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    & .fi-textarea_characterCounter {
+      ${font(theme)('bodyTextSmall')};
+      color: ${theme.colors.blackBase};
+      font-size: 14px;
+      line-height: 20px;
+      flex: none;
+      margin-top: 4px;
     }
 
     & .fi-textarea_statusText--has-content {

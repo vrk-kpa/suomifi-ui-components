@@ -10,10 +10,15 @@ import React, { useState } from 'react';
 const [isError, setIsError] = useState(false);
 const [statusText, setStatusText] = useState('');
 
+const maxCharAmount = 30;
+
+/**
+ * Check if maximum amount of characters has exceed, and set status and statusText accordingly.
+ * You can also perform all your other validation needs here.
+ */
 const validateText = (text) => {
-  if (text.length > 30) {
+  if (text.length > maxCharAmount) {
     setIsError(true);
-    // Tässä yhteydessä voi myös laittaa muut mahdolliset päällä olevat virheilmoitukset samaan rimpsuun
     setStatusText('Description must be 30 characters or less');
   } else {
     setIsError(false);
@@ -26,7 +31,7 @@ const validateText = (text) => {
     hintText="Plase provide details pertaining to the case"
     labelText="Description"
     onChange={() => validateText(event.target.value)}
-    maxLength={30}
+    maxLength={maxCharAmount}
     ariaCharactersRemainingText={(amount) =>
       `You have ${amount} characters remaining`
     }
