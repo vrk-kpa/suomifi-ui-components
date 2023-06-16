@@ -1,25 +1,34 @@
 ```js
 import { Link, Paragraph } from 'suomifi-ui-components';
-
-<Paragraph>
+<>
   <Link
     className="test-classname"
     href="https://www.notvisitedlink.com/"
     underline="initial"
   >
     Not visited link
-  </Link>{' '}
+  </Link>
+
   <Link className="test-classname" href="#" underline="initial">
     Visited link
-  </Link>{' '}
-  <Link
-    className="test-classname"
-    href="https://www.notvisitedlink.com/"
-    underline="hover"
-  >
+  </Link>
+
+  <Link href="https://www.notvisitedlink.com/" underline="hover">
     Link without underline
   </Link>
-</Paragraph>;
+
+  <Link variant="accent" href="https://www.notvisitedlink.com/">
+    Accented link
+  </Link>
+
+  <Link
+    variant="accent"
+    href="https://www.notvisitedlink.com/"
+    smallScreen
+  >
+    Small text accented link
+  </Link>
+</>;
 ```
 
 ### Skip link
@@ -38,9 +47,7 @@ import { SkipLink } from 'suomifi-ui-components';
     style={{
       height: '80px',
       width: '210px',
-      borderStyle: 'dashed',
-      borderColor: '#000',
-      borderWidth: '1px'
+      border: '1px dashed #000'
     }}
   >
     <SkipLink href="#">Skip to main content</SkipLink>
@@ -65,6 +72,13 @@ import { ExternalLink } from 'suomifi-ui-components';
     toNewWindow={false}
   >
     External link in same window
+  </ExternalLink>
+  <ExternalLink
+    href="https://designsystem.suomi.fi/fi/"
+    labelNewWindow="Opens to a new window"
+    variant="accent"
+  >
+    Accented external link
   </ExternalLink>
 </>;
 ```

@@ -158,6 +158,13 @@ module.exports = {
           ]),
         },
         {
+          name: 'LinkList',
+          components: getComponentWithVariants('Link')([
+            'LinkList/LinkList',
+            'LinkListItem/LinkListItem',
+          ]),
+        },
+        {
           name: 'Chip',
           components: getComponentWithVariants('Chip')([
             'Chip/Chip',

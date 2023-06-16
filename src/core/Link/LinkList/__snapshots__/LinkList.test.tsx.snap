@@ -1,6 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`calling render with the same component on the same container does not remount 1`] = `
+exports[`Simple link list with one item should match snapshot 1`] = `
+.c5 {
+  vertical-align: baseline;
+}
+
+.c5.fi-icon {
+  display: inline-block;
+}
+
+.c5 .fi-icon-base-fill {
+  fill: hsl(212,63%,45%);
+}
+
+.c5 .fi-icon-base-stroke {
+  stroke: hsl(212,63%,45%);
+}
+
+.c5.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c5.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c6 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -39,57 +63,6 @@ exports[`calling render with the same component on the same container does not r
   cursor: pointer;
 }
 
-.c3 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: list-item;
-}
-
-.c3::before,
-.c3::after {
-  box-sizing: border-box;
-}
-
-.c0 {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: 100% inherit;
-  line-height: 1;
-  text-align: left;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: inherit;
-  background: none;
-  cursor: inherit;
-  display: block;
-  max-width: 100%;
-}
-
-.c0::before,
-.c0::after {
-  box-sizing: border-box;
-}
-
 .c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -107,13 +80,7 @@ exports[`calling render with the same component on the same container does not r
   color: inherit;
   background: none;
   cursor: inherit;
-  display: block;
-  list-style-type: decimal;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 40px;
+  display: list-item;
 }
 
 .c2::before,
@@ -150,9 +117,86 @@ exports[`calling render with the same component on the same container does not r
   box-sizing: border-box;
 }
 
-.c1 {
-  color: hsl(0,0%,13%);
+.c0 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
   display: block;
+  list-style-type: decimal;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 40px;
+}
+
+.c0::before,
+.c0::after {
+  box-sizing: border-box;
+}
+
+.c3 {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.c3.fi-link-list-item {
+  list-style: none;
+  padding: 0;
+}
+
+.c3.fi-link-list-item .fi-link-list-item_icon {
+  margin-right: 2px;
+}
+
+.c3.fi-link-list-item .fi-link-list-item_icon .fi-icon {
+  margin-left: -3px;
+  font-size: 16px;
+  -webkit-transform: translateY(0.1em);
+  -ms-transform: translateY(0.1em);
+  transform: translateY(0.1em);
+}
+
+.c3.fi-link-list-item .fi-link-list-item_icon .fi-icon .fi-icon-base-fill {
+  fill: hsl(23,82%,51%);
+}
+
+.c1.fi-link-list {
+  padding: 0;
+  margin: 5px 0 0 0;
+}
+
+.c1.fi-link-list--small .fi-link-list-item_icon .fi-icon {
+  -webkit-transform: translateY(0.15em);
+  -ms-transform: translateY(0.15em);
+  transform: translateY(0.15em);
+}
+
+.c1.fi-link-list--small .fi-link {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -166,44 +210,6 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  height: 1.5em;
-}
-
-.c1 .fi-breadcrumb_list {
-  color: hsl(0,0%,13%);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.c1 .fi-breadcrumb_item {
-  color: hsl(0,0%,13%);
-  list-style: none;
-  float: left;
-}
-
-.c8 {
-  vertical-align: baseline;
-}
-
-.c8.fi-icon {
-  display: inline-block;
-}
-
-.c8 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c8 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c8.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c8.fi-icon--cursor-pointer * {
-  cursor: inherit;
 }
 
 .c7 {
@@ -288,127 +294,80 @@ exports[`calling render with the same component on the same container does not r
   font-size: 16px;
 }
 
-.c5 {
-  font-size: 16px;
-}
-
-.c5.fi-breadcrumb-link {
-  display: inline-block;
-}
-
-.c5.fi-breadcrumb-link .fi-breadcrumb-link_link {
-  -webkit-letter-spacing: 0;
-  -moz-letter-spacing: 0;
-  -ms-letter-spacing: 0;
-  letter-spacing: 0;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.c5.fi-breadcrumb-link .fi-breadcrumb-link_link--current {
-  color: hsl(202,7%,40%);
-}
-
-.c5.fi-breadcrumb-link .fi-breadcrumb-link_icon {
-  -webkit-transform: translateY(0.2em);
-  -ms-transform: translateY(0.2em);
-  transform: translateY(0.2em);
-  margin: 0 4px;
-}
-
-.c5.fi-breadcrumb-link .fi-breadcrumb-link_icon .fi-icon-base-fill {
-  fill: hsl(202,7%,40%);
-}
-
-<nav
-  aria-label="breadcrumb"
-  class="c0 fi-breadcrumb c1"
-  data-testid="Breadcrumb"
->
-  <ol
-    class="c2 fi-breadcrumb_list"
-  >
-    <li
-      class="c3 fi-breadcrumb_item"
+<body>
+  <div>
+    <h1
+      id="a"
     >
-      <span
-        class="c4 c5 fi-breadcrumb-link"
-      >
-        <a
-          class="c6 fi-link c7 fi-breadcrumb-link_link"
-          href="/"
-        >
-          Frontpage
-        </a>
-        <svg
-          aria-hidden="true"
-          class="fi-icon c8 fi-breadcrumb-link_icon"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            class="fi-icon-base-fill"
-            d="M6 18v-2.12l5.902-2.328 3.748-1.492v-.12l-3.748-1.492L6 8.119V6l12 5.015v1.97z"
-            fill="#222"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </span>
-    </li>
-    <li
-      class="c3 fi-breadcrumb_item"
+      Heading
+    </h1>
+    <ul
+      ariadescribedby="a"
+      class="c0 c1 fi-link-list"
     >
-      <span
-        class="c4 c5 fi-breadcrumb-link"
-      >
-        <a
-          class="c6 fi-link c7 fi-breadcrumb-link_link"
-          href="/sub"
-        >
-          Sub page
-        </a>
-        <svg
-          aria-hidden="true"
-          class="fi-icon c8 fi-breadcrumb-link_icon"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            class="fi-icon-base-fill"
-            d="M6 18v-2.12l5.902-2.328 3.748-1.492v-.12l-3.748-1.492L6 8.119V6l12 5.015v1.97z"
-            fill="#222"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </span>
-    </li>
-    <li
-      class="c3 fi-breadcrumb_item"
-    >
-      <span
-        class="c4 c5 fi-breadcrumb-link"
+      <li
+        class="c2 fi-link-list-item c3"
+        data-testid="test-link"
       >
         <span
-          aria-current="location"
-          class="c4 fi-breadcrumb-link_link fi-breadcrumb-link_link--current"
+          class="c4 fi-link-list-item_icon"
         >
-          Sub sub page
+          <svg
+            aria-hidden="true"
+            class="fi-icon c5"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="fi-icon-base-fill"
+              d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 0 1-1.885 0 1.448 1.448 0 0 1 0-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 0 1 0-1.98 1.287 1.287 0 0 1 1.885 0l5.333 5.6Z"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
         </span>
-      </span>
-    </li>
-  </ol>
-</nav>
+        <a
+          class="c6 fi-link c7"
+          href="/"
+        >
+          Link
+        </a>
+      </li>
+      <li
+        class="c2 fi-link-list-item c3"
+        data-testid="test-link1"
+      >
+        <span
+          class="c4 fi-link-list-item_icon"
+        >
+          <svg
+            aria-hidden="true"
+            class="fi-icon c5"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="fi-icon-base-fill"
+              d="M15.61 11.01c.26.273.39.632.39.99s-.13.717-.39.99l-5.334 5.6a1.287 1.287 0 0 1-1.885 0 1.448 1.448 0 0 1 0-1.98l4.39-4.61-4.39-4.61a1.448 1.448 0 0 1 0-1.98 1.287 1.287 0 0 1 1.885 0l5.333 5.6Z"
+              fill="#222"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <a
+          class="c6 fi-link c7"
+          href="/"
+        >
+          AA Link
+        </a>
+      </li>
+    </ul>
+  </div>
+</body>
 `;

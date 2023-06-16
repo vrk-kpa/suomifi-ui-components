@@ -763,41 +763,54 @@ exports[`calling render with the same component on the same container does not r
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
-.c8.fi-link--router {
+.c8.fi-link {
   color: hsl(212,63%,45%);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c8.fi-link--router:hover,
-.c8.fi-link--router:active,
-.c8.fi-link--router:focus,
-.c8.fi-link--router:focus-within {
+.c8.fi-link:hover,
+.c8.fi-link:active,
+.c8.fi-link:focus,
+.c8.fi-link:focus-within {
   color: hsl(212,63%,45%);
 }
 
-.c8.fi-link--router:focus,
-.c8.fi-link--router:focus-within {
+.c8.fi-link:focus,
+.c8.fi-link:focus-within {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c8.fi-link--router:focus {
+.c8.fi-link:focus {
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
   outline: 3px solid transparent;
 }
 
-.c8.fi-link--router:hover,
-.c8.fi-link--router:active {
+.c8.fi-link:hover,
+.c8.fi-link:active {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c8.fi-link--router:visited {
+.c8.fi-link:visited {
   color: hsl(284,36%,45%);
 }
 
@@ -816,6 +829,19 @@ exports[`calling render with the same component on the same container does not r
 .c8.fi-link--initial-underline:active {
   -webkit-text-decoration: none;
   text-decoration: none;
+}
+
+.c8.fi-link.fi-link--accent .fi-link--accent_icon {
+  font-size: 16px;
+  margin-left: -3px;
+  margin-right: 2px;
+  -webkit-transform: translateY(0.15em);
+  -ms-transform: translateY(0.15em);
+  transform: translateY(0.15em);
+}
+
+.c8.fi-link.fi-link--small {
+  font-size: 16px;
 }
 
 <div
@@ -847,7 +873,7 @@ exports[`calling render with the same component on the same container does not r
             class="c6 fi-wizard-navigation-item_left-icon"
           />
           <a
-            class="c7 fi-link--router c8"
+            class="c7 fi-link fi-link--router c8"
             href="https://suomi.fi"
           >
             1. Step
@@ -882,7 +908,7 @@ exports[`calling render with the same component on the same container does not r
           </span>
           <a
             aria-label="Step 2. This step is completed"
-            class="c7 fi-link--router c8"
+            class="c7 fi-link fi-link--router c8"
             href="#"
           >
             2. Step
@@ -900,7 +926,7 @@ exports[`calling render with the same component on the same container does not r
           />
           <a
             aria-current="step"
-            class="c7 fi-link--router c8"
+            class="c7 fi-link fi-link--router c8"
             href="#"
           >
             3. Step
@@ -918,7 +944,7 @@ exports[`calling render with the same component on the same container does not r
           />
           <a
             aria-disabled="true"
-            class="c7 fi-link--router c8"
+            class="c7 fi-link fi-link--router c8"
             href="#"
             tabindex="-1"
           >
@@ -937,7 +963,7 @@ exports[`calling render with the same component on the same container does not r
           />
           <a
             aria-disabled="true"
-            class="c7 fi-link--router c8"
+            class="c7 fi-link fi-link--router c8"
             href="#"
             tabindex="-1"
           >
@@ -957,7 +983,7 @@ exports[`calling render with the same component on the same container does not r
           />
           <a
             aria-disabled="true"
-            class="c7 fi-link--router c8"
+            class="c7 fi-link fi-link--router c8"
             href="#"
             tabindex="-1"
           >
@@ -976,7 +1002,7 @@ exports[`calling render with the same component on the same container does not r
           />
           <button
             aria-disabled="true"
-            class="fi-link--router c8"
+            class="fi-link fi-link--router c8"
             tabindex="-1"
           >
             7. Step

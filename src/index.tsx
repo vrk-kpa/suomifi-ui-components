@@ -67,6 +67,10 @@ export {
   SkipLinkProps,
   RouterLink,
   RouterLinkProps,
+  LinkListItem,
+  LinkListItemProps,
+  LinkList,
+  LinkListProps,
 } from './core/Link/';
 export {
   LanguageMenu,
