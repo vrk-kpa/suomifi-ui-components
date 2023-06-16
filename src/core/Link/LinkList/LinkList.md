@@ -20,7 +20,7 @@ import {
   <Heading variant="h5" as="h3" id="heading">
     Useful resources
   </Heading>
-  <LinkList ariaDescribedby="heading">
+  <LinkList ariaDescribedBy="heading">
     <LinkListItem>
       <Link href="/">More information on subject X</Link>
     </LinkListItem>
