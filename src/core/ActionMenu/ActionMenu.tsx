@@ -61,8 +61,6 @@ export interface ActionMenuProps {
   id?: string;
   /** Name used for menu button */
   name?: string;
-  /** Callback fired when button is clicked */
-  onClick?: () => void;
   /** Callback fired on button onBlur
    * @param {FocusEvent<HTMLButtonElement>} event FocusEvent
    */
@@ -93,7 +91,6 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     children,
     onOpen,
     onClose,
-    onClick,
     onBlur,
     menuClassName,
     ...passProps
@@ -130,10 +127,6 @@ const BaseActionMenu = (props: ActionMenuProps) => {
   };
 
   const handleButtonClick = () => {
-    if (onClick) {
-      onClick();
-    }
-
     if (menuVisible) {
       closeMenu();
     } else {
