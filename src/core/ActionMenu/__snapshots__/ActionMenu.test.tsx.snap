@@ -266,11 +266,12 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   text-align: center;
   text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .c3:focus {
-  outline: none;
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c3:focus::after {
@@ -291,6 +292,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 
 .c3:hover {
   background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  outline: 2px solid transparent;
 }
 
 .c3:active {
@@ -1033,11 +1035,12 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   text-align: center;
   text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .c3:focus {
-  outline: none;
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c3:focus::after {
@@ -1058,6 +1061,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 
 .c3:hover {
   background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  outline: 2px solid transparent;
 }
 
 .c3:active {
@@ -1800,11 +1804,12 @@ exports[`No borders variant should match snapshot 1`] = `
   text-align: center;
   text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .c3:focus {
-  outline: none;
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c3:focus::after {
@@ -1825,6 +1830,7 @@ exports[`No borders variant should match snapshot 1`] = `
 
 .c3:hover {
   background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  outline: 2px solid transparent;
 }
 
 .c3:active {
@@ -2568,11 +2574,12 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   text-align: center;
   text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .c3:focus {
-  outline: none;
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c3:focus::after {
@@ -2593,6 +2600,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 
 .c3:hover {
   background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  outline: 2px solid transparent;
 }
 
 .c3:active {
@@ -3336,11 +3344,12 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   text-align: center;
   text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .c3:focus {
-  outline: none;
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c3:focus::after {
@@ -3361,6 +3370,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 
 .c3:hover {
   background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  outline: 2px solid transparent;
 }
 
 .c3:active {
