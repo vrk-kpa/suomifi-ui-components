@@ -28,7 +28,7 @@ export interface ActionMenuProps {
   buttonText?: string;
   /**
    * Variant for the menu button:
-   * 'default' | 'inverted' | 'secondary' | 'secondaryNoBorder' | 'link'
+   * 'default' | 'inverted' | 'secondary' | 'secondaryLight'| 'secondaryNoBorder'
    * @default secondary
    */
   buttonVariant?: ButtonVariant;
