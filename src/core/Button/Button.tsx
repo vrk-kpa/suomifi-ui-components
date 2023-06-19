@@ -15,6 +15,7 @@ export type ButtonVariant =
 export interface ButtonProps
   extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'> {
   /**
+   * Variant for Button
    * 'default' | 'inverted' | 'secondary' | 'secondaryNoBorder' | 'link'
    * @default default
    */

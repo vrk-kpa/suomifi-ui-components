@@ -24,15 +24,16 @@ export const actionMenuClassNames = {
 };
 
 export interface ActionMenuProps {
-  /** Text content for the button */
+  /** Text content for the menu button */
   buttonText?: string;
   /**
+   * Variant for the menu button:
    * 'default' | 'inverted' | 'secondary' | 'secondaryNoBorder' | 'link'
    * @default secondary
    */
   buttonVariant?: ButtonVariant;
   /**
-   * Define a label if `buttonText` does not indicate the button purpose,
+   * Define a label if `buttonText` does not indicate the menu button purpose,
    * alternatively you can define aria-labelledby with label-element id
    */
   'aria-label'?: string;
@@ -44,7 +45,7 @@ export interface ActionMenuProps {
       >
     | React.ReactElement<ActionMenuItemProps>
     | React.ReactElement<ActionMenuDividerProps>;
-  /** Button container div class name for custom styling */
+  /** Menu button container div class name for custom styling */
   className?: string;
   /** Menu container div class name for custom styling. Can be used to modify menu "popover" z-index. */
   menuClassName?: string;
@@ -59,7 +60,7 @@ export interface ActionMenuProps {
    * If no id is specified, one will be generated
    */
   id?: string;
-  /** Name used for menu button */
+  /** Name used for the menu button */
   name?: string;
   /** Callback fired on button onBlur
    * @param {FocusEvent<HTMLButtonElement>} event FocusEvent
@@ -99,7 +100,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
   const openButtonRef = forwardedRef || useRef<HTMLButtonElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
   const [ariaExpanded, setAriaExpanded] = useState<boolean>(false);
-  const [selectFirstItem, setSelectFirstItem] =
+  const [initialSelectedItem, setInitialSelectedItem] =
     useState<InitialActiveDescendant>('none');
 
   const menuId = `${id}-menu`;
@@ -110,7 +111,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
       onOpen();
     }
     // Highlighting the first item is a compromise to keep NVDA smooth
-    setSelectFirstItem('first');
+    setInitialSelectedItem('first');
     setMenuVisible(true);
     setAriaExpanded(true);
   };
@@ -138,7 +139,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     if (event.key === 'ArrowUp' && !menuVisible) {
       event.preventDefault();
       openMenu();
-      setSelectFirstItem('last');
+      setInitialSelectedItem('last');
     }
 
     if (
@@ -149,7 +150,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     ) {
       event.preventDefault();
       openMenu();
-      setSelectFirstItem('first');
+      setInitialSelectedItem('first');
     }
   };
 
@@ -191,7 +192,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
         openButtonRef={openButtonRef}
         onClose={() => closeMenu()}
         children={children}
-        initialActiveDescendant={selectFirstItem}
+        initialActiveDescendant={initialSelectedItem}
         fullWidth={fullWidth}
         className={menuClassName}
       />
