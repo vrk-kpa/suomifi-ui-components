@@ -23,7 +23,7 @@ export interface InternalActionMenuPopoverProps {
   /** Button ref for positioning dialog and closing dialog on button click */
   openButtonRef: React.RefObject<any>;
   /** Callback fired when closing popover */
-  onClose: () => void;
+  onClose: (moveFocus: boolean) => void;
   /** Styled component className */
   className?: string;
   /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
@@ -161,7 +161,7 @@ export const BaseActionMenuPopover = (
       !openButtonRef.current?.contains(nativeEvent.target as Node)
     ) {
       // Click is outside of "open menu button" and menu elements
-      handleClose();
+      handleClose(false);
     }
   };
 
@@ -224,12 +224,12 @@ export const BaseActionMenuPopover = (
 
   const globalKeyDownHandler = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
-      handleClose();
+      handleClose(true);
       event.preventDefault();
     }
 
     if (event.key === 'Tab') {
-      handleClose();
+      handleClose(true);
       // No preventDefault, so that tabbing works normally
     }
 
@@ -281,8 +281,8 @@ export const BaseActionMenuPopover = (
     },
   );
 
-  const handleClose = (): void => {
-    onClose();
+  const handleClose = (moveFocus: boolean): void => {
+    onClose(moveFocus);
   };
 
   if (React.Children.count(children) < 1) {
@@ -320,7 +320,7 @@ export const BaseActionMenuPopover = (
     >
       <ActionMenuProvider
         value={{
-          onItemClick: () => handleClose(),
+          onItemClick: () => handleClose(true),
           onItemMouseOver(itemIndex) {
             itemMouseOver(itemIndex);
           },
