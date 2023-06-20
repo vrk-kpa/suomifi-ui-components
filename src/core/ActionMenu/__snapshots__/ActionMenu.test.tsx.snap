@@ -722,7 +722,6 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
             id="test-id-menu-list-item-0"
             role="menuitem"
             tabindex="-1"
-            theme="[object Object]"
             type="button"
           >
             Item 1
@@ -732,7 +731,6 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
             id="test-id-menu-list-item-1"
             role="menuitem"
             tabindex="-1"
-            theme="[object Object]"
             type="button"
           >
             Item 2
@@ -750,7 +748,6 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
             id="test-id-menu-list-item-3"
             role="menuitem"
             tabindex="-1"
-            theme="[object Object]"
             type="button"
           >
             Item 3
@@ -1491,7 +1488,6 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
             id="test-id-menu-list-item-0"
             role="menuitem"
             tabindex="-1"
-            theme="[object Object]"
             type="button"
           >
             Item 1
@@ -1501,7 +1497,6 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
             id="test-id-menu-list-item-1"
             role="menuitem"
             tabindex="-1"
-            theme="[object Object]"
             type="button"
           >
             Item 2
@@ -1519,7 +1514,6 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
             id="test-id-menu-list-item-3"
             role="menuitem"
             tabindex="-1"
-            theme="[object Object]"
             type="button"
           >
             Item 3
@@ -2261,7 +2255,6 @@ exports[`No borders variant should match snapshot 1`] = `
             id="test-id-menu-list-item-0"
             role="menuitem"
             tabindex="-1"
-            theme="[object Object]"
             type="button"
           >
             Item 1
@@ -2271,7 +2264,6 @@ exports[`No borders variant should match snapshot 1`] = `
             id="test-id-menu-list-item-1"
             role="menuitem"
             tabindex="-1"
-            theme="[object Object]"
             type="button"
           >
             Item 2
@@ -2289,7 +2281,6 @@ exports[`No borders variant should match snapshot 1`] = `
             id="test-id-menu-list-item-3"
             role="menuitem"
             tabindex="-1"
-            theme="[object Object]"
             type="button"
           >
             Item 3
@@ -3030,7 +3021,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
             id="test-id-menu-list-item-0"
             role="menuitem"
             tabindex="0"
-            theme="[object Object]"
             type="button"
           >
             Item 1
@@ -3040,7 +3030,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
             id="test-id-menu-list-item-1"
             role="menuitem"
             tabindex="-1"
-            theme="[object Object]"
             type="button"
           >
             Item 2
@@ -3058,7 +3047,6 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
             id="test-id-menu-list-item-3"
             role="menuitem"
             tabindex="-1"
-            theme="[object Object]"
             type="button"
           >
             Item 3
@@ -3800,7 +3788,6 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
             id="test-id-menu-list-item-0"
             role="menuitem"
             tabindex="0"
-            theme="[object Object]"
             type="button"
           >
             Item 1
@@ -3810,7 +3797,6 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
             id="test-id-menu-list-item-1"
             role="menuitem"
             tabindex="-1"
-            theme="[object Object]"
             type="button"
           >
             Item 2
@@ -3828,7 +3814,6 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
             id="test-id-menu-list-item-3"
             role="menuitem"
             tabindex="-1"
-            theme="[object Object]"
             type="button"
           >
             Item 3
