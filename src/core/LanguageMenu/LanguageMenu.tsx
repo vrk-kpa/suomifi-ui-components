@@ -32,15 +32,15 @@ export type MenuContent =
   | ReactElement<LanguageMenuItemProps>;
 
 export interface LanguageMenuProps {
-  /** Text content for the button */
+  /** Text content for the menu button */
   buttonText: string;
   /** Menu items. Use `<LanguageMenuItem>` components as children */
   children?: MenuContent;
-  /** Button container div class name for custom styling */
+  /** Menu button container div class name for custom styling */
   className?: string;
   /** Menu container div class name for custom styling. Can be used to modify menu "popover" z-index. */
   menuClassName?: string;
-  /** Ref is forwarded to the button element. Alternative for React `ref` attribute. */
+  /** Ref is forwarded to the menu button element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
   /**
    * Unique id
