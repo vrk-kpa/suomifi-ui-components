@@ -5,7 +5,7 @@ import { baseStyles } from './Button.baseStyles';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
 
-type ButtonVariant =
+export type ButtonVariant =
   | 'default'
   | 'inverted'
   | 'secondary'
@@ -15,6 +15,7 @@ type ButtonVariant =
 export interface ButtonProps
   extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'> {
   /**
+   * Variant for Button
    * 'default' | 'inverted' | 'secondary' | 'secondaryNoBorder' | 'link'
    * @default default
    */
