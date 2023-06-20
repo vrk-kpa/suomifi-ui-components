@@ -56,7 +56,7 @@ export interface ActionMenuProps {
   className?: string;
   /** Menu container div class name for custom styling. Can be used to modify menu "popover" z-index. */
   menuClassName?: string;
-  /** Disable button usage */
+  /** Disable the menu button */
   disabled?: boolean;
   /** Ref is forwarded to the button element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
