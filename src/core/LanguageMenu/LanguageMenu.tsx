@@ -1,4 +1,10 @@
-import React, { forwardRef, FocusEvent, useState, useRef } from 'react';
+import React, {
+  forwardRef,
+  FocusEvent,
+  useState,
+  useRef,
+  ReactElement,
+} from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../utils/AutoId/AutoId';
@@ -21,13 +27,15 @@ export const languageMenuClassNames = {
   menuOpen: `${baseClassName}_button--open`,
 };
 
+export type MenuContent =
+  | Array<ReactElement<LanguageMenuItemProps>>
+  | ReactElement<LanguageMenuItemProps>;
+
 export interface LanguageMenuProps {
   /** Text content for the button */
   buttonText: string;
   /** Menu items. Use `<LanguageMenuItem>` components as children */
-  children?:
-    | Array<React.ReactElement<LanguageMenuItemProps>>
-    | React.ReactElement<LanguageMenuItemProps>;
+  children?: MenuContent;
   /** Button container div class name for custom styling */
   className?: string;
   /** Menu container div class name for custom styling. Can be used to modify menu "popover" z-index. */

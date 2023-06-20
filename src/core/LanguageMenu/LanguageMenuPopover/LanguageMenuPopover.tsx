@@ -7,6 +7,7 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlDiv, HtmlDivWithRef } from '../../../reset';
 import { getLogger } from '../../../utils/log';
 import { baseStyles } from './LanguageMenuPopover.baseStyles';
+import { MenuContent } from '../LanguageMenu';
 
 const baseClassName = 'fi-language-menu-popover';
 
@@ -25,8 +26,8 @@ export interface InternalLanguageMenuPopoverProps {
   onClose: (moveFocus: boolean) => void;
   /** Styled component className */
   className?: string;
-  /** Menu items. Use the `<LanguageMenuItem>` or  `<LanguageMenuDivider>` components as children */
-  children?: ReactNode;
+  /** Menu items. Use the `<LanguageMenuItem>` components as children */
+  children?: MenuContent;
   /** Id given to menu element */
   menuId: string;
   /** Id of the parent component. Passed further to items to generate their own ids */
