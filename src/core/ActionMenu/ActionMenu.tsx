@@ -1,4 +1,10 @@
-import React, { forwardRef, FocusEvent, useState, useRef } from 'react';
+import React, {
+  forwardRef,
+  FocusEvent,
+  useState,
+  useRef,
+  ReactElement,
+} from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../utils/AutoId/AutoId';
@@ -23,6 +29,13 @@ export const actionMenuClassNames = {
   iconOnly: `${baseClassName}_button--icon-only`,
 };
 
+export type MenuContent =
+  | Array<
+      ReactElement<ActionMenuItemProps> | ReactElement<ActionMenuDividerProps>
+    >
+  | ReactElement<ActionMenuItemProps>
+  | ReactElement<ActionMenuDividerProps>;
+
 export interface ActionMenuProps {
   /** Text content for the menu button */
   buttonText?: string;
@@ -38,13 +51,7 @@ export interface ActionMenuProps {
    */
   'aria-label'?: string;
   /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
-  children?:
-    | Array<
-        | React.ReactElement<ActionMenuItemProps>
-        | React.ReactElement<ActionMenuDividerProps>
-      >
-    | React.ReactElement<ActionMenuItemProps>
-    | React.ReactElement<ActionMenuDividerProps>;
+  children?: MenuContent;
   /** Menu button container div class name for custom styling */
   className?: string;
   /** Menu container div class name for custom styling. Can be used to modify menu "popover" z-index. */

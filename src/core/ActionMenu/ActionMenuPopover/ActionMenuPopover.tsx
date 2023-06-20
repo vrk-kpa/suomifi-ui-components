@@ -7,6 +7,7 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlDivWithRef } from '../../../reset';
 import { getLogger } from '../../../utils/log';
 import { baseStyles } from './ActionMenuPopover.baseStyles';
+import { MenuContent } from '../ActionMenu';
 
 const baseClassName = 'fi-action-menu-popover';
 
@@ -26,7 +27,7 @@ export interface InternalActionMenuPopoverProps {
   /** Styled component className */
   className?: string;
   /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
-  children?: ReactNode;
+  children?: MenuContent;
   /** Id given to menu `<ul>` element */
   menuId: string;
   /** Id of the menu opne button */
