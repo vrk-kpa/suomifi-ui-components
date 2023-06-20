@@ -42,6 +42,7 @@ const BaseActionMenuItem = (
     itemIndex = -1,
     icon,
     onClick,
+    theme, // Only destructured away so they don't end up in the DOM
     ...passProps
   } = props;
 
