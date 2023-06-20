@@ -22,7 +22,7 @@ export interface InternalLanguageMenuPopoverProps {
   /** Button ref for positioning dialog and closing dialog on button click */
   openButtonRef: React.RefObject<any>;
   /** Callback fired when closing popover */
-  onClose: () => void;
+  onClose: (moveFocus: boolean) => void;
   /** Styled component className */
   className?: string;
   /** Menu items. Use the `<LanguageMenuItem>` or  `<LanguageMenuDivider>` components as children */
@@ -189,7 +189,7 @@ export const BaseLanguageMenuPopover = (
       !openButtonRef.current?.contains(nativeEvent.target as Node)
     ) {
       // Click is outside of "open menu button" and menu elements
-      handleClose();
+      handleClose(false);
     }
   };
 
@@ -197,13 +197,13 @@ export const BaseLanguageMenuPopover = (
     // First let's make sure scrolling is enabled when using keyboard
     setPreventScroll(false);
     if (event.key === 'Escape') {
-      handleClose();
+      handleClose(true);
       event.preventDefault();
     }
 
     if (event.key === 'Tab') {
       // Close the menu
-      handleClose();
+      handleClose(true);
     }
 
     const popoverItemsLength = React.Children.count(children);
@@ -258,8 +258,8 @@ export const BaseLanguageMenuPopover = (
     },
   );
 
-  const handleClose = (): void => {
-    onClose();
+  const handleClose = (moveFocus: boolean): void => {
+    onClose(moveFocus);
   };
 
   if (React.Children.count(children) < 1) {
@@ -296,7 +296,7 @@ export const BaseLanguageMenuPopover = (
     >
       <LanguageMenuProvider
         value={{
-          onItemClick: () => handleClose(),
+          onItemClick: () => handleClose(true),
           onItemMouseOver(itemIndex) {
             // Don't scroll the list when hovering with a mouse
             setPreventScroll(true);

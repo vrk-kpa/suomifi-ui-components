@@ -91,15 +91,14 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
     setAriaExpanded(true);
   };
 
-  const closeMenu = () => {
+  const closeMenu = (moveFocus: boolean = false) => {
     // For NVDA to work properly aria expanded, focus and setMenuVisible must be in this order
     setAriaExpanded(false);
     setMenuVisible(false);
-    openButtonRef.current?.focus();
 
-    if (onClose) {
-      onClose();
-    }
+    if (moveFocus) openButtonRef.current?.focus();
+
+    if (onClose) onClose();
   };
 
   const handleButtonClick = () => {
@@ -161,7 +160,7 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
         menuId={menuId}
         parentId={id}
         openButtonRef={openButtonRef}
-        onClose={() => closeMenu()}
+        onClose={(moveFocus: boolean) => closeMenu(moveFocus)}
         children={children}
         initialActiveDescendant={selectFirstItem}
         className={menuClassName}
