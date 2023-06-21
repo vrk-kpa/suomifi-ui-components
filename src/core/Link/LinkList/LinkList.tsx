@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { LinkListStyles } from './LinkList.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { HtmlUlProps, HtmlUlWithRef } from '../../../reset';
+import { getConditionalAriaProp } from '../../../utils/aria';
 
 const LinkListClassName = 'fi-link-list';
 const SmallScreenClassName = 'fi-link-list--small';
@@ -23,6 +24,7 @@ const StyledLinkList = styled(
     theme,
     children,
     smallScreen,
+    ariaDescribedBy,
     forwardedRef,
     ...passProps
   }: LinkListProps & SuomifiThemeProp) => (
@@ -32,6 +34,7 @@ const StyledLinkList = styled(
       className={classnames(className, LinkListClassName, {
         [SmallScreenClassName]: smallScreen,
       })}
+      {...getConditionalAriaProp('aria-describedby', [ariaDescribedBy])}
     >
       {children}
     </HtmlUlWithRef>
