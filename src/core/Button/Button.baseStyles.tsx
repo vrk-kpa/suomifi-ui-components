@@ -70,8 +70,8 @@ const secondaryNoBorderStyles = (theme: SuomifiTheme) => css`
   }
 `;
 
-const linkStyles = (theme: SuomifiTheme) => css`
-  &.fi-button--link {
+const secondaryLightStyles = (theme: SuomifiTheme) => css`
+  &.fi-button--secondary-light {
     color: ${theme.colors.highlightBase};
     ${secondary(theme)}
     background: ${theme.gradients.depthSecondaryToDepthSecondaryDark1};
@@ -147,7 +147,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${invertedStyles(theme)}
   ${secondaryStyles(theme)}
   ${secondaryNoBorderStyles(theme)}
-  ${linkStyles(theme)}
+
+  ${secondaryLightStyles(theme)}
   
   & > .fi-button_icon > .fi-icon {
     width: 16px;

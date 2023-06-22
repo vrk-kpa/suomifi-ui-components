@@ -1018,7 +1018,7 @@ exports[`has matching snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c15.fi-button--link {
+.c15.fi-button--secondary-light {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
   background: none;
@@ -1029,18 +1029,18 @@ exports[`has matching snapshot 1`] = `
   border: none;
 }
 
-.c15.fi-button--link:hover {
+.c15.fi-button--secondary-light:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
-.c15.fi-button--link:active {
+.c15.fi-button--secondary-light:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c15.fi-button--link.fi-button--disabled,
-.c15.fi-button--link[disabled],
-.c15.fi-button--link:disabled {
+.c15.fi-button--secondary-light.fi-button--disabled,
+.c15.fi-button--secondary-light[disabled],
+.c15.fi-button--secondary-light:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -1048,17 +1048,17 @@ exports[`has matching snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c15.fi-button--link:hover {
+.c15.fi-button--secondary-light:hover {
   background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
 
-.c15.fi-button--link:active {
+.c15.fi-button--secondary-light:active {
   background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
 }
 
-.c15.fi-button--link.fi-button--disabled,
-.c15.fi-button--link[disabled],
-.c15.fi-button--link:disabled {
+.c15.fi-button--secondary-light.fi-button--disabled,
+.c15.fi-button--secondary-light[disabled],
+.c15.fi-button--secondary-light:disabled {
   color: hsl(202,7%,67%);
   background: none;
   background-color: hsl(202,7%,97%);
@@ -1399,7 +1399,7 @@ exports[`has matching snapshot 1`] = `
         </div>
         <button
           aria-disabled="false"
-          class="c7 fi-button c15 fi-multiselect_removeAllButton fi-button--link"
+          class="c7 fi-button c15 fi-multiselect_removeAllButton fi-button--secondary-light"
           tabindex="0"
           type="button"
         >

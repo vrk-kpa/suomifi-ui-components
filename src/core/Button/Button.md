@@ -115,10 +115,10 @@ import { Button } from 'suomifi-ui-components';
 import { IconLogin } from 'suomifi-icons';
 
 <>
-  <Button variant="link">Link Button</Button>
+  <Button variant="secondaryLight">Light secondary button</Button>
 
-  <Button variant="link" disabled icon={<IconLogin />}>
-    Link Button disabled icon="login"
+  <Button variant="secondaryLight" disabled icon={<IconLogin />}>
+    Light secondary Button disabled icon="login"
   </Button>
 </>;
 ```
