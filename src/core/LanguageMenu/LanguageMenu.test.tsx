@@ -4,9 +4,8 @@ import { axeTest } from '../../utils/test';
 import { LanguageMenu, LanguageMenuProps } from './LanguageMenu';
 import { LanguageMenuItem } from './LanguageMenuItem/LanguageMenuItem';
 
-const doNothing = () => ({});
-
 const languageMenuProps: LanguageMenuProps = {
+  'aria-label': 'Select language',
   buttonText: 'In English (EN)',
   className: 'lm-test',
   id: 'test-id',
@@ -18,13 +17,13 @@ const languageMenuProps: LanguageMenuProps = {
 
 const TestLanguageMenu = (props: LanguageMenuProps) => (
   <LanguageMenu {...props}>
-    <LanguageMenuItem onSelect={() => doNothing()} lang="fi">
+    <LanguageMenuItem onSelect={() => ({})} lang="fi">
       Suomeksi (FI)
     </LanguageMenuItem>
-    <LanguageMenuItem onSelect={() => doNothing()} lang="sv">
+    <LanguageMenuItem onSelect={() => ({})} lang="sv">
       På svenska (SV)
     </LanguageMenuItem>
-    <LanguageMenuItem onSelect={() => doNothing()} lang="en" selected>
+    <LanguageMenuItem onSelect={() => ({})} lang="en" selected>
       In English (EN)
     </LanguageMenuItem>
   </LanguageMenu>

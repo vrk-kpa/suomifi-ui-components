@@ -368,6 +368,7 @@ exports[`Basic LanguageMenu should match snapshot 1`] = `
         aria-controls="test-id-menu"
         aria-expanded="false"
         aria-haspopup="menu"
+        aria-label="Select language"
         class="c2 fi-language-menu_button"
         id="test-id"
         type="button"
@@ -421,6 +422,7 @@ exports[`Basic LanguageMenu should match snapshot 1`] = `
             På svenska (SV)
           </button>
           <button
+            aria-current="true"
             class="c2 fi-language-menu-item c6 fi-language-menu-item--selected"
             id="test-id-list-item-2"
             lang="en"
@@ -810,6 +812,7 @@ exports[`Basic LanguageMenu should match snapshot 2`] = `
         aria-controls="test-id-menu"
         aria-expanded="true"
         aria-haspopup="menu"
+        aria-label="Select language"
         class="c2 fi-language-menu_button fi-language-menu_button--open"
         id="test-id"
         type="button"
@@ -863,6 +866,7 @@ exports[`Basic LanguageMenu should match snapshot 2`] = `
             På svenska (SV)
           </button>
           <button
+            aria-current="true"
             class="c2 fi-language-menu-item c6 fi-language-menu-item--selected"
             id="test-id-list-item-2"
             lang="en"
@@ -1253,6 +1257,7 @@ exports[`movement in LanguageMenu should match snapshot 1`] = `
         aria-controls="test-id-menu"
         aria-expanded="true"
         aria-haspopup="menu"
+        aria-label="Select language"
         class="c2 fi-language-menu_button fi-language-menu_button--open"
         id="test-id"
         type="button"
@@ -1306,6 +1311,7 @@ exports[`movement in LanguageMenu should match snapshot 1`] = `
             På svenska (SV)
           </button>
           <button
+            aria-current="true"
             class="c2 fi-language-menu-item c6 fi-language-menu-item--selected"
             id="test-id-list-item-2"
             lang="en"

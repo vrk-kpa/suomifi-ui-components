@@ -15,6 +15,7 @@ import {
 } from './LanguageMenuPopover/LanguageMenuPopover';
 import { HtmlButton, HtmlDiv } from '../../reset';
 import { HTMLAttributesIncludingDataAttributes } from '../../utils/common/common';
+import { getConditionalAriaProp } from '../../utils/aria';
 import { baseStyles } from './LanguageMenu.baseStyles';
 import { LanguageMenuItemProps } from './LanguageMenuItem/LanguageMenuItem';
 import { IconChevronUp, IconChevronDown } from 'suomifi-icons';
@@ -34,6 +35,11 @@ export type MenuContent =
 export interface LanguageMenuProps {
   /** Text content for the menu button */
   buttonText: string;
+  /**
+   * LanguageMenu should have a descriptive aria-label. Aria-label should also inform what language is selected.
+   * For example "Select language, selected language: English". Aria-label is for assistive technologies and overrides buttonText.
+   */
+  'aria-label': string;
   /** Menu items. Use `<LanguageMenuItem>` components as children */
   children?: MenuContent;
   /** Menu button container div class name for custom styling */
@@ -42,10 +48,7 @@ export interface LanguageMenuProps {
   menuClassName?: string;
   /** Ref is forwarded to the menu button element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
-  /**
-   * Unique id
-   * If no id is specified, one will be generated
-   */
+  /** Unique id. If no id is specified, one will be generated */
   id?: string;
   /** Callback fired on button onBlur
    * @param {FocusEvent<HTMLButtonElement>} event FocusEvent
@@ -77,6 +80,7 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
     onOpen,
     onClose,
     onBlur,
+    'aria-label': ariaLabel,
     ...passProps
   } = props;
 
@@ -143,6 +147,7 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
         aria-expanded={ariaExpanded}
         aria-controls={menuId}
         aria-haspopup="menu"
+        {...getConditionalAriaProp('aria-label', [ariaLabel])}
         forwardedRef={openButtonRef}
         className={classnames(languageMenuClassNames.button, {
           [languageMenuClassNames.menuOpen]: menuVisible,
