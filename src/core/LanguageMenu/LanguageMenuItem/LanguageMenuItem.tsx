@@ -10,11 +10,11 @@ import {
 } from './../LanguageMenuPopover/LanguageMenuPopover';
 
 export interface LanguageMenuItemProps {
-  /** Language of the item. Must be provided for assistive technology. */
+  /** Language code for language menu item. Must be provided for assistive technology. */
   lang: string;
   /** Custom CSS class */
   className?: string;
-  /** Text of the item */
+  /** Text for language menu item. Text should contain full language name and not only the abbreviation. */
   children: ReactNode;
   /** Called when menu item is clicked */
   onSelect: () => void;
@@ -77,6 +77,7 @@ const BaseLanguageMenuItem = (
       tabIndex={hasKeyboardFocus ? 0 : -1}
       id={`${consumer.parentId}-list-item-${itemIndex}`}
       role="menuitem"
+      aria-current={selected}
       {...passProps}
     >
       {children}
