@@ -5,7 +5,6 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/types/index.d.ts",
-  "style": "dist/main.css",
   "files": [
     "dist",
     "README.md"
@@ -58,10 +57,9 @@
     "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "validate": "run-p test lint prettier:check",
-    "build": "npm-run-all build:clean build:rollup build:copycss build:copytypes build:cleantmp",
+    "build": "npm-run-all build:clean build:rollup build:copytypes build:cleantmp",
     "build:clean": "rimraf ./dist",
     "build:rollup": "rollup -c",
-    "build:copycss": "copyfiles -f ./dist/tmp/main.css ./dist",
     "build:copytypes": "copyfiles -f ./dist/tmp/index.d.ts ./dist/types",
     "build:cleantmp": "rimraf ./dist/tmp",
     "bundle-analyzer": "size-limit --why",
