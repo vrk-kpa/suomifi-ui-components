@@ -5,6 +5,7 @@ import { element } from '../theme/reset';
 export const baseStyles = (theme: SuomifiTheme) => css`
   &.fi-language-menu {
     ${element(theme)}
+
     .fi-language-menu_button {
       ${element(theme)}
       ${theme.typography.actionElementInnerTextBold}
@@ -16,11 +17,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       word-break: break-word;
       display: flex;
       align-items: center;
+
       .fi-language-menu_button_text_wrapper {
         ${theme.typography.actionElementInnerTextBold}
         word-break: break-word;
         line-height: 24px;
       }
+
       .fi-language-menu_button_icon {
         width: 18px;
         height: 18px;
@@ -32,8 +35,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
 
       &:focus {
-        outline: 0;
         position: relative;
+        ${theme.focuses.highContrastFocus}
 
         &:after {
           ${theme.focuses.absoluteFocus}

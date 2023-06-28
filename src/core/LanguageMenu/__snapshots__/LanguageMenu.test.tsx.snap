@@ -282,8 +282,8 @@ exports[`Basic LanguageMenu should match snapshot 1`] = `
 }
 
 .c1.fi-language-menu .fi-language-menu_button:focus {
-  outline: 0;
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1.fi-language-menu .fi-language-menu_button:focus:after {
@@ -726,8 +726,8 @@ exports[`Basic LanguageMenu should match snapshot 2`] = `
 }
 
 .c1.fi-language-menu .fi-language-menu_button:focus {
-  outline: 0;
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1.fi-language-menu .fi-language-menu_button:focus:after {
@@ -1171,8 +1171,8 @@ exports[`movement in LanguageMenu should match snapshot 1`] = `
 }
 
 .c1.fi-language-menu .fi-language-menu_button:focus {
-  outline: 0;
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1.fi-language-menu .fi-language-menu_button:focus:after {
