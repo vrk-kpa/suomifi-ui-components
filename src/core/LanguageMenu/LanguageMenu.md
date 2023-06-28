@@ -22,6 +22,7 @@ const [selectedLanguage, setSelectedLanguage] = React.useState(
     <LanguageMenuItem
       onSelect={() => setSelectedLanguage(languages[index])}
       lang={languages[index].lang}
+      key={languages[index].lang}
       selected={selectedLanguage.lang === item.lang}
     >
       {languages[index].text}
