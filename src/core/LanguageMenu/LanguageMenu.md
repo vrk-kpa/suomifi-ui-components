@@ -4,28 +4,28 @@ import {
   LanguageMenuItem
 } from 'suomifi-ui-components';
 
+const languages = [
+  { text: 'Suomeksi (FI)', lang: 'fi' },
+  { text: 'På svenska (SV)', lang: 'sv' },
+  { text: 'In English (EN)', lang: 'en' }
+];
+
+const [selectedLanguage, setSelectedLanguage] = React.useState(
+  languages[2]
+);
+
 <LanguageMenu
-  buttonText="In English (EN)"
-  aria-label="Change language. Current language is English"
+  buttonText={selectedLanguage.text}
+  aria-label={`Change language, selected language: ${selectedLanguage.text}`}
 >
-  <LanguageMenuItem
-    onSelect={() => console.log('Changing lang to FI')}
-    lang="fi"
-  >
-    Suomeksi (FI)
-  </LanguageMenuItem>
-  <LanguageMenuItem
-    onSelect={() => console.log('Changing lang to SV')}
-    lang="sv"
-  >
-    På svenska (SV)
-  </LanguageMenuItem>
-  <LanguageMenuItem
-    onSelect={() => console.log('Changing lang to EN')}
-    lang="en"
-    selected
-  >
-    In English (EN)
-  </LanguageMenuItem>
+  {languages.map((item, index) => (
+    <LanguageMenuItem
+      onSelect={() => setSelectedLanguage(languages[index])}
+      lang={languages[index].lang}
+      selected={selectedLanguage.lang === item.lang}
+    >
+      {languages[index].text}
+    </LanguageMenuItem>
+  ))}
 </LanguageMenu>;
 ```
