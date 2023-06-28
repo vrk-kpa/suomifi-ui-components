@@ -29,6 +29,10 @@ export const languageMenuClassNames = {
 };
 
 export type MenuContent =
+  | Array<
+      | ReactElement<LanguageMenuItemProps>
+      | Array<ReactElement<LanguageMenuItemProps>>
+    >
   | Array<ReactElement<LanguageMenuItemProps>>
   | ReactElement<LanguageMenuItemProps>;
 
