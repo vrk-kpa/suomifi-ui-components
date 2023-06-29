@@ -360,17 +360,15 @@ exports[`Basic LanguageMenu should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="c0 fi-language-menu c1 lm-test"
-      data-testid="language-menu-test-id"
-      id="wrapper-id"
+      class="c0 fi-language-menu c1"
     >
       <button
-        aria-controls="test-id-menu"
+        aria-controls="1-menu"
         aria-expanded="false"
         aria-haspopup="menu"
         aria-label="Select language"
         class="c2 fi-language-menu_button"
-        id="test-id"
+        id="1"
         type="button"
       >
         In English (EN)
@@ -397,13 +395,13 @@ exports[`Basic LanguageMenu should match snapshot 1`] = `
       >
         <div
           class="c4 fi-language-menu-popover_list"
-          id="test-id-menu"
+          id="1-menu"
           role="menu"
           tabindex="-1"
         >
           <button
             class="c2 fi-language-menu-item c6"
-            id="test-id-list-item-0"
+            id="1-list-item-0"
             lang="fi"
             role="menuitem"
             tabindex="-1"
@@ -413,7 +411,7 @@ exports[`Basic LanguageMenu should match snapshot 1`] = `
           </button>
           <button
             class="c2 fi-language-menu-item c6"
-            id="test-id-list-item-1"
+            id="1-list-item-1"
             lang="sv"
             role="menuitem"
             tabindex="-1"
@@ -424,7 +422,7 @@ exports[`Basic LanguageMenu should match snapshot 1`] = `
           <button
             aria-current="true"
             class="c2 fi-language-menu-item c6 fi-language-menu-item--selected"
-            id="test-id-list-item-2"
+            id="1-list-item-2"
             lang="en"
             role="menuitem"
             tabindex="-1"
@@ -804,17 +802,15 @@ exports[`Basic LanguageMenu should match snapshot 2`] = `
 <body>
   <div>
     <div
-      class="c0 fi-language-menu c1 lm-test"
-      data-testid="language-menu-test-id"
-      id="wrapper-id"
+      class="c0 fi-language-menu c1"
     >
       <button
-        aria-controls="test-id-menu"
+        aria-controls="1-menu"
         aria-expanded="true"
         aria-haspopup="menu"
         aria-label="Select language"
         class="c2 fi-language-menu_button fi-language-menu_button--open"
-        id="test-id"
+        id="1"
         type="button"
       >
         In English (EN)
@@ -841,23 +837,23 @@ exports[`Basic LanguageMenu should match snapshot 2`] = `
       >
         <div
           class="c4 fi-language-menu-popover_list"
-          id="test-id-menu"
+          id="1-menu"
           role="menu"
           tabindex="-1"
         >
           <button
-            class="c2 fi-language-menu-item c6 fi-language-menu-item--isHighlighted"
-            id="test-id-list-item-0"
+            class="c2 fi-language-menu-item c6"
+            id="1-list-item-0"
             lang="fi"
             role="menuitem"
-            tabindex="0"
+            tabindex="-1"
             type="button"
           >
             Suomeksi (FI)
           </button>
           <button
             class="c2 fi-language-menu-item c6"
-            id="test-id-list-item-1"
+            id="1-list-item-1"
             lang="sv"
             role="menuitem"
             tabindex="-1"
@@ -868,7 +864,7 @@ exports[`Basic LanguageMenu should match snapshot 2`] = `
           <button
             aria-current="true"
             class="c2 fi-language-menu-item c6 fi-language-menu-item--selected"
-            id="test-id-list-item-2"
+            id="1-list-item-2"
             lang="en"
             role="menuitem"
             tabindex="-1"
@@ -889,7 +885,7 @@ exports[`Basic LanguageMenu should match snapshot 2`] = `
 </body>
 `;
 
-exports[`movement in LanguageMenu should match snapshot 1`] = `
+exports[`opened LanguageMenu should match snapshot opened 1`] = `
 .c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -1249,17 +1245,15 @@ exports[`movement in LanguageMenu should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="c0 fi-language-menu c1 lm-test"
-      data-testid="language-menu-test-id"
-      id="wrapper-id"
+      class="c0 fi-language-menu c1"
     >
       <button
-        aria-controls="test-id-menu"
+        aria-controls="3-menu"
         aria-expanded="true"
         aria-haspopup="menu"
         aria-label="Select language"
         class="c2 fi-language-menu_button fi-language-menu_button--open"
-        id="test-id"
+        id="3"
         type="button"
       >
         In English (EN)
@@ -1286,13 +1280,13 @@ exports[`movement in LanguageMenu should match snapshot 1`] = `
       >
         <div
           class="c4 fi-language-menu-popover_list"
-          id="test-id-menu"
+          id="3-menu"
           role="menu"
           tabindex="-1"
         >
           <button
             class="c2 fi-language-menu-item c6 fi-language-menu-item--isHighlighted"
-            id="test-id-list-item-0"
+            id="3-list-item-0"
             lang="fi"
             role="menuitem"
             tabindex="0"
@@ -1302,7 +1296,7 @@ exports[`movement in LanguageMenu should match snapshot 1`] = `
           </button>
           <button
             class="c2 fi-language-menu-item c6"
-            id="test-id-list-item-1"
+            id="3-list-item-1"
             lang="sv"
             role="menuitem"
             tabindex="-1"
@@ -1313,7 +1307,7 @@ exports[`movement in LanguageMenu should match snapshot 1`] = `
           <button
             aria-current="true"
             class="c2 fi-language-menu-item c6 fi-language-menu-item--selected"
-            id="test-id-list-item-2"
+            id="3-list-item-2"
             lang="en"
             role="menuitem"
             tabindex="-1"
