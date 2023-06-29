@@ -15,6 +15,11 @@ const languageMenuProps: LanguageMenuProps = {
   },
 };
 
+const compulsoryProps: LanguageMenuProps = {
+  'aria-label': 'Select language',
+  buttonText: 'In English (EN)',
+};
+
 const TestLanguageMenu = (props: LanguageMenuProps) => (
   <LanguageMenu {...props}>
     <LanguageMenuItem onSelect={() => ({})} lang="fi">
@@ -84,6 +89,91 @@ describe('movement in LanguageMenu', () => {
     });
 
     expect(baseElement).toMatchSnapshot();
+  });
+});
+
+describe('callbacks', () => {
+  describe('onOpen', () => {
+    it('should call onOpen when menu button is clicked', () => {
+      const mockOnOpen = jest.fn();
+      const { getByRole } = render(
+        TestLanguageMenu({ ...compulsoryProps, onOpen: mockOnOpen }),
+      );
+      fireEvent.click(getByRole('button'));
+      expect(mockOnOpen).toBeCalledTimes(1);
+    });
+
+    it('should call onOpen with Enter in menu button', () => {
+      const mockOnOpen = jest.fn();
+      const { getByRole } = render(
+        TestLanguageMenu({ ...compulsoryProps, onOpen: mockOnOpen }),
+      );
+      fireEvent.keyDown(getByRole('button'), { key: 'Enter' });
+      expect(mockOnOpen).toBeCalledTimes(1);
+    });
+
+    it('should call onOpen with Space in menu button', () => {
+      const mockOnOpen = jest.fn();
+      const { getByRole } = render(
+        TestLanguageMenu({ ...compulsoryProps, onOpen: mockOnOpen }),
+      );
+      fireEvent.keyDown(getByRole('button'), { key: ' ' });
+      expect(mockOnOpen).toBeCalledTimes(1);
+    });
+
+    it('should call onOpen with ArrowUp in menu button', () => {
+      const mockOnOpen = jest.fn();
+      const { getByRole } = render(
+        TestLanguageMenu({ ...compulsoryProps, onOpen: mockOnOpen }),
+      );
+      fireEvent.keyDown(getByRole('button'), { key: 'ArrowUp' });
+      expect(mockOnOpen).toBeCalledTimes(1);
+    });
+
+    it('should call onOpen with ArrowDown in menu button', () => {
+      const mockOnOpen = jest.fn();
+      const { getByRole } = render(
+        TestLanguageMenu({ ...compulsoryProps, onOpen: mockOnOpen }),
+      );
+      fireEvent.keyDown(getByRole('button'), { key: 'ArrowDown' });
+      expect(mockOnOpen).toBeCalledTimes(1);
+    });
+  });
+
+  describe('onClose', () => {
+    it('should call onClose with Escape', () => {
+      const mockOnClose = jest.fn();
+      const { baseElement, getByRole } = render(
+        TestLanguageMenu({ ...compulsoryProps, onClose: mockOnClose }),
+      );
+      fireEvent.click(getByRole('button'));
+      const item = baseElement.querySelectorAll('[role="menuitem"]')[0];
+      fireEvent.click(item);
+      fireEvent.keyDown(item, { key: 'Escape' });
+      expect(mockOnClose).toBeCalledTimes(1);
+    });
+
+    it('should call onClose with click outside menu', async () => {
+      const mockOnClose = jest.fn();
+      const { baseElement, getByRole } = render(
+        TestLanguageMenu({ ...compulsoryProps, onClose: mockOnClose }),
+      );
+      fireEvent.click(getByRole('button'));
+      expect(baseElement.querySelector('[role="menu"]')).toBeVisible();
+      fireEvent.click(getByRole('button'));
+      expect(mockOnClose).toBeCalledTimes(1);
+    });
+  });
+
+  describe('onBlur', () => {
+    it('should call onBlur when focus moves to menu', () => {
+      const mockOnBlur = jest.fn();
+      const { getByRole } = render(
+        TestLanguageMenu({ ...compulsoryProps, onBlur: mockOnBlur }),
+      );
+      fireEvent.blur(getByRole('button'));
+      expect(mockOnBlur).toBeCalledTimes(1);
+    });
   });
 });
 
