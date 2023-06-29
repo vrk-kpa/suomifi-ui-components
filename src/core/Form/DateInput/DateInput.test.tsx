@@ -58,7 +58,7 @@ describe('snapshots match', () => {
       jest.useRealTimers();
     });
 
-    test('with smallScreen', async () => {
+    test('with smallScreen', () => {
       const { baseElement, getByRole } = render(
         <DateInput
           labelText="Date"
@@ -72,7 +72,7 @@ describe('snapshots match', () => {
       expect(baseElement).toMatchSnapshot();
     });
 
-    test('with controlled input value', async () => {
+    test('with controlled input value', () => {
       const { baseElement, getByRole } = render(
         <DateInput
           labelText="Date"
