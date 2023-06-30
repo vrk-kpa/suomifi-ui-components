@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, act, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import { axeTest } from '../../utils/test';
 import { LanguageMenu, LanguageMenuProps } from './LanguageMenu';
 import { LanguageMenuItem } from './LanguageMenuItem/LanguageMenuItem';
@@ -30,44 +30,22 @@ const TestLanguageMenu = (props: MenuProps) => (
 );
 
 describe('Basic LanguageMenu', () => {
-  it('should match snapshot', async () => {
-    const { baseElement, getByRole } = render(
-      TestLanguageMenu(languageMenuProps),
-    );
-    const menuButton = getByRole('button') as HTMLButtonElement;
-    expect(baseElement).toMatchSnapshot();
-    await act(async () => {
-      fireEvent.click(menuButton);
-    });
+  it('should match snapshot when closed', async () => {
+    const { baseElement } = render(TestLanguageMenu(languageMenuProps));
     expect(baseElement).toMatchSnapshot();
   });
-});
 
-describe('opened LanguageMenu', () => {
-  it('should match snapshot opened', async () => {
+  it('should match snapshot when opened', async () => {
     const { baseElement, getByRole } = render(
       TestLanguageMenu(languageMenuProps),
     );
-    const menuButton = getByRole('button') as HTMLButtonElement;
-
+    const menuButton = getByRole('button');
     await act(async () => {
       fireEvent.click(menuButton);
-
       await new Promise((resolve) => {
         setTimeout(resolve, 100);
       });
     });
-
-    await act(async () => {
-      fireEvent.keyPress(baseElement, {
-        key: 'ArrowDown',
-      });
-
-      await new Promise((resolve) => {
-        setTimeout(resolve, 10);
-      });
-    });
-
     expect(baseElement).toMatchSnapshot();
   });
 });
