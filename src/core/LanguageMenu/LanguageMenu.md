@@ -18,14 +18,14 @@ const [selectedLanguage, setSelectedLanguage] = React.useState(
   buttonText={selectedLanguage.text}
   aria-label={`Change language, selected language: ${selectedLanguage.text}`}
 >
-  {languages.map((item, index) => (
+  {languages.map((item) => (
     <LanguageMenuItem
-      onSelect={() => setSelectedLanguage(languages[index])}
-      lang={languages[index].lang}
-      key={languages[index].lang}
+      onSelect={() => setSelectedLanguage(item)}
+      lang={item.lang}
+      key={item.lang}
       selected={selectedLanguage.lang === item.lang}
     >
-      {languages[index].text}
+      {item.text}
     </LanguageMenuItem>
   ))}
 </LanguageMenu>;
