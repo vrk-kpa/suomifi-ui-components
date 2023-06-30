@@ -30,14 +30,6 @@ To install the component library itself
 yarn add suomifi-ui-components
 ```
 
-Include **required** styles from `dist/main.css` as best suited for your project. You can, for example, import the stylesheet to your app and let your bundler handle it:
-
-```typescript
-import 'suomifi-ui-components/dist/main.css';
-```
-
-This stylesheet contains part of the global styles for the library as well as Reach UI peer dependency styles.
-
 Include **required** fonts as best suited for your project. You can, for example, use the following import with your global css.
 
 ```css

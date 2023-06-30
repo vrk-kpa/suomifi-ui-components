@@ -1,4 +1,3 @@
-import './styles.scss';
 export {
   ActionMenu,
   ActionMenuProps,
@@ -85,8 +84,6 @@ export {
   LanguageMenuProps,
   LanguageMenuItem,
   LanguageMenuItemProps,
-  LanguageMenuLink,
-  LanguageMenuLinkProps,
 } from './core/LanguageMenu';
 export {
   Modal,

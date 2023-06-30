@@ -64,7 +64,7 @@ const plugins = (tsConfig, extractCSS) => [
       }),
     ],
     inject: false,
-    extract: !!extractCSS && 'main.css',
+    extract: !!extractCSS,
   }),
 ];
 
