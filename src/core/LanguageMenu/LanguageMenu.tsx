@@ -41,7 +41,8 @@ export interface LanguageMenuProps {
   buttonText: string;
   /**
    * LanguageMenu should have a descriptive aria-label. Aria-label should also inform what language is selected.
-   * For example "Select language, selected language: English". Aria-label is for assistive technologies and overrides buttonText.
+   * For example "Select language, selected language: English". Aria-label is for assistive technologies and overrides buttonText for
+   * screen readers.
    */
   'aria-label': string;
   /** Menu items. Use `<LanguageMenuItem>` components as children */
