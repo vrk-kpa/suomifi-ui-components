@@ -116,8 +116,6 @@ interface BaseTextareaProps
   containerProps?: Omit<HtmlDivProps, 'className'>;
   /** Tooltip component for the input's label */
   tooltipComponent?: ReactElement;
-  /** ONLY FOR TESTING FOR NOW  */
-  charCountScreenReaderDelay?: number;
   /** Ref is passed to the textarea element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLTextAreaElement>;
 }
@@ -149,7 +147,6 @@ const BaseTextarea = (props: TextareaProps) => {
     maxLength,
     ariaCharactersRemainingText,
     ariaCharactersExceededText,
-    charCountScreenReaderDelay = 3000,
     ...passProps
   } = props;
 
@@ -188,7 +185,7 @@ const BaseTextarea = (props: TextareaProps) => {
             ? ariaCharactersRemainingText(maxLength - charCountInInput)
             : ariaCharactersExceededText(charCountInInput - maxLength),
         );
-      }, charCountScreenReaderDelay);
+      }, 1500);
       setTypingTimer(newTypingTimer);
     }
 
