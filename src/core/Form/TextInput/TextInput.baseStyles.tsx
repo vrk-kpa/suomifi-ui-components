@@ -7,6 +7,20 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')}
   width: 290px;
 
+  & .fi-text-input_characterCounter {
+    ${font(theme)('bodyTextSmall')};
+    color: ${theme.colors.blackBase};
+    font-size: 14px;
+    line-height: 20px;
+    flex: none;
+    margin-top: 4px;
+  }
+
+  & .fi-text-input_bottomWrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
   & .fi-text-input_wrapper {
     width: 100%;
     display: inline-block;
