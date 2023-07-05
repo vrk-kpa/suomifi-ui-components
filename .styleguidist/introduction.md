@@ -1,4 +1,4 @@
-Suomi.fi UI Components is a part of [Suomi.fi Design System](https://designsystem.suomi.fi) and is maintained and built by the Digital and population data services agency of Finland.
+**Suomi.fi UI Components is a part of [Suomi.fi Design System](https://designsystem.suomi.fi) and is maintained and built by the Digital and population data services agency of Finland.**
 
 ## ✨ Features
 
@@ -45,17 +45,17 @@ yarn add styled-components
 
 - If using TypeScript, version 3.8 or above is required.
 
-- In case TypeScript is used and skipLibCheck compiler option is set to false, also typings for [react](https://www.npmjs.com/package/@types/react), [react-dom](https://www.npmjs.com/package/@types/react-dom), [styled-components](https://www.npmjs.com/package/@types/styled-components/) and [warning](https://www.npmjs.com/package/@types/warning) are required.
+- In case TypeScript is used and skipLibCheck compiler option is set to false, also add typings for [styled-components](https://www.npmjs.com/package/@types/styled-components/) as well as [react](https://www.npmjs.com/package/@types/react) and [react-dom](https://www.npmjs.com/package/@types/react-dom) as required by the React version used.
 
 ```bash
-yarn add @types/styled-components @types/warning
+yarn add @types/styled-components @types/react @types/react-dom
 ```
 
 ## 🔨 Usage
 
 ```jsx static
 import { Button } from 'suomifi-ui-components';
-ReactDOM.render(<Button />, mountNode);
+<Button>Suomi.fi button</Button>;
 ```
 
 ### 🌊 `Component variants`
@@ -87,4 +87,4 @@ styled(Button)...
 }
 ```
 
-Don't use ~~!important~~. if really really needed - for specificity hack you can define styles using classNames multiple times `.fi-button.button--custom.button--custom {...}`
+Don't use `!important`. If really, really needed you can define styles using classNames multiple times `.fi-button.button--custom.button--custom {...}` for a specificity hack.
