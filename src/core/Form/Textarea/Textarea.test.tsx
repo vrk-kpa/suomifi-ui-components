@@ -294,7 +294,7 @@ describe('props', () => {
       const { container, getByRole } = render(
         <Textarea
           labelText="label"
-          maxLength={20}
+          characterLimit={20}
           ariaCharactersRemainingText={(amount) =>
             `You have ${amount} characters remaining`
           }

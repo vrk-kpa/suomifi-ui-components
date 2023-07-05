@@ -167,7 +167,7 @@ const validateText = (text) => {
     hintText="Please provide details pertaining to the case"
     labelText="Description"
     onChange={() => validateText(event.target.value)}
-    maxLength={maxCharAmount}
+    characterLimit={maxCharAmount}
     ariaCharactersRemainingText={(amount) =>
       `You have ${amount} characters remaining`
     }
