@@ -166,7 +166,7 @@ const validateText = (text) => {
   <TextInput
     hintText="Please provide details pertaining to the case"
     labelText="Description"
-    onChange={() => validateText(event.target.value)}
+    onChange={(value) => validateText(value)}
     characterLimit={maxCharAmount}
     ariaCharactersRemainingText={(amount) =>
       `You have ${amount} characters remaining`
@@ -177,6 +177,7 @@ const validateText = (text) => {
     statusText={statusText}
     status={isError ? 'error' : 'default'}
     fullWidth
+    debounce={300}
     defaultValue="Lorem ipsum dolor"
   ></TextInput>
 </>;
