@@ -47,7 +47,7 @@ type TextareaStatus = Exclude<InputStatus, 'success'>;
 
 type characterCounterProps =
   | {
-      maxLength?: never;
+      characterLimit?: never;
       ariaCharactersRemainingText?: never;
       ariaCharactersExceededText?: never;
     }
@@ -55,13 +55,13 @@ type characterCounterProps =
       /** Maximun amount of characters in textarea.
        * Using this prop adds a visible character counter to the bottom right corner of the textarea.
        */
-      maxLength?: number;
+      characterLimit?: number;
       /** Returns a text which screen readers read to indicate how many characters can still be written to the textarea.
-       * Required with `maxLength`
+       * Required with `characterLimit`
        */
       ariaCharactersRemainingText: (amount: number) => string;
       /** Returns a text which screen readers read to indicate how many characters are over the maximum allowed chracter amount.
-       * Required with `maxLength`
+       * Required with `characterLimit`
        */
       ariaCharactersExceededText: (amount: number) => string;
     };
@@ -144,7 +144,7 @@ const BaseTextarea = (props: TextareaProps) => {
     forwardedRef,
     statusTextAriaLiveMode = 'assertive',
     tooltipComponent,
-    maxLength,
+    characterLimit,
     ariaCharactersRemainingText,
     ariaCharactersExceededText,
     ...passProps
@@ -163,7 +163,7 @@ const BaseTextarea = (props: TextareaProps) => {
   const hintTextId = hintText ? `${id}-hintText` : undefined;
 
   useEffect(() => {
-    if (maxLength !== undefined && inputRef.current?.value.length) {
+    if (characterLimit !== undefined && inputRef.current?.value.length) {
       setCharCount(inputRef.current?.value.length);
     }
   }, []);
@@ -173,7 +173,7 @@ const BaseTextarea = (props: TextareaProps) => {
       clearTimeout(typingTimer);
     }
     if (
-      maxLength !== undefined &&
+      characterLimit !== undefined &&
       ariaCharactersRemainingText &&
       ariaCharactersExceededText
     ) {
@@ -181,9 +181,9 @@ const BaseTextarea = (props: TextareaProps) => {
       setCharCount(charCountInInput);
       const newTypingTimer = setTimeout(() => {
         setCharacterCounterAriaText(
-          charCountInInput <= maxLength
-            ? ariaCharactersRemainingText(maxLength - charCountInInput)
-            : ariaCharactersExceededText(charCountInInput - maxLength),
+          charCountInInput <= characterLimit
+            ? ariaCharactersRemainingText(characterLimit - charCountInInput)
+            : ariaCharactersExceededText(charCountInInput - characterLimit),
         );
       }, 1500);
       setTypingTimer(newTypingTimer);
@@ -248,18 +248,19 @@ const BaseTextarea = (props: TextareaProps) => {
           disabled={disabled}
           ariaLiveMode={statusTextAriaLiveMode}
         >
-          {maxLength && (
+          {characterLimit && (
             <VisuallyHidden>{characterCounterAriaText}</VisuallyHidden>
           )}
           {statusText}
         </StatusText>
-        {maxLength && (
+        {characterLimit && (
           <HtmlDiv
             className={classnames(textareaClassNames.characterCounter, {
-              [textareaClassNames.characterCounterError]: charCount > maxLength,
+              [textareaClassNames.characterCounterError]:
+                charCount > characterLimit,
             })}
           >
-            {`${charCount}/${maxLength}`}
+            {`${charCount}/${characterLimit}`}
           </HtmlDiv>
         )}
       </HtmlDiv>

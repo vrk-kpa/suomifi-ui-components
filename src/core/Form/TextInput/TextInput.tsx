@@ -48,7 +48,7 @@ type TextInputValue = string | number | undefined;
 
 type characterCounterProps =
   | {
-      maxLength?: never;
+      characterLimit?: never;
       ariaCharactersRemainingText?: never;
       ariaCharactersExceededText?: never;
     }
@@ -56,13 +56,13 @@ type characterCounterProps =
       /** Maximun amount of characters in input.
        * Using this prop adds a visible character counter to the bottom right corner of the input.
        */
-      maxLength?: number;
+      characterLimit?: number;
       /** Returns a text which screen readers read to indicate how many characters can still be written to the input.
-       * Required with `maxLength`
+       * Required with `characterLimit`
        */
       ariaCharactersRemainingText: (amount: number) => string;
       /** Returns a text which screen readers read to indicate how many characters are over the maximum allowed chracter amount.
-       * Required with `maxLength`
+       * Required with `characterLimit`
        */
       ariaCharactersExceededText: (amount: number) => string;
     };
@@ -149,14 +149,14 @@ const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
     statusTextAriaLiveMode = 'assertive',
     'aria-describedby': ariaDescribedBy,
     tooltipComponent,
-    maxLength,
+    characterLimit,
     ariaCharactersRemainingText,
     ariaCharactersExceededText,
     ...passProps
   } = props;
 
   useEffect(() => {
-    if (maxLength !== undefined && inputRef.current?.value.length) {
+    if (characterLimit !== undefined && inputRef.current?.value.length) {
       setCharCount(inputRef.current?.value.length);
     }
   }, []);
@@ -171,7 +171,7 @@ const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
       clearTimeout(typingTimer);
     }
     if (
-      maxLength !== undefined &&
+      characterLimit !== undefined &&
       ariaCharactersRemainingText &&
       ariaCharactersExceededText
     ) {
@@ -179,9 +179,9 @@ const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
       setCharCount(charCountInInput);
       const newTypingTimer = setTimeout(() => {
         setCharacterCounterAriaText(
-          charCountInInput <= maxLength
-            ? ariaCharactersRemainingText(maxLength - charCountInInput)
-            : ariaCharactersExceededText(charCountInInput - maxLength),
+          charCountInInput <= characterLimit
+            ? ariaCharactersRemainingText(characterLimit - charCountInInput)
+            : ariaCharactersExceededText(charCountInInput - characterLimit),
         );
       }, 1500);
       setTypingTimer(newTypingTimer);
@@ -254,19 +254,19 @@ const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
             ariaLiveMode={statusTextAriaLiveMode}
             disabled={passProps.disabled}
           >
-            {maxLength && (
+            {characterLimit && (
               <VisuallyHidden>{characterCounterAriaText}</VisuallyHidden>
             )}
             {statusText}
           </StatusText>
-          {maxLength && (
+          {characterLimit && (
             <HtmlDiv
               className={classnames(textInputClassNames.characterCounter, {
                 [textInputClassNames.characterCounterError]:
-                  charCount > maxLength,
+                  charCount > characterLimit,
               })}
             >
-              {`${charCount}/${maxLength}`}
+              {`${charCount}/${characterLimit}`}
             </HtmlDiv>
           )}
         </HtmlDiv>
