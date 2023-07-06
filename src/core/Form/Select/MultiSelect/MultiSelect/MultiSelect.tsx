@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
 import { HtmlDiv } from '../../../../../reset';
 import { getOwnerDocument } from '../../../../../utils/common';
+import { HTMLAttributesIncludingDataAttributes } from '../../../../../utils/common/common';
 import { AutoId } from '../../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../../utils/Debounce/Debounce';
 import { Popover } from '../../../../Popover/Popover';
@@ -39,6 +40,8 @@ export interface MultiSelectData {
   disabled?: boolean;
   /** Unique id to identify the item */
   uniqueItemId: string;
+  /** Props to pass to select item's list element, for example data-attributes */
+  listItemProps?: HTMLAttributesIncludingDataAttributes<HTMLLIElement>;
 }
 
 interface CheckedProp {
@@ -113,7 +116,17 @@ type LoadingProps =
 interface InternalMultiSelectProps<T extends MultiSelectData> {
   /** MultiSelect container div class name for custom styling. */
   className?: string;
-  /** Items for the MultiSelect */
+  /** Items for the MultiSelect
+   * <pre>
+   * MultiSelectData {
+   *    labelText: string;
+   *    uniqueItemId: string;
+   *    disabled?: boolean;
+   *    chipText? string;
+   *    listItemProps?: HTMLAttributesIncludingDataAttributes&lt;HTMLLIElement&gt;;
+   * }
+   * </pre>
+   */
   items: Array<T & MultiSelectData>;
   /**
    * Unique id
@@ -163,6 +176,8 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   tooltipComponent?: ReactElement;
   /** Ref object to be passed to the input element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLInputElement>;
+  /** Props to pass to unordered list element, for example data-attributes */
+  listProps?: HTMLAttributesIncludingDataAttributes<HTMLUListElement>;
 }
 
 type AllowItemAdditionProps =
@@ -619,6 +634,7 @@ class BaseMultiSelect<T> extends Component<
       tooltipComponent,
       items, // Only destructured away so they don't end up in the DOM
       forwardedRef, // Only destructured away so it doesn't end up in the DOM
+      listProps,
       ...passProps
     } = this.props;
 
@@ -735,6 +751,7 @@ class BaseMultiSelect<T> extends Component<
                   ref={this.popoverListRef}
                   focusedDescendantId={ariaActiveDescendant}
                   aria-multiselectable="true"
+                  {...listProps}
                 >
                   <HtmlDiv>
                     {!loading &&
@@ -753,6 +770,7 @@ class BaseMultiSelect<T> extends Component<
                               this.handleItemSelection(item);
                             }}
                             hightlightQuery={this.filterInputRef.current?.value}
+                            {...item.listItemProps}
                           >
                             {item.labelText}
                           </SelectItem>
