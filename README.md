@@ -24,7 +24,7 @@ Works with [React >= 16.8.0](https://github.com/facebook/react) (React 18 suppor
 
 ## 📦 Install
 
-To install the component library itself:
+To install the component library
 
 ```bash
 yarn add suomifi-ui-components
