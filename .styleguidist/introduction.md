@@ -60,11 +60,11 @@ import { Button } from 'suomifi-ui-components';
 
 ### 🌊 `Component variants`
 
-Components have variant-property for different versions of the current component.
+Components have a `variant` property for different versions of the component.
 
 ```jsx static
 import { Button } from 'suomifi-ui-components';
-<Button variant="secondary">This is seconday button</Button>;
+<Button variant="secondary">This is a seconday button</Button>;
 ```
 
 ### ⛱ Extending styles
