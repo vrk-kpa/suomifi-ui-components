@@ -38,9 +38,9 @@ const textareaClassNames = {
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
-  bottomWrapper: `${baseClassName}_bottomWrapper`,
-  characterCounter: `${baseClassName}_characterCounter`,
-  characterCounterError: `${baseClassName}_characterCounter--error`,
+  bottomWrapper: `${baseClassName}_bottom-wrapper`,
+  characterCounter: `${baseClassName}_character-counter`,
+  characterCounterError: `${baseClassName}_character-counter--error`,
 };
 
 type TextareaStatus = Exclude<InputStatus, 'success'>;

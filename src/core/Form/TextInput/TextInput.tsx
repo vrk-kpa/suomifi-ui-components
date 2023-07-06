@@ -39,9 +39,9 @@ export const textInputClassNames = {
   inputElement: `${baseClassName}_input`,
   styleWrapper: `${baseClassName}_wrapper`,
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
-  bottomWrapper: `${baseClassName}_bottomWrapper`,
-  characterCounter: `${baseClassName}_characterCounter`,
-  characterCounterError: `${baseClassName}_characterCounter--error`,
+  bottomWrapper: `${baseClassName}_bottom-wrapper`,
+  characterCounter: `${baseClassName}_character-counter`,
+  characterCounterError: `${baseClassName}_character-counter--error`,
 };
 
 type TextInputValue = string | number | undefined;

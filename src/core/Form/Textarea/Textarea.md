@@ -40,7 +40,7 @@ const maxCharAmount = 30;
 
 /**
  * Check if maximum amount of characters has exceed, and set status and statusText accordingly.
- * You can also perform all your other validation needs here.
+ * You can also add any other desired input validation rules here.
  */
 const validateText = (text) => {
   if (text.length > maxCharAmount) {

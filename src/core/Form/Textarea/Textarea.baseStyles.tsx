@@ -12,18 +12,25 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     display: flex;
     flex-direction: column;
 
-    & .fi-textarea_bottomWrapper {
+    & .fi-textarea_bottom-wrapper {
       display: flex;
       justify-content: space-between;
     }
 
-    & .fi-textarea_characterCounter {
+    & .fi-textarea_character-counter {
       ${font(theme)('bodyTextSmall')};
       color: ${theme.colors.blackBase};
       font-size: 14px;
       line-height: 20px;
       flex: none;
       margin-top: 4px;
+
+      &.fi-textarea_character-counter--error {
+        color: ${theme.colors.alertBase};
+        ${font(theme)('bodySemiBoldSmall')};
+        font-size: 14px;
+        line-height: 20px;
+      }
     }
 
     & .fi-textarea_statusText--has-content {

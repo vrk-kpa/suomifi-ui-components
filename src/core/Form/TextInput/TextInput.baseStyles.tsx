@@ -7,16 +7,23 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')}
   width: 290px;
 
-  & .fi-text-input_characterCounter {
+  & .fi-text-input_character-counter {
     ${font(theme)('bodyTextSmall')};
     color: ${theme.colors.blackBase};
     font-size: 14px;
     line-height: 20px;
     flex: none;
     margin-top: 4px;
+
+    &.fi-text-input_character-counter--error {
+      color: ${theme.colors.alertBase};
+      ${font(theme)('bodySemiBoldSmall')};
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 
-  & .fi-text-input_bottomWrapper {
+  & .fi-text-input_bottom-wrapper {
     display: flex;
     justify-content: space-between;
   }
