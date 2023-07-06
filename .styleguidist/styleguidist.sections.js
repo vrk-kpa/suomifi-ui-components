@@ -60,6 +60,12 @@ module.exports = {
     {
       name: 'Introduction',
       content: './.styleguidist/introduction.md',
+      sections: [() => {}],
+      sectiondepth: 0,
+    },
+    {
+      name: 'Foundations',
+      content: './.styleguidist/foundations.md',
       sections: [
         {
           name: 'Colors',
@@ -106,6 +112,8 @@ module.exports = {
       name: 'Versions',
       content: './.styleguidist/versions.md',
       sections: getVersions(),
+      sectiondepth: 1,
+      expand: false,
     },
     {
       name: 'Components',
