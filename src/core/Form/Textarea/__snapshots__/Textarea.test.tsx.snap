@@ -207,7 +207,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c1.fi-textarea .fi-textarea_bottomWrapper {
+.c1.fi-textarea .fi-textarea_bottom-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -218,7 +218,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c1.fi-textarea .fi-textarea_characterCounter {
+.c1.fi-textarea .fi-textarea_character-counter {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
   -ms-letter-spacing: 0;
@@ -239,6 +239,25 @@ exports[`snapshot default structure should match snapshot 1`] = `
   -ms-flex: none;
   flex: none;
   margin-top: 4px;
+}
+
+.c1.fi-textarea .fi-textarea_character-counter.fi-textarea_character-counter--error {
+  color: hsl(3,59%,48%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .c1.fi-textarea .fi-textarea_statusText--has-content {
@@ -370,7 +389,7 @@ exports[`snapshot default structure should match snapshot 1`] = `
     />
   </div>
   <div
-    class="c0 fi-textarea_bottomWrapper"
+    class="c0 fi-textarea_bottom-wrapper"
   >
     <span
       aria-atomic="true"

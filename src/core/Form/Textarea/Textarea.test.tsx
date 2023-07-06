@@ -306,10 +306,11 @@ describe('props', () => {
         </Textarea>,
       );
       expect(
-        container.getElementsByClassName('fi-textarea_characterCounter').length,
+        container.getElementsByClassName('fi-textarea_character-counter')
+          .length,
       ).toBe(1);
       expect(
-        container.getElementsByClassName('fi-textarea_characterCounter')[0],
+        container.getElementsByClassName('fi-textarea_character-counter')[0],
       ).toHaveTextContent('11/20');
 
       const textarea = getByRole('textbox') as HTMLTextAreaElement;
@@ -318,7 +319,7 @@ describe('props', () => {
       });
 
       expect(
-        container.getElementsByClassName('fi-textarea_characterCounter')[0],
+        container.getElementsByClassName('fi-textarea_character-counter')[0],
       ).toHaveTextContent('26/20');
     });
   });

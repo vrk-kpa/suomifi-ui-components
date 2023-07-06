@@ -304,3 +304,37 @@ describe('props', () => {
     });
   });
 });
+
+describe('Character counter', () => {
+  it('should display correct character count', () => {
+    const { container, getByRole } = render(
+      <TextInput
+        labelText="label"
+        defaultValue="Lorem ipsum"
+        characterLimit={20}
+        ariaCharactersRemainingText={(amount) =>
+          `You have ${amount} characters remaining`
+        }
+        ariaCharactersExceededText={(amount) =>
+          `You have ${amount} characters too many`
+        }
+      />,
+    );
+    expect(
+      container.getElementsByClassName('fi-text-input_character-counter')
+        .length,
+    ).toBe(1);
+    expect(
+      container.getElementsByClassName('fi-text-input_character-counter')[0],
+    ).toHaveTextContent('11/20');
+
+    const textInput = getByRole('textbox') as HTMLTextAreaElement;
+    fireEvent.change(textInput, {
+      target: { value: 'Lorem ipsum dolor sit amet' },
+    });
+
+    expect(
+      container.getElementsByClassName('fi-text-input_character-counter')[0],
+    ).toHaveTextContent('26/20');
+  });
+});
