@@ -307,10 +307,11 @@ describe('props', () => {
 
 describe('Character counter', () => {
   it('should display correct character count', () => {
-    const { container, getByRole } = render(
+    const { container, getByTestId } = render(
       <TextInput
         labelText="label"
         defaultValue="Lorem ipsum"
+        data-testid="cc-input"
         characterLimit={20}
         ariaCharactersRemainingText={(amount) =>
           `You have ${amount} characters remaining`
@@ -328,7 +329,7 @@ describe('Character counter', () => {
       container.getElementsByClassName('fi-text-input_character-counter')[0],
     ).toHaveTextContent('11/20');
 
-    const textInput = getByRole('textbox') as HTMLTextAreaElement;
+    const textInput = getByTestId('cc-input') as HTMLTextAreaElement;
     fireEvent.change(textInput, {
       target: { value: 'Lorem ipsum dolor sit amet' },
     });
@@ -336,5 +337,43 @@ describe('Character counter', () => {
     expect(
       container.getElementsByClassName('fi-text-input_character-counter')[0],
     ).toHaveTextContent('26/20');
+  });
+
+  it('should have correct screen reader status text', () => {
+    jest.useFakeTimers();
+    const { container, getByTestId } = render(
+      <TextInput
+        labelText="label"
+        defaultValue="Lorem ipsum"
+        data-testid="cc-input1"
+        characterLimit={20}
+        ariaCharactersRemainingText={(amount) =>
+          `You have ${amount} characters remaining`
+        }
+        ariaCharactersExceededText={(amount) =>
+          `You have ${amount} characters too many`
+        }
+      />,
+    );
+
+    expect(
+      container.getElementsByClassName('fi-status-text')[0].firstChild,
+    ).toHaveTextContent('');
+
+    const textInput = getByTestId('cc-input1') as HTMLTextAreaElement;
+    fireEvent.change(textInput, {
+      target: { value: 'Lorem ipsum dolor sit amet' },
+    });
+
+    // Testing if the delayed update works as intended
+    expect(
+      container.getElementsByClassName('fi-status-text')[0].firstChild,
+    ).toHaveTextContent('');
+
+    jest.advanceTimersByTime(2000);
+
+    expect(
+      container.getElementsByClassName('fi-status-text')[0].firstChild,
+    ).toHaveTextContent('You have 6 characters too many');
   });
 });
