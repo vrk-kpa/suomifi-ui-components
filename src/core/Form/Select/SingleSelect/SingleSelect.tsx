@@ -3,6 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv } from '../../../../reset';
 import { getOwnerDocument, escapeStringRegexp } from '../../../../utils/common';
+import { HTMLAttributesIncludingDataAttributes } from '../../../../utils/common/common';
 import { AutoId } from '../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Popover } from '../../../Popover/Popover';
@@ -34,6 +35,8 @@ export interface SingleSelectData {
   disabled?: boolean;
   /** Unique id to identify the item */
   uniqueItemId: string;
+  /** Props to pass to select item's list element, for example data-attributes */
+  listItemProps?: HTMLAttributesIncludingDataAttributes<HTMLLIElement>;
 }
 
 export type SingleSelectStatus = FilterInputStatus & {};
@@ -58,7 +61,16 @@ type AriaOptionsAvailableProps =
 export interface InternalSingleSelectProps<T extends SingleSelectData> {
   /** SingleSelect container div class name for custom styling. */
   className?: string;
-  /** Items for the SingleSelect */
+  /** Items for the SingleSelect
+   * <pre>
+   * SingleSelectData {
+   *    labelText: string;
+   *    uniqueItemId: string;
+   *    disabled?: boolean;
+   *    listItemProps?: HTMLAttributesIncludingDataAttributes&lt;HTMLLIElement&gt;;
+   * }
+   * </pre>
+   */
   items: Array<T & SingleSelectData>;
   /**
    * Unique id
@@ -102,6 +114,8 @@ export interface InternalSingleSelectProps<T extends SingleSelectData> {
   tooltipComponent?: ReactElement;
   /** Ref is forwarded to the input element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLInputElement>;
+  /** Props to pass to unordered list element, for example data-attributes */
+  listProps?: HTMLAttributesIncludingDataAttributes<HTMLUListElement>;
 }
 
 type LoadingProps =
@@ -501,6 +515,7 @@ class BaseSingleSelect<T> extends Component<
       tooltipComponent,
       items, // Only destructured away so they don't end up in the DOM
       forwardedRef, // Only destructured away so it doesn't end up in the DOM
+      listProps,
       ...passProps
     } = this.props;
 
@@ -631,6 +646,7 @@ class BaseSingleSelect<T> extends Component<
               id={popoverItemListId}
               ref={this.popoverListRef}
               focusedDescendantId={ariaActiveDescendant}
+              {...listProps}
             >
               <HtmlDiv>
                 {popoverItems.length > 0 &&
@@ -655,6 +671,7 @@ class BaseSingleSelect<T> extends Component<
                         hightlightQuery={
                           filterMode ? this.filterInputRef.current?.value : ''
                         }
+                        {...item.listItemProps}
                       >
                         {item.labelText}
                       </SelectItem>
