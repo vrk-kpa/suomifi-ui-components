@@ -288,4 +288,77 @@ describe('props', () => {
       expect(container.firstChild).toHaveAttribute('style', 'width: 100px;');
     });
   });
+
+  describe('Character counter', () => {
+    it('should display character count', () => {
+      const { container, getByRole } = render(
+        <Textarea
+          labelText="label"
+          characterLimit={20}
+          ariaCharactersRemainingText={(amount) =>
+            `You have ${amount} characters remaining`
+          }
+          ariaCharactersExceededText={(amount) =>
+            `You have ${amount} characters too many`
+          }
+        >
+          Lorem ipsum
+        </Textarea>,
+      );
+      expect(
+        container.getElementsByClassName('fi-textarea_character-counter')
+          .length,
+      ).toBe(1);
+      expect(
+        container.getElementsByClassName('fi-textarea_character-counter')[0],
+      ).toHaveTextContent('11/20');
+
+      const textarea = getByRole('textbox') as HTMLTextAreaElement;
+      fireEvent.change(textarea, {
+        target: { value: 'Lorem ipsum dolor sit amet' },
+      });
+
+      expect(
+        container.getElementsByClassName('fi-textarea_character-counter')[0],
+      ).toHaveTextContent('26/20');
+    });
+
+    it('should have correct screen reader status text', () => {
+      jest.useFakeTimers();
+      const { container, getByTestId } = render(
+        <Textarea
+          labelText="label"
+          defaultValue="Lorem ipsum"
+          data-testid="cc-textarea"
+          characterLimit={20}
+          ariaCharactersRemainingText={(amount) =>
+            `You have ${amount} characters remaining`
+          }
+          ariaCharactersExceededText={(amount) =>
+            `You have ${amount} characters too many`
+          }
+        />,
+      );
+
+      expect(
+        container.getElementsByClassName('fi-status-text')[0].firstChild,
+      ).toHaveTextContent('');
+
+      const textInput = getByTestId('cc-textarea') as HTMLTextAreaElement;
+      fireEvent.change(textInput, {
+        target: { value: 'Lorem ipsum dolor sit amet' },
+      });
+
+      // Testing if the delayed update works as intended
+      expect(
+        container.getElementsByClassName('fi-status-text')[0].firstChild,
+      ).toHaveTextContent('');
+
+      jest.advanceTimersByTime(2000);
+
+      expect(
+        container.getElementsByClassName('fi-status-text')[0].firstChild,
+      ).toHaveTextContent('You have 6 characters too many');
+    });
+  });
 });

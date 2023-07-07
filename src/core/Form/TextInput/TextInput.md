@@ -136,3 +136,49 @@ import { IconMapLocation } from 'suomifi-icons';
   />
 </>;
 ```
+
+### TextInput with character counter
+
+```js
+import { TextInput } from 'suomifi-ui-components';
+import React, { useState } from 'react';
+
+const [isError, setIsError] = useState(false);
+const [statusText, setStatusText] = useState('');
+
+const maxCharAmount = 20;
+
+/**
+ * Check if maximum amount of characters has exceed, and set status and statusText accordingly.
+ * You can also add any other desired input validation rules here.
+ */
+const validateText = (text) => {
+  if (text.length > maxCharAmount) {
+    setIsError(true);
+    setStatusText('Description must be 20 characters or less');
+  } else {
+    setIsError(false);
+    setStatusText('');
+  }
+};
+
+<>
+  <TextInput
+    hintText="Please provide details pertaining to the case"
+    labelText="Description"
+    onChange={(value) => validateText(value)}
+    characterLimit={maxCharAmount}
+    ariaCharactersRemainingText={(amount) =>
+      `You have ${amount} characters remaining`
+    }
+    ariaCharactersExceededText={(amount) =>
+      `You have ${amount} characters too many`
+    }
+    statusText={statusText}
+    status={isError ? 'error' : 'default'}
+    fullWidth
+    debounce={300}
+    defaultValue="Lorem ipsum dolor"
+  ></TextInput>
+</>;
+```

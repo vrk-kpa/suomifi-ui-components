@@ -5,104 +5,70 @@ import {
   Heading,
   Text
 } from 'suomifi-ui-components';
-import React from 'react';
-
-const exampleRef = React.createRef();
-
-const labelTextForTooltipExample = 'Textarea with a tooltip';
+import React, { useState } from 'react';
 
 <>
   <Textarea
-    hintText="Example hint text"
-    labelText="Textarea with hint and optional texts"
-    optionalText="optional"
-    ref={exampleRef}
-    onChange={() => {
-      console.log(exampleRef.current);
-    }}
+    hintText="Please provide details pertaining to the case"
+    labelText="Description"
+    fullWidth
   >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-    vestibulum iaculis augue, sit amet tincidunt ipsum.
+    Lorem ipsum dolor sit amet
   </Textarea>
+</>;
+```
 
+### TextArea with character counter
+
+- Provide the maximum length of the text to enable character counter
+- Provide clear texts indicating characters remaining or exceeding the limit. They are hidden from view but exist for screen reader users.
+- There is an inbuilt delay in updating the status text to make it work better for VoiceOver users
+
+```js
+import {
+  Textarea,
+  Tooltip,
+  Heading,
+  Text
+} from 'suomifi-ui-components';
+import React, { useState } from 'react';
+
+const [isError, setIsError] = useState(false);
+const [statusText, setStatusText] = useState('');
+
+const maxCharAmount = 30;
+
+/**
+ * Check if maximum amount of characters has exceed, and set status and statusText accordingly.
+ * You can also add any other desired input validation rules here.
+ */
+const validateText = (text) => {
+  if (text.length > maxCharAmount) {
+    setIsError(true);
+    setStatusText('Description must be 30 characters or less');
+  } else {
+    setIsError(false);
+    setStatusText('');
+  }
+};
+
+<>
   <Textarea
-    labelText="Textarea with error and status text"
-    statusText="Something is wrong!"
-    status="error"
-  >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-    vestibulum iaculis augue, sit amet tincidunt ipsum.
-  </Textarea>
-
-  <Textarea labelText="Textarea disabled" disabled>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-    vestibulum iaculis augue, sit amet tincidunt ipsum.
-  </Textarea>
-
-  <Textarea
-    labelText={labelTextForTooltipExample}
-    tooltipComponent={
-      <Tooltip
-        ariaToggleButtonLabelText={`${labelTextForTooltipExample}, additional information`}
-        ariaCloseButtonLabelText={`${labelTextForTooltipExample}, close additional information`}
-      >
-        <Heading variant="h5" as="h2">
-          Tooltip
-        </Heading>
-        <Text>Text content for the tooltip</Text>
-      </Tooltip>
+    hintText="Please provide details pertaining to the case"
+    labelText="Description"
+    onChange={() => validateText(event.target.value)}
+    characterLimit={maxCharAmount}
+    ariaCharactersRemainingText={(amount) =>
+      `You have ${amount} characters remaining`
     }
+    ariaCharactersExceededText={(amount) =>
+      `You have ${amount} characters too many`
+    }
+    statusText={statusText}
+    status={isError ? 'error' : 'default'}
+    fullWidth
   >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-    vestibulum iaculis augue, sit amet tincidunt ipsum.
-  </Textarea>
-</>;
-```
-
-### resize
-
-```js
-import { Textarea } from 'suomifi-ui-components';
-
-<>
-  <Textarea
-    labelText="Textarea resizable only horizontally"
-    resize="horizontal"
-  >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-    vestibulum iaculis augue, sit amet tincidunt ipsum.
-  </Textarea>
-
-  <Textarea
-    labelText="Textarea resizable horizontally and vertically"
-    resize="both"
-  >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-    vestibulum iaculis augue, sit amet tincidunt ipsum.
-  </Textarea>
-
-  <Textarea labelText="Textarea non-resizable" resize="none">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-    vestibulum iaculis augue, sit amet tincidunt ipsum.
-  </Textarea>
-</>;
-```
-
-```js
-import { Textarea } from 'suomifi-ui-components';
-
-<>
-  <Textarea labelText="Textarea with 100% width" fullWidth>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-    vestibulum iaculis augue, sit amet tincidunt ipsum.
-  </Textarea>
-
-  <Textarea
-    labelText="Textarea with fixed width of 250px"
-    containerProps={{ style: { width: '250px' } }}
-  >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-    vestibulum iaculis augue, sit amet tincidunt ipsum.
+    Lorem ipsum dolor sit amet
   </Textarea>
 </>;
 ```
