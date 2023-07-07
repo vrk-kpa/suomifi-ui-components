@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { act, render, fireEvent } from '@testing-library/react';
 import { axeTest } from '../../../utils/test';
 
 import { TextInput } from './TextInput';
@@ -306,6 +306,14 @@ describe('props', () => {
 });
 
 describe('Character counter', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
   it('should display correct character count', () => {
     const { container, getByTestId } = render(
       <TextInput
@@ -340,7 +348,6 @@ describe('Character counter', () => {
   });
 
   it('should have correct screen reader status text', () => {
-    jest.useFakeTimers();
     const { container, getByTestId } = render(
       <TextInput
         labelText="label"
@@ -370,7 +377,9 @@ describe('Character counter', () => {
       container.getElementsByClassName('fi-status-text')[0].firstChild,
     ).toHaveTextContent('');
 
-    jest.advanceTimersByTime(2000);
+    act(() => {
+      jest.advanceTimersByTime(2000);
+    });
 
     expect(
       container.getElementsByClassName('fi-status-text')[0].firstChild,

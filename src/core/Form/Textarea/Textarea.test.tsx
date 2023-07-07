@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import { axeTest } from '../../../utils/test';
 
 import { Textarea } from './Textarea';
@@ -290,6 +290,14 @@ describe('props', () => {
   });
 
   describe('Character counter', () => {
+    beforeAll(() => {
+      jest.useFakeTimers();
+    });
+
+    afterAll(() => {
+      jest.useRealTimers();
+    });
+
     it('should display character count', () => {
       const { container, getByRole } = render(
         <Textarea
@@ -324,7 +332,6 @@ describe('props', () => {
     });
 
     it('should have correct screen reader status text', () => {
-      jest.useFakeTimers();
       const { container, getByTestId } = render(
         <Textarea
           labelText="label"
@@ -345,6 +352,7 @@ describe('props', () => {
       ).toHaveTextContent('');
 
       const textInput = getByTestId('cc-textarea') as HTMLTextAreaElement;
+
       fireEvent.change(textInput, {
         target: { value: 'Lorem ipsum dolor sit amet' },
       });
@@ -354,7 +362,9 @@ describe('props', () => {
         container.getElementsByClassName('fi-status-text')[0].firstChild,
       ).toHaveTextContent('');
 
-      jest.advanceTimersByTime(2000);
+      act(() => {
+        jest.advanceTimersByTime(2000);
+      });
 
       expect(
         container.getElementsByClassName('fi-status-text')[0].firstChild,
