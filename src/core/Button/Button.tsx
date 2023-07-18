@@ -4,6 +4,11 @@ import classnames from 'classnames';
 import { baseStyles } from './Button.baseStyles';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
+import {
+  getSpacingClassNamesFromProps,
+  separateSpacingProps,
+  SpacingProps,
+} from '../theme/utils/spacing';
 
 export type ButtonVariant =
   | 'default'
@@ -13,7 +18,8 @@ export type ButtonVariant =
   | 'secondaryLight';
 
 export interface ButtonProps
-  extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'> {
+  extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'>,
+    SpacingProps {
   /**
    * Variant for the button
    * `default` | `inverted` | `secondary` | `secondaryNoBorder` | `secondaryLight`
@@ -62,6 +68,8 @@ const fullWidthClassName = `${baseClassName}--fullwidth`;
 
 class BaseButton extends Component<ButtonProps> {
   render() {
+    const [spacingProps, baseProps] = separateSpacingProps(this.props);
+    const spacingClassnames = getSpacingClassNamesFromProps(spacingProps);
     const {
       fullWidth,
       variant = 'default',
@@ -74,7 +82,7 @@ class BaseButton extends Component<ButtonProps> {
       forwardedRef,
       children,
       ...passProps
-    } = this.props;
+    } = baseProps;
     const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
 
     return (
@@ -85,7 +93,7 @@ class BaseButton extends Component<ButtonProps> {
         aria-disabled={!!ariaDisabled || !!disabled}
         forwardedRef={forwardedRef}
         disabled={!!disabled}
-        className={classnames(baseClassName, className, {
+        className={classnames(baseClassName, className, spacingClassnames, {
           [disabledClassName]: !!disabled || !!ariaDisabled,
           [`${baseClassName}--inverted`]: variant === 'inverted',
           [`${baseClassName}--secondary`]: variant === 'secondary',

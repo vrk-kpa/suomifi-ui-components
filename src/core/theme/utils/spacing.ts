@@ -4,6 +4,7 @@ import {
   SpacingProp,
   defaultSuomifiTheme,
 } from '../SuomifiTheme/SuomifiTheme';
+import { css } from 'styled-components';
 
 type SpacingDesignTokensKeys = keyof SpacingDesignTokens;
 
@@ -97,3 +98,107 @@ export const spacingModifiers =
   } `,
       '',
     );
+
+export interface SpacingProps {
+  /** Padding from theme */
+  padding?: SpacingWithoutInsetProp;
+  /** Padding-top from theme */
+  pt?: SpacingWithoutInsetProp;
+  /** Padding-right from theme */
+  pr?: SpacingWithoutInsetProp;
+  /** Padding-bottom from theme */
+  pb?: SpacingWithoutInsetProp;
+  /** Padding-left from theme */
+  pl?: SpacingWithoutInsetProp;
+  /** Padding on the x-axis (left & right) from theme */
+  px?: SpacingWithoutInsetProp;
+  /** Padding on the y-axis (top & bottom) from theme */
+  py?: SpacingWithoutInsetProp;
+  /** Margin from theme */
+  margin?: SpacingWithoutInsetProp;
+  /** Margin-top from theme */
+  mt?: SpacingWithoutInsetProp;
+  /** Margin-right from theme */
+  mr?: SpacingWithoutInsetProp;
+  /** Margin-bottom from theme */
+  mb?: SpacingWithoutInsetProp;
+  /** Margin-left from theme */
+  ml?: SpacingWithoutInsetProp;
+  /** Margin on the x-axis (left & right) from theme */
+  mx?: SpacingWithoutInsetProp;
+  /** Margin on the y-axis (top & bottom) from theme */
+  my?: SpacingWithoutInsetProp;
+}
+
+export const spacingClasses = (theme: SuomifiTheme) => css`
+  ${spacingModifiers(theme)('margin')('&.fi-margin')}
+  ${spacingModifiers(theme)('margin-top')('&.fi-margin-top')}
+  ${spacingModifiers(theme)('margin-right')('&.fi-margin-right')}
+  ${spacingModifiers(theme)('margin-bottom')('&.fi-margin-bottom')}
+  ${spacingModifiers(theme)('margin-left')('&.fi-margin-left')}
+  ${spacingModifiers(theme)('padding')('&.fi-padding')}
+  ${spacingModifiers(theme)('padding-top')('&.fi-padding-top')}
+  ${spacingModifiers(theme)('padding-right')('&.fi-padding-right')}
+  ${spacingModifiers(theme)('padding-bottom')('&.fi-padding-bottom')}
+  ${spacingModifiers(theme)('padding-left')('&.fi-padding-left')}
+`;
+
+export const getSpacingClassNamesFromProps = (props: SpacingProps) => ({
+  [`fi-padding-${props.padding}`]: !!props.padding,
+  [`fi-margin-${props.margin}`]: !!props.margin,
+  [`fi-margin-top-${props.mt}`]: !!props.mt,
+  [`fi-margin-right-${props.mr}`]: !!props.mr,
+  [`fi-margin-bottom-${props.mb}`]: !!props.mb,
+  [`fi-margin-left-${props.ml}`]: !!props.ml,
+  [`fi-margin-left-${props.mx}`]: !!props.mx,
+  [`fi-margin-right-${props.mx}`]: !!props.mx,
+  [`fi-margin-top-${props.my}`]: !!props.my,
+  [`fi-margin-bottom-${props.my}`]: !!props.my,
+  [`fi-padding-top-${props.pt}`]: !!props.pt,
+  [`fi-padding-right-${props.pr}`]: !!props.pr,
+  [`fi-padding-bottom-${props.pb}`]: !!props.pb,
+  [`fi-padding-left-${props.pl}`]: !!props.pl,
+  [`fi-padding-left-${props.px}`]: !!props.px,
+  [`fi-padding-right-${props.px}`]: !!props.px,
+  [`fi-padding-top-${props.py}`]: !!props.py,
+  [`fi-padding-bottom-${props.py}`]: !!props.py,
+});
+
+export const separateSpacingProps = (props: any) => {
+  const {
+    margin: marginProp,
+    padding: paddingProp,
+    my,
+    mx,
+    py,
+    px,
+    mt,
+    mr,
+    mb,
+    ml,
+    pt,
+    pr,
+    pb,
+    pl,
+    ...otherProps
+  } = props;
+  return [
+    {
+      margin: marginProp,
+      padding: paddingProp,
+      my,
+      mx,
+      py,
+      px,
+      mt,
+      mr,
+      mb,
+      ml,
+      pt,
+      pr,
+      pb,
+      pl,
+    },
+    otherProps,
+  ];
+};

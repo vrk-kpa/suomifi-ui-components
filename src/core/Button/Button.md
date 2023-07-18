@@ -21,9 +21,30 @@ Examples:
 ```js
 import { Button } from 'suomifi-ui-components';
 
-<Button onClick={() => console.log('Submitting form...')}>
-  Submit
-</Button>;
+const exampleRef = React.createRef();
+
+<>
+  <Button
+    className="my-button--test"
+    onClick={() => console.log('Test button click')}
+    type="submit"
+    mb="xxxl"
+  >
+    Button
+  </Button>
+
+  <Button disabled fullWidth>
+    Button disabled fullWidth
+  </Button>
+  <Button
+    ref={exampleRef}
+    onClick={() => {
+      console.log(exampleRef.current);
+    }}
+  >
+    Button with ref
+  </Button>
+</>;
 ```
 
 ### Full width button

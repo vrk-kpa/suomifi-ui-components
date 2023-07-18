@@ -2,6 +2,7 @@ import { css } from 'styled-components';
 import { SuomifiTheme } from '../theme';
 import { button } from '../theme/reset';
 import { alphaHex } from '../../utils/css';
+import { spacingClasses } from '../theme/utils/spacing';
 
 const invertedStyles = (theme: SuomifiTheme) => css`
   &.fi-button--inverted {
@@ -106,6 +107,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   text-shadow: ${theme.shadows.invertTextShadow};
   cursor: pointer;
   border: 1px solid transparent; /* For high contrast mode */
+
+  ${spacingClasses(theme)}
 
   &:focus {
     position: relative;
