@@ -129,6 +129,15 @@ const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
     typeof setTimeout
   > | null>(null);
 
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    return () => {
+      setIsMounted(false);
+    };
+  }, []);
+
   const {
     className,
     labelText,
@@ -178,11 +187,13 @@ const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
       const charCountInInput = event.target.value.length;
       setCharCount(charCountInInput);
       const newTypingTimer = setTimeout(() => {
-        setCharacterCounterAriaText(
-          charCountInInput <= characterLimit
-            ? ariaCharactersRemainingText(characterLimit - charCountInInput)
-            : ariaCharactersExceededText(charCountInInput - characterLimit),
-        );
+        if (isMounted) {
+          setCharacterCounterAriaText(
+            charCountInInput <= characterLimit
+              ? ariaCharactersRemainingText(characterLimit - charCountInInput)
+              : ariaCharactersExceededText(charCountInInput - characterLimit),
+          );
+        }
       }, 1500);
       setTypingTimer(newTypingTimer);
     }
