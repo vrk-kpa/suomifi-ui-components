@@ -48,7 +48,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   &.fi-date-picker--small-screen-hidden {
     transform: translateZ(0) translateY(100%);
-    transition: transform 200ms ${theme.transitions.basicTimingFunction},
+    transition:
+      transform 200ms ${theme.transitions.basicTimingFunction},
       visibility 200ms ${theme.transitions.basicTimingFunction};
   }
 
