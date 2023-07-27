@@ -94,4 +94,17 @@ module.exports = {
       },
     },
   },
+  Code: {
+    code: {
+      background: '#f5f5f5',
+      color: '#dc4a68',
+      fontSize: 14,
+      margin: '0 3px',
+    },
+  },
+  Pre: {
+    pre: {
+      margin: '10px 0',
+    },
+  },
 };
