@@ -26,19 +26,21 @@ export interface ChipProps
       'forwardedRef' | 'disabled' | 'onClick' | 'children' | 'as'
     > {
   /**
-   * Event handler to execute when clicked
+   * Callback fired when Chip is clicked
    */
   onClick?: () => void;
   /**
-   * Show X-icon next to the content to mark the chip as removable
+   * Shows an X-icon next to the content to mark the Chip as removable. Always use `actionLabel` for screen readers when removable is true.
    * @default false
    */
   removable?: boolean;
-  /** Aria-label attribute to let screen reader users know pressing the button will remove the chip/selection  */
+  /** Creates an aria-label text to let screen reader users know pressing the button will remove the chip/selection.
+   * Required with `removable`
+   */
   actionLabel?: string;
-  /** Soft disable the chip to allow tab-focus, but disable onClick functionality */
+  /** Soft disables the chip to allow tab-focus, but disable `onClick()` functionality */
   'aria-disabled'?: boolean;
-  /** Ref is passed to the button element. Alternative to React `ref` attribute. */
+  /** Ref is forwarded to the button element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
 class DefaultChip extends Component<ChipProps> {

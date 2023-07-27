@@ -14,7 +14,7 @@ const iconClassName = `${baseClassName}-icon`;
 const iconOpenClassName = `${iconClassName}--open`;
 
 export interface ExpanderTitleButtonProps {
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
   /** Title for Expander */
   children?: ReactNode;

@@ -14,27 +14,27 @@ import { baseStyles } from './ServiceNavigation.baseStyles';
 import classnames from 'classnames';
 
 export interface ServiceNavigationProps {
-  /** Use the `<ServiceNavigationItem>` components as children */
+  /** Use `<ServiceNavigationItem>` components as children */
   children: ReactNode;
-  /** Name for the navigation element. Don't use the word "navigation" since it will be read by screen reader regardless. */
+  /** Name for the navigation element. Don't use the word "navigation" since it will be read by screen readers regardless. */
   'aria-label': string;
-  /** ID for the HTML nav element */
+  /** HTML id attribute for the `<nav>` element. Typically used together with a `<SkipLink>` to quickly move to the nav */
   id?: string;
   /**
-   * Normal or small screen variant
+   * Variant of the component
    * @default normal
    */
   variant?: 'default' | 'smallScreen';
   /**
-   * Initial expand status for the menu. Only applies to smallScreen variant
+   * Initial expand status of the menu. Only applies to the smallScreen variant
    * @default true
    */
   initiallyExpanded?: boolean;
-  /** When using smallScreen variant, this is the text showed in the expander button */
+  /** When using the smallScreen variant, this is the text showed in the expander button */
   smallScreenExpandButtonText?: string | ReactNode;
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
-  /** Ref is forwarded to nav element. Alternative for React `ref` attribute. */
+  /** Ref is forwarded to the nav element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLElement>;
 }
 

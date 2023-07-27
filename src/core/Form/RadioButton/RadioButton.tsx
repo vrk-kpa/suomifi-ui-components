@@ -25,24 +25,24 @@ const radioButtonClassNames = {
 };
 
 export interface RadioButtonProps {
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
-  /** Label for element content */
+  /** RadioButton text content (label) */
   children?: ReactNode;
-  /** Group multiple RadioButtons in a selection group, overridden by RadioButtonGroup. */
+  /** HTML name attribute. Groups multiple RadioButtons in a selection group, overridden by RadioButtonGroup. */
   name?: string;
-  /** Value for this item. Must be unique inside a RadioButtonGroup. */
+  /** Value for the item. Must be unique inside a `<RadioButtonGroup>` */
   value: string;
   /**
-   * Unique id. If no id is specified, one will be generated
+   * HTML id attribute. If no id is specified, one will be generated
    */
   id?: string;
   /** Hint text. Displayed under the label. */
   hintText?: string;
-  /** Disable RadioButton. Value not included when submitting. */
+  /** Disables the RadioButton. Value not included in a form when submitting. */
   disabled?: boolean;
   /**
-   * 'small' | 'large'
+   * RadioButton variant
    * @default small
    */
   variant?: 'small' | 'large';
@@ -50,15 +50,15 @@ export interface RadioButtonProps {
   checked?: boolean;
   /** Default checked state for uncontrolled use, overridden by RadioButtonGroup. */
   defaultChecked?: boolean;
-  /** Callback for RadioButton checked state changes. */
+  /** Callback fired when RadioButton checked state changes */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /**
-   * Label id for screen readers when using external label element.
-   * Screen readers will ignore children as label if id is provided.
+   * Id of an external label for screen readers.
+   * Screen readers will ignore children as label if this is provided.
    */
   'aria-labelledby'?: string;
 
-  /** Ref object to be passed to the input element. Alternative to React `ref` attribute. */
+  /** Ref object is forwarded to the underlying input element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 

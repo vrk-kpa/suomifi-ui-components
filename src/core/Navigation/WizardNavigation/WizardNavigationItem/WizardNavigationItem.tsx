@@ -7,9 +7,9 @@ import styled from 'styled-components';
 import { IconCheck } from 'suomifi-icons';
 
 export interface WizardNavigationItemProps {
-  /** Custom class */
+  /** Custom classname to extend or customize */
   className?: string;
-  /** Use the polymorphic RouterLink component as child to get intended CSS styling */
+  /** Use the polymorphic `<RouterLink>` component as child to get intended CSS styling */
   children: ReactNode;
   /** Status of the item. Affects styling and element reachability */
   status:

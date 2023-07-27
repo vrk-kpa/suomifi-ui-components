@@ -11,12 +11,12 @@ const listClassName = `${baseClassName}_list`;
 const itemClassName = `${baseClassName}_item`;
 
 export interface BreadcrumbProps extends HtmlNavProps {
-  /** Name for the breadcrumb like 'Breadcrumb' */
+  /** Labels the breadcrumb for screen reader users */
   'aria-label': string;
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
   /**
-   * Link element displayed content
+   * Use `<BreadcrumbLink>` elements as children
    */
   children?: ReactNode;
 }

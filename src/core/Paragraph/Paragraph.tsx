@@ -9,11 +9,11 @@ import { HtmlP, HtmlPProps } from '../../reset/HtmlP/HtmlP';
 const baseClassName = 'fi-paragraph';
 
 export interface ParagraphProps extends HtmlPProps {
-  /** Change color */
+  /** Sets a color for the text. Colors from SuomifiTheme are available */
   color?: ColorProp;
   /** Spacing token for bottom margin */
   marginBottomSpacing?: SpacingWithoutInsetProp;
-  /** Ref object is passed to the paragraph element. Alternative to React `ref` attribute. */
+  /** Ref object is forwarded to the paragraph element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLParagraphElement>;
 }
 

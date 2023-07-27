@@ -47,13 +47,13 @@ export interface LanguageMenuProps {
   'aria-label': string;
   /** Menu items. Use `<LanguageMenuItem>` components as children */
   children?: MenuContent;
-  /** Menu button container div class name for custom styling */
+  /** CSS class for custom styles */
   className?: string;
   /** Menu container div class name for custom styling. Can be used to modify menu "popover" z-index. */
   menuClassName?: string;
   /** Ref is forwarded to the menu button element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
-  /** Unique id. If no id is specified, one will be generated */
+  /** HTML id attribute. If no id is specified, one will be generated automatically. */
   id?: string;
   /** Callback fired on button onBlur
    * @param {FocusEvent<HTMLButtonElement>} event FocusEvent
@@ -64,7 +64,7 @@ export interface LanguageMenuProps {
   /** Callback fired when menu closes */
   onOpen?: () => void;
   /**
-   * Props which are placed at the outermost div of the component.
+   * Props which are placed on the outermost div of the component.
    * Can be used, for example, for style
    */
   wrapperProps?: Omit<

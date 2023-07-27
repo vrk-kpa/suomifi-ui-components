@@ -12,17 +12,23 @@ const statusTextClassNames = {
 };
 
 export interface StatusTextProps extends HtmlSpanProps {
-  /** id */
+  /** HTML id attribute */
   id?: string;
-  /** StatusText element content */
+  /** Text content of the StatusText */
   children?: ReactNode;
-  /** Custom class name for styling and customizing  */
+  /** Custom classname to extend or customize  */
   className?: string;
-  /** Disable StatusText aria live. */
+  /** Disables StatusText aria-live functionality. */
   disabled?: boolean;
-  /** Status */
+  /**
+   * `'default'` | `'error'` | `'success'`
+   *
+   * Status affects the color of the text
+   */
   status?: InputStatus;
   /**
+   * `'assertive'` | `'polite'` | `'off'`
+   *
    * aria-live mode for the element
    * @default polite
    */

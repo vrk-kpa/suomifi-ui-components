@@ -1,7 +1,7 @@
 import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlDiv, HtmlDivWithRef, HtmlDivWithRefProps } from '../../../reset';
+import { HtmlDiv, HtmlDivWithRef, HtmlDivProps } from '../../../reset';
 import { IconError, IconWarning } from 'suomifi-icons';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
@@ -17,28 +17,26 @@ const inlineAlertClassNames = {
   smallScreen: `${baseClassName}--small-screen`,
 };
 
-export interface InlineAlertProps extends HtmlDivWithRefProps {
-  /** Style variant. Affects color and icon used.
+export interface InlineAlertProps extends HtmlDivProps {
+  /** Style variant. Affects color and icon.
    * @default 'neutral'
    */
   status?: 'neutral' | 'warning' | 'error';
   /** Main content of the alert */
   children?: ReactNode;
-  /** Use small screen styling */
+  /** Toggles small screen styling */
   smallScreen?: boolean;
   /** Label for the alert */
   labelText?: ReactNode;
-  /** Set aria-live mode for the alert text content and label.
+  /** Aria-live mode for the alert's text content and label. Not recommended to turn completely off
    * @default 'assertive'
    */
   ariaLiveMode?: 'polite' | 'assertive' | 'off';
+  /** Ref is placed on the outermost div element of the component. Alternative for React `ref` attribute. */
+  forwardedRef?: React.RefObject<HTMLDivElement>;
 }
 
-interface InnerRef {
-  forwardedRef: React.RefObject<HTMLDivElement>;
-}
-
-class BaseInlineAlert extends Component<InlineAlertProps & InnerRef> {
+class BaseInlineAlert extends Component<InlineAlertProps> {
   render() {
     const {
       className,
@@ -97,7 +95,7 @@ class BaseInlineAlert extends Component<InlineAlertProps & InnerRef> {
 }
 
 const StyledInlineAlert = styled(
-  (props: InlineAlertProps & InnerRef & SuomifiThemeProp) => {
+  (props: InlineAlertProps & SuomifiThemeProp) => {
     const { theme, ...passProps } = props;
     return <BaseInlineAlert {...passProps} />;
   },
@@ -105,7 +103,7 @@ const StyledInlineAlert = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const InlineAlert = forwardRef(
+const InlineAlert = forwardRef<HTMLDivElement, InlineAlertProps>(
   (props: InlineAlertProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;
     return (

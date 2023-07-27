@@ -14,29 +14,29 @@ import { getConditionalAriaProp } from '../../../../utils/aria';
 import { IconChevronDown, IconChevronUp } from 'suomifi-icons';
 
 export interface SideNavigationProps {
-  /** Use the `<SideNavigationItem>` components as children */
+  /** Use `<SideNavigationItem>` components as children */
   children: ReactNode;
-  /** Name for the navigation element. Don't use the word "navigation" since it will be read by screen reader regardless. */
+  /** Name for the navigation element. Don't use the word "navigation" since it will be read by screen readers regardless */
   'aria-label': string;
-  /** ID for the HTML nav element */
+  /** HTML id attribute for the `<nav>` element. Typically used together with a `<SkipLink>` to quickly move to the nav */
   id?: string;
   /**
-   * Normal or small screen variant
+   * Variant of the component
    * @default normal
    */
   variant?: 'default' | 'smallScreen';
   /**
-   * Initial expand status for the menu. Only applies to smallScreen variant
+   * Initial expand status of the menu. Only applies to the smallScreen variant
    * @default true
    */
   initiallyExpanded?: boolean;
-  /** Navigation component heading text */
+  /** Heading text */
   heading: string;
   /** Icon in the nav heading */
   icon?: ReactElement;
-  /* Custom class to extend or customise */
+  /* Custom classname to extend or customize */
   className?: string;
-  /** Ref is forwarded to nav element. Alternative for React `ref` attribute. */
+  /** Ref is forwarded to the nav element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLElement>;
 }
 

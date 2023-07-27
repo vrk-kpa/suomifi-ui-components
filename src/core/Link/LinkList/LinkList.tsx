@@ -10,11 +10,11 @@ const LinkListClassName = 'fi-link-list';
 const SmallScreenClassName = 'fi-link-list--small';
 
 export interface LinkListProps extends HtmlUlProps {
-  /** Ref  is passed to the list element. Alternative to React `ref` attribute. */
+  /** Ref is forwarded to the list element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLUListElement>;
   /** Id of the heading or label of the list */
   ariaDescribedBy: string;
-  /** Set smaller font size for the list elements */
+  /** Sets smaller font size for the list elements */
   smallScreen?: boolean;
 }
 

@@ -11,24 +11,24 @@ const openClassName = `${baseClassName}--open`;
 const expandersContainerClassName = `${baseClassName}_expanders`;
 const openAllButtonClassName = `${baseClassName}_all-button`;
 export interface ExpanderGroupProps {
-  /** Expanders and optionally, other ReactNodes */
+  /** Expanders (and optionally other ReactNodes) */
   children: ReactNode;
   /** 'Open all' button text */
   openAllText: string;
   /** 'Close all' button text */
   closeAllText: string;
-  /** 'Open all' button text for screen readers, hides OpenAllText for screen readers if provided */
+  /** 'Open all' button text for screen readers, hides `OpenAllText` for screen readers if provided */
   ariaOpenAllText?: string;
-  /** 'Close all' button text for screen readers, hides CloseAllText for screen readers if provided */
+  /** 'Close all' button text for screen readers, hides `CloseAllText` for screen readers if provided */
   ariaCloseAllText?: string;
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
   /**
-   * Show Open/Close all button
+   * Shows Open/Close all button
    * @default true
    */
   showToggleAllButton?: boolean;
-  /** Open/Close all button props */
+  /** Props passed to the Open/Close all button */
   toggleAllButtonProps?: Omit<
     HtmlButtonProps,
     | 'onClick'
@@ -38,7 +38,7 @@ export interface ExpanderGroupProps {
     | 'onKeyUp'
     | 'onKeyDown'
   >;
-  /** Ref is forwarded to button element. Alternative for React `ref` attribute. */
+  /** Ref is forwarded to the Open/Close all button element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLButtonElement>;
 }
 

@@ -84,10 +84,10 @@ export type PolymorphicComponentProps<
 const routerLinkClassName = `${baseClassName}--router`;
 
 interface Props {
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
   /**
-   * Link element displayed content
+   * Text content of the link
    */
   children: ReactNode;
   /**

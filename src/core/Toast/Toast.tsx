@@ -9,7 +9,7 @@ import { HtmlDiv, HtmlDivWithRef } from '../../reset';
 import { hLevels } from '../../reset/HtmlH/HtmlH';
 
 export interface ToastProps {
-  /** Set aria-live mode for the Toast text content and label.
+  /** Sets aria-live mode for the Toast text content and label.
    * @default 'polite'
    */
   ariaLiveMode?: 'polite' | 'assertive' | 'off';
@@ -17,15 +17,15 @@ export interface ToastProps {
   headingText?: string;
   /** Main content of the Toast. */
   children?: ReactNode;
-  /** Custom class name for styling and customizing */
+  /** Custom classname to extend or customize */
   className?: string;
   /** Heading variant for Toast.
    * @default 'h2'
    */
   headingVariant?: Exclude<hLevels, 'h1'>;
-  /** Unique id */
+  /** HTML id attribute */
   id?: string;
-  /** Ref to be passed to the root div element. Alternative to React `ref` attribute. */
+  /** Ref is placed on the outermost div element of the component. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLDivElement>;
 }
 

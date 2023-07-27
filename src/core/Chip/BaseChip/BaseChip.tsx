@@ -9,8 +9,8 @@ export const chipClassNames = {
 export interface BaseChipProps {
   /** Chip element content */
   children: ReactNode;
-  /** Custom class name for styling and customizing  */
+  /** CSS class for custom styles */
   className?: string;
-  /** Disable chip */
+  /** Disables the Chip */
   disabled?: boolean;
 }

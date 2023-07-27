@@ -12,7 +12,7 @@ import {
 } from '../BaseLink/BaseLink';
 
 export interface LinkProps extends BaseLinkProps {
-  /** Ref  is passed to the anchor element. Alternative to React `ref` attribute. */
+  /** Ref is forwarded to the anchor element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLAnchorElement>;
 }
 

@@ -7,19 +7,19 @@ import styled from 'styled-components';
 import { IconSubDirectory } from 'suomifi-icons';
 
 export interface SideNavigationItemProps {
-  /** Custom class */
+  /** Custom classname to extend or customise */
   className?: string;
-  /** Content for the link element. Use the polymorphic RouterLink component to get intended CSS styling */
+  /** Content of the link element. Use the polymorphic `<RouterLink>` component to get intended CSS styling */
   content: ReactNode;
-  /** Nested SideNavigationItems */
+  /** Nested `<SideNavigationItem>` components */
   children?: ReactNode;
   /** Sub-level of the item. 1-3 */
   subLevel: 1 | 2 | 3;
-  /** Toggle to show item as the selected one */
+  /** Show this item as the selected one */
   selected?: boolean;
   /** Disables the item */
   disabled?: boolean;
-  /** Force the item to show its children even when not selected */
+  /** Forces the item to show its children even when not selected */
   expanded?: boolean;
 }
 

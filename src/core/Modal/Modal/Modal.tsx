@@ -11,31 +11,35 @@ import { ModalContentProps } from '../ModalContent/ModalContent';
 export type ModalVariant = 'smallScreen' | 'default';
 
 export interface ModalProps {
-  /** Show or hide the modal */
+  /** Shows or hides the modal */
   visible: boolean;
-  /** Application root element id for setting aria-hidden where needed */
+  /** Application root element id for setting aria-hidden appropriately */
   appElementId: string;
-  /** Modal container div classname for custom styling. */
+  /** Custom classname to extend or customize */
   className?: string;
-  /** Modal content wrapper styles */
+  /** Modal content wrapper inline styles */
   style?: React.CSSProperties;
-  /** Children */
+  /** Use `<ModalContent>` and `<ModalFooter>` as children */
   children: ReactElement<ModalContentProps | ModalFooterProps> | ReactNode;
   /**
+   * `'smallScreen'` | `'default'`
+   *
    * Variant. Use smallScreen for mobile and small displays
    * @default 'default'
    */
   variant?: ModalVariant;
   /**
-   * Show vertical scroll bar if needed and show horizontal divider between content and footer.
+   * Shows vertical scroll bar if needed and shows a horizontal divider between content and footer.
    * @default true
    */
   scrollable?: boolean;
-  /** Focusable element ref when modal is opened. If not provided, modal title is focused. */
+  /** Ref for a focusable element inside the modal. Focused when the modal is opened. If not provided, modal title is focused. */
   focusOnOpenRef?: React.RefObject<any>;
-  /** Focusable element ref when modal is closed. If not provided, previously focused element will regain focuses. */
+  /** Ref for a focusable element outside the modal. Focused when the modal is opened.
+   * If not provided, previously focused element will regain focus.
+   */
   focusOnCloseRef?: React.RefObject<any>;
-  /** Callback for handling esc key press, e.g. close modal */
+  /** Callback fired on esc key press, i.e. closing modal */
   onEscKeyDown?: () => void;
 }
 

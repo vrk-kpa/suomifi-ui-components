@@ -10,7 +10,7 @@ export interface HtmlInputProps
    * @default text
    */
   type?: string;
-  /** Ref object for the input element */
+  /** Ref is forwarded to the underlying input element */
   forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 
