@@ -10,10 +10,10 @@ import {
 import clipboardCopy from 'clipboard-copy';
 import { suomifiDesignTokens } from 'suomifi-design-tokens';
 
-const baseIconKeys = baseIcons as string[];
-const illustrativeIconKeys = illustrativeIcons as string[];
-const doctypeIconKeys = doctypeIcons as string[];
-const logoIconKeys = logoIcons as string[];
+const baseIconKeys = baseIcons;
+const illustrativeIconKeys = illustrativeIcons;
+const doctypeIconKeys = doctypeIcons;
+const logoIconKeys = logoIcons;
 
 const IconWrapper = styled.figure`
   display: inline-block;
@@ -46,7 +46,7 @@ const iconStyles = {
 
 const getStyledIcon = (icon: string) => {
   const iconName = `Icon${icon}`;
-  const Icon = allIcons[iconName as keyof typeof allIcons];
+  const Icon: any = allIcons[iconName as keyof typeof allIcons];
   return styled(() => <Icon {...iconProps(iconName)} />)({
     ...iconStyles,
   });
