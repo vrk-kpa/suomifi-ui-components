@@ -180,6 +180,6 @@
     }
   ],
   "resolutions": {
-    "babel-plugin-styled-components": "2.0.7"
+    "babel-plugin-styled-components": "2.1.4"
   }
 }
