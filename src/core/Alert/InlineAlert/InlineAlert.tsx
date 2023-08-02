@@ -28,11 +28,12 @@ export interface InlineAlertProps extends HtmlDivProps {
   smallScreen?: boolean;
   /** Label for the alert */
   labelText?: ReactNode;
-  /** Aria-live mode for the alert's text content and label. Not recommended to turn completely off
+  /** Aria-live mode for the alert's text content and label.
+   * Should not be turned completely off for dynamically appearing alerts
    * @default 'assertive'
    */
   ariaLiveMode?: 'polite' | 'assertive' | 'off';
-  /** Ref is placed on the outermost div element of the component. Alternative for React `ref` attribute. */
+  /** Ref is placed to the outermost div element of the component. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLDivElement>;
 }
 

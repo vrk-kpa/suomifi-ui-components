@@ -37,7 +37,7 @@ export interface LabelProps extends Omit<HtmlSpanProps, 'as'> {
    * @default visible
    */
   labelMode?: LabelMode;
-  /** Props placed on the outermost div of the component. Can be used, for example, for testing with data-testid. */
+  /** Props placed to the outermost div of the component. Can be used, for example, for testing with data-testid. */
   wrapperProps?: Omit<
     HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
     'as' | 'className'

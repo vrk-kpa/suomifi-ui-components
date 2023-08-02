@@ -103,7 +103,8 @@ export interface DropdownProps extends StatusTextCommonProps {
   labelText: ReactNode;
   /** Hint text to be shown below the label */
   hintText?: string;
-  /** Visual hint to show if nothing is selected and no value or defaultValue is provided. Do not use for instructions. */
+  /** Visual hint to show if nothing is selected and no value or defaultValue is provided.
+   * Should not be used for instructions since assistive technologies don't reliably read a placeholder text */
   visualPlaceholder?: ReactNode;
   /** Always show the visual placeholder instead of the selected value. Makes the Dropdown act as an action menu. */
   alwaysShowVisualPlaceholder?: boolean;

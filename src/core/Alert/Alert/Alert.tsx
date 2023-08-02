@@ -34,14 +34,14 @@ export interface AlertProps extends HtmlDivWithRefProps {
   /** Use small screen styling */
   smallScreen?: boolean;
   /** Text to label the close button.
-   * Is visible and as `aria-label` in regular size and only used as `aria-label` in small screen variant
+   * Text is used as `aria-label`. Text is  is visible in regular size and hidden in small screen variant.
    */
   closeText: string;
   /** Click handler for the close button */
   onCloseButtonClick?: () => void;
   /** Custom props passed to the close button */
   closeButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'aria-label'>;
-  /** Ref is placed on the outermost div element of the component. Alternative for React `ref` attribute. */
+  /** Ref is placed to the outermost div element of the component. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLDivElement>;
 }
 

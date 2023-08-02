@@ -45,7 +45,7 @@ export interface SearchInputProps
       | 'value'
       | 'defaultValue'
     > {
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
   /** Props passed to the wrapping div of the component */
   wrapperProps?: Omit<

@@ -38,7 +38,7 @@ export interface ChipProps
    * Required with `removable`
    */
   actionLabel?: string;
-  /** Soft disables the chip to allow tab-focus, but disable `onClick()` functionality */
+  /** Soft disables the chip to allow tab-focus. Disables `onClick()` functionality */
   'aria-disabled'?: boolean;
   /** Ref is forwarded to the button element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;

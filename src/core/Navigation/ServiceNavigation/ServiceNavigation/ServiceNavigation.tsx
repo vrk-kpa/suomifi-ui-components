@@ -21,7 +21,7 @@ export interface ServiceNavigationProps {
   /** HTML id attribute for the `<nav>` element. Typically used together with a `<SkipLink>` to quickly move to the nav */
   id?: string;
   /**
-   * Variant of the component
+   * Component variant. `'smallScreen'` allows the navigation to be collapsed/expanded with a toggle button
    * @default normal
    */
   variant?: 'default' | 'smallScreen';

@@ -38,7 +38,7 @@ export interface LoadingSpinnerProps {
    * @default 'normal'
    */
   variant?: 'normal' | 'small';
-  /** Ref is placed on the outermost div element of the component. Alternative to React `ref` attribute. */
+  /** Ref is placed to the outermost div element of the component. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLDivElement>;
 }
 

@@ -55,7 +55,7 @@ export interface ExpanderProps {
   open?: boolean;
   /** Callback fired on click */
   onOpenChange?: (open: boolean) => void;
-  /** Ref is placed on the outermost div element of the component. Alternative for React `ref` attribute. */
+  /** Ref is placed to the outermost div element of the component. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLDivElement>;
 }
 

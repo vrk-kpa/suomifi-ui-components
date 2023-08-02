@@ -13,11 +13,12 @@ export type ModalVariant = 'smallScreen' | 'default';
 export interface ModalProps {
   /** Shows or hides the modal */
   visible: boolean;
-  /** Application root element id for setting aria-hidden appropriately */
+  /** Application root element id for setting aria-hidden appropriately.
+   * Setting this ensures everything else except the modal is hidden from screen readers when the modal is open */
   appElementId: string;
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
-  /** Modal content wrapper inline styles */
+  /** Inline CSS styles for the modal */
   style?: React.CSSProperties;
   /** Use `<ModalContent>` and `<ModalFooter>` as children */
   children: ReactElement<ModalContentProps | ModalFooterProps> | ReactNode;

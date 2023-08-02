@@ -112,7 +112,7 @@ interface BaseTextInputProps
   name?: string;
   /** Controlled value */
   value?: TextInputValue;
-  /** Set component's width to 100% of its parent */
+  /** Sets component's width to 100% of its parent */
   fullWidth?: boolean;
   /** Text to mark the field optional. Will be wrapped in parentheses and shown after `labelText` */
   optionalText?: string;

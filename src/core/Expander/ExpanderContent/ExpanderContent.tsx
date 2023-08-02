@@ -16,7 +16,7 @@ const contentOpenClassName = `${contentBaseClassName}--open`;
 const noPaddingClassName = `${contentBaseClassName}--no-padding`;
 
 export interface ExpanderContentProps extends Omit<HtmlDivProps, 'id'> {
-  /** Content of the Expander */
+  /** Content for the Expander */
   children: ReactNode;
   /**
    * Removes padding from expandable content area (for background usage with padding in given container etc.)

@@ -60,7 +60,7 @@ export interface CheckboxGroupProps {
   groupStatusText?: string;
   /** Tooltip component for the group's label */
   tooltipComponent?: ReactElement;
-  /** Ref is placed on the outermost div element of the component. Alternative for React `ref` attribute. */
+  /** Ref is placed to the outermost div element of the component. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLDivElement>;
 }
 

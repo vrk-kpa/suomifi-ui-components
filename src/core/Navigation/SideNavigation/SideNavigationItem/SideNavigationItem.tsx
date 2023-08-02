@@ -7,9 +7,9 @@ import styled from 'styled-components';
 import { IconSubDirectory } from 'suomifi-icons';
 
 export interface SideNavigationItemProps {
-  /** Custom classname to extend or customise */
+  /** CSS class for custom styles */
   className?: string;
-  /** Content of the link element. Use the polymorphic `<RouterLink>` component to get intended CSS styling */
+  /** Content for the link element. Use the polymorphic `<RouterLink>` component to get intended CSS styling */
   content: ReactNode;
   /** Nested `<SideNavigationItem>` components */
   children?: ReactNode;

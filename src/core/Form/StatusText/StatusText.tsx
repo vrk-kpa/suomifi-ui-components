@@ -14,7 +14,7 @@ const statusTextClassNames = {
 export interface StatusTextProps extends HtmlSpanProps {
   /** HTML id attribute */
   id?: string;
-  /** Text content of the StatusText */
+  /** Text content for the StatusText */
   children?: ReactNode;
   /** Custom classname to extend or customize  */
   className?: string;

@@ -31,7 +31,7 @@ export interface ButtonProps
   'aria-label'?: string;
   /** Disables the button */
   disabled?: boolean;
-  /** Soft disables the button to allow tab-focus, but disable onClick() functionality */
+  /** Soft disables the button to allow tab-focus. Disables onClick() functionality */
   'aria-disabled'?: boolean;
   /** CSS class for custom styles */
   className?: string;
@@ -44,7 +44,7 @@ export interface ButtonProps
    */
   icon?: ReactNode;
   /**
-   * Icon from suomifi-icons to be placed on right side
+   * Icon from suomifi-icons to be placed on the right side
    */
   iconRight?: ReactNode;
   /** Callback fired on button click */

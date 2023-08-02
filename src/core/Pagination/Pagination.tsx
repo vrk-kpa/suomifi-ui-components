@@ -59,7 +59,7 @@ interface InternalPaginationProps {
    * @param {number} lastPage Last page
    */
   pageIndicatorText: (currentPage: number, lastPage: number) => string;
-  /** Function to form the page indication text for screen readers. Should return e.g. 'Page 1 out of 5'
+  /** Function to form the page indicator text for screen readers. Should return e.g. 'Page 1 out of 5'
    * @param {number} currentPage Current page
    * @param {number} lastPage Last page
    */
@@ -72,7 +72,7 @@ interface InternalPaginationProps {
   lastPage: number;
   /** Returns the selected page number */
   onChange: (page: number) => void;
-  /** Ref is placed on the outermost div element of the component. Alternative for React `ref` attribute. */
+  /** Ref is placed to the outermost div element of the component. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLElement>;
   /** Next page button label for screen readers  */
   nextButtonAriaLabel: string;

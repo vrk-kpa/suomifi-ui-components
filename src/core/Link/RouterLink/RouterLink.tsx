@@ -87,7 +87,7 @@ interface Props {
   /** CSS class for custom styles */
   className?: string;
   /**
-   * Text content of the link
+   * Text content for the link
    */
   children: ReactNode;
   /**

@@ -41,7 +41,7 @@ export interface RadioButtonGroupProps {
    * If no id is specified, one will be generated
    */
   id?: string;
-  /** Name for the group. Will be set to children RadioButtons. Overrides individual RadioButton names. */
+  /** Name for the group. Is set to children RadioButtons. Overrides individual RadioButton names. */
   name: string;
   /** Controlled value of the selected RadioButton in the group. */
   value?: string;
@@ -51,7 +51,7 @@ export interface RadioButtonGroupProps {
   onChange?: (value: string) => void;
   /** Tooltip component for the group's label */
   tooltipComponent?: ReactElement;
-  /** Ref is placed on the outermost div element of the component. Alternative for React `ref` attribute. */
+  /** Ref is placed to the outermost div element of the component. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLDivElement>;
 }
 
