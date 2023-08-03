@@ -17,7 +17,7 @@ export interface ToastProps {
   headingText?: string;
   /** Main content of the Toast. */
   children?: ReactNode;
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
   /** Heading variant for Toast.
    * @default 'h2'

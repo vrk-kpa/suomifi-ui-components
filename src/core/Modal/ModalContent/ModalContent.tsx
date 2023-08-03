@@ -8,7 +8,7 @@ import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
 
 export interface ModalContentProps
   extends Omit<HtmlDivProps, 'children' | 'className'> {
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
   /** Modal content */
   children: ReactNode;

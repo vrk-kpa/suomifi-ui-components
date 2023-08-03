@@ -70,7 +70,7 @@ type characterCounterProps =
 interface BaseTextInputProps
   extends StatusTextCommonProps,
     Omit<HtmlInputProps, 'type' | 'onChange'> {
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
   /** Props passed to the outermost div element of the component */
   wrapperProps?: Omit<

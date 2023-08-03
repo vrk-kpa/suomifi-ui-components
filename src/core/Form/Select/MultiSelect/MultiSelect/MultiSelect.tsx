@@ -114,7 +114,7 @@ type LoadingProps =
     };
 
 interface InternalMultiSelectProps<T extends MultiSelectData> {
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
   /** Items for the MultiSelect
    * <pre>

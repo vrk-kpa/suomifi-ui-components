@@ -6,7 +6,7 @@ import { baseStyles } from './ServiceNavigationItem.baseStyles';
 import styled from 'styled-components';
 
 export interface ServiceNavigationItemProps {
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
   /** Use the polymorphic `<RouterLink>` component as child to get intended CSS styling */
   children: ReactNode;

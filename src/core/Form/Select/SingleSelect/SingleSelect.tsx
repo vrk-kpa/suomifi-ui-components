@@ -59,7 +59,7 @@ type AriaOptionsAvailableProps =
     };
 
 export interface InternalSingleSelectProps<T extends SingleSelectData> {
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
   /** Items for the SingleSelect
    * <pre>

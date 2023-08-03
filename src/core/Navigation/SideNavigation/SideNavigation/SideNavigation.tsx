@@ -34,7 +34,7 @@ export interface SideNavigationProps {
   heading: string;
   /** Icon in the nav heading */
   icon?: ReactElement;
-  /* Custom classname to extend or customize */
+  /* CSS class for custom styles */
   className?: string;
   /** Ref is forwarded to the nav element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLElement>;

@@ -24,7 +24,7 @@ export interface LinkListItemProps extends Omit<HtmlLiProps, 'className'> {
   children: ReactElement<
     LinkProps | ExternalLinkProps | RouterLinkProps<React.ElementType>
   >;
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
 }
 

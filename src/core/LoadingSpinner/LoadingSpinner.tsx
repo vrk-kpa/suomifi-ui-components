@@ -13,7 +13,7 @@ import {
 
 export type LoadingSpinnerStatus = 'loading' | 'success' | 'failed';
 export interface LoadingSpinnerProps {
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
   /** HTML id attribute */
   id?: string;

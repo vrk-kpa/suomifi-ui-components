@@ -16,7 +16,7 @@ export interface StatusTextProps extends HtmlSpanProps {
   id?: string;
   /** Text content for the StatusText */
   children?: ReactNode;
-  /** Custom classname to extend or customize  */
+  /** CSS class for custom styles  */
   className?: string;
   /** Disables StatusText aria-live functionality. */
   disabled?: boolean;

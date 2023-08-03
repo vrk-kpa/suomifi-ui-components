@@ -10,7 +10,7 @@ import {
 } from './../ActionMenuPopover/ActionMenuPopover';
 
 export interface ActionMenuItemProps {
-  /** Custom class */
+  /** CSS class for custom styles */
   className?: string;
   /** Text of the action */
   children: ReactNode;
