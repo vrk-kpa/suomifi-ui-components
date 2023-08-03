@@ -20,31 +20,34 @@ import { TooltipProps } from '../../Tooltip/Tooltip';
 export type LabelMode = 'hidden' | 'visible';
 
 export interface LabelProps extends Omit<HtmlSpanProps, 'as'> {
-  /** id for label content */
+  /** HTML id attribute */
   id?: string;
-  /** Wrapper class name for styling and customizing */
+  /** CSS class for custom styles. Placed on the outermost div of the component. */
   className?: string;
   /** Label element content */
   children: ReactNode;
-  /** Content class name for styling and customizing */
+  /** CSS class for custom styles. Placed on the label span. */
   contentClassName?: string;
-  /** Content style for styling and customizing */
+  /** Inline styles for the label span */
   contentStyle?: CSSProperties;
-  /** Hide or show label. Label element is always present, but can be visually hidden.
+  /**
+   * `'hidden'` | `'visible'`;
+   *
+   * Hides or shows the label. Label element is always present, but can be visually hidden.
    * @default visible
    */
   labelMode?: LabelMode;
-  /** Props for label wrapper element */
+  /** Props placed to the outermost div of the component. Can be used, for example, for testing with data-testid. */
   wrapperProps?: Omit<
     HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
     'as' | 'className'
   >;
-  /** Render the wrapping element as another element
+  /** Renders the wrapping element as another HTML element
    *
    * @default 'label'
    */
   asProp?: asPropType;
-  /** Text to mark the field as optional. Shown after labelText and wrapped in parentheses. */
+  /** Text to mark the field as optional. Shown after `labelText` and wrapped in parentheses. */
   optionalText?: string;
   /** Tooltip component for label */
   tooltipComponent?: ReactElement;

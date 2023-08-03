@@ -15,9 +15,9 @@ const breadcrumbClassNames = {
 };
 
 export interface BreadcrumbLinkProps extends Omit<LinkProps, 'href'> {
-  /** Indicating the link is the current page */
+  /** Indicates the link is the current page */
   current?: boolean;
-  /** url for the link */
+  /** Url for the link */
   href?: string;
 }
 

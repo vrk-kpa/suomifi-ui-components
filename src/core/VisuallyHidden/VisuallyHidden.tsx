@@ -4,8 +4,9 @@ import classnames from 'classnames';
 import { HtmlSpan, HtmlSpanProps } from '../../reset/HtmlSpan/HtmlSpan';
 
 export interface VisuallyHiddenProps extends HtmlSpanProps {
+  /** CSS class for custom styles */
   className?: string;
-  /** Ref is passed to the span element. Alternative to React `ref` attribute. */
+  /** Ref is forwarded to the span element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLSpanElement>;
 }
 

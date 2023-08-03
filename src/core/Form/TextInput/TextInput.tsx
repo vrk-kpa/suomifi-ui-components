@@ -53,7 +53,7 @@ type characterCounterProps =
       ariaCharactersExceededText?: never;
     }
   | {
-      /** Maximun amount of characters in input.
+      /** Maximun amount of characters allowed in the input.
        * Using this prop adds a visible character counter to the bottom right corner of the input.
        */
       characterLimit?: number;
@@ -70,47 +70,51 @@ type characterCounterProps =
 interface BaseTextInputProps
   extends StatusTextCommonProps,
     Omit<HtmlInputProps, 'type' | 'onChange'> {
-  /** TextInput container div class name for custom styling. */
+  /** CSS class for custom styles */
   className?: string;
-  /** TextInput wrapping div element props */
+  /** Props passed to the outermost div element of the component */
   wrapperProps?: Omit<
     HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
     'className'
   >;
-  /** Disable input usage */
+  /** Disables the input */
   disabled?: boolean;
-  /** Event handler to execute when clicked */
+  /** Callback fired on input click */
   onClick?: () => void;
-  /** To execute on input text change */
+  /** Callback fired on input change */
   onChange?: (value: TextInputValue) => void;
-  /** To execute on input text onBlur */
+  /** Callback fired on input blur */
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
-  /** Label */
+  /** Label for the input */
   labelText: ReactNode;
-  /** Hide or show label. Label element is always present, but can be visually hidden.
+  /** Hides or shows the label. Label element is always present, but can be visually hidden.
    * @default visible
    */
   labelMode?: LabelMode;
-  /** Placeholder text for input. Use only as visual aid, not for instructions. */
+  /** Placeholder text for the input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
   /** Hint text to be shown below the component */
   hintText?: string;
   /**
-   * 'default' | 'error' | 'success'
+   * `'default'` | `'error'`
+   *
+   * Status of the component. Error state creates a red border around the Checkbox.
+   * Always use a descriptive `statusText` with an error status.
    * @default default
    */
   status?: InputStatus;
-  /** 'text' | 'email' | 'number' | 'password' | 'tel' | 'url'
+  /**
+   * Type of the input
    * @default text
    */
   type?: 'text' | 'email' | 'number' | 'password' | 'tel' | 'url';
-  /** Input name */
+  /** HTML name attribute for the input */
   name?: string;
   /** Controlled value */
   value?: TextInputValue;
-  /** Set components width to 100% */
+  /** Sets component's width to 100% of its parent */
   fullWidth?: boolean;
-  /** Text to mark a field optional. Will be wrapped in parentheses and shown after labelText. */
+  /** Text to mark the field optional. Will be wrapped in parentheses and shown after `labelText` */
   optionalText?: string;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
   debounce?: number;

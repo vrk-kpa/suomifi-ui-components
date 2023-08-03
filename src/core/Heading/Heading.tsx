@@ -17,15 +17,17 @@ export interface HeadingProps extends HtmlHProps {
    * @default h1
    */
   variant: styleVariants;
-  /** Change font to smaller screen size and style */
+  /** Changes font to smaller screen size and style */
   smallScreen?: boolean;
-  /** Change color for text from theme colors */
+  /** Changes color for text. Use color tokens from Suomi.fi theme colors */
   color?: ColorProp;
-  /** Custom class name for styling */
+  /** CSS class for custom styles */
   className?: string;
-  /** Render the heading as another element e.g. h3 as h2. Will override semantics derived from variant prop but keep the variant styles. */
+  /** Renders the heading as another element e.g. h3 as h2.
+   * Will override semantics derived from variant prop but keep the variant styles.
+   */
   as?: asPropType;
-  /** Ref object is passed to the heading element. Alternative to React `ref` attribute. */
+  /** Ref object is placed on the heading element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLHeadingElement>;
 }
 

@@ -52,7 +52,7 @@ type characterCounterProps =
       ariaCharactersExceededText?: never;
     }
   | {
-      /** Maximun amount of characters in textarea.
+      /** Maximun amount of characters allowed in the textarea.
        * Using this prop adds a visible character counter to the bottom right corner of the textarea.
        */
       characterLimit?: number;
@@ -69,54 +69,56 @@ type characterCounterProps =
 interface BaseTextareaProps
   extends StatusTextCommonProps,
     Omit<HtmlTextareaProps, 'placeholder' | 'forwardedRef'> {
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
-  /** Disable usage */
+  /** Disables the input */
   disabled?: boolean;
-  /** Event handler to execute when clicked */
+  /** Callback fired on click */
   onClick?: () => void;
-  /** To execute on textarea text change */
+  /** Callback fired on text change */
   onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-  /** To execute on textarea text onBlur */
+  /** Callback fired on input blur */
   onBlur?: (event: FocusEvent<HTMLTextAreaElement>) => void;
-  /** Label */
+  /** Label for the input */
   labelText: ReactNode;
-  /** Hide or show label. Label element is always present, but can be visually hidden.
+  /** Hides or shows the label. Label element is always present, but can be visually hidden.
    * @default visible
    */
   labelMode?: 'hidden' | 'visible';
-  /** Placeholder text for input. Use only as visual aid, not for instructions. */
+  /** Placeholder text for the input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
-  /** Text content for textarea */
+  /** Initial text content for textarea */
   children?: string;
   /** Hint text to be shown below the component */
   hintText?: string;
   /**
-   * 'default' | 'error'
+   * `'default'` | `'error'`
+   *
+   * Status of the component. Error state creates a red border around the input. Always use a descriptive `statusText` with an error status.
    * @default default
    */
   status?: TextareaStatus;
-  /** Resize mode of the textarea
-      'both' | 'vertical' | 'horizontal' | 'none'
-      @default 'vertical' 
+  /**
+   * Resize mode of the textarea
+   *  @default 'vertical'
    */
   resize?: 'both' | 'vertical' | 'horizontal' | 'none';
-  /** Optional text that is shown after labelText. Will be wrapped in parentheses. */
+  /** Text to mark the field as optional. Will be wrapped in parentheses after `labelText` */
   optionalText?: string;
   /**
-   * Unique id
+   * HTML id attribute.
    * If no id is specified, one will be generated automatically
    */
   id?: string;
-  /** Input name */
+  /** HTML name attribute for the input */
   name?: string;
-  /** Set component's width to 100% of the parent */
+  /** Sets the component's width to 100% of its parent */
   fullWidth?: boolean;
-  /** Textarea container div props */
+  /** Props passed to the outermost div element of the component */
   containerProps?: Omit<HtmlDivProps, 'className'>;
   /** Tooltip component for the input's label */
   tooltipComponent?: ReactElement;
-  /** Ref is passed to the textarea element. Alternative for React `ref` attribute. */
+  /** Ref is forwarded to the underlying input element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLTextAreaElement>;
 }
 

@@ -12,13 +12,13 @@ import {
 export interface LanguageMenuItemProps {
   /** Language code for language menu item. Must be provided for assistive technology. */
   lang: string;
-  /** Custom CSS class */
+  /** CSS class for custom styles */
   className?: string;
-  /** Text for language menu item. Text should contain full language name and not only the abbreviation. */
+  /** Text for the language menu item. Text should contain full language name and not only the abbreviation. */
   children: ReactNode;
-  /** Called when menu item is clicked */
+  /** Callback fired when menu item is clicked */
   onSelect: () => void;
-  /** Show item as selected one */
+  /** Marks the item as the currently selected one */
   selected?: boolean;
 }
 

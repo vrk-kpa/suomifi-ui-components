@@ -38,20 +38,20 @@ const iconClassnames = {
 type CheckboxStatus = Exclude<InputStatus, 'success'>;
 
 interface InternalCheckboxProps extends StatusTextCommonProps {
-  /** Controlled checked-state - user actions use onClick to change  */
+  /** Controlled checked state  */
   checked?: boolean;
-  /** Default status of Checkbox when not using controlled 'checked' state
+  /** Default status of Checkbox when not using controlled `checked` state
    * @default false
    */
   defaultChecked?: boolean;
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
-  /** Disable Checkbox. Value won't be included when submitting */
+  /** Disables the Checkbox. Value won't be included in a form when submitting */
   disabled?: boolean;
-  /** Event handler to execute when clicked */
+  /** Callback fired on Checkbox click */
   onClick?: ({ checkboxState }: { checkboxState: boolean }) => void;
   /**
-   * Label element content
+   * Children will be rendered as Checkbox's label. Use a short and descriptive label.
    */
   children?: ReactNode;
   /**
@@ -60,38 +60,41 @@ interface InternalCheckboxProps extends StatusTextCommonProps {
    */
   variant?: 'small' | 'large';
   /**
-   * 'default' | 'error'
+   * `'default'` | `'error'`
+   *
+   * Status of the component. Error state creates a red border around the Checkbox.
+   * Always use a descriptive `statusText` with an error status.
    * @default default
    */
   status?: CheckboxStatus;
   /**
-   * Hint text to be displayed under the label.
+   * Hint text to be displayed under the label
    */
   hintText?: string;
   /**
-   * aria-label for the HTML input-element,
-   * alternatively you can define aria-labelledby with label-element id
+   * aria-label for the HTML input element.
+   * Alternatively you can define an aria-labelledby
    */
   'aria-label'?: string;
   /**
-   * aria-labelledby for the HTML input-element,
-   * alternatively you can define aria-label
+   * aria-labelledby for the HTML input element.
+   * Alternatively you can define an aria-label
    */
   'aria-labelledby'?: string;
   /**
-   * aria-describedby for the HTML input-element,
+   * aria-describedby for the HTML input element,
    */
   'aria-describedby'?: string;
   /**
-   * Unique id
+   * HTML id attribute.
    * If no id is specified, one will be generated automatically
    */
   id?: string;
-  /** Name */
+  /** HTML name attribute */
   name?: string;
-  /** Value */
+  /** HTML value attribute */
   value?: string;
-  /** Ref object to be passed to the input element. Alternative to React `ref` attribute. */
+  /** Ref is passed to the underlying input element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 

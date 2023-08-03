@@ -10,15 +10,15 @@ import {
 } from './../ActionMenuPopover/ActionMenuPopover';
 
 export interface ActionMenuItemProps {
-  /** Custom class */
+  /** CSS class for custom styles */
   className?: string;
   /** Text of the action */
   children: ReactNode;
   /** Disables the item */
   disabled?: boolean;
-  /** Suomi.fi icon to be shown inside the input field */
+  /** Icon from suomifi-icons to be shown inside the input field */
   icon?: ReactElement;
-  /** Called when menu item is clicked */
+  /** Callback fired when menu item is clicked */
   onClick?: (event: React.MouseEvent) => void;
 }
 

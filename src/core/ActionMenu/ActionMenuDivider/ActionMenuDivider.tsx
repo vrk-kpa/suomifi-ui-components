@@ -6,7 +6,7 @@ import { baseStyles } from './ActionMenuDivider.baseStyles';
 import styled from 'styled-components';
 
 export interface ActionMenuDividerProps {
-  /** Custom class */
+  /** CSS class for custom styles */
   className?: string;
 }
 

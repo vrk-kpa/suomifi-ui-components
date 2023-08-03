@@ -20,9 +20,9 @@ const toggleClassNames = {
 export interface ToggleButtonProps
   extends ToggleBaseProps,
     Omit<HtmlButtonProps, 'onClick' | 'type'> {
-  /** Event handler to execute when clicked */
+  /** Callback fired on click */
   onClick?: (checked: boolean) => void;
-  /** Ref object to be passed to the button element. Alternative to React `ref` attribute. */
+  /** Ref object is forwarded to the underlying button element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
 interface ToggleState {

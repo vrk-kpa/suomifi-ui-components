@@ -9,7 +9,7 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 const skipClassName = 'fi-link--skip';
 
 export interface SkipLinkProps extends BaseLinkProps {
-  /** Ref  is passed to the anchor element. Alternative to React `ref` attribute. */
+  /** Ref is forwarded to the anchor element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLAnchorElement>;
 }
 

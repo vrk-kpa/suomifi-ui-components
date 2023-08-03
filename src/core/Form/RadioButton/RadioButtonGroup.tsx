@@ -22,35 +22,36 @@ const radioButtonGroupClassNames = {
 };
 
 export interface RadioButtonGroupProps {
-  /** Custom classname to extend or customize */ className?: string;
-  /** RadioButton or ReactNode */
+  /** CSS class for custom styles */
+  className?: string;
+  /** Use `<RadioButton>` components as children */
   children: Array<React.ReactElement<RadioButtonProps> | ReactNode>;
-  /** Hint text to be displayed under the label. */
+  /** Hint text to be displayed under the group label. */
   groupHintText?: string;
   /** Label for the group */
   labelText: ReactNode;
-  /** Hide or show label. Label element is always present, but can be visually hidden.
+  /** Hides or shows the  group label. Label element is always present, but can be visually hidden.
    * @default visible
    */
   labelMode?: 'hidden' | 'visible';
-  /** Text to mark a selection in group as optional. Will be wrapped in parentheses and shown after labelText. */
+  /** Text to mark a selection in the group as optional. Will be wrapped in parentheses and shown after labelText. */
   optionalText?: string;
   /**
-   * Unique id
+   * HTML id attribute
    * If no id is specified, one will be generated
    */
   id?: string;
-  /** Name for the group; this will be set to RadioButtons. Overrides RadioButton props name. */
+  /** Name for the group. Is set to children RadioButtons. Overrides individual RadioButton names. */
   name: string;
   /** Controlled value of the selected RadioButton in the group. */
   value?: string;
   /** Value of the RadioButton selected by default. */
   defaultValue?: string;
-  /** Callback for RadioButtonGroup selected changes. */
+  /** Callback fired when RadioButtonGroup selected value changes. */
   onChange?: (value: string) => void;
   /** Tooltip component for the group's label */
   tooltipComponent?: ReactElement;
-  /** Ref is forwarded to the root div element. Alternative for React `ref` attribute. */
+  /** Ref is placed to the outermost div element of the component. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLDivElement>;
 }
 

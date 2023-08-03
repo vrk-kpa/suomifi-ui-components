@@ -26,13 +26,13 @@ type newWindowProps =
     };
 
 interface InternalExternalLinkProps extends BaseLinkProps {
-  /** Hide the icon */
+  /** Hides the icon */
   hideIcon?: boolean;
-  /** Open to a new window */
+  /** Opens the link to a new window */
   toNewWindow?: boolean;
-  /** Translated explanation of 'opens to a new window' */
+  /** Translated explanation of 'opens to a new window' for assistive technology. Required with `toNewWindow` */
   labelNewWindow?: string;
-  /** Ref is passed to the anchor element. Alternative to React `ref` attribute. */
+  /** Ref is forwarded to the anchor element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLAnchorElement>;
 }
 

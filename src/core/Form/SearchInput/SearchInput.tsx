@@ -45,49 +45,54 @@ export interface SearchInputProps
       | 'value'
       | 'defaultValue'
     > {
-  /** SearchInput container div class name for custom styling. */
+  /** CSS class for custom styles */
   className?: string;
-  /** SearchInput wrapping div element props */
+  /** Props passed to the wrapping div of the component */
   wrapperProps?: Omit<
     HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
     'className'
   >;
   /** Label text */
   labelText: ReactNode;
-  /** Hide or show label. Label element is always present, but can be visually hidden.
+  /**
+   * `'visible'` | `'hidden'`
+   *
+   * Hides or shows the label. Label element is always present, but can be visually hidden.
    * @default visible
    */
   labelMode?: LabelMode;
-  /** Placeholder text for input. Use only as visual aid, not for instructions. */
+  /** Placeholder text for the input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
-  /** Clear button label for screen readers */
+  /** Screen reader label for the 'Clear' button */
   clearButtonLabel: string;
-  /** Search button label for screen readers */
+  /** Screen reader label for the 'Search' button */
   searchButtonLabel: string;
-  /** SearchButtonProps */
+  /** Props passed to the 'Search' button */
   searchButtonProps?: Omit<HtmlButtonProps, 'onClick' | 'tabIndex'>;
   /**
-   * 'default' | 'error'
+   * `'default'` | `'error'`
+   *
+   * Status of the component. Error state creates a red border around the input. Always use a descriptive `statusText` with an error status.
    * @default default
    */
   status?: SearchInputStatus;
-  /** Input name */
+  /** HTML input attribute */
   name?: string;
-  /** Set components width to 100% */
+  /** Sets components width to 100% */
   fullWidth?: boolean;
   /** Controlled value */
   value?: SearchInputValue;
   /** Default value */
   defaultValue?: SearchInputValue;
-  /** Callback for input text change */
+  /** Callback fired when input text changes */
   onChange?: (value: SearchInputValue) => void;
-  /** Callback for onBlur event */
+  /** Callback fired on input blur */
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
-  /** Callback for search button click */
+  /** Callback fired on search button click */
   onSearch?: (value: SearchInputValue) => void;
-  /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
+  /** Debounce time in milliseconds for `onChange()` function. No debounce is applied if no value is given. */
   debounce?: number;
-  /** Ref is forwarded to input element. Alternative for React `ref` attribute. */
+  /** Ref is forwarded to the underlying input element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 

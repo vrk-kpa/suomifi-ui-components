@@ -32,9 +32,9 @@ const multiSelectClassNames = {
 };
 
 export interface MultiSelectData {
-  /** Unique label that will be shown on MultiSelect item and used on filter */
+  /** Unique label that will be shown on MultiSelect item and used for filtering */
   labelText: string;
-  /** Using labelText if chipText is not given */
+  /** Visible text for the item. Overrides labelText for the visible part. */
   chipText?: string;
   /** Item selection disabled for the user */
   disabled?: boolean;
@@ -114,7 +114,7 @@ type LoadingProps =
     };
 
 interface InternalMultiSelectProps<T extends MultiSelectData> {
-  /** MultiSelect container div class name for custom styling. */
+  /** CSS class for custom styles */
   className?: string;
   /** Items for the MultiSelect
    * <pre>
@@ -129,54 +129,60 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
    */
   items: Array<T & MultiSelectData>;
   /**
-   * Unique id
+   * HTML id attribute.
    * If no id is specified, one will be generated automatically
    */
   id?: string;
-  /** Label */
+  /** Label for the component */
   labelText: ReactNode;
-  /** Text to mark a field optional. Wrapped in parentheses and shown after labelText. */
+  /** Text to mark the field optional. Wrapped in parentheses and shown after labelText. */
   optionalText?: string;
   /** Hint text to be shown below the label */
   hintText?: string;
-  /** Event that is fired when item selections change */
+  /** Callback fired when item selections change */
   onItemSelectionsChange?: (selectedItems: Array<T & MultiSelectData>) => void;
-  /** Show chip list */
+  /** Shows the chip list below the input */
   chipListVisible?: boolean;
-  /** Chip action label */
+  /** Chip action label. Tells assistive technology what pressing the chip does. E.g. 'Remove'. Required with `chipListVisible` */
   ariaChipActionLabel?: string;
-  /** Label for remove button. If it is given, button will be shown. */
+  /** Label for the 'Remove all' button. If it is given, the button will be shown. */
   removeAllButtonLabel?: string;
-  /** Placeholder text for input. Use only as visual aid, not for instructions. */
+  /** Placeholder text for the input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
   /** Default selected items */
   defaultSelectedItems?: Array<T & MultiSelectData>;
-  /** Event sent when filter changes */
+  /** Callback fired when filter changes */
   onChange?: (value: string) => void;
-  /** onBlur event handler */
+  /** Callback fired on input blur */
   onBlur?: () => void;
-  /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
+  /** Debounce time in milliseconds for `onChange()` function. No debounce is applied if no value is given. */
   debounce?: number;
   /**
-   * 'default' | 'error'
+   * `'default'` | `'error'`
+   *
+   * Status of the component. Error state creates a red border around the MultiSelect.
+   * Always use a descriptive `statusText` with an error status.
    * @default default
    */
   status?: MultiSelectStatus;
-  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
+  /** Status text to be shown below the component. Use e.g. for validation error messages */
   statusText?: string;
-  /** Controlled items; if item is in array, it is selected. If item has disabled: true, it will be disabled. */
+  /** Controlled selected items. If item has disabled: true, it will be disabled. */
   selectedItems?: Array<T & MultiSelectData>;
-  /** Selecting the item will send event with the id */
+  /**
+   * Callback fired on item select
+   * @param {string} uniqueItemId labelText of the selected item
+   */
   onItemSelect?: (uniqueItemId: string) => void;
-  /** Event to be sent when pressing remove all button */
+  /** Callback fired when pressing the remove all button */
   onRemoveAll?: () => void;
-  /** Disable the input */
+  /** Disables the input */
   disabled?: boolean;
   /** Tooltip component for the input's label */
   tooltipComponent?: ReactElement;
-  /** Ref object to be passed to the input element. Alternative to React `ref` attribute. */
+  /** Ref object is forwarded to the underlying input element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLInputElement>;
-  /** Props to pass to unordered list element, for example data-attributes */
+  /** Props passed to unordered list element inside the popover. For example data-attributes */
   listProps?: HTMLAttributesIncludingDataAttributes<HTMLUListElement>;
 }
 
@@ -195,7 +201,7 @@ type AllowItemAdditionProps =
        * Also read by screen reader when focusing on the item addition element.
        * Required if `allowItemAddition` is true */
       itemAdditionHelpText: string;
-      /** Text to show when no items to show, e.g filtered all out. Required when `allowItemAddition` is false */
+      /** Text to show when there are no items to show, e.g filtered all out. Required when `allowItemAddition` is false */
       noItemsText?: never;
     };
 

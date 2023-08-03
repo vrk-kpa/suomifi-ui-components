@@ -29,36 +29,38 @@ const checkboxGroupClassNames = {
 type CheckboxGroupStatus = Exclude<InputStatus, 'success'>;
 
 export interface CheckboxGroupProps {
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
-  /** Checkbox or ReactNode */
+  /** Use Checkbox components as children */
   children: Array<React.ReactElement<CheckboxProps> | ReactNode>;
-  /** Hint text to be displayed under the label. */
+  /** Hint text to be displayed under the group label */
   groupHintText?: string;
   /** Label for the group */
   labelText: ReactNode;
-  /** Hide or show label. Label element is always present, but can be visually hidden.
+  /** Hides or shows label. Label element is always present, but can be visually hidden.
    * @default visible
    */
   labelMode?: 'hidden' | 'visible';
-  /** Text to mark a selection in group as optional. Will be wrapped in parentheses and shown after labelText. */
+  /** Text to indicate a selection in the group as optional. Will be wrapped in parentheses and shown after `labelText`. */
   optionalText?: string;
   /**
-   * Unique id
-   * If no id is specified, one will be generated
+   * HTML id attribute
+   * If no id is specified, one will be generated automatically
    */
   id?: string;
   /**
-   * Status for the group. Will be passed to children.
-   * 'default' | 'error'
+   * `'default'` | `'error'`
+   *
+   * Status for the entire group. Will be passed to children. The status of an individual Checkbox overrides the one coming from the group.
+   *
    * @default default
    */
   groupStatus?: CheckboxGroupStatus;
-  /** Status text to be shown below the component. Use e.g. for validation error */
+  /** Status text to be shown below the group. Use e.g. for validation error messages */
   groupStatusText?: string;
   /** Tooltip component for the group's label */
   tooltipComponent?: ReactElement;
-  /** Ref is forwarded to the root div element. Alternative for React `ref` attribute. */
+  /** Ref is placed to the outermost div element of the component. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLDivElement>;
 }
 
