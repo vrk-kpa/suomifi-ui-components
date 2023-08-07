@@ -70,6 +70,7 @@
     "deploy-dev": "gh-pages -d styleguide -e dev -m \"[skip ci] Updates\""
   },
   "devDependencies": {
+    "@axe-core/react": "4.7.3",
     "@babel/core": "7.22.9",
     "@babel/plugin-transform-runtime": "7.22.9",
     "@babel/preset-env": "7.22.9",
@@ -123,7 +124,6 @@
     "prettier-eslint": "15.0.1",
     "prop-types": "15.8.1",
     "react": "17.0.2",
-    "react-axe": "3.5.4",
     "react-docgen": "5.4.3",
     "react-docgen-typescript": "2.2.2",
     "react-dom": "17.0.2",
