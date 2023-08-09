@@ -43,7 +43,7 @@ const StyledBreadcrumb = styled(BaseBreadcrumb)`
 
 /**
  * <i class="semantics" />
- * Used for navigation path
+ * Indicator for the user's current location in the service.
  */
 const Breadcrumb = (props: BreadcrumbProps) => {
   const { 'aria-label': ariaLabel, ...passProps } = props;
