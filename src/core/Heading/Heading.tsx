@@ -13,6 +13,8 @@ type styleVariants = hLevels | 'h1hero';
 
 export interface HeadingProps extends HtmlHProps {
   /**
+   * `"h1hero"` | `"h1"` | `"h2"` | `"h3"` | `"h4"` | `"h5"`
+   *
    * Heading level to assign semantic element and styling.
    * @default h1
    */
@@ -67,10 +69,6 @@ const StyledHeading = styled(
   ${(props) => baseStyles(props)}
 `;
 
-/**
- * <i class="semantics" />
- * Used displaying headings with correct fonts
- */
 const Heading = forwardRef(
   (props: HeadingProps, ref: React.RefObject<HTMLHeadingElement>) => {
     const { as, variant, ...passProps } = props;

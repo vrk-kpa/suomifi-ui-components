@@ -77,12 +77,6 @@ const StyledModalTitle = styled(BaseModalTitle)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * ModalTitle
- * Id and smallScreen variant are provided by Modal context and cannot be given as props.
- * Children are wrapped in h2 heading and styled as h3 by default.
- */
 const ModalTitle = (props: ModalTitleProps) => (
   <SuomifiThemeConsumer>
     {({ suomifiTheme }) => (

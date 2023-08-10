@@ -190,10 +190,6 @@ interface ExpanderState {
   openState: boolean;
 }
 
-/**
- * <i class="semantics" />
- * Hide or show content with always visible title
- */
 const Expander = forwardRef(
   (props: ExpanderProps, ref: React.Ref<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;

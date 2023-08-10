@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { Alert } from './Alert';
-import { axeTest } from '../../../utils/test';
+import { axeTest } from '../../utils/test';
 
 describe('props', () => {
   describe('status', () => {

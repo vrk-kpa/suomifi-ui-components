@@ -48,6 +48,8 @@ export interface BlockProps extends HtmlDivProps {
   /** Margin on the y-axis (top & bottom) from theme */
   my?: SpacingWithoutInsetProp;
   /**
+   * `'default'` | `'div'` | `'span'` | `'section'` | `'header'` | `'nav'` | `'main'` | `'footer'`
+   *
    * Changes block semantics. "Default" renders a `<div>` with SuomifiTheme reset styles applied,
    * whereas "div" renders a plain HTML `<div>`. "Span" gets rendered with `display: inline-block` style
    * @default default
@@ -120,9 +122,6 @@ const StyledBlock = styled((props: BlockProps & SuomifiThemeProp) => {
   ${({ theme, variant }) => baseStyles(theme, variant)}
 `;
 
-/**
- * Used in displaying a generic piece of HTML e.g. a div
- */
 const Block = forwardRef((props: BlockProps, ref: React.Ref<any>) => (
   <SuomifiThemeConsumer>
     {({ suomifiTheme }) => (

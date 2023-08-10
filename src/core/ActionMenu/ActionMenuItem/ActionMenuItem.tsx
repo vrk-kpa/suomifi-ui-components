@@ -16,7 +16,7 @@ export interface ActionMenuItemProps {
   children: ReactNode;
   /** Disables the item */
   disabled?: boolean;
-  /** Icon from suomifi-icons to be shown inside the input field */
+  /** Icon from suomifi-icons to be shown inside the menu item */
   icon?: ReactElement;
   /** Callback fired when menu item is clicked */
   onClick?: (event: React.MouseEvent) => void;

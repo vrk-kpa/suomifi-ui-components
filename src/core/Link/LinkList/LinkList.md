@@ -1,10 +1,25 @@
-A styled list for providing a list of links.
+`<LinkList>` is a styled list for providing a list of links.
+
+Examples:
+
+<ul>
+  <li><a href="/#/Components/LinkList?id=basic-use">Basic use</a></li>
+</ul>
+
+<div style="margin-bottom: 5px">
+  <a href="/#/Components/LinkList?id=props--methods">Props & methods (LinkList)</a>
+</div>
+<div style="margin-bottom: 40px">
+  <a href="/#/Components/LinkList?id=linklistitem">Props & methods (LinkListItem)</a>
+</div>
+
+### Basic use
 
 - Use a descriptive heading or a label with the list.
-- Link heading or label to the list via the `ariaDescribedBy` prop.
-- Use the right heading level semantically and use the Heading component's `as` prop for changing the styling if needed.
-- Wrap each child in `LinkListItem` component for the correct styling.
-- `LinkListItem` supports `Link`, `ExternalLink` and `RouterLink` as its children.
+- Link the heading/label to the list via the `ariaDescribedBy` prop.
+- Use the right heading level semantically and use the `<Heading>` component's `as` prop for changing the styling if needed.
+- Wrap each child in `LinkListItem` component to get the correct styling.
+- `<LinkListItem>` supports `<Link>`, `<ExternalLink>` and `<RouterLink>` as its children.
 
 ```js
 import {
@@ -17,30 +32,28 @@ import {
 } from 'suomifi-ui-components';
 
 <div>
-  <Heading variant="h5" as="h3" id="heading">
-    Useful resources
+  <Heading variant="h4" as="h3" id="heading">
+    More on the topic
   </Heading>
   <LinkList ariaDescribedBy="heading">
     <LinkListItem>
-      <Link href="/">More information on subject X</Link>
+      <Link href="#">Granting mandates as a person</Link>
     </LinkListItem>
     <LinkListItem>
       <ExternalLink
-        href="https://designsystem.suomi.fi/fi/"
+        href="https://designsystem.suomi.fi/"
         labelNewWindow="Opens to a new window"
       >
-        About subject X on a third party site
+        Invalidating mandates as a person
       </ExternalLink>
     </LinkListItem>
     <LinkListItem>
-      <RouterLink
-        href="https://suomi.fi"
-        target="_blank"
-        asComponent="a"
-      >
-        An additional useful link
+      <RouterLink href="#" target="_blank" asComponent="a">
+        Making a mandate request as a person
       </RouterLink>
     </LinkListItem>
   </LinkList>
 </div>;
 ```
+
+## Props & methods

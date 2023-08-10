@@ -9,6 +9,12 @@ const primitiveComponents = [
   'Tooltip',
   'VisuallyHidden',
   'Pagination',
+  'Alert',
+  'InlineAlert',
+  'LoadingSpinner',
+  'Text',
+  'Paragraph',
+  'Notification',
   ['Form', 'TextInput'],
   ['Form', 'SearchInput'],
   ['Form', 'Textarea'],
@@ -128,21 +134,6 @@ module.exports = {
           ]),
         },
         {
-          name: 'Text',
-          components: getComponents(['Text', 'Paragraph']),
-        },
-        {
-          name: 'Alert',
-          components: getComponentWithVariants('Alert')([
-            'Alert/Alert',
-            'InlineAlert/InlineAlert',
-          ]),
-        },
-        {
-          name: 'LoadingSpinner',
-          components: getComponents(['LoadingSpinner']),
-        },
-        {
           name: 'Checkbox',
           components: getComponentWithVariants('Form/Checkbox')([
             'Checkbox',
@@ -218,17 +209,13 @@ module.exports = {
           ]),
         },
         {
-          name: 'Notification',
-          components: getComponents(['Notification']),
-        },
-        {
           name: 'Expander',
           components: getComponentWithVariants('Expander')([
             'Expander/Expander',
-            'ExpanderGroup/ExpanderGroup',
-            'ExpanderTitle/ExpanderTitle',
             'ExpanderTitleButton/ExpanderTitleButton',
             'ExpanderContent/ExpanderContent',
+            'ExpanderGroup/ExpanderGroup',
+            'ExpanderTitle/ExpanderTitle',
           ]),
         },
         {
@@ -236,6 +223,7 @@ module.exports = {
           components: getComponentWithVariants('Modal')([
             'Modal/Modal',
             'ModalContent/ModalContent',
+            'ModalTitle/ModalTitle',
             'ModalFooter/ModalFooter',
           ]),
         },

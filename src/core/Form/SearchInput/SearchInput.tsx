@@ -310,11 +310,6 @@ const StyledSearchInput = styled(BaseSearchInput)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Use for user inputting search text.
- * Props other than specified explicitly are passed on to underlying input element.
- */
 const SearchInput = forwardRef(
   (props: SearchInputProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;

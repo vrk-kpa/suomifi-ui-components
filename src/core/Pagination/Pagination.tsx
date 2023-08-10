@@ -230,11 +230,6 @@ const StyledPagination = styled((props: PaginationProps & SuomifiThemeProp) => {
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Used for pagination
- */
-
 const Pagination = forwardRef(
   (props: PaginationProps, ref: React.RefObject<HTMLElement>) => {
     const { id: propId, ...passProps } = props;

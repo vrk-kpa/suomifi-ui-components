@@ -111,10 +111,7 @@ const StyledButton = styled(
 )`
   ${({ theme }) => baseStyles(theme)}
 `;
-/**
- * <i class="semantics" />
- * Use for inside Application onClick events.<br />
- */
+
 const Button = forwardRef(
   (props: ButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
     <SuomifiThemeConsumer>

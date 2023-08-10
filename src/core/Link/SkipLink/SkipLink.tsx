@@ -20,10 +20,6 @@ const StyledSkipLink = styled((props: SkipLinkProps & SuomifiThemeProp) => {
   ${({ theme }) => SkipLinkStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Used for adding skip link for keyboard and screenreader users
- */
 const SkipLink = forwardRef(
   (props: SkipLinkProps, ref: React.Ref<HTMLAnchorElement>) => {
     const { className, ...passProps } = props;

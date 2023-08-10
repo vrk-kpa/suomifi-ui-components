@@ -298,12 +298,6 @@ const StyledTextInput = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Use for user inputting text.
- * Props other than specified explicitly are passed on to underlying input element.
- * @component
- */
 const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;

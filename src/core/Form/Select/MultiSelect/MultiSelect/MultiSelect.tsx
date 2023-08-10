@@ -171,7 +171,7 @@ interface InternalMultiSelectProps<T extends MultiSelectData> {
   selectedItems?: Array<T & MultiSelectData>;
   /**
    * Callback fired on item select
-   * @param {string} uniqueItemId labelText of the selected item
+   * @param {string} uniqueItemId id of the selected item
    */
   onItemSelect?: (uniqueItemId: string) => void;
   /** Callback fired when pressing the remove all button */

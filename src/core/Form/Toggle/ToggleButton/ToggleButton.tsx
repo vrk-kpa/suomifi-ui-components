@@ -115,11 +115,6 @@ const StyledToggleButton = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Use for toggling application state.
- * Additional props are passed to the button element.
- */
 const ToggleButton = forwardRef(
   (props: ToggleButtonProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { id: propId, ...passProps } = props;

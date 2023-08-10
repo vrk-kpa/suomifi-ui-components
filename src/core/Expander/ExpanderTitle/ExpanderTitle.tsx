@@ -99,10 +99,6 @@ const StyledExpanderTitle = styled(BaseExpanderTitle)`
   ${({ theme }) => expanderTitleBaseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Expander title for focusable content and toggle button for content visiblity
- */
 const ExpanderTitle = (props: ExpanderTitleProps) => (
   <SuomifiThemeConsumer>
     {({ suomifiTheme }) => (

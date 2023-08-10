@@ -1,4 +1,24 @@
-### Basic usage
+Wizard navigation is used for user interactions that progress in phases. It can help to break up a long form into manageable sections and allows the user to see their progress as well.
+
+- Use descriptive and short names for the sections
+- Use `aria-current` for the currently active phase, `aria-disabled` for disabled phases and `aria-label` to mark completed phases.
+- Provide the navigation a descriptive heading and use the correct heading level depending on the navigation's location in the page structure.
+- When page content changes along with the phases, make sure this gets conveyed to screen reader users as well
+
+<ul>
+  <li><a href="/#/Components/WizardNavigation?id=basic-use">Basic use</a></li>
+  <li><a href="/#/Components/WizardNavigation?id=small-screens">Small screens</a></li>
+  <li><a href="/#/Components/WizardNavigation?id=using-with-frameworks">Using with frameworks</a></li>
+</ul>
+
+<div style="margin-bottom: 5px">
+  <a href="/#/Components/WizardNavigation?id=props--methods">Props & methods (WizardNavigation)</a>
+</div>
+<div style="margin-bottom: 40px">
+  <a href="/#/Components/WizardNavigation?id=wizardnavigationitem">Props & methods (WizardNavigationItem)</a>
+</div>
+
+### Basic use
 
 A `<WizardNavigationItem>` can have one of these 6 statuses:
 
@@ -71,17 +91,7 @@ const Comp = (props) => {
 </div>;
 ```
 
-For frameworks where its internal link component is used as a wrapper for the actual link, for example NextJS, the following approach can be used:
-
-```jsx static
-<WizardNavigationItem status="default">
-  <NextJSLink href="/some-route" passHref>
-    <RouterLink>Step 1</RouterLink>
-  </NextJSLink>
-</WizardNavigationItem>
-```
-
-### Small screen version
+### Small screens
 
 ```js
 import {
@@ -146,3 +156,19 @@ const Comp = (props) => {
   </WizardNavigation>
 </div>;
 ```
+
+### Using with frameworks
+
+The polymorphic `<RouterLink>` component can be rendered as a component of your choice. This should provide support for most front-end frameworks.
+
+For frameworks where its internal link component is used as a wrapper for the actual link, for example NextJS, the following approach can be used:
+
+```jsx static
+<WizardNavigationItem status="default">
+  <NextJSLink href="/some-route" passHref>
+    <RouterLink>Step 1</RouterLink>
+  </NextJSLink>
+</WizardNavigationItem>
+```
+
+### Props & methods

@@ -40,8 +40,9 @@ export interface ActionMenuProps {
   /** Text content for the menu button */
   buttonText?: string;
   /**
+   * `'default'` | `'inverted'` | `'secondary'` | `'secondaryLight'`| `'secondaryNoBorder'`
+   *
    * Variant for the menu button:
-   * 'default' | 'inverted' | 'secondary' | 'secondaryLight'| 'secondaryNoBorder'
    * @default secondary
    */
   buttonVariant?: ButtonVariant;
@@ -52,19 +53,19 @@ export interface ActionMenuProps {
   'aria-label'?: string;
   /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */
   children?: MenuContent;
-  /** Menu button container div class name for custom styling */
+  /** CSS class for custom styles */
   className?: string;
-  /** Menu container div class name for custom styling. Can be used to modify menu "popover" z-index. */
+  /** Menu container div CSS class for custom styles. Can be used to modify menu "popover" z-index. */
   menuClassName?: string;
-  /** Disable the menu button */
+  /** Disables the menu button */
   disabled?: boolean;
-  /** Ref is forwarded to the button element. Alternative for React `ref` attribute. */
+  /** Ref is forwarded to the underlying button element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
-  /** Set components width to 100% */
+  /** Sets component's width to 100% of its parent */
   fullWidth?: boolean;
   /**
-   * Unique id
-   * If no id is specified, one will be generated
+   * HTML id attribute.
+   * If no id is specified, one will be generated automatically
    */
   id?: string;
   /** Name used for the menu button */
@@ -214,13 +215,6 @@ const StyledActionMenu = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Use for user selecting action.
- *
- * Props other than specified explicitly are passed on to underlying button element.
- * @component
- */
 const ActionMenu = forwardRef<HTMLButtonElement, ActionMenuProps>(
   (props: ActionMenuProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { id: propId, ...passProps } = props;

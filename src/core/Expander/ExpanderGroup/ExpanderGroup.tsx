@@ -198,11 +198,6 @@ const StyledExpanderGroup = styled(BaseExpanderGroup)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Wrapper for multiple expanders with Open/Close All button
- */
-
 const ExpanderGroup = forwardRef(
   (props: ExpanderGroupProps, ref: React.Ref<HTMLButtonElement>) => (
     <SuomifiThemeConsumer>
