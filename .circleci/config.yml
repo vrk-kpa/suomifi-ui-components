@@ -9,6 +9,7 @@ commands:
   checkout_and_cache:
     steps:
       - checkout
+      - run: node --version
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           name: Restore Yarn Package Cache
