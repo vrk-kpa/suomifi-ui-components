@@ -3,7 +3,7 @@ version: 2.1
 executors:
   build-executor:
     docker:
-      - image: circleci/node:lts
+      - image: cimg/node:lts
 
 commands:
   checkout_and_cache:
