@@ -175,8 +175,5 @@
     {
       "path": "dist/suomifi-ui-components.esm.js"
     }
-  ],
-  "resolutions": {
-    "babel-plugin-styled-components": "2.1.4"
-  }
+  ]
 }
