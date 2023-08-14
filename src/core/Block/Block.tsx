@@ -3,8 +3,8 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import {
   SpacingProps,
-  getSpacingClassNamesFromProps,
   separateSpacingProps,
+  spacingStyle,
 } from '../theme/utils/spacing';
 import { baseStyles } from './Block.baseStyles';
 import { HtmlDivWithNativeRef, HtmlDivProps } from '../../reset';
@@ -38,8 +38,8 @@ export interface BlockProps extends HtmlDivProps, SpacingProps {
 class SemanticBlock extends Component<BlockProps> {
   render() {
     const [spacingProps, baseProps] = separateSpacingProps(this.props);
-    const spacingClassnames = getSpacingClassNamesFromProps(spacingProps);
-    const { className, variant, forwardedRef, ...passProps } = baseProps;
+    const spacing = spacingStyle(spacingProps);
+    const { className, variant, style, forwardedRef, ...passProps } = baseProps;
 
     const ComponentVariant =
       !variant || variant === 'default' ? HtmlDivWithNativeRef : variant;
@@ -48,9 +48,10 @@ class SemanticBlock extends Component<BlockProps> {
       <ComponentVariant
         ref={forwardedRef}
         {...passProps}
-        className={classnames(baseClassName, className, spacingClassnames, {
+        className={classnames(baseClassName, className, {
           [`${baseClassName}--${variant}`]: !!variant,
         })}
+        style={{ ...spacing, ...style }}
       />
     );
   }

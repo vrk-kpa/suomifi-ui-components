@@ -5,9 +5,9 @@ import { baseStyles } from './Button.baseStyles';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
 import {
-  getSpacingClassNamesFromProps,
+  spacingStyle,
   separateSpacingProps,
-  SpacingProps,
+  MarginProps,
 } from '../theme/utils/spacing';
 
 export type ButtonVariant =
@@ -19,7 +19,7 @@ export type ButtonVariant =
 
 export interface ButtonProps
   extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'>,
-    SpacingProps {
+    MarginProps {
   /**
    * Variant for the button
    * `default` | `inverted` | `secondary` | `secondaryNoBorder` | `secondaryLight`
@@ -69,7 +69,7 @@ const fullWidthClassName = `${baseClassName}--fullwidth`;
 class BaseButton extends Component<ButtonProps> {
   render() {
     const [spacingProps, baseProps] = separateSpacingProps(this.props);
-    const spacingClassnames = getSpacingClassNamesFromProps(spacingProps);
+    const spacing = spacingStyle(spacingProps);
     const {
       fullWidth,
       variant = 'default',
@@ -81,6 +81,7 @@ class BaseButton extends Component<ButtonProps> {
       iconRight,
       forwardedRef,
       children,
+      style,
       ...passProps
     } = baseProps;
     const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
@@ -93,7 +94,7 @@ class BaseButton extends Component<ButtonProps> {
         aria-disabled={!!ariaDisabled || !!disabled}
         forwardedRef={forwardedRef}
         disabled={!!disabled}
-        className={classnames(baseClassName, className, spacingClassnames, {
+        className={classnames(baseClassName, className, {
           [disabledClassName]: !!disabled || !!ariaDisabled,
           [`${baseClassName}--inverted`]: variant === 'inverted',
           [`${baseClassName}--secondary`]: variant === 'secondary',
@@ -102,6 +103,7 @@ class BaseButton extends Component<ButtonProps> {
           [`${baseClassName}--secondary-light`]: variant === 'secondaryLight',
           [fullWidthClassName]: fullWidth,
         })}
+        style={{ ...spacing, ...style }}
       >
         <HtmlSpan className={iconClassName}>{!!icon && icon}</HtmlSpan>
         {children}
