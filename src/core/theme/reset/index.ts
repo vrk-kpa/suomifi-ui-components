@@ -14,11 +14,10 @@ const fontBase = css`
 `;
 
 export const font =
-  (theme: SuomifiTheme) => (typographyToken: TypographyProp) =>
-    css`
-      ${fontBase}
-      ${theme.typography[typographyToken]}
-    `;
+  (theme: SuomifiTheme) => (typographyToken: TypographyProp) => css`
+    ${fontBase}
+    ${theme.typography[typographyToken]}
+  `;
 
 export const input = (theme: SuomifiTheme) => css`
   ${element(theme)}
