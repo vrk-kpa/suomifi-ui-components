@@ -5,8 +5,8 @@ import { baseStyles } from './Button.baseStyles';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
 import {
-  spacingStyle,
-  separateSpacingProps,
+  spacingStyles,
+  separateMarginProps,
   MarginProps,
 } from '../theme/utils/spacing';
 
@@ -68,8 +68,6 @@ const fullWidthClassName = `${baseClassName}--fullwidth`;
 
 class BaseButton extends Component<ButtonProps> {
   render() {
-    const [spacingProps, baseProps] = separateSpacingProps(this.props);
-    const spacing = spacingStyle(spacingProps);
     const {
       fullWidth,
       variant = 'default',
@@ -82,8 +80,10 @@ class BaseButton extends Component<ButtonProps> {
       forwardedRef,
       children,
       style,
-      ...passProps
-    } = baseProps;
+      ...rest
+    } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
     const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
 
     return (
@@ -103,7 +103,7 @@ class BaseButton extends Component<ButtonProps> {
           [`${baseClassName}--secondary-light`]: variant === 'secondaryLight',
           [fullWidthClassName]: fullWidth,
         })}
-        style={{ ...spacing, ...style }}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlSpan className={iconClassName}>{!!icon && icon}</HtmlSpan>
         {children}

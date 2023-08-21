@@ -26,6 +26,11 @@ import { StatusText } from '../StatusText/StatusText';
 import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './Textarea.baseStyles';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 
 const baseClassName = 'fi-textarea';
 const textareaClassNames = {
@@ -68,6 +73,7 @@ type characterCounterProps =
 
 interface BaseTextareaProps
   extends StatusTextCommonProps,
+    MarginProps,
     Omit<HtmlTextareaProps, 'placeholder' | 'forwardedRef'> {
   /** CSS class for custom styles */
   className?: string;
@@ -149,8 +155,11 @@ const BaseTextarea = (props: TextareaProps) => {
     characterLimit,
     ariaCharactersRemainingText,
     ariaCharactersExceededText,
-    ...passProps
+    ...rest
   } = props;
+
+  const [marginProps, passProps] = separateMarginProps(rest);
+  const marginStyle = spacingStyles(marginProps);
 
   const [charCount, setCharCount] = useState(0);
   const [characterCounterAriaText, setCharacterCounterAriaText] = useState('');
@@ -218,6 +227,7 @@ const BaseTextarea = (props: TextareaProps) => {
         [textareaClassNames.error]: status === 'error' && !disabled,
         [textareaClassNames.fullWidth]: fullWidth,
       })}
+      style={{ ...marginStyle, ...containerProps?.style }}
     >
       <Label
         htmlFor={id}

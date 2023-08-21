@@ -16,6 +16,11 @@ import {
 import { Button, ButtonVariant } from '../Button/Button';
 import { HtmlDiv } from '../../reset';
 import { HTMLAttributesIncludingDataAttributes } from '../../utils/common/common';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../theme/utils/spacing';
 import { baseStyles } from './ActionMenu.baseStyles';
 import { ActionMenuItemProps } from './ActionMenuItem/ActionMenuItem';
 import { ActionMenuDividerProps } from './ActionMenuDivider/ActionMenuDivider';
@@ -36,7 +41,7 @@ export type MenuContent =
   | ReactElement<ActionMenuItemProps>
   | ReactElement<ActionMenuDividerProps>;
 
-export interface ActionMenuProps {
+export interface ActionMenuProps extends MarginProps {
   /** Text content for the menu button */
   buttonText?: string;
   /**
@@ -103,8 +108,10 @@ const BaseActionMenu = (props: ActionMenuProps) => {
     onClose,
     onBlur,
     menuClassName,
-    ...passProps
+    ...rest
   } = props;
+  const [marginProps, passProps] = separateMarginProps(rest);
+  const marginStyle = spacingStyles(marginProps);
 
   const openButtonRef = forwardedRef || useRef<HTMLButtonElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
@@ -168,6 +175,7 @@ const BaseActionMenu = (props: ActionMenuProps) => {
       className={classnames(baseClassName, className, {
         [actionMenuClassNames.fullWidth]: fullWidth,
       })}
+      style={{ ...marginStyle, ...wrapperProps?.style }}
     >
       <Button
         id={buttonId}

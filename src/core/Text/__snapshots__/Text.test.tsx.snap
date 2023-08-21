@@ -184,7 +184,7 @@ exports[`calling render with the same component on the same container does not r
     Paragraph text
   </p>
   <p
-    class="c0 fi-paragraph c1 fi-paragraph--margin-s"
+    class="c0 fi-paragraph c1"
     style="margin-bottom: 15px;"
   >
     <span

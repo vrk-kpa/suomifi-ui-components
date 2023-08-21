@@ -56,7 +56,7 @@ export interface MarginProps {
 
 export interface SpacingProps extends PaddingProps, MarginProps {}
 
-export const spacingStyle = (props: SpacingProps) => {
+export const spacingStyles = (props: SpacingProps) => {
   const array = Object.entries(props).map(([key, value]) =>
     getSpacingStyle(defaultSuomifiTheme, key as keyof SpacingProps, value),
   );
@@ -107,10 +107,30 @@ const getSpacingStyle = (
   }
 };
 
-export const separateSpacingProps = (props: any) => {
+export const separateMarginProps = <T extends MarginProps>(
+  props: T,
+): [MarginProps, Omit<T, keyof MarginProps>] => {
+  const { margin, my, mx, mt, mr, mb, ml, ...otherProps } = props;
+  return [
+    {
+      ...(margin !== undefined && { margin }),
+      ...(my !== undefined && { my }),
+      ...(mx !== undefined && { mx }),
+      ...(mt !== undefined && { mt }),
+      ...(mr !== undefined && { mr }),
+      ...(mb !== undefined && { mb }),
+      ...(ml !== undefined && { ml }),
+    },
+    otherProps,
+  ];
+};
+
+export const separateMarginAndPaddingProps = <T extends SpacingProps>(
+  props: T,
+): [SpacingProps, Omit<T, keyof SpacingProps>] => {
   const {
-    margin: marginProp,
-    padding: paddingProp,
+    margin,
+    padding,
     my,
     mx,
     py,
@@ -127,8 +147,8 @@ export const separateSpacingProps = (props: any) => {
   } = props;
   return [
     {
-      ...(marginProp !== undefined && { margin: marginProp }),
-      ...(paddingProp !== undefined && { padding: paddingProp }),
+      ...(margin !== undefined && { margin }),
+      ...(padding !== undefined && { padding }),
       ...(my !== undefined && { my }),
       ...(mx !== undefined && { mx }),
       ...(py !== undefined && { py }),

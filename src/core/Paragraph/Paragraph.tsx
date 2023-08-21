@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { SpacingWithoutInsetProp, spacingStyle } from '../theme/utils/spacing';
+import { SpacingWithoutInsetProp, spacingStyles } from '../theme/utils/spacing';
 import { ColorProp, SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { baseStyles } from './Paragraph.baseStyles';
 import { HtmlP, HtmlPProps } from '../../reset/HtmlP/HtmlP';
@@ -26,11 +26,8 @@ const StyledParagraph = styled(
     ...passProps
   }: ParagraphProps & SuomifiThemeProp) => (
     <HtmlP
-      className={classnames(baseClassName, className, {
-        [`${baseClassName}--margin-${marginBottomSpacing}`]:
-          !!marginBottomSpacing,
-      })}
-      style={{ ...spacingStyle({ mb: marginBottomSpacing }), ...style }}
+      className={classnames(baseClassName, className)}
+      style={{ ...spacingStyles({ mb: marginBottomSpacing }), ...style }}
       {...passProps}
     />
   ),
