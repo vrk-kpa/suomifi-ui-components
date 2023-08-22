@@ -2,15 +2,13 @@ The `<VisuallyHidden>` component allows you to hide content from sight while kee
 
 It is mostly used for additional information for screen reader users. It is utilized internally by the library in multiple places, for example to help screen reader users keep track of a character counter.
 
-It should only be used to provide screen reader users supplemental information where a visual representation of that information would cause issues.
+This component should only be used to provide screen reader users supplemental information where a visual representation of that information would cause issues.
 
-<ul>
-<li>[Basic use](/#/Components/VisuallyHidden?id=basic-use)</li>
-<li>[In library components](/#/Components/VisuallyHidden?id=in-library-components)</li>
-</ul>
+- [Basic use](/#/Components/VisuallyHidden?id=basic-use)
+- [In library components](/#/Components/VisuallyHidden?id=in-library-components)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/VisuallyHidden?id=props--methods">Props & methods (VisuallyHidden)</a>
+  [Props & methods](/#/Components/VisuallyHidden?id=props--methods)
 </div>
 
 ### Basic use
@@ -38,8 +36,10 @@ There are also a few exceptions where the component library provides the possibi
 import { SearchInput } from 'suomifi-ui-components';
 <SearchInput
   labelText="Search the site"
+  searchButtonLabel="Search"
+  clearButtonLabel="Clear"
+  visualPlaceholder="Write search terms..."
   labelMode="hidden"
-  fullWidth
 />;
 ```
 

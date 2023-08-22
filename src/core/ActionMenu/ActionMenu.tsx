@@ -47,8 +47,9 @@ export interface ActionMenuProps {
    */
   buttonVariant?: ButtonVariant;
   /**
-   * Define a label if `buttonText` does not indicate the menu button purpose,
-   * alternatively you can define aria-labelledby with label-element id
+   * Define a label if `buttonText` does not indicate the menu button purpose.
+   * In cases where the button has a visible label, make sure the visible text is included in the aria-label.
+   * Alternatively you can define `aria-labelledby` with a label element's id.
    */
   'aria-label'?: string;
   /** Menu items. Use the `<ActionMenuItem>` or  `<ActionMenuDivider>` components as children */

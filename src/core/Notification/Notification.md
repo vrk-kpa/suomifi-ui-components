@@ -1,19 +1,17 @@
 The `<Notification>` component provides users noteworthy information about a specific part of a website or an action they made.
 
-Notification should not be used dynamically. For dynamic use cases, use the <a href="#/Components/InlineAlert">InlineAlert</a> component instead.
+Notification should not be used dynamically. For dynamic use cases, use the [InlineAlert](/#/Components/InlineAlert) component instead.
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/Notification?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/Notification?id=heading-levels">Heading levels</a></li>
-  <li><a href="/#/Components/Notification?id=action-elements">Action elements</a></li>
-  <li><a href="/#/Components/Notification?id=error-status">Error status</a></li>
-  <li><a href="/#/Components/Notification?id=small-screen">Small screen</a></li>
-</ul>
+- [Basic use](/#/Components/Notification?id=basic-use)
+- [Heading levels](/#/Components/Notification?id=heading-levels)
+- [Action elements](/#/Components/Notification?id=action-elements)
+- [Error status](/#/Components/Notification?id=error-status)
+- [Small screen](/#/Components/Notification?id=small-screen)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Notification?id=props--methods">Props & methods</a>
+  [Props & methods](/#/Components/Notification?id=props--methods)
 </div>
 
 ### Basic use

@@ -1,16 +1,14 @@
-`<LanguageMenu>` can be used to select a website's language.
+`<LanguageMenu>` can be used to select a website's language. Semantically it uses the ARIA menu button pattern. The opened menu can be navigated using the arrow keys on the keyboard.
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/LanguageMenu?id=basic-use">Basic use</a></li>
-</ul>
+- [Basic use](/#/Components/LanguageMenu?id=basic-use)
 
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/LanguageMenu?id=props--methods">Props & methods (LanguageMenu)</a>
+  [Props & methods (LanguageMenu)](/#/Components/LanguageMenu?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/LanguageMenu?id=languagemenuitem">Props & methods (LanguageMenuItem)</a>
+  [Props & methods (LanguageMenuItem)](/#/Components/LanguageMenu?id=languagemenuitem)
 </div>
 
 ### Basic use
@@ -54,4 +52,4 @@ const [selectedLanguage, setSelectedLanguage] = React.useState(
 </LanguageMenu>;
 ```
 
-## Props & methods
+### Props & methods

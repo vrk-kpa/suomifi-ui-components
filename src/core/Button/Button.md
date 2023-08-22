@@ -4,18 +4,16 @@ You should not, however, use a `<Button>` in place of a link. If your action cha
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/Button?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/Button?id=full-width-button">Full width button</a></li>
-  <li><a href="/#/Components/Button?id=disabled-button">Disabled button</a></li>
-  <li><a href="/#/Components/Button?id=icons-in-button">Icons in button</a></li>
-  <li><a href="/#/Components/Button?id=secondary-button">Secondary button</a></li>
-  <li><a href="/#/Components/Button?id=light-secondary-button">Light secondary button</a></li>
-  <li><a href="/#/Components/Button?id=inverted-button">Inverted button</a></li>
-</ul>
+- [Basic use](/#/Components/Button?id=basic-use)
+- [Full width button](/#/Components/Button?id=full-width-button)
+- [Disabled button](/#/Components/Button?id=disabled-button)
+- [Icons in button](/#/Components/Button?id=icons-in-button)
+- [Secondary button](/#/Components/Button?id=secondary-button)
+- [Light secondary button](/#/Components/Button?id=light-secondary-button)
+- [Inverted button](/#/Components/Button?id=inverted-button)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Button?id=props--methods">Props & methods</a>
+  [Props & methods](/#/Components/Button?id=props--methods)
 </div>
 
 ### Basic use
@@ -23,10 +21,7 @@ Examples:
 ```js
 import { Button } from 'suomifi-ui-components';
 
-<Button
-  type="submit"
-  onClick={() => console.log('Submitting form...')}
->
+<Button onClick={() => console.log('Submitting form...')}>
   Submit
 </Button>;
 ```
@@ -38,11 +33,7 @@ Use `fullwidth` Button on smaller screen sizes.
 ```js
 import { Button } from 'suomifi-ui-components';
 
-<Button
-  fullWidth
-  type="submit"
-  onClick={() => console.log('Submitting form...')}
->
+<Button onClick={() => console.log('Submitting form...')} fullWidth>
   Submit
 </Button>;
 ```
@@ -64,7 +55,6 @@ import { Button, Paragraph, Text } from 'suomifi-ui-components';
     disabled
     aria-describedby="additional-info"
     onClick={() => console.log('Test button1 click')}
-    type="submit"
   >
     Submit
   </Button>
@@ -72,7 +62,6 @@ import { Button, Paragraph, Text } from 'suomifi-ui-components';
     aria-describedby="additional-info"
     aria-disabled={true}
     onClick={() => console.log('Test button2 click')}
-    type="submit"
   >
     Submit
   </Button>
@@ -84,7 +73,7 @@ import { Button, Paragraph, Text } from 'suomifi-ui-components';
 
 ### Icons in button
 
-When using a Button whose only visible content is an icon, provide a descriptive `aria-label` for assistive technologies.
+When using a Button whose only visible content is an icon, provide a descriptive `aria-label` for .
 
 ```js
 import { Button, IconArrowRight } from 'suomifi-ui-components';

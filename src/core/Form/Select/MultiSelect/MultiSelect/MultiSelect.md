@@ -1,24 +1,22 @@
 The `<MultiSelect>` component is used to select multiple items from a list of options. The list can also be filtered by typing.
 
-If you need to select only one option, use the <a href="#/Components/SingleSelect">SingleSelect</a> component instead.
+If you need to select only one option, use the [SingleSelect](/#/Components/SingleSelect) component instead.
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/MultiSelect?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/MultiSelect?id=default-selected-items">Default selected items</a></li>
-  <li><a href="/#/Components/MultiSelect?id=error-status">Error status</a></li>
-  <li><a href="/#/Components/MultiSelect?id=allowing-users-to-add-their-own-items">Allowing users to add their own items</a></li>
-  <li><a href="/#/Components/MultiSelect?id=controlled-state">Controlled state</a></li>
-  <li><a href="/#/Components/MultiSelect?id=controlled-state-with-custom-options-enabled">Controlled state with custom options enabled</a></li>
-  <li><a href="/#/Components/MultiSelect?id=disabled">Disabled</a></li>
-  <li><a href="/#/Components/MultiSelect?id=formatting-accessibility-texts">Formatting accessibility texts</a></li>
-  <li><a href="/#/Components/MultiSelect?id=loading-indicator">Loading indicator</a></li>
-  <li><a href="/#/Components/MultiSelect?id=tooltip">Tooltip</a></li>
-</ul>
+- [Basic use](/#/Components/MultiSelect?id=basic-use)
+- [Default selected items](/#/Components/MultiSelect?id=default-selected-items)
+- [Error status](/#/Components/MultiSelect?id=error-status)
+- [Allowing users to add their own items](/#/Components/MultiSelect?id=allowing-users-to-add-their-own-items)
+- [Controlled state](/#/Components/MultiSelect?id=controlled-state)
+- [Controlled state with custom options enabled](/#/Components/MultiSelect?id=controlled-state-with-custom-options-enabled)
+- [Disabled](/#/Components/MultiSelect?id=disabled)
+- [Formatting accessibility texts](/#/Components/MultiSelect?id=formatting-accessibility-texts)
+- [Loading indicator](/#/Components/MultiSelect?id=loading-indicator)
+- [Tooltip](/#/Components/MultiSelect?id=tooltip)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/MultiSelect?id=props--methods">Props & methods</a>
+  [Props & methods](/#/Components/MultiSelect?id=props--methods)
 </div>
 
 ### Basic use
@@ -609,9 +607,9 @@ const countries = [
 
 ### Loading indicator
 
-The example below simulates a data fetch operation from a backend. Loading spinner is toggled in the `onChange()` function, which runs when the user types into the filter text input.
+The example below simulates a data fetch operation from a backend.
 
-Use the `loading` and `loadingText` props to enable the loading spinner.
+Use the `loading` and `loadingText` props to enable a loading spinner. This can be done in the `onChange()` function, which runs when the user types into the filter text input.
 
 ```js
 import { useState } from 'react';
@@ -705,10 +703,15 @@ A `<Tooltip>` component can be used with MultiSelect to provide additional infor
 
 In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for `hintText`. Tooltip can be used for other nice-to-know information.
 
-For instructions regarding how to ensure your Tooltip is accessible, please refer to the <a href="/#/Components/Tooltip">Tooltip documentation.</a>
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
 
 ```js
-import { MultiSelect, Tooltip, Text } from 'suomifi-ui-components';
+import {
+  MultiSelect,
+  Tooltip,
+  Heading,
+  Text
+} from 'suomifi-ui-components';
 
 const countries = [
   {
@@ -768,6 +771,9 @@ const labelText = 'Visited countries';
       ariaToggleButtonLabelText={`${labelText}, show additional information`}
       ariaCloseButtonLabelText={`${labelText}, close additional information`}
     >
+      <Heading variant="h5" as="h2">
+        Why you are being asked this information
+      </Heading>
       <Text>
         We have deals in place with some of our partner countries to
         provide you personalized service

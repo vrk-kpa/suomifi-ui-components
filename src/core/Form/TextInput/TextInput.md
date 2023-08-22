@@ -1,42 +1,42 @@
-Text input as basic input element for short user inputs.
+`<TextInput>` is a form component for short user inputs.
 
-Set the width to match the preferred length of the user input
+The component's width should match the preferred length of the user input.
 
 Examples:
 
 - [Basic use](/#/Components/TextInput?id=basic-use)
 - [Hint text](/#/Components/TextInput?id=hint-text)
-- [Controlled input](/#/Components/TextInput?id=controlled-input)
+- [Default value](/#/Components/TextInput?id=default-value)
+- [Controlled state](/#/Components/TextInput?id=controlled-state)
+- [Error status](/#/Components/TextInput?id=error-status)
+- [Debounce](/#/Components/TextInput?id=debounce)
 - [Optional input](/#/Components/TextInput?id=optional-input)
-- [Full width input](/#/Components/TextInput?id=full-width-input)
+- [Full width](/#/Components/TextInput?id=full-width)
+- [Disabled](/#/Components/TextInput?id=disabled)
 - [Hidden label](/#/Components/TextInput?id=hidden-label)
-- [Debounce and validation](/#/Components/TextInput?id=debounce-and-validation)
 - [Input with icon](/#/Components/TextInput?id=input-with-icon)
 - [Input type](/#/Components/TextInput?id=input-type)
-- [Text input with tooltip](/#/Components/TextInput?id=textinput-with-tooltip)
-- [Text input with character counter](/#/Components/TextInput?id=textinput-with-character-counter)
+- [Tooltip](/#/Components/TextInput?id=tooltip)
+- [Character counter](/#/Components/TextInput?id=character-counter)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/TextInput?id=props--methods">Props & methods</a>
+  [Props & methods](/#/Components/TextInput?id=props--methods)
 </div>
 
 ### Basic use
+
+Provide a descriptive `labelText` for the input
 
 ```js
 import { TextInput } from 'suomifi-ui-components';
 import React from 'react';
 
-<>
-  <TextInput
-    onBlur={(value) => console.log(event.target.value)}
-    labelText="First name"
-  />
-</>;
+<TextInput labelText="First name" />;
 ```
 
 ### Hint text
 
-Hint text can be used to provide more detailed information about the input.
+The `hintText` prop can be used to provide more detailed information about the input
 
 ```js
 import { TextInput } from 'suomifi-ui-components';
@@ -47,13 +47,29 @@ import { TextInput } from 'suomifi-ui-components';
 />;
 ```
 
-### Controlled text input
+### Default value
 
-Use the input as a controlled component by giving it a `value`
+Set the component's initial value with the `defaultValue` prop.
 
 ```js
 import { TextInput } from 'suomifi-ui-components';
-import React, { useState } from 'react';
+
+<TextInput
+  onBlur={(value) => console.log(event.target.value)}
+  labelText="First name"
+  defaultValue="Rachel"
+/>;
+```
+
+### Controlled state
+
+Access and control the input's value programmatically with the `value` prop.
+
+A typical use case involves setting the state in the `onChange()` function.
+
+```js
+import { TextInput } from 'suomifi-ui-components';
+import { useState } from 'react';
 
 const [inputValue, setInputValue] = useState('');
 
@@ -64,9 +80,54 @@ const [inputValue, setInputValue] = useState('');
 />;
 ```
 
-### Optional text input
+### Error status
 
-Inputs are required by default, but can be marked optional using the `optionalText` property.
+Control the error status of the component using the `status` and `statusText` props.
+
+```js
+import { TextInput } from 'suomifi-ui-components';
+
+const [errorState, setErrorState] = React.useState(true);
+const statusText = errorState
+  ? 'First name must be at least 2 characters'
+  : undefined;
+const status = errorState ? 'error' : 'default';
+
+<TextInput
+  labelText="First name"
+  statusText={statusText}
+  status={status}
+  onChange={(newValue) => setErrorState(newValue.length < 2)}
+/>;
+```
+
+### Debounce
+
+You can provide the input a `debounce` time so that the `onChange()` function only runs after the user stops typing.
+
+```js
+import { TextInput } from 'suomifi-ui-components';
+
+const [errorState, setErrorState] = React.useState(false);
+const statusText = errorState
+  ? 'You entered invalid data'
+  : undefined;
+const status = errorState ? 'error' : 'default';
+
+<TextInput
+  labelText="Place of service"
+  statusText={statusText}
+  status={status}
+  debounce={300}
+  onChange={() => {
+    setErrorState(!errorState);
+  }}
+/>;
+```
+
+### Optional input
+
+Suomi.fi inputs are required by default, but can be marked optional using the `optionalText` property.
 
 ```js
 import { TextInput } from 'suomifi-ui-components';
@@ -91,7 +152,9 @@ import { TextInput } from 'suomifi-ui-components';
 />;
 ```
 
-### Disabled input
+### Disabled
+
+Disable the input with the `disabled` prop.
 
 ```js
 import { TextInput } from 'suomifi-ui-components';
@@ -101,7 +164,7 @@ import { TextInput } from 'suomifi-ui-components';
 
 ### Hidden label
 
-In some special cases, the label can be hidden from sighted users. This is not recommended though.
+In some special cases, the label can be hidden from sighted users. This is not recommended though, and should only be done when the field already has another visually connected label. In these cases, `labelText` should match or include the visual label.
 
 ```js
 import { TextInput } from 'suomifi-ui-components';
@@ -114,40 +177,16 @@ import { TextInput } from 'suomifi-ui-components';
 />;
 ```
 
-### Debounce and validation
-
-If you need to validate the user input using `onChange`, provide the input a debounce time so that the validation only happens after the user stops typing.
-
-You can show a status text and provide it corresponding styles using the `status` and `statusText` properties.
-
-```js
-import { TextInput } from 'suomifi-ui-components';
-
-const [errorState, setErrorState] = React.useState(false);
-const statusText = errorState
-  ? 'You entered invalid data'
-  : undefined;
-const status = errorState ? 'error' : 'default';
-
-<TextInput
-  labelText="Place of service"
-  statusText={statusText}
-  status={status}
-  debounce={300}
-  onChange={() => {
-    setErrorState(!errorState);
-  }}
-/>;
-```
-
 ### Input with icon
+
+Use the `icon` prop to render an icon inside the input field
 
 ```js
 import { TextInput, IconMapLocation } from 'suomifi-ui-components';
 
 <TextInput
   labelText="Country of origin"
-  icon={<IconMapLocation fill="red" />}
+  icon={<IconMapLocation fill="blue" />}
 />;
 ```
 
@@ -172,9 +211,13 @@ import { TextInput } from 'suomifi-ui-components';
 </>;
 ```
 
-### TextInput with tooltip
+### Tooltip
 
-A tooltip component can be given as a prop to provide a longer context or instructions where `hintText` alone would not be sufficient.
+A `<Tooltip>` component can be used with TextInput to provide additional information.
+
+In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for `hintText`. Tooltip can be used for other nice-to-know information.
+
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
 
 ```js
 import {
@@ -195,7 +238,7 @@ const labelTextForTooltipExample = 'Country of origin';
       ariaCloseButtonLabelText={`${labelTextForTooltipExample}, close additional information`}
     >
       <Heading variant="h5" as="h2">
-        Tooltip
+        If you don't have a birth certificate
       </Heading>
       <Text>
         If you do not have access to your birth certificate you can
@@ -206,7 +249,9 @@ const labelTextForTooltipExample = 'Country of origin';
 />;
 ```
 
-### TextInput with character counter
+### Character counter
+
+Use the `characterLimit`, `ariaCharactersRemainingText` and `ariaCharactersExceededText` props as shown below to apply a character counter to the input
 
 ```js
 import { TextInput } from 'suomifi-ui-components';
@@ -224,7 +269,7 @@ const maxCharAmount = 20;
 const validateText = (text) => {
   if (text.length > maxCharAmount) {
     setIsError(true);
-    setStatusText('Description must be 20 characters or less');
+    setStatusText('Identifier must be 20 characters or less');
   } else {
     setIsError(false);
     setStatusText('');
@@ -233,10 +278,9 @@ const validateText = (text) => {
 
 <>
   <TextInput
-    hintText="Please provide details pertaining to the case"
-    labelText="Additional details"
+    hintText="Provide a unique identifier for your item"
+    labelText="Identifier"
     onChange={(value) => validateText(value)}
-    characterLimit={maxCharAmount}
     ariaCharactersRemainingText={(amount) =>
       `You have ${amount} characters remaining`
     }
@@ -248,6 +292,7 @@ const validateText = (text) => {
     fullWidth
     debounce={300}
     defaultValue="Lorem ipsum dolor"
+    characterLimit={maxCharAmount}
   ></TextInput>
 </>;
 ```

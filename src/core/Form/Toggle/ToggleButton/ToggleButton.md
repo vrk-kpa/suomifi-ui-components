@@ -1,67 +1,76 @@
-`<ToggleButton>` is a toggle switch that is semantically a button. Toggle in general can be used to switch between two mutually exclusive states or actions.
+`<ToggleButton>` is a toggle switch that is semantically a button. It can be used to switch between two mutually exclusive states or actions. The state of the button is communicated to assistive technology using `aria-pressed`.
 
-Do not replace checkbox with toggle.
+Do not replace [Checkbox](/#/Components/Checkbox) with toggle.
 
 Examples:
 
-<ul>
-<li>[Basic use](/#/Components/Toggle?id=basic-use)</li>
-<li>[Controlled state](/#/Components/Toggle?id=controlled-state)</li>
-<li>[Disabled toggle](/#/Components/Toggle?id=disabled-toggle)</li>
-<li>[Toggle with input](/#/Components/Toggle?id=toggle-with-input)</li>
-<li>[Accessing value with ref](/#/Components/Toggle?id=togglebutton-with-ref)</li>
-</ul>
+- [Basic use](/#/Components/Toggle?id=basic-use)
+- [Default state](/#/Components/Toggle?id=default-state)
+- [Controlled state](/#/Components/Toggle?id=controlled-state)
+- [Disabled toggle](/#/Components/Toggle?id=disabled-toggle)
+- [Toggle with input](/#/Components/Toggle?id=toggle-with-input)
+- [Accessing value with ref](/#/Components/Toggle?id=accessing-value-with-ref)
 
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/Toggle?id=props--methods">Props & methods (ToggleButton)</a>
+  [Props & methods (ToggleButton)](/#/Components/Toggle?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Toggle?id=toggleinput">Props & methods (ToggleInput)</a>
+  [Props & methods (ToggleInput)](/#/Components/Toggle?id=toggleinput)
 </div>
 
 ### Basic use
 
 ```js
 import { ToggleButton } from 'suomifi-ui-components';
-import React from 'react';
 
-const exampleRef = React.createRef();
+<ToggleButton onClick={(checked) => console.log(checked)}>
+  Airplane mode
+</ToggleButton>;
+```
 
-<>
-  <ToggleButton onClick={(checked) => console.log(checked)}>
-    A default ToggleButton
-  </ToggleButton>
-</>;
+### Default state
+
+The initial state of the component can be set with the `defaultChecked` prop.
+
+```js
+import { ToggleButton } from 'suomifi-ui-components';
+
+<ToggleButton
+  onClick={(checked) => console.log(checked)}
+  defaultChecked
+>
+  Airplane mode
+</ToggleButton>;
 ```
 
 ### Controlled state
 
-`<ToggleButton>` can be used as a controlled component by giving its `checked` prop a value.
+Use the `checked` prop to access and control the component's state programmatically.
+
+A typical use case involves setting the state in the `onClick()` function.
 
 ```js
-import React, { useState } from 'react';
 import { ToggleButton } from 'suomifi-ui-components';
+import { useState } from 'react';
 
 const [checked, setChecked] = useState(false);
 
 <ToggleButton
   checked={checked}
-  onClick={(checked) => {
-    if (window.confirm('Change Toggle state?')) {
-      setChecked(checked);
-    }
-  }}
+  onClick={(checked) => setChecked(checked)}
 >
-  Controlled checked state
+  Airplane mode
 </ToggleButton>;
 ```
 
 ### Disabled toggle
 
+The component can be disabled with the `disabled` prop.
+
 ```js
 import { ToggleButton } from 'suomifi-ui-components';
 
-<ToggleButton disabled>Disabled ToggleButton</ToggleButton>;
+<ToggleButton disabled>Airplane mode</ToggleButton>;
 ```
 
 ### Toggle with input
@@ -69,11 +78,11 @@ import { ToggleButton } from 'suomifi-ui-components';
 `<ToggleInput>` is a variant of toggle, where the underlying element is a checkbox type input instead of a button. It provides the same functionalities as `<ToggleButton>` but with a slightly different API.
 
 ```js
+import { ToggleInput } from 'suomifi-ui-components';
 import { useState } from 'react';
 
-import { ToggleInput } from 'suomifi-ui-components';
-
 const [checked, setChecked] = useState(false);
+
 <>
   <ToggleInput
     defaultChecked
@@ -112,7 +121,7 @@ const exampleRef = React.createRef();
   onClick={(checked) => console.log(exampleRef.current.checked)}
   ref={exampleRef}
 >
-  ToggleInput with ref
+  Airplane mode
 </ToggleInput>;
 ```
 

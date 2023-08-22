@@ -10,7 +10,7 @@ Examples:
 - [Conditional status text](/#/Components/StatusText?id=conditional-status-text)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/StatusText?id=props--methods">Props & methods</a>
+  [Props & methods](/#/Components/StatusText?id=props--methods)
 </div>
 
 ### Basic use

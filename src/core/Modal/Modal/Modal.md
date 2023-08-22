@@ -2,32 +2,30 @@ Use the `<Modal>` component to create accessible modals in your application.
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/Modal?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/Modal?id=full-screen">Full screen</a></li>
-  <li><a href="/#/Components/Modal?id=no-scrolling-dialog">No scrolling (dialog)</a></li>
-  <li><a href="/#/Components/Modal?id=set-focus-on-open-and-close">Set focus on open and close</a></li>
-  <li><a href="/#/Components/Modal?id=complex-modal-with-custom-styling">Complex Modal with custom styling</a></li>
-</ul>
+- [Basic use](/#/Components/Modal?id=basic-use)
+- [Full screen](/#/Components/Modal?id=full-screen)
+- [No scrolling (dialog)](/#/Components/Modal?id=no-scrolling-dialog)
+- [Set focus on open and close](/#/Components/Modal?id=set-focus-on-open-and-close)
+- [Complex Modal with custom styling](/#/Components/Modal?id=complex-modal-with-custom-styling)
 
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/Modal?id=props--methods">Props & methods (Modal)</a>
+  [Props & methods (Modal)](/#/Components/Modal?id=props--methods)
 </div>
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/Modal?id=modalcontent">Props & methods (ModalContent)</a>
+  [Props & methods (ModalContent)](/#/Components/Modal?id=modalcontent)
 </div>
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/Modal?id=modaltitle">Props & methods (ModalTitle)</a>
+  [Props & methods (ModalTitle)](/#/Components/Modal?id=modaltitle)
 </div>
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Modal?id=modalfooter">Props & methods (ModalFooter)</a>
+  [Props & methods (ModalFooter)](/#/Components/Modal?id=modalfooter)
 </div>
 
 ### Basic use
 
 Compose the Modal with `<ModalContent>`, `<ModalTitle>` and `<ModalFooter>`
 
-Hide the application root node from screen readers using the `appElementId` prop.
+Hide the application root node from the keyboard focus order and assistive technology using the `appElementId` prop.
 
 Visibility state of the Modal is controlled outside the component. Closing the Modal needs to be done explicitly on footer buttons and esc keypress.
 
@@ -204,7 +202,7 @@ By default, initial focus will be in the modal title. When closed, focus will re
 
 The `focusOnOpenRef` and `focusOnCloseRef` props can be used to change this behaviour.
 
-**NOTE**: Use with caution as screen reader users may get confused if initial focus is not in the beginning of modal or if focus does not return to where it was before opening the modal.
+**NOTE**: Use with caution as screen reader users may get confused if initial focus is not in the beginning of modal or if focus does not return to where it was before opening the modal. In modals with little content, initial focus could be set on the first interactive element, e.g. an "OK" button or a text input.
 
 **NOTE 2:** The component is built with React-modal, which does not consider some inline elements to be focusable. To ensure focusability inside Modal, components must have non-zero size, be visible, have tabindex of 0 or greater, must be of node type input, select, textarea, button, object or a with either tabIndex or href attribute and cannot be disabled! ([source](https://github.com/reactjs/react-modal/blob/827796d48e7d4c74b4362cf90955e162082ee46d/src/helpers/tabbable.js))
 
@@ -372,4 +370,4 @@ const [smallScreen, setSmallScreen] = useState(false);
 </>;
 ```
 
-## Props & methods
+### Props & methods

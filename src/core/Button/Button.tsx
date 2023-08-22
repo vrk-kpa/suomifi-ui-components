@@ -26,7 +26,8 @@ export interface ButtonProps
   children?: ReactNode;
   /**
    * Define a label if button's text content does not indicate the button's purpose (for example, button with only an icon).
-   * Alternatively you can define an aria-labelledby
+   * If the button has a visible label, make sure the aria-label includes the visible text.
+   * Alternatively you can define an `aria-labelledby`.
    */
   'aria-label'?: string;
   /** Disables the button */

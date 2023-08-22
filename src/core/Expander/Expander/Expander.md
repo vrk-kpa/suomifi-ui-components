@@ -2,30 +2,28 @@ The `<Expander>` component is used to hide information under an expandable title
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/Expander?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/Expander?id=default-open">Default open</a></li>
-  <li><a href="/#/Components/Expander?id=heading-semantics">Heading semantics</a></li>
-  <li><a href="/#/Components/Expander?id=expanders-in-group">Expanders in group</a></li>
-  <li><a href="/#/Components/Expander?id=group-without-openclose-all-button">Group without open/close all button</a></li>
-  <li><a href="/#/Components/Expander?id=controlled-state">Controlled state</a></li>
-  <li><a href="/#/Components/Expander?id=interactive-elements-in-expander-title">Interactive elements in Expander title</a></li>
-</ul>
+- [Basic use](/#/Components/Expander?id=basic-use)
+- [Default open](/#/Components/Expander?id=default-open)
+- [Heading semantics](/#/Components/Expander?id=heading-semantics)
+- [Expanders in group](/#/Components/Expander?id=expanders-in-group)
+- [Group without open/close all button](/#/Components/Expander?id=group-without-openclose-all-button)
+- [Controlled state](/#/Components/Expander?id=controlled-state)
+- [Interactive elements in Expander title](/#/Components/Expander?id=interactive-elements-in-expander-title)
 
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/Expander?id=props--methods">Props & methods (Expander)</a>
+  [Props & methods (Expander)](/#/Components/Expander?id=props--methods)
 </div>
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/Expander?id=expandertitlebutton">Props & methods (ExpanderTitleButton)</a>
+  [Props & methods (ExpanderTitleButton)](/#/Components/Expander?id=expandertitlebutton)
 </div>
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/Expander?id=expandercontent">Props & methods (ExpanderContent)</a>
+  [Props & methods (ExpanderContent)](/#/Components/Expander?id=expandercontent)
 </div>
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/Expander?id=expandergroup">Props & methods (ExpanderGroup)</a>
+  [Props & methods (ExpanderGroup)](/#/Components/Expander?id=expandergroup)
 </div>
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Expander?id=expandertitle">Props & methods (ExpanderTitle)</a>
+  [Props & methods (ExpanderTitle)](/#/Components/Expander?id=expandertitle)
 </div>
 
 ### Basic use
@@ -90,7 +88,7 @@ import {
 
 ### Heading semantics
 
-You can use the `asHeading` prop in ExpanderTitleButton to render the Expander button as a heading element.
+You can use the `asHeading` prop in ExpanderTitleButton to render the Expander button inside a heading element. Should always be used when the ExpanderContent might contain subheadings. Make sure the heading hierarchy is logical.
 
 ```jsx
 import {
@@ -350,9 +348,9 @@ const [expanderThreeOpen, setExpanderThreeOpen] = useState(true);
   </button>
   <ExpanderGroup
     openAllText="Open all"
-    ariaOpenAllText="Open all expanders"
+    ariaOpenAllText="Open all sections"
     closeAllText="Close all"
-    ariaCloseAllText="Close all expanders"
+    ariaCloseAllText="Close all sections"
     showToggleAllButton={false}
   >
     <Expander open={expanderOneOpen}>
@@ -442,7 +440,7 @@ const [expanderThreeOpen, setExpanderThreeOpen] = useState(true);
 
 If you need to have interactive elements in the Expander title, use `<ExpanderTitle>` instead of `<ExpanderTitleButton>`.
 
-ExpanderTitle creates a smaller toggle button to the right side of the Expander. It is important to set `ariaOpenText`/`ariaCloseText` props as well as connect the interactive element to the button with `toggleButtonAriaDescribedBy` to provide adequate context for assistive technologies.
+ExpanderTitle creates a smaller toggle button to the right side of the Expander. Generally `ariaOpenText`/`ariaCloseText` props should have the same value, because state is already communicated to assistive technology using `aria-expanded`. Point `toggleButtonAriaDescribedBy` to the ID of interactive element to provide additional context for assistive technology.
 
 ```jsx
 import {
@@ -455,8 +453,8 @@ import {
 
 <Expander>
   <ExpanderTitle
-    ariaOpenText="Show additional information"
-    ariaCloseText="Close additional information"
+    ariaOpenText="Additional information"
+    ariaCloseText="Additional information"
     toggleButtonAriaDescribedBy="checkbox-id"
   >
     <Checkbox id="checkbox-id">Guardianship</Checkbox>
@@ -465,8 +463,8 @@ import {
     <Paragraph marginBottomSpacing="l">
       Guardianship means the management of other persons’ finances and
       looking after their interests when they are no longer able to do
-      it. Guardianship if the matters of a person close to you cannot
-      be managed in any other way.
+      it. Choose guardianship if the matters of a person close to you
+      cannot be managed in any other way.
     </Paragraph>
     <Paragraph>
       You can safeguard the management of your property and other
@@ -476,4 +474,4 @@ import {
 </Expander>;
 ```
 
-## Props & methods
+### Props & methods

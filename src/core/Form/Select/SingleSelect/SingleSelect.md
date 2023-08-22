@@ -1,23 +1,23 @@
 The `<SingleSelect>` component is used to select one item from a list of options. The list can also be filtered by typing.
 
-If you need to select multiple options, use the <a href="#/Components/MultiSelect">MultiSelect</a> component instead.
+If you need to select multiple options, use the [MultiSelect](/#/Components/MultiSelect) component instead.
+
+If your list only contains a few options (user does not need filtering to find the correct option), use the [Dropdown](/#/Components/Dropdown) component instead.
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/SingleSelect?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/SingleSelect?id=default-selected-items">Default selected items</a></li>
-  <li><a href="/#/Components/SingleSelect?id=error-status">Error status</a></li>
-  <li><a href="/#/Components/SingleSelect?id=allowing-users-to-add-their-own-item">Allowing users to add their own item</a></li>
-  <li><a href="/#/Components/SingleSelect?id=controlled-state">Controlled state</a></li>
-  <li><a href="/#/Components/SingleSelect?id=controlled-state-with-custom-option-enabled">Controlled state with custom option enabled</a></li>
-  <li><a href="/#/Components/SingleSelect?id=disabled">Disabled</a></li>
-  <li><a href="/#/Components/SingleSelect?id=loading-indicator">Loading indicator</a></li>
-  <li><a href="/#/Components/SingleSelect?id=tooltip">Tooltip</a></li>
-</ul>
+- [Basic use](/#/Components/SingleSelect?id=basic-use)
+- [Default selected items](/#/Components/SingleSelect?id=default-selected-items)
+- [Error status](/#/Components/SingleSelect?id=error-status)
+- [Allowing users to add their own item](/#/Components/SingleSelect?id=allowing-users-to-add-their-own-item)
+- [Controlled state](/#/Components/SingleSelect?id=controlled-state)
+- [Controlled state with custom option enabled](/#/Components/SingleSelect?id=controlled-state-with-custom-option-enabled)
+- [Disabled](/#/Components/SingleSelect?id=disabled)
+- [Loading indicator](/#/Components/SingleSelect?id=loading-indicator)
+- [Tooltip](/#/Components/SingleSelect?id=tooltip)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/SingleSelect?id=props--methods">Props & methods</a>
+  [Props & methods](/#/Components/SingleSelect?id=props--methods)
 </div>
 
 ### Basic use
@@ -505,9 +505,9 @@ const countries = [
 
 ### Loading indicator
 
-The example below simulates a data fetch operation from a backend. Loading spinner is toggled in the `onChange()` function, which runs when the user types into the filter text input.
+The example below simulates a data fetch operation from a backend.
 
-Use the `loading` and `loadingText` props to enable the loading spinner.
+Use the `loading` and `loadingText` props to enable a loading spinner. This can be done in the `onChange()` function, which runs when the user types into the filter text input.
 
 ```js
 import { useState } from 'react';
@@ -599,10 +599,15 @@ A `<Tooltip>` component can be used with SingleSelect to provide additional info
 
 In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for `hintText`. Tooltip can be used for other nice-to-know information.
 
-For instructions regarding how to ensure your Tooltip is accessible, please refer to the <a href="/#/Components/Tooltip">Tooltip documentation.</a>
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
 
 ```js
-import { SingleSelect, Tooltip, Text } from 'suomifi-ui-components';
+import {
+  SingleSelect,
+  Tooltip,
+  Heading,
+  Text
+} from 'suomifi-ui-components';
 
 const countries = [
   {
@@ -660,6 +665,9 @@ const labelText = 'Country of residence';
       ariaToggleButtonLabelText={`${labelText}, show additional information`}
       ariaCloseButtonLabelText={`${labelText}, close additional information`}
     >
+      <Heading variant="h5" as="h2">
+        Why you are being asked this information?
+      </Heading>
       <Text>
         Country of residence information is used to provide you
         personalized assistance in your local area.

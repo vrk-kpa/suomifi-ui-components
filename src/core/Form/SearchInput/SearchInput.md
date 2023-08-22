@@ -2,19 +2,17 @@ The `<SearchInput>` component is intended to be used as part of a traditional pa
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/SearchInput?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/SearchInput?id=inside-a-form">Inside a form</a></li>
-  <li><a href="/#/Components/SearchInput?id=default-value">Default value</a></li>
-  <li><a href="/#/Components/SearchInput?id=controlled-value">Controlled value</a></li>
-  <li><a href="/#/Components/SearchInput?id=error-status">Error status</a></li>
-  <li><a href="/#/Components/SearchInput?id=debounce">Debounce</a></li>
-  <li><a href="/#/Components/SearchInput?id=full-width">Full width</a></li>
-  <li><a href="/#/Components/SearchInput?id=hidden-label">Hidden label</a></li>
-</ul>
+- [Basic use](/#/Components/SearchInput?id=basic-use)
+- [Inside a form](/#/Components/SearchInput?id=inside-a-form)
+- [Default value](/#/Components/SearchInput?id=default-value)
+- [Controlled value](/#/Components/SearchInput?id=controlled-value)
+- [Error status](/#/Components/SearchInput?id=error-status)
+- [Debounce](/#/Components/SearchInput?id=debounce)
+- [Full width](/#/Components/SearchInput?id=full-width)
+- [Hidden label](/#/Components/SearchInput?id=hidden-label)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/SearchInput?id=props--methods">Props & methods</a>
+  [Props & methods](/#/Components/SearchInput?id=props--methods)
 </div>
 
 ### Basic use

@@ -2,23 +2,21 @@
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/ActionMenu?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/ActionMenu?id=with-icon-only">With icon only</a></li>
-  <li><a href="/#/Components/ActionMenu?id=full-width">Full width</a></li>
-  <li><a href="/#/Components/ActionMenu?id=disabled">Disabled</a></li>
-  <li><a href="/#/Components/ActionMenu?id=icons-and-dividers-in-the-list">Icons and dividers in the list</a></li>
-  <li><a href="/#/Components/ActionMenu?id=button-variants">Button variants</a></li>
-</ul>
+- [Basic use](/#/Components/ActionMenu?id=basic-use)
+- [With icon only](/#/Components/ActionMenu?id=with-icon-only)
+- [Full width](/#/Components/ActionMenu?id=full-width)
+- [Disabled](/#/Components/ActionMenu?id=disabled)
+- [Icons and dividers in the list](/#/Components/ActionMenu?id=icons-and-dividers-in-the-list)
+- [Button variants](/#/Components/ActionMenu?id=button-variants)
 
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/ActionMenu?id=props--methods">Props & methods (ActionMenu)</a>
+ [Props & methods (ActionMenu)](/#/Components/ActionMenu?id=props--methods)
 </div>
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/ActionMenu?id=actionmenuitem">Props & methods (ActionMenuItem)</a>
+ [Props & methods (ActionMenuItem)](/#/Components/ActionMenu?id=actionmenuitem)
 </div>
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/ActionMenu?id=actionmenudivider">Props & methods (ActionMenuDivider)</a>
+ [Props & methods (ActionMenuDivider)](/#/Components/ActionMenu?id=actionmenudivider)
 </div>
 
 ### Basic use
@@ -46,7 +44,7 @@ import { ActionMenu, ActionMenuItem } from 'suomifi-ui-components';
 
 When the `buttonText` prop is absent, the ActionMenu button will render with a vertical dot icon as its content.
 
-In this scenario it is very important to add an `aria-label` to describe the button's purpose for assistive technologies.
+In this scenario it is very important to add an `aria-label` to describe the button's purpose for assistive technology.
 
 ```js
 import { ActionMenu, ActionMenuItem } from 'suomifi-ui-components';
@@ -216,4 +214,4 @@ import { ActionMenu, ActionMenuItem } from 'suomifi-ui-components';
 </>;
 ```
 
-## Props & methods
+### Props & methods

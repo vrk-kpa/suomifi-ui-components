@@ -2,26 +2,24 @@ The `<Checkbox>` component is used to mark a value as selected in a form.
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/Checkbox?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/Checkbox?id=hint-text">Hint text</a></li>
-  <li><a href="/#/Components/Checkbox?id=error-status">Error status</a></li>
-  <li><a href="/#/Components/Checkbox?id=default-state">Default state</a></li>
-  <li><a href="/#/Components/Checkbox?id=controlled-state">Controlled state</a></li>
-  <li><a href="/#/Components/Checkbox?id=disabled">Disabled</a></li>
-  <li><a href="/#/Components/Checkbox?id=accessing-value-with-ref">Accessing value with ref</a></li>
-  <li><a href="/#/Components/Checkbox?id=large-checkbox">Large checkbox</a></li>
-  <li><a href="/#/Components/Checkbox?id=checkboxes-in-group">Checkboxes in group</a></li>
-  <li><a href="/#/Components/Checkbox?id=group-error-status">Group error status</a></li>
-  <li><a href="/#/Components/Checkbox?id=optional-input">Optional input</a></li>
-  <li><a href="/#/Components/Checkbox?id=group-with-a-tooltip">Group with a tooltip</a></li>
-</ul>
+- [Basic use](/#/Components/Checkbox?id=basic-use)
+- [Hint text](/#/Components/Checkbox?id=hint-text)
+- [Error status](/#/Components/Checkbox?id=error-status)
+- [Default state](/#/Components/Checkbox?id=default-state)
+- [Controlled state](/#/Components/Checkbox?id=controlled-state)
+- [Disabled](/#/Components/Checkbox?id=disabled)
+- [Accessing value with ref](/#/Components/Checkbox?id=accessing-value-with-ref)
+- [Large checkbox](/#/Components/Checkbox?id=large-checkbox)
+- [Checkboxes in group](/#/Components/Checkbox?id=checkboxes-in-group)
+- [Group error status](/#/Components/Checkbox?id=group-error-status)
+- [Optional input](/#/Components/Checkbox?id=optional-input)
+- [Group with a tooltip](/#/Components/Checkbox?id=group-with-a-tooltip)
 
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/Checkbox?id=props--methods">Props & methods (Checkbox)</a>
+  [Props & methods (Checkbox)](/#/Components/Checkbox?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Checkbox?id=checkboxgroup">Props & methods (CheckboxGroup)</a>
+  [Props & methods (CheckboxGroup)](/#/Components/Checkbox?id=checkboxgroup)
 </div>
 
 ### Basic use
@@ -46,7 +44,7 @@ import { Checkbox } from 'suomifi-ui-components';
 
 ### Error status
 
-Toggle the error status of the component using the `status` and `statusText` props.
+Toggle the error status of the component using the `status` and `statusText` props. The `statusText` is connected to the `<input>` using `aria-describedby` and read out to screen readers automatically upon change using `aria-live="assertive"`.
 
 ```js
 import { Checkbox } from 'suomifi-ui-components';
@@ -128,7 +126,7 @@ import { Checkbox } from 'suomifi-ui-components';
 
 ### Checkboxes in group
 
-Use the `<ChexboxGroup>` component to place multiple Checboxes into a group.
+Use the `<CheckboxGroup>` component to place multiple Checkboxes into a group. The group is rendered as an HTML `<fieldset>`. Both `labelText` and `groupHintText` are rendered inside the `<legend>`.
 
 The group can have a common `groupHintText`, and an individual Checkbox inside the group can have its own `hintText`
 
@@ -154,9 +152,9 @@ import React from 'react';
 
 ### Group error status
 
-The ChexboxGroup can have a `groupStatus` which is passed down to all children. An individual Checkbox inside the group can still have its own status which will override the group status.
+The CheckboxGroup can have a `groupStatus` which is passed down to all children. An individual Checkbox inside the group can still have its own status which will override the group status.
 
-Always use a descriptive `groupStatusText` with the error status.
+Always use a descriptive `groupStatusText` with the error status. It uses `aria-live="polite"`, and will be read automatically by screen readers. The `statusText` for individual Checkboxes uses `aria-live="assertive"` and could override the group status.
 
 ```js
 import { Checkbox, CheckboxGroup } from 'suomifi-ui-components';
@@ -180,7 +178,7 @@ import React from 'react';
 
 ### Optional input
 
-By default, all Suomi.fi form inputs are considered required. If the input is not required, you can set the `optionalText` prop to mark it as such.
+Suomi.fi inputs are required by default, but can be marked optional using the `optionalText` property.
 
 ```js
 import { Checkbox, CheckboxGroup } from 'suomifi-ui-components';
@@ -207,7 +205,7 @@ A `<Tooltip>` component can be used with the CheckboxGroup to provide additional
 
 In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for `groupHintText`. Tooltip can be used for other nice-to-know information.
 
-For instructions regarding how to ensure your Tooltip is accessible, please refer to the <a href="/#/Components/Tooltip">Tooltip documentation.</a>
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
 
 ```js
 import {
@@ -228,6 +226,9 @@ const labelText = 'How do you wish to be contacted?';
       ariaToggleButtonLabelText={`${labelText}, show additional information`}
       ariaCloseButtonLabelText={`${labelText}, close additional information`}
     >
+      <Heading variant="h5" as="h2">
+        Why you are being asked this information?
+      </Heading>
       <Text>
         Your contact information is used only to contact you in
         matters regarding the application process, and is not shared
@@ -247,4 +248,4 @@ const labelText = 'How do you wish to be contacted?';
 </CheckboxGroup>;
 ```
 
-## Props & methods
+### Props & methods

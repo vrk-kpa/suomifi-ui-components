@@ -1,22 +1,26 @@
-Textarea is a component suitable for longer user inputs.
+The `<Textarea>` component is suitable for longer user inputs.
 
 Examples:
 
 - [Basic use](/#/Components/Textarea?id=basic-use)
 - [Hint text](/#/Components/Textarea?id=hint-text)
+- [Default value](/#/Components/Textarea?id=default-value)
 - [Controlled state](/#/Components/Textarea?id=controlled-state)
+- [Error status](/#/Components/Textarea?id=error-status)
+- [Disabled](/#/Components/Textarea?id=disabled)
 - [Optional input](/#/Components/Textarea?id=optional-input)
 - [Full width](/#/Components/Textarea?id=full-width)
 - [Resize modes](/#/Components/Textarea?id=resize-modes)
-- [Status and validation](/#/Components/Textarea?id=status-and-validation)
-- [Textarea with tooltip](/#/Components/Textarea?id=textarea-with-tooltip)
-- [Textarea with character counter](/#/Components/Textarea?id=textarea-with-character-counter)
+- [Tooltip](/#/Components/Textarea?id=tooltip)
+- [Character counter](/#/Components/Textarea?id=character-counter)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Textarea?id=props--methods">Props & methods</a>
+  [Props & methods](/#/Components/Textarea?id=props--methods)
 </div>
 
-### Basic usage
+### Basic use
+
+Provide a descriptive `labelText` for the input
 
 ```js
 import { Textarea } from 'suomifi-ui-components';
@@ -26,7 +30,7 @@ import { Textarea } from 'suomifi-ui-components';
 
 ### Hint text
 
-A hint text can be given to the component to provide a better explanation of the purpose and requirements of the input.
+A `hintText` can be given to the component to provide a better explanation of the purpose and requirements of the input.
 
 ```js
 import { Textarea } from 'suomifi-ui-components';
@@ -37,13 +41,30 @@ import { Textarea } from 'suomifi-ui-components';
 />;
 ```
 
+### Default value
+
+Set the component's initial value by providing text as children
+
+```js
+import { TextInput } from 'suomifi-ui-components';
+
+<Textarea
+  labelText="Additional information"
+  hintText="Provide any other details you want to add to your application"
+>
+  Lorem ipsum dolor sit amet
+</Textarea>;
+```
+
 ### Controlled state
 
-Use textarea as a controlled component by giving it a `value`
+Access and control the input's value programmatically with the `value` prop.
+
+A typical use case involves setting the state in the `onChange()` function.
 
 ```js
 import { Textarea } from 'suomifi-ui-components';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const [inputValue, setInputValue] = useState('');
 
@@ -54,9 +75,40 @@ const [inputValue, setInputValue] = useState('');
 />;
 ```
 
+### Error status
+
+Control the error status of the component using the `status` and `statusText` props.
+
+```js
+import { Textarea } from 'suomifi-ui-components';
+
+const [errorState, setErrorState] = React.useState(true);
+const statusText = errorState
+  ? 'Description is a required field'
+  : undefined;
+const status = errorState ? 'error' : 'default';
+
+<Textarea
+  labelText="Description"
+  statusText={statusText}
+  status={status}
+  onChange={(event) => setErrorState(event.target.value === '')}
+/>;
+```
+
+### Disabled
+
+Disable the input with the `disabled` prop.
+
+```js
+import { Textarea } from 'suomifi-ui-components';
+
+<Textarea labelText="Additional information" disabled />;
+```
+
 ### Optional input
 
-Inputs are required by default, but can be marked optional using the `optionalText` property.
+Suomi.fi inputs are required by default, but can be marked optional using the `optionalText` property.
 
 ```js
 import { Textarea } from 'suomifi-ui-components';
@@ -96,51 +148,19 @@ import { Textarea } from 'suomifi-ui-components';
 />;
 ```
 
-### Status and validation
+### Tooltip
 
-You can show a status text and give it corresponding styles using the `status` and `statusText` properties. The preferred way for validation is upon submit.
+A `<Tooltip>` component can be used with Textarea to provide additional information.
 
-```js
-import React, { useRef } from 'react';
-import { Textarea, Button } from 'suomifi-ui-components';
+In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for `hintText`. Tooltip can be used for other nice-to-know information.
 
-const [errorState, setErrorState] = React.useState(true);
-const statusText = errorState
-  ? 'Description of events is a required field'
-  : undefined;
-const status = errorState ? 'error' : 'default';
-
-const textAreaRef = useRef();
-
-const validateEntry = () => {
-  !textAreaRef.current.value
-    ? setErrorState(true)
-    : setErrorState(false);
-  return;
-};
-
-<>
-  <Textarea
-    labelText="Description of events"
-    statusText={statusText}
-    status={status}
-    ref={textAreaRef}
-  />
-  <Button onClick={validateEntry}>Submit</Button>
-</>;
-```
-
-### TextInput with tooltip
-
-A tooltip component can be given as a prop to provide a longer context or instructions where `hintText` alone would not be sufficient.
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
 
 ```js
 import {
   Textarea,
   Tooltip,
   Heading,
-  HtmlUl,
-  HtmlLi,
   Text
 } from 'suomifi-ui-components';
 
@@ -172,7 +192,7 @@ const labelTextForTooltipExample = 'Additional feedback';
 />;
 ```
 
-### TextArea with character counter
+### Character counter
 
 - Provide the maximum length of the text to enable character counter
 - Provide clear texts indicating characters remaining or exceeding the limit. They are hidden from view but exist for screen reader users.

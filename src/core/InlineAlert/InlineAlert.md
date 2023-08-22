@@ -1,18 +1,16 @@
-`<InlineAlert>` is used inside the main content of a web page to convey information regarding a specific part of the site. Typically used in forms to, for example, provide information about a specific field or show centralized form errors.
+`<InlineAlert>` is used inside the main content of a web page to convey information regarding a specific part of the site. Typically used in forms to, for example, provide information about a specific field or show centralized form errors. The content is read out to screen readers by default using `aria-live="assertive"`.
 
 If you need to show site-wide information at the top of the page, use the <a href="#/Components/Alert">Alert</a> component instead.
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/InlineAlert?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/InlineAlert?id=warning-status">Warning status</a></li>
-  <li><a href="/#/Components/InlineAlert?id=error-status">Error status</a></li>
-  <li><a href="/#/Components/InlineAlert?id=small-screen">Small screen</a></li>
-</ul>
+- [Basic use](/#/Components/InlineAlert?id=basic-use)
+- [Warning status](/#/Components/InlineAlert?id=warning-status)
+- [Error status](/#/Components/InlineAlert?id=error-status)
+- [Small screen](/#/Components/InlineAlert?id=small-screen)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/InlineAlert?id=props--methods">Props & methods</a>
+  [Props & methods](/#/Components/InlineAlert?id=props--methods)
 </div>
 
 ### Basic use

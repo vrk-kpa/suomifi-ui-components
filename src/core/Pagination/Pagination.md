@@ -2,16 +2,14 @@ The `<Pagination>` component can be used to navigate through paginated content, 
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/Pagination?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/Pagination?id=using-internal-state">Using internal state</a></li>
-  <li><a href="/#/Components/Pagination?id=slicing-a-dataset-based-on-current-page">Slicing a dataset based on current page</a></li>
-  <li><a href="/#/Components/Pagination?id=without-page-input">Without page input</a></li>
-  <li><a href="/#/Components/Pagination?id=small-screen">Small screen</a></li>
-</ul>
+- [Basic use](/#/Components/Pagination?id=basic-use)
+- [Using internal state](/#/Components/Pagination?id=using-internal-state)
+- [Slicing a dataset based on current page](/#/Components/Pagination?id=slicing-a-dataset-based-on-current-page)
+- [Without page input](/#/Components/Pagination?id=without-page-input)
+- [Small screen](/#/Components/Pagination?id=small-screen)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Pagination?id=props--methods">Props & methods</a>
+  [Props & methods](/#/Components/Pagination?id=props--methods)
 </div>
 
 ### Basic use

@@ -1,25 +1,23 @@
-Use the `<RadioButton>` component in a form to select one option out of a few options. To allow users to select multiple options, use the <a href="#/Components/Checkbox">Checkbox</a> component instead.
+Use the `<RadioButton>` component in a form to select one option out of a few options. To allow users to select multiple options, use a group of [Checkbox](/#/Components/Checkbox) components instead.
 
-If you have more than a few options from which users can choose, consider using the <a href="#/Components/Dropdown">Dropdown</a> component instead.
+If you have more than a few options from which users can choose, consider using the [Dropdown](/#/Components/Dropdown) component instead.
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/RadioButton?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/RadioButton?id=default-value">Default value</a></li>
-  <li><a href="/#/Components/RadioButton?id=controlled-state">Controlled state</a></li>
-  <li><a href="/#/Components/RadioButton?id=disabled">Disabled</a></li>
-  <li><a href="/#/Components/RadioButton?id=large-variant">Large variant</a></li>
-  <li><a href="/#/Components/RadioButton?id=optional-input">Optional input</a></li>
-  <li><a href="/#/Components/RadioButton?id=standalone-radio-buttons">Standalone radio buttons</a></li>
-  <li><a href="/#/Components/RadioButton?id=tooltip">Tooltip</a></li>
-</ul>
+- [Basic use](/#/Components/RadioButton?id=basic-use)
+- [Default value](/#/Components/RadioButton?id=default-value)
+- [Controlled state](/#/Components/RadioButton?id=controlled-state)
+- [Disabled](/#/Components/RadioButton?id=disabled)
+- [Large variant](/#/Components/RadioButton?id=large-variant)
+- [Optional input](/#/Components/RadioButton?id=optional-input)
+- [Standalone radio buttons](/#/Components/RadioButton?id=standalone-radio-buttons)
+- [Tooltip](/#/Components/RadioButton?id=tooltip)
 
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/RadioButton?id=props--methods">Props & methods (RadioButton)</a>
+  [Props & methods (RadioButton)](/#/Components/RadioButton?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/RadioButton?id=radiobuttongroup">Props & methods (RadioButtonGroup)</a>
+  [Props & methods (RadioButtonGroup)](/#/Components/RadioButton?id=radiobuttongroup)
 </div>
 
 ### Basic use
@@ -157,7 +155,7 @@ import { RadioButton, RadioButtonGroup } from 'suomifi-ui-components';
 
 ### Optional input
 
-By default, all Suomi.fi form inputs are considered required. If the input is not required, you can set the optionalText prop to mark it as such.
+Suomi.fi inputs are required by default, but can be marked optional using the `optionalText` property.
 
 ```js
 import { RadioButton, RadioButtonGroup } from 'suomifi-ui-components';
@@ -215,13 +213,14 @@ A `<Tooltip>` component can be used with the RadioButtonGroup to provide additio
 
 In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for `groupHintText`. Tooltip can be used for other nice-to-know information.
 
-For instructions regarding how to ensure your Tooltip is accessible, please refer to the <a href="/#/Components/Tooltip">Tooltip documentation.</a>
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
 
 ```js
 import {
   RadioButton,
   RadioButtonGroup,
   Tooltip,
+  Heading,
   Text
 } from 'suomifi-ui-components';
 
@@ -236,6 +235,9 @@ const labelText = 'How do you wish to be contacted?';
       ariaToggleButtonLabelText={`${labelText}, additional information`}
       ariaCloseButtonLabelText={`${labelText}, close additional information`}
     >
+      <Heading variant="h5" as="h2">
+        How is my contact information used?
+      </Heading>
       <Text>
         Your contact information is used only to contact you in
         matters regarding the application process, and is not shared
@@ -256,4 +258,4 @@ const labelText = 'How do you wish to be contacted?';
 </RadioButtonGroup>;
 ```
 
-## Props & methods
+### Props & methods

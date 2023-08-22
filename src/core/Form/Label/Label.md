@@ -4,14 +4,12 @@ Under the hood, the `suomifi-ui-components` library uses this component extensiv
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/Label?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/Label?id=marking-an-input-optional">Marking an input optional</a></li>
-  <li><a href="/#/Components/Label?id=tooltip">Tooltip</a></li>
-</ul>
+- [Basic use](/#/Components/Label?id=basic-use)
+- [Marking an input optional](/#/Components/Label?id=marking-an-input-optional)
+- [Tooltip](/#/Components/Label?id=tooltip)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Label?id=props--methods">Props & methods</a>
+  [Props & methods](/#/Components/Label?id=props--methods)
 </div>
 
 ### Basic use
@@ -27,7 +25,7 @@ import { Label } from 'suomifi-ui-components';
 
 ### Marking an input optional
 
-By default, all Suomi.fi form inputs are considered required. If the input is not required, you can set `optionalText` after the Label to mark it as such.
+Suomi.fi inputs are required by default, but can be marked optional using the Label's `optionalText` property.
 
 ```js
 import { Label } from 'suomifi-ui-components';
@@ -44,12 +42,12 @@ import { Label } from 'suomifi-ui-components';
 
 A `<Tooltip>` component can be used with Label to provide additional information.
 
-Do not use Tooltip for any crucial information regarding the input. Crucial information should be conveyed through the <a href="/#/Components/HintText">HintText</a> component instead. Tooltip can be used for other nice-to-know information.
+In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for [HintText](/#/Components/HintText). Tooltip can be used for other nice-to-know information.
 
-For instructions regarding how to ensure your Tooltip is accessible, please refer to the <a href="/#/Components/Tooltip">Tooltip documentation.</a>
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
 
 ```js
-import { Label, Tooltip, Text } from 'suomifi-ui-components';
+import { Label, Tooltip, Heading, Text } from 'suomifi-ui-components';
 
 const labelText = 'Identifier';
 
@@ -62,6 +60,9 @@ const labelText = 'Identifier';
         ariaToggleButtonLabelText={`${labelText}, additional information`}
         ariaCloseButtonLabelText={`${labelText}, close additional information`}
       >
+        <Heading variant="h5" as="h2">
+          What are the benefits for providing an identifier?
+        </Heading>
         <Text>
           Adding an identifier to your item to makes it easier to find
           with the search functionality

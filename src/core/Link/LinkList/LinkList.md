@@ -2,15 +2,13 @@
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/LinkList?id=basic-use">Basic use</a></li>
-</ul>
+- [Basic use](/#/Components/LinkList?id=basic-use)
 
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/LinkList?id=props--methods">Props & methods (LinkList)</a>
+  [Props & methods (LinkList)](/#/Components/LinkList?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/LinkList?id=linklistitem">Props & methods (LinkListItem)</a>
+  [Props & methods (LinkListItem)](/#/Components/LinkList?id=linklistitem)
 </div>
 
 ### Basic use
@@ -56,4 +54,4 @@ import {
 </div>;
 ```
 
-## Props & methods
+### Props & methods

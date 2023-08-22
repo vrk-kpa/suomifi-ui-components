@@ -2,31 +2,29 @@ The `<Link>` component applies Suomi.fi styles to HTML `<a>` elements.
 
 Link should be used when you want navigate to a different URL, provide a way to bookmark a page or open it to a new tab.
 
-If you want to trigger an action that does not change the URL use the <a href="#/Components/Button">Button</a> component instead.
+If you want to trigger an action that does not change the URL use the [Button](#/Components/Button) component instead.
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/Link?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/Link?id=underline">Underline</a></li>
-  <li><a href="/#/Components/Link?id=small-screen">Small screen</a></li>
-  <li><a href="/#/Components/Link?id=accented">Accented</a></li>
-  <li><a href="/#/Components/Link?id=skip-link">Skip link</a></li>
-  <li><a href="/#/Components/Link?id=external-link">External link</a></li>
-  <li><a href="/#/Components/Link?id=router-link">Router link</a></li>
-</ul>
+- [Basic use](/#/Components/Link?id=basic-use)
+- [Underline](/#/Components/Link?id=underline)
+- [Small screen](/#/Components/Link?id=small-screen)
+- [Accented](/#/Components/Link?id=accented)
+- [Skip link](/#/Components/Link?id=skip-link)
+- [External link](/#/Components/Link?id=external-link)
+- [Router link](/#/Components/Link?id=router-link)
 
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/Link?id=props--methods">Props & methods (Link)</a>
+  [Props & methods (Link)](/#/Components/Link?id=props--methods)
 </div>
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/Link?id=skiplink">Props & methods (SkipLink)</a>
+  [Props & methods (SkipLink)](/#/Components/Link?id=skiplink)
 </div>
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/Link?id=externallink">Props & methods (ExternalLink)</a>
+  [Props & methods (ExternalLink)](/#/Components/Link?id=externallink)
 </div>
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Link?id=routerlink">Props & methods (RouterLink)</a>
+  [Props & methods (RouterLink)](/#/Components/Link?id=routerlink)
 </div>
 
 ### Basic use
@@ -78,7 +76,7 @@ import { Link } from 'suomifi-ui-components';
 The `<SkipLink>` component is used to quickly jump to different parts of the page. It is inteded for keyboard users.
 
 - Should be the first element that can gain focus on the page with Tab.
-- The target container should have `tabIndex={-1}` to better handle the functionality with screenreaders.
+- If the target is a simple element like a heading, consider applying `tabIndex={-1}` to it to better handle the functionality with screen readers.
 - Because of the tabIndex you might want set the style of `outline=none` to the target container.
 - To see the component, click on the dashed area below and then press Tab.
 
@@ -108,7 +106,7 @@ import { ExternalLink } from 'suomifi-ui-components';
 
 <ExternalLink
   href="https://github.com/vrk-kpa/suomifi-ui-components"
-  labelNewWindow="Opens to a new tab"
+  labelNewWindow="Opens in a new tab"
 >
   Source code on GitHub
 </ExternalLink>;
@@ -139,4 +137,4 @@ const Component = (props) => {
 </RouterLink>;
 ```
 
-## Props & methods
+### Props & methods

@@ -2,14 +2,12 @@ Use the `<Heading>` component to easily apply Suomi.fi styles to your headings.
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/Heading?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/Heading?id=semantics">Semantics</a></li>
-  <li><a href="/#/Components/Heading?id=color">Color</a></li>
-</ul>
+- [Basic use](/#/Components/Heading?id=basic-use)
+- [Semantics](/#/Components/Heading?id=semantics)
+- [Color](/#/Components/Heading?id=color)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Heading?id=props--methods">Props & methods</a>
+  [Props & methods](/#/Components/Heading?id=props--methods)
 </div>
 
 ### Basic use

@@ -1,4 +1,4 @@
-Text is a generic inline element that ensures the correct font and text styles are used. The different variants of text content are easily accessed via the properties of the component. Use together with [Paragraph](/#/Components/Paragraph) to easily build text content views.
+`<Text>` is a generic inline element that ensures the correct font and text styles are used. The different variants of text content are easily accessed via the properties of the component. Use together with [Paragraph](/#/Components/Paragraph) to easily build text content views.
 
 - The default variant, `body`, is suitable for general text content on all screen sizes
 - Bold text can be used to highlight parts of the text, but should be used sparingly
@@ -11,7 +11,7 @@ Examples:
 - [Setting text color](/#/Components/Text?id=setting-text-color)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Text?id=props--methods">Props & methods</a>
+  [Props & methods](/#/Components/Text?id=props--methods)
 </div>
 
 ### Basic use
@@ -48,7 +48,7 @@ Text color can be easily set via the `color` property, which accepts Suomi.fi co
 ```js
 import { Text } from 'suomifi-ui-components';
 
-<Text color={'accentBase'}>Colored text</Text>;
+<Text color="accentBase">Colored text</Text>;
 ```
 
 ### Props & methods

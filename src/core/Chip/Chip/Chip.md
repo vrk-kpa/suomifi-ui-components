@@ -2,23 +2,21 @@ The `<Chip>` component is used when you want to present concise information in a
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/Chip?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/Chip?id=without-remove-icon">Without remove icon</a></li>
-  <li><a href="/#/Components/Chip?id=disabled">Disabled</a></li>
-  <li><a href="/#/Components/Chip?id=static-chip">Static chip</a></li>
-</ul>
+- [Basic use](/#/Components/Chip?id=basic-use)
+- [Without remove icon](/#/Components/Chip?id=without-remove-icon)
+- [Disabled](/#/Components/Chip?id=disabled)
+- [Static chip](/#/Components/Chip?id=static-chip)
 
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/Chip?id=props--methods">Props & methods (Chip)</a>
+  [Props & methods (Chip)](/#/Components/Chip?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Chip?id=staticchip">Props & methods (StaticChip)</a>
+  [Props & methods (StaticChip)](/#/Components/Chip?id=staticchip)
 </div>
 
 ### Basic use
 
-It is important to set the `actionLabel` text so that assistive technologies can describe the function of the Chip.
+It is important to set the `actionLabel` text so that can describe the function of the Chip.
 
 ```js
 import { Chip } from 'suomifi-ui-components';
@@ -88,4 +86,4 @@ import { StaticChip } from 'suomifi-ui-components';
 <StaticChip>Finland</StaticChip>;
 ```
 
-## Props & methods
+### Props & methods

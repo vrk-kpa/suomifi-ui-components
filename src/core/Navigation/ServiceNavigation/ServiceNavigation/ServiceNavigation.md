@@ -4,18 +4,16 @@ If you need to navigate through multiple levels of page hierarchies, use the use
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/ServiceNavigation?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/ServiceNavigation?id=small-screen">Small screen</a></li>
-  <li><a href="/#/Components/ServiceNavigation?id=disabled-items">Disabled items</a></li>
-  <li><a href="/#/Components/ServiceNavigation?id=using-with-frameworks">Using with frameworks</a></li>
-</ul>
+- [Basic use](/#/Components/ServiceNavigation?id=basic-use)
+- [Small screen](/#/Components/ServiceNavigation?id=small-screen)
+- [Disabled items](/#/Components/ServiceNavigation?id=disabled-items)
+- [Using with frameworks](/#/Components/ServiceNavigation?id=using-with-frameworks)
 
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/ServiceNavigation?id=props--methods">Props & methods (ServiceNavigation)</a>
+  [Props & methods (ServiceNavigation)](/#/Components/ServiceNavigation?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/ServiceNavigation?id=servicenavigationitem">Props & methods (ServiceNavigationItem)</a>
+  [Props & methods (ServiceNavigationItem)](/#/Components/ServiceNavigation?id=servicenavigationitem)
 </div>
 
 ### Basic use
@@ -247,4 +245,4 @@ For frameworks where the internal link component is used as a wrapper for the ac
 
 <div style="margin-bottom: 40px"></div>
 
-## Props & methods
+### Props & methods

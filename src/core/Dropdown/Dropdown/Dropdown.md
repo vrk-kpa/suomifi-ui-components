@@ -1,4 +1,4 @@
-The `<Dropdown>` component is used to select a value from a list of options. It should be used when the amount of options is manageable in size, i.e the user does not need filtering to find the correct option.
+The `<Dropdown>` component is used to select a value from a list of options. The component is rendered as a combination of a `<button>` element and an ARIA listbox. It should be used when the amount of options is manageable in size, i.e. the user does not need filtering to find the correct option.
 
 If there are a lot of options in the list, consider using the filterable <a href="/#/Components/SingleSelect">SingleSelect</a> component or filter the list beforehand with some additional logic.
 
@@ -6,22 +6,20 @@ If there are only 2-3 options, consider using the <a href="/#/Components/RadioBu
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/Dropdown?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/Dropdown?id=default-value">Default value</a></li>
-  <li><a href="/#/Components/Dropdown?id=controlled-value">Controlled value</a></li>
-  <li><a href="/#/Components/Dropdown?id=accessing-the-component-with-ref">Accessing the component with ref</a></li>
-  <li><a href="/#/Components/Dropdown?id=error-status">Error status</a></li>
-  <li><a href="/#/Components/Dropdown?id=disabled">Disabled</a></li>
-  <li><a href="/#/Components/Dropdown?id=full-width">Full width</a></li>
-  <li><a href="/#/Components/Dropdown?id=tooltip">Tooltip</a></li>
-</ul>
+- [Basic use](/#/Components/Dropdown?id=basic-use)
+- [Default value](/#/Components/Dropdown?id=default-value)
+- [Controlled value](/#/Components/Dropdown?id=controlled-value)
+- [Accessing the component with ref](/#/Components/Dropdown?id=accessing-the-component-with-ref)
+- [Error status](/#/Components/Dropdown?id=error-status)
+- [Disabled](/#/Components/Dropdown?id=disabled)
+- [Full width](/#/Components/Dropdown?id=full-width)
+- [Tooltip](/#/Components/Dropdown?id=tooltip)
 
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/Dropdown?id=props--methods">Props & methods (Dropdown)</a>
+  [Props & methods (Dropdown)](/#/Components/Dropdown?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Dropdown?id=dropdownitem">Props & methods (DropdownItem)</a>
+  [Props & methods (DropdownItem)](/#/Components/Dropdown?id=dropdownitem)
 </div>
 
 ### Basic use
@@ -374,13 +372,14 @@ A `<Tooltip>` component can be used with Dropdown to provide additional informat
 
 In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for `hintText`. Tooltip can be used for other nice-to-know information.
 
-For instructions regarding how to ensure your Tooltip is accessible, please refer to the <a href="/#/Components/Tooltip">Tooltip documentation.</a>
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
 
 ```js
 import {
   Dropdown,
   DropdownItem,
   Tooltip,
+  Heading,
   Text
 } from 'suomifi-ui-components';
 
@@ -418,6 +417,9 @@ const countries = [
       ariaToggleButtonLabelText={`${labelText}, show additional information`}
       ariaCloseButtonLabelText={`${labelText}, close additional information`}
     >
+      <Heading variant="h5" as="h2">
+        Why you are being asked this information?
+      </Heading>
       <Text>
         Country of residence information is used to provide you
         personalized assistance in your local area.
@@ -433,4 +435,4 @@ const countries = [
 </Dropdown>;
 ```
 
-## Props & methods
+### Props & methods

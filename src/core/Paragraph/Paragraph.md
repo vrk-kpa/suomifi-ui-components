@@ -1,14 +1,14 @@
-Paragraph is a html paragraph element that contains the correct Suomi.fi styles by default.
+`<Paragraph>` is a HTML `<p>` element that contains the correct Suomi.fi styles by default.
 
-The [Text](/#/Components/Text) component can be used inside the paragraph for more styling options.
+The [Text](/#/Components/Text) component can be used inside the Paragraph for more styling options.
 
 Examples:
 
 - [Basic use](/#/Components/Paragraph?id=basic-use)
-- [Paragraph with bottom margin](/#/Components/Paragraph?id=Paragraph-with-bottom-margin)
+- [Bottom margin](/#/Components/Paragraph?id=bottom-margin)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Paragraph?id=props--methods">Props & methods</a>
+  [Props & methods](#/Components/Paragraph?id=props--methods)
 </div>
 
 ### Basic use
@@ -24,7 +24,7 @@ import { Paragraph } from 'suomifi-ui-components';
 </>;
 ```
 
-### Paragraph with bottom margin
+### Bottom margin
 
 For easy styling of a view, the paragraph has a `marginBottomSpacing` prop that allows easy use of Suomi.fi spacing tokens as bottom margin values.
 

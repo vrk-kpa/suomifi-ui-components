@@ -1,18 +1,16 @@
-`<Alert>` is used at the top of a web page to convey information regarding the entire page or web service.
+`<Alert>` is used at the top of a web page to convey information regarding the entire page or web service. It has the ARIA role `'alert'`, which ensures the component's content is read by screen readers immediately on page load.
 
-If you need to show dynamically appearing information regarding a more specific part of the page, use the <a href="#/Components/InlineAlert">InlineAlert</a> component instead.
+If you need to show dynamically appearing information regarding a more specific part of the page, use the [InlineAlert](/#/Components/InlineAlert) component instead.
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/Alert?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/Alert?id=warning-status">Warning status</a></li>
-  <li><a href="/#/Components/Alert?id=error-status">Error status</a></li>
-  <li><a href="/#/Components/Alert?id=small-screen">Small screen</a></li>
-</ul>
+- [Basic use](/#/Components/Alert?id=basic-use)
+- [Warning status](/#/Components/Alert?id=warning-status)
+- [Error status](/#/Components/Alert?id=error-status)
+- [Small screen](/#/Components/Alert?id=small-screen)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Alert?id=props--methods">Props & methods</a>
+  [Props & methods](/#/Components/Alert?id=props--methods)
 </div>
 
 ### Basic use
@@ -24,7 +22,7 @@ import { useState } from 'react';
 const [showAlert, setShowAlert] = useState(true);
 
 showAlert && (
-  <Block style={{ width: '800px' }}>
+  <Block style={{ width: '900px' }}>
     <Alert
       closeText="Close"
       onCloseButtonClick={() => setShowAlert(false)}
@@ -47,7 +45,7 @@ import { useState } from 'react';
 const [showAlert, setShowAlert] = useState(true);
 
 showAlert && (
-  <Block style={{ width: '800px' }}>
+  <Block style={{ width: '900px' }}>
     <Alert
       status="warning"
       closeText="Close"
@@ -71,13 +69,14 @@ import { useState } from 'react';
 const [showAlert, setShowAlert] = useState(true);
 
 showAlert && (
-  <Block style={{ width: '800px' }}>
+  <Block style={{ width: '900px' }}>
     <Alert
       status="error"
       closeText="Close"
       onCloseButtonClick={() => setShowAlert(false)}
     >
       We are currently experiencing disruptions in the service.
+      Submitting applications is not possible.
     </Alert>
   </Block>
 );
@@ -94,7 +93,7 @@ import { useState } from 'react';
 const [showAlert, setShowAlert] = useState(true);
 
 showAlert && (
-  <Block style={{ width: '800px' }}>
+  <Block style={{ width: '900px' }}>
     <Alert
       smallScreen
       closeText="Close"

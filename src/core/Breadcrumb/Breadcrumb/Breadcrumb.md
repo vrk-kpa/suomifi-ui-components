@@ -1,21 +1,19 @@
-The `<Breadcrumb>` component is used to let the user know their current location in a web service.
+The `<Breadcrumb>` component is used to let the user know their current location in a web service. It is rendered as an HTML `nav` element.
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/Breadcrumb?id=basic-use">Basic use</a></li>
-</ul>
+- [Basic use](/#/Components/Breadcrumb?id=basic-use)
 
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/Breadcrumb?id=props--methods">Props & methods (Breadcrumb)</a>
+ [Props & methods (Breadcrumb)](/#/Components/Breadcrumb?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/Breadcrumb?id=breadcrumblink">Props & methods (BreadcrumbLink)</a>
+  [Props & methods (BreadcrumbLink)](/#/Components/Breadcrumb?id=breadcrumblink)
 </div>
 
 ### Basic use
 
-Use an `aria-label` to describe the purpose of the Breadcrumb element.
+Use an `aria-label` to describe the purpose of the Breadcrumb element and distinguish it from other navigation landmarks on the same page.
 
 Mark the current page with the `current` prop.
 
@@ -29,4 +27,4 @@ import { Breadcrumb, BreadcrumbLink } from 'suomifi-ui-components';
 </Breadcrumb>;
 ```
 
-## Props & methods
+### Props & methods

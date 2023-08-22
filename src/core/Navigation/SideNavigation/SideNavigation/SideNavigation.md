@@ -4,18 +4,16 @@ Note that the maximum number of nested link levels is 3.
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/SideNavigation?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/SideNavigation?id=small-screen">Small screen</a></li>
-  <li><a href="/#/Components/SideNavigation?id=disabled-items">Disabled items</a></li>
-  <li><a href="/#/Components/SideNavigation?id=using-with-frameworks">Using with frameworks</a></li>
-</ul>
+- [Basic use](/#/Components/SideNavigation?id=basic-use)
+- [Small screen](/#/Components/SideNavigation?id=small-screen)
+- [Disabled items](/#/Components/SideNavigation?id=disabled-items)
+- [Using with frameworks](/#/Components/SideNavigation?id=using-with-frameworks)
 
 <div style="margin-bottom: 5px">
-  <a href="/#/Components/SideNavigation?id=props--methods">Props & methods (SideNavigation)</a>
+  [Props & methods (SideNavigation)](/#/Components/SideNavigation?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/SideNavigation?id=Sidenavigationitem">Props & methods (SideNavigationItem)</a>
+  [Props & methods (SideNavigationItem)](/#/Components/SideNavigation?id=sidenavigationitem)
 </div>
 
 ### Basic use
@@ -340,4 +338,4 @@ For frameworks where the internal link component is used as a wrapper for the ac
 
 <div style="margin-bottom: 40px"></div>
 
-## Props & methods
+### Props & methods

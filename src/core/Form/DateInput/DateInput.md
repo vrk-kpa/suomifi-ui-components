@@ -2,27 +2,25 @@
 
 Examples:
 
-<ul>
-  <li><a href="/#/Components/DateInput?id=basic-use">Basic use</a></li>
-  <li><a href="/#/Components/DateInput?id=default-value">Default value</a></li>
-  <li><a href="/#/Components/DateInput?id=controlled-value">Controlled value</a></li>
-  <li><a href="/#/Components/DateInput?id=date-picker">Date picker</a></li>
-  <li><a href="/#/Components/DateInput?id=mindate--maxdate">MinDate & maxDate</a></li>
-  <li><a href="/#/Components/DateInput?id=validation">Validation</a></li>
-  <li><a href="/#/Components/DateInput?id=initial-focused-date-in-date-picker">Initial focused date in date picker</a></li>
-  <li><a href="/#/Components/DateInput?id=disabled-dates-in-date-picker">Disabled dates in date picker</a></li>
-  <li><a href="/#/Components/DateInput?id=custom-dateadapter">Custom dateAdapter</a></li>
-  <li><a href="/#/Components/DateInput?id=custom-texts-for-date-picker">Custom texts for date picker</a></li>
-  <li><a href="/#/Components/DateInput?id=accessing-value-with-ref">Accessing value with ref</a></li>
-  <li><a href="/#/Components/DateInput?id=small-screen-date-picker">Small screen date picker</a></li>
-  <li><a href="/#/Components/DateInput?id=hidden-label">Hidden label</a></li>
-  <li><a href="/#/Components/DateInput?id=optional-input">Optional input</a></li>
-  <li><a href="/#/Components/DateInput?id=full-width-and-fixed-width">Full width and fixed width</a></li>
-  <li><a href="/#/Components/DateInput?id=tooltip">Tooltip</a></li>
-</ul>
+- [Basic use](/#/Components/DateInput?id=basic-use)
+- [Default value](/#/Components/DateInput?id=default-value)
+- [Controlled value](/#/Components/DateInput?id=controlled-value)
+- [Date picker](/#/Components/DateInput?id=date-picker)
+- [MinDate & maxDate](/#/Components/DateInput?id=mindate--maxdate)
+- [Validation](/#/Components/DateInput?id=validation)
+- [Initial focused date in date picker](/#/Components/DateInput?id=initial-focused-date-in-date-picker)
+- [Disabled dates in date picker](/#/Components/DateInput?id=disabled-dates-in-date-picker)
+- [Custom dateAdapter](/#/Components/DateInput?id=custom-dateadapter)
+- [Custom texts for date picker](/#/Components/DateInput?id=custom-texts-for-date-picker)
+- [Accessing value with ref](/#/Components/DateInput?id=accessing-value-with-ref)
+- [Small screen date picker](/#/Components/DateInput?id=small-screen-date-picker)
+- [Hidden label](/#/Components/DateInput?id=hidden-label)
+- [Full width and fixed width](/#/Components/DateInput?id=full-width-and-fixed-width)
+- [Optional input](/#/Components/DateInput?id=optional-input)
+- [Tooltip](/#/Components/DateInput?id=tooltip)
 
 <div style="margin-bottom: 40px">
-  <a href="/#/Components/DateInput?id=props--methods">Props & methods</a>
+  [Props & methods](/#/Components/DateInput?id=props--methods)
 </div>
 
 ### Basic use
@@ -118,11 +116,9 @@ const maxDate = new Date(2024, 11, 31);
 
 ### Validation
 
-Use the `onChange()` function to run validation logic and set the `status` and `statusText` props accordingly.
-
-`date-fns` is a dependency of `suomifi-ui-components` so you can use it for validations.
-
-You can use the `debounce` prop to apply delay to `onChange()`.
+- Use the `onChange()` function to run validation logic and set the `status` and `statusText` props accordingly.
+- `date-fns` is a internal dependency of `suomifi-ui-components` so you can import it for your validations.
+- You can use the `debounce` prop to only run the validation when the user stops typing.
 
 ```js
 import { DateInput } from 'suomifi-ui-components';
@@ -299,20 +295,6 @@ import React from 'react';
 />;
 ```
 
-### Optional input
-
-By default, all Suomi.fi form inputs are considered required. If the input is not required, you can set the `optionalText` prop to mark it as such.
-
-```js
-import { DateInput } from 'suomifi-ui-components';
-
-<DateInput
-  labelText="Beginning date"
-  hintText="Use format D.M.YYYY"
-  optionalText="optional"
-/>;
-```
-
 ### Full width and fixed width
 
 You can use the `fullWidth` prop to make the input take all available horizontal space.
@@ -340,16 +322,36 @@ import { DateInput, Button } from 'suomifi-ui-components';
 </>;
 ```
 
+### Optional input
+
+Suomi.fi inputs are required by default, but can be marked optional using the `optionalText` property.
+
+```js
+import { DateInput } from 'suomifi-ui-components';
+
+<DateInput
+  labelText="Beginning date"
+  hintText="Use format D.M.YYYY"
+  optionalText="optional"
+  fullWidth
+/>;
+```
+
 ### Tooltip
 
 A `<Tooltip>` component can be used with DateInput to provide additional information.
 
 Do not use Tooltip for formatting instructions. Tooltip can be used for other nice-to-know information.
 
-For instructions regarding how to ensure your Tooltip is accessible, please refer to the <a href="/#/Components/Tooltip">Tooltip documentation.</a>
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
 
 ```js
-import { DateInput, Tooltip, Text } from 'suomifi-ui-components';
+import {
+  DateInput,
+  Tooltip,
+  Heading,
+  Text
+} from 'suomifi-ui-components';
 
 const labelText = 'Beginning date';
 
@@ -363,6 +365,9 @@ const labelText = 'Beginning date';
       ariaToggleButtonlabelText={`${labelText}, show additional information`}
       ariaCloseButtonlabelText={`${labelText}, close additional information`}
     >
+      <Heading variant="h5" as="h2">
+        What happens on the beginning date?
+      </Heading>
       <Text>
         Your service will begin on the selected date during the early
         morning hours, before 9.00
