@@ -14,15 +14,15 @@ We will review your pull request and either merge it, request changes to it, or 
 
 1. Fork the repository and create your branch from proper branch.
 
-2. Run `yarn` in the repository root.
+2. Run `npm install` in the repository root.
 
 3. If you’ve fixed a bug or added code that should be tested, add tests!
 
-4. Ensure the test suite passes (`yarn test`)
+4. Ensure the test suite passes (`npm run test`)
 
-5. Run `yarn test -u` to update jest snapshots. Commit any changes.
+5. Run `npm run test -u` to update jest snapshots. Commit any changes.
 
-6. Make sure your code lints (`yarn test:lint`). Tip: Lint runs automatically when you build.
+6. Make sure your code lints (`npm run test:lint`). Tip: Lint runs automatically when you build.
 
 ### Development workflow
 
