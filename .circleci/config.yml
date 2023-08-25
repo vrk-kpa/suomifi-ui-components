@@ -43,7 +43,7 @@ commands:
             JEST_JUNIT_OUTPUT: 'reports/junit/js-test-results.xml'
       - run:
           name: 'JavaScript and TypeScript Linter'
-          command: npm run eslint --config .eslintrc src/**/*.tsx -- --format junit -o reports/junit/js-lint-results.xml
+          command: npx eslint --config .eslintrc src/**/*.tsx --format junit -o reports/junit/js-lint-results.xml
       - run:
           name: 'Prettier check'
           command: npm run prettier:check
