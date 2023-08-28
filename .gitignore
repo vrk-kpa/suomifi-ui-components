@@ -1,6 +1,7 @@
 .DS_Store
 *.log
 0-stage
+yarn.lock
 
 # build output
 dist
