@@ -37,6 +37,8 @@ export {
   CheckboxGroupProps,
   TextInput,
   TextInputProps,
+  TimeInput,
+  TimeInputProps,
   ToggleInput,
   ToggleInputProps,
   ToggleButton,
