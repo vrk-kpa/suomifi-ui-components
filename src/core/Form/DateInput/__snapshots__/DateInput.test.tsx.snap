@@ -3281,7 +3281,7 @@ exports[`snapshots match date input with datepicker with controlled input value 
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: text-bottom;
+  vertical-align: middle;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
@@ -5469,7 +5469,7 @@ exports[`snapshots match date input with datepicker with smallScreen 1`] = `
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: text-bottom;
+  vertical-align: middle;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
