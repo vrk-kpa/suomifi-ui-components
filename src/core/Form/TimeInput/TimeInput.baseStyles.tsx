@@ -6,6 +6,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${font(theme)('bodyText')};
   display: inline-block;
 
+  /* stylelint-disable no-descending-specificity */
+
   .fi-time-input_wrapper {
     width: 100%;
     display: inline-block;
@@ -25,7 +27,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     .fi-time-input_input-container {
       ${element(theme)}
       ${font(theme)('actionElementInnerText')}
-      width: 95px;
+      width: 97px;
       height: 40px;
       border: 1px solid ${theme.colors.depthLight1};
       border-radius: ${theme.radiuses.basic};
@@ -68,7 +70,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
             position: absolute;
             pointer-events: none;
             top: -6px;
-            right: -2px;
+            right: -1px;
             bottom: -6px;
             left: 2px;
             border-radius: ${theme.radiuses.focus};
@@ -79,6 +81,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
             z-index: ${theme.zindexes.focus};
           }
         }
+      }
+
+      .fi-time-input_minutes-input {
+        padding-right: 13px;
       }
 
       .fi-time-input_hours-input,
@@ -107,6 +113,39 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         display: flex;
         justify-content: center;
         align-items: flex-end;
+      }
+
+      .fi-time-input_hidden-input {
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        position: absolute;
+        width: 0;
+      }
+    }
+  }
+
+  &.fi-time-input--error {
+    & .fi-time-input_input-container {
+      border: 2px solid ${theme.colors.alertBase};
+    }
+  }
+  &.fi-time-input--success {
+    & .fi-time-input_input-container {
+      border: 2px solid ${theme.colors.successBase};
+    }
+  }
+  &.fi-time-input--disabled {
+    & .fi-time-input_input-container {
+      background-color: ${theme.colors.depthLight3};
+      color: ${theme.colors.depthBase};
+
+      .fi-time-input_hours-input,
+      .fi-time-input_minutes-input {
+        &::placeholder {
+          color: ${theme.colors.depthBase};
+        }
       }
     }
   }
