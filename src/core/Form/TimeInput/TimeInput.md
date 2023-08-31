@@ -37,16 +37,4 @@ import { TimeInput } from 'suomifi-ui-components';
 
 ### Validation
 
-```jsx
-import { TimeInput } from 'suomifi-ui-components';
-
-<TimeInput
-  labelText="Open from"
-  ariaLabelHours="hours"
-  ariaLabelMinutes="minutes"
-  hintText="Opening time of your business"
-  onChange={(newValue) => console.log(newValue)}
-/>;
-```
-
 ### Props & methods
