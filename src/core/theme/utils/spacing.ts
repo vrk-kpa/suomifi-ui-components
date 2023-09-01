@@ -54,9 +54,16 @@ export interface MarginProps {
   my?: SpacingWithoutInsetProp;
 }
 
+export type GlobalMargins = {
+  button: MarginProps;
+  textInput: MarginProps;
+  checkbox: MarginProps;
+};
+
 export interface SpacingProps extends PaddingProps, MarginProps {}
 
-export const spacingStyles = (props: SpacingProps) => {
+export const spacingStyles = (props: SpacingProps | undefined) => {
+  if (!props) return;
   const array = Object.entries(props).map(([key, value]) =>
     getSpacingStyle(defaultSuomifiTheme, key as keyof SpacingProps, value),
   );

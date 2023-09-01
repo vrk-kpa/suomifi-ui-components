@@ -18,3 +18,9 @@ export {
   SpacingProp,
   GradientProp,
 } from './SuomifiTheme/SuomifiTheme';
+export {
+  SpacingProvider,
+  SpacingProviderProps,
+  SpacingConsumer,
+} from './SpacingProvider/SpacingProvider';
+export { GlobalMargins } from './utils/spacing';
