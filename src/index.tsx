@@ -170,6 +170,12 @@ export {
   SpacingProps,
   SpacingWithoutInsetProp,
 } from './core/theme';
+export {
+  SpacingProvider,
+  SpacingProviderProps,
+  SpacingConsumer,
+  GlobalMargins,
+} from './core/theme';
 export { getLogger, setLogger, Logger } from './utils/log/logger';
 export { autocompleteTimeString } from './utils/common';
 export {

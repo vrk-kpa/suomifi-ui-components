@@ -8,9 +8,11 @@ import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMargins,
 } from '../theme/utils/spacing';
 import { IconPreloader } from 'suomifi-icons';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
+import { SpacingConsumer } from '../theme/SpacingProvider/SpacingProvider';
 
 export type ButtonVariant =
   | 'default'
@@ -82,6 +84,7 @@ interface InternalButtonProps
   onClick?: (event: React.MouseEvent) => void;
   /** Ref object is passed to the button element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
+  globalMargins?: GlobalMargins;
 }
 
 export type ButtonProps = InternalButtonProps &
@@ -114,6 +117,7 @@ class BaseButton extends Component<ButtonProps> {
       forwardedRef,
       children,
       style,
+      globalMargins,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -172,11 +176,20 @@ const StyledButton = styled(
 
 const Button = forwardRef(
   (props: ButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <StyledButton theme={suomifiTheme} forwardedRef={ref} {...props} />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledButton
+              theme={suomifiTheme}
+              forwardedRef={ref}
+              globalMargins={margins}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   ),
 );
 
