@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-class-component-methods */
 import React, { Component, ReactNode, forwardRef, ReactElement } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
@@ -218,31 +219,55 @@ class BaseSingleSelect<T> extends Component<
     nextProps: SingleSelectProps<U & SingleSelectData>,
     prevState: SingleSelectState<U & SingleSelectData>,
   ) {
-    const { items: propItems, selectedItem } = nextProps;
-    const selectedItemChanged =
-      'selectedItem' in nextProps &&
-      selectedItem?.uniqueItemId !== prevState.selectedItem?.uniqueItemId;
+    console.log('getDerivedStateFromProps');
 
-    if (selectedItemChanged || propItems !== prevState.initialItems) {
-      const resolvedSelectedItem =
-        'selectedItem' in nextProps ? selectedItem : prevState.selectedItem;
-      const resolvedInputValue = selectedItemChanged
+    console.log(nextProps.selectedItem);
+
+    const { items: propItems, selectedItem } = nextProps;
+    /* const selectedItemChanged =
+      'selectedItem' in nextProps && JSON.stringify(selectedItem)  !== JSON.stringify(prevState.selectedItem);
+*/
+
+    console.log(propItems[0]);
+    console.log(prevState.initialItems[0]);
+
+    let resolvedInputValue = prevState.filterInputValue;
+    //  if (selectedItemChanged || propItems !== prevState.initialItems) {
+    if (
+      prevState.selectedItem &&
+      prevState.selectedItem.labelText !== prevState.filterInputValue
+    ) {
+      resolvedInputValue = prevState.selectedItem.labelText;
+    }
+
+    const resolvedSelectedItem =
+      'selectedItem' in nextProps ? selectedItem : prevState.selectedItem;
+    /*   const resolvedInputValue = selectedItemChanged
         ? selectedItem?.labelText || ''
         : prevState.filterInputValue;
+*/
 
-      return {
-        selectedItem: resolvedSelectedItem,
-        filteredItems: propItems,
-        filterInputValue: resolvedInputValue,
-        filterMode: prevState.filterMode,
-        initialItems: propItems,
-      };
-    }
-    return null;
+    console.log(resolvedInputValue);
+
+    return {
+      selectedItem: resolvedSelectedItem,
+      filteredItems: propItems,
+      filterInputValue: resolvedInputValue,
+      filterMode: prevState.filterMode,
+      initialItems: propItems,
+    };
+    // }
+    // return null;
   }
 
   componentDidUpdate(prevProps: SingleSelectProps<T & SingleSelectData>): void {
     if (JSON.stringify(this.props.items) !== JSON.stringify(prevProps.items)) {
+      console.log(
+        this.props.items[0].labelText,
+        ' ',
+        prevProps.items[0].labelText,
+      );
+
       this.setState({
         computedItems: this.props.items,
       });
@@ -264,13 +289,10 @@ class BaseSingleSelect<T> extends Component<
       const focusInPopover = this.popoverListRef.current?.contains(
         ownerDocument.activeElement,
       );
-      const focusInToggleButton = this.toggleButtonRef.current?.contains(
-        ownerDocument.activeElement,
-      );
+
       const focusInInput =
         ownerDocument.activeElement === this.filterInputRef.current;
-      const focusInSingleSelect =
-        focusInPopover || focusInInput || focusInToggleButton;
+      const focusInSingleSelect = focusInPopover || focusInInput;
       if (!focusInSingleSelect) {
         this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
           filterInputValue: prevState.selectedItem?.labelText || '',
@@ -536,6 +558,9 @@ class BaseSingleSelect<T> extends Component<
           [singleSelectClassNames.error]: status === 'error',
         })}
       >
+        state.selectedItem: {selectedItem?.labelText} <br />
+        state.filterInputValue: {filterInputValue} <br />
+        state.items[0] {items[0].labelText}
         <Debounce waitFor={debounce}>
           {(debouncer: Function) => (
             <FilterInput
@@ -721,7 +746,6 @@ class BaseSingleSelect<T> extends Component<
             </SelectItemList>
           </Popover>
         )}
-
         <VisuallyHidden aria-live="polite" aria-atomic="true">
           {this.state.filterMode && !loading
             ? ariaOptionsAvailableTextFunction
@@ -729,7 +753,6 @@ class BaseSingleSelect<T> extends Component<
               : `${popoverItems.length} ${ariaOptionsAvailableText}`
             : ''}
         </VisuallyHidden>
-
         <VisuallyHidden
           aria-live="polite"
           aria-atomic="true"
