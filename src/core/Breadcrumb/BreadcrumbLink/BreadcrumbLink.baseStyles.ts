@@ -9,10 +9,37 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   )};
   &.fi-breadcrumb-link {
     display: inline-block;
+
     & .fi-breadcrumb-link_link {
       ${font(theme)('bodyTextSmall')}
+
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
+
+      &--initial-underline {
+        text-decoration: underline;
+
+        &:focus,
+        &:focus-within {
+          text-decoration: underline;
+        }
+
+        &:hover,
+        &:active {
+          text-decoration: none;
+        }
+      }
+
       &--current {
         color: ${theme.colors.depthDark1};
+        text-decoration: none;
+
+        &:hover,
+        &:active {
+          text-decoration: none;
+        }
       }
     }
 

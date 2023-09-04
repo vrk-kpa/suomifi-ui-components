@@ -11,6 +11,7 @@ const baseClassName = 'fi-breadcrumb-link';
 const breadcrumbClassNames = {
   link: `${baseClassName}_link`,
   current: `${baseClassName}_link--current`,
+  linkUnderline: `${baseClassName}_link--initial-underline`,
   icon: `${baseClassName}_icon`,
 };
 
@@ -27,6 +28,7 @@ const BaseBreadcrumbLink = (props: BreadcrumbLinkProps & SuomifiThemeProp) => {
     children,
     className,
     theme,
+    underline = 'hover',
     href = '',
     ...passProps
   } = props;
@@ -36,7 +38,9 @@ const BaseBreadcrumbLink = (props: BreadcrumbLinkProps & SuomifiThemeProp) => {
         <>
           <Link
             {...passProps}
-            className={breadcrumbClassNames.link}
+            className={classnames(breadcrumbClassNames.link, {
+              [breadcrumbClassNames.linkUnderline]: underline === 'initial',
+            })}
             href={href}
           >
             {children}

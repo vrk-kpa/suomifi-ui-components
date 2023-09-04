@@ -312,8 +312,39 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 400;
 }
 
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link:hover,
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link:active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link--initial-underline {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link--initial-underline:focus,
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link--initial-underline:focus-within {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link--initial-underline:hover,
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link--initial-underline:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_link--current {
   color: hsl(202,7%,40%);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link--current:hover,
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link--current:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_icon {
