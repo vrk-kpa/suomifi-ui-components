@@ -451,7 +451,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: text-bottom;
+  vertical-align: middle;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
@@ -1217,7 +1217,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: text-bottom;
+  vertical-align: middle;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
@@ -1983,7 +1983,7 @@ exports[`No borders variant should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: text-bottom;
+  vertical-align: middle;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
@@ -2750,7 +2750,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: text-bottom;
+  vertical-align: middle;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
@@ -3517,7 +3517,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: text-bottom;
+  vertical-align: middle;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);
