@@ -8,6 +8,11 @@ import { AutoId } from '../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Popover } from '../../../Popover/Popover';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../../theme/utils/spacing';
 import { FilterInput, FilterInputStatus } from '../../FilterInput/FilterInput';
 import { LoadingSpinner } from '../../../LoadingSpinner/LoadingSpinner';
 import { VisuallyHidden } from '../../../VisuallyHidden/VisuallyHidden';
@@ -158,6 +163,7 @@ export type SingleSelectProps<T> = InternalSingleSelectProps<
 > &
   AllowItemAdditionProps &
   AriaOptionsAvailableProps &
+  MarginProps &
   LoadingProps;
 
 interface SingleSelectState<T extends SingleSelectData> {
@@ -526,8 +532,10 @@ class BaseSingleSelect<T> extends Component<
       items, // Only destructured away so they don't end up in the DOM
       forwardedRef, // Only destructured away so it doesn't end up in the DOM
       listProps,
-      ...passProps
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
 
     const ariaActiveDescendant = focusedDescendantId
       ? `${id}-${focusedDescendantId}`
@@ -543,6 +551,7 @@ class BaseSingleSelect<T> extends Component<
           [singleSelectClassNames.open]: showPopover,
           [singleSelectClassNames.error]: status === 'error',
         })}
+        style={marginStyle}
       >
         <Debounce waitFor={debounce}>
           {(debouncer: Function) => (

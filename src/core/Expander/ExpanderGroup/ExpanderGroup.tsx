@@ -3,6 +3,11 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv, HtmlButton, HtmlButtonProps, HtmlSpan } from '../../../reset';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { baseStyles } from './ExpanderGroup.baseStyles';
 
@@ -10,7 +15,7 @@ const baseClassName = 'fi-expander-group';
 const openClassName = `${baseClassName}--open`;
 const expandersContainerClassName = `${baseClassName}_expanders`;
 const openAllButtonClassName = `${baseClassName}_all-button`;
-export interface ExpanderGroupProps {
+export interface ExpanderGroupProps extends MarginProps {
   /** Expanders (and optionally other ReactNodes) */
   children: ReactNode;
   /** 'Open all' button text */
@@ -148,8 +153,10 @@ class BaseExpanderGroup extends Component<
       showToggleAllButton = true,
       toggleAllButtonProps,
       forwardedRef,
-      ...passProps
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
     const { expanderGroupOpenState, allOpen } = this.state;
     return (
       <HtmlDiv
@@ -157,6 +164,7 @@ class BaseExpanderGroup extends Component<
         className={classnames(className, baseClassName, {
           [openClassName]: this.openExpanderCount > 0,
         })}
+        style={marginStyle}
       >
         {!!showToggleAllButton && (
           <HtmlButton

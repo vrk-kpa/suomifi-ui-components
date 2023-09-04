@@ -9,6 +9,11 @@ import { ToggleBaseProps, baseClassName } from '../ToggleBase/ToggleBase';
 import { ToggleIcon } from '../ToggleBase/ToggleIcon';
 import { baseStyles } from './ToggeButton.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../../theme/utils/spacing';
 
 const toggleClassNames = {
   disabled: `${baseClassName}--disabled`,
@@ -19,6 +24,7 @@ const toggleClassNames = {
 
 export interface ToggleButtonProps
   extends ToggleBaseProps,
+    MarginProps,
     Omit<HtmlButtonProps, 'onClick' | 'type'> {
   /** Callback fired on click */
   onClick?: (checked: boolean) => void;
@@ -68,9 +74,10 @@ class BaseToggleButton extends Component<ToggleButtonProps> {
       checked,
       defaultChecked,
       toggleWrapperProps,
-      ...passProps
+      ...rest
     } = this.props;
-
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
     const { toggleState } = this.state;
 
     return (
@@ -85,6 +92,7 @@ class BaseToggleButton extends Component<ToggleButtonProps> {
           toggleClassNames.label,
         )}
         {...toggleWrapperProps}
+        style={{ ...marginStyle, ...toggleWrapperProps?.style }}
       >
         <HtmlButton
           {...passProps}

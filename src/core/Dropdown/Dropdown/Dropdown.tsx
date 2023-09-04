@@ -10,6 +10,11 @@ import { DropdownItemProps } from '../DropdownItem/DropdownItem';
 import { baseStyles } from './Dropdown.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
+import {
   forkRefs,
   getOwnerDocument,
   HTMLAttributesIncludingDataAttributes,
@@ -87,7 +92,7 @@ interface DropdownState {
   preventListScrolling: boolean;
 }
 
-export interface DropdownProps extends StatusTextCommonProps {
+export interface DropdownProps extends StatusTextCommonProps, MarginProps {
   /**
    * HTML id attribute
    * If no id is specified, one will be generated automatically
@@ -488,8 +493,10 @@ class BaseDropdown extends Component<DropdownProps> {
       statusTextAriaLiveMode = 'assertive',
       fullWidth,
       wrapperProps,
-      ...passProps
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
 
     if (React.Children.count(children) < 1) {
       getLogger().warn(`Dropdown '${labelText}' does not contain items`);
@@ -533,6 +540,7 @@ class BaseDropdown extends Component<DropdownProps> {
         })}
         id={id}
         {...wrapperProps}
+        style={{ ...marginStyle, ...wrapperProps?.style }}
       >
         <Label
           id={labelId}

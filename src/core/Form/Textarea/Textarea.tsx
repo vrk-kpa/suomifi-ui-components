@@ -157,10 +157,8 @@ const BaseTextarea = (props: TextareaProps) => {
     ariaCharactersExceededText,
     ...rest
   } = props;
-
   const [marginProps, passProps] = separateMarginProps(rest);
   const marginStyle = spacingStyles(marginProps);
-
   const [charCount, setCharCount] = useState(0);
   const [characterCounterAriaText, setCharacterCounterAriaText] = useState('');
   const [typingTimer, setTypingTimer] = useState<ReturnType<
