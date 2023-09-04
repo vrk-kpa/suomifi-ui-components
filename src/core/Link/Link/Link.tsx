@@ -49,10 +49,6 @@ const StyledLink = styled(
   ${({ theme }) => LinkStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Used for adding a link
- */
 const Link = forwardRef(
   (props: LinkProps, ref: React.Ref<HTMLAnchorElement>) => (
     <SuomifiThemeConsumer>

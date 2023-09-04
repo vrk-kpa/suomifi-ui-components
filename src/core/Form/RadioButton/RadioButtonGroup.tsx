@@ -157,11 +157,6 @@ const StyledRadioButtonGroup = styled(BaseRadioButtonGroup)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * Use for grouping RadioButtons.<br />
- * Always overrides nested RadioButtons' name, checked and defaultChecked props.
- * Use RadioButtonGroup's name, value and defaultValue instead.
- */
 const RadioButtonGroup = forwardRef(
   (props: RadioButtonGroupProps, ref: React.RefObject<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;

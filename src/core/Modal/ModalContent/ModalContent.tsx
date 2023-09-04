@@ -59,11 +59,6 @@ const StyledModalContent = styled(BaseModalContent)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Use for showing modal content.
- * Props other than specified explicitly are passed on to outermost content div.
- */
 const ModalContent = (props: ModalContentProps) => (
   <SuomifiThemeConsumer>
     {({ suomifiTheme }) => (

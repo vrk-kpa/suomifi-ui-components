@@ -115,7 +115,7 @@ export interface DropdownProps extends StatusTextCommonProps {
   /** Text to mark the Dropdown optional. Will be wrapped in parentheses and shown after `labelText` */
   optionalText?: string;
   /**
-   * Id on an additional label id. E.g. form group label.
+   * Id of an external label e.g. input group label.
    * Used in addition to `labelText` for screen readers.
    */
   'aria-labelledby'?: string;
@@ -667,10 +667,6 @@ const StyledDropdown = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Use for selectable dropdown with items.
- */
 const Dropdown = forwardRef(
   (props: DropdownProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { id: propId, ...passProps } = props;

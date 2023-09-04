@@ -1,14 +1,20 @@
 const path = require('path');
-const glob = require('glob');
 const versions = require('../styleguide.versions');
 
-const primitiveComponents = [
+const singularComponents = [
   'Block',
   'Button',
   'Heading',
   'Tooltip',
   'VisuallyHidden',
   'Pagination',
+  'Alert',
+  'InlineAlert',
+  'LoadingSpinner',
+  'Text',
+  'Paragraph',
+  'Notification',
+  'Toast',
   ['Form', 'TextInput'],
   ['Form', 'SearchInput'],
   ['Form', 'Textarea'],
@@ -16,6 +22,8 @@ const primitiveComponents = [
   ['Form', 'Label'],
   ['Form', 'HintText'],
   ['Form', 'StatusText'],
+  ['Form/Select/MultiSelect/', 'MultiSelect'],
+  ['Form/Select', 'SingleSelect'],
 ];
 
 const getComponent = ({ name, underName }) =>
@@ -118,7 +126,7 @@ module.exports = {
     {
       name: 'Components',
       content: './.styleguidist/components.md',
-      components: getComponents(primitiveComponents),
+      components: getComponents(singularComponents),
       sections: [
         {
           name: 'Toggle',
@@ -126,21 +134,6 @@ module.exports = {
             'ToggleButton/ToggleButton',
             'ToggleInput/ToggleInput',
           ]),
-        },
-        {
-          name: 'Text',
-          components: getComponents(['Text', 'Paragraph']),
-        },
-        {
-          name: 'Alert',
-          components: getComponentWithVariants('Alert')([
-            'Alert/Alert',
-            'InlineAlert/InlineAlert',
-          ]),
-        },
-        {
-          name: 'LoadingSpinner',
-          components: getComponents(['LoadingSpinner']),
         },
         {
           name: 'Checkbox',
@@ -183,7 +176,7 @@ module.exports = {
           name: 'Icon',
           content: './.styleguidist/icon.md',
         },
-        {
+        /*{
           name: 'MultiSelect',
           components: getComponentWithVariants('Form/Select')([
             'MultiSelect/MultiSelect/MultiSelect',
@@ -194,7 +187,7 @@ module.exports = {
           components: getComponentWithVariants('Form/Select')([
             'SingleSelect/SingleSelect',
           ]),
-        },
+        }, */
         {
           name: 'Breadcrumb',
           components: getComponentWithVariants('Breadcrumb')([
@@ -218,17 +211,13 @@ module.exports = {
           ]),
         },
         {
-          name: 'Notification',
-          components: getComponents(['Notification']),
-        },
-        {
           name: 'Expander',
           components: getComponentWithVariants('Expander')([
             'Expander/Expander',
-            'ExpanderGroup/ExpanderGroup',
-            'ExpanderTitle/ExpanderTitle',
             'ExpanderTitleButton/ExpanderTitleButton',
             'ExpanderContent/ExpanderContent',
+            'ExpanderGroup/ExpanderGroup',
+            'ExpanderTitle/ExpanderTitle',
           ]),
         },
         {
@@ -236,12 +225,9 @@ module.exports = {
           components: getComponentWithVariants('Modal')([
             'Modal/Modal',
             'ModalContent/ModalContent',
+            'ModalTitle/ModalTitle',
             'ModalFooter/ModalFooter',
           ]),
-        },
-        {
-          name: 'Toast',
-          components: getComponents(['Toast']),
         },
         {
           name: 'WizardNavigation',

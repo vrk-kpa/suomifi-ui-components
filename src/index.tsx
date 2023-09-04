@@ -12,7 +12,8 @@ export {
   BreadcrumbLink,
   BreadcrumbLinkProps,
 } from './core/Breadcrumb';
-export { Alert, AlertProps, InlineAlert, InlineAlertProps } from './core/Alert';
+export { Alert, AlertProps } from './core/Alert/Alert';
+export { InlineAlert, InlineAlertProps } from './core/InlineAlert/InlineAlert';
 export {
   Notification,
   NotificationProps,

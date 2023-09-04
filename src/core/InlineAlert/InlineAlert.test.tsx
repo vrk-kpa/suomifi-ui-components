@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { InlineAlert } from '../InlineAlert/InlineAlert';
-import { axeTest } from '../../../utils/test';
+import { axeTest } from '../../utils/test';
 
 describe('children', () => {
   const alertWithElementChild = (

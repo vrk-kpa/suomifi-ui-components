@@ -1,32 +1,42 @@
-HintText is a component that generates an accessible hint text for an adjacent element. Give the ID of the HintText as an `aria-describedby` value to the related component. Applicable form components in the library already have HintText as an integral part.
+The `<HintText>` component creates an accessible instruction text for an adjacent element.
+
+Under the hood, the `suomifi-ui-components` library uses this component extensively in form components.
+
+Examples:
+
+- [Basic use](/#/Components/HintText?id=basic-use)
+
+<div style="margin-bottom: 40px">
+  [Props & methods](/#/Components/HintText?id=props--methods)
+</div>
+
+### Basic use
+
+Provide the id of the HintText as an `aria-describedby` value to the related component.
 
 ```js
-import React from 'react';
 import { HintText } from 'suomifi-ui-components';
 
-<HintText>This is a hint regarding an adjacent input</HintText>;
+<div>
+  <label htmlFor="custom-input">Name</label>
+  <HintText id="hint-text" style={{ marginBottom: '10px' }}>
+    Please enter your first name
+  </HintText>
+  <input id="custom-input" type="text" aria-describedby="hint-text" />
+</div>;
 ```
+
+### Integrated hint text
+
+Many components allow you to provide `hintText` as a prop.
 
 ```js
-import React from 'react';
-import { HintText } from 'suomifi-ui-components';
+import { TextInput } from 'suomifi-ui-components';
 
-<>
-  <div>
-    <label
-      htmlFor="custom-input"
-      style={{ display: 'block', marginBottom: '10px' }}
-    >
-      Custom input
-    </label>
-    <HintText id="hint-text" style={{ marginBottom: '10px' }}>
-      This is a hint regarding an adjacent input
-    </HintText>
-    <input
-      id="custom-input"
-      type="text"
-      aria-describedby="hint-text"
-    />
-  </div>
-</>;
+<TextInput
+  labelText="New last name"
+  hintText="Write the last name you wish to apply for"
+/>;
 ```
+
+### Props & methods

@@ -47,9 +47,6 @@ const StyledText = styled(
   ${(props) => baseStyles(props)}
 `;
 
-/**
- * Used for displaying text with correct fonts
- */
 const Text = forwardRef<HTMLSpanElement, TextProps>(
   (props: TextProps, ref: React.Ref<HTMLSpanElement>) => {
     const { ...passProps } = props;

@@ -85,10 +85,6 @@ const StyledExpanderTitle = styled(BaseExpanderTitleButton)`
   ${({ theme }) => expanderTitleButtonBaseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Expander title button for static title content and toggle for content visiblity
- */
 const ExpanderTitleButton = forwardRef(
   (
     props: ExpanderTitleButtonProps,

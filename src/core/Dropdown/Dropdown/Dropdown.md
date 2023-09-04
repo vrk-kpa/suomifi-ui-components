@@ -1,238 +1,378 @@
+The `<Dropdown>` component is used to select a value from a list of options. The component is rendered as a combination of a `<button>` element and an ARIA listbox. It should be used when the amount of options is manageable in size, i.e. the user does not need filtering to find the correct option.
+
+If there are a lot of options in the list, consider using the filterable <a href="/#/Components/SingleSelect">SingleSelect</a> component or filter the list beforehand with some additional logic.
+
+If there are only 2-3 options, consider using the <a href="/#/Components/RadioButton">RadioButton</a> component instead.
+
+Examples:
+
+- [Basic use](/#/Components/Dropdown?id=basic-use)
+- [Default value](/#/Components/Dropdown?id=default-value)
+- [Controlled value](/#/Components/Dropdown?id=controlled-value)
+- [Accessing the component with ref](/#/Components/Dropdown?id=accessing-the-component-with-ref)
+- [Error status](/#/Components/Dropdown?id=error-status)
+- [Disabled](/#/Components/Dropdown?id=disabled)
+- [Full width](/#/Components/Dropdown?id=full-width)
+- [Tooltip](/#/Components/Dropdown?id=tooltip)
+
+<div style="margin-bottom: 5px">
+  [Props & methods (Dropdown)](/#/Components/Dropdown?id=props--methods)
+</div>
+<div style="margin-bottom: 40px">
+  [Props & methods (DropdownItem)](/#/Components/Dropdown?id=dropdownitem)
+</div>
+
+### Basic use
+
+Use `<DropdownItem>` components to compose list.
+
+If instructions are needed, use the `hintText` prop.
+
+The `visualPlaceholder` prop is used to apply a placeholder text to the input. For accessibility reasons, do not use placeholders for instructions.
+
 ```js
-import React from 'react';
 import { Dropdown, DropdownItem } from 'suomifi-ui-components';
 
-const [selectedValue, setSelectedValue] = React.useState(null);
-const [status, setStatus] = React.useState('default');
+const countries = [
+  {
+    name: 'Finland',
+    key: 'finland'
+  },
+  {
+    name: 'Sweden',
+    key: 'sweden'
+  },
+  {
+    name: 'Norway',
+    key: 'norway'
+  },
+  {
+    name: 'Denmark',
+    key: 'denmark'
+  },
+  {
+    name: 'Iceland',
+    key: 'iceland'
+  }
+];
 
 <Dropdown
-  name="dropdown_example_1"
-  labelText="Dropdown label"
-  hintText="Some informative text"
-  onChange={(value) => {
-    setStatus('default');
-    setSelectedValue(value);
-  }}
-  onBlur={() => {
-    if (!selectedValue) {
-      setStatus('error');
-    } else {
-      setStatus('default');
-    }
-  }}
-  status={status}
-  statusText={status === 'error' ? 'You must select a value.' : ''}
-  visualPlaceholder="Select a value"
+  labelText="Country"
+  hintText="Select your current country of residence"
+  visualPlaceholder="Choose country"
 >
-  <DropdownItem value={'dropdown-item-1'}>
-    Dropdown Item 1
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-2'}>
-    Dropdown Item 2
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-3'}>
-    Dropdown Item 3
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-4'}>
-    Dropdown Item 4
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-5'}>
-    Dropdown Item 5
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-6'}>
-    Dropdown Item 6
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-7'}>
-    Dropdown Item 7
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-8'}>
-    Dropdown Item 8
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-9'}>
-    Dropdown Item 9
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-10'}>
-    Dropdown Item 10
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-11'}>
-    Dropdown Item 11
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-12'}>
-    Dropdown Item 12
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-13'}>
-    Dropdown Item 13
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-14'}>
-    Dropdown Item 14
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-15'}>
-    Dropdown Item 15
-  </DropdownItem>
+  {countries.map((country) => (
+    <DropdownItem key={country.key} value={country.key}>
+      {country.name}
+    </DropdownItem>
+  ))}
 </Dropdown>;
 ```
 
+### Default value
+
+Set the input's initial value with the `defaultValue` prop. The default value must match with the value of some DropdownItem in the list.
+
 ```js
 import { Dropdown, DropdownItem } from 'suomifi-ui-components';
-import { createRef } from 'react';
 
-const exampleRef = createRef();
+const countries = [
+  {
+    name: 'Finland',
+    key: 'finland'
+  },
+  {
+    name: 'Sweden',
+    key: 'sweden'
+  },
+  {
+    name: 'Norway',
+    key: 'norway'
+  },
+  {
+    name: 'Denmark',
+    key: 'denmark'
+  },
+  {
+    name: 'Iceland',
+    key: 'iceland'
+  }
+];
+
+<Dropdown
+  labelText="Country"
+  hintText="Select your current country of residence"
+  defaultValue="norway"
+>
+  {countries.map((country) => (
+    <DropdownItem key={country.key} value={country.key}>
+      {country.name}
+    </DropdownItem>
+  ))}
+</Dropdown>;
+```
+
+### Controlled value
+
+Use the `value` prop to access and control the input's value programmatically.
+
+A typical use case involves setting the value manually in the `onChange()` function.
+
+```js
+import { Dropdown, DropdownItem } from 'suomifi-ui-components';
+import { useState } from 'react';
+
+const [controlledValue, setControlledValue] = useState('');
+
+const countries = [
+  {
+    name: 'Finland',
+    key: 'finland'
+  },
+  {
+    name: 'Sweden',
+    key: 'sweden'
+  },
+  {
+    name: 'Norway',
+    key: 'norway'
+  },
+  {
+    name: 'Denmark',
+    key: 'denmark'
+  },
+  {
+    name: 'Iceland',
+    key: 'iceland'
+  }
+];
+
+<Dropdown
+  labelText="Country"
+  hintText="Select your current country of residence"
+  value={controlledValue}
+  onChange={(newValue) => setControlledValue(newValue)}
+>
+  {countries.map((country) => (
+    <DropdownItem key={country.key} value={country.key}>
+      {country.name}
+    </DropdownItem>
+  ))}
+</Dropdown>;
+```
+
+### Accessing the component with ref
+
+The component can be accessed programmatically with React ref. The ref points to the Dropdown's `<button>` element, and contains the `<input>` with selected value within.
+
+```js
+import { Dropdown, DropdownItem } from 'suomifi-ui-components';
+import { useRef } from 'react';
+
+const dropdownRef = useRef();
+
+const countries = [
+  {
+    name: 'Finland',
+    key: 'finland'
+  },
+  {
+    name: 'Sweden',
+    key: 'sweden'
+  },
+  {
+    name: 'Norway',
+    key: 'norway'
+  },
+  {
+    name: 'Denmark',
+    key: 'denmark'
+  },
+  {
+    name: 'Iceland',
+    key: 'iceland'
+  }
+];
+
+<Dropdown
+  labelText="Country"
+  hintText="Select your current country of residence"
+  ref={dropdownRef}
+  onChange={() => console.log(dropdownRef.current)}
+>
+  {countries.map((country) => (
+    <DropdownItem key={country.key} value={country.key}>
+      {country.name}
+    </DropdownItem>
+  ))}
+</Dropdown>;
+```
+
+### Error status
+
+Control the error status of the component using the `status` and `statusText` props.
+
+```js
+import { Dropdown, DropdownItem } from 'suomifi-ui-components';
+import { useState } from 'react';
+
+const [status, setStatus] = useState('error');
+
+const countries = [
+  {
+    name: 'Finland',
+    key: 'finland'
+  },
+  {
+    name: 'Sweden',
+    key: 'sweden'
+  },
+  {
+    name: 'Norway',
+    key: 'norway'
+  },
+  {
+    name: 'Denmark',
+    key: 'denmark'
+  },
+  {
+    name: 'Iceland',
+    key: 'iceland'
+  }
+];
+
+<Dropdown
+  labelText="Country"
+  hintText="Select your current country of residence"
+  onChange={() => setStatus('default')}
+  status={status}
+  statusText={status === 'error' ? 'This field is required' : ''}
+>
+  {countries.map((country) => (
+    <DropdownItem key={country.key} value={country.key}>
+      {country.name}
+    </DropdownItem>
+  ))}
+</Dropdown>;
+```
+
+### Disabled
+
+The entire input or individual options can be disabled
+
+```js
+import { Dropdown, DropdownItem } from 'suomifi-ui-components';
+
+const countries = [
+  {
+    name: 'Finland',
+    key: 'finland',
+    disabled: false
+  },
+  {
+    name: 'Sweden',
+    key: 'sweden',
+    disabled: false
+  },
+  {
+    name: 'Norway',
+    key: 'norway',
+    disabled: false
+  },
+  {
+    name: 'Denmark',
+    key: 'denmark',
+    disabled: false
+  },
+  {
+    name: 'Iceland',
+    key: 'iceland',
+    disabled: true
+  }
+];
+
 <>
   <Dropdown
-    name="dropdown_example_2"
-    visualPlaceholder="Wide dropdown with a visually hidden label and ref"
-    labelText="Dropdown label"
-    labelMode="hidden"
-    ref={exampleRef}
-    onChange={() => console.log(exampleRef.current)}
-    fullWidth
+    labelText="Country"
+    hintText="Select your current country of residence"
+    disabled
   >
-    <DropdownItem value={'dropdown-item-1'}>
-      Dropdown Item 1
-    </DropdownItem>
-    <DropdownItem value={'dropdown-item-2'}>
-      Dropdown Item 2
-    </DropdownItem>
+    {countries.map((country) => (
+      <DropdownItem key={country.key} value={country.key}>
+        {country.name}
+      </DropdownItem>
+    ))}
   </Dropdown>
 
   <Dropdown
-    name="dropdown_example_3"
-    labelText="Disabled dropdown"
-    defaultValue={'dropdown-item-2'}
-    disabled
+    labelText="Country"
+    hintText="Select your current country of residence"
+    visualPlaceholder="Choose country"
   >
-    <DropdownItem value={'dropdown-item-1'}>
-      Dropdown Item 1
-    </DropdownItem>
-    <DropdownItem value={'dropdown-item-2'}>
-      Dropdown Item 2
-    </DropdownItem>
+    {countries.map((country) => (
+      <DropdownItem
+        key={country.key}
+        value={country.key}
+        disabled={country.disabled}
+      >
+        {country.name}
+      </DropdownItem>
+    ))}
   </Dropdown>
 </>;
 ```
 
-```js
-import React from 'react';
-import { Dropdown, DropdownItem } from 'suomifi-ui-components';
+### Full width
 
-const [selectedValue, setSelectedValue] = React.useState(null);
-const [status, setStatus] = React.useState('default');
-
-<Dropdown
-  name="dropdown_example_1"
-  labelText="Dropdown with disabled option"
-  hintText="Some informative text"
-  status={status}
-  visualPlaceholder="Select a value"
->
-  <DropdownItem value={'dropdown-item-1'}>
-    Dropdown Item 1
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-2'}>
-    Dropdown Item 2
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-3'} disabled>
-    Dropdown Item 3
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-4'}>
-    Dropdown Item 4
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-5'}>
-    Dropdown Item 5
-  </DropdownItem>
-</Dropdown>;
-```
-
-```js
-import { useState } from 'react';
-import { Dropdown, DropdownItem } from 'suomifi-ui-components';
-
-const [value, setValue] = useState('');
-
-<Dropdown
-  value={value}
-  name="dropdown_example_4"
-  visualPlaceholder="Select a value"
-  labelText="Dropdown with controlled state"
-  onChange={(newValue) => {
-    if (window.confirm('Change dropdown value?')) {
-      setValue(newValue);
-    }
-  }}
->
-  <DropdownItem value={'dropdown-item-1'}>
-    Dropdown Item 1
-  </DropdownItem>
-  <DropdownItem value={'dropdown-item-2'}>
-    Dropdown Item 2
-  </DropdownItem>
-</Dropdown>;
-```
-
-```js
-import { Dropdown, DropdownItem, Block } from 'suomifi-ui-components';
-
-const dropdownProps = {
-  'aria-labelledby': 'dropdown-group',
-  onChange: (newValue) => console.log(newValue)
-};
-
-<div>
-  <label id="dropdown-group">
-    <p>Dropdown group</p>
-  </label>
-  <Block padding="xs">
-    <Dropdown
-      name="dropdown_example_5"
-      defaultValue={'dropdown-1-item-1'}
-      visualPlaceholder="Dropdown 1"
-      labelText="Dropdown 1 label"
-      {...dropdownProps}
-    >
-      <DropdownItem value={'dropdown-1-item-1'}>
-        Dropdown 1 Item 1
-      </DropdownItem>
-      <DropdownItem value={'dropdown-1-item-2'}>
-        Dropdown 1 Item 2
-      </DropdownItem>
-    </Dropdown>
-  </Block>
-  <Block padding="xs">
-    <Dropdown
-      name="dropdown_example_6"
-      defaultValue={'dropdown-2-item-2'}
-      visualPlaceholder="Dropdown 2"
-      labelText="Dropdown 2 label"
-      {...dropdownProps}
-    >
-      <DropdownItem value={'dropdown-2-item-1'}>
-        Dropdown 2 Item 1
-      </DropdownItem>
-      <DropdownItem value={'dropdown-2-item-2'}>
-        Dropdown 2 Item 2
-      </DropdownItem>
-    </Dropdown>
-  </Block>
-</div>;
-```
-
-### Drodown as action menu
+You can use the `fullWidth` prop to make the input take all available horizontal space.
 
 ```js
 import { Dropdown, DropdownItem } from 'suomifi-ui-components';
 
+const countries = [
+  {
+    name: 'Finland',
+    key: 'finland'
+  },
+  {
+    name: 'Sweden',
+    key: 'sweden'
+  },
+  {
+    name: 'Norway',
+    key: 'norway'
+  },
+  {
+    name: 'Denmark',
+    key: 'denmark'
+  },
+  {
+    name: 'Iceland',
+    key: 'iceland'
+  }
+];
+
 <Dropdown
-  visualPlaceholder="Action menu"
-  labelText="Dropdown as action menu"
-  alwaysShowVisualPlaceholder={true}
-  onChange={(action) => console.log(action, 'selected')}
+  labelText="Country"
+  hintText="Select your current country of residence"
+  visualPlaceholder="Choose country"
+  fullWidth
 >
-  <DropdownItem value={'action-item-1'}>Action Item 1</DropdownItem>
-  <DropdownItem value={'action-item-2'}>Action Item 2</DropdownItem>
+  {countries.map((country) => (
+    <DropdownItem key={country.key} value={country.key}>
+      {country.name}
+    </DropdownItem>
+  ))}
 </Dropdown>;
 ```
 
-### Dropdown with a tooltip
+### Tooltip
+
+A `<Tooltip>` component can be used with Dropdown to provide additional information.
+
+In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for `hintText`. Tooltip can be used for other nice-to-know information.
+
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
 
 ```js
 import {
@@ -243,24 +383,56 @@ import {
   Text
 } from 'suomifi-ui-components';
 
-const labelText = 'Dropdown with a tooltip';
+const labelText = 'Country';
+
+const countries = [
+  {
+    name: 'Finland',
+    key: 'finland'
+  },
+  {
+    name: 'Sweden',
+    key: 'sweden'
+  },
+  {
+    name: 'Norway',
+    key: 'norway'
+  },
+  {
+    name: 'Denmark',
+    key: 'denmark'
+  },
+  {
+    name: 'Iceland',
+    key: 'iceland'
+  }
+];
 
 <Dropdown
-  name="dropdown_example_6"
   labelText={labelText}
+  hintText="Select your current country of residence"
+  visualPlaceholder="Choose country"
   tooltipComponent={
     <Tooltip
-      ariaToggleButtonLabelText={`${labelText}, additional information`}
+      ariaToggleButtonLabelText={`${labelText}, show additional information`}
       ariaCloseButtonLabelText={`${labelText}, close additional information`}
     >
       <Heading variant="h5" as="h2">
-        Tooltip
+        Why you are being asked this information?
       </Heading>
-      <Text>Text content for the tooltip</Text>
+      <Text>
+        Country of residence information is used to provide you
+        personalized assistance in your local area.
+      </Text>
     </Tooltip>
   }
 >
-  <DropdownItem value={'item-1'}>Item 1</DropdownItem>
-  <DropdownItem value={'item-2'}>Item 2</DropdownItem>
+  {countries.map((country) => (
+    <DropdownItem key={country.key} value={country.key}>
+      {country.name}
+    </DropdownItem>
+  ))}
 </Dropdown>;
 ```
+
+### Props & methods

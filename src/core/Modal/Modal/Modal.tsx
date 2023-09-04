@@ -201,11 +201,6 @@ const StyledModal = styled(BaseModal)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Use for showing modal content.
- * NOTE: Modal hides the application root node from screen readers using the provided appElementId.
- */
 const Modal = (props: ModalProps) => {
   const { className: propClassName, ...passProps } = props;
   return (

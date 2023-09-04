@@ -148,9 +148,6 @@ const StyledCheckboxGroup = styled(BaseCheckboxGroup)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * Use for grouping Checkboxes.
- */
 const CheckboxGroup = forwardRef(
   (props: CheckboxGroupProps, ref: React.Ref<HTMLDivElement>) => {
     const { id: propId, ...passProps } = props;

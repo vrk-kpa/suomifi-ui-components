@@ -36,9 +36,6 @@ const StyledParagraph = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * Used for displaying a &lt;p&gt; element with correct styles
- */
 const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
   (props, ref) => (
     <SuomifiThemeConsumer>

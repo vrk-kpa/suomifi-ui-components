@@ -88,10 +88,6 @@ const StyledExternalLink = styled(
   ${({ theme }) => ExternalLinkStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Used for adding a external site link
- */
 const ExternalLink = forwardRef(
   (props: ExternalLinkProps, ref: React.Ref<HTMLAnchorElement>) => (
     <SuomifiThemeConsumer>

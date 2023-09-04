@@ -68,10 +68,6 @@ const StyledExpanderContent = styled(BaseExpanderContent)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Expander content wrapper, controlled by expander
- */
 const ExpanderContent = (props: ExpanderContentProps) => (
   <SuomifiThemeConsumer>
     {({ suomifiTheme }) => (

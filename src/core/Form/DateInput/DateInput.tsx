@@ -453,14 +453,6 @@ const StyledDateInput = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Use for user inputting date.
- * Can be used as an input field or with an additional DatePicker.
- *
- * Props other than specified explicitly are passed on to underlying input element. For example defaultValue and onClick.
- * @component
- */
 const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
   (props: DateInputProps, ref: React.Ref<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;

@@ -34,6 +34,11 @@ export interface BaseLinkProps extends HtmlAProps {
   underline?: UnderlineVariant;
   /** Style variant for the link */
   variant?: 'default' | 'accent';
+  /** Renders the component element as another HTML element
+   *
+   * @default 'a'
+   */
   asProp?: asPropType;
+  /** Use small screen styling */
   smallScreen?: boolean;
 }

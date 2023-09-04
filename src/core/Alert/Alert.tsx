@@ -7,10 +7,10 @@ import {
   HtmlButton,
   HtmlButtonProps,
   HtmlDivWithRefProps,
-} from '../../../reset';
-import { AutoId } from '../../utils/AutoId/AutoId';
-import { getConditionalAriaProp } from '../../../utils/aria';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+} from '../../reset';
+import { AutoId } from '../utils/AutoId/AutoId';
+import { getConditionalAriaProp } from '../../utils/aria';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { baseStyles } from './Alert.baseStyles';
 import { IconClose, IconError, IconInfo, IconWarning } from 'suomifi-icons';
 

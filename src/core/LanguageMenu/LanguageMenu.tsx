@@ -195,12 +195,6 @@ const StyledLanguageMenu = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * Use for selecting a language for a website
- *
- * Props other than specified explicitly are passed on to underlying button element.
- * @component
- */
 const LanguageMenu = forwardRef<HTMLButtonElement, LanguageMenuProps>(
   (props: LanguageMenuProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { id: propId, ...passProps } = props;
