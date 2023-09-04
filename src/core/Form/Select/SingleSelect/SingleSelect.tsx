@@ -220,12 +220,6 @@ class BaseSingleSelect<T> extends Component<
     prevState: SingleSelectState<U & SingleSelectData>,
   ) {
     const { items: propItems, selectedItem } = nextProps;
-    console.log(propItems);
-    console.log(
-      propItems.find(
-        (item) => item.uniqueItemId === prevState.selectedItem?.uniqueItemId,
-      ),
-    );
     const selectedItemChanged =
       'selectedItem' in nextProps &&
       selectedItem?.uniqueItemId !== prevState.selectedItem?.uniqueItemId;
@@ -258,12 +252,6 @@ class BaseSingleSelect<T> extends Component<
 
   componentDidUpdate(prevProps: SingleSelectProps<T & SingleSelectData>): void {
     if (JSON.stringify(this.props.items) !== JSON.stringify(prevProps.items)) {
-      console.log(
-        this.props.items[0].labelText,
-        ' ',
-        prevProps.items[0].labelText,
-      );
-
       this.setState({
         computedItems: this.props.items,
       });
@@ -285,10 +273,13 @@ class BaseSingleSelect<T> extends Component<
       const focusInPopover = this.popoverListRef.current?.contains(
         ownerDocument.activeElement,
       );
-
+      const focusInToggleButton = this.toggleButtonRef.current?.contains(
+        ownerDocument.activeElement,
+      );
       const focusInInput =
         ownerDocument.activeElement === this.filterInputRef.current;
-      const focusInSingleSelect = focusInPopover || focusInInput;
+      const focusInSingleSelect =
+        focusInPopover || focusInInput || focusInToggleButton;
       if (!focusInSingleSelect) {
         this.setState((prevState: SingleSelectState<T & SingleSelectData>) => ({
           filterInputValue: prevState.selectedItem?.labelText || '',
