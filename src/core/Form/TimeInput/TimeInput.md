@@ -35,6 +35,24 @@ import { TimeInput } from 'suomifi-ui-components';
 />;
 ```
 
+### Default value
+
+Use the `defaultValue` prop to provide an initial value for the input.
+
+The value must be of format `H.mm`
+
+```jsx
+import { TimeInput } from 'suomifi-ui-components';
+
+<TimeInput
+  labelText="Open from"
+  ariaLabelHours="hours"
+  ariaLabelMinutes="minutes"
+  hintText="Opening time of your business"
+  defaultValue="12.30"
+/>;
+```
+
 ### Validation
 
 ### Props & methods

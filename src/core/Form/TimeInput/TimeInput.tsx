@@ -119,8 +119,8 @@ const incrementNumber = (
 const getHourAndMinuteValues = (value?: string): string[] | null => {
   const valueString = `${value}`;
   if (value && valueString.length > 0) {
-    if (valueString.match(/^\d{2}:\d{2}$/)) {
-      return valueString.split(':');
+    if (valueString.match(/^\d{2}.\d{2}$/)) {
+      return valueString.split('.');
     }
   }
   return null;
