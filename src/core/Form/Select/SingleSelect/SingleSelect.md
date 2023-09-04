@@ -65,7 +65,7 @@ const inputRef = React.createRef();
       temp.name = inputRef.current.value;
       // temp.uniqueId = Math.random().toString();
 
-      const tempArr = stateTools;
+      const tempArr = [...stateTools];
       tempArr[0] = temp;
 
       setStateTools(tempArr);

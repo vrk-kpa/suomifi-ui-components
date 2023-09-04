@@ -219,45 +219,41 @@ class BaseSingleSelect<T> extends Component<
     nextProps: SingleSelectProps<U & SingleSelectData>,
     prevState: SingleSelectState<U & SingleSelectData>,
   ) {
-    console.log('getDerivedStateFromProps');
-
-    console.log(nextProps.selectedItem);
-
     const { items: propItems, selectedItem } = nextProps;
-    /* const selectedItemChanged =
-      'selectedItem' in nextProps && JSON.stringify(selectedItem)  !== JSON.stringify(prevState.selectedItem);
-*/
+    console.log(propItems);
+    console.log(
+      propItems.find(
+        (item) => item.uniqueItemId === prevState.selectedItem?.uniqueItemId,
+      ),
+    );
+    const selectedItemChanged =
+      'selectedItem' in nextProps &&
+      selectedItem?.uniqueItemId !== prevState.selectedItem?.uniqueItemId;
 
-    console.log(propItems[0]);
-    console.log(prevState.initialItems[0]);
-
-    let resolvedInputValue = prevState.filterInputValue;
-    //  if (selectedItemChanged || propItems !== prevState.initialItems) {
-    if (
-      prevState.selectedItem &&
-      prevState.selectedItem.labelText !== prevState.filterInputValue
-    ) {
-      resolvedInputValue = prevState.selectedItem.labelText;
-    }
-
-    const resolvedSelectedItem =
-      'selectedItem' in nextProps ? selectedItem : prevState.selectedItem;
-    /*   const resolvedInputValue = selectedItemChanged
+    if (selectedItemChanged || propItems !== prevState.initialItems) {
+      const resolvedSelectedItem =
+        'selectedItem' in nextProps
+          ? selectedItem
+          : propItems.find(
+              (item) =>
+                item.uniqueItemId === prevState.selectedItem?.uniqueItemId,
+            );
+      const resolvedInputValue = selectedItemChanged
         ? selectedItem?.labelText || ''
-        : prevState.filterInputValue;
-*/
+        : propItems.find(
+            (item) =>
+              item.uniqueItemId === prevState.selectedItem?.uniqueItemId,
+          )?.labelText || '';
 
-    console.log(resolvedInputValue);
-
-    return {
-      selectedItem: resolvedSelectedItem,
-      filteredItems: propItems,
-      filterInputValue: resolvedInputValue,
-      filterMode: prevState.filterMode,
-      initialItems: propItems,
-    };
-    // }
-    // return null;
+      return {
+        selectedItem: resolvedSelectedItem,
+        filteredItems: propItems,
+        filterInputValue: resolvedInputValue,
+        filterMode: prevState.filterMode,
+        initialItems: propItems,
+      };
+    }
+    return null;
   }
 
   componentDidUpdate(prevProps: SingleSelectProps<T & SingleSelectData>): void {
