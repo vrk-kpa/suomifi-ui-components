@@ -4,16 +4,16 @@ LoadingSpinner should only be used if a loading time is expected to be over one 
 
 Examples:
 
-- [Basic use](/#/Components/LoadingSpinner?id=basic-use)
-- [Text alignment](/#/Components/LoadingSpinner?id=text-alignment)
-- [Hidden text](/#/Components/LoadingSpinner?id=hidden-text)
-- [Success status](/#/Components/LoadingSpinner?id=success-status)
-- [Failed status](/#/Components/LoadingSpinner?id=failed-status)
-- [Small variant](/#/Components/LoadingSpinner?id=small-variant)
-- [Dynamic progress, aria-live and aria-busy](/#/Components/LoadingSpinner?id=dynamic-progress-aria-live-and-aria-busy)
+- [Basic use](./#/Components/LoadingSpinner?id=basic-use)
+- [Text alignment](./#/Components/LoadingSpinner?id=text-alignment)
+- [Hidden text](./#/Components/LoadingSpinner?id=hidden-text)
+- [Success status](./#/Components/LoadingSpinner?id=success-status)
+- [Failed status](./#/Components/LoadingSpinner?id=failed-status)
+- [Small variant](./#/Components/LoadingSpinner?id=small-variant)
+- [Dynamic progress, aria-live and aria-busy](./#/Components/LoadingSpinner?id=dynamic-progress-aria-live-and-aria-busy)
 
 <div style="margin-bottom: 40px">
-  [Props & methods](/#/Components/LoadingSpinner?id=props--methods)
+  [Props & methods](./#/Components/LoadingSpinner?id=props--methods)
 </div>
 
 ### Basic use

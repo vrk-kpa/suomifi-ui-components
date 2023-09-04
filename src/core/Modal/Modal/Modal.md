@@ -2,23 +2,23 @@ Use the `<Modal>` component to create accessible modals in your application.
 
 Examples:
 
-- [Basic use](/#/Components/Modal?id=basic-use)
-- [Full screen](/#/Components/Modal?id=full-screen)
-- [No scrolling (dialog)](/#/Components/Modal?id=no-scrolling-dialog)
-- [Set focus on open and close](/#/Components/Modal?id=set-focus-on-open-and-close)
-- [Complex Modal with custom styling](/#/Components/Modal?id=complex-modal-with-custom-styling)
+- [Basic use](./#/Components/Modal?id=basic-use)
+- [Full screen](./#/Components/Modal?id=full-screen)
+- [No scrolling (dialog)](./#/Components/Modal?id=no-scrolling-dialog)
+- [Set focus on open and close](./#/Components/Modal?id=set-focus-on-open-and-close)
+- [Complex Modal with custom styling](./#/Components/Modal?id=complex-modal-with-custom-styling)
 
 <div style="margin-bottom: 5px">
-  [Props & methods (Modal)](/#/Components/Modal?id=props--methods)
+  [Props & methods (Modal)](./#/Components/Modal?id=props--methods)
 </div>
 <div style="margin-bottom: 5px">
-  [Props & methods (ModalContent)](/#/Components/Modal?id=modalcontent)
+  [Props & methods (ModalContent)](./#/Components/Modal?id=modalcontent)
 </div>
 <div style="margin-bottom: 5px">
-  [Props & methods (ModalTitle)](/#/Components/Modal?id=modaltitle)
+  [Props & methods (ModalTitle)](./#/Components/Modal?id=modaltitle)
 </div>
 <div style="margin-bottom: 40px">
-  [Props & methods (ModalFooter)](/#/Components/Modal?id=modalfooter)
+  [Props & methods (ModalFooter)](./#/Components/Modal?id=modalfooter)
 </div>
 
 ### Basic use

@@ -4,16 +4,16 @@ If you need to navigate through multiple levels of page hierarchies, use the use
 
 Examples:
 
-- [Basic use](/#/Components/ServiceNavigation?id=basic-use)
-- [Small screen](/#/Components/ServiceNavigation?id=small-screen)
-- [Disabled items](/#/Components/ServiceNavigation?id=disabled-items)
-- [Using with frameworks](/#/Components/ServiceNavigation?id=using-with-frameworks)
+- [Basic use](./#/Components/ServiceNavigation?id=basic-use)
+- [Small screen](./#/Components/ServiceNavigation?id=small-screen)
+- [Disabled items](./#/Components/ServiceNavigation?id=disabled-items)
+- [Using with frameworks](./#/Components/ServiceNavigation?id=using-with-frameworks)
 
 <div style="margin-bottom: 5px">
-  [Props & methods (ServiceNavigation)](/#/Components/ServiceNavigation?id=props--methods)
+  [Props & methods (ServiceNavigation)](./#/Components/ServiceNavigation?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  [Props & methods (ServiceNavigationItem)](/#/Components/ServiceNavigation?id=servicenavigationitem)
+  [Props & methods (ServiceNavigationItem)](./#/Components/ServiceNavigation?id=servicenavigationitem)
 </div>
 
 ### Basic use

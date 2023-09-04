@@ -1,16 +1,16 @@
 `<Alert>` is used at the top of a web page to convey information regarding the entire page or web service. It has the ARIA role `'alert'`, which ensures the component's content is read by screen readers immediately on page load.
 
-If you need to show dynamically appearing information regarding a more specific part of the page, use the [InlineAlert](/#/Components/InlineAlert) component instead.
+If you need to show dynamically appearing information regarding a more specific part of the page, use the [InlineAlert](./#/Components/InlineAlert) component instead.
 
 Examples:
 
-- [Basic use](/#/Components/Alert?id=basic-use)
-- [Warning status](/#/Components/Alert?id=warning-status)
-- [Error status](/#/Components/Alert?id=error-status)
-- [Small screen](/#/Components/Alert?id=small-screen)
+- [Basic use](./#/Components/Alert?id=basic-use)
+- [Warning status](./#/Components/Alert?id=warning-status)
+- [Error status](./#/Components/Alert?id=error-status)
+- [Small screen](./#/Components/Alert?id=small-screen)
 
 <div style="margin-bottom: 40px">
-  [Props & methods](/#/Components/Alert?id=props--methods)
+  [Props & methods](./#/Components/Alert?id=props--methods)
 </div>
 
 ### Basic use

@@ -1,23 +1,23 @@
-Use the `<RadioButton>` component in a form to select one option out of a few options. To allow users to select multiple options, use a group of [Checkbox](/#/Components/Checkbox) components instead.
+Use the `<RadioButton>` component in a form to select one option out of a few options. To allow users to select multiple options, use a group of [Checkbox](./#/Components/Checkbox) components instead.
 
-If you have more than a few options from which users can choose, consider using the [Dropdown](/#/Components/Dropdown) component instead.
+If you have more than a few options from which users can choose, consider using the [Dropdown](./#/Components/Dropdown) component instead.
 
 Examples:
 
-- [Basic use](/#/Components/RadioButton?id=basic-use)
-- [Default value](/#/Components/RadioButton?id=default-value)
-- [Controlled state](/#/Components/RadioButton?id=controlled-state)
-- [Disabled](/#/Components/RadioButton?id=disabled)
-- [Large variant](/#/Components/RadioButton?id=large-variant)
-- [Optional input](/#/Components/RadioButton?id=optional-input)
-- [Standalone radio buttons](/#/Components/RadioButton?id=standalone-radio-buttons)
-- [Tooltip](/#/Components/RadioButton?id=tooltip)
+- [Basic use](./#/Components/RadioButton?id=basic-use)
+- [Default value](./#/Components/RadioButton?id=default-value)
+- [Controlled state](./#/Components/RadioButton?id=controlled-state)
+- [Disabled](./#/Components/RadioButton?id=disabled)
+- [Large variant](./#/Components/RadioButton?id=large-variant)
+- [Optional input](./#/Components/RadioButton?id=optional-input)
+- [Standalone radio buttons](./#/Components/RadioButton?id=standalone-radio-buttons)
+- [Tooltip](./#/Components/RadioButton?id=tooltip)
 
 <div style="margin-bottom: 5px">
-  [Props & methods (RadioButton)](/#/Components/RadioButton?id=props--methods)
+  [Props & methods (RadioButton)](./#/Components/RadioButton?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  [Props & methods (RadioButtonGroup)](/#/Components/RadioButton?id=radiobuttongroup)
+  [Props & methods (RadioButtonGroup)](./#/Components/RadioButton?id=radiobuttongroup)
 </div>
 
 ### Basic use
@@ -213,7 +213,7 @@ A `<Tooltip>` component can be used with the RadioButtonGroup to provide additio
 
 In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for `groupHintText`. Tooltip can be used for other nice-to-know information.
 
-For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](./#/Components/Tooltip).
 
 ```js
 import {

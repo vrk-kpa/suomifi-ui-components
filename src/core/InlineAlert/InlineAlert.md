@@ -4,13 +4,13 @@ If you need to show site-wide information at the top of the page, use the <a hre
 
 Examples:
 
-- [Basic use](/#/Components/InlineAlert?id=basic-use)
-- [Warning status](/#/Components/InlineAlert?id=warning-status)
-- [Error status](/#/Components/InlineAlert?id=error-status)
-- [Small screen](/#/Components/InlineAlert?id=small-screen)
+- [Basic use](./#/Components/InlineAlert?id=basic-use)
+- [Warning status](./#/Components/InlineAlert?id=warning-status)
+- [Error status](./#/Components/InlineAlert?id=error-status)
+- [Small screen](./#/Components/InlineAlert?id=small-screen)
 
 <div style="margin-bottom: 40px">
-  [Props & methods](/#/Components/InlineAlert?id=props--methods)
+  [Props & methods](./#/Components/InlineAlert?id=props--methods)
 </div>
 
 ### Basic use

@@ -4,23 +4,23 @@ The component's width should match the preferred length of the user input.
 
 Examples:
 
-- [Basic use](/#/Components/TextInput?id=basic-use)
-- [Hint text](/#/Components/TextInput?id=hint-text)
-- [Default value](/#/Components/TextInput?id=default-value)
-- [Controlled state](/#/Components/TextInput?id=controlled-state)
-- [Error status](/#/Components/TextInput?id=error-status)
-- [Debounce](/#/Components/TextInput?id=debounce)
-- [Optional input](/#/Components/TextInput?id=optional-input)
-- [Full width](/#/Components/TextInput?id=full-width)
-- [Disabled](/#/Components/TextInput?id=disabled)
-- [Hidden label](/#/Components/TextInput?id=hidden-label)
-- [Input with icon](/#/Components/TextInput?id=input-with-icon)
-- [Input type](/#/Components/TextInput?id=input-type)
-- [Tooltip](/#/Components/TextInput?id=tooltip)
-- [Character counter](/#/Components/TextInput?id=character-counter)
+- [Basic use](./#/Components/TextInput?id=basic-use)
+- [Hint text](./#/Components/TextInput?id=hint-text)
+- [Default value](./#/Components/TextInput?id=default-value)
+- [Controlled state](./#/Components/TextInput?id=controlled-state)
+- [Error status](./#/Components/TextInput?id=error-status)
+- [Debounce](./#/Components/TextInput?id=debounce)
+- [Optional input](./#/Components/TextInput?id=optional-input)
+- [Full width](./#/Components/TextInput?id=full-width)
+- [Disabled](./#/Components/TextInput?id=disabled)
+- [Hidden label](./#/Components/TextInput?id=hidden-label)
+- [Input with icon](./#/Components/TextInput?id=input-with-icon)
+- [Input type](./#/Components/TextInput?id=input-type)
+- [Tooltip](./#/Components/TextInput?id=tooltip)
+- [Character counter](./#/Components/TextInput?id=character-counter)
 
 <div style="margin-bottom: 40px">
-  [Props & methods](/#/Components/TextInput?id=props--methods)
+  [Props & methods](./#/Components/TextInput?id=props--methods)
 </div>
 
 ### Basic use
@@ -217,7 +217,7 @@ A `<Tooltip>` component can be used with TextInput to provide additional informa
 
 In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for `hintText`. Tooltip can be used for other nice-to-know information.
 
-For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](./#/Components/Tooltip).
 
 ```js
 import {

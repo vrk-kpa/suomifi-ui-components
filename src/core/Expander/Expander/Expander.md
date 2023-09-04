@@ -2,28 +2,28 @@ The `<Expander>` component is used to hide information under an expandable title
 
 Examples:
 
-- [Basic use](/#/Components/Expander?id=basic-use)
-- [Default open](/#/Components/Expander?id=default-open)
-- [Heading semantics](/#/Components/Expander?id=heading-semantics)
-- [Expanders in group](/#/Components/Expander?id=expanders-in-group)
-- [Group without open/close all button](/#/Components/Expander?id=group-without-openclose-all-button)
-- [Controlled state](/#/Components/Expander?id=controlled-state)
-- [Interactive elements in Expander title](/#/Components/Expander?id=interactive-elements-in-expander-title)
+- [Basic use](./#/Components/Expander?id=basic-use)
+- [Default open](./#/Components/Expander?id=default-open)
+- [Heading semantics](./#/Components/Expander?id=heading-semantics)
+- [Expanders in group](./#/Components/Expander?id=expanders-in-group)
+- [Group without open/close all button](./#/Components/Expander?id=group-without-openclose-all-button)
+- [Controlled state](./#/Components/Expander?id=controlled-state)
+- [Interactive elements in Expander title](./#/Components/Expander?id=interactive-elements-in-expander-title)
 
 <div style="margin-bottom: 5px">
-  [Props & methods (Expander)](/#/Components/Expander?id=props--methods)
+  [Props & methods (Expander)](./#/Components/Expander?id=props--methods)
 </div>
 <div style="margin-bottom: 5px">
-  [Props & methods (ExpanderTitleButton)](/#/Components/Expander?id=expandertitlebutton)
+  [Props & methods (ExpanderTitleButton)](./#/Components/Expander?id=expandertitlebutton)
 </div>
 <div style="margin-bottom: 5px">
-  [Props & methods (ExpanderContent)](/#/Components/Expander?id=expandercontent)
+  [Props & methods (ExpanderContent)](./#/Components/Expander?id=expandercontent)
 </div>
 <div style="margin-bottom: 5px">
-  [Props & methods (ExpanderGroup)](/#/Components/Expander?id=expandergroup)
+  [Props & methods (ExpanderGroup)](./#/Components/Expander?id=expandergroup)
 </div>
 <div style="margin-bottom: 40px">
-  [Props & methods (ExpanderTitle)](/#/Components/Expander?id=expandertitle)
+  [Props & methods (ExpanderTitle)](./#/Components/Expander?id=expandertitle)
 </div>
 
 ### Basic use

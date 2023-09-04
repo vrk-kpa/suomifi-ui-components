@@ -2,17 +2,17 @@ The `<SearchInput>` component is intended to be used as part of a traditional pa
 
 Examples:
 
-- [Basic use](/#/Components/SearchInput?id=basic-use)
-- [Inside a form](/#/Components/SearchInput?id=inside-a-form)
-- [Default value](/#/Components/SearchInput?id=default-value)
-- [Controlled value](/#/Components/SearchInput?id=controlled-value)
-- [Error status](/#/Components/SearchInput?id=error-status)
-- [Debounce](/#/Components/SearchInput?id=debounce)
-- [Full width](/#/Components/SearchInput?id=full-width)
-- [Hidden label](/#/Components/SearchInput?id=hidden-label)
+- [Basic use](./#/Components/SearchInput?id=basic-use)
+- [Inside a form](./#/Components/SearchInput?id=inside-a-form)
+- [Default value](./#/Components/SearchInput?id=default-value)
+- [Controlled value](./#/Components/SearchInput?id=controlled-value)
+- [Error status](./#/Components/SearchInput?id=error-status)
+- [Debounce](./#/Components/SearchInput?id=debounce)
+- [Full width](./#/Components/SearchInput?id=full-width)
+- [Hidden label](./#/Components/SearchInput?id=hidden-label)
 
 <div style="margin-bottom: 40px">
-  [Props & methods](/#/Components/SearchInput?id=props--methods)
+  [Props & methods](./#/Components/SearchInput?id=props--methods)
 </div>
 
 ### Basic use

@@ -2,12 +2,12 @@ The `<Block>` component is used as a wrapper and spacing component in place of r
 
 Examples:
 
-- [Basic use](/#/Components/Block?id=basic-use)
-- [Spacing](/#/Components/Block?id=spacing)
-- [Semantics](/#/Components/Block?id=semantics)
+- [Basic use](./#/Components/Block?id=basic-use)
+- [Spacing](./#/Components/Block?id=spacing)
+- [Semantics](./#/Components/Block?id=semantics)
 
 <div style="margin-bottom: 40px">
-  [Props & methods](/#/Components/Block?id=props--methods)
+  [Props & methods](./#/Components/Block?id=props--methods)
 </div>
 
 ### Basic use
@@ -20,7 +20,7 @@ import { Block } from 'suomifi-ui-components';
 
 ### Spacing
 
-You can create spacing around the `<Block>` component using the margin and padding props. Refer to [Props & methods](/#/Components/Block?id=props--methods) for the full list.
+You can create spacing around the `<Block>` component using the margin and padding props. Refer to [Props & methods](./#/Components/Block?id=props--methods) for the full list.
 
 ```js
 import { Block } from 'suomifi-ui-components';
@@ -43,7 +43,7 @@ import { Block } from 'suomifi-ui-components';
 
 ### Semantics
 
-The `<Block>` component can be rendered as a variety of different HTML elements. Refer to [Props & methods](/#/Components/Block?id=props--methods) for the full list.
+The `<Block>` component can be rendered as a variety of different HTML elements. Refer to [Props & methods](./#/Components/Block?id=props--methods) for the full list.
 
 ```js
 import { Block } from 'suomifi-ui-components';

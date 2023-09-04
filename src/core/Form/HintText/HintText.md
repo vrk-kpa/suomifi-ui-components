@@ -4,10 +4,10 @@ Under the hood, the `suomifi-ui-components` library uses this component extensiv
 
 Examples:
 
-- [Basic use](/#/Components/HintText?id=basic-use)
+- [Basic use](./#/Components/HintText?id=basic-use)
 
 <div style="margin-bottom: 40px">
-  [Props & methods](/#/Components/HintText?id=props--methods)
+  [Props & methods](./#/Components/HintText?id=props--methods)
 </div>
 
 ### Basic use

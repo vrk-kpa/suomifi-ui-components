@@ -4,11 +4,11 @@ It is mostly used for additional information for screen reader users. It is util
 
 This component should only be used to provide screen reader users supplemental information where a visual representation of that information would cause issues.
 
-- [Basic use](/#/Components/VisuallyHidden?id=basic-use)
-- [In library components](/#/Components/VisuallyHidden?id=in-library-components)
+- [Basic use](./#/Components/VisuallyHidden?id=basic-use)
+- [In library components](./#/Components/VisuallyHidden?id=in-library-components)
 
 <div style="margin-bottom: 40px">
-  [Props & methods](/#/Components/VisuallyHidden?id=props--methods)
+  [Props & methods](./#/Components/VisuallyHidden?id=props--methods)
 </div>
 
 ### Basic use
@@ -28,7 +28,7 @@ import { VisuallyHidden } from 'suomifi-ui-components';
 
 ### In library components
 
-The library components utilize the `<VisuallyHidden>` element in various ways. See [Textarea](/#/Components/Textarea?id=textarea-with-character-counter) for an example use case.
+The library components utilize the `<VisuallyHidden>` element in various ways. See [Textarea](./#/Components/Textarea?id=textarea-with-character-counter) for an example use case.
 
 There are also a few exceptions where the component library provides the possibility to, for example, hide a label.
 

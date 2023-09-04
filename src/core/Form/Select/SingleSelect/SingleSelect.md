@@ -1,23 +1,23 @@
 The `<SingleSelect>` component is used to select one item from a list of options. The list can also be filtered by typing.
 
-If you need to select multiple options, use the [MultiSelect](/#/Components/MultiSelect) component instead.
+If you need to select multiple options, use the [MultiSelect](./#/Components/MultiSelect) component instead.
 
-If your list only contains a few options (user does not need filtering to find the correct option), use the [Dropdown](/#/Components/Dropdown) component instead.
+If your list only contains a few options (user does not need filtering to find the correct option), use the [Dropdown](./#/Components/Dropdown) component instead.
 
 Examples:
 
-- [Basic use](/#/Components/SingleSelect?id=basic-use)
-- [Default selected items](/#/Components/SingleSelect?id=default-selected-items)
-- [Error status](/#/Components/SingleSelect?id=error-status)
-- [Allowing users to add their own item](/#/Components/SingleSelect?id=allowing-users-to-add-their-own-item)
-- [Controlled state](/#/Components/SingleSelect?id=controlled-state)
-- [Controlled state with custom option enabled](/#/Components/SingleSelect?id=controlled-state-with-custom-option-enabled)
-- [Disabled](/#/Components/SingleSelect?id=disabled)
-- [Loading indicator](/#/Components/SingleSelect?id=loading-indicator)
-- [Tooltip](/#/Components/SingleSelect?id=tooltip)
+- [Basic use](./#/Components/SingleSelect?id=basic-use)
+- [Default selected items](./#/Components/SingleSelect?id=default-selected-items)
+- [Error status](./#/Components/SingleSelect?id=error-status)
+- [Allowing users to add their own item](./#/Components/SingleSelect?id=allowing-users-to-add-their-own-item)
+- [Controlled state](./#/Components/SingleSelect?id=controlled-state)
+- [Controlled state with custom option enabled](./#/Components/SingleSelect?id=controlled-state-with-custom-option-enabled)
+- [Disabled](./#/Components/SingleSelect?id=disabled)
+- [Loading indicator](./#/Components/SingleSelect?id=loading-indicator)
+- [Tooltip](./#/Components/SingleSelect?id=tooltip)
 
 <div style="margin-bottom: 40px">
-  [Props & methods](/#/Components/SingleSelect?id=props--methods)
+  [Props & methods](./#/Components/SingleSelect?id=props--methods)
 </div>
 
 ### Basic use
@@ -599,7 +599,7 @@ A `<Tooltip>` component can be used with SingleSelect to provide additional info
 
 In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for `hintText`. Tooltip can be used for other nice-to-know information.
 
-For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](./#/Components/Tooltip).
 
 ```js
 import {

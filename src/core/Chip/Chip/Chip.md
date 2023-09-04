@@ -2,16 +2,16 @@ The `<Chip>` component is used when you want to present concise information in a
 
 Examples:
 
-- [Basic use](/#/Components/Chip?id=basic-use)
-- [Without remove icon](/#/Components/Chip?id=without-remove-icon)
-- [Disabled](/#/Components/Chip?id=disabled)
-- [Static chip](/#/Components/Chip?id=static-chip)
+- [Basic use](./#/Components/Chip?id=basic-use)
+- [Without remove icon](./#/Components/Chip?id=without-remove-icon)
+- [Disabled](./#/Components/Chip?id=disabled)
+- [Static chip](./#/Components/Chip?id=static-chip)
 
 <div style="margin-bottom: 5px">
-  [Props & methods (Chip)](/#/Components/Chip?id=props--methods)
+  [Props & methods (Chip)](./#/Components/Chip?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  [Props & methods (StaticChip)](/#/Components/Chip?id=staticchip)
+  [Props & methods (StaticChip)](./#/Components/Chip?id=staticchip)
 </div>
 
 ### Basic use

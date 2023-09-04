@@ -1,21 +1,21 @@
 `<ToggleButton>` is a toggle switch that is semantically a button. It can be used to switch between two mutually exclusive states or actions. The state of the button is communicated to assistive technology using `aria-pressed`.
 
-Do not replace [Checkbox](/#/Components/Checkbox) with toggle.
+Do not replace [Checkbox](./#/Components/Checkbox) with toggle.
 
 Examples:
 
-- [Basic use](/#/Components/Toggle?id=basic-use)
-- [Default state](/#/Components/Toggle?id=default-state)
-- [Controlled state](/#/Components/Toggle?id=controlled-state)
-- [Disabled toggle](/#/Components/Toggle?id=disabled-toggle)
-- [Toggle with input](/#/Components/Toggle?id=toggle-with-input)
-- [Accessing value with ref](/#/Components/Toggle?id=accessing-value-with-ref)
+- [Basic use](./#/Components/Toggle?id=basic-use)
+- [Default state](./#/Components/Toggle?id=default-state)
+- [Controlled state](./#/Components/Toggle?id=controlled-state)
+- [Disabled toggle](./#/Components/Toggle?id=disabled-toggle)
+- [Toggle with input](./#/Components/Toggle?id=toggle-with-input)
+- [Accessing value with ref](./#/Components/Toggle?id=accessing-value-with-ref)
 
 <div style="margin-bottom: 5px">
-  [Props & methods (ToggleButton)](/#/Components/Toggle?id=props--methods)
+  [Props & methods (ToggleButton)](./#/Components/Toggle?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  [Props & methods (ToggleInput)](/#/Components/Toggle?id=toggleinput)
+  [Props & methods (ToggleInput)](./#/Components/Toggle?id=toggleinput)
 </div>
 
 ### Basic use

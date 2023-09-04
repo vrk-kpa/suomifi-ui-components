@@ -2,24 +2,24 @@ The `<Checkbox>` component is used to mark a value as selected in a form.
 
 Examples:
 
-- [Basic use](/#/Components/Checkbox?id=basic-use)
-- [Hint text](/#/Components/Checkbox?id=hint-text)
-- [Error status](/#/Components/Checkbox?id=error-status)
-- [Default state](/#/Components/Checkbox?id=default-state)
-- [Controlled state](/#/Components/Checkbox?id=controlled-state)
-- [Disabled](/#/Components/Checkbox?id=disabled)
-- [Accessing value with ref](/#/Components/Checkbox?id=accessing-value-with-ref)
-- [Large checkbox](/#/Components/Checkbox?id=large-checkbox)
-- [Checkboxes in group](/#/Components/Checkbox?id=checkboxes-in-group)
-- [Group error status](/#/Components/Checkbox?id=group-error-status)
-- [Optional input](/#/Components/Checkbox?id=optional-input)
-- [Group with a tooltip](/#/Components/Checkbox?id=group-with-a-tooltip)
+- [Basic use](./#/Components/Checkbox?id=basic-use)
+- [Hint text](./#/Components/Checkbox?id=hint-text)
+- [Error status](./#/Components/Checkbox?id=error-status)
+- [Default state](./#/Components/Checkbox?id=default-state)
+- [Controlled state](./#/Components/Checkbox?id=controlled-state)
+- [Disabled](./#/Components/Checkbox?id=disabled)
+- [Accessing value with ref](./#/Components/Checkbox?id=accessing-value-with-ref)
+- [Large checkbox](./#/Components/Checkbox?id=large-checkbox)
+- [Checkboxes in group](./#/Components/Checkbox?id=checkboxes-in-group)
+- [Group error status](./#/Components/Checkbox?id=group-error-status)
+- [Optional input](./#/Components/Checkbox?id=optional-input)
+- [Group with a tooltip](./#/Components/Checkbox?id=group-with-a-tooltip)
 
 <div style="margin-bottom: 5px">
-  [Props & methods (Checkbox)](/#/Components/Checkbox?id=props--methods)
+  [Props & methods (Checkbox)](./#/Components/Checkbox?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  [Props & methods (CheckboxGroup)](/#/Components/Checkbox?id=checkboxgroup)
+  [Props & methods (CheckboxGroup)](./#/Components/Checkbox?id=checkboxgroup)
 </div>
 
 ### Basic use
@@ -205,7 +205,7 @@ A `<Tooltip>` component can be used with the CheckboxGroup to provide additional
 
 In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for `groupHintText`. Tooltip can be used for other nice-to-know information.
 
-For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](./#/Components/Tooltip).
 
 ```js
 import {

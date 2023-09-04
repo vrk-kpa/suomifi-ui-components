@@ -2,13 +2,13 @@
 
 Examples:
 
-- [Basic use](/#/Components/LinkList?id=basic-use)
+- [Basic use](./#/Components/LinkList?id=basic-use)
 
 <div style="margin-bottom: 5px">
-  [Props & methods (LinkList)](/#/Components/LinkList?id=props--methods)
+  [Props & methods (LinkList)](./#/Components/LinkList?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  [Props & methods (LinkListItem)](/#/Components/LinkList?id=linklistitem)
+  [Props & methods (LinkListItem)](./#/Components/LinkList?id=linklistitem)
 </div>
 
 ### Basic use
