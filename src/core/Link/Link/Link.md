@@ -6,25 +6,25 @@ If you want to trigger an action that does not change the URL use the [Button](#
 
 Examples:
 
-- [Basic use](/#/Components/Link?id=basic-use)
-- [Underline](/#/Components/Link?id=underline)
-- [Small screen](/#/Components/Link?id=small-screen)
-- [Accented](/#/Components/Link?id=accented)
-- [Skip link](/#/Components/Link?id=skip-link)
-- [External link](/#/Components/Link?id=external-link)
-- [Router link](/#/Components/Link?id=router-link)
+- [Basic use](./#/Components/Link?id=basic-use)
+- [Underline](./#/Components/Link?id=underline)
+- [Small screen](./#/Components/Link?id=small-screen)
+- [Accented](./#/Components/Link?id=accented)
+- [Skip link](./#/Components/Link?id=skip-link)
+- [External link](./#/Components/Link?id=external-link)
+- [Router link](./#/Components/Link?id=router-link)
 
 <div style="margin-bottom: 5px">
-  [Props & methods (Link)](/#/Components/Link?id=props--methods)
+  [Props & methods (Link)](./#/Components/Link?id=props--methods)
 </div>
 <div style="margin-bottom: 5px">
-  [Props & methods (SkipLink)](/#/Components/Link?id=skiplink)
+  [Props & methods (SkipLink)](./#/Components/Link?id=skiplink)
 </div>
 <div style="margin-bottom: 5px">
-  [Props & methods (ExternalLink)](/#/Components/Link?id=externallink)
+  [Props & methods (ExternalLink)](./#/Components/Link?id=externallink)
 </div>
 <div style="margin-bottom: 40px">
-  [Props & methods (RouterLink)](/#/Components/Link?id=routerlink)
+  [Props & methods (RouterLink)](./#/Components/Link?id=routerlink)
 </div>
 
 ### Basic use

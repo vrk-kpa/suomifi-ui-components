@@ -1,14 +1,14 @@
 The `<WizardNavigation>` component is used for user interactions that progress in phases. It can help to break up a long form into manageable sections and allows the user to see their progress as well.
 
-- [Basic use](/#/Components/WizardNavigation?id=basic-use)
-- [Small screen](/#/Components/WizardNavigation?id=small-screen)
-- [Using with frameworks](/#/Components/WizardNavigation?id=using-with-frameworks)
+- [Basic use](./#/Components/WizardNavigation?id=basic-use)
+- [Small screen](./#/Components/WizardNavigation?id=small-screen)
+- [Using with frameworks](./#/Components/WizardNavigation?id=using-with-frameworks)
 
 <div style="margin-bottom: 5px">
-  [Props & methods (WizardNavigation)](/#/Components/WizardNavigation?id=props--methods)
+  [Props & methods (WizardNavigation)](./#/Components/WizardNavigation?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  [Props & methods (WizardNavigationItem)](/#/Components/WizardNavigation?id=wizardnavigationitem)
+  [Props & methods (WizardNavigationItem)](./#/Components/WizardNavigation?id=wizardnavigationitem)
 </div>
 
 ### Basic use

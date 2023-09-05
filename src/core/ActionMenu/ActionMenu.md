@@ -2,21 +2,21 @@
 
 Examples:
 
-- [Basic use](/#/Components/ActionMenu?id=basic-use)
-- [With icon only](/#/Components/ActionMenu?id=with-icon-only)
-- [Full width](/#/Components/ActionMenu?id=full-width)
-- [Disabled](/#/Components/ActionMenu?id=disabled)
-- [Icons and dividers in the list](/#/Components/ActionMenu?id=icons-and-dividers-in-the-list)
-- [Button variants](/#/Components/ActionMenu?id=button-variants)
+- [Basic use](./#/Components/ActionMenu?id=basic-use)
+- [With icon only](./#/Components/ActionMenu?id=with-icon-only)
+- [Full width](./#/Components/ActionMenu?id=full-width)
+- [Disabled](./#/Components/ActionMenu?id=disabled)
+- [Icons and dividers in the list](./#/Components/ActionMenu?id=icons-and-dividers-in-the-list)
+- [Button variants](./#/Components/ActionMenu?id=button-variants)
 
 <div style="margin-bottom: 5px">
- [Props & methods (ActionMenu)](/#/Components/ActionMenu?id=props--methods)
+ [Props & methods (ActionMenu)](./#/Components/ActionMenu?id=props--methods)
 </div>
 <div style="margin-bottom: 5px">
- [Props & methods (ActionMenuItem)](/#/Components/ActionMenu?id=actionmenuitem)
+ [Props & methods (ActionMenuItem)](./#/Components/ActionMenu?id=actionmenuitem)
 </div>
 <div style="margin-bottom: 40px">
- [Props & methods (ActionMenuDivider)](/#/Components/ActionMenu?id=actionmenudivider)
+ [Props & methods (ActionMenuDivider)](./#/Components/ActionMenu?id=actionmenudivider)
 </div>
 
 ### Basic use

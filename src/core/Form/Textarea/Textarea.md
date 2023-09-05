@@ -2,20 +2,20 @@ The `<Textarea>` component is suitable for longer user inputs.
 
 Examples:
 
-- [Basic use](/#/Components/Textarea?id=basic-use)
-- [Hint text](/#/Components/Textarea?id=hint-text)
-- [Default value](/#/Components/Textarea?id=default-value)
-- [Controlled state](/#/Components/Textarea?id=controlled-state)
-- [Error status](/#/Components/Textarea?id=error-status)
-- [Disabled](/#/Components/Textarea?id=disabled)
-- [Optional input](/#/Components/Textarea?id=optional-input)
-- [Full width](/#/Components/Textarea?id=full-width)
-- [Resize modes](/#/Components/Textarea?id=resize-modes)
-- [Tooltip](/#/Components/Textarea?id=tooltip)
-- [Character counter](/#/Components/Textarea?id=character-counter)
+- [Basic use](./#/Components/Textarea?id=basic-use)
+- [Hint text](./#/Components/Textarea?id=hint-text)
+- [Default value](./#/Components/Textarea?id=default-value)
+- [Controlled state](./#/Components/Textarea?id=controlled-state)
+- [Error status](./#/Components/Textarea?id=error-status)
+- [Disabled](./#/Components/Textarea?id=disabled)
+- [Optional input](./#/Components/Textarea?id=optional-input)
+- [Full width](./#/Components/Textarea?id=full-width)
+- [Resize modes](./#/Components/Textarea?id=resize-modes)
+- [Tooltip](./#/Components/Textarea?id=tooltip)
+- [Character counter](./#/Components/Textarea?id=character-counter)
 
 <div style="margin-bottom: 40px">
-  [Props & methods](/#/Components/Textarea?id=props--methods)
+  [Props & methods](./#/Components/Textarea?id=props--methods)
 </div>
 
 ### Basic use
@@ -154,7 +154,7 @@ A `<Tooltip>` component can be used with Textarea to provide additional informat
 
 In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for `hintText`. Tooltip can be used for other nice-to-know information.
 
-For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](./#/Components/Tooltip).
 
 ```js
 import {

@@ -1,4 +1,4 @@
-`<Tooltip>` is a tool for providing secondary information or context for elements where [HintText](/#/Components/HintText) does not suffice due to the need for a longer content or for other reasons.
+`<Tooltip>` is a tool for providing secondary information or context for elements where [HintText](./#/Components/HintText) does not suffice due to the need for a longer content or for other reasons.
 
 - Prefer HintText for providing instructions and context for elements where needed
 - Avoid using interactive elements inside the tooltip
@@ -7,11 +7,11 @@
 
 Examples:
 
-- [Basic use](/#/Components/Tooltip?id=basic-use)
-- [In library components](/#/Components/Tooltip?id=in-library-components)
+- [Basic use](./#/Components/Tooltip?id=basic-use)
+- [In library components](./#/Components/Tooltip?id=in-library-components)
 
 <div style="margin-bottom: 40px">
-  [Props & methods](/#/Components/Tooltip?id=props--methods)
+  [Props & methods](./#/Components/Tooltip?id=props--methods)
 </div>
 
 ### Basic use

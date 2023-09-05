@@ -2,13 +2,13 @@ The `<Breadcrumb>` component is used to let the user know their current location
 
 Examples:
 
-- [Basic use](/#/Components/Breadcrumb?id=basic-use)
+- [Basic use](./#/Components/Breadcrumb?id=basic-use)
 
 <div style="margin-bottom: 5px">
- [Props & methods (Breadcrumb)](/#/Components/Breadcrumb?id=props--methods)
+ [Props & methods (Breadcrumb)](./#/Components/Breadcrumb?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  [Props & methods (BreadcrumbLink)](/#/Components/Breadcrumb?id=breadcrumblink)
+  [Props & methods (BreadcrumbLink)](./#/Components/Breadcrumb?id=breadcrumblink)
 </div>
 
 ### Basic use

@@ -1,25 +1,25 @@
 The `<Dropdown>` component is used to select a value from a list of options. The component is rendered as a combination of a `<button>` element and an ARIA listbox. It should be used when the amount of options is manageable in size, i.e. the user does not need filtering to find the correct option.
 
-If there are a lot of options in the list, consider using the filterable <a href="/#/Components/SingleSelect">SingleSelect</a> component or filter the list beforehand with some additional logic.
+If there are a lot of options in the list, consider using the filterable <a href="./#/Components/SingleSelect">SingleSelect</a> component or filter the list beforehand with some additional logic.
 
-If there are only 2-3 options, consider using the <a href="/#/Components/RadioButton">RadioButton</a> component instead.
+If there are only 2-3 options, consider using the <a href="./#/Components/RadioButton">RadioButton</a> component instead.
 
 Examples:
 
-- [Basic use](/#/Components/Dropdown?id=basic-use)
-- [Default value](/#/Components/Dropdown?id=default-value)
-- [Controlled value](/#/Components/Dropdown?id=controlled-value)
-- [Accessing the component with ref](/#/Components/Dropdown?id=accessing-the-component-with-ref)
-- [Error status](/#/Components/Dropdown?id=error-status)
-- [Disabled](/#/Components/Dropdown?id=disabled)
-- [Full width](/#/Components/Dropdown?id=full-width)
-- [Tooltip](/#/Components/Dropdown?id=tooltip)
+- [Basic use](./#/Components/Dropdown?id=basic-use)
+- [Default value](./#/Components/Dropdown?id=default-value)
+- [Controlled value](./#/Components/Dropdown?id=controlled-value)
+- [Accessing the component with ref](./#/Components/Dropdown?id=accessing-the-component-with-ref)
+- [Error status](./#/Components/Dropdown?id=error-status)
+- [Disabled](./#/Components/Dropdown?id=disabled)
+- [Full width](./#/Components/Dropdown?id=full-width)
+- [Tooltip](./#/Components/Dropdown?id=tooltip)
 
 <div style="margin-bottom: 5px">
-  [Props & methods (Dropdown)](/#/Components/Dropdown?id=props--methods)
+  [Props & methods (Dropdown)](./#/Components/Dropdown?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  [Props & methods (DropdownItem)](/#/Components/Dropdown?id=dropdownitem)
+  [Props & methods (DropdownItem)](./#/Components/Dropdown?id=dropdownitem)
 </div>
 
 ### Basic use
@@ -372,7 +372,7 @@ A `<Tooltip>` component can be used with Dropdown to provide additional informat
 
 In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for `hintText`. Tooltip can be used for other nice-to-know information.
 
-For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](./#/Components/Tooltip).
 
 ```js
 import {

@@ -4,12 +4,12 @@ Under the hood, the `suomifi-ui-components` library uses this component extensiv
 
 Examples:
 
-- [Basic use](/#/Components/Label?id=basic-use)
-- [Marking an input optional](/#/Components/Label?id=marking-an-input-optional)
-- [Tooltip](/#/Components/Label?id=tooltip)
+- [Basic use](./#/Components/Label?id=basic-use)
+- [Marking an input optional](./#/Components/Label?id=marking-an-input-optional)
+- [Tooltip](./#/Components/Label?id=tooltip)
 
 <div style="margin-bottom: 40px">
-  [Props & methods](/#/Components/Label?id=props--methods)
+  [Props & methods](./#/Components/Label?id=props--methods)
 </div>
 
 ### Basic use
@@ -42,9 +42,9 @@ import { Label } from 'suomifi-ui-components';
 
 A `<Tooltip>` component can be used with Label to provide additional information.
 
-In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for [HintText](/#/Components/HintText). Tooltip can be used for other nice-to-know information.
+In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for [HintText](./#/Components/HintText). Tooltip can be used for other nice-to-know information.
 
-For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](./#/Components/Tooltip).
 
 ```js
 import { Label, Tooltip, Heading, Text } from 'suomifi-ui-components';

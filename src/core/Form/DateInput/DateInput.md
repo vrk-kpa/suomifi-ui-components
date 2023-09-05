@@ -2,25 +2,25 @@
 
 Examples:
 
-- [Basic use](/#/Components/DateInput?id=basic-use)
-- [Default value](/#/Components/DateInput?id=default-value)
-- [Controlled value](/#/Components/DateInput?id=controlled-value)
-- [Date picker](/#/Components/DateInput?id=date-picker)
-- [MinDate & maxDate](/#/Components/DateInput?id=mindate--maxdate)
-- [Validation](/#/Components/DateInput?id=validation)
-- [Initial focused date in date picker](/#/Components/DateInput?id=initial-focused-date-in-date-picker)
-- [Disabled dates in date picker](/#/Components/DateInput?id=disabled-dates-in-date-picker)
-- [Custom dateAdapter](/#/Components/DateInput?id=custom-dateadapter)
-- [Custom texts for date picker](/#/Components/DateInput?id=custom-texts-for-date-picker)
-- [Accessing value with ref](/#/Components/DateInput?id=accessing-value-with-ref)
-- [Small screen date picker](/#/Components/DateInput?id=small-screen-date-picker)
-- [Hidden label](/#/Components/DateInput?id=hidden-label)
-- [Full width and fixed width](/#/Components/DateInput?id=full-width-and-fixed-width)
-- [Optional input](/#/Components/DateInput?id=optional-input)
-- [Tooltip](/#/Components/DateInput?id=tooltip)
+- [Basic use](./#/Components/DateInput?id=basic-use)
+- [Default value](./#/Components/DateInput?id=default-value)
+- [Controlled value](./#/Components/DateInput?id=controlled-value)
+- [Date picker](./#/Components/DateInput?id=date-picker)
+- [MinDate & maxDate](./#/Components/DateInput?id=mindate--maxdate)
+- [Validation](./#/Components/DateInput?id=validation)
+- [Initial focused date in date picker](./#/Components/DateInput?id=initial-focused-date-in-date-picker)
+- [Disabled dates in date picker](./#/Components/DateInput?id=disabled-dates-in-date-picker)
+- [Custom dateAdapter](./#/Components/DateInput?id=custom-dateadapter)
+- [Custom texts for date picker](./#/Components/DateInput?id=custom-texts-for-date-picker)
+- [Accessing value with ref](./#/Components/DateInput?id=accessing-value-with-ref)
+- [Small screen date picker](./#/Components/DateInput?id=small-screen-date-picker)
+- [Hidden label](./#/Components/DateInput?id=hidden-label)
+- [Full width and fixed width](./#/Components/DateInput?id=full-width-and-fixed-width)
+- [Optional input](./#/Components/DateInput?id=optional-input)
+- [Tooltip](./#/Components/DateInput?id=tooltip)
 
 <div style="margin-bottom: 40px">
-  [Props & methods](/#/Components/DateInput?id=props--methods)
+  [Props & methods](./#/Components/DateInput?id=props--methods)
 </div>
 
 ### Basic use
@@ -222,7 +222,7 @@ const customDateAdapter = {
 
 If you need to customize the texts in the date picker calendar, use the `datePickerTexts` prop.
 
-For a full list of customisable text options, refer to <a href="/#/Components/DateInput?id=props--methods">props & methods</a>
+For a full list of customisable text options, refer to <a href="./#/Components/DateInput?id=props--methods">props & methods</a>
 
 ```js
 import { DateInput } from 'suomifi-ui-components';
@@ -343,7 +343,7 @@ A `<Tooltip>` component can be used with DateInput to provide additional informa
 
 Do not use Tooltip for formatting instructions. Tooltip can be used for other nice-to-know information.
 
-For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](/#/Components/Tooltip).
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](./#/Components/Tooltip).
 
 ```js
 import {

@@ -6,11 +6,11 @@ StatusText should not be rendered conditionally unless `aria-live` is explicitly
 
 Examples:
 
-- [Basic use](/#/Components/StatusText?id=basic-use)
-- [Conditional status text](/#/Components/StatusText?id=conditional-status-text)
+- [Basic use](./#/Components/StatusText?id=basic-use)
+- [Conditional status text](./#/Components/StatusText?id=conditional-status-text)
 
 <div style="margin-bottom: 40px">
-  [Props & methods](/#/Components/StatusText?id=props--methods)
+  [Props & methods](./#/Components/StatusText?id=props--methods)
 </div>
 
 ### Basic use

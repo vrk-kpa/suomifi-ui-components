@@ -4,16 +4,16 @@ You should not, however, use a `<Button>` in place of a link. If your action cha
 
 Examples:
 
-- [Basic use](/#/Components/Button?id=basic-use)
-- [Full width button](/#/Components/Button?id=full-width-button)
-- [Disabled button](/#/Components/Button?id=disabled-button)
-- [Icons in button](/#/Components/Button?id=icons-in-button)
-- [Secondary button](/#/Components/Button?id=secondary-button)
-- [Light secondary button](/#/Components/Button?id=light-secondary-button)
-- [Inverted button](/#/Components/Button?id=inverted-button)
+- [Basic use](./#/Components/Button?id=basic-use)
+- [Full width button](./#/Components/Button?id=full-width-button)
+- [Disabled button](./#/Components/Button?id=disabled-button)
+- [Icons in button](./#/Components/Button?id=icons-in-button)
+- [Secondary button](./#/Components/Button?id=secondary-button)
+- [Light secondary button](./#/Components/Button?id=light-secondary-button)
+- [Inverted button](./#/Components/Button?id=inverted-button)
 
 <div style="margin-bottom: 40px">
-  [Props & methods](/#/Components/Button?id=props--methods)
+  [Props & methods](./#/Components/Button?id=props--methods)
 </div>
 
 ### Basic use

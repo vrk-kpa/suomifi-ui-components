@@ -6,11 +6,11 @@ The content is conveyed to screen reader users by default via an underlying `ari
 
 Examples:
 
-- [Basic use](/#/Components/Toast?id=basic-use)
-- [Toast with heading](/#/Components/Toast?id=toast-with-heading)
+- [Basic use](./#/Components/Toast?id=basic-use)
+- [Toast with heading](./#/Components/Toast?id=toast-with-heading)
 
 <div style="margin-bottom: 40px">
-  [Props & methods](/#/Components/Toast?id=props--methods)
+  [Props & methods](./#/Components/Toast?id=props--methods)
 </div>
 
 ### Basic use

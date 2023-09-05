@@ -2,13 +2,13 @@
 
 Examples:
 
-- [Basic use](/#/Components/LanguageMenu?id=basic-use)
+- [Basic use](./#/Components/LanguageMenu?id=basic-use)
 
 <div style="margin-bottom: 5px">
-  [Props & methods (LanguageMenu)](/#/Components/LanguageMenu?id=props--methods)
+  [Props & methods (LanguageMenu)](./#/Components/LanguageMenu?id=props--methods)
 </div>
 <div style="margin-bottom: 40px">
-  [Props & methods (LanguageMenuItem)](/#/Components/LanguageMenu?id=languagemenuitem)
+  [Props & methods (LanguageMenuItem)](./#/Components/LanguageMenu?id=languagemenuitem)
 </div>
 
 ### Basic use
