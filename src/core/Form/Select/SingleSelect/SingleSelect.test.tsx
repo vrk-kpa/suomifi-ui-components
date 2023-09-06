@@ -590,3 +590,50 @@ describe('listItemProps', () => {
     expect(option).toHaveAttribute('data-test-id', 'abc');
   });
 });
+
+describe('External update to item array', () => {
+  const ModalWithSiblings = () => {
+    const planets: SingleSelectData[] = [
+      { labelText: 'Mercury', uniqueItemId: 'Me' },
+      { labelText: 'Venus', uniqueItemId: 'Ve' },
+      { labelText: 'Earth', uniqueItemId: 'Ea' },
+      { labelText: 'Mars', uniqueItemId: 'Ma' },
+    ];
+
+    const [stateItems, setStateItems] = React.useState(planets);
+
+    return (
+      <div>
+        <button
+          data-testid="changeState"
+          onClick={() => {
+            const tempPlanets = [...stateItems];
+            tempPlanets[0] = { labelText: 'Moon', uniqueItemId: 'Me' };
+            setStateItems(tempPlanets);
+          }}
+        />
+
+        <SingleSelect
+          labelText="Test"
+          clearButtonLabel="Clear selection"
+          items={stateItems}
+          defaultSelectedItem={stateItems[0]}
+          noItemsText="No items"
+          ariaOptionsAvailableText="Options available"
+        />
+      </div>
+    );
+  };
+
+  it('updated item array should be visible in input', async () => {
+    const { getByRole, getByTestId } = render(<ModalWithSiblings />);
+    const input = getByRole('textbox');
+    expect(input).toHaveDisplayValue('Mercury');
+
+    const button = getByTestId('changeState');
+    await act(async () => {
+      fireEvent.click(button);
+    });
+    expect(input).toHaveDisplayValue('Moon');
+  });
+});
