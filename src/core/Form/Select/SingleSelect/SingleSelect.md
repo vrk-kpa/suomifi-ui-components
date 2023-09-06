@@ -33,6 +33,44 @@ Examples:
 ```js
 import { SingleSelect } from 'suomifi-ui-components';
 
+const planets = [
+  { labelText: 'Mercury', uniqueItemId: 'Me' },
+  { labelText: 'Venus', uniqueItemId: 'Ve' },
+  { labelText: 'Earth', uniqueItemId: 'Ea' },
+  { labelText: 'Mars', uniqueItemId: 'Ma' }
+];
+
+const [stateItems, setStateItems] = React.useState(planets);
+
+<div>
+  <SingleSelect
+    labelText="Test"
+    clearButtonLabel="Clear selection"
+    items={stateItems}
+    defaultSelectedItem={stateItems[0]}
+    noItemsText="No items"
+    ariaOptionsAvailableText="Options available"
+  />
+
+  <button
+    data-testid="changeState"
+    onClick={() => {
+      console.log(stateItems);
+      const tempPlanets = [...stateItems];
+      tempPlanets[0] = { labelText: 'Moon', uniqueItemId: 'Me' };
+      setStateItems(tempPlanets);
+
+      console.log(tempPlanets);
+    }}
+  >
+    pop
+  </button>
+</div>;
+```
+
+```js
+import { SingleSelect } from 'suomifi-ui-components';
+
 const countries = [
   {
     labelText: 'Switzerland',
