@@ -17,7 +17,7 @@ import { IconArchive } from 'suomifi-ui-components';
 <IconArchive color="green" mousePointer />;
 ```
 
-To use icons as a property for other components, simply give an icon element with the desired properties as a value for the component property.
+To use icons as a property for other components, simply provide an icon element with the desired properties as a value for the component property.
 
 ```js
 import { Button, IconLogin } from 'suomifi-ui-components';

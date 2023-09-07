@@ -32,6 +32,8 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       &:focus-within {
         position: relative;
         box-shadow: ${theme.shadows.actionElementBoxShadow};
+        ${theme.focuses.highContrastFocus} /* For hight contrast mode */
+
         &:after {
           ${theme.focuses.absoluteFocus}
           top: -3px;
@@ -116,9 +118,15 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       cursor: pointer;
       pointer-events: all;
       background: ${theme.gradients.highlightBaseToHighlightDark1};
+
+      @media (forced-colors: active) {
+        border: solid 1px ButtonBorder;
+      }
+
       &:focus {
         &:after {
           ${theme.focuses.absoluteFocus}
+          ${theme.focuses.highContrastFocus} /* For hight contrast mode */
         }
       }
       &:hover {
@@ -129,6 +137,10 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       }
       & .fi-page-input_button-icon .fi-icon-base-fill {
         fill: ${theme.colors.whiteBase};
+
+        @media (forced-colors: active) {
+          fill: ButtonText;
+        }
       }
     }
   }

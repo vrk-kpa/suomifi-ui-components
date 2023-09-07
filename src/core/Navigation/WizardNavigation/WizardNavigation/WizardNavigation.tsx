@@ -8,27 +8,27 @@ import { getConditionalAriaProp } from '../../../../utils/aria';
 import { baseStyles } from './WizardNavigation.baseStyles';
 
 export interface WizardNavigationProps {
-  /** Use the `<WizardNavigationItem>` components as children */
+  /** Use `<WizardNavigationItem>` components as children */
   children: ReactNode;
-  /** Name for the navigation element. Don't use the word "navigation" since it will be read by screen reader regardless. */
+  /** Name for the navigation element. Don't use the word "navigation" since it will be read by screen readers regardless. */
   'aria-label': string;
-  /** ID for the HTML nav element */
+  /** HTML id attribute for the `<nav>` element. Typically used together with a `<SkipLink>` to quickly move to the nav */
   id?: string;
   /**
-   * Normal or small screen variant
+   * Component variant. `'smallScreen'` allows the navigation to be collapsed/expanded with a toggle button
    * @default normal
    */
   variant?: 'default' | 'smallScreen';
   /**
-   * Initial expand status for the menu. Only applies to smallScreen variant
+   * Initial expand status for the menu. Only applies to the smallScreen variant
    * @default true
    */
   initiallyExpanded?: boolean;
-  /** Navigation component heading text */
+  /** Heading text */
   heading: string;
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
-  /** Ref is forwarded to nav element. Alternative for React `ref` attribute. */
+  /** Ref is forwarded to the nav element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLElement>;
 }
 

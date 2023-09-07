@@ -45,13 +45,16 @@ export interface NotificationProps extends HtmlDivWithRefProps {
    * @default 'h2'
    */
   headingVariant?: Exclude<hLevels, 'h1'>;
-  /** Text to label the close button. Visible + `aria-label` in regular size and only used as `aria-label` in small screen variant */
+  /**
+   * Text to label the close button.
+   * Is visible and as `aria-label` in regular size and only used as `aria-label` in small screen variant
+   */
   closeText: string;
-  /** Click handler for the close button */
+  /** Callback fired on close button click */
   onCloseButtonClick?: () => void;
   /** Custom props passed to the close button */
   closeButtonProps?: Omit<HtmlButtonProps, 'onClick'>;
-  /** Use small screen styling */
+  /** Toggles small screen styling */
   smallScreen?: boolean;
   /** Label for the notification region for screen reader users.
    * If one is not provided, `headingText` or finally notification content will be used as the label.

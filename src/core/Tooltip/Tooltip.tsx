@@ -9,15 +9,19 @@ const baseClassName = 'fi-tooltip';
 export interface TooltipProps {
   /** Tooltip content */
   children: ReactNode;
-  /** Toggle button label for screen readers */
+  /** Toggle button label for screen readers. Should provide context as to which input the Tooltip's information is attached to.
+   * Example: If the input is 'First name', `ariaToggleButtonLabelText` would be something like 'First name, show additional information'
+   */
   ariaToggleButtonLabelText: string;
-  /** Close button label for screen readers */
+  /** Close button label for screen readers. Should provide context as to which input the Tooltip's information is attached to.
+   * Example: If the input is 'First name', `ariaCloseButtonLabelText` would be something like 'First name, hide additional information'
+   */
   ariaCloseButtonLabelText: string;
   /** Controlled tooltip open state */
   open?: boolean;
-  /** ClassName for toggle button */
+  /** CSS class for the Tooltip toggle button */
   toggleButtonClassName?: string;
-  /** Classname for tooltip content */
+  /** CSS class for the Tooltip content */
   contentClassName?: string | undefined;
   /**
    * Anchor element for listening to resize events.
@@ -26,11 +30,11 @@ export interface TooltipProps {
    * NOTE: Does not work with inline elements as those do not support resize events.
    */
   anchorElement?: HTMLElement | null;
-  /** Event handler for toggle button click */
+  /** Callback fired on toggle button click */
   onToggleButtonClick?: (event: React.MouseEvent) => void;
-  /** Event handler for close button click */
+  /** Callback fired on close button click */
   onCloseButtonClick?: (event: React.MouseEvent) => void;
-  /** Ref object to be passed to the button element. Alternative to React `ref` attribute. */
+  /** Ref object is forwarded to the toggle button element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
 }
 

@@ -3,6 +3,7 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { HtmlDiv } from '../../../../reset';
 import { getOwnerDocument, escapeStringRegexp } from '../../../../utils/common';
+import { HTMLAttributesIncludingDataAttributes } from '../../../../utils/common/common';
 import { AutoId } from '../../../utils/AutoId/AutoId';
 import { Debounce } from '../../../utils/Debounce/Debounce';
 import { Popover } from '../../../Popover/Popover';
@@ -34,6 +35,8 @@ export interface SingleSelectData {
   disabled?: boolean;
   /** Unique id to identify the item */
   uniqueItemId: string;
+  /** Props to pass to select item's list element, for example data-attributes */
+  listItemProps?: HTMLAttributesIncludingDataAttributes<HTMLLIElement>;
 }
 
 export type SingleSelectStatus = FilterInputStatus & {};
@@ -56,52 +59,65 @@ type AriaOptionsAvailableProps =
     };
 
 export interface InternalSingleSelectProps<T extends SingleSelectData> {
-  /** SingleSelect container div class name for custom styling. */
+  /** CSS class for custom styles */
   className?: string;
-  /** Items for the SingleSelect */
+  /** Items for the SingleSelect
+   * <pre>
+   * SingleSelectData {
+   *    labelText: string;
+   *    uniqueItemId: string;
+   *    disabled?: boolean;
+   *    listItemProps?: HTMLAttributesIncludingDataAttributes&lt;HTMLLIElement&gt;;
+   * }
+   * </pre>
+   */
   items: Array<T & SingleSelectData>;
   /**
-   * Unique id
+   * HTML id attribute.
    * If no id is specified, one will be generated automatically
    */
   id?: string;
-  /** Label */
+  /** Label for the input */
   labelText: ReactNode;
-  /** Text to mark a field optional. Wrapped in parentheses and shown after labelText. */
+  /** Text to mark the field optional. Wrapped in parentheses and shown after labelText. */
   optionalText?: string;
   /** Hint text to be shown below the label */
   hintText?: string;
-  /** Clear button label for screen readers */
+  /** Screen reader label for the 'Clear' button */
   clearButtonLabel: string;
-  /** Event that is fired when item selection changes */
+  /** Callback fired when item selection changes */
   onItemSelectionChange?: (selectedItem: (T & SingleSelectData) | null) => void;
-  /** Placeholder text for input. Use only as visual aid, not for instructions. */
+  /** Placeholder text for the input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
   /** Default selected items */
   defaultSelectedItem?: T & SingleSelectData;
-  /** Event sent when filter changes */
+  /** Callback fired when filter changes */
   onChange?: (value: string) => void;
-  /** onBlur event handler */
+  /** Callback fired on inpur blur */
   onBlur?: () => void;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
   debounce?: number;
   /**
-   * 'default' | 'error'
+   * `'default'` | `'error'`
+   *
+   * Status of the component. Error state creates a red border around the input. Always use a descriptive `statusText` with an error status.
    * @default default
    */
   status?: SingleSelectStatus;
-  /** Status text to be shown below the component and hint text. Use e.g. for validation error */
+  /** Status text to be shown below the component. Use e.g. for validation error messages */
   statusText?: string;
-  /** Controlled items; if item is in array, it is selected. If item has disabled: true, it will be disabled. */
+  /** Controlled selected item */
   selectedItem?: (T & SingleSelectData) | null;
-  /** Selecting the item will send event with the id */
+  /** Callback fired on item select */
   onItemSelect?: (uniqueItemId: string | null) => void;
-  /** Disable the input */
+  /** Disables the input */
   disabled?: boolean;
   /** Tooltip component for the input's label */
   tooltipComponent?: ReactElement;
-  /** Ref is forwarded to the input element. Alternative for React `ref` attribute. */
+  /** Ref is forwarded to the underlying input element. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLInputElement>;
+  /** Props passed to the unordered list element inside the popover. For example data-attributes */
+  listProps?: HTMLAttributesIncludingDataAttributes<HTMLUListElement>;
 }
 
 type LoadingProps =
@@ -110,7 +126,7 @@ type LoadingProps =
       loadingText?: string;
     }
   | {
-      /** Show the animated icon indicating that component is loading data
+      /** Shows the animated icon indicating indicating the component is loading data
        * @default false
        */
       loading?: true;
@@ -133,7 +149,7 @@ type AllowItemAdditionProps =
        * Also read by screen reader when focusing on the item addition element.
        * Required if `allowItemAddition` is true */
       itemAdditionHelpText: string;
-      /** Text to show when no items to show, e.g filtered all out. Required when `allowItemAddition` is false */
+      /** Text to show when there are no items to show, e.g filtered all out. Required when `allowItemAddition` is false */
       noItemsText?: never;
     };
 
@@ -501,6 +517,7 @@ class BaseSingleSelect<T> extends Component<
       tooltipComponent,
       items, // Only destructured away so they don't end up in the DOM
       forwardedRef, // Only destructured away so it doesn't end up in the DOM
+      listProps,
       ...passProps
     } = this.props;
 
@@ -631,6 +648,7 @@ class BaseSingleSelect<T> extends Component<
               id={popoverItemListId}
               ref={this.popoverListRef}
               focusedDescendantId={ariaActiveDescendant}
+              {...listProps}
             >
               <HtmlDiv>
                 {popoverItems.length > 0 &&
@@ -655,6 +673,7 @@ class BaseSingleSelect<T> extends Component<
                         hightlightQuery={
                           filterMode ? this.filterInputRef.current?.value : ''
                         }
+                        {...item.listItemProps}
                       >
                         {item.labelText}
                       </SelectItem>

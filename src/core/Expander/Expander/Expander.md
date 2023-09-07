@@ -1,46 +1,137 @@
+The `<Expander>` component is used to hide information under an expandable title. Expanders can shorten an otherwise lengthy page and make it easier to perceive a page with a lot of information.
+
+Examples:
+
+- [Basic use](./#/Components/Expander?id=basic-use)
+- [Default open](./#/Components/Expander?id=default-open)
+- [Heading semantics](./#/Components/Expander?id=heading-semantics)
+- [Expanders in group](./#/Components/Expander?id=expanders-in-group)
+- [Group without open/close all button](./#/Components/Expander?id=group-without-openclose-all-button)
+- [Controlled state](./#/Components/Expander?id=controlled-state)
+- [Interactive elements in Expander title](./#/Components/Expander?id=interactive-elements-in-expander-title)
+
+<div style="margin-bottom: 5px">
+  [Props & methods (Expander)](./#/Components/Expander?id=props--methods)
+</div>
+<div style="margin-bottom: 5px">
+  [Props & methods (ExpanderTitleButton)](./#/Components/Expander?id=expandertitlebutton)
+</div>
+<div style="margin-bottom: 5px">
+  [Props & methods (ExpanderContent)](./#/Components/Expander?id=expandercontent)
+</div>
+<div style="margin-bottom: 5px">
+  [Props & methods (ExpanderGroup)](./#/Components/Expander?id=expandergroup)
+</div>
+<div style="margin-bottom: 40px">
+  [Props & methods (ExpanderTitle)](./#/Components/Expander?id=expandertitle)
+</div>
+
+### Basic use
+
+Compose the Expander using `<ExpanderTitleButton>` and `<ExpanderContent>`
+
 ```jsx
 import {
   Expander,
   ExpanderTitleButton,
-  ExpanderContent
+  ExpanderContent,
+  Paragraph
 } from 'suomifi-ui-components';
 
-<Expander className="expander-test" defaultOpen={true}>
-  <ExpanderTitleButton asHeading="h3">
-    Test expander
+<Expander>
+  <ExpanderTitleButton>
+    Assistance with financial problems
   </ExpanderTitleButton>
-  <ExpanderContent>Test expander</ExpanderContent>
+  <ExpanderContent>
+    <Paragraph marginBottomSpacing="l">
+      If your company is experiencing financial or payment
+      difficulties, please contact the Yrittäjän talousapu counselling
+      service.
+    </Paragraph>
+    <Paragraph marginBottomSpacing="l">
+      Telephone Service 0295 024 882
+    </Paragraph>
+    <Paragraph>Monday - Friday 9.00–16.15</Paragraph>
+  </ExpanderContent>
 </Expander>;
 ```
+
+### Default open
+
+Use the `defaultOpen` prop to make the Expander show its content on first render.
 
 ```jsx
 import {
   Expander,
-  ExpanderTitle,
+  ExpanderTitleButton,
   ExpanderContent,
-  Checkbox
+  Paragraph
 } from 'suomifi-ui-components';
 
-<Expander className="expander-test" defaultOpen={true}>
-  <ExpanderTitle
-    ariaOpenText="open expander"
-    ariaCloseText="close expander"
-    toggleButtonAriaDescribedBy="checkbox-id"
-  >
-    <Checkbox hintText="Checkbox hint text" id="checkbox-id">
-      Checkbox label
-    </Checkbox>
-  </ExpanderTitle>
-  <ExpanderContent>Test expander</ExpanderContent>
+<Expander defaultOpen>
+  <ExpanderTitleButton>
+    Assistance with financial problems
+  </ExpanderTitleButton>
+  <ExpanderContent>
+    <Paragraph marginBottomSpacing="l">
+      If your company is experiencing financial or payment
+      difficulties, please contact the Yrittäjän talousapu counselling
+      service.
+    </Paragraph>
+    <Paragraph marginBottomSpacing="l">
+      Telephone Service 0295 024 882
+    </Paragraph>
+    <Paragraph>Monday - Friday 9.00–16.15</Paragraph>
+  </ExpanderContent>
 </Expander>;
 ```
+
+### Heading semantics
+
+You can use the `asHeading` prop in ExpanderTitleButton to render the Expander button inside a heading element. Should always be used when the ExpanderContent might contain subheadings. Make sure the heading hierarchy is logical.
+
+```jsx
+import {
+  Expander,
+  ExpanderTitleButton,
+  ExpanderContent,
+  Paragraph
+} from 'suomifi-ui-components';
+
+<Expander>
+  <ExpanderTitleButton asHeading="h3">
+    Assistance with financial problems
+  </ExpanderTitleButton>
+  <ExpanderContent>
+    <Paragraph marginBottomSpacing="l">
+      If your company is experiencing financial or payment
+      difficulties, please contact the Yrittäjän talousapu counselling
+      service.
+    </Paragraph>
+    <Paragraph marginBottomSpacing="l">
+      Telephone Service 0295 024 882
+    </Paragraph>
+    <Paragraph>Monday - Friday 9.00–16.15</Paragraph>
+  </ExpanderContent>
+</Expander>;
+```
+
+### Expanders in group
+
+Use the `<ExpanderGroup>` wrapper to group Expanders together.
+
+All Expanders in a group can be toggled simultaneously with a close/open all button (`openAllText` and `closeAllText` props).
+
+For screen readers, it is recommended to provide a more descriptive label for the button using the `ariaOpenAllText` and `ariaCloseAllText` props.
 
 ```jsx
 import {
   Expander,
   ExpanderGroup,
   ExpanderTitleButton,
-  ExpanderContent
+  ExpanderContent,
+  Paragraph,
+  Text
 } from 'suomifi-ui-components';
 
 <ExpanderGroup
@@ -50,26 +141,98 @@ import {
   ariaCloseAllText="Close all expanders"
 >
   <Expander>
-    <ExpanderTitleButton>Test expander 1</ExpanderTitleButton>
-    <ExpanderContent>Test expander content 1</ExpanderContent>
+    <ExpanderTitleButton>
+      Can I manage my own devices?
+    </ExpanderTitleButton>
+    <ExpanderContent>
+      <Paragraph marginBottomSpacing="l">
+        You can manage the devices you use:
+      </Paragraph>
+      <Paragraph marginBottomSpacing="l">
+        <Text variant="bold">In the Suomi.fi application</Text>
+        <ul>
+          <li>Settings: Login and Security</li>
+        </ul>
+        <Text variant="bold">
+          In the Suomi.fi Web Service or mobile device browser{' '}
+        </Text>
+        <ul>
+          <li>Messages section: Device Manager</li>
+        </ul>
+      </Paragraph>
+      <Paragraph>
+        Device data will include the name of each device and the time
+        at which the application has last been used. You can log out
+        of the Suomi.fi application the devices you choose. Logging
+        out will remove all Suomi.fi applications from the device you
+        have selected. In this case, the Suomi.fi Messages cannot be
+        used on the device until a new e-identification.
+      </Paragraph>
+    </ExpanderContent>
   </Expander>
   <Expander>
-    <ExpanderTitleButton>Test expander 2</ExpanderTitleButton>
-    <ExpanderContent>Test expander content 2</ExpanderContent>
+    <ExpanderTitleButton>
+      Is the application secure?
+    </ExpanderTitleButton>
+    <ExpanderContent>
+      <Paragraph marginBottomSpacing="l">
+        Suomi.fi Messages is a secure way to communicate with
+        organisations that use the service.
+        <ul>
+          <li>
+            The messages and attachments shown in the application are
+            transmitted in encrypted form between the mobile device
+            and the server.
+          </li>
+          <li>
+            The app requires permissions to use your mobile device’s
+            photographs and other files, so it can process attachments
+            included in messages.
+          </li>
+          <li>
+            The user is individually identified using strong
+            identification. This means that you are the only person
+            who can access your data.
+          </li>
+        </ul>
+      </Paragraph>
+      <Paragraph>
+        If you break your mobile device or lose it, you can sign out
+        of the Suomi.fi application either in the Suomi.fi web service
+        or by using another phone.
+      </Paragraph>
+    </ExpanderContent>
   </Expander>
   <Expander>
-    <ExpanderTitleButton>Test expander 3</ExpanderTitleButton>
-    <ExpanderContent>Test expander content 3</ExpanderContent>
+    <ExpanderTitleButton>
+      Errors in the Suomi.fi mobile application
+    </ExpanderTitleButton>
+    <ExpanderContent>
+      <Paragraph marginBottomSpacing="l">
+        If the application does not work on your mobile device for
+        some reason, you can also read your messages via a browser
+      </Paragraph>
+      <Paragraph>
+        Errors occurring in the Suomi.fi application generally do not
+        affect the preservation of Suomi.fi Messages.
+      </Paragraph>
+    </ExpanderContent>
   </Expander>
 </ExpanderGroup>;
 ```
+
+### Group without open/close all button
+
+You can hide the open/close all button of the group with `showToggleAllButton={false}`
 
 ```jsx
 import {
   Expander,
   ExpanderGroup,
   ExpanderTitleButton,
-  ExpanderContent
+  ExpanderContent,
+  Paragraph,
+  Text
 } from 'suomifi-ui-components';
 
 <ExpanderGroup
@@ -80,64 +243,235 @@ import {
   showToggleAllButton={false}
 >
   <Expander>
-    <ExpanderTitleButton>Test expander 1</ExpanderTitleButton>
-    <ExpanderContent>Test expander content 1</ExpanderContent>
+    <ExpanderTitleButton>
+      Can I manage my own devices?
+    </ExpanderTitleButton>
+    <ExpanderContent>
+      <Paragraph marginBottomSpacing="l">
+        You can manage the devices you use:
+      </Paragraph>
+      <Paragraph marginBottomSpacing="l">
+        <Text variant="bold">In the Suomi.fi application</Text>
+        <ul>
+          <li>Settings: Login and Security</li>
+        </ul>
+        <Text variant="bold">
+          In the Suomi.fi Web Service or mobile device browser{' '}
+        </Text>
+        <ul>
+          <li>Messages section: Device Manager</li>
+        </ul>
+      </Paragraph>
+      <Paragraph>
+        Device data will include the name of each device and the time
+        at which the application has last been used. You can log out
+        of the Suomi.fi application the devices you choose. Logging
+        out will remove all Suomi.fi applications from the device you
+        have selected. In this case, the Suomi.fi Messages cannot be
+        used on the device until a new e-identification.
+      </Paragraph>
+    </ExpanderContent>
   </Expander>
   <Expander>
-    <ExpanderTitleButton>Test expander 2</ExpanderTitleButton>
-    <ExpanderContent>Test expander content 2</ExpanderContent>
+    <ExpanderTitleButton>
+      Is the application secure?
+    </ExpanderTitleButton>
+    <ExpanderContent>
+      <Paragraph marginBottomSpacing="l">
+        Suomi.fi Messages is a secure way to communicate with
+        organisations that use the service.
+        <ul>
+          <li>
+            The messages and attachments shown in the application are
+            transmitted in encrypted form between the mobile device
+            and the server.
+          </li>
+          <li>
+            The app requires permissions to use your mobile device’s
+            photographs and other files, so it can process attachments
+            included in messages.
+          </li>
+          <li>
+            The user is individually identified using strong
+            identification. This means that you are the only person
+            who can access your data.
+          </li>
+        </ul>
+      </Paragraph>
+      <Paragraph>
+        If you break your mobile device or lose it, you can sign out
+        of the Suomi.fi application either in the Suomi.fi web service
+        or by using another phone.
+      </Paragraph>
+    </ExpanderContent>
   </Expander>
   <Expander>
-    <ExpanderTitleButton>Test expander 3</ExpanderTitleButton>
-    <ExpanderContent>Test expander content 3</ExpanderContent>
+    <ExpanderTitleButton>
+      Errors in the Suomi.fi mobile application
+    </ExpanderTitleButton>
+    <ExpanderContent>
+      <Paragraph marginBottomSpacing="l">
+        If the application does not work on your mobile device for
+        some reason, you can also read your messages via a browser
+      </Paragraph>
+      <Paragraph>
+        Errors occurring in the Suomi.fi application generally do not
+        affect the preservation of Suomi.fi Messages.
+      </Paragraph>
+    </ExpanderContent>
   </Expander>
 </ExpanderGroup>;
 ```
 
-## Controlled
+### Controlled state
 
-- State for the individual Expanders are stored outside of the component and user has full control.
-- Therefore when clicking the individual Expander they are not opened by default, user have to give the logic to change it.
-- It's user's responsibility to keep the state stored outside to be updated as Open/Close All is used.
-- `defaultOpen` prop will not work when Expander is in controlled state == `open` prop is given.
+You can control the state of an individual Expander programmatically with the `open` prop.
 
 ```jsx
 import {
   Expander,
   ExpanderGroup,
   ExpanderTitleButton,
-  ExpanderContent
+  ExpanderContent,
+  Paragraph,
+  Text
 } from 'suomifi-ui-components';
+import { useState } from 'react';
 
-const [expanderThreeOpen, setExpanderThreeOpen] =
-  React.useState(false);
+const [expanderOneOpen, setExpanderOneOpen] = useState(false);
+const [expanderTwoOpen, setExpanderTwoOpen] = useState(false);
+const [expanderThreeOpen, setExpanderThreeOpen] = useState(true);
 
 <>
+  <button onClick={() => setExpanderTwoOpen(!expanderTwoOpen)}>
+    Toggle middle expader
+  </button>
   <ExpanderGroup
     openAllText="Open all"
-    ariaOpenAllText="Open all expanders"
+    ariaOpenAllText="Open all sections"
     closeAllText="Close all"
-    ariaCloseAllText="Close all expanders"
+    ariaCloseAllText="Close all sections"
+    showToggleAllButton={false}
   >
-    <Expander>
-      <ExpanderTitleButton>Test expander 1</ExpanderTitleButton>
-      <ExpanderContent>Test expander content 1</ExpanderContent>
+    <Expander open={expanderOneOpen}>
+      <ExpanderTitleButton>
+        Can I manage my own devices?
+      </ExpanderTitleButton>
+      <ExpanderContent>
+        <Paragraph marginBottomSpacing="l">
+          You can manage the devices you use:
+        </Paragraph>
+        <Paragraph marginBottomSpacing="l">
+          <Text variant="bold">In the Suomi.fi application</Text>
+          <ul>
+            <li>Settings: Login and Security</li>
+          </ul>
+          <Text variant="bold">
+            In the Suomi.fi Web Service or mobile device browser{' '}
+          </Text>
+          <ul>
+            <li>Messages section: Device Manager</li>
+          </ul>
+        </Paragraph>
+        <Paragraph>
+          Device data will include the name of each device and the
+          time at which the application has last been used. You can
+          log out of the Suomi.fi application the devices you choose.
+          Logging out will remove all Suomi.fi applications from the
+          device you have selected. In this case, the Suomi.fi
+          Messages cannot be used on the device until a new
+          e-identification.
+        </Paragraph>
+      </ExpanderContent>
     </Expander>
-    <Expander>
-      <ExpanderTitleButton>Test expander 2</ExpanderTitleButton>
-      <ExpanderContent>Test expander content 2</ExpanderContent>
+    <Expander open={expanderTwoOpen}>
+      <ExpanderTitleButton>
+        Is the application secure?
+      </ExpanderTitleButton>
+      <ExpanderContent>
+        <Paragraph marginBottomSpacing="l">
+          Suomi.fi Messages is a secure way to communicate with
+          organisations that use the service.
+          <ul>
+            <li>
+              The messages and attachments shown in the application
+              are transmitted in encrypted form between the mobile
+              device and the server.
+            </li>
+            <li>
+              The app requires permissions to use your mobile device’s
+              photographs and other files, so it can process
+              attachments included in messages.
+            </li>
+            <li>
+              The user is individually identified using strong
+              identification. This means that you are the only person
+              who can access your data.
+            </li>
+          </ul>
+        </Paragraph>
+        <Paragraph>
+          If you break your mobile device or lose it, you can sign out
+          of the Suomi.fi application either in the Suomi.fi web
+          service or by using another phone.
+        </Paragraph>
+      </ExpanderContent>
     </Expander>
-    <Expander
-      open={expanderThreeOpen}
-      onOpenChange={(open) => {
-        if (window.confirm('Toggle Expander 3')) {
-          setExpanderThreeOpen(!open);
-        }
-      }}
-    >
-      <ExpanderTitleButton>Test expander 3</ExpanderTitleButton>
-      <ExpanderContent>Test expander content 3</ExpanderContent>
+    <Expander open={expanderThreeOpen}>
+      <ExpanderTitleButton>
+        Errors in the Suomi.fi mobile application
+      </ExpanderTitleButton>
+      <ExpanderContent>
+        <Paragraph marginBottomSpacing="l">
+          If the application does not work on your mobile device for
+          some reason, you can also read your messages via a browser
+        </Paragraph>
+        <Paragraph>
+          Errors occurring in the Suomi.fi application generally do
+          not affect the preservation of Suomi.fi Messages.
+        </Paragraph>
+      </ExpanderContent>
     </Expander>
   </ExpanderGroup>
 </>;
 ```
+
+### Interactive elements in Expander title
+
+If you need to have interactive elements in the Expander title, use `<ExpanderTitle>` instead of `<ExpanderTitleButton>`.
+
+ExpanderTitle creates a smaller toggle button to the right side of the Expander. Generally `ariaOpenText`/`ariaCloseText` props should have the same value, because state is already communicated to assistive technology using `aria-expanded`. Point `toggleButtonAriaDescribedBy` to the ID of interactive element to provide additional context for assistive technology.
+
+```jsx
+import {
+  Expander,
+  ExpanderTitle,
+  ExpanderContent,
+  Checkbox,
+  Paragraph
+} from 'suomifi-ui-components';
+
+<Expander>
+  <ExpanderTitle
+    ariaOpenText="Additional information"
+    ariaCloseText="Additional information"
+    toggleButtonAriaDescribedBy="checkbox-id"
+  >
+    <Checkbox id="checkbox-id">Guardianship</Checkbox>
+  </ExpanderTitle>
+  <ExpanderContent>
+    <Paragraph marginBottomSpacing="l">
+      Guardianship means the management of other persons’ finances and
+      looking after their interests when they are no longer able to do
+      it. Choose guardianship if the matters of a person close to you
+      cannot be managed in any other way.
+    </Paragraph>
+    <Paragraph>
+      You can safeguard the management of your property and other
+      personal matters with a continuing power of attorney.
+    </Paragraph>
+  </ExpanderContent>
+</Expander>;
+```
+
+### Props & methods

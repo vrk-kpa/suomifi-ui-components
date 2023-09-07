@@ -7,7 +7,7 @@ export interface HtmlButtonProps
   extends Omit<HTMLProps<HTMLButtonElement>, 'ref' | 'as'> {
   as?: asPropType;
   /**
-   * HTML Button type (button, submit, reset)
+   * HTML button type
    * @default button
    */
   type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];

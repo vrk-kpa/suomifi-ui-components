@@ -195,6 +195,59 @@ exports[`snapshots match error status with statustext 1`] = `
   width: 290px;
 }
 
+.c1 .fi-text-input_character-counter {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: hsl(0,0%,13%);
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  margin-top: 4px;
+}
+
+.c1 .fi-text-input_character-counter.fi-text-input_character-counter--error {
+  color: hsl(3,59%,48%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c1 .fi-text-input_bottom-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
 .c1 .fi-text-input_wrapper {
   width: 100%;
   display: inline-block;
@@ -225,6 +278,7 @@ exports[`snapshots match error status with statustext 1`] = `
 
 .c1 .fi-text-input_input-element-container:focus-within {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-text-input_input-element-container:focus-within::after {
@@ -380,14 +434,18 @@ exports[`snapshots match error status with statustext 1`] = `
         type="text"
       />
     </div>
-    <span
-      aria-atomic="true"
-      aria-live="assertive"
-      class="c2 c6 fi-text-input_statusText--has-content fi-status-text fi-status-text--error"
-      id="test-id2-statusText"
+    <div
+      class="c0 fi-text-input_bottom-wrapper"
     >
-      This is a status text
-    </span>
+      <span
+        aria-atomic="true"
+        aria-live="assertive"
+        class="c2 c6 fi-text-input_statusText--has-content fi-status-text fi-status-text--error"
+        id="test-id2-statusText"
+      >
+        This is a status text
+      </span>
+    </div>
   </span>
 </div>
 `;
@@ -599,6 +657,59 @@ exports[`snapshots match hidden label with placeholder 1`] = `
   width: 290px;
 }
 
+.c1 .fi-text-input_character-counter {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: hsl(0,0%,13%);
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  margin-top: 4px;
+}
+
+.c1 .fi-text-input_character-counter.fi-text-input_character-counter--error {
+  color: hsl(3,59%,48%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c1 .fi-text-input_bottom-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
 .c1 .fi-text-input_wrapper {
   width: 100%;
   display: inline-block;
@@ -629,6 +740,7 @@ exports[`snapshots match hidden label with placeholder 1`] = `
 
 .c1 .fi-text-input_input-element-container:focus-within {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-text-input_input-element-container:focus-within::after {
@@ -783,12 +895,16 @@ exports[`snapshots match hidden label with placeholder 1`] = `
         type="text"
       />
     </div>
-    <span
-      aria-atomic="true"
-      aria-live="assertive"
-      class="c2 c7 fi-status-text"
-      id="test-id1-statusText"
-    />
+    <div
+      class="c0 fi-text-input_bottom-wrapper"
+    >
+      <span
+        aria-atomic="true"
+        aria-live="assertive"
+        class="c2 c7 fi-status-text"
+        id="test-id1-statusText"
+      />
+    </div>
   </span>
 </div>
 `;
@@ -988,6 +1104,59 @@ exports[`snapshots match minimal implementation 1`] = `
   width: 290px;
 }
 
+.c1 .fi-text-input_character-counter {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: hsl(0,0%,13%);
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  margin-top: 4px;
+}
+
+.c1 .fi-text-input_character-counter.fi-text-input_character-counter--error {
+  color: hsl(3,59%,48%);
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro','Helvetica Neue','Arial',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c1 .fi-text-input_bottom-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
 .c1 .fi-text-input_wrapper {
   width: 100%;
   display: inline-block;
@@ -1018,6 +1187,7 @@ exports[`snapshots match minimal implementation 1`] = `
 
 .c1 .fi-text-input_input-element-container:focus-within {
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-text-input_input-element-container:focus-within::after {
@@ -1171,12 +1341,16 @@ exports[`snapshots match minimal implementation 1`] = `
         type="text"
       />
     </div>
-    <span
-      aria-atomic="true"
-      aria-live="assertive"
-      class="c2 c6 fi-status-text"
-      id="test-id-statusText"
-    />
+    <div
+      class="c0 fi-text-input_bottom-wrapper"
+    >
+      <span
+        aria-atomic="true"
+        aria-live="assertive"
+        class="c2 c6 fi-status-text"
+        id="test-id-statusText"
+      />
+    </div>
   </span>
 </div>
 `;

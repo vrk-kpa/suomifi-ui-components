@@ -17,6 +17,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
         &:after {
           ${theme.focuses.absoluteFocus}
           ${focusOverrides}
+            ${theme.focuses.highContrastFocus} /* For high contrast mode */
         }
       }
     }

@@ -11,7 +11,7 @@ Suomi.fi-styleguide in React components. [Living styleguide](https://vrk-kpa.git
 - Suomi.fi brand styles
 - Highly customizable (CSS, CSS-in-JS)
 
-Works with [React >= 16.8.0](https://github.com/facebook/react) and [Styled Components >= 5.2.1](https://github.com/styled-components/styled-components). Supports [TypeScript](https://github.com/Microsoft/TypeScript). CJS and ESM builds provided via the npm package.
+Works with [React >= 16.8.0](https://github.com/facebook/react) (React 18 supported) and [Styled Components >= 5.2.1](https://github.com/styled-components/styled-components). Supports [TypeScript](https://github.com/Microsoft/TypeScript). CJS and ESM builds provided via the npm package.
 
 ### Supported browser and screenreader combinations
 
@@ -24,19 +24,11 @@ Works with [React >= 16.8.0](https://github.com/facebook/react) and [Styled Comp
 
 ## 📦 Install
 
-To install the component library itself
+To install the component library
 
 ```bash
 yarn add suomifi-ui-components
 ```
-
-Include **required** styles from `dist/main.css` as best suited for your project. You can, for example, import the stylesheet to your app and let your bundler handle it:
-
-```typescript
-import 'suomifi-ui-components/dist/main.css';
-```
-
-This stylesheet contains part of the global styles for the library as well as Reach UI peer dependency styles.
 
 Include **required** fonts as best suited for your project. You can, for example, use the following import with your global css.
 
@@ -61,26 +53,26 @@ yarn add styled-components
 
 - If using TypeScript, version 3.8 or above is required.
 
-- In case TypeScript is used and skipLibCheck compiler option is set to false, also typings for [react](https://www.npmjs.com/package/@types/react), [react-dom](https://www.npmjs.com/package/@types/react-dom), [styled-components](https://www.npmjs.com/package/@types/styled-components/) and [warning](https://www.npmjs.com/package/@types/warning) are required.
+- In case TypeScript is used and skipLibCheck compiler option is set to false, also add typings for [styled-components](https://www.npmjs.com/package/@types/styled-components/) as well as [react](https://www.npmjs.com/package/@types/react) and [react-dom](https://www.npmjs.com/package/@types/react-dom) as required by the React version used.
 
 ```bash
-yarn add @types/styled-components @types/warning
+yarn add @types/styled-components @types/react @types/react-dom
 ```
 
 ## 🔨 Usage
 
 ```jsx
 import { Button } from 'suomifi-ui-components';
-ReactDOM.render(<Button />, mountNode);
+<Button>Suomi.fi button</Button>;
 ```
 
-### 🌊 Component variants
+### 🌊 `Component variants`
 
-Components have variant-property for different versions of the current component.
+Components have a `variant` property for different versions of the component.
 
 ```jsx
 import { Button } from 'suomifi-ui-components';
-<Button variant="secondary">This is a secondary button</Button>;
+<Button variant="secondary">This is a seconday button</Button>;
 ```
 
 ### ⛱ Extending styles
@@ -103,7 +95,7 @@ styled(Button)...
 }
 ```
 
-Don't use ~~!important~~, if really really needed - for specificity hack you can define styles using classNames multiple times `.fi-button.button--custom.button--custom {...}`
+Don't use `!important`. If really, really needed you can define styles using classNames multiple times `.fi-button.button--custom.button--custom {...}` for a specificity hack.
 
 ## 🔮 FAQ
 

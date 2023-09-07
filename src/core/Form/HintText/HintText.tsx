@@ -8,13 +8,12 @@ import { baseStyles } from './HintText.baseStyles';
 const baseClassName = 'fi-hint-text';
 
 export interface HintTextProps extends HtmlSpanProps {
-  /** id */
+  /** HTML id attribute */
   id?: string;
   /** HintText element content */
   children?: ReactNode;
-  /** Custom class name for styling and customizing  */
+  /** Custom class name to extend or customize  */
   className?: string;
-
   /** Ref is forwarded to the span element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLSpanElement>;
 }

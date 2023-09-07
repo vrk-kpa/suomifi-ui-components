@@ -13,29 +13,32 @@ import {
 
 export type LoadingSpinnerStatus = 'loading' | 'success' | 'failed';
 export interface LoadingSpinnerProps {
-  /** Custom class name for styling and customizing */
+  /** CSS class for custom styles */
   className?: string;
-  /** Unique id */
+  /** HTML id attribute */
   id?: string;
-  /** Status text shown next to the icon */
+  /** Status text shown next to the loading icon */
   text: string;
-  /** Align the text on the bottom or on the right side of the animation svg
+  /** Aligns the text on the bottom or on the right side of the animation svg
    * @default 'bottom'
    */
   textAlign?: 'bottom' | 'right';
-  /** Show or hide the status text
+  /** Shows or hides the status text
    * @default 'visible'
    */
   textVisibility?: 'visible' | 'hidden';
-  /** Status that the component indicates. Affects the icon used.
+  /**
+   * `'loading'` | `'success'` | `'failed'`;
+   *
+   * Status that the component indicates. Affects the icon used.
    * @default 'loading'
    */
   status?: LoadingSpinnerStatus;
-  /** Affects the size of the icon and the text
+  /** Component variant. Affects the size of the icon and the text
    * @default 'normal'
    */
   variant?: 'normal' | 'small';
-  /** Ref to be passed to the root div element. Alternative to React `ref` attribute. */
+  /** Ref is placed to the outermost div element of the component. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLDivElement>;
 }
 

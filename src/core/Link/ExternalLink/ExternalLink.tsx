@@ -2,7 +2,7 @@ import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { IconLinkExternal } from 'suomifi-icons';
+import { IconChevronRight, IconLinkExternal } from 'suomifi-icons';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { ExternalLinkStyles } from './ExternalLink.baseStyles';
 import { HtmlA } from '../../../reset';
@@ -26,26 +26,29 @@ type newWindowProps =
     };
 
 interface InternalExternalLinkProps extends BaseLinkProps {
-  /** Hide the icon */
+  /** Hides the icon */
   hideIcon?: boolean;
-  /** Open to a new window */
+  /** Opens the link to a new window */
   toNewWindow?: boolean;
-  /** Translated explanation of 'opens to a new window' */
+  /** Translated explanation of 'opens to a new window' for assistive technology. Required with `toNewWindow` */
   labelNewWindow?: string;
-  /** Ref is passed to the anchor element. Alternative to React `ref` attribute. */
+  /** Ref is forwarded to the anchor element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLAnchorElement>;
 }
 
 export type ExternalLinkProps = newWindowProps & InternalExternalLinkProps;
 
-class BaseExternalLink extends Component<ExternalLinkProps> {
+class BaseExternalLink extends Component<ExternalLinkProps & SuomifiThemeProp> {
   render() {
     const {
       asProp,
       children,
       className,
+      variant = 'default',
       toNewWindow = true,
       labelNewWindow,
+      smallScreen,
+      theme,
       hideIcon,
       underline = 'hover',
       ...passProps
@@ -55,11 +58,19 @@ class BaseExternalLink extends Component<ExternalLinkProps> {
         {...passProps}
         className={classnames(baseClassName, className, externalClassName, {
           [linkClassNames.linkUnderline]: underline === 'initial',
+          [linkClassNames.accent]: variant === 'accent',
+          [linkClassNames.small]: smallScreen,
         })}
         target={!!toNewWindow ? '_blank' : undefined}
         rel={!!toNewWindow ? 'noopener' : undefined}
         as={asProp}
       >
+        {variant === 'accent' && (
+          <IconChevronRight
+            color={theme.colors.accentBase}
+            className={linkClassNames.accentIcon}
+          />
+        )}
         {children}
         {toNewWindow && <VisuallyHidden>{labelNewWindow}</VisuallyHidden>}
         {!hideIcon && <IconLinkExternal className={iconClassName} />}
@@ -71,16 +82,12 @@ class BaseExternalLink extends Component<ExternalLinkProps> {
 const StyledExternalLink = styled(
   (props: ExternalLinkProps & SuomifiThemeProp) => {
     const { theme, ...passProps } = props;
-    return <BaseExternalLink {...passProps} />;
+    return <BaseExternalLink theme={theme} {...passProps} />;
   },
 )`
   ${({ theme }) => ExternalLinkStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Used for adding a external site link
- */
 const ExternalLink = forwardRef(
   (props: ExternalLinkProps, ref: React.Ref<HTMLAnchorElement>) => (
     <SuomifiThemeConsumer>

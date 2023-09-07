@@ -16,7 +16,7 @@ export interface ChipListProps extends HtmlDivProps {
   /** ChipList container div class name for custom styling. */
   className?: string;
   /**
-   * Unique id
+   * HTML id attribute.
    * If no id is specified, one will be generated automatically
    */
   id?: string;

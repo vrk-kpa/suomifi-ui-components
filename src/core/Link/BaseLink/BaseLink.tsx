@@ -6,28 +6,39 @@ export const baseClassName = 'fi-link';
 
 export const linkClassNames = {
   linkUnderline: `${baseClassName}--initial-underline`,
+  accent: `${baseClassName}--accent`,
+  accentIcon: `${baseClassName}--accent_icon`,
+  small: `${baseClassName}--small`,
 };
 
 export type UnderlineVariant = 'initial' | 'hover';
 export interface BaseLinkProps extends HtmlAProps {
-  /** Link url. Link is not focusable without the href */
+  /** Link url. The component is not focusable without the href */
   href: string;
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
   /**
-   * Link element displayed content
+   * Text content for the link
    */
   children: ReactNode;
   /**
-   * 'initial' | 'hover'
+   * `'initial'` | `'hover'`
    *
-   * Option 'initial' shows underline in link's normal state, and no underline on hover.
-   * Option 'hover' shows underline on hover, and no underline in link's normal state.
+   * Option `'initial'` shows underline in link's normal state, and no underline on hover.
+   * Option `'hover'` shows underline on hover, and no underline in link's normal state.
    *
-   * Note: default will be changed from 'hover' to 'initial', so set 'hover' explicitly when necessary.
+   * Note: default will be changed from `'hover'` to `'initial'`, so set `'hover'` explicitly when necessary.
    *
    * @default hover
    */
   underline?: UnderlineVariant;
+  /** Style variant for the link */
+  variant?: 'default' | 'accent';
+  /** Renders the component element as another HTML element
+   *
+   * @default 'a'
+   */
   asProp?: asPropType;
+  /** Use small screen styling */
+  smallScreen?: boolean;
 }

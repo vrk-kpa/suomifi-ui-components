@@ -1,10 +1,12 @@
 import React, {
   forwardRef,
-  Component,
   ChangeEvent,
   FocusEvent,
   ReactNode,
   ReactElement,
+  useState,
+  useRef,
+  useEffect,
 } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
@@ -12,8 +14,12 @@ import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
-import { HTMLAttributesIncludingDataAttributes } from '../../../utils/common/common';
+import {
+  HTMLAttributesIncludingDataAttributes,
+  forkRefs,
+} from '../../../utils/common/common';
 import { HtmlInputProps, HtmlDiv, HtmlSpan, HtmlInput } from '../../../reset';
+import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { Label, LabelMode } from '../Label/Label';
 import { StatusText } from '../StatusText/StatusText';
 import { HintText } from '../HintText/HintText';
@@ -33,54 +39,82 @@ export const textInputClassNames = {
   inputElement: `${baseClassName}_input`,
   styleWrapper: `${baseClassName}_wrapper`,
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
+  bottomWrapper: `${baseClassName}_bottom-wrapper`,
+  characterCounter: `${baseClassName}_character-counter`,
+  characterCounterError: `${baseClassName}_character-counter--error`,
 };
 
 type TextInputValue = string | number | undefined;
 
-export interface TextInputProps
+type characterCounterProps =
+  | {
+      characterLimit?: never;
+      ariaCharactersRemainingText?: never;
+      ariaCharactersExceededText?: never;
+    }
+  | {
+      /** Maximun amount of characters allowed in the input.
+       * Using this prop adds a visible character counter to the bottom right corner of the input.
+       */
+      characterLimit?: number;
+      /** Returns a text which screen readers read to indicate how many characters can still be written to the input.
+       * Required with `characterLimit`
+       */
+      ariaCharactersRemainingText: (amount: number) => string;
+      /** Returns a text which screen readers read to indicate how many characters are over the maximum allowed chracter amount.
+       * Required with `characterLimit`
+       */
+      ariaCharactersExceededText: (amount: number) => string;
+    };
+
+interface BaseTextInputProps
   extends StatusTextCommonProps,
     Omit<HtmlInputProps, 'type' | 'onChange'> {
-  /** TextInput container div class name for custom styling. */
+  /** CSS class for custom styles */
   className?: string;
-  /** TextInput wrapping div element props */
+  /** Props passed to the outermost div element of the component */
   wrapperProps?: Omit<
     HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
     'className'
   >;
-  /** Disable input usage */
+  /** Disables the input */
   disabled?: boolean;
-  /** Event handler to execute when clicked */
+  /** Callback fired on input click */
   onClick?: () => void;
-  /** To execute on input text change */
+  /** Callback fired on input change */
   onChange?: (value: TextInputValue) => void;
-  /** To execute on input text onBlur */
+  /** Callback fired on input blur */
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
-  /** Label */
+  /** Label for the input */
   labelText: ReactNode;
-  /** Hide or show label. Label element is always present, but can be visually hidden.
+  /** Hides or shows the label. Label element is always present, but can be visually hidden.
    * @default visible
    */
   labelMode?: LabelMode;
-  /** Placeholder text for input. Use only as visual aid, not for instructions. */
+  /** Placeholder text for the input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
   /** Hint text to be shown below the component */
   hintText?: string;
   /**
-   * 'default' | 'error' | 'success'
+   * `'default'` | `'error'`
+   *
+   * Status of the component. Error state creates a red border around the Checkbox.
+   * Always use a descriptive `statusText` with an error status.
    * @default default
    */
   status?: InputStatus;
-  /** 'text' | 'email' | 'number' | 'password' | 'tel' | 'url'
+  /**
+   * Type of the input
    * @default text
    */
   type?: 'text' | 'email' | 'number' | 'password' | 'tel' | 'url';
-  /** Input name */
+  /** HTML name attribute for the input */
   name?: string;
   /** Controlled value */
   value?: TextInputValue;
-  /** Set components width to 100% */
+  /** Sets component's width to 100% of its parent */
   fullWidth?: boolean;
-  /** Text to mark a field optional. Will be wrapped in parentheses and shown after labelText. */
+  /** Text to mark the field optional. Will be wrapped in parentheses and shown after `labelText` */
   optionalText?: string;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
   debounce?: number;
@@ -90,83 +124,142 @@ export interface TextInputProps
   tooltipComponent?: ReactElement;
 }
 
-class BaseTextInput extends Component<TextInputProps> {
-  render() {
-    const {
-      className,
-      labelText,
-      labelMode,
-      onChange: propOnChange,
-      wrapperProps,
-      optionalText,
-      status,
-      statusText,
-      hintText,
-      visualPlaceholder,
-      id,
-      type = 'text',
-      fullWidth,
-      icon,
-      forwardedRef,
-      debounce,
-      statusTextAriaLiveMode = 'assertive',
-      'aria-describedby': ariaDescribedBy,
-      tooltipComponent,
-      ...passProps
-    } = this.props;
+export type TextInputProps = characterCounterProps & BaseTextInputProps;
 
-    const hintTextId = `${id}-hintText`;
-    const statusTextId = `${id}-statusText`;
-    return (
-      <HtmlDiv
-        {...wrapperProps}
-        className={classnames(baseClassName, className, {
-          [textInputClassNames.disabled]: !!passProps.disabled,
-          [textInputClassNames.icon]: !!icon,
-          [textInputClassNames.error]: status === 'error',
-          [textInputClassNames.success]: status === 'success',
-          [textInputClassNames.fullWidth]: fullWidth,
-        })}
-      >
-        <HtmlSpan className={textInputClassNames.styleWrapper}>
-          <Label
-            htmlFor={id}
-            labelMode={labelMode}
-            optionalText={optionalText}
-            className={classnames({
-              [textInputClassNames.labelIsVisible]: labelMode !== 'hidden',
-            })}
-            tooltipComponent={tooltipComponent}
-          >
-            {labelText}
-          </Label>
-          <HintText id={hintTextId}>{hintText}</HintText>
-          <HtmlDiv className={textInputClassNames.inputElementContainer}>
-            <Debounce waitFor={debounce}>
-              {(debouncer: Function) => (
-                <HtmlInput
-                  {...passProps}
-                  id={id}
-                  className={textInputClassNames.inputElement}
-                  type={type}
-                  forwardedRef={forwardedRef}
-                  placeholder={visualPlaceholder}
-                  {...{ 'aria-invalid': status === 'error' }}
-                  {...getConditionalAriaProp('aria-describedby', [
-                    statusText ? statusTextId : undefined,
-                    hintText ? hintTextId : undefined,
-                    ariaDescribedBy,
-                  ])}
-                  onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                    if (propOnChange) {
-                      debouncer(propOnChange, event.currentTarget.value);
-                    }
-                  }}
-                />
-              )}
-            </Debounce>
-            {icon}
-          </HtmlDiv>
+const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
+  const [charCount, setCharCount] = useState(0);
+  const [characterCounterAriaText, setCharacterCounterAriaText] = useState('');
+  const [typingTimer, setTypingTimer] = useState<ReturnType<
+    typeof setTimeout
+  > | null>(null);
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    return () => {
+      setIsMounted(false);
+    };
+  }, []);
+
+  const {
+    className,
+    labelText,
+    labelMode,
+    onChange: propOnChange,
+    wrapperProps,
+    optionalText,
+    status,
+    statusText,
+    hintText,
+    visualPlaceholder,
+    id,
+    type = 'text',
+    fullWidth,
+    icon,
+    forwardedRef,
+    debounce,
+    statusTextAriaLiveMode = 'assertive',
+    'aria-describedby': ariaDescribedBy,
+    tooltipComponent,
+    characterLimit,
+    ariaCharactersRemainingText,
+    ariaCharactersExceededText,
+    ...passProps
+  } = props;
+
+  useEffect(() => {
+    if (characterLimit !== undefined && inputRef.current?.value.length) {
+      setCharCount(inputRef.current?.value.length);
+    }
+  }, []);
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleOnChange = (
+    event: ChangeEvent<HTMLInputElement>,
+    debouncer: Function,
+  ) => {
+    if (typingTimer) {
+      clearTimeout(typingTimer);
+    }
+    if (
+      characterLimit !== undefined &&
+      ariaCharactersRemainingText &&
+      ariaCharactersExceededText
+    ) {
+      const charCountInInput = event.target.value.length;
+      setCharCount(charCountInInput);
+      const newTypingTimer = setTimeout(() => {
+        if (isMounted) {
+          setCharacterCounterAriaText(
+            charCountInInput <= characterLimit
+              ? ariaCharactersRemainingText(characterLimit - charCountInInput)
+              : ariaCharactersExceededText(charCountInInput - characterLimit),
+          );
+        }
+      }, 1500);
+      setTypingTimer(newTypingTimer);
+    }
+
+    if (!!propOnChange) {
+      debouncer(propOnChange, event.target.value);
+    }
+  };
+
+  const definedRef = forwardedRef || null;
+
+  const hintTextId = `${id}-hintText`;
+  const statusTextId = `${id}-statusText`;
+  return (
+    <HtmlDiv
+      {...wrapperProps}
+      className={classnames(baseClassName, className, {
+        [textInputClassNames.disabled]: !!passProps.disabled,
+        [textInputClassNames.icon]: !!icon,
+        [textInputClassNames.error]: status === 'error',
+        [textInputClassNames.success]: status === 'success',
+        [textInputClassNames.fullWidth]: fullWidth,
+      })}
+    >
+      <HtmlSpan className={textInputClassNames.styleWrapper}>
+        <Label
+          htmlFor={id}
+          labelMode={labelMode}
+          optionalText={optionalText}
+          className={classnames({
+            [textInputClassNames.labelIsVisible]: labelMode !== 'hidden',
+          })}
+          tooltipComponent={tooltipComponent}
+        >
+          {labelText}
+        </Label>
+        <HintText id={hintTextId}>{hintText}</HintText>
+        <HtmlDiv className={textInputClassNames.inputElementContainer}>
+          <Debounce waitFor={debounce}>
+            {(debouncer: Function) => (
+              <HtmlInput
+                {...passProps}
+                id={id}
+                className={textInputClassNames.inputElement}
+                type={type}
+                forwardedRef={forkRefs(inputRef, definedRef)}
+                placeholder={visualPlaceholder}
+                {...{ 'aria-invalid': status === 'error' }}
+                {...getConditionalAriaProp('aria-describedby', [
+                  statusText ? statusTextId : undefined,
+                  hintText ? hintTextId : undefined,
+                  ariaDescribedBy,
+                ])}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                  handleOnChange(event, debouncer);
+                }}
+              />
+            )}
+          </Debounce>
+          {icon}
+        </HtmlDiv>
+        <HtmlDiv className={textInputClassNames.bottomWrapper}>
           <StatusText
             id={statusTextId}
             className={classnames({
@@ -176,13 +269,26 @@ class BaseTextInput extends Component<TextInputProps> {
             ariaLiveMode={statusTextAriaLiveMode}
             disabled={passProps.disabled}
           >
+            {characterLimit && (
+              <VisuallyHidden>{characterCounterAriaText}</VisuallyHidden>
+            )}
             {statusText}
           </StatusText>
-        </HtmlSpan>
-      </HtmlDiv>
-    );
-  }
-}
+          {characterLimit && (
+            <HtmlDiv
+              className={classnames(textInputClassNames.characterCounter, {
+                [textInputClassNames.characterCounterError]:
+                  charCount > characterLimit,
+              })}
+            >
+              {`${charCount}/${characterLimit}`}
+            </HtmlDiv>
+          )}
+        </HtmlDiv>
+      </HtmlSpan>
+    </HtmlDiv>
+  );
+};
 
 const StyledTextInput = styled(
   ({ theme, ...passProps }: TextInputProps & SuomifiThemeProp) => (
@@ -192,12 +298,6 @@ const StyledTextInput = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Use for user inputting text.
- * Props other than specified explicitly are passed on to underlying input element.
- * @component
- */
 const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (props: TextInputProps, ref: React.Ref<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;

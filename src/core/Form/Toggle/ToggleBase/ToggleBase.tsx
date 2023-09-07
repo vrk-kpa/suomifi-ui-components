@@ -4,34 +4,34 @@ import { HtmlSpanProps } from '../../../../reset/HtmlSpan/HtmlSpan';
 export const baseClassName = 'fi-toggle';
 
 export interface ToggleBaseProps {
-  /** Controlled toggle-state - if provided, component will update only when this is explicitly changed */
+  /** Controlled toggle state - if provided, component will update only when this is explicitly changed */
   checked?: boolean;
-  /** Default status of toggle when not using controlled 'checked' state
+  /** Default status of toggle when not using controlled `checked` state
    * @default false
    */
   defaultChecked?: boolean;
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
-  /** Disable usage */
+  /** Disables the component */
   disabled?: boolean;
   /**
-   * Label element content
+   * Children are rendered as the toggle's label
    */
   children?: ReactNode;
   /**
-   * aria-label for toggle
+   * aria-label for the toggle
    */
   'aria-label'?: string;
   /**
-   * alternatively to aria-label you can define aria-labelledby with label-element id
+   * Alternatively to aria-label you can define aria-labelledby with a label element's id
    */
   'aria-labelledby'?: string;
   /**
-   * Unique id. If no id is specified, one will be generated
+   * HTML id attribute. If no id is specified, one will be generated
    */
   id?: string;
   /**
-   * Props for wrapping span element.
+   * Props passed to the wrapping span element
    */
   toggleWrapperProps?: HtmlSpanProps;
 }

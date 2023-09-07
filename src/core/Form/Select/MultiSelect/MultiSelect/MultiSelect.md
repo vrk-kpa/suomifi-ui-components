@@ -1,500 +1,670 @@
-```js
-import { MultiSelect } from 'suomifi-ui-components';
+The `<MultiSelect>` component is used to select multiple items from a list of options. The list can also be filtered by typing.
 
-const tools = [
-  {
-    name: 'Jackhammer',
-    price: 230,
-    tax: false,
-    labelText: 'Jackhammer',
-    uniqueItemId: 'jh2435626'
-  },
-  {
-    name: 'Hammer',
-    price: 15,
-    tax: true,
-    labelText: 'Hammer',
-    uniqueItemId: 'h9823523'
-  },
-  {
-    name: 'Sledgehammer',
-    price: 36,
-    tax: false,
-    labelText: 'Sledgehammer',
-    uniqueItemId: 'sh908293482'
-  },
-  {
-    name: 'Spade',
-    price: 50,
-    tax: true,
-    labelText: 'Spade',
-    uniqueItemId: 's82502335'
-  },
-  {
-    name: 'Powersaw',
-    price: 150,
-    tax: false,
-    labelText: 'Powersaw',
-    disabled: true,
-    uniqueItemId: 'ps9081231'
-  },
-  {
-    name: 'Shovel',
-    price: 115,
-    tax: true,
-    labelText: 'Shovel',
-    uniqueItemId: 's05111511'
-  },
-  {
-    name: 'Iron stick',
-    price: 85,
-    tax: false,
-    labelText: 'Iron stick',
-    uniqueItemId: 'is3451261'
-  },
-  {
-    name: 'Rake',
-    price: 50,
-    tax: true,
-    labelText: 'Rake',
-    uniqueItemId: 'r09282626'
-  },
-  {
-    name: 'Motorsaw',
-    price: 450,
-    tax: false,
-    labelText: 'Motorsaw',
-    disabled: true,
-    uniqueItemId: 'ms6126266'
-  }
-];
+If you need to select only one option, use the [SingleSelect](./#/Components/SingleSelect) component instead.
 
-const defaultSelectedTools = [
-  {
-    name: 'Hammer',
-    price: 15,
-    tax: true,
-    labelText: 'Hammer',
-    uniqueItemId: 'h9823523'
-  },
-  {
-    name: 'Powersaw',
-    price: 150,
-    tax: false,
-    labelText: 'Powersaw',
-    disabled: true,
-    uniqueItemId: 'ps9081231'
-  }
-];
+Examples:
 
-<>
-  <MultiSelect
-    labelText="Tools"
-    hintText="You can filter options by typing in the field"
-    items={tools}
-    chipListVisible={true}
-    ariaChipActionLabel="Remove"
-    removeAllButtonLabel="Remove all selections"
-    visualPlaceholder="Choose your tools"
-    noItemsText="No items"
-    defaultSelectedItems={defaultSelectedTools}
-    ariaSelectedAmountText="tools selected"
-    ariaOptionsAvailableText="options available"
-    ariaOptionChipRemovedText="removed"
-  />
-</>;
-```
+- [Basic use](./#/Components/MultiSelect?id=basic-use)
+- [Default selected items](./#/Components/MultiSelect?id=default-selected-items)
+- [Error status](./#/Components/MultiSelect?id=error-status)
+- [Allowing users to add their own items](./#/Components/MultiSelect?id=allowing-users-to-add-their-own-items)
+- [Controlled state](./#/Components/MultiSelect?id=controlled-state)
+- [Controlled state with custom options enabled](./#/Components/MultiSelect?id=controlled-state-with-custom-options-enabled)
+- [Disabled](./#/Components/MultiSelect?id=disabled)
+- [Formatting accessibility texts](./#/Components/MultiSelect?id=formatting-accessibility-texts)
+- [Loading indicator](./#/Components/MultiSelect?id=loading-indicator)
+- [Tooltip](./#/Components/MultiSelect?id=tooltip)
 
-### Allowing user to add their own items to the list
+<div style="margin-bottom: 40px">
+  [Props & methods](./#/Components/MultiSelect?id=props--methods)
+</div>
+
+### Basic use
+
+- Provide a descriptive `labelText` for the component
+- Each object in the `items` list must contain their own visible `labelText` and a `uniqueItemId`
+- Provide such a `hintText` that it is apparent users can choose multiple items
+- Use `chipListVisible` to enable Chips which represent the selected values under the input
+- If `removeAllButtonLabel` is providen, a button to remove all selections is shown under the input
+- The `visualPlaceholder` prop is used to apply a placeholder text to the input. For accessibility reasons, do not use placeholders for instructions
+- The `noItemsText` is shown when the user filters the list in a way that does not produce any results
+- Provide the following accessibility related props:
+  - `ariaSelectedAmountText` which is read by screen readers when you select an item (preceded by the amount of currently selected items)
+  - `ariaOptionsAvailableText` which is read by screen readers when the user filters the list by typing (preceded by the amount of items matching the filter)
+  - `ariaOptionChipRemovedText` which is read by screen readers when an item is deselected
+  - `ariaChipActionLabel` which tells screen reader users the purpose of the Chips
 
 ```js
 import { MultiSelect } from 'suomifi-ui-components';
 
-const tools = [
+const countries = [
   {
-    name: 'Jackhammer',
-    price: 230,
-    tax: false,
-    labelText: 'Jackhammer',
-    uniqueItemId: 'jh2435626'
+    labelText: 'Switzerland',
+    uniqueItemId: 'sw2435626'
   },
   {
-    name: 'Hammer',
-    price: 15,
-    tax: true,
-    labelText: 'Hammer',
-    uniqueItemId: 'h9823523'
+    labelText: 'France',
+    uniqueItemId: 'fr9823523'
   },
   {
-    name: 'Sledgehammer',
-    price: 36,
-    tax: false,
-    labelText: 'Sledgehammer',
-    uniqueItemId: 'sh908293482'
+    labelText: 'Spain',
+    uniqueItemId: 'sp908293482'
   },
   {
-    name: 'Spade',
-    price: 50,
-    tax: true,
-    labelText: 'Spade',
-    uniqueItemId: 's82502335'
+    labelText: 'Bulgaria',
+    uniqueItemId: 'bg82502335'
   },
   {
-    name: 'Powersaw',
-    price: 150,
-    tax: false,
-    labelText: 'Powersaw',
-    disabled: true,
-    uniqueItemId: 'ps9081231'
+    labelText: 'Slovenia',
+    uniqueItemId: 'sl9081231'
   },
   {
-    name: 'Shovel',
-    price: 115,
-    tax: true,
-    labelText: 'Shovel',
-    uniqueItemId: 's05111511'
+    labelText: 'Norway',
+    uniqueItemId: 'no05111511'
   },
   {
-    name: 'Iron stick',
-    price: 85,
-    tax: false,
-    labelText: 'Iron stick',
-    uniqueItemId: 'is3451261'
+    labelText: 'Germany',
+    uniqueItemId: 'ge3451261'
   },
   {
-    name: 'Rake',
-    price: 50,
-    tax: true,
-    labelText: 'Rake',
-    uniqueItemId: 'r09282626'
+    labelText: 'Finland',
+    uniqueItemId: 'fi09282626'
   },
   {
-    name: 'Motorsaw',
-    price: 450,
-    tax: false,
-    labelText: 'Motorsaw',
-    disabled: true,
-    uniqueItemId: 'ms6126266'
-  }
-];
-
-const defaultSelectedTools = [
-  {
-    name: 'Hammer',
-    price: 15,
-    tax: true,
-    labelText: 'Hammer',
-    uniqueItemId: 'h9823523'
-  },
-  {
-    name: 'Powersaw',
-    price: 150,
-    tax: false,
-    labelText: 'Powersaw',
-    disabled: true,
-    uniqueItemId: 'ps9081231'
+    labelText: 'Poland',
+    uniqueItemId: 'po6126266'
   }
 ];
 
 <MultiSelect
-  allowItemAddition={true}
-  itemAdditionHelpText="Add custom item"
-  labelText="Tools"
-  hintText="You can filter options by typing in the field"
-  items={tools}
-  chipListVisible={true}
-  ariaChipActionLabel="Remove"
+  labelText="Visited countries"
+  hintText="Select all countries you have visited during the past year. You can filter options by typing in the field"
+  items={countries}
+  chipListVisible
+  ariaChipActionLabel="Deselect"
   removeAllButtonLabel="Remove all selections"
-  visualPlaceholder="Choose your tools"
-  defaultSelectedItems={defaultSelectedTools}
-  ariaSelectedAmountText="tools selected"
+  visualPlaceholder="Choose countries"
+  noItemsText="No items"
+  ariaSelectedAmountText="countries selected"
   ariaOptionsAvailableText="options available"
   ariaOptionChipRemovedText="removed"
 />;
 ```
 
-### Controlled
+### Default selected items
 
-```js
-const [selectedAnimals, setSelectedAnimals] = React.useState([]);
-const animals = [
-  {
-    age: 2,
-    labelText: 'Rabbit',
-    uniqueItemId: 'rabbit-123'
-  },
-  {
-    age: 1,
-    labelText: 'Snail',
-    uniqueItemId: 'snail-321'
-  },
-  {
-    price: 5,
-    labelText: 'Turtle',
-    uniqueItemId: 'turtle-987'
-  }
-];
-
-<>
-  <MultiSelect
-    items={animals}
-    selectedItems={selectedAnimals}
-    labelText="Animals"
-    hintText="You can filter options by typing in the field"
-    noItemsText="No animals"
-    chipListVisible={true}
-    visualPlaceholder="Try to choose animals"
-    ariaChipActionLabel="Remove"
-    ariaSelectedAmountText="animals selected"
-    ariaOptionsAvailableText="options available"
-    ariaOptionChipRemovedText="removed"
-  />
-
-  <span>There can be only one!</span>
-  <button
-    onClick={() =>
-      setSelectedAnimals([
-        { labelText: 'Turtle', uniqueItemId: 'turtle-987' }
-      ])
-    }
-  >
-    Turtle
-  </button>
-  <button
-    onClick={() =>
-      setSelectedAnimals([
-        { labelText: 'Rabbit', uniqueItemId: 'rabbit-123' }
-      ])
-    }
-  >
-    Rabbit
-  </button>
-  <button
-    onClick={() =>
-      setSelectedAnimals([
-        { labelText: 'Snail', uniqueItemId: 'snail-321' }
-      ])
-    }
-  >
-    Snail
-  </button>
-</>;
-```
-
-### Controlled + allowing user to add a custom options
+Set initial selections using the `defaultSelectedItems` prop. An object in that array must match an object in the `items` array.
 
 ```js
 import { MultiSelect } from 'suomifi-ui-components';
 
-const animals = [
+const countries = [
   {
-    age: 2,
-    labelText: 'Rabbit',
-    uniqueItemId: 'rabbit-123'
+    labelText: 'Switzerland',
+    uniqueItemId: 'sw2435626'
   },
   {
-    age: 1,
-    labelText: 'Snail',
-    uniqueItemId: 'snail-321'
+    labelText: 'France',
+    uniqueItemId: 'fr9823523'
   },
   {
-    price: 5,
-    labelText: 'Turtle',
-    uniqueItemId: 'turtle-987'
+    labelText: 'Spain',
+    uniqueItemId: 'sp908293482'
+  },
+  {
+    labelText: 'Bulgaria',
+    uniqueItemId: 'bg82502335'
+  },
+  {
+    labelText: 'Slovenia',
+    uniqueItemId: 'sl9081231'
+  },
+  {
+    labelText: 'Norway',
+    uniqueItemId: 'no05111511'
+  },
+  {
+    labelText: 'Germany',
+    uniqueItemId: 'ge3451261'
+  },
+  {
+    labelText: 'Finland',
+    uniqueItemId: 'fi09282626'
+  },
+  {
+    labelText: 'Poland',
+    uniqueItemId: 'po6126266'
   }
 ];
-const [appendedAnimals, setAppendedAnimals] = React.useState(animals);
-const [selectedAnimals, setSelectedAnimals] = React.useState([]);
+
+const defaultSelections = [
+  {
+    labelText: 'Bulgaria',
+    uniqueItemId: 'bg82502335'
+  },
+  {
+    labelText: 'Germany',
+    uniqueItemId: 'ge3451261'
+  }
+];
+
+<MultiSelect
+  labelText="Visited countries"
+  hintText="Select all countries you have visited during the past year. You can filter options by typing in the field"
+  items={countries}
+  defaultSelectedItems={defaultSelections}
+  chipListVisible
+  ariaChipActionLabel="Deselect"
+  removeAllButtonLabel="Remove all selections"
+  visualPlaceholder="Choose countries"
+  noItemsText="No items"
+  ariaSelectedAmountText="countries selected"
+  ariaOptionsAvailableText="options available"
+  ariaOptionChipRemovedText="removed"
+/>;
+```
+
+### Error status
+
+Control the error status of the component using the `status` and `statusText` props.
+
+```js
+import { MultiSelect } from 'suomifi-ui-components';
+import { useState } from 'react';
+
+const countries = [
+  {
+    labelText: 'Switzerland',
+    uniqueItemId: 'sw2435626'
+  },
+  {
+    labelText: 'France',
+    uniqueItemId: 'fr9823523'
+  },
+  {
+    labelText: 'Spain',
+    uniqueItemId: 'sp908293482'
+  },
+  {
+    labelText: 'Bulgaria',
+    uniqueItemId: 'bg82502335'
+  },
+  {
+    labelText: 'Slovenia',
+    uniqueItemId: 'sl9081231'
+  },
+  {
+    labelText: 'Norway',
+    uniqueItemId: 'no05111511'
+  },
+  {
+    labelText: 'Germany',
+    uniqueItemId: 'ge3451261'
+  },
+  {
+    labelText: 'Finland',
+    uniqueItemId: 'fi09282626'
+  },
+  {
+    labelText: 'Poland',
+    uniqueItemId: 'po6126266'
+  }
+];
+
+const [error, setError] = useState(true);
+
+<MultiSelect
+  labelText="Visited countries"
+  hintText="Select all countries you have visited during the past year. You can filter options by typing in the field"
+  items={countries}
+  chipListVisible
+  ariaChipActionLabel="Deselect"
+  removeAllButtonLabel="Remove all selections"
+  visualPlaceholder="Choose countries"
+  noItemsText="No items"
+  ariaSelectedAmountText="countries selected"
+  ariaOptionsAvailableText="options available"
+  ariaOptionChipRemovedText="removed"
+  status={error ? 'error' : 'default'}
+  statusText={error ? 'This field is required' : ''}
+  onItemSelectionsChange={(newItems) =>
+    newItems.length === 0 ? setError(true) : setError(false)
+  }
+/>;
+```
+
+### Allowing users to add their own items
+
+Apply the `allowItemAddition` prop to enable functionality which allows users to add a custom item to the list. This is done by typing into the input field and selecting the custom item from the popover list.
+
+Also provide the `itemAdditionHelpText` prop to describe this functionality to users.
+
+```js
+import { MultiSelect, Block } from 'suomifi-ui-components';
+
+const countries = [
+  {
+    labelText: 'Switzerland',
+    uniqueItemId: 'sw2435626'
+  },
+  {
+    labelText: 'France',
+    uniqueItemId: 'fr9823523'
+  },
+  {
+    labelText: 'Spain',
+    uniqueItemId: 'sp908293482'
+  },
+  {
+    labelText: 'Bulgaria',
+    uniqueItemId: 'bg82502335'
+  },
+  {
+    labelText: 'Slovenia',
+    uniqueItemId: 'sl9081231'
+  },
+  {
+    labelText: 'Norway',
+    uniqueItemId: 'no05111511'
+  },
+  {
+    labelText: 'Germany',
+    uniqueItemId: 'ge3451261'
+  },
+  {
+    labelText: 'Finland',
+    uniqueItemId: 'fi09282626'
+  },
+  {
+    labelText: 'Poland',
+    uniqueItemId: 'po6126266'
+  }
+];
+
+<MultiSelect
+  labelText="Visited countries"
+  hintText="Select all countries you have visited during the past year. You can filter options by typing in the field and add countries yourself if they are not already available in the list."
+  items={countries}
+  chipListVisible
+  ariaChipActionLabel="Deselect"
+  removeAllButtonLabel="Remove all selections"
+  visualPlaceholder="Choose countries"
+  noItemsText="No items"
+  ariaSelectedAmountText="countries selected"
+  ariaOptionsAvailableText="options available"
+  ariaOptionChipRemovedText="removed"
+  allowItemAddition
+  itemAdditionHelpText="Add another country"
+/>;
+```
+
+### Controlled state
+
+Use the `selectedItems` prop to access and control selected items programmatically.
+
+A typical use case involves setting the state in the `onItemSelectionsChange()` function.
+
+```js
+import { MultiSelect } from 'suomifi-ui-components';
+import { useState } from 'react';
+
+const [selectedCountries, setSelectedCountries] = useState([]);
+
+const countries = [
+  {
+    labelText: 'Switzerland',
+    uniqueItemId: 'sw2435626'
+  },
+  {
+    labelText: 'France',
+    uniqueItemId: 'fr9823523'
+  },
+  {
+    labelText: 'Spain',
+    uniqueItemId: 'sp908293482'
+  },
+  {
+    labelText: 'Bulgaria',
+    uniqueItemId: 'bg82502335'
+  },
+  {
+    labelText: 'Slovenia',
+    uniqueItemId: 'sl9081231'
+  },
+  {
+    labelText: 'Norway',
+    uniqueItemId: 'no05111511'
+  },
+  {
+    labelText: 'Germany',
+    uniqueItemId: 'ge3451261'
+  },
+  {
+    labelText: 'Finland',
+    uniqueItemId: 'fi09282626'
+  },
+  {
+    labelText: 'Poland',
+    uniqueItemId: 'po6126266'
+  }
+];
+
+<MultiSelect
+  labelText="Visited countries"
+  hintText="Select all countries you have visited during the past year. You can filter options by typing in the field."
+  items={countries}
+  selectedItems={selectedCountries}
+  chipListVisible
+  ariaChipActionLabel="Deselect"
+  removeAllButtonLabel="Remove all selections"
+  visualPlaceholder="Choose countries"
+  noItemsText="No items"
+  ariaSelectedAmountText="countries selected"
+  ariaOptionsAvailableText="options available"
+  ariaOptionChipRemovedText="removed"
+  onItemSelectionsChange={(newSelectedItems) =>
+    setSelectedCountries(newSelectedItems)
+  }
+/>;
+```
+
+### Controlled state with custom options enabled
+
+When selected items are controlled and `allowItemAddition` is enabled, you must have some logic outside the component to keep things running as expected. Below is an example.
+
+```js
+import { MultiSelect } from 'suomifi-ui-components';
+import { useState } from 'react';
+const [selectedCountries, setSelectedCountries] = useState([]);
+
+const countries = [
+  {
+    labelText: 'Switzerland',
+    uniqueItemId: 'sw2435626'
+  },
+  {
+    labelText: 'France',
+    uniqueItemId: 'fr9823523'
+  },
+  {
+    labelText: 'Spain',
+    uniqueItemId: 'sp908293482'
+  },
+  {
+    labelText: 'Bulgaria',
+    uniqueItemId: 'bg82502335'
+  },
+  {
+    labelText: 'Slovenia',
+    uniqueItemId: 'sl9081231'
+  },
+  {
+    labelText: 'Norway',
+    uniqueItemId: 'no05111511'
+  },
+  {
+    labelText: 'Germany',
+    uniqueItemId: 'ge3451261'
+  },
+  {
+    labelText: 'Finland',
+    uniqueItemId: 'fi09282626'
+  },
+  {
+    labelText: 'Poland',
+    uniqueItemId: 'po6126266'
+  }
+];
+
+const [appendedCountries, setAppendedCountries] =
+  React.useState(countries);
 
 const handleSelection = (newSelectedItems) => {
-  const userAddedAnimals = newSelectedItems.filter((nsi) =>
-    animals.every(
-      (animal) => animal.uniqueItemId !== nsi.uniqueItemId
+  const userAddedCountries = newSelectedItems.filter((nsi) =>
+    countries.every(
+      (country) => country.uniqueItemId !== nsi.uniqueItemId
     )
   );
-  setAppendedAnimals(animals.concat(userAddedAnimals));
-  setSelectedAnimals(newSelectedItems);
+  setAppendedCountries(countries.concat(userAddedCountries));
+  setSelectedCountries(newSelectedItems);
 };
 
 <MultiSelect
-  allowItemAddition={true}
-  itemAdditionHelpText="Add custom item"
-  items={appendedAnimals}
-  selectedItems={selectedAnimals}
-  labelText="Animals"
-  hintText="You can filter options by typing in the field. You can also add a custom options if no suitable match is found in the list."
-  chipListVisible={true}
-  visualPlaceholder="Choose animals"
+  labelText="Visited countries"
+  hintText="Select all countries you have visited during the past year. You can filter options by typing in the field."
+  items={appendedCountries}
+  selectedItems={selectedCountries}
+  chipListVisible
+  ariaChipActionLabel="Deselect"
   removeAllButtonLabel="Remove all selections"
-  ariaChipActionLabel="Remove"
-  ariaSelectedAmountText="animals selected"
+  visualPlaceholder="Choose countries"
+  noItemsText="No items"
+  ariaSelectedAmountText="countries selected"
   ariaOptionsAvailableText="options available"
   ariaOptionChipRemovedText="removed"
-  onItemSelectionsChange={(selectedItems) =>
-    handleSelection(selectedItems)
+  allowItemAddition
+  itemAdditionHelpText="Add another country"
+  onItemSelectionsChange={(newSelectedItems) =>
+    handleSelection(newSelectedItems)
   }
 />;
 ```
 
 ### Disabled
 
-```js
-import { MultiSelect } from 'suomifi-ui-components';
+The entire component or individual items can be disabled.
 
-const foods = [
-  {
-    labelText: 'Pizza',
-    uniqueItemId: 'pizza-123'
-  },
-  {
-    labelText: 'Burger',
-    uniqueItemId: 'burger-321'
-  }
-];
-
-<MultiSelect
-  disabled={true}
-  items={foods}
-  labelText="Food"
-  visualPlaceholder="Selection disabled"
-  ariaSelectedAmountText="items selected"
-  ariaOptionsAvailableText="options available"
-  ariaOptionChipRemovedText="removed"
-/>;
-```
-
-### Using functions for template literals
+Initially selected items can also be disabled, preventing users from deselecting them.
 
 ```js
 import { MultiSelect } from 'suomifi-ui-components';
 
-const foods = [
+const countries = [
   {
-    labelText: 'Pizza',
-    uniqueItemId: 'pizza-123'
+    labelText: 'Switzerland',
+    uniqueItemId: 'sw2435626'
   },
   {
-    labelText: 'Burger',
-    uniqueItemId: 'burger-321'
+    labelText: 'France',
+    uniqueItemId: 'fr9823523',
+    disabled: true
+  },
+  {
+    labelText: 'Spain',
+    uniqueItemId: 'sp908293482'
+  },
+  {
+    labelText: 'Bulgaria',
+    uniqueItemId: 'bg82502335'
+  },
+  {
+    labelText: 'Slovenia',
+    uniqueItemId: 'sl9081231'
+  },
+  {
+    labelText: 'Norway',
+    uniqueItemId: 'no05111511'
+  },
+  {
+    labelText: 'Germany',
+    uniqueItemId: 'ge3451261',
+    disabled: true
+  },
+  {
+    labelText: 'Finland',
+    uniqueItemId: 'fi09282626'
+  },
+  {
+    labelText: 'Poland',
+    uniqueItemId: 'po6126266'
   }
 ];
 
-const defaultSelectedFoods = [
+const defaultSelections = [
   {
-    labelText: 'Pizza',
-    uniqueItemId: 'pizza-123'
+    labelText: 'Bulgaria',
+    uniqueItemId: 'bg82502335'
   },
   {
-    labelText: 'Burger',
-    uniqueItemId: 'burger-321'
+    labelText: 'Germany',
+    uniqueItemId: 'ge3451261',
+    disabled: true
   }
 ];
 
 <>
   <MultiSelect
-    items={foods}
-    chipListVisible={true}
-    ariaChipActionLabel="Remove"
+    labelText="Visited countries"
+    hintText="Select all countries you have visited during the past year. You can filter options by typing in the field"
+    items={countries}
+    disabled
+  />
+  <MultiSelect
+    labelText="Visited countries"
+    hintText="Select all countries you have visited during the past year. You can filter options by typing in the field"
+    items={countries}
+    defaultSelectedItems={defaultSelections}
+    chipListVisible
+    ariaChipActionLabel="Deselect"
     removeAllButtonLabel="Remove all selections"
-    visualPlaceholder="Choose your foods"
+    visualPlaceholder="Choose countries"
     noItemsText="No items"
-    defaultSelectedItems={defaultSelectedFoods}
-    ariaOptionsAvailableTextFunction={(length) =>
-      `there are ${length} options`
-    }
-    ariaOptionChipRemovedTextFunction={(option) =>
-      `removed option ${option} from selected`
-    }
-    ariaSelectedAmountTextFunction={(amount) =>
-      amount === 1
-        ? `${amount} food selected`
-        : `${amount} foods selected`
-    }
+    ariaSelectedAmountText="countries selected"
+    ariaOptionsAvailableText="options available"
+    ariaOptionChipRemovedText="removed"
   />
 </>;
 ```
 
-### MultiSelect with a tooltip
+### Formatting accessibility texts
+
+The `ariaOptionsAvailableTextFunction()`, `ariaOptionChipRemovedTextFunction()` and `ariaSelectedAmountTextFunction()` props allow for more granular control of the accessibility related texts.
 
 ```js
-import {
-  MultiSelect,
-  Tooltip,
-  Heading,
-  Text
-} from 'suomifi-ui-components';
+import { MultiSelect } from 'suomifi-ui-components';
 
-const foods = [
+const countries = [
   {
-    labelText: 'Pizza',
-    uniqueItemId: 'pizza-123'
+    labelText: 'Switzerland',
+    uniqueItemId: 'sw2435626'
   },
   {
-    labelText: 'Burger',
-    uniqueItemId: 'burger-321'
+    labelText: 'France',
+    uniqueItemId: 'fr9823523'
+  },
+  {
+    labelText: 'Spain',
+    uniqueItemId: 'sp908293482'
+  },
+  {
+    labelText: 'Bulgaria',
+    uniqueItemId: 'bg82502335'
+  },
+  {
+    labelText: 'Slovenia',
+    uniqueItemId: 'sl9081231'
+  },
+  {
+    labelText: 'Norway',
+    uniqueItemId: 'no05111511'
+  },
+  {
+    labelText: 'Germany',
+    uniqueItemId: 'ge3451261'
+  },
+  {
+    labelText: 'Finland',
+    uniqueItemId: 'fi09282626'
+  },
+  {
+    labelText: 'Poland',
+    uniqueItemId: 'po6126266'
   }
 ];
 
-const labelText = 'Food';
-
 <MultiSelect
-  items={foods}
-  labelText={labelText}
-  chipListVisible={true}
-  ariaChipActionLabel="Remove"
+  labelText="Visited countries"
+  hintText="Select all countries you have visited during the past year. You can filter options by typing in the field"
+  items={countries}
+  chipListVisible
+  ariaChipActionLabel="Deselect"
   removeAllButtonLabel="Remove all selections"
-  visualPlaceholder="Choose your foods"
+  visualPlaceholder="Choose countries"
   noItemsText="No items"
-  tooltipComponent={
-    <Tooltip
-      ariaToggleButtonLabelText={`${labelText}, additional information`}
-      ariaCloseButtonLabelText={`${labelText}, close additional information`}
-    >
-      <Heading variant="h5" as="h2">
-        Food
-      </Heading>
-      <Text>Choose your favorite food with great care</Text>
-    </Tooltip>
+  ariaOptionsAvailableTextFunction={(length) =>
+    `there are ${length} options matching your filter`
   }
-  ariaSelectedAmountText="items selected"
-  ariaOptionsAvailableText="options available"
-  ariaOptionChipRemovedText="removed"
+  ariaOptionChipRemovedTextFunction={(option) =>
+    `deselected ${option}`
+  }
+  ariaSelectedAmountTextFunction={(amount) =>
+    amount === 1
+      ? `${amount} country selected`
+      : `${amount} countries selected`
+  }
 />;
 ```
 
-### Loading state
+### Loading indicator
+
+The example below simulates a data fetch operation from a backend.
+
+Use the `loading` and `loadingText` props to enable a loading spinner. This can be done in the `onChange()` function, which runs when the user types into the filter text input.
 
 ```js
 import { useState } from 'react';
-import {
-  MultiSelect,
-  Tooltip,
-  Heading,
-  Text
-} from 'suomifi-ui-components';
+import { MultiSelect } from 'suomifi-ui-components';
 
 const [loading, setLoading] = useState(false);
-const [foods, setFoods] = useState([]);
-const updatedFoods = [
+const [countries, setCountries] = useState([]);
+const countriesFromBackend = [
   {
-    labelText: 'Pizza',
-    uniqueItemId: 'pizza-123'
+    labelText: 'Switzerland',
+    uniqueItemId: 'sw2435626'
   },
   {
-    labelText: 'Burger',
-    uniqueItemId: 'burger-123'
+    labelText: 'France',
+    uniqueItemId: 'fr9823523'
+  },
+  {
+    labelText: 'Spain',
+    uniqueItemId: 'sp908293482'
+  },
+  {
+    labelText: 'Bulgaria',
+    uniqueItemId: 'bg82502335'
+  },
+  {
+    labelText: 'Slovenia',
+    uniqueItemId: 'sl9081231'
+  },
+  {
+    labelText: 'Norway',
+    uniqueItemId: 'no05111511'
+  },
+  {
+    labelText: 'Germany',
+    uniqueItemId: 'ge3451261'
+  },
+  {
+    labelText: 'Finland',
+    uniqueItemId: 'fi09282626'
+  },
+  {
+    labelText: 'Poland',
+    uniqueItemId: 'po6126266'
   }
 ];
 
 const runLoader = () => {
   let progress = 0;
   setLoading(true);
-  setFoods([]);
-  const id = setInterval(frame, 300);
+  setCountries([]);
+  const id = setInterval(frame, 100);
   function frame() {
     if (progress >= 10) {
       clearInterval(id);
-      setFoods(updatedFoods);
+      setCountries(countriesFromBackend);
       setLoading(false);
       progress = 0;
     } else {
@@ -509,30 +679,108 @@ const startup = (event) => {
   }
 };
 
-<>
-  <MultiSelect
-    items={foods}
-    labelText="Always on"
-    visualPlaceholder="Choose your foods"
-    noItemsText="No items"
-    loading={true}
-    loadingText="Loading data"
-    ariaSelectedAmountText="items selected"
-    ariaOptionsAvailableText="options available"
-    ariaOptionChipRemovedText="removed"
-  />
-
-  <MultiSelect
-    items={foods}
-    labelText="Load on change"
-    visualPlaceholder="Choose your foods"
-    noItemsText="No items"
-    loading={loading}
-    onChange={startup}
-    loadingText="Loading data"
-    ariaSelectedAmountText="items selected"
-    ariaOptionsAvailableText="options available"
-    ariaOptionChipRemovedText="removed"
-  />
-</>;
+<MultiSelect
+  labelText="Visited countries"
+  hintText="Select all countries you have visited during the past year. You can filter options by typing in the field"
+  items={countries}
+  chipListVisible
+  ariaChipActionLabel="Deselect"
+  removeAllButtonLabel="Remove all selections"
+  visualPlaceholder="Choose countries"
+  noItemsText="No items"
+  ariaSelectedAmountText="countries selected"
+  ariaOptionsAvailableText="options available"
+  ariaOptionChipRemovedText="removed"
+  loading={loading}
+  loadingText="Loading data"
+  onChange={startup}
+/>;
 ```
+
+### Tooltip
+
+A `<Tooltip>` component can be used with MultiSelect to provide additional information.
+
+In terms of instructive texts, Tooltip should only be used as a "last resort" when the info text is too long for `hintText`. Tooltip can be used for other nice-to-know information.
+
+For instructions regarding how to ensure your Tooltip is accessible, please refer to the [Tooltip documentation](./#/Components/Tooltip).
+
+```js
+import {
+  MultiSelect,
+  Tooltip,
+  Heading,
+  Text
+} from 'suomifi-ui-components';
+
+const countries = [
+  {
+    labelText: 'Switzerland',
+    uniqueItemId: 'sw2435626'
+  },
+  {
+    labelText: 'France',
+    uniqueItemId: 'fr9823523'
+  },
+  {
+    labelText: 'Spain',
+    uniqueItemId: 'sp908293482'
+  },
+  {
+    labelText: 'Bulgaria',
+    uniqueItemId: 'bg82502335'
+  },
+  {
+    labelText: 'Slovenia',
+    uniqueItemId: 'sl9081231'
+  },
+  {
+    labelText: 'Norway',
+    uniqueItemId: 'no05111511'
+  },
+  {
+    labelText: 'Germany',
+    uniqueItemId: 'ge3451261'
+  },
+  {
+    labelText: 'Finland',
+    uniqueItemId: 'fi09282626'
+  },
+  {
+    labelText: 'Poland',
+    uniqueItemId: 'po6126266'
+  }
+];
+
+const labelText = 'Visited countries';
+
+<MultiSelect
+  labelText={labelText}
+  hintText="Select all countries you have visited during the past year. You can filter options by typing in the field"
+  items={countries}
+  chipListVisible
+  ariaChipActionLabel="Deselect"
+  removeAllButtonLabel="Remove all selections"
+  visualPlaceholder="Choose countries"
+  noItemsText="No items"
+  ariaSelectedAmountText="countries selected"
+  ariaOptionsAvailableText="options available"
+  ariaOptionChipRemovedText="removed"
+  tooltipComponent={
+    <Tooltip
+      ariaToggleButtonLabelText={`${labelText}, show additional information`}
+      ariaCloseButtonLabelText={`${labelText}, close additional information`}
+    >
+      <Heading variant="h5" as="h2">
+        Why you are being asked this information
+      </Heading>
+      <Text>
+        We have deals in place with some of our partner countries to
+        provide you personalized service
+      </Text>
+    </Tooltip>
+  }
+/>;
+```
+
+### Props & methods

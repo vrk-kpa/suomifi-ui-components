@@ -16,7 +16,10 @@ import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { getLogger } from '../../../utils/log';
-import { HTMLAttributesIncludingDataAttributes } from '../../../utils/common/common';
+import {
+  HTMLAttributesIncludingDataAttributes,
+  forkRefs,
+} from '../../../utils/common/common';
 import { HtmlInputProps, HtmlDiv, HtmlInput, HtmlButton } from '../../../reset';
 import { DatePicker } from './DatePicker/DatePicker';
 import { Label, LabelMode } from '../Label/Label';
@@ -245,6 +248,9 @@ const BaseDateInput = (props: DateInputProps) => {
     datePickerDefaultTexts.fi,
   );
 
+  // Remove the possibility to have undefined forwardedRef as a parameter for forkRefs
+  const definedRef = forwardedRef || null;
+
   useEffect(() => {
     if (defaultValue) {
       setInputValue(String(defaultValue));
@@ -366,7 +372,7 @@ const BaseDateInput = (props: DateInputProps) => {
                   value={'value' in props ? value : inputValue}
                   id={id}
                   className={dateInputClassNames.inputElement}
-                  forwardedRef={inputRef}
+                  forwardedRef={forkRefs(inputRef, definedRef)}
                   placeholder={visualPlaceholder}
                   aria-invalid={status === 'error' ? true : undefined}
                   {...getConditionalAriaProp('aria-describedby', [
@@ -447,14 +453,6 @@ const StyledDateInput = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Use for user inputting date.
- * Can be used as an input field or with an additional DatePicker.
- *
- * Props other than specified explicitly are passed on to underlying input element. For example defaultValue and onClick.
- * @component
- */
 const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
   (props: DateInputProps, ref: React.Ref<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;

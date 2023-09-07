@@ -308,7 +308,7 @@ exports[`snapshot should have matching default structure 1`] = `
 }
 
 .c7:focus {
-  outline: none;
+  outline: 3px solid transparent;
 }
 
 .c7:focus:after {
@@ -412,6 +412,7 @@ exports[`snapshot should have matching default structure 1`] = `
 .c1 .fi-search-input_input-element-container:focus-within {
   position: relative;
   box-shadow: 0 1px 2px 0 hsla(214,100%,24%,0.1) inset;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-search-input_input-element-container:focus-within:after {
@@ -549,6 +550,10 @@ exports[`snapshot should have matching default structure 1`] = `
   overflow: hidden;
 }
 
+.c1 .fi-search-input_button-clear:focus {
+  outline: 3px solid transparent;
+}
+
 .c1 .fi-search-input_button-clear-icon {
   width: 12px;
   height: 12px;
@@ -604,6 +609,10 @@ exports[`snapshot should have matching default structure 1`] = `
   background: linear-gradient(0deg,hsl(212,63%,37%) 0%,hsl(212,63%,45%) 100%);
 }
 
+.c1.fi-search-input--not-empty .fi-search-input_button-search:focus {
+  outline: 3px solid transparent;
+}
+
 .c1.fi-search-input--not-empty .fi-search-input_button-search:focus:after {
   content: '';
   position: absolute;
@@ -639,6 +648,18 @@ exports[`snapshot should have matching default structure 1`] = `
   height: 20px;
   width: 20px;
   margin: 10px;
+}
+
+@media (forced-colors:active) {
+  .c1.fi-search-input--not-empty .fi-search-input_button-search {
+    border: solid 1px ButtonBorder;
+  }
+}
+
+@media (forced-colors:active) {
+  .c1.fi-search-input--not-empty .fi-search-input_button-search .fi-search-input_button-search-icon .fi-icon-base-fill {
+    fill: ButtonText;
+  }
 }
 
 <div

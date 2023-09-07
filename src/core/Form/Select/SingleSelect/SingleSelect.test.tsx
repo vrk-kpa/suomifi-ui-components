@@ -543,3 +543,50 @@ describe('forward ref', () => {
     expect(ref.current?.value).toBe('Hammer');
   });
 });
+
+describe('listProps', () => {
+  it('adds data-test-id to unordered list element', async () => {
+    const { getByRole } = render(
+      <SingleSelect
+        labelText="Test"
+        clearButtonLabel="Clear selection"
+        items={tools}
+        noItemsText="No items"
+        ariaOptionsAvailableText="Options available"
+        listProps={{
+          'data-test-id': 'custom-data-attr',
+        }}
+      />,
+    );
+    const input = getByRole('textbox');
+    fireEvent.focus(input);
+    const menu = getByRole('listbox');
+    expect(menu).toHaveAttribute('data-test-id', 'custom-data-attr');
+  });
+});
+
+describe('listItemProps', () => {
+  it('adds data-test-id to list item element', async () => {
+    const { getByRole } = render(
+      <SingleSelect
+        labelText="Test"
+        clearButtonLabel="Clear selection"
+        items={[
+          {
+            labelText: 'Abc',
+            uniqueItemId: 'abc123',
+            listItemProps: {
+              'data-test-id': 'abc',
+            },
+          },
+        ]}
+        noItemsText="No items"
+        ariaOptionsAvailableText="Options available"
+      />,
+    );
+    const input = getByRole('textbox');
+    fireEvent.focus(input);
+    const option = getByRole('option');
+    expect(option).toHaveAttribute('data-test-id', 'abc');
+  });
+});

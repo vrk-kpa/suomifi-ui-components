@@ -182,6 +182,30 @@ exports[`calling render with the same component on the same container does not r
   float: left;
 }
 
+.c8 {
+  vertical-align: baseline;
+}
+
+.c8.fi-icon {
+  display: inline-block;
+}
+
+.c8 .fi-icon-base-fill {
+  fill: currentColor;
+}
+
+.c8 .fi-icon-base-stroke {
+  stroke: currentColor;
+}
+
+.c8.fi-icon--cursor-pointer {
+  cursor: pointer;
+}
+
+.c8.fi-icon--cursor-pointer * {
+  cursor: inherit;
+}
+
 .c7 {
   -webkit-letter-spacing: 0;
   -moz-letter-spacing: 0;
@@ -221,6 +245,7 @@ exports[`calling render with the same component on the same container does not r
   border-radius: 2px;
   box-shadow: 0 0 0 2px hsl(196,77%,44%);
   outline: 0;
+  outline: 3px solid transparent;
 }
 
 .c7.fi-link:hover,
@@ -250,28 +275,17 @@ exports[`calling render with the same component on the same container does not r
   text-decoration: none;
 }
 
-.c8 {
-  vertical-align: baseline;
+.c7.fi-link.fi-link--accent .fi-link--accent_icon {
+  font-size: 16px;
+  margin-left: -3px;
+  margin-right: 2px;
+  -webkit-transform: translateY(0.15em);
+  -ms-transform: translateY(0.15em);
+  transform: translateY(0.15em);
 }
 
-.c8.fi-icon {
-  display: inline-block;
-}
-
-.c8 .fi-icon-base-fill {
-  fill: currentColor;
-}
-
-.c8 .fi-icon-base-stroke {
-  stroke: currentColor;
-}
-
-.c8.fi-icon--cursor-pointer {
-  cursor: pointer;
-}
-
-.c8.fi-icon--cursor-pointer * {
-  cursor: inherit;
+.c7.fi-link.fi-link--small {
+  font-size: 16px;
 }
 
 .c5 {
@@ -298,8 +312,39 @@ exports[`calling render with the same component on the same container does not r
   font-weight: 400;
 }
 
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link:hover,
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link:active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link--initial-underline {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link--initial-underline:focus,
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link--initial-underline:focus-within {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link--initial-underline:hover,
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link--initial-underline:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_link--current {
   color: hsl(202,7%,40%);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link--current:hover,
+.c5.fi-breadcrumb-link .fi-breadcrumb-link_link--current:active {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .c5.fi-breadcrumb-link .fi-breadcrumb-link_icon {

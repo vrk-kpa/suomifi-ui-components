@@ -75,7 +75,9 @@ describe('Button variant', () => {
   });
 
   it('link match snapshot', () => {
-    const { container } = render(<Button variant="link">Link button</Button>);
+    const { container } = render(
+      <Button variant="secondaryLight">Secondary light button</Button>,
+    );
     expect(container.firstChild).toMatchSnapshot();
   });
 });

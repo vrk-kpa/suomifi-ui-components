@@ -61,12 +61,6 @@ const StyledModalFooter = styled(BaseModalFooter)`
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Use for showing modal footer.
- * Applies variant specific spacings to immediate children.
- * Props other than specified explicitly are passed on to the content wrapping div.
- */
 const ModalFooter = (props: ModalFooterProps) => {
   const { className, ...passProps } = props;
   return (

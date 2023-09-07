@@ -13,7 +13,7 @@ import { Classes } from 'jss';
 import Ribbon from 'react-styleguidist/lib/client/rsg-components/Ribbon';
 import Version from 'react-styleguidist/lib/client/rsg-components/Version';
 import * as Rsg from 'react-styleguidist/lib/typings';
-import { Alert } from '../src/core/Alert/';
+import { Alert } from '../src/core/Alert/Alert';
 
 const styles = ({
   color,

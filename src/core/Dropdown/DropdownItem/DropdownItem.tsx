@@ -17,9 +17,9 @@ export interface DropdownItemProps {
   value: string;
   /** Item content */
   children: ReactNode;
-  /** Classname for item */
+  /** CSS class for custom styles */
   className?: string;
-  /** Disables dropdown option
+  /** Disables the option
    * @default false
    */
   disabled?: boolean;

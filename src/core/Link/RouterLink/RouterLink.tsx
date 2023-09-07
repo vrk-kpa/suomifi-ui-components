@@ -2,6 +2,7 @@
 import React, { forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import { RouterLinkStyles } from './RouterLink.baseStyles';
+import { IconChevronRight } from 'suomifi-icons';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
   baseClassName,
@@ -83,10 +84,10 @@ export type PolymorphicComponentProps<
 const routerLinkClassName = `${baseClassName}--router`;
 
 interface Props {
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
   /**
-   * Link element displayed content
+   * Text content for the link
    */
   children: ReactNode;
   /**
@@ -112,6 +113,8 @@ const PolymorphicLink = <C extends React.ElementType>(
     asComponent,
     children,
     className,
+    smallScreen,
+    variant,
     theme,
     underline = 'hover',
     forwardedRef,
@@ -119,14 +122,19 @@ const PolymorphicLink = <C extends React.ElementType>(
   } = props;
   const Component = asComponent || HtmlA;
 
-  const classNames = classnames(routerLinkClassName, className, {
+  const classNames = classnames(baseClassName, routerLinkClassName, className, {
     [linkClassNames.linkUnderline]: underline === 'initial',
+    [linkClassNames.accent]: variant === 'accent',
+    [linkClassNames.small]: smallScreen,
   });
 
   // If asComponent is included, we assume it can take a normal ref-prop
   if (!!asComponent) {
     return (
       <Component className={classNames} ref={forwardedRef} {...passProps}>
+        {variant === 'accent' && (
+          <IconChevronRight color={theme.colors.accentBase} />
+        )}
         {children}
       </Component>
     );

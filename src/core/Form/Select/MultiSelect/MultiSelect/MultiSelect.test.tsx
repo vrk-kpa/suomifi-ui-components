@@ -763,3 +763,50 @@ describe('forward ref', () => {
     expect(ref.current?.tagName).toBe('INPUT');
   });
 });
+
+describe('listProps', () => {
+  it('adds data-test-id to unordered list element', () => {
+    const { getByRole } = render(
+      <MultiSelect
+        labelText="Test"
+        items={[]}
+        noItemsText="No items"
+        ariaSelectedAmountText=""
+        ariaOptionsAvailableText=""
+        ariaOptionChipRemovedText=""
+        listProps={{
+          'data-test-id': 'custom-attr',
+        }}
+      />,
+    );
+    const input = getByRole('textbox');
+    fireEvent.focus(input);
+    const menu = getByRole('listbox');
+    expect(menu).toHaveAttribute('data-test-id', 'custom-attr');
+  });
+});
+
+describe('listItemProps', () => {
+  it('adds data-test-id to unordered list element', () => {
+    const { getByRole } = render(
+      <MultiSelect
+        labelText="Test"
+        items={[
+          {
+            labelText: 'Apple',
+            uniqueItemId: 'cde456',
+            listItemProps: { 'data-test-id': 'apple' },
+          },
+        ]}
+        noItemsText="No items"
+        ariaSelectedAmountText=""
+        ariaOptionsAvailableText=""
+        ariaOptionChipRemovedText=""
+      />,
+    );
+    const input = getByRole('textbox');
+    fireEvent.focus(input);
+    const option = getByRole('option');
+    expect(option).toHaveAttribute('data-test-id', 'apple');
+  });
+});

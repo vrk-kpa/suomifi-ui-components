@@ -70,8 +70,8 @@ const secondaryNoBorderStyles = (theme: SuomifiTheme) => css`
   }
 `;
 
-const linkStyles = (theme: SuomifiTheme) => css`
-  &.fi-button--link {
+const secondaryLightStyles = (theme: SuomifiTheme) => css`
+  &.fi-button--secondary-light {
     color: ${theme.colors.highlightBase};
     ${secondary(theme)}
     background: ${theme.gradients.depthSecondaryToDepthSecondaryDark1};
@@ -105,10 +105,11 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   text-align: center;
   text-shadow: ${theme.shadows.invertTextShadow};
   cursor: pointer;
+  border: 1px solid transparent; /* For high contrast mode */
 
   &:focus {
-    outline: none;
     position: relative;
+    ${theme.focuses.highContrastFocus} /* For high contrast mode */
 
     &::after {
       ${theme.focuses.absoluteFocus}
@@ -117,6 +118,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
   &:hover {
     background: ${theme.gradients.highlightLight1ToHighlightBase};
+    outline: 2px solid transparent; /* For high contrast mode */
   }
 
   &:active {
@@ -145,13 +147,14 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   ${invertedStyles(theme)}
   ${secondaryStyles(theme)}
   ${secondaryNoBorderStyles(theme)}
-  ${linkStyles(theme)}
+
+  ${secondaryLightStyles(theme)}
   
   & > .fi-button_icon > .fi-icon {
     width: 16px;
     height: 16px;
     margin-right: ${theme.spacing.insetM};
-    vertical-align: text-bottom;
+    vertical-align: middle;
     transform: translateY(-0.1em);
   }
   & > .fi-button_icon--right > .fi-icon {

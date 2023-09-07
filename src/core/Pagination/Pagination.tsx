@@ -27,9 +27,9 @@ type ShowInputProps =
       pageInputProps?: never;
     }
   | {
-      /** Show input field for page number */
+      /** Shows the input field for page number */
       pageInput?: true;
-      /** Props for page input field
+      /** Props for the page input field
        * <pre>
        * // Page input action button label for screen readers
        * buttonText: string;
@@ -44,24 +44,27 @@ type ShowInputProps =
     };
 
 interface InternalPaginationProps {
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
-  /** aria-label for pagination  */
+  /** aria-label for the Pagination's root `<nav>` element  */
   'aria-label': string;
   /**
-   * Unique id
+   * HTML id attribute.
    * If no id is specified, one will be generated automatically
    */
   id?: string;
-  /** Function for page number indicator text */
-  pageIndicatorText: (currentPage: number, lastPage: number) => string;
-  /** Page indication text for screen readers
+  /**
+   * Function to form the number indicator text shown between the arrow navigation buttons. Should return e.g. 'Page 1/5'
    * @param {number} currentPage Current page
    * @param {number} lastPage Last page
-   * @returns Text for the screen reader
+   */
+  pageIndicatorText: (currentPage: number, lastPage: number) => string;
+  /** Function to form the page indicator text for screen readers. Should return e.g. 'Page 1 out of 5'
+   * @param {number} currentPage Current page
+   * @param {number} lastPage Last page
    */
   ariaPageIndicatorText: (currentPage: number, lastPage: number) => string;
-  /** Use small screen styling */
+  /** Toggles small screen styling */
   smallScreen?: boolean;
   /** Controlled number of the current page. Will be used instead of component's own internal state if provided. */
   currentPage?: number;
@@ -69,7 +72,7 @@ interface InternalPaginationProps {
   lastPage: number;
   /** Returns the selected page number */
   onChange: (page: number) => void;
-  /** Ref is forwarded to root element. Alternative for React `ref` attribute. */
+  /** Ref is placed to the outermost div element of the component. Alternative for React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLElement>;
   /** Next page button label for screen readers  */
   nextButtonAriaLabel: string;
@@ -226,11 +229,6 @@ const StyledPagination = styled((props: PaginationProps & SuomifiThemeProp) => {
 })`
   ${({ theme }) => baseStyles(theme)}
 `;
-
-/**
- * <i class="semantics" />
- * Used for pagination
- */
 
 const Pagination = forwardRef(
   (props: PaginationProps, ref: React.RefObject<HTMLElement>) => {

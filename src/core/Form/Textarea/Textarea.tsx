@@ -1,10 +1,12 @@
 import React, {
-  Component,
   ChangeEvent,
   FocusEvent,
   forwardRef,
   ReactNode,
   ReactElement,
+  useState,
+  useEffect,
+  useRef,
 } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
@@ -17,11 +19,13 @@ import {
   HtmlDiv,
   HtmlDivProps,
 } from '../../../reset';
+import { forkRefs } from '../../../utils/common/common';
 import { Label } from '../Label/Label';
 import { HintText } from '../HintText/HintText';
 import { StatusText } from '../StatusText/StatusText';
 import { InputStatus, StatusTextCommonProps } from '../types';
 import { baseStyles } from './Textarea.baseStyles';
+import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 
 const baseClassName = 'fi-textarea';
 const textareaClassNames = {
@@ -34,133 +38,220 @@ const textareaClassNames = {
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
   statusTextHasContent: `${baseClassName}_statusText--has-content`,
+  bottomWrapper: `${baseClassName}_bottom-wrapper`,
+  characterCounter: `${baseClassName}_character-counter`,
+  characterCounterError: `${baseClassName}_character-counter--error`,
 };
 
 type TextareaStatus = Exclude<InputStatus, 'success'>;
 
-export interface TextareaProps
+type characterCounterProps =
+  | {
+      characterLimit?: never;
+      ariaCharactersRemainingText?: never;
+      ariaCharactersExceededText?: never;
+    }
+  | {
+      /** Maximun amount of characters allowed in the textarea.
+       * Using this prop adds a visible character counter to the bottom right corner of the textarea.
+       */
+      characterLimit?: number;
+      /** Returns a text which screen readers read to indicate how many characters can still be written to the textarea.
+       * Required with `characterLimit`
+       */
+      ariaCharactersRemainingText: (amount: number) => string;
+      /** Returns a text which screen readers read to indicate how many characters are over the maximum allowed chracter amount.
+       * Required with `characterLimit`
+       */
+      ariaCharactersExceededText: (amount: number) => string;
+    };
+
+interface BaseTextareaProps
   extends StatusTextCommonProps,
     Omit<HtmlTextareaProps, 'placeholder' | 'forwardedRef'> {
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
-  /** Disable usage */
+  /** Disables the input */
   disabled?: boolean;
-  /** Event handler to execute when clicked */
+  /** Callback fired on click */
   onClick?: () => void;
-  /** To execute on textarea text change */
+  /** Callback fired on text change */
   onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-  /** To execute on textarea text onBlur */
+  /** Callback fired on input blur */
   onBlur?: (event: FocusEvent<HTMLTextAreaElement>) => void;
-  /** Label */
+  /** Label for the input */
   labelText: ReactNode;
-  /** Hide or show label. Label element is always present, but can be visually hidden.
+  /** Hides or shows the label. Label element is always present, but can be visually hidden.
    * @default visible
    */
   labelMode?: 'hidden' | 'visible';
-  /** Placeholder text for input. Use only as visual aid, not for instructions. */
+  /** Placeholder text for the input. Use only as visual aid, not for instructions. */
   visualPlaceholder?: string;
-  /** Text content for textarea */
+  /** Initial text content for textarea */
   children?: string;
   /** Hint text to be shown below the component */
   hintText?: string;
   /**
-   * 'default' | 'error'
+   * `'default'` | `'error'`
+   *
+   * Status of the component. Error state creates a red border around the input. Always use a descriptive `statusText` with an error status.
    * @default default
    */
   status?: TextareaStatus;
-  /** Resize mode of the textarea
-      'both' | 'vertical' | 'horizontal' | 'none'
-      @default 'vertical' 
+  /**
+   * Resize mode of the textarea
+   *  @default 'vertical'
    */
   resize?: 'both' | 'vertical' | 'horizontal' | 'none';
-  /** Optional text that is shown after labelText. Will be wrapped in parentheses. */
+  /** Text to mark the field as optional. Will be wrapped in parentheses after `labelText` */
   optionalText?: string;
   /**
-   * Unique id
+   * HTML id attribute.
    * If no id is specified, one will be generated automatically
    */
   id?: string;
-  /** Input name */
+  /** HTML name attribute for the input */
   name?: string;
-  /** Set components width to 100% */
+  /** Sets the component's width to 100% of its parent */
   fullWidth?: boolean;
-  /** Textarea container div props */
+  /** Props passed to the outermost div element of the component */
   containerProps?: Omit<HtmlDivProps, 'className'>;
   /** Tooltip component for the input's label */
   tooltipComponent?: ReactElement;
-  /** Ref is passed to the textarea element. Alternative for React `ref` attribute. */
+  /** Ref is forwarded to the underlying input element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLTextAreaElement>;
 }
 
-class BaseTextarea extends Component<TextareaProps> {
-  render() {
-    const {
-      id,
-      className,
-      disabled = false,
-      children,
-      onClick,
-      labelMode,
-      labelText,
-      hintText,
-      status,
-      statusText,
-      visualPlaceholder,
-      resize,
-      optionalText,
-      'aria-describedby': ariaDescribedBy,
-      fullWidth,
-      containerProps,
-      forwardedRef,
-      statusTextAriaLiveMode = 'assertive',
-      tooltipComponent,
-      ...passProps
-    } = this.props;
+export type TextareaProps = characterCounterProps & BaseTextareaProps;
 
-    const onClickProps = !!disabled ? {} : { onMouseDown: onClick };
-    const statusTextId = statusText ? `${id}-statusText` : undefined;
-    const hintTextId = hintText ? `${id}-hintText` : undefined;
+const BaseTextarea = (props: TextareaProps) => {
+  const {
+    id,
+    className,
+    disabled = false,
+    children,
+    onClick,
+    onChange: onChangeProp,
+    labelMode,
+    labelText,
+    hintText,
+    status,
+    statusText,
+    visualPlaceholder,
+    resize,
+    optionalText,
+    'aria-describedby': ariaDescribedBy,
+    fullWidth,
+    containerProps,
+    forwardedRef,
+    statusTextAriaLiveMode = 'assertive',
+    tooltipComponent,
+    characterLimit,
+    ariaCharactersRemainingText,
+    ariaCharactersExceededText,
+    ...passProps
+  } = props;
 
-    return (
-      <HtmlDiv
-        {...containerProps}
-        className={classnames(baseClassName, className, {
-          [textareaClassNames.disabled]: !!disabled,
-          [textareaClassNames.error]: status === 'error' && !disabled,
-          [textareaClassNames.fullWidth]: fullWidth,
-        })}
+  const [charCount, setCharCount] = useState(0);
+  const [characterCounterAriaText, setCharacterCounterAriaText] = useState('');
+  const [typingTimer, setTypingTimer] = useState<ReturnType<
+    typeof setTimeout
+  > | null>(null);
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    return () => {
+      setIsMounted(false);
+    };
+  }, []);
+
+  const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  const onClickProps = !!disabled ? {} : { onMouseDown: onClick };
+  const statusTextId = statusText ? `${id}-statusText` : undefined;
+  const hintTextId = hintText ? `${id}-hintText` : undefined;
+
+  useEffect(() => {
+    if (characterLimit !== undefined && inputRef.current?.value.length) {
+      setCharCount(inputRef.current?.value.length);
+    }
+  }, []);
+
+  const handleOnChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    if (typingTimer) {
+      clearTimeout(typingTimer);
+    }
+    if (
+      characterLimit !== undefined &&
+      ariaCharactersRemainingText &&
+      ariaCharactersExceededText
+    ) {
+      const charCountInInput = event.target.value.length;
+      setCharCount(charCountInInput);
+      const newTypingTimer = setTimeout(() => {
+        if (isMounted) {
+          setCharacterCounterAriaText(
+            charCountInInput <= characterLimit
+              ? ariaCharactersRemainingText(characterLimit - charCountInInput)
+              : ariaCharactersExceededText(charCountInInput - characterLimit),
+          );
+        }
+      }, 1500);
+      setTypingTimer(newTypingTimer);
+    }
+
+    if (!!onChangeProp) {
+      onChangeProp(event);
+    }
+  };
+
+  // Remove the possibility to have undefined forwardedRef as a parameter for forkRefs
+  const definedRef = forwardedRef || null;
+
+  return (
+    <HtmlDiv
+      {...containerProps}
+      className={classnames(baseClassName, className, {
+        [textareaClassNames.disabled]: !!disabled,
+        [textareaClassNames.error]: status === 'error' && !disabled,
+        [textareaClassNames.fullWidth]: fullWidth,
+      })}
+    >
+      <Label
+        htmlFor={id}
+        labelMode={labelMode}
+        optionalText={optionalText}
+        tooltipComponent={tooltipComponent}
       >
-        <Label
-          htmlFor={id}
-          labelMode={labelMode}
-          optionalText={optionalText}
-          tooltipComponent={tooltipComponent}
-        >
-          {labelText}
-        </Label>
-        <HintText id={hintTextId}>{hintText}</HintText>
-        <HtmlDiv className={textareaClassNames.textareaContainer}>
-          <HtmlTextarea
-            id={id}
-            className={classnames(textareaClassNames.textarea, {
-              [textareaClassNames.resizeBoth]: resize === 'both',
-              [textareaClassNames.resizeHorizontal]: resize === 'horizontal',
-              [textareaClassNames.resizeNone]: resize === 'none',
-            })}
-            disabled={disabled}
-            defaultValue={children}
-            forwardedRef={forwardedRef}
-            placeholder={visualPlaceholder}
-            aria-invalid={status === 'error'}
-            {...getConditionalAriaProp('aria-describedby', [
-              statusTextId,
-              hintTextId,
-              ariaDescribedBy,
-            ])}
-            {...passProps}
-            {...onClickProps}
-          />
-        </HtmlDiv>
+        {labelText}
+      </Label>
+      <HintText id={hintTextId}>{hintText}</HintText>
+      <HtmlDiv className={textareaClassNames.textareaContainer}>
+        <HtmlTextarea
+          id={id}
+          className={classnames(textareaClassNames.textarea, {
+            [textareaClassNames.resizeBoth]: resize === 'both',
+            [textareaClassNames.resizeHorizontal]: resize === 'horizontal',
+            [textareaClassNames.resizeNone]: resize === 'none',
+          })}
+          disabled={disabled}
+          defaultValue={children}
+          forwardedRef={forkRefs(inputRef, definedRef)}
+          placeholder={visualPlaceholder}
+          aria-invalid={status === 'error'}
+          {...getConditionalAriaProp('aria-describedby', [
+            statusTextId,
+            hintTextId,
+            ariaDescribedBy,
+          ])}
+          onChange={handleOnChange}
+          {...passProps}
+          {...onClickProps}
+        />
+      </HtmlDiv>
+      <HtmlDiv className={textareaClassNames.bottomWrapper}>
         <StatusText
           id={statusTextId}
           className={classnames({
@@ -170,12 +261,25 @@ class BaseTextarea extends Component<TextareaProps> {
           disabled={disabled}
           ariaLiveMode={statusTextAriaLiveMode}
         >
+          {characterLimit && (
+            <VisuallyHidden>{characterCounterAriaText}</VisuallyHidden>
+          )}
           {statusText}
         </StatusText>
+        {characterLimit && (
+          <HtmlDiv
+            className={classnames(textareaClassNames.characterCounter, {
+              [textareaClassNames.characterCounterError]:
+                charCount > characterLimit,
+            })}
+          >
+            {`${charCount}/${characterLimit}`}
+          </HtmlDiv>
+        )}
       </HtmlDiv>
-    );
-  }
-}
+    </HtmlDiv>
+  );
+};
 
 const StyledTextarea = styled(
   ({ theme, ...passProps }: TextareaProps & SuomifiThemeProp) => (

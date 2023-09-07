@@ -18,6 +18,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
 
     &:focus {
       ${theme.focuses.boxShadowFocus}
+      ${theme.focuses.highContrastFocus}
     }
 
     &:hover,
@@ -40,6 +41,17 @@ export const baseStyles = (theme: SuomifiTheme) => css`
       &:active {
         text-decoration: none;
       }
+    }
+    &.fi-link--accent {
+      & .fi-link--accent_icon {
+        font-size: 16px;
+        margin-left: -3px;
+        margin-right: 2px;
+        transform: translateY(0.15em);
+      }
+    }
+    &.fi-link--small {
+      font-size: 16px;
     }
   }
 `;

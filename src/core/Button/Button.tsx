@@ -5,17 +5,18 @@ import { baseStyles } from './Button.baseStyles';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
 
-type ButtonVariant =
+export type ButtonVariant =
   | 'default'
   | 'inverted'
   | 'secondary'
   | 'secondaryNoBorder'
-  | 'link';
+  | 'secondaryLight';
 
 export interface ButtonProps
   extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'> {
   /**
-   * 'default' | 'inverted' | 'secondary' | 'secondaryNoBorder' | 'link'
+   * Variant for the button
+   * `default` | `inverted` | `secondary` | `secondaryNoBorder` | `secondaryLight`
    * @default default
    */
   variant?: ButtonVariant;
@@ -24,31 +25,30 @@ export interface ButtonProps
    */
   children?: ReactNode;
   /**
-   * Define a label if children content does not indicate the button purpose,
-   * alternatively you can define aria-labelledby with label-element id
+   * Define a label if button's text content does not indicate the button's purpose (for example, button with only an icon).
+   * If the button has a visible label, make sure the aria-label includes the visible text.
+   * Alternatively you can define an `aria-labelledby`.
    */
   'aria-label'?: string;
-  /** Disable Button usage */
+  /** Disables the button */
   disabled?: boolean;
-  /** Soft disable the button to allow tab-focus, but disable onClick functionality */
+  /** Soft disables the button to allow tab-focus. Disables onClick() functionality */
   'aria-disabled'?: boolean;
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
   /**
-   * Set width to grow all available space
+   * Sets width to fill all available space
    */
   fullWidth?: boolean;
   /**
-   * Icon from suomifi-theme
+   * Icon from suomifi-icons
    */
   icon?: ReactNode;
   /**
-   * Icon from suomifi-theme to be placed on right side
+   * Icon from suomifi-icons to be placed on the right side
    */
   iconRight?: ReactNode;
-  /** Event handler to execute when clicked
-   *  @default void
-   */
+  /** Callback fired on button click */
   onClick?: (event: React.MouseEvent) => void;
   /** Ref object is passed to the button element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
@@ -91,7 +91,7 @@ class BaseButton extends Component<ButtonProps> {
           [`${baseClassName}--secondary`]: variant === 'secondary',
           [`${baseClassName}--secondary-noborder`]:
             variant === 'secondaryNoBorder',
-          [`${baseClassName}--link`]: variant === 'link',
+          [`${baseClassName}--secondary-light`]: variant === 'secondaryLight',
           [fullWidthClassName]: fullWidth,
         })}
       >
@@ -113,10 +113,6 @@ const StyledButton = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Use for inside Application onClick events.<br />
- */
 const Button = forwardRef(
   (props: ButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
     <SuomifiThemeConsumer>

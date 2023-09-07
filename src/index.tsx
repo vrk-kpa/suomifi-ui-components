@@ -1,11 +1,19 @@
-import './styles.scss';
+export {
+  ActionMenu,
+  ActionMenuProps,
+  ActionMenuItem,
+  ActionMenuItemProps,
+  ActionMenuDivider,
+} from './core/ActionMenu';
+
 export {
   Breadcrumb,
   BreadcrumbProps,
   BreadcrumbLink,
   BreadcrumbLinkProps,
 } from './core/Breadcrumb';
-export { Alert, AlertProps, InlineAlert, InlineAlertProps } from './core/Alert';
+export { Alert, AlertProps } from './core/Alert/Alert';
+export { InlineAlert, InlineAlertProps } from './core/InlineAlert/InlineAlert';
 export {
   Notification,
   NotificationProps,
@@ -67,14 +75,16 @@ export {
   SkipLinkProps,
   RouterLink,
   RouterLinkProps,
+  LinkListItem,
+  LinkListItemProps,
+  LinkList,
+  LinkListProps,
 } from './core/Link/';
 export {
   LanguageMenu,
   LanguageMenuProps,
   LanguageMenuItem,
   LanguageMenuItemProps,
-  LanguageMenuLink,
-  LanguageMenuLinkProps,
 } from './core/LanguageMenu';
 export {
   Modal,

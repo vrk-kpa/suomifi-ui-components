@@ -270,11 +270,12 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   text-align: center;
   text-shadow: 0 1px 1px hsla(214,100%,24%,0.5);
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .c4:focus {
-  outline: none;
   position: relative;
+  outline: 3px solid transparent;
 }
 
 .c4:focus::after {
@@ -295,6 +296,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
 
 .c4:hover {
   background: linear-gradient(0deg,hsl(212,63%,45%) 0%,hsl(212,63%,49%) 100%);
+  outline: 2px solid transparent;
 }
 
 .c4:active {
@@ -403,7 +405,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c4.fi-button--link {
+.c4.fi-button--secondary-light {
   color: hsl(212,63%,45%);
   color: hsl(212,63%,45%);
   background: none;
@@ -414,18 +416,18 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   border: none;
 }
 
-.c4.fi-button--link:hover {
+.c4.fi-button--secondary-light:hover {
   background: linear-gradient(-180deg,hsl(202,7%,93%) 0%,hsla(0,0%,100%,0) 100%);
 }
 
-.c4.fi-button--link:active {
+.c4.fi-button--secondary-light:active {
   background: none;
   background-color: hsl(202,7%,93%);
 }
 
-.c4.fi-button--link.fi-button--disabled,
-.c4.fi-button--link[disabled],
-.c4.fi-button--link:disabled {
+.c4.fi-button--secondary-light.fi-button--disabled,
+.c4.fi-button--secondary-light[disabled],
+.c4.fi-button--secondary-light:disabled {
   color: hsl(202,7%,67%);
   text-shadow: none;
   background: none;
@@ -433,17 +435,17 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   border-color: hsl(202,7%,67%);
 }
 
-.c4.fi-button--link:hover {
+.c4.fi-button--secondary-light:hover {
   background: linear-gradient(0deg,hsl(215,100%,97%),hsl(212,63%,98%));
 }
 
-.c4.fi-button--link:active {
+.c4.fi-button--secondary-light:active {
   background: linear-gradient(0deg,hsl(202,7%,93%),hsl(202,7%,97%));
 }
 
-.c4.fi-button--link.fi-button--disabled,
-.c4.fi-button--link[disabled],
-.c4.fi-button--link:disabled {
+.c4.fi-button--secondary-light.fi-button--disabled,
+.c4.fi-button--secondary-light[disabled],
+.c4.fi-button--secondary-light:disabled {
   color: hsl(202,7%,67%);
   background: none;
   background-color: hsl(202,7%,97%);
@@ -453,7 +455,7 @@ exports[`Basic ModalFooter should match snapshot 1`] = `
   width: 16px;
   height: 16px;
   margin-right: 8px;
-  vertical-align: text-bottom;
+  vertical-align: middle;
   -webkit-transform: translateY(-0.1em);
   -ms-transform: translateY(-0.1em);
   transform: translateY(-0.1em);

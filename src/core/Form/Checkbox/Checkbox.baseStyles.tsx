@@ -119,6 +119,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     & .fi-checkbox_label {
       &::before {
         ${theme.focuses.boxShadowFocus}
+        outline: 2px solid transparent; /* For high contrast mode */
       }
     }
   }

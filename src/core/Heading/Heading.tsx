@@ -13,19 +13,23 @@ type styleVariants = hLevels | 'h1hero';
 
 export interface HeadingProps extends HtmlHProps {
   /**
+   * `"h1hero"` | `"h1"` | `"h2"` | `"h3"` | `"h4"` | `"h5"`
+   *
    * Heading level to assign semantic element and styling.
    * @default h1
    */
   variant: styleVariants;
-  /** Change font to smaller screen size and style */
+  /** Changes font to smaller screen size and style */
   smallScreen?: boolean;
-  /** Change color for text from theme colors */
+  /** Changes color for text. Use color tokens from Suomi.fi theme colors */
   color?: ColorProp;
-  /** Custom class name for styling */
+  /** CSS class for custom styles */
   className?: string;
-  /** Render the heading as another element e.g. h3 as h2. Will override semantics derived from variant prop but keep the variant styles. */
+  /** Renders the heading as another element e.g. h3 as h2.
+   * Will override semantics derived from variant prop but keep the variant styles.
+   */
   as?: asPropType;
-  /** Ref object is passed to the heading element. Alternative to React `ref` attribute. */
+  /** Ref object is placed on the heading element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLHeadingElement>;
 }
 
@@ -65,10 +69,6 @@ const StyledHeading = styled(
   ${(props) => baseStyles(props)}
 `;
 
-/**
- * <i class="semantics" />
- * Used displaying headings with correct fonts
- */
 const Heading = forwardRef(
   (props: HeadingProps, ref: React.RefObject<HTMLHeadingElement>) => {
     const { as, variant, ...passProps } = props;

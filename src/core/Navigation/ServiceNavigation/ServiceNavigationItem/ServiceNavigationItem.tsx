@@ -6,11 +6,11 @@ import { baseStyles } from './ServiceNavigationItem.baseStyles';
 import styled from 'styled-components';
 
 export interface ServiceNavigationItemProps {
-  /** Custom class */
+  /** CSS class for custom styles */
   className?: string;
   /** Use the polymorphic `<RouterLink>` component as child to get intended CSS styling */
   children: ReactNode;
-  /** Toggle to show item as the selected one */
+  /** Shows this item as the selected one */
   selected?: boolean;
   /** Disables the item */
   disabled?: boolean;

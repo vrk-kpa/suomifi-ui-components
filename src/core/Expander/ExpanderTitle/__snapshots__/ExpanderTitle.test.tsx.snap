@@ -250,7 +250,7 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
 }
 
 .c1 .fi-expander_title-button:focus-within {
-  outline: 0;
+  outline: 3px solid transparent;
 }
 
 .c1 .fi-expander_title-button:focus-within:after {

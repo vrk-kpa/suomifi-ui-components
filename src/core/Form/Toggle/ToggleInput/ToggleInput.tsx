@@ -30,11 +30,11 @@ interface ToggleState {
 export interface ToggleInputProps
   extends ToggleBaseProps,
     Omit<HtmlInputProps, 'onChange' | 'type'> {
-  /** Input name */
+  /** HTML name attribute for the input */
   name?: string;
-  /** Event handler to execute when clicked */
+  /** Callback fired on input value change */
   onChange?: (checked: boolean) => void;
-  /** Ref object is passed to the input element. Alternative to React `ref` attribute. */
+  /** Ref object is forwarded to the underlying input element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 
@@ -127,11 +127,6 @@ const StyledToggleInput = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Use for toggling form selection
- * Additional props are passed to the checkbox input element.
- */
 const ToggleInput = forwardRef(
   (props: ToggleInputProps, ref: React.RefObject<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;

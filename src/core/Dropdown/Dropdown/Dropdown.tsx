@@ -89,57 +89,61 @@ interface DropdownState {
 
 export interface DropdownProps extends StatusTextCommonProps {
   /**
-   * Unique id
+   * HTML id attribute
    * If no id is specified, one will be generated automatically
    */
   id?: string;
-  /** Name used for input's form value. */
+  /** HTML name attribute. */
   name?: string;
-  /** Default for non controlled Dropdown, intially selected value */
+  /** Sets a default, initially selected value for non controlled Dropdown */
   defaultValue?: string;
-  /** Controlled selected value, overrides defaultValue if provided. */
+  /** Controlled selected value, overrides `defaultValue` if provided. */
   value?: string;
   /** Label for the Dropdown component. */
   labelText: ReactNode;
   /** Hint text to be shown below the label */
   hintText?: string;
-  /** Visual hint to show if nothing is selected and no value or defaultValue is provided */
+  /** Visual hint to show if nothing is selected and no value or defaultValue is provided.
+   * Should not be used for instructions since assistive technologies don't reliably read a placeholder text */
   visualPlaceholder?: ReactNode;
-  /** Show the visual placeholder instead of selected value and act as an action menu */
+  /** Always show the visual placeholder instead of the selected value. Makes the Dropdown act as an action menu. */
   alwaysShowVisualPlaceholder?: boolean;
-  /** Hide or show label. Label element is always present, but can be visually hidden.
+  /** Hides or shows the label. Label element is always present, but can be visually hidden.
    * @default visible
    */
   labelMode?: LabelMode;
-  /** Text to mark a field optional. Will be wrapped in parentheses and shown after labelText. */
+  /** Text to mark the Dropdown optional. Will be wrapped in parentheses and shown after `labelText` */
   optionalText?: string;
   /**
-   * ID on an additional label id. E.g. form group label.
-   * Used in addition to labelText for screen readers.
+   * Id of an external label e.g. input group label.
+   * Used in addition to `labelText` for screen readers.
    */
   'aria-labelledby'?: string;
   /**
-   * 'default' | 'error'
+   * `'default'` | `'error'`
+   *
+   * Status of the component. Error state creates a red border around the Dropdown.
+   * Always use a descriptive `statusText` with an error status.
    * @default default
    */
   status?: 'default' | 'error';
-  /** Status text to be shown below the component. Use e.g. for validation error */
+  /** Status text to be shown below the component. Use e.g. for validation error messages */
   statusText?: string;
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
-  /** Disable component */
+  /** Disables the component */
   disabled?: boolean;
-  /** DropdownItems */
+  /** Use `<DropdownItem>` components as children */
   children?:
     | Array<
         ReactElement<DropdownItemProps> | Array<ReactElement<DropdownItemProps>>
       >
     | ReactElement<DropdownItemProps>;
-  /** Callback that fires when the dropdown value changes. */
+  /** Callback that fires when the Dropdown value changes. */
   onChange?(value: string): void;
   /** Callback that fires on blur */
   onBlur?: () => void;
-  /** Tooltip component for the dropdown's label */
+  /** Tooltip component for the Dropdown's label */
   tooltipComponent?: ReactElement;
   /**
    * Whether the Dropdown's popover is rendered in a portal
@@ -148,7 +152,7 @@ export interface DropdownProps extends StatusTextCommonProps {
   portal?: boolean;
   /** Set component's width to 100% */
   fullWidth?: boolean;
-  /** Ref object to be passed to the button element. Alternative to React `ref` attribute. */
+  /** Ref is forwarded to the button element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
   /**
    * Props which are placed at the outermost div of the component.
@@ -663,10 +667,6 @@ const StyledDropdown = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Use for selectable dropdown with items.
- */
 const Dropdown = forwardRef(
   (props: DropdownProps, ref: React.RefObject<HTMLButtonElement>) => {
     const { id: propId, ...passProps } = props;

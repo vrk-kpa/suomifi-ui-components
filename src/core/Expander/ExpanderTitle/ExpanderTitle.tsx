@@ -22,13 +22,13 @@ const iconClassName = `${baseClassName}-icon`;
 const iconOpenClassName = `${iconClassName}--open`;
 
 export interface ExpanderTitleProps extends Omit<HtmlDivProps, 'className'> {
-  /** Custom classname to extend or customize */
+  /** CSS class for custom styles */
   className?: string;
   /** Title for Expander */
   children?: ReactNode;
-  /** Screen reader action label for collapsed expander toggle button. E.g."open expander". */
+  /** Screen reader action label for collapsed expander toggle button. E.g. "Additional information". */
   ariaOpenText: string;
-  /** Screen reader action label for expanded expander toggle button. E.g."close expander". */
+  /** Screen reader action label for expanded expander toggle button. Should usually be the same as `ariaOpenText` */
   ariaCloseText: string;
   /** Expander title id for screen reader reference in expander toggle button. */
   toggleButtonAriaDescribedBy: string;
@@ -99,10 +99,6 @@ const StyledExpanderTitle = styled(BaseExpanderTitle)`
   ${({ theme }) => expanderTitleBaseStyles(theme)}
 `;
 
-/**
- * <i class="semantics" />
- * Expander title for focusable content and toggle button for content visiblity
- */
 const ExpanderTitle = (props: ExpanderTitleProps) => (
   <SuomifiThemeConsumer>
     {({ suomifiTheme }) => (

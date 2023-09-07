@@ -9,16 +9,16 @@ const baseClassName = 'fi-text';
 const smallScreenClassName = `${baseClassName}--small-screen`;
 
 export interface TextProps extends HtmlSpanProps {
-  /** Change font to smaller screen size and style */
+  /** Toggles a smaller font size */
   smallScreen?: boolean;
-  /** Change color for text from theme colors */
+  /** Sets a color for the text. Colors from SuomifiTheme are available */
   color?: ColorProp;
   /**
-   * Type of text-style
+   * Text style
    * @default body
    */
   variant?: 'body' | 'lead' | 'bold';
-  /** Ref is passed to the span element. Alternative to React `ref` attribute. */
+  /** Ref is forwarded to the span element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLSpanElement>;
 }
 
@@ -47,9 +47,6 @@ const StyledText = styled(
   ${(props) => baseStyles(props)}
 `;
 
-/**
- * Used for displaying text with correct fonts
- */
 const Text = forwardRef<HTMLSpanElement, TextProps>(
   (props: TextProps, ref: React.Ref<HTMLSpanElement>) => {
     const { ...passProps } = props;
