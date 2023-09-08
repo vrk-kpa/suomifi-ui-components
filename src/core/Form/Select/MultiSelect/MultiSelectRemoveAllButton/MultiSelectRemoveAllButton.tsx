@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { IconRemove } from 'suomifi-icons';
-import { Button } from '../../../../Button/Button';
+import { InternalButton } from '../../../../Button/Button';
 import { MultiSelectData } from '../MultiSelect/MultiSelect';
 
 export interface MultiSelectRemoveAllButtonProps<T extends MultiSelectData> {
@@ -33,14 +33,15 @@ export const MultiSelectRemoveAllButton = <T extends MultiSelectData>(
     Object.keys(selectedItems).length !== selectedAndEnabledKeysCount;
 
   return showRemoveAllButton ? (
-    <Button
+    <InternalButton
       className={className}
       variant="secondaryLight"
       icon={<IconRemove />}
       onClick={onClick}
+      ignoreGlobalMargins={true}
       {...passProps}
     >
       {children}
-    </Button>
+    </InternalButton>
   ) : null;
 };

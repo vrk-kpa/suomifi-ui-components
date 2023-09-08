@@ -84,7 +84,6 @@ interface InternalButtonProps
   onClick?: (event: React.MouseEvent) => void;
   /** Ref object is passed to the button element. Alternative to React `ref` attribute. */
   forwardedRef?: React.RefObject<HTMLButtonElement>;
-  globalMargins?: GlobalMargins;
 }
 
 export type ButtonProps = InternalButtonProps &
@@ -119,7 +118,6 @@ class BaseButton extends Component<InternalButtonProps> {
       forwardedRef,
       children,
       style,
-      globalMargins,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -169,7 +167,7 @@ class BaseButton extends Component<InternalButtonProps> {
 }
 
 const StyledButton = styled(
-  ({ theme, ...passProps }: ButtonProps & SuomifiThemeProp) => (
+  ({ theme, ...passProps }: InternalButtonProps & SuomifiThemeProp) => (
     <BaseButton {...passProps} />
   ),
 )`
@@ -186,6 +184,26 @@ const Button = forwardRef(
               theme={suomifiTheme}
               forwardedRef={ref}
               globalMargins={margins}
+              {...props}
+            />
+          )}
+        </SuomifiThemeConsumer>
+      )}
+    </SpacingConsumer>
+  ),
+);
+
+export const InternalButton = forwardRef(
+  (props: InternalButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <StyledButton
+              theme={suomifiTheme}
+              forwardedRef={ref}
+              globalMargins={margins}
+              ignoreGlobalMargins={true}
               {...props}
             />
           )}
