@@ -28,10 +28,65 @@ Examples:
 Provide a descriptive `labelText` for the input
 
 ```js
-import { TextInput } from 'suomifi-ui-components';
+import {
+  TextInput,
+  Tooltip,
+  Button,
+  Heading,
+  Text,
+  SpacingProvider
+} from 'suomifi-ui-components';
 import React from 'react';
 
-<TextInput labelText="First name" />;
+const exampleRef = React.createRef();
+
+const labelTextForTooltipExample = 'TextInput with a tooltip';
+
+<>
+  <TextInput labelText="First name" />;
+  <SpacingProvider
+    margins={{ textInput: { mb: 'xl' }, button: { margin: 's' } }}
+  >
+    <TextInput
+      onBlur={(event) => console.log(event.target.value)}
+      labelText="TextInput with visible label"
+    />
+    <TextInput
+      onBlur={(event) => console.log(event.target.value)}
+      labelText="Test TextInput with hidden label and a visual placeholder"
+      labelMode="hidden"
+      visualPlaceholder="This input has a hidden label"
+    />
+    <TextInput
+      onBlur={(event) => console.log(event.target.value)}
+      labelText="TextInput with hint text"
+      hintText="An example hint text"
+    />
+    <Button>Rapurapurallaa</Button>
+    <TextInput
+      labelText="TextInput with optional text and ref"
+      optionalText="optional"
+      ref={exampleRef}
+      onChange={() => {
+        console.log(exampleRef.current);
+      }}
+    />
+    <TextInput
+      labelText={labelTextForTooltipExample}
+      tooltipComponent={
+        <Tooltip
+          ariaToggleButtonLabelText={`${labelTextForTooltipExample}, additional information`}
+          ariaCloseButtonLabelText={`${labelTextForTooltipExample}, close additional information`}
+        >
+          <Heading variant="h5" as="h2">
+            Tooltip
+          </Heading>
+          <Text>Text content for the tooltip</Text>
+        </Tooltip>
+      }
+    />
+  </SpacingProvider>
+</>;
 ```
 
 ### Hint text

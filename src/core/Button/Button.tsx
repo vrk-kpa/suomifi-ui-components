@@ -89,7 +89,9 @@ interface InternalButtonProps
 
 export type ButtonProps = InternalButtonProps &
   ForcedAccessibleNameProps &
-  LoadingProps;
+  LoadingProps & {
+    globalMargins?: GlobalMargins;
+  };
 
 const baseClassName = 'fi-button';
 const disabledClassName = `${baseClassName}--disabled`;
@@ -101,7 +103,7 @@ const loadingButtonClassName = `${baseClassName}--loading`;
 const loadingButtonIconOnlyClassName = `${baseClassName}--loading-icon-only`;
 const loadingIconClassName = `${baseClassName}_loading-icon`;
 
-class BaseButton extends Component<ButtonProps> {
+class BaseButton extends Component<InternalButtonProps> {
   render() {
     const {
       fullWidth,
