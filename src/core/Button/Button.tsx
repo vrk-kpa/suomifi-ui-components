@@ -71,7 +71,10 @@ interface InternalButtonProps
   globalMargins?: GlobalMargins;
 }
 
-export type ButtonProps = InternalButtonProps & ForcedAccessibleNameProps;
+export type ButtonProps = InternalButtonProps &
+  ForcedAccessibleNameProps & {
+    globalMargins?: GlobalMargins;
+  };
 
 const baseClassName = 'fi-button';
 const disabledClassName = `${baseClassName}--disabled`;
@@ -80,7 +83,7 @@ const iconStandaloneClassName = `${baseClassName}--icon-only`;
 const iconRightClassName = `${baseClassName}_icon--right`;
 const fullWidthClassName = `${baseClassName}--fullwidth`;
 
-class BaseButton extends Component<ButtonProps> {
+class BaseButton extends Component<InternalButtonProps> {
   render() {
     const {
       fullWidth,
