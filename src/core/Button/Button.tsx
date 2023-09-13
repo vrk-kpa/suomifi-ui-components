@@ -82,7 +82,7 @@ const iconStandaloneClassName = `${baseClassName}--icon-only`;
 const iconRightClassName = `${baseClassName}_icon--right`;
 const fullWidthClassName = `${baseClassName}--fullwidth`;
 
-class BaseButton extends Component<InternalButtonProps> {
+class BaseButton extends Component<ButtonProps> {
   render() {
     const {
       fullWidth,
@@ -96,14 +96,9 @@ class BaseButton extends Component<InternalButtonProps> {
       forwardedRef,
       children,
       style,
-      globalMargins,
-      ignoreGlobalMargins = false,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
-    const globalMarginStyle = ignoreGlobalMargins
-      ? {}
-      : spacingStyles(globalMargins?.button);
     const marginStyle = spacingStyles(marginProps);
     const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
 
@@ -125,7 +120,7 @@ class BaseButton extends Component<InternalButtonProps> {
           [fullWidthClassName]: fullWidth,
           [iconStandaloneClassName]: (!!icon || !!iconRight) && !children,
         })}
-        style={{ ...globalMarginStyle, ...marginStyle, ...style }}
+        style={{ ...marginStyle, ...style }}
       >
         {!!icon && <HtmlSpan className={iconClassName}>{icon}</HtmlSpan>}
         {children}
@@ -140,11 +135,15 @@ class BaseButton extends Component<InternalButtonProps> {
 }
 
 const StyledButton = styled(
-  ({ theme, ...passProps }: InternalButtonProps & SuomifiThemeProp) => (
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: ButtonProps & SuomifiThemeProp & { globalMargins: GlobalMargins }) => (
     <BaseButton {...passProps} />
   ),
 )`
-  ${({ theme }) => baseStyles(theme)}
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.button)}
 `;
 
 const Button = forwardRef(
@@ -167,22 +166,12 @@ const Button = forwardRef(
 );
 
 export const InternalButton = forwardRef(
-  (props: InternalButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
-    <SpacingConsumer>
-      {({ margins }) => (
-        <SuomifiThemeConsumer>
-          {({ suomifiTheme }) => (
-            <StyledButton
-              theme={suomifiTheme}
-              forwardedRef={ref}
-              globalMargins={margins}
-              ignoreGlobalMargins={true}
-              {...props}
-            />
-          )}
-        </SuomifiThemeConsumer>
+  (props: ButtonProps, ref: React.RefObject<HTMLButtonElement>) => (
+    <SuomifiThemeConsumer>
+      {({ suomifiTheme }) => (
+        <StyledButton theme={suomifiTheme} forwardedRef={ref} {...props} />
       )}
-    </SpacingConsumer>
+    </SuomifiThemeConsumer>
   ),
 );
 

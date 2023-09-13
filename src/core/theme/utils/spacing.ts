@@ -59,6 +59,7 @@ export type GlobalMargins = {
   button?: MarginProps;
   textInput?: MarginProps;
   checkbox?: MarginProps;
+  multiSelect?: MarginProps;
 };
 
 export interface SpacingProps extends PaddingProps, MarginProps {}
@@ -69,6 +70,18 @@ export const spacingStyles = (props: SpacingProps | undefined) => {
     getSpacingStyle(defaultSuomifiTheme, key as keyof SpacingProps, value),
   );
   return Object.assign({}, ...array);
+};
+
+export const getCssMargins = (props: MarginProps | undefined): string => {
+  if (!props) return '';
+
+  const marginStyles = Object.entries(props)
+    .map(([key, value]) =>
+      getCSSMargin(defaultSuomifiTheme, key as keyof MarginProps, value),
+    )
+    .join('');
+
+  return marginStyles;
 };
 
 const inlineStyle = {
@@ -82,6 +95,16 @@ const inlineStyle = {
   pr: 'paddingRight',
   pb: 'paddingBottom',
   pl: 'paddingLeft',
+};
+
+const cssSelector = {
+  margin: 'margin',
+  mt: 'margin-top',
+  mr: 'margin-right',
+  mb: 'margin-bottom',
+  ml: 'margin-left',
+  mx: '',
+  my: '',
 };
 
 const getSpacingStyle = (
@@ -112,6 +135,22 @@ const getSpacingStyle = (
       return { [inlineStyle[key]]: `${amount}` };
     default:
       return '';
+  }
+};
+
+const getCSSMargin = (
+  theme: SuomifiTheme,
+  key: keyof MarginProps,
+  value: SpacingProp,
+) => {
+  const amount = spaceVal(theme)(value);
+  switch (key) {
+    case 'mx':
+      return `margin-right: ${amount}; margin-left: ${amount};`;
+    case 'my':
+      return `margin-right: ${amount}; margin-left: ${amount};`;
+    default:
+      return `${[cssSelector[key]]}: ${amount};`;
   }
 };
 
