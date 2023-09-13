@@ -59,6 +59,7 @@ export type GlobalMargins = {
   button?: MarginProps;
   textInput?: MarginProps;
   checkbox?: MarginProps;
+  multiSelect?: MarginProps;
 };
 
 export interface SpacingProps extends PaddingProps, MarginProps {}
