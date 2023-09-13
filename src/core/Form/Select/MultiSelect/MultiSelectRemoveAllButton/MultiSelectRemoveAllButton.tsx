@@ -38,7 +38,6 @@ export const MultiSelectRemoveAllButton = <T extends MultiSelectData>(
       variant="secondaryLight"
       icon={<IconRemove />}
       onClick={onClick}
-      ignoreGlobalMargins={true}
       {...passProps}
     >
       {children}

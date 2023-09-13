@@ -1,10 +1,12 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../../../theme';
 import { font } from '../../../../theme/reset';
+import { MarginProps, getCssMargins } from '../../../../theme/utils/spacing';
 
-export const baseStyles = (theme: SuomifiTheme) => css`
+export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
   ${font(theme)('bodyText')}
   width: 290px;
+  ${getCssMargins(margins)}
 
   &.fi-multiselect {
     & .fi-filter-input_input-element-container {

@@ -1,11 +1,16 @@
 import React, { Component, ReactNode, forwardRef, ReactElement } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../../theme';
+import {
+  SuomifiThemeProp,
+  SuomifiThemeConsumer,
+  SpacingConsumer,
+} from '../../../../theme';
 import {
   spacingStyles,
   separateMarginProps,
   MarginProps,
+  GlobalMargins,
 } from '../../../../theme/utils/spacing';
 import { HtmlDiv, HtmlDivProps } from '../../../../../reset';
 import { getOwnerDocument } from '../../../../../utils/common';
@@ -233,7 +238,7 @@ interface MultiSelectState<T extends MultiSelectData> {
 }
 
 class BaseMultiSelect<T> extends Component<
-  MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp
+  MultiSelectProps<T & MultiSelectData>
 > {
   private popoverListRef: React.RefObject<HTMLUListElement>;
 
@@ -244,7 +249,7 @@ class BaseMultiSelect<T> extends Component<
   private chipRemovalAnnounceTimeOut: ReturnType<typeof setTimeout> | null =
     null;
 
-  constructor(props: MultiSelectProps<T & MultiSelectData> & SuomifiThemeProp) {
+  constructor(props: MultiSelectProps<T & MultiSelectData>) {
     super(props);
     this.popoverListRef = React.createRef();
 
@@ -614,7 +619,6 @@ class BaseMultiSelect<T> extends Component<
     const {
       id,
       className,
-      theme,
       labelText,
       optionalText,
       hintText,
@@ -944,8 +948,17 @@ class BaseMultiSelect<T> extends Component<
   }
 }
 
-const StyledMultiSelect = styled(BaseMultiSelect)`
-  ${({ theme }) => baseStyles(theme)}
+const StyledMultiSelect = styled(
+  ({
+    theme,
+    globalMargins,
+    ...passProps
+  }: MultiSelectProps<MultiSelectData> &
+    SuomifiThemeProp & { globalMargins?: GlobalMargins }) => (
+    <BaseMultiSelect {...passProps} />
+  ),
+)`
+  ${({ theme, globalMargins }) => baseStyles(theme, globalMargins?.multiSelect)}
 `;
 
 function MultiSelectInner<T>(
@@ -954,20 +967,25 @@ function MultiSelectInner<T>(
 ) {
   const { id: propId, ...passProps } = props;
   return (
-    <SuomifiThemeConsumer>
-      {({ suomifiTheme }) => (
-        <AutoId id={propId}>
-          {(id) => (
-            <StyledMultiSelect
-              theme={suomifiTheme}
-              id={id}
-              forwardedRef={ref}
-              {...passProps}
-            />
+    <SpacingConsumer>
+      {({ margins }) => (
+        <SuomifiThemeConsumer>
+          {({ suomifiTheme }) => (
+            <AutoId id={propId}>
+              {(id) => (
+                <StyledMultiSelect
+                  theme={suomifiTheme}
+                  id={id}
+                  forwardedRef={ref}
+                  globalMargins={margins}
+                  {...passProps}
+                />
+              )}
+            </AutoId>
           )}
-        </AutoId>
+        </SuomifiThemeConsumer>
       )}
-    </SuomifiThemeConsumer>
+    </SpacingConsumer>
   );
 }
 
