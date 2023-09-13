@@ -329,7 +329,7 @@ exports[`Basic ExpanderTitle shoud match snapshot 1`] = `
     <span
       class="c2 c4 fi-visually-hidden"
     >
-      open expander
+      toggle
     </span>
     <svg
       aria-hidden="true"
