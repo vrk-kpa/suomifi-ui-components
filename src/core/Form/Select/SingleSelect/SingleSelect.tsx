@@ -225,10 +225,18 @@ class BaseSingleSelect<T> extends Component<
 
     if (selectedItemChanged || propItems !== prevState.initialItems) {
       const resolvedSelectedItem =
-        'selectedItem' in nextProps ? selectedItem : prevState.selectedItem;
+        'selectedItem' in nextProps
+          ? selectedItem
+          : propItems.find(
+              (item) =>
+                item.uniqueItemId === prevState.selectedItem?.uniqueItemId,
+            );
       const resolvedInputValue = selectedItemChanged
         ? selectedItem?.labelText || ''
-        : prevState.filterInputValue;
+        : propItems.find(
+            (item) =>
+              item.uniqueItemId === prevState.selectedItem?.uniqueItemId,
+          )?.labelText || '';
 
       return {
         selectedItem: resolvedSelectedItem,
