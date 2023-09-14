@@ -434,7 +434,7 @@ const [expanderThreeOpen, setExpanderThreeOpen] = useState(true);
 
 If you need to have interactive elements in the Expander title, use `<ExpanderTitle>` instead of `<ExpanderTitleButton>`.
 
-ExpanderTitle creates a smaller toggle button to the right side of the Expander. For screen readers, it is recommended to provide a descriptive label for the button using `toggleButtonAriaText`. State is communicated to assistive technology using `aria-expanded`. Point `toggleButtonAriaDescribedBy` to the ID of interactive element to provide additional context for assistive technology.
+ExpanderTitle creates a smaller toggle button to the right side of the Expander. For screen readers, it is recommended to provide a descriptive label for the button using `toggleButtonAriaText`. State is communicated to assistive technology using `aria-expanded`. Point `toggleButtonAriaDescribedBy` to the ID of interactive element to provide additional context for assistive technology. Screenreader reads `toggleButtonAriaText` and `toggleButtonAriaDescribedBy` together.
 
 ```jsx
 import {

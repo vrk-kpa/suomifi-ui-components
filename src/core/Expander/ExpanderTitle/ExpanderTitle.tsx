@@ -26,9 +26,10 @@ export interface ExpanderTitleProps extends Omit<HtmlDivProps, 'className'> {
   className?: string;
   /** Title for Expander */
   children?: ReactNode;
-  /** Screen reader action label for expander toggle button. E.g. "Additional information". */
+  /** Screen reader action label for expander toggle button. E.g. "Additional information".
+   * Will be read along with `toggleButtonAriaDescribedBy`. */
   toggleButtonAriaText: string;
-  /** Expander title id for screen reader reference in expander toggle button. */
+  /** Expander title id for screen reader reference in expander toggle button.  Will be read along with `toggleButtonAriaText`. */
   toggleButtonAriaDescribedBy: string;
   /** Properties for title open/close toggle button */
   toggleButtonProps?: Omit<
