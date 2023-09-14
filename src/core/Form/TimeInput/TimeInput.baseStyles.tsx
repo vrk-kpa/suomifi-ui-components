@@ -1,152 +1,136 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
-import { font, element } from '../../theme/reset';
+import { input, containerIEFocus, font } from '../../theme/reset';
+import { math } from 'polished';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
-  ${font(theme)('bodyText')};
-  display: inline-block;
+  ${font(theme)('bodyText')}
+  width: 290px;
 
-  /* stylelint-disable no-descending-specificity */
+  & .fi-time-input_character-counter {
+    ${font(theme)('bodyTextSmall')};
+    color: ${theme.colors.blackBase};
+    font-size: 14px;
+    line-height: 20px;
+    flex: none;
+    margin-top: 4px;
 
-  .fi-time-input_wrapper {
+    &.fi-time-input_character-counter--error {
+      color: ${theme.colors.alertBase};
+      ${font(theme)('bodySemiBoldSmall')};
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  & .fi-time-input_bottom-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & .fi-time-input_wrapper {
     width: 100%;
     display: inline-block;
 
-    .fi-time-input_label--visible {
+    & .fi-time-input_label--visible {
       margin-bottom: ${theme.spacing.xs};
     }
 
-    .fi-hint-text {
+    & .fi-hint-text {
       margin-bottom: ${theme.spacing.xs};
     }
 
-    .fi-time-input_statusText--has-content {
+    & .fi-time-input_statusText--has-content {
       margin-top: ${theme.spacing.xxs};
     }
+  }
 
-    .fi-time-input_input-container {
-      ${element(theme)}
-      ${font(theme)('actionElementInnerText')}
-      width: 97px;
-      height: 40px;
-      border: 1px solid ${theme.colors.depthLight1};
-      border-radius: ${theme.radiuses.basic};
-      line-height: 1;
-      display: flex;
-      align-items: center;
+  & .fi-time-input_input-element-container {
+    ${containerIEFocus(theme)}
 
-      .fi-time-input_hours-input-element-container {
-        &:focus-within {
-          position: relative;
-          ${theme.focuses.highContrastFocus}
+    &:focus-within {
+      position: relative;
+      ${theme.focuses.highContrastFocus}
 
-          &::after {
-            /* Forked version of theme.focuses.absoluteFocus */
-            content: '';
-            position: absolute;
-            pointer-events: none;
-            top: -6px;
-            right: 2px;
-            bottom: -6px;
-            left: -2px;
-            border-radius: ${theme.radiuses.focus};
-            background-color: transparent;
-            border: 0px solid ${theme.colors.whiteBase};
-            box-sizing: border-box;
-            box-shadow: 0 0 0 2px ${theme.colors.accentSecondary};
-            z-index: ${theme.zindexes.focus};
-          }
-        }
+      &::after {
+        ${theme.focuses.absoluteFocus}
       }
+    }
+  }
 
-      & .fi-time-input_minutes-input-element-container {
-        &:focus-within {
-          position: relative;
-          ${theme.focuses.highContrastFocus}
+  &.fi-time-input--full-width {
+    width: 100%;
+  }
 
-          &::after {
-            /* Forked version of theme.focuses.absoluteFocus */
-            content: '';
-            position: absolute;
-            pointer-events: none;
-            top: -6px;
-            right: -1px;
-            bottom: -6px;
-            left: 2px;
-            border-radius: ${theme.radiuses.focus};
-            background-color: transparent;
-            border: 0px solid ${theme.colors.whiteBase};
-            box-sizing: border-box;
-            box-shadow: 0 0 0 2px ${theme.colors.accentSecondary};
-            z-index: ${theme.zindexes.focus};
-          }
-        }
-      }
+  & .fi-time-input_input {
+    ${input(theme)}
+    background-color: ${theme.colors.whiteBase};
+    min-width: 40px;
+    width: 100%;
+    min-height: 40px;
+    padding-left: ${theme.spacing.insetL};
+    border-color: ${theme.colors.depthDark3};
 
-      .fi-time-input_minutes-input {
-        padding-right: 13px;
-      }
+    &::placeholder {
+      font-style: italic;
+      color: ${theme.colors.depthDark2};
+      opacity: 1;
+    }
+    &::-ms-clear {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+    &::-ms-reveal {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+  }
 
-      .fi-time-input_hours-input,
-      .fi-time-input_minutes-input {
-        width: 45px;
-        padding: ${theme.spacing.insetM} ${theme.spacing.insetL};
-        text-align: center;
+  &.fi-time-input_with-icon {
+    & .fi-time-input_input-element-container {
+      position: relative;
+    }
 
-        &::placeholder {
-          color: ${theme.colors.depthDark2};
-          opacity: 1;
-        }
+    & .fi-time-input_input {
+      padding-right: ${math(
+        `${theme.spacing.insetXl} * 2 + ${theme.spacing.insetM}`,
+      )};
+    }
 
-        &:focus {
-          outline: none;
-          &::placeholder {
-            opacity: 0;
-          }
-        }
-      }
-
-      .fi-time-input_dot-separator {
-        width: 5px;
-        font-size: 18px;
-        padding: ${theme.spacing.insetM} 0;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-      }
-
-      .fi-time-input_hidden-input {
-        height: 0;
-        opacity: 0;
-        overflow: hidden;
-        pointer-events: none;
-        position: absolute;
-        width: 0;
-      }
+    & .fi-icon {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      top: ${theme.spacing.insetL};
+      right: ${theme.spacing.insetL};
     }
   }
 
   &.fi-time-input--error {
-    & .fi-time-input_input-container {
+    & .fi-time-input_input {
       border: 2px solid ${theme.colors.alertBase};
+      padding-left: 9px;
+      padding-top: 7px;
+      padding-bottom: 7px;
     }
   }
   &.fi-time-input--success {
-    & .fi-time-input_input-container {
+    & .fi-time-input_input {
       border: 2px solid ${theme.colors.successBase};
+      padding-left: 9px;
+      padding-top: 7px;
+      padding-bottom: 7px;
     }
   }
   &.fi-time-input--disabled {
-    & .fi-time-input_input-container {
-      background-color: ${theme.colors.depthLight3};
+    & .fi-time-input_input {
       color: ${theme.colors.depthBase};
-
-      .fi-time-input_hours-input,
-      .fi-time-input_minutes-input {
-        &::placeholder {
-          color: ${theme.colors.depthBase};
-        }
-      }
+      background-color: ${theme.colors.depthLight3};
+    }
+    & .fi-icon-base-fill {
+      fill: ${theme.colors.depthBase};
     }
   }
 `;

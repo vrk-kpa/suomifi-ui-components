@@ -1,62 +1,70 @@
 import React, {
+  forwardRef,
+  ChangeEvent,
+  FocusEvent,
   ReactNode,
   ReactElement,
-  forwardRef,
-  KeyboardEvent,
   useRef,
   useState,
-  ChangeEvent,
 } from 'react';
-import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-import { AutoId } from '../../utils/AutoId/AutoId';
-import { HtmlDiv, HtmlInput, HtmlSpan } from '../../../reset';
-import styled from 'styled-components';
-import { HTMLAttributesIncludingDataAttributes } from '../../../utils/common/common';
-import { Label, LabelMode } from '../Label/Label';
-import { baseStyles } from './TimeInput.baseStyles';
-import { StatusTextCommonProps, InputStatus } from '../types';
+import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HintText } from '../HintText/HintText';
-import { StatusText } from '../StatusText/StatusText';
+import { AutoId } from '../../utils/AutoId/AutoId';
+import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
+import {
+  HTMLAttributesIncludingDataAttributes,
+  forkRefs,
+} from '../../../utils/common/common';
+import { HtmlInputProps, HtmlDiv, HtmlSpan, HtmlInput } from '../../../reset';
+import { Label, LabelMode } from '../Label/Label';
+import { StatusText } from '../StatusText/StatusText';
+import { HintText } from '../HintText/HintText';
+import { InputStatus, StatusTextCommonProps } from '../types';
+import { baseStyles } from './TimeInput.baseStyles';
+
+const baseClassName = 'fi-time-input';
+export const timeInputClassNames = {
+  baseClassName,
+  fullWidth: `${baseClassName}--full-width`,
+  disabled: `${baseClassName}--disabled`,
+  error: `${baseClassName}--error`,
+  success: `${baseClassName}--success`,
+  labelIsVisible: `${baseClassName}_label--visible`,
+  icon: `${baseClassName}_with-icon`,
+  inputElementContainer: `${baseClassName}_input-element-container`,
+  inputElement: `${baseClassName}_input`,
+  styleWrapper: `${baseClassName}_wrapper`,
+  statusTextHasContent: `${baseClassName}_statusText--has-content`,
+};
 
 export interface TimeInputProps
   extends StatusTextCommonProps,
-    Omit<
-      HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
-      'className' | 'onChange'
-    > {
+    Omit<HtmlInputProps, 'type' | 'onChange' | 'defaultValue'> {
+  /** CSS class for custom styles */
+  className?: string;
   /** Props passed to the outermost div element of the component */
   wrapperProps?: Omit<
     HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
     'className'
   >;
-  /** CSS class for custom styles */
-  className?: string;
   /** Disables the input */
   disabled?: boolean;
   /** Callback fired on input click */
   onClick?: () => void;
   /** Callback fired on input change */
   onChange?: (value: string) => void;
-  /** Callback fired on minutes input blur */
-  onBlur?: () => void;
+  /** Callback fired on input blur */
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Label for the input */
   labelText: ReactNode;
   /** Hides or shows the label. Label element is always present, but can be visually hidden.
    * @default visible
    */
   labelMode?: LabelMode;
-  /**
-   * Text attached to the hours input to provide additional context for assistive technology.
-   * Value should be a localised version of 'hours'
-   */
-  ariaLabelHours: string;
-  /**
-   * Text attached to the minutes input to provide additional context for assistive technology.
-   * Value should be a localised version of 'minutes'
-   */
-  ariaLabelMinutes: string;
+  /** Placeholder text for the input. Use only as visual aid, not for instructions. */
+  visualPlaceholder?: string;
   /** Hint text to be shown below the component */
   hintText?: string;
   /**
@@ -67,292 +75,142 @@ export interface TimeInputProps
    * @default default
    */
   status?: InputStatus;
+  /**
+   * Type of the input
+   * @default text
+   */
   /** HTML name attribute for the input */
   name?: string;
+  /** Initial value for the input */
+  defaultValue?: string;
   /** Controlled value */
   value?: string;
-  /** Default value for non controlled input */
-  defaultValue?: string;
+  /** Sets component's width to 100% of its parent */
+  fullWidth?: boolean;
   /** Text to mark the field optional. Will be wrapped in parentheses and shown after `labelText` */
   optionalText?: string;
-  /** Ref is placed to the outermost div element of the component. Alternative for React `ref` attribute. */
-  forwardedRef?: React.Ref<HTMLDivElement>;
+  /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
+  debounce?: number;
+  /** Suomi.fi icon to be shown inside the input field */
+  icon?: ReactElement;
   /** Tooltip component for the input's label */
   tooltipComponent?: ReactElement;
 }
 
-const baseClassName = 'fi-time-input';
-const timeInputClassNames = {
-  baseClassName,
-  disabled: `${baseClassName}--disabled`,
-  error: `${baseClassName}--error`,
-  success: `${baseClassName}--success`,
-  labelIsVisible: `${baseClassName}_label--visible`,
-  inputContainer: `${baseClassName}_input-container`,
-  hoursInputElementContainer: `${baseClassName}_hours-input-element-container`,
-  minutesInputElementContainer: `${baseClassName}_minutes-input-element-container`,
-  styleWrapper: `${baseClassName}_wrapper`,
-  statusTextHasContent: `${baseClassName}_statusText--has-content`,
-  hoursInput: `${baseClassName}_hours-input`,
-  minutesInput: `${baseClassName}_minutes-input`,
-  hiddenInput: `${baseClassName}_hidden-input`,
-  dotSeparator: `${baseClassName}_dot-separator`,
-};
-
-/**
- * Pad a one-char string with a leading zero
- */
-const zeroPad = (value: string) => {
-  if (value.length === 1) {
-    return `0${value}`;
-  }
-  return value;
-};
-
-const incrementNumber = (
-  min: number,
-  max: number,
-  current: number,
-  modifier: number,
-) => Math.max(Math.min(current + modifier, max), min);
-
-const getHourAndMinuteValues = (value?: string): string[] | null => {
-  const valueString = `${value}`;
-  if (value && valueString.length > 0) {
-    if (valueString.match(/^\d{2}.\d{2}$/)) {
-      return valueString.split('.');
-    }
-  }
-  return null;
-};
-
-const isShortNumericString = (inputValue: string): boolean =>
-  inputValue.match(/^(\d{1,2})?$/) !== null;
-
 const BaseTimeInput = (props: TimeInputProps) => {
   const {
-    wrapperProps,
     className,
     labelText,
     labelMode,
-    ariaLabelHours,
-    ariaLabelMinutes,
-    value,
-    defaultValue,
     onChange: propOnChange,
-    onClick: propOnClick,
     onBlur: propOnBlur,
+    wrapperProps,
     optionalText,
     status,
     statusText,
     hintText,
+    visualPlaceholder,
     id,
-    disabled = false,
+    fullWidth,
+    icon,
+    value: controlledValue,
+    defaultValue,
     forwardedRef,
+    debounce,
     statusTextAriaLiveMode = 'assertive',
     'aria-describedby': ariaDescribedBy,
     tooltipComponent,
     ...passProps
   } = props;
 
-  const hoursInputRef = useRef<HTMLInputElement>(null);
-  const minutesInputRef = useRef<HTMLInputElement>(null);
-  const hiddenInputRef = useRef<HTMLInputElement>(null);
+  const [inputValue, setInputValue] = useState(defaultValue || '');
 
-  const hoursAndMinutes: string[] | null = getHourAndMinuteValues(
-    defaultValue || value,
-  );
-  const [hours, setHours] = useState<string>(
-    hoursAndMinutes ? hoursAndMinutes[0] : '',
-  );
-  const [minutes, setMinutes] = useState<string>(
-    hoursAndMinutes ? hoursAndMinutes[1] : '',
-  );
-  const [timeString, setTimeString] = useState<string>(
-    hoursAndMinutes ? hoursAndMinutes.join(':') : '',
-  );
+  const inputRef = useRef<HTMLInputElement>(null);
+  const definedRef = forwardedRef || null;
 
-  const handleHoursInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'ArrowRight' && !event.shiftKey) {
-      event.preventDefault();
-      minutesInputRef.current?.focus();
+  const handleOnBlur = (event: FocusEvent<HTMLInputElement>) => {
+    const inputValInt = parseInt(inputValue, 10);
+
+    // Handle automatic filling of 1 or 2 characters: 14 --> 14.00.
+    // Also remove leading zero from hours which are under 10
+    if (inputValue.length <= 2 && !Number.isNaN(inputValInt)) {
+      if (inputValInt >= 0 && inputValInt < 25) {
+        setInputValue(`${inputValInt}.00`);
+      }
     }
 
-    console.log(hours);
+    // Handle automatic filling of 4 characters: 1400 --> 14.00
+    if (inputValue.length === 4 && !Number.isNaN(inputValInt)) {
+      if (inputValInt >= 0 && inputValInt < 2500) {
+        setInputValue(
+          `${inputValue[0]}${inputValue[1]}.${inputValue[2]}${inputValue[3]}`,
+        );
+      }
+    }
 
-    if (
-      (event.key === 'ArrowUp' || event.key === 'ArrowDown') &&
-      (isShortNumericString(hours) || hours === '')
-    ) {
-      event.preventDefault();
-      const modifier = event.key === 'ArrowUp' ? 1 : -1;
-      const hoursAsInt = parseInt(hours, 10) || 0;
-      const newHours = String(incrementNumber(0, 23, hoursAsInt, modifier));
-      updateTime(newHours, minutes);
+    if (!!propOnBlur) {
+      propOnBlur(event);
     }
   };
 
-  const handleMinutesInputKeyDown = (
-    event: KeyboardEvent<HTMLInputElement>,
-  ) => {
-    if (event.key === 'ArrowLeft' && !event.shiftKey) {
-      event.preventDefault();
-      hoursInputRef.current?.focus();
-    }
-
-    if (
-      (event.key === 'ArrowUp' || event.key === 'ArrowDown') &&
-      (isShortNumericString(minutes) || minutes === '')
-    ) {
-      event.preventDefault();
-      const modifier = event.key === 'ArrowUp' ? 1 : -1;
-      const minutesAsInt = parseInt(minutes, 10) || 0;
-      const newMinutes = zeroPad(
-        `${incrementNumber(0, 59, minutesAsInt, modifier)}`,
-      );
-      updateTime(hours, newMinutes);
-    }
-
-    if (event.key === 'Tab' && !event.shiftKey && !!propOnBlur) {
-      propOnBlur();
-    }
-  };
-
-  const updateTime = (newHours: string, newMinutes: string) => {
-    setHours(newHours);
-    setMinutes(newMinutes);
-    const newTimeValue =
-      newHours.length === 0 && newMinutes.length === 0
-        ? ''
-        : `${newHours}:${newMinutes}`;
-    setTimeString(newTimeValue);
-    const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
-      window.HTMLInputElement.prototype,
-      'value',
-    )?.set;
-    if (nativeInputValueSetter) {
-      nativeInputValueSetter.call(hiddenInputRef.current, newTimeValue);
-      const event = new Event('input', { bubbles: true });
-      hiddenInputRef.current?.dispatchEvent(event);
-    }
-  };
-
-  const onHoursChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    const hoursValue = event.target.value.slice(-2);
-    updateTime(hoursValue, minutes);
-  };
-
-  const onMinutesChange: React.ChangeEventHandler<HTMLInputElement> = (
-    event,
-  ) => {
-    const minutesValue = event.target.value.slice(-2);
-    updateTime(hours, minutesValue);
-  };
-
-  const onHoursBlur: React.FocusEventHandler = () => {
-    if (hours === '') return;
-    if (hours.length > 1 && hours.startsWith('0')) {
-      updateTime(hours[1], minutes);
-    } else {
-      updateTime(hours, minutes);
-    }
-  };
-
-  const onMinutesBlur: React.FocusEventHandler = () => {
-    if (minutes === '') return;
-    updateTime(hours, zeroPad(minutes));
-  };
-
-  const labelId = `${id}-mainLabel`;
   const hintTextId = `${id}-hintText`;
   const statusTextId = `${id}-statusText`;
-
   return (
     <HtmlDiv
       {...wrapperProps}
       className={classnames(baseClassName, className, {
-        [timeInputClassNames.disabled]: disabled,
+        [timeInputClassNames.disabled]: !!passProps.disabled,
+        [timeInputClassNames.icon]: !!icon,
         [timeInputClassNames.error]: status === 'error',
         [timeInputClassNames.success]: status === 'success',
+        [timeInputClassNames.fullWidth]: fullWidth,
       })}
     >
       <HtmlSpan className={timeInputClassNames.styleWrapper}>
         <Label
-          id={labelId}
+          htmlFor={id}
           labelMode={labelMode}
           optionalText={optionalText}
           className={classnames({
             [timeInputClassNames.labelIsVisible]: labelMode !== 'hidden',
           })}
           tooltipComponent={tooltipComponent}
-          onClick={() => hoursInputRef.current?.focus()}
         >
           {labelText}
         </Label>
-
         <HintText id={hintTextId}>{hintText}</HintText>
-        <HtmlDiv
-          className={timeInputClassNames.inputContainer}
-          onClick={propOnClick}
-        >
-          <HtmlDiv className={timeInputClassNames.hoursInputElementContainer}>
-            <HtmlInput
-              aria-hidden
-              readOnly
-              tabIndex={-1}
-              className={timeInputClassNames.hiddenInput}
-              id={id}
-              onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                if (!!propOnChange) {
-                  propOnChange(event.target.value);
-                }
-              }}
-              forwardedRef={hiddenInputRef}
-              value={timeString}
-              {...passProps}
-            />
-            <HtmlInput
-              value={hours}
-              inputMode="numeric"
-              placeholder="--"
-              className={timeInputClassNames.hoursInput}
-              maxLength={2}
-              disabled={disabled}
-              forwardedRef={hoursInputRef}
-              {...{ 'aria-invalid': status === 'error' }}
-              aria-label={`${labelText} - ${ariaLabelHours}`}
-              {...getConditionalAriaProp('aria-describedby', [
-                statusText ? statusTextId : undefined,
-                hintText ? hintTextId : undefined,
-                ariaDescribedBy,
-              ])}
-              onKeyDown={handleHoursInputKeyDown}
-              onChange={onHoursChange}
-              onBlur={onHoursBlur}
-            />
-          </HtmlDiv>
-          <HtmlDiv className={timeInputClassNames.dotSeparator}>.</HtmlDiv>
-          <HtmlDiv className={timeInputClassNames.minutesInputElementContainer}>
-            <HtmlInput
-              value={minutes}
-              inputMode="numeric"
-              placeholder="--"
-              className={timeInputClassNames.minutesInput}
-              maxLength={2}
-              disabled={disabled}
-              forwardedRef={minutesInputRef}
-              {...{ 'aria-invalid': status === 'error' }}
-              aria-label={`${labelText} - ${ariaLabelMinutes}`}
-              {...getConditionalAriaProp('aria-describedby', [
-                statusText ? statusTextId : undefined,
-                hintText ? hintTextId : undefined,
-                ariaDescribedBy,
-              ])}
-              onKeyDown={handleMinutesInputKeyDown}
-              onChange={onMinutesChange}
-              onBlur={onMinutesBlur}
-            />
-          </HtmlDiv>
+        <HtmlDiv className={timeInputClassNames.inputElementContainer}>
+          <Debounce waitFor={debounce}>
+            {(debouncer: Function) => (
+              <HtmlInput
+                {...passProps}
+                id={id}
+                className={timeInputClassNames.inputElement}
+                forwardedRef={forkRefs(inputRef, definedRef)}
+                placeholder={visualPlaceholder}
+                {...{ 'aria-invalid': status === 'error' }}
+                {...getConditionalAriaProp('aria-describedby', [
+                  statusText ? statusTextId : undefined,
+                  hintText ? hintTextId : undefined,
+                  ariaDescribedBy,
+                ])}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                  if (propOnChange) {
+                    debouncer(propOnChange, event.currentTarget.value);
+                  }
+
+                  if (event.currentTarget.value.includes(':')) {
+                    setInputValue(event.currentTarget.value.replace(':', '.'));
+                  } else {
+                    setInputValue(event.currentTarget.value);
+                  }
+                }}
+                onBlur={handleOnBlur}
+                value={controlledValue || inputValue}
+              />
+            )}
+          </Debounce>
+          {icon}
         </HtmlDiv>
         <StatusText
           id={statusTextId}
@@ -361,7 +219,7 @@ const BaseTimeInput = (props: TimeInputProps) => {
           })}
           status={status}
           ariaLiveMode={statusTextAriaLiveMode}
-          disabled={disabled}
+          disabled={passProps.disabled}
         >
           {statusText}
         </StatusText>
@@ -378,8 +236,8 @@ const StyledTimeInput = styled(
   ${({ theme }) => baseStyles(theme)}
 `;
 
-const TimeInput = forwardRef<HTMLDivElement, TimeInputProps>(
-  (props: TimeInputProps, ref: React.Ref<HTMLDivElement>) => {
+const TimeInput = forwardRef<HTMLInputElement, TimeInputProps>(
+  (props: TimeInputProps, ref: React.Ref<HTMLInputElement>) => {
     const { id: propId, ...passProps } = props;
     return (
       <SuomifiThemeConsumer>

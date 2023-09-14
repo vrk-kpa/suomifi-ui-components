@@ -1,4 +1,18 @@
-The `<TimeInput>` component is used to input times. It consists of two inputs (hours and minutes) which are labelled and visually presented together as one input.
+The `<TimeInput>` component is used to input times. It looks and behaves similarly to a regular `<TextInput>` but has the following autocomplete features:
+
+**On blur:**
+
+- If the user types 1 or 2 characters which are valid hours (0-24), the time will be autocompleted. A leading zero will also be removed.
+  - E.g. 14 --> 14.00
+  - E.g. 09 --> 9.00
+- If the user types 4 characters which form a valid "military time" value, the dot `.` character will be added as a separator.
+  - E.g. 1400 --> 14.00
+
+**On change:**
+
+- If the user types the colon `:` character, it will immediately get replaced with the dot `.` character. Dot is the correct time separator character in the Finnish language.
+
+--
 
 TimeInput is typically used together with [DateInput](/#/Components/DateInput).
 
@@ -8,16 +22,10 @@ If only certain intervals are allowed as the time value (e.g. every half hour) c
 
 Provide a descriptive `labelText` for the input.
 
-Also provide the `ariaLabelHours` and `ariaLabelMinutes` props for the individual inputs to give better context for screen reader users.
-
 ```jsx
 import { TimeInput } from 'suomifi-ui-components';
 
-<TimeInput
-  labelText="Open from"
-  ariaLabelHours="hours"
-  ariaLabelMinutes="minutes"
-/>;
+<TimeInput labelText="Opening time" />;
 ```
 
 ### Hint text
@@ -28,10 +36,9 @@ Use the `hinText` prop to provide instructions regarding the input.
 import { TimeInput } from 'suomifi-ui-components';
 
 <TimeInput
-  labelText="Open from"
-  ariaLabelHours="hours"
-  ariaLabelMinutes="minutes"
-  hintText="Opening time of your business"
+  labelText="Opening time"
+  hintText="Daily opening time of your business. Use format H.mm"
+  onBlur={(event) => console.log(event)}
 />;
 ```
 
@@ -46,8 +53,6 @@ import { TimeInput } from 'suomifi-ui-components';
 
 <TimeInput
   labelText="Open from"
-  ariaLabelHours="hours"
-  ariaLabelMinutes="minutes"
   hintText="Opening time of your business"
   defaultValue="12.30"
 />;
