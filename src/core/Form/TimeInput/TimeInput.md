@@ -18,6 +18,16 @@ TimeInput is typically used together with [DateInput](/#/Components/DateInput).
 
 If only certain intervals are allowed as the time value (e.g. every half hour) consider using the [Dropdown](/#/Components/Dropdown) or [SingleSelect](/#/Components/SingleSelect) components instead.
 
+Examples:
+
+- [Basic use](./#/Components/TimeInput?id=basic-use)
+- [Hint text](./#/Components/TimeInput?id=hint-text)
+- [Default value](./#/Components/TimeInput?id=default-value)
+
+<div style="margin-bottom: 40px">
+  [Props & methods](./#/Components/TimeInput?id=props--methods)
+</div>
+
 ### Basic use
 
 Provide a descriptive `labelText` for the input.

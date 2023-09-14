@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { SuomifiTheme } from '../../theme';
-import { input, containerIEFocus, font } from '../../theme/reset';
+import { element, containerIEFocus, font } from '../../theme/reset';
 import { math } from 'polished';
 
 export const baseStyles = (theme: SuomifiTheme) => css`
@@ -46,6 +46,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   & .fi-time-input_input-element-container {
+    width: 60px;
     ${containerIEFocus(theme)}
 
     &:focus-within {
@@ -63,10 +64,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
   }
 
   & .fi-time-input_input {
-    ${input(theme)}
-    background-color: ${theme.colors.whiteBase};
-    min-width: 40px;
+    ${element(theme)}
+    ${font(theme)('actionElementInnerText')}
     width: 100%;
+    border: 1px solid ${theme.colors.depthLight1};
+    border-radius: ${theme.radiuses.basic};
+    line-height: 1;
+    background-color: ${theme.colors.whiteBase};
     min-height: 40px;
     padding-left: ${theme.spacing.insetL};
     border-color: ${theme.colors.depthDark3};

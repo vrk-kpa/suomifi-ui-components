@@ -133,14 +133,18 @@ const BaseTimeInput = (props: TimeInputProps) => {
 
     // Handle automatic filling of 1 or 2 characters: 14 --> 14.00.
     // Also remove leading zero from hours which are under 10
-    if (inputValue.length <= 2 && !Number.isNaN(inputValInt)) {
+    if (inputValue.length <= 2 && !Number.isNaN(inputValue)) {
       if (inputValInt >= 0 && inputValInt < 25) {
         setInputValue(`${inputValInt}.00`);
       }
     }
 
     // Handle automatic filling of 4 characters: 1400 --> 14.00
-    if (inputValue.length === 4 && !Number.isNaN(inputValInt)) {
+    if (
+      inputValue.length === 4 &&
+      !Number.isNaN(inputValue) &&
+      /^\d+$/.test(inputValue)
+    ) {
       if (inputValInt >= 0 && inputValInt < 2500) {
         setInputValue(
           `${inputValue[0]}${inputValue[1]}.${inputValue[2]}${inputValue[3]}`,
