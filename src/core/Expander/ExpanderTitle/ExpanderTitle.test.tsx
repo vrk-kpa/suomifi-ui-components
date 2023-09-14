@@ -50,7 +50,7 @@ describe('Basic ExpanderTitle', () => {
     <ExpanderTitle
       {...{ 'data-testid': 'expander-title' }}
       {...props}
-      ariaToggleButtonText="toggle"
+      toggleButtonAriaText="toggle"
       toggleButtonAriaDescribedBy="title-id"
     >
       {props?.children ? (
@@ -93,7 +93,7 @@ describe('Basic ExpanderTitle', () => {
 describe('Aria attributes', () => {
   const TestExpanderWithProps = (props?: ExpanderTitleProps) => (
     <ExpanderTitle
-      ariaToggleButtonText="toggle"
+      toggleButtonAriaText="toggle"
       toggleButtonAriaDescribedBy="title-id"
       {...{ 'data-testid': 'expander-title' }}
       {...props}
@@ -130,7 +130,7 @@ describe('Custom id', () => {
   const TestExpanderWithProps = (props?: ExpanderTitleProps) => (
     <ExpanderTitle
       {...props}
-      ariaToggleButtonText="toggle"
+      toggleButtonAriaText="toggle"
       toggleButtonAriaDescribedBy="title-id"
     >
       {props?.children ? (
@@ -160,7 +160,7 @@ describe('Provider open property', () => {
   const TestExpanderWithProps = (props?: ExpanderTitleProps) => (
     <ExpanderTitle
       {...{ 'data-testid': 'expander-open-by-default-title' }}
-      ariaToggleButtonText="toggle"
+      toggleButtonAriaText="toggle"
       toggleButtonAriaDescribedBy="title-id"
       {...props}
     >
