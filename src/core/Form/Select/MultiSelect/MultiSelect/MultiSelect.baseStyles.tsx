@@ -34,6 +34,6 @@ export const baseStyles = (theme: SuomifiTheme, margins?: MarginProps) => css`
   }
 
   & .fi-multiselect_removeAllButton {
-    margin-top: 10px;
+    margin: 10px 0 0 0;
   }
 `;
