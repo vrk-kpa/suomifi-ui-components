@@ -23,7 +23,7 @@ Works with [React >= 16.8.0](https://github.com/facebook/react) (React 18 suppor
 To install the component library
 
 ```bash
-yarn add suomifi-ui-components
+npm install suomifi-ui-components
 ```
 
 Include **required** fonts as best suited for your project. You can, for example, use the following import with your global css.
@@ -42,7 +42,7 @@ You should also install the following peer dependencies.
 - The aim is to keep dependencies up to date and use the latest available versions. We encourage you to use the latest available versions of peer dependencies.
 
 ```bash
-yarn add styled-components
+npm install styled-components
 ```
 
 - If using TypeScript, version 3.8 or above is required.
@@ -50,7 +50,7 @@ yarn add styled-components
 - In case TypeScript is used and skipLibCheck compiler option is set to false, also add typings for [styled-components](https://www.npmjs.com/package/@types/styled-components/) as well as [react](https://www.npmjs.com/package/@types/react) and [react-dom](https://www.npmjs.com/package/@types/react-dom) as required by the React version used.
 
 ```bash
-yarn add @types/styled-components @types/react @types/react-dom
+npm install @types/styled-components @types/react @types/react-dom
 ```
 
 ## 🔨 Usage

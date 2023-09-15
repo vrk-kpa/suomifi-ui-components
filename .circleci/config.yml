@@ -14,39 +14,39 @@ commands:
           command: node --version
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          name: Restore Yarn Package Cache
+          name: Restore NPM Package Cache
           keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
+            - npm-packages-{{ checksum "package-lock.json" }}
       - run:
           name: Install Dependencies
-          command: yarn install --frozen-lockfile
+          command: npm ci
       - save_cache: # special step to save the dependency cache
-          name: Save Yarn Package Cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
+          name: Save NPM Package Cache
+          key: npm-packages-{{ checksum "package-lock.json" }}
           paths:
-            - ~/.cache/yarn
+            - ~/.cache/npm
   build:
     steps:
-      - run: yarn styleguide:build
+      - run: npm run styleguide:build
   test:
     steps:
       - run:
           name: Install JUnit coverage reporter
-          command: yarn add --dev jest-junit
+          command: npm install --dev jest-junit
       - run:
           name: Install TSLint JUnit Formatter
-          command: yarn add --dev tslint-junit-formatter
+          command: npm install --dev tslint-junit-formatter
       - run: # run tests
           name: Run tests with JUnit as reporter
-          command: yarn test -- --ci --runInBand --reporters=default --reporters=jest-junit
+          command: npm run test -- --ci --runInBand --reporters=default --reporters=jest-junit
           environment:
             JEST_JUNIT_OUTPUT: 'reports/junit/js-test-results.xml'
       - run:
           name: 'JavaScript and TypeScript Linter'
-          command: yarn eslint --config .eslintrc src/**/*.tsx -- --format junit -o reports/junit/js-lint-results.xml
+          command: npx eslint --config .eslintrc src/**/*.tsx --format junit -o reports/junit/js-lint-results.xml
       - run:
           name: 'Prettier check'
-          command: yarn prettier:check
+          command: npm run prettier:check
       - store_artifacts: # special step to save test results as as artifact
           # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
           path: reports/junit
@@ -78,14 +78,14 @@ jobs:
       - checkout_and_cache
       - build
       - pre_deploy
-      - run: yarn deploy
+      - run: npm run deploy
   deploy_dev:
     executor: build-executor
     steps:
       - checkout_and_cache
       - build
       - pre_deploy
-      - run: yarn deploy-dev
+      - run: npm run deploy-dev
 
 workflows:
   version: 2
