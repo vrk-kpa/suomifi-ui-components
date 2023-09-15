@@ -28,8 +28,8 @@ export interface ExpanderTitleProps extends Omit<HtmlDivProps, 'className'> {
   children?: ReactNode;
   /** Screen reader action label for expander toggle button. E.g. "Additional information".
    * Will be read along with `toggleButtonAriaDescribedBy`. */
-  toggleButtonAriaText: string;
-  /** Expander title id for screen reader reference in expander toggle button.  Will be read along with `toggleButtonAriaText`. */
+  toggleButtonAriaLabel: string;
+  /** Expander title id for screen reader reference in expander toggle button.  Will be read along with `toggleButtonAriaLabel`. */
   toggleButtonAriaDescribedBy: string;
   /** Properties for title open/close toggle button */
   toggleButtonProps?: Omit<
@@ -51,7 +51,7 @@ interface InternalExpanderTitleProps
 class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
   render() {
     const {
-      toggleButtonAriaText,
+      toggleButtonAriaLabel,
       children,
       className,
       theme,
@@ -79,7 +79,7 @@ class BaseExpanderTitle extends Component<InternalExpanderTitleProps> {
           aria-controls={consumer.contentId}
           aria-describedby={toggleButtonAriaDescribedBy}
         >
-          <VisuallyHidden>{toggleButtonAriaText}</VisuallyHidden>
+          <VisuallyHidden>{toggleButtonAriaLabel}</VisuallyHidden>
           <IconChevronDown
             className={classnames(iconClassName, {
               [iconOpenClassName]: consumer.open,
