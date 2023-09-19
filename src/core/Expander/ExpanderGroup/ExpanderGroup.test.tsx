@@ -432,6 +432,25 @@ describe('open', () => {
   });
 });
 
+describe('margin prop', () => {
+  it('should have margin style from margin prop', () => {
+    const { getByTestId } = render(
+      <ExpanderGroup
+        openAllText="Open all"
+        ariaOpenAllText="Open all expanders"
+        closeAllText="Close all"
+        ariaCloseAllText="Close all expanders"
+        data-testid="expander-group"
+        margin="xs"
+      >
+        <Expander>Test</Expander>
+      </ExpanderGroup>,
+    );
+    const div = getByTestId('expander-group');
+    expect(div).toHaveAttribute('style', 'margin: 10px;');
+  });
+});
+
 test(
   'should not have basic accessibility issues',
   axeTest(

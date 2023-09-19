@@ -73,6 +73,22 @@ describe('props', () => {
     });
   });
 
+  describe('margin', () => {
+    it('has margin style from margin prop', () => {
+      const { container } = render(<Label margin="xs">Test text</Label>);
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    });
+
+    it('has margin prop overwritten from wrapperProps', () => {
+      const { container } = render(
+        <Label margin="xs" wrapperProps={{ style: { margin: 2 } }}>
+          Test text
+        </Label>,
+      );
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+    });
+  });
+
   describe('contentStyle', () => {
     it('has the given styles', () => {
       const { getByText } = render(

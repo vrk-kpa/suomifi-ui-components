@@ -822,4 +822,33 @@ describe('props', () => {
       });
     });
   });
+
+  describe('margin', () => {
+    it('has margin style from margin prop', () => {
+      const { getByTestId } = render(
+        <DateInput
+          wrapperProps={{ 'data-testid': 'wrapper' }}
+          labelText="Date"
+          margin="xs"
+        />,
+      );
+      const div = getByTestId('wrapper');
+      expect(div).toHaveAttribute('style', 'margin: 10px;');
+    });
+
+    it('has margin style overwritten from wrapperProps', () => {
+      const { getByTestId } = render(
+        <DateInput
+          wrapperProps={{
+            'data-testid': 'wrapper',
+            style: { margin: 2 },
+          }}
+          labelText="Date"
+          margin="xs"
+        />,
+      );
+      const div = getByTestId('wrapper');
+      expect(div).toHaveAttribute('style', 'margin: 2px;');
+    });
+  });
 });

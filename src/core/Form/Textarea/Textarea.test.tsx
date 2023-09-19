@@ -277,6 +277,24 @@ describe('props', () => {
     });
   });
 
+  describe('margin', () => {
+    it('should have margin style from margin prop', () => {
+      const { container } = render(<Textarea labelText="" margin="xs" />);
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    });
+
+    it('should have margin prop overwritten from containerProps', () => {
+      const { container } = render(
+        <Textarea
+          labelText=""
+          margin="xs"
+          containerProps={{ style: { margin: 2 } }}
+        />,
+      );
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+    });
+  });
+
   describe('containerProps', () => {
     it('has the given props on the container', () => {
       const { container } = render(

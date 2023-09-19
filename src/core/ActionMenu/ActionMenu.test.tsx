@@ -87,6 +87,30 @@ describe('No borders variant', () => {
   });
 });
 
+describe('Margin prop', () => {
+  it('should have margin style from margin prop', async () => {
+    const { container } = render(
+      TestActionMenu({ ...actionMenuProps, margin: 'xs' }),
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+  });
+
+  it('should have margin style overwritten from wrapperProps', async () => {
+    const modProps: ActionMenuProps = {
+      ...actionMenuProps,
+      margin: 'xs',
+      wrapperProps: {
+        ...actionMenuProps.wrapperProps,
+        style: {
+          margin: 2,
+        },
+      },
+    };
+    const { container } = render(TestActionMenu(modProps));
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+  });
+});
+
 describe('movement in ActionMenu', () => {
   const BasicActionMenu = TestActionMenu(actionMenuProps);
 

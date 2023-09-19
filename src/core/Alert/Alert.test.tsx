@@ -100,6 +100,21 @@ describe('props', () => {
       );
     });
   });
+
+  describe('margin prop', () => {
+    it('should have margin style from margin prop', () => {
+      const { container } = render(<Alert closeText="Close" margin="xs" />);
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    });
+
+    it('should have margin style overwritten from style', () => {
+      const { container } = render(
+        <Alert closeText="Close" margin="xs" style={{ margin: 2 }} />,
+      );
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+    });
+  });
+
   test('onClick event is called when clicked', () => {
     const mockClick = jest.fn();
     const { getByRole } = render(

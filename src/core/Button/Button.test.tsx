@@ -80,4 +80,20 @@ describe('Button variant', () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  describe('Margin prop', () => {
+    it('should have margin style from margin prop', () => {
+      const { container } = render(<Button margin="xs" />);
+      const button = container.querySelector('button');
+      expect(button).toHaveAttribute('style', 'margin: 10px;');
+    });
+
+    it('should have margin prop style overwritten from style', () => {
+      const { container } = render(
+        <Button margin="xs" style={{ margin: 2 }} />,
+      );
+      const button = container.querySelector('button');
+      expect(button).toHaveAttribute('style', 'margin: 2px;');
+    });
+  });
 });
