@@ -1,36 +1,37 @@
 import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { SpacingWithoutInsetProp, spacingStyles } from '../theme/utils/spacing';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../theme/utils/spacing';
 import { ColorProp, SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import { baseStyles } from './Paragraph.baseStyles';
 import { HtmlP, HtmlPProps } from '../../reset/HtmlP/HtmlP';
 
 const baseClassName = 'fi-paragraph';
 
-export interface ParagraphProps extends HtmlPProps {
+export interface ParagraphProps extends HtmlPProps, MarginProps {
   /** Sets a color for the text. Colors from SuomifiTheme are available */
   color?: ColorProp;
-  /** Spacing token for bottom margin */
-  marginBottomSpacing?: SpacingWithoutInsetProp;
   /** Ref object is forwarded to the paragraph element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLParagraphElement>;
 }
 
 const StyledParagraph = styled(
-  ({
-    marginBottomSpacing,
-    className,
-    theme,
-    style,
-    ...passProps
-  }: ParagraphProps & SuomifiThemeProp) => (
-    <HtmlP
-      className={classnames(baseClassName, className)}
-      style={{ ...spacingStyles({ mb: marginBottomSpacing }), ...style }}
-      {...passProps}
-    />
-  ),
+  ({ className, theme, style, ...rest }: ParagraphProps & SuomifiThemeProp) => {
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
+
+    return (
+      <HtmlP
+        className={classnames(baseClassName, className)}
+        {...passProps}
+        style={{ ...marginStyle, ...style }}
+      />
+    );
+  },
 )`
   ${({ theme }) => baseStyles(theme)}
 `;
