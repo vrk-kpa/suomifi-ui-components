@@ -52,7 +52,6 @@ class BaseInlineAlert extends Component<InlineAlertProps> {
       children,
       smallScreen,
       id,
-      style,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -65,7 +64,7 @@ class BaseInlineAlert extends Component<InlineAlertProps> {
           [`${baseClassName}--${status}`]: !!status,
           [inlineAlertClassNames.smallScreen]: !!smallScreen,
         })}
-        style={{ ...marginStyle, ...style }}
+        style={{ ...marginStyle, ...passProps?.style }}
       >
         <HtmlDiv className={inlineAlertClassNames.styleWrapper}>
           {status === 'warning' && (
