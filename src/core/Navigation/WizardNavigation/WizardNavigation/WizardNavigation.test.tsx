@@ -54,3 +54,14 @@ test(
   'should not have basic accessibility issues',
   axeTest(TestWizardNavigation),
 );
+
+describe('margin', () => {
+  it('should have margin style from margin prop', () => {
+    const { container } = render(
+      <WizardNavigation aria-label="" heading="" margin="xs">
+        <WizardNavigationItem status="current">Test</WizardNavigationItem>
+      </WizardNavigation>,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+  });
+});

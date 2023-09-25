@@ -16,6 +16,28 @@ const LinkVariant = (
   </Link>
 );
 
+describe('margin', () => {
+  it('should have margin style from margin prop', () => {
+    const { container } = render(
+      <Link href="/" margin="xs">
+        Link
+      </Link>,
+    );
+    const link = container.querySelector('a');
+    expect(link).toHaveAttribute('style', 'margin: 10px;');
+  });
+
+  it('should have margin prop overwritten from style prop', () => {
+    const { container } = render(
+      <Link href="/" margin="xs" style={{ margin: 2 }}>
+        Link
+      </Link>,
+    );
+    const link = container.querySelector('a');
+    expect(link).toHaveAttribute('style', 'margin: 2px;');
+  });
+});
+
 test('calling render with the same component on the same container does not remount', () => {
   const LinkRendered = render(TestLink);
   const { getByTestId, container } = LinkRendered;

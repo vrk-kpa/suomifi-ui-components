@@ -28,6 +28,7 @@ const TestPagination = (props: Partial<PaginationProps> = {}) => (
     ariaPageIndicatorText={(current, last) => `Page ${current} of ${last}`}
     aria-label="my component here"
     className={props.className}
+    margin={props.margin}
   />
 );
 
@@ -55,6 +56,13 @@ describe('props', () => {
         TestPagination({ className: 'custom-classname' }),
       );
       expect(container.firstChild).toHaveClass('custom-classname');
+    });
+  });
+
+  describe('margin', () => {
+    it('should have margin style from margin prop', () => {
+      const { container } = render(TestPagination({ margin: 'xs' }));
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
     });
   });
 

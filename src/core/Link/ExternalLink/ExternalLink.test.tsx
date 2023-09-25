@@ -14,6 +14,33 @@ const TestExternalLink = (
   </ExternalLink>
 );
 
+describe('margin', () => {
+  it('should have margin style from margin prop', () => {
+    const { container } = render(
+      <ExternalLink href="/" toNewWindow={false} margin="xs">
+        Link
+      </ExternalLink>,
+    );
+    const link = container.querySelector('a');
+    expect(link).toHaveAttribute('style', 'margin: 10px;');
+  });
+
+  it('should have margin prop overwritten from style prop', () => {
+    const { container } = render(
+      <ExternalLink
+        href="/"
+        toNewWindow={false}
+        margin="xs"
+        style={{ margin: 2 }}
+      >
+        Link
+      </ExternalLink>,
+    );
+    const link = container.querySelector('a');
+    expect(link).toHaveAttribute('style', 'margin: 2px;');
+  });
+});
+
 test('matches snapshot', () => {
   const LinkRendered = render(TestExternalLink);
   const { getByTestId, container } = LinkRendered;

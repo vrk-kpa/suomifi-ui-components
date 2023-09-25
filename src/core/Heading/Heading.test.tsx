@@ -39,4 +39,24 @@ describe('Heading with props', () => {
   });
 });
 
+describe('Margin prop', () => {
+  it('should have margin style from margin prop', () => {
+    const { getByText } = render(
+      <Heading variant="h1" margin="xs">
+        Test
+      </Heading>,
+    );
+    expect(getByText('Test')).toHaveAttribute('style', 'margin: 10px;');
+  });
+
+  it('should have margin prop overwritten from style prop', () => {
+    const { getByText } = render(
+      <Heading variant="h1" margin="xs" style={{ margin: 2 }}>
+        Test
+      </Heading>,
+    );
+    expect(getByText('Test')).toHaveAttribute('style', 'margin: 2px;');
+  });
+});
+
 test('should not have basic accessibility issues', axeTest(TestHeadings));

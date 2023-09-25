@@ -34,3 +34,17 @@ describe('Simple link list with one item', () => {
 
   it('should not have basic accessibility issues', axeTest(TestLinkList));
 });
+
+describe('Margin prop', () => {
+  it('should have margin style from margin prop', () => {
+    const { container } = render(<LinkList ariaDescribedBy="" margin="xs" />);
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+  });
+
+  it('should have margin prop overwritten from style prop', () => {
+    const { container } = render(
+      <LinkList ariaDescribedBy="" margin="xs" style={{ margin: 2 }} />,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+  });
+});

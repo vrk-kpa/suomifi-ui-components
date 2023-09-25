@@ -316,6 +316,39 @@ describe('hintText', () => {
   });
 });
 
+describe('margin', () => {
+  it('should have margin style from margin prop', () => {
+    const props: DropdownProps = {
+      ...dropdownProps,
+      margin: 'xs',
+    };
+    const { getByTestId } = render(TestDropdown(props, 'margin-test'));
+    const div = getByTestId('margin-test');
+    expect(div).toHaveAttribute('style', 'margin: 10px;');
+  });
+
+  it('should have margin style overwritten from wrapperProps', () => {
+    const props: DropdownProps = {
+      ...dropdownProps,
+      margin: 'xs',
+      wrapperProps: {
+        'data-testid': 'margin-test',
+        style: {
+          margin: 2,
+        },
+      },
+    };
+    const { getByTestId } = render(
+      <Dropdown {...props}>
+        <DropdownItem value={'item-1'}>Item 1</DropdownItem>
+        <DropdownItem value={'item-2'}>Item 2</DropdownItem>
+      </Dropdown>,
+    );
+    const div = getByTestId('margin-test');
+    expect(div).toHaveAttribute('style', 'margin: 2px;');
+  });
+});
+
 describe('Dropdown', () => {
   // Don't validate aria-attributes since Portal is not rendered and there is no pair for aria-controls
   it('should not have basic accessibility issues', async () => {
