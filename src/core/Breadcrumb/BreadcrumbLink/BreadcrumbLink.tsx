@@ -15,7 +15,11 @@ const breadcrumbClassNames = {
   icon: `${baseClassName}_icon`,
 };
 
-export interface BreadcrumbLinkProps extends Omit<LinkProps, 'href'> {
+export interface BreadcrumbLinkProps
+  extends Omit<
+    LinkProps,
+    'href' | 'margin' | 'mx' | 'my' | 'mt' | 'mr' | 'mb' | 'ml'
+  > {
   /** Indicates the link is the current page */
   current?: boolean;
   /** Url for the link */
