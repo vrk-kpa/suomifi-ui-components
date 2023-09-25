@@ -112,6 +112,31 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c9 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: list-item;
+}
+
+.c9::before,
+.c9::after {
+  box-sizing: border-box;
+}
+
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -607,7 +632,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c9.fi-action-menu-divider {
+.c10.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -626,7 +651,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c9.fi-action-menu-divider .fi-action-menu-divider_line {
+.c10.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202,7%,80%);
@@ -656,7 +681,7 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
-  .c9.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c10.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -735,14 +760,14 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
           >
             Item 2
           </button>
-          <div
-            aria-hidden="true"
-            class="c0 c9 fi-action-menu-divider"
+          <li
+            class="c9 c10 fi-action-menu-divider"
+            role="presentation"
           >
             <div
               class="c0 fi-action-menu-divider_line"
             />
-          </div>
+          </li>
           <button
             class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-3"
@@ -878,6 +903,31 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c9 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: list-item;
+}
+
+.c9::before,
+.c9::after {
+  box-sizing: border-box;
+}
+
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -1373,7 +1423,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c9.fi-action-menu-divider {
+.c10.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -1392,7 +1442,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c9.fi-action-menu-divider .fi-action-menu-divider_line {
+.c10.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202,7%,80%);
@@ -1422,7 +1472,7 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
-  .c9.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c10.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -1501,14 +1551,14 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
           >
             Item 2
           </button>
-          <div
-            aria-hidden="true"
-            class="c0 c9 fi-action-menu-divider"
+          <li
+            class="c9 c10 fi-action-menu-divider"
+            role="presentation"
           >
             <div
               class="c0 fi-action-menu-divider_line"
             />
-          </div>
+          </li>
           <button
             class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-3"
@@ -1644,6 +1694,31 @@ exports[`No borders variant should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c9 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: list-item;
+}
+
+.c9::before,
+.c9::after {
+  box-sizing: border-box;
+}
+
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -2139,7 +2214,7 @@ exports[`No borders variant should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c9.fi-action-menu-divider {
+.c10.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -2158,7 +2233,7 @@ exports[`No borders variant should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c9.fi-action-menu-divider .fi-action-menu-divider_line {
+.c10.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202,7%,80%);
@@ -2188,7 +2263,7 @@ exports[`No borders variant should match snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
-  .c9.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c10.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -2268,14 +2343,14 @@ exports[`No borders variant should match snapshot 1`] = `
           >
             Item 2
           </button>
-          <div
-            aria-hidden="true"
-            class="c0 c9 fi-action-menu-divider"
+          <li
+            class="c9 c10 fi-action-menu-divider"
+            role="presentation"
           >
             <div
               class="c0 fi-action-menu-divider_line"
             />
-          </div>
+          </li>
           <button
             class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-3"
@@ -2411,6 +2486,31 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c9 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: list-item;
+}
+
+.c9::before,
+.c9::after {
+  box-sizing: border-box;
+}
+
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -2906,7 +3006,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   color: hsl(202,7%,67%);
 }
 
-.c9.fi-action-menu-divider {
+.c10.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -2925,7 +3025,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c9.fi-action-menu-divider .fi-action-menu-divider_line {
+.c10.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202,7%,80%);
@@ -2955,7 +3055,7 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
 }
 
 @media (forced-colors:active) {
-  .c9.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c10.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -3034,14 +3134,14 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
           >
             Item 2
           </button>
-          <div
-            aria-hidden="true"
-            class="c0 c9 fi-action-menu-divider"
+          <li
+            class="c9 c10 fi-action-menu-divider"
+            role="presentation"
           >
             <div
               class="c0 fi-action-menu-divider_line"
             />
-          </div>
+          </li>
           <button
             class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-3"
@@ -3178,6 +3278,31 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   box-sizing: border-box;
 }
 
+.c9 {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: 100% inherit;
+  line-height: 1;
+  text-align: left;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: inherit;
+  background: none;
+  cursor: inherit;
+  display: list-item;
+}
+
+.c9::before,
+.c9::after {
+  box-sizing: border-box;
+}
+
 .c4 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -3673,7 +3798,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   color: hsl(202,7%,67%);
 }
 
-.c9.fi-action-menu-divider {
+.c10.fi-action-menu-divider {
   height: 17px;
   min-height: 17px;
   padding-left: 15px;
@@ -3692,7 +3817,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
   justify-content: center;
 }
 
-.c9.fi-action-menu-divider .fi-action-menu-divider_line {
+.c10.fi-action-menu-divider .fi-action-menu-divider_line {
   height: 1px;
   width: 100%;
   background-color: hsl(202,7%,80%);
@@ -3722,7 +3847,7 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
 }
 
 @media (forced-colors:active) {
-  .c9.fi-action-menu-divider .fi-action-menu-divider_line {
+  .c10.fi-action-menu-divider .fi-action-menu-divider_line {
     background-color: Highlight;
   }
 }
@@ -3801,14 +3926,14 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
           >
             Item 2
           </button>
-          <div
-            aria-hidden="true"
-            class="c0 c9 fi-action-menu-divider"
+          <li
+            class="c9 c10 fi-action-menu-divider"
+            role="presentation"
           >
             <div
               class="c0 fi-action-menu-divider_line"
             />
-          </div>
+          </li>
           <button
             class="c2 fi-action-menu-item c8"
             id="test-id-menu-list-item-3"
