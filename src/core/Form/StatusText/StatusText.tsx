@@ -2,6 +2,11 @@ import React, { forwardRef, ReactNode } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 import { HtmlSpan, HtmlSpanProps } from '../../../reset';
 import { InputStatus, AriaLiveMode } from '../types';
 import { baseStyles } from './StatusText.baseStyles';
@@ -11,7 +16,7 @@ const statusTextClassNames = {
   error: `${baseClassName}--error`,
 };
 
-export interface StatusTextProps extends HtmlSpanProps {
+export interface StatusTextProps extends HtmlSpanProps, MarginProps {
   /** HTML id attribute */
   id?: string;
   /** Text content for the StatusText */
@@ -45,8 +50,10 @@ const StyledStatusText = styled(
     status,
     theme,
     ariaLiveMode = 'polite',
-    ...passProps
+    ...rest
   }: StatusTextProps & SuomifiThemeProp) => {
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
     const ariaLiveProp = !disabled
       ? { 'aria-live': ariaLiveMode }
       : { 'aria-live': 'off' };
@@ -59,6 +66,7 @@ const StyledStatusText = styled(
           [statusTextClassNames.error]: status === 'error',
         })}
         aria-atomic="true"
+        style={{ ...marginStyle, ...passProps?.style }}
       >
         {children}
       </HtmlSpan>

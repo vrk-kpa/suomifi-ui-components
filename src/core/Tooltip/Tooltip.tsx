@@ -3,10 +3,11 @@ import classnames from 'classnames';
 import { TooltipContent } from './TooltipContent/TooltipContent';
 import { TooltipToggleButton } from './TooltipToggleButton/TooltipToggleButton';
 import { forkRefs } from '../../utils/common';
+import { separateMarginProps, MarginProps } from '../theme/utils/spacing';
 
 const baseClassName = 'fi-tooltip';
 
-export interface TooltipProps {
+export interface TooltipProps extends MarginProps {
   /** Tooltip content */
   children: ReactNode;
   /** Toggle button label for screen readers. Should provide context as to which input the Tooltip's information is attached to.
@@ -150,8 +151,9 @@ class BaseTooltip extends Component<TooltipProps & { className?: string }> {
       toggleButtonClassName,
       contentClassName,
       forwardedRef,
+      ...rest
     } = this.props;
-
+    const [marginProps] = separateMarginProps(rest);
     const open = 'open' in this.props ? propsOpen : this.state.open;
     // Remove the possibility to have undefined forwardedRef as a parameter for forkRefs
     const definedRef = forwardedRef || null;
@@ -164,6 +166,7 @@ class BaseTooltip extends Component<TooltipProps & { className?: string }> {
           aria-label={ariaToggleButtonLabelText}
           aria-expanded={open}
           onClick={this.handleToggleClick}
+          {...marginProps}
         />
         {!!open && (
           <TooltipContent

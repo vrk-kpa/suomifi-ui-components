@@ -3,6 +3,11 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { IconArrowLeft, IconArrowRight } from 'suomifi-icons';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../theme/utils/spacing';
 import { baseStyles } from './Pagination.baseStyles';
 import { HtmlSpan, HtmlNav, HtmlDiv } from '../../reset';
 import { PageInput, PageInputValue } from './PageInput/PageInput';
@@ -80,7 +85,9 @@ interface InternalPaginationProps {
   previousButtonAriaLabel: string;
 }
 
-export type PaginationProps = ShowInputProps & InternalPaginationProps;
+export type PaginationProps = ShowInputProps &
+  InternalPaginationProps &
+  MarginProps;
 
 const baseClassName = 'fi-pagination';
 
@@ -156,9 +163,11 @@ class BasePagination extends Component<PaginationProps> {
       pageInputProps,
       smallScreen,
       id,
-      ...passProps
+      ...rest
     } = this.props;
 
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
     const pageInputId = `${id}-pageInput`;
 
     return (
@@ -167,6 +176,7 @@ class BasePagination extends Component<PaginationProps> {
         className={classnames(baseClassName, className, {
           [paginationClassNames.smallScreen]: !!smallScreen,
         })}
+        style={marginStyle}
       >
         <HtmlDiv className={paginationClassNames.styleWrapper}>
           <HtmlDiv className={paginationClassNames.buttonsWrapper}>

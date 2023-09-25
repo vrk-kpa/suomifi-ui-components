@@ -8,12 +8,17 @@ import {
 } from '../../../../reset';
 import styled from 'styled-components';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../../theme/utils/spacing';
 import { baseStyles } from './SideNavigation.baseStyles';
 import classnames from 'classnames';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { IconChevronDown, IconChevronUp } from 'suomifi-icons';
 
-export interface SideNavigationProps {
+export interface SideNavigationProps extends MarginProps {
   /** Use `<SideNavigationItem>` components as children */
   children: ReactNode;
   /** Name for the navigation element. Don't use the word "navigation" since it will be read by screen readers regardless */
@@ -57,7 +62,10 @@ const BaseSideNavigation = ({
   icon,
   className,
   forwardedRef,
+  ...rest
 }: SideNavigationProps) => {
+  const [marginProps] = separateMarginProps(rest);
+  const marginStyle = spacingStyles(marginProps);
   const initiallyExpandedValue =
     initiallyExpanded !== undefined ? initiallyExpanded : true;
   const [smallScreenNavOpen, setSmallScreenNavOpen] = useState(
@@ -68,6 +76,7 @@ const BaseSideNavigation = ({
       className={classnames(baseClassName, className, {
         [smallScreenClassName]: variant === 'smallScreen',
       })}
+      style={marginStyle}
     >
       {variant === 'smallScreen' ? (
         <HtmlButton

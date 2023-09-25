@@ -9,11 +9,16 @@ import {
 import styled from 'styled-components';
 import { IconChevronDown, IconChevronRight } from 'suomifi-icons';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../../theme/utils/spacing';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { baseStyles } from './ServiceNavigation.baseStyles';
 import classnames from 'classnames';
 
-export interface ServiceNavigationProps {
+export interface ServiceNavigationProps extends MarginProps {
   /** Use `<ServiceNavigationItem>` components as children */
   children: ReactNode;
   /** Name for the navigation element. Don't use the word "navigation" since it will be read by screen readers regardless. */
@@ -53,7 +58,10 @@ const BaseServiceNavigation = ({
   smallScreenExpandButtonText,
   className,
   forwardedRef,
+  ...rest
 }: ServiceNavigationProps) => {
+  const [marginProps] = separateMarginProps(rest);
+  const marginStyle = spacingStyles(marginProps);
   const initiallyExpandedValue =
     initiallyExpanded !== undefined ? initiallyExpanded : true;
   const [smallScreenNavOpen, setSmallScreenNavOpen] = useState(
@@ -65,6 +73,7 @@ const BaseServiceNavigation = ({
       className={classnames(baseClassName, className, {
         [smallScreenClassName]: variant === 'smallScreen',
       })}
+      style={marginStyle}
     >
       {variant === 'smallScreen' && (
         <HtmlButton

@@ -2,6 +2,11 @@ import React, { Component, forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 import { IconChevronRight, IconLinkExternal } from 'suomifi-icons';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { ExternalLinkStyles } from './ExternalLink.baseStyles';
@@ -25,7 +30,7 @@ type newWindowProps =
       labelNewWindow: string;
     };
 
-interface InternalExternalLinkProps extends BaseLinkProps {
+interface InternalExternalLinkProps extends BaseLinkProps, MarginProps {
   /** Hides the icon */
   hideIcon?: boolean;
   /** Opens the link to a new window */
@@ -51,8 +56,10 @@ class BaseExternalLink extends Component<ExternalLinkProps & SuomifiThemeProp> {
       theme,
       hideIcon,
       underline = 'hover',
-      ...passProps
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
     return (
       <HtmlA
         {...passProps}
@@ -64,6 +71,7 @@ class BaseExternalLink extends Component<ExternalLinkProps & SuomifiThemeProp> {
         target={!!toNewWindow ? '_blank' : undefined}
         rel={!!toNewWindow ? 'noopener' : undefined}
         as={asProp}
+        style={{ ...marginStyle, ...passProps?.style }}
       >
         {variant === 'accent' && (
           <IconChevronRight

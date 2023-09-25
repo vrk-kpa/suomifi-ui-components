@@ -4,6 +4,11 @@ import classnames from 'classnames';
 import { asPropType } from '../../utils/typescript';
 import { getLogger } from '../../utils/log';
 import { ColorProp, SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../theme/utils/spacing';
 import { baseStyles } from './Heading.baseStyles';
 import { HtmlH, HtmlHProps, hLevels } from '../../reset';
 
@@ -11,7 +16,7 @@ const baseClassName = 'fi-heading';
 const smallScreenClassName = `${baseClassName}--small-screen`;
 type styleVariants = hLevels | 'h1hero';
 
-export interface HeadingProps extends HtmlHProps {
+export interface HeadingProps extends HtmlHProps, MarginProps {
   /**
    * `"h1hero"` | `"h1"` | `"h2"` | `"h3"` | `"h4"` | `"h5"`
    *
@@ -50,21 +55,26 @@ const StyledHeading = styled(
     variant,
     color,
     asProp,
-    ...passProps
-  }: InternalHeadingProps) => (
-    <HtmlH
-      {...passProps}
-      className={classnames(
-        baseClassName,
-        className,
-        [`${baseClassName}--${variant}`],
-        {
-          [smallScreenClassName]: smallScreen,
-        },
-      )}
-      as={!!asProp ? asProp : getSemanticVariant(variant)}
-    />
-  ),
+    ...rest
+  }: InternalHeadingProps) => {
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
+    return (
+      <HtmlH
+        {...passProps}
+        className={classnames(
+          baseClassName,
+          className,
+          [`${baseClassName}--${variant}`],
+          {
+            [smallScreenClassName]: smallScreen,
+          },
+        )}
+        as={!!asProp ? asProp : getSemanticVariant(variant)}
+        style={{ ...marginStyle, ...passProps?.style }}
+      />
+    );
+  },
 )`
   ${(props) => baseStyles(props)}
 `;

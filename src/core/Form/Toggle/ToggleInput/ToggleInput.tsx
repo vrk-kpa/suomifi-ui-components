@@ -3,6 +3,11 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../../theme/utils/spacing';
 import { getConditionalAriaProp } from '../../../../utils/aria';
 import { Text } from '../../../Text/Text';
 import {
@@ -29,6 +34,7 @@ interface ToggleState {
 
 export interface ToggleInputProps
   extends ToggleBaseProps,
+    MarginProps,
     Omit<HtmlInputProps, 'onChange' | 'type'> {
   /** HTML name attribute for the input */
   name?: string;
@@ -78,9 +84,10 @@ class BaseToggleInput extends Component<ToggleInputProps> {
       checked,
       defaultChecked: dissMissDefaultChecked,
       toggleWrapperProps,
-      ...passProps
+      ...rest
     } = this.props;
-
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
     const { toggleState } = this.state;
 
     return (
@@ -94,6 +101,7 @@ class BaseToggleInput extends Component<ToggleInputProps> {
           },
         )}
         {...toggleWrapperProps}
+        style={{ ...marginStyle, ...toggleWrapperProps?.style }}
       >
         <HtmlLabel className={toggleClassNames.label} htmlFor={id}>
           <HtmlInput

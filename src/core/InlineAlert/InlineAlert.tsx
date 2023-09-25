@@ -5,6 +5,11 @@ import { HtmlDiv, HtmlDivWithRef, HtmlDivProps } from '../../reset';
 import { IconError, IconWarning } from 'suomifi-icons';
 import { AutoId } from '../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../theme/utils/spacing';
 import { baseStyles } from './InlineAlert.baseStyles';
 
 const baseClassName = 'fi-inline-alert';
@@ -17,7 +22,7 @@ const inlineAlertClassNames = {
   smallScreen: `${baseClassName}--small-screen`,
 };
 
-export interface InlineAlertProps extends HtmlDivProps {
+export interface InlineAlertProps extends HtmlDivProps, MarginProps {
   /** Style variant. Affects color and icon.
    * @default 'neutral'
    */
@@ -47,9 +52,10 @@ class BaseInlineAlert extends Component<InlineAlertProps> {
       children,
       smallScreen,
       id,
-      ...passProps
+      ...rest
     } = this.props;
-
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
     return (
       <HtmlDivWithRef
         as="section"
@@ -58,6 +64,7 @@ class BaseInlineAlert extends Component<InlineAlertProps> {
           [`${baseClassName}--${status}`]: !!status,
           [inlineAlertClassNames.smallScreen]: !!smallScreen,
         })}
+        style={{ ...marginStyle, ...passProps?.style }}
       >
         <HtmlDiv className={inlineAlertClassNames.styleWrapper}>
           {status === 'warning' && (

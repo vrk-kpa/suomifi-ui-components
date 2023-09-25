@@ -48,70 +48,6 @@ exports[`calling render with the same component on the same container does not r
   margin: 0;
 }
 
-.c1.fi-paragraph--margin-xxs {
-  margin-bottom: 5px;
-}
-
-.c1.fi-paragraph--margin-xs {
-  margin-bottom: 10px;
-}
-
-.c1.fi-paragraph--margin-s {
-  margin-bottom: 15px;
-}
-
-.c1.fi-paragraph--margin-m {
-  margin-bottom: 20px;
-}
-
-.c1.fi-paragraph--margin-l {
-  margin-bottom: 25px;
-}
-
-.c1.fi-paragraph--margin-xl {
-  margin-bottom: 30px;
-}
-
-.c1.fi-paragraph--margin-xxl {
-  margin-bottom: 40px;
-}
-
-.c1.fi-paragraph--margin-xxxl {
-  margin-bottom: 60px;
-}
-
-.c1.fi-paragraph--margin-xxxxl {
-  margin-bottom: 80px;
-}
-
-.c1.fi-paragraph--margin-insetXxs {
-  margin-bottom: 2px;
-}
-
-.c1.fi-paragraph--margin-insetXs {
-  margin-bottom: 4px;
-}
-
-.c1.fi-paragraph--margin-insetS {
-  margin-bottom: 6px;
-}
-
-.c1.fi-paragraph--margin-insetM {
-  margin-bottom: 8px;
-}
-
-.c1.fi-paragraph--margin-insetL {
-  margin-bottom: 10px;
-}
-
-.c1.fi-paragraph--margin-insetXl {
-  margin-bottom: 16px;
-}
-
-.c1.fi-paragraph--margin-insetXxl {
-  margin-bottom: 20px;
-}
-
 .c2 {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -248,7 +184,8 @@ exports[`calling render with the same component on the same container does not r
     Paragraph text
   </p>
   <p
-    class="c0 fi-paragraph c1 fi-paragraph--margin-s"
+    class="c0 fi-paragraph c1"
+    style="margin-bottom: 15px;"
   >
     <span
       class="c2 fi-text c3 fi-text--lead"
