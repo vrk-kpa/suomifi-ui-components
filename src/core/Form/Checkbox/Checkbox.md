@@ -248,4 +248,6 @@ const labelText = 'How do you wish to be contacted?';
 </CheckboxGroup>;
 ```
 
-### Props & methods
+### Props &
+
+Checkbox component supports [margin props](./#/Spacing/Margin%20props) for spacing.

@@ -215,3 +215,5 @@ import { ActionMenu, ActionMenuItem } from 'suomifi-ui-components';
 ```
 
 ### Props & methods
+
+ActionMenu component supports [margin props](./#/Spacing/Margin%20props) for spacing.

@@ -28,3 +28,5 @@ import { Breadcrumb, BreadcrumbLink } from 'suomifi-ui-components';
 ```
 
 ### Props & methods
+
+Breadcrumb component supports [margin props](./#/Spacing/Margin%20props) for spacing.

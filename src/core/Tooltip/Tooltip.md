@@ -108,3 +108,5 @@ const textInputLabel = 'Purpose of visit';
 ```
 
 ### Props & methods
+
+Tooltip component supports [margin props](./#/Spacing/Margin%20props) for spacing.

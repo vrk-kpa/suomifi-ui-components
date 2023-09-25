@@ -172,3 +172,5 @@ import { SearchInput } from 'suomifi-ui-components';
 ```
 
 ### Props & methods
+
+SearchInput component supports [margin props](./#/Spacing/Margin%20props) for spacing.
