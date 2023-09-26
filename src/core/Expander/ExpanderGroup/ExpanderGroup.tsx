@@ -15,24 +15,16 @@ const baseClassName = 'fi-expander-group';
 const openClassName = `${baseClassName}--open`;
 const expandersContainerClassName = `${baseClassName}_expanders`;
 const openAllButtonClassName = `${baseClassName}_all-button`;
-export interface ExpanderGroupProps extends MarginProps {
+
+interface PartialExpanderGroupProps extends MarginProps {
   /** Expanders (and optionally other ReactNodes) */
   children: ReactNode;
-  /** 'Open all' button text */
-  openAllText: string;
-  /** 'Close all' button text */
-  closeAllText: string;
   /** 'Open all' button text for screen readers, hides `OpenAllText` for screen readers if provided */
   ariaOpenAllText?: string;
   /** 'Close all' button text for screen readers, hides `CloseAllText` for screen readers if provided */
   ariaCloseAllText?: string;
   /** CSS class for custom styles */
   className?: string;
-  /**
-   * Shows Open/Close all button
-   * @default true
-   */
-  showToggleAllButton?: boolean;
   /** Props passed to the Open/Close all button */
   toggleAllButtonProps?: Omit<
     HtmlButtonProps,
@@ -46,6 +38,26 @@ export interface ExpanderGroupProps extends MarginProps {
   /** Ref is forwarded to the Open/Close all button element. Alternative for React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLButtonElement>;
 }
+
+type ToggleAllProps =
+  | {
+      openAllText?: string;
+      closeAllText?: string;
+      showToggleAllButton?: false | never;
+    }
+  | {
+      /** 'Open all' button text. Required when `showToggleAllButton` is true. */
+      openAllText: string;
+      /** 'Close all' button text. Required when `showToggleAllButton` is true. */
+      closeAllText: string;
+      /**
+       * Shows Open/Close all button
+       * @default true
+       */
+      showToggleAllButton: true;
+    };
+
+export type ExpanderGroupProps = PartialExpanderGroupProps & ToggleAllProps;
 
 interface ExpanderOpenStates {
   [key: string]: boolean;
