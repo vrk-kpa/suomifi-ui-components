@@ -2,6 +2,21 @@ Our goal is to be WCAG 2.1 compliant at an AA level for all components. Addition
 
 Using the Suomi.fi component library does not automatically make your project accessible, but it will hopefully significantly reduce the amount of work you need to do to provice an accessible user experience. It is important to read the documentation for each component carefully.
 
+* [Known issues](./#/Accessibility?id=known-issues)
+* [Our acccessibility checklist](./#/Accessibility?id=our-accessibility-checklist)
+    * [On the tests](./#/Accessibility?id=on-the-tests)
+    * [Automated](./#/Accessibility?id=automated)
+    * [Visual inspection](./#/Accessibility?id=visual-inspection)
+    * [Keyboard](./#/Accessibility?id=keyboard)
+    * [Pointer devices](./#/Accessibility?id=pointer-devices)
+    * [Adaptability](./#/Accessibility?id=adaptability)
+    * [On the tests](./#/Accessibility?id=on-the-tests)
+    * [Code inspection](./#/Accessibility?id=code-inspection)
+    * [Windows High Contrast Mode](./#/Accessibility?id=windows-high-contrast-mode)
+    * [Motion](./#/Accessibility?id=motion)
+    * [Screen reader tests and support](./#/Accessibility?id=screen-reader-tests-and-support)
+    * [Other assistive technology](./#/Accessibility?id=other-assistive-technology)
+
 ## Known issues
 
 * **MultiSelect** and **SingleSelect**: Options are not read out by VoiceOver on macOS when using Safari.
