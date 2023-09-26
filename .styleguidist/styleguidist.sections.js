@@ -40,13 +40,12 @@ const getComponents = (arr) =>
         })
       : getComponent({ name: component }),
   );
-const getComponentWithVariants = (component) => (variants) =>
-  [
-    getComponent({ name: component }),
-    ...variants.map((variant) =>
-      getComponent({ underName: component, name: variant }),
-    ),
-  ];
+const getComponentWithVariants = (component) => (variants) => [
+  getComponent({ name: component }),
+  ...variants.map((variant) =>
+    getComponent({ underName: component, name: variant }),
+  ),
+];
 
 const getVersions = () => {
   const href = process.env.BASE_PATH || './';
@@ -90,6 +89,16 @@ module.exports = {
         {
           name: 'Spacing',
           content: './.styleguidist/spacing.md',
+          sections: [
+            {
+              name: 'Margin props',
+              content: './.styleguidist/spacingprops.md',
+            },
+            {
+              name: 'Tokens',
+              content: './.styleguidist/spacingtokens.md',
+            },
+          ],
         },
         {
           name: 'Theme',
