@@ -18,7 +18,7 @@ const BaseActionMenuDivider = ({
   ...passProps
 }: ActionMenuDividerProps) => (
   <HtmlDiv
-    aria-hidden="true"
+    role="presentation"
     className={classnames(className, baseClassName)}
     {...passProps}
   >
