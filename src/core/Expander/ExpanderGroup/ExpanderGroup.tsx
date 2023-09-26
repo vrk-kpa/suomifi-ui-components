@@ -41,14 +41,8 @@ interface PartialExpanderGroupProps extends MarginProps {
 
 type ToggleAllProps =
   | {
-      /** 'Open all' button text */
       openAllText?: string;
-      /** 'Close all' button text */
       closeAllText?: string;
-      /**
-       * Shows Open/Close all button
-       * @default true
-       */
       showToggleAllButton?: false | never;
     }
   | {
