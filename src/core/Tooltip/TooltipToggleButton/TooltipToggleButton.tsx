@@ -2,6 +2,11 @@ import React, { Component, forwardRef } from 'react';
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 import { HtmlButton, HtmlButtonProps } from '../../../reset';
 import { baseStyles } from './TooltipToggleButton.baseStyles';
 import { IconInfoFilled } from 'suomifi-icons';
@@ -13,7 +18,7 @@ const tooltipClassNames = {
   toggleButtonIcon: `${baseClassName}_toggle-button_icon`,
 };
 
-interface TooltipToggleButtonProps extends HtmlButtonProps {}
+interface TooltipToggleButtonProps extends HtmlButtonProps, MarginProps {}
 
 interface InnerRef {
   forwardedRef: React.RefObject<HTMLButtonElement>;
@@ -23,13 +28,16 @@ class BaseTooltipToggleButton extends Component<
   TooltipToggleButtonProps & InnerRef & { className?: string }
 > {
   render() {
-    const { className, 'aria-label': ariaLabel, ...passProps } = this.props;
+    const { className, 'aria-label': ariaLabel, ...rest } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
 
     return (
       <HtmlButton
         className={classnames(className, tooltipClassNames.toggleButton)}
         aria-label={ariaLabel}
         {...passProps}
+        style={{ ...marginStyle, ...passProps?.style }}
       >
         <IconInfoFilled className={tooltipClassNames.toggleButtonIcon} />
       </HtmlButton>

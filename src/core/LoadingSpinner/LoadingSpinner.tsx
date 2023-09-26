@@ -3,6 +3,11 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { baseStyles } from './LoadingSpinner.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../theme/utils/spacing';
 import { HtmlDiv, HtmlDivWithRef } from '../../reset';
 import { VisuallyHidden } from '../VisuallyHidden/VisuallyHidden';
 import {
@@ -12,7 +17,7 @@ import {
 } from 'suomifi-icons';
 
 export type LoadingSpinnerStatus = 'loading' | 'success' | 'failed';
-export interface LoadingSpinnerProps {
+export interface LoadingSpinnerProps extends MarginProps {
   /** CSS class for custom styles */
   className?: string;
   /** HTML id attribute */
@@ -65,8 +70,10 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps> {
       textVisibility = 'visible',
       variant = 'normal',
       status = 'loading',
-      ...passProps
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
 
     return (
       <HtmlDivWithRef
@@ -80,6 +87,7 @@ class BaseLoadingSpinner extends Component<LoadingSpinnerProps> {
         as="section"
         id={id}
         {...passProps}
+        style={marginStyle}
       >
         {status === 'loading' && (
           <IconPreloader className={loadingSpinnerClassNames.icon} />

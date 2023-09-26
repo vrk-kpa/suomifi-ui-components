@@ -94,3 +94,14 @@ test('calling render with the same component on the same container does not remo
 });
 
 test('should not have basic accessibility issues', axeTest(TestSideNavigation));
+
+describe('margin', () => {
+  it('should have margin style from margin prop', () => {
+    const { container } = render(
+      <SideNavigation heading="" aria-label="" margin="xs">
+        <SideNavigationItem content="" subLevel={1} />
+      </SideNavigation>,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+  });
+});

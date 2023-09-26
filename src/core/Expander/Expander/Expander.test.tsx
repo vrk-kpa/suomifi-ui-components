@@ -134,3 +134,15 @@ describe('open', () => {
     expect(div).toHaveClass('fi-expander_title-button--open');
   });
 });
+
+describe('margin prop', () => {
+  it('should have margin style from margin prop', () => {
+    const { getByTestId } = render(
+      <Expander data-testid="expander-test" margin="xs">
+        <ExpanderContent>Test expander content</ExpanderContent>
+      </Expander>,
+    );
+    const div = getByTestId('expander-test');
+    expect(div).toHaveAttribute('style', 'margin: 10px;');
+  });
+});

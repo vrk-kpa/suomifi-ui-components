@@ -6,9 +6,11 @@ import { Heading, HeadingProps } from '../../Heading/Heading';
 import { ModalConsumer, ModalVariant, baseClassName } from '../Modal/Modal';
 import { baseStyles } from './ModalTitle.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
-
 export interface ModalTitleProps
-  extends Omit<HeadingProps, 'className' | 'variant'> {
+  extends Omit<
+    HeadingProps,
+    'className' | 'variant' | 'margin' | 'mx' | 'my' | 'mt' | 'mr' | 'mb' | 'ml'
+  > {
   /** Children */
   children: ReactNode;
   /** Modal container div class name for custom styling. */

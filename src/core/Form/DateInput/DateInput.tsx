@@ -45,6 +45,11 @@ import {
   lastDayOfMonth,
   cellDateAriaLabel,
 } from './dateUtils';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 
 const baseClassName = 'fi-date-input';
 export const dateInputClassNames = {
@@ -150,6 +155,7 @@ export interface DatePickerProps {
 }
 export interface DateInputProps
   extends DatePickerProps,
+    MarginProps,
     StatusTextCommonProps,
     Omit<HtmlInputProps, 'type' | 'onChange'> {
   /** DateInput container div class name for custom styling. */
@@ -230,8 +236,10 @@ const BaseDateInput = (props: DateInputProps) => {
     maxDate = moveYears(lastDayOfMonth(new Date()), 10),
     initialDate,
     tooltipComponent,
-    ...passProps
+    ...rest
   } = props;
+  const [marginProps, passProps] = separateMarginProps(rest);
+  const marginStyle = spacingStyles(marginProps);
 
   const hintTextId = `${id}-hintText`;
 
@@ -348,6 +356,7 @@ const BaseDateInput = (props: DateInputProps) => {
         [dateInputClassNames.fullWidth]: fullWidth,
         [dateInputClassNames.hasPicker]: datePickerEnabled,
       })}
+      style={{ ...marginStyle, ...wrapperProps?.style }}
     >
       <HtmlDiv className={dateInputClassNames.styleWrapper}>
         <Label

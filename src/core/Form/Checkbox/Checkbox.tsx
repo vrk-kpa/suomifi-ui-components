@@ -6,6 +6,11 @@ import { getConditionalAriaProp } from '../../../utils/aria';
 import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 import { HtmlLabel, HtmlDiv, HtmlInput } from '../../../reset';
 import { StatusText } from '../StatusText/StatusText';
 import { HintText } from '../HintText/HintText';
@@ -98,7 +103,7 @@ interface InternalCheckboxProps extends StatusTextCommonProps {
   forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 
-export interface CheckboxProps extends InternalCheckboxProps {
+export interface CheckboxProps extends InternalCheckboxProps, MarginProps {
   /** Ref object to be passed to the input element */
   ref?: React.RefObject<HTMLInputElement>;
 }
@@ -151,8 +156,10 @@ class BaseCheckbox extends Component<CheckboxProps> {
       forwardedRef,
       onClick,
       variant,
-      ...passProps
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
 
     const { checkedState } = this.state;
 
@@ -187,6 +194,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
             [checkboxClassNames.disabled]: !!disabled,
           },
         )}
+        style={marginStyle}
       >
         <HtmlInput
           type="checkbox"

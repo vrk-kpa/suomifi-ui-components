@@ -85,6 +85,13 @@ describe('props', () => {
   });
 });
 
+describe('margin', () => {
+  it('should have margin style from margin prop', () => {
+    const { container } = render(<Toast margin="xs" />);
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+  });
+});
+
 describe('accessibility', () => {
   const TestToast = <Toast>Testcontent</Toast>;
   test('should not have basic accessibility issues', axeTest(TestToast));

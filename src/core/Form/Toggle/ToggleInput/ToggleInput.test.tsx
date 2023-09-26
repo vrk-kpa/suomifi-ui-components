@@ -71,3 +71,17 @@ describe('name', () => {
     expect(namedToggle.name).toBe('testToggle');
   });
 });
+
+describe('margin', () => {
+  it('should have margin style from margin prop', () => {
+    const { container } = render(<ToggleInput margin="xs" />);
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+  });
+
+  it('should have margin prop overwritten from toggleWrapperProps', () => {
+    const { container } = render(
+      <ToggleInput margin="xs" toggleWrapperProps={{ style: { margin: 2 } }} />,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+  });
+});

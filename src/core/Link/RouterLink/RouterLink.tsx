@@ -5,6 +5,11 @@ import { RouterLinkStyles } from './RouterLink.baseStyles';
 import { IconChevronRight } from 'suomifi-icons';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
+import {
   baseClassName,
   linkClassNames,
   UnderlineVariant,
@@ -83,7 +88,7 @@ export type PolymorphicComponentProps<
 
 const routerLinkClassName = `${baseClassName}--router`;
 
-interface Props {
+interface Props extends MarginProps {
   /** CSS class for custom styles */
   className?: string;
   /**
@@ -118,8 +123,10 @@ const PolymorphicLink = <C extends React.ElementType>(
     theme,
     underline = 'hover',
     forwardedRef,
-    ...passProps
+    ...rest
   } = props;
+  const [marginProps, passProps] = separateMarginProps(rest);
+  const marginStyle = spacingStyles(marginProps);
   const Component = asComponent || HtmlA;
 
   const classNames = classnames(baseClassName, routerLinkClassName, className, {
@@ -131,7 +138,12 @@ const PolymorphicLink = <C extends React.ElementType>(
   // If asComponent is included, we assume it can take a normal ref-prop
   if (!!asComponent) {
     return (
-      <Component className={classNames} ref={forwardedRef} {...passProps}>
+      <Component
+        className={classNames}
+        ref={forwardedRef}
+        {...passProps}
+        style={{ ...marginStyle, ...passProps?.style }}
+      >
         {variant === 'accent' && (
           <IconChevronRight color={theme.colors.accentBase} />
         )}
@@ -146,6 +158,7 @@ const PolymorphicLink = <C extends React.ElementType>(
       className={classNames}
       forwardedRef={forwardedRef}
       {...passProps}
+      style={{ ...marginStyle, ...passProps?.style }}
     >
       {children}
     </Component>

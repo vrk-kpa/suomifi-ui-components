@@ -1,15 +1,8 @@
-import { SpacingDesignTokens } from 'suomifi-design-tokens';
 import {
   SuomifiTheme,
   SpacingProp,
   defaultSuomifiTheme,
 } from '../SuomifiTheme/SuomifiTheme';
-
-type SpacingDesignTokensKeys = keyof SpacingDesignTokens;
-
-export const spacingTokensKeys = Object.keys(
-  defaultSuomifiTheme.spacing,
-) as SpacingDesignTokensKeys[];
 
 export type SpacingWithoutInsetProp =
   | 'xxs'
@@ -28,72 +21,147 @@ const spaceVal = (theme: SuomifiTheme) => (val?: SpacingProp) => {
   return !!val ? theme.spacing[val] : '';
 };
 
-/**
- * Spacing type
- * @typedef {String} spacingType
- * @param {String} type 'padding' or 'margin'
- */
-/**
- * Spacing tokens
- * @typedef {String} spacingTokens
- * @param {String} t token for top, or top and bottom, or all
- * @param {String} r token for right, or right and left
- * @param {String} b token for bottom
- * @param {String} l token for left
- */
-/**
- * Set margin or padding pased on tokens
- * @param {Object} theme suomifiTheme
- * @return {(spacingType) => (spacingTokens) => String}
- */
-const space =
-  (theme: SuomifiTheme) =>
-  (type: 'padding' | 'margin') =>
-  (t?: SpacingProp, r?: SpacingProp, b?: SpacingProp, l?: SpacingProp) =>
-    !!t
-      ? `${!!t ? `${type}-top: ${spaceVal(theme)(t)};` : ''}
-    ${!!r ? `${type}-right: ${spaceVal(theme)(r)};` : ''}
-    ${!!b ? `${type}-bottom: ${spaceVal(theme)(b)};` : ''}
-    ${!!l ? `${type}-left:${spaceVal(theme)(l)};` : ''}`
-      : '';
+export interface PaddingProps {
+  /** Padding from theme */
+  padding?: SpacingWithoutInsetProp;
+  /** Padding-top from theme */
+  pt?: SpacingWithoutInsetProp;
+  /** Padding-right from theme */
+  pr?: SpacingWithoutInsetProp;
+  /** Padding-bottom from theme */
+  pb?: SpacingWithoutInsetProp;
+  /** Padding-left from theme */
+  pl?: SpacingWithoutInsetProp;
+  /** Padding on the x-axis (left & right) from theme */
+  px?: SpacingWithoutInsetProp;
+  /** Padding on the y-axis (top & bottom) from theme */
+  py?: SpacingWithoutInsetProp;
+}
+export interface MarginProps {
+  /** Margin from theme */
+  margin?: SpacingWithoutInsetProp;
+  /** Margin-top from theme */
+  mt?: SpacingWithoutInsetProp;
+  /** Margin-right from theme */
+  mr?: SpacingWithoutInsetProp;
+  /** Margin-bottom from theme */
+  mb?: SpacingWithoutInsetProp;
+  /** Margin-left from theme */
+  ml?: SpacingWithoutInsetProp;
+  /** Margin on the x-axis (left & right) from theme */
+  mx?: SpacingWithoutInsetProp;
+  /** Margin on the y-axis (top & bottom) from theme */
+  my?: SpacingWithoutInsetProp;
+}
 
-/**
- * Set margin based on theme
- * @param {Object} theme
- */
-export const margin = (theme: SuomifiTheme) => space(theme)('margin');
-/**
- * Set padding based on theme
- * @param {Object} theme
- */
-export const padding = (theme: SuomifiTheme) => space(theme)('padding');
+export interface SpacingProps extends PaddingProps, MarginProps {}
 
-/**
- * Create spacing styles for CSS-selector (-xxs, -xs, -s...)
- * TODO: this should be in suomifiTheme? or integrated somehow with that
- * @param {Object} tokens Design tokens
- * @return {(spacingType) => (selector: String) => String}
- */
-export const spacingModifiers =
-  (theme: SuomifiTheme) =>
-  (
-    spacing:
-      | 'padding'
-      | 'padding-top'
-      | 'padding-right'
-      | 'padding-bottom'
-      | 'padding-left'
-      | 'margin'
-      | 'margin-top'
-      | 'margin-right'
-      | 'margin-bottom'
-      | 'margin-left',
-  ) =>
-  (selector: string) =>
-    spacingTokensKeys.reduce(
-      (ret, k) =>
-        `${ret}${selector}-${k}{
-        ${spacing}: ${spaceVal(theme)(k)}
-  } `,
-      '',
-    );
+export const spacingStyles = (props: SpacingProps) => {
+  const array = Object.entries(props).map(([key, value]) =>
+    getSpacingStyle(defaultSuomifiTheme, key as keyof SpacingProps, value),
+  );
+  return Object.assign({}, ...array);
+};
+
+const inlineStyle = {
+  margin: 'margin',
+  mt: 'marginTop',
+  mr: 'marginRight',
+  mb: 'marginBottom',
+  ml: 'marginLeft',
+  padding: 'padding',
+  pt: 'paddingTop',
+  pr: 'paddingRight',
+  pb: 'paddingBottom',
+  pl: 'paddingLeft',
+};
+
+const getSpacingStyle = (
+  theme: SuomifiTheme,
+  key: keyof SpacingProps,
+  value: SpacingProp,
+) => {
+  const amount = spaceVal(theme)(value);
+  switch (key) {
+    case 'mx':
+      return { marginRight: `${amount}`, marginLeft: `${amount}` };
+    case 'my':
+      return { marginTop: `${amount}`, marginBottom: `${amount}` };
+    case 'px':
+      return { paddingRight: `${amount}`, paddingLeft: `${amount}` };
+    case 'py':
+      return { paddingTop: `${amount}`, paddingBottom: `${amount}` };
+    case 'margin':
+    case 'mt':
+    case 'mr':
+    case 'mb':
+    case 'ml':
+    case 'padding':
+    case 'pt':
+    case 'pr':
+    case 'pb':
+    case 'pl':
+      return { [inlineStyle[key]]: `${amount}` };
+    default:
+      return '';
+  }
+};
+
+export const separateMarginProps = <T extends MarginProps>(
+  props: T,
+): [MarginProps, Omit<T, keyof MarginProps>] => {
+  const { margin, my, mx, mt, mr, mb, ml, ...otherProps } = props;
+  return [
+    {
+      ...(margin !== undefined && { margin }),
+      ...(my !== undefined && { my }),
+      ...(mx !== undefined && { mx }),
+      ...(mt !== undefined && { mt }),
+      ...(mr !== undefined && { mr }),
+      ...(mb !== undefined && { mb }),
+      ...(ml !== undefined && { ml }),
+    },
+    otherProps,
+  ];
+};
+
+export const separateMarginAndPaddingProps = <T extends SpacingProps>(
+  props: T,
+): [SpacingProps, Omit<T, keyof SpacingProps>] => {
+  const {
+    margin,
+    padding,
+    my,
+    mx,
+    py,
+    px,
+    mt,
+    mr,
+    mb,
+    ml,
+    pt,
+    pr,
+    pb,
+    pl,
+    ...otherProps
+  } = props;
+  return [
+    {
+      ...(margin !== undefined && { margin }),
+      ...(padding !== undefined && { padding }),
+      ...(my !== undefined && { my }),
+      ...(mx !== undefined && { mx }),
+      ...(py !== undefined && { py }),
+      ...(px !== undefined && { px }),
+      ...(mt !== undefined && { mt }),
+      ...(mr !== undefined && { mr }),
+      ...(mb !== undefined && { mb }),
+      ...(ml !== undefined && { ml }),
+      ...(pt !== undefined && { pt }),
+      ...(pr !== undefined && { pr }),
+      ...(pb !== undefined && { pb }),
+      ...(pl !== undefined && { pl }),
+    },
+    otherProps,
+  ];
+};

@@ -42,6 +42,12 @@ describe('props', () => {
       expect(container.firstChild).toHaveClass('custom-class');
     });
   });
+  describe('margin', () => {
+    it('should have margin style from margin prop', () => {
+      const { container } = render(<LoadingSpinner text="Test" margin="xs" />);
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    });
+  });
   it('text', () => {
     const TextLoadingSpinner = (
       <LoadingSpinner text="Loading data" className="custom-class" />

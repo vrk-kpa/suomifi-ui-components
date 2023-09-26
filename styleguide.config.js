@@ -6,6 +6,9 @@ const propFilter = (prop) => {
   if (prop.description.length === 0) {
     return false;
   }
+  // if (['margin', 'mx', 'my', 'mt', 'mr', 'mb', 'ml'].includes(prop.name)) {
+  //   return false;
+  // }
   if (prop.parent == null) {
     return true;
   }
