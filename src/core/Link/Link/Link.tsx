@@ -4,6 +4,11 @@ import classnames from 'classnames';
 import { IconChevronRight } from 'suomifi-icons';
 import { LinkStyles } from '../Link/Link.baseStyles';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 import { HtmlA } from '../../../reset';
 import {
   BaseLinkProps,
@@ -11,7 +16,7 @@ import {
   linkClassNames,
 } from '../BaseLink/BaseLink';
 
-export interface LinkProps extends BaseLinkProps {
+export interface LinkProps extends BaseLinkProps, MarginProps {
   /** Ref is forwarded to the anchor element. Alternative to React `ref` attribute. */
   forwardedRef?: React.Ref<HTMLAnchorElement>;
 }
@@ -25,26 +30,31 @@ const StyledLink = styled(
     variant = 'default',
     children,
     underline = 'hover',
-    ...passProps
-  }: LinkProps & SuomifiThemeProp) => (
-    <HtmlA
-      {...passProps}
-      className={classnames(baseClassName, className, {
-        [linkClassNames.linkUnderline]: underline === 'initial',
-        [linkClassNames.accent]: variant === 'accent',
-        [linkClassNames.small]: smallScreen,
-      })}
-      as={asProp}
-    >
-      {variant === 'accent' && (
-        <IconChevronRight
-          color={theme.colors.accentBase}
-          className={linkClassNames.accentIcon}
-        />
-      )}
-      {children}
-    </HtmlA>
-  ),
+    ...rest
+  }: LinkProps & SuomifiThemeProp) => {
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
+    return (
+      <HtmlA
+        {...passProps}
+        className={classnames(baseClassName, className, {
+          [linkClassNames.linkUnderline]: underline === 'initial',
+          [linkClassNames.accent]: variant === 'accent',
+          [linkClassNames.small]: smallScreen,
+        })}
+        as={asProp}
+        style={{ ...marginStyle, ...passProps?.style }}
+      >
+        {variant === 'accent' && (
+          <IconChevronRight
+            color={theme.colors.accentBase}
+            className={linkClassNames.accentIcon}
+          />
+        )}
+        {children}
+      </HtmlA>
+    );
+  },
 )`
   ${({ theme }) => LinkStyles(theme)}
 `;

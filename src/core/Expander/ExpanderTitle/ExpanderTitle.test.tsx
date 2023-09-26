@@ -50,8 +50,7 @@ describe('Basic ExpanderTitle', () => {
     <ExpanderTitle
       {...{ 'data-testid': 'expander-title' }}
       {...props}
-      ariaOpenText="open expander"
-      ariaCloseText="close expander"
+      toggleButtonAriaLabel="toggle"
       toggleButtonAriaDescribedBy="title-id"
     >
       {props?.children ? (
@@ -67,14 +66,14 @@ describe('Basic ExpanderTitle', () => {
       providerProps,
     });
     expect(getByTestId('expander-title').textContent).toBe(
-      'Expander title buttonopen expander',
+      'Expander title buttontoggle',
     );
     // re-render the same component with different props
     rerender(TestExpanderWithProps({ children: 'Expander title button two' }), {
       providerProps: { ...providerProps },
     });
     expect(getByTestId('expander-title').textContent).toBe(
-      'Expander title button twoopen expander',
+      'Expander title button twotoggle',
     );
   });
 
@@ -94,8 +93,7 @@ describe('Basic ExpanderTitle', () => {
 describe('Aria attributes', () => {
   const TestExpanderWithProps = (props?: ExpanderTitleProps) => (
     <ExpanderTitle
-      ariaCloseText="click to close expander"
-      ariaOpenText="click to open expander"
+      toggleButtonAriaLabel="toggle"
       toggleButtonAriaDescribedBy="title-id"
       {...{ 'data-testid': 'expander-title' }}
       {...props}
@@ -116,7 +114,7 @@ describe('Aria attributes', () => {
       },
     );
     expect(getByRole('button')).toHaveAttribute('aria-describedby', 'title-id');
-    expect(getByText('click to open expander')).toBeTruthy();
+    expect(getByText('toggle')).toBeTruthy();
     const adjustedProviderProps = {
       ...providerProps,
       open: true,
@@ -124,7 +122,7 @@ describe('Aria attributes', () => {
     rerender(TestExpanderWithProps(), {
       providerProps: adjustedProviderProps,
     });
-    expect(getByText('click to close expander')).toBeTruthy();
+    expect(getByText('toggle')).toBeTruthy();
   });
 });
 
@@ -132,8 +130,7 @@ describe('Custom id', () => {
   const TestExpanderWithProps = (props?: ExpanderTitleProps) => (
     <ExpanderTitle
       {...props}
-      ariaCloseText="click to close expander"
-      ariaOpenText="click to open expander"
+      toggleButtonAriaLabel="toggle"
       toggleButtonAriaDescribedBy="title-id"
     >
       {props?.children ? (
@@ -163,8 +160,7 @@ describe('Provider open property', () => {
   const TestExpanderWithProps = (props?: ExpanderTitleProps) => (
     <ExpanderTitle
       {...{ 'data-testid': 'expander-open-by-default-title' }}
-      ariaCloseText="click to close expander"
-      ariaOpenText="click to open expander"
+      toggleButtonAriaLabel="toggle"
       toggleButtonAriaDescribedBy="title-id"
       {...props}
     >

@@ -5,6 +5,11 @@ import { AutoId } from '../../utils/AutoId/AutoId';
 import { HtmlDivWithRef } from '../../../reset';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
 import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
+import {
   ExpanderGroupConsumer,
   ExpanderGroupProviderState,
 } from '../ExpanderGroup/ExpanderGroup';
@@ -34,7 +39,7 @@ const defaultProviderValue: ExpanderProviderState = {
 const { Provider: ExpanderProvider, Consumer: ExpanderConsumer } =
   React.createContext(defaultProviderValue);
 
-export interface ExpanderProps {
+export interface ExpanderProps extends MarginProps {
   /**
    * Children extend type ExpanderTitleBaseProps or ExpanderContentBaseProps
    * ExpanderProviderState context is used to communicate between title, content and expander
@@ -155,8 +160,10 @@ class BaseExpander extends Component<BaseExpanderProps & SuomifiThemeProp> {
       theme,
       children,
       consumer,
-      ...passProps
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
     const openState = open !== undefined ? !!open : this.state.openState;
 
     return (
@@ -166,6 +173,7 @@ class BaseExpander extends Component<BaseExpanderProps & SuomifiThemeProp> {
         className={classnames(className, baseClassName, {
           [openClassName]: !!openState,
         })}
+        style={marginStyle}
       >
         <ExpanderProvider
           value={{

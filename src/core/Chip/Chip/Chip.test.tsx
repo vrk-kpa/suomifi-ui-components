@@ -97,4 +97,20 @@ describe('onClick', () => {
     fireEvent.click(chip);
     expect(mockClick).toHaveBeenCalledTimes(1);
   });
+
+  describe('margin prop', () => {
+    it('should have margin style from margin prop', () => {
+      const { container } = render(<Chip margin="xs">Test</Chip>);
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    });
+
+    it('should have margin prop style overwritten from style', () => {
+      const { container } = render(
+        <Chip margin="xs" style={{ margin: 2 }}>
+          Test
+        </Chip>,
+      );
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+    });
+  });
 });

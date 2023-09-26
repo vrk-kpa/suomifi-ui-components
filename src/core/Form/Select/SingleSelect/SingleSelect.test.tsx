@@ -637,3 +637,19 @@ describe('External update to item array', () => {
     expect(input).toHaveDisplayValue('Moon');
   });
 });
+
+describe('margin', () => {
+  it('should have margin style from margin prop', () => {
+    const { container } = render(
+      <SingleSelect
+        labelText=""
+        clearButtonLabel=""
+        items={[]}
+        noItemsText=""
+        ariaOptionsAvailableText=""
+        margin="xs"
+      />,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+  });
+});

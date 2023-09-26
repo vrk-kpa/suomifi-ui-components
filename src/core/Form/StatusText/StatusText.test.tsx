@@ -69,7 +69,19 @@ describe('props', () => {
     });
   });
 });
+describe('margin', () => {
+  it('should have margin style from margin prop', () => {
+    const { container } = render(<StatusText margin="xs" />);
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+  });
 
+  it('should have margin prop overwritten from style prop', () => {
+    const { container } = render(
+      <StatusText margin="xs" style={{ margin: 2 }} />,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+  });
+});
 test(
   'should not have basic accessibility issues',
   axeTest(<StatusText>Test text</StatusText>),

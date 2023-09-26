@@ -10,6 +10,11 @@ import classnames from 'classnames';
 import { AutoId } from '../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../theme';
 import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../theme/utils/spacing';
+import {
   LanguageMenuPopover,
   InitialActiveDescendant,
 } from './LanguageMenuPopover/LanguageMenuPopover';
@@ -36,7 +41,7 @@ export type MenuContent =
   | Array<ReactElement<LanguageMenuItemProps>>
   | ReactElement<LanguageMenuItemProps>;
 
-export interface LanguageMenuProps {
+export interface LanguageMenuProps extends MarginProps {
   /** Text content for the menu button */
   buttonText: string;
   /**
@@ -86,9 +91,10 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
     onClose,
     onBlur,
     'aria-label': ariaLabel,
-    ...passProps
+    ...rest
   } = props;
-
+  const [marginProps, passProps] = separateMarginProps(rest);
+  const marginStyle = spacingStyles(marginProps);
   const openButtonRef = forwardedRef || useRef<HTMLButtonElement>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
   const [ariaExpanded, setAriaExpanded] = useState<boolean>(false);
@@ -146,7 +152,11 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
   };
 
   return (
-    <HtmlDiv {...wrapperProps} className={classnames(baseClassName, className)}>
+    <HtmlDiv
+      {...wrapperProps}
+      className={classnames(baseClassName, className)}
+      style={marginStyle}
+    >
       <HtmlButton
         id={buttonId}
         aria-expanded={ariaExpanded}

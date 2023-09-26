@@ -29,6 +29,22 @@ describe('props', () => {
     const label = getByText('Inline Alert label');
     expect(label).toHaveClass('fi-inline-alert_label');
   });
+
+  describe('Margin', () => {
+    it('should have margin style from margin prop', () => {
+      const { container } = render(<InlineAlert margin="xs">Test</InlineAlert>);
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    });
+
+    it('should have margin prop overwritten from style prop', () => {
+      const { container } = render(
+        <InlineAlert margin="xs" style={{ margin: 2 }}>
+          Test
+        </InlineAlert>,
+      );
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+    });
+  });
 });
 
 describe('accessibility', () => {

@@ -128,6 +128,18 @@ describe('props', () => {
     });
   });
 
+  describe('margin', () => {
+    it('should have margin style from margin prop', () => {
+      const { container } = render(
+        TestLanguageMenu({
+          ...languageMenuProps,
+          margin: 'xs',
+        }),
+      );
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    });
+  });
+
   describe('wrapperProps', () => {
     it('should have wrapperProps id', () => {
       const { baseElement } = render(

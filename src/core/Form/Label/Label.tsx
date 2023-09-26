@@ -10,6 +10,11 @@ import React, {
 import classnames from 'classnames';
 import { default as styled } from 'styled-components';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 import { baseStyles } from './Label.baseStyles';
 import { asPropType } from '../../../utils/typescript';
 import { HTMLAttributesIncludingDataAttributes } from '../../../utils/common/common';
@@ -19,7 +24,7 @@ import { TooltipProps } from '../../Tooltip/Tooltip';
 
 export type LabelMode = 'hidden' | 'visible';
 
-export interface LabelProps extends Omit<HtmlSpanProps, 'as'> {
+export interface LabelProps extends Omit<HtmlSpanProps, 'as'>, MarginProps {
   /** HTML id attribute */
   id?: string;
   /** CSS class for custom styles. Placed on the outermost div of the component. */
@@ -79,8 +84,10 @@ const StyledLabel = styled(
     optionalText,
     tooltipComponent: tooltipComponentProp,
     forceTooltipRerender = false,
-    ...passProps
+    ...rest
   }: LabelProps & SuomifiThemeProp) => {
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
     const [wrapperRef, setWrapperRef] = useState<HTMLDivElement | null>(null);
 
     function getTooltipComponent(
@@ -103,6 +110,7 @@ const StyledLabel = styled(
         forwardedRef={(ref: SetStateAction<HTMLDivElement | null>) =>
           setWrapperRef(ref)
         }
+        style={{ ...marginStyle, ...wrapperProps?.style }}
       >
         {labelMode === 'hidden' ? (
           <VisuallyHidden as={asProp} {...passProps}>

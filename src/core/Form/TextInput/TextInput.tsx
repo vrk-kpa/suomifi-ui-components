@@ -12,6 +12,11 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import {
@@ -69,6 +74,7 @@ type characterCounterProps =
 
 interface BaseTextInputProps
   extends StatusTextCommonProps,
+    MarginProps,
     Omit<HtmlInputProps, 'type' | 'onChange'> {
   /** CSS class for custom styles */
   className?: string;
@@ -165,8 +171,10 @@ const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
     characterLimit,
     ariaCharactersRemainingText,
     ariaCharactersExceededText,
-    ...passProps
+    ...rest
   } = props;
+  const [marginProps, passProps] = separateMarginProps(rest);
+  const marginStyle = spacingStyles(marginProps);
 
   useEffect(() => {
     if (characterLimit !== undefined && inputRef.current?.value.length) {
@@ -221,6 +229,7 @@ const BaseTextInput = (props: characterCounterProps & TextInputProps) => {
         [textInputClassNames.success]: status === 'success',
         [textInputClassNames.fullWidth]: fullWidth,
       })}
+      style={{ ...marginStyle, ...wrapperProps?.style }}
     >
       <HtmlSpan className={textInputClassNames.styleWrapper}>
         <Label

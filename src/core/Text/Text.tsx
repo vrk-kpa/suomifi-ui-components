@@ -2,13 +2,18 @@ import React, { forwardRef } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { ColorProp, SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../theme/utils/spacing';
 import { baseStyles } from './Text.baseStyles';
 import { HtmlSpan, HtmlSpanProps } from '../../reset';
 
 const baseClassName = 'fi-text';
 const smallScreenClassName = `${baseClassName}--small-screen`;
 
-export interface TextProps extends HtmlSpanProps {
+export interface TextProps extends HtmlSpanProps, MarginProps {
   /** Toggles a smaller font size */
   smallScreen?: boolean;
   /** Sets a color for the text. Colors from SuomifiTheme are available */
@@ -29,20 +34,26 @@ const StyledText = styled(
     className,
     theme,
     color,
-    ...passProps
-  }: TextProps & SuomifiThemeProp) => (
-    <HtmlSpan
-      {...passProps}
-      className={classnames(
-        baseClassName,
-        className,
-        [`${baseClassName}--${variant}`],
-        {
-          [smallScreenClassName]: smallScreen,
-        },
-      )}
-    />
-  ),
+    ...rest
+  }: TextProps & SuomifiThemeProp) => {
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
+
+    return (
+      <HtmlSpan
+        {...passProps}
+        className={classnames(
+          baseClassName,
+          className,
+          [`${baseClassName}--${variant}`],
+          {
+            [smallScreenClassName]: smallScreen,
+          },
+        )}
+        style={{ ...marginStyle, ...passProps?.style }}
+      />
+    );
+  },
 )`
   ${(props) => baseStyles(props)}
 `;

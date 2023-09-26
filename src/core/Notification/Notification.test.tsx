@@ -88,6 +88,18 @@ describe('props', () => {
       expect(container.firstChild).toHaveClass('custom-class');
     });
   });
+
+  describe('margin', () => {
+    it('should have margin style from margin prop', () => {
+      const { container } = render(
+        <Notification closeText="close" margin="xs">
+          Test
+        </Notification>,
+      );
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    });
+  });
+
   describe('closeButtonProps', () => {
     const NotificationWithButtonProps = (
       <Notification

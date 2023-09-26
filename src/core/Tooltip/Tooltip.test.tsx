@@ -159,3 +159,18 @@ describe('Basic tooltip', () => {
     expect(container).toMatchSnapshot();
   });
 });
+
+describe('margin', () => {
+  it('should have margin style from margin prop', () => {
+    const { container } = render(
+      <Tooltip
+        ariaToggleButtonLabelText=""
+        ariaCloseButtonLabelText=""
+        margin="xs"
+      >
+        Test
+      </Tooltip>,
+    );
+    expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+  });
+});

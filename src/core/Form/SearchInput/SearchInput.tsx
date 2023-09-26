@@ -10,6 +10,11 @@ import { default as styled } from 'styled-components';
 import classnames from 'classnames';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeProp, SuomifiThemeConsumer } from '../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { HTMLAttributesIncludingDataAttributes } from '../../../utils/common/common';
 import { Debounce } from '../../utils/Debounce/Debounce';
@@ -35,6 +40,7 @@ type SearchInputStatus = Exclude<InputStatus, 'success'>;
 
 export interface SearchInputProps
   extends StatusTextCommonProps,
+    MarginProps,
     Omit<
       HtmlInputProps,
       | 'type'
@@ -160,9 +166,10 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
       forwardedRef, // Taking this out so it's not passed "twice" to HtmlInput
       'aria-describedby': ariaDescribedBy,
       statusTextAriaLiveMode = 'assertive',
-      ...passProps
+      ...rest
     } = this.props;
-
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
     const statusTextId = `${id}-statusText`;
 
     const conditionalSetState = (newValue: SearchInputValue) => {
@@ -230,6 +237,7 @@ class BaseSearchInput extends Component<SearchInputProps & SuomifiThemeProp> {
           [searchInputClassNames.notEmpty]: !!this.state.value,
           [searchInputClassNames.fullWidth]: fullWidth,
         })}
+        style={{ ...marginStyle, ...wrapperProps?.style }}
       >
         <HtmlSpan className={searchInputClassNames.styleWrapper}>
           <Label

@@ -213,4 +213,16 @@ describe('props', () => {
       expect(container).toMatchSnapshot();
     });
   });
+
+  describe('margin', () => {
+    it('should have margin style from margin prop', () => {
+      const { container } = render(
+        <RadioButtonGroup labelText="" name="" margin="xs">
+          <RadioButton value="" />
+          <RadioButton value="" />
+        </RadioButtonGroup>,
+      );
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
+    });
+  });
 });

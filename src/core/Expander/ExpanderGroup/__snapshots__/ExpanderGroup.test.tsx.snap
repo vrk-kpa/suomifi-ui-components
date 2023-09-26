@@ -363,10 +363,7 @@ exports[`Basic expander group should match snapshot 1`] = `
 }
 
 .c9.fi-expander_content--open:not(.fi-expander_content--no-padding) {
-  padding-top: 10px;
-  padding-right: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
+  padding: 10px 20px 20px;
 }
 
 .c8 {

@@ -5,6 +5,11 @@ import { HtmlLabel, HtmlSpan, HtmlDiv, HtmlInput } from '../../../reset';
 import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import { HintText } from '../HintText/HintText';
 import { RadioButtonGroupConsumer } from './RadioButtonGroup';
@@ -24,7 +29,7 @@ const radioButtonClassNames = {
   checked: `${baseClassName}--checked`,
 };
 
-export interface RadioButtonProps {
+export interface RadioButtonProps extends MarginProps {
   /** CSS class for custom styles */
   className?: string;
   /** RadioButton text content (label) */
@@ -96,8 +101,10 @@ class BaseRadioButton extends Component<RadioButtonProps> {
       forwardedRef,
       onChange,
       disabled = false,
-      ...passProps
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
 
     if (!children) {
       getLogger().error(
@@ -122,6 +129,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
             [radioButtonClassNames.checked]: checked,
           },
         )}
+        style={marginStyle}
       >
         <HtmlInput
           className={radioButtonClassNames.input}

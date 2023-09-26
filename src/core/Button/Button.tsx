@@ -4,6 +4,11 @@ import classnames from 'classnames';
 import { baseStyles } from './Button.baseStyles';
 import { HtmlButton, HtmlButtonProps, HtmlSpan } from '../../reset';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../theme';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../theme/utils/spacing';
 
 export type ButtonVariant =
   | 'default'
@@ -13,7 +18,8 @@ export type ButtonVariant =
   | 'secondaryLight';
 
 export interface ButtonProps
-  extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'> {
+  extends Omit<HtmlButtonProps, 'aria-disabled' | 'onClick'>,
+    MarginProps {
   /**
    * Variant for the button
    * `default` | `inverted` | `secondary` | `secondaryNoBorder` | `secondaryLight`
@@ -73,8 +79,11 @@ class BaseButton extends Component<ButtonProps> {
       iconRight,
       forwardedRef,
       children,
-      ...passProps
+      style,
+      ...rest
     } = this.props;
+    const [marginProps, passProps] = separateMarginProps(rest);
+    const marginStyle = spacingStyles(marginProps);
     const onClickProp = !!disabled || !!ariaDisabled ? {} : { onClick };
 
     return (
@@ -94,6 +103,7 @@ class BaseButton extends Component<ButtonProps> {
           [`${baseClassName}--secondary-light`]: variant === 'secondaryLight',
           [fullWidthClassName]: fullWidth,
         })}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlSpan className={iconClassName}>{!!icon && icon}</HtmlSpan>
         {children}
