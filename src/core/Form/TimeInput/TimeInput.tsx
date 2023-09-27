@@ -152,6 +152,11 @@ const BaseTimeInput = (props: TimeInputProps) => {
       }
     }
 
+    // Change : to .
+    if (inputValue.includes(':')) {
+      setInputValue(inputValue.replace(':', '.'));
+    }
+
     if (!!propOnBlur) {
       propOnBlur(event);
     }
@@ -191,7 +196,8 @@ const BaseTimeInput = (props: TimeInputProps) => {
                 id={id}
                 className={timeInputClassNames.inputElement}
                 forwardedRef={forkRefs(inputRef, definedRef)}
-                placeholder={visualPlaceholder}
+                placeholder="-- . --"
+                maxlength={5}
                 {...{ 'aria-invalid': status === 'error' }}
                 {...getConditionalAriaProp('aria-describedby', [
                   statusText ? statusTextId : undefined,
@@ -202,15 +208,11 @@ const BaseTimeInput = (props: TimeInputProps) => {
                   if (propOnChange) {
                     debouncer(propOnChange, event.currentTarget.value);
                   }
-
-                  if (event.currentTarget.value.includes(':')) {
-                    setInputValue(event.currentTarget.value.replace(':', '.'));
-                  } else {
-                    setInputValue(event.currentTarget.value);
-                  }
+                  setInputValue(event.currentTarget.value);
                 }}
                 onBlur={handleOnBlur}
                 value={controlledValue || inputValue}
+                inputmode="email"
               />
             )}
           </Debounce>

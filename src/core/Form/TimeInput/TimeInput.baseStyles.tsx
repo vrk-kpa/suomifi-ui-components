@@ -72,13 +72,13 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     line-height: 1;
     background-color: ${theme.colors.whiteBase};
     min-height: 40px;
-    padding-left: ${theme.spacing.insetL};
+    padding: ${theme.spacing.insetL};
     border-color: ${theme.colors.depthDark3};
 
     &::placeholder {
-      font-style: italic;
       color: ${theme.colors.depthDark2};
       opacity: 1;
+      text-align: center;
     }
     &::-ms-clear {
       display: none;
