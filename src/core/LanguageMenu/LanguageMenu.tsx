@@ -155,7 +155,7 @@ const BaseLanguageMenu = (props: LanguageMenuProps) => {
     <HtmlDiv
       {...wrapperProps}
       className={classnames(baseClassName, className)}
-      style={marginStyle}
+      style={{ ...marginStyle, ...wrapperProps?.style }}
     >
       <HtmlButton
         id={buttonId}

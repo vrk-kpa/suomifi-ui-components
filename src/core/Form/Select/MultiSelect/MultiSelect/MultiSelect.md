@@ -784,3 +784,5 @@ const labelText = 'Visited countries';
 ```
 
 ### Props & methods
+
+MultiSelect component supports [margin props](./#/Spacing/Margin%20props) for spacing.

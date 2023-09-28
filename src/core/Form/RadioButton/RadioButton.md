@@ -259,3 +259,5 @@ const labelText = 'How do you wish to be contacted?';
 ```
 
 ### Props & methods
+
+RadioButton component supports [margin props](./#/Spacing/Margin%20props) for spacing.

@@ -298,3 +298,5 @@ const validateText = (text) => {
 ```
 
 ### Props & methods
+
+TextInput component supports [margin props](./#/Spacing/Margin%20props) for spacing.

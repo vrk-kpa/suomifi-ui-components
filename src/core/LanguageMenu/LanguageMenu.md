@@ -53,3 +53,5 @@ const [selectedLanguage, setSelectedLanguage] = React.useState(
 ```
 
 ### Props & methods
+
+LanguageMenu component supports [margin props](./#/Spacing/Margin%20props) for spacing.

@@ -138,6 +138,17 @@ describe('props', () => {
       );
       expect(container.firstChild).toHaveAttribute('style', 'margin: 10px;');
     });
+
+    it('should have margin prop overwritten from wrapperProps', () => {
+      const { container } = render(
+        TestLanguageMenu({
+          ...languageMenuProps,
+          margin: 'xs',
+          wrapperProps: { style: { margin: 2 } },
+        }),
+      );
+      expect(container.firstChild).toHaveAttribute('style', 'margin: 2px;');
+    });
   });
 
   describe('wrapperProps', () => {

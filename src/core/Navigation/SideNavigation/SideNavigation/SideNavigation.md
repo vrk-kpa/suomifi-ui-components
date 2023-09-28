@@ -339,3 +339,5 @@ For frameworks where the internal link component is used as a wrapper for the ac
 <div style="margin-bottom: 40px"></div>
 
 ### Props & methods
+
+SideNavigation component supports [margin props](./#/Spacing/Margin%20props) for spacing.

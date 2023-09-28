@@ -378,3 +378,5 @@ const labelText = 'Beginning date';
 ```
 
 ### Props & methods
+
+DateInput component supports [margin props](./#/Spacing/Margin%20props) for spacing.
