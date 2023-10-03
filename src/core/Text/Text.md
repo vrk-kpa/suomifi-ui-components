@@ -52,3 +52,5 @@ import { Text } from 'suomifi-ui-components';
 ```
 
 ### Props & methods
+
+Text component supports [margin props](./#/Spacing/Margin%20props) for spacing.

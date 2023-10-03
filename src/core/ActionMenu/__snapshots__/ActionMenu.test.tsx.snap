@@ -736,8 +736,8 @@ exports[`Basic ActionMenu should match snapshot 1`] = `
             Item 2
           </button>
           <div
-            aria-hidden="true"
             class="c0 c9 fi-action-menu-divider"
+            role="presentation"
           >
             <div
               class="c0 fi-action-menu-divider_line"
@@ -1502,8 +1502,8 @@ exports[`Disabled ActionMenu should match snapshot 1`] = `
             Item 2
           </button>
           <div
-            aria-hidden="true"
             class="c0 c9 fi-action-menu-divider"
+            role="presentation"
           >
             <div
               class="c0 fi-action-menu-divider_line"
@@ -2269,8 +2269,8 @@ exports[`No borders variant should match snapshot 1`] = `
             Item 2
           </button>
           <div
-            aria-hidden="true"
             class="c0 c9 fi-action-menu-divider"
+            role="presentation"
           >
             <div
               class="c0 fi-action-menu-divider_line"
@@ -3035,8 +3035,8 @@ exports[`movement in ActionMenu should match snapshot 1`] = `
             Item 2
           </button>
           <div
-            aria-hidden="true"
             class="c0 c9 fi-action-menu-divider"
+            role="presentation"
           >
             <div
               class="c0 fi-action-menu-divider_line"
@@ -3802,8 +3802,8 @@ exports[`movement in ActionMenu should match snapshot 2`] = `
             Item 2
           </button>
           <div
-            aria-hidden="true"
             class="c0 c9 fi-action-menu-divider"
+            role="presentation"
           >
             <div
               class="c0 fi-action-menu-divider_line"

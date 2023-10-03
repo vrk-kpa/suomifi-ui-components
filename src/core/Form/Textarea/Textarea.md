@@ -248,3 +248,5 @@ const validateText = (text) => {
 ```
 
 ### Props & methods
+
+Textarea component supports [margin props](./#/Spacing/Margin%20props) for spacing.

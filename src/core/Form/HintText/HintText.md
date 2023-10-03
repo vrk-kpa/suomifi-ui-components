@@ -40,3 +40,5 @@ import { TextInput } from 'suomifi-ui-components';
 ```
 
 ### Props & methods
+
+HintText component supports [margin props](./#/Spacing/Margin%20props) for spacing.
