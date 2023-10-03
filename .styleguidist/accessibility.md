@@ -1,4 +1,4 @@
-Our goal is to be WCAG 2.1 compliant at an AA level for all components. Additionally, components are tested in commonly used user agents and with common assistive technology. We also aim to support Windows High Contrast mode.
+Our goal is to be WCAG 2.1 (and eventually WCAG 2.2) compliant at an AA level for all components. Additionally, components are tested in commonly used user agents and with common assistive technology. We also aim to support Windows High Contrast mode. Based on our testing, almost all components fulfill these goals, with a few [outstanding issues](./#Accessibility?=known-issues).
 
 Using the Suomi.fi component library does not automatically make your project accessible, but it will hopefully significantly reduce the amount of work you need to do to provice an accessible user experience. It is important to read the documentation for each component carefully.
 
@@ -20,10 +20,10 @@ Using the Suomi.fi component library does not automatically make your project ac
 
 * **MultiSelect** and **SingleSelect**: Options are not read out by VoiceOver on macOS when using Safari.
 * **MultiSelect** and **SingleSelect**: The selected state of an option is not read out by JAWS.
+* **Textarea** and **TextInput**: Success/error states are not distinguishable without colour.
 * **Breadcrumb**: Line-height does not adjust when only text is resized 200%.
 * **Dropdown**: Line-height does not adjust when only text is resized 200%.
 * **DateInput**: Disabled dates are not distuinguishable from non-disabled ones in Windows High Contrast mode.
-* **Textarea** and **TextInput**: Success/error states are not distinguishable without colour.
 
 ## Our accessibility checklist
 
