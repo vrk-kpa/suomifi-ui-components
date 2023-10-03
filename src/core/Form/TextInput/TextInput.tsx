@@ -104,7 +104,7 @@ interface BaseTextInputProps
   /**
    * `'default'` | `'error'`
    *
-   * Status of the component. Error state creates a red border around the Checkbox.
+   * Status of the component. Error state creates a red border around the input.
    * Always use a descriptive `statusText` with an error status.
    * @default default
    */

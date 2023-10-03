@@ -16,6 +16,11 @@ import {
   HTMLAttributesIncludingDataAttributes,
   forkRefs,
 } from '../../../utils/common/common';
+import {
+  spacingStyles,
+  separateMarginProps,
+  MarginProps,
+} from '../../theme/utils/spacing';
 import { HtmlInputProps, HtmlDiv, HtmlSpan, HtmlInput } from '../../../reset';
 import { Label, LabelMode } from '../Label/Label';
 import { StatusText } from '../StatusText/StatusText';
@@ -40,6 +45,7 @@ export const timeInputClassNames = {
 
 export interface TimeInputProps
   extends StatusTextCommonProps,
+    MarginProps,
     Omit<HtmlInputProps, 'type' | 'onChange' | 'onBlur' | 'defaultValue'> {
   /** CSS class for custom styles */
   className?: string;
@@ -72,7 +78,7 @@ export interface TimeInputProps
   /**
    * `'default'` | `'error'`
    *
-   * Status of the component. Error state creates a red border around the Checkbox.
+   * Status of the component. Error status creates a red border around the input.
    * Always use a descriptive `statusText` with an error status.
    * @default default
    */
@@ -122,8 +128,10 @@ const BaseTimeInput = (props: TimeInputProps) => {
     statusTextAriaLiveMode = 'assertive',
     'aria-describedby': ariaDescribedBy,
     tooltipComponent,
-    ...passProps
+    ...rest
   } = props;
+  const [marginProps, passProps] = separateMarginProps(rest);
+  const marginStyle = spacingStyles(marginProps);
 
   const [inputValue, setInputValue] = useState(defaultValue || '');
 
@@ -149,7 +157,7 @@ const BaseTimeInput = (props: TimeInputProps) => {
     const inputValInt = parseInt(inputValue, 10);
 
     // Handle automatic filling of 1 or 2 characters: 14 --> 14.00.
-    // Also remove leading zero from hours which are under 10
+    // Also remove leading zero from hours
     if (
       (inputValue.match(/^\d{1}$/) || inputValue.match(/^\d{2}$/)) &&
       inputValInt >= 0 &&
@@ -160,12 +168,15 @@ const BaseTimeInput = (props: TimeInputProps) => {
     }
 
     // Handle automatic filling of 4 characters: 1400 --> 14.00
+    // Also remove leading zero from hours
     else if (
       inputValue.match(/^\d{4}$/) &&
-      inputValInt >= 0 &&
-      inputValInt < 2500
+      isValidTimeString(
+        `${inputValue[0]}${inputValue[1]}.${inputValue[2]}${inputValue[3]}`,
+      )
     ) {
-      adjustedInputValue = `${inputValue[0]}${inputValue[1]}.${inputValue[2]}${inputValue[3]}`;
+      const hoursInt = parseInt(`${inputValue[0]}${inputValue[1]}`, 10);
+      adjustedInputValue = `${hoursInt}.${inputValue[2]}${inputValue[3]}`;
       setInputValue(adjustedInputValue);
     }
 
@@ -182,10 +193,7 @@ const BaseTimeInput = (props: TimeInputProps) => {
     }
 
     if (!!propOnBlur) {
-      // This is a hack to make sure state (input value) has been updated before executing custom onBlur
-      setTimeout(() => {
-        propOnBlur(adjustedInputValue || inputValue);
-      }, 100);
+      propOnBlur(adjustedInputValue || inputValue);
     }
   };
 
@@ -201,6 +209,7 @@ const BaseTimeInput = (props: TimeInputProps) => {
         [timeInputClassNames.success]: status === 'success',
         [timeInputClassNames.fullWidth]: fullWidth,
       })}
+      style={{ ...marginStyle, ...wrapperProps?.style }}
     >
       <HtmlSpan className={timeInputClassNames.styleWrapper}>
         <Label
