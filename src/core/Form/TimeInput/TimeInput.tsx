@@ -71,8 +71,6 @@ export interface TimeInputProps
    * @default visible
    */
   labelMode?: LabelMode;
-  /** Placeholder text for the input. Use only as visual aid, not for instructions. */
-  visualPlaceholder?: string;
   /** Hint text to be shown below the component */
   hintText?: string;
   /**
@@ -117,7 +115,6 @@ const BaseTimeInput = (props: TimeInputProps) => {
     status,
     statusText,
     hintText,
-    visualPlaceholder,
     id,
     fullWidth,
     icon,
