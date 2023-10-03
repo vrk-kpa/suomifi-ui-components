@@ -71,6 +71,12 @@ module.exports = {
       sectiondepth: 0,
     },
     {
+      name: 'Accessibility',
+      content: './.styleguidist/accessibility.md',
+      sections: [() => {}],
+      sectiondepth: 0,
+    },    
+    {
       name: 'Foundations',
       content: './.styleguidist/foundations.md',
       sections: [

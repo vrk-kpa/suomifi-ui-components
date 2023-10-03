@@ -2,7 +2,7 @@
 
 ## ✨ Features
 
-- Accessibility WCAG 2.1 level AA
+- Accessibility WCAG 2.1 level AA. <a href="./#/Accessibility">Read more on accessibility support</a>.
 - React-components with TypeScript support
 - Suomi.fi brand styles
 - Highly customizable (CSS, CSS-in-JS)
