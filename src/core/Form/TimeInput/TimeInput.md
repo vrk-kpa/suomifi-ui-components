@@ -3,8 +3,8 @@ The `<TimeInput>` component is used to input times. It looks and behaves similar
 - If the user types 1 or 2 characters which are valid hours (0-24), the time will be autocompleted. A leading zero will also be removed.
   - E.g. 14 --> 14.00
   - E.g. 09 --> 9.00 and 9 --> 9.00
-- If the user types 4 characters which form a valid "military time" value, the dot `.` character will be added as a separator.
-  - E.g. 1400 --> 14.00 and 1745 --> 17.45
+- If the user types 4 characters which form a valid "military time" value, the dot `.` character will be added as a separator. A leading zero will also be removed.
+  - E.g. 1745 --> 17.45 and 0200 --> 2.00
 - If the user types an otherwise valid time with a leading zero in the hours, the zero will be removed
   - E.g. 07.45 --> 7.45
 - If the user types the colon `:` character it will be replaced with the dot `.` character. Dot is the correct time separator character in the Finnish language.
