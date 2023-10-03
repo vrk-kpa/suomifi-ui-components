@@ -1,7 +1,6 @@
 import React, {
   forwardRef,
   ChangeEvent,
-  FocusEvent,
   ReactNode,
   ReactElement,
   useRef,
@@ -41,7 +40,7 @@ export const timeInputClassNames = {
 
 export interface TimeInputProps
   extends StatusTextCommonProps,
-    Omit<HtmlInputProps, 'type' | 'onChange' | 'defaultValue'> {
+    Omit<HtmlInputProps, 'type' | 'onChange' | 'onBlur' | 'defaultValue'> {
   /** CSS class for custom styles */
   className?: string;
   /** Props passed to the outermost div element of the component */
@@ -55,8 +54,11 @@ export interface TimeInputProps
   onClick?: () => void;
   /** Callback fired on input change */
   onChange?: (value: string) => void;
-  /** Callback fired on input blur */
-  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+  /** Callback fired on input blur.
+   * Notice that this function returns the string value of the input,
+   * not the blur FocusEvent like in other input components in this library!
+   */
+  onBlur?: (inputValue: string) => void;
   /** Label for the input */
   labelText: ReactNode;
   /** Hides or shows the label. Label element is always present, but can be visually hidden.
@@ -128,37 +130,62 @@ const BaseTimeInput = (props: TimeInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const definedRef = forwardedRef || null;
 
-  const handleOnBlur = (event: FocusEvent<HTMLInputElement>) => {
+  // String is of type XX:YY or XX.YY where XX is 0-24 and YY is 0-59
+  const isValidTimeString = (timeStr: string) => {
+    if (timeStr.match(/^\d{1,2}.\d{2}$/) || timeStr.match(/^\d{1,2}:\d{2}$/)) {
+      const parts = timeStr.split(timeStr.includes('.') ? '.' : ':');
+      const hours = parseInt(parts[0], 10);
+      const minutes = parseInt(parts[1], 10);
+      if (hours >= 0 && hours < 25 && minutes >= 0 && minutes < 60) {
+        return true;
+      }
+    }
+
+    return false;
+  };
+
+  const handleOnBlur = () => {
+    let adjustedInputValue = '';
     const inputValInt = parseInt(inputValue, 10);
 
     // Handle automatic filling of 1 or 2 characters: 14 --> 14.00.
     // Also remove leading zero from hours which are under 10
-    if (inputValue.length <= 2 && !Number.isNaN(inputValue)) {
-      if (inputValInt >= 0 && inputValInt < 25) {
-        setInputValue(`${inputValInt}.00`);
-      }
+    if (
+      (inputValue.match(/^\d{1}$/) || inputValue.match(/^\d{2}$/)) &&
+      inputValInt >= 0 &&
+      inputValInt < 25
+    ) {
+      adjustedInputValue = `${inputValInt}.00`;
+      setInputValue(adjustedInputValue);
     }
 
     // Handle automatic filling of 4 characters: 1400 --> 14.00
-    if (
-      inputValue.length === 4 &&
-      !Number.isNaN(inputValue) &&
-      /^\d+$/.test(inputValue)
+    else if (
+      inputValue.match(/^\d{4}$/) &&
+      inputValInt >= 0 &&
+      inputValInt < 2500
     ) {
-      if (inputValInt >= 0 && inputValInt < 2500) {
-        setInputValue(
-          `${inputValue[0]}${inputValue[1]}.${inputValue[2]}${inputValue[3]}`,
-        );
-      }
+      adjustedInputValue = `${inputValue[0]}${inputValue[1]}.${inputValue[2]}${inputValue[3]}`;
+      setInputValue(adjustedInputValue);
     }
 
-    // Change : to .
-    if (inputValue.includes(':')) {
-      setInputValue(inputValue.replace(':', '.'));
+    // Remove leading zero from an otherwise valid time
+    else if (isValidTimeString(inputValue) && inputValue[0] === '0') {
+      adjustedInputValue = `${inputValue[1]}.${inputValue[3]}${inputValue[4]}`;
+      setInputValue(adjustedInputValue);
+    }
+
+    // Change : to . in an otherwise valid time
+    else if (isValidTimeString(inputValue)) {
+      adjustedInputValue = inputValue.replace(':', '.');
+      setInputValue(adjustedInputValue);
     }
 
     if (!!propOnBlur) {
-      propOnBlur(event);
+      // This is a hack to make sure state (input value) has been updated before executing custom onBlur
+      setTimeout(() => {
+        propOnBlur(adjustedInputValue || inputValue);
+      }, 100);
     }
   };
 
@@ -197,7 +224,7 @@ const BaseTimeInput = (props: TimeInputProps) => {
                 className={timeInputClassNames.inputElement}
                 forwardedRef={forkRefs(inputRef, definedRef)}
                 placeholder="-- . --"
-                maxlength={5}
+                maxLength={5}
                 {...{ 'aria-invalid': status === 'error' }}
                 {...getConditionalAriaProp('aria-describedby', [
                   statusText ? statusTextId : undefined,
@@ -212,7 +239,6 @@ const BaseTimeInput = (props: TimeInputProps) => {
                 }}
                 onBlur={handleOnBlur}
                 value={controlledValue || inputValue}
-                inputmode="email"
               />
             )}
           </Debounce>
