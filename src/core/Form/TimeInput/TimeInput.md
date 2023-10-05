@@ -159,6 +159,22 @@ import { TimeInput } from 'suomifi-ui-components';
 <TimeInput labelText="Opening time" labelMode="hidden" />;
 ```
 
+### Debounce
+
+You can provide the input a `debounce` time so that the `onChange()` function only runs after the user stops typing.
+
+NOTE: Like shown previously on this page ([Error status and validation](./#/Components/TimeInput?id=error-status-and-validation)), it is not recommended to validate this component's value dynamically using `onChange()` due to the internal autocomplete features
+
+```jsx
+import { TimeInput } from 'suomifi-ui-components';
+
+<TimeInput
+  labelText="Opening time"
+  debounce={300}
+  onChange={(newValue) => console.log(newValue)}
+/>;
+```
+
 ### Tooltip
 
 A `<Tooltip>` component can be used with TimeInput to provide additional information.

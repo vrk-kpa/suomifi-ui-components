@@ -196,6 +196,38 @@ describe('props', () => {
       expect(label).toHaveClass('fi-visually-hidden');
     });
   });
+
+  describe('debounce', () => {
+    it('delays the running of onChange by the given time', () => {
+      jest.useFakeTimers();
+      const mockOnChange = jest.fn();
+      const textInput = (
+        <TimeInput
+          labelText="Debounced input"
+          debounce={1000}
+          onChange={mockOnChange}
+        />
+      );
+      const { getByRole } = render(textInput);
+
+      const inputElement = getByRole('textbox') as HTMLInputElement;
+      fireEvent.change(inputElement, { target: { value: '12.00' } });
+      expect(mockOnChange).not.toBeCalled();
+      jest.advanceTimersByTime(1000);
+      expect(mockOnChange).toBeCalledTimes(1);
+      expect(inputElement.value).toBe('12.00');
+    });
+    it('resolves right when no onChange is given', () => {
+      const textInput = (
+        <TimeInput labelText="Debounced input" debounce={1000} />
+      );
+      const { getByRole } = render(textInput);
+
+      const inputElement = getByRole('textbox') as HTMLInputElement;
+      fireEvent.change(inputElement, { target: { value: '12.00' } });
+      expect(inputElement.value).toBe('12.00');
+    });
+  });
 });
 
 describe('autocomplete features', () => {
