@@ -11,7 +11,7 @@ import {
   separateMarginProps,
   MarginProps,
 } from '../../theme/utils/spacing';
-import { HtmlLabel, HtmlDiv, HtmlInput } from '../../../reset';
+import { HtmlLabel, HtmlDiv, HtmlInput, HtmlLabelProps } from '../../../reset';
 import { StatusText } from '../StatusText/StatusText';
 import { HintText } from '../HintText/HintText';
 import { CheckboxGroupConsumer } from './CheckboxGroup';
@@ -103,7 +103,10 @@ interface InternalCheckboxProps extends StatusTextCommonProps {
   forwardedRef?: React.RefObject<HTMLInputElement>;
 }
 
-export interface CheckboxProps extends InternalCheckboxProps, MarginProps {
+export interface CheckboxProps
+  extends InternalCheckboxProps,
+    MarginProps,
+    Omit<HtmlLabelProps, 'onClick' | 'value'> {
   /** Ref object to be passed to the input element */
   ref?: React.RefObject<HTMLInputElement>;
 }
@@ -156,6 +159,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
       forwardedRef,
       onClick,
       variant,
+      style,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -194,7 +198,7 @@ class BaseCheckbox extends Component<CheckboxProps> {
             [checkboxClassNames.disabled]: !!disabled,
           },
         )}
-        style={marginStyle}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlInput
           type="checkbox"
