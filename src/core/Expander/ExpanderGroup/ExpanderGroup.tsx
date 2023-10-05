@@ -10,13 +10,16 @@ import {
 } from '../../theme/utils/spacing';
 import { VisuallyHidden } from '../../VisuallyHidden/VisuallyHidden';
 import { baseStyles } from './ExpanderGroup.baseStyles';
+import { HTMLAttributesIncludingDataAttributes } from 'utils/common/common';
 
 const baseClassName = 'fi-expander-group';
 const openClassName = `${baseClassName}--open`;
 const expandersContainerClassName = `${baseClassName}_expanders`;
 const openAllButtonClassName = `${baseClassName}_all-button`;
 
-interface PartialExpanderGroupProps extends MarginProps {
+interface PartialExpanderGroupProps
+  extends HTMLAttributesIncludingDataAttributes<HTMLDivElement>,
+    MarginProps {
   /** Expanders (and optionally other ReactNodes) */
   children: ReactNode;
   /** 'Open all' button text for screen readers, hides `OpenAllText` for screen readers if provided */
@@ -165,6 +168,7 @@ class BaseExpanderGroup extends Component<
       showToggleAllButton = true,
       toggleAllButtonProps,
       forwardedRef,
+      style,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -176,7 +180,7 @@ class BaseExpanderGroup extends Component<
         className={classnames(className, baseClassName, {
           [openClassName]: this.openExpanderCount > 0,
         })}
-        style={marginStyle}
+        style={{ ...marginStyle, ...style }}
       >
         {!!showToggleAllButton && (
           <HtmlButton

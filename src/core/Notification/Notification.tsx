@@ -114,7 +114,7 @@ class BaseNotification extends Component<NotificationProps & InnerRef> {
             [notificationClassNames.smallScreen]: !!smallScreen,
           },
         )}
-        style={marginStyle}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlDiv className={notificationClassNames.styleWrapper} style={style}>
           <HtmlDiv className={notificationClassNames.iconWrapper}>

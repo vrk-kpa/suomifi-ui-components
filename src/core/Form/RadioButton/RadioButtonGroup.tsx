@@ -9,6 +9,7 @@ import {
 import {
   HtmlDiv,
   HtmlDivWithRef,
+  HtmlDivWithRefProps,
   HtmlFieldSet,
   HtmlLegend,
 } from '../../../reset';
@@ -26,7 +27,9 @@ const radioButtonGroupClassNames = {
   container: `${baseClassName}_container`,
 };
 
-export interface RadioButtonGroupProps extends MarginProps {
+export interface RadioButtonGroupProps
+  extends MarginProps,
+    Omit<HtmlDivWithRefProps, 'onChange'> {
   /** CSS class for custom styles */
   className?: string;
   /** Use `<RadioButton>` components as children */
@@ -116,6 +119,7 @@ class BaseRadioButtonGroup extends Component<
       defaultValue,
       onChange,
       tooltipComponent,
+      style,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -126,7 +130,7 @@ class BaseRadioButtonGroup extends Component<
         className={classnames(baseClassName, className)}
         id={id}
         {...passProps}
-        style={marginStyle}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlFieldSet>
           <HtmlLegend className={radioButtonGroupClassNames.legend}>
