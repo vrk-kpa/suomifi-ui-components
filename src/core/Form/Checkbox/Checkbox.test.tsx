@@ -93,16 +93,18 @@ describe('props', () => {
   describe('children', () => {
     it('has the given children and it changes on prop change', () => {
       const { getByTestId, rerender } = render(RegularTestCheckbox);
-      expect(getByTestId('regular_id').textContent).toBe('Regular');
+      expect(getByTestId('regular_id').nextElementSibling?.textContent).toBe(
+        'Regular',
+      );
 
       rerender(
         <BaseCheckbox data-testid="regular_id_changed">
           Regular changed
         </BaseCheckbox>,
       );
-      expect(getByTestId('regular_id_changed').textContent).toBe(
-        'Regular changed',
-      );
+      expect(
+        getByTestId('regular_id_changed').nextElementSibling?.textContent,
+      ).toBe('Regular changed');
     });
 
     it('has matching snapshot', () => {
