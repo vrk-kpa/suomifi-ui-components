@@ -1,7 +1,13 @@
 import React, { Component, forwardRef, ReactNode } from 'react';
 import { default as styled } from 'styled-components';
 import classnames from 'classnames';
-import { HtmlLabel, HtmlSpan, HtmlDiv, HtmlInput } from '../../../reset';
+import {
+  HtmlLabel,
+  HtmlSpan,
+  HtmlDiv,
+  HtmlInput,
+  HtmlInputProps,
+} from '../../../reset';
 import { getLogger } from '../../../utils/log';
 import { AutoId } from '../../utils/AutoId/AutoId';
 import { SuomifiThemeConsumer, SuomifiThemeProp } from '../../theme';
@@ -29,7 +35,7 @@ const radioButtonClassNames = {
   checked: `${baseClassName}--checked`,
 };
 
-export interface RadioButtonProps extends MarginProps {
+export interface RadioButtonProps extends MarginProps, HtmlInputProps {
   /** CSS class for custom styles */
   className?: string;
   /** RadioButton text content (label) */
@@ -101,6 +107,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
       forwardedRef,
       onChange,
       disabled = false,
+      style,
       ...rest
     } = this.props;
     const [marginProps, passProps] = separateMarginProps(rest);
@@ -129,7 +136,7 @@ class BaseRadioButton extends Component<RadioButtonProps> {
             [radioButtonClassNames.checked]: checked,
           },
         )}
-        style={marginStyle}
+        style={{ ...marginStyle, ...style }}
       >
         <HtmlInput
           className={radioButtonClassNames.input}
