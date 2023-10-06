@@ -391,7 +391,7 @@ exports[`Basic LanguageMenu should match snapshot when closed 1`] = `
       </button>
       <div
         class="c4 c5 fi-language-menu-popover fi-language-menu-popover--hidden"
-        style="position: fixed; left: 0px; top: 0px; width: 0px;"
+        style="position: fixed; left: 0px; top: 0px;"
       >
         <div
           class="c4 fi-language-menu-popover_list"
@@ -833,7 +833,7 @@ exports[`Basic LanguageMenu should match snapshot when opened 1`] = `
       </button>
       <div
         class="c4 c5 fi-language-menu-popover"
-        style="position: fixed; left: 0px; top: 0px; width: 0px; right: 0px; transform: translate(0px, 15px);"
+        style="position: fixed; left: 0px; top: 0px; right: 0px; transform: translate(0px, 15px);"
       >
         <div
           class="c4 fi-language-menu-popover_list"
