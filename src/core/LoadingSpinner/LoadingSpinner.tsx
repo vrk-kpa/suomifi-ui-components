@@ -15,7 +15,6 @@ import {
   IconErrorFilled,
   IconPreloader,
 } from 'suomifi-icons';
-import { HTMLAttributesIncludingDataAttributes } from 'utils/common/common';
 
 export type LoadingSpinnerStatus = 'loading' | 'success' | 'failed';
 export interface LoadingSpinnerProps extends MarginProps, HtmlDivProps {
