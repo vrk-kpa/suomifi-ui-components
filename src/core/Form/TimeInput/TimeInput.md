@@ -1,15 +1,15 @@
-The `<TimeInput>` component is used to input times. It looks and behaves similarly to a regular `<TextInput>` but has the following autocomplete features on input blur:
+The `<TimeInput>` component is used to input times. It looks and behaves similarly to a regular `<TextInput>` but has the following autocomplete features **on input blur**:
 
-- If the user types 1 or 2 characters which are valid hours (0-24), the time will be autocompleted. A leading zero will also be removed.
-  - E.g. 14 --> 14.00
-  - E.g. 09 --> 9.00 and 9 --> 9.00
-- If the user types 4 characters which form a valid "military time" value, the dot `.` character will be added as a separator. A leading zero will also be removed.
-  - E.g. 1745 --> 17.45 and 0200 --> 2.00
-- If the user types an otherwise valid time with a leading zero in the hours, the zero will be removed
-  - E.g. 07.45 --> 7.45
-- If the user types the colon `:` character it will be replaced with the dot `.` character. Dot is the correct time separator character in the Finnish language.
-
---
+- 1 or 2 characters which are valid hours (0-24) will be autocompleted to full time. A leading zero will also be removed.
+  - 14 --> 14.00
+  - 09 --> 9.00
+  - 9 --> 9.00
+- 4 characters which form a valid "military time" will be autocompleted to full time
+  - 1745 --> 17.45
+  - 0200 --> 2.00
+- Leading zero will be removed from hours
+  - 07.45 --> 7.45
+- The colon `:` character it will be replaced with the dot `.` character. Dot is the correct time separator character in the Finnish language.
 
 TimeInput is typically used together with [DateInput](/#/Components/DateInput).
 
@@ -25,6 +25,7 @@ Examples:
 - [Optional input](./#/Components/TimeInput?id=optional-input)
 - [Disabled](./#/Components/TimeInput?id=disabled)
 - [Hidden label](./#/Components/TimeInput?id=hidden-label)
+- [Debounce](./#/Components/TimeInput?id=debounce)
 - [Tooltip](./#/Components/TimeInput?id=tooltip)
 
 <div style="margin-bottom: 40px">
