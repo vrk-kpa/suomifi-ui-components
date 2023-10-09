@@ -155,11 +155,7 @@ const BaseTimeInput = (props: TimeInputProps) => {
 
     // Handle automatic filling of 1 or 2 characters: 14 --> 14.00.
     // Also remove leading zero from hours
-    if (
-      (inputValue.match(/^\d{1}$/) || inputValue.match(/^\d{2}$/)) &&
-      inputValInt >= 0 &&
-      inputValInt < 25
-    ) {
+    if (inputValue.match(/^\d{1,2}$/) && inputValInt >= 0 && inputValInt < 25) {
       adjustedInputValue = `${inputValInt}.00`;
       setInputValue(adjustedInputValue);
     }

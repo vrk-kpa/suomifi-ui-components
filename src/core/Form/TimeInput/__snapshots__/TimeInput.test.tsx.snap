@@ -325,7 +325,7 @@ exports[`snapshots match error status with statustext 1`] = `
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0,0%,100%);
-  min-height: 40px;
+  height: 40px;
   padding: 10px;
   border-color: hsl(201,7%,58%);
 }
@@ -785,7 +785,7 @@ exports[`snapshots match hidden label 1`] = `
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0,0%,100%);
-  min-height: 40px;
+  height: 40px;
   padding: 10px;
   border-color: hsl(201,7%,58%);
 }
@@ -1251,7 +1251,7 @@ exports[`snapshots match hint text 1`] = `
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0,0%,100%);
-  min-height: 40px;
+  height: 40px;
   padding: 10px;
   border-color: hsl(201,7%,58%);
 }
@@ -1707,7 +1707,7 @@ exports[`snapshots match minimal implementation 1`] = `
   border-radius: 2px;
   line-height: 1;
   background-color: hsl(0,0%,100%);
-  min-height: 40px;
+  height: 40px;
   padding: 10px;
   border-color: hsl(201,7%,58%);
 }
