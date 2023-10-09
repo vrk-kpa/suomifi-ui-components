@@ -71,7 +71,7 @@ export interface TimeInputProps
    * @default visible
    */
   labelMode?: LabelMode;
-  /** Hint text to be shown below the component */
+  /** Hint text to be shown below the component's label */
   hintText?: string;
   /**
    * `'default'` | `'error'`
