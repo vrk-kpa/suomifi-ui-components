@@ -31,12 +31,10 @@ import { baseStyles } from './TimeInput.baseStyles';
 const baseClassName = 'fi-time-input';
 export const timeInputClassNames = {
   baseClassName,
-  fullWidth: `${baseClassName}--full-width`,
   disabled: `${baseClassName}--disabled`,
   error: `${baseClassName}--error`,
   success: `${baseClassName}--success`,
   labelIsVisible: `${baseClassName}_label--visible`,
-  icon: `${baseClassName}_with-icon`,
   inputElementContainer: `${baseClassName}_input-element-container`,
   inputElement: `${baseClassName}_input`,
   styleWrapper: `${baseClassName}_wrapper`,
@@ -97,8 +95,6 @@ export interface TimeInputProps
   optionalText?: string;
   /** Debounce time in milliseconds for onChange function. No debounce is applied if no value is given. */
   debounce?: number;
-  /** Suomi.fi icon to be shown inside the input field */
-  icon?: ReactElement;
   /** Tooltip component for the input's label */
   tooltipComponent?: ReactElement;
 }
@@ -116,8 +112,6 @@ const BaseTimeInput = (props: TimeInputProps) => {
     statusText,
     hintText,
     id,
-    fullWidth,
-    icon,
     value: controlledValue,
     defaultValue,
     forwardedRef,
@@ -197,10 +191,8 @@ const BaseTimeInput = (props: TimeInputProps) => {
       {...wrapperProps}
       className={classnames(baseClassName, className, {
         [timeInputClassNames.disabled]: !!passProps.disabled,
-        [timeInputClassNames.icon]: !!icon,
         [timeInputClassNames.error]: status === 'error',
         [timeInputClassNames.success]: status === 'success',
-        [timeInputClassNames.fullWidth]: fullWidth,
       })}
       style={{ ...marginStyle, ...wrapperProps?.style }}
     >
@@ -244,7 +236,6 @@ const BaseTimeInput = (props: TimeInputProps) => {
               />
             )}
           </Debounce>
-          {icon}
         </HtmlDiv>
         <StatusText
           id={statusTextId}
