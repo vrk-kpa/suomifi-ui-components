@@ -71,7 +71,7 @@ export const baseStyles = (theme: SuomifiTheme) => css`
     border-radius: ${theme.radiuses.basic};
     line-height: 1;
     background-color: ${theme.colors.whiteBase};
-    min-height: 40px;
+    height: 40px;
     padding: ${theme.spacing.insetL};
     border-color: ${theme.colors.depthDark3};
 
