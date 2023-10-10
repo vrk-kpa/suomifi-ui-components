@@ -39,7 +39,7 @@ const StyledLinkListItem = styled(
     <HtmlLi {...passProps} className={classnames(baseClassName, className)}>
       <HtmlSpan className={listLinkClassNames.icon}>
         {!!icon ? (
-          { icon }
+          icon
         ) : (
           <IconChevronRight color={theme.colors.highlightBase} />
         )}
