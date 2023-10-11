@@ -431,7 +431,6 @@ exports[`snapshots match error status with statustext 1`] = `
         data-testid="TimeInput4"
         id="test-id4"
         maxlength="5"
-        placeholder="-- . --"
         type="text"
         value=""
       />
@@ -890,7 +889,6 @@ exports[`snapshots match hidden label 1`] = `
         data-testid="TimeInput3"
         id="test-id3"
         maxlength="5"
-        placeholder="-- . --"
         type="text"
         value=""
       />
@@ -1365,7 +1363,6 @@ exports[`snapshots match hint text 1`] = `
             data-testid="TimeInput2"
             id="test-id2"
             maxlength="5"
-            placeholder="-- . --"
             type="text"
             value=""
           />
@@ -1812,7 +1809,6 @@ exports[`snapshots match minimal implementation 1`] = `
         data-testid="TimeInput"
         id="test-id"
         maxlength="5"
-        placeholder="-- . --"
         type="text"
         value=""
       />
