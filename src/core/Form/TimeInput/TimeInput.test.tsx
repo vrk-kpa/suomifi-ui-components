@@ -197,6 +197,16 @@ describe('props', () => {
     });
   });
 
+  describe('visualPlaceholder', () => {
+    it('should have the given text', () => {
+      const { getByRole } = render(
+        <TimeInput labelText="Test input" visualPlaceholder="h.mm" />,
+      );
+      const inputField = getByRole('textbox') as HTMLInputElement;
+      expect(inputField).toHaveAttribute('placeholder', 'h.mm');
+    });
+  });
+
   describe('debounce', () => {
     it('delays the running of onChange by the given time', () => {
       jest.useFakeTimers();
