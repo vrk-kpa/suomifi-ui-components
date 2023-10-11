@@ -60,10 +60,11 @@ export interface TimeInputProps
   /** Callback fired on input change */
   onChange?: (value: string) => void;
   /** Callback fired on input blur.
-   * Notice that this function returns the string value of the input,
-   * not the blur FocusEvent like in other input components in this library!
+   * Notice that this function returns the string value of the input
+   * when the input value is not controlled and `null` when the value is
+   * controlled
    */
-  onBlur?: (inputValue: string) => void;
+  onBlur?: (inputValue: string | null) => void;
   /** Label for the input */
   labelText: ReactNode;
   /** Hides or shows the label. Label element is always present, but can be visually hidden.
@@ -134,13 +135,17 @@ const BaseTimeInput = (props: TimeInputProps) => {
   const definedRef = forwardedRef || null;
 
   const handleOnBlur = () => {
-    const adjustedValue = autocompleteTimeString(inputValue);
-    if (adjustedValue) {
-      setInputValue(adjustedValue);
-    }
+    if (!controlledValue) {
+      const adjustedValue = autocompleteTimeString(inputValue);
+      if (adjustedValue) {
+        setInputValue(adjustedValue);
+      }
 
-    if (!!propOnBlur) {
-      propOnBlur(adjustedValue || inputValue);
+      if (!!propOnBlur) {
+        propOnBlur(adjustedValue || inputValue);
+      }
+    } else if (!!propOnBlur) {
+      propOnBlur(null);
     }
   };
 

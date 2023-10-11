@@ -21,6 +21,7 @@ Examples:
 - [Hint text](./#/Components/TimeInput?id=hint-text)
 - [Default value](./#/Components/TimeInput?id=default-value)
 - [Controlled value](./#/Components/TimeInput?id=controlled-value)
+- [Controlled value with autocompletion](./#/Components/TimeInput?id=controlled-value-with-autocompletion)
 - [Error status and validation](./#/Components/TimeInput?id=error-status-and-validation)
 - [Optional input](./#/Components/TimeInput?id=optional-input)
 - [Disabled](./#/Components/TimeInput?id=disabled)
@@ -86,6 +87,35 @@ const [controlledValue, setControlledValue] = useState();
   hintText="Daily opening time of your business. Use format H.mm"
   value={controlledValue}
   onChange={(newVal) => setControlledValue(newVal)}
+/>;
+```
+
+### Controlled value with autocompletion
+
+When the input value is controlled, you can use the bundled `autocompleteTimeString()` function to apply the autocomplete functionalities (described at the top of this page) manually.
+
+`autocompleteTimeString()` returns the autocompleted string if such completions can be performed and `null` otherwise.
+
+```jsx
+import {
+  TimeInput,
+  autocompleteTimeString
+} from 'suomifi-ui-components';
+import { useState } from 'react';
+
+const [controlledValue, setControlledValue] = useState();
+
+<TimeInput
+  labelText="Open from"
+  hintText="Daily opening time of your business. Use format H.mm"
+  value={controlledValue}
+  onChange={(newVal) => setControlledValue(newVal)}
+  onBlur={() => {
+    const adjustedValue = autocompleteTimeString(controlledValue);
+    if (adjustedValue) {
+      setControlledValue(adjustedValue);
+    }
+  }}
 />;
 ```
 
