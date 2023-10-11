@@ -47,6 +47,61 @@ export const forkRefs =
     });
   };
 
+// String is of type XX:YY or XX.YY where XX is 0-24 and YY is 0-59
+const isValidTimeString = (timeStr: string) => {
+  if (timeStr.match(/^\d{1,2}.\d{2}$/) || timeStr.match(/^\d{1,2}:\d{2}$/)) {
+    const parts = timeStr.split(timeStr.includes('.') ? '.' : ':');
+    const hours = parseInt(parts[0], 10);
+    const minutes = parseInt(parts[1], 10);
+    if (hours >= 0 && hours < 25 && minutes >= 0 && minutes < 60) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+/**
+ * Contains logic to autocomplete a time string in certain scenarios:
+ *  - 1-2 characters which form a valid hour designation are autocompleted to full time: 14 --> 14.00 and 9 --> 9.00
+ *  - 4 characters which form a valid "military time" will be autocompleted to full time: 1400 --> 14.00
+ *  - A leading zero will be removed from hours in an otherwise valid time: 09.00 --> 9.00
+ *  - The colon : character will be replaced by the dot . character in an otherwise valid time: 12:00 --> 12.00
+ * @param timeStr Time input value
+ * @returns An autocompleted time string or `null` if no automatic completions could be perfomed
+ */
+export const autocompleteTimeString = (timeStr: string): string | null => {
+  const inputValInt = parseInt(timeStr, 10);
+
+  // Handle automatic filling of 1 or 2 characters
+  // Also remove leading zero from hours
+  if (timeStr.match(/^\d{1,2}$/) && inputValInt >= 0 && inputValInt < 25) {
+    return `${inputValInt}.00`;
+  }
+
+  // Handle automatic filling of 4 characters: 1400 --> 14.00
+  // Also remove leading zero from hours
+  if (
+    timeStr.match(/^\d{4}$/) &&
+    isValidTimeString(`${timeStr[0]}${timeStr[1]}.${timeStr[2]}${timeStr[3]}`)
+  ) {
+    const hoursInt = parseInt(`${timeStr[0]}${timeStr[1]}`, 10);
+    return `${hoursInt}.${timeStr[2]}${timeStr[3]}`;
+  }
+
+  // Remove leading zero from an otherwise valid time
+  if (isValidTimeString(timeStr) && timeStr[0] === '0') {
+    return `${timeStr[1]}.${timeStr[3]}${timeStr[4]}`;
+  }
+
+  // Change : to . in an otherwise valid time
+  if (isValidTimeString(timeStr)) {
+    return timeStr.replace(':', '.');
+  }
+
+  return null;
+};
+
 /**
  * The following interface allows data-* attributes.
  * The basic React.HTMLAttributes interface throws errors when trying to do something like

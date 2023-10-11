@@ -14,6 +14,7 @@ import { Debounce } from '../../utils/Debounce/Debounce';
 import { getConditionalAriaProp } from '../../../utils/aria';
 import {
   HTMLAttributesIncludingDataAttributes,
+  autocompleteTimeString,
   forkRefs,
 } from '../../../utils/common/common';
 import {
@@ -132,58 +133,14 @@ const BaseTimeInput = (props: TimeInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const definedRef = forwardedRef || null;
 
-  // String is of type XX:YY or XX.YY where XX is 0-24 and YY is 0-59
-  const isValidTimeString = (timeStr: string) => {
-    if (timeStr.match(/^\d{1,2}.\d{2}$/) || timeStr.match(/^\d{1,2}:\d{2}$/)) {
-      const parts = timeStr.split(timeStr.includes('.') ? '.' : ':');
-      const hours = parseInt(parts[0], 10);
-      const minutes = parseInt(parts[1], 10);
-      if (hours >= 0 && hours < 25 && minutes >= 0 && minutes < 60) {
-        return true;
-      }
-    }
-
-    return false;
-  };
-
   const handleOnBlur = () => {
-    let adjustedInputValue = '';
-    const inputValInt = parseInt(inputValue, 10);
-
-    // Handle automatic filling of 1 or 2 characters: 14 --> 14.00.
-    // Also remove leading zero from hours
-    if (inputValue.match(/^\d{1,2}$/) && inputValInt >= 0 && inputValInt < 25) {
-      adjustedInputValue = `${inputValInt}.00`;
-      setInputValue(adjustedInputValue);
-    }
-
-    // Handle automatic filling of 4 characters: 1400 --> 14.00
-    // Also remove leading zero from hours
-    else if (
-      inputValue.match(/^\d{4}$/) &&
-      isValidTimeString(
-        `${inputValue[0]}${inputValue[1]}.${inputValue[2]}${inputValue[3]}`,
-      )
-    ) {
-      const hoursInt = parseInt(`${inputValue[0]}${inputValue[1]}`, 10);
-      adjustedInputValue = `${hoursInt}.${inputValue[2]}${inputValue[3]}`;
-      setInputValue(adjustedInputValue);
-    }
-
-    // Remove leading zero from an otherwise valid time
-    else if (isValidTimeString(inputValue) && inputValue[0] === '0') {
-      adjustedInputValue = `${inputValue[1]}.${inputValue[3]}${inputValue[4]}`;
-      setInputValue(adjustedInputValue);
-    }
-
-    // Change : to . in an otherwise valid time
-    else if (isValidTimeString(inputValue)) {
-      adjustedInputValue = inputValue.replace(':', '.');
-      setInputValue(adjustedInputValue);
+    const adjustedValue = autocompleteTimeString(inputValue);
+    if (adjustedValue) {
+      setInputValue(adjustedValue);
     }
 
     if (!!propOnBlur) {
-      propOnBlur(adjustedInputValue || inputValue);
+      propOnBlur(adjustedValue || inputValue);
     }
   };
 
