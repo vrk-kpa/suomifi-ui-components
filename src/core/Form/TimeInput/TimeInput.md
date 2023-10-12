@@ -80,7 +80,7 @@ A typical use case involves setting the state in the `onChange()` function.
 import { TimeInput } from 'suomifi-ui-components';
 import { useState } from 'react';
 
-const [controlledValue, setControlledValue] = useState();
+const [controlledValue, setControlledValue] = useState('');
 
 <TimeInput
   labelText="Open from"
@@ -103,7 +103,7 @@ import {
 } from 'suomifi-ui-components';
 import { useState } from 'react';
 
-const [controlledValue, setControlledValue] = useState();
+const [controlledValue, setControlledValue] = useState('');
 
 <TimeInput
   labelText="Open from"

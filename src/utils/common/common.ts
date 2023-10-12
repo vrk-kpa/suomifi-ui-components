@@ -71,6 +71,8 @@ const isValidTimeString = (timeStr: string) => {
  * @returns An autocompleted time string or `null` if no automatic completions could be perfomed
  */
 export const autocompleteTimeString = (timeStr: string): string | null => {
+  if (!timeStr.match(/^[0-9:.]+$/)) return null;
+
   const inputValInt = parseInt(timeStr, 10);
 
   // Handle automatic filling of 1 or 2 characters
