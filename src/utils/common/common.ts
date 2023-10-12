@@ -49,7 +49,7 @@ export const forkRefs =
 
 // String is of type XX:YY or XX.YY where XX is 0-24 and YY is 0-59
 const isValidTimeString = (timeStr: string) => {
-  if (timeStr.match(/^\d{1,2}.\d{2}$/) || timeStr.match(/^\d{1,2}:\d{2}$/)) {
+  if (timeStr.match(/^\d{1,2}\.\d{2}$/) || timeStr.match(/^\d{1,2}\:\d{2}$/)) {
     const parts = timeStr.split(timeStr.includes('.') ? '.' : ':');
     const hours = parseInt(parts[0], 10);
     const minutes = parseInt(parts[1], 10);
