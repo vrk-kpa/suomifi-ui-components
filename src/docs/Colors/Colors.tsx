@@ -122,7 +122,7 @@ const StyledFigure = styled.figure`
 
 const ColorFigure = (props: ColorProps & SuomifiThemeProp) => {
   const { color, keyName } = props;
-  const hslaAsHex = hslaToHex(color);
+  const hslaAsHex = keyName !== 'brandBase' ? hslaToHex(color) : '#003479';
 
   return (
     <StyledFigure
