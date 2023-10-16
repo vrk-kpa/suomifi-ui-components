@@ -152,6 +152,10 @@ export interface DatePickerProps {
    * </pre>
    */
   dateAdapter?: DateAdapter;
+  /** Callback fired on datepicker button blur
+   * @param {FocusEvent<HTMLButtonElement>} event FocusEvent
+   */
+  onDatePickerButtonBlur?: (event: FocusEvent<HTMLButtonElement>) => void;
 }
 export interface DateInputProps
   extends DatePickerProps,
@@ -212,6 +216,7 @@ const BaseDateInput = (props: DateInputProps) => {
     labelText,
     labelMode,
     onChange: propOnChange,
+    onDatePickerButtonBlur,
     wrapperProps,
     optionalText,
     status,
@@ -413,6 +418,11 @@ const BaseDateInput = (props: DateInputProps) => {
                 })}
                 onClick={() => toggleCalendar(!calendarVisible)}
                 disabled={passProps.disabled}
+                onBlur={(event) => {
+                  if (!!onDatePickerButtonBlur) {
+                    onDatePickerButtonBlur(event);
+                  }
+                }}
               >
                 <VisuallyHidden>
                   {buttonDateLabel || texts.openButtonLabel}

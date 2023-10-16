@@ -191,6 +191,22 @@ describe('callbacks', () => {
       expect(mockOnBlur).toBeCalledTimes(1);
     });
   });
+
+  describe('onDatePickerButtonBlur', () => {
+    it('calls onBlur when date picker button is blurred', () => {
+      const mockOnBlur = jest.fn();
+      const { getByRole } = render(
+        <DateInput
+          labelText="Date"
+          datePickerEnabled
+          onDatePickerButtonBlur={mockOnBlur}
+        />,
+      );
+      fireEvent.focus(getByRole('button'));
+      fireEvent.blur(getByRole('button'));
+      expect(mockOnBlur).toBeCalledTimes(1);
+    });
+  });
 });
 
 describe('props', () => {
